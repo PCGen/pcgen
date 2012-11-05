@@ -17,7 +17,7 @@
 	-->
 	<head>
 		<title>Inventory Tab</title>
-		<link rel="stylesheet" type="text/css" href="../../../pcgen.css">
+		<link rel="stylesheet" type="text/css" href="../pcgen.css">
   		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
 	
@@ -36,96 +36,110 @@
 
 		<h2><a name="purchase">Purchase Sub-Tab</a></h2>
 		
+		<p>This sub-tab allows the purchasing and selling of equipment including armor, shields, weapons, and other equipment of all types.</p>
+
 		<p class="center"><img src="../images/tabs/inventorytab/tab_inventory_00_purchase.png" alt="Inventory Purchase Sub-Tab" /></p>
 		
-		<p>This sub-tab allows the purchasing and selling of armor, items, shields and weapons.</p>
-		<p>The left pane includes items that can be bought or customized. The "Available" drop-down menu lets you choose how to list the items.</p>
-		<p>The right pane includes the items your character currently has.  If you right-click any of the items there you will get the option to "Move To" and "Copy To". Under each option there is a listing of all the other currently-loaded characters. You can then either move the item (sending the selected item to the selected character and removing it from the current character's list of equipment) or copy it (send a copy of the item to the selected character).</p>
-		<p>The "Order" column dictates the order the items get output to the character output sheet (only equipped items get output to the output sheets).</p>
+		<p>The left pane includes items that can be bought or customized while the right pane shows the items already purchased or owned.</p>
+ 
+		<p>Items in the left pane that appear in red are items that the character does not have proficiency in. These items may be removed 
+			from the list by clicking on the <strong>Qualified</strong> button. Clicking on the <strong>Affordable</strong> button will 
+			further reduce the list of items, removing items that the current character cannot afford. This will be done even if the Buy/Sell 
+			Rate is changed to &quot;Cashless - Buy 0 Sell 0&quot;</p>
+
+		<p class="center"><img src="../images/tabs/inventorytab/tab_inventory_00_search.png" alt="Item Search" /></p>
+
+		<p>The list of items in the left pane is long but can be shorted by entering the name of the piece of equipment being 
+			sought. The list of available equipment will change as the items name is entered, narrowing the list of equipment 
+			as you go.</p>
+
+		<p>Items can be purchased by:
+			<ul>
+				<li>Selecting the item in the left frame and then clicking the <strong>Add Equipment &gt;</strong> button</li>
+				<li>Double Clicking the item in the left frame</li>
+				<li>Right clicking the item in the left frame and buying 1, 5, 10, 20 or n (user entered quantity) at a time</li>
+			</ul>
+		</p>		
+
+		<p>Items can be sold by:
+			<ul>
+				<li>Selecting the item in the right frame and then clicking the <strong>&lt; Remove Equipment</strong> button</li>
+				<li>Double Clicking the item in the right frame</li>
+				<li>Right clicking the item in the right frame and selling 1, 5, 10, 20 or n (user entered quantity) at a time</li>
+			</ul>
+		</p>
+
+		<p>If you right-click any of the items there you will get a drop-down menu of options available for that item, 
+			including the following:
+			<ul>
+				<li>The <strong>Move Item To</strong> option provides a list of all characters currently loaded and then moves the item to the character selected.</li>
+				<li>The <strong>Copy Item To</strong> option provides a list of all characters currently loaded and then moves a copy of the item to the character selected.</li>
+				<li>The <strong>Modify Charges</strong> option allows you to modify the number of charges left on a charged item, e.g. magic wand or staff.</li>
+			</ul>
+		</p>
 		
-		<p>Items can be purchased by:</p>
-		<ul>
-			<li>Selecting the item in the left frame and then clicking the &quot;&gt;&quot; (Add)
-			  button</li>
-			<li>Selecting the item in the left frame and then pressing <strong>Ctrl&gt;&lt;=&gt;</strong></li>
-			<li>Double Clicking the item in the left frame</li>
-			<li>Right clicking the item in the left frame and buying 1, 5, 10, 20 or n (user entered quantity) at a time</li>
-		</ul>
+		<p>As you purchase or sell items you will see the amount of money you have available in the lower left frame diminish 
+			or increase as appropriate by an amount equal to the price of the item multiplied by the <strong>Buy/Sell Rate</strong></p>
 		
-		<p>As you purchase items you will see the amount of money you have available in the lower right frame diminishes.
-		The amount deducted is the price multiplied by the <strong>Buy Percentage</strong></p>
-		
-		<p>Items can be sold by:</p>
-		<ul>
-			<li>Selecting the item in the right frame and then clicking the &quot;&lt;&quot; (Remove)
-			  button</li>
-			<li>Selecting the item in the right frame and then pressing <strong>Ctrl&gt;&lt;-&gt;</strong></li>
-			<li>Double Clicking the item in the right frame</li>
-			<li>Right clicking the item in the right frame and selling 1, 5, 10, 20 or n (user entered quantity) at a time</li>
-		</ul>
-		
-		<p>As you sell items you will see the amount of money you have available in the lower right frame increases.
-		The amount added is the price multiplied by the <strong>Sell Percentage</strong></p>
-		
-		<p>You can modify this total by editing the <strong>Gold:</strong> field.</p>
+		<p>You can modify this total by entering a value in the <strong>Add or Subtract Funds</strong> field.</p>
 		
 		<p>The <strong>Allow Debt</strong> option enables PCGen to allow negative gold amounts to represent what the Character owes.</p>
 		
 		<p>The <strong>Ignore Cost</strong> option allows items to be added or removed without effecting the gold value.</p>
 		
-		<p>Pressing <strong>&lt;Ctrl&gt;&lt;f&gt;</strong> or using the right click menu's <strong>Find
-		item</strong> option allows for searching for items. The nearest match in the item list will be highlighted.</p>
-		
-		<p class="center"><img src="../images/windows/find_item.png" alt="Item Search" /></p>
-		
-		<p>The charges a wand or similar item has left can be modified after purchasing the item by right clicking it in 
-		the right window and choosing <strong>Modify Charges</strong>.</p>
-		
-		<p class="center"><img src="../images/tabs/inventorytab/tab_inventory_00_modifycharges.png" alt="Modify Charges" /></p>
-		
-		
 		<h3>Creating Masterwork/Magical/Sizing Items</h3>
 		
-		<p>To make an item Masterwork, Magical or change its properties (like take a
-		regular set of plate mail and make it small-sized for a small sized PC), right
-		click on it and choose <strong>Create custom item</strong>.</p>
+		<p>To make an item Masterwork, Magical or change its properties (like take a regular set of plate mail and make it small-sized 
+			for a small sized PC), right click on it and choose <strong>Create custom item</strong>.</p>
 		
 		<p><strong>Note:</strong> The item needs to be &quot;Masterwork&quot; if a magical item is to be created.</p>
 		
-		<p class="center"><img src="../../images/tabs/inventorytab/tab_inventory_00_customizer.png" alt="Item Customizer" /></p>
+		<p class="center"><img src="../images/tabs/inventorytab/tab_inventory_00_customizer.png" alt="Item Customizer" /></p>
 		
 		<p>To add new properties to the item, select them from the left hand pane and
 		either double click or click the <strong>Add</strong> button. If the Property
 		prerequisites are not met, it is shown in the default error color and it cannot
 		be added. </p>
 		
-		<p>Other than properties, the following can be modified:</p>
+		<p>Other than properties, the following can be modified:
+			<ul>
+				<li><strong>Name</strong> - The name that will be displayed in the item list</li>
+				<li><strong>Sprop</strong> - Any special properties that the item has</li>
+				<li><strong>Cost</strong> - The purchase cost of the item</li>
+				<li><strong>Weight</strong> - The weight of the item</li>
+				<li><strong>Damage</strong> - The damage that the weapon does</li>
+			</ul>
+		</p>
 		
-		<ul>
-			<li><strong>Name</strong> - The name that will be displayed in the item list</li>
-			<li><strong>Sprop</strong> - Any special properties that the item has</li>
-			<li><strong>Cost</strong> - The purchase cost of the item</li>
-			<li><strong>Weight</strong> - The weight of the item</li>
-		</ul>
-		
-		<p>Once all properties have been selected, you can either choose <strong>OK</strong> to add it to the item list or <strong>Buy</strong> 
-		to add it to the item list and add it to the characters possessions</p>
+		<p>Once all properties have been selected, you can click <strong>OK</strong> to add it to the item list, <strong>Buy</strong> 
+			to add it to the item list and add it to the characters possessions, or <strong>Cancel</strong> to close the customizer 
+			window without adding the customized item to either the list or to the character.</p>
 		
 <hr>
 
 		<h2><a name="equipment">Equipment Sub-Tab</a></h2>
 		
-		<p class="center"><img src="../images/tabs/inventorytab/tab_inventory_01_equipment.png" alt="Inventory Equipping Sub-Tab" /></p>
-		
-		<p>The <strong>Equipment</strong> sub-tab helps you organize the gear your character owns as well as determining which weapons and armor 
-			are used and in what hands. This sub-tab allows the gear that was purchased to be equipped to the character. The pane on the upper-left 
-			contains the items that your character has purchased and the right pane shows the equipment that has been &quot;equipped&quot; as well 
-			as the location to which the gear has been equipped. You equip gear by selecting an item from the left hand frame and double clicking 
-			on it or clicking on the <strong>Equip Selected ;&gt;</strong> button at the bottom right of the pane.</p>
+		<p>This sub-tab allows the Gear that was purchased to be equipped to the character.</p>
 
 		<p class="center"><img src="../images/tabs/inventorytab/tab_inventory_01_equipment.png" alt="Equipping Gear" /></p>
 		
-		<p>This Sub-tab allows the Gear that was purchased to be equipped to the character.</p>
+		<p>The <strong>Equipment</strong> sub-tab helps you organize the gear your character owns as well as determining which 
+			weapons and armor are used and in what hands. This sub-tab allows the gear that was purchased to be equipped to the 
+			character. The pane on the upper-left contains the items that your character has purchased and the right pane shows 
+			the equipment that has been &quot;equipped&quot; and where it has been equipped.</p>
+
+		<p>You equip gear by selecting an item from the left pane and clicking on the <strong>Equip Selected &gt;</strong> button 
+			at the bottom right of the pane.</p>
+
+		<p class="center"><img src="../images/tabs/inventorytab/tab_inventory_01_equipselection.png" alt="Equip Selection" /></p>
+
+		<p>Weapons can be equipped as Single Handed, Two Handed and Both Hands. The equipped style determines what bonuses/penalties 
+		apply. Weapons that are carried will appear on the character sheet in the weapons section.</p>
+		
+		<p class="center"><img src="../images/tabs/inventorytab/tab_inventory_01_container.png" alt="Equipping to a Container" /></p>
+		
+		<p>Some items are containers and can hold other items. This can be done by &quot;equipping&quot; the items to the containers 
+			directly.</p>
 
 		<p class="center"><img src="../images/tabs/inventorytab/tab_inventory_01_equipsets.png" alt="Equipment Sets" /></p>
 		
@@ -140,16 +154,6 @@
 			every item your character is carrying should be marked as &quot;Carried&quot; so your character's encumbrance will be 
 			figured correctly.</p>
 		
-		<p class="center"><img src="../images/tabs/inventorytab/tab_inventory_01_equipselection.png" alt="Equip Selection" /></p>
-
-		<p>Weapons can be equipped as Single Handed, Two Handed and Both Hands. The equipped style determines what bonuses/penalties 
-		apply. Weapons that are carried will appear on the character sheet in the weapons section.</p>
-		
-		<p class="center"><img src="../images/tabs/inventorytab/tab_inventory_01_container.png" alt="Equipping to a Container" /></p>
-		
-		<p>Some items are containers and can hold other items. This can be done by &quot;equipping&quot; the items to the containers 
-			directly.</p>
-
 		<p>Every item your character is carrying should be marked &quot;Carried&quot; so your encumbrance will be figured correctly. 
 			You can add additional equipment sets by typing in the name of an equipment set and clicking on the Add button (in the Upper right hand frame).</p>
 

@@ -25,57 +25,47 @@
 		
 		<h1>Character Sheet Tab</h1>
 		
-		<p>The Character Sheet Tab is a new feature making it's debut in version 5.13.2. 
-		  The Character Sheet Tab is similar to the Preview tab and it's purpose is the 
-		  same: to display your characters information. The difference between the Preview 
-		  Tab and the Character Sheet Tab is that the Preview Tabs layout is coded in 
-		  java and can't be adjusted except by editing the code and recompiling the 
-		  program. The Character Sheet Tab uses html to render its display, this means 
-		  that the sheets can be edited with a text editor while the program is running 
-		  and they can be created and altered by anyone with a little knowledge of html 
-		  and OS tokens. The html output sheets used for output can be used in the Character 
-		  Sheet Tab, in fact most of the sheets available are simply duplicates of the 
-		  output sheets. </p>
+		<p>The <strong>Character Sheet</strong> tab is used to review and preview characters created by PCGen.</p>
 
-		<p>Changes made to the character in PCGen are updated automatically in the Character 
-		  Sheet Tab at the time you make them. So, for example, if you were to apply the 
-		  Rage bonuses from the Temporary Bonus Tab you would see these changes applied 
-		  to your character when you returned to the Character Sheet Tab.</p>
+		<p class="center"><img src="../images/tabs/charactersheettab/tab_charsheet_01_closedleft.png" alt="Character Sheet Tab"></p>
+		
+		<p>The <strong>Character Sheet</strong> tab uses html to render its display, this means that the sheets can be 
+			edited with a text editor while the program is running and they can be created and altered by anyone with a 
+			little knowledge of html and the OS tokens. The html output sheets used for output can be used in the 
+			<strong>Character Sheet</strong> tab.</p>
+
+		<p>Changes made to the character in PCGen are updated automatically on the <strong>Character Sheet</strong> 
+			as they are made. As an example, if the Rage bonuses (3.5e and Pathfinder gameModes) are applied on the 
+			<strong>Temporary Bonuses</strong> tab, the character displayed on the <strong>Character Sheet</strong> 
+			tab would bonuses will be updated to include those bonuses the next time the user returns to the 
+			<strong>Character Sheet</strong> tab.</p>
 		
 		<p class="center"><img src="../images/tabs/charactersheettab/tab_charsheet_00.png" alt="Character Sheet Tab"></p>
 		
-		<p>The Character Sheet Tab has an additional pane on the right which can be accessed 
-		  by clicking the arrow along the vertical border of the window. This pane displays 
-		  the Character Sheet selection menu, the Equipsets and a list of temporary bonuses 
-		  which have been applied to the PC. The Character Sheet selection menu enables 
-		  you to select a sheet from a list of sheets available for the currently active 
-		  gameMode. The radio button beside each Equipset indicates which Equipset is 
-		  currently being applied to the PC and displayed in the Character Sheet Tab. 
-		  You can switch to another Equipset by simply clicking on the corresponding radio 
-		  button. Each temporary bonus has a check box on it's left which indicate if 
-		  it is active or not. Temporary bonuses can be switched off and on with the check 
-		  box which will update the output of the Character Sheet tab.</p>
-		
-		<p class="center"><img src="../images/tabs/charactersheettab/tab_charsheet_01_closedleft.png" alt="Character Sheet Tab"></p>
-		
-		
-		<p class="center"><img src="../images/tabs/charactersheettab/tab_charsheet_02_sheetselection.png" alt="Character Sheet Selectio"></p>
+		<p>The Character Sheet Tab has an additional pane on the left which can be accessed by clicking the 
+			arrow along the vertical border of the window. This pane displays the Character Sheet selection 
+			menu, the Equipsets and a list of temporary bonuses which have been applied to the PC. The Character 
+			Sheet selection menu enables the user to select a sheet from a list of sheets available for the 
+			currently active gameMode. The radio button beside each Equipset indicates which Equipset is 
+			currently being applied to the PC and displayed in the Character Sheet Tab. You can switch to 
+			another Equipset by simply clicking on the corresponding radio button. Each temporary bonus has 
+			a check box on it's left which indicate if it is active or not. Temporary bonuses can be switched 
+			off and on with the check box which will update the output of the Character Sheet tab.</p>
+
+		<p class="center"><img src="../images/tabs/charactersheettab/tab_charsheet_02_sheetselection.png" alt="Character Sheet Selection"></p>
 		
 		<h2>Configuration</h2>
 		
-		<p>All the sheets used by the Character Sheet Tab can be found in the pcgen/preview 
-		  directory. Each gameMode has a specific directory of sheets which is set in 
-		  the gameModes miscinfo.lst file with the 
-		  <a href="../listfilepages/systemfilestagpages/gamemodemiscinfolist.html#PREVIEWDIR">PREVIEWDIR</a> 
-		  tag. Each gameMode also has a default sheet set by the 
-		  <a href="../listfilepages/systemfilestagpages/gamemodemiscinfolist.html#PREVIEWSHEET">PREVIEWSHEET</a> 
-		  miscinfo.lst file.</p>
+		<p>All the sheets used by the <strong>Character Sheet</strong> tab can be found in the <span class="lstfile">pcgen/preview</span> 
+			directory. Each gameMode has a specific directory of sheets which is set in the gameModes <span class="lstfile">miscinfo.lst</span> 
+			file with the <a href="../listfilepages/systemfilestagpages/gamemodemiscinfolist.html#PREVIEWDIR">PREVIEWDIR</a> tag. Each gameMode 
+			also has a default sheet set by the <a href="../listfilepages/systemfilestagpages/gamemodemiscinfolist.html#PREVIEWSHEET">PREVIEWSHEET</a> 
+			tag in the gameModes <span class="lstfile">miscinfo.lst</span> file.</p>
   
-		<p>Character Sheets can contain images, the paths to the images must use the 
-		  pcgen directory as its root.</p>
+		<p>Character Sheets can contain images, the paths to the images must use the pcgen directory as its root.</p>
 		
-		<p>Character Sheets can utilize Javascript. Check out the preview.html sheet for 
-		  examples of what can be accomplished by javascript savvy coders.</p>
+		<p>Character Sheets can utilize Javascript. Check out the <scan class="lstfile">preview.html</scan> sheet for examples 
+			of what can be accomplished by javascript savvy coders.</p>
 
 <hr>
   
