@@ -195,8 +195,8 @@ public class HtmlSheetSupport
 			EditorKit kit = htmlPane.getEditorKit();
 			HTMLDocument doc = new HTMLDocument();
 
-			doc.setBase(templateFile.getParentFile().toURL());
-			doc.putProperty("IgnoreCharsetDirective", new Boolean(true));
+			doc.setBase(templateFile.getParentFile().toURI().toURL());
+			doc.putProperty("IgnoreCharsetDirective", true);
 			// XXX - This is a hack specific to Sun's JDK 5.0 and in no
 			// way should be trusted to work in future java releases
 			// (though it still might) - Connor Petty
