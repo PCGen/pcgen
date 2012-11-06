@@ -41,11 +41,13 @@ public class CompareEqualIgnoreCaseString extends TestChecker
 		this.str = str;
 	}
 
+    @Override
 	public boolean check(Object obj)
 	{
 		return obj instanceof String && ((String) obj).compareToIgnoreCase(this.str) == 0;
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("a String matching \"");

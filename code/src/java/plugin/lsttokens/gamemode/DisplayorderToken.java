@@ -11,11 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class DisplayorderToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "DISPLAYORDER";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setDisplayOrder(value);

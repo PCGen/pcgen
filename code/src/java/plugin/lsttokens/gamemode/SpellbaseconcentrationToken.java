@@ -11,11 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class SpellbaseconcentrationToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "SPELLBASECONCENTRATION";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setSpellBaseConcentration(value);

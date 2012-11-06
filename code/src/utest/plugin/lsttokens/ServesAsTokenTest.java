@@ -231,6 +231,7 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 		return new ConsolidationRule()
 		{
 
+            @Override
 			public String[] getAnswer(String... strings)
 			{
 				return new String[] { "SKILL|Fireball|Jump|Lightning Bolt" };

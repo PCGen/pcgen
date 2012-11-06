@@ -65,21 +65,25 @@ public class Page1Panel extends JPanel
 		setLayout(new java.awt.GridBagLayout());
 		addComponentListener(new ComponentListener()
 		{
+            @Override
 			public void componentHidden(ComponentEvent e)
 			{
 				updateBuffer();
 			}
 
+            @Override
 			public void componentMoved(ComponentEvent e)
 			{
 				updateBuffer();
 			}
 
+            @Override
 			public void componentResized(ComponentEvent e)
 			{
 				updateBuffer();
 			}
 
+            @Override
 			public void componentShown(ComponentEvent e)
 			{
 				updateBuffer();

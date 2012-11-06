@@ -41,11 +41,13 @@ public class BoolNot extends TestChecker
 		this.tc = tc;
 	}
 
+    @Override
 	public boolean check(Object obj)
 	{
 		return !this.tc.check(obj);
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("not ");

@@ -114,6 +114,7 @@ public class AgeSet implements BonusContainer
 		return sb.toString();
 	}
 
+    @Override
 	public void activateBonuses(PlayerCharacter pc)
 	{
 		if (bonuses != null)
@@ -125,6 +126,7 @@ public class AgeSet implements BonusContainer
 		}
 	}
 
+    @Override
 	public List<BonusObj> getActiveBonuses(PlayerCharacter pc)
 	{
 		if (bonuses == null)

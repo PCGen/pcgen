@@ -324,6 +324,7 @@ public class AttackDialog extends JDialog
 		m_tableModel = new AttackTableModel();
 		m_tableModel.addTableModelListener(new TableModelListener()
 		{
+            @Override
 			public void tableChanged(TableModelEvent e)
 			{
 				handleTableUpdate(e);
@@ -354,6 +355,7 @@ public class AttackDialog extends JDialog
 		JCheckBox checkbox = new JCheckBox("Damage is subdual?");
 		checkbox.addActionListener(new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent e)
 			{
 				handleSubdualAction(e);
@@ -367,6 +369,7 @@ public class AttackDialog extends JDialog
 		JButton button = null;
 		button = new JButton(new AbstractAction("Roll")
 		{
+            @Override
 			public void actionPerformed(ActionEvent e)
 			{
 				performRoll();
@@ -376,6 +379,7 @@ public class AttackDialog extends JDialog
 		bottom.add(Box.createRigidArea(new Dimension(10, 0)));
 		button = new JButton(new AbstractAction("Ok")
 		{
+            @Override
 			public void actionPerformed(ActionEvent e)
 			{
 				handleOk();
@@ -385,6 +389,7 @@ public class AttackDialog extends JDialog
 		bottom.add(Box.createRigidArea(new Dimension(10, 0)));
 		button = new JButton(new AbstractAction("Cancel")
 		{
+            @Override
 			public void actionPerformed(ActionEvent e)
 			{
 				handleCancel();
@@ -407,6 +412,7 @@ public class AttackDialog extends JDialog
 			m_targetsCombo = new JComboBox(m_combatants);
 			m_targetsCombo.addActionListener(new ActionListener()
 			{
+                @Override
 				public void actionPerformed(ActionEvent e)
 				{
 					handleTargetAction(e);
@@ -420,6 +426,7 @@ public class AttackDialog extends JDialog
 			m_acTypeCombo.addItem("Touch");
 			m_acTypeCombo.addActionListener(new ActionListener()
 			{
+                @Override
 				public void actionPerformed(ActionEvent e)
 				{
 					handleAcTypeAction(e);
@@ -438,6 +445,7 @@ public class AttackDialog extends JDialog
 			m_field.getPreferredSize().height));
 		m_field.addPropertyChangeListener(new PropertyChangeListener()
 		{
+            @Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
 				if ((evt.getPropertyName() != null)
@@ -597,6 +605,7 @@ public class AttackDialog extends JDialog
 		/* (non-Javadoc)
 		 * @see javax.swing.table.TableModel#isCellEditable(int, int)
 		 */
+        @Override
 		public boolean isCellEditable(int row, int column)
 		{
 			return ((Boolean) columns[column][COLUMN_INDEX_EDITABLE])
@@ -606,6 +615,7 @@ public class AttackDialog extends JDialog
 		/* (non-Javadoc)
 		 * @see javax.swing.table.TableModel#getColumnClass(int)
 		 */
+        @Override
 		public Class getColumnClass(int columnIndex)
 		{
 			return (Class) columns[columnIndex][COLUMN_INDEX_CLASS];
@@ -630,6 +640,7 @@ public class AttackDialog extends JDialog
 		 *
 		 * In addition to setting the value this method also calls recalcRow.
 		 */
+        @Override
 		public void setValueAt(Object aValue, int row, int column)
 		{
 			super.setValueAt(aValue, row, column);

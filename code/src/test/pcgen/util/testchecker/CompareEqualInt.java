@@ -41,11 +41,13 @@ public class CompareEqualInt extends TestChecker
 		this.i = i;
 	}
 
+    @Override
 	public boolean check(Object obj)
 	{
 		return obj.equals(Integer.valueOf(this.i));
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("an int ");

@@ -74,6 +74,7 @@ public class OpposedSkillTypeModel extends OpposedSkillBasicModel
 	/* (non-Javadoc)
 	 * @see javax.swing.table.TableModel#getValueAt(int, int)
 	 */
+    @Override
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
 		Object returnValue = null;

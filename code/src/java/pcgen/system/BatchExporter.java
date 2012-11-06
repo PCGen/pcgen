@@ -456,6 +456,7 @@ public class BatchExporter
 				SettingsHandler.getTempPath() + File.separator;
 		new File(aDirectory).list(new FilenameFilter()
 		{
+            @Override
 			public boolean accept(File aFile, String aString)
 			{
 				try

@@ -65,6 +65,7 @@ public class DiceSuccess extends Die
 	/** Roll all the dice in the pool, and return the number of successes
 	 * @return Number of successes rolled.
 	 */
+    @Override
 	public int roll()
 	{
 		int i;

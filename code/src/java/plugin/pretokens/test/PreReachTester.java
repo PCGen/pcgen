@@ -69,6 +69,7 @@ public class PreReachTester extends AbstractPrerequisiteTest implements Prerequi
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "REACH"; //$NON-NLS-1$

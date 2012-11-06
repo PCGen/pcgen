@@ -119,6 +119,7 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 		return spellCheckBox.isSelected();
 	}
 
+    @Override
 	public void applyPreferences()
 	{
 		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells",
@@ -131,6 +132,7 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 		initiative.refreshTable();
 	}
 
+    @Override
 	public void initPreferences()
 	{
 		setSpellCheckBoxChecked(SettingsHandler.getGMGenOption(

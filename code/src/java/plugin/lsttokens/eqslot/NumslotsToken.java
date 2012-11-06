@@ -14,11 +14,13 @@ import pcgen.persistence.lst.EquipSlotLstToken;
 public class NumslotsToken implements EquipSlotLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "NUMSLOTS";
 	}
 
+    @Override
 	public boolean parse(EquipSlot eqSlot, String value, String gameMode)
 	{
 		//TODO: (DJ) this sucks, and means we have tokens that we don't know the names of.  we need new syntax here.

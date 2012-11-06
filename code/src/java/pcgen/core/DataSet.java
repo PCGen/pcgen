@@ -251,11 +251,13 @@ public class DataSet implements DataSetFacade
 		gearBuySellSchemes.addElement(new GearBuySellScheme("Cashless", free, free, free));
 	}
 
+    @Override
 	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category)
 	{
 		return abilityMap.get(category);
 	}
 
+    @Override
 	public ListFacade<AbilityCategoryFacade> getAbilityCategories()
 	{
 		return categories;
@@ -264,6 +266,7 @@ public class DataSet implements DataSetFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.DataSetFacade#getPrereqAbilities(pcgen.core.facade.AbilityFacade)
 	 */
+    @Override
 	public List<AbilityFacade> getPrereqAbilities(AbilityFacade abilityFacade)
 	{
 		if (abilityFacade == null || !(abilityFacade instanceof Ability))
@@ -312,56 +315,67 @@ public class DataSet implements DataSetFacade
 		return prereqList;
 	}
 
+    @Override
 	public ListFacade<SkillFacade> getSkills()
 	{
 		return skills;
 	}
 
+    @Override
 	public ListFacade<RaceFacade> getRaces()
 	{
 		return races;
 	}
 
+    @Override
 	public ListFacade<ClassFacade> getClasses()
 	{
 		return classes;
 	}
 
+    @Override
 	public ListFacade<DeityFacade> getDeities()
 	{
 		return deities;
 	}
 
+    @Override
 	public ListFacade<TemplateFacade> getTemplates()
 	{
 		return templates;
 	}
 
+    @Override
 	public GameModeFacade getGameMode()
 	{
 		return gameMode;
 	}
 
+    @Override
 	public ListFacade<CampaignFacade> getCampaigns()
 	{
 		return campaigns;
 	}
 
+    @Override
 	public ListFacade<AlignmentFacade> getAlignments()
 	{
 		return alignments;
 	}
 
+    @Override
 	public ListFacade<StatFacade> getStats()
 	{
 		return stats;
 	}
 
+    @Override
 	public ListFacade<StatGenerationFacade> getStatGenerators()
 	{
 		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
+    @Override
 	public SkillFacade getSpeakLanguageSkill()
 	{
 		if (speakLanguageSkill != null)
@@ -386,27 +400,32 @@ public class DataSet implements DataSetFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.DataSetFacade#getEquipmentLocations()
 	 */
+    @Override
 	public ListFacade<BodyStructureFacade> getEquipmentLocations()
 	{
 		return bodyStructures;
 	}
 
+    @Override
 	public ListFacade<EquipmentFacade> getEquipment()
 	{
 		return equipment;
 	}
 
+    @Override
 	public void refreshEquipment()
 	{
 		equipment.updateContents(new ArrayList<EquipmentFacade>(context.ref
 			.getConstructedCDOMObjects(Equipment.class)));
 	}
 	
+    @Override
 	public ListFacade<String> getXPTableNames()
 	{
 		return xpTableNames;
 	}
 
+    @Override
 	public ListFacade<String> getCharacterTypes()
 	{
 		return characterTypes;
@@ -415,6 +434,7 @@ public class DataSet implements DataSetFacade
 	/**
 	 * {@inheritDoc}
 	 */
+    @Override
 	public ListFacade<GearBuySellFacade> getGearBuySellSchemes()
 	{
 		return gearBuySellSchemes;
@@ -431,6 +451,7 @@ public class DataSet implements DataSetFacade
 		/* (non-Javadoc)
 		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
 		 */
+        @Override
 		public int compare(Race r1, Race r2)
 		{
 		    final int BEFORE = -1;
@@ -502,6 +523,7 @@ public class DataSet implements DataSetFacade
 		/* (non-Javadoc)
 		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
 		 */
+        @Override
 		public int compare(PCClass c1, PCClass c2)
 		{
 		    final int BEFORE = -1;

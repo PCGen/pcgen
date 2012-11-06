@@ -70,6 +70,7 @@ public class PreDeityAlignTester extends AbstractPrerequisiteTest implements Pre
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "DEITYALIGN"; //$NON-NLS-1$

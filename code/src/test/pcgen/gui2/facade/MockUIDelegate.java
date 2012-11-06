@@ -43,6 +43,7 @@ public class MockUIDelegate implements UIDelegate
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.UIDelegate#maybeShowWarningConfirm(java.lang.String, java.lang.String, java.lang.String, pcgen.system.PropertyContext, java.lang.String)
 	 */
+    @Override
 	public Boolean maybeShowWarningConfirm(String title, String message,
 		String checkBoxText, PropertyContext context, String contextProp)
 	{
@@ -52,6 +53,7 @@ public class MockUIDelegate implements UIDelegate
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.UIDelegate#showErrorMessage(java.lang.String, java.lang.String)
 	 */
+    @Override
 	public void showErrorMessage(String title, String message)
 	{
 		// No action
@@ -60,6 +62,7 @@ public class MockUIDelegate implements UIDelegate
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.UIDelegate#showInfoMessage(java.lang.String, java.lang.String)
 	 */
+    @Override
 	public void showInfoMessage(String title, String message)
 	{
 		// No action
@@ -68,6 +71,7 @@ public class MockUIDelegate implements UIDelegate
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.UIDelegate#showLevelUpInfo(pcgen.core.facade.CharacterFacade, int)
 	 */
+    @Override
 	public void showLevelUpInfo(CharacterFacade character, int oldLevel)
 	{
 		// No action
@@ -76,6 +80,7 @@ public class MockUIDelegate implements UIDelegate
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.UIDelegate#showWarningConfirm(java.lang.String, java.lang.String)
 	 */
+    @Override
 	public boolean showWarningConfirm(String title, String message)
 	{
 		// No action
@@ -85,12 +90,14 @@ public class MockUIDelegate implements UIDelegate
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.UIDelegate#showWarningPrompt(java.lang.String, java.lang.String)
 	 */
+    @Override
 	public boolean showWarningPrompt(String title, String message)
 	{
 		// No action
 		return false;
 	}
 
+    @Override
 	public void showWarningMessage(String title, String message)
 	{
 		

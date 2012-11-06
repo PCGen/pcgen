@@ -64,6 +64,7 @@ public class GamemodeToken extends AbstractTokenWithSeparator<Campaign>
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<String> changes = context.getObjectContext().getListChanges(
@@ -82,6 +83,7 @@ public class GamemodeToken extends AbstractTokenWithSeparator<Campaign>
 		return new String[] { StringUtil.join(added, Constants.PIPE) };
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

@@ -95,16 +95,19 @@ public final class Race extends PObject implements RaceFacade
 		return hda == null ? 0 : hda.get(hda.size() - 1);
 	}
 
+    @Override
 	public ListFacade<GenderFacade> getGenders()
 	{
 		return genderList;
 	}
 
+    @Override
 	public ListFacade<HandedFacade> getHands()
 	{
 		return handList;
 	}
 
+    @Override
 	public String getSize()
 	{
 		Formula formula = get(FormulaKey.SIZE);
@@ -115,6 +118,7 @@ public final class Race extends PObject implements RaceFacade
 		return null;
 	}
 
+    @Override
 	public String getMovement()
 	{
 		List<Movement> movements = getListFor(ListKey.MOVEMENT);
@@ -128,6 +132,7 @@ public final class Race extends PObject implements RaceFacade
 	/**
 	 * {@inheritDoc}
 	 */
+    @Override
 	public String getRaceType()
 	{
 		RaceType rt = getSafe(ObjectKey.RACETYPE);

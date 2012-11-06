@@ -11,11 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class SpellrangeToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "SPELLRANGE";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setSpellRangeFormula(value);

@@ -40,6 +40,7 @@ public class PubnamewebToken extends AbstractNonEmptyToken<Campaign> implements
 		return "PUBNAMEWEB";
 	}
 
+    @Override
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.put(StringKey.PUB_NAME_WEB, value);
@@ -54,6 +55,7 @@ public class PubnamewebToken extends AbstractNonEmptyToken<Campaign> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		String title = context.getObjectContext().getString(campaign,
@@ -65,6 +67,7 @@ public class PubnamewebToken extends AbstractNonEmptyToken<Campaign> implements
 		return new String[] { title };
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

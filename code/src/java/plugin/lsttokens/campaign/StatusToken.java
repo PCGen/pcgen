@@ -30,11 +30,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class StatusToken implements CDOMPrimaryToken<Campaign>
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "STATUS";
 	}
 
+    @Override
 	public ParseResult parseToken(LoadContext context, Campaign campaign,
 		String value)
 	{
@@ -64,6 +66,7 @@ public class StatusToken implements CDOMPrimaryToken<Campaign>
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Status status = context.getObjectContext().getObject(campaign,
@@ -75,6 +78,7 @@ public class StatusToken implements CDOMPrimaryToken<Campaign>
 		return new String[] { status.toString() };
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

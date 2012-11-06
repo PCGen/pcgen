@@ -28,6 +28,7 @@ public class NetworkServer extends Thread
 		this.model = model;
 	}
 
+    @Override
 	public void run()
 	{
 		try
@@ -336,6 +337,7 @@ public class NetworkServer extends Thread
 			sendMessage("Exit", "");
 		}
 
+        @Override
 		public void run()
 		{
 			NetworkView view = model.getView();

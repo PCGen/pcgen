@@ -115,6 +115,7 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 	 *@param  e  an event that made the change change.
 	 *@since     GMGen 3.3
 	 */
+    @Override
 	public void stateChanged(ChangeEvent e)
 	{
 		currentPane = getTabPane().getSelectedIndex();

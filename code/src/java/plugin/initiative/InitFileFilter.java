@@ -46,6 +46,7 @@ public class InitFileFilter extends FileFilter
 	 *
 	 *@return    The description value
 	 */
+    @Override
 	public String getDescription()
 	{
 		return "Initiative File (*.init)";
@@ -57,6 +58,7 @@ public class InitFileFilter extends FileFilter
 	 *@param  file  A file object to test
 	 *@return       true or false if it passes the filter
 	 */
+    @Override
 	public boolean accept(File file)
 	{
 		if (!file.isDirectory())

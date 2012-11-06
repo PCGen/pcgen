@@ -40,6 +40,7 @@ public class PubnamelongToken extends AbstractNonEmptyToken<Campaign> implements
 		return "PUBNAMELONG";
 	}
 
+    @Override
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.put(StringKey.PUB_NAME_LONG, value);
@@ -55,6 +56,7 @@ public class PubnamelongToken extends AbstractNonEmptyToken<Campaign> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		String title = context.getObjectContext().getString(campaign,
@@ -66,6 +68,7 @@ public class PubnamelongToken extends AbstractNonEmptyToken<Campaign> implements
 		return new String[] { title };
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

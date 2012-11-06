@@ -14,11 +14,13 @@ import pcgen.util.Logging;
 public class BasediceToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "BASEDICE";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try

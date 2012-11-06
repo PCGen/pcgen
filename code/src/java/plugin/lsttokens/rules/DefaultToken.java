@@ -71,12 +71,14 @@ public class DefaultToken extends AbstractNonEmptyToken<RuleCheck> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, RuleCheck rule)
 	{
 		boolean set = rule.getDefault();
 		return new String[] { set ? "YES" : "NO" };
 	}
 
+    @Override
 	public Class<RuleCheck> getTokenClass()
 	{
 		return RuleCheck.class;

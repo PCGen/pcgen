@@ -84,6 +84,7 @@ public final class ToHit extends BonusObj implements DeprecatedToken
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.DeprecatedToken#getMessage(pcgen.core.PObject, java.lang.String)
 	 */
+    @Override
 	public String getMessage(CDOMObject obj, String value)
 	{
 		return "You should use BONUS:COMBAT|TOHIT|y instead.";

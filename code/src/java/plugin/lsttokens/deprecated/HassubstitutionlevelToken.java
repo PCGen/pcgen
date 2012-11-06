@@ -31,27 +31,32 @@ public class HassubstitutionlevelToken implements DeprecatedToken,
 		CDOMPrimaryToken<PCClass>
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "HASSUBSTITUTIONLEVEL";
 	}
 
+    @Override
 	public ParseResult parseToken(LoadContext context, PCClass obj, String value)
 	{
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
 		// Intentional
 		return null;
 	}
 
+    @Override
 	public Class<PCClass> getTokenClass()
 	{
 		return PCClass.class;
 	}
 
+    @Override
 	public String getMessage(CDOMObject obj, String value)
 	{
 		return getTokenName()

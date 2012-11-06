@@ -56,12 +56,14 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 		initPreferences();
 	}
 
+    @Override
 	public void applyPreferences()
 	{
 		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
 			+ ".rollPCInitiatives", getRollPCInitiatives());
 	}
 
+    @Override
 	public void initPreferences()
 	{
 		setRollPCInitiatives(SettingsHandler.getGMGenOption(

@@ -69,11 +69,13 @@ public final class PJEP extends JEP
 		return new PluginLoader()
 		{
 
+            @Override
 			public void loadPlugin(Class clazz) throws Exception
 			{
 				addCommand(clazz);
 			}
 
+            @Override
 			public Class[] getPluginClasses()
 			{
 				return new Class[]
@@ -114,6 +116,7 @@ public final class PJEP extends JEP
 		addVariable("FALSE", 0);
 	}
 
+    @Override
 	public Node parseExpression(String expression_in)
 	{
 		if (updateVariables())
@@ -205,6 +208,7 @@ public final class PJEP extends JEP
 		 * @throws ParseException
 		 */
 //		@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
+        @Override
 		public void run(Stack inStack) throws ParseException
 		{
 			LstUtils.deprecationWarning("Jep function cl deprecated, use classlevel instead");

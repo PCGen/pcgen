@@ -127,6 +127,7 @@ public class InfoCharacterDetails
 			this.combatant = cbt;
 		}
 		
+        @Override
 		public void run() {
 			setStatText(combatant, getPane());
 		}

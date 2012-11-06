@@ -96,6 +96,7 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 		initPreferences();
 	}
 
+    @Override
 	public void applyPreferences()
 	{
 		SettingsHandler.setGMGenOption(OPTION_NAME_TYPE, getType());
@@ -103,6 +104,7 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 		SettingsHandler.setGMGenOption(OPTION_NAME_USESIZE, sizeCheck.isSelected());
 	}
 
+    @Override
 	public void initPreferences()
 	{
 		setType(SettingsHandler.getGMGenOption(OPTION_NAME_TYPE, MASSIVE_OFF));
@@ -250,6 +252,7 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 		massive1.addActionListener(new ActionListener()
 		{
 
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				massiveActionPerformed(evt);
@@ -263,6 +266,7 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 		massive2.addActionListener(new ActionListener()
 		{
 
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				massiveActionPerformed(evt);
@@ -276,6 +280,7 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 		massive3.addActionListener(new ActionListener()
 		{
 
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				massiveActionPerformed(evt);
@@ -290,6 +295,7 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 		massive4.addActionListener(new ActionListener()
 		{
 
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				massiveActionPerformed(evt);

@@ -41,11 +41,13 @@ public class CompareEqualByte extends TestChecker
 		this.by = by;
 	}
 
+    @Override
 	public boolean check(Object obj)
 	{
 		return obj.equals(Byte.valueOf(this.by));
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("a byte ");

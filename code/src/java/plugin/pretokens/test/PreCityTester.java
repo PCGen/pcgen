@@ -56,6 +56,7 @@ public class PreCityTester extends AbstractPrerequisiteTest implements Prerequis
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "CITY"; //$NON-NLS-1$

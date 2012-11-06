@@ -64,6 +64,7 @@ public class PreUnarmedAttackTester extends AbstractPrerequisiteTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "UATT"; //$NON-NLS-1$

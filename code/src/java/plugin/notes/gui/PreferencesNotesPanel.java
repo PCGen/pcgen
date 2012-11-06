@@ -71,6 +71,7 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 		initPreferences();
 	}
 
+    @Override
 	public void applyPreferences()
 	{
 		SettingsHandler.setGMGenOption(OPTION_NAME_NOTES_DATA, getDataDir());
@@ -78,6 +79,7 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 		LogUtilities.inst().setLogging(isLogging());
 	}
 
+    @Override
 	public void initPreferences()
 	{
 		// XXX change to another default?
@@ -140,6 +142,7 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 		browseButton.addActionListener(new ActionListener()
 		{
 
+            @Override
 			public void actionPerformed(ActionEvent e)
 			{
 				browseButtonActionPerformed(e);

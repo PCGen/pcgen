@@ -204,6 +204,7 @@ CLASSLIST:		for(PCClass theClass: character.getClassSet())
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "CLASS"; //$NON-NLS-1$

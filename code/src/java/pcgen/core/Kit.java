@@ -250,6 +250,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 
 	private static class ObjectTypeComparator implements Comparator<BaseKit>
 	{
+        @Override
 		public int compare(BaseKit bk1, BaseKit bk2)
 		{
 			String name1 = bk1.getObjectName();
@@ -355,6 +356,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	/**
 	 * {@inheritDoc}
 	 */
+    @Override
 	public String getDisplayType()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);

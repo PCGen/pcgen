@@ -88,6 +88,7 @@ public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel
 		return userName.getText();
 	}
 
+    @Override
 	public void applyPreferences()
 	{
 		SettingsHandler.setGMGenOption(NetworkPlugin.LOG_NAME + ".port",
@@ -97,6 +98,7 @@ public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel
 		model.applyPrefs();
 	}
 
+    @Override
 	public void initPreferences()
 	{
 		setPortNumber(SettingsHandler.getGMGenOption(NetworkPlugin.LOG_NAME

@@ -49,6 +49,7 @@ public class PreTypeTester extends AbstractPrerequisiteTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "TYPE"; //$NON-NLS-1$

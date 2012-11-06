@@ -196,6 +196,7 @@ public class JComboBoxEx extends JComboBox
 	}
 
 	/** {@inheritDoc} */
+    @Override
 	public void addItem(Object item)
 	{
 		super.addItem(item);

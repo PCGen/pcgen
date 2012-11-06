@@ -256,6 +256,7 @@ public class NotesView extends JPanel
 		CommonMenuText.name(paste, "mnuEditPaste"); //$NON-NLS-1$
 		paste.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				pasteButtonActionPerformed(evt);
@@ -267,6 +268,7 @@ public class NotesView extends JPanel
 		CommonMenuText.name(copy, "mnuEditCopy"); //$NON-NLS-1$
 		copy.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				copyButtonActionPerformed(evt);
@@ -278,6 +280,7 @@ public class NotesView extends JPanel
 		CommonMenuText.name(cut, "mnuEditCut"); //$NON-NLS-1$
 		cut.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				cutButtonActionPerformed(evt);
@@ -1185,6 +1188,7 @@ public class NotesView extends JPanel
 
 		editor.addCaretListener(new CaretListener()
 		{
+            @Override
 			public void caretUpdate(CaretEvent evt)
 			{
 				editorCaretUpdate(evt);
@@ -1204,6 +1208,7 @@ public class NotesView extends JPanel
 		newButton.setEnabled(false);
 		newButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				newButtonActionPerformed();
@@ -1218,6 +1223,7 @@ public class NotesView extends JPanel
 		saveButton.setEnabled(false);
 		saveButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				saveButtonActionPerformed();
@@ -1232,6 +1238,7 @@ public class NotesView extends JPanel
 		exportButton.setEnabled(false);
 		exportButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				exportButtonActionPerformed();
@@ -1246,6 +1253,7 @@ public class NotesView extends JPanel
 		revertButton.setEnabled(false);
 		revertButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				revertButtonActionPerformed();
@@ -1260,6 +1268,7 @@ public class NotesView extends JPanel
 		deleteButton.setEnabled(false);
 		deleteButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				deleteButtonActionPerformed();
@@ -1275,6 +1284,7 @@ public class NotesView extends JPanel
 		cutButton.setBorder(new EtchedBorder());
 		cutButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				cutButtonActionPerformed(evt);
@@ -1288,6 +1298,7 @@ public class NotesView extends JPanel
 		copyButton.setBorder(new EtchedBorder());
 		copyButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				copyButtonActionPerformed(evt);
@@ -1301,6 +1312,7 @@ public class NotesView extends JPanel
 		pasteButton.setBorder(new EtchedBorder());
 		pasteButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				pasteButtonActionPerformed(evt);
@@ -1315,6 +1327,7 @@ public class NotesView extends JPanel
 		sizeCB.setBorder(new EtchedBorder());
 		sizeCB.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				sizeCBActionPerformed(evt);
@@ -1328,6 +1341,7 @@ public class NotesView extends JPanel
 		boldButton.setBorder(new EtchedBorder());
 		boldButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				boldButtonActionPerformed(evt);
@@ -1341,6 +1355,7 @@ public class NotesView extends JPanel
 		italicButton.setBorder(new EtchedBorder());
 		italicButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				italicButtonActionPerformed(evt);
@@ -1354,6 +1369,7 @@ public class NotesView extends JPanel
 		underlineButton.setBorder(new EtchedBorder());
 		underlineButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				underlineButtonActionPerformed(evt);
@@ -1368,6 +1384,7 @@ public class NotesView extends JPanel
 		colorButton.setBorder(new EtchedBorder());
 		colorButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				colorButtonActionPerformed();
@@ -1392,6 +1409,7 @@ public class NotesView extends JPanel
 		imageButton.setBorder(new EtchedBorder());
 		imageButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				imageButtonActionPerformed();
@@ -1407,6 +1425,7 @@ public class NotesView extends JPanel
 		leftJustifyButton.setBorder(new EtchedBorder());
 		leftJustifyButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				leftJustifyButtonActionPerformed(evt);
@@ -1421,6 +1440,7 @@ public class NotesView extends JPanel
 		centerJustifyButton
 			.addActionListener(new java.awt.event.ActionListener()
 			{
+            @Override
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
 					centerJustifyButtonActionPerformed(evt);
@@ -1435,6 +1455,7 @@ public class NotesView extends JPanel
 		rightJustifyButton
 			.addActionListener(new java.awt.event.ActionListener()
 			{
+            @Override
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
 					rightJustifyButtonActionPerformed(evt);
@@ -1453,6 +1474,7 @@ public class NotesView extends JPanel
 		fileLeft.setBorder(new EtchedBorder());
 		fileLeft.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				fileLeftActionPerformed();
@@ -1465,6 +1487,7 @@ public class NotesView extends JPanel
 		fileRight.setBorder(new EtchedBorder());
 		fileRight.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				fileRightActionPerformed();
@@ -1566,6 +1589,7 @@ public class NotesView extends JPanel
 		notesTree.setModel(model);
 		notesTree.addTreeSelectionListener(new TreeSelectionListener()
 		{
+            @Override
 			public void valueChanged(TreeSelectionEvent evt)
 			{
 				notesTreeActionPerformed();
@@ -1576,21 +1600,25 @@ public class NotesView extends JPanel
 		notesTree.setEditable(true);
 		model.addTreeModelListener(new TreeModelListener()
 		{
+            @Override
 			public void treeNodesChanged(TreeModelEvent e)
 			{
 				notesTreeNodesChanged();
 			}
 
+            @Override
 			public void treeNodesInserted(TreeModelEvent e)
 			{
 				// TODO:  Method does nothing?
 			}
 
+            @Override
 			public void treeNodesRemoved(TreeModelEvent e)
 			{
 				// TODO:  Method does nothing?
 			}
 
+            @Override
 			public void treeStructureChanged(TreeModelEvent e)
 			{
 				// TODO:  Method does nothing?
@@ -1723,6 +1751,7 @@ public class NotesView extends JPanel
 			editAreaDT = new DropTarget(editor, new DropEditorListener());
 			editor.addCaretListener(new CaretListener()
 			{
+                @Override
 				public void caretUpdate(CaretEvent evt)
 				{
 					editorCaretUpdate(evt);
@@ -1730,16 +1759,19 @@ public class NotesView extends JPanel
 			});
 			editor.addKeyListener(new java.awt.event.KeyListener()
 			{
+                @Override
 				public void keyTyped(KeyEvent e)
 				{
 					editorKeyTyped(e);
 				}
 
+                @Override
 				public void keyPressed(KeyEvent e)
 				{
 					// TODO:  Method does nothing?
 				}
 
+                @Override
 				public void keyReleased(KeyEvent e)
 				{
 					// TODO:  Method does nothing?
@@ -1749,6 +1781,7 @@ public class NotesView extends JPanel
 			editor.getStyledDocument().addUndoableEditListener(
 				new UndoableEditListener()
 				{
+                @Override
 					public void undoableEditHappened(UndoableEditEvent evt)
 					{
 						editorUndoableEditHappened(evt);
@@ -1871,6 +1904,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  dtde  DropTargetDragEvent
 		 */
+        @Override
 		public void dragEnter(DropTargetDragEvent dtde)
 		{
 			if (dtde.isDataFlavorSupported(DataFlavor.javaFileListFlavor))
@@ -1889,6 +1923,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  dte  DropTargetEvent
 		 */
+        @Override
 		public void dragExit(DropTargetEvent dte)
 		{
 			// TODO:  Method does nothing?
@@ -1900,6 +1935,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  dtde  DropTargetDragEvent
 		 */
+        @Override
 		public void dragOver(DropTargetDragEvent dtde)
 		{
 			if (dtde.isDataFlavorSupported(DataFlavor.javaFileListFlavor))
@@ -1917,6 +1953,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  dtde  DropTargetDropEvent
 		 */
+        @Override
 		public abstract void drop(DropTargetDropEvent dtde);
 
 		/**
@@ -1924,6 +1961,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  dtde  DropTargetDragEvent
 		 */
+        @Override
 		public void dropActionChanged(DropTargetDragEvent dtde)
 		{
 			// TODO:  Method does nothing?
@@ -1941,6 +1979,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  dtde  DropTargetDropEvent
 		 */
+        @Override
 		public void drop(DropTargetDropEvent dtde)
 		{
 			Object obj = notesTree.getLastSelectedPathComponent();
@@ -1995,6 +2034,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  dtde  Description of the Parameter
 		 */
+        @Override
 		public void drop(DropTargetDropEvent dtde)
 		{
 			Object obj = notesTree.getLastSelectedPathComponent();
@@ -2105,6 +2145,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  dtde  Description of the Parameter
 		 */
+        @Override
 		public void drop(DropTargetDropEvent dtde)
 		{
 			Point p = dtde.getLocation();
@@ -2156,6 +2197,7 @@ public class NotesView extends JPanel
 		 * @param message the message to log.
 		 *@since        GMGen 3.3
 		 */
+        @Override
 		public void logMessage(String owner, String message)
 		{
 			if (log == null)
@@ -2180,6 +2222,7 @@ public class NotesView extends JPanel
 		 * @param message the message to log.
 		 *@since        GMGen 3.3
 		 */
+        @Override
 		public void logMessage(String message)
 		{
 			logMessage("Misc", message);
@@ -2221,6 +2264,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  e  Action Event
 		 */
+        @Override
 		public void actionPerformed(ActionEvent e)
 		{
 			try
@@ -2276,6 +2320,7 @@ public class NotesView extends JPanel
 		 *
 		 *@param  e  Action Event
 		 */
+        @Override
 		public void actionPerformed(ActionEvent e)
 		{
 			try

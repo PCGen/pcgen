@@ -16,7 +16,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.rules.persistence.token;
-import java.util.Collection;
+import java.util.Collection;
 import java.util.logging.Level;
 
 import pcgen.cdom.base.CDOMObject;

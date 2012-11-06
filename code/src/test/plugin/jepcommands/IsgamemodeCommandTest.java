@@ -61,6 +61,7 @@ public class IsgamemodeCommandTest extends PCGenTestCase
 	/* (non-Javadoc)
 	 * @see pcgen.PCGenTestCase#setUp()
 	 */
+    @Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();

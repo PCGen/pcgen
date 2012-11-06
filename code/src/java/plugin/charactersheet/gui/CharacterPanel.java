@@ -128,6 +128,7 @@ public class CharacterPanel extends FlippingSplitPane
 		mainTabs.setTabPlacement(javax.swing.SwingConstants.LEFT);
 		mainTabs.addChangeListener(new javax.swing.event.ChangeListener()
 		{
+            @Override
 			public void stateChanged(javax.swing.event.ChangeEvent evt)
 			{
 				mainTabsStateChanged();
@@ -645,6 +646,7 @@ public class CharacterPanel extends FlippingSplitPane
 	private class Refresher extends Thread
 	{
 
+        @Override
 		public void run()
 		{
 			refresh();

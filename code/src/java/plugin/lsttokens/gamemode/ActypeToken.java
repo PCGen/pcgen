@@ -48,11 +48,13 @@ import pcgen.util.Logging;
 public class ActypeToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "ACTYPE";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		final StringTokenizer aTok = new StringTokenizer(value, "\t");

@@ -123,6 +123,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	 *
 	 * @see javax.swing.table.TableModel#getColumnClass(int)
 	 */
+    @Override
 	public Class getColumnClass(int columnIndex)
 	{
 		return columns.getClass(columnIndex);
@@ -133,6 +134,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	 *
 	 * @see javax.swing.table.TableModel#getColumnCount()
 	 */
+    @Override
 	public int getColumnCount()
 	{
 		return columns.getColumCount();
@@ -143,6 +145,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	 *
 	 * @see javax.swing.table.TableModel#getColumnName(int)
 	 */
+    @Override
 	public String getColumnName(int column)
 	{
 		return columns.getLabel(column);
@@ -153,6 +156,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	 *
 	 * @see javax.swing.table.TableModel#getRowCount()
 	 */
+    @Override
 	public int getRowCount()
 	{
 		return Math.max(combatants.size(), 1);
@@ -207,6 +211,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	 *
 	 * @see javax.swing.table.TableModel#getValueAt(int, int)
 	 */
+    @Override
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
 		Object returnValue = null;
@@ -228,6 +233,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	 *
 	 * @see javax.swing.table.TableModel#isCellEditable(int, int)
 	 */
+    @Override
 	public boolean isCellEditable(int rowIndex, int columnIndex)
 	{
 		boolean returnValue = false;

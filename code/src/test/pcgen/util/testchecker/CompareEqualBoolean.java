@@ -41,11 +41,13 @@ public class CompareEqualBoolean extends TestChecker
 		this.bool = bool;
 	}
 
+    @Override
 	public boolean check(Object obj)
 	{
 		return obj.equals(Boolean.valueOf(this.bool));
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("a ");

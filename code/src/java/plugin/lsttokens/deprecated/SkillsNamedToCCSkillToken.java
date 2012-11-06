@@ -29,16 +29,19 @@ import pcgen.util.Logging;
 public class SkillsNamedToCCSkillToken implements CDOMSecondaryToken<Ability>
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "SKILLSNAMEDTOCCSKILL";
 	}
 
+    @Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
+    @Override
 	public ParseResult parseToken(LoadContext context, Ability obj, String value)
 	{
 		Logging.deprecationPrint("CHOOSE:SKILLSNAMEDTOCCSKILL"
@@ -95,11 +98,13 @@ public class SkillsNamedToCCSkillToken implements CDOMSecondaryToken<Ability>
 		return sb.toString();
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Ability cdo)
 	{
 		return null;
 	}
 
+    @Override
 	public Class<Ability> getTokenClass()
 	{
 		return Ability.class;

@@ -89,6 +89,7 @@ public class NotesPlugin extends GMBPlugin
 		return new SimpleFileFilter(fileExt, LanguageBundle.getString("in_plugin_notes_file")); //$NON-NLS-1$
 	}
 
+    @Override
 	public FileFilter[] getFileTypes()
 	{
 		FileFilter[] ff = {getFileType()};
@@ -99,6 +100,7 @@ public class NotesPlugin extends GMBPlugin
 	/**
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
+    @Override
 	public void start()
 	{
 		String name = getName();
@@ -109,12 +111,14 @@ public class NotesPlugin extends GMBPlugin
 		initMenus();
 	}
 
+    @Override
 	public String getPluginSystem()
 	{
 		return SettingsHandler.getGMGenOption(OPTION_NAME_SYSTEM,
 			Constants.SYSTEM_GMGEN);
 	}
 
+    @Override
 	public int getPluginLoadOrder()
 	{
 		return SettingsHandler.getGMGenOption(OPTION_NAME_LOADORDER, 70);
@@ -125,6 +129,7 @@ public class NotesPlugin extends GMBPlugin
 	 *
 	 * @return The name value
 	 */
+    @Override
 	public String getName()
 	{
 		return LanguageBundle.getString(IN_NAME);
@@ -140,6 +145,7 @@ public class NotesPlugin extends GMBPlugin
 	 *
 	 * @return The version value
 	 */
+    @Override
 	public String getVersion()
 	{
 		return version;
@@ -162,6 +168,7 @@ public class NotesPlugin extends GMBPlugin
 	 *          GMBus Message
 	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage(GMBMessage)
 	 */
+    @Override
 	public void handleMessage(GMBMessage message)
 	{
 		if (message instanceof StateChangedMessage)
@@ -305,6 +312,7 @@ public class NotesPlugin extends GMBPlugin
 		notesToolsItem.addActionListener(new ActionListener()
 		{
 
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				toolMenuItem(evt);
@@ -318,6 +326,7 @@ public class NotesPlugin extends GMBPlugin
 	 *
 	 * @see gmgen.pluginmgr.Plugin#getDataDir()
 	 */
+    @Override
 	public String getDataDir()
 	{
 		return SettingsHandler.getGMGenOption(

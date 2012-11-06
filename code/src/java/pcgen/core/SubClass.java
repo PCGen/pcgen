@@ -67,11 +67,13 @@ public final class SubClass extends PCClass implements CategorizedCDOMObject<Sub
 		return getSafe(IntegerKey.COST);
 	}
 
+    @Override
 	public Category<SubClass> getCDOMCategory()
 	{
 		return get(ObjectKey.SUBCLASS_CATEGORY);
 	}
 
+    @Override
 	public void setCDOMCategory(Category<SubClass> cat)
 	{
 		put(ObjectKey.SUBCLASS_CATEGORY, cat);

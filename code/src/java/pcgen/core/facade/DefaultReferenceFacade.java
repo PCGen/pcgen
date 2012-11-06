@@ -45,16 +45,19 @@ public class DefaultReferenceFacade<E> implements ReferenceFacade<E>
 		this.object = object;
 	}
 
+    @Override
 	public void addReferenceListener(ReferenceListener<? super E> listener)
 	{
 		listenerList.add(ReferenceListener.class, listener);
 	}
 
+    @Override
 	public void removeReferenceListener(ReferenceListener<? super E> listener)
 	{
 		listenerList.remove(ReferenceListener.class, listener);
 	}
 
+    @Override
 	public E getReference()
 	{
 		return object;

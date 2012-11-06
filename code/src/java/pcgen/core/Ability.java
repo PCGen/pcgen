@@ -231,11 +231,13 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
     	return getKeyName().hashCode();
     }
 
+    @Override
 	public Category<Ability> getCDOMCategory()
 	{
 		return get(ObjectKey.ABILITY_CAT);
 	}
 
+    @Override
 	public void setCDOMCategory(Category<Ability> cat)
 	{
 		put(ObjectKey.ABILITY_CAT, cat);
@@ -254,6 +256,7 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.AbilityFacade#getTypes()
 	 */
+    @Override
 	public List<String> getTypes()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
@@ -267,6 +270,7 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.AbilityFacade#isMult()
 	 */
+    @Override
 	public boolean isMult()
 	{
 		Boolean mult = get(ObjectKey.MULTIPLE_ALLOWED);
@@ -281,6 +285,7 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.AbilityFacade#isStackable()
 	 */
+    @Override
 	public boolean isStackable()
 	{
 		Boolean mult = get(ObjectKey.STACKS);
@@ -314,6 +319,7 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 		return retAspect;
 	}
 
+    @Override
 	public double getCost() {
 		// TODO Auto-generated method stub
 		return getSafe(ObjectKey.SELECTION_COST).doubleValue();

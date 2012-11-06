@@ -132,11 +132,13 @@ public class CampaignSourceEntry implements SourceEntry
 			return getPathURI(u, s);
 		}
 		
+        @Override
 		public int hashCode()
 		{
 			return s.hashCode();
 		}
 		
+        @Override
 		public boolean equals(Object o)
 		{
 			if (o instanceof URIFactory)
@@ -153,6 +155,7 @@ public class CampaignSourceEntry implements SourceEntry
 	 * file. (I.e. the reason it was loaded)
 	 * @return Campaign that requested the file be loaded
 	 */
+    @Override
 	public Campaign getCampaign()
 	{
 		return campaign;
@@ -164,6 +167,7 @@ public class CampaignSourceEntry implements SourceEntry
 	 * in the file are to be included.
 	 * @return List of String names of objects to exclude
 	 */
+    @Override
 	public List<String> getExcludeItems()
 	{
 		return excludeItems;
@@ -173,6 +177,7 @@ public class CampaignSourceEntry implements SourceEntry
 	 * This method gets the file/path of the LST file.
 	 * @return String url-formatted path to the LST file
 	 */
+    @Override
 	public URI getURI()
 	{
 		if (uri == null)
@@ -188,6 +193,7 @@ public class CampaignSourceEntry implements SourceEntry
 	 * in the file are to be excluded.
 	 * @return List of String names of objects to include
 	 */
+    @Override
 	public List<String> getIncludeItems()
 	{
 		return includeItems;

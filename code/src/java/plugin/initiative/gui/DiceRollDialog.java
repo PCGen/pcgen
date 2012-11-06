@@ -233,6 +233,7 @@ public class DiceRollDialog extends JDialog
 		//Initialize listeners
 		m_doRoll.addActionListener(new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent e)
 			{
 				handleRoll(e);
@@ -240,6 +241,7 @@ public class DiceRollDialog extends JDialog
 		});
 		m_ok.addActionListener(new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent e)
 			{
 				handleOk(e);

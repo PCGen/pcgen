@@ -38,6 +38,7 @@ import pcgen.util.Logging;
 public class ChronicleEntryFacet extends AbstractListFacet<ChronicleEntry> 
 {
 
+    @Override
 	protected Collection<ChronicleEntry> getCopyForNewOwner(Collection<ChronicleEntry> componentSet)
 	{
 		List<ChronicleEntry> newCopies = new ArrayList<ChronicleEntry>();

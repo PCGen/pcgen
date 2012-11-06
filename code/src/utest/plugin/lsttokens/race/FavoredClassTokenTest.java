@@ -209,6 +209,7 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Test
+    @Override
 	public void testInvalidInputCheckType()
 	{
 		try

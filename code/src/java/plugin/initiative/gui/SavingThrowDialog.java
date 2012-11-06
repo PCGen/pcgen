@@ -530,6 +530,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		returnValue.addPropertyChangeListener(new PropertyChangeListener()
 		{
 
+            @Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
 				if ("value".equals(evt.getPropertyName()))
@@ -653,6 +654,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		setTitle("Saving Throw");
 		addWindowListener(new java.awt.event.WindowAdapter()
 		{
+            @Override
 			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
 				closeDialog(evt);
@@ -664,6 +666,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		rollButton.setText("Roll");
 		rollButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				rollButtonActionPerformed(evt);
@@ -675,6 +678,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		passButton.setText("Pass");
 		passButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				passButtonActionPerformed(evt);
@@ -686,6 +690,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		failButton.setText("Fail");
 		failButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				failButtonActionPerformed(evt);
@@ -697,6 +702,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		cancelButton.setText("Cancel");
 		cancelButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				cancelButtonActionPerformed(evt);
@@ -866,6 +872,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		fortitudeSelection
 			.addActionListener(new java.awt.event.ActionListener()
 			{
+            @Override
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
 					saveSelectedActionPerformed(evt);
@@ -878,6 +885,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		saveTypeGroup.add(reflexSelection);
 		reflexSelection.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				saveSelectedActionPerformed(evt);
@@ -890,6 +898,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		saveTypeGroup.add(willSelection);
 		willSelection.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				saveSelectedActionPerformed(evt);
@@ -1000,6 +1009,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 
 	private class EnterKeyAdapter extends java.awt.event.KeyAdapter
 	{
+        @Override
 		public void keyReleased(java.awt.event.KeyEvent evt)
 		{
 			if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)

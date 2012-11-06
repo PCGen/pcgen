@@ -65,6 +65,7 @@ public class RaceToken extends AbstractTokenWithSeparator<Campaign> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
@@ -83,6 +84,7 @@ public class RaceToken extends AbstractTokenWithSeparator<Campaign> implements
 		return set.toArray(new String[set.size()]);
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

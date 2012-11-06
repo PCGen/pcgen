@@ -36,11 +36,13 @@ import pcgen.persistence.lst.LevelLstToken;
 public class CskillmaxToken implements LevelLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "CSKILLMAX";
 	}
 
+    @Override
 	public boolean parse(LevelInfo levelInfo, String value)
 	{
 		levelInfo.setMaxClassSkillString(value);

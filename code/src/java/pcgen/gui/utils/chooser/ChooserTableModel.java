@@ -66,6 +66,7 @@ public class ChooserTableModel extends AbstractTableModel
 	 * @return   The ColumnCount value
 	 * author   Matt Woodard
 	 */
+    @Override
 	public int getColumnCount()
 	{
 		return mColumns;
@@ -99,6 +100,7 @@ public class ChooserTableModel extends AbstractTableModel
 	 * @return   The RowCount value
 	 * author   Matt Woodard
 	 */
+    @Override
 	public int getRowCount()
 	{
 		return mRows;
@@ -126,6 +128,7 @@ public class ChooserTableModel extends AbstractTableModel
 	 * @return     The ValueAt value
 	 * author     Matt Woodard
 	 */
+    @Override
 	public Object getValueAt(int row, int col)
 	{
 		if (row > mData.length || col > mData[row].length)

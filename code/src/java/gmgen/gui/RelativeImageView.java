@@ -151,6 +151,7 @@ public class RelativeImageView extends View implements ImageObserver
 	 *   away from the origin; an alignment of 0.5 would be the
 	 *   center of the view
 	 */
+    @Override
 	public float getAlignment(int axis)
 	{
 		switch (axis)
@@ -180,6 +181,7 @@ public class RelativeImageView extends View implements ImageObserver
 	 * model with a StyleSheet.
 	 * @return Attribute Set
 	 */
+    @Override
 	public AttributeSet getAttributes()
 	{
 		sync();
@@ -284,6 +286,7 @@ public class RelativeImageView extends View implements ImageObserver
 	 * Seize this moment to cache the AWT Container I'm in.
 	 * @param parent
 	 */
+    @Override
 	public void setParent(View parent)
 	{
 		View oldParent = getParent();
@@ -309,6 +312,7 @@ public class RelativeImageView extends View implements ImageObserver
 	 *           that is returned, although there is no guarantee;
 	 *           the parent may choose to resize or break the view
 	 */
+    @Override
 	public float getPreferredSpan(int axis)
 	{
 		sync();
@@ -372,6 +376,7 @@ public class RelativeImageView extends View implements ImageObserver
 	 * @param width the width >= 0
 	 * @param height the height >= 0
 	 */
+    @Override
 	public void setSize(float width, float height)
 	{
 		sync();
@@ -399,6 +404,7 @@ public class RelativeImageView extends View implements ImageObserver
 	 *
 	 * @see JTextComponent#getToolTipText
 	 */
+    @Override
 	public String getToolTipText(float x, float y, Shape allocation)
 	{
 		return getAltText();
@@ -410,6 +416,7 @@ public class RelativeImageView extends View implements ImageObserver
 	 * @param a
 	 * @param f
 	 */
+    @Override
 	public void changedUpdate(DocumentEvent e, Shape a, ViewFactory f)
 	{
 		super.changedUpdate(e, a, f);
@@ -429,6 +436,7 @@ public class RelativeImageView extends View implements ImageObserver
 	// preference changed, or repaint, we just reset the fWidth/fHeight as
 	// necessary and return. This is ok as we know when loading finishes
 	// it will pick up the new height/width, if necessary.
+    @Override
 	public boolean imageUpdate(Image img, int flags, int x, int y, int aWidth, int aHeight)
 	{
 		if ((image == null) || (image != img))
@@ -533,6 +541,7 @@ public class RelativeImageView extends View implements ImageObserver
 	 * @param b
 	 * @return the bounding box of the given position
 	 */
+    @Override
 	public Shape modelToView(int pos, Shape a, Position.Bias b)
 	{
 		int p0 = getStartOffset();
@@ -562,6 +571,7 @@ public class RelativeImageView extends View implements ImageObserver
 	 * @param a the allocated region to render into
 	 * @see View#paint
 	 */
+    @Override
 	public void paint(Graphics g, Shape a)
 	{
 		sync();
@@ -639,6 +649,7 @@ public class RelativeImageView extends View implements ImageObserver
 	 * @return the location within the model that best represents the
 	 *  given point of view
 	 */
+    @Override
 	public int viewToModel(float x, float y, Shape a, Position.Bias[] bias)
 	{
 		Rectangle alloc = (Rectangle) a;
@@ -1092,6 +1103,7 @@ public class RelativeImageView extends View implements ImageObserver
 		{
 			SwingUtilities.invokeLater(new Runnable()
 				{
+                @Override
 					public void run()
 					{
 						preferenceChanged(null, true, true);
@@ -1316,6 +1328,7 @@ public class RelativeImageView extends View implements ImageObserver
 		// preference changed, or repaint, we just reset the fWidth/fHeight as
 		// necessary and return. This is ok as we know when loading finishes
 		// it will pick up the new height/width, if necessary.
+        @Override
 		public boolean imageUpdate(Image img, int flags, int x, int y, int newWidth, int newHeight)
 		{
 			if ((image == null) || (image != img))
@@ -1457,11 +1470,13 @@ public class RelativeImageView extends View implements ImageObserver
 			reset(text);
 		}
 
+        @Override
 		public int getEndOffset()
 		{
 			return segment.array.length;
 		}
 
+        @Override
 		public Color getForeground()
 		{
 			View parent;
@@ -1480,11 +1495,13 @@ public class RelativeImageView extends View implements ImageObserver
 			return fg;
 		}
 
+        @Override
 		public int getStartOffset()
 		{
 			return 0;
 		}
 
+        @Override
 		public Segment getText(int p0, int p1)
 		{
 			if ((p0 < 0) || (p1 > segment.array.length))
@@ -1498,12 +1515,14 @@ public class RelativeImageView extends View implements ImageObserver
 			return segment;
 		}
 
+        @Override
 		public View breakView(int axis, int p0, float pos, float len)
 		{
 			// Don't allow a break
 			return this;
 		}
 
+        @Override
 		public void paint(Graphics g, Shape a)
 		{
 			// Don't use supers paint, otherwise selection will be wrong

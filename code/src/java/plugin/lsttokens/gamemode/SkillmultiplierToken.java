@@ -11,11 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class SkillmultiplierToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "SKILLMULTIPLIER";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setSkillMultiplierLevels(value);

@@ -436,6 +436,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	/**
 	 * @see pcgen.core.KeyedObject#getDisplayName()
 	 */
+    @Override
 	public String getDisplayName()
 	{
 		if (displayName.startsWith("in_"))
@@ -456,6 +457,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	/**
 	 * @see pcgen.core.KeyedObject#getKeyName()
 	 */
+    @Override
 	public String getKeyName()
 	{
 		return keyName;
@@ -464,6 +466,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	/**
 	 * @see pcgen.core.KeyedObject#setName(java.lang.String)
 	 */
+    @Override
 	public void setName(final String aName)
 	{
 		if ("".equals(keyName))
@@ -521,6 +524,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		return true;
 	}
 
+    @Override
 	public Category<Ability> getParentCategory()
 	{
 		return parentCategory.resolvesTo();
@@ -551,16 +555,19 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		return visibility;
 	}
 
+    @Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+    @Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
+    @Override
 	public String getLSTformat()
 	{
 		return getKeyName();
@@ -571,32 +578,38 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		isInternal = internal;
 	}
 
+    @Override
 	public boolean isInternal()
 	{
 		return isInternal;
 	}
 
+    @Override
 	public boolean isType(String type)
 	{
 		return false;
 	}
 
+    @Override
 	public CDOMGroupRef<Ability> getAllReference()
 	{
 		return new CDOMAllRef<Ability>(Ability.class);
 	}
 
+    @Override
 	public CDOMGroupRef<Ability> getTypeReference(String... types)
 	{
 		return new CDOMTypeRef<Ability>(Ability.class, types);
 	}
 
+    @Override
 	public CDOMSingleRef<Ability> getReference(String ident)
 	{
 		return new CDOMCategorizedSingleRef<Ability>(Ability.class, this,
 				ident);
 	}
 
+    @Override
 	public Ability newInstance()
 	{
 		Ability a = new Ability();
@@ -604,6 +617,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		return a;
 	}
 
+    @Override
 	public boolean isMember(Ability item)
 	{
 		if (item == null)
@@ -615,16 +629,19 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 				|| getParentCategory().equals(itemCategory);
 	}
 
+    @Override
 	public Class<Ability> getReferenceClass()
 	{
 		return Ability.class;
 	}
 
+    @Override
 	public String getReferenceDescription()
 	{
 		return "Ability Category " + this.getKeyName();
 	}
 
+    @Override
 	public boolean resolve(ReferenceManufacturer<Ability> rm, String name,
 			CDOMSingleRef<Ability> reference, UnconstructedValidator validator)
 	{
@@ -716,6 +733,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 				&& validator.allow(getReferenceClass(), this, key);
 	}
 
+    @Override
 	public boolean populate(ReferenceManufacturer<Ability> parentCrm,
 			ReferenceManufacturer<Ability> rm, UnconstructedValidator validator)
 	{
@@ -771,6 +789,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		return returnGood;
 	}
 
+    @Override
 	public ManufacturableFactory<Ability> getParent()
 	{
 		AbilityCategory parent = parentCategory.resolvesTo();
@@ -781,6 +800,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		return parent;
 	}
 
+    @Override
 	public Category<Ability> getCategory()
 	{
 		return this;
@@ -789,6 +809,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.AbilityCategoryFacade#getName()
 	 */
+    @Override
 	public String getName()
 	{
 		return getDisplayName();
@@ -797,6 +818,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.AbilityCategoryFacade#getType()
 	 */
+    @Override
 	public String getType()
 	{
 		return String.valueOf(getDisplayLocation());

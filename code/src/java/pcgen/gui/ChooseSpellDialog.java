@@ -771,6 +771,7 @@ final class ChooseSpellDialog extends JDialog
 		setResizable(true);
 		addWindowListener(new WindowAdapter()
 			{
+            @Override
 				public void windowClosing(WindowEvent evt)
 				{
 					closeDialog();
@@ -789,6 +790,7 @@ final class ChooseSpellDialog extends JDialog
 		getContentPane().add(lblClass, gridBagConstraints);
 		cmbClass.addItemListener(new ItemListener()
 			{
+            @Override
 				public void itemStateChanged(ItemEvent evt)
 				{
 					cmbClassLevelActionPerformed(evt, TRIGGER_CLASS);
@@ -814,6 +816,7 @@ final class ChooseSpellDialog extends JDialog
 		getContentPane().add(lblBaseSpellLevel, gridBagConstraints);
 		cmbBaseSpellLevel.addItemListener(new ItemListener()
 			{
+            @Override
 				public void itemStateChanged(ItemEvent evt)
 				{
 					cmbClassLevelActionPerformed(evt, TRIGGER_BASELEVEL);
@@ -850,6 +853,7 @@ final class ChooseSpellDialog extends JDialog
 			getContentPane().add(jScrollPane1, gridBagConstraints);
 			lstMetamagicFeats.addListSelectionListener(new ListSelectionListener()
 				{
+                @Override
 					public void valueChanged(ListSelectionEvent e)
 					{
 						if (!e.getValueIsAdjusting())
@@ -871,6 +875,7 @@ final class ChooseSpellDialog extends JDialog
 		btnOk.setEnabled(false);
 		btnOk.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					btnOKActionPerformed();
@@ -878,6 +883,7 @@ final class ChooseSpellDialog extends JDialog
 			});
 		btnOk.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					btnOKActionPerformed();
@@ -896,6 +902,7 @@ final class ChooseSpellDialog extends JDialog
 		btnCancel.setText(LanguageBundle.getString("in_cancel"));
 		btnCancel.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					closeDialog();
@@ -903,6 +910,7 @@ final class ChooseSpellDialog extends JDialog
 			});
 		btnCancel.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					closeDialog();
@@ -929,6 +937,7 @@ final class ChooseSpellDialog extends JDialog
 		getContentPane().add(lblSpellName, gridBagConstraints);
 		cmbSpellName.addItemListener(new ItemListener()
 			{
+            @Override
 				public void itemStateChanged(ItemEvent evt)
 				{
 					cmbClassLevelActionPerformed(evt, TRIGGER_SPELLNAME);
@@ -972,6 +981,7 @@ final class ChooseSpellDialog extends JDialog
 		getContentPane().add(lblCasterLevel, gridBagConstraints);
 		cmbCasterLevel.addItemListener(new ItemListener()
 			{
+            @Override
 				public void itemStateChanged(ItemEvent evt)
 				{
 					cmbClassLevelActionPerformed(evt, TRIGGER_CASTERLEVEL);
@@ -1283,6 +1293,7 @@ final class ChooseSpellDialog extends JDialog
 			useOutputName = argUseOutputName;
 		}
 
+        @Override
 		public int compareTo(Object obj)
 		{
 			if (obj != null)

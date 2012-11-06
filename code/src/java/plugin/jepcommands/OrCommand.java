@@ -54,6 +54,7 @@ public class OrCommand extends PCGenCommand
 	 * Gets the name of the function handled by this class.
 	 * @return The name of the function.
 	 */
+    @Override
 	public String getFunctionName()
 	{
 		return "OR";

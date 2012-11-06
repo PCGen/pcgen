@@ -92,6 +92,7 @@ public class DiceBagPlugin extends GMBPlugin
 		// Do Nothing
 	}
 
+    @Override
 	public FileFilter[] getFileTypes()
 	{
 		FileFilter[] ff = {getFileType()};
@@ -116,6 +117,7 @@ public class DiceBagPlugin extends GMBPlugin
 	 *
 	 * @see gmgen.pluginmgr.GMBPlugin#start()
 	 */
+    @Override
 	public void start()
 	{
 		theController = new DiceBagPluginController();
@@ -124,12 +126,14 @@ public class DiceBagPlugin extends GMBPlugin
 		initMenus();
 	}
 
+    @Override
 	public String getPluginSystem()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
 			Constants.SYSTEM_GMGEN);
 	}
 
+    @Override
 	public int getPluginLoadOrder()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 20);
@@ -138,6 +142,7 @@ public class DiceBagPlugin extends GMBPlugin
 	/*
 	 * @see gmgen.pluginmgr.GMBPlugin#getName()
 	 */
+    @Override
 	public String getName()
 	{
 		return LanguageBundle.getString(IN_NAME);
@@ -146,6 +151,7 @@ public class DiceBagPlugin extends GMBPlugin
 	/*
 	 * @see gmgen.pluginmgr.GMBPlugin#getVersion()
 	 */
+    @Override
 	public String getVersion()
 	{
 		return version;
@@ -169,6 +175,7 @@ public class DiceBagPlugin extends GMBPlugin
 	 *
 	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage
 	 */
+    @Override
 	public void handleMessage(GMBMessage message)
 	{
 		if (message instanceof StateChangedMessage)
@@ -473,6 +480,7 @@ public class DiceBagPlugin extends GMBPlugin
 		 *
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
+        @Override
 		public void actionPerformed(ActionEvent e)
 		{
 			String command = e.getActionCommand();

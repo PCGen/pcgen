@@ -23,6 +23,7 @@ public class XMLFilter implements java.io.FilenameFilter
 	 * @param str 
 	 * @return true if filter matches 
 	 */
+    @Override
 	public boolean accept(java.io.File file, String str)
 	{
 		return str.matches(".*\\.xml$"); //$NON-NLS-1$

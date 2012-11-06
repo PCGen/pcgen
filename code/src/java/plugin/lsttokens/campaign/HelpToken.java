@@ -29,11 +29,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class HelpToken implements CDOMPrimaryToken<Campaign>
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "HELP";
 	}
 
+    @Override
 	public ParseResult parseToken(LoadContext context, Campaign campaign,
 		String value)
 	{
@@ -45,6 +47,7 @@ public class HelpToken implements CDOMPrimaryToken<Campaign>
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign camp)
 	{
 		String help =
@@ -56,6 +59,7 @@ public class HelpToken implements CDOMPrimaryToken<Campaign>
 		return new String[]{help};
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

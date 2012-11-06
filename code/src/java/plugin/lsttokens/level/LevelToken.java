@@ -46,6 +46,7 @@ public class LevelToken implements LevelLstToken
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
+    @Override
 	public String getTokenName()
 	{
 		return "LEVEL";
@@ -54,6 +55,7 @@ public class LevelToken implements LevelLstToken
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.LevelLstToken#parse(pcgen.core.LevelInfo, java.lang.String)
 	 */
+    @Override
 	public boolean parse(LevelInfo levelInfo, String value)
 	{
 		if (!value.equals("LEVEL"))

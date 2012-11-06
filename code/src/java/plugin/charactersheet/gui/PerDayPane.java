@@ -210,6 +210,7 @@ public class PerDayPane extends javax.swing.JPanel
 				panel.add(checkBox);
 				checkBox.addActionListener(new java.awt.event.ActionListener()
 				{
+                    @Override
 					public void actionPerformed(java.awt.event.ActionEvent evt)
 					{
 						pc.setDirty(true);

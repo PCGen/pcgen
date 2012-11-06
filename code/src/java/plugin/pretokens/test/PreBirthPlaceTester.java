@@ -56,6 +56,7 @@ public class PreBirthPlaceTester extends AbstractPrerequisiteTest implements Pre
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "BIRTHPLACE"; //$NON-NLS-1$

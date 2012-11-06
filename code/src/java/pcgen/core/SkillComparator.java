@@ -50,6 +50,7 @@ public final class SkillComparator implements Comparator<Skill>
 	}
 
 	// Comparator will be specific to Skill objects
+    @Override
 	public int compare(final Skill obj1, final Skill obj2)
 	{
 		final Skill s1;

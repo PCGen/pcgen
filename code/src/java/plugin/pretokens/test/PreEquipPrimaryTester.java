@@ -56,6 +56,7 @@ public class PreEquipPrimaryTester extends PreEquippedTester implements Prerequi
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "EQUIPPRIMARY"; //$NON-NLS-1$

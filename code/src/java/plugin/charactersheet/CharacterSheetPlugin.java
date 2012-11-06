@@ -92,6 +92,7 @@ public class CharacterSheetPlugin extends GMBPlugin
 	 *
 	 * @see gmgen.pluginmgr.GMBPlugin#start()
 	 */
+    @Override
 	public void start()
 	{
 		model = new CharacterSheetModel();
@@ -111,6 +112,7 @@ public class CharacterSheetPlugin extends GMBPlugin
 		initMenus();
 	}
 
+    @Override
 	public FileFilter[] getFileTypes()
 	{
 		return null;
@@ -119,6 +121,7 @@ public class CharacterSheetPlugin extends GMBPlugin
 	/*
 	 * @see gmgen.pluginmgr.GMBPlugin#getName()
 	 */
+    @Override
 	public String getName()
 	{
 		return LanguageBundle.getString(IN_NAME);
@@ -127,17 +130,20 @@ public class CharacterSheetPlugin extends GMBPlugin
 	/*
 	 * @see gmgen.pluginmgr.GMBPlugin#getVersion()
 	 */
+    @Override
 	public String getVersion()
 	{
 		return version;
 	}
 
+    @Override
 	public String getPluginSystem()
 	{
 		return SettingsHandler.getGMGenOption(OPTION_NAME_SYSTEM,
 			Constants.SYSTEM_GMGEN);
 	}
 
+    @Override
 	public int getPluginLoadOrder()
 	{
 		return SettingsHandler.getGMGenOption(OPTION_NAME_LOADORDER, 10);
@@ -158,6 +164,7 @@ public class CharacterSheetPlugin extends GMBPlugin
 	 *
 	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage
 	 */
+    @Override
 	public void handleMessage(GMBMessage message)
 	{
 		if (getPluginSystem().equals(Constants.SYSTEM_GMGEN))
@@ -311,6 +318,7 @@ public class CharacterSheetPlugin extends GMBPlugin
 		csToolsItem.addActionListener(new ActionListener()
 		{
 
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				toolMenuItem(evt);

@@ -43,6 +43,7 @@ public class FavClassConvertPlugin extends AbstractToken implements
 	public static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 	public static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 
+    @Override
 	public String process(TokenProcessEvent tpe)
 	{
 		String value = tpe.getValue();
@@ -136,11 +137,13 @@ public class FavClassConvertPlugin extends AbstractToken implements
 		return null;
 	}
 
+    @Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return Race.class;
 	}
 
+    @Override
 	public String getProcessedToken()
 	{
 		return "FAVCLASS";

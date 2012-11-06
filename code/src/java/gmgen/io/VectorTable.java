@@ -47,6 +47,7 @@ public class VectorTable extends AbstractList
 	 * table is empty.
 	 * @return <b><code>true</code></b> if the table is empty.
 	 */
+    @Override
 	public boolean isEmpty()
 	{
 		return rows.isEmpty();
@@ -75,6 +76,7 @@ public class VectorTable extends AbstractList
 	 * @param o an entry that will be placed in the table.
 	 * @return true or false
 	 */
+    @Override
 	public boolean add(Object o)
 	{
 		/* if o is a container, adds it to rows and header and returns true, else returns false.    */
@@ -132,6 +134,7 @@ public class VectorTable extends AbstractList
 	/**
 	 * Calls clear on every <code>Vector</code> in <code>rows</code>.
 	 */
+    @Override
 	public void clear()
 	{
 		int x;
@@ -157,6 +160,7 @@ public class VectorTable extends AbstractList
 	 * @param o the <code>Object</code> that needs to be found in the table.
 	 * @return <b>true</b> if the object is found.  Otherwise <b>false</b>.
 	 */
+    @Override
 	public boolean contains(Object o)
 	{
 		int x;
@@ -288,6 +292,7 @@ public class VectorTable extends AbstractList
 	 *        retrieved.
 	 * @return the <code>Object</code> that is looked up.
 	 */
+    @Override
 	public Object get(int index)
 	{
 		return rows.get(index);
@@ -309,6 +314,7 @@ public class VectorTable extends AbstractList
 	 * @return <b><code>true</code></b> if the <code>Object</code> is removed
 	 *         successfully.
 	 */
+    @Override
 	public boolean remove(Object o)
 	{
 		int x;
@@ -350,6 +356,7 @@ public class VectorTable extends AbstractList
 	 * Gets the number of items in the <code>row</code> <code>Vector</code>.
 	 * @return the number of items in the <code>row</code>.
 	 */
+    @Override
 	public int size()
 	{
 		return rows.size();
@@ -380,6 +387,7 @@ public class VectorTable extends AbstractList
 	 * @return an <code>array</code> that consists of the items from the
 	 *          <code>row</code> <code>Vector</code>.
 	 */
+    @Override
 	public Object[] toArray()
 	{
 		return rows.toArray();

@@ -76,6 +76,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFacade#getSourceForNodeDisplay()
 	 */
+    @Override
 	public String getSourceForNodeDisplay()
 	{
 		return SourceFormat.getFormattedString(spell,

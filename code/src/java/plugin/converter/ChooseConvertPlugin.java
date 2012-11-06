@@ -36,6 +36,7 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 			"FEAT", "LANG", "PCSTAT", "RACE", "SCHOOLS", "SHIELDPROFICIENCY",
 			"SKILL", "SPELLS", "STRING", "TEMPLATE", "WEAPONPROFICIENCY" });
 
+    @Override
 	public String process(TokenProcessEvent tpe)
 	{
 		String value = tpe.getValue();
@@ -120,11 +121,13 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 		tpe.consume();
 	}
 
+    @Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return CDOMObject.class;
 	}
 
+    @Override
 	public String getProcessedToken()
 	{
 		return "CHOOSE";

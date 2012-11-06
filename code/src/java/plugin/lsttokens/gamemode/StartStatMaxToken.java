@@ -39,6 +39,7 @@ import java.net.URI;
 public class StartStatMaxToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "STARTSTATMAX";
@@ -47,6 +48,7 @@ public class StartStatMaxToken implements GameModeLstToken
 
 
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try

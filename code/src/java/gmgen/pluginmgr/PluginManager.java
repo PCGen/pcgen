@@ -111,6 +111,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		return logName;
 	}
 
+    @Override
 	public void loadPlugin(Class<?> clazz) throws Exception
 	{
 		Plugin pl = (Plugin) clazz.newInstance();
@@ -139,6 +140,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		}
 	}
 
+    @Override
 	public Class[] getPluginClasses()
 	{
 		return new Class[]

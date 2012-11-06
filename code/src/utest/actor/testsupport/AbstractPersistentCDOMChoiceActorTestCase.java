@@ -22,6 +22,7 @@ import pcgen.cdom.base.CDOMObject;
 public abstract class AbstractPersistentCDOMChoiceActorTestCase<T extends CDOMObject>
 		extends AbstractPersistentChoiceActorTestCase<T>
 {
+    @Override
 	protected T getObject()
 	{
 		T item = context.ref.constructCDOMObject(getCDOMClass(), "ItemName");

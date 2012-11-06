@@ -23,6 +23,7 @@ public class FloorCommand extends PCGenCommand
 	 * Gets the name of the function handled by this class.
 	 * @return The name of the function.
 	 */
+    @Override
 	public String getFunctionName()
 	{
 		return "FLOOR";
@@ -36,6 +37,7 @@ public class FloorCommand extends PCGenCommand
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
+    @Override
 	public void run(final Stack inStack) throws ParseException
 	{
 		// check the stack

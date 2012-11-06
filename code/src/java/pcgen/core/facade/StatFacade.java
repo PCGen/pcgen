@@ -31,6 +31,7 @@ public interface StatFacade
 
     public String getAbbreviation();
 
+    @Override
     public String toString();
 
 }

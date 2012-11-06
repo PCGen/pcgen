@@ -716,6 +716,7 @@ public final class EquipmentChoice
 		/**
 		 * @see java.util.Iterator#hasNext()
 		 */
+        @Override
 		public boolean hasNext()
 		{
 			return currPos<choiceList.size();
@@ -724,6 +725,7 @@ public final class EquipmentChoice
 		/**
 		 * @see java.util.Iterator#next()
 		 */
+        @Override
 		public String next()
 		{
 			return choiceList.get(currPos++);
@@ -732,6 +734,7 @@ public final class EquipmentChoice
 		/**
 		 * @see java.util.Iterator#remove()
 		 */
+        @Override
 		public void remove()
 		{
 			throw new UnsupportedOperationException();

@@ -55,6 +55,7 @@ public class HeightToken extends AbstractNonEmptyToken<PaperInfo> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, PaperInfo pi)
 	{
 		String info = pi.getPaperInfo(PaperInfo.HEIGHT);
@@ -66,6 +67,7 @@ public class HeightToken extends AbstractNonEmptyToken<PaperInfo> implements
 		return new String[] { info };
 	}
 
+    @Override
 	public Class<PaperInfo> getTokenClass()
 	{
 		return PaperInfo.class;

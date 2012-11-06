@@ -75,6 +75,7 @@ public class InitiativePlugin extends GMBPlugin
 		// Do Nothing
 	}
 
+    @Override
 	public FileFilter[] getFileTypes()
 	{
 		FileFilter[] ff = {getFileType()};
@@ -95,6 +96,7 @@ public class InitiativePlugin extends GMBPlugin
 	/**
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
+    @Override
 	public void start()
 	{
 		theView = new Initiative();
@@ -112,12 +114,14 @@ public class InitiativePlugin extends GMBPlugin
 		initMenus();
 	}
 
+    @Override
 	public String getPluginSystem()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
 			Constants.SYSTEM_GMGEN);
 	}
 
+    @Override
 	public int getPluginLoadOrder()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 40);
@@ -128,6 +132,7 @@ public class InitiativePlugin extends GMBPlugin
 	 *
 	 * @return name
 	 */
+    @Override
 	public String getName()
 	{
 		return name;
@@ -138,6 +143,7 @@ public class InitiativePlugin extends GMBPlugin
 	 *
 	 * @return version
 	 */
+    @Override
 	public String getVersion()
 	{
 		return version;
@@ -272,6 +278,7 @@ public class InitiativePlugin extends GMBPlugin
 	 *          the source of the event from the system
 	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage(GMBMessage)
 	 */
+    @Override
 	public void handleMessage(GMBMessage message)
 	{
 		if (message instanceof FileOpenMessage)
@@ -512,6 +519,7 @@ public class InitiativePlugin extends GMBPlugin
 		initToolsItem.addActionListener(new ActionListener()
 		{
 
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				initMenuItem(evt);

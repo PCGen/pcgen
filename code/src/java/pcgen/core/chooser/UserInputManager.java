@@ -42,6 +42,7 @@ public class UserInputManager extends CDOMChoiceManager<String>
 	 * @param selectedList The list of existing selections.
 	 * @return list The list of the new selections made by the user (unchanged if the dialog was cancelled)
 	 */
+    @Override
 	public List<String> doChooser(PlayerCharacter aPc, final List<String> availableList,
 			final List<String> selectedList, final List<String> reservedList)
 	{

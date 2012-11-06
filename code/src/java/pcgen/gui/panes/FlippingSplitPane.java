@@ -171,6 +171,7 @@ public class FlippingSplitPane extends JSplitPane
 	 *
 	 * @param newContinuousLayout <code>boolean</code>, the setting
 	 */
+    @Override
 	public void setContinuousLayout(boolean newContinuousLayout)
 	{
 		if (newContinuousLayout == isContinuousLayout())
@@ -191,6 +192,7 @@ public class FlippingSplitPane extends JSplitPane
 	 *
 	 * @param location <code>int</code>, the location
 	 */
+    @Override
 	public void setDividerLocation(int location)
 	{
 		if (isLocked())
@@ -210,6 +212,7 @@ public class FlippingSplitPane extends JSplitPane
 	 *
 	 * @param newOneTouchExpandable <code>boolean</code>, the setting
 	 */
+    @Override
 	public void setOneTouchExpandable(boolean newOneTouchExpandable)
 	{
 		if (newOneTouchExpandable == isOneTouchExpandable())
@@ -235,6 +238,7 @@ public class FlippingSplitPane extends JSplitPane
 	 * @throws IllegalArgumentException if orientation is not one of:
 	 * HORIZONTAL_SPLIT or VERTICAL_SPLIT.
 	 */
+    @Override
 	public void setOrientation(int newOrientation)
 	{
 		if (newOrientation == getOrientation())
@@ -254,6 +258,7 @@ public class FlippingSplitPane extends JSplitPane
 	 * JSplitPane#resetToPreferredSizes} on <code>FlippingSplitPane</code>
 	 * components.
 	 */
+    @Override
 	public void resetToPreferredSizes()
 	{
 		fixedResetToPreferredSizes();
@@ -511,6 +516,7 @@ public class FlippingSplitPane extends JSplitPane
 	private class CenterActionListener
 			implements ActionListener
 	{
+        @Override
 		public void actionPerformed(ActionEvent e)
 		{
 			centerDividerLocations();
@@ -547,6 +553,7 @@ public class FlippingSplitPane extends JSplitPane
 			this.aContinuousLayout = continuousLayout;
 		}
 
+        @Override
 		public void actionPerformed(ActionEvent e)
 		{
 			setContinuousLayout(aContinuousLayout);
@@ -579,6 +586,7 @@ public class FlippingSplitPane extends JSplitPane
 	private class FlipActionListener
 			implements ActionListener
 	{
+        @Override
 		public void actionPerformed(ActionEvent e)
 		{
 			flipOrientation();
@@ -615,6 +623,7 @@ public class FlippingSplitPane extends JSplitPane
 			this.aLocked = locked;
 		}
 
+        @Override
 		public void actionPerformed(ActionEvent e)
 		{
 			setLocked(aLocked);
@@ -653,6 +662,7 @@ public class FlippingSplitPane extends JSplitPane
 			this.aOneTouchExpandable = oneTouchExpandable;
 		}
 
+        @Override
 		public void actionPerformed(ActionEvent e)
 		{
 			setOneTouchExpandable(aOneTouchExpandable);
@@ -713,6 +723,7 @@ public class FlippingSplitPane extends JSplitPane
 	private class PopupListener
 			extends MouseAdapter
 	{
+        @Override
 		public void mousePressed(MouseEvent e)
 		{
 			if (Utilities.isRightMouseButton(e))
@@ -760,6 +771,7 @@ public class FlippingSplitPane extends JSplitPane
 	private class ResetActionListener
 			implements ActionListener
 	{
+        @Override
 		public void actionPerformed(ActionEvent e)
 		{
 			resetToPreferredSizes();

@@ -22,6 +22,7 @@ public class PcgSystemInitiative extends SystemInitiative
 		die = new Dice(1, 20);
 	}
 
+    @Override
 	public SystemAttribute getAttribute()
 	{
 		PCStat stat = Globals.getContext().ref
@@ -29,12 +30,14 @@ public class PcgSystemInitiative extends SystemInitiative
 		return new SystemAttribute("Dexterity", StatAnalysis.getTotalStatFor(pc, stat));
 	}
 
+    @Override
 	public void setBonus(int bonus)
 	{
 		this.bonus = bonus - pc.initiativeMod();
 		setCurrentInitiative(roll + getModifier() + mod);
 	}
 
+    @Override
 	public int getBonus()
 	{
 		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
@@ -42,6 +45,7 @@ public class PcgSystemInitiative extends SystemInitiative
 		return pc.initiativeMod() - StatAnalysis.getStatModFor(pc, dex) + bonus;
 	}
 
+    @Override
 	public int getModifier()
 	{
 		return pc.initiativeMod() + bonus;

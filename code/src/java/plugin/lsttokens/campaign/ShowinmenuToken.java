@@ -93,6 +93,7 @@ public class ShowinmenuToken extends AbstractNonEmptyToken<Campaign> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Boolean isM = context.getObjectContext().getObject(campaign,
@@ -104,6 +105,7 @@ public class ShowinmenuToken extends AbstractNonEmptyToken<Campaign> implements
 		return new String[] { isM.booleanValue() ? "YES" : "NO" };
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

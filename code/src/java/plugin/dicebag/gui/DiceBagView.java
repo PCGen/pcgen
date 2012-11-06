@@ -149,6 +149,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 *
 	 * Does nothing
 	 */
+    @Override
 	public void update(Observable o, Object arg)
 	{
 		// TODO:  Method doesn't do anything?
@@ -299,18 +300,21 @@ public class DiceBagView extends JInternalFrame implements Observer
 		m_nameFieldLabel = new JLabel("Name: ");
 		m_nameField.getDocument().addDocumentListener(new DocumentListener()
 		{
+            @Override
 			public void insertUpdate(DocumentEvent e)
 			{
 				m_bag.setName(m_nameField.getText());
 				setTitle(m_nameField.getText());
 			}
 
+            @Override
 			public void removeUpdate(DocumentEvent e)
 			{
 				m_bag.setName(m_nameField.getText());
 				setTitle(m_nameField.getText());
 			}
 
+            @Override
 			public void changedUpdate(DocumentEvent e)
 			{
 				// TODO:  Method doesn't do anything?
@@ -498,6 +502,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		/* (non-Javadoc)
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
+        @Override
 		public void actionPerformed(ActionEvent e)
 		{
 			String command = e.getActionCommand();
@@ -558,6 +563,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		/* (non-Javadoc)
 		 * @see javax.swing.table.TableModel#isCellEditable(int, int)
 		 */
+        @Override
 		public boolean isCellEditable(int rowIndex, int columnIndex)
 		{
 			return true;
@@ -566,6 +572,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		/* (non-Javadoc)
 		 * @see javax.swing.table.TableModel#getColumnClass(int)
 		 */
+        @Override
 		public Class<?> getColumnClass(int columnIndex)
 		{
 			return String.class;
@@ -576,6 +583,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		 *
 		 * Always a single column
 		 */
+        @Override
 		public int getColumnCount()
 		{
 			return 1;
@@ -584,6 +592,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		/* (non-Javadoc)
 		 * @see javax.swing.table.TableModel#getColumnName(int)
 		 */
+        @Override
 		public String getColumnName(int column)
 		{
 			return "Dice Expression";
@@ -595,6 +604,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		 * We add one more row than the number of dice in the bag;
 		 * users can type in that row to add a new die.
 		 */
+        @Override
 		public int getRowCount()
 		{
 			return m_bag.diceCount() + 1;
@@ -605,6 +615,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		 *
 		 * Sets the value at the specified index, or adds a new die at the end.
 		 */
+        @Override
 		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
 		{
 			if ((rowIndex >= 0) && (rowIndex < (getRowCount() - 1)))
@@ -629,6 +640,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		/* (non-Javadoc)
 		 * @see javax.swing.table.TableModel#getValueAt(int, int)
 		 */
+        @Override
 		public Object getValueAt(int rowIndex, int columnIndex)
 		{
 			String returnValue = null;

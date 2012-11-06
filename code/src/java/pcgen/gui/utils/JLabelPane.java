@@ -64,6 +64,7 @@ public final class JLabelPane extends JEditorPane
 	 *
 	 * @param newContents String new contents of pane or <code>null</code>
 	 */
+    @Override
 	public void setText(String newContents)
 	{
 		String labelText = newContents;

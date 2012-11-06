@@ -837,6 +837,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		Collections.sort(aSelectedCampaignsList, new Comparator<Campaign>()
 		{
 
+            @Override
 			public int compare(Campaign c1, Campaign c2)
 			{
 				return c1.getSafe(IntegerKey.CAMPAIGN_RANK) - c2.getSafe(IntegerKey.CAMPAIGN_RANK);
@@ -1109,6 +1110,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		return showLicensed;
 	}
 
+    @Override
 	public void update(Observable o, Object arg)
 	{
 		if (arg instanceof URI)

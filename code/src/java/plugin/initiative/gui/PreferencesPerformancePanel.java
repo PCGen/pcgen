@@ -56,11 +56,13 @@ public class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel
 		initPreferences();
 	}
 
+    @Override
 	public void applyPreferences()
 	{
 		SettingsHandler.setGMGenOption(OPTION_NAME, getRefreshOnStateChange());
 	}
 
+    @Override
 	public void initPreferences()
 	{
 		setRefreshOnStateChange(SettingsHandler.getGMGenOption(

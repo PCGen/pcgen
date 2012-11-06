@@ -41,11 +41,13 @@ public class CompareGreaterThan extends TestChecker
 		this.comp = comp;
 	}
 
+    @Override
 	public boolean check(final Object obj)
 	{
 		return comp.compareTo(obj) < 0;
 	}
 
+    @Override
 	public StringBuffer scribe(final StringBuffer buf)
 	{
 		buf.append("a value greater than <");

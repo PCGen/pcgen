@@ -63,11 +63,13 @@ public class LoadInfo implements Loadable
 	private Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<String, LoadInfo.LoadMapEntry>();
 	private String modifyFormula;
 
+    @Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+    @Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
@@ -321,31 +323,37 @@ public class LoadInfo implements Loadable
 		loadMultStep = step;
 	}
 
+    @Override
 	public String getDisplayName()
 	{
 		return loadInfoName;
 	}
 
+    @Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
+    @Override
 	public String getLSTformat()
 	{
 		return getDisplayName();
 	}
 
+    @Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
+    @Override
 	public boolean isType(String type)
 	{
 		return false;
 	}
 
+    @Override
 	public void setName(String name)
 	{
 		loadInfoName = name;

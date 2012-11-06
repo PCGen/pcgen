@@ -41,11 +41,13 @@ public class CompareEqualShort extends TestChecker
 		this.sh = sh;
 	}
 
+    @Override
 	public boolean check(Object obj)
 	{
 		return obj.equals(Short.valueOf(this.sh));
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("a short ");

@@ -97,6 +97,7 @@ public class PreAttTest extends AbstractCharacterTestCase
 			.passes(prereq, character, null));
 	}
 
+    @Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();

@@ -98,6 +98,7 @@ public class AutoSizingColumnModel extends DefaultTableColumnModel
 	/* (non-Javadoc)
 	 * @see javax.swing.table.TableColumnModel#addColumn(javax.swing.table.TableColumn)
 	 */
+    @Override
 	public void addColumn(TableColumn aColumn)
 	{
 		setColumnPreferredWidth(aColumn);

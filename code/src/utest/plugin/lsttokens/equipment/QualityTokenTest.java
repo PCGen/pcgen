@@ -115,7 +115,7 @@ public class QualityTokenTest extends AbstractTokenTestCase<Equipment>
 	@Test
 	public void testRoundRobinInternational() throws PersistenceLayerException
 	{
-		runRoundRobin("Niederösterreich Quality|Niederösterreich");
+		runRoundRobin("Niederï¿½sterreich Quality|Niederï¿½sterreich");
 	}
 
 	@Test
@@ -127,7 +127,7 @@ public class QualityTokenTest extends AbstractTokenTestCase<Equipment>
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		return "First Quality|Niederösterreich";
+		return "First Quality|Niederï¿½sterreich";
 	}
 
 	@Override

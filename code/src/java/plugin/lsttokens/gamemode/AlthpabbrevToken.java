@@ -38,11 +38,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class AlthpabbrevToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "ALTHPABBREV";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setAltHPAbbrev(value);

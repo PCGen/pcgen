@@ -94,6 +94,7 @@ public class TypeToken extends AbstractTokenWithSeparator<Campaign> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		String producer =
@@ -124,6 +125,7 @@ public class TypeToken extends AbstractTokenWithSeparator<Campaign> implements
 		return new String[]{sb.toString()};
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

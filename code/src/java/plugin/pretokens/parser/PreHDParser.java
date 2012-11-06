@@ -48,6 +48,7 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"HD", "HDSILENT"};

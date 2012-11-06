@@ -29,21 +29,25 @@ public final class PointBuyCost extends ConcretePrereqObject implements
 	private int statValue = 0;
 	private int buyCost = 0;
 
+    @Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+    @Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
+    @Override
 	public String getDisplayName()
 	{
 		return Integer.toString(statValue);
 	}
 
+    @Override
 	public void setName(String name)
 	{
 		try
@@ -59,21 +63,25 @@ public final class PointBuyCost extends ConcretePrereqObject implements
 
 	}
 
+    @Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
+    @Override
 	public String getLSTformat()
 	{
 		return getDisplayName();
 	}
 
+    @Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
+    @Override
 	public boolean isType(String type)
 	{
 		return false;

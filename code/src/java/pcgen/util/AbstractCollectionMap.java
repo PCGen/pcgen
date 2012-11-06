@@ -35,11 +35,13 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
 
     private volatile Collection<V> values = null;
 
+    @Override
     public boolean add(K key, V value)
     {
 	throw new UnsupportedOperationException();
     }
 
+    @Override
     public boolean addAll(K key, Collection<? extends V> values)
     {
 	C collection = get(key);
@@ -59,29 +61,34 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
 	return false;
     }
 
+    @Override
     public boolean containsValue(Object key, Object value)
     {
 	C collection = get(key);
 	return collection != null && collection.contains(value);
     }
 
+    @Override
     public boolean remove(Object key, Object value)
     {
 	throw new UnsupportedOperationException();
     }
 
+    @Override
     public boolean removeAll(Object key, Collection<?> c)
     {
 	C collection = get(key);
 	return collection != null && collection.removeAll(c);
     }
 
+    @Override
     public boolean retainAll(Object key, Collection<?> c)
     {
 	C collection = get(key);
 	return collection != null && collection.retainAll(c);
     }
     
+    @Override
     public int size(Object key)
     {
 	C collection = get(key);
@@ -90,6 +97,7 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
 	return 0;
     }
     
+    @Override
     public Collection<V> getAll()
     {
 	if (values == null)
@@ -97,6 +105,7 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
 	    values = new AbstractCollection<V>()
 	    {
 
+                @Override
 		public Iterator<V> iterator()
 		{
 		    return new Iterator<V>()
@@ -105,11 +114,13 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
 			private Iterator<C> ci = values().iterator();
 			private Iterator<V> vi = null;
 
+                        @Override
 			public boolean hasNext()
 			{
 			    return ci.hasNext() || vi != null && vi.hasNext();
 			}
 
+                        @Override
 			public V next()
 			{
 			    if (vi == null || !vi.hasNext())
@@ -119,6 +130,7 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
 			    return vi.next();
 			}
 
+                        @Override
 			public void remove()
 			{
 			    vi.remove();
@@ -127,6 +139,7 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
 		    };
 		}
 
+                @Override
 		public int size()
 		{
 		    int size = 0;

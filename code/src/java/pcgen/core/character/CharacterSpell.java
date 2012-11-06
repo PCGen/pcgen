@@ -282,6 +282,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 *         is less than, equal to, or greater than the specified object.
 	 * @see Comparable#compareTo(Object)
 	 */
+    @Override
 	public int compareTo(final CharacterSpell obj)
 	{
 		int compare = spell.compareTo(obj.spell);

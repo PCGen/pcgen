@@ -133,6 +133,7 @@ public abstract class Combatant implements InitHolder
 	 *
 	 *@return    The SystemInitiative value
 	 */
+    @Override
 	public SystemInitiative getInitiative()
 	{
 		return init;
@@ -170,6 +171,7 @@ public abstract class Combatant implements InitHolder
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
+    @Override
 	public Vector<String> getRowVector(List<String> columnOrder)
 	{
 		Vector<String> rowVector = new Vector<String>();
@@ -246,6 +248,7 @@ public abstract class Combatant implements InitHolder
 	 *
 	 *@param  status  The new status value
 	 */
+    @Override
 	public void setStatus(String status)
 	{
 		this.status = status;
@@ -256,6 +259,7 @@ public abstract class Combatant implements InitHolder
 	 *
 	 *@return    The status value
 	 */
+    @Override
 	public String getStatus()
 	{
 		return status;
@@ -318,6 +322,7 @@ public abstract class Combatant implements InitHolder
 		return duration;
 	}
 
+    @Override
 	public void endRound()
 	{
 		hitPoints.endRound();

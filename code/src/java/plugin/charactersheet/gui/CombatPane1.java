@@ -210,6 +210,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		woundsTb.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		woundsTb.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				woundsTbActionPerformed(evt);
@@ -232,6 +233,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		subdualTb.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		subdualTb.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				subdualTbActionPerformed(evt);

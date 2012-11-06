@@ -41,6 +41,7 @@ public final class StringComparator<E> implements Comparator<E>, Serializable
 	}
 
 	/** {@inheritDoc} */
+    @Override
 	public int compare(E o1, E o2)
 	{
 		// Treat null as the empty string.

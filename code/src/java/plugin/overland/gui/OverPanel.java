@@ -331,6 +331,7 @@ public class OverPanel extends javax.swing.JPanel
 		butToMap.setText(LanguageBundle.getString("in_plugin_overland_leftArrow")); //$NON-NLS-1$
 		butToMap.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				butToMapActionPerformed(evt);
@@ -345,6 +346,7 @@ public class OverPanel extends javax.swing.JPanel
 		butToReal.setText(LanguageBundle.getString("in_plugin_overland_rightArrow")); //$NON-NLS-1$
 		butToReal.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				butToRealActionPerformed(evt);
@@ -493,6 +495,7 @@ public class OverPanel extends javax.swing.JPanel
 		butToTime.setEnabled(false);
 		butToTime.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				butImperialToTimeActionPerformed();
@@ -526,6 +529,7 @@ public class OverPanel extends javax.swing.JPanel
 		butToTime2.setEnabled(false);
 		butToTime.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				butMetricToTimeActionPerformed();
@@ -557,6 +561,7 @@ public class OverPanel extends javax.swing.JPanel
 		butToDist.setText(LanguageBundle.getString("in_plugin_overland_leftArrow")); //$NON-NLS-1$
 		butToDist.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				butToDistActionPerformed();
@@ -760,6 +765,7 @@ public class OverPanel extends javax.swing.JPanel
 
 		cmbFood.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				txtPeopActionPerformed();
@@ -775,6 +781,7 @@ public class OverPanel extends javax.swing.JPanel
 
 		cmbInn.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				txtPeopActionPerformed();
@@ -790,6 +797,7 @@ public class OverPanel extends javax.swing.JPanel
 
 		cmbAnimal.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				txtPeopActionPerformed();

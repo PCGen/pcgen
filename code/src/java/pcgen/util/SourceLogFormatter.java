@@ -49,6 +49,7 @@ public final class SourceLogFormatter extends Formatter
 	/* (non-Javadoc)
 	 * @see java.util.logging.Formatter#format(java.util.logging.LogRecord)
 	 */
+    @Override
 	public String format(LogRecord record)
 	{
 		StringBuffer sb = new StringBuffer();

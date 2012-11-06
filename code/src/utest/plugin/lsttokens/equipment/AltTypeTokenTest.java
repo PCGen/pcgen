@@ -150,6 +150,7 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 	}
 
 	@Test
+    @Override
 	public void testInputInvalidClearDot() throws PersistenceLayerException
 	{
 		assertFalse(parse(".CLEAR."));

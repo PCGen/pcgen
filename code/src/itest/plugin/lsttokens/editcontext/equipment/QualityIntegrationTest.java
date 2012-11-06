@@ -59,7 +59,7 @@ public class QualityIntegrationTest extends
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Quality Name|Quality Value");
-		commit(modCampaign, tc, "Niederösterreich Quality|Niederösterreich");
+		commit(modCampaign, tc, "Niederï¿½sterreich Quality|Niederï¿½sterreich");
 		completeRoundRobin(tc);
 	}
 
@@ -68,8 +68,8 @@ public class QualityIntegrationTest extends
 	{
 		verifyCleanStart();
 		TestContext tc = new TestContext();
-		commit(testCampaign, tc, "Niederösterreich Quality|Niederösterreich");
-		commit(modCampaign, tc, "Niederösterreich Quality|Nied");
+		commit(testCampaign, tc, "Niederï¿½sterreich Quality|Niederï¿½sterreich");
+		commit(modCampaign, tc, "Niederï¿½sterreich Quality|Nied");
 		completeRoundRobin(tc);
 	}
 

@@ -89,6 +89,7 @@ public class AssociationSupport implements Cloneable
 		return (T) assocMap.get(obj, ak);
 	}
 
+    @Override
 	public AssociationSupport clone() throws CloneNotSupportedException
 	{
 		AssociationSupport as = (AssociationSupport) super.clone();

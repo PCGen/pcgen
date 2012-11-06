@@ -44,6 +44,7 @@ public class PreHasDeityWriter extends AbstractPrerequisiteWriter implements
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "has.deity";
@@ -52,6 +53,7 @@ public class PreHasDeityWriter extends AbstractPrerequisiteWriter implements
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
+    @Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
 		return new PrerequisiteOperator[]{PrerequisiteOperator.EQ,
@@ -62,6 +64,7 @@ public class PreHasDeityWriter extends AbstractPrerequisiteWriter implements
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
+    @Override
 	public void write(Writer writer, Prerequisite prereq)
 		throws PersistenceLayerException
 	{

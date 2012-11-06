@@ -11,11 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class BababbrevToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "BABABBREV";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setBabAbbrev(value);

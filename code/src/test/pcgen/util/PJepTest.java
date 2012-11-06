@@ -57,6 +57,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		super();
 	}
 
+    @Override
 	public void setUp() throws Exception
 	{
 		super.setUp();

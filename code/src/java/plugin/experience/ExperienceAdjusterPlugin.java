@@ -153,6 +153,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	 * Calls the appropriate methods depending on the source of the action.
 	 * @param e the action even that happened.
 	 */
+    @Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == eaView.getAddExperienceToCharButton())
@@ -416,6 +417,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 		experienceToolsItem.setText("Experience Adjuster");
 		experienceToolsItem.addActionListener(new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				toolMenuItem(evt);
@@ -424,21 +426,25 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 		GMBus.send(new ToolMenuItemAddMessage(this, experienceToolsItem));
 	}
 
+    @Override
 	public void keyPressed(KeyEvent e)
 	{
 		// TODO:  Method doesn't do anything?
 	}
 
+    @Override
 	public void keyReleased(KeyEvent e)
 	{
 		this.update();
 	}
 
+    @Override
 	public void keyTyped(KeyEvent e)
 	{
 		// TODO:  Method doesn't do anything?
 	}
 
+    @Override
 	public void stateChanged(ChangeEvent e)
 	{
 		if (e.getSource() == eaView.getExperienceMultSlider())

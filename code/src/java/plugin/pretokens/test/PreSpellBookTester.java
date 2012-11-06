@@ -69,6 +69,7 @@ public class PreSpellBookTester extends AbstractPrerequisiteTest implements Prer
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "SPELLBOOK"; //$NON-NLS-1$

@@ -168,6 +168,7 @@ public class KitPanel extends FlippingSplitPane
 			this.character = character;
 		}
 
+        @Override
 		public void valueChanged(ListSelectionEvent e)
 		{
 			if (!e.getValueIsAdjusting())
@@ -210,6 +211,7 @@ public class KitPanel extends FlippingSplitPane
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
 		}
 
+        @Override
 		public void actionPerformed(ActionEvent e)
 		{
 			List<Object> data = availableTable.getSelectedData();
@@ -258,21 +260,25 @@ public class KitPanel extends FlippingSplitPane
 			}
 		}
 
+        @Override
 		public ListFacade<? extends TreeView<KitFacade>> getTreeViews()
 		{
 			return treeViews;
 		}
 
+        @Override
 		public int getDefaultTreeViewIndex()
 		{
 			return 0;
 		}
 
+        @Override
 		public DataView<KitFacade> getDataView()
 		{
 			return this;
 		}
 
+        @Override
 		public ListFacade<KitFacade> getDataModel()
 		{
 			if (isAvailModel)
@@ -285,26 +291,31 @@ public class KitPanel extends FlippingSplitPane
 			}
 		}
 
+        @Override
 		public List<?> getData(KitFacade obj)
 		{
 			return Arrays.asList(obj.getSource());
 		}
 
+        @Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return columns;
 		}
 
+        @Override
 		public void elementAdded(ListEvent<KitFacade> e)
 		{
 			kits.refilter();
 		}
 
+        @Override
 		public void elementRemoved(ListEvent<KitFacade> e)
 		{
 			kits.refilter();
 		}
 
+        @Override
 		public void elementsChanged(ListEvent<KitFacade> e)
 		{
 			kits.refilter();
@@ -316,6 +327,7 @@ public class KitPanel extends FlippingSplitPane
 			kits.refilter();
 		}
 
+        @Override
 		public boolean accept(CharacterFacade context, KitFacade element)
 		{
 			return !context.getKits().containsElement(element);
@@ -345,12 +357,14 @@ public class KitPanel extends FlippingSplitPane
 			this.name = name;
 		}
 
+        @Override
 		public String getViewName()
 		{
 			return name;
 		}
 
 		@SuppressWarnings("unchecked")
+        @Override
 		public List<TreeViewPath<KitFacade>> getPaths(KitFacade pobj)
 		{
 			switch (this)

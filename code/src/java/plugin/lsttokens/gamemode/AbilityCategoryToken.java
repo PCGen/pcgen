@@ -44,6 +44,7 @@ import pcgen.util.Logging;
 public class AbilityCategoryToken implements GameModeLstToken
 {
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		final AbilityCategoryLoader loader = new AbilityCategoryLoader();
@@ -80,6 +81,7 @@ public class AbilityCategoryToken implements GameModeLstToken
 	 * 
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
+    @Override
 	public String getTokenName()
 	{
 		return "ABILITYCATEGORY"; //$NON-NLS-1$

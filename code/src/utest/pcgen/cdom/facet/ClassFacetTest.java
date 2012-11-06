@@ -51,22 +51,26 @@ public class ClassFacetTest extends TestCase
 		public int levelEventCount;
 		public ClassLevelChangeEvent lastLevelEvent;
 
+        @Override
 		public void dataAdded(DataFacetChangeEvent<PCClass> dfce)
 		{
 			addEventCount++;
 		}
 
+        @Override
 		public void dataRemoved(DataFacetChangeEvent<PCClass> dfce)
 		{
 			removeEventCount++;
 		}
 
+        @Override
 		public void levelChanged(ClassLevelChangeEvent lce)
 		{
 			levelEventCount++;
 			lastLevelEvent = lce;
 		}
 
+        @Override
 		public void levelObjectChanged(ClassLevelObjectChangeEvent lce)
 		{
 		}

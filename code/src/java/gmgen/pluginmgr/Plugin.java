@@ -145,16 +145,19 @@ public abstract class Plugin
 		 *@return    The className value
 		 *@since        GMGen 3.3
 		 */
+        @Override
 		public String getClassName()
 		{
 			return clazz;
 		}
 
+        @Override
 		public String getPluginSystem()
 		{
 			return "Broken";
 		}
 
+        @Override
 		public int getPluginLoadOrder() {
 			return 0;
 		}
@@ -254,6 +257,7 @@ public abstract class Plugin
 		 *@param  p2  Object 2 to compare
 		 *@return     the comparison between the two (in java.util.Comperator format)
 		 */
+        @Override
 		public int compare(Plugin p1, Plugin p2)
 		{
 			Integer load1 = Integer.valueOf(p1.getPluginLoadOrder());

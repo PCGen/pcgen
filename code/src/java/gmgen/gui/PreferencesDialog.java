@@ -109,6 +109,7 @@ public class PreferencesDialog extends AbstractPreferencesDialog
         }
     }
 
+    @Override
     public void applyButtonActionPerformed()
     {
         applyPreferences();
@@ -117,6 +118,7 @@ public class PreferencesDialog extends AbstractPreferencesDialog
     /**
      *  Closes the dialog. Saves prefs before closing.
      */
+    @Override
     protected void close()
     {
         SettingsHandler.setGMGenOption(OPTION_NAME_DIVIDER, jSplitPane1.getDividerLocation());
@@ -128,6 +130,7 @@ public class PreferencesDialog extends AbstractPreferencesDialog
         super.close();
     }
 
+    @Override
     protected JComponent getCenter()
     {
         jSplitPane1 = new FlippingSplitPane();
@@ -140,6 +143,7 @@ public class PreferencesDialog extends AbstractPreferencesDialog
 
         addWindowListener(new java.awt.event.WindowAdapter()
             {
+            @Override
                 public void windowClosing(java.awt.event.WindowEvent evt)
                 {
                     close();
@@ -152,6 +156,7 @@ public class PreferencesDialog extends AbstractPreferencesDialog
 			ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED));
         prefsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener()
             {
+            @Override
                 public void valueChanged(javax.swing.event.TreeSelectionEvent evt)
                 {
                     PrefsTreeActionPerformed();

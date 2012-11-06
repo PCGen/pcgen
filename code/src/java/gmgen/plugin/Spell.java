@@ -79,6 +79,7 @@ public class Spell extends Event
 		}
 	}
 
+    @Override
 	public String getEndText()
 	{
 		return "Spell " + getName() + "'s Duration Expired";
@@ -91,6 +92,7 @@ public class Spell extends Event
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
+    @Override
 	public Vector<String> getRowVector(List<String> columnOrder)
 	{
 		Vector<String> rowVector = new Vector<String>();
@@ -142,6 +144,7 @@ public class Spell extends Event
 		return rowVector;
 	}
 
+    @Override
 	public Element getSaveElement()
 	{
 		Element retElement = new Element("Spell");

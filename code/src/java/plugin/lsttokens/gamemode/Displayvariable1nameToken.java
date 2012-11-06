@@ -11,11 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class Displayvariable1nameToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "DISPLAYVARIABLE1NAME";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setVariableDisplayName(value);

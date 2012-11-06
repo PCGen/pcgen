@@ -61,6 +61,7 @@ public class PreTextTester extends AbstractPrerequisiteTest implements Prerequis
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "TEXT"; //$NON-NLS-1$

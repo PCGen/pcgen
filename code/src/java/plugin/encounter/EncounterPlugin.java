@@ -213,6 +213,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	 * @param e the source of the event from the GUI.
 	 * @see ActionListener#actionPerformed(ActionEvent)
 	 */
+    @Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == theView.getAddCreature())
@@ -417,6 +418,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		encounterToolsItem.setText("Encounter Generator");
 		encounterToolsItem.addActionListener(new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				toolMenuItem(evt);
@@ -430,6 +432,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	 * model.
 	 * @see ItemListener#itemStateChanged(ItemEvent)
 	 */
+    @Override
 	public void itemStateChanged(ItemEvent e)
 	{
 		if (theView.getEnvironment().getSelectedIndex() == 0)
@@ -448,6 +451,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		}
 	}
 
+    @Override
 	public void mouseClicked(MouseEvent evt)
 	{
 		if (evt.getSource() == theView.getLibraryCreatures())
@@ -487,21 +491,25 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		}
 	}
 
+    @Override
 	public void mouseEntered(MouseEvent e)
 	{
 		// TODO:  Method doesn't do anything?
 	}
 
+    @Override
 	public void mouseExited(MouseEvent e)
 	{
 		// TODO:  Method doesn't do anything?
 	}
 
+    @Override
 	public void mousePressed(MouseEvent e)
 	{
 		// TODO:  Method doesn't do anything?
 	}
 
+    @Override
 	public void mouseReleased(MouseEvent e)
 	{
 		// TODO:  Method doesn't do anything?

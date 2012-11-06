@@ -168,6 +168,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 			prereq, character, null));
 	}
 
+    @Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();

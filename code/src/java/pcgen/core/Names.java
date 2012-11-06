@@ -364,6 +364,7 @@ public final class Names
 
     private static class DirectoryFilter implements FileFilter
     {
+        @Override
         public boolean accept(final File file)
         {
             return file.isDirectory();
@@ -372,6 +373,7 @@ public final class Names
     }
 
     private static class NamFilter implements FilenameFilter {
+        @Override
         public boolean accept(final File dir, final String name)
         {
             return name.regionMatches(true, name.length() - 4, ".nam", 0, 4);

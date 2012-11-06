@@ -31,6 +31,7 @@ public interface InfoFacade
 
     public String getSourceForNodeDisplay();
 
+    @Override
     public String toString();
     
     public String getKeyName();

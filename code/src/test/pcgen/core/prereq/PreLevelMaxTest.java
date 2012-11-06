@@ -146,6 +146,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 			character, null));
 	}
 
+    @Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();

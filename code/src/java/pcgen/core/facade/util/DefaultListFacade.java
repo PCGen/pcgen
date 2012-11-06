@@ -54,17 +54,20 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 			private ListIterator<E> iterator = elementList.listIterator();
 			private int index;
 
+            @Override
 			public boolean hasNext()
 			{
 				return iterator.hasNext();
 			}
 
+            @Override
 			public E next()
 			{
 				index = iterator.nextIndex();
 				return iterator.next();
 			}
 
+            @Override
 			public void remove()
 			{
 				E element = getElementAt(index);
@@ -75,16 +78,19 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		};
 	}
 
+    @Override
 	public E getElementAt(int index)
 	{
 		return elementList.get(index);
 	}
 
+    @Override
 	public int getSize()
 	{
 		return elementList.size();
 	}
 
+    @Override
 	public boolean containsElement(E element)
 	{
 		return elementList.contains(element);

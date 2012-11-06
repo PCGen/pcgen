@@ -34,14 +34,14 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	{
 		if (requiresPreconstruction())
 		{
-			getConstant("Niederösterreich");
+			getConstant("Niederï¿½sterreich");
 			getConstant("Finger Lakes");
 			getConstant("Rheinhessen");
 			getConstant("Languedoc-Roussillon");
 			getConstant("Yarra Valley");
 		}
-		assertTrue(parse("Niederösterreich"));
-		assertEquals(getConstant("Niederösterreich"), primaryProf
+		assertTrue(parse("Niederï¿½sterreich"));
+		assertEquals(getConstant("Niederï¿½sterreich"), primaryProf
 			.get(getObjectKey()));
 		assertTrue(parse("Finger Lakes"));
 		assertEquals(getConstant("Finger Lakes"), primaryProf
@@ -142,9 +142,9 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	{
 		if (requiresPreconstruction())
 		{
-			getConstant("Niederösterreich");
+			getConstant("Niederï¿½sterreich");
 		}
-		runRoundRobin("Niederösterreich");
+		runRoundRobin("Niederï¿½sterreich");
 	}
 
 	@Test

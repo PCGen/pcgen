@@ -62,6 +62,7 @@ final class PCGParseException extends Exception
 	/**
 	 * @return error message
 	 */
+    @Override
 	public String getMessage()
 	{
 		return errorMessage;

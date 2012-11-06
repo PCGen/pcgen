@@ -31,6 +31,7 @@ public interface AlignmentFacade
 
     public String getAbbreviation();
 
+    @Override
     public String toString();
 
 }

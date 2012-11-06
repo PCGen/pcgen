@@ -339,6 +339,7 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return a reference to this character's Race
 	 */
+    @Override
 	public ReferenceFacade<RaceFacade> getRaceRef();
 
 	/**
@@ -365,6 +366,7 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return a reference to this character's name
 	 */
+    @Override
 	public ReferenceFacade<String> getNameRef();
 
 	/**
@@ -397,6 +399,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @see CharacterFacade#setFile(File)
 	 * @return a reference to the character's file
 	 */
+    @Override
 	public ReferenceFacade<File> getFileRef();
 
 	/**
@@ -806,6 +809,7 @@ public interface CharacterFacade extends CompanionFacade
 	/**
 	 * @return the type of companion the current character is, or null if not a companion
 	 */
+    @Override
 	public String getCompanionType();
 
 	/**

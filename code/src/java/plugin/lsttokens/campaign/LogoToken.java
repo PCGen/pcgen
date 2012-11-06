@@ -59,6 +59,7 @@ public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
 		return "LOGO";
 	}
 
+    @Override
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.addToListFor(ListKey.FILE_LOGO, CampaignSourceEntry.getNewCSE(campaign,
@@ -95,6 +96,7 @@ public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
@@ -113,6 +115,7 @@ public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
 		return set.toArray(new String[set.size()]);
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

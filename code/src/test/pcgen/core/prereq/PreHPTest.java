@@ -101,6 +101,7 @@ public class PreHPTest extends AbstractCharacterTestCase
 			character, null));
 	}
 
+    @Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();

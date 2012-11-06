@@ -30,16 +30,19 @@ import pcgen.util.Logging;
 public class WeaponProfToken implements CDOMSecondaryToken<CDOMObject>
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "WEAPONPROF";
 	}
 
+    @Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
+    @Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -176,11 +179,13 @@ public class WeaponProfToken implements CDOMSecondaryToken<CDOMObject>
 			"Error on conversion from CHOOSE:WEAPONPROF", context);
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		return null;
 	}
 
+    @Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

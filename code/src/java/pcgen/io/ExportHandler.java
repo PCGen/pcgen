@@ -506,12 +506,14 @@ public final class ExportHandler
 	{
 		return new PluginLoader(){
 
+            @Override
 			public void loadPlugin(Class<?> clazz) throws Exception
 			{
 				Token pl = (Token) clazz.newInstance();
 				addToTokenMap(pl);
 			}
 
+            @Override
 			public Class[] getPluginClasses()
 			{
 				return new Class[]{Token.class};

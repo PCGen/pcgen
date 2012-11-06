@@ -44,6 +44,7 @@ public class PreItemWriter extends AbstractPrerequisiteWriter implements
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "item";
@@ -52,6 +53,7 @@ public class PreItemWriter extends AbstractPrerequisiteWriter implements
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
+    @Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
 		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
@@ -61,6 +63,7 @@ public class PreItemWriter extends AbstractPrerequisiteWriter implements
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
+    @Override
 	public void write(Writer writer, Prerequisite prereq)
 		throws PersistenceLayerException
 	{

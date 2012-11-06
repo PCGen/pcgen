@@ -11,11 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class LevelmsgToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "LEVELMSG";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setLevelUpMessage(value.replace('|', '\n'));

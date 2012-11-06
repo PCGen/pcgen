@@ -59,6 +59,7 @@ public class Dice extends Die
 	 * I made it final as it's called from the constructor.
 	 * @return Result of the die roll
 	 */
+    @Override
 	public final int roll()
 	{
 		int value = 0;

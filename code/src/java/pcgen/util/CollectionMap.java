@@ -38,6 +38,7 @@ public interface CollectionMap<K, V, C extends Collection<V>> extends Map<K, C>{
      * @throws IllegalArgumentException if some property of the specified key
      *         or value prevents it from being stored in this map
      */
+    @Override
     C put(K key, C collection);
     
     boolean add(K key, V value);
@@ -66,6 +67,7 @@ public interface CollectionMap<K, V, C extends Collection<V>> extends Map<K, C>{
      * @throws NullPointerException if the specified key is null and this
      *         map does not permit null keys (optional)
      */
+    @Override
     C remove(Object key);
     
     boolean remove(Object key, Object value);

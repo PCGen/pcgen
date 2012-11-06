@@ -31,6 +31,7 @@ public interface XPTableFacade
 
     public String getName();
 
+    @Override
     public String toString();
 
 	public LevelInfo getLevelInfo(String levelString);

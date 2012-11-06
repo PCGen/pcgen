@@ -80,6 +80,7 @@ public final class NoteItem implements NoteFacade, Cloneable
 		name = x;
 	}
 
+    @Override
 	public String getName()
 	{
 		return name;
@@ -95,11 +96,13 @@ public final class NoteItem implements NoteFacade, Cloneable
 		return id_parent;
 	}
 
+    @Override
 	public void setValue(final String x)
 	{
 		value = x;
 	}
 
+    @Override
 	public String getValue()
 	{
 		return value;

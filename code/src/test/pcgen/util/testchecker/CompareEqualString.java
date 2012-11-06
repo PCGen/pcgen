@@ -41,11 +41,13 @@ public class CompareEqualString extends TestChecker
 		this.str = str;
 	}
 
+    @Override
 	public boolean check(Object obj)
 	{
 		return obj instanceof String && ((String) obj).compareTo(this.str) == 0;
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("a String matching \"");

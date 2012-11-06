@@ -90,6 +90,7 @@ public class CheckDialog extends DiceRollDialog
 	 *
 	 * @see plugin.initiative.gui.DiceRollDialog#initComponents()
 	 */
+    @Override
 	protected void initComponents()
 	{
 		/*
@@ -106,6 +107,7 @@ public class CheckDialog extends DiceRollDialog
 	 *
 	 * @see plugin.initiative.gui.DiceRollDialog#setResult(int)
 	 */
+    @Override
 	protected void setResult(int result)
 	{
 		m_result.setText("<html><body><b>"
@@ -119,11 +121,13 @@ public class CheckDialog extends DiceRollDialog
 	 *
 	 * @see plugin.initiative.gui.DiceRollDialog#initListeners()
 	 */
+    @Override
 	protected void initListeners()
 	{
 		super.initListeners();
 		m_dc.addPropertyChangeListener(new PropertyChangeListener()
 		{
+            @Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
 				if ("value".equals(evt.getPropertyName()))

@@ -175,6 +175,7 @@ public class DamageDialog extends javax.swing.JDialog
 
 		addWindowListener(new java.awt.event.WindowAdapter()
 		{
+            @Override
 			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
 				closeDialog(evt);
@@ -188,6 +189,7 @@ public class DamageDialog extends javax.swing.JDialog
 
 		damageField.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				damageFieldActionPerformed(evt);
@@ -195,6 +197,7 @@ public class DamageDialog extends javax.swing.JDialog
 		});
 		damageField.addKeyListener(new java.awt.event.KeyAdapter()
 		{
+            @Override
 			public void keyReleased(java.awt.event.KeyEvent evt)
 			{
 				damageFieldKeyTyped(evt);
@@ -215,6 +218,7 @@ public class DamageDialog extends javax.swing.JDialog
 		bOK.setText("Ok");
 		bOK.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bOKActionPerformed(evt);
@@ -230,6 +234,7 @@ public class DamageDialog extends javax.swing.JDialog
 		bCancel.setText("Cancel");
 		bCancel.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bCancelActionPerformed(evt);

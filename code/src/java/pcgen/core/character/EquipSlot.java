@@ -65,6 +65,7 @@ public final class EquipSlot implements Cloneable
 		return slotName;
 	}
 
+    @Override
 	public EquipSlot clone()
 	{
 		EquipSlot newSlot;

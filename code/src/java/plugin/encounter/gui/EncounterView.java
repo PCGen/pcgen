@@ -244,6 +244,7 @@ public class EncounterView extends javax.swing.JPanel
 		targetEncounterLevel
 			.addActionListener(new java.awt.event.ActionListener()
 			{
+            @Override
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
 					targetEncounterLevelActionPerformed(evt);
@@ -268,6 +269,7 @@ public class EncounterView extends javax.swing.JPanel
 		numberOfCreatures.setText("1");
 		numberOfCreatures.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				numberOfCreaturesActionPerformed(evt);
@@ -300,6 +302,7 @@ public class EncounterView extends javax.swing.JPanel
 		generateEncounter.setText("New Encounter");
 		generateEncounter.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				generateEncounterActionPerformed(evt);

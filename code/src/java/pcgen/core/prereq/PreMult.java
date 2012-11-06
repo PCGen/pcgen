@@ -41,6 +41,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
+    @Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source) throws PrerequisiteException {
 		int runningTotal=0;
 		final int targetNumber = Integer.parseInt( prereq.getOperand() );
@@ -66,6 +67,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
 	 */
+    @Override
 	public String kindHandled() {
 		return "MULT"; //$NON-NLS-1$
 	}
@@ -73,6 +75,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
 	 */
+    @Override
 	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC) throws PrerequisiteException {
 		int runningTotal=0;
 		final int targetNumber = Integer.parseInt( prereq.getOperand() );
@@ -92,6 +95,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
 	 */
+    @Override
 	public String toHtmlString(final Prerequisite prereq) {
 		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 

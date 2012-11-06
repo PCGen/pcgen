@@ -61,6 +61,7 @@ public class DescToken extends AbstractNonEmptyToken<Campaign> implements
 		return pr;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		String title =
@@ -72,6 +73,7 @@ public class DescToken extends AbstractNonEmptyToken<Campaign> implements
 		return new String[]{title};
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

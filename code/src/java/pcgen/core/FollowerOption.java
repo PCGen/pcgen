@@ -139,6 +139,7 @@ public class FollowerOption extends ConcretePrereqObject implements
 	 * @return The comparison between the objects
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
+    @Override
 	public int compareTo(FollowerOption anO)
 	{
 		return ReferenceUtilities.compareRefs(ref, anO.ref);

@@ -72,6 +72,7 @@ public final class CoreUtility
 			}
 		}
 
+        @Override
 		public int compare(final Equipment obj1, final Equipment obj2)
 		{
 			int o1i = obj1.getOutputIndex();

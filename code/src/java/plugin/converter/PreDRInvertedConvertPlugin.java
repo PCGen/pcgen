@@ -26,6 +26,7 @@ import pcgen.gui2.converter.event.TokenProcessorPlugin;
 public class PreDRInvertedConvertPlugin implements TokenProcessorPlugin
 {
 
+    @Override
 	public String process(TokenProcessEvent tpe)
 	{
 		tpe.append(tpe.getKey());
@@ -76,11 +77,13 @@ public class PreDRInvertedConvertPlugin implements TokenProcessorPlugin
 		return null;
 	}
 
+    @Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return CDOMObject.class;
 	}
 
+    @Override
 	public String getProcessedToken()
 	{
 		return "!PREDR";

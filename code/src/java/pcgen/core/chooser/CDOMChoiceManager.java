@@ -36,6 +36,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		choicesPerUnitCost = cost;
 	}
 
+    @Override
 	public void getChoices(PlayerCharacter pc, List<T> availableList,
 			List<T> selectedList)
 	{
@@ -49,6 +50,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		preChooserChoices = selectedList.size();
 	}
 
+    @Override
 	public String typeHandled()
 	{
 		throw new UnsupportedOperationException();
@@ -60,6 +62,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @param pc
 	 * @param item
 	 */
+    @Override
 	public boolean conditionallyApply(PlayerCharacter pc, T item)
 	{
 		List<? extends T> oldSelections = info.getChoiceActor().getCurrentlySelected(
@@ -83,6 +86,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @param pc
 	 * @param selected
 	 */
+    @Override
 	public boolean applyChoices(PlayerCharacter pc, List<T> selected)
 	{
 		List<? extends T> oldSelections = info.getChoiceActor().getCurrentlySelected(
@@ -120,6 +124,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @param selectedList The list of existing selections.
 	 * @return list The list of the new selections made by the user (unchanged if the dialog was cancelled)
 	 */
+    @Override
 	public List<T> doChooser(PlayerCharacter aPc, final List<T> availableList,
 			final List<T> selectedList, final List<String> reservedList)
 	{
@@ -173,6 +178,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @param aPc The character the choice applies to.
 	 * @return The number of choices that may be made 
 	 */
+    @Override
 	public int getNumEffectiveChoices(final List<T> selectedList,
 		final List<String> reservedList, PlayerCharacter aPc)
 	{
@@ -228,6 +234,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @param availableList
 	 * @param selectedList
 	 */
+    @Override
 	public void doChooserRemove(PlayerCharacter pc, List<T> availableList,
 			List<T> selectedList, List<String> reservedList)
 	{
@@ -242,21 +249,25 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		controller.adjustPool(selected);
 	}
 
+    @Override
 	public void setController(ChooseController<T> cc)
 	{
 		controller = cc;
 	}
 
+    @Override
 	public int getChoicesPerUnitCost()
 	{
 		return choicesPerUnitCost;
 	}
 
+    @Override
 	public int getPreChooserChoices()
 	{
 		return preChooserChoices;
 	}
 
+    @Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, String choice)
 	{
 		if (choice.length() > 0)

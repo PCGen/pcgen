@@ -382,31 +382,37 @@ public class FacadeFactory
 			gameModeRef = new DefaultReferenceFacade<GameModeFacade>(gameMode);
 		}
 
+        @Override
 		public void setCampaigns(List<CampaignFacade> campaign)
 		{
 			throw new UnsupportedOperationException("Not supported yet.");
 		}
 
+        @Override
 		public void setGameMode(GameModeFacade gameMode)
 		{
 			throw new UnsupportedOperationException("Not supported yet.");
 		}
 
+        @Override
 		public boolean isModifiable()
 		{
 			return false;
 		}
 
+        @Override
 		public LoadingState getLoadingState()
 		{
 			return LoadingState.LOADED;
 		}
 
+        @Override
 		public String getLoadingErrorMessage()
 		{
 			return null;
 		}
 
+        @Override
 		public String toString()
 		{
 			if (name != null)
@@ -421,11 +427,13 @@ public class FacadeFactory
 			return "";
 		}
 
+        @Override
 		public ListFacade<CampaignFacade> getCampaigns()
 		{
 			return campaignModel;
 		}
 
+        @Override
 		public ReferenceFacade<GameModeFacade> getGameMode()
 		{
 			return gameModeRef;
@@ -452,11 +460,13 @@ public class FacadeFactory
 		private DefaultReferenceFacade<GameModeFacade> gameModeRef =
 				new DefaultReferenceFacade<GameModeFacade>();
 
+        @Override
 		public boolean isModifiable()
 		{
 			return true;
 		}
 
+        @Override
 		public void setCampaigns(List<CampaignFacade> campaign)
 		{
 			campaigns.setContents(campaign);
@@ -468,6 +478,7 @@ public class FacadeFactory
 			context.setStringArray("campaigns", camps);
 		}
 
+        @Override
 		public void setGameMode(GameModeFacade gameMode)
 		{
 			gameModeRef.setReference(gameMode);
@@ -480,11 +491,13 @@ public class FacadeFactory
 			return name;
 		}
 
+        @Override
 		public LoadingState getLoadingState()
 		{
 			return loadingState;
 		}
 
+        @Override
 		public String getLoadingErrorMessage()
 		{
 			return errorMessage;
@@ -500,11 +513,13 @@ public class FacadeFactory
 			this.errorMessage = errorMessage;
 		}
 
+        @Override
 		public ListFacade<CampaignFacade> getCampaigns()
 		{
 			return campaigns;
 		}
 
+        @Override
 		public ReferenceFacade<GameModeFacade> getGameMode()
 		{
 			return gameModeRef;

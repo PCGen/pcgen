@@ -55,6 +55,7 @@ public class RightmarginToken extends AbstractNonEmptyToken<PaperInfo>
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, PaperInfo pi)
 	{
 		String info = pi.getPaperInfo(PaperInfo.RIGHTMARGIN);
@@ -66,6 +67,7 @@ public class RightmarginToken extends AbstractNonEmptyToken<PaperInfo>
 		return new String[] { info };
 	}
 
+    @Override
 	public Class<PaperInfo> getTokenClass()
 	{
 		return PaperInfo.class;

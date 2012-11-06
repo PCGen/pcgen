@@ -126,6 +126,7 @@ public class CastSpell extends StartEvent
 		tName.setText(spellName);
 	}
 
+    @Override
 	protected void save()
 	{
 		initiative.initList.add(new Spell(tName.getText(), tPlayer.getText(),
@@ -145,6 +146,7 @@ public class CastSpell extends StartEvent
 	 * <p>Initializes the components.</p>
 	 *
 	 */
+    @Override
 	protected void initComponents()
 	{
 		sTitle = "Cast Spell";

@@ -27,6 +27,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 		choicesPerUnitCost = cost;
 	}
 
+    @Override
 	public void getChoices(PlayerCharacter pc, List<String> availableList,
 		List<String> selectedList)
 	{
@@ -35,16 +36,19 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 		preChooserChoices = selectedList.size();
 	}
 
+    @Override
 	public String typeHandled()
 	{
 		throw new UnsupportedOperationException();
 	}
 
+    @Override
 	public boolean conditionallyApply(PlayerCharacter pc, String item)
 	{
 		throw new UnsupportedOperationException();
 	}
 
+    @Override
 	public boolean applyChoices(PlayerCharacter pc, List<String> selected)
 	{
 		List<? extends String> oldSelections =
@@ -66,6 +70,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 		return oldSelectionSize != newSelectionSize;
 	}
 
+    @Override
 	public List<String> doChooser(PlayerCharacter aPc,
 		final List<String> availableList, final List<String> selectedList,
 		final List<String> reservedList)
@@ -74,6 +79,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 		return new ArrayList<String>(selectedList);
 	}
 
+    @Override
 	public void doChooserRemove(PlayerCharacter aPC,
 		List<String> availableList, List<String> selectedList,
 		List<String> reservedList)
@@ -87,27 +93,32 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 		controller.adjustPool(selected);
 	}
 
+    @Override
 	public void setController(ChooseController<String> cc)
 	{
 		controller = cc;
 	}
 
+    @Override
 	public int getChoicesPerUnitCost()
 	{
 		return choicesPerUnitCost;
 	}
 
+    @Override
 	public int getPreChooserChoices()
 	{
 		return preChooserChoices;
 	}
 
+    @Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 		String choice)
 	{
 		info.restoreChoice(pc, owner, info.decodeChoice(choice));
 	}
 
+    @Override
 	public int getNumEffectiveChoices(List<String> selectedList,
 		List<String> reservedList, PlayerCharacter aPc)
 	{

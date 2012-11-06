@@ -55,6 +55,7 @@ public abstract class GMBPlugin extends Plugin implements GMBComponent
 	 *@param  message  the message recieved
 	 *@since        GMGen 3.3
 	 */
+    @Override
 	public void handleMessage(GMBMessage message)
 	{
 	    // TODO This method currently does nothing?

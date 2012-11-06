@@ -14,11 +14,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class HiddenfeattypesToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "HIDDENFEATTYPES";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);

@@ -65,6 +65,7 @@ public class PreStatTester extends AbstractPrerequisiteTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "STAT"; //$NON-NLS-1$

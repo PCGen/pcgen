@@ -91,11 +91,13 @@ public class PrerequisiteTestFactory implements PluginLoader{
 		return test;
 	}
 
+    @Override
 	public void loadPlugin(Class<?> clazz) throws Exception
 	{
 		register((PrerequisiteTest) clazz.newInstance());
 }
 
+    @Override
 	public Class<?>[] getPluginClasses()
 	{
 		return new Class[]{PrerequisiteTest.class};

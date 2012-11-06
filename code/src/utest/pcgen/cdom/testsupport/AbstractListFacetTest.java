@@ -45,11 +45,13 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		public int addEventCount;
 		public int removeEventCount;
 
+        @Override
 		public void dataAdded(DataFacetChangeEvent<T> dfce)
 		{
 			addEventCount++;
 		}
 
+        @Override
 		public void dataRemoved(DataFacetChangeEvent<T> dfce)
 		{
 			removeEventCount++;

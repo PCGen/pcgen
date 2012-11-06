@@ -21,11 +21,13 @@ public class ShowtabToken implements GameModeLstToken, DeferredToken<TabInfo>,
 		DeprecatedToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "SHOWTAB";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		final StringTokenizer tok = new StringTokenizer(value, "|");
@@ -69,11 +71,13 @@ public class ShowtabToken implements GameModeLstToken, DeferredToken<TabInfo>,
 		return true;
 	}
 
+    @Override
 	public Class<TabInfo> getDeferredTokenClass()
 	{
 		return TabInfo.class;
 	}
 
+    @Override
 	public boolean process(LoadContext context, TabInfo ti)
 	{
 		Boolean visibility = SettingsHandler.getGame().getTabVisibility(ti);
@@ -84,6 +88,7 @@ public class ShowtabToken implements GameModeLstToken, DeferredToken<TabInfo>,
 		return true;
 	}
 
+    @Override
 	public String getMessage(CDOMObject obj, String value)
 	{
 		return "This Token is Deprecated. Please use VISIBLE: on the TAB: line";

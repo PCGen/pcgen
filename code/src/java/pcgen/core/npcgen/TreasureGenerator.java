@@ -45,6 +45,7 @@ public class TreasureGenerator
 			{
 				final EquipmentTableParser parser = new EquipmentTableParser( aMode );
 				final File[] fileNames = tablesDir.listFiles(new FilenameFilter() {
+                    @Override
 					public boolean accept(final File aDir, final String aName)
 					{
 						if (aName.toLowerCase().endsWith(".xml")) //$NON-NLS-1$

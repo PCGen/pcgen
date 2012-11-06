@@ -22,6 +22,7 @@ import pcgen.rules.persistence.token.AbstractPreEqualConvertPlugin;
 public class PreClassInvertedConvertPlugin extends
 		AbstractPreEqualConvertPlugin
 {
+    @Override
 	public String getProcessedToken()
 	{
 		return "!PRECLASS";

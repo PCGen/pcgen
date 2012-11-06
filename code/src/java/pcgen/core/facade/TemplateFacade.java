@@ -26,5 +26,6 @@ package pcgen.core.facade;
  */
 public interface TemplateFacade extends InfoFacade
 {
+    @Override
 	public String getType();
 }

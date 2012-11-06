@@ -145,6 +145,7 @@ public class OpposedCheckDialog extends JDialog
 			/* (non-Javadoc)
 			 * @see java.awt.datatransfer.Transferable#getTransferData(java.awt.datatransfer.DataFlavor)
 			 */
+            @Override
 			public Object getTransferData(DataFlavor flavor)
 				throws UnsupportedFlavorException
 			{
@@ -158,6 +159,7 @@ public class OpposedCheckDialog extends JDialog
 			/* (non-Javadoc)
 			 * @see java.awt.datatransfer.Transferable#getTransferDataFlavors()
 			 */
+            @Override
 			public DataFlavor[] getTransferDataFlavors()
 			{
 				return new DataFlavor[]{combatantFlavor};
@@ -166,6 +168,7 @@ public class OpposedCheckDialog extends JDialog
 			/* (non-Javadoc)
 			 * @see java.awt.datatransfer.Transferable#isDataFlavorSupported(java.awt.datatransfer.DataFlavor)
 			 */
+            @Override
 			public boolean isDataFlavorSupported(DataFlavor flavor)
 			{
 				return combatantFlavor.equals(flavor);
@@ -206,6 +209,7 @@ public class OpposedCheckDialog extends JDialog
 		/* (non-Javadoc)
 		 * @see javax.swing.TransferHandler#canImport(javax.swing.JComponent, java.awt.datatransfer.DataFlavor[])
 		 */
+        @Override
 		public boolean canImport(JComponent c, DataFlavor[] flavors)
 		{
 			if (sourceTable == null || c == null
@@ -226,6 +230,7 @@ public class OpposedCheckDialog extends JDialog
 		/* (non-Javadoc)
 		 * @see javax.swing.TransferHandler#createTransferable(javax.swing.JComponent)
 		 */
+        @Override
 		protected Transferable createTransferable(JComponent c)
 		{
 			if (c instanceof JTable)
@@ -240,6 +245,7 @@ public class OpposedCheckDialog extends JDialog
 		/* (non-Javadoc)
 		 * @see javax.swing.TransferHandler#exportDone(javax.swing.JComponent, java.awt.datatransfer.Transferable, int)
 		 */
+        @Override
 		protected void exportDone(JComponent c, Transferable data, int action)
 		{
 			if (action == MOVE)
@@ -268,6 +274,7 @@ public class OpposedCheckDialog extends JDialog
 		/* (non-Javadoc)
 		 * @see javax.swing.TransferHandler#getSourceActions(javax.swing.JComponent)
 		 */
+        @Override
 		public int getSourceActions(JComponent c)
 		{
 			return MOVE;
@@ -276,6 +283,7 @@ public class OpposedCheckDialog extends JDialog
 		/* (non-Javadoc)
 		 * @see javax.swing.TransferHandler#importData(javax.swing.JComponent, java.awt.datatransfer.Transferable)
 		 */
+        @Override
 		public boolean importData(JComponent c, Transferable t)
 		{
 			if (canImport(c, t.getTransferDataFlavors()))
@@ -768,6 +776,7 @@ public class OpposedCheckDialog extends JDialog
 			okButton.addActionListener(new java.awt.event.ActionListener()
 			{
 
+                @Override
 				public void actionPerformed(java.awt.event.ActionEvent e)
 				{
 
@@ -797,6 +806,7 @@ public class OpposedCheckDialog extends JDialog
 				.addActionListener(new java.awt.event.ActionListener()
 				{
 
+                @Override
 					public void actionPerformed(java.awt.event.ActionEvent e)
 					{
 
@@ -881,6 +891,7 @@ public class OpposedCheckDialog extends JDialog
 			rollButton.addActionListener(new java.awt.event.ActionListener()
 			{
 
+                @Override
 				public void actionPerformed(java.awt.event.ActionEvent e)
 				{
 
@@ -910,6 +921,7 @@ public class OpposedCheckDialog extends JDialog
 				.addActionListener(new java.awt.event.ActionListener()
 				{
 
+                @Override
 					public void actionPerformed(java.awt.event.ActionEvent e)
 					{
 						rollingComboBoxActionPerformed(e);

@@ -12,11 +12,13 @@ import pcgen.util.Logging;
 public class Bonus_acflatToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "BONUS_ACFLAT";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		Logging.deprecationPrint(getTokenName() + " is an unused "

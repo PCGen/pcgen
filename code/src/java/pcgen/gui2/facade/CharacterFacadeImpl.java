@@ -290,6 +290,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	/**
 	 * {@inheritDoc} 
 	 */
+    @Override
 	public void closeCharacter()
 	{
 		FacetLibrary.getFacet(LanguageFacet.class).removeDataFacetChangeListener(langListener);
@@ -4222,6 +4223,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	/**
 	 * {@inheritDoc}
 	 */
+    @Override
 	public List<KitFacade> getAvailableKits()
 	{
 		List<KitFacade> kits = new ArrayList<KitFacade>();

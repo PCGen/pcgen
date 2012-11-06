@@ -102,27 +102,32 @@ public class SizemultToken extends AbstractTokenWithSeparator<LoadInfo>
 		return '|';
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, LoadInfo info)
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+    @Override
 	public Class<LoadInfo> getTokenClass()
 	{
 		return LoadInfo.class;
 	}
 
+    @Override
 	public Class<LoadInfo> getDeferredTokenClass()
 	{
 		return LoadInfo.class;
 	}
 
+    @Override
 	public int getPriority()
 	{
 		return 0;
 	}
 
+    @Override
 	public boolean process(LoadContext context, LoadInfo info)
 	{
 		info.resolveSizeAdjustmentMap();

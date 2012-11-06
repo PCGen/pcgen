@@ -548,6 +548,7 @@ final class EqBuilder extends JPanel
 		setGuiTextInfo(jButtonName, "Name");
 		jButtonName.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					jButtonNameActionPerformed();
@@ -555,6 +556,7 @@ final class EqBuilder extends JPanel
 			});
 		jButtonName.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					jButtonNameActionPerformed();
@@ -565,6 +567,7 @@ final class EqBuilder extends JPanel
 		setGuiTextInfo(jButtonSProp, "SProp");
 		jButtonSProp.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					jButtonSPropActionPerformed();
@@ -572,6 +575,7 @@ final class EqBuilder extends JPanel
 			});
 		jButtonSProp.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					jButtonSPropActionPerformed();
@@ -582,6 +586,7 @@ final class EqBuilder extends JPanel
 		setGuiTextInfo(jButtonCost, "Cost");
 		jButtonCost.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					jButtonCostActionPerformed();
@@ -589,6 +594,7 @@ final class EqBuilder extends JPanel
 			});
 		jButtonCost.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					jButtonCostActionPerformed();
@@ -599,6 +605,7 @@ final class EqBuilder extends JPanel
 		setGuiTextInfo(jButtonWeight, "Weight");
 		jButtonWeight.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					jButtonWeightActionPerformed();
@@ -606,6 +613,7 @@ final class EqBuilder extends JPanel
 			});
 		jButtonWeight.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					jButtonWeightActionPerformed();
@@ -616,6 +624,7 @@ final class EqBuilder extends JPanel
 		setGuiTextInfo(jButtonDamage, "Damage");
 		jButtonDamage.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					jButtonDamageActionPerformed();
@@ -623,6 +632,7 @@ final class EqBuilder extends JPanel
 			});
 		jButtonDamage.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					jButtonDamageActionPerformed();
@@ -645,6 +655,7 @@ final class EqBuilder extends JPanel
 		jButtonOk.setMinimumSize(new Dimension(81, 27));
 		jButtonOk.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					jButtonOkActionPerformed(false);
@@ -652,6 +663,7 @@ final class EqBuilder extends JPanel
 			});
 		jButtonOk.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					jButtonOkActionPerformed(false);
@@ -666,6 +678,7 @@ final class EqBuilder extends JPanel
 		jButtonPurchase.setMinimumSize(new Dimension(81, 27));
 		jButtonPurchase.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					jButtonOkActionPerformed(true);
@@ -673,6 +686,7 @@ final class EqBuilder extends JPanel
 			});
 		jButtonPurchase.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					jButtonOkActionPerformed(true);
@@ -689,6 +703,7 @@ final class EqBuilder extends JPanel
 		jButtonCancel.setMinimumSize(new Dimension(81, 27));
 		jButtonCancel.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					jButtonCancelActionPerformed();
@@ -696,6 +711,7 @@ final class EqBuilder extends JPanel
 			});
 		jButtonCancel.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					jButtonCancelActionPerformed();
@@ -730,6 +746,7 @@ final class EqBuilder extends JPanel
 		jListAvailable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		jListAvailable.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					jListAvailableMouseClicked(evt);
@@ -770,6 +787,7 @@ final class EqBuilder extends JPanel
 		jButtonAdd1.setEnabled(false);
 		jButtonAdd1.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					jButtonAdd1ActionPerformed();
@@ -777,6 +795,7 @@ final class EqBuilder extends JPanel
 			});
 		jButtonAdd1.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					jButtonAdd1ActionPerformed();
@@ -793,6 +812,7 @@ final class EqBuilder extends JPanel
 		jButtonRemove1.setEnabled(false);
 		jButtonRemove1.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					jButtonRemove1ActionPerformed();
@@ -800,6 +820,7 @@ final class EqBuilder extends JPanel
 			});
 		jButtonRemove1.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					jButtonRemove1ActionPerformed();
@@ -818,6 +839,7 @@ final class EqBuilder extends JPanel
 		sizePanel.add(jLabelSize);
 		jComboBoxSize.addItemListener(new ItemListener()
 			{
+            @Override
 				public void itemStateChanged(ItemEvent evt)
 				{
 					jComboBoxSizeActionPerformed();
@@ -833,6 +855,7 @@ final class EqBuilder extends JPanel
 		jListSelected1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		jListSelected1.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					jListSelected1MouseClicked(evt);
@@ -840,6 +863,7 @@ final class EqBuilder extends JPanel
 			});
 		jListSelected1.addListSelectionListener(new ListSelectionListener()
 		{
+            @Override
 			public void valueChanged(ListSelectionEvent evt)
 			{
 				if (jListSelected1.getSelectedIndex() >= 0)
@@ -885,6 +909,7 @@ final class EqBuilder extends JPanel
 		jButtonAdd2.setEnabled(false);
 		jButtonAdd2.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					jButtonAdd2ActionPerformed();
@@ -892,6 +917,7 @@ final class EqBuilder extends JPanel
 			});
 		jButtonAdd2.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					jButtonAdd2ActionPerformed();
@@ -908,6 +934,7 @@ final class EqBuilder extends JPanel
 		jButtonRemove2.setEnabled(false);
 		jButtonRemove2.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					jButtonRemove2ActionPerformed();
@@ -915,6 +942,7 @@ final class EqBuilder extends JPanel
 			});
 		jButtonRemove2.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					jButtonRemove2ActionPerformed();
@@ -934,6 +962,7 @@ final class EqBuilder extends JPanel
 		jListSelected2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		jListSelected2.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					jListSelected2MouseClicked(evt);
@@ -941,6 +970,7 @@ final class EqBuilder extends JPanel
 			});
 		jListSelected2.addListSelectionListener(new ListSelectionListener()
 		{
+            @Override
 			public void valueChanged(ListSelectionEvent evt)
 			{
 				if (jListSelected2.getSelectedIndex() >= 0)
@@ -988,6 +1018,7 @@ final class EqBuilder extends JPanel
 		// this is resized
 		jScroll_ListAvailable.addComponentListener(new ComponentAdapter()
 			{
+            @Override
 				public void componentResized(ComponentEvent e)
 				{
 					final Dimension dimMax = jScroll_ListAvailable.getSize();
@@ -2002,6 +2033,7 @@ final class EqBuilder extends JPanel
 		 *
 		 * @return the number of rows
 		 */
+        @Override
 		public int getRowCount()
 		{
 			return displayModifiers.size();
@@ -2013,6 +2045,7 @@ final class EqBuilder extends JPanel
 		 * @param column
 		 * @return value
 		 */
+        @Override
 		public Object getValueAt(int row, int column)
 		{
 			if ((column < 0) || (column >= getColumnCount()))
@@ -2251,6 +2284,7 @@ final class EqBuilder extends JPanel
 		private static final int COL_SOURCE = 5;
 		private static final int COL_COUNT = 6;
 
+        @Override
 		protected Object getEqModTableValueAt(PlayerCharacter aPlayerCharacter, int row, int column)
 		{
 			EquipmentModifier e;
@@ -2281,6 +2315,7 @@ final class EqBuilder extends JPanel
 					return "";
 			}
 		}
+        @Override
 		public Class<?> getColumnClass(int column)
 		{
 			return String.class;
@@ -2293,6 +2328,7 @@ final class EqBuilder extends JPanel
 		 *
 		 * @return the name of the column
 		 */
+        @Override
 		public String getColumnName(int column)
 		{
 			switch(column) {
@@ -2306,6 +2342,7 @@ final class EqBuilder extends JPanel
 				return "";
 			}
 		}
+        @Override
 		public int getColumnCount() {
 			return COL_COUNT;
 		}
@@ -2326,6 +2363,7 @@ final class EqBuilder extends JPanel
 		private static final int COL_SOURCE = 6;
 		private static final int COL_COUNT = 7;
 
+        @Override
 		protected Object getEqModTableValueAt(PlayerCharacter aPlayerCharacter, int row, int column)
 		{
 			EquipmentModifier e;
@@ -2363,6 +2401,7 @@ final class EqBuilder extends JPanel
 		 * @return Class
 		 *
 		 */
+        @Override
 		public Class<?> getColumnClass(int column)
 		{
 			return String.class;
@@ -2373,6 +2412,7 @@ final class EqBuilder extends JPanel
 		 *
 		 * @return the number of columns
 		 */
+        @Override
 		public int getColumnCount()
 		{
 			return COL_COUNT;
@@ -2384,6 +2424,7 @@ final class EqBuilder extends JPanel
 		 *
 		 * @return the name of the column
 		 */
+        @Override
 		public String getColumnName(int column)
 		{
 			switch(column) {

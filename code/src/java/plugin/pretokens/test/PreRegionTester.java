@@ -77,6 +77,7 @@ public class PreRegionTester extends AbstractPrerequisiteTest implements Prerequ
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "REGION"; //$NON-NLS-1$

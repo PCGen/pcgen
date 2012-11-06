@@ -11,11 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class DeityToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "DEITY";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.addDeityList(value);

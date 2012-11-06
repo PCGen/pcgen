@@ -29,11 +29,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class BooktypeToken implements CDOMPrimaryToken<Campaign>
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "BOOKTYPE";
 	}
 
+    @Override
 	public ParseResult parseToken(LoadContext context, Campaign camp,
 		String value)
 	{
@@ -45,6 +47,7 @@ public class BooktypeToken implements CDOMPrimaryToken<Campaign>
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign camp)
 	{
 		String booktype =
@@ -56,6 +59,7 @@ public class BooktypeToken implements CDOMPrimaryToken<Campaign>
 		return new String[]{booktype};
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

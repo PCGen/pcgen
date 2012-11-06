@@ -39,6 +39,7 @@ public interface RaceFacade extends InfoFacade
 
 	public String getMovement();
 
+    @Override
 	public String getType();
 
 	/**

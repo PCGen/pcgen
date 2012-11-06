@@ -78,6 +78,7 @@ public class GameModeFileLoader extends PCGenTask
 			new FilenameFilter()
 			{
 
+        @Override
 				public boolean accept(File aFile, String aString)
 				{
 					try

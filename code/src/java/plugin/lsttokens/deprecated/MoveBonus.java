@@ -96,6 +96,7 @@ public final class MoveBonus extends BonusObj implements DeprecatedToken
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.DeprecatedToken#getMessage(pcgen.core.PObject, java.lang.String)
 	 */
+    @Override
 	public String getMessage(CDOMObject obj, String value)
 	{
 		return "The bonus will not be applied. You should use either BONUS:MOVEADD or BONUS:POSTMOVEADD instead.";

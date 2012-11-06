@@ -60,6 +60,7 @@ public class WidthToken extends AbstractNonEmptyToken<PaperInfo> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, PaperInfo pi)
 	{
 		String info = pi.getPaperInfo(PaperInfo.WIDTH);
@@ -71,6 +72,7 @@ public class WidthToken extends AbstractNonEmptyToken<PaperInfo> implements
 		return new String[] { info };
 	}
 
+    @Override
 	public Class<PaperInfo> getTokenClass()
 	{
 		return PaperInfo.class;

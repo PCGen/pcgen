@@ -121,6 +121,7 @@ public class ErrorListDialog extends EnhancedDialog
 	 *  Description of the Method
 	 *@since        GMGen 3.3
 	 */
+    @Override
 	public void cancel()
 	{
 		dispose();
@@ -130,6 +131,7 @@ public class ErrorListDialog extends EnhancedDialog
 	 *  Description of the Method
 	 *@since        GMGen 3.3
 	 */
+    @Override
 	public void ok()
 	{
 		dispose();
@@ -202,6 +204,7 @@ public class ErrorListDialog extends EnhancedDialog
 		 *@param  evt  Description of the Parameter
 		 *@since        GMGen 3.3
 		 */
+        @Override
 		public void actionPerformed(ActionEvent evt)
 		{
 			if (evt.getSource() == ok)

@@ -41,11 +41,13 @@ public class CompareSame extends TestChecker
 		this.obj = obj;
 	}
 
+    @Override
 	public boolean check(Object object)
 	{
 		return object == this.obj;
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("same(");

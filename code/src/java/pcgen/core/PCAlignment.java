@@ -57,11 +57,13 @@ public final class PCAlignment extends PObject implements AlignmentFacade
 		return abb == null ? 0 : getAbb().hashCode();
 	}
 
+    @Override
 	public String getName()
 	{
 		return getDisplayName();
 	}
 
+    @Override
 	public String getAbbreviation()
 	{
 		return getKeyName();

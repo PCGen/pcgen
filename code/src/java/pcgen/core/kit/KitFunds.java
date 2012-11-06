@@ -79,6 +79,7 @@ public final class KitFunds extends BaseKit
 		quantity = formula;
 	}
 
+    @Override
 	public void setName(String value)
 	{
 		name = value;

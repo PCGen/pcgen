@@ -460,6 +460,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			add(button, gbc);
 		}
 
+        @Override
 		public boolean isOpaque()
 		{
 			Color back = getBackground();

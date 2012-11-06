@@ -89,6 +89,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		super(name);
 	}
 
+    @Override
 	protected void additionalSetUp() throws Exception
 	{
 		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA);

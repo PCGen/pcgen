@@ -100,6 +100,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 		return Integer.parseInt(tbNumber.getText());
 	}
 
+    @Override
 	public void applyPreferences()
 	{
 		SettingsHandler.setGMGenOption(OPTION_NAME_DBMAXHP,
@@ -110,6 +111,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 		initiative.refreshTable();
 	}
 
+    @Override
 	public void initPreferences()
 	{
 		setMaxHP(SettingsHandler.getGMGenOption(OPTION_NAME_DBMAXHP, 100));

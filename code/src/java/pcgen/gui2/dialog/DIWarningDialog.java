@@ -157,6 +157,7 @@ public class DIWarningDialog extends JDialog implements
 
 		addWindowListener(new WindowAdapter()
 		{
+            @Override
 			public void windowClosing(WindowEvent e)
 			{
 				result = JOptionPane.CANCEL_OPTION;
@@ -169,6 +170,7 @@ public class DIWarningDialog extends JDialog implements
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
+    @Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if (ACTION_YES.equals(e.getActionCommand()))

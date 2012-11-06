@@ -39,6 +39,7 @@ public class CampaignToken extends AbstractNonEmptyToken<Campaign> implements
 		return "CAMPAIGN";
 	}
 
+    @Override
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.setName(value);
@@ -60,11 +61,13 @@ public class CampaignToken extends AbstractNonEmptyToken<Campaign> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		return new String[] { campaign.getDisplayName() };
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

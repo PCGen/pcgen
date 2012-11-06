@@ -48,6 +48,7 @@ public class Rule extends ArrayList<String> implements DataElement
 		this.weight = weight;
 	}
 
+    @Override
 	public ArrayList<DataValue> getData() throws Exception
 	{
 		retList.clear();
@@ -61,6 +62,7 @@ public class Rule extends ArrayList<String> implements DataElement
 		return retList;
 	}
 
+    @Override
 	public ArrayList<DataValue> getData(int choice) throws Exception
 	{
 		return getData();
@@ -71,11 +73,13 @@ public class Rule extends ArrayList<String> implements DataElement
 		this.id = id;
 	}
 
+    @Override
 	public String getId()
 	{
 		return id;
 	}
 
+    @Override
 	public ArrayList<DataValue> getLastData() throws Exception
 	{
 		retList.clear();
@@ -94,6 +98,7 @@ public class Rule extends ArrayList<String> implements DataElement
 		this.title = title;
 	}
 
+    @Override
 	public String getTitle()
 	{
 		return title;
@@ -104,6 +109,7 @@ public class Rule extends ArrayList<String> implements DataElement
 		this.weight = weight;
 	}
 
+    @Override
 	public int getWeight()
 	{
 		return weight;

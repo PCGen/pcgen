@@ -67,6 +67,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 *
 	 * @param aBool  The new AllowsDups value
 	 */
+    @Override
 	public void setAllowsDups(boolean aBool)
 	{
 		// Do Nothing
@@ -77,6 +78,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 *
 	 * @param availableList  The new AvailableList value
 	 */
+    @Override
 	public void setAvailableList(List availableList)
 	{
 		// Do Nothing
@@ -87,6 +89,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 *
 	 * @param costColumnNumber  The new CostColumnNumber value
 	 */
+    @Override
 	public void setCostColumnNumber(final int costColumnNumber)
 	{
 		// Do Nothing
@@ -97,6 +100,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 *
 	 * @param argMessageText  java.lang.String
 	 */
+    @Override
 	public void setMessageText(String argMessageText)
 	{
 		// Do Nothing
@@ -105,6 +109,7 @@ public final class NonGuiChooser implements ChooserInterface
 	/**
 	 * @see pcgen.util.chooser.ChooserInterface#setNegativeAllowed(boolean)
 	 */
+    @Override
 	public void setNegativeAllowed(final boolean argFlag)
 	{
 		// Do Nothing
@@ -124,6 +129,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 * Returns the mPool attribute of the Chooser object.
 	 * @return mPool
 	 */
+    @Override
 	public int getPool()
 	{
 		return getEffectivePool();
@@ -134,6 +140,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 *
 	 * @param poolFlag  The new PoolFlag value
 	 */
+    @Override
 	public void setPoolFlag(boolean poolFlag)
 	{
 		// Do Nothing
@@ -144,6 +151,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 *
 	 * @param selectedList  The new SelectedList value
 	 */
+    @Override
 	public void setSelectedList(List selectedList)
 	{
 		mSelectedList = selectedList;
@@ -159,6 +167,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 *
 	 * @return   java.util.ArrayList
 	 */
+    @Override
 	public List getSelectedList()
 	{
 		return new ArrayList(mSelectedList);
@@ -167,6 +176,7 @@ public final class NonGuiChooser implements ChooserInterface
 	/**
 	 * @see pcgen.util.chooser.ChooserInterface#setSelectedListTerminator(java.lang.String)
 	 */
+    @Override
 	public void setSelectedListTerminator(String aString)
 	{
 		// Do Nothing
@@ -177,6 +187,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 *
 	 * @param uniqueList  The new UniqueList value
 	 */
+    @Override
 	public void setUniqueList(List uniqueList)
 	{
 		// Do Nothing
@@ -188,6 +199,7 @@ public final class NonGuiChooser implements ChooserInterface
 	 *
 	 * @param b
 	 */
+    @Override
 	public void setVisible(boolean b)
 	{
 		throw new UnsupportedOperationException(
@@ -197,6 +209,7 @@ public final class NonGuiChooser implements ChooserInterface
 	/**
 	 * @see pcgen.util.chooser.ChooserInterface#setTitle(java.lang.String)
 	 */
+    @Override
 	public void setTitle(String title)
 	{
 		// Do Nothing
@@ -205,6 +218,7 @@ public final class NonGuiChooser implements ChooserInterface
 	/**
 	 * @see pcgen.util.chooser.ChooserInterface#show()
 	 */
+    @Override
 	public void show()
 	{
 		setVisible(true);
@@ -213,26 +227,31 @@ public final class NonGuiChooser implements ChooserInterface
 	/**
 	 * @see pcgen.util.chooser.ChooserInterface#setAvailableColumnNames(java.util.List)
 	 */
+    @Override
 	public void setAvailableColumnNames(List<String> availableColumnNames)
 	{
 		// Do Nothing
 	}
 
+    @Override
 	public void setChoicesPerUnit(int cost)
 	{
 		selectionsPerUnitCost = cost;
 	}
 
+    @Override
 	public void setTotalChoicesAvail(int avail)
 	{
 		totalSelectionsAvailable = avail;
 	}
 
+    @Override
 	public void setPickAll(boolean b)
 	{
 		pickAll = b;
 	}
 	
+    @Override
 	public boolean pickAll()
 	{
 		return pickAll;

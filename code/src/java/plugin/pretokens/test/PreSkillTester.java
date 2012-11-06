@@ -236,6 +236,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "SKILL"; //$NON-NLS-1$

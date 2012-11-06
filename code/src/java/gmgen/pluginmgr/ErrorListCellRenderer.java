@@ -69,6 +69,7 @@ public class ErrorListCellRenderer extends JComponent implements ListCellRendere
 	 *@return               The listCellRendererComponent value
 	 *@since        GMGen 3.3
 	 */
+    @Override
 	public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,
 	    boolean cellHasFocus)
 	{
@@ -85,6 +86,7 @@ public class ErrorListCellRenderer extends JComponent implements ListCellRendere
 	 *@return    The preferredSize value
 	 *@since        GMGen 3.3
 	 */
+    @Override
 	public Dimension getPreferredSize()
 	{
 		int width = boldFM.stringWidth(path);
@@ -109,6 +111,7 @@ public class ErrorListCellRenderer extends JComponent implements ListCellRendere
 	 *@param  g  Description of the Parameter
 	 *@since        GMGen 3.3
 	 */
+    @Override
 	public void paintComponent(Graphics g)
 	{
 		Insets insets = getBorder().getBorderInsets(this);

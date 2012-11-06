@@ -34,16 +34,19 @@ public class FeatEqToken implements CDOMSecondaryToken<CDOMObject>,
 		PostDeferredToken<CDOMObject>
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "FEATEQ";
 	}
 
+    @Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
+    @Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -95,21 +98,25 @@ public class FeatEqToken implements CDOMSecondaryToken<CDOMObject>,
 		return pr;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		return null;
 	}
 
+    @Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+    @Override
 	public Class<CDOMObject> getDeferredTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+    @Override
 	public boolean process(LoadContext context, CDOMObject obj)
 	{
 		CDOMSingleRef<Ability> ref = obj.get(ObjectKey.FEATEQ_STRING);
@@ -139,6 +146,7 @@ public class FeatEqToken implements CDOMSecondaryToken<CDOMObject>,
 		return true;
 	}
 
+    @Override
 	public int getPriority()
 	{
 		return 0;

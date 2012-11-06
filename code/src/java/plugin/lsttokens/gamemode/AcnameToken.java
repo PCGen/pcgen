@@ -38,11 +38,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class AcnameToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "ACNAME";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setACText(value);

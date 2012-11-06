@@ -47,6 +47,7 @@ public class CampaignFileLoader extends PCGenTask
 	private final FilenameFilter pccFileFilter = new FilenameFilter()
 	{
 
+        @Override
 		public boolean accept(File parentDir, String fileName)
 		{
 			/*

@@ -479,6 +479,7 @@ public class NetworkModel
 		 * @param message the message to log.
 		 *@since        GMGen 3.3
 		 */
+        @Override
 		public void logMessage(String owner, String message)
 		{
 			log("Local", owner, message);
@@ -494,6 +495,7 @@ public class NetworkModel
 		 * @param message the message to log.
 		 *@since        GMGen 3.3
 		 */
+        @Override
 		public void logMessage(String message)
 		{
 			logMessage("Misc", message);
@@ -502,6 +504,7 @@ public class NetworkModel
 
 	private class RadioActionListener implements ActionListener
 	{
+        @Override
 		public void actionPerformed(ActionEvent evt)
 		{
 			if (view.getServerRadioButton().isSelected())
@@ -534,6 +537,7 @@ public class NetworkModel
 
 	private class ConnectionButtonActionListener implements ActionListener
 	{
+        @Override
 		public void actionPerformed(ActionEvent evt)
 		{
 			if (client == null)
@@ -549,6 +553,7 @@ public class NetworkModel
 
 	private class TabFocusListener implements FocusListener
 	{
+        @Override
 		public void focusGained(FocusEvent evt)
 		{
 			clearIcon();
@@ -558,6 +563,7 @@ public class NetworkModel
 		 * This method currently does nothing
 		 * @param evt
 		 */
+        @Override
 		public void focusLost(FocusEvent evt)
 		{
 			// Do Nothing
@@ -566,6 +572,7 @@ public class NetworkModel
 
 	private class MessageButtonActionListener implements ActionListener
 	{
+        @Override
 		public void actionPerformed(ActionEvent evt)
 		{
 			sendMessage();

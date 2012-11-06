@@ -26,21 +26,25 @@ public interface SourceEntry
 			u = uri;
 		}
 
+        @Override
 		public Campaign getCampaign()
 		{
 			return null;
 		}
 
+        @Override
 		public URI getURI()
 		{
 			return u;
 		}
 
+        @Override
 		public List<String> getExcludeItems()
 		{
 			return Collections.emptyList();
 		}
 
+        @Override
 		public List<String> getIncludeItems()
 		{
 			return Collections.emptyList();

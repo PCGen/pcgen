@@ -184,6 +184,7 @@ public class MusicPane extends javax.swing.JPanel
 				checkPanel.add(checkBox);
 				checkBox.addActionListener(new java.awt.event.ActionListener()
 				{
+                    @Override
 					public void actionPerformed(java.awt.event.ActionEvent evt)
 					{
 						pc.setDirty(true);

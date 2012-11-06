@@ -92,6 +92,7 @@ public class LogUtilities implements LogReceiver
 	 * @param  message  The message to send
 	 * @since        GMGen 3.3
 	 */
+    @Override
 	public void logMessage(String owner, String message)
 	{
 		if (logging)
@@ -110,6 +111,7 @@ public class LogUtilities implements LogReceiver
 	 * @param  message  The message to send
 	 * @since        GMGen 3.3
 	 */
+    @Override
 	public void logMessage(String message)
 	{
 		if (logging)

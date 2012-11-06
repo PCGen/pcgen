@@ -65,51 +65,61 @@ public class DefeatedCombatant extends Combatant
 		kill();
 	}
 
+    @Override
 	public void setCR(float cr)
 	{
 		this.cr = cr;
 	}
 
+    @Override
 	public float getCR()
 	{
 		return cr;
 	}
 
+    @Override
 	public void setName(String name)
 	{
 		this.name = name;
 	}
 
+    @Override
 	public String getName()
 	{
 		return name;
 	}
 
+    @Override
 	public String getPlayer()
 	{
 		return LanguageBundle.getString("in_gm"); //$NON-NLS-1$
 	}
 
+    @Override
 	public Element getSaveElement()
 	{
 		return new Element("DefeatedCombatant");
 	}
 
+    @Override
 	public void setXP(int xp)
 	{
 		this.xp = xp;
 	}
 
+    @Override
 	public int getXP()
 	{
 		return xp;
 	}
 
+    @Override
 	public void editRow(List<String> columnOrder, int colNumber, Object data)
 	{
 		// TODO:  Method doesn't do anything?
 	}
 
+    @Override
 	public String toHtmlString()
 	{
 		return LanguageBundle.getFormattedString("in_plugin_xp_defeated", getName(), getPlayer()); //$NON-NLS-1$

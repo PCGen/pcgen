@@ -25,6 +25,7 @@ import pcgen.gui2.converter.event.TokenProcessorPlugin;
 public class CategoryConvertPlugin implements TokenProcessorPlugin
 {
 	// Just process over these magical tokens for now
+    @Override
 	public String process(TokenProcessEvent tpe)
 	{
 		tpe.append(tpe.getKey());
@@ -34,11 +35,13 @@ public class CategoryConvertPlugin implements TokenProcessorPlugin
 		return null;
 	}
 
+    @Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return Ability.class;
 	}
 
+    @Override
 	public String getProcessedToken()
 	{
 		return "CATEGORY";

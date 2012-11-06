@@ -33,6 +33,7 @@ public class PreVisionConvertPlugin implements TokenProcessorPlugin
 	public static final String SET_ZERO_ANY = "Set zero values to ANY (identify as 'present')";
 	public static final String SET_ZERO_ONE = "Set zero values to 1 (identify as 'possessing distance')";
 
+    @Override
 	public String process(TokenProcessEvent tpe)
 	{
 		String formula = tpe.getValue();
@@ -314,11 +315,13 @@ public class PreVisionConvertPlugin implements TokenProcessorPlugin
 		return "ANY";
 	}
 
+    @Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return CDOMObject.class;
 	}
 
+    @Override
 	public String getProcessedToken()
 	{
 		return "PREVISION";

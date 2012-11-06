@@ -79,6 +79,7 @@ public class NameElement implements Comparable<Object> {
 	/**
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
+    @Override
 	public int compareTo(Object o) {
 		if(o instanceof NameElement) {
 			NameElement e = (NameElement)o;

@@ -46,6 +46,7 @@ public class InitOutputter extends XMLOutputter
 	 *@param  str  <code>String</code> input to escape.
 	 *@return      <code>String</code> with escaped content.
 	 */
+    @Override
 	public String escapeAttributeEntities(String str)
 	{
 		StringBuffer buffer;
@@ -142,6 +143,7 @@ public class InitOutputter extends XMLOutputter
 	 *@param  str  Description of the Parameter
 	 *@return      <code>String</code> with escaped content.
 	 */
+    @Override
 	public String escapeElementEntities(String str)
 	{
 		StringBuffer buffer;

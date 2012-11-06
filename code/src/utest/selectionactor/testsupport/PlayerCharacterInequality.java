@@ -23,6 +23,7 @@ public class PlayerCharacterInequality implements
 		InequalityTest<PlayerCharacter>
 {
 
+    @Override
 	public String testInequality(PlayerCharacter t1, PlayerCharacter t2,
 			InequalityTester t)
 	{

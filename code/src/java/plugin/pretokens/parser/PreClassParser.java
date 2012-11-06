@@ -44,6 +44,7 @@ public class PreClassParser extends AbstractPrerequisiteListParser implements
 	 *
 	 * @return String array containing "CLASS" 
 	 */
+    @Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"CLASS"};

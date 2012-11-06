@@ -55,6 +55,7 @@ public class PluginClassLoader extends PCGenTask
 	private static FilenameFilter pluginFilter = new FilenameFilter()
 	{
 
+        @Override
 		public boolean accept(File dir, String name)
 		{
 			if (name.indexOf("plugin") > -1)
@@ -70,6 +71,7 @@ public class PluginClassLoader extends PCGenTask
 	private ExecutorService dispatcher = Executors.newSingleThreadExecutor(new ThreadFactory()
 	{
 
+        @Override
 		public Thread newThread(Runnable r)
 		{
 			Thread thread = new Thread(r, "Plugin-loading-thread");
@@ -144,6 +146,7 @@ public class PluginClassLoader extends PCGenTask
 		dispatcher.execute(new Runnable()
 		{
 
+            @Override
 			public void run()
 			{
 				boolean pluginFound = false;
@@ -224,6 +227,7 @@ public class PluginClassLoader extends PCGenTask
 		Future<?> future = dispatcher.submit(new Runnable()
 		{
 
+            @Override
 			public void run()
 			{
 				dispatcher.shutdown();

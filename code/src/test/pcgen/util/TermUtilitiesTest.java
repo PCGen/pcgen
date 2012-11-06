@@ -5,7 +5,7 @@ import pcgen.core.term.TermEvaulatorException;
 
 /**
  * TermUtilities Tester.
- * Copyright © 2008 Andrew Wilson <nuance@users.sourceforge.net>.
+ * Copyright ï¿½ 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -34,10 +34,12 @@ public class TermUtilitiesTest extends PCGenTestCase {
         super(name);
     }
 
+    @Override
     public void setUp() throws Exception {
         super.setUp();
     }
 
+    @Override
     public void tearDown() throws Exception {
         super.tearDown();
     }

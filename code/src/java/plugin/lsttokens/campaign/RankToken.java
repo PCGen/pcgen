@@ -41,6 +41,7 @@ public class RankToken extends AbstractIntToken<Campaign> implements
 		return IntegerKey.CAMPAIGN_RANK;
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

@@ -49,11 +49,13 @@ public class IconsTest extends TestCase
 	}
 
 	@Before
+    @Override
 	public void setUp()
 	{
 	}
 
 	@After
+    @Override
 	public void tearDown()
 	{
 	}

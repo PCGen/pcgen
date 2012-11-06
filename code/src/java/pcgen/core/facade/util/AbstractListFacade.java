@@ -36,21 +36,25 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	protected EventListenerList listenerList = new EventListenerList();
 	private Iterable<E> iteratorWrapper = null;
 
+    @Override
 	public void addListListener(ListListener<? super E> listener)
 	{
 		listenerList.add(ListListener.class, listener);
 	}
 
+    @Override
 	public void removeListListener(ListListener<? super E> listener)
 	{
 		listenerList.remove(ListListener.class, listener);
 	}
 
+    @Override
 	public boolean isEmpty()
 	{
 		return getSize() == 0;
 	}
 
+    @Override
 	public boolean containsElement(E element)
 	{
 		for (Object object : this)
@@ -63,6 +67,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 		return false;
 	}
 
+    @Override
 	public Iterator<E> iterator()
 	{
 		if (iteratorWrapper == null)

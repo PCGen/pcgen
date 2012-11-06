@@ -71,6 +71,7 @@ public class LoadmultToken extends AbstractNonEmptyToken<LoadInfo> implements
 		}
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, LoadInfo info)
 	{
 		BigDecimal mod = info.getLoadScoreMultiplier();
@@ -81,6 +82,7 @@ public class LoadmultToken extends AbstractNonEmptyToken<LoadInfo> implements
 		return new String[] { mod.toString() };
 	}
 
+    @Override
 	public Class<LoadInfo> getTokenClass()
 	{
 		return LoadInfo.class;

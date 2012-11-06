@@ -39,6 +39,7 @@ import java.util.StringTokenizer;
 public class StatRollTextToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "STATROLLTEXT";
@@ -47,6 +48,7 @@ public class StatRollTextToken implements GameModeLstToken
 	//
 	// STATROLLTEXT:<stat_val>,<display_text>
 	//
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		final StringTokenizer tok = new StringTokenizer(value, "\t");

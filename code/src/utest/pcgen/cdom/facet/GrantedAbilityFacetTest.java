@@ -46,11 +46,13 @@ public class GrantedAbilityFacetTest extends TestCase
 		public int addEventCount;
 		public int removeEventCount;
 
+        @Override
 		public void dataAdded(DataFacetChangeEvent dfce)
 		{
 			addEventCount++;
 		}
 
+        @Override
 		public void dataRemoved(DataFacetChangeEvent dfce)
 		{
 			removeEventCount++;

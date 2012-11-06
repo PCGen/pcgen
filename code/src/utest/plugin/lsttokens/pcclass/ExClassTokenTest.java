@@ -82,10 +82,10 @@ public class ExClassTokenTest extends AbstractTokenTestCase<PCClass>
 	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
 		primaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Niederösterreich");
+			"Niederï¿½sterreich");
 		secondaryContext.ref.constructCDOMObject(getCDOMClass(),
-			"Niederösterreich");
-		runRoundRobin("Niederösterreich");
+			"Niederï¿½sterreich");
+		runRoundRobin("Niederï¿½sterreich");
 	}
 
 	@Test

@@ -296,6 +296,7 @@ public class ScanForUnusedIl8nKeys
 			return results;
 		}
 
+        @Override
 		protected boolean handleDirectory(File directory, int depth,
 			Collection results)
 		{
@@ -311,6 +312,7 @@ public class ScanForUnusedIl8nKeys
 
 		}
 
+        @Override
 		protected void handleFile(File file, int depth, Collection results)
 		{
 			if (file.getName().endsWith(".java"))

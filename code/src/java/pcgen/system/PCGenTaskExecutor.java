@@ -40,6 +40,7 @@ public class PCGenTaskExecutor extends PCGenTask implements PCGenTaskListener
 		tasks.add(task);
 	}
 
+    @Override
 	public void execute()
 	{
 		progressMultiplier = Fraction.getFraction(1, tasks.size());
@@ -54,6 +55,7 @@ public class PCGenTaskExecutor extends PCGenTask implements PCGenTaskListener
 		}
 	}
 
+    @Override
 	public void progressChanged(PCGenTaskEvent event)
 	{
 		if (currentTask.getMaximum() == 0)
@@ -66,6 +68,7 @@ public class PCGenTaskExecutor extends PCGenTask implements PCGenTaskListener
 		setValues(currentTask.getMessage(), progress.getNumerator(), progress.getDenominator());
 	}
 
+    @Override
 	public void errorOccurred(PCGenTaskEvent event)
 	{
 		sendErrorMessage(event.getErrorRecord());

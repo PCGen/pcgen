@@ -90,6 +90,7 @@ public class DieEx extends Die
 	/** Rolls the die using the paramaters set
 	 * @return Value of the die rolls
 	 */
+    @Override
 	public int roll()
 	{
 		total = 0;

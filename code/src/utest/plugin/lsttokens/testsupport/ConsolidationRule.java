@@ -26,6 +26,7 @@ public interface ConsolidationRule
 
 	public static final ConsolidationRule OVERWRITE = new ConsolidationRule()
 	{
+        @Override
 		public String[] getAnswer(String... strings)
 		{
 			return new String[] { strings[strings.length - 1] };
@@ -34,6 +35,7 @@ public interface ConsolidationRule
 
 	public static final ConsolidationRule SEPARATE = new ConsolidationRule()
 	{
+        @Override
 		public String[] getAnswer(String... strings)
 		{
 			return strings;
@@ -49,6 +51,7 @@ public interface ConsolidationRule
 			join = Character.toString(joinCharacter);
 		}
 
+        @Override
 		public String[] getAnswer(String... strings)
 		{
 			return new String[] { StringUtil.join(strings, join) };

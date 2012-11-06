@@ -42,6 +42,7 @@ import java.util.List;
 public class PreMultParser extends AbstractPrerequisiteParser implements
 		PrerequisiteParserInterface
 {
+    @Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"MULT"};

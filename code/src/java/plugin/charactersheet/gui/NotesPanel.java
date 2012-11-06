@@ -278,16 +278,19 @@ public class NotesPanel extends FlippingSplitPane
 	{
 		notesArea.getDocument().addDocumentListener(new DocumentListener()
 		{
+                    @Override
 			public void changedUpdate(DocumentEvent e)
 			{
 				docChange(e);
 			}
 
+                    @Override
 			public void insertUpdate(DocumentEvent e)
 			{
 				docChange(e);
 			}
 
+                    @Override
 			public void removeUpdate(DocumentEvent e)
 			{
 				docChange(e);
@@ -739,11 +742,13 @@ public class NotesPanel extends FlippingSplitPane
 
 			KeyListener myKeyListener = new KeyListener()
 			{
+                            @Override
 				public void keyTyped(KeyEvent e)
 				{
 					dispatchEvent(e);
 				}
 
+                            @Override
 				public void keyPressed(KeyEvent e)
 				{
 					int keyCode = e.getKeyCode();
@@ -770,6 +775,7 @@ public class NotesPanel extends FlippingSplitPane
 					dispatchEvent(e);
 				}
 
+                            @Override
 				public void keyReleased(KeyEvent e)
 				{
 					dispatchEvent(e);
@@ -870,6 +876,7 @@ public class NotesPanel extends FlippingSplitPane
 				// Do Nothing
 			}
 
+                    @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				// TODO This method currently does nothing?

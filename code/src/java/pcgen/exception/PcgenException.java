@@ -69,6 +69,7 @@ public class PcgenException extends Exception
 	 * {@link #printStackTrace(PrintStream)} by default, and this method has
 	 * been overridden to print the root cause of the exception.
 	 */
+    @Override
 	public final void printStackTrace()
 	{
 		printStackTrace(System.err);
@@ -79,6 +80,7 @@ public class PcgenException extends Exception
 	 * the exception.
 	 * @param ps The {@link PrintStream print stream} to print the stack trace to
 	 */
+    @Override
 	public final void printStackTrace(PrintStream ps)
 	{
 		synchronized (ps)
@@ -100,6 +102,7 @@ public class PcgenException extends Exception
 	 * the exception.
 	 * @param pw The {@link PrintWriter print writer} to print the stack trace to
 	 */
+    @Override
 	public final void printStackTrace(PrintWriter pw)
 	{
 		synchronized (pw)

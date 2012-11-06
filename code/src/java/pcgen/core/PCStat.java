@@ -56,6 +56,7 @@ public final class PCStat extends PObject implements StatFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.StatFacade#getAbbreviation()
 	 */
+    @Override
 	public String getAbbreviation()
 	{
 		return getAbb();
@@ -64,6 +65,7 @@ public final class PCStat extends PObject implements StatFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.StatFacade#getName()
 	 */
+    @Override
 	public String getName()
 	{
 		return getDisplayName();

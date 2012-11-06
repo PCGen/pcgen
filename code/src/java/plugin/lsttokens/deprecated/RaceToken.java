@@ -26,11 +26,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class RaceToken implements CDOMCompatibilityToken<CDOMObject>
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "CHOOSE";
 	}
 
+    @Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 			String value)
 	{
@@ -47,21 +49,25 @@ public class RaceToken implements CDOMCompatibilityToken<CDOMObject>
 		return new ParseResult.Fail("CHOOSE:RACE not compatible", context);
 	}
 
+    @Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;
 	}
 
+    @Override
 	public int compatibilityLevel()
 	{
 		return 5;
 	}
 
+    @Override
 	public int compatibilitySubLevel()
 	{
 		return 16;
 	}
 
+    @Override
 	public int compatibilityPriority()
 	{
 		return 0;

@@ -31,16 +31,19 @@ import pcgen.util.Logging;
 public class FeatAddToken implements CDOMSecondaryToken<CDOMObject>
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "FEATADD";
 	}
 
+    @Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
+    @Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -119,11 +122,13 @@ public class FeatAddToken implements CDOMSecondaryToken<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		return null;
 	}
 
+    @Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

@@ -242,6 +242,7 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel
 		return returnVal;
 	}
 
+    @Override
 	public void applyPreferences()
 	{
 		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
@@ -258,6 +259,7 @@ public class PreferencesDamagePanel extends gmgen.gui.PreferencesPanel
 			+ ".Damage.Disabled", getDisabled());
 	}
 
+    @Override
 	public void initPreferences()
 	{
 		setDying(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME

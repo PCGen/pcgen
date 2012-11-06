@@ -4817,6 +4817,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		return getVariableValue(null, aString, src);
 	}
 
+    @Override
 	public Float getVariableValue(final String varName, final String src, final PlayerCharacter aPC)
 	{
 		return getVariableValue(null, varName, src);
@@ -10363,6 +10364,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		return cache.getSkillCost(this, sk, cl);
 	}
 
+    @Override
 	public void addAssociation(CDOMObject obj, String o)
 	{
 		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
@@ -10376,11 +10378,13 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		}
 	}
 
+    @Override
 	public void addAssociation(CDOMObject obj, FixedStringList o)
 	{
 		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, o);
 	}
 
+    @Override
 	public boolean containsAssociated(CDOMObject obj, String o)
 	{
 		List<FixedStringList> list = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
@@ -10397,6 +10401,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		return false;
 	}
 
+    @Override
 	public int getSelectCorrectedAssociationCount(CDOMObject obj)
 	{
 		return assocSupt.getAssocCount(obj, AssociationListKey.CHOICES)
@@ -10425,6 +10430,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		return assocSupt.hasAssocs(obj, AssociationListKey.CHOICES);
 	}
 
+    @Override
 	public List<String> removeAllAssociations(CDOMObject obj)
 	{
 		List<String> list = getAssociationList(obj);
@@ -10443,6 +10449,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		return list;
 	}
 
+    @Override
 	public void removeAssociation(CDOMObject obj, String o)
 	{
 		List<ChooseResultActor> actors = obj.getListFor(ListKey.CHOOSE_ACTOR);
@@ -10456,6 +10463,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		assocSupt.removeAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
 	}
 
+    @Override
 	public int getDetailedAssociationCount(CDOMObject obj)
 	{
 		List<FixedStringList> assocs = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
@@ -10470,6 +10478,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		return count;
 	}
 
+    @Override
 	public List<FixedStringList> getDetailedAssociations(CDOMObject obj)
 	{
 		List<FixedStringList> list = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
@@ -10480,6 +10489,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		return list;
 	}
 
+    @Override
 	public List<String> getExpandedAssociations(CDOMObject obj)
 	{
 		List<FixedStringList> assocs = assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
@@ -10497,6 +10507,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		return list;
 	}
 
+    @Override
 	public String getFirstAssociation(CDOMObject obj)
 	{
 		return assocSupt.getAssocList(obj, AssociationListKey.CHOICES).get(0).get(0);

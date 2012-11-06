@@ -247,6 +247,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		return panel;
 	}
 
+    @Override
 	protected JComponent getCenter()
 	{
 		DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("Root");
@@ -420,6 +421,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		settingsPanel.add(rightScroll, prefsPanel.getTitle());
 	}
 
+    @Override
 	public void cancelButtonActionPerformed()
 	{
 		resetOptionValues();
@@ -434,6 +436,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		}
 	}
 
+    @Override
 	public void applyButtonActionPerformed()
 	{
 		setOptionsBasedOnControls();

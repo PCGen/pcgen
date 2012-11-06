@@ -128,6 +128,7 @@ public class PatternFilter implements OutputFilter
 		}
 	}
 
+    @Override
 	public String filterString(String aString)
 	{
 		String aProcessedString = aString;

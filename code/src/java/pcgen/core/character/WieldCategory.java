@@ -53,11 +53,13 @@ public final class WieldCategory implements Loadable
 	private Map<Integer, CDOMSingleRef<WieldCategory>> wcSteps = new HashMap<Integer, CDOMSingleRef<WieldCategory>>();
 	private List<QualifiedObject<CDOMSingleRef<WieldCategory>>> categorySwitches = new ArrayList<QualifiedObject<CDOMSingleRef<WieldCategory>>>();
 
+    @Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+    @Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
@@ -68,31 +70,37 @@ public final class WieldCategory implements Loadable
 		setName(key);
 	}
 
+    @Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
+    @Override
 	public String getDisplayName()
 	{
 		return categoryName;
 	}
 
+    @Override
 	public void setName(String name)
 	{
 		categoryName = name;
 	}
 
+    @Override
 	public String getLSTformat()
 	{
 		return getDisplayName();
 	}
 
+    @Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
+    @Override
 	public boolean isType(String type)
 	{
 		return false;

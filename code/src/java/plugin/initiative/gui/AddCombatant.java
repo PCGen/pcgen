@@ -367,6 +367,7 @@ public class AddCombatant extends javax.swing.JDialog
 		saveButton.setText("Save");
 		saveButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bSaveActionPerformed(evt);
@@ -382,6 +383,7 @@ public class AddCombatant extends javax.swing.JDialog
 		cancelButton.setText("Cancel");
 		cancelButton.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bCancelActionPerformed(evt);

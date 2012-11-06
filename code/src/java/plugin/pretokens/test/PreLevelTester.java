@@ -58,6 +58,7 @@ public class PreLevelTester extends AbstractPrerequisiteTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "LEVEL"; //$NON-NLS-1$

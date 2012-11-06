@@ -45,6 +45,7 @@ public class PreReachParser extends AbstractPrerequisiteParser implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"REACH", "REACHEQ", "REACHGT", "REACHGTEQ",

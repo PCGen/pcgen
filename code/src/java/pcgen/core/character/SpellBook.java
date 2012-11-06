@@ -294,11 +294,13 @@ public class SpellBook implements Cloneable
 		return aClone;
 	}
 	
+    @Override
 	public int hashCode()
 	{
 		return name.hashCode();
 	}
 	
+    @Override
 	public boolean equals(Object o)
 	{
 		if (o == this)

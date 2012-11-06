@@ -19,12 +19,14 @@ public class NetworkInitiative extends SystemInitiative
 		this.sock = sock;
 	}
 
+    @Override
 	public void setBonus(int bonus)
 	{
 		super.setBonus(bonus);
 		sendNetMessage("INITBONUS|" + getModifier());
 	}
 
+    @Override
 	public void setCurrentInitiative(int currentInitiative)
 	{
 		super.setCurrentInitiative(currentInitiative);

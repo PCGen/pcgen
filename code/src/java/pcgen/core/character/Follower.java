@@ -171,6 +171,7 @@ public final class Follower implements Comparable<Object>, Cloneable
 		return theAdjustment;
 	}
 	
+    @Override
 	public int compareTo(final Object obj)
 	{
 		final Follower aF = (Follower) obj;

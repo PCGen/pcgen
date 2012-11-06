@@ -85,11 +85,13 @@ public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 		return returnVal;
 	}
 
+    @Override
 	public void applyPreferences()
 	{
 		SettingsHandler.setGMGenOption(OPTION_NAME_EXP_TYPE, getExperience());
 	}
 
+    @Override
 	public void initPreferences()
 	{
 		setExperience(SettingsHandler.getGMGenOption(

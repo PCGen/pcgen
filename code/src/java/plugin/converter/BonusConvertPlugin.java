@@ -31,6 +31,7 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 	private static int bonusCount = 1;
 
 	// Just process over these magical tokens for now
+    @Override
 	public String process(TokenProcessEvent tpe)
 	{
 		tpe.append(tpe.getKey());
@@ -97,11 +98,13 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 		return null;
 	}
 
+    @Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return CDOMObject.class;
 	}
 
+    @Override
 	public String getProcessedToken()
 	{
 		return "BONUS";

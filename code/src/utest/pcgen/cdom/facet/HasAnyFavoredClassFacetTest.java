@@ -90,30 +90,35 @@ public class HasAnyFavoredClassFacetTest extends
 	}
 
 	@Test
+    @Override
 	public void testTypeAddAllSecondSource()
 	{
 		// TODO Override due to Boolean only having 2 values
 	}
 
 	@Test
+    @Override
 	public void testTypeRemoveAllList()
 	{
 		// TODO Override due to Boolean only having 2 values
 	}
 
 	@Test
+    @Override
 	public void testTypeRemoveAllSource()
 	{
 		// TODO Override due to Boolean only having 2 values
 	}
 
 	@Test
+    @Override
 	public void testTypeGetSetSource()
 	{
 		// TODO Override due to Boolean only having 2 values
 	}
 
 	@Test
+    @Override
 	public void testTypeContainsFrom()
 	{
 		// TODO Override due to Boolean only having 2 values

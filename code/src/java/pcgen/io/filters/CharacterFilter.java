@@ -96,6 +96,7 @@ public class CharacterFilter implements OutputFilter
 		}
 	}
 
+    @Override
 	public String filterString(String aString)
 	{
 		if ((outputFilter != null) && (outputFilter.size() != 0)

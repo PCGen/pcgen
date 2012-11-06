@@ -53,6 +53,7 @@ public class Effect extends Event
 		this.aStatus = effect;
 	}
 
+    @Override
 	public String getEndText()
 	{
 		return "Effect " + getName() + " Completed or Occured";
@@ -65,6 +66,7 @@ public class Effect extends Event
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
+    @Override
 	public Vector<String> getRowVector(List<String> columnOrder)
 	{
 		Vector<String> rowVector = new Vector<String>();
@@ -123,6 +125,7 @@ public class Effect extends Event
 	 *@param  colNumber    What column number has been edited
 	 *@param  data         The new value for the field
 	 */
+    @Override
 	public void editRow(List<String> columnOrder, int colNumber, Object data)
 	{
 		String columnName = columnOrder.get(colNumber);

@@ -40,6 +40,7 @@ public class CharacterInfoTabPanel extends JPanel implements CharacterInfoTab
 		setLayout(new BorderLayout());
 	}
 
+    @Override
 	public void setPc(PlayerCharacter pc)
 	{
 		/*if(this.pc != pc) {
@@ -67,28 +68,33 @@ public class CharacterInfoTabPanel extends JPanel implements CharacterInfoTab
 		cp.setPc(pc);
 	}
 
+    @Override
 	public PlayerCharacter getPc()
 	{
 		//TODO Should this be cp.getPC()?? - thpr 10/27/06
 		return pc;
 	}
 
+    @Override
 	public int getTabOrder()
 	{
 		return SettingsHandler
 			.getGMGenOption(".Panel.CharacterPanel.Order", 20);
 	}
 
+    @Override
 	public void setTabOrder(int order)
 	{
 		SettingsHandler.setGMGenOption(".Panel.CharacterPanel.Order", order);
 	}
 
+    @Override
 	public String getTabName()
 	{
 		return LanguageBundle.getString("in_preview");
 	}
 
+    @Override
 	public boolean isShown()
 	{
 		return SettingsHandler.getGMGenOption(".Panel.CharacterPanel.Show",
@@ -99,11 +105,13 @@ public class CharacterInfoTabPanel extends JPanel implements CharacterInfoTab
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
+    @Override
 	public List<String> getToDos()
 	{
 		return new ArrayList<String>();
 	}
 
+    @Override
 	public void refresh()
 	{
 		if (cp != null)
@@ -112,6 +120,7 @@ public class CharacterInfoTabPanel extends JPanel implements CharacterInfoTab
 		}
 	}
 
+    @Override
 	public void forceRefresh()
 	{
 		if (cp != null)
@@ -120,6 +129,7 @@ public class CharacterInfoTabPanel extends JPanel implements CharacterInfoTab
 		}
 	}
 
+    @Override
 	public JComponent getView()
 	{
 		return this;

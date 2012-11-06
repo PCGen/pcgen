@@ -57,6 +57,7 @@ public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 		initPreferences();
 	}
 
+    @Override
 	public void applyPreferences() {
 		for ( String key : pluginMap.keySet() )
 		{
@@ -64,6 +65,7 @@ public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 		}
 	}
 
+    @Override
 	public void initPreferences() {
 		for ( String key : pluginMap.keySet() )
 		{

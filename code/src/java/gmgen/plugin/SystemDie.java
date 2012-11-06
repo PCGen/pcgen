@@ -32,6 +32,7 @@ public class SystemDie extends Die
 	 * I made it final as it is called from the constructor (it's usually unwise to invoke overridable methods during the construction phase of an object.)
 	 * @return result from the roll
 	 */
+    @Override
 	public final int roll()
 	{
 		int value = 0;

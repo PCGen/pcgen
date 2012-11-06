@@ -11,11 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class MenuentryToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "MENUENTRY";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setModeName(value.replace('|', '\n'));

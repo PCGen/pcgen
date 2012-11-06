@@ -63,6 +63,7 @@ public class SimpleFileFilter extends FileFilter
 	 * Gets the description of the filter.
 	 * @return the description.
 	 */
+    @Override
 	public String getDescription()
 	{
 		return description;
@@ -73,6 +74,7 @@ public class SimpleFileFilter extends FileFilter
 	 * @param f the file that is chosen.
 	 * @return true / false on user acceptance.
 	 */
+    @Override
 	public boolean accept(File f)
 	{
 		//we always allow directories, regardless of their extension

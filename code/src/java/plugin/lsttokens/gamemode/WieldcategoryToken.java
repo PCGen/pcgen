@@ -17,6 +17,7 @@ public class WieldcategoryToken implements GameModeLstToken
 	 * Get token name
 	 * @return token name  
 	 */
+    @Override
 	public String getTokenName()
 	{
 		return "WIELDCATEGORY";
@@ -28,6 +29,7 @@ public class WieldcategoryToken implements GameModeLstToken
 	 * @param value 
 	 * @return true if successful
 	 */
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try

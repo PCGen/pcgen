@@ -179,41 +179,49 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 		return bounds == null ? null : Collections.unmodifiableList(bounds);
 	}
 
+    @Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+    @Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
+    @Override
 	public String getDisplayName()
 	{
 		return null;
 	}
 
+    @Override
 	public void setName(String name)
 	{
 		//TODO illegal?
 	}
 
+    @Override
 	public String getKeyName()
 	{
 		return null;
 	}
 
+    @Override
 	public String getLSTformat()
 	{
 		return null;
 	}
 
+    @Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
+    @Override
 	public boolean isType(String type)
 	{
 		return false;

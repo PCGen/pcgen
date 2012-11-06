@@ -11,11 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class ShortrangeToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "SHORTRANGE";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try

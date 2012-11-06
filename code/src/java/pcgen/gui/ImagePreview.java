@@ -73,6 +73,7 @@ public class ImagePreview
 		return jfc;
 	}
 
+    @Override
 	public void propertyChange(final PropertyChangeEvent evt)
 	{
 		try
@@ -125,6 +126,7 @@ public class ImagePreview
 	 *
 	 * @param g {@inheritDoc}
 	 */
+    @Override
 	protected void paintComponent(final Graphics g)
 	{
 		g.setColor(UIManager.getColor("Panel.background"));

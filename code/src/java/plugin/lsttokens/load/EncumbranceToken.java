@@ -115,22 +115,26 @@ public class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, LoadInfo info)
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+    @Override
 	public Class<LoadInfo> getTokenClass()
 	{
 		return LoadInfo.class;
 	}
 
+    @Override
 	public Class<LoadInfo> getDeferredTokenClass()
 	{
 		return LoadInfo.class;
 	}
 
+    @Override
 	public boolean process(LoadContext context, LoadInfo info)
 	{
 		if (info.getLoadMultiplierCount() == 0)

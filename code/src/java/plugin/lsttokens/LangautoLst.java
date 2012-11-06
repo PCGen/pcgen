@@ -152,6 +152,7 @@ public class LangautoLst extends AbstractTokenWithSeparator<CDOMObject> implemen
 		return CDOMObject.class;
 	}
 
+    @Override
 	public String getMessage(CDOMObject obj, String value)
 	{
 		return getTokenName() + " has been deprecated, please use AUTO:LANG";

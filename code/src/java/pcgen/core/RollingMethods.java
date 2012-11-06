@@ -464,6 +464,7 @@ public final class RollingMethods
             numberOfParameters = 1;
         }
 
+        @Override
         public void run(Stack inStack) throws ParseException
         {
             Object param = inStack.pop();
@@ -517,6 +518,7 @@ public final class RollingMethods
             numberOfParameters = 1;
         }
 
+        @Override
         public void run(Stack inStack) throws ParseException
         {
             Object param = inStack.pop();

@@ -93,6 +93,7 @@ public abstract class EnhancedDialog extends JDialog
 		 *@param  evt  Description of the Parameter
 		 *@since        GMGen 3.3
 		 */
+        @Override
 		public void componentAdded(ContainerEvent evt)
 		{
 			componentAdded(evt.getChild());
@@ -104,6 +105,7 @@ public abstract class EnhancedDialog extends JDialog
 		 *@param  evt  Description of the Parameter
 		 *@since        GMGen 3.3
 		 */
+        @Override
 		public void componentRemoved(ContainerEvent evt)
 		{
 			componentRemoved(evt.getChild());
@@ -153,6 +155,7 @@ public abstract class EnhancedDialog extends JDialog
 		 *@param  evt  Description of the Parameter
 		 *@since        GMGen 3.3
 		 */
+        @Override
 		public void keyPressed(KeyEvent evt)
 		{
 			if (evt.isConsumed())
@@ -206,6 +209,7 @@ public abstract class EnhancedDialog extends JDialog
 		 *@param  evt  Description of the Parameter
 		 *@since        GMGen 3.3
 		 */
+        @Override
 		public void windowClosing(WindowEvent evt)
 		{
 			cancel();

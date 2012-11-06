@@ -473,6 +473,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get the display name of the game mode
 	 * @return displayName
 	 */
+    @Override
 	public String getDisplayName()
 	{
 		if (displayName == null)
@@ -640,6 +641,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get the game mode name
 	 * @return game mode name
 	 */
+    @Override
 	public String getName()
 	{
 		return name;
@@ -1106,6 +1108,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		getModeContext().ref.importObject(wCat);
 	}
 
+    @Override
 	public int compareTo(final Object obj)
 	{
 		if (obj != null)
@@ -1212,6 +1215,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Currency abbreviation
 	 * @return currency unit abbreviation
 	 */
+    @Override
 	public String getCurrencyDisplay()
 	{
 		return currencyUnitAbbrev;
@@ -1254,6 +1258,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 *
 	 * @return the default data set list
 	 */
+    @Override
 	public List<String> getDefaultDataSetList()
 	{
 		return defaultDataSetList;
@@ -1484,6 +1489,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get add with meta magic message
 	 * @return add with meta magic message
 	 */
+    @Override
 	public String getAddWithMetamagicMessage()
 	{
 		return addWithMetamagic;
@@ -2656,6 +2662,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 *
 	 * @return the default source title
 	 */
+    @Override
 	public String getDefaultSourceTitle()
 	{
 		return defaultSourceTitle;
@@ -2712,6 +2719,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	/**
 	 * @return the file name of the InfoSheet relative to the base pcgen directory
 	 */
+    @Override
 	public String getInfoSheet()
 	{
 		return theInfoSheet;
@@ -2728,6 +2736,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	/**
 	 * @return the file name of the skill InfoSheet relative to the base pcgen directory
 	 */
+    @Override
 	public String getInfoSheetSkill()
 	{
 		return theInfoSheetSkill;
@@ -2776,11 +2785,13 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return priority == null ? 0 : priority;
 	}
 	
+    @Override
 	public String getCharSheetDir()
 	{
 		return getPreviewDir();
 	}
 
+    @Override
 	public String getDefaultCharSheet()
 	{
 		return getDefaultPreviewSheet();

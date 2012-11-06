@@ -222,6 +222,7 @@ final class NewWeaponInfoDialog extends JDialog
 		setResizable(false);
 		addWindowListener(new WindowAdapter()
 			{
+            @Override
 				public void windowClosing(WindowEvent evt)
 				{
 					closeDialog();
@@ -231,6 +232,7 @@ final class NewWeaponInfoDialog extends JDialog
 		btnCancel.setText("Cancel");
 		btnCancel.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					closeDialog();
@@ -238,6 +240,7 @@ final class NewWeaponInfoDialog extends JDialog
 			});
 		btnCancel.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					closeDialog();
@@ -255,6 +258,7 @@ final class NewWeaponInfoDialog extends JDialog
 		btnOK.setText("OK");
 		btnOK.addActionListener(new ActionListener()
 			{
+            @Override
 				public void actionPerformed(ActionEvent evt)
 				{
 					btnOKActionPerformed();
@@ -262,6 +266,7 @@ final class NewWeaponInfoDialog extends JDialog
 			});
 		btnOK.addMouseListener(new MouseAdapter()
 			{
+            @Override
 				public void mouseClicked(MouseEvent evt)
 				{
 					btnOKActionPerformed();

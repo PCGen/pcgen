@@ -75,6 +75,7 @@ public class CompanionmodToken extends AbstractTokenWithSeparator<Campaign>
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
@@ -93,6 +94,7 @@ public class CompanionmodToken extends AbstractTokenWithSeparator<Campaign>
 		return set.toArray(new String[set.size()]);
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

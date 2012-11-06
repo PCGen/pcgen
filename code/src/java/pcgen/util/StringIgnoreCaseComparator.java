@@ -42,6 +42,7 @@ public final class StringIgnoreCaseComparator implements Comparator<Object>, Ser
 	}
 
 	/** {@inheritDoc} */
+    @Override
 	public int compare(Object o1, Object o2)
 	{
 		// Treat null as the empty string.

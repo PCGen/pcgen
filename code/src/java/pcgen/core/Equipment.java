@@ -2179,6 +2179,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return the value of the variable
 	 */
+    @Override
 	public Float getVariableValue(final String varName, final String src,
 		final PlayerCharacter aPC)
 	{
@@ -6515,17 +6516,20 @@ public final class Equipment extends PObject implements Serializable,
 		return null;
 	}
 
+    @Override
 	public void addAssociation(CDOMObject obj, String o)
 	{
 		assocSupt.addAssoc(obj, AssociationListKey.CHOICES,
 			new FixedStringList(o));
 	}
 
+    @Override
 	public void addAssociation(CDOMObject obj, FixedStringList o)
 	{
 		assocSupt.addAssoc(obj, AssociationListKey.CHOICES, o);
 	}
 
+    @Override
 	public boolean containsAssociated(CDOMObject obj, String o)
 	{
 		List<FixedStringList> list =
@@ -6544,6 +6548,7 @@ public final class Equipment extends PObject implements Serializable,
 		return false;
 	}
 
+    @Override
 	public int getSelectCorrectedAssociationCount(CDOMObject obj)
 	{
 		Formula f = obj.getSafe(FormulaKey.SELECT);
@@ -6584,6 +6589,7 @@ public final class Equipment extends PObject implements Serializable,
 		return assocSupt.hasAssocs(obj, AssociationListKey.CHOICES);
 	}
 
+    @Override
 	public List<String> removeAllAssociations(CDOMObject obj)
 	{
 		List<String> list = getAssociationList(obj);
@@ -6591,12 +6597,14 @@ public final class Equipment extends PObject implements Serializable,
 		return list;
 	}
 
+    @Override
 	public void removeAssociation(CDOMObject obj, String o)
 	{
 		assocSupt.removeAssoc(obj, AssociationListKey.CHOICES,
 			new FixedStringList(o));
 	}
 
+    @Override
 	public int getDetailedAssociationCount(CDOMObject obj)
 	{
 		List<FixedStringList> assocs =
@@ -6612,6 +6620,7 @@ public final class Equipment extends PObject implements Serializable,
 		return count;
 	}
 
+    @Override
 	public List<FixedStringList> getDetailedAssociations(CDOMObject obj)
 	{
 		List<FixedStringList> list =
@@ -6623,6 +6632,7 @@ public final class Equipment extends PObject implements Serializable,
 		return list;
 	}
 
+    @Override
 	public List<String> getExpandedAssociations(CDOMObject obj)
 	{
 		List<FixedStringList> assocs =
@@ -6641,6 +6651,7 @@ public final class Equipment extends PObject implements Serializable,
 		return list;
 	}
 
+    @Override
 	public String getFirstAssociation(CDOMObject obj)
 	{
 		return assocSupt.getAssocList(obj, AssociationListKey.CHOICES).get(0)
@@ -6919,6 +6930,7 @@ public final class Equipment extends PObject implements Serializable,
 		return false;
 	}
 
+    @Override
 	public String[] getTypes()
 	{
 		String type = getType();
@@ -6928,6 +6940,7 @@ public final class Equipment extends PObject implements Serializable,
 	/**
 	 * {@inheritDoc}
 	 */
+    @Override
 	public List<String> getTypesForDisplay()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
@@ -6946,6 +6959,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *  
 	 * @return The icon for this equipment item, or null if none
 	 */
+    @Override
 	public File getIcon()
 	{
 		// Check for icon on this specific item

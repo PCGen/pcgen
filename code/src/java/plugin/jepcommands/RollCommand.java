@@ -22,11 +22,13 @@ public class RollCommand extends PCGenCommand
 	 * Gets the name of the function handled by this class.
 	 * @return The name of the function.
 	 */
+    @Override
 	public String getFunctionName()
 	{
 		return "ROLL";
 	}
 
+    @Override
 	public boolean updateVariables(final PJEP jep)
 	{
 		return false;
@@ -36,6 +38,7 @@ public class RollCommand extends PCGenCommand
 	 * Is this command cacheable?
 	 * @return true if cacheable, false if not.
 	 */
+    @Override
 	public boolean getCachable()
 	{
 		return false;
@@ -49,6 +52,7 @@ public class RollCommand extends PCGenCommand
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
+    @Override
 	public void run(final Stack inStack) throws ParseException
 	{
 		// check the stack

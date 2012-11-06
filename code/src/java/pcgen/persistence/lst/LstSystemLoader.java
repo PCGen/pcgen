@@ -113,6 +113,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private static final FilenameFilter gameModeFileFilter =
 			new FilenameFilter()
 			{
+        @Override
 				public boolean accept(File aFile, String aString)
 				{
 					try
@@ -159,6 +160,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private FeatLoader featLoader = new FeatLoader();
 	private final FilenameFilter pccFileFilter = new FilenameFilter()
 	{
+        @Override
 		public boolean accept(File parentDir, String fileName)
 		{
 			try
@@ -332,6 +334,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.SystemLoader#setChosenCampaignSourcefiles(java.util.List, pcgen.core.GameMode)
 	 */
+    @Override
 	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
 	{
 		List<URI> files = chosenCampaignSourcefiles.get(game.getName());
@@ -351,6 +354,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.SystemLoader#getChosenCampaignSourcefiles(pcgen.core.GameMode)
 	 */
+    @Override
 	public List<URI> getChosenCampaignSourcefiles(GameMode game)
 	{
 		List<URI> files = chosenCampaignSourcefiles.get(game.getName());
@@ -374,11 +378,13 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		customItemsLoaded = argLoaded;
 	}
 
+    @Override
 	public boolean isCustomItemsLoaded()
 	{
 		return customItemsLoaded;
 	}
 
+    @Override
 	public Set<String> getSources()
 	{
 		return sourcesSet;
@@ -387,6 +393,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	////////////////////////////////////////////////////////////
 	// Private Method(s)
 	////////////////////////////////////////////////////////////
+    @Override
 	public void emptyLists()
 	{
 		loadedFiles.clear();
@@ -401,6 +408,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		customItemsLoaded = false;
 	}
 
+    @Override
 	public void initialize() throws PersistenceLayerException
 	{
 		loadGameModes();
@@ -441,6 +449,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	/**
 	 * @see pcgen.persistence.SystemLoader#loadCampaigns(List)
 	 */
+    @Override
 	public void loadCampaigns(final List<Campaign> aSelectedCampaignsList)
 		throws PersistenceLayerException
 	{
@@ -733,6 +742,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	/**
 	 * @see pcgen.persistence.SystemLoader#loadModItems(boolean)
 	 */
+    @Override
 	public void loadModItems(boolean flagDisplayError)
 	{
 		//No work to do
@@ -746,6 +756,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 *
 	 * @see pcgen.persistence.PersistenceManager#refreshCampaigns
 	 */
+    @Override
 	public void refreshCampaigns()
 	{
 		Globals.clearCampaignsForRefresh();
@@ -1854,6 +1865,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	{
 		Collections.sort(aSelectedCampaignsList, new Comparator<Campaign>()
 		{
+            @Override
 			public int compare(Campaign c1, Campaign c2)
 			{
 				return c1.getSafe(IntegerKey.CAMPAIGN_RANK) - c2.getSafe(IntegerKey.CAMPAIGN_RANK);
@@ -1898,6 +1910,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 * 
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
+    @Override
 	public void update(Observable o, Object arg)
 	{
 		// We are not going to do anything with the notifications
@@ -1924,16 +1937,19 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		campaignLoader.initRecursivePccFiles();
 	}
 
+    @Override
 	public Collection<Campaign> getLoadedCampaigns()
 	{
 		return new ArrayList<Campaign>(loadedCampaigns);
 	}
 
+    @Override
 	public boolean isLoaded(Campaign campaign)
 	{
 		return loadedCampaigns.contains(campaign);
 	}
 
+    @Override
 	public void markAllUnloaded()
 	{
 		loadedCampaigns.clear();

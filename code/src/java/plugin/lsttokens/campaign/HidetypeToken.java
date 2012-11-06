@@ -86,6 +86,7 @@ public class HidetypeToken extends AbstractTokenWithSeparator<Campaign>
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		List<String> returnList = new ArrayList<String>();
@@ -119,6 +120,7 @@ public class HidetypeToken extends AbstractTokenWithSeparator<Campaign>
 		return returnList.toArray(new String[returnList.size()]);
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

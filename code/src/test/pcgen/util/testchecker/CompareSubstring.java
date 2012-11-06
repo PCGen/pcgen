@@ -41,12 +41,14 @@ public class CompareSubstring extends TestChecker
 		this.substr = substr;
 	}
 
+    @Override
 	public boolean check(Object obj)
 	{
 		return obj instanceof String
 			&& ((String) obj).indexOf(this.substr) >= 0;
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("a string containing \"");

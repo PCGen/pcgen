@@ -96,6 +96,7 @@ public class Campaign extends PObject implements CampaignFacade
 		}
 	}
 
+    @Override
 	public boolean showInMenu()
 	{
 		return getSafe(ObjectKey.SHOW_IN_MENU);
@@ -103,6 +104,7 @@ public class Campaign extends PObject implements CampaignFacade
 
 	private DefaultListFacade<GameModeFacade> gameModes = null;
 
+    @Override
 	public ListFacade<GameModeFacade> getGameModes()
 	{
 		if (gameModes == null)
@@ -123,21 +125,25 @@ public class Campaign extends PObject implements CampaignFacade
 		return gameModes;
 	}
 
+    @Override
 	public String getName()
 	{
 		return getKeyName();
 	}
 
+    @Override
 	public String getPublisher()
 	{
 		return get(StringKey.DATA_PRODUCER);
 	}
 
+    @Override
 	public String getFormat()
 	{
 		return get(StringKey.DATA_FORMAT);
 	}
 
+    @Override
 	public String getSetting()
 	{
 		return get(StringKey.CAMPAIGN_SETTING);

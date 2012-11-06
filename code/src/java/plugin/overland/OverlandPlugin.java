@@ -53,6 +53,7 @@ public class OverlandPlugin extends GMBPlugin
 		// Do Nothing
 	}
 
+    @Override
 	public FileFilter[] getFileTypes()
 	{
 		return null;
@@ -61,6 +62,7 @@ public class OverlandPlugin extends GMBPlugin
 	/**
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
+    @Override
 	public void start()
 	{
 		String datadir = this.getDataDir();
@@ -70,12 +72,14 @@ public class OverlandPlugin extends GMBPlugin
 		getPluginSystem();
 	}
 
+    @Override
 	public String getPluginSystem()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
 			Constants.SYSTEM_GMGEN);
 	}
 
+    @Override
 	public int getPluginLoadOrder()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 90);
@@ -85,6 +89,7 @@ public class OverlandPlugin extends GMBPlugin
 	 * Accessor for name
 	 * @return name
 	 */
+    @Override
 	public String getName()
 	{
 		return name;
@@ -94,6 +99,7 @@ public class OverlandPlugin extends GMBPlugin
 	 * Accessor for version
 	 * @return version
 	 */
+    @Override
 	public String getVersion()
 	{
 		return version;
@@ -113,6 +119,7 @@ public class OverlandPlugin extends GMBPlugin
 	 * @param message the source of the event from the system
 	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage(GMBMessage)
 	 */
+    @Override
 	public void handleMessage(GMBMessage message)
 	{
 		if (message instanceof StateChangedMessage)
@@ -148,6 +155,7 @@ public class OverlandPlugin extends GMBPlugin
 		overToolsItem.setText("Overland Travel");
 		overToolsItem.addActionListener(new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				toolMenuItem(evt);

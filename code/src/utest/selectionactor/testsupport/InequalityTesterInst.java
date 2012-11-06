@@ -37,6 +37,7 @@ public final class InequalityTesterInst implements InequalityTester
 		INEQ_MAP.put(PlayerCharacter.class, new PlayerCharacterInequality());
 	}
 
+    @Override
 	public String testEquality(Object o1, Object o2)
 	{
 		List<String> reasons = new ArrayList<String>();

@@ -222,6 +222,7 @@ public class JTableEx extends JTable
 		}
 	}
 
+    @Override
 	public final String getToolTipText(MouseEvent event)
 	{
 		if (SettingsHandler.isToolTipTextShown())
@@ -265,6 +266,7 @@ public class JTableEx extends JTable
 	 *
 	 * author: Thomas Behr 13-03-02
 	 */
+    @Override
 	public void updateUI()
 	{
 		super.updateUI();
@@ -400,6 +402,7 @@ public class JTableEx extends JTable
 			setHorizontalAlignment(align);
 		}
 
+        @Override
 		public Component getTableCellRendererComponent(JTable table,
 			Object value, boolean isSelected, boolean hasFocus, int row,
 			int column)

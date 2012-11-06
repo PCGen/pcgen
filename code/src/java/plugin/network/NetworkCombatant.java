@@ -73,12 +73,14 @@ public class NetworkCombatant extends Combatant
 				new SystemHP(new SystemAttribute("Constitution", 10), 1, 1);
 	}
 
+    @Override
 	public void setCR(float cr)
 	{
 		this.cr = cr;
 		sendNetMessage("CR|" + cr);
 	}
 
+    @Override
 	public float getCR()
 	{
 		return cr;
@@ -89,6 +91,7 @@ public class NetworkCombatant extends Combatant
 		return uid;
 	}
 
+    @Override
 	public String getName()
 	{
 		return name;
@@ -99,18 +102,21 @@ public class NetworkCombatant extends Combatant
 	 * @param comType
 	 *
 	 */
+    @Override
 	public void setCombatantType(String comType)
 	{
 		super.setCombatantType(comType);
 		sendNetMessage("COMTYPE|" + comType);
 	}
 
+    @Override
 	public void setDuration(int duration)
 	{
 		super.setDuration(duration);
 		sendNetMessage("DURATION|" + duration);
 	}
 
+    @Override
 	public void setName(String name)
 	{
 		this.name = name;
@@ -122,6 +128,7 @@ public class NetworkCombatant extends Combatant
 	 *
 	 *@param  number  The new number value
 	 */
+    @Override
 	public void setNumber(int number)
 	{
 		super.setNumber(number);
@@ -134,6 +141,7 @@ public class NetworkCombatant extends Combatant
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
+    @Override
 	public Vector<String> getRowVector(List<String> columnOrder)
 	{
 		Vector<String> rowVector = new Vector<String>();
@@ -203,6 +211,7 @@ public class NetworkCombatant extends Combatant
 		return rowVector;
 	}
 
+    @Override
 	public void editRow(List<String> columnOrder, int colNumber, Object data)
 	{
 		String columnName = columnOrder.get(colNumber);
@@ -264,24 +273,28 @@ public class NetworkCombatant extends Combatant
 	 *
 	 *@param  status  The new status value
 	 */
+    @Override
 	public void setStatus(String status)
 	{
 		super.setStatus(status);
 		sendNetMessage("STATUS|" + status);
 	}
 
+    @Override
 	public void setXP(int xp)
 	{
 		this.xp = xp;
 		sendNetMessage("XP|" + xp);
 	}
 
+    @Override
 	public int getXP()
 	{
 		return xp;
 	}
 
 	/**  Causes the Combatant to bleed for 1 point of damage */
+    @Override
 	public void bleed()
 	{
 		super.bleed();
@@ -295,6 +308,7 @@ public class NetworkCombatant extends Combatant
 	 *
 	 *@param  damage  number of points of damage to do
 	 */
+    @Override
 	public void damage(int damage)
 	{
 		super.damage(damage);
@@ -308,6 +322,7 @@ public class NetworkCombatant extends Combatant
 	 *
 	 *@return    new duration
 	 */
+    @Override
 	public int decDuration()
 	{
 		super.decDuration();
@@ -317,6 +332,7 @@ public class NetworkCombatant extends Combatant
 		return duration;
 	}
 
+    @Override
 	public void endRound()
 	{
 		super.endRound();
@@ -330,6 +346,7 @@ public class NetworkCombatant extends Combatant
 	 *
 	 *@param  heal  amount of healing to do
 	 */
+    @Override
 	public void heal(int heal)
 	{
 		super.heal(heal);
@@ -338,6 +355,7 @@ public class NetworkCombatant extends Combatant
 		sendNetMessage("STATUS|" + status);
 	}
 
+    @Override
 	public void kill()
 	{
 		super.kill();
@@ -346,6 +364,7 @@ public class NetworkCombatant extends Combatant
 		sendNetMessage("STATUS|" + status);
 	}
 
+    @Override
 	public void nonLethalDamage(boolean type)
 	{
 		super.nonLethalDamage(type);
@@ -354,6 +373,7 @@ public class NetworkCombatant extends Combatant
 	}
 
 	/**  Raises a dead Combatant */
+    @Override
 	public void raise()
 	{
 		super.raise();
@@ -363,6 +383,7 @@ public class NetworkCombatant extends Combatant
 	}
 
 	/**  Stabilizes the Combatant */
+    @Override
 	public void stabilize()
 	{
 		super.stabilize();
@@ -374,6 +395,7 @@ public class NetworkCombatant extends Combatant
 	 *
 	 *@param  damage  number of points of damage to do
 	 */
+    @Override
 	public void subdualDamage(int damage)
 	{
 		super.subdualDamage(damage);
@@ -382,11 +404,13 @@ public class NetworkCombatant extends Combatant
 		sendNetMessage("STATUS|" + status);
 	}
 
+    @Override
 	public SystemInitiative getInitiative()
 	{
 		return init;
 	}
 
+    @Override
 	public String getPlayer()
 	{
 		return player;
@@ -398,6 +422,7 @@ public class NetworkCombatant extends Combatant
 		sendNetMessage("PLAYER|" + player);
 	}
 
+    @Override
 	public Element getSaveElement()
 	{
 		return new Element("NetworkCombatant");
@@ -605,6 +630,7 @@ public class NetworkCombatant extends Combatant
 		client.sendPcgMessage(uid, "HTMLSTRING|" + cbt.toHtmlString());
 	}
 
+    @Override
 	public String toHtmlString()
 	{
 		return htmlString;

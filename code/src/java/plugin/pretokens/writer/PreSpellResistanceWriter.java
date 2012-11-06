@@ -44,6 +44,7 @@ public class PreSpellResistanceWriter extends AbstractPrerequisiteWriter
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "SR";
@@ -52,6 +53,7 @@ public class PreSpellResistanceWriter extends AbstractPrerequisiteWriter
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
+    @Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
 		return null;
@@ -60,6 +62,7 @@ public class PreSpellResistanceWriter extends AbstractPrerequisiteWriter
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
+    @Override
 	public void write(Writer writer, Prerequisite prereq)
 		throws PersistenceLayerException
 	{

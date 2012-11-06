@@ -99,11 +99,13 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 	 * Sets the AvailableList attribute of the Chooser object
 	 * @param availableList
 	 **/
+    @Override
 	public void setAvailableList(List availableList)
 	{
 		mAvailableList = availableList;
 	}
 
+    @Override
 	public void setComboData(final String cmbLabelText, List cmbData)
 	{
 		cmbCombo = new JComboBoxEx(cmbData.toArray());
@@ -112,6 +114,7 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 		cmbCombo.setSelectedIndex(0);
 		cmbCombo.addItemListener(new ItemListener()
 		{
+            @Override
 			public void itemStateChanged(ItemEvent e)
 			{
 				//
@@ -130,6 +133,7 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 		lblCombo = new JRadioButton(cmbLabelText);
 		lblCombo.addItemListener(new ItemListener()
 		{
+            @Override
 			public void itemStateChanged(ItemEvent e)
 			{
 				// If associated radio button becomes not
@@ -155,6 +159,7 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 	 * Sets the message text
 	 * @param messageText
 	 **/
+    @Override
 	public void setMessageText(String messageText)
 	{
 		if ((messageText == null) || (messageText.trim().length() == 0))
@@ -169,6 +174,7 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 	 * Returns the selected item list
 	 * @return selected list
 	 **/
+    @Override
 	public ArrayList getSelectedList()
 	{
 		return new ArrayList(mSelectedList);
@@ -179,6 +185,7 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 	 * are updated before showing the dialog.
 	 * @param b
 	 */
+    @Override
 	public void setVisible(boolean b)
 	{
 		if (b)
@@ -275,6 +282,7 @@ public final class SwingChooserRadio extends JDialog implements ChooserRadio
 
 		final ActionListener eventListener = new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				if (evt.getSource() == okButton)

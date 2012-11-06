@@ -110,42 +110,50 @@ public final class PaperInfo implements Loadable
 		return true;
 	}
 
+    @Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+    @Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
+    @Override
 	public void setName(String name)
 	{
 		infoName = name;
 		paperInfo[0] = name;
 	}
 
+    @Override
 	public String getDisplayName()
 	{
 		return infoName;
 	}
 
+    @Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
+    @Override
 	public String getLSTformat()
 	{
 		return getDisplayName();
 	}
 
+    @Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
+    @Override
 	public boolean isType(String type)
 	{
 		return false;

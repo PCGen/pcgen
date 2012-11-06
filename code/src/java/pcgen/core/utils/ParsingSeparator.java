@@ -44,11 +44,13 @@ public class ParsingSeparator implements Iterator<String>
 		base = new StringTokenizer(baseString, "[]()" + sep, true);
 	}
 
+    @Override
 	public boolean hasNext()
 	{
 		return hasABlank || base.hasMoreTokens();
 	}
 
+    @Override
 	public String next()
 	{
 		if (!hasNext())
@@ -122,6 +124,7 @@ public class ParsingSeparator implements Iterator<String>
 				+ expected.pop());
 	}
 
+    @Override
 	public void remove()
 	{
 		throw new UnsupportedOperationException();

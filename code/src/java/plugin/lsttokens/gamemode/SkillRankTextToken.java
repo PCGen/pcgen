@@ -39,6 +39,7 @@ import java.util.StringTokenizer;
 public class SkillRankTextToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "SKILLRANKTEXT";
@@ -47,6 +48,7 @@ public class SkillRankTextToken implements GameModeLstToken
 	//
 	// SKILLRANKTEXT:<rank_val> <tab> <display_text>
 	//
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		final StringTokenizer tok = new StringTokenizer(value, "\t");

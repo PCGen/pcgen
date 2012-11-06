@@ -41,11 +41,13 @@ public class CompareEqualDouble extends TestChecker
 		this.doub = doub;
 	}
 
+    @Override
 	public boolean check(Object obj)
 	{
 		return obj.equals(Double.valueOf(this.doub));
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("a double ");

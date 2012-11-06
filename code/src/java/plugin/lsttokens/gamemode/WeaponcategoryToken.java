@@ -11,11 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class WeaponcategoryToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "WEAPONCATEGORY";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.addWeaponCategory(value);

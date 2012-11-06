@@ -44,11 +44,13 @@ public class CompareEqualFloat extends TestChecker
 		this.fl = fl;
 	}
 
+    @Override
 	public boolean check(Object obj)
 	{
 		return obj.equals(Float.valueOf(this.fl));
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("a float ");

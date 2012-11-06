@@ -29,11 +29,13 @@ import pcgen.rules.persistence.token.ParseResult;
 public class GenreToken implements CDOMPrimaryToken<Campaign>
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "GENRE";
 	}
 
+    @Override
 	public ParseResult parseToken(LoadContext context, Campaign campaign,
 		String value)
 	{
@@ -45,6 +47,7 @@ public class GenreToken implements CDOMPrimaryToken<Campaign>
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign camp)
 	{
 		String genre =
@@ -56,6 +59,7 @@ public class GenreToken implements CDOMPrimaryToken<Campaign>
 		return new String[]{genre};
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

@@ -39,6 +39,7 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 	private Comparator<Integer> indexComparator = new Comparator<Integer>()
 	{
 
+        @Override
 		public int compare(Integer o1, Integer o2)
 		{
 			E e1 = delegate.getElementAt(o1);
@@ -61,11 +62,13 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 
 	private Integer[] transform = null;
 
+    @Override
 	public int getSize()
 	{
 		return delegate.getSize();
 	}
 
+    @Override
 	public E getElementAt(int index)
 	{
 		return delegate.getElementAt(transform[index]);
@@ -92,6 +95,7 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 		elementsChanged(null);
 	}
 
+    @Override
 	public void elementAdded(ListEvent<E> e)
 	{
 		transform = (Integer[]) ArrayUtils.add(transform, transform.length);
@@ -101,6 +105,7 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 		fireElementAdded(this, e.getElement(), index);
 	}
 
+    @Override
 	public void elementRemoved(ListEvent<E> e)
 	{
 		int index = ArrayUtils.indexOf(transform, e.getIndex());
@@ -110,6 +115,7 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 		fireElementRemoved(this, e.getElement(), index);
 	}
 
+    @Override
 	public void elementsChanged(ListEvent<E> e)
 	{
 		transform = new Integer[delegate.getSize()];

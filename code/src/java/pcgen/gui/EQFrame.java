@@ -116,6 +116,7 @@ public final class EQFrame extends JDialog
 		return false;
 	}
 
+    @Override
 	public void toFront()
 	{
 		super.toFront();
@@ -130,6 +131,7 @@ public final class EQFrame extends JDialog
 	// Overridden so we can handle exit on System Close
 	// by calling <code>handleQuit</code>.
 	//
+    @Override
 	protected void processWindowEvent(WindowEvent e)
 	{
 		super.processWindowEvent(e);

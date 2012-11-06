@@ -56,6 +56,7 @@ public class PreEquipTwoWeaponTester extends PreEquippedTester implements Prereq
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "EQUIPTWOWEAPON"; //$NON-NLS-1$

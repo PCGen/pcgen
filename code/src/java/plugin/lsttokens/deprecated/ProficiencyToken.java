@@ -30,16 +30,19 @@ import pcgen.util.Logging;
 public class ProficiencyToken implements CDOMSecondaryToken<CDOMObject>
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "PROFICIENCY";
 	}
 
+    @Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
+    @Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -145,11 +148,13 @@ public class ProficiencyToken implements CDOMSecondaryToken<CDOMObject>
 			+ targetString + "]");
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		return null;
 	}
 
+    @Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

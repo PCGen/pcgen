@@ -42,11 +42,13 @@ public class CompareEqualObject extends TestChecker
 		this.obj = obj;
 	}
 
+    @Override
 	public boolean check(Object object)
 	{
 		return areEqual(this.obj, object);
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("eq(");

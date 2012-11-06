@@ -199,6 +199,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 *
 	 * @return a list of warning messages
 	 */
+    @Override
 	public List<String> getWarnings()
 	{
 		return warnings;
@@ -212,6 +213,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * @param lines   the String to parse
 	 * @throws PCGParseException
 	 */
+    @Override
 	public void parsePCG(String[] lines) throws PCGParseException
 	{
 		buildPcgLineCache(lines);
@@ -228,6 +230,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * @return The list of campaigns.
 	 * @throws PCGParseException If the lines are invalid 
 	 */
+    @Override
 	public SourceSelectionFacade parcePCGSourceOnly(String[] lines)
 		throws PCGParseException
 	{
@@ -6270,6 +6273,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	/**
 	 * @return the baseFeatPool
 	 */
+    @Override
 	public double getBaseFeatPool()
 	{
 		return baseFeatPool;
@@ -6278,6 +6282,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	/**
 	 * @return the calcFeatPoolAfterLoad
 	 */
+    @Override
 	public boolean isCalcFeatPoolAfterLoad()
 	{
 		return calcFeatPoolAfterLoad;

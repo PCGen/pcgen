@@ -197,6 +197,7 @@ public class PcgCombatant extends Combatant
 	 *
 	 *@return    The name
 	 */
+    @Override
 	public String getName()
 	{
 		return pc.getName();
@@ -228,11 +229,13 @@ public class PcgCombatant extends Combatant
 	 *
 	 *@return    The player's name
 	 */
+    @Override
 	public String getPlayer()
 	{
 		return pc.getPlayersName();
 	}
 
+    @Override
 	public Element getSaveElement()
 	{
 		Element retElement = new Element("PcgCombatant");
@@ -297,6 +300,7 @@ public class PcgCombatant extends Combatant
 	 *@param  colNumber    What column number has been edited
 	 *@param  data         The new value for the field
 	 */
+    @Override
 	public void editRow(List<String> columnOrder, int colNumber, Object data)
 	{
 		String columnName = columnOrder.get(colNumber);

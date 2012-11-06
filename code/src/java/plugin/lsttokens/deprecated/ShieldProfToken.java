@@ -26,16 +26,19 @@ import pcgen.util.Logging;
 public class ShieldProfToken implements CDOMSecondaryToken<CDOMObject>
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "SHIELDPROF";
 	}
 
+    @Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
+    @Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -45,11 +48,13 @@ public class ShieldProfToken implements CDOMSecondaryToken<CDOMObject>
 			"SHIELDPROFICIENCY", "EQUIPMENT[" + value + "]");
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		return null;
 	}
 
+    @Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

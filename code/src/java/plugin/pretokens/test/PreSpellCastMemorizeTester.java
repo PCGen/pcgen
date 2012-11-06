@@ -29,6 +29,7 @@ public class PreSpellCastMemorizeTester extends AbstractPrerequisiteTest
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "spellcast.memorize"; //$NON-NLS-1$

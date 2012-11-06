@@ -27,6 +27,7 @@ public class MaxCommand extends PCGenCommand
 	 * Gets the name of the function handled by this class.
 	 * @return The name of the function.
 	 */
+    @Override
 	public String getFunctionName()
 	{
 		return "MAX";
@@ -43,6 +44,7 @@ public class MaxCommand extends PCGenCommand
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
+    @Override
 	public void run(final Stack stack) throws ParseException
 	{
 		// Check if stack is null

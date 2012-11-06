@@ -119,6 +119,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 			PrereqHandler.passes(prereq, character, null));
 	}
 
+    @Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();

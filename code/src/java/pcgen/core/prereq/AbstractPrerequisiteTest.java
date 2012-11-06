@@ -56,6 +56,7 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 	 * @see     pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite,
 	 *          pcgen.core.PlayerCharacter, CDOMObject)
 	 */
+    @Override
 	public int passes(
 	    final Prerequisite    prereq,
 	    final PlayerCharacter character, CDOMObject source) throws PrerequisiteException
@@ -83,6 +84,7 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 	 * @throws  PrerequisiteException  Oops, haven't implemented passes with
 	 *                                 this signature in the subclass
 	 */
+    @Override
 	public int passes(
 	    final Prerequisite prereq,
 	    final Equipment    equipment,
@@ -116,6 +118,7 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
      * @param prereq
      * @return html String representation of the PreReq 
 	 */
+    @Override
     public String toHtmlString(final Prerequisite prereq)
 	{
 		return LanguageBundle.getFormattedString(

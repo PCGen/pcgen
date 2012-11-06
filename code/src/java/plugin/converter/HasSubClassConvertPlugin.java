@@ -25,17 +25,20 @@ import pcgen.gui2.converter.event.TokenProcessorPlugin;
 public class HasSubClassConvertPlugin implements TokenProcessorPlugin
 {
 	// Just ignore this useless token
+    @Override
 	public String process(TokenProcessEvent tpe)
 	{
 		tpe.consume();
 		return null;
 	}
 
+    @Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return PCClass.class;
 	}
 
+    @Override
 	public String getProcessedToken()
 	{
 		return "HASSUBCLASS";

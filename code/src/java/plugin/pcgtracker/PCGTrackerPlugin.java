@@ -73,6 +73,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		// Do Nothing
 	}
 
+    @Override
 	public FileFilter[] getFileTypes()
 	{
 		return null;
@@ -81,6 +82,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 	/**
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
+    @Override
 	public void start()
 	{
 		theView = new PCGTrackerView();
@@ -91,12 +93,14 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		getPluginSystem();
 	}
 
+    @Override
 	public String getPluginSystem()
 	{
 		return SettingsHandler.getGMGenOption(OPTION_NAME_SYSTEM,
 			Constants.SYSTEM_GMGEN);
 	}
 
+    @Override
 	public int getPluginLoadOrder()
 	{
 		return SettingsHandler.getGMGenOption(OPTION_NAME_LOADORDER, 1000);
@@ -106,6 +110,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 	 * Accessor for name
 	 * @return name
 	 */
+    @Override
 	public String getName()
 	{
 		return name;
@@ -115,6 +120,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 	 * Accessor for version
 	 * @return version
 	 */
+    @Override
 	public String getVersion()
 	{
 		return version;
@@ -129,6 +135,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		return theView;
 	}
 
+    @Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == theView.getRemoveButton())
@@ -186,6 +193,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 	 * @param message the source of the event from the system
 	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage(GMBMessage)
 	 */
+    @Override
 	public void handleMessage(GMBMessage message)
 	{
 		if (message instanceof FileOpenMessage)
@@ -450,6 +458,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		charToolsItem.setText(LanguageBundle.getString("in_plugin_pcgtracker_name")); //$NON-NLS-1$
 		charToolsItem.addActionListener(new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				toolMenuItem(evt);
@@ -476,6 +485,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 			fileChooser = aFileChooser;
 		}
 
+        @Override
 		public void propertyChange(PropertyChangeEvent evt)
 		{
 			String propName = evt.getPropertyName();

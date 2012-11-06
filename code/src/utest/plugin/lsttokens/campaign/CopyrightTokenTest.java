@@ -88,10 +88,10 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 		if (listKey != null)
 		{
 			List<?> coll;
-			assertTrue(parse("Niederösterreich"));
+			assertTrue(parse("Niederï¿½sterreich"));
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(1, coll.size());
-			assertTrue(coll.contains("Niederösterreich"));
+			assertTrue(coll.contains("Niederï¿½sterreich"));
 			assertCleanConstruction();
 		}
 	}
@@ -148,11 +148,11 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 		if (listKey != null)
 		{
 			List<?> coll;
-			assertTrue(parse("Niederösterreich"));
+			assertTrue(parse("Niederï¿½sterreich"));
 			assertTrue(parse("Finger Lakes"));
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(2, coll.size());
-			assertTrue(coll.contains("Niederösterreich"));
+			assertTrue(coll.contains("Niederï¿½sterreich"));
 			assertTrue(coll.contains("Finger Lakes"));
 			assertCleanConstruction();
 		}
@@ -165,13 +165,13 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 		if (listKey != null)
 		{
 			List<?> coll;
-			assertTrue(parse("Niederösterreich"));
+			assertTrue(parse("Niederï¿½sterreich"));
 			assertTrue(parse("Finger Lakes"));
 			assertTrue(parse("Languedoc-Roussillon"));
 			assertTrue(parse("Rheinhessen"));
 			coll = primaryProf.getListFor(listKey);
 			assertEquals(4, coll.size());
-			assertTrue(coll.contains("Niederösterreich"));
+			assertTrue(coll.contains("Niederï¿½sterreich"));
 			assertTrue(coll.contains("Finger Lakes"));
 			assertTrue(coll.contains("Languedoc-Roussillon"));
 			assertTrue(coll.contains("Rheinhessen"));
@@ -210,7 +210,7 @@ public class CopyrightTokenTest extends AbstractTokenTestCase<Campaign>
 	@Test
 	public void testRoundRobinNonEnglishAndN() throws PersistenceLayerException
 	{
-		runRoundRobin("Niederösterreich");
+		runRoundRobin("Niederï¿½sterreich");
 	}
 
 	@Test

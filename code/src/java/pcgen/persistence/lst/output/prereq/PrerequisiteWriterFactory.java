@@ -107,11 +107,13 @@ public class PrerequisiteWriterFactory implements PluginLoader
 		parserLookup.put(kindHandled.toLowerCase(), testClass);
 	}
 
+    @Override
 	public void loadPlugin(Class<?> clazz) throws Exception
 	{
 		register((PrerequisiteWriterInterface) clazz.newInstance());
 }
 
+    @Override
 	public Class[] getPluginClasses()
 	{
 		return new Class[]{PrerequisiteWriterInterface.class};

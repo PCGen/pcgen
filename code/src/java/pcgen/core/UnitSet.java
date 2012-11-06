@@ -136,6 +136,7 @@ public final class UnitSet implements Loadable
 	 * 
 	 * @param n name.
 	 */
+    @Override
 	public void setName(final String n)
 	{
 		name = n;
@@ -146,6 +147,7 @@ public final class UnitSet implements Loadable
 	 * 
 	 * @return String name.
 	 */
+    @Override
 	public String getDisplayName()
 	{
 		return name;
@@ -312,31 +314,37 @@ public final class UnitSet implements Loadable
 		return weightDisplayPattern.format(convertWeightToUnitSet(weightInPounds));
 	}
 
+    @Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+    @Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
+    @Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
+    @Override
 	public String getLSTformat()
 	{
 		return getDisplayName();
 	}
 
+    @Override
 	public boolean isInternal()
 	{
 		return isInternal;
 	}
 
+    @Override
 	public boolean isType(String type)
 	{
 		return false;

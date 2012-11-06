@@ -403,6 +403,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 * 
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
+    @Override
 	public int compareTo(final EquipSet obj)
 	{
 		return id_path.compareToIgnoreCase(obj.id_path);

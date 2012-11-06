@@ -41,6 +41,7 @@ public class PreSizeTest extends AbstractCharacterTestCase
 	Equipment eq2;
 	Equipment eq3;
 
+    @Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -60,6 +61,7 @@ public class PreSizeTest extends AbstractCharacterTestCase
 	/*
 	 * @see AbstractCharacterTestCase#tearDown()
 	 */
+    @Override
 	protected void tearDown() throws Exception
 	{
 		super.tearDown();

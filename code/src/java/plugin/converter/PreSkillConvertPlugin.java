@@ -21,6 +21,7 @@ import pcgen.rules.persistence.token.AbstractPreEqualConvertPlugin;
 
 public class PreSkillConvertPlugin extends AbstractPreEqualConvertPlugin
 {
+    @Override
 	public String getProcessedToken()
 	{
 		return "PRESKILL";

@@ -220,6 +220,7 @@ public class StartEvent extends javax.swing.JDialog
 		bSave.setText("Save");
 		bSave.addActionListener(new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent e)
 			{
 				saveAndClose(e);
@@ -235,6 +236,7 @@ public class StartEvent extends javax.swing.JDialog
 		bCancel.setText("Cancel");
 		bCancel.addActionListener(new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent e)
 			{
 				cancelAndClose(e);
@@ -407,6 +409,7 @@ public class StartEvent extends javax.swing.JDialog
 
 		addWindowListener(new java.awt.event.WindowAdapter()
 		{
+            @Override
 			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
 				closeDialog(evt);
@@ -445,6 +448,7 @@ public class StartEvent extends javax.swing.JDialog
 
 	protected class EnterKeyAdapter extends java.awt.event.KeyAdapter
 	{
+        @Override
 		public void keyReleased(java.awt.event.KeyEvent evt)
 		{
 			if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)

@@ -75,6 +75,7 @@ public class LogPanel extends JPanel implements LogReceiver
 	 // end clearCurrentTab
 
 	// log a message associated with a specific owner - from LogReceiver
+    @Override
 	public void logMessage(String owner, String message)
 	{
 		int index = pane.indexOfTab(owner);
@@ -94,6 +95,7 @@ public class LogPanel extends JPanel implements LogReceiver
 	 // end logMessage - 2 params
 
 	// log a message without an owner - from LogReceiver
+    @Override
 	public void logMessage(String message)
 	{
 		logMessage(defaultOwner, message);

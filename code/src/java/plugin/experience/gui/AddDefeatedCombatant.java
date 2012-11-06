@@ -144,6 +144,7 @@ public class AddDefeatedCombatant extends AbstractDialog
 	/**
 	 *  This method is called from within the constructor to initialize the form.
 	 */
+    @Override
 	protected JComponent getCenter()
 	{
 		JPanel panel = new JPanel();
@@ -163,6 +164,7 @@ public class AddDefeatedCombatant extends AbstractDialog
 
 		addWindowListener(new java.awt.event.WindowAdapter()
 		{
+            @Override
 			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
 				close();
@@ -204,6 +206,7 @@ public class AddDefeatedCombatant extends AbstractDialog
 		tCR.setText("1.0");
 		tCR.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				tCRActionPerformed(evt);
@@ -212,6 +215,7 @@ public class AddDefeatedCombatant extends AbstractDialog
 
 		tCR.addFocusListener(new java.awt.event.FocusAdapter()
 		{
+            @Override
 			public void focusLost(java.awt.event.FocusEvent evt)
 			{
 				tCRFocusLost(evt);
@@ -262,11 +266,13 @@ public class AddDefeatedCombatant extends AbstractDialog
 		tCR.setText(Float.toString(checkCRField(tCR, 1)));
 	}
 
+    @Override
 	protected String getOkMnKey()
 	{
 		return "in_mn_add"; //$NON-NLS-1$
 	}
 
+    @Override
 	protected String getOkKey()
 	{
 		return "in_add"; //$NON-NLS-1$

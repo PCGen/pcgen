@@ -26,16 +26,19 @@ import pcgen.util.Logging;
 public class CSkillsToken implements CDOMSecondaryToken<CDOMObject>
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "CSKILLS";
 	}
 
+    @Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
+    @Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -44,11 +47,13 @@ public class CSkillsToken implements CDOMSecondaryToken<CDOMObject>
 		return context.processSubToken(obj, "CHOOSE", "SKILL", "CLASS");
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		return null;
 	}
 
+    @Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

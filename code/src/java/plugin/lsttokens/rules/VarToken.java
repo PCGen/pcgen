@@ -46,6 +46,7 @@ public class VarToken extends AbstractNonEmptyToken<RuleCheck> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, RuleCheck rule)
 	{
 		String variable = rule.getVariable();
@@ -56,6 +57,7 @@ public class VarToken extends AbstractNonEmptyToken<RuleCheck> implements
 		return new String[] { variable };
 	}
 
+    @Override
 	public Class<RuleCheck> getTokenClass()
 	{
 		return RuleCheck.class;

@@ -28,6 +28,7 @@ import pcgen.core.GameMode;
  */
 public interface GameModeDisplayFacade
 {
+    @Override
 	public String toString();
 
 	public GameMode getGameMode();

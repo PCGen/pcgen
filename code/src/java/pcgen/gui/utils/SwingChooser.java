@@ -211,6 +211,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * @param aBool  The new AllowsDups value
 	 * author       Matt Woodard
 	 */
+    @Override
 	public void setAllowsDups(boolean aBool)
 	{
 		mAllowDuplicates = aBool;
@@ -222,6 +223,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * @param costColumnNumber  The new CostColumnNumber value
 	 * author                  Matt Woodard
 	 */
+    @Override
 	public void setCostColumnNumber(final int costColumnNumber)
 	{
 		mCostColumnNumber = costColumnNumber;
@@ -233,6 +235,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * @param argMessageText  java.lang.String
 	 * author             Matt Woodard
 	 */
+    @Override
 	public void setMessageText(String argMessageText)
 	{
 		String messageText;
@@ -249,6 +252,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		mMessageText.setText(messageText);
 	}
 
+    @Override
 	public void setNegativeAllowed(final boolean argFlag)
 	{
 		canGoNegative = argFlag;
@@ -269,6 +273,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * author Dmitry Jemerov
 	 * @return mPool
 	 */
+    @Override
 	public int getPool()
 	{
 		return getEffectivePool();
@@ -280,6 +285,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * @param poolFlag  The new PoolFlag value
 	 * author          Matt Woodard
 	 */
+    @Override
 	public void setPoolFlag(boolean poolFlag)
 	{
 		mPoolFlag = poolFlag;
@@ -291,11 +297,13 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * @return   java.util.ArrayList
 	 * author   Matt Woodard
 	 */
+    @Override
 	public List getSelectedList()
 	{
 		return new ArrayList(mSelectedList);
 	}
 
+    @Override
 	public void setSelectedListTerminator(String aString)
 	{
 		mSelectedTerminator = aString;
@@ -307,6 +315,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * @param uniqueList  The new UniqueList value
 	 * author            Matt Woodard
 	 */
+    @Override
 	public void setUniqueList(List uniqueList)
 	{
 		mUniqueList = uniqueList;
@@ -319,6 +328,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * author   Matt Woodard
 	 * @param b
 	 */
+    @Override
 	public void setVisible(boolean b)
 	{
 		updateAvailableTable();
@@ -396,6 +406,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * @param availableColumnNames  The new AvailableColumnNames value
 	 * author                      Matt Woodard
 	 */
+    @Override
 	public void setAvailableColumnNames(List<String> availableColumnNames)
 	{
 		mAvailableColumnNames = availableColumnNames;
@@ -411,6 +422,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * @param availableList  The new AvailableList value
 	 * author               Matt Woodard
 	 */
+    @Override
 	public void setAvailableList(List availableList)
 	{
 		mAvailableList = availableList;
@@ -436,6 +448,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 	 * @param selectedList  The new SelectedList value
 	 * author              Matt Woodard
 	 */
+    @Override
 	public void setSelectedList(List selectedList)
 	{
 		mSelectedList = selectedList;
@@ -492,6 +505,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(new java.awt.event.WindowAdapter()
 		{
+            @Override
 			public void windowClosing(java.awt.event.WindowEvent we)
 			{
 				windowCloseEvent();
@@ -549,6 +563,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 					 * @param evt  Description of Parameter
 					 * author     mwoodard
 					 */
+            @Override
 					public void valueChanged(ListSelectionEvent evt)
 					{
 						if (!evt.getValueIsAdjusting())
@@ -564,6 +579,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		// Initialize the mouse events
 		mAvailableTable.addMouseListener(new MouseAdapter()
 		{
+            @Override
 			public void mouseClicked(MouseEvent evt)
 			{
 				if (evt.getClickCount() == 2)
@@ -575,6 +591,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 
 		mSelectedTable.addMouseListener(new MouseAdapter()
 		{
+            @Override
 			public void mouseClicked(MouseEvent evt)
 			{
 				if (evt.getClickCount() == 2)
@@ -614,6 +631,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 			 * @param evt  Description of Parameter
 			 * author     Matt Woodard
 			 */
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				if (evt.getSource() == mAddButton)
@@ -1180,6 +1198,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		return results;
 	}
 
+    @Override
 	public void setChoicesPerUnit(int cost)
 	{
 		selectionsPerUnitCost = cost;
@@ -1187,6 +1206,7 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		setEffectiveUsed();
 	}
 
+    @Override
 	public void setTotalChoicesAvail(int avail)
 	{
 		totalSelectionsAvailable = avail;
@@ -1194,11 +1214,13 @@ public final class SwingChooser extends JDialog implements ChooserInterface
 		mEffectiveText.setText(Integer.toString(getEffectivePool()));
 	}
 
+    @Override
 	public void setPickAll(boolean b)
 	{
 		pickAll = b;
 	}
 	
+    @Override
 	public boolean pickAll()
 	{
 		return pickAll;

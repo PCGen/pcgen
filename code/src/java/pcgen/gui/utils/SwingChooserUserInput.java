@@ -186,6 +186,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	 *
 	 * @param aBool  The new AllowsDups value
 	 */
+    @Override
 	public void setAllowsDups(boolean aBool)
 	{
 		mAllowDuplicates = aBool;
@@ -196,6 +197,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	 *
 	 * @param costColumnNumber  The new CostColumnNumber value
 	 */
+    @Override
 	public void setCostColumnNumber(final int costColumnNumber)
 	{
 		// Ignored
@@ -206,6 +208,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	 *
 	 * @param argMessageText  The message to be displayed on the chooser.
 	 */
+    @Override
 	public void setMessageText(String argMessageText)
 	{
 		String messageText;
@@ -222,6 +225,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 		mMessageText.setText(messageText);
 	}
 
+    @Override
 	public void setNegativeAllowed(final boolean argFlag)
 	{
 		canGoNegative = argFlag;
@@ -244,6 +248,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	 * author Dmitry Jemerov
 	 * @return mPool
 	 */
+    @Override
 	public int getPool()
 	{
 		return getEffectivePool();
@@ -255,6 +260,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	 * @param poolFlag  The new PoolFlag value
 	 * author          Matt Woodard
 	 */
+    @Override
 	public void setPoolFlag(boolean poolFlag)
 	{
 		mPoolFlag = poolFlag;
@@ -266,11 +272,13 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	 * @return   java.util.ArrayList
 	 * author   Matt Woodard
 	 */
+    @Override
 	public List getSelectedList()
 	{
 		return new ArrayList(mSelectedList);
 	}
 
+    @Override
 	public void setSelectedListTerminator(String aString)
 	{
 		mSelectedTerminator = aString;
@@ -282,6 +290,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	 * @param uniqueList  The new UniqueList value
 	 * author            Matt Woodard
 	 */
+    @Override
 	public void setUniqueList(List uniqueList)
 	{
 		mUniqueList = uniqueList;
@@ -294,6 +303,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	 *
 	 * @param visible true to show the chooser, false to hide it.
 	 */
+    @Override
 	public void setVisible(boolean visible)
 	{
 		updateSelectedTable();
@@ -326,6 +336,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	 * @param availableColumnNames  The new AvailableColumnNames value
 	 * author                      Matt Woodard
 	 */
+    @Override
 	public void setAvailableColumnNames(List<String> availableColumnNames)
 	{
 		// ignored
@@ -337,6 +348,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	 *
 	 * @param availableList  The new AvailableList value
 	 */
+    @Override
 	public void setAvailableList(List availableList)
 	{
 		// Ignored as there is no list of available entries
@@ -362,6 +374,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 	 * @param selectedList  The new SelectedList value
 	 * author              Matt Woodard
 	 */
+    @Override
 	public void setSelectedList(List selectedList)
 	{
 		mSelectedList = selectedList;
@@ -417,6 +430,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(new java.awt.event.WindowAdapter()
 		{
+            @Override
 			public void windowClosing(java.awt.event.WindowEvent we)
 			{
 				windowCloseEvent();
@@ -453,6 +467,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 		// Initialize selection types & events
 		final CaretListener caretListener = new CaretListener()
 		{
+            @Override
 			public void caretUpdate(CaretEvent e)
 			{
 				updateButtonStates();
@@ -461,6 +476,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 		mAvailableText.addCaretListener(caretListener);
 		final ActionListener actionListener = new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent e)
 			{
 				selectAvailable();
@@ -483,6 +499,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 					 * @param evt  Description of Parameter
 					 * author     mwoodard
 					 */
+            @Override
 					public void valueChanged(ListSelectionEvent evt)
 					{
 						if (!evt.getValueIsAdjusting())
@@ -497,6 +514,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 		// Initialize the mouse events
 		mSelectedTable.addMouseListener(new MouseAdapter()
 		{
+            @Override
 			public void mouseClicked(MouseEvent evt)
 			{
 				if (evt.getClickCount() == 2)
@@ -532,6 +550,7 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 			 * @param evt  Description of Parameter
 			 * author     Matt Woodard
 			 */
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				if (evt.getSource() == mAddButton)
@@ -961,11 +980,13 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 		return results;
 	}
 
+    @Override
 	public void setChoicesPerUnit(int cost)
 	{
 		selectionsPerUnitCost = cost;
 	}
 
+    @Override
 	public void setTotalChoicesAvail(int avail)
 	{
 		totalSelectionsAvailable = avail;
@@ -977,11 +998,13 @@ public final class SwingChooserUserInput extends JDialog implements ChooserInter
 				- mSelectedList.size();
 	}
 
+    @Override
 	public boolean pickAll()
 	{
 		return false;
 	}
 
+    @Override
 	public void setPickAll(boolean b)
 	{
 		throw new UnsupportedOperationException();

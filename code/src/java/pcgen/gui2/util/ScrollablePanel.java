@@ -40,6 +40,7 @@ public class ScrollablePanel extends JPanel implements Scrollable
 		this.scrollNum = scrollNum;
 	}
 
+    @Override
 	public Dimension getPreferredScrollableViewportSize()
 	{
 		return getPreferredSize();
@@ -52,6 +53,7 @@ public class ScrollablePanel extends JPanel implements Scrollable
 	 * @param direction
 	 * @return int
 	 */
+    @Override
 	public int getScrollableUnitIncrement(Rectangle visibleRect,
 		int orientation, int direction)
 	{
@@ -65,17 +67,20 @@ public class ScrollablePanel extends JPanel implements Scrollable
 	 * @param direction
 	 * @return int
 	 */
+    @Override
 	public int getScrollableBlockIncrement(Rectangle visibleRect,
 		int orientation, int direction)
 	{
 		return scrollNum;
 	}
 
+    @Override
 	public boolean getScrollableTracksViewportWidth()
 	{
 		return true;
 	}
 
+    @Override
 	public boolean getScrollableTracksViewportHeight()
 	{
 		return false;

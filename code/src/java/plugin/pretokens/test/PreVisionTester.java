@@ -88,6 +88,7 @@ public class PreVisionTester extends AbstractPrerequisiteTest implements Prerequ
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "VISION"; //$NON-NLS-1$

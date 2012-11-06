@@ -87,6 +87,7 @@ public class Configuration
 			final OptionsParser parser = new OptionsParser( aMode );
 			
 			final File[] fileNames = optionsDir.listFiles(new FilenameFilter() {
+                @Override
 				public boolean accept(final File aDir, final String aName)
 				{
 					if (aName.toLowerCase().endsWith(".xml")) //$NON-NLS-1$
@@ -106,6 +107,7 @@ public class Configuration
 			final ClassDataParser classParser = new ClassDataParser( aMode );
 			
 			final File[] classDataFiles = classDataDir.listFiles(new FilenameFilter() {
+                @Override
 				public boolean accept(final File aDir, final String aName)
 				{
 					if (aName.toLowerCase().endsWith(".xml")) //$NON-NLS-1$

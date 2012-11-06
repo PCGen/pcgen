@@ -37,6 +37,7 @@ public class CharacterSheetModel
 		masterPane.setTabPlacement(SwingConstants.BOTTOM);
 		masterPane.addChangeListener(new javax.swing.event.ChangeListener()
 		{
+            @Override
 			public void stateChanged(javax.swing.event.ChangeEvent evt)
 			{
 				refresh();

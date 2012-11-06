@@ -62,6 +62,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	/*
 	 * @see TestCase#setUp()
 	 */
+    @Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();

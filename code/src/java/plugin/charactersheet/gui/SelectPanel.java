@@ -137,6 +137,7 @@ public class SelectPanel extends JPanel implements ActionListener
 	 * @param e an <code>ActionEvent</code> object
 	 */
 
+    @Override
 	public void actionPerformed(ActionEvent e)
 	{
 		pc.setCalcEquipSetId(e.getActionCommand());
@@ -283,6 +284,7 @@ public class SelectPanel extends JPanel implements ActionListener
 			playerCharacter = aPc;
 		}
 
+        @Override
 		public void itemStateChanged(ItemEvent e)
 		{
 			if (e.getStateChange() == ItemEvent.DESELECTED)

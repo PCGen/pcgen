@@ -135,6 +135,7 @@ public class PreItemTester extends AbstractPrerequisiteTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "ITEM"; //$NON-NLS-1$

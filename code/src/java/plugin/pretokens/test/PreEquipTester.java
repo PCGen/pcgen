@@ -151,6 +151,7 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "EQUIP"; //$NON-NLS-1$

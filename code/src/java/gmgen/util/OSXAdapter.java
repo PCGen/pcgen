@@ -51,6 +51,7 @@ public class OSXAdapter extends ApplicationAdapter
 		theApplication.setEnabledPreferencesMenu(enabled);
 	}
 
+    @Override
 	public void handlePreferences(ApplicationEvent ae)
 	{
 		if (mainApp != null)
@@ -64,6 +65,7 @@ public class OSXAdapter extends ApplicationAdapter
 		}
 	}
 
+    @Override
 	public void handleQuit(ApplicationEvent ae)
 	{
 		if (mainApp != null)

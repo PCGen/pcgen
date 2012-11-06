@@ -123,6 +123,7 @@ public abstract class GMBMessage
 		 *  Disallows this message from being vetoed.
 		 *@since        GMGen 3.3
 		 */
+        @Override
 		public void veto()
 		{
 			throw new InternalError("Can't veto this message");

@@ -100,6 +100,7 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFacade#getSourceForNodeDisplay()
 	 */
+    @Override
 	public String getSourceForNodeDisplay()
 	{
 		return SourceFormat.getFormattedString(getRawObject(),

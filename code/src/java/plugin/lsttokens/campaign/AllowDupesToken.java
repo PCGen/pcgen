@@ -64,6 +64,7 @@ public class AllowDupesToken extends AbstractNonEmptyToken<Campaign> implements
 		}
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign obj)
 	{
 		Changes<Class<?>> changes = context.getObjectContext().getListChanges(
@@ -81,6 +82,7 @@ public class AllowDupesToken extends AbstractNonEmptyToken<Campaign> implements
 		return returnSet.toArray(new String[returnSet.size()]);
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

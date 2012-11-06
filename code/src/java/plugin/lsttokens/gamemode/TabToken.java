@@ -41,11 +41,13 @@ import pcgen.util.Logging;
 public class TabToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "TAB";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try

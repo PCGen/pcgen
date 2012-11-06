@@ -44,6 +44,7 @@ public class DescToken extends AbstractNonEmptyToken<RuleCheck> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, RuleCheck rule)
 	{
 		String description = rule.getDesc();
@@ -54,6 +55,7 @@ public class DescToken extends AbstractNonEmptyToken<RuleCheck> implements
 		return new String[] { description };
 	}
 
+    @Override
 	public Class<RuleCheck> getTokenClass()
 	{
 		return RuleCheck.class;

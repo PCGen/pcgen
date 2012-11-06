@@ -134,6 +134,7 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements Prer
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "ARMORTYPE"; //$NON-NLS-1$

@@ -60,11 +60,13 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 	 * 
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
+    @Override
 	public String getTokenName()
 	{
 		return "URL";
 	}
 
+    @Override
 	public ParseResult parseToken(LoadContext context, Campaign campaign,
 		String value)
 	{
@@ -123,6 +125,7 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignURL> changes = context.getObjectContext()
@@ -149,6 +152,7 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 		return null;
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

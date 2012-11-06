@@ -243,6 +243,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	 *
 	 * @see javax.swing.table.TableModel#getValueAt(int, int)
 	 */
+    @Override
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
 		Object returnValue = null;
@@ -313,6 +314,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	/* (non-Javadoc)
 	 * @see javax.swing.table.TableModel#setValueAt(java.lang.Object, int, int)
 	 */
+    @Override
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex)
 	{
 		if (rowIndex < combatants.size() && columnIndex == 2
@@ -330,6 +332,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	/* (non-Javadoc)
 	 * @see plugin.initiative.OpposedSkillBasicModel#addCombatant(gmgen.plugin.PcgCombatant)
 	 */
+    @Override
 	public void addCombatant(PcgCombatant combatant)
 	{
 		combatants.put(combatant.getName(), new SkillInitWrapper(combatant));

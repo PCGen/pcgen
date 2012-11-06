@@ -201,6 +201,7 @@ public final class FOPHandler implements Runnable
 	/**
 	 * Run the FO to PDF/AWT conversion
 	 */
+    @Override
 	public void run()
 	{
 		errBuffer.delete(0, errBuffer.length());

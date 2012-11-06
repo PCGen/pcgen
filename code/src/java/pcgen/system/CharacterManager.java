@@ -589,11 +589,13 @@ final class RecentFileList extends AbstractListFacade<File>
 		updateRecentFileProp();
 	}
 
+    @Override
 	public File getElementAt(int index)
 	{
 		return fileList.get(index);
 	}
 
+    @Override
 	public int getSize()
 	{
 		return fileList.size();

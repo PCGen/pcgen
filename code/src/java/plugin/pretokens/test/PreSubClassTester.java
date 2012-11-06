@@ -83,6 +83,7 @@ public class PreSubClassTester extends AbstractPrerequisiteTest implements Prere
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "SUBCLASS"; //$NON-NLS-1$

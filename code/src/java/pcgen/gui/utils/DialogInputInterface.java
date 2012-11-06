@@ -40,6 +40,7 @@ public class DialogInputInterface implements InputInterface
 	 *      java.lang.Object, java.lang.String, int, javax.swing.Icon,
 	 *      java.lang.Object[], java.lang.Object)
 	 */
+    @Override
 	public Object showInputDialog(Object parentComponent, Object message,
 		String title, MessageType messageType, Object[] selectionValues,
 		Object initialSelectionValue)

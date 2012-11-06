@@ -110,6 +110,7 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	 *          The Combatant to be added
 	 * @return if the add is successful.
 	 */
+    @Override
 	public boolean add(InitHolder user) {
 		boolean result = super.add(user);
 

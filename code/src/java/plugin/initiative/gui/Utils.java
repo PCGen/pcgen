@@ -70,6 +70,7 @@ public class Utils
 
 			Border m_originalBorder = returnValue.getBorder();
 
+            @Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
 				if (evt.getPropertyName() != null
@@ -120,6 +121,7 @@ public class Utils
 
 			Border m_originalBorder = returnValue.getBorder();
 
+            @Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
 				if (evt.getPropertyName() != null
@@ -164,6 +166,7 @@ public class Utils
 		returnValue.addPropertyChangeListener(new PropertyChangeListener()
 		{
 
+            @Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
 				if ("value".equals(evt.getPropertyName()))
@@ -178,6 +181,7 @@ public class Utils
 		});
 		matchingSlider.addChangeListener(new ChangeListener()
 		{
+            @Override
 			public void stateChanged(ChangeEvent e)
 			{
 				JSlider source = (JSlider) e.getSource();

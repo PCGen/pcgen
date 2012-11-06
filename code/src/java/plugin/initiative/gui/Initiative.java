@@ -419,6 +419,7 @@ public class Initiative extends javax.swing.JPanel
 		{
 			private Combatant combatant = cbt;
 
+            @Override
 			public void hyperlinkUpdate(HyperlinkEvent e)
 			{
 				hyperLinkSelected(e, combatant);
@@ -2177,30 +2178,35 @@ public class Initiative extends javax.swing.JPanel
 		colModel
 			.addColumnModelListener(new javax.swing.event.TableColumnModelListener()
 			{
+            @Override
 				public void columnAdded(
 					javax.swing.event.TableColumnModelEvent evt)
 				{
 					colModAdded(evt);
 				}
 
+            @Override
 				public void columnMarginChanged(
 					javax.swing.event.ChangeEvent evt)
 				{
 					colModMarginChanged(evt);
 				}
 
+            @Override
 				public void columnMoved(
 					javax.swing.event.TableColumnModelEvent evt)
 				{
 					colModMoved(evt);
 				}
 
+            @Override
 				public void columnRemoved(
 					javax.swing.event.TableColumnModelEvent evt)
 				{
 					colModRemoved(evt);
 				}
 
+            @Override
 				public void columnSelectionChanged(
 					javax.swing.event.ListSelectionEvent evt)
 				{
@@ -2576,6 +2582,7 @@ public class Initiative extends javax.swing.JPanel
 		tablePopupCBNumber
 			.addActionListener(new java.awt.event.ActionListener()
 			{
+            @Override
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
 					TablePopupActionPerformed(evt);
@@ -2586,6 +2593,7 @@ public class Initiative extends javax.swing.JPanel
 		tablePopupCBName.setText("Name");
 		tablePopupCBName.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				TablePopupActionPerformed(evt);
@@ -2597,6 +2605,7 @@ public class Initiative extends javax.swing.JPanel
 		tablePopupCBPlayer
 			.addActionListener(new java.awt.event.ActionListener()
 			{
+            @Override
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
 					TablePopupActionPerformed(evt);
@@ -2608,6 +2617,7 @@ public class Initiative extends javax.swing.JPanel
 		tablePopupCBStatus
 			.addActionListener(new java.awt.event.ActionListener()
 			{
+            @Override
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
 					TablePopupActionPerformed(evt);
@@ -2618,6 +2628,7 @@ public class Initiative extends javax.swing.JPanel
 		tablePopupCBPlus.setText("Plus");
 		tablePopupCBPlus.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				TablePopupActionPerformed(evt);
@@ -2629,6 +2640,7 @@ public class Initiative extends javax.swing.JPanel
 		tablePopupCBInitiative
 			.addActionListener(new java.awt.event.ActionListener()
 			{
+            @Override
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
 					TablePopupActionPerformed(evt);
@@ -2640,6 +2652,7 @@ public class Initiative extends javax.swing.JPanel
 		tablePopupCBDuration
 			.addActionListener(new java.awt.event.ActionListener()
 			{
+            @Override
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
 					TablePopupActionPerformed(evt);
@@ -2651,6 +2664,7 @@ public class Initiative extends javax.swing.JPanel
 		tablePopupCBHP.setEnabled(false);
 		tablePopupCBHP.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				TablePopupActionPerformed(evt);
@@ -2662,6 +2676,7 @@ public class Initiative extends javax.swing.JPanel
 		tablePopupCBHPMax.setEnabled(false);
 		tablePopupCBHPMax.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				TablePopupActionPerformed(evt);
@@ -2672,6 +2687,7 @@ public class Initiative extends javax.swing.JPanel
 		tablePopupCBType.setText("Type");
 		tablePopupCBType.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				TablePopupActionPerformed(evt);
@@ -2689,6 +2705,7 @@ public class Initiative extends javax.swing.JPanel
 		bRoll.setText("Start Combat");
 		bRoll.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bRollActionPerformed(evt);
@@ -2700,6 +2717,7 @@ public class Initiative extends javax.swing.JPanel
 		bAddCombatant.setText("Add Combatant");
 		bAddCombatant.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bAddCombatantActionPerformed(evt);
@@ -2714,6 +2732,7 @@ public class Initiative extends javax.swing.JPanel
 		bDuplicateCombatant
 			.addActionListener(new java.awt.event.ActionListener()
 			{
+            @Override
 				public void actionPerformed(java.awt.event.ActionEvent evt)
 				{
 					bDuplicateCombatantActionPerformed(evt);
@@ -2726,6 +2745,7 @@ public class Initiative extends javax.swing.JPanel
 		bNextInit.setText("Next Initiative");
 		bNextInit.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bNextInitActionPerformed(evt);
@@ -2737,6 +2757,7 @@ public class Initiative extends javax.swing.JPanel
 		bRefocus.setText("Refocus");
 		bRefocus.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bRefocusActionPerformed(evt);
@@ -2748,6 +2769,7 @@ public class Initiative extends javax.swing.JPanel
 		bCombatantReRoll.setText("Roll");
 		bCombatantReRoll.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bCombatantReRollActionPerformed(evt);
@@ -2759,6 +2781,7 @@ public class Initiative extends javax.swing.JPanel
 		bDelete.setText("Delete");
 		bDelete.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bDeleteActionPerformed(evt);
@@ -2770,6 +2793,7 @@ public class Initiative extends javax.swing.JPanel
 		bRefresh.setText("Refresh Tabs");
 		bRefresh.addActionListener(new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				refreshTable();
@@ -2808,6 +2832,7 @@ public class Initiative extends javax.swing.JPanel
 		combatantTable
 			.addPropertyChangeListener(new java.beans.PropertyChangeListener()
 			{
+            @Override
 				public void propertyChange(java.beans.PropertyChangeEvent evt)
 				{
 					combatantTablePropertyChange(evt);
@@ -2903,6 +2928,7 @@ public class Initiative extends javax.swing.JPanel
 		bSave.setText("Roll Save");
 		bSave.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bSaveActionPerformed(evt);
@@ -2912,6 +2938,7 @@ public class Initiative extends javax.swing.JPanel
 		bCast.setText("Cast Spell");
 		bCast.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bCastActionPerformed(evt);
@@ -2921,6 +2948,7 @@ public class Initiative extends javax.swing.JPanel
 		bEvent.setText("Start Event");
 		bEvent.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bEventActionPerformed(evt);
@@ -2930,6 +2958,7 @@ public class Initiative extends javax.swing.JPanel
 		bKill.setText("Kill");
 		bKill.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bKillActionPerformed(evt);
@@ -2939,6 +2968,7 @@ public class Initiative extends javax.swing.JPanel
 		bDamage.setText("Damage");
 		bDamage.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bDamageActionPerformed(evt);
@@ -2948,6 +2978,7 @@ public class Initiative extends javax.swing.JPanel
 		bHeal.setText("Heal");
 		bHeal.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bHealActionPerformed(evt);
@@ -2957,6 +2988,7 @@ public class Initiative extends javax.swing.JPanel
 		bStabilize.setText("Stabilize");
 		bStabilize.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bStabilizeActionPerformed(evt);
@@ -2966,6 +2998,7 @@ public class Initiative extends javax.swing.JPanel
 		bRaise.setText("Raise");
 		bRaise.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				bRaiseActionPerformed(evt);
@@ -2976,6 +3009,7 @@ public class Initiative extends javax.swing.JPanel
 		showDead.setText("Show Dead");
 		showDead.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				showDeadActionPerformed(evt);
@@ -2986,6 +3020,7 @@ public class Initiative extends javax.swing.JPanel
 		showEvents.setText("Show Events");
 		showEvents.addActionListener(new java.awt.event.ActionListener()
 		{
+            @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				showEventsActionPerformed(evt);
@@ -2995,6 +3030,7 @@ public class Initiative extends javax.swing.JPanel
 		bOpposedSkill.addActionListener(new ActionListener()
 		{
 
+            @Override
 			public void actionPerformed(ActionEvent e)
 			{
 				opposedSkillActionPerformed(e);
@@ -3042,6 +3078,7 @@ public class Initiative extends javax.swing.JPanel
 		combatantTable.getSelectionModel().addListSelectionListener(
 			new ListSelectionListener()
 			{
+            @Override
 				public void valueChanged(ListSelectionEvent e)
 				{
 					listSelectionChaned(e);
@@ -3316,6 +3353,7 @@ public class Initiative extends javax.swing.JPanel
 			super(items);
 		}
 
+        @Override
 		public Component getTableCellRendererComponent(JTable table,
 			Object value, boolean isSelected, boolean hasFocus, int row,
 			int column)

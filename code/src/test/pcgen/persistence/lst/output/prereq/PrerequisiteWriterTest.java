@@ -454,12 +454,14 @@ public class PrerequisiteWriterTest extends TestCase
 		postString = testparams[(idx << 1) + 1];
 	}
 
+    @Override
 	protected void runTest() throws Throwable
 	{
 		setName(preString);
 		PreTest(preString, postString);
 	}
 
+    @Override
 	protected void setUp() throws Exception
 	{
 		try
@@ -564,31 +566,37 @@ public class PrerequisiteWriterTest extends TestCase
 
 	private class myWriter extends Writer
 	{
+        @Override
 		public void flush() throws IOException
 		{
 			throwException();
 		}
 
+        @Override
 		public void close() throws IOException
 		{
 			throwException();
 		}
 
+        @Override
 		public void write(char[] cbuf, int off, int len) throws IOException
 		{
 			throwException();
 		}
 
+        @Override
 		public void write(int c) throws IOException
 		{
 			throwException();
 		}
 
+        @Override
 		public void write(String str) throws IOException
 		{
 			throwException();
 		}
 
+        @Override
 		public void write(String str, int off, int len) throws IOException
 		{
 			throwException();

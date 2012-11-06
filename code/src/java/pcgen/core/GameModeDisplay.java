@@ -53,6 +53,7 @@ public final class GameModeDisplay implements Comparable<Object>, GameModeDispla
 	 * Get the game mode
 	 * @return gameMode
 	 */
+    @Override
 	public GameMode getGameMode()
 	{
 		return gameMode;
@@ -61,11 +62,13 @@ public final class GameModeDisplay implements Comparable<Object>, GameModeDispla
 	 * Get the menu entry of the game mode
 	 * @return menuEntry
 	 */
+    @Override
 	public String toString()
 	{
 		return gameMode.getDisplayName();
 	}
 
+    @Override
 	public int compareTo(final Object obj)
 	{
 		if (obj != null)

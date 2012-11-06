@@ -43,11 +43,13 @@ public class BoolOr extends TestChecker
 		this.tc2 = tc2;
 	}
 
+    @Override
 	public boolean check(Object obj)
 	{
 		return this.tc1.check(obj) || this.tc2.check(obj);
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("(");

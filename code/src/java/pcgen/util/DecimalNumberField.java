@@ -60,6 +60,7 @@ public class DecimalNumberField extends JTextField
 		setValue(value);
 		addActionListener(new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent e)
 			{
 				try
@@ -118,6 +119,7 @@ public class DecimalNumberField extends JTextField
 	 * Creates the document model.
 	 * @return Document
 	 */
+    @Override
 	protected Document createDefaultModel()
 	{
 		return new DecimalNumberDocument();
@@ -135,6 +137,7 @@ public class DecimalNumberField extends JTextField
 		 * @throws BadLocationException
 		 * @see Document#insertString(int, String, AttributeSet)
 		 */
+        @Override
 		public void insertString(final int offs, final String str,
 			final AttributeSet a) throws BadLocationException
 		{

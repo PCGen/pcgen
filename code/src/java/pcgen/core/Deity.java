@@ -70,11 +70,13 @@ public final class Deity extends PObject implements DeityFacade
 		return domains;
 	}
 
+    @Override
 	public AlignmentFacade getAlignment()
 	{
 		return get(ObjectKey.ALIGNMENT);
 	}
 
+    @Override
 	public List<String> getPantheons()
 	{
 		List<String> pantheons = new ArrayList<String>();

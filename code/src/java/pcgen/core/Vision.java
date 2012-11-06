@@ -115,6 +115,7 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 		return toString(distance.resolve(aPC, "").intValue());
 	}
 
+    @Override
 	public int compareTo(Vision v)
 	{
 		//CONSIDER This is potentially a slow method, but definitely works - thpr 10/26/06

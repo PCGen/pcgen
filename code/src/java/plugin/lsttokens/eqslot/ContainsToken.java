@@ -12,11 +12,13 @@ import pcgen.util.Logging;
 public class ContainsToken implements EquipSlotLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "CONTAINS";
 	}
 
+    @Override
 	public boolean parse(EquipSlot eqSlot, String value, String gameMode)
 	{
 		if (value == null || value.length()==0)

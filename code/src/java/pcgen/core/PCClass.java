@@ -140,6 +140,7 @@ public class PCClass extends PObject implements ClassFacade
 	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
+    @Override
 	public final String getAbbrev()
 	{
 		String abb = get(StringKey.ABB);
@@ -439,6 +440,7 @@ public class PCClass extends PObject implements ClassFacade
 	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
+    @Override
 	public final String getSpellType()
 	{
 		String castInfo = getSafe(StringKey.SPELLTYPE);
@@ -1731,6 +1733,7 @@ public class PCClass extends PObject implements ClassFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.ClassFacade#getBaseStat()
 	 */
+    @Override
 	public String getBaseStat()
 	{
 		return getSpellBaseStat();
@@ -1739,6 +1742,7 @@ public class PCClass extends PObject implements ClassFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.ClassFacade#getHD()
 	 */
+    @Override
 	public String getHD()
 	{
 		HitDie hd = getSafe(ObjectKey.LEVEL_HITDIE);
@@ -1748,6 +1752,7 @@ public class PCClass extends PObject implements ClassFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.ClassFacade#getTypes()
 	 */
+    @Override
 	public String[] getTypes()
 	{
 		String type = getType();

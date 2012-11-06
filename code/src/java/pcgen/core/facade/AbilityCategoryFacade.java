@@ -44,6 +44,7 @@ public interface AbilityCategoryFacade
      * 
      * @return the plural name of the Catagory
      */
+    @Override
     public String toString();
 
 }

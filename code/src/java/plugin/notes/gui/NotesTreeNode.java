@@ -76,11 +76,13 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	public static final Enumeration<MutableTreeNode> EMPTY_ENUMERATION = new Enumeration<MutableTreeNode>()
 	{
 
+        @Override
 		public boolean hasMoreElements()
 		{
 			return false;
 		}
 
+        @Override
 		public MutableTreeNode nextElement()
 		{
 			throw new NoSuchElementException("No more elements"); //$NON-NLS-1$
@@ -158,6 +160,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 *
 	 * @return The allowsChildren value
 	 */
+    @Override
 	public boolean getAllowsChildren()
 	{
 		return allowsChildren;
@@ -170,6 +173,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 *          index to get the child from
 	 * @return The child At value
 	 */
+    @Override
 	public TreeNode getChildAt(int index)
 	{
 		if (!hasBeenPopulated)
@@ -192,6 +196,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 *
 	 * @return The childCount value
 	 */
+    @Override
 	public int getChildCount()
 	{
 		int counter = 0;
@@ -283,6 +288,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 *          Node to get the index of
 	 * @return The index value
 	 */
+    @Override
 	public int getIndex(TreeNode node)
 	{
 		if (node == null)
@@ -310,6 +316,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 *
 	 * @return The leaf value
 	 */
+    @Override
 	public boolean isLeaf()
 	{
 		return (getChildCount() == 0);
@@ -379,6 +386,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * @param newParent
 	 *          The new parent value
 	 */
+    @Override
 	public void setParent(MutableTreeNode newParent)
 	{
 		parent = newParent;
@@ -389,6 +397,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 *
 	 * @return The parent value
 	 */
+    @Override
 	public TreeNode getParent()
 	{
 		return parent;
@@ -575,6 +584,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * @param object
 	 *          The new userObject value
 	 */
+    @Override
 	public void setUserObject(Object object)
 	{
 		this.userObject = object;
@@ -635,6 +645,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * @param e
 	 *          a Document Event
 	 */
+    @Override
 	public void changedUpdate(DocumentEvent e)
 	{
 		if (ignoreUpdateSemaphore)
@@ -751,6 +762,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 *
 	 * @return Enumeration containing MutableTreeNodes
 	 */
+    @Override
 	public Enumeration<MutableTreeNode> children()
 	{
 		if (!hasBeenPopulated)
@@ -935,6 +947,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * @param index
 	 *          Location to insert it.
 	 */
+    @Override
 	public void insert(MutableTreeNode child, int index)
 	{
 		if (!allowsChildren)
@@ -979,6 +992,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * @param e
 	 *          a Document Event
 	 */
+    @Override
 	public void insertUpdate(DocumentEvent e)
 	{
 		dirty = true;
@@ -1098,6 +1112,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * @param index
 	 *          index of child to remove
 	 */
+    @Override
 	public void remove(int index)
 	{
 		if (!hasBeenPopulated)
@@ -1116,6 +1131,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * @param node
 	 *          node to remove
 	 */
+    @Override
 	public void remove(MutableTreeNode node)
 	{
 		if (node == null)
@@ -1148,6 +1164,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	}
 
 	/** Removes this node from it's parent */
+    @Override
 	public void removeFromParent()
 	{
 		MutableTreeNode aParent = (MutableTreeNode) getParent();
@@ -1165,6 +1182,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * @param e
 	 *          a Document Event
 	 */
+    @Override
 	public void removeUpdate(DocumentEvent e)
 	{
 		dirty = true;

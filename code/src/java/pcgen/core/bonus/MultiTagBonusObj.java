@@ -38,6 +38,7 @@ import pcgen.rules.context.LoadContext;
 public abstract class MultiTagBonusObj extends BonusObj
 {
 
+    @Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
 		for (int i = 0; i < getBonusTagLength(); ++i)
@@ -62,6 +63,7 @@ public abstract class MultiTagBonusObj extends BonusObj
 		return true;
 	}
 
+    @Override
 	protected String unparseToken(final Object obj)
 	{
 		if (obj instanceof Integer)

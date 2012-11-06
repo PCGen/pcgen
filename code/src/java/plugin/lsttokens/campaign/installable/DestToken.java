@@ -46,6 +46,7 @@ public class DestToken implements InstallLstToken
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
+    @Override
 	public String getTokenName()
 	{
 		return "DEST";
@@ -54,6 +55,7 @@ public class DestToken implements InstallLstToken
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.InstallLstToken#parse(pcgen.core.Campaign, java.lang.String, java.net.URI)
 	 */
+    @Override
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		if (!(campaign instanceof InstallableCampaign))

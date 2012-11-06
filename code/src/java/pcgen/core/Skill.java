@@ -64,6 +64,7 @@ public final class Skill extends PObject implements SkillFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.SkillFacade#getKeyStat()
 	 */
+    @Override
 	public String getKeyStat()
 	{
 		return getKeyStatAbb();
@@ -72,6 +73,7 @@ public final class Skill extends PObject implements SkillFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.SkillFacade#isUntrained()
 	 */
+    @Override
 	public boolean isUntrained()
 	{
 		return getSafe(ObjectKey.USE_UNTRAINED);
@@ -80,6 +82,7 @@ public final class Skill extends PObject implements SkillFacade
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.SkillFacade#getTypes()
 	 */
+    @Override
 	public String getDisplayType()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);

@@ -173,6 +173,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	 * @return boolean true if the object should be included, else false
 	 *         to exclude it
 	 */
+    @Override
 	protected final boolean includeObject(SourceEntry source, CDOMObject cdo)
 	{
 		// Null check; never add nulls or objects without a name/key name

@@ -38,11 +38,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class AllowedmodesToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "ALLOWEDMODES";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setAllowedModes(value);

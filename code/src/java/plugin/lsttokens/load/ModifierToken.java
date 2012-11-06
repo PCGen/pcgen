@@ -55,6 +55,7 @@ public class ModifierToken extends AbstractNonEmptyToken<LoadInfo> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, LoadInfo info)
 	{
 		String formula = info.getLoadModifierFormula();
@@ -65,6 +66,7 @@ public class ModifierToken extends AbstractNonEmptyToken<LoadInfo> implements
 		return new String[] { formula };
 	}
 
+    @Override
 	public Class<LoadInfo> getTokenClass()
 	{
 		return LoadInfo.class;

@@ -49,6 +49,7 @@ public class NetworkPlugin extends GMBPlugin
 		// Do Nothing
 	}
 
+    @Override
 	public FileFilter[] getFileTypes()
 	{
 		return null;
@@ -57,6 +58,7 @@ public class NetworkPlugin extends GMBPlugin
 	/**
 	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
 	 */
+    @Override
 	public void start()
 	{
 		model = new NetworkModel();
@@ -67,12 +69,14 @@ public class NetworkPlugin extends GMBPlugin
 			new PreferencesNetworkingPanel(model)));
 	}
 
+    @Override
 	public String getPluginSystem()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".System",
 			Constants.SYSTEM_GMGEN);
 	}
 
+    @Override
 	public int getPluginLoadOrder()
 	{
 		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 60);
@@ -82,6 +86,7 @@ public class NetworkPlugin extends GMBPlugin
 	 * Accessor for name
 	 * @return name
 	 */
+    @Override
 	public String getName()
 	{
 		return name;
@@ -91,6 +96,7 @@ public class NetworkPlugin extends GMBPlugin
 	 * Accessor for version
 	 * @return version
 	 */
+    @Override
 	public String getVersion()
 	{
 		return version;
@@ -101,6 +107,7 @@ public class NetworkPlugin extends GMBPlugin
 	 * @param message the source of the event from the system
 	 * @see gmgen.pluginmgr.GMBPlugin#handleMessage(GMBMessage)
 	 */
+    @Override
 	public void handleMessage(GMBMessage message)
 	{
 		if (message instanceof CombatRequestMessage)
@@ -184,6 +191,7 @@ public class NetworkPlugin extends GMBPlugin
 		netToolsItem.setText("Network");
 		netToolsItem.addActionListener(new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				toolMenuItem(evt);

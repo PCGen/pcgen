@@ -47,21 +47,25 @@ public final class RuleCheck implements Loadable
 	private boolean isEnabledByDefault = false;
 	private URI sourceURI;
 
+    @Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
+    @Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
+    @Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
+    @Override
 	public boolean isType(String type)
 	{
 		return false;
@@ -107,11 +111,13 @@ public final class RuleCheck implements Loadable
 	 * 
 	 * @return key
 	 */
+    @Override
 	public String getKeyName()
 	{
 		return ruleKey;
 	}
 
+    @Override
 	public String getLSTformat()
 	{
 		return getKeyName();
@@ -123,6 +129,7 @@ public final class RuleCheck implements Loadable
 	 * @param name
 	 *            set name to
 	 */
+    @Override
 	public void setName(String name)
 	{
 		ruleName = name;
@@ -133,6 +140,7 @@ public final class RuleCheck implements Loadable
 		}
 	}
 
+    @Override
 	public String getDisplayName()
 	{
 		return ruleName;

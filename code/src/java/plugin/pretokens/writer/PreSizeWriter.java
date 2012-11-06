@@ -42,6 +42,7 @@ public class PreSizeWriter implements PrerequisiteWriterInterface
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "size";
@@ -50,6 +51,7 @@ public class PreSizeWriter implements PrerequisiteWriterInterface
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
+    @Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
 		return null;
@@ -58,6 +60,7 @@ public class PreSizeWriter implements PrerequisiteWriterInterface
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
+    @Override
 	public void write(Writer writer, Prerequisite prereq)
 		throws PersistenceLayerException
 	{

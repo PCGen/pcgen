@@ -27,16 +27,19 @@ import pcgen.rules.persistence.token.ParseResult;
 public class ArmorTypeToken implements CDOMSecondaryToken<CDOMObject>
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "ARMORTYPE";
 	}
 
+    @Override
 	public String getParentToken()
 	{
 		return "CHOOSE";
 	}
 
+    @Override
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
@@ -54,6 +57,7 @@ public class ArmorTypeToken implements CDOMSecondaryToken<CDOMObject>
 			+ " will ignore arguments: " + value, context);
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
 		String chooseString =
@@ -79,6 +83,7 @@ public class ArmorTypeToken implements CDOMSecondaryToken<CDOMObject>
 		return new String[]{returnString};
 	}
 
+    @Override
 	public Class<CDOMObject> getTokenClass()
 	{
 		return CDOMObject.class;

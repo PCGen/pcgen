@@ -87,6 +87,7 @@ public final class InstallLoaderTest extends PCGenTestCase
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#setUp()
 	 */
+    @Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -97,6 +98,7 @@ public final class InstallLoaderTest extends PCGenTestCase
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#tearDown()
 	 */
+    @Override
 	protected void tearDown() throws Exception
 	{
 	}

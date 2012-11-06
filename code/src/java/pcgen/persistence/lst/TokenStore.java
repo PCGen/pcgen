@@ -56,11 +56,13 @@ public class TokenStore implements PluginLoader
 		tokenTypeList.add(InstallLstToken.class);
 	}
 
+    @Override
 	public void loadPlugin(Class<?> clazz) throws Exception
 	{
 		addToTokenMap((LstToken) clazz.newInstance());
 	}
 
+    @Override
 	public Class[] getPluginClasses()
 	{
 		return new Class[]{LstToken.class};

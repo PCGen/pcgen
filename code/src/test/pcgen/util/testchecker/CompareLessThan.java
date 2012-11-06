@@ -41,11 +41,13 @@ public class CompareLessThan extends TestChecker
 		this.comp = comp;
 	}
 
+    @Override
 	public boolean check(Object obj)
 	{
 		return this.comp.compareTo(obj) > 0;
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("a value less than <");

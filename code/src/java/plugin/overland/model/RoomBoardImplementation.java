@@ -48,6 +48,7 @@ import plugin.overland.util.RBCost;
 	/**
 	 * @return the animals
 	 */
+    @Override
 	public PairList<RBCost> getAnimals()
 	{
 		return animals;
@@ -56,6 +57,7 @@ import plugin.overland.util.RBCost;
 	/**
 	 * @return the foods
 	 */
+    @Override
 	public PairList<RBCost> getFoods()
 	{
 		return foods;
@@ -64,6 +66,7 @@ import plugin.overland.util.RBCost;
 	/**
 	 * @return the inns
 	 */
+    @Override
 	public PairList<RBCost> getInns()
 	{
 		return inns;

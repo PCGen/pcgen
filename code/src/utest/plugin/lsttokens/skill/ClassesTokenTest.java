@@ -277,6 +277,7 @@ public class ClassesTokenTest extends AbstractTokenTestCase<Skill>
 		return new ConsolidationRule()
 		{
 
+            @Override
 			public String[] getAnswer(String... strings)
 			{
 				return new String[]{"Bard|Sorcerer|Wizard"};

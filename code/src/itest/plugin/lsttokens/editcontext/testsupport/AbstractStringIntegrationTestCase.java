@@ -34,7 +34,7 @@ public abstract class AbstractStringIntegrationTestCase<T extends CDOMObject>
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Languedoc-Roussillon");
-		commit(modCampaign, tc, "Niederösterreich");
+		commit(modCampaign, tc, "Niederï¿½sterreich");
 		completeRoundRobin(tc);
 	}
 
@@ -44,7 +44,7 @@ public abstract class AbstractStringIntegrationTestCase<T extends CDOMObject>
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		commit(testCampaign, tc, "Languedoc-Roussillon");
-		commit(testCampaign, tc, "Niederösterreich");
+		commit(testCampaign, tc, "Niederï¿½sterreich");
 		completeRoundRobin(tc);
 	}
 
@@ -77,7 +77,7 @@ public abstract class AbstractStringIntegrationTestCase<T extends CDOMObject>
 		verifyCleanStart();
 		TestContext tc = new TestContext();
 		emptyCommit(testCampaign, tc);
-		commit(modCampaign, tc, "Niederösterreich");
+		commit(modCampaign, tc, "Niederï¿½sterreich");
 		completeRoundRobin(tc);
 	}
 

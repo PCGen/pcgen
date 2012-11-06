@@ -47,6 +47,7 @@ public class ExcludeToken extends AbstractNonEmptyToken<RuleCheck> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, RuleCheck rule)
 	{
 		CDOMSingleRef<RuleCheck> exclude = rule.getExclude();
@@ -57,6 +58,7 @@ public class ExcludeToken extends AbstractNonEmptyToken<RuleCheck> implements
 		return new String[] { exclude.getLSTformat(false) };
 	}
 
+    @Override
 	public Class<RuleCheck> getTokenClass()
 	{
 		return RuleCheck.class;

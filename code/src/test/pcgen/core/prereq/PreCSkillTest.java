@@ -191,6 +191,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		
 		
 	}
+    @Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();

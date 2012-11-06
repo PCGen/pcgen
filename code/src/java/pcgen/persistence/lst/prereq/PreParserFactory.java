@@ -51,12 +51,14 @@ public class PreParserFactory implements PluginLoader
 		register(new PreMultParser());
 	}
 
+    @Override
 	public void loadPlugin(Class<?> clazz) throws Exception
 	{
 		register((PrerequisiteParserInterface) clazz.newInstance());
 	}
 
 	@SuppressWarnings("unchecked")
+    @Override
 	public Class[] getPluginClasses()
 	{
 		return new Class[]{PrerequisiteParserInterface.class};

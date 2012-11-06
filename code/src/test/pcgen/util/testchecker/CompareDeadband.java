@@ -44,12 +44,14 @@ public class CompareDeadband extends TestChecker
 		this.value = value;
 	}
 
+    @Override
 	public boolean check(Object obj)
 	{
 		double aValue = ((Number) obj).doubleValue();
 		return Math.abs((aValue - this.value)) <= this.deadband;
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("a numeric value within ");

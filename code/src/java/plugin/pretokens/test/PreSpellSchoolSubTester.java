@@ -67,6 +67,7 @@ public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "SPELLSCHOOLSUB"; //$NON-NLS-1$

@@ -11,11 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class BonusfeatlevelstartintervalToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "BONUSFEATLEVELSTARTINTERVAL";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setBonusFeatLevels(value);

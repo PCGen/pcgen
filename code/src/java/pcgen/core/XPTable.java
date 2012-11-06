@@ -51,6 +51,7 @@ public final class XPTable extends PObject implements XPTableFacade
 		this.infoMap = new HashMap<String, LevelInfo>();
 	}
 
+    @Override
 	public String getName() {
 		
 		return name;
@@ -61,6 +62,7 @@ public final class XPTable extends PObject implements XPTableFacade
 		infoMap.put(level, levelInfo);
 	}
 
+    @Override
 	public LevelInfo getLevelInfo(String levelString) {
 		
 		return infoMap.get(levelString);

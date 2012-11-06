@@ -153,6 +153,7 @@ public class PreferencesDisplayPanel extends gmgen.gui.PreferencesPanel
 		return value.intValue();
 	}
 
+    @Override
 	public void applyPreferences()
 	{
 		SettingsHandler.setGMGenOption(
@@ -160,6 +161,7 @@ public class PreferencesDisplayPanel extends gmgen.gui.PreferencesPanel
 		model.applyPrefs();
 	}
 
+    @Override
 	public void initPreferences()
 	{
 		setColor(SettingsHandler.getGMGenOption(CharacterSheetPlugin.LOG_NAME
@@ -180,6 +182,7 @@ public class PreferencesDisplayPanel extends gmgen.gui.PreferencesPanel
 			// Do Nothing
 		}
 
+        @Override
 		public Component getListCellRendererComponent(JList list, Object value,
 			int index, boolean isSelected, boolean cellHasFocus)
 		{

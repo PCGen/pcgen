@@ -69,6 +69,7 @@ public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements
 		return ParseResult.SUCCESS;
 	}
 
+    @Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<String> changes =
@@ -98,6 +99,7 @@ public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements
 		return set.toArray(new String[set.size()]);
 	}
 
+    @Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

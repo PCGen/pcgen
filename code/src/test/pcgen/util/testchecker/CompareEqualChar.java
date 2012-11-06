@@ -41,11 +41,13 @@ public class CompareEqualChar extends TestChecker
 		this.ch = ch;
 	}
 
+    @Override
 	public boolean check(Object obj)
 	{
 		return obj.equals(Character.valueOf(this.ch));
 	}
 
+    @Override
 	public StringBuffer scribe(StringBuffer buf)
 	{
 		buf.append("a char ");

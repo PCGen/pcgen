@@ -62,6 +62,7 @@ public class DiceFudge extends Die
 	/** Roll the dice
 	 * @return Result of the roll
 	 */
+    @Override
 	public int roll()
 	{
 		int i;

@@ -148,6 +148,7 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#kindHandled()
 	 */
+    @Override
 	public String kindHandled()
 	{
 		return "WEAPONPROF"; //$NON-NLS-1$

@@ -11,11 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class PluscostToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "PLUSCOST";
 	}
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.addPlusCalculation(value);

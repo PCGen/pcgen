@@ -417,6 +417,7 @@ public class XMLCombatant extends Combatant
 	 *
 	 *@return    The name value
 	 */
+    @Override
 	public String getName()
 	{
 		return combatant.getAttribute("name").getValue();
@@ -437,6 +438,7 @@ public class XMLCombatant extends Combatant
 	 *
 	 *@return    The player value
 	 */
+    @Override
 	public String getPlayer()
 	{
 		return combatant.getAttribute("player").getValue();
@@ -500,6 +502,7 @@ public class XMLCombatant extends Combatant
 	 *
 	 *@return    The New Element
 	 */
+    @Override
 	public Element getSaveElement()
 	{
 		Element retElement = (Element) combatant.clone();
@@ -571,6 +574,7 @@ public class XMLCombatant extends Combatant
 	 *@param  colNumber    What column number has been edited
 	 *@param  data         The new value for the field
 	 */
+    @Override
 	public void editRow(List<String> columnOrder, int colNumber, Object data)
 	{
 		String columnName = columnOrder.get(colNumber);

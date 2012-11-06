@@ -247,6 +247,7 @@ public class FeatTokenTest extends
 		return new ConsolidationRule()
 		{
 
+            @Override
 			public String[] getAnswer(String... strings)
 			{
 				return new String[] { "FEAT|TestWP1|TestWP1|TestWP2|TestWP2|TestWP3" };

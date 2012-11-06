@@ -326,6 +326,7 @@ public final class KitAbilities extends BaseKit
 			return sb.toString();
 		}
 
+        @Override
 		public int compareTo(AbilitySelection o)
 		{
 			int base = ability.compareTo(o.ability);

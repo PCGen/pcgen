@@ -341,6 +341,7 @@ public class JIcon extends JPanel
 		launchMI.setText("Launch File (enter)");
 		launchMI.addActionListener(new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				launchMIActionPerformed(evt);
@@ -351,6 +352,7 @@ public class JIcon extends JPanel
 		deleteMI.setText("Delete File (del)");
 		deleteMI.addActionListener(new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				deleteMIActionPerformed(evt);
@@ -368,6 +370,7 @@ public class JIcon extends JPanel
 		button.setBorder(null);
 		button.addActionListener(new ActionListener()
 		{
+            @Override
 			public void actionPerformed(ActionEvent evt)
 			{
 				buttonActionPerformed(evt);
@@ -376,11 +379,13 @@ public class JIcon extends JPanel
 
 		button.addFocusListener(new FocusAdapter()
 		{
+            @Override
 			public void focusGained(FocusEvent evt)
 			{
 				buttonFocusGained(evt);
 			}
 
+            @Override
 			public void focusLost(FocusEvent evt)
 			{
 				buttonFocusLost(evt);
@@ -389,6 +394,7 @@ public class JIcon extends JPanel
 
 		button.addKeyListener(new KeyAdapter()
 		{
+            @Override
 			public void keyReleased(KeyEvent evt)
 			{
 				buttonKeyReleased(evt);
@@ -397,11 +403,13 @@ public class JIcon extends JPanel
 
 		button.addMouseListener(new MouseAdapter()
 		{
+            @Override
 			public void mouseClicked(MouseEvent evt)
 			{
 				buttonMouseClicked(evt);
 			}
 
+            @Override
 			public void mouseReleased(MouseEvent evt)
 			{
 				buttonMouseReleased(evt);

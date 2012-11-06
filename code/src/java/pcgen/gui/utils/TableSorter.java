@@ -74,6 +74,7 @@ public final class TableSorter extends TableMap
 		setModel(model);
 	}
 
+    @Override
 	public void setModel(TableModel model)
 	{
 		super.setModel(model);
@@ -94,6 +95,7 @@ public final class TableSorter extends TableMap
 		return -1;
 	}
 
+    @Override
 	public void setValueAt(Object aValue, int aRow, int aColumn)
 	{
 		checkModel();
@@ -102,6 +104,7 @@ public final class TableSorter extends TableMap
 
 	// The mapping only affects the contents of the data rows.
 	// Pass all requests to these rows through the mapping array: "indexes".
+    @Override
 	public Object getValueAt(int aRow, int aColumn)
 	{
 		checkModel();
@@ -129,6 +132,7 @@ public final class TableSorter extends TableMap
 
 		MouseAdapter listMouseListener = new MouseAdapter()
 		{
+            @Override
 			public void mouseClicked(MouseEvent e)
 			{
 				final TableColumnModel columnModel = tableView.getColumnModel();
@@ -163,6 +167,7 @@ public final class TableSorter extends TableMap
 		th.addMouseListener(listMouseListener);
 	}
 
+    @Override
 	public void tableChanged(TableModelEvent e)
 	{
 		reallocateIndexes();

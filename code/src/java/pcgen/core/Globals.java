@@ -202,6 +202,7 @@ public final class Globals
 
 	private static final Comparator<CDOMObject> pObjectComp = new Comparator<CDOMObject>()
 		{
+        @Override
 			public int compare(final CDOMObject o1, final CDOMObject o2)
 			{
 				return o1.getKeyName().compareToIgnoreCase(o2.getKeyName());
@@ -210,6 +211,7 @@ public final class Globals
 
 	private static final Comparator<CDOMObject> pObjectNameComp = new Comparator<CDOMObject>()
 		{
+        @Override
 			public int compare(final CDOMObject o1, final CDOMObject o2)
 			{
 				final Collator collator = Collator.getInstance();

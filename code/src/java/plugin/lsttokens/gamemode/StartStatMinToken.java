@@ -39,6 +39,7 @@ import java.net.URI;
 public class StartStatMinToken implements GameModeLstToken
 {
 
+    @Override
 	public String getTokenName()
 	{
 		return "STARTSTATMIN";
@@ -47,6 +48,7 @@ public class StartStatMinToken implements GameModeLstToken
 
 
 
+    @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try
