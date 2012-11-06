@@ -51,7 +51,7 @@ Multitalented	KEY:Multitalented ~ Half-Elf		CATEGORY:Special Ability	TYPE:Racial
 Elven Immunities	KEY:Elven Immunities ~ Half-Elf	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HalfElfRacialTrait.HalfElfRacialDefault.SaveBonus	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Elven Immunities ~ Half-Elf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfImmunities]	DESC:Half-elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.																										SOURCEPAGE:p.24	ASPECT:SaveBonus|+2 vs. enchantment spells and effects
 Keen Senses		KEY:Keen Senses ~ Half-Elf		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HalfElfRacialTrait.HalfElfRacialDefault.KeenSenses	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Keen Senses ~ Half-Elf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfSenses]		DESC:Half-elves receive a +2 bonus on Perception skill checks.																									BONUS:SKILL|Perception|2|TYPE=Racial						SOURCEPAGE:p.24
 #
-Elf Blood		KEY:Elf Blood ~ Half-Elf		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																				DESC:Half-elves count as both elves and humans for any effect related to race.																																		SOURCEPAGE:p.24
+Elf Blood		KEY:Elf Blood ~ Half-Elf		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HalfElfRacialTrait.HalfElfRacialDefault																											DESC:Half-elves count as both elves and humans for any effect related to race.																																		SOURCEPAGE:p.24
 Low-Light Vision	KEY:Low-Light Vision ~ Half-Elf	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HalfElfRacialTrait.HalfElfRacialDefault.RacialVision	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Low-Light Vision ~ Half-Elf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision]																																											BONUS:VAR|RacialVision|1
 
 ###Block: Half-Orc Abilities (POOL=4)
@@ -60,7 +60,7 @@ Intimidating		KEY:Intimidating ~ Half-Orc	CATEGORY:Special Ability	TYPE:RacialTr
 Orc Ferocity		KEY:Orc Ferocity ~ Half-Orc	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HalfOrcRacialTrait.HalfOrcRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Orc Ferocity ~ Half-Orc],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcFerocity]				DESC:Once per day, when a half-orc is brought below 0 hit points, but not killed, he can fight on for one more round as if disabled. At the end of his next turn, unless brought to above 0 hit points, he immediately falls unconscious and begins dying.																								SOURCEPAGE:p.25
 Weapon Familiarity	KEY:Weapon Familiarity ~ Orc	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HalfOrcRacialTrait.HalfOrcRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Weapon Familiarity ~ Orc],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcHalfOrcWeaponFamiliarity]	DESC:Half-orcs are proficient with greataxes and falchions, and treat any weapon with the word "orc" in its name as a martial weapon.																				AUTO:WEAPONPROF|Greataxe|Falchion													CHANGEPROF:TYPE.Orc=Martial	SOURCEPAGE:p.25
 #
-Orc Blood								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																						DESC:Half-orc count as both humans and orcs for any effect related to race.																																																					SOURCEPAGE:p.25
+Orc Blood								CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HalfOrcRacialTrait.HalfOrcRacialDefault																													DESC:Half-orc count as both humans and orcs for any effect related to race.																																																					SOURCEPAGE:p.25
 Darkvision			KEY:Darkvision ~ Half-Orc	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.HalfOrcRacialTrait.HalfOrcRacialDefault.RacialVision	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Darkvision ~ Half-Orc],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcRacialVision]																																																											BONUS:VAR|RacialVision|1
 
 ###Block: Halfling Abilities (POOL=5)
@@ -147,6 +147,8 @@ CATEGORY=Internal|Half Elf Racial Trait Default.MOD					ABILITY:Half Elf Racial 
 CATEGORY=Internal|Half Elf Racial Trait Default.MOD					ABILITY:Half Elf Racial Trait|AUTOMATIC|Elven Immunities ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfImmunities
 CATEGORY=Internal|Half Elf Racial Trait Default.MOD					ABILITY:Half Elf Racial Trait|AUTOMATIC|Keen Senses ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfSenses
 CATEGORY=Internal|Half Elf Racial Trait Default.MOD					ABILITY:Half Elf Racial Trait|AUTOMATIC|Low-Light Vision ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision
+# COMMENT: Adding to the Racial Pool to clean up Race File, nothing replaces
+CATEGORY=Internal|Half Elf Racial Trait Default.MOD					ABILITY:Half Elf Racial Trait|AUTOMATIC|Elf Blood ~ Half-Elf
 
 Half Orc Racial Trait Default					CATEGORY:Internal																										BONUS:ABILITYPOOL|Half Orc Racial Trait|-4
 #
@@ -154,6 +156,8 @@ CATEGORY=Internal|Half Orc Racial Trait Default.MOD					ABILITY:Half Orc Racial 
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD					ABILITY:Half Orc Racial Trait|AUTOMATIC|Orc Ferocity ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcFerocity
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD					ABILITY:Half Orc Racial Trait|AUTOMATIC|Weapon Familiarity ~ Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcWeaponFamiliarity
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD					ABILITY:Half Orc Racial Trait|AUTOMATIC|Darkvision ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcRacialVision
+# COMMENT: Adding to the Racial Pool to clean up Race File, nothing replaces
+CATEGORY=Internal|Half Orc Racial Trait Default.MOD					ABILITY:Half Orc Racial Trait|AUTOMATIC|Orc Blood
 
 Halfling Racial Trait Default					CATEGORY:Internal																										BONUS:ABILITYPOOL|Halfling Racial Trait|-5
 #
