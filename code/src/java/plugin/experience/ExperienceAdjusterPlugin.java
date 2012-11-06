@@ -228,7 +228,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 		{
 			try
 			{
-				Object[] list = eaView.getCharacterList().getSelectedValuesList().toArray();
+				Object[] list = eaView.getCharacterList().getSelectedValues();
 
 				for (int i = 0; i < list.length; i++)
 				{
@@ -265,7 +265,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	{
 		if (eaView.getCharacterList().getSelectedIndex() != -1)
 		{
-			Object[] list = eaView.getCharacterList().getSelectedValuesList().toArray();
+			Object[] list = eaView.getCharacterList().getSelectedValues();
 
 			for (int i = 0; i < list.length; i++)
 			{
@@ -277,7 +277,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 
 		if (eaView.getEnemyList().getSelectedIndex() != -1)
 		{
-			Object[] list = eaView.getEnemyList().getSelectedValuesList().toArray();
+			Object[] list = eaView.getEnemyList().getSelectedValues();
 
 			for (int i = 0; i < list.length; i++)
 			{
@@ -363,7 +363,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	{
 		if (eaView.getEnemyList().getSelectedIndex() != -1)
 		{
-			Object[] list = eaView.getEnemyList().getSelectedValuesList().toArray();
+			Object[] list = eaView.getEnemyList().getSelectedValues();
 
 			for (int i = 0; i < list.length; i++)
 			{

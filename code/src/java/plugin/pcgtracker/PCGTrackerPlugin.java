@@ -145,7 +145,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 
 		if (e.getSource() == theView.getSaveButton())
 		{
-			for (Object obj : theView.getLoadedList().getSelectedValuesList())
+			for (Object obj : theView.getLoadedList().getSelectedValues())
 			{
 				PlayerCharacter pc = model.get(obj);
 				savePC(pc, false);
@@ -154,7 +154,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 
 		if (e.getSource() == theView.getSaveAsButton())
 		{
-			for (Object obj : theView.getLoadedList().getSelectedValuesList())
+			for (Object obj : theView.getLoadedList().getSelectedValues())
 			{
 				PlayerCharacter pc = model.get(obj);
 				savePC(pc, true);
@@ -329,14 +329,14 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 	 * @param aPC The PlayerCharacter to save
 	 * @param saveas boolean if <code>true</code>, ask for file name
 	 *
-	 * @return <code>true</code> if saved; <code>false</code> if save as canceled
+	 * @return <code>true</code> if saved; <code>false</code> if save as cancelled
 	 */
 	// TODO use pcgen save methods rather than implementing it again
 	public boolean savePC(PlayerCharacter aPC, boolean saveas)
 	{
 		boolean newPC = false;
 		File prevFile;
-		File file;
+		File file = null;
 		String aPCFileName = aPC.getFileName();
 
 		if (aPCFileName.isEmpty())

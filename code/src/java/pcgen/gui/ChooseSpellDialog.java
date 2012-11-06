@@ -203,7 +203,7 @@ final class ChooseSpellDialog extends JDialog
 	{
 		if (lstMetamagicFeats != null && lstMetamagicFeats.getSelectedIndex() > -1)
 		{
-			return lstMetamagicFeats.getSelectedValuesList().toArray();
+			return lstMetamagicFeats.getSelectedValues();
 		}
 
 		return null;
@@ -278,7 +278,7 @@ final class ChooseSpellDialog extends JDialog
 
 	private boolean isSpellOfSubType(Spell aSpell)
 	{
-		if (subTypeList.isEmpty())
+		if (subTypeList.size() == 0)
 		{
 			return true;
 		}
@@ -681,7 +681,7 @@ final class ChooseSpellDialog extends JDialog
 				Collections.sort(spellsOfLevel);
 			}
 
-			isEnabled = (!spellsOfLevel.isEmpty());
+			isEnabled = (spellsOfLevel.size() != 0);
 			lblSpellName.setEnabled(isEnabled);
 			cmbSpellName.setEnabled(isEnabled);
 			cmbSpellName.setModel(new DefaultComboBoxModel(spellsOfLevel.toArray()));
