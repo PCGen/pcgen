@@ -342,7 +342,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		if (!theView.getEncounterCreatures().isSelectionEmpty())
 		{
 			Object[] values =
-					theView.getEncounterCreatures().getSelectedValues();
+					theView.getEncounterCreatures().getSelectedValuesList().toArray();
 
 			for (int i = 0; i < values.length; i++)
 			{
@@ -581,8 +581,9 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		//	returned to this control, 
 		for (Object obj : theModel.toArray())
 		{
-			if (!theRaces.contains(obj))
-				theModel.removeElement(obj);
+			if (!theRaces.contains(obj)) {
+                        theModel.removeElement(obj);
+                    }
 		}
 
 		theView.getEnvironment().setSelectedIndex(sel);
@@ -877,13 +878,9 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 			return;
 		}
 
-		xml = null;
-		f = null;
-
 		// verrify values on the table.
 		String crs = (String) table41.crossReference(totalEL, size);
 		
-		table41 = null;
 		if (crs == null)
 		{
 			Logging.errorPrint("Tables do not match the given parameters ("
