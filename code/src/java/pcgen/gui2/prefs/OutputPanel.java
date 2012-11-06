@@ -565,8 +565,8 @@ public class OutputPanel extends PCGenPrefsPanel
 				fc.setDialogTitle(LanguageBundle
 					.getString("in_Prefs_templateEqSetTitle")); //$NON-NLS-1$
 				fc
-					.setCurrentDirectory(SettingsHandler
-						.getPcgenOutputSheetDir());
+					.setCurrentDirectory(
+                                        new File(ConfigurationSettings.getOutputSheetsDir()));
 				fc.setSelectedFile(new File(SettingsHandler
 					.getSelectedEqSetTemplate()));
 

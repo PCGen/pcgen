@@ -36,6 +36,7 @@ import pcgen.core.Campaign;
 import pcgen.core.SettingsHandler;
 import pcgen.io.FileAccess;
 import pcgen.rules.context.LoadContext;
+import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 
 /**
@@ -60,8 +61,7 @@ public final class CampaignOutput
 	public static void output(LoadContext context, Campaign campaign)
 	{
 		final File outFile =
-				new File(SettingsHandler.getPccFilesLocation()
-					.getAbsolutePath()
+				new File(ConfigurationSettings.getPccFilesDir()
 					+ File.separator + campaign.getSafe(StringKey.DESTINATION));
 		BufferedWriter out = null;
 

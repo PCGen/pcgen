@@ -10,6 +10,7 @@ import java.io.File;
 import java.util.List;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.gui.NameElement;
+import pcgen.system.ConfigurationSettings;
 
 /**
  * Test name generation
@@ -45,7 +46,7 @@ public class NamesTest extends AbstractCharacterTestCase
 	public void testArabic()
 	{
 		Names.getInstance().init(
-			getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator
+			getNameElement(new File(ConfigurationSettings.getSystemsDir()) + File.separator
 				+ "bio" + File.separator + "names" + File.separator, "Arabic"),
 			getCharacter());
 		assertTrue("got a null name!",
@@ -78,7 +79,7 @@ public class NamesTest extends AbstractCharacterTestCase
 	public void testASFemale()
 	{
 		Names.getInstance().init(
-			getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator
+			getNameElement(new File(ConfigurationSettings.getSystemsDir()) + File.separator
 				+ "bio" + File.separator + "names" + File.separator,
 				"rw_Anglo_Saxon_Female"), getCharacter());
 		assertTrue("got a null name!",
@@ -96,7 +97,7 @@ public class NamesTest extends AbstractCharacterTestCase
 	public void testRandomName()
 	{
 		Names.getInstance().init(
-			getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator
+			getNameElement(new File(ConfigurationSettings.getSystemsDir()) + File.separator
 				+ "bio" + File.separator + "names" + File.separator, "orc"),
 			getCharacter());
 
@@ -114,7 +115,7 @@ public class NamesTest extends AbstractCharacterTestCase
 	public void testTheNames()
 	{
 		Names.getInstance().init(
-			getNameElement(SettingsHandler.getPcgenSystemDir() + File.separator
+			getNameElement(new File(ConfigurationSettings.getSystemsDir()) + File.separator
 				+ "bio" + File.separator + "names" + File.separator, "orc"),
 			getCharacter());
 

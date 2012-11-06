@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
+import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 
 /**
@@ -48,7 +48,7 @@ public class PatternFilter implements OutputFilter
 		}
 
 		filterName =
-					SettingsHandler.getPcgenSystemDir()
+					new File(ConfigurationSettings.getSystemsDir())
 					+ File.separator + "outputFilters" + File.separator + "re"
 					+ filterName + Constants.EXTENSION_LIST_FILE;
 		Logging.debugPrint("Creating filter from " + filterName);
@@ -76,12 +76,16 @@ public class PatternFilter implements OutputFilter
 					}
 
 					String aLineWOComment;
-					if (aLine.length() == 0 || aLine.charAt(0) == '#')
-						continue;
-					else if (0 < aLine.indexOf("\t#"))
-						aLineWOComment =
-								aLine.substring(0, aLine.indexOf("\t#"));
-					else aLineWOComment = aLine;
+					if (aLine.length() == 0 || aLine.charAt(0) == '#') {
+                                        continue;
+                                    }
+					else if (0 < aLine.indexOf("\t#")) {
+                                        aLineWOComment =
+                                                        aLine.substring(0, aLine.indexOf("\t#"));
+                                    }
+					else {
+                                        aLineWOComment = aLine;
+                                    }
 
 					Logging.debugPrint("Stripped line:" + aLineWOComment);
 					final List<String> filterEntry =
@@ -133,7 +137,7 @@ public class PatternFilter implements OutputFilter
 	{
 		String aProcessedString = aString;
 		Logging.debugPrint("Filtering: " + aString);
-		if ((match != null) && (match.size() != 0) && aString != null)
+		if ((match != null) && (!match.isEmpty()) && aString != null)
 		{
 			Logging.debugPrint("Found " + match.size() + " filters");
 			for (int i = 0; i < match.size(); i++)

@@ -22,19 +22,18 @@
  */
 package pcgen.core.party;
 
+import java.io.*;
+import java.util.*;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.persistence.PersistenceManager;
+import pcgen.system.PCGenSettings;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
-
-import java.io.*;
-import java.util.*;
 
 /**
  * Class to encapsulate the functionality of loading and saving parties of characters.  Also used
@@ -154,7 +153,7 @@ public class Party
 				if (!characterFile.exists())
 				{
 					// try using the global pcg path
-					characterFile = new File(SettingsHandler.getPcgPath(), fileName);
+					characterFile = new File(PCGenSettings.getPcgDir(), fileName);
 				}
 
 				if (characterFile.exists())

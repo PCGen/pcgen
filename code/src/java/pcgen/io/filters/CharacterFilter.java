@@ -1,7 +1,6 @@
 package pcgen.io.filters;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -10,6 +9,7 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import pcgen.system.ConfigurationSettings;
 
 public class CharacterFilter implements OutputFilter
 {
@@ -37,7 +37,7 @@ public class CharacterFilter implements OutputFilter
 		outputFilter = null;
 
 		filterName =
-					SettingsHandler.getPcgenSystemDir()
+					new File(ConfigurationSettings.getSystemsDir())
 					+ File.separator + "outputFilters" + File.separator
 					+ filterName + Constants.EXTENSION_LIST_FILE;
 
@@ -99,7 +99,7 @@ public class CharacterFilter implements OutputFilter
     @Override
 	public String filterString(String aString)
 	{
-		if ((outputFilter != null) && (outputFilter.size() != 0)
+		if ((outputFilter != null) && (!outputFilter.isEmpty())
 			&& aString != null)
 		{
 			final StringBuffer xlatedString =

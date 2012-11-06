@@ -32,6 +32,7 @@ import pcgen.util.Logging;
 
 import java.io.*;
 import java.util.*;
+import pcgen.system.ConfigurationSettings;
 
 /**
  * <code>Names</code>.
@@ -65,7 +66,7 @@ public final class Names
 
     public static List<NameElement> findAllNamesFiles()
     {
-        return findAllNamesFiles(SettingsHandler.getPcgenSystemDir());
+        return findAllNamesFiles(new File(ConfigurationSettings.getSystemsDir()));
     }
 
     public static List<NameElement> findAllNamesFiles(File dir)

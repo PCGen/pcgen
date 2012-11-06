@@ -97,6 +97,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.LoadValidator;
 import pcgen.rules.context.ReferenceContext;
+import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
@@ -415,10 +416,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		loadSponsorsLstFile();
 
 		// Load the initial campaigns
-		loadPCCFilesInDirectory(SettingsHandler.getPccFilesLocation()
-			.getAbsolutePath());
-		loadPCCFilesInDirectory(SettingsHandler.getPcgenVendorDataDir()
-			.getAbsolutePath());
+		loadPCCFilesInDirectory(ConfigurationSettings.getPccFilesDir());
+		loadPCCFilesInDirectory(ConfigurationSettings.getVendorDataDir());
 
 		// Now that those are loaded, make sure to initialize the recursive campaigns
 		initRecursivePccFiles();
@@ -433,7 +432,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	 */
 	private void loadSponsorsLstFile()
 	{
-		File sponsorDir = new File(SettingsHandler.getPcgenSystemDir(), "sponsors");
+		File sponsorDir = new File(new File(ConfigurationSettings.getSystemsDir()), "sponsors");
 		File sponsorFile = new File(sponsorDir, "sponsors.lst");
 
 		try
@@ -456,7 +455,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		sourcesSet.clear();
 		licenseFiles.clear();
 
-		if (aSelectedCampaignsList.size() == 0)
+		if (aSelectedCampaignsList.isEmpty())
 		{
 			throw new PersistenceLayerException(
 				"You must select at least one campaign to load.");
@@ -522,7 +521,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 			// is no current gameMode, so just return
 			return;
 		}
-		File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
+		File gameModeDir = new File(new File(ConfigurationSettings.getSystemsDir()), "gameModes");
 		File specificGameModeDir = new File(gameModeDir, gamemode.getFolderName());
 
 		// Sort the campaigns
@@ -760,10 +759,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	public void refreshCampaigns()
 	{
 		Globals.clearCampaignsForRefresh();
-		loadPCCFilesInDirectory(SettingsHandler.getPccFilesLocation()
-			.getAbsolutePath());
-		loadPCCFilesInDirectory(SettingsHandler.getPcgenVendorDataDir()
-			.getAbsolutePath());
+		loadPCCFilesInDirectory(ConfigurationSettings.getPccFilesDir());
+		loadPCCFilesInDirectory(ConfigurationSettings.getVendorDataDir());
 
 		// Now that those are loaded, make sure to initialize the recursive campaigns
 		try
@@ -803,7 +800,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private static String[] getGameFilesList()
 	{
 		final String aDirectory =
-				SettingsHandler.getPcgenSystemDir() + File.separator
+				new File(ConfigurationSettings.getSystemsDir()) + File.separator
 					+ "gameModes" + File.separator;
 
 		return new File(aDirectory).list(gameModeFileFilter);
@@ -968,7 +965,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 		//
 		final List<String> gDeities = Globals.getGlobalDeityList();
 
-		if ((gDeities != null) && (gDeities.size() != 0))
+		if ((gDeities != null) && (!gDeities.isEmpty()))
 		{
 			for (String aLine : gDeities)
 			{
@@ -1252,7 +1249,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	private boolean loadGameModeLstFile(LoadContext context, LstLineFileLoader lstFileLoader,
 		String gameModeName, String gameModeFolderName, String lstFileName, final boolean showMissing)
 	{
-		File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
+		File gameModeDir = new File(new File(ConfigurationSettings.getSystemsDir()), "gameModes");
 
 		try
 		{
@@ -1301,7 +1298,7 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 
 		SystemCollections.clearGameModeList();
 
-		File gameModeDir = new File(SettingsHandler.getPcgenSystemDir(), "gameModes");
+		File gameModeDir = new File(new File(ConfigurationSettings.getSystemsDir()), "gameModes");
 
 		for (String gameFile : gameFiles)
 		{
@@ -1699,8 +1696,11 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 					
 					if (campaign.getSafe(ObjectKey.IS_MATURE))
 					{
-						matureCampaigns.append(SourceFormat.LONG.getField(campaign) + 
-							                   " (" + campaign.getSafe(StringKey.PUB_NAME_LONG) + ")<br>");
+						matureCampaigns
+                                                        .append(SourceFormat.LONG.getField(campaign))
+                                                        .append(" (")
+                                                        .append(campaign.getSafe(StringKey.PUB_NAME_LONG))
+                                                        .append(")<br>");
 					}
 			
 					// Load the LST files to be loaded for the campaign
