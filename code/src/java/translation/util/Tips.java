@@ -35,21 +35,19 @@ import java.util.Set;
 import org.apache.commons.lang.time.DateFormatUtils;
 
 /**
- * This class allows the generation of a POT file from the tips.txt files,
+ * This class allows the generation of a PO Template file from the tips.txt files,
  * and also generate translated tips ({@code tips_XX.txt}) from a PO file (whose name is {@code _XX.po}).
- * POT and PO files are message catalog used in the msgfmt library.
- * The duplicates from the tips files should appear only once in the POT files.
+ * PO Template and PO files are message catalog used in gettext.
+ * The duplicates from the tips files should appear only once in the PO Template files.
  * 
  * This class tries to be independent of code, but still needs Apache Commons Lang.
  * 
  * @author Vincent Lhote
+ * @see <a href="http://www.gnu.org/software/gettext/manual/gettext.html">GNU gettext manual</a>
  */
-// TODO quotes in tips are not escaped in the PO/POT file
 public class Tips
 {
-	/**
-	 * 
-	 */
+	/** Quote char */
 	private static final char QUOTE = '"';
 
 	/**
@@ -58,6 +56,9 @@ public class Tips
 	private static final String COMMENT_PREFIX = "#"; //$NON-NLS-1$
 
 	private static final String DEFAULT_TIPS_FILENAME = "tips.txt"; //$NON-NLS-1$
+
+	/** true to add a message to tips that are not translated, false to copy them as is so they won’t appear */
+	private static final boolean MARK_UNTRANSLATED = true;
 
 	public static void generatePOT(File rootDirectory, String potFilename)
 	{
@@ -94,12 +95,12 @@ public class Tips
 						}
 						catch (FileNotFoundException e)
 						{
-							// TODO Auto-generated catch block
+							logError("Warning: file found then not found {0}, ignoring this file", tipsFiles[j]);
 							e.printStackTrace();
 						}
 						catch (IOException e)
 						{
-							// TODO Auto-generated catch block
+							logError("Warning: IO error reading {0}, ignoring this file", tipsFiles[j]);
 							e.printStackTrace();
 						}
 
@@ -133,7 +134,7 @@ public class Tips
 		}
 		catch (IOException e)
 		{
-			// TODO Auto-generated catch block
+			logError("IO error while writing {0}", pot);
 			e.printStackTrace();
 		}
 		finally
@@ -145,7 +146,7 @@ public class Tips
 			}
 			catch (IOException e)
 			{
-				// TODO Auto-generated catch block
+				logError("IO error while closing {0}", pot);
 				e.printStackTrace();
 			}
 		}
@@ -173,20 +174,11 @@ public class Tips
 		String msgstr = "msgstr \"\""; //$NON-NLS-1$
 		for (String tip : tips)
 		{
-			bw.write(msgid.format(new Object[]{tip}));
+			bw.write(msgid.format(new Object[]{escape(tip)}));
 			bw.write("\n");
 			bw.write(msgstr);
 			bw.write("\n\n");
 		}
-	}
-
-	/**
-	 * @param string
-	 * @param file
-	 */
-	private static void log(String string, Object... o)
-	{
-		System.out.println(MessageFormat.format(string, o));
 	}
 
 	protected static void addTips(Set<String> tips, BufferedReader reader)
@@ -204,7 +196,7 @@ public class Tips
 		}
 		catch (IOException e)
 		{
-			// TODO Auto-generated catch block
+			logError("Warning: IO error reading a line, ignoring it");
 			e.printStackTrace();
 		}
 	}
@@ -285,7 +277,9 @@ public class Tips
 				// TODO remove escape quote?
 				if (line.startsWith("msgstr") || line.startsWith("\""))
 				{
-					str.append(line.substring(line.indexOf(QUOTE) + 1, line.lastIndexOf(QUOTE)));
+					String substring = line.substring(line.indexOf(QUOTE) + 1, line.lastIndexOf(QUOTE));
+					substring = removeEscaped(substring);
+					str.append(substring);
 				}
 				line = translationReader.readLine();
 			}
@@ -349,7 +343,7 @@ public class Tips
 										log("null translated line in {1}, original {0}", readLine, translation);
 										translatedLine = readLine;
 									}
-									else if (translatedLine.isEmpty())
+									else if (translatedLine.isEmpty() && MARK_UNTRANSLATED)
 									{
 										translatedLine = "<em>Not yet translated</em><br>" + readLine;
 									}
@@ -403,14 +397,36 @@ public class Tips
 
 	}
 
+	/* Escape related methods */
+
 	/**
-	 * @param args
+	 * Handle string escapes in the PO files.
+	 * @param string
+	 * @return non escaped string
 	 */
+	@SuppressWarnings("nls")
+	protected static String removeEscaped(String string)
+	{
+		return string.replaceAll("\\\\\'", "'").replaceAll("\\\\\"", "\"").replaceAll("\\\\\\\\", "\\\\");
+	}
+
+	/**
+	 * @param tip
+	 * @return
+	 */
+	@SuppressWarnings("nls")
+	protected static String escape(String string)
+	{
+		return string.replaceAll("\\\\", "\\\\\\\\").replaceAll("\'", "\\\\\'").replaceAll("\"", "\\\\\"");
+	}
+
+	/* main and related methods */
+
 	public static void main(String[] args)
 	{
 		if (args.length == 0)
 		{
-			log("Missing argument");
+			logError("Missing argument");
 			usage();
 			return;
 		}
@@ -431,7 +447,7 @@ public class Tips
 		}
 		else
 		{
-			log("Unknown command");
+			logError("Unknown command");
 			usage();
 		}
 	}
@@ -445,5 +461,29 @@ public class Tips
 		log("\t<command> POT rootDirectory potFilename [tipsFilename]");
 		log("\t<command> tips rootDirectory translationFilename TranslationFilename(ie. tips_xx.txt) [tipsFilename]");
 		log("\tIf tipsFilename is missing, the default ({0}) is used.", DEFAULT_TIPS_FILENAME);
+	}
+
+	/* Logging methods. */
+
+	/**
+	 * Log a message to the standard output
+	 * @param string message pattern
+	 * @param o arguments
+	 * @see MessageFormat#format(String, Object...)
+	 */
+	private static void log(String string, Object... o)
+	{
+		System.out.println(MessageFormat.format(string, o));
+	}
+
+	/**
+	 * Log a message to the error output
+	 * @param string message pattern
+	 * @param o arguments
+	 * @see MessageFormat#format(String, Object...)
+	 */
+	private static void logError(String string, Object... o)
+	{
+		System.err.println(MessageFormat.format(string, o));
 	}
 }

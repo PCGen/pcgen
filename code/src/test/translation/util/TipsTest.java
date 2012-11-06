@@ -65,4 +65,24 @@ public class TipsTest
 		assertTrue(Tips.isTip(tip));
 		assertTrue(Tips.isTip(tip2));
 	}
+	
+	@Test
+	public void removeEscapeTest()
+	{
+		assertEquals("", Tips.removeEscaped(""));
+		assertEquals("a", Tips.removeEscaped("a"));
+		assertEquals("l'eau", Tips.removeEscaped("l\\'eau"));
+		assertEquals("\"quoted\"", Tips.removeEscaped("\\\"quoted\\\""));
+		assertEquals("\\", Tips.removeEscaped("\\\\"));
+	}
+	
+	@Test
+	public void escapeTest()
+	{
+		assertEquals("", Tips.escape(""));
+		assertEquals("a", Tips.escape("a"));
+		assertEquals("l\\'eau", Tips.escape("l'eau"));
+		assertEquals("\\\"quoted\\\"", Tips.escape("\"quoted\""));
+		assertEquals("\\\\", Tips.escape("\\"));
+	}
 }
