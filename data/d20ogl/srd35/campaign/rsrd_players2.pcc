@@ -1,0 +1,38 @@
+# CVS $Revision$ $Author$ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
+CAMPAIGN:SRD 3.5 for  Players
+RANK:1
+#GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Core Rules
+SETTING:RSRD
+TYPE:RSRD.Campaign
+SHOWINMENU:YES
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[SRD 3.5 for  Players]
+PUBNAMELONG:Wizards of the Coast
+PUBNAMESHORT:WotC
+PUBNAMEWEB:http://www.wizards.com/default.asp?x=dnd
+SOURCELONG:Revised (v.3.5) System Reference Document
+SOURCESHORT:RSRD
+SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+SOURCEDATE:2000-01
+# COMMENT: Unknown Month - Set as 01
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2007, PCgen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Doug McMill, Paul W. King, Chris Chandler (Barak), Michael Gray (Taluonr Iscandar), Kenneth Walters (GldDragon35), Mike Sledge (zodar6), Patryk Adamski (Ruemere), Larry Davis (Sir George Anonymous), James Dempsey, Bryan (Merton Monk) McRoberts, Thomas Jannes (chipoulou), Samuel Hendricks (NotMousse), Sigurdur H. Olafsson, Jayme Cox, Jeremy "Illrigger" Turnley, Emily Smirle, Martin Fagerström, Chris McLaughlin, Raymond Yao, Eddy Anthony (MoSaT), Thomas Clegg (Arknight), Andargor, Devon Jones, Aaron Divinsky, Frank Kliewe)
+
+INFOTEXT:This is a subset of the RSRD containing rules generally found in Core Book I, this should not be loaded with any other RSRD sets.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:@/d20ogl/srd35/OGL.txt
+
+PCC:@/d20ogl/srd35/campaign/rsrd_campaign_corebook2.pcc
+
+# Suppress forward references
+FORWARDREF:KIT|Ape Companion,Awakened Animal,Awakened Tree,Badger Companion,Bear (Black) Companion,Bear (Brown) Companion,Bear (Polar) Companion,Bison Companion,Boar Companion,Camel Companion,Camel Default,Cheetah Companion,Crocodile (Giant) Companion,Crocodile Companion,Dog (Riding) Companion,Dog Companion,Eagle Companion,Elephant Companion,Elephant Default,Hawk Companion,Horse (Heavy) Companion,Horse (Light) Companion,Leopard Companion,Lion Companion,Lizard (Monitor) Companion,Owl Companion,Pony Companion,Porpoise Companion,Rhinoceros Companion,Shark (Medium) Companion,Snake (Constrictor) Companion,Snake (Constrictor/Giant) Companion,Snake (Viper/Huge) Companion,Snake (Viper/Large) Companion,Snake (Viper/Medium) Companion,Snake (Viper/Small) Companion,Snake Familiar,Squid Companion,Tiger Companion,Wolf Companion,Wolverine Companion
+FORWARDREF:RACE|Ape,Baboon,Badger,Bat,Bear (Black),Bear (Brown),Bear (Polar),Bison,Boar,Camel,Cat,Cheetah,Crocodile,Dog,Donkey,Eagle,Elephant,Hawk,Horse (Heavy),Horse (Light),Horse (Warhorse Heavy),Horse (Warhorse Light),Hyena,Leopard,Lion,Lizard,Manta Ray,Monkey,Mule,Octopus,Owl,Pony,Porpoise,Rat,Raven,Rhinoceros,Shark (Huge),Shark (Large),Shark (Medium),Snake (Constrictor),Snake (Constrictor/Giant),Snake (Viper/Huge),Snake (Viper/Large),Snake (Viper/Medium),Snake (Viper/Small),Snake (Viper/Tiny),Squid,Tiger,Toad,Weasel,Whale (Baleen),Whale (Cachalot),Whale (Orca),Wolf,Wolverine
+FORWARDREF:FEAT|Awesome Blow,Flyby Attack,Improved Natural Attack
+FORWARDREF:CLASS|Animal (Will)
+#
+# End
+#
