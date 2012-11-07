@@ -663,9 +663,10 @@
 							<xsl:if test="string-length(race/racetype) &gt; 0"> / 
 								<xsl:value-of select="race/racetype"/>
 							</xsl:if>
+<!-- Don't display as we can't filter yet RACESUBTYPEs >
 							<xsl:if test="string-length(race/racesubtype) &gt; 0"> / 
 								<xsl:value-of select="race/racesubtype"/>
-							</xsl:if>
+							</xsl:if>	-->
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>	<!-- SPACE -->
@@ -7958,7 +7959,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 								</xsl:call-template>
 								<xsl:call-template name="bio.entry">
 									<xsl:with-param name="title" select="'Favored Class'"/>
-									<xsl:with-param name="value" select="race/racesubtype"/>
+									<xsl:with-param name="value" select="favoredlist"/>
 								</xsl:call-template>
 								<fo:table-row>
 			<fo:table-cell padding-top="1pt" height="9pt">
