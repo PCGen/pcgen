@@ -56,7 +56,7 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 	{
 		JPanel pane = new JPanel(new BorderLayout());
 		pane.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
-		JLabel splashLabel = new JLabel(Icons.createImageIcon("SplashPcgen_Beta.png"));
+		JLabel splashLabel = new JLabel(Icons.createImageIcon("SplashPcgen_Alpha.png"));
 		pane.add(splashLabel, BorderLayout.NORTH);
 		loadingLabel.setBorder(BorderFactory.createEmptyBorder(10, 7, 10, 10));
 		pane.add(loadingLabel, BorderLayout.CENTER);
