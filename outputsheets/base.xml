@@ -170,7 +170,7 @@
 		<race>|RACE|</race>
 		<race>
 			<racetype>|RACETYPE|</racetype>
-|FOR,%racesubtype,0,COUNT[RACESUBTYPE]-1,1,0|
+|FOR,%racesubtype,0,COUNT[RACESUBTYPES]-1,1,0|
 			<racesubtype>|RACESUBTYPE.%racesubtype|</racesubtype>
 |ENDFOR|
 		</race>
