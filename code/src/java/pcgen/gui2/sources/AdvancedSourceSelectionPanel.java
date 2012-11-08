@@ -544,7 +544,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 					sourceFacade != null
 						&& sourceFacade.getCampaigns().containsElement(obj);
 			return Arrays.asList(
-				obj.getBookType(),
+				obj.getBookTypes(),
 				obj.getStatus(),
 				isLoaded ? LanguageBundle.getString("in_yes") : LanguageBundle
 					.getString("in_no"));

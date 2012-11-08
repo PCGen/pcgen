@@ -17,14 +17,18 @@
  */
 package plugin.lsttokens.campaign;
 
-import pcgen.cdom.enumeration.StringKey;
+import org.junit.Test;
+
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractStringTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class BooktypeTokenTest extends AbstractStringTokenTestCase<Campaign>
+public class BooktypeTokenTest extends AbstractTypeSafeListTestCase<Campaign, String>
 {
 
 	static BooktypeToken token = new BooktypeToken();
@@ -50,14 +54,94 @@ public class BooktypeTokenTest extends AbstractStringTokenTestCase<Campaign>
 	}
 
 	@Override
-	protected boolean isClearLegal()
+	public String getConstant(String string)
+	{
+		return string;
+	}
+
+	@Override
+	public char getJoinCharacter()
+	{
+		return '|';
+	}
+
+	@Override
+	public ListKey getListKey()
+	{
+		return ListKey.BOOK_TYPE;
+	}
+
+	@Test
+	public void dummyTest()
+	{
+		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
+	}
+
+	@Override
+	public boolean isClearDotLegal()
 	{
 		return false;
 	}
 
 	@Override
-	public StringKey getStringKey()
+	public boolean isClearLegal()
 	{
-		return StringKey.BOOK_TYPE;
+		return false;
+	}
+
+	@Override
+	protected boolean requiresPreconstruction()
+	{
+		return false;
+	}
+
+	@Override
+	public void testReplacementInputs() throws PersistenceLayerException
+	{
+		//Override because BookType performs a .CLEAR
+	}
+
+	@Override
+	public void testReplacementInputsTwo() throws PersistenceLayerException
+	{
+		//Override because BookType performs a .CLEAR
+	}
+
+	@Override
+	public void testValidInputMultList() throws PersistenceLayerException
+	{
+		//Override because BookType performs a .CLEAR
+	}
+
+	@Override
+	protected ConsolidationRule getConsolidationRule()
+	{
+		//Override because BookType performs a .CLEAR
+		return ConsolidationRule.OVERWRITE;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

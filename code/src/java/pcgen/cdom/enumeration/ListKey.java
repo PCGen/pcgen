@@ -157,6 +157,8 @@ public final class ListKey<T> {
 	public static final ListKey<String> INFO_TEXT = new ListKey<String>();
 	/** TEMP_BONUS - a ListKey */
 	public static final ListKey<BonusObj> TEMP_BONUS = new ListKey<BonusObj>();
+	/** BOOK_TYPE - a ListKey */
+	public static final ListKey<String> BOOK_TYPE = new ListKey<String>();
 	//	/** Key for a list of weapon proficiencies */
 	//	public static final ListKey<String> WEAPON_PROF = new ListKey<String>();
 	public static final ListKey<CampaignSourceEntry> FILE_ARMOR_PROF = new ListKey<CampaignSourceEntry>();

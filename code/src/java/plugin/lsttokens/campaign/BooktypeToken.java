@@ -17,16 +17,24 @@
  */
 package plugin.lsttokens.campaign;
 
-import pcgen.cdom.enumeration.StringKey;
+import java.util.Collection;
+import java.util.StringTokenizer;
+
+import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
+import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with BOOKTYPE Token
  */
-public class BooktypeToken implements CDOMPrimaryToken<Campaign>
+public class BooktypeToken extends AbstractTokenWithSeparator<Campaign>
+		implements CDOMPrimaryToken<Campaign>
 {
 
     @Override
@@ -35,28 +43,41 @@ public class BooktypeToken implements CDOMPrimaryToken<Campaign>
 		return "BOOKTYPE";
 	}
 
-    @Override
-	public ParseResult parseToken(LoadContext context, Campaign camp,
+	@Override
+	protected char separator()
+	{
+		return '|';
+	}
+
+	@Override
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign,
 		String value)
 	{
-		if (value == null || value.length() == 0)
+		context.obj.removeList(campaign, ListKey.BOOK_TYPE);
+
+		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
+		while (aTok.hasMoreTokens())
 		{
-			return new ParseResult.Fail(getTokenName() + " arguments may not be empty", context);
+			context.obj.addToList(campaign, ListKey.BOOK_TYPE, aTok.nextToken());
 		}
-		context.getObjectContext().put(camp, StringKey.BOOK_TYPE, value);
 		return ParseResult.SUCCESS;
 	}
 
     @Override
-	public String[] unparse(LoadContext context, Campaign camp)
+	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		String booktype =
-				context.getObjectContext().getString(camp, StringKey.BOOK_TYPE);
-		if (booktype == null)
+		Changes<String> changes = context.getObjectContext().getListChanges(
+				campaign, ListKey.BOOK_TYPE);
+		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
-		return new String[]{booktype};
+		Collection<String> added = changes.getAdded();
+		if (added == null || added.isEmpty())
+		{
+			return null;
+		}
+		return new String[] { StringUtil.join(added, Constants.PIPE) };
 	}
 
     @Override

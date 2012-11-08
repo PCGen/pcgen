@@ -153,9 +153,18 @@ public class Campaign extends PObject implements CampaignFacade
 	 * {@inheritDoc}
 	 */
 	@Override
-	public String getBookType()
+	public List<String> getBookTypeList()
 	{
-		return getSafe(StringKey.BOOK_TYPE);
+		return getSafeListFor(ListKey.BOOK_TYPE);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getBookTypes()
+	{
+		return getListAsString(ListKey.BOOK_TYPE);
 	}
 
 	/**

@@ -20,6 +20,8 @@
  */
 package pcgen.core.facade;
 
+import java.util.List;
+
 import pcgen.core.facade.util.ListFacade;
 
 /**
@@ -44,7 +46,13 @@ public interface CampaignFacade
 	/**
 	 * @return A text description of the type of book the source represents.
 	 */
-	public String getBookType();
+	public String getBookTypes();
+
+	/**
+	 * @return A list of text descriptions of the type of book the source represents.
+	 */
+	public List<String> getBookTypeList();
+
 
 	/**
 	 * @return The name of the implementation status of the source.

@@ -28,7 +28,6 @@ import java.util.List;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -100,11 +99,14 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements Prere
 		PersistenceManager pMan = PersistenceManager.getInstance();
 		for (Campaign campaign : campList)
 		{
-			if (pMan.isLoaded(campaign)
-				&& bookType.equalsIgnoreCase(campaign.getSafe(StringKey.BOOK_TYPE)))
+			for (String listType : campaign.getBookTypeList())
 			{
-				Logging.debugPrint("Adding campaign " + pMan.isLoaded(campaign) + " type:" + campaign.getSafe(StringKey.BOOK_TYPE));
-				matchingCampaigns.add(campaign);
+				if (pMan.isLoaded(campaign) && bookType.equalsIgnoreCase(listType))
+				{
+					Logging.debugPrint("Adding campaign " + pMan.isLoaded(campaign) + " type:" + campaign.getBookTypes());
+					matchingCampaigns.add(campaign);
+					break;
+				}
 			}
 		}
 
@@ -113,10 +115,14 @@ public class PreCampaignTester extends AbstractPrerequisiteTest implements Prere
 		{
 			final Campaign aCampaign = Globals.getCampaignByURI(element, false);
 
-			if (aCampaign != null && bookType.equalsIgnoreCase(aCampaign.getSafe(StringKey.BOOK_TYPE)))
+			for (String listType : aCampaign.getBookTypeList())
 			{
-				matchingCampaigns.add(aCampaign);
-			}
+				if (aCampaign != null && bookType.equalsIgnoreCase(listType))
+				{
+					matchingCampaigns.add(aCampaign);
+					break;
+				}
+			}				
 		}
 		return matchingCampaigns.size();
 	}
