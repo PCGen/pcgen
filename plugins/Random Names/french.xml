@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="US-ASCII"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE GENERATOR SYSTEM "generator.dtd">
 <GENERATOR>
 	<RULESET id="french-historical-male-rule" title="French" usage="final">
@@ -582,7 +582,7 @@
 		<VALUE>de La</VALUE>
 	</LIST>
 	<LIST id="french-preposition-l" title="Preposition">
-		<VALUE>l'</VALUE>
+		<VALUE>l’</VALUE>
 	</LIST>
 	<LIST id="french-locative-preposition-de" title="Preposition">
 		<VALUE>de</VALUE>
@@ -593,7 +593,7 @@
 		<VALUE>Du</VALUE>
 	</LIST>
 	<LIST id="french-locative-preposition-d" title="Preposition">
-		<VALUE>d'</VALUE>
+		<VALUE>d’</VALUE>
 	</LIST>
 	<LIST id="french-surname-vowel" title="Surname">
 		<VALUE>Acre</VALUE>
