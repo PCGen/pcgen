@@ -777,6 +777,7 @@ public final class PurchaseModeFrame extends JDialog
 			// increase the value in the model
 			if (!purchaseModel.setPurchaseScoreMin(value + 1))
 			{
+				// TODO Disable buttons (then no need for those messages)
 				// set a status message
 				statusBar.setText(LanguageBundle.getString("in_Prefs_minExceedMax")); //$NON-NLS-1$
 			}
