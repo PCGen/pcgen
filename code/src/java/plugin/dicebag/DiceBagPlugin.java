@@ -76,15 +76,16 @@ public class DiceBagPlugin extends GMBPlugin
 	/** Menu item for tools menu. Selects this tab. */
 	private JMenuItem notesToolsItem;
 
+	private static final String NAME = "DiceBag"; //$NON-NLS-1$
 	/** Key of dice bag tab. */
 	private static final String IN_NAME = "in_plugin_dicebag_name"; //$NON-NLS-1$
 
 	/** Version number. (NOTE: does this mean anything?) */
-	private String version = "00.00.00.01";
+	private String version = "00.00.00.01"; //$NON-NLS-1$
 
 	/**
 	 * <p>
-	 * Default (and only) constructure. Initializes the plugin.
+	 * Default (and only) constructor. Initializes the plugin.
 	 * </p>
 	 */
 	public DiceBagPlugin()
@@ -121,7 +122,7 @@ public class DiceBagPlugin extends GMBPlugin
 	public void start()
 	{
 		theController = new DiceBagPluginController();
-		GMBus.send(new TabAddMessage(this, getName(), theController.getComponent(),
+		GMBus.send(new TabAddMessage(this, getLocalizedName(), theController.getComponent(),
 			getPluginSystem()));
 		initMenus();
 	}
@@ -145,7 +146,7 @@ public class DiceBagPlugin extends GMBPlugin
     @Override
 	public String getName()
 	{
-		return LanguageBundle.getString(IN_NAME);
+		return NAME;
 	}
 
 	/*
@@ -385,10 +386,15 @@ public class DiceBagPlugin extends GMBPlugin
 	private void initMenus()
 	{
 		notesToolsItem =
-				makeMenuItem(LanguageBundle.getString(IN_NAME), DICEBAG_TOOLS_COMMAND, null,
+				makeMenuItem(getLocalizedName(), DICEBAG_TOOLS_COMMAND, null,
 					LanguageBundle.getString("in_plugin_dicebag_desc"), //$NON-NLS-1$
 					LanguageBundle.getMnemonic("in_mn_plugin_dicebag_name")); //$NON-NLS-1$
 		GMBus.send(new ToolMenuItemAddMessage(this, notesToolsItem));
+	}
+
+	private String getLocalizedName()
+	{
+		return LanguageBundle.getString(IN_NAME);
 	}
 
 	/**

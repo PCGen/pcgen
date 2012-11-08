@@ -77,7 +77,8 @@ public abstract class Plugin
 	}
 
 	/**
-	 *  Gets the name attribute of the Plugin object
+	 *  Gets the name attribute of the Plugin object.
+	 *  This is used in the default implementation of {@link #getDataDir()}. 
 	 *
 	 *@return    The name value
 	 *@since        GMGen 3.3

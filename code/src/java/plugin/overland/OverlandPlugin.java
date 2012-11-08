@@ -10,6 +10,7 @@ import gmgen.pluginmgr.messages.ToolMenuItemAddMessage;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.utils.TabbedPaneUtilities;
+import pcgen.system.LanguageBundle;
 import plugin.overland.gui.OverPanel;
 
 import javax.swing.JMenuItem;
@@ -26,12 +27,13 @@ import java.awt.event.ActionListener;
  * Created on February 26, 2003<br>
  * Updated on February 26, 2003
  * @author  Expires 2003
+ * @author Vincent Lhote
  * @version 2.10
  */
 public class OverlandPlugin extends GMBPlugin
 {
 	/** Log name / plugin id */
-	public static final String LOG_NAME = "Overland_Travel";
+	public static final String LOG_NAME = "Overland_Travel"; //$NON-NLS-1$
 
 	/** The plugin menu item in the tools menu. */
 	private JMenuItem overToolsItem = new JMenuItem();
@@ -40,10 +42,14 @@ public class OverlandPlugin extends GMBPlugin
 	private OverPanel theView;
 
 	/** The English name of the plugin. */
-	private String name = "Overland Travel";
+	private static final String NAME = "Overland Travel"; //$NON-NLS-1$
+	/** Key of plugin tab. */
+	private static final String IN_NAME = "in_plugin_overland_name"; //$NON-NLS-1$
+	/** Mnemonic in menu for {@link #IN_NAME} */
+	private static final String IN_NAME_MN = "in_mn_plugin_overland_name"; //$NON-NLS-1$
 
 	/** The version number of the plugin. */
-	private String version = "01.00.99.01.00";
+	private String version = "01.00.99.01.00"; //$NON-NLS-1$
 
 	/**
 	 * Creates a new instance of OverlandPlugin
@@ -67,7 +73,7 @@ public class OverlandPlugin extends GMBPlugin
 	{
 		String datadir = this.getDataDir();
 		theView = new OverPanel(datadir);
-		GMBus.send(new TabAddMessage(this, name, getView(), getPluginSystem()));
+		GMBus.send(new TabAddMessage(this, getLocalizedName(), getView(), getPluginSystem()));
 		initMenus();
 		getPluginSystem();
 	}
@@ -92,7 +98,12 @@ public class OverlandPlugin extends GMBPlugin
     @Override
 	public String getName()
 	{
-		return name;
+		return NAME;
+	}
+	
+	private String getLocalizedName()
+	{
+		return LanguageBundle.getString(IN_NAME);
 	}
 
 	/**
@@ -151,8 +162,8 @@ public class OverlandPlugin extends GMBPlugin
 	 */
 	public void initMenus()
 	{
-		overToolsItem.setMnemonic('O');
-		overToolsItem.setText("Overland Travel");
+		overToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
+		overToolsItem.setText(getLocalizedName());
 		overToolsItem.addActionListener(new ActionListener()
 		{
             @Override

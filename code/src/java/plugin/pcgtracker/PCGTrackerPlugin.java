@@ -44,7 +44,7 @@ import java.io.File;
 public class PCGTrackerPlugin extends GMBPlugin implements
 		java.awt.event.ActionListener
 {
-	public static final String LOG_NAME = "PCG_Tracker";
+	public static final String LOG_NAME = "PCG_Tracker"; //$NON-NLS-1$
 
 	private static final String OPTION_NAME_SYSTEM = LOG_NAME + ".System"; //$NON-NLS-1$
 	private static final String OPTION_NAME_LOADORDER = LOG_NAME + ".LoadOrder"; //$NON-NLS-1$
@@ -58,12 +58,12 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 	private PCGTrackerView theView;
 
 	/** The English name of the plugin. */
-	// TODO add static final?
-	private String name = "Character Tracker";
+	private static final String NAME = "Character Tracker"; //$NON-NLS-1$
+	/** Key of plugin tab. */
+	private static final String IN_NAME = "in_plugin_pcgtracker_name"; //$NON-NLS-1$
 
 	/** The version number of the plugin. */
-	// TODO add static final?
-	private String version = "01.00.99.01.00";
+	private static final String version = "01.00.99.01.00"; //$NON-NLS-1$
 
 	/**
 	 * Creates a new instance of PCGTrackerPlugin
@@ -88,7 +88,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		theView = new PCGTrackerView();
 		theView.getLoadedList().setModel(model);
 		initListeners();
-		GMBus.send(new TabAddMessage(this, name, getView(), getPluginSystem()));
+		GMBus.send(new TabAddMessage(this, getLocalizedName(), getView(), getPluginSystem()));
 		initMenus();
 		getPluginSystem();
 	}
@@ -113,7 +113,12 @@ public class PCGTrackerPlugin extends GMBPlugin implements
     @Override
 	public String getName()
 	{
-		return name;
+		return NAME;
+	}
+	
+	private String getLocalizedName()
+	{
+		return LanguageBundle.getString(IN_NAME);
 	}
 
 	/**

@@ -21,12 +21,12 @@ import plugin.overland.util.PairList;
 import plugin.overland.util.RBCost;
 
 /**
- * Implementation of RoomBoard. Package view only on purpose.
+ * Implementation of RoomBoard. This class is package view on purpose.
  *
  * @author Vincent Lhote
  *
  */
- class RoomBoardImplementation implements RoomBoard
+class RoomBoardImplementation implements RoomBoard
 {
 	private final PairList<RBCost> animals; //holds animal costs
 	private final PairList<RBCost> foods; //holds inn costs
