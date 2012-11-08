@@ -35,7 +35,7 @@ FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
 ###Block:Familiar
 # Class of the Master	Type			Spell Res.	Ability										Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define			Combat bonus					Main Race Type
 FOLLOWER:FMLevel=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link				COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
-FOLLOWER:FMLevel=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Share Spells																		DEFINE:LOCK.INT|6		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Magical Beast
+FOLLOWER:FMLevel=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Share Spells																		DEFINE:LOCK.INT|6		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast
 FOLLOWER:FMLevel=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells																			DEFINE:LOCK.INT|7		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:FMLevel=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																				DEFINE:LOCK.INT|8		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:FMLevel=7	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Own Kind																				DEFINE:LOCK.INT|9		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
