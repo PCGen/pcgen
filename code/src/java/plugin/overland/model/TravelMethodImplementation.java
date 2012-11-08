@@ -719,7 +719,7 @@ class TravelMethodImplementation implements TravelMethod
 	/**
 	 * Used for terrain and routes.
 	 */
-	class ListByWayModel extends AbstractListModel<Localized> implements ComboBoxModel<Localized>
+	class ListByWayModel extends AbstractListModel implements ComboBoxModel
 	{
 		private static final long serialVersionUID = -5596276376727073581L;
 
@@ -745,7 +745,7 @@ class TravelMethodImplementation implements TravelMethod
 		}
 
 		@Override
-		public Localized getElementAt(int index)
+		public Object getElementAt(int index)
 		{
 			if (selectedMethod == null || !listByWay.containsKey(selectedMethod.getWay()))
 				return null;
