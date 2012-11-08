@@ -108,9 +108,11 @@ public final class LookAndFeelManager
 			// run everywhere.  No difference otherwise.
 			for (int i = 0; i < lafInfo.length; ++i)
 			{
-				if (lafInfo[i].getClassName().endsWith("WindowsLookAndFeel"))
+				if (lafInfo[i].getClassName().endsWith("WindowsLookAndFeel")) //$NON-NLS-1$
 				{
-					lafInfo[i] = new UIManager.LookAndFeelInfo(lafInfo[i].getName(), FakeWindowsLookAndFeel.class.getName());
+					lafInfo[i] =
+							new UIManager.LookAndFeelInfo(lafInfo[i].getName(),
+								"pcgen.gui2.plaf.FakeWindowsLookAndFeel"); //$NON-NLS-1$
 					break;
 				}
 			}
