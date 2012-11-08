@@ -67,11 +67,12 @@ public class CharacterSheetPlugin extends GMBPlugin
 	/** Menu item for tools menu. Selects this tab. */
 	private JMenuItem csToolsItem = new JMenuItem();
 
+	private static final String NAME = "Character Sheet"; //$NON-NLS-1$
 	/** Name of tab. */
 	private static final String IN_NAME = "in_plugin_charactersheet_name"; //$NON-NLS-1$
 
 	/** Version number. (NOTE: does this mean anything?) */
-	private String version = "00.00.00.01";
+	private String version = "00.00.00.01"; //$NON-NLS-1$
 
 	private CharacterSheetModel model;
 
@@ -96,7 +97,7 @@ public class CharacterSheetPlugin extends GMBPlugin
 	public void start()
 	{
 		model = new CharacterSheetModel();
-		String name = getName();
+		String name = getLocalizedName();
 		GMBus.send(new PreferencesPanelAddMessage(this, name,
 			new PreferencesDisplayPanel(model)));
 		if (getPluginSystem().equals(Constants.SYSTEM_PCGEN))
@@ -123,6 +124,11 @@ public class CharacterSheetPlugin extends GMBPlugin
 	 */
     @Override
 	public String getName()
+	{
+		return NAME;
+	}
+
+	private String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}
@@ -314,7 +320,7 @@ public class CharacterSheetPlugin extends GMBPlugin
 	public void initMenus()
 	{
 		csToolsItem.setMnemonic(LanguageBundle.getMnemonic("in_mn_plugin_charactersheet_name")); //$NON-NLS-1$
-		csToolsItem.setText(LanguageBundle.getString(IN_NAME));
+		csToolsItem.setText(getLocalizedName());
 		csToolsItem.addActionListener(new ActionListener()
 		{
 

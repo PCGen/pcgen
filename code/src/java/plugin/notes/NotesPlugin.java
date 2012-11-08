@@ -49,7 +49,7 @@ import java.io.File;
  * <code>PluginLoader</code> and will create a model and a view for this
  * plugin.
  *
- * @author Expires 2003
+ * @author Devon Jones
  * @since August 27, 2003
  * @version 2.10
  */
@@ -71,6 +71,8 @@ public class NotesPlugin extends GMBPlugin
 	/** The user interface for the encounter generator. */
 	private NotesView theView;
 
+	/** The English name of the plugin. */
+	private final static String NAME = "Notes"; //$NON-NLS-1$
 	/** Key for the name of the plugin. */
 	private final static String IN_NAME = "in_plugin_notes_name"; //$NON-NLS-1$
 
@@ -131,6 +133,11 @@ public class NotesPlugin extends GMBPlugin
 	 */
     @Override
 	public String getName()
+	{
+		return NAME;
+	}
+
+	public String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}
@@ -308,7 +315,7 @@ public class NotesPlugin extends GMBPlugin
 	private void initMenus()
 	{
 		notesToolsItem.setMnemonic(LanguageBundle.getMnemonic("in_mn_plugin_notes_name")); //$NON-NLS-1$
-		notesToolsItem.setText(getName());
+		notesToolsItem.setText(getLocalizedName());
 		notesToolsItem.addActionListener(new ActionListener()
 		{
 
