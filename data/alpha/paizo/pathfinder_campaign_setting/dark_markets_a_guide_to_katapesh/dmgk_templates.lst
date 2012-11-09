@@ -21,6 +21,10 @@ Sahir-Afiyun Spells ~ Ranger		VISIBLE:NO	PRECLASS:1,Ranger=1	SPELLKNOWN:CLASS|Ra
 Sahir-Afiyun Spells ~ Sorcerer	VISIBLE:NO	PRECLASS:1,Sorcerer=1	SPELLKNOWN:CLASS|Sorcerer=1|Confusion (Lesser),Night Blindness,Pesh Vigor,Ray of Sickening,Remove Fear|Sorcerer=2|Calm Emotions,Euphoric Cloud,Suffocation (Slow)|Sorcerer=3|Pesh Addiction (Lesser)|Sorcerer=5|Pesh Addiction,Suffocation (Instant)
 Sahir-Afiyun Spells ~ Wizard		VISIBLE:NO	PRECLASS:1,Wizard=1	SPELLKNOWN:CLASS|Wizard=1|Confusion (Lesser),Night Blindness,Pesh Vigor,Ray of Sickening,Remove Fear|Wizard=2|Calm Emotions,Euphoric Cloud,Suffocation (Slow)|Wizard=3|Pesh Addiction (Lesser)|Wizard=5|Pesh Addiction,Suffocation (Instant)
 
+###Block: Greater Ghul Template
+
+Greater Ghul	ABILITY:Racial Trait|AUTOMATIC|Bleed ~ Ghul|Cursed Claws|Genie-Kin|Rend ~ Ghul|Skills ~ Ghul	ABILITY:Racial Trait|AUTOMATIC|Change Shape ~ Greater Ghul|DR ~ Greater Ghul|Bonus Feats ~ Greater Ghul|Greater Invisibility ~ Greater Ghul|Create Spawn ~ Greater Ghul	BONUS:ABILITYPOOL|Genie Type Selection|1
+
 #
 # End
 #

@@ -29,12 +29,14 @@ COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Pathfinder Chronicles: Dark Markets, A Guide to Katapesh. Copyright 2009, Paizo Publishing, LLC; Authors: Stephen S. Greer, Amber Scott, Greg A. Vaughan, and Sean K Reynolds.
 COPYRIGHT:Tome of Horrors III Copyright 2005 Necromancer Games, Inc. Author Scott Greene, with Casey Christofferson, Erica Balsley, Kevin Baase, Lance Hawvermale, Travis Hawvermale, Ian S. Johnson, Patrick Lawringer, Nathan Paul, Clark Peterson, Greg Ragland, Robert Schwalb, and Bill Webb.
-COPYRIGHT:PCGen dataset conversion for "Dark Markets: A Guide to Katapesh" Copyright 2009-2010, PCGen Data team (Including, but not limited to Terry Milner and Stefan Radermacher).
+COPYRIGHT:PCGen dataset conversion for "Dark Markets: A Guide to Katapesh" Copyright 2009-2010, PCGen Data team (Including, but not limited to Terry Milner, Stefan Radermacher and Andrew Maitland (LegacyKing)).
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
 # Data files
+ABILITYCATEGORY:dmgk_abilitycategories.lst
+
 ABILITY:dmgk_abilities_classes_prestige.lst
 ABILITY:dmgk_abilities_monsters.lst
 CLASS:dmgk_classes_prestige.lst

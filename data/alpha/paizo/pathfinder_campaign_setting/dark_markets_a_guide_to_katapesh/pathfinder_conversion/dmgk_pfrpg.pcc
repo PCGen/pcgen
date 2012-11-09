@@ -37,6 +37,8 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishin
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
+ABILITYCATEGORY:../dmgk_abilitycategories.lst
+
 ABILITY:../dmgk_abilities_classes_prestige.lst
 ABILITY:../dmgk_abilities_monsters.lst
 EQUIPMENT:../dmgk_equip.lst
@@ -45,11 +47,11 @@ EQUIPMENT:../dmgk_equip_poisons.lst
 EQUIPMENT:../dmgk_equip_potions.lst
 EQUIPMENT:../dmgk_equip_weapons_melee.lst
 EQUIPMENT:../dmgk_equip_wondrousitems.lst
-FEAT:../dmgk_feats.lst
-RACE:../dmgk_races.lst
+FEAT:dmgk_feats.lst
 SPELL:../dmgk_spells.lst
 TEMPLATE:../dmgk_templates.lst
 
+RACE:dmgk_races.lst
 CLASS:dmgk_classes_prestige.lst
 
 #
