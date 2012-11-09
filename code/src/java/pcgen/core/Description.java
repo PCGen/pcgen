@@ -226,17 +226,17 @@ public class Description extends ConcretePrereqObject
 						if (featName.startsWith("TYPE=") || featName.startsWith("TYPE."))
 						{
 							final List<Ability> feats = aPC.getAggregateAbilityList(AbilityCategory.FEAT);
-							boolean first = true;
+							boolean needSpace = false;
 							for ( final Ability feat : feats )
 							{
 								if (feat.isType(featName.substring(5)))
 								{
-									if (!first)
+									if (needSpace)
 									{
-										buf.append(Constants.COMMA + ' ');
+										buf.append(' ');
 									}
 									buf.append(aPC.getDescription(feat));
-									first = false;
+									needSpace = true;
 								}
 							}
 						}

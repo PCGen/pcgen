@@ -311,30 +311,30 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 */
 	public void testDescription()
 	{
-		final Description desc1 = new Description("Description 1");
+		final Description desc1 = new Description("Description 1.");
 		final PObject pobj = new PObject();
 		pobj.addToListFor(ListKey.DESCRIPTION, desc1);
 
 		PlayerCharacter pc = getCharacter();
 		assertEquals("Description should match", pc
-			.getDescription(pobj), "Description 1");
+			.getDescription(pobj), "Description 1.");
 
-		final Description desc2 = new Description("Description 2");
+		final Description desc2 = new Description("Description 2.");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc2);
 
-		assertEquals("Description should match", "Description 1, Description 2",
+		assertEquals("Description should match", "Description 1. Description 2.",
 			pc.getDescription(pobj));
 
-		final Description desc3 = new Description("Description %1");
+		final Description desc3 = new Description("Description %1.");
 		desc3.addVariable("\"3\"");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc3);
 
 		assertEquals("Description should match",
-			"Description 1, Description 2, Description 3", pc
+			"Description 1. Description 2. Description 3.", pc
 				.getDescription(pobj));
 
 		pobj.removeFromListFor(ListKey.DESCRIPTION, desc2);
-		assertEquals("Description should match", "Description 1, Description 3",
+		assertEquals("Description should match", "Description 1. Description 3.",
 			pc.getDescription(pobj));
 	}
 

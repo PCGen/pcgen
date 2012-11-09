@@ -10592,18 +10592,18 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 			return Constants.EMPTY_STRING;
 		}
 		final StringBuilder sb = new StringBuilder();
-		boolean needcomma = false;
+		boolean needSpace = false;
 		for (final Description desc : theDescriptions)
 		{
 			final String str = desc.getDescription(this, cdo);
 			if (str.length() > 0)
 			{
-				if (needcomma)
+				if (needSpace)
 				{
-					sb.append(Constants.COMMA).append(' ');
+					sb.append(' ');
 				}
 				sb.append(str);
-				needcomma = true;
+				needSpace = true;
 			}
 		}
 		return sb.toString();

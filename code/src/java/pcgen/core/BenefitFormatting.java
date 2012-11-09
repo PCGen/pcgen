@@ -16,18 +16,18 @@ public class BenefitFormatting
 			return Constants.EMPTY_STRING;
 		}
 		final StringBuffer buf = new StringBuffer();
-		boolean wrote = false;
+		boolean needSpace = false;
 		for ( final Description desc : theBenefits )
 		{
 			final String str = desc.getDescription(aPC, a);
 			if ( str.length() > 0 )
 			{
-				if ( wrote )
+				if ( needSpace )
 				{
-					buf.append(Constants.COMMA);
+					buf.append(' ');
 				}
 				buf.append(str);
-				wrote = true;
+				needSpace = true;
 			}
 		}
 		return buf.toString();
