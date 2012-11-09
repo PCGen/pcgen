@@ -303,7 +303,7 @@ FEAT:Craft Wondrous Item
 FEAT:Extend Spell
 FEAT:Spell Focus(Necromancy)
 ABILITY:CATEGORY=Turn Undead|Rebuke Undead
-GEAR:Scythe				LOCATION:Both Hands	EQMOD:PLUS1W.VICIOU
+GEAR:Scythe				LOCATION:Both Hands	EQMOD:PLUS1W.VICIOUS
 GEAR:Breastplate			LOCATION:Equipped		EQMOD:PLUS1A
 GEAR:Cloak of Resistance +2	LOCATION:Equipped
 GEAR:Periapt of Wisdom +2	LOCATION:Equipped
