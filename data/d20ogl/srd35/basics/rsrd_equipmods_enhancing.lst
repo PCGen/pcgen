@@ -155,7 +155,7 @@ Undead controlling			KEY:UNDEAD		TYPE:Armor.Shield					COST:49000	VISIBLE:QUALIF
 Unholy					KEY:UNHLY_A		TYPE:Ammunition			PLUS:2			VISIBLE:QUALIFY									SOURCEPAGE:MagicItemsII.rtf																PRETYPE:2,Enhancement,Ammunition																				BONUS:VAR|NegLevels|1|PREALIGN:LG,NG,CG																								SPROP:evil-aligned,+2d6 unholy damage vs. good,1 negative level bestowed to good wielder							ABILITY:Special Ability|AUTOMATIC|Negative Levels
 Unholy					KEY:UNHLY_M		TYPE:Weapon.Melee.Thrown	PLUS:2			VISIBLE:QUALIFY									SOURCEPAGE:MagicItemsII.rtf																PRETYPE:2,Enhancement,Weapon	PRETYPE:1,Melee,Thrown																	BONUS:VAR|NegLevels|1|PREALIGN:LG,NG,CG																								SPROP:evil-aligned,+2d6 unholy damage vs. good,1 negative level bestowed to good wielder							ABILITY:Special Ability|AUTOMATIC|Negative Levels
 Unholy					KEY:UNHLY_R		TYPE:Weapon.Ranged		PLUS:2			VISIBLE:QUALIFY									SOURCEPAGE:MagicItemsII.rtf																PRETYPE:3,Enhancement,Weapon,Ranged				!PRETYPE:1,Thrown														BONUS:VAR|NegLevels|1|PREALIGN:LG,NG,CG																								SPROP:evil-aligned,+2d6 unholy damage vs. good bestowed on ammunition, 1 negative level bestowed to good wielder			ABILITY:Special Ability|AUTOMATIC|Negative Levels
-Vicious					KEY:VICIOU		TYPE:Weapon.Melee			PLUS:1			VISIBLE:QUALIFY									SOURCEPAGE:MagicItemsII.rtf																PRETYPE:3,Enhancement,Weapon,Melee																																																		SPROP:deals extra 2d6 damage to target plus 1d6 damage to user.
+Vicious					KEY:VICIOUS		TYPE:Weapon.Melee			PLUS:1			VISIBLE:QUALIFY									SOURCEPAGE:MagicItemsII.rtf																PRETYPE:3,Enhancement,Weapon,Melee																																																		SPROP:deals extra 2d6 damage to target plus 1d6 damage to user.
 Vorpal					KEY:VORPAL		TYPE:Weapon.Melee			PLUS:5			VISIBLE:QUALIFY									SOURCEPAGE:MagicItemsII.rtf																PRETYPE:4,Enhancement,Weapon,Melee,Slashing																																																SPROP:severs opponents head on natural 20 critical hit
 Wild						KEY:WILD_A		TYPE:Armor				PLUS:3			VISIBLE:QUALIFY									SOURCEPAGE:MagicItemsII.rtf																PRETYPE:2,Enhancement,Armor																																																			SPROP:preserve armor and enhancment bonus while in wild shape
 Wild						KEY:WILD_S		TYPE:Shield				PLUS:3			VISIBLE:QUALIFY									SOURCEPAGE:MagicItemsII.rtf																PRETYPE:2,Enhancement,Shield																																																			SPROP:preserve shield and enhancment bonus while in wild shape
@@ -276,7 +276,8 @@ Magical Enhancments (+10)	KEY:MAGIC_ENHANCE_10	PLUS:10
 
 Magical Enhancment Cost		KEY:MAGIC_COST				COST:%CHOICE	CHOOSE:NUMBER|MIN=1|MAX=1000000|TITLE=Additional Cost	CHOOSE:NUMBER|MIN=1|MAX=1000000|TITLE=Additional Cost
 
-
+###Block:
+Light Generation			KEY:LIGHT_WEAP				COST:0	SPELLS:Magic Weapon|TIMES=ATWILL|CASTERLEVEL=1|Light	TYPE:Weapon	PRETYPE:1,Weapon	VISIBLE:QUALIFY
 
 
 ###Block: Intelligent Items
