@@ -89,7 +89,7 @@ Vicious Wounding				KEY:FIM_VICIOUSW										TYPE:Weapon				PLUS:3	COST:0						
 Watery Form					KEY:FIM_WATERYFO										TYPE:Weapon				PLUS:2	COST:0						VISIBLE:QUALIFY	SOURCEPAGE:p.21															PRETYPE:1,Weapon																										SPROP:Weapon may be transformed into one ounce of liquid
 Weakening					KEY:FIM_WEAKENIN										TYPE:Weapon				PLUS:2	COST:0						VISIBLE:QUALIFY	SOURCEPAGE:p.21															PRETYPE:1,Weapon																										SPROP:Deal 1 point of Strength damage with each hit
 
-VICIOU.MOD																																																												!PRETYPE:1,EQMOD=JAGGED
+VICIOUS.MOD																																																												!PRETYPE:1,EQMOD=JAGGED
 
 #		COST:0		KEY:FIM_		TYPE:		VISIBLE:QUALIFY	SOURCEPAGE:p.	PRETYPE:		SPROP:
 
