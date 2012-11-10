@@ -32,7 +32,7 @@ import gmgen.pluginmgr.GMBus;
 import gmgen.pluginmgr.messages.*;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
-import pcgen.gui.utils.TabbedPaneUtilities;
+import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 import plugin.charactersheet.gui.PreferencesDisplayPanel;
 
@@ -306,7 +306,7 @@ public class CharacterSheetPlugin extends GMBPlugin
 	public boolean isActive()
 	{
 		JTabbedPane tp =
-				TabbedPaneUtilities.getTabbedPaneFor(model.getComponent());
+				Utility.getTabbedPaneFor(model.getComponent());
 		return tp != null && tp.getSelectedComponent() != null
 			&& JOptionPane.getFrameForComponent(tp).isFocused()
 			&& tp.getSelectedComponent().equals(model.getComponent());

@@ -36,7 +36,7 @@ import gmgen.pluginmgr.GMBus;
 import gmgen.pluginmgr.messages.*;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
-import pcgen.gui.utils.TabbedPaneUtilities;
+import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 import plugin.dicebag.gui.DiceBagPluginController;
 
@@ -372,7 +372,7 @@ public class DiceBagPlugin extends GMBPlugin
 	public boolean isActive()
 	{
 		JTabbedPane tp =
-				TabbedPaneUtilities.getTabbedPaneFor(theController
+				Utility.getTabbedPaneFor(theController
 					.getComponent());
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
 			&& tp.getSelectedComponent().equals(theController.getComponent());

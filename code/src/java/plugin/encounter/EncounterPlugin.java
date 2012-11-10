@@ -53,7 +53,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
-import pcgen.gui.utils.TabbedPaneUtilities;
+import pcgen.gui2.tools.Utility;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserRadio;
@@ -329,7 +329,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	 */
 	public boolean isActive()
 	{
-		JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(theView);
+		JTabbedPane tp = Utility.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
 			&& tp.getSelectedComponent().equals(theView);
 	}

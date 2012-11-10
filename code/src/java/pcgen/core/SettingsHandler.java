@@ -456,24 +456,6 @@ public final class SettingsHandler
 	}
 
 	/**
-	 *  Use UIPropertyContext.CLEANUP_TEMP_FILES instead.
-	 */
-	@Deprecated
-	public static void setCleanupTempFiles(final boolean argDoCleanup)
-	{
-		cleanupTempFiles = argDoCleanup;
-	}
-
-	/**
-	 * Use UIPropertyContext.CLEANUP_TEMP_FILES instead.
-	 */
-	@Deprecated
-	public static boolean getCleanupTempFiles()
-	{
-		return cleanupTempFiles;
-	}
-
-	/**
 	 * Sets the flag to determine whether PCGen should backup pcg files before saving
 	 *
 	 * @param  argCreatePcgBackup  the <code>flag</code>
@@ -1100,24 +1082,6 @@ public final class SettingsHandler
 		return loadCampaignsAtStart;
 	}
 
-	/**
-	 * @deprecated Use PCGenSettings.OPTION_AUTOLOAD_SOURCES_WITH_PC instead.
-	 */
-	@Deprecated
-	public static void setLoadCampaignsWithPC(final boolean aBool)
-	{
-		loadCampaignsWithPC = aBool;
-	}
-
-	/**
-	 * @deprecated Use PCGenSettings.OPTION_AUTOLOAD_SOURCES_WITH_PC instead.
-	 */
-	@Deprecated
-	public static boolean isLoadCampaignsWithPC()
-	{
-		return loadCampaignsWithPC;
-	}
-
 	public static void setLoadURLs(final boolean aBool)
 	{
 		loadURLs = aBool;
@@ -1292,7 +1256,6 @@ public final class SettingsHandler
 		setClassTab_AvailableListMode(getPCGenOption("ClassTab.availableListMode", GuiConstants.INFOCLASS_VIEW_NAME)); //$NON-NLS-1$
 		setClassTab_SelectedListMode(getPCGenOption("ClassTab.selectedListMode", GuiConstants.INFOCLASS_VIEW_NAME)); //$NON-NLS-1$
 		setCreatePcgBackup(getPCGenOption("createPcgBackup", true));
-		setCleanupTempFiles(getPCGenOption("cleanupTempFiles", false)); //$NON-NLS-1$
 		setCustomizerSplit1(getPCGenOption("customizer.split1", -1)); //$NON-NLS-1$
 		setCustomizerSplit2(getPCGenOption("customizer.split2", -1)); //$NON-NLS-1$
 		setDefaultOSType(getPCGenOption("defaultOSType", null)); //$NON-NLS-1$
@@ -1334,7 +1297,6 @@ public final class SettingsHandler
 		setInvalidToHitText(getPCGenOption("invalidToHitText", LanguageBundle.getString("SettingsHandler.114")));  //$NON-NLS-1$//$NON-NLS-2$
 		setLastTipShown(getPCGenOption("lastTipOfTheDayTipShown", -1)); //$NON-NLS-1$
 		setLoadCampaignsAtStart(getPCGenOption("loadCampaignsAtStart", false)); //$NON-NLS-1$
-		setLoadCampaignsWithPC(getPCGenOption("loadCampaignsWithPC", false)); //$NON-NLS-1$
 		setLookAndFeel(getPCGenOption("looknFeel", 1)); //$NON-NLS-1$
 		setMaxPotionSpellLevel(getPCGenOption("maxPotionSpellLevel", 3)); //$NON-NLS-1$
 		setMaxWandSpellLevel(getPCGenOption("maxWandSpellLevel", 4)); //$NON-NLS-1$
@@ -1342,12 +1304,8 @@ public final class SettingsHandler
 		setOptionAllowedInSources(getPCGenOption("optionAllowedInSources", true)); //$NON-NLS-1$
 		setPccFilesLocation(new File(expandRelativePath(getPCGenOption("pccFilesLocation", //$NON-NLS-1$
 						System.getProperty("user.dir") + File.separator + "data")))); //$NON-NLS-1$ //$NON-NLS-2$
-		setPcgenCustomDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenCustomDir", //$NON-NLS-1$
-			Globals.getUserFilesPath() + File.separator + "customsources")))); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		setPcgenVendorDataDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenVendorDataDir", //$NON-NLS-1$
 			Globals.getUserFilesPath() + File.separator + "vendordata")))); //$NON-NLS-1$ //$NON-NLS-2$
-		setPcgenDocsDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenDocsDir", //$NON-NLS-1$
-						System.getProperty("user.dir") + File.separator + "docs")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setPcgenSystemDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenSystemDir", //$NON-NLS-1$
 						System.getProperty("user.dir") + File.separator + "system")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setPcgenThemePackDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenThemePackDir", //$NON-NLS-1$
@@ -1358,8 +1316,6 @@ public final class SettingsHandler
 				System.getProperty("user.dir") + File.separator + "preview")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setGmgenPluginDir(new File(expandRelativePath(getOptions().getProperty("gmgen.files.gmgenPluginDir", //$NON-NLS-1$
 						System.getProperty("user.dir") + File.separator + "plugins")))); //$NON-NLS-1$ //$NON-NLS-2$
-		setPcgPath(new File(expandRelativePath(getOptions().getProperty("pcgen.files.characters", //$NON-NLS-1$
-						Globals.getDefaultPcgPath()))));
 		setBackupPcgPath(new File(expandRelativePath(getOptions().getProperty("pcgen.files.characters.backup", "")))); //$NON-NLS-1$
 		setPortraitsPath(new File(expandRelativePath(getOptions().getProperty("pcgen.files.portraits", //$NON-NLS-1$
 						Globals.getDefaultPcgPath()))));
@@ -1484,15 +1440,6 @@ public final class SettingsHandler
 
 	public static void setOptionsProperties(final PlayerCharacter aPC)
 	{
-		if (getPcgPath() != null)
-		{
-			getOptions().setProperty("pcgen.files.characters", retractRelativePath(getPcgPath().getAbsolutePath())); //$NON-NLS-1$
-		}
-		else
-		{
-			// hasn't been set properly yet
-			getOptions().setProperty("pcgen.files.characters", retractRelativePath(Globals.getDefaultPath())); //$NON-NLS-1$
-		}
 		if (getBackupPcgPath() != null && !getBackupPcgPath().getPath().equals(""))
 		{
 			getOptions().setProperty("pcgen.files.characters.backup", retractRelativePath(getBackupPcgPath().getAbsolutePath())); //$NON-NLS-1$
@@ -1518,16 +1465,6 @@ public final class SettingsHandler
 
 		getOptions().setProperty("pcgen.options.custColumnWidth", StringUtil.join(Globals.getCustColumnWidth(), ", ")); //$NON-NLS-1$
 
-		if (getPcgenCustomDir() != null)
-		{
-			getOptions().setProperty("pcgen.files.pcgenCustomDir", //$NON-NLS-1$
-				retractRelativePath(getPcgenCustomDir().getAbsolutePath()));
-		}
-		else
-		{
-			getOptions().setProperty("pcgen.files.pcgenCustomDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
-		}
-
 		if (getPcgenVendorDataDir() != null)
 		{
 			getOptions().setProperty("pcgen.files.pcgenVendorDataDir", //$NON-NLS-1$
@@ -1536,16 +1473,6 @@ public final class SettingsHandler
 		else
 		{
 			getOptions().setProperty("pcgen.files.pcgenVendorDataDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
-		}
-
-		if (getPcgenDocsDir() != null)
-		{
-			getOptions().setProperty("pcgen.files.pcgenDocsDir", //$NON-NLS-1$
-				retractRelativePath(getPcgenDocsDir().getAbsolutePath()));
-		}
-		else
-		{
-			getOptions().setProperty("pcgen.files.pcgenDocsDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		if (getPcgenSystemDir() != null)
@@ -1718,7 +1645,6 @@ public final class SettingsHandler
 		setPCGenOption("ChooserSingleChoiceMethod", getSingleChoicePreference()); //$NON-NLS-1$
 		setPCGenOption("ClassTab.availableListMode", getClassTab_AvailableListMode()); //$NON-NLS-1$
 		setPCGenOption("ClassTab.selectedListMode", getClassTab_SelectedListMode()); //$NON-NLS-1$
-		setPCGenOption("cleanupTempFiles", getCleanupTempFiles()); //$NON-NLS-1$
 		setPCGenOption("country", Globals.getCountry()); //$NON-NLS-1$
 		setPCGenOption("createPcgBackup", getCreatePcgBackup()); //$NON-NLS-1$
 		setPCGenOption("customizer.split1", getCustomizerSplit1()); //$NON-NLS-1$
@@ -1759,7 +1685,6 @@ public final class SettingsHandler
 		setPCGenOption("invalidToHitText", getInvalidToHitText()); //$NON-NLS-1$
 		setPCGenOption("lastTipOfTheDayTipShown", getLastTipShown()); //$NON-NLS-1$
 		setPCGenOption("loadCampaignsAtStart", isLoadCampaignsAtStart()); //$NON-NLS-1$
-		setPCGenOption("loadCampaignsWithPC", isLoadCampaignsWithPC()); //$NON-NLS-1$
 		setPCGenOption("loadMasterworkAndMagicFromLst", wantToLoadMasterworkAndMagic()); //$NON-NLS-1$
 		setPCGenOption("loadURLs", loadURLs); //$NON-NLS-1$
 		setPCGenOption("looknFeel", getLookAndFeel()); //$NON-NLS-1$
@@ -1894,32 +1819,6 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Sets the path to the character files.
-	 *
-	 * @param  path  the <code>File</code> representing the path
-	 */
-	public static void setPcgPath(final File path)
-	{
-		if (path != null && !path.exists())
-		{
-			path.mkdirs();
-		}
-		pcgPath = path;
-	}
-
-	/**
-	 * Returns the path to the character files.
-	 *
-	 * @deprecated Callers should use PCGenSettings.getPcgDir() instead.
-	 *
-	 * @return    the <code>pcgPath</code> property
-	 */
-	public static File getPcgPath()
-	{
-		return pcgPath;
-	}
-
-	/**
 	 * Sets the path that was last used in a character or output file chooser.
 	 *
 	 * @param  path  the <code>File</code> representing the path
@@ -1943,24 +1842,6 @@ public final class SettingsHandler
 			return pcgPath;
 		}
 		return lastUsedPcgPath;
-	}
-	
-	public static void setPcgenCustomDir(final File aFile)
-	{
-		if (aFile != null && !aFile.exists())
-		{
-			aFile.mkdirs();
-		}
-		pcgenCustomDir = aFile;
-	}
-
-	/**
-	 * @deprecated Use ConfigurationSettings.getCustomDir()
-	 * @return the custom directory
-	 */
-	public static File getPcgenCustomDir()
-	{
-		return pcgenCustomDir;
 	}
 
 	public static void setPcgenVendorDataDir(final File aFile)
@@ -1993,76 +1874,6 @@ public final class SettingsHandler
 	public static File getPcgenSponsorDir()
 	{
 		return pcgenSponsorDir;
-	}
-
-	public static void setPcgenDocsDir(final File argPcgenDocsDir)
-	{
-		pcgenDocsDir = argPcgenDocsDir;
-	}
-
-	/**
-	 * @deprecated Use ConfigurationSettings.getDocsDir()
-	 * @return the documents directory
-	 */
-	public static File getPcgenDocsDir()
-	{
-		return pcgenDocsDir;
-	}
-
-	public static void setPcgenFilesDir(final File aFile)
-	{
-		if (aFile != null)
-		{
-			pcgenFilesDir = aFile;
-		}
-	}
-
-	/**
-	 * @deprecated Use ConfigurationSettings.getSettingsDir()
-	 * @return the files directory
-	 */
-	public static File getPcgenFilesDir()
-	{
-		return pcgenFilesDir;
-	}
-	
-	/**
-	 * Return a handle to the directory in which the PCGen config 
-	 * is stored. Takes into account the FilePaths setting as well 
-	 * as the PcgenFilesDir setting.
-	 *  
-	 * @return The directory in which the PCGen config is stored.
-	 * @deprecated Not used anymore, not updated fType="FD_USER"
-	 */
-	@Deprecated
-	public static File getDecodedPCGenFilesDir()
-	{
-		String fType = SettingsHandler.getFilePaths();
-		if ((fType == null) || (fType.length() < 1))
-		{
-			// make sure we have a default
-			if (Globals.isMacPlatform)
-			{
-				fType = "mac_user";
-			} else {
-				fType = "pcgen";
-			}
-		}
-
-		if (fType.equals("pcgen"))
-		{
-			return new File(System.getProperty("user.dir"));
-		}
-		else if (fType.equals("user"))
-		{
-			return new File(System.getProperty("user.home")
-				+ File.separator + ".pcgen");
-		}
-		else if (fType.equals("mac_user"))
-		{
-			return new File(Globals.defaultMacOptionsPath);
-		}
-		return getPcgenFilesDir();
 	}
 
 	public static void setPcgenOutputSheetDir(final File aFile)
@@ -2922,10 +2733,6 @@ public final class SettingsHandler
 			{
 				setFilePaths(fType);
 			}
-			else if (getPcgenFilesDir() != null)
-			{
-				setFilePaths(getPcgenFilesDir().getAbsolutePath());
-			}
 		}
 
 		// if it's the users home directory, we need to make sure
@@ -3485,23 +3292,6 @@ public final class SettingsHandler
 				{
 					fType = "user"; //$NON-NLS-1$
 				}
-			}
-
-			if (fType.equals("pcgen")) //$NON-NLS-1$
-			{
-				setPcgenFilesDir(new File(System.getProperty("user.dir"))); //$NON-NLS-1$
-			}
-			else if (fType.equals("user")) //$NON-NLS-1$
-			{
-				setPcgenFilesDir(new File(System.getProperty("user.home") + File.separator + ".pcgen")); //$NON-NLS-1$ //$NON-NLS-2$
-			}
-			else if (fType.equals("mac_user")) //$NON-NLS-1$
-			{
-				setPcgenFilesDir(new File(Globals.defaultMacOptionsPath));
-			}
-			else
-			{
-				setPcgenFilesDir(new File(fType));
 			}
 		}
 		catch (IOException e)

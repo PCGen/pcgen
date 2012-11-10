@@ -7,7 +7,7 @@ import gmgen.pluginmgr.GMBus;
 import gmgen.pluginmgr.messages.*;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
-import pcgen.gui.utils.TabbedPaneUtilities;
+import pcgen.gui2.tools.Utility;
 import plugin.network.gui.NetworkView;
 import plugin.network.gui.PreferencesNetworkingPanel;
 
@@ -167,7 +167,7 @@ public class NetworkPlugin extends GMBPlugin
 
 	public boolean isActive()
 	{
-		JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(model.getView());
+		JTabbedPane tp = Utility.getTabbedPaneFor(model.getView());
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
 			&& tp.getSelectedComponent().equals(model.getView());
 	}

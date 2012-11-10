@@ -29,7 +29,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.ImagePreview;
-import pcgen.gui.utils.TabbedPaneUtilities;
+import pcgen.gui2.tools.Utility;
 import pcgen.io.PCGFile;
 import pcgen.system.PCGenSettings;
 import plugin.initiative.gui.Initiative;
@@ -482,7 +482,7 @@ public class InitiativePlugin extends GMBPlugin
 	 */
 	public boolean isActive()
 	{
-		JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(theView);
+		JTabbedPane tp = Utility.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
 			&& tp.getSelectedComponent().equals(theView);
 	}

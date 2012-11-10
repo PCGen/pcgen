@@ -31,7 +31,7 @@ import javax.swing.filechooser.FileFilter;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
-import pcgen.gui.utils.TabbedPaneUtilities;
+import pcgen.gui2.tools.Utility;
 import pcgen.util.Logging;
 import plugin.experience.gui.AddDefeatedCombatant;
 import plugin.experience.gui.ExperienceAdjusterView;
@@ -539,7 +539,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	 */
 	public boolean isActive()
 	{
-		JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(eaView);
+		JTabbedPane tp = Utility.getTabbedPaneFor(eaView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
 			&& tp.getSelectedComponent().equals(eaView);
 	}

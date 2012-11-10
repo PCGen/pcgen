@@ -64,9 +64,9 @@ import pcgen.core.InstallableCampaign;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui.utils.IconUtilitities;
 import pcgen.gui.utils.JLabelPane;
-import pcgen.gui.utils.Utility;
+import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.Utility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.InstallLoader;
 import pcgen.system.ConfigurationSettings;
@@ -232,8 +232,8 @@ public class DataInstaller extends JFrame
 		currFolder = new File(System.getProperty("user.dir"));
 		initComponents();
 
-		IconUtilitities.maybeSetIcon(this, IconUtilitities.RESOURCE_APP_ICON);
-		pcgen.gui.utils.Utility.centerFrame(this, false);
+		setIconImage(Icons.createImageIcon(Icons.RESOURCE_APP_ICON).getImage());
+		Utility.centerFrame(this, false);
 	}
 
 	/**
@@ -542,13 +542,12 @@ public class DataInstaller extends JFrame
 		locDataButton =
 				new JRadioButton(LanguageBundle
 					.getString("in_diData"));
-		Utility.setDescription(locDataButton, LanguageBundle
-					.getString("in_diData_tip"));
+		locDataButton.setToolTipText(LanguageBundle.getString("in_diData_tip"));
 		exclusiveGroup.add(locDataButton);
 		locVendorDataButton =
 				new JRadioButton(LanguageBundle
 					.getString("in_diVendorData"));
-		Utility.setDescription(locVendorDataButton, LanguageBundle
+		locVendorDataButton.setToolTipText(LanguageBundle
 			.getString("in_diVendorData_tip"));
 		exclusiveGroup.add(locVendorDataButton);
 		JPanel optionsPanel = new JPanel();

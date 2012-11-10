@@ -11,7 +11,7 @@ import gmgen.util.MiscUtilities;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.gui.utils.TabbedPaneUtilities;
+import pcgen.gui2.tools.Utility;
 import pcgen.gui.ImagePreview;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGFile;
@@ -262,7 +262,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 
 	public boolean isActive()
 	{
-		JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(theView);
+		JTabbedPane tp = Utility.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
 			&& tp.getSelectedComponent().equals(theView);
 	}

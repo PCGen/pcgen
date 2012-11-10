@@ -49,6 +49,7 @@ import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JRootPane;
+import javax.swing.JTabbedPane;
 import javax.swing.KeyStroke;
 
 import org.apache.commons.lang.SystemUtils;
@@ -504,5 +505,23 @@ public final class Utility
 			}
 		}
 		return "";
+	}
+
+	/**
+	 * Get the tabbed pane for a component
+	 * @param c
+	 * @return the tabbed pane for a component
+	 */
+	public static JTabbedPane getTabbedPaneFor(Component c)
+	{
+		if (c == null)
+		{
+			return null;
+		}
+		if (c instanceof JTabbedPane)
+		{
+			return (JTabbedPane) c;
+		}
+		return getTabbedPaneFor(c.getParent());
 	}
 }

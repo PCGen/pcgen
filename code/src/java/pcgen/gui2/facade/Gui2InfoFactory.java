@@ -105,7 +105,6 @@ import pcgen.core.kit.BaseKit;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
-import pcgen.gui.HTMLUtils;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -129,6 +128,13 @@ public class Gui2InfoFactory implements InfoFactory
 	private static final String EMPTY_STRING = ""; //$NON-NLS-1$
 	private static NumberFormat ADJ_FMT = new DecimalFormat("+0;-0"); //$NON-NLS-1$
 	private static NumberFormat COST_FMT = new DecimalFormat("0.#"); //$NON-NLS-1$
+
+	/** Constant for 2 spaces in HTML */
+	public static final String TWO_SPACES = " &nbsp;"; //$NON-NLS-1$
+	/** Constant for HTML bold start tag */
+	public static final String BOLD = "<b>"; //$NON-NLS-1$
+	/** Constant for HTML bold end tag */
+	public static final String END_BOLD = "</b>"; //$NON-NLS-1$
 
 	private PlayerCharacter pc;
 	
@@ -1600,10 +1606,10 @@ public class Gui2InfoFactory implements InfoFactory
 		b.append(book.getTypeName());
 		if (book.getName().equals(pc.getSpellBookNameToAutoAddKnown()))
 		{
-			b.append(HTMLUtils.TWO_SPACES).append(HTMLUtils.BOLD);
+			b.append(TWO_SPACES).append(BOLD);
 			b.append(
 				LanguageBundle.getString("InfoSpellsSubTab.DefaultKnownBook")) //$NON-NLS-1$
-				.append(HTMLUtils.END_BOLD);
+				.append(END_BOLD);
 		}
 		b.append(")"); //$NON-NLS-1$
 		b.appendLineBreak();

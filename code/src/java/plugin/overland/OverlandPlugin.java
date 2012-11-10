@@ -9,7 +9,7 @@ import gmgen.pluginmgr.messages.TabAddMessage;
 import gmgen.pluginmgr.messages.ToolMenuItemAddMessage;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
-import pcgen.gui.utils.TabbedPaneUtilities;
+import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 import plugin.overland.gui.OverPanel;
 
@@ -152,7 +152,7 @@ public class OverlandPlugin extends GMBPlugin
 	 */
 	public boolean isActive()
 	{
-		JTabbedPane tp = TabbedPaneUtilities.getTabbedPaneFor(theView);
+		JTabbedPane tp = Utility.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
 			&& tp.getSelectedComponent().equals(theView);
 	}
