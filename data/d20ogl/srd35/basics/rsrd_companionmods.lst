@@ -4,7 +4,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 ###Block: Special Mount
 # Class of the Master	Type				Hit Dice	Spell Res.	Ability																Automatically Gained Armor Prof.	Define		Combat bonus					Add to base move																																					Stat bonus		Main Race Type
-FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	AUTO:ARMORPROF|ARMORTYPE=Barding	BONUS:VAR|IntelligenceLockNumber|6	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1		RACETYPE:Animal/Magical Beast
+FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	AUTO:ARMORPROF|ARMORTYPE=Barding	BONUS:VAR|IntelligenceLockNumber|6	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1		RACETYPE:Animal/Magical Beast	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker
 FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Improved Speed															BONUS:VAR|IntelligenceLockNumber|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
 FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Command Own Kind															BONUS:VAR|IntelligenceLockNumber|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1
 FOLLOWER:SMLevel=15	TYPE:Special Mount	HD:2		SR:20																									BONUS:VAR|IntelligenceLockNumber|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1
@@ -23,7 +23,7 @@ FOLLOWER:SMLevel=5	TYPE:Special Mount	PRERACE:1,Shark (Large)			KIT:1|Shark (Lar
 
 ###Block: Fiendish Servant
 # Class of the Master	Type				Hit Dice	Spell Res.	Ability																Define		Combat bonus					Stat bonus
-FOLLOWER:FSLevel=5	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	BONUS:VAR|IntelligenceLockNumber|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
+FOLLOWER:FSLevel=5	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	BONUS:VAR|IntelligenceLockNumber|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker
 FOLLOWER:FSLevel=13	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Speak with Blackguard								BONUS:VAR|IntelligenceLockNumber|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:FSLevel=16	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Blood Bond										BONUS:VAR|IntelligenceLockNumber|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:FSLevel=19	TYPE:Fiendish Servant	HD:2		SR:24																			BONUS:VAR|IntelligenceLockNumber|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
@@ -32,7 +32,7 @@ FOLLOWER:FSLevel=20	TYPE:Fiendish Servant			SR:25
 
 ###Block: Undead Companion
 # Class of the Master			Type				Hit Dice	Spell Res.	Ability																											Define		Combat bonus					Stat bonus		Modify VAR
-FOLLOWER:UndeadCompanionLVL=1		TYPE:Undead Companion	HD:2				ABILITY:Special Ability|VIRTUAL|Smite Good	ABILITY:Special Ability|AUTOMATIC|Cannot be Turned|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	BONUS:VAR|IntelligenceLockNumber|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:VAR|SmiteGood|3	BONUS:VAR|SmiteGoodDamage|min(TL,20)
+FOLLOWER:UndeadCompanionLVL=1		TYPE:Undead Companion	HD:2				ABILITY:Special Ability|VIRTUAL|Smite Good	ABILITY:Special Ability|AUTOMATIC|Cannot be Turned|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	BONUS:VAR|IntelligenceLockNumber|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:VAR|SmiteGood|3	BONUS:VAR|SmiteGoodDamage|min(TL,20)	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker
 FOLLOWER:UndeadCompanionLVL=13	TYPE:Undead Companion	HD:2				ABILITY:Special Ability|AUTOMATIC|Speak with Blackguard																			BONUS:VAR|IntelligenceLockNumber|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=16	TYPE:Undead Companion	HD:2				ABILITY:Special Ability|AUTOMATIC|Blood Bond																					BONUS:VAR|IntelligenceLockNumber|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
 FOLLOWER:UndeadCompanionLVL=19	TYPE:Undead Companion	HD:2		SR:24																														BONUS:VAR|IntelligenceLockNumber|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
