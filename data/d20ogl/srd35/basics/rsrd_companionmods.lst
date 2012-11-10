@@ -141,7 +141,7 @@ FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Wolverine			KIT:1|Wolverine
 # These bonuses prevent the listed animals from increasing in size when they gain hit dice as a companion
 # This should eventually be done by hard-coding it but for now this work-around will let the 5.8 companions come out with the correct numbers - Eddy
 # Class of the Master	Type				Adjust PC Size
-FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Badger), Dire Animal (Dire Rat),Wolf,Wolverine|PREVARGT:TL,3
+FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Badger),Dire Animal (Dire Rat),Wolf,Wolverine|PREVARGT:TL,3
 FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor)|PREVARGT:TL,5
 FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Weasel)|PREVARGT:TL,6
 FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Octopus (Giant),Rhinoceros,Tiger|PREVARGT:TL,12
