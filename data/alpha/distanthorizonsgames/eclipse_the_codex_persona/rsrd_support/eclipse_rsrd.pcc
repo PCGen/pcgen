@@ -54,6 +54,9 @@ ABILITY:../eclipse_abilities_paths.lst
 ABILITY:../eclipse_abilities_proficiencies.lst
 ABILITY:../eclipse_abilities_racial.lst
 ABILITY:../eclipse_abilities_enchantments.lst
+ABILITY:../eclipse_abilities_combat_enhancements.lst
+ABILITY:../eclipse_abilities_companion.lst
+ABILITY:../eclipse_abilities_enchantments.lst
 
 ABILITYCATEGORY:../eclipse_ability_categories.lst
 

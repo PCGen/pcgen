@@ -41,16 +41,16 @@ BONUS:ABILITYPOOL|Disadvantages|3|PREVARGTEQ:EclipseClass,1
 #Block: Files ---------------------------------------------------------
 
 ABILITY:eclipse_abilities.lst
+ABILITY:eclipse_abilities_combat_enhancements.lst
+ABILITY:eclipse_abilities_companion.lst
 ABILITY:eclipse_abilities_disadvantages.lst
+ABILITY:eclipse_abilities_enchantments.lst
 ABILITY:eclipse_abilities_martial_arts.lst
 ABILITY:eclipse_abilities_misc.lst
 ABILITY:eclipse_abilities_mods.lst
 ABILITY:eclipse_abilities_paths.lst
 ABILITY:eclipse_abilities_proficiencies.lst
 ABILITY:eclipse_abilities_racial.lst
-ABILITY:eclipse_abilities_enchantments.lst
-
-#ABILITY:eclipse_abili.lst
 
 ABILITYCATEGORY:eclipse_ability_categories.lst
 
