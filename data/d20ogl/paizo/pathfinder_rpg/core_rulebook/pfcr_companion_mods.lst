@@ -52,7 +52,7 @@ FOLLOWER:CompLevel=20	TYPE:Animal Companion	HD:1																															B
 
 ###Block:Special Mount - Same Table but slightly different animal list was warranted plus INT needs to be locked at 6
 # Class of the Master	Type				Hit Dice	Spell Res.		Ability								Automatically Gained Feat	Automatically Gained Armor Prof.	Define						Bonus to Ability Pool					Combat bonus					Stat bonus			Modify VAR			Main Race Type		Template
-FOLLOWER:SMLevel=1	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Link|Share Spells						AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0	DEFINE:LOCK.INT|6																				BONUS:VAR|MasterLevel|1	RACETYPE:Animal
+FOLLOWER:SMLevel=1	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Link|Share Spells						AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0	BONUS:VAR|IntelligenceLockNumber|6																				BONUS:VAR|MasterLevel|1	RACETYPE:Animal	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker
 FOLLOWER:SMLevel=2	TYPE:Special Mount	HD:1																																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:SMLevel=3	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Evasion																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:SMLevel=4	TYPE:Special Mount	HD:1																																BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -62,7 +62,7 @@ FOLLOWER:SMLevel=7	TYPE:Special Mount																																											
 FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:1																																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:SMLevel=9	TYPE:Special Mount	HD:1														AUTO:FEAT|Multiattack															BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:SMLevel=10	TYPE:Special Mount	HD:1																																																			BONUS:VAR|MasterLevel|1
-FOLLOWER:SMLevel=11	TYPE:Special Mount																																																				BONUS:VAR|MasterLevel|1	RACETYPE:Magical Beast	TEMPLATE:Celestial Creature
+FOLLOWER:SMLevel=11	TYPE:Special Mount																																																				BONUS:VAR|MasterLevel|1	RACETYPE:Animal/Magical Beast	TEMPLATE:Celestial Creature
 FOLLOWER:SMLevel=12	TYPE:Special Mount	HD:1																																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:SMLevel=13	TYPE:Special Mount	HD:1																																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:SMLevel=14	TYPE:Special Mount	HD:1																																BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -75,22 +75,22 @@ FOLLOWER:SMLevel=20	TYPE:Special Mount	HD:1																																BONUS
 
 ###Block:Familiar - No apparent changes from RSRD
 # Class of the Master	Type			Spell Res.	Ability										Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define			Combat bonus					Main Race Type
-FOLLOWER:FMLevel=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link				COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
-FOLLOWER:FMLevel=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Share Spells																		DEFINE:LOCK.INT|6		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Magical Beast
-FOLLOWER:FMLevel=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells																			DEFINE:LOCK.INT|7		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FMLevel=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																				DEFINE:LOCK.INT|8		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FMLevel=7	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Animals of Its Kind																		DEFINE:LOCK.INT|9		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FMLevel=9	TYPE:Familiar																															DEFINE:LOCK.INT|11	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FMLevel=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link				COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES		ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker
+FOLLOWER:FMLevel=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Share Spells																		BONUS:VAR|IntelligenceLockNumber|6		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast
+FOLLOWER:FMLevel=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells																			BONUS:VAR|IntelligenceLockNumber|1		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FMLevel=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																				BONUS:VAR|IntelligenceLockNumber|1		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FMLevel=7	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Animals of Its Kind																		BONUS:VAR|IntelligenceLockNumber|1		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FMLevel=9	TYPE:Familiar																															BONUS:VAR|IntelligenceLockNumber|2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 # Locking INT to 10 makes it a non-ability.
-FOLLOWER:FMLevel=11	TYPE:Familiar	SR:16		ABILITY:Special Ability|AUTOMATIC|Spell Resistance ~ Familiar																		DEFINE:LOCK.INT|11	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FMLevel=11	TYPE:Familiar	SR:16		ABILITY:Special Ability|AUTOMATIC|Spell Resistance ~ Familiar																		BONUS:VAR|IntelligenceLockNumber|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:FMLevel=12	TYPE:Familiar	SR:17
-FOLLOWER:FMLevel=13	TYPE:Familiar	SR:18		ABILITY:Special Ability|AUTOMATIC|Scry on Familiar																				DEFINE:LOCK.INT|12	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FMLevel=13	TYPE:Familiar	SR:18		ABILITY:Special Ability|AUTOMATIC|Scry on Familiar																				BONUS:VAR|IntelligenceLockNumber|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:FMLevel=14	TYPE:Familiar	SR:19
-FOLLOWER:FMLevel=15	TYPE:Familiar	SR:20																														DEFINE:LOCK.INT|13	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FMLevel=15	TYPE:Familiar	SR:20																														BONUS:VAR|IntelligenceLockNumber|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:FMLevel=16	TYPE:Familiar	SR:21
-FOLLOWER:FMLevel=17	TYPE:Familiar	SR:22																														DEFINE:LOCK.INT|14	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FMLevel=17	TYPE:Familiar	SR:22																														BONUS:VAR|IntelligenceLockNumber|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:FMLevel=18	TYPE:Familiar	SR:23
-FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																														DEFINE:LOCK.INT|15	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																														BONUS:VAR|IntelligenceLockNumber|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
 
 ###Block: Specific Familiars
