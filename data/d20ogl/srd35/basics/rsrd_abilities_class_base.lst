@@ -458,7 +458,7 @@ Summon Shadow	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:
 CATEGORY=Internal|Default.MOD	ABILITY:Special Mount Choice|AUTOMATIC|Standard Choices ~ Special Mount|PREABILITY:1,CATEGORY=Special Ability,Special Mount|!PREABILITY:1,CATEGORY=Internal,TYPE.SpecialMountAlternate
 Standard Choices	KEY:Standard Choices ~ Special Mount	CATEGORY:Internal	TYPE:SpecialMountSelection	COMPANIONLIST:Special Mount|Horse (Warhorse Heavy),Shark (Large)|PRESIZELTEQ:M	COMPANIONLIST:Special Mount|Pony (War),Dog (Riding)|PRESIZELTEQ:S	
 # COMMENT: Expanded Choices is in place for Homebrew Users
-Expanded Choices	KEY:Expanded Choices ~ Special Mount	CATEGORY:Internal	TYPE:SpecialMountSelection.SpecialMountAlternate	COST:0	COMPANIONLIST:Special Mount|Horse (Warhorse Heavy),Shark (Large)|PRESIZELTEQ:M	COMPANIONLIST:Special Mount|Pony (War),Dog (Riding)|PRESIZELTEQ:S	
+Expanded Choices	KEY:Expanded Choices ~ Special Mount	CATEGORY:Internal	TYPE:SpecialMountSelection.SpecialMountAlternate	COST:0	COMPANIONLIST:Special Mount|Horse (Warhorse Heavy),Shark (Large)|PRESIZELTEQ:M	COMPANIONLIST:Special Mount|Pony (War),Dog (Riding)|PRESIZELTEQ:S
 
 ###Block: Expert Class Skills
 # Ability Name		Category of Ability		Type				Visible		Stackable?	Multiple?	Choose		Class Skill
