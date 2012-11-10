@@ -1497,6 +1497,17 @@ BIO
 			<virtual>F</virtual>
 			<category>Internal</category>
 		</ability_object>
+		<ability_object>
+			<name>Select Racial Traits</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
 	<!-- Hidden Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Master Traits</name>
