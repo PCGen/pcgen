@@ -1,0 +1,64 @@
+# Ability Name					Unique Key							SORTKEY			Category of Ability		Type									Restricted Ability							Required Stat	Define					Description																							Stackable?	Multiple?	Choose						Ability																																																																																																																																																																																																																																																																																																																																Combat bonus				Add to base move			Stat bonus		Cost		Description of the Benefits
+Intelligence Lock Tracker															CATEGORY:Internal																									DEFINE:IntelligenceLockNumber|0	DEFINE:DisableIntLock|0		BONUS:VAR|DisableIntLock|1|PREVARGTEQ:INTSCORE,IntelligenceLockNumber																																		ABILITY:Internal|VIRTUAL|Lock Int ~ 1|PREVAREQ:IntelligenceLockNumber,1|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 2|PREVAREQ:IntelligenceLockNumber,2|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 6|PREVAREQ:IntelligenceLockNumber,6|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 7|PREVAREQ:IntelligenceLockNumber,7|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 8|PREVAREQ:IntelligenceLockNumber,8|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 9|PREVAREQ:IntelligenceLockNumber,9|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 10|PREVAREQ:IntelligenceLockNumber,10|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 11|PREVAREQ:IntelligenceLockNumber,11|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 12|PREVAREQ:IntelligenceLockNumber,12|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 13|PREVAREQ:IntelligenceLockNumber,13|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 14|PREVAREQ:IntelligenceLockNumber,14|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 15|PREVAREQ:IntelligenceLockNumber,15|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 16|PREVAREQ:IntelligenceLockNumber,16|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 17|PREVAREQ:IntelligenceLockNumber,17|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 18|PREVAREQ:IntelligenceLockNumber,18|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 19|PREVAREQ:IntelligenceLockNumber,19|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 20|PREVAREQ:IntelligenceLockNumber,20|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 21|PREVAREQ:IntelligenceLockNumber,21|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 22|PREVAREQ:IntelligenceLockNumber,22|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 23|PREVAREQ:IntelligenceLockNumber,23|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 24|PREVAREQ:IntelligenceLockNumber,24|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 25|PREVAREQ:IntelligenceLockNumber,25|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 26|PREVAREQ:IntelligenceLockNumber,26|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 27|PREVAREQ:IntelligenceLockNumber,27|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 28|PREVAREQ:IntelligenceLockNumber,28|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 29|PREVAREQ:IntelligenceLockNumber,29|PREVARLT:DisableIntLock,1	ABILITY:Internal|VIRTUAL|Lock Int ~ 30|PREVAREQ:IntelligenceLockNumber,30|PREVARLT:DisableIntLock,1
+#
+Lock Int ~ 1																	CATEGORY:Internal																									DEFINE:LOCK.INT|1
+Lock Int ~ 2																	CATEGORY:Internal																									DEFINE:LOCK.INT|2
+Lock Int ~ 6																	CATEGORY:Internal																									DEFINE:LOCK.INT|6
+Lock Int ~ 7																	CATEGORY:Internal																									DEFINE:LOCK.INT|7
+Lock Int ~ 8																	CATEGORY:Internal																									DEFINE:LOCK.INT|8
+Lock Int ~ 9																	CATEGORY:Internal																									DEFINE:LOCK.INT|9
+Lock Int ~ 10																	CATEGORY:Internal																									DEFINE:LOCK.INT|10
+Lock Int ~ 11																	CATEGORY:Internal																									DEFINE:LOCK.INT|11
+Lock Int ~ 12																	CATEGORY:Internal																									DEFINE:LOCK.INT|12
+Lock Int ~ 13																	CATEGORY:Internal																									DEFINE:LOCK.INT|13
+Lock Int ~ 14																	CATEGORY:Internal																									DEFINE:LOCK.INT|14
+Lock Int ~ 15																	CATEGORY:Internal																									DEFINE:LOCK.INT|15
+Lock Int ~ 16																	CATEGORY:Internal																									DEFINE:LOCK.INT|16
+Lock Int ~ 17																	CATEGORY:Internal																									DEFINE:LOCK.INT|17
+Lock Int ~ 18																	CATEGORY:Internal																									DEFINE:LOCK.INT|18
+Lock Int ~ 19																	CATEGORY:Internal																									DEFINE:LOCK.INT|19
+Lock Int ~ 20																	CATEGORY:Internal																									DEFINE:LOCK.INT|20
+Lock Int ~ 21																	CATEGORY:Internal																									DEFINE:LOCK.INT|21
+Lock Int ~ 22																	CATEGORY:Internal																									DEFINE:LOCK.INT|22
+Lock Int ~ 23																	CATEGORY:Internal																									DEFINE:LOCK.INT|23
+Lock Int ~ 24																	CATEGORY:Internal																									DEFINE:LOCK.INT|24
+Lock Int ~ 25																	CATEGORY:Internal																									DEFINE:LOCK.INT|25
+Lock Int ~ 26																	CATEGORY:Internal																									DEFINE:LOCK.INT|26
+Lock Int ~ 27																	CATEGORY:Internal																									DEFINE:LOCK.INT|27
+Lock Int ~ 28																	CATEGORY:Internal																									DEFINE:LOCK.INT|28
+Lock Int ~ 29																	CATEGORY:Internal																									DEFINE:LOCK.INT|29
+Lock Int ~ 30																	CATEGORY:Internal																									DEFINE:LOCK.INT|30
+
+
+#############################################
+###							###
+###	  Companion Modifier Abilities	###
+###							###
+#############################################
+
+###Block: Companion Modifier Abilities -----------------------------------------
+# Ability Name				Category of Ability		Type				Visible
+Blood Bond					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Cannot be Turned				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Cannot Create Spawn			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Command Creatures of Own Kind		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Communiate with Master			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Empathic Link				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Master Can Scry				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Share Saving Throws			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Share Spells				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Speak with Animals of Own Type	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Speak with Master				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Touch						CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+
+###Block: Psionic Companion Modifier Abilities ---------------------------------
+# Ability Name		Category of Ability		Type				Visible	Vision
+Channel Power		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Deliver Touch Powers	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Self Propulsion		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Share Powers		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Sight Link			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Sighted			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	VISION:Sighted (40')
+Telepathic Link		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+Telepathic Speech		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
+
