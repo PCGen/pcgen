@@ -700,7 +700,7 @@ RACE:Snake (Viper/Tiny)	!PRERACE:1,%
 ALIGN:TN
 SKILL:Listen	RANK:1
 SKILL:Spot		RANK:1
-FEAT:Improved Iniative
+FEAT:Improved Initiative
 STAT:DEX=11|CON=11|STR=10|INT=10|WIS=10|CHA=10
 
 STARTPACK:Toad Familiar	TYPE:Companion	VISIBLE:NO

@@ -1,0 +1,169 @@
+
+# ORIGINAL ENTRY: Andrew Maitland
+# Original Entry Date: 11-2012
+
+###Block: Common Racial Abilities
+Darkvision		KEY:Vision ~ Darkvision	CATEGORY:Special Ability	DEFINE:DarkvisionRange|0	BONUS:VISION|Darkvision|DarkvisionRange	VISION:Darkvision
+Low-Light		KEY:Vision ~ Low-Light	CATEGORY:Special Ability													VISION:Low-Light		
+
+###Block: Vision Displays
+Low-Light Vision			KEY:Low-Light Vision				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision																																																																										DEFINE:LowLightRange|2		DESC:You can see %1x as far as humans in low illumination.|LowLightRange
+Blindsense				KEY:Blindsense					CATEGORY:Special Ability	TYPE:SpecialQuality																																																																													DEFINE:BlindsenseRange|0	DESC:%1|BlindsenseRange
+Darkvision				KEY:Darkvision					CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1|DarkvisionRange
+Low light Vision			CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision	
+
+###Block: Empty Place Holder Abilities
+# COMMENT: We use .MODs to populate these with important information.
+Select Racial Traits						CATEGORY:Internal
+# COMMENT: Race Racial Trait Defaults
+Human Racial Trait Default					CATEGORY:Internal
+Dwarf Racial Trait Default					CATEGORY:Internal
+Elf Racial Trait Default					CATEGORY:Internal
+Gnome Racial Trait Default					CATEGORY:Internal
+Half-Elf Racial Trait Default					CATEGORY:Internal
+Half-Orc Racial Trait Default					CATEGORY:Internal
+Halfling Racial Trait Default					CATEGORY:Internal
+
+###Block: Mods
+CATEGORY=Internal|Default.MOD					ABILITY:Internal|AUTOMATIC|Select Racial Traits	ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|PREVARGTEQ:HasDarkvision,1	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light|PREVARGTEQ:HasLowlightVision,1		DEFINE:HasLowlightVision|0	DEFINE:HasDarkvision|0	DEFINE:RacialVision|0
+
+# Base Races
+# COMMENT: These Add the Racial Trait Defaults based upon the RACE - We only set this up for PC Races.
+CATEGORY=Internal|Select Racial Traits.MOD		ABILITY:Internal|AUTOMATIC|Human Racial Trait Default|PRERACE:1,Human
+CATEGORY=Internal|Select Racial Traits.MOD		ABILITY:Internal|AUTOMATIC|Dwarf Racial Trait Default|PRERACE:1,Dwarf
+CATEGORY=Internal|Select Racial Traits.MOD		ABILITY:Internal|AUTOMATIC|Elf Racial Trait Default|PRERACE:1,Elf
+CATEGORY=Internal|Select Racial Traits.MOD		ABILITY:Internal|AUTOMATIC|Gnome Racial Trait Default|PRERACE:1,Gnome
+CATEGORY=Internal|Select Racial Traits.MOD		ABILITY:Internal|AUTOMATIC|Half-Elf Racial Trait Default|PRERACE:1,Half-Elf
+CATEGORY=Internal|Select Racial Traits.MOD		ABILITY:Internal|AUTOMATIC|Half-Orc Racial Trait Default|PRERACE:1,Half-Orc
+CATEGORY=Internal|Select Racial Traits.MOD		ABILITY:Internal|AUTOMATIC|Halfling Racial Trait Default|PRERACE:1,Halfling
+
+
+###Block: Racial Traits
+# Human
+CATEGORY=Internal|Human Racial Trait Default.MOD	ABILITY:Human Racial Trait|AUTOMATIC|Human Skill Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanSkillBonus
+CATEGORY=Internal|Human Racial Trait Default.MOD	ABILITY:Human Racial Trait|AUTOMATIC|Human Bonus Feat|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanBonusFeat
+CATEGORY=Internal|Human Racial Trait Default.MOD	ABILITY:Human Racial Trait|AUTOMATIC|Favored Class ~ Any|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanFavoredClass
+
+# Dwarf
+CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTOMATIC|Dodge Giant|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDefensiveTraining
+CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTOMATIC|Stoneworking Skills|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfGreed
+CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf Attacks|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfHatred
+CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTOMATIC|Dwarf Poison Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfHardy
+CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTOMATIC|Stability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStability
+CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTOMATIC|Stonecunning|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning
+CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTOMATIC|Weapon Familiarity ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity
+CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTOMATIC|Darkvision ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision
+CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTOMATIC|Racial Traits ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision
+
+# Elf
+CATEGORY=Internal|Elf Racial Trait Default.MOD	ABILITY:Elf Racial Trait|AUTOMATIC|Elf Immunity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSleepImmunity
+CATEGORY=Internal|Elf Racial Trait Default.MOD	ABILITY:Elf Racial Trait|AUTOMATIC|Elf Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfResistance
+CATEGORY=Internal|Elf Racial Trait Default.MOD	ABILITY:Elf Racial Trait|AUTOMATIC|Notice Secret Doors|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfNoticeSecretDoors
+CATEGORY=Internal|Elf Racial Trait Default.MOD	ABILITY:Elf Racial Trait|AUTOMATIC|Elf Perception|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfPerception
+CATEGORY=Internal|Elf Racial Trait Default.MOD	ABILITY:Elf Racial Trait|AUTOMATIC|Elf Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialVision
+CATEGORY=Internal|Elf Racial Trait Default.MOD	ABILITY:Elf Racial Trait|AUTOMATIC|Racial Traits ~ Elf
+
+# Gnome
+CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Save Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSaveBonus
+CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Attacks|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeAttacks
+CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Speak with Animals|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSpeakWith Animals
+CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialVision
+CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Racial Traits ~ Gnome
+CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Weapon Familiarity ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeWeaponFamiliarity
+CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Illusion DC|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeIllusionDC
+CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Dodge|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeDodge
+CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Listen Skill|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeListenSkill
+CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Alchemy Skill|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeAlchemySkill
+CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Spell-Like Abilities|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSpellLikeAbilities
+
+# Half-Elf
+CATEGORY=Internal|Half-Elf Racial Trait Default.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Elven Blood|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfBlood
+CATEGORY=Internal|Half-Elf Racial Trait Default.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision
+CATEGORY=Internal|Half-Elf Racial Trait Default.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Favored Class ~ Any|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfFavoredClass
+CATEGORY=Internal|Half-Elf Racial Trait Default.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf Perception|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfPerception
+CATEGORY=Internal|Half-Elf Racial Trait Default.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf Persuasion|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfPersuasion
+CATEGORY=Internal|Half-Elf Racial Trait Default.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf Immunity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfImunity
+CATEGORY=Internal|Half-Elf Racial Trait Default.MOD	ABILITY:Half-Elf Racial Trait|AUTOMATIC|Half-Elf Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfResistance
+
+# Half-Orc
+CATEGORY=Internal|Half-Orc Racial Trait Default.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Orc Blood|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcBlood
+CATEGORY=Internal|Half-Orc Racial Trait Default.MOD	ABILITY:Half-Orc Racial Trait|AUTOMATIC|Half-Orc Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalofOrcRacialVision
+
+# Halfling
+CATEGORY=Internal|Halfling Racial Trait Default.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling Morale|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingMorale
+CATEGORY=Internal|Halfling Racial Trait Default.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling Saves|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingSaves
+CATEGORY=Internal|Halfling Racial Trait Default.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling Thrown Attacks|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingThrownAttacks
+CATEGORY=Internal|Halfling Racial Trait Default.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling Skills|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingSkills
+CATEGORY=Internal|Halfling Racial Trait Default.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Racial Traits ~ Halfling
+
+###Block:
+Favored Class ~ Any	TYPE:RacialTraits.HumanRacialTrait.HalfElfRacialTrait	CATEGORY:Special Ability	VISIBLE:NO	
+
+###Block: Racial Abilities - Core races and variants
+# Human
+Human Skill Bonus		CATEGORY:Special Ability	TYPE:SpecialQuality.HumanRacialTrait																	DESC:Humans gain 1 extra skill point per level.																																																																																																																																									BONUS:SKILLPOINTS|NUMBER|1
+Human Bonus Feat		CATEGORY:Special Ability	TYPE:SpecialQuality.HumanRacialTrait
+
+# Dwarf
+# Ability Name					Output Name																									Category of Ability		Type						Visible	Innate Spells										Description																																																																																																											Bonus to skill																																		Bonus to skill point/L		Temporary effect description
+Darkvision				KEY:Darkvision ~ Dwarf			CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault.RacialVision.DwarfDarkvision																																																																																									BONUS:VAR|RacialVision|1		BONUS:VAR|HasDarkvision|1	BONUS:VAR|DarkvisionRange|60
+Weapon Familiarity		KEY:Weapon Familiarity ~ Dwarf	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.DwarfRacialTrait.DwarfRacialDefault		DESC:Dwarves may treat dwarven waraxes and dwarven urgroshes as martial weapons, rather than exotic weapons.	CHANGEPROF:Urgrosh (Dwarven),Waraxe (Dwarven)=Martial		BONUS:WEAPONPROF=Waraxe (Dwarven)|WIELDCATEGORY|-1
+Stonecunning																															CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault			VISIBLE:YES													DESC:+2 racial bonus on Search checks to notice unusual stonework, such as sliding walls, stonework traps, new construction (even when built to match the old), unsafe stone surfaces, shaky stone ceilings, and the like.|!PRERULE:1,DISPLAYSKILLUSE	DESC:Merely coming within 10 feet of unusual stonework entitles you make a Search check as if actively searching, and you can use the Search skill to find stonework traps as a rogue can. Something that isn't stone but that is disguised as stone also counts as unusual stonework. You can also intuit depth, sensing your approximate depth underground as naturally as a human can sense which way is up.	BONUS:SKILL|Search (Notice unusual stonework)|2|TYPE=Racial
+Stability																																CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault			VISIBLE:YES													DESC:+4 bonus on ability checks made to resist being bull rushed or tripped when standing on the ground (but not when climbing, flying, riding, or otherwise not standing firmly on the ground).
+# COMMENT: These get displayed in the Racial Traits Ability
+Dwarf Poison Resistance				OUTPUTNAME:+2 racial bonus on saving throws against poison																	CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault.DwarfPoisonResistance.SaveBonus		VISIBLE:YES
+Dwarf Spell Resistance				OUTPUTNAME:+2 racial bonus on saving throws against spells and spell-like effects													CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault.DwarfSpellResistance.SaveBonus		VISIBLE:YES
+Dwarf Attacks					OUTPUTNAME:+1 racial bonus on attack rolls against orcs and goblinoids															CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault.DwarfAttackBonus			VISIBLE:YES
+Dodge Giant						OUTPUTNAME:+4 Dodge bonus to Armor Class against monsters of the giant type														CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault.DwarfDodgeBonus.ModifyAC		VISIBLE:YES
+Stoneworking Skills				OUTPUTNAME:+2 racial bonus on Appraise and Craft checks that are related to stone or metal											CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault.DwarfCraftBonus			VISIBLE:YES																																																																																																																									BONUS:SKILL|Appraise,TYPE.Craft|2|TYPE=Racial|PREAPPLY:PC	BONUS:SKILL|Craft (Armorsmithing),Craft (Blacksmithing),Craft (Metalworking),Craft (Stonemasonry),Craft (Stoneworking),Craft (Weaponsmithing)|2|TYPE=Racial						TEMPDESC:Adjusts Appraise and Craft skill bonuses by 2
+# COMMENT: This displays the Common un-titled traits	
+Racial Traits				KEY:Racial Traits ~ Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.DwarfRacialTrait		DESC:+2 racial bonus on saving throws against poison.|DwarfPoisonSaveBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfPoisonResistance	DESC:&nl;+2 racial bonus on saving throws against spells and spell-like effects.|DwarfSpellSaveBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSpellResistance	DESC:&nl;+1 racial bonus on attack rolls against orcs and goblinoids.|DwarfRacialCombatBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAttackBonus	DESC:&nl;+4 dodge bonus to Armor Class against monsters of the giant type. Any time a creature loses its Dexterity bonus (if any) to Armor Class, such as when it's caught flat-footed, it loses its dodge bonus, too.|DwarfDodgeGiantBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDodgeBonus	DESC:&nl;+2 racial bonus on Appraise checks that are related to stone or metal items.|DwarfAppraiseSkillBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAppraiseBonus	DESC:&nl;+2 racial bonus on Craft checks that are related to stone or metal.|DwarfCraftSkillBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfCraftBonus
+
+# Elf
+Elf Immunity				OUTPUTNAME:Immunity to magic sleep effects																			CATEGORY:Special Ability	TYPE:ElfRacialTrait.SpecialQuality.Immunity		VISIBLE:YES
+Elf Resistance				OUTPUTNAME:+2 racial saving throw bonus against enchantment spells or effects														CATEGORY:Special Ability	TYPE:ElfRacialTrait.SpecialQuality.SaveBonus		VISIBLE:YES
+Notice Secret Doors			OUTPUTNAME:Merely passing within 5 feet of a secret or concealed door entitles you to a Search check to notice it as if you were actively looking for it	CATEGORY:Special Ability	TYPE:ElfRacialTrait.SpecialQuality			VISIBLE:YES
+Elf Low-Light Vision	CATEGORY:Special Ability	TYPE:ElfRacialTrait	BONUS:VAR|HasLowLightVision|1
+Elf Perception		CATEGORY:Special Ability	TYPE:ElfRacialTrait.SpecialQuality	DESC:+2 racial bonus on Listen, Search, and Spot checks. 	BONUS:SKILL|Listen,Search,Spot|2|TYPE=Racial
+Weapon Proficiency		CATEGORY:Special Ability	TYPE:ElfRacialTrait.SpecialQuality	DESC:Elves receive the Martial Weapon Proficiency feats for the longsword, rapier, longbow (including composite longbow), and shortbow (including composite shortbow) as bonus feats.	AUTO:WEAPONPROF|Longsword|Rapier|Longbow|Shortbow
+# COMMENT: This displays the Common un-titled traits	
+Racial Traits	KEY:Racial Traits ~ Elf	CATEGORY:Special ABility	TYPE:ElfRacialTrait.SpecialQuality	VISIBLE:EXPORT	DESC:+2 racial bonus on Listen, Search, and Spot checks. 
+
+# Gnome
+Weapon Familiarity		KEY:Weapon Familiarity ~ Gnome	CATEGORY:Special ABility	TYPE:SpecialQuality.GnomeRacialTrait.RacialTrait	DESC:Gnomes may treat gnome hooked hammers as martial weapons rather than exotic weapons.		CHANGEPROF:Hammer (Gnome Hooked)=Martial
+Gnome Save Bonus				OUTPUTNAME:+2 racial bonus on saving throws against illusions																CATEGORY:Special Ability	TYPE:GnomeRacialTrait.SpecialQuality			VISIBLE:YES
+Gnome Attacks				OUTPUTNAME:+1 racial bonus on attack rolls against kobolds and goblinoids														CATEGORY:Special Ability	TYPE:GnomeRacialTrait.SpecialQuality			VISIBLE:YES
+Gnome Speak with Animals		OUTPUTNAME:Speak with Animals (burrowing mammal only, duration 1 minute)														CATEGORY:Special Ability	TYPE:GnomeRacialTrait.SpecialQuality			VISIBLE:YES	SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Speak with Burrowing Mammals,11+CHA
+Gnome Low-Light Vision		CATEGORY:Special Ability	TYPE:GnomeRacialTrait.RacialTrait	BONUS:VAR|HasLowLightVision|1
+Gnome Illusion DC			CATEGORY:Special Ability	TYPE:GnomeRacialTrait.RacialTrait	DESC:Add +1 to the Difficulty Class for all saving throws against illusion spells cast by gnomes. This adjustment stacks with those from similar effects.	BONUS:DC|SCHOOL.Illusion|1	
+Gnome Dodge				CATEGORY:Special Ability	TYPE:GnomeRacialTrait.RacialTrait	DESC:+4 dodge bonus to Armor Class against monsters of the giant type. Any time a creature loses its Dexterity bonus (if any) to Armor Class, such as when it's caught flat-footed, it loses its dodge bonus, too.
+Gnome Listen Skill		CATEGORY:Special Ability	TYPE:GnomeRacialTrait.RacialTrait	DESC:+2 racial bonus on Listen checks.			BONUS:SKILL|Listen|2|TYPE=Racial
+Gnome Alchemy Skill		CATEGORY:Special Ability	TYPE:GnomeRacialTrait.RacialTrait	DESC:+2 racial bonus on Craft (alchemy) checks.		BONUS:SKILL|Craft (Alchemy)|2|TYPE=Racial
+Spell-Like Abilities	KEY:Gnome Spell-Like Abilities			CATEGORY:Special Ability	TYPE:GnomeRacialTrait.RacialTrait.SpecialQuality		SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Dancing Lights,10+CHA|Ghost Sound,10+CHA|Prestidigitation,10+CHA|PRESTAT:1,CHA=10	DESC:Spell-Like Abilities: 1/day-speak with animals (burrowing mammal only, duration 1 minute). A gnome with a Charisma score of at least 10 also has the following spell-like abilities: 1/day-dancing lights, ghost sound, prestidigitation. Caster level 1st; save DC 10 + gnome's Cha modifier + spell level.
+# Display Non-Named Abilities
+Racial Traits	KEY:Racial Traits ~ Gnome	CATEGORY:Special ABility	TYPE:SpecialQuality.GnomeRacialTrait.RacialTrait	VISIBLE:EXPORT	DESC:+2 racial bonus on saving throws against illusions|PREABILITY:1,CATEGORY=Special Ability,Gnome Save Bonus	DESC:&nl;+1 racial bonus on attack rolls against kobolds and goblinoids|PREABILITY:1,CATEGORY=Special Ability,Gnome Attacks	DESC:&nl;Speak with Animals (burrowing mammal only, duration 1 minute)|PREABILITY:1,CATEGORY=Special Ability,Gnome Speak with Animals	DESC:&nl;Add +1 to the Difficulty Class for all saving throws against illusion spells cast by gnomes. This adjustment stacks with those from similar effects.|PREABILITY:1,CATEGORY=Special Ability,Gnome Illusion DC	DESC:&nl;+4 dodge bonus to Armor Class against monsters of the giant type. Any time a creature loses its Dexterity bonus (if any) to Armor Class, such as when it's caught flat-footed, it loses its dodge bonus, too.|PREABILITY:1,CATEGORY=Special Ability,Gnome Dodge	DESC:&nl;+2 racial bonus on Listen checks.|PREABILITY:1,CATEGORY=Special Ability,Gnome Listen Skill	DESC:&nl;+2 racial bonus on Craft (alchemy) checks.|PREABILITY:1,CATEGORY=Special Ability,Gnome Alchemy Skill
+
+# Half-Elf
+Elven Blood				CATEGORY:Special Ability	TYPE:HalfElfRacialTrait.SpecialQuality			VISIBLE:YES													DESC:For all effects related to race, a half-elf is considered an elf.
+Half-Elf Low-Light Vision	CATEGORY:Special ABility	TYPE:HalfElfRacialTrait		BONUS:VAR|HasLowLightVision|1
+Half-Elf Perception		CATEGORY:Special ABility	TYPE:HalfElfRacialTrait	DESC:+1 racial bonus on Listen, Search, and Spot checks.	BONUS:SKILL|Listen,Search,Spot|1|TYPE=Racial	
+Half-Elf Persuasion		CATEGORY:Special ABility	TYPE:HalfElfRacialTrait	DESC:+2 racial bonus on Diplomacy and Gather Information checks.	BONUS:SKILL|Diplomacy,Gather Information|2|TYPE=Racial
+Half-Elf Immunity			OUTPUTNAME:Immunity to magic sleep effects																			CATEGORY:Special Ability	TYPE:HalfElfRacialTrait.SpecialQuality.Immunity		VISIBLE:DISPLAY
+Half-Elf Resistance		OUTPUTNAME:+2 racial saving throw bonus against enchantment spells or effects														CATEGORY:Special Ability	TYPE:HalfElfRacialTrait.SpecialQuality.SaveBonus		VISIBLE:DISPLAY
+#
+Racial Traits	KEY:Racial Traits ~ Half-Elf	VISIBLE:EXPORT	CATEGORY:Special ABility	TYPE:HalfElfRacialTrait.SpecialQuality	DESC:+1 racial bonus on Listen, Search, and Spot checks.|PREABILITY:1,CATEGORY=Special Ability,Half-Elf Perception	DESC:&nl;+2 racial bonus on Diplomacy and Gather Information checks.|PREABILITY:1,CATEGORY=Special Ability,Half-Elf Persuasion	DESC:&nl;Immunity to sleep spells and similar magical effects|PREABILITY:1,CATEGORY=Special Ability,Half-Elf Immunity	DESC:&nl;+2 racial bonus on saving throws against enchantment spells or effects.|PREABILITY:1,CATEGORY=Special Ability,Half-Elf Resistance
+
+# Half-Orc
+Orc Blood			CATEGORY:Special Ability	TYPE:HalfOrcRacialTrait.SpecialQuality			VISIBLE:YES													DESC:For all effects related to race, a half-orc is considered an orc.
+Half-Orc Darkvision	CATEGORY:Special ABility	TYPE:HalfOrcRacialTrait	BONUS:VAR|HasDarkVision|1	BONUS:VAR|DarkvisionRange|60
+#Racial Traits	KEY:Racial Traits ~ Half-Orc	VISIBLE:EXPORT
+
+# Halfling
+Halfling Morale				OUTPUTNAME:+2 morale bonus on saving throws against fear		CATEGORY:Special Ability	TYPE:HalflingRacialTrait.SaveBonus		VISIBLE:YES	ASPECT:SaveBonus|+2 morale bonus on saving throws against fear
+Halfling Saves		CATEGORY:Special Ability	TYPE:HalflingRacialTrait.SaveBonus	BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Racial
+Halfling Thrown Attacks	CATEGORY:Special Ability	TYPE:HalflingRacialTrait	BONUS:COMBAT|TOHIT.Thrown,TOHIT.Sling|1|TYPE=Racial	
+Halfling Skills		CATEGORY:Special Ability	TYPE:HalflingRacialTrait	BONUS:SKILL|Climb,Jump,Listen,Move Silently|2|TYPE=Racial
+#
+Racial Traits ~ Halfling		CATEGORY:Special Ability	TYPE:SpecialQuality.HalflingRacialTrait	VISIBLE:EXPORT	DESC:+2 racial bonus on Climb, Jump, Listen, and Move Silently checks.|PREABILITY:1,CATEGORY=Special Ability,Halfling Skills	DESC:&nl;+1 racial bonus on all saving throws.|PREABILITY:1,CATEGORY=Special Ability,Halfling Saves	DESC:&nl;+2 morale bonus on saving throws against fear: This bonus stacks with the halfling's +1 bonus on saving throws in general.|PREABILITY:1,CATEGORY=Special Ability,Halfling Morale	DESC:&nl;+1 racial bonus on attack rolls with thrown weapons and slings.|PREABILITY:1,CATEGORY=Special Ability,Halfling Thrown Attacks
+
+

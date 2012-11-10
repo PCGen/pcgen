@@ -21,10 +21,13 @@ COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, I
 COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2007, PCgen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Doug McMill, Paul W. King, Chris Chandler (Barak), Michael Gray (Taluonr Iscandar), Kenneth Walters (GldDragon35), Mike Sledge (zodar6), Patryk Adamski (Ruemere), Larry Davis (Sir George Anonymous), James Dempsey, Bryan (Merton Monk) McRoberts, Thomas Jannes (chipoulou), Samuel Hendricks (NotMousse), Sigurdur H. Olafsson, Jayme Cox, Jeremy "Illrigger" Turnley, Emily Smirle, Martin Fagerström, Chris McLaughlin, Raymond Yao, Eddy Anthony (MoSaT), Thomas Clegg (Arknight), Andargor, Devon Jones, Aaron Divinsky, Frank Kliewe)
 INFOTEXT:Subset of the RSRD (The base classes, feats, spells, equipment, etc.)
 
-
+ABILITY:rsrd_abilities_common.lst
+ABILITY:rsrd_abilities_companions.lst
 ABILITY:rsrd_abilities_class_base.lst
 ABILITY:rsrd_abilities_class_prestige.lst
 ABILITY:rsrd_abilities_monsters.lst
+ABILITY:rsrd_abilities_racial.lst
+
 ABILITYCATEGORY:rsrd_ability_categories_core.lst
 
 CLASS:rsrd_classes_base.lst
