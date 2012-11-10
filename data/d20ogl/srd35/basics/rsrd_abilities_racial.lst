@@ -10,7 +10,9 @@ Low-Light		KEY:Vision ~ Low-Light	CATEGORY:Special Ability													VISION:Lo
 Low-Light Vision			KEY:Low-Light Vision				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision																																																																										DEFINE:LowLightRange|2		DESC:You can see %1x as far as humans in low illumination.|LowLightRange
 Blindsense				KEY:Blindsense					CATEGORY:Special Ability	TYPE:SpecialQuality																																																																													DEFINE:BlindsenseRange|0	DESC:%1|BlindsenseRange
 Darkvision				KEY:Darkvision					CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1|DarkvisionRange
-Low light Vision			CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision	
+
+###Block: Backward Compatibility
+Low light Vision			CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision	VISIBLE:NO
 
 ###Block: Empty Place Holder Abilities
 # COMMENT: We use .MODs to populate these with important information.
@@ -106,7 +108,7 @@ Human Bonus Feat		CATEGORY:Special Ability	TYPE:SpecialQuality.HumanRacialTrait
 
 # Dwarf
 # Ability Name					Output Name																									Category of Ability		Type						Visible	Innate Spells										Description																																																																																																											Bonus to skill																																		Bonus to skill point/L		Temporary effect description
-Darkvision				KEY:Darkvision ~ Dwarf			CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault.RacialVision.DwarfDarkvision																																																																																									BONUS:VAR|RacialVision|1		BONUS:VAR|HasDarkvision|1	BONUS:VAR|DarkvisionRange|60
+Dwarf Darkvision				KEY:Darkvision ~ Dwarf			CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault.RacialVision.DwarfDarkvision																																																																																									BONUS:VAR|RacialVision|1		BONUS:VAR|HasDarkvision|1	BONUS:VAR|DarkvisionRange|60
 Weapon Familiarity		KEY:Weapon Familiarity ~ Dwarf	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.DwarfRacialTrait.DwarfRacialDefault		DESC:Dwarves may treat dwarven waraxes and dwarven urgroshes as martial weapons, rather than exotic weapons.	CHANGEPROF:Urgrosh (Dwarven),Waraxe (Dwarven)=Martial		BONUS:WEAPONPROF=Waraxe (Dwarven)|WIELDCATEGORY|-1
 Stonecunning																															CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault			VISIBLE:YES													DESC:+2 racial bonus on Search checks to notice unusual stonework, such as sliding walls, stonework traps, new construction (even when built to match the old), unsafe stone surfaces, shaky stone ceilings, and the like.|!PRERULE:1,DISPLAYSKILLUSE	DESC:Merely coming within 10 feet of unusual stonework entitles you make a Search check as if actively searching, and you can use the Search skill to find stonework traps as a rogue can. Something that isn't stone but that is disguised as stone also counts as unusual stonework. You can also intuit depth, sensing your approximate depth underground as naturally as a human can sense which way is up.	BONUS:SKILL|Search (Notice unusual stonework)|2|TYPE=Racial
 Stability																																CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault			VISIBLE:YES													DESC:+4 bonus on ability checks made to resist being bull rushed or tripped when standing on the ground (but not when climbing, flying, riding, or otherwise not standing firmly on the ground).
