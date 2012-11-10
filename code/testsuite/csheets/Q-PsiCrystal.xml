@@ -977,7 +977,7 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Low-light Vision</name>
+			<name>Low-Light Vision</name>
 			<description>You can see 2x as far as humans in low illumination.</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY.VISION</type>
 			<associated></associated>
@@ -998,6 +998,18 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
+	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Low light Vision</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
 	<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
@@ -1012,6 +1024,17 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Defines Required</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Select Racial Traits</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
