@@ -1,0 +1,66 @@
+
+# Original Entry By: Andrew Maitland
+# Entry Date: 11-2012
+# List provided by Matt Chambers
+
+###Block: Spell Material Components and Foci
+
+# Foci
+Array [Repulsion]						COST:50	TYPE:SpellFocus	KEY:Focus ~ Array
+Book, Prayer						COST:500	TYPE:SpellFocus	KEY:Focus ~ Prayer Book
+Chest [Secret Chest]					COST:5000	TYPE:SpellFocus	KEY:Focus ~ Chest
+Chest, Replica [Secret Chest]				COST:50	TYPE:SpellFocus	KEY:Focus ~ Chest Replica
+Circlet, Jade						COST:1500	TYPE:SpellFocus	KEY:Focus ~ Jade Circlet
+Dart								COST:0.5	TYPE:SpellFocus	KEY:Focus ~ Dart
+Diamond							COST:1000	TYPE:SpellFocus	KEY:Focus ~ Diamond
+Divination counters/tokens				COST:25	TYPE:SpellFocus	KEY:Focus ~ Divination Token
+Gem								COST:100	TYPE:SpellFocus	KEY:Focus ~ Gem
+Crystal							COST:100	TYPE:SpellFocus	KEY:Focus ~ Crystal
+Holy symbol, special, anathema			COST:500	TYPE:SpellFocus	KEY:Focus ~ Holy
+Unholy symbol, special, anathema			COST:500	TYPE:SpellFocus	KEY:Focus ~ UnHoly
+Ivory strips (4 @ 50 ea.)				COST:200	TYPE:SpellFocus	KEY:Focus ~ Ivory Strips
+Laboratory, equipment, cloning			COST:500	TYPE:SpellFocus	KEY:Focus ~ Lab Equip
+Lens, ruby or sapphine, set in golden loop	COST:1500	TYPE:SpellFocus	KEY:Focus ~ Lens in Golden Loop
+Miniature (platinum sword)			COST:250	TYPE:SpellFocus	KEY:Focus ~ Miniature Platinum Sword
+Miniature (portal carving, ivory); marble, small, polished; miniature (spoon, silver) (5 GP ea.) 	COST:15	TYPE:SpellFocus	KEY:Focus ~ Miniature Items
+Prayer wheel					COST:500	TYPE:SpellFocus	KEY:Focus ~ prayer wheel
+Plaque, ivory					COST:50	TYPE:SpellFocus	KEY:Focus ~ ivory plaque
+Quarterstaff [Changestaff]					TYPE:SpellFocus	KEY:Focus ~ quarterstaff
+Reliquary, tiny					COST:500	TYPE:SpellFocus	KEY:Focus ~ Tiny Reliquary
+Ring, platinum (1 of 2)				COST:50	TYPE:SpellFocus	KEY:Focus ~ platinum ring
+Sapphire, black					COST:1000	TYPE:SpellFocus	KEY:Focus ~ Black Sapphire
+Statuette, of self, ivory and gems		COST:1500	TYPE:SpellFocus	KEY:Focus ~ Self Statuette
+
+###Block Material Components
+Amber, powdered/dust (500gp)			COST:500	TYPE:SpellMaterialComponent	KEY:Focus ~ Powdered Amber
+Diamond, powdered/dust (50gp)			COST:50	TYPE:SpellMaterialComponent	KEY:Focus ~ Powdered Diamond
+Diamond, powdered/dust (500gp)		COST:500	TYPE:SpellMaterialComponent	KEY:Focus ~ Powdered Diamond 500
+Opal, powdered/dust (1000gp)			COST:1000	TYPE:SpellMaterialComponent	KEY:Focus ~ Powdered Opal
+Diamonds (5000gp)					COST:5000	TYPE:SpellMaterialComponent	KEY:Focus ~ Diamonds
+Doll, of self					COST:5	TYPE:SpellMaterialComponent	KEY:Focus ~ Doll of Self
+Dust, special [Phantom Trap]			COST:50	TYPE:SpellMaterialComponent	KEY:Focus ~ Special Dust
+Emerald, powdered/dust				COST:5000	TYPE:SpellMaterialComponent	KEY:Focus ~ Powdered Emerald
+Gem, onyx						COST:50	TYPE:SpellMaterialComponent	KEY:Focus ~ Onyx Gem
+Gold, powdered/dust				COST:25	TYPE:SpellMaterialComponent	KEY:Focus ~ Powdered Gold
+Incense						COST:25	TYPE:SpellMaterialComponent	KEY:Focus ~ Incense
+Incense and offering				COST:25	TYPE:SpellMaterialComponent	KEY:Focus ~ Incense and Offering
+Incense, herbs, and oils [Hallow][Unhallow]	COST:1000	TYPE:SpellMaterialComponent	KEY:Focus ~ Incense Herbs Oils
+Incense, rare (1000gp)					COST:1000	TYPE:SpellMaterialComponent	KEY:Focus ~ Rare Incense 1000
+Incense, rare (1500gp)					COST:1500	TYPE:SpellMaterialComponent	KEY:Focus ~ Rare Incense 1500
+Ink, lead-based, special			COST:50	TYPE:SpellMaterialComponent	KEY:Focus ~ Special Lead Based Ink
+Jacinth						COST:1000	TYPE:SpellMaterialComponent	KEY:Focus ~ Jacinth
+Jade, powdered/dust				COST:10	TYPE:SpellMaterialComponent	KEY:Focus ~ Powdered Jade
+Jade, powdered/dust (50gp)			COST:50	TYPE:SpellMaterialComponent	KEY:Focus ~ Powdered Jade 50
+Laboratory supplies, cloning			COST:1000	TYPE:SpellMaterialComponent	KEY:Focus ~ Laboratory Supplies
+Oils and ungents, rare [Reincarnate]	COST:1000	TYPE:SpellMaterialComponent	KEY:Focus ~ Rare Oils and Ungents
+Ointment [True Seeing]				COST:250	TYPE:SpellMaterialComponent	KEY:Focus ~ Ointment
+Pearl, black, crushed				COST:500	TYPE:SpellMaterialComponent	KEY:Focus ~ Crushed Black Pearl
+Pearl, crushed					COST:100	TYPE:SpellMaterialComponent	KEY:Focus ~ Crushed Pearl
+Ruby, powdered/dust (50gp)				COST:50	TYPE:SpellMaterialComponent	KEY:Focus ~ Powdered Ruby
+Ruby, powdered/dust (500gp)				COST:500	TYPE:SpellMaterialComponent	KEY:Focus ~ Powdered Ruby 500
+Ruby, powdered/dust (5000gp)				COST:5000	TYPE:SpellMaterialComponent	KEY:Focus ~ Powdered Ruby 5000
+Sapphire						COST:1000	TYPE:SpellMaterialComponent	KEY:Focus ~ Sapphire
+Sapphire, powdered/dust				COST:5000	TYPE:SpellMaterialComponent	KEY:Focus ~ Powdered Sapphire
+Silver, bar						COST:5	TYPE:SpellMaterialComponent	KEY:Focus ~ Silver Bar
+Silver, powdered/dust				COST:25	TYPE:SpellMaterialComponent	KEY:Focus ~ Powdered Silver
+Special object [Refuge]				COST:1500	TYPE:SpellMaterialComponent	KEY:Focus ~ Special Object

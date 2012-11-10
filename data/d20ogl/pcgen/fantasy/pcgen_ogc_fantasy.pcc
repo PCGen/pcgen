@@ -28,6 +28,7 @@ COVER:pcgen_banner.jpg
 #EXTRAFILE:OGL.txt
 
 EQUIPMENT:pcgen_ogc_equip.lst
+EQUIPMENT:pcgen_ogc_equip_spells.lst
 KIT:pcgen_ogc_kits.lst
 
 #
