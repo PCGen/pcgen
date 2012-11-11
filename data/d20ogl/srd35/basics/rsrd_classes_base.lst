@@ -9,9 +9,7 @@ CLASS:Barbarian	PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Barbarian
 #  Barbarian Rage variables, for stacking with other classes in any which way...  - Tir Gwaith
 #	BarbRageTimesLVL	For if a class stacks its levels with levels of Barbarian for Rages / day
 #	BarbRagePowerLVL	For if a class stacks its levels with levels of Barbarian for Mighty Rage, Greater Rage, etc.
