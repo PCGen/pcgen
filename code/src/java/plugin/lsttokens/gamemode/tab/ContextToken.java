@@ -25,6 +25,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.system.ConfigurationSettings;
+import pcgen.util.Logging;
 
 /**
  * Class deals with CONTEXT Token
@@ -52,8 +53,9 @@ public class ContextToken implements CDOMPrimaryToken<TabInfo>
 		File helpFile = new File(helpPath);
 		if (!helpFile.exists())
 		{
-			return new ParseResult.Fail("Missing Documentation: "
-					+ helpFile.getAbsolutePath(), context);
+			Logging.log(Logging.LST_INFO, "Missing Documentation: "
+					+ helpFile.getAbsolutePath());
+			return ParseResult.SUCCESS;
 		}
 		ti.setHelpContext(helpFile);
 		ti.setRawHelpContext(value);
