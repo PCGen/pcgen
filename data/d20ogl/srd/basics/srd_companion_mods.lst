@@ -4,33 +4,33 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 
 ###Block:Special Mount
 # Class of the Master	Type				Hit Dice	Spell Res.	Ability																Automatically Gained Armor Prof.	Define						Combat bonus					Stat bonus		Main Race Type
-FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	AUTO:ARMORPROF|ARMORTYPE=Barding	BONUS:VAR|IntelligenceLockNumber|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	RACETYPE:Animal/Magical Beast	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker
-FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2																											BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
-FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Command Creatures of Own Kind													BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
-FOLLOWER:SMLevel=15	TYPE:Special Mount	HD:2		SR:20																									BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
-FOLLOWER:SMLevel=16	TYPE:Special Mount			SR:21
-FOLLOWER:SMLevel=17	TYPE:Special Mount			SR:22
-FOLLOWER:SMLevel=18	TYPE:Special Mount			SR:23
-FOLLOWER:SMLevel=19	TYPE:Special Mount			SR:24
-FOLLOWER:SMLevel=20	TYPE:Special Mount			SR:25
+FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	AUTO:ARMORPROF|ARMORTYPE=Barding	BONUS:VAR|IntelligenceLockNumber|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	RACETYPE:Animal/Magical Beast	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker
+FOLLOWER:SpecialMountLVL=8	TYPE:Special Mount	HD:2																											BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
+FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Command Creatures of Own Kind													BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
+FOLLOWER:SpecialMountLVL=15	TYPE:Special Mount	HD:2		SR:20																									BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
+FOLLOWER:SpecialMountLVL=16	TYPE:Special Mount			SR:21
+FOLLOWER:SpecialMountLVL=17	TYPE:Special Mount			SR:22
+FOLLOWER:SpecialMountLVL=18	TYPE:Special Mount			SR:23
+FOLLOWER:SpecialMountLVL=19	TYPE:Special Mount			SR:24
+FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount			SR:25
 
 ###Block:Familiar
 # Class of the Master	Type			Spell Res.	Ability												Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define						Combat bonus					Main Race Type
-FOLLOWER:FMLevel=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	BONUS:VAR|IntelligenceLockNumber|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast		ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker
-FOLLOWER:FMLevel=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Touch																								BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FMLevel=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																						BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FMLevel=7	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Animals of Own Type																				BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FMLevel=9	TYPE:Familiar																																	BONUS:VAR|IntelligenceLockNumber|2				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FMLevel=11	TYPE:Familiar	SR:16																																BONUS:VAR|IntelligenceLockNumber|0				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FMLevel=12	TYPE:Familiar	SR:17
-FOLLOWER:FMLevel=13	TYPE:Familiar	SR:18		ABILITY:Special Ability|AUTOMATIC|Master Can Scry																						BONUS:VAR|IntelligenceLockNumber|1				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FMLevel=14	TYPE:Familiar	SR:19
-FOLLOWER:FMLevel=15	TYPE:Familiar	SR:20																																BONUS:VAR|IntelligenceLockNumber|1				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FMLevel=16	TYPE:Familiar	SR:21
-FOLLOWER:FMLevel=17	TYPE:Familiar	SR:22																																BONUS:VAR|IntelligenceLockNumber|1				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FMLevel=18	TYPE:Familiar	SR:23
-FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																																BONUS:VAR|IntelligenceLockNumber|1				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
-FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	BONUS:VAR|IntelligenceLockNumber|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	RACETYPE:Animal/Magical Beast		ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker
+FOLLOWER:FamiliarLVL=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Touch																								BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																						BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=7	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Animals of Own Type																				BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=9	TYPE:Familiar																																	BONUS:VAR|IntelligenceLockNumber|2				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=11	TYPE:Familiar	SR:16																																BONUS:VAR|IntelligenceLockNumber|0				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=12	TYPE:Familiar	SR:17
+FOLLOWER:FamiliarLVL=13	TYPE:Familiar	SR:18		ABILITY:Special Ability|AUTOMATIC|Master Can Scry																						BONUS:VAR|IntelligenceLockNumber|1				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=14	TYPE:Familiar	SR:19
+FOLLOWER:FamiliarLVL=15	TYPE:Familiar	SR:20																																BONUS:VAR|IntelligenceLockNumber|1				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=16	TYPE:Familiar	SR:21
+FOLLOWER:FamiliarLVL=17	TYPE:Familiar	SR:22																																BONUS:VAR|IntelligenceLockNumber|1				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=18	TYPE:Familiar	SR:23
+FOLLOWER:FamiliarLVL=19	TYPE:Familiar	SR:24																																BONUS:VAR|IntelligenceLockNumber|1				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+FOLLOWER:FamiliarLVL=20	TYPE:Familiar	SR:25
 
 ###Block:Familiar Bonuses to Master
 # Race of familiar			Type			Save checks bonus			Bonus to skill			Stat bonus
@@ -46,11 +46,11 @@ MASTERBONUSRACE:Weasel			TYPE:Familiar	BONUS:CHECKS|Reflex|2
 
 ###Block:Fiendish Servant
 # Class of the Master	Type				Hit Dice	Spell Res.	Ability																Define						Combat bonus					Stat bonus
-FOLLOWER:FSLevel=5	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	BONUS:VAR|IntelligenceLockNumber|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker
-FOLLOWER:FSLevel=13	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Speak with Master									BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
-FOLLOWER:FSLevel=16	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Blood Bond										BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
-FOLLOWER:FSLevel=19	TYPE:Fiendish Servant	HD:2		SR:24																			BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
-FOLLOWER:FSLevel=20	TYPE:Fiendish Servant			SR:25
+FOLLOWER:FiendishServantLVL=5	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	BONUS:VAR|IntelligenceLockNumber|6	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker
+FOLLOWER:FiendishServantLVL=13	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Speak with Master									BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
+FOLLOWER:FiendishServantLVL=16	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Blood Bond										BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
+FOLLOWER:FiendishServantLVL=19	TYPE:Fiendish Servant	HD:2		SR:24																			BONUS:VAR|IntelligenceLockNumber|1					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1
+FOLLOWER:FiendishServantLVL=20	TYPE:Fiendish Servant			SR:25
 
 ###Block:Undead Companion
 # Class of the Master			Type				Hit Dice	Spell Res.	Ability																			Define						Combat bonus					Stat bonus
@@ -62,13 +62,13 @@ FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
 
 ###Block:Animal Companion
 # Class of the Master	Type				Hit Dice
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	HD:2
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	HD:2
 
 ###Block:Shadowdancer summoned Shadow
 # Class of the Master		Type				Hit Dice	Ability															Modify VAR
-FOLLOWER:ShadowCompanion=3	TYPE:Shadow Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Cannot be Turned|Cannot Create Spawn|Communiate with Master	BONUS:VAR|ShadowSpawnBlock|1
-FOLLOWER:ShadowCompanion=6	TYPE:Shadow Companion	HD:2
-FOLLOWER:ShadowCompanion=9	TYPE:Shadow Companion	HD:2
+FOLLOWER:ShadowCompanionLVL=3	TYPE:Shadow Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Cannot be Turned|Cannot Create Spawn|Communiate with Master	BONUS:VAR|ShadowSpawnBlock|1
+FOLLOWER:ShadowCompanionLVL=6	TYPE:Shadow Companion	HD:2
+FOLLOWER:ShadowCompanionLVL=9	TYPE:Shadow Companion	HD:2
 
 ###Block: Standard Companions
 # Class of the Master		Type			Automatically Gained Armor Prof.

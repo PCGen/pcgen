@@ -200,7 +200,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 ###Block: Animal Companion - Remove these if Animal Companions are not desired
-1	BONUS:VAR|CompLevel|CL	ABILITY:Special Ability|AUTOMATIC|Animal Companion
+1	BONUS:VAR|AnimalCompanionLVL|CL	ABILITY:Special Ability|AUTOMATIC|Animal Companion
 ###Block: Level progression
 1	CAST:3,1				ABILITY:Special Ability|AUTOMATIC|Nature Sense
 2	CAST:4,2				ABILITY:Special Ability|AUTOMATIC|Woodland Stride
@@ -350,7 +350,7 @@ CLASS:Ex Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handl
 # TT .CLEARL1 the AUTO:FEAT|, allowing choice for Track in Ranger
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page						Save checks bonus											Combat bonus					Modify VAR
-CLASS:Ranger	HD:10		TYPE:Base.PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesii.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|CompLevel|CL/2
+CLASS:Ranger	HD:10		TYPE:Base.PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:srdbasiccharacterclassesii.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|AnimalCompanionLVL|CL/2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ranger	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level
@@ -410,7 +410,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1												AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Familiar - remove these via .MOD if Familiars aren't desired
-1	BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+1	BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 ###Block: Level progression
 1	CAST:5,3				KNOWN:4,2
 2	CAST:6,4				KNOWN:5,2
@@ -450,7 +450,7 @@ SUBCLASS:Transmuter	COST:4	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Wizard Weapon Proficiencies
 ###Block: Familiar - remove these via .MOD if Familiars aren't desired
-1	BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+1	BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 ###Block: Level progression
 1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5	ABILITY:Internal|AUTOMATIC|Free Spell Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Wizard=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Wizard=1]]	AUTO:FEAT|Scribe Scroll
 2	CAST:4,2
@@ -487,7 +487,7 @@ CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1												AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Level progression
 1	CAST:3,1
-2	CAST:3,1		BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+2	CAST:3,1		BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 3	CAST:3,2
 4	CAST:3,2,0
 5	CAST:3,2,1

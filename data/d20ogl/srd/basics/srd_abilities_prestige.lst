@@ -38,7 +38,7 @@ Spell-Like Ability						CATEGORY:Special Ability	TYPE:HighArcana.SpellLike.Speci
 
 ###Block: Blackguard Abilities
 # Ability Name		Category of Ability		Type							Visible	Define				Innate Spells											Save checks bonus
-Fiendish Servant		CATEGORY:Special Ability	TYPE:SpecialQuality				VISIBLE:YES	DEFINE:FSLevel|0
+Fiendish Servant		CATEGORY:Special Ability	TYPE:SpecialQuality				VISIBLE:YES	DEFINE:FiendishServantLVL|0
 Undead Companion		CATEGORY:Special Ability	TYPE:SpecialQuality				VISIBLE:YES	DEFINE:UndeadCompanionLVL|0
 Fiendish Summoning	CATEGORY:Special Ability	TYPE:SpecialQuality				VISIBLE:YES
 Dark Blessing		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:YES																			BONUS:CHECKS|Reflex,Fortitude,Will|max(CHA,0)
@@ -74,5 +74,5 @@ More Newfound Arcana		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSec
 # Ability Name		Category of Ability		Type						Visible	Define				Description			Aspects
 Hide in Plain Sight	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
 Shadow Illusion		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Summon Shadow		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:ShadowCompanion|0
+Summon Shadow		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:ShadowCompanionLVL|0
 Shadow Jump			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:ShadowJump|0		DESC:%1 feet|ShadowJump	ASPECT:Ability Benefit|(%1 ft.)|ShadowJump

@@ -443,36 +443,6 @@ Malevolence			CATEGORY:Special Ability	TYPE:GhostAbility.SpecialAttack.Supernatu
 Telekinesis			CATEGORY:Special Ability	TYPE:GhostAbility.SpecialAttack.Supernatural	VISIBLE:YES	DESC:DC %1|GhostAbilityDC
 
 
-###Block: Racial Abilities - Core races and varients ---------------------------
-# Dwarf
-# Ability Name			Output Name																										Category of Ability		Type				Visible
-Stonecunning																														CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Dwarf Poison Resistance		OUTPUTNAME:+2 racial bonus on saving throws against poison																		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Dwarf Spell Resistance		OUTPUTNAME:+2 racial bonus on saving throws against spells and spell-like effects														CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Dodge Giant				OUTPUTNAME:+4 dodge bonus against giants																					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Dwarf Attacks			OUTPUTNAME:+1 racial bonus to attack rolls against orcs and goblinoids																CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Dwarf Skill				OUTPUTNAME:+2 racial bonus on Appraise and Craft checks that are related to stone or metal items											CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-
-# Elf
-Elf Immunity			OUTPUTNAME:Immunity to magic sleep spells and effects																			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Elf Resistance			OUTPUTNAME:+2 racial saving throw bonus against Enchantment spells or effects															CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Notice Secret Doors		OUTPUTNAME:Merely passing within 5 feet of a secret or concealed door entitles you to a Search check to notice it as if you were actively looking for the door	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Drow Resistance			OUTPUTNAME:+2 racial bonus to Will saves against spells and spell-like abilities														CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-
-# Gnome
-Gnome Perception			OUTPUTNAME:+2 racial bonus on saving throws against illusions																	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Gnome Attacks			OUTPUTNAME:+1 racial bonus to attack rolls against kobolds and goblinoids															CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-Gnome Speak with Animals	OUTPUTNAME:Once per day a gnome can use Speak with Animals as a spell-like ability to speak with a burrowing mammal								CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-
-# Half-Elf
-Elven Blood																															CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-
-# Half-Orc
-Orc Blood																															CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-
-# Halfling
-Halfling Morale			OUTPUTNAME:+2 morale bonus on saving throws against fear																		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES
-
 ###Block: Racial Abilities - Other Specific Monsters
 # Ability Name				Output Name																			Category of Ability		Type								Visible	Innate Spells																				Multiple?	Choose
 Doppelganger Bluff and Disguise	OUTPUTNAME:+4 to Bluff and Disguise when using Detect Thoughts										CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES

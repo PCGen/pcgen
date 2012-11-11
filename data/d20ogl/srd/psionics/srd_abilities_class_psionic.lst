@@ -34,7 +34,7 @@ PsychicWarriorBasePowers	OUTPUTNAME:Free Powers	CATEGORY:Special Ability	TYPE:Sp
 
 ###Block: Psicrystal Class Feature
 # Ability Name	Category of Ability		Type				Visible	Define			Allow Follower		Allowed Companions																																																			Source Page
-Psicrystal		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:PCrystalLevel|0	FOLLOWERS:Psicrystal|1	COMPANIONLIST:Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)	SOURCEPAGE:srdpsionicclasses.rtf
+Psicrystal		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:PsiCrystalLVL|0	FOLLOWERS:Psicrystal|1	COMPANIONLIST:Psicrystal|Psicrystal (Artiste),Psicrystal (Bully),Psicrystal (Coward),Psicrystal (Friendly),Psicrystal (Hero),Psicrystal (Liar),Psicrystal (Meticulous),Psicrystal (Observant),Psicrystal (Poised),Psicrystal (Resolved),Psicrystal (Sage),Psicrystal (Single Minded),Psicrystal (Sneaky),Psicrystal (Sympathetic)	SOURCEPAGE:srdpsionicclasses.rtf
 
 ###Block: Metamind
 # Ability Name	Category of Ability		Type				Visible	Description
