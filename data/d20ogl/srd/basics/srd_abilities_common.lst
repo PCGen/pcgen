@@ -14,7 +14,7 @@ Grants All Hidden Abilities												CATEGORY:Internal																								
 CATEGORY=Internal|Grants All Hidden Abilities.MOD																																																																																																					ABILITY:Special Ability|AUTOMATIC|Low Light Vision|PREVISION:1,Low-Light=1,Low Light=1
 
 Defines Required														CATEGORY:Internal																				DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:LowLightRange|2
-Low-light Vision							KEY:Low light Vision				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision											DEFINE:LowLightRange|2														DESC:You can see %1x as far as humans in low illumination.|LowLightRange
+#Low-light Vision							KEY:Low light Vision				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision											DEFINE:LowLightRange|2														DESC:You can see %1x as far as humans in low illumination.|LowLightRange
 
 ###Block: Creature Type Traits
 # Ability Name				Unique Key						Category of Ability		Type						Visible	Define											Description																																																																																																																																			Template			Ability																								Bonus to HP													Bonus to skill				Modify VAR								Vision					Source Page

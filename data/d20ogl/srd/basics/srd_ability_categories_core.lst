@@ -31,6 +31,22 @@ ABILITYCATEGORY:Ghost Special Attack	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	
 ###Block: Misc
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
 ABILITYCATEGORY:Perform Skill Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PerformSkillChoice	PLURAL:Perform Skill Choices	DISPLAYLOCATION:Class Abilities
+
+###Block: New Racial Trait Blocks
+ABILITYCATEGORY:Human Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HumanRacialTrait						DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dwarf Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DwarfRacialTrait						DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Elf Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfRacialTrait						DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Gnome Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomeRacialTrait						DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Elf Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfElfRacialTrait						DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Half-Orc Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfOrcRacialTrait						DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Halfling Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalflingRacialTrait						DISPLAYLOCATION:Racial Abilities
+
+# COMMENT: This can be used to allow Users to see Monster Traits - Requires all 'ABILITY:Special Ability|AUTOMATIC' to 'ABILITY:Racial Trait|AUTOMATIC'
+ABILITYCATEGORY:Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.SpecialAttack							DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Special Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal	TYPE:SpecialMountSelection							DISPLAYLOCATION:Class Abilities
+
+
 #
 # End
 #

@@ -69,6 +69,7 @@ RACE:srd_races__base.lst
 SKILL:srd_skills.lst
 
 SPELL:srd_spells.lst
+SPELL:srd_spells_extras.lst
 
 TEMPLATE:srd_templates_types.lst
 TEMPLATE:srd_templates_tempmods.lst
