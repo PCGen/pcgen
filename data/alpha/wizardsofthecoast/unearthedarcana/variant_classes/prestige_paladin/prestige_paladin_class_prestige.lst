@@ -18,7 +18,7 @@ CLASS:Prestige Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy
 1										BONUS:VAR|DetectEvilLVL,PaladinSmiteEvilLVL|CL
 1																			DEFINE:AllowHolyAvenger|1
 1																												ABILITY:Special Ability|AUTOMATIC|Detect Evil|Paladin Smite Evil|Smite Evil
-2										BONUS:VAR|LayOnHandsLVL|CL+3	BONUS:VAR|SMLevel|CL+3
+2										BONUS:VAR|LayOnHandsLVL|CL+3	BONUS:VAR|SpecialMountLVL|CL+3
 2																												ABILITY:Special Ability|AUTOMATIC|Divine Grace|Lay on Hands|Special Mount
 3																												ABILITY:Special Ability|AUTOMATIC|Aura of Courage|Divine Health
 #NB: offset bonus included in removedisease ability

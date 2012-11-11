@@ -3,11 +3,11 @@ SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LoFPG	SOURCEWEB:http://paiz
 
 ###Block: Specific Familiars
 # Class of the Master	Type			Ability								Required Race			Apply Kit					Add
-FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Brushtail Fennec	KIT:1|Brushtail Fennec Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Speak One Language	PRERACE:1,Bustard			KIT:1|Bustard Familiar			ADD:LANGUAGE|TYPE=Spoken
-FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Jerboa			KIT:1|Jerboa Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Lashtail Scorpion	KIT:1|Lashtail Scorpion Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar										PRERACE:1,Solifugid		KIT:1|Solifugid Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar										PRERACE:1,Brushtail Fennec	KIT:1|Brushtail Fennec Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Speak One Language	PRERACE:1,Bustard			KIT:1|Bustard Familiar			ADD:LANGUAGE|TYPE=Spoken
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar										PRERACE:1,Jerboa			KIT:1|Jerboa Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar										PRERACE:1,Lashtail Scorpion	KIT:1|Lashtail Scorpion Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar										PRERACE:1,Solifugid		KIT:1|Solifugid Familiar
 
 ###Block:Familiar Bonuses to Master
 # Race of familiar			Type			Bonus to skill		Virtual Feat

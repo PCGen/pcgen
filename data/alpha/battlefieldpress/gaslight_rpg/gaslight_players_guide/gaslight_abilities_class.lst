@@ -52,7 +52,7 @@ Cool Under Pressure	CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATE
 ###Block:   Apprentice class abilities   =======================================
 
 # Ability Name	Category of Ability		Type				Visible	Define		Description																	Source Page
-Summon Familiar	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:FMLevel|0	DESC:An Apprentice has the ability to obtain a familiar. A familiar is magically linked to its master.	SOURCEPAGE:p.81
+Summon Familiar	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:FamiliarLVL|0	DESC:An Apprentice has the ability to obtain a familiar. A familiar is magically linked to its master.	SOURCEPAGE:p.81
 
 ###Block: Apprentice Talents
 # Armored Spellcasting Talent Tree

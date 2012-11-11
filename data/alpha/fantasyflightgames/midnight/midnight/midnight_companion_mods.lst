@@ -5,11 +5,11 @@ SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.f
 ###Block:WargAnimal Companion
 
 # Class of the Master		Type					Hit Dice	Special ABility		Define						Combat bonus						Stat bonus
-FOLLOWER:WargCompLevel=2	TYPE:Warg Animal Companion
-FOLLOWER:WargCompLevel=7	TYPE:Warg Animal Companion	HD:2		SAB:Share saving throws	DEFINE:LOCK.INT|6					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
-FOLLOWER:WargCompLevel=12	TYPE:Warg Animal Companion	HD:2						DEFINE:LOCK.INT|7	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
-FOLLOWER:WargCompLevel=16	TYPE:Warg Animal Companion	HD:2						DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
-FOLLOWER:WargCompLevel=20	TYPE:Warg Animal Companion	HD:2						DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:WargAnimalCompanionLVL=2	TYPE:Warg Animal Companion
+FOLLOWER:WargAnimalCompanionLVL=7	TYPE:Warg Animal Companion	HD:2		SAB:Share saving throws	DEFINE:LOCK.INT|6					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:WargAnimalCompanionLVL=12	TYPE:Warg Animal Companion	HD:2						DEFINE:LOCK.INT|7	DEFINE:PHBFeatEvasion|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:WargAnimalCompanionLVL=16	TYPE:Warg Animal Companion	HD:2						DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:WargAnimalCompanionLVL=20	TYPE:Warg Animal Companion	HD:2						DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
 
 #
 # End

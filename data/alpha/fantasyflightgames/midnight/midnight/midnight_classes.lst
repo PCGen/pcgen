@@ -16,7 +16,7 @@ SUBCLASSLEVEL:1																																						AUTO:FEAT|Magecraft (Spirit
 SUBCLASS:Charismatic Channeler	COST:0	SPELLSTAT:CHA
 SUBCLASSLEVEL:1	SAB:Force of Personality (+% up to % rounds)|ForcePersonality|PersonalityRounds	BONUS:VAR|ForcePersonality|CL+CHA	BONUS:VAR|PersonalityRounds|CL+3		DEFINE:PersonalityRounds|0	DEFINE:ForcePersonality|0	AUTO:FEAT|Magecraft (Charismatic)
 1	CAST:1,1								ADD:FEAT|Spellcasting (Transmutation)	ADD:FEAT|TYPE=Spellcasting
-2	CAST:1,1				BONUS:VAR|FMLevel|CL													ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+2	CAST:1,1				BONUS:VAR|FamiliarLVL|CL													ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 3	CAST:1,1,1
 4	CAST:1,1,1								ADD:FEAT|TYPE=Spellcasting
 5	CAST:1,1,1,1

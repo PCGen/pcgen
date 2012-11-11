@@ -8,7 +8,7 @@ SOURCELONG:Mongoose Publishing - Quintessential Ranger II	SOURCESHORT:QR_II	SOUR
 ###The Bowman --------------------------------------
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus												Combat bonus
-CLASS:The Bowman	HD:8		TYPE:PC.Prestige	ABB:TBM		MAXLEVEL:10	SOURCEPAGE:pg.56	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:The Bowman	HD:8		TYPE:PC.Prestige	ABB:TBM		MAXLEVEL:10	SOURCEPAGE:pg.56	DEFINE:AnimalCompanionLVL|0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat									Required Skill					Required Text
 CLASS:The Bowman	PREATT:8	PREFEAT:5,Dodge,Point Blank Shot,Manyshot,Mobility,Rapid Shot	PRESKILL:3,Listen=10,Spot=10,Tumble=4	PRETEXT:See The Bowman Special Entry Requirement, p.58
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -28,7 +28,7 @@ CLASS:The Bowman	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Craft 
 ###Block: The Chameleon ----------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus					Modify VAR
-CLASS:The Chameleon	HD:8		TYPE:PC.Prestige	ABB:TC		MAXLEVEL:10	SOURCEPAGE:pg.58	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|TheChameleonLVL|CL
+CLASS:The Chameleon	HD:8		TYPE:PC.Prestige	ABB:TC		MAXLEVEL:10	SOURCEPAGE:pg.58	DEFINE:AnimalCompanionLVL|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|TheChameleonLVL|CL
 # Class Name		Required Class		Required Feat									Required Skill
 CLASS:The Chameleon	PRECLASS:1,Ranger=4	PREFEAT:3,Skill Focus (Hide),Skill Focus (Move Silently),Stealthy	PRESKILL:3,Hide=10,Knowledge (Nature)=10,Move Silently=4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -89,7 +89,7 @@ CLASS:The Mighty Hunter	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Handle Animal
 ###Block: The Obsessed Hunter ---------------------------------------------------------------------------------------------
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus								Combat bonus
-CLASS:The Obsessed Hunter	HD:8		TYPE:PC.Prestige	ABB:TMH		MAXLEVEL:5	SOURCEPAGE:pg.65	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:The Obsessed Hunter	HD:8		TYPE:PC.Prestige	ABB:TMH		MAXLEVEL:5	SOURCEPAGE:pg.65	DEFINE:AnimalCompanionLVL|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required Class		Required Feat				Required Skill
 CLASS:The Obsessed Hunter	PRECLASS:1,Ranger=4	PREFEAT:3,Endurance,Iron Will,Track	PRESKILL:3,Listen=7,Search=7,Survival=7
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -105,13 +105,13 @@ CLASS:The Obsessed Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handl
 ###Block: The Wolf Master ----------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
-CLASS:The Wolf Master	HD:8		TYPE:PC.Prestige	ABB:TWM		MAXLEVEL:10	SOURCEPAGE:pg.68	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:The Wolf Master	HD:8		TYPE:PC.Prestige	ABB:TWM		MAXLEVEL:10	SOURCEPAGE:pg.68	DEFINE:AnimalCompanionLVL|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Feat			Required Skill
 CLASS:The Wolf Master	PREFEAT:3,Alertness,Run,Track	PRESKILL:3,Listen=8,Spot=8,Survival=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:The Wolf Master	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Spot|Survival
 #
-1	BONUS:VAR|FastMovementBonus|10	BONUS:VAR|AnimalCompLevel|CL	ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Fast Movement|Night Eyes|TWM ~ Animal Companion
+1	BONUS:VAR|FastMovementBonus|10	BONUS:VAR|AnimalAnimalCompanionLVL|CL	ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Fast Movement|Night Eyes|TWM ~ Animal Companion
 2												ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Scent
 3												ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Spirit of the Wolf						TEMPLATE:TheWolfMasterNaturalAttack
 4												ADD:SPELLCASTER|Ranger	ABILITY:Special Ability|AUTOMATIC|Summon the Pack

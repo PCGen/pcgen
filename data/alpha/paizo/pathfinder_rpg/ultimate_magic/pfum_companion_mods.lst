@@ -494,4 +494,4 @@ MASTERBONUSRACE:Familiar (Turtle)			TYPE:Familiar						BONUS:COMBAT|AC|1|TYPE=Na
 
 ###Block: Abilities for specific types of familiars
 # Class of the Master	Type			Required Race			Apply Kit
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Thrush)	KIT:1|Thrush Familiar Language
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Thrush)	KIT:1|Thrush Familiar Language

@@ -39,7 +39,7 @@ CLASS:Street Runner.MOD	AUTO:WEAPONPROF|TYPE=Firearms
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class		Source Page		Bonus Languages	Define			Automatically Gained Language	Save checks bonus											Combat bonus					Modify VAR
-CLASS:Urban Druid	HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:p. 31	LANGBONUS:Sylvan	DEFINE:CompLevel|0	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|CompLevel|CL
+CLASS:Urban Druid	HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:p. 31	LANGBONUS:Sylvan	DEFINE:AnimalCompanionLVL|0	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|AnimalCompanionLVL|CL
 # Class Name	Required AL
 CLASS:Urban Druid	PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -91,7 +91,7 @@ CLASS:Urban Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus					Modify VAR
-CLASS:Urban Ranger	HD:10		TYPE:Base.PC	ABB:UrRgr		MAXLEVEL:20	SOURCEPAGE:p. 33	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|CompLevel|CL/2
+CLASS:Urban Ranger	HD:10		TYPE:Base.PC	ABB:UrRgr		MAXLEVEL:20	SOURCEPAGE:p. 33	DEFINE:AnimalCompanionLVL|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|AnimalCompanionLVL|CL/2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Urban Ranger	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level									Use Spell List

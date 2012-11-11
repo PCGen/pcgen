@@ -1,0 +1,29 @@
+# Original Entry By: Andrew Maitland (LegacyKing)
+# Original Entry Date: 11-2012
+
+
+###Block: All Old Conversion vars to port forward for Homebrews and older sets
+
+# Companion Support - 3e, 3.5e, PF gamemodes all use this:
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SpecialMountLVL|SMLevel			DEFINE:SMLevel|0
+CATEGORY=Internal|Default.MOD	BONUS:VAR|AnimalCompanionLVL|CompLevel		DEFINE:CompLevel|0
+CATEGORY=Internal|Default.MOD	BONUS:VAR|FamiliarLVL|FMLevel				DEFINE:FMLevel|0
+CATEGORY=Internal|Default.MOD	BONUS:VAR|ShadowCompanionLVL|ShadowCompanion	DEFINE:ShadowCompanion|0
+CATEGORY=Internal|Default.MOD	BONUS:VAR|FiendishServantLVL|FSLevel		DEFINE:FSLevel|0
+CATEGORY=Internal|Default.MOD	BONUS:VAR|PsiCrystalLVL|PCrystalLevel		DEFINE:PCrystalLevel|0
+CATEGORY=Internal|Default.MOD	BONUS:VAR|EidolonLVL|EidolonLevel			DEFINE:EidolonLevel|0
+# Rogue
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SneakAttackDice|SneakAttack		DEFINE:SneakAttack|0
+CATEGORY=Internal|Default.MOD	BONUS:VAR|SneakAttackDieSize|SneakAttackDie	DEFINE:SneakAttackDie|0
+
+#CATEGORY=Internal|Default.MOD	BONUS:VAR|
+#CATEGORY=Internal|Default.MOD	BONUS:VAR|
+#CATEGORY=Internal|Default.MOD	BONUS:VAR|
+
+
+#CATEGORY=Internal|Default.MOD	BONUS:VAR|TurnTimesUndead
+#CATEGORY=Internal|Default.MOD	BONUS:VAR|TrapSenseBonus|TrapSense			DEFINE:TrapSense|0
+#CATEGORY=Internal|Default.MOD	BONUS:VAR|TurnLevelUndead
+#CATEGORY=Internal|Default.MOD	BONUS:VAR|TurnDamagePlusUndead
+#CATEGORY=Internal|Default.MOD	BONUS:VAR|TurnCheckUndead
+

@@ -13,7 +13,7 @@ SOURCELONG:Pirate Familiars	SOURCESHORT:Blog	SOURCEWEB:http://paizo.com/paizo/bl
 
 ###Block: Specific Familiars
 # Class of the Master	Type			Required Race			Apply Kit
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Familiar (Parrot)	KIT:1|Raven Familiar Language
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Parrot)	KIT:1|Raven Familiar Language
 #
 
 ###Block:Familiar Bonuses to Master

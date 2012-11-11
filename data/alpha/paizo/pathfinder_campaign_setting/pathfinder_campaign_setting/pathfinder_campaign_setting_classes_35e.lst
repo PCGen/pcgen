@@ -134,7 +134,7 @@ SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Arcane Duelist ~ Wizard
 ###Block:Proficiencies
 SUBSTITUTIONLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Wizard Weapon Proficiencies
 ###Block: Familiar
-SUBSTITUTIONLEVEL:1	BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+SUBSTITUTIONLEVEL:1	BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 ###Block: Level progression
 SUBSTITUTIONLEVEL:1	CAST:3,1	BONUS:ABILITYPOOL|Wizard Feat|CL/5
 

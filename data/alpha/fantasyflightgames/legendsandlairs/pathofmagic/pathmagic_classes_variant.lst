@@ -16,7 +16,7 @@ CLASS:Arcane Engineer	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELL
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	CAST:3,1														BONUS:VAR|FMLevel|CL								ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+1	CAST:3,1														BONUS:VAR|FamiliarLVL|CL								ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 2	CAST:4,2
 3	CAST:4,2,1				SAB:Magitech Modification|PREFEAT:1,Craft Wondrous Item
 4	CAST:4,3,2
@@ -48,7 +48,7 @@ CLASS:Arsenalist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	CAST:3,1				SAB:Secret of Gunpowder
-2	CAST:4,2								BONUS:VAR|FMLevel|CL												ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+2	CAST:4,2								BONUS:VAR|FamiliarLVL|CL												ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 3	CAST:4,2,1
 4	CAST:4,3,2
 5	CAST:4,3,2,1															ADD:FEAT|TYPE=ItemCreation,TYPE=Metamagic
@@ -80,7 +80,7 @@ CLASS:Mind Weaver	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|M
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	CAST:5,3				KNOWN:4,2				SAB:Spell Powers												ADD:FEAT|Spell Focus,TYPE=Metamagic
-2	CAST:6,4				KNOWN:5,2														BONUS:VAR|FMLevel|CL							ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+2	CAST:6,4				KNOWN:5,2														BONUS:VAR|FamiliarLVL|CL							ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 3	CAST:6,5				KNOWN:5,3
 4	CAST:6,6,3				KNOWN:6,3,1				SAB:Armor Adaptation		BONUS:MISC|SPELLFAILURE|-5
 5	CAST:6,6,4				KNOWN:6,4,2
@@ -110,7 +110,7 @@ CLASS:Sun Mage	SPELLSTAT:CON	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sun 
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1	CAST:5,3				KNOWN:4,2				SAB:Solar Spellcasting
-2	CAST:6,4				KNOWN:5,2									BONUS:VAR|FMLevel|CL							ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+2	CAST:6,4				KNOWN:5,2									BONUS:VAR|FamiliarLVL|CL							ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 3	CAST:6,5				KNOWN:5,3
 4	CAST:6,6,3				KNOWN:6,3,1
 5	CAST:6,6,4				KNOWN:6,4,2				SAB:Spell Power +%|SpellPower	BONUS:VAR|SpellPower|(CL+5)/10	DEFINE:SpellPower|0

@@ -2,6 +2,7 @@
 # ORIGINAL ENTRY: Andrew Maitland
 # Original Entry Date: 11-2012
 
+
 ###Block: Common Racial Abilities
 Darkvision		KEY:Vision ~ Darkvision	CATEGORY:Special Ability	DEFINE:DarkvisionRange|0	BONUS:VISION|Darkvision|DarkvisionRange	VISION:Darkvision
 Low-Light		KEY:Vision ~ Low-Light	CATEGORY:Special Ability													VISION:Low-Light		
@@ -27,7 +28,10 @@ Half-Orc Racial Trait Default					CATEGORY:Internal
 Halfling Racial Trait Default					CATEGORY:Internal
 
 ###Block: Mods
-CATEGORY=Internal|Default.MOD					ABILITY:Internal|AUTOMATIC|Select Racial Traits	ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|PREVARGTEQ:HasDarkvision,1	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light|PREVARGTEQ:HasLowlightVision,1		DEFINE:HasLowlightVision|0	DEFINE:HasDarkvision|0	DEFINE:RacialVision|0
+CATEGORY=Internal|Default.MOD															DEFINE:RacialStatStr|0	DEFINE:RacialStatDex|0	DEFINE:RacialStatCon|0	DEFINE:RacialStatInt|0	DEFINE:RacialStatWis|0	DEFINE:RacialStatCha|0
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Select Racial Traits
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|PREVARGTEQ:HasDarkvision,1	DEFINE:HasDarkvision|0
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light|PREVARGTEQ:HasLowlightVision,1	DEFINE:HasLowlightVision|0	DEFINE:RacialVision|0
 
 # Base Races
 # COMMENT: These Add the Racial Trait Defaults based upon the RACE - We only set this up for PC Races.

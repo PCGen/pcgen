@@ -10,48 +10,48 @@ SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.parad
 
 ###Block:Familiar
 # Class of the Master	Type				Spell Res.	Ability								Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Special ABility				Define						Combat bonus						Main Race Type
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar												COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES	SAB:Empathic Link
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion																		SAB:Share Spells				DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	RACETYPE:Magical Beast
-FOLLOWER:FMLevel=3	TYPE:Arcanis Familiar																													SAB:Deliver touch spells		DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=5	TYPE:Arcanis Familiar																													SAB:Speak with master			DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=7	TYPE:Arcanis Familiar																													SAB:Speak with animals of its kind	DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=9	TYPE:Arcanis Familiar																																			DEFINE:LOCK.INT|10				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=11	TYPE:Arcanis Familiar	SR:16																																		DEFINE:LOCK.INT|11				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=12	TYPE:Arcanis Familiar	SR:17
-FOLLOWER:FMLevel=13	TYPE:Arcanis Familiar	SR:18																												SAB:Scry on familiar			DEFINE:LOCK.INT|12				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=14	TYPE:Arcanis Familiar	SR:19
-FOLLOWER:FMLevel=15	TYPE:Arcanis Familiar	SR:20																																		DEFINE:LOCK.INT|13				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=16	TYPE:Arcanis Familiar	SR:21
-FOLLOWER:FMLevel=17	TYPE:Arcanis Familiar	SR:22																																		DEFINE:LOCK.INT|14				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=18	TYPE:Arcanis Familiar	SR:23
-FOLLOWER:FMLevel=19	TYPE:Arcanis Familiar	SR:24																																		DEFINE:LOCK.INT|15				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=20	TYPE:Arcanis Familiar	SR:25
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar												COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES	SAB:Empathic Link
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion																		SAB:Share Spells				DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	RACETYPE:Magical Beast
+FOLLOWER:FamiliarLVL=3	TYPE:Arcanis Familiar																													SAB:Deliver touch spells		DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=5	TYPE:Arcanis Familiar																													SAB:Speak with master			DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=7	TYPE:Arcanis Familiar																													SAB:Speak with animals of its kind	DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=9	TYPE:Arcanis Familiar																																			DEFINE:LOCK.INT|10				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=11	TYPE:Arcanis Familiar	SR:16																																		DEFINE:LOCK.INT|11				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=12	TYPE:Arcanis Familiar	SR:17
+FOLLOWER:FamiliarLVL=13	TYPE:Arcanis Familiar	SR:18																												SAB:Scry on familiar			DEFINE:LOCK.INT|12				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=14	TYPE:Arcanis Familiar	SR:19
+FOLLOWER:FamiliarLVL=15	TYPE:Arcanis Familiar	SR:20																																		DEFINE:LOCK.INT|13				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=16	TYPE:Arcanis Familiar	SR:21
+FOLLOWER:FamiliarLVL=17	TYPE:Arcanis Familiar	SR:22																																		DEFINE:LOCK.INT|14				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=18	TYPE:Arcanis Familiar	SR:23
+FOLLOWER:FamiliarLVL=19	TYPE:Arcanis Familiar	SR:24																																		DEFINE:LOCK.INT|15				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=20	TYPE:Arcanis Familiar	SR:25
 
 ###Block: Specific Familiars
 # Class of the Master	Type				Required Race			Apply Kit					Special ABility		Add
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Raven									SAB:Speak one language	ADD:LANGUAGE|TYPE=Spoken
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Bat			KIT:1|Bat Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Cat			KIT:1|Cat Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Hawk			KIT:1|Hawk Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Lizard			KIT:1|Lizard Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Mongoose		KIT:1|Mongoose Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Owl			KIT:1|Owl Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Parrot			KIT:1|Parrot Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Rat			KIT:1|Rat Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Raven			KIT:1|Raven Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Snake (Viper/Tiny)	KIT:1|Snake Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Scorpion		KIT:1|Scorpion Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Spider			KIT:1|Spider Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Spider Monkey		KIT:1|Spider Monkey Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Toad			KIT:1|Toad Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Weasel			KIT:1|Weasel Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Raven									SAB:Speak one language	ADD:LANGUAGE|TYPE=Spoken
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Bat			KIT:1|Bat Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Cat			KIT:1|Cat Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Hawk			KIT:1|Hawk Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Lizard			KIT:1|Lizard Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Mongoose		KIT:1|Mongoose Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Owl			KIT:1|Owl Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Parrot			KIT:1|Parrot Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Rat			KIT:1|Rat Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Raven			KIT:1|Raven Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Snake (Viper/Tiny)	KIT:1|Snake Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Scorpion		KIT:1|Scorpion Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Spider			KIT:1|Spider Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Spider Monkey		KIT:1|Spider Monkey Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Toad			KIT:1|Toad Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Weasel			KIT:1|Weasel Familiar
 
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Shocker Lizard	KIT:1|Shocker Lizard Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Stirge			KIT:1|Stirge Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Formian (Worker)	KIT:1|Formian (Worker) Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Devil (Imp)		KIT:1|Devil (Imp) Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Pseudodragon		KIT:1|Pseudodragon Familiar
-FOLLOWER:FMLevel=1	TYPE:Arcanis Familiar	PRERACE:1,Demon (Quasit)	KIT:1|Demon (Quasit) Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Shocker Lizard	KIT:1|Shocker Lizard Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Stirge			KIT:1|Stirge Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Formian (Worker)	KIT:1|Formian (Worker) Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Devil (Imp)		KIT:1|Devil (Imp) Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Pseudodragon		KIT:1|Pseudodragon Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Arcanis Familiar	PRERACE:1,Demon (Quasit)	KIT:1|Demon (Quasit) Familiar
 #
 ###Block:Familiar Bonuses to Master
 # Race of familiar			Type				Save checks bonus			Combat bonus			Bonus to HP			Bonus to skill			Virtual Feat	Special ABility			Add
@@ -74,72 +74,72 @@ MASTERBONUSRACE:Weasel			TYPE:Arcanis Familiar	BONUS:CHECKS|Reflex|2												
 #
 ###Block:Arcanis Animal Companion
 # Class of the Master			Type					Hit Dice	Ability								Virtual Feat				Special ABility					Define			Combat bonus						Stat bonus
-FOLLOWER:CompLevel=1			TYPE:Arcanis Animal Companion																		SAB:Link (Ex)	SAB:Share Spells (Ex)
-FOLLOWER:CompLevel=3			TYPE:Arcanis Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Evasion																DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=6			TYPE:Arcanis Animal Companion	HD:2																	SAB:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=9			TYPE:Arcanis Animal Companion	HD:2											VFEAT:Multiattack|PREHANDSGTEQ:3	SAB:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=12			TYPE:Arcanis Animal Companion	HD:2																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=15			TYPE:Arcanis Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=18			TYPE:Arcanis Animal Companion	HD:2																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=1			TYPE:Arcanis Animal Companion																		SAB:Link (Ex)	SAB:Share Spells (Ex)
+FOLLOWER:AnimalCompanionLVL=3			TYPE:Arcanis Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Evasion																DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=6			TYPE:Arcanis Animal Companion	HD:2																	SAB:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=9			TYPE:Arcanis Animal Companion	HD:2											VFEAT:Multiattack|PREHANDSGTEQ:3	SAB:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=12			TYPE:Arcanis Animal Companion	HD:2																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=15			TYPE:Arcanis Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=18			TYPE:Arcanis Animal Companion	HD:2																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 FOLLOWER:Master of the Hounds=7	TYPE:Arcanis Animal Companion
 #Need to place in more appropriate ability > Does not belong in compmod file	BONUS:CHECKS|%LIST|2															CHOOSE:STAT|INT|WIS|CHA
 #
 ###Block:Specific Arcanis Animal Companions
 # Class of the Master	Type					Required Race					Apply Kit
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Ape					KIT:1|Ape Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Badger					KIT:1|Badger Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Bear (Black)				KIT:1|Bear (Black) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Bear (Brown)				KIT:1|Bear (Brown) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Bear (Polar)				KIT:1|Bear (Polar) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Bison					KIT:1|Bison Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Boar					KIT:1|Boar Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Bull					KIT:1|Bull Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Camel					KIT:1|Camel Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Cat					KIT:1|Cat Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Cheetah					KIT:1|Cheetah Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Crocodile				KIT:1|Crocodile Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Crocodile (Giant)			KIT:1|Crocodile (Giant) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Ape)		KIT:1|Dire Animal (Dire Ape) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Badger)		KIT:1|Dire Animal (Dire Badger) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Bat)		KIT:1|Dire Animal (Dire Bat) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Bear)		KIT:1|Dire Animal (Dire Bear) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Boar)		KIT:1|Dire Animal (Dire Boar) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Bull)		KIT:1|Dire Animal (Dire Bull) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Lion)		KIT:1|Dire Animal (Dire Lion) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Ram)		KIT:1|Dire Animal (Dire Ram) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Rat)		KIT:1|Dire Animal (Dire Rat) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Tiger)		KIT:1|Dire Animal (Dire Tiger) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Weasel)		KIT:1|Dire Animal (Dire Weasel) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Wolf)		KIT:1|Dire Animal (Dire Wolf) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Wolf Lizard)	KIT:1|Dire Animal (Dire Wolf Lizard) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Wolverine)	KIT:1|Dire Animal (Dire Wolverine) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dog					KIT:1|Dog Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dog (Riding)				KIT:1|Dog (Riding) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Eagle					KIT:1|Eagle Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Elephant				KIT:1|Elephant Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Hawk					KIT:1|Hawk Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Horse (Heavy)				KIT:1|Horse (Heavy) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Horse (Light)				KIT:1|Horse (Light) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Leopard					KIT:1|Leopard Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Lion					KIT:1|Lion Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Lizard (Monitor)			KIT:1|Lizard (Monitor) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Owl					KIT:1|Owl Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Pony					KIT:1|Pony Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Porpoise				KIT:1|Porpoise Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Ram					KIT:1|Ram Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Rhinoceros				KIT:1|Rhinoceros Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Shark (Medium)			KIT:1|Shark (Medium) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Snake (Constrictor)			KIT:1|Snake (Constrictor) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Snake (Constrictor/Giant)		KIT:1|Snake (Constrictor/Giant) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Snake (Viper/Huge)			KIT:1|Snake (Viper/Huge) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Snake (Viper/Large)			KIT:1|Snake (Viper/Large) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Snake (Viper/Medium)		KIT:1|Snake (Viper/Medium) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Snake (Viper/Small)			KIT:1|Snake (Viper/Small) Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Squid					KIT:1|Squid Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Tiger					KIT:1|Tiger Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Wolf					KIT:1|Wolf Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Wolf Lizard				KIT:1|Wolf Lizard Companion
-FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Wolverine				KIT:1|Wolverine Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Ape					KIT:1|Ape Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Badger					KIT:1|Badger Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Bear (Black)				KIT:1|Bear (Black) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Bear (Brown)				KIT:1|Bear (Brown) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Bear (Polar)				KIT:1|Bear (Polar) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Bison					KIT:1|Bison Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Boar					KIT:1|Boar Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Bull					KIT:1|Bull Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Camel					KIT:1|Camel Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Cat					KIT:1|Cat Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Cheetah					KIT:1|Cheetah Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Crocodile				KIT:1|Crocodile Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Crocodile (Giant)			KIT:1|Crocodile (Giant) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Ape)		KIT:1|Dire Animal (Dire Ape) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Badger)		KIT:1|Dire Animal (Dire Badger) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Bat)		KIT:1|Dire Animal (Dire Bat) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Bear)		KIT:1|Dire Animal (Dire Bear) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Boar)		KIT:1|Dire Animal (Dire Boar) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Bull)		KIT:1|Dire Animal (Dire Bull) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Lion)		KIT:1|Dire Animal (Dire Lion) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Ram)		KIT:1|Dire Animal (Dire Ram) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Rat)		KIT:1|Dire Animal (Dire Rat) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Tiger)		KIT:1|Dire Animal (Dire Tiger) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Weasel)		KIT:1|Dire Animal (Dire Weasel) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Wolf)		KIT:1|Dire Animal (Dire Wolf) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Wolf Lizard)	KIT:1|Dire Animal (Dire Wolf Lizard) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dire Animal (Dire Wolverine)	KIT:1|Dire Animal (Dire Wolverine) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dog					KIT:1|Dog Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Dog (Riding)				KIT:1|Dog (Riding) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Eagle					KIT:1|Eagle Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Elephant				KIT:1|Elephant Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Hawk					KIT:1|Hawk Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Horse (Heavy)				KIT:1|Horse (Heavy) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Horse (Light)				KIT:1|Horse (Light) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Leopard					KIT:1|Leopard Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Lion					KIT:1|Lion Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Lizard (Monitor)			KIT:1|Lizard (Monitor) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Owl					KIT:1|Owl Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Pony					KIT:1|Pony Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Porpoise				KIT:1|Porpoise Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Ram					KIT:1|Ram Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Rhinoceros				KIT:1|Rhinoceros Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Shark (Medium)			KIT:1|Shark (Medium) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Snake (Constrictor)			KIT:1|Snake (Constrictor) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Snake (Constrictor/Giant)		KIT:1|Snake (Constrictor/Giant) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Snake (Viper/Huge)			KIT:1|Snake (Viper/Huge) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Snake (Viper/Large)			KIT:1|Snake (Viper/Large) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Snake (Viper/Medium)		KIT:1|Snake (Viper/Medium) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Snake (Viper/Small)			KIT:1|Snake (Viper/Small) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Squid					KIT:1|Squid Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Tiger					KIT:1|Tiger Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Wolf					KIT:1|Wolf Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Wolf Lizard				KIT:1|Wolf Lizard Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Arcanis Animal Companion	PRERACE:1,Wolverine				KIT:1|Wolverine Companion
 
 ###Block:Arcanis Animal Companion Size work-around
 #
@@ -149,21 +149,21 @@ FOLLOWER:CompLevel=1	TYPE:Arcanis Animal Companion	PRERACE:1,Wolverine				KIT:1|
 #############  NOTE: The Arcanis Companions are NOT added to this table - dinos were taken out
 
 # Class of the Master	Type					Adjust PC Size
-FOLLOWER:CompLevel=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7
-FOLLOWER:CompLevel=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Badger)|PREVARGT:TL,3|PREVARLT:TL,10
-FOLLOWER:CompLevel=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Weasel)|PREVARGT:TL,6|PREVARLT:TL,10
-FOLLOWER:CompLevel=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor)|PREVARGT:TL,5|PREVARLT:TL,11
-FOLLOWER:CompLevel=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolverine|PREVARGT:TL,3|PREVARLT:TL,6
-FOLLOWER:CompLevel=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Boar)|PREVARGT:TL,16|PREVARLT:TL,22
-FOLLOWER:CompLevel=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Rhinoceros,Octopus (Giant)|PREVARGT:TL,12|PREVARLT:TL,25
-FOLLOWER:CompLevel=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Tiger|PREVARGT:TL,12|PREVARLT:TL,19
-FOLLOWER:CompLevel=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Lion)|PREVARGT:TL,16|PREVARLT:TL,25
-FOLLOWER:CompLevel=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor/Giant)|PREVARGT:TL,16|PREVARLT:TL,34
-FOLLOWER:CompLevel=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Whale (Orca)|PREVARGT:TL,13|PREVARLT:TL,28
-FOLLOWER:CompLevel=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Bear)|PREVARGT:TL,16|PREVARLT:TL,37
-FOLLOWER:CompLevel=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Shark)|PREVARGT:TL,32|PREVARLT:TL,55
-FOLLOWER:CompLevel=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Tiger)|PREVARGT:TL,32|PREVARLT:TL,49
-FOLLOWER:CompLevel=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Squid (Giant)|PREVARGT:TL,18|PREVARLT:TL,37
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Badger)|PREVARGT:TL,3|PREVARLT:TL,10
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Weasel)|PREVARGT:TL,6|PREVARLT:TL,10
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor)|PREVARGT:TL,5|PREVARLT:TL,11
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolverine|PREVARGT:TL,3|PREVARLT:TL,6
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Boar)|PREVARGT:TL,16|PREVARLT:TL,22
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Rhinoceros,Octopus (Giant)|PREVARGT:TL,12|PREVARLT:TL,25
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Tiger|PREVARGT:TL,12|PREVARLT:TL,19
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Lion)|PREVARGT:TL,16|PREVARLT:TL,25
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor/Giant)|PREVARGT:TL,16|PREVARLT:TL,34
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Whale (Orca)|PREVARGT:TL,13|PREVARLT:TL,28
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Bear)|PREVARGT:TL,16|PREVARLT:TL,37
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Shark)|PREVARGT:TL,32|PREVARLT:TL,55
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Tiger)|PREVARGT:TL,32|PREVARLT:TL,49
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Arcanis Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Squid (Giant)|PREVARGT:TL,18|PREVARLT:TL,37
 
 ###Block: Standard Companions
 # Class of the Master		Type			Automatically Gained Armor Prof.
@@ -175,23 +175,23 @@ FOLLOWER:NormalFollower=1	TYPE:Follower
 FOLLOWER:Sky Knight=1	TYPE:Special Mount														VFEAT:Flyby Attack|PRERACE:1,Griffon	VFEAT:Mobility|PRERACE:1,Eagle (Giant)
 FOLLOWER:Sky Knight=3	TYPE:Special Mount																												AUTO:FEAT|Hover
 FOLLOWER:Sky Knight=4	TYPE:Special Mount																												AUTO:FEAT|Wingover
-FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Improved Evasion																				AUTO:ARMORPROF|ARMORTYPE=Barding	SAB:Share saving throws	SAB:Empathic Link	SAB:Share spells	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	RACETYPE:Magical Beast
-FOLLOWER:SMLevel=8	TYPE:Special Mount	HD:2																																						SAB:Improved Speed (Ex)							DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
-FOLLOWER:SMLevel=11	TYPE:Special Mount	HD:2																																						SAB:Command creatures of its kind					DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
-FOLLOWER:SMLevel=15	TYPE:Special Mount	HD:2		SR:20																																														DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
-FOLLOWER:SMLevel=16	TYPE:Special Mount			SR:21
-FOLLOWER:SMLevel=17	TYPE:Special Mount			SR:22
-FOLLOWER:SMLevel=18	TYPE:Special Mount			SR:23
-FOLLOWER:SMLevel=19	TYPE:Special Mount			SR:24
-FOLLOWER:SMLevel=20	TYPE:Special Mount			SR:25
+FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Improved Evasion																				AUTO:ARMORPROF|ARMORTYPE=Barding	SAB:Share saving throws	SAB:Empathic Link	SAB:Share spells	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	RACETYPE:Magical Beast
+FOLLOWER:SpecialMountLVL=8	TYPE:Special Mount	HD:2																																						SAB:Improved Speed (Ex)							DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
+FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount	HD:2																																						SAB:Command creatures of its kind					DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
+FOLLOWER:SpecialMountLVL=15	TYPE:Special Mount	HD:2		SR:20																																														DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1
+FOLLOWER:SpecialMountLVL=16	TYPE:Special Mount			SR:21
+FOLLOWER:SpecialMountLVL=17	TYPE:Special Mount			SR:22
+FOLLOWER:SpecialMountLVL=18	TYPE:Special Mount			SR:23
+FOLLOWER:SpecialMountLVL=19	TYPE:Special Mount			SR:24
+FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount			SR:25
 #
 ###Block:Fiendish Servant
 # Class of the Master	Type				Hit Dice	Spell Res.	Ability								Special ABility									Define						Combat bonus						Stat bonus
-FOLLOWER:FSLevel=5	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Improved Evasion	SAB:Empathic Link (Su)	SAB:Share spells	SAB:Share saving throws	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
-FOLLOWER:FSLevel=13	TYPE:Fiendish Servant	HD:2													SAB:Speak with Blackguard (Ex)						DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
-FOLLOWER:FSLevel=16	TYPE:Fiendish Servant	HD:2													SAB:Blood Bond (Ex)								DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
-FOLLOWER:FSLevel=19	TYPE:Fiendish Servant	HD:2		SR:24																						DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
-FOLLOWER:FSLevel=20	TYPE:Fiendish Servant			SR:25
+FOLLOWER:FiendishServantLVL=5	TYPE:Fiendish Servant	HD:2				ABILITY:Special Ability|AUTOMATIC|Improved Evasion	SAB:Empathic Link (Su)	SAB:Share spells	SAB:Share saving throws	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:FiendishServantLVL=13	TYPE:Fiendish Servant	HD:2													SAB:Speak with Blackguard (Ex)						DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:FiendishServantLVL=16	TYPE:Fiendish Servant	HD:2													SAB:Blood Bond (Ex)								DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:FiendishServantLVL=19	TYPE:Fiendish Servant	HD:2		SR:24																						DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1
+FOLLOWER:FiendishServantLVL=20	TYPE:Fiendish Servant			SR:25
 #
 ###Block: Undead Companion
 # Class of the Master			Type				Hit Dice	Spell Res.	Ability																Special ABility															Define						Combat bonus						Stat bonus		Modify VAR
@@ -208,6 +208,6 @@ FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Zombie (Human Comm
 
 ###Block:Shadowdancer summoned Shadow
 # Class of the Master		Type				Hit Dice	Special ABility																		Modify VAR
-FOLLOWER:ShadowCompanion=3	TYPE:Shadow Companion	HD:2		SAB:Communiate with Master	SAB:Cannot Create Spawn	SAB:Cannot be turned, rebuked, or commanded by any third party	BONUS:VAR|ShadowSpawnBlock|1
-FOLLOWER:ShadowCompanion=6	TYPE:Shadow Companion	HD:2
-FOLLOWER:ShadowCompanion=9	TYPE:Shadow Companion	HD:2
+FOLLOWER:ShadowCompanionLVL=3	TYPE:Shadow Companion	HD:2		SAB:Communiate with Master	SAB:Cannot Create Spawn	SAB:Cannot be turned, rebuked, or commanded by any third party	BONUS:VAR|ShadowSpawnBlock|1
+FOLLOWER:ShadowCompanionLVL=6	TYPE:Shadow Companion	HD:2
+FOLLOWER:ShadowCompanionLVL=9	TYPE:Shadow Companion	HD:2

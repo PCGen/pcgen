@@ -45,7 +45,7 @@ CLASS:Sorcerer (Monte Cook's)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Di
 CLASS:Sorcerer (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer (Monte Cook's)|CL
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Familiar
-1	BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+1	BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 ###Block: Spell List
 1	SPELLLEVEL:CLASS|Sorcerer (Monte Cook's)=0|Dancing Lights,Daze,Detect Magic,Disrupt Undead,Flare,Ghost Sound,Light,Mage Hand,Mending,Open/Close,Prestidigitation,Ray of Frost,Read Magic,Resistance
 1	SPELLLEVEL:CLASS|Sorcerer (Monte Cook's)=1|Animate Rope,Burning Hands,Cause Fear,Charm Person,Chill Touch,Color Spray,Comprehend Languages,Disguise Self,Endure Elements,Expeditious Retreat,Floating Disk,Grease,Hypnotism,Jump,Mage Armor,Magic Missile,Message,Obscuring Mist,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Ray of Enfeeblement,Shocking Grasp,Silent Image,Sleep,Spider Climb,Summon Monster I,True Strike,Unseen Servant,Ventriloquism

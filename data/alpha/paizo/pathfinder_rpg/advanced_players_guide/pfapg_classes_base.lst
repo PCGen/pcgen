@@ -280,7 +280,7 @@ CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLE
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Witch Weapon Proficiencies
 
 ###Block: Level progression
-1	BONUS:VAR|FMLevel|CL	DEFINE:SpellMasteryQualify|1
+1	BONUS:VAR|FamiliarLVL|CL	DEFINE:SpellMasteryQualify|1
 ###Block: Witch Class Abilities
 1	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar
 1	ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Witch|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchCantrips

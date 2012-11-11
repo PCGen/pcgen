@@ -17,74 +17,74 @@ FOLLOWER:WildPackLvl=1	TYPE:Wild Pack	PRERACE:1,Dog (Riding)	KIT:1|Dog (Riding) 
 
 ###Block:Animal Champion Companion
 # Class of the Master	Type						Hit Dice	Virtual Feat				Special ABility					Define			Combat bonus						Stat bonus
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion									SAB:Link (Ex)	SAB:Share Spells (Ex)
-FOLLOWER:CompLevel=3	TYPE:Animal Champion Companion	HD:2								SAB:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=6	TYPE:Animal Champion Companion	HD:2								SAB:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=9	TYPE:Animal Champion Companion	HD:2		VFEAT:Multiattack|PREHANDSGTEQ:3	SAB:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=12	TYPE:Animal Champion Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=15	TYPE:Animal Champion Companion	HD:2								SAB:Improved Evasion (Ex)							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:CompLevel=18	TYPE:Animal Champion Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion									SAB:Link (Ex)	SAB:Share Spells (Ex)
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Champion Companion	HD:2								SAB:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=6	TYPE:Animal Champion Companion	HD:2								SAB:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=9	TYPE:Animal Champion Companion	HD:2		VFEAT:Multiattack|PREHANDSGTEQ:3	SAB:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=12	TYPE:Animal Champion Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Champion Companion	HD:2								SAB:Improved Evasion (Ex)							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Champion Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 
 ###Block: Kit Application
 # Class of the Master	Type						Required Race					Apply Kit
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Ape					KIT:1|Ape Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Badger					KIT:1|Badger Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Bear (Black)				KIT:1|Bear (Black) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Bear (Brown)				KIT:1|Bear (Brown) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Bear (Polar)				KIT:1|Bear (Polar) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Bison					KIT:1|Bison Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Boar					KIT:1|Boar Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Camel					KIT:1|Camel Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Cheetah					KIT:1|Cheetah Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Crocodile				KIT:1|Crocodile Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Crocodile (Giant)			KIT:1|Crocodile (Giant) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dinosaur (Deinonychus)		KIT:1|Dinosaur (Deinonychus) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dinosaur (Megaraptor)		KIT:1|Dinosaur (Megaraptor) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dinosaur (Triceratops)		KIT:1|Dinosaur (Triceratops) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dinosaur (Tyrannosaurus)		KIT:1|Dinosaur (Tyrannosaurus) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Ape)		KIT:1|Dire Animal (Dire Ape) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Badger)		KIT:1|Dire Animal (Dire Badger) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Bat)		KIT:1|Dire Animal (Dire Bat) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Bear)		KIT:1|Dire Animal (Dire Bear) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Boar)		KIT:1|Dire Animal (Dire Boar) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Lion)		KIT:1|Dire Animal (Dire Lion) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Rat)		KIT:1|Dire Animal (Dire Rat) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Tiger)		KIT:1|Dire Animal (Dire Tiger) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Weasel)		KIT:1|Dire Animal (Dire Weasel) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Wolf)		KIT:1|Dire Animal (Dire Wolf) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Wolverine)	KIT:1|Dire Animal (Dire Wolverine) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dog					KIT:1|Dog Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Dog (Riding)				KIT:1|Dog (Riding) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Eagle					KIT:1|Eagle Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Elephant				KIT:1|Elephant Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Hawk					KIT:1|Hawk Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Horse (Heavy)				KIT:1|Horse (Heavy) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Horse (Light)				KIT:1|Horse (Light) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Leopard					KIT:1|Leopard Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Lion					KIT:1|Lion Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Lizard (Monitor)			KIT:1|Lizard (Monitor) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Owl					KIT:1|Owl Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Pony					KIT:1|Pony Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Porpoise				KIT:1|Porpoise Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Rhinoceros				KIT:1|Rhinoceros Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Shark (Medium)			KIT:1|Shark (Medium) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Snake (Constrictor)			KIT:1|Snake (Constrictor) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Snake (Constrictor/Giant)		KIT:1|Snake (Constrictor/Giant) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Snake (Viper/Huge)			KIT:1|Snake (Viper/Huge) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Snake (Viper/Large)			KIT:1|Snake (Viper/Large) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Snake (Viper/Medium)		KIT:1|Snake (Viper/Medium) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Snake (Viper/Small)			KIT:1|Snake (Viper/Small) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Squid					KIT:1|Squid Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Tiger					KIT:1|Tiger Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Wolf					KIT:1|Wolf Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Wolverine				KIT:1|Wolverine Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Ape					KIT:1|Ape Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Badger					KIT:1|Badger Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Bear (Black)				KIT:1|Bear (Black) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Bear (Brown)				KIT:1|Bear (Brown) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Bear (Polar)				KIT:1|Bear (Polar) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Bison					KIT:1|Bison Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Boar					KIT:1|Boar Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Camel					KIT:1|Camel Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Cheetah					KIT:1|Cheetah Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Crocodile				KIT:1|Crocodile Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Crocodile (Giant)			KIT:1|Crocodile (Giant) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dinosaur (Deinonychus)		KIT:1|Dinosaur (Deinonychus) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dinosaur (Megaraptor)		KIT:1|Dinosaur (Megaraptor) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dinosaur (Triceratops)		KIT:1|Dinosaur (Triceratops) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dinosaur (Tyrannosaurus)		KIT:1|Dinosaur (Tyrannosaurus) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Ape)		KIT:1|Dire Animal (Dire Ape) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Badger)		KIT:1|Dire Animal (Dire Badger) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Bat)		KIT:1|Dire Animal (Dire Bat) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Bear)		KIT:1|Dire Animal (Dire Bear) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Boar)		KIT:1|Dire Animal (Dire Boar) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Lion)		KIT:1|Dire Animal (Dire Lion) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Rat)		KIT:1|Dire Animal (Dire Rat) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Tiger)		KIT:1|Dire Animal (Dire Tiger) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Weasel)		KIT:1|Dire Animal (Dire Weasel) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Wolf)		KIT:1|Dire Animal (Dire Wolf) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dire Animal (Dire Wolverine)	KIT:1|Dire Animal (Dire Wolverine) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dog					KIT:1|Dog Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Dog (Riding)				KIT:1|Dog (Riding) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Eagle					KIT:1|Eagle Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Elephant				KIT:1|Elephant Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Hawk					KIT:1|Hawk Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Horse (Heavy)				KIT:1|Horse (Heavy) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Horse (Light)				KIT:1|Horse (Light) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Leopard					KIT:1|Leopard Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Lion					KIT:1|Lion Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Lizard (Monitor)			KIT:1|Lizard (Monitor) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Owl					KIT:1|Owl Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Pony					KIT:1|Pony Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Porpoise				KIT:1|Porpoise Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Rhinoceros				KIT:1|Rhinoceros Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Shark (Medium)			KIT:1|Shark (Medium) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Snake (Constrictor)			KIT:1|Snake (Constrictor) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Snake (Constrictor/Giant)		KIT:1|Snake (Constrictor/Giant) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Snake (Viper/Huge)			KIT:1|Snake (Viper/Huge) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Snake (Viper/Large)			KIT:1|Snake (Viper/Large) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Snake (Viper/Medium)		KIT:1|Snake (Viper/Medium) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Snake (Viper/Small)			KIT:1|Snake (Viper/Small) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Squid					KIT:1|Squid Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Tiger					KIT:1|Tiger Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Wolf					KIT:1|Wolf Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Wolverine				KIT:1|Wolverine Companion
 ###Block: New Animals
 # Class of the Master	Type						Required Race				Apply Kit
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Wildcat				KIT:1|Wildcat Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Caracal				KIT:1|Caracal Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Snake (Spitting Cobra)	KIT:1|Snake (Spitting Cobra) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Lynx				KIT:1|Lynx Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Champion Companion	PRERACE:1,Saber-Tooth			KIT:1|Saber-Tooth Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Wildcat				KIT:1|Wildcat Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Caracal				KIT:1|Caracal Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Snake (Spitting Cobra)	KIT:1|Snake (Spitting Cobra) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Lynx				KIT:1|Lynx Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Saber-Tooth			KIT:1|Saber-Tooth Companion
 
 
 ###Block:Animal Champion Animals
@@ -155,8 +155,8 @@ FOLLOWER:CompanionPackLvl=1	TYPE:Companion Pack	PRERACE:1,Saber-Tooth			KIT:1|Sa
 
 ###Block: Add Animal Companions to main RSRD
 # Class of the Master	Type				Required Race				Apply Kit
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Wildcat				KIT:1|Wildcat Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Caracal				KIT:1|Caracal Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Snake (Spitting Cobra)	KIT:1|Snake (Spitting Cobra) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Lynx				KIT:1|Lynx Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Saber-Tooth			KIT:1|Saber-Tooth Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Wildcat				KIT:1|Wildcat Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Caracal				KIT:1|Caracal Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Snake (Spitting Cobra)	KIT:1|Snake (Spitting Cobra) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Lynx				KIT:1|Lynx Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Saber-Tooth			KIT:1|Saber-Tooth Companion

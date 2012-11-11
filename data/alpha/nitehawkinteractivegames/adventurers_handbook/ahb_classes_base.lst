@@ -167,7 +167,7 @@ CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Witch|CL
 
 
 # Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Mentalist	HD:8		TYPE:Base.PC	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL
+CLASS:Mentalist	HD:8		TYPE:Base.PC	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL
 # Class Name	Restricted AL
 CLASS:Mentalist	!PREALIGN:CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill

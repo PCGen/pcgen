@@ -107,11 +107,11 @@ CLASS:Master Spy	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Disguise|
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Nature Warden	HD:8		TYPE:PC.Prestige	ABB:NW		MAXLEVEL:10	SOURCEPAGE:p.272	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Ability																	Req. Att.	Required Skill												Req. Spell Type		Var. Must Be Grater
-CLASS:Nature Warden	PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredTerrain	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PREATT:4	PRESKILL:4,Handle Animal=5,Knowledge (Geography)=5,Knowledge (Nature)=5,Survival=5	PRESPELLTYPE:1,Divine=2	PREVARGT:CompLevel,0
+CLASS:Nature Warden	PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredTerrain	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PREATT:4	PRESKILL:4,Handle Animal=5,Knowledge (Geography)=5,Knowledge (Nature)=5,Survival=5	PRESPELLTYPE:1,Divine=2	PREVARGT:AnimalCompanionLVL,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Nature Warden	STARTSKILLPTS:4	CSKILL:Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|Perception|Ride|Sense Motive|Survival|Swim
 ##Block: Normal Level Progression
-1	BONUS:VAR|CompanionBondLVL|CL	BONUS:VAR|CompLevel|CL	BONUS:VAR|NaturalEmpathyLVL|CL					ABILITY:Special Ability|AUTOMATIC|Companion Bond ~ Nature Warden|Natural Empathy ~ Nature Warden
+1	BONUS:VAR|CompanionBondLVL|CL	BONUS:VAR|AnimalCompanionLVL|CL	BONUS:VAR|NaturalEmpathyLVL|CL					ABILITY:Special Ability|AUTOMATIC|Companion Bond ~ Nature Warden|Natural Empathy ~ Nature Warden
 2																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Mystic Harmony ~ Nature Warden|Wild Stride ~ Nature Warden
 3																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Animal Speech ~ Nature Warden
 4																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Silverclaw ~ Nature Warden

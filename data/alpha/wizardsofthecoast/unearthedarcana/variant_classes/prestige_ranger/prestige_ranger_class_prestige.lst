@@ -16,7 +16,7 @@ CLASS:Prestige Ranger	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Hand
 1	BONUS:ABILITYPOOL|Prestige Ranger Unique Spells|1
 1										BONUS:VAR|RangerFavoredEnemyLVL|CL												ABILITY:Special Ability|AUTOMATIC|Basic Favored Enemy|Ranger Favored Enemy
 1										BONUS:VAR|WildEmpathy|CL													ABILITY:Special Ability|AUTOMATIC|Wild Empathy
-1										BONUS:VAR|CompLevel|CL														ABILITY:Special Ability|AUTOMATIC|Animal Companion
+1										BONUS:VAR|AnimalCompanionLVL|CL														ABILITY:Special Ability|AUTOMATIC|Animal Companion
 2																							ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Woodland Stride
 2	BONUS:ABILITYPOOL|Prestige Ranger Bonus Feats|1		BONUS:VAR|PrestigeRangerBonusFeatLVL|CL	DEFINE:PrestigeRangerBonusFeatLVL|0
 3																											ABILITY:Special Ability|AUTOMATIC|Swift Tracker

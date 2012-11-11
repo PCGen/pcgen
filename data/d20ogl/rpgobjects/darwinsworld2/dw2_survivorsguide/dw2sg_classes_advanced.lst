@@ -190,7 +190,7 @@ CLASS:Symbiote	PREATT:2	PREFEAT:1,Animal Affinity	PRESKILL:2,Handle Animal=6,Sur
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Symbiote	STARTSKILLPTS:3	CSKILL:Handle Animal|Knowledge (Earth and Life Sciences)|Knowledge (Mutant Lore)|Listen|Navigate|Ride|Sense Motive|Spot|Survival|Treat Injury
 1					BONUS:ABILITYPOOL|Symbiote Feat|(CL/3)
-1												BONUS:VAR|CompLevel|cl("Symbiote")	ABILITY:Talent|AUTOMATIC|Animal Partner
+1												BONUS:VAR|AnimalCompanionLVL|cl("Symbiote")	ABILITY:Talent|AUTOMATIC|Animal Partner
 2	SAB:Opportunist
 4
 5	SAB:Bond of Friendship

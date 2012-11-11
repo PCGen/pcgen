@@ -10,7 +10,7 @@ CLASS:Sherwood Conjurer	STARTSKILLPTS:5	CSKILL:Bluff|Concentration|TYPE=Craft|Di
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Class Abilities
-1	BONUS:ABILITYPOOL|Fires Burn and Cauldrons Bubble|(CL+1)/2	BONUS:VAR|SwashbucklingPointTotal|1	BONUS:VAR|SFMLevel|CL	BONUS:VAR|ConjurerAC|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Fires Burn and Cauldrons Bubble|Swashbuckling Points	ABILITY:Internal|AUTOMATIC|ConjurerDefense
+1	BONUS:ABILITYPOOL|Fires Burn and Cauldrons Bubble|(CL+1)/2	BONUS:VAR|SwashbucklingPointTotal|1	BONUS:VAR|FamiliarLVL|CL	BONUS:VAR|ConjurerAC|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Fires Burn and Cauldrons Bubble|Swashbuckling Points	ABILITY:Internal|AUTOMATIC|ConjurerDefense
 2	BONUS:ABILITYPOOL|Conjurer Ability|CL/2
 
 

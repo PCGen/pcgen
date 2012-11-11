@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
+CAMPAIGN:Conversion for Core Sets
+RANK:3
+#GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Conversion
+SETTING:Conversion
+TYPE:Conversion
+SOURCEDATE:2012-11
+ISOGL:YES
+INFOTEXT:Revised Conversion Set
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# DATA FILES
+
+ABILITY:cs_abilities.lst
+
+#
+# End
+#

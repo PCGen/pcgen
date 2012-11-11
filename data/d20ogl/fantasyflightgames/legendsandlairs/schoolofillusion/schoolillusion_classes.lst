@@ -51,7 +51,7 @@ CLASS:Arcane Herald	HD:4		TYPE:PC.Prestige	ABB:Her		MAXLEVEL:10	SOURCEPAGE:p.7	B
 CLASS:Arcane Herald	PREFEAT:1,Scribe Scroll	PRESKILL:1,Knowledge (Heraldry)=8	PRESPELL:1,Stolen Sight	PRESPELLTYPE:2,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Herald	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Innuendo|Intimidate|TYPE=Knowledge|Perform|TYPE=Profession|Ride|Scry|Sense Motive|Spellcraft
-1	SAB:Grand Words			BONUS:VAR|FMLevel|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+1	SAB:Grand Words			BONUS:VAR|FamiliarLVL|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 2	SAB:Craft Ink							ADD:SPELLCASTER|ANY
 3	SAB:Clever Wit							ADD:SPELLCASTER|ANY
 4	SAB:Elegant Hand (messages)					ADD:SPELLCASTER|ANY

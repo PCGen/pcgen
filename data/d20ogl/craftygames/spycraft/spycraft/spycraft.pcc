@@ -32,6 +32,7 @@ URL:RPG Now|http://rpg.drivethrustuff.com/index.php?cPath=562&affiliate_id=71282
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:help_spycraft.html
+PCC:@/homebrew/conversion_support/conversion_support.pcc
 
 ABILITY:spycraft_abilities.lst
 ABILITY:spycraft_abilities_class.lst

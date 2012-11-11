@@ -171,7 +171,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 ###Block: Normal Progression
-1	CAST:3,1				BONUS:VAR|WildEmpathy|CL	BONUS:VAR|CompLevel|CL	ABILITY:Special Ability|AUTOMATIC|Animal Companion|Nature Sense|Spontaneous casting - Summon Nature's Ally|Wild Empathy
+1	CAST:3,1				BONUS:VAR|WildEmpathy|CL	BONUS:VAR|AnimalCompanionLVL|CL	ABILITY:Special Ability|AUTOMATIC|Animal Companion|Nature Sense|Spontaneous casting - Summon Nature's Ally|Wild Empathy
 2	CAST:4,2													ABILITY:Special Ability|AUTOMATIC|Woodland Stride
 3	CAST:4,2,1													ABILITY:Special Ability|AUTOMATIC|Trackless Step
 4	CAST:5,3,2													ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure
@@ -285,7 +285,7 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 2				BONUS:VAR|LayOnHandsLVL|CL											ABILITY:Special Ability|AUTOMATIC|Divine Grace|Lay on Hands
 3																			ABILITY:Special Ability|AUTOMATIC|Aura of Courage|Divine Health
 4	CAST:0,0		BONUS:VAR|PaladinTurnLVL|CL											ABILITY:Special Ability|AUTOMATIC|Basic Turning|Paladin Turn Undead|Turn Undead
-5	CAST:0,0		BONUS:VAR|SMLevel|CL												ABILITY:Special Ability|AUTOMATIC|Special Mount
+5	CAST:0,0		BONUS:VAR|SpecialMountLVL|CL												ABILITY:Special Ability|AUTOMATIC|Special Mount
 6	CAST:0,1		BONUS:VAR|RemoveDiseaseLVL|CL											ABILITY:Special Ability|AUTOMATIC|Remove Disease
 7	CAST:0,1
 8	CAST:0,1,0
@@ -327,9 +327,8 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	BONUS:VAR|RangerCombatTreeLVL|CL	ABILITY:Special Ability|AUTOMATIC|Ranger Combat Tree
 ###Block: Level progression
 1				BONUS:VAR|WildEmpathy|CL													ABILITY:Special Ability|AUTOMATIC|Wild Empathy						AUTO:FEAT|Track
-2
 3																																		AUTO:FEAT|Endurance
-4	CAST:0,0		BONUS:VAR|RangerAnimalCompLVL|CL												ABILITY:Special Ability|AUTOMATIC|Animal Companion|Ranger Animal Companion
+4	CAST:0,0		BONUS:VAR|AnimalCompanionLVL|CL/2												ABILITY:Special Ability|AUTOMATIC|Animal Companion
 5	CAST:0,0
 6	CAST:0,1
 7	CAST:0,1																			ABILITY:Special Ability|AUTOMATIC|Woodland Stride
@@ -370,7 +369,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Familiar
-1	BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SorcererSummonFamiliar
+1	BONUS:VAR|FamiliarLVL|CL|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SorcererSummonFamiliar	ABILITY:Special Ability|AUTOMATIC|Summon Familiar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SorcererSummonFamiliar
 ###Block: Level progression
 1	CAST:5,3				KNOWN:4,2
 2	CAST:6,4				KNOWN:5,2
@@ -419,7 +418,7 @@ SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Transmuter Learning Bonus
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Wizard Weapon Proficiencies
 ###Block: Familiar
-1	BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WizardSummonFamiliar	ABILITY:Internal|AUTOMATIC|Free Spell Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Wizard=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Wizard=1]]
+1	BONUS:VAR|FamiliarLVL|CL|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WizardSummonFamiliar	ABILITY:Special Ability|AUTOMATIC|Summon Familiar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WizardSummonFamiliar	ABILITY:Internal|AUTOMATIC|Free Spell Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Wizard=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Wizard=1]]
 ###Block: Level progression
 1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5	ABILITY:FEAT|AUTOMATIC|Scribe Scroll|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WizardScribeScroll
 2	CAST:4,2

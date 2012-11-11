@@ -8,30 +8,30 @@ FOLLOWER:UndeadCompanionLVL=1	TYPE:Undead Companion	PRERACE:1,Zombie (Human Comm
 
 ###Block: Specific Familiars
 # Class of the Master	Type			Required Race			Apply Kit
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Devil (Imp)		KIT:1|Devil (Imp) Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Demon (Quasit)	KIT:1|Demon (Quasit) Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Formian (Worker)	KIT:1|Formian (Worker) Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Pseudodragon		KIT:1|Pseudodragon Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Shocker Lizard	KIT:1|Shocker Lizard Familiar
-FOLLOWER:FMLevel=1	TYPE:Familiar	PRERACE:1,Stirge			KIT:1|Stirge Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Devil (Imp)		KIT:1|Devil (Imp) Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Demon (Quasit)	KIT:1|Demon (Quasit) Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Formian (Worker)	KIT:1|Formian (Worker) Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Pseudodragon		KIT:1|Pseudodragon Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Shocker Lizard	KIT:1|Shocker Lizard Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Stirge			KIT:1|Stirge Familiar
 
 ###Block:Specific Animal Companions
 # Class of the Master	Type				Required Race					Apply Kit
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dinosaur (Deinonychus)		KIT:1|Dinosaur (Deinonychus) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dinosaur (Megaraptor)		KIT:1|Dinosaur (Megaraptor) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dinosaur (Triceratops)		KIT:1|Dinosaur (Triceratops) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dinosaur (Tyrannosaurus)		KIT:1|Dinosaur (Tyrannosaurus) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Ape)		KIT:1|Dire Animal (Dire Ape) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Badger)		KIT:1|Dire Animal (Dire Badger) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Bat)		KIT:1|Dire Animal (Dire Bat) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Bear)		KIT:1|Dire Animal (Dire Bear) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Boar)		KIT:1|Dire Animal (Dire Boar) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Lion)		KIT:1|Dire Animal (Dire Lion) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Rat)		KIT:1|Dire Animal (Dire Rat) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Tiger)		KIT:1|Dire Animal (Dire Tiger) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Weasel)		KIT:1|Dire Animal (Dire Weasel) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Wolf)		KIT:1|Dire Animal (Dire Wolf) Companion
-FOLLOWER:CompLevel=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Wolverine)	KIT:1|Dire Animal (Dire Wolverine) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dinosaur (Deinonychus)		KIT:1|Dinosaur (Deinonychus) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dinosaur (Megaraptor)		KIT:1|Dinosaur (Megaraptor) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dinosaur (Triceratops)		KIT:1|Dinosaur (Triceratops) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dinosaur (Tyrannosaurus)		KIT:1|Dinosaur (Tyrannosaurus) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Ape)		KIT:1|Dire Animal (Dire Ape) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Badger)		KIT:1|Dire Animal (Dire Badger) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Bat)		KIT:1|Dire Animal (Dire Bat) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Bear)		KIT:1|Dire Animal (Dire Bear) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Boar)		KIT:1|Dire Animal (Dire Boar) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Lion)		KIT:1|Dire Animal (Dire Lion) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Rat)		KIT:1|Dire Animal (Dire Rat) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Tiger)		KIT:1|Dire Animal (Dire Tiger) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Weasel)		KIT:1|Dire Animal (Dire Weasel) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Wolf)		KIT:1|Dire Animal (Dire Wolf) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dire Animal (Dire Wolverine)	KIT:1|Dire Animal (Dire Wolverine) Companion
 
 
 #

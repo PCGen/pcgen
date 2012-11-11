@@ -3,7 +3,7 @@ SOURCELONG:Psionics Expanded - Mind over Body	SOURCESHORT:PEMoB	SOURCEWEB:http:/
 #Original Entry: Douglas Limmer
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Vitalist	HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Vitalist	HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vitalist	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (History)|Knowledge (Local)|Knowledge (Psionics)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Spellcraft|Survival
 # Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level
@@ -60,7 +60,7 @@ SUBCLASSLEVEL:1	BONUS:VAR|PsychometabolismDisciplineLVL|CL	ABILITY:Special Abili
 # Metamorph
 
 # Class Name	Hit Dice	Type					Max Level	Source Page		Save checks bonus													Combat bonus						Modify VAR
-CLASS:Metamorph	HD:8		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Metamorph	HD:8		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Required Feat				Required Skill							Req. Known Spell
 CLASS:Metamorph	PREFEAT:1,Improved Metamorphosis	PRESKILL:2,Autohypnosis=5,Knowledge (Psionics)=5	PRESPELL:1,Metamorphosis
 # Class Name	Skill Pts/Lvl	Class Skill

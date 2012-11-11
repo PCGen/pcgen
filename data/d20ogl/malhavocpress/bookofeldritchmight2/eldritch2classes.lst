@@ -50,7 +50,7 @@ CLASS:Sorceror (Monte Cook's)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:C
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Level Progression
-1	CAST:5,3				KNOWN:5,2				BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+1	CAST:5,3				KNOWN:5,2				BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 2	CAST:6,4				KNOWN:5,3
 3	CAST:6,5				KNOWN:6,3
 4	CAST:6,6,3				KNOWN:6,4,2

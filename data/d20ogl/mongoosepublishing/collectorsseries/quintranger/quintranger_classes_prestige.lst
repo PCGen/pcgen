@@ -6,7 +6,7 @@ SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:
 ###Block:Animal Champion -----------------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Ex Class				Source Page		Define			Save checks bonus												Combat bonus
-CLASS:Animal Champion	HD:8		TYPE:PC.Prestige	ABB:AC		MAXLEVEL:10	ALLOWBASECLASS:NO		EXCLASS:Ex Animal Champion	SOURCEPAGE:pg.23	DEFINE:CompLevel|0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Animal Champion	HD:8		TYPE:PC.Prestige	ABB:AC		MAXLEVEL:10	ALLOWBASECLASS:NO		EXCLASS:Ex Animal Champion	SOURCEPAGE:pg.23	DEFINE:AnimalCompanionLVL|0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required AL		Req. Att.	Required Feat
 CLASS:Animal Champion	PREALIGN:TN,NG	PREATT:10	PREFEAT:1,Animal Affinity
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -141,7 +141,7 @@ SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Wolverine's Fearlessness
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level Abilities
-1	BONUS:VAR|CompLevel|CL							ABILITY:Special Ability|AUTOMATIC|Animal Champion Companion|Animal Friendship|Chosen Species
+1	BONUS:VAR|AnimalCompanionLVL|CL							ABILITY:Special Ability|AUTOMATIC|Animal Champion Companion|Animal Friendship|Chosen Species
 2											ABILITY:Special Ability|AUTOMATIC|Charm Animal
 3	BONUS:VAR|PowerOfTheAnimalLVL|1					ABILITY:Special Ability|AUTOMATIC|Power of the Animal
 4											ABILITY:Special Ability|AUTOMATIC|Animal Form

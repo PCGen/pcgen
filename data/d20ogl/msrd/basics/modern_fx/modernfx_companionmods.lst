@@ -3,21 +3,21 @@ SOURCELONG:Modern System Reference Document - FX	SOURCESHORT:MSRD	SOURCEWEB:http
 
 ###Block:Familiar
 # Class of the Master	Type			Spell Res.	Ability												Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define						Combat bonus						Main Race Type
-FOLLOWER:FMLevel=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	RACETYPE:Magical Beast
-FOLLOWER:FMLevel=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells																					DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																						DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=7	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Animals of its Kind																				DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=9	TYPE:Familiar																																	DEFINE:LOCK.INT|10				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=11	TYPE:Familiar	SR:16																																DEFINE:LOCK.INT|11				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=12	TYPE:Familiar	SR:17
-FOLLOWER:FMLevel=13	TYPE:Familiar	SR:18		ABILITY:Special Ability|AUTOMATIC|Scry on Familiar																						DEFINE:LOCK.INT|12				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=14	TYPE:Familiar	SR:19
-FOLLOWER:FMLevel=15	TYPE:Familiar	SR:20																																DEFINE:LOCK.INT|13				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=16	TYPE:Familiar	SR:21
-FOLLOWER:FMLevel=17	TYPE:Familiar	SR:22																																DEFINE:LOCK.INT|14				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=18	TYPE:Familiar	SR:23
-FOLLOWER:FMLevel=19	TYPE:Familiar	SR:24																																DEFINE:LOCK.INT|15				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
-FOLLOWER:FMLevel=20	TYPE:Familiar	SR:25
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Spells	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	RACETYPE:Magical Beast
+FOLLOWER:FamiliarLVL=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells																					DEFINE:LOCK.INT|7					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																						DEFINE:LOCK.INT|8					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=7	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Animals of its Kind																				DEFINE:LOCK.INT|9					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=9	TYPE:Familiar																																	DEFINE:LOCK.INT|10				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=11	TYPE:Familiar	SR:16																																DEFINE:LOCK.INT|11				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=12	TYPE:Familiar	SR:17
+FOLLOWER:FamiliarLVL=13	TYPE:Familiar	SR:18		ABILITY:Special Ability|AUTOMATIC|Scry on Familiar																						DEFINE:LOCK.INT|12				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=14	TYPE:Familiar	SR:19
+FOLLOWER:FamiliarLVL=15	TYPE:Familiar	SR:20																																DEFINE:LOCK.INT|13				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=16	TYPE:Familiar	SR:21
+FOLLOWER:FamiliarLVL=17	TYPE:Familiar	SR:22																																DEFINE:LOCK.INT|14				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=18	TYPE:Familiar	SR:23
+FOLLOWER:FamiliarLVL=19	TYPE:Familiar	SR:24																																DEFINE:LOCK.INT|15				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+FOLLOWER:FamiliarLVL=20	TYPE:Familiar	SR:25
 #
 
 ###Block:Familiar Bonuses to Master

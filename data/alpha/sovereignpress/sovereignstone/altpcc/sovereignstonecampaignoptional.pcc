@@ -19,6 +19,7 @@ INFOTEXT:For loading in SS and only the parts of the PHB SS uses.<p>In other wor
 
 LSTEXCLUDE:srdracesphb.lst|srdlanguages.lst|srdequipcoinsgems.lst
 #The above items are officially illegal in the SS world.
+PCC:@/homebrew/conversion_support/conversion_support.pcc
 
 #PCC:@/permissioned/sovereignpress/sovereignstone/sovereign.pcc
 PCC:@/alpha/sovereignpress/sovereignstone/sovereign.pcc

@@ -141,7 +141,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	ABILITY:Special Ability|AUTOMATIC|Spontaneous Casting ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidSpontaneousCasting
 
 ###Block: Nature Bond Choice
-1																					BONUS:ABILITYPOOL|Nature Bond|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureBond	BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain	BONUS:VAR|CompLevel|CL|PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Animal Companion	BONUS:VAR|DomainLVL|CL
+1																					BONUS:ABILITYPOOL|Nature Bond|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureBond	BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain	BONUS:VAR|AnimalCompanionLVL|CL|PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Animal Companion	BONUS:VAR|DomainLVL|CL
 1	DOMAIN:Air[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVARLT:DruidAirNotAllowed,1]]
 1	DOMAIN:Animal[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVARLT:DruidAnimalNotAllowed,1]]
 1	DOMAIN:Earth[PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVARLT:DruidEarthNotAllowed,1]]
@@ -346,7 +346,7 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 1				BONUS:VAR|WildEmpathy|CL	BONUS:VAR|TrackLVL|CL		ABILITY:Special Ability|AUTOMATIC|Track|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerTrack	ABILITY:Special Ability|AUTOMATIC|Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWildEmpathy
 2				BONUS:VAR|CombatStyleLVL|CL						ABILITY:Special Ability|AUTOMATIC|Combat Style|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyle
 3																																															AUTO:FEAT|Endurance
-4	CAST:0,0		BONUS:VAR|HuntersBondLVL|CL	BONUS:VAR|CompLevel|CL-3	ABILITY:Special Ability|AUTOMATIC|Hunter's Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHuntersBond
+4	CAST:0,0		BONUS:VAR|HuntersBondLVL|CL	BONUS:VAR|AnimalCompanionLVL|CL-3	ABILITY:Special Ability|AUTOMATIC|Hunter's Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHuntersBond
 5	CAST:0,1
 6	CAST:0,1
 7	CAST:0,1,0												ABILITY:Special Ability|AUTOMATIC|Woodland Stride|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWoodlandStride
@@ -456,7 +456,7 @@ SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|TransmutationS
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Wizard Weapon Proficiencies
 ###Block: Wizard School
 1	BONUS:VAR|UniversalSchoolLVL|CL|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ArcaneSchool|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
-1	BONUS:VAR|FMLevel|CL
+1	BONUS:VAR|FamiliarLVL|CL
 ###Block:
 1	AUTO:FEAT|Scribe Scroll|!PREABILITY:1,CATEGORY=Archetype,TYPE.ScribeScroll
 ###Block:

@@ -111,7 +111,7 @@ CLASS:Witch		HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.13	BONUS:CHECKS|BAS
 CLASS:Witch		PREFEAT:1,Iron Will	PRESKILL:2,Craft (Chemical)=6,Knowledge (Arcane Lore)=6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Witch		STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Craft (Chemical)|Craft (Pharmaceutical)|Decipher Script|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Arcane Lore)|Knowledge (Behavioral Sciences)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Theology and Philosophy)|Listen|Sense Motive|Spot|Survival|Treat Injury
-1													BONUS:VAR|FMLevel|CL						ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+1													BONUS:VAR|FamiliarLVL|CL						ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 2				SAB:Herbal Lore
 3				SAB:Darkshape %/day|Darkshape					BONUS:VAR|Darkshape|CL/3	DEFINE:Darkshape|0
 4																						ABILITY:Special Ability|AUTOMATIC|Brew Potion

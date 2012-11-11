@@ -5,23 +5,23 @@ SOURCELONG:Mongoose Publishing - Quintessential Ranger II	SOURCESHORT:QR_II	SOUR
 
 ###Block: Wolf Master Animal Companion --------------------------------------------------------------------------------------------
 # Class of the Master		Type						Hit Dice	Virtual Feat				Special ABility					Define			Combat bonus						Stat bonus
-FOLLOWER:AnimalCompLevel=1	TYPE:Wolf Master Animal Companion									SAB:Link (Ex)	SAB:Share Spells (Ex)
-FOLLOWER:AnimalCompLevel=3	TYPE:Wolf Master Animal Companion	HD:2								SAB:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompLevel=6	TYPE:Wolf Master Animal Companion	HD:2								SAB:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompLevel=9	TYPE:Wolf Master Animal Companion	HD:2		VFEAT:Multiattack|PREHANDSGTEQ:3	SAB:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompLevel=12	TYPE:Wolf Master Animal Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompLevel=15	TYPE:Wolf Master Animal Companion	HD:2								SAB:Improved Evasion (Ex)							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompLevel=18	TYPE:Wolf Master Animal Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Wolf Master Animal Companion									SAB:Link (Ex)	SAB:Share Spells (Ex)
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Wolf Master Animal Companion	HD:2								SAB:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=6	TYPE:Wolf Master Animal Companion	HD:2								SAB:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=9	TYPE:Wolf Master Animal Companion	HD:2		VFEAT:Multiattack|PREHANDSGTEQ:3	SAB:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=12	TYPE:Wolf Master Animal Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=15	TYPE:Wolf Master Animal Companion	HD:2								SAB:Improved Evasion (Ex)							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=18	TYPE:Wolf Master Animal Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 #
-FOLLOWER:AnimalCompLevel=1	TYPE:Wolf Master Dire Companion									SAB:Link (Ex)	SAB:Share Spells (Ex)
-FOLLOWER:AnimalCompLevel=3	TYPE:Wolf Master Dire Companion	HD:2								SAB:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompLevel=6	TYPE:Wolf Master Dire Companion	HD:2								SAB:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompLevel=9	TYPE:Wolf Master Dire Companion	HD:2		VFEAT:Multiattack|PREHANDSGTEQ:3	SAB:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompLevel=12	TYPE:Wolf Master Dire Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompLevel=15	TYPE:Wolf Master Dire Companion	HD:2								SAB:Improved Evasion (Ex)							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompLevel=18	TYPE:Wolf Master Dire Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Wolf Master Dire Companion									SAB:Link (Ex)	SAB:Share Spells (Ex)
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Wolf Master Dire Companion	HD:2								SAB:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=6	TYPE:Wolf Master Dire Companion	HD:2								SAB:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=9	TYPE:Wolf Master Dire Companion	HD:2		VFEAT:Multiattack|PREHANDSGTEQ:3	SAB:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=12	TYPE:Wolf Master Dire Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=15	TYPE:Wolf Master Dire Companion	HD:2								SAB:Improved Evasion (Ex)							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=18	TYPE:Wolf Master Dire Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 
 ###Block:Specific Animal Companions
 # Class of the Master		Type						Required Race				Apply Kit
-FOLLOWER:AnimalCompLevel=1	TYPE:Wolf Master Animal Companion	PRERACE:1,Wolf				KIT:1|Wolf Companion
-FOLLOWER:AnimalCompLevel=1	TYPE:Wolf Master Dire Companion	PRERACE:1,Dire Animal (Dire Wolf)	KIT:1|Dire Animal (Dire Wolf) Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Wolf Master Animal Companion	PRERACE:1,Wolf				KIT:1|Wolf Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Wolf Master Dire Companion	PRERACE:1,Dire Animal (Dire Wolf)	KIT:1|Dire Animal (Dire Wolf) Companion

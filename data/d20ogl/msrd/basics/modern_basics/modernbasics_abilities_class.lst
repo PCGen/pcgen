@@ -38,7 +38,7 @@ Maximize Spell	CATEGORY:Special Ability					VISIBLE:NO											DESC:All variab
 Quicken Spell	CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO																																							ADDSPELLLEVEL:4
 Scribe Scroll	CATEGORY:Special Ability					VISIBLE:NO											DESC:Create a scroll, level is set at time of creation...																																							SOURCEPAGE:msrdadvancedclassesII.rtf
 Scribe Tattoo	CATEGORY:Special Ability					VISIBLE:NO											DESC:Create a tattoo, level is set at time of creation...																																							SOURCEPAGE:msrdadvancedclassesII.rtf
-Summon Familiar	CATEGORY:Special Ability					VISIBLE:NO	SAB:Summon Familiar			DEFINE:FMLevel|0																																	FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Snake (Tiny/Viper),Toad
+Summon Familiar	CATEGORY:Special Ability					VISIBLE:NO	SAB:Summon Familiar			DEFINE:FamiliarLVL|0																																	FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Snake (Tiny/Viper),Toad
 Web Access Spells	CATEGORY:Special Ability	TYPE:VirtualPossession	VISIBLE:NO	SAB:Can use Web Access as spellbook
 
 ###Block: Artificer Craft Artifice Abilities

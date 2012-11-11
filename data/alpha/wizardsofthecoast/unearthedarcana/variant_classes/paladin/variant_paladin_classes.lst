@@ -23,7 +23,7 @@ CLASS:Paladin of Freedom	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVE
 2				BONUS:VAR|LayOnHandsLVL|CL											ABILITY:Special Ability|AUTOMATIC|Divine Grace|Lay on Hands
 3																			ABILITY:Special Ability|AUTOMATIC|Aura of Resolve|Divine Health
 4	CAST:0,0		BONUS:VAR|PaladinTurnLVL|CL											ABILITY:Special Ability|AUTOMATIC|Basic Turning|Paladin Turn Undead|Turn Undead
-5	CAST:0,0		BONUS:VAR|SMLevel|CL												ABILITY:Special Ability|AUTOMATIC|Special Mount
+5	CAST:0,0		BONUS:VAR|SpecialMountLVL|CL												ABILITY:Special Ability|AUTOMATIC|Special Mount
 6	CAST:0,1		BONUS:VAR|RemoveDiseaseLVL|CL											ABILITY:Special Ability|AUTOMATIC|Remove Disease
 7	CAST:0,1
 8	CAST:0,1,0
@@ -57,7 +57,7 @@ CLASS:Paladin of Slaughter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LE
 2				BONUS:VAR|DeadlyTouchLVL|CL											ABILITY:Special Ability|AUTOMATIC|Deadly Touch|Divine Grace
 3																			ABILITY:Special Ability|AUTOMATIC|Debilitating Aura|Divine Health
 4	CAST:0,0		BONUS:VAR|PaladinTurnLVL|CL											ABILITY:Special Ability|AUTOMATIC|Basic Turning|Paladin of Slaughter Rebuke Undead|Rebuke Undead
-5	CAST:0,0		BONUS:VAR|SMLevel|CL												ABILITY:Special Ability|AUTOMATIC|Special Mount
+5	CAST:0,0		BONUS:VAR|SpecialMountLVL|CL												ABILITY:Special Ability|AUTOMATIC|Special Mount
 6	CAST:0,1		BONUS:VAR|CauseDiseaseLVL|CL											ABILITY:Special Ability|AUTOMATIC|Cause Disease
 7	CAST:0,1
 8	CAST:0,1,0
@@ -91,7 +91,7 @@ CLASS:Paladin of Tyranny	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVE
 2				BONUS:VAR|DeadlyTouchLVL|CL											ABILITY:Special Ability|AUTOMATIC|Deadly Touch|Divine Grace
 3																			ABILITY:Special Ability|AUTOMATIC|Aura of Despair|Divine Health
 4	CAST:0,0		BONUS:VAR|PaladinTurnLVL|CL											ABILITY:Special Ability|AUTOMATIC|Basic Turning|Paladin of Tyranny Rebuke Undead|Rebuke Undead
-5	CAST:0,0		BONUS:VAR|SMLevel|CL												ABILITY:Special Ability|AUTOMATIC|Special Mount
+5	CAST:0,0		BONUS:VAR|SpecialMountLVL|CL												ABILITY:Special Ability|AUTOMATIC|Special Mount
 6	CAST:0,1		BONUS:VAR|CauseDiseaseLVL|CL											ABILITY:Special Ability|AUTOMATIC|Cause Disease
 7	CAST:0,1
 8	CAST:0,1,0

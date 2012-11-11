@@ -48,7 +48,7 @@ CLASS:Mageknight	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS
 ###Block: Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Martial Weapon Proficiency|Shield Proficiency|Simple Weapon Proficiency
 ###Block: Variables
-1	BONUS:VAR|FMLevel|(CL*3)/4
+1	BONUS:VAR|FamiliarLVL|(CL*3)/4
 1	BONUS:VAR|EOMCasterLevel|(CL*3)/4
 1	BONUS:VAR|CantripsPerDay|(EOMCasterlevel/2)+2
 1	BONUS:VAR|BaseSpellPoints|5
@@ -80,7 +80,7 @@ CLASS:Taskmage	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:C
 ###Block: Proficiencies
 1	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Variables
-1	BONUS:VAR|FMLevel|CL*3/4
+1	BONUS:VAR|FamiliarLVL|(CL*3)/4
 1	BONUS:VAR|EOMCasterLevel|(CL*3)/4
 1	BONUS:VAR|CantripsPerDay|EOMCasterlevel/2+2
 1	BONUS:VAR|BaseSpellPoints|5

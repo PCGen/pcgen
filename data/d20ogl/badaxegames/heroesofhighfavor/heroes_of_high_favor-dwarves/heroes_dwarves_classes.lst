@@ -77,7 +77,7 @@ CLASS:Rune-Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEV
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Rock-Warden	HD:8		TYPE:PC.Prestige	ABB:RWarden		MAXLEVEL:10	SOURCEPAGE:pg.34	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|CompLevel|CL
+CLASS:Rock-Warden	HD:8		TYPE:PC.Prestige	ABB:RWarden		MAXLEVEL:10	SOURCEPAGE:pg.34	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|AnimalCompanionLVL|CL
 # Class Name	Required Feat		Required Language	Required Skill							Req. Spell Type
 CLASS:Rock-Warden	PREFEAT:1,Blind-Fight	PRELANG:1,Terran	PRESKILL:3,Animal Empathy=8,Scry=8,Wilderness Lore=8	PRESPELLTYPE:1,Divine=2
 # Class Name	Skill Pts/Lvl	Class Skill

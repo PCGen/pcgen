@@ -58,6 +58,7 @@ INFOTEXT:This is a campaign dataset, it loads the parts of the RSRD dataset need
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+PCC:@/homebrew/conversion_support/conversion_support.pcc
 
 # RSRD Imports - Basics
 ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_base.lst

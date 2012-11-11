@@ -24,6 +24,7 @@ COPYRIGHT:Sidewinder: Wild West Adventure, Copyright 2002 by Citizen Games.
 COPYRIGHT:PCGen dataset conversion for Sidewinder: Recoiled Copyright 2004, PCGen Data team including, but not limited to, Jason Buchanan (Lone Jedi), Paul W. King, Chris Chandler (Barak), Greg G. (Phantom of Krankor), alexquest, Hugo Perez (Emperorfranz), Doug McMillan (dlm1065), Andrew McDougall (Tir Gwaith), Jonathan Weisman (bD_92), Rob Reed (Mynex), Ian Dale, Eddy Anthony.
 
 # Stuff Imported from the MSRD
+PCC:@/homebrew/conversion_support/conversion_support.pcc
 
 ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_class.lst
 ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_occupations.lst

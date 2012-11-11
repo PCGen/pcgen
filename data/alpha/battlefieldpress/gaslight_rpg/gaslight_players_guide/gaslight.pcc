@@ -30,6 +30,7 @@ URL:RPG Now|http://rpg.drivethrustuff.com/product_info.php?products_id=69024?aff
 #EXTRAFILE:OGL.txt
 
 ### Files
+PCC:@/homebrew/conversion_support/conversion_support.pcc
 
 ABILITY:gaslight_abilities_class.lst
 ABILITY:gaslight_abilities_occupations.lst

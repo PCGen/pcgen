@@ -9,7 +9,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Slayer need to be able to choose what type of psionic creature as Favored Enemy
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
-CLASS:Cerebremancer	HD:4		TYPE:PC.Prestige.Psionic	ABB:Cer		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Cerebremancer	HD:4		TYPE:PC.Prestige.Psionic	ABB:Cer		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Required Skill								Req. Spell Type
 CLASS:Cerebremancer	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Psionics)=6	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Psionic=2
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -27,7 +27,7 @@ CLASS:Cerebremancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Scr
 10	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Psionic
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
-CLASS:Elocator	HD:6		TYPE:PC.Prestige.Psionic	ABB:Elo		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Elocator	HD:6		TYPE:PC.Prestige.Psionic	ABB:Elo		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Req. Att.	Required Feat				Required Skill			Req. Spell Type
 CLASS:Elocator	PREATT:3	PREFEAT:2,Mobility,Spring Attack	PRESKILL:1,Concentration=8	PRESPELLTYPE:1,Psionic=1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -46,7 +46,7 @@ CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|T
 10														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Accelerated Action
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
-CLASS:Psionic Fist	HD:6		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Psionic Fist	HD:6		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Required Ability							Req. Att.	Required Feat		Required Skill
 CLASS:Psionic Fist	PREABILITY:1,CATEGORY=Special Ability,Still Mind	PREATT:4	PREFEAT:1,Wild Talent	PRESKILL:1,Concentration=9
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -78,7 +78,7 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
-CLASS:Slayer	HD:8		TYPE:PC.Prestige.Psionic	ABB:Sla		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Slayer	HD:8		TYPE:PC.Prestige.Psionic	ABB:Sla		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Req. Att.	Required Feat	Required Skill					Required Template
 CLASS:Slayer	PREATT:4	PREFEAT:1,Track	PRESKILL:1,Knowledge (Dungeoneering)=4	PRETEMPLATE:1,Psionic
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -99,7 +99,7 @@ CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering
 10	BONUS:VAR|SlayerFavoredEnemy|2	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Blast Feedback
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
-CLASS:Metamind	HD:4		TYPE:PC.Prestige.Psionic	ABB:MMd		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Metamind	HD:4		TYPE:PC.Prestige.Psionic	ABB:MMd		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Required Class				Required Feat			Required Skill
 CLASS:Metamind	PRECLASS:1,SPELLCASTER.Psionic=4	PREFEAT:1,Psicrystal Affinity	PRESKILL:2,Knowledge (Psionics)=8,Psicraft=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -113,7 +113,7 @@ CLASS:Metamind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Craf
 10									ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Font of Power
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
-CLASS:Psion Uncarnate	HD:4		TYPE:PC.Prestige.Psionic	ABB:PUn		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Psion Uncarnate	HD:4		TYPE:PC.Prestige.Psionic	ABB:PUn		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Required Feat		Required Skill						Req. Spell Type
 CLASS:Psion Uncarnate	PREFEAT:1,Psionic Body	PRESKILL:2,Knowledge (Psionics)=8,Psicraft=8	PRESPELLTYPE:1,Psionic=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -131,7 +131,7 @@ CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TY
 10														ABILITY:Special Ability|AUTOMATIC|Uncarnate						TEMPLATE:Incorporeal
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
-CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	ABB:Pyr		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	ABB:Pyr		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Required AL		Required Skill										Required Template
 CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:3,Concentration=8,Craft (Alchemy)=1,Knowledge (Psionics)=2	PRETEMPLATE:1,Psionic
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -168,7 +168,7 @@ CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Cr
 10																				ABILITY:Special Ability|AUTOMATIC|Twofold Master
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
-CLASS:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Restricted AL		Req. Att.	Required Skill								Required Template
 CLASS:War Mind	!PREALIGN:CG,CN,CE	PREATT:3	PRESKILL:2,Knowledge (History)=2,Knowledge (Psionics)=8	PRETEMPLATE:1,Psionic
 # Class Name	Skill Pts/Lvl	Class Skill

@@ -35,6 +35,7 @@ COPYRIGHT:PCGen dataset conversion for Darwin's World 2nd Edition: Survivor's Ha
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+PCC:@/homebrew/conversion_support/conversion_support.pcc
 
 #Load required msrd information
 #msrd files

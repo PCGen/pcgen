@@ -14,7 +14,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 
 # Class Name	Hit Dice	Type				Max Level	Base class as subclass?	Source Page				Save checks bonus											Combat bonus					Modify VAR
-CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl
 CLASS:Psion		STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -75,7 +75,7 @@ SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Telepath	CSKILL:Conce
 #		available to them. The User May simply select the Use Higher Level Slot to take a power of any level lower than the max available.
 
 # Class Name		Hit Dice	Type				Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
-CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Warrior	STARTSKILLPTS:2	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Craft|Jump|Knowledge (Psionics)|TYPE=Profession|Ride|Search|Swim
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
@@ -119,7 +119,7 @@ CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 
 
 # Class Name	Hit Dice	Type				Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
-CLASS:Soulknife	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Soulknife	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|TYPE=Profession|Spot|Tumble
 ###Block:Proficiencies
@@ -147,7 +147,7 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Cra
 9				AUTO:FEAT|Greater Weapon Focus(Mind Blade)
 
 # Class Name	Hit Dice	Type				Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
-CLASS:Wilder	HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Wilder	HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wilder	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Climb|Concentration|TYPE=Craft|Escape Artist|Intimidate|Jump|Knowledge (Psionics)|Listen|TYPE=Profession|Psicraft|Sense Motive|Spot|Swim|Tumble
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level

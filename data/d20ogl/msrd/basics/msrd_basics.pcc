@@ -21,6 +21,7 @@ COPYRIGHT:Modern System Reference Document Copyright 2002-2004, Wizards of the C
 COPYRIGHT:Code Monkey Publishing, LLC PCGen data file conversion for MSRD, Copyright 2004, Code Monkey Publishing, LLC.; Authors - Paul W. King, Doug McMillan, Sheridan Richey, Chris Chandler, W. Robert Reed III, Jason Buchanan, Bryan McRoberts, Jessica Whiting
 COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copyright 2002-2006, PCgen Data team including, but not limited to, Paul W. King, Chris Chandler (Barak), Greg G. (Phantom of Krankor), alexquest, Hugo Perez (Emperorfranz), Doug McMillan (dlm1065), Andrew McDougall (Tir Gwaith), Jonathan Weisman (bD_92), Rob Reed (Mynex), Ian Dale, Eddy Anthony, Devon Jones, Frank Kliewe.
 
+PCC:@/homebrew/conversion_support/conversion_support.pcc
 
 PCC:modern_basics/modernbasics.pcc
 PCC:modern_creatures/moderncreatures.pcc

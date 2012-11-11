@@ -90,7 +90,7 @@ Create Legendary Item		CATEGORY:Special Ability	TYPE:ConjurerMagic.SpecialQualit
 ###Block: Fairy Lore
 # Ability Name	Category of Ability		Type						Required Ability							Define		Allow Follower		Allowed Companions
 Fey Friend		CATEGORY:Special Ability	TYPE:ConjurerMagic.SpecialQuality
-Familiar		CATEGORY:Special Ability	TYPE:ConjurerMagic.SpecialQuality										DEFINE:SFMLevel|0	FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel
+Familiar		CATEGORY:Special Ability	TYPE:ConjurerMagic.SpecialQuality										DEFINE:FamiliarLVL|0	FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel
 Monstrous Ally	CATEGORY:Special Ability	TYPE:ConjurerMagic.SpecialQuality	PREABILITY:1,CATEGORY=Special Ability,Fey Friend
 
 

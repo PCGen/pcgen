@@ -158,7 +158,7 @@ CLASS:Ehtzara	STARTSKILLPTS:3	CSKILL:Alchemy|Animal Empathy|Concentration|TYPE=C
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Ehtzara	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Ehtzara|CL
 1																																																					AUTO:WEAPONPROF|TYPE=Simple
-1	CAST:5,3,0			KNOWN:4,2,1			SAB:Spot Bonus +%|EhtzaraSpotBonus	SAB:Craft Fetish	SAB:Frightful Presence	BONUS:SKILL|Spot|EhtzaraSpotBonus	BONUS:VAR|FMLevel|CL	BONUS:VAR|EhtzaraSpotBonus|CL	DEFINE:EhtzaraSpotBonus|0			ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+1	CAST:5,3,0			KNOWN:4,2,1			SAB:Spot Bonus +%|EhtzaraSpotBonus	SAB:Craft Fetish	SAB:Frightful Presence	BONUS:SKILL|Spot|EhtzaraSpotBonus	BONUS:VAR|FamiliarLVL|CL	BONUS:VAR|EhtzaraSpotBonus|CL	DEFINE:EhtzaraSpotBonus|0			ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 2	CAST:6,4,3			KNOWN:5,3,2			SAB:Healing Touch SAB:Speak with Animals %/day|SpeakWithAnimals									BONUS:VAR|SpeakWithAnimals|CL/2				DEFINE:SpeakWithAnimals|0
 3	CAST:6,5,3,0		KNOWN:5,4,2,1		SAB:Imbue Fetish +%|Fetish	SAB:Speak With Dead %/day|SpeakWithDead								BONUS:VAR|Fetish|1	BONUS:VAR|SpeakWithDead|CL/3	DEFINE:Fetish|0	DEFINE:SpeakWithDead|0
 4	CAST:6,6,4,3		KNOWN:6,5,3,2		SAB:Undead Awareness	SAB:See Invisible

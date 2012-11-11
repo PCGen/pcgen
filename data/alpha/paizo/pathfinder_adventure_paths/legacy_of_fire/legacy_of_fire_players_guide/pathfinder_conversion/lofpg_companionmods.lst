@@ -3,7 +3,7 @@ SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LoFPG	SOURCEWEB:http://paiz
 
 ###Block: Specific Familiars
 # Class of the Master	Type			Ability								Required Race			Add
-FOLLOWER:FMLevel=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Speak One Language	PRERACE:1,Familiar (Bustard)	ADD:LANGUAGE|TYPE=Spoken
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Speak One Language	PRERACE:1,Familiar (Bustard)	ADD:LANGUAGE|TYPE=Spoken
 
 ###Block:Familiar Bonuses to Master
 # Race of familiar					Type			Bonus to skill		Virtual Feat

@@ -53,7 +53,7 @@ CLASS:Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	AUTO:FEAT|Shield Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal level progression
-1	CAST:3,1																																						BONUS:SKILL|Knowledge (Nature),Survival|2	BONUS:VAR|CompLevel|CL/2					ABILITY:Special Ability|AUTOMATIC|Nature Sense|Spontaneous casting - Summon Nature's Ally|Wild Empathy	ABILITY:Special Ability|AUTOMATIC|Animal Companion
+1	CAST:3,1																																						BONUS:SKILL|Knowledge (Nature),Survival|2	BONUS:VAR|AnimalCompanionLVL|CL/2					ABILITY:Special Ability|AUTOMATIC|Nature Sense|Spontaneous casting - Summon Nature's Ally|Wild Empathy	ABILITY:Special Ability|AUTOMATIC|Animal Companion
 2	CAST:4,2																																																																																					AUTO:FEAT|Craft Spell Fetish
 3	CAST:4,2,1				SAB:Rituals of Power I (Su) (-1 WIS for any spell up to 3rd level)
 4	CAST:5,3,2				SAB:Companion Sight (Su)
@@ -132,7 +132,7 @@ CLASS:Spirit Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Escape Artist|
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Sorcerer (DF)	HD:4		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:p.93	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
+CLASS:Sorcerer (DF)	HD:4		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:p.93	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FamiliarLVL|CL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sorcerer (DF)	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Spellcraft
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
@@ -197,7 +197,7 @@ SUBCLASSLEVEL:20	SAB:Quicken Spell (1/day)
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page		Bonus Languages		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Wizard (DF)	HD:4		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:p.93	LANGBONUS:Draconic	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FMLevel|CL
+CLASS:Wizard (DF)	HD:4		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:p.93	LANGBONUS:Draconic	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FamiliarLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard (DF)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level				Use Spell List

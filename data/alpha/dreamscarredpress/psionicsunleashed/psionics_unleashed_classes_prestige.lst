@@ -6,7 +6,7 @@ SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress
 
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Cerebremancer	HD:6		TYPE:PC.Prestige.Psionic	ABB:Cer		MAXLEVEL:10	SOURCEPAGE:p.155	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Cerebremancer	HD:6		TYPE:PC.Prestige.Psionic	ABB:Cer		MAXLEVEL:10	SOURCEPAGE:p.155	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Required Skill								Req. Spell Type
 CLASS:Cerebremancer	PRESKILL:2,Knowledge (Arcana)=3,Knowledge (Psionics)=3	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Psionic=2
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -24,7 +24,7 @@ CLASS:Cerebremancer	STARTSKILLPTS:2	CSKILL:Knowledge (Arcana)|Knowledge (Psionic
 10												ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Weave the Sources
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Elocater	HD:8		TYPE:PC.Prestige.Psionic	ABB:Elo		MAXLEVEL:10	SOURCEPAGE:p.157	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Elocater	HD:8		TYPE:PC.Prestige.Psionic	ABB:Elo		MAXLEVEL:10	SOURCEPAGE:p.157	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Req. Att.	Required Feat			Multiple Requirements															Required Skill		Req. Spell Type
 CLASS:Elocater	PREATT:3	PREFEAT:2,Dodge,Mobility	PREMULT:1,[PREFEAT:1,Spring Attack],[PREABILITY:1,CATEGORY=Special Ability,Nomad's Step ~ Psychoportation]	PRESKILL:1,Acrobatics=5	PRESPELLTYPE:1,Psionic=1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -44,7 +44,7 @@ CLASS:Elocater	STARTSKILLPTS:6	CSKILL:Acrobatics|Climb|Escape Artist|Fly|Knowled
 10																									ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Accelerated Action
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Metamind	HD:6		TYPE:PC.Prestige.Psionic	ABB:MMd		MAXLEVEL:10	SOURCEPAGE:p.159	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Metamind	HD:6		TYPE:PC.Prestige.Psionic	ABB:MMd		MAXLEVEL:10	SOURCEPAGE:p.159	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Required Class				Required Feat			Required Skill
 CLASS:Metamind	PRECLASS:1,SPELLCASTER.Psionic=4	PREFEAT:1,Psicrystal Affinity	PRESKILL:2,Knowledge (Psionics)=5,Spellcraft=2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -61,7 +61,7 @@ CLASS:Metamind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Knowledge (Psionics)|Spellcra
 10																							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Font of Power
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Phrenic Slayer	HD:10		TYPE:PC.Prestige.Psionic	ABB:PhS		MAXLEVEL:10	SOURCEPAGE:p.161	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Phrenic Slayer	HD:10		TYPE:PC.Prestige.Psionic	ABB:PhS		MAXLEVEL:10	SOURCEPAGE:p.161	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Req. Att.	Multiple Requirements													Required Skill				Required Text																				Var. Must Be Grater
 CLASS:Phrenic Slayer	PREATT:4	PREMULT:1,[PREFEAT:1,Skill Focus (Survival)],[PREABILITY:1,CATEGORY=Special Ability,Track]	PRESKILL:1,Knowledge (Psionics)=1	PRETEXT:Must have had hostile encouter with the psionic creature to be selected as a favored enemy, alone or with a small group.	PREVARGT:TotalPowerPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -82,7 +82,7 @@ CLASS:Phrenic Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Knowledge (Psionics)|Perceptio
 10	BONUS:VAR|SlayerFavoredEnemy|2	BONUS:VAR|BrainNausea|1							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Rebound Attack
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Psion Uncarnate	HD:6		TYPE:PC.Prestige.Psionic	ABB:PUn		MAXLEVEL:10	SOURCEPAGE:p.163	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Psion Uncarnate	HD:6		TYPE:PC.Prestige.Psionic	ABB:PUn		MAXLEVEL:10	SOURCEPAGE:p.163	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Required Feat		Required Skill						Req. Spell Type			Required Text
 CLASS:Psion Uncarnate	PREFEAT:1,Psionic Body	PRESKILL:2,Knowledge (Psionics)=5,Spellcraft=5	PRESPELLTYPE:1,Psionic=3	PRETEXT:Must have had some instruction by another psion uncarnate or one of the Unbodied.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -100,7 +100,7 @@ CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Disguise|Knowled
 10																						ABILITY:Special Ability|AUTOMATIC|Uncarnate															TEMPLATE:Incorporeal
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Psychic Fist	HD:8		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:p.166	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Psychic Fist	HD:8		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:p.166	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Req. Att.	Required Feat					Required Skill		Var. Must Be Grater
 CLASS:Psychic Fist	PREATT:4	PREFEAT:1,Psionic Fist,Psionic Weapon	PRESKILL:1,Acrobatics=6	PREVARGT:TotalPowerPoints,0	PREVARGT:KiPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -135,7 +135,7 @@ CLASS:Psychic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 10	KNOWN:0,2,2,2,2,2	BONUS:ABILITYPOOL|Psychic Fist Feat|1														ABILITY:Special Ability|AUTOMATIC|Psychic Fusion
 
 # Class Name					Output Name			Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR									Serves As
-CLASS:Psychic Fist (Add to Manifesting)	OUTPUTNAME:Psychic Fist	HD:8		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:p.166	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity	SERVESAS:CLASS|Psychic Fist
+CLASS:Psychic Fist (Add to Manifesting)	OUTPUTNAME:Psychic Fist	HD:8		TYPE:PC.Prestige.Psionic	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:p.166	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	SERVESAS:CLASS|Psychic Fist
 # Class Name					Req. Att.	Required Class				Required Feat					Required Skill		Var. Must Be Grater
 CLASS:Psychic Fist (Add to Manifesting)	PREATT:4	PRECLASS:1,SPELLCASTER.Psionic=1	PREFEAT:1,Psionic Fist,Psionic Weapon	PRESKILL:1,Acrobatics=6	PREVARGT:TotalPowerPoints,0	PREVARGT:KiPoints,0
 # Class Name					Skill Pts/Lvl	Class Skill
@@ -158,7 +158,7 @@ CLASS:Psychic Fist (Add to Manifesting)	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohy
 10	BONUS:ABILITYPOOL|Psychic Fist Feat|1														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Psychic Fusion
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	ABB:Pyr		MAXLEVEL:10	SOURCEPAGE:p.168	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	ABB:Pyr		MAXLEVEL:10	SOURCEPAGE:p.168	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Required AL		Required Skill										Required Text											Var. Must Be Grater
 CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:3,Autohypnosis=5,Craft (Alchemy)=1,Knowledge (Psionics)=2	PRETEXT:Must have set fire to a structure of any size just to watch it burn.	PREVARGT:TotalPowerPoints,0
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -176,7 +176,7 @@ CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Acrobatics|Autohypnosis|Climb|Intimi
 10	BONUS:VAR|ConflagrationDC|15+CHA										ABILITY:Special Ability|AUTOMATIC|Conflagration|Fire Soul
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Thrallherd	HD:6		TYPE:PC.Prestige.Psionic	ABB:Thr		MAXLEVEL:10	SOURCEPAGE:p.170	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Thrallherd	HD:6		TYPE:PC.Prestige.Psionic	ABB:Thr		MAXLEVEL:10	SOURCEPAGE:p.170	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Required Class				Required Feat						Multiple Requirements																Required Skill
 CLASS:Thrallherd	PRECLASS:1,SPELLCASTER.Psionic=5	PREFEAT:1,Inquisitor,Skill Focus (Diplomacy)	PREMULT:1,[PRESPELL:1,Mindlink,Mind Control],[PREABILITY:1,CATEGORY=Special Ability,TYPE.ThrallherdLinkMinds]	PRESKILL:2,Knowledge (Psionics)=5,Diplomacy=4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -194,7 +194,7 @@ CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Diplomacy|Knowledge (
 10																						ABILITY:Special Ability|AUTOMATIC|Expanded Call|Twofold Master
 
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:p.173	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:p.173	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Restricted AL		Req. Att.	Required Skill								Required Text								Var. Must Be Grater
 CLASS:War Mind	!PREALIGN:CG,CN,CE	PREATT:3	PRESKILL:2,Knowledge (History)=2,Knowledge (Psionics)=5	PRETEXT:Instruction from another war mind or Codex of War.	PREVARGT:TotalPowerPoints,0
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -222,7 +222,7 @@ CLASS:War Mind	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|War
 10	KNOWN:0,2,1,1,1,1									ABILITY:Special Ability|AUTOMATIC|Chain of Overwhelming Force
 
 # Class Name				Output Name			Hit Dice	Type					Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR									Serves As
-CLASS:War Mind (Warrior's Path)	OUTPUTNAME:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:p.173	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity	SERVESAS:CLASS|War Mind
+CLASS:War Mind (Warrior's Path)	OUTPUTNAME:War Mind	HD:10		TYPE:PC.Prestige.Psionic	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:p.173	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	SERVESAS:CLASS|War Mind
 # Class Name				Restricted AL		Req. Att.	Required Class			Required Skill								Required Text								Var. Must Be Grater
 CLASS:War Mind (Warrior's Path)	!PREALIGN:CG,CN,CE	PREATT:3	PRECLASS:1,Psychic Warrior=1	PRESKILL:2,Knowledge (History)=2,Knowledge (Psionics)=5	PRETEXT:Instruction from another war mind or Codex of War.	PREVARGT:TotalPowerPoints,0
 # Class Name				Skill Pts/Lvl	Class Skill

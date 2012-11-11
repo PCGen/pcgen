@@ -83,7 +83,7 @@ Superior Combat Expertise		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES		
 
 ###Block: Companion support
 # Ability Name	Category of Ability	Type							Visible	Special ABility		Define			Allow Follower			Allowed Companions
-Animal Partner	CATEGORY:Talent		TYPE:Talent.SymbioteTalent.AnimalPartner	VISIBLE:YES	SAB:Animal Partner (Ex)	DEFINE:CompLevel|0	FOLLOWERS:Animal Partner|1	COMPANIONLIST:Animal Partner|RACETYPE=Animal	COMPANIONLIST:Animal Partner|Cynemie,Desert Horse,Fraxx Steed,Grunt,Lurking Panther,Rad Wolf,Ravening Hound,Snoffle Hog,Two Headed Mutant Bear
+Animal Partner	CATEGORY:Talent		TYPE:Talent.SymbioteTalent.AnimalPartner	VISIBLE:YES	SAB:Animal Partner (Ex)	DEFINE:AnimalCompanionLVL|0	FOLLOWERS:Animal Partner|1	COMPANIONLIST:Animal Partner|RACETYPE=Animal	COMPANIONLIST:Animal Partner|Cynemie,Desert Horse,Fraxx Steed,Grunt,Lurking Panther,Rad Wolf,Ravening Hound,Snoffle Hog,Two Headed Mutant Bear
 
 #
 ## EOF

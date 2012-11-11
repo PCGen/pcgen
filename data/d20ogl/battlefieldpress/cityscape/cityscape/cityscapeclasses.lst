@@ -160,7 +160,7 @@ CLASS:Druid (CS)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 1																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	CAST:3,1											BONUS:VAR|CompLevel|CL									ABILITY:Special Ability|AUTOMATIC|Nature Sense	ABILITY:Special Ability|AUTOMATIC|Animal Companion
+1	CAST:3,1											BONUS:VAR|AnimalCompanionLVL|CL									ABILITY:Special Ability|AUTOMATIC|Nature Sense	ABILITY:Special Ability|AUTOMATIC|Animal Companion
 2	CAST:4,2																							ABILITY:Special Ability|AUTOMATIC|Woodland Stride
 3	CAST:4,2,1																							ABILITY:Special Ability|AUTOMATIC|Trackless Step
 4	CAST:5,3,2																							ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure
@@ -417,7 +417,7 @@ CLASS:Sorcerer (CS)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Level progression
-1	CAST:5,3				KNOWN:4,2				BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+1	CAST:5,3				KNOWN:4,2				BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 2	CAST:6,4				KNOWN:5,2
 3	CAST:6,5				KNOWN:5,3
 4	CAST:6,6,3				KNOWN:6,3,1
@@ -476,7 +476,7 @@ SUBCLASS:Transmuter (CS)	COST:4	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECI
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Wizard Weapon Proficiencies
 ###Block: Level progression
-1	CAST:3,1										BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar	AUTO:FEAT|Scribe Scroll
+1	CAST:3,1										BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar	AUTO:FEAT|Scribe Scroll
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
@@ -507,7 +507,7 @@ CLASS:Martial Magician	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTER
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 ###Block: Normal Level Progression
 1	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		CAST:2				SAB:Living Weapon																																																														AUTO:FEAT|Combat Martial Arts|Meditation
-2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		CAST:3															BONUS:VAR|FMLevel|CL																																									ABILITY:Special Ability|AUTOMATIC|Summon Familiar	AUTO:FEAT|Scribe Scroll
+2	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		CAST:3															BONUS:VAR|FamiliarLVL|CL																																									ABILITY:Special Ability|AUTOMATIC|Summon Familiar	AUTO:FEAT|Scribe Scroll
 3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8		CAST:3,1				SAB:Flying Kick
 4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	CAST:3,1																			ADD:FEAT|Acrobatic,Advanced Combat Martial Arts,Archaic Weapons Proficiency,Combat Reflexes,Combat Throw,Elusive Target,Exotic Melee Weapon Proficiency,Improved Combat Throw,Spell Mastery,Unbalance Opponent,TYPE=ItemCreation,TYPE=Metamagic
 5	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	CAST:3,2,1				SAB:Combat Throw

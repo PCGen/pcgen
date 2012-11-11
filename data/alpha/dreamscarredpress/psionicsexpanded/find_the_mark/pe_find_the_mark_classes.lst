@@ -2,7 +2,7 @@
 #Original Entry: Douglas Limmer
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Marksman	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Marksman	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Marksman	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Stealth|Survival|Use Magic Device
 # Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level
@@ -58,7 +58,7 @@ SUBCLASSLEVEL:1	BONUS:VAR|PsychokinesisDisciplineLVL|CL	ABILITY:Special Ability|
 # Mystic Archer
 
 # Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus													Combat bonus					Modify VAR
-CLASS:Mystic Archer	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:7	SOURCEPAGE:p.23	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Mystic Archer	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:7	SOURCEPAGE:p.23	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name		Req. Att.	Required Feat								Required Skill		Var. Must Be Grater
 CLASS:Mystic Archer	PREATT:6	PREFEAT:3,Intuitive Shot,Point-Blank Shot,Psionic Shot	PRESKILL:1,Perception=6	PREVARGT:IsPsionic,0
 # Class Name		Skill Pts/Lvl	Class Skill

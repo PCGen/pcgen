@@ -6,16 +6,16 @@ SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_
 
 ###Block:Animal Partner
 # Class of the Master	Type				Hit Dice	Special ABility				Define			Combat bonus	Stat bonus										Modify VAR			Template
-FOLLOWER:CompLevel=1	TYPE:Animal Partner			SAB:Bond of Friendship			DEFINE:CurrentInt|INT	BONUS:COMBAT|AC|1	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|INT|(6-CurrentInt)
-FOLLOWER:CompLevel=2	TYPE:Animal Partner	HD:1															BONUS:STAT|INT|1													TEMPLATE:Companion Evasion
-FOLLOWER:CompLevel=3	TYPE:Animal Partner			SAB:Share Saving Throws							BONUS:COMBAT|AC|1	BONUS:STAT|INT|1
-FOLLOWER:CompLevel=4	TYPE:Animal Partner	HD:1															BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|INT|1							TEMPLATE:Companion Track
-FOLLOWER:CompLevel=5	TYPE:Animal Partner			SAB:Man's Best Friend (+%)|mbFriend	DEFINE:mbFriend|0		BONUS:COMBAT|AC|1	BONUS:STAT|INT|1									BONUS:VAR|mbFriend|2
-FOLLOWER:CompLevel=6	TYPE:Animal Partner	HD:1		SAB:Familiarity											BONUS:STAT|INT|1
-FOLLOWER:CompLevel=7	TYPE:Animal Partner			SAB:Never Quits								BONUS:COMBAT|AC|1	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|INT|1
-FOLLOWER:CompLevel=8	TYPE:Animal Partner	HD:1															BONUS:STAT|INT|1									BONUS:VAR|mbFriend|2
-FOLLOWER:CompLevel=9	TYPE:Animal Partner													BONUS:COMBAT|AC|1	BONUS:STAT|INT|1													TEMPLATE:Companion Improved Evasion
-FOLLOWER:CompLevel=10	TYPE:Animal Partner	HD:1		SAB:Speak With Symbiote										BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|INT|1
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Partner			SAB:Bond of Friendship			DEFINE:CurrentInt|INT	BONUS:COMBAT|AC|1	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|INT|(6-CurrentInt)
+FOLLOWER:AnimalCompanionLVL=2	TYPE:Animal Partner	HD:1															BONUS:STAT|INT|1													TEMPLATE:Companion Evasion
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Partner			SAB:Share Saving Throws							BONUS:COMBAT|AC|1	BONUS:STAT|INT|1
+FOLLOWER:AnimalCompanionLVL=4	TYPE:Animal Partner	HD:1															BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|INT|1							TEMPLATE:Companion Track
+FOLLOWER:AnimalCompanionLVL=5	TYPE:Animal Partner			SAB:Man's Best Friend (+%)|mbFriend	DEFINE:mbFriend|0		BONUS:COMBAT|AC|1	BONUS:STAT|INT|1									BONUS:VAR|mbFriend|2
+FOLLOWER:AnimalCompanionLVL=6	TYPE:Animal Partner	HD:1		SAB:Familiarity											BONUS:STAT|INT|1
+FOLLOWER:AnimalCompanionLVL=7	TYPE:Animal Partner			SAB:Never Quits								BONUS:COMBAT|AC|1	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|INT|1
+FOLLOWER:AnimalCompanionLVL=8	TYPE:Animal Partner	HD:1															BONUS:STAT|INT|1									BONUS:VAR|mbFriend|2
+FOLLOWER:AnimalCompanionLVL=9	TYPE:Animal Partner													BONUS:COMBAT|AC|1	BONUS:STAT|INT|1													TEMPLATE:Companion Improved Evasion
+FOLLOWER:AnimalCompanionLVL=10	TYPE:Animal Partner	HD:1		SAB:Speak With Symbiote										BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|INT|1
 #
 
 
@@ -25,23 +25,23 @@ FOLLOWER:CompLevel=10	TYPE:Animal Partner	HD:1		SAB:Speak With Symbiote									
 # This should eventually be done by hard-coding it but for now this work-around will let the 5.8 companions come out with the correct numbers - Eddy
 
 # Class of the Master	Type				BONUS:SIZEMOD
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Badger)|PREVARGT:TL,3|PREVARLT:TL,10
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Weasel)|PREVARGT:TL,6|PREVARLT:TL,10
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor)|PREVARGT:TL,5|PREVARLT:TL,11
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolverine|PREVARGT:TL,3|PREVARLT:TL,6
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Boar)|PREVARGT:TL,16|PREVARLT:TL,22
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dinosaur (Elasmosaurus)|PREVARGT:TL,20|PREVARLT:TL,31
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Rhinoceros,Octopus (Giant)|PREVARGT:TL,12|PREVARLT:TL,25
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Tiger|PREVARGT:TL,12|PREVARLT:TL,19
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Lion),Dinosaur (Megaraptor)|PREVARGT:TL,16|PREVARLT:TL,25
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor/Giant)|PREVARGT:TL,16|PREVARLT:TL,34
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Whale (Orca)|PREVARGT:TL,13|PREVARLT:TL,28
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Bear)|PREVARGT:TL,16|PREVARLT:TL,37
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Shark)|PREVARGT:TL,32|PREVARLT:TL,55
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Tiger),Dinosaur (Triceratops)|PREVARGT:TL,32|PREVARLT:TL,49
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Squid (Giant)|PREVARGT:TL,18|PREVARLT:TL,37
-#FOLLOWER:CompLevel=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dinosaur (Tyrannosaurus)|PREVARGT:TL,36|PREVARLT:TL,55
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3|PREVARLT:TL,7
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Badger)|PREVARGT:TL,3|PREVARLT:TL,10
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Weasel)|PREVARGT:TL,6|PREVARLT:TL,10
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor)|PREVARGT:TL,5|PREVARLT:TL,11
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolverine|PREVARGT:TL,3|PREVARLT:TL,6
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Boar)|PREVARGT:TL,16|PREVARLT:TL,22
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dinosaur (Elasmosaurus)|PREVARGT:TL,20|PREVARLT:TL,31
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Rhinoceros,Octopus (Giant)|PREVARGT:TL,12|PREVARLT:TL,25
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Tiger|PREVARGT:TL,12|PREVARLT:TL,19
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Lion),Dinosaur (Megaraptor)|PREVARGT:TL,16|PREVARLT:TL,25
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor/Giant)|PREVARGT:TL,16|PREVARLT:TL,34
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Whale (Orca)|PREVARGT:TL,13|PREVARLT:TL,28
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Bear)|PREVARGT:TL,16|PREVARLT:TL,37
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Shark)|PREVARGT:TL,32|PREVARLT:TL,55
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Tiger),Dinosaur (Triceratops)|PREVARGT:TL,32|PREVARLT:TL,49
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Squid (Giant)|PREVARGT:TL,18|PREVARLT:TL,37
+#FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dinosaur (Tyrannosaurus)|PREVARGT:TL,36|PREVARLT:TL,55
 
 ###Block: Standard Companions
 # Class of the Master		Type

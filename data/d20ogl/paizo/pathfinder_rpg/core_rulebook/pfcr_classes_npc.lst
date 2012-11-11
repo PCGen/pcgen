@@ -19,7 +19,7 @@ CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block Normal Level progression
 1	CAST:3,1
-2	CAST:3,1		BONUS:VAR|FMLevel|CL	ABILITY:Special Ability|AUTOMATIC|Arcane Bond ~ Familiar
+2	CAST:3,1		BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Arcane Bond ~ Familiar
 3	CAST:3,2
 4	CAST:3,2,0
 5	CAST:3,2,1

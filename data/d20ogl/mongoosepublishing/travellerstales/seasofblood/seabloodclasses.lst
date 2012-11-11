@@ -77,7 +77,7 @@ CLASS:Sea Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL
 1																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	CAST:3,1				BONUS:VAR|CompLevel|CL					DEFINE:WildshapeLvl|0	ABILITY:Special Ability|AUTOMATIC|Animal Companion|Nature Sense
+1	CAST:3,1				BONUS:VAR|AnimalCompanionLVL|CL					DEFINE:WildshapeLvl|0	ABILITY:Special Ability|AUTOMATIC|Animal Companion|Nature Sense
 2	CAST:4,2				BONUS:VAR|PredictWeather|CL/2				DEFINE:PredictWeather|0	ABILITY:Special Ability|AUTOMATIC|Predict the Weather ~ Sea Druid|Speed of the Fish ~ Sea Druid
 3	CAST:4,2,1																ABILITY:Special Ability|AUTOMATIC|Salt Synthesis ~ Sea Druid
 4	CAST:5,3,2																ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure

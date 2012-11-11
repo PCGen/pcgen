@@ -45,7 +45,7 @@ Fire Lord			KEY:Fire Lord ~ Pyrokineticist ITCK			CATEGORY:Special Ability	TYPE:
 
 # ~ Slayer ITCK	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Mortal Enemy Lore)|Listen|Psicraft|Sense Motive|Spot|Wilderness Lore
 Favored Enemy		KEY:Favored Enemy ~ Slayer ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality																					DESC: (Mortal Enemy)
-Mortal Enemy Sense	KEY:Mortal Enemy Sense ~ Slayer ITCK		CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:EnemySense|60																DESC: %1 ft range|EnemySense												ADD:SPELLCASTER|Psionic	BONUS:VAR|PCrystalLevel|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|EnemySense|30*CL
+Mortal Enemy Sense	KEY:Mortal Enemy Sense ~ Slayer ITCK		CATEGORY:Special Ability	TYPE:SpecialQuality		DEFINE:EnemySense|60																DESC: %1 ft range|EnemySense												ADD:SPELLCASTER|Psionic	BONUS:VAR|PsiCrystalLVL|1|PREABILITY:1,CATEGORY=Special Ability,Psicrystal	BONUS:VAR|EnemySense|30*CL
 Lucid Buffer		KEY:Lucid Buffer ~ Slayer ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality
 Cerebral Blind		KEY:Cerebral Blind ~ Slayer ITCK			CATEGORY:Special Ability	TYPE:SpecialQuality																					DESC: (15+ PP)
 Breach Power Resistance	KEY:Breach Power Resistance ~ Slayer ITCK		CATEGORY:Special Ability	TYPE:SpecialQuality

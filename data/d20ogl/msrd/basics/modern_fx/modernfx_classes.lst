@@ -110,7 +110,7 @@ CLASS:Battle Mind	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVE
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus					Modify VAR
-CLASS:Mage		HD:6		TYPE:Advanced.PC	ABB:Mage		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|FMLevel|CL	BONUS:VAR|Action|CL*6
+CLASS:Mage		HD:6		TYPE:Advanced.PC	ABB:Mage		MAXLEVEL:10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|((CL-1)/3)+1	BONUS:VAR|FamiliarLVL|CL	BONUS:VAR|Action|CL*6
 # Class Name	Required Skill
 CLASS:Mage		PRESKILL:4,Craft (Chemical)=6,Decipher Script=6,Knowledge (Arcane Lore)=6,Research=6
 # Class Name	Skill Pts/Lvl	Class Skill
