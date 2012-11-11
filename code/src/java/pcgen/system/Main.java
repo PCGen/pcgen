@@ -30,6 +30,7 @@ import gmgen.pluginmgr.PluginManager;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.Set;
@@ -147,6 +148,7 @@ public final class Main
 	public static void main(String[] args)
 	{
 		Logging.log(Level.INFO, "Starting PCGen v" + PCGenPropBundle.getVersionNumber()); //$NON-NLS-1$
+		Thread.setDefaultUncaughtExceptionHandler(new PCGenUncaughtExceptionHandler());
 		logSystemProps();
 		configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
@@ -542,4 +544,21 @@ public final class Main
 		System.exit(0);
 	}
 
+	/**
+	 * The Class <code>PCGenUncaughtExceptionHandler</code> reports any 
+	 * exceptions that are not otherwise handled by the program.
+	 */
+	private static class PCGenUncaughtExceptionHandler implements UncaughtExceptionHandler
+	{
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void uncaughtException(Thread arg0, Throwable arg1)
+		{
+			Logging.errorPrint("Uncaught error - ignoring", arg1);
+		}
+		
+	}
 }
