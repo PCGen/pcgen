@@ -68,8 +68,11 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 				{
 					bookName = baseBookname + " #" + (i + 1);
 				}
-				SpellBook book =
-						new SpellBook(bookName, SpellBook.TYPE_SPELL_BOOK);
+				SpellBook book = getBookNamed(id, bookName);
+				if (book == null)
+				{
+					book = new SpellBook(bookName, SpellBook.TYPE_SPELL_BOOK);
+				}
 				book.setEquip(eq);
 				if (!containsBookNamed(id, book.getName()))
 				{

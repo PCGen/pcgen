@@ -3090,7 +3090,11 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 				{
 					bookName = baseBookname + " #" + (i + 1);
 				}
-				SpellBook book = new SpellBook(bookName, SpellBook.TYPE_SPELL_BOOK);
+				SpellBook book = spellBookFacet.getBookNamed(id, bookName);
+				if (book == null)
+				{
+					book = new SpellBook(bookName, SpellBook.TYPE_SPELL_BOOK);
+				}
 				book.setEquip(eq);
 				addSpellBook(book);
 			}
