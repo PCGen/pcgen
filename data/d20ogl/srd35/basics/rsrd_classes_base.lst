@@ -9,7 +9,7 @@ CLASS:Barbarian	PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Barbarian
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Barbarian|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianProficiencies
 #  Barbarian Rage variables, for stacking with other classes in any which way...  - Tir Gwaith
 #	BarbRageTimesLVL	For if a class stacks its levels with levels of Barbarian for Rages / day
 #	BarbRagePowerLVL	For if a class stacks its levels with levels of Barbarian for Mighty Rage, Greater Rage, etc.
@@ -19,35 +19,41 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate
 #	RageTimes		For if a class has it's own Rage / day progression.  This is a straight 'Rage / day' variable.
 #	RageDuration	For if a class has it's onw Rage duration. This is a straight 'Number of rounds' variable.
 ###Block: Rage variables
-1	BONUS:VAR|BarbRageTimesLVL,BarbRagePowerLVL|CL	ABILITY:Special Ability|AUTOMATIC|Barbarian Rage|Rage
+1	BONUS:VAR|BarbRageTimesLVL,BarbRagePowerLVL|CL
+1	BONUS:VAR|IlliteracyLVL|CL	DEFINE:IlliteracyLVL|0
+2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3
+3	BONUS:VAR|TrapSense|CL/3
+7	BONUS:VAR|BarbarianDRLVL|CL	
 ###Block: Illiteracy
 # (Copy this line and include the hidden feat for any other Illiterate class.)
 #	Currently, this does not take into account the removal using Skill points.
-1	BONUS:VAR|IlliteracyLVL|CL	DEFINE:IlliteracyLVL|0	ABILITY:Special Ability|VIRTUAL|Illiteracy|PREVAREQ:TL,IlliteracyLVL
+1	ABILITY:Special Ability|VIRTUAL|Illiteracy|PREVAREQ:TL,IlliteracyLVL
 ###Block: Level Progression
-1																			ABILITY:Special Ability|AUTOMATIC|Barbarian Fast Movement
-2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
-3	BONUS:VAR|TrapSense|CL/3														ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability
-7	BONUS:VAR|BarbarianDRLVL|CL														ABILITY:Special Ability|AUTOMATIC|Barbarian DR
-14																			ABILITY:Special Ability|AUTOMATIC|Indomitable Will
+1	ABILITY:Special Ability|AUTOMATIC|Barbarian Rage|Rage|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianRage
+1	ABILITY:Special Ability|AUTOMATIC|Barbarian Fast Movement|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianFastMovement
+2	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianUncannyDodge
+3	ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianTrapSense
+7	ABILITY:Special Ability|AUTOMATIC|Barbarian DR|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianDR
+14	ABILITY:Special Ability|AUTOMATIC|Indomitable Will|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianIndomitableWill
 
 # Class Name		Hit Dice	Type			Abbreviation	Source Page			Visible	Save checks bonus											Combat bonus
 CLASS:Ex Barbarian	HD:12		TYPE:Base.PC	ABB:XBrb		SOURCEPAGE:ClassesI.rtf	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Barbarian|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianProficiencies
 ###Block: Illiteracy
 # (Copy this line and include the hidden feat for any other Illiterate class.)
 #	Currently, this does not take into account the removal using Skill points.
 1	BONUS:VAR|IlliteracyLVL|CL	DEFINE:IlliteracyLVL|0	ABILITY:Special Ability|VIRTUAL|Illiteracy|PREVAREQ:TL,IlliteracyLVL
+2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3
+3	BONUS:VAR|TrapSense|CL/3
+7	BONUS:VAR|BarbarianDRLVL|CL
 ###Block: Level progression
-1																			ABILITY:Special Ability|AUTOMATIC|Barbarian Fast Movement
-2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
-3	BONUS:VAR|TrapSense|CL/3														ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability
-7	BONUS:VAR|BarbarianDRLVL|CL														ABILITY:Special Ability|AUTOMATIC|Barbarian DR
+1	ABILITY:Special Ability|AUTOMATIC|Barbarian Fast Movement|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianFastMovement
+2	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianUncannyDodge
+3	ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianTrapSense
+7	ABILITY:Special Ability|AUTOMATIC|Barbarian DR|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianDR
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Bard		HD:6		TYPE:Base.PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -58,22 +64,25 @@ CLASS:Bard		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TY
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Bard Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1																AUTO:FEAT|Armor Proficiency (Light)
-1																AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Bard|!PREABILITY:1,CATEGORY=ACF,TYPE.BardProficiencies
 ###Block: Bardic abilities level definitions.
-1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl			ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge
-1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL	BONUS:VAR|InspireDurationBase|5	ABILITY:Special Ability|AUTOMATIC|Bardic Music
+1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl		
+1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL	BONUS:VAR|InspireDurationBase|5
 ###Block: Bardic Music Abilities by level
-1	ABILITY:Special Ability|VIRTUAL|Bardic Countersong|Bardic Fascinate|Bardic Inspire Courage|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1
-1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Competence|PRESKILL:1,TYPE.Perform=6|PREVARGTEQ:BardicMusicLvl,3
-1	ABILITY:Special Ability|VIRTUAL|Bardic Suggestion|PRESKILL:1,TYPE.Perform=9|PREVARGTEQ:BardicMusicLvl,6
-1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Greatness|PRESKILL:1,TYPE.Perform=12|PREVARGTEQ:BardicMusicLvl,9
-1	ABILITY:Special Ability|VIRTUAL|Bardic Song of Freedom|PRESKILL:1,TYPE.Perform=15|PREVARGTEQ:BardicMusicLvl,12
-1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Heroics|PRESKILL:1,TYPE.Perform=18|PREVARGTEQ:BardicMusicLvl,15
-1	ABILITY:Special Ability|VIRTUAL|Bardic Mass Suggestion|PRESKILL:1,TYPE.Perform=21|PREVARGTEQ:BardicMusicLvl,18
+1	ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicKnowledge
+1	ABILITY:Special Ability|AUTOMATIC|Bardic Music|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicMusic
+1	ABILITY:Special Ability|AUTOMATIC|Armored Casting (Bard)|!PREABILITY:1,CATEGORY=ACF,TYPE.BardArmoredCasting
+1	ABILITY:Special Ability|VIRTUAL|Bardic Countersong|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1|!PREABILITY:1,CATEGORY=ACF,TYPE.BardCountersong
+1	ABILITY:Special Ability|VIRTUAL|Bardic Fascinate|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1|!PREABILITY:1,CATEGORY=ACF,TYPE.BardFascinate
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Courage|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1|!PREABILITY:1,CATEGORY=ACF,TYPE.BardInspireCourage
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Competence|PRESKILL:1,TYPE.Perform=6|PREVARGTEQ:BardicMusicLvl,3|!PREABILITY:1,CATEGORY=ACF,TYPE.BardCompetence
+1	ABILITY:Special Ability|VIRTUAL|Bardic Suggestion|PRESKILL:1,TYPE.Perform=9|PREVARGTEQ:BardicMusicLvl,6|!PREABILITY:1,CATEGORY=ACF,TYPE.BardSuggestion
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Greatness|PRESKILL:1,TYPE.Perform=12|PREVARGTEQ:BardicMusicLvl,9|!PREABILITY:1,CATEGORY=ACF,TYPE.BardInspireGreatness
+1	ABILITY:Special Ability|VIRTUAL|Bardic Song of Freedom|PRESKILL:1,TYPE.Perform=15|PREVARGTEQ:BardicMusicLvl,12|!PREABILITY:1,CATEGORY=ACF,TYPE.BardSongOfFreedom
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Heroics|PRESKILL:1,TYPE.Perform=18|PREVARGTEQ:BardicMusicLvl,15|!PREABILITY:1,CATEGORY=ACF,TYPE.BardInspireHeroics
+1	ABILITY:Special Ability|VIRTUAL|Bardic Mass Suggestion|PRESKILL:1,TYPE.Perform=21|PREVARGTEQ:BardicMusicLvl,18|!PREABILITY:1,CATEGORY=ACF,TYPE.BardMassSuggestion
 ###Block: Level progression
-1	CAST:2			KNOWN:4			ABILITY:Special Ability|AUTOMATIC|Armored Casting (Bard)
+1	CAST:2			KNOWN:4		
 2	CAST:3,0			KNOWN:5,2
 3	CAST:3,1			KNOWN:6,3
 4	CAST:3,2,0			KNOWN:6,3,2
@@ -101,9 +110,7 @@ CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Know
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1												AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1												AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Cleric|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericProficiences
 # This is Phase I of the Turn abilities improvement (for 5.6).  Futher enhancements are planned,
 #	both OS and data to include modifications for differences in Turning ability for Undead,
 #	Air, Fire, etc.
@@ -118,10 +125,12 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 ###Block: Aura strength
-1	BONUS:VAR|AlignmentAuraBase|CL	DEFINE:AlignmentAuraBase|0	ABILITY:Special Ability|VIRTUAL|Aura of Chaos|PREDEITYALIGN:CG,CN,CE
-1												ABILITY:Special Ability|VIRTUAL|Aura of Evil|PREDEITYALIGN:LE,NE,CE
-1												ABILITY:Special Ability|VIRTUAL|Aura of Good|PREDEITYALIGN:LG,NG,CG
-1												ABILITY:Special Ability|VIRTUAL|Aura of Law|PREDEITYALIGN:LG,LN,LE
+1	BONUS:VAR|AlignmentAuraBase|CL	DEFINE:AlignmentAuraBase|0
+###Block:
+1	ABILITY:Special Ability|VIRTUAL|Aura of Chaos|PREDEITYALIGN:CG,CN,CE
+1	ABILITY:Special Ability|VIRTUAL|Aura of Evil|PREDEITYALIGN:LE,NE,CE
+1	ABILITY:Special Ability|VIRTUAL|Aura of Good|PREDEITYALIGN:LG,NG,CG
+1	ABILITY:Special Ability|VIRTUAL|Aura of Law|PREDEITYALIGN:LG,LN,LE
 ###Block: Righteous Might Workaround
 1	TEMPLATE:RighteousMightDR
 ###Block: Level progression
@@ -155,35 +164,46 @@ CLASS:Druid		STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle An
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies
-1																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Druid|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidProficiencies
 ###Block: Wildshape Abilities Block
 #
 # To add effective Druid levels to this ability use BONUS:VAR|DruidWildShape|CL
 #
-1	BONUS:VAR|DruidWildShape|CL	ABILITY:Special Ability|AUTOMATIC|Druid Elemental Wild Shape Times|Druid Wild Shape|Druid Wild Shape Progression|Druid Wild Shape Times|Wild Shape
+1	BONUS:VAR|DruidWildShape|CL
+1	BONUS:VAR|WildEmpathy|CL	BONUS:VAR|AnimalCompanionLVL|CL
 ###Block: Spell Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Druid Elemental Wild Shape Times|Druid Wild Shape|Druid Wild Shape Progression|Druid Wild Shape Times|Wild Shape|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWildShape
+1	ABILITY:Special Ability|AUTOMATIC|Animal Companion|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidAnimalCompanion
+1	ABILITY:Special Ability|AUTOMATIC|Nature Sense|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidNatureSense
+1	ABILITY:Special Ability|AUTOMATIC|Spontaneous casting - Summon Nature's Ally|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidSpontaneousCasting
+1	ABILITY:Special Ability|AUTOMATIC|Wild Empathy|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWildEmpathy
+2	ABILITY:Special Ability|AUTOMATIC|Woodland Stride|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWoodlandStride
+3	ABILITY:Special Ability|AUTOMATIC|Trackless Step|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidTracklessStep
+4	ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidResistNaturesLure
+9	ABILITY:Special Ability|AUTOMATIC|Venom Immunity|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidVenomImmunity
+13	ABILITY:Special Ability|AUTOMATIC|A Thousand Faces|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidAThousandFaces
+15	ABILITY:Special Ability|AUTOMATIC|Timeless Body|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidTimelessBody													TEMPLATE:Timeless Body
 ###Block: Normal Progression
-1	CAST:3,1				BONUS:VAR|WildEmpathy|CL	BONUS:VAR|AnimalCompanionLVL|CL	ABILITY:Special Ability|AUTOMATIC|Animal Companion|Nature Sense|Spontaneous casting - Summon Nature's Ally|Wild Empathy
-2	CAST:4,2													ABILITY:Special Ability|AUTOMATIC|Woodland Stride
-3	CAST:4,2,1													ABILITY:Special Ability|AUTOMATIC|Trackless Step
-4	CAST:5,3,2													ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure
+1	CAST:3,1			
+2	CAST:4,2												
+3	CAST:4,2,1							
+4	CAST:5,3,2												
 5	CAST:5,3,2,1
 6	CAST:5,3,3,2
 7	CAST:6,4,3,2,1
 8	CAST:6,4,3,3,2
-9	CAST:6,4,4,3,2,1												ABILITY:Special Ability|AUTOMATIC|Venom Immunity
+9	CAST:6,4,4,3,2,1											
 10	CAST:6,4,4,3,3,2
 11	CAST:6,5,4,4,3,2,1
 12	CAST:6,5,4,4,3,3,2
-13	CAST:6,5,5,4,4,3,2,1											ABILITY:Special Ability|AUTOMATIC|A Thousand Faces
+13	CAST:6,5,5,4,4,3,2,1										
 14	CAST:6,5,5,4,4,3,3,2
-15	CAST:6,5,5,5,4,4,3,2,1											ABILITY:Special Ability|AUTOMATIC|Timeless Body													TEMPLATE:Timeless Body
+15	CAST:6,5,5,5,4,4,3,2,1										
 16	CAST:6,5,5,5,4,4,3,3,2
 17	CAST:6,5,5,5,5,4,4,3,2,1
 18	CAST:6,5,5,5,5,4,4,3,3,2
@@ -195,25 +215,20 @@ CLASS:Ex Druid	HD:8		TYPE:Base.PC	ABB:XDrd		SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sy
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ex Druid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies
-1																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Druid|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidProficiencies
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
-CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:FighterLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Ride|Swim
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Fighter|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterProficiencies
 ###Block: Advanced Weapon Feat qualifications
-1	BONUS:VAR|FighterLVL|CL	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
-1					ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify
-1					ABILITY:Special Ability|AUTOMATIC|Greater Weapon Focus Qualify
-1					ABILITY:Special Ability|AUTOMATIC|Greater Weapon Specialization Qualify
-###Block: Level progression
-1	BONUS:ABILITYPOOL|Fighter Feat|CL/2+1
+1	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
+1	ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterWeaponSpecialization
+1	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Focus Qualify|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterGreaterWeaponFocus
+1	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Specialization Qualify|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterGreaterWeaponSpecialization
+1	ABILITY:Special Ability|AUTOMATIC|Fighter Bonus Feat|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterBonusFeat,TYPE.FighterBonusFeats
 
 
 # UDAM numbers extrapolated from Equipmet.rtf,
