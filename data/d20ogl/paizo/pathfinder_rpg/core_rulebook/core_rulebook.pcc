@@ -97,6 +97,8 @@ SKILL:pfcr_skills_conditional.lst
 SKILL:pfcr_skills.lst
 SPELL:pfcr_spells_domain.lst
 SPELL:pfcr_spells.lst
+SPELL:pfcr_spells_mods.lst
+
 TEMPLATE:pfcr_templates_conditional.lst
 TEMPLATE:pfcr_templates.lst
 WEAPONPROF:pfcr_weaponprofs.lst
