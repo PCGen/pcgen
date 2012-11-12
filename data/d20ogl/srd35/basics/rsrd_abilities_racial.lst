@@ -2,18 +2,32 @@
 # ORIGINAL ENTRY: Andrew Maitland
 # Original Entry Date: 11-2012
 
-
 ###Block: Common Racial Abilities
-Darkvision		KEY:Vision ~ Darkvision	CATEGORY:Special Ability	DEFINE:DarkvisionRange|0	BONUS:VISION|Darkvision|DarkvisionRange	VISION:Darkvision
-Low-Light		KEY:Vision ~ Low-Light	CATEGORY:Special Ability													VISION:Low-Light		
+Darkvision		KEY:Vision ~ Darkvision	CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Darkvision
+Low-Light		KEY:Vision ~ Low-Light	CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision
+
 
 ###Block: Vision Displays
-Low-Light Vision			KEY:Low-Light Vision				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision																																																																										DEFINE:LowLightRange|2		DESC:You can see %1x as far as humans in low illumination.|LowLightRange
-Blindsense				KEY:Blindsense					CATEGORY:Special Ability	TYPE:SpecialQuality																																																																													DEFINE:BlindsenseRange|0	DESC:%1|BlindsenseRange
-Darkvision				KEY:Darkvision					CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1|DarkvisionRange
+Low-Light Vision			KEY:Low-Light Vision				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision				VISION:Low-Light																																																																						DEFINE:LowLightRange|2		DESC:You can see %1x as far as humans in low illumination.|LowLightRange
+Darkvision				KEY:Darkvision					CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1|DarkvisionRange		DEFINE:DarkvisionRange|0	VISION:Darkvision		BONUS:VISION|Darkvision|DarkvisionRange
+Blindsense				KEY:Blindsense					CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1|BlindsenseRange		DEFINE:BlindsenseRange|0	VISION:Blindsense		BONUS:VISION|Blindsense|BlindsenseRange
+Tremorsense				KEY:Tremorsense					CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1|TremorsenseRange	DEFINE:TremorsenseRange|0	VISION:Tremorsense	BONUS:VISION|Tremorsense|TremorsenseRange
+Blindsight				KEY:Blindsight					CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1|BlindsightRange		DEFINE:Blindsight|0		VISION:Blindsight		BONUS:VISION|Blindsight|BlindsightRange
 
 ###Block: Backward Compatibility
 Low light Vision			CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision	VISIBLE:NO
+
+###Block: Mods
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|PREVARGTEQ:DarkvisionRange,1
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Blindsense|PREVARGTEQ:BlindsenseRange,1
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Blindsight|PREVARGTEQ:BlindsightRange,1
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Tremorsense|PREVARGTEQ:TremorsenseRange,1
+
+
+CATEGORY=Internal|Default.MOD															DEFINE:RacialStatStr|0	DEFINE:RacialStatDex|0	DEFINE:RacialStatCon|0	DEFINE:RacialStatInt|0	DEFINE:RacialStatWis|0	DEFINE:RacialStatCha|0
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Select Racial Traits
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|PREVARGTEQ:HasDarkvision,1	DEFINE:HasDarkvision|0
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light|PREVARGTEQ:HasLowlightVision,1	DEFINE:HasLowlightVision|0	DEFINE:RacialVision|0
 
 ###Block: Empty Place Holder Abilities
 # COMMENT: We use .MODs to populate these with important information.
@@ -27,11 +41,6 @@ Half-Elf Racial Trait Default					CATEGORY:Internal
 Half-Orc Racial Trait Default					CATEGORY:Internal
 Halfling Racial Trait Default					CATEGORY:Internal
 
-###Block: Mods
-CATEGORY=Internal|Default.MOD															DEFINE:RacialStatStr|0	DEFINE:RacialStatDex|0	DEFINE:RacialStatCon|0	DEFINE:RacialStatInt|0	DEFINE:RacialStatWis|0	DEFINE:RacialStatCha|0
-CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Select Racial Traits
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|PREVARGTEQ:HasDarkvision,1	DEFINE:HasDarkvision|0
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light|PREVARGTEQ:HasLowlightVision,1	DEFINE:HasLowlightVision|0	DEFINE:RacialVision|0
 
 # Base Races
 # COMMENT: These Add the Racial Trait Defaults based upon the RACE - We only set this up for PC Races.
@@ -112,7 +121,7 @@ Human Bonus Feat		CATEGORY:Special Ability	TYPE:SpecialQuality.HumanRacialTrait
 
 # Dwarf
 # Ability Name					Output Name																									Category of Ability		Type						Visible	Innate Spells										Description																																																																																																											Bonus to skill																																		Bonus to skill point/L		Temporary effect description
-Dwarf Darkvision				KEY:Darkvision ~ Dwarf			CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault.RacialVision.DwarfDarkvision																																																																																									BONUS:VAR|RacialVision|1		BONUS:VAR|HasDarkvision|1	BONUS:VAR|DarkvisionRange|60
+Dwarf Darkvision				KEY:Darkvision ~ Dwarf			CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault.RacialVision.DwarfDarkvision																																																																																									BONUS:VAR|RacialVision|1	BONUS:VAR|DarkvisionRange|60|TYPE=Base
 Weapon Familiarity		KEY:Weapon Familiarity ~ Dwarf	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.DwarfRacialTrait.DwarfRacialDefault		DESC:Dwarves may treat dwarven waraxes and dwarven urgroshes as martial weapons, rather than exotic weapons.	CHANGEPROF:Urgrosh (Dwarven),Waraxe (Dwarven)=Martial		BONUS:WEAPONPROF=Waraxe (Dwarven)|WIELDCATEGORY|-1
 Stonecunning																															CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault			VISIBLE:YES													DESC:+2 racial bonus on Search checks to notice unusual stonework, such as sliding walls, stonework traps, new construction (even when built to match the old), unsafe stone surfaces, shaky stone ceilings, and the like.|!PRERULE:1,DISPLAYSKILLUSE	DESC:Merely coming within 10 feet of unusual stonework entitles you make a Search check as if actively searching, and you can use the Search skill to find stonework traps as a rogue can. Something that isn't stone but that is disguised as stone also counts as unusual stonework. You can also intuit depth, sensing your approximate depth underground as naturally as a human can sense which way is up.	BONUS:SKILL|Search (Notice unusual stonework)|2|TYPE=Racial
 Stability																																CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault			VISIBLE:YES													DESC:+4 bonus on ability checks made to resist being bull rushed or tripped when standing on the ground (but not when climbing, flying, riding, or otherwise not standing firmly on the ground).
@@ -123,7 +132,7 @@ Dwarf Attacks					OUTPUTNAME:+1 racial bonus on attack rolls against orcs and go
 Dodge Giant						OUTPUTNAME:+4 Dodge bonus to Armor Class against monsters of the giant type														CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault.DwarfDodgeBonus.ModifyAC		VISIBLE:YES
 Stoneworking Skills				OUTPUTNAME:+2 racial bonus on Appraise and Craft checks that are related to stone or metal											CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault.DwarfCraftBonus			VISIBLE:YES																																																																																																																									BONUS:SKILL|Appraise,TYPE.Craft|2|TYPE=Racial|PREAPPLY:PC	BONUS:SKILL|Craft (Armorsmithing),Craft (Blacksmithing),Craft (Metalworking),Craft (Stonemasonry),Craft (Stoneworking),Craft (Weaponsmithing)|2|TYPE=Racial						TEMPDESC:Adjusts Appraise and Craft skill bonuses by 2
 # COMMENT: This displays the Common un-titled traits	
-Racial Traits				KEY:Racial Traits ~ Dwarf		CATEGORY:Special Ability	TYPE:SpecialQuality.DwarfRacialTrait		DESC:+2 racial bonus on saving throws against poison.|DwarfPoisonSaveBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfPoisonResistance	DESC:&nl;+2 racial bonus on saving throws against spells and spell-like effects.|DwarfSpellSaveBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSpellResistance	DESC:&nl;+1 racial bonus on attack rolls against orcs and goblinoids.|DwarfRacialCombatBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAttackBonus	DESC:&nl;+4 dodge bonus to Armor Class against monsters of the giant type. Any time a creature loses its Dexterity bonus (if any) to Armor Class, such as when it's caught flat-footed, it loses its dodge bonus, too.|DwarfDodgeGiantBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDodgeBonus	DESC:&nl;+2 racial bonus on Appraise checks that are related to stone or metal items.|DwarfAppraiseSkillBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAppraiseBonus	DESC:&nl;+2 racial bonus on Craft checks that are related to stone or metal.|DwarfCraftSkillBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfCraftBonus
+Racial Traits				KEY:Racial Traits ~ Dwarf	VISIBLE:EXPORT	CATEGORY:Special Ability	TYPE:SpecialQuality.DwarfRacialTrait		DESC:+2 racial bonus on saving throws against poison.|DwarfPoisonSaveBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfPoisonResistance	DESC:&nl;+2 racial bonus on saving throws against spells and spell-like effects.|DwarfSpellSaveBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSpellResistance	DESC:&nl;+1 racial bonus on attack rolls against orcs and goblinoids.|DwarfRacialCombatBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAttackBonus	DESC:&nl;+4 dodge bonus to Armor Class against monsters of the giant type. Any time a creature loses its Dexterity bonus (if any) to Armor Class, such as when it's caught flat-footed, it loses its dodge bonus, too.|DwarfDodgeGiantBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDodgeBonus	DESC:&nl;+2 racial bonus on Appraise checks that are related to stone or metal items.|DwarfAppraiseSkillBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAppraiseBonus	DESC:&nl;+2 racial bonus on Craft checks that are related to stone or metal.|DwarfCraftSkillBonus|PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfCraftBonus
 
 # Elf
 Elf Immunity				OUTPUTNAME:Immunity to magic sleep effects																			CATEGORY:Special Ability	TYPE:ElfRacialTrait.SpecialQuality.Immunity		VISIBLE:YES
@@ -133,7 +142,7 @@ Elf Low-Light Vision	CATEGORY:Special Ability	TYPE:ElfRacialTrait	BONUS:VAR|HasL
 Elf Perception		CATEGORY:Special Ability	TYPE:ElfRacialTrait.SpecialQuality	DESC:+2 racial bonus on Listen, Search, and Spot checks. 	BONUS:SKILL|Listen,Search,Spot|2|TYPE=Racial
 Weapon Proficiency		CATEGORY:Special Ability	TYPE:ElfRacialTrait.SpecialQuality	DESC:Elves receive the Martial Weapon Proficiency feats for the longsword, rapier, longbow (including composite longbow), and shortbow (including composite shortbow) as bonus feats.	AUTO:WEAPONPROF|Longsword|Rapier|Longbow|Shortbow
 # COMMENT: This displays the Common un-titled traits	
-Racial Traits	KEY:Racial Traits ~ Elf	CATEGORY:Special ABility	TYPE:ElfRacialTrait.SpecialQuality	VISIBLE:EXPORT	DESC:+2 racial bonus on Listen, Search, and Spot checks. 
+Racial Traits	KEY:Racial Traits ~ Elf		CATEGORY:Special Ability	TYPE:ElfRacialTrait.SpecialQuality	VISIBLE:EXPORT	DESC:+2 racial bonus on Listen, Search, and Spot checks. 
 
 # Gnome
 Weapon Familiarity		KEY:Weapon Familiarity ~ Gnome	CATEGORY:Special ABility	TYPE:SpecialQuality.GnomeRacialTrait.RacialTrait	DESC:Gnomes may treat gnome hooked hammers as martial weapons rather than exotic weapons.		CHANGEPROF:Hammer (Gnome Hooked)=Martial
@@ -161,7 +170,7 @@ Racial Traits	KEY:Racial Traits ~ Half-Elf	VISIBLE:EXPORT	CATEGORY:Special ABili
 
 # Half-Orc
 Orc Blood			CATEGORY:Special Ability	TYPE:HalfOrcRacialTrait.SpecialQuality			VISIBLE:YES													DESC:For all effects related to race, a half-orc is considered an orc.
-Half-Orc Darkvision	CATEGORY:Special ABility	TYPE:HalfOrcRacialTrait	BONUS:VAR|HasDarkVision|1	BONUS:VAR|DarkvisionRange|60
+Half-Orc Darkvision	CATEGORY:Special ABility	TYPE:HalfOrcRacialTrait	BONUS:VAR|HasDarkVision|1	BONUS:VAR|DarkvisionRange|60|TYPE=Base
 #Racial Traits	KEY:Racial Traits ~ Half-Orc	VISIBLE:EXPORT
 
 # Halfling
