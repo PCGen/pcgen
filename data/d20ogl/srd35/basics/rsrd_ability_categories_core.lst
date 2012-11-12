@@ -55,9 +55,10 @@ ABILITYCATEGORY:Half-Orc Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YE
 ABILITYCATEGORY:Halfling Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalflingRacialTrait						DISPLAYLOCATION:Racial Abilities
 
 # COMMENT: This can be used to allow Users to see Monster Traits - Requires all 'ABILITY:Special Ability|AUTOMATIC' to 'ABILITY:Racial Trait|AUTOMATIC'
-ABILITYCATEGORY:Racial Trait				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.SpecialAttack							DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Racial Trait				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.SpecialAttack							DISPLAYLOCATION:Racial Abilities
 
 ABILITYCATEGORY:Special Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal	TYPE:SpecialMountSelection							DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Permanency Applied Effects	VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES						CATEGORY:Special Ability	TYPE:PermanencySpell							DISPLAYLOCATION:Class Abilities
 #
 # End
 #
