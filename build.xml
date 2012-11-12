@@ -197,7 +197,7 @@ These files can be renamed and used for releases.
 
     <!-- Alternative compile target - compile the java code with optimzation on and debug off -->
     <target name="compile-optimize" depends="compile-compile" description="Compile Java sources with optimisation on">
-        <javac srcdir="${src.java.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="No" optimize="Yes" source="1.6" target="1.6"  memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" encoding="ISO-8859-1">
+        <javac srcdir="${src.java.dir}" destdir="${build.classes.dir}" deprecation="true" includes="**/*.java" debug="No" optimize="Yes" source="1.6" target="1.6"  memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" encoding="ISO-8859-1" includeantruntime="false">
             <classpath refid="project.classpath" />
         </javac>
     </target>
@@ -978,16 +978,16 @@ pcgen.filepaths=user
     <!-- Compile the test classes -->
     <target name="test.compile" depends="jar, jar-all-plugins">
         <mkdir dir="${build.testclasses.dir}" />
-        <javac srcdir="${src.testcommon.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" encoding="ISO-8859-1">
+        <javac srcdir="${src.testcommon.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" encoding="ISO-8859-1" includeantruntime="false">
             <classpath refid="test.project.classpath" />
         </javac>
-        <javac srcdir="${src.test.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" encoding="ISO-8859-1">
+        <javac srcdir="${src.test.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" encoding="ISO-8859-1" includeantruntime="false">
             <classpath refid="test.project.classpath" />
         </javac>
-        <javac srcdir="${src.utest.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" encoding="ISO-8859-1">
+        <javac srcdir="${src.utest.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" encoding="ISO-8859-1" includeantruntime="false">
             <classpath refid="test.project.classpath" />
         </javac>
-        <javac srcdir="${src.itest.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" encoding="ISO-8859-1">
+        <javac srcdir="${src.itest.java.dir}" destdir="${build.testclasses.dir}" deprecation="true" includes="**/*.java" memoryInitialSize="128m" memoryMaximumSize="512m" fork="true" encoding="ISO-8859-1" includeantruntime="false">
             <classpath refid="test.project.classpath" />
         </javac>
     </target>
