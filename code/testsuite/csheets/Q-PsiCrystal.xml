@@ -438,17 +438,17 @@ BIO
 		</skill>
 		<skill>
 			<name>Disguise (Act in character)</name>
-			<ranks>1.0</ranks>
-			<mod>1<!-- Mods from abilities, equipment, etc -->
+			<ranks>0.0</ranks>
+			<mod>2<!-- Mods from abilities, equipment, etc -->
 			</mod>
 			<skill_mod>2</skill_mod>
 			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>1<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>2<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>CHA</ability>
 			<synergy>Disguise (Act in character)</synergy>
-			<untrained>NO</untrained>
+			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
 			<trained_total>2</trained_total>
 			<exclusive_total>2</exclusive_total>

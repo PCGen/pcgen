@@ -535,7 +535,7 @@ BIO
 			</misc_mod>
 			<ability>CHA</ability>
 			<synergy>Disguise (Act in character)</synergy>
-			<untrained>NO</untrained>
+			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
 			<trained_total>12</trained_total>
 			<exclusive_total>12</exclusive_total>
@@ -1610,6 +1610,17 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
+		<ability_object>
+			<name>Weapon and Armor Proficiency</name>
+			<description>A fighter is proficient with all simple and martial weapons and with all armor (heavy, medium, and light) and shields (including tower shields).</description>
+			<type>SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
 	<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
@@ -1624,6 +1635,17 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>All Martial Weapon Proficiencies</name>
+			<description></description>
+			<type>INTERNAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Fighter Bonus Feat</name>
 			<description></description>
 			<type>INTERNAL</type>
 			<associated></associated>
