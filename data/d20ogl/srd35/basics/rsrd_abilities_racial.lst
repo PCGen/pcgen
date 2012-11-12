@@ -3,22 +3,24 @@
 # Original Entry Date: 11-2012
 
 ###Block: Common Racial Abilities
+###Block: Backward Compatibility
+
+# TODO: Remove these three entries, obselete now.
 Darkvision		KEY:Vision ~ Darkvision	CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Darkvision
 Low-Light		KEY:Vision ~ Low-Light	CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision
+Low light Vision					CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision	VISIBLE:NO
 
+###Block: Vision Modes
+Low-Light Vision	KEY:Low-Light Vision				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision	ASPECT:Vision|Low-Light			VISION:Low-Light														DEFINE:LowLightDistance|2		DESC:You can see %1x as far as humans in low illumination.|LowLightDistance
+Darkvision		KEY:Darkvision					CATEGORY:Special Ability	TYPE:SpecialQuality.Vision			ASPECT:Vision|Darkvision %1'|DarkvisionRange	DESC:%1|DarkvisionRange		DEFINE:DarkvisionRange|0	VISION:Darkvision		BONUS:VISION|Darkvision|DarkvisionRange
+Blindsense		KEY:Blindsense					CATEGORY:Special Ability	TYPE:SpecialQuality.Vision			ASPECT:Vision|Blindsense %1'|BlindsenseRange	DESC:%1|BlindsenseRange		DEFINE:BlindsenseRange|0	VISION:Blindsense		BONUS:VISION|Blindsense|BlindsenseRange
+Blindsight		KEY:Blindsight					CATEGORY:Special Ability	TYPE:SpecialQuality.Vision			ASPECT:Vision|Blindsight %1'|BlindsightRange	DESC:%1|BlindsightRange		DEFINE:Blindsight|0		VISION:Blindsight		BONUS:VISION|Blindsight|BlindsightRange
+Tremorsense		KEY:Tremorsense					CATEGORY:Special Ability	TYPE:SpecialQuality.Vision			ASPECT:Vision|Tremorsense %1'|TremorsenseRange	DESC:%1|TremorsenseRange	DEFINE:TremorsenseRange|0	VISION:Tremorsense	BONUS:VISION|Tremorsense|TremorsenseRange
 
-###Block: Vision Displays
-Low-Light Vision			KEY:Low-Light Vision				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision				VISION:Low-Light																																																																						DEFINE:LowLightRange|2		DESC:You can see %1x as far as humans in low illumination.|LowLightRange
-Darkvision				KEY:Darkvision					CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1|DarkvisionRange		DEFINE:DarkvisionRange|0	VISION:Darkvision		BONUS:VISION|Darkvision|DarkvisionRange
-Blindsense				KEY:Blindsense					CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1|BlindsenseRange		DEFINE:BlindsenseRange|0	VISION:Blindsense		BONUS:VISION|Blindsense|BlindsenseRange
-Tremorsense				KEY:Tremorsense					CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1|TremorsenseRange	DEFINE:TremorsenseRange|0	VISION:Tremorsense	BONUS:VISION|Tremorsense|TremorsenseRange
-Blindsight				KEY:Blindsight					CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1|BlindsightRange		DEFINE:Blindsight|0		VISION:Blindsight		BONUS:VISION|Blindsight|BlindsightRange
-
-###Block: Backward Compatibility
-Low light Vision			CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision	VISIBLE:NO
 
 ###Block: Mods
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|PREVARGTEQ:DarkvisionRange,1
+#CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowLightVision,1
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Blindsense|PREVARGTEQ:BlindsenseRange,1
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Blindsight|PREVARGTEQ:BlindsightRange,1
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Tremorsense|PREVARGTEQ:TremorsenseRange,1
