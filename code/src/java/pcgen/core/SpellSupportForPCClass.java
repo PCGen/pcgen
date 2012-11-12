@@ -255,7 +255,7 @@ public class SpellSupportForPCClass
 		if (spellCache.hasKnownProgression())
 		{
 			List<Formula> knownList = spellCache.getKnownForLevel(pcLevel);
-			if (spellLevel >= 0 && spellLevel < knownList.size())
+			if (spellLevel >= 0 && knownList != null && spellLevel < knownList.size())
 			{
 				total += mult
 						* knownList.get(spellLevel).resolve(aPC, "").intValue();
