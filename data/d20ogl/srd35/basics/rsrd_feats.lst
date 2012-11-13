@@ -134,13 +134,13 @@ Greater Two-Weapon Fighting.MOD	SERVESAS:FEAT|Greater Two Weapon Fighting
 
 ###Block: Old Version Support
 # Feat Name				Output Name									Visible		Req. Att.	Required Feat								Required Skill	Required Stat	Automatically Gained Feat			SORTKEY
-Blind Fight				OUTPUTNAME:Remove and re-add Blind-Fight				VISIBLE:DISPLAY																			AUTO:FEAT|Blind-Fight				SORTKEY:zzz
-Two Weapon Defense		OUTPUTNAME:Remove and re-add Two-Weapon Defense			VISIBLE:DISPLAY			PREFEAT:1,Two-Weapon Fighting									PRESTAT:1,DEX=15	AUTO:FEAT|Two-Weapon Defense			SORTKEY:zzz
-Two Weapon Fighting		OUTPUTNAME:Remove and re-add Two-Weapon Fighting		VISIBLE:DISPLAY																PRESTAT:1,DEX=15	AUTO:FEAT|Two-Weapon Fighting			SORTKEY:zzz
-Self Sufficient			OUTPUTNAME:Remove and re-add Self-Sufficient			VISIBLE:DISPLAY																			AUTO:FEAT|Self-Sufficient			SORTKEY:zzz
-Ride By Attack			OUTPUTNAME:Remove and re-add Ride-By Attack			VISIBLE:DISPLAY			PREFEAT:1,Mounted Combat						PRESKILL:1,Ride=1				AUTO:FEAT|Ride-By Attack			SORTKEY:zzz
-Improved Two Weapon Fighting	OUTPUTNAME:Remove and re-add Improved Two-Weapon Fighting	VISIBLE:DISPLAY	PREATT:6	PREFEAT:1,Two-Weapon Fighting									PRESTAT:1,DEX=17	AUTO:FEAT|Improved Two-Weapon Fighting	SORTKEY:zzz
-Greater Two Weapon Fighting	OUTPUTNAME:Remove and re-add Greater Two-Weapon Fighting	VISIBLE:DISPLAY	PREATT:11	PREFEAT:2,Two-Weapon Fighting,Improved Two-Weapon Fighting				PRESTAT:1,DEX=19	AUTO:FEAT|Greater Two-Weapon Fighting	SORTKEY:zzz
+Remove and re-add Blind-Fight				KEY:Blind Fight				OUTPUTNAME:Remove and re-add Blind-Fight				VISIBLE:DISPLAY																			AUTO:FEAT|Blind-Fight				SORTKEY:zzz
+Remove and re-add Two-Weapon Defense		KEY:Two Weapon Defense			OUTPUTNAME:Remove and re-add Two-Weapon Defense			VISIBLE:DISPLAY			PREFEAT:1,Two-Weapon Fighting									PRESTAT:1,DEX=15	AUTO:FEAT|Two-Weapon Defense			SORTKEY:zzz
+Remove and re-add Two-Weapon Fighting		KEY:Two Weapon Fighting			OUTPUTNAME:Remove and re-add Two-Weapon Fighting		VISIBLE:DISPLAY																PRESTAT:1,DEX=15	AUTO:FEAT|Two-Weapon Fighting			SORTKEY:zzz
+Remove and re-add Self-Sufficient			KEY:Self Sufficient			OUTPUTNAME:Remove and re-add Self-Sufficient			VISIBLE:DISPLAY																			AUTO:FEAT|Self-Sufficient			SORTKEY:zzz
+Remove and re-add Ride-By Attack			KEY:Ride By Attack			OUTPUTNAME:Remove and re-add Ride-By Attack			VISIBLE:DISPLAY			PREFEAT:1,Mounted Combat						PRESKILL:1,Ride=1				AUTO:FEAT|Ride-By Attack			SORTKEY:zzz
+Remove and re-add Improved Two-Weapon Fighting	KEY:Improved Two Weapon Fighting	OUTPUTNAME:Remove and re-add Improved Two-Weapon Fighting	VISIBLE:DISPLAY	PREATT:6	PREFEAT:1,Two-Weapon Fighting									PRESTAT:1,DEX=17	AUTO:FEAT|Improved Two-Weapon Fighting	SORTKEY:zzz
+Remove and re-add Greater Two-Weapon Fighting	KEY:Greater Two Weapon Fighting	OUTPUTNAME:Remove and re-add Greater Two-Weapon Fighting	VISIBLE:DISPLAY	PREATT:11	PREFEAT:2,Two-Weapon Fighting,Improved Two-Weapon Fighting				PRESTAT:1,DEX=19	AUTO:FEAT|Greater Two-Weapon Fighting	SORTKEY:zzz
 
 
 #
