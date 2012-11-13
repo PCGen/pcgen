@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 
 ###Block: Specific Undead Companions
@@ -16,7 +16,7 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Shocker Lizard	KIT:1|Shocker Liza
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Stirge			KIT:1|Stirge Familiar
 
 ###Block:Specific Animal Companions
-# Class of the Master	Type				Required Race					Apply Kit
+# Class of the Master		Type				Required Race					Apply Kit
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dinosaur (Deinonychus)		KIT:1|Dinosaur (Deinonychus) Companion
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dinosaur (Megaraptor)		KIT:1|Dinosaur (Megaraptor) Companion
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Dinosaur (Triceratops)		KIT:1|Dinosaur (Triceratops) Companion

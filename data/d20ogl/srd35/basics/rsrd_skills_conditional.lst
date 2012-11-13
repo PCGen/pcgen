@@ -1,23 +1,23 @@
-# CVS $Revision$ $Author$ -- Sat Oct 13 01:30:35 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 
 ###Block: Conditional Skills for output only
-# Skill Name						Key Stat	Untrained?		Skill Penalty Apply	Classes	Type			Visible		Source Page			Bonus to skill
-Climb (Using a rope)					KEYSTAT:STR	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Climb (Using a rope).MISC"),var("SKILL.Climb.MISC")	SOURCEPAGE:SkillsI.rtf
-Concentration (Cast defensively)			KEYSTAT:CON	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Concentration (Cast defensively).MISC"),var("SKILL.Concentration.MISC")	SOURCEPAGE:SkillsI.rtf
-Disguise (Act in character)				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Disguise (Act in character).MISC"),var("SKILL.Disguise.MISC")	SOURCEPAGE:SkillsI.rtf
+# Skill Name						Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value														Source Page			Bonus to skill
+Climb (Using a rope)					KEYSTAT:STR	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Climb (Using a rope).MISC"),var("SKILL.Climb.MISC")					SOURCEPAGE:SkillsI.rtf
+Concentration (Cast defensively)			KEYSTAT:CON	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Concentration (Cast defensively).MISC"),var("SKILL.Concentration.MISC")		SOURCEPAGE:SkillsI.rtf
+Disguise (Act in character)				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Disguise (Act in character).MISC"),var("SKILL.Disguise.MISC")				SOURCEPAGE:SkillsI.rtf
 Escape Artist (Escape from rope bonds)		KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Escape Artist (Escape from rope bonds).MISC"),var("SKILL.Escape Artist.MISC")	SOURCEPAGE:SkillsI.rtf
 Search (Secret doors and hidden compartments)	KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Search (Secret doors and hidden compartments).MISC"),var("SKILL.Search.MISC")	SOURCEPAGE:SkillsII.rtf
-Search (Notice unusual stonework)			KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Search (Notice unusual stonework).MISC"),var("SKILL.Search.MISC")	SOURCEPAGE:SkillsII.rtf
-Spellcraft (Decipher spell on scroll)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Spellcraft (Decipher spell on scroll).MISC"),var("SKILL.Spellcraft.MISC")	SOURCEPAGE:SkillsII.rtf
-Survival (Underground)					KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Underground).MISC"),var("SKILL.Survival.MISC")	SOURCEPAGE:SkillsII.rtf
-Survival (The Planes)					KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (The Planes).MISC"),var("SKILL.Survival.MISC")	SOURCEPAGE:SkillsII.rtf
-Survival (Natural environments)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Natural environments).MISC"),var("SKILL.Survival.MISC")	SOURCEPAGE:SkillsII.rtf
-Survival (Lost/Natural hazards)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Lost/Natural hazards).MISC"),var("SKILL.Survival.MISC")	SOURCEPAGE:SkillsII.rtf
-Survival (Find or follow tracks)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Find or follow tracks).MISC"),var("SKILL.Survival.MISC")	SOURCEPAGE:SkillsII.rtf
-Swim (Avoid taking nonlethal fatigue damage)	KEYSTAT:STR	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Swim (Avoid taking nonlethal fatigue damage).MISC"),var("SKILL.Swim.MISC")	SOURCEPAGE:SkillsII.rtf	BONUS:SKILL|Swim (Avoid taking nonlethal fatigue damage)|8|PREMOVE:1,Swim=1|TYPE=Racial
-Use Magic Device (Scroll)				KEYSTAT:CHA	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Use Magic Device (Scroll).MISC"),var("SKILL.Use Magic Device.MISC")	SOURCEPAGE:SkillsII.rtf
-Use Rope (Bind someone)					KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Use Rope (Bind someone).MISC"),var("SKILL.Use Rope.MISC")	SOURCEPAGE:SkillsII.rtf
+Search (Notice unusual stonework)			KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Search (Notice unusual stonework).MISC"),var("SKILL.Search.MISC")			SOURCEPAGE:SkillsII.rtf
+Spellcraft (Decipher spell on scroll)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Spellcraft (Decipher spell on scroll).MISC"),var("SKILL.Spellcraft.MISC")		SOURCEPAGE:SkillsII.rtf
+Survival (Underground)					KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Underground).MISC"),var("SKILL.Survival.MISC")					SOURCEPAGE:SkillsII.rtf
+Survival (The Planes)					KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (The Planes).MISC"),var("SKILL.Survival.MISC")					SOURCEPAGE:SkillsII.rtf
+Survival (Natural environments)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Natural environments).MISC"),var("SKILL.Survival.MISC")			SOURCEPAGE:SkillsII.rtf
+Survival (Lost/Natural hazards)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Lost/Natural hazards).MISC"),var("SKILL.Survival.MISC")			SOURCEPAGE:SkillsII.rtf
+Survival (Find or follow tracks)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Find or follow tracks).MISC"),var("SKILL.Survival.MISC")			SOURCEPAGE:SkillsII.rtf
+Swim (Avoid taking nonlethal fatigue damage)	KEYSTAT:STR	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Swim (Avoid taking nonlethal fatigue damage).MISC"),var("SKILL.Swim.MISC")		SOURCEPAGE:SkillsII.rtf	BONUS:SKILL|Swim (Avoid taking nonlethal fatigue damage)|8|PREMOVE:1,Swim=1|TYPE=Racial
+Use Magic Device (Scroll)				KEYSTAT:CHA	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Use Magic Device (Scroll).MISC"),var("SKILL.Use Magic Device.MISC")			SOURCEPAGE:SkillsII.rtf
+Use Rope (Bind someone)					KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Use Rope (Bind someone).MISC"),var("SKILL.Use Rope.MISC")				SOURCEPAGE:SkillsII.rtf
 
 
 ###Block: Skill .MODs

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 13 01:30:35 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: dlm1065
 
@@ -20,10 +20,10 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate
 #	RageDuration	For if a class has it's onw Rage duration. This is a straight 'Number of rounds' variable.
 ###Block: Rage variables
 1	BONUS:VAR|BarbRageTimesLVL,BarbRagePowerLVL|CL|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianRage
-1	BONUS:VAR|IlliteracyLVL|CL	DEFINE:IlliteracyLVL|0
+1	BONUS:VAR|IlliteracyLVL|CL														DEFINE:IlliteracyLVL|0
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3
 3	BONUS:VAR|TrapSense|CL/3
-7	BONUS:VAR|BarbarianDRLVL|CL	
+7	BONUS:VAR|BarbarianDRLVL|CL
 ###Block: Illiteracy
 # (Copy this line and include the hidden feat for any other Illiterate class.)
 #	Currently, this does not take into account the removal using Skill points.
@@ -45,7 +45,7 @@ CLASS:Ex Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimid
 ###Block: Illiteracy
 # (Copy this line and include the hidden feat for any other Illiterate class.)
 #	Currently, this does not take into account the removal using Skill points.
-1	BONUS:VAR|IlliteracyLVL|CL	DEFINE:IlliteracyLVL|0	ABILITY:Special Ability|VIRTUAL|Illiteracy|PREVAREQ:TL,IlliteracyLVL
+1	BONUS:VAR|IlliteracyLVL|CL														DEFINE:IlliteracyLVL|0	ABILITY:Special Ability|VIRTUAL|Illiteracy|PREVAREQ:TL,IlliteracyLVL
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3
 3	BONUS:VAR|TrapSense|CL/3
 7	BONUS:VAR|BarbarianDRLVL|CL
@@ -66,7 +66,7 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Bard|!PREABILITY:1,CATEGORY=ACF,TYPE.BardProficiencies
 ###Block: Bardic abilities level definitions.
-1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl		
+1	BONUS:VAR|BardicKnowledgeLvl|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl
 1	BONUS:VAR|BardicMusicLvl|CL	BONUS:VAR|BardicMusicTimes|CL	BONUS:VAR|InspireDurationBase|5
 ###Block: Bardic Music Abilities by level
 1	ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicKnowledge
@@ -82,7 +82,7 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Heroics|PRESKILL:1,TYPE.Perform=18|PREVARGTEQ:BardicMusicLvl,15|!PREABILITY:1,CATEGORY=ACF,TYPE.BardInspireHeroics
 1	ABILITY:Special Ability|VIRTUAL|Bardic Mass Suggestion|PRESKILL:1,TYPE.Perform=21|PREVARGTEQ:BardicMusicLvl,18|!PREABILITY:1,CATEGORY=ACF,TYPE.BardMassSuggestion
 ###Block: Level progression
-1	CAST:2			KNOWN:4		
+1	CAST:2			KNOWN:4
 2	CAST:3,0			KNOWN:5,2
 3	CAST:3,1			KNOWN:6,3
 4	CAST:3,2,0			KNOWN:6,3,2
@@ -187,23 +187,23 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 4	ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidResistNaturesLure
 9	ABILITY:Special Ability|AUTOMATIC|Venom Immunity|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidVenomImmunity
 13	ABILITY:Special Ability|AUTOMATIC|A Thousand Faces|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidAThousandFaces
-15	ABILITY:Special Ability|AUTOMATIC|Timeless Body|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidTimelessBody													TEMPLATE:Timeless Body
+15	ABILITY:Special Ability|AUTOMATIC|Timeless Body|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidTimelessBody																	TEMPLATE:Timeless Body
 ###Block: Normal Progression
-1	CAST:3,1			
-2	CAST:4,2												
-3	CAST:4,2,1							
-4	CAST:5,3,2												
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:5,3,2
 5	CAST:5,3,2,1
 6	CAST:5,3,3,2
 7	CAST:6,4,3,2,1
 8	CAST:6,4,3,3,2
-9	CAST:6,4,4,3,2,1											
+9	CAST:6,4,4,3,2,1
 10	CAST:6,4,4,3,3,2
 11	CAST:6,5,4,4,3,2,1
 12	CAST:6,5,4,4,3,3,2
-13	CAST:6,5,5,4,4,3,2,1										
+13	CAST:6,5,5,4,4,3,2,1
 14	CAST:6,5,5,4,4,3,3,2
-15	CAST:6,5,5,5,4,4,3,2,1										
+15	CAST:6,5,5,5,4,4,3,2,1
 16	CAST:6,5,5,5,4,4,3,3,2
 17	CAST:6,5,5,5,5,4,4,3,2,1
 18	CAST:6,5,5,5,5,4,4,3,3,2
@@ -217,8 +217,8 @@ CLASS:Ex Druid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle 
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Druid|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidProficiencies
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
-CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:FighterLVL|CL
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Define			Save checks bonus											Combat bonus
+CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	DEFINE:FighterLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Ride|Swim
 ###Block:Proficiencies
@@ -246,8 +246,8 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplom
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Monk|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkProficiencies
 ###Block: Monk AC, Monk Movement, Flurry of Blows
-1	BONUS:VAR|MonkACLVL|CL														
-1	BONUS:VAR|MonkMoveLVL|CL													
+1	BONUS:VAR|MonkACLVL|CL
+1	BONUS:VAR|MonkMoveLVL|CL
 1	BONUS:VAR|MonkLVL|CL	BONUS:VAR|FlurryLVL,StunningFistMonkLVL|MonkLVL	DEFINE:MonkLVL|0			KIT:1|Monk Flurry of Blows
 1	BONUS:VAR|MonkBonusFeatLVL|CL								DEFINE:MonkBonusFeatLVL|0
 # MonkLVL tracks both Stunning Fist and all Flurry of Blows aspects for backwards compatibility.
@@ -261,9 +261,9 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplom
 1	BONUS:VAR|MonkFeatCount|1
 2	BONUS:VAR|MonkFeatCount|1
 6	BONUS:VAR|MonkFeatCount|1
-2	BONUS:VAR|EvasionUsable,ImprovedEvasionUsable|1|TYPE=Prerequisite|PREEQUIP:1,TYPE=Medium,TYPE=Heavy	
+2	BONUS:VAR|EvasionUsable,ImprovedEvasionUsable|1|TYPE=Prerequisite|PREEQUIP:1,TYPE=Medium,TYPE=Heavy
 4	BONUS:VAR|SlowFallLVL|CL
-7	BONUS:VAR|WholenessBodyLVL|CL	
+7	BONUS:VAR|WholenessBodyLVL|CL
 13	BONUS:VAR|DiamondSoulLVL|CL
 15	BONUS:VAR|QuiveringPalmLVL|CL
 19	BONUS:VAR|EmptyBodyLVL|CL
@@ -290,12 +290,12 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplom
 19	ABILITY:Special Ability|AUTOMATIC|Empty Body|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkEmptyBody
 20	ABILITY:Special Ability|AUTOMATIC|Perfect Self|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkPerfectSelf
 ###Block: Level progression
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6	UMULT:2	AUTO:FEAT|Improved Unarmed Strike|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkImprovedUnarmedStrike
-2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6	
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2					AUTO:FEAT|Improved Unarmed Strike|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkImprovedUnarmedStrike
+2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
 3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
 4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
 5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6	
+6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
 7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
 8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
 9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
@@ -306,7 +306,7 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplom
 14	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
 15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
 16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8	TEMPLATE:Timeless Body
+17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8				TEMPLATE:Timeless Body
 18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
 19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
 20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8
@@ -323,8 +323,8 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Paladin|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinProficiencies
 ###Block: Level progression
-1	BONUS:VAR|AuraGood,DetectEvilLVL,PaladinSmiteEvilLVL|CL	DEFINE:AllowHolyAvenger|1
-2	BONUS:VAR|LayOnHandsLVL|CL										
+1	BONUS:VAR|AuraGood,DetectEvilLVL,PaladinSmiteEvilLVL|CL					DEFINE:AllowHolyAvenger|1
+2	BONUS:VAR|LayOnHandsLVL|CL
 4	BONUS:VAR|PaladinTurnLVL|CL
 5	BONUS:VAR|SpecialMountLVL|CL|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinSpecialMount
 6	BONUS:VAR|RemoveDiseaseLVL|CL
@@ -340,9 +340,9 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 5	ABILITY:Special Ability|AUTOMATIC|Special Mount|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinSpecialMount
 6	ABILITY:Special Ability|AUTOMATIC|Remove Disease|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinRemoveDisease
 ###Block:
-4	CAST:0,0											
-5	CAST:0,0												
-6	CAST:0,1											
+4	CAST:0,0
+5	CAST:0,0
+6	CAST:0,1
 7	CAST:0,1
 8	CAST:0,1,0
 9	CAST:0,1,0
@@ -373,13 +373,13 @@ CLASS:Ranger	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal
 CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Ranger|CL/2|PRECLASS:1,Ranger=4
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Ranger|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerProficiencies
-###Block: 
+###Block:
 1	BONUS:VAR|RangerFavoredEnemyLVL|CL
 1	BONUS:VAR|RangerCombatTreeLVL|CL
 1	BONUS:VAR|WildEmpathy|CL
 4	BONUS:VAR|AnimalCompanionLVL|CL/2|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerAnimalCompanion
 9	BONUS:VAR|EvasionUsable,ImprovedEvasionUsable|1|TYPE=Prerequisite|PREEQUIP:1,TYPE=Medium,TYPE=Heavy
-###Block: 
+###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Basic Favored Enemy|Ranger Favored Enemy|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerFavoredEnemy
 1	ABILITY:Special Ability|AUTOMATIC|Ranger Combat Tree|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerCombatTree
 1	ABILITY:Special Ability|AUTOMATIC|Wild Empathy|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerWildEmpathy
@@ -389,7 +389,7 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 9	ABILITY:Special Ability|AUTOMATIC|Evasion|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerEvasion
 13	ABILITY:Special Ability|AUTOMATIC|Camouflage|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerCamouflage
 17	ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight (Ranger)|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerHideInPlainSight
-###Block: 
+###Block:
 1	AUTO:FEAT|Track|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerTrack
 3	AUTO:FEAT|Endurance|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerEndurance
 ###Block: Level progression
@@ -398,7 +398,7 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 6	CAST:0,1
 7	CAST:0,1
 8	CAST:0,1,0
-9	CAST:0,1,0		
+9	CAST:0,1,0
 10	CAST:0,1,1
 11	CAST:0,1,1,0
 12	CAST:0,1,1,1
@@ -488,7 +488,7 @@ SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Transmuter Learning Bonus
 1	ABILITY:Special Ability|AUTOMATIC|Summon Familiar|!PREABILITY:1,CATEGORY=ACF,TYPE.WizardSummonFamiliar
 1	ABILITY:FEAT|AUTOMATIC|Scribe Scroll|!PREABILITY:1,CATEGORY=ACF,TYPE.WizardScribeScroll
 ###Block: Level progression
-1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5	
+1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2

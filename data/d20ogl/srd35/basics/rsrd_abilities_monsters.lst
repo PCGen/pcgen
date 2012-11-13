@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: Eddy Anthony, Tir Gwaith
 
@@ -488,31 +488,32 @@ Vulnerability to Protection from Evil	CATEGORY:Special Ability	TYPE:SpecialQuali
 
 
 # Deep Dwarf (these should be merged with the standard Dwarf abilities once OUTPUTNAME can handle variables
-Deep Dwarf Poison Resistance		OUTPUTNAME:+3 racial bonus on saving throws against poison																	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
-Deep Dwarf Spell Resistance		OUTPUTNAME:+3 racial bonus on saving throws against spells and spell-like effects													CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
+# Ability Name				Output Name													Category of Ability		Type						Visible	Description
+Deep Dwarf Poison Resistance		OUTPUTNAME:+3 racial bonus on saving throws against poison					CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
+Deep Dwarf Spell Resistance		OUTPUTNAME:+3 racial bonus on saving throws against spells and spell-like effects	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
 
 # Duergar Dwarf
-Duergar Dwarf Imunity			OUTPUTNAME:Immunity to paralysis, phantasms, and poison																	CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity		VISIBLE:YES
+Duergar Dwarf Imunity			OUTPUTNAME:Immunity to paralysis, phantasms, and poison					CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity		VISIBLE:YES
 
 
 # Elf (Drow)
-Drow Spell Resistance			OUTPUTNAME:+2 racial bonus on Will saves against spells and spell-like abilities													CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
+Drow Spell Resistance			OUTPUTNAME:+2 racial bonus on Will saves against spells and spell-like abilities	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
 
 
 # Svirfneblin Gnome
-Svirfneblin Gnome Nondetection	OUTPUTNAME:Nondetection																							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Svirfneblin Gnome Hide			OUTPUTNAME:+2 bonus to Hide skill (included) improves to +4 when underground														CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Svirfneblin Gnome Nondetection	OUTPUTNAME:Nondetection											CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Svirfneblin Gnome Hide			OUTPUTNAME:+2 bonus to Hide skill (included) improves to +4 when underground		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
 
 # Forest Gnome
-Forest Gnome Hide				OUTPUTNAME:+4 bonus to Hide skill (included) improves to +8 when in wooded areas													CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
-Pass without Trace																													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES													DESC:A forest gnome has the innate ability to use pass without trace (self only, as a free action) as the spell cast by a druid of the forest gnome's class levels.
+Forest Gnome Hide				OUTPUTNAME:+4 bonus to Hide skill (included) improves to +8 when in wooded areas	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Pass without Trace																	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:A forest gnome has the innate ability to use pass without trace (self only, as a free action) as the spell cast by a druid of the forest gnome's class levels.
 
 
 # Half Celestial
-Half Celestial Poison Resistance	OUTPUTNAME:+4 racial bonus to Fortitude saves vs. Poison																	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
+Half Celestial Poison Resistance	OUTPUTNAME:+4 racial bonus to Fortitude saves vs. Poison					CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
 
 # Xeph
-Xeph Power Resistance			OUTPUTNAME:+1 saves vs. powers, spells, and spell-like effects																CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
+Xeph Power Resistance			OUTPUTNAME:+1 saves vs. powers, spells, and spell-like effects				CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
 
 
 
@@ -574,17 +575,17 @@ Web ~ Monstrous Spider	OUTPUTNAME:Web			CATEGORY:Special Ability	TYPE:SpecialQua
 Flight Maneuverability	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:Maneuverability|0	CHOOSE:NUMBER|MIN=-4|MAX=4|TITLE=Flight Maneuverability Adjustment	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Clumsy)|PREVARLTEQ:Maneuverability,1	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Poor)|PREVAREQ:Maneuverability,2	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)|PREVAREQ:Maneuverability,3	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Good)|PREVAREQ:Maneuverability,4	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Perfect)|PREVARGTEQ:Maneuverability,5	BONUS:VAR|Maneuverability|%CHOICE|PREAPPLY:PC	TEMPDESC:Adjust Flight Maneuverability up or down by assigning a possitive or negative number
 
 ###Block: Maneuverability
-# Ability Name			Category of Ability		Type				Visible	Aspects
-Maneuverability(Perfect)	CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Perfect
-Maneuverability(Good)		CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Good
-Maneuverability(Average)	CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Average
-Maneuverability(Poor)		CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Poor
-Maneuverability(Clumsy)		CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO	ASPECT:Maneuverability|Clumsy
+# Ability Name			Unique Key						Category of Ability		Type				Visible	Description									Automatically Gained Weapon Prof.		Aspects
+Maneuverability(Perfect)								CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO																		ASPECT:Maneuverability|Perfect
+Maneuverability(Good)									CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO																		ASPECT:Maneuverability|Good
+Maneuverability(Average)								CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO																		ASPECT:Maneuverability|Average
+Maneuverability(Poor)									CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO																		ASPECT:Maneuverability|Poor
+Maneuverability(Clumsy)									CATEGORY:Special Ability	TYPE:Maneuverability	VISIBLE:NO																		ASPECT:Maneuverability|Clumsy
 
 
 
 # DATA-401
-Martial Weapons			KEY:Outsider House Rule ~ Martial Weapons	CATEGORY:Special Ability	TYPE:SpecialQuality																																																																																		DESC:0 HD Outsider gains all Martial Weapon Proficiencies															AUTO:WEAPONPROF|TYPE=Martial|PREHD:MAX=0
+Martial Weapons			KEY:Outsider House Rule ~ Martial Weapons	CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:0 HD Outsider gains all Martial Weapon Proficiencies	AUTO:WEAPONPROF|TYPE=Martial|PREHD:MAX=0
 
 ###Block: Natural Attack
 # Ability Name	Category of Ability	Type				Define																																	Automatically Gained Weapon Prof.	Modify VAR																									Cost		Aspects
