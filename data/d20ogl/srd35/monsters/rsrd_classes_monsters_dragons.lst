@@ -9,7 +9,7 @@ CLASS:Black Dragon	PRERACE:1,Dragon (Black%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Black Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Hide|Move Silently|Swim
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
-1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
+1		BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponDamageDie|4	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Acid
@@ -48,7 +48,7 @@ CLASS:Blue Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Co
 # Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
 CLASS:Blue Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Air|DOMAIN.Evil|DOMAIN.Law
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
-1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
+1		BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Lightning
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity
@@ -110,7 +110,7 @@ CLASS:Green Dragon	PRERACE:1,Dragon (Green%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Green Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Move Silently
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
-1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
+1		BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Corrosive Gas
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Acid
@@ -150,7 +150,7 @@ CLASS:Red Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Con
 # Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
 CLASS:Red Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Evil|DOMAIN.Chaos|DOMAIN.Fire
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
-1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
+1		BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponDamageDie|10	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fire
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
@@ -213,7 +213,7 @@ CLASS:White Dragon	PRERACE:1,Dragon (White%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:White Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Hide|Move Silently|Swim
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
-1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
+1		BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|DragonAge	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cold
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
@@ -251,7 +251,7 @@ CLASS:Brass Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 # Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
 CLASS:Brass Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:4|Sorcerer|Cleric|DOMAIN.Chaos|DOMAIN.Knowledge
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
-1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
+1		BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDuration|DragonAge							ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Sleep
 1	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	BONUS:VAR|BreathWeaponDice|DragonAge	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Fire
@@ -317,7 +317,7 @@ CLASS:Bronze Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 # Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
 CLASS:Bronze Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Animal|DOMAIN.Law|DOMAIN.Water
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
-1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
+1		BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDuration|DragonAge							ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Repulsion Gas
 1	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Lightning
@@ -381,7 +381,7 @@ CLASS:Copper Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 # Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
 CLASS:Copper Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Chaos|DOMAIN.Earth|DOMAIN.Trickery
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
-1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
+1		BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDuration|DragonAge							ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Slow
 1	BONUS:VAR|BreathWeaponDamageDie|4	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
@@ -445,7 +445,7 @@ CLASS:Gold Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Co
 # Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
 CLASS:Gold Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Law|DOMAIN.Luck|DOMAIN.Good
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
-1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
+1		BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)						DEFINE:BreathWeaponStatDamage|DragonAge	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Weakening Gas
 1	BONUS:VAR|BreathWeaponDamageDie|10	BONUS:VAR|BreathWeaponDice|(2*DragonAge)								ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fire
@@ -511,7 +511,7 @@ CLASS:Silver Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 # Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
 CLASS:Silver Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:6|Sorcerer|Cleric|DOMAIN.Air|DOMAIN.Good|DOMAIN.Law|DOMAIN.Sun
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
-1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
+1		BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDuration|DragonAge	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Paralyzing Gas
 1	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponDice|(2*DragonAge)			ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cold

@@ -145,7 +145,7 @@ Periapt of Epic Wisdom +12		TYPE:Magic.Epic.Wondrous.Amulet	COST:1440000	WT:0			
 
 ###Block: Epic Wondrous Items - Circlet of Eyes is a Variant of robe of eyes used by the Sample Force Dragon, Adult
 # Equipment Name	Type					Cost		Weight	Source Page					Vision											Bonus to skill						Special Property
-Circlet of Eyes	TYPE:Magic.Wondrous.Headgear	COST:120000	WT:0		SOURCEPAGE:EpicMonsters(A-E).rtf	VISION:Darkvision (120')|See Etheral (120')|See Invisibility (120')	BONUS:SKILL|Search,Spot|10|TYPE=Competence	SPROP:Can't avert eyes from Gaze Attack
+Circlet of Eyes	TYPE:Magic.Wondrous.Headgear	COST:120000	WT:0		SOURCEPAGE:EpicMonsters(A-E).rtf		BONUS:VAR|DarkvisionRange|120|TYPE=Base|	BONUS:VAR|SeeEtheralRange|120|TYPE=Base|	BONUS:VAR|SeeInvisibilityRange|120|TYPE=Base	BONUS:SKILL|Search,Spot|10|TYPE=Competence	SPROP:Can't avert eyes from Gaze Attack
 
 ###Block: Artifacts
 #minor

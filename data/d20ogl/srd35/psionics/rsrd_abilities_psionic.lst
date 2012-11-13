@@ -159,7 +159,7 @@ Energy Touch ~ Fire									CATEGORY:Special Ability	TYPE:SpecialQuality.AstralC
 
 #Astral Construct Menu C Abilities
 Two Menu B Abilities		KEY:Astral_Two Menu B Abilities		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																										BONUS:ABILITYPOOL|Astral Construct Menu B Ability|2
-Blindsight				KEY:Astral_Blindsight				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																																																															VISION:Blindsight (60')
+Blindsight				KEY:Astral_Blindsight				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																																																																BONUS:VAR|BlindsightRange|60|TYPE=Base
 Concussion				KEY:Astral_Concussion				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:YES
 Constrict				KEY:Astral_Constrict				CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Constrict
 Dimension Slide			KEY:Astral_Dimension Slide			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuC	VISIBLE:YES
