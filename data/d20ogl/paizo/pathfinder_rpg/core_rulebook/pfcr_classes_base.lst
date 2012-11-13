@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Oct 21 18:00:30 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher and Eric C. Smith (Maredudd); Archetype work by Andrew Maitland
 
@@ -343,26 +343,26 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 1	BONUS:VAR|RangerFavoredEnemyLVL|CL		ABILITY:Special Ability|AUTOMATIC|Basic Favored Enemy|Ranger Favored Enemy|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredEnemy
 1	BONUS:VAR|RangerFavoredTerrainLVL|CL	ABILITY:Special Ability|AUTOMATIC|Basic Favored Terrain|Ranger Favored Terrain|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredTerrain
 ###Block: Level progression
-1				BONUS:VAR|WildEmpathy|CL	BONUS:VAR|TrackLVL|CL		ABILITY:Special Ability|AUTOMATIC|Track|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerTrack	ABILITY:Special Ability|AUTOMATIC|Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWildEmpathy
-2				BONUS:VAR|CombatStyleLVL|CL						ABILITY:Special Ability|AUTOMATIC|Combat Style|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyle
-3																																															AUTO:FEAT|Endurance
+1				BONUS:VAR|WildEmpathy|CL	BONUS:VAR|TrackLVL|CL			ABILITY:Special Ability|AUTOMATIC|Track|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerTrack	ABILITY:Special Ability|AUTOMATIC|Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWildEmpathy
+2				BONUS:VAR|CombatStyleLVL|CL							ABILITY:Special Ability|AUTOMATIC|Combat Style|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCombatStyle
+3																																																AUTO:FEAT|Endurance
 4	CAST:0,0		BONUS:VAR|HuntersBondLVL|CL	BONUS:VAR|AnimalCompanionLVL|CL-3	ABILITY:Special Ability|AUTOMATIC|Hunter's Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHuntersBond
 5	CAST:0,1
 6	CAST:0,1
-7	CAST:0,1,0												ABILITY:Special Ability|AUTOMATIC|Woodland Stride|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWoodlandStride
-8	CAST:0,1,1												ABILITY:Special Ability|AUTOMATIC|Swift Tracker|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerSwiftTracker
-9	CAST:0,2,1												ABILITY:Special Ability|AUTOMATIC|Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEvasion
+7	CAST:0,1,0													ABILITY:Special Ability|AUTOMATIC|Woodland Stride|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerWoodlandStride
+8	CAST:0,1,1													ABILITY:Special Ability|AUTOMATIC|Swift Tracker|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerSwiftTracker
+9	CAST:0,2,1													ABILITY:Special Ability|AUTOMATIC|Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEvasion
 10	CAST:0,2,1,0
-11	CAST:0,2,1,1											ABILITY:Special Ability|AUTOMATIC|Quarry|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerQuarry
-12	CAST:0,2,2,1											ABILITY:Special Ability|AUTOMATIC|Camouflage|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCamoflage
+11	CAST:0,2,1,1												ABILITY:Special Ability|AUTOMATIC|Quarry|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerQuarry
+12	CAST:0,2,2,1												ABILITY:Special Ability|AUTOMATIC|Camouflage|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerCamoflage
 13	CAST:0,3,2,1,0
 14	CAST:0,3,2,1,1
 15	CAST:0,3,2,2,1
-16	CAST:0,3,3,2,1											ABILITY:Special Ability|AUTOMATIC|Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEvasion
-17	CAST:0,4,3,2,1											ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHideInPlainSight
+16	CAST:0,3,3,2,1												ABILITY:Special Ability|AUTOMATIC|Improved Evasion|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerEvasion
+17	CAST:0,4,3,2,1												ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerHideInPlainSight
 18	CAST:0,4,3,2,2
-19	CAST:0,4,3,3,2											ABILITY:Special Ability|AUTOMATIC|Improved Quarry|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerQuarry
-20	CAST:0,4,4,3,3	BONUS:VAR|MasterHunterLVL|CL						ABILITY:Special Ability|AUTOMATIC|Master Hunter|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerMasterHunter
+19	CAST:0,4,3,3,2												ABILITY:Special Ability|AUTOMATIC|Improved Quarry|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerQuarry
+20	CAST:0,4,4,3,3	BONUS:VAR|MasterHunterLVL|CL							ABILITY:Special Ability|AUTOMATIC|Master Hunter|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerMasterHunter
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																Define							Save checks bonus												Combat bonus

@@ -1,15 +1,15 @@
-# CVS $Revision$ $Author$ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
-# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages								Bonus to Ability Pool				Stat bonus						Automatically Gained Language	Ability	Main Race Type	Type			Racesubtype			Challenge Rating	Source Page
-Dwarf		STARTFEATS:1	SIZE:M	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon									BONUS:STAT|CON,WIS|2	BONUS:STAT|CHA|-2	AUTO:LANG|Common|Dwarven			RACETYPE:Humanoid	TYPE:Base.PC	RACESUBTYPE:Dwarf		CR:1/2		SOURCEPAGE:p.21
-Elf		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Celestial,Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								BONUS:STAT|DEX,INT|2	BONUS:STAT|CON|-2	AUTO:LANG|Common|Elven				RACETYPE:Humanoid	TYPE:Base.PC	RACESUBTYPE:Elf		CR:1/2		SOURCEPAGE:p.22
-Gnome		STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc									BONUS:STAT|CON,CHA|2	BONUS:STAT|STR|-2	AUTO:LANG|Common|Gnome|Sylvan			RACETYPE:Humanoid	TYPE:Base.PC	RACESUBTYPE:Gnome		CR:1/2		SOURCEPAGE:p.23
-Half-Elf	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:ALL								BONUS:ABILITYPOOL|Ability Bonus|1									AUTO:LANG|Common|Elven				RACETYPE:Humanoid	TYPE:Base.PC	RACESUBTYPE:Elf|Human	CR:1/2		SOURCEPAGE:p.24
-Half-Orc	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Giant,Gnoll,Goblin			BONUS:ABILITYPOOL|Ability Bonus|1									AUTO:LANG|Common|Orc				RACETYPE:Humanoid	TYPE:Base.PC	RACESUBTYPE:Orc|Human	CR:1/2		SOURCEPAGE:p.25
-Halfling	STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Dwarven,Elven,Gnome,Goblin											BONUS:STAT|DEX,CHA|2	BONUS:STAT|STR|-2	AUTO:LANG|Common|Halfling			RACETYPE:Humanoid	TYPE:Base.PC	RACESUBTYPE:Halfling	CR:1/2		SOURCEPAGE:p.26
-Human		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:ALL								BONUS:ABILITYPOOL|Ability Bonus|1									AUTO:LANG|Common					RACETYPE:Humanoid	TYPE:Base.PC	RACESUBTYPE:Human		CR:1/2		SOURCEPAGE:p.27
+# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages								Bonus to Ability Pool			Modify VAR											Automatically Gained Language	Main Race Type	Race Subtype		Type			Challenge Rating	Source Page
+Dwarf		STARTFEATS:1	SIZE:M	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								BONUS:VAR|RacialStatCON,RacialStatWIS|2	BONUS:VAR|RacialStatCHA|-2	AUTO:LANG|Common|Dwarven	RACETYPE:Humanoid	RACESUBTYPE:Dwarf		TYPE:Base.PC	CR:1/2		SOURCEPAGE:p.21
+Elf		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Celestial,Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan							BONUS:VAR|RacialStatDEX,RacialStatINT|2	BONUS:VAR|RacialStatCON|-2	AUTO:LANG|Common|Elven		RACETYPE:Humanoid	RACESUBTYPE:Elf		TYPE:Base.PC	CR:1/2		SOURCEPAGE:p.22
+Gnome		STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc								BONUS:VAR|RacialStatCON,RacialStatCHA|2	BONUS:VAR|RacialStatSTR|-2	AUTO:LANG|Common|Gnome|Sylvan	RACETYPE:Humanoid	RACESUBTYPE:Gnome		TYPE:Base.PC	CR:1/2		SOURCEPAGE:p.23
+Half-Elf	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:ALL								BONUS:ABILITYPOOL|Ability Bonus|1													AUTO:LANG|Common|Elven		RACETYPE:Humanoid	RACESUBTYPE:Elf|Human	TYPE:Base.PC	CR:1/2		SOURCEPAGE:p.24
+Half-Orc	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Giant,Gnoll,Goblin			BONUS:ABILITYPOOL|Ability Bonus|1													AUTO:LANG|Common|Orc		RACETYPE:Humanoid	RACESUBTYPE:Orc|Human	TYPE:Base.PC	CR:1/2		SOURCEPAGE:p.25
+Halfling	STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Dwarven,Elven,Gnome,Goblin										BONUS:VAR|RacialStatDEX,RacialStatCHA|2	BONUS:VAR|RacialStatSTR|-2	AUTO:LANG|Common|Halfling	RACETYPE:Humanoid	RACESUBTYPE:Halfling	TYPE:Base.PC	CR:1/2		SOURCEPAGE:p.26
+Human		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:ALL								BONUS:ABILITYPOOL|Ability Bonus|1													AUTO:LANG|Common			RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Base.PC	CR:1/2		SOURCEPAGE:p.27
 #COMMENT: Need to change XTRASKILLPTSPERLVL to take a formula or variable
 
 # XTRASKILLPTSPERLVL:1

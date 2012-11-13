@@ -1,8 +1,40 @@
-# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher & Andrew Maitland
 
+# Vision Modes
+# Ability Name	Unique Key			Category of Ability		Visible	Ability
+Darkvision		KEY:Vision ~ Darkvision	CATEGORY:Special Ability			ABILITY:Special Ability|AUTOMATIC|Darkvision
+Low-Light		KEY:Vision ~ Low-Light	CATEGORY:Special Ability			ABILITY:Special Ability|AUTOMATIC|Low-Light Vision
+Low light Vision					CATEGORY:Special Ability	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision
+
+###Block: Vision Modes
+# Ability Name	Unique Key			Category of Ability		Type							Define				Description												Add to vision					Vision			Aspects
+Low-Light Vision	KEY:Low-Light Vision	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision	DEFINE:LowLightDistance|2	DESC:You can see %1x as far as humans in low illumination.|LowLightDistance								VISION:Low-Light		ASPECT:Vision|Low-Light
+Darkvision		KEY:Darkvision		CATEGORY:Special Ability	TYPE:SpecialQuality.Vision			DEFINE:DarkvisionRange|0	DESC:%1|DarkvisionRange										BONUS:VISION|Darkvision|DarkvisionRange	VISION:Darkvision		ASPECT:Vision|Darkvision %1'|DarkvisionRange
+Blindsense		KEY:Blindsense		CATEGORY:Special Ability	TYPE:SpecialQuality.Vision			DEFINE:BlindsenseRange|0	DESC:%1|BlindsenseRange										BONUS:VISION|Blindsense|BlindsenseRange	VISION:Blindsense		ASPECT:Vision|Blindsense %1'|BlindsenseRange
+Blindsight		KEY:Blindsight		CATEGORY:Special Ability	TYPE:SpecialQuality.Vision			DEFINE:Blindsight|0		DESC:%1|BlindsightRange										BONUS:VISION|Blindsight|BlindsightRange	VISION:Blindsight		ASPECT:Vision|Blindsight %1'|BlindsightRange
+Tremorsense		KEY:Tremorsense		CATEGORY:Special Ability	TYPE:SpecialQuality.Vision			DEFINE:TremorsenseRange|0	DESC:%1|TremorsenseRange									BONUS:VISION|Tremorsense|TremorsenseRange	VISION:Tremorsense	ASPECT:Vision|Tremorsense %1'|TremorsenseRange
+
+
+###Block: Mods
+#CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowLightVision,1
+# Ability Name			Define																							Ability												Stat bonus
+CATEGORY=Internal|Default.MOD																									ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1
+CATEGORY=Internal|Default.MOD																									ABILITY:Special Ability|AUTOMATIC|Blindsense|PREVARGTEQ:BlindsenseRange,1
+CATEGORY=Internal|Default.MOD																									ABILITY:Special Ability|AUTOMATIC|Blindsight|PREVARGTEQ:BlindsightRange,1
+CATEGORY=Internal|Default.MOD																									ABILITY:Special Ability|AUTOMATIC|Tremorsense|PREVARGTEQ:TremorsenseRange,1
+
+
+CATEGORY=Internal|Default.MOD	DEFINE:RacialStatStr|0	DEFINE:RacialStatDex|0	DEFINE:RacialStatCon|0	DEFINE:RacialStatInt|0	DEFINE:RacialStatWis|0	DEFINE:RacialStatCha|0
+CATEGORY=Internal|Default.MOD																																						BONUS:STAT|STR|RacialStatStr|TYPE=Racial	BONUS:STAT|DEX|RacialStatDex|TYPE=Racial	BONUS:STAT|CON|RacialStatCon|TYPE=Racial	BONUS:STAT|INT|RacialStatInt|TYPE=Racial	BONUS:STAT|WIS|RacialStatWis|TYPE=Racial	BONUS:STAT|CHA|RacialStatCha|TYPE=Racial
+CATEGORY=Internal|Default.MOD																									ABILITY:Internal|AUTOMATIC|Select Racial Traits
+#CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|PREVARGTEQ:HasDarkvision,1	DEFINE:HasDarkvision|0
+#CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light|PREVARGTEQ:HasLowlightVision,1	DEFINE:HasLowlightVision|0	DEFINE:RacialVision|0
+
+
 ###Block: Default Ability that should be applied to all races/classes eventually
+# Ability Name							Category of Ability	Ability
 Select Racial Traits						CATEGORY:Internal
 Dwarf Racial Trait Default					CATEGORY:Internal
 Elf Racial Trait Default					CATEGORY:Internal

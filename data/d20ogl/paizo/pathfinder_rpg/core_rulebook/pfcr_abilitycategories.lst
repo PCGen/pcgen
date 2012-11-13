@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 #SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8255	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
@@ -48,7 +48,8 @@ ABILITYCATEGORY:Half Orc Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO	
 ABILITYCATEGORY:Halfling Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalflingRacialTrait	PLURAL:Halfling Racial Traits	DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Human Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HumanRacialTrait		PLURAL:Human Racial Traits	DISPLAYLOCATION:Racial Abilities
 ###Block: Monster Trait Display
-ABILITYCATEGORY:Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.SpecialAttack		PLURAL:Racial Traits	DISPLAYLOCATION:Racial Abilities
+# Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object						Plural description for UI	Display Location
+ABILITYCATEGORY:Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.SpecialAttack	PLURAL:Racial Traits		DISPLAYLOCATION:Racial Abilities
 
 ###Block: Class Bonus Feat Categories
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list								Plural description for UI		Display Location
@@ -115,32 +116,41 @@ ABILITYCATEGORY:Companion Stat Increase		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:
 ###Block: Prestige Classes --------------------------
 
 # Loremaster
-# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list				Plural description for UI			Display Location
-ABILITYCATEGORY:Loremaster Secret			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LoremasterSecret									PLURAL:Loremaster Secrets			DISPLAYLOCATION:Class Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list				Plural description for UI			Display Location
+ABILITYCATEGORY:Loremaster Secret			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LoremasterSecret												PLURAL:Loremaster Secrets			DISPLAYLOCATION:Class Abilities
 
 
 # Master Category
 ABILITYCATEGORY:Intelligent Item			VISIBLE:NO													CATEGORY:Intelligent Item
 
 # Child Categories
-ABILITYCATEGORY:Intelligent Item Alignment	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:IntelligentAlignment								PLURAL:Intelligent Item Alignment		DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Languages	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:IntItemLang										PLURAL:Intelligent Item Languages		DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Power		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:ItemStandardPower									PLURAL:Intelligent Item Power			DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Purpose		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:ItemPurpose										PLURAL:Intelligent Item Purpose		DISPLAYLOCATION:Intelligent Magic Item
-ABILITYCATEGORY:Intelligent Item Purpose Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:ItemPurposePower									PLURAL:Intelligent Item Purpose Power	DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Alignment	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:IntelligentAlignment											PLURAL:Intelligent Item Alignment		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Languages	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:IntItemLang													PLURAL:Intelligent Item Languages		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Power		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:ItemStandardPower												PLURAL:Intelligent Item Power			DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Purpose		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:ItemPurpose													PLURAL:Intelligent Item Purpose		DISPLAYLOCATION:Intelligent Magic Item
+ABILITYCATEGORY:Intelligent Item Purpose Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:ItemPurposePower												PLURAL:Intelligent Item Purpose Power	DISPLAYLOCATION:Intelligent Magic Item
 
 # Master Category
-ABILITYCATEGORY:Afflictions				VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Afflictions														PLURAL:Afflictions				DISPLAYLOCATION:Afflictions
+ABILITYCATEGORY:Afflictions				VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Afflictions																	PLURAL:Afflictions				DISPLAYLOCATION:Afflictions
 
 # Child Category
 #ABILITYCATEGORY:Affliction				VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Afflictions
 
 # Extra Channel Category
-ABILITYCATEGORY:Extra Channel				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExtraChannel										PLURAL:Extra Channels				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Extra Channel				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ExtraChannel													PLURAL:Extra Channels				DISPLAYLOCATION:Feats
 
 # Feat Choices
-ABILITYCATEGORY:Weapon Focus				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Weapon Focus
-ABILITYCATEGORY:Exotic Weapon Proficiency		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Exotic Weapon Proficiency
-ABILITYCATEGORY:Martial Weapon Proficiency	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Martial Weapon Proficiency
-ABILITYCATEGORY:Skill Focus				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Skill Focus
-ABILITYCATEGORY:Spell Focus				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT								ABILITYLIST:Spell Focus
+ABILITYCATEGORY:Weapon Focus				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Weapon Focus
+ABILITYCATEGORY:Exotic Weapon Proficiency		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Exotic Weapon Proficiency
+ABILITYCATEGORY:Martial Weapon Proficiency	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Martial Weapon Proficiency
+ABILITYCATEGORY:Skill Focus				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Skill Focus
+ABILITYCATEGORY:Spell Focus				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Spell Focus
+
+
+# COMMENT: This can be used to allow Users to see Monster Traits - Requires all 'ABILITY:Special Ability|AUTOMATIC' to 'ABILITY:Racial Trait|AUTOMATIC'
+ABILITYCATEGORY:Racial Trait				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.SpecialAttack															DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Class Abilities			VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.SpecialAttack															DISPLAYLOCATION:Class Abilities
+
+
+ABILITYCATEGORY:Special Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:SpecialMountSelection																		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Permanency Applied Effects	VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:PermanencySpell																			DISPLAYLOCATION:Class Abilities

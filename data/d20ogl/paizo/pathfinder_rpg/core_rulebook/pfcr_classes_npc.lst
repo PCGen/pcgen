@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
@@ -6,7 +6,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downl
 CLASS:Adept		HD:6		TYPE:Base.NPC	ABB:Adp		MAXLEVEL:20	SOURCEPAGE:p.448	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Adept		STARTSKILLPTS:2	CSKILL:TYPE=Craft|Handle Animal|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft|Survival
-# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level			Use Spell List
 CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Adept|CL	SPELLLIST:1|Adept
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Adept=0|Create Water,Detect Magic,Ghost Sound,Guidance,Light,Mending,Purify Food and Drink,Read Magic,Stabilize,Touch of Fatigue
