@@ -1457,9 +1457,9 @@ BIO
 		</ability_object>
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
-			<name>Immunity to magic sleep spells and effects</name>
+			<name>Immunity to magic sleep spells and effects.</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>ELFRACIALTRAIT.SPECIALQUALITY.IMMUNITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1468,9 +1468,9 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>+2 racial saving throw bonus against Enchantment spells or effects</name>
+			<name>Elf Low-Light Vision</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>ELFRACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1479,9 +1479,75 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Merely passing within 5 feet of a secret or concealed door entitles you to a Search check to notice it as if you were actively looking for the door</name>
+			<name>Elf Perception</name>
+			<description>+2 racial bonus on Listen, Search, and Spot checks.</description>
+			<type>ELFRACIALTRAIT.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>+2 racial saving throw bonus against enchantment spells or effects</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>ELFRACIALTRAIT.SPECIALQUALITY.SAVEBONUS</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Elf Weapon Proficiency</name>
+			<description>Elves receive the Martial Weapon Proficiency feats for the longsword, rapier, longbow (including composite longbow), and shortbow (including composite shortbow) as bonus feats.</description>
+			<type>ELFRACIALTRAIT.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Low-Light</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Low-Light Vision</name>
+			<description>You can see 2x as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-light vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.VISION</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Merely passing within 5 feet of a secret or concealed door entitles you to a Search check to notice it as if you were actively looking for it</name>
+			<description></description>
+			<type>ELFRACIALTRAIT.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Racial Traits</name>
+			<description><para>Immunity to magic sleep spells and effects. </para><para>Merely passing within 5 feet of a secret or concealed door entitles you to a Search check to notice it as if you were actively looking for it </para><para>+2 racial saving throw bonus against enchantment spells or effects </para><para>+2 racial bonus on Listen, Search, and Spot checks.</para></description>
+			<type>ELFRACIALTRAIT.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1527,6 +1593,28 @@ BIO
 	<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Elf Racial Trait Default</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Select Racial Traits</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
