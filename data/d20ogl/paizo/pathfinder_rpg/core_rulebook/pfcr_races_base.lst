@@ -8,7 +8,7 @@ Elf		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Celestial,Draconi
 Gnome		STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc								BONUS:VAR|RacialStatCON,RacialStatCHA|2	BONUS:VAR|RacialStatSTR|-2	AUTO:LANG|Common|Gnome|Sylvan	RACETYPE:Humanoid	RACESUBTYPE:Gnome		TYPE:Base.PC	CR:1/2		SOURCEPAGE:p.23
 Half-Elf	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:ALL								BONUS:ABILITYPOOL|Ability Bonus|1													AUTO:LANG|Common|Elven		RACETYPE:Humanoid	RACESUBTYPE:Elf|Human	TYPE:Base.PC	CR:1/2		SOURCEPAGE:p.24
 Half-Orc	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Abyssal,Draconic,Giant,Gnoll,Goblin			BONUS:ABILITYPOOL|Ability Bonus|1													AUTO:LANG|Common|Orc		RACETYPE:Humanoid	RACESUBTYPE:Orc|Human	TYPE:Base.PC	CR:1/2		SOURCEPAGE:p.25
-Halfling	STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Dwarven,Elven,Gnome,Goblin										BONUS:VAR|RacialStatDEX,RacialStatCHA|2	BONUS:VAR|RacialStatSTR|-2	AUTO:LANG|Common|Halfling	RACETYPE:Humanoid	RACESUBTYPE:Halfling	TYPE:Base.PC	CR:1/2		SOURCEPAGE:p.26
+Halfling	STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Dwarven,Elven,Gnome,Goblin										BONUS:VAR|RacialStatDEX,RacialStatCHA|2	BONUS:VAR|RacialStatSTR|-2	AUTO:LANG|Common|Halfling	RACETYPE:Humanoid	RACESUBTYPE:Halfling	TYPE:Base.PC	CR:1/2		SOURCEPAGE:p.26	BONUS:CHECKS|ALL|HalflingSaveBonus|TYPE=Racial
 Human		STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:ALL								BONUS:ABILITYPOOL|Ability Bonus|1													AUTO:LANG|Common			RACETYPE:Humanoid	RACESUBTYPE:Human		TYPE:Base.PC	CR:1/2		SOURCEPAGE:p.27
 #COMMENT: Need to change XTRASKILLPTSPERLVL to take a formula or variable
 
