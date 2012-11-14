@@ -184,7 +184,7 @@ Half-Orc Darkvision	CATEGORY:Special ABility	TYPE:HalfOrcRacialTrait	BONUS:VAR|H
 
 # Halfling
 Halfling Morale				OUTPUTNAME:+2 morale bonus on saving throws against fear		CATEGORY:Special Ability	TYPE:HalflingRacialTrait.SaveBonus		VISIBLE:YES	ASPECT:SaveBonus|+2 morale bonus on saving throws against fear
-Halfling Saves		CATEGORY:Special Ability	TYPE:HalflingRacialTrait.SaveBonus	BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Racial
+Halfling Saves		CATEGORY:Special Ability	TYPE:HalflingRacialTrait.SaveBonus	BONUS:VAR|HalflingSaveBonus|1|TYPE=Racial	DEFINE:HalflingSaveBonus|0
 Halfling Thrown Attacks	CATEGORY:Special Ability	TYPE:HalflingRacialTrait	BONUS:COMBAT|TOHIT.Thrown,TOHIT.Sling|1|TYPE=Racial	
 Halfling Skills		CATEGORY:Special Ability	TYPE:HalflingRacialTrait	BONUS:SKILL|Climb,Jump,Listen,Move Silently|2|TYPE=Racial
 #
