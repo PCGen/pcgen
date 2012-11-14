@@ -152,7 +152,7 @@ Improved Tracking									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordi
 Ink Cloud										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC		VISIBLE:YES
 Invisible in Light								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC		VISIBLE:YES
 Jet											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES	DEFINE:JetRange|0												DESC:%1'|JetRange|PREVARGT:JetRange,0
-Keen Scent										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense			VISIBLE:YES
+#Keen Scent										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense			VISIBLE:YES
 Kiss											CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Know Alignment									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense			VISIBLE:YES
 Leap											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
@@ -218,7 +218,7 @@ Rust											CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISI
 Scare											CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Supernatural		VISIBLE:YES
 Scent											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense			VISIBLE:YES
 See in Darkness									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense			VISIBLE:YES
-See Invisibility									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense			VISIBLE:YES
+#See Invisibility									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense			VISIBLE:YES
 See Invisibility ~Su		OUTPUTNAME:See Invisibility		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense			VISIBLE:YES
 Shadow Blend									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyAC			VISIBLE:YES
 Shadow Shift									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyAC			VISIBLE:YES
