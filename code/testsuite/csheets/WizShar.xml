@@ -1037,6 +1037,28 @@ BIO
 	<ability_objects>
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
+			<name>Human Bonus Feat</name>
+			<description></description>
+			<type>SPECIALQUALITY.HUMANRACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Human Skill Bonus</name>
+			<description>Humans gain 1 extra skill point per level.</description>
+			<type>SPECIALQUALITY.HUMANRACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Summon Familiar</name>
 			<description></description>
 			<type>SPECIALQUALITY</type>
@@ -1060,6 +1082,17 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Favored Class ~ Any</name>
+			<description></description>
+			<type>RACIALTRAITS.HUMANRACIALTRAIT.HALFELFRACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Wizard Weapon Proficiencies</name>
 			<description></description>
 			<type>INTERNAL</type>
@@ -1073,6 +1106,28 @@ BIO
 	<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Human Racial Trait Default</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Select Racial Traits</name>
 			<description></description>
 			<type></type>
 			<associated></associated>

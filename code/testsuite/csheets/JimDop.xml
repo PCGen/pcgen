@@ -129,8 +129,8 @@ BIO
 		<type>Dragon</type>
 		<vision>
 			<vision>Darkvision (60 ft.)</vision>
-			<vision>Low-light</vision>
-			<all>Darkvision (60 ft.), Low-light</all>
+			<vision>Low-Light</vision>
+			<all>Darkvision (60 ft.), Low-Light</all>
 		</vision>
 		<wealth>0</wealth>
 		<weight>
@@ -1501,6 +1501,17 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Darkvision</name>
+			<description>Range 60; Darkvision is the extraordinary ability to see with no light source at all, out to a range specified for the creature. Darkvision is black and white only (colors cannot be discerned). It does not allow characters to see anything that they could not see otherwise-invisible objects are still invisible, and illusions are still visible as what they seem to be. Likewise, darkvision subjects a creature to gaze attacks normally. The presence of light does not spoil darkvision.</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.VISION</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Detect Thoughts</name>
 			<description></description>
 			<type>SPECIALQUALITY.SUPERNATURAL.SENSE</type>
@@ -1578,8 +1589,19 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Low-Light</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Low-Light Vision</name>
-			<description>You can see 2x as far as humans in low illumination.</description>
+			<description>You can see 2x as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-light vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.</description>
 			<type>SPECIALQUALITY.EXTRAORDINARY.VISION</type>
 			<associated></associated>
 			<count>0</count>

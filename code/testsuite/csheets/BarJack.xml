@@ -1265,9 +1265,9 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>+4 dodge bonus against giants</name>
-			<description></description>
-			<type>SPECIALQUALITY</type>
+			<name>Gnome Alchemy Skill</name>
+			<description>+2 racial bonus on Craft (alchemy) checks.</description>
+			<type>GNOMERACIALTRAIT.RACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1276,9 +1276,53 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>+1 racial bonus to attack rolls against kobolds and goblinoids</name>
+			<name>+1 racial bonus on attack rolls against kobolds and goblinoids</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>GNOMERACIALTRAIT.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Gnome Dodge</name>
+			<description>+4 dodge bonus to Armor Class against monsters of the giant type. Any time a creature loses its Dexterity bonus (if any) to Armor Class, such as when it&#39;s caught flat-footed, it loses its dodge bonus, too.</description>
+			<type>GNOMERACIALTRAIT.RACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Gnome Illusion DC</name>
+			<description>Add +1 to the Difficulty Class for all saving throws against illusion spells cast by gnomes. This adjustment stacks with those from similar effects.</description>
+			<type>GNOMERACIALTRAIT.RACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Gnome Listen Skill</name>
+			<description>+2 racial bonus on Listen checks.</description>
+			<type>GNOMERACIALTRAIT.RACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Gnome Low-Light Vision</name>
+			<description></description>
+			<type>GNOMERACIALTRAIT.RACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1289,7 +1333,7 @@ BIO
 		<ability_object>
 			<name>+2 racial bonus on saving throws against illusions</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>GNOMERACIALTRAIT.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1298,9 +1342,42 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Once per day a gnome can use Speak with Animals as a spell-like ability to speak with a burrowing mammal</name>
+			<name>Speak with Animals (burrowing mammal only, duration 1 minute)</name>
 			<description></description>
-			<type>SPECIALQUALITY</type>
+			<type>GNOMERACIALTRAIT.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Low-Light</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Low-Light Vision</name>
+			<description>You can see 2x as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-light vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.</description>
+			<type>SPECIALQUALITY.EXTRAORDINARY.VISION</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Racial Traits</name>
+			<description><para>+2 racial bonus on saving throws against illusions </para><para>+1 racial bonus on attack rolls against kobolds and goblinoids </para><para>Speak with Animals (burrowing mammal only, duration 1 minute) </para><para>Add +1 to the Difficulty Class for all saving throws against illusion spells cast by gnomes. This adjustment stacks with those from similar effects. </para><para>+4 dodge bonus to Armor Class against monsters of the giant type. Any time a creature loses its Dexterity bonus (if any) to Armor Class, such as when it&#39;s caught flat-footed, it loses its dodge bonus, too. </para><para>+2 racial bonus on Listen checks. </para><para>+2 racial bonus on Craft (alchemy) checks.</para></description>
+			<type>SPECIALQUALITY.GNOMERACIALTRAIT.RACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1312,6 +1389,17 @@ BIO
 			<name>Rage</name>
 			<description>2 times/day (5 rounds)</description>
 			<type>SPECIALQUALITY.ATTACKOPTION.MODIFYAC</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Spell-Like Abilities</name>
+			<description>Spell-Like Abilities: 1/day-speak with animals (burrowing mammal only, duration 1 minute). A gnome with a Charisma score of at least 10 also has the following spell-like abilities: 1/day-dancing lights, ghost sound, prestidigitation. Caster level 1st; save DC 10 + gnome&#39;s Cha modifier + spell level.</description>
+			<type>GNOMERACIALTRAIT.RACIALTRAIT.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1379,6 +1467,28 @@ BIO
 	<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Gnome Racial Trait Default</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Select Racial Traits</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
@@ -1516,17 +1626,17 @@ BIO
 					<bonusspell></bonusspell>
 				</spell>
 			<spell>
-					<name>Speak with Animals</name>
-					<outputname>Speak with Animals</outputname>
+					<name>Speak with Burrowing Mammals</name>
+					<outputname>Speak with Burrowing Mammals</outputname>
 					<times_memorized>1</times_memorized>
 					<range>Personal</range>
 					<components>V, S</components>
-					<castingtime>1 action</castingtime>
+					<castingtime>1 standard action</castingtime>
 					<casterlevel>1</casterlevel>
 					<dc></dc>
 					<duration>1 minutes</duration>
-					<effect>The caster can communicate with natural animals.</effect>
-					<target>The character</target>
+					<effect>You can communicate with Burrowing Mammals.</effect>
+					<target>You</target>
 					<saveinfo>None</saveinfo>
 					<school>
 						<school>Divination</school>
@@ -1535,13 +1645,13 @@ BIO
 						<fullschool>Divination</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Clr2, Drd2, Rgr1</sourcelevel>
-						<source>Wizards of the Coast - System Reference Document, srdspellss.rtf</source>
-						<sourcepage>srdspellss.rtf</sourcepage>
+						<sourcelevel></sourcelevel>
+						<source>Wizards of the Coast - System Reference Document, SpellsS.rtf</source>
+						<sourcepage>SpellsS.rtf</sourcepage>
 						<sourceshort>SRD</sourceshort>
 					</source>
 					<spell_resistance>No</spell_resistance>
-					<description>The caster can communicate with natural animals.</description>
+					<description>You can communicate with Burrowing Mammals.</description>
 					<bonusspell></bonusspell>
 				</spell>
 		</racial_innate>
@@ -1649,17 +1759,17 @@ BIO
 					<bonusspell></bonusspell>
 				</spell>
 			<spell>
-					<name>Speak with Animals</name>
-					<outputname>Speak with Animals</outputname>
+					<name>Speak with Burrowing Mammals</name>
+					<outputname>Speak with Burrowing Mammals</outputname>
 					<times_memorized>1</times_memorized>
 					<range>Personal</range>
 					<components>V, S</components>
-					<castingtime>1 action</castingtime>
+					<castingtime>1 standard action</castingtime>
 					<casterlevel>1</casterlevel>
 					<dc></dc>
 					<duration>1 minutes</duration>
-					<effect>The caster can communicate with natural animals.</effect>
-					<target>The character</target>
+					<effect>You can communicate with Burrowing Mammals.</effect>
+					<target>You</target>
 					<saveinfo>None</saveinfo>
 					<school>
 						<school>Divination</school>
@@ -1668,13 +1778,13 @@ BIO
 						<fullschool>Divination</fullschool>
 					</school>
 					<source>
-						<sourcelevel>Clr2, Drd2, Rgr1</sourcelevel>
-						<source>Wizards of the Coast - System Reference Document, srdspellss.rtf</source>
-						<sourcepage>srdspellss.rtf</sourcepage>
+						<sourcelevel></sourcelevel>
+						<source>Wizards of the Coast - System Reference Document, SpellsS.rtf</source>
+						<sourcepage>SpellsS.rtf</sourcepage>
 						<sourceshort>SRD</sourceshort>
 					</source>
 					<spell_resistance>No</spell_resistance>
-					<description>The caster can communicate with natural animals.</description>
+					<description>You can communicate with Burrowing Mammals.</description>
 					<bonusspell></bonusspell>
 				</spell>
 		</racial_innate_memorized>
