@@ -289,7 +289,7 @@ CLASS:Wild Hunter	PREATT:8	PREFEAT:6,Endurance,Track,Power Attack,Dodge,Simple W
 CLASS:Wild Hunter	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Heal|Hide|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Use Rope
 
 ###Block: Level Abilities
-1														BONUS:VAR|RangerAnimalCompLVL|CL	ABILITY:Special Ability|AUTOMATIC|Animal Companion|Ranger Animal Companion
+1														BONUS:VAR|RangerAnimalCompanionLVL|CL	ABILITY:Special Ability|AUTOMATIC|Animal Companion|Ranger Animal Companion
 1														BONUS:VAR|WildPackLvl|CL		ABILITY:Special Ability|AUTOMATIC|Hunter|Wild Pack
 2																				ABILITY:Special Ability|AUTOMATIC|Monster Slayer
 3	BONUS:ABILITYPOOL|Wild Hunter Exotic Weapon|1

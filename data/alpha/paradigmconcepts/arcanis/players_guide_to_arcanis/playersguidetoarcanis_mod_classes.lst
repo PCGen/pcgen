@@ -144,7 +144,7 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=4|Steamblast,Your Fire is Mine	ABILITY:S
 SUBCLASS:Saluwe	COST:0	PREDEITY:1,Saluwe	PREGENDER:FEMALE
 SUBCLASSLEVEL:1																		ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Crushing Weight|Cleric=3|Battle Spines																					CSKILL:TYPE=Nature|Survival|Swim	AUTO:FEAT|Track																REMOVE:FEAT|Simple Weapon Proficiency
-SUBCLASSLEVEL:4												BONUS:VAR|RangerAnimalCompLVL|CL	ABILITY:Special Ability|VIRTUAL|Arcanis Animal Companion|Ranger Animal Companion
+SUBCLASSLEVEL:4												BONUS:VAR|RangerAnimalCompanionLVL|CL	ABILITY:Special Ability|VIRTUAL|Arcanis Animal Companion|Ranger Animal Companion
 # supposed to not prohibit based on alignment for Summoning spells - no idea how at this time, so not prohibiting any
 
 ###Block: Cleric subclass

@@ -27,3 +27,5 @@ CATEGORY=Internal|Default.MOD	BONUS:VAR|SneakAttackDieSize|SneakAttackDie	DEFINE
 #CATEGORY=Internal|Default.MOD	BONUS:VAR|TurnDamagePlusUndead
 #CATEGORY=Internal|Default.MOD	BONUS:VAR|TurnCheckUndead
 
+# Pathfinder Cavalier Update
+CATEGORY=Internal|Default.MOD	BONUS:VAR|CavalierMountLVL|CavalierLevel		DEFINE:CavalierLevel|0

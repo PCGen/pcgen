@@ -144,7 +144,7 @@ CLASS:Urban Sentinel	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|
 1				BONUS:VAR|RangerCombatTreeLVL|CL	ABILITY:Special Ability|VIRTUAL|Ranger Combat Tree
 2
 3																																		AUTO:FEAT|Endurance
-4	CAST:0,0		BONUS:VAR|RangerAnimalCompLVL|4	ABILITY:Special Ability|VIRTUAL|Ranger Animal Companion|Sentinel Animal Companion
+4	CAST:0,0		BONUS:VAR|RangerAnimalCompanionLVL|4	ABILITY:Special Ability|VIRTUAL|Ranger Animal Companion|Sentinel Animal Companion
 5	CAST:0,0
 6	CAST:0,1
 7	CAST:0,1								ABILITY:Special Ability|VIRTUAL|As the Ghost	ABILITY:Special Ability|AUTOMATIC|Woodland Stride

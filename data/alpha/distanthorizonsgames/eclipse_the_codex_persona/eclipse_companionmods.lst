@@ -102,7 +102,7 @@ FOLLOWER:MysticCompanionLvl=20	TYPE:Mystic Companion	HD:1																							
 
 ###Block: Animal Progression
 # Class of the Master		Type				Hit Dice	Ability																				Define			Save checks bonus																Combat bonus													Stat bonus							Modify VAR								Main Race Type
-FOLLOWER:CompanionLvl=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Eclipse Animal Tricks and Training|Eclipse Bonus Tricks	DEFINE:CompanionCPLvl|0																																										BONUS:VAR|CompanionCPLvl|3					RACETYPE:Magical Beast
+FOLLOWER:CompanionLvl=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Animal Tricks and Training|Bonus Tricks	DEFINE:CompanionCPLvl|0																																										BONUS:VAR|CompanionCPLvl|3					RACETYPE:Magical Beast
 FOLLOWER:CompanionLvl=2		TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
 FOLLOWER:CompanionLvl=3		TYPE:Animal Companion	HD:2																							DEFINE:BonusTricks|0	BONUS:CHECKS|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:CHECKS|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
 FOLLOWER:CompanionLvl=4		TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
@@ -126,7 +126,7 @@ FOLLOWER:CompanionLvl=20	TYPE:Animal Companion																																		
 
 ###Block: For Homebrews or different creatures - Currently testing Master > Follower Issues.
 # Class of the Master		Type								Hit Dice	Ability																				Define					Combat bonus				Modify VAR													Multiple Requirements
-FOLLOWER:OtherCompanionLvl=1	TYPE:Other Companion							ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Eclipse Animal Tricks and Training|Eclipse Bonus Tricks	DEFINE:CompanionTransferenceValue|0	BONUS:COMBAT|AC|CompanionCPLvl	BONUS:VAR|CompanionCPLvl|CompanionTransferenceValue	BONUS:VAR|BonusTricks|20
+FOLLOWER:OtherCompanionLvl=1	TYPE:Other Companion							ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Animal Tricks and Training|Bonus Tricks	DEFINE:CompanionTransferenceValue|0	BONUS:COMBAT|AC|CompanionCPLvl	BONUS:VAR|CompanionCPLvl|CompanionTransferenceValue	BONUS:VAR|BonusTricks|20
 FOLLOWER:OtherCompanionLvl=2	TYPE:Other Companion																												DEFINE:OtherCompanionLvl|0								BONUS:VAR|CompanionCPLvl|2*var("OtherCompanionLvl")
 
 # Implement a Method to grant additional HD
