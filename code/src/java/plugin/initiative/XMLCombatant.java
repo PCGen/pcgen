@@ -682,7 +682,7 @@ public class XMLCombatant extends Combatant
 		 */
 		public String getHtmlText()
 		{
-			StringBuffer statBuf = new StringBuffer();
+			StringBuilder statBuf = new StringBuilder();
 
 			statBuf.append("<html>");
 			statBuf.append(getStatBlockHeader());
@@ -695,7 +695,7 @@ public class XMLCombatant extends Combatant
 
 		protected String getStatBlockHeader()
 		{
-			StringBuffer statBuf = new StringBuffer();
+			StringBuilder statBuf = new StringBuilder();
 
 			statBuf.append("<head><title>");
 			statBuf.append(getName());
@@ -718,7 +718,7 @@ public class XMLCombatant extends Combatant
 
 		protected String getStatBlockTitle()
 		{
-			StringBuffer statBuf = new StringBuffer();
+			StringBuilder statBuf = new StringBuilder();
 
 			statBuf.append("<p class='gork'><font size='+1'><b>");
 			statBuf.append(getName());
@@ -729,7 +729,7 @@ public class XMLCombatant extends Combatant
 
 		protected String getStatBlockCore()
 		{
-			StringBuffer statBuf = new StringBuffer();
+			StringBuilder statBuf = new StringBuilder();
 
 			statBuf.append("<font class='type'>CR</font> ");
 			// statBuf.append(getCR());

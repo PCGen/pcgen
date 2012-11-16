@@ -107,7 +107,7 @@ public class RaceToken extends Token
 			return Constants.EMPTY_STRING;
 		}
 
-		StringBuffer returnString = new StringBuffer();
+		StringBuilder returnString = new StringBuilder();
 		boolean firstLine = true;
 		for (SpecialAbility sa : saList)
 		{
@@ -135,7 +135,7 @@ public class RaceToken extends Token
 			tempRaceName = pc.getRace().getDisplayName();
 		}
 
-		StringBuffer extraRaceInfo = new StringBuffer(40);
+		StringBuilder extraRaceInfo = new StringBuilder(40);
 
 		String subRace = pc.getSubRace();
 		if (subRace != null)

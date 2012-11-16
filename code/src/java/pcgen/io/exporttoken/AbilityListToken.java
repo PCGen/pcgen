@@ -109,7 +109,7 @@ public class AbilityListToken extends Token
 		{
 			return "";
 		}
-		StringBuffer retString = new StringBuffer();
+		StringBuilder retString = new StringBuilder();
 		// If we haven't cached some of the processign data, then do so, this is so that 
 		// if the Output Sheet loops over this token we don't process one-off stuff more than 
 		// once

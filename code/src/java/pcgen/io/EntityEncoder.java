@@ -86,7 +86,7 @@ public final class EntityEncoder
 	 */
 	public static String decode(String s)
 	{
-		final StringBuffer buffer = new StringBuffer();
+		final StringBuilder buffer = new StringBuilder();
 		final StringTokenizer tokens = new StringTokenizer(s, "&;", true);
 
 		String cToken;
@@ -148,7 +148,7 @@ public final class EntityEncoder
 	 */
 	public static String encode(String s)
 	{
-		final StringBuffer buffer = new StringBuffer();
+		final StringBuilder buffer = new StringBuilder();
 		if (s != null)
 		{
 			final StringTokenizer tokens = new StringTokenizer(s, ENCODE, true);
@@ -177,7 +177,7 @@ public final class EntityEncoder
 	 */
 	public static String encodeLight(String s)
 	{
-		final StringBuffer buffer = new StringBuffer();
+		final StringBuilder buffer = new StringBuilder();
 		if (s != null)
 		{
 			final StringTokenizer tokens = new StringTokenizer(s, ENCODE_LIGHT, true);

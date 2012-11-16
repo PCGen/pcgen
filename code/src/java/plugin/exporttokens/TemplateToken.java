@@ -172,7 +172,7 @@ public class TemplateToken extends Token
 	public static String getModToken(PlayerCharacter pc, PCTemplate template,
 		String aLabel)
 	{
-		StringBuffer retString = new StringBuffer();
+		StringBuilder retString = new StringBuilder();
 
 		for (PCStat stat : pc.getStatSet())
 		{

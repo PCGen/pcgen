@@ -51,7 +51,7 @@ public class QualifiedName
 		}
 		// start with the name of the ability
 		// don't do for Weapon Profs
-		final StringBuffer aStrBuf = new StringBuffer(outputName);
+		final StringBuilder aStrBuf = new StringBuilder(outputName);
 
 		if (pc.hasAssociations(a)
 				&& !a.getKeyName().startsWith("Armor Proficiency"))
@@ -67,7 +67,7 @@ public class QualifiedName
 			}
 			else
 			{
-				choiceInfo = StringUtil.joinToStringBuffer(pc
+				choiceInfo = StringUtil.joinToStringBuilder(pc
 						.getExpandedAssociations(a), ", ").toString();
 			}
 			
@@ -92,7 +92,7 @@ public class QualifiedName
 
 		final StringBuilder buffer = new StringBuilder();
 		buffer.append(outputName).append("(");
-		buffer.append(StringUtil.joinToStringBuffer(pc.getAssociationList(s),
+		buffer.append(StringUtil.joinToStringBuilder(pc.getAssociationList(s),
 				", "));
 		buffer.append(")");
 

@@ -48,7 +48,7 @@ public class CompareEqualByte extends TestChecker
 	}
 
     @Override
-	public StringBuffer scribe(StringBuffer buf)
+	public StringBuilder scribe(StringBuilder buf)
 	{
 		buf.append("a byte ");
 		buf.append(this.by);

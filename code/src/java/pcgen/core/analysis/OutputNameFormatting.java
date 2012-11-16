@@ -65,7 +65,7 @@ public class OutputNameFormatting
 			varArray.add(aPC.getVariableValue(token, ""));
 		}
 	
-		final StringBuffer result = new StringBuffer();
+		final StringBuilder result = new StringBuilder();
 		int varCount = 0;
 		int subIndex = preVarStr.indexOf('%');
 		int lastIndex = 0;
@@ -118,7 +118,7 @@ public class OutputNameFormatting
 	
 		if (po.getSafe(ObjectKey.NAME_PI))
 		{
-			final StringBuffer sb = new StringBuffer(aString.length() + 30);
+			final StringBuilder sb = new StringBuilder(aString.length() + 30);
 	
 			if (useHeader)
 			{

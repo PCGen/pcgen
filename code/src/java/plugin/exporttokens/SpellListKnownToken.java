@@ -63,7 +63,7 @@ public class SpellListKnownToken extends SpellListToken
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		StringBuffer retValue = new StringBuffer();
+		StringBuilder retValue = new StringBuilder();
 
 		SpellListTokenParams params =
 				new SpellListTokenParams(tokenSource,

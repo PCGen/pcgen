@@ -193,7 +193,7 @@ public class EqModCost
 
 					if (castClass != null)
 					{
-						final StringBuffer multiple = new StringBuffer(200);
+						final StringBuilder multiple = new StringBuilder(200);
 						String aString = castClass.get(StringKey.ITEMCREATE);
 
 						if (aString != null && aString.length() != 0)

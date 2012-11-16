@@ -213,7 +213,7 @@ public final class ExportHandler
 			br = new BufferedReader(isr);
 
 			// A Buffer to hold the result of the preparation
-			StringBuffer template = prepareTemplate(br);
+			StringBuilder template = prepareTemplate(br);
 
 			// Create a tokenizer based on EOL characters
 			// 03-Nov-2008 Karianna, changed to use line separator instead of /r/n
@@ -287,14 +287,14 @@ public final class ExportHandler
 	 * @param br The BufferedReader containing the template
 	 * @throws IOException
 	 */
-	private StringBuffer prepareTemplate(BufferedReader br) throws IOException
+	private StringBuilder prepareTemplate(BufferedReader br) throws IOException
 	{
 		// A pattern to replace || with | | to stop StringTokenizer from merging them
 		Pattern pat = Pattern.compile(Pattern.quote("||"));
 		String rep = Matcher.quoteReplacement("| |");
 
 		// Hold the results of the preparation 
-		StringBuffer inputLine = new StringBuffer();
+		StringBuilder inputLine = new StringBuilder();
 
 		String aString = br.readLine();
 		while (aString != null)
@@ -1600,7 +1600,7 @@ public final class ExportHandler
 	{
 		String splitStr[] = forToken.split(",");
 		List<String> result = new ArrayList<String>();
-		StringBuffer buf = new StringBuffer();
+		StringBuilder buf = new StringBuilder();
 		boolean inFormula = false;
 		for (String string : splitStr)
 		{
@@ -1616,7 +1616,7 @@ public final class ExportHandler
 				buf.append(",");
 				buf.append(string);
 				result.add(buf.toString());
-				buf = new StringBuffer();
+				buf = new StringBuilder();
 			}
 			else if (inFormula)
 			{
@@ -2869,7 +2869,7 @@ public final class ExportHandler
 	 */
 	private String correctOldFormatTag(String aString)
 	{
-		StringBuffer converted = new StringBuffer();
+		StringBuilder converted = new StringBuilder();
 
 		// Correct the old SPELLLIST Tag
 		if (aString.startsWith("SPELLIST"))
@@ -3493,7 +3493,7 @@ public final class ExportHandler
 						new FileInputStream(templateFile), "UTF-8"));
 
 			boolean betweenPipes = false;
-			StringBuffer textBetweenPipes = new StringBuffer();
+			StringBuilder textBetweenPipes = new StringBuilder();
 
 			// Starts with pipe pattern
 			Pattern pat1 = Pattern.compile("^\\Q|");
@@ -3602,7 +3602,7 @@ public final class ExportHandler
 	 * @return true if we processed successfully
 	 */
 	private boolean processPipedLine(PlayerCharacter[] PCs, String aLine,
-		StringBuffer buf, BufferedWriter out, boolean between)
+		StringBuilder buf, BufferedWriter out, boolean between)
 	{
 		final StringTokenizer aTok = new StringTokenizer(aLine, "|", false);
 
@@ -3642,7 +3642,7 @@ public final class ExportHandler
 
 				// We have finished dealing with section
 				// between the pipe characters so clear out the
-				// StringBuffer
+				// StringBuilder
 				int l = buf.length();
 				buf.delete(0, l);
 
@@ -3880,7 +3880,7 @@ public final class ExportHandler
 			else
 			{
 				int i;
-				final StringBuffer b = new StringBuffer();
+				final StringBuilder b = new StringBuilder();
 
 				int ignores = 0;
 				for (i = 0; i < _forThisString.length(); i++)
@@ -3953,7 +3953,7 @@ public final class ExportHandler
 
 			if (pTok.hasMoreTokens())
 			{
-				StringBuffer sBuf = new StringBuffer();
+				StringBuilder sBuf = new StringBuilder();
 				sBuf.append("In Party.print there is an unhandled case in a ");
 				sBuf.append("switch (the value is ").append(pTok.nextToken());
 				sBuf.append(".");

@@ -129,7 +129,7 @@ public class KitBio extends BaseKit
 	@Override
 	public String toString()
 	{
-		final StringBuffer info = new StringBuffer();
+		final StringBuilder info = new StringBuilder();
 
 		if (theCharacterName != null)
 		{

@@ -164,7 +164,7 @@ public abstract class PCGenTestCase extends TestCase
 			{
 				Logging.errorPrint("\n!!! Not OK !!! - unlabelled test case");
 
-				final StringBuffer message = new StringBuffer("  Expected: ");
+				final StringBuilder message = new StringBuilder("  Expected: ");
 				matches.scribe(message);
 				message.append("\n  but got: ").append(something).append('\n');
 
@@ -175,7 +175,7 @@ public abstract class PCGenTestCase extends TestCase
 		else if (!matches.check(something))
 		{
 
-			final StringBuffer message = new StringBuffer("\nExpected: ");
+			final StringBuilder message = new StringBuilder("\nExpected: ");
 			matches.scribe(message);
 			message.append("\nbut got: ").append(something).append('\n');
 			fail(message.toString());
@@ -196,7 +196,7 @@ public abstract class PCGenTestCase extends TestCase
 			{
 				Logging.errorPrint("\n!!! Not OK !!! - " + testCase);
 
-				final StringBuffer message = new StringBuffer("  Expected: ");
+				final StringBuilder message = new StringBuilder("  Expected: ");
 				matches.scribe(message);
 				message.append("\n  but got: ").append(something).append("\n");
 				
@@ -207,7 +207,7 @@ public abstract class PCGenTestCase extends TestCase
 		else if (!matches.check(something))
 		{
 
-			final StringBuffer message = new StringBuffer("\nExpected: ");
+			final StringBuilder message = new StringBuilder("\nExpected: ");
 			matches.scribe(message);
 			message.append("\nbut got: ").append(something);
 			message.append(" \nIn test ").append(testCase);

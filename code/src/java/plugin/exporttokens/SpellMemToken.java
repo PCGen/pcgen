@@ -86,7 +86,7 @@ public class SpellMemToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter aPC,
 		ExportHandler eh)
 	{
-		StringBuffer retValue = new StringBuffer();
+		StringBuilder retValue = new StringBuilder();
 
 		// New Token syntax - SPELLMEM.x instead of SPELLMEMx
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -511,7 +511,7 @@ public class SpellMemToken extends Token
 		final int spellLevel, String sString, String altLabel,
 		final PObject aObject, String bookName, CharacterSpell cs, Spell aSpell)
 	{
-		StringBuffer retValue = new StringBuffer();
+		StringBuilder retValue = new StringBuilder();
 
 		if ((aObject != null) && (cs != null) && cs.isSpecialtySpell(aPC)
 			&& (aObject instanceof PCClass))
@@ -551,7 +551,7 @@ public class SpellMemToken extends Token
 		PlayerCharacter aPC)
 	{
 		final HashMapToList<CDOMList<Spell>, Integer> tempHash = aPC.getLevelInfo(aSpell);
-		StringBuffer tempSource = new StringBuffer();
+		StringBuilder tempSource = new StringBuilder();
 		final Set<String> levelSet = new TreeSet<String>();
 
 		for (CDOMList<Spell> spellList : tempHash.getKeySet())

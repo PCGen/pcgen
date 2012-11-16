@@ -104,7 +104,7 @@ public final class EquipmentUtilities
 	 */
 	static String appendToName(final String aName, final String aString)
 	{
-		final StringBuffer aBuf = new StringBuffer(aName);
+		final StringBuilder aBuf = new StringBuilder(aName);
 		final int iLen = aBuf.length() - 1;
 
 		if (aBuf.charAt(iLen) == ')')

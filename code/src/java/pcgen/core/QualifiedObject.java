@@ -115,7 +115,7 @@ public class QualifiedObject<T> extends ConcretePrereqObject implements Qualifyi
 	@Override
 	public String toString()
 	{
-		StringBuffer result = new StringBuffer();
+		StringBuilder result = new StringBuilder();
 		result.append("Object:");
 		result.append(theObject.toString());
 		result.append(", Prereq:");

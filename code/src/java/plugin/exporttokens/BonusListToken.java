@@ -75,7 +75,7 @@ public class BonusListToken extends Token
 		String substring = "";
 		String typeSeparator = " ";
 		String delim = ", ";
-		StringBuffer returnString = new StringBuffer();
+		StringBuilder returnString = new StringBuilder();
 
 		if (bTok.hasMoreTokens())
 		{

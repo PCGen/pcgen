@@ -149,7 +149,7 @@ public class EqModSpellInfo
 			final int spellLevel, final int spellCasterLevel,
 			final Object[] spellMetamagicFeats, final int charges)
 	{
-		final StringBuffer spellInfo = new StringBuffer(100);
+		final StringBuilder spellInfo = new StringBuilder(100);
 		spellInfo.append("SPELLNAME[").append(theSpell.getKeyName()).append(
 				"] ");
 		spellInfo.append("CASTER[").append(spellCastingClass.getKeyName())

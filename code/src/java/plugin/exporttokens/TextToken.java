@@ -74,7 +74,7 @@ public class TextToken extends Token
 		aTok.nextToken(); //this should be VAR
 
 		String action = "";
-		StringBuffer varName = new StringBuffer();
+		StringBuilder varName = new StringBuilder();
 		if (aTok.hasMoreElements())
 		{
 			action = aTok.nextToken();
@@ -194,7 +194,7 @@ public class TextToken extends Token
 	{
 		String temp = value.toLowerCase();
 		String sentence[] = temp.split("\\.");
-		StringBuffer res = new StringBuffer(value.length());
+		StringBuilder res = new StringBuilder(value.length());
 		Pattern p = Pattern.compile("\\s*");
 		for (int i = 0; i < sentence.length; i++)
 		{
@@ -235,7 +235,7 @@ public class TextToken extends Token
 	{
 		String temp = value.toLowerCase();
 		char[] chars = temp.toCharArray();
-		StringBuffer res = new StringBuffer(value.length());
+		StringBuilder res = new StringBuilder(value.length());
 		boolean start = true;
 		for (int i = 0; i < chars.length; i++)
 		{

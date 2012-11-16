@@ -228,7 +228,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 **/
 	public String getParentIdPath()
 	{
-		final StringBuffer buf = new StringBuffer(50);
+		final StringBuilder buf = new StringBuilder(50);
 
 		// get all tokens and include the delimiter
 		try
@@ -274,7 +274,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 **/
 	public String getRootIdPath()
 	{
-		final StringBuffer buf = new StringBuffer(50);
+		final StringBuilder buf = new StringBuilder(50);
 		final StringTokenizer aTok = new StringTokenizer(id_path, Constants.EQUIP_SET_PATH_SEPARATOR, false);
 		final String result;
 

@@ -53,7 +53,7 @@ public class TemplateModifier
 	 */
 	public static String modifierString(PCTemplate pct, PlayerCharacter aPC)
 	{
-		StringBuffer mods = new StringBuffer(50); // More likely to be
+		StringBuilder mods = new StringBuilder(50); // More likely to be
 		// true than 16
 		// (the default)
 

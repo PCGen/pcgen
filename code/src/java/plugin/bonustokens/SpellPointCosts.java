@@ -118,7 +118,7 @@ public class SpellPointCosts extends BonusObj
 	protected String unparseToken(Object obj)
 	{
 		SpellPointCostInfo spInfo = (SpellPointCostInfo) obj;
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		sb.append(spInfo.getSpellPointPartFilter().toString());
 		sb.append(".");
 		sb.append(spInfo.getSpellPointPartFilterValue());

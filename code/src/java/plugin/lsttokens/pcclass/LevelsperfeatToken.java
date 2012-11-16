@@ -143,7 +143,7 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass>
 							+ " must be an integer >= 0");
 			return null;
 		}
-		StringBuffer result = new StringBuffer();
+		StringBuilder result = new StringBuilder();
 		result.append(lpf);
 		if (levelType != null && levelType.length() > 0)
 		{

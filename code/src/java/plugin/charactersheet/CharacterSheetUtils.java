@@ -154,7 +154,7 @@ public class CharacterSheetUtils
 	 */
 	public static String getTitle(String fullTitle, String pre, String post)
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		if (fullTitle.indexOf("(") > -1)
 		{
 			sb.append(pre);
@@ -191,7 +191,7 @@ public class CharacterSheetUtils
 	{
 		if (fullTitle.indexOf("(") > -1)
 		{
-			StringBuffer sb = new StringBuffer();
+			StringBuilder sb = new StringBuilder();
 			sb.append(pre);
 			sb.append(fullTitle.substring(fullTitle.indexOf("(")).trim());
 			sb.append(post);

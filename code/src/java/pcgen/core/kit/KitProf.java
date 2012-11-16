@@ -83,7 +83,7 @@ public final class KitProf extends BaseKit
 	public String toString()
 	{
 		final int maxSize = profList.size();
-		final StringBuffer info = new StringBuffer(maxSize * 10);
+		final StringBuilder info = new StringBuilder(maxSize * 10);
 
 		if ((getSafeCount() != 1) || (maxSize != 1))
 		{

@@ -191,7 +191,7 @@ public class DamageReduction extends ConcretePrereqObject implements
 
 	public String getLSTformat()
 	{
-		StringBuffer result = new StringBuffer();
+		StringBuilder result = new StringBuilder();
 		result.append(theReduction);
 		result.append('/');
 		result.append(theBypass);

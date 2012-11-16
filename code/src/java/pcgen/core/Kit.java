@@ -266,7 +266,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 */
 	public String getInfo(PlayerCharacter aPC)
 	{
-		StringBuffer info = new StringBuffer(255);
+		StringBuilder info = new StringBuilder(255);
 		info.append("<html>");
 		info.append("<b><font size=+1>");
 		info.append(OutputNameFormatting.piString(this, false));

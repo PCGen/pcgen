@@ -455,7 +455,7 @@ public class EqContainerwToken extends Token
 	 */
 	public static String getLongNameToken(Equipment eq)
 	{
-		StringBuffer retString = new StringBuffer();
+		StringBuilder retString = new StringBuilder();
 		int depth = eq.itemDepth();
 
 		while (depth > 0)

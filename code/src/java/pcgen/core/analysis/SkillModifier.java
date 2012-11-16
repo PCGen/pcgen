@@ -206,7 +206,7 @@ public final class SkillModifier
 		}
 
 		StringBuilder bonusDetails = new StringBuilder();
-		bonusDetails.append(StringUtil.joinToStringBuffer(explanation, " "));
+		bonusDetails.append(StringUtil.joinToStringBuilder(explanation, " "));
 		
 		// TODO: Need to add other bonuses which are not encoded as bonus
 		// objects

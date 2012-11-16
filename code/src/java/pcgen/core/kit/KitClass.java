@@ -58,7 +58,7 @@ public class KitClass extends BaseKit
 	@Override
 	public String toString()
 	{
-		StringBuffer ret = new StringBuffer(100);
+		StringBuilder ret = new StringBuilder(100);
 		ret.append(pcClass.getLSTformat(false));
 		if (subClass != null)
 		{

@@ -278,7 +278,7 @@ public class CharacterPanel extends FlippingSplitPane
 					pc.getSpellSupport(pcclass).getCastForLevel(j, Globals.getDefaultSpellBook(), true, true, pc);
 					pc.getSpellSupport(pcclass).getKnownForLevel(j, "null", pc);
 
-					StringBuffer sb = new StringBuffer();
+					StringBuilder sb = new StringBuilder();
 					sb.append(className).append(' ').append(j);
 					String title = sb.toString();
 					int spellList =

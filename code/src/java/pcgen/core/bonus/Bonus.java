@@ -264,7 +264,7 @@ public class Bonus
 
 				if (!result)
 				{
-					Logging.debugPrint(new StringBuffer().append(
+					Logging.debugPrint(new StringBuilder().append(
 							"Could not add type ").append(aString.substring(5))
 							.append(" to bonusType ").append(typeOfBonus)
 							.append(" in Bonus.newBonus").toString());
@@ -288,7 +288,7 @@ public class Bonus
 
 			if (!result)
 			{
-				Logging.debugPrint(new StringBuffer().append(
+				Logging.debugPrint(new StringBuilder().append(
 						"Could not parse token ").append(token).append(
 						" from bonusInfo ").append(bonusInfo).append(
 						" in BonusObj.newBonus.").toString());

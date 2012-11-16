@@ -284,7 +284,7 @@ public class Movement
 	@Override
 	public String toString()
 	{
-		final StringBuffer movelabel = new StringBuffer();
+		final StringBuilder movelabel = new StringBuilder();
 		// movementTypes can be empty if a race is created without a MOVE tag in 
 		// the LST editor
 		if (movementTypes != null && movementTypes.length > 0)

@@ -121,7 +121,7 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 
 				if (atLeastOneNonZero)
 				{
-					final StringBuffer newAbility = new StringBuffer();
+					final StringBuilder newAbility = new StringBuilder();
 					varTok = new StringTokenizer(description, "%", true);
 					int varCount = 0;
 

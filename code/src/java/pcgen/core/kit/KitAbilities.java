@@ -106,7 +106,7 @@ public final class KitAbilities extends BaseKit
 					if (choices != null)
 					{
 						sb.append(" (");
-						sb.append(StringUtil.joinToStringBuffer(choices, ", "));
+						sb.append(StringUtil.joinToStringBuilder(choices, ", "));
 						sb.append(')');
 					}
 				}

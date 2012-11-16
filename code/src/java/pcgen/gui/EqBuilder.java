@@ -1122,8 +1122,8 @@ final class EqBuilder extends JPanel
 			{
 				customName = aString;
 
-				StringBuffer oldName =
-					new StringBuffer("(").append(aNewEq.getItemNameFromModifiers()).append(")");
+				StringBuilder oldName =
+					new StringBuilder("(").append(aNewEq.getItemNameFromModifiers()).append(")");
 
 				//
 				// Replace illegal characters in old name
@@ -1715,7 +1715,7 @@ final class EqBuilder extends JPanel
 		//
 		// Show base item name
 		//
-		StringBuffer aInfo = new StringBuffer(140);
+		StringBuilder aInfo = new StringBuilder(140);
 		aInfo.append("Base Item: ").append(baseEquipment.getName()).append(Constants.LINE_SEPARATOR);
 
 		if (customName.length() != 0)
@@ -1744,7 +1744,7 @@ final class EqBuilder extends JPanel
 
 					if (!nwid.getWasCancelled())
 					{
-						StringBuffer modString = new StringBuffer(Constants.INTERNAL_EQMOD_WEAPON);
+						StringBuilder modString = new StringBuilder(Constants.INTERNAL_EQMOD_WEAPON);
 						modString.append("|DAMAGE=").append(nwid.getDamage());
 						modString.append("|CRITRANGE=").append(nwid.getCritRange());
 						modString.append("|CRITMULT=").append(nwid.getCritMultiplier());
@@ -2128,7 +2128,7 @@ final class EqBuilder extends JPanel
 		protected Object getCostValue(EquipmentModifier e) {
 			Object sRet;
 			int iPlus = e.getSafe(IntegerKey.PLUS);
-			StringBuffer eCost = new StringBuffer(20);
+			StringBuilder eCost = new StringBuilder(20);
 
 			if (iPlus != 0)
 			{

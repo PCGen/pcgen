@@ -85,7 +85,7 @@ public class SpellBook implements Cloneable
 	@Override
 	public String toString()
 	{
-		final StringBuffer result = new StringBuffer(name);
+		final StringBuilder result = new StringBuilder(name);
 		if (type == TYPE_SPELL_BOOK)
 		{
 			result.append(" [");

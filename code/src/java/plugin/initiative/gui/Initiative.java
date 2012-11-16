@@ -833,7 +833,7 @@ public class Initiative extends javax.swing.JPanel
 
 		if (isMassive)
 		{
-			StringBuffer sb = new StringBuffer();
+			StringBuilder sb = new StringBuilder();
 			SavingThrowDialog dialog =
 					new SavingThrowDialog(GMGenSystem.inst, true, cbt, 15,
 						SavingThrowDialog.FORT_SAVE);
@@ -962,7 +962,7 @@ public class Initiative extends javax.swing.JPanel
 
 			if (isEnough)
 			{
-				StringBuffer sb = new StringBuffer();
+				StringBuilder sb = new StringBuilder();
 				SavingThrowDialog dialog =
 						new SavingThrowDialog(GMGenSystem.inst, true, cbt, 15,
 							SavingThrowDialog.FORT_SAVE);
@@ -1830,7 +1830,7 @@ public class Initiative extends javax.swing.JPanel
 		int total = dialog.getTotal();
 		model = dialog.getSaveModel();
 
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		sb.append(dialog.getSaveAbbrev(dialog.getSaveType()));
 		sb.append(" save DC " + model.getDc());
 
@@ -2359,7 +2359,7 @@ public class Initiative extends javax.swing.JPanel
 				}
 
 				//Create a message out with the results
-				StringBuffer sb = new StringBuffer();
+				StringBuilder sb = new StringBuilder();
 				sb.append(dialog.getSaveAbbrev(dialog.getSaveType()));
 				sb.append(" save DC " + dc);
 
@@ -3224,7 +3224,7 @@ public class Initiative extends javax.swing.JPanel
 		for (int i = 0; i < initList.size(); i++)
 		{
 			InitHolder iH = initList.get(i);
-			StringBuffer sb = new StringBuffer();
+			StringBuilder sb = new StringBuilder();
 
 			if (iH instanceof Event)
 			{

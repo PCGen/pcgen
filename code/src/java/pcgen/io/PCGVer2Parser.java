@@ -5860,7 +5860,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 
 		//TODO:gorm - guestimate good starting buffer size
-		final StringBuffer buffer = new StringBuffer(1000);
+		final StringBuilder buffer = new StringBuilder(1000);
 		buffer.append(type);
 		buffer.append((VALUE_Y.equals(defined)) ? '=' : '|');
 		buffer.append(name);
@@ -5899,8 +5899,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		@Override
 		public String toString()
 		{
-			//TODO:gorm - optimize stringbuffer size
-			final StringBuffer buffer = new StringBuffer(1000);
+			//TODO:gorm - optimize StringBuilder size
+			final StringBuilder buffer = new StringBuilder(1000);
 			buffer.append('<').append(getName()).append('>').append(LINE_SEP);
 			buffer
 				.append("<text>").append(getText()).append("</text>").append(LINE_SEP); //$NON-NLS-1$//$NON-NLS-2$
@@ -6064,7 +6064,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			int nestedDepth = 0;
 			String tag = null;
-			final StringBuffer buffer = new StringBuffer(1000);
+			final StringBuilder buffer = new StringBuilder(1000);
 
 			while (tokens.hasMoreTokens())
 			{

@@ -101,7 +101,7 @@ public final class KitSkill extends BaseKit
 	@Override
 	public String toString()
 	{
-		final StringBuffer info = new StringBuffer(100);
+		final StringBuilder info = new StringBuilder(100);
 		if (skillList.size() > 1)
 		{
 			// This is a choice of skills.

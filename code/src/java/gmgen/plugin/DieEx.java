@@ -76,7 +76,7 @@ public class DieEx extends Die
 	public static void main(String[] args)
 	{
 		DieEx DieRoller;
-		StringBuffer temp = new StringBuffer();
+		StringBuilder temp = new StringBuilder();
 
 		for (int x = 0; x < args.length; x++)
 		{

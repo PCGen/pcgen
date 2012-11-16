@@ -406,7 +406,7 @@ public class PCClass extends PObject implements ClassFacade
 	 */
 	public String getFullDisplayClassName(PlayerCharacter pc)
 	{
-		final StringBuffer buf = new StringBuffer();
+		final StringBuilder buf = new StringBuilder();
 
 		buf.append(getDisplayClassName(pc));
 
@@ -567,8 +567,8 @@ public class PCClass extends PObject implements ClassFacade
 			divisor = rangeLevel;
 			if (divisor > 0)
 			{
-				StringBuffer aBuf =
-					new StringBuffer("FEAT|PCPOOL|")
+				StringBuilder aBuf =
+					new StringBuilder("FEAT|PCPOOL|")
 						.append("max(CL");
 				// Make sure we only take off the startlevel value once
 				if (this == aPC.getClassKeyed(aPC.getLevelInfoClassKeyName(0)))
@@ -623,12 +623,12 @@ public class PCClass extends PObject implements ClassFacade
 	@Override
 	public String getPCCText()
 	{
-		final StringBuffer pccTxt = new StringBuffer(200);
+		final StringBuilder pccTxt = new StringBuilder(200);
 		pccTxt.append("CLASS:").append(getDisplayName());
 		pccTxt.append("\t");
 		pccTxt.append(PrerequisiteWriter.prereqsToString(this));
 		pccTxt.append("\t");
-		pccTxt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
+		pccTxt.append(StringUtil.joinToStringBuilder(Globals.getContext().unparse(
 				this), "\t"));
 
 		// now all the level-based stuff
@@ -639,7 +639,7 @@ public class PCClass extends PObject implements ClassFacade
 			pccTxt.append(lineSep).append(me.getKey()).append('\t');
 			pccTxt.append(PrerequisiteWriter.prereqsToString(me.getValue()));
 			pccTxt.append("\t");
-			pccTxt.append(StringUtil.joinToStringBuffer(Globals.getContext()
+			pccTxt.append(StringUtil.joinToStringBuilder(Globals.getContext()
 					.unparse(me.getValue()), "\t"));
 		}
 

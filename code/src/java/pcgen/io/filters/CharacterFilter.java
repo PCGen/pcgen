@@ -102,8 +102,8 @@ public class CharacterFilter implements OutputFilter
 		if ((outputFilter != null) && (!outputFilter.isEmpty())
 			&& aString != null)
 		{
-			final StringBuffer xlatedString =
-					new StringBuffer(aString.length());
+			final StringBuilder xlatedString =
+					new StringBuilder(aString.length());
 
 			for (int i = 0; i < aString.length(); i++)
 			{

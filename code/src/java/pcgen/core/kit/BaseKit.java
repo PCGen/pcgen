@@ -101,7 +101,7 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 		while (evalInd != -1)
 		{
 			String evalStr = aValue.substring(evalInd);
-			StringBuffer modString = new StringBuffer();
+			StringBuilder modString = new StringBuilder();
 
 			modString.append(aValue.substring(0, evalInd));
 

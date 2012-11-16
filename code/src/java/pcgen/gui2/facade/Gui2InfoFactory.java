@@ -477,7 +477,7 @@ public class Gui2InfoFactory implements InfoFactory
 		if (ability.getSafeSizeOfMapFor(MapKey.ASPECT) > 0)
 		{
 			Set<AspectName> aspectKeys = ability.getKeysFor(MapKey.ASPECT);
-			StringBuffer buff = new StringBuffer();
+			StringBuilder buff = new StringBuilder();
 			for (AspectName key : aspectKeys)
 			{
 				if (buff.length() > 0)
@@ -1272,7 +1272,7 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 		Race race = (Race) raceFacade;
-		final StringBuffer retString = new StringBuffer();
+		final StringBuilder retString = new StringBuilder();
 
 		for (PCStat stat : pc.getStatSet())
 		{
@@ -1671,9 +1671,9 @@ public class Gui2InfoFactory implements InfoFactory
 				set.add(OutputNameFormatting.piString(d, false));
 			}
 		}
-		final StringBuffer piString = new StringBuffer(100);
+		final StringBuilder piString = new StringBuilder(100);
 		//piString.append("<html>"); //$NON-NLS-1$
-		piString.append(StringUtil.joinToStringBuffer(set, ", ")); //$NON-NLS-1$
+		piString.append(StringUtil.joinToStringBuilder(set, ", ")); //$NON-NLS-1$
 		//piString.append("</html>"); //$NON-NLS-1$
 		return piString.toString();
 		
@@ -1692,8 +1692,8 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			set.add(p.toString());
 		}
-		final StringBuffer piString = new StringBuffer(100);
-		piString.append(StringUtil.joinToStringBuffer(set, ",")); //$NON-NLS-1$
+		final StringBuilder piString = new StringBuilder(100);
+		piString.append(StringUtil.joinToStringBuilder(set, ",")); //$NON-NLS-1$
 		return piString.toString();
 	
 	}
@@ -1743,7 +1743,7 @@ public class Gui2InfoFactory implements InfoFactory
 				}
 			}
 
-			result.append(StringUtil.joinToStringBuffer(choices, ","));
+			result.append(StringUtil.joinToStringBuilder(choices, ","));
 		}
 		return result.toString();
 	}

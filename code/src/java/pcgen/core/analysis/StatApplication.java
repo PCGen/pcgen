@@ -78,7 +78,7 @@ public class StatApplication
 		boolean allowStacks = SettingsHandler.getGame().isBonusStatAllowsStack();
 		for (int ix = 0; ix < statsToChoose; ++ix)
 		{
-			final StringBuffer sStats = new StringBuffer();
+			final StringBuilder sStats = new StringBuilder();
 			final List<String> selectableStats = new ArrayList<String>();
 	
 			for (PCStat aStat : aPC.getStatSet())

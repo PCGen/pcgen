@@ -48,7 +48,7 @@ public class CompareLessThan extends TestChecker
 	}
 
     @Override
-	public StringBuffer scribe(StringBuffer buf)
+	public StringBuilder scribe(StringBuilder buf)
 	{
 		buf.append("a value less than <");
 		buf.append(this.comp);

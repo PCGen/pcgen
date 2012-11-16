@@ -48,7 +48,7 @@ public class CompareEqualShort extends TestChecker
 	}
 
     @Override
-	public StringBuffer scribe(StringBuffer buf)
+	public StringBuilder scribe(StringBuilder buf)
 	{
 		buf.append("a short ");
 		buf.append(this.sh);

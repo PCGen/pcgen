@@ -231,7 +231,7 @@ public class Prerequisite implements Cloneable
 	@Override
 	public String toString()
 	{
-		final StringBuffer buf = new StringBuffer();
+		final StringBuilder buf = new StringBuilder();
 
 		buf.append("<"); //$NON-NLS-1$
 		buf.append(LanguageBundle.getString("Prerequisite.prereq_tag")); //$NON-NLS-1$
@@ -364,7 +364,7 @@ public class Prerequisite implements Cloneable
 	 */
 	public String getDescription(final boolean shortForm)
 	{
-		final StringBuffer buf = new StringBuffer();
+		final StringBuilder buf = new StringBuilder();
 
 		if (categoryName != null && !shortForm)
 		{

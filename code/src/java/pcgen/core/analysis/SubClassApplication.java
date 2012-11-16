@@ -274,7 +274,7 @@ public class SubClassApplication
 
 	private static String getSupplementalDisplayInfo(SubClass sc) {
 		boolean added = false;
-		StringBuffer displayInfo = new StringBuffer();
+		StringBuilder displayInfo = new StringBuilder();
 		if (sc.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) != 0) {
 			displayInfo.append("SPECIALTY SPELLS:").append(
 					sc.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY));

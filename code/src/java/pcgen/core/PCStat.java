@@ -41,7 +41,7 @@ public final class PCStat extends PObject implements StatFacade
 	@Override
 	public String toString()
 	{
-		final StringBuffer sb = new StringBuffer(30);
+		final StringBuilder sb = new StringBuilder(30);
 		sb.append("stat:").append(getAbb()).append(' ');
 		sb.append("formula:").append(getSafe(FormulaKey.STAT_MOD)).append(' ');
 		boolean rolled = getSafe(ObjectKey.ROLLED);

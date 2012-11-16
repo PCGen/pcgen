@@ -59,7 +59,7 @@ public class MaxSpellLevelToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		StringBuffer retValue = new StringBuffer();
+		StringBuilder retValue = new StringBuilder();
 		String[] tokens = tokenSource.split("\\.");
 
 		if (tokens.length != 2)

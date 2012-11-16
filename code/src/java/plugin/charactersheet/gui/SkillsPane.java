@@ -389,12 +389,12 @@ public class SkillsPane extends javax.swing.JPanel
 			String total =
 					Integer.toString(SkillRankControl.getTotalRank(pc, skill).intValue()
 						+ SkillModifier.modifier(skill, pc).intValue());
-			StringBuffer abSb = new StringBuffer();
+			StringBuilder abSb = new StringBuilder();
 			abSb.append(SKILL_TOKEN).append('.').append(i).append('.').append(
 				ABMOD_TOKEN);
 			String abilityMod = pcOut.getExportToken(abSb.toString());
 			String ranks = SkillRankControl.getTotalRank(pc, skill).toString();
-			StringBuffer miscSb = new StringBuffer();
+			StringBuilder miscSb = new StringBuilder();
 			miscSb.append(SKILL_TOKEN).append('.').append(i).append('.')
 				.append(MISC_TOKEN);
 			String miscMod = pcOut.getExportToken(miscSb.toString());

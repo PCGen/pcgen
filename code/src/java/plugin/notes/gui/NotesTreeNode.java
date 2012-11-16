@@ -451,7 +451,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 				{
 					BufferedReader br =
 							new BufferedReader(new FileReader(notes));
-					StringBuffer sb = new StringBuffer();
+					StringBuilder sb = new StringBuilder();
 					String newLine;
 
 					do 
@@ -519,7 +519,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 				{
 					BufferedReader br =
 							new BufferedReader(new FileReader(notes));
-					StringBuffer sb = new StringBuffer();
+					StringBuilder sb = new StringBuilder();
 					String newLine;
 
 					do

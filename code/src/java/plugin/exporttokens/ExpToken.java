@@ -106,7 +106,7 @@ public class ExpToken extends Token
 	 */
 	public static String getFactorToken(PlayerCharacter pc)
 	{
-		StringBuffer xpFactor = new StringBuffer(5);
+		StringBuilder xpFactor = new StringBuilder(5);
 		xpFactor.append((int) (pc.multiclassXPMultiplier() * 100.0));
 		xpFactor.append('%');
 
@@ -130,7 +130,7 @@ public class ExpToken extends Token
 	 */
 	public static String getPenaltyToken(PlayerCharacter pc)
 	{
-		StringBuffer xpFactor = new StringBuffer(5);
+		StringBuilder xpFactor = new StringBuilder(5);
 		xpFactor.append(100 - (int) (pc.multiclassXPMultiplier() * 100.0));
 		xpFactor.append('%');
 

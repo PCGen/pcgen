@@ -44,7 +44,7 @@ public final class SAProcessor implements QualifiedActor<SpecialAbility, Special
 
 			if (pc.hasAssociations(source))
 			{
-				sb.append(StringUtil.joinToStringBuffer(
+				sb.append(StringUtil.joinToStringBuilder(
 					pc.getAssociationList(source), ", "));
 			}
 			else

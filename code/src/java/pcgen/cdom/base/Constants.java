@@ -643,7 +643,7 @@ public interface Constants
 
 	/**
 	 * Used when initialising a string buffer for and error message.  */
-	int ARBITRARY_INITIAL_STRINGBUFFER_LENGTH = 256;
+	int ARBITRARY_INITIAL_StringBuilder_LENGTH = 256;
 
 	/**
 	 * Used when sorting skills to move some items right to the end of the

@@ -89,7 +89,7 @@ public final class BioSet extends PObject
 	 */
 	public String getRacePCCText(final String region, final String race)
 	{
-		final StringBuffer sb = new StringBuffer(1000);
+		final StringBuilder sb = new StringBuilder(1000);
 		sb.append("REGION:").append(region).append("\n\n");
 
 		Region r = Region.getConstant(region);
@@ -263,7 +263,7 @@ public final class BioSet extends PObject
 	@Override
 	public String toString()
 	{
-		final StringBuffer sb = new StringBuffer(100);
+		final StringBuilder sb = new StringBuilder(100);
 		sb.append("AgeMap: ").append(ageMap.toString()).append("\n");
 		sb.append("UserMap: ").append(userMap.toString()).append("\n");
 
@@ -392,7 +392,7 @@ public final class BioSet extends PObject
 
 	private String appendAgesetInfo(Region region,
 			final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets,
-			final StringBuffer sb)
+			final StringBuilder sb)
 	{
 		Set<Integer> ageIndices = new TreeSet<Integer>();
 		ageIndices.addAll(ageSets.keySet());

@@ -1404,7 +1404,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		 */
 		String getSortKey()
 		{
-			StringBuffer sortKey = new StringBuffer();
+			StringBuilder sortKey = new StringBuilder();
 			if (parent != null)
 			{
 				sortKey.append(parent.getSortKey());

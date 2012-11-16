@@ -906,7 +906,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 	@Deprecated
 	public String getCritterType()
 	{
-		final StringBuffer critterType = new StringBuffer();
+		final StringBuilder critterType = new StringBuilder();
 
 		// Not too sure about this if, but that's what the previous code
 		// implied...
@@ -1064,7 +1064,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 			return custom;
 		}
 
-		final StringBuffer displayName = new StringBuffer().append(getName());
+		final StringBuilder displayName = new StringBuilder().append(getName());
 
 		// TODO - i18n
 		switch (SettingsHandler.getNameDisplayStyle())
@@ -1498,7 +1498,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		// information in addition to the total PC level
 		displayClass = classFacet.getCount(id) > 1 ? getFullDisplayClassName() : getDisplayClassName();
 
-		return new StringBuffer().append(getName()).append(" the ").append(levels).append(getOrdinal(levels))
+		return new StringBuilder().append(getName()).append(" the ").append(levels).append(getOrdinal(levels))
 				.append(" level ").append(getDisplayRaceName()).append(' ').append(displayClass).toString();
 	}
 
@@ -2892,7 +2892,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		{
 			if (lastVariable.equals(variableString))
 			{
-				StringBuffer sb = new StringBuffer(Constants.ARBITRARY_INITIAL_STRINGBUFFER_LENGTH);
+				StringBuilder sb = new StringBuilder(Constants.ARBITRARY_INITIAL_StringBuilder_LENGTH);
 				sb.append("This is a deliberate warning message, not an error - ");
 				sb.append("Avoiding infinite loop in getVariable: repeated lookup ");
 				sb.append("of \"").append(lastVariable).append("\" at ").append(value);
@@ -3395,7 +3395,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		int raceBAB = 0;
 
 		final List<Integer> ab = new ArrayList<Integer>(10);
-		final StringBuffer attackString = new StringBuffer();
+		final StringBuilder attackString = new StringBuilder();
 
 		// Assume a max of 10 attack cycles
 		for (int total = 0; total < 10; ++total)
@@ -7368,7 +7368,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 			return "Nobody";
 		}
 
-		final StringBuffer buf = new StringBuffer();
+		final StringBuilder buf = new StringBuilder();
 
 		boolean first = true;
 		for (PCClass c : getClassSet())

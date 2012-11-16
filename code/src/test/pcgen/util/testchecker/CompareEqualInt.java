@@ -48,7 +48,7 @@ public class CompareEqualInt extends TestChecker
 	}
 
     @Override
-	public StringBuffer scribe(StringBuffer buf)
+	public StringBuilder scribe(StringBuilder buf)
 	{
 		buf.append("an int ");
 		buf.append(this.i);

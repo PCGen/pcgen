@@ -213,7 +213,7 @@ public final class Equipment extends PObject implements Serializable,
 	{
 		if (appliedBonusName.length() > 0)
 		{
-			final StringBuffer aString = new StringBuffer();
+			final StringBuilder aString = new StringBuilder();
 			aString.append(" [").append(appliedBonusName).append("]");
 
 			return aString.toString();
@@ -940,7 +940,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		// make string (BASECOST/X) which will be substituted into
 		// the cost string which is then converted to a number
-		StringBuffer sB = new StringBuffer("(BASECOST/");
+		StringBuilder sB = new StringBuilder("(BASECOST/");
 		sB.append(getSafe(IntegerKey.BASE_QUANTITY));
 		sB.append(")");
 		String s = mat.replaceAll(sB.toString());
@@ -1069,7 +1069,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public String getInterestingDisplayString(final PlayerCharacter aPC)
 	{
-		final StringBuffer s = new StringBuffer();
+		final StringBuilder s = new StringBuilder();
 		String t = getSpecialProperties(aPC);
 
 		if (t == null)
@@ -1223,7 +1223,7 @@ public final class Equipment extends PObject implements Serializable,
 		splitModListByFormatCat(modList, modListByFC);
 		splitModListByFormatCat(altModList, altModListByFC);
 
-		final StringBuffer itemName = new StringBuffer();
+		final StringBuilder itemName = new StringBuilder();
 
 		// Add in front eq mods
 		int fcf = EqModFormatCat.FRONT.ordinal();
@@ -1371,7 +1371,7 @@ public final class Equipment extends PObject implements Serializable,
 	private String buildEqModDesc(List<EquipmentModifier> commonList,
 		List<EquipmentModifier> modList, List<EquipmentModifier> altModList)
 	{
-		StringBuffer desc = new StringBuffer();
+		StringBuilder desc = new StringBuilder();
 
 		String commonDesc = getNameFromModifiers(commonList);
 		String modDesc = getNameFromModifiers(modList);
@@ -1912,7 +1912,7 @@ public final class Equipment extends PObject implements Serializable,
 	public String getRawSpecialProperties()
 	{
 		//CONSIDER standardize this with other joins?
-		final StringBuffer retString = new StringBuffer();
+		final StringBuilder retString = new StringBuilder();
 		boolean first = true;
 		for (SpecialProperty sprop : getSafeListFor(ListKey.SPECIAL_PROPERTIES))
 		{
@@ -2068,7 +2068,7 @@ public final class Equipment extends PObject implements Serializable,
 				StringUtil.join(
 					getSpecialAbilityTimesList(getSpecialAbilityList(
 						altModList, aPC)), ", ");
-		final StringBuffer sp = new StringBuffer();
+		final StringBuilder sp = new StringBuilder();
 
 		boolean first = true;
 		for (SpecialProperty sprop : getSafeListFor(ListKey.SPECIAL_PROPERTIES))
@@ -2711,7 +2711,7 @@ public final class Equipment extends PObject implements Serializable,
 		final String aName, final Object anObj, final boolean bPrimary)
 	{
 
-		StringBuffer sB = new StringBuffer(aType.toUpperCase());
+		StringBuilder sB = new StringBuilder(aType.toUpperCase());
 		sB.append('.');
 		sB.append(aName.toUpperCase());
 		sB.append('.');
@@ -3051,7 +3051,7 @@ public final class Equipment extends PObject implements Serializable,
 	public String formatSaveLine(final char sep, final char endPart)
 	{
 
-		final StringBuffer sbuf = new StringBuffer(100);
+		final StringBuilder sbuf = new StringBuilder(100);
 
 		final Equipment base;
 
@@ -3410,8 +3410,8 @@ public final class Equipment extends PObject implements Serializable,
 
 			if (tokenCount > 0)
 			{
-				final StringBuffer retString =
-						new StringBuffer(moveString.length());
+				final StringBuilder retString =
+						new StringBuilder(moveString.length());
 
 				for (int i = 0; i < tokenCount; ++i)
 				{
@@ -3910,14 +3910,14 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public void updateContainerContentsString(final PlayerCharacter pc)
 	{
-		final StringBuffer tempStringBuffer =
-				new StringBuffer(getChildCount() * 20);
+		final StringBuilder tempStringBuilder =
+				new StringBuilder(getChildCount() * 20);
 
 		// Make sure there's no bug here.
 		if (pc != null && acceptsChildren()
 			&& (getContainedWeight(pc, true) >= 0.0f))
 		{
-			tempStringBuffer.append(
+			tempStringBuilder.append(
 				Globals.getGameModeUnitSet().displayWeightInUnitSet(
 					getContainedWeight(pc, true).doubleValue())).append(
 				Globals.getGameModeUnitSet().getWeightUnit());
@@ -3925,8 +3925,8 @@ public final class Equipment extends PObject implements Serializable,
 		else
 		{
 			// have to put something
-			tempStringBuffer.append("0.0 ");
-			tempStringBuffer.append(Globals.getGameModeUnitSet()
+			tempStringBuilder.append("0.0 ");
+			tempStringBuilder.append(Globals.getGameModeUnitSet()
 				.getWeightUnit());
 		}
 
@@ -3936,16 +3936,16 @@ public final class Equipment extends PObject implements Serializable,
 
 			if (anEquip.getQty() > 0.0f)
 			{
-				tempStringBuffer.append(", ");
-				tempStringBuffer.append(BigDecimalHelper.trimZeros(anEquip
+				tempStringBuilder.append(", ");
+				tempStringBuilder.append(BigDecimalHelper.trimZeros(anEquip
 					.getQty().toString()));
-				tempStringBuffer.append(" ");
+				tempStringBuilder.append(" ");
 				// karianna os bug 1414564
-				tempStringBuffer.append(anEquip.getOutputName());
+				tempStringBuilder.append(anEquip.getOutputName());
 			}
 		}
 
-		containerContentsString = tempStringBuffer.toString();
+		containerContentsString = tempStringBuilder.toString();
 	}
 
 	/**
@@ -3999,7 +3999,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		final List<String> typeList = typeList(bPrimary);
 		final int typeSize = typeList.size();
-		final StringBuffer aType = new StringBuffer(typeSize * 5); // Just a
+		final StringBuilder aType = new StringBuilder(typeSize * 5); // Just a
 		// guess.
 
 		for (String s : typeList)
@@ -4184,7 +4184,7 @@ public final class Equipment extends PObject implements Serializable,
 	private String getEqModifierString(final boolean bPrimary)
 	{
 		final List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
-		final StringBuffer aString = new StringBuffer(eqModList.size() * 10);
+		final StringBuilder aString = new StringBuilder(eqModList.size() * 10);
 
 		for (EquipmentModifier eqMod : eqModList)
 		{
@@ -4293,7 +4293,7 @@ public final class Equipment extends PObject implements Serializable,
 				new ArrayList<EquipmentModifier>(eqModList);
 		Globals.sortPObjectList(eqList);
 
-		final StringBuffer sMod = new StringBuffer(70);
+		final StringBuilder sMod = new StringBuilder(70);
 
 		for (EquipmentModifier eqMod : eqList)
 		{
@@ -4745,7 +4745,7 @@ public final class Equipment extends PObject implements Serializable,
 		//
 		//		final String aType = super.getType();
 		//		final StringTokenizer aTok = new StringTokenizer(aType, ".");
-		//		final StringBuffer aCleaned = new StringBuffer(aType.length());
+		//		final StringBuilder aCleaned = new StringBuilder(aType.length());
 		//		aCleaned.append(".CLEAR");
 		//
 		//		while (aTok.hasMoreTokens()) {
@@ -5187,13 +5187,13 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	private void updateContainerCapacityString()
 	{
-		final StringBuffer tempStringBuffer = new StringBuffer();
+		final StringBuilder tempStringBuilder = new StringBuilder();
 		boolean comma = false;
 
 		BigDecimal weightCap = get(ObjectKey.CONTAINER_WEIGHT_CAPACITY);
 		if (weightCap != null && !Capacity.UNLIMITED.equals(weightCap))
 		{
-			tempStringBuffer.append(weightCap).append(' ').append(
+			tempStringBuilder.append(weightCap).append(' ').append(
 				Globals.getGameModeUnitSet().getWeightUnit());
 			comma = true;
 		}
@@ -5205,26 +5205,26 @@ public final class Equipment extends PObject implements Serializable,
 			{
 				if (comma)
 				{
-					tempStringBuffer.append(", ");
+					tempStringBuilder.append(", ");
 					comma = false;
 				}
 
 				BigDecimal capValue = c.getCapacity();
 				if (!Capacity.UNLIMITED.equals(capValue))
 				{
-					tempStringBuffer.append(capValue).append(' ');
-					tempStringBuffer.append(c.getType());
+					tempStringBuilder.append(capValue).append(' ');
+					tempStringBuilder.append(c.getType());
 					comma = true;
 				}
 				else if (c.getType() != null)
 				{
 					comma = true;
-					tempStringBuffer.append(c.getType());
+					tempStringBuilder.append(c.getType());
 				}
 			}
 		}
 
-		containerCapacityString = tempStringBuffer.toString();
+		containerCapacityString = tempStringBuilder.toString();
 	}
 
 	/**

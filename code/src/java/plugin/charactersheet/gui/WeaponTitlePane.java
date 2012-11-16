@@ -230,15 +230,15 @@ public class WeaponTitlePane extends JPanel
 		{
 			star = STAR;
 		}
-		weaponTitle.setText(CharacterSheetUtils.getTitle(new StringBuffer(eq
+		weaponTitle.setText(CharacterSheetUtils.getTitle(new StringBuilder(eq
 			.longName()).append(eq.getAppliedName()).toString(), star, BLANK));
 		weaponSubTitle.setText(CharacterSheetUtils
-			.getSubTitle(new StringBuffer(eq.longName()).append(
+			.getSubTitle(new StringBuilder(eq.longName()).append(
 				eq.getAppliedName()).toString()));
 		currentHand.setText(WeaponToken.getHandToken(eq));
 		weaponSize.setText(WeaponToken.getSizeToken(eq));
 		damageType.setText(WeaponToken.getTypeToken(eq));
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		critical.setText(sb.append(WeaponToken.getCritToken(pc, eq))
 			.append('/').append('x').append(WeaponToken.getMultToken(pc, eq))
 			.toString());

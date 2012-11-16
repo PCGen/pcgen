@@ -160,9 +160,9 @@ public class SpellPoint
 	{
 		Map<String, Integer> spCost = getSpellPointCostActualParts(sp);
 		int totalSpellPoints = getSpellPointCostActual(aPC, sp);
-		StringBuffer sb = new StringBuffer();
-		StringBuffer sb2 = new StringBuffer();
-		StringBuffer sb3 = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
+		StringBuilder sb2 = new StringBuilder();
+		StringBuilder sb3 = new StringBuilder();
 
 		int bonus = 0;
 		int tempbonus = 0;

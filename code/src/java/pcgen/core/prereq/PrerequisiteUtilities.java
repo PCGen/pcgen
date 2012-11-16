@@ -81,7 +81,7 @@ public final class PrerequisiteUtilities
 			return "";
 		}
 
-		final StringBuffer pString = new StringBuffer(aList.size() * 20);
+		final StringBuilder pString = new StringBuilder(aList.size() * 20);
 
 		final List<Prerequisite> newList = new ArrayList<Prerequisite>();
 		boolean first = true;

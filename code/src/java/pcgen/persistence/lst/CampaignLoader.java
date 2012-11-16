@@ -135,7 +135,7 @@ public class CampaignLoader extends LstLineFileLoader
 			List<String> copyright = campaign.getListFor(ListKey.SECTION_15);
 			if (copyright != null)
 			{
-				StringBuffer sec15 = Globals.getSection15();
+				StringBuilder sec15 = Globals.getSection15();
 				sec15.append("<br><b>Source Material:</b>");
 				sec15.append(SourceFormat.getFormattedString(campaign,
 						SourceFormat.LONG, true));

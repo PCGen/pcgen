@@ -96,7 +96,7 @@ public class ListPane extends javax.swing.JPanel
 		if (list.size() > 0)
 		{
 			setVisible(true);
-			StringBuffer sb = new StringBuffer();
+			StringBuilder sb = new StringBuilder();
 			for (int i = 0; i < list.size(); i++)
 			{
 				if (i > 0)

@@ -57,7 +57,7 @@ public class PCSizeIntEQTermEvaluator
 			if (ref != null)
 			{
 				String profName = ref.resolvesTo().getKeyName();
-				StringBuffer sB = new StringBuffer("WEAPONPROF=");
+				StringBuilder sB = new StringBuilder("WEAPONPROF=");
 				sB.append(profName);
 
 				modSize = (int) pc.getTotalBonusTo(sB.toString(), "PCSIZE");
@@ -66,7 +66,7 @@ public class PCSizeIntEQTermEvaluator
 			// loops for each equipment type
 			for ( String eqType : eq.typeList() )
 			{
-				final StringBuffer sB = new StringBuffer("WEAPONPROF=TYPE.");
+				final StringBuilder sB = new StringBuilder("WEAPONPROF=TYPE.");
 				sB.append(eqType);
 
 				// get the type bonus (ex TYPE.MARTIAL)

@@ -745,7 +745,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			{
 				final int a = pc.getSpellSupport(aClass).getKnownForLevel(i, "null", pc);
 				final int bonus = pc.getSpellSupport(aClass).getSpecialtyKnownForLevel(i, pc);
-				StringBuffer bString = new StringBuffer();
+				StringBuilder bString = new StringBuilder();
 
 				if (bonus > 0)
 				{
@@ -777,7 +777,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		if (pc.hasAssocs(aClass, AssociationKey.SPECIALTY) || pc.hasDomains())
 		{
 			boolean needComma = false;
-			StringBuffer schoolInfo = new StringBuffer(); 
+			StringBuilder schoolInfo = new StringBuilder(); 
 			String spec = pc.getAssoc(aClass, AssociationKey.SPECIALTY);
 			if (spec != null)
 			{

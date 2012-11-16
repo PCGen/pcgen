@@ -346,7 +346,7 @@ public class EquipmentPane extends JPanel
 			JLabel totalWt = new JLabel();
 			totalWt.setFont(new java.awt.Font(DIALOG, 0, 10));
 			//TODO: move in to the EqToken
-			StringBuffer sb = new StringBuffer();
+			StringBuilder sb = new StringBuilder();
 			sb.append('(').append(
 				Globals.getGameModeUnitSet().displayWeightInUnitSet(
 					eq.qty() * eq.getWeightAsDouble(pc))).append(')');
@@ -371,7 +371,7 @@ public class EquipmentPane extends JPanel
 			//TODO: move in to the EqToken
 			BigDecimal bdTotalCost =
 					eq.getCost(pc).multiply(new BigDecimal(eq.qty()));
-			StringBuffer sb = new StringBuffer();
+			StringBuilder sb = new StringBuilder();
 			sb.append('(').append(BigDecimalHelper.trimZeros(bdTotalCost))
 				.append(')');
 			totalCost.setText(sb.toString());

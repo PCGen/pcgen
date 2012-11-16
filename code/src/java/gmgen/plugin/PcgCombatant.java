@@ -401,7 +401,7 @@ public class PcgCombatant extends Combatant
 		{
 			if (serial < pc.getSerial() || htmlString == null)
 			{
-				StringBuffer statBuf = new StringBuffer();
+				StringBuilder statBuf = new StringBuilder();
 
 				statBuf.append("<html>");
 				statBuf.append(getStatBlockHeader());
@@ -455,7 +455,7 @@ public class PcgCombatant extends Combatant
 
 		protected String getStatBlockCore()
 		{
-			StringBuffer statBuf = new StringBuffer();
+			StringBuilder statBuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 
 			statBuf.append("<font class='type'>CR</font> ");
@@ -742,7 +742,7 @@ public class PcgCombatant extends Combatant
 
 		protected String getStatBlockHeader()
 		{
-			StringBuffer statBuf = new StringBuffer();
+			StringBuilder statBuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 
 			statBuf.append("<head><title>");
@@ -768,7 +768,7 @@ public class PcgCombatant extends Combatant
 
 		protected String getStatBlockLinePossessions()
 		{
-			StringBuffer statBuf = new StringBuffer();
+			StringBuilder statBuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 
 			statBuf.append("<p><font class='type'>Possessions:</font>&nbsp;");
@@ -780,7 +780,7 @@ public class PcgCombatant extends Combatant
 
 		protected String getStatBlockLineSkills()
 		{
-			StringBuffer statBuf = new StringBuffer();
+			StringBuilder statBuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 
 			statBuf
@@ -839,7 +839,7 @@ public class PcgCombatant extends Combatant
 
 		protected String getStatBlockLineSpells()
 		{
-			StringBuffer statBuf = new StringBuffer();
+			StringBuilder statBuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 			if (pc.hasDomains())
 			{
@@ -1034,7 +1034,7 @@ public class PcgCombatant extends Combatant
 			return statBuf.toString();
 		}
 
-		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuffer statBuf, ArrayList<PObject> classList, String spellBookName)
+		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuilder statBuf, ArrayList<PObject> classList, String spellBookName)
 		{
 			Set<PObject> classes = new HashSet<PObject>();
 			classes.addAll(classList);
@@ -1049,7 +1049,7 @@ public class PcgCombatant extends Combatant
 						PCClass theClass = (PCClass) pObj;
 						maxLevel = (aPC.getLevel(theClass) ==0) ? maxLevel: aPC.getSpellSupport(theClass).getMaxCastLevel(aPC);
 					}
-					StringBuffer spellBuff = new StringBuffer();
+					StringBuilder spellBuff = new StringBuilder();
 					for (int level = 0; level <=maxLevel; level++)
 					{
 						List<CharacterSpell> spellList = aPC.getCharacterSpells(pObj, null, spellBookName, level);
@@ -1075,11 +1075,11 @@ public class PcgCombatant extends Combatant
 								spellBuff.append("\\");
 								spellBuff.append(aPC.parseSpellString(cs, aPC.getDescription(spell)));
 								spellBuff.append("\\");
-								spellBuff.append(StringUtil.joinToStringBuffer(spell.getListFor(ListKey.RANGE), ", "));
+								spellBuff.append(StringUtil.joinToStringBuilder(spell.getListFor(ListKey.RANGE), ", "));
 								spellBuff.append("\\");
 								spellBuff.append(spell.getListAsString(ListKey.CASTTIME));
 								spellBuff.append("\\");
-								spellBuff.append(StringUtil.joinToStringBuffer(spell.getListFor(ListKey.SAVE_INFO), ", "));
+								spellBuff.append(StringUtil.joinToStringBuilder(spell.getListFor(ListKey.SAVE_INFO), ", "));
 								spellBuff.append("\\");
 								spellBuff.append(aPC.parseSpellString(cs, spell.getListAsString(ListKey.DURATION)));
 								spellBuff.append("\\");
@@ -1104,7 +1104,7 @@ public class PcgCombatant extends Combatant
 
 		protected String getStatBlockTitle()
 		{
-			StringBuffer statBuf = new StringBuffer();
+			StringBuilder statBuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 
 			statBuf.append("<p class='gork'><font size='+1'><b>");

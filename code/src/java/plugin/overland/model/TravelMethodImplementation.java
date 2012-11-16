@@ -153,7 +153,7 @@ class TravelMethodImplementation implements TravelMethod
 		Number n2 = c.getMult();
 		if (n2 == null)
 			return null;
-		StringBuffer n = new StringBuffer();
+		StringBuilder n = new StringBuilder();
 		if (0.25d == n2.doubleValue())
 			n.append(LanguageBundle.getString("in_multQuarter")); //$NON-NLS-1$
 		else if (0.5d == n2.doubleValue())

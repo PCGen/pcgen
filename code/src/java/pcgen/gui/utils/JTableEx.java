@@ -282,7 +282,7 @@ public class JTableEx extends JTable
 	{
 		String text = argText.substring(argText.lastIndexOf("|") + 1);
 		int textLength = text.length();
-		StringBuffer wrapped = new StringBuffer(textLength);
+		StringBuilder wrapped = new StringBuilder(textLength);
 		final int length = 70;
 
 		while (textLength > length)

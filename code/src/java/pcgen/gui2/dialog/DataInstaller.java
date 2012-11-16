@@ -259,7 +259,7 @@ public class DataInstaller extends JFrame
 
 		if (!nonStandardFiles.isEmpty())
 		{
-			StringBuffer msg = new StringBuffer();
+			StringBuilder msg = new StringBuilder();
 			for (String filename : nonStandardFiles)
 			{
 				msg.append(' ').append(filename).append("\n");
@@ -310,7 +310,7 @@ public class DataInstaller extends JFrame
 
 		if (!existingFiles.isEmpty())
 		{
-			StringBuffer msg = new StringBuffer();
+			StringBuilder msg = new StringBuilder();
 			for (String filename : existingFilesCorr)
 			{
 				msg.append(' ').append(filename).append("\n");
@@ -742,7 +742,7 @@ public class DataInstaller extends JFrame
 			BufferedReader reader
 			   = new BufferedReader(new InputStreamReader(inStream, "UTF-8")); //$NON-NLS-1$
 			
-			StringBuffer installInfo = new StringBuffer();
+			StringBuilder installInfo = new StringBuilder();
 			String line;
 			while ((line = reader.readLine()) != null)
 			{

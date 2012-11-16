@@ -49,7 +49,7 @@ public class CompareEqualObject extends TestChecker
 	}
 
     @Override
-	public StringBuffer scribe(StringBuffer buf)
+	public StringBuilder scribe(StringBuilder buf)
 	{
 		buf.append("eq(");
 		if (this.obj == null)

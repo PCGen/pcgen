@@ -49,7 +49,7 @@ public class InitOutputter extends XMLOutputter
     @Override
 	public String escapeAttributeEntities(String str)
 	{
-		StringBuffer buffer;
+		StringBuilder buffer;
 		char ch;
 		String entity;
 
@@ -101,9 +101,9 @@ public class InitOutputter extends XMLOutputter
 			{
 				if (entity != null)
 				{
-					// An entity occurred, so we'll have to use StringBuffer
+					// An entity occurred, so we'll have to use StringBuilder
 					// (allocate room for it plus a few more entities).
-					buffer = new StringBuffer(str.length() + 20);
+					buffer = new StringBuilder(str.length() + 20);
 
 					// Copy previous skipped characters and fall through
 					// to pickup current character
@@ -125,7 +125,7 @@ public class InitOutputter extends XMLOutputter
 		}
 
 		// If there were any entities, return the escaped characters
-		// that we put in the StringBuffer. Otherwise, just return
+		// that we put in the StringBuilder. Otherwise, just return
 		// the unmodified input string.
 		return (buffer == null) ? str : buffer.toString();
 	}
@@ -146,7 +146,7 @@ public class InitOutputter extends XMLOutputter
     @Override
 	public String escapeElementEntities(String str)
 	{
-		StringBuffer buffer;
+		StringBuilder buffer;
 		char ch;
 		String entity;
 
@@ -193,9 +193,9 @@ public class InitOutputter extends XMLOutputter
 			{
 				if (entity != null)
 				{
-					// An entity occurred, so we'll have to use StringBuffer
+					// An entity occurred, so we'll have to use StringBuilder
 					// (allocate room for it plus a few more entities).
-					buffer = new StringBuffer(str.length() + 20);
+					buffer = new StringBuilder(str.length() + 20);
 
 					// Copy previous skipped characters and fall through
 					// to pickup current character
@@ -217,7 +217,7 @@ public class InitOutputter extends XMLOutputter
 		}
 
 		// If there were any entities, return the escaped characters
-		// that we put in the StringBuffer. Otherwise, just return
+		// that we put in the StringBuilder. Otherwise, just return
 		// the unmodified input string.
 		return (buffer == null) ? str : buffer.toString();
 	}

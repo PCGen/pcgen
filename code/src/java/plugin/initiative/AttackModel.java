@@ -618,7 +618,7 @@ public class AttackModel extends PObjectModel
 	 */
 	public String getToHit()
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 
 		if ((toHit != null) && (toHit.size() > 0))
 		{

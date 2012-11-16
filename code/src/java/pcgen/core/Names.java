@@ -210,7 +210,7 @@ public final class Names
 
     private String constructTheName(final NameRule ruleToUse)
     {
-        final StringBuffer buf = new StringBuffer(30);
+        final StringBuilder buf = new StringBuilder(30);
         final String[] ruleSyllables = ruleToUse.getRuleSyllables();
 
         for (String ruleSyllable : ruleSyllables) {

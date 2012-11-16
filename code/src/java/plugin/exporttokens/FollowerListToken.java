@@ -72,7 +72,7 @@ public class FollowerListToken extends Token
 	 */
 	public static String getFollowerListToken(PlayerCharacter pc)
 	{
-		StringBuffer buf = new StringBuffer();
+		StringBuilder buf = new StringBuilder();
 
 		boolean needComma = false;
 

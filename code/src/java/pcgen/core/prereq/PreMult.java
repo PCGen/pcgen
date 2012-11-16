@@ -99,7 +99,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 	public String toHtmlString(final Prerequisite prereq) {
 		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 
-		StringBuffer str = new StringBuffer();
+		StringBuilder str = new StringBuilder();
 		String delimiter = ""; //$NON-NLS-1$
 		for ( Prerequisite element : prereq.getPrerequisites() )
 		{

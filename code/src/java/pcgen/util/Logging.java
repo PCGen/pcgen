@@ -509,7 +509,7 @@ public class Logging
 	{
 		Runtime rt = Runtime.getRuntime();
 		NumberFormat numFmt = NumberFormat.getNumberInstance();
-		StringBuffer sb = new StringBuffer("Memory: ");
+		StringBuilder sb = new StringBuilder("Memory: ");
 		sb.append(numFmt.format(rt.totalMemory() / 1024.0));
 		sb.append("Kb total, ");
 		sb.append(numFmt.format(rt.freeMemory() / 1024.0));
@@ -567,7 +567,7 @@ public class Logging
 	{
 		Map<Thread, StackTraceElement[]> allThreads =
 				Thread.getAllStackTraces();
-		StringBuffer b = new StringBuffer();
+		StringBuilder b = new StringBuilder();
 		for (Thread t : allThreads.keySet())
 		{
 			b.append("Thread: ");

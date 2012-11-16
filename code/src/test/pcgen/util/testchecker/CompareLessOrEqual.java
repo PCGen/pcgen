@@ -48,7 +48,7 @@ public class CompareLessOrEqual extends TestChecker
 	}
 
     @Override
-	public StringBuffer scribe(StringBuffer buf)
+	public StringBuilder scribe(StringBuilder buf)
 	{
 		buf.append("a value less than or equal to <");
 		buf.append(this.comp);

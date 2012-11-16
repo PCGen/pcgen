@@ -158,7 +158,7 @@ public class PerDayPane extends javax.swing.JPanel
 		if (numDay > 0)
 		{
 			setVisible(true);
-			StringBuffer sb = new StringBuffer();
+			StringBuilder sb = new StringBuilder();
 			if (!var2.equals(""))
 			{
 				int var2text = VarToken.getIntVarToken(pc, var2, false);

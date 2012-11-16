@@ -273,8 +273,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	/////////////////////////////////////////////////////////////////
 	// Property(s)
 	/////////////////////////////////////////////////////////////////
-	private StringBuffer licensesToDisplayString = new StringBuffer();
-	private StringBuffer matureCampaigns = new StringBuffer();
+	private StringBuilder licensesToDisplayString = new StringBuilder();
+	private StringBuilder matureCampaigns = new StringBuilder();
 	private TraitLoader traitLoader = new TraitLoader();
 	private GenericLoader<WeaponProf> wProfLoader = new GenericLoader<WeaponProf>(WeaponProf.class);
 	private GenericLoader<ArmorProf> aProfLoader = new GenericLoader<ArmorProf>(ArmorProf.class);
@@ -399,8 +399,8 @@ public final class LstSystemLoader extends Observable implements SystemLoader,
 	{
 		loadedFiles.clear();
 		//chosenCampaignSourcefiles.clear();
-		licensesToDisplayString = new StringBuffer();
-		matureCampaigns = new StringBuffer();
+		licensesToDisplayString = new StringBuilder();
+		matureCampaigns = new StringBuilder();
 		//Globals.getBioSet().clearUserMap();
 
 		releaseFileData();

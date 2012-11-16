@@ -105,7 +105,7 @@ public class SortedProperties extends Properties
 
 	private static String fixUp(final String aString)
 	{
-		final StringBuffer ab = new StringBuffer(aString.length());
+		final StringBuilder ab = new StringBuilder(aString.length());
 
 		for (int i = 0; i < aString.length(); i++)
 		{

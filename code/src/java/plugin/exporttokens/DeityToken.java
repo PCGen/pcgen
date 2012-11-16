@@ -200,7 +200,7 @@ public class DeityToken extends Token
 			return Constants.EMPTY_STRING;
 		}
 
-		StringBuffer returnString = new StringBuffer();
+		StringBuilder returnString = new StringBuilder();
 		boolean firstLine = true;
 		for (SpecialAbility sa : saList)
 		{

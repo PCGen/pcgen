@@ -48,7 +48,7 @@ public class CompareEqualIgnoreCaseString extends TestChecker
 	}
 
     @Override
-	public StringBuffer scribe(StringBuffer buf)
+	public StringBuilder scribe(StringBuilder buf)
 	{
 		buf.append("a String matching \"");
 		buf.append(this.str);

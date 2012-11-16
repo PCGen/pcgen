@@ -87,7 +87,7 @@ public class FollowerToken extends Token
 						.indexOf('.')));
 		}
 
-		StringBuffer restString = new StringBuffer();
+		StringBuilder restString = new StringBuilder();
 		while (aTok.hasMoreTokens())
 		{
 			restString.append(".").append(aTok.nextToken());

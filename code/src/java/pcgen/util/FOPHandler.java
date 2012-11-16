@@ -63,7 +63,7 @@ public final class FOPHandler implements Runnable
 
 	private InputHandler inputHandler;
 	private Renderer renderer;
-	private StringBuffer errBuffer;
+	private StringBuilder errBuffer;
 	private int mode;
 
 	/**
@@ -75,7 +75,7 @@ public final class FOPHandler implements Runnable
 		inputHandler = null;
 		outFile = null;
 		mode = PDF_MODE;
-		errBuffer = new StringBuffer();
+		errBuffer = new StringBuilder();
 		renderer = null;
 	}
 

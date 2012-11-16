@@ -316,7 +316,7 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 	@Override
 	public CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner)
 	{
-		return StringUtil.joinToStringBuffer(pc.getExpandedAssociations(owner),
+		return StringUtil.joinToStringBuilder(pc.getExpandedAssociations(owner),
 				", ");
 	}
 }

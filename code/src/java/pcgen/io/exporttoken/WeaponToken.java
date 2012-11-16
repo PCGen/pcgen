@@ -544,7 +544,7 @@ public class WeaponToken extends Token
 	public static String getNameToken(Equipment eq, PlayerCharacter pc,
 		boolean star)
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		if (eq.isEquipped() && star)
 		{
 			sb.append("*");
@@ -563,7 +563,7 @@ public class WeaponToken extends Token
 	 */
 	public static String getOutputNameToken(Equipment eq, PlayerCharacter pc)
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		if (eq.isEquipped())
 		{
 			sb.append("*");
@@ -581,7 +581,7 @@ public class WeaponToken extends Token
 	 */
 	public static String getLongNameToken(Equipment eq)
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		if (eq.isEquipped())
 		{
 			sb.append("*");
@@ -740,7 +740,7 @@ public class WeaponToken extends Token
 		{
 			profName = ref.resolvesTo().getKeyName();
 		}
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		boolean isDouble =
 				(eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
 		int mult =
@@ -799,7 +799,7 @@ public class WeaponToken extends Token
 	public static String getRangeToken(Equipment eq, PlayerCharacter pc,
 		boolean units)
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		sb.append(Globals.getGameModeUnitSet().displayDistanceInUnitSet(
 			eq.getRange(pc).intValue()));
 
@@ -827,7 +827,7 @@ public class WeaponToken extends Token
 	 */
 	public static String getCategoryToken(Equipment eq)
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		sb.append(weaponCategories(eq));
 		sb.append("-");
 
@@ -1259,7 +1259,7 @@ public class WeaponToken extends Token
 	 */
 	public static String getCritToken(PlayerCharacter pc, Equipment eq)
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		boolean isDouble =
 				(eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
 		int rawCritRange = eq.getRawCritRange(true);
@@ -2194,7 +2194,7 @@ public class WeaponToken extends Token
 
 		StringTokenizer bTok = new StringTokenizer(babProgression, "/+");
 		String attack = Delta.toString(Integer.parseInt(bTok.nextToken()));
-		StringBuffer newAttack = new StringBuffer();
+		StringBuilder newAttack = new StringBuilder();
 
 		for (int i = extra_attacks; i > 0; i--)
 		{
@@ -2291,9 +2291,9 @@ public class WeaponToken extends Token
 		int toHit = 0;
 		int secondariesAdded = 0;
 
-		StringBuffer primaryAttack = new StringBuffer(20);
-		StringBuffer secondaryAttack = new StringBuffer(20);
-		StringBuffer totalAttack = new StringBuffer();
+		StringBuilder primaryAttack = new StringBuilder(20);
+		StringBuilder secondaryAttack = new StringBuilder(20);
+		StringBuilder totalAttack = new StringBuilder();
 
 		while (aTok.hasMoreTokens())
 		{
@@ -2487,7 +2487,7 @@ public class WeaponToken extends Token
 			damString = damString.substring(0, index);
 		}
 
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		if (!"0d0".equalsIgnoreCase(damString))
 		{
 			if (!bonusOnly)
@@ -2915,7 +2915,7 @@ public class WeaponToken extends Token
 
 	private static String weaponCategories(Equipment eq)
 	{
-		StringBuffer wc = new StringBuffer(10);
+		StringBuilder wc = new StringBuilder(10);
 		StringTokenizer aTok =
 				new StringTokenizer(SettingsHandler.getGame()
 					.getWeaponCategories(), "|", false);
@@ -2945,7 +2945,7 @@ public class WeaponToken extends Token
 
 	private static String weaponTypes(Equipment eq, boolean primary)
 	{
-		StringBuffer wt = new StringBuffer(10);
+		StringBuilder wt = new StringBuilder(10);
 		StringTokenizer aTok =
 				new StringTokenizer(SettingsHandler.getGame().getWeaponTypes(),
 					"|", false);

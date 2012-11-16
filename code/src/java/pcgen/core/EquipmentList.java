@@ -587,7 +587,7 @@ public class EquipmentList {
 	 * @param omitString
 	 * @param newName
 	 */
-	private static void appendNameParts(final List<String> nameList, final String omitString, final StringBuffer newName) {
+	private static void appendNameParts(final List<String> nameList, final String omitString, final StringBuilder newName) {
 		for ( String namePart : nameList )
 		{
 			if ((omitString.length() != 0) && namePart.equals(omitString)) {
@@ -676,7 +676,7 @@ public class EquipmentList {
 
 	private static Equipment findEquipment(final String aName, final List<String> preNameList, final List<String> postNameList,
 			final List<String> sizList, final String omitString) {
-		final StringBuffer newName = new StringBuffer(80);
+		final StringBuilder newName = new StringBuilder(80);
 		newName.append(" (");
 
 		if (preNameList != null) {

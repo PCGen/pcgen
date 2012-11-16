@@ -74,7 +74,7 @@ public class PCGTrackerModel extends DefaultListModel
 		@Override
 		public String toString()
 		{
-			StringBuffer outbuf = new StringBuffer();
+			StringBuilder outbuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 
 			if (pc.isDirty())

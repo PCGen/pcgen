@@ -52,7 +52,7 @@ public final class SourceLogFormatter extends Formatter
     @Override
 	public String format(LogRecord record)
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		
 		date.setTime(record.getMillis());
 		sb.append(df.format(date));

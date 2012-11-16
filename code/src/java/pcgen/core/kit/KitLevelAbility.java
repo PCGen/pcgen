@@ -76,7 +76,7 @@ public final class KitLevelAbility extends BaseKit
 	@Override
 	public String toString()
 	{
-		StringBuffer buf = new StringBuffer();
+		StringBuilder buf = new StringBuilder();
 		//TODO is this clean (add.toString?)
 		buf.append(add);
 		buf.append(": [");

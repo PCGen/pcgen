@@ -52,7 +52,7 @@ public class BoolAnd extends TestChecker
 	}
 
     @Override
-	public StringBuffer scribe(StringBuffer buf)
+	public StringBuilder scribe(StringBuilder buf)
 	{
 		buf.append("(");
 		this.tc1.scribe(buf);

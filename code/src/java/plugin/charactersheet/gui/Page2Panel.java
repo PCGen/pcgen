@@ -312,7 +312,7 @@ public class Page2Panel extends javax.swing.JPanel
 		for (int i = 0; i < moneyList.size(); i++)
 		{
 			Equipment eq = (Equipment) moneyList.get(i);
-			StringBuffer sb = new StringBuffer();
+			StringBuilder sb = new StringBuilder();
 			returnList.add(sb.append(EqToken.getLongNameToken(eq)).append(':')
 				.append(' ').append(EqToken.getQtyToken(eq)).toString());
 		}
@@ -321,7 +321,7 @@ public class Page2Panel extends javax.swing.JPanel
 		for (int i = 0; i < moneyList.size(); i++)
 		{
 			Equipment eq = (Equipment) moneyList.get(i);
-			StringBuffer sb = new StringBuffer();
+			StringBuilder sb = new StringBuilder();
 			returnList.add(sb.append(EqToken.getQtyToken(eq)).append(' ')
 				.append('x').append(' ').append(EqToken.getLongNameToken(eq))
 				.append(' ').append('(').append(EqToken.getCostToken(aPC, eq))

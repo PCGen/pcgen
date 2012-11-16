@@ -1978,7 +1978,7 @@ public final class SettingsHandler
 
 	public static String getPrereqFailColorAsHtmlStart()
 	{
-		final StringBuffer rString = new StringBuffer("<font color="); //$NON-NLS-1$
+		final StringBuilder rString = new StringBuilder("<font color="); //$NON-NLS-1$
 
 		if (getPrereqFailColor() != 0)
 		{

@@ -368,7 +368,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		this.pcclass = pcclass;
 		this.level = level;
 
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		sb.append(pcclass.getDisplayClassName(pc));
 		sb.append(" Spells, Level ").append(level);
 
@@ -481,7 +481,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		name.setFont(new java.awt.Font(DIALOG, 1, 11));
 		if (si != null)
 		{
-			name.setText(new StringBuffer(OutputNameFormatting.getOutputName(spell)).append(si)
+			name.setText(new StringBuilder(OutputNameFormatting.getOutputName(spell)).append(si)
 				.toString());
 		}
 		else
@@ -610,7 +610,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		school.setWrapStyleWord(true);
 		school.setBackground(color);
 		school.setFont(new java.awt.Font(DIALOG, 0, 10));
-		StringBuffer sch = new StringBuffer(spell.getListAsString(ListKey.SPELL_SCHOOL));
+		StringBuilder sch = new StringBuilder(spell.getListAsString(ListKey.SPELL_SCHOOL));
 		if ((spell.getListAsString(ListKey.SPELL_SUBSCHOOL).length() > 0)
 			&& (!NONE.equalsIgnoreCase(spell.getListAsString(ListKey.SPELL_SUBSCHOOL).trim())))
 		{
@@ -636,7 +636,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 			1, 0));
 		sourcePanel.setBackground(color);
 		source.setFont(new java.awt.Font(DIALOG, 1, 10));
-		final StringBuffer buf = new StringBuffer();
+		final StringBuilder buf = new StringBuilder();
 		buf.append(SourceFormat.formatShort(spell, 8));
 		buf.append(':').append(' ');
 		buf.append(spell.get(StringKey.SOURCE_PAGE));
@@ -666,7 +666,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		effect.setWrapStyleWord(true);
 		effect.setBackground(color);
 		effect.setFont(new java.awt.Font(DIALOG, 0, 10));
-		effect.setText(new StringBuffer(EFFECT)
+		effect.setText(new StringBuilder(EFFECT)
 			.append(
 				pc.parseSpellString(cs, pc.getDescription(spell))).toString());
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -683,7 +683,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		target.setWrapStyleWord(true);
 		target.setBackground(color);
 		target.setFont(new java.awt.Font(DIALOG, 0, 10));
-		target.setText(new StringBuffer(TARGET).append(
+		target.setText(new StringBuilder(TARGET).append(
 			pc.parseSpellString(cs, spell.getSafe(StringKey.TARGET_AREA)))
 			.toString());
 		gridBagConstraints = new java.awt.GridBagConstraints();

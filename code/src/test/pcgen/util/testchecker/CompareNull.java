@@ -37,7 +37,7 @@ public class CompareNull extends TestChecker
 	}
 
     @Override
-	public StringBuffer scribe(StringBuffer buf)
+	public StringBuilder scribe(StringBuilder buf)
 	{
 		return buf.append("null");
 	}

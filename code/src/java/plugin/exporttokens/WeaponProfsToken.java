@@ -79,7 +79,7 @@ public class WeaponProfsToken extends Token
 	 */
 	public static String getWeaponProfsToken(PlayerCharacter pc)
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 
 		if (SettingsHandler.getWeaponProfPrintout())
 		{

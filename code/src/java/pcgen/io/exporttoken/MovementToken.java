@@ -87,7 +87,7 @@ public class MovementToken extends Token
 
 	public static String getMovementToken(PlayerCharacter pc)
 	{
-		StringBuffer retString = new StringBuffer();
+		StringBuilder retString = new StringBuilder();
 		boolean firstLine = true;
 
 		for (NamedValue move : pc.getMovementValues())

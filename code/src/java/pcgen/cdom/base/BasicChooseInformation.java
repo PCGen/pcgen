@@ -292,7 +292,7 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	@Override
 	public CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner)
 	{
-		return StringUtil.joinToStringBuffer(pc.getExpandedAssociations(owner),
+		return StringUtil.joinToStringBuilder(pc.getExpandedAssociations(owner),
 			", ");
 	}
 }

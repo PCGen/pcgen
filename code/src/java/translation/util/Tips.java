@@ -258,7 +258,7 @@ public class Tips
 			translationReader = new BufferedReader(new FileReader(translation));
 			String line = translationReader.readLine();
 			String key = null;
-			StringBuffer str = new StringBuffer();
+			StringBuilder str = new StringBuilder();
 			while (line != null)
 			{
 				if (line.startsWith("msgid"))
@@ -270,7 +270,7 @@ public class Tips
 						if (str.toString().isEmpty())
 							statUntranslated++;
 						else statTranslated++;
-						str = new StringBuffer();
+						str = new StringBuilder();
 					}
 					key = line.substring(line.indexOf(QUOTE) + 1, line.lastIndexOf(QUOTE));
 				}

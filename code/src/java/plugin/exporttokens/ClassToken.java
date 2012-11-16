@@ -205,7 +205,7 @@ public class ClassToken extends Token {
 				}
 			}
 
-			final StringBuffer newAbility = new StringBuffer();
+			final StringBuilder newAbility = new StringBuilder();
 			varTok = new StringTokenizer(aString, "%", true);
 			varCount = 0;
 

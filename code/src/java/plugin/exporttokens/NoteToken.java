@@ -57,7 +57,7 @@ public class NoteToken extends Token
 	{
 		StringTokenizer tok = new StringTokenizer(tokenSource, ".");
 		tok.nextToken();
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 
 		String name = tok.nextToken();
 		List<NoteItem> noteList = getNoteList(pc, name);

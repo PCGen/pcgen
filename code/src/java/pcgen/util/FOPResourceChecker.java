@@ -31,7 +31,7 @@ public final class FOPResourceChecker
 	private static int missingResourceCount;
 
 	/** A buffer containing the resources */
-	private static StringBuffer resourceBuffer;
+	private static StringBuilder resourceBuffer;
 
 	/** String containing URL link if there are missing resources */
 	private static final String whereToGetIt =
@@ -53,7 +53,7 @@ public final class FOPResourceChecker
 	static
 	{
 		missingResourceCount = 0;
-		resourceBuffer = new StringBuffer(0);
+		resourceBuffer = new StringBuilder(0);
 		checkResource();
 	}
 
@@ -90,7 +90,7 @@ public final class FOPResourceChecker
 	 * @return TRUE if the resource exists in the jar
 	 */
 	public static boolean hasResource(final String resourceName,
-		final String jarName, StringBuffer sb)
+		final String jarName, StringBuilder sb)
 	{
 		try
 		{

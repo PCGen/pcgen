@@ -72,7 +72,7 @@ public class SpellListClassToken extends SpellListToken
 		ExportHandler eh)
 	{
 		int i;
-		StringBuffer retValue = new StringBuffer();
+		StringBuilder retValue = new StringBuilder();
 
 		// Determine the tag type
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");

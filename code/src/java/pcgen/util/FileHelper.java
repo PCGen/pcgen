@@ -72,7 +72,7 @@ public class FileHelper
 		
 		String relativePath = stripOffRoot(relativeCanon);
 
-		StringBuffer dots = new StringBuffer();
+		StringBuilder dots = new StringBuilder();
 
 		do
 		{

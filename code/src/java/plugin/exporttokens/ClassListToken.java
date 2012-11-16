@@ -66,7 +66,7 @@ public class ClassListToken extends Token
 	 */
 	public static String getClassListToken(PlayerCharacter pc)
 	{
-		StringBuffer returnString = new StringBuffer();
+		StringBuilder returnString = new StringBuilder();
 		boolean firstLine = true;
 
 		for (PCClass pcClass : pc.getClassSet())

@@ -92,7 +92,7 @@ public class DiceBagPluginView implements Observer
 	public void closeAll()
 	{
 		Component[] frames = theDesktop.getComponents();
-		StringBuffer files = new StringBuffer();
+		StringBuilder files = new StringBuilder();
 
 		for (int i = 0; i < frames.length; i++)
 		{

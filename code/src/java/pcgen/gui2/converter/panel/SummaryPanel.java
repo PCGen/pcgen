@@ -108,7 +108,7 @@ public class SummaryPanel extends ConvertSubPanel
 		values[1] = new JLabel(pc.get(ObjectKey.WRITE_DIRECTORY).getAbsolutePath());
 		values[2] = new JLabel(pc.get(ObjectKey.GAME_MODE).getDisplayName());
 		List<Campaign> campaigns = pc.getSafeListFor(ListKey.CAMPAIGN);
-		StringBuffer campDisplay = new StringBuffer("<html>");
+		StringBuilder campDisplay = new StringBuilder("<html>");
 		for (int i = 0; i < campaigns.size(); i++)
 		{
 			campDisplay.append(campaigns.get(i).getDisplayName());

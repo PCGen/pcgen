@@ -246,7 +246,7 @@ public final class PrereqHandler
 
 		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 
-		final StringBuffer pString = new StringBuffer(anArrayList.size() * 20);
+		final StringBuilder pString = new StringBuilder(anArrayList.size() * 20);
 
 		String delimiter = Constants.EMPTY_STRING;
 

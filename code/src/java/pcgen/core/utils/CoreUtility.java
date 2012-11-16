@@ -182,7 +182,7 @@ public final class CoreUtility
 	// public static String commaDelimit(final String oldString)
 	// {
 	// final int oldStringLength = oldString.length();
-	// final StringBuffer newString = new StringBuffer(oldStringLength);
+	// final StringBuilder newString = new StringBuilder(oldStringLength);
 	//
 	// for (int i = 0; i < oldStringLength; ++i)
 	// {

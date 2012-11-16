@@ -189,7 +189,7 @@ public final class Globals
 	// end of filter creation sets
 	private static JFrame rootFrame;
 	private static JFrame currentFrame;
-	private static final StringBuffer section15 = new StringBuffer(30000);
+	private static final StringBuilder section15 = new StringBuilder(30000);
 	private static final String spellPoints = "0";
 
 	/** whether or not the GUI is used (false for command line) */
@@ -1159,7 +1159,7 @@ public final class Globals
 	 * Get the section 15
 	 * @return section 15
 	 */
-	public static StringBuffer getSection15()
+	public static StringBuilder getSection15()
 	{
 		return section15;
 	}

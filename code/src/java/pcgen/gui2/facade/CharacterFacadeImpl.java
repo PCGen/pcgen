@@ -1344,7 +1344,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		//
 		// Get a list of classes that will become unqualified (and have an ex-class)
 		//
-		StringBuffer unqualified = new StringBuffer();
+		StringBuilder unqualified = new StringBuilder();
 		List<PCClass> classList = theCharacter.getClassList();
 		List<PCClass> exclassList = new ArrayList<PCClass>();
 		PCAlignment savedAlignmnet = theCharacter.getPCAlignment();

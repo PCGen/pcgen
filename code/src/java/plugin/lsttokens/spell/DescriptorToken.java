@@ -100,7 +100,7 @@ public class DescriptorToken extends AbstractTokenWithSeparator<Spell>
 			{
 				sb.append(Constants.PIPE);
 			}
-			sb.append(StringUtil.joinToStringBuffer(changes.getAdded(),
+			sb.append(StringUtil.joinToStringBuilder(changes.getAdded(),
 					Constants.PIPE));
 		}
 		return new String[] { sb.toString() };

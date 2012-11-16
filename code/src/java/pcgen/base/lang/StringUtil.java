@@ -67,12 +67,12 @@ public final class StringUtil
 	 */
 	public static String join(Collection<?> collection, String separator)
 	{
-		return joinToStringBuffer(collection, separator).toString();
+		return joinToStringBuilder(collection, separator).toString();
 	}
 
 	/**
 	 * Concatenates the Collection of Objects (converted to Strings using
-	 * .toString()) into a StringBuffer using the separator as the delimiter.
+	 * .toString()) into a StringBuilder using the separator as the delimiter.
 	 * 
 	 * This method is value-semantic and will not modify or maintain a reference
 	 * to the given Collection of Objects. Ownership of the returned
@@ -85,7 +85,7 @@ public final class StringUtil
 	 *            The separating character
 	 * @return A 'separator' separated StringBuilder
 	 */
-	public static StringBuilder joinToStringBuffer(Collection<?> collection,
+	public static StringBuilder joinToStringBuilder(Collection<?> collection,
 			String separator)
 	{
 		if (collection == null)

@@ -443,7 +443,7 @@ public class ArmorToken extends Token
 	private static String _writeArmorProperty(Equipment eq, String property,
 		PlayerCharacter aPC)
 	{
-		StringBuffer ret = new StringBuffer();
+		StringBuilder ret = new StringBuilder();
 
 		if (property.startsWith("NAME"))
 		{

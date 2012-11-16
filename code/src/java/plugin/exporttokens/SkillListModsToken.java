@@ -36,7 +36,7 @@ public class SkillListModsToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		StringBuffer returnString = new StringBuffer();
+		StringBuilder returnString = new StringBuilder();
 		boolean needcomma = false;
 
 		for (Skill aSkill : pc.getSkillListInOutputOrder())

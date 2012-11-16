@@ -45,7 +45,7 @@ public class AbstractPrerequisiteWriter
 	protected void checkValidOperator(Prerequisite prereq,
 		PrerequisiteOperator[] comparators) throws PersistenceLayerException
 	{
-		StringBuffer comparatorString = new StringBuffer();
+		StringBuilder comparatorString = new StringBuilder();
 		for (int i = 0; i < comparators.length; i++)
 		{
 			PrerequisiteOperator comparator = comparators[i];

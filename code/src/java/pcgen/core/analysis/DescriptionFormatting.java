@@ -33,7 +33,7 @@ public class DescriptionFormatting
 
 		if (cdo.getSafe(ObjectKey.DESC_PI))
 		{
-			final StringBuffer sb = new StringBuffer(desc.length() + 30);
+			final StringBuilder sb = new StringBuilder(desc.length() + 30);
 
 			if (useHeader)
 			{

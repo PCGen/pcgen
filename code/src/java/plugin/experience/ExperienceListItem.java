@@ -38,7 +38,7 @@ public class ExperienceListItem
 	@Override
 	public String toString()
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		sb.append(cbt.getName() + " (" + cbt.getCR() + ") ");
 
 		if (cbt.getXP() != 0)

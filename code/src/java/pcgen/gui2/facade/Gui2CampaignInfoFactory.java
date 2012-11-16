@@ -231,7 +231,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	 */
 	private static String buildURLListString(List<CampaignURL> urlList)
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		boolean first = true;
 		for (CampaignURL campaignURL : urlList)
 		{

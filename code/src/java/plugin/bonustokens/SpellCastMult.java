@@ -77,7 +77,7 @@ public final class SpellCastMult extends BonusObj
 	@Override
 	protected String unparseToken(final Object obj)
 	{
-		final StringBuffer sb = new StringBuffer(30);
+		final StringBuilder sb = new StringBuilder(30);
 		final SpellCastInfo sci = (SpellCastInfo) obj;
 
 		if (sci.getType() != null)

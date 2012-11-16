@@ -89,7 +89,7 @@ public class CastSpell extends StartEvent
 	 */
 	public void setSpellModel(SpellModel model)
 	{
-		StringBuffer text = new StringBuffer();
+		StringBuilder text = new StringBuilder();
 
 		if (descPanel.getComponents().length == 0)
 		{

@@ -135,7 +135,7 @@ public final class InstallLoaderTest extends PCGenTestCase
 		URISyntaxException
 	{
 		final InstallLoader loader = new InstallLoader();
-		StringBuffer data = new StringBuffer();
+		StringBuilder data = new StringBuilder();
 		for (int i = 0; i < installData.length; i++)
 		{
 			final String line = installData[i];

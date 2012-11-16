@@ -207,7 +207,7 @@ public class NameGenPanel extends JPanel
 
 	private void setMeaningText(ArrayList<DataValue> data)
 	{
-		StringBuffer meaningBuffer = new StringBuffer();
+		StringBuilder meaningBuffer = new StringBuilder();
 
 		for (DataValue val : data)
 		{
@@ -232,7 +232,7 @@ public class NameGenPanel extends JPanel
 
 	private void setNameText(ArrayList<DataValue> data)
 	{
-		StringBuffer nameBuffer = new StringBuffer();
+		StringBuilder nameBuffer = new StringBuilder();
 
 		for (DataValue val : data)
 		{
@@ -249,7 +249,7 @@ public class NameGenPanel extends JPanel
 
 	private void setPronounciationText(ArrayList<DataValue> data)
 	{
-		StringBuffer proBuffer = new StringBuffer();
+		StringBuilder proBuffer = new StringBuilder();
 
 		for (DataValue val : data)
 		{

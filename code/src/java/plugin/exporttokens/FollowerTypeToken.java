@@ -71,7 +71,7 @@ public class FollowerTypeToken extends Token
 		aTok.nextToken(); // FOLLOWERTYPE
 
 		String typeString = aTok.nextToken();
-		StringBuffer restString = new StringBuffer();
+		StringBuilder restString = new StringBuilder();
 		int followerIndex = -1;
 
 		if (aTok.hasMoreTokens())

@@ -407,7 +407,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 */
 	private String getName()
 	{
-		final StringBuffer buf = new StringBuffer(owner.toString());
+		final StringBuilder buf = new StringBuilder(owner.toString());
 
 		if (spell != null)
 		{

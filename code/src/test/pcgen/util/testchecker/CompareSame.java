@@ -48,7 +48,7 @@ public class CompareSame extends TestChecker
 	}
 
     @Override
-	public StringBuffer scribe(StringBuffer buf)
+	public StringBuilder scribe(StringBuilder buf)
 	{
 		buf.append("same(");
 		if (obj == null)

@@ -73,7 +73,7 @@ public class CheckToken extends Token
 		String saveType = aTok.nextToken();
 
 		// Gather up the modifications (y, y, z) 
-		StringBuffer saveModsBuf = new StringBuffer();
+		StringBuilder saveModsBuf = new StringBuilder();
 		while (aTok.hasMoreTokens())
 		{
 			if (saveModsBuf.length() > 0)

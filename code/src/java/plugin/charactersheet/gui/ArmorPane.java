@@ -222,7 +222,7 @@ public class ArmorPane extends javax.swing.JPanel
 				}
 				armorList.get(i);
 
-				StringBuffer sb = new StringBuffer();
+				StringBuilder sb = new StringBuilder();
 				sb.append(ARMOR).append('.').append(armorType).append('.')
 					.append(i).append('.');
 

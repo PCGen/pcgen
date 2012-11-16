@@ -48,7 +48,7 @@ public class CompareGreaterOrEqual extends TestChecker
 	}
 
     @Override
-	public StringBuffer scribe(StringBuffer buf)
+	public StringBuilder scribe(StringBuilder buf)
 	{
 		buf.append("a value greater than or equal to <");
 		buf.append(this.comp);

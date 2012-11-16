@@ -90,7 +90,7 @@ public class VarToken extends Token
 		StringTokenizer aTok = new StringTokenizer(workingSource, ".");
 		aTok.nextToken(); //this should be VAR
 
-		StringBuffer varName = new StringBuffer();
+		StringBuilder varName = new StringBuilder();
 
 		if (aTok.hasMoreElements())
 		{

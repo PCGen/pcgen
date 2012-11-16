@@ -43,7 +43,7 @@ public class SimpleFileFilter extends FileFilter
 
 		String workingDesc = ((desc == null) ? "Unknown File" : desc);
 
-		StringBuffer strbDesc = new StringBuffer(workingDesc + " (");
+		StringBuilder strbDesc = new StringBuilder(workingDesc + " (");
 
 		for (int i = 0; i < extensions.length; i++)
 		{

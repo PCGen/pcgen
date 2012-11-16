@@ -442,7 +442,7 @@ final class MainAbout extends JPanel
 		panel.add(sp, BorderLayout.CENTER);
 
 		Collection<Sponsor> sponsors = Globals.getGlobalContext().ref.getConstructedCDOMObjects(Sponsor.class);
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		sb.append("<html><b>");
 		sb.append(LanguageBundle.getString("in_abt_ourSponsors")).append("</b><br>");
 		for (Sponsor sponsor : sponsors)

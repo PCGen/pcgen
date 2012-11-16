@@ -118,7 +118,7 @@ public class Rule extends ArrayList<String> implements DataElement
 	@Override
 	public String toString()
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 
 		for (String key : this)
 		{

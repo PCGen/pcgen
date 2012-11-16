@@ -215,7 +215,7 @@ public class BonusManager
 
 	public double getTotalBonusTo(String bonusType, String bonusName)
 	{
-		final String prefix = new StringBuffer(bonusType).append('.').append(
+		final String prefix = new StringBuilder(bonusType).append('.').append(
 				bonusName).toString();
 
 		return sumActiveBonusMap(prefix);
@@ -223,7 +223,7 @@ public class BonusManager
 
 	public String getSpellBonusType(String bonusType, String bonusName)
 	{
-		String prefix = new StringBuffer(bonusType).append('.').append(
+		String prefix = new StringBuilder(bonusType).append('.').append(
 				bonusName).toString();
 		prefix = prefix.toUpperCase();
 
@@ -363,9 +363,9 @@ public class BonusManager
 
 	public String listBonusesFor(String bonusType, String bonusName)
 	{
-		final String prefix = new StringBuffer(bonusType).append('.').append(
+		final String prefix = new StringBuilder(bonusType).append('.').append(
 				bonusName).toString();
-		final StringBuffer buf = new StringBuffer();
+		final StringBuilder buf = new StringBuilder();
 		final List<String> aList = new ArrayList<String>();
 
 		// final List<TypedBonus> bonuses = theBonusMap.get(prefix);

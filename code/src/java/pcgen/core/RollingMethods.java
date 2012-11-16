@@ -293,7 +293,7 @@ public final class RollingMethods
 
         if (Logging.isDebugMode())
         {
-            final StringBuffer rollString = new StringBuffer(times << 2);
+            final StringBuilder rollString = new StringBuilder(times << 2);
             rollString.append(dieRoll[0]);
 
             if (times > 1)

@@ -213,7 +213,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 		BufferedReader br =
 				new BufferedReader(new InputStreamReader(new FileInputStream(
 					outputFile), "UTF-8"));
-		StringBuffer output = new StringBuffer();
+		StringBuilder output = new StringBuilder();
 		try {
 			String line = br.readLine();
 			while (line != null)

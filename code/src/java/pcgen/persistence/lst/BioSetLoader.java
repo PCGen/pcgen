@@ -174,7 +174,7 @@ public final class BioSetLoader extends LstLineFileLoader
 
 					if (preReqList != null)
 					{
-						final StringBuffer sBuf = new StringBuffer(100);
+						final StringBuilder sBuf = new StringBuilder(100);
 
 						for (int i = 0, x = preReqList.size(); i < x; ++i)
 						{

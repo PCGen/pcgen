@@ -15,10 +15,10 @@ public abstract class TestChecker
 	abstract public boolean check(Object obj);
 
 	/**
-	 * Appends a description of the check that this class will perform to the StringBuffer passed in.
+	 * Appends a description of the check that this class will perform to the StringBuilder passed in.
 	 *
 	 * @param buffer The buffer that the description is appended to.
 	 * @return The buffer that was passed in.
 	 */
-	abstract public StringBuffer scribe(StringBuffer buffer);
+	abstract public StringBuilder scribe(StringBuilder buffer);
 }

@@ -251,7 +251,7 @@ public class CampaignSourceEntry implements SourceEntry
 	{
 		if (stringForm == null)
 		{
-			StringBuffer sBuff = new StringBuffer();
+			StringBuilder sBuff = new StringBuilder();
 			sBuff.append("Campaign: ");
 			sBuff.append(campaign.getDisplayName());
 			sBuff.append("; SourceFile: ");
@@ -589,7 +589,7 @@ public class CampaignSourceEntry implements SourceEntry
 			int commaLoc = s.indexOf(',');
 			if (commaLoc == -1)
 			{
-				return StringUtil.joinToStringBuffer(list, Constants.PIPE);
+				return StringUtil.joinToStringBuilder(list, Constants.PIPE);
 			}
 			else
 			{
@@ -609,7 +609,7 @@ public class CampaignSourceEntry implements SourceEntry
 			sb.append("CATEGORY=");
 			sb.append(category);
 			sb.append(Constants.COMMA);
-			sb.append(StringUtil.joinToStringBuffer(map.getListFor(category),
+			sb.append(StringUtil.joinToStringBuilder(map.getListFor(category),
 				Constants.COMMA));
 		}
 		return sb;

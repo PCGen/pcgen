@@ -57,7 +57,7 @@ public class VisionDisplay
 
 	public static String getVision(CharacterDisplay display)
 	{
-		final StringBuffer visionString = new StringBuffer();
+		final StringBuilder visionString = new StringBuilder();
 	
 		for (Vision vision : display.getVisionList())
 		{

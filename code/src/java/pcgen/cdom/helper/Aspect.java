@@ -243,7 +243,7 @@ public class Aspect extends ConcretePrereqObject
 	 */
 	public String getAspectText( final PlayerCharacter aPC, Ability theOwner )
 	{
-		final StringBuffer buf = new StringBuffer();
+		final StringBuilder buf = new StringBuilder();
 		
 		if (theOwner != null)
 		{
@@ -296,7 +296,7 @@ public class Aspect extends ConcretePrereqObject
 						{
 							joinString = ", ";
 						}
-		                buf.append(StringUtil.joinToStringBuffer(aPC
+		                buf.append(StringUtil.joinToStringBuilder(aPC
 								.getExpandedAssociations(theOwner),
 								joinString));
 					}
@@ -353,7 +353,7 @@ public class Aspect extends ConcretePrereqObject
 	 */
 	public String getPCCText()
 	{
-		final StringBuffer buf = new StringBuffer();
+		final StringBuilder buf = new StringBuilder();
 		
 		for ( final String str : theComponents )
 		{

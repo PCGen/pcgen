@@ -647,16 +647,16 @@ public class TurnPane extends javax.swing.JPanel
 								+ Integer
 									.parseInt(StatToken.getModToken(pc, cha));
 				}
-				StringBuffer checkSb = new StringBuffer();
+				StringBuilder checkSb = new StringBuilder();
 				checkSb.append("1d20+").append(check);
 				turnCheck.setText(checkSb.toString());
 				turnLevel.setText(Integer.toString(level));
-				StringBuffer damSb = new StringBuffer();
+				StringBuilder damSb = new StringBuilder();
 				damSb.append(dieNumber).append("d").append(dieSize).append(
 					Delta.toString(damage));
 				turnDamage.setText(damSb.toString());
 
-				StringBuffer daySb = new StringBuffer();
+				StringBuilder daySb = new StringBuilder();
 				daySb.append("Turns/day (").append(numDay).append(")");
 				turnDay.setText(daySb.toString());
 
@@ -670,7 +670,7 @@ public class TurnPane extends javax.swing.JPanel
 				turn8.setText(Integer.toString(level + 3));
 				turn9.setText(Integer.toString(level + 4));
 				addCheckBoxes(numDay);
-				StringBuffer textSb = new StringBuffer();
+				StringBuilder textSb = new StringBuilder();
 				if (getEffectType(pc, turnType).equals("Turn"))
 				{
 					this.title.setText("Turn " + turnType);

@@ -87,7 +87,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public String getBonusInfo()
 	{
-		final StringBuffer sb = new StringBuffer(50);
+		final StringBuilder sb = new StringBuilder(50);
 
 		if (bonusInfo.size() > 0)
 		{
@@ -171,7 +171,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public String listDependsMap()
 	{
-		StringBuffer buff = new StringBuffer("[");
+		StringBuilder buff = new StringBuilder("[");
 		for (String key : dependMap.keySet())
 		{
 			if (buff.length()> 1)
@@ -409,7 +409,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	{
 		if (stringRepresentation == null)
 		{
-			final StringBuffer sb = new StringBuffer(50);
+			final StringBuilder sb = new StringBuilder(50);
 	
 			sb.append(getTypeOfBonus());
 			if (varPart != null && varPart.length() > 0)
@@ -549,7 +549,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 
 			final String bString = aString.substring(x + 1, y);
 			buildDependMap(bString);
-			aString = new StringBuffer().append(aString.substring(0, x))
+			aString = new StringBuilder().append(aString.substring(0, x))
 					.append(aString.substring(y + 1)).toString();
 		}
 
@@ -617,7 +617,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 						if (testString.length() > 0)
 						{
 							if (testString.startsWith("MOVE[")) {
-								testString = new StringBuffer().append("TYPE.")
+								testString = new StringBuilder().append("TYPE.")
 										.append(testString.substring(5,
 												testString.length() - 1))
 										.toString();

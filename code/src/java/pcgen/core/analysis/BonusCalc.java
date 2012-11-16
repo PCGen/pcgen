@@ -49,7 +49,7 @@ public class BonusCalc
 		aType = aType.toUpperCase();
 		aName = aName.toUpperCase();
 	
-		final String aTypePlusName = new StringBuffer(aType).append('.').append(aName).append('.').toString();
+		final String aTypePlusName = new StringBuilder(aType).append('.').append(aName).append('.').toString();
 	
 		if (!BonusCalc.dontRecurse && (po instanceof Ability) && !Globals.checkRule(RuleConstants.FEATPRE))
 		{
@@ -103,7 +103,7 @@ public class BonusCalc
 	
 					for (String assoc : aPC.getAssociationList(po))
 					{
-						final String xString = new StringBuffer()
+						final String xString = new StringBuilder()
 							.append(firstPart)
 							.append(assoc)
 							.append(secondPart)
@@ -286,7 +286,7 @@ public class BonusCalc
 		{
 			// aTypePlusName looks like: "SKILL.ALL."
 			// so we need to reset it to "SKILL.Hide."
-			aTypePlusName = new StringBuffer(aType).append('.').append(aName).append('.').toString();
+			aTypePlusName = new StringBuilder(aType).append('.').append(aName).append('.').toString();
 			bonus = iBonus;
 			bonusTypeString = possibleBonusTypeString;
 		}

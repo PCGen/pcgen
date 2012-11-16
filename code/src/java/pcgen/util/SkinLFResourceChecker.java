@@ -31,7 +31,7 @@ package pcgen.util;
 public final class SkinLFResourceChecker
 {
 	private static int missingResourceCount;
-	private static StringBuffer resourceBuffer;
+	private static StringBuilder resourceBuffer;
 	private static final String whereToGetIt =
 			"<a href=\"http://prdownloads.sourceforge.net/pcgen/skin.zip\">skin.zip</a>";
 
@@ -39,8 +39,8 @@ public final class SkinLFResourceChecker
 	{
 		missingResourceCount = 0;
 
-		//optimize stringbuffer initial size (0 should be right length. Hopefully we don't get an error. :)
-		resourceBuffer = new StringBuffer(0);
+		//optimize StringBuilder initial size (0 should be right length. Hopefully we don't get an error. :)
+		resourceBuffer = new StringBuilder(0);
 		checkResource();
 	}
 

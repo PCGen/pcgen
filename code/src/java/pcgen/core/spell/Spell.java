@@ -56,10 +56,10 @@ public final class Spell extends PObject
 	@Override
 	public String getPCCText()
 	{
-		final StringBuffer txt = new StringBuffer(200);
+		final StringBuilder txt = new StringBuilder(200);
 		txt.append(getDisplayName());
 		txt.append("\t");
-		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
+		txt.append(StringUtil.joinToStringBuilder(Globals.getContext().unparse(
 				this), "\t"));
 
 		if (hasSpellPointCost())

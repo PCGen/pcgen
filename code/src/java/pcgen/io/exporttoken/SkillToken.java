@@ -299,7 +299,7 @@ public class SkillToken extends Token
 	private String getSkillPropValue(Skill aSkill, int property,
 		String propertyText, PlayerCharacter pc)
 	{
-		StringBuffer retValue = new StringBuffer();
+		StringBuilder retValue = new StringBuilder();
 
 		if (((property == SKILL_ABMOD) || (property == SKILL_MISC))
 			&& false)//&& aSkill.get(ObjectKey.KEY_STAT) == null)

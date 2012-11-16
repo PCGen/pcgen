@@ -98,11 +98,11 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 	@Override
 	public String getPCCText()
 	{
-		final StringBuffer txt = new StringBuffer(200);
+		final StringBuilder txt = new StringBuilder(200);
 		txt.append(getDisplayName());
 		txt.append("\tCATEGORY:").append(getCategory());
 		txt.append("\t");
-		txt.append(StringUtil.joinToStringBuffer(Globals.getContext().unparse(
+		txt.append(StringUtil.joinToStringBuilder(Globals.getContext().unparse(
 				this), "\t"));
 		txt.append("\t");
 		txt.append(PrerequisiteWriter.prereqsToString(this));
@@ -298,7 +298,7 @@ public final class Ability extends PObject implements CategorizedCDOMObject<Abil
 	}
 
 	public String printAspect(PlayerCharacter pc, AspectName key) {
-		StringBuffer buff = new StringBuffer();
+		StringBuilder buff = new StringBuilder();
 		List<Aspect> aspects = this.get(MapKey.ASPECT, key);
 		Aspect aspect = lastPassingAspect(aspects, pc);
 		buff.append(aspect.getName()).append(": ");

@@ -118,10 +118,11 @@ public class PlayerCharacterOutput
 
 	public String getClasses()
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		for (PCClass mClass : pc.getClassSet())
 		{
-			sb.append(mClass.getDisplayName() + pc.getLevel(mClass) + " ");
+			sb.append(mClass.getDisplayName())
+                                .append(pc.getLevel(mClass)).append(" ");
 		}
 
 		return sb.toString();
@@ -154,7 +155,7 @@ public class PlayerCharacterOutput
 
 	public String getEquipmentList()
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		boolean firstLine = true;
 
 		for (Equipment eq : pc.getEquipmentListInOutputOrder())
@@ -169,7 +170,8 @@ public class PlayerCharacterOutput
 			DecimalFormat formater = new DecimalFormat();
 			formater.setMaximumFractionDigits(1);
 			formater.setMinimumFractionDigits(0);
-			sb.append(formater.format(eq.getQty()) + " " + eq.getName());
+			sb.append(formater.format(eq.getQty())).append(" ")
+                                .append(eq.getName());
 		}
 
 		return sb.toString();
@@ -205,7 +207,7 @@ public class PlayerCharacterOutput
 
 	public String getFeatList()
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 
 		boolean firstLine = true;
 
@@ -433,7 +435,7 @@ public class PlayerCharacterOutput
 
 	public String getWeaponType(Equipment eq, boolean primary)
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		StringTokenizer aTok =
 				new StringTokenizer(SettingsHandler.getGame().getWeaponTypes(),
 					"|", false);

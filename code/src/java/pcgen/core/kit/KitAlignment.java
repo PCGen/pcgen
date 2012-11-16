@@ -107,7 +107,7 @@ public class KitAlignment extends BaseKit
 		else
 		{
 			// Build the string list.
-			StringBuffer buf = new StringBuffer();
+			StringBuilder buf = new StringBuilder();
 			buf.append("One of (");
 			boolean needComma = false;
 			for (PCAlignment al : alignments)

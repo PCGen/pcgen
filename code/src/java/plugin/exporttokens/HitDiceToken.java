@@ -80,7 +80,7 @@ public class HitDiceToken extends Token
 	 */
 	public static String getHitDiceToken(PlayerCharacter pc)
 	{
-		StringBuffer ret = new StringBuffer();
+		StringBuilder ret = new StringBuilder();
 		String del = "";
 
 		for (PCClass pcClass : pc.getClassSet())

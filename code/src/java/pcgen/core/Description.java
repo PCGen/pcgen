@@ -168,7 +168,7 @@ public class Description extends ConcretePrereqObject
 	 */
 	public String getDescription( final PlayerCharacter aPC, PObject theOwner )
 	{
-		final StringBuffer buf = new StringBuffer();
+		final StringBuilder buf = new StringBuilder();
 		
 		if (this.qualifies(aPC, theOwner))
 		{
@@ -215,7 +215,7 @@ public class Description extends ConcretePrereqObject
 							{
 								joinString = ", ";
 							}
-			                buf.append(StringUtil.joinToStringBuffer(aPC
+			                buf.append(StringUtil.joinToStringBuilder(aPC
 									.getExpandedAssociations(theOwner),
 									joinString));
 						}
@@ -273,7 +273,7 @@ public class Description extends ConcretePrereqObject
 	 */
 	public String getPCCText()
 	{
-		final StringBuffer buf = new StringBuffer();
+		final StringBuilder buf = new StringBuilder();
 		
 		for ( final String str : theComponents )
 		{
