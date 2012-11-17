@@ -1,6 +1,6 @@
 # CVS $Revision$ $Author$ -- Sat Oct 13 08:56:53 2007 -- reformated by prettylst.pl v1.38 (build 2788)
-CAMPAIGN:AEG - Feats Source Book
-GAMEMODE:3e
+CAMPAIGN:AEG - Feats Source Book - 35e Conversion
+GAMEMODE:35e
 RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -95,19 +95,19 @@ URL:Amazon.com|http://www.amazon.com/gp/product/1887953736?ie=UTF8&tag=httppcgen
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
-FEAT:aeg_feats_feats_background.lst
-FEAT:aeg_feats_feats_infernal.lst
-FEAT:aeg_feats_feats_magic.lst
-FEAT:aeg_feats_feats_quest.lst
-FEAT:aeg_feats_feats_general.lst
+FEAT:aeg_feats_35e_feats_background.lst
+FEAT:aeg_feats_35e_feats_infernal.lst
+FEAT:aeg_feats_35e_feats_magic.lst
+FEAT:aeg_feats_35e_feats_quest.lst
+FEAT:aeg_feats_35e_feats_general.lst
 
 ###COMMENT:"The Fun Feats"
-FEAT:aeg_feats_feats_appendix.lst
+FEAT:aeg_feats_35e_feats_appendix.lst
 
-TEMPLATE:aeg_feats_template_hidden.lst
-SKILL:aeg_feats_skills.lst
-SPELL:aeg_feats_spells.lst
-EQUIPMOD:aeg_feats_equipment_modifiers.lst
+TEMPLATE:aeg_feats_35e_template_hidden.lst
+SKILL:aeg_feats_35e_skills.lst
+SPELL:aeg_feats_35e_spells.lst
+EQUIPMOD:aeg_feats_35e_equipment_modifiers.lst
 
 
 FORWARDREF:SKILL|Innuendo,Perform,Pick Pocket,Wilderness Lore,Survival
