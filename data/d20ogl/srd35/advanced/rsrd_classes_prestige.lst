@@ -258,7 +258,7 @@ CLASS:Loremaster	HD:4		TYPE:PC.Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:Prestige
 CLASS:Loremaster	PREFEAT:1,Skill Focus (Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge=10,TYPE.Knowledge=10	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Handle Animal|Heal|TYPE=Knowledge|TYPE=Perform|TYPE=Profession|Speak Language|Spellcraft|Use Magic Device
-1	BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	BONUS:VAR|SecretLore|CL+INT	DEFINE:SecretLore|0	ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Secret ~ Loremaster
+1	BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	BONUS:VAR|LoremasterSecretsLVL|CL+INT				ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Secret ~ Loremaster
 2																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Lore ~ Loremaster
 3																		ADD:SPELLCASTER|ANY
 4																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|TYPE=Spoken
