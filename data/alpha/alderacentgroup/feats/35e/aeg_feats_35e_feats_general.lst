@@ -363,7 +363,7 @@ Ministry Guild				TYPE:General				PRECLASS:1,SPELLCASTER.Divine=5															
 Mount Empathy				TYPE:General																															PRESKILL:3,Animal Empathy=4,Handle Animal=4,Ride=4					DESC:You have a profound understanding of your mount.																																																																										SOURCEPAGE:p.56
 Mounted Archery				TYPE:General	KEY:Mounted Archery ~ AEG		SERVESAS:ABILITY=FEAT|Mounted Archery							PREFEAT:1,Mounted Combat,Mounted Combat ~ AEG																	PRESKILL:1,Ride=1																DESC:You have great skill with abow while mounted.																																																																										SOURCEPAGE:p.56
 Mounted Combat				TYPE:General	KEY:Mounted Combat ~ AEG		SERVESAS:ABILITY=FEAT|Mounted Combat																												PRESKILL:1,Ride=1																DESC:You can steer your mount clear of danger while in the midst of battle.																																																																						SOURCEPAGE:p.56
-Multidexterity				TYPE:General	KEY:Multidexterity																																					PRESTAT:1,DEX=15		PRETEXT:three or more arms.	DESC:You can fight with all hands equally well.																																																																											SOURCEPAGE:p.56
+Multidexterity				TYPE:General	KEY:Multidexterity			SERVESAS:ABILITY=FEAT|Multidexterity																																		PRESTAT:1,DEX=15		PRETEXT:three or more arms.	DESC:You can fight with all hands equally well.																																																																											SOURCEPAGE:p.56
 Multiweapon Fighting			TYPE:General	KEY:Multiweapon Fighting ~ AEG	SERVESAS:ABILITY=FEAT|Multiweapon Fighting																																										PRETEXT:Three or more hands.	DESC:You can fight with many weapons at once.																																																																											SOURCEPAGE:p.56
 Mongoose snaps the Cobra Strike	TYPE:General		PREATT:9							PREFEAT:4,Eagle Claw Strike,Fishing Bear Strike,Improved Unarmed Strike,Tiger Watches from the Grass Strike													PRESTAT:1,DEX=13		DESC:You can hold an opponent at bay, while fighting another.																																																																								SOURCEPAGE:p.56
 
@@ -437,7 +437,7 @@ Power Shot				TYPE:General.Fighter												PREATT:5						PREFEAT:2,Point Blan
 #Powerful Turning			TYPE:General																				PREFEAT:1,Extra Turning												PRELEVEL:MIN=5																							PRESTAT:1,CHA=13											DESC:Your deity has blessed you with power over undead, unmatched.																																																	SOURCEPAGE:p.63
 #comment: Look At This...
 Precision Archery			TYPE:General.Fighter																			PREFEAT:3,Far Shot,Point Blank Shot,Precise Shot																													PRESTAT:1,WIS=13											DESC:You can target hidden opponents with near precision.																																																			SOURCEPAGE:p.63
-Prescience				TYPE:General																				PREFEAT:1,Visionary																																		PRESTAT:1,WIS=17											DESC:You have unearthly vision of things beyond most, allowing you to see what is not there.																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE												SOURCEPAGE:p.63
+Prescience				TYPE:General																				PREFEAT:1,Visionary																																		PRESTAT:1,WIS=17											DESC:You have unearthly vision of things beyond most, allowing you to see what is not there.																												MULT:YES	CHOOSE:SPELLS|SCHOOL=Divination,ALL[LEVELMIN=2;LEVELMAX=2]												SOURCEPAGE:p.63
 #comment:Gets A 2nd Level Divination Spell
 Press Ganger			TYPE:General																																																		PRESKILL:1,Profession (Sailor)=4		PRESTAT:1,STR=13,CHA=13										DESC:You are adept at "recruiting" unwilling sailors into naval service aboard your vessel.																																						BONUS:SKILL|Intimidate|2|TYPE=Competence	SOURCEPAGE:p.64
 Pressure Survival			TYPE:General																																																		PRESKILL:1,Swim=6																		DESC:You can withstand the pressure of sea water, diving deeper than most.																																																SOURCEPAGE:p.64
@@ -653,7 +653,7 @@ Unyielding Aura				TYPE:General		PREFEAT:1,Leadership																					PRESTA
 
 ###Block: V
 # Feat Name			Type			Required Class	Required Feat		Required Lvl	Required Stat	Description															Stackable?	Multiple?	Choose		Source Page
-Visionary			TYPE:General											PRESTAT:1,WIS=17	DESC:You have sight beyond normal vision, allowing you to see what is not there.			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	SOURCEPAGE:p.86
+Visionary			TYPE:General											PRESTAT:1,WIS=17	DESC:You have sight beyond normal vision, allowing you to see what is not there.				MULT:YES	CHOOSE:SPELLS|SCHOOL=Divination,ALL[LEVELMIN=1;LEVELMAX=1]	SOURCEPAGE:p.86
 #comment: Select A 1st Level Divination Spell
 Vengeful Strike		TYPE:General				PREFEAT:1,Iron Will	PRELEVEL:MIN=7	PRESTAT:1,CON=13	DESC:You may deal one final strike before your death.															SOURCEPAGE:p.87
 Vertical Walk		TYPE:General	PRECLASS:1,Monk=6	PREFEAT:1,Dodge					PRESTAT:1,DEX=15	DESC:You can walk short distances on vertical surfaces.														SOURCEPAGE:p.87
