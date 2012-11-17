@@ -1,0 +1,19 @@
+# CVS $Revision: $ $Author: $ -- Fri Dec 28 23:33:15 2007 -- reformated by prettylst.pl v1.38 (build 4314)
+# Original Entry: Andrew Maitland
+SOURCELONG:Alderac Entertainment Group (AEG) - Feats	SOURCESHORT:Feats	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-07
+
+# Feat Name			Output Name					Type					Required Class		Required Race	Required Stat	Required Text				Description																																																	Stackable?	Multiple?	Choose		Combat bonus								Bonus to skill			Cost		Source Page
+Bonus Feat									TYPE:General																			DESC:Choose any one feat from Feats																																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE																COST:0	SOURCEPAGE:p.143
+#CHOOSE:FEATADD|ALL don't know if that'd work...
+Cool										TYPE:General			PRECLASS:1,Rogue=1				PRESTAT:1,CHA=13							DESC:You are just that cool and everyone knows it																																																	BONUS:COMBAT|AC|1|TYPE=Circumstantial|PREEQUIP:1,Leather	BONUS:SKILL|TYPE.Charisma|1			SOURCEPAGE:p.143
+Elven Blood (Keebler)	OUTPUTNAME:Elven Blood, Keebler	TYPE:Background.Bloodgift																	DESC:you gan a +4 racial bonus to all Craft (Baking) checks and Profession (Cook) checks to make sweet, delicious treats																																																						SOURCEPAGE:p.143
+Garden Gnome								TYPE:Background													PRETEXT:Isn't being a gnome enough?	DESC:You gain a +3 competence bonus to Hide checks and Move Silently checks while in tall grass and rose bushes.																																																								SOURCEPAGE:p.143
+Grassy Gnoll								TYPE:Background							PRERACE:1,Gnoll	PRESTAT:1,WIS=13	PRETEXT:Knowing the truth		DESC:You gain a +4 paranoia bonus to your Hide checks																																																																		SOURCEPAGE:p.143
+Logic Hound									TYPE:General													PRETEXT:Having a brain			DESC:You are allowed a Will save (DC 10 or more) anytime a gnome or halfling confronts you as you know that shouldn't exist. The DC to resist gnome or halfling effects could be higher in situation where the creature is part of alcohol-related vision or an illusion create by some sick, deranged elf																									SOURCEPAGE:p.143
+Monkey Grabs The Peach							TYPE:General			PRECLASS:1,Monk=9														DESC:This is the most dangerous and vile of monk techniques, involving a strong, powerful crushing attack to the opponent's groin. We were going to make rules for this, but for the sake of the children we opted to leave such graphic and painful descriptions out of the book																													SOURCEPAGE:p.143
+Seven Dwarves								TYPE:General							PRERACE:1,Dwarf%										DESC:You gain a cumulative +1 racial bonus to all Perform (Ode) checks for every dwarf ally within 60 ft.																																																									SOURCEPAGE:p.143
+Spell Turning								TYPE:General										PRESTAT:1,INT=13							DESC:You always spell the word "turning" correctly																																																																		SOURCEPAGE:p.143
+
+#
+##EOF
+#

@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Tue Feb  3 00:37:38 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+###EQMODs
+# Original Entry: Eddy Anthony
+SOURCELONG:Alderac Entertainment Group (AEG) - Feats	SOURCESHORT:Feats	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-07
+
+# Modifier Name											Unique Key				Naming Option	Type		Visible		Required Type	Bonus Weapon Modifiers
+Assassin's Blade	KEY:ASSASSIN_CRITRANGEADD	NAMEOPT:NOTHING	TYPE:Weapon	VISIBLE:QUALIFY	PRETYPE:1,Melee	BONUS:EQMWEAPON|CRITRANGEADD|1|PREFEAT:1,Assassin	SPROP: (Applies the benefits of the Assasin feat if you have it)
+
+#
+##EOF
+#
