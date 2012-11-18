@@ -16,10 +16,10 @@ CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	SPELLLEVEL:CLASS|Adept=4|Cure Critical Wounds,Minor Creation,Polymorph,Restoration,Stoneskin,Wall of Fire
 1	SPELLLEVEL:CLASS|Adept=5|Baleful Polymorph,Break Enchantment,Commune,Heal,Major Creation,Raise Dead,True Seeing,Wall of Stone
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Class Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block Normal Level progression
 1	CAST:3,1
-2	CAST:3,1		BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Arcane Bond ~ Familiar
+2	CAST:3,1		BONUS:VAR|FamiliarLVL|CL	ABILITY:Class Ability|AUTOMATIC|Arcane Bond ~ Familiar
 3	CAST:3,2
 4	CAST:3,2,0
 5	CAST:3,2,1
@@ -44,7 +44,7 @@ CLASS:Aristocrat	HD:8		TYPE:Base.NPC	ABB:Ari		MAXLEVEL:20	SOURCEPAGE:p.449	BONUS
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aristocrat	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disguise|Handle Animal|Intimidate|TYPE=Knowledge|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Swim|Survival
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1	ABILITY:Class Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 
@@ -53,14 +53,14 @@ CLASS:Commoner	HD:6		TYPE:Base.NPC	ABB:Com		MAXLEVEL:20	SOURCEPAGE:p.449	WEAPONB
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Commoner	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Perception|TYPE=Profession|Ride|Swim
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+1	ABILITY:Class Ability|AUTOMATIC|All Automatic Proficiencies
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Expert	HD:8		TYPE:Base.NPC	ABB:Exp		MAXLEVEL:20	SOURCEPAGE:p.450	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl
 CLASS:Expert	STARTSKILLPTS:6
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1	ABILITY:Class Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1												AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Class skills
 1	BONUS:ABILITYPOOL|Expert Class Skills|10
@@ -70,6 +70,6 @@ CLASS:Warrior	HD:10		TYPE:Base.NPC	ABB:War		MAXLEVEL:20	SOURCEPAGE:p.450	BONUS:C
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warrior	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|TYPE=Profession|Ride|Swim
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1	ABILITY:Class Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency

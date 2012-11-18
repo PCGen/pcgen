@@ -16,14 +16,14 @@ Blank Weapon Block OS	CATEGORY:Natural Attack	TYPE:NaturalAttack																
 
 ###Block: Weapon Proficiencies
 # Ability Name				Category of Ability		Type			Visible	Serves As						Automatically Gained Weapon Prof.																									Ability
-All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)																					ABILITY:FEAT|AUTOMATIC|CMB Output	ABILITY:Natural Attack|AUTOMATIC|Natural Attack ~ Shield Bash|PREEQUIP:1,TYPE=Shield
-All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SERVESAS:FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
-Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Whip
-Cleric Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|DEITYWEAPONS
-Druid Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Scythe|Sickle|Shortspear|Sling|Spear
-Monk Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shortspear|Sword (Short)|Shuriken|Siangham|Sling|Spear|Flurry of Blows
-Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)
-Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO								AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO								AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)																					ABILITY:FEAT|AUTOMATIC|CMB Output	ABILITY:Natural Attack|AUTOMATIC|Natural Attack ~ Shield Bash|PREEQUIP:1,TYPE=Shield
+All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO	SERVESAS:FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO								AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Whip
+Cleric Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO								AUTO:WEAPONPROF|DEITYWEAPONS
+Druid Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO								AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Scythe|Sickle|Shortspear|Sling|Spear
+Monk Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO								AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shortspear|Sword (Short)|Shuriken|Siangham|Sling|Spear|Flurry of Blows
+Rogue Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO								AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)
+Wizard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO								AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 
 ###Block: Weapon and Armor Proficiencies
 # Ability Name			Unique Key								Category of Ability		Type				Description																																																																																																																																																	Automatically Gained Feat																																Ability
@@ -81,16 +81,16 @@ Wizard Core Class Skills	KEY:Class Skills ~ Wizard	CATEGORY:Internal		CSKILL:App
 # put this on class line one of any class that gets Uncanny Dodge
 #	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
 # Ability Name				Category of Ability		Type								Visible	Define										Description																															Ability																																							Modify VAR								Description of the Benefits
-Uncanny Dodge ~ Base			CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO	DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0																																	ABILITY:Special Ability|AUTOMATIC|Retain Dex To AC ~ Flat-footed	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
+Uncanny Dodge ~ Base			CATEGORY:Special Ability	TYPE:Internal.ClassAbility						VISIBLE:NO	DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0																																	ABILITY:Special Ability|AUTOMATIC|Retain Dex To AC ~ Flat-footed	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
 #
-Retain Dex To AC ~ Flat-footed	CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO												DESC:You retain your Dexterity bonus to AC even when flat-footed
+Retain Dex To AC ~ Flat-footed	CATEGORY:Special Ability	TYPE:Internal.ClassAbility						VISIBLE:NO												DESC:You retain your Dexterity bonus to AC even when flat-footed
 
 Uncanny Dodge				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	VISIBLE:YES												DESC:You can react to danger before your senses would normally allow you to do so.																																																																				BENEFIT:You can react to danger before your senses would normally allow you to do so. You cannot be caught flat-footed, nor do you lose your Dexterity bonus to AC if the attacker is invisible. You still lose your Dexterity bonus to AC if immobilized. You can still lose your Dexterity bonus to AC if an opponent successfully uses the feint action against you.
 Improved Uncanny Dodge			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	VISIBLE:YES												DESC:You can no longer be flanked. This defense denies a rogue the ability to sneak attack you by flanking you, unless the attacker is a rogue of at least level %1.|UncannyDodgeFlankingLevel																																									BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly
 
 ###Block: Evasion and Improved Evasion --------------------------------------------------------------------------------------------------
 # Ability Name	Unique Key			Category of Ability		Type											Visible	Description									Ability																	Description of the Benefits
-Evasion						CATEGORY:Special Ability	TYPE:Internal									VISIBLE:NO											ABILITY:Special Ability|AUTOMATIC|Evasion Output|!PREABILITY:1,CATEGORY=Special Ability,Improved Evasion
+Evasion						CATEGORY:Special Ability	TYPE:Internal.ClassAbility									VISIBLE:NO											ABILITY:Special Ability|AUTOMATIC|Evasion Output|!PREABILITY:1,CATEGORY=Special Ability,Improved Evasion
 Evasion		KEY:Evasion Output	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive				VISIBLE:YES	DESC:You can avoid damage from many area-effect attacks.																			BENEFIT:You can avoid damage from many area-effect attacks. If you make a successful Reflex saving throw against an attack that normally deals half damage on a successful save, you instead take no damage. Evasion can only be used if you are wearing light armor or no armor. If you are helpless, you do not gain the benefit of evasion.
 Improved Evasion					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive.AdvancedRogueTalent	VISIBLE:YES	DESC:You can avoid damage from many area-effect attacks.																			BENEFIT:You can avoid damage from many area-effect attacks. If you make a successful Reflex save against an attack that normally deals half damage on a successful save, you instead take no damage, and even on a failed saving throw you take only half damage. If you are helpless, you do not gain the benefit of improved evasion.
 
@@ -101,7 +101,7 @@ Timeless Body		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VIS
 Wild Empathy		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES	DEFINE:WildEmpathy|0	DEFINE:WildEmpathyLVL|0	DESC:You can improve the attitude of an animal.																																						BONUS:VAR|WildEmpathy|WildEmpathyLVL+CHA	SOURCEPAGE:p.50/64	ASPECT:Ability Benefit|+%1|WildEmpathy											BENEFIT:You can improve the attitude of an animal. This abilty functions just like Diplomacy check made to improve the attitude of a person. You roll 1d20+%1 to determine the Wild Empathy check result. The typical domestic animal has a starting attitude of indifferent, while wild animals are usually unfriendly. To use Wild Empathy, you and the animal must be within 30 feet of one another under normal circumstances. Generally, influencing an animal in this way takes 1 minute, but as with influencing people, it might take more or less time. You can use this ability to influence a magical beast with an Intelligence score of 1 or 2, but you take a -4 penalty on the check.|WildEmpathy
 Woodland Stride		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement	VISIBLE:YES									DESC:You may move through any sort of magical undergrowth at your normal speed and without taking damage or suffering any other impairment.																																																		BENEFIT:You may move through any sort of magical undergrowth (such as natural thorns, briars, overgrown areas, and similar terrains) at your normal speed and without taking damage or suffering any other impairment. Thorns, briars, and overgrown areas that have been magically manipulated to impede motion, however, still affect you.
 
-Common Favored Terrain	CATEGORY:Special Ability	TYPE:Internal							VISIBLE:NO	DEFINE:FavoredTerrainPool|0																												BONUS:ABILITYPOOL|Favored Terrain|FavoredTerrainPool	BONUS:ABILITYPOOL|Favored Terrain Bonus|max(0,FavoredTerrainPool-1)
+Common Favored Terrain	CATEGORY:Special Ability	TYPE:Internal.ClassAbility							VISIBLE:NO	DEFINE:FavoredTerrainPool|0																												BONUS:ABILITYPOOL|Favored Terrain|FavoredTerrainPool	BONUS:ABILITYPOOL|Favored Terrain Bonus|max(0,FavoredTerrainPool-1)
 
 ###Block: Alignment Auras
 # Ability Name	Category of Ability		Type							Visible	Define								Description																																																							Modify VAR
@@ -118,7 +118,7 @@ Channel Positive Energy			CATEGORY:Special Ability	TYPE:Internal
 Channel Negative Energy			CATEGORY:Special Ability	TYPE:Internal
 
 # Once generic ability for prestige classes that advance any channeling ability such as the Holy Vindicator.
-Channel Energy ~ Prestige Class	CATEGORY:Special Ability	TYPE:Internal																		DEFINE:PrestigeClassChannelEnergyLVL|0	BONUS:VAR|ClericChannelEnergyLVL|PrestigeClassChannelEnergyLVL	BONUS:VAR|PaladinChannelLVL|PrestigeClassChannelEnergyLVL	BONUS:VAR|PowerOverUndeadLVL|PrestigeClassChannelEnergyLVL
+Channel Energy ~ Prestige Class	CATEGORY:Special Ability	TYPE:Internal.ClassAbility																		DEFINE:PrestigeClassChannelEnergyLVL|0	BONUS:VAR|ClericChannelEnergyLVL|PrestigeClassChannelEnergyLVL	BONUS:VAR|PaladinChannelLVL|PrestigeClassChannelEnergyLVL	BONUS:VAR|PowerOverUndeadLVL|PrestigeClassChannelEnergyLVL
 
 ##Block: Extra Channel Energy support
 Cleric Extra Channel			CATEGORY:Special Ability	TYPE:ExtraChannel														PRECLASS:1,Cleric=1								BONUS:VAR|ClericChannelEnergyTimes|2
