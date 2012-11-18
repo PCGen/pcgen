@@ -3,8 +3,8 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # RSRD Entry by: jaymecox
 
 ###Block: Special Mount
-# Class of the Master		Type				Hit Dice	Spell Res.	Ability																									Automatically Gained Armor Prof.	Combat bonus					Add to base move																																					Stat bonus		Modify VAR					Main Race Type
-FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker	AUTO:ARMORPROF|ARMORTYPE=Barding	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1	BONUS:VAR|IntelligenceLockNumber|6	RACETYPE:Animal/Magical Beast
+# Class of the Master		Type				Hit Dice	Spell Res.	Ability																									Automatically Gained Armor Prof.	Combat bonus					Add to base move																																					Stat bonus		Modify VAR
+FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Empathic Link|Improved Evasion|Share Saving Throws|Share Spells	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker	AUTO:ARMORPROF|ARMORTYPE=Barding	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1	BONUS:VAR|IntelligenceLockNumber|6
 FOLLOWER:SpecialMountLVL=8	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Improved Speed																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1	BONUS:VAR|IntelligenceLockNumber|1
 FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Command Own Kind																								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1	BONUS:VAR|IntelligenceLockNumber|1
 FOLLOWER:SpecialMountLVL=15	TYPE:Special Mount	HD:2		SR:20																																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1	BONUS:VAR|IntelligenceLockNumber|1
@@ -42,7 +42,7 @@ FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
 ###Block:Familiar
 # Class of the Master	Type			Spell Res.	Ability																Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Combat bonus					Modify VAR									Main Race Type
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Share Spells																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|IntelligenceLockNumber|6	BONUS:VAR|MasterLvl|1	RACETYPE:Animal/Magical Beast
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Share Spells																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|IntelligenceLockNumber|6	BONUS:VAR|MasterLvl|1
 FOLLOWER:FamiliarLVL=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells																									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|IntelligenceLockNumber|1	BONUS:VAR|MasterLvl|2
 FOLLOWER:FamiliarLVL=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																										BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|IntelligenceLockNumber|1	BONUS:VAR|MasterLvl|2
 FOLLOWER:FamiliarLVL=7	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Own Kind																										BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|IntelligenceLockNumber|1	BONUS:VAR|MasterLvl|2
