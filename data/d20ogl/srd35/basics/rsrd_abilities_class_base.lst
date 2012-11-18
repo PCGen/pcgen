@@ -39,11 +39,11 @@ Aura of Good	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VIS
 Aura of Law		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraLaw|0		DESC:Faint|PREVAREQ:AuraLaw,1	DESC:Moderate|PREVARGTEQ:AuraLaw,2|PREVARLTEQ:AuraLaw,4	DESC:Strong|PREVARGTEQ:AuraLaw,5|PREVARLTEQ:AuraLaw,10	DESC:Overwhelming|PREVARGTEQ:AuraLaw,11		BONUS:VAR|AuraLaw|AlignmentAuraBase|!PREDOMAIN:1,Law						SOURCEPAGE:SpellsD-E.rtf
 
 # Ability Name	Category of Ability		Type							Visible	Define			Description																																Modify VAR													Source Page
-Cleric Turning	CATEGORY:Special Ability	TYPE:Internal					VISIBLE:NO																																						BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
+Cleric Turning	CATEGORY:Special Ability	TYPE:Internal.ClassAbility					VISIBLE:NO																																						BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 
 ###Block: Turn/Rebuke Abilities
 # Ability Name	Category of Ability		Type							Visible	Restricted Ability						Required AL				Prohibited Var. Value			Define																																												Description																									Source Page
-Basic Turning	CATEGORY:Special Ability	TYPE:Turning.Internal				VISIBLE:NO																					DEFINE:AllowExtraTurning|1	DEFINE:AllowImprovedTurning|1	DEFINE:TurnTimesBase|0	DEFINE:TurnLevelBase|0	DEFINE:TurnDiceBase|2	DEFINE:TurnDieSizeBase|6	DEFINE:TurnDamagePlusBase|CHA	DEFINE:TurnCheckBase|0																																				SOURCEPAGE:CombatII.rtf
+Basic Turning	CATEGORY:Special Ability	TYPE:Turning.Internal.ClassAbility				VISIBLE:NO																					DEFINE:AllowExtraTurning|1	DEFINE:AllowImprovedTurning|1	DEFINE:TurnTimesBase|0	DEFINE:TurnLevelBase|0	DEFINE:TurnDiceBase|2	DEFINE:TurnDieSizeBase|6	DEFINE:TurnDamagePlusBase|CHA	DEFINE:TurnCheckBase|0																																				SOURCEPAGE:CombatII.rtf
 Turn Undead		CATEGORY:Special Ability	TYPE:SpecialAttack.Turning.TurnUndead	VISIBLE:YES	!PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	PREALIGN:LG,LN,NG,TN,CG,CN	PREVARNEQ:TurnProhibitedByDeity,1	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase				DESC:%1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead				SOURCEPAGE:ClassesI.rtf
 Rebuke Undead	CATEGORY:Special Ability	TYPE:SpecialAttack.Turning.TurnUndead	VISIBLE:YES	!PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PREALIGN:LN,LE,TN,NE,CN,CE	PREVARNEQ:RebukeProhibitedByDeity,1	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase				DESC:%1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead				SOURCEPAGE:ClassesI.rtf
 Turn Air		CATEGORY:Special Ability	TYPE:SpecialAttack.Turning.TurnAir		VISIBLE:YES																					DEFINE:TurnTimesAir|TurnTimesBase	DEFINE:TurnLevelAir|TurnLevelBase	DEFINE:TurnDiceAir|TurnDiceBase	DEFINE:TurnDieSizeAir|TurnDieSizeBase	DEFINE:TurnDamagePlusAir|TurnDamagePlusBase	DEFINE:TurnCheckAir|TurnCheckBase							DESC:%1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesAir|TurnLevelAir|TurnDiceAir|TurnDieSizeAir|TurnDamagePlusAir						SOURCEPAGE:SpellListI.rtf
@@ -92,8 +92,8 @@ Spontaneous casting - Summon Nature's Ally	CATEGORY:Special Ability	TYPE:Special
 
 ###Block: Righteous Might DR bonuses
 # Ability Name		Category of Ability		Type			Visible	Damage reduction				Damage Reduction
-RighteousMightDR ~ Good	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	BONUS:DR|Good|RighteousMightDR	DR:0/Good
-RighteousMightDR ~ Evil	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	BONUS:DR|Evil|RighteousMightDR	DR:0/Evil
+RighteousMightDR ~ Good	CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO	BONUS:DR|Good|RighteousMightDR	DR:0/Good
+RighteousMightDR ~ Evil	CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO	BONUS:DR|Evil|RighteousMightDR	DR:0/Evil
 
 ###Block: Rage
 # Ability Name	Category of Ability		Type						Visible	Define																																	Description																																																																																																									Save checks bonus					Combat bonus						Stat bonus													Modify VAR
@@ -115,7 +115,7 @@ Barbarian Fast Movement	OUTPUTNAME:Fast Movement	CATEGORY:Special Ability	TYPE:S
 #BONUS:MOVEADD|TYPE=Walk|10|PREVARLT:ENCUMBERANCE,2,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),1|TYPE=FastMovement																																									SOURCEPAGE:ClassesI.rtf
 Barbarian DR		OUTPUTNAME:Damage Reduction	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DEFINE:BarbarianDR|0	DEFINE:BarbarianDRLVL|0															DESC:At 7th level, a barbarian gains Damage Reduction. Subtract 1 from the damage the barbarian takes each time he is dealt damage from a weapon or a natural attack. At 10th level, and every three barbarian levels thereafter (13th, 16th, and 19th level), this damage reduction rises by 1 point. Damage reduction can reduce damage to 0 but not below 0.																BONUS:VAR|BarbarianDR|(BarbarianDRLVL-4)/3																														DR:BarbarianDR/-	SOURCEPAGE:ClassesI.rtf
 Indomitable Will							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES																							DESC:+4 bonus on Will saves to resist enchantment spells while enraged.																																																																																																							SOURCEPAGE:ClassesI.rtf
-Barbarian Rage							CATEGORY:Special Ability	TYPE:Internal.RageDescription				VISIBLE:NO	DEFINE:GreaterRage|0	DEFINE:TirelessRage|0	DEFINE:MightyRage|0	DEFINE:BarbRageTimesLVL|0	DEFINE:BarbRagePowerLVL|0																																																																											BONUS:VAR|GreaterRage|1|PREVARGTEQ:BarbRagePowerLVL,11	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BarbRagePowerLVL,17	BONUS:VAR|MightyRage|1|PREVARGTEQ:BarbRagePowerLVL,20	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1				SOURCEPAGE:ClassesI.rtf
+Barbarian Rage							CATEGORY:Special Ability	TYPE:Internal.RageDescription.ClassAbility				VISIBLE:NO	DEFINE:GreaterRage|0	DEFINE:TirelessRage|0	DEFINE:MightyRage|0	DEFINE:BarbRageTimesLVL|0	DEFINE:BarbRagePowerLVL|0																																																																											BONUS:VAR|GreaterRage|1|PREVARGTEQ:BarbRagePowerLVL,11	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BarbRagePowerLVL,17	BONUS:VAR|MightyRage|1|PREVARGTEQ:BarbRagePowerLVL,20	BONUS:VAR|RageTimes|(BarbRageTimesLVL)/4+1				SOURCEPAGE:ClassesI.rtf
 ###Block:
 # Ability Name						Aspects
 CATEGORY=Special Ability|Barbarian Rage.MOD	ASPECT:RageDescription|[Greater Rage] |PREMULT:2,[PREVARGTEQ:GreaterRage,1],[PREVARLT:TirelessRage,1]
@@ -147,10 +147,10 @@ Wild Shape		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YE
 
 ###Block: Druid Wild Shape Sub Ability trackers
 # Ability Name				Category of Ability		Type			Visible	Define			Modify VAR																																																																												Source Page
-Druid Wild Shape				CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DruidWildShape|0	BONUS:VAR|WildShapeDuration|DruidWildShape																																																																						SOURCEPAGE:ClassesI.rtf
-Druid Wild Shape Times			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO					BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,5	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,6	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,7	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,10	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,14	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,18																		SOURCEPAGE:ClassesI.rtf
-Druid Elemental Wild Shape Times	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO					BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,18	BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,20																																													SOURCEPAGE:ClassesI.rtf
-Druid Wild Shape Progression		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO					BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,5	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,8	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,11	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,12	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,15	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,20	SOURCEPAGE:ClassesI.rtf
+Druid Wild Shape				CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO	DEFINE:DruidWildShape|0	BONUS:VAR|WildShapeDuration|DruidWildShape																																																																						SOURCEPAGE:ClassesI.rtf
+Druid Wild Shape Times			CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO					BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,5	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,6	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,7	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,10	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,14	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,18																		SOURCEPAGE:ClassesI.rtf
+Druid Elemental Wild Shape Times	CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO					BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,18	BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,20																																													SOURCEPAGE:ClassesI.rtf
+Druid Wild Shape Progression		CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO					BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,5	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,8	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,11	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,12	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,15	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,20	SOURCEPAGE:ClassesI.rtf
 
 ###Block: Druid abilities
 # Ability Name		Category of Ability		Type									Visible	Description																																																								Bonus to skill					Source Page
@@ -183,11 +183,11 @@ Timeless Body	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE
 
 ###Block: Fighter abilities
 # Ability Name					Category of Ability		Type			Visible	Define											Bonus to Ability Pool					Modify VAR															Source Page
-Weapon Specialization Qualify			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:WeapSpecQualify|0	DEFINE:WeaponSpecQualifyLVL|0											BONUS:VAR|WeapSpecQualify|1|PREVARGTEQ:WeaponSpecQualifyLVL,4						SOURCEPAGE:Feats.lst
-Greater Weapon Focus Qualify			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:GreatWeapFocusQualify|0	DEFINE:GreatWeapFocusQualifyLVL|0									BONUS:VAR|GreatWeapFocusQualify|1|PREVARGTEQ:GreatWeapFocusQualifyLVL,8					SOURCEPAGE:Feats.lst
-Greater Weapon Specialization Qualify	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:GreatWeapSpecQualify|0	DEFINE:GreatWeapSpecQualifyLVL|0										BONUS:VAR|GreatWeapSpecQualify|1|PREVARGTEQ:GreatWeapSpecQualifyLVL,12					SOURCEPAGE:Feats.lst
-Fighter Level Advanced Feat Tracker		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:FighterLVL|0																	BONUS:VAR|WeaponSpecQualifyLVL,GreatWeapFocusQualifyLVL,GreatWeapSpecQualifyLVL|FighterLVL	SOURCEPAGE:Feats.lst
-Fighter Bonus Feat				CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO													BONUS:ABILITYPOOL|Fighter Feat|(FighterLVL/2)+1
+Weapon Specialization Qualify			CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO	DEFINE:WeapSpecQualify|0	DEFINE:WeaponSpecQualifyLVL|0											BONUS:VAR|WeapSpecQualify|1|PREVARGTEQ:WeaponSpecQualifyLVL,4						SOURCEPAGE:Feats.lst
+Greater Weapon Focus Qualify			CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO	DEFINE:GreatWeapFocusQualify|0	DEFINE:GreatWeapFocusQualifyLVL|0									BONUS:VAR|GreatWeapFocusQualify|1|PREVARGTEQ:GreatWeapFocusQualifyLVL,8					SOURCEPAGE:Feats.lst
+Greater Weapon Specialization Qualify	CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO	DEFINE:GreatWeapSpecQualify|0	DEFINE:GreatWeapSpecQualifyLVL|0										BONUS:VAR|GreatWeapSpecQualify|1|PREVARGTEQ:GreatWeapSpecQualifyLVL,12					SOURCEPAGE:Feats.lst
+Fighter Level Advanced Feat Tracker		CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO	DEFINE:FighterLVL|0																	BONUS:VAR|WeaponSpecQualifyLVL,GreatWeapFocusQualifyLVL,GreatWeapSpecQualifyLVL|FighterLVL	SOURCEPAGE:Feats.lst
+Fighter Bonus Feat				CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO													BONUS:ABILITYPOOL|Fighter Feat|(FighterLVL/2)+1
 
 #
 #	###########################
@@ -241,7 +241,7 @@ Ki Strike		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	
 
 ###Block: Monk Internals
 # Ability Name			Category of Ability		Type			Visible	Modify VAR																										Source Page
-Monk Ki Strike Advancement	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	BONUS:VAR|KiStrikeMagic|1|PREVARGTEQ:KiStrikeLVL,4	BONUS:VAR|KiStrikeLawful|1|PREVARGTEQ:KiStrikeLVL,10	BONUS:VAR|KiStrikeAdaman|1|PREVARGTEQ:KiStrikeLVL,16	SOURCEPAGE:ClassesI.rtf
+Monk Ki Strike Advancement	CATEGORY:Internal	TYPE:Internal.ClassAbilty	VISIBLE:NO	BONUS:VAR|KiStrikeMagic|1|PREVARGTEQ:KiStrikeLVL,4	BONUS:VAR|KiStrikeLawful|1|PREVARGTEQ:KiStrikeLVL,10	BONUS:VAR|KiStrikeAdaman|1|PREVARGTEQ:KiStrikeLVL,16	SOURCEPAGE:ClassesI.rtf
 
 ###Block: Monk Bonus Feats
 # Ability Name	Category of Ability		Type				Visible		Restricted Ability							Var. Min. Value			Virtual Feat
@@ -264,8 +264,8 @@ Detect Evil		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Sense		VISIB
 
 ###Block: Paladin Internals
 # Ability Name		Category of Ability		Type			Visible	Define													Modify VAR																											Source Page
-Paladin Smite Evil	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:PaladinSmiteEvilLVL|0										BONUS:VAR|SmiteEvil|PaladinSmiteEvilLVL/5+1	BONUS:VAR|SmiteEvilDamage|PaladinSmiteEvilLVL													SOURCEPAGE:ClassesII.rtf
-Paladin Turn Undead	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1	DEFINE:PaladinTurnLVL|0	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|PaladinTurnLVL-3|TYPE=Level.REPLACE	SOURCEPAGE:ClassesII.rtf
+Paladin Smite Evil	CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO	DEFINE:PaladinSmiteEvilLVL|0										BONUS:VAR|SmiteEvil|PaladinSmiteEvilLVL/5+1	BONUS:VAR|SmiteEvilDamage|PaladinSmiteEvilLVL													SOURCEPAGE:ClassesII.rtf
+Paladin Turn Undead	CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO	DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1	DEFINE:PaladinTurnLVL|0	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|PaladinTurnLVL-3|TYPE=Level.REPLACE	SOURCEPAGE:ClassesII.rtf
 
 
 ###Block: Ranger Abilities ------------------------------------------------------------------------------------------------------
@@ -273,9 +273,9 @@ Paladin Turn Undead	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:All
 # Ability Name			Category of Ability		Type						Visible	Define									Description																											Ability									Bonus to Ability Pool										Modify VAR																																Source Page
 Swift Tracker			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES											DESC:Move at normal speed while following tracks without taking the normal -5 penalty. Takes only a -10 penalty when moving at up to twice normal speed while tracking.																																																									SOURCEPAGE:ClassesII.rtf
 Camouflage				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES											DESC:Use the Hide skill in any sort of natural terrain, even if the terrain doesn't grant cover or concealment.																																																																		SOURCEPAGE:ClassesII.rtf
-Hide in Plain Sight (Ranger)	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO																																							ABILITY:Special Ability|VIRTUAL|Hide in Plain Sight (Ex)																																															SOURCEPAGE:ClassesII.rtf
-Ranger Combat Tree		CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:RangerCombatTreeLVL|0	DEFINE:RangerCombatTree|0																																							BONUS:ABILITYPOOL|Ranger Combat Style|1|PREVARGTEQ:RangerCombatTreeLVL,2	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,2	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,6	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,11	SOURCEPAGE:ClassesII.rtf
-Ranger Favored Enemy		CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:RangerFavoredEnemyLVL|0																																																								BONUS:VAR|FavoredEnemies|RangerFavoredEnemyLVL/5+1	BONUS:VAR|FavoredEBonuses|RangerFavoredEnemyLVL/5																SOURCEPAGE:ClassesII.rtf
+Hide in Plain Sight (Ranger)	CATEGORY:Special Ability	TYPE:Internal.ClassAbility				VISIBLE:NO																																							ABILITY:Special Ability|VIRTUAL|Hide in Plain Sight (Ex)																																															SOURCEPAGE:ClassesII.rtf
+Ranger Combat Tree		CATEGORY:Special Ability	TYPE:Internal.ClassAbility				VISIBLE:NO	DEFINE:RangerCombatTreeLVL|0	DEFINE:RangerCombatTree|0																																							BONUS:ABILITYPOOL|Ranger Combat Style|1|PREVARGTEQ:RangerCombatTreeLVL,2	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,2	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,6	BONUS:VAR|RangerCombatTree|1|PREVARGTEQ:RangerCombatTreeLVL,11	SOURCEPAGE:ClassesII.rtf
+Ranger Favored Enemy		CATEGORY:Special Ability	TYPE:Internal.ClassAbility				VISIBLE:NO	DEFINE:RangerFavoredEnemyLVL|0																																																								BONUS:VAR|FavoredEnemies|RangerFavoredEnemyLVL/5+1	BONUS:VAR|FavoredEBonuses|RangerFavoredEnemyLVL/5																SOURCEPAGE:ClassesII.rtf
 
 ###Block: Ranger Combat Styles
 # Ability Name				Category of Ability		Type							Visible	Restricted Ability								Virtual Feat
@@ -284,7 +284,7 @@ Archery Combat Style			CATEGORY:Special Ability	TYPE:SpecialQuality.RangerCombat
 
 ###Block: Favored Enemies ------------------------------------------------------------------------------------------------------
 # Ability Name					Category of Ability		Type								Visible	Define												Description					Source Page				Aspects
-Basic Favored Enemy				CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO	DEFINE:FavoredBase|2	DEFINE:FavoredEnemies|0	DEFINE:FavoredEBonuses|0
+Basic Favored Enemy				CATEGORY:Special Ability	TYPE:Internal.ClassAbility						VISIBLE:NO	DEFINE:FavoredBase|2	DEFINE:FavoredEnemies|0	DEFINE:FavoredEBonuses|0
 # Ability Name					Category of Ability		Type								Visible	Define												Description					Source Page				Aspects
 Favored Enemy (Aberration)			CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	DEFINE:FavoredAberration|FavoredBase							DESC:+%1|FavoredAberration		SOURCEPAGE:ClassesII.rtf	ASPECT:Ability Benefit|+%1|FavoredAberration
 Favored Enemy (Animal)				CATEGORY:Special Ability	TYPE:FavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	DEFINE:FavoredAnimal|FavoredBase								DESC:+%1|FavoredAnimal			SOURCEPAGE:ClassesII.rtf	ASPECT:Ability Benefit|+%1|FavoredAnimal
@@ -362,8 +362,8 @@ Trapfinding							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES				
 Trap Sense Ability	OUTPUTNAME:Trap Sense	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:TrapSense|0							DESC:+%1|TrapSense																			ASPECT:Ability Benefit|+%1|TrapSense				BENEFIT:At 3rd level, a rogue gains an intuitive sense that alerts her to danger from traps, giving her a +1 bonus on Reflex saves made to avoid traps and a +1 dodge bonus to AC against attacks made by traps. These bonuses rise to +2 when the rogue reaches 6th level, to +3 when she reaches 9th level, to +4 when she reaches 12th level, to +5 at 15th, and to +6 at 18th level. Trap sense bonuses gained from multiple classes stack.
 Sneak Attack						CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DEFINE:SneakAttackDieSize|6	DEFINE:SneakAttackDice|0	DESC:+%1d%2|SneakAttackDice|SneakAttackDieSize										SOURCEPAGE:ClassesII.rtf	ASPECT:Ability Benefit|+%1d%2|SneakAttack|SneakAttackDie	BENEFIT:If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage. The rogue's attack deals extra damage any time her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and it increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet. With a sap (blackjack) or an unarmed strike, a rogue can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual -4 penalty. A rogue can sneak attack only living creatures with discernible anatomies-undead, constructs, oozes, plants, and incorporeal creatures lack vital areas to attack. Any creature that is immune to critical hits is not vulnerable to sneak attacks. The rogue must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment or striking the limbs of a creature whose vitals are beyond reach.
 #Class Internal for homebrews
-Rogue Sneak Attack					CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:RogueSneakAttackLVL|0														BONUS:VAR|SneakAttackDice|(RogueSneakAttackLVL+1)/2	SOURCEPAGE:ClassesII.rtf
-Rogue Trap Sense						CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO	DEFINE:RogueTrapSenseLVL|0														BONUS:VAR|TrapSense|RogueTrapSenseLVL/3			SOURCEPAGE:ClassesII.rtf
+Rogue Sneak Attack					CATEGORY:Special Ability	TYPE:Internal.ClassAbility				VISIBLE:NO	DEFINE:RogueSneakAttackLVL|0														BONUS:VAR|SneakAttackDice|(RogueSneakAttackLVL+1)/2	SOURCEPAGE:ClassesII.rtf
+Rogue Trap Sense						CATEGORY:Special Ability	TYPE:Internal.ClassAbility				VISIBLE:NO	DEFINE:RogueTrapSenseLVL|0														BONUS:VAR|TrapSense|RogueTrapSenseLVL/3			SOURCEPAGE:ClassesII.rtf
 
 ###Block: Rogue Bonus Feat / Special Abilities
 # Ability Name	Category of Ability		Type											Visible		Define				Description																								Stackable?	Multiple?	Choose		Selections		Bonus Number of Feats	Modify VAR					Source Page
@@ -380,10 +380,10 @@ Extra Feat		CATEGORY:Special Ability	TYPE:RogueAbilities								VISIBLE:DISPLAY	
 # put this on class line one of any class that gets Uncanny Dodge
 #	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK
 # Ability Name				Category of Ability		Type						Visible	Define										Description												Ability																																							Modify VAR								Source Page
-Uncanny Dodge ~ Base			CATEGORY:Special Ability	TYPE:Internal						DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0														ABILITY:Special Ability|AUTOMATIC|Retain Dex To AC ~ Flat-footed	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
+Uncanny Dodge ~ Base			CATEGORY:Special Ability	TYPE:Internal.ClassAbility						DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0														ABILITY:Special Ability|AUTOMATIC|Retain Dex To AC ~ Flat-footed	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeLevel,2
 #
 
-Retain Dex To AC ~ Flat-footed	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO												DESC:You retain your Dexterity bonus to AC even when flat-footed
+Retain Dex To AC ~ Flat-footed	CATEGORY:Special Ability	TYPE:Internal.ClassAbility				VISIBLE:NO												DESC:You retain your Dexterity bonus to AC even when flat-footed
 
 Uncanny Dodge				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary														DESC:Dex bonus to AC																																																											SOURCEPAGE:ClassesII.rtf
 Improved Uncanny Dodge			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary														DESC:Can't be flanked except by a level %1 rogue|UncannyDodgeFlankingLevel																																									BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly	SOURCEPAGE:ClassesII.rtf
@@ -412,15 +412,15 @@ CATEGORY=Internal|Default.MOD									DEFINE:GauntletOS|0	DEFINE:UnarmedLethal|0
 # See this tracker: http://sourceforge.net/tracker/?func=detail&aid=1158480&group_id=36698&atid=417819
 ###Block: Weapon proficiencies
 # Ability Name				Unique Key						Category of Ability		Type				Visible		Serves As						Description											Multiple?	Choose						Automatically Gained Weapon Prof.																						Ability
-All Automatic Proficiencies									CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO																														AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells (Ray)|Grapple																	ABILITY:Internal|AUTOMATIC|Grants All Hidden Abilities
-All Martial Weapon Proficiencies								CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO		SERVESAS:FEAT|Martial Weapon Proficiency																						AUTO:WEAPONPROF|TYPE=Martial
-Bard Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO																														AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip
-Druid Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO																														AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Spear
-Monk Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO																														AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling|Unarmed Strike
-Rogue Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO																														AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)
-Wizard Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO																														AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
-Assassin Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO																														AUTO:WEAPONPROF|Dart|Rapier|Sap|Shortbow|Sword (Short)|Crossbow (Light)|Crossbow (Heavy)|Crossbow (Hand)|TYPE=Dagger
-Shadowdancer Weapon Proficiencies								CATEGORY:Special Ability	TYPE:Internal		VISIBLE:NO																														AUTO:WEAPONPROF|Club|Dart|Mace (Light)|Mace (Heavy)|Morningstar|Rapier|Sap|Shortbow|Sword (Short)|Crossbow (Light)|Crossbow (Heavy)|Crossbow (Hand)|TYPE=Dagger
+All Automatic Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																														AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells (Ray)|Grapple																	ABILITY:Internal|AUTOMATIC|Grants All Hidden Abilities
+All Martial Weapon Proficiencies								CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO		SERVESAS:FEAT|Martial Weapon Proficiency																						AUTO:WEAPONPROF|TYPE=Martial
+Bard Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																														AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Shortbow|Whip
+Druid Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																														AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Sickle|Shortspear|Sling|Spear
+Monk Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																														AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling|Unarmed Strike
+Rogue Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																														AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)
+Wizard Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																														AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+Assassin Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																														AUTO:WEAPONPROF|Dart|Rapier|Sap|Shortbow|Sword (Short)|Crossbow (Light)|Crossbow (Heavy)|Crossbow (Hand)|TYPE=Dagger
+Shadowdancer Weapon Proficiencies								CATEGORY:Special Ability	TYPE:Internal.ClassAbility		VISIBLE:NO																														AUTO:WEAPONPROF|Club|Dart|Mace (Light)|Mace (Heavy)|Morningstar|Rapier|Sap|Shortbow|Sword (Short)|Crossbow (Light)|Crossbow (Heavy)|Crossbow (Hand)|TYPE=Dagger
 #
 Martial Weapon Proficiency		KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT			TYPE:Internal		VISIBLE:EXPORT								DESC:You understand how to use all types of martial weapons in combat.
 # NPC Single Simple Weapon Prof.
@@ -441,19 +441,20 @@ Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Rogue			CATEGORY
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Sorcerer		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Sorcerers are proficient with all simple weapons. They are not proficient with any type of armor or shield. Armor of any type interferes with a sorcerer's gestures, which can cause his spells with somatic components to fail.																																																																																																												AUTO:FEAT|Simple Weapon Proficiency																															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Wizard			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Wizards are proficient with the club, dagger, heavy crossbow, light crossbow, and quarterstaff, but not with any type of armor or shield. Armor of any type interferes with a wizard's movements, which can cause her spells with somatic components to fail.																																																																																																																																											ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Wizard Weapon Proficiencies
 # PRC
-Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Arcane Archer	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:An arcane archer is proficient with all simple and martial weapons, light armor, medium armor, and shields.
+Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Arcane Archer	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:An arcane archer is proficient with all simple and martial weapons, light armor, medium armor, and shields.		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)													AUTO:FEAT|Shield Proficiency
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Arcane Trickster	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Arcane tricksters gain no proficiency with any weapon or armor.
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Archmage		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Archmages gain no proficiency with any weapon or armor.
-Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Assassin		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Assassins are proficient with the crossbow (hand, light, or heavy), dagger (any type), dart, rapier, sap, shortbow (normal and composite), and short sword. Assassins are proficient with light armor but not with shields.
+Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Assassin		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Assassins are proficient with the crossbow (hand, light, or heavy), dagger (any type), dart, rapier, sap, shortbow (normal and composite), and short sword. Assassins are proficient with light armor but not with shields.		ABILITY:Special Ability|AUTOMATIC|Assassin Weapon Proficiencies												AUTO:FEAT|Armor Proficiency (Light)
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Blackguard		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Blackguards are proficient with all simple and martial weapons, with all types of armor, and with shields.
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Dragon Disciple	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Dragon disciples gain no proficiency with any weapon or armor.
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Duelist		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:The duelist is proficient with all simple and martial weapons, but no type of armor or shield.
-Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Dwarven Defender	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:A dwarven defender is proficient with all simple and martial weapons, all types of armor, and shields.
+Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Dwarven Defender	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:A dwarven defender is proficient with all simple and martial weapons, all types of armor, and shields.		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency												AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)													AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Eldritch Knight	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Eldritch knights gain no proficiency with any weapon or armor.
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Hierophant		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Hierophants gain no proficiency with any weapon or armor.
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Horizon Walker	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Horizon walkers gain no proficiency with any weapon or armor.
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Loremaster		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Loremasters gain no proficiency with any weapon or armor.
-Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Shadowdancer		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Shadowdancers are proficient with the club, crossbow (hand, light, or heavy), dagger (any type), dart, mace, morningstar, quarterstaff, rapier, sap, shortbow (normal and composite), and short sword. Shadowdancers are proficient with light armor but not with shields.
+Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Mystic Theurge	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Mystic theurges gain no proficiency with any weapon or armor.
+Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Shadowdancer		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Shadowdancers are proficient with the club, crossbow (hand, light, or heavy), dagger (any type), dart, mace, morningstar, quarterstaff, rapier, sap, shortbow (normal and composite), and short sword. Shadowdancers are proficient with light armor but not with shields.		ABILITY:Special Ability|AUTOMATIC|Shadowdancer Weapon Proficiencies													AUTO:FEAT|Armor Proficiency (Light)
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Thaumaturgist	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Thaumaturgists gain no proficiency with any weapon or armor.
 # NPC
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Adept			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Adepts are skilled with all simple weapons. Adepts are not proficient with any type of armor nor with shields.
@@ -464,12 +465,12 @@ Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Warrior		CATEGOR
 
 ###Block: Automatic Creature Type Proficiencies
 # Ability Name				Category of Ability		Type			Visible	Virtual Feat				Ability											Source Page
-Fey Proficiencies				CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	VFEAT:Simple Weapon Proficiency													SOURCEPAGE:TypesSubtypesAbilities.rtf
-Giant Proficiencies			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	VFEAT:Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Humanoid Proficiencies			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	VFEAT:Simple Weapon Proficiency													SOURCEPAGE:TypesSubtypesAbilities.rtf
-Monstrous Humanoid Proficiencies	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	VFEAT:Simple Weapon Proficiency													SOURCEPAGE:TypesSubtypesAbilities.rtf
-Outsider Proficiencies			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	VFEAT:Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	SOURCEPAGE:TypesSubtypesAbilities.rtf
-Undead Proficiencies			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	VFEAT:Simple Weapon Proficiency													SOURCEPAGE:TypesSubtypesAbilities.rtf
+Fey Proficiencies				CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO	VFEAT:Simple Weapon Proficiency													SOURCEPAGE:TypesSubtypesAbilities.rtf
+Giant Proficiencies			CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO	VFEAT:Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Humanoid Proficiencies			CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO	VFEAT:Simple Weapon Proficiency													SOURCEPAGE:TypesSubtypesAbilities.rtf
+Monstrous Humanoid Proficiencies	CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO	VFEAT:Simple Weapon Proficiency													SOURCEPAGE:TypesSubtypesAbilities.rtf
+Outsider Proficiencies			CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO	VFEAT:Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Undead Proficiencies			CATEGORY:Special Ability	TYPE:Internal.ClassAbility	VISIBLE:NO	VFEAT:Simple Weapon Proficiency													SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 
 
@@ -503,10 +504,10 @@ Insanity																CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:Y
 Death Touch																CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike		VISIBLE:YES	DEFINE:DeathTouch|0	DESC:1/day, melee touch attack, %1d6 points of damage. If the total at least equals creature's current hit points, it dies|DeathTouch
 Mind Will Save				OUTPUTNAME:+2 on Will saves vs. Enchantment spells and effects	CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:YES
 
-# ACF - Alternate Class Features
-Remove Scribe Scroll														CATEGORY:Special Ability	TYPE:WizardScribeScroll.ACF
-Remove Summon Familiar (Wizard)												CATEGORY:Special Ability	TYPE:WizardSummonFamiliar.ACF
-Remove Summon Familiar (Sorcerer)												CATEGORY:Special Ability	TYPE:SorcererSummonFamiliar.ACF
+###Block: ACF - Alternate Class Features
+Remove Scribe Scroll				COST:0	CATEGORY:ACF	TYPE:WizardScribeScroll.ACF
+Remove Summon Familiar (Wizard)		COST:0	CATEGORY:ACF	TYPE:WizardSummonFamiliar.ACF
+Remove Summon Familiar (Sorcerer)		COST:0	CATEGORY:ACF	TYPE:SorcererSummonFamiliar.ACF
 
 #
 #EOF

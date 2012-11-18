@@ -10,16 +10,14 @@ CLASS:Arcane Archer	HD:8		TYPE:PC.Prestige	ABB:Arc		MAXLEVEL:10	SOURCEPAGE:Prest
 CLASS:Arcane Archer	PREATT:6	PREFEAT:2,Point Blank Shot,Precise Shot	PREFEAT:1,Weapon Focus (Longbow),Weapon Focus (Shortbow)	PRERACE:1,Elf%,Half-Elf	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silently|Ride|Spot|Survival|Use Rope
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1													AUTO:FEAT|Shield Proficiency
+1	ABILITY:Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Arcane Archer
 ###Block: Normal Level Progression
-1	BONUS:VAR|ArrowEnhancementLVL|CL						ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
-2												ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
-4	BONUS:VAR|SeekerArrowTimes|1							ABILITY:Special Ability|AUTOMATIC|Seeker Arrow
-6	BONUS:VAR|PhaseArrowTimes|1							ABILITY:Special Ability|AUTOMATIC|Phase Arrow
-8	BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	ABILITY:Special Ability|AUTOMATIC|Hail of Arrows
-10												ABILITY:Special Ability|AUTOMATIC|Arrow of Death
+1	BONUS:VAR|ArrowEnhancementLVL|CL						ABILITY:Class Ability|AUTOMATIC|Enhance Arrow
+2												ABILITY:Class Ability|AUTOMATIC|Imbue Arrow
+4	BONUS:VAR|SeekerArrowTimes|1							ABILITY:Class Ability|AUTOMATIC|Seeker Arrow
+6	BONUS:VAR|PhaseArrowTimes|1							ABILITY:Class Ability|AUTOMATIC|Phase Arrow
+8	BONUS:VAR|HailArrowsTargets|CL	BONUS:VAR|HailArrowsTimes|1	ABILITY:Class Ability|AUTOMATIC|Hail of Arrows
+10												ABILITY:Class Ability|AUTOMATIC|Arrow of Death
 
 # Modified 8-30-2003 by GldDragon35
 
@@ -29,9 +27,10 @@ CLASS:Arcane Trickster	HD:4		TYPE:PC.Prestige	ABB:Art		MAXLEVEL:10	SOURCEPAGE:Pr
 CLASS:Arcane Trickster	PREALIGN:NG,TN,NE,CG,CN,CE	PRESKILL:4,Decipher Script=7,Disable Device=7,Escape Artist=7,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=3	PREVARGTEQ:SneakAttack,2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|TYPE=Profession|Sense Motive|Search|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Rope
-1	BONUS:VAR|RangedLegermain|(CL+3)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Ranged Legerdemain
-2	BONUS:VAR|SneakAttack|CL/2		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-3	BONUS:VAR|ImpromptuSneak|(CL+1)/4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Impromptu Sneak Attack
+1	ABILITY:Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Arcane Trickster
+1	BONUS:VAR|RangedLegermain|(CL+3)/4	ADD:SPELLCASTER|ANY	ABILITY:Class Ability|AUTOMATIC|Ranged Legerdemain
+2	BONUS:VAR|SneakAttack|CL/2		ADD:SPELLCASTER|ANY	ABILITY:Class Ability|AUTOMATIC|Sneak Attack
+3	BONUS:VAR|ImpromptuSneak|(CL+1)/4	ADD:SPELLCASTER|ANY	ABILITY:Class Ability|AUTOMATIC|Impromptu Sneak Attack
 4							ADD:SPELLCASTER|ANY
 5							ADD:SPELLCASTER|ANY
 6							ADD:SPELLCASTER|ANY
@@ -46,6 +45,7 @@ CLASS:Archmage	HD:4		TYPE:PC.Prestige	ABB:Arm		MAXLEVEL:5	SOURCEPAGE:PrestigeCla
 CLASS:Archmage	PREMULT:2,[PREFEAT:1,Skill Focus (Spellcraft)],[PREFEAT:2,CHECKMULT,Spell Focus]	PRESKILL:2,Knowledge (Arcana)=15,Spellcraft=15	PRESPELLSCHOOL:5,Abjuration=5,Conjuration=5,Divination=5,Enchantment=5,Evocation=5,Illusion=5,Necromancy=5,Transmutation=5	PRESPELLTYPE:1,Arcane=7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Archmage	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Alchemy)|TYPE=Knowledge|TYPE=Profession|Search|Spellcraft
+1	ABILITY:Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Archmage
 1	BONUS:ABILITYPOOL|High Arcana Ability|CL	ADD:SPELLCASTER|Arcane
 2								ADD:SPELLCASTER|Arcane
 3								ADD:SPELLCASTER|Arcane
@@ -60,17 +60,16 @@ CLASS:Assassin	PREALIGN:LE,NE,CE	PRESKILL:3,Disguise=4,Hide=8,Move Silently=8
 CLASS:Assassin	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Assassin	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assassin|CL
-1	ABILITY:Special Ability|AUTOMATIC|Assassin Weapon Proficiencies
-1												AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Assassin
 ###Block: Normal Level Progression
-1	CAST:0,0		KNOWN:0,2		BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Death Attack|Poison Use|Sneak Attack
-2	CAST:0,1		KNOWN:0,3		BONUS:VAR|AssassinPoisonSave|CL/2	BONUS:VAR|UncannyDodgeLevel|1												ABILITY:Special Ability|AUTOMATIC|Save against Poisons|Uncanny Dodge ~ Base
+1	CAST:0,0		KNOWN:0,2		BONUS:VAR|DeathAttack|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Class Ability|AUTOMATIC|Death Attack|Poison Use|Sneak Attack
+2	CAST:0,1		KNOWN:0,3		BONUS:VAR|AssassinPoisonSave|CL/2	BONUS:VAR|UncannyDodgeLevel|1												ABILITY:Class Ability|AUTOMATIC|Save against Poisons|Uncanny Dodge ~ Base
 3	CAST:0,2,0		KNOWN:0,3,2
 4	CAST:0,3,1		KNOWN:0,4,3
 5	CAST:0,3,2,0	KNOWN:0,4,3,2	BONUS:VAR|UncannyDodgeLevel|1
 6	CAST:0,3,3,1	KNOWN:0,4,4,3
 7	CAST:0,3,3,2,0	KNOWN:0,4,4,3,2
-8	CAST:0,3,3,3,1	KNOWN:0,4,4,4,3																							ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight (Assassin)
+8	CAST:0,3,3,3,1	KNOWN:0,4,4,4,3																							ABILITY:Class Ability|AUTOMATIC|Hide in Plain Sight ~ Assassin
 9	CAST:0,3,3,3,2	KNOWN:0,4,4,4,3
 10	CAST:0,3,3,3,3	KNOWN:0,4,4,4,4
 
@@ -83,29 +82,30 @@ CLASS:Blackguard	PREALIGN:LE,NE,CE	PREATT:6	PREFEAT:3,Cleave,Improved Sunder,Pow
 CLASS:Blackguard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Hide|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
 CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Blackguard|CL
+1	ABILITY:Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Blackguard
 # Turning
-3	BONUS:VAR|TurnLevelBase|CL-2										ABILITY:Special Ability|AUTOMATIC|Basic Turning|Rebuke Undead
+3	BONUS:VAR|TurnLevelBase|CL-2										ABILITY:Class Ability|AUTOMATIC|Basic Turning|Rebuke Undead
 3	BONUS:VAR|TurnDamagePlusBase|CL-2
 # Smite Good
-1	BONUS:VAR|SmiteGood|var("CL=Ex Paladin")/4+1|PRECLASS:1,Ex Paladin=1			ABILITY:Special Ability|AUTOMATIC|Smite Good
+1	BONUS:VAR|SmiteGood|var("CL=Ex Paladin")/4+1|PRECLASS:1,Ex Paladin=1			ABILITY:Class Ability|AUTOMATIC|Smite Good
 1	BONUS:VAR|SmiteGood|CL/5+1	BONUS:VAR|SmiteGoodDamage|CL+var("CL=Ex Paladin")
 # Sneak Attack
 1	BONUS:VAR|SneakAttack|1|PRECLASS:1,Ex Paladin=5
-4	BONUS:VAR|SneakAttack|(CL-1)/3									ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+4	BONUS:VAR|SneakAttack|(CL-1)/3									ABILITY:Class Ability|AUTOMATIC|Sneak Attack
 ###Block: Other Paladin related Abilities
-1	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL	ABILITY:Special Ability|AUTOMATIC|Blackguard Lay on Hands|PRECLASS:1,Ex Paladin=3
-1									ABILITY:Special Ability|AUTOMATIC|Fiendish Summoning|PRECLASS:1,Ex Paladin=7
+1	BONUS:VAR|BlackguardLayOnHands|max(CHA,0)*CL	ABILITY:Class Ability|AUTOMATIC|Blackguard Lay on Hands|PRECLASS:1,Ex Paladin=3
+1									ABILITY:Class Ability|AUTOMATIC|Fiendish Summoning|PRECLASS:1,Ex Paladin=7
 ###Block: Servants Servant (Undead and Fiendish)
-5	BONUS:VAR|UndeadCompanionLVL|CL|PRECLASS:1,Ex Paladin=9	ABILITY:Special Ability|AUTOMATIC|Undead Companion|PRECLASS:1,Ex Paladin=9
-5	BONUS:VAR|FiendishServantLVL|CL					ABILITY:Special Ability|AUTOMATIC|Fiendish Servant
+5	BONUS:VAR|UndeadCompanionLVL|CL|PRECLASS:1,Ex Paladin=9	ABILITY:Class Ability|AUTOMATIC|Undead Companion|PRECLASS:1,Ex Paladin=9
+5	BONUS:VAR|FiendishServantLVL|CL					ABILITY:Class Ability|AUTOMATIC|Fiendish Servant
 ###Block: Weapons / Armor Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1	ABILITY:Class Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Progression
-1	CAST:0,0		BONUS:VAR|AuraEvil|CL	EXCHANGELEVEL:Ex Paladin|11|10|1	ABILITY:Special Ability|AUTOMATIC|Aura of Evil|Detect Good|Poison Use
-2	CAST:0,1												ABILITY:Special Ability|AUTOMATIC|Dark Blessing
-3	CAST:0,1,0												ABILITY:Special Ability|AUTOMATIC|Aura of Despair
+1	CAST:0,0		BONUS:VAR|AuraEvil|CL	EXCHANGELEVEL:Ex Paladin|11|10|1	ABILITY:Class Ability|AUTOMATIC|Aura of Evil|Detect Good|Poison Use
+2	CAST:0,1												ABILITY:Class Ability|AUTOMATIC|Dark Blessing
+3	CAST:0,1,0												ABILITY:Class Ability|AUTOMATIC|Aura of Despair
 4	CAST:0,1,1
 5	CAST:0,1,1,0
 6	CAST:0,1,1,1
@@ -124,44 +124,45 @@ CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|
 ###COMMENT: CHOICE is invalid without COST tag, and as these aren't specializing in a Spell SCHOOL isn't required. Commented out and replaced with COST tag. - AM
 #SUBCLASS:Black Dragon Disciple	CHOICE:Black Dragon Disciple
 SUBCLASS:Black Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Line of Acid
-SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Acid
+SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Line of Acid
+SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Acid
 #SUBCLASS:Blue Dragon Disciple	CHOICE:Blue Dragon Disciple
 SUBCLASS:Blue Dragon Disciple		COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Line of Lightning
-SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity
+SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Line of Lightning
+SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Electricity
 #SUBCLASS:Green Dragon Disciple	CHOICE:Green Dragon Disciple
 SUBCLASS:Green Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Gas
-SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Acid
+SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Cone of Gas
+SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Acid
 #SUBCLASS:Red Dragon Disciple		CHOICE:Red Dragon Disciple
 SUBCLASS:Red Dragon Disciple		COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Fire
-SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
+SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Cone of Fire
+SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Fire
 #SUBCLASS:White Dragon Disciple	CHOICE:White Dragon Disciple
 SUBCLASS:White Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Cold
-SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
+SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Cone of Cold
+SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Cold
 #SUBCLASS:Brass Dragon Disciple	CHOICE:Brass Dragon Disciple
 SUBCLASS:Brass Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Line of Fire
-SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
+SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Line of Fire
+SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Fire
 #SUBCLASS:Bronze Dragon Disciple	CHOICE:Bronze Dragon Disciple
 SUBCLASS:Bronze Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Line of Lightning
-SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity
+SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Line of Lightning
+SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Electricity
 #SUBCLASS:Copper Dragon Disciple	CHOICE:Copper Dragon Disciple
 SUBCLASS:Copper Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Line of Acid
-SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Acid
+SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Line of Acid
+SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Acid
 #SUBCLASS:Gold Dragon Disciple		CHOICE:Gold Dragon Disciple
 SUBCLASS:Gold Dragon Disciple		COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Fire
-SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
+SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Cone of Fire
+SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Fire
 #SUBCLASS:Silver Dragon Disciple	CHOICE:Silver Dragon Disciple
 SUBCLASS:Silver Dragon Disciple	COST:0
-SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|DD~Cone of Cold
-SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
+SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Cone of Cold
+SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Cold
+1	ABILITY:Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Dragon Disciple
 1										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|BreathWeaponDC|10+CL+CON	DEFINE:BreathWeaponDC|0
 2										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1								BONUS:STAT|STR|2																												TEMPLATE:Dragon Disciple Attacks
 3																															BONUS:VAR|BreathWeaponDice|2		DEFINE:BreathWeaponDice|0
@@ -170,9 +171,8 @@ SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
 6										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1								BONUS:STAT|CON|2
 7																		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|BreathWeaponDice|2
 8										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1								BONUS:STAT|INT|2
-9										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1																									ABILITY:Special Ability|AUTOMATIC|Dragon Wings
-10		BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowLightVision|1									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|BreathWeaponDice|2							ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis|Immunity To Sleep
-10																																										ABILITY:Special Ability|AUTOMATIC|Low light Vision
+9										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1																									ABILITY:Class Ability|AUTOMATIC|Dragon Wings
+10		BONUS:VAR|BlindsenseRange|60|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowLightVision|1									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|BreathWeaponDice|2							ABILITY:Class Ability|AUTOMATIC|Immunity To Paralysis|Immunity To Sleep
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
 CLASS:Duelist	HD:10		TYPE:PC.Prestige	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -180,15 +180,16 @@ CLASS:Duelist	HD:10		TYPE:PC.Prestige	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:PrestigeCl
 CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PRESKILL:2,TYPE.Perform=3,Tumble=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYPE=Perform|Sense Motive|Spot|Tumble
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1	ABILITY:Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Duelist
+1	ABILITY:Class Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 ###Block: Normal Level Progression
-1	BONUS:VAR|CannyDefenseLVL|CL				ABILITY:Special Ability|AUTOMATIC|Canny Defense
-2	BONUS:VAR|ImprovedReaction|floor((CL+4)/6)*2	ABILITY:Special Ability|AUTOMATIC|Improved Reaction
-3									ABILITY:Special Ability|AUTOMATIC|Enhanced Mobility
-4									ABILITY:Special Ability|AUTOMATIC|Grace
-5	BONUS:VAR|PreciseStrike|CL/5				ABILITY:Special Ability|AUTOMATIC|Precise Strike
-6									ABILITY:Special Ability|AUTOMATIC|Acrobatic Charge
-7	BONUS:VAR|ElaborateParryLVL|CL			ABILITY:Special Ability|AUTOMATIC|Elaborate Parry
+1	BONUS:VAR|CannyDefenseLVL|CL				ABILITY:Class Ability|AUTOMATIC|Canny Defense
+2	BONUS:VAR|ImprovedReaction|floor((CL+4)/6)*2	ABILITY:Class Ability|AUTOMATIC|Improved Reaction
+3									ABILITY:Class Ability|AUTOMATIC|Enhanced Mobility
+4									ABILITY:Class Ability|AUTOMATIC|Grace
+5	BONUS:VAR|PreciseStrike|CL/5				ABILITY:Class Ability|AUTOMATIC|Precise Strike
+6									ABILITY:Class Ability|AUTOMATIC|Acrobatic Charge
+7	BONUS:VAR|ElaborateParryLVL|CL			ABILITY:Class Ability|AUTOMATIC|Elaborate Parry
 9																		VFEAT:Deflect Arrows|PREEQUIP:1,TYPE=Piercing|PREEQUIP:1,WIELDCATEGORY=Light,WIELDCATEGORY=OneHanded
 
 # Used DR:1/- in level line 6 to initialize Damage reduction, DR:0/- doesnt allow BONUS:DR to function
@@ -201,15 +202,13 @@ CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	ABB:Ddf		MAXLEVEL:10	SOURCEPAGE:P
 CLASS:Dwarven Defender	PREALIGN:LG,LN,LE	PREATT:7	PREFEAT:3,Dodge,Endurance,Toughness	PRERACE:1,Dwarf%
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Listen|Sense Motive|Spot
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1													AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+1	ABILITY:Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Dwarven Defender
 ###Block: Normal Level Progression
-1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2	BONUS:VAR|DefensiveStanceDuration|5	BONUS:VAR|DwarvenDefenderACBonus|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Defensive Stance|Dwarven Defender AC Bonus
-2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+2)/4			ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
-4	BONUS:VAR|TrapSense|CL/4																ABILITY:Special Ability|AUTOMATIC|Trap Sense Ability
-6	BONUS:VAR|DwarvenDefenderDRLVL|CL															ABILITY:Special Ability|AUTOMATIC|Dwarven Defender DR
-8																					ABILITY:Special Ability|AUTOMATIC|Dwarven Defender Mobile Defense
+1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2	BONUS:VAR|DefensiveStanceDuration|5	BONUS:VAR|DwarvenDefenderACBonus|(CL+2)/3	ABILITY:Class Ability|AUTOMATIC|Defensive Stance|Dwarven Defender AC Bonus
+2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+2)/4			ABILITY:Class Ability|AUTOMATIC|Uncanny Dodge ~ Base
+4	BONUS:VAR|TrapSense|CL/4																ABILITY:Class Ability|AUTOMATIC|Trap Sense Ability
+6	BONUS:VAR|DwarvenDefenderDRLVL|CL															ABILITY:Class Ability|AUTOMATIC|Dwarven Defender DR
+8																					ABILITY:Class Ability|AUTOMATIC|Dwarven Defender Mobile Defense
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
@@ -218,6 +217,7 @@ CLASS:Eldritch Knight	HD:6		TYPE:PC.Prestige	ABB:Elk		MAXLEVEL:10	SOURCEPAGE:Pre
 CLASS:Eldritch Knight	PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon Proficiencies	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Jump|Knowledge (Arcana)|Knowledge (Nobility and Royalty)|Ride|Sense Motive|Spellcraft|Swim
+1	ABILITY:Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Eldritch Knight
 1	BONUS:ABILITYPOOL|Fighter Feat|1
 2							ADD:SPELLCASTER|Arcane
 3							ADD:SPELLCASTER|Arcane
@@ -236,6 +236,7 @@ CLASS:Hierophant	HD:8		TYPE:PC.Prestige	ABB:Hie		MAXLEVEL:5	SOURCEPAGE:PrestigeC
 CLASS:Hierophant	PREFEAT:1,TYPE=Metamagic	PRESKILL:1,Knowledge (Religion)=15	PRESPELLTYPE:1,Divine=7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hierophant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+1	ABILITY:Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Hierophant
 1	BONUS:ABILITYPOOL|Hierophant Ability|CL	BONUS:CASTERLEVEL|TYPE.Divine|CL
 
 
@@ -245,8 +246,9 @@ CLASS:Horizon Walker	HD:8		TYPE:PC.Prestige	ABB:How		MAXLEVEL:10	SOURCEPAGE:Pres
 CLASS:Horizon Walker	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Geography)=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Horizon Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Handle Animal|Hide|Knowledge (Geography)|Listen|Move Silently|TYPE=Profession|Ride|Speak Language|Spot|Survival
-1	BONUS:ABILITYPOOL|Terrain Mastery|min(CL,5)			ABILITY:Special Ability|AUTOMATIC|Terrain Mastery
-6	BONUS:ABILITYPOOL|Advanced Terrain Mastery|min(CL-5,5)	ABILITY:Special Ability|AUTOMATIC|Planar Terrain Mastery
+1	ABILITY:Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Horizon Walker
+1	BONUS:ABILITYPOOL|Terrain Mastery|min(CL,5)			ABILITY:Class Ability|AUTOMATIC|Terrain Mastery
+6	BONUS:ABILITYPOOL|Advanced Terrain Mastery|min(CL-5,5)	ABILITY:Class Ability|AUTOMATIC|Planar Terrain Mastery
 
 # Modified: 10-19-2003
 # Change: Changed PREMULT:6,[PRESPELLSCHOOL:1,Divination=1],[PRESPELLSCHOOL:1,Divination=2],[PRESPELLSCHOOL:1,Divination=4],[PRESPELLSCHOOL:1,Divination=5],[PRESPELLSCHOOL:1,Divination=6],[PRESPELLSCHOOL:1,Divination=7],[PRESPELLSCHOOL:1,Divination=8],[PRESPELLSCHOOL:1,Divination=9] to PRESPELLSCHOOL:7,Divination=0
@@ -258,16 +260,17 @@ CLASS:Loremaster	HD:4		TYPE:PC.Prestige	ABB:Lor		MAXLEVEL:10	SOURCEPAGE:Prestige
 CLASS:Loremaster	PREFEAT:1,Skill Focus (Knowledge%)	PREFEAT:3,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge=10,TYPE.Knowledge=10	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Handle Animal|Heal|TYPE=Knowledge|TYPE=Perform|TYPE=Profession|Speak Language|Spellcraft|Use Magic Device
-1	BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	BONUS:VAR|LoremasterSecretsLVL|CL+INT				ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Secret ~ Loremaster
-2																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Lore ~ Loremaster
+1	ABILITY:Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Loremaster
+1	BONUS:ABILITYPOOL|Loremaster Secret|(CL+1)/2	BONUS:VAR|LoremasterSecretsLVL|CL+INT				ADD:SPELLCASTER|ANY						ABILITY:Class Ability|AUTOMATIC|Secret ~ Loremaster
+2																		ADD:SPELLCASTER|ANY						ABILITY:Class Ability|AUTOMATIC|Lore ~ Loremaster
 3																		ADD:SPELLCASTER|ANY
 4																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|TYPE=Spoken
 5																		ADD:SPELLCASTER|ANY
-6																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Greater Lore
+6																		ADD:SPELLCASTER|ANY						ABILITY:Class Ability|AUTOMATIC|Greater Lore
 7																		ADD:SPELLCASTER|ANY
 8																		ADD:SPELLCASTER|ANY	ADD:LANGUAGE|TYPE=Spoken
 9																		ADD:SPELLCASTER|ANY
-10																		ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|True Lore
+10																		ADD:SPELLCASTER|ANY						ABILITY:Class Ability|AUTOMATIC|True Lore
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Mystic Theurge	HD:4		TYPE:PC.Prestige	ABB:Myt		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -275,6 +278,7 @@ CLASS:Mystic Theurge	HD:4		TYPE:PC.Prestige	ABB:Myt		MAXLEVEL:10	SOURCEPAGE:Pres
 CLASS:Mystic Theurge	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Religion)=6	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mystic Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
+1	ABILITY:Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Mystic Theurge
 1	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
 2	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
 3	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
@@ -292,18 +296,17 @@ CLASS:Shadowdancer	HD:8		TYPE:PC.Prestige	ABB:Shd		MAXLEVEL:10	SOURCEPAGE:Presti
 CLASS:Shadowdancer	PREFEAT:3,Combat Reflexes,Dodge,Mobility	PRESKILL:3,Hide=10,Move Silently=8,Perform (Dance)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Diplomacy|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Search|Sleight of Hand|Spot|Tumble|Use Rope
-1	ABILITY:Special Ability|AUTOMATIC|Shadowdancer Weapon Proficiencies
-1													AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Shadowdancer
 ###Block: Normal Level Progression
-1																																																	ABILITY:Special Ability|AUTOMATIC|Hide in Plain Sight (Assassin)
-2		BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3	BONUS:VAR|EvasionUsable,ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	ABILITY:Special Ability|AUTOMATIC|Evasion|Uncanny Dodge ~ Base
-3					BONUS:VAR|ShadowIllusionLVL,ShadowCompanionLVL|CL																																				ABILITY:Special Ability|AUTOMATIC|Shadow Illusion|Summon Shadow
-4					BONUS:VAR|ShadowJump|20																																									ABILITY:Special Ability|AUTOMATIC|Shadow Jump
-5																																																	ABILITY:Special Ability|AUTOMATIC|Defensive Roll ~ Shadowdancer
+1																																																	ABILITY:Class Ability|AUTOMATIC|Hide in Plain Sight ~ Assassin
+2		BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3	BONUS:VAR|EvasionUsable,ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0	ABILITY:Class Ability|AUTOMATIC|Evasion|Uncanny Dodge ~ Base
+3					BONUS:VAR|ShadowIllusionLVL,ShadowCompanionLVL|CL																																				ABILITY:Class Ability|AUTOMATIC|Shadow Illusion|Summon Shadow
+4					BONUS:VAR|ShadowJump|20																																									ABILITY:Class Ability|AUTOMATIC|Shadow Jump
+5																																																	ABILITY:Class Ability|AUTOMATIC|Defensive Roll ~ Shadowdancer
 6					BONUS:VAR|ShadowJump|20
-7																																																	ABILITY:Special Ability|AUTOMATIC|Slippery Mind
+7																																																	ABILITY:Class Ability|AUTOMATIC|Slippery Mind
 8					BONUS:VAR|ShadowJump|40
-10					BONUS:VAR|ShadowJump|80																																									ABILITY:Special Ability|AUTOMATIC|Improved Evasion
+10					BONUS:VAR|ShadowJump|80																																									ABILITY:Class Ability|AUTOMATIC|Improved Evasion
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
 CLASS:Thaumaturgist	HD:4		TYPE:PC.Prestige	ABB:Tha		MAXLEVEL:5	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -311,8 +314,9 @@ CLASS:Thaumaturgist	HD:4		TYPE:PC.Prestige	ABB:Tha		MAXLEVEL:5	SOURCEPAGE:Presti
 CLASS:Thaumaturgist	PREFEAT:1,Spell Focus (Conjuration)	PRESPELL:1,Planar Ally (Lesser)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Thaumaturgist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Speak Language|Spellcraft
-1	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Improved Ally
+1	ABILITY:Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Thaumaturgist
+1	ADD:SPELLCASTER|ANY	ABILITY:Class Ability|AUTOMATIC|Improved Ally
 2	ADD:SPELLCASTER|ANY											AUTO:FEAT|Augment Summoning
-3	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Extended Summoning
-4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Contingent Conjuration
-5	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Planar Cohort
+3	ADD:SPELLCASTER|ANY	ABILITY:Class Ability|AUTOMATIC|Extended Summoning
+4	ADD:SPELLCASTER|ANY	ABILITY:Class Ability|AUTOMATIC|Contingent Conjuration
+5	ADD:SPELLCASTER|ANY	ABILITY:Class Ability|AUTOMATIC|Planar Cohort
