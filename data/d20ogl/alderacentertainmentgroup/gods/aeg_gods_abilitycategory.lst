@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Tue Feb 17 12:20:24 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+#SOURCELONG:Alderac Entertainment Group (AEG) - Gods	SOURCESHORT:Gods	SOURCEWEB:http://www.alderac.com/d20
+
+###Block: Bonus Ability Category
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object		Type of Object		Plural description for UI		Display Location
+ABILITYCATEGORY:KofS Bonus Known Spell	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:KSKnownSpellBonus	CATEGORY:Special Ability	TYPE:KSBonusKnownSpell	PLURAL:KofS Bonus Known Spells	DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Hunter Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:FEAT			TYPE:Hunter			PLURAL:Hunter Feats			DISPLAYLOCATION:FEATS
+ABILITYCATEGORY:Spider Warrior Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:FEAT			TYPE:SpiderWarrior	PLURAL:Spider Warrior Feats		DISPLAYLOCATION:FEATS
+ABILITYCATEGORY:The Broken Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:FEAT			TYPE:Metamagic		PLURAL:The Broken Feats			DISPLAYLOCATION:FEATS
+
+ABILITYCATEGORY:Medicine Man Totem Animal	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability	TYPE:TotemAnimal		PLURAL:Medicine Man Totem Animals	DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Strength of Purpose		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:Special Ability	ABILITYLIST:Strength of Purpose		PLURAL:Strength of Purpose		DISPLAYLOCATION:Class Abilities

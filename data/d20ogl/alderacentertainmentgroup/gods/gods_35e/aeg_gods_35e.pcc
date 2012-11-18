@@ -1,0 +1,56 @@
+# CVS $Revision$ $Author$
+CAMPAIGN:AEG - Gods Source Book - 3.5 Conversion
+GAMEMODE:35e
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+TYPE:Alderac Entertainment Group.Sourcebook
+STATUS:BETA
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:Alderac Entertainment Group
+PUBNAMESHORT:AEG
+PUBNAMEWEB:http://alderac.com/
+SOURCELONG:Gods
+SOURCESHORT:Gods
+SOURCEWEB:http://alderac.com/d20
+SOURCEDATE:2002-05
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:PCGen dataset conversion for Gods Copyright 2007, PCGen Data Team (including, but not limited to: Eric (Maredudd) Smith)
+
+COVER:../aeg_gods.jpg
+LOGO:@/publisher_logos/Alderac_Entertainment_Group.png
+COPYRIGHT:Included artwork is Product Identity and is included by permission. Copyright 2008, Alderac Entertainment Group.
+DESC:This book includes 16 new pantheons of gods for monster races such as Dark Elves, Hobgoblins, Lizardfolk, Minotaurs, Ogres, Orcs, Trolls and more. New holy symbols, temple maps, prestige classes, domains, spells, and holy relics fill this massive tome, providing GMs and PCs with important information to flesh out their fantasy campaigns. Gods is the perfect companion book to Monster, but can be used independently.
+URL:WEBSITE|http://www.alderac.com/|Visit Alderac Entertainment Group
+URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=3525&it=1|Buy this pdf from RPGNow.com!
+URL:Amazon.com|http://www.amazon.com/Gods-Aeg/dp/1887953515/ref=sr_1_2?ie=UTF8&s=books&qid=1205894987&sr=1-2|Buy this book from Amazon.com!
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:../aeg_gods_abilities.lst
+ABILITYCATEGORY:../aeg_gods_abilitycategory.lst
+CLASS:../aeg_gods_classes_prestige.lst
+DOMAIN:../aeg_gods_domains.lst|(EXCLUDE:Weather)
+EQUIPMENT:../aeg_gods_equip_magic.lst
+SKILL:../aeg_gods_skills.lst
+SPELL:../aeg_gods_spells.lst
+TEMPLATE:../aeg_gods_templates.lst
+
+# Import Domains from other AEG Sources
+DOMAIN:@/d20ogl/alderacentertainmentgroup/evil/evil_domains.lst|(INCLUDE:Blood|Lust)
+
+ABILITY:aeg_gods_abilities_35e.lst
+CLASS:aeg_gods_classes_prestige_35e.lst
+DEITY:aeg_gods_deities_35e.lst
+DOMAIN:aeg_gods_domains_35e.lst
+EQUIPMENT:aeg_gods_equip_magic_35e.lst
+FEAT:aeg_gods_feats_35e.lst
+
+EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_magic.lst|(INCLUDE:RING|ADAMANT_WONDROUS)
+
+FORWARDREF:SPELL|Change Self,Circle of Doom,Emotion,Greater Command,Greater Planar Ally,Greater Restoration,Greater Scrying,Healing Circle,Invisibility to Animals,Lesser Geas,Magnificent Mansion,Mass Charm,Mass Heal,Mass Suggestion,Polymorph Other,Power Word (Blind),Power Word (Kill),Power Word (Stun),Resist Elements,Symbol
+FORWARDREF:SKILL|Perform,Scry,Wilderness Lore
+FORWARDREF:FEAT|Sunder,Improved Two-Weapon Fighting

@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Tue Jul  1 12:23:32 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
+
+# Ability Name						Innate Spells
+CATEGORY=Special Ability|Voice of Thunder.MOD	SPELLS:Class|TIMES=VoiceofThunderTimes|CASTERLEVEL=classlevel("Black Nail")|Command (Greater),15+CHA
+CATEGORY=Special Ability|Bounty of Vendak.MOD	SPELLS:Class|TIMES=1|CASTERLEVEL=TL|Resist Energy,12+CHA
