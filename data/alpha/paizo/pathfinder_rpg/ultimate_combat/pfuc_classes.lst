@@ -16,12 +16,12 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle
 4	BONUS:ABILITYPOOL|Gunslinger Feat|CL/4
 5								BONUS:VAR|GunTrainingSelection|(CL-4)/4
 ###Block: Level progression
-1	ABILITY:Special Ability|AUTOMATIC|Gunsmith ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunsmith
-1	ABILITY:Special Ability|AUTOMATIC|Deeds ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeeds
-1	ABILITY:Special Ability|AUTOMATIC|Grit ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGrit
-2	ABILITY:Special Ability|AUTOMATIC|Nimble ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerNimble
-5	ABILITY:Special Ability|AUTOMATIC|Gun Training ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining
-20	ABILITY:Special Ability|AUTOMATIC|True Grit ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerTrueGrit
+1	ABILITY:Class Ability|AUTOMATIC|Gunsmith ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunsmith
+1	ABILITY:Class Ability|AUTOMATIC|Deeds ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeeds
+1	ABILITY:Class Ability|AUTOMATIC|Grit ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGrit
+2	ABILITY:Class Ability|AUTOMATIC|Nimble ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerNimble
+5	ABILITY:Class Ability|AUTOMATIC|Gun Training ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining
+20	ABILITY:Class Ability|AUTOMATIC|True Grit ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerTrueGrit
 
 
 ###Block: Ninja
@@ -43,15 +43,15 @@ CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|D
 4	BONUS:VAR|UncannyDodgeLevel|CL/4
 8	BONUS:VAR|ImprovedUncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
 ###Block: Level progression
-1	ABILITY:Special Ability|AUTOMATIC|Poison Use|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaPoison
-1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Sneak Attack ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaSneakAttack
-2	ABILITY:Special Ability|AUTOMATIC|Ninja Trick ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaTrick
-3	ABILITY:Special Ability|AUTOMATIC|Trap Sense|Trap Sense ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaTrapSense
-3	ABILITY:Special Ability|AUTOMATIC|No Trace ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaNoTrace
-4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
-6	ABILITY:Special Ability|AUTOMATIC|Light Steps ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaLightSteps
-8	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
-20	ABILITY:Special Ability|AUTOMATIC|Hidden Master ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaHiddenMaster
+1	ABILITY:Class Ability|AUTOMATIC|Poison Use|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaPoison
+1	ABILITY:Class Ability|AUTOMATIC|Sneak Attack|Sneak Attack ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaSneakAttack
+2	ABILITY:Class Ability|AUTOMATIC|Ninja Trick ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaTrick
+3	ABILITY:Class Ability|AUTOMATIC|Trap Sense|Trap Sense ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaTrapSense
+3	ABILITY:Class Ability|AUTOMATIC|No Trace ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaNoTrace
+4	ABILITY:Class Ability|AUTOMATIC|Uncanny Dodge ~ Base
+6	ABILITY:Class Ability|AUTOMATIC|Light Steps ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaLightSteps
+8	ABILITY:Class Ability|AUTOMATIC|Uncanny Dodge ~ Base
+20	ABILITY:Class Ability|AUTOMATIC|Hidden Master ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaHiddenMaster
 
 
 ###Block: Samurai
@@ -70,20 +70,20 @@ CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Ani
 1	AUTO:FEAT|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyMedium
 1	AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiShieldProficiency
 ###Block: Level progression
-1	ABILITY:Special Ability|AUTOMATIC|Challenge ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiChallenge
-1	ABILITY:Special Ability|AUTOMATIC|Mount ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMount
-1	ABILITY:Special Ability|AUTOMATIC|Order ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiOrder
-1	ABILITY:Special Ability|AUTOMATIC|Resolve ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiResolve
-3	ABILITY:Special Ability|AUTOMATIC|Weapon Expertise ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponExpertise
-4	ABILITY:Special Ability|AUTOMATIC|Mounted Archer ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMountedArcher
-5	ABILITY:Special Ability|AUTOMATIC|Banner ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiBanner
-6	ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Samurai|!PREABILITY:1,CATEGORY=Archetye,TYPE.SamuraiBonusFeats
-9	ABILITY:Special Ability|AUTOMATIC|Greater Resolve ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterResolve
-11	ABILITY:Special Ability|AUTOMATIC|Honorable Stand ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiHonorableStand
-12	ABILITY:Special Ability|AUTOMATIC|Demanding Challenge ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiDemandingChallenge
-14	ABILITY:Special Ability|AUTOMATIC|Greater Banner ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterBanner
-17	ABILITY:Special Ability|AUTOMATIC|True Resolve ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiTrueResolve
-20	ABILITY:Special Ability|AUTOMATIC|Last Stand ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiLastStand
+1	ABILITY:Class Ability|AUTOMATIC|Challenge ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiChallenge
+1	ABILITY:Class Ability|AUTOMATIC|Mount ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMount
+1	ABILITY:Class Ability|AUTOMATIC|Order ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiOrder
+1	ABILITY:Class Ability|AUTOMATIC|Resolve ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiResolve
+3	ABILITY:Class Ability|AUTOMATIC|Weapon Expertise ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponExpertise
+4	ABILITY:Class Ability|AUTOMATIC|Mounted Archer ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMountedArcher
+5	ABILITY:Class Ability|AUTOMATIC|Banner ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiBanner
+6	ABILITY:Class Ability|AUTOMATIC|Bonus Feat ~ Samurai|!PREABILITY:1,CATEGORY=Archetye,TYPE.SamuraiBonusFeats
+9	ABILITY:Class Ability|AUTOMATIC|Greater Resolve ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterResolve
+11	ABILITY:Class Ability|AUTOMATIC|Honorable Stand ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiHonorableStand
+12	ABILITY:Class Ability|AUTOMATIC|Demanding Challenge ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiDemandingChallenge
+14	ABILITY:Class Ability|AUTOMATIC|Greater Banner ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterBanner
+17	ABILITY:Class Ability|AUTOMATIC|True Resolve ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiTrueResolve
+20	ABILITY:Class Ability|AUTOMATIC|Last Stand ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiLastStand
 ###Block:
 6	BONUS:VAR|SamuraiBonusFeat|CL/6
 ###Block:

@@ -26,21 +26,21 @@ CLASS:Magus		SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			S
 ###Block:
 5	BONUS:ABILITYPOOL|Magus Bonus Feat|(CL+1)/6
 ###Block:
-1	ABILITY:Special Ability|AUTOMATIC|Armor Proficiency ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency
-1	ABILITY:Special Ability|AUTOMATIC|Arcane Pool ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcanePool
-1	ABILITY:Special Ability|AUTOMATIC|Spell Combat ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellCombat
-1	ABILITY:Special Ability|AUTOMATIC|Cantrips ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCantrips
-2	ABILITY:Special Ability|AUTOMATIC|Spellstrike ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellstrike
-3	ABILITY:Special Ability|AUTOMATIC|Magus Arcana ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcana
-4	ABILITY:Special Ability|AUTOMATIC|Spell Recall ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellRecall
-7	ABILITY:Special Ability|AUTOMATIC|Knowledge Pool ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusKnowledgePool
-8	ABILITY:Special Ability|AUTOMATIC|Improved Spell Combat ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellCombat
-10	ABILITY:Special Ability|AUTOMATIC|Fighter Training ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusFighterTraining
-11	ABILITY:Special Ability|AUTOMATIC|Improved Spell Recall ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellRecall
-14	ABILITY:Special Ability|AUTOMATIC|Greater Spell Combat ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellCombat
-16	ABILITY:Special Ability|AUTOMATIC|Counterstrike ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCounterstrike
-19	ABILITY:Special Ability|AUTOMATIC|Greater Spell Access ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellAccess
-20	ABILITY:Special Ability|AUTOMATIC|True Magus ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusTrueMagus
+1	ABILITY:Class Ability|AUTOMATIC|Armor Proficiency ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency
+1	ABILITY:Class Ability|AUTOMATIC|Arcane Pool ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcanePool
+1	ABILITY:Class Ability|AUTOMATIC|Spell Combat ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellCombat
+1	ABILITY:Class Ability|AUTOMATIC|Cantrips ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCantrips
+2	ABILITY:Class Ability|AUTOMATIC|Spellstrike ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellstrike
+3	ABILITY:Class Ability|AUTOMATIC|Magus Arcana ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcana
+4	ABILITY:Class Ability|AUTOMATIC|Spell Recall ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellRecall
+7	ABILITY:Class Ability|AUTOMATIC|Knowledge Pool ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusKnowledgePool
+8	ABILITY:Class Ability|AUTOMATIC|Improved Spell Combat ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellCombat
+10	ABILITY:Class Ability|AUTOMATIC|Fighter Training ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusFighterTraining
+11	ABILITY:Class Ability|AUTOMATIC|Improved Spell Recall ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellRecall
+14	ABILITY:Class Ability|AUTOMATIC|Greater Spell Combat ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellCombat
+16	ABILITY:Class Ability|AUTOMATIC|Counterstrike ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCounterstrike
+19	ABILITY:Class Ability|AUTOMATIC|Greater Spell Access ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellAccess
+20	ABILITY:Class Ability|AUTOMATIC|True Magus ~ Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusTrueMagus
 ###Block: Spell progression
 1	CAST:3,1
 2	CAST:4,2
