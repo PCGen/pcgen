@@ -16,15 +16,15 @@ CLASS:Battle Herald	PREABILITY:2,CATEGORY=Special Ability,Challenge ~ Cavalier,I
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Battle Herald	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility)|Perception|TYPE=Profession|Ride|Sense Motive
 ##Block: Normal Level Progression
-1	BONUS:ABILITYPOOL|Inspiring Command Selection|CL+1/2	BONUS:VAR|InspiringCommandLVL|CL	ABILITY:Special Ability|AUTOMATIC|Improved Leadership ~ Battle Herald|Improved Leadership ~ Battle Herald|Inspiring Command ~ Battle Herald|Voice of Authority ~ Battle Herald
-2																ABILITY:Special Ability|AUTOMATIC|Easy March ~ Battle Herald
-4																ABILITY:Special Ability|AUTOMATIC|Inspire Greatness ~ Battle Herald
-5	BONUS:ABILITYPOOL|Teamwork Feat|1										ABILITY:Special Ability|AUTOMATIC|Banner ~ Battle Herald
-6																ABILITY:Special Ability|AUTOMATIC|Teamwork Feat ~ Battle Herald
-7																ABILITY:Special Ability|AUTOMATIC|Demanding Challenge ~ Battle Herald
-8																ABILITY:Special Ability|AUTOMATIC|Persistent Commands ~ Battle Herald
-9																ABILITY:Special Ability|AUTOMATIC|Inspire Last Stand ~ Battle Herald
-10																ABILITY:Special Ability|AUTOMATIC|Complex Commands ~ Battle Herald
+1	BONUS:ABILITYPOOL|Inspiring Command Selection|CL+1/2	BONUS:VAR|InspiringCommandLVL|CL	ABILITY:Class Ability|AUTOMATIC|Improved Leadership ~ Battle Herald|Improved Leadership ~ Battle Herald|Inspiring Command ~ Battle Herald|Voice of Authority ~ Battle Herald
+2																ABILITY:Class Ability|AUTOMATIC|Easy March ~ Battle Herald
+4																ABILITY:Class Ability|AUTOMATIC|Inspire Greatness ~ Battle Herald
+5	BONUS:ABILITYPOOL|Teamwork Feat|1										ABILITY:Class Ability|AUTOMATIC|Banner ~ Battle Herald
+6																ABILITY:Class Ability|AUTOMATIC|Teamwork Feat ~ Battle Herald
+7																ABILITY:Class Ability|AUTOMATIC|Demanding Challenge ~ Battle Herald
+8																ABILITY:Class Ability|AUTOMATIC|Persistent Commands ~ Battle Herald
+9																ABILITY:Class Ability|AUTOMATIC|Inspire Last Stand ~ Battle Herald
+10																ABILITY:Class Ability|AUTOMATIC|Complex Commands ~ Battle Herald
 
 ###Block: Holy Vindicator --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -39,16 +39,16 @@ CLASS:Holy Vindicator	STARTSKILLPTS:2	CSKILL:Climb|Heal|Intimidate|Knowledge (Pl
 1																															AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																															AUTO:FEAT|Shield Proficiency
 ##Block: Normal Level Progression
-1	BONUS:VAR|PrestigeClassChannelEnergyLVL|CL					ABILITY:Special Ability|AUTOMATIC|Channel Energy ~ Prestige Class|Vindicator's Shield ~ Holy Vindicator
-2	BONUS:VAR|StigmataLVL|CL				ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Stigmata ~ Holy Vindicator
-3	BONUS:VAR|Faith HealingLVL|CL				ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Faith Healing ~ Holy Vindicator
-4									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Divine Wrath ~ Holy Vindicator
-5													ABILITY:Special Ability|AUTOMATIC|Bloodfire ~ Holy Vindicator|Channel Smite ~ Holy Vindicator			AUTO:FEAT|Channel Smite
-6									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Versatile Channel ~ Holy Vindicator
-7									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Divine Judgment ~ Holy Vindicator
+1	BONUS:VAR|PrestigeClassChannelEnergyLVL|CL					ABILITY:Class Ability|AUTOMATIC|Channel Energy ~ Prestige Class|Vindicator's Shield ~ Holy Vindicator
+2	BONUS:VAR|StigmataLVL|CL				ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Stigmata ~ Holy Vindicator
+3	BONUS:VAR|Faith HealingLVL|CL				ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Faith Healing ~ Holy Vindicator
+4									ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Divine Wrath ~ Holy Vindicator
+5													ABILITY:Class Ability|AUTOMATIC|Bloodfire ~ Holy Vindicator|Channel Smite ~ Holy Vindicator			AUTO:FEAT|Channel Smite
+6									ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Versatile Channel ~ Holy Vindicator
+7									ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Divine Judgment ~ Holy Vindicator
 8									ADD:SPELLCASTER|Divine
-9													ABILITY:Special Ability|AUTOMATIC|Bloodrain ~ Holy Vindicator
-10									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Divine Retribution ~ Holy Vindicator
+9													ABILITY:Class Ability|AUTOMATIC|Bloodrain ~ Holy Vindicator
+10									ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Divine Retribution ~ Holy Vindicator
 
 ###Block: Horizon Walker --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -59,10 +59,10 @@ CLASS:Horizon Walker	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Geography)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Horizon Walker	STARTSKILLPTS:6	CSKILL:Climb|Diplomacy|Handle Animal|Knowledge (Geography)|Knowledge (Nature)|Knowledge (Planes)|Linguistics|Perception|Stealth|Survival|Swim
 
-1										BONUS:VAR|HorizonWalkerFavoredTerrainLVL|CL	ABILITY:Special Ability|AUTOMATIC|Horizon Walker Favored Terrain
-2	BONUS:ABILITYPOOL|Terrain Mastery Selection|CL/2	BONUS:VAR|HorizonWalkerTerrainMasteryLVL|CL	ABILITY:Special Ability|AUTOMATIC|Horizon Walker Terrain Mastery
-3	BONUS:ABILITYPOOL|Terrain Dominance Selection|CL/3	BONUS:VAR|HorizonWalkerTerrainDominanceLVL|CL	ABILITY:Special Ability|AUTOMATIC|Horizon Walker Terrain Dominance
-10																		ABILITY:Special Ability|AUTOMATIC|Master Of All Lands
+1										BONUS:VAR|HorizonWalkerFavoredTerrainLVL|CL	ABILITY:Class Ability|AUTOMATIC|Horizon Walker Favored Terrain
+2	BONUS:ABILITYPOOL|Terrain Mastery Selection|CL/2	BONUS:VAR|HorizonWalkerTerrainMasteryLVL|CL	ABILITY:Class Ability|AUTOMATIC|Horizon Walker Terrain Mastery
+3	BONUS:ABILITYPOOL|Terrain Dominance Selection|CL/3	BONUS:VAR|HorizonWalkerTerrainDominanceLVL|CL	ABILITY:Class Ability|AUTOMATIC|Horizon Walker Terrain Dominance
+10																		ABILITY:Class Ability|AUTOMATIC|Master Of All Lands
 
 
 ###Block: Master Chymist --------------------------------------------------------------------------------------------------------------------------------------------
@@ -74,9 +74,9 @@ CLASS:Master Chymist	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Mutagen ~ 
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Chymist	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Sense Motive|Stealth|Swim
 ##Block: Normal Level Progression
-1	BONUS:VAR|MutateLVL|CL							ABILITY:Special Ability|AUTOMATIC|Bomb-Thrower ~ Master Chymist|Mutagenic Form ~ Master Chymist|Mutate ~ Master Chymist
-2	BONUS:VAR|AdvancedMutagenLVL|CL	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Advanced Mutagen ~ Master Chymist
-3	BONUS:VAR|BrutalityLVL|CL		ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Brutality ~ Master Chymist
+1	BONUS:VAR|MutateLVL|CL							ABILITY:Class Ability|AUTOMATIC|Bomb-Thrower ~ Master Chymist|Mutagenic Form ~ Master Chymist|Mutate ~ Master Chymist
+2	BONUS:VAR|AdvancedMutagenLVL|CL	ADD:SPELLCASTER|Arcane	ABILITY:Class Ability|AUTOMATIC|Advanced Mutagen ~ Master Chymist
+3	BONUS:VAR|BrutalityLVL|CL		ADD:SPELLCASTER|Arcane	ABILITY:Class Ability|AUTOMATIC|Brutality ~ Master Chymist
 5							ADD:SPELLCASTER|Arcane
 6							ADD:SPELLCASTER|Arcane
 7							ADD:SPELLCASTER|Arcane
@@ -92,15 +92,15 @@ CLASS:Master Spy	PREFEAT:2,Deceitful,Iron Will	PRESKILL:4,Bluff=7,Disguise=7,Per
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Master Spy	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Use Magic Device
 ##Block: Normal Level Progression
-1	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Art of Deception ~ Master Spy|Master of Disguise ~ Master Spy|Sneak Attack ~ Master Spy
-2							ABILITY:Special Ability|AUTOMATIC|Glib Lie ~ Master Spy|Mask Alignment ~ Master Spy
-3							ABILITY:Special Ability|AUTOMATIC|Nonmagical Aura ~ Master Spy|Superficial Knowledge ~ Master Spy
-4							ABILITY:Special Ability|AUTOMATIC|Concealed Thoughts ~ Master Spy|Quick Change ~ Master Spy
-5							ABILITY:Special Ability|AUTOMATIC|Elude Detection ~ Master Spy|Slippery Mind ~ Master Spy
-6							ABILITY:Special Ability|AUTOMATIC|Shift Alignment ~ Master Spy
-8							ABILITY:Special Ability|AUTOMATIC|Death Attack ~ Master Spy|Fool Casting ~ Master Spy
-9							ABILITY:Special Ability|AUTOMATIC|Hidden Mind ~ Master Spy
-10							ABILITY:Special Ability|AUTOMATIC|Assumption ~ Master Spy
+1	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Class Ability|AUTOMATIC|Art of Deception ~ Master Spy|Master of Disguise ~ Master Spy|Sneak Attack ~ Master Spy
+2							ABILITY:Class Ability|AUTOMATIC|Glib Lie ~ Master Spy|Mask Alignment ~ Master Spy
+3							ABILITY:Class Ability|AUTOMATIC|Nonmagical Aura ~ Master Spy|Superficial Knowledge ~ Master Spy
+4							ABILITY:Class Ability|AUTOMATIC|Concealed Thoughts ~ Master Spy|Quick Change ~ Master Spy
+5							ABILITY:Class Ability|AUTOMATIC|Elude Detection ~ Master Spy|Slippery Mind ~ Master Spy
+6							ABILITY:Class Ability|AUTOMATIC|Shift Alignment ~ Master Spy
+8							ABILITY:Class Ability|AUTOMATIC|Death Attack ~ Master Spy|Fool Casting ~ Master Spy
+9							ABILITY:Class Ability|AUTOMATIC|Hidden Mind ~ Master Spy
+10							ABILITY:Class Ability|AUTOMATIC|Assumption ~ Master Spy
 
 ###Block: Nature Warden --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -111,20 +111,20 @@ CLASS:Nature Warden	PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredTerrain	PR
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Nature Warden	STARTSKILLPTS:4	CSKILL:Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|Perception|Ride|Sense Motive|Survival|Swim
 ##Block: Normal Level Progression
-1	BONUS:VAR|CompanionBondLVL|CL	BONUS:VAR|AnimalCompanionLVL|CL	BONUS:VAR|NaturalEmpathyLVL|CL					ABILITY:Special Ability|AUTOMATIC|Companion Bond ~ Nature Warden|Natural Empathy ~ Nature Warden
-2																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Mystic Harmony ~ Nature Warden|Wild Stride ~ Nature Warden
-3																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Animal Speech ~ Nature Warden
-4																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Silverclaw ~ Nature Warden
-#5	BONUS:VAR|FavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL					ABILITY:Special Ability|AUTOMATIC|Favored Terrain ~ Nature Warden|Survivalist ~ Nature Warden
+1	BONUS:VAR|CompanionBondLVL|CL	BONUS:VAR|AnimalCompanionLVL|CL	BONUS:VAR|NaturalEmpathyLVL|CL					ABILITY:Class Ability|AUTOMATIC|Companion Bond ~ Nature Warden|Natural Empathy ~ Nature Warden
+2																ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Mystic Harmony ~ Nature Warden|Wild Stride ~ Nature Warden
+3																ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Animal Speech ~ Nature Warden
+4																ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Silverclaw ~ Nature Warden
+#5	BONUS:VAR|FavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL					ABILITY:Class Ability|AUTOMATIC|Favored Terrain ~ Nature Warden|Survivalist ~ Nature Warden
 #
 #  Since "This ability is identical to and stacks with the ranger class ability.", it's easier just to advance the ranger variable.
 #
-5	BONUS:VAR|RangerFavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL								ABILITY:Special Ability|AUTOMATIC|Basic Favored Terrain|Ranger Favored Terrain|Survivalist ~ Nature Warden
-6																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Woodforging ~ Nature Warden
-7																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Companion Walk ~ Nature Warden
-8																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Ironpaw ~ Nature Warden
-9																				ABILITY:Special Ability|AUTOMATIC|Guarded Lands ~ Nature Warden
-10																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Companion Soul ~ Nature Warden
+5	BONUS:VAR|RangerFavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL								ABILITY:Class Ability|AUTOMATIC|Basic Favored Terrain|Ranger Favored Terrain|Survivalist ~ Nature Warden
+6																ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Woodforging ~ Nature Warden
+7																ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Companion Walk ~ Nature Warden
+8																ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Ironpaw ~ Nature Warden
+9																				ABILITY:Class Ability|AUTOMATIC|Guarded Lands ~ Nature Warden
+10																ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Companion Soul ~ Nature Warden
 
 ###Block: Rage Prophet --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -135,16 +135,16 @@ CLASS:Rage Prophet	PREABILITY:2,CATEGORY=Special Ability,Oracle's Curse,Moment o
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rage Prophet	STARTSKILLPTS:4	CSKILL:Climb|Heal|Intimidate|Knowledge (History)|Knowledge (Religion)|Sense Motive|Spellcraft|Swim
 ##Block: Normal Level Progression
-1											ABILITY:Special Ability|AUTOMATIC|Savage Seer ~ Rage Prophet|Spirit Guide ~ Rage Prophet
-2	BONUS:VAR|RageProphetMysteryLVL|CL	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet Mystery ~ Rage Prophet|Raging Healer ~ Rage Prophet
-3							ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Indomitable Caster ~ Rage Prophet
-4	BONUS:VAR|RagecasterLVL|CL		ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Ragecaster ~ Rage Prophet
-5											ABILITY:Special Ability|AUTOMATIC|Spirit Guardian ~ Rage Prophet
-6							ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Enduring Rage ~ Rage Prophet
+1											ABILITY:Class Ability|AUTOMATIC|Savage Seer ~ Rage Prophet|Spirit Guide ~ Rage Prophet
+2	BONUS:VAR|RageProphetMysteryLVL|CL	ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Rage Prophet Mystery ~ Rage Prophet|Raging Healer ~ Rage Prophet
+3							ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Indomitable Caster ~ Rage Prophet
+4	BONUS:VAR|RagecasterLVL|CL		ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Ragecaster ~ Rage Prophet
+5											ABILITY:Class Ability|AUTOMATIC|Spirit Guardian ~ Rage Prophet
+6							ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Enduring Rage ~ Rage Prophet
 7							ADD:SPELLCASTER|Divine
-8											ABILITY:Special Ability|AUTOMATIC|Raging Spellstrength ~ Rage Prophet
-9							ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Spirit Warrior ~ Rage Prophet
-10							ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Greater Rage ~ Rage Prophet
+8											ABILITY:Class Ability|AUTOMATIC|Raging Spellstrength ~ Rage Prophet
+9							ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Spirit Warrior ~ Rage Prophet
+10							ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Greater Rage ~ Rage Prophet
 
 ###Block: Stalwart Defender --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -155,12 +155,12 @@ CLASS:Stalwart Defender	PREATT:7	PREFEAT:5,Dodge,Endurance,Toughness,Armor Profi
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Stalwart Defender	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|Perception|Sense Motive
 ##Block: Normal Level Progression
-1							ABILITY:Special Ability|AUTOMATIC|Defensive Stance ~ Stalwart Defender
-2	BONUS:VAR|DefensivePowerLVL|CL	ABILITY:Special Ability|AUTOMATIC|Defensive Powers ~ Stalwart Defender
-3							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Stalwart Defender
-5	BONUS:VAR|DamageReductionLVL|CL	ABILITY:Special Ability|AUTOMATIC|Damage Reduction ~ Stalwart Defender
-7							ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge ~ Stalwart Defender
-9							ABILITY:Special Ability|AUTOMATIC|Mobile Defense ~ Stalwart Defender
-10							ABILITY:Special Ability|AUTOMATIC|Last Word ~ Stalwart Defender
+1							ABILITY:Class Ability|AUTOMATIC|Defensive Stance ~ Stalwart Defender
+2	BONUS:VAR|DefensivePowerLVL|CL	ABILITY:Class Ability|AUTOMATIC|Defensive Powers ~ Stalwart Defender
+3							ABILITY:Class Ability|AUTOMATIC|Uncanny Dodge ~ Stalwart Defender
+5	BONUS:VAR|DamageReductionLVL|CL	ABILITY:Class Ability|AUTOMATIC|Damage Reduction ~ Stalwart Defender
+7							ABILITY:Class Ability|AUTOMATIC|Improved Uncanny Dodge ~ Stalwart Defender
+9							ABILITY:Class Ability|AUTOMATIC|Mobile Defense ~ Stalwart Defender
+10							ABILITY:Class Ability|AUTOMATIC|Last Word ~ Stalwart Defender
 
 #EOF
