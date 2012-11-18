@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Jul  1 12:23:32 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# CVS $Revision$ $Author$ -- Thu Mar 20 15:22:45 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Barbarian Totem Animal Templates
-# Template Name	Hit Dice Size			Visible	Special ABility		Ability						Virtual Feat
-Totem (Badger)						VISIBLE:NO	SAB:Rage (Ex)		ABILITY:Special Ability|VIRTUAL|Rage
+# Template Name	Hit Dice Size			Visible	Special ABility		Virtual Feat
+Totem (Badger)						VISIBLE:NO	SAB:Rage (Ex)		VFEAT:Rage
 Totem (Bat)							VISIBLE:NO	SAB:Blindsight (Ex)
 Totem (Bear)						VISIBLE:NO	SAB:Tough (Ex)
 Totem (Boar)						VISIBLE:NO	SAB:Ferocity (Ex)
@@ -11,7 +11,7 @@ Totem (Camel)						VISIBLE:NO	SAB:Hardiness (Ex)
 Totem (Cat)							VISIBLE:NO	SAB:Cat's Paw (Ex)
 Totem (Cheetah)						VISIBLE:NO	SAB:Sprint (Ex)
 Totem (Crocodile)						VISIBLE:NO	SAB:Crocodile Hide (Ex)
-Totem (Dog)							VISIBLE:NO	SAB:Bloodhound (Ex)								VFEAT:Track
+Totem (Dog)							VISIBLE:NO	SAB:Bloodhound (Ex)	VFEAT:Track
 Totem (Eagle)						VISIBLE:NO	SAB:Eagle Sight (Ex)
 Totem (Hawk)						VISIBLE:NO	SAB:Hawk Eyes (Ex)
 Totem (Horse)						VISIBLE:NO	SAB:Union (Ex)
@@ -26,4 +26,4 @@ Totem (Snake)						VISIBLE:NO	SAB:Venomous Bite (Ex)
 Totem (Tiger)						VISIBLE:NO	SAB:Ambush (Ex)
 Totem (Weasle)						VISIBLE:NO	SAB:Wild Weasel (Ex)
 Totem (Wolf)						VISIBLE:NO	SAB:Wolf Scent (Ex)
-Totem (Wolverine)						VISIBLE:NO	SAB:Wolverine Totem	ABILITY:Special Ability|VIRTUAL|Rage
+Totem (Wolverine)						VISIBLE:NO	SAB:Wolverine Totem	VFEAT:Rage

@@ -1,34 +1,34 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sun Apr  6 22:56:20 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 ###Block: Armor and Shields
-# Equipment Name	Required Shield Proficiency	Type						Cost		Weight	Slot Needed	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus																			Stat bonus
-Bear Shield		PROFICIENCY:SHIELD|Buckler	TYPE:Magic.Shield.Wood.Buckler	COST:13000	WT:5		SLOTS:0	ACCHECK:-1		EQMOD:PLUS3S.WOOD				SOURCEPAGE:pg.11	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]	BONUS:STAT|STR|2|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
-Vesshlik Scales						TYPE:Magic.ArmorLight.Suit.Specific	COST:2100	WT:25				ACCHECK:0		EQMOD:PLUS1A	MAXDEX:4		SOURCEPAGE:pg.90	SPELLFAILURE:20		BONUS:COMBAT|AC|TYPE=Armor
+# Equipment Name	Required Proficiency		Type						Cost		Weight	AC Penalty Check	Modifier		Nb Hands	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus																					Stat bonus
+Bear Shield		PROFICIENCY:SHIELD|Buckler	TYPE:Magic.Shield.Wood.Buckler	COST:13000	WT:5		ACCHECK:-1		EQMOD:WOOD.PLUS3S	HANDS:0				SOURCEPAGE:pg.11	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor.REPLACE	BONUS:COMBAT|TOHIT|-1|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]	BONUS:STAT|STR|2|PREMULT:1,[PREEQUIPBOTH:1,TYPE=Melee],[PREEQUIPSECONDARY:1,TYPE=Melee]
+Vesshlik Scales						TYPE:Magic.ArmorLight.Suit.Specific	COST:2100	WT:25		ACCHECK:0		EQMOD:PLUS1A			MAXDEX:4		SOURCEPAGE:pg.90	SPELLFAILURE:20		BONUS:COMBAT|AC|TYPE=Armor.REPLACE
 
 ###Block: Weapons
-# Equipment Name			Output Name				Required Weapon Proficiency		Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Special Property
-Javelin (Bonetip)			OUTPUTNAME:[NAME] Javelin	PROFICIENCY:WEAPON|Javelin		TYPE:Magic.Weapon.Simple.Ranged.Piercing.Specific.Thrown.Javelin				COST:2001	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:BONE.PLUS1W.WOOD		RANGE:30	SIZE:M	SOURCEPAGE:pg.88	SPROP:-2 cursed weapon when used agains lizardfolk.
-Dagger (Everpoison)		OUTPUTNAME:[NAME] Dagger	PROFICIENCY:WEAPON|Dagger		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific.Thrown.Dagger			COST:25316	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:PLUS2W.STEEL		RANGE:10	SIZE:T	SOURCEPAGE:pg.28
+# Equipment Name			Output Name				Required Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Special Property
+Javelin (Bonetip)			OUTPUTNAME:[NAME] Javelin	PROFICIENCY:WEAPON|Javelin		TYPE:Magic.Weapon.Simple.Ranged.Piercing.Specific.Thrown.Javelin				COST:2001	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD.BONE.PLUS1W		RANGE:30	SIZE:M	SOURCEPAGE:pg.88	SPROP:-2 cursed weapon when used agains lizardfolk.
+Dagger (Everpoison)		OUTPUTNAME:[NAME] Dagger	PROFICIENCY:WEAPON|Dagger		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific.Thrown.Dagger			COST:25316	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:STEEL.PLUS2W		RANGE:10	SIZE:T	SOURCEPAGE:pg.28
 Flail of Tyrok								PROFICIENCY:WEAPON|Flail		TYPE:Magic.Weapon.Martial.Melee.Specific.Bludgeoning.Flail					COST:8315	WT:20		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:BONE.PLUS1W					SIZE:L	SOURCEPAGE:pg.123
-Greatclub (Flameshooter)	OUTPUTNAME:[NAME] Greatclub	PROFICIENCY:WEAPON|Greatclub		TYPE:Magic.Weapon.Martial.Melee.Specific.Bludgeoning.Club					COST:16005	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:FLM_BR_M.PLUS1W.WOOD			SIZE:L	SOURCEPAGE:pg.43	SPROP:+1d8+4 fire dammage on critical hit.
+Greatclub (Flameshooter)	OUTPUTNAME:[NAME] Greatclub	PROFICIENCY:WEAPON|Greatclub		TYPE:Magic.Weapon.Martial.Melee.Specific.Bludgeoning.Club					COST:16005	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10	EQMOD:PLUS1W.FLM_BR_M.WOOD			SIZE:L	SOURCEPAGE:pg.43	SPROP:+1d8+4 fire dammage on critical hit.
 Knife (Hunter)			OUTPUTNAME:Hunter's Knife	PROFICIENCY:WEAPON|Dagger		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Slashing.Specific.Thrown.Dagger	COST:20240	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:STEEL				RANGE:10	SIZE:T	SOURCEPAGE:pg.19
-Mace of Urog								PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Magic.Weapon.Simple.Melee.Bludgeoning.Specific.Mace					COST:8315	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS1W.STEEL				SIZE:M	SOURCEPAGE:pg.124
-Nightspear									PROFICIENCY:WEAPON|Javelin		TYPE:Magic.Weapon.Simple.Ranged.Piercing.Specific.Thrown.Javelin				COST:18650	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:PLUS2W.WOOD			RANGE:30	SIZE:M	SOURCEPAGE:pg.88
+Mace of Urog								PROFICIENCY:WEAPON|Mace (Heavy)	TYPE:Magic.Weapon.Simple.Melee.Bludgeoning.Specific.Mace					COST:8315	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL.PLUS1W				SIZE:M	SOURCEPAGE:pg.124
+Nightspear									PROFICIENCY:WEAPON|Javelin		TYPE:Magic.Weapon.Simple.Ranged.Piercing.Specific.Thrown.Javelin				COST:18650	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD.PLUS2W			RANGE:30	SIZE:M	SOURCEPAGE:pg.88
 Nightswitches								PROFICIENCY:WEAPON|Whip			TYPE:Magic.Weapon.Exotic.Ranged.Slashing.Specific.Whip					COST:1500	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	EQMOD:LEATHER			RANGE:15	SIZE:S	SOURCEPAGE:pg.53
-Spear of Silence								PROFICIENCY:WEAPON|Shortspear		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific.Thrown.Spear			COST:15310	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:PLUS2W.WOOD			RANGE:20	SIZE:L	SOURCEPAGE:pg.19
-Umber Cestus								PROFICIENCY:WEAPON|Gauntlet		TYPE:Magic.Weapon.Unarmed.Exotic.Melee.Bludgeoning.Specific.Gauntlet			COST:15000	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:PLUS2W.STEEL				SIZE:M	SOURCEPAGE:pg.75
+Spear of Silence								PROFICIENCY:WEAPON|Shortspear		TYPE:Magic.Weapon.Simple.Melee.Ranged.Piercing.Specific.Thrown.Spear			COST:15310	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:WOOD.PLUS2W			RANGE:20	SIZE:L	SOURCEPAGE:pg.19
+Umber Cestus								PROFICIENCY:WEAPON|Gauntlet		TYPE:Magic.Weapon.Unarmed.Exotic.Melee.Bludgeoning.Specific.Gauntlet			COST:15000	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	EQMOD:STEEL.PLUS2W				SIZE:M	SOURCEPAGE:pg.75
 Warding Sticks								PROFICIENCY:WEAPON|Club			TYPE:Magic.Weapon.Simple.Melee.Ranged.Bludgeoning.Specific.Thrown.Club			COST:150	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD				RANGE:10	SIZE:M	SOURCEPAGE:pg.61	SPROP:5d6 damage to inanimate objects.
 
 ###Block: Ammunition
 # Equipment Name	Type							Cost		Weight	Modifier			Source Page
-Holding Stone	TYPE:Magic.Ammunition.Specific.SlingStone	COST:24000	WT:1		EQMOD:PLUS1A.STONE	SOURCEPAGE:pg.105
+Holding Stone	TYPE:Magic.Ammunition.Specific.SlingStone	COST:24000	WT:1		EQMOD:STONE.PLUS1A	SOURCEPAGE:pg.105
 
 ###Block: Potions
 # Equipment Name			Type					Cost		Weight	Source Page
 Blood of the Forefathers	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:pg.53
-Zohl'Kahn's Bile			TYPE:Magic.Potion.Consumable	COST:1750	WT:0		SOURCEPAGE:pg.106
-Zohl'Nahks Blood			TYPE:MAgic.Potion.Consumable	COST:2500	WT:0		SOURCEPAGE:pg.106
+Zohl’Kahn’s Bile			TYPE:Magic.Potion.Consumable	COST:1750	WT:0		SOURCEPAGE:pg.106
+Zohl’Nahks Blood			TYPE:MAgic.Potion.Consumable	COST:2500	WT:0		SOURCEPAGE:pg.106
 
 ###Block: Rings
 # Equipment Name		Output Name				Type			Cost		Weight	Modifier			Source Page		Virtual Feat	Innate Spells																											Combat bonus				Bonus to skill
@@ -38,60 +38,60 @@ Ring (the Land)		OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:12000	WT:0		EQMO
 Ring (Weathercraft)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:90000	WT:0		EQMOD:RING			SOURCEPAGE:pg.43				SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Control Weather,20
 
 ###Block:Rods, Staves and Wands
-# Equipment Name		Output Name				Required Weapon Proficiency		Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier							Alternative Modifier		Size		Source Page		Innate Spells									Combat bonus					Special Property
+# Equipment Name		Output Name				Required Proficiency			Type													Alternative Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier							Alternative Modifier		Size		Source Page		Innate Spells									Combat bonus					Special Property
 Spiderstaff														TYPE:Magic.Staff																	COST:35000	WT:0																									EQMOD:WOOD														SOURCEPAGE:pg.28	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=10|Spider Climb,11|Web,13								SPROP:Summon Spiders
 Staff (Dominion)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:52400	WT:0																									EQMOD:CHARGED_ITEM_50|CHARGES[50].WOOD									SOURCEPAGE:pg.106
 Staff (Night)		OUTPUTNAME:Staff of [NAME]							TYPE:Magic.Staff																	COST:25000	WT:0																									EQMOD:CHARGED_ITEM_50|CHARGES[50].WOOD									SOURCEPAGE:pg.106
-Staff (Poison Thorns)	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff							COST:80000	WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50].PLUS2W.WOOD								SOURCEPAGE:pg.131
-Staff of the Bull							PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Specific.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:28000	WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8		EQMOD:DEFEND.PLUS2W.WOOD				ALTEQMOD:DEFEND.PLUS2W.WOOD	SIZE:H	SOURCEPAGE:pg.96												BONUS:COMBAT|AC|2|TYPE=Natural Armor
+Staff (Poison Thorns)	OUTPUTNAME:Staff of [NAME]	PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Standard.Double.Quarterstaff							COST:80000	WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:CHARGED_ITEM_50|CHARGES[50].WOOD.PLUS2W								SOURCEPAGE:pg.131
+Staff of the Bull							PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Simple.Melee.Bludgeoning.Specific.Double.Quarterstaff	ALTTYPE:Weapon.Melee.Bludgeoning	COST:28000	WT:4		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d8	ALTDAMAGE:1d8		EQMOD:WOOD.DEFEND.PLUS2W				ALTEQMOD:WOOD.DEFEND.PLUS2W	SIZE:H	SOURCEPAGE:pg.96												BONUS:COMBAT|AC|2|TYPE=Natural Armor
 
 ###Block: Wonderous Items
-# Equipment Name						Output Name						Type						Cost		Weight	Slot Needed	Modifier			Source Page		Vision				Innate Spells																																						Combat bonus			Bonus to skill							Modify VAR							Special Property
-Aboleth Slave Choker												TYPE:Magic.Wondrous			COST:0	WT:1								SOURCEPAGE:pg.74
-Amulet of ZohlKahn												TYPE:Magic.Wondrous.Amulet		COST:40000	WT:20				EQMOD:BRONZE		SOURCEPAGE:pg.105						SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Destruction,20
-Bison Horn Head Dress					OUTPUTNAME:Bison Horn Head-Dress		TYPE:Magic.Wondrous.Headgear		COST:10000	WT:1								SOURCEPAGE:pg.12
-Blind Eyes														TYPE:Magic.Wondrous			COST:2000	WT:0								SOURCEPAGE:pg.81
-Bracers of Torture												TYPE:Magic.Wondrous.Bracer		COST:30000	WT:1		SLOTS:2					SOURCEPAGE:pg.28						SPELLS:Magic Item|TIMES=3|CASTERLEVEL=10|Heat Metal,13|Inflict Light Wounds,11|Scare,13	SPELLS:Magic Item|TIMES=2|CASTERLEVEL=10|Inflict Moderate Wounds,13	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=10|Heal,19|Inflict Serious Wounds,14
-Censer of Confusion												TYPE:Magic.Wondrous			COST:10300	WT:1				EQMOD:GOLD			SOURCEPAGE:pg.95
-Cloak (Skin)						OUTPUTNAME:[NAME] Cloak				TYPE:Magic.Wondrous.Cape		COST:21000	WT:10								SOURCEPAGE:pg.105																																														BONUS:COMBAT|AC|1
-Cloak (Bull)						OUTPUTNAME:Cloak of the [NAME]		TYPE:Magic.Wondrous.Cape		COST:16400	WT:1								SOURCEPAGE:pg.95						SPELLS:Magic Item|TIMES=3|CASTERLEVEL=3|Darkness,13|Silence,13																																			BONUS:SKILL|Hide,Move Silently|10|TYPE=Competance
-Cloak (Maelstrom)						OUTPUTNAME:Cloak of the [NAME]		TYPE:Magic.Wondrous.Cape		COST:150000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.131						SPELLS:Magic Item|TIMES=1|CASTERLEVEL=18|Control Weather,20	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=18|Storm of Vengeance,23																				BONUS:COMBAT|AC|2|TYPR=Luck																		SPROP:Endure Fire and Cold
-Cloak (Meditation)					OUTPUTNAME:[NAME] Cloak				TYPE:Magic.Wondrous.Cape		COST:4000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.95
-Cloak (Undying Devotion)				OUTPUTNAME:Cloak of [NAME]			TYPE:Magic.Wondrous.Cape		COST:14000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.67
-Collar of the Claw (+1)					OUTPUTNAME:[NAME] Collar of the Claw	TYPE:Magic.Wondrous.Amulet		COST:2000	WT:0				EQMOD:BONE			SOURCEPAGE:pg.139																																														BONUS:COMBAT|TOHIT.Natural|1
-Collar of the Claw (+2)					OUTPUTNAME:[NAME] Collar of the Claw	TYPE:Magic.Wondrous.Amulet		COST:4000	WT:0				EQMOD:BONE			SOURCEPAGE:pg.139																																														BONUS:COMBAT|TOHIT.Natural|2
-Collar of the Claw (+3)					OUTPUTNAME:[NAME] Collar of the Claw	TYPE:Magic.Wondrous.Amulet		COST:18000	WT:0				EQMOD:BONE			SOURCEPAGE:pg.139																																														BONUS:COMBAT|TOHIT.Natural|3
-Collar of the Claw (+4)					OUTPUTNAME:[NAME] Collar of the Claw	TYPE:Magic.Wondrous.Amulet		COST:32000	WT:0				EQMOD:BONE			SOURCEPAGE:pg.139																																														BONUS:COMBAT|TOHIT.Natural|4
-Collar of the Claw (+5)					OUTPUTNAME:[NAME] Collar of the Claw	TYPE:Magic.Wondrous.Amulet		COST:50000	WT:0				EQMOD:BONE			SOURCEPAGE:pg.139																																														BONUS:COMBAT|TOHIT.Natural|5
-Darkcloak														TYPE:Magic.Wondrous.Cape		COST:25000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.19	VISION:Darkvision (120')																																														BONUS:SKILL|Hide|10|TYPE=Circumstance
-Eagle Claw Necklace												TYPE:Magic.Wondrous.Amulet		COST:19000	WT:0				EQMOD:LEATHER		SOURCEPAGE:pg.12
-Everfull Satchel													TYPE:Magic.Wondrous			COST:15000	WT:1								SOURCEPAGE:pg.19
-Eyestalk Rings													TYPE:Magic.Wondrous			COST:0	WT:0								SOURCEPAGE:pg.74
-Figurine of Wondrous Power (Lost Children)								TYPE:Magic.Wondrous			COST:1000	WT:0								SOURCEPAGE:pg.81
-Helm of Dominance													TYPE:Magic.Wondrous.Headgear		COST:200	WT:3								SOURCEPAGE:pg.67
-Helm of the Lammasu												TYPE:Magic.Wondrous.Headgear		COST:25000	WT:3								SOURCEPAGE:pg.74						SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=7|Magic Circle against Evil,15																												BONUS:COMBAT|AC|1
-Horn of the Wild													TYPE:Magic.Wondrous			COST:7000	WT:1								SOURCEPAGE:pg.131
-Lantern of Peaceful Darkness											TYPE:Magic.Wondrous			COST:120000	WT:2				EQMOD:BRASS.GLASS		SOURCEPAGE:pg.36
-Medallion of Truth												TYPE:Magic.Wondrous.Amulet		COST:80000	WT:0								SOURCEPAGE:pg.36
-Mithril Arm														TYPE:Magic.Wondrous			COST:2200	WT:0				EQMOD:MITHRAL_ITEM	SOURCEPAGE:pg.139
-Needle of Betrayed Secrets											TYPE:Magic.Wondrous			COST:8000	WT:0								SOURCEPAGE:pg.67
-Periapt of the Destrachan											TYPE:Magic.Wondrous.Amulet		COST:150000	WT:0								SOURCEPAGE:pg.74
-Rocks of Earth Shattering											TYPE:Magic.Wondrous			COST:36000	WT:1				EQMOD:STONE			SOURCEPAGE:pg.43
-Rocks of Fiery shards												TYPE:Magic.Wondrous			COST:16000	WT:1				EQMOD:STONE			SOURCEPAGE:pg.44																																																																				SPROP:5d6 fire damage.
-Ropes of Binding													TYPE:Magic.Wondrous			COST:5400	WT:1								SOURCEPAGE:pg.105
-Scrying Gift													TYPE:Magic.Wondrous			COST:40000	WT:0								SOURCEPAGE:pg.89
-Seals of the Blessed Martyr											TYPE:Magic.Wondrous.HolySymbol	COST:500	WT:0				EQMOD:MITHRAL_ITEM	SOURCEPAGE:pg.61						SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Sanctuary,11
-Sign of Expedience												TYPE:Magic.Wondrous.HolySymbol	COST:200	WT:0				EQMOD:STONE			SOURCEPAGE:pg.61
-Skull Totem														TYPE:Magic.Wondrous			COST:450	WT:2				EQMOD:BONE			SOURCEPAGE:pg.124
-Spirit Rattle													TYPE:Magic.Wondrous			COST:25000	WT:1								SOURCEPAGE:pg.12																																																												BONUS:VAR|TurnCheckBase|5|TYPE=Enhancement
-Stone of Entangling												TYPE:Magic.Wondrous			COST:100	WT:1				EQMOD:STONE			SOURCEPAGE:pg.89
-Stone Wards														TYPE:Magic.Wondrous			COST:200	WT:1				EQMOD:STONE			SOURCEPAGE:pg.82
-Teeth (Hound)						OUTPUTNAME:Hound's Teeth			TYPE:Magic.Wondrous			COST:650	WT:0								SOURCEPAGE:pg.53
-Thirst Pebbles													TYPE:Magic.Wondrous			COST:100	WT:0				EQMOD:STONE			SOURCEPAGE:pg.36
-Tooth of Steel													TYPE:Magic.Wondrous			COST:8500	WT:0				EQMOD:STEEL			SOURCEPAGE:pg.140																																																																				SPROP:2d8 bite damage as +2 magic weapon
+# Equipment Name						Output Name						Type												Cost		Weight	Slot Needed	Modifier			Source Page		Vision				Innate Spells																																						Combat bonus			Bonus to skill							Modify VAR							Special Property			Natural Attacks
+Aboleth Slave Choker												TYPE:Magic.Wondrous									COST:0	WT:1								SOURCEPAGE:pg.74
+Amulet of ZohlKahn												TYPE:Magic.Wondrous.Amulet								COST:40000	WT:20				EQMOD:BRONZE		SOURCEPAGE:pg.105						SPELLS:Magic Item|TIMES=1|CASTERLEVEL=15|Destruction,20
+Bison Horn Head Dress					OUTPUTNAME:Bison Horn Head-Dress		TYPE:Magic.Wondrous.Headgear								COST:10000	WT:1								SOURCEPAGE:pg.12
+Blind Eyes														TYPE:Magic.Wondrous									COST:2000	WT:0								SOURCEPAGE:pg.81
+Bracers of Torture												TYPE:Magic.Wondrous.Bracer								COST:30000	WT:1		SLOTS:2					SOURCEPAGE:pg.28						SPELLS:Magic Item|TIMES=3|CASTERLEVEL=10|Inflict Light Wounds,11|Heat Metal,13|Scare,13	SPELLS:Magic Item|TIMES=2|CASTERLEVEL=10|Inflict Moderate Wounds,13	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=10|Inflict Serious Wounds,14|Heal,19
+Censer of Confusion												TYPE:Magic.Wondrous									COST:10300	WT:1				EQMOD:GOLD			SOURCEPAGE:pg.95
+Cloak (Skin)						OUTPUTNAME:[NAME] Cloak				TYPE:Magic.Wondrous.Cape								COST:21000	WT:10								SOURCEPAGE:pg.105																																														BONUS:COMBAT|AC|1
+Cloak (Bull)						OUTPUTNAME:Cloak of the [NAME]		TYPE:Magic.Wondrous.Cape								COST:16400	WT:1								SOURCEPAGE:pg.95						SPELLS:Magic Item|TIMES=3|CASTERLEVEL=3|Darkness,13|Silence,13																																			BONUS:SKILL|Hide,Move Silently|10|TYPE=Competance
+Cloak (Maelstrom)						OUTPUTNAME:Cloak of the [NAME]		TYPE:Magic.Wondrous.Cape								COST:150000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.131						SPELLS:Magic Item|TIMES=1|CASTERLEVEL=18|Control Weather,20	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=18|Storm of Vengeance,23|PREALIGN:L,N,C																		BONUS:COMBAT|AC|2|TYPR=Luck																		SPROP:Endure Fire and Cold
+Cloak (Meditation)					OUTPUTNAME:[NAME] Cloak				TYPE:Magic.Wondrous.Cape								COST:4000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.95
+Cloak (Undying Devotion)				OUTPUTNAME:Cloak of [NAME]			TYPE:Magic.Wondrous.Cape								COST:14000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.67
+Collar of the Claw (+1)					OUTPUTNAME:[NAME] Collar of the Claw	TYPE:Magic.Wondrous.Amulet								COST:2000	WT:0				EQMOD:BONE			SOURCEPAGE:pg.139																																														BONUS:COMBAT|TOHIT.Natural|1
+Collar of the Claw (+2)					OUTPUTNAME:[NAME] Collar of the Claw	TYPE:Magic.Wondrous.Amulet								COST:4000	WT:0				EQMOD:BONE			SOURCEPAGE:pg.139																																														BONUS:COMBAT|TOHIT.Natural|2
+Collar of the Claw (+3)					OUTPUTNAME:[NAME] Collar of the Claw	TYPE:Magic.Wondrous.Amulet								COST:18000	WT:0				EQMOD:BONE			SOURCEPAGE:pg.139																																														BONUS:COMBAT|TOHIT.Natural|3
+Collar of the Claw (+4)					OUTPUTNAME:[NAME] Collar of the Claw	TYPE:Magic.Wondrous.Amulet								COST:32000	WT:0				EQMOD:BONE			SOURCEPAGE:pg.139																																														BONUS:COMBAT|TOHIT.Natural|4
+Collar of the Claw (+5)					OUTPUTNAME:[NAME] Collar of the Claw	TYPE:Magic.Wondrous.Amulet								COST:50000	WT:0				EQMOD:BONE			SOURCEPAGE:pg.139																																														BONUS:COMBAT|TOHIT.Natural|5
+Darkcloak														TYPE:Magic.Wondrous.Cape								COST:25000	WT:1				EQMOD:CLOTH			SOURCEPAGE:pg.19	VISION:Darkvision (120')																																														BONUS:SKILL|Hide|10|TYPE=Circumstance
+Eagle Claw Necklace												TYPE:Magic.Wondrous.Amulet								COST:19000	WT:0				EQMOD:LEATHER		SOURCEPAGE:pg.12
+Everfull Satchel													TYPE:Magic.Wondrous									COST:15000	WT:1								SOURCEPAGE:pg.19
+Eyestalk Rings													TYPE:Magic.Wondrous									COST:0	WT:0								SOURCEPAGE:pg.74
+Figurine of Wondrous Power (Lost Children)								TYPE:<agic.Wondrous									COST:1000	WT:0								SOURCEPAGE:pg.81
+Helm of Dominance													TYPE:Magic.Wondrous.Headgear								COST:200	WT:3								SOURCEPAGE:pg.67
+Helm of the Lammasu												TYPE:Magic.Wondrous.Headgear								COST:25000	WT:3								SOURCEPAGE:pg.74						SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=7|Magic Circle against Evil,15																												BONUS:COMBAT|AC|1
+Horn of the Wild													TYPE:Magic.Wondrous									COST:7000	WT:1								SOURCEPAGE:pg.131
+Lantern of Peaceful Darkness											TYPE:Magic.Wondrous									COST:120000	WT:2				EQMOD:BRASS.GLASS		SOURCEPAGE:pg.36
+Medallion of Truth												TYPE:Magic.Wondrous.Amulet								COST:80000	WT:0								SOURCEPAGE:pg.36
+Mithril Arm														TYPE:Magic.Wondrous									COST:2200	WT:0				EQMOD:MITHRAL_ITEM	SOURCEPAGE:pg.139
+Needle of Betrayed Secrets											TYPE:Magic.Wondrous									COST:8000	WT:0								SOURCEPAGE:pg.67
+Periapt of the Destrachan											TYPE:Magic.Wondrous.Amulet								COST:150000	WT:0								SOURCEPAGE:pg.74
+Rocks of Earth Shattering											TYPE:Magic.Wondrous									COST:36000	WT:1				EQMOD:STONE			SOURCEPAGE:pg.43
+Rocks of Fiery shards												TYPE:Magic.Wondrous									COST:16000	WT:1				EQMOD:STONE			SOURCEPAGE:pg.44																																																																				SPROP:5d6 fire damage.
+Ropes of Binding													TYPE:Magic.Wondrous									COST:5400	WT:1								SOURCEPAGE:pg.105
+Scrying Gift													TYPE:Magic.Wondrous									COST:40000	WT:0								SOURCEPAGE:pg.89
+Seals of the Blessed Martyr											TYPE:Magic.Wondrous.HolySymbol							COST:500	WT:0				EQMOD:MITHRAL_ITEM	SOURCEPAGE:pg.61						SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Sanctuary,11
+Sign of Expedience												TYPE:Magic.Wondrous.HolySymbol							COST:200	WT:0				EQMOD:STONE			SOURCEPAGE:pg.61
+Skull Totem														TYPE:Magic.Wondrous									COST:450	WT:2				EQMOD:BONE			SOURCEPAGE:pg.124
+Spirit Rattle													TYPE:Magic.Wondrous									COST:25000	WT:1								SOURCEPAGE:pg.12																																																												BONUS:VAR|TurnCheckBase|5|TYPE=Enhancement
+Stone of Entangling												TYPE:Magic.Wondrous									COST:100	WT:1				EQMOD:STONE			SOURCEPAGE:pg.89
+Stone Wards														TYPE:Magic.Wondrous									COST:200	WT:1				EQMOD:STONE			SOURCEPAGE:pg.82
+Teeth (Hound)						OUTPUTNAME:Hound's Teeth			TYPE:Magic.Wondrous									COST:650	WT:0								SOURCEPAGE:pg.53
+Thirst Pebbles													TYPE:Magic.Wondrous									COST:100	WT:0				EQMOD:STONE			SOURCEPAGE:pg.36
+Tooth of Steel													TYPE:Magic.Wondrous.Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing	COST:8500	WT:0				EQMOD:STEEL.PLUS2W	SOURCEPAGE:pg.140																																																																									NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,2d8
 # Need to find another way to apply NATURALATTACKS to Tooth of Steel
-Tooth of Venom													TYPE:Magic.Wondrous			COST:9600	WT:0								SOURCEPAGE:pg.140
-Water Barrier													TYPE:Magic.Wondrous			COST:6000	WT:1				EQMOD:STONE			SOURCEPAGE:pg.90						SPELLS:Magic Item|TIMES=3|CASTERLEVEL=10|Air Bubble,16
+Tooth of Venom													TYPE:Magic.Wondrous									COST:9600	WT:0								SOURCEPAGE:pg.140
+Water Barrier													TYPE:Magic.Wondrous									COST:6000	WT:1				EQMOD:STONE			SOURCEPAGE:pg.90						SPELLS:Magic Item|TIMES=3|CASTERLEVEL=10|Air Bubble,16
 
 ###Block: Barbarian Totem Mask
 # Equipment Name		Output Name				Type					Cost		Weight	Source Page
@@ -122,27 +122,27 @@ Totem Mask (Wolverine)	OUTPUTNAME:[NAME] Totem Mask	TYPE:Magic.Wondrous.Headgear
 
 ###Block: Barbarian Totem Stone
 # Equipment Name		Output Name				Type				Cost		Weight	Source Page
-Totem Stone (Badger)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Bat)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Bear)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Boar)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Camel)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Cat)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Cheetah)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Crocodile)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Dog)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Eagle)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Hawk)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Horse)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Lion)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Lizard)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Monkey)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Owl)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Pony)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Rat)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Raven)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Snake)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Tiger)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Weasel)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Wolf)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
-Totem Stone (Wolverine)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Badger)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Bat)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Bear)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Boar)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Camel)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Cat)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Cheetah)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Crocodile)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Dog)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Eagle)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Hawk)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Horse)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Lion)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Lizard)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Monkey)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Owl)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Pony)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Rat)		OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Raven)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Snake)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Tiger)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Weasel)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Wolf)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
+Totem Stone (Wolverine)	OUTPUTNAME:[NAME] Totem Stone	TYPE:Magic.Wondrous	COST:7200:	WT:1		SOURCEPAGE:pg.12
