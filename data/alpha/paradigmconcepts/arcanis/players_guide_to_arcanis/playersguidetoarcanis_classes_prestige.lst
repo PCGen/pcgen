@@ -521,7 +521,7 @@ CLASS:Sensate of Savona	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=
 7			UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
 8			UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6					ABILITY:Special Ability|AUTOMATIC|Spring Attack Ability
 9			UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6					ABILITY:Special Ability|AUTOMATIC|Avoidance Ability
-10			UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6					ABILITY:Special Ability|AUTOMATIC|Blindsense|Just One More
+10			UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6					ABILITY:Special Ability|AUTOMATIC|Blindsense ~ Sensate of Savona|Just One More
 
 ##############################################################################################################################################################################################################################################################################################################################################
 

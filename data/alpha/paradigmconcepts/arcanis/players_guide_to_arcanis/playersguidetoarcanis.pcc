@@ -63,6 +63,11 @@ PCC:@/homebrew/conversion_support/conversion_support.pcc
 # RSRD Imports - Basics
 ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_base.lst
 ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_monsters.lst
+
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_common.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_companions.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_racial.lst
+
 ABILITYCATEGORY:@/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst|(EXCLUDE:Cleric)
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_monsters.lst
