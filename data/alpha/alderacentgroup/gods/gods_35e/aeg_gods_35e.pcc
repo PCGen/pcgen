@@ -33,7 +33,6 @@ URL:Amazon.com|http://www.amazon.com/Gods-Aeg/dp/1887953515/ref=sr_1_2?ie=UTF8&s
 ABILITY:../aeg_gods_abilities.lst
 ABILITYCATEGORY:../aeg_gods_abilitycategory.lst
 CLASS:../aeg_gods_classes_prestige.lst
-DEITY:../aeg_gods_deities.lst
 DOMAIN:../aeg_gods_domains.lst|(EXCLUDE:Weather)
 EQUIPMENT:../aeg_gods_equip_magic.lst
 SKILL:../aeg_gods_skills.lst
@@ -45,6 +44,7 @@ DOMAIN:@/d20ogl/alderacentertainmentgroup/evil/evil_domains.lst|(INCLUDE:Blood|L
 
 ABILITY:aeg_gods_abilities_35e.lst
 CLASS:aeg_gods_classes_prestige_35e.lst
+DEITY:aeg_gods_deities_35e.lst
 DOMAIN:aeg_gods_domains_35e.lst
 EQUIPMENT:aeg_gods_equip_magic_35e.lst
 FEAT:aeg_gods_feats_35e.lst

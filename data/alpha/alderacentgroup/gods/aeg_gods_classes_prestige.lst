@@ -197,7 +197,7 @@ CLASS:Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|K
 ###Block: Class Features
 1	CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|DEITYWEAPON	SELECT:1
 ###Block: Normal Progression
-1						ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Strength of Purpose	AUTO:FEAT|Leadership
+1						ADD:SPELLCASTER|Divine	BONUS:ABILITYPOOL|Strength of Purpose|1	AUTO:FEAT|Leadership
 2						ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Divine Wrath
 3	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine
 4						ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Enlightened Madness
@@ -386,9 +386,9 @@ CLASS:Keeper of Secrets	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 ###Block: Normal Progression
 1									ABILITY:Special Ability|AUTOMATIC|Shadow Walker
-2	BONUS:ABILITYPOOL|KofS Bonus Known Spell|3	ABILITY:Special Ability|AUTOMATIC|Lore of Sathus
+2	BONUS:ABILITYPOOL|KofS Bonus Known Spell|3	ABILITY:Special Ability|AUTOMATIC|Lore of Sathus	BONUS:ABILITYPOOL|KofS Bonus Known Spell|2
 3									ABILITY:Special Ability|AUTOMATIC|Envoy of Sathus
-4	BONUS:ABILITYPOOL|KofS Bonus Known Spell|3	ABILITY:Special Ability|AUTOMATIC|Lore of Sathus
+4	BONUS:ABILITYPOOL|KofS Bonus Known Spell|3										BONUS:ABILITYPOOL|KofS Bonus Known Spell|2
 5									ABILITY:Special Ability|AUTOMATIC|Arcane Seeker
 6	BONUS:ABILITYPOOL|KofS Bonus Known Spell|3
 7									ABILITY:Special Ability|AUTOMATIC|Mind Delver

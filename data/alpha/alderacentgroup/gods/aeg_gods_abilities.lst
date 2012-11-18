@@ -251,7 +251,7 @@ Dispel Good									CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Di
 # Feat Name		Type			Visible	Special ABility															Innate Spells													Stackable?	Multiple?	Add
 # Ability Name	Category of Ability		Type			Visible	Special ABility															Innate Spells													Stackable?	Multiple?	Bonus to Ability Pool
 Shadow Walker	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Shadow Walker - Gains luck bonus to Bluff checks when creating a diversion.
-Lore of Sathus	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Lore of Sathus - Gains knowledge of extra arcane spells.																						STACK:YES	MULT:YES	BONUS:ABILITYPOOL|KofS Bonus Known Spell|2
+Lore of Sathus	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Lore of Sathus - Gains knowledge of extra arcane spells.																							
 Envoy of Sathus	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Envoy of Sathus - Gains an insight bonus to Diplomacy and Intimidation when dealing with Orcs.
 Arcane Seeker	CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Arcane Seeker - May cast Detect Magic at will									SPELLS:Class|TIMES=ATWILL|CASTERLEVEL=classlevel("Keeper of Secrets")|Detect Magic,10+CHA
 Mind Delver		CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	SAB:Mind Delver - May extract spells from a captured spellcasters mind.
