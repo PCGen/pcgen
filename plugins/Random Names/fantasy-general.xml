@@ -1,0 +1,1372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE GENERATOR SYSTEM "generator.dtd">
+<GENERATOR>
+	<RULESET id="alver-fantasy-rule" title="Alver" usage="final">
+		<!-- Namefile for Elven names by Johan Danforth -->
+		<CATEGORY title="Fantasy: Elven" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="alver-syl1" title="Syllable 1" />
+			<GETLIST idref="alver-syl2" title="Syllable 2" />
+			<GETLIST idref="alver-syl3" title="Syllable 3" />
+		</RULE>
+	</RULESET>
+	
+	<RULESET id="cg-fantasy-dwarf-male-rule" title="Dwarf" usage="final">
+		<CATEGORY title="Fantasy: Dwarven" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="cg-dwarf-male-full" title="Full" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="cg-dwarf-male-first" title="First" />
+			<SPACE />
+			<GETLIST idref="cg-dwarf-last" title="Last" />
+		</RULE>
+	</RULESET>
+	<RULESET id="cg-fantasy-dwarf-female-rule" title="Dwarf" usage="final">
+		<CATEGORY title="Fantasy: Dwarven" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="cg-dwarf-female-full" title="Full" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="cg-dwarf-female-first" title="First" />
+			<SPACE />
+			<GETLIST idref="cg-dwarf-last" title="Last" />
+		</RULE>
+	</RULESET>
+	
+	<RULESET id="cg-fantasy-elf-male-rule" title="Elf" usage="final">
+		<CATEGORY title="Fantasy: Elven" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="cg-elf-male-full" title="Full" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="cg-elf-male-first" title="First" />
+			<SPACE />
+			<GETLIST idref="cg-elf-last" title="Last" />
+		</RULE>
+	</RULESET>
+	<RULESET id="cg-fantasy-elf-female-rule" title="Elf" usage="final">
+		<CATEGORY title="Fantasy: Elven" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="cg-elf-female-full" title="Full" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="cg-elf-female-first" title="First" />
+			<SPACE />
+			<GETLIST idref="cg-elf-last" title="Last" />
+		</RULE>
+	</RULESET>
+	
+	<RULESET id="cg-fantasy-gnome-male-rule" title="Gnome" usage="final">
+		<CATEGORY title="Fantasy: Gnomish" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="cg-gnome-male-full" title="Full" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="cg-gnome-male-first" title="First" />
+			<SPACE />
+			<GETLIST idref="cg-gnome-last" title="Last" />
+		</RULE>
+	</RULESET>
+	<RULESET id="cg-fantasy-gnome-female-rule" title="Gnome" usage="final">
+		<CATEGORY title="Fantasy: Gnomish" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="cg-gnome-female-full" title="Full" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="cg-gnome-female-first" title="First" />
+			<SPACE />
+			<GETLIST idref="cg-gnome-last" title="Last" />
+		</RULE>
+	</RULESET>
+	
+	<RULESET id="cg-fantasy-half-elf-male-rule" title="Half-Elf" usage="final">
+		<CATEGORY title="Fantasy: Half-Elven" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="cg-half-elf-male-full" title="Full" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="cg-half-elf-male-first" title="First" />
+			<SPACE />
+			<GETLIST idref="cg-half-elf-last" title="Last" />
+		</RULE>
+	</RULESET>
+	<RULESET id="cg-fantasy-half-elf-female-rule" title="Half-Elf" usage="final">
+		<CATEGORY title="Fantasy: Half-Elven" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="cg-half-elf-female-full" title="Full" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="cg-half-elf-female-first" title="First" />
+			<SPACE />
+			<GETLIST idref="cg-half-elf-last" title="Last" />
+		</RULE>
+	</RULESET>
+	
+	<RULESET id="cg-fantasy-half-orc-male-rule" title="Half-Orc" usage="final">
+		<CATEGORY title="Fantasy: Half-Orc" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="cg-half-orc-male-full" title="Full" />
+		</RULE>
+	</RULESET>
+	<RULESET id="cg-fantasy-half-orc-female-rule" title="Half-Orc" usage="final">
+		<CATEGORY title="Fantasy: Half-Orc" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="cg-half-orc-female-full" title="Full" />
+		</RULE>
+	</RULESET>
+	
+	<RULESET id="cg-fantasy-halfling-male-rule" title="Halfling" usage="final">
+		<CATEGORY title="Fantasy: Halfling" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="cg-halfling-male-full" title="Full" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="cg-halfling-male-first" title="First" />
+			<SPACE />
+			<GETLIST idref="cg-halfling-last" title="Last" />
+		</RULE>
+	</RULESET>
+	<RULESET id="cg-fantasy-halfling-female-rule" title="Halfling" usage="final">
+		<CATEGORY title="Fantasy: Halfling" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="cg-halfling-female-full" title="Full" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="cg-halfling-female-first" title="First" />
+			<SPACE />
+			<GETLIST idref="cg-halfling-last" title="Last" />
+		</RULE>
+	</RULESET>
+	
+	<RULESET id="cg-fantasy-human-male-rule" title="Human" usage="final">
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="cg-human-male-full" title="Full" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="cg-human-male-first" title="First" />
+			<SPACE />
+			<GETLIST idref="cg-human-last" title="Last" />
+		</RULE>
+	</RULESET>
+	<RULESET id="cg-fantasy-human-female-rule" title="Human" usage="final">
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female"/>
+		<RULE weight="1">
+			<GETLIST idref="cg-human-female-full" title="Full" />
+		</RULE>
+		<RULE weight="3">
+			<GETLIST idref="cg-human-female-first" title="First" />
+			<SPACE />
+			<GETLIST idref="cg-human-last" title="Last" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="felana-fantasy-rule" title="Felana" usage="final">
+		<!-- Name file for the Felana race and other feline beings by Nathalie Hebert  -->
+		<CATEGORY title="Fantasy: Other Races" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="felana-syl1" title="Syllable 1" />
+			<GETLIST idref="felana-syl2" title="Syllable 2" />
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="felana-syl1" title="Syllable 1" />
+			<GETLIST idref="felana-syl3" title="Syllable 3" />
+		</RULE>
+		<RULE weight="2">
+			<GETLIST idref="felana-syl1" title="Syllable 1" />
+			<GETLIST idref="felana-syl2" title="Syllable 2" />
+			<GETLIST idref="felana-syl3" title="Syllable 3" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="galler-fantasy-rule" title="Gaulish" usage="final">
+		<!-- Name file for Gaulish names by Johan Danforth  -->
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="galler-syl1" title="Syllable 1" />
+			<GETLIST idref="galler-syl2" title="Syllable 2" />
+			<GETLIST idref="galler-syl3" title="Syllable 3" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="generic-fantasy-rule" title="Fantasy" usage="final">
+		<!-- A sample rule-file that produces fantasy names by Johan Danforth. Edited by Alan Schlieper  -->
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="generic-syl1" title="Syllable 1" />
+			<GETLIST idref="generic-syl2" title="Syllable 2" />
+			<GETLIST idref="generic-syl3" title="Syllable 3" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="orc-fantasy-rule" title="Orc" usage="final">
+		<!-- Namefile for orc first names by Johan Danforth and Tobias Petersson -->
+		<CATEGORY title="Fantasy: Half-Orc" />
+		<CATEGORY title="Fantasy: Other Races" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="orc-syl1" title="Syllable 1" />
+			<GETLIST idref="orc-syl2" title="Syllable 2" />
+			<GETLIST idref="orc-syl3" title="Syllable 3" />
+		</RULE>
+	</RULESET>
+
+	
+
+	<LIST id="alver-syl1" title="Syllable 1">
+		<!-- The first part of the name ends with a consonant like b,k,t etc... -->
+		<VALUE>An</VALUE>
+		<VALUE>Bel</VALUE>
+		<VALUE>Cel</VALUE>
+		<VALUE>El</VALUE>
+		<VALUE>Elr</VALUE>
+		<VALUE>Elv</VALUE>
+		<VALUE>Eow</VALUE>
+		<VALUE>Eär</VALUE>
+		<VALUE>F</VALUE>
+		<VALUE>G</VALUE>
+		<VALUE>Gal</VALUE>
+		<VALUE>Gl</VALUE>
+		<VALUE>Is</VALUE>
+		<VALUE>Leg</VALUE>
+		<VALUE>Lóm</VALUE>
+		<VALUE>N</VALUE>
+		<VALUE>S</VALUE>
+		<VALUE>T</VALUE>
+		<VALUE>Thr</VALUE>
+		<VALUE>Tin</VALUE>
+	</LIST>
+	<LIST id="alver-syl2" title="Syllable 2">
+		<!-- The middle part ends and starts with a vovel like a,o,u,i,e,y etc... -->
+		<VALUE>a</VALUE>
+		<VALUE>á</VALUE>
+		<VALUE>adrie</VALUE>
+		<VALUE>ara</VALUE>
+		<VALUE>e</VALUE>
+		<VALUE>é</VALUE>
+		<VALUE>ebri</VALUE>
+		<VALUE>i</VALUE>
+		<VALUE>io</VALUE>
+		<VALUE>ithra</VALUE>
+		<VALUE>ilma</VALUE>
+		<VALUE>il-Ga</VALUE>
+		<VALUE>o</VALUE>
+		<VALUE>orfi</VALUE>
+		<VALUE>ó</VALUE>
+		<VALUE>u</VALUE>
+		<VALUE>y</VALUE>
+	</LIST>
+	<LIST id="alver-syl3" title="Syllable 3">
+		<!-- The final part ends with a consonant like b,k,t etc... -->
+		<VALUE>l</VALUE>
+		<VALUE>las</VALUE>
+		<VALUE>lad</VALUE>
+		<VALUE>ldor</VALUE>
+		<VALUE>ldur</VALUE>
+		<VALUE>lindë</VALUE>
+		<VALUE>lith</VALUE>
+		<VALUE>mir</VALUE>
+		<VALUE>n</VALUE>
+		<VALUE>nd</VALUE>
+		<VALUE>ndel</VALUE>
+		<VALUE>ndil</VALUE>
+		<VALUE>ndir</VALUE>
+		<VALUE>nduil</VALUE>
+		<VALUE>ng</VALUE>
+		<VALUE>mbor</VALUE>
+		<VALUE>r</VALUE>
+		<VALUE>rith</VALUE>
+		<VALUE>ril</VALUE>
+		<VALUE>riand</VALUE>
+		<VALUE>rion</VALUE>
+		<VALUE>thien</VALUE>
+		<VALUE>viel</VALUE>
+		<VALUE>wen</VALUE>
+		<VALUE>wyn</VALUE>
+	</LIST>
+
+	<LIST id="cg-dwarf-male-full" title="Full">
+		<VALUE>Slim</VALUE>
+		<VALUE>Garflin</VALUE>
+		<VALUE>Forsythe</VALUE>
+		<VALUE>Stumpwater Jack</VALUE>
+		<VALUE>Dunbar Brasstwister</VALUE>
+		<VALUE>Ollom Hammersong</VALUE>
+		<VALUE>Maur Deeperdown</VALUE>
+		<VALUE>Vallan Durinheart</VALUE>
+		<VALUE>Barent Lockerhelm</VALUE>
+		<VALUE>Borgazdin Broadham</VALUE>
+		<VALUE>Dnulper</VALUE>
+		<VALUE>Guter Jeweleye</VALUE>
+		<VALUE>Hanks Ironhelm</VALUE>
+		<VALUE>Rask Delvedeep</VALUE>
+	</LIST>
+	<LIST id="cg-dwarf-female-full" title="Full">
+		<VALUE>Marda Lockerhelm</VALUE>
+		<VALUE>Ninc Farsil</VALUE>
+		<VALUE>Kwin Hammerknell</VALUE>
+		<VALUE>Brigit Stoneheart</VALUE>
+		<VALUE>Muaga Undercliff</VALUE>
+		<VALUE>Braga Goldstore</VALUE>
+		<VALUE>Rastl Deeperdown</VALUE>
+		<VALUE>Tudra Coppereye</VALUE>
+		<VALUE>Migan Linkchain</VALUE>
+		<VALUE>Durra Fundril</VALUE>
+	</LIST>
+	<LIST id="cg-dwarf-male-first" title="First">
+		<VALUE>Veit</VALUE>
+		<VALUE>Tordek</VALUE>
+		<VALUE>Barendd</VALUE>
+		<VALUE>Eberk</VALUE>
+		<VALUE>Rurik</VALUE>
+		<VALUE>Einkill</VALUE>
+		<VALUE>Taklinn</VALUE>
+		<VALUE>Oskar</VALUE>
+		<VALUE>Ulfgar</VALUE>
+		<VALUE>Traubon</VALUE>
+		<VALUE>Brottor</VALUE>
+	</LIST>
+	<LIST id="cg-dwarf-female-first" title="First">
+		<VALUE>Sannl</VALUE>
+		<VALUE>Liftrasa</VALUE>
+		<VALUE>Ilde</VALUE>
+		<VALUE>Hlin</VALUE>
+		<VALUE>Gunnloda</VALUE>
+		<VALUE>Diesa</VALUE>
+		<VALUE>Dagnal</VALUE>
+		<VALUE>Audhild</VALUE>
+		<VALUE>Torgga</VALUE>
+		<VALUE>Artin</VALUE>
+	</LIST>
+	<LIST id="cg-dwarf-last" title="Last">
+		<VALUE>Rumnaheim</VALUE>
+		<VALUE>Balderk</VALUE>
+		<VALUE>Gorunn</VALUE>
+		<VALUE>Dankill</VALUE>
+		<VALUE>Holderhek</VALUE>
+		<VALUE>Torunn</VALUE>
+		<VALUE>Lutgehr</VALUE>
+		<VALUE>Ungart</VALUE>
+		<VALUE>Strakeln</VALUE>
+		<VALUE>Loderr</VALUE>
+	</LIST>
+
+	<LIST id="cg-elf-male-full" title="Full">
+		<VALUE>Semere Liif</VALUE>
+		<VALUE>Thaleles Darkshine</VALUE>
+		<VALUE>Bayne</VALUE>
+		<VALUE>Vall Woodshadow</VALUE>
+		<VALUE>Elec Mournbringer</VALUE>
+		<VALUE>Mazithra Liadon</VALUE>
+		<VALUE>Falin M'or</VALUE>
+		<VALUE>Maalvi Siannodel</VALUE>
+		<VALUE>Malhavoc Shadowlord</VALUE>
+		<VALUE>Pujol Nevi</VALUE>
+		<VALUE>Merolen Amakiir</VALUE>
+		<VALUE>Nameroc Shimeran</VALUE>
+	</LIST>
+	<LIST id="cg-elf-female-full" title="Full">
+		<VALUE>Lyssiah Stormwhisper</VALUE>
+		<VALUE>Mere Kahain</VALUE>
+		<VALUE>Hiola Meliamne</VALUE>
+		<VALUE>Thonalya Amastacia</VALUE>
+		<VALUE>Nyphistra Silvertree</VALUE>
+		<VALUE>Arwen Falohuil</VALUE>
+		<VALUE>Phae Talla</VALUE>
+		<VALUE>Wilwarin Afolon</VALUE>
+		<VALUE>Aedia Ilphukiir</VALUE>
+		<VALUE>Anilla Liadon</VALUE>
+		<VALUE>Khaira Swanwing</VALUE>
+	</LIST>
+	<LIST id="cg-elf-male-first" title="First">
+		<VALUE>Ivellios</VALUE>
+		<VALUE>Sovellis</VALUE>
+		<VALUE>Aramil</VALUE>
+		<VALUE>Aust</VALUE>
+		<VALUE>Enialis</VALUE>
+		<VALUE>Himo</VALUE>
+		<VALUE>Tharivol</VALUE>
+		<VALUE>Thamior</VALUE>
+		<VALUE>Quarion</VALUE>
+		<VALUE>Laucian</VALUE>
+		<VALUE>Heian</VALUE>
+	</LIST>
+	<LIST id="cg-elf-female-first" title="First">
+		<VALUE>Felosial</VALUE>
+		<VALUE>Lelenia</VALUE>
+		<VALUE>Qillathe</VALUE>
+		<VALUE>Antinua</VALUE>
+		<VALUE>Anastrianna</VALUE>
+		<VALUE>Xanaphia</VALUE>
+		<VALUE>Drusilia</VALUE>
+		<VALUE>Valanthe</VALUE>
+		<VALUE>Lia</VALUE>
+		<VALUE>Mialee</VALUE>
+		<VALUE>Evandele</VALUE>
+		<VALUE>Silaqui</VALUE>
+		<VALUE>Elfarran</VALUE>
+	</LIST>
+	<LIST id="cg-elf-last" title="Last">
+		<VALUE>Xiloscient</VALUE>
+		<VALUE>Amastacia</VALUE>
+		<VALUE>Siannodel</VALUE>
+		<VALUE>Ilphukiir</VALUE>
+		<VALUE>Nailo</VALUE>
+		<VALUE>Liadon</VALUE>
+		<VALUE>Holimion</VALUE>
+		<VALUE>Amakiir</VALUE>
+		<VALUE>Galanodel</VALUE>
+		<VALUE>Meliamne</VALUE>
+	</LIST>
+
+	<LIST id="cg-gnome-male-full" title="Full">
+		<VALUE>Widdle Lentach</VALUE>
+		<VALUE>Bromsby Tarken</VALUE>
+		<VALUE>Waddy of the Waddykins</VALUE>
+		<VALUE>Snumpkin</VALUE>
+		<VALUE>Festus Ghent</VALUE>
+		<VALUE>Mazun Vetwor</VALUE>
+		<VALUE>Jerro Laseten</VALUE>
+		<VALUE>Rostick Daddle</VALUE>
+		<VALUE>Nagreous Wockle</VALUE>
+		<VALUE>Arwkin Delance</VALUE>
+		<VALUE>Eliad Pelgrin</VALUE>
+		<VALUE>Pomerol Petan</VALUE>
+		<VALUE>Menson Parts</VALUE>
+	</LIST>
+	<LIST id="cg-gnome-female-full" title="Full">
+		<VALUE>Lassl Morkin</VALUE>
+		<VALUE>Waywocket Beren</VALUE>
+		<VALUE>Imay Abbelan</VALUE>
+		<VALUE>Way Wherrymere</VALUE>
+		<VALUE>Merrin Pomperol</VALUE>
+		<VALUE>Aleaha Delance</VALUE>
+		<VALUE>Kastlin Wens</VALUE>
+		<VALUE>Cheery Tarken</VALUE>
+		<VALUE>Engelime Maddan</VALUE>
+		<VALUE>Gappy Monkard</VALUE>
+		<VALUE>Ribail Goald</VALUE>
+		<VALUE>Ramzena Moar</VALUE>
+	</LIST>
+	<LIST id="cg-gnome-male-first" title="First">
+		<VALUE>Gerbo</VALUE>
+		<VALUE>Roondar</VALUE>
+		<VALUE>Zook</VALUE>
+		<VALUE>Jebeddo</VALUE>
+		<VALUE>Glim</VALUE>
+		<VALUE>Fonkin</VALUE>
+		<VALUE>Dimple</VALUE>
+		<VALUE>Boddynock</VALUE>
+		<VALUE>Nebin</VALUE>
+		<VALUE>Namfoodle</VALUE>
+		<VALUE>Seebo</VALUE>
+	</LIST>
+	<LIST id="cg-gnome-female-first" title="First">
+		<VALUE>Shamil</VALUE>
+		<VALUE>Caramip</VALUE>
+		<VALUE>Mardnab</VALUE>
+		<VALUE>Ellywick</VALUE>
+		<VALUE>Ellyjobell</VALUE>
+		<VALUE>Loopmottin</VALUE>
+		<VALUE>Bimpnottin</VALUE>
+		<VALUE>Waywocket</VALUE>
+		<VALUE>Duvamil</VALUE>
+		<VALUE>Roywyn</VALUE>
+	</LIST>
+	<LIST id="cg-gnome-last" title="Last">
+		<VALUE>Beren</VALUE>
+		<VALUE>Daergel</VALUE>
+		<VALUE>Nackle</VALUE>
+		<VALUE>Turen</VALUE>
+		<VALUE>Scheppen</VALUE>
+		<VALUE>Raulnor</VALUE>
+		<VALUE>Murnig</VALUE>
+		<VALUE>Garrick</VALUE>
+		<VALUE>Folkor</VALUE>
+		<VALUE>Ningel</VALUE>
+	</LIST>
+
+	<LIST id="cg-half-elf-male-full" title="Full">
+		<VALUE>Namwob Brown</VALUE>
+		<VALUE>Aegelleo Lopas</VALUE>
+		<VALUE>Wynn Rabanall</VALUE>
+		<VALUE>Falza</VALUE>
+		<VALUE>Kaleb</VALUE>
+		<VALUE>Jack Daft</VALUE>
+		<VALUE>Vexander Sangreal</VALUE>
+		<VALUE>Suleidan Kithkani</VALUE>
+		<VALUE>Nyther Darken</VALUE>
+		<VALUE>Willem</VALUE>
+		<VALUE>Druga Entierdahl</VALUE>
+		<VALUE>Breygon</VALUE>
+		<VALUE>Jherrith</VALUE>
+		<VALUE>Berryman</VALUE>
+		<VALUE>Kent Zonestar</VALUE>
+		<VALUE>The Royston Crow</VALUE>
+		<VALUE>Huron Blackheart</VALUE>
+		<VALUE>Phadian Gess</VALUE>
+		<VALUE>Loki</VALUE>
+		<VALUE>Menon Balacazar</VALUE>
+		<VALUE>Kirian Ylestos</VALUE>
+		<VALUE>Sinjin Grinigog</VALUE>
+		<VALUE>Thallion Steed</VALUE>
+		<VALUE>Abesh Runihan</VALUE>
+		<VALUE>Klasandral Susidian</VALUE>
+	</LIST>
+	<LIST id="cg-half-elf-female-full" title="Full">
+		<VALUE>Diesa</VALUE>
+		<VALUE>Forrin</VALUE>
+		<VALUE>Melianthe</VALUE>
+		<VALUE>Vadania</VALUE>
+		<VALUE>Duroll</VALUE>
+		<VALUE>Keriann</VALUE>
+		<VALUE>Sheva Callister</VALUE>
+		<VALUE>Lelenia</VALUE>
+		<VALUE>Jevicca Nor</VALUE>
+		<VALUE>Krishena</VALUE>
+		<VALUE>Phon Quartermoon</VALUE>
+		<VALUE>Talia</VALUE>
+		<VALUE>Danira</VALUE>
+		<VALUE>Jangave Lesh</VALUE>
+		<VALUE>Hruda</VALUE>
+		<VALUE>Lia</VALUE>
+		<VALUE>Leleanne</VALUE>
+		<VALUE>Jallarzi</VALUE>
+		<VALUE>Felosial</VALUE>
+		<VALUE>Tarsheva Longreach</VALUE>
+		<VALUE>Valanthe Liadon</VALUE>
+	</LIST>
+	<LIST id="cg-half-elf-male-first" title="First">
+		<VALUE>Tharivol</VALUE>
+		<VALUE>Sargen</VALUE>
+		<VALUE>Terjon</VALUE>
+		<VALUE>Himo</VALUE>
+		<VALUE>Quarion</VALUE>
+		<VALUE>Melubb</VALUE>
+		<VALUE>Laucian</VALUE>
+		<VALUE>Ivellios</VALUE>
+		<VALUE>Heian</VALUE>
+		<VALUE>Gremag</VALUE>
+		<VALUE>Furnok</VALUE>
+		<VALUE>Enialis</VALUE>
+		<VALUE>Calmert</VALUE>
+		<VALUE>Aust</VALUE>
+		<VALUE>Ashrem</VALUE>
+		<VALUE>Rannos</VALUE>
+		<VALUE>Jaer</VALUE>
+		<VALUE>Thamior</VALUE>
+		<VALUE>Devis</VALUE>
+		<VALUE>Ostler</VALUE>
+		<VALUE>Aramil</VALUE>
+	</LIST>
+	<LIST id="cg-half-elf-female-first" title="First">
+		<VALUE>Darley</VALUE>
+		<VALUE>Astrianna</VALUE>
+		<VALUE>Jallarzi</VALUE>
+		<VALUE>Drusilia</VALUE>
+		<VALUE>Yolande</VALUE>
+		<VALUE>Felosial</VALUE>
+		<VALUE>Fanshen</VALUE>
+		<VALUE>Pearl</VALUE>
+		<VALUE>Larissa</VALUE>
+		<VALUE>Lia</VALUE>
+		<VALUE>Qillathe</VALUE>
+		<VALUE>Xanaphia</VALUE>
+		<VALUE>Valanthe</VALUE>
+		<VALUE>Lelenia</VALUE>
+		<VALUE>Diesa</VALUE>
+		<VALUE>Dala</VALUE>
+		<VALUE>Silaqui</VALUE>
+		<VALUE>Ilde</VALUE>
+		<VALUE>Hruda</VALUE>
+		<VALUE>Antinua</VALUE>
+	</LIST>
+	<LIST id="cg-half-elf-last" title="Last">
+		<VALUE>of Axewood</VALUE>
+		<VALUE>of Dreadwood</VALUE>
+		<VALUE>of Onnwall</VALUE>
+		<VALUE>Amastacia</VALUE>
+		<VALUE>of Blackmoor</VALUE>
+		<VALUE>of Celene</VALUE>
+		<VALUE>Amakiir</VALUE>
+		<VALUE>Siannodel</VALUE>
+		<VALUE>of the Pomarj</VALUE>
+		<VALUE>of Ket</VALUE>
+		<VALUE>Galanodel</VALUE>
+		<VALUE>of Dyvers</VALUE>
+		<VALUE>of Highfolk</VALUE>
+		<VALUE>Xiloscient</VALUE>
+		<VALUE>of Tusmit</VALUE>
+		<VALUE>of Hornwood</VALUE>
+		<VALUE>Holimion</VALUE>
+		<VALUE>Meliamne</VALUE>
+		<VALUE>of Nyrond</VALUE>
+		<VALUE>of Rel Astra</VALUE>
+		<VALUE>Nailo</VALUE>
+		<VALUE>of Greyhawk</VALUE>
+		<VALUE>of Flinty Hills</VALUE>
+		<VALUE>Liadon</VALUE>
+		<VALUE>Ilphukiir</VALUE>
+	</LIST>
+
+	<LIST id="cg-half-orc-male-full" title="Full">
+		<VALUE>Krusk</VALUE>
+		<VALUE>Unglar</VALUE>
+		<VALUE>Shump</VALUE>
+		<VALUE>Gimp</VALUE>
+		<VALUE>Thokk</VALUE>
+		<VALUE>Groob</VALUE>
+		<VALUE>Grikk</VALUE>
+		<VALUE>Ront</VALUE>
+		<VALUE>Blarth</VALUE>
+		<VALUE>Fug</VALUE>
+		<VALUE>Daka</VALUE>
+		<VALUE>Spek</VALUE>
+		<VALUE>Henk</VALUE>
+		<VALUE>Feng</VALUE>
+		<VALUE>Berk</VALUE>
+		<VALUE>Imsh</VALUE>
+		<VALUE>Holg</VALUE>
+		<VALUE>Derk</VALUE>
+		<VALUE>Gell</VALUE>
+		<VALUE>Dench</VALUE>
+		<VALUE>Plakk</VALUE>
+		<VALUE>Keth</VALUE>
+		<VALUE>Grognard</VALUE>
+	</LIST>
+	<LIST id="cg-half-orc-female-full" title="Full">
+		<VALUE>Neega</VALUE>
+		<VALUE>Ovak</VALUE>
+		<VALUE>Volen</VALUE>
+		<VALUE>Vola</VALUE>
+		<VALUE>Parse</VALUE>
+		<VALUE>Ownka</VALUE>
+		<VALUE>Yrl</VALUE>
+		<VALUE>Nella</VALUE>
+		<VALUE>Shautha</VALUE>
+		<VALUE>Delde</VALUE>
+		<VALUE>Mel</VALUE>
+		<VALUE>Letan</VALUE>
+		<VALUE>Vex</VALUE>
+		<VALUE>Emen</VALUE>
+		<VALUE>Pilga</VALUE>
+		<VALUE>Myev</VALUE>
+		<VALUE>Engong</VALUE>
+		<VALUE>Baggi</VALUE>
+		<VALUE>Saggi</VALUE>
+		<VALUE>Lyrev</VALUE>
+		<VALUE>Orfa-mell</VALUE>
+	</LIST>
+
+	<LIST id="cg-halfling-male-full" title="Full">
+		<VALUE>Avery Tosscobble</VALUE>
+		<VALUE>Jarvis Crookrows</VALUE>
+		<VALUE>Milo Windby</VALUE>
+		<VALUE>Biggen Gurble</VALUE>
+		<VALUE>Howther Wakkier</VALUE>
+		<VALUE>Shem Whistler</VALUE>
+		<VALUE>Maxim Glendower</VALUE>
+		<VALUE>Humphrey</VALUE>
+		<VALUE>Eldane Grimmond</VALUE>
+		<VALUE>Caruthers Willowby</VALUE>
+		<VALUE>Ratheof Blithwyn</VALUE>
+	</LIST>
+	<LIST id="cg-halfling-female-full" title="Full">
+		<VALUE>Georgia Buttons</VALUE>
+		<VALUE>Demelza Highroad</VALUE>
+		<VALUE>Mirande Potter</VALUE>
+		<VALUE>Mins Delacourt</VALUE>
+		<VALUE>Jalie Squarefoot</VALUE>
+		<VALUE>Nora Fencemend</VALUE>
+		<VALUE>Carram Blindeye</VALUE>
+		<VALUE>Glynese Shrubfire</VALUE>
+		<VALUE>Eustace Crookrows</VALUE>
+		<VALUE>Morwenna Pastepot</VALUE>
+	</LIST>
+	<LIST id="cg-halfling-male-first" title="First">
+		<VALUE>Lyle</VALUE>
+		<VALUE>Roscoe</VALUE>
+		<VALUE>Alton</VALUE>
+		<VALUE>Beau</VALUE>
+		<VALUE>Cade</VALUE>
+		<VALUE>Shane</VALUE>
+		<VALUE>Garret</VALUE>
+		<VALUE>Osborn</VALUE>
+		<VALUE>Welby</VALUE>
+		<VALUE>Eldon</VALUE>
+		<VALUE>Milo</VALUE>
+	</LIST>
+	<LIST id="cg-halfling-female-first" title="First">
+		<VALUE>Jillian</VALUE>
+		<VALUE>Charmaine</VALUE>
+		<VALUE>Lavinia</VALUE>
+		<VALUE>Amaryllis</VALUE>
+		<VALUE>Euphemia</VALUE>
+		<VALUE>Lidda</VALUE>
+		<VALUE>Seraphina</VALUE>
+		<VALUE>Portia</VALUE>
+		<VALUE>Verna</VALUE>
+		<VALUE>Cora</VALUE>
+		<VALUE>Merla</VALUE>
+		<VALUE>Kerith</VALUE>
+		<VALUE>Sargen</VALUE>
+		<VALUE>Kerrick</VALUE>
+		<VALUE>Gaspar</VALUE>
+		<VALUE>Ulfgar</VALUE>
+		<VALUE>Tateland</VALUE>
+		<VALUE>Ashrem</VALUE>
+		<VALUE>Aramil</VALUE>
+		<VALUE>Terjon</VALUE>
+		<VALUE>Jaer</VALUE>
+		<VALUE>Singol</VALUE>
+		<VALUE>Rannos</VALUE>
+		<VALUE>Ostler</VALUE>
+		<VALUE>Oskar</VALUE>
+		<VALUE>Melubb</VALUE>
+		<VALUE>Kobort</VALUE>
+		<VALUE>Calmert</VALUE>
+		<VALUE>Furnok</VALUE>
+		<VALUE>Gremag</VALUE>
+		<VALUE>Hennet</VALUE>
+		<VALUE>Coop</VALUE>
+	</LIST>
+	<LIST id="cg-halfling-last" title="Last">
+		<VALUE>Highhill</VALUE>
+		<VALUE>Thorngage</VALUE>
+		<VALUE>Goodbarrel</VALUE>
+		<VALUE>Greenbottle</VALUE>
+		<VALUE>Tealeaf</VALUE>
+		<VALUE>Tosscobble</VALUE>
+		<VALUE>Underbough</VALUE>
+		<VALUE>Hilltopple</VALUE>
+		<VALUE>Leagallow</VALUE>
+		<VALUE>Brushgather</VALUE>
+	</LIST>
+
+	<LIST id="cg-human-male-full" title="Full">
+		<VALUE>Andrinor</VALUE>
+		<VALUE>Japheth Marvel</VALUE>
+		<VALUE>Surya</VALUE>
+		<VALUE>The Master Hu Li</VALUE>
+		<VALUE>Cromwell</VALUE>
+		<VALUE>Alain of Broewende</VALUE>
+		<VALUE>Blackjack</VALUE>
+		<VALUE>Bigby</VALUE>
+		<VALUE>Jeremiah Tansden</VALUE>
+		<VALUE>Dim the Latent</VALUE>
+		<VALUE>Jozan</VALUE>
+		<VALUE>Phelps</VALUE>
+		<VALUE>Seebor</VALUE>
+		<VALUE>Bilun Gandil</VALUE>
+		<VALUE>Percivilis L'Enfant</VALUE>
+		<VALUE>Magnus</VALUE>
+		<VALUE>Ashimar</VALUE>
+		<VALUE>Whitefire</VALUE>
+		<VALUE>Semaj</VALUE>
+		<VALUE>Gregory LeBlaque</VALUE>
+		<VALUE>Joshua Tansden</VALUE>
+		<VALUE>Gorin Zachian</VALUE>
+		<VALUE>Calim Russale</VALUE>
+		<VALUE>Burne</VALUE>
+		<VALUE>Cedric Quezada</VALUE>
+		<VALUE>Endrin</VALUE>
+		<VALUE>Cebo</VALUE>
+		<VALUE>Tsignotchka</VALUE>
+		<VALUE>Artimus Sendant</VALUE>
+		<VALUE>Tyro</VALUE>
+		<VALUE>Ian McLaren</VALUE>
+		<VALUE>Huerney White-eye</VALUE>
+		<VALUE>Fletcher Green</VALUE>
+	</LIST>
+	<LIST id="cg-human-female-full" title="Full">
+		<VALUE>Sheva Callister</VALUE>
+		<VALUE>Larissa</VALUE>
+		<VALUE>Leleanne</VALUE>
+		<VALUE>Lelenia</VALUE>
+		<VALUE>Lia</VALUE>
+		<VALUE>Fanshen</VALUE>
+		<VALUE>Valanthe Liadon</VALUE>
+		<VALUE>Phae</VALUE>
+		<VALUE>Jallarzi</VALUE>
+		<VALUE>Tarsheva Longreach</VALUE>
+		<VALUE>Serena</VALUE>
+		<VALUE>Tara</VALUE>
+		<VALUE>Triste Templeton</VALUE>
+		<VALUE>Keriann</VALUE>
+		<VALUE>Krishena</VALUE>
+	</LIST>
+	<LIST id="cg-human-male-first" title="First">
+		<VALUE>Andrinor</VALUE>
+		<VALUE>Japheth</VALUE>
+		<VALUE>Surya</VALUE>
+		<VALUE>Cromwell</VALUE>
+		<VALUE>Alain</VALUE>
+		<VALUE>Blackjack</VALUE>
+		<VALUE>Bigby</VALUE>
+		<VALUE>Jeremiah</VALUE>
+		<VALUE>Dim</VALUE>
+		<VALUE>Jozan</VALUE>
+		<VALUE>Phelps</VALUE>
+		<VALUE>Seebor</VALUE>
+		<VALUE>Bilun</VALUE>
+		<VALUE>Gandil</VALUE>
+		<VALUE>Percivilis</VALUE>
+		<VALUE>Magnus</VALUE>
+		<VALUE>Ashimar</VALUE>
+		<VALUE>Whitefire</VALUE>
+		<VALUE>Semaj</VALUE>
+		<VALUE>Gregory</VALUE>
+		<VALUE>LeBlaque</VALUE>
+		<VALUE>Joshua</VALUE>
+		<VALUE>Tansden</VALUE>
+		<VALUE>Gorin</VALUE>
+		<VALUE>Zachian</VALUE>
+		<VALUE>Calim</VALUE>
+		<VALUE>Russale</VALUE>
+		<VALUE>Burne</VALUE>
+		<VALUE>Cedric</VALUE>
+		<VALUE>Quezada</VALUE>
+		<VALUE>Endrin</VALUE>
+		<VALUE>Cebo</VALUE>
+		<VALUE>Tsignotchka</VALUE>
+		<VALUE>Artimus</VALUE>
+		<VALUE>Sendant</VALUE>
+		<VALUE>Tyro</VALUE>
+		<VALUE>Ian McLaren</VALUE>
+		<VALUE>Huerney</VALUE>
+		<VALUE>Fletcher</VALUE>
+	</LIST>
+	<LIST id="cg-human-female-first" title="First">
+		<VALUE>Ilde</VALUE>
+		<VALUE>Duroll</VALUE>
+		<VALUE>Ember</VALUE>
+		<VALUE>Alhandra</VALUE>
+		<VALUE>Felosial</VALUE>
+		<VALUE>Forrin</VALUE>
+		<VALUE>Fanshen</VALUE>
+		<VALUE>Hruda</VALUE>
+		<VALUE>Darley</VALUE>
+		<VALUE>Dala</VALUE>
+		<VALUE>Whisper</VALUE>
+		<VALUE>Liliana</VALUE>
+		<VALUE>Melianthe</VALUE>
+		<VALUE>Melody</VALUE>
+		<VALUE>Nadira</VALUE>
+		<VALUE>Pearl</VALUE>
+		<VALUE>Talia</VALUE>
+		<VALUE>Tish</VALUE>
+		<VALUE>Valanthe</VALUE>
+		<VALUE>Yolande</VALUE>
+		<VALUE>Diesa</VALUE>
+		<VALUE>Danira</VALUE>
+	</LIST>
+	<LIST id="cg-human-last" title="Last">
+		<VALUE>of Blackmoor</VALUE>
+		<VALUE>of Dyvers</VALUE>
+		<VALUE>of Ket</VALUE>
+		<VALUE>of the Pomarj</VALUE>
+		<VALUE>of Flinty Hills</VALUE>
+		<VALUE>of Celene</VALUE>
+		<VALUE>of the Rushmoors</VALUE>
+		<VALUE>of Hornwood</VALUE>
+		<VALUE>of Highfolk</VALUE>
+		<VALUE>of Nyrond</VALUE>
+		<VALUE>of Onnwall</VALUE>
+		<VALUE>of Rel Astra</VALUE>
+		<VALUE>of Tusmit</VALUE>
+		<VALUE>of Dreadwood</VALUE>
+		<VALUE>of Greyhawk</VALUE>
+	</LIST>
+
+	<LIST id="felana-syl1" title="Syllable 1">
+		<VALUE>Am</VALUE>
+		<VALUE>An</VALUE>
+		<VALUE>As</VALUE>
+		<VALUE>Ash</VALUE>
+		<VALUE>Ast</VALUE>
+		<VALUE>C</VALUE>
+		<VALUE>Chen</VALUE>
+		<VALUE>Chan</VALUE>
+		<VALUE>Char</VALUE>
+		<VALUE>Cher</VALUE>
+		<VALUE>Cer</VALUE>
+		<VALUE>Es</VALUE>
+		<VALUE>Esh</VALUE>
+		<VALUE>Is</VALUE>
+		<VALUE>Ish</VALUE>
+		<VALUE>Os</VALUE>
+		<VALUE>Osh</VALUE>
+		<VALUE>Us</VALUE>
+		<VALUE>Ush</VALUE>
+		<VALUE>Ys</VALUE>
+		<VALUE>Ysh</VALUE>
+		<VALUE>H</VALUE>
+		<VALUE>Ch</VALUE>
+		<VALUE>S</VALUE>
+		<VALUE>Shen</VALUE>
+		<VALUE>Sar</VALUE>
+		<VALUE>Sol</VALUE>
+		<VALUE>Shar</VALUE>
+		<VALUE>Shan</VALUE>
+		<VALUE>Sher</VALUE>
+		<VALUE>Shim</VALUE>
+		<VALUE>Sim</VALUE>
+		<VALUE>Sin</VALUE>
+		<VALUE>San</VALUE>
+		<VALUE>Sar</VALUE>
+		<VALUE>Ser</VALUE>
+		<VALUE>Sor</VALUE>
+		<VALUE>Shor</VALUE>
+		<VALUE>Sham</VALUE>
+		<VALUE>Sh</VALUE>
+	</LIST>
+	<LIST id="felana-syl2" title="Syllable 2">
+		<VALUE>a</VALUE>
+		<VALUE>ar</VALUE>
+		<VALUE>as</VALUE>
+		<VALUE>e</VALUE>
+		<VALUE>es</VALUE>
+		<VALUE>i</VALUE>
+		<VALUE>is</VALUE>
+		<VALUE>o</VALUE>
+		<VALUE>os</VALUE>
+		<VALUE>u</VALUE>
+		<VALUE>us</VALUE>
+		<VALUE>y</VALUE>
+		<VALUE>ys</VALUE>
+		<VALUE>er</VALUE>
+		<VALUE>or</VALUE>
+		<VALUE>ur</VALUE>
+		<VALUE>yr</VALUE>
+		<VALUE>ir</VALUE>
+		<VALUE>eri</VALUE>
+		<VALUE>ari</VALUE>
+		<VALUE>osh</VALUE>
+		<VALUE>ash</VALUE>
+		<VALUE>esh</VALUE>
+		<VALUE>ish</VALUE>
+		<VALUE>ush</VALUE>
+		<VALUE>ysh</VALUE>
+		<VALUE>en</VALUE>
+		<VALUE>an</VALUE>
+		<VALUE>in</VALUE>
+		<VALUE>on</VALUE>
+		<VALUE>un</VALUE>
+		<VALUE>yn</VALUE>
+	</LIST>
+	<LIST id="felana-syl3" title="Syllable 3">
+		<VALUE>dar</VALUE>
+		<VALUE>mir</VALUE>
+		<VALUE>nir</VALUE>
+		<VALUE>nor</VALUE>
+		<VALUE>nar</VALUE>
+		<VALUE>ish</VALUE>
+		<VALUE>ash</VALUE>
+		<VALUE>osh</VALUE>
+		<VALUE>esh</VALUE>
+		<VALUE>isha</VALUE>
+		<VALUE>asha</VALUE>
+		<VALUE>esha</VALUE>
+		<VALUE>osha</VALUE>
+		<VALUE>orsha</VALUE>
+		<VALUE>a</VALUE>
+		<VALUE>e</VALUE>
+		<VALUE>i</VALUE>
+		<VALUE>o</VALUE>
+		<VALUE>u</VALUE>
+		<VALUE>y</VALUE>
+		<VALUE>sar</VALUE>
+		<VALUE>ser</VALUE>
+		<VALUE>sor</VALUE>
+		<VALUE>sir</VALUE>
+		<VALUE>der</VALUE>
+		<VALUE>sham</VALUE>
+		<VALUE>shor</VALUE>
+		<VALUE>shen</VALUE>
+		<VALUE>as</VALUE>
+		<VALUE>es</VALUE>
+		<VALUE>ys</VALUE>
+		<VALUE>seth</VALUE>
+		<VALUE>san</VALUE>
+		<VALUE>sin</VALUE>
+		<VALUE>sil</VALUE>
+		<VALUE>sur</VALUE>
+		<VALUE>sen</VALUE>
+		<VALUE>sean</VALUE>
+		<VALUE>dor</VALUE>
+	</LIST>
+
+	<LIST id="galler-syl1" title="Syllable 1">
+		<!-- The first part ends with a consonant like b,k,t etc... -->
+		<VALUE>A</VALUE>
+		<VALUE>Ab</VALUE>
+		<VALUE>Ac</VALUE>
+		<VALUE>Ad</VALUE>
+		<VALUE>Af</VALUE>
+		<VALUE>Ast</VALUE>
+		<VALUE>Al</VALUE>
+		<VALUE>Adw</VALUE>
+		<VALUE>Adr</VALUE>
+		<VALUE>Ar</VALUE>
+		<VALUE>B</VALUE>
+		<VALUE>Br</VALUE>
+		<VALUE>C</VALUE>
+		<VALUE>Cr</VALUE>
+		<VALUE>D</VALUE>
+		<VALUE>Dr</VALUE>
+		<VALUE>Ed</VALUE>
+		<VALUE>Et</VALUE>
+		<VALUE>Er</VALUE>
+		<VALUE>El</VALUE>
+		<VALUE>F</VALUE>
+		<VALUE>Fr</VALUE>
+		<VALUE>G</VALUE>
+		<VALUE>Gr</VALUE>
+		<VALUE>Gal</VALUE>
+		<VALUE>Gl</VALUE>
+		<VALUE>H</VALUE>
+		<VALUE>Hal</VALUE>
+		<VALUE>Ib</VALUE>
+		<VALUE>Id</VALUE>
+		<VALUE>J</VALUE>
+		<VALUE>K</VALUE>
+		<VALUE>Ka</VALUE>
+		<VALUE>Ked</VALUE>
+		<VALUE>L</VALUE>
+		<VALUE>Lar</VALUE>
+		<VALUE>Leg</VALUE>
+		<VALUE>M</VALUE>
+		<VALUE>Maj</VALUE>
+		<VALUE>Mir</VALUE>
+		<VALUE>N</VALUE>
+		<VALUE>Ol</VALUE>
+		<VALUE>Oc</VALUE>
+		<VALUE>On</VALUE>
+		<VALUE>P</VALUE>
+		<VALUE>Pr</VALUE>
+		<VALUE>R</VALUE>
+		<VALUE>S</VALUE>
+		<VALUE>Sl</VALUE>
+		<VALUE>T</VALUE>
+		<VALUE>Tr</VALUE>
+		<VALUE>Ul</VALUE>
+		<VALUE>V</VALUE>
+		<VALUE>Y</VALUE>
+		<VALUE>Yb</VALUE>
+		<VALUE>Z</VALUE>
+		<VALUE>W</VALUE>
+	</LIST>
+	<LIST id="galler-syl2" title="Syllable 2">
+		<!-- The middle part begins and ends with a vovel like a,o,u,i,e,y etc... -->
+		<VALUE>aku</VALUE>
+		<VALUE>e</VALUE>
+		<VALUE>eli</VALUE>
+		<VALUE>eri</VALUE>
+		<VALUE>o</VALUE>
+		<VALUE>uba</VALUE>
+	</LIST>
+	<LIST id="galler-syl3" title="Syllable 3">
+		<!-- The final part begins with a consonant like b,k,t etc... and ends 
+			with ix -->
+		<VALUE>dix</VALUE>
+		<VALUE>fax</VALUE>
+		<VALUE>fix</VALUE>
+		<VALUE>lix</VALUE>
+		<VALUE>rix</VALUE>
+		<VALUE>stix</VALUE>
+	</LIST>
+
+<LIST id="generic-syl1" title="Syllable 1">
+	<VALUE>A</VALUE>
+	<VALUE>Ab</VALUE>
+	<VALUE>Ac</VALUE>
+	<VALUE>Ad</VALUE>
+	<VALUE>Af</VALUE>
+	<VALUE>Agr</VALUE>
+	<VALUE>Ast</VALUE>
+	<VALUE>As</VALUE>
+	<VALUE>Al</VALUE>
+	<VALUE>Adw</VALUE>
+	<VALUE>Adr</VALUE>
+	<VALUE>Ar</VALUE>
+	<VALUE>B</VALUE>
+	<VALUE>Br</VALUE>
+	<VALUE>C</VALUE>
+	<VALUE>C</VALUE>
+	<VALUE>C</VALUE>
+	<VALUE>Cr</VALUE>
+	<VALUE>Ch</VALUE>
+	<VALUE>Cad</VALUE>
+	<VALUE>D</VALUE>
+	<VALUE>Dr</VALUE>
+	<VALUE>Dw</VALUE>
+	<VALUE>Ed</VALUE>
+	<VALUE>Eth</VALUE>
+	<VALUE>Et</VALUE>
+	<VALUE>Er</VALUE>
+	<VALUE>El</VALUE>
+	<VALUE>Eow</VALUE>
+	<VALUE>F</VALUE>
+	<VALUE>Fr</VALUE>
+	<VALUE>G</VALUE>
+	<VALUE>Gr</VALUE>
+	<VALUE>Gw</VALUE>
+	<VALUE>Gw</VALUE>
+	<VALUE>Gal</VALUE>
+	<VALUE>Gl</VALUE>
+	<VALUE>H</VALUE>
+	<VALUE>Ha</VALUE>
+	<VALUE>Ib</VALUE>
+	<VALUE>Jer</VALUE>
+	<VALUE>K</VALUE>
+	<VALUE>Ka</VALUE>
+	<VALUE>Ked</VALUE>
+	<VALUE>L</VALUE>
+	<VALUE>Loth</VALUE>
+	<VALUE>Lar</VALUE>
+	<VALUE>Leg</VALUE>
+	<VALUE>M</VALUE>
+	<VALUE>Mir</VALUE>
+	<VALUE>N</VALUE>
+	<VALUE>Nyd</VALUE>
+	<VALUE>Ol</VALUE>
+	<VALUE>Oc</VALUE>
+	<VALUE>On</VALUE>
+	<VALUE>P</VALUE>
+	<VALUE>Pr</VALUE>
+	<VALUE>R</VALUE>
+	<VALUE>Rh</VALUE>
+	<VALUE>S</VALUE>
+	<VALUE>Sev</VALUE>
+	<VALUE>T</VALUE>
+	<VALUE>Tr</VALUE>
+	<VALUE>Th</VALUE>
+	<VALUE>Th</VALUE>
+	<VALUE>V</VALUE>
+	<VALUE>Y</VALUE>
+	<VALUE>Yb</VALUE>
+	<VALUE>Z</VALUE>
+	<VALUE>W</VALUE>
+	<VALUE>W</VALUE>
+	<VALUE>Wic</VALUE>
+</LIST>
+
+	<LIST id="generic-syl2" title="Syllable 2">
+		<VALUE>a</VALUE>
+		<VALUE>ae</VALUE>
+		<VALUE>ae</VALUE>
+		<VALUE>au</VALUE>
+		<VALUE>ao</VALUE>
+		<VALUE>are</VALUE>
+		<VALUE>ale</VALUE>
+		<VALUE>ali</VALUE>
+		<VALUE>ay</VALUE>
+		<VALUE>ardo</VALUE>
+		<VALUE>e</VALUE>
+		<VALUE>ei</VALUE>
+		<VALUE>ea</VALUE>
+		<VALUE>ea</VALUE>
+		<VALUE>eri</VALUE>
+		<VALUE>era</VALUE>
+		<VALUE>ela</VALUE>
+		<VALUE>eli</VALUE>
+		<VALUE>enda</VALUE>
+		<VALUE>erra</VALUE>
+		<VALUE>i</VALUE>
+		<VALUE>ia</VALUE>
+		<VALUE>ie</VALUE>
+		<VALUE>ire</VALUE>
+		<VALUE>ira</VALUE>
+		<VALUE>ila</VALUE>
+		<VALUE>ili</VALUE>
+		<VALUE>ira</VALUE>
+		<VALUE>igo</VALUE>
+		<VALUE>o</VALUE>
+		<VALUE>oa</VALUE>
+		<VALUE>oi</VALUE>
+		<VALUE>oe</VALUE>
+		<VALUE>ore</VALUE>
+		<VALUE>u</VALUE>
+		<VALUE>y</VALUE>
+	</LIST>
+
+	<LIST id="generic-syl3" title="Syllable 3">
+		<VALUE>a</VALUE>
+		<VALUE>and</VALUE>
+		<VALUE>b</VALUE>
+		<VALUE>bwyn</VALUE>
+		<VALUE>baen</VALUE>
+		<VALUE>bard</VALUE>
+		<VALUE>c</VALUE>
+		<VALUE>ctred</VALUE>
+		<VALUE>cred</VALUE>
+		<VALUE>ch</VALUE>
+		<VALUE>can</VALUE>
+		<VALUE>d</VALUE>
+		<VALUE>dan</VALUE>
+		<VALUE>don</VALUE>
+		<VALUE>der</VALUE>
+		<VALUE>dric</VALUE>
+		<VALUE>dfrid</VALUE>
+		<VALUE>dus</VALUE>
+		<VALUE>f</VALUE>
+		<VALUE>g</VALUE>
+		<VALUE>gord</VALUE>
+		<VALUE>gan</VALUE>
+		<VALUE>l</VALUE>
+		<VALUE>li</VALUE>
+		<VALUE>lgrin</VALUE>
+		<VALUE>lin</VALUE>
+		<VALUE>lith</VALUE>
+		<VALUE>lath</VALUE>
+		<VALUE>loth</VALUE>
+		<VALUE>ld</VALUE>
+		<VALUE>ldric</VALUE>
+		<VALUE>ldan</VALUE>
+		<VALUE>m</VALUE>
+		<VALUE>mas</VALUE>
+		<VALUE>mos</VALUE>
+		<VALUE>mar</VALUE>
+		<VALUE>mond</VALUE>
+		<VALUE>n</VALUE>
+		<VALUE>nydd</VALUE>
+		<VALUE>nidd</VALUE>
+		<VALUE>nnon</VALUE>
+		<VALUE>nwan</VALUE>
+		<VALUE>nyth</VALUE>
+		<VALUE>nad</VALUE>
+		<VALUE>nn</VALUE>
+		<VALUE>nnor</VALUE>
+		<VALUE>nd</VALUE>
+		<VALUE>p</VALUE>
+		<VALUE>r</VALUE>
+		<VALUE>ron</VALUE>
+		<VALUE>rd</VALUE>
+		<VALUE>s</VALUE>
+		<VALUE>sh</VALUE>
+		<VALUE>seth</VALUE>
+		<VALUE>sean</VALUE>
+		<VALUE>t</VALUE>
+		<VALUE>th</VALUE>
+		<VALUE>th</VALUE>
+		<VALUE>tha</VALUE>
+		<VALUE>tlan</VALUE>
+		<VALUE>trem</VALUE>
+		<VALUE>tram</VALUE>
+		<VALUE>v</VALUE>
+		<VALUE>vudd</VALUE>
+		<VALUE>w</VALUE>
+		<VALUE>wan</VALUE>
+		<VALUE>win</VALUE>
+		<VALUE>win</VALUE>
+		<VALUE>wyn</VALUE>
+		<VALUE>wyn</VALUE>
+		<VALUE>wyr</VALUE>
+		<VALUE>wyr</VALUE>
+		<VALUE>wyth</VALUE>
+	</LIST>
+
+<LIST id="orc-syl1" title="Syllable 1">
+<VALUE>B</VALUE>
+<VALUE>C</VALUE>
+<VALUE>D</VALUE>
+<VALUE>Er</VALUE>
+<VALUE>F</VALUE>
+<VALUE>G</VALUE>
+<VALUE>Gr</VALUE>
+<VALUE>H</VALUE>
+<VALUE>K</VALUE>
+<VALUE>L</VALUE>
+<VALUE>M</VALUE>
+<VALUE>N</VALUE>
+<VALUE>P</VALUE>
+<VALUE>Pr</VALUE>
+<VALUE>R</VALUE>
+<VALUE>S</VALUE>
+<VALUE>T</VALUE>
+<VALUE>V</VALUE>
+<VALUE>Vr</VALUE>
+</LIST>
+<LIST id="orc-syl2" title="Syllable 2">
+<VALUE>a</VALUE>
+<VALUE>i</VALUE>
+<VALUE>o</VALUE>
+<VALUE>u</VALUE>
+</LIST>
+<LIST id="orc-syl3" title="Syllable 3">
+<VALUE>dak</VALUE>
+<VALUE>dash</VALUE>
+<VALUE>dish</VALUE>
+<VALUE>dush</VALUE>
+<VALUE>gak</VALUE>
+<VALUE>gar</VALUE>
+<VALUE>gor</VALUE>
+<VALUE>gdush</VALUE>
+<VALUE>hai</VALUE>
+<VALUE>l</VALUE>
+<VALUE>lo</VALUE>
+<VALUE>lok</VALUE>
+<VALUE>gdish</VALUE>
+<VALUE>k</VALUE>
+<VALUE>kar</VALUE>
+<VALUE>kor</VALUE>
+<VALUE>lg</VALUE>
+<VALUE>mak</VALUE>
+<VALUE>nak</VALUE>
+<VALUE>nai</VALUE>
+<VALUE>ng</VALUE>
+<VALUE>nk</VALUE>
+<VALUE>rag</VALUE>
+<VALUE>rbag</VALUE>
+<VALUE>rg</VALUE>
+<VALUE>rk</VALUE>
+<VALUE>rt</VALUE>
+<VALUE>ruk</VALUE>
+<VALUE>shnak</VALUE>
+</LIST>
+
+</GENERATOR>
+

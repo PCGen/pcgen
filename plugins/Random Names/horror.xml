@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE GENERATOR SYSTEM "generator.dtd">
+<GENERATOR>
+	<RULESET id="blood-n-blades-rule" title="Blood n Blades" usage="final">
+		<CATEGORY title="Horror" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female"/>
+		<CATEGORY title="Sex: Male"/>
+		<RULE weight="1">
+			<GETLIST idref="blood-n-blades-first" title="First" />
+			<GETLIST idref="blood-n-blades-last" title="Last" />
+		</RULE>
+	</RULESET>
+	<LIST id="blood-n-blades-first" title="First">
+<VALUE>Acid Breath </VALUE>
+<VALUE>Alphabet </VALUE>
+<VALUE>Angel </VALUE>
+<VALUE>Axe </VALUE>
+<VALUE>Black </VALUE>
+<VALUE>Candyman </VALUE>
+<VALUE>Child </VALUE>
+<VALUE>Christmas </VALUE>
+<VALUE>Coed </VALUE>
+<VALUE>Cross Country </VALUE>
+<VALUE>Educated </VALUE>
+<VALUE>Fairy-tale </VALUE>
+<VALUE>Freeway </VALUE>
+<VALUE>Halloween </VALUE>
+<VALUE>Happy Face </VALUE>
+<VALUE>Hillside </VALUE>
+<VALUE>Holiday </VALUE>
+<VALUE>Known </VALUE>
+<VALUE>Mad </VALUE>
+<VALUE>Moors </VALUE>
+<VALUE>Nameless </VALUE>
+<VALUE>Night </VALUE>
+<VALUE>Passion </VALUE>
+<VALUE>Phantom </VALUE>
+<VALUE>Pied </VALUE>
+<VALUE>Red </VALUE>
+<VALUE>Sex </VALUE>
+<VALUE>Shadow </VALUE>
+<VALUE>Skid Row </VALUE>
+<VALUE>Spider </VALUE>
+<VALUE>Station </VALUE>
+<VALUE>Stocking </VALUE>
+<VALUE>Sunday Morning </VALUE>
+<VALUE>Swamp </VALUE>
+<VALUE>Thrill </VALUE>
+<VALUE>Trailside </VALUE>
+<VALUE>Twilight </VALUE>
+<VALUE>Want Ad </VALUE>
+<VALUE>Wolf </VALUE>
+	</LIST>
+	<LIST id="blood-n-blades-last" title="Last">
+<VALUE>Assassin</VALUE>
+<VALUE>Backpacker</VALUE>
+<VALUE>Beast</VALUE>
+<VALUE>Biter</VALUE>
+<VALUE>Butcher</VALUE>
+<VALUE>Cannibal</VALUE>
+<VALUE>Demon</VALUE>
+<VALUE>Executioner</VALUE>
+<VALUE>Fiend</VALUE>
+<VALUE>Killer</VALUE>
+<VALUE>Monster</VALUE>
+<VALUE>Murderer</VALUE>
+<VALUE>Of [Current Location]</VALUE>
+<VALUE>Pipe</VALUE>
+<VALUE>Ripper</VALUE>
+<VALUE>Slashing</VALUE>
+<VALUE>Stalker</VALUE>
+<VALUE>Strangler</VALUE>
+<VALUE>Torturer</VALUE>
+<VALUE>Vampire</VALUE>
+	</LIST>
+
+</GENERATOR>
+

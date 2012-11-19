@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE GENERATOR SYSTEM "generator.dtd">
+<GENERATOR>
+	<RULESET id="mar-draconic-rule" title="Draconic" usage="final">
+		<CATEGORY title="Fantasy: Other Races" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female" />
+		<CATEGORY title="Sex: Male" />
+		<RULE weight="1">
+			<GETLIST idref="mar-draconic-full" title="Full" />
+		</RULE>
+		<RULE weight="9">
+			<GETLIST idref="mar-draconic-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-draconic-syl2" title="Syllable 2" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="mar-knightly-male-rule" title="Knightly" usage="final">
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male" />
+		<RULE weight="10">
+			<GETLIST idref="mar-knightly-male-full" title="Full" />
+		</RULE>
+		<RULE weight="15">
+			<GETLIST idref="mar-knightly-male-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-knightly-male-syl2" title="Syllable 2" />
+		</RULE>
+		<RULE weight="20">
+			<GETLIST idref="mar-knightly-male-title" title="Title" />
+			<GETLIST idref="mar-knightly-male-full" title="Full" />
+		</RULE>
+		<RULE weight="45">
+			<GETLIST idref="mar-knightly-male-title" title="Title" />
+			<GETLIST idref="mar-knightly-male-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-knightly-male-syl2" title="Syllable 2" />
+		</RULE>
+		<RULE weight="10">
+			<GETLIST idref="mar-knightly-male-title" title="Title" />
+			<GETLIST idref="mar-knightly-male-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-knightly-syl3" title="Syllable 3" />
+			<GETLIST idref="mar-knightly-male-syl2" title="Syllable 2" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="mar-knightly-female-rule" title="Knightly" usage="final">
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female" />
+		<RULE weight="10">
+			<GETLIST idref="mar-knightly-female-full" title="Full" />
+		</RULE>
+		<RULE weight="15">
+			<GETLIST idref="mar-knightly-female-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-knightly-female-syl2" title="Syllable 2" />
+		</RULE>
+		<RULE weight="20">
+			<GETLIST idref="mar-knightly-female-title" title="Title" />
+			<GETLIST idref="mar-knightly-female-full" title="Full" />
+		</RULE>
+		<RULE weight="45">
+			<GETLIST idref="mar-knightly-female-title" title="Title" />
+			<GETLIST idref="mar-knightly-female-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-knightly-female-syl2" title="Syllable 2" />
+		</RULE>
+		<RULE weight="10">
+			<GETLIST idref="mar-knightly-female-title" title="Title" />
+			<GETLIST idref="mar-knightly-female-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-knightly-syl3" title="Syllable 3" />
+			<GETLIST idref="mar-knightly-female-syl2" title="Syllable 2" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="mar-bbn-male-rule" title="Mar Barbarian" usage="final">
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="Fantasy: Dwarven"/>
+		<CATEGORY title="Fantasy: Elven"/>
+		<CATEGORY title="Fantasy: Gnomish" />
+		<CATEGORY title="Fantasy: Half-Elven" />
+		<CATEGORY title="Fantasy: Half-Orc" />
+		<CATEGORY title="Fantasy: Halfling"/>
+		<CATEGORY title="Fantasy: Other Races" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male" />
+		<RULE weight="85">
+			<GETLIST idref="mar-name-bbn-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-male-bbn-syl2" title="Syllable 2" />
+		</RULE>
+		<RULE weight="15">
+			<GETLIST idref="mar-name-male-bbn-title" title="Title" />
+			<GETLIST idref="mar-name-bbn-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-male-bbn-syl2" title="Syllable 2" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="mar-bbn-female-rule" title="Mar Barbarian" usage="final">
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="Fantasy: Dwarven"/>
+		<CATEGORY title="Fantasy: Elven"/>
+		<CATEGORY title="Fantasy: Gnomish" />
+		<CATEGORY title="Fantasy: Half-Elven" />
+		<CATEGORY title="Fantasy: Half-Orc" />
+		<CATEGORY title="Fantasy: Halfling"/>
+		<CATEGORY title="Fantasy: Other Races" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female" />
+		<RULE weight="85">
+			<GETLIST idref="mar-name-bbn-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-female-bbn-syl2" title="Syllable 2" />
+		</RULE>
+		<RULE weight="15">
+			<GETLIST idref="mar-name-female-bbn-title" title="Title" />
+			<GETLIST idref="mar-name-bbn-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-female-bbn-syl2" title="Syllable 2" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="mar-wizard-male-rule" title="Mar Wizard" usage="final">
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="Fantasy: Dwarven"/>
+		<CATEGORY title="Fantasy: Elven"/>
+		<CATEGORY title="Fantasy: Gnomish" />
+		<CATEGORY title="Fantasy: Half-Elven" />
+		<CATEGORY title="Fantasy: Half-Orc" />
+		<CATEGORY title="Fantasy: Halfling"/>
+		<CATEGORY title="Fantasy: Other Races" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male" />
+		<RULE weight="15">
+			<GETLIST idref="mar-name-male-wizard-full" title="Full" />
+		</RULE>
+		<RULE weight="35">
+			<GETLIST idref="mar-name-wizard-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-male-wizard-syl2" title="Syllable 2" />
+		</RULE>
+		<RULE weight="10">
+			<GETLIST idref="mar-name-male-wizard-title" title="Title" />
+			<GETLIST idref="mar-name-male-wizard-full" title="Full" />
+		</RULE>
+		<RULE weight="10">
+			<GETLIST idref="mar-name-male-wizard-title" title="Title" />
+			<GETLIST idref="mar-name-wizard-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-male-wizard-syl2" title="Syllable 2" />
+		</RULE>
+		<RULE weight="30">
+			<GETLIST idref="mar-name-wizard-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-wizard-syl3" title="Syllable 2" />
+			<GETLIST idref="mar-name-male-wizard-syl2" title="Syllable 3" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="mar-wizard-female-rule" title="Mar Wizard" usage="final">
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="Fantasy: Dwarven"/>
+		<CATEGORY title="Fantasy: Elven"/>
+		<CATEGORY title="Fantasy: Gnomish" />
+		<CATEGORY title="Fantasy: Half-Elven" />
+		<CATEGORY title="Fantasy: Half-Orc" />
+		<CATEGORY title="Fantasy: Halfling"/>
+		<CATEGORY title="Fantasy: Other Races" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female" />
+		<RULE weight="15">
+			<GETLIST idref="mar-name-female-wizard-full" title="Full" />
+		</RULE>
+		<RULE weight="35">
+			<GETLIST idref="mar-name-wizard-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-female-wizard-syl2" title="Syllable 2" />
+		</RULE>
+		<RULE weight="10">
+			<GETLIST idref="mar-name-female-wizard-title" title="Title" />
+			<GETLIST idref="mar-name-female-wizard-full" title="Full" />
+		</RULE>
+		<RULE weight="10">
+			<GETLIST idref="mar-name-female-wizard-title" title="Title" />
+			<GETLIST idref="mar-name-wizard-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-female-wizard-syl2" title="Syllable 2" />
+		</RULE>
+		<RULE weight="30">
+			<GETLIST idref="mar-name-wizard-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-wizard-syl3" title="Syllable 2" />
+			<GETLIST idref="mar-name-female-wizard-syl2" title="Syllable 3" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="mar-dwarf-male-rule" title="Mar Dwarf" usage="final">
+		<CATEGORY title="Fantasy: Dwarven"/>
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male" />
+		<RULE weight="10">
+			<GETLIST idref="mar-name-male-dwarf-full" title="Full" />
+		</RULE>
+		<RULE weight="70">
+			<GETLIST idref="mar-name-male-dwarf-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-male-dwarf-syl2" title="Syllable 2" />
+		</RULE>
+		<RULE weight="10">
+			<GETLIST idref="mar-name-male-dwarf-title" title="Title" />
+			<GETLIST idref="mar-name-male-dwarf-full" title="Full" />
+		</RULE>
+		<RULE weight="10">
+			<GETLIST idref="mar-name-male-dwarf-title" title="Title" />
+			<GETLIST idref="mar-name-male-dwarf-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-male-dwarf-syl2" title="Syllable 2" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="mar-dwarf-female-rule" title="Mar Dwarf" usage="final">
+		<CATEGORY title="Fantasy: Dwarven"/>
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female" />
+		<RULE weight="10">
+			<GETLIST idref="mar-name-female-dwarf-full" title="Full" />
+		</RULE>
+		<RULE weight="80">
+			<GETLIST idref="mar-name-female-dwarf-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-female-dwarf-syl2" title="Syllable 2" />
+		</RULE>
+		<RULE weight="5">
+			<GETLIST idref="mar-name-female-dwarf-title" title="Title" />
+			<GETLIST idref="mar-name-female-dwarf-full" title="Full" />
+		</RULE>
+		<RULE weight="5">
+			<GETLIST idref="mar-name-female-dwarf-title" title="Title" />
+			<GETLIST idref="mar-name-female-dwarf-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-female-dwarf-syl2" title="Syllable 2" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="mar-elf-male-rule" title="Mar Elf" usage="final">
+		<CATEGORY title="Fantasy: Elven"/>
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male" />
+		<RULE weight="20">
+			<GETLIST idref="mar-name-male-elf-full" title="Full" />
+		</RULE>
+		<RULE weight="65">
+			<GETLIST idref="mar-name-elf-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-male-elf-syl2" title="Syllable 2" />
+		</RULE>
+		<RULE weight="5">
+			<GETLIST idref="mar-name-male-elf-title" title="Title" />
+			<GETLIST idref="mar-name-male-elf-full" title="Full" />
+		</RULE>
+		<RULE weight="10">
+			<GETLIST idref="mar-name-male-elf-title" title="Title" />
+			<GETLIST idref="mar-name-elf-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-male-elf-syl2" title="Syllable 2" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="mar-elf-female-rule" title="Mar Elf" usage="final">
+		<CATEGORY title="Fantasy: Elven"/>
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female" />
+		<RULE weight="20">
+			<GETLIST idref="mar-name-female-elf-full" title="Full" />
+		</RULE>
+		<RULE weight="60">
+			<GETLIST idref="mar-name-elf-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-female-elf-syl2" title="Syllable 2" />
+		</RULE>
+		<RULE weight="5">
+			<GETLIST idref="mar-name-female-elf-title" title="Title" />
+			<GETLIST idref="mar-name-female-elf-full" title="Full" />
+		</RULE>
+		<RULE weight="15">
+			<GETLIST idref="mar-name-female-elf-title" title="Title" />
+			<GETLIST idref="mar-name-elf-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-female-elf-syl2" title="Syllable 2" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="mar-human-male-rule" title="Mar Human" usage="final">
+		<CATEGORY title="Fantasy: Human"/>
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male" />
+		<RULE weight="2">
+			<GETLIST idref="mar-name-male-human-full" title="Full" />
+		</RULE>
+		<RULE weight="8">
+			<GETLIST idref="mar-name-human-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-male-human-syl2" title="Syllable 2" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="mar-human-female-rule" title="Mar Human" usage="final">
+		<CATEGORY title="Fantasy: Human"/>
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Female" />
+		<RULE weight="1">
+			<GETLIST idref="mar-name-female-human-full" title="Full" />
+		</RULE>
+		<RULE weight="1">
+			<GETLIST idref="mar-name-human-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-female-human-syl2" title="Syllable 2" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="mar-evil-rule" title="Mar Generic Evil" usage="final">
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="Fantasy: Dwarven"/>
+		<CATEGORY title="Fantasy: Elven"/>
+		<CATEGORY title="Fantasy: Gnomish" />
+		<CATEGORY title="Fantasy: Half-Elven" />
+		<CATEGORY title="Fantasy: Half-Orc" />
+		<CATEGORY title="Fantasy: Halfling"/>
+		<CATEGORY title="Fantasy: Other Races" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male" />
+		<CATEGORY title="Sex: Female" />
+		<RULE weight="1">
+			<GETLIST idref="mar-name-evil-full" title="Full" />
+		</RULE>
+		<RULE weight="9">
+			<GETLIST idref="mar-name-evil-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-evil-syl2" title="Syllable 2" />
+		</RULE>
+	</RULESET>
+
+	<RULESET id="mar-standard-rule" title="Mar Standard" usage="final">
+		<CATEGORY title="Fantasy: Human" />
+		<CATEGORY title="Fantasy: Dwarven"/>
+		<CATEGORY title="Fantasy: Elven"/>
+		<CATEGORY title="Fantasy: Gnomish" />
+		<CATEGORY title="Fantasy: Half-Elven" />
+		<CATEGORY title="Fantasy: Half-Orc" />
+		<CATEGORY title="Fantasy: Halfling"/>
+		<CATEGORY title="Fantasy: Other Races" />
+		<CATEGORY title="All" />
+		<CATEGORY title="Sex: Male" />
+		<CATEGORY title="Sex: Female" />
+		<RULE weight="1">
+			<GETLIST idref="mar-name-full" title="Full" />
+		</RULE>
+		<RULE weight="9">
+			<GETLIST idref="mar-name-syl1" title="Syllable 1" />
+			<GETLIST idref="mar-name-male-human-syl2" title="Syllable 2" />
+		</RULE>
+	</RULESET>
+
+
+	<LIST id="mar-draconic-full" title="Full">
+		<VALUE>Ember</VALUE>
+		<VALUE>Coal</VALUE>
+		<VALUE>Fiarre</VALUE>
+		<VALUE>Pyro</VALUE>
+		<VALUE>Glow</VALUE>
+		<VALUE>Spark</VALUE>
+		<VALUE>Scali</VALUE>
+		<VALUE>Puff</VALUE>
+		<VALUE>Char</VALUE>
+		<VALUE>Draco</VALUE>
+		<VALUE>Talon</VALUE>
+		<VALUE>Claw</VALUE>
+		<VALUE>Vengeance</VALUE>
+		<VALUE>Trident</VALUE>
+		<VALUE>Lash</VALUE>
+	</LIST>
+	<LIST id="mar-draconic-syl1" title="Syllable 1">
+		<VALUE>Aurum</VALUE>
+		<VALUE>Brom</VALUE>
+		<VALUE>Char</VALUE>
+		<VALUE>Drax</VALUE>
+		<VALUE>Engor</VALUE>
+		<VALUE>Frig</VALUE>
+		<VALUE>Gorax</VALUE>
+		<VALUE>Heng</VALUE>
+		<VALUE>Ilium</VALUE>
+		<VALUE>Jendar</VALUE>
+		<VALUE>Kiril</VALUE>
+		<VALUE>Lithin</VALUE>
+		<VALUE>Manor</VALUE>
+		<VALUE>Nihil</VALUE>
+		<VALUE>Over</VALUE>
+		<VALUE>Pryd</VALUE>
+		<VALUE>Quis</VALUE>
+		<VALUE>Raj</VALUE>
+		<VALUE>Scar</VALUE>
+		<VALUE>Talon</VALUE>
+		<VALUE>Ungor</VALUE>
+		<VALUE>Venjor</VALUE>
+		<VALUE>Wrest</VALUE>
+		<VALUE>Xilan</VALUE>
+		<VALUE>Yolan</VALUE>
+		<VALUE>Zhultan</VALUE>
+	</LIST>
+	<LIST id="mar-draconic-syl2" title="Syllable 2">
+		<VALUE>aran</VALUE>
+		<VALUE>borax</VALUE>
+		<VALUE>carix</VALUE>
+		<VALUE>dhoran</VALUE>
+		<VALUE>erilik</VALUE>
+		<VALUE>fur</VALUE>
+		<VALUE>grax</VALUE>
+		<VALUE>hilion</VALUE>
+		<VALUE>iksus</VALUE>
+		<VALUE>jorix</VALUE>
+		<VALUE>kriliak</VALUE>
+		<VALUE>lorik</VALUE>
+		<VALUE>mortus</VALUE>
+		<VALUE>norak</VALUE>
+		<VALUE>oksus</VALUE>
+		<VALUE>peril</VALUE>
+		<VALUE>qyx</VALUE>
+		<VALUE>ralin</VALUE>
+		<VALUE>saphix</VALUE>
+		<VALUE>tuin</VALUE>
+		<VALUE>ux</VALUE>
+		<VALUE>vale</VALUE>
+		<VALUE>wile</VALUE>
+		<VALUE>yx</VALUE>
+		<VALUE>zaliax</VALUE>
+	</LIST>
+
+	<LIST id="mar-knightly-male-title" title="Title">
+		<VALUE>Sir </VALUE>
+	</LIST>
+	<LIST id="mar-knightly-female-title" title="Title">
+		<VALUE>Lady </VALUE>
+	</LIST>
+	<LIST id="mar-knightly-male-full" title="Full">
+		<VALUE>Galad</VALUE>
+		<VALUE>Anselm</VALUE>
+		<VALUE>Arthur</VALUE>
+		<VALUE>Antony</VALUE>
+		<VALUE>Persival</VALUE>
+		<VALUE>Richard</VALUE>
+		<VALUE>Charles</VALUE>
+		<VALUE>Steven</VALUE>
+		<VALUE>Harold</VALUE>
+	</LIST>
+	<LIST id="mar-knightly-female-full" title="Full">
+		<VALUE>Penelope</VALUE>
+		<VALUE>Gwynneth</VALUE>
+		<VALUE>Anne</VALUE>
+		<VALUE>Elizabeth</VALUE>
+		<VALUE>Margaret</VALUE>
+		<VALUE>Catherine</VALUE>
+		<VALUE>Charlotte</VALUE>
+		<VALUE>Jane</VALUE>
+		<VALUE>Elspeth</VALUE>
+	</LIST>
+	<LIST id="mar-knightly-male-syl1" title="Syllable 1">
+		<VALUE>An</VALUE>
+		<VALUE>Fer</VALUE>
+		<VALUE>Bel</VALUE>
+		<VALUE>Mel</VALUE>
+		<VALUE>Gal</VALUE>
+		<VALUE>Bal</VALUE>
+	</LIST>
+	<LIST id="mar-knightly-female-syl1" title="Syllable 1">
+		<VALUE>An</VALUE>
+		<VALUE>Fer</VALUE>
+		<VALUE>Bel</VALUE>
+		<VALUE>Mel</VALUE>
+		<VALUE>Cal</VALUE>
+		<VALUE>Al</VALUE>
+	</LIST>
+	<LIST id="mar-knightly-male-syl2" title="Syllable 2">
+		<VALUE>ton</VALUE>
+		<VALUE>rak</VALUE>
+		<VALUE>rik</VALUE>
+		<VALUE>thas</VALUE>
+		<VALUE>thor</VALUE>
+		<VALUE>gor</VALUE>
+		<VALUE>dros</VALUE>
+	</LIST>
+	<LIST id="mar-knightly-female-syl2" title="Syllable 2">
+		<VALUE>tona</VALUE>
+		<VALUE>raka</VALUE>
+		<VALUE>rika</VALUE>
+		<VALUE>thasa</VALUE>
+		<VALUE>thora</VALUE>
+		<VALUE>gora</VALUE>
+		<VALUE>drosia</VALUE>
+		<VALUE>stasia</VALUE>
+	</LIST>
+	<LIST id="mar-knightly-syl3" title="Syllable 3">
+		<VALUE>an</VALUE>
+		<VALUE>a</VALUE>
+		<VALUE>o</VALUE>
+	</LIST>
+
+
+	<LIST id="mar-name-male-bbn-title" title="Title">
+		<VALUE>Lord </VALUE>
+		<VALUE>Red </VALUE>
+		<VALUE>Black </VALUE>
+		<VALUE>Great </VALUE>
+	</LIST>
+	<LIST id="mar-name-female-bbn-title" title="Title">
+		<VALUE>Red </VALUE>
+		<VALUE>Black </VALUE>
+		<VALUE>Great </VALUE>
+	</LIST>
+	<LIST id="mar-name-male-dwarf-title" title="Title">
+		<VALUE>Lord </VALUE>
+		<VALUE>Runelord </VALUE>
+		<VALUE>Master </VALUE>
+	</LIST>
+	<LIST id="mar-name-female-dwarf-title" title="Title">
+		<VALUE>Lady </VALUE>
+	</LIST>
+	<LIST id="mar-name-male-elf-title" title="Title">
+		<VALUE>Lord </VALUE>
+		<VALUE>Prince </VALUE>
+	</LIST>
+	<LIST id="mar-name-female-elf-title" title="Title">
+		<VALUE>Lady </VALUE>
+		<VALUE>Princess </VALUE>
+	</LIST>
+	<LIST id="mar-name-male-wizard-title" title="Title">
+		<VALUE>Lord </VALUE>
+	</LIST>
+	<LIST id="mar-name-female-wizard-title" title="Title">
+		<VALUE>Lady </VALUE>
+	</LIST>
+
+	<LIST id="mar-name-full" title="Full">
+		<VALUE>Sandilar</VALUE>
+		<VALUE>Gardrak</VALUE>
+		<VALUE>Adrak</VALUE>
+		<VALUE>Katana</VALUE>
+		<VALUE>Maya</VALUE>
+		<VALUE>Gandy</VALUE>
+		<VALUE>Lurch</VALUE>
+		<VALUE>Houle</VALUE>
+		<VALUE>Sowden</VALUE>
+		<VALUE>Wolfmoon</VALUE>
+		<VALUE>Trym</VALUE>
+		<VALUE>Kuschel</VALUE>
+		<VALUE>Seren</VALUE>
+	</LIST>
+	<LIST id="mar-name-male-dwarf-full" title="Full">
+		<VALUE>Ghan</VALUE>
+		<VALUE>Khar</VALUE>
+		<VALUE>Akhor</VALUE>
+		<VALUE>Draz</VALUE>
+		<VALUE>Khin</VALUE>
+		<VALUE>Zhar</VALUE>
+		<VALUE>Zhoin</VALUE>
+		<VALUE>Khuri</VALUE>
+		<VALUE>Druin</VALUE>
+		<VALUE>Thain</VALUE>
+		<VALUE>Ghaeil</VALUE>
+		<VALUE>Moeil</VALUE>
+		<VALUE>Ghoin</VALUE>
+		<VALUE>Hain</VALUE>
+		<VALUE>Dail</VALUE>
+		<VALUE>Khris</VALUE>
+		<VALUE>Khruss</VALUE>
+		<VALUE>Khar</VALUE>
+		<VALUE>Adakhan</VALUE>
+	</LIST>
+	<LIST id="mar-name-female-dwarf-full" title="Full">
+		<VALUE>Ghayla</VALUE>
+		<VALUE>Khayla</VALUE>
+		<VALUE>Akhora</VALUE>
+		<VALUE>Darania</VALUE>
+		<VALUE>Khinia</VALUE>
+		<VALUE>Zharya</VALUE>
+		<VALUE>Zhoynya</VALUE>
+		<VALUE>Khuriia</VALUE>
+	</LIST>
+	<LIST id="mar-name-male-elf-full" title="Full">
+		<VALUE>Whitebow</VALUE>
+		<VALUE>Silver</VALUE>
+		<VALUE>Argent</VALUE>
+		<VALUE>Aureant</VALUE>
+		<VALUE>Kirin</VALUE>
+		<VALUE>Jestyn</VALUE>
+		<VALUE>Jalryn</VALUE>
+		<VALUE>Myr</VALUE>
+		<VALUE>Silverhair</VALUE>
+		<VALUE>Whitelock</VALUE>
+		<VALUE>Gildeneye</VALUE>
+	</LIST>
+	<LIST id="mar-name-female-elf-full" title="Full">
+		<VALUE>Ehla</VALUE>
+		<VALUE>Kala</VALUE>
+		<VALUE>Myla</VALUE>
+		<VALUE>Emyla</VALUE>
+		<VALUE>Myana</VALUE>
+		<VALUE>Leia</VALUE>
+	</LIST>
+	<LIST id="mar-name-male-human-full" title="Full">
+		<VALUE>Peter</VALUE>
+		<VALUE>Karl</VALUE>
+		<VALUE>Mark</VALUE>
+		<VALUE>Steven</VALUE>
+		<VALUE>Michael</VALUE>
+		<VALUE>Dean</VALUE>
+		<VALUE>Christopher</VALUE>
+		<VALUE>Ian</VALUE>
+		<VALUE>Roger</VALUE>
+		<VALUE>Gregor</VALUE>
+		<VALUE>Timothy</VALUE>
+		<VALUE>Thomas</VALUE>
+		<VALUE>Gary</VALUE>
+		<VALUE>Philip</VALUE>
+		<VALUE>Louis</VALUE>
+		<VALUE>Scott</VALUE>
+		<VALUE>Matthew</VALUE>
+		<VALUE>Luc</VALUE>
+		<VALUE>John</VALUE>
+		<VALUE>Francis</VALUE>
+		<VALUE>Edward</VALUE>
+		<VALUE>Charles</VALUE>
+		<VALUE>Connor</VALUE>
+		<VALUE>Duncan</VALUE>
+	</LIST>
+	<LIST id="mar-name-female-human-full" title="Full">
+		<VALUE>Janeen</VALUE>
+		<VALUE>Fiona</VALUE>
+		<VALUE>Mary</VALUE>
+		<VALUE>Elizabeth</VALUE>
+		<VALUE>Anne</VALUE>
+		<VALUE>Victoria</VALUE>
+		<VALUE>Jane</VALUE>
+		<VALUE>Emerald</VALUE>
+		<VALUE>Tabitha</VALUE>
+		<VALUE>Michelle</VALUE>
+		<VALUE>Margaret</VALUE>
+		<VALUE>Miriam</VALUE>
+		<VALUE>Joy</VALUE>
+		<VALUE>Sandra</VALUE>
+		<VALUE>Diane</VALUE>
+		<VALUE>Donna</VALUE>
+		<VALUE>Lucille</VALUE>
+		<VALUE>Charmaine</VALUE>
+		<VALUE>Tracie</VALUE>
+		<VALUE>Leigh</VALUE>
+	</LIST>
+	<LIST id="mar-name-male-wizard-full" title="Full">
+		<VALUE>Caecilius</VALUE>
+		<VALUE>Darius</VALUE>
+		<VALUE>Tiberius</VALUE>
+		<VALUE>Claudius</VALUE>
+		<VALUE>Vitellius</VALUE>
+		<VALUE>Galba</VALUE>
+		<VALUE>Otho</VALUE>
+		<VALUE>Titus</VALUE>
+		<VALUE>Domitian</VALUE>
+	</LIST>
+	<LIST id="mar-name-female-wizard-full" title="Full">
+		<VALUE>Metella</VALUE>
+		<VALUE>Filia</VALUE>
+		<VALUE>Tiberia</VALUE>
+		<VALUE>Claudia</VALUE>
+		<VALUE>Vitellia</VALUE>
+		<VALUE>Tituia</VALUE>
+		<VALUE>Domitia</VALUE>
+		<VALUE>Caecilia</VALUE>
+		<VALUE>Augusta</VALUE>
+		<VALUE>Laudaria</VALUE>
+	</LIST>
+	<LIST id="mar-name-evil-full" title="Full">
+		<VALUE>Draaz</VALUE>
+		<VALUE>Sable</VALUE>
+		<VALUE>Tarn</VALUE>
+		<VALUE>Gron</VALUE>
+		<VALUE>Pell</VALUE>
+		<VALUE>Erex</VALUE>
+		<VALUE>Zed</VALUE>
+		<VALUE>Dhruus</VALUE>
+		<VALUE>Kalin</VALUE>
+		<VALUE>Morik</VALUE>
+	</LIST>
+
+	<LIST id="mar-name-syl1" title="Syllable 1">
+		<VALUE>Al</VALUE>
+		<VALUE>Ar</VALUE>
+		<VALUE>Bel</VALUE>
+		<VALUE>Char</VALUE>
+		<VALUE>Der</VALUE>
+		<VALUE>Ef</VALUE>
+		<VALUE>Fay</VALUE>
+		<VALUE>Gel</VALUE>
+		<VALUE>Hil</VALUE>
+		<VALUE>Jan</VALUE>
+		<VALUE>Krin</VALUE>
+		<VALUE>Lin</VALUE>
+		<VALUE>Mon</VALUE>
+		<VALUE>Nyl</VALUE>
+		<VALUE>Priz</VALUE>
+		<VALUE>Quas</VALUE>
+		<VALUE>Ran</VALUE>
+		<VALUE>Syl</VALUE>
+		<VALUE>Tral</VALUE>
+		<VALUE>Vil</VALUE>
+		<VALUE>Wes</VALUE>
+		<VALUE>Yin</VALUE>
+		<VALUE>Zul</VALUE>
+	</LIST>
+	<LIST id="mar-name-bbn-syl1" title="Syllable 1">
+		<VALUE>Vul</VALUE>
+		<VALUE>Grul</VALUE>
+		<VALUE>Vil</VALUE>
+		<VALUE>Grel</VALUE>
+		<VALUE>Tyr</VALUE>
+		<VALUE>Cyr</VALUE>
+		<VALUE>Tra</VALUE>
+		<VALUE>Shan</VALUE>
+		<VALUE>Tul</VALUE>
+		<VALUE>Vol</VALUE>
+		<VALUE>Gron</VALUE>
+		<VALUE>Con</VALUE>
+		<VALUE>Man</VALUE>
+		<VALUE>Kha</VALUE>
+		<VALUE>Dhu</VALUE>
+		<VALUE>Kho</VALUE>
+		<VALUE>Ghu</VALUE>
+		<VALUE>Gho</VALUE>
+		<VALUE>Khu</VALUE>
+		<VALUE>Zha</VALUE>
+		<VALUE>Mho</VALUE>
+		<VALUE>Khro</VALUE>
+		<VALUE>Kar</VALUE>
+	</LIST>
+	<LIST id="mar-name-male-dwarf-syl1" title="Syllable 1">
+		<VALUE>Khel</VALUE>
+		<VALUE>Kang</VALUE>
+		<VALUE>Krur</VALUE>
+		<VALUE>Akhar</VALUE>
+		<VALUE>Dur</VALUE>
+		<VALUE>Dhor</VALUE>
+		<VALUE>Gem</VALUE>
+		<VALUE>Gim</VALUE>
+	</LIST>
+	<LIST id="mar-name-female-dwarf-syl1" title="Syllable 1">
+		<VALUE>Khra</VALUE>
+		<VALUE>Ghza</VALUE>
+		<VALUE>Ghuz</VALUE>
+		<VALUE>Kel</VALUE>
+		<VALUE>Zhur</VALUE>
+		<VALUE>Zhag</VALUE>
+		<VALUE>Dhrag</VALUE>
+	</LIST>
+	<LIST id="mar-name-elf-syl1" title="Syllable 1">
+		<VALUE>El</VALUE>
+		<VALUE>Myr</VALUE>
+		<VALUE>Gil</VALUE>
+		<VALUE>Tel</VALUE>
+		<VALUE>Tir</VALUE>
+		<VALUE>Kyr</VALUE>
+		<VALUE>Dam</VALUE>
+		<VALUE>Eh</VALUE>
+		<VALUE>Lun</VALUE>
+		<VALUE>Al</VALUE>
+		<VALUE>Tre</VALUE>
+		<VALUE>Lyn</VALUE>
+		<VALUE>Sir</VALUE>
+		<VALUE>Jen</VALUE>
+	</LIST>
+
+	<LIST id="mar-name-human-syl1" title="Syllable 1">
+		<VALUE>Al</VALUE>
+		<VALUE>Ar</VALUE>
+		<VALUE>Bel</VALUE>
+		<VALUE>Char</VALUE>
+		<VALUE>Der</VALUE>
+		<VALUE>Ef</VALUE>
+		<VALUE>Fay</VALUE>
+		<VALUE>Gel</VALUE>
+		<VALUE>Hil</VALUE>
+		<VALUE>Jan</VALUE>
+		<VALUE>Krin</VALUE>
+		<VALUE>Lin</VALUE>
+		<VALUE>Mon</VALUE>
+		<VALUE>Nyl</VALUE>
+		<VALUE>Priz</VALUE>
+		<VALUE>Quas</VALUE>
+		<VALUE>Ran</VALUE>
+		<VALUE>Syl</VALUE>
+		<VALUE>Tral</VALUE>
+		<VALUE>Vil</VALUE>
+		<VALUE>Wes</VALUE>
+		<VALUE>Yin</VALUE>
+		<VALUE>Zul</VALUE>
+	</LIST>
+
+	<LIST id="mar-name-wizard-syl1" title="Syllable 1">
+		<VALUE>Car</VALUE>
+		<VALUE>Ver</VALUE>
+		<VALUE>Nor</VALUE>
+		<VALUE>Mor</VALUE>
+		<VALUE>Ter</VALUE>
+		<VALUE>Tarn</VALUE>
+		<VALUE>Met</VALUE>
+		<VALUE>Gal</VALUE>
+		<VALUE>Cal</VALUE>
+		<VALUE>Ion</VALUE>
+		<VALUE>Pel</VALUE>
+		<VALUE>Just</VALUE>
+	</LIST>
+	<LIST id="mar-name-evil-syl1" title="Syllable 1">
+		<VALUE>Zel</VALUE>
+		<VALUE>Xan</VALUE>
+		<VALUE>Kron</VALUE>
+		<VALUE>Gor</VALUE>
+		<VALUE>Gan</VALUE>
+		<VALUE>Zan</VALUE>
+		<VALUE>Hrul</VALUE>
+		<VALUE>Ghaz</VALUE>
+		<VALUE>Drax</VALUE>
+		<VALUE>Dhus</VALUE>
+		<VALUE>Akh</VALUE>
+		<VALUE>Nar</VALUE>
+		<VALUE>Laen</VALUE>
+		<VALUE>Dun</VALUE>
+		<VALUE>Man</VALUE>
+		<VALUE>Tel</VALUE>
+		<VALUE>Grish</VALUE>
+	</LIST>
+
+
+
+	<LIST id="mar-name-male-syl2" title="Syllable 2">
+		<VALUE>bar</VALUE>
+		<VALUE>con</VALUE>
+		<VALUE>dar</VALUE>
+		<VALUE>fur</VALUE>
+		<VALUE>gon</VALUE>
+		<VALUE>houl</VALUE>
+		<VALUE>kin</VALUE>
+		<VALUE>lon</VALUE>
+		<VALUE>man</VALUE>
+		<VALUE>non</VALUE>
+		<VALUE>pel</VALUE>
+		<VALUE>rall</VALUE>
+		<VALUE>saran</VALUE>
+		<VALUE>trik</VALUE>
+		<VALUE>vin</VALUE>
+		<VALUE>wyn</VALUE>
+		<VALUE>zadar</VALUE>
+	</LIST>
+
+	<LIST id="mar-name-male-bbn-syl2" title="Syllable 2">
+		<VALUE>kor</VALUE>
+		<VALUE>dor</VALUE>
+		<VALUE>dan</VALUE>
+		<VALUE>ran</VALUE>
+		<VALUE>tokar</VALUE>
+		<VALUE>gar</VALUE>
+		<VALUE>gon</VALUE>
+		<VALUE>kan</VALUE>
+		<VALUE>krad</VALUE>
+		<VALUE>agon</VALUE>
+		<VALUE>thar</VALUE>
+		<VALUE>thor</VALUE>
+		<VALUE>gron</VALUE>
+	</LIST>
+	<LIST id="mar-name-female-bbn-syl2" title="Syllable 2">
+		<VALUE>kora</VALUE>
+		<VALUE>dora</VALUE>
+		<VALUE>dana</VALUE>
+		<VALUE>rani</VALUE>
+		<VALUE>tokia</VALUE>
+		<VALUE>gara</VALUE>
+		<VALUE>gona</VALUE>
+		<VALUE>kani</VALUE>
+		<VALUE>valia</VALUE>
+		<VALUE>vili</VALUE>
+	</LIST>
+
+	<LIST id="mar-name-male-dwarf-syl2" title="Syllable 2">
+		<VALUE>zhad</VALUE>
+		<VALUE>likh</VALUE>
+		<VALUE>dhul</VALUE>
+		<VALUE>ria</VALUE>
+		<VALUE>rakh</VALUE>
+		<VALUE>hon</VALUE>
+		<VALUE>haran</VALUE>
+		<VALUE>lakhor</VALUE>
+		<VALUE>toran</VALUE>
+		<VALUE>khaz</VALUE>
+		<VALUE>lin</VALUE>
+		<VALUE>than</VALUE>
+		<VALUE>thon</VALUE>
+		<VALUE>let</VALUE>
+	</LIST>
+
+	<LIST id="mar-name-female-dwarf-syl2" title="Syllable 2">
+		<VALUE>zhada</VALUE>
+		<VALUE>likhia</VALUE>
+		<VALUE>dhula</VALUE>
+		<VALUE>ria</VALUE>
+		<VALUE>rakha</VALUE>
+		<VALUE>ghona</VALUE>
+		<VALUE>hara</VALUE>
+		<VALUE>lakha</VALUE>
+		<VALUE>tora</VALUE>
+		<VALUE>khazi</VALUE>
+		<VALUE>toria</VALUE>
+		<VALUE>mina</VALUE>
+		<VALUE>minsti</VALUE>
+		<VALUE>tekha</VALUE>
+		<VALUE>tihga</VALUE>
+	</LIST>
+
+	<LIST id="mar-name-male-elf-syl2" title="Syllable 2">
+		<VALUE>cor</VALUE>
+		<VALUE>ryn</VALUE>
+		<VALUE>rynth</VALUE>
+		<VALUE>ion</VALUE>
+		<VALUE>rath</VALUE>
+		<VALUE>dros</VALUE>
+		<VALUE>in</VALUE>
+		<VALUE>manath</VALUE>
+		<VALUE>anoc</VALUE>
+		<VALUE>falas</VALUE>
+		<VALUE>iel</VALUE>
+	</LIST>
+
+	<LIST id="mar-name-female-elf-syl2" title="Syllable 2">
+		<VALUE>cora</VALUE>
+		<VALUE>rynia</VALUE>
+		<VALUE>rynth</VALUE>
+		<VALUE>iona</VALUE>
+		<VALUE>rathi</VALUE>
+		<VALUE>drosia</VALUE>
+		<VALUE>inia</VALUE>
+		<VALUE>manath</VALUE>
+		<VALUE>ana</VALUE>
+		<VALUE>less</VALUE>
+		<VALUE>fala</VALUE>
+		<VALUE>thola</VALUE>
+		<VALUE>odia</VALUE>
+		<VALUE>riel</VALUE>
+	</LIST>
+
+	<LIST id="mar-name-male-human-syl2" title="Syllable 2">
+		<VALUE>bar</VALUE>
+		<VALUE>con</VALUE>
+		<VALUE>dar</VALUE>
+		<VALUE>fur</VALUE>
+		<VALUE>gon</VALUE>
+		<VALUE>houl</VALUE>
+		<VALUE>kin</VALUE>
+		<VALUE>lon</VALUE>
+		<VALUE>man</VALUE>
+		<VALUE>non</VALUE>
+		<VALUE>pel</VALUE>
+		<VALUE>rall</VALUE>
+		<VALUE>saran</VALUE>
+		<VALUE>trik</VALUE>
+		<VALUE>vin</VALUE>
+		<VALUE>wyn</VALUE>
+		<VALUE>zadar</VALUE>
+	</LIST>
+
+	<LIST id="mar-name-female-human-syl2" title="Syllable 2">
+		<VALUE>bara</VALUE>
+		<VALUE>cona</VALUE>
+		<VALUE>dara</VALUE>
+		<VALUE>fura</VALUE>
+		<VALUE>gona</VALUE>
+		<VALUE>houla</VALUE>
+		<VALUE>kina</VALUE>
+		<VALUE>lona</VALUE>
+		<VALUE>mana</VALUE>
+		<VALUE>nona</VALUE>
+		<VALUE>pela</VALUE>
+		<VALUE>ralla</VALUE>
+		<VALUE>sarana</VALUE>
+		<VALUE>trika</VALUE>
+		<VALUE>vina</VALUE>
+		<VALUE>wyna</VALUE>
+		<VALUE>zadara</VALUE>
+	</LIST>
+
+	<LIST id="mar-name-male-wizard-syl2" title="Syllable 2">
+		<VALUE>ius</VALUE>
+		<VALUE>ium</VALUE>
+		<VALUE>us</VALUE>
+		<VALUE>um</VALUE>
+		<VALUE>ex</VALUE>
+		<VALUE>egem</VALUE>
+	</LIST>
+
+	<LIST id="mar-name-female-wizard-syl2" title="Syllable 2">
+		<VALUE>ia</VALUE>
+		<VALUE>iam</VALUE>
+		<VALUE>a</VALUE>
+		<VALUE>am</VALUE>
+		<VALUE>ix</VALUE>
+		<VALUE>aga</VALUE>
+		<VALUE>ixa</VALUE>
+	</LIST>
+
+	<LIST id="mar-name-evil-syl2" title="Syllable 2">
+		<VALUE>dor</VALUE>
+		<VALUE>dan</VALUE>
+		<VALUE>gor</VALUE>
+		<VALUE>thos</VALUE>
+		<VALUE>ghul</VALUE>
+		<VALUE>goroth</VALUE>
+		<VALUE>ax</VALUE>
+		<VALUE>orok</VALUE>
+		<VALUE>akor</VALUE>
+		<VALUE>thor</VALUE>
+		<VALUE>tur</VALUE>
+		<VALUE>dorn</VALUE>
+		<VALUE>don</VALUE>
+		<VALUE>lis</VALUE>
+		<VALUE>lith</VALUE>
+		<VALUE>trul</VALUE>
+		<VALUE>karn</VALUE>
+		<VALUE>gin</VALUE>
+	</LIST>
+
+	<LIST id="mar-name-wizard-syl3" title="Syllable 3">
+		<VALUE>en</VALUE>
+		<VALUE>an</VALUE>
+		<VALUE>il</VALUE>
+		<VALUE>al</VALUE>
+		<VALUE>em</VALUE>
+		<VALUE>ar</VALUE>
+		<VALUE>or</VALUE>
+	</LIST>
+
+</GENERATOR>
+
