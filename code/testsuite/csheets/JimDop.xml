@@ -1647,7 +1647,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>INTERNAL.CLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1658,7 +1658,7 @@ BIO
 		<ability_object>
 			<name>All Martial Weapon Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>INTERNAL.CLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1669,7 +1669,7 @@ BIO
 		<ability_object>
 			<name>Fighter Bonus Feat</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>INTERNAL.CLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1680,7 +1680,7 @@ BIO
 		<ability_object>
 			<name>Fighter Level Advanced Feat Tracker</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>INTERNAL.CLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1691,7 +1691,7 @@ BIO
 		<ability_object>
 			<name>Greater Weapon Focus Qualify</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>INTERNAL.CLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1702,7 +1702,7 @@ BIO
 		<ability_object>
 			<name>Greater Weapon Specialization Qualify</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>INTERNAL.CLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1724,7 +1724,7 @@ BIO
 		<ability_object>
 			<name>Monstrous Humanoid Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>INTERNAL.CLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1735,7 +1735,7 @@ BIO
 		<ability_object>
 			<name>Weapon Specialization Qualify</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>INTERNAL.CLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

@@ -2305,7 +2305,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>SPECIAL.CLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2316,7 +2316,7 @@ BIO
 		<ability_object>
 			<name>Channel Energy</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>INTERNAL.CLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2327,7 +2327,7 @@ BIO
 		<ability_object>
 			<name>Cleric Weapon Proficiencies</name>
 			<description></description>
-			<type>SPECIAL</type>
+			<type>SPECIAL.CLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2338,7 +2338,7 @@ BIO
 		<ability_object>
 			<name>Domains</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>INTERNAL.CLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

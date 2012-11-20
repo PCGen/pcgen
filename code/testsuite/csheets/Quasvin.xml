@@ -1455,7 +1455,7 @@ BIO
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>INTERNAL.CLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
