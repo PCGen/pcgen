@@ -83,7 +83,7 @@ SKILL:Tumble		RANK:1
 FEAT:Alertness
 FEAT:Weapon Focus (Bite)
 FEAT:Improved Critical (Bite)
-FEAT:Armor Proficiency (Barding)	FREE:YES
+FEAT:Armor Proficiency (Light)	FREE:YES
 GEAR:Barding (Chain Shirt)	SIZE:PC	LOCATION:Equipped	EQMOD:PLUS2A
 STAT:STR=16|DEX=14|CON=14|INT=8|WIS=12|CHA=10
 
