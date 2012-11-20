@@ -4,75 +4,75 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 ###Block:Gems
 # Equipment Name										Output Name											Type			Cost		Weight	Requires Modification?	Source Page
-Gem (Agate (Banded))									OUTPUTNAME:Banded Agate									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Agate (Eye))										OUTPUTNAME:Eye Agate									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Agate (Moss))									OUTPUTNAME:Moss Agate									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Azurite)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Quartz (Blue))									OUTPUTNAME:Blue Quartz									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Hematite)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Lapis Lazuli)									OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Malachite)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Obsidian)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Rhodochrosite)									OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Tiger Eye)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Turquoise)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Pearl (Freshwater/Irregular))							OUTPUTNAME:Freshwater (Irregular) Pearl						TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Bloodstone)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Carnelian)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Chalcedony)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Chrysoprase)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Citrine)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Iolite)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Jasper)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Moonstone)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Onyx)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Peridot)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Rock Crystal (Clear Quartz))							OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Sard)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Sardonyx)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Quartz (Rose))									OUTPUTNAME:Rose Quartz									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Quartz (Smoky))									OUTPUTNAME:Smoky Quartz									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Quartz (Star Rose))								OUTPUTNAME:Star Rose Quartz								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Zircon)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Amber)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Amethyst)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Chrysoberyl)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Coral)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Garnet (Red))									OUTPUTNAME:Red Garnet									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Garnet (Brown-Green))								OUTPUTNAME:Brown-Green Garnet								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Jade)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Jet)											OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Pearl (White))									OUTPUTNAME:White Pearl									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Pearl (Golden))									OUTPUTNAME:Golden Pearl									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Pearl (Pink))									OUTPUTNAME:Pink Pearl									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Pearl (Silver))									OUTPUTNAME:Silver Pearl									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Spinel (Red))									OUTPUTNAME:Red Spinel									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Spinel (Red-Brown))								OUTPUTNAME:Red-Brown Spinel								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Spinel (Deep Green))								OUTPUTNAME:Deep Green Spinel								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Tourmaline)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Alexandrite)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Aquamarine)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Garnet (Violet))									OUTPUTNAME:Violet Garnet								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Pearl (Black))									OUTPUTNAME:Black Pearl									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Spinel (Deep Blue))								OUTPUTNAME:Deep Blue Spinel								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Topaz (Golden Yellow))								OUTPUTNAME:Golden Yellow Topaz							TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Emerald)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Opal (White))									OUTPUTNAME:White Opal									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Opal (Black))									OUTPUTNAME:Black Opal									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Opal (Fire))										OUTPUTNAME:Fire Opal									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Sapphire (Blue))									OUTPUTNAME:Blue Sapphire								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Corundum (Firey Yellow))								OUTPUTNAME:Firey Yellow Corundum							TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Corundum (Rich Purple))								OUTPUTNAME:Rich Purple Corundum							TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Star Sapphire (Blue))								OUTPUTNAME:Blue Star Sapphire								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Star Sapphire (Black))								OUTPUTNAME:Black Star Sapphire							TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Ruby (Star))										OUTPUTNAME:Star Ruby									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Emerald (Clearest Bright Green))						OUTPUTNAME:Clearest Bright Green Emerald						TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Diamond (Blue-White))								OUTPUTNAME:Blue-White Diamond								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Diamond (Canary))									OUTPUTNAME:Canary Diamond								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Diamond (Pink))									OUTPUTNAME:Pink Diamond									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Diamond (Brown))									OUTPUTNAME:Brown Diamond								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Diamond (Blue))									OUTPUTNAME:Blue Diamond									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
-Gem (Jacinth)										OUTPUTNAME:[NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Agate (Banded))									OUTPUTNAME:Unappraised Banded Agate									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Agate (Eye))										OUTPUTNAME:Unappraised Eye Agate									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Agate (Moss))									OUTPUTNAME:Unappraised Moss Agate									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Azurite)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Quartz (Blue))									OUTPUTNAME:Unappraised Blue Quartz									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Hematite)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Lapis Lazuli)									OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Malachite)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Obsidian)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Rhodochrosite)									OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Tiger Eye)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Turquoise)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Pearl (Freshwater/Irregular))							OUTPUTNAME:Unappraised Freshwater (Irregular) Pearl						TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Bloodstone)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Carnelian)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Chalcedony)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Chrysoprase)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Citrine)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Iolite)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Jasper)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Moonstone)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Onyx)											OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Peridot)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Rock Crystal (Clear Quartz))							OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Sard)											OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Sardonyx)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Quartz (Rose))									OUTPUTNAME:Unappraised Rose Quartz									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Quartz (Smoky))									OUTPUTNAME:Unappraised Smoky Quartz									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Quartz (Star Rose))								OUTPUTNAME:Unappraised Star Rose Quartz								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Zircon)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Amber)											OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Amethyst)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Chrysoberyl)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Coral)											OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Garnet (Red))									OUTPUTNAME:Unappraised Red Garnet									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Garnet (Brown-Green))								OUTPUTNAME:Unappraised Brown-Green Garnet								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Jade)											OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Jet)											OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Pearl (White))									OUTPUTNAME:Unappraised White Pearl									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Pearl (Golden))									OUTPUTNAME:Unappraised Golden Pearl									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Pearl (Pink))									OUTPUTNAME:Unappraised Pink Pearl									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Pearl (Silver))									OUTPUTNAME:Unappraised Silver Pearl									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Spinel (Red))									OUTPUTNAME:Unappraised Red Spinel									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Spinel (Red-Brown))								OUTPUTNAME:Unappraised Red-Brown Spinel								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Spinel (Deep Green))								OUTPUTNAME:Unappraised Deep Green Spinel								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Tourmaline)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Alexandrite)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Aquamarine)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Garnet (Violet))									OUTPUTNAME:Unappraised Violet Garnet								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Pearl (Black))									OUTPUTNAME:Unappraised Black Pearl									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Spinel (Deep Blue))								OUTPUTNAME:Unappraised Deep Blue Spinel								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Topaz (Golden Yellow))								OUTPUTNAME:Unappraised Golden Yellow Topaz							TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Emerald)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Opal (White))									OUTPUTNAME:Unappraised White Opal									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Opal (Black))									OUTPUTNAME:Unappraised Black Opal									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Opal (Fire))										OUTPUTNAME:Unappraised Fire Opal									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Sapphire (Blue))									OUTPUTNAME:Unappraised Blue Sapphire								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Corundum (Firey Yellow))								OUTPUTNAME:Unappraised Firey Yellow Corundum							TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Corundum (Rich Purple))								OUTPUTNAME:Unappraised Rich Purple Corundum							TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Star Sapphire (Blue))								OUTPUTNAME:Unappraised Blue Star Sapphire								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Star Sapphire (Black))								OUTPUTNAME:Unappraised Black Star Sapphire							TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Ruby (Star))										OUTPUTNAME:Unappraised Star Ruby									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Emerald (Clearest Bright Green))						OUTPUTNAME:Unappraised Clearest Bright Green Emerald						TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Diamond (Blue-White))								OUTPUTNAME:Unappraised Blue-White Diamond								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Diamond (Canary))									OUTPUTNAME:Unappraised Canary Diamond								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Diamond (Pink))									OUTPUTNAME:Unappraised Pink Diamond									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Diamond (Brown))									OUTPUTNAME:Unappraised Brown Diamond								TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Diamond (Blue))									OUTPUTNAME:Unappraised Blue Diamond									TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
+Gem (Jacinth)										OUTPUTNAME:Unappraised [NAME]										TYPE:Goods.Gem	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
 
 Art (Silver Ewer)										OUTPUTNAME:[NAME]										TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
 Art (Statuette (Carved Bone))								OUTPUTNAME:Carved Bone Statuette							TYPE:Goods.Art	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:Treasure.rtf
