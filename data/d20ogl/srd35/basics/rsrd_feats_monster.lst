@@ -17,10 +17,6 @@ Quicken Spell-Like Ability	KEY:Quicken Spell Like Ability	TYPE:General										
 Snatch										TYPE:General																					PRESIZEGTEQ:H																DESC:The creature can choose to start a grapple when it hits with a claw or bite attack, as though it had the improved grab special attack.																																																																																									SOURCEPAGE:rsrd monster feats.rtf
 Wingover										TYPE:General																	PREMOVE:1,Fly=1																				DESC:A flying creature with this feat can change direction quickly once each round as a free action.																																																																																																SOURCEPAGE:rsrd monster feats.rtf
 
-###Block: Barding Proficiency
-# Feat Name				Type			Visible	Automatically Gained Armor Prof.	Source Page
-Armor Proficiency (Barding)	TYPE:General	VISIBLE:YES	AUTO:ARMORPROF|ARMORTYPE=Barding	SOURCEPAGE:Feats.rtf
-
 
 #
 # End

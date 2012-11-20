@@ -21,10 +21,22 @@ Half-Plate
 Full Plate
 
 # Barding
-Barding (Light)
-Barding (Medium)
-Barding (Heavy)
-
+#Light
+Barding (Padded)
+Barding (Leather)
+Barding (Studded Leather)
+Barding (Chain Shirt)
+#Medium
+Barding (Hide)
+Barding (Scale Mail)
+Barding (Chainmail)
+Barding (Breastplate)
+#Heavy
+Barding (Splint Mail)
+Barding (Banded Mail)
+Barding (Half-Plate)
+Barding (Full Plate)
 #
 # End
 #
+
