@@ -1,8 +1,7 @@
 # CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 # Ability Name			Define
-CATEGORY=Internal|Default.MOD	DEFINE:HasLowLightVision|0	DEFINE:DarkvisionRange|0	DEFINE:LowLightVision|0	DEFINE:TremorsenseRange|0	DEFINE:BlindsenseRange|0	DEFINE:BlindsightRange|0
-
+CATEGORY=Internal|Default.MOD	DEFINE:HasLowLightVision|0	DEFINE:DarkvisionRange|0	DEFINE:LowLightVision|0	DEFINE:TremorsenseRange|0	DEFINE:BlindsenseRange|0	DEFINE:BlindsightRange|0	DEFINE:LinguisticsLanguageChoice|1	
 #########################################################
 ###			RACIAL					###
 ###			TYPES						###

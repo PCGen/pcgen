@@ -20,7 +20,7 @@ Size Change (Decrease by 1)					VISIBLE:DISPLAY																																	
 Size Change (Decrease by 2)					VISIBLE:DISPLAY																																									BONUS:SIZEMOD|NUMBER|-2
 
 # Companion Shared Templates:
-Advanced Creature (Heavy Horse)	CR:1						PRERACE:1,Companion (Horse),Horse																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK					BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|4	BONUS:WEAPONPROF=Hoof|DAMAGESIZE|1	BONUS:WEAPONPROF=Bite|TOHIT|-5	BONUS:WEAPONPROF=Bite|DAMAGE|-ceil(STR/2)	NATURALATTACKS:Bite,Weapon.Natural.Melee.Slashing.Bludgeoning.Piercing,*1,1d4
+Advanced Creature (Heavy Horse)	CR:1						PRERACE:1,Companion (Horse),Horse																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK					BONUS:STAT|STR,DEX,CON,WIS,CHA|4	BONUS:WEAPONPROF=Hoof|DAMAGESIZE|1	BONUS:WEAPONPROF=Bite|TOHIT|-5	BONUS:WEAPONPROF=Bite|DAMAGE|-ceil(STR/2)	NATURALATTACKS:Bite,Weapon.Natural.Melee.Slashing.Bludgeoning.Piercing,*1,1d4
 
 
 

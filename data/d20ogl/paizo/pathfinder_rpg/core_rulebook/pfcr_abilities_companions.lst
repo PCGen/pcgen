@@ -57,7 +57,7 @@ Spell Resistance				KEY:Spell Resistance ~ Familiar	CATEGORY:Special Ability	TYP
 ###Block:
 # Ability Name	Unique Key				Category of Ability		Type				Class Skill														Natural Attacks
 Companion Skills						CATEGORY:Special Ability	TYPE:Special		CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Stealth|Survival|Swim
-War Trained							CATEGORY:Special Ability	TYPE:SpecialQuality
+War Trained							CATEGORY:Special Ability	TYPE:SpecialQuality	ABILITY:Special Ability|AUTOMATIC|Animal Training ~ Combat Riding
 
 # Unique to Companions
 Tail Slap		KEY:Tail Slap ~ Crocodile	CATEGORY:Special Ability	TYPE:Special																	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
