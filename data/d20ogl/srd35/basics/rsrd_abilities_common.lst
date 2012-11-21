@@ -14,7 +14,7 @@ CATEGORY=Internal|Grants All Hidden Abilities.MOD																															
 #COMMENT: Holds Global DEFINES
 
 # All Hidden Abilities ~ Granted Abilities:
-Defines Required															CATEGORY:Internal		DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	
+Defines Required															CATEGORY:Internal		DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0
 
 
 Bardic Inspire Courage						KEY:Bardic Inspire Courage (For Others)		CATEGORY:Internal		DEFINE:OtherInspireCourageLVL|0	DEFINE:OtherInspireCourageSaves|0	DEFINE:OtherInspireCourageAttack|0	DEFINE:OtherInspireCourageDamage|0	DEFINE:OtherInspireCourageLVL|0	DEFINE:OtherInspireCourageSaves|0	DEFINE:OtherInspireCourageAttack|0	DEFINE:OtherInspireCourageDamage|0	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Bard Level																																																														BONUS:CHECKS|ALL|OtherInspireCourageSaves|TYPE=BardicInspireCourage|PREAPPLY:ANYPC	BONUS:COMBAT|TOHIT|OtherInspireCourageAttack|TYPE=BardicInspireCourage|PREAPPLY:ANYPC	BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged|OtherInspireCourageDamage|TYPE=BardicInspireCourage|PREAPPLY:ANYPC										BONUS:VAR|OtherInspireCourageSaves,OtherInspireCourageAttack,OtherInspireCourageDamage|max(floor((OtherInspireCourageLVL+4)/6),1)|PREAPPLY:ANYPC	BONUS:VAR|OtherInspireCourageLVL|%CHOICE|PREAPPLY:ANYPC

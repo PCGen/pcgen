@@ -40,7 +40,7 @@ CATEGORY=Internal|Default.MOD	DEFINE:RacialStatStr|0	DEFINE:RacialStatDex|0	DEFI
 CATEGORY=Internal|Default.MOD																									ABILITY:Internal|AUTOMATIC|Select Racial Traits
 CATEGORY=Internal|Default.MOD	DEFINE:HasDarkvision|0																					ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|PREVARGTEQ:HasDarkvision,1
 CATEGORY=Internal|Default.MOD	DEFINE:HasLowlightVision|0	DEFINE:RacialVision|0																ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light|PREVARGTEQ:HasLowlightVision,1
-CATEGORY=Internal|Default.MOD	DEFINE:LowLightRange|0	DEFINE:DarkvisionRange|0	DEFINE:HasLowLightVision|0	DEFINE:TremorsenseRange|0	DEFINE:BlindsenseRange|0	DEFINE:BlindsightRange|0	DEFINE:SeeInvisibilityRange|0	DEFINE:SeeEtheralRange|0	DEFINE:KeenScentRange|0
+CATEGORY=Internal|Default.MOD	DEFINE:LowLightRange|0	DEFINE:DarkvisionRange|0	DEFINE:HasLowLightVision|0	DEFINE:TremorsenseRange|0	DEFINE:BlindsenseRange|0	DEFINE:BlindsightRange|0	DEFINE:SeeInvisibilityRange|0	DEFINE:SeeEtheralRange|0	DEFINE:KeenScentRange|0		DEFINE:BardingAllowed|0	BONUS:VAR|BardingAllowed|1|!PRERACE:1,RACETYPE=Monstrous Humanoid,RACETYPE=Humanoid
 ###Block: Empty Place Holder Abilities
 # COMMENT: We use .MODs to populate these with important information.
 # Ability Name						Category of Ability	Ability
