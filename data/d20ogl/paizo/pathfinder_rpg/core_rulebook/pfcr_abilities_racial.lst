@@ -23,26 +23,23 @@ See Invisibility	KEY:See Invisibility	CATEGORY:Special Ability	TYPE:SpecialQuali
 
 
 ###Block: Mods
-#CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowLightVision,1
 # Ability Name			Define																							Ability												Stat bonus
 CATEGORY=Internal|Default.MOD																									ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREMULT:1,[PREVARGTEQ:LowLightRange,1],[PREVARGTEQ:HasLowlightVision,1]
 CATEGORY=Internal|Default.MOD																									ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1
 CATEGORY=Internal|Default.MOD																									ABILITY:Special Ability|AUTOMATIC|Blindsense|PREVARGTEQ:BlindsenseRange,1
 CATEGORY=Internal|Default.MOD																									ABILITY:Special Ability|AUTOMATIC|Blindsight|PREVARGTEQ:BlindsightRange,1
 CATEGORY=Internal|Default.MOD																									ABILITY:Special Ability|AUTOMATIC|Tremorsense|PREVARGTEQ:TremorsenseRange,1
-CATEGORY=Internal|Default.MOD																									ABILITY:Special Ability|AUTOMATIC|Keen Scent|PREVARGTEQ:KeenScentRange,1
+#CATEGORY=Internal|Default.MOD																									ABILITY:Special Ability|AUTOMATIC|Keen Scent|PREVARGTEQ:KeenScentRange,1
 CATEGORY=Internal|Default.MOD																									ABILITY:Special Ability|AUTOMATIC|See Etheral|PREVARGTEQ:SeeEtheralRange,1
 CATEGORY=Internal|Default.MOD																									ABILITY:Special Ability|AUTOMATIC|See Invisibility|PREVARGTEQ:SeeInvisibilityRange,1
 CATEGORY=Internal|Default.MOD	DEFINE:LowLightRange|0	DEFINE:DarkvisionRange|0	DEFINE:HasLowLightVision|0	DEFINE:TremorsenseRange|0	DEFINE:BlindsenseRange|0	DEFINE:BlindsightRange|0	DEFINE:SeeInvisibilityRange|0	DEFINE:SeeEtheralRange|0	DEFINE:KeenScentRange|0
-
-
 CATEGORY=Internal|Default.MOD	DEFINE:RacialStatStr|0	DEFINE:RacialStatDex|0	DEFINE:RacialStatCon|0	DEFINE:RacialStatInt|0	DEFINE:RacialStatWis|0	DEFINE:RacialStatCha|0																																					BONUS:STAT|STR|RacialStatStr|TYPE=Racial	BONUS:STAT|DEX|RacialStatDex|TYPE=Racial	BONUS:STAT|CON|RacialStatCon|TYPE=Racial	BONUS:STAT|INT|RacialStatInt|TYPE=Racial	BONUS:STAT|WIS|RacialStatWis|TYPE=Racial	BONUS:STAT|CHA|RacialStatCha|TYPE=Racial
 CATEGORY=Internal|Default.MOD																									ABILITY:Internal|AUTOMATIC|Select Racial Traits
 #CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Vision ~ Darkvision|PREVARGTEQ:HasDarkvision,1	DEFINE:HasDarkvision|0
 #CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light|PREVARGTEQ:HasLowlightVision,1	DEFINE:HasLowlightVision|0	DEFINE:RacialVision|0
 
 
-###Block: Default Ability that should be applied to all races/classes eventually
+###Block: 
 # Ability Name							Category of Ability	Ability
 Select Racial Traits						CATEGORY:Internal
 Dwarf Racial Trait Default					CATEGORY:Internal
