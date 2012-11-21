@@ -11,7 +11,7 @@ CATEGORY=Internal|Default.MOD	DEFINE:HasLowLightVision|0	DEFINE:DarkvisionRange|
 ###Block: Creature Type Traits
 # Ability Name			Ability
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PRERACE:1,RACETYPE=Aberration
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Animal Traits|PRERACE:1,RACETYPE=Animal
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Animal Traits|PRERACE:1,RACETYPE=Animal,RACETYPE=Companion
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Construct Traits|PRERACE:1,RACETYPE=Construct
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Dragon Traits|PRERACE:1,RACETYPE=Dragon
 CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Fey Traits|PRERACE:1,RACETYPE=Fey
