@@ -19,13 +19,13 @@ Tranter				TYPE:PersonalFirearm
 Walther Model PP			TYPE:PersonalFirearm
 
 #Longarms
-12-Gauge Repeating Shotgun	TYPE:PersonalFirearm	HANDS:2
-Beretta M1938A			TYPE:PersonalFirearm	HANDS:2
-M1 Garand				TYPE:PersonalFirearm	HANDS:2
-Mosin-Nagant M1930G		TYPE:PersonalFirearm	HANDS:2
-MPC Carbine M1891			TYPE:PersonalFirearm	HANDS:2
-Springfield M1903			TYPE:PersonalFirearm	HANDS:2
-Thompson M1921			TYPE:PersonalFirearm	HANDS:2
+12-Gauge Repeating Shotgun	TYPE:PersonalFirearm.TwoHanded	HANDS:2
+Beretta M1938A			TYPE:PersonalFirearm.TwoHanded	HANDS:2
+M1 Garand				TYPE:PersonalFirearm.TwoHanded	HANDS:2
+Mosin-Nagant M1930G		TYPE:PersonalFirearm.TwoHanded	HANDS:2
+MPC Carbine M1891			TYPE:PersonalFirearm.TwoHanded	HANDS:2
+Springfield M1903			TYPE:PersonalFirearm.TwoHanded	HANDS:2
+Thompson M1921			TYPE:PersonalFirearm.TwoHanded	HANDS:2
 
 #Heavy Weapons
 Breda Model 1030			TYPE:ExoticFirearms
@@ -37,4 +37,4 @@ MG 34					TYPE:ExoticFirearms
 Panzerfaust				TYPE:ExoticFirearms
 
 #other ranged Weapons
-Longbow				TYPE:Archaic		HANDS:2
+Longbow				TYPE:Archaic.TwoHanded		HANDS:2

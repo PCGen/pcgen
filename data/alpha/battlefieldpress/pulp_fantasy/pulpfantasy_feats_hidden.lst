@@ -21,39 +21,39 @@ SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http:/
 
 ###Block: Categories for Logical Talent
 # Feat Name					Type				Visible	Required Skill							Special ABility					Bonus to skill												Source Page
-Category[Art]				TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Art)=4					SAB:Logical (Art)					BONUS:SKILL|Craft (Visual Art)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.22
-Category[Behavioral sciences]		TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Behavioral Sciences)=4		SAB:Logical (Behavioral Sciences)		BONUS:SKILL|Sense Motive|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.22
-Category[Business]			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Business)=4				SAB:Logical (Business)				BONUS:SKILL|Forgery|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.22
-Category[Civics]				TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Civics)=4				SAB:Logical (Civics)				BONUS:SKILL|Diplomacy|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.22
-Category[Current events]		TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Current Events)=4			SAB:Logical (Current Events)			BONUS:SKILL|Gather Information|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.22
-Category[Earth and life sciences]	TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Earth and Life Sciences)=4	SAB:Logical (Earth and Life Sciences)	BONUS:SKILL|Treat Injury|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.22
-Category[Hidden lore]			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Hidden Lore)=4			SAB:Logical (Hidden Lore)			BONUS:SKILL|Knowledge (Theology and Philosophy)|var("CL=Smart")/2|TYPE=Synergy	SOURCEPAGE:p.22
-Category[History]				TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (History)=4				SAB:Logical (History)				BONUS:SKILL|Research|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.22
-Category[Military Science]		TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Military Science)=4			SAB:Logical (Military Science)		BONUS:SKILL|Investigate|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.22
-Category[Physical sciences]		TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Physical Sciences)=4		SAB:Logical (Physical Sciences)		BONUS:SKILL|Craft (Chemical)|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.22
-Category[Popular culture]		TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Popular Culture)=4			SAB:Logical (Popular Culture)			BONUS:SKILL|Knowledge (Streetwise)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.22
-Category[Streetwise]			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Streetwise)=4				SAB:Logical (Streetwise)			BONUS:SKILL|Intimidate|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.22
-Category[Technology]			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Technology)=4				SAB:Logical (Technology)			BONUS:SKILL|Craft (Electronic)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.22
-Category[Theology and philosophy]	TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Theology and Philosophy)=4	SAB:Logical (Theology and Philosophy)	BONUS:SKILL|Knowledge (Hidden Lore)|var("CL=Smart")/2|TYPE=Synergy			SOURCEPAGE:p.22
-Category[Weird Science]			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Weird Science)=4			SAB:Logical (Weird Science)			BONUS:SKILL|Investigate|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.22
+Category(Art)				TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Art)=4					SAB:Logical (Art)					BONUS:SKILL|Craft (Visual Art)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.22
+Category(Behavioral sciences)		TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Behavioral Sciences)=4		SAB:Logical (Behavioral Sciences)		BONUS:SKILL|Sense Motive|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.22
+Category(Business)			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Business)=4				SAB:Logical (Business)				BONUS:SKILL|Forgery|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.22
+Category(Civics)				TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Civics)=4				SAB:Logical (Civics)				BONUS:SKILL|Diplomacy|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.22
+Category(Current events)		TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Current Events)=4			SAB:Logical (Current Events)			BONUS:SKILL|Gather Information|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.22
+Category(Earth and life sciences)	TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Earth and Life Sciences)=4	SAB:Logical (Earth and Life Sciences)	BONUS:SKILL|Treat Injury|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.22
+Category(Hidden lore)			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Hidden Lore)=4			SAB:Logical (Hidden Lore)			BONUS:SKILL|Knowledge (Theology and Philosophy)|var("CL=Smart")/2|TYPE=Synergy	SOURCEPAGE:p.22
+Category(History)				TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (History)=4				SAB:Logical (History)				BONUS:SKILL|Research|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.22
+Category(Military Science)		TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Military Science)=4			SAB:Logical (Military Science)		BONUS:SKILL|Investigate|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.22
+Category(Physical sciences)		TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Physical Sciences)=4		SAB:Logical (Physical Sciences)		BONUS:SKILL|Craft (Chemical)|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.22
+Category(Popular culture)		TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Popular Culture)=4			SAB:Logical (Popular Culture)			BONUS:SKILL|Knowledge (Streetwise)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.22
+Category(Streetwise)			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Streetwise)=4				SAB:Logical (Streetwise)			BONUS:SKILL|Intimidate|var("CL=Smart")/2|TYPE=Synergy						SOURCEPAGE:p.22
+Category(Technology)			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Technology)=4				SAB:Logical (Technology)			BONUS:SKILL|Craft (Electronic)|var("CL=Smart")/2|TYPE=Synergy				SOURCEPAGE:p.22
+Category(Theology and philosophy)	TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Theology and Philosophy)=4	SAB:Logical (Theology and Philosophy)	BONUS:SKILL|Knowledge (Hidden Lore)|var("CL=Smart")/2|TYPE=Synergy			SOURCEPAGE:p.22
+Category(Weird Science)			TYPE:LogicalChoice	VISIBLE:NO	PRESKILL:1,Knowledge (Weird Science)=4			SAB:Logical (Weird Science)			BONUS:SKILL|Investigate|var("CL=Smart")/2|TYPE=Synergy					SOURCEPAGE:p.22
 
 ###Block: Categories for Talk a Good Game Talent
 # Feat Name					Type					Visible	Required Feat						Special ABility						Source Page
-Category [Art]				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Art]					SAB:Talk a Good Game (Art)				SOURCEPAGE:p.22
-Category [Behavioral sciences]	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Behavioral sciences]		SAB:Talk a Good Game (Behavioral Sciences)	SOURCEPAGE:p.22
-Category [Business]			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Business]				SAB:Talk a Good Game (Business)			SOURCEPAGE:p.22
-Category [Civics]				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Civics]				SAB:Talk a Good Game (Civics)				SOURCEPAGE:p.22
-Category [Current events]		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Current events]			SAB:Talk a Good Game (Current Events)		SOURCEPAGE:p.22
-Category [Earth and life sciences]	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Earth and life sciences]	SAB:Talk a Good Game (Earth and Life Sciences)	SOURCEPAGE:p.22
-Category [Hidden lore]			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Hidden lore]			SAB:Talk a Good Game (Hidden Lore)			SOURCEPAGE:p.22
-Category [History]			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[History]				SAB:Talk a Good Game (History)			SOURCEPAGE:p.22
-Category [Military Science]		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Military Science]		SAB:Talk a Good Game (Military Science)		SOURCEPAGE:p.22
-Category [Physical sciences]		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Physical sciences]		SAB:Talk a Good Game (Physical Sciences)		SOURCEPAGE:p.22
-Category [Popular culture]		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Popular culture]			SAB:Talk a Good Game (Popular Culture)		SOURCEPAGE:p.22
-Category [Streetwise]			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Streetwise]			SAB:Talk a Good Game (Streetwise)			SOURCEPAGE:p.22
-Category [Technology]			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Technology]			SAB:Talk a Good Game (Technology)			SOURCEPAGE:p.22
-Category [Theology and philosophy]	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Theology and philosophy]	SAB:Talk a Good Game (Theology and Philosophy)	SOURCEPAGE:p.22
-Category [Weird Science]		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category[Weird Science]			SAB:Talk a Good Game (Weird Science)		SOURCEPAGE:p.22
+Category (Art)				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Art)					SAB:Talk a Good Game (Art)				SOURCEPAGE:p.22
+Category (Behavioral sciences)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Behavioral sciences)		SAB:Talk a Good Game (Behavioral Sciences)	SOURCEPAGE:p.22
+Category (Business)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Business)				SAB:Talk a Good Game (Business)			SOURCEPAGE:p.22
+Category (Civics)				TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Civics)				SAB:Talk a Good Game (Civics)				SOURCEPAGE:p.22
+Category (Current events)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Current events)			SAB:Talk a Good Game (Current Events)		SOURCEPAGE:p.22
+Category (Earth and life sciences)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Earth and life sciences)	SAB:Talk a Good Game (Earth and Life Sciences)	SOURCEPAGE:p.22
+Category (Hidden lore)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Hidden lore)			SAB:Talk a Good Game (Hidden Lore)			SOURCEPAGE:p.22
+Category (History)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(History)				SAB:Talk a Good Game (History)			SOURCEPAGE:p.22
+Category (Military Science)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Military Science)		SAB:Talk a Good Game (Military Science)		SOURCEPAGE:p.22
+Category (Physical sciences)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Physical sciences)		SAB:Talk a Good Game (Physical Sciences)		SOURCEPAGE:p.22
+Category (Popular culture)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Popular culture)			SAB:Talk a Good Game (Popular Culture)		SOURCEPAGE:p.22
+Category (Streetwise)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Streetwise)			SAB:Talk a Good Game (Streetwise)			SOURCEPAGE:p.22
+Category (Technology)			TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Technology)			SAB:Talk a Good Game (Technology)			SOURCEPAGE:p.22
+Category (Theology and philosophy)	TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Theology and philosophy)	SAB:Talk a Good Game (Theology and Philosophy)	SOURCEPAGE:p.22
+Category (Weird Science)		TYPE:TalkAGoodGameChoice	VISIBLE:NO	PREFEAT:1,Category(Weird Science)			SAB:Talk a Good Game (Weird Science)		SOURCEPAGE:p.22
 
 ###Block: Fast Learner Level Selections
 # Feat Name				Type				Visible	Multiple Requirements							Bonus to skill point for a level
@@ -307,7 +307,7 @@ Scientific Improvisation	TYPE:ScientistAbility	VISIBLE:NO	SAB:Scientific Improvi
 Scientist Skill Mastery		TYPE:ScientistAbility	VISIBLE:NO	SAB:Skill Mastery (%CHOICE)		STACK:NO	MULT:YES	CHOOSE:SKILL|CLASS																						SELECT:INT+3													SOURCEPAGE:p.118
 Minor Breakthrough		TYPE:ScientistAbility	VISIBLE:NO	SAB:Minor Breakthrough (%CHOICE)	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)												BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.118
 Smart Survival			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Survival																																															SOURCEPAGE:p.118
-Smart Weapon			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Weapon (%CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|EQUIPMENT[!TYPE=2 handed]|PC																													SOURCEPAGE:p.118
+Smart Weapon			TYPE:ScientistAbility	VISIBLE:NO	SAB:Smart Weapon (%CHOICE)		STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|WEAPONPROFICIENCY|EQUIPMENT[!TYPE=TwoHanded]|PC																													SOURCEPAGE:p.118
 Major Breakthrough		TYPE:ScientistAbility	VISIBLE:NO	SAB:Major Breakthrough																																											BONUS:VAR|WealthBonus|3	SOURCEPAGE:p.118
 
 ###Block:Shadowy Avenger Class Abilities
