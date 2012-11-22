@@ -1,0 +1,89 @@
+# CVS $Revision$ $Author$ -- Wed Feb 15 13:58:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:DHG - The Practical Enchanter	SOURCESHORT:TPE	SOURCEWEB:http://www.lulu.com/product/paperback/the-practical-enchanter/559616	SOURCEDATE:01-2001
+#Original Entry: Andrew Maitland
+
+
+
+#########################################################################
+###	Section: Must Be Applied direct to the Companion in question	#
+#########################################################################
+
+###Block: Companion or Other Stat Increases ALL
+# Ability Name			Category of Ability		Type					Var. Max. Value		Stat bonus						Cost		Source Page
+Companion Stat Bonus Str +1	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,1	BONUS:STAT|STR|1							SOURCEPAGE:p.187
+Companion Stat Bonus Str +2	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,2	BONUS:STAT|STR|2							SOURCEPAGE:p.187
+Companion Stat Bonus Str +3	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,3	BONUS:STAT|STR|3							SOURCEPAGE:p.187
+Companion Stat Bonus Str +4	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,4	BONUS:STAT|STR|4							SOURCEPAGE:p.187
+
+Companion Stat Bonus Dex +1	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,1	BONUS:STAT|DEX|1							SOURCEPAGE:p.187
+Companion Stat Bonus Dex +2	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,2	BONUS:STAT|DEX|2							SOURCEPAGE:p.187
+Companion Stat Bonus Dex +3	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,3	BONUS:STAT|DEX|3							SOURCEPAGE:p.187
+Companion Stat Bonus Dex +4	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,4	BONUS:STAT|DEX|4							SOURCEPAGE:p.187
+
+Companion Stat Bonus Con +1	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,1	BONUS:STAT|CON|1							SOURCEPAGE:p.187
+Companion Stat Bonus Con +2	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,2	BONUS:STAT|CON|2							SOURCEPAGE:p.187
+Companion Stat Bonus Con +3	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,3	BONUS:STAT|CON|3							SOURCEPAGE:p.187
+Companion Stat Bonus Con +4	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,4	BONUS:STAT|CON|4							SOURCEPAGE:p.187
+
+Companion Stat Bonus Int +1	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,1	BONUS:STAT|INT|1							SOURCEPAGE:p.187
+Companion Stat Bonus Int +2	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,2	BONUS:STAT|INT|2							SOURCEPAGE:p.187
+Companion Stat Bonus Int +3	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,3	BONUS:STAT|INT|3							SOURCEPAGE:p.187
+Companion Stat Bonus Int +4	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,4	BONUS:STAT|INT|4							SOURCEPAGE:p.187
+
+Companion Stat Bonus Wis +1	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,1	BONUS:STAT|WIS|1							SOURCEPAGE:p.187
+Companion Stat Bonus Wis +2	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,2	BONUS:STAT|WIS|2							SOURCEPAGE:p.187
+Companion Stat Bonus Wis +3	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,3	BONUS:STAT|WIS|3							SOURCEPAGE:p.187
+Companion Stat Bonus Wis +4	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,4	BONUS:STAT|WIS|4							SOURCEPAGE:p.187
+
+Companion Stat Bonus Cha +1	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,1	BONUS:STAT|CHA|1							SOURCEPAGE:p.187
+Companion Stat Bonus Cha +2	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,2	BONUS:STAT|CHA|2							SOURCEPAGE:p.187
+Companion Stat Bonus Cha +3	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,3	BONUS:STAT|CHA|3							SOURCEPAGE:p.187
+Companion Stat Bonus Cha +4	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,4	BONUS:STAT|CHA|4							SOURCEPAGE:p.187
+
+Companion Stat Bonus ALL +1	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,1	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|1	COST:6	SOURCEPAGE:p.187
+Companion Stat Bonus ALL +2	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,2	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|2	COST:6	SOURCEPAGE:p.187
+Companion Stat Bonus ALL +3	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,3	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|3	COST:6	SOURCEPAGE:p.187
+Companion Stat Bonus ALL +4	CATEGORY:Special Ability	TYPE:WealthCompanionBonusStat	PREVARLTEQ:StatMax,4	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|4	COST:6	SOURCEPAGE:p.187
+
+
+
+###Block: Additional Level Choices
+# Ability Name						Category of Ability		Type							Var. Min. Value				Var. Must Be Lower	Stackable?	Multiple?	Choose														Template				Modify VAR						Source Page
+Magical Beast Lvl 1					CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,1		PREVARLT:MinGrant,2																				TEMPLATE:Magical Beast Lvl 1								SOURCEPAGE:p.187
+Magical Beast Lvl 2					CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,2		PREVARLT:MinGrant,3																				TEMPLATE:Magical Beast Lvl 2								SOURCEPAGE:p.187
+Magical Beast Lvl 3					CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,3		PREVARLT:MinGrant,3																				TEMPLATE:Magical Beast Lvl 3								SOURCEPAGE:p.187
+Magical Beast Lvl 4					CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,4																									TEMPLATE:Magical Beast Lvl 4								SOURCEPAGE:p.187
+Magical Beast Lvl 5					CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,5																									TEMPLATE:Magical Beast Lvl 5								SOURCEPAGE:p.187
+Magical Beast Lvl 6					CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,6																									TEMPLATE:Magical Beast Lvl 6								SOURCEPAGE:p.187
+Magical Beast Lvl 7					CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,7																									TEMPLATE:Magical Beast Lvl 7								SOURCEPAGE:p.187
+Magical Beast Lvl 8					CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,8																									TEMPLATE:Magical Beast Lvl 8								SOURCEPAGE:p.187
+Magical Beast Lvl 9					CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,9																									TEMPLATE:Magical Beast Lvl 9								SOURCEPAGE:p.187
+Magical Beast Lvl 10					CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,10																								TEMPLATE:Magical Beast Lvl 10								SOURCEPAGE:p.187
+Magical Beast Lvl 11					CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,11																								TEMPLATE:Magical Beast Lvl 11								SOURCEPAGE:p.187
+Magical Beast Lvl 12					CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,12																								TEMPLATE:Magical Beast Lvl 12								SOURCEPAGE:p.187
+
+#For if the Dragon Template Type is applied
+Dragon Lvl 1						CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,1		PREVARLT:MinGrant,2																				TEMPLATE:Dragon Lvl 1									SOURCEPAGE:p.187
+Dragon Lvl 2						CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,2		PREVARLT:MinGrant,3																				TEMPLATE:Dragon Lvl 2									SOURCEPAGE:p.187
+Dragon Lvl 3						CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,3		PREVARLT:MinGrant,3																				TEMPLATE:Dragon Lvl 3									SOURCEPAGE:p.187
+Dragon Lvl 4						CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,4																									TEMPLATE:Dragon Lvl 4									SOURCEPAGE:p.187
+Dragon Lvl 5						CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,5																									TEMPLATE:Dragon Lvl 5									SOURCEPAGE:p.187
+Dragon Lvl 6						CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,6																									TEMPLATE:Dragon Lvl 6									SOURCEPAGE:p.187
+Dragon Lvl 7						CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,7																									TEMPLATE:Dragon Lvl 7									SOURCEPAGE:p.187
+Dragon Lvl 8						CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,8																									TEMPLATE:Dragon Lvl 8									SOURCEPAGE:p.187
+Dragon Lvl 9						CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,9																									TEMPLATE:Dragon Lvl 9									SOURCEPAGE:p.187
+Dragon Lvl 10						CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,10																								TEMPLATE:Dragon Lvl 10									SOURCEPAGE:p.187
+Dragon Lvl 11						CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,11																								TEMPLATE:Dragon Lvl 11									SOURCEPAGE:p.187
+Dragon Lvl 12						CATEGORY:Special Ability	TYPE:WealthCompanionBonus			PREVARGTEQ:CompanionMaxLvls,12																								TEMPLATE:Dragon Lvl 12									SOURCEPAGE:p.187
+
+# Companion Bonus HP Work-around
+#COMMENT: These are used to bypass the normal HP restrictions on Familiars. Ideally we can use a CHOOSE, but intially testing failed. Defaulting to a Few different cases till we can implement Tom's improved Choosers.
+Companion Bonus HP ~ Total Levels added Max d8	CATEGORY:Special Ability	TYPE:BonusHPAll.Companion.Ability.General																																			BONUS:VAR|FamiliarBonusHP|(TL-1)*8
+Companion Bonus HP ~ Total Levels added Max d10	CATEGORY:Special Ability	TYPE:BonusHPAll.Companion.Ability.General																																			BONUS:VAR|FamiliarBonusHP|(TL-1)*10
+Companion Bonus HP ~ Total Levels added Max d12	CATEGORY:Special Ability	TYPE:BonusHPAll.Companion.Ability.General																																			BONUS:VAR|FamiliarBonusHP|(TL-1)*12
+
+
+Companion Bonus HP ~ Con Bonus			CATEGORY:Special Ability	TYPE:BonusHPAll.Companion.Ability.General																																			BONUS:VAR|FamiliarBonusHP|(TL-1)*CON
+
+Companion Bonus HP ~ Input HP String		CATEGORY:Special Ability	TYPE:BonusHPAll.Companion.Ability.General											STACK:NO	MULT:YES	CHOOSE:STRING|1|10|11|12|13|14|15|16|17|18|19|2|20|24|28|3|36|4|5|54|6|7|72|8|9							BONUS:VAR|FamiliarBonusHP|CHOICE
+Companion Bonus HP ~ Input HP User Input		CATEGORY:Special Ability	TYPE:BonusHPAll.Companion.Ability.General											STACK:NO	MULT:YES	CHOOSE:USERINPUT|TITLE=Enter ONLY the Number of Bonus HP Including CON bonus No Symbols						BONUS:VAR|FamiliarBonusHP|CHOICE
