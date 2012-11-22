@@ -1,0 +1,110 @@
+This is the Master List of Issues relating to support of the Eclipse System (Point Buy Classless System). In here will be the ongoing problems and workarounds present in Eclipse. This is grabbed and updated from the file "~ eclipse master issues and workarounds.lst"
+
+
+TO DO LIST For Eclipse:
+1# Mystic Artist Needs to be expanded to cover different Stats.
+2# Split Trick into Pool/ Abilities
+3# Add BENEFIT to ALL abilities - BENEFIT will have the Shortened/Abbreviated text for Output Sheets. DESC will hold the full text.
+- Reasoning: Benefit is the default OS output; we want just the important text present for the players, it also saves space.
+
+
+
+
+
+
+
+Eclipse is a d20 point buy system, it is very flexible, and has a nice easy standardized progression.
+
+GOAL #1
+Character Class should be ONE class.
+
+Currently we have to set up Eclipse Class as several Classes to handle different HD,
+
+All Eclipse Character Classes get a d4, but may buy up to higher HD. This is per level, not across the board. No Implementation possible
+- FREQ - Variable HD per Level
+
+Would like HD:LEVEL=1|VariableLevelOne
+		HD:Eclipse=2|VariableLevelTwo
+
+Next Issue:
+Non-Class skills AKA - irrelevant skills, after being purchased with 6 CP (i.e. buy it six times) becomes a Class or Relevant Skill.
+
+FREQ - New Tag 'SKILL Blah' 
+Workaround - CSKILL in a Virtual Feat after X ranks taken in X Skill. Messy, need something more global.
+
+SKILL has ABILITY:X|AUTOMATIC|Make CSKILL ~ SKILL NAME
+In Ability
+Make CSKILL ~ SKILL NAME has CSKILL:SKILL NAME
+
+This is sloppy on two fronts -
+#1 - Every Skill Needs this treatment, Labor Intensive
+#2 - CSKILL is a Global Tag, which grants the Listed Skill to ALL Classes as a Class Skill
+
+
+Next Issue:
+Scalable Damage 
+
+No Freq yet
+
+In Eclipse, characters may buy up Damage Die, 1d4, 1d6, 1d8, 1d10, 1d12, 2d10 or 1d20.
+I'm only able to handle part of this using Special OS Blocks designed with Variable - See Martial Arts and Spirit Weapon.
+
+Can't handle standard D20 non-natural weapons currently. Workaround would follow the D&D Scale instead of the Publisher Scale
+
+Next Issue:
+Sort Abilities by specific method
+
+Publisher Requested - Sorting Abilities as they are found in the book. Most are alphabetical, but in some cases the order is very important.
+
+FREQ - SORTKEY proposal.
+
+Next Issue
+
+Need NEW Functionality added to 'count'
+Add "KEY=" to the Options. Currently "NAME=" is the best method, however, NAME is used for output in most cases and with KEY being popular -
+	You can have corner cases where you'll have two abilities with the same name.
+
+# Next Issue
+Needed Functionality for adjustable Cost
+
+FREQ - COST Improvement
+
+Reasoning - Eclipse has BASE Abilities that can be altered by either Specializing them (Specialization can either CUT the Cost by Half (1/2) OR can DOUBLE the Power of the Ability).
+ Or you may 'Corrupt' the ability [ Corruption likewise can either cut the cost by two-thirds (2/3rds) OR increase the Power of the ability by 1.5 (One Half More Powerful). 
+ In some cases the Abilities MAY Combine both effects. Specialized for Double effect and Corrupted for Increased effect, or any combo or the two, in rare cases you may have 
+ double specialization or corruption, but that is rare.
+
+ Hence, we need a method to adjust the cost. Ideally, the ability would almost be like an item customization,
+ Step 1: Choose Ability
+ Step 2: Add Specialization / Corruption Combo (Cost adjusted automatically based upon BASE cost)
+ Step 3: Apply Ability to PC, Relic or Companion.
+
+
+# Next Issue
+Grant a Companion (Familiar, Animal Companion, Special Mount, etc) abilities from the master and Vice Versa
+
+# Next Issue
+
+
+
+
+
+# How to make a Lightsaber - Relic
+Immunity to DR, (Common, Severe, Major, 9 CP  For 30 Damage Reduction Bypass), 
+1d8 Base Sword (-) (form doesn't matter much, Common Augment Attack 1d8 (8 CP), 
+total 17 CP (might call it corrupted if there is a serious risk of hurting yourself or special requirements). Thus 2-3 CP.
+
+6 =1
+12 =2
+18 =3
+
+Lightsaber - 2d8 damage (Bypasses 30 DR)
+
+
+# Next Item
+
+BUG - Issue with Web Based Sets - MODs inherently don't work if called from a Source on a Webserver vs. something Local. NEED to fix this.
+
+
+
+

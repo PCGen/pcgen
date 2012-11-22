@@ -1,0 +1,16 @@
+SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2011-01-01
+
+#
+Dragon Rider Bond		SORTKEY:A		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.Other	BENEFIT:You are bonded to a Rider|PRERACE:1,RACETYPE=Dragon	BENEFIT:You are bonded to a Dragon|!PRERACE:1,RACETYPE=Dragon	BENEFIT:&nl; You gain the following abilities &nl; Mystic Link with upgrades; Communications, Power Link & Identity Link with your bond mate &nl; Mindspeech with Sense Sharing (You may use the Mindspeech as normal, but the Sense Sharing is exclusively to your Bond Mate) &nl; Grant of Aid with Mighty. Your bond gives you extra reserves.
+
+# 
+Weightless Perching				CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.Other		BENEFIT:You may perch on anything without your weight
+#Alter Dragon Breath (May Breath in a Line or Cone)	- Accomplished with Draco Feats
+Alter Dragon Breath Type			CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.Other		BENEFIT:You may alter your elemental breath weapon type [Fire, Cold, Acid or Electricity]
+Immunity to Inertia while in flight		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.Other
+Augmentations for breath weapons*		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.Other
+Mystic link with a mentor-dragon		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.Other
+Shapeshift (ability to take human form)	CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.Other		BENEFIT:You may assume a humanoid form as per shapeshift.
+Spherical Breath Weapon				CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.Other		BENEFIT:You may have your breath weapon affect a 30' burst around you.

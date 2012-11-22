@@ -1,0 +1,23 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2011-01-01
+
+# Equipment Name	Required Armor Proficiency	Type					Cost
+Relic								TYPE:Relic				COST:0
+
+#Dummy Objects
+#Blasters	TYPE:Weapon.Ranged.Blasters	PROFICIENCY:WEAPON|Blasters
+#Pistols	TYPE:Weapon.Ranged.Pistols	PROFICIENCY:WEAPON|Pistols
+#SmallArms	TYPE:Weapon.Ranged.SmallArms	PROFICIENCY:WEAPON|SmallArms
+#Gunnery	TYPE:Weapon.Ranged.Gunnery	PROFICIENCY:WEAPON|Gunnery
+#Bioweapons	TYPE:Weapon.Ranged.Bioweapons	PROFICIENCY:WEAPON|Bioweapons
+#Gases		TYPE:Weapon.Ranged.Gases		PROFICIENCY:WEAPON|Gases
+
+
+Power Suit Dummy	PROFICIENCY:ARMOR|SuperHeavy	TYPE:Armor.Superheavy.Suit
+
+
+
+
+#Hideaway				SOURCEPAGE:p.36	KEY:MIC_HIDEAWAY	TYPE:Weapon	COST:2000	VISIBLE:QUALIFY	PRETYPE:2,Enhancement,Weapon		SPROP:[Swift] When activated, a hideaway weapon folds up into a bundle two size categories smaller than you, making is easy to conceal. You gain a +2 bonus on Sleight of Hand checks to conceal a hideaway weapon when it's folded up (as if it were a dagger). A second command word returns the weapon to it's shape.

@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2011-01-01
+
+#Block: Included for gamemodes that don't support certain profs types.
+#Blasters		TYPE:Blasters
+#Pistols		TYPE:Pistols
+#SmallArms		TYPE:SmallArms
+#Gunnery		TYPE:Gunnery
+#Bioweapons		TYPE:Bioweapons
+#Gases		TYPE:Gases
+# Weapon Name	Type
+Martial Weapon	TYPE:Martial
