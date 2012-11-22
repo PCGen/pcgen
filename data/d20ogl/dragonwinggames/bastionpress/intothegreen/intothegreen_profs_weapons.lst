@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Thu Apr  8 01:18:41 2010 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Bastion Press - Into the Green	SOURCESHORT:ittg	SOURCEDATE:2003-01
+#Original Entry: Andrew (LegacyKing) Maitland
+
+
+# Weapon Name	Type
+Machete		TYPE:Simple.Machete.Swords
