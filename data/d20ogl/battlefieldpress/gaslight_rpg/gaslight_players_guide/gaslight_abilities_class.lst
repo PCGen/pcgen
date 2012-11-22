@@ -1,0 +1,365 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
+#Original Entry: Andrew Maitland
+
+
+###Block: Automatic Proficiencies for all classes
+# Ability Name			Category of Ability		Visible	Template				Automatically Gained Weapon Prof.
+All Automatic Proficiencies	CATEGORY:Special Ability	VISIBLE:NO	TEMPLATE:World Law ~ Skills	AUTO:WEAPONPROF|Unarmed Strike
+
+###Block: Swap a Feat for a Racial Talent
+# Ability Name						Category of Ability	Type																						Visible		Required Race		Stackable?	Multiple?	Choose		Bonus to Ability Pool
+Swap a Class Feature for a Human Talent		CATEGORY:Talent		TYPE:Talent.AcolyteTalent.InvestigatorTalent.ExplorerTalent.MageTalent.MartialArtistTalent.OfficerTalent.RogueTalent.ScholarTalent	VISIBLE:DISPLAY	PRERACE:1,Human		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Human Talent|1
+Swap a Class Feature for a Beast Man Talent	CATEGORY:Talent		TYPE:Talent.AcolyteTalent.InvestigatorTalent.ExplorerTalent.MageTalent.MartialArtistTalent.OfficerTalent.RogueTalent.ScholarTalent	VISIBLE:DISPLAY	PRERACE:1,Beast Man	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Beast Man Talent|1
+Swap a Class Feature for a Vampire Talent		CATEGORY:Talent		TYPE:Talent.AcolyteTalent.InvestigatorTalent.ExplorerTalent.MageTalent.MartialArtistTalent.OfficerTalent.RogueTalent.ScholarTalent	VISIBLE:DISPLAY	PRERACE:1,Vampire		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Vampire Talent|1
+Swap a Class Feature for a Wildling Talent	CATEGORY:Talent		TYPE:Talent.AcolyteTalent.InvestigatorTalent.ExplorerTalent.MageTalent.MartialArtistTalent.OfficerTalent.RogueTalent.ScholarTalent	VISIBLE:DISPLAY	PRERACE:1,Wildling	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Wildling Talent|1
+
+###Block:   Acolyte class abilities   ==========================================
+
+# Ability Name	Category of Ability		Type				Description																									Source Page
+Combat Casting	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:The Acolyte becomes adept at casting spells during combat. She gets a +4 bonus on Concentration checks made to cast a spell while on the defensive.	SOURCEPAGE:p.79
+Medical Mastery	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:When making a Treat Injury skill check, an Acolyte may take 10 even if stress and distractions would normally prevent him from doing so.			SOURCEPAGE:p.79
+
+###Block: Acolyte Turn Undead
+# Ability Name	Category of Ability		Type									Visible	Restricted Ability						Define																																									Description																						Source Page
+Basic Turning	CATEGORY:Special Ability	TYPE:Turning							VISIBLE:NO										DEFINE:TurnTimesBase|0	DEFINE:TurnLevelBase|0	DEFINE:TurnDiceBase|2	DEFINE:TurnDieSizeBase|6	DEFINE:TurnDamagePlusBase|CHA	DEFINE:TurnCheckBase|0																																								SOURCEPAGE:p.77
+Turn Undead		CATEGORY:Special Ability	TYPE:Turning.TurnUndead.SpecialAttack.Supernatural			!PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase	DESC:%1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	SOURCEPAGE:p.77
+Rebuke Undead	CATEGORY:Special Ability	TYPE:Turning.TurnUndead.SpecialAttack.Supernatural			!PREABILITY:1,CATEGORY=Special Ability,Turn Undead	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase	DESC:%1/day (turn level %2) (turn damage %3d%4+%5)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	SOURCEPAGE:p.77
+
+###Block: Acolyte Domain Abilities
+# Ability Name	Category of Ability		Type				Visible	Define		Description
+Insanity		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:Insanity|0	DESC:Insanity score %1|Insanity
+
+###Block: Acolyte Talent Trees
+# Empathic Talent Tree
+# Ability Name		Category of Ability	Type					Required Ability								Define				Description																																Stackable?	Multiple?	Choose																			Selections		Bonus to skill							Modify VAR				Source Page
+Empathy			CATEGORY:Talent		TYPE:Talent.AcolyteTalent																DESC:The Acolyte has a knack for being sensitive to the feelings and thoughts of others without having those feelings and thoughts communicated in any objectively explicit manner.																																													SOURCEPAGE:p.79
+Improved Aid Another	CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Empathy				DEFINE:ImprovedAidBonus|0	DESC:The Acolyte's bonus on attempts to aid another increases by +%1 on a successful aid another check.|ImprovedAidBonus															MULT:YES	CHOOSE:NOCHOICE																														BONUS:VAR|ImprovedAidBonus|1	SOURCEPAGE:p.79
+Intuition			CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Empathy									DESC:The Acolyte has an innate ability to sense trouble in the air.																																																															SOURCEPAGE:p.79
+
+# Healing Talent Tree
+Healing Knack		CATEGORY:Talent		TYPE:Talent.AcolyteTalent																DESC:The Acolyte has a knack for the healing arts.																																																				BONUS:SKILL|Treat Injury|2	BONUS:SKILL|Heal|2						SOURCEPAGE:p.79
+Healing Touch 1		CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Healing Knack								DESC:The Acolyte's ability to restore damage with a medical kit or perform surgery with a surgery kit increases by +2 hit points.																																																					SOURCEPAGE:p.79
+Healing Touch 2		CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:2,CATEGORY=Talent,Healing Knack,Healing Touch 1						DESC:The Acolyte's ability to restore damage with a medical kit or perform surgery with a surgery kit increases by +2 hit points, which stacks with healing touch 1 for a total of +4 hit points.																																										SOURCEPAGE:p.79
+
+# Insightful Talent Tree
+Skill Emphasis		CATEGORY:Talent		TYPE:Talent.AcolyteTalent																DESC:The Acolyte chooses a skill and receives a +3 bonus on all checks with that skill.																			STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom				BONUS:SKILL|LIST|3											SOURCEPAGE:p.79
+Aware				CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Skill Emphasis								DESC:The Acolyte is intuitively aware of her surroundings.																																																																	SOURCEPAGE:p.80
+Faith				CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Skill Emphasis								DESC:The Acolyte has a great deal of faith.																																																																			SOURCEPAGE:p.80
+Cool Under Pressure	CATEGORY:Talent		TYPE:Talent.AcolyteTalent	PREABILITY:1,CATEGORY=Talent,Aware,Faith									DESC:When making a check with %1, the Acolyte can take 10 even when distracted or under duress.|%LIST																	STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|SKILL|TYPE=Charisma|TYPE=Constitution|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom	SELECT:3+WIS															SOURCEPAGE:p.80
+
+
+###Block:   Apprentice class abilities   =======================================
+
+# Ability Name	Category of Ability		Type				Visible	Define		Description																	Source Page
+Summon Familiar	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:FamiliarLVL|0	DESC:An Apprentice has the ability to obtain a familiar. A familiar is magically linked to its master.	SOURCEPAGE:p.81
+
+###Block: Apprentice Talents
+# Armored Spellcasting Talent Tree
+# Ability Name			Category of Ability		Type					Visible		Required Ability												Required Class				Required Feat													Required Skill			Define					Description																										Ability								Bonus to DC			Modify VAR					Source Page		Aspects
+Light Armored Spellcasting	CATEGORY:Talent			TYPE:Talent.ApprenticeTalent																		PRECLASS:1,SPELLCASTER.Arcane=1	PREFEAT:1,Armor Proficiency (Light)																					DESC:You may cast arcane spells while wearing light armor and suffer only half the normal percent failure chance for casting arcane spells while wearing armor.																				SOURCEPAGE:p.83
+Medium Armored Spellcasting	CATEGORY:Talent			TYPE:Talent.ApprenticeTalent				PREABILITY:1,CATEGORY=Talent,Light Armored Spellcasting					PRECLASS:1,SPELLCASTER.Arcane=1	PREFEAT:2,Armor Proficiency (Light),Armor Proficiency (Medium)																DESC:You may cast arcane spells while wearing medium armor and suffer only half the normal percent failure chance for casting arcane spells while wearing armor.																				SOURCEPAGE:p.83
+Heavy Armored Spellcasting	CATEGORY:Talent			TYPE:Talent.ApprenticeTalent				PREABILITY:2,CATEGORY=Talent,Light Armored Spellcasting,Medium Armored Spellcasting	PRECLASS:1,SPELLCASTER.Arcane=1	PREFEAT:2,Armor Proficiency (Light),Armor Proficiency (Medium),Armor Proficiency (Heavy)												DESC:You may cast arcane spells while wearing heavy armor and suffer only half the normal percent failure chance for casting arcane spells while wearing armor.																				SOURCEPAGE:p.83
+
+# Defensive Barrier
+Defensive Barrier 1		CATEGORY:Talent			TYPE:Talent.ApprenticeTalent	VISIBLE:DISPLAY																																									DEFINE:DefensiveBarrierBonus|0	DESC:The apprentice gains a +5 defensive barrier.																			ABILITY:Special Ability|AUTOMATIC|Defensive Barrier					BONUS:VAR|DefensiveBarrierBonus|5	SOURCEPAGE:p.83
+Defensive Barrier 2		CATEGORY:Talent			TYPE:Talent.ApprenticeTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Defensive Barrier 1																																						DESC:The apprentice gains a +10 defensive barrier.																																BONUS:VAR|DefensiveBarrierBonus|5	SOURCEPAGE:p.83
+Defensive Barrier 3		CATEGORY:Talent			TYPE:Talent.ApprenticeTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Defensive Barrier 2																																						DESC:The apprentice gains a +15 defensive barrier.																																BONUS:VAR|DefensiveBarrierBonus|5	SOURCEPAGE:p.83
+Defensive Barrier 4		CATEGORY:Talent			TYPE:Talent.ApprenticeTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Defensive Barrier 3																																						DESC:The apprentice gains a +20 defensive barrier.																																BONUS:VAR|DefensiveBarrierBonus|5	SOURCEPAGE:p.83
+Defensive Barrier 5		CATEGORY:Talent			TYPE:Talent.ApprenticeTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Defensive Barrier 4																																						DESC:The apprentice gains a +25 defensive barrier.																																BONUS:VAR|DefensiveBarrierBonus|5	SOURCEPAGE:p.83
+Defensive Barrier			CATEGORY:Special Ability	TYPE:SpecialQuality.Defensive																																																		DESC:The apprentice gains a +%1 defensive barrier.|DefensiveBarrierBonus																																		SOURCEPAGE:p.83	ASPECT:Ability Benefit|+%1|DefensiveBarrierBonus
+
+#Universal Magic Talent Tree
+Mage's Knowledge			CATEGORY:Talent			TYPE:Talent.ApprenticeTalent																																							PRESKILL:1,TYPE.Knowledge=1							DESC:Your knowledge is nearly as formidable as your magic.																																					SOURCEPAGE:p.83
+Hand of the Apprentice		CATEGORY:Talent			TYPE:Talent.ApprenticeTalent																																																		DESC:As a standard action, you can summon a ghostly hand to do your bidding.																																		SOURCEPAGE:p.84
+Metamagic Mastery			CATEGORY:Talent			TYPE:Talent.ApprenticeTalent				PREABILITY:1,CATEGORY=Talent,Hand of the Apprentice																																						DESC:You can apply any metamagic feat that you know to a spell you are about to cast.																																SOURCEPAGE:p.84
+Mastery of All Schools		CATEGORY:Talent			TYPE:Talent.ApprenticeTalent				PREABILITY:2,CATEGORY=Talent,Hand of the Apprentice,Metamagic Mastery																																			DESC:All of your spell DC's increase by +1 and you gain a +2 insight bonus on caster level checks made to overcome spell resistance.														BONUS:DC|ALLSPELLS|1							SOURCEPAGE:p.84
+
+
+###Block:   Everyman class abilities   =========================================
+
+# Ability Name		Category of Ability		Type					Visible		Stackable?	Multiple?	Choose		Class Skill
+Everyman Class Skills	CATEGORY:Special Ability	TYPE:EverymanClassSkills	VISIBLE:DISPLAY	STACK:NO	MULT:YES	CHOOSE:SKILL|ALL	CSKILL:LIST
+
+###Block: Everyman Talents
+#Attentive Talent Tree
+# Ability Name					Output Name			Category of Ability	Type					Required Ability								Description																															Stackable?	Multiple?	Choose						Selections	Bonus to skill						Class Skill	Source Page
+Social Intuition									CATEGORY:Talent		TYPE:Talent.EverymanTalent											DESC:Some people develop an intuitive sense of human interaction.																																			BONUS:SKILL|Persuasion,Gather Information|WIS			SOURCEPAGE:p.85
+Connected										CATEGORY:Talent		TYPE:Talent.EverymanTalent											DESC:You have come to know a wide variety of people through his business dealings or travels.																																								SOURCEPAGE:p.85
+Perceptive Synergy								CATEGORY:Talent		TYPE:Talent.EverymanTalent											DESC:You have a wide range of interest in many different fields, and is able to discern fact from fiction much more easily than other people due to his depth of knowledge.																											SOURCEPAGE:p.85
+
+#Authority Talent Tree
+Authority										CATEGORY:Talent		TYPE:Talent.EverymanTalent											DESC:Twice per day, the character can add her base Will save to a Persuasion check.																																										SOURCEPAGE:p.85
+Nonlethal Force									CATEGORY:Talent		TYPE:Talent.EverymanTalent											DESC:The character becomes adept at using nonlethal force to subdue an opponent.																																										SOURCEPAGE:p.85
+Freeze						OUTPUTNAME:"Freeze!"	CATEGORY:Talent		TYPE:Talent.EverymanTalent	PREABILITY:1,CATEGORY=Talent,Authority				DESC:Through a combination of persuasion and intimidation, the character may convince one target to cease any attempts to harm her.																																		SOURCEPAGE:p.85
+Shakedown										CATEGORY:Talent		TYPE:Talent.EverymanTalent	PREABILITY:2,CATEGORY=Talent,Freeze,Authority			DESC:Through a combination of diplomacy and intimidation, the character may convince one target to give up his weapons and come along quietly.																																SOURCEPAGE:p.86
+
+# By Grace of Fortune Talent Tree
+CATEGORY=Talent|Inherited Fortune.MOD									TYPE:EverymanTalent
+CATEGORY=Talent|Heirloom.MOD											TYPE:EverymanTalent
+CATEGORY=Talent|Inherited Treasure.MOD									TYPE:EverymanTalent
+
+#Fast Learner Talent Tree
+Fast Learner									CATEGORY:Talent		TYPE:Talent.EverymanTalent											DESC:When the character takes this talent and every time he gains a level as an Everyman thereafter, he gains 2 additional skill points to divide up among his various skills as he sees fit.																								SOURCEPAGE:p.86
+Improved Learning									CATEGORY:Talent		TYPE:Talent.EverymanTalent	PREABILITY:1,CATEGORY=Talent,Fast Learner				DESC:Characters with this talent are always one-step ahead of their peers when it comes to education.																																							SOURCEPAGE:p.86
+Broad Knowledge									CATEGORY:Talent		TYPE:Talent.EverymanTalent	PREABILITY:1,CATEGORY=Talent,Fast Learner				DESC:Heroes with this talent are familiar with a wide range of topics, making them capable of greater proficiency in unfamiliar areas.																																	SOURCEPAGE:p.86
+Cross Training									CATEGORY:Talent		TYPE:Talent.EverymanTalent	PREABILITY:2,CATEGORY=Talent,Fast Learner,Broad Knowledge	DESC:The Everyman may pick any three cross class skills, such as Stealth, or Sense Motive. These skills thereafter become class skills for the Everyman.							STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=3|SKILL|CROSSCLASS	SELECT:3									CSKILL:LIST	SOURCEPAGE:p.86
+
+
+###Block:   Explorer class abilities   =========================================
+
+# Ability Name	Category of Ability		Type						Description																																										Stackable?	Multiple?	Choose										Source Page
+Pathfinder		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:An Explorer gains the ability to make a Survival check to locate or blaze a trail through trackless terrain while traveling overland.																																			SOURCEPAGE:p.87
+Favored Terrain	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredTerrain	DESC:Due to his extensive training and experience operating in this terrain, the Explorer gains a +1 circumstance bonus to Knowledge (physical sciences), Notice, Stealth, and Survival checks when using these skills in this type of terrain.				STACK:NO	MULT:YES	CHOOSE:STRING|Aquatic|Arctic|Desert|Forest|Hill|Marsh|Mountains	SOURCEPAGE:p.87
+By the Bootstraps	CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:When a roll fails to meet the target DC by 5 points plus the characters INT bonus, he may then spend an Action point to consider the roll a flat out success, this takes the place of the additional die normally added to rolls by spending action points.																SOURCEPAGE:p.87
+Heroic Surge	CATEGORY:Special Ability	TYPE:SpecialQuality																																																													SOURCEPAGE:p.87
+
+###Block: Explorer Talents
+# Animal Friendship Talent Tree
+# Ability Name				Category of Ability	Type					Required Ability																																					Required Skill				Stackable?	Multiple?	Choose					Bonus to skill			Source Page
+Animal Affinity				CATEGORY:Talent		TYPE:Talent.ExplorerTalent																																																								BONUS:SKILL|Handle Animal|WIS	SOURCEPAGE:p.
+Wild Empathy				CATEGORY:Talent		TYPE:Talent.ExplorerTalent																																																													SOURCEPAGE:p.
+Calm Animals				CATEGORY:Talent		TYPE:Talent.ExplorerTalent																																																													SOURCEPAGE:p.
+Feral Bond					CATEGORY:Talent		TYPE:Talent.ExplorerTalent																																																													SOURCEPAGE:p.
+Animal Friendship				CATEGORY:Talent		TYPE:Talent.ExplorerTalent																																																													SOURCEPAGE:p.
+Greater Animal Friendship		CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:3,CATEGORY=Talent,Animal Affinity,Wild Empathy,Animal Friendship																																																SOURCEPAGE:p.
+Animal Companion				CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:1,CATEGORY=Talent,Animal Affinity,Wild Empathy,Calm Animals,Feral Bond,Animal Friendship,Greater Animal Friendship,Wilderness Awareness,Trackless Step,Swift Tracker,Wilderness Attunement,Camouflage,Hide in Plain Sight																						SOURCEPAGE:p.
+
+#Favored Enemy Talent Tree
+Favored Enemy				CATEGORY:Talent		TYPE:Talent.ExplorerTalent																																														STACK:NO	MULT:YES	CHOOSE:USERINPUT|TITLE=Allegiance						SOURCEPAGE:p.
+Improved Favored Enemy			CATEGORY:Talent		TYPE:Talent.ExplorerTalent																																																													SOURCEPAGE:p.
+Implacable Foe				CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:1,CATEGORY=Talent,Favored Enemy																																																					SOURCEPAGE:p.
+Focused Resolve				CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:1,CATEGORY=Talent,Favored Enemy																																																					SOURCEPAGE:p.
+Dauntless Opponent			CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:1,CATEGORY=Talent,Favored Enemy																																																					SOURCEPAGE:p.
+
+# Natural Hunter Talent Tree
+Wilderness Awareness			CATEGORY:Talent		TYPE:Talent.ExplorerTalent																																								PRESKILL:1,Survival=4																		SOURCEPAGE:p.
+Trackless Step				CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:1,CATEGORY=Talent,Wilderness Awareness																															PRESKILL:1,Survival=5																		SOURCEPAGE:p.
+Swift Tracker				CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:1,CATEGORY=Talent,Wilderness Awareness																															PRESKILL:1,Survival=9																		SOURCEPAGE:p.
+Wilderness Attunement			CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:2,CATEGORY=Talent,Wilderness Awareness,Swift Tracker																													PRESKILL:1,Survival=9																		SOURCEPAGE:p.
+Camouflage					CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:2,CATEGORY=Talent,Wilderness Awareness,Trackless Step																													PRESKILL:2,Survival=9,Stealth=9																SOURCEPAGE:p.
+Hide in Plain Sight			CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:2,CATEGORY=Talent,Wilderness Awareness,Trackless Step																													PRESKILL:2,Survival=11,Stealth=11																SOURCEPAGE:p.
+
+#Survivalist Talent Tree
+Harsh Weather Endurance			CATEGORY:Talent		TYPE:Talent.ExplorerTalent																																																													SOURCEPAGE:p.
+Improved Harsh Weather Endurance	CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:1,CATEGORY=Talent,Harsh Weather Endurance																																																				SOURCEPAGE:p.
+Outdoor Skills				CATEGORY:Talent		TYPE:Talent.ExplorerTalent																																																													SOURCEPAGE:p.
+Master Survivalist			CATEGORY:Talent		TYPE:Talent.ExplorerTalent																																																													SOURCEPAGE:p.
+Fast						CATEGORY:Talent		TYPE:Talent.ExplorerTalent																																								PRESKILL:1,Concentration=4																	SOURCEPAGE:p.
+Camel's Endurance				CATEGORY:Talent		TYPE:Talent.ExplorerTalent	PREABILITY:1,CATEGORY=Talent,Fast																																		PRESKILL:1,Concentration=4																	SOURCEPAGE:p.
+
+###Block:   Gunslinger class abilities   =======================================
+
+# Ability Name		Category of Ability		Type							Define				Multiple?	Choose								Modify VAR				Weapon prof. bonus
+Close Combat Shot		CATEGORY:Special Ability	TYPE:SpecialQuality
+Weapon Focus		CATEGORY:Special Ability	TYPE:SpecialQuality.GunslingerWeaponFocus	DEFINE:GunslingerWFBonus|0	MULT:YES	CHOOSE:WEAPONPROFICIENCY|EQUIPMENT[TYPE=Firearm]	BONUS:VAR|GunslingerWFBonus|1	BONUS:WEAPONPROF=%LIST|TOHIT|GunslingerWFBonus
+Defensive Position	CATEGORY:Special Ability	TYPE:SpecialQuality
+Lightning Shot		CATEGORY:Special Ability	TYPE:SpecialQuality
+Sharp-Shooting		CATEGORY:Special Ability	TYPE:SpecialQuality
+Bullseye			CATEGORY:Special Ability	TYPE:SpecialQuality
+Greater Weapon Focus	CATEGORY:Special Ability	TYPE:SpecialQuality																				BONUS:VAR|GunslingerWFBonus|1
+
+###Block: Gunslinger  Talent Trees
+# Precision Talent Tree
+# Ability Name		Category of Ability	Type									Required Ability											Required Feat		Combat bonus
+Precision			CATEGORY:Talent		TYPE:Talent.PrecisionTalent.GunslingerTalent																			BONUS:COMBAT|DAMAGE.Ranged|1
+Improved Precision	CATEGORY:Talent		TYPE:Talent.PrecisionTalent.GunslingerTalent		PREABILITY:1,CATEGORY=Talent,Precision											BONUS:COMBAT|DAMAGE.Ranged|1
+Advanced Precision	CATEGORY:Talent		TYPE:Talent.PrecisionTalent.GunslingerTalent		PREABILITY:2,CATEGORY=Talent,Precision,Improved Precision								BONUS:COMBAT|DAMAGE.Ranged|1
+Precise Critical		CATEGORY:Talent		TYPE:Talent.PrecisionTalent.GunslingerTalent		PREABILITY:3,CATEGORY=Talent,Precision,Improved Precision,Advanced Precision
+
+# Quick Draw Talent Tree
+Improved Quick Draw	CATEGORY:Talent		TYPE:Talent.QuickDrawTalent.GunslingerTalent
+Shoot from the Hip	CATEGORY:Talent		TYPE:Talent.QuickDrawTalent.GunslingerTalent
+Twitch			CATEGORY:Talent		TYPE:Talent.QuickDrawTalent.GunslingerTalent		PREABILITY:1,CATEGORY=Talent,Improved Quick Draw,Shoot from the Hip
+
+# Trick Shooting Talent Tree
+Improved Skip Shot	CATEGORY:Talent		TYPE:Talent.TrickShootingTalent.GunslingerTalent														PREFEAT:1,Skip Shot
+Exact Shot			CATEGORY:Talent		TYPE:Talent.TrickShootingTalent.GunslingerTalent
+Between the Eyes		CATEGORY:Talent		TYPE:Talent.TrickShootingTalent.GunslingerTalent														PREFEAT:1,Precise Shot
+
+#Gamblers Luck Talent Tree
+Professional Gambler	CATEGORY:Talent		TYPE:Talent.GunslingerTalent
+Lady Luck's Kiss		CATEGORY:Talent		TYPE:Talent.GunslingerTalent
+Luck of the Dice		CATEGORY:Talent		TYPE:Talent.GunslingerTalent					PREABILITY:1,CATEGORY=Talent,Lady Luck's Kiss
+Certain Fortune		CATEGORY:Talent		TYPE:Talent.GunslingerTalent					PREABILITY:2,CATEGORY=Talent,Lady Luck's Kiss,Luck of the Dice
+
+
+###Block:   Investigator class abilities   =====================================
+
+# Ability Name	Category of Ability		Type				Source Page
+Eye for Detail	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.
+Discern Lies	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.
+
+###Block: Investigator Talent Trees
+# Sleuth Talent Tree
+# Ability Name						Category of Ability	Type						Required Ability									Required Skill							Stackable?	Multiple?	Choose					Selections		Bonus to skill															Source Page
+Sharp Eye							CATEGORY:Talent		TYPE:Talent.InvestigatorTalent																																																			SOURCEPAGE:p.
+Target Bonus						CATEGORY:Talent		TYPE:Talent.InvestigatorTalent																																																			SOURCEPAGE:p.
+Profile							CATEGORY:Talent		TYPE:Talent.InvestigatorTalent																																																			SOURCEPAGE:p.
+Identify Motive						CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Profile																																												SOURCEPAGE:p.
+
+# Deduction Talent Tree
+Logical (Occult Science)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Occult Science)=4																BONUS:SKILL|Knowledge (Theology and Philosophy)|floor(classlevel("Investigator")/2)|TYPE=Synergy	SOURCEPAGE:p.
+Logical (Behavioral Sciences)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Behavioral Sciences)=4															BONUS:SKILL|Sense Motive|floor(classlevel("Investigator")/2)|TYPE=Synergy					SOURCEPAGE:p.
+Logical (Business)					CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Business)=4																	BONUS:SKILL|Forgery|floor(classlevel("Investigator")/2)|TYPE=Synergy						SOURCEPAGE:p.
+Logical (Civics)						CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Civics)=4																	BONUS:SKILL|Persuasion|floor(classlevel("Investigator")/2)|TYPE=Synergy						SOURCEPAGE:p.
+Logical (Current Events)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Current Events)=4																BONUS:SKILL|Gather Information|floor(classlevel("Investigator")/2)|TYPE=Synergy				SOURCEPAGE:p.
+Logical (Earth and Life Sciences)			CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Earth and Life Sciences)=4														BONUS:SKILL|Heal|floor(classlevel("Investigator")/2)|TYPE=Synergy							SOURCEPAGE:p.
+Logical (History)						CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (History)=4																	BONUS:SKILL|Research|floor(classlevel("Investigator")/2)|TYPE=Synergy						SOURCEPAGE:p.
+Logical (Physical Sciences)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Physical Sciences)=4															BONUS:SKILL|Craft (Chemical)|floor(classlevel("Investigator")/2)|TYPE=Synergy					SOURCEPAGE:p.
+Logical (Popular Culture)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Popular Culture)=4																BONUS:SKILL|Knowledge (Streetwise)|floor(classlevel("Investigator")/2)|TYPE=Synergy				SOURCEPAGE:p.
+Logical (Streetwise)					CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Streetwise)=4																	BONUS:SKILL|Pursuasion|floor(classlevel("Investigator")/2)|TYPE=Synergy						SOURCEPAGE:p.
+Logical (Military Science)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Military Science)=4																BONUS:SKILL|Investigate|floor(classlevel("Investigator")/2)|TYPE=Synergy					SOURCEPAGE:p.
+Logical (Technology)					CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Technology)=4																	BONUS:SKILL|Craft (Electronic)|floor(classlevel("Investigator")/2)|TYPE=Synergy				SOURCEPAGE:p.
+Logical (Theology and Philosophy)			CATEGORY:Talent		TYPE:Talent.InvestigatorTalent												PRESKILL:1,Knowledge (Theology and Philosophy)=4														BONUS:SKILL|Knowledge (Occult Science)|floor(classlevel("Investigator")/2)|TYPE=Synergy			SOURCEPAGE:p.
+Talk a Good Game (Occult Science)			CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Occult Science)																																										SOURCEPAGE:p.
+Talk a Good Game (Behavioral Sciences)		CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Behavioral Sciences)																																									SOURCEPAGE:p.
+Talk a Good Game (Business)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Business)																																											SOURCEPAGE:p.
+Talk a Good Game (Civics)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Civics)																																											SOURCEPAGE:p.
+Talk a Good Game (Current Events)			CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Current Events)																																										SOURCEPAGE:p.
+Talk a Good Game (Earth and Life Sciences)	CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Earth and Life Sciences)																																								SOURCEPAGE:p.
+Talk a Good Game (History)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (History)																																											SOURCEPAGE:p.
+Talk a Good Game (Physical Sciences)		CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Physical Sciences)																																									SOURCEPAGE:p.
+Talk a Good Game (Popular Culture)			CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Popular Culture)																																									SOURCEPAGE:p.
+Talk a Good Game (Streetwise)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Streetwise)																																										SOURCEPAGE:p.
+Talk a Good Game (Military Science)			CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Military Science)																																									SOURCEPAGE:p.
+Talk a Good Game (Technology)				CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Technology)																																										SOURCEPAGE:p.
+Talk a Good Game (Theology and Philosophy)	CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical (Theology and Philosophy)																																								SOURCEPAGE:p.
+Implacable							CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Logical%														STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Intelligence	SELECT:3+INT																		SOURCEPAGE:p.
+
+# Chameleon Talent Tree
+Improvise Disguise					CATEGORY:Talent		TYPE:Talent.InvestigatorTalent
+Masterful Impersonation					CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Profile
+Social Chameleon						CATEGORY:Talent		TYPE:Talent.InvestigatorTalent	PREABILITY:1,CATEGORY=Talent,Improvise Disguise
+Man of a Thousand Faces					CATEGORY:Talent		TYPE:Talent.InvestigatorTalent
+
+
+###Block:   Martial Artist class abilities   ===================================
+
+# Ability Name	Category of Ability		Type				Define					Add to base move											Weapon prof. bonus									Source Page
+Evade Fire		CATEGORY:Special Ability	TYPE:SpecialQuality																																SOURCEPAGE:p.98
+Fast Movement	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:FastMovementProgression|0	BONUS:MOVEADD|TYPE.Walk|FastMovementProgression*10|PREVAREQ:ENCUMBERANCE,0													SOURCEPAGE:p.98
+#Flurry of Blows	CATEGORY:Special Ability	TYPE:SpecialAttack																																SOURCEPAGE:p.98
+Stunning Fist	CATEGORY:Special Ability	TYPE:SpecialAttack																																SOURCEPAGE:p.98
+Living Weapon	CATEGORY:Special Ability	TYPE:SpecialAttack	DEFINE:LivingWeaponProgression|0														BONUS:WEAPONPROF=Unarmed Strike|DAMAGESIZE|LivingWeaponProgression	SOURCEPAGE:p.98
+
+###Block: Martial Artist Talent Trees
+# Defensive Talent Tree
+# Ability Name		Category of Ability	Type						Required Ability																															Req. Att.	Required Feat							Required Skill		Bonus to skill						Source Page
+Evasion			CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																																									SOURCEPAGE:p.
+Uncanny Dodge 1		CATEGORY:Talent		TYPE:Talent.MartialArtistTalent	PREABILITY:1,CATEGORY=Talent,Evasion																																																		SOURCEPAGE:p.
+Uncanny Dodge 2		CATEGORY:Talent		TYPE:Talent.MartialArtistTalent	PREABILITY:2,CATEGORY=Talent,Evasion,Uncanny Dodge 1																																																SOURCEPAGE:p.
+Defensive Roll		CATEGORY:Talent		TYPE:Talent.MartialArtistTalent	PREABILITY:2,CATEGORY=Talent,Evasion,Uncanny Dodge 1
+Opportunist			CATEGORY:Talent		TYPE:Talent.MartialArtistTalent	PREABILITY:1,CATEGORY=Talent,Evasion																																																		SOURCEPAGE:p.
+
+# Elusive Talent Tree
+Slippery			CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																																	BONUS:SKILL|Escape Artist|3				SOURCEPAGE:p.
+Fancy Footwork		CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																																									SOURCEPAGE:p.
+Catlike Reflexes		CATEGORY:Talent		TYPE:Talent.MartialArtistTalent	PREABILITY:1,CATEGORY=Talent,Evasion,Uncanny Dodge 1,Uncanny Dodge 2,Defensive Roll,Opportunist	PREABILITY:1,CATEGORY=Talent,Slippery,Fancy Footwork,Improved Fancy Footwork,Celeritous Skulking																BONUS:SKILL|Stealth|var("CHECK.Reflex.BASE")	SOURCEPAGE:p.
+Improved Fancy Footwork	CATEGORY:Talent		TYPE:Talent.MartialArtistTalent	PREABILITY:1,CATEGORY=Talent,Fancy Footwork																																																	SOURCEPAGE:p.
+Celeritous Skulking	CATEGORY:Talent		TYPE:Talent.MartialArtistTalent	PREABILITY:1,CATEGORY=Talent,Evasion,Uncanny Dodge 1,Uncanny Dodge 2,Defensive Roll,Opportunist	PREABILITY:2,CATEGORY=Talent,Slippery,Fancy Footwork,Catlike Reflexes,Improved Fancy Footwork																									SOURCEPAGE:p.
+
+# Unarmed Prodigy Talent Tree
+Exotic Arms			CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																				PREFEAT:1,Combat Martial Arts,Defensive Martial Arts													SOURCEPAGE:p.
+Jump Kick			CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																				PREFEAT:1,Combat Martial Arts					PRESKILL:1,Athletics=2									SOURCEPAGE:p.
+Roundhouse Kick		CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																		PREATT:1	PREFEAT:1,Combat Martial Arts																	SOURCEPAGE:p.
+Flying Kick			CATEGORY:Talent		TYPE:Talent.MartialArtistTalent																																		PREATT:5																						SOURCEPAGE:p.
+Flurry of Blows		CATEGORY:Talent		TYPE:Talent.MartialArtistTalent	PREABILITY:2,CATEGORY=Talent,Slippery,Fancy Footwork,Catlike Reflexes,Improved Fancy Footwork,Celeritous Skulking,Exotic Arms,Jump Kick,Roundhouse Kick,Flying Kick								PREFEAT:1,Combat Martial Arts,Brawl																SOURCEPAGE:p.
+
+
+###Block:   Officer class abilities   ==========================================
+
+# Ability Name	Category of Ability		Type				Source Page
+Way of Command	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.
+Rallying Call	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.
+Branch Elite	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.
+Legendary Speech	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.
+
+###Block: Officer Talents
+# Armsman Talent Tree
+# Ability Name		Category of Ability	Type					Required Ability											Req. Att.	Required Skill					Source Page
+Controlled Fire		CATEGORY:Talent		TYPE:Talent.OfficerTalent
+Concentrate Fire		CATEGORY:Talent		TYPE:Talent.OfficerTalent	PREABILITY:1,CATEGORY=Talent,Controlled Fire
+Heavy Fire			CATEGORY:Talent		TYPE:Talent.OfficerTalent	PREABILITY:2,CATEGORY=Talent,Concentrate Fire,Controlled Fire
+
+# Tactical Talent Tree
+Unit Integrity		CATEGORY:Talent		TYPE:Talent.OfficerTalent																PRESKILL:1,Knowledge (Military Science)=5	SOURCEPAGE:p.
+Tactical Aid		CATEGORY:Talent		TYPE:Talent.OfficerTalent																PRESKILL:1,Knowledge (Military Science)=7	SOURCEPAGE:p.
+Tactical Expertise	CATEGORY:Talent		TYPE:Talent.OfficerTalent																PRESKILL:1,Knowledge (Military Science)=9	SOURCEPAGE:p.
+Tactical Deception	CATEGORY:Talent		TYPE:Talent.OfficerTalent	PREABILITY:1,CATEGORY=Talent,Unit Integrity,Tactical Aid,Tactical Expertise	PREATT:6								SOURCEPAGE:p.
+
+# Leadership Talent Tree
+Coordinate			CATEGORY:Talent		TYPE:Talent.OfficerTalent																							SOURCEPAGE:p.
+Inspiration			CATEGORY:Talent		TYPE:Talent.OfficerTalent	PREABILITY:1,CATEGORY=Talent,Coordinate																SOURCEPAGE:p.
+Greater Inspiration	CATEGORY:Talent		TYPE:Talent.OfficerTalent	PREABILITY:2,CATEGORY=Talent,Coordinate,Inspiration														SOURCEPAGE:p.
+
+
+###Block:   Rogue class abilities   ============================================
+
+# Ability Name		Category of Ability		Type				Define			Description			Source Page
+Trapfinding			CATEGORY:Special Ability	TYPE:SpecialQuality									SOURCEPAGE:p.
+Evasion			CATEGORY:Special Ability	TYPE:SpecialQuality									SOURCEPAGE:p.
+Trap Sense			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:TrapSenseBonus|0	DESC:+%1|TrapSenseBonus	SOURCEPAGE:p.
+Uncanny Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality									SOURCEPAGE:p.
+Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:SpecialQuality									SOURCEPAGE:p.
+
+###Block: Rogue Talents
+# 1,000 Faces Talent Tree
+# Ability Name			Category of Ability	Type				Visible		Required Ability								Req. Att.	Required Class		Define								Description								Modify VAR				Source Page
+Quick Change			CATEGORY:Talent		TYPE:Talent.RogueTalent																																											SOURCEPAGE:p.
+A Thousand Faces			CATEGORY:Talent		TYPE:Talent.RogueTalent																																											SOURCEPAGE:p.
+Convincing				CATEGORY:Talent		TYPE:Talent.RogueTalent																																											SOURCEPAGE:p.
+Fake It				CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Quick Change																																	SOURCEPAGE:p.
+Face in the Crowd			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:2,CATEGORY=Talent,Quick Change,A Thousand Faces																														SOURCEPAGE:p.
+Perfect Mimicry			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:2,CATEGORY=Talent,Quick Change,Fake It																															SOURCEPAGE:p.
+
+# Thug Talent Tree
+Sneak Attack			CATEGORY:Talent		TYPE:Talent.RogueTalent																				DEFINE:StealthAttackDie|6	DEFINE:StealthAttack|1	DESC:+%1d%2 Damage|StealthAttack|StealthAttackDie						SOURCEPAGE:p.
+Sneak Attack 2			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Sneak Attack						PRECLASS:1,Rogue=3																			BONUS:VAR|StealthAttack|1	SOURCEPAGE:p.
+Sneak Attack 3			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Sneak Attack 2					PRECLASS:1,Rogue=5																			BONUS:VAR|StealthAttack|1	SOURCEPAGE:p.
+Sneak Attack 4			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Sneak Attack 3					PRECLASS:1,Rogue=7																			BONUS:VAR|StealthAttack|1	SOURCEPAGE:p.
+Sneak Attack 5			CATEGORY:Talent		TYPE:Talent.RogueTalent	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Talent,Sneak Attack 4					PRECLASS:1,Rogue=9																			BONUS:VAR|StealthAttack|1	SOURCEPAGE:p.
+Crippling Strike			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Sneak Attack				PREATT:5																												SOURCEPAGE:p.
+Death Attack			CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Sneak Attack				PREATT:7																												SOURCEPAGE:p.
+
+# Fast-Talk Talent Tree
+Fast-Talk				CATEGORY:Talent		TYPE:Talent.RogueTalent																																											SOURCEPAGE:p.
+Dazzle				CATEGORY:Talent		TYPE:Talent.RogueTalent				PREABILITY:1,CATEGORY=Talent,Fast-Talk																																	SOURCEPAGE:p.
+CATEGORY=Talent|Taunt.MOD					TYPE:Talent.RogueTalent
+
+
+###Block:   Scholar class abilities   ==========================================
+
+# Ability Name		Category of Ability		Type					Required Ability									Required Skill								Required Stat	Bonus to skill						Source Page
+Legendary Knowledge	CATEGORY:Special Ability	TYPE:SpecialQuality																																		SOURCEPAGE:p.
+
+# Research Talent Tree
+# Ability Name		Category of Ability		Type					Required Ability									Required Skill								Required Stat	Bonus to skill						Source Page
+Savant			CATEGORY:Talent			TYPE:Talent.ScholarTalent																																	SOURCEPAGE:p.
+Spark of Genius		CATEGORY:Talent			TYPE:Talent.ScholarTalent	PREABILITY:1,CATEGORY=Talent,Savant																PRESTAT:1,INT=13									SOURCEPAGE:p.
+Linguist			CATEGORY:Talent			TYPE:Talent.ScholarTalent												PRESKILL:1,Read/Write Language=3,Speak Language=3													SOURCEPAGE:p.
+
+# Strategy Talent Tree
+Exploit Weakness		CATEGORY:Talent			TYPE:Talent.ScholarTalent	PREABILITY:1,CATEGORY=Talent,Savant,Spark of Genius,Linguist																						SOURCEPAGE:p.
+Plan				CATEGORY:Talent			TYPE:Talent.ScholarTalent	PREABILITY:1,CATEGORY=Talent,Savant,Spark of Genius,Linguist																						SOURCEPAGE:p.
+Trick				CATEGORY:Talent			TYPE:Talent.ScholarTalent	PREABILITY:1,CATEGORY=Talent,Savant,Spark of Genius,Linguist																						SOURCEPAGE:p.
+
+# Brains over Brawn Talent Tree
+Bare-Knuckled Genius	CATEGORY:Talent			TYPE:Talent.ScholarTalent																																	SOURCEPAGE:p.
+Expert Tactician		CATEGORY:Talent			TYPE:Talent.ScholarTalent																									BONUS:SKILL|Knowledge (Military Science)|3	SOURCEPAGE:p.
+Brilliant Tactician	CATEGORY:Talent			TYPE:Talent.ScholarTalent	PREABILITY:1,CATEGORY=Talent,Expert Tactician				PRESKILL:1,Knowledge (Military Science)=4															SOURCEPAGE:p.
+Knowledge is Power	CATEGORY:Talent			TYPE:Talent.ScholarTalent												PRESKILL:1,Research=4,Investigate=4,Gather Information=4												SOURCEPAGE:p.
+Defensive Fighting	CATEGORY:Talent			TYPE:Talent.ScholarTalent	PREABILITY:1,CATEGORY=Talent,Brilliant Tactician																								SOURCEPAGE:p.
+
+# Medical Professional Talent Tree
+Healer			CATEGORY:Talent			TYPE:Talent.ScholarTalent
+Improved Health		CATEGORY:Talent			TYPE:Talent.ScholarTalent
+First Aid Expertise	CATEGORY:Talent			TYPE:Talent.ScholarTalent	PREABILITY:1,CATEGORY=Talent,Healer
+Concoct Medicament	CATEGORY:Talent			TYPE:Talent.ScholarTalent	PREABILITY:1,CATEGORY=Talent,Healer
+Concoct Panacea		CATEGORY:Talent			TYPE:Talent.ScholarTalent	PREABILITY:2,CATEGORY=Talent,Healer,Concoct Medicament
+Miraculous Recovery	CATEGORY:Talent			TYPE:Talent.ScholarTalent	PREABILITY:2,CATEGORY=Talent,Healer,First Aid Expertise		PRESKILL:1,Treat Injury=12
+
+
+#
+# End
+#

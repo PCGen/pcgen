@@ -1,0 +1,255 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2009-12
+#Original Entry: Andrew Maitland
+
+###Block: Acolyte --------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Add domain number		Modify VAR
+CLASS:Acolyte	HD:8		TYPE:Base.PC	ABB:Aclyt		MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Acolyte	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Structural)|Craft (Expression)|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Occult Science)|Knowledge (Theology and Philosophy)|Knowledge (The Planes)|Notice|Persuasion|Profession|Read/Write Language|Sense Motive|Speak Language|Treat Injury
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
+CLASS:Acolyte	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Acolyte|CL
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Starting Level
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapons Proficiency
+###Block: Turning
+2	BONUS:ABILITYPOOL|Undead Turning|1	BONUS:VAR|TurnTimesBase|3+CHA	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	ABILITY:Special Ability|AUTOMATIC|Basic Turning
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Acolyte Talent|1
+3	BONUS:ABILITYPOOL|Acolyte Talent|1
+4	BONUS:ABILITYPOOL|Acolyte Feat|1
+5	BONUS:ABILITYPOOL|Acolyte Talent|1
+6	BONUS:ABILITYPOOL|Acolyte Feat|1
+7	BONUS:ABILITYPOOL|Acolyte Talent|1
+8							ABILITY:Special Ability|AUTOMATIC|Medical Mastery
+9	BONUS:ABILITYPOOL|Acolyte Talent|1
+10	BONUS:ABILITYPOOL|Acolyte Feat|1	ABILITY:Special Ability|AUTOMATIC|Combat Casting
+###Block: Divine Caster Progression
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:4,3,2
+5	CAST:4,3,2,1
+6	CAST:4,3,3,2
+7	CAST:4,4,3,2,1
+8	CAST:4,4,3,3,2
+9	CAST:4,4,4,3,2,1
+10	CAST:4,4,4,3,3,2
+11	CAST:4,4,4,4,3,2,1
+12	CAST:4,4,4,4,3,3,2
+13	CAST:4,4,4,4,4,3,2,1
+14	CAST:4,4,4,4,4,3,3,2
+15	CAST:4,4,4,4,4,4,3,2,1
+16	CAST:4,4,4,4,4,4,3,3,2
+17	CAST:4,4,4,4,4,4,4,3,2,1
+18	CAST:4,4,4,4,4,4,4,3,3,2
+19	CAST:4,4,4,4,4,4,4,4,3,3
+20	CAST:4,4,4,4,4,4,4,4,4,4
+
+
+###Block: Apprentice ----------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Apprentice	HD:6		TYPE:Base.PC	ABB:Appr		MAXLEVEL:10	SOURCEPAGE:p.81	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Apprentice	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Expression)|Decipher Script|TYPE=OperateVehicle|Escape Artist|Forgery|Investigate|TYPE=Knowledge|Profession|Read/Write Language|Research|Sleight of Hand|Speak Language|Use Device
+# Class Name	Spell Type		Caster level
+CLASS:Apprentice	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Aprentice|CL
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Apprentice Talent|(CL+1)/2						ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+2									BONUS:VAR|ClassDefense|1										AUTO:FEAT|Scribe Scroll
+3									BONUS:VAR|Reputation|1
+4	BONUS:ABILITYPOOL|Apprentice Feat|(CL-2)/2
+5									BONUS:VAR|Reputation|1
+6									BONUS:VAR|ClassDefense|1
+7														ABILITY:Special Ability|AUTOMATIC|Combat Casting
+8									BONUS:VAR|ClassDefense|1
+9									BONUS:VAR|Reputation|1
+###Block: Arcane Caster Progression
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,6
+
+
+###Block: Everyman ----------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Everyman	HD:6		TYPE:Base.PC	ABB:Evm		MAXLEVEL:10	SOURCEPAGE:p.85	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|(CL+4)/2	BONUS:COMBAT|BAB|(((CL+2)*2)/3)-2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl
+CLASS:Everyman	STARTSKILLPTS:5
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Everyman Talent|CL+1/2	BONUS:ABILITYPOOL|Everyman Class Skills|10
+2	BONUS:ABILITYPOOL|Everyman Feat|CL/2
+3																BONUS:VAR|ClassDefense,Reputation|1
+6																BONUS:VAR|ClassDefense,Reputation|1
+8																BONUS:VAR|ClassDefense|1
+9																BONUS:VAR|Reputation|1
+
+
+###Block: Explorer ----------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Explorer	HD:8		TYPE:Base.PC	ABB:Explr		MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Explorer	STARTSKILLPTS:6	CSKILL:Athletics|Concentration|TYPE=Craft|Handle Animal|Treat Injury|Knowledge (Dungeoneering)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Notice|TYPE=OperateVehicle|Persuasion|Profession|Ride|Search|Stealth|Survival
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Personal Firearms Proficiency|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Explorer Talent|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Pathfinder
+2	BONUS:ABILITYPOOL|Favored Terrain|1
+4									ABILITY:Special Ability|AUTOMATIC|By the Bootstraps
+6	BONUS:ABILITYPOOL|Favored Terrain|1
+8									ABILITY:Special Ability|AUTOMATIC|Heroic Surge
+
+
+###Block: Gunslinger ------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Gunslinger	HD:10		TYPE:Base.PC	ABB:Gunsl		MAXLEVEL:10	SOURCEPAGE:p.91	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Deception|Demolitions|Escape Artist|Gamble|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Notice|TYPE=OperateVehicle|Persuasion|Profession|Read/Write Language|Ride|Sleight of Hand|Stealth|Speak Language|Survival
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Personal Firearms Proficiency|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Gunslinger Talent|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Close Combat Shot
+2	BONUS:ABILITYPOOL|Gunslinger Weapon Focus|1
+4									ABILITY:Special Ability|AUTOMATIC|Defensive Position
+5									ABILITY:Special Ability|AUTOMATIC|Lightning Shot
+6									ABILITY:Special Ability|AUTOMATIC|Sharp-Shooting
+8									ABILITY:Special Ability|AUTOMATIC|Greater Weapon Focus
+10									ABILITY:Special Ability|AUTOMATIC|Bullseye
+
+
+###Block: Investigator ---------------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Modify VAR
+CLASS:Investigator	HD:6		TYPE:Base.PC	ABB:Inves		MAXLEVEL:10	SOURCEPAGE:p.93	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+4)/2	BONUS:VAR|ClassDefense|(CL+2)/3	BONUS:VAR|Reputation|(CL-1)/2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Investigator	STARTSKILLPTS:6	CSKILL:TYPE=Craft|Deception|Disable Device|Forgery|Gather Information|Persuasion|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Streetwise)|Notice|Profession|Read/Write Language|Research|Search|Sense Motive|Speak Language
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Investigator Talent|(CL+1)/2	BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE	BONUS:VAR|LogicalInvestigatorBonus|CL/2
+2																							ABILITY:Special Ability|AUTOMATIC|Eye for Detail
+3									BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+4	BONUS:ABILITYPOOL|Investigator Feat|1		BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+6	BONUS:ABILITYPOOL|Investigator Feat|1		BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+7									BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+8									BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE								ABILITY:Special Ability|AUTOMATIC|Discern Lies
+9									BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+10	BONUS:ABILITYPOOL|Investigator Feat|1		BONUS:COMBAT|BAB|1|TYPE=Base.REPLACE
+
+
+###Block: Martial Artist ----------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus						Modify VAR
+CLASS:Martial Artist	HD:8		TYPE:Base.PC	ABB:MrArt		MAXLEVEL:10	SOURCEPAGE:p.97	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|0
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Martial Artist	STARTSKILLPTS:6	CSKILL:Acrobatics|Athletics|Escape Artist|Athletics|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Theology and Philosophy)|Notice|Persuasion|Perform (Dance)|Profession|Read/Write Language|Stealth|Speak Language
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Martial Artist Talent|(CL+1)/2	BONUS:VAR|LivingWeaponProgression|1			ABILITY:Special Ability|AUTOMATIC|Living Weapon
+2										BONUS:VAR|FastMovementProgression|(CL+2)/4	ABILITY:Special Ability|AUTOMATIC|Fast Movement
+4																		ABILITY:Special Ability|AUTOMATIC|Stunning Fist
+8										BONUS:VAR|LivingWeaponProgression|1			ABILITY:Special Ability|AUTOMATIC|Evade Fire
+
+
+###Block: Officer ----------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Officer	HD:8		TYPE:Base.PC	ABB:Offcr		MAXLEVEL:10	SOURCEPAGE:p.100	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Officer	STARTSKILLPTS:4	CSKILL:Demolitions|Athletics|Knowledge (Current Events)|Knowledge (History)|Knowledge (Military Science)|Notice|Navigate|TYPE=OperateVehicle|Persuasion|Profession|Read/Write Language|Speak Language|Survival
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Archaic Weapons Proficiency|Personal Firearms Proficiency|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Officer Talent|1
+2	BONUS:ABILITYPOOL|Officer Feat|1
+3							ABILITY:Special Ability|AUTOMATIC|Rallying Call
+4	BONUS:ABILITYPOOL|Officer Feat|1
+5	BONUS:ABILITYPOOL|Officer Talent|1
+6	BONUS:ABILITYPOOL|Officer Feat|1	ABILITY:Special Ability|AUTOMATIC|Way of Command
+7	BONUS:ABILITYPOOL|Officer Talent|1
+8	BONUS:ABILITYPOOL|Officer Feat|1	ABILITY:Special Ability|AUTOMATIC|Branch Elite
+9	BONUS:ABILITYPOOL|Officer Talent|1
+10							ABILITY:Special Ability|AUTOMATIC|Legendary Speech
+
+
+###Block: Rogue ----------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus						Modify VAR
+CLASS:Rogue		HD:8		TYPE:Base.PC	ABB:Rogue		MAXLEVEL:10	SOURCEPAGE:p.103	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL+6)/2	BONUS:VAR|Reputation|CL/3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Acrobatics|Deception|Athletics|Craft (Mechanical)|Decipher Script|Demolitions|Disable Device|Deception|Escape Artist|Forgery|Gather Information|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Navigate|Notice|TYPE=OperateVehicle|Persuasion|TYPE=Perform|Profession|Read/Write Language|Ride|Sleight of Hand|Search|Stealth|Speak Language|Survival|Use Device|Notice (Locate Traps)
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Rogue Talent|(CL+1)/2	BONUS:SKILL|Disable Device,Notice (Locate Traps)|CL/2						ABILITY:Special Ability|AUTOMATIC|Trapfinding
+2																						ABILITY:Special Ability|AUTOMATIC|Evasion
+3																	BONUS:VAR|TrapSenseBonus|CL/3	ABILITY:Special Ability|AUTOMATIC|Trap Sense
+4	BONUS:ABILITYPOOL|Rogue Feat|CL/4																ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+7																						ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge
+
+
+###Block: Scholar ----------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus					Modify VAR
+CLASS:Scholar	HD:8		TYPE:Base.PC	ABB:Schlr		MAXLEVEL:10	SOURCEPAGE:p.109	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+4)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|ClassDefense|(CL-1)/3	BONUS:VAR|Reputation|(CL+5)/3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Scholar	STARTSKILLPTS:6	CSKILL:Craft (Chemical)|Craft (Expression)|Craft (Mechanical)|Craft (Chemical)|Decipher Script|Demolitions|Disable Device|Investigate|Knowledge (Behavioral Sciences)|Knowledge (Earth and Life Sciences)|Knowledge (Physical Sciences)|Knowledge (Technology)|Navigate|TYPE=OperateVehicle|Profession|Read/Write Language|Research|Search|Speak Language|Treat Injury
+###Block: Background
+1	ABILITY:Wealth|AUTOMATIC|Starting Wealth	TEMPLATE:Occupation|Starting Class
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Personal Firearms Proficiency|Simple Weapons Proficiency
+###Block: Class progression
+1	BONUS:ABILITYPOOL|Scholar Talent|(CL+1)/2	BONUS:ABILITYPOOL|Educated|1
+2	BONUS:ABILITYPOOL|Scholar Feat|1
+4	BONUS:ABILITYPOOL|Scholar Feat|1
+6													ABILITY:Special Ability|AUTOMATIC|Legendary Knowledge
+8	BONUS:ABILITYPOOL|Scholar Feat|1
+
+
+
+#
+# End
+#
