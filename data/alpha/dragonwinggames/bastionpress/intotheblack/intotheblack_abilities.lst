@@ -36,7 +36,7 @@ Pliable Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	
 # Xastrial ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Gravitational Pull								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																																																																					SOURCEPAGE:p.30
 Molecular Projectile								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																																																																					SOURCEPAGE:p.30
-Blindsight										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision																																																																				SOURCEPAGE:p.30
+#Blindsight										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision																																																																				SOURCEPAGE:p.30
 Disrupt Magic									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																					SOURCEPAGE:p.30
 Immunities			KEY:Immunities ~ Xastrial			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																					SOURCEPAGE:p.30
 Improved Gravity									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																																																																					SOURCEPAGE:p.30
@@ -113,7 +113,7 @@ Population Explosion								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraord
 ###Block: Extras ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Ability Name	Unique Key		Category of Ability		Type								Visible	Source Page
 Adhesive Grapple				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary					SOURCEPAGE:p.22
-Blindsense					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense				SOURCEPAGE:rsrd
+#Blindsense					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense				SOURCEPAGE:rsrd
 Consume Item				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.23
 Consume Magic				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.23
 Magic Aura					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural					SOURCEPAGE:p.22

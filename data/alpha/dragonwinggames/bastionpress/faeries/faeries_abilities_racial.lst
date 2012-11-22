@@ -78,7 +78,7 @@ Horrid Wilting								CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Inn
 Ice Storm									CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(TL,1)|Ice Storm,14+CHA							BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
 Invisibility								CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Invisibility,12+CHA							BONUS:VAR|RacialTraitsECL|0.5					COST:1	SOURCEPAGE:p.7
 Invisibility (Improved)							CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Improved Invisibility,14+CHA					BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
-Invisibility (Greater)							CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Invisibility (Greater)						BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
+#Invisibility (Greater)							CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Greater Invisibility						BONUS:VAR|RacialTraitsECL|1					COST:1	SOURCEPAGE:p.7
 Invisibility (Natural)							CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=max(TL,1)|Invisibility,12+CHA						BONUS:VAR|RacialTraitsECL|1.5					COST:1	SOURCEPAGE:p.7
 Irresistible Dance							CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=3|CASTERLEVEL=max(TL,1)|Irresistible Dance,18+CHA						BONUS:VAR|RacialTraitsECL|1.5					COST:1	SOURCEPAGE:p.7
 Obscuring Mist								CATEGORY:Special Ability	TYPE:FaerieRacialTrait	SPELLS:Innate|TIMES=5|CASTERLEVEL=max(TL,1)|Obscuring Mist,11+CHA							BONUS:VAR|RacialTraitsECL|0.25				COST:1	SOURCEPAGE:p.7

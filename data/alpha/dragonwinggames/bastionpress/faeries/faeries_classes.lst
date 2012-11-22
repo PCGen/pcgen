@@ -34,7 +34,7 @@ CLASS:Faerie Hunter	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:5	PREFEAT:3,Mite Fighter,P
 CLASS:Faerie Hunter	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Hide|Intuit Direction|Jump|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Sense Motive|Speak Language|Spot|Swim|Use Rope|Wilderness Lore
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Faerie Hunter	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Faerie Hunter|CL
-1	CAST:0,0		BONUS:VAR|SneakAttack|1	BONUS:VAR|FeyWary|1		ABILITY:Special Ability|AUTOMATIC|Fey Wary			AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Martial Weapon Proficiency|Shield Proficiency|Simple Weapon Proficiency
+1	CAST:0,0		BONUS:VAR|SneakAttack|1	BONUS:VAR|FeyWary|1		ABILITY:Special Ability|AUTOMATIC|Fey Wary			AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 2	CAST:0,1		BONUS:VAR|FaerieFighter|1	BONUS:VAR|FeyHunter|1	ABILITY:Special Ability|AUTOMATIC|FaerieFighter|Fey Hunter
 3	CAST:0,1,0											ABILITY:Special Ability|AUTOMATIC|Smite Fey
 4	CAST:0,1,1		BONUS:VAR|FeyHunter|1	BONUS:VAR|FeyWary|1
