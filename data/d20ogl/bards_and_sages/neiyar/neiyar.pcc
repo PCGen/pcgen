@@ -5,7 +5,7 @@ GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Fantasy
-STATUS:BETA
+STATUS:RELEASE
 TYPE:Bards and Sages
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Bards and Sages
@@ -40,7 +40,6 @@ CLASS:neiyar_classes.lst
 DEITY:neiyar_deities.lst
 FEAT:neiyar_feats.lst
 FEAT:neiyar_feats_flaws.lst
-#FEAT:neiyar_feats_hidden.lst
 LANGUAGE:neiyar_languages.lst
 EQUIPMENT:neiyar_equip_magic_items.lst
 EQUIPMOD:neiyar_eqmods.lst

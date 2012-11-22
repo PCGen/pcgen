@@ -1,7 +1,0 @@
-# CVS $Revision$ $Author$ -- Mon Sep 15 10:56:22 2008 -- reformated by prettylst.pl v1.38 (build 7233)
-SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
-
-# Modifier Name	Product Identity?	Naming Format	Naming Option	Type					Plus		Visible		Type granted					Keys to replace																			Source Page		Required Type			Modify VAR			Bonus Weapon Modifiers							Modify the item cost																Weapon prop. bonus					Special Property											Apply to both heads
-Blade of Kalla	NAMEISPI:YES	FORMATCAT:MIDDLE	NAMEOPT:TEXT=+2	TYPE:Weapon.Slashing.Melee	PLUS:4	VISIBLE:QUALIFY	ITYPE:Masterwork.Enhancement.Magic.Plus2	REPLACES:PLUS1W,PLUS2W,PLUS3W,PLUS4W,PLUS5W,PLUS_6_WEAP,PLUS_7_WEAP,PLUS_8_WEAP,PLUS_9_WEAP,PLUS_10_WEAP,MWORKW,KEEN,MI_CLE	SOURCEPAGE:pg.79	PRETYPE:2,Weapon,Slashing	BONUS:VAR|CleaveCount|1	BONUS:EQMWEAPON|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit	BONUS:ITEMCOST|TYPE.ColdIron.Weapon|2000	BONUS:ITEMCOST|TYPE=Weapon|300|!PRETYPE:1,EQMODTYPE=MasterworkQuality	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement	SPROP:threat range doubled, allow 1 extra cleave per round (need Cleave feat)	ASSIGNTOALL:NO
-###Not an actual weapon but combo of Special Abilities - Make an EQMOD?
-### Grants: +2 Keen mighty cleaving, all pre-existing eqmods.
