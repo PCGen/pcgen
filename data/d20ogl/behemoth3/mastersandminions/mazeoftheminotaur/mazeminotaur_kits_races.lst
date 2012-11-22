@@ -1,0 +1,83 @@
+# CVS $Revision$ $Author$ -- Tue Nov 11 00:09:32 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
+
+STARTPACK:Bull Lord Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotaur (Variant)]
+STAT:STR=11|WIS=11|DEX=10|CON=10|INT=10|CHA=10
+RACE:Minotaur (Variant)	!PRERACE:1,%
+NAME:Bull Lord
+CLASS:Minotaur	LEVEL:7
+CLASS:Bull Lord	LEVEL:9
+SKILL:Intimidate	RANK:2
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+SKILL:Search	RANK:3
+SKILL:Survival	RANK:5
+FEAT:Awesome Blow
+FEAT:Improved Critical (Greataxe)
+FEAT:Improved Initiative
+FEAT:Power Attack
+GEAR:Greataxe	SIZE:PC	LOCATION:Both Hands
+GEAR:Chain Shirt	SIZE:PC	LOCATION:Equipped
+
+
+STARTPACK:Minotaur (Variant) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotaur (Variant)]
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+RACE:Minotaur (Variant)	!PRERACE:1,%
+NAME:Minotaur (Variant)
+CLASS:Minotaur	LEVEL:7
+SKILL:Intimidate	RANK:3
+SKILL:Survival	RANK:3
+SKILL:Listen	RANK:1
+SKILL:Search	RANK:1
+SKILL:Spot		RANK:1
+FEAT:Great Fortitude
+FEAT:Power Attack
+FEAT:Improved Initiative
+GEAR:Greataxe	SIZE:PC	LOCATION:Both Hands
+
+
+STARTPACK:Minotrice Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotrice]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+RACE:Minotrice	!PRERACE:1,%
+NAME:Minotrice
+CLASS:Minotrice	LEVEL:5
+SKILL:Hide			RANK:3
+SKILL:Move Silently	RANK:3
+SKILL:Search		RANK:2
+SKILL:Survival		RANK:2
+SKILL:Listen		RANK:1
+SKILL:Spot			RANK:1
+FEAT:Great Fortitude
+FEAT:Skill Focus (Survival)
+GEAR:Leather			SIZE:PC	LOCATION:Equipped
+GEAR:Javelin			SIZE:PC	LOCATION:Carried
+GEAR:Shortbow (Composite)	SIZE:PC	LOCATION:Carried
+
+
+STARTPACK:Minotrice Maze Mage Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Minotrice Maze Mage]
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=12|CHA=11
+RACE:Minotrice Maze Mage	!PRERACE:1,%
+NAME:Minotrice Maze Mage
+CLASS:Minotrice Maze Mage	LEVEL:8
+SKILL:Concentration	RANK:5
+SKILL:Listen		RANK:2
+SKILL:Spot			RANK:2
+SKILL:Search		RANK:4
+SKILL:Spellcraft		RANK:4
+SKILL:Survival		RANK:1
+FEAT:Brew Potion
+FEAT:Combat Casting
+FEAT:Great Fortitude
+GEAR:Leather	SIZE:PC	LOCATION:Equipped
+
+
+STARTPACK:Tauron Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tauron]
+STAT:INT=11|STR=10|DEX=10|CON=10|WIS=10|CHA=10
+RACE:Tauron	!PRERACE:1,%
+NAME:Tauron
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+SKILL:Search	RANK:2
+SKILL:Search	RANK:3	FREE:YES
+FEAT:Great Fortitude
+FEAT:Toughness
