@@ -4,9 +4,8 @@
 
 CAMPAIGN:BP - Into the Green - 3.5 Conversion
 GAMEMODE:35e
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
 TYPE:DragonWing Games.Bastion Press.Supplement
-STATUS:ALPHA
+STATUS:RELEASE
 SHOWINMENU:NO
 BOOKTYPE:Custom
 SETTING:Fantasy
