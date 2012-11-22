@@ -1,0 +1,57 @@
+# CVS $Revision$ $Author$ -- Tue Mar 27 23:33:15 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+CAMPAIGN:BaS - Neiyar Land of Heaven and the Abyss
+RANK:5
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Fantasy
+STATUS:BETA
+TYPE:Bards and Sages
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:Bards and Sages
+PUBNAMESHORT:BaS
+PUBNAMEWEB:www.bardsandsages.com
+SOURCELONG:Neiyar Land of Heaven and the Abyss
+SOURCESHORT:Neiyar
+SOURCEWEB:http://www.bardsandsages.com/neiyar.html
+SOURCEDATE:2005-03
+### COMMENT: Sourcedate of 2004 correct, though month is currently unknown.
+ISOGL:YES
+ISLICENSED:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Neiyar Land of Heaven and the Abyss, 2004 Julie Ann Dawson/Bards and Sages
+COPYRIGHT:PCGen dataset conversion for Neiyar, Land of Heaven and Abyss, 2007 PCGen Data Team (including, but not limited to: Andrew Maitland, Frank Kliewe)
+LICENSE:FILE=data/alpha/bardsandsages/neiyar/neiyar/neiyar_permission.htm
+
+COVER:neiyar.png
+COPYRIGHT:Included artwork is Product Identity and is included by permission. Copyright 2008, Bards and Sages.
+DESC:An uncharted island guarded by an ancient beast. One civilization struggling against civil war. Another fighting to regain its lost glory. And a demon-god plotting to destroy them all. Welcome to Neiyar. Set on an isolated jungle island, Neiyar features five new playable races, ten prestige classes, 30 new magic items, and tons of new spells, feats, and monsters. Learn Hearth Magic and defy the laws of both arcane and divine spellcasting. Take flaws to flesh out your character and earn bonus feats. Join organizations and secret societies to gain political power.
+URL:WEBSITE|http://www.bardsandsages.com/|Visit Bards and Sages.
+URL:RPG Now|http://www.rpgnow.com/index.php?cPath=4008|Buy this pdf from RPGNow.com!
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:neiyar_permission.htm
+
+ABILITY:neiyar_abilities.lst
+ABILITYCATEGORY:neiyar_ability_categories.lst
+CLASS:neiyar_classes.lst
+DEITY:neiyar_deities.lst
+FEAT:neiyar_feats.lst
+FEAT:neiyar_feats_flaws.lst
+#FEAT:neiyar_feats_hidden.lst
+LANGUAGE:neiyar_languages.lst
+EQUIPMENT:neiyar_equip_magic_items.lst
+EQUIPMOD:neiyar_eqmods.lst
+RACE:neiyar_races_base.lst
+RACE:neiyar_races_monster.lst
+SKILL:neiyar_skills.lst
+SPELL:neiyar_spells.lst
+TEMPLATE:neiyar_templates.lst
+WEAPONPROF:neiyar_weaponprof.lst
+
+KIT:neiyar_kits_monster.lst
+#
+# DONE
+#

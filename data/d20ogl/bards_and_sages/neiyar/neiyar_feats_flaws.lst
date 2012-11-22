@@ -1,0 +1,35 @@
+# CVS $Revision$ $Author$ -- Wed Mar 12 00:21:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
+
+#FLAWS - Add a bonus feat when each is taken. -- Andrew
+# changed to feats -- Frank
+
+# Feat Name			Unique Key		Output Name			Type		Visible	Prohibited Feat						Prohibited Template		Special ABility				Cost		Source Page
+Achilles' Heel									TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Achilles' Heel			COST:-1	SOURCEPAGE:p.46
+Animal Magnetism									TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Animal Magnetism		COST:-1	SOURCEPAGE:p.46
+Creepy										TYPE:Flaw	VISIBLE:YES	!PREFEAT:1,Eccentric Personality,Leadership	!PRETEMPLATE:1,Shalraeku	SAB:FLAW:Creepy				COST:-1	SOURCEPAGE:p.46
+Demonic Persecution								TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Demonic Persecution		COST:-1	SOURCEPAGE:p.46
+Easily Bruised									TYPE:Flaw	VISIBLE:YES	!PREFEAT:1,Toughness										SAB:FLAW:Easily Bruised			COST:-1	SOURCEPAGE:p.47
+Gullible										TYPE:Flaw	VISIBLE:YES	!PREFEAT:1,Investigator,Investigator ~ Neiyar						SAB:FLAW:Gullible				COST:-1	SOURCEPAGE:p.47
+Haunted										TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Haunted				COST:-1	SOURCEPAGE:p.47
+Imperfect Spellcaster								TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Imperfect Spellcaster	COST:-1	SOURCEPAGE:p.47
+Phobia										TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Phobia				COST:-1	SOURCEPAGE:p.47
+Rage				KEY:RAGE_FLAW					TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Rage				COST:-1	SOURCEPAGE:p.47
+###COMMENT: I've found that Keys don't work in feats. Better to use OUTPUTNAME in feats -- Andrew
+Skittish										TYPE:Flaw	VISIBLE:YES	!PREFEAT:1,Lightning Reflexes,Combat Reflexes						SAB:FLAW:Skittish				COST:-1	SOURCEPAGE:p.47
+Tainted Aura									TYPE:Flaw	VISIBLE:YES									!PRETEMPLATE:1,Shalraeku	SAB:FLAW:Tainted Aura			COST:-1	SOURCEPAGE:p.47
+Traveling Circus									TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Traveling Circus		COST:-1	SOURCEPAGE:p.47
+Vulnerability									TYPE:Flaw	VISIBLE:YES														SAB:FLAW:Vulnerability			COST:-1	SOURCEPAGE:p.47
+Weak willed						OUTPUTNAME:Weak-willed	TYPE:Flaw	VISIBLE:YES	!PREFEAT:1,Iron Will										SAB:FLAW:Weak-willed			COST:-1	SOURCEPAGE:p.48
+# End Flaws
+
+
+###Block:Flaw Modifications:
+# Feat Name			Prohibited Feat
+Iron Will.MOD		!PREFEAT:1,Weak willed
+Investigator.MOD		!PREFEAT:1,Gullible
+Leadership.MOD		!PREFEAT:1,Creepy
+Lightning Reflexes.MOD	!PREFEAT:1,Skittish
+Combat Reflexes.MOD	!PREFEAT:1,Skittish
+Toughness.MOD		!PREFEAT:1,Easily Bruised
+###Flaws changed to Feats, redid the PRExxx -- Andrew
