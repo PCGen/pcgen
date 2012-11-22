@@ -50,7 +50,7 @@ Will of the Blessed		KEY:Radiant Enlightenment ~ Will of the Blessed		CATEGORY:S
 Spirit of the Blessed		KEY:Radiant Enlightenment ~ Spirit of the Blessed	CATEGORY:Special Ability	TYPE:SpecialQuality.RadiantEnlightenment	PREVARGTEQ:OrderPerpetDayRadiantEnlightenment,6
 
 ### Teutonic Knight Class
-Hatred				KEY:hiddenTeutonicKnight	KEY:Knightly Order	CATEGORY:Special Ability	TYPE:SpecialQuality													DEFINE:TeutonicCombatEnlightenment|0																									BONUS:VAR|TeutonicCombatEnlightenment|var("CL=Ranger")	BONUS:VAR|TeutonicCombatEnlightenment|WIS				CSKILL:Bluff|Listen|Profession (Soldier)|Sense Motive|Survival
+Hatred				KEY:hiddenTeutonicKnight					CATEGORY:Special Ability	TYPE:SpecialQuality													DEFINE:TeutonicCombatEnlightenment|0																									BONUS:VAR|TeutonicCombatEnlightenment|var("CL=Ranger")	BONUS:VAR|TeutonicCombatEnlightenment|WIS				CSKILL:Bluff|Listen|Profession (Soldier)|Sense Motive|Survival
 Minor enemy or minor nemesis	KEY:hiddenTeutonicKnight-3					CATEGORY:Special Ability	TYPE:SpecialQuality
 Companion of the Hunt		KEY:hiddenTeutonicKnight-4					CATEGORY:Special Ability	TYPE:SpecialQuality
 Knighthood				KEY:hiddenTeutonicKnight-7					CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -62,8 +62,8 @@ Zealous Charge			KEY:Combat Enlightenment ~ Zealous Charge			CATEGORY:Special Ab
 Firm Grasp				KEY:Combat Enlightenment ~ Firm Grasp			CATEGORY:Special Ability	TYPE:SpecialQuality.TeutonicKnightCombat	PREVARGTEQ:TeutonicCombatEnlightenment,4
 Zealous Haste			KEY:Combat Enlightenment ~ Zealous Haste			CATEGORY:Special Ability	TYPE:SpecialQuality.TeutonicKnightCombat	PREVARGTEQ:TeutonicCombatEnlightenment,4
 Zealous Strike			KEY:Combat Enlightenment ~ Zealous Strike			CATEGORY:Special Ability	TYPE:SpecialQuality.TeutonicKnightCombat	PREVARGTEQ:TeutonicCombatEnlightenment,5
-One-Weapon (One Mind)		KEY:Combat Enlightenment ~ One-Weapon, One Mind		CATEGORY:Special Ability	TYPE:SpecialQuality.TeutonicKnightCombat	PREVARGTEQ:TeutonicCombatEnlightenment,6
-Two-Weapons (One Mind)		KEY:Combat Enlightenment ~ Two-Weapons, One Mind	CATEGORY:Special Ability	TYPE:SpecialQuality.TeutonicKnightCombat	PREVARGTEQ:TeutonicCombatEnlightenment,6
+One-Weapon (One Mind)		KEY:Combat Enlightenment ~ One-Weapon One Mind		CATEGORY:Special Ability	TYPE:SpecialQuality.TeutonicKnightCombat	PREVARGTEQ:TeutonicCombatEnlightenment,6
+Two-Weapons (One Mind)		KEY:Combat Enlightenment ~ Two-Weapons One Mind	CATEGORY:Special Ability	TYPE:SpecialQuality.TeutonicKnightCombat	PREVARGTEQ:TeutonicCombatEnlightenment,6
 
 ### COMMENT: These were created if the TEMPLATE - LEVEL:x:FEAT doesn't work
 #hiddensolomonbrotherhood-5	CATEGORY:Special Ability	TYPE:SpecialQuality																																								STACK:NO	MULT:YES	CHOOSE:FEAT|Absorb Arcana|Arcane Heresy|Contemplation|Forbidden Arcana|Mind over Body|Reflection|True Insight
@@ -98,7 +98,7 @@ Divine Leadership			KEY:Divine Leadership ~ Grandmaster				CATEGORY:Special Abil
 
 # Vampire
 Alternate Form			KEY:Alternate Form ~ Vampire					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Dominate				KEY:Dominate ~ Vampire						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																			DESC:DC %1|VampireAbilityDC
+#Dominate				KEY:Dominate ~ Vampire						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																			DESC:DC %1|VampireAbilityDC
 
 #  ~ Spawn of Anubis
 Blood Receptacle			KEY:Blood Receptacle ~ Spawn of Anubis			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
