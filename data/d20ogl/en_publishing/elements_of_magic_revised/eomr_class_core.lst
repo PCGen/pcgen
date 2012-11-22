@@ -1,0 +1,111 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Elements of Magic (Revised)	SOURCESHORT:EOM	SOURCEWEB:http://www.enworld.org/forum/e-n-publishing/	SOURCEDATE:2002-01
+#Original Entry: Joe Frazier, Clean up by Andrew Maitland
+#Comments: This will need to get changed to the new standard. Will correct to 5.16 once the OS supports it.
+
+###Block: The Mage ----------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Mage		HD:4		TYPE:Base.PC.EOM	ABB:Mage		MAXLEVEL:20	SOURCEPAGE:pg.5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mage		STARTSKILLPTS:4	CSKILL:TYPE=ElementsOfMagic|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession
+# Class Name	Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
+CLASS:Mage		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2	SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage|EOMCasterLevel
+
+###Block: Special Ability
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Elements of Magic|Wizard Weapon Proficiencies
+###Block: Variables
+1	BONUS:VAR|EOMCasterLevel|CL
+1	BONUS:VAR|CantripsPerDay|EOMCasterlevel+2
+1	BONUS:VAR|BaseSpellPoints|(5*CL)+(CL-1)
+###Block: Spell Stats
+1	CAST:0,0	KNOWN:0,100	BONUS:SPELLCAST|CLASS=Mage;LEVEL=1|EOMCasterLevel+INT
+###Block: Spell Lists
+1	BONUS:ABILITYPOOL|Spell Lists|CL*2
+1	BONUS:ABILITYPOOL|Spell Lists|4
+2	BONUS:ABILITYPOOL|Spell Lists|1
+###Block: Boons
+1	BONUS:ABILITYPOOL|Magical Boon Moderate|1
+4	BONUS:ABILITYPOOL|Magical Boon Moderate|1
+8	BONUS:ABILITYPOOL|Magical Boon Moderate|1
+12	BONUS:ABILITYPOOL|Magical Boon Major|1
+16	BONUS:ABILITYPOOL|Magical Boon Major|1
+20	BONUS:ABILITYPOOL|Magical Boon Major|1
+
+
+
+###Block: Mageknight ----------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Mageknight	HD:8		TYPE:Base.PC.EOM	ABB:MgeKnt		MAXLEVEL:20	SOURCEPAGE:8	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|((CL+3)*2)/5	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mageknight	STARTSKILLPTS:2	CSKILL:Spellcraft|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Ride|Climb|Intimidate|Jump|Swim
+# Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
+CLASS:Mageknight	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Mageknight|EOMCasterLevel
+
+###Block: Special Ability
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Elements of Magic|All Martial Weapon Proficiencies
+###Block: Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+###Block: Variables
+1	BONUS:VAR|FamiliarLVL|(CL*3)/4
+1	BONUS:VAR|EOMCasterLevel|(CL*3)/4
+1	BONUS:VAR|CantripsPerDay|(EOMCasterlevel/2)+2
+1	BONUS:VAR|BaseSpellPoints|5
+2	BONUS:VAR|BaseSpellPoints|6
+3	BONUS:VAR|BaseSpellPoints|6
+###Block: Spell Stats
+1	CAST:0,0	KNOWN:0,100	SPELLLIST:1|Mage
+###Block: Spell Lists
+1	BONUS:ABILITYPOOL|Spell Lists|6
+###Block: Boons
+3	BONUS:ABILITYPOOL|Magical Boon Minor|1
+10	BONUS:ABILITYPOOL|Magical Boon Moderate|1
+17	BONUS:ABILITYPOOL|Magical Boon Major|1
+
+
+
+###Block: The Taskmage ----------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus			Combat bonus
+CLASS:Taskmage	HD:6		TYPE:Base.PC.EOM	ABB:TskMge		MAXLEVEL:20	SOURCEPAGE:pg.10	BONUS:CHECKS|ALL|((CL+3)*2)/5	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Taskmage	STARTSKILLPTS:8	CSKILL:TYPE=ElementsOfMagic|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession
+# Class Name	Spell Stat		Spell Type		Memorize		Spellbook		Caster level
+CLASS:Taskmage	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Taskmage|EOMCasterLevel
+
+###Block: Special Ability
+1								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Elements of Magic
+1	BONUS:ABILITYPOOL|Expert Class Skills|10
+###Block: Proficiencies
+1	AUTO:FEAT|Simple Weapon Proficiency
+###Block: Variables
+1	BONUS:VAR|FamiliarLVL|(CL*3)/4
+1	BONUS:VAR|EOMCasterLevel|(CL*3)/4
+1	BONUS:VAR|CantripsPerDay|EOMCasterlevel/2+2
+1	BONUS:VAR|BaseSpellPoints|5
+2	BONUS:VAR|BaseSpellPoints|6
+3	BONUS:VAR|BaseSpellPoints|6
+###Block: Spell Stats
+1	CAST:0,0	KNOWN:0,100	SPELLLIST:1|Mage
+###Block: Spell Lists
+1	BONUS:ABILITYPOOL|Spell Lists|6
+###Block: Boons
+1	BONUS:ABILITYPOOL|Magical Boon Moderate|1
+4	BONUS:ABILITYPOOL|Magical Boon Moderate|1
+8	BONUS:ABILITYPOOL|Magical Boon Moderate|1
+###Block: Bonus Feats
+1	BONUS:ABILITYPOOL|Taskmage Feat|(CL+4)/4
+9	BONUS:ABILITYPOOL|Taskmage Skill Mastery|CL/9
+
+
+# Class Name				Visible
+CLASS:Elements of Magic Caster	VISIBLE:NO
+# Class Name				Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
+CLASS:Elements of Magic Caster	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2	SPELLBOOK:YES	BONUS:CASTERLEVEL|Elements of Magic Caster|EOMCasterLevel
+###Block: Spell Stats
+1	CAST:0,0	KNOWN:0,100	BONUS:SPELLCAST|CLASS=Mage;LEVEL=1|EOMCasterLevel+INT
+
+#
+# End
+#

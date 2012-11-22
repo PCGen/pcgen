@@ -1,0 +1,335 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Elements of Magic (Revised)	SOURCESHORT:EOM	SOURCEWEB:http://www.enworld.org/forum/e-n-publishing/	SOURCEDATE:2002-01
+#Original Entry: Joe Frazier, Clean up by Andrew Maitland
+
+
+# Ability Name		Output Name				Category of Ability		Type				Visible	Define																						Description																					Ability															Bonus to Ability Pool				Modify VAR									Aspects
+Elements of Magic							CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	DEFINE:EOMCasterlevel|0	DEFINE:CantripsPerDay|0	DEFINE:BaseSpellPoints|0	DEFINE:BonusSpellPoints|0	DEFINE:TotalSpellPoints|0	DESC:Base Magic Points (%1), Bonus Magic Points (%2), Total Magic Points (%3)|BaseSpellPoints|BonusSpellPoints|TotalSpellPoints	ABILITY:Special Ability|AUTOMATIC|Magic Points ~ Base|Magic Points ~ Bonus|Magic Points ~ Total	BONUS:ABILITYPOOL|Magical Tradition|1	BONUS:VAR|TotalSpellPoints|BaseSpellPoints+BonusSpellPoints
+
+Magic Points ~ Base	OUTPUTNAME:Base Magic Points	CATEGORY:Special Ability	TYPE:SpecialQuality																										DESC:%1|BaseSpellPoints																																																				ASPECT:Ability Benefit|(%1)|BaseSpellPoints
+Magic Points ~ Bonus	OUTPUTNAME:Bonus Magic Points	CATEGORY:Special Ability	TYPE:SpecialQuality																										DESC:%1|BonusSpellPoints																																																			ASPECT:Ability Benefit|(%1)|BonusSpellPoints
+Magic Points ~ Total	OUTPUTNAME:Total Magic Points	CATEGORY:Special Ability	TYPE:SpecialQuality																										DESC:%1|TotalSpellPoints																																																			ASPECT:Ability Benefit|(%1)|TotalSpellPoints
+
+###Block: Skill Mastery
+# Ability Name						Type
+CATEGORY=Special Ability|Skill Mastery.MOD	TYPE:TaskmageSkillMastery
+
+###Block: Boons ---------------------------------------------------------------------------
+#Block: Minor Boons
+# Ability Name		Category of Ability		Type								Visible		Define				Description															Stackable?	Multiple?	Choose																							Bonus to Ability Pool		Bonus to skill rank	Source Page
+Animal Speak		CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.SpellLike										DESC:You can speak with the following animals as if you have a common language, %1|%CHOICE			MULT:YES	CHOOSE:RACE|RACETYPE=Animal																													SOURCEPAGE:pg. 6
+Mage Bonus Feat		CATEGORY:Special Ability	TYPE:MinorBoon						VISIBLE:DISPLAY																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						BONUS:ABILITYPOOL|Mage Feat|1					SOURCEPAGE:pg.
+Resist Fear			CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.Supernatural																																																														SOURCEPAGE:pg. 6
+Magically Empowered	CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.Supernatural																											MULT:YES	CHOOSE:SKILL|TYPE=Dexterity|TYPE=Strength																							BONUS:SKILLRANK|LIST|3	SOURCEPAGE:pg. 6
+Minor Energy Resistance	CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.Supernatural				DEFINE:ResistanceBonusMinor|1	DESC:Resistance %1 to %2|ResistanceBonusMinor|%LIST										MULT:YES	CHOOSE:STRING|Acid|Air|Crystal|Death|Earth|Fire|Force|Ice|Lava|Life|Light|Lightning|Metal|Mist|Nature|Ooze|Shadow|Sound|Space|Time|Void|Water										SOURCEPAGE:pg. 6
+Spiritual Medium		CATEGORY:Special Ability	TYPE:SpecialQuality.MinorBoon.Supernatural																																																														SOURCEPAGE:pg. 6
+
+###Block: Moderate Boons
+# Ability Name				Output Name				Category of Ability		Type								Visible		Required Vision								Prohibited Vision			Define					Description																																							Stackable?	Multiple?	Choose																							Ability									Bonus to Ability Pool				Add to vision			Allow Follower		Allowed Companions												Vision			Source Page
+Animagus										CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon																											DESC:You can can transform into the shape of the following animals as a standard action, %1|%CHOICE																								STACK:NO	MULT:YES	CHOOSE:RACE|RACETYPE=Animal																																																																	SOURCEPAGE:pg. 7
+Sixth Sense										CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon																											DESC:Mage gains the supernatural ability to see and hear incorporeal undead.																																																																																																					SOURCEPAGE:pg. 7
+Mage Summon Familiar			OUTPUTNAME:Summon Familiar	CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon																					DEFINE:FamiliarLVL|0																																												STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																												FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel					SOURCEPAGE:pg. 7
+Mage Trackless Step			OUTPUTNAME:Trackless Step	CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon.Supernatural																																																																			MULT:NO																																																																						SOURCEPAGE:pg. 7
+Moderate Energy Resistance							CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon																					DEFINE:ResistanceBonusModerate|5	DESC:Resistance %1 to %2|ResistanceBonusModerate|%LIST																																	MULT:YES	CHOOSE:STRING|Acid|Air|Crystal|Death|Earth|Fire|Force|Ice|Lava|Life|Light|Lightning|Metal|Mist|Nature|Ooze|Shadow|Sound|Space|Time|Void|Water
+Uncanny Vision (Low-light)							CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon			VISIBLE:DISPLAY											!PREVISION:1,Low-Light=ANY																																																																											ABILITY:Special Ability|AUTOMATIC|Uncanny Vision Output																																VISION:Low-light		SOURCEPAGE:pg. 7
+Uncanny Vision (Darkvision)							CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon			VISIBLE:DISPLAY	PREVISION:1,Low-Light=ANY						!PREVISION:1,Darkvision=ANY																																																																											ABILITY:Special Ability|AUTOMATIC|Uncanny Vision Output																																VISION:Darkvision (30')	SOURCEPAGE:pg. 7
+Uncanny Vision (Extra Darkvision)						CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon			VISIBLE:DISPLAY	PREVISION:1,Low-Light=ANY	PREVISION:1,Darkvision=30																																																				STACK:YES	MULT:YES	CHOOSE:NOCHOICE																						ABILITY:Special Ability|AUTOMATIC|Uncanny Vision Output								BONUS:VISION|Darkvision|30																								SOURCEPAGE:pg. 7
+Uncanny Vision Output			OUTPUTNAME:Uncanny Vision	CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:EXPORT																						DESC:You gain the following visions	DESC:Low-light|PREABILITY:1,CATEGORY=Special Ability,Uncanny Vision (Low-light)	DESC:Darkvision|PREABILITY:1,CATEGORY=Special Ability,Uncanny Vision (Darkvision),Uncanny Vision (Extra Darkvision)																																																																										SOURCEPAGE:pg. 7
+Two Minor Boons									CATEGORY:Special Ability	TYPE:SpecialQuality.ModerateBoon			VISIBLE:DISPLAY																																																																																																				BONUS:ABILITYPOOL|Magical Boon Minor|2																													SOURCEPAGE:pg. 7
+
+###Block:  Major Boons
+# Ability Name			Category of Ability		Type					Visible		Define					Description								Multiple?	Choose																							Save checks bonus						Combat bonus						Source Page
+Greater Animagus			CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon
+Improved Signature Spell	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon
+#
+Magical Protection ~ INT	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																										BONUS:CHECKS|ALL|min(INT,5)|TYPE=Resistance									SOURCEPAGE:pg. 7
+Magical Protection ~ WIS	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																										BONUS:CHECKS|ALL|min(WIS,5)|TYPE=Resistance									SOURCEPAGE:pg. 7
+Magical Protection ~ CHA	CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																										BONUS:CHECKS|ALL|min(CHA,5)|TYPE=Resistance									SOURCEPAGE:pg. 7
+#
+Magical Defense ~ INT		CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																																		BONUS:COMBAT|AC|min(INT,5)|TYPE=Deflection	SOURCEPAGE:pg. 7
+Magical Defense ~ WIS		CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																																		BONUS:COMBAT|AC|min(WIS,5)|TYPE=Deflection	SOURCEPAGE:pg. 7
+Magical Defense ~ CHA		CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon	VISIBLE:DISPLAY																																																		BONUS:COMBAT|AC|min(CHA,5)|TYPE=Deflection	SOURCEPAGE:pg. 7
+#
+Major Energy Resistance		CATEGORY:Special Ability	TYPE:SpecialQuality.MajorBoon				DEFINE:ResistanceBonusMajor|10	DESC:Resistance %1 to %2|ResistanceBonusMajor|%LIST	MULT:YES	CHOOSE:STRING|Acid|Air|Crystal|Death|Earth|Fire|Force|Ice|Lava|Life|Light|Lightning|Metal|Mist|Nature|Ooze|Shadow|Sound|Space|Time|Void|Water
+
+
+###Block: Spell Lists
+# Ability Name			Output Name				Category of Ability		Type										Source Page
+Abjure Water								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Water			SOURCEPAGE:pg. 19
+Abjure Fire									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Fire			SOURCEPAGE:pg. 19
+Abjure Earth								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Earth			SOURCEPAGE:pg. 19
+Abjure Air									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Air				SOURCEPAGE:pg. 19
+Abjure Death								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Death			SOURCEPAGE:pg. 19
+Abjure Life									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Life			SOURCEPAGE:pg. 19
+Abjure Lava									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Lava			SOURCEPAGE:pg. 19
+Abjure Lightning								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Lightning			SOURCEPAGE:pg. 19
+Abjure Mist									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Mist			SOURCEPAGE:pg. 19
+Abjure Ooze									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Ooze			SOURCEPAGE:pg. 19
+Abjure Acid									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Acid			SOURCEPAGE:pg. 19
+Abjure Metal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Metal			SOURCEPAGE:pg. 19
+Abjure Shadow								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Shadow			SOURCEPAGE:pg. 19
+Abjure Void									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Void			SOURCEPAGE:pg. 19
+Abjure Crystal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Crystal			SOURCEPAGE:pg. 19
+Abjure Ice									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Ice				SOURCEPAGE:pg. 19
+Abjure Light								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Light			SOURCEPAGE:pg. 19
+Abjure Sound								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Sound			SOURCEPAGE:pg. 19
+Abjure Force								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Force			SOURCEPAGE:pg. 19
+Abjure Nature								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Nature			SOURCEPAGE:pg. 19
+Abjure Space								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Space			SOURCEPAGE:pg. 19
+Abjure Time									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Time			SOURCEPAGE:pg. 19
+Abjure Aberration								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Aberration		SOURCEPAGE:pg. 19
+Abjure Animal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Animal			SOURCEPAGE:pg. 19
+Abjure Construct								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Construct			SOURCEPAGE:pg. 19
+Abjure Dragon								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Dragon			SOURCEPAGE:pg. 19
+Abjure Elemental								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Elemental			SOURCEPAGE:pg. 19
+Abjure Fey									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Fey				SOURCEPAGE:pg. 19
+Abjure Giant								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Giant			SOURCEPAGE:pg. 19
+Abjure Humanoid								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Humanoid			SOURCEPAGE:pg. 19
+Abjure Magical Beast							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Magical Beast		SOURCEPAGE:pg. 19
+Abjure Monstrous Humanoid						CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Monstrous Humanoid	SOURCEPAGE:pg. 19
+Abjure Outsider								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Outsider			SOURCEPAGE:pg. 19
+Abjure Plant								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Plant			SOURCEPAGE:pg. 19
+Abjure Undead								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Undead			SOURCEPAGE:pg. 19
+Abjure Vermin								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Vermin			SOURCEPAGE:pg. 19
+Abjure Good									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Good			SOURCEPAGE:pg. 19
+Abjure Law									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Law				SOURCEPAGE:pg. 19
+Abjure Balance								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Balance			SOURCEPAGE:pg. 19
+Abjure Evil									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Evil			SOURCEPAGE:pg. 19
+Abjure Chaos								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Abjure.Chaos			SOURCEPAGE:pg. 19
+Charm Aberration								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Charm.Aberration			SOURCEPAGE:pg. 19
+Charm Animal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Charm.Animal			SOURCEPAGE:pg. 19
+Charm Construct								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Charm.Construct			SOURCEPAGE:pg. 19
+Charm Dragon								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Charm.Dragon			SOURCEPAGE:pg. 19
+Charm Elemental								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Charm.Elemental			SOURCEPAGE:pg. 19
+Charm Fey									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Charm.Fey				SOURCEPAGE:pg. 19
+Charm Giant									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Charm.Giant			SOURCEPAGE:pg. 19
+Charm Humanoid								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Charm.Humanoid			SOURCEPAGE:pg. 19
+Charm Magical Beast							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Charm.Magical Beast		SOURCEPAGE:pg. 19
+Charm Monstrous Humanoid						CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Charm.Monstrous Humanoid	SOURCEPAGE:pg. 19
+Charm Ooze									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Charm.Ooze				SOURCEPAGE:pg. 19
+Charm Outsider								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Charm.Outsider			SOURCEPAGE:pg. 19
+Charm Plant									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Charm.Plant			SOURCEPAGE:pg. 19
+Charm Undead								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Charm.Undead			SOURCEPAGE:pg. 19
+Charm Vermin								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Charm.Vermin			SOURCEPAGE:pg. 19
+Compel Aberration								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Compel.Aberration		SOURCEPAGE:pg. 19
+Compel Animal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Compel.Animal			SOURCEPAGE:pg. 19
+Compel Construct								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Compel.Construct			SOURCEPAGE:pg. 19
+Compel Dragon								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Compel.Dragon			SOURCEPAGE:pg. 19
+Compel Elemental								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Compel.Elemental			SOURCEPAGE:pg. 19
+Compel Fey									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Compel.Fey				SOURCEPAGE:pg. 19
+Compel Giant								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Compel.Giant			SOURCEPAGE:pg. 19
+Compel Humanoid								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Compel.Humanoid			SOURCEPAGE:pg. 19
+Compel Magical Beast							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Compel.Magical Beast		SOURCEPAGE:pg. 19
+Compel Monstrous Humanoid						CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Compel.Monstrous Humanoid	SOURCEPAGE:pg. 19
+Compel Ooze									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Compel.Ooze			SOURCEPAGE:pg. 19
+Compel Outsider								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Compel.Outsider			SOURCEPAGE:pg. 19
+Compel Plant								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Compel.Plant			SOURCEPAGE:pg. 19
+Compel Undead								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Compel.Undead			SOURCEPAGE:pg. 19
+Compel Vermin								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Compel.Vermin			SOURCEPAGE:pg. 19
+Create Water								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Water			SOURCEPAGE:pg. 19
+Create Fire									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Fire			SOURCEPAGE:pg. 19
+Create Earth								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Earth			SOURCEPAGE:pg. 19
+Create Air									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Air				SOURCEPAGE:pg. 19
+Create Death								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Death			SOURCEPAGE:pg. 19
+Create Life									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Life			SOURCEPAGE:pg. 19
+Create Lava									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Lava			SOURCEPAGE:pg. 19
+Create Lightning								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Lightning			SOURCEPAGE:pg. 19
+Create Mist									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Mist			SOURCEPAGE:pg. 19
+Create Ooze									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Ooze			SOURCEPAGE:pg. 19
+Create Acid									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Acid			SOURCEPAGE:pg. 19
+Create Metal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Metal			SOURCEPAGE:pg. 19
+Create Shadow								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Shadow			SOURCEPAGE:pg. 19
+Create Void									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Void			SOURCEPAGE:pg. 19
+Create Crystal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Crystal			SOURCEPAGE:pg. 19
+Create Ice									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Ice				SOURCEPAGE:pg. 19
+Create Light								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Light			SOURCEPAGE:pg. 19
+Create Sound								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Sound			SOURCEPAGE:pg. 19
+Create Force								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Force			SOURCEPAGE:pg. 19
+Create Nature								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Nature			SOURCEPAGE:pg. 19
+Create Space								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Space			SOURCEPAGE:pg. 19
+Create Time									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Create.Time			SOURCEPAGE:pg. 19
+Evoke Water									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Water			SOURCEPAGE:pg. 19
+Evoke Fire									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Fire				SOURCEPAGE:pg. 19
+Evoke Earth									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Earth			SOURCEPAGE:pg. 19
+Evoke Air									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Air				SOURCEPAGE:pg. 19
+Evoke Death									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Death			SOURCEPAGE:pg. 19
+Evoke Life									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Life				SOURCEPAGE:pg. 19
+Evoke Lava									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Lava				SOURCEPAGE:pg. 19
+Evoke Lightning								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Lightning			SOURCEPAGE:pg. 19
+Evoke Mist									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Mist				SOURCEPAGE:pg. 19
+Evoke Ooze									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Ooze				SOURCEPAGE:pg. 19
+Evoke Acid									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Acid				SOURCEPAGE:pg. 19
+Evoke Metal									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Metal			SOURCEPAGE:pg. 19
+Evoke Shadow								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Shadow			SOURCEPAGE:pg. 19
+Evoke Void									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Void				SOURCEPAGE:pg. 19
+Evoke Crystal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Crystal			SOURCEPAGE:pg. 19
+Evoke Ice									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Ice				SOURCEPAGE:pg. 19
+Evoke Light									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Light			SOURCEPAGE:pg. 19
+Evoke Sound									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Sound			SOURCEPAGE:pg. 19
+Evoke Force									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Force			SOURCEPAGE:pg. 19
+Evoke Nature								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Nature			SOURCEPAGE:pg. 19
+Evoke Space									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Space			SOURCEPAGE:pg. 19
+Evoke Time									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Time				SOURCEPAGE:pg. 19
+Evoke Good									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Good				SOURCEPAGE:pg. 19
+Evoke Law									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Law				SOURCEPAGE:pg. 19
+Evoke Balance								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Balance			SOURCEPAGE:pg. 19
+Evoke Evil									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Evil				SOURCEPAGE:pg. 19
+Evoke Chaos									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Evoke.Chaos			SOURCEPAGE:pg. 19
+Heal Water									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Water				SOURCEPAGE:pg. 19
+Heal Fire									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Fire				SOURCEPAGE:pg. 19
+Heal Earth									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Earth				SOURCEPAGE:pg. 19
+Heal Air									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Air				SOURCEPAGE:pg. 19
+Heal Death									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Death				SOURCEPAGE:pg. 19
+Heal Life									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Life				SOURCEPAGE:pg. 19
+Heal Lava									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Lava				SOURCEPAGE:pg. 19
+Heal Lightning								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Lightning			SOURCEPAGE:pg. 19
+Heal Mist									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Mist				SOURCEPAGE:pg. 19
+Heal Ooze									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Ooze				SOURCEPAGE:pg. 19
+Heal Acid									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Acid				SOURCEPAGE:pg. 19
+Heal Metal									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Metal				SOURCEPAGE:pg. 19
+Heal Shadow									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Shadow			SOURCEPAGE:pg. 19
+Heal Void									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Void				SOURCEPAGE:pg. 19
+Heal Crystal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Crystal			SOURCEPAGE:pg. 19
+Heal Ice									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Ice				SOURCEPAGE:pg. 19
+Heal Light									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Light				SOURCEPAGE:pg. 19
+Heal Sound									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Sound				SOURCEPAGE:pg. 19
+Heal Force									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Force				SOURCEPAGE:pg. 19
+Heal Nature									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Nature			SOURCEPAGE:pg. 19
+Heal Space									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Space				SOURCEPAGE:pg. 19
+Heal Time									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Time				SOURCEPAGE:pg. 19
+Heal Good									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Good				SOURCEPAGE:pg. 19
+Heal Law									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Law				SOURCEPAGE:pg. 19
+Heal Balance								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Balance			SOURCEPAGE:pg. 19
+Heal Evil									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Evil				SOURCEPAGE:pg. 19
+Heal Chaos									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Heal.Chaos				SOURCEPAGE:pg. 19
+Illusion Water								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Water			SOURCEPAGE:pg. 19
+Illusion Fire								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Fire			SOURCEPAGE:pg. 19
+Illusion Earth								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Earth			SOURCEPAGE:pg. 19
+Illusion Air								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Air			SOURCEPAGE:pg. 19
+Illusion Death								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Death			SOURCEPAGE:pg. 19
+Illusion Life								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Life			SOURCEPAGE:pg. 19
+Illusion Lava								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Lava			SOURCEPAGE:pg. 19
+Illusion Lightning							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Lightning		SOURCEPAGE:pg. 19
+Illusion Mist								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Mist			SOURCEPAGE:pg. 19
+Illusion Ooze								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Ooze			SOURCEPAGE:pg. 19
+Illusion Acid								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Acid			SOURCEPAGE:pg. 19
+Illusion Metal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Metal			SOURCEPAGE:pg. 19
+Illusion Shadow								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Shadow			SOURCEPAGE:pg. 19
+Illusion Void								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Void			SOURCEPAGE:pg. 19
+Illusion Crystal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Crystal			SOURCEPAGE:pg. 19
+Illusion Ice								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Ice			SOURCEPAGE:pg. 19
+Illusion Light								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Light			SOURCEPAGE:pg. 19
+Illusion Sound								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Sound			SOURCEPAGE:pg. 19
+Illusion Force								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Force			SOURCEPAGE:pg. 19
+Illusion Nature								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Nature			SOURCEPAGE:pg. 19
+Illusion Space								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Space			SOURCEPAGE:pg. 19
+Illusion Time								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Illusion.Time			SOURCEPAGE:pg. 19
+Infuse Water								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Water			SOURCEPAGE:pg. 19
+Infuse Fire									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Fire			SOURCEPAGE:pg. 19
+Infuse Earth								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Earth			SOURCEPAGE:pg. 19
+Infuse Air									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Air				SOURCEPAGE:pg. 19
+Infuse Death								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Death			SOURCEPAGE:pg. 19
+Infuse Life									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Life			SOURCEPAGE:pg. 19
+Infuse Lava									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Lava			SOURCEPAGE:pg. 19
+Infuse Lightning								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Lightning			SOURCEPAGE:pg. 19
+Infuse Mist									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Mist			SOURCEPAGE:pg. 19
+Infuse Ooze									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Ooze			SOURCEPAGE:pg. 19
+Infuse Acid									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Acid			SOURCEPAGE:pg. 19
+Infuse Metal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Metal			SOURCEPAGE:pg. 19
+Infuse Shadow								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Shadow			SOURCEPAGE:pg. 19
+Infuse Void									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Void			SOURCEPAGE:pg. 19
+Infuse Crystal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Crystal			SOURCEPAGE:pg. 19
+Infuse Ice									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Ice				SOURCEPAGE:pg. 19
+Infuse Light								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Light			SOURCEPAGE:pg. 19
+Infuse Sound								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Sound			SOURCEPAGE:pg. 19
+Infuse Force								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Force			SOURCEPAGE:pg. 19
+Infuse Nature								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Nature			SOURCEPAGE:pg. 19
+Infuse Space								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Space			SOURCEPAGE:pg. 19
+Infuse Time									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Time			SOURCEPAGE:pg. 19
+Infuse Good									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Good			SOURCEPAGE:pg. 19
+Infuse Law									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Law				SOURCEPAGE:pg. 19
+Infuse Balance								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Balance			SOURCEPAGE:pg. 19
+Infuse Evil									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Evil			SOURCEPAGE:pg. 19
+Infuse Chaos								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Infuse.Chaos			SOURCEPAGE:pg. 19
+Move Water									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Water				SOURCEPAGE:pg. 19
+Move Fire									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Fire				SOURCEPAGE:pg. 19
+Move Earth									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Earth				SOURCEPAGE:pg. 19
+Move Air									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Air				SOURCEPAGE:pg. 19
+Move Death									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Death				SOURCEPAGE:pg. 19
+Move Life									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Life				SOURCEPAGE:pg. 19
+Move Lava									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Lava				SOURCEPAGE:pg. 19
+Move Lightning								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Lightning			SOURCEPAGE:pg. 19
+Move Mist									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Mist				SOURCEPAGE:pg. 19
+Move Ooze									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Ooze				SOURCEPAGE:pg. 19
+Move Acid									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Acid				SOURCEPAGE:pg. 19
+Move Metal									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Metal				SOURCEPAGE:pg. 19
+Move Shadow									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Shadow			SOURCEPAGE:pg. 19
+Move Void									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Void				SOURCEPAGE:pg. 19
+Move Crystal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Crystal			SOURCEPAGE:pg. 19
+Move Ice									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Ice				SOURCEPAGE:pg. 19
+Move Light									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Light				SOURCEPAGE:pg. 19
+Move Sound									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Sound				SOURCEPAGE:pg. 19
+Move Force									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Force				SOURCEPAGE:pg. 19
+Move Nature									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Nature			SOURCEPAGE:pg. 19
+Move Space									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Space				SOURCEPAGE:pg. 19
+Move Time									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Move.Time				SOURCEPAGE:pg. 19
+Summon Aberration								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Summon.Aberration		SOURCEPAGE:pg. 19
+Summon Animal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Summon.Animal			SOURCEPAGE:pg. 19
+Summon Construct								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Summon.Construct			SOURCEPAGE:pg. 19
+Summon Dragon								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Summon.Dragon			SOURCEPAGE:pg. 19
+Summon Elemental								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Summon.Elemental			SOURCEPAGE:pg. 19
+Summon Fey									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Summon.Fey				SOURCEPAGE:pg. 19
+Summon Giant								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Summon.Giant			SOURCEPAGE:pg. 19
+Summon Humanoid								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Summon.Humanoid			SOURCEPAGE:pg. 19
+Summon Magical Beast							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Summon.Magical Beast		SOURCEPAGE:pg. 19
+Summon Monstrous Humanoid						CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Summon.Monstrous Humanoid	SOURCEPAGE:pg. 19
+Summon Ooze									CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Summon.Ooze			SOURCEPAGE:pg. 19
+Summon Outsider								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Summon.Outsider			SOURCEPAGE:pg. 19
+Summon Plant								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Summon.Plant			SOURCEPAGE:pg. 19
+Summon Undead ~ EoM		OUTPUTNAME:Summon Undead	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Summon.Undead			SOURCEPAGE:pg. 19
+Summon Vermin								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Summon.Vermin			SOURCEPAGE:pg. 19
+Transform Water								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Water			SOURCEPAGE:pg. 19
+Transform Fire								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Fire			SOURCEPAGE:pg. 19
+Transform Earth								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Earth			SOURCEPAGE:pg. 19
+Transform Air								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Air			SOURCEPAGE:pg. 19
+Transform Death								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Death			SOURCEPAGE:pg. 19
+Transform Life								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Life			SOURCEPAGE:pg. 19
+Transform Lava								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Lava			SOURCEPAGE:pg. 19
+Transform Lightning							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Lightning		SOURCEPAGE:pg. 19
+Transform Mist								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Mist			SOURCEPAGE:pg. 19
+Transform Ooze								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Ooze			SOURCEPAGE:pg. 19
+Transform Acid								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Acid			SOURCEPAGE:pg. 19
+Transform Metal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Metal			SOURCEPAGE:pg. 19
+Transform Shadow								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Shadow			SOURCEPAGE:pg. 19
+Transform Void								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Void			SOURCEPAGE:pg. 19
+Transform Crystal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Crystal		SOURCEPAGE:pg. 19
+Transform Ice								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Ice			SOURCEPAGE:pg. 19
+Transform Light								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Light			SOURCEPAGE:pg. 19
+Transform Sound								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Sound			SOURCEPAGE:pg. 19
+Transform Force								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Force			SOURCEPAGE:pg. 19
+Transform Nature								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Nature			SOURCEPAGE:pg. 19
+Transform Space								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Space			SOURCEPAGE:pg. 19
+Transform Time								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Time			SOURCEPAGE:pg. 19
+Transform Aberration							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Aberration		SOURCEPAGE:pg. 19
+Transform Animal								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Animal			SOURCEPAGE:pg. 19
+Transform Construct							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Construct		SOURCEPAGE:pg. 19
+Transform Dragon								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Dragon			SOURCEPAGE:pg. 19
+Transform Elemental							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Elemental		SOURCEPAGE:pg. 19
+Transform Fey								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Fey			SOURCEPAGE:pg. 19
+Transform Giant								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Giant			SOURCEPAGE:pg. 19
+Transform Humanoid							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Humanoid		SOURCEPAGE:pg. 19
+Transform Magical Beast							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Magical Beast	SOURCEPAGE:pg. 19
+Transform Monstrous Humanoid						CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Monstrous Humanoid	SOURCEPAGE:pg. 19
+Transform Outsider							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Outsider		SOURCEPAGE:pg. 19
+Transform Plant								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Plant			SOURCEPAGE:pg. 19
+Transform Undead								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Undead			SOURCEPAGE:pg. 19
+Transform Vermin								CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLists.Transform.Vermin			SOURCEPAGE:pg. 19
+
+###Block: Magical Traditions
+# Ability Name		Category of Ability		Type							Source Page
+Ragesian Inquisitor	CATEGORY:Special Ability	TYPE:SpecialQuality.MagicalTradition	SOURCEPAGE:pg. 92
+Vaneljesti Spellweaver	CATEGORY:Special Ability	TYPE:SpecialQuality.MagicalTradition	SOURCEPAGE:pg. 92
+
+#
+# End
+#
