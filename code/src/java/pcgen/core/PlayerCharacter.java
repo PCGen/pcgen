@@ -10060,8 +10060,8 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 				if (ab == null)
 				{
 					Logging.log(Logging.LST_ERROR,
-						"Missing object referenced in the ability list for "
-							+ cdo + " list is " + ref);
+						"Missing object referenced in the ability list for '"
+							+ cdo + "' list is " + ref + ". Source " + cdo.getSourceURI());
 					continue;
 				}
 				for (AssociatedPrereqObject apo : assoc)
