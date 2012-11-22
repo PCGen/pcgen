@@ -1,0 +1,33 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
+#Original entry by: Frank Kliewe
+
+###Block_Ammunition
+# Equipment Name				Output Name						Type							Cost		Weight	Source Page
+Bullet (.30/20)				OUTPUTNAME:.30 Bullets, 20 pack		TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.67
+Bullet (6mm/50)				OUTPUTNAME:6mm Bullets, 50 pack		TYPE:Ammunition.Standard.Metal.Bullet	COST:4	WT:0		SOURCEPAGE:p.67
+Bullet (6.5mm/50)				OUTPUTNAME:6.5mm Bullets, 50 pack		TYPE:Ammunition.Standard.Metal.Bullet	COST:4	WT:0		SOURCEPAGE:p.67
+Bullet (18 ga buckshot/10)		OUTPUTNAME:18 gauge buckshot, 10 pack	TYPE:Ammunition.Standard.Metal.Bullet	COST:3	WT:0		SOURCEPAGE:p.67
+Bullet (9mm/50).MOD																					SOURCEPAGE:p.67
+Bullet (.32/50).MOD																					SOURCEPAGE:p.67
+Bullet (.38S/50).MOD																					SOURCEPAGE:p.67
+Bullet (.357/50).MOD																					SOURCEPAGE:p.67
+Bullet (.45/50).MOD																					SOURCEPAGE:p.67
+Bullet (12 ga buckshot/10).MOD																			SOURCEPAGE:p.67
+Arrows (12).MOD																						SOURCEPAGE:p.67
+Bolts (Crossbow/12).MOD																					SOURCEPAGE:p.67
+
+###Block:Singles
+# Equipment Name			Output Name				Type									Cost		Weight	Source Page
+Bullet (.30)			OUTPUTNAME:.30 Bullet		TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:5	WT:0		SOURCEPAGE:p.67
+Bullet (6mm)			OUTPUTNAME:6mm Bullet		TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:4	WT:0		SOURCEPAGE:p.67
+Bullet (6.5mm)			OUTPUTNAME:6.5mm Bullet		TYPE:Ammunition.Standard.Metal.Bullet.Individual	COST:4	WT:0		SOURCEPAGE:p.67
+Bullet (18 ga buckshot)		OUTPUTNAME:Buckshot, 18 ga	TYPE:Ammunition.Standard.Metal.Bullet			COST:3	WT:0		SOURCEPAGE:p.67
+Bullet (9mm).MOD																					SOURCEPAGE:p.67
+Bullet (.32).MOD																					SOURCEPAGE:p.67
+Bullet (.38S).MOD																					SOURCEPAGE:p.67
+Bullet (.357).MOD																					SOURCEPAGE:p.67
+Bullet (.45).MOD																					SOURCEPAGE:p.67
+Bullet (12 ga buckshot).MOD																			SOURCEPAGE:p.67
+Arrow.MOD																						SOURCEPAGE:p.67
+Bolt (Crossbow).MOD																				SOURCEPAGE:p.67

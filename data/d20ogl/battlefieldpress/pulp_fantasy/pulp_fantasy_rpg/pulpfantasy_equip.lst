@@ -1,0 +1,111 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
+#Original entry by: Frank Kliewe
+
+###Block:Bags and Boxes
+# Equipment Name		Type					Contains		Cost		Weight	Size		Source Page
+Cigarette Case		TYPE:Goods.General					COST:6	WT:0.5	SIZE:S	SOURCEPAGE:p.74
+Handbag (Standard)	TYPE:Goods.Container.General	CONTAINS:4|Any=4	COST:7	WT:2		SIZE:S	SOURCEPAGE:p.74
+Handbag (Oversized)	TYPE:Goods.Container.General	CONTAINS:6|Any=6	COST:9	WT:3		SIZE:M	SOURCEPAGE:p.74
+Briefcase.MOD														SIZE:M	SOURCEPAGE:p.74
+Handbag.MOD															SIZE:S	SOURCEPAGE:p.74
+
+###Block:Clothing
+# Equipment Name		Type					Cost		Weight	Size		Source Page
+Khakis			TYPE:Goods.Clothing		COST:9	WT:3		SIZE:M	SOURCEPAGE:p.74
+Poncho			TYPE:Goods.Clothing		COST:6	WT:1		SIZE:M	SOURCEPAGE:p.74
+Hat (Formal)		TYPE:Goods.Headgear		COST:7	WT:1		SIZE:S	SOURCEPAGE:p.74
+Hat (Slouch)		TYPE:Goods.Headgear		COST:2	WT:1		SIZE:S	SOURCEPAGE:p.74
+Money Belt			TYPE:Goods.Clothing.Belt	COST:4	WT:1		SIZE:S	SOURCEPAGE:p.74
+Waders (hip boots)	TYPE:Goods.Boot			COST:13	WT:1		SIZE:S	SOURCEPAGE:p.74
+
+###Block: Clothing .MODs
+# Equipment Name				Size		Source Page
+Clothing Outfit (Business).MOD	SIZE:M	SOURCEPAGE:p.74
+Clothing Outfit (Casual).MOD		SIZE:M	SOURCEPAGE:p.74
+Clothing Outfit (Formal).MOD		SIZE:M	SOURCEPAGE:p.74
+Uniform.MOD					SIZE:M	SOURCEPAGE:p.74
+Outerwear (Coat).MOD			SIZE:M	SOURCEPAGE:p.74
+Outerwear (Overcoat).MOD		SIZE:M	SOURCEPAGE:p.74
+Outerwear (Parka).MOD			SIZE:M	SOURCEPAGE:p.74
+Windbreaker.MOD				SIZE:M	SOURCEPAGE:p.74
+Tool Belt.MOD				SIZE:S	SOURCEPAGE:p.74
+
+###Block:Consumer Electronics
+# Equipment Name			Output Name				Type						Cost		Weight	Size		Source Page
+Camera (Folding Pocket)							TYPE:Goods.Tools.Consumer.Photo	COST:6	WT:5		SIZE:S	SOURCEPAGE:p.74
+Camera (Developer's Kit)	OUTPUTNAME:[NAME]			TYPE:Goods.Tools.Consumer.Photo	COST:3	WT:0				SOURCEPAGE:p.74
+Camera (Movie)			OUTPUTNAME:[NAME] Camera	TYPE:Goods.Tools.Consumer.Photo	COST:13	WT:10		SIZE:L	SOURCEPAGE:p.74
+Phonograph									TYPE:Goods.Tools.Consumer		COST:12	WT:5		SIZE:M	SOURCEPAGE:p.74
+Radio										TYPE:Goods.Tools.Consumer		COST:18	WT:2		SIZE:S	SOURCEPAGE:p.74
+Camera (Film).MOD																		SIZE:D	SOURCEPAGE:p.74
+
+###Block: Professional Equipment
+# Equipment Name		Type				Cost		Weight	Size		Source Page		Special Property
+Demolitions Kit.MOD														SPROP:Lic(+1)
+Diving Suit			TYPE:Goods.Clothing	COST:27	WT:10		SIZE:M	SOURCEPAGE:p.74	SPROP:Lic(+1)
+Hand Drill			TYPE:Goods.Tools		COST:0	WT:2		SIZE:S	SOURCEPAGE:p.75
+Spike Strip.MOD										SIZE:H	SOURCEPAGE:p.75
+
+###Block: Professional equipment MODs
+# Equipment Name				Size		Source Page		Special Property
+Bolt Cutter.MOD				SIZE:M	SOURCEPAGE:p.74
+Caltrops (25).MOD				SIZE:S	SOURCEPAGE:p.74
+Disguise Kit.MOD				SIZE:M	SOURCEPAGE:p.74
+Electrical Tool Kit (Basic).MOD	SIZE:L	SOURCEPAGE:p.75
+Electrical Tool Kit (Deluxe).MOD	SIZE:H	SOURCEPAGE:p.75
+Fake ID.MOD					SIZE:F	SOURCEPAGE:p.75	SPROP:Ill(+4)
+Forgery Kit.MOD				SIZE:S	SOURCEPAGE:p.75
+Handcuffs (Steel).MOD			SIZE:T	SOURCEPAGE:p.75
+Instrument (Percussion).MOD		SIZE:H	SOURCEPAGE:p.75
+Instrument (Stringed).MOD		SIZE:L	SOURCEPAGE:p.75
+Instrument (Wind).MOD			SIZE:T	SOURCEPAGE:p.75
+Lockpick Set.MOD				SIZE:T	SOURCEPAGE:p.75	SPROP:Lic(+1)
+Mechanical Tool Kit (Basic).MOD	SIZE:L	SOURCEPAGE:p.75
+Mechanical Tool Kit (Deluxe).MOD	SIZE:H	SOURCEPAGE:p.75
+
+###Block:Medical Equipment
+# Equipment Name		Type						Cost		Weight	Size		Source Page
+Microscope (250x)		TYPE:Goods.Tools.Medical		COST:11	WT:5		SIZE:S	SOURCEPAGE:p.75
+Gauze bandages		TYPE:Goods.Tools.Medical.Consumable	COST:2	WT:0		SIZE:S	SOURCEPAGE:p.75
+Surgery Kit.MOD		TYPE:Medical								SIZE:M	SOURCEPAGE:p.75
+Surgigal Gloves (100)	TYPE:Goods.Tools.Medical.Consumable	COST:3	WT:0		SIZE:S	SOURCEPAGE:p.75
+Thermometer			TYPE:Goods.Tools.Medical		COST:4	WT:0		SIZE:S	SOURCEPAGE:p.75
+Wheelchair			TYPE:Goods.Tools.Medical		COST:16	WT:7		SIZE:M	SOURCEPAGE:p.75
+First Aid Kit.MOD												SIZE:S	SOURCEPAGE:p.75
+Medical Kit.MOD												SIZE:M	SOURCEPAGE:p.75
+Pharmacist Kit.MOD													SOURCEPAGE:p.75
+
+###Block:Survival Gear
+# Equipment Name				Output Name			Type				Cost		Weight	Modifier					Size		Source Page
+Flashlight (Battery Flood).MOD																			SIZE:S	SOURCEPAGE:p.75
+Map										TYPE:Goods.General	COST:4	WT:1								SIZE:T	SOURCEPAGE:p.75
+Portable Stove.MOD																							SOURCEPAGE:p.75
+Tent (2-person)				OUTPUTNAME:[NAME] tent	TYPE:Goods.General	COST:11	WT:4								SIZE:M	SOURCEPAGE:p.75
+Tent (4-person)				OUTPUTNAME:[NAME] tent	TYPE:Goods.General	COST:12	WT:7								SIZE:M	SOURCEPAGE:p.75
+Tent (8-person)				OUTPUTNAME:[NAME] tent	TYPE:Goods.General	COST:13	WT:10								SIZE:L	SOURCEPAGE:p.75
+Tent (25-person)				OUTPUTNAME:[NAME] tent	TYPE:Goods.General	COST:15	WT:15								SIZE:L	SOURCEPAGE:p.75
+Trail Rations (12).MOD															EQMOD:CHARGED_ITEM_12|CHARGES[12]	SIZE:T	SOURCEPAGE:p.75
+
+###Block: Survival Gear .MODs
+# Equipment Name			Output Name			Size		Source Page
+Backpack.MOD							SIZE:M	SOURCEPAGE:p.75
+Binoculars (Standard).MOD	OUTPUTNAME:Binoculars	SIZE:S	SOURCEPAGE:p.75
+Climbing Gear.MOD							SIZE:L	SOURCEPAGE:p.75
+Compass.MOD								SIZE:D	SOURCEPAGE:p.75
+Flashlight (Standard).MOD	OUTPUTNAME:Flashlight	SIZE:T	SOURCEPAGE:p.75
+Gas Mask.MOD							SIZE:S	SOURCEPAGE:p.75
+Rope (150 ft.).MOD						SIZE:L	SOURCEPAGE:p.75
+Sleeping Bag.MOD							SIZE:M	SOURCEPAGE:p.75
+
+###Block: Weapon Accessories
+# Equipment Name			Output Name				Type							Cost		Weight	Size		Source Page
+Detonator (Plunger)		OUTPUTNAME:Detonator, [NAME]	TYPE:Goods.WeaponAccessory.Consumable	COST:6	WT:3		SIZE:S	SOURCEPAGE:p.74
+Box Magazine.MOD																			SIZE:T	SOURCEPAGE:p.76
+Detonator (Blasting cap).MOD																	SIZE:T	SOURCEPAGE:p.76
+Holster (Hip).MOD																			SIZE:T	SOURCEPAGE:p.76
+Holster (Concealed carry).MOD																	SIZE:T	SOURCEPAGE:p.76
+
+###Block:Weird Science Gadget
+# Equipment Name	Type		Define								Requires Modification?	Source Page		Special Property
+Weird Gadget	TYPE:Gadget	DEFINE:InventionLevel|0	DEFINE:BaseInventionLevel|0	MODS:REQUIRED		SOURCEPAGE:p.88	SPROP:Invention Level %|max(InventionLevel,BaseInventionLevel)

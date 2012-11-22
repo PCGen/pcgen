@@ -1,0 +1,77 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
+#Original entry by: Frank Kliewe
+
+# Do NOT remove the COST:0 tags on the Subclass, unless you want an crash in loading the files. - Tir Gwaith
+
+# Class Name	Define			Modify VAR
+CLASS:Strong.MOD	DEFINE:SkillPointsStr|0	BONUS:VAR|SkillPointsStr|3
+# Class Name	Skill Pts/Lvl
+CLASS:Strong.MOD	STARTSKILLPTS:SkillPointsStr
+#SUBCLASS:Strong Hero	COST:0
+#SUBCLASSLEVEL:1
+#SUBCLASSLEVEL:3
+#SUBCLASSLEVEL:5
+#SUBCLASSLEVEL:7
+#SUBCLASSLEVEL:9
+#SUBCLASSLEVEL:1:REPEATLEVEL:2	ADD:ABILITY|1|Strong Talent|NORMAL|TYPE.StrongTalent,TYPE.AddTalent
+
+# Class Name	Define				Modify VAR
+CLASS:Fast.MOD	DEFINE:SkillPointsFast|0	BONUS:VAR|SkillPointsFast|5
+# Class Name	Skill Pts/Lvl
+CLASS:Fast.MOD	STARTSKILLPTS:SkillPointsFast
+#SUBCLASS:Fast Hero	COST:0
+#SUBCLASSLEVEL:1
+#SUBCLASSLEVEL:3
+#SUBCLASSLEVEL:5
+#SUBCLASSLEVEL:7
+#SUBCLASSLEVEL:9
+#SUBCLASSLEVEL:1:REPEATLEVEL:2	ADD:ABILITY|1|Fast Talent|NORMAL|TYPE.FastTalent,TYPE.AddTalent
+
+# Class Name	Define			Modify VAR
+CLASS:Tough.MOD	DEFINE:SkillPointsTou|0	BONUS:VAR|SkillPointsTou|3
+# Class Name	Skill Pts/Lvl
+CLASS:Tough.MOD	STARTSKILLPTS:SkillPointsTou
+#SUBCLASS:Tough Hero	COST:0
+#SUBCLASSLEVEL:1
+#SUBCLASSLEVEL:3
+#SUBCLASSLEVEL:5
+#SUBCLASSLEVEL:7
+#SUBCLASSLEVEL:9
+#SUBCLASSLEVEL:1:REPEATLEVEL:2	ADD:ABILITY|1|Tough Talent|NORMAL|TYPE.ToughTalent,TYPE.AddTalent
+
+# Class Name	Define			Modify VAR
+CLASS:Smart.MOD	DEFINE:SkillPointsSma|0	BONUS:VAR|SkillPointsSma|9
+# Class Name	Skill Pts/Lvl
+CLASS:Smart.MOD	STARTSKILLPTS:SkillPointsSma
+#SUBCLASS:Smart Hero	COST:0
+#SUBCLASSLEVEL:1
+#SUBCLASSLEVEL:3
+#SUBCLASSLEVEL:5
+#SUBCLASSLEVEL:7
+#SUBCLASSLEVEL:9
+#SUBCLASSLEVEL:1:REPEATLEVEL:2	ADD:ABILITY|1|Smart Talent|NORMAL|TYPE.SmartTalent,TYPE.AddTalent
+
+# Class Name		Define			Modify VAR
+CLASS:Dedicated.MOD	DEFINE:SkillPointsDed|0	BONUS:VAR|SkillPointsDed|5
+# Class Name		Skill Pts/Lvl
+CLASS:Dedicated.MOD	STARTSKILLPTS:SkillPointsDed
+#SUBCLASS:Dedicated Hero	COST:0
+#SUBCLASSLEVEL:1
+#SUBCLASSLEVEL:3
+#SUBCLASSLEVEL:5
+#SUBCLASSLEVEL:7
+#SUBCLASSLEVEL:9
+#SUBCLASSLEVEL:1:REPEATLEVEL:2	ADD:ABILITY|1|Dedicated Talent|NORMAL|TYPE.DedicatedTalent,TYPE.AddTalent
+
+# Class Name		Define			Modify VAR
+CLASS:Charismatic.MOD	DEFINE:SkillPointsCha|0	BONUS:VAR|SkillPointsCha|7
+# Class Name		Skill Pts/Lvl
+CLASS:Charismatic.MOD	STARTSKILLPTS:SkillPointsCha
+#SUBCLASS:Charismatic Hero	COST:0
+#SUBCLASSLEVEL:1
+#SUBCLASSLEVEL:3
+#SUBCLASSLEVEL:5
+#SUBCLASSLEVEL:7
+#SUBCLASSLEVEL:9
+#SUBCLASSLEVEL:1:REPEATLEVEL:2	ADD:ABILITY|1|Charismatic Talent|NORMAL|TYPE.CharismaticTalent,TYPE.AddTalent

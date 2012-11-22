@@ -1,0 +1,24 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
+#Original entry by: Frank Kliewe
+
+# Equipment Name				Type					Cost		Weight	Source Page		Special Property
+Amanatin (liquid)				TYPE:Goods.Poison.Consumable	COST:15	WT:0		SOURCEPAGE:p.33	SPROP:Res(+2)
+Arsenic (solid)				TYPE:Goods.Poison.Consumable	COST:14	WT:0		SOURCEPAGE:p.33	SPROP:Res(+2)
+Atropine (liquid)				TYPE:Goods.Poison.Consumable	COST:14	WT:0		SOURCEPAGE:p.33	SPROP:Res(+2)
+Belladonna (liquid)			TYPE:Goods.Poison.Consumable	COST:14	WT:0		SOURCEPAGE:p.33	SPROP:Lic(+1)
+Blue-ringed octopus venom (liquid)	TYPE:Goods.Poison.Consumable	COST:14	WT:0		SOURCEPAGE:p.33	SPROP:Lic(+1)
+Blue vitriol (liquid)			TYPE:Goods.Poison.Consumable	COST:12	WT:0		SOURCEPAGE:p.33	SPROP:Res(+2)
+Chloral hydrate (solid)			TYPE:Goods.Poison.Consumable	COST:13	WT:0		SOURCEPAGE:p.33	SPROP:Res(+2)
+Chloroform (liquid)			TYPE:Goods.Poison.Consumable	COST:13	WT:0		SOURCEPAGE:p.33	SPROP:Res(+2)
+Curare (liquid)				TYPE:Goods.Poison.Consumable	COST:15	WT:0		SOURCEPAGE:p.33	SPROP:Res(+2)
+Cyanide (liquid)				TYPE:Goods.Poison.Consumable	COST:16	WT:0		SOURCEPAGE:p.33	SPROP:Mil(+3)
+Cyanogen (gas)				TYPE:Goods.Poison.Consumable	COST:16	WT:0		SOURCEPAGE:p.33	SPROP:Mil(+3)
+Knockout gas (gas)			TYPE:Goods.Poison.Consumable	COST:13	WT:0		SOURCEPAGE:p.33	SPROP:Res(+2)
+Mustard gas (gas)				TYPE:Goods.Poison.Consumable	COST:14	WT:0		SOURCEPAGE:p.33	SPROP:Mil(+3)
+Paris green (gas or solid)		TYPE:Goods.Poison.Consumable	COST:13	WT:0		SOURCEPAGE:p.33	SPROP:Res(+2)
+Puffer poison (liquid)			TYPE:Goods.Poison.Consumable	COST:13	WT:0		SOURCEPAGE:p.33	SPROP:Lic(+1)
+Rattlesnake venom (liquid)		TYPE:Goods.Poison.Consumable	COST:12	WT:0		SOURCEPAGE:p.33	SPROP:Lic(+1)
+Scorpion venom (liquid)			TYPE:Goods.Poison.Consumable	COST:12	WT:0		SOURCEPAGE:p.33	SPROP:Lic(+1)
+Strychnine (liquid)			TYPE:Goods.Poison.Consumable	COST:14	WT:0		SOURCEPAGE:p.33	SPROP:Res(+2)
+Tarantula poison (liquid)		TYPE:Goods.Poison.Consumable	COST:12	WT:0		SOURCEPAGE:p.33	SPROP:Lic(+1)
