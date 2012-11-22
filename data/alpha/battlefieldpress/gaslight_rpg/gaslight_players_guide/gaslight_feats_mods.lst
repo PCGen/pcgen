@@ -296,7 +296,7 @@ Heir ~ Skill Focus									TYPE:Heir							STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=K
 
 # Escape Artist
 Escape Artist ~ Skill Focus (Deception)						TYPE:Escape_Artist		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus (Deception)
-Escape Artist ~ Skill Focus +2 to Escape Artist and Sleight of Hand	TYPE:Escape_Artist		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills (Escape Artist,Sleight of Hand)
+Escape Artist ~ Skill Focus +2 to Escape Artist and Sleight of Hand	TYPE:Escape_Artist		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills (Escape Artist)|Skill Focus +2 to Two Skills(Sleight of Hand)
 
 # Fortune Teller
 Fortune Teller ~ Skill Focus (Deception)						TYPE:Fortuneteller		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Deception)
@@ -310,12 +310,12 @@ Far Shot.MOD										TYPE:Hunter
 Point Blank Shot.MOD									TYPE:Hunter
 
 # Psychic Investigator
-Psychic Investigator ~ Skill Focus (Sense Motive and Investigate)		TYPE:Psychic_Investigator	VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Sense Motive,Investigate)
-Psychic Investigator ~ Skill Focus (Decipher Script and Research)		TYPE:Psychic_Investigator	VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Decipher Script,Research)
+Psychic Investigator ~ Skill Focus (Sense Motive and Investigate)		TYPE:Psychic_Investigator	VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Sense Motive)|Skill Focus +2 to Two Skills(Investigate)
+Psychic Investigator ~ Skill Focus (Decipher Script and Research)		TYPE:Psychic_Investigator	VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Decipher Script)|Skill Focus +2 to Two Skills(Research)
 
 # Politician
 Renown.MOD											TYPE:Politician
-Politician ~ Skill Focus (Diplomacy)						TYPE:Politician			VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Diplomacy)
+Politician ~ Skill Focus (Diplomacy)						TYPE:Politician			VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Persuasion (Diplomacy))
 Politician ~ Skill Focus (Gather Information)					TYPE:Politician			VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Gather Information)
 Windfall.MOD										TYPE:Politician
 
@@ -324,9 +324,9 @@ Stage Magician ~ Skill Focus (Deception)						TYPE:Stage_Magician		VISIBLE:DISPL
 Stage Magician ~ Skill Focus (Sleight of Hand)					TYPE:Stage_Magician		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Sleight of Hand)
 
 # World Traveler
-Renown
+Renown.MOD											TYPE:World_Traveler
 Skill Focus (any two Knowledge skills)						TYPE:World_Traveler					STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	SELECT:2														BONUS:SKILL|%LIST|2|TYPE=SkillFocus
-Skill Focus (Investigate and Sense Motive)					TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Investigate,Sense Motive)
-Skill Focus (Gamble and Intimidate)							TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Gamble,Intimidate)
-Skill Focus (Survival)									TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus(Survival)
-Skill Focus +2 to Two Skills(Diplomacy and Gather Information)		TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Diplomacy and Gather Information)
+Skill Focus (Investigate and Sense Motive)					TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Investigate)|Skill Focus +2 to Two Skills(Sense Motive)
+Skill Focus (Gamble and Intimidate)							TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Gamble)|Skill Focus +2 to Two Skills(Persuasion (Intimidate))
+Skill Focus (Survival).MOD									TYPE:World_Traveler		VISIBLE:DISPLAY
+Skill Focus +2 to Two Skills(Diplomacy and Gather Information)		TYPE:World_Traveler		VISIBLE:DISPLAY												AUTO:FEAT|Skill Focus +2 to Two Skills(Persuasion (Diplomacy))|Skill Focus +2 to Two Skills (Gather Information)

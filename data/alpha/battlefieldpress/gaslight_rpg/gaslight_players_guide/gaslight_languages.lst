@@ -4,135 +4,135 @@ SOURCELONG:Gaslight - Players Guide	SOURCESHORT:Gaslight	SOURCEWEB:www.battlefie
 
 # Language				Type
 Algonkin				TYPE:Spoken.Algic
-Algonkin				TYPE:Written.Algic
+Algonkin				KEY:Algonkin ~ Written	TYPE:Written.Algic
 Arapaho				TYPE:Spoken.Algic
-Arapaho				TYPE:Written.Algic
+Arapaho				KEY:Arapaho ~ Written	TYPE:Written.Algic
 Blackfoot				TYPE:Spoken.Algic
-Blackfoot				TYPE:Written.Algic
+Blackfoot				KEY:Blackfoot ~ Written	TYPE:Written.Algic
 Cheyenne				TYPE:Spoken.Algic
-Cheyenne				TYPE:Written.Algic
+Cheyenne				KEY:Cheyenne ~ Written	TYPE:Written.Algic
 Shawnee				TYPE:Spoken.Algic
-Shawnee				TYPE:Written.Algic
+Shawnee				KEY:Shawnee ~ Written	TYPE:Written.Algic
 Armenian				TYPE:Spoken.Armenian
-Armenian				TYPE:Written.Armenian
+Armenian				KEY:Armenian ~ Written	TYPE:Written.Armenian
 Apache				TYPE:Spoken.Athabascan
-Apache				TYPE:Written.Athabascan
+Apache				KEY:Apache ~ Written	TYPE:Written.Athabascan
 Chipewyan				TYPE:Spoken.Athabascan
-Chipewyan				TYPE:Written.Athabascan
+Chipewyan				KEY:Chipewyan ~ Written	TYPE:Written.Athabascan
 Navaho				TYPE:Spoken.Athabascan
-Navaho				TYPE:Written.Athabascan
+Navaho				KEY:Navaho ~ Written	TYPE:Written.Athabascan
 Ancient Greek			TYPE:Spoken.Attic
-Ancient Greek			TYPE:Written.Attic
+Ancient Greek			KEY:Ancient Greek ~ Written	TYPE:Written.Attic
 Greek					TYPE:Spoken.Attic
-Greek					TYPE:Written.Attic
+Greek					KEY:Greek ~ Written	TYPE:Written.Attic
 Latvian				TYPE:Spoken.Baltic
-Latvian				TYPE:Written.Baltic
+Latvian				KEY:Latvian ~ Written	TYPE:Written.Baltic
 Lithuanian				TYPE:Spoken.Baltic
-Lithuanian				TYPE:Written.Baltic
+Lithuanian				KEY:Lithuanian ~ Written	TYPE:Written.Baltic
 Gaelic (Irish)			TYPE:Spoken.Celtic
-Gaelic (Irish)			TYPE:Written.Celtic
+Gaelic (Irish)			KEY:Gaelic (Irish) ~ Written	TYPE:Written.Celtic
 Gaelic (Scots)			TYPE:Spoken.Celtic
-Gaelic (Scots)			TYPE:Written.Celtic
+Gaelic (Scots)			KEY:Gaelic (Scots) ~ Written	TYPE:Written.Celtic
 Welsh					TYPE:Spoken.Celtic
-Welsh					TYPE:Written.Celtic
+Welsh					KEY:Welsh ~ Written	TYPE:Written.Celtic
 Cantonese				TYPE:Spoken.Chinese
-Cantonese				TYPE:Written.Chinese
+Cantonese				KEY:Cantonese ~ Written	TYPE:Written.Chinese
 Mandarin				TYPE:Spoken.Chinese
-Mandarin				TYPE:Written.Chinese
+Mandarin				KEY:Mandarin ~ Written	TYPE:Written.Chinese
 Estonian				TYPE:Spoken.Finno-Lappic
-Estonian				TYPE:Written.Finno-Lappic
+Estonian				KEY:Estonian ~ Written	TYPE:Written.Finno-Lappic
 Finnish				TYPE:Spoken.Finno-Lappic
-Finnish				TYPE:Written.Finno-Lappic
+Finnish				KEY:Finnish ~ Written	TYPE:Written.Finno-Lappic
 Lapp					TYPE:Spoken.Finno-Lappic
-Lapp					TYPE:Written.Finno-Lappic
+Lapp					KEY:Lapp ~ Written	TYPE:Written.Finno-Lappic
 Afrikaans				TYPE:Spoken.Germanic
-Afrikaans				TYPE:Written.Germanic
+Afrikaans				KEY:Afrikaans ~ Written	TYPE:Written.Germanic
 Danish				TYPE:Spoken.Germanic
-Danish				TYPE:Written.Germanic
+Danish				KEY:Danish ~ Written	TYPE:Written.Germanic
 Dutch					TYPE:Spoken.Germanic
-Dutch					TYPE:Written.Germanic
+Dutch					KEY:Dutch ~ Written	TYPE:Written.Germanic
 English				TYPE:Spoken.Germanic
-English				TYPE:Written.Germanic
+English				KEY:English ~ Written	TYPE:Written.Germanic
 Flemish				TYPE:Spoken.Germanic
-Flemish				TYPE:Written.Germanic
+Flemish				KEY:Flemish ~ Written	TYPE:Written.Germanic
 German				TYPE:Spoken.Germanic
-German				TYPE:Written.Germanic
+German				KEY:German ~ Written	TYPE:Written.Germanic
 Icelandic				TYPE:Spoken.Germanic
-Icelandic				TYPE:Written.Germanic
+Icelandic				KEY:Icelandic ~ Written	TYPE:Written.Germanic
 Norwegian				TYPE:Spoken.Germanic
-Norwegian				TYPE:Written.Germanic
+Norwegian				KEY:Norwegian ~ Written	TYPE:Written.Germanic
 Swedish				TYPE:Spoken.Germanic
-Swedish				TYPE:Written.Germanic
+Swedish				KEY:Swedish ~ Written	TYPE:Written.Germanic
 Yiddish				TYPE:Spoken.Germanic
-Yiddish				TYPE:Written.Germanic
+Yiddish				KEY:Yiddish ~ Written	TYPE:Written.Germanic
 Hindi					TYPE:Spoken.Indic
-Hindi					TYPE:Written.Indic
+Hindi					KEY:Hindi ~ Written	TYPE:Written.Indic
 Punjabi				TYPE:Spoken.Indic
-Punjabi				TYPE:Written.Indic
+Punjabi				KEY:Punjabi ~ Written	TYPE:Written.Indic
 Sanskrit				TYPE:Spoken.Indic
-Sanskrit				TYPE:Written.Indic
+Sanskrit				KEY:Sanskrit ~ Written	TYPE:Written.Indic
 Urdu					TYPE:Spoken.Indic
-Urdu					TYPE:Written.Indic
+Urdu					KEY:Urdu ~ Written	TYPE:Written.Indic
 Farsi					TYPE:Spoken.Iranian
-Farsi					TYPE:Written.Iranian
+Farsi					KEY:Farsi ~ Written	TYPE:Written.Iranian
 Pashto				TYPE:Spoken.Iranian
-Pashto				TYPE:Written.Iranian
+Pashto				KEY:Pashto ~ Written	TYPE:Written.Iranian
 Japanese				TYPE:Spoken.Japanese
-Japanese				TYPE:Written.Japanese
+Japanese				KEY:Japanese ~ Written	TYPE:Written.Japanese
 Korean				TYPE:Spoken.Korean
-Korean				TYPE:Written.Korean
+Korean				KEY:Korean ~ Written	TYPE:Written.Korean
 French				TYPE:Spoken.Romance
-French				TYPE:Written.Romance
+French				KEY:French ~ Written	TYPE:Written.Romance
 Italian				TYPE:Spoken.Romance
-Italian				TYPE:Written.Romance
+Italian				KEY:Italian ~ Written	TYPE:Written.Romance
 Latin					TYPE:Spoken.Romance
-Latin					TYPE:Written.Romance
+Latin					KEY:Latin ~ Written	TYPE:Written.Romance
 Portuguese				TYPE:Spoken.Romance
-Portuguese				TYPE:Written.Romance
+Portuguese				KEY:Portuguese ~ Written	TYPE:Written.Romance
 Romanian				TYPE:Spoken.Romance
-Romanian				TYPE:Written.Romance
+Romanian				KEY:Romanian ~ Written	TYPE:Written.Romance
 Spanish				TYPE:Spoken.Romance
-Spanish				TYPE:Written.Romance
+Spanish				KEY:Spanish ~ Written	TYPE:Written.Romance
 Akkadian (aka Babylonian)	TYPE:Spoken.Semitic
-Akkadian (aka Babylonian)	TYPE:Written.Semitic
+Akkadian (aka Babylonian)	KEY:Babylonian ~ Written	TYPE:Written.Semitic
 Ancient Hebrew			TYPE:Spoken.Semitic
-Ancient Hebrew			TYPE:Written.Semitic
+Ancient Hebrew			KEY:Ancient Hebrew ~ Written	TYPE:Written.Semitic
 Arabic				TYPE:Spoken.Semitic
-Arabic				TYPE:Written.Semitic
+Arabic				KEY:Arabic ~ Written	TYPE:Written.Semitic
 Aramaic				TYPE:Spoken.Semitic
-Aramaic				TYPE:Written.Semitic
+Aramaic				KEY:Aramaic ~ Written	TYPE:Written.Semitic
 Herbrew				TYPE:Spoken.Semitic
-Herbrew				TYPE:Written.Semitic
+Herbrew				KEY:Herbrew ~ Written	TYPE:Written.Semitic
 Belorussian				TYPE:Spoken.Slavic
-Belorussian				TYPE:Written.Slavic
+Belorussian				KEY:Belorussian ~ Written	TYPE:Written.Slavic
 Bulgarian				TYPE:Spoken.Slavic
-Bulgarian				TYPE:Written.Slavic
+Bulgarian				KEY:Bulgarian ~ Written	TYPE:Written.Slavic
 Czech					TYPE:Spoken.Slavic
-Czech					TYPE:Written.Slavic
+Czech					KEY:Czech ~ Written	TYPE:Written.Slavic
 Polish				TYPE:Spoken.Slavic
-Polish				TYPE:Written.Slavic
+Polish				KEY:Polish ~ Written	TYPE:Written.Slavic
 Russian				TYPE:Spoken.Slavic
-Russian				TYPE:Written.Slavic
+Russian				KEY:Russian ~ Written	TYPE:Written.Slavic
 Serbo-Croatian			TYPE:Spoken.Slavic
-Serbo-Croatian			TYPE:Written.Slavic
+Serbo-Croatian			KEY:Serbo-Croatian ~ Written	TYPE:Written.Slavic
 Slovak				TYPE:Spoken.Slavic
-Slovak				TYPE:Written.Slavic
+Slovak				KEY:Slovak ~ Written	TYPE:Written.Slavic
 Ukrainian				TYPE:Spoken.Slavic
-Ukrainian				TYPE:Written.Slavic
+Ukrainian				KEY:Ukrainian ~ Written	TYPE:Written.Slavic
 Burmese				TYPE:Spoken.Tibeto-Burman
-Burmese				TYPE:Written.Tibeto-Burman
+Burmese				KEY:Burmese ~ Written	TYPE:Written.Tibeto-Burman
 Sherpa				TYPE:Spoken.Tibeto-Burman
-Sherpa				TYPE:Written.Tibeto-Burman
+Sherpa				KEY:Sherpa ~ Written	TYPE:Written.Tibeto-Burman
 Tibetan				TYPE:Spoken.Tibeto-Burman
-Tibetan				TYPE:Written.Tibeto-Burman
+Tibetan				KEY:Tibetan ~ Written	TYPE:Written.Tibeto-Burman
 Azerbaijani				TYPE:Spoken.Turkic
-Azerbaijani				TYPE:Written.Turkic
+Azerbaijani				KEY:Azerbaijani ~ Written	TYPE:Written.Turkic
 Turkish				TYPE:Spoken.Turkic
-Turkish				TYPE:Written.Turkic
+Turkish				KEY:Turkish ~ Written	TYPE:Written.Turkic
 Uzbek					TYPE:Spoken.Turkic
-Uzbek					TYPE:Written.Turkic
+Uzbek					KEY:Uzbek ~ Written	TYPE:Written.Turkic
 Hungarian (aka Magyar)		TYPE:Spoken.Urgic
-Hungarian (aka Magyar)		TYPE:Written.Urgic
+Hungarian (aka Magyar)		KEY:Magyar ~ Written	TYPE:Written.Urgic
 
 #Signaling:
 Morse Code				TYPE:Spoken.Signaling
@@ -160,8 +160,8 @@ Aquan				TYPE:Spoken.Druidic
 Druidic			TYPE:Spoken.Druidic
 Xorn				TYPE:Spoken.Druidic
 #Hamo-Semitic:
-Coptic			TYPE:Written.Braile.Spoken.Hamo-Semitic
-Middle Egyptian		TYPE:Written.Braile.Spoken.Hamo-Semitic
+Coptic			KEY:Coptic ~ Written	TYPE:Written.Braile.Spoken.Hamo-Semitic
+Middle Egyptian		KEY:Middle Egyptian ~ Written	TYPE:Written.Braile.Spoken.Hamo-Semitic
 #Iroquoian:
 Cherokee			TYPE:Spoken.Iroquoian
 Iroquois			TYPE:Spoken.Iroquoian
@@ -195,49 +195,49 @@ Ute				TYPE:Spoken.Uto-Aztecan
 ###Block: Written Section
 #Caddoan:
 # Language			Type
-Caddo				TYPE:Written.Braile.Caddoan
-Pawnee			TYPE:Written.Braile.Caddoan
-Wichita			TYPE:Written.Braile.Caddoan
+Caddo				KEY:Caddo ~ Written	TYPE:Written.Braile.Caddoan
+Pawnee			KEY:Pawnee ~ Written	TYPE:Written.Braile.Caddoan
+Wichita			KEY:Wichita ~ Written	TYPE:Written.Braile.Caddoan
 #Celestial:
-Celestial			TYPE:Written.Braile.Celestial
-Abysmal			TYPE:Written.Braile.Celestial
-Infernal			TYPE:Written.Braile.Celestial
+Celestial			KEY:Celestial ~ Written	TYPE:Written.Braile.Celestial
+Abysmal			KEY:Abysmal ~ Written	TYPE:Written.Braile.Celestial
+Infernal			KEY:Infernal ~ Written	TYPE:Written.Braile.Celestial
 #Draconic:
-Draconic			TYPE:Written.Braile.Draconic
-Ignan				TYPE:Written.Braile.Draconic
+Draconic			KEY:Draconic ~ Written	TYPE:Written.Braile.Draconic
+Ignan				KEY:Ignan ~ Written	TYPE:Written.Braile.Draconic
 #Druidic:
-Auran				TYPE:Written.Braile.Druidic
-Aquan				TYPE:Written.Braile.Druidic
-Druidic			TYPE:Written.Braile.Druidic
-Xorn				TYPE:Written.Braile.Druidic
+Auran				KEY:Auran ~ Written	TYPE:Written.Braile.Druidic
+Aquan				KEY:Aquan ~ Written	TYPE:Written.Braile.Druidic
+Druidic			KEY:Druidic ~ Written	TYPE:Written.Braile.Druidic
+Xorn				KEY:Xorn ~ Written	TYPE:Written.Braile.Druidic
 #Iroquoian:
-Cherokee			TYPE:Written.Braile.Iroquoian
-Iroquois			TYPE:Written.Braile.Iroquoian
-Tuscarora			TYPE:Written.Braile.Iroquoian
+Cherokee			KEY:Cherokee ~ Written	TYPE:Written.Braile.Iroquoian
+Iroquois			KEY:Iroquois ~ Written	TYPE:Written.Braile.Iroquoian
+Tuscarora			KEY:Tuscarora ~ Written	TYPE:Written.Braile.Iroquoian
 #Muskogean:
-Alabama			TYPE:Written.Braile.Muskogean
-Chickasaw			TYPE:Written.Braile.Muskogean
-Choctaw			TYPE:Written.Braile.Muskogean
-Creek				TYPE:Written.Braile.Muskogean
-Seminole			TYPE:Written.Braile.Muskogean
+Alabama			KEY:Alabama ~ Written	TYPE:Written.Braile.Muskogean
+Chickasaw			KEY:Chickasaw ~ Written	TYPE:Written.Braile.Muskogean
+Choctaw			KEY:Choctaw ~ Written	TYPE:Written.Braile.Muskogean
+Creek				KEY:Creek ~ Written	TYPE:Written.Braile.Muskogean
+Seminole			KEY:Seminole ~ Written	TYPE:Written.Braile.Muskogean
 #Sahaptian:
-Nez Perce			TYPE:Written.Braile.Sahaptian
-Sahaptin (Yakima)		TYPE:Written.Braile.Sahaptian
-Sahaptin (Umatilla)	TYPE:Written.Braile.Sahaptian
+Nez Perce			KEY:Nez Perce ~ Written	TYPE:Written.Braile.Sahaptian
+Sahaptin (Yakima)		KEY:Yakima ~ Written	TYPE:Written.Braile.Sahaptian
+Sahaptin (Umatilla)	KEY:Umatilla ~ Written	TYPE:Written.Braile.Sahaptian
 #Siouian:
-Crow				TYPE:Written.Braile.Siouian
-Dakota			TYPE:Written.Braile.Siouian
-Ho-Chunk			TYPE:Written.Braile.Siouian
-Iowa				TYPE:Written.Braile.Siouian
-Lakota			TYPE:Written.Braile.Siouian
-Mandan			TYPE:Written.Braile.Siouian
-Nakota			TYPE:Written.Braile.Siouian
-Osage				TYPE:Written.Braile.Siouian
+Crow				KEY:Crow ~ Written	TYPE:Written.Braile.Siouian
+Dakota			KEY:Dakota ~ Written	TYPE:Written.Braile.Siouian
+Ho-Chunk			KEY:Ho-Chunk ~ Written	TYPE:Written.Braile.Siouian
+Iowa				KEY:Iowa ~ Written	TYPE:Written.Braile.Siouian
+Lakota			KEY:Lakota ~ Written	TYPE:Written.Braile.Siouian
+Mandan			KEY:Mandan ~ Written	TYPE:Written.Braile.Siouian
+Nakota			KEY:Nakota ~ Written	TYPE:Written.Braile.Siouian
+Osage				KEY:Osage ~ Written	TYPE:Written.Braile.Siouian
 #Uto-Aztecan:
-Comanche			TYPE:Written.Braile.Uto-Aztecan
-Kiowa				TYPE:Written.Braile.Uto-Aztecan
-Shoshone			TYPE:Written.Braile.Uto-Aztecan
-Ute				TYPE:Written.Braile.Uto-Aztecan
+Comanche			KEY:Comanche ~ Written	TYPE:Written.Braile.Uto-Aztecan
+Kiowa				KEY:Kiowa ~ Written	TYPE:Written.Braile.Uto-Aztecan
+Shoshone			KEY:Shoshone ~ Written	TYPE:Written.Braile.Uto-Aztecan
+Ute				KEY:Ute ~ Written	TYPE:Written.Braile.Uto-Aztecan
 
 #
 # End

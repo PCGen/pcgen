@@ -30,8 +30,6 @@ URL:RPG Now|http://rpg.drivethrustuff.com/product_info.php?products_id=69024?aff
 #EXTRAFILE:OGL.txt
 
 ### Files
-PCC:@/homebrew/conversion_support/conversion_support.pcc
-
 ABILITY:gaslight_abilities_class.lst
 ABILITY:gaslight_abilities_occupations.lst
 ABILITY:gaslight_abilities_racial.lst
@@ -41,6 +39,7 @@ ABILITYCATEGORY:gaslight_ability_categories.lst
 CLASS:gaslight_class.lst
 DOMAIN:gaslight_domains.lst
 
+EQUIPMENT:gaslight_equip_weap.lst
 EQUIPMENT:gaslight_equipment.lst
 EQUIPMOD:gaslight_equipmods.lst
 
