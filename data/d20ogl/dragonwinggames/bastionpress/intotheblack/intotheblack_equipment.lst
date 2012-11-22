@@ -1,0 +1,46 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Bastion Press - Into the Black	SOURCESHORT:itblk	SOURCEDATE:2003-01
+#Original Entry: Andrew (LegacyKing) Maitland
+
+
+# Equipment Name		Type				Cost		Source Page
+Greenlight Torch		TYPE:Goods.Consumable	COST:5	SOURCEPAGE:p.71
+Hip Waders			TYPE:Goods.Clothing	COST:5	SOURCEPAGE:p.71
+Magician's Amulet		TYPE:Amulet.Goods		COST:150	SOURCEPAGE:p.71
+Miner's Hat			TYPE:Goods.Headgear	COST:10	SOURCEPAGE:p.71
+Rundung Beetle Box	TYPE:Goods			COST:15	SOURCEPAGE:p.71
+Sewer Mask			TYPE:Goods.Headgear	COST:1	SOURCEPAGE:p.71
+Spelunker's Shoes		TYPE:Goods.Boot		COST:5	SOURCEPAGE:p.71
+
+
+###Block: Magic Items
+# Equipment Name						Output Name				Type					Cost		Weight	Modifier		Source Page		Ability							Stat bonus					Modify VAR			Special Property
+Collar of Sure Breathing									TYPE:Amulet.Magic			COST:9000	WT:1					SOURCEPAGE:p.72
+Explosive Bolts											TYPE:Ammunition.Bolt.Magic	COST:50						SOURCEPAGE:p.72
+Genius Sphere											TYPE:Goods.Magic			COST:88400	WT:12					SOURCEPAGE:p.72
+Gremmin Arrows											TYPE:Ammunition.Arrow.Magic	COST:60						SOURCEPAGE:p.73
+
+###
+Morningstar.COPY=Morningstar of Bloodletting
+Morningstar of Bloodletting.MOD													COST:32000			EQMOD:PLUS2W	SOURCEPAGE:p.73
+
+
+Potion (of Wrestling Prowess)				OUTPUTNAME:Potion [NAME]	TYPE:Potion.Magic			COST:450						SOURCEPAGE:p.73
+Ring (of Strength Stealing)				OUTPUTNAME:Ring [NAME]		TYPE:Ring.Magic			COST:15000						SOURCEPAGE:p.73
+Ring (of the Assassin)					OUTPUTNAME:Ring [NAME]		TYPE:Ring.Magic			COST:30000						SOURCEPAGE:p.73	ABILITY:Special Ability|AUTOMATIC|Sneak Attack	BONUS:STAT|DEX|2|TYPE=Enhancement	BONUS:VAR|SneakAttack|1
+
+
+Rocket Broom											TYPE:Goods.Magic			COST:36100	WT:3					SOURCEPAGE:p.73
+Rod of Showering Meteors									TYPE:Rod.Magic			COST:23600						SOURCEPAGE:p.73
+Rod of Spatial Severity										TYPE:Rod.Magic			COST:120000						SOURCEPAGE:p.73
+
+
+Mace (Heavy).COPY=Scabrous Mace
+Scabrous Mace.MOD											TYPE:Magic				COST:18000			EQMOD:PLUS2W	SOURCEPAGE:p.74																			SPROP:a critical hit with the weapon also requires the victim to make a Fortitude save (DC 14) or the mace afflicts the opponent with the contagion spell. The wielder chooses the disease transmitted.
+Staff of Toxic Fumes										TYPE:Staff.Magic			COST:74250						SOURCEPAGE:p.73
+
+
+###Block: Misc.
+# Equipment Name	Required Weapon Proficiency	Type								Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page
+Stalactite		PROFICIENCY:WEAPON|Stalactite	TYPE:Weapon.Natural.Ranged.Thrown.Piercing	CRITMULT:x2							DAMAGE:2d6	RANGE:120	SIZE:L	SOURCEPAGE:p.21
+Gaff			PROFICIENCY:WEAPON|Gaff		TYPE:Weapon.Melee.Piercing				CRITMULT:x3			CRITRANGE:1			DAMAGE:1d4					SOURCEPAGE:p.82

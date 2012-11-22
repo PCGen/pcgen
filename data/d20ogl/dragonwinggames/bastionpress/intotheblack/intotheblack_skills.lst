@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Fri Nov  5 22:46:23 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Bastion Press - Into the Black	SOURCESHORT:itblk	SOURCEDATE:2003-01
+#Original Entry: Andrew (LegacyKing) Maitland
+
+# Skill Name		Key Stat	Untrained?		Type					Source Page
+Knowledge (Geology)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.36

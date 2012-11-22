@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Wed Sep 30 22:19:25 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Bastion Press - Into the Black	SOURCESHORT:itblk	SOURCEDATE:2003-01
+#Original Entry: Andrew (LegacyKing) Maitland
+
+# Weapon Name	Type
+Stalactite		TYPE:Exotic
+Gaff			TYPE:Martial
