@@ -1,4 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Sep 17 16:17:23 2010 -- reformated by prettylst.pl v1.38 (build 6875)
-
-# Ability Name			Category of Ability		Visible	Move			Natural Attacks
-Banderskin Armor Abilities	CATEGORY:Special Ability	VISIBLE:NO	MOVE:Burrow,20	NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d8
