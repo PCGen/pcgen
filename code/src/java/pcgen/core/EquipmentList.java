@@ -493,6 +493,10 @@ public class EquipmentList {
 				}
 
 				final EquipmentModifier eqMasterwork = getQualifiedModifierNamed("Masterwork", eq);
+				if (eqMasterwork == null)
+				{
+					continue;
+				}
 
 				// Get list of choices (extract code from EquipmentModifier.getChoice)
 				final EquipmentChoice equipChoice = EquipmentChoiceDriver.buildEquipmentChoice(0, eq, eqMasterwork, false, false, 0, null);
