@@ -53,7 +53,7 @@ CLASS:Bull Lord	PRECLASS:1,Minotaur=8
 CLASS:Bull Lord	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Listen|Search|Spot|Survival|Swim
 
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 
 ###Block: Progression
@@ -101,7 +101,7 @@ CLASS:Minotrice	PRERACE:1,Minotrice
 CLASS:Minotrice	STARTSKILLPTS:2
 
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency
 ###Block: Progression
 1							BONUS:VAR|ScentRange|((CL+1)/2)*10
 2	BONUS:STAT|STR|2	BONUS:STAT|DEX|2
