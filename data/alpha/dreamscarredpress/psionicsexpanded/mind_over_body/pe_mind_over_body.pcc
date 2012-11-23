@@ -44,7 +44,7 @@ COPYRIGHT:PCGen dataset conversion for Psionics Expanded: Mind Over Body, Copyri
 PRECAMPAIGN:1,DSP - Psionics Unleashed
 STATUS:ALPHA
 
-FORWARDREF:CLASSSPELLLIST|Marksman,Tactician
+FORWARDREF:CLASSSPELLLIST|Tactician
 
 ABILITY:pe_mind_over_body_abilities.lst
 ABILITYCATEGORY:pe_mind_over_body_ability_categories.lst

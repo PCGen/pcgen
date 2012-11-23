@@ -12,8 +12,6 @@ No Combat Maneuvers									CATEGORY:Special Ability							VISIBLE:NO	DEFINE:NoC
 #Block: Menu A
 
 # Ability Name	Unique Key				Category of Ability		Type							Visible	Required Template				Define				Description														Stackable?	Multiple?	Choose		Automatically Gained Feat	Combat bonus					Bonus to HP			Modify VAR				Weapon prof. bonus													Natural Attacks
-Buff			KEY:Astral_Buff			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES																																														BONUS:HP|CURRENTMAX|5
-
 Armor Spikes	KEY:Astral_Armor Spikes		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct						DESC:Do extra 1d6 piercing damage with trample, constrict, bull rush, or grapple attack.																																													NATURALATTACKS:Armor Spikes,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d6
 Dodge			KEY:Astral_Dodge			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																												AUTO:FEAT|Dodge
 Might			KEY:Astral_Might			CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																																	BONUS:COMBAT|DAMAGE.Melee|1|TYPE=Might

@@ -45,7 +45,7 @@ COPYRIGHT:PCGen dataset conversion for Psionics Expanded: Find the Mark, Copyrig
 PRECAMPAIGN:1,DSP - Psionics Unleashed
 STATUS:ALPHA
 
-FORWARDREF:CLASSSPELLLIST|Vitalist,Tactician
+FORWARDREF:CLASSSPELLLIST|Tactician
 
 ABILITY:pe_find_the_mark_abilities.lst
 ABILITYCATEGORY:pe_find_the_mark_ability_categories.lst
