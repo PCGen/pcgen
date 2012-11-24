@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Mon Oct 10 20:33:34 2011 -- reformated by prettylst.pl v1.39 (build )
+
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: Unknown
+
+# Race of familiar				Type			Combat bonus			Virtual Feat
+MASTERBONUSRACE:Familiar (Compsognathus)	TYPE:Familiar	BONUS:COMBAT|INITIATIVE|4	VFEAT:Alertness

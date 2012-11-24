@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Thu Dec 30 16:13:25 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8ddb	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: ?
+# ORIGINAL ENTRY DATE: Unknown
+
+###Block: Simple Templates
+# Template Name	Visible	Damage Reduction			Source Page		Define																																Damage reduction				Misc bonus				Modify VAR																Ability																					Spell Res.	Subrace		Vision
+Entropic Creature	VISIBLE:YES	DR:5/Lawful|PREHD:MIN=5		SOURCEPAGE:p.292	DEFINE:EntropicResistanceBonus|5	DEFINE:AcidResistanceBonus|EntropicResistanceBonus	DEFINE:FireResistanceBonus|EntropicResistanceBonus										BONUS:DR|Lawful|5|PREHD:MIN=11	BONUS:MISC|CR|1|PREHD:MIN=5	BONUS:VAR|EntropicResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|EntropicResistanceBonus|5|PREHD:MIN=11	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Resistance to Cold|Resistance to Electricity|Smite Law ~ Entropic Creature	SR:CR+5	SUBRACE:Entropic	VISION:Darkvision (60')
+Resolute Creature	VISIBLE:YES	DR:5/Chaotic|PREHD:MIN=5	SOURCEPAGE:p.292	DEFINE:ResoluteResistanceBonus|5	DEFINE:AcidResistanceBonus|EntropicResistanceBonus	DEFINE:ColdResistanceBonus|ResoluteResistanceBonus	DEFINE:FireResistanceBonus|ResoluteResistanceBonus	BONUS:DR|Chaos|5|PREHD:MIN=11		BONUS:MISC|CR|1|PREHD:MIN=5	BONUS:VAR|ResoluteResistanceBonus|5|PREHD:MIN=5	BONUS:VAR|ResoluteResistanceBonus|5|PREHD:MIN=11	ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|Resistance to Fire|Smite Chaos ~ Resolute Creature					SR:CR+5	SUBRACE:Resolute	VISION:Darkvision (60')
+
+#
+# End
+#

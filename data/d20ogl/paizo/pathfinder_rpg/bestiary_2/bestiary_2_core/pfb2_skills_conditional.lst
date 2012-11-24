@@ -1,0 +1,52 @@
+# CVS $Revision$ $Author$ -- Sat Oct 22 14:51:19 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8ddb	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: Stefan Radermacher and Douglas Limmer
+# ORIGINAL ENTRY DATE: Unknown
+
+###Block: Conditional Skills for output only
+# Skill Name				Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value
+Disguise (As Medium humanoid)		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Disguise (As Medium humanoid).MISC"),SKILL.Disguise.MISC
+Disguise (When using change shape)	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Disguise (When using change shape).MISC"),SKILL.Disguise.MISC
+Intimidate (To demoralize)		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Intimidate (To demoralize).MISC"),SKILL.Intimidate.MISC
+Perception (When listening)		KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (When listening).MISC"),SKILL.Perception.MISC
+Perception (When using blindsense)	KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (When using blindsense).MISC"),SKILL.Perception.MISC
+Stealth (In deserts)			KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (In deserts).MISC"),SKILL.Stealth.MISC
+Stealth (In sand)				KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (In sand).MISC"),SKILL.Stealth.MISC
+Stealth (In mud)				KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (In mud).MISC"),SKILL.Stealth.MISC
+Stealth (Darkness or smoke)		KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (Darkness or smoke).MISC"),SKILL.Stealth.MISC
+Stealth (Webs)				KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (Webs).MISC"),SKILL.Stealth.MISC
+Stealth (In thick vegetation)		KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (In thick vegetation).MISC"),SKILL.Stealth.MISC
+Stealth (In darkness)			KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (In darkness).MISC"),SKILL.Stealth.MISC
+Stealth (In metal or stony areas)	KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (In metal or stony areas).MISC"),SKILL.Stealth.MISC
+Stealth (When moving)			KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (When moving).MISC"),SKILL.Stealth.MISC
+Stealth (In rocky terrain)		KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (In rocky terrain).MISC"),SKILL.Stealth.MISC
+Stealth (When submerged)		KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (When submerged).MISC"),SKILL.Stealth.MISC
+Stealth (In shallow water)		KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (In shallow water).MISC"),SKILL.Stealth.MISC
+Stealth (In ambush)			KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (In ambush).MISC"),SKILL.Stealth.MISC
+
+
+###Block: Skill .MODs
+# Skill Name	Bonus to skill										Bonus to skill rank
+Disguise.MOD	BONUS:SKILL|Disguise (As Medium humanoid)|SKILL.Disguise.MISC		BONUS:SKILLRANK|Disguise (As Medium humanoid)|skillinfo("TOTALRANK","Disguise")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Disguise (As Medium humanoid).MISC"),SKILL.Disguise.MISC
+Disguise.MOD	BONUS:SKILL|Disguise (When using change shape)|SKILL.Disguise.MISC	BONUS:SKILLRANK|Disguise (When using change shape)|skillinfo("TOTALRANK","Disguise")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Disguise (When using change shape).MISC"),SKILL.Disguise.MISC
+Intimidate.MOD	BONUS:SKILL|Intimidate (To demoralize)|SKILL.Intimidate.MISC		BONUS:SKILLRANK|Intimidate (To demoralize)|skillinfo("TOTALRANK","Intimidate")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Intimidate (To demoralize).MISC"),SKILL.Intimidate.MISC
+Perception.MOD	BONUS:SKILL|Perception (When listening)|SKILL.Perception.MISC		BONUS:SKILLRANK|Perception (When listening)|skillinfo("TOTALRANK","Perception")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Perception (When listening).MISC"),SKILL.Perception.MISC
+Perception.MOD	BONUS:SKILL|Perception (When using blindsense)|SKILL.Perception.MISC	BONUS:SKILLRANK|Perception (When using blindsense)|skillinfo("TOTALRANK","Perception")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Perception (When using blindsense).MISC"),SKILL.Perception.MISC
+Stealth.MOD		BONUS:SKILL|Stealth (In deserts)|SKILL.Stealth.MISC				BONUS:SKILLRANK|Stealth (In deserts)|skillinfo("TOTALRANK","Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (In deserts).MISC"),SKILL.Stealth.MISC
+Stealth.MOD		BONUS:SKILL|Stealth (In sand)|SKILL.Stealth.MISC				BONUS:SKILLRANK|Stealth (In sand)|skillinfo("TOTALRANK","Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (In sand).MISC"),SKILL.Stealth.MISC
+Stealth.MOD		BONUS:SKILL|Stealth (Darkness or smoke)|SKILL.Stealth.MISC			BONUS:SKILLRANK|Stealth (Darkness or smoke)|skillinfo("TOTALRANK","Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (Darkness or smoke).MISC"),SKILL.Stealth.MISC
+Stealth.MOD		BONUS:SKILL|Stealth (Webs)|SKILL.Stealth.MISC					BONUS:SKILLRANK|Stealth (Webs)|skillinfo("TOTALRANK","Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (Webs).MISC"),SKILL.Stealth.MISC
+Stealth.MOD		BONUS:SKILL|Stealth (In mud)|SKILL.Stealth.MISC					BONUS:SKILLRANK|Stealth (In mud)|skillinfo("TOTALRANK","Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (In mud).MISC"),SKILL.Stealth.MISC
+Stealth.MOD		BONUS:SKILL|Stealth (In thick vegetation)|SKILL.Stealth.MISC		BONUS:SKILLRANK|Stealth (In thick vegetation)|skillinfo("TOTALRANK","Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (In thick vegetation).MISC"),SKILL.Stealth.MISC
+Stealth.MOD		BONUS:SKILL|Stealth (In darkness)|SKILL.Stealth.MISC				BONUS:SKILLRANK|Stealth (In darkness)|skillinfo("TOTALRANK","Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (In darkness).MISC"),SKILL.Stealth.MISC
+Stealth.MOD		BONUS:SKILL|Stealth (In metal or stony areas)|SKILL.Stealth.MISC		BONUS:SKILLRANK|Stealth (In metal or stony areas)|skillinfo("TOTALRANK","Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (In metal or stony areas).MISC"),SKILL.Stealth.MISC
+Stealth.MOD		BONUS:SKILL|Stealth (When moving)|SKILL.Stealth.MISC				BONUS:SKILLRANK|Stealth (When moving)|skillinfo("TOTALRANK","Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (When moving).MISC"),SKILL.Stealth.MISC
+Stealth.MOD		BONUS:SKILL|Stealth (In rocky terrain)|SKILL.Stealth.MISC			BONUS:SKILLRANK|Stealth (In rocky terrain)|skillinfo("TOTALRANK","Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (In rocky terrain).MISC"),SKILL.Stealth.MISC
+Stealth.MOD		BONUS:SKILL|Stealth (When submerged)|SKILL.Stealth.MISC			BONUS:SKILLRANK|Stealth (When submerged)|skillinfo("TOTALRANK","Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (When submerged).MISC"),SKILL.Stealth.MISC
+Stealth.MOD		BONUS:SKILL|Stealth (In shallow water)|SKILL.Stealth.MISC			BONUS:SKILLRANK|Stealth (In shallow water)|skillinfo("TOTALRANK","Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (In shallow water).MISC"),SKILL.Stealth.MISC
+Stealth.MOD		BONUS:SKILL|Stealth (In ambush)|SKILL.Stealth.MISC				BONUS:SKILLRANK|Stealth (In ambush)|skillinfo("TOTALRANK","Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (In ambush).MISC"),SKILL.Stealth.MISC
+
+#
+# End
+#

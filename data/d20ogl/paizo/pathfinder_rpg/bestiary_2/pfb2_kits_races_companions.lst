@@ -1,0 +1,211 @@
+# CVS $Revision$ $Author$ -- Sat Oct 22 14:51:19 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: Unknown
+
+STARTPACK:Companion ~ Dinosaur (Allosaurus)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Dinosaur (Parasaurolophus)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Dinosaur (Tylosaurus)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Companion ~ Gar	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Herd Animal (Ram)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+
+STARTPACK:Companion ~ Hippopotamus	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Companion ~ Megafauna (Arsinoitherium)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+
+STARTPACK:Companion ~ Megafauna (Gylptodon)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Megafauna (Megaloceros)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Companion ~ Megafauna (Megatherium)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Primate (Baboon)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+
+STARTPACK:Companion ~ Ray (Manta)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Ray (Stingray)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Companion ~ Turtle (Giant Snapping)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Familiar ~ Paracletus	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+SKILL:Intimidate			RANK:3
+SKILL:Knowledge (Arcana)	RANK:3
+SKILL:Knowledge (Planes)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Sense Motive		RANK:3
+SKILL:Stealth			RANK:3
+FEAT:Great Fortitude
+FEAT:Iron Will
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
+
+STARTPACK:Familiar ~ Silvanshee	TYPE:Companion	VISIBLE:NO
+ALIGN:NG
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:2
+SKILL:Climb				RANK:2
+SKILL:Knowledge (Arcana)	RANK:2
+SKILL:Knowledge (Planes)	RANK:2
+SKILL:Perception			RANK:2
+SKILL:Stealth			RANK:2
+FEAT:Improved Initiative
+
+STARTPACK:Familiar ~ Cassisian	TYPE:Companion	VISIBLE:NO
+ALIGN:NG
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Diplomacy			RANK:2
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Knowledge (Religion)	RANK:1
+SKILL:Perception			RANK:2
+SKILL:Sense Motive		RANK:1
+SKILL:Stealth			RANK:1
+FEAT:Iron Will
+
+STARTPACK:Familiar ~ Lyrakien	TYPE:Companion	VISIBLE:NO
+ALIGN:CG
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics		RANK:3
+SKILL:Bluff			RANK:3
+SKILL:Diplomacy		RANK:3
+SKILL:TYPE.Knowledge	RANK:3
+SKILL:Perception		RANK:3
+SKILL:TYPE.Perform	RANK:3
+SKILL:Spellcraft		RANK:3
+SKILL:Stealth		RANK:3
+FEAT:Agile Maneuvers
+FEAT:Improved Initiative
+
+STARTPACK:Familiar ~ Brownie	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics
+SKILL:Bluff
+SKILL:TYPE.Craft
+SKILL:Escape Artist
+SKILL:Handle Animal
+SKILL:Perception
+SKILL:Sense Motive
+SKILL:Stealth
+FEAT:Dodge
+
+STARTPACK:Familiar ~ Cacodaemon	TYPE:Companion	VISIBLE:NO
+ALIGN:NE
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Bluff				RANK:3
+SKILL:Fly				RANK:3
+SKILL:Knowledge (Planes)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Stealth			RANK:3
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+
+STARTPACK:Familiar ~ Compsognathus	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:1
+FEAT:Improved Initiative
+
+STARTPACK:Familiar ~ Small Ice Elemental	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Knowledge (Planes)	RANK:2
+SKILL:Perception			RANK:2
+SKILL:Stealth			RANK:2
+FEAT:Power Attack
+
+STARTPACK:Familiar ~ Small Lightning Elemental	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+SKILL:Acrobatics			RANK:2
+SKILL:Escape Artist		RANK:1
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:2
+FEAT:Improved Initiative
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Familiar ~ Small Magma Elemental	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Knowledge (Dungeoneering)	RANK:2
+SKILL:Perception				RANK:2
+SKILL:Stealth				RANK:2
+FEAT:Improved Initiative
+
+STARTPACK:Familiar ~ Small Mud Elemental	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Climb				RANK:1
+SKILL:Escape Artist		RANK:1
+SKILL:Knowledge (Planes)	RANK:1
+SKILL:Perception			RANK:2
+SKILL:Stealth			RANK:1
+FEAT:Power Attack
+
+STARTPACK:Familiar ~ Arbiter	TYPE:Companion	VISIBLE:NO
+ALIGN:LN
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Diplomacy			RANK:2
+SKILL:Fly				RANK:2
+SKILL:Knowledge (Planes)	RANK:2
+SKILL:Perception			RANK:2
+SKILL:Sense Motive		RANK:2
+SKILL:Stealth			RANK:2
+FEAT:Flyby Attack
+GEAR:Sword (Short)	SIZE:T	LOCATION:Equipped
+
+STARTPACK:Familiar ~ Voidworm	TYPE:Companion	VISIBLE:NO
+ALIGN:CN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:3
+SKILL:Bluff				RANK:3
+SKILL:Escape Artist		RANK:1
+SKILL:Fly				RANK:1
+SKILL:Knowledge (Arcana)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Stealth			RANK:1
+FEAT:Skill Focus (Perception)
+FEAT:Weapon Finesse
+
+STARTPACK:Familiar ~ Cythnigot	TYPE:Companion	VISIBLE:NO
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:3
+SKILL:Fly				RANK:3
+SKILL:Knowledge (Nature)	RANK:3
+SKILL:Knowledge (Planes)	RANK:3
+SKILL:Perception			RANK:3
+SKILL:Stealth			RANK:3
+FEAT:Lightning Reflexes
+FEAT:Weapon Finesse
