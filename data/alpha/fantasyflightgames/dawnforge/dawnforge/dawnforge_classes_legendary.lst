@@ -40,7 +40,7 @@ CLASS:Epic General	HD:10		TYPE:PC.Prestige	ABB:EpG		MAXLEVEL:5	SOURCEPAGE:p.78	B
 CLASS:Epic General	PREFEAT:3,Improved Initiative,Leadership,Weapon Specialization	PREFEAT:2,Path of the Persuasive 3rd Circle,Path of the Mighty 1st Circle	PRESKILL:3,Diplomacy=8,Intimidate=12,Knowledge (War)=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Epic General	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Knowledge (Architecture and Engineering)|Knowledge (Geography)|Knowledge (History)|Knowledge (War)|Listen|Ride|Spot|Swim
-1	BONUS:ABILITYPOOL|Epic General Level 1 Choice|1	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+1	BONUS:ABILITYPOOL|Epic General Level 1 Choice|1	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 2	BONUS:ABILITYPOOL|Epic General Level 2 Choice|1
 3	BONUS:ABILITYPOOL|Epic General Level 3 Choice|1
 4	BONUS:ABILITYPOOL|Epic General Level 4 Choice|1
@@ -76,7 +76,7 @@ CLASS:Unsuffering	HD:12		TYPE:PC.Prestige	ABB:Uns		MAXLEVEL:5	SOURCEPAGE:p.82	BO
 CLASS:Unsuffering	PREFEAT:2,Diehard,Toughness	PREFEAT:1,Path of the Unyielding 5th Circle	PRESKILL:1,Concentration=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Unsuffering	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Ride|Swim
-1	BONUS:ABILITYPOOL|Unsuffering Level 1 Choice|1	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+1	BONUS:ABILITYPOOL|Unsuffering Level 1 Choice|1	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 2	BONUS:ABILITYPOOL|Unsuffering Level 2 Choice|1
 3	BONUS:ABILITYPOOL|Unsuffering Level 3 Choice|1
 4	BONUS:ABILITYPOOL|Unsuffering Level 4 Choice|1

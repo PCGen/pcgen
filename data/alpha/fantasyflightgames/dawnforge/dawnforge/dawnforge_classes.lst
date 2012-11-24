@@ -57,13 +57,13 @@ CLASS:Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 2	CAST:4,2																																																																																					AUTO:FEAT|Craft Spell Fetish
 3	CAST:4,2,1				SAB:Rituals of Power I (Su) (-1 WIS for any spell up to 3rd level)
 4	CAST:5,3,2				SAB:Companion Sight (Su)
-5	CAST:5,3,2,1																														BONUS:ABILITYPOOL|Elemental Form Choice|1													ADD:FEAT|Elemental Form
+5	CAST:5,3,2,1																														BONUS:ABILITYPOOL|Elemental Form Choice|1													
 6	CAST:5,3,3,2																																																					ABILITY:Special Ability|AUTOMATIC|Trackless Step
 7	CAST:6,4,3,2,1			SAB:Rituals of Power II (Su) (-2 WIS for any spell up to 5th level or next larger Elemental form)
 8	CAST:6,4,3,3,2			SAB:Treant Form (Su)
 9	CAST:6,4,4,3,2,1
 10	CAST:6,4,4,3,3,2
-11	CAST:6,5,4,4,3,2,1																													BONUS:ABILITYPOOL|Elemental Form Choice|1													ADD:FEAT|Elemental Form
+11	CAST:6,5,4,4,3,2,1																													BONUS:ABILITYPOOL|Elemental Form Choice|1													
 12	CAST:6,5,4,4,3,3,2		SAB:Quickened Rituals (Ex) for I and II
 13	CAST:6,5,5,4,4,3,2,1		SAB:Rituals of Power III (Su) (-3 WIS for any spell up to 7th level or remove all poisons/diseases and physical damage)
 14	CAST:6,5,5,4,4,3,3,2		SAB:Improved Elemental Form
@@ -112,7 +112,7 @@ CLASS:Shaper (DF)	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|S
 CLASS:Spirit Adept	HD:10		TYPE:Base.PC	ABB:SpA		MAXLEVEL:20	SOURCEPAGE:p.70	BONUS:CHECKS|BASE.Fortitude,BASE.Will,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spirit Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
-1	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Shield Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Level progression
