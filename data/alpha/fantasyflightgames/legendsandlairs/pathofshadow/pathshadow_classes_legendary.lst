@@ -51,7 +51,7 @@ CLASS:Grey Hand	HD:6		TYPE:PC.Legendary	ABB:GrHa		MAXLEVEL:5	SOURCEPAGE:Chap.2, 
 CLASS:Grey Hand	PREATT:9	PREFEAT:3,Improved Critical,Weapon Focus,Skill Focus	PRESA:1,Death Attack	PRESKILL:4,Disguise=10,Intimidate=10,Hide=15,Move Silently=15	PREVARGTEQ:SneakAttack,5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Grey Hand	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	ADD:FEAT|TYPE=GreyHandLAPL1
@@ -66,7 +66,7 @@ CLASS:Hand of the Reaper	HD:6		TYPE:PC.Legendary	ABB:HaRe		MAXLEVEL:5	SOURCEPAGE
 CLASS:Hand of the Reaper	!PREALIGN:LG,NG,CG	PREATT:8	PRESA:1,Death Attack	PRESKILL:6,Bluff=5,Diplomacy=5,Forgery=5,Gather Information=5,Intimidate=10,Open Lock=10,Hide=15,Move Silently=15
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Hand of the Reaper	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -106,7 +106,7 @@ CLASS:Jack of Knives	OUTPUTNAME:Jack-of-Knives	HD:6		TYPE:PC.Legendary	ABB:JaKn	
 CLASS:Jack of Knives	PREFEAT:5,Dodge,Mobility,Point Blank Shot,Two-Weapon Fighting,Weapon Focus (Dagger)	PRESKILL:3,Balance=15,Jump=15,Tumble=15
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Jack of Knives	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	ADD:FEAT|TYPE=JackKnivesLAPL1
@@ -123,7 +123,7 @@ CLASS:Jack o' the Green	HD:6		TYPE:PC.Legendary	ABB:JaGr		MAXLEVEL:5	SOURCEPAGE:
 CLASS:Jack o' the Green	PREALIGN:NG,TN,CG,CN	PREFEAT:2,Track,Lightning Reflexes	PRESKILL:5,Gather Information=8,Knowledge (Local)=8,Wilderness Lore=8,Hide=15,Move Silently=15	PRESTAT:1,WIS=15
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Jack o' the Green	STARTSKILLPTS:8	CSKILL:Animal Empathy|Appraise|Balance|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|Pick Pocket|Sense Motive|Spot|Swim|Tumble|Use Rope|Wilderness Lore
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	ADD:FEAT|TYPE=JackGreenLAPL1

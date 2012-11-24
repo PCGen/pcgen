@@ -100,7 +100,7 @@ CLASS:Psychic Thief	STARTSKILLPTS:6	CSKILL:Autohypnosis|Appraise|Balance|Bluff|C
 CLASS:Psychic Thief	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Thief|CL
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Psychic Thief=0|Bolt,Burst,Catfall,Control Shadow,Daze,Detect Psionics,Distract,Elfsight,Far Hand,Float,Know Direction,Talons,Valor,Verve
-1	SPELLLEVEL:CLASS|Psychic Thief=1|Call Weaponry,Compression,Conceal Thoughts,Expanded Vision,Feather Fall,Feel Light,Feel Sound,Hear Light,Hustle,Know Location,Lesser Mindlink,Object Reading,Spider Climb
+1	SPELLLEVEL:CLASS|Psychic Thief=1|Call Weaponry,Compression,Conceal Thoughts,Expanded Vision,Feather Fall,Feel Light,Feel Sound,Hear Light,Hustle,Know Location,Lesser Mindlink ~ Psionics,Object Reading,Spider Climb
 1	SPELLLEVEL:CLASS|Psychic Thief=2|Body Equilibrium,Chameleon,Darkvision,Invisibility,Knock,Levitate,Sensitivity to Psychic Impressions,Sudden Minor Creation,Vigilance
 1	SPELLLEVEL:CLASS|Psychic Thief=3|Danger Sense,Dimension Slide,Displacement,False Sensory Input,Nondetection,Poison Sense,Ubiquitous Vision
 1	SPELLLEVEL:CLASS|Psychic Thief=4|Amplified Invisibility,Dimension Door,Fate of One,Freedom of Movement,Mindwipe,Steadfast Perception,Tailor Memory

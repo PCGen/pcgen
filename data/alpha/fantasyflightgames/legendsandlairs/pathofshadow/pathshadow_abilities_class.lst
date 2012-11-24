@@ -89,7 +89,7 @@ Final Stroke				CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:
 Narrow Miss					CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Narrow Miss													SOURCEPAGE:Chap.1, White Rose, Special Ability
 Parry						CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Parry														SOURCEPAGE:Chap.1, White Rose, Special Ability
 Rapid Strike				CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Rapid Strike %/day|CL											SOURCEPAGE:Chap.1, White Rose, Special Ability
-Combat Prowess				CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO													STACK:NO	MULT:YES	BONUS:ABILITYPOOL|Fighter Feat|1	SOURCEPAGE:Chap.1, White Rose, Special Ability
+Combat Prowess				CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO													STACK:YES	MULT:YES	BONUS:ABILITYPOOL|Fighter Feat|1	SOURCEPAGE:Chap.1, White Rose, Special Ability	CHOOSE:NOCHOICE
 White Rose Favored Enemy one		CATEGORY:Special Ability	TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO																	BONUS:ABILITYPOOL|Favored Enemy|1	SOURCEPAGE:Chap.1, White Rose, Special Ability
 White Rose Favored Enemy two		CATEGORY:Special Ability	TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO	!PREFEAT:1,White Rose Favored Enemy one										BONUS:ABILITYPOOL|Favored Enemy|1	SOURCEPAGE:Chap.1, White Rose, Special Ability
 White Rose Favored Enemy three	CATEGORY:Special Ability	TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO	!PREFEAT:1,White Rose Favored Enemy two										BONUS:ABILITYPOOL|Favored Enemy|1	SOURCEPAGE:Chap.1, White Rose, Special Ability

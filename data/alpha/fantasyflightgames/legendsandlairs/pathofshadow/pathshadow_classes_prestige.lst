@@ -254,7 +254,7 @@ CLASS:Queen's Coronet	HD:6		TYPE:PC.Prestige	ABB:QCor		MAXLEVEL:10	SOURCEPAGE:Ch
 CLASS:Queen's Coronet	PRESKILL:4,Listen=6,Search=6,Innuendo=8,Sense Motive=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Queen's Coronet	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|Decipher Script|Diplomacy|Disguise|Forgery|Gather Information|Hide|Innuendo|Intimidate|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|Read Lips|Ride|Search|Sense Motive|Speak Language|Spot|Use Magic Device
-1													AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1													AUTO:FEAT|Simple Weapon Proficiency
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
@@ -406,7 +406,7 @@ CLASS:Windrider	HD:6		TYPE:PC.Prestige	ABB:Wind		MAXLEVEL:10	SOURCEPAGE:Chap.1, 
 CLASS:Windrider	PREATT:4	PRESKILL:6,Intimidate=5,Ride=5,Wilderness Lore=5,Listen=8,Move Silently=8,Spot=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Windrider	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Handle Animal|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Perform|Pick Pocket|Read Lips|Ride|Search|Sense Motive|Spot|Tumble|Use Magic Device|Use Rope|Wilderness Lore
-1													AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1													AUTO:FEAT|Simple Weapon Proficiency
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 ###Block: Normal progression
 1	SAB:Track	SAB:Sand-Sight I|PREVARLT:CL,5
