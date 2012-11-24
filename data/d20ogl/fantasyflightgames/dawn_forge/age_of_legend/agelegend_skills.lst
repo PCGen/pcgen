@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Tue Jan 22 22:55:20 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
+# Original Entry by: Ratheof Blithwyn
+
+# Skill Name				Key Stat	Untrained?		Type					Source Page
+Knowledge (Local Sildanyr)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:SkillsII.rtf
+Knowledge (Local Valhedar Dominion)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:SkillsII.rtf
+Profession (Sailor)			KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		SOURCEPAGE:p.76

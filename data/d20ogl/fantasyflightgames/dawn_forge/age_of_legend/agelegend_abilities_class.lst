@@ -1,0 +1,92 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
+# Original Entry by: Ratheof Blithwyn
+
+###Block: The Night Hunters Night Gift
+# Ability Name	Category of Ability		Type				Visible		Special ABility							Define			Ability						Combat bonus											Bonus to skill				Modify VAR			Source Page
+Ferret's Cunning	CATEGORY:Special Ability	TYPE:NightHunterGift	VISIBLE:DISPLAY	SAB:Ferret's Cunning	SAB:Trapsense +%|Trapsense	DEFINE:Trapsense|0																					BONUS:SKILL|Craft (Trapmaking)|2	BONUS:VAR|Trapsense|2	SOURCEPAGE:p.30
+Owl's Hearing	CATEGORY:Special Ability	TYPE:NightHunterGift	VISIBLE:DISPLAY	SAB:Owl's Hearing																															BONUS:SKILL|Listen|2							SOURCEPAGE:p.30
+Puma's Grace	CATEGORY:Special Ability	TYPE:NightHunterGift	VISIBLE:DISPLAY	SAB:Puma's Grace																		BONUS:COMBAT|AC|1|TYPE=Dodge|!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy	BONUS:SKILL|Balance|4							SOURCEPAGE:p.30
+Snake's Speed	CATEGORY:Special Ability	TYPE:NightHunterGift	VISIBLE:DISPLAY	SAB:Snake's Speed																																									SOURCEPAGE:p.30
+Spider's Dance	CATEGORY:Special Ability	TYPE:NightHunterGift	VISIBLE:DISPLAY	SAB:Spider's Dance																														BONUS:SKILL|Jump|4							SOURCEPAGE:p.30
+Wolf's Senses	CATEGORY:Special Ability	TYPE:NightHunterGift	VISIBLE:DISPLAY	SAB:Wolf's Senses											ABILITY:Special Ability|AUTOMATIC|Scent																								SOURCEPAGE:p.30
+#Trapsense???
+
+
+###Block: The Fey Traveler's Choice
+# Ability Name			Category of Ability		Type				Visible		Required Ability								Special ABility				Source Page
+Companion Charm			CATEGORY:Special Ability	TYPE:FeyTravelerChoice	VISIBLE:DISPLAY											SAB:Companion Charm			SOURCEPAGE:p.36
+Greater Wondrous Item Charm	CATEGORY:Special Ability	TYPE:FeyTravelerChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Wondrous Item Charm	SAB:Greater Wondrous Item Charm	SOURCEPAGE:p.36
+Greater Weapon Charm		CATEGORY:Special Ability	TYPE:FeyTravelerChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Weapon Charm		SAB:Greater Weapon Charm		SOURCEPAGE:p.36
+Wondrous Item Charm		CATEGORY:Special Ability	TYPE:FeyTravelerChoice	VISIBLE:DISPLAY											SAB:Wondrous Item Charm			SOURCEPAGE:p.36
+Weapon Charm			CATEGORY:Special Ability	TYPE:FeyTravelerChoice	VISIBLE:DISPLAY											SAB:Weapon Charm				SOURCEPAGE:p.36
+
+
+###Block: Brother of the Panthic Order
+# Ability Name			Category of Ability		Type					Visible		Required Ability									Special ABility			Multiple?	Choose												Source Page
+Panthic Order First Guide	CATEGORY:Special Ability	TYPE:Special.PanthicOrder	VISIBLE:DISPLAY												SAB:First Guide (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Green Man|Harvester|Lady of Flowers|Wild Lord	SOURCEPAGE:p.49
+Panthic Order Second Guide	CATEGORY:Special Ability	TYPE:Special.PanthicOrder	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Panthic Order First Guide	SAB:Second Guide (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Green Man|Harvester|Lady of Flowers|Wild Lord	SOURCEPAGE:p.49
+Panthic Order Third Guide	CATEGORY:Special Ability	TYPE:Special.PanthicOrder	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Panthic Order Second Guide	SAB:Third Guide (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Green Man|Harvester|Lady of Flowers|Wild Lord	SOURCEPAGE:p.49
+Panthic Order Fourth Guide	CATEGORY:Special Ability	TYPE:Special.PanthicOrder	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Panthic Order Third Guide	SAB:Fourth Guide (%CHOICE)	MULT:YES	CHOOSE:NUMCHOICES=1|STRING|Green Man|Harvester|Lady of Flowers|Wild Lord	SOURCEPAGE:p.49
+
+
+###Block: Disciple of Mystery's Disciplines
+# Ability Name			Category of Ability		Type						Visible		Required Race		Special ABility			Multiple?	Choose										Source Page
+Clear Body				CATEGORY:Special Ability	TYPE:DiscipleMysteryDiscipline	VISIBLE:DISPLAY					SAB:Clear Body																SOURCEPAGE:p.56
+Clear Mind				CATEGORY:Special Ability	TYPE:DiscipleMysteryDiscipline	VISIBLE:DISPLAY					SAB:Clear Mind																SOURCEPAGE:p.56
+Clear Spirit			CATEGORY:Special Ability	TYPE:DiscipleMysteryDiscipline	VISIBLE:DISPLAY					SAB:Clear Spirit																SOURCEPAGE:p.56
+Extend Body				CATEGORY:Special Ability	TYPE:DiscipleMysteryDiscipline	VISIBLE:DISPLAY					SAB:Extend Body																SOURCEPAGE:p.56
+Extend Mind				CATEGORY:Special Ability	TYPE:DiscipleMysteryDiscipline	VISIBLE:DISPLAY					SAB:Extend Mind																SOURCEPAGE:p.56
+Extend Spirit			CATEGORY:Special Ability	TYPE:DiscipleMysteryDiscipline	VISIBLE:DISPLAY					SAB:Extend Spirit																SOURCEPAGE:p.56
+Focus Self				CATEGORY:Special Ability	TYPE:DiscipleMysteryDiscipline	VISIBLE:DISPLAY					SAB:Focus Self																SOURCEPAGE:p.56
+
+
+Orc Adapter Cultural Study	CATEGORY:Special Ability	TYPE:Special.OrcAdapterCultural	VISIBLE:DISPLAY	PRERACE:1,Orc (DF)	SAB:Cultural Study (%CHOICE)	MULT:YES	CHOOSE:STRING|Dawn Elf|Doppelganger|Dwarf|Ghost Elf|Wood Elf	SOURCEPAGE:p.70
+
+
+###Block: Circle Walker's Gift
+# Ability Name		Category of Ability		Type				Visible		Special ABility				Modify VAR			Source Page
+Dreams of Truth		CATEGORY:Special Ability	TYPE:CircleWalkerGift	VISIBLE:DISPLAY	SAB:Dreams of Truth							SOURCEPAGE:p.80
+Harmony of the Stars	CATEGORY:Special Ability	TYPE:CircleWalkerGift	VISIBLE:DISPLAY	SAB:Harmony of the Stars						SOURCEPAGE:p.80
+Infuse with Power		CATEGORY:Special Ability	TYPE:CircleWalkerGift	VISIBLE:DISPLAY	SAB:Infuse with Power							SOURCEPAGE:p.80
+Steps of the Gods		CATEGORY:Special Ability	TYPE:CircleWalkerGift	VISIBLE:DISPLAY	SAB:Steps of the Gods							SOURCEPAGE:p.80
+True Believers		CATEGORY:Special Ability	TYPE:CircleWalkerGift	VISIBLE:DISPLAY	SAB:True Believers							SOURCEPAGE:p.80
+
+Black Circle		CATEGORY:Special Ability	TYPE:CircleWalkerChoice	VISIBLE:DISPLAY	SAB:Smite Good (Su) %/day|SmiteGood	BONUS:VAR|SmiteGood|1	SOURCEPAGE:p.80
+White Circle		CATEGORY:Special Ability	TYPE:CircleWalkerChoice	VISIBLE:DISPLAY	SAB:Smite Evil (Su) %/day|SmiteEvil	BONUS:VAR|SmiteEvil|1	SOURCEPAGE:p.80
+#These choices should also set alignment....
+
+
+###Block: Wilderness Guide's Gift
+# Ability Name		Category of Ability		Type					Visible		Special ABility		Bonus to skill			Bonus to spell known/L																									Stat bonus									Source Page
+Gift of Bounds		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Bounds																																												SOURCEPAGE:p.88
+Gift of Compassion	CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Compassion																																												SOURCEPAGE:p.88
+Gift of Healing		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Healing																																												SOURCEPAGE:p.88
+Gift of Mercy		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Mercy																																													SOURCEPAGE:p.88
+Gift of Power		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Power																																			BONUS:STAT|BASESPELLKNOWNSTAT;CLASS=Wilderness Guide|4	SOURCEPAGE:p.88
+Gift of Sight		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Sight		BONUS:SKILL|Listen,Spot|2																																							SOURCEPAGE:p.88
+Gift of Swiftness		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Swiftness																																												SOURCEPAGE:p.88
+Gift of Wisdom		CATEGORY:Special Ability	TYPE:WildernessGuideGift	VISIBLE:DISPLAY	SAB:Gift of Wisdom						BONUS:SPELLKNOWN|CLASS=Wilderness Guide;LEVEL=1|1|PREVARGT:CL=Wilderness Guide,1	BONUS:SPELLKNOWN|CLASS=Wilderness Guide;LEVEL=2|1|PREVARGT:CL=Wilderness Guide,3											SOURCEPAGE:p.88
+#zzcheck Gift of Power, not sure if the bonus does what I want....
+#TODO:Check if Gift of Wisdom PREs work, if yes add the rest...plus pre for charisma...
+
+###Block: Unbroken's Resistance
+# Ability Name			Category of Ability		Type				Visible		Required Ability														Special ABility												Define					Stackable?	Multiple?	Choose		Ability								Modify VAR					Damage Reduction	Source Page
+Toxin Resistance			CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Toxin Resistance																																							SOURCEPAGE:p.117
+Weather Hardened Acid		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Weather Hardened Acid Resistance %|AcidResistance			DEFINE:AcidResistance|0			STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|AcidResistance|5					SOURCEPAGE:p.117
+Weather Hardened Cold		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Weather Hardened Cold Resistance %|ColdResistance			DEFINE:ColdResistance|0			STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|ColdResistance|5					SOURCEPAGE:p.117
+Weather Hardened Electricity	CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Weather Hardened Electricity Resistance %|ElectricityResistance	DEFINE:ElectricityResistance|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|ElectricityResistance|5				SOURCEPAGE:p.117
+Weather Hardened Fire		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Weather Hardened Fire Resistance %|FireResistance			DEFINE:FireResistance|0			STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|FireResistance|5					SOURCEPAGE:p.117
+Weather Hardened Sonic		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Weather Hardened Sonic Resistance %|SonicResistance			DEFINE:SonicResistance|0		STACK:YES	MULT:YES	CHOOSE:NOCHOICE										BONUS:VAR|SonicResistance|5					SOURCEPAGE:p.117
+Battle Hardened			CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Battle Hardened																																					DR:2/-		SOURCEPAGE:p.117
+Battle Hardened II		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Battle Hardened																																																		DR:3/-		SOURCEPAGE:p.117
+Battle Hardened III		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY	PREABILITY:2,CATEGORY=Special Ability,Battle Hardened II,Battle Hardened																																														DR:4/-		SOURCEPAGE:p.117
+Battle Hardened IV		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY	PREABILITY:3,CATEGORY=Special Ability,Battle Hardened III,Battle Hardened II,Battle Hardened																																											DR:5/-		SOURCEPAGE:p.117
+Survival Instincts		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY																	SAB:Resistance (Ex) Survival Instincts																					ABILITY:Special Ability|VIRTUAL|Evasion												SOURCEPAGE:p.117
+Survival Instincts II		CATEGORY:Special Ability	TYPE:UnbrokenResistance	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Survival Instincts																																		ABILITY:Special Ability|VIRTUAL|Improved Evasion										SOURCEPAGE:p.117
+
+###Block: Trueborn Staunch bonuses
+# Ability Name					Category of Ability		Type				Visible		Save checks bonus
+Trueborn Staunch Will Save Increase		CATEGORY:Special Ability	TYPE:HTrueStaunchBonus	VISIBLE:DISPLAY	BONUS:CHECKS|BASE.Will|1|TYPE=Transformation
+Trueborn Staunch Reflex Save Increase	CATEGORY:Special Ability	TYPE:HTrueStaunchBonus	VISIBLE:DISPLAY	BONUS:CHECKS|BASE.Reflex|1|TYPE=Transformation
+Trueborn Staunch Fortitude Save Increase	CATEGORY:Special Ability	TYPE:HTrueStaunchBonus	VISIBLE:DISPLAY	BONUS:CHECKS|BASE.Fortitude|1|TYPE=Transformation
