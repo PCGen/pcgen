@@ -7,7 +7,7 @@ BOOKTYPE:Supplement
 SETTING:Space Opera
 STATUS:BETA
 TYPE:Blue Devil Games.Dawning Star.Operation Quick Launch
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:3,BOOKTYPE=Core Rules,MSRD - Future,MSRD - Arcana
 PUBNAMELONG:Blue Devil Games
 PUBNAMESHORT:BDG
 PUBNAMEWEB:http://www.bluedevilgames.com/

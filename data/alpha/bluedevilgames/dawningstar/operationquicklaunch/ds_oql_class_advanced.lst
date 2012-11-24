@@ -55,7 +55,7 @@ CLASS:Gunhand	PREATT:3	PREFEAT:1,Weapon Focus (TYPE=Firearm)	PRESKILL:1,Intimida
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunhand	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Mechanical)|Drive|Gamble|Gather Information|Intimidate|Knowledge (Local)|Knowledge (Streetwise)|Listen|Ride|Sense Motive|Spot|Survival|Treat Injury
 1			SAB:Tough as Nails																												AUTO:FEAT|Quick Draw
-2																			ABILITY:Special Ability|AUTOMATIC|Weapon Specialization
+2																			BONUS:ABILITYPOOL|Weapon Specialization|1
 3:REPEATLEVEL:3					BONUS:ABILITYPOOL|Gunhand Feat|1
 4													BONUS:VAR|SignatureWeapon|CL/4	ABILITY:Special Ability|AUTOMATIC|Signature Weapon
 5																													VFEAT:Frightful Presence
