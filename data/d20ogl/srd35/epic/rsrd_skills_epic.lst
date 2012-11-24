@@ -3,12 +3,6 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 
 # VAR SynergyBonus defined in statsandchecks.lst to allow raising the value of the Synergy bonus -- Frank
 
-# Skill Name		Key Stat	Untrained?		Type				Source Page
-Craft (Dreamweaving)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:EpicMonsters(A-E).rtf
-Craft (Gemcutting)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:EpicMagicItems2.rtf
-Craft (Metalworking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:EpicMonsters(A-E).rtf
-Craft (Stoneworking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:EpicMonsters(A-E).rtf
-Profession (Bookkeeper)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCEPAGE:EpicMonsters(G-W).rtf
 
 ###Block: Epic Synergy Bonuses, see EpicSkills.rtf
 

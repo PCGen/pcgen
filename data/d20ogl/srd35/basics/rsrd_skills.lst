@@ -87,6 +87,14 @@ Tumble						KEYSTAT:DEX	USEUNTRAINED:NO	ACHECK:YES			TYPE:Dexterity.Standard				
 Use Magic Device					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Standard							SOURCEPAGE:SkillsII.rtf
 Use Rope						KEYSTAT:DEX								TYPE:Dexterity.Standard							SOURCEPAGE:SkillsII.rtf
 
+###Block: From Epic - Prevent situational Conflicts
+# Skill Name		Key Stat	Untrained?		Type				Source Page
+Craft (Dreamweaving)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:EpicMonsters(A-E).rtf		BONUS:SKILL|Craft (Dreamweaving)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools|PREAPPLY:PC	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used
+Craft (Gemcutting)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:EpicMagicItems2.rtf		BONUS:SKILL|Craft (Gemcutting)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools|PREAPPLY:PC	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used
+Craft (Metalworking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:EpicMonsters(A-E).rtf		BONUS:SKILL|Craft (Metalworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools|PREAPPLY:PC	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used
+Craft (Stoneworking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:EpicMonsters(A-E).rtf		BONUS:SKILL|Craft (Stoneworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools|PREAPPLY:PC	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used
+Profession (Bookkeeper)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCEPAGE:EpicMonsters(G-W).rtf
+
 #
 # End
 #
