@@ -1,0 +1,29 @@
+# CVS $Revision$ $Author$ -- Tue Jan 22 22:55:20 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
+# Original Entry by: Ratheof Blithwyn
+
+
+# Exotic Weapons
+# -- light
+# Weapon Name	Type		Nb Hands
+Degger		TYPE:Exotic
+Serrated Horncaps	TYPE:Exotic
+Wristblade		TYPE:Exotic
+
+# -- 1-handers
+Murblade		TYPE:Exotic
+Shineblade		TYPE:Exotic
+
+# -- 2-handers
+Angel's Blade	TYPE:Exotic	HANDS:2
+Bladestaff		TYPE:Exotic	HANDS:2
+Chainball		TYPE:Exotic	HANDS:2
+Hookchain		TYPE:Exotic	HANDS:2
+Horned Club		TYPE:Exotic	HANDS:2
+
+# -- ranged
+Dragnet		TYPE:Exotic
+Fangcaps		TYPE:Exotic
+Returner		TYPE:Exotic
+Spiked Ball		TYPE:Exotic
+Wristbolt		TYPE:Exotic

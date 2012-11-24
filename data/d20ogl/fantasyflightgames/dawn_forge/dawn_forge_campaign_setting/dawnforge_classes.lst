@@ -1,0 +1,243 @@
+# CVS $Revision$ $Author$ -- Thu Feb  5 15:35:16 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
+# Original Entry by: Ratheof Blithwyn and Tir Gwaith
+
+
+#
+# New classes
+#
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Disciple	HD:8		TYPE:Base.PC	ABB:Dis		MAXLEVEL:20	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Text
+CLASS:Disciple	PRETEXT:A Disciple's alignment must be within one step of the immortal that grants him his spells.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (The Planes)|Listen|TYPE=Profession|Spellcraft
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level			Use Spell List
+CLASS:Disciple	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Disciple|CL	SPELLLIST:1|Cleric
+1	AUTO:FEAT|Simple Weapon Proficiency										AUTO:WEAPONPROF|TYPE=Simple
+1	AUTO:FEAT|Shield Proficiency
+1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Normal level progression
+1	CAST:3,1				SAB:Intercession %/day (Su)|Intercession										BONUS:VAR|Intercession|CL/10+1	DEFINE:Intercession|0
+2	CAST:4,2											BONUS:ABILITYPOOL|Disciple Innate Spells|(CL+1)/2
+3	CAST:4,2,1
+4	CAST:5,3,2				SAB:Immortal's Gift (Su)
+5	CAST:5,3,2,1
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1
+10	CAST:6,4,4,3,3,2
+11	CAST:6,5,4,4,3,2,1
+12	CAST:6,5,4,4,3,3,2
+13	CAST:6,5,5,4,4,3,2,1
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1
+16	CAST:6,5,5,5,4,4,3,3,2
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,4,4
+# new chooser + SPELL => Innate Spell.. (not going to delve into the current undocumented chooser)
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Bonus Languages	Save checks bonus											Combat bonus
+CLASS:Shaman	HD:8		TYPE:Base.PC	ABB:Sha		MAXLEVEL:20	SOURCEPAGE:p.61	LANGBONUS:Sylvan	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Shaman	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level			Use Spell List
+CLASS:Shaman	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Shaman|CL	SPELLLIST:1|Druid
+1	AUTO:FEAT|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Simple
+1	AUTO:FEAT|Shield Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Normal level progression
+1	CAST:3,1																																						BONUS:SKILL|Knowledge (Nature),Survival|2	BONUS:VAR|AnimalCompanionLVL|CL/2					ABILITY:Special Ability|AUTOMATIC|Nature Sense|Spontaneous casting - Summon Nature's Ally|Wild Empathy	ABILITY:Special Ability|AUTOMATIC|Animal Companion
+2	CAST:4,2																																																																																					AUTO:FEAT|Craft Spell Fetish
+3	CAST:4,2,1				SAB:Rituals of Power I (Su) (-1 WIS for any spell up to 3rd level)
+4	CAST:5,3,2				SAB:Companion Sight (Su)
+5	CAST:5,3,2,1																														BONUS:ABILITYPOOL|Elemental Form Choice|1													
+6	CAST:5,3,3,2																																																					ABILITY:Special Ability|AUTOMATIC|Trackless Step
+7	CAST:6,4,3,2,1			SAB:Rituals of Power II (Su) (-2 WIS for any spell up to 5th level or next larger Elemental form)
+8	CAST:6,4,3,3,2			SAB:Treant Form (Su)
+9	CAST:6,4,4,3,2,1
+10	CAST:6,4,4,3,3,2
+11	CAST:6,5,4,4,3,2,1																													BONUS:ABILITYPOOL|Elemental Form Choice|1													
+12	CAST:6,5,4,4,3,3,2		SAB:Quickened Rituals (Ex) for I and II
+13	CAST:6,5,5,4,4,3,2,1		SAB:Rituals of Power III (Su) (-3 WIS for any spell up to 7th level or remove all poisons/diseases and physical damage)
+14	CAST:6,5,5,4,4,3,3,2		SAB:Improved Elemental Form
+15	CAST:6,5,5,5,4,4,3,2,1																																																				ABILITY:Special Ability|AUTOMATIC|Timeless Body																				TEMPLATE:Timeless Body
+16	CAST:6,5,5,5,4,4,3,3,2
+17	CAST:6,5,5,5,5,4,4,3,2,1																												BONUS:ABILITYPOOL|Elemental Form Choice|1
+18	CAST:6,5,5,5,5,4,4,3,3,2	SAB:Rituals of Power IV (Su) (-4 WIS for any spell up to 9th level or free from all harmful magical effects/heal all ability damage/remove all negative levels)
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,3,4
+
+
+# Class Name	Unique Key		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Shaper	KEY:Shaper (DF)	HD:8		TYPE:Base.PC	ABB:Shp		MAXLEVEL:20	SOURCEPAGE:p.65	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Shaper (DF)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Gather Information|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|Listen|TYPE=Profession|Search|Spellcraft
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
+CLASS:Shaper (DF)	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Shaper (DF)|CL	SPELLLIST:1|Cleric
+1	AUTO:FEAT|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Simple
+1	AUTO:FEAT|Shield Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Level progression
+1	CAST:5,3				KNOWN:4,2									BONUS:ABILITYPOOL|Shaper Divine Focus Choice|2
+2	CAST:6,4				KNOWN:5,2				SAB:Enlarge Specialty Spell	BONUS:ABILITYPOOL|Shaper Specialty Choice|1
+3	CAST:6,5				KNOWN:5,3
+4	CAST:6,6,3				KNOWN:6,3,1
+5	CAST:6,6,4				KNOWN:6,4,2									BONUS:ABILITYPOOL|Shaper Specialty Choice|1
+6	CAST:6,6,5,3			KNOWN:7,4,2,1
+7	CAST:6,6,6,4			KNOWN:7,5,3,2
+8	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1			SAB:Empower Specialty Spell
+9	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+10	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+11	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2								BONUS:ABILITYPOOL|Shaper Specialty Choice|1
+12	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+13	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+14	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1		SAB:Extend Specialty Spell
+15	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,3,1
+17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2		SAB:Maximize Specialty Spell
+18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1						BONUS:ABILITYPOOL|Shaper Specialty Choice|1
+19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
+CLASS:Spirit Adept	HD:10		TYPE:Base.PC	ABB:SpA		MAXLEVEL:20	SOURCEPAGE:p.70	BONUS:CHECKS|BASE.Fortitude,BASE.Will,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Spirit Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Shield Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+###Block: Level progression
+1	SAB:Spirit Sense I	SAB:Spirit Strength (%)|SpiritStrength	BONUS:ABILITYPOOL|Spirit Adept Powers Choice|1					BONUS:VAR|SpiritStrength|2*min(var("CL=Spirit Adept"),5)		DEFINE:SpiritStrength|0
+2																																							ABILITY:Special Ability|AUTOMATIC|Evasion
+3												BONUS:ABILITYPOOL|Spirit Adept Powers Choice|1
+4																				BONUS:FEAT|POOL|CL/4
+5	SAB:Feather Fall (Sp)								BONUS:ABILITYPOOL|Spirit Adept Powers Choice|1
+6	SAB:Spirit Sense II																				BONUS:VAR|SpiritStrength|5*min(var("CL=Spirit Adept")-5,5)
+7												BONUS:ABILITYPOOL|Spirit Adept Powers Choice|1
+9												BONUS:ABILITYPOOL|Spirit Adept Powers Choice|1																				ABILITY:Special Ability|AUTOMATIC|Improved Evasion
+11	SAB:Spirit Sense III								BONUS:ABILITYPOOL|Spirit Adept Powers Choice|1					BONUS:VAR|SpiritStrength|10*min(var("CL=Spirit Adept")-10,10)
+13												BONUS:ABILITYPOOL|Spirit Adept Powers Choice|1
+15												BONUS:ABILITYPOOL|Spirit Adept Powers Choice|1
+17												BONUS:ABILITYPOOL|Spirit Adept Powers Choice|1
+19												BONUS:ABILITYPOOL|Spirit Adept Powers Choice|1
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Sorcerer (DF)	HD:4		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:p.93	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FamiliarLVL|CL
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Sorcerer (DF)	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Spellcraft
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
+CLASS:Sorcerer (DF)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer (DF)|CL	SPELLLIST:1|Sorcerer
+SUBCLASS:Sorcerer (Life)	COST:0
+SUBCLASSLEVEL:1	SAB:Available Shools (Abjuration, Conjuration, Divination, Transmutation)
+SUBCLASSLEVEL:1	SAB:Spell Mastery feat can only be applied to spells available in his bonded aspect.
+SUBCLASSLEVEL:1	SAB:+2 bonus on Spellcraft checks to learn new spells within his bonded aspect	SAB:Silent Spell (1/day)
+SUBCLASSLEVEL:1	SAB:The experience cost for creating magic items from available schools is reduced by 10pct and increased 20pct from others.
+SUBCLASSLEVEL:5	SAB:Still Spell (1/day)
+SUBCLASSLEVEL:10	SAB:Empower Spell (1/day)
+SUBCLASSLEVEL:15	SAB:Widen Spell (1/day)
+SUBCLASSLEVEL:20	SAB:Quicken Spell (1/day)
+SUBCLASS:Sorcerer (Entropy)	COST:0
+SUBCLASSLEVEL:1	SAB:Available Shools (Evocation, Necromancy, Transmutation)
+SUBCLASSLEVEL:1	SAB:Spell Mastery feat can only be applied to spells available in his bonded aspect.
+SUBCLASSLEVEL:1	SAB:+2 bonus on Spellcraft checks to learn new spells within his bonded aspect	SAB:Silent Spell (1/day)
+SUBCLASSLEVEL:1	SAB:The experience cost for creating magic items from available schools is reduced by 10pct and increased 20pct from others.
+SUBCLASSLEVEL:5	SAB:Still Spell (1/day)
+SUBCLASSLEVEL:10	SAB:Empower Spell (1/day)
+SUBCLASSLEVEL:15	SAB:Widen Spell (1/day)
+SUBCLASSLEVEL:20	SAB:Quicken Spell (1/day)
+SUBCLASS:Sorcerer (Dreams)	COST:0
+SUBCLASSLEVEL:1	SAB:Available Shools (Abjuration, Enchantment, Illusion, Transmutation)
+SUBCLASSLEVEL:1	SAB:Spell Mastery feat can only be applied to spells available in his bonded aspect.
+SUBCLASSLEVEL:1	SAB:+2 bonus on Spellcraft checks to learn new spells within his bonded aspect	SAB:Silent Spell (1/day)
+SUBCLASSLEVEL:1	SAB:The experience cost for creating magic items from available schools is reduced by 10pct and increased 20pct from others.
+SUBCLASSLEVEL:5	SAB:Still Spell (1/day)
+SUBCLASSLEVEL:10	SAB:Empower Spell (1/day)
+SUBCLASSLEVEL:15	SAB:Widen Spell (1/day)
+SUBCLASSLEVEL:20	SAB:Quicken Spell (1/day)
+SUBCLASS:Sorcerer (Dominion)	COST:0
+SUBCLASSLEVEL:1	SAB:Available Shools (Conjuration, Divination, Enchantment, Necromancy)
+SUBCLASSLEVEL:1	SAB:Spell Mastery feat can only be applied to spells available in his bonded aspect.
+SUBCLASSLEVEL:1	SAB:+2 bonus on Spellcraft checks to learn new spells within his bonded aspect	SAB:Silent Spell (1/day)
+SUBCLASSLEVEL:1	SAB:The experience cost for creating magic items from available schools is reduced by 10pct and increased 20pct from others.
+SUBCLASSLEVEL:5	SAB:Still Spell (1/day)
+SUBCLASSLEVEL:10	SAB:Empower Spell (1/day)
+SUBCLASSLEVEL:15	SAB:Widen Spell (1/day)
+SUBCLASSLEVEL:20	SAB:Quicken Spell (1/day)
+1	CAST:5,3				KNOWN:4,2				ABILITY:Special Ability|AUTOMATIC|Summon Familiar	AUTO:FEAT|Simple Weapon Proficiency
+2	CAST:6,4				KNOWN:5,2
+3	CAST:6,5				KNOWN:5,3
+4	CAST:6,6,3				KNOWN:6,3,1
+5	CAST:6,6,4				KNOWN:6,4,2
+6	CAST:6,6,5,3			KNOWN:7,4,2,1
+7	CAST:6,6,6,4			KNOWN:7,5,3,2
+8	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+9	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+10	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+11	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+12	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+13	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+14	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+15	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
+#TODO: Spell Focus granting +2 instead of +1 for available schools
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page		Bonus Languages		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Wizard (DF)	HD:4		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:p.93	LANGBONUS:Draconic	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	BONUS:VAR|FamiliarLVL|CL
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wizard (DF)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level				Use Spell List
+CLASS:Wizard (DF)	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard (DF)|CL	SPELLLIST:1|Wizard
+#
+SUBCLASS:Wizard (Life)		COST:0
+SUBCLASSLEVEL:1	SAB:Available Schools (Abjuration, Conjuration, Divination, Transmutation)
+SUBCLASS:Wizard (Entropy)	COST:0
+SUBCLASSLEVEL:1	SAB:Available Schools (Evocation, Necromancy, Transmutation)
+SUBCLASS:Wizard (Dreams)	COST:0
+SUBCLASSLEVEL:1	SAB:Available Schools (Abjuration, Enchantment, Illusion, Transmutation)
+SUBCLASS:Wizard (Dominion)	COST:0
+SUBCLASSLEVEL:1	SAB:Available Schools (Conjuration, Divination, Enchantment, Necromancy)
+#
+1						SAB:Spell Mastery feat can only be applied to spells available in his bonded aspect.
+1						SAB:+2 bonus on Spellcraft checks to learn new spells within his bonded aspect	SAB:Silent Spell (1/day)
+1						SAB:The experience cost for creating magic items from available schools is reduced by 10pct and increased 20pct from others.
+1	CAST:3,1																															ABILITY:Special Ability|AUTOMATIC|Summon Familiar	AUTO:FEAT|Scribe Scroll	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:4,3,2
+5	CAST:4,3,2,1			SAB:Still Spell (1/day)																		BONUS:ABILITYPOOL|Wizard Feat|1
+6	CAST:4,3,3,2
+7	CAST:4,4,3,2,1
+8	CAST:4,4,3,3,2
+9	CAST:4,4,4,3,2,1
+10	CAST:4,4,4,3,3,2			SAB:Empower Spell (1/day)																	BONUS:ABILITYPOOL|Wizard Feat|1
+11	CAST:4,4,4,4,3,2,1
+12	CAST:4,4,4,4,3,3,2
+13	CAST:4,4,4,4,4,3,2,1
+14	CAST:4,4,4,4,4,3,3,2
+15	CAST:4,4,4,4,4,4,3,2,1		SAB:Widen Spell (1/day)																		BONUS:ABILITYPOOL|Wizard Feat|1
+16	CAST:4,4,4,4,4,4,3,3,2
+17	CAST:4,4,4,4,4,4,4,3,2,1
+18	CAST:4,4,4,4,4,4,4,3,3,2
+19	CAST:4,4,4,4,4,4,4,4,3,3
+20	CAST:4,4,4,4,4,4,4,4,4,4	SAB:Quicken Spell (1/day)																	BONUS:ABILITYPOOL|Wizard Feat|1
+#TODO: Spell Focus granting +2 instead of +1 for available schools
+
+
+#
+# end
+#

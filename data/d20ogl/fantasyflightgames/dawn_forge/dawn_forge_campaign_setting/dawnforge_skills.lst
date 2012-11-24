@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Thu Jan 15 23:01:29 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
+# Original Entry by: Ratheof Blithwyn
+
+# Skill Name	Key Stat	Untrained?		Type
+Knowledge (War)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge

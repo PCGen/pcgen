@@ -1,0 +1,25 @@
+# CVS $Revision$ $Author$ -- Thu Jan 15 23:01:29 2009 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
+# Original Entry by: Ratheof Blithwyn
+
+
+#Non-progression templates
+# Template Name				Size		Visible	Source Page		Removable?		Type
+Trueborn Outsider						VISIBLE:NO	SOURCEPAGE:p.42	REMOVABLE:NO	TYPE:Outsider
+Ogre Giant							VISIBLE:NO	SOURCEPAGE:p.22	REMOVABLE:NO	TYPE:Giant
+Ogre Large Size				SIZE:L	VISIBLE:NO	SOURCEPAGE:p.22	REMOVABLE:NO
+Tiefling Outsider						VISIBLE:NO	SOURCEPAGE:p.53	REMOVABLE:NO	TYPE:Outsider
+Monstrous Humanoid Transformation			VISIBLE:NO	SOURCEPAGE:p.47	REMOVABLE:NO	TYPE:Monstrous Humanoid
+Minotaur Large Size			SIZE:L	VISIBLE:NO	SOURCEPAGE:p.47	REMOVABLE:NO
+
+###Block: Doppelganger Deception Racial Talent Support
+# Template Name				Visible	Template																							Required Class Skill		Prohibited Class SKill		Bonus to skill					Class Skill
+Deception Talent				VISIBLE:NO	TEMPLATE:CHOOSE:Deception Bluff CSkill|Deception Bluff CCSkill	TEMPLATE:CHOOSE:Deception Sense Motive CSkill|Deception Sense Motive CCSkill
+Deception Bluff CSkill			VISIBLE:NO																									PRECSKILL:1,Bluff								BONUS:SKILL|Bluff|2|TYPE=Talent		CSKILL:Bluff
+Deception Bluff CCSkill			VISIBLE:NO																														!PRECSKILL:1,Bluff									CSKILL:Bluff
+Deception Sense Motive CSkill		VISIBLE:NO																									PRECSKILL:1,Sense Motive						BONUS:SKILL|Sense Motive|2|TYPE=Talent	CSKILL:Sense Motive
+Deception Sense Motive CCSkill	VISIBLE:NO																														!PRECSKILL:1,Sense Motive								CSKILL:Sense Motive
+
+#
+# EOF
+#

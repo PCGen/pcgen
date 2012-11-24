@@ -1,0 +1,62 @@
+# CVS $Revision$ $Author$ -- Tue Jul 13 18:47:20 2004 -- reformated by prettylst.pl v1.32 (build 375)
+# Original entry by Ratheof Blithwyn
+CAMPAIGN:FFG - Dawnforge - Campaign setting
+GAMEMODE:35e
+RANK:5
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Dawnforge
+STATUS:BETA
+TYPE:Fantasy Flight Games.Dawnforge
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:Fantasy Flight Games
+PUBNAMESHORT:FFG
+PUBNAMEWEB:http://www.fantasyflightgames.com
+SOURCELONG:Dawnforge
+SOURCESHORT:DF
+SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
+SOURCEDATE:2003-10
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David noonan, Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson
+COPYRIGHT:Path of the Sword Copyright 2002, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Tournaments, Fairs, and Taverns, Copyright 2002, Natural 20 Press
+COPYRIGHT:Wild Spellcraft, Copyright 2002, Natural 20 Press
+COPYRIGHT:Traps & Treachery Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Deadlands d20 Copyright 2001, Pinnacle Entertainment Group, Inc.
+COPYRIGHT:Dragonstar: Starfarer's Handbook Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Open Game Content from The Tide of Years Copyright 2001, Michelle A. Brown Nephew
+COPYRIGHT:Seafarer's Handbook Copyright 2001, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Dawnforge Copyright 2003, Fantasy Flight Publishing, Inc.
+COPYRIGHT:PCGen dataset conversion for Dawnforge Copyright 2004-2005, PCgen Data team (Including, but not limited to Anders Lindgren (Ratheof Blithwyn),Eddy Anthony, Andrew McDougall (Tir Gwaith), Tod W. Milam)
+
+INFOTEXT:Dawnforge campaign setting, load with Core Rules for the 3.5 revised edition.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:HowTo.txt
+
+ABILITYCATEGORY:dawnforge_ability_categories.lst
+ABILITY:dawnforge_abilities_racial.lst
+ABILITY:dawnforge_abilities_class.lst
+ABILITY:dawnforge_abilities_class_legendary.lst
+ABILITY:dawnforge_abilities_class_legendary_mod.lst
+BIOSET:dawnforge_biosettings.lst
+CLASS:dawnforge_classes.lst
+CLASS:dawnforge_classes_legendary.lst
+FEAT:dawnforge_feats.lst
+EQUIPMENT:dawnforge_equip_shields.lst
+EQUIPMENT:dawnforge_equip_weap.lst
+LANGUAGE:dawnforge_languages.lst
+RACE:dawnforge_races.lst
+SKILL:dawnforge_skills.lst
+TEMPLATE:dawnforge_templates.lst
+TEMPLATE:dawnforge_templates_hidden.lst
+WEAPONPROF:dawnforge_weaponprofs.lst
+SHIELDPROF:df_profs_shield.lst
+
+HIDETYPE:FEAT|DoppelTalentFeat|DoppelTransformationFeat|DwarfTalentFeat|DwarfTransformationFeat|DawnElfTalentFeat|DawnElfTransformationFeat|NightElfTalentFeat|NightElfTransformationFeat|GnomeTalentFeat|GnomeTransformationFeat|HalflingTalentFeat|HalflingTransformationFeat|HighlanderTalentFeat|HighlanderTransformationFeat|LowlanderTalentFeat|LowlanderTransformationFeat|SaltbloodTalentFeat|SaltbloodTransformationFeat|TruebornTalentFeat|TruebornTransformationFeat|LizardTalentFeat|LizardTransformationFeat|MinotaurTalentFeat|MinotaurTransformationFeat|OgreTalentFeat|OgreTransformationFeat|OrcTalentFeat|OrcTransformationFeat|TieflingTalentFeat|TieflingTransformationFeat|ThinbloodTalentFeat|ThinbloodTransformationFeat
+
+#
+# End
+#

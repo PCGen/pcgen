@@ -1,0 +1,59 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
+# Original Entry by: Ratheof Blithwyn
+
+### Regional Feats Chapter One
+# Feat Name				Type				Req. Att.	Required Class			Required Skill				Description																						Stackable?	Multiple?	Choose						Source Page
+Exotic Shield Proficiency	TYPE:General.Fighter	PREATT:1												DESC:Choose a type of exotic shield, such as the breaker shield or flankshield. You understand how to use that type of shield in combat	STACK:NO	MULT:YES	CHOOSE:SHIELDPROFICIENCY|!PC|EQUIPMENT[TYPE=Exotic]	SOURCEPAGE:p.87
+#Chooser won't work, waiting for redesign of chooser....
+Craft Magic Pouch			TYPE:ItemCreation				PRECLASS:1,Spellcaster=5							DESC:You can create magic pouches, which carry spells within themselves																							SOURCEPAGE:p.87
+Craft Spell Fetish		TYPE:ItemCreation				PRECLASS:1,Spellcaster=1	PRESKILL:1,Knowledge (Nature)=5	DESC:You can create spell fetishes, which carry spells within themselves																						SOURCEPAGE:p.87
+
+
+###Block: Feat Mods
+# Feat Name					Type
+Alertness.MOD				TYPE:GnomeTalentFeat.HighlanderTalentFeat
+Augment Summoning.MOD			TYPE:TieflingTalentFeat
+Blind Fight.MOD				TYPE:MinotaurTalentFeat.OgreTalentFeat
+Brew Potion.MOD				TYPE:OrcTalentFeat
+Combat Expertise.MOD			TYPE:HalflingTalentFeat
+Craft Magic Arms and Armor.MOD	TYPE:OrcTalentFeat
+Diehard.MOD					TYPE:LowlanderTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
+Dodge.MOD					TYPE:DoppelTransformationFeat.DawnElfTransformationFeat.NightElfTransformationFeat.GnomeTransformationFeat.HalflingTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OrcTransformationFeat.TieflingTransformationFeat.ThinbloodTransformationFeat
+Endurance.MOD				TYPE:DoppelTransformationFeat.DwarfTransformationFeat.GnomeTransformationFeat.HighlanderTalentFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
+Eschew Materials.MOD			TYPE:LizardTalentFeat
+Exotic Weapon Proficiency.MOD		TYPE:TruebornTalentFeat.MinotaurTalentFeat.OrcTalentFeat
+Great Fortitude.MOD			TYPE:DoppelTransformationFeat.DwarfTransformationFeat.GnomeTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.TruebornTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
+Greater Weapon Focus.MOD		TYPE:LizardTalentFeat.MinotaurTalentFeat
+Improved Initiative.MOD			TYPE:DoppelTalentFeat.NightElfTransformationFeat.GnomeTalentFeat.HighlanderTalentFeat.TieflingTransformationFeat.ThinbloodTransformationFeat
+Improved Unarmed Strike.MOD		TYPE:OgreTalentFeat
+Iron Will.MOD				TYPE:DawnElfTransformationFeat.NightElfTransformationFeat.GnomeTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.TruebornTransformationFeat.OrcTalentFeat.ThinbloodTransformationFeat
+Leadership.MOD				TYPE:DwarfTalentFeat.LowlanderTalentFeat.SaltbloodTalentFeat.TruebornTalentFeat.MinotaurTalentFeat
+Lightning Reflexes.MOD			TYPE:DawnElfTransformationFeat.NightElfTransformationFeat.HalflingTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.LizardTransformationFeat.TieflingTransformationFeat.ThinbloodTransformationFeat
+Martial Weapon Proficiency.MOD	TYPE:DwarfTalentFeat.HighlanderTalentFeat
+Mounted Combat.MOD			TYPE:TruebornTalentFeat
+Point Blank Shot.MOD			TYPE:DawnElfTalentFeat
+Power Attack.MOD				TYPE:DwarfTalentFeat.OgreTalentFeat.OrcTalentFeat
+Quick Draw.MOD				TYPE:DawnElfTalentFeat.SaltbloodTalentFeat.TruebornTalentFeat
+Rapid Reload.MOD				TYPE:NightElfTalentFeat.HalflingTalentFeat.SaltbloodTalentFeat
+Run.MOD					TYPE:HalflingTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.OrcTransformationFeat
+Spell Focus.MOD				TYPE:DawnElfTalentFeat.GnomeTalentFeat.TruebornTalentFeat.TieflingTalentFeat
+Toughness.MOD				TYPE:DwarfTransformationFeat.GnomeTransformationFeat.HighlanderTransformationFeat.LowlanderTransformationFeat.SaltbloodTransformationFeat.TruebornTransformationFeat.LizardTransformationFeat.MinotaurTransformationFeat.OgreTransformationFeat.OrcTransformationFeat
+Track.MOD					TYPE:NightElfTalentFeat.HighlanderTalentFeat.LowlanderTalentFeat
+Trample.MOD					TYPE:TruebornTalentFeat
+Weapon Finesse.MOD			TYPE:HighlanderTalentFeat
+Weapon Focus.MOD				TYPE:LizardTalentFeat.MinotaurTalentFeat
+
+# Psionics
+Craft Cognizance Crystal.MOD		TYPE:ThinbloodTalentFeat
+Craft Dorje.MOD				TYPE:ThinbloodTalentFeat
+Craft Psicrown.MOD			TYPE:ThinbloodTalentFeat
+Craft Psionic Arms and Armor.MOD	TYPE:ThinbloodTalentFeat
+Craft Psionic Construct.MOD		TYPE:ThinbloodTalentFeat
+Craft Universal Item.MOD		TYPE:ThinbloodTalentFeat
+Imprint Stone.MOD				TYPE:ThinbloodTalentFeat
+Scribe Tattoo.MOD				TYPE:ThinbloodTalentFeat
+
+#
+# End
+#
