@@ -1,0 +1,246 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+STARTPACK:Pegasus Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pegasus]	SOURCEPAGE:p.225
+RACE:Pegasus	!PRERACE:1,%
+NAME:Pegasus
+ALIGN:CG
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Fly			RANK:2
+SKILL:Perception		RANK:3
+SKILL:Sense Motive	RANK:3
+FEAT:Flyby Attack
+FEAT:Iron Will
+
+STARTPACK:Pegasus (Heroic) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pegasus]	SOURCEPAGE:p.225
+RACE:Pegasus	!PRERACE:1,%
+NAME:Pegasus (Heroic)
+ALIGN:CG
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Fly			RANK:2
+SKILL:Perception		RANK:3
+SKILL:Sense Motive	RANK:3
+FEAT:Flyby Attack
+FEAT:Iron Will
+TEMPLATE:Advanced Creature (Pegasus)
+
+STARTPACK:Phase Spider Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phase Spider]	SOURCEPAGE:p.226
+RACE:Phase Spider	!PRERACE:1,%
+NAME:Phase Spider
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Climb		RANK:2
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:2
+FEAT:Ability Focus (Poison ~ Phase Spider)
+FEAT:Improved Initiative
+FEAT:Skill Focus (Stealth)
+
+STARTPACK:Phoenix Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phoenix]	SOURCEPAGE:p.227
+RACE:Phoenix	!PRERACE:1,%
+NAME:Phoenix
+ALIGN:NG
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Acrobatics			RANK:20
+SKILL:Diplomacy			RANK:20
+SKILL:Fly				RANK:20
+SKILL:Intimidate			RANK:20
+SKILL:Knowledge (Nature)	RANK:20
+SKILL:TYPE.Knowledge		RANK:20
+SKILL:Perception			RANK:20
+SKILL:Sense Motive		RANK:20
+FEAT:Improved Initiative
+FEAT:Improved Critical (Talons)
+FEAT:Critical Focus
+FEAT:Blinding Critical
+FEAT:Dodge
+FEAT:Mobility
+FEAT:Iron Will
+FEAT:Flyby Attack
+FEAT:Combat Reflexes
+FEAT:Quicken Spell-Like Ability ~ Spell (Wall of Fire)
+
+STARTPACK:Pixie Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pixie]	SOURCEPAGE:p.228
+RACE:Pixie	!PRERACE:1,%
+NAME:Pixie
+ALIGN:NG
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:4
+SKILL:Bluff				RANK:4
+SKILL:Escape Artist		RANK:4
+SKILL:Fly				RANK:4
+SKILL:Knowledge (Nature)	RANK:4
+SKILL:Perception			RANK:4
+SKILL:Sense Motive		RANK:4
+SKILL:Stealth			RANK:4
+SKILL:Use Magic Device		RANK:4
+FEAT:Dodge
+FEAT:Weapon Finesse
+GEAR:Sword (Short)	SIZE:PC	LOCATION:Equipped
+GEAR:Longbow		SIZE:PC	LOCATION:Carried
+
+STARTPACK:Pseudodragon Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pseudodragon]	SOURCEPAGE:p.229
+RACE:Pseudodragon	!PRERACE:1,%
+NAME:Pseudodragon
+ALIGN:NG
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Diplomacy		RANK:2
+SKILL:Fly			RANK:2
+SKILL:Perception		RANK:2
+SKILL:Sense Motive	RANK:2
+SKILL:Stealth		RANK:2
+SKILL:Survival		RANK:2
+FEAT:Weapon Finesse
+
+STARTPACK:Purple Worm Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Purple Worm]	SOURCEPAGE:p.230
+RACE:Purple Worm	!PRERACE:1,%
+NAME:Purple Worm
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Perception	RANK:16
+FEAT:Power Attack
+FEAT:Improved Bull Rush
+FEAT:Awesome Blow
+FEAT:Improved Critical (Bite)
+FEAT:Critical Focus
+FEAT:Staggering Critical
+FEAT:Weapon Focus (Bite)
+FEAT:Weapon Focus (Sting)
+
+STARTPACK:Rakshasa Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rakshasa]	SOURCEPAGE:p.231
+RACE:Rakshasa	!PRERACE:1,%
+NAME:Rakshasa
+ALIGN:LE
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Bluff			RANK:10
+SKILL:Diplomacy		RANK:10
+SKILL:Disguise		RANK:10
+SKILL:Perception		RANK:10
+SKILL:Sense Motive	RANK:10
+SKILL:TYPE=Perform	RANK:10
+SKILL:Stealth		RANK:10
+FEAT:Combat Expertise
+FEAT:Dodge
+FEAT:Improved Critical (Kukri)
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+SPELLS:Dancing Lights|Detect Magic|Ghost Sound|Mage Hand|Mending|Message|Prestidigitation
+SPELLS:Charm Person|Mage Armor|Magic Missile|Shield|Silent Image
+SPELLS:Acid Arrow|Invisibility|Minor Image
+SPELLS:Lightning Bolt|Suggestion
+GEAR:Kukri	LOCATION:Equipped	EQMOD:PLUS1W
+
+STARTPACK:Rat (Dire) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat (Dire)]	SOURCEPAGE:p.232
+RACE:Rat (Dire)	!PRERACE:1,%
+NAME:Dire Rat
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Stealth	RANK:1
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Rat Swarm Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rat Swarm]	SOURCEPAGE:p.232
+RACE:Rat Swarm	!PRERACE:1,%
+NAME:Rat Swarm
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics	RANK:1
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+FEAT:Improved Initiative
+FEAT:Skill Focus (Perception)
+
+STARTPACK:Remorhaz Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Remorhaz]	SOURCEPAGE:p.233
+RACE:Remorhaz	!PRERACE:1,%
+NAME:Remorhaz
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Perception	RANK:9
+FEAT:Power Attack
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Skill Focus (Perception)
+FEAT:Awesome Blow
+## Awesome Blow requires a Strength of 25 so the Remoraz does not qualify.
+
+STARTPACK:Retriever Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Retriever]	SOURCEPAGE:p.234
+RACE:Retriever	!PRERACE:1,%
+NAME:Retriever
+ALIGN:CE
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Perception	RANK:15
+FEAT:Power Attack
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Great Fortitude
+FEAT:Improved Critical (Claw)
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Toughness
+
+STARTPACK:Rhinoceros Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rhinoceros]	SOURCEPAGE:p.235
+RACE:Rhinoceros	!PRERACE:1,%
+NAME:Rhinoceros
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:5
+FEAT:Skill Focus (Perception)
+FEAT:Endurance
+FEAT:Great Fortitude
+
+STARTPACK:Rhinoceros (Woolly) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rhinoceros (Woolly)]	SOURCEPAGE:p.235
+RACE:Rhinoceros (Woolly)	!PRERACE:1,%
+NAME:Rhinoceros (Woolly)
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:8
+FEAT:Skill Focus (Perception)
+FEAT:Endurance
+FEAT:Great Fortitude
+FEAT:Diehard
+
+STARTPACK:Roc Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Roc]	SOURCEPAGE:p.236
+RACE:Roc	!PRERACE:1,%
+NAME:Roc
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Fly		RANK:8
+SKILL:Perception	RANK:8
+FEAT:Flyby Attack
+FEAT:Improved Critical (Talons)
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Skill Focus (Perception)
+FEAT:Weapon Focus (Talons)
+
+STARTPACK:Roper Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Roper]	SOURCEPAGE:p.237
+RACE:Roper	!PRERACE:1,%
+NAME:Roper
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+SKILL:Climb					RANK:12
+SKILL:Knowledge (Dungeoneering)	RANK:12
+SKILL:Knowledge (Religion)		RANK:9
+SKILL:Perception				RANK:12
+SKILL:Stealth				RANK:12
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Skill Focus (Perception)
+FEAT:Skill Focus (Stealth)
+FEAT:Weapon Focus (Strand)
+
+STARTPACK:Rust Monster Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rust Monster]	SOURCEPAGE:p.235
+RACE:Rust Monster	!PRERACE:1,%
+NAME:Rust Monster
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:5
+FEAT:Ability Focus (Rust ~ Rust Monster)
+FEAT:Skill Focus (Perception)
+FEAT:Weapon Finesse
+
+#
+# End
+#

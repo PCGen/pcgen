@@ -1,0 +1,1059 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+STARTPACK:Aasimar Cleric	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Aasimar],[!PRERACE:1,%]	SOURCEPAGE:p.7
+ALIGN:NG
+RACE:Aasimar	!PRERACE:1,%
+GENDER:Female
+NAME:Aasimar Cleric
+DEITY:Sarenrae
+CLASS:Cleric	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Cleric
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+ABILITY:CATEGORY=Channel Energy|Channel Positive Energy ~ Cleric
+DEITY:Sarenrae	DOMAIN:Good|Healing
+LANGBONUS:Draconic
+SKILL:Diplomacy			RANK:1
+SKILL:Heal				RANK:1
+SKILL:Knowledge (Religion)	RANK:1
+FEAT:Turn Undead
+STAT:STR=8|DEX=10|CON=14|INT=13|WIS=15|CHA=12
+GEAR:Scale Mail				LOCATION:Equipped
+GEAR:Mace (Heavy)				LOCATION:Primary Hand
+GEAR:Crossbow (Light)			LOCATION:Carried
+GEAR:Bolt (Crossbow)	QTY:20	LOCATION:Carried
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Command
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Evil
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Guidance
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
+
+
+STARTPACK:Aboleth Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aboleth]	SOURCEPAGE:p.8
+RACE:Aboleth	!PRERACE:1,%
+NAME:Aboleth
+ALIGN:LE
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Bluff			RANK:8
+SKILL:Intimidate		RANK:8
+SKILL:TYPE.Knowledge	RANK:8
+SKILL:Perception		RANK:8
+SKILL:Spellcraft		RANK:8
+SKILL:Swim			RANK:8
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Weapon Focus (Tentacle)
+
+
+STARTPACK:Angel (Astral Deva) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Angel (Astral Deva)]	SOURCEPAGE:p.10
+RACE:Angel (Astral Deva)	!PRERACE:1,%
+NAME:Astral Deva
+ALIGN:NG
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics			RANK:15
+SKILL:TYPE.Craft			RANK:15
+SKILL:Diplomacy			RANK:15
+SKILL:Escape Artist		RANK:5
+SKILL:Fly				RANK:15
+SKILL:Intimidate			RANK:15
+SKILL:Knowledge (Planes)	RANK:15
+SKILL:Knowledge (Religion)	RANK:12
+SKILL:Perception			RANK:15
+SKILL:Sense Motive		RANK:15
+SKILL:Stealth			RANK:13
+SKILL:Stealth			RANK:2	FREE:YES
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Toughness
+FEAT:Weapon Focus (Warhammer)
+GEAR:Warhammer	SIZE:PC	LOCATION:Both Hands	EQMOD:PLUS2W.DISRPT
+
+
+STARTPACK:Angel (Planetar) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Planetar)],[!PRERACE:1,%]	SOURCEPAGE:p.11
+ALIGN:NG
+RACE:Angel (Planetar)	!PRERACE:1,%
+NAME:Planetar
+SKILL:Acrobatics			RANK:17
+SKILL:TYPE=Craft			RANK:17
+SKILL:Diplomacy			RANK:17
+SKILL:Fly				RANK:17
+SKILL:Heal				RANK:17
+SKILL:Intimidate			RANK:17
+SKILL:Knowledge (History)	RANK:17
+SKILL:Knowledge (Planes)	RANK:17
+SKILL:Knowledge (Religion)	RANK:17
+SKILL:Perception			RANK:17
+SKILL:Sense Motive		RANK:17
+SKILL:Stealth			RANK:17
+FEAT:Blind-Fight
+FEAT:Cleave
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+FEAT:Toughness
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+GEAR:Greatsword	SIZE:L	LOCATION:Primary Hand	EQMOD:PLUS3W.HOLY
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Earthquake
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Fire Storm
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Holy Word
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Regenerate
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Regenerate
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Banishment
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Dispel Magic (Greater)
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Heal
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Moderate Wounds (Mass)
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Break Enchantment
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Dispel Evil
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Dispel Evil
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Plane Shift
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Righteous Might
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Death Ward
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Dismissal
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Neutralize Poison
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Summon Monster IV
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Serious Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Serious Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Daylight
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Invisibility Purge
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Summon Monster III
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Wind Wall
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Align Weapon
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Align Weapon
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bear's Endurance
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Moderate Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Moderate Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Eagle's Splendor
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Shield of Faith
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Purify Food and Drink
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Virtue
+
+
+STARTPACK:Angel (Solar) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Solar)],[!PRERACE:1,%]	SOURCEPAGE:p.12
+ALIGN:NG
+RACE:Angel (Solar)	!PRERACE:1,%
+NAME:Solar
+SKILL:TYPE.Craft			RANK:22
+SKILL:Diplomacy			RANK:22
+SKILL:Fly				RANK:22
+SKILL:Knowledge (History)	RANK:22
+SKILL:Knowledge (Nature)	RANK:22
+SKILL:Knowledge (Planes)	RANK:22
+SKILL:Knowledge (Religion)	RANK:22
+SKILL:Perception			RANK:22
+SKILL:Sense Motive		RANK:22
+SKILL:Spellcraft			RANK:22
+SKILL:Stealth			RANK:22
+SKILL:Survival			RANK:22
+FEAT:Cleave
+FEAT:Deadly Aim
+FEAT:Dodge
+FEAT:Great Fortitude
+FEAT:Improved Initiative
+FEAT:Improved Sunder
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Mobility
+FEAT:Power Attack
+FEAT:Toughness
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+GEAR:Full Plate			SIZE:L	LOCATION:Equipped		EQMOD:PLUS5A
+GEAR:Greatsword			SIZE:L	LOCATION:Both Hands	EQMOD:PLUS5W.DANCE
+GEAR:Longbow (Composite)	SIZE:L	LOCATION:Carried		EQMOD:PLUS5W.BOWSTR|+9
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Etherealness
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Heal (Mass)
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Miracle
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Storm of Vengeance
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Fire Storm
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Holy Aura
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Holy Aura
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Critical Wounds (Mass)
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Critical Wounds (Mass)
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Destruction
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Dictum
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Ethereal Jaunt
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Holy Word
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Regenerate
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Banishment
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Heroes' Feast
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Moderate Wounds (Mass)
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Undeath to Death
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Word of Recall
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Break Enchantment
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Breath of Life
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Dispel Evil
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Plane Shift
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Righteous Might
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Critical Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Critical Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Critical Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Death Ward
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Dismissal
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Neutralize Poison
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Serious Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Daylight
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Invisibility Purge
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Magic Circle against Evil
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Prayer
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Energy
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Align Weapon
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bear's Endurance
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bull's Strength
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Consecrate
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Moderate Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Eagle's Splendor
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Favor
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Entropic Shield
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Shield of Faith
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Purify Food and Drink
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Virtue
+
+
+STARTPACK:Animated Object	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Ankheg Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ankheg],[!PRERACE:1,%]	SOURCEPAGE:p.15
+ALIGN:TN
+RACE:Ankheg	!PRERACE:1,%
+NAME:Ankheg
+SKILL:Climb		RANK:2
+SKILL:Perception	RANK:1
+FEAT:Skill Focus (Perception)
+FEAT:Toughness
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Ant (Giant) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ant (Giant)]	SOURCEPAGE:p.16
+RACE:Ant (Giant)	!PRERACE:1,%
+NAME:Giant Ant
+GENDER:Neuter
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Ant (Worker) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ant (Worker)]	SOURCEPAGE:p.16
+RACE:Ant (Worker)	!PRERACE:1,%
+GENDER:Neuter
+NAME:Worker Ant
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Ant (Drone) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ant (Drone)]	SOURCEPAGE:p.16
+RACE:Ant (Drone)	!PRERACE:1,%
+NAME:Drone Ant
+GENDER:Male
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Ant (Queen) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ant (Queen)]	SOURCEPAGE:p.16
+RACE:Ant (Queen)	!PRERACE:1,%
+NAME:Queen Ant
+GENDER:Female
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Ant (Army/Swarm) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ant (Army/Swarm)],[!PRERACE:1,%]	SOURCEPAGE:p.16
+ALIGN:TN
+RACE:Ant (Army/Swarm)	!PRERACE:1,%
+NAME:Army Ant Swarm
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Ape (Gorilla) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ape (Gorilla)]	SOURCEPAGE:p.17
+RACE:Ape (Gorilla)	!PRERACE:1,%
+NAME:Gorilla
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics	RANK:1
+SKILL:Climb		RANK:1
+SKILL:Perception	RANK:1
+FEAT:Great Fortitude
+FEAT:Skill Focus (Perception)
+
+
+STARTPACK:Ape (Dire) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ape (Dire)]	SOURCEPAGE:p.17
+RACE:Ape (Dire)	!PRERACE:1,%
+NAME:Dire Ape
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics	RANK:1
+SKILL:Climb		RANK:1
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+FEAT:Iron Will
+FEAT:Skill Focus (Perception)
+
+
+STARTPACK:Archon (Hound) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Hound)],[!PRERACE:1,%]	SOURCEPAGE:p.19
+ALIGN:LG
+RACE:Archon (Hound)	!PRERACE:1,%
+NAME:Archon (Hound)
+SKILL:Acrobatics		RANK:6
+SKILL:Intimidate		RANK:6
+SKILL:Perception		RANK:6
+SKILL:Sense Motive	RANK:6
+SKILL:Stealth		RANK:6
+SKILL:Survival		RANK:6
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Power Attack
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+GEAR:Greatsword	LOCATION:Both Hands	EQMOD:MWORKW
+
+
+STARTPACK:Archon (Lantern) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Lantern)],[!PRERACE:1,%]	SOURCEPAGE:p.20
+ALIGN:LG
+RACE:Archon (Lantern)	!PRERACE:1,%
+NAME:Lantern Archon
+SKILL:Diplomacy			RANK:2
+SKILL:Fly				RANK:1
+SKILL:Knowledge (Planes)	RANK:2
+SKILL:Perception			RANK:1
+SKILL:Sense Motive		RANK:2
+FEAT:Improved Initiative
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Archon (Trumpet) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Trumpet)],[!PRERACE:1,%]	SOURCEPAGE:p.21
+ALIGN:LG
+RACE:Archon (Trumpet)	!PRERACE:1,%
+NAME:Trumpet Archon
+SKILL:Diplomacy				RANK:14
+SKILL:Escape Artist			RANK:14
+SKILL:Fly					RANK:14
+SKILL:Handle Animal			RANK:14
+SKILL:Knowledge (Religion)		RANK:14
+SKILL:Perception				RANK:14
+SKILL:Perform (Wind Instruments)	RANK:14
+SKILL:Sense Motive			RANK:14
+SKILL:Stealth				RANK:14
+FEAT:Blind-Fight
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Persuasive
+FEAT:Power Attack
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+GEAR:Greatsword	LOCATION:Both Hands	EQMOD:PLUS4W
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Serious Wounds (Mass)
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Serious Wounds (Mass)
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Banishment
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Heal
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Heal
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Dispel Evil
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds (Mass)
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Plane Shift
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Raise Dead
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Dismissal
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Power
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Neutralize Poison
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Spell Immunity
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Serious Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Daylight
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Invisibility Purge
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Magic Vestment
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Protection from Energy
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bull's Strength
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Consecrate
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Moderate Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Restoration (Lesser)
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Owl's Wisdom
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Light Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Favor
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Sanctuary
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Shield of Faith
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Purify Food and Drink
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Virtue
+
+
+STARTPACK:Assassin Vine Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Assassin Vine],[!PRERACE:1,%]	SOURCEPAGE:p.22
+ALIGN:TN
+RACE:Assassin Vine	!PRERACE:1,%
+NAME:Assassin Vine
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Azata (Bralani) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Bralani)],[!PRERACE:1,%]	SOURCEPAGE:p.24
+ALIGN:CG
+RACE:Azata (Bralani)	!PRERACE:1,%
+NAME:Bralani
+SKILL:Bluff			RANK:7
+SKILL:Fly			RANK:7
+SKILL:Handle Animal	RANK:7
+SKILL:Perception		RANK:7
+SKILL:Ride			RANK:7
+SKILL:Sense Motive	RANK:7
+SKILL:Stealth		RANK:7
+FEAT:Blind-Fight
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Skill Focus (Perception)
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
+GEAR:Scimitar			LOCATION:Primary Hand	EQMOD:PLUS1W
+GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:PLUS1W.BOWSTR|+5
+
+
+STARTPACK:Azata (Ghaele) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Ghaele)],[!PRERACE:1,%]	SOURCEPAGE:p.25
+ALIGN:CG
+RACE:Azata (Ghaele)	!PRERACE:1,%
+NAME:Ghaele
+SKILL:Diplomacy			RANK:13
+SKILL:Escape Artist		RANK:13
+SKILL:Fly				RANK:13
+SKILL:Handle Animal		RANK:13
+SKILL:Knowledge (Nature)	RANK:13
+SKILL:Knowledge (Planes)	RANK:13
+SKILL:Perception			RANK:13
+SKILL:Sense Motive		RANK:13
+SKILL:Stealth			RANK:13
+FEAT:Combat Casting
+FEAT:Combat Expertise
+FEAT:Dodge
+FEAT:Improved Disarm
+FEAT:Improved Initiative
+FEAT:Improved Trip
+FEAT:Lightning Reflexes
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+GEAR:Greatsword	LOCATION:Both Hands	EQMOD:PLUS2W.HOLY
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Holy Word
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Banishment
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Heal
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Flame Strike
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Raise Dead
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|True Seeing
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Death Ward
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Dismissal
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Dismissal
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Power
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Restoration
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Serious Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Serious Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cure Serious Wounds
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Searing Light
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Searing Light
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Aid
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Align Weapon
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bear's Endurance
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Restoration (Lesser)
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Restoration (Lesser)
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bless
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Command
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Divine Favor
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Obscuring Mist
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Shield of Faith
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Detect Magic
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Purify Food and Drink
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Stabilize
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Virtue
+
+
+STARTPACK:Azata (Lillend) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Lillend)],[!PRERACE:1,%]	SOURCEPAGE:p.26
+ALIGN:CG
+RACE:Azata (Lillend)	!PRERACE:1,%
+NAME:Lillend
+SKILL:Bluff					RANK:7
+SKILL:Diplomacy				RANK:7
+SKILL:Fly					RANK:7
+SKILL:Knowledge (Nature)		RANK:7
+SKILL:Perception				RANK:7
+SKILL:Perform (String Instruments)	RANK:7
+SKILL:Sense Motive			RANK:7
+SKILL:Survival				RANK:7
+FEAT:Combat Casting
+FEAT:Hover
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+GEAR:Longsword				SIZE:PC	LOCATION:Both Hands	EQMOD:PLUS1W
+GEAR:Musical Instrument (Harp)	SIZE:PC	LOCATION:Carried		EQMOD:MWORKT
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Charm Monster
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Hold Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Sound Burst
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Suggestion
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Charm Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Cure Light Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Identify
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Sleep
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Dancing Lights
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Daze
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Lullaby
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Cure Serious Wounds
+
+
+STARTPACK:Barghest Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Barghest],[!PRERACE:1,%]	SOURCEPAGE:p.27
+ALIGN:LE
+RACE:Barghest	!PRERACE:1,%
+NAME:Barghest
+SKILL:Acrobatics		RANK:6
+SKILL:Bluff			RANK:6
+SKILL:Diplomacy		RANK:6
+SKILL:Intimidate		RANK:6
+SKILL:Perception		RANK:6
+SKILL:Sense Motive	RANK:6
+SKILL:Stealth		RANK:6
+SKILL:Survival		RANK:6
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Great Fortitude
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Barghest (Greater) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Barghest (Greater)],[!PRERACE:1,%]	SOURCEPAGE:p.27
+ALIGN:LE
+RACE:Barghest (Greater)	!PRERACE:1,%
+NAME:Greater Barghest
+SKILL:Acrobatics		RANK:9
+SKILL:Bluff			RANK:9
+SKILL:Climb			RANK:9
+SKILL:Diplomacy		RANK:9
+SKILL:Intimidate		RANK:9
+SKILL:Perception		RANK:9
+SKILL:Sense Motive	RANK:9
+SKILL:Stealth		RANK:9
+SKILL:Survival		RANK:9
+SKILL:Swim			RANK:9
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Great Fortitude
+FEAT:Lightning Reflexes
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Basidirond Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Basidirond],[!PRERACE:1,%]	SOURCEPAGE:p.28
+ALIGN:TN
+RACE:Basidirond	!PRERACE:1,%
+NAME:Basidirond
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Basilisk Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Basilisk],[!PRERACE:1,%]	SOURCEPAGE:p.29
+ALIGN:TN
+RACE:Basilisk	!PRERACE:1,%
+NAME:Basilisk
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:4
+FEAT:Blind-Fight
+FEAT:Great Fortitude
+FEAT:Iron Will
+FEAT:Skill Focus (Perception)
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Bat (Dire) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bat (Dire)]	SOURCEPAGE:p.30
+RACE:Bat (Dire)	!PRERACE:1,%
+NAME:Dire Bat
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Fly		RANK:2
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+FEAT:Alertness
+FEAT:Stealthy
+
+
+STARTPACK:Bat Swarm Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bat Swarm]	SOURCEPAGE:p.30
+RACE:Bat Swarm	!PRERACE:1,%
+NAME:Bat Swarm
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Perception	RANK:3
+FEAT:Lightning Reflexes
+FEAT:Skill Focus (Perception)
+
+
+STARTPACK:Bear (Grizzly) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bear (Grizzly)],[!PRERACE:1,%]	SOURCEPAGE:p.31
+ALIGN:TN
+RACE:Bear (Grizzly)	!PRERACE:1,%
+NAME:Grizzly Bear
+SKILL:Perception	RANK:2
+SKILL:Survival	RANK:1
+SKILL:Swim		RANK:2
+FEAT:Endurance
+FEAT:Run
+FEAT:Skill Focus (Survival)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Bear (Dire) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bear (Dire)],[!PRERACE:1,%]	SOURCEPAGE:p.31
+ALIGN:TN
+RACE:Bear (Dire)	!PRERACE:1,%
+NAME:Dire Bear
+SKILL:Perception	RANK:5
+SKILL:Swim		RANK:5
+FEAT:Endurance
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Run
+FEAT:Skill Focus (Perception)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Bebilith Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bebilith],[!PRERACE:1,%]	SOURCEPAGE:p.32
+ALIGN:CE
+RACE:Bebilith	!PRERACE:1,%
+NAME:Bebilith
+SKILL:Acrobatics		RANK:12
+SKILL:Climb			RANK:12
+SKILL:Perception		RANK:12
+SKILL:Sense Motive	RANK:12
+SKILL:Stealth		RANK:12
+SKILL:Survival		RANK:12
+FEAT:Cleave
+FEAT:Improved Critical (Claw)
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Power Attack
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+
+
+STARTPACK:Beetle (Fire) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Beetle (Fire)]	SOURCEPAGE:p.33
+RACE:Beetle (Fire)	!PRERACE:1,%
+NAME:Fire Beetle
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Beetle (Giant Stag) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Beetle (Giant Stag)],[!PRERACE:1,%]	SOURCEPAGE:p.33
+ALIGN:TN
+RACE:Beetle (Giant Stag)	!PRERACE:1,%
+NAME:Giant Stag Beetle
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Behir Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Behir],[!PRERACE:1,%]	SOURCEPAGE:p.34
+ALIGN:TN
+RACE:Behir	!PRERACE:1,%
+NAME:Behir
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:9
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Power Attack
+FEAT:Weapon Focus (Bite)
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+
+
+STARTPACK:Black Pudding Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Black Pudding],[!PRERACE:1,%]	SOURCEPAGE:p.35
+ALIGN:TN
+RACE:Black Pudding	!PRERACE:1,%
+NAME:Black Pudding
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Boar Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Boar],[!PRERACE:1,%]	SOURCEPAGE:p.36
+ALIGN:TN
+RACE:Boar	!PRERACE:1,%
+NAME:Boar
+SKILL:Perception	RANK:2
+FEAT:Toughness
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Boar (Dire) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Boar (Dire)],[!PRERACE:1,%]	SOURCEPAGE:p.36
+ALIGN:TN
+RACE:Boar (Dire)	!PRERACE:1,%
+NAME:Dire Boar
+SKILL:Perception	RANK:5
+FEAT:Improved Initiative
+FEAT:Skill Focus (Perception)
+FEAT:Toughness
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Boggard Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Boggard],[!PRERACE:1,%]	SOURCEPAGE:p.37
+ALIGN:CE
+RACE:Boggard	!PRERACE:1,%
+NAME:Boggard
+SKILL:Acrobatics	RANK:3
+FEAT:Toughness
+FEAT:Weapon Focus (Morningstar)
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+GEAR:Leather	LOCATION:Equipped
+GEAR:Morningstar	LOCATION:Both Hands
+
+
+STARTPACK:Bugbear Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bugbear],[!PRERACE:1,%]	SOURCEPAGE:p.38
+ALIGN:CE
+RACE:Bugbear	!PRERACE:1,%
+NAME:Bugbear
+SKILL:Intimidate	RANK:1
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:3
+FEAT:Intimidating Prowess
+FEAT:Skill Focus (Perception)
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+GEAR:Morningstar				LOCATION:Primary Hand
+GEAR:Javelin			QTY:3	LOCATION:Carried
+GEAR:Leather				LOCATION:Equipped
+GEAR:Shield (Light/Wooden)		LOCATION:Equipped
+
+
+STARTPACK:Bulette Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bulette],[!PRERACE:1,%]	SOURCEPAGE:p.39
+ALIGN:TN
+RACE:Bulette	!PRERACE:1,%
+NAME:Bulette
+SKILL:Acrobatics	RANK:4
+SKILL:Perception	RANK:4
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Skill Focus (Perception)
+FEAT:Weapon Focus (Bite)
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Cat (Cheetah) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cat (Cheetah)],[!PRERACE:1,%]	SOURCEPAGE:p.40
+ALIGN:TN
+RACE:Cat (Cheetah)	!PRERACE:1,%
+NAME:Cheetah
+SKILL:Acrobatics	RANK:1
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Cat (Leopard) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cat (Leopard)],[!PRERACE:1,%]	SOURCEPAGE:p.40
+ALIGN:TN
+RACE:Cat (Leopard)	!PRERACE:1,%
+NAME:Leopard
+SKILL:Acrobatics	RANK:1
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+FEAT:Skill Focus (Stealth)
+FEAT:Weapon Finesse
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Cave Fisher Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cave Fisher],[!PRERACE:1,%]	SOURCEPAGE:p.41
+ALIGN:TN
+RACE:Cave Fisher	!PRERACE:1,%
+NAME:Cave Fisher
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Centaur Default	TYPE:DefaultMonster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Centaur],[!PRERACE:1,%]	SOURCEPAGE:p.42
+ALIGN:TN
+RACE:Centaur	!PRERACE:1,%
+NAME:Centaur
+SKILL:Diplomacy			RANK:4
+SKILL:Intimidate			RANK:2
+SKILL:Knowledge (Nature)	RANK:4
+SKILL:Perception			RANK:2
+SKILL:Survival			RANK:4
+FEAT:Improved Initiative
+FEAT:Run
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+GEAR:Breastplate			SIZE:L	LOCATION:Equipped
+GEAR:Shield (Heavy/Steel)	SIZE:L	LOCATION:Equipped
+GEAR:Longsword			SIZE:M	LOCATION:Equipped
+GEAR:Spear				SIZE:M	LOCATION:Carried
+
+
+STARTPACK:Centipede (Giant) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Centipede (Giant)]	SOURCEPAGE:p.43
+RACE:Centipede (Giant)	!PRERACE:1,%
+NAME:Giant Centipede
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+
+
+STARTPACK:Centipede (House) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Centipede (House)]	SOURCEPAGE:p.43
+RACE:Centipede (House)	!PRERACE:1,%
+NAME:House Centipede
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+
+
+STARTPACK:Centipede (Sewer) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Centipede (Sewer)]	SOURCEPAGE:p.43
+RACE:Centipede (Sewer)	!PRERACE:1,%
+NAME:Sewer Centipede
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+
+
+STARTPACK:Centipede (Hisser) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Centipede (Hisser)]	SOURCEPAGE:p.43
+RACE:Centipede (Hisser)	!PRERACE:1,%
+NAME:Hisser Centipede
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+
+
+STARTPACK:Centipede (Giant Whiptail) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Centipede (Giant Whiptail)]	SOURCEPAGE:p.43
+RACE:Centipede (Giant Whiptail)	!PRERACE:1,%
+NAME:Giant Whiptail Centipede
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+
+
+STARTPACK:Centipede (Great Forest) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Centipede (Great Forest)]	SOURCEPAGE:p.43
+RACE:Centipede (Great Forest)	!PRERACE:1,%
+NAME:Great Forest Centipede
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+
+
+STARTPACK:Centipede (Titan) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Centipede (Titan)]	SOURCEPAGE:p.43
+RACE:Centipede (Titan)	!PRERACE:1,%
+NAME:Titan Centipede
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+
+
+STARTPACK:Centipede Swarm Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Centipede Swarm]	SOURCEPAGE:p.43
+RACE:Centipede Swarm	!PRERACE:1,%
+NAME:Centipede Swarm
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+
+
+STARTPACK:Chimera Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chimera],[!PRERACE:1,%]	SOURCEPAGE:p.44
+ALIGN:CE
+RACE:Chimera	!PRERACE:1,%
+NAME:Chimera
+SKILL:Fly		RANK:4
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:4
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Skill Focus (Perception)
+FEAT:Toughness
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Choker Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Choker],[!PRERACE:1,%]	SOURCEPAGE:p.45
+ALIGN:CE
+RACE:Choker	!PRERACE:1,%
+NAME:Choker
+SKILL:Climb		RANK:2
+SKILL:Stealth	RANK:1
+FEAT:Improved Initiative
+FEAT:Skill Focus (Stealth)
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Chuul Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chuul],[!PRERACE:1,%]	SOURCEPAGE:p.46
+ALIGN:CE
+RACE:Chuul	!PRERACE:1,%
+NAME:Chuul
+SKILL:Knowledge (Nature)	RANK:5
+SKILL:Perception			RANK:10
+SKILL:Sense Motive		RANK:5
+SKILL:Stealth			RANK:7
+SKILL:Swim				RANK:10
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Weapon Focus (Claw)
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Cloaker Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cloaker],[!PRERACE:1,%]	SOURCEPAGE:p.47
+ALIGN:CN
+RACE:Cloaker	!PRERACE:1,%
+NAME:Cloaker
+SKILL:Disguise			RANK:6
+SKILL:Fly				RANK:6
+SKILL:Knowledge (Religion)	RANK:6
+SKILL:Perception			RANK:6
+SKILL:Sense Motive		RANK:6
+SKILL:Stealth			RANK:6
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Skill Focus (Perception)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Cockatrice Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cockatrice],[!PRERACE:1,%]	SOURCEPAGE:p.48
+ALIGN:TN
+RACE:Cockatrice	!PRERACE:1,%
+NAME:Cockatrice
+SKILL:Fly		RANK:2
+SKILL:Perception	RANK:3
+FEAT:Dodge
+FEAT:Skill Focus (Perception)
+FEAT:Weapon Finesse
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Couatl Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Couatl],[!PRERACE:1,%]	SOURCEPAGE:p.49
+ALIGN:LG
+RACE:Couatl	!PRERACE:1,%
+NAME:Couatl
+SKILL:Acrobatics			RANK:12
+SKILL:Bluff				RANK:3
+SKILL:Diplomacy			RANK:12
+SKILL:Fly				RANK:12
+SKILL:Knowledge (Arcana)	RANK:6
+SKILL:Knowledge (Religion)	RANK:9
+SKILL:Perception			RANK:12
+SKILL:Sense Motive		RANK:6
+SKILL:Spellcraft			RANK:12
+SKILL:Survival			RANK:12
+SKILL:Use Magic Device		RANK:12
+FEAT:Alertness
+FEAT:Dodge
+FEAT:Empower Spell
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Charm Monster
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Freedom of Movement
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Gaseous Form
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Circle against Evil
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Summon Monster III
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Moderate Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Eagle's Splendor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Scorching Ray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Silence
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Endure Elements
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Obscuring Mist
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Protection from Chaos
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Strike
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disrupt Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Obscuring Mist
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Frost
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Stabilize
+
+
+STARTPACK:Crab (Giant) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crab (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.50
+ALIGN:TN
+RACE:Crab (Giant)	!PRERACE:1,%
+NAME:Giant Crab
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Crab (Giant King) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crab (Giant King)],[!PRERACE:1,%]	SOURCEPAGE:p.50
+ALIGN:TN
+RACE:Crab (Giant King)	!PRERACE:1,%
+NAME:Giant King Crab
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Crab (Giant Coconut) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crab (Giant Coconut)],[!PRERACE:1,%]	SOURCEPAGE:p.50
+ALIGN:TN
+RACE:Crab (Giant Coconut)	!PRERACE:1,%
+NAME:Giant Coconut Crab
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Crab (Giant Rock) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crab (Giant Rock)],[!PRERACE:1,%]	SOURCEPAGE:p.50
+ALIGN:TN
+RACE:Crab (Giant Rock)	!PRERACE:1,%
+NAME:Giant Rock Crab
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Crab (Giant Shark-Eating) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crab (Giant Shark-Eating)],[!PRERACE:1,%]	SOURCEPAGE:p.50
+ALIGN:TN
+RACE:Crab (Giant Shark-Eating)	!PRERACE:1,%
+NAME:Giant Shark-Eating Crab
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Crab (Giant Reef) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crab (Giant Reef)],[!PRERACE:1,%]	SOURCEPAGE:p.50
+ALIGN:TN
+RACE:Crab (Giant Reef)	!PRERACE:1,%
+NAME:Giant Reef Crab
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Crab (Giant Shipwrecker) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crab (Giant Shipwrecker)],[!PRERACE:1,%]	SOURCEPAGE:p.50
+ALIGN:TN
+RACE:Crab (Giant Shipwrecker)	!PRERACE:1,%
+NAME:Giant Shipwrecker Crab
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Crab Swarm Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crab Swarm],[!PRERACE:1,%]	SOURCEPAGE:p.50
+ALIGN:TN
+RACE:Crab Swarm	!PRERACE:1,%
+NAME:Crab Swarm
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Crocodile Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crocodile],[!PRERACE:1,%]	SOURCEPAGE:p.51
+ALIGN:TN
+RACE:Crocodile	!PRERACE:1,%
+NAME:Crocodile
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:2
+FEAT:Skill Focus (Perception)
+FEAT:Skill Focus (Stealth)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Crocodile (Dire) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Crocodile (Dire)],[!PRERACE:1,%]	SOURCEPAGE:p.51
+ALIGN:TN
+RACE:Crocodile (Dire)	!PRERACE:1,%
+NAME:Dire Crocodile
+SKILL:Perception	RANK:6
+SKILL:Stealth	RANK:6
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Run
+FEAT:Skill Focus (Perception)
+FEAT:Skill Focus (Stealth)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Cyclops Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cyclops],[!PRERACE:1,%]	SOURCEPAGE:p.52
+ALIGN:NE
+RACE:Cyclops	!PRERACE:1,%
+NAME:Cyclops
+SKILL:Intimidate			RANK:7
+SKILL:Profession (Soothsayer)	RANK:6
+SKILL:Sense Motive		RANK:2
+SKILL:Survival			RANK:2
+FEAT:Alertness
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+GEAR:Hide			SIZE:L	LOCATION:Equipped
+GEAR:Greataxe		SIZE:L	LOCATION:Both Hands
+GEAR:Crossbow (Heavy)	SIZE:L	LOCATION:Carried
+
+#
+# End
+#

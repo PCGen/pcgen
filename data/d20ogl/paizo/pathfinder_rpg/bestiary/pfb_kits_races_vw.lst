@@ -1,0 +1,233 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+
+STARTPACK:Vampire Spawn Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Vampire Spawn],[!PRERACE:1,%]	SOURCEPAGE:p.271
+ALIGN:LE
+RACE:Vampire Spawn	!PRERACE:1,%
+NAME:Vampire Spawn
+SKILL:Intimidate			RANK:4
+SKILL:Knowledge (Religion)	RANK:4
+SKILL:Perception			RANK:4
+SKILL:Stealth			RANK:4
+FEAT:Blind-Fight
+FEAT:Skill Focus (Perception)
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+
+
+STARTPACK:Vargouille Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Vargouille],[!PRERACE:1,%]	SOURCEPAGE:p.272
+ALIGN:NE
+RACE:Vargouille	!PRERACE:1,%
+NAME:Vargouille
+SKILL:Fly		RANK:3
+SKILL:Intimidate	RANK:3
+SKILL:Perception	RANK:3
+FEAT:Skill Focus (Stealth)
+FEAT:Weapon Finesse
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+
+
+STARTPACK:Vegepygmy Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Vegepygmy],[!PRERACE:1,%]	SOURCEPAGE:p.273
+ALIGN:TN
+RACE:Vegepygmy	!PRERACE:1,%
+NAME:Vegepygmy
+SKILL:Perception	RANK:1
+FEAT:Skill Focus (Perception)
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+GEAR:Longspear	SIZE:S	LOCATION:Both Hands
+
+
+STARTPACK:Violet Fungus Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Violet Fungus],[!PRERACE:1,%]	SOURCEPAGE:p.274
+ALIGN:TN
+RACE:Violet Fungus	!PRERACE:1,%
+NAME:Violet Fungus
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Wasp (Giant) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wasp (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.275
+ALIGN:TN
+RACE:Wasp (Giant)	!PRERACE:1,%
+NAME:Giant Wasp
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Wasp Swarm Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wasp Swarm],[!PRERACE:1,%]	SOURCEPAGE:p.275
+ALIGN:TN
+RACE:Wasp Swarm	!PRERACE:1,%
+NAME:Wasp Swarm
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Wight Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wight],[!PRERACE:1,%]	SOURCEPAGE:p.276
+ALIGN:LE
+RACE:Wight	!PRERACE:1,%
+NAME:Wight
+SKILL:Intimidate			RANK:4
+SKILL:Knowledge (Religion)	RANK:4
+SKILL:Perception			RANK:4
+SKILL:Stealth			RANK:4
+FEAT:Blind-Fight
+FEAT:Skill Focus (Perception)
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+
+
+STARTPACK:Wight (Brute) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wight (Brute)],[!PRERACE:1,%]	SOURCEPAGE:p.276
+ALIGN:LE
+RACE:Wight (Brute)	!PRERACE:1,%
+NAME:Brute Wight
+SKILL:Intimidate			RANK:4
+SKILL:Knowledge (Religion)	RANK:4
+SKILL:Perception			RANK:4
+SKILL:Stealth			RANK:4
+FEAT:Blind-Fight
+FEAT:Skill Focus (Perception)
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+
+
+STARTPACK:Wight (Cairn) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wight (Cairn)],[!PRERACE:1,%]	SOURCEPAGE:p.276
+ALIGN:LE
+RACE:Wight (Cairn)	!PRERACE:1,%
+NAME:Cairn Wight
+SKILL:Intimidate			RANK:4
+SKILL:Knowledge (Religion)	RANK:4
+SKILL:Perception			RANK:4
+SKILL:Stealth			RANK:4
+FEAT:Blind-Fight
+FEAT:Skill Focus (Perception)
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+GEAR:Longsword	LOCATION:Primary Hand
+
+
+STARTPACK:Wight (Frost) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wight (Frost)],[!PRERACE:1,%]	SOURCEPAGE:p.276
+ALIGN:LE
+RACE:Wight (Frost)	!PRERACE:1,%
+NAME:Frost Wight
+SKILL:Intimidate			RANK:4
+SKILL:Knowledge (Religion)	RANK:4
+SKILL:Perception			RANK:4
+SKILL:Stealth			RANK:4
+FEAT:Blind-Fight
+FEAT:Skill Focus (Perception)
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+
+
+STARTPACK:Will-o'-Wisp Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Will-o'-Wisp],[!PRERACE:1,%]	SOURCEPAGE:p.277
+ALIGN:CE
+RACE:Will-o'-Wisp	!PRERACE:1,%
+NAME:Will-o'-Wisp
+SKILL:Acrobatics		RANK:9
+SKILL:Bluff			RANK:9
+SKILL:Escape Artist	RANK:9
+SKILL:Fly			RANK:9
+SKILL:Perception		RANK:9
+SKILL:Stealth		RANK:9
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+
+
+STARTPACK:Wolf Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf]	SOURCEPAGE:p.278
+RACE:Wolf	!PRERACE:1,%
+NAME:Wolf
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+FEAT:Skill Focus (Perception)
+
+
+STARTPACK:Wolf (Dire) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wolf (Dire)]	SOURCEPAGE:p.278
+RACE:Wolf (Dire)	!PRERACE:1,%
+NAME:Dire Wolf
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:2
+FEAT:Run
+FEAT:Skill Focus (Perception)
+FEAT:Weapon Focus (Claw)
+
+
+STARTPACK:Wolverine Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wolverine],[!PRERACE:1,%]	SOURCEPAGE:p.279
+ALIGN:TN
+RACE:Wolverine	!PRERACE:1,%
+NAME:Wolverine
+SKILL:Perception	RANK:3
+FEAT:Skill Focus (Perception)
+FEAT:Toughness
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Wolverine (Dire) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wolverine (Dire)],[!PRERACE:1,%]	SOURCEPAGE:p.279
+ALIGN:TN
+RACE:Wolverine (Dire)	!PRERACE:1,%
+NAME:Dire Wolverine
+SKILL:Perception	RANK:5
+FEAT:Improved Initiative
+FEAT:Skill Focus (Perception)
+FEAT:Toughness
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Worg Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Worg],[!PRERACE:1,%]	SOURCEPAGE:p.280
+ALIGN:NE
+RACE:Worg	!PRERACE:1,%
+NAME:Worg
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:2
+SKILL:Survival	RANK:1
+FEAT:Run
+FEAT:Skill Focus (Perception)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Worg (Winter Wolf) Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Worg (Winter Wolf)],[!PRERACE:1,%]	SOURCEPAGE:p.280
+ALIGN:NE
+RACE:Worg (Winter Wolf)	!PRERACE:1,%
+NAME:Winter Wolf
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:2
+SKILL:Survival	RANK:2
+FEAT:Improved Initiative
+FEAT:Run
+FEAT:Skill Focus (Perception)
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+
+
+STARTPACK:Wraith Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wraith],[!PRERACE:1,%]	SOURCEPAGE:p.281
+ALIGN:LE
+RACE:Wraith	!PRERACE:1,%
+NAME:Wraith
+SKILL:Diplomacy			RANK:5
+SKILL:Intimidate			RANK:5
+SKILL:Knowledge (Planes)	RANK:5
+SKILL:Perception			RANK:5
+SKILL:Sense Motive		RANK:5
+SKILL:Stealth			RANK:5
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Wyvern Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Wyvern],[!PRERACE:1,%]	SOURCEPAGE:p.282
+ALIGN:TN
+RACE:Wyvern	!PRERACE:1,%
+NAME:Wyvern
+SKILL:Fly			RANK:7
+SKILL:Perception		RANK:7
+SKILL:Sense Motive	RANK:7
+SKILL:Stealth		RANK:7
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Skill Focus (Perception)
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
+
+
+#
+# End
+#

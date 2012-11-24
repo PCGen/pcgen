@@ -1,0 +1,843 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+STARTPACK:Gargoyle Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gargoyle],[!PRERACE:1,%]	SOURCEPAGE:p.137
+RACE:Gargoyle	!PRERACE:1,%
+NAME:Gargoyle
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Fly		RANK:4
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:4
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Skill Focus (Fly)
+
+
+STARTPACK:Gargoyle (Kapoacinth) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gargoyle (Kapoacinth)],[!PRERACE:1,%]	SOURCEPAGE:p.137
+RACE:Gargoyle (Kapoacinth)	!PRERACE:1,%
+NAME:Kapoacinth
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Swim		RANK:4
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:4
+FEAT:Hover
+FEAT:Improved Initiative
+FEAT:Skill Focus (Swim)
+
+
+STARTPACK:Gelatinous Cube Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gelatinous Cube],[!PRERACE:1,%]	SOURCEPAGE:p.138
+RACE:Gelatinous Cube	!PRERACE:1,%
+NAME:Gelatinous Cube
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Genie (Djinni) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Djinni)],[!PRERACE:1,%]	SOURCEPAGE:p.139
+RACE:Genie (Djinni)	!PRERACE:1,%
+NAME:Djinni
+ALIGN:CG
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Appraise			RANK:7
+SKILL:TYPE=Craft			RANK:7
+SKILL:Fly				RANK:7
+SKILL:Knowledge (Planes)	RANK:7
+SKILL:Perception			RANK:7
+SKILL:Sense Motive		RANK:7
+SKILL:Spellcraft			RANK:7
+SKILL:Stealth			RANK:7
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Wind Stance
+GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
+
+
+STARTPACK:Genie (Djinni/Noble) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Djinni/Noble)],[!PRERACE:1,%]	SOURCEPAGE:p.139
+RACE:Genie (Djinni/Noble)	!PRERACE:1,%
+NAME:Noble Djinni
+ALIGN:CG
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Appraise			RANK:7
+SKILL:TYPE=Craft			RANK:7
+SKILL:Fly				RANK:7
+SKILL:Knowledge (Planes)	RANK:7
+SKILL:Perception			RANK:7
+SKILL:Sense Motive		RANK:7
+SKILL:Spellcraft			RANK:7
+SKILL:Stealth			RANK:7
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Wind Stance
+GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
+
+
+STARTPACK:Genie (Efreeti) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Efreeti)],[!PRERACE:1,%]	SOURCEPAGE:p.140
+RACE:Genie (Efreeti)	!PRERACE:1,%
+NAME:Efreeti
+ALIGN:LE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Bluff			RANK:10
+SKILL:TYPE=Craft		RANK:10
+SKILL:Fly			RANK:1
+SKILL:Intimidate		RANK:10
+SKILL:Perception		RANK:10
+SKILL:Sense Motive	RANK:10
+SKILL:Spellcraft		RANK:10
+SKILL:Stealth		RANK:6
+SKILL:Disguise		RANK:3
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Deceitful
+FEAT:Dodge
+FEAT:Quicken Spell-Like Ability ~ Spell (Scorching Ray)
+GEAR:Falchion	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
+
+
+STARTPACK:Genie (Efreeti/Noble) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Efreeti/Noble)],[!PRERACE:1,%]	SOURCEPAGE:p.140
+RACE:Genie (Efreeti/Noble)	!PRERACE:1,%
+NAME:Noble Efreeti
+ALIGN:LE
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Bluff			RANK:13
+SKILL:TYPE=Craft		RANK:13
+SKILL:Disguise		RANK:6
+SKILL:Fly			RANK:4
+SKILL:Intimidate		RANK:10
+SKILL:Perception		RANK:13
+SKILL:Sense Motive	RANK:13
+SKILL:Spellcraft		RANK:13
+SKILL:Stealth		RANK:6
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Deceitful
+FEAT:Dodge
+FEAT:Power Attack
+FEAT:Quicken Spell-Like Ability ~ Spell (Scorching Ray)
+GEAR:Falchion	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
+
+
+STARTPACK:Genie (Janni) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Janni)],[!PRERACE:1,%]	SOURCEPAGE:p.141
+RACE:Genie (Janni)	!PRERACE:1,%
+NAME:Janni
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Appraise		RANK:6
+SKILL:TYPE=Craft		RANK:6
+SKILL:Fly			RANK:6
+SKILL:Perception		RANK:6
+SKILL:Ride			RANK:6
+SKILL:Sense Motive	RANK:6
+SKILL:Spellcraft		RANK:6
+SKILL:Stealth		RANK:6
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Mobility
+GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:BOWSTR|3
+GEAR:Scimitar			LOCATION:Primary Hand
+GEAR:Chainmail			LOCATION:Equipped
+
+
+STARTPACK:Genie (Janni/Noble) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Janni/Noble)],[!PRERACE:1,%]	SOURCEPAGE:p.141
+RACE:Genie (Janni/Noble)	!PRERACE:1,%
+NAME:Noble Janni
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Appraise		RANK:6
+SKILL:TYPE=Craft		RANK:6
+SKILL:Fly			RANK:6
+SKILL:Perception		RANK:6
+SKILL:Ride			RANK:6
+SKILL:Sense Motive	RANK:6
+SKILL:Spellcraft		RANK:6
+SKILL:Stealth		RANK:6
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Mobility
+GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:BOWSTR|3
+GEAR:Scimitar			LOCATION:Primary Hand
+GEAR:Chainmail			LOCATION:Equipped
+
+
+STARTPACK:Genie (Marid) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Marid)],[!PRERACE:1,%]	SOURCEPAGE:p.142
+RACE:Genie (Marid)	!PRERACE:1,%
+NAME:Marid
+GENDER:Female
+ALIGN:CN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:TYPE=Craft			RANK:12
+SKILL:Diplomacy			RANK:12
+SKILL:Knowledge (Planes)	RANK:12
+SKILL:Perception			RANK:12
+SKILL:Sense Motive		RANK:12
+SKILL:Spellcraft			RANK:12
+SKILL:Stealth			RANK:12
+SKILL:Swim				RANK:12
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Great Fortitude
+FEAT:Improved Natural Attack (Slam)
+FEAT:Power Attack
+GEAR:Trident	SIZE:L	LOCATION:Both Hands	EQMOD:MWORKW
+
+
+STARTPACK:Genie (Marid/Noble) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Marid/Noble)],[!PRERACE:1,%]	SOURCEPAGE:p.142
+RACE:Genie (Marid/Noble)	!PRERACE:1,%
+NAME:Noble Marid
+GENDER:Female
+ALIGN:CN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:TYPE=Craft			RANK:12
+SKILL:Diplomacy			RANK:12
+SKILL:Knowledge (Planes)	RANK:12
+SKILL:Perception			RANK:12
+SKILL:Sense Motive		RANK:12
+SKILL:Spellcraft			RANK:12
+SKILL:Stealth			RANK:12
+SKILL:Swim				RANK:12
+FEAT:Combat Casting
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Great Fortitude
+FEAT:Improved Natural Attack (Slam)
+FEAT:Power Attack
+GEAR:Trident	SIZE:L	LOCATION:Both Hands	EQMOD:MWORKW
+
+
+STARTPACK:Genie (Shaitan) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Shaitan)],[!PRERACE:1,%]	SOURCEPAGE:p.143
+RACE:Genie (Shaitan)	!PRERACE:1,%
+NAME:Shaitan
+GENDER:Female
+ALIGN:LN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Appraise			RANK:9
+SKILL:Bluff				RANK:9
+SKILL:Climb				RANK:9
+SKILL:Craft (Gemcutting)	RANK:9
+SKILL:Knowledge (Engineering)	RANK:9
+SKILL:Perception			RANK:9
+SKILL:Sense Motive		RANK:9
+SKILL:Spellcraft			RANK:9
+FEAT:Combat Casting
+FEAT:Improved Bull Rush
+FEAT:Greater Bull Rush
+FEAT:Power Attack
+FEAT:Quicken Spell-Like Ability ~ Spell (Glitterdust)
+GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
+
+
+STARTPACK:Genie (Shaitan/Noble) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Genie (Shaitan/Noble)],[!PRERACE:1,%]	SOURCEPAGE:p.143
+RACE:Genie (Shaitan/Noble)	!PRERACE:1,%
+NAME:Noble Shaitan
+ALIGN:LN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Appraise			RANK:9
+SKILL:Bluff				RANK:9
+SKILL:Climb				RANK:9
+SKILL:Craft (Gemcutting)	RANK:9
+SKILL:Knowledge (Engineering)	RANK:9
+SKILL:Perception			RANK:9
+SKILL:Sense Motive		RANK:9
+SKILL:Spellcraft			RANK:9
+FEAT:Combat Casting
+FEAT:Improved Bull Rush
+FEAT:Improved Natural Attack (Slam)
+FEAT:Power Attack
+FEAT:Quicken Spell-Like Ability ~ Spell (Glitterdust)
+GEAR:Scimitar	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
+
+
+STARTPACK:Ghoul Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ghoul],[!PRERACE:1,%]	SOURCEPAGE:p.146
+RACE:Ghoul	!PRERACE:1,%
+NAME:Ghoul
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Acrobatics	RANK:2
+SKILL:Climb		RANK:2
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:2
+SKILL:Swim		RANK:2
+FEAT:Weapon Finesse
+
+
+STARTPACK:Ghoul (Ghast) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ghoul (Ghast)],[!PRERACE:1,%]	SOURCEPAGE:p.146
+RACE:Ghoul (Ghast)	!PRERACE:1,%
+NAME:Ghast
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Acrobatics	RANK:2
+SKILL:Climb		RANK:2
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:2
+SKILL:Swim		RANK:2
+FEAT:Weapon Finesse
+
+
+STARTPACK:Ghoul (Lacedon) Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ghoul (Lacedon)],[!PRERACE:1,%]	SOURCEPAGE:p.146
+RACE:Ghoul (Lacedon)	!PRERACE:1,%
+NAME:Lacedon
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Acrobatics	RANK:2
+SKILL:Climb		RANK:2
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:2
+SKILL:Swim		RANK:2
+FEAT:Weapon Finesse
+
+
+STARTPACK:Giant (Cloud) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Cloud)],[!PRERACE:1,%]	SOURCEPAGE:p.147
+RACE:Giant (Cloud)	!PRERACE:1,%
+NAME:Cloud Giant
+ALIGN:NG|NE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Climb					RANK:6
+SKILL:TYPE=Craft				RANK:6
+SKILL:Diplomacy				RANK:5
+SKILL:Intimidate				RANK:10
+SKILL:Perception				RANK:11
+SKILL:Perform (String Instruments)	RANK:4
+FEAT:Awesome Blow
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Improved Bull Rush
+FEAT:Improved Overrun
+FEAT:Intimidating Prowess
+FEAT:Iron Will
+FEAT:Power Attack
+#ABILITY:CATEGORY=Cloud Giant Oversized Weapon|Oversized Weapon ~ Cloud Giant (Morningstar)
+GEAR:Morningstar		SIZE:G	LOCATION:Both Hands
+GEAR:Chain Shirt		SIZE:H	LOCATION:Equipped
+GEAR:Rock (Medium)			LOCATION:Not Carried
+
+
+STARTPACK:Giant (Fire) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Fire)],[!PRERACE:1,%]	SOURCEPAGE:p.148
+RACE:Giant (Fire)	!PRERACE:1,%
+NAME:Fire Giant
+ALIGN:LE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Climb		RANK:8
+SKILL:TYPE=Craft	RANK:5
+SKILL:Intimidate	RANK:8
+SKILL:Perception	RANK:9
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Improved Overrun
+FEAT:Improved Sunder
+FEAT:Iron Will
+FEAT:Martial Weapon Proficiency (Greatsword)
+FEAT:Power Attack
+FEAT:Weapon Focus (Greatsword)
+GEAR:Greatsword	SIZE:L	LOCATION:Both Hands
+GEAR:Half-Plate	SIZE:L	LOCATION:Equipped
+GEAR:Rock (Small)			LOCATION:Not Carried
+
+
+STARTPACK:Giant (Frost) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Frost)],[!PRERACE:1,%]	SOURCEPAGE:p.149
+RACE:Giant (Frost)	!PRERACE:1,%
+NAME:Frost Giant
+ALIGN:CE
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Climb		RANK:3
+SKILL:TYPE=Craft	RANK:4
+SKILL:Intimidate	RANK:4
+SKILL:Perception	RANK:5
+SKILL:Stealth	RANK:6
+FEAT:Cleave
+FEAT:Great Cleave
+FEAT:Improved Overrun
+FEAT:Improved Sunder
+FEAT:Martial Weapon Proficiency (Greataxe)
+FEAT:Power Attack
+FEAT:Skill Focus (Stealth)
+GEAR:Greataxe	SIZE:L	LOCATION:Both Hands
+GEAR:Chain Shirt	SIZE:L	LOCATION:Equipped
+GEAR:Rock (Small)			LOCATION:Not Carried
+
+
+STARTPACK:Giant (Hill) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Hill)],[!PRERACE:1,%]	SOURCEPAGE:p.150
+RACE:Giant (Hill)	!PRERACE:1,%
+NAME:Hill Giant
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Climb		RANK:3
+SKILL:Intimidate	RANK:4
+SKILL:Perception	RANK:3
+FEAT:Cleave
+FEAT:Intimidating Prowess
+FEAT:Martial Weapon Proficiency (Greatclub)
+FEAT:Power Attack
+FEAT:Weapon Focus (Greatclub)
+GEAR:Greatclub	SIZE:L	LOCATION:Both Hands
+GEAR:Hide		SIZE:L	LOCATION:Equipped
+GEAR:Rock (Small)			LOCATION:Not Carried
+
+
+STARTPACK:Giant (Stone) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Stone)],[!PRERACE:1,%]	SOURCEPAGE:p.151
+RACE:Giant (Stone)	!PRERACE:1,%
+NAME:Stone Giant
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Climb		RANK:1
+SKILL:Intimidate	RANK:9
+SKILL:Perception	RANK:8
+SKILL:Stealth	RANK:6
+FEAT:Iron Will
+FEAT:Martial Weapon Proficiency (Greatclub)
+FEAT:Point-Blank Shot
+FEAT:Power Attack
+FEAT:Precise Shot
+FEAT:Quick Draw
+GEAR:Greatclub	SIZE:L	LOCATION:Both Hands
+GEAR:Rock (Small)			LOCATION:Not Carried
+
+
+STARTPACK:Giant (Storm) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Giant (Storm)],[!PRERACE:1,%]	SOURCEPAGE:p.152
+RACE:Giant (Storm)	!PRERACE:1,%
+NAME:Storm Giant
+ALIGN:CG
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+SKILL:Acrobatics		RANK:19
+SKILL:Climb			RANK:3
+SKILL:TYPE=Craft		RANK:7
+SKILL:Intimidate		RANK:15
+SKILL:Perception		RANK:19
+SKILL:Perform (Sing)	RANK:10
+SKILL:Sense Motive	RANK:19
+SKILL:Swim			RANK:3
+FEAT:Awesome Blow
+FEAT:Cleave
+FEAT:Combat Reflexes
+FEAT:Improved Bull Rush
+FEAT:Improved Critical (Greatsword)
+FEAT:Improved Sunder
+FEAT:Improved Vital Strike
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Vital Strike
+GEAR:Greatsword			SIZE:H	LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Longbow (Composite)	SIZE:H	LOCATION:Carried		EQMOD:MWORKW.BOWSTR|14
+GEAR:Breastplate			SIZE:H	LOCATION:Equipped		EQMOD:MWORKA
+
+
+STARTPACK:Gibbering Mouther Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gibbering Mouther],[!PRERACE:1,%]	SOURCEPAGE:p.153
+RACE:Gibbering Mouther	!PRERACE:1,%
+NAME:Gibbering Mouther
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:4
+FEAT:Weapon Finesse
+FEAT:Weapon Focus (Bite)
+
+
+STARTPACK:Girallon Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Girallon],[!PRERACE:1,%]	SOURCEPAGE:p.154
+RACE:Girallon	!PRERACE:1,%
+NAME:Girallon
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:3
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Skill Focus (Perception)
+FEAT:Toughness
+
+
+STARTPACK:Gnoll Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gnoll],[!PRERACE:1,%]	SOURCEPAGE:p.155
+RACE:Gnoll	!PRERACE:1,%
+NAME:Gnoll
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:2
+FEAT:Power Attack
+GEAR:Longspear			LOCATION:Both Hands
+GEAR:Leather			LOCATION:Equipped
+GEAR:Shield (Heavy/Wooden)	LOCATION:Equipped
+GEAR:Battleaxe			LOCATION:Carried
+
+
+STARTPACK:Goblin Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]	SOURCEPAGE:p.156
+RACE:Goblin	!PRERACE:1,%
+NAME:Goblin
+ALIGN:NE
+STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
+CLASS:Warrior	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Warrior
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+SKILL:Ride	RANK:1
+SKILL:Swim	RANK:1
+FEAT:Improved Initiative
+GEAR:Leather					SIZE:S	LOCATION:Equipped
+GEAR:Shield (Light/Wooden)			SIZE:S	LOCATION:Equipped
+GEAR:Sword (Short)				SIZE:S	LOCATION:Primary Hand
+GEAR:Shortbow					SIZE:S	LOCATION:Carried
+GEAR:Arrow				QTY:20			LOCATION:Carried
+
+
+STARTPACK:Goblin Dog Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Goblin Dog],[!PRERACE:1,%]	SOURCEPAGE:p.157
+RACE:Goblin Dog	!PRERACE:1,%
+NAME:Goblin Dog
+ALIGN:TN
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Stealth	RANK:1
+FEAT:Toughness
+
+
+STARTPACK:Golem (Clay) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Clay)],[!PRERACE:1,%]	SOURCEPAGE:p. 159
+RACE:Golem (Clay)	!PRERACE:1,%
+NAME:Clay Golem
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Golem (Flesh) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Flesh)],[!PRERACE:1,%]	SOURCEPAGE:p.160
+RACE:Golem (Flesh)	!PRERACE:1,%
+NAME:Flesh Golem
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Golem (Ice) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Ice)],[!PRERACE:1,%]	SOURCEPAGE:p.161
+RACE:Golem (Ice)	!PRERACE:1,%
+NAME:Ice Golem
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Golem (Iron) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Iron)],[!PRERACE:1,%]	SOURCEPAGE:p.162
+RACE:Golem (Iron)	!PRERACE:1,%
+NAME:Iron Golem
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Golem (Stone) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Stone)],[!PRERACE:1,%]	SOURCEPAGE:p.163
+RACE:Golem (Stone)	!PRERACE:1,%
+NAME:Stone Golem
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Golem (Wood) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Golem (Wood)],[!PRERACE:1,%]	SOURCEPAGE:p.164
+RACE:Golem (Wood)	!PRERACE:1,%
+NAME:Wood Golem
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Gorgon Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gorgon],[!PRERACE:1,%]	SOURCEPAGE:p.165
+RACE:Gorgon	!PRERACE:1,%
+NAME:Gorgon
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:8
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Power Attack
+FEAT:Skill Focus (Perception)
+
+
+STARTPACK:Gray Ooze Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gray Ooze],[!PRERACE:1,%]	SOURCEPAGE:p.166
+RACE:Gray Ooze	!PRERACE:1,%
+NAME:Gray Ooze
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Gray Ooze (Crystal Ooze) Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gray Ooze (Crystal Ooze)],[!PRERACE:1,%]	SOURCEPAGE:p.166
+RACE:Gray Ooze (Crystal Ooze)	!PRERACE:1,%
+NAME:Crystal Ooze
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Gray Ooze (Id Ooze) Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gray Ooze (Id Ooze)],[!PRERACE:1,%]	SOURCEPAGE:p.166
+RACE:Gray Ooze (Id Ooze)	!PRERACE:1,%
+NAME:Id Ooze
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Stealth	RANK:4
+FEAT:Improved Initiative
+FEAT:Toughness
+
+
+STARTPACK:Green Hag Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Green Hag],[!PRERACE:1,%]	SOURCEPAGE:p.167
+RACE:Green Hag	!PRERACE:1,%
+NAME:Green Hag
+ALIGN:CE
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Bluff				RANK:9
+SKILL:Disguise			RANK:9
+SKILL:Knowledge (Arcana)	RANK:9
+SKILL:Perception			RANK:9
+SKILL:Sense Motive		RANK:6
+SKILL:Stealth			RANK:9
+SKILL:Swim				RANK:3
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Combat Casting
+FEAT:Deceitful
+FEAT:Great Fortitude
+
+
+STARTPACK:Griffon Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Griffon],[!PRERACE:1,%]	SOURCEPAGE:p.168
+RACE:Griffon	!PRERACE:1,%
+NAME:Griffon
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Acrobatics	RANK:1
+SKILL:Fly		RANK:3
+SKILL:Perception	RANK:1
+FEAT:Iron Will
+FEAT:Skill Focus (Perception)
+FEAT:Weapon Focus (Bite)
+
+
+STARTPACK:Harpy Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Harpy],[!PRERACE:1,%]	SOURCEPAGE:p.172
+ALIGN:CE
+RACE:Harpy	!PRERACE:1,%
+NAME:Harpy
+SKILL:Bluff			RANK:1
+SKILL:Fly			RANK:7
+SKILL:Intimidate		RANK:1
+SKILL:Perception		RANK:3
+SKILL:Perform (Sing)	RANK:2
+FEAT:Dodge
+FEAT:Flyby Attack
+FEAT:Great Fortitude
+FEAT:Skill Focus (Bluff)
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+GEAR:Morningstar	SIZE:M	LOCATION:Equipped
+GEAR:Leather	SIZE:M	LOCATION:Equipped
+
+
+STARTPACK:Hell Hound Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hell Hound],[!PRERACE:1,%]	SOURCEPAGE:p.173
+ALIGN:LE
+RACE:Hell Hound	!PRERACE:1,%
+NAME:Hell Hound
+SKILL:Acrobatics	RANK:4
+SKILL:Perception	RANK:4
+SKILL:Stealth	RANK:4
+SKILL:Survival	RANK:4
+FEAT:Improved Initiative
+FEAT:Run
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Hell Hound (Nessian) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hell Hound (Nessian)],[!PRERACE:1,%]	SOURCEPAGE:p.173
+ALIGN:LE
+RACE:Hell Hound (Nessian)	!PRERACE:1,%
+NAME:Nessian Warhound
+SKILL:Acrobatics	RANK:12
+SKILL:Perception	RANK:6
+SKILL:Stealth	RANK:12
+SKILL:Survival	RANK:6
+FEAT:Alertness
+FEAT:Improved Critical (Bite)
+FEAT:Improved Initiative
+FEAT:Skill Focus (Stealth)
+FEAT:Skill Focus (Survival)
+FEAT:Weapon Focus (Bite)
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+GEAR:Chainmail	SIZE:L	LOCATION:Equipped
+
+
+STARTPACK:Herd Animal (Aurochs) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Herd Animal (Aurochs)],[!PRERACE:1,%]	SOURCEPAGE:p.174
+ALIGN:TN
+RACE:Herd Animal (Aurochs)	!PRERACE:1,%
+NAME:Aurochs
+SKILL:Perception	RANK:3
+FEAT:Endurance
+FEAT:Skill Focus (Perception)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Herd Animal (Bison) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Herd Animal (Bison)],[!PRERACE:1,%]	SOURCEPAGE:p.174
+ALIGN:TN
+RACE:Herd Animal (Bison)	!PRERACE:1,%
+NAME:Bison
+SKILL:Perception	RANK:5
+FEAT:Endurance
+FEAT:Improved Bull Rush
+FEAT:Power Attack
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Hobgoblin Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hobgoblin],[!PRERACE:1,%]	SOURCEPAGE:p.175
+ALIGN:LE
+RACE:Hobgoblin	!PRERACE:1,%
+NAME:Hobgoblin
+CLASS:Fighter	LEVEL:1
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Favored Class Bonus|Bonus Hit Point
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+FEAT:Toughness
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
+STAT:STR=15|DEX=13|CON=14|INT=10|WIS=12|CHA=8
+GEAR:Longsword			LOCATION:Primary Hand
+GEAR:Shield (Light/Steel)	LOCATION:Equipped
+GEAR:Studded Leather		LOCATION:Equipped
+GEAR:Longbow			LOCATION:Carried
+GEAR:Arrows (20)			LOCATION:Carried
+
+
+STARTPACK:Homunculus Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Homunculus],[!PRERACE:1,%]	SOURCEPAGE:p.176
+ALIGN:LG|NG|CG|LN|TN|CN|LE|NE|CE
+RACE:Homunculus	!PRERACE:1,%
+NAME:Homunculus
+SKILL:Perception	RANK:2
+SKILL:Stealth	RANK:2
+FEAT:Lightning Reflexes
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Horse Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Horse]	SOURCEPAGE:p.177
+RACE:Horse	!PRERACE:1,%
+NAME:Horse
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Perception	RANK:2
+FEAT:Endurance
+
+
+STARTPACK:Horse (Pony) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Horse (Pony)]	SOURCEPAGE:p.177
+RACE:Horse (Pony)	!PRERACE:1,%
+NAME:Pony
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:2
+FEAT:Endurance
+
+
+STARTPACK:Hydra Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hydra],[!PRERACE:1,%]	SOURCEPAGE:p.178
+ALIGN:TN
+RACE:Hydra	!PRERACE:1,%
+NAME:Hydra
+SKILL:Perception	RANK:5
+FEAT:Combat Reflexes
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Hydra (Cryohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hydra (Cryohydra)],[!PRERACE:1,%]	SOURCEPAGE:p.178
+ALIGN:TN
+RACE:Hydra (Cryohydra)	!PRERACE:1,%
+NAME:Cryohydra
+SKILL:Perception	RANK:5
+FEAT:Combat Reflexes
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Hydra (Pyrohydra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hydra (Pyrohydra)],[!PRERACE:1,%]	SOURCEPAGE:p.178
+ALIGN:TN
+RACE:Hydra (Pyrohydra)	!PRERACE:1,%
+NAME:Pyrohydra
+SKILL:Perception	RANK:5
+FEAT:Combat Reflexes
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Hyena Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hyena],[!PRERACE:1,%]	SOURCEPAGE:p.179
+ALIGN:TN
+RACE:Hyena	!PRERACE:1,%
+NAME:Hyena
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:1
+FEAT:Alertness
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Hyena (Dire) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hyena (Dire)],[!PRERACE:1,%]	SOURCEPAGE:p.179
+ALIGN:TN
+RACE:Hyena (Dire)	!PRERACE:1,%
+NAME:Dire Hyena
+SKILL:Perception	RANK:1
+SKILL:Stealth	RANK:3
+FEAT:Skill Focus (Perception)
+FEAT:Skill Focus (Stealth)
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Intellect Devourer Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Intellect Devourer],[!PRERACE:1,%]	SOURCEPAGE:p.180
+ALIGN:CE
+RACE:Intellect Devourer	!PRERACE:1,%
+NAME:Intellect Devourer
+SKILL:Bluff			RANK:8
+SKILL:Disguise		RANK:8
+SKILL:Knowledge (Local)	RANK:8
+SKILL:Perception		RANK:8
+SKILL:Sense Motive	RANK:8
+SKILL:Stealth		RANK:8
+SKILL:Use Magic Device	RANK:8
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Toughness
+FEAT:Weapon Finesse
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+
+
+STARTPACK:Invisible Stalker Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Invisible Stalker],[!PRERACE:1,%]	SOURCEPAGE:p.181
+ALIGN:TN
+RACE:Invisible Stalker	!PRERACE:1,%
+NAME:Invisible Stalker
+SKILL:Acrobatics			RANK:7
+SKILL:Bluff				RANK:7
+SKILL:Fly				RANK:7
+SKILL:Knowledge (Planes)	RANK:7
+SKILL:Perception			RANK:7
+SKILL:Sense Motive		RANK:7
+SKILL:Stealth			RANK:7
+SKILL:Survival			RANK:7
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+FEAT:Weapon Focus (Slam)
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Iron Cobra Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra],[!PRERACE:1,%]	SOURCEPAGE:p.182
+ALIGN:TN
+RACE:Iron Cobra	!PRERACE:1,%
+NAME:Iron Cobra
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Iron Cobra (Adamantine Cobra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra (Adamantine Cobra)],[!PRERACE:1,%]	SOURCEPAGE:p.182
+ALIGN:TN
+RACE:Iron Cobra (Adamantine Cobra)	!PRERACE:1,%
+NAME:Adamantine Cobra
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Iron Cobra (Cold Iron Cobra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra (Cold Iron Cobra)],[!PRERACE:1,%]	SOURCEPAGE:p.182
+ALIGN:TN
+RACE:Iron Cobra (Cold Iron Cobra)	!PRERACE:1,%
+NAME:Cold Iron Cobra
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Iron Cobra (Darkwood Cobra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra (Darkwood Cobra)],[!PRERACE:1,%]	SOURCEPAGE:p.182
+ALIGN:TN
+RACE:Iron Cobra (Darkwood Cobra)	!PRERACE:1,%
+NAME:Darkwood Cobra
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Iron Cobra (Mithral Cobra) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Iron Cobra (Mithral Cobra)],[!PRERACE:1,%]	SOURCEPAGE:p.182
+ALIGN:TN
+RACE:Iron Cobra (Mithral Cobra)	!PRERACE:1,%
+NAME:Mithral Cobra
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+#
+# End
+#

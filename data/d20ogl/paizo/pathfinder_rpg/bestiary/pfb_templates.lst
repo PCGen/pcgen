@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+
+###Block: Chimera Template
+# Template Name		Visible	Modify VAR															Ability											Subrace
+Black Headed Chimera	VISIBLE:NO	BONUS:VAR|BreathWeaponDice|6	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponLine|40	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid		SUBRACE:Black Headed
+Blue Headed Chimera	VISIBLE:NO	BONUS:VAR|BreathWeaponDice|6	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponLine|40	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Lightning	SUBRACE:Blue Headed
+Green Headed Chimera	VISIBLE:NO	BONUS:VAR|BreathWeaponDice|6	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponCone|20	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Corrosive Gas	SUBRACE:Green Headed
+Red Headed Chimera	VISIBLE:NO	BONUS:VAR|BreathWeaponDice|6	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponCone|20	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fire		SUBRACE:Red Headed
+White Headed Chimera	VISIBLE:NO	BONUS:VAR|BreathWeaponDice|6	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponCone|20	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cold		SUBRACE:White Headed
+
+#
+# End
+#
