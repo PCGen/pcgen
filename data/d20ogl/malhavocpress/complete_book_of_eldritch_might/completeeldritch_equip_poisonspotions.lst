@@ -1,0 +1,33 @@
+# CVS $Revision$ $Author$ -- Tue Jan 22 23:23:21 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2004-01
+# Original Entry by: Felipe Diniz
+
+#Potions
+# Equipment Name		Output Name				Type					Cost		Weight	Source Page
+Potion (Evasion)		OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:800	WT:0		SOURCEPAGE:p.169
+Potion (Spell Power)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:600	WT:0		SOURCEPAGE:p.169
+Knowledge Potion							TYPE:Magic.Potion.Consumable	COST:500	WT:0		SOURCEPAGE:p.169
+Memory Potion							TYPE:Magic.Potion.Consumable	COST:150	WT:0		SOURCEPAGE:p.169
+Potion (Penetration)	OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.169
+
+#Poisons
+# Equipment Name		Output Name				Type					Cost		Weight	Source Page
+Poison (Coldheart)	OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:900	WT:0		SOURCEPAGE:p.184
+Poison (Crippling Doom)	OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:120	WT:0		SOURCEPAGE:p.184
+Poison (Darkmind)		OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:4700	WT:0		SOURCEPAGE:p.184
+Poison (Delusion)		OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:1500	WT:0		SOURCEPAGE:p.184
+Poison (Demonseed)	OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:3000	WT:0		SOURCEPAGE:p.184
+Poison (Denial)		OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:4500	WT:0		SOURCEPAGE:p.184
+Poison (Fear)		OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:1600	WT:0		SOURCEPAGE:p.184
+Poison (Fireheart)	OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:900	WT:0		SOURCEPAGE:p.184
+Poison (Heartthief)	OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:4000	WT:0		SOURCEPAGE:p.184
+Poison (Longnight)	OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:9000	WT:0		SOURCEPAGE:p.184
+Poison (Madness)		OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:5400	WT:0		SOURCEPAGE:p.184
+Poison (Menory Key)	OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:1500	WT:0		SOURCEPAGE:p.184
+Poison (Shrivelsoul)	OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:3500	WT:0		SOURCEPAGE:p.185
+Poison (Sleep)		OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:180	WT:0		SOURCEPAGE:p.185
+Poison (Slow)		OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:1100	WT:0		SOURCEPAGE:p.185
+Poison (Swarmdeath)	OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:2700	WT:0		SOURCEPAGE:p.185
+Poison (Truesleep)	OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:2700	WT:0		SOURCEPAGE:p.185
+Poison (Weakening)	OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:1200	WT:0		SOURCEPAGE:p.185
+Poison (Wraithsong)	OUTPUTNAME:Poison of [NAME]	TYPE:Magic.Poison.Consumable	COST:1600	WT:0		SOURCEPAGE:p.185

@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Tue Jan 22 23:23:21 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2004-01
+# Original Entry by: Felipe Diniz
+
+# Skill Name		Key Stat	Untrained?		Type					Source Page
+Craft (Glassmaking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.36
+Knowledge (Astronomy)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.40

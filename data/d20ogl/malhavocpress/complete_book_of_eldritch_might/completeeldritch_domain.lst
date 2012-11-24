@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Tue Jan 22 23:23:21 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2004-01
+# Original Entry by: Felipe Diniz
+
+# Domain Name	Source Page		Description														List of Domain Spells by Level
+Music			SOURCEPAGE:p.8	DESC:Three time per day, you may cast a spell with verbal components at +1 caster level.	SPELLLEVEL:DOMAIN|Music=1|Hypnotism|Music=2|Whispering Wind|Music=3|Good Hope|Music=4|Sculpt Sound|Music=5|Shout|Music=6|Suggestion (Mass)|Music=7|Legend Lore|Music=8|Charm Monster (Mass)|Music=9|Wail of the Banshee
