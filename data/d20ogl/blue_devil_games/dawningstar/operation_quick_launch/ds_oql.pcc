@@ -1,0 +1,63 @@
+# CVS $Revision$ $Author$ -- Thu Aug  3 13:27:56 2006 -- reformated by prettylst.pl v1.35 (build 561)
+CAMPAIGN:Dawning Star - Operation Quick Launch
+GAMEMODE:Modern
+RANK:6
+GENRE:Science Fiction
+BOOKTYPE:Supplement
+SETTING:Space Opera
+STATUS:BETA
+TYPE:Blue Devil Games.Dawning Star.Operation Quick Launch
+PRECAMPAIGN:3,BOOKTYPE=Core Rules,MSRD - Future,MSRD - Arcana
+PUBNAMELONG:Blue Devil Games
+PUBNAMESHORT:BDG
+PUBNAMEWEB:http://www.bluedevilgames.com/
+SOURCELONG:Dawning Star-Operation Quick Launch
+SOURCESHORT:DS-OQL
+SOURCEWEB:http://www.dawningstar.com/oql.htm
+SOURCEDATE:2006-01
+# COMMENT: Unknown Month - Set as 01
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002-2004, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, Eric Cagle, David Noonan, Stan!, Christopher Perkins, Rodney Thompson, and JD Wiker, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Dawning Star: Operation Quick Launch Copyright 2004, Justin D. Jacobson
+COPYRIGHT:PCGen dataset conversion for Dawning Star: Operation Quick Launch 2006, PCgen Data team including, but not limited to, Paul W. King, Sean "Salcor" Masters, Frank Kliewe, Andrew McDougall (Tir Gwaith)
+ISLICENSED:YES
+LICENSE:Vaasi is a trademark of Blue Devil Games and is used with permission
+INFOTEXT:Vaasi is a trademark of Blue Devil Games and is used with permission
+
+COVER:DawningStar_Operation_Quick_Launch.jpg
+LOGO:@/publisher_logos/Blue_Devil_Games.png
+COPYRIGHT:Included artwork is Product Identity and is included by permission. Copyright 2008, Blue Devil Games
+DESC:YOU ARE GO FOR LAUNCH! Dawning Star: Operation Quick Launch is the highly anticipated science-fiction campaign setting from Blue Devil Games built on d20 Modern and powered by d20 Future. The human spirit shines greatest during the darkest of times. Never was this proven more fully than in the year 2196. With certain doom hurtling toward our planet, the free countries of the world united and prepared for a mass exodus aboard a score of gargantuan transports. But our escape was just the beginning of the adventure. By some freak occurrence, our ship, the Dawning Star, was sent hurtling across the galaxy. We found ourselves alone, cut off from the fleet, in alien territory. It was not in our nature to give up. We found a habitable planet and began our new life. In the intervening years, we have encountered strange new species, overcome dire threats, and taken the first few steps in building a new life.
+URL:WEBSITE|http://www.bluedevilgames.com/|Visit Blue Devil Games.
+URL:WEBSITE|http://www.dawningstar.com/oql.htm|Visit the Dawning Star - Operation Quick Launch website.
+URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=2103&it=1?affiliate_id=200170|Buy this pdf from RPGNow.com!
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+ABILITY:ds_oql_abilities_occupations.lst
+ABILITY:ds_oql_abilities_talents.lst
+ABILITY:ds_oql_abilities_class.lst
+ABILITYCATEGORY:ds_oql_ability_categories.lst
+BIOSET:ds_oql_bioset.lst
+CLASS:ds_oql_class_advanced.lst
+CLASS:ds_oql_class_prestige.lst
+CLASS:ds_oql_class_race.lst
+CLASS:ds_oql_class_mod.lst
+COMPANIONMOD:ds_oql_companionmod.lst
+EQUIPMENT:ds_oql_equip.lst
+EQUIPMENT:ds_oql_equip_armorshield.lst
+EQUIPMENT:ds_oql_equip_weapon_melee.lst
+EQUIPMENT:ds_oql_equip_weapon_ranged.lst
+EQUIPMOD:ds_oql_equipmod.lst
+FEAT:ds_oql_feat.lst
+#FEAT:ds_oql_feat_hidden.lst
+FEAT:ds_oql_feat_mod.lst
+KIT:ds_oql_kits_defaultmonster.lst
+LANGUAGE:ds_oql_languages.lst
+RACE:ds_oql_race.lst
+SKILL:ds_oql_skills.lst
+TEMPLATE:ds_oql_template.lst
+WEAPONPROF:ds_oql_weapon_prof.lst
+ARMORPROF:ds_oql_prof_armor.lst
+SHIELDPROF:ds_oql_prof_shield.lst

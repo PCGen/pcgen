@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
+
+# Class of the Master	Type			Hit Dice	Combat bonus						Stat bonus
+FOLLOWER:RancherLevel=1	TYPE:SpecialMount	HD:2		BONUS:COMBAT|Armor|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1
+FOLLOWER:RancherLevel=3	TYPE:SpecialMount	HD:2		BONUS:COMBAT|Armor|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1
+FOLLOWER:RancherLevel=6	TYPE:SpecialMount	HD:2		BONUS:COMBAT|Armor|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1

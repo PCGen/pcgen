@@ -1,0 +1,123 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus																Combat bonus		Modify VAR
+CLASS:Air Runner	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*6
+# Class Name	Required Feat			Required Skill
+CLASS:Air Runner	PREFEAT:1,Aircraft Operation	PRESKILL:3,Navigate=4,Survival=4,Pilot=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Air Runner	STARTSKILLPTS:4	CSKILL:Barter|Bluff|Computer Use|Craft (Electronic)|Craft (Mechanical)|Drive|Knowledge (Local)|Navigate|Pilot|Repair|Search|Sense Motive|Speak Language|Spot|Survival
+1			SAB:Any Place-Any Time	SAB:Push It!
+2			SAB:She'll Make It
+3:REPEATLEVEL:3								BONUS:ABILITYPOOL|Air Runner Feat|1
+4			SAB:Brace For Impact
+5																					ABILITY:Special Ability|AUTOMATIC|Region Familiarity
+5:REPEATLEVEL:3														BONUS:VAR|RegionFamiliarity|1
+7			SAB:Steady Hand
+10			SAB:Old Reliable
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Barter Jack	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|Action|CL*6	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1
+# Class Name	Required Skill
+CLASS:Barter Jack	PRESKILL:1,Barter=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Barter Jack	STARTSKILLPTS:8	CSKILL:Barter|Bluff|TYPE=Craft|Diplomacy|Disable Device|Drive|Forgery|Gamble|Handle Animal|Intimidate|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Technology)|Listen|Navigate|Pilot|Profession|Repair|Ride|Search|Sense Motive|Sleight of Hand|Speak Language|Survival
+1																								ABILITY:Special Ability|AUTOMATIC|Region Familiarity
+1:REPEATLEVEL:7														BONUS:VAR|RegionFamiliarity|1
+1																BONUS:VAR|BigMoney|CL					ABILITY:Special Ability|AUTOMATIC|Big Money
+2			SAB:License Permit										BONUS:VAR|HagglingKing|CL/2				ABILITY:Special Ability|AUTOMATIC|Haggling King
+3:REPEATLEVEL:3							BONUS:ABILITYPOOL|Barter Jack Feat|1
+4			SAB:Find the Goods																		ABILITY:Special Ability|AUTOMATIC|Deliveryman
+5			SAB:Black Marketer	SAB:Hardy
+7			SAB:Restricted Permit
+7:REPEATLEVEL:3																			ADD:FEAT|Windfall
+10			SAB:Military Permit
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
+CLASS:Colonial Leader	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3
+# Class Name		Required Feat							Required Skill							Required Text
+CLASS:Colonial Leader	PREFEAT:3,Coordinate,Empathy,Improved Aid Another	PRESKILL:3,Diplomacy=4,Intimidate=4,Sense Motive=4	PRETEXT:The Colonial Leader must pledge his primary allegiance to a group that has interests in helping the colonies of Eos survive
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Colonial Leader	STARTSKILLPTS:6	CSKILL:Barter|Bluff|Computer Use|TYPE=Craft|Diplomacy|Drive|Gather Information|Intimidate|Knowledge (Behavioral Sciences)|Knowledge (Business)|Knowledge (Civics)|Knowledge (Current Events)|Pilot|Profession|Repair|Ride|Search|Sense Motive|Spot|Survival|Treat Injury
+1			SAB:Organization		BONUS:ABILITYPOOL|Force of Law Choice|1
+2			SAB:Aide the Workers
+3:REPEATLEVEL:3					BONUS:ABILITYPOOL|Colonial Leader Feat|1
+4			SAB:Attache
+5			SAB:Security Team
+7			SAB:Community Leader
+8			SAB:Prosperity
+10							BONUS:ABILITYPOOL|Word of Law Choice|1
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Gunhand	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name	Req. Att.	Required Feat					Required Skill
+CLASS:Gunhand	PREATT:3	PREFEAT:1,Weapon Focus (TYPE=Firearm)	PRESKILL:1,Intimidate=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Gunhand	STARTSKILLPTS:4	CSKILL:Bluff|Craft (Mechanical)|Drive|Gamble|Gather Information|Intimidate|Knowledge (Local)|Knowledge (Streetwise)|Listen|Ride|Sense Motive|Spot|Survival|Treat Injury
+1			SAB:Tough as Nails																												AUTO:FEAT|Quick Draw
+2																			BONUS:ABILITYPOOL|Weapon Specialization|1
+3:REPEATLEVEL:3					BONUS:ABILITYPOOL|Gunhand Feat|1
+4													BONUS:VAR|SignatureWeapon|CL/4	ABILITY:Special Ability|AUTOMATIC|Signature Weapon
+5																													VFEAT:Frightful Presence
+7			SAB:Speed Draw
+10			SAB:Danger Sense
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
+CLASS:Lawman	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|CL/3
+# Class Name	Req. Att.	Required Feat					Multiple Requirements
+CLASS:Lawman	PREATT:3	PREFEAT:1,Personal Firearms Proficiency	PREMULT:2,[PRESKILL:1,Intimidate=4],[PRESKILL:1,Knowledge (Civics)=4,Knowledge (Streetwise)=4]
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Lawman	STARTSKILLPTS:4	CSKILL:Bluff|Demolitions|Diplomacy|Disable Device|Drive|Forgery|Gather Information|Intimidate|Investigate|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Streetwise)|Listen|Pilot|Research|Ride|Search|Sense Motive|Spot|Survival|Treat Injury
+1					BONUS:ABILITYPOOL|Force of Law Choice|1	ADD:FEAT|Weapon Focus
+2																						ABILITY:Special Ability|AUTOMATIC|Legwork
+3:REPEATLEVEL:3			BONUS:ABILITYPOOL|Lawman Feat|1
+4												ADD:ABILITY|Special Ability|NORMAL|Weapon Specialization
+5																						ABILITY:Special Ability|AUTOMATIC|Grit Your Teeth
+7			SAB:Deputy
+8					BONUS:ABILITYPOOL|Word of Law Choice|1
+10																						ABILITY:Special Ability|AUTOMATIC|Improved Reaction
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
+CLASS:Rancher	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name	Req. Att.	Required Feat								Required Skill
+CLASS:Rancher	PREATT:3	PREFEAT:2,Mounted Combat,Personal Firearms Proficiency	PRESKILL:2,Ride=6,Survival=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Rancher	STARTSKILLPTS:4	CSKILL:Barter|Climb|Drive|Gamble|Handle Animal|Hide|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Listen|Move Silently|Pilot|Ride|Search|Spot|Survival|Swim|Treat Injury
+1			SAB:Special Mount	SAB:Riding Mastery							BONUS:VAR|RancherLevel|CL	DEFINE:RancherLevel|0
+2:REPEATLEVEL:5														BONUS:VAR|RegionFamiliarity|1
+2																																ABILITY:Special Ability|AUTOMATIC|Region Familiarity
+3:REPEATLEVEL:3								BONUS:ABILITYPOOL|Rancher Feat|1
+4																BONUS:VAR|WildEmpathy|CL					ADD:ABILITY|Talent|VIRTUAL|Wild Empathy
+5			SAB:Improved Mounted Combat
+8			SAB:Survival Mastery
+10			SAB:Weather Resistant
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Rebuilder	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name	Required Feat				Required Skill					Required Text
+CLASS:Rebuilder	PREFEAT:1,Dawning Star Familiarity	PRESKILL:2,Repair=6,Craft (Structural)=4	PRETEXT:Dawning Star Republic allegiance
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Rebuilder	STARTSKILLPTS:6	CSKILL:Climb|Computer Use|Concentration|TYPE=Craft|Demolitions|Disable Device|Drive|Investigate|Jump|Knowledge (Current Events)|Knowledge (Local)|Knowledge (Popular Culture)|Knowledge (Technology)|Navigate|Pilot|Profession|Repair|Research|Search|Spot|Swim
+1																		BONUS:VAR|DawningStarSystemsExpert|CL	ABILITY:Special Ability|AUTOMATIC|Dawning Star Systems Expert|Government Issue	AUTO:FEAT|Blind-Fight
+2			SAB:Tool Weapons
+3:REPEATLEVEL:3							BONUS:ABILITYPOOL|Rebuilder Feat|1
+4																									ABILITY:Special Ability|AUTOMATIC|Improved Dawning Star Familiarity
+5			SAB:Quick Fix	SAB:Unflustered
+7			SAB:Skilled Searcher												BONUS:VAR|SurpriseSense|((CL-4)/3)*2	ABILITY:Special Ability|AUTOMATIC|Surprise Sense
+8									BONUS:ABILITYPOOL|Rebuilder Sworn Enemy Choice|1
+10			SAB:Disease and Poison Resistance
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus		Modify VAR
+CLASS:Velin Guardian	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:p.64	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|Action|CL*6	BONUS:VAR|ClassDefense|(((CL+6)*2)/5)-1	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name		Req. Att.	Multiple Requirements							Required Skill						Required Text
+CLASS:Velin Guardian	PREATT:3	PREMULT:1,[PRERACE:1,Velin],[PREFEAT:1,Velin Tribal Guest]	PRESKILL:3,Hide=4,Move Silently=4,Survival=6	PRETEXT:Velin Tribe or Velin Tribal Council allegiance
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Velin Guardian	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Craft (Tribal)|Handle Animal|Hide|Intimidate|Jump|Knowledge (Local)|Knowledge (Local)|Listen|Move Silently|Navigate|Ride|Spot|Survival|Swim|Treat Injury
+1			SAB:Guardian Reputation																															AUTO:FEAT|Oathbound
+2																												ABILITY:Special Ability|AUTOMATIC|Region Familiarity
+3:REPEATLEVEL:3						BONUS:ABILITYPOOL|Velin Guardian Feat|1
+4																	ADD:FEAT|Weapon Focus
+5			SAB:Wilderness Camoflage
+7																	ADD:ABILITY|Special Ability|NORMAL|Weapon Specialization
+8								BONUS:ABILITYPOOL|Velin Guardian Sworn Enemy Choice|1
+10																	ADD:ABILITY|Special Ability|NORMAL|Greater Weapon Specialization

@@ -1,0 +1,29 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
+
+###BLOCK: Light
+# Equipment Name		Required Armor Proficiency			Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus
+Exposure Suits		PROFICIENCY:ARMOR|Exposure Suits		TYPE:Armor.Light.Suit.Tactical.PL5	COST:16	WT:6		ACCHECK:0		MAXDEX:7		SOURCEPAGE:p.94	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|1|PREFEAT:1,Armor Proficiency (Light)|TYPE=Armor.STACK
+Velin Hunter Armor	PROFICIENCY:ARMOR|Velin Hunter Armor	TYPE:Armor.Light.Suit.Archaic.PL3	COST:15	WT:14		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.94	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Light)|TYPE=Armor.STACK
+Rough Outs			PROFICIENCY:ARMOR|Rough Outs			TYPE:Armor.Light.Suit.Tactical.PL4	COST:15	WT:30		ACCHECK:-2		MAXDEX:5		SOURCEPAGE:p.94	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Light)|TYPE=Armor.STACK
+
+###BLOCK: Medium
+# Equipment Name		Required Armor Proficiency			Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus																Special Property
+EDF Combat Armor		PROFICIENCY:ARMOR|EDF Combat Armor		TYPE:Armor.Medium.Suit.Tactical.PL6	COST:22	WT:28		ACCHECK:-2		MAXDEX:3		SOURCEPAGE:p.94	BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|4|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK	SPROP:Res(+2)
+Velin Battle Armor	PROFICIENCY:ARMOR|Velin Battle Armor	TYPE:Armor.Medium.Suit.Archaic.PL3	COST:20	WT:34		ACCHECK:-3		MAXDEX:3		SOURCEPAGE:p.94	BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:COMBAT|AC|4|PREFEAT:1,Armor Proficiency (Medium)|TYPE=Armor.STACK
+
+###BLOCK: Heavy
+# Equipment Name		Required Armor Proficiency			Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus																Special Property
+Heavy Combat Armor	PROFICIENCY:ARMOR|Heavy Combat Armor	TYPE:Armor.Heavy.Suit.Tactical.PL5	COST:24	WT:45		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:p.94	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|5|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK	SPROP:Res(+2)
+EDF Assault Armor		PROFICIENCY:ARMOR|EDF Assault Armor		TYPE:Armor.Heavy.Suit.Tactical.PL6	COST:26	WT:35		ACCHECK:-6		MAXDEX:1		SOURCEPAGE:p.94	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|6|PREFEAT:1,Armor Proficiency (Heavy)|TYPE=Armor.STACK	SPROP:Mil(+3)
+
+###BLOCK: Powered
+# Equipment Name				Required Armor Proficiency				Type								Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus																	Adjust PC Size		Stat bonus					Special Property
+EFL Robotic Combat Armor		PROFICIENCY:ARMOR|EFL Robotic Combat Armor	TYPE:Armor.Heavy.Powered.Suit.Tactical.PL6	COST:27	WT:240	ACCHECK:-8		MAXDEX:0		SOURCEPAGE:p.94	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|6|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|STR|8|TYPE=Equipment	SPROP:Mil(+3)
+DS Construction Unit (armored)	PROFICIENCY:ARMOR|DS Construction Unit		TYPE:Armor.Heavy.Powered.Suit.Tactical.PL6	COST:29	WT:400	ACCHECK:-16		MAXDEX:0		SOURCEPAGE:p.94	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|7|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:SIZEMOD|NUMBER|1							SPROP:Mil(+3)
+DS Construction Unit (unarmored)	PROFICIENCY:ARMOR|DS Construction Unit		TYPE:Armor.Heavy.Powered.Suit.Tactical.PL6	COST:25	WT:400	ACCHECK:-16		MAXDEX:0		SOURCEPAGE:p.94	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|2|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK	BONUS:SIZEMOD|NUMBER|1							SPROP:Mil(+3)
+Assault Space Suit			PROFICIENCY:ARMOR|Assault Space Suit		TYPE:Armor.Heavy.Powered.Suit.Tactical.PL6	COST:27	WT:269	ACCHECK:-10		MAXDEX:0		SOURCEPAGE:p.94	BONUS:COMBAT|AC|3|TYPE=Armor.STACK	BONUS:COMBAT|AC|7|PREFEAT:1,Armor Proficiency (Powered)|TYPE=Armor.STACK					BONUS:STAT|STR|6|TYPE=Equipment	SPROP:Mil(+3)
+
+###BLOCK: Shield
+# Equipment Name			Output Name		Required Shield Proficiency				Type						Cost		Weight	Required Feat					AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus
+Shield (Velin War Shield)	OUTPUTNAME:[NAME]	PROFICIENCY:SHIELD|Shield (Velin War Shield)	TYPE:Shield.Tactical.PL4.Archaic	COST:16	WT:15		PREFEAT:1,Archaic Weapons Proficiency	ACCHECK:-2		MAXDEX:6		SOURCEPAGE:p.94	BONUS:COMBAT|AC|2|TYPE=Shield.STACK|PREFEAT:1,Archaic Weapons Proficiency

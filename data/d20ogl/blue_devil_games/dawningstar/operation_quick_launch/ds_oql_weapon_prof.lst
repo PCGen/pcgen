@@ -1,0 +1,49 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
+
+# Weapon Name			Type
+Atomic Blade			TYPE:Exotic
+Bazer Sword				TYPE:Exotic
+Fire Claw				TYPE:Exotic
+Kertaff Spear			TYPE:Exotic
+Lar Blade				TYPE:Exotic
+Murcow Prod				TYPE:Simple
+Plasma Cutter			TYPE:Exotic
+Whipstick				TYPE:Simple
+
+EDF2					TYPE:PersonalFirearm
+EDF9					TYPE:PersonalFirearm
+EDF12					TYPE:PersonalFirearm
+EDF15					TYPE:PersonalFirearm
+EDF18					TYPE:PersonalFirearm
+EDF SPR				TYPE:PersonalFirearm
+
+EDF23L				TYPE:PersonalFirearm
+EDF24L				TYPE:PersonalFirearm
+
+EDF33P				TYPE:PersonalFirearm
+EDF35P				TYPE:PersonalFirearm
+
+GP02					TYPE:PersonalFirearm
+GP05					TYPE:PersonalFirearm
+GP09					TYPE:PersonalFirearm
+
+Shotgun				TYPE:PersonalFirearm
+Combat Shotgun			TYPE:PersonalFirearm
+Hunting Rifle			TYPE:PersonalFirearm
+
+Tangier Grenade Launcher	TYPE:PersonalFirearm
+Missile Launcher			TYPE:PersonalFirearm
+
+Tantas Frontier HO		TYPE:PersonalFirearm
+Velin Hunting Bow			TYPE:Archaic
+Velin Throwing Blade		TYPE:Archaic
+Velin War Bow			TYPE:Exotic
+
+Weapon Digit Micro Laser	TYPE:PersonalFirearm
+Weapon Digit Poison Dart	TYPE:Archaic
+
+Tentaari Disintegrator Pistol	TYPE:PersonalFirearm
+
+Vaasi Maser Pistol		TYPE:PersonalFirearm
+Vaasi Maser Rifle			TYPE:PersonalFirearm
