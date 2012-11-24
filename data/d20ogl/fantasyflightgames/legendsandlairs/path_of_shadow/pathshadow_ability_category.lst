@@ -1,0 +1,15 @@
+# CVS $Revision$ $Author$ -- Fri Feb  6 23:25:02 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html
+
+# Ability Category					Visible		Change Pool?	Category of Object		Type of Object				Display Location
+ABILITYCATEGORY:Chameleon Special Ability		VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:ChameleonSpecialAbilities	DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Con Artist Special Ability	VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:ConArtistSpecialAbilities	DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Psychic Thief Feat			VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:FEAT			TYPE:PsychicThiefFeat			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Psychic Thief Special Ability	VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:PsychicThiefAbility		DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Questioner Feat			VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:FEAT			TYPE:QuestionerFeat			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Questioner Special Ability	VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:QuestionerChoice			DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Sailmaster Skill Mastery		VISIBLE:QUALIFY	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:SailmasterSkillMastery		DISPLAYLOCATION:Class Abilities
