@@ -1,6 +1,6 @@
 # CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
-
+Default	CATEGORY:Internal
 
 # Ability Name			Output Name			Category of Ability		Type						Visible	Special ABility																										Define
 Ability Surge							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Ability Surge (Ex)|PREVAREQ:AbilitySurge,0	SAB:Ability Surge %/day|AbilitySurge|PREVARGT:AbilitySurge,0										DEFINE:AbilitySurge|0
