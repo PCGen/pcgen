@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-
-
-# Ability Category						Visible		Editable or Static?	Category of Object		Type of Object			Display Location
-ABILITYCATEGORY:Ironborn Secondary Ability Choice	VISIBLE:QUALIFY	EDITABLE:YES		CATEGORY:Special Ability	TYPE:IronbornSecondaryAbility	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Ironborn Primary Ability Choice		VISIBLE:QUALIFY	EDITABLE:YES		CATEGORY:Special Ability	TYPE:IronbornPrimaryAbility	DISPLAYLOCATION:Racial Abilities
