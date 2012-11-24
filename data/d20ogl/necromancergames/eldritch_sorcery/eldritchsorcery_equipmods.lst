@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Tue Jan 22 22:33:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2005-06
+# Original Entry by: Tir Gwaith
+
+# Modifier Name	Unique Key		Type		Plus		Visible		Source Page		Required Type			Special Property
+Transparent Steel	KEY:TRANSSTEEL	TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.128	PRETYPE:2,Enhancement,Weapon	SPROP:+1 circumstance bonus to attack rolls against targets that can see the attacker.  +2 to attack rolls and AC if the wielder has Weapon Focus in the given weapon.
