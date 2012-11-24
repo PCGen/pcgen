@@ -1,0 +1,172 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Path of Magic	SOURCESHORT:Magic	SOURCEWEB:http://www.fantasyflightgames.com/llpom.html	SOURCEDATE:2002-01
+# Original Entry by: Ratheof Blithwyn
+
+
+#
+# Legendary classes
+#
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Death Lord	HD:6		TYPE:PC.Prestige	ABB:DLo		MAXLEVEL:5	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL				Required Feat						Required Skill											Req. Spell Type		Required Text
+CLASS:Death Lord	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:2,Leadership,Spell Focus (Necromancy)	PRESKILL:1,Knowledge (Undead)=10	PRESKILL:2,Knowledge (Arcana)=15,Heal=5	PRESPELLTYPE:1,Arcane=5	PRETEXT:Quests: See Text.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Death Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
+1	AUTO:FEAT|Simple Weapon Proficiency
+###Block: Normal Level Progression
+1	ADD:FEAT|Enhanced Charisma I,Enhanced Constitution I,TYPE=DeathLordLAPL1
+2	ADD:FEAT|Enhanced Charisma II,Enhanced Constitution II,TYPE=DeathLordLAPL2
+3	ADD:FEAT|Enhanced Charisma III,Enhanced Constitution III,TYPE=DeathLordLAPL3
+4	ADD:FEAT|Enhanced Charisma IV,Enhanced Constitution IV,TYPE=DeathLordLAPL4
+5	ADD:FEAT|Enhanced Charisma V,Enhanced Constitution V,TYPE=DeathLordLAPL5
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Elemental Lord	HD:6		TYPE:PC.Prestige	ABB:ELo		MAXLEVEL:5	SOURCEPAGE:p.44	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Feat							Required Skill										Required Text
+CLASS:Elemental Lord	PREFEAT:2,Great Fortitude,Spell Focus (Evocation)	PRESKILL:3,Knowledge (The Planes)=7,Knowledge (Arcana)=15,Spellcraft=12	PRETEXT:At least half of the character's spells known must have an elemental descriptor or be elemental in nature. Quests: See Text.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Elemental Lord	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
+1	AUTO:FEAT|Simple Weapon Proficiency
+###Block: Normal Level Progression
+1	ADD:FEAT|Enhanced Constitution I,Enhanced Intelligence I,TYPE=ElementalLordLAPL1
+2	ADD:FEAT|Enhanced Constitution II,Enhanced Intelligence II,TYPE=ElementalLordLAPL2
+3	ADD:FEAT|Enhanced Constitution III,Enhanced Intelligence III,TYPE=ElementalLordLAPL3
+4	ADD:FEAT|Enhanced Constitution IV,Enhanced Intelligence IV,TYPE=ElementalLordLAPL4
+5	ADD:FEAT|Enhanced Constitution V,Enhanced Intelligence V,TYPE=ElementalLordLAPL5
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Infiltrator	HD:8		TYPE:PC.Prestige	ABB:Inf		MAXLEVEL:5	SOURCEPAGE:p.46	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL				Required Feat																						Required Skill													Req. Spell Type		Required Text
+CLASS:Infiltrator	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:1,Spell Focus (Enchantment)	PREFEAT:1,Skill Focus (Bluff),Skill Focus (Diplomacy),Skill Focus (Disguise),Skill Focus (Sense Motive)	PRESKILL:6,Forgery=2,Diplomacy=8,Gather Information=8,Sense Motive=8,Bluff=12,Disguise=15	PRESPELLTYPE:1,Arcane=3	PRETEXT:Able to cast 3rd-level Bard spells. Quests: See Text.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Infiltrator	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE=Knowledge|Listen|Move Silently|Perform|Pick Pocket|TYPE=Profession|Scry|Sense Motive|Speak Language|Spellcraft|Tumble|Use Magic Device
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
+###Block: Normal Level Progression
+1	ADD:FEAT|Enhanced Charisma I,Enhanced Intelligence I,TYPE=InfiltratorLAPL1
+2	ADD:FEAT|Enhanced Charisma II,Enhanced Intelligence II,TYPE=InfiltratorLAPL2
+3	ADD:FEAT|Enhanced Charisma III,Enhanced Intelligence III,TYPE=InfiltratorLAPL3
+4	ADD:FEAT|Enhanced Charisma IV,Enhanced Intelligence IV,TYPE=InfiltratorLAPL4
+5	ADD:FEAT|Enhanced Charisma V,Enhanced Intelligence V,TYPE=InfiltratorLAPL5
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Landwalker	HD:6		TYPE:PC.Prestige	ABB:Lan		MAXLEVEL:5	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL		Required Feat			Required Skill							Req. Known Spell									Required Text
+CLASS:Landwalker	PREALIGN:CG,CN,CE	PREFEAT:2,Alertness,Toughness	PRESKILL:2,Knowledge (Nature)=6,Knowledge (Arcana)=15	PRESPELL:2,Animal Growth,Control Water,Locate Creature,Move Earth	PRETEXT:Quests: See Text.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Landwalker	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft|Wilderness Lore
+1	AUTO:FEAT|Simple Weapon Proficiency
+###Block: Normal Level Progression
+1	DEFINE:TurnPlantsAnimals|0	ADD:FEAT|Enhanced Charisma I,Enhanced Wisdom I,TYPE=LandwalkerLAPL1
+2						ADD:FEAT|Enhanced Charisma II,Enhanced Wisdom II,TYPE=LandwalkerLAPL2
+3						ADD:FEAT|Enhanced Charisma III,Enhanced Wisdom III,TYPE=LandwalkerLAPL3
+4						ADD:FEAT|Enhanced Charisma IV,Enhanced Wisdom IV,TYPE=LandwalkerLAPL4
+5						ADD:FEAT|Enhanced Charisma V,Enhanced Wisdom V,TYPE=LandwalkerLAPL5
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Maestro	HD:8		TYPE:PC.Prestige	ABB:Mae		MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Feat																				Required Language	Required Skill								Req. Spell Type		Required Text
+CLASS:Maestro	PREFEAT:1,Leadership	PREFEAT:1,Skill Focus (Bluff),Skill Focus (Diplomacy),Skill Focus (Perform),Skill Focus (Sense Motive)	PRELANG:3,ANY	PRESKILL:4,Bluff=8,Sense Motive=8,Perform=12,Diplomacy=15	PRESPELLTYPE:1,Arcane=3	PRETEXT:Able to cast 3rd-level Bard spells. Quests: See Text.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Maestro	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE=Knowledge|Listen|Move Silently|Perform|Pick Pocket|TYPE=Profession|Scry|Sense Motive|Speak Language|Spellcraft|Tumble|Use Magic Device
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1													AUTO:FEAT|Shield Proficiency
+###Block: Normal Level Progression
+1	ADD:FEAT|Enhanced Charisma I,Enhanced Dexterity I,TYPE=MaestroLAPL1
+2	ADD:FEAT|Enhanced Charisma II,Enhanced Dexterity II,TYPE=MaestroLAPL2
+3	ADD:FEAT|Enhanced Charisma III,Enhanced Dexterity III,TYPE=MaestroLAPL3
+4	ADD:FEAT|Enhanced Charisma IV,Enhanced Dexterity IV,TYPE=MaestroLAPL4
+5	ADD:FEAT|Enhanced Charisma V,Enhanced Dexterity V,TYPE=MaestroLAPL5
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Oracle	HD:6		TYPE:PC.Prestige	ABB:Ora		MAXLEVEL:5	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Feat			Multiple Requirements																										Required Skill							Required Text
+CLASS:Oracle	PREFEAT:1,Skill Focus (Scry)	PREMULT:5,[PRESPELLSCHOOL:5,Divination=1],[PRESPELLSCHOOL:4,Divination=2],[PRESPELLSCHOOL:3,Divination=3],[PRESPELLSCHOOL:2,Divination=4],[PRESPELLSCHOOL:1,Divination=5]	PRESKILL:3,Concentration=8,Sense Motive=5,Scry=15	PRETEXT:The character must suffer some physical deformity, such as being blind or missing a hand or foot. Quests: See Text.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Oracle	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
+1	AUTO:FEAT|Simple Weapon Proficiency
+###Block: Normal Level Progression
+1	ADD:FEAT|Enhanced Intelligence I,Enhanced Wisdom I,TYPE=OracleLAPL1
+2	ADD:FEAT|Enhanced Intelligence II,Enhanced Wisdom II,TYPE=OracleLAPL2
+3	ADD:FEAT|Enhanced Intelligence III,Enhanced Wisdom III,TYPE=OracleLAPL3
+4	ADD:FEAT|Enhanced Intelligence IV,Enhanced Wisdom IV,TYPE=OracleLAPL4
+5	ADD:FEAT|Enhanced Intelligence V,Enhanced Wisdom V,TYPE=OracleLAPL5
+# Spellcasting:The character must know at least one divination spell from five different spell levels.....
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Puppetmaster	HD:6		TYPE:PC.Prestige	ABB:Ppt		MAXLEVEL:5	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Feat					Required Skill									Req. Known Spell			Required Stat	Required Text
+CLASS:Puppetmaster	PREFEAT:2,Craft Wondrous Item,Iron Will	PRESKILL:3,Spellcraft=10,Knowledge (Arcana)=12,TYPE.Craft=15	PRESPELL:1,Charm Monster	PRESTAT:1,CHA=13	PRETEXT:Quests: See Text.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Puppetmaster	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
+1	AUTO:FEAT|Simple Weapon Proficiency
+###Block: Normal Level Progression
+1	ADD:FEAT|Enhanced Charisma I,Enhanced Intelligence I,TYPE=PuppetmasterLAPL1
+2	ADD:FEAT|Enhanced Charisma II,Enhanced Intelligence II,TYPE=PuppetmasterLAPL2
+3	ADD:FEAT|Enhanced Charisma III,Enhanced Intelligence III,TYPE=PuppetmasterLAPL3
+4	ADD:FEAT|Enhanced Charisma IV,Enhanced Intelligence IV,TYPE=PuppetmasterLAPL4
+5	ADD:FEAT|Enhanced Charisma V,Enhanced Intelligence V,TYPE=PuppetmasterLAPL5
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Puzzlemaster	HD:8		TYPE:PC.Prestige	ABB:Pzl		MAXLEVEL:5	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required AL				Required Feat														Req. Special Ability		Required Skill										Required Text
+CLASS:Puzzlemaster	PREALIGN:LG,LN,LE,NG,TN,NE	PREFEAT:1,Alertness	PREFEAT:1,Skill Focus (Disable Device),Skill Focus (Use Magic Device)	PRESA:1,Bardic knowledge	PRESKILL:3,Disable Device=10,Use Magic Device=10,Decipher Script=15	PRETEXT:Quests: See Text.
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Puzzlemaster	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE=Knowledge|Listen|Move Silently|Perform|Pick Pocket|TYPE=Profession|Scry|Sense Motive|Speak Language|Spellcraft|Tumble|Use Magic Device
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency
+###Block: Normal Level Progression
+1	ADD:FEAT|Enhanced Charisma I,Enhanced Intelligence I,TYPE=PuzzlemasterLAPL1
+2	ADD:FEAT|Enhanced Charisma II,Enhanced Intelligence II,TYPE=PuzzlemasterLAPL2
+3	ADD:FEAT|Enhanced Charisma III,Enhanced Intelligence III,TYPE=PuzzlemasterLAPL3
+4	ADD:FEAT|Enhanced Charisma IV,Enhanced Intelligence IV,TYPE=PuzzlemasterLAPL4
+5	ADD:FEAT|Enhanced Charisma V,Enhanced Intelligence V,TYPE=PuzzlemasterLAPL5
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Traveler	HD:6		TYPE:PC.Prestige	ABB:Tra		MAXLEVEL:5	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Class				Required Feat									Required Skill										Required Stat	Required Text
+CLASS:Traveler	PRECLASS:1,SPELLCASTER.Arcane=9	PREFEAT:2,Skill Focus (Diplomacy),Spell Focus (Transmutation)	PRESKILL:3,Diplomacy=7,Knowledge (Arcana)=10,Knowledge (The Planes)=15	PRESTAT:1,CHA=13	PRETEXT:Quests: See Text.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Traveler	STARTSKILLPTS:4	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	ADD:SPELLCASTER|Arcane	ADD:FEAT|Enhanced Charisma I,Enhanced Intelligence I,TYPE=TravelerLAPL1
+2	ADD:FEAT|Enhanced Charisma II,Enhanced Intelligence II,TYPE=TravelerLAPL2
+3	ADD:SPELLCASTER|Arcane	ADD:FEAT|Enhanced Charisma III,Enhanced Intelligence III,TYPE=TravelerLAPL3
+4	ADD:FEAT|Enhanced Charisma IV,Enhanced Intelligence IV,TYPE=TravelerLAPL4
+5	ADD:SPELLCASTER|Arcane	ADD:FEAT|Enhanced Charisma V,Enhanced Intelligence V,TYPE=TravelerLAPL5
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Wizard King	HD:6		TYPE:PC.Prestige	ABB:WKi		MAXLEVEL:5	SOURCEPAGE:p.60	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Feat						Required Skill								Req. Spell Type		Required Text
+CLASS:Wizard King	PREFEAT:5,TYPE.Metamagic,TYPE.ItemCreation	PRESKILL:3,Scry=10,Spellcraft=10,Knowledge (Arcana)=15	PRESPELLTYPE:1,Arcane=6	PRETEXT:Quests: See Text.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wizard King	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft
+1	AUTO:FEAT|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
+###Block: Normal Level Progression
+1	ADD:SPELLCASTER|Arcane	ADD:FEAT|Enhanced Intelligence I,TYPE=WizardKingLAPL1
+2	ADD:FEAT|Enhanced Intelligence II,TYPE=WizardKingLAPL2
+3	ADD:SPELLCASTER|Arcane	ADD:FEAT|Enhanced Intelligence III,TYPE=WizardKingLAPL3
+4	ADD:FEAT|Enhanced Intelligence IV,TYPE=WizardKingLAPL4
+5	ADD:SPELLCASTER|Arcane	ADD:FEAT|Enhanced Intelligence V,TYPE=WizardKingLAPL5
+
+
+#
+# end
+#
