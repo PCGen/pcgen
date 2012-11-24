@@ -139,7 +139,7 @@ Still as Stone										TYPE:SpecialAbility.Extraordinary				VISIBLE:NO		SAB:Sti
 Death Attack										TYPE:SpecialAbility.Extraordinary				VISIBLE:NO		SAB:Death Attack (Ex) [DC: %]|DeathAttackDC																																																																																																																																DEFINE:DeathAttackDC|0
 ### TODO: This should add a spell known.
 ### TODO: This should affect the highest level spell the character can cast
-Improved Spellcasting									TYPE:SpecialAbility						VISIBLE:NO																																																																																																																																																																																STACK:NO	MULT:YES
+Improved Spellcasting									TYPE:SpecialAbility						VISIBLE:NO																																																																																																																																																																																STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 
 
 
@@ -158,7 +158,7 @@ Disarming Shot										TYPE:SpecialAbility.Extraordinary				VISIBLE:NO		SAB:Dis
 Close Combat Archery									TYPE:SpecialAbility.Extraordinary				VISIBLE:NO		SAB:Close Combat Archery (Ex)
 Seance											TYPE:SpecialAbility.SpellLike					VISIBLE:NO		SAB:Seance %/day (Sp) [day]|SeanceTimes|PREVARLT:SeanceLvl,4	SAB:Seance %/day (Sp) [year]|SeanceTimes|PREMULT:2,[PREVARGTEQ:SeanceLvl,4],[PREVARLT:SeanceLvl,7]	SAB:Seance %/day (Sp) [century]|PREMULT:2,[PREVARGTEQ:SeanceLvl,7],[PREVARLT:SeanceLvl,10]	SAB:Seance %/day (Sp) [Sundering]|SeanceTimes|PREVARGTEQ:SeanceLvl,10																																																																																DEFINE:SeanceTimes|0	DEFINE:SeanceLvl|0
 ### TODO: This should add a known spell as an innate spelllike ability 1/day
-Spirit Manipulation									TYPE:SpecialAbility.SpellLike					VISIBLE:NO																																																																																																																																																																																STACK:YES	MULT:YES
+Spirit Manipulation									TYPE:SpecialAbility.SpellLike					VISIBLE:NO																																																																																																																																																																																STACK:YES	MULT:YES	CHOOSE:NOCHOICE
 Ghost Sight											TYPE:SpecialAbility.Supernatural				VISIBLE:NO		SAB:Ghost Sight (Su)
 ### TODO: Reduces spell damage by 1.  Stacks with greater spell talisman
 Spirit Mastery										TYPE:SpecialAbility.Supernatural				VISIBLE:NO		SAB:Spirit Mastery (Su)

@@ -18,7 +18,7 @@ CLASS:Bleak Knight	HD:10		TYPE:PC.Legendary	ABB:BlKn		MAXLEVEL:5	SOURCEPAGE:p. 7
 CLASS:Bleak Knight	PREATT:12	PREFEAT:3,Great Fortitude,Iron Will,Improved Critical	PRESKILL:2,Intimidate=5,Wilderness Lore=5	PRETEXT:1 feat of DM's choice, Must have lost a loved one or home to the agents of Izrador and have witnessed it occuring
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bleak Knight	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Intimidate|Jump|Listen|TYPE=Profession|Ride|Swim|Wilderness Lore
-1									ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency
+1									ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	
 1																					AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 1:REPEATLEVEL:1	ADD:FEAT|TYPE=BleakKnightAbility
 

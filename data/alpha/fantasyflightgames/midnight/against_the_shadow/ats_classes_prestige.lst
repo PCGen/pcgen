@@ -9,7 +9,7 @@ CLASS:Ancestral Bladebearer	HD:10		TYPE:PC.Prestige	ABB:AnBld		MAXLEVEL:10	SOURC
 CLASS:Ancestral Bladebearer	PREATT:6	PREFEAT:1,Weapon Focus	PREFEAT:1,Weapon Specialization	PRETEXT:Weapon Focus and Weapon Specialization must be with ancestral blade.  Must have used ancestral blade exclusively for at least one level.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ancestral Bladebearer	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|TYPE=Profession|Ride|Swim
-1																							AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+1																							AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 1							ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1																							AUTO:FEAT|Unbreakable Blade
 2																							AUTO:FEAT|Advance Ancestral Blade
@@ -51,7 +51,7 @@ CLASS:Avenging Knife	PREABILITY:1,CATEGORY=Special Ability,Sneak Attack	PREALIGN
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Avenging Knife	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Disguise|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 1															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
-1															ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1															ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																											AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																											AUTO:FEAT|The Drop
 2																											AUTO:FEAT|Security Breach
@@ -90,7 +90,7 @@ CLASS:Elven Raider	PREATT:5	PREFEAT:1,Weapon Focus (Longbow)	PREFEAT:2,Point Bla
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Elven Raider	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Heal|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
 1										ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1																										AUTO:FEAT|Armor Proficiency (Light)|Martial Weapon Proficiency|Simple Weapon Proficiency
+1																										AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency
 1																										AUTO:FEAT|Ranged Sneak Attack
 1	BONUS:VAR|RangedSneakAttack|floor((CL+1)/2)
 2	BONUS:VAR|RangedSneakAttackRange|floor((CL+1)/3)*10
@@ -140,11 +140,11 @@ CLASS:Sarcosan Knight	PREATT:6	PREFEAT:3,Mounted Combat,Ride-By Attack,Spirited 
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sarcosan Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Jump|TYPE=Profession|Ride|Spot|Swim
 1																																																		ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1																																																																		AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Martial Weapon Proficiency|Shield Proficiency|Simple Weapon Proficiency
+1																																																																		AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 1			BONUS:VAR|HorseLordLvl|CL																																																											AUTO:FEAT|Horse Lord
 1			BONUS:VAR|SarSMLevel|CL																																																												AUTO:FEAT|Sarcosan Mount
 2:REPEATLEVEL:3						ADD:FEAT|Mounted Maneuver
-3:REPEATLEVEL:3						ADD:FEAT|Mounted Archery,Sarcosan Pureblood,Skill Focus (Ride),Trample,Weapon Focus (Ceduku),Weapon Focus (Scimitar),Weapon Focus (TYPE.Shortbow),Weapon Specialization (Ceduku),Weapon Specialization (Scimitar),Weapon Specialization (TYPE.Shortbow)
+3:REPEATLEVEL:3						ADD:FEAT|Mounted Archery,Sarcosan Pureblood,Skill Focus (Ride),Trample,Weapon Focus (Cedeku),Weapon Focus (Scimitar),Weapon Focus (Shortbow),Weapon Specialization (Cedeku),Weapon Specialization (Scimitar),Weapon Specialization (Shortbow)
 4																																																																		AUTO:FEAT|Spur On
 7								ADD:FEAT|Devastating Attack
 10																																																																		AUTO:FEAT|Sweeping Strike
@@ -204,7 +204,7 @@ CLASS:Wogren Rider	HD:8		TYPE:PC.Prestige	ABB:wgr		MAXLEVEL:10	SOURCEPAGE:p. 65	
 CLASS:Wogren Rider	PREFEAT:2,Mounted Archery,Mounted Combat	PRERACE:1,Halfling (Midnight)	PRESKILL:3,Intuit Direction=4,Wilderness Lore=4,Ride=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Wogren Rider	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE=Craft|Handle Animal|Heal|Hide|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Swim|Use Rope|Wilderness Lore
-1																																									ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1																																									ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																																																									AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1			BONUS:VAR|WogrenRiderLvl|CL																																																		AUTO:FEAT|Wogren Mount
 1																																																									AUTO:FEAT|Coordinated Attack
