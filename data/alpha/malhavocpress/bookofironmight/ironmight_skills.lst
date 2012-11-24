@@ -2,4 +2,5 @@
 SOURCELONG:Book of Iron Might	SOURCESHORT:BoIM	SOURCEWEB:http://www.montecook.com/cgi-bin/page.cgi?mpress_BOIM	SOURCEDATE:2004-01
 
 # Skill Name		Key Stat	Untrained?		Type				Source Page		Bonus to skill															Temporary effect description
-Craft (Metalworking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:p.32	BONUS:SKILL|Craft (Metalworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools|PREAPPLY:PC	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used
+# COMMENT: Duplicated in RSRD
+#Craft (Metalworking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:p.32	BONUS:SKILL|Craft (Metalworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=MetalworkingTools|PREAPPLY:PC	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty if improvised tools are used
