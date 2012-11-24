@@ -1,0 +1,166 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Joseph (Sensai) Caubo
+
+##
+## Block: Prestige Classes
+##
+
+
+###Block: Battle Herald --------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Battle Herald	HD:10		TYPE:PC.Prestige	ABB:BH		MAXLEVEL:10	SOURCEPAGE:p.260	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Ability											Req. Att.	Required Skill
+CLASS:Battle Herald	PREABILITY:2,CATEGORY=Special Ability,Challenge ~ Cavalier,Inspire Courage	PREATT:4	PRESKILL:4,Diplomacy=5,Intimidate=5,Perform (Oratory)=5,Profession(soldier)=2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Battle Herald	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility)|Perception|TYPE=Profession|Ride|Sense Motive
+##Block: Normal Level Progression
+1	BONUS:ABILITYPOOL|Inspiring Command Selection|CL+1/2	BONUS:VAR|InspiringCommandLVL|CL	ABILITY:Class Ability|AUTOMATIC|Improved Leadership ~ Battle Herald|Improved Leadership ~ Battle Herald|Inspiring Command ~ Battle Herald|Voice of Authority ~ Battle Herald
+2																ABILITY:Class Ability|AUTOMATIC|Easy March ~ Battle Herald
+4																ABILITY:Class Ability|AUTOMATIC|Inspire Greatness ~ Battle Herald
+5	BONUS:ABILITYPOOL|Teamwork Feat|1										ABILITY:Class Ability|AUTOMATIC|Banner ~ Battle Herald
+6																ABILITY:Class Ability|AUTOMATIC|Teamwork Feat ~ Battle Herald
+7																ABILITY:Class Ability|AUTOMATIC|Demanding Challenge ~ Battle Herald
+8																ABILITY:Class Ability|AUTOMATIC|Persistent Commands ~ Battle Herald
+9																ABILITY:Class Ability|AUTOMATIC|Inspire Last Stand ~ Battle Herald
+10																ABILITY:Class Ability|AUTOMATIC|Complex Commands ~ Battle Herald
+
+###Block: Holy Vindicator --------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus																	Combat bonus
+CLASS:Holy Vindicator	HD:10		TYPE:PC.Prestige	ABB:HV		MAXLEVEL:10	SOURCEPAGE:p.263	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Ability							Req. Att.	Required Feat						Required Skill				Req. Spell Type
+CLASS:Holy Vindicator	PREABILITY:1,CATEGORY=Special Ability,Channel Energy	PREATT:5	PREFEAT:1,Alignment Channel,Elemental Channel	PRESKILL:1,Knowledge (Religion)=5	PRESPELLTYPE:1,Divine=1
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Holy Vindicator	STARTSKILLPTS:2	CSKILL:Climb|Heal|Intimidate|Knowledge (Planes)|Knowledge (Religion)|Ride|Sense Motive|Spellcraft|Swim
+###Block:  Weapon/Armor Proficiencies
+1													ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies							AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1																															AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																															AUTO:FEAT|Shield Proficiency
+##Block: Normal Level Progression
+1	BONUS:VAR|PrestigeClassChannelEnergyLVL|CL					ABILITY:Class Ability|AUTOMATIC|Channel Energy ~ Prestige Class|Vindicator's Shield ~ Holy Vindicator
+2	BONUS:VAR|StigmataLVL|CL				ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Stigmata ~ Holy Vindicator
+3	BONUS:VAR|Faith HealingLVL|CL				ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Faith Healing ~ Holy Vindicator
+4									ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Divine Wrath ~ Holy Vindicator
+5													ABILITY:Class Ability|AUTOMATIC|Bloodfire ~ Holy Vindicator|Channel Smite ~ Holy Vindicator			AUTO:FEAT|Channel Smite
+6									ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Versatile Channel ~ Holy Vindicator
+7									ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Divine Judgment ~ Holy Vindicator
+8									ADD:SPELLCASTER|Divine
+9													ABILITY:Class Ability|AUTOMATIC|Bloodrain ~ Holy Vindicator
+10									ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Divine Retribution ~ Holy Vindicator
+
+###Block: Horizon Walker --------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Horizon Walker	HD:10		TYPE:PC.Prestige	ABB:HW		MAXLEVEL:10	SOURCEPAGE:p.265	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Feat		Required Skill
+CLASS:Horizon Walker	PREFEAT:1,Endurance	PRESKILL:1,Knowledge (Geography)=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Horizon Walker	STARTSKILLPTS:6	CSKILL:Climb|Diplomacy|Handle Animal|Knowledge (Geography)|Knowledge (Nature)|Knowledge (Planes)|Linguistics|Perception|Stealth|Survival|Swim
+
+1										BONUS:VAR|HorizonWalkerFavoredTerrainLVL|CL	ABILITY:Class Ability|AUTOMATIC|Horizon Walker Favored Terrain
+2	BONUS:ABILITYPOOL|Terrain Mastery Selection|CL/2	BONUS:VAR|HorizonWalkerTerrainMasteryLVL|CL	ABILITY:Class Ability|AUTOMATIC|Horizon Walker Terrain Mastery
+3	BONUS:ABILITYPOOL|Terrain Dominance Selection|CL/3	BONUS:VAR|HorizonWalkerTerrainDominanceLVL|CL	ABILITY:Class Ability|AUTOMATIC|Horizon Walker Terrain Dominance
+10																		ABILITY:Class Ability|AUTOMATIC|Master Of All Lands
+
+
+###Block: Master Chymist --------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Master Chymist	HD:10		TYPE:PC.Prestige	ABB:MC		MAXLEVEL:10	SOURCEPAGE:p.267	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Multiple Requirements																									Req. Spell Type
+CLASS:Master Chymist	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Mutagen ~ Alchemist],[PREABILITY:1,CATEGORY=Special Ability,Discovery ~ Feral Mutagen,Discovery ~ Infuse Mutagen]	PRESPELLTYPE:1,Arcane=1
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Master Chymist	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Sense Motive|Stealth|Swim
+##Block: Normal Level Progression
+1	BONUS:VAR|MutateLVL|CL							ABILITY:Class Ability|AUTOMATIC|Bomb-Thrower ~ Master Chymist|Mutagenic Form ~ Master Chymist|Mutate ~ Master Chymist
+2	BONUS:VAR|AdvancedMutagenLVL|CL	ADD:SPELLCASTER|Arcane	ABILITY:Class Ability|AUTOMATIC|Advanced Mutagen ~ Master Chymist
+3	BONUS:VAR|BrutalityLVL|CL		ADD:SPELLCASTER|Arcane	ABILITY:Class Ability|AUTOMATIC|Brutality ~ Master Chymist
+5							ADD:SPELLCASTER|Arcane
+6							ADD:SPELLCASTER|Arcane
+7							ADD:SPELLCASTER|Arcane
+9							ADD:SPELLCASTER|Arcane
+10							ADD:SPELLCASTER|Arcane
+
+###Block: Master Spy --------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Master Spy	HD:8		TYPE:PC.Prestige	ABB:MS		MAXLEVEL:10	SOURCEPAGE:p.270	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required Feat			Required Skill
+CLASS:Master Spy	PREFEAT:2,Deceitful,Iron Will	PRESKILL:4,Bluff=7,Disguise=7,Perception=5,Sense Motive=5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Master Spy	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Use Magic Device
+##Block: Normal Level Progression
+1	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Class Ability|AUTOMATIC|Art of Deception ~ Master Spy|Master of Disguise ~ Master Spy|Sneak Attack ~ Master Spy
+2							ABILITY:Class Ability|AUTOMATIC|Glib Lie ~ Master Spy|Mask Alignment ~ Master Spy
+3							ABILITY:Class Ability|AUTOMATIC|Nonmagical Aura ~ Master Spy|Superficial Knowledge ~ Master Spy
+4							ABILITY:Class Ability|AUTOMATIC|Concealed Thoughts ~ Master Spy|Quick Change ~ Master Spy
+5							ABILITY:Class Ability|AUTOMATIC|Elude Detection ~ Master Spy|Slippery Mind ~ Master Spy
+6							ABILITY:Class Ability|AUTOMATIC|Shift Alignment ~ Master Spy
+8							ABILITY:Class Ability|AUTOMATIC|Death Attack ~ Master Spy|Fool Casting ~ Master Spy
+9							ABILITY:Class Ability|AUTOMATIC|Hidden Mind ~ Master Spy
+10							ABILITY:Class Ability|AUTOMATIC|Assumption ~ Master Spy
+
+###Block: Nature Warden --------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Nature Warden	HD:8		TYPE:PC.Prestige	ABB:NW		MAXLEVEL:10	SOURCEPAGE:p.272	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Ability																	Req. Att.	Required Skill												Req. Spell Type		Var. Must Be Grater
+CLASS:Nature Warden	PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredTerrain	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PREATT:4	PRESKILL:4,Handle Animal=5,Knowledge (Geography)=5,Knowledge (Nature)=5,Survival=5	PRESPELLTYPE:1,Divine=2	PREVARGT:AnimalCompanionLVL,0
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Nature Warden	STARTSKILLPTS:4	CSKILL:Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|Perception|Ride|Sense Motive|Survival|Swim
+##Block: Normal Level Progression
+1	BONUS:VAR|CompanionBondLVL|CL	BONUS:VAR|AnimalCompanionLVL|CL	BONUS:VAR|NaturalEmpathyLVL|CL					ABILITY:Class Ability|AUTOMATIC|Companion Bond ~ Nature Warden|Natural Empathy ~ Nature Warden
+2																ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Mystic Harmony ~ Nature Warden|Wild Stride ~ Nature Warden
+3																ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Animal Speech ~ Nature Warden
+4																ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Silverclaw ~ Nature Warden
+#5	BONUS:VAR|FavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL					ABILITY:Class Ability|AUTOMATIC|Favored Terrain ~ Nature Warden|Survivalist ~ Nature Warden
+#
+#  Since "This ability is identical to and stacks with the ranger class ability.", it's easier just to advance the ranger variable.
+#
+5	BONUS:VAR|RangerFavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL								ABILITY:Class Ability|AUTOMATIC|Basic Favored Terrain|Ranger Favored Terrain|Survivalist ~ Nature Warden
+6																ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Woodforging ~ Nature Warden
+7																ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Companion Walk ~ Nature Warden
+8																ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Ironpaw ~ Nature Warden
+9																				ABILITY:Class Ability|AUTOMATIC|Guarded Lands ~ Nature Warden
+10																ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Companion Soul ~ Nature Warden
+
+###Block: Rage Prophet --------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Rage Prophet	HD:10		TYPE:PC.Prestige	ABB:RP		MAXLEVEL:10	SOURCEPAGE:p.275	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Ability										Req. Att.	Required Skill
+CLASS:Rage Prophet	PREABILITY:2,CATEGORY=Special Ability,Oracle's Curse,Moment of Clarity	PREATT:5	PRESKILL:1,Knowledge (Religion)=5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Rage Prophet	STARTSKILLPTS:4	CSKILL:Climb|Heal|Intimidate|Knowledge (History)|Knowledge (Religion)|Sense Motive|Spellcraft|Swim
+##Block: Normal Level Progression
+1											ABILITY:Class Ability|AUTOMATIC|Savage Seer ~ Rage Prophet|Spirit Guide ~ Rage Prophet
+2	BONUS:VAR|RageProphetMysteryLVL|CL	ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Rage Prophet Mystery ~ Rage Prophet|Raging Healer ~ Rage Prophet
+3							ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Indomitable Caster ~ Rage Prophet
+4	BONUS:VAR|RagecasterLVL|CL		ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Ragecaster ~ Rage Prophet
+5											ABILITY:Class Ability|AUTOMATIC|Spirit Guardian ~ Rage Prophet
+6							ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Enduring Rage ~ Rage Prophet
+7							ADD:SPELLCASTER|Divine
+8											ABILITY:Class Ability|AUTOMATIC|Raging Spellstrength ~ Rage Prophet
+9							ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Spirit Warrior ~ Rage Prophet
+10							ADD:SPELLCASTER|Divine	ABILITY:Class Ability|AUTOMATIC|Greater Rage ~ Rage Prophet
+
+###Block: Stalwart Defender --------------------------------------------------------------------------------------------------------------------------------------------
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Stalwart Defender	HD:12		TYPE:PC.Prestige	ABB:SD		MAXLEVEL:10	SOURCEPAGE:p.277	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Req. Att.	Required Feat
+CLASS:Stalwart Defender	PREATT:7	PREFEAT:5,Dodge,Endurance,Toughness,Armor Proficiency (Light),Armor Proficiency (Medium)
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Stalwart Defender	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|Perception|Sense Motive
+##Block: Normal Level Progression
+1							ABILITY:Class Ability|AUTOMATIC|Defensive Stance ~ Stalwart Defender
+2	BONUS:VAR|DefensivePowerLVL|CL	ABILITY:Class Ability|AUTOMATIC|Defensive Powers ~ Stalwart Defender
+3							ABILITY:Class Ability|AUTOMATIC|Uncanny Dodge ~ Stalwart Defender
+5	BONUS:VAR|DamageReductionLVL|CL	ABILITY:Class Ability|AUTOMATIC|Damage Reduction ~ Stalwart Defender
+7							ABILITY:Class Ability|AUTOMATIC|Improved Uncanny Dodge ~ Stalwart Defender
+9							ABILITY:Class Ability|AUTOMATIC|Mobile Defense ~ Stalwart Defender
+10							ABILITY:Class Ability|AUTOMATIC|Last Word ~ Stalwart Defender
+
+#EOF

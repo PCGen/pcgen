@@ -1,0 +1,84 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+
+# Oracle Tongues granting Language:
+# Template Name				Automatically Gained Language
+Oracle Tongues Choice ~ Abyssal	AUTO:LANG|Abyssal
+Oracle Tongues Choice ~ Aklo		AUTO:LANG|Aklo
+Oracle Tongues Choice ~ Aquan		AUTO:LANG|Aquan
+Oracle Tongues Choice ~ Auran		AUTO:LANG|Auran
+Oracle Tongues Choice ~ Celestial	AUTO:LANG|Celestial
+Oracle Tongues Choice ~ Ignan		AUTO:LANG|Ignan
+Oracle Tongues Choice ~ Infernal	AUTO:LANG|Infernal
+Oracle Tongues Choice ~ Terran	AUTO:LANG|Terran
+
+
+
+###Block: Eidolon templates
+# Template Name				Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision							Bonus to Ability Pool								Bonus to spell known/L					Modify VAR									Add to vision			Weapon prof. bonus																												Choose									Bonus Languages	Vision		Natural Attacks
+# Bite																																																								BONUS:VAR|EidUsedAttacks|1																																																										NATURALATTACKS:1 Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
+# 2 Clawed Hands																																																						BONUS:VAR|EidUsedAttacks|2	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:2 Clawed Hands,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
+# 4 Clawed Hands																																																						BONUS:VAR|EidUsedAttacks|4	BONUS:VAR|EidArmsUsed|2																																																						NATURALATTACKS:4 Clawed Hands,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*4,1d4
+# 6 Clawed Hands																																																						BONUS:VAR|EidUsedAttacks|6	BONUS:VAR|EidArmsUsed|3																																																						NATURALATTACKS:6 Clawed Hands,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*6,1d4
+# 2 Clawed Feet																																																						BONUS:VAR|EidUsedAttacks|2	BONUS:VAR|EidLegsUsed|1																																																						NATURALATTACKS:2 Clawed Feet,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
+# Gore																																																								BONUS:VAR|EidUsedAttacks|1																																																										NATURALATTACKS:1 Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d6
+# Wing Buffet																																																							BONUS:VAR|EidUsedAttacks|2											BONUS:WEAPONPROF=2 Wing Buffet|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=2 Wing Buffet|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=2 Wing Buffet|DAMAGE|-ceil(STR/2)																	NATURALATTACKS:2 Wing Buffets,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+# 2 Pincers																																																							BONUS:VAR|EidUsedAttacks|2	BONUS:VAR|EidArmsUsed|1							BONUS:WEAPONPROF=2 Pincers|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=2 Pincers|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=2 Pincers|DAMAGE|-ceil(STR/2)																				NATURALATTACKS:2 Pincers,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6
+# 4 Pincers																																																							BONUS:VAR|EidUsedAttacks|4	BONUS:VAR|EidArmsUsed|2							BONUS:WEAPONPROF=4 Pincers|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=4 Pincers|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=4 Pincers|DAMAGE|-ceil(STR/2)																				NATURALATTACKS:4 Pincers,Weapon.Natural.Melee.Finesseable.Bludgeoning,*4,1d6
+# 6 Pincers																																																							BONUS:VAR|EidUsedAttacks|6	BONUS:VAR|EidArmsUsed|3							BONUS:WEAPONPROF=6 Pincers|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=6 Pincers|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=6 Pincers|DAMAGE|-ceil(STR/2)																				NATURALATTACKS:6 Pincers,Weapon.Natural.Melee.Finesseable.Bludgeoning,*6,1d6
+# 1 Tail Slap																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidTailsUsed|1						BONUS:WEAPONPROF=1 Tail Slap|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=1 Tail Slap|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=1 Tail Slap|DAMAGE|-ceil(STR/2)																		NATURALATTACKS:1 Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d6
+# 2 Tail Slaps																																																						BONUS:VAR|EidUsedAttacks|2	BONUS:VAR|EidTailsUsed|2						BONUS:WEAPONPROF=2 Tail Slaps|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=2 Tail Slaps|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=2 Tail Slaps|DAMAGE|-ceil(STR/2)																	NATURALATTACKS:2 Tail Slaps,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6
+# 3 Tail Slaps																																																						BONUS:VAR|EidUsedAttacks|3	BONUS:VAR|EidTailsUsed|3						BONUS:WEAPONPROF=3 Tail Slaps|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=3 Tail Slaps|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=3 Tail Slaps|DAMAGE|-ceil(STR/2)																	NATURALATTACKS:3 Tail Slaps,Weapon.Natural.Melee.Finesseable.Bludgeoning,*3,1d6
+# 4 Tail Slaps																																																						BONUS:VAR|EidUsedAttacks|4	BONUS:VAR|EidTailsUsed|4						BONUS:WEAPONPROF=4 Tail Slaps|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=4 Tail Slaps|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=4 Tail Slaps|DAMAGE|-ceil(STR/2)																	NATURALATTACKS:4 Tail Slaps,Weapon.Natural.Melee.Finesseable.Bludgeoning,*4,1d6
+# 5 Tail Slaps																																																						BONUS:VAR|EidUsedAttacks|5	BONUS:VAR|EidTailsUsed|5						BONUS:WEAPONPROF=5 Tail Slaps|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=5 Tail Slaps|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=5 Tail Slaps|DAMAGE|-ceil(STR/2)																	NATURALATTACKS:5 Tail Slaps,Weapon.Natural.Melee.Finesseable.Bludgeoning,*5,1d6
+# 6 Tail Slaps																																																						BONUS:VAR|EidUsedAttacks|6	BONUS:VAR|EidTailsUsed|6						BONUS:WEAPONPROF=6 Tail Slaps|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=6 Tail Slaps|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=6 Tail Slaps|DAMAGE|-ceil(STR/2)																	NATURALATTACKS:6 Tail Slaps,Weapon.Natural.Melee.Finesseable.Bludgeoning,*6,1d6
+# 7 Tail Slaps																																																						BONUS:VAR|EidUsedAttacks|7	BONUS:VAR|EidTailsUsed|7						BONUS:WEAPONPROF=7 Tail Slaps|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=7 Tail Slaps|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=7 Tail Slaps|DAMAGE|-ceil(STR/2)																	NATURALATTACKS:7 Tail Slaps,Weapon.Natural.Melee.Finesseable.Bludgeoning,*7,1d6
+# 1 Slam																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:1 Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+# 2 Slams																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:2 Slams,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8
+# 3 Slams																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:3 Slams,Weapon.Natural.Melee.Finesseable.Bludgeoning,*3,1d8
+# 4 Slams																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:4 Slams,Weapon.Natural.Melee.Finesseable.Bludgeoning,*4,1d8
+# 5 Slams																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:5 Slams,Weapon.Natural.Melee.Finesseable.Bludgeoning,*5,1d8
+# 6 Slams																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:6 Slams,Weapon.Natural.Melee.Finesseable.Bludgeoning,*6,1d8
+# 7 Slams																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidArmsUsed|1																																																						NATURALATTACKS:7 Slams,Weapon.Natural.Melee.Finesseable.Bludgeoning,*7,1d8
+# 1 Sting																																																							BONUS:VAR|EidUsedAttacks|1	BONUS:VAR|EidTailsUsed|1																																																					NATURALATTACKS:1 Sting,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d4
+# 2 Stings																																																							BONUS:VAR|EidUsedAttacks|2	BONUS:VAR|EidTailsUsed|2																																																					NATURALATTACKS:2 Stings,Weapon.Natural.Melee.Finesseable.Piercing,*2,1d4
+# 3 Stings																																																							BONUS:VAR|EidUsedAttacks|3	BONUS:VAR|EidTailsUsed|3																																																					NATURALATTACKS:3 Stings,Weapon.Natural.Melee.Finesseable.Piercing,*3,1d4
+# 4 Stings																																																							BONUS:VAR|EidUsedAttacks|4	BONUS:VAR|EidTailsUsed|4																																																					NATURALATTACKS:4 Stings,Weapon.Natural.Melee.Finesseable.Piercing,*4,1d4
+# 5 Stings																																																							BONUS:VAR|EidUsedAttacks|5	BONUS:VAR|EidTailsUsed|5																																																					NATURALATTACKS:5 Stings,Weapon.Natural.Melee.Finesseable.Piercing,*5,1d4
+# 6 Stings																																																							BONUS:VAR|EidUsedAttacks|6	BONUS:VAR|EidTailsUsed|6																																																					NATURALATTACKS:6 Stings,Weapon.Natural.Melee.Finesseable.Piercing,*6,1d4
+# 7 Stings																																																							BONUS:VAR|EidUsedAttacks|7	BONUS:VAR|EidTailsUsed|7																																																					NATURALATTACKS:7 Stings,Weapon.Natural.Melee.Finesseable.Piercing,*7,1d4
+# Rake																																																								BONUS:VAR|EidUsedAttacks|2	BONUS:VAR|EidLegsUsed|1																																																						NATURALATTACKS:2 Rakes,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
+# 1 Tentacle																																																							BONUS:VAR|EidUsedAttacks|1											BONUS:WEAPONPROF=1 Tentacle|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=1 Tentacle|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=1 Tentacle|DAMAGE|-ceil(STR/2)																				NATURALATTACKS:1 Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+# 2 Tentacles																																																							BONUS:VAR|EidUsedAttacks|2											BONUS:WEAPONPROF=2 Tentacles|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=2 Tentacles|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=2 Tentacles|DAMAGE|-ceil(STR/2)																		NATURALATTACKS:2 Tentacles,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+# 3 Tentacles																																																							BONUS:VAR|EidUsedAttacks|3											BONUS:WEAPONPROF=3 Tentacles|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=3 Tentacles|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=3 Tentacles|DAMAGE|-ceil(STR/2)																		NATURALATTACKS:3 Tentacles,Weapon.Natural.Melee.Finesseable.Bludgeoning,*3,1d4
+# 4 Tentacles																																																							BONUS:VAR|EidUsedAttacks|4											BONUS:WEAPONPROF=4 Tentacles|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=4 Tentacles|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=4 Tentacles|DAMAGE|-ceil(STR/2)																		NATURALATTACKS:4 Tentacles,Weapon.Natural.Melee.Finesseable.Bludgeoning,*4,1d4
+# 5 Tentacles																																																							BONUS:VAR|EidUsedAttacks|5											BONUS:WEAPONPROF=5 Tentacles|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=5 Tentacles|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=5 Tentacles|DAMAGE|-ceil(STR/2)																		NATURALATTACKS:5 Tentacles,Weapon.Natural.Melee.Finesseable.Bludgeoning,*5,1d4
+# 6 Tentacles																																																							BONUS:VAR|EidUsedAttacks|6											BONUS:WEAPONPROF=6 Tentacles|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=6 Tentacles|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=6 Tentacles|DAMAGE|-ceil(STR/2)																		NATURALATTACKS:6 Tentacles,Weapon.Natural.Melee.Finesseable.Bludgeoning,*6,1d4
+# 7 Tentacles																																																							BONUS:VAR|EidUsedAttacks|7											BONUS:WEAPONPROF=7 Tentacles|TOHIT|-5|!PREFEAT:1,Multiattack	BONUS:WEAPONPROF=7 Tentacles|TOHIT|-2|PREFEAT:1,Multiattack	BONUS:WEAPONPROF=7 Tentacles|DAMAGE|-ceil(STR/2)																		NATURALATTACKS:7 Tentacles,Weapon.Natural.Melee.Finesseable.Bludgeoning,*7,1d4
+
+##
+##Block:Class Ability Templates
+##
+# Oracle Templates
+# Template Name	Visible	Define							Modify VAR									Weapon prof. bonus																											Natural Attacks
+
+# Template Name		Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision								Modify VAR							Add to vision			Choose									Bonus Languages	Vision		Natural Attacks								Temporary effect description
+Aquan Bonus Language																																																								LANGBONUS:Aquan
+
+Small Claws																	PRESIZELTEQ:S																																													NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d3
+Medium Claws													PRESIZEGTEQ:M																																																NATURALATTACKS:Claws,Weapon.Natural.Melee.Slashing,*2,1d4
+
+
+Vision Normal																								!PREVISION:1,Darkvision=1	!PREVISION:1,Low-Light=ANY																											VISION:Low-Light
+Vision Lowlight																			PREVISION:1,Low-Light=ANY																			BONUS:VISION|Darkvision|30
+Vision Darkvision																			PREVISION:1,Darkvision=1																			BONUS:VISION|Darkvision|30
+# TODO: Test these thoroughly, I recall an issue with Low-Light having a NULL value.
+
+### Block: Hero Points
+# Template Name		Visible		Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision								Modify VAR							Add to vision			Choose									Bonus Languages	Vision		Natural Attacks								Temporary effect description
+Hero Points			VISIBLE:DISPLAY	DEFINE:HeroPoints|0	DEFINE:HeroPointsMax|3
+Current Hero Points	VISIBLE:NO																															BONUS:VAR|HeroPoints|%CHOICE|PREAPPLY:ANYPC						CHOOSE:NUMBER|MIN=0|MAX=HeroPointsMax|TITLE=Hero Points																	TEMPDESC:Track Hero Points
+
+#
+# End
+#
