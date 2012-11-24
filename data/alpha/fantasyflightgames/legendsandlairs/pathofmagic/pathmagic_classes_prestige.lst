@@ -33,7 +33,7 @@ CLASS:Chanter	HD:6		TYPE:PC.Prestige	ABB:Cha		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:
 CLASS:Chanter	PREFEAT:1,Great Fortitude	PRESKILL:2,Concentration=8,Perform=8	PRESTAT:1,CON=13	PREVARGTEQ:BardicMusic,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Chanter	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Escape Artist|Gather Information|Intuit Direction|Jump|TYPE=Knowledge|Listen|Perform|TYPE=Profession|Sense Motive|Spellcraft|Tumble|Use Magic Device
-1	AUTO:FEAT|Simple Weapon Proficiency						WEAPONBONUS:Flail (Heavy)|Flail (Light)|Greatclub|Hammer (Light)|Warhammer
+1	AUTO:FEAT|Simple Weapon Proficiency						WEAPONBONUS:Flail|Flail (Light)|Greatclub|Hammer (Light)|Warhammer
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1	SAB:Timing Chant											ADD:SPELLCASTER|ANY	VFEAT:Endurance

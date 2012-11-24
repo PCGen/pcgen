@@ -76,7 +76,7 @@ CLASS:Maestro	HD:8		TYPE:PC.Prestige	ABB:Mae		MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:C
 CLASS:Maestro	PREFEAT:1,Leadership	PREFEAT:1,Skill Focus (Bluff),Skill Focus (Diplomacy),Skill Focus (Perform),Skill Focus (Sense Motive)	PRELANG:3,ANY	PRESKILL:4,Bluff=8,Sense Motive=8,Perform=12,Diplomacy=15	PRESPELLTYPE:1,Arcane=3	PRETEXT:Able to cast 3rd-level Bard spells. Quests: See Text.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Maestro	STARTSKILLPTS:8	CSKILL:Alchemy|Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Intuit Direction|Jump|TYPE=Knowledge|Listen|Move Silently|Perform|Pick Pocket|TYPE=Profession|Scry|Sense Motive|Speak Language|Spellcraft|Tumble|Use Magic Device
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
