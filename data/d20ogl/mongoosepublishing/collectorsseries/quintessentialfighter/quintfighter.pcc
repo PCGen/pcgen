@@ -41,6 +41,6 @@ EQUIPMENT:quintfighterequipweapranged.lst
 EQUIPMENT:quintfighterequipweapmelee.lst
 EQUIPMENT:quintfighterequip.lst
 FEAT:quintfighterfeats.lst
-FEAT:quintfighter_feats_hidden.lst
+#FEAT:quintfighter_feats_hidden.lst
 SKILL:quintfighterskills.lst
 WEAPONPROF:quintfighterweapprofs.lst

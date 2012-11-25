@@ -11,7 +11,7 @@ CLASS:Berserker	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:6,Cleave,Endurance,I
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Berserker	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Swim
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -40,7 +40,7 @@ CLASS:Knight of the Griffin	PREALIGN:LG	PREATT:7	PREFEAT:3,Great Cleave,Weapon F
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Griffin	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Ride|Sense Motive
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -57,7 +57,7 @@ CLASS:Legend	PREALIGN:LG,LN,LE	PREATT:15	PREFEAT:8,Endurance,Great Cleave,Great 
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Legend	STARTSKILLPTS:4	CSKILL:TYPE=Strength|TYPE=Intelligence|TYPE=Wisdom|TYPE=Constitution|TYPE=Dexterity|TYPE=Charisma
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -74,7 +74,7 @@ CLASS:Living Blade	PREATT:7	PREFEAT:3,Weapon Focus,Weapon Specialization,Whirlwi
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Living Blade	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Heal|Jump|Swim|Tumble
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -91,7 +91,7 @@ CLASS:Master Bowman	PREATT:12	PREFEAT:7,Far Shot,Point Blank Shot,Precise Shot,R
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Bowman	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Craft (Bowmaking)|Hide|Listen|Move Silently|Spot|Swim
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1									ABILITY:Special Ability|AUTOMATIC|Master shot ~ Master Bowman
@@ -107,7 +107,7 @@ CLASS:Noble Defender	PREALIGN:LG,LN,NG,TN	PREATT:9	PREFEAT:1,Leadership	PRESKILL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Noble Defender	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Knowledge (Nobility and Royalty)|Sense Motive
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -124,7 +124,7 @@ CLASS:Officer of War	PREALIGN:LG,LN,LE,NG,TN,NE	PREATT:7	PREFEAT:2,Endurance,Lea
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Officer of War	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Handle Animal|Heal|Intimidate|Jump|Knowledge (Military)|Swim|Wilderness Lore
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -156,7 +156,7 @@ CLASS:Swashbuckler	PREATT:5	PREFEAT:4,Dodge,Expertise,Improved Disarm,Mobility	P
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Diplomacy|Gather Information|Jump|Knowledge (Nobility and Royalty)|Ride|Swim|Tumble|Use Rope
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1	BONUS:COMBAT|AC|CL|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0													ABILITY:Special Ability|AUTOMATIC|Leaping Dodge ~ Swashbuckler
 2											BONUS:SKILL|Balance,Climb,Jump,Tumble|4

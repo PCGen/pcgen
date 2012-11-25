@@ -61,8 +61,8 @@ Freedom of Movement	KEY:Freedom of Movement ~ Swashbuckler		CATEGORY:Special Abi
 ###Block: Peasant Hero
 # Feat Name						Type			Visible	Special ABility			Stackable?	Multiple?	Choose																		Weapon prof. bonus							Source Page
 # Ability Name					Category of Ability		Type						Stackable?	Multiple?	Choose																		Weapon prof. bonus							Source Page
-Peasant Hero Weapon Competence Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility	STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC[Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short)|War Rake]	BONUS:WEAPONPROF=%LIST|TOHIT|1|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
-Peasant Hero 5th level Weapon Competence	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility	STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC[Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Short Spear|Sword (Short)|War Rake]	BONUS:WEAPONPROF=%LIST|TOHIT|2|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
+Peasant Hero Weapon Competence Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility	STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC[Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Shortspear|Sword (Short)|War Rake]	BONUS:WEAPONPROF=%LIST|TOHIT|1|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
+Peasant Hero 5th level Weapon Competence	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility	STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC[Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Shortspear|Sword (Short)|War Rake]	BONUS:WEAPONPROF=%LIST|TOHIT|2|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
 Inspire Commoners					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																		SOURCEPAGE:p.24
 Harmless Bluff					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																		SOURCEPAGE:p.24
 Improvise Weapon					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																		SOURCEPAGE:p.24
