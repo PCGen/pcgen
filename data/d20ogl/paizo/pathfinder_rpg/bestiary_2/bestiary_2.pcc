@@ -145,17 +145,6 @@ SPELL:pfb2_spells.lst
 TEMPLATE:pfb2_templates.lst
 WEAPONPROF:pfb2_prof_weapons_monsters.lst
 
-# Core II
-#PCC:bestiary_2_core/bestiary_2_core.pcc
-ABILITY:bestiary_2_core/pfb2_abilities_monsters_general.lst
-ABILITY:bestiary_2_core/pfb2_abilities_constant_spelllike.lst
-LANGUAGE:bestiary_2_core/pfb2_languages.lst
-SKILL:bestiary_2_core/pfb2_skills_conditional.lst
-TEMPLATE:bestiary_2_core/pfb2_templates_simple.lst
-TEMPLATE:bestiary_2_core/pfb2_templates_types.lst
-
-
-
 
 
 
