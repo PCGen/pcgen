@@ -8,7 +8,7 @@ Ring (Adder's /+2)				OUTPUTNAME:Adder's Ring +2			TYPE:Magic.Ring	COST:9000	WT:
 Ring (Adder's /+3)				OUTPUTNAME:Adder's Ring +3			TYPE:Magic.Ring	COST:19000	WT:0.02	SOURCEPAGE:p.46
 Ring (Adder's /+4)				OUTPUTNAME:Adder's Ring +4			TYPE:Magic.Ring	COST:33000	WT:0.02	SOURCEPAGE:p.46
 Ring (Adder's /+5)				OUTPUTNAME:Adder's Ring +5			TYPE:Magic.Ring	COST:51000	WT:0.02	SOURCEPAGE:p.46
-Ring (Monk's)					OUTPUTNAME:[NAME] Ring				TYPE:Magic.Ring	COST:18000	WT:0.02	SOURCEPAGE:p.47									ABILITY:Special Ability|VIRTUAL|Ki Strike|Monk Ki Strike Advancement																																	BONUS:VAR|KiStrikeLVL|6
+Ring (Monk's)					OUTPUTNAME:[NAME] Ring				TYPE:Magic.Ring	COST:18000	WT:0.02	SOURCEPAGE:p.47									ABILITY:Class Ability|VIRTUAL|Ki Strike	ABILITY:Internal|AUTOMATIC|Monk Ki Strike Advancement																																	BONUS:VAR|KiStrikeLVL|6
 Ring (Mugger's/Greater)				OUTPUTNAME:Mugger's Ring, Greater		TYPE:Magic.Ring	COST:25000	WT:0.02	SOURCEPAGE:p.47	VFEAT:Improved Unarmed Strike|Stunning Fist																SPELLS:Mugger's Ring, Greater|TIMES=1|CASTERLEVEL=12|Expeditious Retreat
 Ring (Mugger's/Lesser)				OUTPUTNAME:Mugger's Ring, Lesser		TYPE:Magic.Ring	COST:20000	WT:0.02	SOURCEPAGE:p.47	VFEAT:Improved Unarmed Strike|Stunning Fist
 Ring of Awareness												TYPE:Magic.Ring	COST:6250	WT:0.02	SOURCEPAGE:p.47																																											BONUS:SKILL|Listen,Spot|5|TYPE=Competence
