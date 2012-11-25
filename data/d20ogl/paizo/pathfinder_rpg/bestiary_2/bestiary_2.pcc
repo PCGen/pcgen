@@ -104,7 +104,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary 2" Copyright 201
 # Data Files
 ABILITYCATEGORY:pfb2_abilitycategories.lst
 ABILITY:pfb2_abilities_monsters_abc.lst
-ABILITY:pfb2_abilities_monsters_companions.lst
 ABILITY:pfb2_abilities_monsters_def.lst
 ABILITY:pfb2_abilities_monsters_dragons.lst
 ABILITY:pfb2_abilities_monsters_ghi.lst
@@ -115,11 +114,9 @@ ABILITY:pfb2_abilities_monsters_stu.lst
 ABILITY:pfb2_abilities_monsters_vw.lst
 ABILITY:pfb2_abilities_monsters_xyz.lst
 CLASS:pfb2_classes_monster_specific.lst
-COMPANIONMOD:pfb2_companion_mods.lst
 EQUIPMENT:pfb2_equip_monsters.lst
 FEAT:pfb2_feats.lst
 KIT:pfb2_kits_races_abc.lst
-KIT:pfb2_kits_races_companions.lst
 KIT:pfb2_kits_races_def.lst
 KIT:pfb2_kits_races_dragons.lst
 KIT:pfb2_kits_races_ghi.lst
@@ -130,7 +127,6 @@ KIT:pfb2_kits_races_stu.lst
 KIT:pfb2_kits_races_vw.lst
 KIT:pfb2_kits_races_xyz.lst
 RACE:pfb2_races_abc.lst
-RACE:pfb2_races_companions.lst
 RACE:pfb2_races_def.lst
 RACE:pfb2_races_dragons.lst
 RACE:pfb2_races_ghi.lst
