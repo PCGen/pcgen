@@ -1,0 +1,30 @@
+# CVS $Revision$ $Author$ -- Sat Apr 12 03:03:21 2008 -- reformated by prettylst.pl v1.38 (build 5580)
+SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
+#Original Entry:E. C. Smith (Maredudd), 2007; Andrew Maitland
+
+#Potions
+# Equipment Name							Output Name				Type					Cost		Weight	Source Page
+Potion (Greater Bloodwrath)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:2000	WT:0.02	SOURCEPAGE:p.40
+Potion (Lesser Bloodwrath)					OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:250	WT:0.02	SOURCEPAGE:p.40
+Potion (Draught of the Saddle Born)				OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Potion.Consumable	COST:600	WT:0.02	SOURCEPAGE:p.41
+Potion (Elixir of the Oracle)					OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:10000	WT:0.02	SOURCEPAGE:p.41
+Potion (Elixir of the Valinor's Heart)			OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:800	WT:0.02	SOURCEPAGE:p.41
+Potion (Elixir of the Valinor's Heart ~ Greater)	OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:3200	WT:0.02	SOURCEPAGE:p.41
+Potion (Elixir of Water)					OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:150	WT:0.02	SOURCEPAGE:p.41
+Potion (Holy Tiger Draught)					OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:2500	WT:0.02	SOURCEPAGE:p.42
+Potion (Il'huan Ichor Draught)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:1200	WT:0.02	SOURCEPAGE:p.42
+Potion (Oil of Beast Repulsion)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:1650	WT:0.02	SOURCEPAGE:p.42
+Potion (Oil of Deflection)					OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:5400	WT:0.02	SOURCEPAGE:p.42
+Potion (Oil of Puissance)					OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:1500	WT:0.02	SOURCEPAGE:p.42
+Potion (Oil of Pyrotechnics)					OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:750	WT:0.02	SOURCEPAGE:p.42
+Potion (Oil of Scent Masking)					OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:250	WT:0.02	SOURCEPAGE:p.43
+Potion (Potion of Poison Spittle)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:4000	WT:0.02	SOURCEPAGE:p.43
+Potion (Potion of Putrescence)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:900	WT:0.02	SOURCEPAGE:p.43
+Potion (Potion of Satiety)					OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:1250	WT:0.02	SOURCEPAGE:p.43
+Potion (Potion of Satiety ~ Lesser)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:450	WT:0.02	SOURCEPAGE:p.43
+Potion (Potion of Steely Nerves)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:2250	WT:0.02	SOURCEPAGE:p.43
+Potion (Potion of Uncanny Alertness)			OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:250	WT:0.02	SOURCEPAGE:p.43
+Potion (Voei Troll-skin Salve)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:8000	WT:0.02	SOURCEPAGE:p.44
+Potion (Warpaints of the Skohir)				OUTPUTNAME:[NAME]			TYPE:Magic.Potion.Consumable	COST:1000	WT:0.02	SOURCEPAGE:p.44
+
+#EOF
