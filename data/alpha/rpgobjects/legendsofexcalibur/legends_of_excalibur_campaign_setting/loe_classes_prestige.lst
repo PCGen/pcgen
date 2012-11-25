@@ -54,7 +54,7 @@ CLASS:Berserker	PREABILITY:1,CATEGORY=Special Ability,Rage	PREATT:10	PREFEAT:3,P
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Berserker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 1																								AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1									BONUS:VAR|RageTimes|CL/3+1	BONUS:VAR|GreaterRage|1
@@ -107,7 +107,7 @@ CLASS:Crusader	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Hea
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
 CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Crusader|CL-2|PRECLASS:1,Crusader=3
 1																												AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1												BONUS:VAR|SmiteInfidel|CL/5+1												DEFINE:SmiteInfidel|0					VFEAT:Power Source(Crusader)
@@ -161,7 +161,7 @@ CLASS:Quest Knight	HD:12		TYPE:PC.Prestige	ABB:QKn		MAXLEVEL:10	SOURCEPAGE:43	BO
 CLASS:Quest Knight	PREATT:10	PREFEAT:3,Faith,Piety,Mounted Combat	PRESA:1,Code of Chivalry	PRESKILL:2,Knowledge (Nobility and Royalty)=10,Ride=10	PRESTAT:1,NOB=71
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Quest Knight	STARTSKILLPTS:2	CSKILL:Diplomacy|Heal|Intimidate|Knowledge (Nobility and Royalty)|Ride|Survival
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																												AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
 ###Block: Normal Level Progression
@@ -200,7 +200,7 @@ CLASS:Black Knight	HD:12		TYPE:PC.Prestige	ABB:BkKn		MAXLEVEL:10	SOURCEPAGE:46	B
 CLASS:Black Knight	PREATT:7	PRESKILL:3,Ride=10,Intimidate=10,Knowledge (Nobility and Royalty)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Black Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|TYPE=Profession|Ride|Swim
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																												AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
 ###Block: Normal Level Progression
@@ -218,7 +218,7 @@ CLASS:Blue Knight	PREATT:7	PREFEAT:2,Faith,Piety	PRESA:1,Code of Chivalry	PRESKI
 CLASS:Blue Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
 CLASS:Blue Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Blue Knight|CL-2|PRECLASS:1,Blue Knight=3
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																												AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
 ###Block: Normal Level Progression
@@ -239,7 +239,7 @@ CLASS:Green Knight	HD:10		TYPE:PC.Prestige	ABB:GrKn		MAXLEVEL:10	SOURCEPAGE:48	B
 CLASS:Green Knight	PREATT:7	PREFEAT:3,Alertness,Animal Affinity,Track
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Green Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Spot|Survival|Swim
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																												AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
 ###Block: Normal Level Progression
@@ -258,7 +258,7 @@ CLASS:Purple Knight	HD:10		TYPE:PC.Prestige	ABB:PKn		MAXLEVEL:10	SOURCEPAGE:49	B
 CLASS:Purple Knight	PREATT:5	PRESKILL:3,Diplomacy=5,Ride=10,Handle Animal=10	PRESTAT:1,NOB=50
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Purple Knight	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Listen|TYPE=Profession|Ride|Sense Motive
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																												AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
 ###Block: Normal Level Progression
@@ -274,7 +274,7 @@ CLASS:Red Knight	PREATT:5	PRESKILL:3,Hide=5,Bluff=5,Ride=5	PREVARGTEQ:SneakAttac
 CLASS:Red Knight	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Disguise|Forgery|Gather Information|Handle Animal|Hide|Intimidate|Jump|Knowledge (Nobility and Royalty)|Listen|Move Silently|TYPE=Profession|Ride|Sleight of Hand
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Red Knight	SPELLSTAT:WIS	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Red Knight|CL-2|PRECLASS:1,Red Knight=3
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																												AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
 ###Block: Normal Level Progression
@@ -297,7 +297,7 @@ CLASS:White Knight	PREATT:7	PREFEAT:2,Faith,Piety	PRESA:1,Code of Chivalry	PRESK
 CLASS:White Knight	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Prophecy|Ride|Sense Motive
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
 CLASS:White Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|White Knight|CL-2|PRECLASS:1,White Knight=3
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																												AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
 ###Block: Normal Level Progression

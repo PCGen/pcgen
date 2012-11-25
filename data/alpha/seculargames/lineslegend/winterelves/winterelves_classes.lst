@@ -47,7 +47,7 @@ CLASS:Knight of the Frostfang	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Frostfang	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Hide|Intimidate|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block:general
@@ -78,7 +78,7 @@ CLASS:Wayjik Demon Hunter	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
 CLASS:Wayjik Demon Hunter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Wayjik Demon Hunter|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Spell list

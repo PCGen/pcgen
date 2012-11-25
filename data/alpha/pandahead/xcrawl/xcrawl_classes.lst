@@ -38,7 +38,7 @@ CLASS:Athlete	HD:10		TYPE:Base.PC	ABB:Ath		SOURCEPAGE:p.135	BONUS:CHECKS|BASE.Fo
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Athlete	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|Drive|Intimidate|Jump|Knowledge (Dungeon Crawl)|Knowledge (Sports)|Perform|TYPE=Profession|Ride|Sense Motive|Spot|Swim|Tumble
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Sport
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Sport
 ###Block: Normal Level Progression
 1	SAB:Constant Training	SAB:% Favored Sports|FavSports	BONUS:VAR|FavSports|CL/5+1	DEFINE:FavSports|0	ADD:FEAT|TYPE=Athlete
 4																				ADD:FEAT|TYPE=Athlete
@@ -70,7 +70,7 @@ CLASS:Trapper	PREATT:6	PREFEAT:1,Track	PRESKILL:4,Handle Animal=6,Knowledge (Mon
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Trapper	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Handle Animal|Hide|Intuit Direction|Knowledge (Monster Lore)|Listen|Move Silently|Search|Sense Motive|Spot|Use Rope|Wilderness Lore
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|Net|Arrow (tranquilizer)
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Net|Arrow (tranquilizer)
 ###Block: Normal Level Progression
 1	SAB:Subdual Specialist	SAB:Favored Prey
 2	SAB:Scent	SAB:Exotic Weapon %|EW					DEFINE:EW|1	ADD:FEAT|Exotic Weapon Proficiency
