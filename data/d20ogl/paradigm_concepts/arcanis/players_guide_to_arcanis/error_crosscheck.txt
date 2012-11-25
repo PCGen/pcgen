@@ -1,0 +1,136 @@
+================================================================
+Messages generated while parsing the .LST files
+----------------------------------------------------------------
+
+/Volumes/Europa/Development/prettylst/IN/playersguidetoarcanis/playersguidetoarcanis_abilities_class_base.lst
+  -(Line 101): the TIMES= parameter is missing in "SPELLS:Rituals|Guidance|Light|Purify Food and Drink|Bless|Comprehend Languages|Protection from Good|Protection from Evil|Protection from Chaos|Protection from Law|Align Weapon|Consecrate|Desecrate|Gentle Repose|Create Food and Water|Magic Circle against Law|Magic Circle against Chaos|Magic Circle against Good|Magic Circle against Evil"
+  -(Line 101): the CASTERLEVEL= parameter is missing in "SPELLS:Rituals|Guidance|Light|Purify Food and Drink|Bless|Comprehend Languages|Protection from Good|Protection from Evil|Protection from Chaos|Protection from Law|Align Weapon|Consecrate|Desecrate|Gentle Repose|Create Food and Water|Magic Circle against Law|Magic Circle against Chaos|Magic Circle against Good|Magic Circle against Evil"
+
+  -(Line 189): The CHOOSE tag is mandantory when MULT:YES is present in ABILITY "Dragon Apotheosis"
+
+Eddy: if the CHOOSE is for a temporary bonus then MULT:YES is not needed and prettylst will give you a false positive, in this case there is no choose, you have a TEMPLATE:CHOOSE: which is not the same thing and the MULT:YES should be removed.
+
+  -(Line 315): the CASTERLEVEL= parameter is missing in "SPELLS:Innate|TIMES=ATWILL|Polymorph (OID)"
+
+/Volumes/Europa/Development/prettylst/IN/playersguidetoarcanis/playersguidetoarcanis_abilities_class_prestige.lst
+  -(Line 368): The CHOOSE tag is mandantory when MULT:YES is present in ABILITY "Flexible Spell Slot 1st Lvl"
+  -(Line 369): The CHOOSE tag is mandantory when MULT:YES is present in ABILITY "Flexible Spell Slot 2nd Lvl"
+  -(Line 370): The CHOOSE tag is mandantory when MULT:YES is present in ABILITY "Flexible Spell Slot 3rd Lvl"
+  -(Line 371): The CHOOSE tag is mandantory when MULT:YES is present in ABILITY "Flexible Spell Slot 4th Lvl"
+  -(Line 372): The CHOOSE tag is mandantory when MULT:YES is present in ABILITY "Flexible Spell Slot 5th Lvl"
+  -(Line 373): The CHOOSE tag is mandantory when MULT:YES is present in ABILITY "Flexible Spell Slot 6th Lvl"
+  -(Line 374): The CHOOSE tag is mandantory when MULT:YES is present in ABILITY "Flexible Spell Slot 7th Lvl"
+  -(Line 375): The CHOOSE tag is mandantory when MULT:YES is present in ABILITY "Flexible Spell Slot 8th Lvl"
+  -(Line 376): The CHOOSE tag is mandantory when MULT:YES is present in ABILITY "Flexible Spell Slot 9th Lvl"
+
+Eddy: if these feats can be taken multiple times but no choice is needed use CHOOSE:NOCHOICE
+
+/Volumes/Europa/Development/prettylst/IN/playersguidetoarcanis/playersguidetoarcanis_abilities_race.lst
+  -(Line 120): The MULT:YES tag is mandatory when CHOOSE is present in ABILITY "The Wild Within"
+
+/Volumes/Europa/Development/prettylst/IN/playersguidetoarcanis/playersguidetoarcanis_classes.lst
+   (Line 41): Forgot to use var()? Dubious use of Jep variable assignation near "CL=" in "BONUS:VAR|BardicKnowledgeLevel|((CL=Althares)/2)"
+
+Eddy: Prettylst will give you this JEP warning even though "CL=Name" is valid, it's just not JEP, however...
+
+If you have a CL=Name used in a class that is referencing itself you should always just use "CL". 
+This is because if the class is .COPYed then the CL references will work in the new class, however...
+
+The reference used above, CL=Althares, is not valid. It is within a subclass named "Priest of Althares"  
+so the first error is that CL always refers to class (in this case Priest) never subclass, 
+and the second error is that even if it did you didn't use the full name of the subclass.
+
+The fix here is to change the refernce to "CL" alone.
+
+
+  -(Line 170): Missing BONUS:CASTERLEVEL for "CLASS:Holy Champion"
+
+Eddy: looks like you got the BONUS:CASTERLEVEL on all the subclass lines, should probably delete those and just put one on the class line.
+
+/Volumes/Europa/Development/prettylst/IN/playersguidetoarcanis/playersguidetoarcanis_classes_prestige.lst
+   (Line 637): The tag "SPELLLEVEL:CLASS" should not be used more than once on the same CLASS Level line.
+   (Line 640): The tag "SPELLLEVEL:CLASS" should not be used more than once on the same CLASS Level line.
+
+
+/Volumes/Europa/Development/prettylst/IN/playersguidetoarcanis/playersguidetoarcanis_feats.lst
+  -(Line 76): The MULT:YES tag is mandatory when CHOOSE is present in FEAT "Courtesan/Paramour"
+  -(Line 147): The MULT:YES tag is mandatory when CHOOSE is present in FEAT "Honeyed Tongue"
+
+
+/Volumes/Europa/Development/prettylst/IN/playersguidetoarcanis/playersguidetoarcanis_mod_classes.lst
+   (Line 26): Forgot to use var()? Dubious use of Jep variable assignation near "CL=" in "BONUS:VAR|BardicKnowledgeLevel|((CL=Althares)/2)"
+   (Line 48): Forgot to use var()? Dubious use of Jep variable assignation near "CL=" in "BONUS:VAR|BardicKnowledgeLevel|((CL=Larissan Oracle)/2)"
+   (Line 48): Jep syntax error near "Oracle" found in "BONUS:VAR|BardicKnowledgeLevel|((CL=Larissan Oracle)/2)"
+
+
+
+================================================================
+Cross-reference problems found
+----------------------------------------------------------------
+
+/Volumes/Europa/Development/prettylst/IN/playersguidetoarcanis/playersguidetoarcanis_classes_prestige.lst
+
+   (Line 211): No FEAT entry for "AUTO:FEAT:PREMULT:1,"
+   (Line 215): No FEAT entry for "AUTO:FEAT:PREMULT:1,"
+   (Line 246): No FEAT entry for "PREFEAT:Domain Focus (Refuge)"
+
+Eddy: This message above is a false positive, prettylst can't match up Feat(choice) specifications.
+I would note that when using parenthese to denote a choice you should not include a space, like this:  PREFEAT:Domain Focus(Refuge)
+
+   (Line 314): No SPELL entry for "Bear’s Endurance" in "SPELLLEVEL:CLASS|Master of the Hounds=2|Aid,Bear’s Endurance,Bull’s Strength,Cure Moderate Wounds,Daze Monster,Heroism,Hold Animal,Summon Nature’s Ally II (MoH)"
+   (Line 314): No SPELL entry for "Bull’s Strength" in "SPELLLEVEL:CLASS|Master of the Hounds=2|Aid,Bear’s Endurance,Bull’s Strength,Cure Moderate Wounds,Daze Monster,Heroism,Hold Animal,Summon Nature’s Ally II (MoH)"
+   (Line 314): No SPELL entry for "Summon Nature’s Ally II (MoH)" in "SPELLLEVEL:CLASS|Master of the Hounds=2|Aid,Bear’s Endurance,Bull’s Strength,Cure Moderate Wounds,Daze Monster,Heroism,Hold Animal,Summon Nature’s Ally II (MoH)"
+   (Line 317): No SPELL entry for "Greater Magic Fang" in "SPELLLEVEL:CLASS|Master of the Hounds=3|Blink,Deep Slumber,Dominate Animal,Greater Magic Fang,Haste,Summon Nature’s Ally III (MoH)"
+   (Line 317): No SPELL entry for "Summon Nature’s Ally III (MoH)" in "SPELLLEVEL:CLASS|Master of the Hounds=3|Blink,Deep Slumber,Dominate Animal,Greater Magic Fang,Haste,Summon Nature’s Ally III (MoH)"
+   (Line 321): No SPELL entry for "Mage’s Faithful Hound" in "SPELLLEVEL:CLASS|Master of the Hounds=4|Animal Growth,Charm Monster,Cure Serious Wounds,Freedom of Movement,Mage’s Faithful Hound,Summon Nature’s Ally IV (MoH)"
+   (Line 321): No SPELL entry for "Summon Nature’s Ally IV (MoH)" in "SPELLLEVEL:CLASS|Master of the Hounds=4|Animal Growth,Charm Monster,Cure Serious Wounds,Freedom of Movement,Mage’s Faithful Hound,Summon Nature’s Ally IV (MoH)"
+   (Line 391): No SPELL entry for "Bear’s Endurance" in "SPELLLEVEL:CLASS|Onaran Templar=2|Aid,Bull’s Strength,Bear’s Endurance,Cat’s Grace"
+   (Line 391): No SPELL entry for "Bull’s Strength" in "SPELLLEVEL:CLASS|Onaran Templar=2|Aid,Bull’s Strength,Bear’s Endurance,Cat’s Grace"
+   (Line 391): No SPELL entry for "Cat’s Grace" in "SPELLLEVEL:CLASS|Onaran Templar=2|Aid,Bull’s Strength,Bear’s Endurance,Cat’s Grace"
+   (Line 398): No SPELL entry for "Beltine’s Blessed Strike" in "SPELLLEVEL:CLASS|Onaran Templar=4|Beltine’s Blessed Strike,Death Ward,Divine Smite,Restoration,Sword of Faith"
+
+Eddy: The problem here is the "’" character which has been replaced for the "'" chanracter, you can probably do a simple find/replace for it.
+
+   (Line 479): No DOMAIN entry for "DOMAIN:Binding[PRESPELLCAST:TYPE=Divine]"
+   (Line 581): No SPELL entry for "Pass Without Trace" in "SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alarm,Detect Animals or Plants,Detect Snares and Pits,Feather Fall,Jump,Pass Without Trace,Resist Elements,Shillelagh (UR)"
+   (Line 581): No SPELL entry for "Resist Elements" in "SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alarm,Detect Animals or Plants,Detect Snares and Pits,Feather Fall,Jump,Pass Without Trace,Resist Elements,Shillelagh (UR)"
+   (Line 581): No SPELL entry for "Shillelagh (UR)" in "SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alarm,Detect Animals or Plants,Detect Snares and Pits,Feather Fall,Jump,Pass Without Trace,Resist Elements,Shillelagh (UR)"
+   (Line 584): No SPELL entry for "Protection from Elements" in "SPELLLEVEL:CLASS|Ulfilan Ranger=2|Cure Light Wounds,Delay Poison,Heat Metal,Protection from Elements,Shocking Grasp,Spider Climb"
+   (Line 586): No CLASS entry for "Storm" in "SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alter Wind|Ulfilan Ranger=2|Endure Elements|Ulfilan Ranger=3|Lightning Bolt|Ulfilan Ranger=4|Call Lightning Storm|Ulfilan Ranger=5|Control Winds|Storm=6|Wind Walk|Ulfilan Ranger=7|Control Weather|Ulfilan Ranger=8|Whirlwind|Ulfilan Ranger=9|Storm of Vengeance"
+   (Line 689): No FEAT entry for "PREFEAT:Exotic Weapon Proficiency (Sword (Two-Bladed))"
+   (Line 701): No FEAT entry for "PREFEAT:Exotic Weapon Proficiency (Steel Whip)"
+   (Line 707): No FEAT entry for "PREFEAT:Exotic Weapon Proficiency (Sword (Kio))"
+   (Line 713): No FEAT entry for "PREFEAT:Exotic Weapon Proficiency (Sword (Kio))"
+
+/Volumes/Europa/Development/prettylst/IN/playersguidetoarcanis/playersguidetoarcanis_feats.lst
+
+   (Line 64): No FEAT entry for "PREFEAT:Exotic Weapon Proficiency(TYPE=Flintlock)"
+   (Line 69): No ABILITY entry for "PREABILITY:Shield Proficiency"
+   (Line 69): No ABILITY entry for "PREABILITY:Tower Shield Proficiency"
+
+Eddy: These should be PREFEAT shouldn't they?
+
+   (Line 121): No FEAT entry for "PREFEAT:Exotic Weapon Proficiency(TYPE=Ranged)"
+   (Line 169): No FEAT entry for "PREFEAT:Exotic Weapon Proficiency(TYPE=Pistol)"
+   (Line 200): No FEAT entry for "PREFEAT:Exotic Weapon Proficiency(TYPE=Ranged)"
+
+Eddy: I don't know if TYPE=x will work this way, have you tested this (let me know)
+
+
+/Volumes/Europa/Development/prettylst/IN/playersguidetoarcanis/playersguidetoarcanis_mod_classes.lst
+   (Line 26): No DEFINE Variable entry for "Althares" in "BONUS:VAR|BardicKnowledgeLevel|((CL=Althares)/2)"
+
+   (Line 219): No SKILL entry for "CSKILL:Examine Martial Technique[PRESUBCLASS:1,Egoist]"
+
+Eddy: The docs don't show this syntax, have you tested it.
+I suspect it doesn't in which case you can put the tag in a hidden feat and put the PRESUBCLASS on a VFEAT
+
+
+/Volumes/Europa/Development/prettylst/IN/playersguidetoarcanis/playersguidetoarcanis_templates.lst
+   (Line 150): No TEMPLATE entry for "TEMPLATE:ADDCHOICE:DellenovFavClassM"
+   (Line 170): No TEMPLATE entry for "TEMPLATE:ADDCHOICE:DellenovFavClassM"
+
+Eddy: This is incorrect usage, 
+TEMPLATE:ADDCHOICE is always used in a .MOD 
+otherwise how does PCGen know which TEMPLATE:CHOOSE you are adding choices too?
+

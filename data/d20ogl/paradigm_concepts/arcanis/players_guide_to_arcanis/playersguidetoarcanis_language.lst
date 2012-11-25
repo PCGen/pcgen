@@ -1,0 +1,35 @@
+# CVS $Revision$ $Author$ -- Wed Sep  3 17:24:32 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+
+SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
+
+# Errata from 2006-06-03 applied - ancient languages with no one to teach then left off
+# additional core languages on FORGET list
+# Language				Product Identity?	Type
+Altharin				NAMEISPI:YES	TYPE:Spoken.Written.Read
+Ancient Altharin(Imperial)	NAMEISPI:YES	TYPE:Spoken.Written.Imperial
+Cancerese				NAMEISPI:YES	TYPE:Spoken.Written.Canceri
+Chauni				NAMEISPI:YES	TYPE:Spoken.Written.Chauni
+Druidic							TYPE:Secret.Spoken.Written.Druidic
+Dwarven							TYPE:Spoken.Written.Dwarf
+Eloran				NAMEISPI:YES	TYPE:Spoken.Written.Elorii
+Gnollish							TYPE:Spoken
+Golic					NAMEISPI:YES	TYPE:Spoken.Written
+Harnen				NAMEISPI:YES	TYPE:Spoken.Written
+High Coryani			NAMEISPI:YES	TYPE:Spoken.Written.High
+High Khitani			NAMEISPI:YES	TYPE:Spoken.Written.HighK
+Infernal				NAMEISPI:YES	TYPE:Spoken.Written.Infernal
+Kio					NAMEISPI:YES	TYPE:Spoken.Written
+Low Coryani				NAMEISPI:YES	TYPE:Spoken.Written.Low
+Low Khitani				NAMEISPI:YES	TYPE:Spoken.Written.LowK
+Milandisian				NAMEISPI:YES	TYPE:Spoken.Written.Milandisian
+Myrantian				NAMEISPI:YES	TYPE:Spoken.Written.Myrantian
+Ss'ressen				NAMEISPI:YES	TYPE:Spoken.Written.Reptile
+Ssethric				NAMEISPI:YES	TYPE:Spoken.Written
+Unden					NAMEISPI:YES	TYPE:Spoken.Written
+Yhing Hir				NAMEISPI:YES	TYPE:Spoken.Written.Ying
+Ymandrake				NAMEISPI:YES	TYPE:Spoken.Written
+Literacy							TYPE:Written
+
+#Elemental Languages
+Celestial							TYPE:Spoken
+Sylvan							TYPE:Spoken

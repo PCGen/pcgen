@@ -1,0 +1,237 @@
+# CVS $Revision$ $Author$ -- Wed Apr  2 14:10:13 2008 -- reformated by prettylst.pl v1.38 (build 5580)
+CAMPAIGN:Player's Guide to Arcanis
+GAMEMODE:35e
+# The active Type tag is temporary and will be removed when this source graduates from Alpha
+#TYPE:Alpha Datasets
+
+RANK:1
+TYPE:Paradigm Concepts
+BOOKTYPE:Core Rules
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Player's Guide to Arcanis]
+SOURCELONG:Player's Guide to Arcanis
+SOURCESHORT:PGtA
+SOURCEWEB:http://www.paradigmconcepts.com
+SOURCEDATE:2004-06
+ISLICENSED:YES
+LICENSE:All bold type Deity Names, Equipment Names, Feat Names, Spell Names, and Bloodline Powers referenced in this set are Copyright Paradigm Concepts, Inc.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003 Wizards of de Coast, Inc., Authors Jonathan Tweet, Monte Cook, Skip Williams, Rick Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Coedell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Unearthed Arcana, Copyright 2004, Wizards of the Coast, Inc.
+COPYRIGHT:Spear of the Lohgin, Copyright 2000, Paradigm Concepts, Inc.
+COPYRIGHT:Blood Reign of Nishanpur, Copyright 2001, Paradigm Concepts, Inc.
+COPYRIGHT:Bloody Sands of Sicaris, Copyright o 2001, Paradigm Concepts, Inc,
+COPYRIGHT:Codex Arcanis, Copyright 2001, Paradigm Concepts, lnc.,
+COPYRIGHT:Encyclopedia Arcana: Necromancy Copyright 2001, Mongoose Publishing
+COPYRIGHT:Nyambe: African Adventures Copyright 2002, Atlas Games
+COPYRIGHT:Forged in Magic, Copyright 2002, Paradigm Concepts, Inc.
+COPYRIGHT:Gar'Udaks Necromantic Artes-Copyright 2002, Ambient
+COPYRIGHT:Librium Equitis, Copyright 2001, Ambient
+COPYRIGHT:Lords of the Peaks, Copyright 2002, Paradigm Concepts, Inc.
+COPYRIGHT:Carnival of Swords, Copyright 2002, Paradigm Concepts, Inc
+COPYRIGHT:Eldest Sons, Copyright 2002, Paradigm Concepts, Inc.
+COPYRIGHT:Path of Magic, Copyright 2002, Fantasy Flight Games
+COPYRIGHT:Path of Faith, Copyright 2002, Fantasy Flight Games
+COPYRIGHT:Death in Freeport, Copyright 2000, Green Ronin Publishing
+COPYRIGHT:Terror in Freeport, Copyright 2001, Green Ronin Publishing
+COPYRIGHT:Madness in Freeport, Copyright 2001, Green Ronin Publishing
+COPYRIGHT:Secret College of Necromancy, Copyright 2002, Green Ronin Publishing
+COPYRIGHT:Freeport City of Adventure, Copyright 2002, Green Ronin Publishing
+COPYRIGHT:Book of the Righteous, The, Copyright 2002, Green Ronin Publishing
+COPYRIGHT:Hammer & Helm, Copyright 2002, Green Ronin Publishing
+COPYRIGHT:Evil, Copyright 2001, Alderac Entertainment Group
+COPYRIGHT:Good, Copyright 2001, Alderac Entertainment Group
+COPYRIGHT:Undead, Copyright 2001, Alderac Entertainment Group
+COPYRIGHT:Magic, Copyright 2002, Alderac Entertainment Group
+COPYRIGHT:Swashbuckling Adventures, Copyright 2002, Alderac Entertainment Group
+COPYRIGHT:Lock & Load, Iron Kingdoms Character Primer, Copyright 2003, Privateer Press
+COPYRIGHT:Relics and Rituals, Copyright 2000, White Wolf Publishing
+COPYRIGHT:Players Guide to Wizards, Bards and Sorcerers, Copyright 2003, White Wolf Publishing
+COPYRIGHT:Players Guide to Fighters and Barbarians, Copyright 2003, White Wolf Publishing
+COPYRIGHT:Spells and Spellcraft, Copyright 2002, Fantasy Flight Games
+COPYRIGHT:School of Evocation, Copyright 2003 Fantasy Flight Games
+COPYRIGHT:Slaves of the Moon, Copyright 2004, Paradigm Concepts, Inc.
+COPYRIGHT:In the Shadow of the Devil, Copyright 2004, Paradigm Concepts, Inc
+COPYRIGHT:The Player's Guide to Arcanis, Copyright 2004 Paradigm Concepts, Inc.
+
+COPYRIGHT:PCGen dataset conversion for The Player's Guide to Arcanis Copyright 2006-2007, PCGen Data team (Including, but not limited to Evan Miller, Eddy Anthony (MoSaT), Andrew McDougall (Tir Gwaith))
+
+INFOTEXT:This is a campaign dataset, it loads the parts of the RSRD dataset needed to support the Arcanis Setting. You should not load the RSRD dataset with this or errors may result.
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# RSRD Imports - Basics
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_monsters.lst
+ABILITYCATEGORY:@/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
+CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst|(EXCLUDE:Cleric)
+CLASS:@/d20ogl/srd35/basics/rsrd_classes_monsters.lst
+CLASS:@/d20ogl/srd35/basics/rsrd_classes_npc.lst
+#COMPANIONMOD:@/d20ogl/srd35/basics/rsrd_companionmods.lst
+DOMAIN:@/d20ogl/srd35/basics/rsrd_domains_divine.lst|(EXCLUDE:Charm|Glory)
+DOMAIN:@/d20ogl/srd35/basics/rsrd_domains.lst|EXCLUDE(Good|Evil|Law|Chaos)
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_armorshields.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_basetypes.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_coinsgems.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_poisons.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_armorshields.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_ammo.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_melee.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_natural.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_ranged.lst
+EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip.lst
+EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_base.lst
+EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_enhancing.lst
+FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden.lst
+FEAT:@/d20ogl/srd35/basics/rsrd_feats_hidden2.lst
+FEAT:@/d20ogl/srd35/basics/rsrd_feats_monster.lst
+FEAT:@/d20ogl/srd35/basics/rsrd_feats.lst
+KIT:@/d20ogl/srd35/basics/rsrd_kits_races__animals.lst
+LANGUAGE:@/d20ogl/srd35/basics/rsrd_languages.lst|(EXCLUDE:Draconic|Gnome|Halfling|Elven)
+ARMORPROF:@/d20ogl/srd35/basics/rsrd_profs_armor.lst
+SHIELDPROF:@/d20ogl/srd35/basics/rsrd_profs_shield.lst
+RACE:@/d20ogl/srd35/basics/rsrd_races__animals.lst
+RACE:@/d20ogl/srd35/basics/rsrd_races__base.lst|(EXCLUDE:Elf|Half-Elf|Halfling)
+SKILL:@/d20ogl/srd35/basics/rsrd_skills.lst
+SPELL:@/d20ogl/srd35/basics/rsrd_spells.lst
+TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_hidden.lst
+TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_types.lst
+WEAPONPROF:@/d20ogl/srd35/basics/rsrd_weaponprofs.lst
+
+# RSRD Imports - Advanced
+
+ABILITY:@/d20ogl/srd35/advanced/rsrd_abilities_class_prestige.lst
+ABILITYCATEGORY:@/d20ogl/srd35/advanced/rsrd_ability_categories_advanced.lst
+CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst
+EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_armorshields_specific.lst
+EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_potions.lst
+EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_rings.lst
+EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_rodsstaffswands.lst
+EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_scrolls.lst
+EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_weap_ammo_specific.lst
+EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_weap_melee_specific.lst
+EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_weap_ranged_specific.lst
+EQUIPMENT:@/d20ogl/srd35/advanced/rsrd_equip_wondrousitems.lst
+SPELL:@/d20ogl/srd35/advanced/rsrd_spells_class_prestige.lst
+
+# RSRD Imports - Monsters
+ABILITY:@/d20ogl/srd35/monsters/rsrd_monsters_abilities_racial.lst
+ABILITYCATEGORY:@/d20ogl/srd35/monsters/rsrd_ability_categories_monster.lst
+CLASS:@/d20ogl/srd35/monsters/rsrd_classes_monsters_dragons.lst
+CLASS:@/d20ogl/srd35/monsters/rsrd_classes_monsters_specific.lst
+FEAT:@/d20ogl/srd35/monsters/rsrd_feats_templates.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races__vermin.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_a_b.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_a_b_extras.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_a_b_treasure.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_c_d.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_e_f.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_g_h.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_g_h_extras.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_i_j.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_k_l.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_k_l_extras.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_m_n.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_m_n_extras.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_o_p.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_o_p_extras.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_q_r.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_s_t.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_s_t_extras.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_u_v.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_u_v_extras.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_w_x.lst
+KIT:@/d20ogl/srd35/monsters/rsrd_kits_races_y_z.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races__dragons.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races__vermin.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_a_b.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_c_d.lst|(EXCLUDE:Dwarf (Deep)|Dinosaur (Deinonychus)|Dinosaur (Elasmosaurus)|Dinosaur (Megaraptor)|Dinosaur (Triceratops)|Dinosaur (Tyrannosaurus))
+RACE:@/d20ogl/srd35/monsters/rsrd_races_e_f.lst|(EXCLUDE:Elf (Wild)|Elf (Drow)|Elf (Wood)|Elf (Aquatic)|Elf (Grey))
+RACE:@/d20ogl/srd35/monsters/rsrd_races_g_h.lst|(EXCLUDE:Gnome (Forest)|Gnome (Svirfneblin))
+RACE:@/d20ogl/srd35/monsters/rsrd_races_i_j.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_k_l.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_m_n.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_o_p.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_q_r.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_s_t.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_u_v.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_w_x.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_y_z.lst
+RACE:@/d20ogl/srd35/monsters/rsrd_races_y_z.lst
+TEMPLATE:@/d20ogl/srd35/monsters/rsrd_templates_monsters.lst
+TEMPLATE:@/d20ogl/srd35/monsters/rsrd_templates.lst
+
+# RSRD Imports -  Psionics
+ABILITY:@/d20ogl/srd35/psionics/rsrd_abilities_psionic_hidden.lst
+ABILITYCATEGORY:@/d20ogl/srd35/psionics/rsrd_ability_categories_psionic.lst
+CLASS:@/d20ogl/srd35/psionics/rsrd_classes_psionic_monsters.lst
+CLASS:@/d20ogl/srd35/psionics/rsrd_classes_psionic_prestige.lst
+CLASS:@/d20ogl/srd35/psionics/rsrd_classes_psionic.lst|(EXCLUDE:Cerebremancer,Elocator,Psion Uncarnate,Thrallherd)
+COMPANIONMOD:@/d20ogl/srd35/psionics/rsrd_companionmods_psionic.lst
+EQUIPMENT:@/d20ogl/srd35/psionics/rsrd_equip_psionic.lst
+EQUIPMENT:@/d20ogl/srd35/psionics/rsrd_equip_weap_psionic.lst
+EQUIPMOD:@/d20ogl/srd35/psionics/rsrd_equipmods_psionic_enhancing.lst
+EQUIPMOD:@/d20ogl/srd35/psionics/rsrd_equipmods_psionic.lst
+FEAT:@/d20ogl/srd35/psionics/rsrd_feats_psionic_hidden.lst
+FEAT:@/d20ogl/srd35/psionics/rsrd_feats_psionic.lst|(EXCLUDE:CATEGORY=FEAT,Speed of Thought,Psychic Inquisitor)
+SPELL:@/d20ogl/srd35/psionics/rsrd_powers_psionic.lst
+SKILL:@/d20ogl/srd35/psionics/rsrd_skills_psionic.lst
+SPELL:@/d20ogl/srd35/psionics/rsrd_spells_psionic.lst
+TEMPLATE:@/d20ogl/srd35/psionics/rsrd_templates_psionic.lst
+WEAPONPROF:@/d20ogl/srd35/psionics/rsrd_weaponprofs_psionic.lst
+
+# Universal tags
+COMPANIONLIST:Mount|ANY
+COMPANIONLIST:Follower|ANY
+
+
+# Player's Guide to Arcanis
+ABILITY:playersguidetoarcanis_abilities.lst
+ABILITY:playersguidetoarcanis_abilities_class_base.lst
+ABILITY:playersguidetoarcanis_abilities_class_prestige.lst
+ABILITY:playersguidetoarcanis_abilities_race.lst
+ABILITY:playersguidetoarcanis_mod_abilities_class.lst
+ABILITYCATEGORY:playersguidetoarcanis_ability_categories.lst
+
+BIOSET:playersguidetoarcanis_biosettings.lst
+
+CLASS:playersguidetoarcanis_classes.lst
+CLASS:playersguidetoarcanis_classes_monster.lst
+CLASS:playersguidetoarcanis_classes_prestige.lst
+CLASS:playersguidetoarcanis_mod_classes.lst
+CLASS:playersguidetoarcanis_mod_classes_prestige.lst
+COMPANIONMOD:playersguidetoarcanis_mod_companionmod.lst
+
+DEITY:playersguidetoarcanis_deities.lst
+DOMAIN:playersguidetoarcanis_domains.lst
+
+EQUIPMENT:playersguidetoarcanis_equip.lst
+EQUIPMENT:playersguidetoarcanis_mod_equip.lst
+EQUIPMOD:playersguidetoarcanis_equip_mods.lst
+
+FEAT:playersguidetoarcanis_feats.lst
+FEAT:playersguidetoarcanis_mod_feats.lst
+
+KIT:playersguidetoarcanis_kits.lst
+LANGUAGE:playersguidetoarcanis_language.lst
+RACE:playersguidetoarcanis_races.lst
+RACE:playersguidetoarcanis_mod_races.lst
+
+SKILL:playersguidetoarcanis_skills.lst
+SKILL:playersguidetoarcanis_mod_skills.lst
+SPELL:playersguidetoarcanis_spells.lst
+SPELL:playersguidetoarcanis_mod_spells.lst
+
+TEMPLATE:playersguidetoarcanis_templates.lst
+WEAPONPROF:playersguidetoarcanis_weaponprofs.lst
+ARMORPROF:playersguidetoarcanis_armorprofs.lst
+
+#add line to not load codex valfeat file
+#LSTEXCLUDE:@d20ogl/srd35/basics/rsrd_companionmods.lst
+# Forged in Magic
+#EQUIPMENT:&/forgedinmagic/forgedmagic_equip_weap_specific.lst|(INCLUDE:Wind Staff)
+#EQUIPMOD:&/forgedinmagic/forgedmagic_equipmods_enhancements.lst
+#EQUIPMOD:&/forgedinmagic/forgedmagic_equipmods_specialmaterials.lst
+#WEAPONPROF:&/forgedinmagic/forgedmagic_weaponprofs.lst
+
