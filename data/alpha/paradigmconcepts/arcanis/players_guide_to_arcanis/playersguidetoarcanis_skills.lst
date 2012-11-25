@@ -233,7 +233,7 @@ Profession (Barber)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession		
 Profession (Barrister)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Beggar)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.158
 Profession (Boater)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession.Sea														SOURCEPAGE:p.127
-Profession (Bookkeeper)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
+#Profession (Bookkeeper)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Brewer)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Bureaucrat)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127
 Profession (Butcher)									KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession															SOURCEPAGE:p.127

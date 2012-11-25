@@ -144,7 +144,7 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=4|Steamblast,Your Fire is Mine	ABILITY:S
 SUBCLASS:Saluwe	COST:0	PREDEITY:1,Saluwe	PREGENDER:FEMALE
 SUBCLASSLEVEL:1																		ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies										AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Crushing Weight|Cleric=3|Battle Spines																					CSKILL:TYPE=Nature|Survival|Swim	AUTO:FEAT|Track																REMOVE:FEAT|Simple Weapon Proficiency
-SUBCLASSLEVEL:4												BONUS:VAR|RangerAnimalCompanionLVL|CL	ABILITY:Special Ability|VIRTUAL|Arcanis Animal Companion|Ranger Animal Companion
+SUBCLASSLEVEL:4												BONUS:VAR|RangerAnimalCompanionLVL|CL	ABILITY:Special Ability|VIRTUAL|Arcanis Animal Companion
 # supposed to not prohibit based on alignment for Summoning spells - no idea how at this time, so not prohibiting any
 
 ###Block: Cleric subclass
@@ -189,7 +189,7 @@ CLASS:Druid.MOD	AUTO:WEAPONPROF|Longbow|Shortbow|Terbutje|Kopesh	BONUS:VAR|WildE
 CLASS:Druid.MOD	PREDEITY:1,Saluwe,Yarris,Belisarda,Fire Dragon,Beroe,Keleos,Marok,Osalian
 # Class Name	Class Skill
 CLASS:Druid.MOD	CSKILL:TYPE=Religion
-1	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Animal Companion
+1	ABILITY:Class Ability|AUTOMATIC|.CLEAR.Animal Companion
 1	ABILITY:Special Ability|AUTOMATIC|Arcanis Animal Companion
 
 # Class Name	Class Skill
@@ -260,21 +260,21 @@ SUBCLASSLEVEL:1																																										ADD:LANGUAGE|2|Ancient 
 SUBCLASS:Paladin of the Fire Dragon	COST:0	PREDEITY:1,Fire Dragon	PREGENDER:Male
 SUBCLASSLEVEL:1																																				CSKILL:Survival																																													AUTO:FEAT|Weapon Focus(Flail (Heavy))
 1																																					TEMPLATE:HCFavClass
-4																		ABILITY:Special Ability|VIRTUAL|.CLEAR.Basic Turning|Turn Undead
+4																		ABILITY:Class Ability|VIRTUAL|.CLEAR.Basic Turning|Turn Undead
 4	BONUS:VAR|ChannelLevelBase,ChannelDamagePlusBase|CL|TYPE=Level.REPLACE						ABILITY:Special Ability|NORMAL|Basic Channeling|Channeling
 4	BONUS:VAR|ChannelLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
 4	BONUS:VAR|ChannelLevelBase|CL-2|PREDEITY:1,Hurrian,Neroth,Yarris
 4	BONUS:VAR|ChannelLevelBase|CL-1|PREDEITY:1,Anshar,Belisarda,Illiir,Saluwe,Beroe,Keleos,Marok,Osalian
 4	BONUS:VAR|ChannelLevelBase|CL|PREDEITY:1,Nier
 4	BONUS:VAR|ChannelLevelBase|CL+2|PREDEITY:1,Beltine,Neroth
-5																		ABILITY:Special Ability|AUTOMATIC|.CLEAR.Special Mount	ABILITY:Special Ability|AUTOMATIC|Faithful Steed
+5																		ABILITY:Class Ability|AUTOMATIC|.CLEAR.Special Mount	ABILITY:Special Ability|AUTOMATIC|Faithful Steed
 
 # Class Name	Prohibited Class
 CLASS:Ranger.MOD	!PRECLASS:1,Urban Sentinel=1
 # Class Name	Class Skill
 CLASS:Ranger.MOD	CSKILL:TYPE=Dungeoneering|TYPE=Nature|TYPE=Geography|TYPE=Religion
 1	ABILITY:FEAT|VIRTUAL|Exotic Weapon Proficiency(Flintlock (Pistol))|PREMULT:1,[PREFEAT:1,Shining Patrol Service],[PREREGION:Altheria]	VFEAT:Exotic Weapon Proficiency(Flintlock (Rifle))
-4	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Animal Companion
+4	ABILITY:Class Ability|AUTOMATIC|.CLEAR.Animal Companion
 4	ABILITY:Special Ability|VIRTUAL|Arcanis Animal Companion
 
 # Class Name	Virtual Feat
@@ -286,7 +286,7 @@ CLASS:Rogue.MOD	CSKILL:Black Market|TYPE=Local|Research
 CLASS:Sorcerer.MOD	PREMULT:1,[PREMULT:2,[PREGENDER:M],[PRERACE:1,Ss'ressen]],[!PRERACE:1,Ss'ressen]	!PRERACE:2,Half-Hobgoblin,Human
 # Class Name		Class Skill
 CLASS:Sorcerer.MOD	CSKILL:TYPE=Arcana
-1	ADD:FEAT|Eschew Materials	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Summon Familiar	ABILITY:Special Ability|VIRTUAL|Summon Arcanis Familiar
+1	ADD:FEAT|Eschew Materials	ABILITY:Class Ability|AUTOMATIC|.CLEAR.Summon Familiar	ABILITY:Special Ability|VIRTUAL|Summon Arcanis Familiar
 
 # Class Name	Clear Bonus Languages
 CLASS:Wizard.MOD	LANGBONUS:.CLEAR
@@ -294,7 +294,7 @@ CLASS:Wizard.MOD	LANGBONUS:.CLEAR
 CLASS:Wizard.MOD	PREMULT:1,[PREMULT:2,[PREGENDER:M],[PRERACE:1,Ss'ressen]],[!PRERACE:1,Ss'ressen]
 # Class Name	Class Skill
 CLASS:Wizard.MOD	CSKILL:Research|TYPE=Knowledge
-1	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Summon Familiar
+1	ABILITY:Class Ability|AUTOMATIC|.CLEAR.Summon Familiar
 1	ABILITY:Special Ability|VIRTUAL|Summon Arcanis Familiar
 
 ############### Change to Expanded Psionics Classes ############################
