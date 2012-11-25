@@ -64,7 +64,7 @@ CLASS:Brawler	HD:10		TYPE:PC.Prestige	ABB:Bra		MAXLEVEL:10	SOURCEPAGE:p.53	BONUS
 CLASS:Brawler	PREATT:5	PREFEAT:2,Improved Unarmed Strike,Great Fortitude	PRESKILL:1,Intimidate=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|TYPE=Profession|Ride|Tumble
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Stubborn Resolve (Ex)
@@ -128,7 +128,7 @@ CLASS:Game Hunter	HD:8		TYPE:PC.Prestige	ABB:GmH		MAXLEVEL:10	SOURCEPAGE:p.62	BO
 CLASS:Game Hunter	PREATT:5	PREFEAT:2,Track,Point Blank Shot	PRESKILL:4,Hide=8,Knowledge (Nature)=8,Move Silently=8,Wilderness Lore=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Game Hunter	STARTSKILLPTS:4	CSKILL:Animal Empathy|Climb|TYPE=Craft|Handle Animal|Hide|Intimidate|Intuit Direction|Jump|Knowledge (Nature)|Listen|Move Silently|Munitions|TYPE=Profession|Ride|Spot|Swim|Use Rope|Wilderness Lore
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Level Progression
 1																														ADD:FEAT|TYPE=GameHunterFavored
@@ -191,7 +191,7 @@ CLASS:Noble Bodyguard	HD:12		TYPE:PC.Prestige	ABB:NoB		MAXLEVEL:10	SOURCEPAGE:p.
 CLASS:Noble Bodyguard	PREATT:5	PREFEAT:1,Improved Initiative	PRESKILL:2,Intimidate=5,Sense Motive=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Noble Bodyguard	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Disguise|Drive|Handle Animal|Intimidate|Jump|Listen|Munitions|TYPE=Profession|Sense Motive|Spot
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
@@ -247,7 +247,7 @@ CLASS:Rocket Ace	HD:8		TYPE:PC.Prestige	ABB:Ace		MAXLEVEL:10	SOURCEPAGE:p.82	BON
 CLASS:Rocket Ace	PREFEAT:2,Pilot,Mechanical Aptitude	PRESKILL:1,Jump=5	PRESKILL:2,Drive=8,Craft (Steamcraft)=8	PRETEXT:To become a Rocket Ace a character must construct his own rocket pack
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rocket Ace	STARTSKILLPTS:4	CSKILL:Alchemy|Balance|Climb|TYPE=Craft|Disable Device|Drive|Intuit Direction|Jump|Listen|Munitions|TYPE=Profession|Spot|Swim|Tumble|Use Steamcraft Device
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1	SAB:Roll (Ex)
@@ -308,7 +308,7 @@ CLASS:Watchman	HD:10		TYPE:PC.Prestige	ABB:Wat		MAXLEVEL:10	SOURCEPAGE:p.93	BONU
 CLASS:Watchman	PREATT:5	PRESKILL:2,Intimidate=3,Sense Motive=3	PRESKILL:1,Knowledge (Law)=3,Knowledge (Crime and Criminals)=3	PRETEXT:Must be a member of the city guard
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Watchman	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Handle Animal|Intimidate|Intuit Direction|Knowledge (Local)|Knowledge (Law)|Knowledge (Crime and Criminals)|Listen|Munitions|TYPE=Profession|Ride|Sense Motive|Spot
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression

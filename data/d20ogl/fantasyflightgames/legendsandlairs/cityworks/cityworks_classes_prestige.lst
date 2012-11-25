@@ -47,7 +47,7 @@ CLASS:Street Stalker	HD:10		TYPE:PC.Prestige	ABB:StS		MAXLEVEL:10	SOURCEPAGE:p.3
 CLASS:Street Stalker	PREATT:5	PREFEAT:2,Blind-Fight,Power Attack	PREMULT:2,[PRESKILL:1,Hide=4,Sense Motive=4],[PRESKILL:1,Intimidate=8]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Street Stalker	STARTSKILLPTS:8	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Read Lips|Search|Sense Motive|Spot|Tumble|Use Rope
-1	AUTO:FEAT|Armor Proficiency (Light)|Martial Weapon Proficiency|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	AUTO:FEAT|Armor Proficiency (Light)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 ###Block: Sneak Attack stacking Variables
 1	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Normal progression

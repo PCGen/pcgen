@@ -8,7 +8,7 @@ CLASS:Ranger (Monte Cook's)	STARTSKILLPTS:6	CSKILL:Animal Empathy|Climb|Concentr
 # Class Name			Spell Stat		Spell Type		Craft Level Mult.	Caster level
 CLASS:Ranger (Monte Cook's)	SPELLSTAT:WIS	SPELLTYPE:Divine	ITEMCREATE:.5	BONUS:CASTERLEVEL|Ranger (Monte Cook's)|CL/2
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Favored Enemy

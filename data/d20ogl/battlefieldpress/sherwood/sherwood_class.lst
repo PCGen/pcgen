@@ -9,7 +9,7 @@ CLASS:Engineer	HD:6		TYPE:PC.Base	ABB:Eng		MAXLEVEL:10	SOURCEPAGE:pg.2	BONUS:CHE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Engineer	STARTSKILLPTS:9	CSKILL:Appraise|Climb|TYPE=Craft|Concentration|Diplomacy|Jump|Knowledge (Architecture and Engineering)|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Listen|TYPE=Profession|Ride|Search|Spot|Swim|Use Magic Device|Use Rope
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1												AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 ###Block: Class Abilities
 1								BONUS:VAR|EngineerDefense|((CL+1)*2)/5	BONUS:VAR|SwashbucklingPointTotal|1	ABILITY:Internal|AUTOMATIC|EngineerDefense	ABILITY:Special Ability|AUTOMATIC|Swashbuckling Points	TEMPLATE:Core Class
@@ -55,7 +55,7 @@ CLASS:Noble		HD:8		TYPE:PC.Base	ABB:Nob		MAXLEVEL:10	SOURCEPAGE:pg.8	BONUS:CHECK
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Noble		STARTSKILLPTS:5	CSKILL:Appraise|Balance|Climb|TYPE=Craft|Diplomacy|Forgery|Gather Information|Handle Animal|Intimidate|Jump|Knowledge (Geography)|Knowledge (History)|Knowledge (Law)|Knowledge (Local)|Knowledge (Nobility and Royalty)|TYPE=Perform|TYPE=Profession|Ride|Swim
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1												AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 ###Block: Class Abilities
 1								BONUS:VAR|NobleAC|(CL+1)/2	BONUS:VAR|SwashbucklingPointTotal|1	ABILITY:Internal|AUTOMATIC|NobleDefense	ABILITY:Special Ability|AUTOMATIC|Swashbuckling Points	TEMPLATE:Core Class

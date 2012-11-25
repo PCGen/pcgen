@@ -30,7 +30,7 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=1135&it=1?affilia
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:DLMagicItemPrices.txt
-PCC:@/homebrew/conversion_support/conversion_support.pcc
+#PCC:@/homebrew/conversion_support/conversion_support.pcc
 
 CLASS:deadlands_classes.lst
 EQUIPMENT:deadlands_equip_armorshields.lst

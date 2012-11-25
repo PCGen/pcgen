@@ -7,7 +7,7 @@ CLASS:Air Lord	NAMEISPI:NO		HD:10		XTRAFEATS:1		ABB:AL		MAXLEVEL:10	SOURCEPAGE:p
 CLASS:Air Lord	PREFEAT:1,Mounted Combat	PRESKILL:2,Balance=4,Ride=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Air Lord	STARTSKILLPTS:2	CSKILL:Balance|TYPE=Climb|TYPE=Craft|Handle Animal|Intuit Direction|TYPE=Jump|Ride|Spot|Swim
-1												ABILITY:Special Ability|AUTOMATIC|Improved Aerial Rider ~ Air Lord					AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Martial Weapon Proficiency|Shield Proficiency|Simple Weapon Proficiency
+1												ABILITY:Special Ability|AUTOMATIC|Improved Aerial Rider ~ Air Lord	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies				AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 2												ABILITY:Special Ability|AUTOMATIC|Aerial mount ~ Air Lord
 3												ABILITY:Special Ability|AUTOMATIC|Swoop attack ~ Air Lord
 4												ABILITY:Special Ability|AUTOMATIC|Feather fall ~ Air Lord
@@ -24,7 +24,7 @@ CLASS:Dragon Slayer	NAMEISPI:NO		HD:10		ABB:DS		MAXLEVEL:10	SOURCEPAGE:p.35-37	B
 CLASS:Dragon Slayer	PREATT:5	PREFEAT:1,Iron Will	PREFEAT:1,Power Attack
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dragon Slayer	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|TYPE=Jump|Listen|Ride|Spot|Swim
-1							ABILITY:Special Ability|AUTOMATIC|Improved Power Attack ~ Dragon Slayer			AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Martial Weapon Proficiency|Shield Proficiency|Simple Weapon Proficiency
+1							ABILITY:Special Ability|AUTOMATIC|Improved Power Attack ~ Dragon Slayer			ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
 2							ABILITY:Special Ability|AUTOMATIC|Latch Attack ~ Dragon Slayer
 3	BONUS:VAR|DragonSlayerFearlessLVL|1	ABILITY:Special Ability|AUTOMATIC|Fearless ~ Dragon Slayer
 4							ABILITY:Special Ability|AUTOMATIC|Penetrating Blow ~ Dragon Slayer

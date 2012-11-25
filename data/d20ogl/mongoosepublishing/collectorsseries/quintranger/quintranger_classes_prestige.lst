@@ -137,7 +137,7 @@ SUBCLASSLEVEL:3						ABILITY:Special Ability|AUTOMATIC|Wolverine's Steadfastness
 SUBCLASSLEVEL:6						ABILITY:Special Ability|AUTOMATIC|Wolverine's Tricks
 SUBCLASSLEVEL:9						ABILITY:Special Ability|AUTOMATIC|Wolverine's Fearlessness
 ###Block:Weapon & Armor Proficiencies
-1	AUTO:FEAT|All Automatic Proficiencies|All Martial Weapon Proficiencies|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level Abilities
@@ -159,7 +159,7 @@ CLASS:Ex Animal Champion	HD:8		TYPE:PC.Prestige	ABB:XAC		MAXLEVEL:10	SOURCEPAGE:
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ex Animal Champion	STARTSKILLPTS:4	CSKILL:Balance|Climb|Handle Animal|Heal|Hide|Knowledge (Nature)|Jump|Listen|Move Silently|Ride|Search|Spot|Survival|Swim
 ###Block:Weapon & Armor Proficiencies
-1	AUTO:FEAT|All Automatic Proficiencies|All Martial Weapon Proficiencies|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 
@@ -174,7 +174,7 @@ CLASS:Briar Archer	PREALIGN:TN	PREATT:7	PREFEAT:4,Point Blank Shot,Precise Shot,
 CLASS:Briar Archer	STARTSKILLPTS:4	CSKILL:Craft (Bowyer)|Craft (Fletcher)|Hide|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Spot|Survival
 
 ###Block:Weapon & Armor Proficiencies
-1	AUTO:FEAT|All Automatic Proficiencies|All Martial Weapon Proficiencies|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level Abilities
@@ -192,7 +192,7 @@ CLASS:Green Knight	!PREALIGN:LE,NE,CE	PREATT:8	PREFEAT:1,Weapon Focus (Greataxe)
 CLASS:Green Knight	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Hide|Jump|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|TYPE=Profession|Spot|Survival|Swim
 
 ###Block:Weapon & Armor Proficiencies
-1	AUTO:FEAT|All Automatic Proficiencies|All Martial Weapon Proficiencies|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 1	AUTO:FEAT|Shield Proficiency
 
@@ -242,7 +242,7 @@ CLASS:Master of the Staff	PREATT:5	PREFEAT:3,Stunning Staff,Combat Expertise,Imp
 CLASS:Master of the Staff	STARTSKILLPTS:2	CSKILL:Climb|Jump|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|Spot|Survival
 
 ###Block:Weapon & Armor Proficiencies
-1	AUTO:FEAT|All Automatic Proficiencies|All Martial Weapon Proficiencies|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 
 ###Block: Level Abilities
@@ -266,7 +266,7 @@ CLASS:Outlaw	PREATT:5	PREFEAT:3,Point Blank Shot,Track,Weapon Focus (Longbow)
 CLASS:Outlaw	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Climb|Disguise|Gather Information|Hide|Intimidate|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|TYPE=Perform|Ride|Search|Spot|Survival
 
 ###Block:Weapon & Armor Proficiencies
-1	AUTO:FEAT|All Automatic Proficiencies|All Martial Weapon Proficiencies|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 
 ###Block: Level Abilities
@@ -289,7 +289,7 @@ CLASS:Wild Hunter	PREATT:8	PREFEAT:6,Endurance,Track,Power Attack,Dodge,Simple W
 CLASS:Wild Hunter	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Heal|Hide|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Spot|Survival|Use Rope
 
 ###Block: Level Abilities
-1														BONUS:VAR|RangerAnimalCompanionLVL|CL	ABILITY:Special Ability|AUTOMATIC|Animal Companion|Ranger Animal Companion
+1														BONUS:VAR|RangerAnimalCompanionLVL|CL	ABILITY:Special Ability|AUTOMATIC|Animal Companion
 1														BONUS:VAR|WildPackLvl|CL		ABILITY:Special Ability|AUTOMATIC|Hunter|Wild Pack
 2																				ABILITY:Special Ability|AUTOMATIC|Monster Slayer
 3	BONUS:ABILITYPOOL|Wild Hunter Exotic Weapon|1

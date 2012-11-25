@@ -57,7 +57,7 @@ ABILITYCATEGORY:Halfling Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YE
 
 # COMMENT: This can be used to allow Users to see Monster Traits - Requires all 'ABILITY:Special Ability|AUTOMATIC' to 'ABILITY:Racial Trait|AUTOMATIC'
 ABILITYCATEGORY:Racial Trait				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.SpecialAttack	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Class Ability			VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.SpecialAttack	DISPLAYLOCATION:Class Abilities	PLURAL:Class Abilities
+ABILITYCATEGORY:Class Ability				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.SpecialAttack	DISPLAYLOCATION:Class Abilities	PLURAL:Class Abilities
 
 
 ABILITYCATEGORY:Special Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:SpecialMountSelection				DISPLAYLOCATION:Class Abilities

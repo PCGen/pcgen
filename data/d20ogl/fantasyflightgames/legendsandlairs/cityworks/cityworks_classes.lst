@@ -37,7 +37,7 @@ CLASS:Assassin (CW)	OUTPUTNAME:Assassin	HD:8		TYPE:Base.PC	ABB:Asn		MAXLEVEL:20	
 CLASS:Assassin (CW)	PREALIGN:LN,LE,TN,NE,CN,CE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Assassin (CW)	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Spot
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Martial Weapon Proficiency|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 ###Block: Sneak Attack stacking Variables
 1	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Normal progression

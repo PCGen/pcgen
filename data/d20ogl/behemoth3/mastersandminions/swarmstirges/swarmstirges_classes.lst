@@ -8,7 +8,7 @@ CLASS:Wing Jockey	HD:8		TYPE:PC.Prestige	ABB:WgJky		MAXLEVEL:5	SOURCEPAGE:p.20	B
 CLASS:Wing Jockey	PREFEAT:1,Mounted Combat	PRESKILL:2,Ride=4,Handle Animal=4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wing Jockey	STARTSKILLPTS:6	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Jump|Knowledge (Geography)|Listen|TYPE=Profession|Ride|Spot|Use Rope
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 ###Block: Level Progression
 1	BONUS:VAR|EmpathicBonding|CL	DEFINE:EmpathicBonding|CHA	ABILITY:Special Ability|AUTOMATIC|Mount Affinity ~ Wing Jockey	ABILITY:Special Ability|AUTOMATIC|Empathic Bonding ~ Wing Jockey	ABILITY:Special Ability|AUTOMATIC|Wing Jockey (Mount Affinity)
 2						DEFINE:MountedDefenseAC|1	ABILITY:Special Ability|AUTOMATIC|Mounted Defense I ~ Wing Jockey	ABILITY:Special Ability|AUTOMATIC|Wing Jockey (Mounted Defense)

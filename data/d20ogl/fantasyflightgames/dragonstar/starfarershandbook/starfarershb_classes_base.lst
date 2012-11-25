@@ -15,7 +15,7 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook	SOURCESHORT:
 CLASS:Pilot		HD:6		TYPE:Base.PC	ABB:Plt		MAXLEVEL:20	SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Pilot		STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Freefall|Intuit Direction|Jump|Navigate|Pilot|TYPE=Profession|Repair|Spot|Swim|Use Device|Use Rope
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Technical Proficiency
 1																	AUTO:FEAT|HighTechMartial Weapon Proficiency|HighTechSimple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (HighTechLight)

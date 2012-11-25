@@ -8,7 +8,7 @@ CLASS:Battle-Rager	HD:12		TYPE:PC.Prestige	ABB:Bat-Rag		MAXLEVEL:10	SOURCEPAGE:p
 CLASS:Battle-Rager	PREABILITY:1,CATEGORY=Special Ability,Rage	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:5	PREFEAT:4,Cleave,Iron Will,Power Attack,Toughness	PRETEXT:Must be able to rage, frenzy or similar class ability.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Battle-Rager	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Intimidate|Jump|Swim|Tumble
-1																													AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1																													AUTO:FEAT|Simple Weapon Proficiency		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1																		ABILITY:Special Ability|AUTOMATIC|Against the Odds
 2			BONUS:ABILITYPOOL|Fighter Feat|1										ABILITY:Special Ability|AUTOMATIC|Fearsome Visage
 3																		ABILITY:Special Ability|AUTOMATIC|Frenzied Charge
@@ -28,7 +28,7 @@ CLASS:Dwarven Skald	PREATT:5	PRESKILL:3,Decipher Script=4,Gather Information=4,K
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dwarven Skald	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Hide|Intimidate|Intuit Direction|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Sense Motive|Speak Language|Spellcraft|Swim|Use Magic Device
 ###Block: Weapon & Armor Profs
-1	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Bardic abilities level definitions.
@@ -54,7 +54,7 @@ CLASS:Rune-Priest	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Decipher
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Spellbook		Caster level
 CLASS:Rune-Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	SPELLBOOK:NO	BONUS:CASTERLEVEL|Rune-Priest|CL
 ###Block: Dwarven Runes:(Rune of Energy,Rune of Beauty,Rune of Cleaving,Rune of Courage,Rune of Fortification,Rune of Power,Rune of Protection,Rune of Sharpness,Rune of Sundering,Rune of Vengeance)1
-1	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	AUTO:FEAT|Simple Weapon Proficiency		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	AUTO:FEAT|Shield Proficiency
 ###Block: Level progression:

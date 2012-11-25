@@ -62,7 +62,7 @@ CLASS:Monk.MOD
 
 # Class Name	Remove Class Skill	Class Skill																										Cross-Class Skill
 CLASS:Paladin.MOD	CSKILL:.CLEAR		CSKILL:Handle Animal|Ride	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Religion)|TYPE=Profession|Climb|Freefall|Jump|Listen|Spot|Swim|Pilot	CCSKILL:Handle Animal|Ride
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies																		AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies																		AUTO:FEAT|Simple Weapon Proficiency
 1																																		AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																																		AUTO:FEAT|Shield Proficiency
 1	ABILITY:FEAT|AUTOMATIC|Technical Deficiency|!PREFEAT:1,Technical Proficiency
