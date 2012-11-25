@@ -1,10 +1,8 @@
 # CVS $Revision$ $Author$ -- Wed Apr  2 14:10:13 2008 -- reformated by prettylst.pl v1.38 (build 5580)
 CAMPAIGN:Player's Guide to Arcanis
 GAMEMODE:35e
-# The active Type tag is temporary and will be removed when this source graduates from Alpha
-#TYPE:Alpha Datasets
-
 RANK:1
+STATUS:RELEASE
 TYPE:Paradigm Concepts
 BOOKTYPE:Core Rules
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Player's Guide to Arcanis]
@@ -70,7 +68,7 @@ CLASS:@/d20ogl/srd35/basics/rsrd_classes_monsters.lst
 CLASS:@/d20ogl/srd35/basics/rsrd_classes_npc.lst
 #COMPANIONMOD:@/d20ogl/srd35/basics/rsrd_companionmods.lst
 DOMAIN:@/d20ogl/srd35/basics/rsrd_domains_divine.lst|(EXCLUDE:Charm|Glory)
-DOMAIN:@/d20ogl/srd35/basics/rsrd_domains.lst|EXCLUDE(Good|Evil|Law|Chaos)
+DOMAIN:@/d20ogl/srd35/basics/rsrd_domains.lst|(EXCLUDE:Good|Evil|Law|Chaos)
 EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_armorshields.lst
 EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_basetypes.lst
 EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_coinsgems.lst
