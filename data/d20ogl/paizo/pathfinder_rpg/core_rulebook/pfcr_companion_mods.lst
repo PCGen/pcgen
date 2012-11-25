@@ -124,3 +124,5 @@ FOLLOWER:NormalFollower=1	TYPE:Follower
 #
 # End
 #
+# Race of familiar				Type			Combat bonus			Virtual Feat
+MASTERBONUSRACE:Familiar (Compsognathus)	TYPE:Familiar	BONUS:COMBAT|INITIATIVE|4	VFEAT:Alertness
