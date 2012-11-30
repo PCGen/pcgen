@@ -11,7 +11,7 @@ CLASS:Wizard.MOD
 
 # Class Name
 CLASS:Alchemist.MOD
-1	AUTO:FEAT|.CLEAR.Brew Potion	AUTO:FEAT|Extra Bomb
+1	ABILITY:Archetype|AUTOMATIC|Remove Alchemist Brew Potion	AUTO:FEAT|Extra Bombs
 
 
 
@@ -25,4 +25,4 @@ CLASS:Antipaladin.MOD	PRECLASS:1,NPC=1,Monster=1
 
 # Class Name
 CLASS:Cavalier.MOD
-4	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Expert Trainer ~ Cavalier	AUTO:FEAT|Skill Focus (Handle Animal)
+4	ABILITY:Archetype|AUTOMATIC|Remove Cavalier Expert Trainer	AUTO:FEAT|Skill Focus (Handle Animal)
