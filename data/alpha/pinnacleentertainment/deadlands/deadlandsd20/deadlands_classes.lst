@@ -7,7 +7,7 @@ CLASS:Agency Operative	HD:8		TYPE:PC.Prestige	ABB:AOp		MAXLEVEL:10	SOURCEPAGE:p.
 CLASS:Agency Operative	PREATT:5	PRESKILL:3,Knowledge (Law)=4,Knowledge (Occult)=3,Spot=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Agency Operative	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Holdout|Innuendo|Knowledge (Law)|Knowledge (Occult)|Listen|Move Silently|Open Lock|Ridicule|Search|Sense Motive|TYPE=Language|Spot
-1	AUTO:FEAT|Automatic Weapon Proficiency|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun|TYPE=Automatic
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun|TYPE=Automatic	
 ###Block: Normal Progression
 1	BONUS:SKILLRANK|Knowledge (Occult)|1
 2								BONUS:VAR|FriendsHigh|2*floor(CL/2)					AUTO:FEAT|Friends in High Places
@@ -24,7 +24,7 @@ CLASS:Black Magician	PREALIGN:LE,NE,CE
 CLASS:Black Magician	STARTSKILLPTS:2	CSKILL:Alchemy|Black Magic|Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|TYPE=Profession|Ridicule|Scry|Spellcraft
 # Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Caster level
 CLASS:Black Magician	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Black Magician|CL
-1	AUTO:FEAT|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 ###Block: Normal Progression
 1	BONUS:VAR|BlackMagicPoints|(CL*INT)+INTSCORE	ADD:FEAT|4|Black Magician up to 1st level Black Magic									AUTO:FEAT|Black Magician Black Magic Points
 2									ADD:FEAT|INT|Black Magician up to 1st level Black Magic
@@ -55,7 +55,7 @@ CLASS:Blessed	PREALIGN:LG,LN,NG,TN,CG,CN
 CLASS:Blessed	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Faith|Heal|Intimidate|Knowledge (Local)|Knowledge (Occult)|Knowledge (Religion)|Perform|TYPE=Profession|Sense Motive|TYPE=Language|Tale Tellin'
 # Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Caster level
 CLASS:Blessed	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blessed|CL
-1	AUTO:FEAT|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 ###Block: Turn Undead stuff
 1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base								VFEAT:Turn Undead|PREALIGN:LG,NG,CG	AUTO:FEAT|Basic Turning
 1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
@@ -105,7 +105,7 @@ CLASS:Brave		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Hide|Innuendo
 CLASS:Gunslinger	HD:10		TYPE:PC	ABB:Gns		MAXLEVEL:20	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude|1+floor(CL/5)+floor((CL+3)/5)	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunslinger	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Demolitions|Gamblin'|Gunplay|Holdout|Intimidate|Knowledge (Local)|TYPE=Profession|Ride|Ridicule|Sense Motive|TYPE=Language|Speed Load|Spot|Use Rope
-1	AUTO:FEAT|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 ###Block: Normal Progression
 1											ADD:FEAT|Ambidexterity,Automatic Weapon Proficiency,Dodge,Exotic Weapon Proficiency,Fannin',Far Shot,Grim Servant o' Death,Improved Critical,Improved Initiative,Improved Two-Weapon Fighting,Level-Headed,Mounted Archery,Point Blank Shot,Precise Shot,Quick Draw,The Stare,Two-Weapon Fighting,Weapon Focus
 2	BONUS:VAR|GreaseLightning|2
@@ -128,7 +128,7 @@ CLASS:Huckster	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Sc
 # Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level
 CLASS:Huckster	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Huckster|CL
 ###Block: Proficiencies
-1	AUTO:FEAT|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 #		SPELLLIST:1|Sorcerer
 ###Block: Normal Progression
 1	BONUS:VAR|HexPoints|(CL*INT)+INTSCORE	ADD:FEAT|4|Huckster up to 1st level Hexes		AUTO:FEAT|Huckster Hex Points
@@ -156,7 +156,7 @@ CLASS:Huckster	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEMORIZE:NO	BO
 CLASS:Mad Scientist	HD:6		TYPE:PC	ABB:Mds		MAXLEVEL:20	SOURCEPAGE:p.32	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mad Scientist	STARTSKILLPTS:6	CSKILL:Alchemy|TYPE=Craft|Decipher Script|Demolitions|Disable Device|TYPE=Drivin'|Heal|TYPE=Knowledge|Mad Science|Open Lock|TYPE=Profession|TYPE=Language|Tinkerin'
-1	AUTO:FEAT|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 ###Block: Normal Progression
 1										AUTO:FEAT|Concoct Potion|Starting Gadget
 2	BONUS:VAR|JuryRig|2						AUTO:FEAT|Jury Rig
@@ -174,7 +174,7 @@ CLASS:Mad Scientist	STARTSKILLPTS:6	CSKILL:Alchemy|TYPE=Craft|Decipher Script|De
 CLASS:Maverick	HD:6		TYPE:PC	ABB:Mvr		MAXLEVEL:20	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Maverick	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Demolitions|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gamblin'|Gather Information|Hide|Holdout|Innuendo|Intimidate|Jump|Knowledge (History)|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Ridicule|Search|Sense Motive|Sleight o' Hand|TYPE=Language|Spot|Tale Tellin'|Tumble
-1	AUTO:FEAT|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 ###Block: Uncanny Dodge
 3	BONUS:VAR|UncannyDodge|1	AUTO:FEAT|Uncanny Dodge
 6	BONUS:VAR|UncannyDodge|1
@@ -197,7 +197,7 @@ CLASS:Rowdy		HD:10		TYPE:PC	ABB:Rwd		MAXLEVEL:20	SOURCEPAGE:p.36	BONUS:CHECKS|BA
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rowdy		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Demolitions|TYPE=Drivin'|Handle Animal|Holdout|Intimidate|Jump|Knowledge (Local)|Listen|TYPE=Profession|Ridicule|Ride|TYPE=Language|Spot|Swim|Use Rope|Wilderness Lore
 ###Block: Proficiencies
-1	AUTO:FEAT|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 ###Block: Normal Progression
 1	BONUS:SKILL|Language (%)|6													ADD:FEAT|Blind-Fight,Cleave,Dodge,Expertise,Great Cleave,Great Fortitude,Grim Servant o' Death,Improved Bull Rush,Improved Critical,Improved Disarm,Improved Initiative,Improved Trip,Improved Unarmed Strike,Iron Will,Level-Headed,Mobility,Nerves o' Steel,Power Attack,Sand,Spring Attack,Stunning Fist,Sucker Punch,Sunder,Toughness,Weapon Finesse,Weapon Focus,Whirlwind Attack	AUTO:FEAT|Endurance
 2																																																																																	AUTO:FEAT|Thick Skin
@@ -213,7 +213,7 @@ CLASS:Scout		HD:8		TYPE:PC	ABB:Sct		MAXLEVEL:20	SOURCEPAGE:p.38	BONUS:CHECKS|BAS
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scout		STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Gather Information|Handle Animal|Hide|Holdout|Intuit Direction|Jump|Knowledge (Local)|Knowledge (Indian Lore)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|TYPE=Language|Spot|Swim|Use Rope|Wilderness Lore
 ###Block: Proficiencies
-1	AUTO:FEAT|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 ###Block: Normal Progression
 1	BONUS:SKILL|Language |4												AUTO:FEAT|Track
 2	BONUS:SKILL|Listen,Spot|(CL-2)/3										AUTO:FEAT|Alertness
@@ -266,7 +266,7 @@ CLASS:Texas Ranger	PREATT:6	PREFEAT:1,Track	PRESKILL:2,Gather Information=4,Wild
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Texas Ranger	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Demolitions|Gunplay|Handle Animal|Hide|Gather Information|Intimidate|Intuit Direction|Holdout|Knowledge (Local)|Knowledge (Occult)|Listen|Move Silently|TYPE=Profession|Ride|Search|Sense Motive|TYPE=Language|Speed Load|Spot|Swim|Use Rope|Wilderness Lore
 ###Block: Proficiencies
-1	AUTO:FEAT|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
+1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 ###Block: Normal Progression
 1	BONUS:SKILLRANK|Knowledge (Occult)|1																																																			AUTO:FEAT|National Law Enforcement|Ranger's Bible
 2								BONUS:VAR|RangerPres|(CL+1)/3																																														AUTO:FEAT|Ranger's Presence
