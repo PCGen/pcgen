@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#we	SOURCEDATE:2006-01
+# Original Entry by: Paul W. King, Jan 2007
+
+# Modifier Name		Unique Key				Type							Cost		Visible		Type granted				Keys to replace	Source Page		Required Type		Bonus to skill						Special ABility
+Magic Enhanced Fur	KEY:MAG_ENH_FUR_CLOTHING	TYPE:BaseMaterial.MasterworkQuality		COST:9000	VISIBLE:QUALIFY	ITYPE:MagicalEnhancedFur.Masterwork				SOURCEPAGE:p.40	PRETYPE:1,Clothing	BONUS:SKILL|Hide|2|TYPE=EquipmentCircumstance	SAB:Cold Resistance 5
+Magic Enhanced Fur	KEY:MAG_ENH_FUR_ARMOR		TYPE:BaseMaterial.MasterworkQuality.Armor	COST:16000	VISIBLE:QUALIFY	ITYPE:MagicalEnhancedFur.Masterwork	REPLACES:MWORKA	SOURCEPAGE:p.40	PRETYPE:1,Leather										SAB:Cold Resistance 10
