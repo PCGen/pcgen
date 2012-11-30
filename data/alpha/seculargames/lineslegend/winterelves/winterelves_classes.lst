@@ -9,15 +9,15 @@ CLASS:Heir of Balyk	PREALIGN:LE	PREFEAT:1,Endurance	PRERACE:1,Elf (Winter)	PRESK
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Heir of Balyk	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Intimidate|TYPE=Knowledge|TYPE=Profession|Ride|Sense Motive|Spellcraft
 ###Block: Domain stuff
-3	DOMAIN:Treachery[PREFEAT:1,Heir of Balyk Treachery Domain]|Hate[PREFEAT:1,Heir of Balyk Hate Domain]|Devil[PREFEAT:1,Heir of Balyk Devil Domain]	BONUS:DOMAIN|NUMBER|1	ADD:FEAT|TYPE=BalykDomain
-6																										BONUS:DOMAIN|NUMBER|1	ADD:FEAT|TYPE=BalykDomain
-9																										BONUS:DOMAIN|NUMBER|1	ADD:FEAT|TYPE=BalykDomain
+3	DOMAIN:Treachery[PREFEAT:1,Heir of Balyk Treachery Domain]|Hate[PREFEAT:1,Heir of Balyk Hate Domain]|Devil[PREFEAT:1,Heir of Balyk Devil Domain]	BONUS:DOMAIN|NUMBER|1	BONUS:ABILITYPOOL|Heir of Balyk Domain|1
+6																										BONUS:DOMAIN|NUMBER|1	BONUS:ABILITYPOOL|Heir of Balyk Domain|1
+9																										BONUS:DOMAIN|NUMBER|1	BONUS:ABILITYPOOL|Heir of Balyk Domain|1
 ###Block: Normal Level Progression
 1									ADD:SPELLCASTER|Divine
 1					BONUS:VAR|HeirBalyk|CL									ABILITY:Special Ability|AUTOMATIC|Power of Deception
-2									ADD:SPELLCASTER|Divine					ABILITY:Special Ability|AUTOMATIC|Dark Blessing
+2									ADD:SPELLCASTER|Divine					ABILITY:Special Ability|AUTOMATIC|Dark Blessing ~ Heir of Balyk
 3									ADD:SPELLCASTER|Divine
-4									ADD:FEAT|Heir of Balyk Leadership,Leadership
+4									AUTO:FEAT|Leadership					ABILITY:Special Ability|AUTOMATIC|Heir of Balyk Leadership
 5									ADD:SPELLCASTER|Divine
 6	BONUS:DOMAIN|NUMBER|1					ADD:SPELLCASTER|Divine
 8									ADD:SPELLCASTER|Divine

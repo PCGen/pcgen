@@ -24,6 +24,7 @@ COPYRIGHT:PCGen dataset conversion for Lines of Legend - Winter Elves Copyright 
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+ABILITYCATEGORY:winterelves_abilitycategories.lst
 ABILITY:winterelves_abilities_class.lst
 
 CLASS:winterelves_classes.lst

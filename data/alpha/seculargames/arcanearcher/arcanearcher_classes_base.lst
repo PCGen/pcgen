@@ -39,7 +39,7 @@ CLASS:Arcane Archer ~ Core	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CA
 1																												AUTO:SHIELDPROF|Buckler
 ###Block: Standard
 1																										VFEAT:Point Blank Shot
-2																										VFEAT:Weapon Focus
+2																										BONUS:ABILITYPOOL|Weapon Focus|1
 3																										VFEAT:Precise Shot
 4	BONUS:VAR|ArrowEnhancement|min((CL-1)/3,5)									ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
 5																	ABILITY:Special Ability|AUTOMATIC|Imbue Arrow

@@ -6,7 +6,7 @@ SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://pa
 # Feat Name					Type						Visible	Special ABility			Define			Save checks bonus			Bonus to skill							Modify VAR					Source Page
 # Ability Name				Category of Ability		Type								Visible	Define			Description				Save checks bonus			Bonus to skill							Modify VAR					Source Page
 Power of Deception			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Extraordinary			DEFINE:HeirBalyk|0	DESC:Power of Deception (Ex)						BONUS:SKILL|Bluff,Disguise|HeirBalyk|TYPE=Competence							SOURCEPAGE:p.18
-Dark Blessing				CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural							DESC:Dark Blessing (Su)		BONUS:CHECKS|ALL|max(CHA,0)
+Dark Blessing ~ Heir of Balyk				CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility.Supernatural							DESC:Dark Blessing (Su)		BONUS:CHECKS|ALL|max(CHA,0)
 Heir of Balyk Leadership		CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																												BONUS:VAR|LeadershipScore|HeirBalyk	SOURCEPAGE:p.18
 Extra Domain SPELL			CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility									DESC:Extra Domain Spell																						SOURCEPAGE:p.18
 

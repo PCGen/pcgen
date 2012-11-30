@@ -36,7 +36,7 @@ May wear light armor without incurring the normal arcane spell failure chance	KE
 Arrow of Negation																	CATEGORY:Special Ability	TYPE:SpecialAttack
 
 # Psychic Archer
-MindBlade Psychic Strike															CATEGORY:Special Ability	TYPE:SpecialAttack							DEFINE:PsychicStrike|0		DESC:%1|PsychicStrike
+#MindBlade Psychic Strike															CATEGORY:Special Ability	TYPE:SpecialAttack							DEFINE:PsychicStrike|0		DESC:%1|PsychicStrike
 Mind Burn																		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural
 Arrow of Coma																	CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike
 
