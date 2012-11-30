@@ -1,0 +1,137 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
+
+###Block: Agency Operative class features
+# Feat Name			Type			Visible	Special ABility					Define			Source Page
+Friends in High Places	TYPE:ClassAbility	VISIBLE:NO	SAB:Friends in High Places %|FriendsHigh	DEFINE:FriendsHigh|0	SOURCEPAGE:p.90
+Requisition Equipment	TYPE:ClassAbility	VISIBLE:NO	SAB:Requisition Equipment							SOURCEPAGE:p.90
+
+###Block: Black Magician class features
+# Feat Name					Type			Visible	Special ABility									Define				Source Page
+Black Magician Black Magic Points	TYPE:Internal	VISIBLE:NO	SAB:Black Magician max Black Magic Points (%)|BlackMagicPoints	DEFINE:BlackMagicPoints|0	SOURCEPAGE:p.124
+
+###Block: Black Magician spells known
+# Feat Name							Type			Visible	Multiple?	Choose							Bonus to spell known/L		Source Page
+Black Magician up to 1st level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|1	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 2nd level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|2	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 3rd level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|3	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 4th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|4	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 5th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|5	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 6th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|6	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 7th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|7	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 8th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|8	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+Black Magician up to 9th level Black Magic	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Black Magician|0|9	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.124
+
+###Block: Blessed class features
+# Feat Name			Type			Visible	Special ABility								Define					Source Page
+Divine Intervention	TYPE:ClassAbility	VISIBLE:NO	SAB:Divine Intervention %/week|DivineInterventionTimes	DEFINE:DivineInterventionTimes|0	SOURCEPAGE:p.24
+Blessed Miracle Points	TYPE:Internal	VISIBLE:NO	SAB:Blessed max Miracle Points (%)|BlessedMiraclesPoints	DEFINE:BlessedMiraclesPoints|0	SOURCEPAGE:p.24
+
+###Block: Blessed spells known
+# Feat Name					Type			Visible	Multiple?	Choose					Bonus to spell known/L		Source Page
+Blessed up to 1st level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|1	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 2nd level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|2	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 3rd level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|3	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 4th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|4	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 5th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|5	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 6th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|6	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 7th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|7	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 8th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|8	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+Blessed up to 9th level Miracles	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Blessed|0|9	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.24
+
+
+###Block: Brave class features
+# Feat Name		Type			Visible	Special ABility			Define		Source Page
+War Cry		TYPE:ClassAbility	VISIBLE:NO	SAB:War Cry %/day|WarCry	DEFINE:WarCry|0	SOURCEPAGE:p.26
+Greater War Cry	TYPE:ClassAbility	VISIBLE:NO	SAB:Greater War Cry					SOURCEPAGE:p.26
+
+###Block: Gunslinger class abilities
+# Feat Name		Type			Visible	Special ABility					Define				Source Page
+Greased Lightning	TYPE:ClassAbility	VISIBLE:NO	SAB:Greased Lightnin' +%|GreaseLightning	DEFINE:GreaseLightning|0	SOURCEPAGE:p.28
+
+###Block: Huckster class features
+# Feat Name			Type			Visible	Special ABility					Define			Source Page
+Old Hand			TYPE:ClassAbility	VISIBLE:NO	SAB:Old Hand %|OldHand				DEFINE:OldHand|0		SOURCEPAGE:p.30
+Blood Magic			TYPE:ClassAbility	VISIBLE:NO	SAB:Blood Magic									SOURCEPAGE:p.30
+Huckster Hex Points	TYPE:Internal	VISIBLE:NO	SAB:Huckster max Hex Points (%)|HexPoints	DEFINE:HexPoints|0	SOURCEPAGE:p.30
+
+###Block: Huckster spells known
+# Feat Name					Type			Visible	Multiple?	Choose						Bonus to spell known/L		Source Page
+Huckster up to 1st level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|1	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 2nd level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|2	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 3rd level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|3	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 4th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|4	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 5th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|5	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 6th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|6	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 7th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|7	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 8th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|8	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+Huckster up to 9th level Hexes	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Huckster|0|9	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.30
+
+###Block: Mad Scientist class features
+# Feat Name		Type			Visible	Special ABility		Define		Source Page
+Concoct Potion	TYPE:ClassAbility	VISIBLE:NO	SAB:Concoct Potion				SOURCEPAGE:p.32
+Starting Gadget	TYPE:ClassAbility	VISIBLE:NO	SAB:Starting gadget				SOURCEPAGE:p.32
+Jury Rig		TYPE:ClassAbility	VISIBLE:NO	SAB:Jury Rig %|JuryRig	DEFINE:JuryRig|0	SOURCEPAGE:p.32
+Jinx			TYPE:ClassAbility	VISIBLE:NO	SAB:Jinx						SOURCEPAGE:p.32
+
+###Block: Maverick class features
+# Feat Name			Type			Visible	Special ABility		Virtual Feat		Save checks bonus						Modify VAR			Source Page
+Extraordinary Luck	TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Luck					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)					SOURCEPAGE:p.34
+Gambler's Luck		TYPE:ClassAbility	VISIBLE:NO	SAB:Gambler's Luck																	SOURCEPAGE:p.34
+Maverick Sneak Attack	TYPE:ClassAbility	VISIBLE:NO					VFEAT:Sneak Attack									BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.34
+Slippery Mind		TYPE:ClassAbility	VISIBLE:NO	SAB:Slippery Mind																		SOURCEPAGE:p.34
+# Not sure on the Maverick Sneak Attack, but had to remove the ADD:SPECIAL. - Tir Gwaith
+
+###Block: Rowdy class abilities
+# Feat Name		Type			Visible	Special ABility				Define			Source Page
+Thick Skin		TYPE:ClassAbility	VISIBLE:NO	SAB:Thick Skin								SOURCEPAGE:p.36
+Tough as Nails	TYPE:ClassAbility	VISIBLE:NO	SAB:Tough as Nails %|ToughNails	DEFINE:ToughNails|0	SOURCEPAGE:p.36
+
+###Block: Shaman class abilities
+# Feat Name			Type						Visible	Special ABility							Define				Source Page
+Nature Sense		TYPE:ClassAbility				VISIBLE:NO	SAB:Nature Sense												SOURCEPAGE:p.40
+Vision Quest		TYPE:ClassAbility.Supernatural	VISIBLE:NO	SAB:Vision Quest (Su)											SOURCEPAGE:p.40
+View Hunting Grounds	TYPE:ClassAbility				VISIBLE:NO	SAB:View Hunting Grounds										SOURCEPAGE:p.40
+One with Nature		TYPE:ClassAbility				VISIBLE:NO	SAB:One with Nature											SOURCEPAGE:p.40
+Open Portal			TYPE:ClassAbility				VISIBLE:NO	SAB:Open Portal												SOURCEPAGE:p.40
+Shaman Favor Points	TYPE:Internal				VISIBLE:NO	SAB:Shaman max Favor Points (%)|ShamanFavorPoints	DEFINE:ShamanFavorPoints|0	SOURCEPAGE:p.40
+
+###Block: Shaman spells known
+# Feat Name				Type			Visible	Multiple?	Choose						Bonus to spell known/L		Source Page
+Shaman up to 1st level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|1	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 2nd level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|2	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 3rd level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|3	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 4th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|4	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 5th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|5	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 6th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|6	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 7th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|7	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 8th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|8	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+Shaman up to 9th level Favors	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|CLASS=Shaman (DL)|0|9	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.40
+
+###Block: Texas Ranger class abilities
+# Feat Name				Type			Visible	Special ABility					Define			Bonus to skill								Source Page
+National Law Enforcement	TYPE:ClassAbility	VISIBLE:NO	SAB:National Law Enforcement																	SOURCEPAGE:p.92
+Ranger's Bible			TYPE:ClassAbility	VISIBLE:NO	SAB:Ranger's Bible								BONUS:SKILL|Gather Information|2					SOURCEPAGE:p.92
+Ranger's Presence			TYPE:ClassAbility	VISIBLE:NO	SAB:Presence +%|RangerPres			DEFINE:RangerPres|0	BONUS:SKILL|Bluff,Gather Information,Intimidate|RangerPres	SOURCEPAGE:p.92
+One Riot - One Ranger		TYPE:ClassAbility	VISIBLE:NO	SAB:One Riot - One Ranger %|RiotRanger|1	DEFINE:RiotRanger|0											SOURCEPAGE:p.92
+Chapter 13				TYPE:ClassAbility	VISIBLE:NO	SAB:Chapter 13									BONUS:SKILL|Knowledge (Occult)|4|TYPE=Competence		SOURCEPAGE:p.92
+
+###Block: Special abilities (used by multiple classes)
+# Feat Name		Type					Visible		Special ABility																										Define																			Description						Stackable?	Multiple?	Choose										Selections		Modify VAR							Source Page						Temporary effect description
+Defensive Roll	TYPE:RogueSpecialAbilities	VISIBLE:NO		SAB:Defensive Roll																																																																														SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Evasion							VISIBLE:NO		SAB:Evasion (Ex)|PHBFeatEvasion																							DEFINE:PHBFeatEvasion|var("COUNT[FEATNAME=Improved Evasion]")-1																																											SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Improved Evasion	TYPE:RogueSpecialAbilities	VISIBLE:NO		SAB:Improved Evasion (Ex)																																																																													SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Leadership Score	TYPE:Special			VISIBLE:NO																																																													CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment				BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC								TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
+Sneak Attack	TYPE:Special			VISIBLE:NO		SAB:Sneak Attack %1d%2|SneakAttack|SneakAttackDie																				DEFINE:SneakAttack|0	DEFINE:SneakAttackDie|6																																														SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Skill Mastery	TYPE:RogueSpecialAbilities	VISIBLE:EXPORT																																																	DESC:Take 10 on listed skills, %1|%LIST	STACK:NO	MULT:YES	CHOOSE:SKILL|ALL									SELECT:3+INT									SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Uncanny Dodge						VISIBLE:NO		SAB:Uncanny Dodge (Dex bonus to AC)|UncannyDodge	SAB:Uncanny Dodge (can't be flanked)|ImprovedUncannyDodge	SAB:Uncanny Dodge (+% against traps)|UncannyTraps	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)
+
+###Block: Turning
+# Feat Name		Type						Visible	Required AL				Prohibited Var. Value			Special ABility																							Define																																									Source Page
+Basic Turning	TYPE:Special.Turning			VISIBLE:NO																																					DEFINE:TurnTimesBase|0	DEFINE:TurnLevelBase|0	DEFINE:TurnDiceBase|2	DEFINE:TurnDieSizeBase|6	DEFINE:TurnDamagePlusBase|CHA	DEFINE:TurnCheckBase|0																	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Turn Undead		TYPE:Special.Turning.TurnUndead	VISIBLE:NO	PREALIGN:LG,LN,NG,TN,CG,CN	PREVARNEQ:TurnProhibitedByDeity,1	SAB:Turn Undead (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+Rebuke Undead	TYPE:Special.Turning.TurnUndead	VISIBLE:NO	PREALIGN:LN,LE,TN,NE,CN,CE	PREVARNEQ:RebukeProhibitedByDeity,1	SAB:Rebuke Undead (Su) %/day (turn level %) (turn damage %d%+%)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead	DEFINE:TurnTimesUndead|TurnTimesBase	DEFINE:TurnLevelUndead|TurnLevelBase	DEFINE:TurnDiceUndead|TurnDiceBase	DEFINE:TurnDieSizeUndead|TurnDieSizeBase	DEFINE:TurnDamagePlusUndead|TurnDamagePlusBase	DEFINE:TurnCheckUndead|TurnCheckBase	SOURCEPAGE:srdbasiccharacterclassesi.rtf
+
+#
+# End
+#
