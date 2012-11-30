@@ -39,7 +39,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 
 PCC:@/homebrew/conversion_support/conversion_support.pcc
 
 ABILITYCATEGORY:pfcr_abilitycategories.lst
-ABILITY:pfcr_abilities_homebrew.lst
 ABILITY:pfcr_abilities_afflictions.lst
 ABILITY:pfcr_abilities_class_common.lst
 ABILITY:pfcr_abilities_class.lst
