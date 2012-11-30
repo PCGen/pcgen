@@ -1,8 +1,0 @@
-Allison's Holster					Cost:32003	Ability Enhancement bonus ((4 squared) x 2000) + Item Cost (3) = 32003
-Ghost Gun						Cost:32240	Ability Enhancement bonus ((4 squared) x 2000) + Skill Bonus ((2 squared) x 20) + Masterwork (150) + Weapon Cost (10) = 32240
-Gunslinger's Blood				Cost:32000	Ability Enhancement bonus ((4 squared) x 2000) = 32000
-Harrowed Boots					Cost:40008	Luck Bonus ((4 squared) x 2500) + Item Cost (8) = 40008
-Jack Vermillion's Everfull Cylinder		Cost:8000	As weapon Special Ability "Quick-Loading": +2 enhancement bonus ((2 squared) x 2000) = 8000
-Parker Rope						Cost:4000	Save "Bonus" ((4 squared) x 250) = 4000
-Nameable Bullet					Cost:32000	Weapon Enhancement bonus ((4 squared) x 2000) = 32000
-Tom Smith's Spurs					Cost:320	Skill bonus ((4 squared) x 20) = 320

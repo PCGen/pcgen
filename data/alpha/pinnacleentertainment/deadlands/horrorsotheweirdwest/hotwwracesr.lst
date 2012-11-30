@@ -1,4 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
-# Race Name		Starting Feats	Size		Move			Reach		Vision			Stat bonus																	Natural Attacks											Special ABility																				Monster Class Name and Starting Level	Main Race Type	Hit Dice Advancement		Challenge Rating	Source Page		Apply Kit
-River Leviathan	STARTFEATS:1	SIZE:G	MOVE:Swim,110	REACH:20	VISION:Blindsight (60')	BONUS:STAT|STR|8	BONUS:STAT|DEX|3	BONUS:STAT|CON|9	BONUS:STAT|INT|-4	BONUS:STAT|WIS|2	BONUS:STAT|CHA|3	NATURALATTACKS:Beak,Weapon.Natural.Melee.Piercing.Slashing.Bludgeoning,*1,2d6	SAB:Swallow whole(Ex)	SAB:Improved grab(Ex)	SAB:Blindsight(Ex)	SAB:Artificial armor(Ex)	SAB:Fire vulnerability(Ex)	MONSTERCLASS:Beast:20				RACETYPE:Beast	HITDICEADVANCEMENT:21,60	CR:23			SOURCEPAGE:p.82	KIT:1|TN
