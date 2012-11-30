@@ -1982,7 +1982,7 @@
 							<xsl:with-param name="attribute" select="'spell_failure'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
-							<xsl:value-of select="spell_failure"/>
+							<xsl:value-of select="../armor_class/spell_failure"/>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
@@ -1991,7 +1991,7 @@
 							<xsl:with-param name="attribute" select="'ac_check'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
-							<xsl:value-of select="check_penalty"/>
+							<xsl:value-of select="../armor_class/check_penalty"/>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell/>
@@ -2000,7 +2000,7 @@
 							<xsl:with-param name="attribute" select="'spell_resistance'"/>
 						</xsl:call-template>
 						<fo:block font-size="10pt">
-							<xsl:value-of select="spell_resistance"/>
+							<xsl:value-of select="../armor_class/spell_resistance"/>
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
