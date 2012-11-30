@@ -19,3 +19,27 @@ Quicken Spell-Like Ability ~ Ability	OUTPUTNAME:Quicken Spell-Like Ability	TYPE:
 Quicken Spell-Like Ability ~ Spell		OUTPUTNAME:Quicken Spell-Like Ability	TYPE:General																																										PRETEXT:Spell-like ability at caster level 10th or higher.													DESC:This creature can use one of its spell-like abilities with next to no effort.																																																																																													STACK:NO	MULT:YES	CHOOSE:SPELLS|SPELLBOOK=Innate																					SOURCEPAGE:p.315
 Snatch													TYPE:General																																				PRESIZEGTEQ:H																										DESC:This creature can grab other creatures with ease.																																																																																																																															SOURCEPAGE:p.316
 Wingover													TYPE:General																																PREMOVE:1,Fly=1																														DESC:Once each round, when flying, you can turn up to 180 degrees as a free action without making a Fly skill check. This free turn does not consume any additional movement from the creature.																																																																																																									SOURCEPAGE:p.316
+
+
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: Unknown
+
+# COMMENT: I'm assuming that, for aligned outsider familiars, the character's
+# COMMENT:   alignment must match the familiar's, and that the class level must
+# COMMENT:   be 7.  This is not explicitly stated in all cases.
+
+
+# Feat Name			Allowed Companions
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Paracletus)|PREALIGN:TN|PRECLASS:1,SPELLCASTER.Arcane=7|PREFEAT:1,Improved Familiar
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Silvanshee)|PREALIGN:NG|PRECLASS:1,SPELLCASTER.Arcane=7|PREFEAT:1,Improved Familiar
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Cassisian)|PREALIGN:NG|PRECLASS:1,SPELLCASTER.Arcane=7|PREFEAT:1,Improved Familiar
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Lyrakien)|PREALIGN:CG|PRECLASS:1,SPELLCASTER.Arcane=7|PREFEAT:1,Improved Familiar
+
+# COMMENT: For the brownie, I'm assuming neutral means TN.  I could be wrong.
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Brownie)|PREALIGN:TN|PRECLASS:1,SPELLCASTER.Arcane=5|PREFEAT:1,Improved Familiar
+
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Cacodaemon)|PREALIGN:NE|PRECLASS:1,SPELLCASTER.Arcane=7|PREFEAT:1,Improved Familiar
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Elemental (Ice/Small)),Familiar (Elemental (Lightning/Small)),Familiar (Elemental (Magma/Small)),Familiar (Elemental (Mud/Small))|PRECLASS:1,SPELLCASTER.Arcane=5|PREFEAT:1,Improved Familiar
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Arbiter)|PREALIGN:LN|PRECLASS:1,SPELLCASTER.Arcane=7|PREFEAT:1,Improved Familiar
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Voidworm)|PREALIGN:CN|PRECLASS:1,SPELLCASTER.Arcane=7|PREFEAT:1,Improved Familiar
+Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Cythnigot)|PREALIGN:CE|PRECLASS:1,SPELLCASTER.Arcane=7|PREFEAT:1,Improved Familiar
