@@ -5,7 +5,7 @@
 CATEGORY=Special Ability|All Automatic Abilities.MOD																												ABILITY:Internal Abilities|AUTOMATIC|Pathfinder Feat Gain Bypass
 # This adds a gamemode Specific Bonus Feat Level Character Points.
 
-Pathfinder Feat Gain Bypass																	CATEGORY:Internal Abilities						DEFINE:CPBonusFeat|0																		BONUS:ABILITYPOOL|FEAT|-((TL-1)/2)	BONUS:ABILITYPOOL|FEAT|-1|PRERACE:1,Human	BONUS:ABILITYPOOL|FEAT|-1	BONUS:ABILITYPOOL|Character Points|var("CPBonusFeat")																					BONUS:VAR|CPBonusFeat|6	BONUS:VAR|CPBonusFeat|6*((TL-1)/2)	BONUS:VAR|CPBonusFeat|6|PRERACE:1,Human	BONUS:VAR|CharacterPointsTotal|var("CPBonusFeat")
+Pathfinder Feat Gain Bypass																	CATEGORY:Internal Abilities						DEFINE:CPBonusFeat|0																		BONUS:ABILITYPOOL|FEAT|-floor((TL-1)/2)	BONUS:ABILITYPOOL|FEAT|-1|PRERACE:1,Human	BONUS:ABILITYPOOL|FEAT|-1	BONUS:ABILITYPOOL|Character Points|var("CPBonusFeat")																					BONUS:VAR|CPBonusFeat|6	BONUS:VAR|CPBonusFeat|6*floor((TL-1)/2)	BONUS:VAR|CPBonusFeat|6|PRERACE:1,Human	BONUS:VAR|CharacterPointsTotal|var("CPBonusFeat")
 
 
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01

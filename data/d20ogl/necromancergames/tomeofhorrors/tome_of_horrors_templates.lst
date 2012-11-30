@@ -492,9 +492,9 @@ Half Ogre Lang						VISIBLE:NO																																					PRERACE:1,Ogr
 
 Enlarged Spriggan						VISIBLE:YES																																					PRERACE:1,Spriggan																																							BONUS:SIZEMOD|NUMBER|2										BONUS:STAT|DEX|2	BONUS:VAR|SneakAttack|-2	BONUS:VAR|SprigganLarge|1																																																														REMOVABLE:YES
 
-Remove Resistance to Acid				VISIBLE:NO																																																																																																																																																												REMOVE:FEAT|Resistance to Acid
-Remove Resistance to Cold				VISIBLE:NO																																																																																																																																																												REMOVE:FEAT|Resistance to Cold
-Remove Resistance to Electricity			VISIBLE:NO																																																																																																																																																												REMOVE:FEAT|Resistance to Electricity
-Remove Resistance to Fire				VISIBLE:NO																																																																																																																																																												REMOVE:FEAT|Resistance to Fire
+Remove Resistance to Acid				VISIBLE:NO																																																																																																																																																												
+Remove Resistance to Cold				VISIBLE:NO																																																																																																																																																												
+Remove Resistance to Electricity			VISIBLE:NO																																																																																																																																																												
+Remove Resistance to Fire				VISIBLE:NO																																																																																																																																																												
 
-Remove Telepathy						VISIBLE:NO																																																																																																																																																												REMOVE:FEAT|Telepathy
+Remove Telepathy						VISIBLE:NO																																																																																																																																																												

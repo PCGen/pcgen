@@ -154,3 +154,5 @@ ABILITYCATEGORY:Class Ability				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						
 
 ABILITYCATEGORY:Special Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:SpecialMountSelection																		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Permanency Applied Effects	VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:PermanencySpell																			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Class Homebrew/Alternate		VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES					CATEGORY:Archetype		TYPE:Homebrew.ClassAbilityRemoval																			DISPLAYLOCATION:Class Abilities
+

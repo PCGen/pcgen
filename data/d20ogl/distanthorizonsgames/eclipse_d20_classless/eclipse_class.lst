@@ -387,7 +387,7 @@ CLASS:Point Buy	HD:4		TYPE:Base.PC.Eclipse	ABB:Point		MAXLEVEL:20	DEFINE:Eclipse
 # Class Name	Skill Pts/Lvl
 CLASS:Point Buy	STARTSKILLPTS:0
 ###Block:
-1										BONUS:HD|MAX|var("HD Bonus")																								ABILITY:Internal|AUTOMATIC|Grants All Hidden Abilities
+1										BONUS:HD|MAX|var("HDBonus")																								ABILITY:Internal|AUTOMATIC|Grants All Hidden Abilities
 1															BONUS:ABILITYPOOL|Character Points|var("CharacterPoints")	BONUS:VAR|CharacterPointsLevelOffSet|24+(24*CL)	DEFINE:CharacterPoints|0
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9																																												DONOTADD:SKILLPOINTS
 1																																						ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
@@ -414,26 +414,26 @@ CLASS:Point Buy	STARTSKILLPTS:0
 20																																																					DONOTADD:SKILLPOINTS
 #
 ###Block: Hit Die Purchasing Scheme - Need HITDIE to accept variable.
-#1		BONUS:HD|MAX|var("HD Bonus Lv 1")
-#2		BONUS:HD|MAX|var("HD Bonus Lv 2")
-#3		BONUS:HD|MAX|var("HD Bonus Lv 3")
-#4		BONUS:HD|MAX|var("HD Bonus Lv 4")
-#5		BONUS:HD|MAX|var("HD Bonus Lv 5")
-#6		BONUS:HD|MAX|var("HD Bonus Lv 6")
-#7		BONUS:HD|MAX|var("HD Bonus Lv 7")
-#8		BONUS:HD|MAX|var("HD Bonus Lv 8")
-#9		BONUS:HD|MAX|var("HD Bonus Lv 9")
-#10		BONUS:HD|MAX|var("HD Bonus Lv 10")
-#11		BONUS:HD|MAX|var("HD Bonus Lv 11")
-#12		BONUS:HD|MAX|var("HD Bonus Lv 12")
-#13		BONUS:HD|MAX|var("HD Bonus Lv 13")
-#14		BONUS:HD|MAX|var("HD Bonus Lv 14")
-#15		BONUS:HD|MAX|var("HD Bonus Lv 15")
-#16		BONUS:HD|MAX|var("HD Bonus Lv 16")
-#17		BONUS:HD|MAX|var("HD Bonus Lv 17")
-#18		BONUS:HD|MAX|var("HD Bonus Lv 18")
-#19		BONUS:HD|MAX|var("HD Bonus Lv 19")
-#20		BONUS:HD|MAX|var("HD Bonus Lv 20")
+#1		BONUS:HD|MAX|var("HDBonus Lv 1")
+#2		BONUS:HD|MAX|var("HDBonus Lv 2")
+#3		BONUS:HD|MAX|var("HDBonus Lv 3")
+#4		BONUS:HD|MAX|var("HDBonus Lv 4")
+#5		BONUS:HD|MAX|var("HDBonus Lv 5")
+#6		BONUS:HD|MAX|var("HDBonus Lv 6")
+#7		BONUS:HD|MAX|var("HDBonus Lv 7")
+#8		BONUS:HD|MAX|var("HDBonus Lv 8")
+#9		BONUS:HD|MAX|var("HDBonus Lv 9")
+#10		BONUS:HD|MAX|var("HDBonus Lv 10")
+#11		BONUS:HD|MAX|var("HDBonus Lv 11")
+#12		BONUS:HD|MAX|var("HDBonus Lv 12")
+#13		BONUS:HD|MAX|var("HDBonus Lv 13")
+#14		BONUS:HD|MAX|var("HDBonus Lv 14")
+#15		BONUS:HD|MAX|var("HDBonus Lv 15")
+#16		BONUS:HD|MAX|var("HDBonus Lv 16")
+#17		BONUS:HD|MAX|var("HDBonus Lv 17")
+#18		BONUS:HD|MAX|var("HDBonus Lv 18")
+#19		BONUS:HD|MAX|var("HDBonus Lv 19")
+#20		BONUS:HD|MAX|var("HDBonus Lv 20")
 
 
 # Class Name			Hit Dice	Type				Abbreviation	Max Level	Define			Combat bonus
@@ -441,7 +441,7 @@ CLASS:Classless Point Buy	HD:4		TYPE:Base.PC.Eclipse	ABB:Point		MAXLEVEL:20	DEFI
 # Class Name			Skill Pts/Lvl
 CLASS:Classless Point Buy	STARTSKILLPTS:0
 ###Block:
-1										BONUS:HD|MAX|var("HD Bonus")									ABILITY:Internal|AUTOMATIC|Grants All Hidden Abilities
+1										BONUS:HD|MAX|var("HDBonus")									ABILITY:Internal|AUTOMATIC|Grants All Hidden Abilities
 1															BONUS:ABILITYPOOL|Character Points|48
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9																													DONOTADD:SKILLPOINTS
 2															BONUS:ABILITYPOOL|Character Points|24*(CL-1)
@@ -469,26 +469,26 @@ CLASS:Classless Point Buy	STARTSKILLPTS:0
 20																																						DONOTADD:SKILLPOINTS
 #
 ###Block: Hit Die Purchasing Scheme - Need HITDIE to accept variable.
-#1		BONUS:HD|MAX|var("HD Bonus Lv 1")
-#2		BONUS:HD|MAX|var("HD Bonus Lv 2")
-#3		BONUS:HD|MAX|var("HD Bonus Lv 3")
-#4		BONUS:HD|MAX|var("HD Bonus Lv 4")
-#5		BONUS:HD|MAX|var("HD Bonus Lv 5")
-#6		BONUS:HD|MAX|var("HD Bonus Lv 6")
-#7		BONUS:HD|MAX|var("HD Bonus Lv 7")
-#8		BONUS:HD|MAX|var("HD Bonus Lv 8")
-#9		BONUS:HD|MAX|var("HD Bonus Lv 9")
-#10		BONUS:HD|MAX|var("HD Bonus Lv 10")
-#11		BONUS:HD|MAX|var("HD Bonus Lv 11")
-#12		BONUS:HD|MAX|var("HD Bonus Lv 12")
-#13		BONUS:HD|MAX|var("HD Bonus Lv 13")
-#14		BONUS:HD|MAX|var("HD Bonus Lv 14")
-#15		BONUS:HD|MAX|var("HD Bonus Lv 15")
-#16		BONUS:HD|MAX|var("HD Bonus Lv 16")
-#17		BONUS:HD|MAX|var("HD Bonus Lv 17")
-#18		BONUS:HD|MAX|var("HD Bonus Lv 18")
-#19		BONUS:HD|MAX|var("HD Bonus Lv 19")
-#20		BONUS:HD|MAX|var("HD Bonus Lv 20")
+#1		BONUS:HD|MAX|var("HDBonus Lv 1")
+#2		BONUS:HD|MAX|var("HDBonus Lv 2")
+#3		BONUS:HD|MAX|var("HDBonus Lv 3")
+#4		BONUS:HD|MAX|var("HDBonus Lv 4")
+#5		BONUS:HD|MAX|var("HDBonus Lv 5")
+#6		BONUS:HD|MAX|var("HDBonus Lv 6")
+#7		BONUS:HD|MAX|var("HDBonus Lv 7")
+#8		BONUS:HD|MAX|var("HDBonus Lv 8")
+#9		BONUS:HD|MAX|var("HDBonus Lv 9")
+#10		BONUS:HD|MAX|var("HDBonus Lv 10")
+#11		BONUS:HD|MAX|var("HDBonus Lv 11")
+#12		BONUS:HD|MAX|var("HDBonus Lv 12")
+#13		BONUS:HD|MAX|var("HDBonus Lv 13")
+#14		BONUS:HD|MAX|var("HDBonus Lv 14")
+#15		BONUS:HD|MAX|var("HDBonus Lv 15")
+#16		BONUS:HD|MAX|var("HDBonus Lv 16")
+#17		BONUS:HD|MAX|var("HDBonus Lv 17")
+#18		BONUS:HD|MAX|var("HDBonus Lv 18")
+#19		BONUS:HD|MAX|var("HDBonus Lv 19")
+#20		BONUS:HD|MAX|var("HDBonus Lv 20")
 
 
 

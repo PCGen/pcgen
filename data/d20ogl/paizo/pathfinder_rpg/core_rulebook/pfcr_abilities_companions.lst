@@ -256,3 +256,4 @@ Companion Advancement (Primate (Baboon))			CATEGORY:Special Ability	TYPE:CompCho
 Companion Advancement (Ray (Manta))				CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Ray (Manta))																																		BONUS:SIZEMOD|NUMBER|1																																			VISION:Blindsense (30')
 Companion Advancement (Ray (Stingray))			CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Ray (Stingray))																									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:SIZEMOD|NUMBER|1																																			VISION:Blindsense (30')
 Companion Advancement (Turtle (Giant Snapping))		CATEGORY:Special Ability	TYPE:CompChoice	VISIBLE:DISPLAY	PRERACE:1,Companion (Turtle (Giant Snapping))															ABILITY:Special Ability|AUTOMATIC|Grab ~ Bite										BONUS:SIZEMOD|NUMBER|1
+

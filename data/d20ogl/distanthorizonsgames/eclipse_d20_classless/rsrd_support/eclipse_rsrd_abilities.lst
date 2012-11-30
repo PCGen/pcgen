@@ -5,9 +5,9 @@
 
 
 # Ability Name								Category of Ability		Define			Ability									Bonus to Ability Pool																								Modify VAR																									Allowed Companions
-CATEGORY=Special Ability|All Automatic Abilities.MOD											ABILITY:Internal Abilities|AUTOMATIC|RSRD Feat Gain Bypass
+CATEGORY=Special Ability|All Automatic Abilities.MOD											ABILITY:Internal|AUTOMATIC|RSRD Feat Gain Bypass
 # This Removes the Level Based FEAT and Replaces it with 6 CP automatically. Assuming characters gain 1 at 1st level, and 1 every 3rd level. Also figured in the Human Racial Bonus.
-RSRD Feat Gain Bypass							CATEGORY:Internal Abilities	DEFINE:CPBonusFeat|0											BONUS:ABILITYPOOL|FEAT|-(TL/3)	BONUS:ABILITYPOOL|FEAT|-1|PRERACE:1,Human	BONUS:ABILITYPOOL|FEAT|-1	BONUS:ABILITYPOOL|Character Points|var("CPBonusFeat")	BONUS:VAR|CPBonusFeat|6	BONUS:VAR|CPBonusFeat|6*(TL/3)	BONUS:VAR|CPBonusFeat|6|PRERACE:1,Human	BONUS:VAR|CharacterPointsTotal|var("CPBonusFeat")
+RSRD Feat Gain Bypass							CATEGORY:Internal	DEFINE:CPBonusFeat|0											BONUS:ABILITYPOOL|FEAT|-floor(TL/3)	BONUS:ABILITYPOOL|FEAT|-1|PRERACE:1,Human	BONUS:ABILITYPOOL|FEAT|-1	BONUS:ABILITYPOOL|Character Points|var("CPBonusFeat")	BONUS:VAR|CPBonusFeat|6	BONUS:VAR|CPBonusFeat|6*floor(TL/3)	BONUS:VAR|CPBonusFeat|6|PRERACE:1,Human	BONUS:VAR|CharacterPointsTotal|var("CPBonusFeat")
 
 
 #COMMENT: Inital to set up; Base to Display and Hold DEFINES?

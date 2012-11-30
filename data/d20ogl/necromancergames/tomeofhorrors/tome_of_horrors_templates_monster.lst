@@ -43,11 +43,11 @@ Spectral Troll Fly Speed											VISIBLE:NO																																			
 # Therianthropes have a minimum of 3 HD
 # Therianthropes lose Fly speed in human form
 Therianthrope													VISIBLE:YES																																																																															PRERACE:1,RACETYPE=Animal																																																																																																																																																																																																																																																																																																															RACETYPE:Magical Beast	RACESUBTYPE:Shapechanger
-Therianthrope [Animal Form]											VISIBLE:YES																																																																																																																PRETEMPLATE:1,Therianthrope
-Therianthrope [Human Form]									SIZE:M	VISIBLE:YES																																																																																																																PRETEMPLATE:1,Therianthrope
-Therianthrope [Hybrid Form]											VISIBLE:YES									TEMPLATE:CHOOSE:Therianthrope [Hybrid Form] Size Change																																																																																														PRETEMPLATE:1,Therianthrope
+Therianthrope (Animal Form)											VISIBLE:YES																																																																																																																PRETEMPLATE:1,Therianthrope
+Therianthrope (Human Form)									SIZE:M	VISIBLE:YES																																																																																																																PRETEMPLATE:1,Therianthrope
+Therianthrope (Hybrid Form)											VISIBLE:YES									TEMPLATE:CHOOSE:Therianthrope (Hybrid Form) Size Change																																																																																														PRETEMPLATE:1,Therianthrope
 
-Therianthrope [Hybrid Form] Size Change							SIZE:M	VISIBLE:NO																																																																																																													PRESIZELTEQ:M
+Therianthrope (Hybrid Form) Size Change							SIZE:M	VISIBLE:NO																																																																																																													PRESIZELTEQ:M
 
 
 Augmented Humanoid												VISIBLE:NO																																																																															PRERACE:1,RACETYPE=Humanoid																																																																																																																																																																																																																																																																																																																			RACESUBTYPE:Augmented Humanoid

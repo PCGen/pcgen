@@ -137,7 +137,7 @@ RACE:pfb2_races_stu.lst
 RACE:pfb2_races_vw.lst
 RACE:pfb2_races_xyz.lst
 SKILL:pfb2_skills.lst
-SPELL:pfb2_spells.lst
+#SPELL:pfb2_spells.lst - Spells moved to Bestiary Core
 TEMPLATE:pfb2_templates.lst
 WEAPONPROF:pfb2_prof_weapons_monsters.lst
 
