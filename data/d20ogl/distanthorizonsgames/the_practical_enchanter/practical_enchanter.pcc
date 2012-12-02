@@ -50,9 +50,12 @@ FEAT:practical_enchanter_feats.lst
 
 KIT:practical_enchanter_kits.lst
 RACE:practical_enchanter_races.lst
+SKILL:practical_enchanter_skills.lst
 SPELL:practical_enchanter_spells.lst
 TEMPLATE:practical_enchanter_templates.lst
 
 
 ###Block: Defines
 DEFINE:WealthTemplate|0
+
+HIDETYPE:SKILL|DestituteChoice|WellOffChoice|WealthyChoice

@@ -1,0 +1,17 @@
+
+###Block: Allow Homebrew Changes to Wealth Template Skill Choices
+
+Appraise.MOD		TYPE:DestituteChoice
+Bluff.MOD			TYPE:DestituteChoice
+Diplomacy.MOD		TYPE:DestituteChoice
+Gather Information.MOD	TYPE:DestituteChoice
+Move Silently.MOD		TYPE:DestituteChoice
+Search.MOD			TYPE:DestituteChoice
+Sense Motive.MOD		TYPE:DestituteChoice
+Sleight of Hand.MOD	TYPE:DestituteChoice
+
+
+
+Diplomacy.MOD		TYPE:WellOffChoice.AffluentChoice
+Ride.MOD			TYPE:WellOffChoice.AffluentChoice
+Speak Language.MOD	TYPE:WellOffChoice.AffluentChoice
