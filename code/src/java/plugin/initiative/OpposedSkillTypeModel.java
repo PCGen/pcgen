@@ -1,5 +1,5 @@
 /*
- *  sandbox
+ *  Initiative - A role playing utility to track turns
  *  Copyright (C) 2004 Ross M. Lodge
  *
  * This library is free software; you can redistribute it and/or
@@ -19,7 +19,6 @@
  *  OpposedSkillAvailableModel.java
  *
  *  Created on May 4, 2004, 2:56:35 PM
- * 
  */
 
 package plugin.initiative;

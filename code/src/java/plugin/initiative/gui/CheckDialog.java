@@ -1,5 +1,6 @@
 /*
- * pcgen - DESCRIPTION OF PACKAGE Copyright (C) 2004 Ross M. Lodge
+ *  Initiative - A role playing utility to track turns
+ *  Copyright (C) 2004 Ross M. Lodge
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free

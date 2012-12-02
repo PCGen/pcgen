@@ -1,5 +1,5 @@
 /*
- *  pcgen - DESCRIPTION OF PACKAGE
+ *  Initiative - A role playing utility to track turns
  *  Copyright (C) 2004 Ross M. Lodge
  *
  *  This program is free software; you can redistribute it and/or modify

@@ -1,5 +1,6 @@
 /*
- * sandbox Copyright (C) 2004 Ross M. Lodge
+ *  Initiative - A role playing utility to track turns
+ *  Copyright (C) 2004 Ross M. Lodge
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,7 +19,6 @@
  * OpposedCheckDialog.java
  *
  * Created on May 4, 2004, 1:32:24 PM
- *
  */
 
 package plugin.initiative.gui;
