@@ -188,9 +188,9 @@ ABILITYCATEGORY:Water Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDI
 # Ability Category			Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object		Plural description for UI	Display Location
 #ABILITYCATEGORY:Rogue Archetype	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:RogueArchetype	PLURAL:Rogue Archetypes		DISPLAYLOCATION:Class Archetypes
 
-# Copied from Bestiary files
+# Copied from Bestiary files (move to @\d20ogl\paizo\pathfinder_rpg\core_rulebook\pfcr_abilitycategories.lst)
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list						Plural description for UI				Display Location
-ABILITYCATEGORY:Giant Spider Type				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:GiantSpiderType										PLURAL:Giant Spider Types				DISPLAYLOCATION:Racial Abilities
+#ABILITYCATEGORY:Giant Spider Type				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:GiantSpiderType										PLURAL:Giant Spider Types				DISPLAYLOCATION:Racial Abilities
 
 ABILITYCATEGORY:Guileful Polyglot Additional Language	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Guileful Polyglot Language Selection	PLURAL:Guileful Polyglot Additional Languages	DISPLAYLOCATION:Class Abilities
 #
