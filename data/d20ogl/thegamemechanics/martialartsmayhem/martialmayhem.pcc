@@ -1,0 +1,41 @@
+# CVS $Revision$ $Author$ -- Sun Feb  5 04:55:22 2006 -- reformated by prettylst.pl v1.35 (build 555)
+CAMPAIGN:TGM - Martial Arts Mayhem
+GAMEMODE:Modern
+RANK:6
+GENRE:Modern
+BOOKTYPE:Supplement
+SETTING:Martial Arts
+STATUS:BETA
+TYPE:The Game Mechanics.Sourcebook
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:The Game Mechanics,Inc.
+PUBNAMESHORT:TGM
+PUBNAMEWEB:http://www.thegamemechanics.com
+SOURCELONG:Martial Arts Mayhem
+SOURCESHORT:Mayhem
+SOURCEWEB:http://www.thegamemechanics.com
+SOURCEDATE:2003-01
+# COMMENT: Unknown Month - Set as 01
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Blood and Fists Copyright 2003, RPGObjects; Author Charles Rice
+COPYRIGHT:Martial Arts Mayhem, Copyright 2003, The Game Mechanics, Inc.; Author Rich Redman
+COPYRIGHT:PCGen dataset conversion for Martial Arts Mayhem Copyright 2006, PCGen Data team including, but not limited to, Frank Kliewe, Andrew McDougall (Tir Gwaith).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#EXTRAFILE:readme.txt
+
+CLASS:martialmayhem_classes_mods.lst
+EQUIPMENT:martialmayhem_equip_shields.lst
+EQUIPMENT:martialmayhem_equip_weap_melee.lst
+EQUIPMENT:martialmayhem_equip_weap_ranged.lst
+EQUIPMOD:martialmayhem_equipmods.lst
+FEAT:martialmayhem_feats.lst
+FEAT:martialmayhem_feats_psionic.lst
+FEAT:martialmayhem_feats_hidden.lst
+FEAT:martialmayhem_feats_mods.lst
+FEAT:martialmayhem_feats_schools.lst
+WEAPONPROF:martialmayhem_weaponprofs.lst

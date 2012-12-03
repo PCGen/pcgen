@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegamemechanics.com	SOURCEDATE:2003-01
+#Original Entry by: Frank Kliewe
+
+# Modifier Name	Unique Key			Type		Cost		Visible		Type granted		Source Page		Required Type	Bonus Equipment Modifiers	Bonus Weapon Modifiers										Special Property
+Clothyard Shaft	KEY:CLOTHYRD_SHAFT	TYPE:Weapon			VISIBLE:NO						SOURCEPAGE:p.11	PRETYPE:1,Ranged						BONUS:EQMWEAPON|RANGEADD|20|PREFEAT:1,3rd Degree Mastery - Clothyard Shaft
+Shield Spikes	KEY:SPIKE_S			TYPE:Shield	COST:1	VISIBLE:QUALIFY	ITYPE:Spiked.Piercing	SOURCEPAGE:p.38	PRETYPE:1,Shield	BONUS:EQM|WEIGHTADD|2		BONUS:EQMWEAPON|DAMAGESIZE|1									SPROP:Spiked
+
+###Block:Arrows
+# Modifier Name	Unique Key			Type			Cost		Visible		Source Page		Required Type	Special Property
+Dragon's Tongue	KEY:ARW_DRGN_TNG_A	TYPE:Ammunition	COST:3	VISIBLE:QUALIFY	SOURCEPAGE:p.43	PRETYPE:1,Arrow
+Explosive		KEY:ARW_EXPLSV_A		TYPE:Ammunition	COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.43	PRETYPE:1,Arrow	SPROP:1d8 extra damage, Lic(+1)
+Hikime		KEY:ARW_HIKIME_A		TYPE:Ammunition	COST:1	VISIBLE:QUALIFY	SOURCEPAGE:p.43	PRETYPE:1,Arrow
+Silver		KEY:ARW_SLVR_A		TYPE:Ammunition	COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.43	PRETYPE:1,Arrow
+White Phosphorous	KEY:ARW_WT_PHSPHR_A	TYPE:Ammunition	COST:5	VISIBLE:QUALIFY	SOURCEPAGE:p.43	PRETYPE:1,Arrow	SPROP:1d6 fire damage, Mil(+3)
+Willow Leaf		KEY:ARW_WLLW_LF_A		TYPE:Ammunition	COST:2	VISIBLE:QUALIFY	SOURCEPAGE:p.43	PRETYPE:1,Arrow
