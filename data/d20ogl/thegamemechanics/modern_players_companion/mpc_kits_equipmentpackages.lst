@@ -1,0 +1,341 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/	SOURCEDATE:2003-01
+# Original Entry by: Frank Kliewe
+
+REGION:None
+
+STARTPACK:Academic Package	TYPE:StartingKit	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.62
+GEAR:Binoculars (Standard)
+GEAR:Briefcase
+GEAR:Camera (Digital)
+GEAR:Cell Phone
+GEAR:Clothing Outfit (Business)
+GEAR:Clothing Outfit (Casual)
+GEAR:Day Pack
+GEAR:Diamondback X-20 (mountain bike)
+GEAR:Encyclopedia
+GEAR:Fake ID
+GEAR:Fire Extinguisher
+GEAR:First Aid Kit
+GEAR:Flashlight (Penlight)
+GEAR:In-line Skates
+GEAR:Instrument (Stringed)
+GEAR:Laser Pointer
+GEAR:Marbles (1 bag)
+GEAR:Multipurpose Tool
+GEAR:Outerwear (Overcoat)
+GEAR:Slingshot
+GEAR:Suitcase (Wheeled/25 lb. capacity)
+GEAR:Windbreaker
+GEAR:Computer (Desktop)				PREVARGTEQ:WealthBonus,7
+GEAR:Modem (Broadband)				PREVARGTEQ:WealthBonus,7
+GEAR:PDA						PREVARGTEQ:WealthBonus,7
+GEAR:Computer (Notebook)			PREVARGTEQ:WealthBonus,9
+GEAR:Library Collection				PREVARGTEQ:WealthBonus,11
+
+STARTPACK:Adventurer Package	TYPE:StartingKit	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.62
+GEAR:Aluminum Travel Case (75 lb)
+GEAR:Backpack
+GEAR:Binoculars (Standard)
+GEAR:Caltrops (25)
+GEAR:Camera (Digital)
+GEAR:Canteen (1 qt. capacity)
+GEAR:Clothing Outfit (Casual)
+GEAR:Cell Phone
+GEAR:Chemical Light Sticks (5)
+GEAR:Compass
+GEAR:Contractor's Field Bag
+GEAR:Duct Tape
+GEAR:Duffle Bag
+GEAR:Flashlight (Battery Flood)
+GEAR:Holster (Hip)
+GEAR:Knife
+GEAR:Map (Road Atlas)
+GEAR:Multipurpose Tool
+GEAR:Pathfinder (.22 revolver with Speedloader)
+GEAR:Pull-up Pouch Vest
+GEAR:Rain Poncho
+GEAR:Rope (150 ft.)
+GEAR:Search-and-Rescue Kit
+GEAR:Sleeping Bag
+GEAR:Tent (2-Person Dome)
+GEAR:Trail Rations (12)
+GEAR:Walkie-Talkie (Basic)
+GEAR:Walkie-Talkie (Basic)								PREVARGTEQ:WealthBonus,5
+GEAR:Beretta 92F (9mm autoloader)							PREVARGTEQ:WealthBonus,5
+GEAR:Remington 700 (7.62 hunting rifle)						PREVARGTEQ:WealthBonus,5
+GEAR:Remington 700 (7.62 hunting rifle with Electro-optical Scope)	PREVARGTEQ:WealthBonus,7
+GEAR:Yamaha YZ250F									PREVARGTEQ:WealthBonus,9
+
+STARTPACK:Blue Collar Package	TYPE:StartingKit	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.63
+GEAR:Backpack
+GEAR:Briefcase
+GEAR:Camera (Disposable)
+GEAR:Canteen (0.5 qt. capacity)
+GEAR:Clothing Outfit (Business)
+GEAR:Clothing Outfit (Casual)
+GEAR:Cell Phone
+GEAR:Outerwear (Coat)
+GEAR:Duffle Bag
+GEAR:First Aid Kit
+GEAR:Flashlight (Standard)
+GEAR:Electrical Tool Kit (Basic)
+GEAR:Rain Poncho
+GEAR:Map (Road Atlas)
+GEAR:Sleeping Bag
+GEAR:PDA					PREVARGTEQ:WealthBonus,6
+GEAR:Computer (Desktop)			PREVARGTEQ:WealthBonus,8
+GEAR:Chevrolet Cavalier			PREVARGTEQ:WealthBonus,10
+
+STARTPACK:Criminal Package	TYPE:StartingKit	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.63
+GEAR:Binoculars (Standard)
+GEAR:Bolt Cutter
+GEAR:Brass Knuckles
+GEAR:Briefcase
+GEAR:Car opening Kit
+GEAR:Cell Phone
+GEAR:Clothing Outfit (Business)
+GEAR:Clothing Outfit (Casual)
+GEAR:Disguise Kit
+GEAR:Duct Tape
+GEAR:Duffle Bag
+GEAR:Fake ID
+GEAR:Flashlight (Standard)
+GEAR:Flask
+GEAR:Holster (Concealed carry)
+GEAR:Knife
+GEAR:Leather Jacket
+GEAR:Lockpick Set
+GEAR:Money Belt
+GEAR:Pathfinder (.22 revolver with Suppressor)
+GEAR:Sap
+GEAR:Desert Eagle (.50AE autoloader)		PREVARGTEQ:WealthBonus,5
+GEAR:Sawed-Off Shotgun (12 gauge shotgun)		PREVARGTEQ:WealthBonus,5
+GEAR:Uzi (9mm submachine gun)				PREVARGTEQ:WealthBonus,7
+GEAR:Ford Crown Victoria				PREVARGTEQ:WealthBonus,9
+
+STARTPACK:Emergency Services Package	TYPE:StartingKit	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.63
+GEAR:Aluminum Travel Case (10 lb)
+GEAR:Binoculars (Rangefinding)
+GEAR:Bolt Cutter
+GEAR:Camera (Digital)
+GEAR:Canteen (2 qt. capacity)
+GEAR:Car opening Kit
+GEAR:Cell Phone
+GEAR:Clothing Outfit (Casual)
+GEAR:Compass
+GEAR:Contractor's Field Bag
+GEAR:Duct Tape
+GEAR:Evidence Kit (Basic)
+GEAR:Fire Extinguisher
+GEAR:First Aid Kit
+GEAR:Flare Gun
+GEAR:Flashlight (Battery Flood)
+GEAR:Handcuffs (Zip-Tie/25)
+GEAR:Lock Release Gun
+GEAR:Map (Road Atlas)
+GEAR:Medical Kit
+GEAR:Multipurpose Tool
+GEAR:Police Scanner
+GEAR:Rope (150 ft.)
+GEAR:Tool Belt
+GEAR:Uniform
+GEAR:Walkie-Talkie (Professional)
+GEAR:Windbreaker
+GEAR:Portable Satellite Phone		PREVARGTEQ:WealthBonus,6
+GEAR:Surgery Kit				PREVARGTEQ:WealthBonus,6
+GEAR:Jaws of Life				PREVARGTEQ:WealthBonus,8
+GEAR:Generator (Portable)		PREVARGTEQ:WealthBonus,10
+
+STARTPACK:Jet Set Package	TYPE:StartingKit	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.63
+GEAR:Aluminum Travel Case (75 lb)
+GEAR:Briefcase
+GEAR:Camera (Digital)
+GEAR:Clothing Outfit (Business)
+GEAR:Clothing Outfit (Formal)
+GEAR:Computer (Notebook)
+GEAR:Derringer (.45)
+GEAR:Designer Outfit (Casual)
+GEAR:Digital Audio Recorder
+GEAR:Fake ID
+GEAR:Flashlight (Penlight)
+GEAR:GPS Receiver
+GEAR:Instrument (Percussion)
+GEAR:Multi-Function PDA/Cell Phone
+GEAR:Outerwear (Overcoat)
+GEAR:Pepper Spray
+GEAR:Portable Video Camera
+GEAR:Skis and Poles
+GEAR:Stun gun
+GEAR:Sword cane
+GEAR:Designer Outfit (Formal)		PREVARGTEQ:WealthBonus,10
+GEAR:BMW M3					PREVARGTEQ:WealthBonus,10
+GEAR:Jaguar XJS				PREVARGTEQ:WealthBonus,12
+GEAR:Avanti 39 (cigarette boat)	PREVARGTEQ:WealthBonus,14
+
+STARTPACK:Law Enforcement Package	TYPE:StartingKit	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.63
+GEAR:Car opening Kit
+GEAR:Cell Phone
+GEAR:Chemical Light Sticks (5)
+GEAR:Clothing Outfit (Casual)
+GEAR:Colt Double Eagle (10mm autoloader)
+GEAR:Disguise Kit
+GEAR:Evidence Kit (Basic)
+GEAR:Fire Extinguisher
+GEAR:First Aid Kit
+GEAR:Flashlight (Penlight)
+GEAR:Flashlight (Standard)
+GEAR:Handcuffs (Steel)
+GEAR:Holster (Hip)
+GEAR:Holster (Concealed carry)
+GEAR:Lock Release Gun
+GEAR:Map (Road Atlas)
+GEAR:Metal Baton
+GEAR:Multipurpose Tool
+GEAR:Patrol Box
+GEAR:Pepper Spray
+GEAR:Ruger Service-Six (.385 revolver with Speedloader)
+GEAR:Search-and-Rescue Kit
+GEAR:Spike Strip
+GEAR:Stun gun
+GEAR:Undercover Vest
+GEAR:Uniform
+GEAR:Beretta M3P (12 gauge shotgun)					PREVARGTEQ:WealthBonus,5
+GEAR:Evidence Kit (Deluxe)						PREVARGTEQ:WealthBonus,5
+GEAR:Light-Duty Vest							PREVARGTEQ:WealthBonus,7
+GEAR:Telephone Tap (Telephone Line Tracer)			PREVARGTEQ:WealthBonus,9
+
+STARTPACK:Military Package	TYPE:StartingKit	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.64
+GEAR:Backpack
+GEAR:Beretta 92F (9mm autoloader)
+GEAR:Binoculars (Rangefinding)
+GEAR:Canteen (1 qt. capacity)
+GEAR:Climbing Gear
+GEAR:Clothing Outfit (Casual)
+GEAR:Concealable Vest
+GEAR:Demolitions Kit
+GEAR:Duffle Bag
+GEAR:Fatigues
+GEAR:Outerwear (Fatigue Jacket)
+GEAR:Flare Gun
+GEAR:Gas Mask
+GEAR:Holster (Hip)
+GEAR:Knife
+GEAR:Multipurpose Tool
+GEAR:Police Scanner
+GEAR:Rain Poncho
+GEAR:Search-and-Rescue Kit
+GEAR:Sleeping Bag
+GEAR:Smoke Grenade
+GEAR:Map (Tactical Map)
+GEAR:Tear Gas Grenade
+GEAR:Tent (2-Person Dome)
+GEAR:Trail Rations (12)
+GEAR:Uniform
+GEAR:Walkie-Talkie (Professional)
+GEAR:Bayonet (fixed)			PREVARGTEQ:WealthBonus,5
+GEAR:M16A2 (5.56mm assault rifle)	PREVARGTEQ:WealthBonus,5
+GEAR:Video Shades (Color)		PREVARGTEQ:WealthBonus,7
+GEAR:Jeep Wrangler (SUV)		PREVARGTEQ:WealthBonus,9
+
+STARTPACK:Scientist Package	TYPE:StartingKit	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.64
+GEAR:Aluminum Travel Case (10 lb)
+GEAR:Briefcase
+GEAR:Cell Phone
+GEAR:Chemical Kit
+GEAR:Clothing Outfit (Business)
+GEAR:Clothing Outfit (Casual)
+GEAR:Outerwear (Coat)
+GEAR:Day Pack
+GEAR:Digital Audio Recorder
+GEAR:Evidence Kit (Basic)
+GEAR:Gas Mask
+GEAR:Headset (standard)
+GEAR:Laser Pointer
+GEAR:Modem (Cellular)
+GEAR:Multipurpose Tool
+GEAR:Pager
+GEAR:Hard Drive (portable)
+GEAR:Windbreaker
+GEAR:Computer (Desktop)			PREVARGTEQ:WealthBonus,7
+GEAR:PDA					PREVARGTEQ:WealthBonus,7
+GEAR:Computer (Notebook)		PREVARGTEQ:WealthBonus,9
+GEAR:Volkswagen Jetta			PREVARGTEQ:WealthBonus,11
+
+STARTPACK:Technician Package	TYPE:StartingKit	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.64
+GEAR:Camera Bag (15 lb. capacity)
+GEAR:Camera (Digital)
+GEAR:Cell Phone
+GEAR:Clothing Outfit (Business)
+GEAR:Clothing Outfit (Casual)
+GEAR:Outerwear (Coat)
+GEAR:Day Pack
+GEAR:Digital Audio Recorder
+GEAR:Duct Tape
+GEAR:Electrical Tool Kit (Basic)
+GEAR:Laser Pointer
+GEAR:Lineman's Buttset
+GEAR:Mechanical Tool Kit (Basic)
+GEAR:Modem (Cellular)
+GEAR:Multipurpose Tool
+GEAR:Pager
+GEAR:Hard Drive (portable)
+GEAR:Scanner
+GEAR:Tool Belt
+GEAR:Windbreaker
+GEAR:Computer (Desktop)			PREVARGTEQ:WealthBonus,7
+GEAR:PDA					PREVARGTEQ:WealthBonus,7
+GEAR:Computer (Notebook)		PREVARGTEQ:WealthBonus,9
+GEAR:Acura 3.2 TL				PREVARGTEQ:WealthBonus,11
+
+STARTPACK:Vagabond Package	TYPE:StartingKit	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.65
+GEAR:Backpack
+GEAR:Clothing Outfit (Casual)
+GEAR:Canteen (1 qt. capacity)
+GEAR:Duct Tape
+GEAR:Fake ID
+GEAR:Fishing Rod
+GEAR:Flashlight (Penlight)
+GEAR:Instrument (Wind)
+GEAR:Multipurpose Tool
+GEAR:Outerwear (Parka)
+GEAR:Portable Stove
+GEAR:Rain Poncho
+GEAR:Map (Road Atlas)
+GEAR:Road Flare (3)
+GEAR:Sleeping Bag
+GEAR:Straight Razor
+GEAR:Trail Rations (12)
+GEAR:Windbreaker
+GEAR:Search-and-Rescue Kit			PREVARGTEQ:WealthBonus,4
+GEAR:Tent (2-Person Dome)			PREVARGTEQ:WealthBonus,6
+GEAR:Remington 700 (7.62 hunting rifle)	PREVARGTEQ:WealthBonus,6
+GEAR:Harley Davidson FLSTF			PREVARGTEQ:WealthBonus,8
+
+STARTPACK:White Collar Package	TYPE:StartingKit	APPLY:INSTANT	EQUIPBUY:0	SOURCEPAGE:p.65
+GEAR:Briefcase
+GEAR:Caller ID Defeater
+GEAR:Cell Phone
+GEAR:Clothing Outfit (Business)
+GEAR:Clothing Outfit (Casual)
+GEAR:Clothing Outfit (Formal)
+GEAR:Digital Audio Recorder
+GEAR:Fire Extinguisher
+GEAR:First Aid Kit
+GEAR:Flashlight (Standard)
+GEAR:Mechanical Tool Kit (Basic)
+GEAR:Multipurpose Tool
+GEAR:Outerwear (Overcoat)
+GEAR:Portable Video Camera
+GEAR:Map (Road Atlas)
+GEAR:Skis and Poles
+GEAR:Tap Detector
+GEAR:Windbreaker
+GEAR:Computer (Desktop)			PREVARGTEQ:WealthBonus,7
+GEAR:Multi-Function PDA/Cell Phone	PREVARGTEQ:WealthBonus,7
+GEAR:Computer (Notebook)		PREVARGTEQ:WealthBonus,9
+GEAR:Acura 3.2 TL				PREVARGTEQ:WealthBonus,11
+
+#
+# End
+#

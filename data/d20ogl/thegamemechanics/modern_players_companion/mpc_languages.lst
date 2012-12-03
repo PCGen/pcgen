@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/	SOURCEDATE:2003-01
+# Original Entry by: Frank Kliewe
+
+# Language			Type					Source Page
+American Sign Language	TYPE:Spoken.Accessibility	SOURCEPAGE:p.9
+Braille			TYPE:Written.Accessibility	SOURCEPAGE:p.9
+Esperanto			TYPE:Spoken.Artificial		SOURCEPAGE:p.9
+Esperanto			TYPE:Written.Artificial		SOURCEPAGE:p.9	KEY:Esperanto_Written
+Klingon			TYPE:Spoken.Artificial		SOURCEPAGE:p.9
+Klingon			TYPE:Written.Artificial		SOURCEPAGE:p.9	KEY:Klingon_Written
+Morse Code			TYPE:Spoken.Artificial		SOURCEPAGE:p.9
+Morse Code			TYPE:Written.Artificial		SOURCEPAGE:p.9	KEY:Morse_Code_Written
+Sindarin			TYPE:Spoken.Artificial		SOURCEPAGE:p.9
+Sindarin			TYPE:Written.Artificial		SOURCEPAGE:p.9	KEY:Sindarin_Written
+Computer Languages	TYPE:Written.Artificial		SOURCEPAGE:p.9

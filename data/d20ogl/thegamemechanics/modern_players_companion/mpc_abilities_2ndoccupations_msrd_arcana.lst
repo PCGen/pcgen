@@ -1,0 +1,17 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/	SOURCEDATE:2003-01
+# Original Entry by: Frank Kliewe
+
+###Block:Moonlighter Feat Second Occupation MPC
+# Feat Name					Type				Visible		Required Feat			Prohibited Feat					Required Stat		Add							Modify VAR			Source Page
+# Ability Name	Category of Ability		Type				Visible		Restricted Ability							Required Feat			Required Stat		Bonus to Ability Pool						Modify VAR			Source Page
+Apothecary		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Apothecary		PREFEAT:1,TYPE.Apothecary					BONUS:ABILITYPOOL|Apothecary Occupation Skills|1	BONUS:VAR|WealthBonus|3	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Hedge Wizard	CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Hedge Wizard	PREFEAT:1,TYPE.HedgeWizard	PRESTAT:1,INT=10		BONUS:ABILITYPOOL|Hedge Wizard Occupation Skills|1	BONUS:VAR|WealthBonus|2	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Novitiate		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Novitiate		PREFEAT:1,TYPE.Novitiate	PRESTAT:1,WIS=10		BONUS:ABILITYPOOL|Novitiate Occupation Skills|3		BONUS:VAR|WealthBonus|2	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Psychic		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Psychic		PREFEAT:1,TYPE.Psychic						BONUS:ABILITYPOOL|Psychic Occupation Skills|2		BONUS:VAR|WealthBonus|2	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Shadow Scholar	CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Shadow Scholar	PREFEAT:1,TYPE.ShadowScholar					BONUS:ABILITYPOOL|Shadow Scholar Occupation Skills|3	BONUS:VAR|WealthBonus|1	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+Squire		CATEGORY:Second Occupation	TYPE:SecondOccupation	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Starting Occupation,Squire		PREFEAT:1,TYPE.Squire		PRESTAT:1,STR=13,DEX=13	BONUS:ABILITYPOOL|Squire Occupation Skills|3		BONUS:VAR|WealthBonus|1	SOURCEPAGE:ArcanaOccupationsandFeats.rtf
+
+#
+# End
+#
