@@ -5,6 +5,16 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 
 #COMMENT: Added a method to increase Familiar HP, as per The Practical Enchanter and other custom sources allows.
 
+FOLLOWER:RiderBattleDanceBonus=1			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_1
+FOLLOWER:RiderBattleDanceBonus=2			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_2
+FOLLOWER:RiderBattleDanceBonus=3			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_3
+FOLLOWER:RiderBattleDanceBonus=4			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_4
+FOLLOWER:RiderBattleDanceBonus=5			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_5
+FOLLOWER:RiderBattleDanceBonus=6			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_6
+FOLLOWER:RiderBattleDanceBonus=7			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_7
+FOLLOWER:RiderBattleDanceBonus=8			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_8
+
+
 ###Block: Familiar Progression
 # Class of the Master	Type			Ability																											Copy Masters BAB		Copy Masters Checks	HP formula based on Master					Use Masters skills?	Define								Combat bonus					Modify VAR																	Main Race Type
 FOLLOWER:FamiliarLvl=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Improved Fortune ~ Evasion|Link ~ Companion	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,(MASTER/2)+var("FamiliarBonusHP"))	USEMASTERSKILL:YES	DEFINE:FamiliarLevel|0	DEFINE:FamiliarBonusHP|0	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|IntelligenceLockNumber|6	BONUS:VAR|FamiliarLevel|1								RACETYPE:Magical Beast

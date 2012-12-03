@@ -28,3 +28,16 @@ Companion (Lion)				SIZE:L	MOVE:Walk,40	FACE:10	REACH:5	VISION:Low-light								
 # Vortera is based off of a Lion, here is Vortera for simplicity
 
 Anthromorph (Fox)	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	VISION:Low-light	LANGBONUS:ALL	BONUS:ABILITYPOOL|Anthromorph Choice|1	BONUS:ABILITYPOOL|Character Points|-20																																BONUS:STAT|CON|4	BONUS:STAT|DEX|6											BONUS:VAR|ScentRange|30																AUTO:LANG|Common			ABILITY:Special Ability|AUTOMATIC|Scent	ABILITY:Character Points|AUTOMATIC|Legionary|Track ~ Eclipse (Wilderness)																																RACETYPE:Humanoid		RACESUBTYPE:Fox	TYPE:PC	CR:1/2		SOURCEPAGE:custom
+
+###Block: Familiars
+#Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel	
+Bat.MOD			RACESUBTYPE:Familiar
+Cat.MOD			RACESUBTYPE:Familiar
+Hawk.MOD			RACESUBTYPE:Familiar
+Lizard.MOD			RACESUBTYPE:Familiar
+Owl.MOD			RACESUBTYPE:Familiar
+Rat.MOD			RACESUBTYPE:Familiar
+Raven.MOD			RACESUBTYPE:Familiar
+Snake (Viper/Tiny).MOD	RACESUBTYPE:Familiar
+Toad.MOD			RACESUBTYPE:Familiar
+Weasel.MOD			RACESUBTYPE:Familiar
