@@ -11,7 +11,8 @@ Pinpoint Accuracy		TYPE:General			PREFEAT:2,Point Blank Shot,Precise Shot							
 Recognize Omen		TYPE:General										PRERACE:1,Ork				PRESTAT:1,WIS=13	DESC:You can see tidings of good and evil in the events that happen around you.						SOURCEPAGE:p.
 Second Wind			TYPE:General																			DESC:You can control and focus your body to shake off fatigue.									SOURCEPAGE:p.
 Set Spear			TYPE:General																			DESC:You know how to effectively use polearms against mounted charges.								SOURCEPAGE:p.
-Subduing Strike		TYPE:General	PREATT:2														PRESTAT:1,DEX=13	DESC:You learned to better use normally lethal weapons to knock your opponents unconscious.		MULT:YES	SOURCEPAGE:p.
+# COMMENT: Subduing Strike Had mult yes with no chooser, need actual source to determine if they choose a weapon.
+Subduing Strike		TYPE:General	PREATT:2														PRESTAT:1,DEX=13	DESC:You learned to better use normally lethal weapons to knock your opponents unconscious.				SOURCEPAGE:p.
 
 ###Block: Elemental feats
 # Feat Name				Type			Source Page

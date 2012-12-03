@@ -5,7 +5,7 @@ RANK:1
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Sovereign Stone
-STATUS:BETA
+STATUS:RELEASE
 TYPE:Sovereign Press.Sovereign Stone
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Sovereign Press
@@ -21,9 +21,14 @@ COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; 
 COPYRIGHT:Sovereign Stone Campaign Sourcebook Copyright 2001, Sovereign Press, Inc.; Authors Timothy Kidwell, Jamie Chambers, Don Perrin, based on original material by Larry Elmore, Margaret Weis, and Tracy Hickman.
 COPYRIGHT:PCGen dataset conversion for Sovereign Stone Campaign Sourcebook Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King, Eddy Anthony)
 
+# COMMENT: FEAT - Subduing Strike has an outstanding issue.
+
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 PCC:@/homebrew/conversion_support/conversion_support.pcc
+
+ABILITY:ssc_abilities.lst
+ABILITYCATEGORY:ssc_abilitycategories.lst
 
 BIOSET:sovereignbiosettings.lst
 CLASS:sovereign_classes.lst

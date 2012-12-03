@@ -3,7 +3,7 @@ SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:
 
 # Template Name	Visible	Template												Source Page		Special ABility		Bonus Number of Feats	Bonus to skill		Stat bonus								Class Skill								Favored Class				Ability											Automatically Gained Feat	Automatically Gained Language	Bonus Languages									Subrace
 Dwarf (Clan)	VISIBLE:NO														SOURCEPAGE:p.27									BONUS:SKILL|Ride,Spot|2	BONUS:STAT|CON|2	BONUS:STAT|INT|-2				CSKILL:Handle Animal|Ride|Sign Language			FAVOREDCLASS:Mounted Warrior																																			SUBRACE:Clan
-Dwarf (Unhorsed)	VISIBLE:NO														SOURCEPAGE:p.28									BONUS:SKILL|Diplomacy|2	BONUS:STAT|CON|-2	BONUS:STAT|WIS|2													FAVOREDCLASS:Rogue															AUTO:FEAT|Unhorsed Dwarf						LANGBONUS:Elder Speak,Pharn'lan,Tomagai					SUBRACE:Unhorsed
+Dwarf (Unhorsed)	VISIBLE:NO														SOURCEPAGE:p.28									BONUS:SKILL|Diplomacy|2	BONUS:STAT|CON|-2	BONUS:STAT|WIS|2													FAVOREDCLASS:Rogue															BONUS:ABILITYPOOL|Unhorsed Dwarf|1						LANGBONUS:Elder Speak,Pharn'lan,Tomagai					SUBRACE:Unhorsed
 
 Dunkargan		VISIBLE:NO	TEMPLATE:CHOOSE:Favored Class Fighter|Favored Class Rogue				SOURCEPAGE:p.16					BONUS:FEAT|POOL|1						BONUS:STAT|INT|2	BONUS:STAT|WIS|-2				CSKILL:Diplomacy|Gather Information|Innuendo																									AUTO:LANG|Karna			LANGBONUS:Dunkrass,Elder Speak,Sanki					SUBRACE:YES
 Karnuan		VISIBLE:NO	TEMPLATE:CHOOSE:Favored Class Mounted Warrior|Favored Class Soldier		SOURCEPAGE:p.17													BONUS:STAT|CON|2	BONUS:STAT|CHA|-2	BONUS:STAT|INT|1																ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies						AUTO:LANG|Karna			LANGBONUS:Elder Speak,Naru,Pharn'lan,Sanki,Tomagai			SUBRACE:YES

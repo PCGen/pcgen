@@ -3,7 +3,6 @@ SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:
 
 ###Block: Hidden Racial Feats
 # Feat Name		Type			Visible	Required Race			Var. Min. Value			Multiple?	Choose						Bonus to skill		Cost		Source Page
-Unhorsed Dwarf	TYPE:General	VISIBLE:NO	PRERACE:1,Dwarf (Unhorsed)	PREVARGTEQ:nullandvoid,2	MULT:YES	CHOOSE:SKILL|TYPE=Craft|TYPE=Profession	BONUS:SKILL|LIST|2	COST:0.5	SOURCEPAGE:p.
 
 ###Block: Proficiencies
 # Feat Name				Type			Visible	Automatically Gained Weapon Prof.
