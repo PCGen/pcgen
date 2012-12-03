@@ -6,11 +6,11 @@ SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHO
 American Sign Language	TYPE:Spoken.Accessibility	SOURCEPAGE:p.9
 Braille			TYPE:Written.Accessibility	SOURCEPAGE:p.9
 Esperanto			TYPE:Spoken.Artificial		SOURCEPAGE:p.9
-Esperanto			TYPE:Written.Artificial		SOURCEPAGE:p.9
+Esperanto			TYPE:Written.Artificial		SOURCEPAGE:p.9	KEY:Esperanto_Written
 Klingon			TYPE:Spoken.Artificial		SOURCEPAGE:p.9
-Klingon			TYPE:Written.Artificial		SOURCEPAGE:p.9
+Klingon			TYPE:Written.Artificial		SOURCEPAGE:p.9	KEY:Klingon_Written
 Morse Code			TYPE:Spoken.Artificial		SOURCEPAGE:p.9
-Morse Code			TYPE:Written.Artificial		SOURCEPAGE:p.9
+Morse Code			TYPE:Written.Artificial		SOURCEPAGE:p.9	KEY:Morse_Code_Written
 Sindarin			TYPE:Spoken.Artificial		SOURCEPAGE:p.9
-Sindarin			TYPE:Written.Artificial		SOURCEPAGE:p.9
+Sindarin			TYPE:Written.Artificial		SOURCEPAGE:p.9	KEY:Sindarin_Written
 Computer Languages	TYPE:Written.Artificial		SOURCEPAGE:p.9
