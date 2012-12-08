@@ -241,8 +241,6 @@ public final class Globals
 	public static final Object[] EMPTY_OBJECT_ARRAY = new Object[0];
 	/** EMPTY_STRING_ARRAY*/
 	public static final String[] EMPTY_STRING_ARRAY = new String[0];
-	/** Name of the default innate spell book. */
-	public static final String INNATE_SPELL_BOOK_NAME = "Innate";
 
 	/**
 	 * Get a list of the allowed game modes

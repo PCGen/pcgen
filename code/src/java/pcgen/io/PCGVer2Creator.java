@@ -2087,7 +2087,7 @@ final class PCGVer2Creator implements IOConstants
 		{
 			String bookName = book.getName();
 			if (!bookName.equals(Globals.getDefaultSpellBook())
-				&& !bookName.equals(Globals.INNATE_SPELL_BOOK_NAME))
+				&& !bookName.equals(Constants.INNATE_SPELL_BOOK_NAME))
 			{
 				buffer.append(TAG_SPELLBOOK).append(':');
 				buffer.append(book.getName());

@@ -1038,7 +1038,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		// Do all the pc's innate spells.
 		Collection<CharacterSpell> innateSpells = theCharacter.getCharacterSpells(theCharacter.getRace(),
-				Globals.INNATE_SPELL_BOOK_NAME);
+				Constants.INNATE_SPELL_BOOK_NAME);
 		for (CharacterSpell aCharacterSpell : innateSpells)
 		{
 			if (aCharacterSpell == null)

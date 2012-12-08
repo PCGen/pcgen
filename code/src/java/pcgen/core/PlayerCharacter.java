@@ -430,7 +430,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		setFeats(0);
 		rollStats(SettingsHandler.getGame().getRollMethod());
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(), SpellBook.TYPE_KNOWN_SPELLS));
-		addSpellBook(new SpellBook(Globals.INNATE_SPELL_BOOK_NAME, SpellBook.TYPE_INNATE_SPELLS));
+		addSpellBook(new SpellBook(Constants.INNATE_SPELL_BOOK_NAME, SpellBook.TYPE_INNATE_SPELLS));
 		populateSkills(SettingsHandler.getSkillsTab_IncludeSkills());
 		// XXX do not set it, as for gender. Remark: not working, value is not set.
 //		setStringFor(StringKey.HANDED, Handed.getDefaultValue().toString());

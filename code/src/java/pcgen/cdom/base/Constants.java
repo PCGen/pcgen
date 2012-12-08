@@ -673,6 +673,9 @@ public interface Constants
 	/** The character to used to separate path components. */
 	String EQUIP_SET_PATH_SEPARATOR = "."; //$NON-NLS-1$
 
+	/** Name of the default innate spell book. */
+	public static final String INNATE_SPELL_BOOK_NAME = "Innate";
+
 	/** The size (in pixels) of a side of the square thumbnail image */
 	public static final int THUMBNAIL_SIZE = 100;
 }

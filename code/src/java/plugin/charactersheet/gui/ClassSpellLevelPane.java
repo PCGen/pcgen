@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
@@ -422,7 +423,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 			else
 			{
 				spellList = pc.getCharacterSpells(pc.getRace());
-				spellBook = Globals.INNATE_SPELL_BOOK_NAME;
+				spellBook = Constants.INNATE_SPELL_BOOK_NAME;
 			}
 
 			for (Component c : removeList)
