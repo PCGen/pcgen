@@ -123,12 +123,10 @@ public final class Globals
 				javaVersion.lastIndexOf('.'))).intValue();
 
 	/** NOTE: The defaultPath is duplicated in LstSystemLoader. */
-	private static final String defaultPath    = System.getProperty("user.dir"); //$NON-NLS-1$
 	private static final String defaultPcgPath = Globals.getUserFilesPath() + File.separator + "characters"; //$NON-NLS-1$
 	private static final String backupPcgPath = Constants.EMPTY_STRING;
 	
 	/** These are for the Internationalization project. */
-	private static String     language        = "en"; //$NON-NLS-1$
 	private static String     country         = "US"; //$NON-NLS-1$
 
 	/** The BioSet used for age calculations */
@@ -237,8 +235,6 @@ public final class Globals
 
 	// Optimizations used by any code needing empty arrays.  All empty arrays
 	// of the same type are idempotent.
-	/** EMPTY_CLASS_ARRAY*/
-	public static final Class[] EMPTY_CLASS_ARRAY = new Class[0];
 	/** EMPTY_DOUBLE_ARRAY*/
 	public static final Double[] EMPTY_DOUBLE_ARRAY = new Double[0];
 	/** EMPTY_OBJECT_ARRAY*/
@@ -247,25 +243,6 @@ public final class Globals
 	public static final String[] EMPTY_STRING_ARRAY = new String[0];
 	/** Name of the default innate spell book. */
 	public static final String INNATE_SPELL_BOOK_NAME = "Innate";
-
-//	static
-//	{
-//		ResourceBundle globalProperties;
-//
-//		try
-//		{
-//			globalProperties = ResourceBundle.getBundle("pcgen/gui/prop/PCGenProp"); //$NON-NLS-1$
-//			globalProperties.getString("VersionNumber"); //$NON-NLS-1$
-//		}
-//		catch (MissingResourceException mrex)
-//		{
-//			Logging.errorPrint("Can't find the VersionNumber property.", mrex);
-//		}
-//		finally
-//		{
-//			globalProperties = null; // TODO: value never used
-//		}
-//	}
 
 	/**
 	 * Get a list of the allowed game modes
@@ -1871,24 +1848,6 @@ public final class Globals
 				roll = Math.abs(Globals.getRandomInt(max - min + 1)) + min;
 
 				break;
-
-			//TODO: Can we put these back now? XXX
-//			case Constants.HP_LIVING_GREYHAWK:
-//				if (totalLevels == 1)
-//					roll = max;
-//				else
-//					roll = (int)Math.floor((max + min) / 2) + 1;
-//				break;
-//			case Constants.HP_LIVING_CITY:
-//				if (totalLevels == 1 || totalLevels == 2)
-//					roll = max;
-//				else
-//				{
-//					roll = (int)Math.floor(3 * max / 4);
-//					// In the bizarre case a class has a max of 1, need to fix that Floor will make that 0 instead.
-//					if (roll < min) roll = min;
-//				}
-//				break;
 		}
 
 		if (SettingsHandler.getShowHPDialogAtLevelUp())
@@ -2454,8 +2413,6 @@ public final class Globals
 		ret.add(Gender.Female); 
 		ret.add(Gender.Neuter);
 		ret.add(Gender.Unknown);
-//		ret.add(PropertyFactory.getString("in_comboNone")); //$NON-NLS-1$
-//		ret.add(PropertyFactory.getString("in_comboOther")); //$NON-NLS-1$
 
 		return ret;
 	}
