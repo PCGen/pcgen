@@ -38,11 +38,9 @@ public class FeatAutoToken extends AbilityToken
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		final String fString = aTok.nextToken();
-		final AbilityCategory aCategory =
-				SettingsHandler.getGame().getAbilityCategory("FEAT");
 
 		return getTokenForCategory(tokenSource, pc, eh, aTok, fString,
-								   aCategory);
+								   AbilityCategory.FEAT);
 	}
 
 	/**

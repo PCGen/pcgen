@@ -4,7 +4,6 @@ import java.util.StringTokenizer;
 
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbilityListToken;
 
@@ -40,10 +39,8 @@ public class FeatListToken extends AbilityListToken
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		// Skip the ABILITYLIST token itself
 		final String tokenString = aTok.nextToken();
-		final AbilityCategory aCategory =
-				SettingsHandler.getGame().getAbilityCategory("FEAT");
 
-		return getTokenForCategory(pc, aTok, tokenString, aCategory);
+		return getTokenForCategory(pc, aTok, tokenString, AbilityCategory.FEAT);
 	}
 
 }
