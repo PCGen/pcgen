@@ -40,10 +40,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
-import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.regex.Pattern;
 
@@ -126,7 +124,6 @@ public final class Globals
 	private static final String defaultPcgPath = Globals.getUserFilesPath() + File.separator + "characters"; //$NON-NLS-1$
 	private static final String backupPcgPath = Constants.EMPTY_STRING;
 	
-	/** The BioSet used for age calculations */
 	private static final List<String> custColumnWidth = new ArrayList<String>();
 	private static SourceFormat sourceDisplay = SourceFormat.LONG;
 	private static int        selectedPaper   = -1;
@@ -146,28 +143,6 @@ public final class Globals
 
 	/** this is used by the random selection tools */
 	private static final Random random = new Random(System.currentTimeMillis());
-
-	/**
-	 * The following sets are for efficient filter creation:
-	 * <ul>
-	 * <li>subschoolsSet</li>
-	 * </ul>
-	 * The following sets are for efficient filter creation as
-	 * well as quick loading of the spell editor:
-	 * <ul>
-	 * <li>castingTimesSet</li>
-	 * <li>componentSet</li>
-	 * <li>descriptorSet</li>
-	 * <li>durationSet</li>
-	 * <li>typeForSpellsSet</li>
-	 * <li>rangesSet</li>
-	 * <li>saveInfoSet</li>
-	 * <li>srSet</li>
-	 * <li>statSet</li>
-	 * <li>targetSet</li>
-	 * </ul>
-	 */
-	private static SortedSet<String> subschoolsSet    = new TreeSet<String>();
 
 	// end of filter creation sets
 	private static JFrame rootFrame;
@@ -1221,15 +1196,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get sub schools
-	 * @return sub schools
-	 */
-	public static SortedSet<String> getSubschools()
-	{
-		return getSubschoolsSet();
-	}
-
-	/**
 	 * Sets whether to use the GUI or not
 	 * @param aBool
 	 */
@@ -1507,9 +1473,6 @@ public final class Globals
 		// Clear Maps (not strictly necessary, but done for consistency)
 		spellMap = new HashMap<String, Object>();
 		VisionType.clearConstants();
-
-		// Clear Sets (not strictly necessary, but done for consistency)
-		subschoolsSet = new TreeSet<String>();
 
 		// Perform other special cleanup
 		Equipment.clearEquipmentTypes();
@@ -2132,11 +2095,6 @@ public final class Globals
 	private static void setSelectedPaper(final int argSelectedPaper)
 	{
 		Globals.selectedPaper = argSelectedPaper;
-	}
-
-	private static SortedSet<String> getSubschoolsSet()
-	{
-		return subschoolsSet;
 	}
 
 	private static boolean isUseGUI()
