@@ -19,7 +19,6 @@ package plugin.lsttokens.spell;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.Globals;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -49,7 +48,6 @@ public class TargetareaToken implements CDOMPrimaryToken<Spell>
 			return new ParseResult.Fail("Unbalanced parentheses in " + getTokenName() + " '" + value
 					+ "' used in spell " + spell, context);
 		}
-		Globals.addSpellTargetSet(value);
 		context.getObjectContext().put(spell, StringKey.TARGET_AREA, value);
 		return ParseResult.SUCCESS;
 	}

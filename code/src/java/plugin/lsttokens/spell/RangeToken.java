@@ -23,7 +23,6 @@ import java.util.StringTokenizer;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Globals;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -77,7 +76,6 @@ public class RangeToken extends AbstractTokenWithSeparator<Spell> implements
 							+ "' used in spell " + spell, context);
 				}
 				context.getObjectContext().addToList(spell, ListKey.RANGE, tok);
-				Globals.addSpellRangesSet(tok);
 			}
 			first = false;
 		}

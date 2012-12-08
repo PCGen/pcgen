@@ -144,8 +144,6 @@ public final class Globals
 	/** We use lists for efficient iteration */
 	private static List<Campaign> campaignList          = new ArrayList<Campaign>(85);
 
-	private static SortedSet<SpecialAbility>        saSet           = new TreeSet<SpecialAbility>();
-
 	/** this is used by the random selection tools */
 	private static final Random random = new Random(System.currentTimeMillis());
 
@@ -170,16 +168,6 @@ public final class Globals
 	 * </ul>
 	 */
 	private static SortedSet<String> subschoolsSet    = new TreeSet<String>();
-
-	private static SortedSet<String> castingTimesSet  = new TreeSet<String>();
-	private static SortedSet<String> componentSet     = new TreeSet<String>();
-	private static SortedSet<String> descriptorSet    = new TreeSet<String>();
-	private static SortedSet<String> durationSet      = new TreeSet<String>();
-	private static SortedSet<String> typeForSpellsSet = new TreeSet<String>();
-	private static SortedSet<String> rangesSet        = new TreeSet<String>();
-	private static SortedSet<String> saveInfoSet      = new TreeSet<String>();
-	private static SortedSet<String> srSet            = new TreeSet<String>();
-	private static SortedSet<String> targetSet        = new TreeSet<String>();
 
 	// end of filter creation sets
 	private static JFrame rootFrame;
@@ -339,15 +327,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get casting times set
-	 * @return casting times set
-	 */
-	public static SortedSet<String> getCastingTimesSet()
-	{
-		return castingTimesSet;
-	}
-
-	/**
 	 * Finds all PObjects that match the passed in type.  All the types listed
 	 * in aType must match for the object to be returned.
 	 * @param aPObjectList List of PObjects to search
@@ -487,15 +466,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get component set
-	 * @return component set
-	 */
-	public static SortedSet<String> getComponentSet()
-	{
-		return componentSet;
-	}
-
-	/**
 	 * Returns the string to use for displaying (standard) currency.
 	 * @return currency display
 	 */
@@ -617,24 +587,6 @@ public final class Globals
 		}
 
 		return book;
-	}
-
-	/**
-	 * Get descriptor set
-	 * @return descriptor set
-	 */
-	public static SortedSet<String> getDescriptorSet()
-	{
-		return descriptorSet;
-	}
-
-	/**
-	 * Get duration set
-	 * @return duration set
-	 */
-	public static SortedSet<String> getDurationSet()
-	{
-		return durationSet;
 	}
 
 	/**
@@ -1038,15 +990,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get ranges set
-	 * @return set of ranges
-	 */
-	public static SortedSet<String> getRangesSet()
-	{
-		return rangesSet;
-	}
-
-	/**
 	 * Sets the root frame
 	 * The root frame is the container in which all
 	 * other panels, frame etc are placed.
@@ -1088,25 +1031,6 @@ public final class Globals
 			return rootFrame;
 		}
 		return currentFrame;
-	}
-
-	/**
-	 * Return an <b>unmodifiable</b> version of the saSet.
-	 *
-	 * @return SortedSet
-	 */
-	public static SortedSet<SpecialAbility> getSASet()
-	{
-		return saSet;
-	}
-
-	/**
-	 * Get the save info set
-	 * @return save info set
-	 */
-	public static SortedSet<String> getSaveInfoSet()
-	{
-		return saveInfoSet;
 	}
 
 	/**
@@ -1297,39 +1221,12 @@ public final class Globals
 	}
 
 	/**
-	 * Get Sr Set
-	 * @return Sr Set
-	 */
-	public static SortedSet<String> getSrSet()
-	{
-		return srSet;
-	}
-
-	/**
 	 * Get sub schools
 	 * @return sub schools
 	 */
 	public static SortedSet<String> getSubschools()
 	{
 		return getSubschoolsSet();
-	}
-
-	/**
-	 * Get Target set
-	 * @return target set
-	 */
-	public static SortedSet<String> getTargetSet()
-	{
-		return targetSet;
-	}
-
-	/**
-	 * Get type for spells set
-	 * @return type for spells set
-	 */
-	public static SortedSet<String> getTypeForSpells()
-	{
-		return typeForSpellsSet;
 	}
 
 	/**
@@ -1383,79 +1280,6 @@ public final class Globals
 		}
 	}
 
-	/**
-	 * Add duration to set
-	 * @param aString
-	 */
-	public static void addDurationSet(final String aString)
-	{
-		durationSet.add(aString);
-	}
-
-	// Spell info section
-
-	/**
-	 * Add to the spell casting times set
-	 * @param aString
-	 */
-	public static void addSpellCastingTimesSet(final String aString)
-	{
-		castingTimesSet.add(aString);
-	}
-
-	/**
-	 * Add to the spell components set
-	 * @param aString
-	 */
-	public static void addSpellComponentSet(final String aString)
-	{
-		componentSet.add(aString);
-	}
-
-	/**
-	 * Add to the spell descriptors set
-	 * @param aString
-	 */
-	public static void addSpellDescriptorSet(final String aString)
-	{
-		descriptorSet.add(aString);
-	}
-
-	/**
-	 * Add to spell ranges set
-	 * @param aString
-	 */
-	public static void addSpellRangesSet(final String aString)
-	{
-		rangesSet.add(aString);
-	}
-
-	/**
-	 * add to spell save info set
-	 * @param aString
-	 */
-	public static void addSpellSaveInfoSet(final String aString)
-	{
-		saveInfoSet.add(aString);
-	}
-
-	/**
-	 * Add to spell sr set
-	 * @param aString
-	 */
-	public static void addSpellSrSet(final String aString)
-	{
-		srSet.add(aString);
-	}
-
-	/**
-	 * Add to spell target set
-	 * @param aString
-	 */
-	public static void addSpellTargetSet(final String aString)
-	{
-		targetSet.add(aString);
-	}
 
 	/**
 	 * Adjust damage
@@ -1679,14 +1503,12 @@ public final class Globals
 		//unitSet.clear();
 		//////////////////////////////////////
 		companionModMap = new TreeMap<CompanionList, List<CompanionMod>>(CDOMObjectUtilities.CDOM_SORTER);
-		saSet = new TreeSet<SpecialAbility>();
 
 		// Clear Maps (not strictly necessary, but done for consistency)
 		spellMap = new HashMap<String, Object>();
 		VisionType.clearConstants();
 
 		// Clear Sets (not strictly necessary, but done for consistency)
-		clearSpellSets();
 		subschoolsSet = new TreeSet<String>();
 
 		// Perform other special cleanup
@@ -2342,18 +2164,6 @@ public final class Globals
 		}
 
 		return num;
-	}
-
-	private static void clearSpellSets()
-	{
-		castingTimesSet.clear();
-		componentSet.clear();
-		descriptorSet.clear();
-		durationSet.clear();
-		rangesSet.clear();
-		saveInfoSet.clear();
-		srSet.clear();
-		targetSet.clear();
 	}
 
 	public static void createEmptyRace()

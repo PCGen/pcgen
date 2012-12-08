@@ -22,7 +22,6 @@ import java.util.StringTokenizer;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Globals;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -73,7 +72,6 @@ public class DescriptorToken extends AbstractTokenWithSeparator<Spell>
 			{
 				context.getObjectContext().addToList(spell,
 						ListKey.SPELL_DESCRIPTOR, tokString);
-				Globals.addSpellDescriptorSet(tokString);
 			}
 			first = false;
 		}
