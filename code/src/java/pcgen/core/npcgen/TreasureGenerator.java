@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import pcgen.core.GameMode;
-import pcgen.core.SettingsHandler;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 

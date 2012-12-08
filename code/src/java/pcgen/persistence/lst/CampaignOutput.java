@@ -33,7 +33,6 @@ import java.util.List;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.core.SettingsHandler;
 import pcgen.io.FileAccess;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.ConfigurationSettings;

@@ -31,8 +31,6 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.persistence.PersistenceManager;
-import pcgen.system.PCGenSettings;
-import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 
 /**
