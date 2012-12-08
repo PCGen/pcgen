@@ -12,7 +12,7 @@ FOLLOWER:AnimalCompanionLVL=5		TYPE:Animal Companion	HD:1																							
 FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Devotion																														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=7		TYPE:Animal Companion																																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=8		TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	HD:1																		AUTO:FEAT|Multiattack										BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	HD:1																		AUTO:FEAT|Multiattack	DEFINE:Multiattack|1									BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=10	TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=11	TYPE:Animal Companion																																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=12	TYPE:Animal Companion	HD:1																																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
