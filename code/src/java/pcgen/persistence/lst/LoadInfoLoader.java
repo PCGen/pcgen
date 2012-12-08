@@ -51,7 +51,7 @@ public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 	{
 		LoadInfo loadable = context.ref.constructNowIfNecessary(LoadInfo.class,
 				getGameMode());
-		processToken(context, loadable, firstToken, sourceURI);
+		LstUtils.processToken(context, loadable, sourceURI, firstToken);
 		return loadable;
 	}
 }

@@ -94,33 +94,7 @@ public class CampaignLoader extends LstLineFileLoader
 	public void parseLine(LoadContext context, String inputLine, URI sourceURI)
 		throws PersistenceLayerException
 	{
-		final int colonLoc = inputLine.indexOf(':');
-		if (colonLoc == -1)
-		{
-			Logging.errorPrint("Invalid Line - does not contain a colon: '"
-					+ inputLine + "' in Campaign " + sourceURI);
-			return;
-		}
-		else if (colonLoc == 0)
-		{
-			Logging.errorPrint("Invalid Line - starts with a colon: '"
-					+ inputLine + "' in Campaign " + sourceURI);
-			return;
-		}
-
-		String key = inputLine.substring(0, colonLoc);
-		String value = (colonLoc == inputLine.length() - 1) ? null : inputLine
-				.substring(colonLoc + 1);
-		if (context.processToken(campaign, key, value))
-		{
-			context.commit();
-		}
-		else
-		{
-			context.rollback();
-			Logging.replayParsedMessages();
-		}
-		Logging.clearParseMessages();
+		LstUtils.processToken(context, campaign, sourceURI, inputLine);
 	}
 
 	/**

@@ -36,7 +36,6 @@ import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.Logging;
 
 /**
  *
@@ -84,34 +83,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 
 		while (colToken.hasMoreElements())
 		{
-			final String token = colToken.nextToken().trim();
-			final int colonLoc = token.indexOf(':');
-			if (colonLoc == -1)
-			{
-				Logging.errorPrint("Invalid Token - does not contain a colon: '"
-						+ token + "' in spell " + spell.getDisplayName() + " of " + source);
-				continue;
-			}
-			else if (colonLoc == 0)
- 			{
-				Logging.errorPrint("Invalid Token - starts with a colon: "
-						+ token);
-				continue;
- 			}
-
-			String key = token.substring(0, colonLoc);
-			String value = (colonLoc == token.length() - 1) ? null : token
-					.substring(colonLoc + 1);
-			if (context.processToken(spell, key, value))
-			{
-				context.commit();
-			}
-			else
-			{
-				context.rollback();
-				Logging.replayParsedMessages();
- 			}
-			Logging.clearParseMessages();
+			LstUtils.processToken(context, spell, source, colToken.nextToken().trim());
 		}
 
 		completeObject(context, source, spell);

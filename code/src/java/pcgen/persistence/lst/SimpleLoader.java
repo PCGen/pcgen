@@ -24,7 +24,6 @@ import pcgen.cdom.base.Loadable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.Logging;
 
 public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 {
@@ -54,46 +53,8 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 
 		while (colToken.hasMoreTokens())
 		{
-			String token = colToken.nextToken().trim();
-			processToken(context, loadable, token, sourceURI);
+			LstUtils.processToken(context, loadable, sourceURI, colToken.nextToken().trim());
 		}
-	}
-
-	protected void processToken(LoadContext context, Loadable loadable,
-			String token, URI sourceURI) throws PersistenceLayerException
-	{
-		int colonLoc = token.indexOf(':');
-		if (colonLoc == -1)
-		{
-			Logging.errorPrint("Invalid Token - does not contain a colon: '"
-					+ token + "' in " + loadable.getClass().getSimpleName()
-					+ " " + loadable.getDisplayName() + " of " + sourceURI);
-			return;
-		}
-		else if (colonLoc == 0)
-		{
-			Logging.errorPrint("Invalid Token - starts with a colon: '" + token
-					+ "' in " + loadable.getClass().getSimpleName() + " "
-					+ loadable.getDisplayName() + " of " + sourceURI);
-			return;
-		}
-
-		String key = token.substring(0, colonLoc);
-		String value = (colonLoc == token.length() - 1) ? null : token
-				.substring(colonLoc + 1);
-		if (context.processToken(loadable, key, value))
-		{
-			context.commit();
-		}
-		else
-		{
-			context.rollback();
-			Logging.errorPrint("Error found loading " + loadable.getClass()
-					+ " " + loadable.getDisplayName() + " from "
-					+ loadable.getSourceURI());
-			Logging.replayParsedMessages();
-		}
-		Logging.clearParseMessages();
 	}
 
 	protected Loadable getLoadable(LoadContext context, String firstToken,

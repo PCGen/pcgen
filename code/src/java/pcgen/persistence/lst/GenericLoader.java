@@ -27,7 +27,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.Logging;
 
 /**
  * 
@@ -38,7 +37,7 @@ public final class GenericLoader<T extends CDOMObject> extends
 		LstObjectFileLoader<T>
 {
 	private final Class<T> baseClass;
-
+	
 	public GenericLoader(Class<T> cl)
 	{
 		if (cl == null)
@@ -76,12 +75,12 @@ public final class GenericLoader<T extends CDOMObject> extends
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, CDOMObject, String, SourceEntry)
 	 */
 	@Override
-	public T parseLine(LoadContext context, T aWP, String lstLine,
+	public T parseLine(LoadContext context, T object, String lstLine,
 			SourceEntry source) throws PersistenceLayerException
 	{
 		T po;
 		boolean isnew = false;
-		if (aWP == null)
+		if (object == null)
 		{
 			try
 			{
@@ -99,7 +98,7 @@ public final class GenericLoader<T extends CDOMObject> extends
 		}
 		else
 		{
-			po = aWP;
+			po = object;
 		}
 
 		final StringTokenizer colToken = new StringTokenizer(lstLine,
@@ -118,40 +117,7 @@ public final class GenericLoader<T extends CDOMObject> extends
 
 		while (colToken.hasMoreTokens())
 		{
-			final String token = colToken.nextToken().trim();
-			final int colonLoc = token.indexOf(':');
-			if (colonLoc == -1)
-			{
-				Logging
-						.errorPrint("Invalid Token - does not contain a colon: '"
-								+ token
-								+ "' in "
-								+ po.getClass().getSimpleName()
-								+ " "
-								+ po.getDisplayName() + " of " + source);
-				continue;
-			}
-			else if (colonLoc == 0)
-			{
-				Logging.errorPrint("Invalid Token - starts with a colon: '"
-						+ token + "' in " + po.getClass().getSimpleName() + " "
-						+ po.getDisplayName() + " of " + source);
-				continue;
-			}
-
-			String key = token.substring(0, colonLoc);
-			String value = (colonLoc == token.length() - 1) ? null : token
-					.substring(colonLoc + 1);
-			if (context.processToken(po, key, value))
-			{
-				context.commit();
-			}
-			else
-			{
-				context.rollback();
-				Logging.replayParsedMessages();
-			}
-			Logging.clearParseMessages();
+			LstUtils.processToken(context, po, source, colToken.nextToken());
 		}
 
 		// One line each; finish the object and return null

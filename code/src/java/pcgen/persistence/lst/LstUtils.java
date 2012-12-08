@@ -25,9 +25,12 @@ package pcgen.persistence.lst;
 import java.net.URI;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Loadable;
 import pcgen.core.bonus.BonusObj;
-import pcgen.util.Logging;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * Utility class to assist with LST files
@@ -123,5 +126,47 @@ public class LstUtils
 	public static void deprecationWarning(String warning)
 	{
 		Logging.deprecationPrint(warning);
+	}
+
+	/*
+	 * Probably useful elsewhere...
+	 */
+	static void processToken(LoadContext context, Loadable po,
+		Object source, String tok) throws PersistenceLayerException
+	{
+		final String token = tok.trim();
+		final int colonLoc = token.indexOf(':');
+		if (colonLoc == -1)
+		{
+			Logging
+					.errorPrint("Invalid Token - does not contain a colon: '"
+							+ token
+							+ "' in "
+							+ po.getClass().getSimpleName()
+							+ " "
+							+ po.getDisplayName() + " of " + source);
+			return;
+		}
+		else if (colonLoc == 0)
+		{
+			Logging.errorPrint("Invalid Token - starts with a colon: '"
+					+ token + "' in " + po.getClass().getSimpleName() + " "
+					+ po.getDisplayName() + " of " + source);
+			return;
+		}
+	
+		String key = token.substring(0, colonLoc);
+		String value = (colonLoc == token.length() - 1) ? null : token
+				.substring(colonLoc + 1);
+		if (context.processToken(po, key, value))
+		{
+			context.commit();
+		}
+		else
+		{
+			context.rollback();
+			Logging.replayParsedMessages();
+		}
+		Logging.clearParseMessages();
 	}
 }
