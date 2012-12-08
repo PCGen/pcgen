@@ -5,7 +5,13 @@ SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downl
 
 ###Block:A
 # Equipment Name						Type								Cost		Weight	Modifier	Requires Modification?	Source Page		Combat bonus						Special Property
-Amulet of Mighty Fists					TYPE:Magic.Wondrous.Amulet.AmuletOfMightyFists	COST:0	WT:0.02	EQMOD:AMF	MODS:REQUIRED		SOURCEPAGE:p.496
+#Amulet of Mighty Fists					TYPE:Magic.Wondrous.Amulet.AmuletOfMightyFists	COST:0	WT:0.02	EQMOD:AMF	MODS:REQUIRED		SOURCEPAGE:p.496
+Amulet of Mighty Fists +1				TYPE:Magic.Wondrous.Amulet.AmuletOfMightyFists	COST:4000							BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|1|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|1|TYPE=Enhancement
+Amulet of Mighty Fists +2				TYPE:Magic.Wondrous.Amulet.AmuletOfMightyFists	COST:4000							BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|1|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|2|TYPE=Enhancement
+Amulet of Mighty Fists +3				TYPE:Magic.Wondrous.Amulet.AmuletOfMightyFists	COST:4000							BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|1|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|3|TYPE=Enhancement
+Amulet of Mighty Fists +4				TYPE:Magic.Wondrous.Amulet.AmuletOfMightyFists	COST:4000							BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|1|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|4|TYPE=Enhancement
+Amulet of Mighty Fists +5				TYPE:Magic.Wondrous.Amulet.AmuletOfMightyFists	COST:4000							BONUS:WEAPONPROF=Unarmed Strike|TOHIT,DAMAGE|1|TYPE=Enhancement	BONUS:WEAPONPROF=TYPE.Natural|TOHIT,DAMAGE|5|TYPE=Enhancement
+#
 Amulet of Natural Armor +1				TYPE:Magic.Wondrous.Amulet				COST:2000	WT:0.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|1|TYPE=NaturalArmorEnhancement
 Amulet of Natural Armor +2				TYPE:Magic.Wondrous.Amulet				COST:8000	WT:0.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|2|TYPE=NaturalArmorEnhancement
 Amulet of Natural Armor +3				TYPE:Magic.Wondrous.Amulet				COST:18000	WT:0.02							SOURCEPAGE:p.500	BONUS:COMBAT|AC|3|TYPE=NaturalArmorEnhancement
