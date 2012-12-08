@@ -84,6 +84,9 @@ public final class SettingsHandler
 	private static boolean autogenRacial = false;
 	private static boolean validateBonuses = false;
 
+	/** These are for the Internationalization project. */
+	private static String     country         = "US"; //$NON-NLS-1$
+
 	//
 	// For EqBuilder
 	//
@@ -1242,8 +1245,8 @@ public final class SettingsHandler
 		showSponsorsOnLoad = getPCGenOption("showSponsorsOnLoad", true); //$NON-NLS-1$
 
 		Globals.setSourceDisplay(SourceFormat.values()[getPCGenOption("sourceDisplay", SourceFormat.LONG.ordinal())]); //$NON-NLS-1$
-		Globals.setCountry(getPCGenOption("country", null)); //$NON-NLS-1$
 
+		setCountry(getPCGenOption("country", null)); //$NON-NLS-1$
 		setAbilitiesShownAsATab(getPCGenOption("abilitiesShownAsTab", false)); //$NON-NLS-1$
 		setAlwaysOverwrite(getPCGenOption("alwaysOverwrite", false)); //$NON-NLS-1$
 		setAutoFeatsRefundable(getPCGenOption("autoFeatsRefundable", false)); //$NON-NLS-1$
@@ -1645,7 +1648,7 @@ public final class SettingsHandler
 		setPCGenOption("ChooserSingleChoiceMethod", getSingleChoicePreference()); //$NON-NLS-1$
 		setPCGenOption("ClassTab.availableListMode", getClassTab_AvailableListMode()); //$NON-NLS-1$
 		setPCGenOption("ClassTab.selectedListMode", getClassTab_SelectedListMode()); //$NON-NLS-1$
-		setPCGenOption("country", Globals.getCountry()); //$NON-NLS-1$
+		setPCGenOption("country", getCountry()); //$NON-NLS-1$
 		setPCGenOption("createPcgBackup", getCreatePcgBackup()); //$NON-NLS-1$
 		setPCGenOption("customizer.split1", getCustomizerSplit1()); //$NON-NLS-1$
 		setPCGenOption("customizer.split2", getCustomizerSplit2()); //$NON-NLS-1$
@@ -3570,4 +3573,23 @@ public final class SettingsHandler
 	{
 		SettingsHandler.useAdvancedSourceSelect = useAdvancedSourceSelect;
 	}
+
+	/**
+	 * Set Country
+	 * @param aString
+	 */
+	public static void setCountry(final String aString)
+	{
+		country = aString;
+	}
+
+	/**
+	 * Get country
+	 * @return country
+	 */
+	public static String getCountry()
+	{
+		return country;
+	}
+
 }

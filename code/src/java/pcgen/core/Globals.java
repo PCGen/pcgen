@@ -126,9 +126,6 @@ public final class Globals
 	private static final String defaultPcgPath = Globals.getUserFilesPath() + File.separator + "characters"; //$NON-NLS-1$
 	private static final String backupPcgPath = Constants.EMPTY_STRING;
 	
-	/** These are for the Internationalization project. */
-	private static String     country         = "US"; //$NON-NLS-1$
-
 	/** The BioSet used for age calculations */
 	private static final List<String> custColumnWidth = new ArrayList<String>();
 	private static SourceFormat sourceDisplay = SourceFormat.LONG;
@@ -496,24 +493,6 @@ public final class Globals
 	public static SortedSet<String> getComponentSet()
 	{
 		return componentSet;
-	}
-
-	/**
-	 * Set Country
-	 * @param aString
-	 */
-	public static void setCountry(final String aString)
-	{
-		country = aString;
-	}
-
-	/**
-	 * Get country
-	 * @return country
-	 */
-	public static String getCountry()
-	{
-		return country;
 	}
 
 	/**
