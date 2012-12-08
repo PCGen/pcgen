@@ -19,7 +19,6 @@ package plugin.lsttokens.choose;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
@@ -46,10 +45,10 @@ public class TemplateToken extends AbstractQualifiedChooseToken<PCTemplate>
 	}
 
 	@Override
-	public PCTemplate decodeChoice(String s)
+	public PCTemplate decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				PCTEMPLATE_CLASS, s);
+		return context.ref
+			.silentlyGetConstructedCDOMObject(PCTEMPLATE_CLASS, s);
 	}
 
 	@Override

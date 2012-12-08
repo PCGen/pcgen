@@ -265,7 +265,7 @@ public class SpellCasterToken extends AbstractToken implements
 	}
 
 	@Override
-	public PCClass decodeChoice(String s)
+	public PCClass decodeChoice(LoadContext context, String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				PCCLASS_CLASS, s);

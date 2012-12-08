@@ -21,7 +21,6 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.core.Globals;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
@@ -66,10 +65,9 @@ public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 	}
 
 	@Override
-	public Spell decodeChoice(String s)
+	public Spell decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-			SPELL_CLASS, s);
+		return context.ref.silentlyGetConstructedCDOMObject(SPELL_CLASS, s);
 	}
 
 	@Override

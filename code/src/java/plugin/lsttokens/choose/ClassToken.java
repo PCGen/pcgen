@@ -55,7 +55,7 @@ public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 	}
 
 	@Override
-	public PCClass decodeChoice(String s)
+	public PCClass decodeChoice(LoadContext context, String s)
 	{
 		int dotLoc = s.indexOf('.');
 		if (dotLoc == -1)

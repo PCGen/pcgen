@@ -213,7 +213,7 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public Language decodeChoice(String s)
+	public Language decodeChoice(LoadContext context, String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				LANGUAGE_CLASS, s);

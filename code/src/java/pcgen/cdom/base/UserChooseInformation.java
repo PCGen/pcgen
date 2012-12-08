@@ -28,6 +28,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.UserInputManager;
+import pcgen.rules.context.LoadContext;
 
 public class UserChooseInformation implements ChooseInformation<String>,
 		PersistentChoiceActor<String>
@@ -163,7 +164,7 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	}
 
 	@Override
-	public String decodeChoice(String choice)
+	public String decodeChoice(LoadContext context, String choice)
 	{
 		return choice;
 	}

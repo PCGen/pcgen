@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.base;
 
+import pcgen.rules.context.LoadContext;
+
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
  * provided as convenience to hold a set of choices and the number of choices
@@ -118,7 +120,6 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 	 * encoding is human readable, simply that the encoding is uniquely
 	 * identifying such that this method is capable of decoding the String into
 	 * the choice object.
-	 * 
 	 * @param persistentFormat
 	 *            The String which should be decoded to provide the choice of
 	 *            the appropriate type.
@@ -127,9 +128,9 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 	 *         given String.
 	 */
 	@Override
-	public T decodeChoice(String persistentFormat)
+	public T decodeChoice(LoadContext context, String persistentFormat)
 	{
-		return choiceActor.decodeChoice(persistentFormat);
+		return choiceActor.decodeChoice(context, persistentFormat);
 	}
 
 	@Override

@@ -204,7 +204,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public Equipment decodeChoice(String s)
+	public Equipment decodeChoice(LoadContext context, String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				EQUIPMENT_CLASS, s);

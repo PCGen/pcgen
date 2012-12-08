@@ -266,7 +266,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	}
 
 	@Override
-	public T decodeChoice(String s)
+	public T decodeChoice(LoadContext context, String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 			getChooseClass(), s);

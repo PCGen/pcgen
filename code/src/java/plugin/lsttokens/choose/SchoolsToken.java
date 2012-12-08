@@ -20,7 +20,6 @@ package plugin.lsttokens.choose;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.identifier.SpellSchool;
-import pcgen.core.Globals;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractSimpleChooseToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -54,10 +53,10 @@ public class SchoolsToken extends AbstractSimpleChooseToken<SpellSchool>
 	}
 
 	@Override
-	public SpellSchool decodeChoice(String s)
+	public SpellSchool decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-			SPELLSCHOOL_CLASS, s);
+		return context.ref.silentlyGetConstructedCDOMObject(SPELLSCHOOL_CLASS,
+			s);
 	}
 
 	@Override

@@ -76,7 +76,7 @@ public class FeatSelectionTokenTest extends TestCase
 	{
 		try
 		{
-			pca.decodeChoice("ItemName");
+			pca.decodeChoice(context, "ItemName");
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -87,14 +87,14 @@ public class FeatSelectionTokenTest extends TestCase
 		CategorizedAbilitySelection as =
 				new CategorizedAbilitySelection(AbilityCategory.FEAT, item,
 					Nature.NORMAL);
-		assertEquals(as, pca.decodeChoice("ItemName"));
+		assertEquals(as, pca.decodeChoice(context, "ItemName"));
 		Ability paren = construct("ParenName (test)");
 		as = new CategorizedAbilitySelection(AbilityCategory.FEAT, paren, Nature.NORMAL);
-		assertEquals(as, pca.decodeChoice("ParenName (test)"));
+		assertEquals(as, pca.decodeChoice(context, "ParenName (test)"));
 		Ability sel = construct("ChooseName");
 		sel.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		as = new CategorizedAbilitySelection(AbilityCategory.FEAT, sel, Nature.NORMAL, "selection");
-		assertEquals(as, pca.decodeChoice("ChooseName(selection)"));
+		assertEquals(as, pca.decodeChoice(context, "ChooseName(selection)"));
 	}
 
 	protected Ability construct(String one)

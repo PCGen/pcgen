@@ -2113,7 +2113,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			while (it2.hasNext())
 			{
 				String choice = EntityEncoder.decode(it2.next().getText());
-				Object obj = tc.decodeChoice(choice);
+				Object obj = tc.decodeChoice(Globals.getContext(), choice);
 				if (obj == null)
 				{
 					warnings.add(cdo.getDisplayName() + "("

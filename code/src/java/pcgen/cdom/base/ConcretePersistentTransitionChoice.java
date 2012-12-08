@@ -22,6 +22,7 @@ import java.util.List;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.PlayerCharacter;
+import pcgen.rules.context.LoadContext;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -110,7 +111,6 @@ public class ConcretePersistentTransitionChoice<T> extends
 	 * encoding is human readable, simply that the encoding is uniquely
 	 * identifying such that this method is capable of decoding the String into
 	 * the choice object.
-	 * 
 	 * @param persistentFormat
 	 *            The String which should be decoded to provide the choice of
 	 *            the appropriate type.
@@ -119,9 +119,9 @@ public class ConcretePersistentTransitionChoice<T> extends
 	 *         given String.
 	 */
 	@Override
-	public T decodeChoice(String persistentFormat)
+	public T decodeChoice(LoadContext context, String persistentFormat)
 	{
-		return choiceActor.decodeChoice(persistentFormat);
+		return choiceActor.decodeChoice(context, persistentFormat);
 	}
 
 	/**

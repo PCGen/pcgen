@@ -142,7 +142,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public String decodeChoice(String s)
+	public String decodeChoice(LoadContext context, String s)
 	{
 		return s;
 	}

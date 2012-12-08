@@ -47,7 +47,7 @@ public class ArmorProficiencyToken extends
 	}
 
 	@Override
-	public ArmorProf decodeChoice(String s)
+	public ArmorProf decodeChoice(LoadContext context, String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				ARMORPROF_CLASS, s);

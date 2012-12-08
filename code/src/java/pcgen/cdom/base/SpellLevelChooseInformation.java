@@ -30,6 +30,7 @@ import pcgen.cdom.helper.SpellLevelInfo;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.rules.context.LoadContext;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -144,7 +145,6 @@ public class SpellLevelChooseInformation implements
 	 * encoding is human readable, simply that the encoding is uniquely
 	 * identifying such that this method is capable of decoding the String into
 	 * the choice object.
-	 * 
 	 * @param persistenceFormat
 	 *            The String which should be decoded to provide the choice of
 	 *            the appropriate type.
@@ -153,9 +153,9 @@ public class SpellLevelChooseInformation implements
 	 *         given String.
 	 */
 	@Override
-	public SpellLevel decodeChoice(String persistenceFormat)
+	public SpellLevel decodeChoice(LoadContext context, String persistenceFormat)
 	{
-		return choiceActor.decodeChoice(persistenceFormat);
+		return choiceActor.decodeChoice(context, persistenceFormat);
 	}
 
 	@Override

@@ -24,6 +24,7 @@ import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
+import pcgen.rules.context.LoadContext;
 
 public class WeaponBonusListActor implements
 		PersistentChoiceActor<WeaponProf>
@@ -51,7 +52,7 @@ public class WeaponBonusListActor implements
 	}
 
 	@Override
-	public WeaponProf decodeChoice(String s)
+	public WeaponProf decodeChoice(LoadContext context, String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				WeaponProf.class, s);

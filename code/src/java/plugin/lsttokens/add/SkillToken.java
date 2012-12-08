@@ -223,7 +223,7 @@ public class SkillToken extends AbstractToken implements
 	}
 
 	@Override
-	public Skill decodeChoice(String s)
+	public Skill decodeChoice(LoadContext context, String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				SKILL_CLASS, s);

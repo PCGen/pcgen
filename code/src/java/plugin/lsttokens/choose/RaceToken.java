@@ -19,7 +19,6 @@ package plugin.lsttokens.choose;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.core.Globals;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
@@ -64,10 +63,9 @@ public class RaceToken extends AbstractQualifiedChooseToken<Race>
 	}
 
 	@Override
-	public Race decodeChoice(String s)
+	public Race decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				RACE_CLASS, s);
+		return context.ref.silentlyGetConstructedCDOMObject(RACE_CLASS, s);
 	}
 
 	@Override

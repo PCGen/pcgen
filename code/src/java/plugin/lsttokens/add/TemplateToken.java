@@ -190,7 +190,7 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public PCTemplate decodeChoice(String s)
+	public PCTemplate decodeChoice(LoadContext context, String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				PCTEMPLATE_CLASS, s);

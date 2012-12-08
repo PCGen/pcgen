@@ -137,7 +137,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public String decodeChoice(String choice)
+	public String decodeChoice(LoadContext context, String choice)
 	{
 		return choice;
 	}

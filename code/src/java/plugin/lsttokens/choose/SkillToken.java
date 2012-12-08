@@ -19,7 +19,6 @@ package plugin.lsttokens.choose;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.core.Globals;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
@@ -46,10 +45,9 @@ public class SkillToken extends AbstractQualifiedChooseToken<Skill>
 	}
 
 	@Override
-	public Skill decodeChoice(String s)
+	public Skill decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				SKILL_CLASS, s);
+		return context.ref.silentlyGetConstructedCDOMObject(SKILL_CLASS, s);
 	}
 
 	@Override

@@ -51,7 +51,7 @@ public class AlignmentToken extends AbstractSimpleChooseToken<PCAlignment>
 	}
 
 	@Override
-	public PCAlignment decodeChoice(String s)
+	public PCAlignment decodeChoice(LoadContext context, String s)
 	{
 		return Globals.getContext().ref.getAbbreviatedObject(PCALIGNMENT_CLASS,
 				s);

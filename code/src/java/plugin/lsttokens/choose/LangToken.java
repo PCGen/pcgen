@@ -46,7 +46,7 @@ public class LangToken extends AbstractQualifiedChooseToken<Language>
 	}
 
 	@Override
-	public Language decodeChoice(String s)
+	public Language decodeChoice(LoadContext context, String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				LANGUAGE_CLASS, s);

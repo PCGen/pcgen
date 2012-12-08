@@ -68,9 +68,9 @@ public abstract class AbstractPersistentChoiceActorTestCase<T>
 	{
 		if (requiresConstruction())
 		{
-			assertNull(getActor().decodeChoice(getExpected()));
+			assertNull(getActor().decodeChoice(context, getExpected()));
 		}
-		assertEquals(getObject(), getActor().decodeChoice(getExpected()));
+		assertEquals(getObject(), getActor().decodeChoice(context, getExpected()));
 	}
 
 	protected boolean requiresConstruction()

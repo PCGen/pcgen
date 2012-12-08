@@ -18,6 +18,7 @@
 package pcgen.cdom.base;
 
 import pcgen.core.PlayerCharacter;
+import pcgen.rules.context.LoadContext;
 
 /**
  * A PersistentChoiceActor is a ChoiceActor that is designed to be saved and
@@ -56,7 +57,7 @@ public interface PersistentChoiceActor<T> extends ChoiceActor<T>
 	 * encoding is human readable, simply that the encoding is uniquely
 	 * identifying such that this method is capable of decoding the String into
 	 * the choice object.
-	 * 
+	 * @param context TODO
 	 * @param persistentFormat
 	 *            The String which should be decoded to provide the choice of
 	 *            the appropriate type.
@@ -64,7 +65,7 @@ public interface PersistentChoiceActor<T> extends ChoiceActor<T>
 	 * @return A choice object of the appropriate type that was encoded in the
 	 *         given String.
 	 */
-	public T decodeChoice(String persistentFormat);
+	public T decodeChoice(LoadContext context, String persistentFormat);
 
 	/**
 	 * Restores a choice to a PlayerCharacter. This method re-applies a choice

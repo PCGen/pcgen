@@ -28,6 +28,7 @@ import java.util.List;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -140,7 +141,7 @@ public final class KitLevelAbility extends BaseKit
 		List<T> list = new ArrayList<T>();
 		for (String s : choiceList)
 		{
-			list.add(ch.decodeChoice(s));
+			list.add(ch.decodeChoice(Globals.getContext(), s));
 		}
 		//use ch
 		ch.act(list, cl, pc);

@@ -278,7 +278,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public Ability decodeChoice(String s)
+	public Ability decodeChoice(LoadContext context, String s)
 	{
 		StringTokenizer st = new StringTokenizer(s, Constants.PIPE);
 		String catString = st.nextToken();

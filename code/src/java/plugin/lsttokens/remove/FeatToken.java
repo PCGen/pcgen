@@ -347,7 +347,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public CategorizedAbilitySelection decodeChoice(String s)
+	public CategorizedAbilitySelection decodeChoice(LoadContext context, String s)
 	{
 		return CategorizedAbilitySelection.getAbilitySelectionFromPersistentFormat(s);
 	}

@@ -19,7 +19,6 @@ package plugin.lsttokens.choose;
 
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.reference.SelectionCreator;
-import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.AbbreviatedCreator;
@@ -51,9 +50,9 @@ public class PCStatToken extends AbstractSimpleChooseToken<PCStat>
 	}
 
 	@Override
-	public PCStat decodeChoice(String s)
+	public PCStat decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.getAbbreviatedObject(PCSTAT_CLASS, s);
+		return context.ref.getAbbreviatedObject(PCSTAT_CLASS, s);
 	}
 
 	@Override

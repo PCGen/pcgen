@@ -19,7 +19,6 @@ package plugin.lsttokens.choose;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.core.Globals;
 import pcgen.core.ShieldProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
@@ -47,10 +46,10 @@ public class ShieldProficiencyToken extends
 	}
 
 	@Override
-	public ShieldProf decodeChoice(String s)
+	public ShieldProf decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				SHIELDPROF_CLASS, s);
+		return context.ref
+			.silentlyGetConstructedCDOMObject(SHIELDPROF_CLASS, s);
 	}
 
 	@Override

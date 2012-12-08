@@ -247,7 +247,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	public Ability decodeChoice(String s)
+	public Ability decodeChoice(LoadContext context, String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				Ability.class, AbilityCategory.FEAT, s);

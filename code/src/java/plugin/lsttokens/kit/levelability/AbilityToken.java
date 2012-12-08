@@ -96,7 +96,11 @@ public class AbilityToken extends AbstractToken implements
 					+ " choice string to start with CHOICE: " + value, context);
 			}
 			String choice = choiceString.substring(7);
-			if (ptc.decodeChoice(choice) == null)
+			/*
+			 * TODO This is load order dependent, this really should be storing
+			 * references into kitAbility, not a String - thpr Dec 8 2012
+			 */
+			if (ptc.decodeChoice(context, choice) == null)
 			{
 				return new ParseResult.Fail("Choice: " + choice
 					+ " is not a valid selection for ADD:" + first, context);

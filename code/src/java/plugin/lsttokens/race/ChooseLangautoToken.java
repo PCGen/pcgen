@@ -35,7 +35,6 @@ import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
@@ -157,10 +156,9 @@ public class ChooseLangautoToken extends AbstractTokenWithSeparator<Race> implem
 	}
 
 	@Override
-	public Language decodeChoice(String s)
+	public Language decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-			LANGUAGE_CLASS, s);
+		return context.ref.silentlyGetConstructedCDOMObject(LANGUAGE_CLASS, s);
 	}
 
 	@Override

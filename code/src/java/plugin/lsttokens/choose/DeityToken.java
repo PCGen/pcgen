@@ -46,7 +46,7 @@ public class DeityToken extends AbstractQualifiedChooseToken<Deity>
 	}
 
 	@Override
-	public Deity decodeChoice(String s)
+	public Deity decodeChoice(LoadContext context, String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				DEITY_CLASS, s);

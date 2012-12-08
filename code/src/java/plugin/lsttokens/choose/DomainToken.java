@@ -90,7 +90,7 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 	}
 
 	@Override
-	public Domain decodeChoice(String s)
+	public Domain decodeChoice(LoadContext context, String s)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 			DOMAIN_CLASS, s);

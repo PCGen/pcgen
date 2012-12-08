@@ -19,7 +19,6 @@ package plugin.lsttokens.choose;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.core.Globals;
 import pcgen.core.WeaponProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractQualifiedChooseToken;
@@ -47,10 +46,10 @@ public class WeaponProficiencyToken extends
 	}
 
 	@Override
-	public WeaponProf decodeChoice(String s)
+	public WeaponProf decodeChoice(LoadContext context, String s)
 	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				WEAPONPROF_CLASS, s);
+		return context.ref
+			.silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, s);
 	}
 
 	@Override

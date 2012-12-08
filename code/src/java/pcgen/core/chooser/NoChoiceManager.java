@@ -6,6 +6,7 @@ import java.util.List;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 
 public class NoChoiceManager implements ChoiceManagerList<String>
@@ -112,10 +113,10 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	}
 
     @Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+	public void restoreChoice(PlayerCharacter pc, CDOMObject target,
 		String choice)
 	{
-		info.restoreChoice(pc, owner, info.decodeChoice(choice));
+		info.restoreChoice(pc, target, info.decodeChoice(Globals.getContext(), choice));
 	}
 
     @Override

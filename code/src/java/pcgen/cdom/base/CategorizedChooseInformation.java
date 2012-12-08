@@ -25,6 +25,7 @@ import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.rules.context.LoadContext;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -147,7 +148,6 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 	 * encoding is human readable, simply that the encoding is uniquely
 	 * identifying such that this method is capable of decoding the String into
 	 * the choice object.
-	 * 
 	 * @param persistentFormat
 	 *            The String which should be decoded to provide the choice of
 	 *            the appropriate type.
@@ -156,14 +156,14 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 	 *         given String.
 	 */
 	@Override
-	public T decodeChoice(String persistentFormat)
+	public T decodeChoice(LoadContext context, String persistentFormat)
 	{
 		String choiceStr = persistentFormat;
 		if (choiceActor instanceof CategorizedPersistentChoiceActor)
 		{
 			return ((CategorizedPersistentChoiceActor<T>)choiceActor).decodeChoice(choiceStr, category);
 		}
-		return choiceActor.decodeChoice(choiceStr);
+		return choiceActor.decodeChoice(context, choiceStr);
 	}
 
 	@Override

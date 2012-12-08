@@ -268,11 +268,11 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	}
 
     @Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, String choice)
+	public void restoreChoice(PlayerCharacter pc, CDOMObject target, String choice)
 	{
 		if (choice.length() > 0)
 		{
-			T ch = info.decodeChoice(choice);
+			T ch = info.decodeChoice(Globals.getContext(), choice);
 			if (ch == null)
 			{
 				Logging.errorPrint("Error finding "
@@ -281,7 +281,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 			}
 			else
 			{
-				info.restoreChoice(pc, owner, ch);
+				info.restoreChoice(pc, target, ch);
 			}
 		}
 	}

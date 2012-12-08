@@ -28,6 +28,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.rules.context.LoadContext;
 
 /**
  * A ClassSkillChoiceActor is a PersistentChoiceActor that can apply skill
@@ -127,14 +128,13 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 * encodeChoice method. There is no guarantee that the encoding is human
 	 * readable, simply that the encoding is uniquely identifying such that this
 	 * method is capable of decoding the String into the Skill.
-	 * 
 	 * @param persistentFormat
 	 *            The String which should be decoded to provide a Skill.
 	 * 
 	 * @return A Skill that was encoded in the given String.
 	 */
 	@Override
-	public Skill decodeChoice(String persistentFormat)
+	public Skill decodeChoice(LoadContext context, String persistentFormat)
 	{
 		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				Skill.class, persistentFormat);

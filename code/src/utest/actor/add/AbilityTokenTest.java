@@ -68,7 +68,7 @@ public class AbilityTokenTest extends TestCase
 	{
 		try
 		{
-			pca.decodeChoice("CATEGORY=FEAT|NATURE=NORMAL|ItemName");
+			pca.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName");
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -80,7 +80,7 @@ public class AbilityTokenTest extends TestCase
 				new CategorizedAbilitySelection(AbilityCategory.FEAT, item,
 					Nature.NORMAL);
 		assertEquals(as, pca
-			.decodeChoice("CATEGORY=FEAT|NATURE=NORMAL|ItemName"));
+			.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName"));
 	}
 
 	protected Ability construct(String one)

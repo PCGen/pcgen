@@ -24,6 +24,7 @@ import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
+import pcgen.rules.context.LoadContext;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -134,7 +135,6 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	 * encoding is human readable, simply that the encoding is uniquely
 	 * identifying such that this method is capable of decoding the String into
 	 * the choice object.
-	 * 
 	 * @param persistenceFormat
 	 *            The String which should be decoded to provide the choice of
 	 *            the appropriate type.
@@ -143,9 +143,9 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	 *         given String.
 	 */
 	@Override
-	public T decodeChoice(String persistenceFormat)
+	public T decodeChoice(LoadContext context, String persistenceFormat)
 	{
-		return choiceActor.decodeChoice(persistenceFormat);
+		return choiceActor.decodeChoice(context, persistenceFormat);
 	}
 
 	@Override
