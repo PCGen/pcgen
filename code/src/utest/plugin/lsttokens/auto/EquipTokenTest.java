@@ -91,6 +91,7 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 				new QualifiedObject<CDOMReference<Equipment>>(ref));
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

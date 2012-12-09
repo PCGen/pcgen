@@ -21,7 +21,6 @@ import java.util.Locale;
 
 import org.junit.Test;
 
-import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -109,15 +108,15 @@ public class GenderLockTokenTest extends AbstractTokenTestCase<PCTemplate>
 	{
 		LocaleDependentTestCase.before(Locale.US);
 		runRoundRobin("Male");
-		EnUsLocaleDependentTestCase.after();
+		LocaleDependentTestCase.after();
 	}
 
 	@Test
 	public void testRoundRobinMaleI18N() throws PersistenceLayerException
 	{
-		EnUsLocaleDependentTestCase.before(Locale.FRENCH);
+		LocaleDependentTestCase.before(Locale.FRENCH);
 		runRoundRobin("Male");
-		EnUsLocaleDependentTestCase.after();
+		LocaleDependentTestCase.after();
 	}
 
 	@Test
@@ -125,15 +124,15 @@ public class GenderLockTokenTest extends AbstractTokenTestCase<PCTemplate>
 	{
 		LocaleDependentTestCase.before(Locale.US);
 		runRoundRobin("Female");
-		EnUsLocaleDependentTestCase.after();
+		LocaleDependentTestCase.after();
 	}
 	
 	@Test
 	public void testRoundRobinFemaleI18N() throws PersistenceLayerException
 	{
-		EnUsLocaleDependentTestCase.before(Locale.FRENCH);
+		LocaleDependentTestCase.before(Locale.FRENCH);
 		runRoundRobin("Female");
-		EnUsLocaleDependentTestCase.after();
+		LocaleDependentTestCase.after();
 	}
 
 	@Test
@@ -141,15 +140,15 @@ public class GenderLockTokenTest extends AbstractTokenTestCase<PCTemplate>
 	{
 		LocaleDependentTestCase.before(Locale.US);
 		runRoundRobin("Neuter");
-		EnUsLocaleDependentTestCase.after();
+		LocaleDependentTestCase.after();
 	}
 	
 	@Test
 	public void testRoundRobinNeuterI18N() throws PersistenceLayerException
 	{
-		EnUsLocaleDependentTestCase.before(Locale.FRENCH);
+		LocaleDependentTestCase.before(Locale.FRENCH);
 		runRoundRobin("Neuter");
-		EnUsLocaleDependentTestCase.after();
+		LocaleDependentTestCase.after();
 	}
 
 	@Override
@@ -178,12 +177,13 @@ public class GenderLockTokenTest extends AbstractTokenTestCase<PCTemplate>
 		primaryProf.put(ObjectKey.GENDER_LOCK, Gender.Male);
 		LocaleDependentTestCase.before(Locale.US);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "Male");
-		EnUsLocaleDependentTestCase.after();
-		EnUsLocaleDependentTestCase.before(Locale.FRENCH);
+		LocaleDependentTestCase.after();
+		LocaleDependentTestCase.before(Locale.FRENCH);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "Male");
-		EnUsLocaleDependentTestCase.after();
+		LocaleDependentTestCase.after();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

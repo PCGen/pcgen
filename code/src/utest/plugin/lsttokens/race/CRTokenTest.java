@@ -169,6 +169,7 @@ public class CRTokenTest extends AbstractTokenTestCase<Race>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

@@ -147,6 +147,7 @@ public class ExClassTokenTest extends AbstractTokenTestCase<PCClass>
 		expectSingle(getToken().unparse(primaryContext, primaryProf), getLegalValue());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

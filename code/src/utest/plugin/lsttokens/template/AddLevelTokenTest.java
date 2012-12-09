@@ -233,6 +233,7 @@ public class AddLevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 		assertTrue(upList.contains("Cleric|Formula"));
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

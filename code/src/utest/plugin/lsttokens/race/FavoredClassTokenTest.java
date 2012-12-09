@@ -288,6 +288,7 @@ public class FavoredClassTokenTest extends
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFailHighest()
 			throws PersistenceLayerException

@@ -155,6 +155,7 @@ public class AlignTokenTest extends AbstractTokenTestCase<Deity>
 				.getAbb());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

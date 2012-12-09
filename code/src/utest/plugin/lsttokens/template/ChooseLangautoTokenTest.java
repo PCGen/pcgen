@@ -200,6 +200,7 @@ public class ChooseLangautoTokenTest extends
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

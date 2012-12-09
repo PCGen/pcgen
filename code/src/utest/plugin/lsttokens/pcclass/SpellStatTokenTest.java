@@ -217,6 +217,7 @@ public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 		return ObjectKey.SPELL_STAT;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFailHas() throws PersistenceLayerException
 	{
@@ -271,6 +272,7 @@ public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 	// assertBadUnparse();
 	// }
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFailCaster()
 			throws PersistenceLayerException
@@ -322,6 +324,7 @@ public class SpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 				.getAbb());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFailStat() throws PersistenceLayerException
 	{

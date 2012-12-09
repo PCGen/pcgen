@@ -148,6 +148,7 @@ public class WieldTokenTest extends AbstractTokenTestCase<Equipment>
 				"OneHanded");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

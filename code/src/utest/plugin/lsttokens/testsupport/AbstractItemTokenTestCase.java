@@ -216,6 +216,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 		expectSingle(getToken().unparse(primaryContext, primaryProf), o.getLSTformat(false));
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

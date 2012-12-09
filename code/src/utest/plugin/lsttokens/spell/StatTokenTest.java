@@ -143,6 +143,7 @@ public class StatTokenTest extends AbstractTokenTestCase<Spell>
 		expectSingle(getToken().unparse(primaryContext, primaryProf), ps.getAbb());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

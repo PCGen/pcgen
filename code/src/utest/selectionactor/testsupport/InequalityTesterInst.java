@@ -104,9 +104,10 @@ public final class InequalityTesterInst implements InequalityTester
 		return reasons.isEmpty() ? null : reasons.toString();
 	}
 
+	@SuppressWarnings("unchecked")
 	private <T> String runTest(Class<T> c1, Object o1, Object o2)
 	{
-		return INEQ_MAP.get(c1).testInequality((T) o1, (T) o2, this);
+		return INEQ_MAP.get(c1).testInequality(o1, o2, this);
 	}
 
 	public static synchronized InequalityTester getInstance()

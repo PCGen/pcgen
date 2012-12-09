@@ -453,6 +453,7 @@ public class SpellListTokenTest extends AbstractTokenTestCase<PCClass>
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

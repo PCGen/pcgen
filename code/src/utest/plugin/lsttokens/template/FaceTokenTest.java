@@ -311,6 +311,7 @@ public class FaceTokenTest extends AbstractTokenTestCase<PCTemplate>
 	}
 
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFailWidth() throws PersistenceLayerException
 	{
@@ -329,6 +330,7 @@ public class FaceTokenTest extends AbstractTokenTestCase<PCTemplate>
 	}
 
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFailHeight() throws PersistenceLayerException
 	{

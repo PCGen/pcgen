@@ -138,6 +138,7 @@ public class KeystatTokenTest extends AbstractTokenTestCase<Skill>
 		expectSingle(getToken().unparse(primaryContext, primaryProf), ps.getAbb());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

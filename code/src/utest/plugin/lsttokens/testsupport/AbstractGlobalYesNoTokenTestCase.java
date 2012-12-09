@@ -128,6 +128,7 @@ public abstract class AbstractGlobalYesNoTokenTestCase extends
 		assertNull(unparsed);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

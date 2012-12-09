@@ -201,6 +201,7 @@ public class ChoiceTokenTest extends AbstractTokenTestCase<SubClass>
 		return spellProb;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

@@ -205,6 +205,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 		expectSingle(getToken().unparse(primaryContext, primaryProf), o.toString());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

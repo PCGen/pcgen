@@ -78,6 +78,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 		primaryProf.addToListFor(ListKey.AUTO_LANGUAGE, new QualifiedObject<CDOMReference<Language>>(ref));
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

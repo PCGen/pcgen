@@ -164,6 +164,7 @@ public class MonsterClassTokenTest extends AbstractTokenTestCase<Race>
 	//		}
 	//	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

@@ -176,6 +176,7 @@ public class BonusSpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 		expectSingle(getToken().unparse(primaryContext, primaryProf), ps.getAbb());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFailStat() throws PersistenceLayerException
 	{
@@ -192,6 +193,7 @@ public class BonusSpellStatTokenTest extends AbstractTokenTestCase<PCClass>
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFailHas() throws PersistenceLayerException
 	{

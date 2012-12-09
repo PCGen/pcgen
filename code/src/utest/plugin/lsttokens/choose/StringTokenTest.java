@@ -234,6 +234,7 @@ public class StringTokenTest extends AbstractTokenTestCase<CDOMObject>
 		primaryProf.put(ObjectKey.CHOOSE_INFO, cs);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

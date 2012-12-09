@@ -150,6 +150,7 @@ public class RaceTypeTokenTest extends AbstractTokenTestCase<PCClass>
 	// assertBadUnparse();
 	//	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

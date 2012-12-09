@@ -213,12 +213,10 @@ public class SpellsTokenTest extends
 	public void testValidClassList() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new ClassListToken());
-		ClassSpellList spellListA =
-				primaryContext.ref.constructNowIfNecessary(ClassSpellList.class,
-					"Wizard");
-		ClassSpellList spellListB =
-				secondaryContext.ref.constructNowIfNecessary(ClassSpellList.class,
-					"Wizard");
+		primaryContext.ref.constructNowIfNecessary(ClassSpellList.class,
+			"Wizard");
+		secondaryContext.ref.constructNowIfNecessary(ClassSpellList.class,
+			"Wizard");
 		runRoundRobin("SPELLS|CLASSLIST=Wizard");
 	}
 
@@ -229,14 +227,11 @@ public class SpellsTokenTest extends
 	public void testValidDomainList() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new DomainListToken());
-		CDOMObject a =
-				(CDOMObject) construct(primaryContext, "Endure Elements");
-		DomainSpellList domainA =
-				primaryContext.ref.constructNowIfNecessary(DomainSpellList.class,
-					"Good");
-		DomainSpellList domainB =
-				secondaryContext.ref.constructNowIfNecessary(DomainSpellList.class,
-					"Good");
+		construct(primaryContext, "Endure Elements");
+		primaryContext.ref.constructNowIfNecessary(DomainSpellList.class,
+			"Good");
+		secondaryContext.ref.constructNowIfNecessary(DomainSpellList.class,
+			"Good");
 		runRoundRobin("SPELLS|DOMAINLIST=Good");
 	}
 

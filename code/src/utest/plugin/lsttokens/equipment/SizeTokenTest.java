@@ -134,6 +134,7 @@ public class SizeTokenTest extends AbstractTokenTestCase<Equipment>
 				.getAbbreviation());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

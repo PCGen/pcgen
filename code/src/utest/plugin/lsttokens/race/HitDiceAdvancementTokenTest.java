@@ -226,6 +226,7 @@ public class HitDiceAdvancementTokenTest extends AbstractTokenTestCase<Race>
 		expectSingle(unparsed, "1,2,*");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

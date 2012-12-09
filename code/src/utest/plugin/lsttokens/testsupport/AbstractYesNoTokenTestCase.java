@@ -129,6 +129,7 @@ public abstract class AbstractYesNoTokenTestCase<T extends CDOMObject> extends
 		assertNull(unparsed);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

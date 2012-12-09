@@ -310,6 +310,7 @@ public class FaceTokenTest extends AbstractTokenTestCase<Race>
 	}
 
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFailWidth() throws PersistenceLayerException
 	{
@@ -328,6 +329,7 @@ public class FaceTokenTest extends AbstractTokenTestCase<Race>
 	}
 
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFailHeight() throws PersistenceLayerException
 	{

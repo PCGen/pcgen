@@ -176,6 +176,7 @@ public class ArmortypeTokenTest extends
 		assertTrue(upList.contains("Heavy|Medium"));
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

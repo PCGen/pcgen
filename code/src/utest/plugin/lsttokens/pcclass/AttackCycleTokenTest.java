@@ -240,6 +240,7 @@ public class AttackCycleTokenTest extends AbstractTokenTestCase<PCClass>
 		assertBadUnparse();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFailValue() throws PersistenceLayerException
 	{
@@ -256,6 +257,7 @@ public class AttackCycleTokenTest extends AbstractTokenTestCase<PCClass>
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFailKey() throws PersistenceLayerException
 	{

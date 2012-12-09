@@ -257,6 +257,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 				+ getAlternateLegalValue());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

@@ -361,6 +361,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 				+ "[" + getAlternateLegalValue() + "]");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFailRemove()
 			throws PersistenceLayerException

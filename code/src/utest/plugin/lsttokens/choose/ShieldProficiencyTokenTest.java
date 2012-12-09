@@ -132,8 +132,8 @@ public class ShieldProficiencyTokenTest extends
 	public void testValidEquipment() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new EquipmentToken());
-		CDOMObject a = (CDOMObject) construct(primaryContext, Equipment.class, "Buckler");
-		CDOMObject c = (CDOMObject) construct(secondaryContext, Equipment.class, "Buckler");
+		construct(primaryContext, Equipment.class, "Buckler");
+		construct(secondaryContext, Equipment.class, "Buckler");
 		runRoundRobin("SHIELDPROFICIENCY|EQUIPMENT[Buckler]");
 	}
 }

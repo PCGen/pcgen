@@ -130,6 +130,7 @@ public class ModsTokenTest extends AbstractTokenTestCase<Equipment>
 				EqModControl.REQUIRED.toString());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

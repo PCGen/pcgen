@@ -107,6 +107,7 @@ public class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
 		primaryProf.addToListFor(ListKey.AUTO_ARMORPROF, pp);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

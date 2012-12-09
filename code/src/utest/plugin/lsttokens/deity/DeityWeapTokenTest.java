@@ -161,6 +161,7 @@ public class DeityWeapTokenTest extends
 				+ getAlternateLegalValue());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

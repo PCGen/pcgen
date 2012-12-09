@@ -175,6 +175,7 @@ public class ACheckTokenTest extends AbstractTokenTestCase<Skill>
 				SkillArmorCheck.DOUBLE.toString());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

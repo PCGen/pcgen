@@ -152,6 +152,7 @@ public class DeityTokenTest extends AbstractListTokenTestCase<PCClass, Deity>
 				+ getAlternateLegalValue());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

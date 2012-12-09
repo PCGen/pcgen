@@ -192,6 +192,7 @@ public class NameoptTokenTest extends AbstractTokenTestCase<EquipmentModifier>
 				"TEXT=MyText");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

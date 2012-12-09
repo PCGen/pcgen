@@ -378,6 +378,7 @@ public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 		expectSingle(getToken().unparse(primaryContext, primaryProf1), "1");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

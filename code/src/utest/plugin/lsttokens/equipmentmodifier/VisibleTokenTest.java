@@ -172,6 +172,7 @@ public class VisibleTokenTest extends AbstractTokenTestCase<EquipmentModifier>
 		assertBadUnparse();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

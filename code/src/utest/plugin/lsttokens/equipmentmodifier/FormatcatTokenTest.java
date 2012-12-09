@@ -156,6 +156,7 @@ public class FormatcatTokenTest extends
 		expectSingle(getToken().unparse(primaryContext, primaryProf), EqModFormatCat.FRONT.toString());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

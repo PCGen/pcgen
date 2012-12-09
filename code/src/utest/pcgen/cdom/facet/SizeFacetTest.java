@@ -135,12 +135,12 @@ public class SizeFacetTest extends TestCase
 	public void testGetFromTemplateLowerOverridesDefault()
 	{
 		rfacet.set(id, new Race());
-		PCTemplate t = new PCTemplate();
-		t.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
-		tfacet.add(id, t);
+		PCTemplate t1 = new PCTemplate();
+		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
+		tfacet.add(id, t1);
 		facet.update(id);
 		assertEquals(1, facet.sizeInt(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t1);
 		facet.update(id);
 		assertEquals(2, facet.sizeInt(id));
 	}
@@ -149,12 +149,12 @@ public class SizeFacetTest extends TestCase
 	public void testGetFromTemplateHigherOverridesDefault()
 	{
 		rfacet.set(id, new Race());
-		PCTemplate t = new PCTemplate();
-		t.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
-		tfacet.add(id, t);
+		PCTemplate t1 = new PCTemplate();
+		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
+		tfacet.add(id, t1);
 		facet.update(id);
 		assertEquals(3, facet.sizeInt(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t1);
 		facet.update(id);
 		assertEquals(2, facet.sizeInt(id));
 	}
@@ -165,12 +165,12 @@ public class SizeFacetTest extends TestCase
 		Race r = new Race();
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
 		rfacet.set(id, r);
-		PCTemplate t = new PCTemplate();
-		t.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
-		tfacet.add(id, t);
+		PCTemplate t1 = new PCTemplate();
+		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
+		tfacet.add(id, t1);
 		facet.update(id);
 		assertEquals(1, facet.sizeInt(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t1);
 		facet.update(id);
 		assertEquals(3, facet.sizeInt(id));
 	}
@@ -181,12 +181,12 @@ public class SizeFacetTest extends TestCase
 		Race r = new Race();
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
 		rfacet.set(id, r);
-		PCTemplate t = new PCTemplate();
-		t.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(4));
-		tfacet.add(id, t);
+		PCTemplate t1 = new PCTemplate();
+		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(4));
+		tfacet.add(id, t1);
 		facet.update(id);
 		assertEquals(4, facet.sizeInt(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t1);
 		facet.update(id);
 		assertEquals(3, facet.sizeInt(id));
 	}
@@ -197,9 +197,9 @@ public class SizeFacetTest extends TestCase
 		Race r = new Race();
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
 		rfacet.set(id, r);
-		PCTemplate t = new PCTemplate();
-		t.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
-		tfacet.add(id, t);
+		PCTemplate t1 = new PCTemplate();
+		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
+		tfacet.add(id, t1);
 		PCTemplate t2 = new PCTemplate();
 		t2.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(4));
 		tfacet.add(id, t2);
@@ -208,7 +208,7 @@ public class SizeFacetTest extends TestCase
 		tfacet.remove(id, t2);
 		facet.update(id);
 		assertEquals(3, facet.sizeInt(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t1);
 		facet.update(id);
 		assertEquals(1, facet.sizeInt(id));
 	}
@@ -228,9 +228,9 @@ public class SizeFacetTest extends TestCase
 		bonusInfo.put(id, 2.0);
 		facet.update(id);
 		assertEquals(3, facet.sizeInt(id));
-		PCTemplate t = new PCTemplate();
-		t.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(0));
-		tfacet.add(id, t);
+		PCTemplate t1 = new PCTemplate();
+		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(0));
+		tfacet.add(id, t1);
 		facet.update(id);
 		assertEquals(2, facet.sizeInt(id));
 		PCTemplate t2 = new PCTemplate();
@@ -269,9 +269,9 @@ public class SizeFacetTest extends TestCase
 		r.addToListFor(ListKey.HITDICE_ADVANCEMENT, 6);
 		facet.update(id);
 		assertEquals(3, facet.sizeInt(id));
-		PCTemplate t = new PCTemplate();
-		t.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(0));
-		tfacet.add(id, t);
+		PCTemplate t1 = new PCTemplate();
+		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(0));
+		tfacet.add(id, t1);
 		facet.update(id);
 		assertEquals(2, facet.sizeInt(id));
 		PCTemplate t2 = new PCTemplate();
@@ -445,9 +445,9 @@ public class SizeFacetTest extends TestCase
 		r.addToListFor(ListKey.HITDICE_ADVANCEMENT, 6);
 		facet.update(id);
 		assertEquals("L", facet.getSizeAbb(id));
-		PCTemplate t = new PCTemplate();
-		t.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(0));
-		tfacet.add(id, t);
+		PCTemplate t1 = new PCTemplate();
+		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(0));
+		tfacet.add(id, t1);
 		facet.update(id);
 		assertEquals("M", facet.getSizeAbb(id));
 		PCTemplate t2 = new PCTemplate();
@@ -483,9 +483,9 @@ public class SizeFacetTest extends TestCase
 		facet.update(id);
 		assertEquals(1, facet.sizeInt(id));
 		assertEquals(3, facet.racialSizeInt(id));
-		PCTemplate t = new PCTemplate();
-		t.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
-		tfacet.add(id, t);
+		PCTemplate t1 = new PCTemplate();
+		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
+		tfacet.add(id, t1);
 		facet.update(id);
 		assertEquals(0, facet.sizeInt(id));
 		assertEquals(1, facet.racialSizeInt(id));

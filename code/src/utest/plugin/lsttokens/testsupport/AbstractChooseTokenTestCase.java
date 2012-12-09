@@ -1450,6 +1450,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 
 	protected abstract String getChoiceTitle();
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

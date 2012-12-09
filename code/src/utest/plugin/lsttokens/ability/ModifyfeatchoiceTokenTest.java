@@ -281,6 +281,7 @@ public class ModifyfeatchoiceTokenTest extends
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

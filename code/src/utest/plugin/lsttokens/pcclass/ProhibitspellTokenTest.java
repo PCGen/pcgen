@@ -389,6 +389,7 @@ public class ProhibitspellTokenTest extends AbstractTokenTestCase<PCClass>
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

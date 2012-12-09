@@ -264,6 +264,7 @@ public abstract class AbstractTextPropertyTokenTestCase<T extends CDOMObject>
 	 * TODO Need to define the appropriate behavior here - is this the token's
 	 * responsibility?
 	 */
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{
@@ -271,7 +272,7 @@ public abstract class AbstractTextPropertyTokenTestCase<T extends CDOMObject>
 		primaryProf.addToListFor(objectKey, new Object());
 		try
 		{
-			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
+			getToken().unparse(primaryContext, primaryProf);
 			fail();
 		}
 		catch (ClassCastException e)

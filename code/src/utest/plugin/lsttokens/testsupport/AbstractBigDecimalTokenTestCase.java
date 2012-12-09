@@ -255,6 +255,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{
