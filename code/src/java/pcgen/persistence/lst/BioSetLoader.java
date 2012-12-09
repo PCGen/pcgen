@@ -115,13 +115,7 @@ public final class BioSetLoader extends LstLineFileLoader
 					parseTokens(context, ageSet, colToken);
 				}
 
-				AgeSet old = bioSet.addToAgeMap(regionName, ageSet);
-				if (old != null && !old.equals(ageSet))
-				{
-					Logging.errorPrint("Found second (non-identical) AGESET "
-							+ "in Bio Settings " + sourceURI + " for Region: "
-							+ regionName + " Index: " + currentAgeSetIndex);
-				}
+				ageSet = bioSet.addToAgeMap(regionName, ageSet, sourceURI);
 				Integer oldIndex = bioSet.addToNameMap(ageSet);
 				if (oldIndex != null && oldIndex != currentAgeSetIndex)
 				{
@@ -210,6 +204,7 @@ public final class BioSetLoader extends LstLineFileLoader
 					{
 						context.rollback();
 						Logging.errorPrint("Error in BONUS parse: " + currentTok);
+						Logging.replayParsedMessages();
 					}
 				}
 				else if (currentTok.startsWith("KIT:"))
@@ -222,6 +217,7 @@ public final class BioSetLoader extends LstLineFileLoader
 					{
 						context.rollback();
 						Logging.errorPrint("Error in KIT parse: " + currentTok);
+						Logging.replayParsedMessages();
 					}
 				}
 				else

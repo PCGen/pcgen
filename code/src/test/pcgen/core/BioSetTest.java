@@ -39,6 +39,7 @@ import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.persistence.lst.BioSetLoader;
 import pcgen.persistence.lst.BioSetLoaderTest;
 
 /**
@@ -92,7 +93,8 @@ public class BioSetTest extends AbstractCharacterTestCase
     @Override
 	protected void additionalSetUp() throws Exception
 	{
-		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA);
+		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA,
+			new BioSetLoader());
 	}
 
 	/**

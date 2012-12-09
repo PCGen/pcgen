@@ -84,6 +84,8 @@ public final class BioSetLoaderTest extends PCGenTestCase
 	private final static String[] BASE_RACE_NAME =
 			new String[]{"Human", "Dwarf", "Half-Elf"};
 
+	private BioSetLoader loader;
+
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#setUp()
 	 */
@@ -92,7 +94,8 @@ public final class BioSetLoaderTest extends PCGenTestCase
 	{
 		super.setUp();
 
-		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA);
+		loader = new BioSetLoader();
+		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA, loader);
 	}
 
 	/* (non-Javadoc)
@@ -137,9 +140,8 @@ public final class BioSetLoaderTest extends PCGenTestCase
 	 *
 	 * @throws Exception If a problem occurs when loading the data
 	 */
-	public static void loadBioSet(LoadContext context, final String[] bioSetData) throws Exception
+	public static void loadBioSet(LoadContext context, final String[] bioSetData, BioSetLoader loader) throws Exception
 	{
-		final BioSetLoader loader = new BioSetLoader();
 		for (int i = 0; i < bioSetData.length; i++)
 		{
 			final String line = bioSetData[i];
@@ -235,4 +237,67 @@ public final class BioSetLoaderTest extends PCGenTestCase
 
 	}
 
+	/**
+	 * Check that a valid second bio set definition can be loaded.
+	 * @throws Exception
+	 */
+	public void testParseSecondBioSetGood() throws Exception
+	{
+		assertEquals("No ogre bio details expected before load", "REGION:None\n\n", SettingsHandler
+			.getGame().getBioSet().getRacePCCText("None", "Ogre"));
+		String[] bioData2 = new String[]{
+			"AGESET:0|Adulthood",
+			"RACENAME:Ogre		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
+			"RACENAME:Ogre		SEX:Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:120|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d10|BASEWT:85|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]",
+			"RACENAME:Ogre		BASEAGE:15	MAXAGE:34	AGEDIEROLL:5d4	HAIR:Blond|Brown	EYES:Blue	SKINTONE:Tanned|Pasty",
+			"AGESET:1|Middle Age",
+			"RACENAME:Ogre		BASEAGE:35	MAXAGE:52	AGEDIEROLL:3d6",
+			"AGESET:2|Old		BONUS:STAT|STR,CON,DEX|-3	BONUS:STAT|INT,WIS,CHA|2",
+			"RACENAME:Ogre		BASEAGE:53	MAXAGE:69	AGEDIEROLL:4d4+1",
+			"AGESET:3|Venerable	BONUS:STAT|STR,CON,DEX|-6	BONUS:STAT|INT,WIS,CHA|3",
+			"RACENAME:Ogre		BASEAGE:70	MAXAGE:110	AGEDIEROLL:4d10",
+			};
+		BioSetLoaderTest.loadBioSet(Globals.getContext(), bioData2, loader);
+
+		String racePCCText =
+				SettingsHandler.getGame().getBioSet()
+					.getRacePCCText("None", "Ogre");
+		assertFalse("Ogre bio details expected after load but was "
+			+ racePCCText, "REGION:None\n\n".equals(racePCCText));
+		
+	}
+
+	/**
+	 * Check that an invalid second bio set definition gets properly processed. 
+	 * It is expected that the bioset will be loaded but the original name for 
+	 * the age set will be used.
+	 * @throws Exception
+	 */
+	public void testParseSecondBioSetBadName() throws Exception
+	{
+		assertEquals("No ogre bio details expected before load", "REGION:None\n\n", SettingsHandler
+			.getGame().getBioSet().getRacePCCText("None", "Ogre"));
+		String[] bioData2 = new String[]{
+			"AGESET:0|Bad",
+			"RACENAME:Ogre		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
+			"RACENAME:Ogre		SEX:Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:120|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d10|BASEWT:85|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]",
+			"RACENAME:Ogre		BASEAGE:15	MAXAGE:34	AGEDIEROLL:5d4	HAIR:Blond|Brown	EYES:Blue	SKINTONE:Tanned|Pasty",
+			"AGESET:1|Middle Age",
+			"RACENAME:Ogre		BASEAGE:35	MAXAGE:52	AGEDIEROLL:3d6",
+			"AGESET:2|Old		BONUS:STAT|STR,CON,DEX|-3	BONUS:STAT|INT,WIS,CHA|2",
+			"RACENAME:Ogre		BASEAGE:53	MAXAGE:69	AGEDIEROLL:4d4+1",
+			"AGESET:3|Venerable	BONUS:STAT|STR,CON,DEX|-6	BONUS:STAT|INT,WIS,CHA|3",
+			"RACENAME:Ogre		BASEAGE:70	MAXAGE:110	AGEDIEROLL:4d10",
+			};
+		BioSetLoaderTest.loadBioSet(Globals.getContext(), bioData2, loader);
+		
+		String racePCCText =
+				SettingsHandler.getGame().getBioSet()
+					.getRacePCCText("None", "Ogre");
+		assertTrue(
+			"Expected details to be against original ageset name but was "
+				+ racePCCText,
+			racePCCText
+				.startsWith("REGION:None\n\nAGESET:0|Adulthood\nRACENAME:Ogre"));
+	}
 }

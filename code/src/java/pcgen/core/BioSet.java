@@ -25,6 +25,7 @@
  */
 package pcgen.core;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -401,8 +402,12 @@ public final class BioSet extends PObject
 		for (Integer key : ageIndices)
 		{
 			final SortedMap<String, SortedMap<String, String>> races = ageSets.get(key);
+			if (races == null)
+			{
+				continue;
+			}
 
-			sb.append("AGESET:").append(key).append("|");
+			sb.append("AGESET:");
 			sb.append(ageMap.get(region, key).getLSTformat()).append("\n");
 
 			for (Iterator<String> raceIt = races.keySet().iterator(); raceIt.hasNext();)
@@ -659,10 +664,23 @@ public final class BioSet extends PObject
 		return r;
 	}
 
-	public AgeSet addToAgeMap(String regionName, AgeSet ageSet)
+	public AgeSet addToAgeMap(String regionName, AgeSet ageSet, URI sourceURI)
 	{
-		return ageMap.put(Region.getConstant(regionName), ageSet.getIndex(),
-				ageSet);
+		AgeSet old =
+				ageMap.get(Region.getConstant(regionName), ageSet.getIndex());
+		if (old != null)
+		{
+			if (ageSet.hasBonuses() || !ageSet.getKits().isEmpty() || !ageSet.getName().equals(old.getName()))
+			{
+				Logging.errorPrint("Found second (non-identical) AGESET "
+					+ "in Bio Settings " + sourceURI + " for Region: "
+					+ regionName + " Index: " + ageSet.getIndex()
+					+ " using the existing " + old.getLSTformat());
+			}
+			return old;
+		}
+		ageMap.put(Region.getConstant(regionName), ageSet.getIndex(), ageSet);
+		return ageSet;
 	}
 
 	public Integer addToNameMap(AgeSet ageSet)
