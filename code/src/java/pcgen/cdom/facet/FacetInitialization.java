@@ -29,6 +29,7 @@ import pcgen.cdom.facet.input.CampaignFacet;
 import pcgen.cdom.facet.input.FreeLanguageFacet;
 import pcgen.cdom.facet.input.SkillLanguageFacet;
 import pcgen.cdom.facet.model.AlignmentFacet;
+import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.CompanionModFacet;
@@ -60,6 +61,7 @@ public class FacetInitialization {
 
 		AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 		BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
+		BioSetTrackingFacet bioSetTrackingFacet = FacetLibrary.getFacet(BioSetTrackingFacet.class);
 		CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 
 		LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
@@ -136,7 +138,7 @@ public class FacetInitialization {
 		directAbilityFacet.addDataFacetChangeListener(grantedAbilityFacet);
 		cabFacet.addDataFacetChangeListener(grantedAbilityFacet);
 
-		raceFacet.addDataFacetChangeListener(bioSetFacet);
+		raceFacet.addDataFacetChangeListener(bioSetTrackingFacet);
 
 		raceFacet.addDataFacetChangeListener(sizeFacet);
 		templateFacet.addDataFacetChangeListener(sizeFacet);

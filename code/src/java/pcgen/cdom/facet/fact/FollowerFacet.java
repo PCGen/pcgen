@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2009.
+ * Copyright (c) Thomas Parker, 2010.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,14 +15,17 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.fact;
 
-import pcgen.core.Skill;
+import pcgen.cdom.facet.AbstractListFacet;
+import pcgen.core.character.Follower;
 
 /**
- * MonsterCSkillFacet is a Facet that tracks the Cskills that a Player Character
- * has access to as class skills through MONCSKILL:LIST
+ * FollowerFacet tracks the list of Followers for Player Characters.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class MonsterCSkillFacet extends AbstractSourcedListFacet<Skill>
+public class FollowerFacet extends AbstractListFacet<Follower>
 {
+
 }

@@ -73,7 +73,10 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<!-- B -->
-	<bean id="bioSetFacet" class="pcgen.cdom.facet.BioSetFacet" />
+	<bean id="bioSetFacet" class="pcgen.cdom.facet.model.BioSetFacet" />
+	<bean id="bioSetTrackingFacet" class="pcgen.cdom.facet.BioSetTrackingFacet">
+		<property name="bioSetFacet" ref="bioSetFacet"/>
+	</bean>
 	<bean id="bonusActiviationFacet" class="pcgen.cdom.facet.BonusActiviationFacet">
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="deityFacet" ref="deityFacet"/>
@@ -118,6 +121,9 @@
 	<bean id="characterTypeFacet" class="pcgen.cdom.facet.fact.CharacterTypeFacet"/>
 	<bean id="CheckFacet" class="pcgen.cdom.facet.model.CheckFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
+	</bean>
+	<bean id="CheckBonusFacet" class="pcgen.cdom.facet.CheckBonusFacet">
+		<property name="checkFacet" ref="checkFacet"/>
 	</bean>
 	<bean id="chooseDriverFacet" class="pcgen.cdom.facet.ChooseDriverFacet"/>
 	<bean id="classFacet" class="pcgen.cdom.facet.model.ClassFacet" />
@@ -181,7 +187,7 @@
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="conditionalTemplateFacet" ref="conditionalTemplateFacet"/>
 	</bean>
-	<bean id="followerFacet" class="pcgen.cdom.facet.FollowerFacet" />
+	<bean id="followerFacet" class="pcgen.cdom.facet.fact.FollowerFacet" />
 	<bean id="followerLimitFacet" class="pcgen.cdom.facet.analysis.FollowerLimitFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
@@ -196,7 +202,7 @@
 	<bean id="genderFacet" class="pcgen.cdom.facet.fact.GenderFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
-	<bean id="globalAddedSkillCostFacet" class="pcgen.cdom.facet.GlobalAddedSkillCostFacet"/>
+	<bean id="globalAddedSkillCostFacet" class="pcgen.cdom.facet.input.GlobalAddedSkillCostFacet"/>
 	<bean id="globalSkillCostFacet" class="pcgen.cdom.facet.analysis.GlobalSkillCostFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
@@ -271,7 +277,7 @@
 		<property name="sizeFacet" ref="sizeFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 	</bean>
-	<bean id="localAddedSkillCostFacet" class="pcgen.cdom.facet.LocalAddedSkillCostFacet"/>
+	<bean id="localAddedSkillCostFacet" class="pcgen.cdom.facet.input.LocalAddedSkillCostFacet"/>
 	<bean id="localSkillCostFacet" class="pcgen.cdom.facet.LocalSkillCostFacet">
 		<property name="domainFacet" ref="domainFacet"/>
 		<property name="classFacet" ref="classFacet"/>
@@ -290,7 +296,7 @@
 		<property name="levelInfoFacet" ref="levelInfoFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
-	<bean id="monsterCSkillFacet" class="pcgen.cdom.facet.MonsterCSkillFacet"/>
+	<bean id="monsterCSkillFacet" class="pcgen.cdom.facet.input.MonsterCSkillFacet"/>
 	<bean id="movementFacet" class="pcgen.cdom.facet.MovementFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
@@ -332,7 +338,7 @@
 	</bean>
 	<!-- P -->
 	<bean id="prerequisiteFacet" class="pcgen.cdom.facet.PrerequisiteFacet"/>
-	<bean id="prohibitedSchoolFacet" class="pcgen.cdom.facet.ProhibitedSchoolFacet"/>
+	<bean id="prohibitedSchoolFacet" class="pcgen.cdom.facet.input.ProhibitedSchoolFacet"/>
 	<bean id="portraitThumbnailRectFacet" class="pcgen.cdom.facet.fact.PortraitThumbnailRectFacet"/>
 	
 	<!-- Q -->
@@ -404,6 +410,9 @@
 	<bean id="statFacet" class="pcgen.cdom.facet.model.StatFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+	</bean>
+	<bean id="StatBonusFacet" class="pcgen.cdom.facet.StatBonusFacet">
+		<property name="statFacet" ref="statFacet"/>
 	</bean>
 	<bean id="statLockFacet" class="pcgen.cdom.facet.analysis.StatLockFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>

@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.input;
 
 import java.util.IdentityHashMap;
 import java.util.Map;
@@ -25,6 +25,7 @@ import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.facet.AbstractStorageFacet;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 

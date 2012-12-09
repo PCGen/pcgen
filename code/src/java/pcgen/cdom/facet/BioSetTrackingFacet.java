@@ -19,29 +19,33 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.core.BioSet;
 import pcgen.core.PlayerCharacter;
 
 /**
- * BioSetFacet is a Facet that tracks the BioSet active in a Game Mode and thus
- * active for a Player Character.
+ * BioSetTrackingFacet is a Facet that triggers when characteristics related to
+ * the BioSet are changed and forces changes upon the PlayerCharacter (age,
+ * height, weight)
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class BioSetFacet extends AbstractItemFacet<BioSet> implements
+public class BioSetTrackingFacet extends AbstractItemFacet<BioSet> implements
 		DataFacetChangeListener<CDOMObject>
 {
 	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);
+
+	private BioSetFacet bioSetFacet;
 
 	/**
 	 * Processes added CDOMObjects to ensure the Age, Weight, and Height of a
 	 * Player Character are appropriately (re)set when the Player Character is
 	 * changed.
 	 * 
-	 * Triggered when one of the Facets to which BioSetFacet listens fires a
-	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
-	 * Character.
+	 * Triggered when one of the Facets to which BioSetTrackingFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
+	 * Player Character.
 	 * 
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
@@ -57,15 +61,15 @@ public class BioSetFacet extends AbstractItemFacet<BioSet> implements
 
 		if (!pc.isImporting())
 		{
-			get(id).randomize("AGE.HT.WT", pc);
+			bioSetFacet.get(id).randomize("AGE.HT.WT", pc);
 		}
 
 	}
 
 	/**
-	 * Triggered when one of the Facets to which BioSetFacet listens fires a
-	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
-	 * Character.
+	 * Triggered when one of the Facets to which BioSetTrackingFacet listens
+	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
+	 * Player Character.
 	 * 
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
@@ -94,4 +98,8 @@ public class BioSetFacet extends AbstractItemFacet<BioSet> implements
 		 */
 	}
 
+	public void setBioSetFacet(BioSetFacet bioSetFacet)
+	{
+		this.bioSetFacet = bioSetFacet;
+	}
 }
