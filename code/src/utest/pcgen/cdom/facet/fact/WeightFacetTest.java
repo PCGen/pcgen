@@ -15,25 +15,20 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
-
-import java.math.BigDecimal;
+package pcgen.cdom.facet.fact;
 
 import junit.framework.TestCase;
 
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.fact.WeightFacet;
 
-public class MoneyFacetTest extends TestCase
+public class WeightFacetTest extends TestCase
 {
-	private static final BigDecimal BD225 = new BigDecimal(225);
-	private static final BigDecimal BD250 = new BigDecimal(250);
-	private static final BigDecimal BD0 = new BigDecimal(0);
-	private static final BigDecimal BDMinus250 = new BigDecimal(-250);
 	private CharID id;
 	private CharID altid;
-	private MoneyFacet facet = new MoneyFacet();
+	private WeightFacet facet = new WeightFacet();
 
 	@Override
 	public void setUp() throws Exception
@@ -46,29 +41,29 @@ public class MoneyFacetTest extends TestCase
 	@Test
 	public void testWeightUnsetZero()
 	{
-		assertEquals(BD0, facet.getGold(id));
+		assertEquals(0, facet.getWeight(id));
 	}
 
 	@Test
 	public void testWeightSetGet()
 	{
-		facet.setGold(id, BD250);
-		assertEquals(BD250, facet.getGold(id));
-		facet.setGold(id, BD225);
-		assertEquals(BD225, facet.getGold(id));
+		facet.setWeight(id, 250);
+		assertEquals(250, facet.getWeight(id));
+		facet.setWeight(id, 225);
+		assertEquals(225, facet.getWeight(id));
 	}
 
 	@Test
 	public void testWeightSetZeroValid()
 	{
-		facet.setGold(id, BD0);
-		assertEquals(BD0, facet.getGold(id));
+		facet.setWeight(id, 0);
+		assertEquals(0, facet.getWeight(id));
 	}
 
 	@Test
 	public void testWeightSetNegative()
 	{
-		facet.setGold(id, BDMinus250);
+		facet.setWeight(id, -250);
 		/*
 		 * TODO Some form of error here?
 		 */
@@ -77,26 +72,26 @@ public class MoneyFacetTest extends TestCase
 	@Test
 	public void testWeightDiffPC()
 	{
-		facet.setGold(id, BD250);
-		assertEquals(BD0, facet.getGold(altid));
+		facet.setWeight(id, 250);
+		assertEquals(0, facet.getWeight(altid));
 	}
 
 	@Test
 	public void testRemoveWeight()
 	{
-		facet.setGold(id, BD225);
-		assertEquals(BD225, facet.getGold(id));
-		facet.adjustGold(id, 200);
-		assertEquals(new BigDecimal("425.00"), facet.getGold(id));
+		facet.setWeight(id, 25);
+		assertEquals(25, facet.getWeight(id));
+		facet.removeWeight(id);
+		assertEquals(0, facet.getWeight(id));
 	}
 
 	@Test
 	public void testRemoveAltWeight()
 	{
-		facet.setGold(id, BD225);
-		assertEquals(BD225, facet.getGold(id));
-		facet.adjustGold(altid, 45);
-		assertEquals(BD225, facet.getGold(id));
+		facet.setWeight(id, 25);
+		assertEquals(25, facet.getWeight(id));
+		facet.removeWeight(altid);
+		assertEquals(25, facet.getWeight(id));
 	}
 
 }

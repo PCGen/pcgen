@@ -15,12 +15,13 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.fact;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import pcgen.cdom.facet.AbstractListFacet;
 import pcgen.core.ChronicleEntry;
 import pcgen.util.Logging;
 

@@ -15,11 +15,13 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.fact;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.AbstractItemFacet;
+import pcgen.cdom.facet.TemplateFacet;
 import pcgen.core.PCTemplate;
 
 /**

@@ -15,11 +15,13 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.fact;
 
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.AbstractItemFacet;
+import pcgen.cdom.facet.fact.AgeFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 
 public class AgeFacetTest extends AbstractItemFacetTest<Integer>

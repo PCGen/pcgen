@@ -16,9 +16,11 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.fact;
 
 import java.awt.Rectangle;
+
+import pcgen.cdom.facet.AbstractItemFacet;
 
 /**
  * PortraitThumbnailRectFacet is a Facet that tracks the thumbnail rectangle for 

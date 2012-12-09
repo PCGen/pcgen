@@ -15,68 +15,61 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.fact;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.AbstractItemFacet;
 
 /**
- * WeightFacet is a Facet that tracks the Player Character's weight. Note that
- * this weight is the actual character weight, not the character plus the
- * character's equipment.
+ * HeightFacet is a Facet that tracks the Player Character's height.
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class WeightFacet extends AbstractItemFacet<Integer>
+public class HeightFacet extends AbstractItemFacet<Integer>
 {
-	/*
-	 * TODO There seems to be some inlining that can occur here - what really is
-	 * the value of setWeight() vs. set() or removeWeight() vs. remove()?
-	 * 
-	 * The getWeight() I understand since it protects against null
-	 */
 
 	/**
-	 * Sets the weight of the Player Character represented by the given CharID
+	 * Sets the height of the Player Character represented by the given CharID
 	 * to the given value.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
-	 *            weight will be set
-	 * @param weight
-	 *            The weight to set for the Player Character represented by the
+	 *            height will be set
+	 * @param height
+	 *            The height to set for the Player Character represented by the
 	 *            given CharID
 	 */
-	public void setWeight(CharID id, int weight)
+	public void setHeight(CharID id, int height)
 	{
-		set(id, weight);
+		set(id, height);
 	}
 
 	/**
-	 * Removes the weight for the Player Character represented by the given
+	 * Removes the height for the Player Character represented by the given
 	 * CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which the
-	 *            weight will be removed
+	 *            height will be removed
 	 */
-	public void removeWeight(CharID id)
+	public void removeHeight(CharID id)
 	{
 		remove(id);
 	}
 
 	/**
-	 * Returns the weight for the Player Character represented by the given
-	 * CharID
+	 * Returns the height for the Player Character represented by the given
+	 * CharID.
 	 * 
 	 * @param id
-	 *            The CharID of the Player Character for which the weight will
+	 *            The CharID of the Player Character for which the height will
 	 *            be returned
-	 * @return The weight of the Player Character represented by the given
+	 * @return The height of the Player Character represented by the given
 	 *         CharID
 	 */
-	public int getWeight(CharID id)
+	public int getHeight(CharID id)
 	{
-		Integer weight = get(id);
-		return weight == null ? 0 : weight;
+		Integer height = get(id);
+		return (height == null) ? 0 : height;
 	}
 }

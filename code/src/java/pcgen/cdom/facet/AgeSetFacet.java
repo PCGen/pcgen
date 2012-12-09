@@ -21,6 +21,8 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Region;
+import pcgen.cdom.facet.fact.AgeFacet;
+import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.core.AgeSet;
 import pcgen.core.BioSet;
 import pcgen.core.Race;

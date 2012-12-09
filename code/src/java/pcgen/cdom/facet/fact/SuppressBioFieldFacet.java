@@ -20,7 +20,7 @@
  *
  * $Id$
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.fact;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -28,6 +28,7 @@ import java.util.Set;
 
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.AbstractStorageFacet;
 
 /**
  * The Class <code>SuppressBioFieldFacet</code> tracks the biography fields that
