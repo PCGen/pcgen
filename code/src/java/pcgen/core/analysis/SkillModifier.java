@@ -32,6 +32,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusPair;
@@ -104,7 +105,7 @@ public final class SkillModifier
 		int aCheckBonus = sk.getSafe(ObjectKey.ARMOR_CHECK).calculateBonus(aPC);
 		bonus += aCheckBonus;
 
-		String aString = Globals.getGameModeRankModFormula();
+		String aString = SettingsHandler.getGame().getRankModFormula();
 		if (aString.length() != 0)
 		{
 			aString = aString.replaceAll(Pattern.quote("$$RANK$$"), SkillRankControl.getTotalRank(aPC, sk).toString());
@@ -280,7 +281,7 @@ public final class SkillModifier
 		int aCheckMod = sk.getSafe(ObjectKey.ARMOR_CHECK).calculateBonus(aPC);
 		appendBonusDesc(sk, bonusDetails, aCheckMod, "ARMOR");
 
-		String aString = Globals.getGameModeRankModFormula();
+		String aString = SettingsHandler.getGame().getRankModFormula();
 		if (aString.length() != 0)
 		{
 			aString = aString.replaceAll(Pattern.quote("$$RANK$$"), SkillRankControl.getTotalRank(aPC, sk).toString());

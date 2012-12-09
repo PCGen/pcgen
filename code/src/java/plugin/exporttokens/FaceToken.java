@@ -27,6 +27,7 @@ package plugin.exporttokens;
 
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -158,20 +159,21 @@ public class FaceToken extends Token
 	{
 		Point2D.Double face = pc.getFace();
 		String retString = "";
+		double squareSize = SettingsHandler.getGame().getSquareSize();
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
 			retString =
 					new DecimalFormat("#.#").format(face.getX()
-						/ Globals.getGameModeSquareSize());
+						/ squareSize);
 		}
 		else
 		{
 			retString =
 					new DecimalFormat("#.#").format(face.getX()
-						/ Globals.getGameModeSquareSize())
+						/ squareSize)
 						+ " x "
 						+ new DecimalFormat("#.#").format(face.getY()
-							/ Globals.getGameModeSquareSize());
+							/ squareSize);
 		}
 		return retString;
 	}

@@ -62,31 +62,6 @@ public class GlobalsTest extends PCGenTestCase
 	}
 
 	/**
-	 * Test the Random int functionality
-	 */
-	public void testRandomInt()
-	{
-		int x;
-		int rand;
-
-		for (x = 0; x < 10000; x++)
-		{
-			rand = Globals.getRandomInt(6);
-			is(rand, ge(Integer.valueOf(0)));
-			is(rand, le(Integer.valueOf(5)));
-
-			try
-			{
-				Globals.getRandomInt();
-			}
-			catch (Throwable t)
-			{
-				fail("Unbounded getRandomInt threw a " + t.toString());
-			}
-		}
-	}
-
-	/**
 	 * Test that the tool tips work
 	 */
 	public void testToolTip()

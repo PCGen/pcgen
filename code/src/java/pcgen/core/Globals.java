@@ -37,7 +37,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
@@ -49,6 +48,7 @@ import javax.swing.JFrame;
 import org.apache.commons.lang.SystemUtils;
 
 import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.base.util.RandomUtil;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
@@ -85,7 +85,6 @@ import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Load;
-import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.Visibility;
 import pcgen.util.enumeration.VisionType;
 
@@ -133,9 +132,6 @@ public final class Globals
 
 	/** We use lists for efficient iteration */
 	private static List<Campaign> campaignList          = new ArrayList<Campaign>(85);
-
-	/** this is used by the random selection tools */
-	private static final Random random = new Random(System.currentTimeMillis());
 
 	// end of filter creation sets
 	private static JFrame rootFrame;
@@ -526,33 +522,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get the game mode rank mod formula
-	 * @return game mode rank mod formula
-	 */
-	public static String getGameModeRankModFormula()
-	{
-		return SettingsHandler.getGame().getRankModFormula();
-	}
-
-	/**
-	 * Return TRUE if game mode shows class defense
-	 * @return TRUE if game mode shows class defense
-	 */
-	public static boolean getGameModeShowClassDefense()
-	{
-		return SettingsHandler.getGame().getShowClassDefense();
-	}
-
-	/**
-	 * TRUE if game mode shows spell tab
-	 * @return TRUE if game mode shows spell tab
-	 */
-	public static boolean getGameModeShowSpellTab()
-	{
-		return SettingsHandler.getGame().getTabShown(Tab.SPELLS);
-	}
-
-	/**
 	 * Get game mode spell range formula
 	 * @param aRange
 	 * @return game mode spell range formula
@@ -572,61 +541,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get game mode variable display (2) name
-	 * @return game mode variable display (2) name
-	 */
-	public static String getGameModeVariableDisplay2Name()
-	{
-		return SettingsHandler.getGame().getVariableDisplay2Name();
-	}
-
-	/**
-	 * Get game mode variable display (2) text
-	 * @return game mode variable display (2) text
-	 */
-	public static String getGameModeVariableDisplay2Text()
-	{
-		return SettingsHandler.getGame().getVariableDisplay2Text();
-	}
-
-	/**
-	 * Get game mode variable display (3) name
-	 * @return game mode variable display (3) name
-	 */
-	public static String getGameModeVariableDisplay3Name()
-	{
-		return SettingsHandler.getGame().getVariableDisplay3Name();
-	}
-
-	/**
-	 * Get game mode variable display (2) text
-	 * @return game mode variable display (2) text
-	 */
-	public static String getGameModeVariableDisplay3Text()
-	{
-		return SettingsHandler.getGame().getVariableDisplay3Text();
-	}
-
-	/**
-	 * Get game mode variable display name
-	 * @return game mode variable display name
-	 */
-	public static String getGameModeVariableDisplayName()
-	{
-		return SettingsHandler.getGame().getVariableDisplayName();
-	}
-
-	/**
-	 * Gets the information for Displaying a Variable.
-	 *
-	 * @return String
-	 */
-	public static String getGameModeVariableDisplayText()
-	{
-		return SettingsHandler.getGame().getVariableDisplayText();
-	}
-
-	/**
 	 * Get global deity list
 	 * @return global deity lis
 	 */
@@ -638,15 +552,6 @@ public final class Globals
 		}
 
 		return new ArrayList<String>();
-	}
-
-	/**
-	 * Get game mode square size
-	 * @return game mode square size
-	 */
-	public static double getGameModeSquareSize()
-	{
-		return SettingsHandler.getGame().getSquareSize();
 	}
 
 	/**
@@ -663,15 +568,6 @@ public final class Globals
 		}
 
 		return false;
-	}
-
-	/**
-	 * Get long currency display
-	 * @return long currency display
-	 */
-	public static String getLongCurrencyDisplay()
-	{
-		return SettingsHandler.getGame().getLongCurrencyDisplay();
 	}
 
 	/**
@@ -734,15 +630,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get a random int
-	 * @return random int
-	 */
-	public static int getRandomInt()
-	{
-		return getRandom().nextInt();
-	}
-
-	/**
 	 * Sets the root frame
 	 * The root frame is the container in which all
 	 * other panels, frame etc are placed.
@@ -802,16 +689,6 @@ public final class Globals
 	public static int getSelectedPaper()
 	{
 		return selectedPaper;
-	}
-
-	/**
-	 * Return TRUE if the skill type is hidden
-	 * @param aType
-	 * @return TRUE if the skill type is hidden
-	 */
-	public static boolean isSkillTypeHidden(final String aType)
-	{
-		return SettingsHandler.getGame().isTypeHidden(Skill.class, aType);
 	}
 
 	/**
@@ -1384,7 +1261,7 @@ public final class Globals
 				break;
 
 			case Constants.HP_STANDARD:default:
-				roll = Math.abs(Globals.getRandomInt(max - min + 1)) + min;
+				roll = Math.abs(RandomUtil.getRandomInt(max - min + 1)) + min;
 
 				break;
 		}
@@ -1686,25 +1563,6 @@ public final class Globals
 		return expandRelativePath(aPath);
 	}
 
-	/**
-	 * Get a random integer between 0 (inclusive) and the given value (exclusive)
-	 * @param high
-	 * @return random int
-	 */
-	public static int getRandomInt(final int high)
-	{
-		//
-		// Sanity check. If 'high' is <= 0, a IllegalArgumentException will be thrown
-		//
-		if (high <= 0)
-		{
-			return 0;
-		}
-		final int rand = getRandom().nextInt(high);
-		Logging.debugPrint("Generated random number between 0 and " + high + ": " + rand);  //$NON-NLS-1$//$NON-NLS-2$
-		return rand;
-	}
-
 	public static int getSkillMultiplierForLevel(final int level)
 	{
 		final List<String> sml = SettingsHandler.getGame().getSkillMultiplierLevels();
@@ -1862,11 +1720,6 @@ public final class Globals
 			// use the specified directory
 			return fType + File.separator + aString;
 		}
-	}
-
-	private static Random getRandom()
-	{
-		return random;
 	}
 
 	private static void setSelectedPaper(final int argSelectedPaper)

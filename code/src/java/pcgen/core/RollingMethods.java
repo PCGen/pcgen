@@ -23,6 +23,7 @@
  */
 package pcgen.core;
 
+import pcgen.base.util.RandomUtil;
 import pcgen.util.Logging;
 
 import java.util.Arrays;
@@ -66,7 +67,7 @@ public final class RollingMethods
      */
     public static int roll(final int sides)
     {
-        return Globals.getRandomInt(sides) + 1;
+        return RandomUtil.getRandomInt(sides) + 1;
     }
 
     /**
@@ -87,7 +88,7 @@ public final class RollingMethods
 
         while (--times >= 0)
         {
-            rolls[times] = Globals.getRandomInt(sides);
+            rolls[times] = RandomUtil.getRandomInt(sides);
         }
 
         java.util.Arrays.sort(rolls);
@@ -116,7 +117,7 @@ public final class RollingMethods
 
         while (--times >= 0)
         {
-            total += shape[Globals.getRandomInt(shape.length)];
+            total += shape[RandomUtil.getRandomInt(shape.length)];
         }
 
         return total;
@@ -138,7 +139,7 @@ public final class RollingMethods
 
         while (--times >= 0)
         {
-            rolls[times] = shape[Globals.getRandomInt(shape.length)];
+            rolls[times] = shape[RandomUtil.getRandomInt(shape.length)];
         }
 
         Arrays.sort(rolls);
@@ -413,7 +414,7 @@ public final class RollingMethods
             if (faces instanceof Vector)
             {
                 Vector vec = (Vector) faces;
-                faces = vec.get(Globals.getRandomInt(vec.size()));
+                faces = vec.get(RandomUtil.getRandomInt(vec.size()));
             }
             // check whether the argument is of the right type
             if (faces instanceof Double &&

@@ -1297,7 +1297,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return currencyUnit;
 	}
 
-	String getRankModFormula()
+	public String getRankModFormula()
 	{
 		return rankModFormula;
 	}

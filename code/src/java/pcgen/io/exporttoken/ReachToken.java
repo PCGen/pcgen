@@ -27,6 +27,7 @@ package pcgen.io.exporttoken;
 
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 
 import java.text.DecimalFormat;
@@ -90,6 +91,6 @@ public class ReachToken extends Token
 	public static String getSquaresToken(PlayerCharacter pc)
 	{
 		return new DecimalFormat("#.#").format(getReachToken(pc)
-			/ Globals.getGameModeSquareSize());
+			/ SettingsHandler.getGame().getSquareSize());
 	}
 }

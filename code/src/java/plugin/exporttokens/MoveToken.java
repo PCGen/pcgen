@@ -28,8 +28,8 @@ package plugin.exporttokens;
 import java.util.StringTokenizer;
 
 import pcgen.base.util.NamedValue;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.MovementToken;
 import pcgen.io.exporttoken.Token;
@@ -109,6 +109,6 @@ public class MoveToken extends Token
 	public static String getSquaresToken(PlayerCharacter pc, int moveIndex)
 	{
 		return Integer.toString((int) (pc.getMovementValues().get(moveIndex)
-				.getWeight() / Globals.getGameModeSquareSize()));
+				.getWeight() / SettingsHandler.getGame().getSquareSize()));
 	}
 }

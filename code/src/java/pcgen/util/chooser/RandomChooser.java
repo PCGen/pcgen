@@ -21,7 +21,7 @@ package pcgen.util.chooser;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.core.Globals;
+import pcgen.base.util.RandomUtil;
 
 /**
  * An implementation of the Chooser Interface that does not display a GUI but
@@ -232,7 +232,7 @@ public final class RandomChooser implements ChooserInterface
 		}
 
 		final Object addObj =
-				theAvailableList.get(Globals.getRandomInt(theAvailableList
+				theAvailableList.get(RandomUtil.getRandomInt(theAvailableList
 					.size() - 1));
 		if (theUniqueList.contains(addObj))
 		{

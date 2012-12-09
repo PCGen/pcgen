@@ -27,6 +27,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import pcgen.base.util.RandomUtil;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.RollMethod;
@@ -726,25 +727,25 @@ public class NPCGenerator
 			aPC.getBioSet().randomize(randBioString, aPC);
 			
 			final List<String> globalHairStyleList = SystemCollections.getUnmodifiableHairStyleList();
-			aPC.setHairStyle(globalHairStyleList.get(Globals.getRandomInt(globalHairStyleList.size())));
+			aPC.setHairStyle(globalHairStyleList.get(RandomUtil.getRandomInt(globalHairStyleList.size())));
 			final List<String> speechList = SystemCollections.getUnmodifiableSpeechList();
-			aPC.setSpeechTendency(speechList.get(Globals.getRandomInt(speechList.size())));
+			aPC.setSpeechTendency(speechList.get(RandomUtil.getRandomInt(speechList.size())));
 			final List<String> globalPhobiaList = SystemCollections.getUnmodifiablePhobiaList();
-			aPC.setPhobias(globalPhobiaList.get(Globals.getRandomInt(globalPhobiaList.size())));
+			aPC.setPhobias(globalPhobiaList.get(RandomUtil.getRandomInt(globalPhobiaList.size())));
 			final List<String> globalInterestsList = SystemCollections.getUnmodifiableInterestsList();
-			aPC.setInterests(globalInterestsList.get(Globals.getRandomInt(globalInterestsList.size())));
+			aPC.setInterests(globalInterestsList.get(RandomUtil.getRandomInt(globalInterestsList.size())));
 			final List<String> globalPhraseList = SystemCollections.getUnmodifiablePhraseList();
-			aPC.setCatchPhrase(globalPhraseList.get(Globals.getRandomInt(globalPhraseList.size())));
+			aPC.setCatchPhrase(globalPhraseList.get(RandomUtil.getRandomInt(globalPhraseList.size())));
 			final List<String> globalTraitList = SystemCollections.getUnmodifiableTraitList();
-			aPC.setTrait1(globalTraitList.get(Globals.getRandomInt(globalTraitList.size())));
-			aPC.setTrait2(globalTraitList.get(Globals.getRandomInt(globalTraitList.size())));
+			aPC.setTrait1(globalTraitList.get(RandomUtil.getRandomInt(globalTraitList.size())));
+			aPC.setTrait2(globalTraitList.get(RandomUtil.getRandomInt(globalTraitList.size())));
 
 			final List<String> globalCityList = SystemCollections.getUnmodifiableCityList();
-			aPC.setResidence(globalCityList.get(Globals.getRandomInt(globalCityList.size())));
+			aPC.setResidence(globalCityList.get(RandomUtil.getRandomInt(globalCityList.size())));
 			final List<String> globalLocationList = SystemCollections.getUnmodifiableLocationList();
-			aPC.setLocation(globalLocationList.get(Globals.getRandomInt(globalLocationList.size())));
+			aPC.setLocation(globalLocationList.get(RandomUtil.getRandomInt(globalLocationList.size())));
 			final List<String> globalBirthplaceList = SystemCollections.getUnmodifiableBirthplaceList();
-			aPC.setBirthplace(globalBirthplaceList.get(Globals.getRandomInt(globalBirthplaceList.size())));
+			aPC.setBirthplace(globalBirthplaceList.get(RandomUtil.getRandomInt(globalBirthplaceList.size())));
 			
 			final Names nameGen = Names.getInstance();
 			nameGen.init(aNameChoice, aPC);

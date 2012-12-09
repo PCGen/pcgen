@@ -109,6 +109,7 @@ import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Tab;
 
 /**
  * The Class <code>Gui2InfoFactory</code> provides character related information 
@@ -278,7 +279,7 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_clInfoHD", "d" + hitDie.getDie()); //$NON-NLS-1$  //$NON-NLS-2$
 		}
 
-		if (Globals.getGameModeShowSpellTab())
+		if (SettingsHandler.getGame().getTabShown(Tab.SPELLS))
 		{
 			aString = aClass.get(StringKey.SPELLTYPE);
 
@@ -794,7 +795,7 @@ public class Gui2InfoFactory implements InfoFactory
 			}
 		}
 
-		if (Globals.getGameModeShowSpellTab())
+		if (SettingsHandler.getGame().getTabShown(Tab.SPELLS))
 		{
 			a = equip.spellFailure(pc);
 
