@@ -781,7 +781,7 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_igInfoLabelTextAcCheck", a.toString()); //$NON-NLS-1$
 		}
 
-		if (Globals.getGameModeACText().length() != 0)
+		if (SettingsHandler.getGame().getACText().length() != 0)
 		{
 			a = equip.getACBonus(pc);
 
@@ -790,7 +790,7 @@ public class Gui2InfoFactory implements InfoFactory
 				b.appendSpacer();
 				b.appendElement(LanguageBundle.getFormattedString(
 					"in_igInfoLabelTextAcBonus", //$NON-NLS-1$
-					Globals.getGameModeACText()), a.toString());
+					SettingsHandler.getGame().getACText()), a.toString());
 			}
 		}
 
@@ -806,7 +806,7 @@ public class Gui2InfoFactory implements InfoFactory
 			}
 		}
 
-		bString = Globals.getGameModeDamageResistanceText();
+		bString = SettingsHandler.getGame().getDamageResistanceText();
 
 		if (bString.length() != 0)
 		{

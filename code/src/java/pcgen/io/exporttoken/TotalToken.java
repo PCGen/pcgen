@@ -27,6 +27,7 @@ package pcgen.io.exporttoken;
 
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.util.BigDecimalHelper;
@@ -138,7 +139,7 @@ public class TotalToken extends Token
 	public static String getValueToken(PlayerCharacter pc)
 	{
 		return BigDecimalHelper.trimZeros(pc.totalValue()) + " "
-			+ Globals.getCurrencyDisplay();
+			+ SettingsHandler.getGame().getCurrencyDisplay();
 	}
 
 	/**

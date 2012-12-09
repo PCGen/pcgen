@@ -19,8 +19,8 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
+import pcgen.core.SettingsHandler;
 
 /**
  * NonProficiencyPenaltyFacet is a Facet that calculates the Non-Proficiency
@@ -44,7 +44,7 @@ public class NonProficiencyPenaltyFacet
 	 */
 	public int getPenalty(CharID id)
 	{
-		int npp = Globals.getGameModeNonProfPenalty();
+		int npp = SettingsHandler.getGame().getNonProfPenalty();
 
 		for (PCTemplate t : templateFacet.getSet(id))
 		{

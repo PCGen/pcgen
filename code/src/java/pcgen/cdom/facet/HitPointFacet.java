@@ -214,7 +214,7 @@ public class HitPointFacet extends
 						+ (int) bonusCheckingFacet.getBonus(id, "HD", "MAX;CLASS."
 							+ pcc.getKeyName());
 
-			if (Globals.getGameModeHPFormula().length() == 0)
+			if (SettingsHandler.getGame().getHPFormula().length() == 0)
 			{
 				if (first
 					&& level == 1

@@ -1152,7 +1152,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * AC Info
 	 * @return AC text
 	 */
-	String getACText()
+	public String getACText()
 	{
 		return acName;
 	}
@@ -1225,7 +1225,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get Damage Resistance Text
 	 * @return Get Damage Resistance Text
 	 */
-	String getDamageResistanceText()
+	public String getDamageResistanceText()
 	{
 		return damageResistance;
 	}

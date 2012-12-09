@@ -26,9 +26,9 @@ package plugin.exporttokens;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
@@ -100,7 +100,7 @@ public class SpellListClassToken extends SpellListToken
 				}
 				else if (tokenSource.endsWith(".CONCENTRATION"))
 				{
-					if (Globals.getGameModeBaseSpellConcentration() != "")
+					if (SettingsHandler.getGame().getSpellBaseConcentration() != "")
 					{
 						Spell sp = new Spell();
 						CharacterSpell cs = new CharacterSpell(aClass, sp); 

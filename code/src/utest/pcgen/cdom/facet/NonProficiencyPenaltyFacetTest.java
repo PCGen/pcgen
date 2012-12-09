@@ -23,8 +23,8 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
+import pcgen.core.SettingsHandler;
 
 public class NonProficiencyPenaltyFacetTest extends TestCase
 {
@@ -52,14 +52,14 @@ public class NonProficiencyPenaltyFacetTest extends TestCase
 	@Test
 	public void testGenderUnsetNull()
 	{
-		assertEquals(Globals.getGameModeNonProfPenalty(), facet.getPenalty(id));
+		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
 	}
 
 	@Test
 	public void testWithNothingInTemplates()
 	{
 		tfacet.add(id, new PCTemplate());
-		assertEquals(Globals.getGameModeNonProfPenalty(), facet.getPenalty(id));
+		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
 	}
 
 	@Test
@@ -68,7 +68,7 @@ public class NonProficiencyPenaltyFacetTest extends TestCase
 		PCTemplate pct = new PCTemplate();
 		pct.put(IntegerKey.NONPP, -2);
 		tfacet.add(id, pct);
-		assertEquals(Globals.getGameModeNonProfPenalty(), facet.getPenalty(altid));
+		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(altid));
 	}
 
 	@Test
@@ -79,7 +79,7 @@ public class NonProficiencyPenaltyFacetTest extends TestCase
 		tfacet.add(id, pct);
 		assertEquals(-3, facet.getPenalty(id));
 		tfacet.remove(id, pct);
-		assertEquals(Globals.getGameModeNonProfPenalty(), facet.getPenalty(id));
+		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
 	}
 
 	@Test
@@ -100,7 +100,7 @@ public class NonProficiencyPenaltyFacetTest extends TestCase
 		tfacet.remove(id, pct);
 		assertEquals(-3, facet.getPenalty(id));
 		tfacet.remove(id, pct2);
-		assertEquals(Globals.getGameModeNonProfPenalty(), facet.getPenalty(id));
+		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
 	}
 
 }

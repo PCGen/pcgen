@@ -6359,7 +6359,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 	{
 		int total = 0;
 
-		String aString = Globals.getGameModeHPFormula();
+		String aString = SettingsHandler.getGame().getHPFormula();
 		if (aString.length() != 0)
 		{
 			for (;;)
@@ -10814,7 +10814,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		setSpellLevelTemp(spellLevel);
 
 		// must be done after spellLevel is set above
-		int dc = getVariableValue(Globals.getGameModeBaseSpellDC(), classKey).intValue() + metaDC;
+		int dc = getVariableValue(SettingsHandler.getGame().getSpellBaseDC(), classKey).intValue() + metaDC;
 		dc += (int) getTotalBonusTo("DC", "ALLSPELLS");
 
 		if (useStatFromSpell)
@@ -10958,7 +10958,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		setSpellLevelTemp(spellLevel);
 
 		// must be done after spellLevel is set above
-		int concentration = getVariableValue(aSpell, Globals.getGameModeBaseSpellConcentration(), classKey).intValue()
+		int concentration = getVariableValue(aSpell, SettingsHandler.getGame().getSpellBaseConcentration(), classKey).intValue()
 				+ metaConcentration;
 		concentration += (int) getTotalBonusTo("CONCENTRATION", "ALLSPELLS");
 

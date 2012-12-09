@@ -57,7 +57,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.content.BaseDice;
 import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
@@ -339,15 +338,6 @@ public final class Globals
 	}
 
 	/**
-	 * Returns the string to use for displaying (standard) currency.
-	 * @return currency display
-	 */
-	public static String getCurrencyDisplay()
-	{
-		return SettingsHandler.getGame().getCurrencyDisplay();
-	}
-
-	/**
 	 * @param fromTab
 	 * @param col
 	 * @param value
@@ -509,84 +499,12 @@ public final class Globals
 	}
 
 	/**
-	 * Get game mode AC abbreviation
-	 * @return game mode AC abbreviation
-	 */
-	public static String getGameModeACAbbrev()
-	{
-		return SettingsHandler.getGame().getACAbbrev();
-	}
-
-	/**
-	 * Get game mode AC text
-	 * @return game mode AC text
-	 */
-	public static String getGameModeACText()
-	{
-		return SettingsHandler.getGame().getACText();
-	}
-
-	/**
 	 * Get game mode align text
 	 * @return game mode align text
 	 */
 	public static String getGameModeAlignmentText()
 	{
 		return SettingsHandler.getGame().getAlignmentText();
-	}
-
-	/**
-	 * Get Game mode alternative HP abbreviation
-	 * @return Game mode alternative HP abbreviation
-	 */
-	public static String getGameModeAltHPAbbrev()
-	{
-		return SettingsHandler.getGame().getAltHPAbbrev();
-	}
-
-	/**
-	 * Get game mode alternative HP Text
-	 * @return game mode alternative HP Text
-	 */
-	public static String getGameModeAltHPText()
-	{
-		return SettingsHandler.getGame().getAltHPText();
-	}
-
-	/**
-	 * Get game mode base spell DC
-	 * @return game mode base spell DC
-	 */
-	public static String getGameModeBaseSpellDC()
-	{
-		return SettingsHandler.getGame().getSpellBaseDC();
-	}
-
-	/**
-	 * Get game mode base spell concentration bonus
-	 * @return game mode base spell concentration bonus
-	 */
-	public static String getGameModeBaseSpellConcentration()
-	{
-		return SettingsHandler.getGame().getSpellBaseConcentration();
-	}
-
-	/**
-	 * Get game mode damage resistance text
-	 * @return game mode damage resistance text
-	 */
-	public static String getGameModeDamageResistanceText()
-	{
-		return SettingsHandler.getGame().getDamageResistanceText();
-	}
-
-	/**
-	 * Get game mode non proficiency penalty
-	 * @return game mode non proficiency penalty
-	 */
-	public static int getGameModeNonProfPenalty()
-	{
-		return SettingsHandler.getGame().getNonProfPenalty();
 	}
 
 	/**
@@ -605,35 +523,6 @@ public final class Globals
 	public static boolean getGameModeHasPointPool()
 	{
 		return getGameModePointPoolName().length() != 0;
-	}
-
-	/**
-	 * Get the abbreviation to be used for hit points.
-	 *
-	 * @return String
-	 */
-	public static String getGameModeHPAbbrev()
-	{
-		return SettingsHandler.getGame().getHPAbbrev();
-	}
-
-	/**
-	 * Get the game mode HP Formula
-	 * @return game mode HP Formula
-	 */
-	public static String getGameModeHPFormula()
-	{
-		return SettingsHandler.getGame().getHPFormula();
-	}
-
-	/**
-	 * Get the long definition for hit points.
-	 *
-	 * @return String
-	 */
-	public static String getGameModeHitPointText()
-	{
-		return SettingsHandler.getGame().getHPText();
 	}
 
 	/**
@@ -1518,7 +1407,7 @@ public final class Globals
 					"Randomly generate a number between " + min + " and " + max
 						+ "." + Constants.LINE_SEPARATOR
 						+ "Select it from the box below.",
-					Globals.getGameModeHitPointText() + " for "
+					SettingsHandler.getGame().getHPText() + " for "
 						+ CoreUtility.ordinal(level) + " level of " + name,
 					MessageType.INFORMATION,
 					rollChoices, roll);
@@ -2032,31 +1921,6 @@ public final class Globals
 		}
 
 		return path;
-	}
-
-	/**
-	 * Returns a list of default genders used by the system.
-	 * @return List of gender strings
-	 * TODO - Genders need to become objects.
-	 */
-	public static List<Gender> getAllGenders()
-	{
-		ArrayList<Gender> ret = new ArrayList<Gender>();
-		ret.add(Gender.Male); 
-		ret.add(Gender.Female); 
-		ret.add(Gender.Neuter);
-		ret.add(Gender.Unknown);
-
-		return ret;
-	}
-	
-	/**
-	 * Get's current gamemodes DieSizes
-	 * @return dieSizes array
-	 */
-	public static int[] getDieSizes()
-	{
-		return SettingsHandler.getGame().getDieSizes();
 	}
 
 	public static LoadContext getContext()

@@ -202,7 +202,7 @@ public class Configuration
 				ret.add((GenderGeneratorOption)opt);
 			}
 		}
-		for ( final Gender gender : Globals.getAllGenders() )
+		for ( final Gender gender : Gender.values() )
 		{
 			final GenderGeneratorOption opt = new GenderGeneratorOption();
 			opt.setName(gender.toString());

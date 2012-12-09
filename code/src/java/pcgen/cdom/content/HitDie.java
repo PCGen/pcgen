@@ -18,7 +18,7 @@
 package pcgen.cdom.content;
 
 import pcgen.cdom.base.ConcretePrereqObject;
-import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
 import pcgen.util.Logging;
 
 /**
@@ -84,7 +84,7 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 	 */
 	public HitDie getNext()
 	{
-		int[] dieSizes = Globals.getDieSizes();
+		int[] dieSizes = SettingsHandler.getGame().getDieSizes();
 		int length = dieSizes.length;
 		for (int i = 0; i < length; ++i)
 		{
@@ -121,7 +121,7 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 	 */
 	public HitDie getPrevious()
 	{
-		int[] dieSizes = Globals.getDieSizes();
+		int[] dieSizes = SettingsHandler.getGame().getDieSizes();
 		int length = dieSizes.length;
 		for (int i = 0; i < length; ++i)
 		{

@@ -263,7 +263,7 @@ public class SpellMemToken extends Token
 						}
 						else if ("CONCENTRATION".equals(aLabel))
 						{
-							if (Globals.getGameModeBaseSpellConcentration() != "")
+							if (SettingsHandler.getGame().getSpellBaseConcentration() != "")
 							{
 								int concentration = aPC.getConcentration(aSpell, selectedCSpell, si);
 								retValue.append(Delta.toString(concentration));

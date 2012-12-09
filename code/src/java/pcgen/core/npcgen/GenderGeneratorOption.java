@@ -24,7 +24,6 @@ package pcgen.core.npcgen;
 
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.enumeration.Gender;
-import pcgen.core.Globals;
 
 /**
  * This class represents a particular gender generator option.
@@ -49,7 +48,7 @@ public class GenderGeneratorOption extends GeneratorOption
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$
 		{
-			for ( final Gender gender : Globals.getAllGenders() )
+			for ( final Gender gender : Gender.values() )
 			{
 				if ( ! theChoices.contains(gender) )
 				{
@@ -59,7 +58,7 @@ public class GenderGeneratorOption extends GeneratorOption
 			return;
 		}
 
-		for ( final Gender gender : Globals.getAllGenders() )
+		for ( final Gender gender : Gender.values() )
 		{
 			if (gender.toString().equalsIgnoreCase(aValue))
 			{
