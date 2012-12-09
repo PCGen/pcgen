@@ -24,8 +24,8 @@ import org.junit.Test;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.character.WieldCategory;
+import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.LstSystemLoader;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
@@ -47,8 +47,8 @@ public class WieldTokenTest extends AbstractTokenTestCase<Equipment>
 		super.setUp();
 		TokenRegistration.register(new PreVariableParser());
 		TokenRegistration.register(new PreVariableWriter());
-		LstSystemLoader.addDefaultWieldCategories(primaryContext);
-		LstSystemLoader.addDefaultWieldCategories(secondaryContext);
+		GameModeFileLoader.addDefaultWieldCategories(primaryContext);
+		GameModeFileLoader.addDefaultWieldCategories(secondaryContext);
 	}
 
 	@Override

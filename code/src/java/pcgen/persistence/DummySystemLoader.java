@@ -21,12 +21,9 @@
 package pcgen.persistence;
 
 import java.net.URI;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
-import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 
 /**
@@ -37,8 +34,6 @@ public class DummySystemLoader implements SystemLoader
 {
 
 	private List<URI> chosenCamps = Collections.emptyList();
-	private Set<String> sources = Collections.emptySet();
-	private List<Campaign> loadedCamps = Collections.emptyList();
 
     @Override
 	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
@@ -53,30 +48,8 @@ public class DummySystemLoader implements SystemLoader
 	}
 
     @Override
-	public void emptyLists()
-	{
-	}
-
-    @Override
 	public void initialize() throws PersistenceLayerException
 	{
-	}
-
-    @Override
-	public void markAllUnloaded()
-	{
-	}
-
-    @Override
-	public boolean isLoaded(Campaign campaign)
-	{
-		return loadedCamps.contains(campaign);
-	}
-
-    @Override
-	public Collection<Campaign> getLoadedCampaigns()
-	{
-		return loadedCamps;
 	}
 
 }

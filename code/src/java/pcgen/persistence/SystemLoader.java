@@ -23,10 +23,8 @@
 package pcgen.persistence;
 
 import java.net.URI;
-import java.util.Collection;
 import java.util.List;
 
-import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 
 /**
@@ -62,22 +60,9 @@ public interface SystemLoader
 	public List<URI> getChosenCampaignSourcefiles(GameMode game);
 
 	/**
-	 * This method empties whatever lists the implementation has
-	 * loaded and stored in its own implementation.
-	 */
-	public void emptyLists();
-
-	/**
 	 * This method initialize the SystemLoader with in whatever ways
 	 * are required prior to performing any actual loads.
 	 * @throws PersistenceLayerException
 	 */
 	public void initialize() throws PersistenceLayerException;
-
-	public void markAllUnloaded();
-
-	public boolean isLoaded(Campaign campaign);
-
-	public Collection<Campaign> getLoadedCampaigns();
-
 }

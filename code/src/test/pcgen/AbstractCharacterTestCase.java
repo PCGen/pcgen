@@ -23,8 +23,8 @@ import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
+import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.SourceFileLoader;
-import pcgen.persistence.lst.LstSystemLoader;
 import pcgen.rules.context.ReferenceContext;
 
 /**
@@ -148,7 +148,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 
 		PluginLoader ploader = PluginLoader.inst();
 		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
-		LstSystemLoader.addDefaultWieldCategories(Globals.getContext());
+		GameModeFileLoader.addDefaultWieldCategories(Globals.getContext());
 		
 		ref.importObject(str);
 		ref.importObject(dex);
@@ -179,7 +179,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 			ref.registerAbbreviation(al, al.getAbb());
 		}
 		SourceFileLoader.createLangBonusObject(Globals.getContext());
-		LstSystemLoader.addDefaultUnitSet(SettingsHandler.getGame());
+		GameModeFileLoader.addDefaultUnitSet(SettingsHandler.getGame());
 		SettingsHandler.getGame().selectDefaultUnitSet();
 		ref.importObject(AbilityCategory.FEAT);
 		additionalSetUp();

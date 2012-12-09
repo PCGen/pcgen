@@ -36,7 +36,7 @@ import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.lst.LstSystemLoader;
+import pcgen.persistence.GameModeFileLoader;
 import pcgen.util.TestHelper;
 import plugin.pretokens.parser.PreAlignParser;
 
@@ -69,7 +69,7 @@ public class PreAlignParserTest extends EnUsLocaleDependentTestCase
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		GameMode gamemode = new GameMode("3.5");
-		LstSystemLoader.addDefaultTabInfo(gamemode);
+		GameModeFileLoader.addDefaultTabInfo(gamemode);
 		SystemCollections.addToGameModeList(gamemode);
 		SettingsHandler.setGame("3.5");
 		TestHelper.createAllAlignments();

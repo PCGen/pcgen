@@ -62,11 +62,11 @@ import pcgen.core.WeaponProf;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.spell.Spell;
+import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.LstObjectFileLoader;
-import pcgen.persistence.lst.LstSystemLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
 
@@ -94,7 +94,7 @@ public class TestHelper
 		{
 			gamemode = new GameMode("3.5");
 			SystemCollections.addToGameModeList(gamemode);
-			LstSystemLoader.addDefaultTabInfo(gamemode);
+			GameModeFileLoader.addDefaultTabInfo(gamemode);
 		}
 		SettingsHandler.setGame("3.5");
 		while (aTok.hasMoreTokens())

@@ -24,6 +24,7 @@ package pcgen.persistence;
 
 import java.net.URI;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import pcgen.core.Campaign;
@@ -66,6 +67,8 @@ public final class PersistenceManager
 	/**
 	 * Set the source files for the chosen campaign for the current game mode.
 	 * @param l
+	 * 
+	 * CODE-1889 to remove use of this method
 	 */
 	public void setChosenCampaignSourcefiles(List<URI> l)
 	{
@@ -76,6 +79,8 @@ public final class PersistenceManager
 	 * Set the source files for the chosen campaign for the specific game mode.
 	 * @param l
 	 * @param game The game mode.
+	 * 
+	 * CODE-1889 to remove use of this method
 	 */
 	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
 	{
@@ -85,6 +90,8 @@ public final class PersistenceManager
 	/**
 	 * Get the chosen campaign source files for the current game mode.
 	 * @return the chosen campaign source files
+	 * 
+	 * CODE-1889 to remove use of this method
 	 */
 	public List<URI> getChosenCampaignSourcefiles()
 	{
@@ -93,10 +100,12 @@ public final class PersistenceManager
 
 	/**
 	 * Empty the lists
+	 * 
+	 * CODE-1890 to remove use of this code
 	 */
 	public void emptyLists()
 	{
-		instance.emptyLists();
+		//TODO This should not be used, as the Persistence Manager is no longer used as the master of sources in gui2 - thpr Dec 8, '12
 	}
 
 	/////////////////////////////////////////////////////////////////////
@@ -110,6 +119,8 @@ public final class PersistenceManager
 	 * the data can be loaded from .lst files or XML files,
 	 * or possibly even a database.
 	 * @throws PersistenceLayerException
+	 * 
+	 * CODE-1888 to remove the use of this method
 	 */
 	public void initialize() throws PersistenceLayerException
 	{
@@ -124,17 +135,22 @@ public final class PersistenceManager
 
 	public void clear()
 	{
-		instance.markAllUnloaded();
+		//TODO This should not be used, as the Persistence Manager is no longer used as the master of sources in gui2 - thpr Dec 8, '12
+		//CODE-1891
 	}
 
 	public boolean isLoaded(Campaign campaign)
 	{
-		return instance.isLoaded(campaign);
+		//TODO This should not be used, as the Persistence Manager is no longer used as the master of sources in gui2 - thpr Dec 8, '12
+		//CODE-1891
+		return false;
 	}
 
 	public Collection<Campaign> getLoadedCampaigns()
 	{
-		return instance.getLoadedCampaigns();
+		//TODO This should not be used, as the Persistence Manager is no longer used as the master of sources in gui2 - thpr Dec 8, '12
+		//CODE-1891
+		return Collections.EMPTY_LIST;
 	}
 
 }

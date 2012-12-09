@@ -22,8 +22,8 @@ import java.net.URISyntaxException;
 import org.junit.Test;
 
 import pcgen.core.Equipment;
+import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.LstSystemLoader;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
@@ -47,8 +47,8 @@ public class WeildIntegrationTest extends
 		super.setUp();
 		TokenRegistration.register(new PreVariableParser());
 		TokenRegistration.register(new PreVariableWriter());
-		LstSystemLoader.addDefaultWieldCategories(primaryContext);
-		LstSystemLoader.addDefaultWieldCategories(secondaryContext);
+		GameModeFileLoader.addDefaultWieldCategories(primaryContext);
+		GameModeFileLoader.addDefaultWieldCategories(secondaryContext);
 	}
 
 	@Override

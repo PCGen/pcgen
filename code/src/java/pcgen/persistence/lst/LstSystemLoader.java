@@ -29,7 +29,6 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -41,27 +40,20 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.Sponsor;
 import pcgen.cdom.content.TabInfo;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Campaign;
 import pcgen.core.CustomData;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PaperInfo;
 import pcgen.core.PointBuyCost;
-import pcgen.core.QualifiedObject;
 import pcgen.core.RuleCheck;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.UnitSet;
-import pcgen.core.character.WieldCategory;
-import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
-import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.ReferenceContext;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
@@ -114,7 +106,6 @@ public final class LstSystemLoader implements SystemLoader
 
 	private static UnitSet DEFAULT_UNIT_SET;
 
-	private List<Campaign> loadedCampaigns = new ArrayList<Campaign>();
 	private BioSetLoader bioLoader = new BioSetLoader();
 	private CampaignLoader campaignLoader = new CampaignLoader();
 	private final FilenameFilter pccFileFilter = new FilenameFilter()
@@ -182,6 +173,8 @@ public final class LstSystemLoader implements SystemLoader
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.SystemLoader#setChosenCampaignSourcefiles(java.util.List, pcgen.core.GameMode)
+	 * 
+	 * CODE-1889 to remove use of this method
 	 */
     @Override
 	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
@@ -202,6 +195,8 @@ public final class LstSystemLoader implements SystemLoader
 
 	/* (non-Javadoc)
 	 * @see pcgen.persistence.SystemLoader#getChosenCampaignSourcefiles(pcgen.core.GameMode)
+	 * 
+	 * CODE-1889 to remove use of this method
 	 */
     @Override
 	public List<URI> getChosenCampaignSourcefiles(GameMode game)
@@ -215,15 +210,10 @@ public final class LstSystemLoader implements SystemLoader
 		return files;
 	}
 
-	////////////////////////////////////////////////////////////
-	// Private Method(s)
-	////////////////////////////////////////////////////////////
-    @Override
-	public void emptyLists()
-	{
-    	//TODO No one should be using this! (lists are now elsewhere)
-	}
-
+    /**
+     * See Settings Handler usage of this for bug report
+     * CODE-1888
+     */
     @Override
 	public void initialize() throws PersistenceLayerException
 	{
@@ -239,6 +229,10 @@ public final class LstSystemLoader implements SystemLoader
 
 		Globals.sortPObjectListByName(Globals.getCampaignList());
 	}
+    
+    ////////
+    ///EVERYTHING BELOW HERE IS PRIVATE
+    ////////
 
 	/**
 	 * Load a sponsors lst file.
@@ -377,7 +371,7 @@ public final class LstSystemLoader implements SystemLoader
 		return gameMode;
 	}
 
-	public static void addDefaultTabInfo(GameMode gameMode)
+	private static void addDefaultTabInfo(GameMode gameMode)
 	{
 		LoadContext context = gameMode.getModeContext();
 		for (Tab aTab : Tab.values())
@@ -393,7 +387,7 @@ public final class LstSystemLoader implements SystemLoader
 		}
 	}
 
-	public static void addDefaultUnitSet(GameMode gameMode)
+	private static void addDefaultUnitSet(GameMode gameMode)
 	{
 		LoadContext context = gameMode.getModeContext();
 		UnitSet us = context.ref.silentlyGetConstructedCDOMObject(
@@ -424,12 +418,13 @@ public final class LstSystemLoader implements SystemLoader
 		}
 		return DEFAULT_UNIT_SET;
 	}
-	public void loadPCCFilesInDirectory(String aDirectory)
+
+	private void loadPCCFilesInDirectory(String aDirectory)
 	{
 		new File(aDirectory).list(pccFileFilter);
 	}
 
-	public void loadPCCFilesInDirectory(File aDirectory)
+	private void loadPCCFilesInDirectory(File aDirectory)
 	{
 		aDirectory.list(pccFileFilter);
 	}
@@ -501,7 +496,7 @@ public final class LstSystemLoader implements SystemLoader
 		return false;
 	}
 
-	public void loadGameModes()
+	private void loadGameModes()
 	{
 		final String[] gameFiles = getGameFilesList();
 
@@ -563,7 +558,7 @@ public final class LstSystemLoader implements SystemLoader
 			}
 			try
 			{
-				addDefaultWieldCategories(gm.getModeContext());
+				GameModeFileLoader.addDefaultWieldCategories(gm.getModeContext());
 			}
 			catch (PersistenceLayerException ple)
 			{
@@ -574,229 +569,6 @@ public final class LstSystemLoader implements SystemLoader
 		}
 
 		SystemCollections.sortGameModeList();
-	}
-
-	public static void addDefaultWieldCategories(LoadContext context)
-			throws PersistenceLayerException
-	{
-		PreParserFactory prereqParser;
-
-		try
-		{
-			prereqParser = PreParserFactory.getInstance();
-		}
-		catch (PersistenceLayerException ple)
-		{
-			Logging.errorPrint("Error Initializing PreParserFactory");
-			Logging.errorPrint("  " + ple.getMessage(), ple);
-			throw new UnreachableError();
-		}
-
-		ReferenceContext refContext = context.ref;
-		Collection<WieldCategory> categories = refContext
-				.getConstructedCDOMObjects(WieldCategory.class);
-
-		WieldCategory light = null;
-		WieldCategory twoHanded = null;
-		WieldCategory oneHanded = null;
-		WieldCategory tooLarge = null;
-		WieldCategory tooSmall = null;
-
-		for (WieldCategory wc : categories)
-		{
-			String name = wc.getKeyName();
-			if ("Light".equalsIgnoreCase(name))
-			{
-				light = wc;
-			}
-			if ("TwoHanded".equalsIgnoreCase(name))
-			{
-				twoHanded = wc;
-			}
-			if ("OneHanded".equalsIgnoreCase(name))
-			{
-				oneHanded = wc;
-			}
-			if ("TooLarge".equalsIgnoreCase(name))
-			{
-				tooLarge = wc;
-			}
-			if ("TooSmall".equalsIgnoreCase(name))
-			{
-				tooSmall = wc;
-			}
-		}
-		boolean buildLight = false;
-		boolean buildTwoHanded = false;
-		boolean buildOneHanded = false;
-		boolean buildTooLarge = false;
-		boolean buildTooSmall = false;
-		if (light == null)
-		{
-			light = new WieldCategory();
-			light.setName("Light");
-			refContext.importObject(light);
-			buildLight = true;
-		}
-		if (twoHanded == null)
-		{
-			twoHanded = new WieldCategory();
-			twoHanded.setName("TwoHanded");
-			refContext.importObject(twoHanded);
-			buildTwoHanded = true;
-		}
-		if (oneHanded == null)
-		{
-			oneHanded = new WieldCategory();
-			oneHanded.setName("OneHanded");
-			refContext.importObject(oneHanded);
-			buildOneHanded = true;
-		}
-		if (tooLarge == null)
-		{
-			tooLarge = new WieldCategory();
-			tooLarge.setName("TooLarge");
-			refContext.importObject(tooLarge);
-			buildTooLarge = true;
-		}
-		if (tooSmall == null)
-		{
-			tooSmall = new WieldCategory();
-			tooSmall.setName("TooSmall");
-			refContext.importObject(tooSmall);
-			buildTooSmall = true;
-		}
-
-		if (buildLight)
-		{
-			light.setHandsRequired(1);
-			light.setFinessable(true);
-			light.addDamageMult(1, 1.0f);
-			light.addDamageMult(2, 1.0f);
-			Prerequisite p = prereqParser
-					.parse("PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1");
-			QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooSmall));
-			qo.addPrerequisite(p);
-			light.addCategorySwitch(qo);
-			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1");
-			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(oneHanded));
-			qo.addPrerequisite(p);
-			light.addCategorySwitch(qo);
-			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+2");
-			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(twoHanded));
-			qo.addPrerequisite(p);
-			light.addCategorySwitch(qo);
-			p = prereqParser.parse("PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+3");
-			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooLarge));
-			qo.addPrerequisite(p);
-			light.addCategorySwitch(qo);
-			light.setWieldCategoryStep(1, CDOMDirectSingleRef.getRef(oneHanded));
-			light.setWieldCategoryStep(2, CDOMDirectSingleRef.getRef(twoHanded));
-		}
-		if (buildTwoHanded)
-		{
-			twoHanded.setFinessable(false);
-			twoHanded.setHandsRequired(2);
-			twoHanded.addDamageMult(2, 1.5f);
-			Prerequisite p = prereqParser
-					.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-3");
-			QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooSmall));
-			qo.addPrerequisite(p);
-			twoHanded.addCategorySwitch(qo);
-			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2");
-			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(light));
-			qo.addPrerequisite(p);
-			twoHanded.addCategorySwitch(qo);
-			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1");
-			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(oneHanded));
-			qo.addPrerequisite(p);
-			twoHanded.addCategorySwitch(qo);
-			p = prereqParser.parse("PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1");
-			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooLarge));
-			qo.addPrerequisite(p);
-			twoHanded.addCategorySwitch(qo);
-			twoHanded.setWieldCategoryStep(-2, CDOMDirectSingleRef
-					.getRef(light));
-			twoHanded.setWieldCategoryStep( -1, CDOMDirectSingleRef.getRef(oneHanded));
-		}
-		if (buildOneHanded)
-		{
-			oneHanded.setHandsRequired(1);
-			oneHanded.setFinessable(false);
-			oneHanded.addDamageMult(1, 1.0f);
-			oneHanded.addDamageMult(2, 1.5f);
-			Prerequisite p = prereqParser
-					.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2");
-			QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooSmall));
-			qo.addPrerequisite(p);
-			oneHanded.addCategorySwitch(qo);
-			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1");
-			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(light));
-			qo.addPrerequisite(p);
-			oneHanded.addCategorySwitch(qo);
-			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1");
-			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(twoHanded));
-			qo.addPrerequisite(p);
-			oneHanded.addCategorySwitch(qo);
-			p = prereqParser.parse("PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+2");
-			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooLarge));
-			qo.addPrerequisite(p);
-			oneHanded.addCategorySwitch(qo);
-			oneHanded.setWieldCategoryStep(-1, CDOMDirectSingleRef.getRef(light));
-			oneHanded.setWieldCategoryStep(1, CDOMDirectSingleRef.getRef(twoHanded));
-		}
-		if (buildTooLarge)
-		{
-			tooLarge.setFinessable(false);
-			tooLarge.setHandsRequired(999);
-			tooLarge.setWieldCategoryStep(-3, CDOMDirectSingleRef.getRef(light));
-			tooLarge.setWieldCategoryStep(-2, CDOMDirectSingleRef.getRef(oneHanded));
-			tooLarge.setWieldCategoryStep(-1, CDOMDirectSingleRef.getRef(twoHanded));
-			tooLarge.setWieldCategoryStep(0, CDOMDirectSingleRef.getRef(twoHanded));
-		}
-		if (buildTooSmall)
-		{
-			tooSmall.setFinessable(false);
-			tooSmall.setHandsRequired(2);
-			tooSmall.addDamageMult(2, 1.5f);
-			Prerequisite p = prereqParser
-					.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-3");
-			QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooSmall));
-			qo.addPrerequisite(p);
-			tooSmall.addCategorySwitch(qo);
-			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2");
-			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(light));
-			qo.addPrerequisite(p);
-			tooSmall.addCategorySwitch(qo);
-			p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1");
-			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(oneHanded));
-			qo.addPrerequisite(p);
-			tooSmall.addCategorySwitch(qo);
-			p = prereqParser.parse("PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1");
-			qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
-					CDOMDirectSingleRef.getRef(tooLarge));
-			qo.addPrerequisite(p);
-			tooSmall.addCategorySwitch(qo);
-			tooSmall
-					.setWieldCategoryStep( -2, CDOMDirectSingleRef.getRef(light));
-			tooSmall.setWieldCategoryStep( -1, CDOMDirectSingleRef.getRef(oneHanded));
-		}
-
 	}
 
 	/**
@@ -850,32 +622,14 @@ public final class LstSystemLoader implements SystemLoader
 	 * @param message the error to notify listeners about
 	 * @param e
 	 */
-	public void logError(String message, Throwable e)
+	private void logError(String message, Throwable e)
 	{
 		Logging.errorPrint(message, e);
 	}
 
-	public void initRecursivePccFiles() throws PersistenceLayerException
+	private void initRecursivePccFiles() throws PersistenceLayerException
 	{
 		campaignLoader.initRecursivePccFiles();
-	}
-
-    @Override
-	public Collection<Campaign> getLoadedCampaigns()
-	{
-		return new ArrayList<Campaign>(loadedCampaigns);
-	}
-
-    @Override
-	public boolean isLoaded(Campaign campaign)
-	{
-		return loadedCampaigns.contains(campaign);
-	}
-
-    @Override
-	public void markAllUnloaded()
-	{
-		loadedCampaigns.clear();
 	}
 
 }

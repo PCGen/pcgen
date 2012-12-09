@@ -30,9 +30,11 @@
 package pcgen.persistence.lst.output.prereq;
 
 import gmgen.pluginmgr.PluginLoader;
+
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -42,8 +44,8 @@ import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.LstSystemLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
@@ -477,7 +479,7 @@ public class PrerequisiteWriterTest extends TestCase
 		Globals.emptyLists();
 		GameMode gamemode = new GameMode("3.5");
 		SystemCollections.addToGameModeList(gamemode);
-		LstSystemLoader.addDefaultTabInfo(gamemode);
+		GameModeFileLoader.addDefaultTabInfo(gamemode);
 		SettingsHandler.setGame("3.5");
 		TestHelper.createAllAlignments();
 	}

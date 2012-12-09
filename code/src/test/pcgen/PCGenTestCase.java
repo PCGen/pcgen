@@ -8,7 +8,7 @@ import pcgen.core.LevelInfo;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.LoadInfo;
-import pcgen.persistence.lst.LstSystemLoader;
+import pcgen.persistence.GameModeFileLoader;
 import pcgen.util.Logging;
 import pcgen.util.TestChecker;
 import pcgen.util.testchecker.BoolAnd;
@@ -72,7 +72,7 @@ public abstract class PCGenTestCase extends TestCase
 				gamemode.getModeContext().ref.constructNowIfNecessary(
 					LoadInfo.class, gamemode.getName());
 		loadable.addLoadScoreValue(0, BigDecimal.ONE);
-		LstSystemLoader.addDefaultTabInfo(gamemode);
+		GameModeFileLoader.addDefaultTabInfo(gamemode);
 		SystemCollections.addToGameModeList(gamemode);
 		SettingsHandler.setGame("3.5");
 		count  = 0;

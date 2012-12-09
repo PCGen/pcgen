@@ -1417,7 +1417,11 @@ public final class SettingsHandler
 	/**
 	 * Initialise the data and game modes - does the parsing of the data, so 
 	 * the plugins must be loaded before this method is called.
+	 * 
+	 * @deprecated This is calling Persistence Manager, so it should no longer be used
+	 * CODE-1888
 	 */
+	@Deprecated
 	public static void initGameModes()
 	{
 		try
