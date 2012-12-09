@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
 import java.awt.geom.Point2D;
 import java.awt.geom.Point2D.Double;
@@ -28,6 +28,9 @@ import org.junit.Test;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.RaceFacet;
+import pcgen.cdom.facet.TemplateFacet;
+import pcgen.cdom.facet.analysis.FaceFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 

@@ -28,6 +28,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.analysis.LoadFacet;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.Movement;

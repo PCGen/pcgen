@@ -14,9 +14,12 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.EquipmentFacet;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;

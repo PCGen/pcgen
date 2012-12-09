@@ -15,51 +15,64 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.facet.RaceFacet;
+import pcgen.cdom.facet.TemplateFacet;
 import pcgen.core.PCTemplate;
-import pcgen.core.SettingsHandler;
+import pcgen.core.Race;
 
 /**
- * NonProficiencyPenaltyFacet is a Facet that calculates the Non-Proficiency
- * Penalty assessed when a Player Character is not proficient with a Weapon (and
- * attempts to use that Weapon)
+ * LegsFacet is a Facet that tracks the number of Legs possessed by a Player
+ * Character
  */
-public class NonProficiencyPenaltyFacet
+public class LegsFacet
 {
+
 	private TemplateFacet templateFacet;
+	private RaceFacet raceFacet;
 
 	/**
-	 * Returns the Non-Proficiency Penalty assessed when a Player Character
-	 * represented by the given CharID is not proficient with a Weapon (and
-	 * attempts to use that Weapon)
+	 * Returns the number of Legs possessed by the Player Character represented
+	 * by the given CharID
 	 * 
 	 * @param id
-	 *            The CharID representing the Player Character for which a
-	 *            Non-Proficiency Penalty will be calculated
-	 * @return The Non-Proficiency Penalty assessed when a Player Character
-	 *         represented by the given CharID is not proficient with a Weapon
+	 *            The CharID representing the Player Character for which the
+	 *            number of Legs will be returned
+	 * @return The number of Legs possessed by the Player Character represented
+	 *         by the given CharID
 	 */
-	public int getPenalty(CharID id)
+	public int getLegs(CharID id)
 	{
-		int npp = SettingsHandler.getGame().getNonProfPenalty();
-
-		for (PCTemplate t : templateFacet.getSet(id))
+		final Race aRace = raceFacet.get(id);
+		int legs = 0;
+		if (aRace != null)
 		{
-			Integer temp = t.get(IntegerKey.NONPP);
-			if (temp != null)
-			{
-				npp = temp;
-			}
+			legs = aRace.getSafe(IntegerKey.LEGS);
 		}
 
-		return npp;
+		// Scan templates for any overrides
+		for (PCTemplate template : templateFacet.getSet(id))
+		{
+			Integer l = template.get(IntegerKey.LEGS);
+			if (l != null)
+			{
+				legs = l;
+			}
+		}
+		return legs;
 	}
 
 	public void setTemplateFacet(TemplateFacet templateFacet)
 	{
 		this.templateFacet = templateFacet;
 	}
+
+	public void setRaceFacet(RaceFacet raceFacet)
+	{
+		this.raceFacet = raceFacet;
+	}
+
 }

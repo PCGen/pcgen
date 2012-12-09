@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
@@ -24,6 +24,12 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.facet.BonusCheckingFacet;
+import pcgen.cdom.facet.ClassFacet;
+import pcgen.cdom.facet.FormulaResolvingFacet;
+import pcgen.cdom.facet.LevelFacet;
+import pcgen.cdom.facet.RaceFacet;
+import pcgen.cdom.facet.TemplateFacet;
 import pcgen.core.ClassType;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;

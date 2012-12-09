@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
 import junit.framework.TestCase;
 
@@ -23,6 +23,9 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.facet.RaceFacet;
+import pcgen.cdom.facet.TemplateFacet;
+import pcgen.cdom.facet.analysis.LegsFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
