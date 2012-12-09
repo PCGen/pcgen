@@ -15,16 +15,19 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.input;
 
-import pcgen.core.Equipment;
+import pcgen.cdom.facet.AbstractListFacet;
+import pcgen.core.Campaign;
 
 /**
- * AutoEquipmentListFacet is a Facet that tracks the Equipment that have been
- * granted to a Player Character through AUTO:EQUIP|%LIST
+ * CampaignFacet is a Facet that tracks the Campaigns loaded and thus active on
+ * a Player Character. This tracks the list of Campaigns selected by the user.
+ * This list must be expanded if any of the Campaigns includes another Campaign
+ * (PCC file).
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class AutoEquipmentListFacet extends AbstractSourcedListFacet<Equipment>
+public class CampaignFacet extends AbstractListFacet<Campaign>
 {
 }

@@ -15,16 +15,17 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.input;
 
+import pcgen.cdom.facet.AbstractSourcedListFacet;
 import pcgen.core.Language;
 
 /**
- * SkillLanguageFacet tracks the Language object granted to the Player Character
- * from skills that grant Languages.
+ * AddLanguageFacet tracks the Languages added to a Player Character by the
+ * ADD:LANGUAGE token
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
+ * @author Tom Parker (thpr [at] yahoo.com)
  */
-public class SkillLanguageFacet extends AbstractSourcedListFacet<Language>
+public class AddLanguageFacet extends AbstractSourcedListFacet<Language>
 {
 }

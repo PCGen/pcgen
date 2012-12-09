@@ -15,34 +15,30 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.input;
 
-import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
-import pcgen.core.Language;
+import pcgen.cdom.facet.AbstractListFacet;
+import pcgen.cdom.facet.input.CampaignFacet;
+import pcgen.cdom.testsupport.AbstractListFacetTest;
+import pcgen.core.Campaign;
 
-public class AutoLanguageListFacetTest extends AbstractSourcedListFacetTest<Language> {
-
-	private AutoLanguageListFacet facet = new AutoLanguageListFacet();
-
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-	}
+public class CampaignFacetTest extends AbstractListFacetTest<Campaign>
+{
+	private CampaignFacet facet = new CampaignFacet();
 
 	@Override
-	protected AbstractSourcedListFacet<Language> getFacet()
+	protected AbstractListFacet<Campaign> getFacet()
 	{
 		return facet;
 	}
 
-	public static int n = 0;
+	private int n = 0;
 
 	@Override
-	protected Language getObject()
+	protected Campaign getObject()
 	{
-		Language wp = new Language();
-		wp.setName("WP" + n++);
-		return wp;
+		Campaign t = new Campaign();
+		t.setName("Campaign" + n++);
+		return t;
 	}
 }

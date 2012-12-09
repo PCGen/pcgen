@@ -18,6 +18,13 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
+import pcgen.cdom.facet.input.ActiveAbilityFacet;
+import pcgen.cdom.facet.input.AddLanguageFacet;
+import pcgen.cdom.facet.input.AutoLanguageListFacet;
+import pcgen.cdom.facet.input.BonusWeaponProfFacet;
+import pcgen.cdom.facet.input.CampaignFacet;
+import pcgen.cdom.facet.input.FreeLanguageFacet;
+import pcgen.cdom.facet.input.SkillLanguageFacet;
 import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;

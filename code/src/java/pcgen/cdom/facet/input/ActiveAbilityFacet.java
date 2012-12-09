@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.input;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -28,6 +28,8 @@ import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.facet.AbstractDataFacet;
+import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.core.Ability;
 
 /**

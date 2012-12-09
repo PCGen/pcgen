@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2009.
+ * Copyright (c) Thomas Parker, 2012.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,18 +15,15 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.input;
 
-import pcgen.core.Campaign;
+import pcgen.cdom.facet.AbstractSourcedListFacet;
+import pcgen.core.Language;
 
 /**
- * CampaignFacet is a Facet that tracks the Campaigns loaded and thus active on
- * a Player Character. This tracks the list of Campaigns selected by the user.
- * This list must be expanded if any of the Campaigns includes another Campaign
- * (PCC file).
- * 
- * @author Thomas Parker (thpr [at] yahoo.com)
+ * FreeLanguageFacet is a Facet that tracks the Languages that have been granted
+ * to a Player Character for free.
  */
-public class CampaignFacet extends AbstractListFacet<Campaign>
+public class FreeLanguageFacet extends AbstractSourcedListFacet<Language>
 {
 }

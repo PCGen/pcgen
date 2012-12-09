@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2010.
+ * Copyright (c) Thomas Parker, 2012.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,14 +15,17 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.input;
 
-import pcgen.core.WeaponProf;
+import pcgen.cdom.facet.AbstractSourcedListFacet;
+import pcgen.core.Language;
 
 /**
- * BonusWeaponProfFacet is a Facet that tracks the WeaponProfs that have been
- * granted to a Player Character via WEAPONBONUS
+ * SkillLanguageFacet tracks the Language object granted to the Player Character
+ * from skills that grant Languages.
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class BonusWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
+public class SkillLanguageFacet extends AbstractSourcedListFacet<Language>
 {
 }

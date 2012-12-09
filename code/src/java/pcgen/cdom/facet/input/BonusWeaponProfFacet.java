@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2012.
+ * Copyright (c) Thomas Parker, 2010.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,16 +15,15 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.input;
 
-import pcgen.core.Language;
+import pcgen.cdom.facet.AbstractSourcedListFacet;
+import pcgen.core.WeaponProf;
 
 /**
- * AddLanguageFacet tracks the Languages added to a Player Character by the
- * ADD:LANGUAGE token
- * 
- * @author Tom Parker (thpr [at] yahoo.com)
+ * BonusWeaponProfFacet is a Facet that tracks the WeaponProfs that have been
+ * granted to a Player Character via WEAPONBONUS
  */
-public class AddLanguageFacet extends AbstractSourcedListFacet<Language>
+public class BonusWeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 {
 }

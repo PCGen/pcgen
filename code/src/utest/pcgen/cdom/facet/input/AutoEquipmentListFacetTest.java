@@ -15,28 +15,33 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.input;
 
-import pcgen.cdom.testsupport.AbstractListFacetTest;
-import pcgen.core.Campaign;
+import pcgen.cdom.facet.AbstractSourcedListFacet;
+import pcgen.cdom.facet.input.AutoEquipmentListFacet;
+import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
+import pcgen.core.Equipment;
 
-public class CampaignFacetTest extends AbstractListFacetTest<Campaign>
+public class AutoEquipmentListFacetTest extends
+		AbstractSourcedListFacetTest<Equipment>
 {
-	private CampaignFacet facet = new CampaignFacet();
+
+	private AutoEquipmentListFacet facet = new AutoEquipmentListFacet();
 
 	@Override
-	protected AbstractListFacet<Campaign> getFacet()
+	protected AbstractSourcedListFacet<Equipment> getFacet()
 	{
 		return facet;
 	}
 
-	private int n = 0;
+	public static int n = 0;
 
 	@Override
-	protected Campaign getObject()
+	protected Equipment getObject()
 	{
-		Campaign t = new Campaign();
-		t.setName("Campaign" + n++);
-		return t;
+		Equipment wp = new Equipment();
+		wp.setName("WP" + n++);
+		return wp;
 	}
+
 }

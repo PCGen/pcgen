@@ -15,19 +15,25 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.input;
 
+import pcgen.cdom.facet.AbstractSourcedListFacet;
+import pcgen.cdom.facet.input.AutoLanguageListFacet;
 import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
-import pcgen.core.WeaponProf;
+import pcgen.core.Language;
 
-public class BonusWeaponProfFacetTest extends
-		AbstractSourcedListFacetTest<WeaponProf>
-{
+public class AutoLanguageListFacetTest extends AbstractSourcedListFacetTest<Language> {
 
-	private BonusWeaponProfFacet facet = new BonusWeaponProfFacet();
+	private AutoLanguageListFacet facet = new AutoLanguageListFacet();
 
 	@Override
-	protected AbstractSourcedListFacet<WeaponProf> getFacet()
+	public void setUp() throws Exception
+	{
+		super.setUp();
+	}
+
+	@Override
+	protected AbstractSourcedListFacet<Language> getFacet()
 	{
 		return facet;
 	}
@@ -35,11 +41,10 @@ public class BonusWeaponProfFacetTest extends
 	public static int n = 0;
 
 	@Override
-	protected WeaponProf getObject()
+	protected Language getObject()
 	{
-		WeaponProf wp = new WeaponProf();
+		Language wp = new Language();
 		wp.setName("WP" + n++);
 		return wp;
 	}
-
 }

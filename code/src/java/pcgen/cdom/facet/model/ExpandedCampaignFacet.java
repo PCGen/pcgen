@@ -30,7 +30,7 @@ import pcgen.core.Campaign;
  * 
  * Just the explicitly loaded Campaign objects are stored in CampaignFacet
  * 
- * @see pcgen.cdom.facet.CampaignFacet
+ * @see pcgen.cdom.facet.input.CampaignFacet
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
