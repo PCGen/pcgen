@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -25,6 +25,7 @@ import java.util.List;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.RaceSubType;
+import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;

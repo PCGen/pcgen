@@ -20,8 +20,6 @@ package pcgen.cdom.facet.analysis;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.facet.StatLockFacet;
-import pcgen.cdom.facet.UnlockedStatFacet;
 import pcgen.cdom.helper.StatLock;
 import pcgen.core.PCStat;
 

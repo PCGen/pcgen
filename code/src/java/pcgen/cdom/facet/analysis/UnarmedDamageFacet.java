@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
 import java.util.HashMap;
 import java.util.List;
@@ -26,6 +26,11 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.AbstractSourcedListFacet;
+import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
+import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Globals;

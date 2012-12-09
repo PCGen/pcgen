@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
 import junit.framework.TestCase;
 
@@ -25,6 +25,8 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.analysis.VariableFacet;
 import pcgen.core.PCTemplate;
 
 public class VariableFacetTest extends TestCase

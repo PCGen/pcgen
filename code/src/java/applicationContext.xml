@@ -336,17 +336,17 @@
 	<bean id="portraitThumbnailRectFacet" class="pcgen.cdom.facet.fact.PortraitThumbnailRectFacet"/>
 	
 	<!-- Q -->
-	<bean id="qualifyFacet" class="pcgen.cdom.facet.QualifyFacet">
+	<bean id="qualifyFacet" class="pcgen.cdom.facet.analysis.QualifyFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<!-- R -->
 	<bean id="raceFacet" class="pcgen.cdom.facet.model.RaceFacet" />
-	<bean id="raceTypeFacet" class="pcgen.cdom.facet.RaceTypeFacet">
+	<bean id="raceTypeFacet" class="pcgen.cdom.facet.analysis.RaceTypeFacet">
 		<property name="companionModFacet" ref="companionModFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
-	<bean id="racialSubTypesFacet" class="pcgen.cdom.facet.RacialSubTypesFacet">
+	<bean id="racialSubTypesFacet" class="pcgen.cdom.facet.analysis.RacialSubTypesFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
@@ -384,7 +384,7 @@
 	<bean id="skillFacet" class="pcgen.cdom.facet.model.SkillFacet"/>
 	<bean id="skillLanguageFacet" class="pcgen.cdom.facet.SkillLanguageFacet"/>
 	<bean id="sourcedEquipmentFacet" class="pcgen.cdom.facet.SourcedEquipmentFacet"/>
-	<bean id="specialAbilityFacet" class="pcgen.cdom.facet.SpecialAbilityFacet">
+	<bean id="specialAbilityFacet" class="pcgen.cdom.facet.analysis.SpecialAbilityFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="spellBookFacet" class="pcgen.cdom.facet.SpellBookFacet">
@@ -405,7 +405,7 @@
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 	</bean>
-	<bean id="statLockFacet" class="pcgen.cdom.facet.StatLockFacet">
+	<bean id="statLockFacet" class="pcgen.cdom.facet.analysis.StatLockFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
@@ -420,23 +420,23 @@
 		<property name="equipmentFacet" ref="equipmentFacet"/>
 	</bean>
 	<!-- U -->
-	<bean id="unarmedDamageFacet" class="pcgen.cdom.facet.UnarmedDamageFacet">
+	<bean id="unarmedDamageFacet" class="pcgen.cdom.facet.analysis.UnarmedDamageFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
-	<bean id="unencumberedArmorFacet" class="pcgen.cdom.facet.UnencumberedArmorFacet">
+	<bean id="unencumberedArmorFacet" class="pcgen.cdom.facet.analysis.UnencumberedArmorFacet">
 		<property name="cdomSourceFacet" ref="cdomSourceFacet"/>
 	</bean>
-	<bean id="unencumberedLoadFacet" class="pcgen.cdom.facet.UnencumberedLoadFacet">
+	<bean id="unencumberedLoadFacet" class="pcgen.cdom.facet.analysis.UnencumberedLoadFacet">
 		<property name="cdomSourceFacet" ref="cdomSourceFacet"/>
 	</bean>
-	<bean id="unlockedStatFacet" class="pcgen.cdom.facet.UnlockedStatFacet">
+	<bean id="unlockedStatFacet" class="pcgen.cdom.facet.analysis.UnlockedStatFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="userEquipmentFacet" class="pcgen.cdom.facet.UserEquipmentFacet"/>
 	<!-- V -->
-	<bean id="variableFacet" class="pcgen.cdom.facet.VariableFacet">
+	<bean id="variableFacet" class="pcgen.cdom.facet.analysis.VariableFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>

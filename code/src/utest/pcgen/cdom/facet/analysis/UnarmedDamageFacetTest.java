@@ -15,13 +15,16 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
 import java.util.Arrays;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.AbstractSourcedListFacet;
+import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.analysis.UnarmedDamageFacet;
 import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;

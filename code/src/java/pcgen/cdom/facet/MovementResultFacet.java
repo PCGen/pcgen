@@ -29,6 +29,8 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.analysis.LoadFacet;
+import pcgen.cdom.facet.analysis.UnencumberedArmorFacet;
+import pcgen.cdom.facet.analysis.UnencumberedLoadFacet;
 import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.core.Equipment;

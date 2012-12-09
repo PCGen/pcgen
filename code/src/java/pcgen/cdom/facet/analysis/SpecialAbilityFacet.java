@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +24,12 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.QualifiedActor;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.AbstractQualifiedListFacet;
+import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
+import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.helper.SAProcessor;
 import pcgen.core.SpecialAbility;
 
