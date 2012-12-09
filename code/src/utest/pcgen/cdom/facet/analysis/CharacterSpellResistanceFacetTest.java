@@ -15,22 +15,28 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
+import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.SpellResistance;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.AbstractSourcedListFacet;
+import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.analysis.CharacterSpellResistanceFacet;
 import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
-import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
-public class FavoredClassFacetTest extends
-		AbstractExtractingFacetTest<CDOMObject, PCClass>
+public class CharacterSpellResistanceFacetTest extends
+		AbstractExtractingFacetTest<CDOMObject, Formula>
 {
 
-	private FavoredClassFacet facet = new FavoredClassFacet();
-	private PCClass[] target;
+	private CharacterSpellResistanceFacet facet =
+			new CharacterSpellResistanceFacet();
+	private Formula[] target;
 	private CDOMObject[] source;
 
 	@Override
@@ -38,33 +44,33 @@ public class FavoredClassFacetTest extends
 	{
 		super.setUp();
 		CDOMObject cdo1 = new PCTemplate();
-		cdo1.setName("Template1");
+		cdo1.setName("Templ");
 		CDOMObject cdo2 = new Race();
-		cdo2.setName("Race1");
-		PCClass st1 = new PCClass();
-		st1.setName("Prof1");
-		PCClass st2 = new PCClass();
-		st1.setName("Prof2");
-		cdo1.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef.getRef(st1));
-		cdo2.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef.getRef(st2));
+		cdo2.setName("Race");
+		PCStat pcs1 = new PCStat();
+		pcs1.setName("Stat1");
+		PCStat pcs2 = new PCStat();
+		pcs2.setName("Stat2");
+		Formula st1 = FormulaFactory.getFormulaFor(4);
+		Formula st2 = FormulaFactory.getFormulaFor(2);
+		cdo1.put(ObjectKey.SR, new SpellResistance(st1));
+		cdo2.put(ObjectKey.SR, new SpellResistance(st2));
 		source = new CDOMObject[]{cdo1, cdo2};
-		target = new PCClass[]{st1, st2};
+		target = new Formula[]{st1, st2};
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<PCClass> getFacet()
+	protected AbstractSourcedListFacet<Formula> getFacet()
 	{
 		return facet;
 	}
 
-	public static int n = 0;
+	private static int n = 0;
 
 	@Override
-	protected PCClass getObject()
+	protected Formula getObject()
 	{
-		PCClass wp = new PCClass();
-		wp.setName("WP" + n++);
-		return wp;
+		return FormulaFactory.getFormulaFor(n++);
 	}
 
 	@Override
@@ -80,9 +86,8 @@ public class FavoredClassFacetTest extends
 	}
 
 	@Override
-	protected PCClass getTargetObject(int i)
+	protected Formula getTargetObject(int i)
 	{
 		return target[i];
 	}
-
 }

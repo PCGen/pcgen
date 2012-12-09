@@ -26,6 +26,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.helper.StatLock;
 import pcgen.core.PCStat;

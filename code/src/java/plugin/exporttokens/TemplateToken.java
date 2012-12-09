@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.cdom.facet.NonAbilityFacet;
+import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;

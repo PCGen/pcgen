@@ -22,6 +22,8 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.analysis.FavoredClassFacet;
+import pcgen.cdom.facet.analysis.HasAnyFavoredClassFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.core.PCClass;
 

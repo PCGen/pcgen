@@ -48,7 +48,7 @@
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
-	<bean id="armorClassFacet" class="pcgen.cdom.facet.ArmorClassFacet">
+	<bean id="armorClassFacet" class="pcgen.cdom.facet.analysis.ArmorClassFacet">
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 	</bean>
 	<bean id="armorProfFacet" class="pcgen.cdom.facet.ArmorProfFacet">
@@ -107,11 +107,11 @@
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="levelFacet" ref="levelFacet"/>
 	</bean>
-	<bean id="changeProfFacet" class="pcgen.cdom.facet.ChangeProfFacet">
+	<bean id="changeProfFacet" class="pcgen.cdom.facet.analysis.ChangeProfFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="characterConsolidationFacet" class="pcgen.cdom.facet.CharacterConsolidationFacet" />
-	<bean id="characterSpellResistanceFacet" class="pcgen.cdom.facet.CharacterSpellResistanceFacet">
+	<bean id="characterSpellResistanceFacet" class="pcgen.cdom.facet.analysis.CharacterSpellResistanceFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
@@ -174,7 +174,7 @@
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
 	<bean id="factFacet" class="pcgen.cdom.facet.fact.FactFacet" />
-	<bean id="favoredClassFacet" class="pcgen.cdom.facet.FavoredClassFacet">
+	<bean id="favoredClassFacet" class="pcgen.cdom.facet.analysis.FavoredClassFacet">
 		<property name="hasAnyFavoredClassFacet" ref="hasAnyFavoredClassFacet"/>
 		<property name="classFacet" ref="classFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
@@ -182,12 +182,12 @@
 		<property name="conditionalTemplateFacet" ref="conditionalTemplateFacet"/>
 	</bean>
 	<bean id="followerFacet" class="pcgen.cdom.facet.FollowerFacet" />
-	<bean id="followerLimitFacet" class="pcgen.cdom.facet.FollowerLimitFacet">
+	<bean id="followerLimitFacet" class="pcgen.cdom.facet.analysis.FollowerLimitFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
-	<bean id="followerOptionFacet" class="pcgen.cdom.facet.FollowerOptionFacet">
+	<bean id="followerOptionFacet" class="pcgen.cdom.facet.analysis.FollowerOptionFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="formulaResolvingFacet" class="pcgen.cdom.facet.FormulaResolvingFacet" />
@@ -206,7 +206,7 @@
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
-	<bean id="hasAnyFavoredClassFacet" class="pcgen.cdom.facet.HasAnyFavoredClassFacet">
+	<bean id="hasAnyFavoredClassFacet" class="pcgen.cdom.facet.analysis.HasAnyFavoredClassFacet">
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="conditionalTemplateFacet" ref="conditionalTemplateFacet"/>
@@ -224,7 +224,7 @@
 		<property name="conditionalTemplateFacet" ref="conditionalTemplateFacet"/>
 	</bean>
 	<!-- I -->
-	<bean id="initiativeFacet" class="pcgen.cdom.facet.InitiativeFacet">
+	<bean id="initiativeFacet" class="pcgen.cdom.facet.analysis.InitiativeFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 	</bean>
@@ -244,7 +244,7 @@
 	<bean id="languageFacet" class="pcgen.cdom.facet.LanguageFacet">
 		<property name="autoLanguageFacet" ref="autoLanguageFacet"/>
 	</bean>
-	<bean id="legalDeityFacet" class="pcgen.cdom.facet.LegalDeityFacet">
+	<bean id="legalDeityFacet" class="pcgen.cdom.facet.analysis.LegalDeityFacet">
 		<property name="classFacet" ref="classFacet"/>
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 	</bean>
@@ -319,7 +319,7 @@
 	</bean>
 	<bean id="naturalWeaponFacet" class="pcgen.cdom.facet.NaturalWeaponFacet"/>
 	<bean id="naturalWeaponProfFacet" class="pcgen.cdom.facet.NaturalWeaponProfFacet"/>
-	<bean id="nonAbilityFacet" class="pcgen.cdom.facet.NonAbilityFacet">
+	<bean id="nonAbilityFacet" class="pcgen.cdom.facet.analysis.NonAbilityFacet">
 		<property name="unlockedStatFacet" ref="unlockedStatFacet"/>
 		<property name="statLockFacet" ref="statLockFacet"/>
 	</bean>

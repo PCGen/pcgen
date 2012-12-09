@@ -15,59 +15,66 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
-import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.content.SpellResistance;
-import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.content.ChangeProf;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.AbstractSourcedListFacet;
+import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
-import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+import pcgen.core.WeaponProf;
+import pcgen.rules.context.ConsolidatedListCommitStrategy;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.RuntimeLoadContext;
+import pcgen.rules.context.RuntimeReferenceContext;
 
-public class CharacterSpellResistanceFacetTest extends
-		AbstractExtractingFacetTest<CDOMObject, Formula>
+public class ChangeProfFacetTest extends
+		AbstractExtractingFacetTest<CDOMObject, ChangeProf>
 {
 
-	private CharacterSpellResistanceFacet facet =
-			new CharacterSpellResistanceFacet();
-	private Formula[] target;
+	public static int n = 0;
+
+	private ChangeProfFacet facet = new ChangeProfFacet();
+	private ChangeProf[] target;
 	private CDOMObject[] source;
 
 	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();
+		context =
+			new RuntimeLoadContext(new RuntimeReferenceContext(),
+				new ConsolidatedListCommitStrategy());
 		CDOMObject cdo1 = new PCTemplate();
-		cdo1.setName("Templ");
+		cdo1.setName("Template1");
 		CDOMObject cdo2 = new Race();
-		cdo2.setName("Race");
-		PCStat pcs1 = new PCStat();
-		pcs1.setName("Stat1");
-		PCStat pcs2 = new PCStat();
-		pcs2.setName("Stat2");
-		Formula st1 = FormulaFactory.getFormulaFor(4);
-		Formula st2 = FormulaFactory.getFormulaFor(2);
-		cdo1.put(ObjectKey.SR, new SpellResistance(st1));
-		cdo2.put(ObjectKey.SR, new SpellResistance(st2));
+		cdo2.setName("Race1");
+		ChangeProf st1 = getObject();
+		ChangeProf st2 = getObject();
+		cdo1.addToListFor(ListKey.CHANGEPROF, st1);
+		cdo2.addToListFor(ListKey.CHANGEPROF, st2);
 		source = new CDOMObject[]{cdo1, cdo2};
-		target = new Formula[]{st1, st2};
+		target = new ChangeProf[]{st1, st2};
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<Formula> getFacet()
+	protected AbstractSourcedListFacet<ChangeProf> getFacet()
 	{
 		return facet;
 	}
 
-	private static int n = 0;
+	private LoadContext context;
 
 	@Override
-	protected Formula getObject()
+	protected ChangeProf getObject()
 	{
-		return FormulaFactory.getFormulaFor(n++);
+		return new ChangeProf(context.ref.getCDOMReference(WeaponProf.class,
+			"StartProf" + n++), context.ref.getCDOMTypeReference(
+			WeaponProf.class, "Gorpy"));
 	}
 
 	@Override
@@ -83,7 +90,7 @@ public class CharacterSpellResistanceFacetTest extends
 	}
 
 	@Override
-	protected Formula getTargetObject(int i)
+	protected ChangeProf getTargetObject(int i)
 	{
 		return target[i];
 	}

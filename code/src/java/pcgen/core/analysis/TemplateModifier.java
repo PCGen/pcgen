@@ -31,7 +31,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.DamageReductionFacet;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.NonAbilityFacet;
+import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
