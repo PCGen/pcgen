@@ -50,7 +50,7 @@ public class SourcedEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 	}
 
 	/**
-	 * Adds the no-longer active Equipment from this facet.
+	 * Removes the no-longer active Equipment from this facet.
 	 * 
 	 * Triggered when one of the Facets to which SourcedEquipmentFacet listens
 	 * fires a DataFacetChangeEvent to indicate Equipment was removed from a
