@@ -25,8 +25,6 @@ package pcgen.persistence;
 import java.net.URI;
 import java.util.Collection;
 import java.util.List;
-import java.util.Observer;
-import java.util.Set;
 
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
@@ -64,19 +62,6 @@ public interface SystemLoader
 	public List<URI> getChosenCampaignSourcefiles(GameMode game);
 
 	/**
-	 * This method indicates whether custom items have been successfully
-	 * loaded
-	 * @return boolean true if custom items are loaded, else false
-	 */
-	public boolean isCustomItemsLoaded();
-
-	/**
-	 * This method gets the set of sources loaded by the loader.
-	 * @return Set containing the names of the sources loaded.
-	 */
-	public Set<String> getSources();
-
-	/**
 	 * This method empties whatever lists the implementation has
 	 * loaded and stored in its own implementation.
 	 */
@@ -88,45 +73,6 @@ public interface SystemLoader
 	 * @throws PersistenceLayerException
 	 */
 	public void initialize() throws PersistenceLayerException;
-
-	/**
-	 * This method actually loads the given list of selected campaigns
-	 * @param aSelectedCampaignsList List of Campaign objects to load
-	 * @throws PersistenceLayerException if an error occurs in the
-	 *         persistence layer
-	 */
-	public void loadCampaigns(List<Campaign> aSelectedCampaignsList)
-		throws PersistenceLayerException;
-
-	/**
-	 * This method loads the .MOD items
-	 * @param flagDisplayError boolean whether errors should be displayed
-	 */
-	public void loadModItems(boolean flagDisplayError);
-
-	/**
-	 * Check for an updated set of campaigns
-	 * and update Globals.campaignList accordingly
-	 * @see pcgen.core.Globals#getCampaignList
-	 */
-	public void refreshCampaigns();
-
-	/**
-	 * Add an Observer
-	 * @param o
-	 */
-	public void addObserver(Observer o);
-
-	/**
-	 * Delete an Observer
-	 * @param o
-	 */
-	public void deleteObserver(Observer o);
-
-	/**
-	 * Notify Observers
-	 */
-	public void notifyObservers();
 
 	public void markAllUnloaded();
 

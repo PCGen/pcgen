@@ -25,12 +25,9 @@ package pcgen.persistence;
 import java.net.URI;
 import java.util.Collection;
 import java.util.List;
-import java.util.Observer;
-import java.util.Set;
 
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
-import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.LstSystemLoader;
 
@@ -67,24 +64,6 @@ public final class PersistenceManager
 	}
 
 	/**
-	 * Add an Observer
-	 * @param o
-	 */
-	public void addObserver(Observer o)
-	{
-		instance.addObserver(o);
-	}
-
-	/**
-	 * Delete an Observer
-	 * @param o
-	 */
-	public void deleteObserver(Observer o)
-	{
-		instance.deleteObserver(o);
-	}
-
-	/**
 	 * Set the source files for the chosen campaign for the current game mode.
 	 * @param l
 	 */
@@ -110,35 +89,6 @@ public final class PersistenceManager
 	public List<URI> getChosenCampaignSourcefiles()
 	{
 		return instance.getChosenCampaignSourcefiles(SettingsHandler.getGame());
-	}
-
-	/**
-	 * Get the chosen campaign source files for the specific game mode.
-	 * @param game The game mode.
-	 * @return the chosen campaign source files
-	 */
-	public List<URI> getChosenCampaignSourcefiles(GameMode game)
-	{
-		return instance.getChosenCampaignSourcefiles(game);
-	}
-
-	/**
-	 * This method indicates whether custom items have been successfully
-	 * loaded
-	 * @return boolean true if custom items are loaded, else false
-	 */
-	public boolean isCustomItemsLoaded()
-	{
-		return instance.isCustomItemsLoaded();
-	}
-
-	/**
-	 * Get the sources
-	 * @return the sources
-	 */
-	public Set<String> getSources()
-	{
-		return instance.getSources();
 	}
 
 	/**
@@ -168,60 +118,12 @@ public final class PersistenceManager
 		if (!initialized)
 		{
 			instance.initialize();
-
-			// Loading pending MODs
-			instance.loadModItems(true);
-
 			initialized = true;
 		}
 	}
 
-	/**
-	 * Load the selected campaigns
-	 *
-	 * @param aSelectedCampaignsList
-	 * @throws PersistenceLayerException
-	 */
-	public void loadCampaigns(final List<Campaign> aSelectedCampaignsList)
-		throws PersistenceLayerException
-	{
-		try
-		{
-			instance.loadCampaigns(aSelectedCampaignsList);
-
-			// Loading pending MODs
-			instance.loadModItems(true);
-		}
-		catch (PersistenceLayerException ple)
-		{
-			// Clear everything
-			Globals.emptyLists();
-			emptyLists();
-
-			// Mark everything as unloaded
-			instance.markAllUnloaded();
-
-			ple.fillInStackTrace();
-			throw ple;
-		}
-	}
-
-	/**
-	 * Causes the SystemLoader to check for an updated set of campaigns
-	 * and update Globals.campaignList accordingly
-	 *
-	 * author Ryan Koppenhaver <rlkoppenhaver@yahoo.com>
-	 *
-	 * @see Globals#getCampaignList
-	 */
-	public void refreshCampaigns()
-	{
-		instance.refreshCampaigns();
-	}
-
 	public void clear()
 	{
-		instance.emptyLists();
 		instance.markAllUnloaded();
 	}
 

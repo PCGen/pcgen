@@ -37,7 +37,7 @@ import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.LstSystemLoader;
+import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -1986,7 +1986,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		{
 			ref.registerAbbreviation(al, al.getAbb());
 		}
-		LstSystemLoader.createLangBonusObject(Globals.getContext());
+		SourceFileLoader.createLangBonusObject(Globals.getContext());
 	}
 
 	private PCStat createStat(String name, String abb)

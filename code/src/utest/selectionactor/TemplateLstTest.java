@@ -40,7 +40,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.lst.LstSystemLoader;
+import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
 import plugin.lsttokens.AutoLst;
@@ -284,7 +284,7 @@ public class TemplateLstTest extends TestCase
 		}
 		universal = ref.constructCDOMObject(Language.class, "Universal");
 		other = ref.constructCDOMObject(Language.class, "Other");
-		LstSystemLoader.createLangBonusObject(Globals.getContext());
+		SourceFileLoader.createLangBonusObject(Globals.getContext());
 	}
 
 	private PCStat createStat(String name, String abb)

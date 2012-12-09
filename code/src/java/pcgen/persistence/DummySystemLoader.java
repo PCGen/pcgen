@@ -24,8 +24,8 @@ import java.net.URI;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Observer;
 import java.util.Set;
+
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
 
@@ -53,55 +53,12 @@ public class DummySystemLoader implements SystemLoader
 	}
 
     @Override
-	public boolean isCustomItemsLoaded()
-	{
-		return false;
-	}
-
-    @Override
-	public Set<String> getSources()
-	{
-		return sources;
-	}
-
-    @Override
 	public void emptyLists()
 	{
 	}
 
     @Override
 	public void initialize() throws PersistenceLayerException
-	{
-	}
-
-    @Override
-	public void loadCampaigns(List<Campaign> aSelectedCampaignsList) throws PersistenceLayerException
-	{
-		loadedCamps = aSelectedCampaignsList;
-	}
-
-    @Override
-	public void loadModItems(boolean flagDisplayError)
-	{
-	}
-
-    @Override
-	public void refreshCampaigns()
-	{
-	}
-
-    @Override
-	public void addObserver(Observer o)
-	{
-	}
-
-    @Override
-	public void deleteObserver(Observer o)
-	{
-	}
-
-    @Override
-	public void notifyObservers()
 	{
 	}
 
