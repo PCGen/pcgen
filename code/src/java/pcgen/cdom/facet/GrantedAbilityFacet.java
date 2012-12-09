@@ -29,13 +29,14 @@ import java.util.Set;
 
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.chooser.ChoiceManagerList;
-import pcgen.core.chooser.ChooserUtilities;
 
 /**
  * A GrantedAbilityFacet is a DataFacet that contains information about Ability
@@ -776,12 +777,19 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		String selection = cas.getSelection();
 		if (selection != null)
 		{
-			ChoiceManagerList<?> choiceManager = ChooserUtilities.getChoiceManager(ability, pc);
-			if (choiceManager != null)
+			ChooseInformation<?> chooseInfo = ability.get(ObjectKey.CHOOSE_INFO);
+			if (chooseInfo != null)
 			{
-				choiceManager.restoreChoice(pc, ability, selection);
+				applySelection(pc, chooseInfo, ability, selection);
 			}
 		}
+	}
+
+	private <T> void applySelection(PlayerCharacter pc,
+		ChooseInformation<T> chooseInfo, Ability ability, String selection)
+	{
+		T obj = chooseInfo.decodeChoice(Globals.getContext(), selection);
+		chooseInfo.getChoiceActor().applyChoice(ability, obj, pc);
 	}
 
 	/**
