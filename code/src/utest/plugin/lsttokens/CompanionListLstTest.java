@@ -27,7 +27,9 @@ import pcgen.cdom.base.Loadable;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+import pcgen.core.character.CompanionMod;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.ReferenceContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
@@ -410,5 +412,18 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.SEPARATE;
+	}
+
+	private void buildCompanionMod(String type)
+	{
+		String mod = "isAMod";
+		ReferenceContext ref1 = primaryContext.ref;
+		ReferenceContext ref2 = secondaryContext.ref;
+		CompanionList cl1 = ref1.silentlyGetConstructedCDOMObject(CompanionList.class, type);
+		CompanionList cl2 = ref2.silentlyGetConstructedCDOMObject(CompanionList.class, type);
+		CompanionMod cm1 = ref1.constructCDOMObject(CompanionMod.class, mod);
+		CompanionMod cm2 = ref2.constructCDOMObject(CompanionMod.class, mod);
+		ref1.reassociateCategory(cl1, cm1);
+		ref1.reassociateCategory(cl2, cm2);
 	}
 }

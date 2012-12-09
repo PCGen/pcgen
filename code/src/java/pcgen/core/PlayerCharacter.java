@@ -784,7 +784,8 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 			final String rType = cList.getKeyName();
 			final Race fRace = aF.getRace();
 
-			for (CompanionMod cm : Globals.getCompanionMods(cList))
+			for (CompanionMod cm : Globals.getContext().ref.getManufacturer(
+				CompanionMod.class, cList).getAllObjects())
 			{
 				final String aType = cm.getType();
 				if (aType.equalsIgnoreCase(rType) && cm.appliesToRace(fRace))
@@ -1758,9 +1759,8 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 	 */
 	public int getEffectiveCompanionLevel(final CompanionList compList)
 	{
-		final Collection<CompanionMod> mods = Globals.getCompanionMods(compList);
-
-		for (CompanionMod cMod : mods)
+		for (CompanionMod cMod : Globals.getContext().ref.getManufacturer(
+			CompanionMod.class, compList).getAllObjects())
 		{
 			Map<String, Integer> varmap = cMod.getMapFor(MapKey.APPLIED_VARIABLE);
 
@@ -1829,7 +1829,8 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		{
 			boolean found = false;
 
-			for (CompanionMod cMod : Globals.getCompanionMods(aM.getType()))
+			for (CompanionMod cMod : Globals.getContext().ref.getManufacturer(
+				CompanionMod.class, aM.getType()).getAllObjects())
 			{
 				if ((cMod.getLevelApplied(mClass) > 0) && !found)
 				{
@@ -1844,7 +1845,8 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		// Clear the companionModList so we can add everything to it
 		Collection<CompanionMod> oldCompanionMods = companionModFacet.removeAll(id);
 
-		for (CompanionMod cMod : Globals.getCompanionMods(aM.getType()))
+		for (CompanionMod cMod : Globals.getContext().ref.getManufacturer(
+			CompanionMod.class, aM.getType()).getAllObjects())
 		{
 			// Check all the masters classes
 			for (PCClass mClass : mPC.getClassSet())
@@ -2022,7 +2024,8 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 		// Old way of handling this
 		// If the character qualifies for any companion mod of this type
 		// they can take unlimited number of them.
-		for (CompanionMod cMod : Globals.getCompanionMods(cList))
+		for (CompanionMod cMod : Globals.getContext().ref.getManufacturer(
+			CompanionMod.class, cList).getAllObjects())
 		{
 			Map<String, Integer> varmap = cMod.getMapFor(MapKey.APPLIED_VARIABLE);
 			for (String varName : varmap.keySet())

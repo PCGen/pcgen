@@ -110,62 +110,6 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	}
 
 	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(CDOMObject)
-	 */
-	@Override
-	protected void finishObject(CDOMObject cdo)
-	{
-		// TODO - This code is broken now.  I think it always was though.
-		//		Object obj = Globals.getSpellMap().get(target.getKeyName());
-		//		if (obj == null)
-		//		{
-		//			Globals.addToSpellMap( target.getKeyName(), target );
-		//		}
-		//		else
-		//		{
-		//			ArrayList aList;
-		//			if (obj instanceof ArrayList)
-		//				aList = (ArrayList)obj;
-		//			else
-		//			{
-		//				aList = new ArrayList();
-		//				aList.add(obj);
-		//			}
-		//			boolean match = false;
-		//			for (Iterator i = aList.iterator(); i.hasNext();)
-		//			{
-		//				Spell aSpell = (Spell)i.next();
-		//				Object a = aSpell.getLevelInfo(null);
-		//				Object b = ((Spell)target).getLevelInfo(null);
-		//				if ((a==null && b==null) || (a!=null && a.equals(b)))
-		//				{
-		//					match = true;
-		//				}
-		//			}
-		//			if (!match)
-		//			{
-		//				final Spell aSpell = Globals.getSpellKeyed(target.getKeyName());
-		//				if (aSpell == null)
-		//				{
-		//					aList.add(target);
-		//					Globals.addToSpellMap( target.getKeyName(), aList );
-		//				}
-		//				else if (!target.equals(aSpell))
-		//				{
-		//					if (SettingsHandler.isAllowOverride())
-		//					{
-		//						if (target.getSourceDateValue() > aSpell.getSourceDateValue())
-		//						{
-		//							Globals.getSpellMap().remove(aSpell.getKeyName());
-		//							Globals.addToSpellMap( target.getKeyName(), target );
-		//						}
-		//					}
-		//				}
-		//			}
-		//		}
-	}
-
-	/**
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#performForget(LoadContext, CDOMObject)
 	 */
 	@Override

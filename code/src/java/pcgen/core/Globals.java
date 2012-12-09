@@ -35,7 +35,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -53,7 +52,6 @@ import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
@@ -69,9 +67,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.MasterSkillFacet;
-import pcgen.cdom.list.CompanionList;
 import pcgen.core.analysis.SizeUtilities;
-import pcgen.core.character.CompanionMod;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
@@ -136,7 +132,6 @@ public final class Globals
 	 * Does  need to be sorted? If not, change to HashMap.*/
 	private static Map<String, Object>        spellMap        = new TreeMap<String, Object>();
 	private static Map<String, String>        eqSlotMap       = new HashMap<String, String>();
-	private static Map<CompanionList, List<CompanionMod>>  companionModMap = new TreeMap<CompanionList, List<CompanionMod>>(CDOMObjectUtilities.CDOM_SORTER);
 
 	/** We use lists for efficient iteration */
 	private static List<Campaign> campaignList          = new ArrayList<Campaign>(85);
@@ -342,102 +337,6 @@ public final class Globals
 		}
 		ret.trimToSize();
 		return ret;
-	}
-
-	/**
-	 * Adds a <tt>CompanionMod</tt> to the global list of companion mods
-	 * registered in the system.
-	 * 
-	 * @param aMod A <tt>CompanionMod</tt> to add.
-	 * 
-	 * @since 5.11
-	 */
-	public static void addCompanionMod(final CompanionMod aMod)
-	{
-		String type = aMod.getType();
-		if (type == null || type.length() == 0)
-		{
-			Logging.log(Logging.LST_ERROR, "CompanionMod must have a TYPE:, "
-					+ aMod.getKeyName() + " was not assigned a TYPE");
-		}
-		else
-		{
-			CompanionList cList = Globals.getContext().ref.constructNowIfNecessary(
-					CompanionList.class, type);
-			List<CompanionMod> mods = companionModMap.get(cList);
-			if (mods == null)
-			{
-				mods = new ArrayList<CompanionMod>();
-				companionModMap.put(cList, mods);
-			}
-			mods.add(aMod);
-		}
-	}
-
-	/**
-	 * Removes a <tt>CompanionMod</tt> from the system registry.
-	 * 
-	 * <p>
-	 * This method is used by the .FORGET logic to remove a CompanionMod
-	 * previously loaded by another set.
-	 * 
-	 * @param aMod
-	 *            A <tt>CompanionMod</tt> to remove
-	 * @since 5.11
-	 */
-	public static void removeCompanionMod( final CompanionMod aMod )
-	{
-		final Collection<List<CompanionMod>> allMods = companionModMap.values();
-		for ( Iterator<List<CompanionMod>> i = allMods.iterator(); i.hasNext(); )
-		{
-			final List<CompanionMod> mods = i.next();
-			final boolean removed = mods.remove( aMod );
-			if ( removed )
-			{
-				if ( mods.size() == 0 )
-				{
-					i.remove();
-					return;
-				}
-			}
-		}
-	}
-
-	/**
-	 * Gets all the <code>CompanionMod</code>s for the specified type of 
-	 * follower.
-	 * 
-	 * @param cList The type of Follower to get mods for.
-	 * @return An unmodifiable Collection of COMPANIONMODs or an EMPTY_LIST
-	 * 
- 	 * @since 5.11
-	 */
-	public static Collection<CompanionMod> getCompanionMods(
-			final CompanionList cList)
-	{
-		final List<CompanionMod> cMods = companionModMap.get(cList);
-		if (cMods == null)
-		{
-			return Collections.emptyList();
-		}
-		return Collections.unmodifiableList(companionModMap.get(cList));
-	}
-
-	/**
-	 * Gets a <tt>Collection</tt> of all <tt>CompanionMod</tt>s registered in
-	 * the system.
-	 * 
-	 * @return An unmodifiable collection of <tt>CompanionMod</tt>s
-	 */
-	public static Collection<CompanionMod> getAllCompanionMods()
-	{
-		final List<CompanionMod> ret = new ArrayList<CompanionMod>();
-		final Collection<List<CompanionMod>> values = companionModMap.values();
-		for ( final List<CompanionMod> cMods : values )
-		{
-			ret.addAll( cMods );
-		}
-		return Collections.unmodifiableCollection( ret );
 	}
 
 	/**
@@ -1468,7 +1367,6 @@ public final class Globals
 		//traitList.clear();
 		//unitSet.clear();
 		//////////////////////////////////////
-		companionModMap = new TreeMap<CompanionList, List<CompanionMod>>(CDOMObjectUtilities.CDOM_SORTER);
 
 		// Clear Maps (not strictly necessary, but done for consistency)
 		spellMap = new HashMap<String, Object>();

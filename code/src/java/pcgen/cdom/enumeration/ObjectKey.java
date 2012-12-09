@@ -70,6 +70,7 @@ import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.SizeUtilities;
+import pcgen.core.character.CompanionMod;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
@@ -317,6 +318,8 @@ public class ObjectKey<T>
 	public static final ObjectKey<Status> STATUS = new ObjectKey<Status>(Status.Release);
 
 	public static final ObjectKey<URI> ICON_URI = new ObjectKey<URI>(null);
+
+	public static final ObjectKey<Category<CompanionMod>> MOD_CATEGORY = new ObjectKey<Category<CompanionMod>>(null);
 
 	/*
 	 * TODO Okay, this is a hack.

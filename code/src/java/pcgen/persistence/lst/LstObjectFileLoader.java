@@ -189,7 +189,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 
 		if (includeObject(source, pObj))
 		{
-			finishObject(pObj);
 			storeObject(context, pObj);
 		}
 		else
@@ -258,20 +257,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 */
 	protected void addGlobalObject(final CDOMObject cdo)
 	{
-	}
-
-	/**
-	 * This method is called when the end of data for a specific CDOMObject
-	 * is found.
-	 * 
-	 * <p>This method will only be called for objects that are to be included.
-	 *
-	 * @param cdo CDOMObject to perform final operations on
-	 */
-	protected void finishObject(@SuppressWarnings("unused")
-	CDOMObject cdo)
-	{
-		// Placeholder implementation
 	}
 
 	/**

@@ -387,8 +387,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		if (!factory.isMember(item))
 		{
 			throw new IllegalArgumentException("Attempted to register a "
-					+ item.getClass().getName() + " in " + factory.getReferenceDescription()
-					+ " ReferenceSupport");
+					+ item.getClass().getName() + " in " + factory.getReferenceDescription());
 		}
 		T current = active.get(key);
 		if (current == null)

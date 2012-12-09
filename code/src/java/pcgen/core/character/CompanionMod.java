@@ -31,8 +31,11 @@ package pcgen.core.character;
 import java.util.List;
 import java.util.Map;
 
+import pcgen.cdom.base.CategorizedCDOMObject;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
@@ -44,7 +47,7 @@ import pcgen.core.Race;
  * @author Jayme Cox <jaymecox@users.sourceforge.net>
  * @version $Revision$
  */
-public final class CompanionMod extends PObject
+public final class CompanionMod extends PObject implements CategorizedCDOMObject<CompanionMod>
 {
 	/**
 	 * Get Level
@@ -102,5 +105,17 @@ public final class CompanionMod extends PObject
 		}
 
 		return result;
+	}
+
+	@Override
+	public Category<CompanionMod> getCDOMCategory()
+	{
+		return get(ObjectKey.MOD_CATEGORY);
+	}
+
+	@Override
+	public void setCDOMCategory(Category<CompanionMod> cat)
+	{
+		put(ObjectKey.MOD_CATEGORY, cat);
 	}
 }

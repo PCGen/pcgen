@@ -26,7 +26,6 @@ package pcgen.persistence.lst;
 
 import java.net.URI;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.BonusSpellInfo;
 import pcgen.core.PCAlignment;
@@ -38,12 +37,12 @@ import pcgen.util.Logging;
 /**
  * This class is a LstFileLoader that processes the statsandchecks.lst file
  */
-public class StatsAndChecksLoader extends SimpleLoader<CDOMObject>
+public class StatsAndChecksLoader extends SimpleLoader<Loadable>
 {
 
 	public StatsAndChecksLoader()
 	{
-		super(CDOMObject.class);
+		super(Loadable.class);
 	}
 
 	@Override

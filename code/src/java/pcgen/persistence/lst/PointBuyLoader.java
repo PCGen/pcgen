@@ -26,7 +26,6 @@ package pcgen.persistence.lst;
 
 import java.net.URI;
 
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
 import pcgen.core.PointBuyCost;
 import pcgen.core.PointBuyMethod;
@@ -36,12 +35,12 @@ import pcgen.util.Logging;
 /**
  * This class is a LstFileLoader used to load point-buy methods.
  */
-public class PointBuyLoader extends SimpleLoader<CDOMObject>
+public class PointBuyLoader extends SimpleLoader<Loadable>
 {
 
 	public PointBuyLoader()
 	{
-		super(CDOMObject.class);
+		super(Loadable.class);
 	}
 
 	@Override

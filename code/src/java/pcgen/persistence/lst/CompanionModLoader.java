@@ -1,6 +1,6 @@
 /*
  * CompanionModLoader.java
- * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
+ * Copyright 2012 (C) Tom Parker
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,10 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- *
- * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * @Created on July 10th, 2002, 3:55 PM
- *
  * Current Ver: $Revision$
  * Last Editor: $Author$
  * Last Edited: $Date$
@@ -27,103 +23,44 @@
  */
 package pcgen.persistence.lst;
 
-import java.util.StringTokenizer;
+import java.net.URI;
 
-import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.Globals;
 import pcgen.core.character.CompanionMod;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.Logging;
 
 /**
  * Loads the level based Mount and Familiar benefits
  *
- * @author Jayme Cox <jaymecox@users.sourceforge.net>
  * @version $Revision$
  **/
-public class CompanionModLoader extends LstObjectFileLoader<CompanionMod> 
+public class CompanionModLoader extends SimpleLoader<CompanionMod> 
 {
 
-	@Override
-	protected void addGlobalObject(CDOMObject cdo) {
-		//This is commented out to avoid problems - see Tracker 
-		//  - thpr 1/11/07
-//		final CompanionMod cm = Globals.getCompanionMod(pObj.getKeyName());
-//		if (cm == null) {
-			Globals.addCompanionMod((CompanionMod) cdo);
-//		}
+	private static int COMPANION_MOD_ID = 1;
+
+	public CompanionModLoader()
+	{
+		super(CompanionMod.class);
 	}
 
 	@Override
-	protected CompanionMod getObjectKeyed(LoadContext context, String aKey) {
-		return null;
-		//This is commented out to avoid problems - see Tracker 
-		//  - thpr 1/11/07
-		//return Globals.getCompanionMod(aKey);
-	}
-
-	@Override
-	public CompanionMod parseLine(LoadContext context, CompanionMod cmpMod,
-			String inputLine, SourceEntry source) throws PersistenceLayerException {
-		if (cmpMod == null) {
-			cmpMod = new CompanionMod();
-		}
-		
-		final StringTokenizer colToken = new StringTokenizer(inputLine,
-				SystemLoader.TAB_DELIM);
-		
-		String name = null;
-		cmpMod.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
-		cmpMod.setSourceURI(source.getURI());
-
-		while (colToken.hasMoreTokens())
+	protected CompanionMod getLoadable(LoadContext context, String firstToken,
+		URI sourceURI) throws PersistenceLayerException
+	{
+		String name = processFirstToken(firstToken);
+		if (name == null)
 		{
-			final String token = colToken.nextToken().trim();
-			final int colonLoc = token.indexOf(':');
-			// Companion mods don't have a name, but instead start straight into the first token
-			if (name == null)
-			{
-				name = token;
-				cmpMod.setName(name);
-			}
-			if (colonLoc == -1)
-			{
-				Logging.errorPrint("Invalid Token - does not contain a colon: "
-						+ token);
-				continue;
-			}
-			else if (colonLoc == 0)
-			{
-				Logging.errorPrint("Invalid Token - starts with a colon: "
-						+ token);
-				continue;
-			}
-
-			String key = token.substring(0, colonLoc);
-			String value = (colonLoc == token.length() - 1) ? null : token
-					.substring(colonLoc + 1);
-			if (context.processToken(cmpMod, key, value))
-			{
-				context.commit();
-			}
-			else
-			{
-				context.rollback();
-				Logging.replayParsedMessages();
-			}
-			Logging.clearParseMessages();
+			return null;
 		}
-		
-		completeObject(context, source, cmpMod);
-		return null;
+		//Always create a new CompanionMod (no Copy Mod or Forget)
+		//But we need to create a unique name (and do it with something that is unique-ish)
+		//Note there is currently no risk of name conflict here since they cannot be uniquely named
+		String uniqueName = "COMPANIONMOD_" + COMPANION_MOD_ID++;
+		CompanionMod mod = super.getLoadable(context, uniqueName, sourceURI);
+		//Process the first token since it's not really a name...
+		LstUtils.processToken(context, mod, sourceURI, firstToken);
+		return mod;
 	}
 
-	@Override
-	protected void performForget(LoadContext context, CompanionMod objToForget) {
-		super.performForget(context, objToForget);
-		Globals.removeCompanionMod(objToForget);
-	}
 }
