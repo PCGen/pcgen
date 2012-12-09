@@ -118,7 +118,6 @@ public final class Globals
 
 	/** NOTE: The defaultPath is duplicated in LstSystemLoader. */
 	private static final String defaultPcgPath = Globals.getUserFilesPath() + File.separator + "characters"; //$NON-NLS-1$
-	private static final String backupPcgPath = Constants.EMPTY_STRING;
 	
 	private static final List<String> custColumnWidth = new ArrayList<String>();
 	private static SourceFormat sourceDisplay = SourceFormat.LONG;
@@ -436,15 +435,6 @@ public final class Globals
 	public static String getUserFilesPath()
 	{
 		return expandRelativePath(System.getProperty("user.home") + File.separator + ".pcgen");
-	}
-
-	/**
-	 * Get the backup pcg path
-	 * @return backup pcg path
-	 */
-	public static String getBackupPcgPath()
-	{
-		return expandRelativePath(backupPcgPath);
 	}
 
 	/**
