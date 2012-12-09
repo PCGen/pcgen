@@ -15,36 +15,30 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
-import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
-import pcgen.core.WeaponProf;
+import pcgen.cdom.facet.AbstractListFacet;
+import pcgen.cdom.facet.model.StatFacet;
+import pcgen.cdom.testsupport.AbstractListFacetTest;
+import pcgen.core.PCStat;
 
-public class WeaponProfFacetTest extends
-		AbstractConsolidatingFacetTest<WeaponProf>
+public class StatFacetTest extends AbstractListFacetTest<PCStat>
 {
-
-	private WeaponProfFacet facet = new WeaponProfFacet();
+	private StatFacet facet = new StatFacet();
 
 	@Override
-	protected WeaponProfFacet getFacet()
+	protected AbstractListFacet<PCStat> getFacet()
 	{
 		return facet;
 	}
 
-	public static int n = 0;
+	private int n = 0;
 
 	@Override
-	protected WeaponProf getObject()
+	protected PCStat getObject()
 	{
-		WeaponProf wp = new WeaponProf();
-		wp.setName("WP" + n++);
-		return wp;
-	}
-
-	@Override
-	protected DataFacetChangeListener<WeaponProf> getListener()
-	{
-		return facet;
+		PCStat t = new PCStat();
+		t.setName("Stat" + n++);
+		return t;
 	}
 }

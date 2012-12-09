@@ -116,7 +116,7 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="characterTypeFacet" class="pcgen.cdom.facet.fact.CharacterTypeFacet"/>
-	<bean id="CheckFacet" class="pcgen.cdom.facet.CheckFacet">
+	<bean id="CheckFacet" class="pcgen.cdom.facet.model.CheckFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 	</bean>
 	<bean id="chooseDriverFacet" class="pcgen.cdom.facet.ChooseDriverFacet"/>
@@ -167,7 +167,7 @@
 		<property name="equipmentFacet" ref="equipmentFacet"/>
 	</bean>
 	<bean id="equipSetFacet" class="pcgen.cdom.facet.EquipSetFacet" />
-	<bean id="expandedCampaignFacet" class="pcgen.cdom.facet.ExpandedCampaignFacet" />
+	<bean id="expandedCampaignFacet" class="pcgen.cdom.facet.model.ExpandedCampaignFacet" />
 	<!-- F -->
 	<bean id="faceFacet" class="pcgen.cdom.facet.analysis.FaceFacet">
 		<property name="templateFacet" ref="templateFacet"/>
@@ -401,7 +401,7 @@
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="conditionalTemplateFacet" ref="conditionalTemplateFacet"/>
 	</bean>
-	<bean id="statFacet" class="pcgen.cdom.facet.StatFacet">
+	<bean id="statFacet" class="pcgen.cdom.facet.model.StatFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 	</bean>
@@ -447,7 +447,7 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<!-- W -->
-	<bean id="weaponProfFacet" class="pcgen.cdom.facet.WeaponProfFacet">
+	<bean id="weaponProfFacet" class="pcgen.cdom.facet.model.WeaponProfFacet">
 		<property name="autoWeaponProfFacet" ref="autoWeaponProfFacet"/>
 		<property name="hasDeityWeaponProfFacet" ref="hasDeityWeaponProfFacet"/>
 		<property name="deityWeaponProfFacet" ref="deityWeaponProfFacet"/>

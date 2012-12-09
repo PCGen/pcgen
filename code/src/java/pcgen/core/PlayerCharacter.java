@@ -116,12 +116,16 @@ import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
 import pcgen.cdom.facet.fact.WeightFacet;
 import pcgen.cdom.facet.fact.XPFacet;
 import pcgen.cdom.facet.model.AlignmentFacet;
+import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.CompanionModFacet;
 import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
+import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.SkillFacet;
+import pcgen.cdom.facet.model.StatFacet;
+import pcgen.cdom.facet.model.WeaponProfFacet;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ProfProvider;
@@ -267,7 +271,9 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 	private AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
+	private StatBonusFacet statBonusFacet = FacetLibrary.getFacet(StatBonusFacet.class);
 	private CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
+	private CheckBonusFacet checkBonusFacet = FacetLibrary.getFacet(CheckBonusFacet.class);
 	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
 	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
@@ -4724,7 +4730,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 	 */
 	public double getStatBonusTo(String aType, String aName)
 	{
-		return statFacet.getStatBonusTo(id, aType, aName);
+		return statBonusFacet.getStatBonusTo(id, aType, aName);
 	}
 
 	/**
@@ -6168,7 +6174,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 
 			if ("STATMOD".equals(tokens[i]))
 			{
-				save += (int) checkFacet.getCheckBonusTo(id, "CHECKS", saveType);
+				save += (int) checkBonusFacet.getCheckBonusTo(id, "CHECKS", saveType);
 			}
 
 			/**
@@ -6196,7 +6202,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 
 			if ("NOSTAT".equals(tokens[i]) || "NOSTATMOD".equals(tokens[i]))
 			{
-				save -= (int) checkFacet.getCheckBonusTo(id, "CHECKS", saveType);
+				save -= (int) checkBonusFacet.getCheckBonusTo(id, "CHECKS", saveType);
 			}
 		}
 

@@ -15,8 +15,11 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
+import pcgen.cdom.facet.AbstractSourcedListFacet;
+import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.Campaign;
 

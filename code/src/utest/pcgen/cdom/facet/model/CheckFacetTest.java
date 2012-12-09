@@ -15,17 +15,19 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
+import pcgen.cdom.facet.AbstractListFacet;
+import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.testsupport.AbstractListFacetTest;
-import pcgen.core.PCStat;
+import pcgen.core.PCCheck;
 
-public class StatFacetTest extends AbstractListFacetTest<PCStat>
+public class CheckFacetTest extends AbstractListFacetTest<PCCheck>
 {
-	private StatFacet facet = new StatFacet();
+	private CheckFacet facet = new CheckFacet();
 
 	@Override
-	protected AbstractListFacet<PCStat> getFacet()
+	protected AbstractListFacet<PCCheck> getFacet()
 	{
 		return facet;
 	}
@@ -33,10 +35,10 @@ public class StatFacetTest extends AbstractListFacetTest<PCStat>
 	private int n = 0;
 
 	@Override
-	protected PCStat getObject()
+	protected PCCheck getObject()
 	{
-		PCStat t = new PCStat();
-		t.setName("Stat" + n++);
+		PCCheck t = new PCCheck();
+		t.setName("PCCheck" + n++);
 		return t;
 	}
 }

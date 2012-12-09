@@ -21,6 +21,7 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.core.PCCheck;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
@@ -31,10 +32,12 @@ import pcgen.core.bonus.BonusUtilities;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class CheckFacet extends AbstractListFacet<PCCheck>
+public class CheckBonusFacet
 {
 
 	private BonusCheckingFacet bonusCheckingFacet;
+
+	private CheckFacet checkFacet;
 
 	/**
 	 * Returns the Bonus value provided solely by Checks, for a given Bonus type
@@ -53,15 +56,11 @@ public class CheckFacet extends AbstractListFacet<PCCheck>
 	 */
 	public double getCheckBonusTo(CharID id, String type, String name)
 	{
-		/*
-		 * TODO Need to consider whether this method actually belongs in the
-		 * core or whether this is a Display layer item
-		 */
 		double bonus = 0;
 		type = type.toUpperCase();
 		name = name.toUpperCase();
 
-		for (PCCheck check : getSet(id))
+		for (PCCheck check : checkFacet.getSet(id))
 		{
 			List<BonusObj> tempList = BonusUtilities.getBonusFromList(check
 					.getListFor(ListKey.BONUS), type, name);
@@ -78,6 +77,11 @@ public class CheckFacet extends AbstractListFacet<PCCheck>
 	public void setBonusCheckingFacet(BonusCheckingFacet bonusCheckingFacet)
 	{
 		this.bonusCheckingFacet = bonusCheckingFacet;
+	}
+
+	public void setCheckFacet(CheckFacet checkFacet)
+	{
+		this.checkFacet = checkFacet;
 	}
 
 }

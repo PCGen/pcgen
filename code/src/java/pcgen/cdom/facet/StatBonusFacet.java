@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2009.
+ * Copyright (c) Thomas Parker, 2012.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -25,27 +25,23 @@ import java.util.Map.Entry;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.model.StatFacet;
 import pcgen.core.PCStat;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 
 /**
- * StatFacet is a Facet that tracks the PCStat objects that have been granted to
+ * StatBonusFacet is a Facet that calculates the bonus provided by PCStat objects on
  * a Player Character.
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class StatFacet extends AbstractListFacet<PCStat>
+public class StatBonusFacet
 {
 	private BonusCheckingFacet bonusCheckingFacet;
 	private PrerequisiteFacet prerequisiteFacet;
+	private StatFacet statFacet;
 
-	/*
-	 * TODO I think there needs to be a consideration of whether these two
-	 * methods (below) violate the "a facet should do one thing" principle. With
-	 * the proposed facet organization, these methods might make it ambiguous
-	 * where this facet belongs.
-	 */
 	/**
 	 * Returns a non-null Map indicating the bonuses of the given Bonus type and
 	 * given Bonus name, mapped to the PCStat objects which granted the Bonus.
@@ -67,7 +63,7 @@ public class StatFacet extends AbstractListFacet<PCStat>
 	{
 		final Map<BonusObj, PCStat> aList = new IdentityHashMap<BonusObj, PCStat>();
 
-		for (PCStat stat : getSet(id))
+		for (PCStat stat : statFacet.getSet(id))
 		{
 			List<BonusObj> bonuses = BonusUtilities.getBonusFromList(stat
 					.getSafeListFor(ListKey.BONUS), aType, aName);
@@ -123,6 +119,11 @@ public class StatFacet extends AbstractListFacet<PCStat>
 	public void setPrerequisiteFacet(PrerequisiteFacet prerequisiteFacet)
 	{
 		this.prerequisiteFacet = prerequisiteFacet;
+	}
+
+	public void setStatFacet(StatFacet statFacet)
+	{
+		this.statFacet = statFacet;
 	}
 
 }
