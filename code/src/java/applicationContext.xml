@@ -119,11 +119,10 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="characterTypeFacet" class="pcgen.cdom.facet.fact.CharacterTypeFacet"/>
-	<bean id="CheckFacet" class="pcgen.cdom.facet.model.CheckFacet">
-		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-	</bean>
-	<bean id="CheckBonusFacet" class="pcgen.cdom.facet.CheckBonusFacet">
+	<bean id="checkFacet" class="pcgen.cdom.facet.model.CheckFacet" />
+	<bean id="checkBonusFacet" class="pcgen.cdom.facet.CheckBonusFacet">
 		<property name="checkFacet" ref="checkFacet"/>
+		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 	</bean>
 	<bean id="chooseDriverFacet" class="pcgen.cdom.facet.ChooseDriverFacet"/>
 	<bean id="classFacet" class="pcgen.cdom.facet.model.ClassFacet" />
@@ -407,11 +406,10 @@
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="conditionalTemplateFacet" ref="conditionalTemplateFacet"/>
 	</bean>
-	<bean id="statFacet" class="pcgen.cdom.facet.model.StatFacet">
+	<bean id="statFacet" class="pcgen.cdom.facet.model.StatFacet" />
+	<bean id="StatBonusFacet" class="pcgen.cdom.facet.StatBonusFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
-	</bean>
-	<bean id="StatBonusFacet" class="pcgen.cdom.facet.StatBonusFacet">
 		<property name="statFacet" ref="statFacet"/>
 	</bean>
 	<bean id="statLockFacet" class="pcgen.cdom.facet.analysis.StatLockFacet">
