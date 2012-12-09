@@ -15,15 +15,15 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
-import pcgen.core.character.CompanionMod;
+import pcgen.cdom.facet.AbstractItemFacet;
+import pcgen.core.PCAlignment;
 
 /**
- * CompanionModFacet is a Facet that tracks the CompanionMods that have been
- * granted to a Player Character.
+ * AlignmentFacet is a Facet that tracks the Alignment of a Player Character.
  */
-public class CompanionModFacet extends AbstractListFacet<CompanionMod>
+public class AlignmentFacet extends AbstractItemFacet<PCAlignment>
 {
 
 }

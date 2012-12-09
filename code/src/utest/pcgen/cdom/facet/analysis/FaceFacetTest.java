@@ -28,9 +28,9 @@ import org.junit.Test;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.RaceFacet;
 import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.analysis.FaceFacet;
+import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 

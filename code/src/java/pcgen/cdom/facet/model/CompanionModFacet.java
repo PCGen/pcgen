@@ -15,17 +15,16 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
-import pcgen.core.Deity;
+import pcgen.cdom.facet.AbstractListFacet;
+import pcgen.core.character.CompanionMod;
 
 /**
- * DeityFacet is a Facet that tracks the Deity worshipped by a Player Character.
- * 
- * null is a legal value for this Facet
- * 
- * @author Thomas Parker (thpr [at] yahoo.com)
+ * CompanionModFacet is a Facet that tracks the CompanionMods that have been
+ * granted to a Player Character.
  */
-public class DeityFacet extends AbstractItemFacet<Deity>
+public class CompanionModFacet extends AbstractListFacet<CompanionMod>
 {
+
 }

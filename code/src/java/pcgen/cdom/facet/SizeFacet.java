@@ -28,6 +28,7 @@ import pcgen.cdom.facet.BonusChangeFacet.BonusChangeEvent;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeListener;
 import pcgen.cdom.facet.LevelFacet.LevelChangeEvent;
 import pcgen.cdom.facet.LevelFacet.LevelChangeListener;
+import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;

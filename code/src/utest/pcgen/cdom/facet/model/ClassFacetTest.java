@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +27,13 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.cdom.facet.ClassFacet.ClassInfo;
-import pcgen.cdom.facet.ClassFacet.ClassLevelChangeEvent;
-import pcgen.cdom.facet.ClassFacet.ClassLevelChangeListener;
-import pcgen.cdom.facet.ClassFacet.ClassLevelObjectChangeEvent;
+import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.model.ClassFacet;
+import pcgen.cdom.facet.model.ClassFacet.ClassInfo;
+import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeEvent;
+import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
+import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 

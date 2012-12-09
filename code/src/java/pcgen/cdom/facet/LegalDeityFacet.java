@@ -22,6 +22,7 @@ import java.util.List;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.core.Deity;
 import pcgen.core.PCClass;
 

@@ -18,9 +18,10 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.ClassFacet.ClassLevelChangeEvent;
-import pcgen.cdom.facet.ClassFacet.ClassLevelChangeListener;
-import pcgen.cdom.facet.ClassFacet.ClassLevelObjectChangeEvent;
+import pcgen.cdom.facet.model.ClassFacet;
+import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeEvent;
+import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
+import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 
@@ -94,7 +95,7 @@ public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
 	 * @param lce
 	 *            The ClassLevelObjectChangeEvent containing the information
 	 *            about the level change
-	 * @see pcgen.cdom.facet.ClassFacet.ClassLevelChangeListener#levelObjectChanged(pcgen.cdom.facet.ClassFacet.ClassLevelObjectChangeEvent)
+	 * @see pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener#levelObjectChanged(pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent)
 	 */
 	@Override
 	public void levelObjectChanged(ClassLevelObjectChangeEvent lce)

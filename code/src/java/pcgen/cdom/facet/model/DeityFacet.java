@@ -15,16 +15,18 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
-import pcgen.cdom.helper.ClassSource;
-import pcgen.core.Domain;
+import pcgen.cdom.facet.AbstractItemFacet;
+import pcgen.core.Deity;
 
 /**
- * DomainFacet is a Facet that tracks the Domains possessed by a Player
- * Character.
+ * DeityFacet is a Facet that tracks the Deity worshipped by a Player Character.
+ * 
+ * null is a legal value for this Facet
+ * 
+ * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class DomainFacet extends AbstractSingleSourceListFacet<Domain, ClassSource>
+public class DeityFacet extends AbstractItemFacet<Deity>
 {
-
 }

@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.model.RaceFacet;
 
 /**
  * HasAnyFavoredClassFacet is a Facet that tracks if the Player Character has

@@ -21,6 +21,7 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.core.Deity;
 import pcgen.core.WeaponProf;
 

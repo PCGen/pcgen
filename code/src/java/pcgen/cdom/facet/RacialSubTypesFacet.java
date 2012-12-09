@@ -25,6 +25,7 @@ import java.util.List;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.RaceSubType;
+import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 

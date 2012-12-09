@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Domain;
 import pcgen.core.spell.Spell;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2009 Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -15,18 +15,20 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
+import pcgen.cdom.facet.AbstractItemFacet;
+import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
-import pcgen.core.Deity;
+import pcgen.core.Race;
 
-public class DeityFacetTest extends AbstractItemFacetTest<Deity>
+public class RaceFacetTest extends AbstractItemFacetTest<Race>
 {
 
-	private final DeityFacet facet = new DeityFacet();
+	private final RaceFacet facet = new RaceFacet();
 
 	@Override
-	protected AbstractItemFacet<Deity> getFacet()
+	protected AbstractItemFacet<Race> getFacet()
 	{
 		return facet;
 	}
@@ -34,10 +36,17 @@ public class DeityFacetTest extends AbstractItemFacetTest<Deity>
 	private int n = 0;
 
 	@Override
-	protected Deity getItem()
+	protected Race getItem()
 	{
-		Deity d = new Deity();
-		d.setName("Deity" + n);
-		return d;
+		Race r = new Race();
+		r.setName("Race" + n);
+		return r;
+	}
+
+	public void testEmptyRemoval()
+	{
+		Listener newL = new Listener();
+		// Useless Removal
+		new RaceFacet().removeDataFacetChangeListener(newL);
 	}
 }

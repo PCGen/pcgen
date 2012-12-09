@@ -19,6 +19,8 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.model.ClassFacet;
+import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;

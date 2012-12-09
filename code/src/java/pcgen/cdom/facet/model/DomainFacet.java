@@ -15,14 +15,17 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
-import pcgen.core.PCAlignment;
+import pcgen.cdom.facet.AbstractSingleSourceListFacet;
+import pcgen.cdom.helper.ClassSource;
+import pcgen.core.Domain;
 
 /**
- * AlignmentFacet is a Facet that tracks the Alignment of a Player Character.
+ * DomainFacet is a Facet that tracks the Domains possessed by a Player
+ * Character.
  */
-public class AlignmentFacet extends AbstractItemFacet<PCAlignment>
+public class DomainFacet extends AbstractSingleSourceListFacet<Domain, ClassSource>
 {
 
 }

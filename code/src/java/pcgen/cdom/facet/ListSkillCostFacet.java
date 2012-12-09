@@ -15,6 +15,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Skill;
 

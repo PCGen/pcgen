@@ -17,6 +17,14 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.facet.model.AlignmentFacet;
+import pcgen.cdom.facet.model.ClassFacet;
+import pcgen.cdom.facet.model.CompanionModFacet;
+import pcgen.cdom.facet.model.DeityFacet;
+import pcgen.cdom.facet.model.DomainFacet;
+import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.SkillFacet;
+
 public class FacetInitialization {
 
 	public static void initialize()

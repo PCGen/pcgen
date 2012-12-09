@@ -15,17 +15,20 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
-import pcgen.cdom.testsupport.AbstractListFacetTest;
-import pcgen.core.Skill;
+import pcgen.cdom.facet.AbstractItemFacet;
+import pcgen.cdom.facet.model.AlignmentFacet;
+import pcgen.cdom.testsupport.AbstractItemFacetTest;
+import pcgen.core.PCAlignment;
 
-public class SkillFacetTest extends AbstractListFacetTest<Skill>
+public class AlignmentFacetTest extends AbstractItemFacetTest<PCAlignment>
 {
-	private SkillFacet facet = new SkillFacet();
+
+	private final AlignmentFacet facet = new AlignmentFacet();
 
 	@Override
-	protected AbstractListFacet<Skill> getFacet()
+	protected AbstractItemFacet<PCAlignment> getFacet()
 	{
 		return facet;
 	}
@@ -33,10 +36,10 @@ public class SkillFacetTest extends AbstractListFacetTest<Skill>
 	private int n = 0;
 
 	@Override
-	protected Skill getObject()
+	protected PCAlignment getItem()
 	{
-		Skill t = new Skill();
-		t.setName("Skill" + n++);
-		return t;
+		PCAlignment a = new PCAlignment();
+		a.setName("Align" + n);
+		return a;
 	}
 }

@@ -15,14 +15,15 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
-import pcgen.core.Skill;
+import pcgen.cdom.facet.AbstractItemFacet;
+import pcgen.core.Race;
 
 /**
- * SkillFacet is a Facet that tracks the Skills possessed by a Player Character.
+ * RaceFacet is a Facet that tracks the Race of a Player Character.
  */
-public class SkillFacet extends AbstractListFacet<Skill>
+public class RaceFacet extends AbstractItemFacet<Race>
 {
 
 }

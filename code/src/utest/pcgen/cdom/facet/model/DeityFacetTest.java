@@ -15,18 +15,20 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
+import pcgen.cdom.facet.AbstractItemFacet;
+import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
-import pcgen.core.PCAlignment;
+import pcgen.core.Deity;
 
-public class AlignmentFacetTest extends AbstractItemFacetTest<PCAlignment>
+public class DeityFacetTest extends AbstractItemFacetTest<Deity>
 {
 
-	private final AlignmentFacet facet = new AlignmentFacet();
+	private final DeityFacet facet = new DeityFacet();
 
 	@Override
-	protected AbstractItemFacet<PCAlignment> getFacet()
+	protected AbstractItemFacet<Deity> getFacet()
 	{
 		return facet;
 	}
@@ -34,10 +36,10 @@ public class AlignmentFacetTest extends AbstractItemFacetTest<PCAlignment>
 	private int n = 0;
 
 	@Override
-	protected PCAlignment getItem()
+	protected Deity getItem()
 	{
-		PCAlignment a = new PCAlignment();
-		a.setName("Align" + n);
-		return a;
+		Deity d = new Deity();
+		d.setName("Deity" + n);
+		return d;
 	}
 }

@@ -22,6 +22,8 @@ import java.util.Collection;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.model.ClassFacet;
+import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.core.Language;
 
 /**

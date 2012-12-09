@@ -21,6 +21,7 @@ import java.util.List;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.core.bonus.BonusObj;
 
 /**

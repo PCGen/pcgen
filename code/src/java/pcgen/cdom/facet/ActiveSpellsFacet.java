@@ -25,6 +25,8 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.SpellLikeAbility;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.model.DeityFacet;
+import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.character.CharacterSpell;

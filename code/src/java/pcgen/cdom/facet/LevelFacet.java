@@ -25,9 +25,10 @@ import javax.swing.event.EventListenerList;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
-import pcgen.cdom.facet.ClassFacet.ClassLevelChangeEvent;
-import pcgen.cdom.facet.ClassFacet.ClassLevelChangeListener;
-import pcgen.cdom.facet.ClassFacet.ClassLevelObjectChangeEvent;
+import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeEvent;
+import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
+import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
