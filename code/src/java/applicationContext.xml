@@ -62,9 +62,9 @@
 	<bean id="autoEquipmentListFacet" class="pcgen.cdom.facet.input.AutoEquipmentListFacet" />
 	<bean id="autoLanguageFacet" class="pcgen.cdom.facet.AutoLanguageFacet" />
 	<bean id="autoLanguageListFacet" class="pcgen.cdom.facet.input.AutoLanguageListFacet" />
-	<bean id="autoListArmorProfFacet" class="pcgen.cdom.facet.AutoListArmorProfFacet" />
-	<bean id="autoListShieldProfFacet" class="pcgen.cdom.facet.AutoListShieldProfFacet" />
-	<bean id="autoListWeaponProfFacet" class="pcgen.cdom.facet.AutoListWeaponProfFacet" />
+	<bean id="autoListArmorProfFacet" class="pcgen.cdom.facet.input.AutoListArmorProfFacet" />
+	<bean id="autoListShieldProfFacet" class="pcgen.cdom.facet.input.AutoListShieldProfFacet" />
+	<bean id="autoListWeaponProfFacet" class="pcgen.cdom.facet.input.AutoListWeaponProfFacet" />
 	<bean id="autoWeaponProfFacet" class="pcgen.cdom.facet.AutoWeaponProfFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
@@ -197,7 +197,7 @@
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="globalAddedSkillCostFacet" class="pcgen.cdom.facet.GlobalAddedSkillCostFacet"/>
-	<bean id="globalSkillCostFacet" class="pcgen.cdom.facet.GlobalSkillCostFacet">
+	<bean id="globalSkillCostFacet" class="pcgen.cdom.facet.analysis.GlobalSkillCostFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="grantedAbilityFacet" class="pcgen.cdom.facet.GrantedAbilityFacet"/>
@@ -306,7 +306,7 @@
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="loadFacet" ref="loadFacet"/>
 	</bean>
-	<bean id="multiClassFacet" class="pcgen.cdom.facet.MultiClassFacet">
+	<bean id="multiClassFacet" class="pcgen.cdom.facet.analysis.MultiClassFacet">
 		<property name="favoredClassFacet" ref="favoredClassFacet"/>
 		<property name="hasAnyFavoredClassFacet" ref="hasAnyFavoredClassFacet"/>
 		<property name="classFacet" ref="classFacet"/>
@@ -440,7 +440,7 @@
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
-	<bean id="visionFacet" class="pcgen.cdom.facet.VisionFacet">
+	<bean id="visionFacet" class="pcgen.cdom.facet.analysis.VisionFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>

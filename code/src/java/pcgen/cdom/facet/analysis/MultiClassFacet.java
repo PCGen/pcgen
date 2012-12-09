@@ -14,7 +14,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
 import java.util.HashSet;
 import java.util.SortedSet;
@@ -22,8 +22,7 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.analysis.FavoredClassFacet;
-import pcgen.cdom.facet.analysis.HasAnyFavoredClassFacet;
+import pcgen.cdom.facet.SubClassFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.core.PCClass;
 
