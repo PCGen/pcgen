@@ -37,7 +37,7 @@ CLASS:Omega Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44	BONUS:CHE
 CLASS:Omega Knight	PREATT:5	PREFEAT:2,Track,Secret Society (Isayeret Omega/6)	PRESKILL:2,Knowledge (Arcane Lore)=5,Knowledge (Tactics)=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Omega Knight	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|Hide|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Tactics)|Move Silently|Spot|Survival|Swim
-1																															AUTO:FEAT|Weapon Focus
+1																															BONUS:ABILITYPOOL|Weapon Focus|1
 2	SAB:Omega Knight +%|OmegaKnight									BONUS:VAR|OmegaKnight|(CL+1)/3	DEFINE:OmegaKnight|0
 3																										ADD:FEAT|TYPE=OmegaKnight
 4								BONUS:ABILITYPOOL|Weapon Specialization|1							DEFINE:WeapSpecQualify|1
