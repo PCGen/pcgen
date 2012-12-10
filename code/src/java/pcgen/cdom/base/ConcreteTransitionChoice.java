@@ -189,6 +189,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 		{
 			chooser.setTotalChoicesAvail(intValue);
 		}
+		chooser.setAllowsDups(allowStack);
 		String title = choices.getTitle();
 		if (title == null)
 		{

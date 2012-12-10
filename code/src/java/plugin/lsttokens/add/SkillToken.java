@@ -149,6 +149,7 @@ public class SkillToken extends AbstractToken implements
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
+		tc.allowStack(true);
 		return ParseResult.SUCCESS;
 	}
 
