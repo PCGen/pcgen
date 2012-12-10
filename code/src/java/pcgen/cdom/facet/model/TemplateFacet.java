@@ -17,6 +17,10 @@
  */
 package pcgen.cdom.facet.model;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
+
 import pcgen.cdom.facet.AbstractSourcedListFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
@@ -65,6 +69,20 @@ public class TemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 	public void dataRemoved(DataFacetChangeEvent<PCTemplate> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
+	}
+
+	/**
+	 * This has to be LinkedHashMap since PCTemplates are order sensitive in
+	 * when they are applied to a PC.
+	 * 
+	 * (non-Javadoc)
+	 * 
+	 * @see pcgen.cdom.facet.AbstractSourcedListFacet#getComponentMap()
+	 */
+	@Override
+	protected Map<PCTemplate, Set<Object>> getComponentMap()
+	{
+		return new LinkedHashMap<PCTemplate, Set<Object>>();
 	}
 
 }
