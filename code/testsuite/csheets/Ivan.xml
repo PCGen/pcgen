@@ -29,10 +29,17 @@ BIO
 				<bonuslist>Test Nothing</bonuslist>
 				<sequence>0</sequence>
 			</class>
-			<levels_total>2</levels_total>
-			<levels_ecl>2</levels_ecl>
+			<class>
+				<name>Sorcerer</name>
+				<abbreviation>Sor</abbreviation>
+				<level>1</level>
+				<bonuslist>Sorcerer</bonuslist>
+				<sequence>1</sequence>
+			</class>
+			<levels_total>3</levels_total>
+			<levels_ecl>3</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Tes2                   </shortform>
+			<shortform> Tes2  Sor1                 </shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -52,8 +59,8 @@ BIO
 		</deity>
 		<description></description>
 		<experience>
-			<current>1000</current>
-			<next_level>3000</next_level>
+			<current>3000</current>
+			<next_level>6000</next_level>
 			<factor>100%</factor>
 			<penalty>0%</penalty>
 		</experience>
@@ -67,7 +74,7 @@ BIO
 		<skin>
 			<color></color>
 		</skin>
-		<cr>2</cr>
+		<cr>3</cr>
 		<face>
 		<face>5 ft.</face>
 			<short>5 ft.</short>
@@ -85,11 +92,12 @@ BIO
 			<feet>5</feet>
 			<inches>8</inches>
 		</height>
-		<hitdice>(2d4)</hitdice>
+		<hitdice>(2d4)+(1d4)</hitdice>
 		<interests></interests>
 		<languages>
 			<language>Common</language>
-			<all>Common</all>
+			<language>Draconic</language>
+			<all>Common, Draconic</all>
 		</languages>
 		<location></location>
 		<move>
@@ -217,14 +225,14 @@ BIO
 				<long>Charisma</long>
 				<short>CHA</short>
 			</name>
-			<score>10</score>
-			<modifier>+0</modifier>
-			<base>10</base>
-			<basemod>+0</basemod>
-			<noequip>10</noequip>
-			<noequip_mod>+0</noequip_mod>
-			<no_temp_score>10</no_temp_score>
-			<no_temp_modifier>+0</no_temp_modifier>
+			<score>12</score>
+			<modifier>+1</modifier>
+			<base>12</base>
+			<basemod>+1</basemod>
+			<noequip>12</noequip>
+			<noequip_mod>+1</noequip_mod>
+			<no_temp_score>12</no_temp_score>
+			<no_temp_modifier>+1</no_temp_modifier>
 		</ability>
 	</abilities>
 	<!--
@@ -234,9 +242,9 @@ BIO
 	  ====================================
 	  ====================================-->
 	<hit_points>
-		<points>7</points>
+		<points>10</points>
 		<alternate>10</alternate>
-		<die>(2d4)</die>
+		<die>(2d4)+(1d4)</die>
 		<current/>
 		<subdual/>
 		<damage_reduction></damage_reduction>
@@ -250,6 +258,12 @@ BIO
 			</roll>
 			<roll>
 				<level>2</level>
+				<roll>3</roll>
+				<stat>0</stat>
+				<total>3</total>
+			</roll>
+			<roll>
+				<level>3</level>
 				<roll>3</roll>
 				<stat>0</stat>
 				<total>3</total>
@@ -301,13 +315,13 @@ BIO
 	  ====================================-->
 	<skills>
 		<skillpoints>
-			<total>10</total>
-			<used>0</used>
-			<unused>10</unused>
+			<total>15</total>
+			<used>2</used>
+			<unused>13</unused>
 		</skillpoints>
-		<list_mods></list_mods>
-		<max_class_skill_level>5</max_class_skill_level>
-		<max_cross_class_skill_level>2.5</max_cross_class_skill_level>
+		<list_mods>Athletics +1, Uber Scripting from five ranks in Test Coding Script +1</list_mods>
+		<max_class_skill_level>6</max_class_skill_level>
+		<max_cross_class_skill_level>3</max_cross_class_skill_level>
 		<skill>
 			<name>Acrobatics</name>
 			<ranks>0.0</ranks>
@@ -327,10 +341,10 @@ BIO
 		</skill>
 		<skill>
 			<name>Athletics</name>
-			<ranks>0.0</ranks>
+			<ranks>1.0</ranks>
 			<mod>0<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
+			<skill_mod>1</skill_mod>
 			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
@@ -339,8 +353,8 @@ BIO
 			<synergy>Athletics</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
 			<name>Combat Focus</name>
@@ -447,10 +461,10 @@ BIO
 		<skill>
 			<name>Monkey Building Sensation</name>
 			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -458,8 +472,8 @@ BIO
 			<synergy>Monkey Building Sensation</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
 			<name>Perception</name>
@@ -481,10 +495,10 @@ BIO
 		<skill>
 			<name>Persuasion</name>
 			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -492,16 +506,16 @@ BIO
 			<synergy>Persuasion</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
 			<name>Poetry</name>
 			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -509,16 +523,16 @@ BIO
 			<synergy>Poetry</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
 			<name>Poetry Recitation Specialty</name>
 			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
-			<ability_mod>0<!-- Mod from the key ability -->
+			<skill_mod>1</skill_mod>
+			<ability_mod>1<!-- Mod from the key ability -->
 			</ability_mod>
 			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
@@ -526,8 +540,8 @@ BIO
 			<synergy>Poetry Recitation Specialty</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 		<skill>
 			<name>Stealth</name>
@@ -685,19 +699,19 @@ BIO
 		<skill>
 			<name>Uber Scripting from five ranks in Test Coding Script</name>
 			<ranks>0.0</ranks>
-			<mod>0<!-- Mods from abilities, equipment, etc -->
+			<mod>1<!-- Mods from abilities, equipment, etc -->
 			</mod>
-			<skill_mod>0</skill_mod>
+			<skill_mod>1</skill_mod>
 			<ability_mod>0<!-- Mod from the key ability -->
 			</ability_mod>
-			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			<misc_mod>1<!-- This is a calc value of TOTAL-RANK-ABMOD -->
 			</misc_mod>
 			<ability>INT</ability>
 			<synergy>Uber Scripting from five ranks in Test Coding Script</synergy>
 			<untrained>Y</untrained>
 			<exclusive>N</exclusive>
-			<trained_total>0</trained_total>
-			<exclusive_total>0</exclusive_total>
+			<trained_total>1</trained_total>
+			<exclusive_total>1</exclusive_total>
 		</skill>
 	</skills>
 	<!--
@@ -746,8 +760,8 @@ BIO
 				<short>will</short>
 			</name>
 			<ability>wisdom</ability>
-			<total>+0</total>
-			<base>+0</base>
+			<total>+2</total>
+			<base>+2</base>
 			<abil_mod>+0</abil_mod>
 			<feats>+0</feats>
 			<magic_mod>+0</magic_mod>
@@ -881,6 +895,10 @@ BIO
 			<class>Test Nothing</class>
 			<ability></ability>
 		</class>
+		<class>
+			<class>Sorcerer</class>
+			<ability></ability>
+		</class>
 	</special_abilities>
 	<!--
 	  ====================================
@@ -896,6 +914,56 @@ BIO
 			<type>TEST-53</type>
 			<associated>Bob Long Blade,Bob Short Blade</associated>
 			<count>2</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test-74</name>
+			<description></description>
+			<type>TEST74</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test-75</name>
+			<description></description>
+			<type>TEST75</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test-76</name>
+			<description></description>
+			<type>TEST76</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test-77</name>
+			<description></description>
+			<type>TEST77</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test-78</name>
+			<description></description>
+			<type>TEST78</type>
+			<associated></associated>
+			<count>0</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -955,12 +1023,27 @@ BIO
 	  ====================================-->
 	<!-- Domains -->
 	<weapon_proficiencies></weapon_proficiencies>
-	<languages>Common</languages>
+	<languages>Common, Draconic</languages>
 
 	<templates>
-		<list>Template-71</list>
+		<list>Template-71, Template-73</list>
 		<template>
 			<name>Template-71</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+		<template>
+			<name>Template-73</name>
 			<strmod>0</strmod>
 			<dexmod>0</dexmod>
 			<conmod>0</conmod>
@@ -1006,6 +1089,79 @@ BIO
 <!-- ### END Innate spells ### -->
 		<!-- ### BEGIN Known spells ### -->
 		<known_spells>
+
+		<class number="0" spelllistclass="Sorcerer" spellcastertype="Arcane">
+			<level number="0" known="0" cast="0"/>
+			<level number="1" known="2" cast="5">
+				<spell>
+						<name>Fireball</name>
+						<outputname>Fireball</outputname>
+						<times_memorized>1</times_memorized>
+						<range></range>
+						<components></components>
+						<castingtime></castingtime>
+						<casterlevel>2</casterlevel>
+						<dc>12</dc>
+						<duration>As long as you want up to 20 days [Should be CL x 10]</duration>
+						<effect>What ever you want here, 2 [casterlevel], 20 [casterlevel x 10], 2 [min casterlevel ,10]</effect>
+						<target>Anywhere but here</target>
+						<saveinfo>Fort Saves</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool>BlowThingsUp</subschool>
+							<descriptor>DangerousFubarStuff, I wouldn&#39;t touch it if I were you</descriptor>
+							<fullschool>Evocation (BlowThingsUp) [DangerousFubarStuff, I wouldn&#39;t touch it if I were you]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Brd1, Mon1, Sor1</sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, test</source>
+							<sourcepage>test</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance></spell_resistance>
+						<description>What ever you want here, (CASTERLEVEL) [casterlevel], (CASTERLEVEL*10) [casterlevel x 10], (min(CASTERLEVEL,10)) [min casterlevel ,10]</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
+						<name>Magic Missile</name>
+						<outputname>Magic Missile</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Medium (120 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>2</casterlevel>
+						<dc></dc>
+						<duration>Instantaneous</duration>
+						<effect>1 missiles that do 1d4+1 damage each.</effect>
+						<target>Up to five creatures, no two of which can be more than 15 ft. apart</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool></subschool>
+							<descriptor>Force</descriptor>
+							<fullschool>Evocation [Force]</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Mon1, Sor1</sourcelevel>
+							<source>PCGen Team - PCGen Testing Set, SpellsM-O.rtf</source>
+							<sourcepage>SpellsM-O.rtf</sourcepage>
+							<sourceshort>PTS</sourceshort>
+						</source>
+						<spell_resistance>Yes</spell_resistance>
+						<description>(min((CASTERLEVEL+1)/2,5)) missiles that do 1d4+1 damage each.</description>
+						<bonusspell></bonusspell>
+					</spell>
+			</level>
+			<level number="2" known="0" cast="0"/>
+			<level number="3" known="0" cast="0"/>
+			<level number="4" known="0" cast="0"/>
+			<level number="5" known="0" cast="0"/>
+			<level number="6" known="0" cast="0"/>
+			<level number="7" known="0" cast="0"/>
+			<level number="8" known="0" cast="0"/>
+			<level number="9" known="0" cast="0"/>
+		</class>
+
 
 	</known_spells>
 		<!-- ### END Known spells ### -->
