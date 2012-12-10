@@ -50,9 +50,11 @@ public class ClassFacetTest extends TestCase
 	{
 
 		public int addEventCount;
+		public int addEventObjectCount;
 		public int removeEventCount;
 		public int levelEventCount;
 		public ClassLevelChangeEvent lastLevelEvent;
+		public ClassLevelObjectChangeEvent lastLevelObjectEvent;
 
         @Override
 		public void dataAdded(DataFacetChangeEvent<PCClass> dfce)
@@ -76,6 +78,8 @@ public class ClassFacetTest extends TestCase
         @Override
 		public void levelObjectChanged(ClassLevelObjectChangeEvent lce)
 		{
+        	lastLevelObjectEvent = lce;
+			addEventObjectCount++;
 		}
 
 	}
@@ -769,12 +773,53 @@ public class ClassFacetTest extends TestCase
 	}
 
 	@Test
-	public void testSetClassLevelNotSet()
+	public void testSetClassLevel()
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
 		PCClassLevel pcl = new PCClassLevel();
 		pcl.put(IntegerKey.LEVEL, 3);
+		PCClassLevel old = facet.getClassLevel(id, t1, 3);
+		try
+		{
+			assertTrue(facet.setClassLevel(id, t1, pcl));
+			ClassLevelObjectChangeEvent event = classListener.lastLevelObjectEvent;
+			assertEquals(id, event.getCharID());
+			assertEquals(t1, event.getPCClass());
+			assertEquals(old, event.getOldLevel());
+			assertEquals(pcl, event.getNewLevel());
+		}
+		catch (CloneNotSupportedException e)
+		{
+			fail(e.getMessage());
+		}
+		assertEquals(pcl, facet.getClassLevel(id, t1, 3));
+	}
+
+	@Test
+	public void testSetClassLevelUseless()
+	{
+		PCClass t1 = new PCClass();
+		facet.addClass(id, t1);
+		PCClassLevel pcl = new PCClassLevel();
+		pcl.put(IntegerKey.LEVEL, 3);
+		PCClassLevel old = facet.getClassLevel(id, t1, 3);
+		assertEquals(0, classListener.addEventObjectCount);
+		try
+		{
+			assertTrue(facet.setClassLevel(id, t1, pcl));
+			ClassLevelObjectChangeEvent event = classListener.lastLevelObjectEvent;
+			assertEquals(id, event.getCharID());
+			assertEquals(t1, event.getPCClass());
+			assertEquals(old, event.getOldLevel());
+			assertEquals(pcl, event.getNewLevel());
+		}
+		catch (CloneNotSupportedException e)
+		{
+			fail(e.getMessage());
+		}
+		assertEquals(1, classListener.addEventObjectCount);
+		//Now useless but still returns true
 		try
 		{
 			assertTrue(facet.setClassLevel(id, t1, pcl));
@@ -783,6 +828,9 @@ public class ClassFacetTest extends TestCase
 		{
 			fail(e.getMessage());
 		}
+		//Guarantee no new event
+		assertEquals(1, classListener.addEventObjectCount);
+		assertEquals(pcl, facet.getClassLevel(id, t1, 3));
 	}
 
 	@Test
@@ -868,4 +916,52 @@ public class ClassFacetTest extends TestCase
 		assertEquals(Integer.valueOf(4), pcl.get(IntegerKey.HIT_DIE));
 		assertEquals(3, facet.getLevel(altid, cl));
 	}
+	@Test
+
+	public void testEmptyCopyContents()
+	{
+		facet.copyContents(id, altid);
+		assertNull(facet.removeAllClasses(altid));
+	}
+
+	@Test
+	public void testPCClassReplaceUseless()
+	{
+		PCClass t1 = new PCClass();
+		PCClass t2 = new PCClass();
+		facet.replaceClass(id, t1, t2);
+		assertNull(facet.removeAllClasses(id));
+	}
+
+	@Test
+	public void testPCClassReplace()
+	{
+		PCClass t1 = new PCClass();
+		t1.setName("Base");
+		facet.addClass(id, t1);
+		assertEquals(1, facet.getCount(id));
+		assertFalse(facet.isEmpty(id));
+		Set<PCClass> setofone = facet.getClassSet(id);
+		assertNotNull(setofone);
+		assertEquals(1, setofone.size());
+		assertEquals(t1, setofone.iterator().next());
+		assertEventCount(1, 0, 0);
+		facet.setLevel(id, t1, 2);
+		assertEquals(2, facet.getLevel(id, t1));
+		PCClass t2 = new PCClass();
+		t2.setName("Other");
+		facet.replaceClass(id, t1, t2);
+		assertEquals(1, facet.getCount(id));
+		assertFalse(facet.isEmpty(id));
+		setofone = facet.getClassSet(id);
+		assertNotNull(setofone);
+		assertEquals(1, setofone.size());
+		assertEquals(t2, setofone.iterator().next());
+		//TODO This test needs some help, as 
+//		assertEquals(0, facet.getLevel(id, t1));
+//		assertEquals(2, facet.getLevel(id, t2));
+//		//TODO figure out what this is??
+//		assertEventCount(2, 1, 0);
+	}
+
 }
