@@ -1,63 +1,45 @@
-/*
- * Copyright (c) Thomas Parker, 2010.
- * 
- * This program is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
- * 
- * This program is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
- * 
- * You should have received a copy of the GNU Lesser General Public License
- * along with this library; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
- */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
+import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
-import pcgen.cdom.facet.model.ClassFacet;
-import pcgen.cdom.facet.model.ClassLevelFacet;
-import pcgen.cdom.facet.model.DomainFacet;
-import pcgen.cdom.inst.PCClassLevel;
-import pcgen.core.Domain;
-import pcgen.core.PCClass;
+import pcgen.cdom.facet.AbstractStorageFacet;
+import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Skill;
 
 /**
- * LocalSkillCostFacet is a Facet to track Skill costs
+ * ListSkillCostFacet processes SkillCosts associated with the MONCSKILL and
+ * MONCCSKILL tokens.
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class LocalSkillCostFacet extends AbstractStorageFacet implements
+public class ListSkillCostFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<CDOMObject>
 {
 	private final Class<?> thisClass = getClass();
 
-	private DomainFacet domainFacet;
-	
-	private ClassFacet classFacet;
-	
-	private ClassLevelFacet classLevelFacet;
+	private RaceFacet raceFacet;
 
 	/**
 	 * Adds the SkillCost objects granted by CDOMObjects, as applied directly to
-	 * a PCClass, when a CDOMObject is added to a Player Character.
+	 * a ClassSkillList, when a CDOMObject is added to a Player Character.
 	 * 
-	 * Triggered when one of the Facets to which LocalSkillCostFacet listens
+	 * Triggered when one of the Facets to which ListSkillCostFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was added to a
 	 * Player Character.
 	 * 
@@ -72,44 +54,45 @@ public class LocalSkillCostFacet extends AbstractStorageFacet implements
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
-		PCClass owner;
-		if (cdo instanceof Domain)
+		for (CDOMReference ref : cdo.getModifiedLists())
 		{
-			owner = domainFacet.getSource(id, (Domain) cdo).getPcclass();
-		}
-		else if (cdo instanceof PCClassLevel)
-		{
-			owner = (PCClass) cdo.get(ObjectKey.PARENT);
-		}
-		else if (cdo instanceof PCClass)
-		{
-			owner = (PCClass) cdo;
-		}
-		else
-		{
-			return;
-		}
-		for (CDOMReference<Skill> ref : cdo.getSafeListFor(ListKey.LOCALCSKILL))
-		{
-			for (Skill sk : ref.getContainedObjects())
+			List<ClassSkillList> useList = new ArrayList<ClassSkillList>();
+			for (Object list : ref.getContainedObjects())
 			{
-				add(id, owner, sk, SkillCost.CLASS, cdo);
+				if (list instanceof ClassSkillList)
+				{
+					useList.add((ClassSkillList) list);
+				}
 			}
-		}
-		for (CDOMReference<Skill> ref : cdo.getSafeListFor(ListKey.LOCALCCSKILL))
-		{
-			for (Skill sk : ref.getContainedObjects())
+			if (!useList.isEmpty())
 			{
-				add(id, owner, sk, SkillCost.CROSS_CLASS, cdo);
+				Collection<CDOMReference<Skill>> mods = cdo.getListMods(ref);
+				for (CDOMReference<Skill> skRef : mods)
+				{
+					for (AssociatedPrereqObject apo : cdo.getListAssociations(
+							ref, skRef))
+					{
+						SkillCost sc = apo
+								.getAssociation(AssociationKey.SKILL_COST);
+						for (ClassSkillList csl : useList)
+						{
+							for (Skill skill : skRef.getContainedObjects())
+							{
+								add(id, csl, skill, sc, cdo);
+							}
+						}
+					}
+				}
 			}
 		}
 	}
 
 	/**
 	 * Removes the SkillCost objects granted by CDOMObjects, as applied directly
-	 * to a PCClass, when a CDOMObject is removed from a Player Character.
+	 * to a ClassSkillList, when a CDOMObject is removed from a Player
+	 * Character.
 	 * 
-	 * Triggered when one of the Facets to which LocalSkillCostFacet listens
+	 * Triggered when one of the Facets to which ListSkillCostFacet listens
 	 * fires a DataFacetChangeEvent to indicate a CDOMObject was removed from a
 	 * Player Character.
 	 * 
@@ -126,14 +109,13 @@ public class LocalSkillCostFacet extends AbstractStorageFacet implements
 	}
 
 	/**
-	 * Returns the type-safe CacheInfo for this LocalSkillCostFacet and the
-	 * given CharID. Will return a new, empty CacheInfo if no Skill information
-	 * has been set for the given CharID. Will not return null.
+	 * Returns the type-safe CacheInfo for this ListSkillCostFacet and the given
+	 * CharID. Will return a new, empty CacheInfo if no Skill information has
+	 * been set for the given CharID. Will not return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The CacheInfo object is owned
-	 * by LocalSkillCostFacet, and since it can be modified, a reference to that
-	 * object should not be exposed to any object other than
-	 * LocalSkillCostFacet.
+	 * by ListSkillCostFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than ListSkillCostFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the CacheInfo should be returned
@@ -152,14 +134,13 @@ public class LocalSkillCostFacet extends AbstractStorageFacet implements
 	}
 
 	/**
-	 * Returns the type-safe CacheInfo for this LocalSkillCostFacet and the
-	 * given CharID. May return null if no Skill information has been set for
-	 * the given CharID.
+	 * Returns the type-safe CacheInfo for this SkillCostFacet and the given
+	 * CharID. May return null if no Skill information has been set for the
+	 * given CharID.
 	 * 
 	 * Note that this method SHOULD NOT be public. The CacheInfo object is owned
-	 * by LocalSkillCostFacet, and since it can be modified, a reference to that
-	 * object should not be exposed to any object other than
-	 * LocalSkillCostFacet.
+	 * by SkillCostFacet, and since it can be modified, a reference to that
+	 * object should not be exposed to any object other than SkillCostFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the CacheInfo should be returned
@@ -174,29 +155,30 @@ public class LocalSkillCostFacet extends AbstractStorageFacet implements
 
 	/**
 	 * CacheInfo is the data structure used by LocalSkillCostFacet to store a
-	 * Player Character's Skill Costs.
+	 * Player Character's Skill Costs
 	 */
 	private static class CacheInfo
 	{
-		Map<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> map = new IdentityHashMap<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>>();
+		Map<ClassSkillList, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> map = new IdentityHashMap<ClassSkillList, Map<SkillCost, Map<Skill, Set<CDOMObject>>>>();
 
 		/**
 		 * Adds the given SkillCost for the given Skill (as granted by the given
-		 * source) for the given PCClass.
+		 * source) on the given ClassSkillList to this CacheInfo
 		 * 
 		 * @param cl
-		 *            The PCClass for which the given SkillCost for the given
-		 *            Skill is being added
+		 *            The ClassSkillList which will be checked to determine if
+		 *            it contains the requested SkillCost for the given Skill
 		 * @param skill
 		 *            The Skill for which the SkillCost is being added
 		 * @param sc
-		 *            The SkillCost for the given Skill to be added for the
-		 *            given PCClass
+		 *            The SkillCost for the given Skill to be added to this
+		 *            CacheInfo
 		 * @param source
 		 *            The source object which granted the given SkillCost for
 		 *            the given Skill
 		 */
-		public void add(PCClass cl, Skill skill, SkillCost sc, CDOMObject source)
+		public void add(ClassSkillList cl, Skill skill, SkillCost sc,
+				CDOMObject source)
 		{
 			Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = map.get(cl);
 			if (scMap == null)
@@ -219,23 +201,7 @@ public class LocalSkillCostFacet extends AbstractStorageFacet implements
 			set.add(source);
 		}
 
-		//		/**
-		//		 * Removes the given SkillCost for the given Skill (as granted by the
-		//		 * given source) for the given PCClass
-		//		 * 
-		//		 * @param cl
-		//		 *            The PCClass for which the given SkillCost for the given
-		//		 *            Skill is being removed
-		//		 * @param skill
-		//		 *            The Skill for which the SkillCost is being removed
-		//		 * @param sc
-		//		 *            The SkillCost for the given Skill to be removed for the
-		//		 *            given PCClass
-		//		 * @param source
-		//		 *            The source object which granted the given SkillCost for
-		//		 *            the given Skill
-		//		 */
-		//		public void remove(PCClass cl, Skill skill, SkillCost sc,
+		//		public void remove(ClassSkillList cl, Skill skill, SkillCost sc,
 		//			CDOMObject source)
 		//		{
 		//			Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = map.get(cl);
@@ -308,22 +274,23 @@ public class LocalSkillCostFacet extends AbstractStorageFacet implements
 
 		/**
 		 * Returns true if this CacheInfo has the given SkillCost for the given
-		 * Skill for the given PCClass.
+		 * Skill on the given ClassSkillList.
 		 * 
 		 * @param cl
-		 *            The PCClass which will be checked to determine if it has
-		 *            the requested SkillCost for the given Skill
+		 *            The ClassSkillList which will be checked to determine if
+		 *            it contains the requested SkillCost for the given Skill
 		 * @param sc
 		 *            The SkillCost to be checked to see if the CacheInfo has
-		 *            this SkillCost for the given Skill on the given PCClass
-		 * @param skill
+		 *            this SkillCost for the given Skill on the given
+		 *            ClassSkillList
+		 * @param sk
 		 *            The Skill which will be checked to determine if it
 		 *            contains the requested SkillCost
 		 * @return true if this CacheInfo has the given Skill Cost for the given
-		 *         Skill for the given PCClass; false otherwise
+		 *         Skill on the given ClassSkillList; false otherwise
 		 * 
 		 */
-		public boolean contains(PCClass cl, SkillCost sc, Skill skill)
+		public boolean contains(ClassSkillList cl, SkillCost sc, Skill skill)
 		{
 			Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = map.get(cl);
 			if (scMap == null)
@@ -335,7 +302,7 @@ public class LocalSkillCostFacet extends AbstractStorageFacet implements
 		}
 	}
 
-	private void add(CharID id, PCClass cl, Skill skill, SkillCost sc,
+	private void add(CharID id, ClassSkillList cl, Skill skill, SkillCost sc,
 		CDOMObject source)
 	{
 		getConstructingInfo(id).add(cl, skill, sc, source);
@@ -352,75 +319,63 @@ public class LocalSkillCostFacet extends AbstractStorageFacet implements
 
 	/**
 	 * Returns true if this ListSkillCostFacet has the given SkillCost for the
-	 * given Skill for the given PCClass for the Player Character identified by
-	 * the given CharID.
+	 * given Skill on the given ClassSkillList for the Player Character
+	 * identified by the given CharID.
 	 * 
 	 * @param id
 	 *            The CharID identifying the Player Character which will be
 	 *            checked to determine if it contains the requested SkillCost
 	 * @param cl
-	 *            The PCClass which will be checked to determine if it has the
-	 *            requested SkillCost for the given Skill
+	 *            The ClassSkillList which will be checked to determine if it
+	 *            contains the requested SkillCost for the given Skill
 	 * @param sc
 	 *            The SkillCost to be checked to see if the Player Character has
-	 *            this SkillCost for the given Skill for the given PCClass
+	 *            this SkillCost for the given Skill on the given ClassSkillList
 	 * @param sk
 	 *            The Skill which will be checked to determine if it contains
 	 *            the requested SkillCost
 	 * @return true if this ListSkillCostFacet has the given Skill Cost for the
-	 *         given Skill for the given PCClass for the Player Character
+	 *         given Skill on the given ClassSkillList for the Player Character
 	 *         identified by the given CharID; false otherwise
 	 * 
 	 */
-	public boolean contains(CharID id, PCClass cl, SkillCost sc, Skill sk)
+	public boolean contains(CharID id, ClassSkillList cl, SkillCost sc, Skill sk)
 	{
 		CacheInfo ci = getInfo(id);
 		return ci != null && ci.contains(cl, sc, sk);
 	}
 
-	public void setDomainFacet(DomainFacet domainFacet)
+	public void setRaceFacet(RaceFacet raceFacet)
 	{
-		this.domainFacet = domainFacet;
-	}
-
-	public void setClassFacet(ClassFacet classFacet)
-	{
-		this.classFacet = classFacet;
-	}
-
-	public void setClassLevelFacet(ClassLevelFacet classLevelFacet)
-	{
-		this.classLevelFacet = classLevelFacet;
+		this.raceFacet = raceFacet;
 	}
 
 	/**
-	 * Initializes the connections for LocalSkillCostFacet to other facets.
+	 * Initializes the connections for ListSkillCostFacet to other facets.
 	 * 
 	 * This method is automatically called by the Spring framework during
-	 * initialization of the LocalSkillCostFacet.
+	 * initialization of the ListSkillCostFacet.
 	 */
 	public void init()
 	{
-		classFacet.addDataFacetChangeListener(this);
-		domainFacet.addDataFacetChangeListener(this);
-		classLevelFacet.addDataFacetChangeListener(this);
+		raceFacet.addDataFacetChangeListener(this);
 	}
 
 	/**
-	 * Copies the contents of the LocalSkillCostFacet from one Player Character
+	 * Copies the contents of the ListSkillCostFacet from one Player Character
 	 * to another Player Character, based on the given CharIDs representing
 	 * those Player Characters.
 	 * 
-	 * This is a method in LocalSkillCostFacet in order to avoid exposing the
+	 * This is a method in ListSkillCostFacet in order to avoid exposing the
 	 * mutable CacheInfo object to other classes. This should not be inlined, as
-	 * the CacheInfo is internal information to LocalSkillCostFacet and should
+	 * the CacheInfo is internal information to ListSkillCostFacet and should
 	 * not be exposed to other classes.
 	 * 
 	 * Note also the copy is a one-time event and no references are maintained
 	 * between the Player Characters represented by the given CharIDs (meaning
-	 * once this copy takes place, any change to the LocalSkillCostFacet of one
+	 * once this copy takes place, any change to the ListSkillCostFacet of one
 	 * Player Character will only impact the Player Character where the
-	 * LocalSkillCostFacet was changed).
+	 * ListSkillCostFacet was changed).
 	 * 
 	 * @param source
 	 *            The CharID representing the Player Character from which the
@@ -436,10 +391,10 @@ public class LocalSkillCostFacet extends AbstractStorageFacet implements
 		if (rci != null)
 		{
 			CacheInfo copyci = getConstructingInfo(copy);
-			for (Map.Entry<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> me : rci.map
+			for (Map.Entry<ClassSkillList, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> me : rci.map
 				.entrySet())
 			{
-				PCClass pcc = me.getKey();
+				ClassSkillList csl = me.getKey();
 				for (Map.Entry<SkillCost, Map<Skill, Set<CDOMObject>>> fme : me
 					.getValue().entrySet())
 				{
@@ -450,7 +405,7 @@ public class LocalSkillCostFacet extends AbstractStorageFacet implements
 						Skill sk = apme.getKey();
 						for (CDOMObject cdo : apme.getValue())
 						{
-							copyci.add(pcc, sk, sc, cdo);
+							copyci.add(csl, sk, sc, cdo);
 						}
 					}
 				}

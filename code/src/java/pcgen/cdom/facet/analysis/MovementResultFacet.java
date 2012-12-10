@@ -14,7 +14,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,9 +28,12 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.facet.analysis.LoadFacet;
-import pcgen.cdom.facet.analysis.UnencumberedArmorFacet;
-import pcgen.cdom.facet.analysis.UnencumberedLoadFacet;
+import pcgen.cdom.facet.AbstractStorageFacet;
+import pcgen.cdom.facet.BonusCheckingFacet;
+import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.EquipmentFacet;
+import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;

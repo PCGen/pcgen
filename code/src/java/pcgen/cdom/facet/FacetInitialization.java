@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
+import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.input.ActiveAbilityFacet;
 import pcgen.cdom.facet.input.AddLanguageFacet;
 import pcgen.cdom.facet.input.AutoLanguageListFacet;

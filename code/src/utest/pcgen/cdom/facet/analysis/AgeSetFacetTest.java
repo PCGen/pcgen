@@ -15,8 +15,10 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
+import pcgen.cdom.facet.AbstractItemFacet;
+import pcgen.cdom.facet.analysis.AgeSetFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 import pcgen.core.AgeSet;
 

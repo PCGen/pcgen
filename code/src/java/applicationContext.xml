@@ -31,7 +31,7 @@
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="ageFacet" class="pcgen.cdom.facet.fact.AgeFacet" />
-	<bean id="ageSetFacet" class="pcgen.cdom.facet.AgeSetFacet">
+	<bean id="ageSetFacet" class="pcgen.cdom.facet.analysis.AgeSetFacet">
 		<property name="ageFacet" ref="ageFacet"/>
 		<property name="regionFacet" ref="regionFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
@@ -262,17 +262,17 @@
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
-	<bean id="levelFacet" class="pcgen.cdom.facet.LevelFacet">
+	<bean id="levelFacet" class="pcgen.cdom.facet.analysis.LevelFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 	</bean>
 	<bean id="levelInfoFacet" class="pcgen.cdom.facet.LevelInfoFacet"/>
-	<bean id="levelTableFacet" class="pcgen.cdom.facet.LevelTableFacet">
+	<bean id="levelTableFacet" class="pcgen.cdom.facet.analysis.LevelTableFacet">
 		<property name="resolveFacet" ref="formulaResolvingFacet"/>
 		<property name="xpTableFacet" ref="xpTableFacet"/>
 	</bean>
-	<bean id="listSkillCostFacet" class="pcgen.cdom.facet.ListSkillCostFacet">
+	<bean id="listSkillCostFacet" class="pcgen.cdom.facet.analysis.ListSkillCostFacet">
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
 	<bean id="loadFacet" class="pcgen.cdom.facet.analysis.LoadFacet">
@@ -282,7 +282,7 @@
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 	</bean>
 	<bean id="localAddedSkillCostFacet" class="pcgen.cdom.facet.input.LocalAddedSkillCostFacet"/>
-	<bean id="localSkillCostFacet" class="pcgen.cdom.facet.LocalSkillCostFacet">
+	<bean id="localSkillCostFacet" class="pcgen.cdom.facet.analysis.LocalSkillCostFacet">
 		<property name="domainFacet" ref="domainFacet"/>
 		<property name="classFacet" ref="classFacet"/>
 		<property name="classLevelFacet" ref="classLevelFacet"/>
@@ -301,10 +301,10 @@
 		<property name="raceFacet" ref="raceFacet"/>
 	</bean>
 	<bean id="monsterCSkillFacet" class="pcgen.cdom.facet.input.MonsterCSkillFacet"/>
-	<bean id="movementFacet" class="pcgen.cdom.facet.MovementFacet">
+	<bean id="movementFacet" class="pcgen.cdom.facet.analysis.MovementFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
-	<bean id="movementResultFacet" class="pcgen.cdom.facet.MovementResultFacet">
+	<bean id="movementResultFacet" class="pcgen.cdom.facet.analysis.MovementResultFacet">
 		<property name="movementFacet" ref="movementFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="deityFacet" ref="deityFacet"/>

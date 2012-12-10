@@ -23,8 +23,9 @@ import java.util.List;
 import java.util.Map;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.LevelFacet.LevelChangeEvent;
-import pcgen.cdom.facet.LevelFacet.LevelChangeListener;
+import pcgen.cdom.facet.analysis.LevelFacet;
+import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeEvent;
+import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeListener;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
@@ -102,7 +103,7 @@ public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 	 *            The LevelChangeEvent containing the information about the
 	 *            level change
 	 * 
-	 * @see pcgen.cdom.facet.LevelFacet.LevelChangeListener#levelChanged(pcgen.cdom.facet.LevelFacet.LevelChangeEvent)
+	 * @see pcgen.cdom.facet.analysis.LevelFacet.LevelChangeListener#levelChanged(pcgen.cdom.facet.analysis.LevelFacet.LevelChangeEvent)
 	 */
 	@Override
 	public void levelChanged(LevelChangeEvent lce)

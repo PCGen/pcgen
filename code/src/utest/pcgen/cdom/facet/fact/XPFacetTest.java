@@ -25,8 +25,8 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.LevelFacet;
-import pcgen.cdom.facet.LevelTableFacet;
+import pcgen.cdom.facet.analysis.LevelFacet;
+import pcgen.cdom.facet.analysis.LevelTableFacet;
 import pcgen.cdom.facet.fact.XPFacet;
 
 public class XPFacetTest extends TestCase

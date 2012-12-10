@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.analysis;
 
 import java.util.EventListener;
 import java.util.EventObject;
@@ -25,6 +25,8 @@ import javax.swing.event.EventListenerList;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.facet.AbstractStorageFacet;
+import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeEvent;
