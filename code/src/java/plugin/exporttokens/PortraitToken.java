@@ -38,9 +38,9 @@ import javax.imageio.ImageIO;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.Constants;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 import pcgen.util.Logging;
 
 /**
@@ -54,17 +54,15 @@ import pcgen.util.Logging;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class PortraitToken extends Token
+public class PortraitToken extends AbstractExportToken
 {
-	public static final String TOKENNAME = "PORTRAIT";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "PORTRAIT";
 	}
 
 	//TODO: Move this to a token that has all of the descriptive stuff about a character
@@ -72,34 +70,28 @@ public class PortraitToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		if ("PORTRAIT.THUMB".equals(tokenSource))
 		{
-			return getThumbnailToken(pc);
+			return getThumbnailToken(display);
 		}
 		
-		return getPortraitToken(pc);
+		return display.getPortraitPath();
 	}
 
-	public static String getPortraitToken(PlayerCharacter pc)
-	{
-		return pc.getPortraitPath();
-	}
-	
-	private String getThumbnailToken(PlayerCharacter pc)
+	private String getThumbnailToken(CharacterDisplay display)
 	{
 		// Generate thumbnail
-		BufferedImage thumb = generateThumb(pc); 
+		BufferedImage thumb = generateThumb(display); 
 		if (thumb == null)
 		{
 			return null;
 		}
 		
 		// Save to a temporary file
-		File tempDir = new File(System.getProperty("java.io.tmpdir"));
-		String pcgFilename = pc.getFileName();
+		String pcgFilename = display.getFileName();
 		String baseName;
 		if (StringUtils.isNotBlank(pcgFilename))
 		{
@@ -111,7 +103,7 @@ public class PortraitToken extends Token
 		}
 		else
 		{
-			baseName = pc.getName();
+			baseName = display.getName();
 		}
 		
 		File thumbFile;
@@ -146,14 +138,14 @@ public class PortraitToken extends Token
 	 * @param pc The character being output.
 	 * @return The thumbnail image, or null if not defined.
 	 */
-	private BufferedImage generateThumb(PlayerCharacter pc)
+	private BufferedImage generateThumb(CharacterDisplay display)
 	{
-		Rectangle cropRect = pc.getPortraitThumbnailRect();
+		Rectangle cropRect = display.getPortraitThumbnailRect();
 		BufferedImage portrait = null;
 		try
 		{
-			File file = new File(pc.getPortraitPath());
-			if (file != null && file.isFile())
+			File file = new File(display.getPortraitPath());
+			if (file.isFile())
 			{
 				portrait = ImageIO.read(file);
 			}
@@ -206,7 +198,7 @@ public class PortraitToken extends Token
     {
         int type = (img.getTransparency() == Transparency.OPAQUE) ?
             BufferedImage.TYPE_INT_RGB : BufferedImage.TYPE_INT_ARGB;
-        BufferedImage ret = (BufferedImage)img;
+        BufferedImage ret = img;
         int w, h;
         if (higherQuality) {
             // Use multi-step technique: start with original size, then

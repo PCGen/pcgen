@@ -26,9 +26,10 @@ package plugin.exporttokens;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.Follower;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deal with FOLLOWERLIST Token
@@ -40,28 +41,25 @@ import pcgen.io.exporttoken.Token;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: 1030 $
  */
-public class FollowerListToken extends Token
+public class FollowerListToken extends AbstractExportToken
 {
-	/** Token Name */
-	public static final String TOKENNAME = "FOLLOWERLIST";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "FOLLOWERLIST";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getFollowerListToken(pc);
+		return getFollowerListToken(display);
 	}
 
 	/**
@@ -70,13 +68,13 @@ public class FollowerListToken extends Token
 	 * @param pc The character to be queried
 	 * @return The list of followers.
 	 */
-	public static String getFollowerListToken(PlayerCharacter pc)
+	public static String getFollowerListToken(CharacterDisplay display)
 	{
 		StringBuilder buf = new StringBuilder();
 
 		boolean needComma = false;
 
-		for (Follower aF : pc.getFollowerList())
+		for (Follower aF : display.getFollowerList())
 		{
 			for (PlayerCharacter nPC : Globals.getPCList())
 			{

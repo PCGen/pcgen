@@ -25,22 +25,20 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 //RESIDENCE
-public class ResidenceToken extends Token
+public class ResidenceToken extends AbstractExportToken
 {
-	public static final String TOKENNAME = "RESIDENCE";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "RESIDENCE";
 	}
 
 	//TODO: Move this to a token that has all of the descriptive stuff about a character
@@ -48,14 +46,9 @@ public class ResidenceToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getResidenceToken(pc);
-	}
-
-	public static String getResidenceToken(PlayerCharacter pc)
-	{
-		return pc.getResidence();
+		return display.getResidence();
 	}
 }

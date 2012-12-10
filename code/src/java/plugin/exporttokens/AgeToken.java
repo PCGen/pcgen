@@ -26,49 +26,36 @@
 package plugin.exporttokens;
 
 import pcgen.cdom.enumeration.BiographyField;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Class handles AGE Token 
  */
-public class AgeToken extends Token
+public class AgeToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "AGE";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "AGE";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		if (pc.getDisplay().getSuppressBioField(BiographyField.AGE))
+		if (display.getSuppressBioField(BiographyField.AGE))
 		{
 			return "";
 		}
 
-		return Integer.toString(getAgeToken(pc));
-	}
-
-	/**
-	 * Gets the Age Token 
-	 * @param pc
-	 * @return Age Token as int
-	 */
-	public static int getAgeToken(PlayerCharacter pc)
-	{
-		return pc.getAge();
+		return Integer.toString(display.getAge());
 	}
 }

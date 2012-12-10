@@ -25,44 +25,31 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deals with BIRTHPLACE token
  */
-public class BirthplaceToken extends Token
+public class BirthplaceToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "BIRTHPLACE";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "BIRTHPLACE";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getBirthplaceToken(pc);
-	}
-
-	/**
-	 * Get the brith place token
-	 * @param pc
-	 * @return birth place token
-	 */
-	public static String getBirthplaceToken(PlayerCharacter pc)
-	{
-		return pc.getBirthplace();
+		return display.getBirthplace();
 	}
 }

@@ -29,35 +29,32 @@ import java.util.SortedSet;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Class handles AGE Token 
  */
-public class FavoredClassToken extends Token
+public class FavoredClassToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "FAVOREDCLASS";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "FAVOREDCLASS";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		SortedSet<PCClass> favClass = pc.getFavoredClasses();
+		SortedSet<PCClass> favClass = display.getFavoredClasses();
 		return favClass.isEmpty() ? "" : StringUtil.join(favClass, ", ");
 	}
 }

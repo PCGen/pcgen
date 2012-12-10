@@ -26,42 +26,30 @@
 package plugin.exporttokens;
 
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * SPELLPOINTS token for export
  */
-public class SpellPointsToken extends Token
+public class SpellPointsToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "SPELLPOINTS";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "SPELLPOINTS";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
-	{
-		return getSpellPointsToken();
-	}
-
-	/**
-	 * Get value for SPELLS token
-	 * @return value for SPELLS token
-	 */
-	public static String getSpellPointsToken()
 	{
 		return Globals.getSpellPoints();
 	}

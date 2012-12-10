@@ -658,16 +658,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Get the birthplace.
-	 * 
-	 * @return birthplace
-	 */
-	public String getBirthplace()
-	{
-		return getSafeStringFor(StringKey.BIRTHPLACE);
-	}
-
-	/**
 	 * Set the current EquipSet that is used to Bonus/Equip calculations.
 	 * 
 	 * @param eqSetId The equipSet to be used for Bonus Calculations and output
@@ -1795,19 +1785,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return languageFacet.getSet(id);
 	}
 
-	/*
-	 * TODO This is a discussion we have to have about where items are sorted
-	 */
-
-	/**
-	 * Get a sorted list of the languages that this character knows.
-	 * @return a sorted list of language objects
-	 */
-	public Set<Language> getSortedLanguageSet()
-	{
-		return new TreeSet<Language>(languageFacet.getSet(id));
-	}
-
 	/**
 	 * Sets the character's location.
 	 * 
@@ -2410,16 +2387,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Get the character's residence.
-	 * 
-	 * @return residence
-	 */
-	public String getResidence()
-	{
-		return getSafeStringFor(StringKey.RESIDENCE);
-	}
-
-	/**
 	 * Get the character's secondary weapons.
 	 * 
 	 * @return secondary weapons
@@ -3014,11 +2981,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public Collection<WeaponProf> getWeaponProfSet()
 	{
 		return weaponProfFacet.getProfs(id);
-	}
-
-	public SortedSet<WeaponProf> getSortedWeaponProfs()
-	{
-		return Collections.unmodifiableSortedSet(new TreeSet<WeaponProf>(weaponProfFacet.getProfs(id)));
 	}
 
 	/**
@@ -6805,7 +6767,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * 
 	 * @return PC's ACCHECK bonus from equipment
 	 */
-	private int modToACCHECKFromEquipment()
+	public int modToACCHECKFromEquipment()
 	{
 		Load load = getHouseRuledLoadType();
 		int bonus = 0;

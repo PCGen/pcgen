@@ -23,32 +23,29 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Token that represents the start of controlled manual whitespace
  */
-public class ManualWhitespaceToken extends Token
+public class ManualWhitespaceToken extends AbstractExportToken
 {
-	/** The token name implemented by this class. */
-	public static final String TOKENNAME = "MANUALWHITESPACE";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "MANUALWHITESPACE";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		eh.setManualWhitespace(true);

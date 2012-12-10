@@ -26,22 +26,20 @@
 package plugin.exporttokens;
 
 import pcgen.cdom.enumeration.BiographyField;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 //PLAYERNAME
-public class PlayerNameToken extends Token
+public class PlayerNameToken extends AbstractExportToken
 {
-	public static final String TOKENNAME = "PLAYERNAME";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "PLAYERNAME";
 	}
 
 	//TODO: Move this into NameToken as NAME.PLAYER
@@ -49,18 +47,13 @@ public class PlayerNameToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getPlayerNameToken(pc);
-	}
-
-	public static String getPlayerNameToken(PlayerCharacter pc)
-	{
-		if (pc.getDisplay().getSuppressBioField(BiographyField.PLAYERNAME))
+		if (display.getSuppressBioField(BiographyField.PLAYERNAME))
 		{
 			return "";
 		}
-		return pc.getPlayersName();
+		return display.getPlayersName();
 	}
 }

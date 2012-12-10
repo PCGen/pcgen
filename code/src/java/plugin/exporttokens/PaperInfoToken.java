@@ -27,41 +27,34 @@ package plugin.exporttokens;
 
 import pcgen.core.Globals;
 import pcgen.core.PaperInfo;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 //PAPERINFO
-public class PaperInfoToken extends Token
+public class PaperInfoToken extends AbstractExportToken
 {
-	public static final String TOKENNAME = "PAPERINFO";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "PAPERINFO";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
-	{
-		return getPaperInfoToken(tokenSource);
-	}
-
-	public static String getPaperInfoToken(String tokenSource)
 	{
 		String oString = tokenSource;
 		String sourceText = tokenSource.substring(10);
-
+		
 		int infoType = -1;
-
+		
 		if (sourceText.startsWith("NAME"))
 		{
 			infoType = PaperInfo.NAME;
@@ -77,7 +70,7 @@ public class PaperInfoToken extends Token
 		else if (sourceText.startsWith("MARGIN"))
 		{
 			sourceText = sourceText.substring(6);
-
+		
 			if (sourceText.startsWith("TOP"))
 			{
 				infoType = PaperInfo.TOPMARGIN;
@@ -95,12 +88,12 @@ public class PaperInfoToken extends Token
 				infoType = PaperInfo.RIGHTMARGIN;
 			}
 		}
-
+		
 		if (infoType >= 0)
 		{
 			int offs = sourceText.indexOf('=');
 			String info = Globals.getPaperInfo(infoType);
-
+		
 			if (info == null)
 			{
 				if (offs >= 0)
@@ -113,7 +106,7 @@ public class PaperInfoToken extends Token
 				oString = info;
 			}
 		}
-
+		
 		return oString;
 	}
 }

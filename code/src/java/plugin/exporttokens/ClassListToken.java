@@ -27,36 +27,33 @@ package plugin.exporttokens;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deal with CLASSLIST token
  */
-public class ClassListToken extends Token
+public class ClassListToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "CLASSLIST"; //$NON-NLS-1$
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "CLASSLIST";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getClassListToken(pc);
+		return getClassListToken(display);
 	}
 
 	/**
@@ -64,12 +61,12 @@ public class ClassListToken extends Token
 	 * @param pc
 	 * @return token value
 	 */
-	public static String getClassListToken(PlayerCharacter pc)
+	public static String getClassListToken(CharacterDisplay display)
 	{
 		StringBuilder returnString = new StringBuilder();
 		boolean firstLine = true;
 
-		for (PCClass pcClass : pc.getClassSet())
+		for (PCClass pcClass : display.getClassSet())
 		{
 			if (!firstLine)
 			{
@@ -78,7 +75,7 @@ public class ClassListToken extends Token
 
 			firstLine = false;
 
-			String subClassKey = pc.getSubClassName(pcClass);
+			String subClassKey = display.getSubClassName(pcClass);
 			if (subClassKey == null || Constants.NONE.equals(subClassKey)
 					|| "".equals(subClassKey))
 			{
@@ -90,7 +87,7 @@ public class ClassListToken extends Token
 						subClassKey).getDisplayName());
 			}
 
-			returnString.append(pc.getLevel(pcClass));
+			returnString.append(display.getLevel(pcClass));
 		}
 
 		return returnString.toString();

@@ -27,6 +27,7 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
@@ -45,7 +46,7 @@ public class PreCityTester extends AbstractPrerequisiteTest implements Prerequis
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
-		if (character.getResidence().equalsIgnoreCase(prereq.getKey()))
+		if (character.getSafeStringFor(StringKey.RESIDENCE).equalsIgnoreCase(prereq.getKey()))
 		{
 			return countedTotal(prereq, 1);
 		}

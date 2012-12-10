@@ -25,15 +25,15 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
-import pcgen.core.utils.CoreUtility;
-import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
-
 import java.awt.geom.Point2D;
 import java.text.DecimalFormat;
+
+import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.utils.CoreUtility;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deal with Tokens:
@@ -43,48 +43,45 @@ import java.text.DecimalFormat;
  * FACE.1
  * FACE.2
  */
-public class FaceToken extends Token
+public class FaceToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "FACE";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "FACE";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		String retString = "";
 
 		if ("FACE".equals(tokenSource))
 		{
-			retString = getFaceToken(pc);
+			retString = getFaceToken(display);
 		}
 		else if ("FACE.SHORT".equals(tokenSource))
 		{
-			retString = getShortToken(pc);
+			retString = getShortToken(display);
 		}
 		else if ("FACE.SQUARES".equals(tokenSource))
 		{
-			retString = getSquaresToken(pc);
+			retString = getSquaresToken(display);
 		}
 		else if ("FACE.1".equals(tokenSource))
 		{
-			retString = get1Token(pc);
+			retString = get1Token(display);
 		}
 		else if ("FACE.2".equals(tokenSource))
 		{
-			retString = get2Token(pc);
+			retString = get2Token(display);
 		}
 
 		return retString;
@@ -95,9 +92,9 @@ public class FaceToken extends Token
 	 * @param pc
 	 * @return FACE Token
 	 */
-	public static String getFaceToken(PlayerCharacter pc)
+	public static String getFaceToken(CharacterDisplay display)
 	{
-		Point2D.Double face = pc.getFace();
+		Point2D.Double face = display.getFace();
 		String retString = "";
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
@@ -125,9 +122,9 @@ public class FaceToken extends Token
 	 * @param pc
 	 * @return SHORT sub toke
 	 */
-	public static String getShortToken(PlayerCharacter pc)
+	public static String getShortToken(CharacterDisplay display)
 	{
-		Point2D.Double face = pc.getFace();
+		Point2D.Double face = display.getFace();
 		String retString = "";
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
 		{
@@ -155,9 +152,9 @@ public class FaceToken extends Token
 	 * @param pc
 	 * @return squares sub token
 	 */
-	public static String getSquaresToken(PlayerCharacter pc)
+	public static String getSquaresToken(CharacterDisplay display)
 	{
-		Point2D.Double face = pc.getFace();
+		Point2D.Double face = display.getFace();
 		String retString = "";
 		double squareSize = SettingsHandler.getGame().getSquareSize();
 		if (CoreUtility.doublesEqual(face.getY(), 0.0))
@@ -183,10 +180,10 @@ public class FaceToken extends Token
 	 * @param pc
 	 * @return 1 sub token
 	 */
-	public static String get1Token(PlayerCharacter pc)
+	public static String get1Token(CharacterDisplay display)
 	{
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			pc.getFace().getX());
+			display.getFace().getX());
 	}
 
 	/**
@@ -194,9 +191,9 @@ public class FaceToken extends Token
 	 * @param pc
 	 * @return 2 sub token
 	 */
-	public static String get2Token(PlayerCharacter pc)
+	public static String get2Token(CharacterDisplay display)
 	{
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			pc.getFace().getY());
+			display.getFace().getY());
 	}
 }

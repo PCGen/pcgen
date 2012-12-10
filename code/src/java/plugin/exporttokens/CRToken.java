@@ -27,54 +27,38 @@ package plugin.exporttokens;
 
 import org.apache.commons.lang.math.Fraction;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deal with CR Token
  */
-public class CRToken extends Token
+public class CRToken extends AbstractExportToken
 {
-	/** Token Name */
-	public static final String TOKENNAME = "CR";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "CR";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getCRToken(pc);
-	}
-
-	/**
-	 * Get CR Token
-	 * 
-	 * TODO Much of this code is repeated in CRToken, Race, XMLCombatant and PlayerCharacterOutput
-	 * 
-	 * @param pc The PC we are get the CR for
-	 * @return CR Token
-	 */
-	public static String getCRToken(PlayerCharacter pc)
-	{
 		String retString = "";
-		float cr = pc.calcCR();
-
+		float cr = display.calcCR();
+		
 		String crAsString = Float.toString(cr);
 		String decimalPlaceValue =
 				crAsString.substring(crAsString.length() - 2);
-
+		
 		// If the CR is a fractional CR then we convert to a 1/x format
 		if (cr > 0 && cr < 1)
 		{
@@ -90,7 +74,7 @@ public class CRToken extends Token
 			{
 				newCr = (int) cr;
 			}
-
+		
 			if (newCr > -99)
 			{
 				retString = retString + newCr;

@@ -26,14 +26,14 @@
 package plugin.exporttokens;
 
 import pcgen.cdom.enumeration.BiographyField;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deals with HANDED token
  */
-public class HandedToken extends Token
+public class HandedToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -48,13 +48,13 @@ public class HandedToken extends Token
 	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		String retString = "";
-		if (!pc.getDisplay().getSuppressBioField(BiographyField.HANDED))
+		if (!display.getSuppressBioField(BiographyField.HANDED))
 		{
-			retString = pc.getHandedObject().toString();
+			retString = display.getHandedObject().toString();
 		}
 		return retString;
 	}

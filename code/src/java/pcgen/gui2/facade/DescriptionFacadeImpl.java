@@ -117,9 +117,9 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 
 		birthday = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.BIRTHDAY));
 		location = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.LOCATION));
-		city = new DefaultReferenceFacade<String>(theCharacter.getResidence());
+		city = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.RESIDENCE));
 		region = new DefaultReferenceFacade<String>(theCharacter.getRegionString());
-		birthplace = new DefaultReferenceFacade<String>(theCharacter.getBirthplace());
+		birthplace = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.BIRTHPLACE));
 		personalityTrait1 = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.TRAIT1));
 		personalityTrait2 = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.TRAIT2));
 		phobias = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.PHOBIAS));

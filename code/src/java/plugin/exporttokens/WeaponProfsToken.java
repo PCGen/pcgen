@@ -25,12 +25,11 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
-
 import pcgen.core.WeaponProf;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * <code>WeaponProfsToken</code>.
@@ -38,11 +37,8 @@ import pcgen.core.WeaponProf;
  * @author	binkley
  * @version	$Revision$
  */
-public class WeaponProfsToken extends Token
+public class WeaponProfsToken extends AbstractExportToken
 {
-	/** WeaponProfsToken */
-	public static final String TOKENNAME = "WEAPONPROFS";
-
 	/**
 	 * Gets the token name
 	 *
@@ -52,7 +48,7 @@ public class WeaponProfsToken extends Token
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "WEAPONPROFS";
 	}
 
 	/**
@@ -65,26 +61,15 @@ public class WeaponProfsToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getWeaponProfsToken(pc);
-	}
-
-	/**
-	 * Returns the weapons profs for a player character as a comma delimited string, may be empty.
-	 *
-	 * @param pc The character to retrieve the weapons profs for.
-	 * @return The weapon profs string, may be empty.
-	 */
-	public static String getWeaponProfsToken(PlayerCharacter pc)
-	{
 		StringBuilder sb = new StringBuilder();
-
+		
 		if (SettingsHandler.getWeaponProfPrintout())
 		{
 			boolean first = true;
-			for (final WeaponProf wp : pc.getSortedWeaponProfs())
+			for (final WeaponProf wp : display.getSortedWeaponProfs())
 			{
 				if (first == false)
 				{

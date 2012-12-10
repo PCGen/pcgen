@@ -25,13 +25,13 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
-import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
-import pcgen.util.enumeration.Load;
-
 import java.util.StringTokenizer;
+
+import pcgen.core.Globals;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.util.enumeration.Load;
 
 /**
  * BASEMOVEMENT related stuff
@@ -52,29 +52,26 @@ import java.util.StringTokenizer;
  * Would output 30 for the same human.
  * <p/>
  */
-public class BaseMovementToken extends Token
+public class BaseMovementToken extends AbstractExportToken
 {
-	/** Name of Token */
-	public static final String TOKENNAME = "BASEMOVEMENT";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "BASEMOVEMENT";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		String retString = "";
-		if ((pc.getRace() != null) && !pc.getRace().equals(Globals.s_EMPTYRACE))
+		if ((display.getRace() != null) && !display.getRace().equals(Globals.s_EMPTYRACE))
 		{
 			StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
 			aTok.nextToken(); //clear BASEMOVEMENT Token
@@ -89,9 +86,9 @@ public class BaseMovementToken extends Token
 				try
 				{
 					int movNum = Integer.parseInt(moveType);
-					if (movNum < pc.getNumberOfMovements())
+					if (movNum < display.getNumberOfMovements())
 					{
-						moveType = pc.getMovementValues().get(movNum).getName();
+						moveType = display.getMovementValues().get(movNum).getName();
 					}
 				}
 				catch (NumberFormatException e)
@@ -118,7 +115,7 @@ public class BaseMovementToken extends Token
 			{
 				flag = "TRUE".equalsIgnoreCase(aTok.nextToken());
 			}
-			retString = getBaseMovementToken(pc, moveType, load, flag);
+			retString = getBaseMovementToken(display, moveType, load, flag);
 		}
 		return retString;
 	}
@@ -131,14 +128,14 @@ public class BaseMovementToken extends Token
 	 * @param displayFlag
 	 * @return The base movement token
 	 */
-	public static String getBaseMovementToken(PlayerCharacter pc,
+	public static String getBaseMovementToken(CharacterDisplay display,
 		String moveType, Load load, boolean displayFlag)
 	{
-		if (!pc.hasMovement(moveType))
+		if (!display.hasMovement(moveType))
 		{
 			return "";
 		}
-		int baseMovement = pc.getBaseMovement(moveType, load);
+		int baseMovement = display.getBaseMovement(moveType, load);
 		if (displayFlag)
 		{
 			return moveType

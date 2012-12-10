@@ -32,13 +32,13 @@ import java.util.TreeSet;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.SpellProhibitor;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 //PROHIBITEDLIST
-public class ProhibitedListToken extends Token
+public class ProhibitedListToken extends AbstractExportToken
 {
 	public static final String TOKENNAME = "PROHIBITEDLIST";
 
@@ -55,14 +55,14 @@ public class ProhibitedListToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getProhibitedListToken(tokenSource, pc);
+		return getProhibitedListToken(tokenSource, display);
 	}
 
 	public static String getProhibitedListToken(String tokenSource,
-		PlayerCharacter pc)
+		CharacterDisplay display)
 	{
 		int k = tokenSource.lastIndexOf(',');
 
@@ -77,9 +77,9 @@ public class ProhibitedListToken extends Token
 		}
 
 		Set<String> set = new TreeSet<String>();
-		for (PCClass pcClass : pc.getClassSet())
+		for (PCClass pcClass : display.getClassSet())
 		{
-			if (pc.getLevel(pcClass) > 0)
+			if (display.getLevel(pcClass) > 0)
 			{
 				for (SpellProhibitor sp : pcClass
 					.getSafeListFor(ListKey.PROHIBITED_SPELLS))
@@ -88,7 +88,7 @@ public class ProhibitedListToken extends Token
 				}
 
 				Collection<? extends SpellProhibitor> prohibList =
-					pc.getProhibitedSchools(pcClass);
+						display.getProhibitedSchools(pcClass);
 				if (prohibList != null)
 				{
 					for (SpellProhibitor sp : prohibList)

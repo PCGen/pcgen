@@ -25,16 +25,16 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import java.io.File;
+import java.util.StringTokenizer;
+
 import pcgen.core.SettingsHandler;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
-
-import java.io.File;
-import java.util.StringTokenizer;
 
 /**
  * Handle the DirToken which allows the output of the various paths
@@ -50,25 +50,22 @@ import java.util.StringTokenizer;
  *
  * @version $Revision$
  */
-public class DirToken extends Token
+public class DirToken extends AbstractExportToken
 {
-	/** The Token Name */
-	public static final String TOKENNAME = "DIR";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "DIR";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		String retString = "";

@@ -25,25 +25,22 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Class deals with AC Token
  */
-public class ACToken extends Token
+public class ACToken extends AbstractExportToken
 {
-	/** Name of the Token */
-	public static final String TOKENNAME = "AC";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "AC";
 	}
 
 	/**
@@ -51,21 +48,9 @@ public class ACToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return Integer.toString(getACToken(tokenSource, pc));
-	}
-
-	/**
-	 * Get the AC Token
-	 * 
-	 * @param tokenSource
-	 * @param pc - The PC to get the AC for
-	 * @return AC Token
-	 */
-	public static int getACToken(String tokenSource, PlayerCharacter pc)
-	{
-		return pc.calcACOfType(tokenSource.substring(3));
+		return Integer.toString(display.calcACOfType(tokenSource.substring(3)));
 	}
 }

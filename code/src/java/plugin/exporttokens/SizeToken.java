@@ -25,44 +25,31 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * SIZE token for export
  */
-public class SizeToken extends Token
+public class SizeToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "SIZE";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "SIZE";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getSizeToken(pc);
-	}
-
-	/**
-	 * Get value of SIZE token
-	 * @param pc
-	 * @return value of SIZE token
-	 */
-	public static String getSizeToken(PlayerCharacter pc)
-	{
-		return pc.getSize();
+		return display.getSize();
 	}
 }

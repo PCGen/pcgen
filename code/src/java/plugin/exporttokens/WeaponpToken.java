@@ -72,10 +72,9 @@ public class WeaponpToken extends WeaponToken
 		//Weaponp Token
 		aTok.nextToken();
 
-		Equipment eq = getWeaponEquipment(pc);
-
-		if (eq != null)
+		if (pc.hasPrimaryWeapons())
 		{
+			Equipment eq = pc.getPrimaryWeapons().iterator().next();
 			return getWeaponToken(pc, eq, aTok);
 		}
 		else if (eh != null && eh.getExistsOnly())
@@ -97,10 +96,6 @@ public class WeaponpToken extends WeaponToken
 	 */
 	public static Equipment getWeaponEquipment(PlayerCharacter pc)
 	{
-		if (pc.hasPrimaryWeapons())
-		{
-			return pc.getPrimaryWeapons().iterator().next();
-		}
 		return null;
 	}
 }

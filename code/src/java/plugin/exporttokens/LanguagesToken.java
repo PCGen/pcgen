@@ -25,38 +25,35 @@
  */
 package plugin.exporttokens;
 
-import pcgen.base.lang.StringUtil;
-import pcgen.core.Language;
-import pcgen.core.PlayerCharacter;
-import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.lang.StringUtil;
+import pcgen.core.Language;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbstractExportToken;
+
 /**
  * LANGUAGES.x Token
  */
-public class LanguagesToken extends Token
+public class LanguagesToken extends AbstractExportToken
 {
-	/** Token Name */
-	public static final String TOKENNAME = "LANGUAGES";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "LANGUAGES";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -66,7 +63,7 @@ public class LanguagesToken extends Token
 		int startIndex = 0;
 
 		List<Language> languageList =
-				new ArrayList<Language>(pc.getSortedLanguageSet());
+				new ArrayList<Language>(display.getSortedLanguageSet());
 
 		if (aTok.hasMoreTokens())
 		{

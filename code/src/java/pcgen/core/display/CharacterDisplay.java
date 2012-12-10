@@ -17,34 +17,73 @@
  */
 package pcgen.core.display;
 
+import java.awt.Rectangle;
+import java.awt.geom.Point2D;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.SpellBookFacet;
+import pcgen.cdom.facet.SubClassFacet;
+import pcgen.cdom.facet.analysis.ArmorClassFacet;
+import pcgen.cdom.facet.analysis.ChallengeRatingFacet;
+import pcgen.cdom.facet.analysis.FaceFacet;
+import pcgen.cdom.facet.analysis.FavoredClassFacet;
+import pcgen.cdom.facet.analysis.HasAnyFavoredClassFacet;
+import pcgen.cdom.facet.analysis.InitiativeFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
+import pcgen.cdom.facet.analysis.MovementResultFacet;
 import pcgen.cdom.facet.analysis.RaceTypeFacet;
+import pcgen.cdom.facet.analysis.RacialSubTypesFacet;
 import pcgen.cdom.facet.analysis.VisionFacet;
+import pcgen.cdom.facet.fact.AgeFacet;
+import pcgen.cdom.facet.fact.CharacterTypeFacet;
 import pcgen.cdom.facet.fact.FactFacet;
+import pcgen.cdom.facet.fact.FollowerFacet;
+import pcgen.cdom.facet.fact.GenderFacet;
+import pcgen.cdom.facet.fact.HandedFacet;
+import pcgen.cdom.facet.fact.MoneyFacet;
+import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
+import pcgen.cdom.facet.input.ProhibitedSchoolFacet;
+import pcgen.cdom.facet.model.ClassFacet;
+import pcgen.cdom.facet.model.LanguageFacet;
+import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.cdom.facet.model.WeaponProfFacet;
+import pcgen.core.Language;
+import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
+import pcgen.core.Race;
+import pcgen.core.SpellProhibitor;
 import pcgen.core.Vision;
+import pcgen.core.WeaponProf;
+import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
+import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
 
 public class CharacterDisplay
@@ -61,6 +100,29 @@ public class CharacterDisplay
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 	private FormulaResolvingFacet formulaResolvingFacet = FacetLibrary.getFacet(FormulaResolvingFacet.class);
+	private ArmorClassFacet armorClassFacet = FacetLibrary.getFacet(ArmorClassFacet.class);
+	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
+	private MovementResultFacet moveResultFacet = FacetLibrary.getFacet(MovementResultFacet.class);
+	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+	private CharacterTypeFacet characterTypeFacet = FacetLibrary.getFacet(CharacterTypeFacet.class);
+	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
+	private SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
+	private FavoredClassFacet favClassFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
+	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
+	private FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
+	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
+	private MoneyFacet moneyFacet = FacetLibrary.getFacet(MoneyFacet.class);
+	private ChallengeRatingFacet crFacet = FacetLibrary.getFacet(ChallengeRatingFacet.class);
+	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
+	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
+	private SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
+	private WeaponProfFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
+	private FaceFacet faceFacet = FacetLibrary.getFacet(FaceFacet.class);
+	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
+	private InitiativeFacet initiativeFacet = FacetLibrary.getFacet(InitiativeFacet.class);
+	private HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
+	private PortraitThumbnailRectFacet portraitThumbnailRectFacet = FacetLibrary
+			.getFacet(PortraitThumbnailRectFacet.class);
 
 	public CharacterDisplay(CharID id)
 	{
@@ -414,4 +476,174 @@ public class CharacterDisplay
 		return spellBookFacet.getBookNamed(id, name);
 	}
 
+	public int calcACOfType(String type)
+	{
+		return armorClassFacet.calcACOfType(id, type);
+	}
+
+	public int getAge()
+	{
+		return ageFacet.getAge(id);
+	}
+
+	public String getBirthplace()
+	{
+		return getSafeStringFor(StringKey.BIRTHPLACE);
+	}
+
+	public int getBaseMovement(String moveType, Load load)
+	{
+		return moveResultFacet.getBaseMovement(id, moveType, load);
+	}
+
+	public boolean hasMovement(String moveType)
+	{
+		return moveResultFacet.hasMovement(id, moveType);
+	}
+
+	public List<NamedValue> getMovementValues()
+	{
+		return moveResultFacet.getMovementValues(id);
+	}
+
+	public int getNumberOfMovements()
+	{
+		return moveResultFacet.countMovementTypes(id);
+	}
+
+	public Race getRace()
+	{
+		return raceFacet.get(id);
+	}
+
+	public String getCharacterType()
+	{
+		return characterTypeFacet.getCharacterType(id);
+	}
+
+	/**
+	 * Gets the Set of PCClass objects for this Character.
+	 * @return a set of PCClass objects
+	 */
+	public Set<PCClass> getClassSet()
+	{
+		return classFacet.getClassSet(id);
+	}
+
+	public String getSubClassName(PCClass cl)
+	{
+		return subClassFacet.getSource(id, cl);
+	}
+
+	public final int getLevel(PCClass pcc)
+	{
+		return classFacet.getLevel(id, pcc);
+	}
+
+	public SortedSet<PCClass> getFavoredClasses()
+	{
+		SortedSet<PCClass> favored = new TreeSet<PCClass>(CDOMObjectUtilities.CDOM_SORTER);
+		favored.addAll(favClassFacet.getSet(id));
+		return favored;
+	}
+
+	public boolean hasAnyFavoredClass()
+	{
+		return hasAnyFavoredFacet.contains(id, Boolean.TRUE);
+	}
+
+	public Collection<Follower> getFollowerList()
+	{
+		return followerFacet.getSet(id);
+	}
+
+	public Gender getGenderObject()
+	{
+		return genderFacet.getGender(id);
+	}
+
+	public BigDecimal getGold()
+	{
+		return moneyFacet.getGold(id);
+	}
+
+	/**
+	 * Get a sorted list of the languages that this character knows.
+	 * @return a sorted list of language objects
+	 */
+	public Set<Language> getSortedLanguageSet()
+	{
+		return new TreeSet<Language>(languageFacet.getSet(id));
+	}
+
+	public int initiativeMod()
+	{
+		return initiativeFacet.getInitiative(id);
+	}
+
+	public Handed getHandedObject()
+	{
+		return handedFacet.getHanded(id);
+	}
+
+	public Point2D.Double getFace()
+	{
+		return faceFacet.getFace(id);
+	}
+
+	public SortedSet<WeaponProf> getSortedWeaponProfs()
+	{
+		return Collections.unmodifiableSortedSet(new TreeSet<WeaponProf>(weaponProfFacet.getProfs(id)));
+	}
+
+	public String getSize()
+	{
+		return sizeFacet.getSizeAbb(id);
+	}
+
+	public String getResidence()
+	{
+		return getSafeStringFor(StringKey.RESIDENCE);
+	}
+
+	public Collection<RaceSubType> getRacialSubTypes()
+	{
+		return subTypesFacet.getRacialSubTypes(id);
+	}
+
+	public Collection<? extends SpellProhibitor> getProhibitedSchools(Object source)
+	{
+		return prohibitedSchoolFacet.getSet(id, source);
+	}
+
+	public String getPortraitPath()
+	{
+		return getSafeStringFor(StringKey.PORTRAIT_PATH);
+	}
+
+	public Rectangle getPortraitThumbnailRect()
+	{
+		Rectangle rect = portraitThumbnailRectFacet.get(id);
+		return rect == null ? null : (Rectangle) rect.clone();
+	}
+
+	public String getName()
+	{
+		return getSafeStringFor(StringKey.NAME);
+	}
+
+	public String getFileName()
+	{
+		return getSafeStringFor(StringKey.FILE_NAME);
+	}
+
+	public String getPlayersName()
+	{
+		return getSafeStringFor(StringKey.PLAYERS_NAME);
+	}
+
+	public float calcCR()
+	{
+		return crFacet.getCR(id);
+	}
 }

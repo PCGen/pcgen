@@ -1847,7 +1847,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendResidenceLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CITY).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getResidence()));
+		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.RESIDENCE)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -2424,7 +2424,7 @@ final class PCGVer2Creator implements IOConstants
 
 			int j = 0;
 
-			for (WeaponProf wp : thePC.getSortedWeaponProfs())
+			for (WeaponProf wp : thePC.getDisplay().getSortedWeaponProfs())
 			{
 				weaponProficiencies[j++] = wp.getKeyName();
 			}

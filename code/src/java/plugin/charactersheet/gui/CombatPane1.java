@@ -1073,8 +1073,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		spellFailure.setText(SpellFailureToken.getSpellFailureToken(
 			SPELLFAILURE_TOKEN, pc)
 			+ PERCENT);
-		armorCheck.setText(Delta.toString(ACCheckToken.getACCheckToken(
-			ACCHECK_TOKEN, pc)));
+		armorCheck.setText(Delta.toString(pc.modToFromEquipment(ACCHECK_TOKEN)));
 		//Max Dex
 		spellResist.setText(Integer.toString(SRToken.getSRToken(pc)));
 		updatePane();

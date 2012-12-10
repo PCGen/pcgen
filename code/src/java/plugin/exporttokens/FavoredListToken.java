@@ -26,9 +26,9 @@
 package plugin.exporttokens;
 
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Handle the FAVOREDLIST token which produces a list of a character's
@@ -39,28 +39,25 @@ import pcgen.io.exporttoken.Token;
  *
  * @version $Revision$
  */
-public class FavoredListToken extends Token
+public class FavoredListToken extends AbstractExportToken
 {
-	/** The token processed by this class. */
-	public static final String TOKENNAME = "FAVOREDLIST";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "FAVOREDLIST";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getFavoredListToken(pc);
+		return getFavoredListToken(display);
 	}
 
 	/**
@@ -68,15 +65,15 @@ public class FavoredListToken extends Token
 	 * @param pc The character to be queried.
 	 * @return The text comma seperated list of favored classes.
 	 */
-	public static String getFavoredListToken(PlayerCharacter pc)
+	public static String getFavoredListToken(CharacterDisplay display)
 	{
-		if (pc.hasAnyFavoredClass())
+		if (display.hasAnyFavoredClass())
 		{
 			return "Any";
 		}
 		StringBuilder sb = new StringBuilder();
 		boolean first = true;
-		for (PCClass pcc : pc.getFavoredClasses())
+		for (PCClass pcc : display.getFavoredClasses())
 		{
 			if (!first)
 			{

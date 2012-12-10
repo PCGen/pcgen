@@ -2341,11 +2341,12 @@ public final class ExportHandler
 		// Filter out RESIDENCE
 		if ("RESIDENCE".equals(aString.substring(1)))
 		{
-			if (aPC.getResidence().equals(Constants.NONE))
+			String residence = aPC.getSafeStringFor(StringKey.RESIDENCE);
+			if (residence.equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
-			else if ((aPC.getResidence()).trim().length() == 0)
+			else if (residence.trim().length() == 0)
 			{
 				canWrite = false;
 			}

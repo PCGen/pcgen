@@ -25,26 +25,23 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 import pcgen.util.Delta;
 
 /**
  * Deal with the INITIATIVEMOD
  */
-public class InitiativeModToken extends Token
+public class InitiativeModToken extends AbstractExportToken
 {
-	/** Token Name */
-	public static final String TOKENNAME = "INITIATIVEMOD";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "INITIATIVEMOD";
 	}
 
 	//TODO: Merge InitiativeBonusToken, InitiativeMiscToken and InitiativeModToken
@@ -53,10 +50,10 @@ public class InitiativeModToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return Delta.toString(getInitiativeModToken(pc));
+		return Delta.toString(getInitiativeModToken(display));
 	}
 
 	/**
@@ -64,8 +61,8 @@ public class InitiativeModToken extends Token
 	 * @param pc
 	 * @return the token
 	 */
-	public static int getInitiativeModToken(PlayerCharacter pc)
+	public static int getInitiativeModToken(CharacterDisplay display)
 	{
-		return pc.initiativeMod();
+		return display.initiativeMod();
 	}
 }
