@@ -3,16 +3,6 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
-#COMMENT: Added a method to increase Familiar HP, as per The Practical Enchanter and other custom sources allows.
-
-FOLLOWER:RiderBattleDanceBonus=1			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_1
-FOLLOWER:RiderBattleDanceBonus=2			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_2
-FOLLOWER:RiderBattleDanceBonus=3			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_3
-FOLLOWER:RiderBattleDanceBonus=4			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_4
-FOLLOWER:RiderBattleDanceBonus=5			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_5
-FOLLOWER:RiderBattleDanceBonus=6			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_6
-FOLLOWER:RiderBattleDanceBonus=7			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_7
-FOLLOWER:RiderBattleDanceBonus=8			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_8
 
 
 ###Block: Familiar Progression
@@ -109,7 +99,6 @@ FOLLOWER:MysticCompanionLvl=18	TYPE:Mystic Companion	HD:1																							
 FOLLOWER:MysticCompanionLvl=19	TYPE:Mystic Companion																																																																																			BONUS:VAR|CompanionCPLvl|3
 FOLLOWER:MysticCompanionLvl=20	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
 
-
 ###Block: Animal Progression
 # Class of the Master		Type				Hit Dice	Ability																				Define			Save checks bonus																Combat bonus													Stat bonus							Modify VAR								Main Race Type
 FOLLOWER:CompanionLvl=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Animal Tricks and Training|Bonus Tricks	DEFINE:CompanionCPLvl|0																																										BONUS:VAR|CompanionCPLvl|3					RACETYPE:Magical Beast
@@ -140,9 +129,22 @@ FOLLOWER:OtherCompanionLvl=1	TYPE:Other Companion							ABILITY:Special Ability|
 FOLLOWER:OtherCompanionLvl=2	TYPE:Other Companion																												DEFINE:OtherCompanionLvl|0								BONUS:VAR|CompanionCPLvl|2*var("OtherCompanionLvl")
 
 # Implement a Method to grant additional HD
-FOLLOWER:ExtraHD=1		TYPE:Familiar.Special Mount.Animal Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 1],[PREVARGTEQ:CompanionExtraHD,1]
-FOLLOWER:ExtraHD=2		TYPE:Familiar.Special Mount.Animal Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 2],[PREVARGTEQ:CompanionExtraHD,2]
-FOLLOWER:ExtraHD=3		TYPE:Familiar.Special Mount.Animal Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 3],[PREVARGTEQ:CompanionExtraHD,3]
-FOLLOWER:ExtraHD=4		TYPE:Familiar.Special Mount.Animal Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 4],[PREVARGTEQ:CompanionExtraHD,4]
+FOLLOWER:ExtraHD=1		TYPE:Familiar.Special Mount.Animal Companion.Mystic Companion.Other Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 1],[PREVARGTEQ:CompanionExtraHD,1]
+FOLLOWER:ExtraHD=2		TYPE:Familiar.Special Mount.Animal Companion.Mystic Companion.Other Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 2],[PREVARGTEQ:CompanionExtraHD,2]
+FOLLOWER:ExtraHD=3		TYPE:Familiar.Special Mount.Animal Companion.Mystic Companion.Other Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 3],[PREVARGTEQ:CompanionExtraHD,3]
+FOLLOWER:ExtraHD=4		TYPE:Familiar.Special Mount.Animal Companion.Mystic Companion.Other Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 4],[PREVARGTEQ:CompanionExtraHD,4]
+
+
+#COMMENT: Added a method to increase Familiar HP, as per The Practical Enchanter and other custom sources allows.
+
+FOLLOWER:RiderBattleDanceBonus=1	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_1|PREVARGTEQ:AllowMysticBonus,1
+FOLLOWER:RiderBattleDanceBonus=2	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_2|PREVARGTEQ:AllowMysticBonus,1
+FOLLOWER:RiderBattleDanceBonus=3	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_3|PREVARGTEQ:AllowMysticBonus,1
+FOLLOWER:RiderBattleDanceBonus=4	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_4|PREVARGTEQ:AllowMysticBonus,1
+FOLLOWER:RiderBattleDanceBonus=5	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_5|PREVARGTEQ:AllowMysticBonus,1
+FOLLOWER:RiderBattleDanceBonus=6	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_6|PREVARGTEQ:AllowMysticBonus,1
+FOLLOWER:RiderBattleDanceBonus=7	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_7|PREVARGTEQ:AllowMysticBonus,1
+FOLLOWER:RiderBattleDanceBonus=8	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_8|PREVARGTEQ:AllowMysticBonus,1
+
 
 ###EOF

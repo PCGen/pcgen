@@ -68,7 +68,7 @@ Low Level Adventure Template
 
 # This needs to be taken so the TEMP BONUS may be used. Increases Size and all associated bonuses.
 02 Companion Bonus ~ Great Form																																					BONUS:COMBAT|AC|4|TYPE=NaturalArmorEnhancement|PREAPPLY:PC	BONUS:COMBAT|AC|-1|TYPE=Size|PREAPPLY:PC	BONUS:COMBAT|TOHIT|-1|TYPE=Size|PREAPPLY:PC	BONUS:SIZEMOD|NUMBER|1|PREAPPLY:PC								BONUS:STAT|STR|8|TYPE=Size|PREAPPLY:PC	BONUS:STAT|CON|4|TYPE=Size|PREAPPLY:PC							ABILITY:Character Points|VIRTUAL|Companion ~ Great Form
-02 Rider Bonus ~ Battle Dance																				BONUS:ABILITYPOOL|Battle Dance Wis BONUS|1
+02 Rider Bonus ~ Battle Dance																					DEFINE:AllowMysticBonus|1
 02 Rider Bonus ~ Might												TEMPLATE:The Faithful Steed
 02 Rider Bonus ~ Spirited x1																				BONUS:ABILITYPOOL|Spirited Selection|1
 02 Rider Bonus ~ Spirited x2																				BONUS:ABILITYPOOL|Spirited Selection|1
