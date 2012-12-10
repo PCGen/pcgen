@@ -3,9 +3,9 @@ CAMPAIGN:MDS - Dark Inheritance - Campaign Setting
 RANK:5
 GAMEMODE:Modern
 BOOKTYPE:Campaign Setting
-STATUS:BETA
+STATUS:RELEASE
 TYPE:Mythic Dreams Studios.Dark Inheritance
-PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:4,MSRD - Basics,MSRD - Menaces,MSRD - Future,MSRD - Arcana
 SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting
 SOURCESHORT:Dark Inheritance
 SOURCEWEB:http://www.mythicdreams.com
