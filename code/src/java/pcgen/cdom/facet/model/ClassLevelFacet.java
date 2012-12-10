@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2010.
+ * Copyright (c) Thomas Parker, 2009.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -15,31 +15,17 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet.input;
+package pcgen.cdom.facet.model;
 
 import pcgen.cdom.facet.AbstractSourcedListFacet;
-import pcgen.cdom.facet.model.WeaponProfFacet;
-import pcgen.core.WeaponProf;
+import pcgen.cdom.inst.PCClassLevel;
 
 /**
- * AutoListWeaponProfFacet is a Facet that tracks the WeaponProfs that have been
- * granted to a Player Character via AUTO:WEAPONPROF
+ * ClassLevelFacet is a Facet that that tracks the PCClassLevel objects that
+ * have been granted to a Player Character.
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class AutoListWeaponProfFacet extends
-		AbstractSourcedListFacet<WeaponProf>
+public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
 {
-	private WeaponProfFacet weaponProfFacet;
-
-	public void setWeaponProfFacet(WeaponProfFacet weaponProfFacet)
-	{
-		this.weaponProfFacet = weaponProfFacet;
-	}
-
-	public void init()
-	{
-		addDataFacetChangeListener(weaponProfFacet);
-	}
-
 }

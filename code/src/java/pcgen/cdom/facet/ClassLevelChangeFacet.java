@@ -22,20 +22,21 @@ import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeEvent;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
+import pcgen.cdom.facet.model.ClassLevelFacet;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 
 /**
- * ClassLevelFacet is a Facet that that tracks the PCClassLevel objects that
- * have been granted to a Player Character.
+ * ClassLevelChangeFacet is a Facet that that tracks the changes to PCClassLevel
+ * objects that have been granted to a Player Character.
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
-		implements ClassLevelChangeListener
+public class ClassLevelChangeFacet implements ClassLevelChangeListener
 {
 
 	private ClassFacet classFacet;
+	private ClassLevelFacet classLevelFacet;
 
 	/**
 	 * Performs the processing to identify the newly activated class levels
@@ -59,7 +60,7 @@ public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
 			PCClassLevel classLevel = classFacet.getClassLevel(id, pcc, i);
 			if (classLevel != null)
 			{
-				add(id, classLevel, pcc);
+				classLevelFacet.add(id, classLevel, pcc);
 			}
 		}
 		for (int i = old; i > level; i--)
@@ -67,7 +68,7 @@ public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
 			PCClassLevel classLevel = classFacet.getClassLevel(id, pcc, i);
 			if (classLevel != null)
 			{
-				remove(id, classLevel, pcc);
+				classLevelFacet.remove(id, classLevel, pcc);
 			}
 		}
 	}
@@ -84,8 +85,8 @@ public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
 	@Override
 	public void levelChanged(ClassLevelChangeEvent lce)
 	{
-		update(lce.getCharID(), lce.getPCClass(), lce.getOldLevel(), lce
-				.getNewLevel());
+		update(lce.getCharID(), lce.getPCClass(), lce.getOldLevel(),
+			lce.getNewLevel());
 	}
 
 	/**
@@ -109,12 +110,12 @@ public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
 			 */
 			CharID id = lce.getCharID();
 			PCClass pcc = lce.getPCClass();
-			if (remove(id, old, pcc))
+			if (classLevelFacet.remove(id, old, pcc))
 			{
 				/*
 				 * Only add the new item if we had the old one "in" the PC
 				 */
-				add(id, lce.getNewLevel(), pcc);
+				classLevelFacet.add(id, lce.getNewLevel(), pcc);
 			}
 		}
 	}
@@ -122,6 +123,11 @@ public class ClassLevelFacet extends AbstractSourcedListFacet<PCClassLevel>
 	public void setClassFacet(ClassFacet classFacet)
 	{
 		this.classFacet = classFacet;
+	}
+
+	public void setClassLevelFacet(ClassLevelFacet classLevelFacet)
+	{
+		this.classLevelFacet = classLevelFacet;
 	}
 
 }

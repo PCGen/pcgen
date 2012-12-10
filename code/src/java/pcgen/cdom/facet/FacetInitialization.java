@@ -23,15 +23,13 @@ import pcgen.cdom.facet.input.AddLanguageFacet;
 import pcgen.cdom.facet.input.AutoLanguageListFacet;
 import pcgen.cdom.facet.input.AutoListArmorProfFacet;
 import pcgen.cdom.facet.input.AutoListShieldProfFacet;
-import pcgen.cdom.facet.input.AutoListWeaponProfFacet;
-import pcgen.cdom.facet.input.BonusWeaponProfFacet;
-import pcgen.cdom.facet.input.CampaignFacet;
 import pcgen.cdom.facet.input.FreeLanguageFacet;
 import pcgen.cdom.facet.input.SkillLanguageFacet;
 import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;
+import pcgen.cdom.facet.model.ClassLevelFacet;
 import pcgen.cdom.facet.model.CompanionModFacet;
 import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
@@ -52,7 +50,7 @@ public class FacetInitialization {
 		RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 		ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
 		ClassLevelFacet classLevelFacet = FacetLibrary.getFacet(ClassLevelFacet.class);
-		CampaignFacet campaignFacet = FacetLibrary.getFacet(CampaignFacet.class);
+		ClassLevelChangeFacet classLevelChangeFacet = FacetLibrary.getFacet(ClassLevelChangeFacet.class);
 		ExpandedCampaignFacet expandedCampaignFacet = FacetLibrary.getFacet(ExpandedCampaignFacet.class);
 		EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
 		EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
@@ -88,8 +86,6 @@ public class FacetInitialization {
 		ArmorProfProviderFacet appFacet = FacetLibrary.getFacet(ArmorProfProviderFacet.class);
 
 		NaturalWeaponProfFacet nwpFacet = FacetLibrary.getFacet(NaturalWeaponProfFacet.class);
-		AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
-		BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
 		UserEquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
 		NaturalWeaponFacet naturalWeaponFacet = FacetLibrary.getFacet(NaturalWeaponFacet.class);
 		EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);
@@ -113,11 +109,7 @@ public class FacetInitialization {
 		naturalEquipmentFacet.addDataFacetChangeListener(activeEquipmentFacet);
 		activeEquipmentFacet.addDataFacetChangeListener(activeEqModFacet);
 
-		campaignFacet.addDataFacetChangeListener(expandedCampaignFacet);
-
-		wpBonusFacet.addDataFacetChangeListener(weaponProfFacet);
 		nwpFacet.addDataFacetChangeListener(weaponProfFacet);
-		alWeaponProfFacet.addDataFacetChangeListener(weaponProfFacet);
 
 		domainFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
 		raceFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
@@ -131,7 +123,7 @@ public class FacetInitialization {
 		naturalWeaponFacet.addDataFacetChangeListener(userEquipmentFacet);
 		naturalWeaponFacet.addDataFacetChangeListener(equipSetFacet);
 
-		classFacet.addLevelChangeListener(classLevelFacet);
+		classFacet.addLevelChangeListener(classLevelChangeFacet);
 		classFacet.addLevelChangeListener(levelFacet);
 		levelFacet.addLevelChangeListener(conditionalTemplateFacet);
 		levelFacet.addLevelChangeListener(sizeFacet);
@@ -145,25 +137,25 @@ public class FacetInitialization {
 		templateFacet.addDataFacetChangeListener(sizeFacet);
 		bonusChangeFacet.addBonusChangeListener(sizeFacet, "SIZEMOD", "NUMBER");
 
-		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet);
-		alignmentFacet.addDataFacetChangeListener(charObjectFacet);
-		bioSetFacet.addDataFacetChangeListener(charObjectFacet);
-		checkFacet.addDataFacetChangeListener(charObjectFacet);
-		classFacet.addDataFacetChangeListener(charObjectFacet);
-		deityFacet.addDataFacetChangeListener(charObjectFacet);
-		domainFacet.addDataFacetChangeListener(charObjectFacet);
+		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet);//model done
+		alignmentFacet.addDataFacetChangeListener(charObjectFacet); //model done
+		bioSetFacet.addDataFacetChangeListener(charObjectFacet); //model done
+		checkFacet.addDataFacetChangeListener(charObjectFacet); //model done
+		classFacet.addDataFacetChangeListener(charObjectFacet); //model done
+		deityFacet.addDataFacetChangeListener(charObjectFacet); //model done
+		domainFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		abFacet.addDataFacetChangeListener(charObjectFacet);
-		raceFacet.addDataFacetChangeListener(charObjectFacet);
+		raceFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		sizeFacet.addDataFacetChangeListener(charObjectFacet);
-		skillFacet.addDataFacetChangeListener(charObjectFacet);
-		statFacet.addDataFacetChangeListener(charObjectFacet);
-		templateFacet.addDataFacetChangeListener(charObjectFacet);
+		skillFacet.addDataFacetChangeListener(charObjectFacet); //model done
+		statFacet.addDataFacetChangeListener(charObjectFacet); //model done
+		templateFacet.addDataFacetChangeListener(charObjectFacet); //model done
 
 		// weaponProfList is still just a list of Strings
 		// results.addAll(getWeaponProfList());
 		classLevelFacet.addDataFacetChangeListener(charObjectFacet);
 		grantedAbilityFacet.addDataFacetChangeListener(charObjectFacet);
-		companionModFacet.addDataFacetChangeListener(charObjectFacet);
+		companionModFacet.addDataFacetChangeListener(charObjectFacet); //model done
 
 		activeEquipmentFacet.addDataFacetChangeListener(eqObjectFacet);
 		activeEqModFacet.addDataFacetChangeListener(eqObjectFacet);

@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.input;
 
 import pcgen.cdom.facet.AbstractListFacet;
+import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.core.Campaign;
 
 /**
@@ -30,4 +31,16 @@ import pcgen.core.Campaign;
  */
 public class CampaignFacet extends AbstractListFacet<Campaign>
 {
+	private ExpandedCampaignFacet expandedCampaignFacet;
+
+	public void setExpandedCampaignFacet(
+		ExpandedCampaignFacet expandedCampaignFacet)
+	{
+		this.expandedCampaignFacet = expandedCampaignFacet;
+	}
+
+	public void init()
+	{
+		addDataFacetChangeListener(expandedCampaignFacet);
+	}
 }

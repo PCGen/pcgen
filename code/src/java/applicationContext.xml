@@ -64,7 +64,9 @@
 	<bean id="autoLanguageListFacet" class="pcgen.cdom.facet.input.AutoLanguageListFacet" />
 	<bean id="autoListArmorProfFacet" class="pcgen.cdom.facet.input.AutoListArmorProfFacet" />
 	<bean id="autoListShieldProfFacet" class="pcgen.cdom.facet.input.AutoListShieldProfFacet" />
-	<bean id="autoListWeaponProfFacet" class="pcgen.cdom.facet.input.AutoListWeaponProfFacet" />
+	<bean id="autoListWeaponProfFacet" class="pcgen.cdom.facet.input.AutoListWeaponProfFacet">
+		<property name="weaponProfFacet" ref="weaponProfFacet"/>
+	</bean>
 	<bean id="autoWeaponProfFacet" class="pcgen.cdom.facet.AutoWeaponProfFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
@@ -86,14 +88,18 @@
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 	</bean>
 	<bean id="bonusCheckingFacet" class="pcgen.cdom.facet.BonusCheckingFacet" />
-	<bean id="bonusWeaponProfFacet" class="pcgen.cdom.facet.input.BonusWeaponProfFacet" />
+	<bean id="bonusWeaponProfFacet" class="pcgen.cdom.facet.input.BonusWeaponProfFacet">
+		<property name="weaponProfFacet" ref="weaponProfFacet"/>
+	</bean>
 	<!-- C -->
 	<bean id="calcBonusFacet" class="pcgen.cdom.facet.CalcBonusFacet">
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="deityFacet" ref="deityFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
-	<bean id="campaignFacet" class="pcgen.cdom.facet.input.CampaignFacet" />
+	<bean id="campaignFacet" class="pcgen.cdom.facet.input.CampaignFacet">
+		<property name="expandedCampaignFacet" ref="expandedCampaignFacet"/>
+	</bean>
 	<bean id="categorizedAbilityFacet" class="pcgen.cdom.facet.CategorizedAbilityFacet" />
 	<bean id="bridgeFacet" class="pcgen.cdom.facet.CDOMObjectBridge"/>
 	<bean id="consolidationFacet" class="pcgen.cdom.facet.CDOMObjectConsolidationFacet">
@@ -126,8 +132,10 @@
 	</bean>
 	<bean id="chooseDriverFacet" class="pcgen.cdom.facet.ChooseDriverFacet"/>
 	<bean id="classFacet" class="pcgen.cdom.facet.model.ClassFacet" />
-	<bean id="classLevelFacet" class="pcgen.cdom.facet.ClassLevelFacet">
+	<bean id="classLevelFacet" class="pcgen.cdom.facet.model.ClassLevelFacet" />
+	<bean id="classLevelChangeFacet" class="pcgen.cdom.facet.ClassLevelChangeFacet">
 		<property name="classFacet" ref="classFacet"/>
+		<property name="classLevelFacet" ref="classLevelFacet"/>
 	</bean>
 	<bean id="chronicleEntryFacet" class="pcgen.cdom.facet.fact.ChronicleEntryFacet" />
 	<bean id="classSpellListFacet" class="pcgen.cdom.facet.ClassSpellListFacet">
