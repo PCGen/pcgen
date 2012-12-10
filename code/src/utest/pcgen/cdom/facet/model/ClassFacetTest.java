@@ -964,4 +964,39 @@ public class ClassFacetTest extends TestCase
 //		assertEventCount(2, 1, 0);
 	}
 
+	@Test
+	public void testPCClassReplaceWithExtra()
+	{
+		PCClass t1 = new PCClass();
+		t1.setName("Base");
+		facet.addClass(id, t1);
+		assertEquals(1, facet.getCount(id));
+		assertFalse(facet.isEmpty(id));
+		Set<PCClass> setofone = facet.getClassSet(id);
+		assertNotNull(setofone);
+		assertEquals(1, setofone.size());
+		assertEquals(t1, setofone.iterator().next());
+		assertEventCount(1, 0, 0);
+		facet.setLevel(id, t1, 2);
+		assertEquals(2, facet.getLevel(id, t1));
+		PCClass t2 = new PCClass();
+		t2.setName("Innocent");
+		facet.addClass(id, t2);
+		PCClass t3 = new PCClass();
+		t3.setName("Other");
+		facet.replaceClass(id, t1, t3);
+		assertEquals(2, facet.getCount(id));
+		assertFalse(facet.isEmpty(id));
+		Set<PCClass> setoftwo = facet.getClassSet(id);
+		assertNotNull(setoftwo);
+		assertEquals(2, setoftwo.size());
+		assertTrue(setoftwo.contains(t2));
+		assertTrue(setoftwo.contains(t3));
+		//TODO This test needs some help, as 
+//		assertEquals(0, facet.getLevel(id, t1));
+//		assertEquals(2, facet.getLevel(id, t2));
+//		//TODO figure out what this is??
+//		assertEventCount(2, 1, 0);
+	}
+
 }
