@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
 import java.util.List;
 
@@ -26,12 +26,14 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeEvent;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeListener;
+import pcgen.cdom.facet.BonusCheckingFacet;
+import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeEvent;
 import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeListener;
 import pcgen.cdom.facet.base.AbstractDataFacet;
-import pcgen.cdom.facet.model.RaceFacet;
-import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;

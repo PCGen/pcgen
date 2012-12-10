@@ -15,7 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -30,8 +30,11 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.BonusCheckingFacet;
+import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;

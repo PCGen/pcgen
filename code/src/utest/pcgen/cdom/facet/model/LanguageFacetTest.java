@@ -15,20 +15,28 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
+import pcgen.cdom.facet.AutoLanguageFacet;
+import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
-import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
-import pcgen.core.EquipmentModifier;
+import pcgen.cdom.facet.model.LanguageFacet;
+import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
+import pcgen.core.Language;
 
-public class ActiveEqModFacetTest extends
-		AbstractSourcedListFacetTest<EquipmentModifier>
-{
+public class LanguageFacetTest extends AbstractConsolidatingFacetTest<Language> {
 
-	private ActiveEqModFacet facet = new ActiveEqModFacet();
+	private LanguageFacet facet = new LanguageFacet();
 
 	@Override
-	protected AbstractSourcedListFacet<EquipmentModifier> getFacet()
+	public void setUp() throws Exception
+	{
+		super.setUp();
+		facet.setAutoLanguageFacet(new AutoLanguageFacet());
+	}
+
+	@Override
+	protected AbstractSourcedListFacet<Language> getFacet()
 	{
 		return facet;
 	}
@@ -36,11 +44,16 @@ public class ActiveEqModFacetTest extends
 	public static int n = 0;
 
 	@Override
-	protected EquipmentModifier getObject()
+	protected Language getObject()
 	{
-		EquipmentModifier wp = new EquipmentModifier();
+		Language wp = new Language();
 		wp.setName("WP" + n++);
 		return wp;
 	}
 
+	@Override
+	protected DataFacetChangeListener<Language> getListener()
+	{
+		return facet;
+	}
 }

@@ -8,7 +8,7 @@
 	<!--  Facet Definitions -->
 	<!-- A -->
 	<bean id="activeAbilityFacet" class="pcgen.cdom.facet.input.ActiveAbilityFacet" />
-	<bean id="activeEqModFacet" class="pcgen.cdom.facet.ActiveEqModFacet" />
+	<bean id="activeEqModFacet" class="pcgen.cdom.facet.model.ActiveEqModFacet" />
 	<bean id="activeSpellsFacet" class="pcgen.cdom.facet.ActiveSpellsFacet">
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="deityFacet" ref="deityFacet"/>
@@ -26,7 +26,9 @@
 		<property name="deityFacet" ref="deityFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
-	<bean id="addLanguageFacet" class="pcgen.cdom.facet.input.AddLanguageFacet"/>
+	<bean id="addLanguageFacet" class="pcgen.cdom.facet.input.AddLanguageFacet">
+		<property name="languageFacet" ref="languageFacet"/>
+	</bean>
 	<bean id="addLevelFacet" class="pcgen.cdom.facet.AddLevelFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
@@ -55,15 +57,21 @@
 		<property name="armorProfProviderFacet" ref="armorProfProviderFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
-	<bean id="armorProfProviderFacet" class="pcgen.cdom.facet.ArmorProfProviderFacet" />
+	<bean id="armorProfProviderFacet" class="pcgen.cdom.facet.model.ArmorProfProviderFacet" />
 	<bean id="autoEquipmentFacet" class="pcgen.cdom.facet.AutoEquipmentFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="autoEquipmentListFacet" class="pcgen.cdom.facet.input.AutoEquipmentListFacet" />
 	<bean id="autoLanguageFacet" class="pcgen.cdom.facet.AutoLanguageFacet" />
-	<bean id="autoLanguageListFacet" class="pcgen.cdom.facet.input.AutoLanguageListFacet" />
-	<bean id="autoListArmorProfFacet" class="pcgen.cdom.facet.input.AutoListArmorProfFacet" />
-	<bean id="autoListShieldProfFacet" class="pcgen.cdom.facet.input.AutoListShieldProfFacet" />
+	<bean id="autoLanguageListFacet" class="pcgen.cdom.facet.input.AutoLanguageListFacet">
+		<property name="languageFacet" ref="languageFacet"/>
+	</bean>
+	<bean id="autoListArmorProfFacet" class="pcgen.cdom.facet.input.AutoListArmorProfFacet">
+		<property name="armorProfProviderFacet" ref="armorProfProviderFacet"/>
+	</bean>
+	<bean id="autoListShieldProfFacet" class="pcgen.cdom.facet.input.AutoListShieldProfFacet">
+		<property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>
+	</bean>
 	<bean id="autoListWeaponProfFacet" class="pcgen.cdom.facet.input.AutoListWeaponProfFacet">
 		<property name="weaponProfFacet" ref="weaponProfFacet"/>
 	</bean>
@@ -203,7 +211,9 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="formulaResolvingFacet" class="pcgen.cdom.facet.FormulaResolvingFacet" />
-	<bean id="freeLanguageFacet" class="pcgen.cdom.facet.input.FreeLanguageFacet"/>
+	<bean id="freeLanguageFacet" class="pcgen.cdom.facet.input.FreeLanguageFacet">
+		<property name="languageFacet" ref="languageFacet"/>
+	</bean>
 	<!-- G -->
 	<bean id="genderFacet" class="pcgen.cdom.facet.fact.GenderFacet">
 		<property name="templateFacet" ref="templateFacet"/>
@@ -251,7 +261,7 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<!-- L -->
-	<bean id="languageFacet" class="pcgen.cdom.facet.LanguageFacet">
+	<bean id="languageFacet" class="pcgen.cdom.facet.model.LanguageFacet">
 		<property name="autoLanguageFacet" ref="autoLanguageFacet"/>
 	</bean>
 	<bean id="legalDeityFacet" class="pcgen.cdom.facet.analysis.LegalDeityFacet">
@@ -383,8 +393,8 @@
 		<property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
-	<bean id="shieldProfProviderFacet" class="pcgen.cdom.facet.ShieldProfProviderFacet"/>
-	<bean id="sizeFacet" class="pcgen.cdom.facet.SizeFacet">
+	<bean id="shieldProfProviderFacet" class="pcgen.cdom.facet.model.ShieldProfProviderFacet"/>
+	<bean id="sizeFacet" class="pcgen.cdom.facet.model.SizeFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
@@ -392,7 +402,9 @@
 		<property name="levelFacet" ref="levelFacet"/>
 	</bean>
 	<bean id="skillFacet" class="pcgen.cdom.facet.model.SkillFacet"/>
-	<bean id="skillLanguageFacet" class="pcgen.cdom.facet.input.SkillLanguageFacet"/>
+	<bean id="skillLanguageFacet" class="pcgen.cdom.facet.input.SkillLanguageFacet">
+		<property name="languageFacet" ref="languageFacet"/>
+	</bean>
 	<bean id="sourcedEquipmentFacet" class="pcgen.cdom.facet.SourcedEquipmentFacet"/>
 	<bean id="specialAbilityFacet" class="pcgen.cdom.facet.analysis.SpecialAbilityFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>

@@ -20,12 +20,7 @@ package pcgen.cdom.facet;
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.input.ActiveAbilityFacet;
-import pcgen.cdom.facet.input.AddLanguageFacet;
-import pcgen.cdom.facet.input.AutoLanguageListFacet;
-import pcgen.cdom.facet.input.AutoListArmorProfFacet;
-import pcgen.cdom.facet.input.AutoListShieldProfFacet;
-import pcgen.cdom.facet.input.FreeLanguageFacet;
-import pcgen.cdom.facet.input.SkillLanguageFacet;
+import pcgen.cdom.facet.model.ActiveEqModFacet;
 import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.CheckFacet;
@@ -36,6 +31,7 @@ import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
@@ -63,12 +59,7 @@ public class FacetInitialization {
 		BioSetTrackingFacet bioSetTrackingFacet = FacetLibrary.getFacet(BioSetTrackingFacet.class);
 		CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 
-		LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
-		FreeLanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
 		AutoLanguageFacet autoLangFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
-		AutoLanguageListFacet autoLangListFacet = FacetLibrary.getFacet(AutoLanguageListFacet.class);
-		AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
-		SkillLanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
 		WeaponProfFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
 
 		LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
@@ -80,10 +71,6 @@ public class FacetInitialization {
 		StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 		ActiveAbilityFacet abFacet = FacetLibrary.getFacet(ActiveAbilityFacet.class);
-		AutoListShieldProfFacet splFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
-		ShieldProfProviderFacet sppFacet = FacetLibrary.getFacet(ShieldProfProviderFacet.class);
-		AutoListArmorProfFacet aplFacet = FacetLibrary.getFacet(AutoListArmorProfFacet.class);
-		ArmorProfProviderFacet appFacet = FacetLibrary.getFacet(ArmorProfProviderFacet.class);
 
 		NaturalWeaponProfFacet nwpFacet = FacetLibrary.getFacet(NaturalWeaponProfFacet.class);
 		UserEquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
@@ -99,11 +86,6 @@ public class FacetInitialization {
 		DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
 		ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary.getFacet(ConditionallyGrantedAbilityFacet.class);
 
-		autoLangListFacet.addDataFacetChangeListener(languageFacet);
-		freeLangFacet.addDataFacetChangeListener(languageFacet);
-		addLangFacet.addDataFacetChangeListener(languageFacet);
-		skillLangFacet.addDataFacetChangeListener(languageFacet);
-
 		equipmentFacet.addDataFacetChangeListener(naturalEquipmentFacet);
 		equippedFacet.addDataFacetChangeListener(activeEquipmentFacet);
 		naturalEquipmentFacet.addDataFacetChangeListener(activeEquipmentFacet);
@@ -114,9 +96,6 @@ public class FacetInitialization {
 		domainFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
 		raceFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
 		templateFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
-
-		aplFacet.addDataFacetChangeListener(appFacet);
-		splFacet.addDataFacetChangeListener(sppFacet);
 
 		charObjectFacet.addDataFacetChangeListener(naturalWeaponFacet);
 		naturalWeaponFacet.addDataFacetChangeListener(equipmentFacet);
@@ -136,7 +115,7 @@ public class FacetInitialization {
 		templateFacet.addDataFacetChangeListener(sizeFacet);
 		bonusChangeFacet.addBonusChangeListener(sizeFacet, "SIZEMOD", "NUMBER");
 
-		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet);//model done
+		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		alignmentFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		bioSetFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		checkFacet.addDataFacetChangeListener(charObjectFacet); //model done

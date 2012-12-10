@@ -15,13 +15,16 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.model;
 
 import java.util.IdentityHashMap;
 import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.AutoLanguageFacet;
+import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.Language;
 

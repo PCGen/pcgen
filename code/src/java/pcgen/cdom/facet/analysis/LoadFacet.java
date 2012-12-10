@@ -24,7 +24,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
-import pcgen.cdom.facet.SizeFacet;
+import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.util.enumeration.Load;

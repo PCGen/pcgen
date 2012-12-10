@@ -66,7 +66,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.LanguageFacet;
+import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMDirectSingleRef;

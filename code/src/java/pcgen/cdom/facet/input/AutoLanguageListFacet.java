@@ -1,5 +1,6 @@
 /*
  * Copyright (c) Devon Jones, 2012.
+ * Copyright (c) Thomas Parker, 2012.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,6 +19,7 @@
 package pcgen.cdom.facet.input;
 
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.core.Language;
 
 /**
@@ -26,5 +28,18 @@ import pcgen.core.Language;
  * 
  * @author Devon Jones (devon.jones [at] gmail.com)
  */
-public class AutoLanguageListFacet extends AbstractSourcedListFacet<Language> {
+public class AutoLanguageListFacet extends AbstractSourcedListFacet<Language>
+{
+	private LanguageFacet languageFacet;
+
+	public void setLanguageFacet(LanguageFacet languageFacet)
+	{
+		this.languageFacet = languageFacet;
+	}
+
+	public void init()
+	{
+		addDataFacetChangeListener(languageFacet);
+	}
+
 }

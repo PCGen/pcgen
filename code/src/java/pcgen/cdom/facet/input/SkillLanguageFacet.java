@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.input;
 
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.core.Language;
 
 /**
@@ -28,4 +29,15 @@ import pcgen.core.Language;
  */
 public class SkillLanguageFacet extends AbstractSourcedListFacet<Language>
 {
+	private LanguageFacet languageFacet;
+
+	public void setLanguageFacet(LanguageFacet languageFacet)
+	{
+		this.languageFacet = languageFacet;
+	}
+
+	public void init()
+	{
+		addDataFacetChangeListener(languageFacet);
+	}
 }

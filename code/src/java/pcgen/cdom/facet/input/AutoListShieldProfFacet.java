@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.input;
 
 import pcgen.cdom.facet.base.AbstractItemConvertingFacet;
+import pcgen.cdom.facet.model.ShieldProfProviderFacet;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.helper.SimpleShieldProfProvider;
 import pcgen.core.ShieldProf;
@@ -32,6 +33,18 @@ import pcgen.core.ShieldProf;
 public class AutoListShieldProfFacet extends
 		AbstractItemConvertingFacet<ShieldProf, ProfProvider<ShieldProf>>
 {
+
+	private ShieldProfProviderFacet shieldProfProviderFacet;
+
+	public void setShieldProfProviderFacet(ShieldProfProviderFacet shieldProfProviderFacet)
+	{
+		this.shieldProfProviderFacet = shieldProfProviderFacet;
+	}
+
+	public void init()
+	{
+		addDataFacetChangeListener(shieldProfProviderFacet);
+	}
 
 	/**
 	 * Converts an ArmorProf into a ProfProvider<ArmorProf>. This is required
@@ -53,5 +66,4 @@ public class AutoListShieldProfFacet extends
 	{
 		return new SimpleShieldProfProvider(ap);
 	}
-
 }
