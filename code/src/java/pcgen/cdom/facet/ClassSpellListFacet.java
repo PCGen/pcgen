@@ -22,6 +22,7 @@ import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;

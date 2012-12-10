@@ -19,7 +19,7 @@ package pcgen.cdom.facet.fact;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Handed;
-import pcgen.cdom.facet.AbstractItemFacet;
+import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.util.Logging;
 
 /**

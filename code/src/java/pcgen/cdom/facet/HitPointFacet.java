@@ -23,6 +23,7 @@ import pcgen.cdom.content.Modifier;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.analysis.LevelFacet;
+import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;

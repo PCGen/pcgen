@@ -25,6 +25,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.SpellLikeAbility;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
@@ -70,7 +71,7 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharacterSpell>
 	 * 
 	 * @return A new (empty) Map for use in this ActiveSpellsFacet.
 	 * 
-	 * @see pcgen.cdom.facet.AbstractSourcedListFacet#getComponentMap()
+	 * @see pcgen.cdom.facet.base.AbstractSourcedListFacet#getComponentMap()
 	 */
 	@Override
 	protected Map<CharacterSpell, Set<Object>> getComponentMap()

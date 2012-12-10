@@ -24,6 +24,7 @@ import java.util.Map;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.core.Equipment;
 import pcgen.core.character.SpellBook;
 

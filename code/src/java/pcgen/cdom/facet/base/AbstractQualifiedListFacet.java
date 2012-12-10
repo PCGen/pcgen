@@ -15,7 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package pcgen.cdom.facet;
+package pcgen.cdom.facet.base;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,6 +32,9 @@ import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.QualifiedActor;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.PrerequisiteFacet;
 
 /**
  * An AbstractQualifiedListFacet is a DataFacet that contains information about

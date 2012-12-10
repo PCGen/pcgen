@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.facet.input;
 
-import pcgen.cdom.facet.AbstractItemConvertingFacet;
+import pcgen.cdom.facet.base.AbstractItemConvertingFacet;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.helper.SimpleShieldProfProvider;
 import pcgen.core.ShieldProf;
@@ -46,7 +46,7 @@ public class AutoListShieldProfFacet extends
 	 *         ProfProvider
 	 * 
 	 *         (non-Javadoc)
-	 * @see pcgen.cdom.facet.AbstractItemConvertingFacet#convert(java.lang.Object)
+	 * @see pcgen.cdom.facet.base.AbstractItemConvertingFacet#convert(java.lang.Object)
 	 */
 	@Override
 	protected ProfProvider<ShieldProf> convert(ShieldProf ap)

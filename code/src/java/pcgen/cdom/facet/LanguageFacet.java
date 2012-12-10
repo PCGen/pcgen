@@ -22,6 +22,7 @@ import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.Language;
 
 /**

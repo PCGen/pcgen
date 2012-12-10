@@ -17,9 +17,9 @@
  */
 package pcgen.cdom.facet.model;
 
-import pcgen.cdom.facet.AbstractSourcedListFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.Campaign;
 
 /**

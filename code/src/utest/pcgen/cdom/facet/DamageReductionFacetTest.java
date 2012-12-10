@@ -35,6 +35,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.DamageReduction;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;

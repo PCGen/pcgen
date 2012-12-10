@@ -19,9 +19,9 @@ package pcgen.cdom.facet.analysis;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.facet.AbstractSourcedListFacet;
 import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;

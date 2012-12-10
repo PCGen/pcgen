@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.cdom.facet.AbstractListFacet;
+import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.core.ChronicleEntry;
 import pcgen.util.Logging;
 

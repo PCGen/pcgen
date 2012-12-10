@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 
 /**
@@ -44,7 +45,7 @@ public class ConditionalAbilityFacet extends
 	 * ensure we are storing the conditionally granted abilities as a raw list
 	 * (can appear more than once) rather than a set.
 	 * 
-	 * @see pcgen.cdom.facet.AbstractListFacet#getComponentSet()
+	 * @see pcgen.cdom.facet.base.AbstractListFacet#getComponentSet()
 	 */
 	@Override
 	protected Collection<CategorizedAbilitySelection> getComponentSet()

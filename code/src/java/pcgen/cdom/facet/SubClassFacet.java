@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 import pcgen.core.PCClass;
 
 /**

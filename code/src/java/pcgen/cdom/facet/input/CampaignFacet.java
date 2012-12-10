@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.facet.input;
 
-import pcgen.cdom.facet.AbstractListFacet;
+import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.core.Campaign;
 

@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 
 /**
  * CDOMObjectBridge is a class that performs the breaking of cycles in the

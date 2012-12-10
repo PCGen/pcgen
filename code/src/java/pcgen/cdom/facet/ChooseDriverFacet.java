@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.ChooseActivation;

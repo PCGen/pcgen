@@ -20,7 +20,7 @@ package pcgen.cdom.facet.fact;
 import java.math.BigDecimal;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.AbstractStorageFacet;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.core.SettingsHandler;
 
 /**

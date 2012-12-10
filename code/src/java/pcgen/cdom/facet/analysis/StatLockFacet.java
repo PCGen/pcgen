@@ -26,11 +26,11 @@ import java.util.Map.Entry;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.facet.AbstractSourcedListFacet;
 import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.FormulaResolvingFacet;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.helper.StatLock;
 import pcgen.core.PCStat;
 

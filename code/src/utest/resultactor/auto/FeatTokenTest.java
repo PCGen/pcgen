@@ -24,7 +24,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.AbstractStorageFacet;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.helper.AbilitySelector;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;

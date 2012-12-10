@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;

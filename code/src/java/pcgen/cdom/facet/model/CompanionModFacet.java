@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
-import pcgen.cdom.facet.AbstractListFacet;
+import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.core.character.CompanionMod;
 
 /**

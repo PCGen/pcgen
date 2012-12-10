@@ -25,6 +25,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
 import pcgen.core.Language;
 import pcgen.core.QualifiedObject;
 

@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
-import pcgen.cdom.facet.AbstractItemFacet;
+import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.core.Race;
 
 /**

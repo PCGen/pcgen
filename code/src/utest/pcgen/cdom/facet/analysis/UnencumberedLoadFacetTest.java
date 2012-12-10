@@ -21,10 +21,10 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.AbstractSourcedListFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.analysis.UnencumberedLoadFacet;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;

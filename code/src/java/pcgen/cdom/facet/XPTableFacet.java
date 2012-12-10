@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.core.LevelInfo;
 import pcgen.core.SettingsHandler;
 import pcgen.core.XPTable;

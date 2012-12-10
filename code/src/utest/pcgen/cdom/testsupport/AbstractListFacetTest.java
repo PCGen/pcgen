@@ -26,9 +26,9 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.AbstractListFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 

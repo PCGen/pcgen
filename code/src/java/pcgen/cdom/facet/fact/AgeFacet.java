@@ -18,7 +18,7 @@
 package pcgen.cdom.facet.fact;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.AbstractItemFacet;
+import pcgen.cdom.facet.base.AbstractItemFacet;
 
 /**
  * AgeFacet stores the age of the Player Character.

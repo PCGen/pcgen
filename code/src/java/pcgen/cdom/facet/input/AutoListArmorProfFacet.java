@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.facet.input;
 
-import pcgen.cdom.facet.AbstractItemConvertingFacet;
+import pcgen.cdom.facet.base.AbstractItemConvertingFacet;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.helper.SimpleArmorProfProvider;
 import pcgen.core.ArmorProf;
@@ -46,7 +46,7 @@ public class AutoListArmorProfFacet extends
 	 *         ProfProvider
 	 * 
 	 *         (non-Javadoc)
-	 * @see pcgen.cdom.facet.AbstractItemConvertingFacet#convert(java.lang.Object)
+	 * @see pcgen.cdom.facet.base.AbstractItemConvertingFacet#convert(java.lang.Object)
 	 */
 	@Override
 	protected ProfProvider<ArmorProf> convert(ArmorProf ap)

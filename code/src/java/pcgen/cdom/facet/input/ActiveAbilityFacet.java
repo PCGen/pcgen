@@ -28,8 +28,8 @@ import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.facet.AbstractDataFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.base.AbstractDataFacet;
 import pcgen.core.Ability;
 
 /**

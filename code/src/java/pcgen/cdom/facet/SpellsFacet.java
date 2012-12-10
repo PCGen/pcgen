@@ -26,6 +26,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.content.SpellLikeAbility;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
 import pcgen.core.spell.Spell;
 
 /**

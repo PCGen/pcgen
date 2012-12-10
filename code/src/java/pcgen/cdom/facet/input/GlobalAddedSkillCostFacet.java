@@ -26,7 +26,7 @@ import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.SkillCost;
-import pcgen.cdom.facet.AbstractStorageFacet;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.core.Skill;
 
 /**

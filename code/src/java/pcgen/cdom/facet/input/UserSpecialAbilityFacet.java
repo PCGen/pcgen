@@ -22,9 +22,9 @@ import java.util.List;
 
 import pcgen.cdom.base.QualifiedActor;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.AbstractQualifiedListFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
+import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
 import pcgen.cdom.helper.SAProcessor;
 import pcgen.core.SpecialAbility;
 

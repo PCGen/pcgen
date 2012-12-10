@@ -21,9 +21,9 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Region;
-import pcgen.cdom.facet.AbstractItemFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.facet.fact.AgeFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.model.BioSetFacet;

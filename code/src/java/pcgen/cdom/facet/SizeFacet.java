@@ -29,6 +29,7 @@ import pcgen.cdom.facet.BonusChangeFacet.BonusChangeListener;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeEvent;
 import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeListener;
+import pcgen.cdom.facet.base.AbstractDataFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.Globals;

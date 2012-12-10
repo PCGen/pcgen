@@ -22,9 +22,9 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.AbstractItemFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.base.AbstractItemFacet;
 
 public abstract class AbstractItemFacetTest<T> extends TestCase
 {

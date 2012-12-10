@@ -22,6 +22,7 @@ import java.util.Collection;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
 import pcgen.core.QualifiedObject;
 
 /**

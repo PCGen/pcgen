@@ -35,6 +35,7 @@ import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;

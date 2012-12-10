@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 
 /**
@@ -39,7 +40,7 @@ public class LevelInfoFacet extends AbstractListFacet<PCLevelInfo>
 	 * ensure we are storing the PCLevelInfo objects in an ordered list (since
 	 * we are implicitly storing the level of the PCLevelInfo by its location)
 	 * 
-	 * @see pcgen.cdom.facet.AbstractListFacet#getComponentSet()
+	 * @see pcgen.cdom.facet.base.AbstractListFacet#getComponentSet()
 	 */
 	@Override
 	protected Collection<PCLevelInfo> getComponentSet()

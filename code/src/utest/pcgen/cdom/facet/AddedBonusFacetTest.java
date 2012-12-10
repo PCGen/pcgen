@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;

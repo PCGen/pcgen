@@ -26,6 +26,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeEvent;
 import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeListener;
+import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 

@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 

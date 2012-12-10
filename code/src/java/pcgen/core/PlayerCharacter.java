@@ -129,6 +129,7 @@ import pcgen.cdom.facet.analysis.UnencumberedLoadFacet;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.cdom.facet.analysis.VariableFacet;
 import pcgen.cdom.facet.analysis.VisionFacet;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.facet.fact.AgeFacet;
 import pcgen.cdom.facet.fact.CharacterTypeFacet;
 import pcgen.cdom.facet.fact.ChronicleEntryFacet;

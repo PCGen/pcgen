@@ -28,7 +28,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
-import pcgen.cdom.facet.AbstractStorageFacet;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;

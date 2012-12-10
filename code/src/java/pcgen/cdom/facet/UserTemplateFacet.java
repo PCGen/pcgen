@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 

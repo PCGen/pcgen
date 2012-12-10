@@ -20,7 +20,7 @@ package pcgen.cdom.facet.fact;
 
 import java.awt.Rectangle;
 
-import pcgen.cdom.facet.AbstractItemFacet;
+import pcgen.cdom.facet.base.AbstractItemFacet;
 
 /**
  * PortraitThumbnailRectFacet is a Facet that tracks the thumbnail rectangle for 

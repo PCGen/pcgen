@@ -17,8 +17,8 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import pcgen.cdom.facet.AbstractItemFacet;
 import pcgen.cdom.facet.analysis.AgeSetFacet;
+import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 import pcgen.core.AgeSet;
 

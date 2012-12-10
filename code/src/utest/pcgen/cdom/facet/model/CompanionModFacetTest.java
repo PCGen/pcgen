@@ -18,7 +18,7 @@
 package pcgen.cdom.facet.model;
 
 import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.cdom.facet.AbstractListFacet;
+import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.facet.model.CompanionModFacet;
 import pcgen.cdom.testsupport.AbstractListFacetTest;
 import pcgen.core.character.CompanionMod;

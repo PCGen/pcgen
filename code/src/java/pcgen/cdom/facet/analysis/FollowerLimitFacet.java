@@ -28,12 +28,12 @@ import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.facet.AbstractStorageFacet;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.FormulaResolvingFacet;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.helper.FollowerLimit;
 import pcgen.cdom.list.CompanionList;
 

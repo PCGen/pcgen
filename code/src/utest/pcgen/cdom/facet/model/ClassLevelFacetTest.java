@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
-import pcgen.cdom.facet.AbstractSourcedListFacet;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.model.ClassLevelFacet;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;

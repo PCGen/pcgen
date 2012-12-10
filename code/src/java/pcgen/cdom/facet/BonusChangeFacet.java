@@ -23,6 +23,7 @@ import java.util.List;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
 
 /**
  * BonusChangeFacet tracks changes to Bonus values on a PlayerCharacter and

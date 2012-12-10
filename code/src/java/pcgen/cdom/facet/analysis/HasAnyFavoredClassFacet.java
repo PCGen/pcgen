@@ -19,9 +19,9 @@ package pcgen.cdom.facet.analysis;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.AbstractSourcedListFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 

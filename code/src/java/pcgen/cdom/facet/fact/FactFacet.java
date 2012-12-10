@@ -22,7 +22,7 @@ import java.util.Map;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.facet.AbstractStorageFacet;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
 
 /**
  * FactFacet stores basic String information about a Player Character.

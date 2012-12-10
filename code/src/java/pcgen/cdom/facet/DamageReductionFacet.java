@@ -30,6 +30,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.DamageReduction;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 
 /**
  * DamageReductionFacet is a Facet that tracks the DamageReduction objects that

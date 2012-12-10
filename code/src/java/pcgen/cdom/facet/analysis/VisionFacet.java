@@ -31,13 +31,13 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.AbstractSourcedListFacet;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.PrerequisiteFacet;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.QualifiedObject;
 import pcgen.core.Vision;
 import pcgen.core.prereq.Prerequisite;
@@ -302,7 +302,7 @@ public class VisionFacet extends
 	 * 
 	 * @return A new (empty) Map for use in this VisionFacet.
 	 * 
-	 * @see pcgen.cdom.facet.AbstractSourcedListFacet#getComponentMap()
+	 * @see pcgen.cdom.facet.base.AbstractSourcedListFacet#getComponentMap()
 	 */
 	@Override
 	protected Map<QualifiedObject<Vision>, Set<Object>> getComponentMap()

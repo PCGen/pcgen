@@ -25,11 +25,11 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.AbstractSourcedListFacet;
 import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.FormulaResolvingFacet;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 
 /**
  * CharacterSpellResistanceFacet is a Facet that tracks the SpellResistance

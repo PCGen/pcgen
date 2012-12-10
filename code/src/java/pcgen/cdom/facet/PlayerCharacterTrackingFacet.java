@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.core.PlayerCharacter;
 
 /**

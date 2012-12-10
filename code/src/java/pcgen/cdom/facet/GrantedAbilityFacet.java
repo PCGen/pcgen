@@ -33,6 +33,7 @@ import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.base.AbstractDataFacet;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.Globals;

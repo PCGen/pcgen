@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.spell.Spell;
 
 /**

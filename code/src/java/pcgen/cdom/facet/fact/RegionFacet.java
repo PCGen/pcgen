@@ -22,9 +22,9 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SubRegion;
-import pcgen.cdom.facet.AbstractDataFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.base.AbstractDataFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 

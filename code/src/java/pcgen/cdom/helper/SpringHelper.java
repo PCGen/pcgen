@@ -28,7 +28,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 
-import pcgen.cdom.facet.AbstractStorageFacet;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
 
 /**
  * The Class <code>SpringHelper</code> is a simple helper for 

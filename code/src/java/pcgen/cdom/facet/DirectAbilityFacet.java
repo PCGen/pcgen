@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 
 /**
@@ -38,7 +39,7 @@ public class DirectAbilityFacet extends
 	 * ensure we are storing a full list of the conditionally granted abilities
 	 * (allowing duplicates).
 	 * 
-	 * @see pcgen.cdom.facet.AbstractListFacet#getComponentSet()
+	 * @see pcgen.cdom.facet.base.AbstractListFacet#getComponentSet()
 	 */
 	@Override
 	protected Collection<CategorizedAbilitySelection> getComponentSet()

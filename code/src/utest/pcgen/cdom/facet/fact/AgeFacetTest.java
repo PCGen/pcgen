@@ -20,7 +20,7 @@ package pcgen.cdom.facet.fact;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.AbstractItemFacet;
+import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.facet.fact.AgeFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 

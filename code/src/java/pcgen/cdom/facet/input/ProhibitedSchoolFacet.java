@@ -16,7 +16,7 @@
  */
 package pcgen.cdom.facet.input;
 
-import pcgen.cdom.facet.AbstractSourcedListFacet;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.SpellProhibitor;
 
 /**

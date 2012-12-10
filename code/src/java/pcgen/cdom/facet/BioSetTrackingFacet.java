@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.core.BioSet;
 import pcgen.core.PlayerCharacter;

@@ -24,10 +24,10 @@ import java.util.TreeMap;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.AbstractSourcedListFacet;
 import pcgen.cdom.facet.CDOMObjectSourceFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.util.enumeration.Load;
 
 /**
@@ -101,7 +101,7 @@ public class UnencumberedArmorFacet extends AbstractSourcedListFacet<Load>
 	 * 
 	 * @return A new (empty) Map for use in this UnencumberedArmorFacet.
 	 * 
-	 * @see pcgen.cdom.facet.AbstractSourcedListFacet#getComponentMap()
+	 * @see pcgen.cdom.facet.base.AbstractSourcedListFacet#getComponentMap()
 	 */
 	@Override
 	protected Map<Load, Set<Object>> getComponentMap()

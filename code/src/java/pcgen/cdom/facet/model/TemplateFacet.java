@@ -21,9 +21,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-import pcgen.cdom.facet.AbstractSourcedListFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.PCTemplate;
 
 /**
@@ -77,7 +77,7 @@ public class TemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 	 * 
 	 * (non-Javadoc)
 	 * 
-	 * @see pcgen.cdom.facet.AbstractSourcedListFacet#getComponentMap()
+	 * @see pcgen.cdom.facet.base.AbstractSourcedListFacet#getComponentMap()
 	 */
 	@Override
 	protected Map<PCTemplate, Set<Object>> getComponentMap()

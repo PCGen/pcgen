@@ -25,6 +25,7 @@ import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 
 /**
@@ -75,7 +76,7 @@ public class ConditionallyGrantedAbilityFacet extends
 	 * identity (Ability has old behavior in .equals and Abilities are still
 	 * cloned)
 	 * 
-	 * @see pcgen.cdom.facet.AbstractListFacet#getComponentSet()
+	 * @see pcgen.cdom.facet.base.AbstractListFacet#getComponentSet()
 	 */
 	@Override
 	protected Set<CategorizedAbilitySelection> getComponentSet()

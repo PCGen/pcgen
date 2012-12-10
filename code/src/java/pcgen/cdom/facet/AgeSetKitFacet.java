@@ -24,6 +24,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.analysis.AgeSetFacet;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.facet.fact.AgeFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.core.AgeSet;
