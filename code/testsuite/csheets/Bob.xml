@@ -1120,6 +1120,16 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
+			<name>Test-72</name>
+			<description></description>
+			<type>TEST71.TEST72</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
 			<name>Weapon Focus (Uber Sword, Suns Weapon Of Choice)</name>
 			<description>See Text</description>
 			<type>GENERAL.FIGHTER</type>
@@ -1949,6 +1959,17 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Grant Template Chosen (Template-71)</name>
+			<description>This will grant a TEMPLATE Chosen to the Character</description>
+			<type>SPECIALQUALITY</type>
+			<associated>Template-71</associated>
+			<count>1</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Monkee Jr Test</name>
 			<description></description>
 			<type>CLASS.SPECIALQUALITY</type>
@@ -2008,7 +2029,7 @@ BIO
 	<languages>Choose Lang Persistence Race, Common, Evilhaasness, Terestial Alpha</languages>
 
 	<templates>
-		<list>BOB ~ Template ~ Test 34 Favored Class Highest, Template A, Template Choice for Bob ~ 1, Template Test ~ TEST~3 WEAPONBONUS may Be Persistent in Template, Template Type TEST, Template ~ 1 Bob Tests ~ ALL</list>
+		<list>BOB ~ Template ~ Test 34 Favored Class Highest, Template A, Template Choice for Bob ~ 1, Template Test ~ TEST~3 WEAPONBONUS may Be Persistent in Template, Template Type TEST, Template ~ 1 Bob Tests ~ ALL, Template-71</list>
 		<template>
 			<name>BOB ~ Template ~ Test 34 Favored Class Highest</name>
 			<strmod>0</strmod>
@@ -2086,6 +2107,21 @@ BIO
 		</template>
 		<template>
 			<name>Template ~ 1 Bob Tests ~ ALL</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+		<template>
+			<name>Template-71</name>
 			<strmod>0</strmod>
 			<dexmod>0</dexmod>
 			<conmod>0</conmod>

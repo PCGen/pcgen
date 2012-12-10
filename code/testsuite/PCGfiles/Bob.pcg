@@ -2,8 +2,8 @@ PCGVERSION:2.0
 
 # System Information
 CAMPAIGN:PCGen Advanced Testing Set - Code & Data Team Use Only
-VERSION:5.17.13-dev
-ROLLMETHOD:0|EXPRESSION:0
+VERSION:6.01.00-dev
+ROLLMETHOD:1|EXPRESSION:10
 PURCHASEPOINTS:N
 CHARACTERTYPE:PC
 POOLPOINTS:0
@@ -76,6 +76,7 @@ TEMPLATESAPPLIED:[NAME:Template Type TEST]
 TEMPLATESAPPLIED:[NAME:Template Test ~ TEST~3 WEAPONBONUS may Be Persistent in Template]
 TEMPLATESAPPLIED:[NAME:BOB ~ Template ~ Test 34 Favored Class Highest]
 TEMPLATESAPPLIED:[NAME:Template Choice for Bob ~ 1]
+TEMPLATESAPPLIED:[NAME:Template-71]
 
 # Character Region
 REGION:None
@@ -108,10 +109,10 @@ SKILL:Domain Skill 1|OUTPUTORDER:6|CLASSBOUGHT:[CLASS:MonKee|RANKS:2.0|COST:1|CL
 SKILL:Domain Skill 2|OUTPUTORDER:7|CLASSBOUGHT:[CLASS:MonKee|RANKS:2.0|COST:1|CLASSSKILL:Y]
 
 # Character Languages
-LANGUAGE:Choose Lang Persistence Race|LANGUAGE:Terestial Alpha|LANGUAGE:Common|LANGUAGE:Evilhaasness
+LANGUAGE:Evilhaasness|LANGUAGE:Common|LANGUAGE:Choose Lang Persistence Race|LANGUAGE:Terestial Alpha
 
 # Character Feats
-FEATPOOL:-2.0
+FEATPOOL:-3.0
 
 # Character Abilities
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability F|TYPE:ATest
@@ -119,11 +120,12 @@ ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Bob Test Feat Choose Spelllevel Arcan
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability A|TYPE:ATest
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Exotic Weapon Proficiency|APPLIEDTO:Uber Sword|TYPE:General.Fighter|DESC:See Text
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Bob Test Feat Choose Spells Monkee|APPLIEDTO:Identify|TYPE:General.Tests.BobTest
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Test-72|TYPE:Test71.Test72
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:BOB ~ TEST 31|TYPE:BobTest
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Ability D|TYPE:ATest
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Weapon Focus|APPLIEDTO:Uber Sword,Suns Weapon Of Choice|TYPE:General.Fighter|DESC:See Text
 USERPOOL:FEAT|POOLPOINTS:0.0
-ABILITY:Special Ability|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Grant Template Chosen|TYPE:SpecialQuality|DESC:This will grant a TEMPLATE Chosen to the Character
+ABILITY:Special Ability|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Grant Template Chosen|APPLIEDTO:|TYPE:SpecialQuality|DESC:This will grant a TEMPLATE Chosen to the Character
 USERPOOL:Special Ability|POOLPOINTS:1.0
 ABILITY:Test Choosers|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Bob Test ~ Bonus Var in a Chooser|APPLIEDTO:,,|TYPE:BobTest.Test.Chooser.SpecialQuality|DESC:Bonus Var should be outputting 3 (ability taken three times) var number is showing %1&pipe;BonusVarTest
 USERPOOL:Test Choosers|POOLPOINTS:0.0
@@ -149,8 +151,8 @@ CALCEQUIPSET:0.1
 
 # Character Deity/Domain
 DEITY:Test Deity|DEITYDOMAINS:[DOMAIN:Bar Ball|DOMAIN:Domain Add Feat|DOMAIN:Domain Test Skill|DOMAIN:Domain Test Skill List|DOMAIN:Dungeon Crawl|DOMAIN:Foo Ball|DOMAIN:Test Spells Domain]|ALIGNALLOW:|HOLYITEM:|DEITYFAVWEAP:[WEAPON:Fine Wine Blade|WEAPON:Deity Weapon Second Puni|WEAPON:Deity Weapon Puni]|DEITYALIGN:
-DOMAIN:Domain Test Skill|SOURCE:[TYPE:PCClass|NAME:MonKee|LEVEL:1]
 DOMAIN:Bar Ball|ASSOCIATEDDATA:Fine Wine Blade|DOMAINGRANTS:This is the Bar Ball Domain|SOURCE:[TYPE:PCClass|NAME:MonKee|LEVEL:1]
+DOMAIN:Domain Test Skill|SOURCE:[TYPE:PCClass|NAME:MonKee|LEVEL:1]
 DOMAIN:Domain Test Skill List|ASSOCIATEDDATA:Domain Skill 2|SOURCE:[TYPE:PCClass|NAME:MonKee|LEVEL:1]
 
 # Character Spells Information
