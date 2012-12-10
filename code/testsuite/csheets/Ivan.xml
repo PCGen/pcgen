@@ -129,7 +129,7 @@ BIO
 			<weight_nounit>150</weight_nounit>
 		</weight>
 		<poolpoints>
-			<cost>60</cost>
+			<cost>0</cost>
 			<current>0</current>
 		</poolpoints>
 		<notes>
@@ -934,6 +934,18 @@ BIO
 	  ====================================
 	  ====================================-->
 	<ability_objects>
+	<!-- Visible Standard "Special Ability" Ability Objects -->
+		<ability_object>
+			<name>Grant Template Chosen (Template-71)</name>
+			<description>This will grant a TEMPLATE Chosen to the Character</description>
+			<type>SPECIALQUALITY</type>
+			<associated>Template-71</associated>
+			<count>1</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
 	</ability_objects>
 	<!--
 	  ====================================
@@ -944,6 +956,25 @@ BIO
 	<!-- Domains -->
 	<weapon_proficiencies></weapon_proficiencies>
 	<languages>Common</languages>
+
+	<templates>
+		<list>Template-71</list>
+		<template>
+			<name>Template-71</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
+	</templates>
 
 
 	<misc>
