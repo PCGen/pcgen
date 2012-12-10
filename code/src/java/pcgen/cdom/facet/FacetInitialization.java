@@ -39,6 +39,7 @@ import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfFacet;
 
 public class FacetInitialization {
@@ -142,7 +143,6 @@ public class FacetInitialization {
 
 		raceFacet.addDataFacetChangeListener(sizeFacet);
 		templateFacet.addDataFacetChangeListener(sizeFacet);
-		conditionalTemplateFacet.addDataFacetChangeListener(sizeFacet);
 		bonusChangeFacet.addBonusChangeListener(sizeFacet, "SIZEMOD", "NUMBER");
 
 		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet);
@@ -162,7 +162,6 @@ public class FacetInitialization {
 		// weaponProfList is still just a list of Strings
 		// results.addAll(getWeaponProfList());
 		classLevelFacet.addDataFacetChangeListener(charObjectFacet);
-		conditionalTemplateFacet.addDataFacetChangeListener(charObjectFacet);
 		grantedAbilityFacet.addDataFacetChangeListener(charObjectFacet);
 		companionModFacet.addDataFacetChangeListener(charObjectFacet);
 

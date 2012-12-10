@@ -17,15 +17,16 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.testsupport.AbstractListFacetTest;
+import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
 import pcgen.core.PCTemplate;
 
-public class TemplateFacetTest extends AbstractListFacetTest<PCTemplate>
+public class TemplateFacetTest extends AbstractSourcedListFacetTest<PCTemplate>
 {
 	private TemplateFacet facet = new TemplateFacet();
 
 	@Override
-	protected AbstractListFacet<PCTemplate> getFacet()
+	protected AbstractSourcedListFacet<PCTemplate> getFacet()
 	{
 		return facet;
 	}

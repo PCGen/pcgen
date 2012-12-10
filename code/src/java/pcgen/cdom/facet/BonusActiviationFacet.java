@@ -21,6 +21,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PlayerCharacter;
 
 /**

@@ -2008,7 +2008,22 @@ BIO
 	<languages>Choose Lang Persistence Race, Common, Evilhaasness, Terestial Alpha</languages>
 
 	<templates>
-		<list>Template A, Template ~ 1 Bob Tests ~ ALL, Template Type TEST, Template Test ~ TEST~3 WEAPONBONUS may Be Persistent in Template, BOB ~ Template ~ Test 34 Favored Class Highest, Template Choice for Bob ~ 1</list>
+		<list>BOB ~ Template ~ Test 34 Favored Class Highest, Template A, Template Choice for Bob ~ 1, Template Test ~ TEST~3 WEAPONBONUS may Be Persistent in Template, Template Type TEST, Template ~ 1 Bob Tests ~ ALL</list>
+		<template>
+			<name>BOB ~ Template ~ Test 34 Favored Class Highest</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
 		<template>
 			<name>Template A</name>
 			<strmod>0</strmod>
@@ -2025,22 +2040,7 @@ BIO
 			<bonuslist></bonuslist>
 		</template>
 		<template>
-			<name>Template ~ 1 Bob Tests ~ ALL</name>
-			<strmod>0</strmod>
-			<dexmod>0</dexmod>
-			<conmod>0</conmod>
-			<intmod>0</intmod>
-			<wismod>0</wismod>
-			<chamod>0</chamod>
-			<cr>0</cr>
-			<dr></dr>
-			<feat></feat>
-			<sa></sa>
-			<sr>0</sr>
-			<bonuslist></bonuslist>
-		</template>
-		<template>
-			<name>Template Type TEST</name>
+			<name>Template Choice for Bob ~ 1</name>
 			<strmod>0</strmod>
 			<dexmod>0</dexmod>
 			<conmod>0</conmod>
@@ -2070,7 +2070,7 @@ BIO
 			<bonuslist></bonuslist>
 		</template>
 		<template>
-			<name>BOB ~ Template ~ Test 34 Favored Class Highest</name>
+			<name>Template Type TEST</name>
 			<strmod>0</strmod>
 			<dexmod>0</dexmod>
 			<conmod>0</conmod>
@@ -2085,7 +2085,7 @@ BIO
 			<bonuslist></bonuslist>
 		</template>
 		<template>
-			<name>Template Choice for Bob ~ 1</name>
+			<name>Template ~ 1 Bob Tests ~ ALL</name>
 			<strmod>0</strmod>
 			<dexmod>0</dexmod>
 			<conmod>0</conmod>

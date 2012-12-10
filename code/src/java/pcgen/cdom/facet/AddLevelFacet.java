@@ -24,6 +24,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;

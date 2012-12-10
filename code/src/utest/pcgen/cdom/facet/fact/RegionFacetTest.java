@@ -26,8 +26,8 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SubRegion;
-import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
 public class RegionFacetTest extends TestCase
@@ -71,7 +71,7 @@ public class RegionFacetTest extends TestCase
 	@Test
 	public void testWithNothingInTemplates()
 	{
-		tfacet.add(id, new PCTemplate());
+		tfacet.add(id, new PCTemplate(), this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -101,7 +101,7 @@ public class RegionFacetTest extends TestCase
 		pct.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, true);
 		pct.put(ObjectKey.SUBREGION, SubRegion
 				.getConstant(TEST_SUB_REGION_NAME));
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(altid));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(altid));
 		assertEquals(Constants.NONE, facet.getSubRegion(altid));
@@ -122,7 +122,7 @@ public class RegionFacetTest extends TestCase
 		PCTemplate pct = new PCTemplate();
 		pct.setName("TestTemplate");
 		pct.put(ObjectKey.USETEMPLATENAMEFORREGION, true);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals("TestTemplate", facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -136,7 +136,7 @@ public class RegionFacetTest extends TestCase
 		PCTemplate pct = new PCTemplate();
 		pct.setName("TestTemplate");
 		pct.put(ObjectKey.USETEMPLATENAMEFORREGION, false);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -149,13 +149,13 @@ public class RegionFacetTest extends TestCase
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.REGION, Region.getConstant(TEST_REGION_NAME));
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(TEST_REGION_NAME, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals(TEST_REGION_NAME, facet.getFullRegion(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -170,13 +170,13 @@ public class RegionFacetTest extends TestCase
 		pct.put(ObjectKey.REGION, Region.getConstant(TEST_REGION_NAME));
 		pct.setName("TestTemplate");
 		pct.put(ObjectKey.USETEMPLATENAMEFORREGION, true);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(TEST_REGION_NAME, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals(TEST_REGION_NAME, facet.getFullRegion(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -191,13 +191,13 @@ public class RegionFacetTest extends TestCase
 		pct.put(ObjectKey.REGION, Region.getConstant(TEST_REGION_NAME));
 		pct.setName("TestTemplate");
 		pct.put(ObjectKey.USETEMPLATENAMEFORREGION, false);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(TEST_REGION_NAME, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals(TEST_REGION_NAME, facet.getFullRegion(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -210,7 +210,7 @@ public class RegionFacetTest extends TestCase
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.REGION, Region.getConstant(TEST_REGION_NAME));
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(TEST_REGION_NAME, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -218,13 +218,13 @@ public class RegionFacetTest extends TestCase
 		assertEquals(TEST_REGION_NAME, facet.getFullRegion(id));
 		PCTemplate pct2 = new PCTemplate();
 		pct2.put(ObjectKey.REGION, Region.getConstant("TestRegionToo"));
-		tfacet.add(id, pct2);
+		tfacet.add(id, pct2, this);
 		assertEquals("TestRegionToo", facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals("TestRegionToo", facet.getFullRegion(id));
-		tfacet.remove(id, pct2);
+		tfacet.remove(id, pct2, this);
 		assertEquals(TEST_REGION_NAME, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -237,17 +237,17 @@ public class RegionFacetTest extends TestCase
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.REGION, Region.getConstant(TEST_REGION_NAME));
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		PCTemplate pct2 = new PCTemplate();
 		pct2.setName("TestTemplateToo");
 		pct2.put(ObjectKey.USETEMPLATENAMEFORREGION, true);
-		tfacet.add(id, pct2);
+		tfacet.add(id, pct2, this);
 		assertEquals("TestTemplateToo", facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals("TestTemplateToo", facet.getFullRegion(id));
-		tfacet.remove(id, pct2);
+		tfacet.remove(id, pct2, this);
 		assertEquals(TEST_REGION_NAME, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -261,14 +261,14 @@ public class RegionFacetTest extends TestCase
 		PCTemplate pct = new PCTemplate();
 		pct.setName("TestTemplate");
 		pct.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, true);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals("TestTemplate", facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals(Constants.NONE + " (TestTemplate)", facet
 				.getFullRegion(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -282,7 +282,7 @@ public class RegionFacetTest extends TestCase
 		PCTemplate pct = new PCTemplate();
 		pct.setName("TestTemplate");
 		pct.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, false);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -296,14 +296,14 @@ public class RegionFacetTest extends TestCase
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.SUBREGION, SubRegion
 				.getConstant(TEST_SUB_REGION_NAME));
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals(Constants.NONE + " (" + TEST_SUB_REGION_NAME + ")",
 				facet.getFullRegion(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -319,14 +319,14 @@ public class RegionFacetTest extends TestCase
 				.getConstant(TEST_SUB_REGION_NAME));
 		pct.setName("TestTemplate");
 		pct.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, true);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals(Constants.NONE + " (" + TEST_SUB_REGION_NAME + ")",
 				facet.getFullRegion(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -342,14 +342,14 @@ public class RegionFacetTest extends TestCase
 				.getConstant(TEST_SUB_REGION_NAME));
 		pct.setName("TestTemplate");
 		pct.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, false);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals(Constants.NONE + " (" + TEST_SUB_REGION_NAME + ")",
 				facet.getFullRegion(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -363,17 +363,17 @@ public class RegionFacetTest extends TestCase
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.SUBREGION, SubRegion
 				.getConstant(TEST_SUB_REGION_NAME));
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		PCTemplate pct2 = new PCTemplate();
 		pct2.put(ObjectKey.SUBREGION, SubRegion.getConstant("TestRegionToo"));
-		tfacet.add(id, pct2);
+		tfacet.add(id, pct2, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals("TestRegionToo", facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals(Constants.NONE + " (TestRegionToo)", facet
 				.getFullRegion(id));
-		tfacet.remove(id, pct2);
+		tfacet.remove(id, pct2, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id));
@@ -388,18 +388,18 @@ public class RegionFacetTest extends TestCase
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.SUBREGION, SubRegion
 				.getConstant(TEST_SUB_REGION_NAME));
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		PCTemplate pct2 = new PCTemplate();
 		pct2.setName("TestTemplateToo");
 		pct2.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, true);
-		tfacet.add(id, pct2);
+		tfacet.add(id, pct2, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals("TestTemplateToo", facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals(Constants.NONE + " (TestTemplateToo)", facet
 				.getFullRegion(id));
-		tfacet.remove(id, pct2);
+		tfacet.remove(id, pct2, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id));
@@ -415,13 +415,13 @@ public class RegionFacetTest extends TestCase
 		pct.setName("TestTemplate");
 		pct.put(ObjectKey.USETEMPLATENAMEFORREGION, true);
 		pct.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, true);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals("TestTemplate", facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals("TestTemplate", facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals("TestTemplate (TestTemplate)", facet.getFullRegion(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -436,13 +436,13 @@ public class RegionFacetTest extends TestCase
 		pct.setName("TestTemplate");
 		pct.put(ObjectKey.USETEMPLATENAMEFORREGION, false);
 		pct.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, false);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals(Constants.NONE, facet.getFullRegion(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -457,13 +457,13 @@ public class RegionFacetTest extends TestCase
 		pct.put(ObjectKey.REGION, Region.getConstant(TEST_REGION_NAME));
 		pct.put(ObjectKey.SUBREGION, SubRegion
 				.getConstant(TEST_SUB_REGION_NAME));
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(TEST_REGION_NAME, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals(TEST_FULL_REGION_NAME, facet.getFullRegion(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -478,27 +478,27 @@ public class RegionFacetTest extends TestCase
 		pct.put(ObjectKey.REGION, Region.getConstant(TEST_REGION_NAME));
 		pct.put(ObjectKey.SUBREGION, SubRegion
 				.getConstant(TEST_SUB_REGION_NAME));
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		PCTemplate pct2 = new PCTemplate();
 		pct2.put(ObjectKey.REGION, Region.getConstant("TestRegionToo"));
 		pct2
 				.put(ObjectKey.SUBREGION, SubRegion
 						.getConstant("TestSubRegionToo"));
-		tfacet.add(id, pct2);
+		tfacet.add(id, pct2, this);
 		assertEquals("TestRegionToo", facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals("TestSubRegionToo", facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals("TestRegionToo (TestSubRegionToo)", facet
 				.getFullRegion(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals("TestRegionToo", facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals("TestSubRegionToo", facet.getSubRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals("TestRegionToo (TestSubRegionToo)", facet
 				.getFullRegion(id));
-		tfacet.remove(id, pct2);
+		tfacet.remove(id, pct2, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals(Constants.NONE, facet.getSubRegion(id));
@@ -513,12 +513,12 @@ public class RegionFacetTest extends TestCase
 		pct.put(ObjectKey.REGION, Region.getConstant(TEST_REGION_NAME));
 		pct.put(ObjectKey.SUBREGION, SubRegion
 				.getConstant(TEST_SUB_REGION_NAME));
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		PCTemplate pct2 = new PCTemplate();
 		pct2.setName("TestTemplateToo");
 		pct2.put(ObjectKey.USETEMPLATENAMEFORREGION, true);
 		pct2.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, true);
-		tfacet.add(id, pct2);
+		tfacet.add(id, pct2, this);
 		assertEquals("TestTemplateToo", facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals("TestTemplateToo", facet.getSubRegion(id));
@@ -533,13 +533,13 @@ public class RegionFacetTest extends TestCase
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.REGION, Region.getConstant("InitRegion"));
 		pct.put(ObjectKey.SUBREGION, SubRegion.getConstant("InitSubRegion"));
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		PCTemplate pct2 = new PCTemplate();
 		pct2.put(ObjectKey.REGION, Region.getConstant("TestRegionToo"));
 		pct2
 				.put(ObjectKey.SUBREGION, SubRegion
 						.getConstant("TestSubRegionToo"));
-		tfacet.add(id, pct2);
+		tfacet.add(id, pct2, this);
 		assertEquals("TestRegionToo", facet.getRegion(id));
 		assertEquals(Constants.NONE, facet.getCharacterRegion(id));
 		assertEquals("TestSubRegionToo", facet.getSubRegion(id));
@@ -553,7 +553,7 @@ public class RegionFacetTest extends TestCase
 		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id));
 		assertEquals(TEST_SUB_REGION_NAME, facet.getCharacterSubRegion(id));
 		assertEquals(TEST_FULL_REGION_NAME, facet.getFullRegion(id));
-		tfacet.remove(id, pct2);
+		tfacet.remove(id, pct2, this);
 		assertEquals(TEST_REGION_NAME, facet.getRegion(id));
 		assertEquals(TEST_REGION_NAME, facet.getCharacterRegion(id));
 		assertEquals(TEST_SUB_REGION_NAME, facet.getSubRegion(id));
@@ -568,7 +568,7 @@ public class RegionFacetTest extends TestCase
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.REGION, Region.getConstant("InitRegion"));
 		pct.put(ObjectKey.SUBREGION, SubRegion.getConstant("InitSubRegion"));
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertTrue(facet.matchesRegion(id, Region.getConstant("InitRegion")));
 		assertFalse(facet.matchesRegion(id, Region.getConstant("TestRegionToo")));
 		PCTemplate pct2 = new PCTemplate();
@@ -576,10 +576,10 @@ public class RegionFacetTest extends TestCase
 		pct2
 				.put(ObjectKey.SUBREGION, SubRegion
 						.getConstant("TestSubRegionToo"));
-		tfacet.add(id, pct2);
+		tfacet.add(id, pct2, this);
 		assertTrue(facet.matchesRegion(id, Region.getConstant("TestRegionToo")));
 		assertFalse(facet.matchesRegion(id, Region.getConstant("InitRegion")));
-		tfacet.remove(id, pct2);
+		tfacet.remove(id, pct2, this);
 		assertTrue(facet.matchesRegion(id, Region.getConstant("InitRegion")));
 		assertFalse(facet.matchesRegion(id, Region.getConstant("TestRegionToo")));
 		facet.setRegion(id, Region.getConstant(TEST_REGION_NAME));
@@ -596,7 +596,7 @@ public class RegionFacetTest extends TestCase
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.REGION, Region.getConstant("InitRegion"));
 		pct.put(ObjectKey.SUBREGION, SubRegion.getConstant("InitSubRegion"));
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		facet.copyContents(id, altid);
 		//Not an explicit copy, so still null (based on templates!)
 		assertTrue(facet.matchesRegion(altid, null));

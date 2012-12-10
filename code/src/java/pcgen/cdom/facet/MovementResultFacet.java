@@ -33,6 +33,7 @@ import pcgen.cdom.facet.analysis.UnencumberedArmorFacet;
 import pcgen.cdom.facet.analysis.UnencumberedLoadFacet;
 import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.Movement;

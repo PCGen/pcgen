@@ -20,7 +20,7 @@ package pcgen.cdom.facet.analysis;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubRace;
-import pcgen.cdom.facet.TemplateFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
 /**

@@ -25,6 +25,7 @@ import java.util.Map;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.LevelFacet.LevelChangeEvent;
 import pcgen.cdom.facet.LevelFacet.LevelChangeListener;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
 /**
@@ -150,4 +151,8 @@ public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 		this.levelFacet = levelFacet;
 	}
 
+	public void init()
+	{
+		addDataFacetChangeListener(templateFacet);
+	}
 }

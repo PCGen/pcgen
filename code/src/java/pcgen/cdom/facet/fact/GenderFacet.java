@@ -21,7 +21,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.AbstractItemFacet;
-import pcgen.cdom.facet.TemplateFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
 /**

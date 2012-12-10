@@ -28,9 +28,9 @@ import org.junit.Test;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.facet.BonusCheckingFacet;
-import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.analysis.ReachFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
@@ -101,9 +101,9 @@ public class ReachFacetTest extends TestCase
 		rfacet.set(id, new Race());
 		PCTemplate t = new PCTemplate();
 		t.put(IntegerKey.REACH, 3);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertEquals(3, facet.getReach(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertEquals(5, facet.getReach(id));
 	}
 
@@ -113,9 +113,9 @@ public class ReachFacetTest extends TestCase
 		rfacet.set(id, new Race());
 		PCTemplate t = new PCTemplate();
 		t.put(IntegerKey.REACH, 7);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertEquals(7, facet.getReach(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertEquals(5, facet.getReach(id));
 	}
 
@@ -127,9 +127,9 @@ public class ReachFacetTest extends TestCase
 		rfacet.set(id, r);
 		PCTemplate t = new PCTemplate();
 		t.put(IntegerKey.REACH, 3);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertEquals(3, facet.getReach(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertEquals(5, facet.getReach(id));
 	}
 
@@ -141,9 +141,9 @@ public class ReachFacetTest extends TestCase
 		rfacet.set(id, r);
 		PCTemplate t = new PCTemplate();
 		t.put(IntegerKey.REACH, 8);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertEquals(8, facet.getReach(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertEquals(5, facet.getReach(id));
 	}
 
@@ -155,14 +155,14 @@ public class ReachFacetTest extends TestCase
 		rfacet.set(id, r);
 		PCTemplate t = new PCTemplate();
 		t.put(IntegerKey.REACH, 8);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		PCTemplate t2 = new PCTemplate();
 		t2.put(IntegerKey.REACH, 7);
-		tfacet.add(id, t2);
+		tfacet.add(id, t2, this);
 		assertEquals(7, facet.getReach(id));
-		tfacet.remove(id, t2);
+		tfacet.remove(id, t2, this);
 		assertEquals(8, facet.getReach(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertEquals(5, facet.getReach(id));
 	}
 
@@ -180,13 +180,13 @@ public class ReachFacetTest extends TestCase
 		assertEquals(11, facet.getReach(id));
 		PCTemplate t = new PCTemplate();
 		t.put(IntegerKey.REACH, 8);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertEquals(14, facet.getReach(id));
 		PCTemplate t2 = new PCTemplate();
 		t2.put(IntegerKey.REACH, 7);
-		tfacet.add(id, t2);
+		tfacet.add(id, t2, this);
 		assertEquals(13, facet.getReach(id));
-		tfacet.remove(id, t2);
+		tfacet.remove(id, t2, this);
 		assertEquals(14, facet.getReach(id));
 		bonusInfo.clear();
 		assertEquals(8, facet.getReach(id));

@@ -23,8 +23,8 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.analysis.NonProficiencyPenaltyFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.SettingsHandler;
 
@@ -60,7 +60,7 @@ public class NonProficiencyPenaltyFacetTest extends TestCase
 	@Test
 	public void testWithNothingInTemplates()
 	{
-		tfacet.add(id, new PCTemplate());
+		tfacet.add(id, new PCTemplate(), this);
 		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
 	}
 
@@ -69,7 +69,7 @@ public class NonProficiencyPenaltyFacetTest extends TestCase
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(IntegerKey.NONPP, -2);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(altid));
 	}
 
@@ -78,9 +78,9 @@ public class NonProficiencyPenaltyFacetTest extends TestCase
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(IntegerKey.NONPP, -3);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(-3, facet.getPenalty(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
 	}
 
@@ -89,19 +89,19 @@ public class NonProficiencyPenaltyFacetTest extends TestCase
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(IntegerKey.NONPP, -2);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(-2, facet.getPenalty(id));
 		PCTemplate pct2 = new PCTemplate();
 		pct2.put(IntegerKey.NONPP, -3);
-		tfacet.add(id, pct2);
+		tfacet.add(id, pct2, this);
 		assertEquals(-3, facet.getPenalty(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(-3, facet.getPenalty(id));
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(-2, facet.getPenalty(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(-3, facet.getPenalty(id));
-		tfacet.remove(id, pct2);
+		tfacet.remove(id, pct2, this);
 		assertEquals(SettingsHandler.getGame().getNonProfPenalty(), facet.getPenalty(id));
 	}
 

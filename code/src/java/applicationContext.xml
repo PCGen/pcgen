@@ -184,7 +184,6 @@
 		<property name="classFacet" ref="classFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
-		<property name="conditionalTemplateFacet" ref="conditionalTemplateFacet"/>
 	</bean>
 	<bean id="followerFacet" class="pcgen.cdom.facet.fact.FollowerFacet" />
 	<bean id="followerLimitFacet" class="pcgen.cdom.facet.analysis.FollowerLimitFacet">
@@ -214,7 +213,6 @@
 	<bean id="hasAnyFavoredClassFacet" class="pcgen.cdom.facet.analysis.HasAnyFavoredClassFacet">
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
-		<property name="conditionalTemplateFacet" ref="conditionalTemplateFacet"/>
 	</bean>
 	<bean id="hasDeityWeaponProfFacet" class="pcgen.cdom.facet.HasDeityWeaponProfFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
@@ -226,7 +224,6 @@
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="levelFacet" ref="levelFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
-		<property name="conditionalTemplateFacet" ref="conditionalTemplateFacet"/>
 	</bean>
 	<!-- I -->
 	<bean id="initiativeFacet" class="pcgen.cdom.facet.analysis.InitiativeFacet">
@@ -404,7 +401,6 @@
 		<property name="classFacet" ref="classFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
-		<property name="conditionalTemplateFacet" ref="conditionalTemplateFacet"/>
 	</bean>
 	<bean id="statFacet" class="pcgen.cdom.facet.model.StatFacet" />
 	<bean id="StatBonusFacet" class="pcgen.cdom.facet.StatBonusFacet">
@@ -422,7 +418,7 @@
 	</bean>
 	<bean id="suppressBioFieldFacet" class="pcgen.cdom.facet.fact.SuppressBioFieldFacet" />
 	<!-- T -->
-	<bean id="templateFacet" class="pcgen.cdom.facet.TemplateFacet"/>
+	<bean id="templateFacet" class="pcgen.cdom.facet.model.TemplateFacet"/>
 	<bean id="totalWeightFacet" class="pcgen.cdom.facet.analysis.TotalWeightFacet">
 		<property name="equipmentFacet" ref="equipmentFacet"/>
 	</bean>
@@ -431,6 +427,9 @@
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
+	<bean id="unconditionalTemplateFacet" class="pcgen.cdom.facet.UnconditionalTemplateFacet">
+		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="unencumberedArmorFacet" class="pcgen.cdom.facet.analysis.UnencumberedArmorFacet">
 		<property name="cdomSourceFacet" ref="cdomSourceFacet"/>
@@ -442,6 +441,9 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="userEquipmentFacet" class="pcgen.cdom.facet.UserEquipmentFacet"/>
+	<bean id="userTemplateFacet" class="pcgen.cdom.facet.UserTemplateFacet">
+		<property name="templateFacet" ref="templateFacet"/>
+	</bean>
 	<!-- V -->
 	<bean id="variableFacet" class="pcgen.cdom.facet.analysis.VariableFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>

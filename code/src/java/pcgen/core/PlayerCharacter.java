@@ -165,6 +165,7 @@ import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfFacet;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
@@ -306,7 +307,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 	//The following are other facets
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
-	private ConditionalTemplateFacet conditionalTemplateFacet = FacetLibrary.getFacet(ConditionalTemplateFacet.class);
+	private UserTemplateFacet userTemplateFacet = FacetLibrary.getFacet(UserTemplateFacet.class);
 	private DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 	private AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
@@ -5651,7 +5652,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 			}
 		}
 
-		templateFacet.add(id, inTemplate);
+		userTemplateFacet.add(id, inTemplate);
 
 		this.setDirty(true);
 
@@ -7094,7 +7095,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 
 	public void removeTemplate(final PCTemplate inTmpl)
 	{
-		templateFacet.remove(id, inTmpl);
+		userTemplateFacet.remove(id, inTmpl);
 		setDirty(true);
 	}
 
@@ -7742,7 +7743,6 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 				list.add(classLevel);
 			}
 		}
-		list.addAll(conditionalTemplateFacet.getSet(id));
 		return list;
 	}
 

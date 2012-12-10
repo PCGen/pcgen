@@ -17,13 +17,25 @@
  */
 package pcgen.cdom.facet;
 
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
 /**
- * TemplateFacet is a Facet that tracks the PCTemplates that have been granted
- * to a Player Character.
+ * UserTemplateFacet is a Facet that tracks the PCTemplates that have been added
+ * by the user to a Player Character.
  */
-public class TemplateFacet extends AbstractListFacet<PCTemplate>
+public class UserTemplateFacet extends AbstractListFacet<PCTemplate>
 {
 
+	private TemplateFacet templateFacet;
+	
+	public void setTemplateFacet(TemplateFacet templateFacet)
+	{
+		this.templateFacet = templateFacet;
+	}
+	
+	public void init()
+	{
+		addDataFacetChangeListener(templateFacet);
+	}
 }

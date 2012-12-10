@@ -50,7 +50,7 @@ public class StatIntegrationTest extends TestCase
 	private StatLockFacet lockFacet;
 	private NonAbilityFacet nonAbilityFacet;
 	private RaceFacet rfacet;
-	private TemplateFacet tfacet;
+	private UserTemplateFacet tfacet;
 	private CDOMObjectConsolidationFacet cdomFacet;
 	private PCStat stat1;
 	private PCStat stat2;
@@ -74,7 +74,7 @@ public class StatIntegrationTest extends TestCase
 		nonAbilityFacet.setStatLockFacet(lockFacet);
 		nonAbilityFacet.setUnlockedStatFacet(unlockedFacet);
 		rfacet = new RaceFacet();
-		tfacet = new TemplateFacet();
+		tfacet = new UserTemplateFacet();
 		cdomFacet = new CDOMObjectConsolidationFacet();
 		CDOMObjectBridge bridge = new CDOMObjectBridge();
 		cdomFacet.setBridgeFacet(bridge);

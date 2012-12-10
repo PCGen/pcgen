@@ -23,9 +23,9 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.analysis.HandsFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
@@ -94,9 +94,9 @@ public class HandsFacetTest extends TestCase
 		rfacet.set(id, new Race());
 		PCTemplate t = new PCTemplate();
 		t.put(IntegerKey.CREATURE_HANDS, 5);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertEquals(5, facet.getHands(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertEquals(2, facet.getHands(id));
 	}
 
@@ -109,19 +109,19 @@ public class HandsFacetTest extends TestCase
 		assertEquals(5, facet.getHands(id));
 		PCTemplate t = new PCTemplate();
 		t.put(IntegerKey.CREATURE_HANDS, 3);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertEquals(3, facet.getHands(id));
 		PCTemplate t5 = new PCTemplate();
 		t5.put(IntegerKey.CREATURE_HANDS, 4);
-		tfacet.add(id, t5);
+		tfacet.add(id, t5, this);
 		assertEquals(4, facet.getHands(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertEquals(4, facet.getHands(id));
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertEquals(3, facet.getHands(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertEquals(4, facet.getHands(id));
-		tfacet.remove(id, t5);
+		tfacet.remove(id, t5, this);
 		assertEquals(5, facet.getHands(id));
 	}
 }

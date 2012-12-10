@@ -26,9 +26,9 @@ import org.junit.Test;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.RaceSubType;
-import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.analysis.RacialSubTypesFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
@@ -114,9 +114,9 @@ public class RacialSubTypesFacetTest extends TestCase
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
 		PCTemplate t = new PCTemplate();
 		t.addToListFor(ListKey.REMOVED_RACESUBTYPE, TEST_RACE_TYPE);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertSubTypesEmpty();
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
 	}
 
@@ -126,9 +126,9 @@ public class RacialSubTypesFacetTest extends TestCase
 		rfacet.set(id, new Race());
 		PCTemplate t = new PCTemplate();
 		t.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertSubTypesEmpty();
 	}
 
@@ -141,9 +141,9 @@ public class RacialSubTypesFacetTest extends TestCase
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
 		PCTemplate t = new PCTemplate();
 		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO);
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
 	}
 
@@ -156,16 +156,16 @@ public class RacialSubTypesFacetTest extends TestCase
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
 		PCTemplate t = new PCTemplate();
 		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO);
 		PCTemplate t2 = new PCTemplate();
 		t2.addToListFor(ListKey.RACESUBTYPE, LAST_RACE_TYPE);
-		tfacet.add(id, t2);
+		tfacet.add(id, t2, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO,
 				LAST_RACE_TYPE);
-		tfacet.remove(id, t2);
+		tfacet.remove(id, t2, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO);
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
 	}
 
@@ -178,21 +178,21 @@ public class RacialSubTypesFacetTest extends TestCase
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
 		PCTemplate t = new PCTemplate();
 		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO);
 		PCTemplate t2 = new PCTemplate();
 		t2.addToListFor(ListKey.RACESUBTYPE, LAST_RACE_TYPE);
-		tfacet.add(id, t2);
+		tfacet.add(id, t2, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO,
 				LAST_RACE_TYPE);
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, LAST_RACE_TYPE);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO,
 				LAST_RACE_TYPE);
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, LAST_RACE_TYPE);
-		tfacet.remove(id, t2);
+		tfacet.remove(id, t2, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
 	}
 
@@ -210,29 +210,29 @@ public class RacialSubTypesFacetTest extends TestCase
 		assertFalse(facet.contains(id, LAST_RACE_TYPE));
 		PCTemplate t = new PCTemplate();
 		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertTrue(facet.contains(id, TEST_RACE_TYPE));
 		assertTrue(facet.contains(id, RACE_TYPE_TOO));
 		assertFalse(facet.contains(id, LAST_RACE_TYPE));
 		PCTemplate t2 = new PCTemplate();
 		t2.addToListFor(ListKey.RACESUBTYPE, LAST_RACE_TYPE);
-		tfacet.add(id, t2);
+		tfacet.add(id, t2, this);
 		assertTrue(facet.contains(id, TEST_RACE_TYPE));
 		assertTrue(facet.contains(id, RACE_TYPE_TOO));
 		assertTrue(facet.contains(id, LAST_RACE_TYPE));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertTrue(facet.contains(id, TEST_RACE_TYPE));
 		assertFalse(facet.contains(id, RACE_TYPE_TOO));
 		assertTrue(facet.contains(id, LAST_RACE_TYPE));
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertTrue(facet.contains(id, TEST_RACE_TYPE));
 		assertTrue(facet.contains(id, RACE_TYPE_TOO));
 		assertTrue(facet.contains(id, LAST_RACE_TYPE));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertTrue(facet.contains(id, TEST_RACE_TYPE));
 		assertFalse(facet.contains(id, RACE_TYPE_TOO));
 		assertTrue(facet.contains(id, LAST_RACE_TYPE));
-		tfacet.remove(id, t2);
+		tfacet.remove(id, t2, this);
 		assertTrue(facet.contains(id, TEST_RACE_TYPE));
 		assertFalse(facet.contains(id, RACE_TYPE_TOO));
 		assertFalse(facet.contains(id, LAST_RACE_TYPE));
@@ -249,19 +249,19 @@ public class RacialSubTypesFacetTest extends TestCase
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
 		PCTemplate t = new PCTemplate();
 		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertEquals(2, facet.getCount(id));
 		PCTemplate t2 = new PCTemplate();
 		t2.addToListFor(ListKey.RACESUBTYPE, LAST_RACE_TYPE);
-		tfacet.add(id, t2);
+		tfacet.add(id, t2, this);
 		assertEquals(3, facet.getCount(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertEquals(2, facet.getCount(id));
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertEquals(3, facet.getCount(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertEquals(2, facet.getCount(id));
-		tfacet.remove(id, t2);
+		tfacet.remove(id, t2, this);
 		assertEquals(1, facet.getCount(id));
 		/*
 		 * TODO Note this doesn't test duplicates. We need to check appropriate

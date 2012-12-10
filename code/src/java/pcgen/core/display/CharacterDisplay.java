@@ -20,8 +20,10 @@ package pcgen.core.display;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
+import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
@@ -34,12 +36,12 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.LevelFacet;
 import pcgen.cdom.facet.SpellBookFacet;
-import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.analysis.RaceTypeFacet;
 import pcgen.cdom.facet.analysis.VisionFacet;
 import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Vision;
 import pcgen.core.character.SpellBook;
@@ -352,14 +354,16 @@ public class CharacterDisplay
 	{
 		List<PCTemplate> tl = new ArrayList<PCTemplate>();
 
+		TreeSet<PCTemplate> treeSet = new TreeSet<PCTemplate>(CDOMObjectUtilities.CDOM_SORTER);
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			if ((template.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
 				|| (template.getSafe(ObjectKey.VISIBILITY) == Visibility.OUTPUT_ONLY))
 			{
-				tl.add(template);
+				treeSet.add(template);
 			}
 		}
+		tl.addAll(treeSet);
 		return tl;
 	}
 

@@ -25,7 +25,7 @@ import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.facet.AbstractDataFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
-import pcgen.cdom.facet.TemplateFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
 /**

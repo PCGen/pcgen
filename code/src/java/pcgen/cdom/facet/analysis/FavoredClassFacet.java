@@ -25,12 +25,11 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.AbstractSourcedListFacet;
-import pcgen.cdom.facet.ConditionalTemplateFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
-import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCClass;
 
 /**
@@ -50,8 +49,6 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 	private RaceFacet raceFacet;
 
 	private TemplateFacet templateFacet;
-	
-	private ConditionalTemplateFacet conditionalTemplateFacet;
 
 	/**
 	 * Identifies CDOMObjects that grant a FavoredClass and adds the granted
@@ -155,12 +152,6 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 		this.templateFacet = templateFacet;
 	}
 
-	public void setConditionalTemplateFacet(
-		ConditionalTemplateFacet conditionalTemplateFacet)
-	{
-		this.conditionalTemplateFacet = conditionalTemplateFacet;
-	}
-
 	/**
 	 * Initializes the connections for FavoredClassFacet to other facets.
 	 * 
@@ -171,6 +162,5 @@ public class FavoredClassFacet extends AbstractSourcedListFacet<PCClass>
 	{
 		raceFacet.addDataFacetChangeListener(this);
 		templateFacet.addDataFacetChangeListener(this);
-		conditionalTemplateFacet.addDataFacetChangeListener(this);
 	}
 }

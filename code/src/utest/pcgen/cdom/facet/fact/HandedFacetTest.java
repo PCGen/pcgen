@@ -23,8 +23,8 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Handed;
-import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.fact.HandedFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
 public class HandedFacetTest extends TestCase
@@ -57,7 +57,7 @@ public class HandedFacetTest extends TestCase
 	@Test
 	public void testWithNothingInTemplates()
 	{
-		tfacet.add(id, new PCTemplate());
+		tfacet.add(id, new PCTemplate(), this);
 		assertEquals(Handed.getDefaultValue(), facet.getHanded(id));
 	}
 

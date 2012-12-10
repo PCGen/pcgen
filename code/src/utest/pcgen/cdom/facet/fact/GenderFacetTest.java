@@ -24,8 +24,8 @@ import org.junit.Test;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.fact.GenderFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
 public class GenderFacetTest extends TestCase
@@ -60,7 +60,7 @@ public class GenderFacetTest extends TestCase
 	@Test
 	public void testWithNothingInTemplates()
 	{
-		tfacet.add(id, new PCTemplate());
+		tfacet.add(id, new PCTemplate(), this);
 		assertEquals(Gender.getDefaultValue(), facet.getGender(id));
 	}
 
@@ -69,7 +69,7 @@ public class GenderFacetTest extends TestCase
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.GENDER_LOCK, Gender.Neuter);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(Gender.getDefaultValue(), facet.getGender(altid));
 	}
 
@@ -91,10 +91,10 @@ public class GenderFacetTest extends TestCase
 		assertTrue(facet.canSetGender(id));
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.GENDER_LOCK, Gender.Female);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertFalse(facet.canSetGender(id));
 		assertEquals(Gender.Female, facet.getGender(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertTrue(facet.canSetGender(id));
 		assertEquals(Gender.getDefaultValue(), facet.getGender(id));
 	}
@@ -106,9 +106,9 @@ public class GenderFacetTest extends TestCase
 		assertEquals(Gender.Female, facet.getGender(id));
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.GENDER_LOCK, Gender.Neuter);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(Gender.Neuter, facet.getGender(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(Gender.Female, facet.getGender(id));
 	}
 
@@ -117,19 +117,19 @@ public class GenderFacetTest extends TestCase
 	{
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.GENDER_LOCK, Gender.Neuter);
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(Gender.Neuter, facet.getGender(id));
 		PCTemplate pct2 = new PCTemplate();
 		pct2.put(ObjectKey.GENDER_LOCK, Gender.Female);
-		tfacet.add(id, pct2);
+		tfacet.add(id, pct2, this);
 		assertEquals(Gender.Female, facet.getGender(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(Gender.Female, facet.getGender(id));
-		tfacet.add(id, pct);
+		tfacet.add(id, pct, this);
 		assertEquals(Gender.Neuter, facet.getGender(id));
-		tfacet.remove(id, pct);
+		tfacet.remove(id, pct, this);
 		assertEquals(Gender.Female, facet.getGender(id));
-		tfacet.remove(id, pct2);
+		tfacet.remove(id, pct2, this);
 		assertEquals(Gender.getDefaultValue(), facet.getGender(id));
 	}
 

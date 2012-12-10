@@ -20,11 +20,10 @@ package pcgen.cdom.facet.analysis;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.AbstractSourcedListFacet;
-import pcgen.cdom.facet.ConditionalTemplateFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
-import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 
 /**
  * HasAnyFavoredClassFacet is a Facet that tracks if the Player Character has
@@ -39,8 +38,6 @@ public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<Boolean>
 	private RaceFacet raceFacet;
 
 	private TemplateFacet templateFacet;
-	
-	private ConditionalTemplateFacet conditionalTemplateFacet;
 
 	/**
 	 * Adds the Any Favored Class capability granted by CDOMObjects added to the
@@ -97,7 +94,6 @@ public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<Boolean>
 	{
 		raceFacet.addDataFacetChangeListener(this);
 		templateFacet.addDataFacetChangeListener(this);
-		conditionalTemplateFacet.addDataFacetChangeListener(this);
 	}
 
 	public void setRaceFacet(RaceFacet raceFacet)
@@ -108,12 +104,6 @@ public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<Boolean>
 	public void setTemplateFacet(TemplateFacet templateFacet)
 	{
 		this.templateFacet = templateFacet;
-	}
-
-	public void setConditionalTemplateFacet(
-		ConditionalTemplateFacet conditionalTemplateFacet)
-	{
-		this.conditionalTemplateFacet = conditionalTemplateFacet;
 	}
 
 }

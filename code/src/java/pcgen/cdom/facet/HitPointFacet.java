@@ -24,6 +24,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -52,8 +53,6 @@ public class HitPointFacet extends
 
 	private TemplateFacet templateFacet;
 	
-	private ConditionalTemplateFacet conditionalTemplateFacet;
-
 	private LevelFacet levelFacet;
 
 	private BonusCheckingFacet bonusCheckingFacet;
@@ -269,12 +268,6 @@ public class HitPointFacet extends
 		this.bonusCheckingFacet = bonusCheckingFacet;
 	}
 
-	public void setConditionalTemplateFacet(
-		ConditionalTemplateFacet conditionalTemplateFacet)
-	{
-		this.conditionalTemplateFacet = conditionalTemplateFacet;
-	}
-
 	/**
 	 * Initializes the connections for HitPointFacet to other facets.
 	 * 
@@ -284,6 +277,5 @@ public class HitPointFacet extends
 	public void init()
 	{
 		templateFacet.addDataFacetChangeListener(this);
-		conditionalTemplateFacet.addDataFacetChangeListener(this);
 	}
 }

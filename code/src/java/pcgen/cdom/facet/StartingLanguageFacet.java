@@ -24,6 +24,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.Language;
 
 /**
@@ -41,8 +42,6 @@ public class StartingLanguageFacet extends AbstractSourcedListFacet<Language>
 	private RaceFacet raceFacet;
 
 	private TemplateFacet templateFacet;
-	
-	private ConditionalTemplateFacet conditionalTemplateFacet;
 
 	/**
 	 * Adds available Languages to this facet when a CDOMObject added to a
@@ -110,12 +109,6 @@ public class StartingLanguageFacet extends AbstractSourcedListFacet<Language>
 		this.templateFacet = templateFacet;
 	}
 
-	public void setConditionalTemplateFacet(
-		ConditionalTemplateFacet conditionalTemplateFacet)
-	{
-		this.conditionalTemplateFacet = conditionalTemplateFacet;
-	}
-
 	/**
 	 * Initializes the connections for StartingLanguageFacet to other facets.
 	 * 
@@ -126,7 +119,6 @@ public class StartingLanguageFacet extends AbstractSourcedListFacet<Language>
 	{
 		raceFacet.addDataFacetChangeListener(this);
 		templateFacet.addDataFacetChangeListener(this);
-		conditionalTemplateFacet.addDataFacetChangeListener(this);
 		classFacet.addDataFacetChangeListener(this);
 	}
 }

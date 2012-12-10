@@ -28,9 +28,9 @@ import org.junit.Test;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.TemplateFacet;
 import pcgen.cdom.facet.analysis.FaceFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
@@ -105,9 +105,9 @@ public class FaceFacetTest extends TestCase
 		PCTemplate t = new PCTemplate();
 		t.put(ObjectKey.FACE_WIDTH, new BigDecimal(10));
 		t.put(ObjectKey.FACE_HEIGHT, new BigDecimal(5));
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertEquals(SIZE_10_5, facet.getFace(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertEquals(new Point2D.Double(5, 0), facet.getFace(id));
 	}
 
@@ -122,20 +122,20 @@ public class FaceFacetTest extends TestCase
 		PCTemplate t = new PCTemplate();
 		t.put(ObjectKey.FACE_WIDTH, new BigDecimal(11));
 		t.put(ObjectKey.FACE_HEIGHT, new BigDecimal(12));
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertEquals(SIZE_11_12, facet.getFace(id));
 		PCTemplate t5 = new PCTemplate();
 		t5.put(ObjectKey.FACE_WIDTH, new BigDecimal(3));
 		t5.put(ObjectKey.FACE_HEIGHT, new BigDecimal(2));
-		tfacet.add(id, t5);
+		tfacet.add(id, t5, this);
 		assertEquals(SIZE_3_2, facet.getFace(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertEquals(SIZE_3_2, facet.getFace(id));
-		tfacet.add(id, t);
+		tfacet.add(id, t, this);
 		assertEquals(SIZE_11_12, facet.getFace(id));
-		tfacet.remove(id, t);
+		tfacet.remove(id, t, this);
 		assertEquals(SIZE_3_2, facet.getFace(id));
-		tfacet.remove(id, t5);
+		tfacet.remove(id, t5, this);
 		assertEquals(SIZE_10_5, facet.getFace(id));
 	}
 }
