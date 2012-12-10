@@ -28,6 +28,15 @@ CODE-8b															BONUS:SKILL|Climb|INT*2|TYPE=AnotherBonus
 #doesn't work
 
 Template-71			
+Template-73
+# -74 - ADD:EQUIP
+# -75 - ADD:LANGUAGE
+# -76 - ADD:SKILL
+# -77 - ADD:SPELLCASTER
+# -78 - ADD:TEMPLATE
+
+
+
 
 CODE-362																						ABILITY:Special Ability|AUTOMATIC|TYPE=CodeThreeSixTwo
 CODE-362_B																						ABILITY:Special Ability|AUTOMATIC|TYPE=Code_Three_Six_Two

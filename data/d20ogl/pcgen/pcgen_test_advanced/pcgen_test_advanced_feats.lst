@@ -19,6 +19,11 @@ Feat Selector											TYPE:GENERAL																																					STACK:Y
 
 
 Test-72												TYPE:Test71.Test72		ABILITY:Special Ability|AUTOMATIC|Grant Template Chosen (Template-71)
+Test-74	ADD:EQUIP|Torch									TYPE:Test74
+Test-75	ADD:LANGUAGE|Draconic								TYPE:Test75	
+Test-76	ADD:SKILL|5|Athletics								TYPE:Test76	
+Test-77	ADD:SPELLCASTER|Sorcerer							TYPE:Test77		
+Test-78	ADD:TEMPLATE|Template-73							TYPE:Test78		
 
 
 
