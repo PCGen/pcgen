@@ -50,7 +50,6 @@ public class FacetInitialization {
 		RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 		ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
 		ClassLevelFacet classLevelFacet = FacetLibrary.getFacet(ClassLevelFacet.class);
-		ClassLevelChangeFacet classLevelChangeFacet = FacetLibrary.getFacet(ClassLevelChangeFacet.class);
 		ExpandedCampaignFacet expandedCampaignFacet = FacetLibrary.getFacet(ExpandedCampaignFacet.class);
 		EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
 		EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
@@ -123,7 +122,6 @@ public class FacetInitialization {
 		naturalWeaponFacet.addDataFacetChangeListener(userEquipmentFacet);
 		naturalWeaponFacet.addDataFacetChangeListener(equipSetFacet);
 
-		classFacet.addLevelChangeListener(classLevelChangeFacet);
 		classFacet.addLevelChangeListener(levelFacet);
 		levelFacet.addLevelChangeListener(conditionalTemplateFacet);
 		levelFacet.addLevelChangeListener(sizeFacet);
@@ -153,7 +151,7 @@ public class FacetInitialization {
 
 		// weaponProfList is still just a list of Strings
 		// results.addAll(getWeaponProfList());
-		classLevelFacet.addDataFacetChangeListener(charObjectFacet);
+		classLevelFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		grantedAbilityFacet.addDataFacetChangeListener(charObjectFacet);
 		companionModFacet.addDataFacetChangeListener(charObjectFacet); //model done
 
@@ -190,5 +188,8 @@ public class FacetInitialization {
 		FacetLibrary.getFacet(AddLevelFacet.class);
 		//This one is a just in case
 		FacetLibrary.getFacet(ChangeProfFacet.class);
+		//and others just in case...
+		FacetLibrary.getFacet(ClassLevelChangeFacet.class);
+		FacetLibrary.getFacet(UnconditionalTemplateFacet.class);
 	}
 }

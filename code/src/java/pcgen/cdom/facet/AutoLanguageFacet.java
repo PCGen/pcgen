@@ -34,8 +34,10 @@ import pcgen.core.QualifiedObject;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class AutoLanguageFacet extends AbstractQualifiedListFacet<QualifiedObject<CDOMReference<Language>>> implements
-		DataFacetChangeListener<CDOMObject> {
+public class AutoLanguageFacet extends
+		AbstractQualifiedListFacet<QualifiedObject<CDOMReference<Language>>>
+		implements DataFacetChangeListener<CDOMObject>
+{
 
 	/**
 	 * Processes CDOMObjects added to a Player Character to extract Languages
@@ -58,7 +60,8 @@ public class AutoLanguageFacet extends AbstractQualifiedListFacet<QualifiedObjec
 		CDOMObject cdo = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
 		// LANGAUTO
-		List<QualifiedObject<CDOMReference<Language>>> list = cdo.getSafeListFor(ListKey.AUTO_LANGUAGES);
+		List<QualifiedObject<CDOMReference<Language>>> list =
+				cdo.getSafeListFor(ListKey.AUTO_LANGUAGES);
 		if (list != null)
 		{
 			addAll(id, list, cdo);
@@ -94,31 +97,32 @@ public class AutoLanguageFacet extends AbstractQualifiedListFacet<QualifiedObjec
 	}
 
 	/**
-	 * Returns a List of Equipment granted to the Player Character by all
-	 * AUTO:EQUIPMENT tokens on objects added to the Player Character.
+	 * Returns a List of Languages granted to the Player Character by all
+	 * AUTO:LANG tokens on objects added to the Player Character.
 	 * 
 	 * This method is value-semantic in that ownership of the returned List is
 	 * transferred to the class calling this method. Modification of the
-	 * returned List will not modify this AutoEquipmentFacet and modification of
-	 * this AutoEquipmentFacet will not modify the returned Collection.
+	 * returned List will not modify this AutoLanguageFacet and modification of
+	 * this AutoLanguageFacet will not modify the returned Collection.
 	 * Modifications to the returned List will also not modify any future or
 	 * previous objects returned by this (or other) methods on
-	 * AutoEquipmentFacet. If you wish to modify the information stored in this
-	 * AutoEquipmentFacet, you must use the add*() and remove*() methods of
-	 * AutoEquipmentFacet.
+	 * AutoLanguageFacet. If you wish to modify the information stored in this
+	 * AutoLanguageFacet, you must use the add*() and remove*() methods of
+	 * AutoLanguageFacet.
 	 * 
 	 * @param id
 	 *            The CharID identifying the Player Character for which the list
-	 *            of all equipment granted by AUTO:EQUIP will be returned.
-	 * @return The List of Equipment granted by the the Player Character by all
-	 *         AUTO:EQUIP tokens on objects added to the Player Character.
+	 *            of all equipment granted by AUTO:LANGUAGE will be returned.
+	 * @return The List of Languages granted by the the Player Character by all
+	 *         AUTO:LANGUAGE tokens on objects added to the Player Character.
 	 */
 	public List<Language> getAutoLanguage(CharID id)
 	{
 		List<Language> list = new ArrayList<Language>();
 		for (QualifiedObject<CDOMReference<Language>> qo : getQualifiedSet(id))
 		{
-			Collection<Language> langList = qo.getRawObject().getContainedObjects();
+			Collection<Language> langList =
+					qo.getRawObject().getContainedObjects();
 			for (Language l : langList)
 			{
 				list.add(l);

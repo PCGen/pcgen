@@ -30,7 +30,9 @@ import pcgen.core.Language;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class LanguageFacet extends AbstractSourcedListFacet<Language> implements DataFacetChangeListener<Language> {
+public class LanguageFacet extends AbstractSourcedListFacet<Language> implements
+		DataFacetChangeListener<Language>
+{
 	private AutoLanguageFacet autoLanguageFacet;
 
 	/**
@@ -98,11 +100,7 @@ public class LanguageFacet extends AbstractSourcedListFacet<Language> implements
 	@Override
 	public boolean isEmpty(CharID id)
 	{
-		if (super.isEmpty(id))
-		{
-			return autoLanguageFacet.getAutoLanguage(id).isEmpty();
-		}
-		return false;
+		return super.isEmpty(id) && autoLanguageFacet.getAutoLanguage(id).isEmpty();
 	}
 
 	@Override

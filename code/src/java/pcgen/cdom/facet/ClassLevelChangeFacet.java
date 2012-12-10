@@ -130,4 +130,8 @@ public class ClassLevelChangeFacet implements ClassLevelChangeListener
 		this.classLevelFacet = classLevelFacet;
 	}
 
+	public void init()
+	{
+		classFacet.addLevelChangeListener(this);
+	}
 }

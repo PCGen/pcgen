@@ -44,7 +44,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Observable;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.StringTokenizer;
@@ -227,7 +226,7 @@ import pcgen.util.enumeration.VisionType;
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public class PlayerCharacter extends Observable implements Cloneable, VariableContainer, AssociationStore {
+public class PlayerCharacter  implements Cloneable, VariableContainer, AssociationStore {
 	// Constants for use in getBonus
 	private static String lastVariable = null;
 
@@ -1095,17 +1094,7 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 			cabFacet.update(id);
 		}
 
-		// TODO - This is kind of strange. We probably either only want to
-		// notify our observers if we have gone from not dirty to dirty and not
-		// the reverse case. At a minimum we should probably tell them the
-		// state anyway.
-		if (dirtyFlag != dirtyState)
-		{
-			dirtyFlag = dirtyState;
-
-			setChanged();
-			notifyObservers();
-		}
+		dirtyFlag = dirtyState;
 	}
 
 	/**
@@ -2867,8 +2856,6 @@ public class PlayerCharacter extends Observable implements Cloneable, VariableCo
 	{
 		setStringFor(StringKey.TAB_NAME, name);
 		setDirty(true);
-		setChanged();
-		notifyObservers("TabName");
 	}
 
 	/**
