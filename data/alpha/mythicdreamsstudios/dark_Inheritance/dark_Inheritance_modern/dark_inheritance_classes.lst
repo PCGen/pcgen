@@ -19,7 +19,7 @@ CLASS:Stim Freak	STARTSKILLPTS:3	CSKILL:Climb|Craft (Structural)|Intimidate|Jump
 4															ADD:FEAT|Weapon Focus
 5	SAB:A shot in the arm
 6															ADD:FEAT|TYPE=StimFreak
-7					BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0						ABILITY:Special Ability|AUTOMATIC|Weapon Specialization
+7					BONUS:VAR|WeapSpecQualify|1	DEFINE:WeapSpecQualify|0						BONUS:ABILITYPOOL|Weapon Specialization|1
 8	SAB:F'ing Crazy		BONUS:VAR|WeapSpecQualify|-1
 9															ADD:FEAT|TYPE=StimFreak
 10	SAB:Ultimate Weapon
