@@ -911,6 +911,7 @@ pcgen.filepaths=user
                 <fileset dir="${basedir}/code/src/itest">
                   <include name="plugin/**/*.java"/>
                   <include name="pcgen/**/*.java"/>
+                  <include name="tokenmodel/**/*.java"/>
                   <exclude name="**/Abstract*.java"/>
                   <exclude name="**/testsupport/*.java"/>
                 </fileset>

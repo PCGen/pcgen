@@ -39,7 +39,18 @@ import pcgen.cdom.facet.model.WeaponProfFacet;
 
 public class FacetInitialization {
 
-	public static void initialize()
+	private static boolean isInitialized = false;
+	
+	public static synchronized void initialize()
+	{
+		if (!isInitialized)
+		{
+			doInitialization();
+			isInitialized = true;
+		}
+	}
+	
+	private static void doInitialization()
 	{
 		doBridges();
 		TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
