@@ -15,25 +15,35 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package tokenmodel;
+package tokencontent;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
-import pcgen.core.PCTemplate;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.analysis.VisionFacet;
+import pcgen.core.QualifiedObject;
+import pcgen.core.Vision;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
-import plugin.lsttokens.TemplateLst;
-import tokenmodel.testsupport.AbstractGrantedListTokenTest;
+import plugin.lsttokens.VisionLst;
+import tokencontent.testsupport.AbstractContentTokenTest;
 
-public class TemplateLstTest extends AbstractGrantedListTokenTest<PCTemplate>
+public class GlobalVisionTest extends AbstractContentTokenTest
 {
 
-	TemplateLst token = new TemplateLst();
+	private VisionLst token = new VisionLst();
+	private VisionFacet visionFacet;
+
+	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		visionFacet = FacetLibrary.getFacet(VisionFacet.class);
+	}
 
 	@Override
 	public void processToken(CDOMObject source)
 	{
-		ParseResult result = token.parseToken(context, source, "Granted");
+		ParseResult result = token.parseToken(context, source, "Normal (40)");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
@@ -43,21 +53,28 @@ public class TemplateLstTest extends AbstractGrantedListTokenTest<PCTemplate>
 	}
 
 	@Override
-	protected Class<PCTemplate> getGrantClass()
-	{
-		return PCTemplate.class;
-	}
-
-	@Override
-	protected AbstractSourcedListFacet<PCTemplate> getTargetFacet()
-	{
-		return templateFacet;
-	}
-
-	@Override
 	public CDOMToken<?> getToken()
 	{
 		return token;
+	}
+
+	@Override
+	protected boolean containsExpected()
+	{
+		return visionFacet.contains(id,
+			new QualifiedObject<Vision>(Vision.getVision("Normal (40')")));
+	}
+
+	@Override
+	protected int targetFacetCount()
+	{
+		return visionFacet.getCount(id);
+	}
+
+	@Override
+	protected int baseCount()
+	{
+		return 0;
 	}
 
 }

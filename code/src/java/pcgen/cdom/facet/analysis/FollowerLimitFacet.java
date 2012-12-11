@@ -315,4 +315,18 @@ public class FollowerLimitFacet extends AbstractStorageFacet implements
 			}
 		}
 	}
+
+	public int getCount(CharID id)
+	{
+		Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>> map = getCachedMap(id);
+		int count = 0;
+		if (map != null)
+		{
+			for (Map<FollowerLimit, Set<CDOMObject>> fm : map.values())
+			{
+				count += fm.size();
+			}
+		}
+		return count;
+	}
 }

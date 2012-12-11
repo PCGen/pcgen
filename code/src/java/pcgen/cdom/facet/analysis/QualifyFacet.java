@@ -277,6 +277,12 @@ public class QualifyFacet extends AbstractStorageFacet implements
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
 	}
+	
+	public int getCount(CharID id)
+	{
+		CacheInfo ci = (CacheInfo) getCache(id, thisClass);
+		return (ci == null) ? 0 : ci.hml.size();
+	}
 
 	/**
 	 * Copies the contents of the QualifyFacet from one Player Character to

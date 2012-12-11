@@ -98,7 +98,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 	private static final VisibleToken ABILITY_VISIBLE_TOKEN =
 			new plugin.lsttokens.ability.VisibleToken();
 	private static final AutoLst AUTO_TOKEN = new plugin.lsttokens.AutoLst();
-	private static final LangToken AUTO_LANG_TOKEN =
+	protected static final LangToken AUTO_LANG_TOKEN =
 			new plugin.lsttokens.auto.LangToken();
 	private static final ProficiencyToken EQUIP_PROFICIENCY_TOKEN =
 			new plugin.lsttokens.equipment.ProficiencyToken();

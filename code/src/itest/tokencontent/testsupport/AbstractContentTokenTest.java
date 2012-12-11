@@ -15,12 +15,11 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package tokenmodel.testsupport;
+package tokencontent.testsupport;
 
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Campaign;
@@ -32,22 +31,20 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.character.CompanionMod;
 import pcgen.persistence.PersistenceLayerException;
+import tokenmodel.testsupport.AbstractTokenModelTest;
 
-public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
-		extends AbstractTokenModelTest
+public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 {
-
 	@Test
 	public void testFromAlignment() throws PersistenceLayerException
 	{
-		T granted = createGrantedObject();
 		processToken(lg);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 		alignmentFacet.set(id, lg);
-		assertTrue(getTargetFacet().contains(id, granted));
-		assertEquals(1, getTargetFacet().getCount(id));
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
 		alignmentFacet.set(id, ng);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 	}
 
 	//BioSet not *supposed* to do things like this
@@ -56,15 +53,13 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 	public void testFromCampaign() throws PersistenceLayerException
 	{
 		Campaign source = create(Campaign.class, "Source");
-		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 		expandedCampaignFacet.add(id, source, this);
-		assertTrue(getTargetFacet().contains(id, granted));
-		assertEquals((expandedCampaignFacet == getTargetFacet()) ? 2 : 1,
-			getTargetFacet().getCount(id));
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
 		expandedCampaignFacet.remove(id, source, this);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 	}
 
 	//Check not *supposed* to do things like this
@@ -73,64 +68,52 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 	public void testFromClass() throws PersistenceLayerException
 	{
 		PCClass source = create(PCClass.class, "Source");
-		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 		classFacet.addClass(id, source);
-		assertTrue(getTargetFacet().contains(id, granted));
-		assertEquals(1, getTargetFacet().getCount(id));
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
 		classFacet.removeClass(id, source);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Test
 	public void testFromClassLevel() throws PersistenceLayerException
 	{
 		PCClassLevel source = create(PCClassLevel.class, "Source");
-		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 		classLevelFacet.add(id, source, this);
-		assertTrue(getTargetFacet().contains(id, granted));
-		assertEquals((classLevelFacet == getTargetFacet()) ? 2 : 1,
-			getTargetFacet().getCount(id));
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
 		classLevelFacet.remove(id, source, this);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Test
 	public void testFromCompanionMod() throws PersistenceLayerException
 	{
 		CompanionMod source = create(CompanionMod.class, "Source");
-		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 		companionModFacet.add(id, source);
-		assertTrue(getTargetFacet().contains(id, granted));
-		assertEquals(1, getTargetFacet().getCount(id));
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
 		companionModFacet.remove(id, source);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 	}
-
-	/*
-	 * TODO An opportunity exists here to consolidate to allow this to test
-	 * CompanionMod and Domain objects, however that requires AbstractListFacet
-	 * and AbstractSourcedListFacet to share an interface that could be used
-	 * here.
-	 */
 
 	@Test
 	public void testFromDeity() throws PersistenceLayerException
 	{
 		Deity source = create(Deity.class, "Source");
-		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 		deityFacet.set(id, source);
-		assertTrue(getTargetFacet().contains(id, granted));
-		assertEquals(1, getTargetFacet().getCount(id));
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
 		deityFacet.remove(id);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Test
@@ -138,30 +121,27 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 	{
 		Domain source = create(Domain.class, "Source");
 		PCClass pcc = create(PCClass.class, "Class");
-		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 		ClassSource classSource = new ClassSource(pcc);
 		domainFacet.add(id, source, classSource);
-		assertTrue(getTargetFacet().contains(id, granted));
-		assertEquals(1, getTargetFacet().getCount(id));
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
 		domainFacet.remove(id, source, classSource);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Test
 	public void testFromEqMod() throws PersistenceLayerException
 	{
 		EquipmentModifier source = create(EquipmentModifier.class, "Source");
-		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 		activeEqModFacet.add(id, source, this);
-		assertTrue(getTargetFacet().contains(id, granted));
-		assertEquals((activeEqModFacet == getTargetFacet()) ? 2 : 1,
-			getTargetFacet().getCount(id));
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
 		activeEqModFacet.remove(id, source, this);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 	}
 
 	//Language not *supposed* to do things like this
@@ -170,14 +150,13 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 	public void testFromRace() throws PersistenceLayerException
 	{
 		Race source = create(Race.class, "Source");
-		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 		raceFacet.set(id, source);
-		assertTrue(getTargetFacet().contains(id, granted));
-		assertEquals(1, getTargetFacet().getCount(id));
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
 		raceFacet.remove(id);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 	}
 
 	//TODO SizeFacet is not a very good model for doing this by hand :(
@@ -190,28 +169,23 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 	public void testFromTemplate() throws PersistenceLayerException
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
-		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 		templateFacet.add(id, source, this);
-		assertTrue(getTargetFacet().contains(id, granted));
-		assertEquals((templateFacet == getTargetFacet()) ? 2 : 1,
-			getTargetFacet().getCount(id));
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
 		templateFacet.remove(id, source, this);
-		assertEquals(0, getTargetFacet().getCount(id));
+		assertEquals(baseCount(), targetFacetCount());
 	}
 
 	//WeaponProf not *supposed* to do things like this
 
 	protected abstract void processToken(CDOMObject source);
 
-	protected T createGrantedObject()
-	{
-		return create(getGrantClass(), "Granted");
-	}
+	protected abstract boolean containsExpected();
 
-	protected abstract Class<T> getGrantClass();
+	protected abstract int targetFacetCount();
 
-	protected abstract AbstractSourcedListFacet<T> getTargetFacet();
+	protected abstract int baseCount();
 
 }

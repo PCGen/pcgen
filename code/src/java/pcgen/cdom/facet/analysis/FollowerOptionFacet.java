@@ -322,4 +322,18 @@ public class FollowerOptionFacet extends AbstractStorageFacet implements
 			}
 		}
 	}
+
+	public int getCount(CharID id)
+	{
+		CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>> map = getCachedMap(id);
+		int count = 0;
+		if (map != null)
+		{
+			for (Map<FollowerOption, Set<CDOMObject>> fm : map.values())
+			{
+				count += fm.size();
+			}
+		}
+		return count;
+	}
 }

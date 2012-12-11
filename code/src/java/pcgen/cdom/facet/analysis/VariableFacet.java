@@ -270,6 +270,12 @@ public class VariableFacet extends AbstractStorageFacet implements
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> vkMap = getCachedMap(id);
 		return (vkMap != null) && vkMap.containsKey(vk);
 	}
+	
+	public int getVariableCount(CharID id)
+	{
+		Map<VariableKey, Map<Formula, Set<CDOMObject>>> vkMap = getCachedMap(id);
+		return (vkMap == null) ? 0 : vkMap.size();
+	}
 
 	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
 	{
