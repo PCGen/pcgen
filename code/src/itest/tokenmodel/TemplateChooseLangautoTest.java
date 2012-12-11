@@ -17,22 +17,24 @@
  */
 package tokenmodel;
 
-import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import org.junit.Test;
+
+import pcgen.core.Language;
 import pcgen.core.PCTemplate;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
-import plugin.lsttokens.TemplateLst;
-import tokenmodel.testsupport.AbstractGrantedListTokenTest;
+import plugin.lsttokens.template.ChooseLangautoToken;
+import tokenmodel.testsupport.AbstractTokenModelTest;
 
-public class TemplateLstTest extends AbstractGrantedListTokenTest<PCTemplate>
+public class TemplateChooseLangautoTest extends AbstractTokenModelTest
 {
 
-	TemplateLst token = new TemplateLst();
-
-	@Override
-	public void processToken(CDOMObject source)
+	@Test
+	public void testSimple() throws PersistenceLayerException
 	{
+		PCTemplate source = create(PCTemplate.class, "Source");
+		Language granted = create(Language.class, "Granted");
 		ParseResult result = token.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
@@ -40,19 +42,15 @@ public class TemplateLstTest extends AbstractGrantedListTokenTest<PCTemplate>
 			fail("Test Setup Failed");
 		}
 		finishLoad();
+		assertEquals(0, languageFacet.getCount(id));
+		templateFacet.add(id, source, this);
+		assertTrue(languageFacet.contains(id, granted));
+		assertEquals(1, languageFacet.getCount(id));
+		templateFacet.remove(id, source, this);
+		assertEquals(0, languageFacet.getCount(id));
 	}
 
-	@Override
-	protected Class<PCTemplate> getGrantClass()
-	{
-		return PCTemplate.class;
-	}
-
-	@Override
-	protected AbstractSourcedListFacet<PCTemplate> getTargetFacet()
-	{
-		return templateFacet;
-	}
+	ChooseLangautoToken token = new ChooseLangautoToken();
 
 	@Override
 	public CDOMToken<?> getToken()

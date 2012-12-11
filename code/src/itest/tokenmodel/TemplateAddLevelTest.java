@@ -17,42 +17,40 @@
  */
 package tokenmodel;
 
-import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import org.junit.Test;
+
+import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
-import plugin.lsttokens.TemplateLst;
-import tokenmodel.testsupport.AbstractGrantedListTokenTest;
+import plugin.lsttokens.template.AddLevelToken;
+import tokenmodel.testsupport.AbstractTokenModelTest;
 
-public class TemplateLstTest extends AbstractGrantedListTokenTest<PCTemplate>
+public class TemplateAddLevelTest extends AbstractTokenModelTest
 {
 
-	TemplateLst token = new TemplateLst();
-
-	@Override
-	public void processToken(CDOMObject source)
+	@Test
+	public void testSimple() throws PersistenceLayerException
 	{
-		ParseResult result = token.parseToken(context, source, "Granted");
+		PCTemplate source = create(PCTemplate.class, "Source");
+		create(PCClass.class, "Granted");
+		ParseResult result = token.parseToken(context, source, "Granted|3");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
 			fail("Test Setup Failed");
 		}
 		finishLoad();
+		assertEquals(0, classFacet.getCount(id));
+		templateFacet.add(id, source, this);
+		assertEquals(1, classFacet.getCount(id));
+		assertNotNull(pc.getClassKeyed("Granted"));
+		templateFacet.remove(id, source, this);
+		assertEquals(0, classFacet.getCount(id));
 	}
 
-	@Override
-	protected Class<PCTemplate> getGrantClass()
-	{
-		return PCTemplate.class;
-	}
-
-	@Override
-	protected AbstractSourcedListFacet<PCTemplate> getTargetFacet()
-	{
-		return templateFacet;
-	}
+	AddLevelToken token = new AddLevelToken();
 
 	@Override
 	public CDOMToken<?> getToken()

@@ -17,13 +17,9 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.List;
-
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.PersistentTransitionChoice;
-import pcgen.cdom.base.TransitionChoice;
+import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
@@ -65,23 +61,8 @@ public class AddFacet implements DataFacetChangeListener<CDOMObject>
 		PlayerCharacter aPC = trackingFacet.getPC(id);
 		if (!aPC.isImporting())
 		{
-			CDOMObject cdo = dfce.getCDOMObject();
-			List<PersistentTransitionChoice<?>> addList =
-					cdo.getListFor(ListKey.ADD);
-			if (addList != null)
-			{
-				for (PersistentTransitionChoice<?> tc : addList)
-				{
-					driveChoice(cdo, tc, aPC);
-				}
-			}
+			CDOMObjectUtilities.addAdds(dfce.getCDOMObject(), aPC);
 		}
-	}
-
-	private static <T> void driveChoice(CDOMObject cdo, TransitionChoice<T> tc,
-		final PlayerCharacter pc)
-	{
-		tc.act(tc.driveChoice(pc), cdo, pc);
 	}
 
 	/**
@@ -100,8 +81,12 @@ public class AddFacet implements DataFacetChangeListener<CDOMObject>
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
-		//Nothing for now?
-		//TODO This eventually needs to be symmetric to dataAdded?
+		CharID id = dfce.getCharID();
+		PlayerCharacter aPC = trackingFacet.getPC(id);
+		if (!aPC.isImporting())
+		{
+			CDOMObjectUtilities.removeAdds(dfce.getCDOMObject(), aPC);
+		}
 	}
 
 	public void setRaceFacet(RaceFacet raceFacet)

@@ -55,6 +55,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
+import pcgen.rules.persistence.token.CDOMToken;
+import pcgen.util.chooser.ChooserFactory;
+import pcgen.util.chooser.RandomChooser;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.TemplateLst;
 import plugin.lsttokens.TypeLst;
@@ -162,6 +165,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 
 	protected void setUpContext() throws PersistenceLayerException
 	{
+		ChooserFactory.setInterfaceClassname(RandomChooser.class.getName());
 		TokenRegistration.register(AUTO_LANG_TOKEN);
 		TokenRegistration.register(ABILITY_VISIBLE_TOKEN);
 		TokenRegistration.register(AUTO_TOKEN);
@@ -172,6 +176,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		TokenRegistration.register(EQUIP_PROFICIENCY_TOKEN);
 		TokenRegistration.register(LANGBONUS_PRIM);
 		TokenRegistration.register(PC_QUAL);
+		TokenRegistration.register(getToken());
 
 		activeEqModFacet = FacetLibrary.getFacet(ActiveEqModFacet.class);
 		alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
@@ -299,4 +304,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 		align.put(StringKey.ABB, shortName);
 		return align;
 	}
+	
+	public abstract CDOMToken<?> getToken();
 }

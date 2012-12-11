@@ -17,42 +17,43 @@
  */
 package tokenmodel;
 
-import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
-import pcgen.core.PCTemplate;
+import org.junit.Test;
+
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.PCClass;
+import pcgen.core.Race;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
-import plugin.lsttokens.TemplateLst;
-import tokenmodel.testsupport.AbstractGrantedListTokenTest;
+import plugin.lsttokens.race.MonsterclassToken;
+import plugin.lsttokens.testsupport.TokenRegistration;
+import tokenmodel.testsupport.AbstractTokenModelTest;
 
-public class TemplateLstTest extends AbstractGrantedListTokenTest<PCTemplate>
+public class RaceMonsterClassTest extends AbstractTokenModelTest
 {
 
-	TemplateLst token = new TemplateLst();
-
-	@Override
-	public void processToken(CDOMObject source)
+	@Test
+	public void testSimple() throws PersistenceLayerException
 	{
-		ParseResult result = token.parseToken(context, source, "Granted");
+		TokenRegistration.register(plugin.bonustokens.Feat.class);
+		Race source = create(Race.class, "Source");
+		create(PCClass.class, "Granted").put(ObjectKey.IS_MONSTER, Boolean.TRUE);
+		ParseResult result = token.parseToken(context, source, "Granted:3");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
 			fail("Test Setup Failed");
 		}
 		finishLoad();
+		assertEquals(0, classFacet.getCount(id));
+		raceFacet.set(id, source);
+		assertEquals(1, classFacet.getCount(id));
+		assertNotNull(pc.getClassKeyed("Granted"));
+		raceFacet.remove(id);
+		assertEquals(0, classFacet.getCount(id));
 	}
 
-	@Override
-	protected Class<PCTemplate> getGrantClass()
-	{
-		return PCTemplate.class;
-	}
-
-	@Override
-	protected AbstractSourcedListFacet<PCTemplate> getTargetFacet()
-	{
-		return templateFacet;
-	}
+	MonsterclassToken token = new MonsterclassToken();
 
 	@Override
 	public CDOMToken<?> getToken()
