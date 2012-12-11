@@ -227,7 +227,15 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			
 			for (BiographyField field : customFields)
 			{
-				BioItem item = new BiographyFieldBioItem(field,character);
+				BioItem item;
+				if (field == BiographyField.REGION)
+				{
+					item = new RegionItem(character);
+				}
+				else
+				{
+					item = new BiographyFieldBioItem(field,character);
+				}
 				customFieldMap.put(field, item);
 			}
 		}
