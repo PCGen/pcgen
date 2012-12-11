@@ -46,6 +46,8 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		alignmentFacet.set(id, lg);
 		assertTrue(getTargetFacet().contains(id, granted));
 		assertEquals(1, getTargetFacet().getCount(id));
+		alignmentFacet.set(id, ng);
+		assertEquals(0, getTargetFacet().getCount(id));
 	}
 
 	//BioSet not *supposed* to do things like this
@@ -61,6 +63,8 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		assertTrue(getTargetFacet().contains(id, granted));
 		assertEquals((expandedCampaignFacet == getTargetFacet()) ? 2 : 1,
 			getTargetFacet().getCount(id));
+		expandedCampaignFacet.remove(id, source, this);
+		assertEquals(0, getTargetFacet().getCount(id));
 	}
 
 	//Check not *supposed* to do things like this
@@ -75,6 +79,8 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		classFacet.addClass(id, source);
 		assertTrue(getTargetFacet().contains(id, granted));
 		assertEquals(1, getTargetFacet().getCount(id));
+		classFacet.removeClass(id, source);
+		assertEquals(0, getTargetFacet().getCount(id));
 	}
 
 	@Test
@@ -88,6 +94,8 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		assertTrue(getTargetFacet().contains(id, granted));
 		assertEquals((classLevelFacet == getTargetFacet()) ? 2 : 1,
 			getTargetFacet().getCount(id));
+		classLevelFacet.remove(id, source, this);
+		assertEquals(0, getTargetFacet().getCount(id));
 	}
 
 	@Test
@@ -100,6 +108,8 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		companionModFacet.add(id, source);
 		assertTrue(getTargetFacet().contains(id, granted));
 		assertEquals(1, getTargetFacet().getCount(id));
+		companionModFacet.remove(id, source);
+		assertEquals(0, getTargetFacet().getCount(id));
 	}
 
 	/*
@@ -115,9 +125,12 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		Deity source = create(Deity.class, "Source");
 		T granted = createGrantedObject();
 		processToken(source);
+		assertEquals(0, getTargetFacet().getCount(id));
 		deityFacet.set(id, source);
 		assertTrue(getTargetFacet().contains(id, granted));
 		assertEquals(1, getTargetFacet().getCount(id));
+		deityFacet.remove(id);
+		assertEquals(0, getTargetFacet().getCount(id));
 	}
 
 	@Test
@@ -128,9 +141,12 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		T granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getTargetFacet().getCount(id));
-		domainFacet.add(id, source, new ClassSource(pcc));
+		ClassSource classSource = new ClassSource(pcc);
+		domainFacet.add(id, source, classSource);
 		assertTrue(getTargetFacet().contains(id, granted));
 		assertEquals(1, getTargetFacet().getCount(id));
+		domainFacet.remove(id, source, classSource);
+		assertEquals(0, getTargetFacet().getCount(id));
 	}
 
 	@Test
@@ -144,6 +160,8 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		assertTrue(getTargetFacet().contains(id, granted));
 		assertEquals((activeEqModFacet == getTargetFacet()) ? 2 : 1,
 			getTargetFacet().getCount(id));
+		activeEqModFacet.remove(id, source, this);
+		assertEquals(0, getTargetFacet().getCount(id));
 	}
 
 	//Language not *supposed* to do things like this
@@ -154,9 +172,12 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		Race source = create(Race.class, "Source");
 		T granted = createGrantedObject();
 		processToken(source);
+		assertEquals(0, getTargetFacet().getCount(id));
 		raceFacet.set(id, source);
 		assertTrue(getTargetFacet().contains(id, granted));
 		assertEquals(1, getTargetFacet().getCount(id));
+		raceFacet.remove(id);
+		assertEquals(0, getTargetFacet().getCount(id));
 	}
 
 	//TODO SizeFacet is not a very good model for doing this by hand :(
@@ -176,6 +197,8 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		assertTrue(getTargetFacet().contains(id, granted));
 		assertEquals((templateFacet == getTargetFacet()) ? 2 : 1,
 			getTargetFacet().getCount(id));
+		templateFacet.remove(id, source, this);
+		assertEquals(0, getTargetFacet().getCount(id));
 	}
 
 	//WeaponProf not *supposed* to do things like this
