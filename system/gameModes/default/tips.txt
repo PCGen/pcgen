@@ -12,6 +12,7 @@ Use the <em>File > Export</em> or <em>File > Print</em> menus to output great ch
 Using the Qualified toggle buttons on each tab will trim the list down to just the options that you can take.
 The Affordable toggle button on the Purchase tab only shows those items you have the funds for.
 Here be Monsters!<p>PCGen makes it easy to create monsters too. Just load up a source which includes monsters and then create a new character. You can either: <UL><LI>Click on the <em>Create Monsters</em> button to make one just like in the book; or</LI><LI>Select a monster race and make up the monster like you would a normal character.</LI</UL> 
+Treasure abounds!<p>PCGen makes it easy to add treasure too. Just load up a source which includes treasure tables and then create a new character. You can either: <UL><LI>Select the <em>Add Kit</em> function on the Edit menu and search for the available treasure kits; or</LI><LI>Click on the <em>Create Monsters</em> button and search for the available treasure kits.</LI</UL> 
 
 # Game mode specific items go here
 
