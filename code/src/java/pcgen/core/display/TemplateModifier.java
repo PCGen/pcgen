@@ -17,7 +17,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.core.analysis;
+package pcgen.core.display;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -36,6 +36,7 @@ import pcgen.cdom.facet.model.StatFacet;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.BonusCalc;
 
 public class TemplateModifier
 {

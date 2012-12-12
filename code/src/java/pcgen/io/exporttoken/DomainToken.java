@@ -31,8 +31,8 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.analysis.DescriptionFormatting;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.display.DescriptionFormatting;
 import pcgen.io.ExportHandler;
 
 /**
