@@ -1,4 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Tue Feb 17 21:23:11 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-###Block: Sneak Attack borrowed from SRD (Why SRD as opposed to RSRD?)
-# Ability Name	Category of Ability		Type				Visible	Define							Description																						Source Page						Aspects
-Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:YES	DEFINE:SneakAttack|0	DEFINE:SneakAttackDie|6	DESC:%1d%2 damage any time your target would be denied a Dexterity bonus to AC or when you flank your target|SneakAttack|SneakAttackDie	SOURCEPAGE:srdbasiccharacterclassesii.rtf	ASPECT:Ability Benefit|%1d%2|SneakAttack|SneakAttackDie
