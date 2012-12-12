@@ -1,0 +1,95 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141	SOURCEDATE:2005-01
+#Original entry by: Frank Kliewe
+
+# Ability Name					Output Name		Category of Ability		Type			Visible		Bonus to Ability Pool															Source Page
+Slasher Occupation (Disorganized Killer)	OUTPUTNAME:[NAME]	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Disorganized Killer Occupation Skills|3	BONUS:ABILITYPOOL|Disorganized Killer Feat|1	SOURCEPAGE:p.44
+Slasher Occupation (Mental Patient)		OUTPUTNAME:[NAME]	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Mental Patient Occupation Skills|2	BONUS:ABILITYPOOL|Mental Patient Feat|1			SOURCEPAGE:p.44
+Slasher Occupation (Organized Killer)	OUTPUTNAME:[NAME]	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Organized Killer Occupation Skills|3	BONUS:ABILITYPOOL|Organized Killer Feat|1		SOURCEPAGE:p.45
+
+
+###Block:The Skill Choices
+# Ability Name												Type
+CATEGORY=Starting Occupation|Bluff(class skill).MOD						TYPE:Organized_Killer_Skills
+CATEGORY=Starting Occupation|Bluff(+1 to skill).MOD						TYPE:Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Climb(class skill).MOD						TYPE:Disorganized_Killer_Skills
+CATEGORY=Starting Occupation|Climb(+1 to skill).MOD						TYPE:Disorganized_Killer_Skills
+
+CATEGORY=Starting Occupation|Diplomacy(class skill).MOD					TYPE:Organized_Killer_Skills
+CATEGORY=Starting Occupation|Diplomacy(+1 to skill).MOD					TYPE:Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Disable Device(class skill).MOD				TYPE:Mental_Patient_Skills
+CATEGORY=Starting Occupation|Disable Device(+1 to skill).MOD				TYPE:Mental_Patient_Skills
+
+CATEGORY=Starting Occupation|Disguise(class skill).MOD					TYPE:Mental_Patient_Skills.Organized_Killer_Skills
+CATEGORY=Starting Occupation|Disguise(+1 to skill).MOD					TYPE:Mental_Patient_Skills.Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Drive(class skill).MOD						TYPE:Organized_Killer_Skills
+CATEGORY=Starting Occupation|Drive(+1 to skill).MOD						TYPE:Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Forgery(class skill).MOD						TYPE:Mental_Patient_Skills.Organized_Killer_Skills
+CATEGORY=Starting Occupation|Forgery(+1 to skill).MOD						TYPE:Mental_Patient_Skills.Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Gather Information(class skill).MOD				TYPE:Organized_Killer_Skills
+CATEGORY=Starting Occupation|Gather Information(+1 to skill).MOD				TYPE:Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Hide(class skill).MOD						TYPE:Disorganized_Killer_Skills.Mental_Patient_Skills
+CATEGORY=Starting Occupation|Hide(+1 to skill).MOD						TYPE:Disorganized_Killer_Skills.Mental_Patient_Skills
+
+CATEGORY=Starting Occupation|Intimidate(class skill).MOD					TYPE:Disorganized_Killer_Skills.Organized_Killer_Skills
+CATEGORY=Starting Occupation|Intimidate(+1 to skill).MOD					TYPE:Disorganized_Killer_Skills.Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Investigate(class skill).MOD					TYPE:Organized_Killer_Skills
+CATEGORY=Starting Occupation|Investigate(+1 to skill).MOD					TYPE:Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Jump(class skill).MOD						TYPE:Disorganized_Killer_Skills
+CATEGORY=Starting Occupation|Jump(+1 to skill).MOD						TYPE:Disorganized_Killer_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Arcane Lore - class skill).MOD			TYPE:Organized_Killer_Skills
+CATEGORY=Starting Occupation|Knowledge (Arcane Lore - +1 to skill).MOD			TYPE:Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Behavioral Sciences - class skill).MOD	TYPE:Disorganized_Killer_Skills.Organized_Killer_Skills
+CATEGORY=Starting Occupation|Knowledge (Behavioral Sciences - +1 to skill).MOD	TYPE:Disorganized_Killer_Skills.Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Civics - class skill).MOD				TYPE:Organized_Killer_Skills
+CATEGORY=Starting Occupation|Knowledge (Civics - +1 to skill).MOD				TYPE:Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Current Events - +1 to skill).MOD		TYPE:Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Popular Culture - +1 to skill).MOD		TYPE:Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Streetwise - +1 to skill).MOD			TYPE:Mental_Patient_Skills.Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Tactics - class skill).MOD			TYPE:Organized_Killer_Skills
+CATEGORY=Starting Occupation|Knowledge (Tactics - +1 to skill).MOD			TYPE:Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Theology and Philosophy - class skill).MOD	TYPE:Organized_Killer_Skills
+CATEGORY=Starting Occupation|Knowledge (Theology and Philosophy - +1 to skill).MOD	TYPE:Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Listen(class skill).MOD						TYPE:Disorganized_Killer_Skills
+CATEGORY=Starting Occupation|Listen(+1 to skill).MOD						TYPE:Disorganized_Killer_Skills
+
+CATEGORY=Starting Occupation|Move Silently(class skill).MOD					TYPE:Disorganized_Killer_Skills.Mental_Patient_Skills
+CATEGORY=Starting Occupation|Move Silently(+1 to skill).MOD					TYPE:Disorganized_Killer_Skills.Mental_Patient_Skills
+
+CATEGORY=Starting Occupation|Navigate(class skill).MOD					TYPE:Disorganized_Killer_Skills
+CATEGORY=Starting Occupation|Navigate(+1 to skill).MOD					TYPE:Disorganized_Killer_Skills
+
+CATEGORY=Starting Occupation|Research(class skill).MOD					TYPE:Organized_Killer_Skills
+CATEGORY=Starting Occupation|Research(+1 to skill).MOD					TYPE:Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Search(class skill).MOD						TYPE:Disorganized_Killer_Skills
+CATEGORY=Starting Occupation|Search(+1 to skill).MOD						TYPE:Disorganized_Killer_Skills
+
+CATEGORY=Starting Occupation|Sense Motive(class skill).MOD					TYPE:Organized_Killer_Skills
+CATEGORY=Starting Occupation|Sense Motive(+1 to skill).MOD					TYPE:Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Sleight of Hand(class skill).MOD				TYPE:Mental_Patient_Skills.Organized_Killer_Skills
+CATEGORY=Starting Occupation|Sleight of Hand(+1 to skill).MOD				TYPE:Mental_Patient_Skills.Organized_Killer_Skills
+
+CATEGORY=Starting Occupation|Spot(class skill).MOD						TYPE:Disorganized_Killer_Skills
+CATEGORY=Starting Occupation|Spot(+1 to skill).MOD						TYPE:Disorganized_Killer_Skills
+
+CATEGORY=Starting Occupation|Survival(class skill).MOD					TYPE:Disorganized_Killer_Skills
+CATEGORY=Starting Occupation|Survival(+1 to skill).MOD					TYPE:Disorganized_Killer_Skills

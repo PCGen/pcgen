@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141	SOURCEDATE:2005-01
+#Original entry by: Frank Kliewe
+
+#Weapons
+# Equipment Name		Required Weapon Proficiency	Type										Cost		Weight	Base Item for EQMOD	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Range		Size		Source Page		Special Property
+Dagger of Banishment	PROFICIENCY:WEAPON|Knife	TYPE:FX.Weapon.Simple.Melee.Piercing.Specific.Finesseable	COST:25	WT:2		BASEITEM:Knife		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	EQMOD:PLUS1W	RANGE:10	SIZE:T	SOURCEPAGE:p.38	SPROP:+2d6 points of bonus holy (good) damage against all of evil allegiance.	SPROP:Extraplanar creature must make a Will save (DC 15) or be banished back to its home plane.
