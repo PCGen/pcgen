@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59	SOURCEDATE:2004-01
+
+STARTPACK:Android Stats	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
+GEAR:Robot Integrated Armor (Resilium Armor)	SIZE:PC	LOCATION:Equipped
+
+STARTPACK:Clone Stats	VISIBLE:YES	APPLY:INSTANT
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10|CON=10
+
+
+#
+# End
+#

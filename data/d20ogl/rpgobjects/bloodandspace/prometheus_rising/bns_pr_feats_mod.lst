@@ -1,0 +1,38 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59	SOURCEDATE:2004-01
+
+# Feat Name					Type
+Action Boost.MOD				TYPE:Gambler
+Aircraft Operation.MOD			TYPE:HumanComputer
+Alertness.MOD				TYPE:Sensitive
+Animal Affinity.MOD			TYPE:Sensitive
+Armor Proficiency (Light).MOD		TYPE:HumanComputer.xenoArch
+Armor Proficiency (Medium).MOD	TYPE:HumanComputer.xenoArch
+Armor Proficiency (Powered).MOD	TYPE:HumanComputer
+Attentive.MOD				TYPE:HumanComputer.Sensitive
+Blind-Fight.MOD				TYPE:HumanComputer.Sensitive
+Cautious.MOD				TYPE:HumanComputer
+Combat Expertise.MOD			TYPE:HumanComputer
+Combat Martial Arts.MOD			TYPE:HumanComputer.Sensitive
+Deceptive.MOD				TYPE:HumanComputer
+Defensive Martial Arts.MOD		TYPE:HumanComputer.Sensitive
+Educated.MOD				TYPE:HumanComputer.xenoArch
+Elusive Target.MOD			TYPE:HumanComputer
+Focused.MOD					TYPE:Sensitive
+Gearhead.MOD				TYPE:HumanComputer.xenoArch
+Improved Disarm.MOD			TYPE:HumanComputer
+Improved Initiative.MOD			TYPE:HumanComputer
+Improved Trip.MOD				TYPE:HumanComputer
+Iron Will.MOD				TYPE:Sensitive
+Meticulous.MOD				TYPE:HumanComputer
+Renown.MOD					TYPE:xenoArch
+Salvage.MOD					TYPE:xenoArch.Hauler.Pirate
+Spacer.MOD					TYPE:Hauler
+Starship Operation.MOD			TYPE:Hauler.Pirate
+Studious.MOD				TYPE:HumanComputer.XenoArch
+Trustworthy.MOD				TYPE:HumanComputer.Sensitive
+Ultra Immune System.MOD			TYPE:xenoArch
+Unbalance Opponent.MOD			TYPE:Sensitive
+Windfall.MOD				TYPE:xenoArch
+Xenomedic.MOD				TYPE:xenoArch
+Zero G Training.MOD			TYPE:Pirate

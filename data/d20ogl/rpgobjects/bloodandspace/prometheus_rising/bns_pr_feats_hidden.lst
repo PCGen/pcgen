@@ -1,0 +1,19 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59	SOURCEDATE:2004-01
+
+# Feat Name					Type				Visible	Required Feat			Prohibited Feat			Special ABility		Define		Add 						Save checks bonus			Modify VAR
+Psyche					TYPE:Special		VISIBLE:NO											SAB:Psyche %|Psyche	DEFINE:Psyche|0												BONUS:VAR|Psyche|3
+
+Human Computer Fortitude		TYPE:HumanComputerSaves	VISIBLE:NO																								BONUS:CHECKS|Fortitude|INT
+Human Computer Reflex			TYPE:HumanComputerSaves	VISIBLE:NO																								BONUS:CHECKS|Reflex|INT
+Human Computer Will			TYPE:HumanComputerSaves	VISIBLE:NO																								BONUS:CHECKS|Will|INT
+
+Sensitive Base Psioninc			TYPE:SensitiveAwakening	VISIBLE:NO						!PREFEAT:3,TYPE=BasePsionic								ADD:FEAT|TYPE=BasePsionic
+Sensitive Psionic				TYPE:SensitiveAwakening	VISIBLE:NO	PREFEAT:3,TYPE=BasePsionic													ADD:FEAT|TYPE=PsionicPowerFeat
+
+Xeno Archaelogist Wealth Bonus	TYPE:XenoMajorDiscovery	VISIBLE:NO																													BONUS:VAR|WealthBonus|3
+Xeno Archaelogist Reputation Bonus	TYPE:XenoMajorDiscovery	VISIBLE:NO																													BONUS:VAR|Reputation|3
+
+#
+# End
+#
