@@ -329,6 +329,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> DAMAGE.Text (Weapon or damage type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> DAMAGEMULT:Number (0 for off-hand, 1 for primary, and 2 for two-handed)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> DAMAGESIZE</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> DAMAGE-SHORTRANGE</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> INITIATIVE</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> REACH</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> RANGEPENALTY</p>
@@ -422,6 +423,7 @@
 						</li>
 					</ul>
 				</li>
+				<li>Using the <code>DAMAGE-SHORTRANGE</code> syntax adds to the damage of a weapon at short range as defined in the GameMode files.</li>
 				<li>Using the <code>INITIATIVE</code> syntax increases the character's initiative.</li>
 				<li>Using the <code>REACH</code> syntax modifies the character's reach.</li>
 				<li>Using the <code>RANGEPENALTY</code> syntax modifies the character's range increment penalty.</li>
@@ -465,6 +467,8 @@
 	<p class="indent3">If the base damage dice is 1d8 this would scale it up to 3d6.</p>
 	<p class="indent2"><code>BONUS:COMBAT|DAMAGESIZE|-1</code></p>
 	<p class="indent3">If the base damage dice is 1d4 this would scale it down to 1d3.</p>
+	<p class="indent2"><code>BONUS:COMBAT|DAMAGE-SHORTRANGE|1</code></p>
+	<p class="indent3">Increases the damage done by a weapon at short range by 1.</p>
 	<p class="indent2"><code>BONUS:COMBAT|INITIATIVE|3</code></p>
 	<p class="indent3">Increases initiative by three.</p>
 	<p class="indent2"><code>BONUS:COMBAT|INITIATIVE|2|TYPE=Competence</code></p>
