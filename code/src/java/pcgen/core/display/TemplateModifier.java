@@ -31,7 +31,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.DamageReductionFacet;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -61,7 +60,7 @@ public class TemplateModifier
 		CharID id = aPC.getCharID();
 		for (PCStat stat : statFacet.getSet(id))
 		{
-			if (NonAbilityFacet.isNonAbilityForObject(stat, pct))
+			if (NonAbilityDisplay.isNonAbilityForObject(stat, pct))
 			{
 				mods.append(stat.getAbb()).append(":nonability ");
 			}

@@ -30,7 +30,6 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -38,6 +37,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.display.NonAbilityDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -180,7 +180,7 @@ public class TemplateToken extends Token
 
 			if (aLabel.equals(modName))
 			{
-				if (NonAbilityFacet.isNonAbilityForObject(stat, template))
+				if (NonAbilityDisplay.isNonAbilityForObject(stat, template))
 				{
 					retString.append("*");
 				}
