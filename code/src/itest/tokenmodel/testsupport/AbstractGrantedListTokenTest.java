@@ -20,8 +20,12 @@ package tokenmodel.testsupport;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -35,6 +39,24 @@ import pcgen.persistence.PersistenceLayerException;
 public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		extends AbstractTokenModelTest
 {
+	@Test
+	public void testFromAbility() throws PersistenceLayerException
+	{
+		Ability source = create(Ability.class, "Source");
+		context.ref.reassociateCategory(AbilityCategory.FEAT, source);
+		T granted = createGrantedObject();
+		processToken(source);
+		assertEquals(0, getCount());
+		CategorizedAbilitySelection cas =
+				new CategorizedAbilitySelection(AbilityCategory.FEAT, source,
+					Nature.AUTOMATIC);
+		directAbilityFacet.add(id, cas);
+		assertTrue(containsExpected(granted));
+		assertEquals((directAbilityFacet == getTargetFacet()) ? 2 : 1,
+			getCount());
+		directAbilityFacet.remove(id, cas);
+		assertEquals(0, getCount());
+	}
 
 	@Test
 	public void testFromAlignment() throws PersistenceLayerException

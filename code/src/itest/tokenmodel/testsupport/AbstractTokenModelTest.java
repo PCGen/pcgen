@@ -25,6 +25,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.model.ActiveEqModFacet;
 import pcgen.cdom.facet.model.AlignmentFacet;
@@ -142,6 +143,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected SizeAdjustment diminutive;
 	protected SizeAdjustment fine;
 
+	protected DirectAbilityFacet directAbilityFacet;
 	protected ActiveEqModFacet activeEqModFacet;
 	protected AlignmentFacet alignmentFacet;
 	protected BioSetFacet bioSetFacet;
@@ -175,6 +177,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		TokenRegistration.register(PC_QUAL);
 		TokenRegistration.register(getToken());
 
+		directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
 		activeEqModFacet = FacetLibrary.getFacet(ActiveEqModFacet.class);
 		alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 		bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);

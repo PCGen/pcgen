@@ -20,8 +20,12 @@ package tokencontent.testsupport;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -35,6 +39,23 @@ import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 {
+	@Test
+	public void testFromAbility() throws PersistenceLayerException
+	{
+		Ability source = create(Ability.class, "Source");
+		context.ref.reassociateCategory(AbilityCategory.FEAT, source);
+		processToken(source);
+		assertEquals(baseCount(), targetFacetCount());
+		CategorizedAbilitySelection cas =
+				new CategorizedAbilitySelection(AbilityCategory.FEAT, source,
+					Nature.AUTOMATIC);
+		directAbilityFacet.add(id, cas);
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
+		directAbilityFacet.remove(id, cas);
+		assertEquals(baseCount(), targetFacetCount());
+	}
+
 	@Test
 	public void testFromAlignment() throws PersistenceLayerException
 	{

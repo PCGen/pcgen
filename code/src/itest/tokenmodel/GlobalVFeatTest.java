@@ -22,7 +22,6 @@ import java.util.Collection;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.DirectAbilityFacet;
-import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -35,9 +34,6 @@ public class GlobalVFeatTest extends AbstractGrantedListTokenTest<Ability>
 {
 
 	private static VFeatLst token = new VFeatLst();
-
-	private static DirectAbilityFacet directAbilityFacet = FacetLibrary
-		.getFacet(DirectAbilityFacet.class);
 
 	@Override
 	public void processToken(CDOMObject source)
@@ -80,17 +76,23 @@ public class GlobalVFeatTest extends AbstractGrantedListTokenTest<Ability>
 	{
 		Collection<CategorizedAbilitySelection> casSet =
 				getTargetFacet().getSet(id);
-		boolean sizeExpected = (casSet.size() == 1);
-		CategorizedAbilitySelection cas = casSet.iterator().next();
-		boolean featExpected = cas.getAbilityCategory() == AbilityCategory.FEAT;
-		boolean abilityExpected =
-				cas.getAbility().equals(
-					context.ref.silentlyGetConstructedCDOMObject(Ability.class,
-						AbilityCategory.FEAT, "Granted"));
-		boolean natureExpected = cas.getNature() == Nature.VIRTUAL;
-		boolean selectionExpected = cas.getSelection() == null;
-		return sizeExpected && featExpected && abilityExpected
-			&& natureExpected && selectionExpected;
+		for (CategorizedAbilitySelection cas : casSet)
+		{
+			boolean featExpected =
+					cas.getAbilityCategory() == AbilityCategory.FEAT;
+			boolean abilityExpected =
+					cas.getAbility().equals(
+						context.ref.silentlyGetConstructedCDOMObject(
+							Ability.class, AbilityCategory.FEAT, "Granted"));
+			boolean natureExpected = cas.getNature() == Nature.VIRTUAL;
+			boolean selectionExpected = cas.getSelection() == null;
+			if (featExpected && abilityExpected && natureExpected
+				&& selectionExpected)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@Override
