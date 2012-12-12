@@ -45,7 +45,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
@@ -4047,18 +4046,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 
 		return weapList;
-	}
-
-	/**
-	 * renaming to standard convention due to refactoring of export
-	 * 
-	 * Build on-the-fly so removing templates doesn't mess up favoured list
-	 */
-	public SortedSet<PCClass> getFavoredClasses()
-	{
-		SortedSet<PCClass> favored = new TreeSet<PCClass>(CDOMObjectUtilities.CDOM_SORTER);
-		favored.addAll(favClassFacet.getSet(id));
-		return favored;
 	}
 
 	/**
