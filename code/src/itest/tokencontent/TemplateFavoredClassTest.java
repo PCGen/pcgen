@@ -1,0 +1,116 @@
+/*
+ * Copyright (c) 2012 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package tokencontent;
+
+import org.junit.Test;
+
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.analysis.FavoredClassFacet;
+import pcgen.core.PCClass;
+import pcgen.core.PCTemplate;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.persistence.token.CDOMToken;
+import pcgen.rules.persistence.token.ParseResult;
+import plugin.lsttokens.choose.ClassToken;
+import plugin.lsttokens.template.FavoredclassToken;
+import plugin.lsttokens.testsupport.TokenRegistration;
+import tokenmodel.testsupport.AbstractTokenModelTest;
+
+public class TemplateFavoredClassTest extends AbstractTokenModelTest
+{
+
+	private FavoredclassToken token = new FavoredclassToken();
+	private FavoredClassFacet fcFacet;
+	private ClassToken CHOOSE_CLASS_TOKEN = new ClassToken();
+
+	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		fcFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
+		context.ref.constructCDOMObject(PCClass.class, "Favorite");
+		TokenRegistration.register(CHOOSE_CLASS_TOKEN);
+	}
+
+	@Test
+	public void testDirect() throws PersistenceLayerException
+	{
+		PCTemplate source = create(PCTemplate.class, "Source");
+		ParseResult result = token.parseToken(context, source, "Favorite");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		finishLoad();
+		assertEquals(baseCount(), targetFacetCount());
+		templateFacet.add(id, source, this);
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
+		templateFacet.remove(id, source, this);
+		assertEquals(baseCount(), targetFacetCount());
+	}
+
+	//CODE-1899 gates this test
+	//	@Test
+	//	public void testList() throws PersistenceLayerException
+	//	{
+	//		PCTemplate source = create(PCTemplate.class, "Source");
+	//		ParseResult result = token.parseToken(context, source, "%LIST");
+	//		if (result != ParseResult.SUCCESS)
+	//		{
+	//			result.printMessages();
+	//			fail("Test Setup Failed");
+	//		}
+	//		result = CHOOSE_CLASS_TOKEN.parseToken(context, source, "Favorite");
+	//		if (result != ParseResult.SUCCESS)
+	//		{
+	//			result.printMessages();
+	//			fail("Test Setup Failed");
+	//		}
+	//		finishLoad();
+	//		assertEquals(baseCount(), targetFacetCount());
+	//		templateFacet.add(id, source, this);
+	//		assertTrue(containsExpected());
+	//		assertEquals(baseCount() + 1, targetFacetCount());
+	//		templateFacet.remove(id, source, this);
+	//		assertEquals(baseCount(), targetFacetCount());
+	//	}
+
+	@Override
+	public CDOMToken<?> getToken()
+	{
+		return token;
+	}
+
+	protected boolean containsExpected()
+	{
+		return fcFacet.contains(id, context.ref
+			.silentlyGetConstructedCDOMObject(PCClass.class, "Favorite"));
+	}
+
+	protected int targetFacetCount()
+	{
+		return fcFacet.getCount(id);
+	}
+
+	protected int baseCount()
+	{
+		return 0;
+	}
+}
