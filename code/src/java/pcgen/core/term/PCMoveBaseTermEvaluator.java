@@ -27,9 +27,7 @@
 package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Movement;
 import pcgen.core.spell.Spell;
-import pcgen.cdom.enumeration.ListKey;
 
 public class PCMoveBaseTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -48,8 +46,7 @@ public class PCMoveBaseTermEvaluator
 	@Override
 	public String evaluate (PlayerCharacter pc)
 	{
-		Movement m = pc.getRace().getSafeListFor(ListKey.MOVEMENT).get(0);
-		return m.getDoubleMovement().toString();
+		return pc.getBaseMovement().toString();
 	}
 
 	@Override

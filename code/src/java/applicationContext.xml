@@ -83,6 +83,9 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<!-- B -->
+	<bean id="baseMovementFacet" class="pcgen.cdom.facet.analysis.BaseMovementFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
 	<bean id="bioSetFacet" class="pcgen.cdom.facet.model.BioSetFacet" />
 	<bean id="bioSetTrackingFacet" class="pcgen.cdom.facet.BioSetTrackingFacet">
 		<property name="bioSetFacet" ref="bioSetFacet"/>
@@ -316,6 +319,7 @@
 	</bean>
 	<bean id="movementResultFacet" class="pcgen.cdom.facet.analysis.MovementResultFacet">
 		<property name="movementFacet" ref="movementFacet"/>
+		<property name="baseMovementFacet" ref="baseMovementFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="deityFacet" ref="deityFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>

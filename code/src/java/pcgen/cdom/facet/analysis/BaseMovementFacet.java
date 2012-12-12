@@ -28,13 +28,14 @@ import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.Movement;
 
 /**
- * MovementFacet is a Facet that tracks the Movement objects that are contained
- * in a Player Character.
+ * BaseMovementFacet is a Facet that tracks the Movement objects that are
+ * contained in a Player Character and *which can grant a character the ability
+ * to move*
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class MovementFacet extends AbstractSourcedListFacet<Movement> implements
-		DataFacetChangeListener<CDOMObject>
+public class BaseMovementFacet extends AbstractSourcedListFacet<Movement>
+		implements DataFacetChangeListener<CDOMObject>
 {
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
@@ -43,8 +44,8 @@ public class MovementFacet extends AbstractSourcedListFacet<Movement> implements
 	 * Adds to this Facet the Movement objects contained within a CDOMObject
 	 * granted to the Player Character.
 	 * 
-	 * Triggered when one of the Facets to which MovementFacet listens fires a
-	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
+	 * Triggered when one of the Facets to which BaseMovementFacet listens fires
+	 * a DataFacetChangeEvent to indicate a CDOMObject was added to a Player
 	 * Character.
 	 * 
 	 * @param dfce
@@ -57,22 +58,7 @@ public class MovementFacet extends AbstractSourcedListFacet<Movement> implements
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		/*
-		 * TODO Should consider here whether this should get input from
-		 * BaseMovementFacet vs. capturing these directly. The reason that this
-		 * is done directly is that BaseMovementFacet would have to override
-		 * methods to get this add done, so that is risky, then since this is
-		 * already listening to the consolidated objectfacet, yet another class
-		 * would be required to do the listening for Movement objects added into
-		 * BaseMovementFacet. This is not unreasonable, though perhaps not pure
-		 * in that this uses to ListKey objects.
-		 */
 		List<Movement> ml = cdo.getListFor(ListKey.BASE_MOVEMENT);
-		if (ml != null)
-		{
-			addAll(dfce.getCharID(), ml, cdo);
-		}
-		ml = cdo.getListFor(ListKey.MOVEMENT);
 		if (ml != null)
 		{
 			addAll(dfce.getCharID(), ml, cdo);
@@ -83,8 +69,8 @@ public class MovementFacet extends AbstractSourcedListFacet<Movement> implements
 	 * Removes from this Facet the Movement objects contained within a
 	 * CDOMObject removed from the Player Character.
 	 * 
-	 * Triggered when one of the Facets to which MovementFacet listens fires a
-	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
+	 * Triggered when one of the Facets to which BaseMovementFacet listens fires
+	 * a DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
 	 * Character.
 	 * 
 	 * @param dfce
@@ -99,16 +85,17 @@ public class MovementFacet extends AbstractSourcedListFacet<Movement> implements
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
-	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	public void setConsolidationFacet(
+		CDOMObjectConsolidationFacet consolidationFacet)
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
 
 	/**
-	 * Initializes the connections for MovementFacet to other facets.
+	 * Initializes the connections for BaseMovementFacet to other facets.
 	 * 
 	 * This method is automatically called by the Spring framework during
-	 * initialization of the MovementFacet.
+	 * initialization of the BaseMovementFacet.
 	 */
 	public void init()
 	{

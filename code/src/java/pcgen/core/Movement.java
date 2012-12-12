@@ -38,58 +38,43 @@ public class Movement
 	/**
 	 * Contains the movement Types for this Movement (e.g. "Walk", "Fly")
 	 */
-	private String[] movementTypes;
+	private final String[] movementTypes;
 
 	/**
 	 * Contains the associated movement rate (in feet) for the movement type of
 	 * the same index. A movement rate must be greater than or equal to zero.
-	 *
-	 * REFACTOR This should be changed to double[] once PlayerCharacter can
-	 * handle it
 	 */
-	private Double[] movements;
+	private final double[] movements;
 
 	/**
 	 * The movement multiplier for the movement type of the same index. A
 	 * movement Multiplier be greater than zero.
-	 *
-	 * REFACTOR This should be changed to double[] once PlayerCharacter can
-	 * handle it
 	 */
-	private Double[] movementMult;
+	private final double[] movementMult;
 
 	/**
 	 * The movement operation for the movement type of the same index. (e.g. "*"
 	 * or "/")
 	 */
-	private String[] movementMultOp;
-
-	/**
-	 * The Movement Rates flag indicating which type of Movement object this is
-	 * 0 indicates a basic assignment
-	 * 1 indicates the movement rates are added to the existing movement rate 
-	 * for the contained types
-	 * 2 indicates this clones one movement rate into another movement rate
-	 */
-	private int moveRatesFlag;
+	private final String[] movementMultOp;
 
 	/*
 	 * A class invariant is that the four above arrays should always have the
 	 * same length.
 	 */
+	
+	/**
+	 * The Movement Rates flag indicating which type of Movement object this is
+	 * 0 indicates a basic assignment
+	 * 2 indicates this clones one movement rate into another movement rate
+	 */
+	private int moveRatesFlag;
 
-	/*
-	 * CONSIDER I don't know why this variable exists?? - it seems to me it's
-	 * duplicate of movements[0]
+	/**
+	 * The index within the movements array indicating the default movement type
+	 * ("Walk")
 	 */
 	private int movement;
-
-	/*
-	 * REFACTOR Once PlayerCharacter is capable of using a CompositeMovement to
-	 * do movement resolution, then this should be refactored to
-	 * ConcreteMovement and implement the Movement interface (because
-	 * CompositeMovement will be a BasicMovement)
-	 */
 
 	/**
 	 * Creates a Movement object with arrays of the given length. It is assumed
@@ -108,8 +93,8 @@ public class Movement
 					+ "constructor must be positive");
 		}
 		movementTypes = new String[i];
-		movements = new Double[i];
-		movementMult = new Double[i];
+		movements = new double[i];
+		movementMult = new double[i];
 		movementMultOp = new String[i];
 
 		// default the basic movement to the first movement type, if the creature has a
@@ -159,7 +144,7 @@ public class Movement
 	 * @param index of the specified movement multiplier
 	 * @return a movement multiplier
 	 */
-	public Double getMovementMult(int index)
+	public double getMovementMult(int index)
 	{
 		return movementMult[index];
 	}
@@ -178,7 +163,7 @@ public class Movement
 	 * Get all of the movement multipliers
 	 * @return clone of the movement multipliers array
 	 */
-	public Double[] getMovementMult()
+	public double[] getMovementMult()
 	{
 		return movementMult.clone();
 	}
@@ -198,16 +183,7 @@ public class Movement
 	 */
 	public int getNumberOfMovementTypes()
 	{
-		return (movementTypes != null) ? movementTypes.length : 0;
-	}
-
-	/**
-	 * Set the movement types
-	 * @param arrayString
-	 */
-	public void setMovementTypes(String[] arrayString)
-	{
-		movementTypes = arrayString;
+		return movementTypes.length;
 	}
 
 	/**
@@ -217,12 +193,7 @@ public class Movement
 	 */
 	public String getMovementType(int i)
 	{
-		if ((movementTypes != null) && (i < movementTypes.length))
-		{
-			return movementTypes[i];
-		}
-
-		return "";
+		return (i < movementTypes.length) ? movementTypes[i] : "";
 	}
 
 	/**
@@ -239,14 +210,9 @@ public class Movement
 	 * @param i
 	 * @return the movement at index i or 0
 	 */
-	public Double getMovement(int i)
+	public double getMovement(int i)
 	{
-		if ((movements != null) && (i < movements.length))
-		{
-			return movements[i];
-		}
-
-		return Double.valueOf(0.0);
+		return (i < movements.length) ? movements[i] : 0.0d;
 	}
 
 	/**
@@ -255,23 +221,14 @@ public class Movement
 	 */
 	public int getNumberOfMovements()
 	{
-		return (movements != null) ? movements.length : 0;
-	}
-
-	/**
-	 * True if movements is not null
-	 * @return True if movements is not null
-	 */
-	public boolean isInitialized()
-	{
-		return movements != null;
+		return movements.length;
 	}
 
 	/**
 	 * Get movements
 	 * @return movements
 	 */
-	public Double[] getMovements()
+	public double[] getMovements()
 	{
 		return movements.clone();
 	}
@@ -285,17 +242,15 @@ public class Movement
 	public String toString()
 	{
 		final StringBuilder movelabel = new StringBuilder();
-		// movementTypes can be empty if a race is created without a MOVE tag in 
-		// the LST editor
-		if (movementTypes != null && movementTypes.length > 0)
+		if (movementTypes.length > 0)
 		{
 			movelabel.append(movementTypes[0]);
 			NumberFormat numFmt = NumberFormat.getNumberInstance();
 			movelabel.append(' ').append(
 				numFmt.format(Globals.getGameModeUnitSet()
-					.convertDistanceToUnitSet(movements[0].doubleValue())));
+					.convertDistanceToUnitSet(movements[0])));
 			movelabel.append(Globals.getGameModeUnitSet().getDistanceUnit());
-			if (movementMult[0].doubleValue() != 0)
+			if (movementMult[0] != 0)
 			{
 				movelabel.append('(').append(movementMultOp[0])
 					.append(numFmt.format(movementMult[0])).append(')');
@@ -307,10 +262,10 @@ public class Movement
 				movelabel.append(movementTypes[i]);
 				movelabel.append(' ').append(
 					numFmt.format(Globals.getGameModeUnitSet()
-						.convertDistanceToUnitSet(movements[i].doubleValue())));
+						.convertDistanceToUnitSet(movements[i])));
 				movelabel
 					.append(Globals.getGameModeUnitSet().getDistanceUnit());
-				if (movementMult[i].doubleValue() != 0)
+				if (movementMult[i] != 0)
 				{
 					movelabel.append('(').append(movementMultOp[i])
 						.append(numFmt.format(movementMult[i])).append(')');
@@ -330,7 +285,7 @@ public class Movement
 			txt.append(',');
 			if (movementMultOp[1].length() > 0)
 			{
-				txt.append(movementMultOp[1]).append(movementMult[1].intValue());
+				txt.append(movementMultOp[1]).append((int) movementMult[1]);
 			}
 			else
 			{
@@ -363,17 +318,16 @@ public class Movement
 	}
 
 	/**
-	 * Returns a ConcreteMovement object initialized from the given string. This
-	 * string can be any legal string for the MOVE, MOVEA, or MOVECLONE tags.
-	 * The object which calls getMovementFrom MUST subsequently assign the move
-	 * rates flag of the returned ConcreteMovement in order for the
-	 * ConcreteMovement to function properly. (The default move rates flag is
-	 * zero, so assignment in that case is not necessary)
-	 *
+	 * Returns a Movement object initialized from the given string. This string
+	 * can be any legal string for the MOVE or MOVECLONE tags. The object which
+	 * calls getMovementFrom MUST subsequently assign the move rates flag of the
+	 * returned Movement in order for the Movement to function properly. (The
+	 * default move rates flag is zero, so assignment in that case is not
+	 * necessary)
+	 * 
 	 * @param moveparse
-	 *            The String from which a new ConcreteMovement should be
-	 *            initialized
-	 * @return A new ConcreteMovement initialized from the given String.
+	 *            The String from which a new Movement should be initialized
+	 * @return A new Movement initialized from the given String.
 	 */
 	public static Movement getMovementFrom(final String moveparse)
 	{
@@ -411,13 +365,13 @@ public class Movement
 	public void assignMovement(int x, String type, String mod)
 	{
 		movementTypes[x] = type; // e.g. "Walk"
-		movementMult[x] = Double.valueOf(0.0);
+		movementMult[x] = 0.0d;
 		movementMultOp[x] = "";
 
 		if ((mod.length() > 0)
 			&& ((mod.charAt(0) == '*') || (mod.charAt(0) == '/')))
 		{
-			movements[x] = Double.valueOf(0.0);
+			movements[x] = 0.0d;
 			try
 			{
 				double multValue = Double.parseDouble(mod.substring(1));
@@ -426,29 +380,29 @@ public class Movement
 					Logging.errorPrint("Illegal movement multiplier: "
 						+ multValue + " in movement string " + mod);
 				}
-				movementMult[x] = Double.valueOf(multValue);
+				movementMult[x] = multValue;
 				movementMultOp[x] = mod.substring(0, 1);
 			}
 			catch (NumberFormatException e)
 			{
 				Logging.errorPrint("Badly formed MOVE token: " + mod);
-				movementMult[x] = Double.valueOf(0.0);
+				movementMult[x] = 0.0d;
 				movementMultOp[x] = "";
 			}
 		}
 		else if (mod.length() > 0)
 		{
-			movementMult[x] = Double.valueOf(0.0);
+			movementMult[x] = 0.0d;
 			movementMultOp[x] = "";
 
 			try
 			{
-				movements[x] = new Double(mod);
+				movements[x] = Double.parseDouble(mod);
 			}
 			catch (NumberFormatException e)
 			{
 				Logging.errorPrint("Badly formed MOVE token: " + mod);
-				movements[x] = Double.valueOf(0.0);
+				movements[x] = 0.0d;
 			}
 
 			if ("Walk".equals(movementTypes[x]))

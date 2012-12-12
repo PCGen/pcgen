@@ -184,10 +184,6 @@ public final class Globals
 
 	// Optimizations used by any code needing empty arrays.  All empty arrays
 	// of the same type are idempotent.
-	/** EMPTY_DOUBLE_ARRAY*/
-	public static final Double[] EMPTY_DOUBLE_ARRAY = new Double[0];
-	/** EMPTY_OBJECT_ARRAY*/
-	public static final Object[] EMPTY_OBJECT_ARRAY = new Object[0];
 	/** EMPTY_STRING_ARRAY*/
 	public static final String[] EMPTY_STRING_ARRAY = new String[0];
 

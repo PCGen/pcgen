@@ -91,9 +91,48 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
-import pcgen.cdom.facet.*;
+import pcgen.cdom.facet.ActiveSpellsFacet;
+import pcgen.cdom.facet.AddedBonusFacet;
+import pcgen.cdom.facet.AddedTemplateFacet;
+import pcgen.cdom.facet.AppliedBonusFacet;
+import pcgen.cdom.facet.AutoEquipmentFacet;
+import pcgen.cdom.facet.AutoLanguageFacet;
+import pcgen.cdom.facet.AvailableSpellFacet;
+import pcgen.cdom.facet.BonusChangeFacet;
+import pcgen.cdom.facet.CheckBonusFacet;
+import pcgen.cdom.facet.ClassSpellListFacet;
+import pcgen.cdom.facet.ConditionalAbilityFacet;
+import pcgen.cdom.facet.ConditionallyGrantedAbilityFacet;
+import pcgen.cdom.facet.DamageReductionFacet;
+import pcgen.cdom.facet.DirectAbilityFacet;
+import pcgen.cdom.facet.EquipSetFacet;
+import pcgen.cdom.facet.EquipmentFacet;
+import pcgen.cdom.facet.EquippedEquipmentFacet;
+import pcgen.cdom.facet.FacetInitialization;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.GrantedAbilityFacet;
+import pcgen.cdom.facet.HitPointFacet;
+import pcgen.cdom.facet.KitFacet;
+import pcgen.cdom.facet.KnownSpellFacet;
+import pcgen.cdom.facet.LevelInfoFacet;
+import pcgen.cdom.facet.MasterFacet;
+import pcgen.cdom.facet.MasterSkillFacet;
+import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
+import pcgen.cdom.facet.PrimaryWeaponFacet;
+import pcgen.cdom.facet.SecondaryWeaponFacet;
+import pcgen.cdom.facet.SourcedEquipmentFacet;
+import pcgen.cdom.facet.SpellBookFacet;
+import pcgen.cdom.facet.SpellListFacet;
+import pcgen.cdom.facet.SpellSupportFacet;
+import pcgen.cdom.facet.StartingLanguageFacet;
+import pcgen.cdom.facet.StatBonusFacet;
+import pcgen.cdom.facet.SubClassFacet;
+import pcgen.cdom.facet.UserEquipmentFacet;
+import pcgen.cdom.facet.UserTemplateFacet;
+import pcgen.cdom.facet.XPTableFacet;
 import pcgen.cdom.facet.analysis.AgeSetFacet;
 import pcgen.cdom.facet.analysis.ArmorClassFacet;
+import pcgen.cdom.facet.analysis.BaseMovementFacet;
 import pcgen.cdom.facet.analysis.ChallengeRatingFacet;
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.analysis.CharacterSpellResistanceFacet;
@@ -260,6 +299,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private AutoListArmorProfFacet armorProfListFacet = FacetLibrary.getFacet(AutoListArmorProfFacet.class);
 	private AutoListShieldProfFacet shieldProfListFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
 	private AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
+	private BaseMovementFacet baseMovementFacet = FacetLibrary.getFacet(BaseMovementFacet.class);
 	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
 	private ChallengeRatingFacet crFacet = FacetLibrary.getFacet(ChallengeRatingFacet.class);
 	private ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
@@ -11505,7 +11545,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		shieldProfListFacet.remove(id, sp, owner);
 	}
 
-	public Double getMovementOfType(String moveType)
+	public double getMovementOfType(String moveType)
 	{
 		return moveResultFacet.getMovementOfType(id, moveType);
 	}
@@ -12013,5 +12053,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public List<WeaponProf> getWeaponProfsInTarget(CDOMGroupRef<WeaponProf> master)
 	{
 		return changeProfFacet.getWeaponProfsInTarget(id, master);
+	}
+
+	public boolean hasMovement()
+	{
+		return !baseMovementFacet.isEmpty(id);
+	}
+
+	public Double getBaseMovement()
+	{
+		return baseMovementFacet.getSet(id).iterator().next().getDoubleMovement();
 	}
 }

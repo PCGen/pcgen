@@ -26,13 +26,8 @@
  */
 package plugin.pretokens.test;
 
-import java.util.List;
-
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Movement;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Race;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -63,7 +58,7 @@ public class PreMoveTester extends AbstractPrerequisiteTest implements
 		int runningTotal = 0;
 		int moveAmount = 0;
 
-		if (hasMovement(character))
+		if ((character != null) && character.hasMovement())
 		{
 			final String moveType = prereq.getKey();
 
@@ -78,7 +73,7 @@ public class PreMoveTester extends AbstractPrerequisiteTest implements
 						"PreMove.error.bad_operand", prereq.toString())); //$NON-NLS-1$
 			}
 
-			int speed = character.getMovementOfType(moveType).intValue();
+			int speed = (int) character.getMovementOfType(moveType);
 			if (speed >= moveAmount)
 			{
 				runningTotal += speed;
@@ -97,31 +92,6 @@ public class PreMoveTester extends AbstractPrerequisiteTest implements
 	public String kindHandled()
 	{
 		return "MOVE"; //$NON-NLS-1$
-	}
-
-	/**
-	 * Returns true if character's movements can be found
-	 * 
-	 * @param character
-	 * @return true or false
-	 */
-	private boolean hasMovement(PlayerCharacter character)
-	{
-		if (character == null)
-		{
-			return false;
-		}
-		Race r = character.getRace();
-		if (r == null)
-		{
-			return false;
-		}
-		List<Movement> movements = r.getListFor(ListKey.MOVEMENT);
-		if (movements == null || movements.isEmpty())
-		{
-			return false;
-		}
-		return movements.get(0).getNumberOfMovementTypes() != 0;
 	}
 
 }

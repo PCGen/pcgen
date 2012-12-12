@@ -503,7 +503,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			return Arrays.asList(infoFactory.getStatAdjustments(obj),
 								 infoFactory.getPreReqHTML(obj),
 								 obj.getSize(),
-								 obj.getMovement(),
+								 infoFactory.getMovement(obj),
 								 infoFactory.getVision(obj),
 								 infoFactory.getFavoredClass(obj),
 								 infoFactory.getLevelAdjustment(obj),

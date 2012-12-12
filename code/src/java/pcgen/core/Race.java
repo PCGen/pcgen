@@ -117,17 +117,6 @@ public final class Race extends PObject implements RaceFacade
 		}
 		return null;
 	}
-
-    @Override
-	public String getMovement()
-	{
-		List<Movement> movements = getListFor(ListKey.MOVEMENT);
-		if (movements != null && !movements.isEmpty())
-		{
-			return movements.get(0).toString();
-		}
-		return null;
-	}
 	
 	/**
 	 * {@inheritDoc}

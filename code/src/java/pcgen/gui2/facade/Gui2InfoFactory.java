@@ -87,6 +87,7 @@ import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.display.DescriptionFormatting;
+import pcgen.core.display.MovementDisplay;
 import pcgen.core.display.TemplateModifier;
 import pcgen.core.display.VisionDisplay;
 import pcgen.core.facade.AbilityFacade;
@@ -1790,5 +1791,15 @@ public class Gui2InfoFactory implements InfoFactory
 			target.deleteCharAt(target.length()-1);
 		}
 		return target.toString();
+	}
+
+	@Override
+	public String getMovement(RaceFacade race)
+	{
+		if (!(race instanceof Race))
+		{
+			return EMPTY_STRING;
+		}
+		return MovementDisplay.getMovement((Race) race);
 	}
 }

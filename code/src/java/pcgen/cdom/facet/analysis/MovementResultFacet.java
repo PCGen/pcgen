@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 import pcgen.base.util.NamedValue;
@@ -27,7 +28,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
@@ -59,6 +59,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 	private final Class<?> thisClass = getClass();
 
 	private MovementFacet movementFacet;
+	private BaseMovementFacet baseMovementFacet;
 	private RaceFacet raceFacet;
 	private TemplateFacet templateFacet;
 	private DeityFacet deityFacet;
@@ -68,6 +69,8 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 	private UnencumberedLoadFacet unencumberedLoadFacet;
 	private FormulaResolvingFacet formulaResolvingFacet;
 	private LoadFacet loadFacet;
+
+	public static final double[] EMPTY_DOUBLE_ARRAY = new double[0];
 
 	/**
 	 * Returns the movement value of the given type for the Player Character
@@ -150,13 +153,13 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 			id = charid;
 		}
 
-		private Double[] movementMult = Globals.EMPTY_DOUBLE_ARRAY;
+		private double[] movementMult = EMPTY_DOUBLE_ARRAY;
 		private String[] movementMultOp = Globals.EMPTY_STRING_ARRAY;
 		private String[] movementTypes = Globals.EMPTY_STRING_ARRAY;
 
 		// Movement lists
-		private Double[] movements = Globals.EMPTY_DOUBLE_ARRAY;
-
+		private double[] movements = EMPTY_DOUBLE_ARRAY;
+		
 		/**
 		 * Returns the movement value of the given type for the Player
 		 * Character. All appropriate BONUSes are added to the movement before
@@ -198,14 +201,14 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 			{
 				return;
 			}
-
-			List<Movement> mms = race.getListFor(ListKey.MOVEMENT);
-			if (mms == null || mms.isEmpty() || (!mms.get(0).isInitialized()))
+			
+			Set<Movement> mms = baseMovementFacet.getSet(id);
+			if (mms == null || mms.isEmpty())
 			{
 				return;
 			}
 
-			Movement movement = mms.get(0);
+			Movement movement = mms.iterator().next();
 			movements = movement.getMovements();
 			movementTypes = movement.getMovementTypes();
 			movementMult = movement.getMovementMult();
@@ -218,9 +221,8 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 					if (mv.getMovementType(i1) != null)
 					{
 						setMyMoveRates(mv.getMovementType(i1),
-							mv.getMovement(i1).doubleValue(),
-							mv.getMovementMult(i1), mv.getMovementMultOp(i1),
-							mv.getMoveRatesFlag());
+							mv.getMovement(i1), mv.getMovementMult(i1),
+							mv.getMovementMultOp(i1), mv.getMoveRatesFlag());
 					}
 				}
 			}
@@ -266,13 +268,13 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		 * @param moveFlag
 		 */
 		private void setMyMoveRates(String moveType, double anDouble,
-				Double moveMult, String multOp, int moveFlag)
+				double moveMult, String multOp, int moveFlag)
 		{
 			//
 			// NOTE: can not use getMovements() accessor as it calls
 			// this function, so use the variable: movements
 			//
-			Double moveRate;
+			double moveRate;
 
 			// The ALL type can only be applied to existing movement
 			// so just loop and add or set as appropriate
@@ -283,7 +285,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 
 					for (int i = 0; i < movements.length; i++)
 					{
-						moveRate = new Double(anDouble);
+						moveRate = anDouble;
 						movements[i] = moveRate;
 					}
 				}
@@ -292,8 +294,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 
 					for (int i = 0; i < movements.length; i++)
 					{
-						moveRate = new Double(anDouble
-								+ movements[i].doubleValue());
+						moveRate = anDouble + movements[i];
 						movements[i] = moveRate;
 					}
 				}
@@ -302,7 +303,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 			{
 				if (moveFlag == 0)
 				{ // set movement to moveRate
-					moveRate = new Double(anDouble);
+					moveRate = anDouble;
 
 					for (int i = 0; i < movements.length; i++)
 					{
@@ -328,7 +329,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 				}
 				else
 				{ // get base movement, then add moveRate
-					moveRate = new Double(anDouble + movements[0].doubleValue());
+					moveRate = anDouble + movements[0];
 
 					// for existing types of movement:
 					for (int i = 0; i < movements.length; i++)
@@ -348,21 +349,21 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 			}
 		}
 
-		private void increaseMoveArray(Double moveRate, String moveType,
+		private void increaseMoveArray(double moveRate, String moveType,
 				Double moveMult, String multOp)
 		{
 			// could not find an existing one so
 			// need to add new item to array
 			//
-			Double[] tempMove = movements;
+			double[] tempMove = movements;
 			String[] tempType = movementTypes;
-			Double[] tempMult = movementMult;
+			double[] tempMult = movementMult;
 			String[] tempMultOp = movementMultOp;
 
 			// now increase the size of the array by one
-			movements = new Double[tempMove.length + 1];
+			movements = new double[tempMove.length + 1];
 			movementTypes = new String[tempMove.length + 1];
-			movementMult = new Double[tempMove.length + 1];
+			movementMult = new double[tempMove.length + 1];
 			movementMultOp = new String[tempMove.length + 1];
 
 			System.arraycopy(tempMove, 0, movements, 0, tempMove.length);
@@ -388,7 +389,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		public double movement(int moveIdx)
 		{
 			// get base movement
-			double moveInFeet = getMovement(moveIdx).doubleValue();
+			double moveInFeet = getMovement(moveIdx);
 
 			// First get the MOVEADD bonus
 			moveInFeet += bonusCheckingFacet.getBonus(id, "MOVEADD", "TYPE."
@@ -402,7 +403,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 			// now we apply any multipliers to the BASE move + MOVEADD move
 			// First we get possible multipliers/divisors from the MOVE:
 			// MOVEA: and MOVECLONE: tags
-			if (getMovementMult(moveIdx).doubleValue() > 0)
+			if (getMovementMult(moveIdx) > 0)
 			{
 				calcMove = calcMoveMult(moveInFeet, moveIdx);
 			}
@@ -474,13 +475,13 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		 * @param moveIdx
 		 * @return the integer movement speed for Index
 		 */
-		private Double getMovement(int moveIdx)
+		private double getMovement(int moveIdx)
 		{
 			if ((movements != null) && (moveIdx < movements.length))
 			{
 				return movements[moveIdx];
 			}
-			return Double.valueOf(0);
+			return 0.0d;
 		}
 
 		public String getMovementType(int moveIdx)
@@ -496,13 +497,13 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		 * @param moveIdx
 		 * @return the integer movement speed multiplier for Index
 		 */
-		private Double getMovementMult(int moveIdx)
+		private double getMovementMult(int moveIdx)
 		{
 			if ((movements != null) && (moveIdx < movementMult.length))
 			{
 				return movementMult[moveIdx];
 			}
-			return Double.valueOf(0);
+			return 0.0d;
 		}
 
 		private double calcMoveMult(double move, int index)
@@ -511,11 +512,11 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 
 			if (movementMultOp[index].charAt(0) == '*')
 			{
-				iMove = move * movementMult[index].doubleValue();
+				iMove = move * movementMult[index];
 			}
 			else if (movementMultOp[index].charAt(0) == '/')
 			{
-				iMove = move / movementMult[index].doubleValue();
+				iMove = move / movementMult[index];
 			}
 
 			if (iMove > 0)
@@ -545,7 +546,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		 *            The movement type to be returned
 		 * @return The movement value of the given type for the Player Character
 		 */
-		public Double getMovementOfType(String moveType)
+		public double getMovementOfType(String moveType)
 		{
 			for (int x = 0; x < countMovementTypes(); ++x)
 			{
@@ -555,7 +556,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 					return getMovement(x);
 				}
 			}
-			return Double.valueOf(0);
+			return 0.0d;
 		}
 
 		/**
@@ -576,7 +577,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 			{
 				if (getMovementType(i).equalsIgnoreCase(moveType))
 				{
-					return getMovement(i).intValue();
+					return (int) getMovement(i);
 				}
 			}
 			return 0;
@@ -663,10 +664,10 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 			if (o instanceof MovementCacheInfo)
 			{
 				MovementCacheInfo ci = (MovementCacheInfo) o;
-				return Arrays.deepEquals(movementMult, ci.movementMult)
+				return Arrays.equals(movementMult, ci.movementMult)
 					&& Arrays.deepEquals(movementMultOp, ci.movementMultOp)
 					&& Arrays.deepEquals(movementTypes, ci.movementTypes)
-					&& Arrays.deepEquals(movements, ci.movements);
+					&& Arrays.equals(movements, ci.movements);
 			}
 			return false;
 		}
@@ -748,12 +749,12 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 	 * @return The movement value of the given type for the Player Character
 	 *         identified by the given CharID
 	 */
-	public Double getMovementOfType(CharID id, String moveType)
+	public double getMovementOfType(CharID id, String moveType)
 	{
 		MovementCacheInfo mci = getInfo(id);
 		if (mci == null)
 		{
-			return Double.valueOf(0);
+			return 0.0d;
 		}
 		return mci.getMovementOfType(moveType);
 	}
@@ -851,6 +852,11 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 	public void setMovementFacet(MovementFacet movementFacet)
 	{
 		this.movementFacet = movementFacet;
+	}
+
+	public void setBaseMovementFacet(BaseMovementFacet baseMovementFacet)
+	{
+		this.baseMovementFacet = baseMovementFacet;
 	}
 
 	public void setRaceFacet(RaceFacet raceFacet)
