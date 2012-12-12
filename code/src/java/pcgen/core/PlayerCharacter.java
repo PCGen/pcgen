@@ -11565,11 +11565,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		monCSkillFacet.remove(id, skill, obj);
 	}
 
-	public Set<Skill> getMonCSkills()
-	{
-		return monCSkillFacet.getSet(id);
-	}
-
 	public Collection<? extends SpellProhibitor> getProhibitedSchools(Object source)
 	{
 		return prohibitedSchoolFacet.getSet(id, source);
