@@ -114,7 +114,7 @@ public class SkillSubsetToken extends SkillToken
 		int prefixLength = skillPrefix.length();
 		List<Skill> skillSubset = new ArrayList<Skill>();
 		final List<Skill> skills =
-				pc.getSkillListInOutputOrder(pc
+				pc.getSkillListInOutputOrder(pc.getDisplay()
 					.getPartialSkillList(Visibility.OUTPUT_ONLY));
 
 		for (Skill bSkill : skills)

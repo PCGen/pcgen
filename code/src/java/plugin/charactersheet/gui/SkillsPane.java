@@ -354,7 +354,7 @@ public class SkillsPane extends javax.swing.JPanel
 		pc.populateSkills(includeSkills);
 
 		List<Skill> skillList =
-				pc.getSkillListInOutputOrder(pc
+				pc.getSkillListInOutputOrder(pc.getDisplay()
 					.getPartialSkillList(Visibility.OUTPUT_ONLY));
 
 		// Remove only the skill lines, not the header block. 

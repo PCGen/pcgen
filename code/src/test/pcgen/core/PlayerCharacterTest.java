@@ -643,14 +643,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals("Full skill list should have all 3 skills", 3, skillList
 			.size());
 
-		skillList = pc.getPartialSkillList(Visibility.DISPLAY_ONLY);
+		skillList = pc.getDisplay().getPartialSkillList(Visibility.DISPLAY_ONLY);
 		assertEquals("GUI skill list should have 2 skills", 2, skillList.size());
 
-		skillList = pc.getPartialSkillList(Visibility.OUTPUT_ONLY);
+		skillList = pc.getDisplay().getPartialSkillList(Visibility.OUTPUT_ONLY);
 		assertEquals("Output skill list should have 2 skills", 2, skillList
 			.size());
 
-		skillList = pc.getPartialSkillList(Visibility.DEFAULT);
+		skillList = pc.getDisplay().getPartialSkillList(Visibility.DEFAULT);
 		assertEquals("Full skill list should have 3 skills", 3, skillList
 			.size());
 

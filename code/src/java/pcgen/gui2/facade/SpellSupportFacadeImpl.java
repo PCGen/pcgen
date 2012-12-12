@@ -785,7 +785,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 				needComma = true;
 			}
 
-			for (Domain d : pc.getSortedDomainSet())
+			for (Domain d : pc.getDisplay().getSortedDomainSet())
 			{
 				if (needComma)
 				{

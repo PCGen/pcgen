@@ -610,22 +610,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Retrieve those skills in the character's skill list that match the
-	 * supplied visibility level.
-	 * 
-	 * @param vis
-	 *            What level of visibility skills are desired.
-	 * 
-	 * @return A list of the character's skills matching the visibility
-	 *         criteria.
-	 */
-	public List<Skill> getPartialSkillList(Visibility vis)
-	{
-		// Now select the required set of skills, based on their visibility.
-		return Globals.getObjectsOfVisibility(skillFacet.getSet(id), vis);
-	}
-
-	/**
 	 * Get the armor proficiency list.
 	 * 
 	 * @return armor proficiency list
@@ -984,69 +968,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public int getCostPool()
 	{
 		return costPool;
-	}
-
-	/**
-	 * Get a list of types that apply to this character.
-	 * 
-	 * @return a List of Strings where each String is a type that the character
-	 *         has. The list returned will never be null
-	 * 
-	 * @deprecated Use getRaceType() and getRacialSubTypes() instead
-	 */
-	@Deprecated
-	public List<String> getTypes()
-	{
-		final List<String> list = new ArrayList<String>();
-
-		Race race = getRace();
-		if (race != null)
-		{
-			list.add(race.getType());
-		} else
-		{
-			list.add("Humanoid");
-		}
-
-		for (PCTemplate t : templateFacet.getSet(id))
-		{
-			list.add(t.getType());
-		}
-
-		return list;
-	}
-
-	/**
-	 * Get a pipe separated list of creature types for this PC (defaults to humanoid).
-	 * @return the list of types
-	 */
-	@Deprecated
-	public String getCritterType()
-	{
-		final StringBuilder critterType = new StringBuilder();
-
-		// Not too sure about this if, but that's what the previous code
-		// implied...
-		Race race = getRace();
-		if (race != null)
-		{
-			critterType.append(race.getType());
-		} else
-		{
-			critterType.append("Humanoid");
-		}
-
-		for (PCTemplate t : templateFacet.getSet(id))
-		{
-			final String aType = t.getType();
-
-			if (!"".equals(aType))
-			{
-				critterType.append('|').append(aType);
-			}
-		}
-
-		return critterType.toString();
 	}
 
 	/**
@@ -11159,13 +11080,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public Set<Domain> getDomainSet()
 	{
 		return domainFacet.getSet(id);
-	}
-
-	public Set<Domain> getSortedDomainSet()
-	{
-		SortedSet<Domain> domains = new TreeSet<Domain>(CDOMObjectUtilities.CDOM_SORTER);
-		domains.addAll(getDomainSet());
-		return domains;
 	}
 
 	public ClassSource getDomainSource(Domain d)

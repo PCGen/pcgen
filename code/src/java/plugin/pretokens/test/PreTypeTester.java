@@ -26,9 +26,14 @@
  */
 package plugin.pretokens.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
+import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -114,7 +119,7 @@ public class PreTypeTester extends AbstractPrerequisiteTest implements
 		final int numRequired = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
 
-		for (String element : aPC.getTypes())
+		for (String element : PreTypeTester.getTypes(aPC))
 		{
 			if (element.equalsIgnoreCase(requiredType))
 			{
@@ -135,6 +140,37 @@ public class PreTypeTester extends AbstractPrerequisiteTest implements
 		return LanguageBundle
 			.getFormattedString(
 				"PreType.toHtml", prereq.getOperator().toDisplayString(), prereq.getKey()); //$NON-NLS-1$
+	}
+
+	/**
+	 * Get a list of types that apply to this character.
+	 * 
+	 * @return a List of Strings where each String is a type that the character
+	 *         has. The list returned will never be null
+	 * 
+	 * @deprecated Use getRaceType() and getRacialSubTypes() instead
+	 */
+	@Deprecated
+	public static List<String> getTypes(PlayerCharacter pc)
+	{
+		final List<String> list = new ArrayList<String>();
+	
+		Race race = pc.getRace();
+		if (race != null)
+		{
+			list.add(race.getType());
+		} else
+		{
+			list.add("Humanoid");
+		}
+	
+		for (PCTemplate t : pc.getTemplateSet())
+		{
+			list.add(t.getType());
+		}
+	
+		return list;
+		
 	}
 
 }

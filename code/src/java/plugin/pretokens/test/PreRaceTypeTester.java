@@ -30,7 +30,9 @@ package plugin.pretokens.test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
+import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -68,7 +70,7 @@ public class PreRaceTypeTester extends AbstractPrerequisiteTest implements Prere
 		{
 			//Can't match
 		}
-		if (character.getCritterType().indexOf(requiredRaceType) >= 0)
+		if (getCritterType(character).indexOf(requiredRaceType) >= 0)
 		{
 			runningTotal++;
 		}
@@ -84,6 +86,39 @@ public class PreRaceTypeTester extends AbstractPrerequisiteTest implements Prere
 	public String kindHandled()
 	{
 		return "RACETYPE"; //$NON-NLS-1$
+	}
+
+	/**
+	 * Get a pipe separated list of creature types for this PC (defaults to humanoid).
+	 * @return the list of types
+	 */
+    @Deprecated
+	public static String getCritterType(PlayerCharacter pc)
+	{
+		final StringBuilder critterType = new StringBuilder();
+	
+		// Not too sure about this if, but that's what the previous code
+		// implied...
+		Race race = pc.getRace();
+		if (race != null)
+		{
+			critterType.append(race.getType());
+		} else
+		{
+			critterType.append("Humanoid");
+		}
+	
+		for (PCTemplate t : pc.getTemplateSet())
+		{
+			final String aType = t.getType();
+	
+			if (!"".equals(aType))
+			{
+				critterType.append('|').append(aType);
+			}
+		}
+	
+		return critterType.toString();
 	}
 
 }

@@ -786,7 +786,7 @@ public class PcgCombatant extends Combatant
 			pc.refreshSkillList(); //force refresh of skills
 
 			List<Skill> skillList =
-					pc.getSkillListInOutputOrder(pc
+					pc.getSkillListInOutputOrder(pc.getDisplay()
 						.getPartialSkillList(Visibility.OUTPUT_ONLY));
 			boolean firstLine = true;
 
@@ -851,7 +851,7 @@ public class PcgCombatant extends Combatant
 				//Domain List with powers
 				boolean firstLine = true;
 
-				for (Domain dom : pc.getSortedDomainSet())
+				for (Domain dom : pc.getDisplay().getSortedDomainSet())
 				{
 					if (!firstLine)
 					{

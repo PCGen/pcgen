@@ -69,15 +69,20 @@ import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
 import pcgen.cdom.facet.input.ProhibitedSchoolFacet;
 import pcgen.cdom.facet.model.ClassFacet;
+import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.SizeFacet;
+import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfFacet;
+import pcgen.core.Domain;
+import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+import pcgen.core.Skill;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.Vision;
 import pcgen.core.WeaponProf;
@@ -112,6 +117,8 @@ public class CharacterDisplay
 	private FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
 	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
 	private MoneyFacet moneyFacet = FacetLibrary.getFacet(MoneyFacet.class);
+	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
+	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 	private ChallengeRatingFacet crFacet = FacetLibrary.getFacet(ChallengeRatingFacet.class);
 	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
 	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
@@ -645,5 +652,28 @@ public class CharacterDisplay
 	public float calcCR()
 	{
 		return crFacet.getCR(id);
+	}
+
+	public Set<Domain> getSortedDomainSet()
+	{
+		SortedSet<Domain> domains = new TreeSet<Domain>(CDOMObjectUtilities.CDOM_SORTER);
+		domains.addAll(domainFacet.getSet(id));
+		return domains;
+	}
+
+	/**
+	 * Retrieve those skills in the character's skill list that match the
+	 * supplied visibility level.
+	 * 
+	 * @param vis
+	 *            What level of visibility skills are desired.
+	 * 
+	 * @return A list of the character's skills matching the visibility
+	 *         criteria.
+	 */
+	public List<Skill> getPartialSkillList(Visibility vis)
+	{
+		// Now select the required set of skills, based on their visibility.
+		return Globals.getObjectsOfVisibility(skillFacet.getSet(id), vis);
 	}
 }
