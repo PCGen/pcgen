@@ -20,7 +20,7 @@ package tokenmodel;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
@@ -32,7 +32,7 @@ import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 {
 
-	TemplateLst token = new TemplateLst();
+	private static TemplateLst token = new TemplateLst();
 
 	@Test
 	public void testChoose() throws PersistenceLayerException
@@ -73,7 +73,7 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<PCTemplate> getTargetFacet()
+	protected TemplateFacet getTargetFacet()
 	{
 		return templateFacet;
 	}
@@ -82,6 +82,18 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 	public CDOMToken<?> getToken()
 	{
 		return token;
+	}
+
+	@Override
+	protected int getCount()
+	{
+		return getTargetFacet().getCount(id);
+	}
+
+	@Override
+	protected boolean containsExpected(PCTemplate granted)
+	{
+		return getTargetFacet().contains(id, granted);
 	}
 
 }

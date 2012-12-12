@@ -29,7 +29,7 @@ import tokencontent.testsupport.AbstractContentTokenTest;
 public class GlobalMoveTest extends AbstractContentTokenTest
 {
 
-	private MoveLst token = new MoveLst();
+	private static MoveLst token = new MoveLst();
 	private MovementFacet moveFacet;
 
 	@Override

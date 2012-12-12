@@ -33,7 +33,7 @@ import tokencontent.testsupport.AbstractContentTokenTest;
 public class GlobalCompanionListTest extends AbstractContentTokenTest
 {
 
-	private CompanionListLst token = new CompanionListLst();
+	private static CompanionListLst token = new CompanionListLst();
 	private FollowerOptionFacet foFacet;
 
 	@Override

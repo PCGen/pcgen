@@ -33,7 +33,7 @@ import tokencontent.testsupport.AbstractContentTokenTest;
 public class GlobalUdamTest extends AbstractContentTokenTest
 {
 
-	private UdamLst token = new UdamLst();
+	private static UdamLst token = new UdamLst();
 	private UnarmedDamageFacet unarmedDamageFacet;
 
 	@Override

@@ -32,14 +32,14 @@ import tokencontent.testsupport.AbstractContentTokenTest;
 public class GlobalQualifyTest extends AbstractContentTokenTest
 {
 
-	private QualifyToken token = new QualifyToken();
-	private QualifyFacet foFacet;
+	private static QualifyToken token = new QualifyToken();
+	private QualifyFacet qualifyFacet;
 
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		foFacet = FacetLibrary.getFacet(QualifyFacet.class);
+		qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
 		create(Race.class, "Dwarf");
 	}
 
@@ -71,13 +71,13 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 		Race dwarf =
 				context.ref.silentlyGetConstructedCDOMObject(Race.class,
 					"Dwarf");
-		return foFacet.grantsQualify(id, dwarf);
+		return qualifyFacet.grantsQualify(id, dwarf);
 	}
 
 	@Override
 	protected int targetFacetCount()
 	{
-		return foFacet.getCount(id);
+		return qualifyFacet.getCount(id);
 	}
 
 	@Override

@@ -29,7 +29,7 @@ import tokencontent.testsupport.AbstractContentTokenTest;
 public class GlobalSABTest extends AbstractContentTokenTest
 {
 
-	private SabLst token = new SabLst();
+	private static SabLst token = new SabLst();
 	private SpecialAbilityFacet saFacet;
 
 	@Override

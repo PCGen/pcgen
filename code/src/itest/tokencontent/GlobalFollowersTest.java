@@ -29,7 +29,7 @@ import tokencontent.testsupport.AbstractContentTokenTest;
 public class GlobalFollowersTest extends AbstractContentTokenTest
 {
 
-	private FollowersLst token = new FollowersLst();
+	private static FollowersLst token = new FollowersLst();
 	private FollowerLimitFacet flFacet;
 
 	@Override

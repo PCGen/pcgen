@@ -30,6 +30,8 @@ import tokenmodel.testsupport.AbstractTokenModelTest;
 public class RaceChooseLangautoTest extends AbstractTokenModelTest
 {
 
+	private static ChooseLangautoToken token = new ChooseLangautoToken();
+	
 	@Test
 	public void testSimple() throws PersistenceLayerException
 	{
@@ -49,8 +51,6 @@ public class RaceChooseLangautoTest extends AbstractTokenModelTest
 		raceFacet.remove(id);
 		assertEquals(0, languageFacet.getCount(id));
 	}
-
-	ChooseLangautoToken token = new ChooseLangautoToken();
 
 	@Override
 	public CDOMToken<?> getToken()

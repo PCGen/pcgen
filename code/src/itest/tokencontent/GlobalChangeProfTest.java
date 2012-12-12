@@ -32,14 +32,14 @@ import tokencontent.testsupport.AbstractContentTokenTest;
 public class GlobalChangeProfTest extends AbstractContentTokenTest
 {
 
-	private ChangeprofLst token = new ChangeprofLst();
-	private ChangeProfFacet srFacet;
+	private static ChangeprofLst token = new ChangeprofLst();
+	private ChangeProfFacet changeProfFacet;
 
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		srFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
+		changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
 		WeaponProf sword = create(WeaponProf.class, "Sword");
 		sword.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
 		WeaponProf axe = create(WeaponProf.class, "Axe");
@@ -67,7 +67,7 @@ public class GlobalChangeProfTest extends AbstractContentTokenTest
 	@Override
 	protected boolean containsExpected()
 	{
-		ChangeProf changeProf = srFacet.getSet(id).iterator().next();
+		ChangeProf changeProf = changeProfFacet.getSet(id).iterator().next();
 		boolean sourceMatch = changeProf.getSource().equals(context.ref.getCDOMReference(WeaponProf.class, "Axe"));
 		boolean targetMatch = changeProf.getResult().equals(context.ref.getCDOMTypeReference(WeaponProf.class, "Martial"));
 		return sourceMatch && targetMatch;
@@ -76,7 +76,7 @@ public class GlobalChangeProfTest extends AbstractContentTokenTest
 	@Override
 	protected int targetFacetCount()
 	{
-		return srFacet.getCount(id);
+		return changeProfFacet.getCount(id);
 	}
 
 	@Override

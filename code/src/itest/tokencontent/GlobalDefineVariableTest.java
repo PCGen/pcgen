@@ -29,7 +29,7 @@ import tokencontent.testsupport.AbstractContentTokenTest;
 public class GlobalDefineVariableTest extends AbstractContentTokenTest
 {
 
-	private DefineLst token = new DefineLst();
+	private static DefineLst token = new DefineLst();
 	private VariableFacet variableFacet;
 
 	@Override

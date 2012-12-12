@@ -34,9 +34,10 @@ import tokenmodel.testsupport.AbstractTokenModelTest;
 public class TemplateFavoredClassTest extends AbstractTokenModelTest
 {
 
-	private FavoredclassToken token = new FavoredclassToken();
+	private static FavoredclassToken token = new FavoredclassToken();
+	private static ClassToken CHOOSE_CLASS_TOKEN = new ClassToken();
+
 	private FavoredClassFacet fcFacet;
-	private ClassToken CHOOSE_CLASS_TOKEN = new ClassToken();
 
 	@Override
 	protected void setUp() throws Exception

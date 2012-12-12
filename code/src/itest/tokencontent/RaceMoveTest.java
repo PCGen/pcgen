@@ -32,7 +32,7 @@ import tokenmodel.testsupport.AbstractTokenModelTest;
 public class RaceMoveTest extends AbstractTokenModelTest
 {
 
-	private MoveToken token = new MoveToken();
+	private static MoveToken token = new MoveToken();
 	private BaseMovementFacet baseMoveFacet;
 
 	@Override

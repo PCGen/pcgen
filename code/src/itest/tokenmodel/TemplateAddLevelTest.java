@@ -30,6 +30,8 @@ import tokenmodel.testsupport.AbstractTokenModelTest;
 public class TemplateAddLevelTest extends AbstractTokenModelTest
 {
 
+	private static AddLevelToken token = new AddLevelToken();
+
 	@Test
 	public void testSimple() throws PersistenceLayerException
 	{
@@ -49,8 +51,6 @@ public class TemplateAddLevelTest extends AbstractTokenModelTest
 		templateFacet.remove(id, source, this);
 		assertEquals(0, classFacet.getCount(id));
 	}
-
-	AddLevelToken token = new AddLevelToken();
 
 	@Override
 	public CDOMToken<?> getToken()

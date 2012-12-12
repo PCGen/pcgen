@@ -18,7 +18,7 @@
 package tokenmodel;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.core.Language;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -28,7 +28,7 @@ import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 public class GlobalLangautoTest extends AbstractGrantedListTokenTest<Language>
 {
 
-	LangautoLst token = new LangautoLst();
+	private static LangautoLst token = new LangautoLst();
 
 	@Override
 	public void processToken(CDOMObject source)
@@ -49,7 +49,7 @@ public class GlobalLangautoTest extends AbstractGrantedListTokenTest<Language>
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<Language> getTargetFacet()
+	protected LanguageFacet getTargetFacet()
 	{
 		return languageFacet;
 	}
@@ -60,4 +60,15 @@ public class GlobalLangautoTest extends AbstractGrantedListTokenTest<Language>
 		return token;
 	}
 
+	@Override
+	protected int getCount()
+	{
+		return getTargetFacet().getCount(id);
+	}
+
+	@Override
+	protected boolean containsExpected(Language granted)
+	{
+		return getTargetFacet().contains(id, granted);
+	}
 }

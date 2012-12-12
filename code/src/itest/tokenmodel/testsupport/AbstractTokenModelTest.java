@@ -59,7 +59,6 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
 import plugin.lsttokens.AutoLst;
-import plugin.lsttokens.TemplateLst;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.ability.MultToken;
 import plugin.lsttokens.ability.VisibleToken;
@@ -74,8 +73,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected LoadContext context;
 	protected PlayerCharacter pc;
 	protected CharID id;
-
-	TemplateLst token = new TemplateLst();
 
 	@Override
 	protected void setUp() throws Exception

@@ -29,7 +29,7 @@ import tokencontent.testsupport.AbstractContentTokenTest;
 public class GlobalUnencumberedMoveArmorTest extends AbstractContentTokenTest
 {
 
-	private UnencumberedmoveLst token = new UnencumberedmoveLst();
+	private static UnencumberedmoveLst token = new UnencumberedmoveLst();
 	private UnencumberedArmorFacet unencArmorFacet;
 
 	@Override

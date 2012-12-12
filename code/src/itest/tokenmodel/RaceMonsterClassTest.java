@@ -32,6 +32,8 @@ import tokenmodel.testsupport.AbstractTokenModelTest;
 public class RaceMonsterClassTest extends AbstractTokenModelTest
 {
 
+	private static MonsterclassToken token = new MonsterclassToken();
+
 	@Test
 	public void testSimple() throws PersistenceLayerException
 	{
@@ -52,8 +54,6 @@ public class RaceMonsterClassTest extends AbstractTokenModelTest
 		raceFacet.remove(id);
 		assertEquals(0, classFacet.getCount(id));
 	}
-
-	MonsterclassToken token = new MonsterclassToken();
 
 	@Override
 	public CDOMToken<?> getToken()

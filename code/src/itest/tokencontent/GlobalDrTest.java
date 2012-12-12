@@ -31,7 +31,7 @@ import tokencontent.testsupport.AbstractContentTokenTest;
 public class GlobalDrTest extends AbstractContentTokenTest
 {
 
-	private DrLst token = new DrLst();
+	private static DrLst token = new DrLst();
 	private DamageReductionFacet drFacet;
 
 	@Override

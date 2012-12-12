@@ -30,7 +30,7 @@ import tokencontent.testsupport.AbstractContentTokenTest;
 public class GlobalVisionTest extends AbstractContentTokenTest
 {
 
-	private VisionLst token = new VisionLst();
+	private static VisionLst token = new VisionLst();
 	private VisionFacet visionFacet;
 
 	@Override

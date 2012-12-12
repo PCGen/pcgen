@@ -32,6 +32,8 @@ import tokenmodel.testsupport.AbstractTokenModelTest;
 public class RaceLangbonusTest extends AbstractTokenModelTest
 {
 
+	private static LangbonusToken token = new LangbonusToken();
+
 	protected StartingLanguageFacet startingLanguageFacet;
 	
 	@Test
@@ -53,8 +55,6 @@ public class RaceLangbonusTest extends AbstractTokenModelTest
 		raceFacet.remove(id);
 		assertEquals(0, startingLanguageFacet.getCount(id));
 	}
-
-	LangbonusToken token = new LangbonusToken();
 
 	@Override
 	public CDOMToken<?> getToken()

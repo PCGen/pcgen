@@ -29,7 +29,7 @@ import tokencontent.testsupport.AbstractContentTokenTest;
 public class GlobalSRTest extends AbstractContentTokenTest
 {
 
-	private SrLst token = new SrLst();
+	private static SrLst token = new SrLst();
 	private CharacterSpellResistanceFacet srFacet;
 
 	@Override

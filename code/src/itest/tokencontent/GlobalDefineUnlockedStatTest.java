@@ -28,7 +28,7 @@ import tokencontent.testsupport.AbstractContentTokenTest;
 public class GlobalDefineUnlockedStatTest extends AbstractContentTokenTest
 {
 
-	private DefineLst token = new DefineLst();
+	private static DefineLst token = new DefineLst();
 	private UnlockedStatFacet unlockedStatFacet;
 
 	@Override
