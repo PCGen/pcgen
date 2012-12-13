@@ -29,6 +29,7 @@ package plugin.pretokens.test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Vision;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -48,13 +49,14 @@ public class PreVisionTester extends AbstractPrerequisiteTest implements Prerequ
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
+		CharacterDisplay display = character.getDisplay();
 		String range = prereq.getOperand();
 		VisionType requiredVisionType =
 			VisionType.getVisionType(prereq.getKey());
 		int runningTotal = 0;
 		if (range.equals("ANY"))
 		{
-			Vision v = character.getDisplay().getVision(requiredVisionType);
+			Vision v = display.getVision(requiredVisionType);
 			if (v == null)
 			{
 				runningTotal += prereq.getOperator().compare(0, 1);
@@ -67,7 +69,7 @@ public class PreVisionTester extends AbstractPrerequisiteTest implements Prerequ
 		else
 		{
 			int requiredRange = Integer.parseInt(range);
-			Vision v = character.getDisplay().getVision(requiredVisionType);
+			Vision v = display.getVision(requiredVisionType);
 			if (v == null)
 			{
 				runningTotal += prereq.getOperator().compare(0, requiredRange);

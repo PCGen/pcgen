@@ -30,6 +30,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -52,6 +53,7 @@ public class PreTemplateTester extends AbstractPrerequisiteTest implements Prere
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 		throws PrerequisiteException
 	{
+		CharacterDisplay display = character.getDisplay();
 		int runningTotal = 0;
 
 		final int number;
@@ -65,7 +67,7 @@ public class PreTemplateTester extends AbstractPrerequisiteTest implements Prere
 				"PreTemplate.error", prereq.toString())); //$NON-NLS-1$
 		}
 
-		if (character.getDisplay().hasTemplates())
+		if (display.hasTemplates())
 		{
 			String templateKey = prereq.getKey().toUpperCase();
 			final int wildCard = templateKey.indexOf('%');
@@ -73,7 +75,7 @@ public class PreTemplateTester extends AbstractPrerequisiteTest implements Prere
 			if (wildCard >= 0)
 			{
 				templateKey = templateKey.substring(0, wildCard);
-				for (PCTemplate aTemplate : character.getDisplay().getTemplateSet())
+				for (PCTemplate aTemplate : display.getTemplateSet())
 				{
 					if (aTemplate.getKeyName().toUpperCase().startsWith(
 						templateKey))
@@ -86,7 +88,7 @@ public class PreTemplateTester extends AbstractPrerequisiteTest implements Prere
 			{
 				PCTemplate template = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 						PCTEMPLATE_CLASS, templateKey);
-				if (character.hasTemplate(template))
+				if (display.hasTemplate(template))
 				{
 					runningTotal++;
 				}

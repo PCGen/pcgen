@@ -35,6 +35,7 @@ import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -77,6 +78,7 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 		throws PrerequisiteException
 	{
+		CharacterDisplay display = character.getDisplay();
 		int runningTotal = 0;
 
 		final int number;
@@ -91,15 +93,15 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 		}
 
 		final String aString = prereq.getKey();
-		if ("DEITYWEAPON".equals(aString) && character.getDeity() != null) //$NON-NLS-1$
+		if ("DEITYWEAPON".equals(aString) && display.getDeity() != null) //$NON-NLS-1$
 		{
-			List<CDOMReference<WeaponProf>> dwp = character.getDeity().getSafeListFor(
+			List<CDOMReference<WeaponProf>> dwp = display.getDeity().getSafeListFor(
 					ListKey.DEITYWEAPON);
 			DEITYWPN: for (CDOMReference<WeaponProf> ref : dwp)
 			{
 				for (WeaponProf wp : ref.getContainedObjects())
 				{
-					if (character.hasWeaponProf(wp))
+					if (display.hasWeaponProf(wp))
 					{
 						runningTotal++;
 						break DEITYWPN;
@@ -110,7 +112,7 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 		else if (aString.startsWith("TYPE.") || aString.startsWith("TYPE=")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
 			final String requiredType = aString.substring(5);
-			for (WeaponProf wp : character.getDisplay().getWeaponProfSet())
+			for (WeaponProf wp : display.getWeaponProfSet())
 			{
 				if (wp.isType(requiredType))
 				{
@@ -135,7 +137,7 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 		{
 			WeaponProf wp = Globals.getContext().ref
 					.silentlyGetConstructedCDOMObject(WeaponProf.class, aString);
-			if ((wp != null && character.hasWeaponProf(wp)))
+			if ((wp != null && display.hasWeaponProf(wp)))
 			{
 				runningTotal++;
 			}

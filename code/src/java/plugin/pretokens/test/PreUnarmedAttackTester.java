@@ -29,6 +29,7 @@ package plugin.pretokens.test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -48,8 +49,9 @@ public class PreUnarmedAttackTester extends AbstractPrerequisiteTest implements
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
+		CharacterDisplay display = character.getDisplay();
 		int att = 0;
-		for (PCClass aClass : character.getClassSet())
+		for (PCClass aClass : display.getClassSet())
 		{
 			att = Math.max(att, aClass.baseAttackBonus(character));
 		}

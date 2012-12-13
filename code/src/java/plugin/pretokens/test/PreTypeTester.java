@@ -34,6 +34,7 @@ import pcgen.core.Equipment;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -103,6 +104,7 @@ public class PreTypeTester extends AbstractPrerequisiteTest implements
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter aPC, CDOMObject source)
 	{
+		CharacterDisplay display = aPC.getDisplay();
 
 		Logging
 			.errorPrint("PRETYPE has been deprecated for non-Equipment Prerequisites."
@@ -119,7 +121,7 @@ public class PreTypeTester extends AbstractPrerequisiteTest implements
 		final int numRequired = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
 
-		for (String element : PreTypeTester.getTypes(aPC))
+		for (String element : getTypes(display))
 		{
 			if (element.equalsIgnoreCase(requiredType))
 			{
@@ -151,11 +153,11 @@ public class PreTypeTester extends AbstractPrerequisiteTest implements
 	 * @deprecated Use getRaceType() and getRacialSubTypes() instead
 	 */
 	@Deprecated
-	public static List<String> getTypes(PlayerCharacter pc)
+	private static List<String> getTypes(CharacterDisplay display)
 	{
 		final List<String> list = new ArrayList<String>();
 	
-		Race race = pc.getRace();
+		Race race = display.getRace();
 		if (race != null)
 		{
 			list.add(race.getType());
@@ -164,7 +166,7 @@ public class PreTypeTester extends AbstractPrerequisiteTest implements
 			list.add("Humanoid");
 		}
 	
-		for (PCTemplate t : pc.getDisplay().getTemplateSet())
+		for (PCTemplate t : display.getTemplateSet())
 		{
 			list.add(t.getType());
 		}

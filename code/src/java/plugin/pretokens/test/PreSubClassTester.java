@@ -29,6 +29,7 @@ package plugin.pretokens.test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -49,6 +50,7 @@ public class PreSubClassTester extends AbstractPrerequisiteTest implements Prere
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 		throws PrerequisiteException
 	{
+		CharacterDisplay display = character.getDisplay();
 		int runningTotal = 0;
 		int num;
 		try
@@ -62,9 +64,9 @@ public class PreSubClassTester extends AbstractPrerequisiteTest implements Prere
 		}
 
 		final String thisClass = prereq.getKey();
-		for (PCClass aClass : character.getClassSet())
+		for (PCClass aClass : display.getClassSet())
 		{
-			final String subClassName = character.getDisplay().getSubClassName(aClass);
+			final String subClassName = display.getSubClassName(aClass);
 			if (subClassName != null && subClassName.length() != 0)
 			{
 				if (thisClass.equalsIgnoreCase(subClassName))
