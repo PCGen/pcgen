@@ -1611,4 +1611,14 @@ public class CharacterDisplay
 	
 		return retString;
 	}
+
+	public String getAlignmentDisplayString()
+	{
+		if (Globals.getGameModeAlignmentText().length() == 0)
+		{
+			return "";
+		}
+		final PCAlignment alignment = getPCAlignment();
+		return alignment == null ? "None" : alignment.getDisplayName();
+	}
 }

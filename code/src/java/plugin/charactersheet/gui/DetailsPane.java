@@ -14,7 +14,6 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.VisionDisplay;
-import pcgen.io.exporttoken.AlignmentToken;
 
 /**
  * Confirmed no memory Leaks Dec 10, 2004
@@ -887,7 +886,7 @@ public class DetailsPane extends javax.swing.JPanel
 		weight.setText(display.getWeightToken() + ' ');
 		hair.setText(display.getHairColor() + ' ');
 
-		alignment.setText(AlignmentToken.getAlignmentToken(display) + ' ');
+		alignment.setText(display.getAlignmentDisplayString() + ' ');
 		vision.setText(VisionDisplay.getVision(display) + ' ');
 		points.setText(pc.getCostPool() + SPACE);
 	}

@@ -23,13 +23,14 @@
  * Last Edited: $Date$
  *
  */
-package pcgen.io.exporttoken;
+package plugin.exporttokens;
 
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Class deals with ALIGNMENT and ALIGNMENT.SHORT Token
@@ -58,7 +59,7 @@ public class AlignmentToken extends AbstractExportToken
 		{
 			if ("ALIGNMENT".equals(tokenSource))
 			{
-				retString = getAlignmentToken(display);
+				retString = display.getAlignmentDisplayString();
 			}
 			else if ("ALIGNMENT.SHORT".equals(tokenSource))
 			{
@@ -67,21 +68,6 @@ public class AlignmentToken extends AbstractExportToken
 		}
 		
 		return retString;
-	}
-
-	/**
-	 * Get the Alignment Token
-	 * @param pc
-	 * @return Alignment Token
-	 */
-	public static String getAlignmentToken(CharacterDisplay display)
-	{
-		if (Globals.getGameModeAlignmentText().length() == 0)
-		{
-			return "";
-		}
-		final PCAlignment alignment = display.getPCAlignment();
-		return alignment==null?"None":alignment.getDisplayName();
 	}
 
 	/**
