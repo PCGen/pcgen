@@ -17,7 +17,6 @@ import pcgen.io.exporttoken.HPToken;
 import pcgen.io.exporttoken.MovementToken;
 import pcgen.io.exporttoken.SRToken;
 import pcgen.io.exporttoken.SpellFailureToken;
-import pcgen.io.exporttoken.VarToken;
 import pcgen.util.Delta;
 
 /**
@@ -1074,7 +1073,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		acSize.setText(pcOut.getExportToken(AC_SIZE_TOKEN));
 		acNatural.setText(pcOut.getExportToken(AC_NATURAL_TOKEN));
 		acMisc.setText(pcOut.getExportToken(AC_MISC_TOKEN));
-		missChance.setText(VarToken.getIntVarToken(pc, MISSCHANCE_VAR, false)
+		missChance.setText(pc.getVariable(MISSCHANCE_VAR, true).intValue()
 			+ PERCENT);
 
 		spellFailure.setText(SpellFailureToken.getSpellFailureToken(

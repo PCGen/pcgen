@@ -20,7 +20,6 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.exporttoken.StatToken;
-import pcgen.io.exporttoken.VarToken;
 import pcgen.util.Delta;
 
 /**
@@ -612,30 +611,25 @@ public class TurnPane extends javax.swing.JPanel
 		try
 		{
 			int level =
-					VarToken.getIntVarToken(pc, "TurnLevel" + turnType, false);
+					pc.getVariable("TurnLevel" + turnType, true).intValue();
 			if (level > 0)
 			{
 				setVisible(true);
 
 				int check =
-						VarToken.getIntVarToken(pc, "TurnCheck" + turnType,
-							false);
+						pc.getVariable("TurnCheck" + turnType, true).intValue();
 				int numDay =
-						VarToken.getIntVarToken(pc, "TurnTimes" + turnType,
-							false);
+						pc.getVariable("TurnTimes" + turnType, true).intValue();
 				int dieNumber = 2;
 				int dieSize = 6;
 				int damage =
-						VarToken.getIntVarToken(pc,
-							"TurnDamagePlus" + turnType, false);
+						pc.getVariable("TurnDamagePlus" + turnType, true).intValue();
 				if (damage > 0)
 				{
 					dieNumber =
-							VarToken.getIntVarToken(pc, "TurnDice" + turnType,
-								false);
+							pc.getVariable("TurnDice" + turnType, true).intValue();
 					dieSize =
-							VarToken.getIntVarToken(pc, "TurnDieSize"
-								+ turnType, false);
+							pc.getVariable("TurnDieSize" + turnType, true).intValue();
 				}
 				else
 				{

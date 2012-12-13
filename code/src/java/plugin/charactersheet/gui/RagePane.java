@@ -6,14 +6,14 @@
 
 package plugin.charactersheet.gui;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.io.exporttoken.VarToken;
-
-import javax.swing.JCheckBox;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
+import javax.swing.JCheckBox;
+
+import pcgen.core.PlayerCharacter;
 
 /**
  * Confirmed no memory Leaks Dec 10, 2004
@@ -148,15 +148,14 @@ public class RagePane extends javax.swing.JPanel
 
 	public void refresh()
 	{
-		int numDay = VarToken.getIntVarToken(pc, RAGE_TIMES, false);
+		int numDay = pc.getVariable(RAGE_TIMES, true).intValue();
 		if (numDay > 0)
 		{
 			setVisible(true);
 
-			int greaterRage = VarToken.getIntVarToken(pc, GREATER_RAGE, false);
-			int tirelessRage =
-					VarToken.getIntVarToken(pc, TIRELESS_RAGE, false);
-			int mightyRage = VarToken.getIntVarToken(pc, MIGHTY_RAGE, false);
+			int greaterRage = pc.getVariable(GREATER_RAGE, true).intValue();
+			int tirelessRage = pc.getVariable(TIRELESS_RAGE, true).intValue();
+			int mightyRage = pc.getVariable(MIGHTY_RAGE, true).intValue();
 
 			if (mightyRage == 1)
 			{

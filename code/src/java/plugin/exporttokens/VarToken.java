@@ -19,10 +19,11 @@
  * Created on December 15, 2003, 12:21 PM
  *
  */
-package pcgen.io.exporttoken;
+package plugin.exporttokens;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 
@@ -105,47 +106,14 @@ public class VarToken extends Token
 		{
 			if (isSign)
 			{
-				return Delta.toString(getIntVarToken(pc, varName.toString(),
-					isMin));
+				return Delta.toString(pc.getVariable(varName.toString(), !isMin).intValue());
 			}
-			return getIntVarToken(pc, varName.toString(), isMin) + "";
+			return pc.getVariable(varName.toString(), !isMin).intValue() + "";
 		}
 		if (isSign)
 		{
-			return Delta.toString(getVarToken(pc, varName.toString(), isMin));
+			return Delta.toString((float) pc.getVariable(varName.toString(), !isMin));
 		}
-		return getVarToken(pc, varName.toString(), isMin) + "";
-	}
-
-	/**
-	 * Get the value of the variable as a float. Where the PC has multiple 
-	 * values for the variable (different classes etc) the fucntion can 
-	 * return either the minimum or maximum of these values.
-	 *  
-	 * @param pc The character being output.
-	 * @param varName The name of the variable.
-	 * @param isMin Do we want the minimum if there are multiple values.
-	 * @return The variable's value.
-	 */
-	public static float getVarToken(PlayerCharacter pc, String varName,
-		boolean isMin)
-	{
-		return pc.getVariable(varName, !isMin);
-	}
-
-	/**
-	 * Get the value of the variable as an integer. Where the PC has multiple 
-	 * values for the variable (different classes etc) the fucntion can 
-	 * return either the minimum or maximum of these values.
-	 *  
-	 * @param pc The character being output.
-	 * @param varName The name of the variable.
-	 * @param isMin Do we want the minimum if there are multiple values.
-	 * @return The variable's value.
-	 */
-	public static int getIntVarToken(PlayerCharacter pc, String varName,
-		boolean isMin)
-	{
-		return pc.getVariable(varName, !isMin).intValue();
+		return pc.getVariable(varName.toString(), !isMin) + "";
 	}
 }

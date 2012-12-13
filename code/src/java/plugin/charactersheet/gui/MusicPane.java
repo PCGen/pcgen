@@ -6,13 +6,13 @@
 
 package plugin.charactersheet.gui;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.io.exporttoken.VarToken;
-
-import javax.swing.JCheckBox;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
+import javax.swing.JCheckBox;
+
+import pcgen.core.PlayerCharacter;
 
 /**
  * @author ddjone3
@@ -147,7 +147,7 @@ public class MusicPane extends javax.swing.JPanel
 	 */
 	public void refresh()
 	{
-		int numDay = VarToken.getIntVarToken(pc, "BardicMusicLevel", false);
+		int numDay = pc.getVariable("BardicMusicLevel", true).intValue();
 		if (numDay > 0)
 		{
 			setVisible(true);

@@ -30,6 +30,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import plugin.exporttokens.VarToken;
 
 /**
  * <code>VarTokenTest</code> tests the functioning of the VAR 

@@ -6,13 +6,13 @@
 
 package plugin.charactersheet.gui;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.io.exporttoken.VarToken;
-
-import javax.swing.JCheckBox;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
+import javax.swing.JCheckBox;
+
+import pcgen.core.PlayerCharacter;
 
 /**
  *
@@ -154,14 +154,14 @@ public class PerDayPane extends javax.swing.JPanel
 
 	public void refresh()
 	{
-		int numDay = VarToken.getIntVarToken(pc, var, false);
+		int numDay = pc.getVariable(var, true).intValue();
 		if (numDay > 0)
 		{
 			setVisible(true);
 			StringBuilder sb = new StringBuilder();
 			if (!var2.equals(""))
 			{
-				int var2text = VarToken.getIntVarToken(pc, var2, false);
+				int var2text = pc.getVariable(var2, true).intValue();
 				numDayLabel.setText(sb.append('(').append(var2text).append(')')
 					.toString());
 			}

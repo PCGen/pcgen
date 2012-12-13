@@ -80,7 +80,6 @@ import pcgen.io.exporttoken.SpellFailureToken;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.io.exporttoken.Token;
 import pcgen.io.exporttoken.TotalToken;
-import pcgen.io.exporttoken.VarToken;
 import pcgen.io.exporttoken.WeaponToken;
 import pcgen.io.exporttoken.WeaponhToken;
 import pcgen.system.PluginLoader;
@@ -1749,7 +1748,6 @@ public final class ExportHandler
 			addToTokenMap(new SRToken());
 			addToTokenMap(new StatToken());
 			addToTokenMap(new TotalToken());
-			addToTokenMap(new VarToken());
 			addToTokenMap(new WeaponToken());
 			addToTokenMap(new WeaponhToken());
 			tokenMapPopulated = true;
