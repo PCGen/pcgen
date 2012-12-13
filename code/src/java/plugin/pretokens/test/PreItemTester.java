@@ -68,7 +68,7 @@ public class PreItemTester extends AbstractPrerequisiteTest implements
 
 		int runningTotal = 0;
 
-		if (character.hasEquipment())
+		if (character.getDisplay().hasEquipment())
 		{
 			// Work out exactlywhat we are going to test.
 			final String aString = prereq.getKey();

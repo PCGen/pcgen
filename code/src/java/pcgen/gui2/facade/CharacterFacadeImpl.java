@@ -1631,7 +1631,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			return;
 		}
 
-		final int baseScore = theCharacter.getStat(pcStat);
+		final int baseScore = charDisplay.getStat(pcStat);
 		// Deal with a point pool based game mode where you buy skills and feats as well as stats
 		if (Globals.getGameModeHasPointPool())
 		{

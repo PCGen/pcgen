@@ -291,7 +291,7 @@ public class CharacterLevelsFacadeImpl extends
 			return 0;
 		}
 
-		return theCharacter.getHP(classLevel);
+		return charDisplay.getHP(classLevel);
 	}
 
 	/* (non-Javadoc)

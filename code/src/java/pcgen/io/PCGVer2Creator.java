@@ -859,7 +859,7 @@ final class PCGVer2Creator implements IOConstants
 			String key;
 			key = pcClass.getKeyName() + TAG_SAVE + '0';
 
-			List<? extends SpecialAbility> salist = thePC.getUserSpecialAbilityList(pcClass);
+			List<? extends SpecialAbility> salist = charDisplay.getUserSpecialAbilityList(pcClass);
 			if (salist != null)
 			{
 				for (SpecialAbility sa : salist)
@@ -930,7 +930,7 @@ final class PCGVer2Creator implements IOConstants
 			if (pcClass != null)
 			{
 				String aKey =
-						thePC.getSubstitutionClassName(charDisplay
+						charDisplay.getSubstitutionClassName(charDisplay
 							.getActiveClassLevel(pcClass, lvl + 1));
 				if (aKey != null)
 				{
@@ -941,8 +941,8 @@ final class PCGVer2Creator implements IOConstants
 
 				buffer.append('|');
 				buffer.append(TAG_HITPOINTS).append(':');
-				PCClassLevel classLevel = thePC.getActiveClassLevel(pcClass, lvl);
-				Integer hp = thePC.getHP(classLevel);
+				PCClassLevel classLevel = charDisplay.getActiveClassLevel(pcClass, lvl);
+				Integer hp = charDisplay.getHP(classLevel);
 				buffer.append(hp == null ? 0 : hp);
 				appendSpecials(buffer, specials.get(pcClass.getKeyName()
 					+ TAG_SAVE + lvl), TAG_SAVES, TAG_SAVE, lvl);
@@ -1499,7 +1499,7 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(LINE_SEP);
 		}
 
-		if (thePC.hasFollowers())
+		if (charDisplay.hasFollowers())
 		{
 			for (Follower follower : charDisplay.getFollowerList())
 			{
@@ -2129,13 +2129,13 @@ final class PCGVer2Creator implements IOConstants
 
 		for (PCClass pcClass : charDisplay.getClassSet())
 		{
-			for (CharacterSpell cSpell : thePC.getCharacterSpells(pcClass))
+			for (CharacterSpell cSpell : charDisplay.getCharacterSpells(pcClass))
 			{
 				for (SpellInfo spellInfo : cSpell.getInfoList())
 				{
 					CDOMObject owner = cSpell.getOwner();
 					List<? extends CDOMList<Spell>> lists =
-							thePC.getSpellLists(owner);
+							charDisplay.getSpellLists(owner);
 
 					if (SpellLevel.getFirstLevelForKey(
 						cSpell.getSpell(), lists, thePC) < 0)
@@ -2265,7 +2265,7 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(aStat.getAbb());
 			buffer.append('|');
 			buffer.append(TAG_SCORE).append(':');
-			buffer.append(thePC.getStat(aStat));
+			buffer.append(charDisplay.getStat(aStat));
 			buffer.append(LINE_SEP);
 		}
 	}
@@ -2412,7 +2412,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendWeaponProficiencyLines(StringBuilder buffer)
 	{
-		final int size = thePC.getWeaponProfSet().size();
+		final int size = charDisplay.getWeaponProfSet().size();
 
 		if (size > 0)
 		{

@@ -58,7 +58,7 @@ public class PreMoveTester extends AbstractPrerequisiteTest implements
 		int runningTotal = 0;
 		int moveAmount = 0;
 
-		if ((character != null) && character.hasMovement())
+		if ((character != null) && character.getDisplay().hasMovement())
 		{
 			final String moveType = prereq.getKey();
 
@@ -73,7 +73,7 @@ public class PreMoveTester extends AbstractPrerequisiteTest implements
 						"PreMove.error.bad_operand", prereq.toString())); //$NON-NLS-1$
 			}
 
-			int speed = (int) character.getMovementOfType(moveType);
+			int speed = (int) character.getDisplay().getMovementOfType(moveType);
 			if (speed >= moveAmount)
 			{
 				runningTotal += speed;

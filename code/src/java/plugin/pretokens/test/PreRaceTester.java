@@ -151,7 +151,7 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 		{
 			final String reqType = requiredRace.substring(12);
 			RaceSubType st = RaceSubType.getConstant(reqType);
-			if (character.containsRacialSubType(st))
+			if (character.getDisplay().containsRacialSubType(st))
 			{
 				++runningTotal;
 			}

@@ -98,7 +98,6 @@ import pcgen.cdom.facet.CheckBonusFacet;
 import pcgen.cdom.facet.ClassSpellListFacet;
 import pcgen.cdom.facet.ConditionalAbilityFacet;
 import pcgen.cdom.facet.ConditionallyGrantedAbilityFacet;
-import pcgen.cdom.facet.DamageReductionFacet;
 import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.facet.EquipSetFacet;
 import pcgen.cdom.facet.EquipmentFacet;
@@ -146,7 +145,6 @@ import pcgen.cdom.facet.analysis.MovementResultFacet;
 import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.facet.analysis.QualifyFacet;
 import pcgen.cdom.facet.analysis.RacialSubTypesFacet;
-import pcgen.cdom.facet.analysis.ReachFacet;
 import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
 import pcgen.cdom.facet.analysis.StatLockFacet;
 import pcgen.cdom.facet.analysis.TotalWeightFacet;
@@ -253,7 +251,6 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
-import pcgen.util.enumeration.VisionType;
 
 /**
  * <code>PlayerCharacter</code>.
@@ -288,7 +285,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
 	private ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private ClassSpellListFacet classSpellListFacet = FacetLibrary.getFacet(ClassSpellListFacet.class);
-	private DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
 	private HandsFacet handsFacet = FacetLibrary.getFacet(HandsFacet.class);
 	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
 	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
@@ -298,7 +294,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
 	private QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
 	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
-	private ReachFacet reachFacet = FacetLibrary.getFacet(ReachFacet.class);
 	private StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
 	private StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
 	private StatValueFacet statValueFacet = FacetLibrary.getFacet(StatValueFacet.class);
@@ -9458,17 +9453,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Determine the character's reach. This is based on their race, any applied
-	 * templates and any other bonuses to reach.
-	 * 
-	 * @return The reach radius.
-	 */
-	public int getReach()
-	{
-		return reachFacet.getReach(id);
-	}
-
-	/**
 	 * Gets a list of ability objects whose name is the same as that of the ability object
 	 * passed in, no matter what category they were added in.
 	 * 
@@ -10452,11 +10436,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 	}
 
-	public boolean hasTemplates()
-	{
-		return !templateFacet.isEmpty(id);
-	}
-
 	public int getTemplateCount()
 	{
 		return templateFacet.getCount(id);
@@ -10618,11 +10597,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		equippedFacet.reset(id);
 	}
 
-	public boolean containsRacialSubType(RaceSubType st)
-	{
-		return subTypesFacet.contains(id, st);
-	}
-
 	public int getRacialSubTypeCount()
 	{
 		return subTypesFacet.getCount(id);
@@ -10692,11 +10666,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		alWeaponProfFacet.remove(id, choice, owner);
 	}
 
-	public Integer getDR(String key)
-	{
-		return drFacet.getDR(id, key);
-	}
-
 	/**
 	 * WARNING: Use this method SPARINGLY... and only for transition to the
 	 * facet model. It is NOT an excuse to throw around a PlayerCharacter object
@@ -10717,11 +10686,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public boolean hasSpellBook(String bookName)
 	{
 		return spellBookFacet.containsBookNamed(id, bookName);
-	}
-
-	public Vision getVision(VisionType type)
-	{
-		return visionFacet.getActiveVision(id, type);
 	}
 
 	public int getVisionCount()
@@ -10752,11 +10716,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void removeShieldProf(CDOMObject owner, ShieldProf sp)
 	{
 		shieldProfListFacet.remove(id, sp, owner);
-	}
-
-	public double getMovementOfType(String moveType)
-	{
-		return moveResultFacet.getMovementOfType(id, moveType);
 	}
 
 	public boolean hasFollowers()
@@ -10978,12 +10937,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return list;
 	}
 
-	public int getAgeSetIndex()
-	{
-		return ageSetFacet.getAgeSetIndex(id);
-	}
-
-	public AgeSet getAgeSet()
+	private AgeSet getAgeSet()
 	{
 		return ageSetFacet.get(id);
 	}
@@ -11108,15 +11062,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		chronicleEntryFacet.remove(id, chronicleEntry);
 	}
 
-	/**
-	 * Retrieve the set of the character's chronicle entries.
-	 * @return The character's chronicle entries.
-	 */
-	public Collection<ChronicleEntry> getChronicleEntries()
-	{
-		return chronicleEntryFacet.getSet(id);
-	}
-
 	public BioSet getBioSet()
 	{
 		return bioSetFacet.get(id);
@@ -11229,11 +11174,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		userSpecialAbilityFacet.remove(id, sa, source);
 	}
 
-	public List<? extends SpecialAbility> getUserSpecialAbilityList(CDOMObject source)
-	{
-		return userSpecialAbilityFacet.getSet(id, source);
-	}
-
 	public CharacterDisplay getDisplay()
 	{
 		return display;
@@ -11244,19 +11184,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return changeProfFacet.getWeaponProfsInTarget(id, master);
 	}
 
-	public boolean hasMovement()
-	{
-		return !baseMovementFacet.isEmpty(id);
-	}
-
 	public Double getBaseMovement()
 	{
 		return baseMovementFacet.getSet(id).iterator().next().getDoubleMovement();
-	}
-
-	public String getSubstitutionClassName(PCClassLevel lvl)
-	{
-		return substitutionClassFacet.getSource(id, lvl);
 	}
 
 	public void setSubstitutionClassName(PCClassLevel lvl, String subClassKey)

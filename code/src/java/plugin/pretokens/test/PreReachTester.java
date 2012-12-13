@@ -54,7 +54,7 @@ public class PreReachTester extends AbstractPrerequisiteTest implements Prerequi
 			final int targetReach = Integer.parseInt(prereq.getOperand());
 
 			runningTotal =
-					prereq.getOperator().compare(character.getReach(),
+					prereq.getOperator().compare(character.getDisplay().getReach(),
 						targetReach);
 		}
 		catch (NumberFormatException nfe)

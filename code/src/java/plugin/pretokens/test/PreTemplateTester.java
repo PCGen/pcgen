@@ -65,7 +65,7 @@ public class PreTemplateTester extends AbstractPrerequisiteTest implements Prere
 				"PreTemplate.error", prereq.toString())); //$NON-NLS-1$
 		}
 
-		if (character.hasTemplates())
+		if (character.getDisplay().hasTemplates())
 		{
 			String templateKey = prereq.getKey().toUpperCase();
 			final int wildCard = templateKey.indexOf('%');

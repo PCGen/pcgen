@@ -48,7 +48,7 @@ public class PreDamageReductionTester extends AbstractPrerequisiteTest implement
 		int runningTotal = 0;
 
 		final int target = Integer.parseInt(prereq.getOperand());
-		Integer reduction = character.getDR(prereq.getKey());
+		Integer reduction = character.getDisplay().getDR(prereq.getKey());
 		if (reduction != null)
 		{
 			runningTotal = prereq.getOperator().compare(reduction, target);

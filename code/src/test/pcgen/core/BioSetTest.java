@@ -39,6 +39,7 @@ import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.persistence.lst.BioSetLoader;
 import pcgen.persistence.lst.BioSetLoaderTest;
 
@@ -208,28 +209,29 @@ public class BioSetTest extends AbstractCharacterTestCase
 	public void testAgeSet()
 	{
 		final PlayerCharacter pc = getCharacter();
+		CharacterDisplay display = pc.getDisplay();
 		final Race human = new Race();
 		human.setName("Human");
 		pc.setRace(human);
 		pc.setAge(12);
-		int idx = pc.getAgeSetIndex();
-		assertEquals("Ageset for " + pc.getDisplay().getAge() + ".", 0, idx);
+		int idx = display.getAgeSetIndex();
+		assertEquals("Ageset for " + display.getAge() + ".", 0, idx);
 
 		pc.setAge(17);
-		idx = pc.getAgeSetIndex();
-		assertEquals("Ageset for " + pc.getDisplay().getAge() + ".", 0, idx);
+		idx = display.getAgeSetIndex();
+		assertEquals("Ageset for " + display.getAge() + ".", 0, idx);
 
 		pc.setAge(36);
-		idx = pc.getAgeSetIndex();
-		assertEquals("Ageset for " + pc.getDisplay().getAge() + ".", 1, idx);
+		idx = display.getAgeSetIndex();
+		assertEquals("Ageset for " + display.getAge() + ".", 1, idx);
 
 		pc.setAge(54);
-		idx = pc.getAgeSetIndex();
-		assertEquals("Ageset for " + pc.getDisplay().getAge() + ".", 2, idx);
+		idx = display.getAgeSetIndex();
+		assertEquals("Ageset for " + display.getAge() + ".", 2, idx);
 
 		pc.setAge(72);
-		idx = pc.getAgeSetIndex();
-		assertEquals("Ageset for " + pc.getDisplay().getAge() + ".", 3, idx);
+		idx = display.getAgeSetIndex();
+		assertEquals("Ageset for " + display.getAge() + ".", 3, idx);
 
 		Globals.getBioSet().getAgeSet(Region.getConstant(pc.getRegionString()), idx);
 

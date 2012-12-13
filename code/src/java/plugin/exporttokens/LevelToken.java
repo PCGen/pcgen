@@ -161,7 +161,7 @@ public class LevelToken extends Token
 		if (aClass != null)
 		{
 			PCClassLevel classLevel = pc.getDisplay().getActiveClassLevel(aClass, pcl.getClassLevel() - 1);
-			Integer hp = pc.getHP(classLevel);
+			Integer hp = pc.getDisplay().getHP(classLevel);
 			return hp == null ? "0" : hp.toString();
 		}
 		return "";

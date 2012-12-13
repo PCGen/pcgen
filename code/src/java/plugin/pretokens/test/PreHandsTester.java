@@ -55,7 +55,7 @@ public class PreHandsTester extends AbstractPrerequisiteTest implements
 			final int targetHands = Integer.parseInt(prereq.getOperand());
 
 			runningTotal =
-					prereq.getOperator().compare(character.getHands(),
+					prereq.getOperator().compare(character.getDisplay().getHands(),
 						targetHands);
 		}
 		catch (NumberFormatException nfe)

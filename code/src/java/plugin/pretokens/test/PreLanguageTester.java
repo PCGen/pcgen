@@ -56,14 +56,14 @@ public class PreLanguageTester extends AbstractPrerequisiteTest implements
 		int runningTotal = 0;
 
 		if (prereq.getKey().equalsIgnoreCase("ANY")) { //$NON-NLS-1$
-			runningTotal = character.getLanguageCount();
+			runningTotal = character.getDisplay().getLanguageCount();
 		}
 		else
 		{
 			final Language aLang = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, requiredLang);
 			if (aLang != null)
 			{
-				if (character.hasLanguage(aLang))
+				if (character.getDisplay().hasLanguage(aLang))
 				{
 					runningTotal = 1;
 				}

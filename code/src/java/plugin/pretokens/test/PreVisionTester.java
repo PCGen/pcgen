@@ -54,7 +54,7 @@ public class PreVisionTester extends AbstractPrerequisiteTest implements Prerequ
 		int runningTotal = 0;
 		if (range.equals("ANY"))
 		{
-			Vision v = character.getVision(requiredVisionType);
+			Vision v = character.getDisplay().getVision(requiredVisionType);
 			if (v == null)
 			{
 				runningTotal += prereq.getOperator().compare(0, 1);
@@ -67,7 +67,7 @@ public class PreVisionTester extends AbstractPrerequisiteTest implements Prerequ
 		else
 		{
 			int requiredRange = Integer.parseInt(range);
-			Vision v = character.getVision(requiredVisionType);
+			Vision v = character.getDisplay().getVision(requiredVisionType);
 			if (v == null)
 			{
 				runningTotal += prereq.getOperator().compare(0, requiredRange);

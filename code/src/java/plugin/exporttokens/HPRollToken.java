@@ -129,7 +129,7 @@ public class HPRollToken extends Token
 		if (pcClass != null)
 		{
 			PCClassLevel pcl = display.getActiveClassLevel(pcClass, classLevel);
-			Integer hp = pc.getHP(pcl);
+			Integer hp = display.getHP(pcl);
 			hpRoll = hp == null ? 0 : hp;
 		}
 

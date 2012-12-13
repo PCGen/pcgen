@@ -45,7 +45,7 @@ public class PreAgeSetTester extends AbstractPrerequisiteTest implements Prerequ
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source) throws PrerequisiteException
 	{
-		final int ageset = character.getAgeSetIndex();
+		final int ageset = character.getDisplay().getAgeSetIndex();
 
 		int runningTotal=-1;
 		int anInt;
@@ -56,7 +56,7 @@ public class PreAgeSetTester extends AbstractPrerequisiteTest implements Prerequ
 		}
 		catch (NumberFormatException exc)
 		{
-			anInt = character.getBioSet().getAgeSetNamed(prereq.getKey());
+			anInt = character.getDisplay().getBioSet().getAgeSetNamed(prereq.getKey());
 		}
 		catch (Exception e)
 		{

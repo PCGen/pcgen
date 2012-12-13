@@ -64,10 +64,13 @@ import pcgen.cdom.facet.SecondaryWeaponFacet;
 import pcgen.cdom.facet.SpellBookFacet;
 import pcgen.cdom.facet.SpellListFacet;
 import pcgen.cdom.facet.StatBonusFacet;
+import pcgen.cdom.facet.StatValueFacet;
 import pcgen.cdom.facet.SubClassFacet;
+import pcgen.cdom.facet.SubstitutionClassFacet;
 import pcgen.cdom.facet.XPTableFacet;
 import pcgen.cdom.facet.analysis.AgeSetFacet;
 import pcgen.cdom.facet.analysis.ArmorClassFacet;
+import pcgen.cdom.facet.analysis.BaseMovementFacet;
 import pcgen.cdom.facet.analysis.ChallengeRatingFacet;
 import pcgen.cdom.facet.analysis.FaceFacet;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
@@ -75,6 +78,7 @@ import pcgen.cdom.facet.analysis.FollowerOptionFacet;
 import pcgen.cdom.facet.analysis.HandsFacet;
 import pcgen.cdom.facet.analysis.HasAnyFavoredClassFacet;
 import pcgen.cdom.facet.analysis.InitiativeFacet;
+import pcgen.cdom.facet.analysis.LegsFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.analysis.LevelTableFacet;
 import pcgen.cdom.facet.analysis.LoadFacet;
@@ -108,6 +112,7 @@ import pcgen.cdom.facet.input.ProhibitedSchoolFacet;
 import pcgen.cdom.facet.input.UserSpecialAbilityFacet;
 import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.ArmorProfProviderFacet;
+import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
@@ -122,6 +127,7 @@ import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.AgeSet;
 import pcgen.core.ArmorProf;
+import pcgen.core.BioSet;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -151,6 +157,7 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
+import pcgen.util.enumeration.VisionType;
 
 public class CharacterDisplay
 {
@@ -178,6 +185,11 @@ public class CharacterDisplay
 	private SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
 	private FavoredClassFacet favClassFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
 	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
+	private BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
+	private BaseMovementFacet baseMovementFacet = FacetLibrary.getFacet(BaseMovementFacet.class);
+	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
+	private StatValueFacet statValueFacet = FacetLibrary.getFacet(StatValueFacet.class);
+	private SubstitutionClassFacet substitutionClassFacet = FacetLibrary.getFacet(SubstitutionClassFacet.class);
 	private EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
 	private ArmorProfProviderFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfProviderFacet.class);
 	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
@@ -1673,6 +1685,96 @@ public class CharacterDisplay
 	public boolean isIgnoreCost()
 	{
 		return moneyFacet.isIgnoreCost(id);
+	}
+
+	public Vision getVision(VisionType type)
+	{
+		return visionFacet.getActiveVision(id, type);
+	}
+
+	public String getSubstitutionClassName(PCClassLevel lvl)
+	{
+		return substitutionClassFacet.getSource(id, lvl);
+	}
+
+	public Integer getStat(PCStat stat)
+	{
+		return statValueFacet.get(id, stat);
+	}
+
+	public boolean containsRacialSubType(RaceSubType st)
+	{
+		return subTypesFacet.contains(id, st);
+	}
+
+	/**
+	 * Determine the number of legs the character has.
+	 * 
+	 * @return The number of legs.
+	 */
+	public int getLegs()
+	{
+		return legsFacet.getLegs(id);
+	}
+
+	public Integer getDR(String key)
+	{
+		return drFacet.getDR(id, key);
+	}
+
+	public boolean hasMovement()
+	{
+		return !baseMovementFacet.isEmpty(id);
+	}
+
+	public Collection<WeaponProf> getWeaponProfSet()
+	{
+		return weaponProfFacet.getProfs(id);
+	}
+
+	public List<? extends SpecialAbility> getUserSpecialAbilityList(CDOMObject source)
+	{
+		return userSpecialAbilityFacet.getSet(id, source);
+	}
+
+	public Integer getHP(PCClassLevel pcl)
+	{
+		return hitPointFacet.get(id, pcl);
+	}
+
+	public BioSet getBioSet()
+	{
+		return bioSetFacet.get(id);
+	}
+
+	public int getAgeSetIndex()
+	{
+		return ageSetFacet.getAgeSetIndex(id);
+	}
+
+	public boolean hasFollowers()
+	{
+		return !followerFacet.isEmpty(id);
+	}
+
+	public boolean hasEquipment()
+	{
+		return !equipmentFacet.isEmpty(id);
+	}
+
+	public boolean hasLanguage(Language lang)
+	{
+		return languageFacet.contains(id, lang);
+	}
+
+	public int getLanguageCount()
+	{
+		return languageFacet.getCount(id);
+	}
+
+	public boolean hasTemplates()
+	{
+		return !templateFacet.isEmpty(id);
 	}
 
 }
