@@ -123,6 +123,7 @@ import pcgen.cdom.facet.SpellSupportFacet;
 import pcgen.cdom.facet.StartingLanguageFacet;
 import pcgen.cdom.facet.StatBonusFacet;
 import pcgen.cdom.facet.SubClassFacet;
+import pcgen.cdom.facet.SubstitutionClassFacet;
 import pcgen.cdom.facet.UserEquipmentFacet;
 import pcgen.cdom.facet.UserTemplateFacet;
 import pcgen.cdom.facet.XPTableFacet;
@@ -302,6 +303,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
 	private StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
 	private SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
+	private SubstitutionClassFacet substitutionClassFacet = FacetLibrary.getFacet(SubstitutionClassFacet.class);
 	private TotalWeightFacet totalWeightFacet = FacetLibrary.getFacet(TotalWeightFacet.class);
 	private UnlockedStatFacet unlockedStatFacet = FacetLibrary.getFacet(UnlockedStatFacet.class);
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
@@ -11528,5 +11530,20 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public Double getBaseMovement()
 	{
 		return baseMovementFacet.getSet(id).iterator().next().getDoubleMovement();
+	}
+
+	public String getSubstitutionClassName(PCClassLevel lvl)
+	{
+		return substitutionClassFacet.getSource(id, lvl);
+	}
+
+	public void setSubstitutionClassName(PCClassLevel lvl, String subClassKey)
+	{
+		substitutionClassFacet.add(id, lvl, subClassKey);
+	}
+
+	public void removeSubstitutionClassName(PCClassLevel lvl)
+	{
+		substitutionClassFacet.remove(id, lvl);
 	}
 }

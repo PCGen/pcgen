@@ -386,7 +386,7 @@ public class PCClass extends PObject implements ClassFacade
 	public String getDisplayClassName(PlayerCharacter pc, final int aLevel)
 	{
 		PCClassLevel lvl = pc.getActiveClassLevel(this, aLevel);
-		String aKey = pc.getAssoc(lvl, AssociationKey.SUBSTITUTIONCLASS_KEY);
+		String aKey = pc.getSubstitutionClassName(lvl);
 		if (aKey == null)
 		{
 			return getDisplayClassName(pc);
