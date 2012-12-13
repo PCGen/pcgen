@@ -6357,7 +6357,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * 
 	 * @return PC's ACCHECK bonus from equipment
 	 */
-	public int modToACCHECKFromEquipment()
+	private int modToACCHECKFromEquipment()
 	{
 		Load load = getHouseRuledLoadType();
 		int bonus = 0;
