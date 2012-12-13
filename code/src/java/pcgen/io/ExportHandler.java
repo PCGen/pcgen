@@ -68,7 +68,6 @@ import pcgen.io.exporttoken.DomainToken;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.EqTypeToken;
 import pcgen.io.exporttoken.GameModeToken;
-import pcgen.io.exporttoken.HeightToken;
 import pcgen.io.exporttoken.InitiativeMiscToken;
 import pcgen.io.exporttoken.MovementToken;
 import pcgen.io.exporttoken.SRToken;
@@ -1734,7 +1733,6 @@ public final class ExportHandler
 			addToTokenMap(new EqToken());
 			addToTokenMap(new EqTypeToken());
 			addToTokenMap(new GameModeToken());
-			addToTokenMap(new HeightToken());
 			addToTokenMap(new InitiativeMiscToken());
 			addToTokenMap(new MovementToken());
 			addToTokenMap(new SkillToken());

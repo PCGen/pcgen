@@ -1602,4 +1602,34 @@ public class CharacterDisplay
 		}
 		return 0.0;
 	}
+
+	public String getCharacterHeightInchPart()
+	{
+		return Integer.toString(getHeight() % 12);
+	}
+
+	public String getCharacterHeightFootPart()
+	{
+		return Integer.toString(getHeight() / 12);
+	}
+
+	public String getHeightString()
+	{
+		String retString;
+	
+		if ("ftin".equals(Globals.getGameModeUnitSet().getHeightUnit()))
+		{
+			retString =
+					getCharacterHeightFootPart() + "' " + getCharacterHeightInchPart() + "\"";
+		}
+		else
+		{
+			retString =
+					Globals.getGameModeUnitSet().displayHeightInUnitSet(
+						getHeight())
+						+ " " + Globals.getGameModeUnitSet().getHeightUnit();
+		}
+	
+		return retString;
+	}
 }

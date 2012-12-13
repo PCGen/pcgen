@@ -23,12 +23,12 @@
  * Last Edited: $Date$
  *
  */
-package pcgen.io.exporttoken;
+package plugin.exporttokens;
 
 import pcgen.cdom.enumeration.BiographyField;
-import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deals with Tokens:
@@ -61,63 +61,18 @@ public class HeightToken extends AbstractExportToken
 		{
 			if ("HEIGHT".equals(tokenSource))
 			{
-				retString = getHeightToken(display);
+				retString = display.getHeightString();
 			}
 			else if ("HEIGHT.FOOTPART".equals(tokenSource))
 			{
-				retString = getFootPartToken(display);
+				retString = display.getCharacterHeightFootPart();
 			}
 			else if ("HEIGHT.INCHPART".equals(tokenSource))
 			{
-				retString = getInchPartToken(display);
+				retString = display.getCharacterHeightInchPart();
 			}
 		}
 		
 		return retString;
-	}
-
-	/**
-	 * Get the HEIGHT token
-	 * @param pc
-	 * @return the HEIGHT token
-	 */
-	public static String getHeightToken(CharacterDisplay display)
-	{
-		String retString = "";
-
-		if ("ftin".equals(Globals.getGameModeUnitSet().getHeightUnit()))
-		{
-			retString =
-					getFootPartToken(display) + "' " + getInchPartToken(display) + "\"";
-		}
-		else
-		{
-			retString =
-					Globals.getGameModeUnitSet().displayHeightInUnitSet(
-						display.getHeight())
-						+ " " + Globals.getGameModeUnitSet().getHeightUnit();
-		}
-
-		return retString;
-	}
-
-	/**
-	 * Get the HEIGHT.FOOTPART token
-	 * @param pc
-	 * @return the HEIGHT.FOOTPART token
-	 */
-	public static String getFootPartToken(CharacterDisplay display)
-	{
-		return Integer.toString(display.getHeight() / 12);
-	}
-
-	/**
-	 * Get the HEIGHT.INCHPART token
-	 * @param pc
-	 * @return the HEIGHT.INCHPART token
-	 */
-	public static String getInchPartToken(CharacterDisplay display)
-	{
-		return Integer.toString(display.getHeight() % 12);
 	}
 }

@@ -15,7 +15,6 @@ import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.VisionDisplay;
 import pcgen.io.exporttoken.AlignmentToken;
-import pcgen.io.exporttoken.HeightToken;
 
 /**
  * Confirmed no memory Leaks Dec 10, 2004
@@ -883,7 +882,7 @@ public class DetailsPane extends javax.swing.JPanel
 		{
 			deity.setText(" ");
 		}
-		height.setText(HeightToken.getHeightToken(display) + ' ');
+		height.setText(display.getHeightString() + ' ');
 		eyes.setText(display.getEyeColor() + ' ');
 		weight.setText(display.getWeightToken() + ' ');
 		hair.setText(display.getHairColor() + ' ');
