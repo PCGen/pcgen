@@ -71,7 +71,7 @@ public class KitStat extends BaseKit
 				if (!aPC.isNonAbility(currentStat)
 					&& currentStat.equals(me.getKey()))
 				{
-					aPC.setAssoc(currentStat, AssociationKey.STAT_SCORE, sVal);
+					aPC.setStat(currentStat, sVal);
 					if ("INT".equals(currentStat.getAbb()))
 					{
 						recalculateSkillPoints(aPC);

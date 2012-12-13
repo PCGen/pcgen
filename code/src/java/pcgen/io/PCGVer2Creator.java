@@ -2262,7 +2262,7 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(aStat.getAbb());
 			buffer.append('|');
 			buffer.append(TAG_SCORE).append(':');
-			buffer.append((int) thePC.getAssoc(aStat, AssociationKey.STAT_SCORE));
+			buffer.append(thePC.getStat(aStat));
 			buffer.append(LINE_SEP);
 		}
 	}

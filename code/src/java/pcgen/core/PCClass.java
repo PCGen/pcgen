@@ -1329,8 +1329,8 @@ public class PCClass extends PObject implements ClassFacade
 						{
 							if (aStat.equals(statToRollback.getStat()))
 							{
-								aPC.setAssoc(aStat, AssociationKey.STAT_SCORE, aPC.getAssoc(aStat, AssociationKey.STAT_SCORE)
-								- statToRollback.getStatMod());
+								aPC.setStat(aStat, aPC.getStat(aStat)
+									- statToRollback.getStatMod());
 								break;
 							}
 						}

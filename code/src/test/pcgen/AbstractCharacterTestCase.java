@@ -9,7 +9,6 @@ package pcgen;
 import gmgen.pluginmgr.PluginLoader;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -274,6 +273,6 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 	public void setPCStat(final PlayerCharacter pc, final PCStat stat,
 			final int value)
 	{
-		pc.setAssoc(stat, AssociationKey.STAT_SCORE, value);
+		pc.setStat(stat,  value);
 	}
 }

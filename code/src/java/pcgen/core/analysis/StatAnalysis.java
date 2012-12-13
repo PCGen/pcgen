@@ -19,7 +19,6 @@
  */
 package pcgen.core.analysis;
 
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -44,7 +43,7 @@ public class StatAnalysis
 		{
 			return z;
 		}
-		Integer score = aPC.getAssoc(stat, AssociationKey.STAT_SCORE);
+		Integer score = aPC.getStat(stat);
 		return score == null ? 0 : score;
 	}
 

@@ -51,7 +51,6 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.Gender;
@@ -1632,7 +1631,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			return;
 		}
 
-		final int baseScore = theCharacter.getAssoc(pcStat, AssociationKey.STAT_SCORE);
+		final int baseScore = theCharacter.getStat(pcStat);
 		// Deal with a point pool based game mode where you buy skills and feats as well as stats
 		if (Globals.getGameModeHasPointPool())
 		{
@@ -1667,7 +1666,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			}
 		}
 
-		theCharacter.setAssoc(pcStat, AssociationKey.STAT_SCORE, score);
+		theCharacter.setStat(pcStat, score);
 		facade.setReference(score);
 		theCharacter.saveStatIncrease(pcStat, score - baseScore, false);
 		theCharacter.calcActiveBonuses();
@@ -3248,7 +3247,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			}
 		}
 
-		theCharacter.setAssoc(pcStat, AssociationKey.STAT_SCORE, newScore);
+		theCharacter.setStat(pcStat, newScore);
 		scoreRef.setReference(newScore);
 	}
 

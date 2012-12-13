@@ -122,6 +122,7 @@ import pcgen.cdom.facet.SpellListFacet;
 import pcgen.cdom.facet.SpellSupportFacet;
 import pcgen.cdom.facet.StartingLanguageFacet;
 import pcgen.cdom.facet.StatBonusFacet;
+import pcgen.cdom.facet.StatValueFacet;
 import pcgen.cdom.facet.SubClassFacet;
 import pcgen.cdom.facet.SubstitutionClassFacet;
 import pcgen.cdom.facet.UserEquipmentFacet;
@@ -302,6 +303,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private ReachFacet reachFacet = FacetLibrary.getFacet(ReachFacet.class);
 	private StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
 	private StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
+	private StatValueFacet statValueFacet = FacetLibrary.getFacet(StatValueFacet.class);
 	private SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
 	private SubstitutionClassFacet substitutionClassFacet = FacetLibrary.getFacet(SubstitutionClassFacet.class);
 	private TotalWeightFacet totalWeightFacet = FacetLibrary.getFacet(TotalWeightFacet.class);
@@ -7854,14 +7856,14 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		int i = rolls.length - 1;
 		for (PCStat currentStat : aStatList)
 		{
-			this.setAssoc(currentStat, AssociationKey.STAT_SCORE, 0);
+			setStat(currentStat, 0);
 
 			if (!currentStat.getSafe(ObjectKey.ROLLED))
 			{
 				continue;
 			}
 
-			int roll = rolls[i--] + this.getAssoc(currentStat, AssociationKey.STAT_SCORE);
+			int roll = rolls[i--] + getStat(currentStat);
 
 			if (roll < currentStat.getSafe(IntegerKey.MIN_VALUE))
 			{
@@ -7873,7 +7875,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 				roll = currentStat.getSafe(IntegerKey.MAX_VALUE);
 			}
 
-			this.setAssoc(currentStat, AssociationKey.STAT_SCORE, roll);
+			setStat(currentStat, roll);
 		}
 
 		if (method != Constants.CHARACTER_STAT_METHOD_PURCHASE)
@@ -11428,4 +11430,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		substitutionClassFacet.remove(id, lvl);
 	}
 
+	public void setStat(PCStat stat, int value)
+	{
+		statValueFacet.set(id, stat, value);
+	}
+
+	public Integer getStat(PCStat stat)
+	{
+		return statValueFacet.get(id, stat);
+	}
 }

@@ -31,7 +31,6 @@ import pcgen.base.util.RandomUtil;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.RollMethod;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -324,8 +323,8 @@ public class NPCGenerator
 		for (PCStat stat : aPC.getStatSet())
 		{
 			Logging.debugPrint( "NPCGenerator: Setting stat " + stat.getAbb()
-				+ " to " + aPC.getAssoc(stat, AssociationKey.STAT_SCORE) );  //$NON-NLS-1$//$NON-NLS-2$
-			aPC.setAssoc(stat, AssociationKey.STAT_SCORE, aPC.getAssoc(stat, AssociationKey.STAT_SCORE));
+				+ " to " + aPC.getStat(stat) );  //$NON-NLS-1$//$NON-NLS-2$
+			aPC.setStat(stat, aPC.getStat(stat));
 		}
 	}
 

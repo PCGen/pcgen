@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.Set;
 
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -132,7 +131,7 @@ public class StatApplication
 						selectedValue.toString()))
 					{
 						aPC.saveStatIncrease(aStat, 1, isPre);
-						aPC.setAssoc(aStat, AssociationKey.STAT_SCORE, aPC.getAssoc(aStat, AssociationKey.STAT_SCORE) + 1);
+						aPC.setStat(aStat, aPC.getStat(aStat) + 1);
 						aPC.setPoolAmount(aPC.getPoolAmount() - 1);
 						statsAlreadyBonused.add(aStat);
 						++iCount;

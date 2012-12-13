@@ -4689,8 +4689,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 				try
 				{
-					thePC.setAssoc(stat, AssociationKey.STAT_SCORE,
-						Integer.parseInt(element.getText()));
+					thePC.setStat(stat, Integer.parseInt(element.getText()));
 				}
 				catch (NumberFormatException nfe)
 				{

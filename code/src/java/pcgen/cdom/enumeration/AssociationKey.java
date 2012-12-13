@@ -85,8 +85,6 @@ public final class AssociationKey<T>
 
 	public static final AssociationKey<Integer> DOMAIN_SPELL_COUNT = new AssociationKey<Integer>();
 
-	public static final AssociationKey<Integer> STAT_SCORE = new AssociationKey<Integer>();
-
 	/**
 	 * controls whether a "virtual Ability" will be saved with the character
 	 */

@@ -436,6 +436,7 @@
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
+	<bean id="statValueFacet" class="pcgen.cdom.facet.StatValueFacet" />
 	<bean id="subClassFacet" class="pcgen.cdom.facet.SubClassFacet"/>
 	<bean id="substitutionClassFacet" class="pcgen.cdom.facet.SubstitutionClassFacet"/>
 	<bean id="subRaceFacet" class="pcgen.cdom.facet.analysis.SubRaceFacet">
