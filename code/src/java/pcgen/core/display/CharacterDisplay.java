@@ -23,15 +23,20 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.util.NamedValue;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
@@ -42,52 +47,103 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.facet.ActiveSpellsFacet;
+import pcgen.cdom.facet.AutoLanguageFacet;
+import pcgen.cdom.facet.DamageReductionFacet;
+import pcgen.cdom.facet.EquipSetFacet;
+import pcgen.cdom.facet.EquipmentFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FormulaResolvingFacet;
+import pcgen.cdom.facet.HitPointFacet;
+import pcgen.cdom.facet.KitFacet;
+import pcgen.cdom.facet.LevelInfoFacet;
+import pcgen.cdom.facet.MasterFacet;
+import pcgen.cdom.facet.PrimaryWeaponFacet;
+import pcgen.cdom.facet.SecondaryWeaponFacet;
 import pcgen.cdom.facet.SpellBookFacet;
+import pcgen.cdom.facet.SpellListFacet;
+import pcgen.cdom.facet.StatBonusFacet;
 import pcgen.cdom.facet.SubClassFacet;
+import pcgen.cdom.facet.XPTableFacet;
+import pcgen.cdom.facet.analysis.AgeSetFacet;
 import pcgen.cdom.facet.analysis.ArmorClassFacet;
 import pcgen.cdom.facet.analysis.ChallengeRatingFacet;
 import pcgen.cdom.facet.analysis.FaceFacet;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
+import pcgen.cdom.facet.analysis.FollowerOptionFacet;
+import pcgen.cdom.facet.analysis.HandsFacet;
 import pcgen.cdom.facet.analysis.HasAnyFavoredClassFacet;
 import pcgen.cdom.facet.analysis.InitiativeFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
+import pcgen.cdom.facet.analysis.LevelTableFacet;
+import pcgen.cdom.facet.analysis.LoadFacet;
 import pcgen.cdom.facet.analysis.MovementResultFacet;
+import pcgen.cdom.facet.analysis.MultiClassFacet;
+import pcgen.cdom.facet.analysis.NonAbilityFacet;
+import pcgen.cdom.facet.analysis.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.analysis.RaceTypeFacet;
 import pcgen.cdom.facet.analysis.RacialSubTypesFacet;
+import pcgen.cdom.facet.analysis.ReachFacet;
+import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
+import pcgen.cdom.facet.analysis.SubRaceFacet;
+import pcgen.cdom.facet.analysis.TotalWeightFacet;
+import pcgen.cdom.facet.analysis.UnarmedDamageFacet;
 import pcgen.cdom.facet.analysis.VisionFacet;
 import pcgen.cdom.facet.fact.AgeFacet;
 import pcgen.cdom.facet.fact.CharacterTypeFacet;
+import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
 import pcgen.cdom.facet.fact.GenderFacet;
 import pcgen.cdom.facet.fact.HandedFacet;
+import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.MoneyFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
+import pcgen.cdom.facet.fact.WeightFacet;
+import pcgen.cdom.facet.fact.XPFacet;
 import pcgen.cdom.facet.input.ProhibitedSchoolFacet;
+import pcgen.cdom.facet.input.UserSpecialAbilityFacet;
+import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.ClassFacet;
+import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
+import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfFacet;
+import pcgen.cdom.inst.PCClassLevel;
+import pcgen.core.AgeSet;
+import pcgen.core.ChronicleEntry;
+import pcgen.core.Deity;
 import pcgen.core.Domain;
+import pcgen.core.Equipment;
+import pcgen.core.FollowerOption;
 import pcgen.core.Globals;
+import pcgen.core.Kit;
 import pcgen.core.Language;
+import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
+import pcgen.core.SpecialAbility;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.Vision;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.character.CharacterSpell;
+import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
+import pcgen.core.pclevelinfo.PCLevelInfo;
+import pcgen.core.spell.Spell;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
 
@@ -101,6 +157,9 @@ public class CharacterDisplay
 	private RaceTypeFacet raceTypeFacet = FacetLibrary.getFacet(RaceTypeFacet.class);
 	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
 	private SpellBookFacet spellBookFacet = FacetLibrary.getFacet(SpellBookFacet.class);
+	private ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
+	private AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
+	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
 	private SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
@@ -114,9 +173,40 @@ public class CharacterDisplay
 	private SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
 	private FavoredClassFacet favClassFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
 	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
+	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
+	private HitPointFacet hitPointFacet = FacetLibrary.getFacet(HitPointFacet.class);
 	private FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
 	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
 	private MoneyFacet moneyFacet = FacetLibrary.getFacet(MoneyFacet.class);
+	private LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
+	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
+	private ReachFacet reachFacet = FacetLibrary.getFacet(ReachFacet.class);
+	private HandsFacet handsFacet = FacetLibrary.getFacet(HandsFacet.class);
+	private TotalWeightFacet totalWeightFacet = FacetLibrary.getFacet(TotalWeightFacet.class);
+	private MultiClassFacet multiClassFacet = FacetLibrary.getFacet(MultiClassFacet.class);
+	private LevelTableFacet levelTableFacet = FacetLibrary.getFacet(LevelTableFacet.class);
+	private DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
+	private UnarmedDamageFacet unarmedDamageFacet = FacetLibrary.getFacet(UnarmedDamageFacet.class);
+	private StatBonusFacet statBonusFacet = FacetLibrary.getFacet(StatBonusFacet.class);
+	private NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
+	private LevelInfoFacet levelInfoFacet = FacetLibrary.getFacet(LevelInfoFacet.class);
+	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
+	private AutoLanguageFacet autoLangFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
+	private XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
+	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
+	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
+	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
+	private UserSpecialAbilityFacet userSpecialAbilityFacet = FacetLibrary.getFacet(UserSpecialAbilityFacet.class);
+	private SpecialAbilityFacet specialAbilityFacet = FacetLibrary.getFacet(SpecialAbilityFacet.class);
+	private SecondaryWeaponFacet secondaryWeaponFacet = FacetLibrary.getFacet(SecondaryWeaponFacet.class);
+	private PrimaryWeaponFacet primaryWeaponFacet = FacetLibrary.getFacet(PrimaryWeaponFacet.class);
+	private NonProficiencyPenaltyFacet nonppFacet = FacetLibrary.getFacet(NonProficiencyPenaltyFacet.class);
+	private MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
+	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
+	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
+	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
+	private EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);
+	private AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 	private ChallengeRatingFacet crFacet = FacetLibrary.getFacet(ChallengeRatingFacet.class);
@@ -128,6 +218,7 @@ public class CharacterDisplay
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private InitiativeFacet initiativeFacet = FacetLibrary.getFacet(InitiativeFacet.class);
 	private HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
+	private DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 	private PortraitThumbnailRectFacet portraitThumbnailRectFacet = FacetLibrary
 			.getFacet(PortraitThumbnailRectFacet.class);
 
@@ -676,4 +767,673 @@ public class CharacterDisplay
 		// Now select the required set of skills, based on their visibility.
 		return Globals.getObjectsOfVisibility(skillFacet.getSet(id), vis);
 	}
+
+	/**
+	 * Alignment of this PC.
+	 * 
+	 * @return alignment
+	 */
+	public PCAlignment getPCAlignment()
+	{
+		return alignmentFacet.get(id);
+	}
+
+	/**
+	 * Get the class list.
+	 * 
+	 * @return classList
+	 */
+	public ArrayList<PCClass> getClassList()
+	{
+		/*
+		 * TODO This is a discussion we have to have about where items are sorted
+		 */
+		return new ArrayList<PCClass>(getClassSet());
+	}
+
+	/**
+	 * Get the current equipment set name.
+	 * 
+	 * @return equipment set name
+	 */
+	public String getCurrentEquipSetName()
+	{
+		return getSafeStringFor(StringKey.CURRENT_EQUIP_SET_NAME);
+	}
+
+	/**
+	 * Get the deity.
+	 * 
+	 * @return deity
+	 */
+	public Deity getDeity()
+	{
+		return deityFacet.get(id);
+	}
+
+	/**
+	 * Get the list of equipment sets.
+	 * 
+	 * @return List
+	 */
+	public Collection<EquipSet> getEquipSet()
+	{
+		return equipSetFacet.getSet(id);
+	}
+
+	/**
+	 * Get the equipment set indexed by path.
+	 * 
+	 * @param path the "path" of the equipSet to return
+	 * @return EquipSet
+	 */
+	public EquipSet getEquipSetByIdPath(final String path)
+	{
+		return equipSetFacet.getEquipSetByIdPath(id, path);
+	}
+
+	/**
+	 * Get equipment set.
+	 * 
+	 * @return equipment set
+	 */
+	public Set<Equipment> getEquipmentSet()
+	{
+		return equipmentFacet.getSet(id);
+	}
+
+	/**
+	 * Gets the character's height in inches.
+	 * 
+	 * @return The character's height in inches.
+	 */
+	public int getHeight()
+	{
+		return heightFacet.getHeight(id);
+	}
+
+	/**
+	 * Gets the character's list of languages.
+	 * 
+	 * @return An unmodifiable language set.
+	 */
+	public Set<Language> getLanguageSet()
+	{
+		return languageFacet.getSet(id);
+	}
+
+	/**
+	 * Gets the list of potential followers of a given type.
+	 * 
+	 * @param aType
+	 *            Type of follower to retrieve list for e.g. Familiar
+	 * @param comp
+	 *            the comparator that will be used to order the returned map.
+	 * @return A MAP of FollowerOption objects representing the possible list
+	 *         of follower choices.
+	 */
+	public Map<FollowerOption, CDOMObject> getAvailableFollowers(final String aType, Comparator<FollowerOption> comp)
+	{
+		return foFacet.getAvailableFollowers(id, aType, comp);
+	}
+
+	/**
+	 * Get the Follower object that is the "master" for this object.
+	 * 
+	 * @return follower master
+	 */
+	public Follower getMaster()
+	{
+		return masterFacet.get(id);
+	}
+
+	/**
+	 * @return nonProficiencyPenalty. Searches templates first.
+	 */
+	public int getNonProficiencyPenalty()
+	{
+		return nonppFacet.getPenalty(id);
+	}
+
+	/**
+	 * Selector gets the character's primary weapons.
+	 * 
+	 * @return primary weapons
+	 */
+	public Collection<Equipment> getPrimaryWeapons()
+	{
+		return primaryWeaponFacet.getSet(id);
+	}
+
+	public boolean hasPrimaryWeapons()
+	{
+		return !primaryWeaponFacet.isEmpty(id);
+	}
+
+	public boolean hasSecondaryWeapons()
+	{
+		return !secondaryWeaponFacet.isEmpty(id);
+	}
+
+	/**
+	 * Get the character's secondary weapons.
+	 * 
+	 * @return secondary weapons
+	 */
+	public Collection<Equipment> getSecondaryWeapons()
+	{
+		return secondaryWeaponFacet.getSet(id);
+	}
+
+	/**
+	 * Get skill list.
+	 * 
+	 * @return list of skills
+	 */
+	public Collection<Skill> getSkillSet()
+	{
+		return skillFacet.getSet(id);
+	}
+
+	public List<SpecialAbility> getResolvedSpecialAbilities(CDOMObject cdo)
+	{
+		return specialAbilityFacet.getResolved(id, cdo);
+	}
+
+	public List<SpecialAbility> getResolvedUserSpecialAbilities(CDOMObject cdo)
+	{
+		return userSpecialAbilityFacet.getResolved(id, cdo);
+	}
+
+	/**
+	 * Get the name of the spellbook to auto add new known spells to.
+	 * 
+	 * @return spellbook name
+	 */
+	public String getSpellBookNameToAutoAddKnown()
+	{
+		return getSafeStringFor(StringKey.SPELLBOOK_AUTO_ADD_KNOWN);
+	}
+
+	/**
+	 * Get spell books.
+	 * 
+	 * @return spellBooks
+	 */
+	public Collection<SpellBook> getSpellBooks()
+	{
+		return spellBookFacet.getBooks(id);
+	}
+
+	/**
+	 * Accessor, Gets the sub-race of the character.
+	 * @return character subrace.
+	 */
+	public String getSubRace()
+	{
+		return subRaceFacet.getSubRace(id);
+	}
+
+	/**
+	 * Get a set of the templates applies to this pc.
+	 * @return the set of Templates.
+	 */
+	public Collection<PCTemplate> getTemplateSet()
+	{
+		return templateFacet.getSet(id);
+	}
+
+	/**
+	 * Gets the character's weight in pounds.
+	 * 
+	 * @return The character's weight.
+	 */
+	public int getWeight()
+	{
+		return weightFacet.getWeight(id);
+	}
+
+	public int getXP()
+	{
+		return xpFacet.getXP(id);
+	}
+
+	public String getXPTableName()
+	{
+		return xpTableFacet.getXPTable(id).getName();
+	}
+
+	/**
+	 * Check whether this PC has this WeaponProf.
+	 * @param wp The WeaponProf to check.
+	 * @return True if the PC has the WeaponProf
+	 */
+	public boolean hasWeaponProf(final WeaponProf wp)
+	{
+		return weaponProfFacet.containsProf(id, wp);
+	}
+
+	/**
+	 *
+	 * @return the racial size
+	 */
+	public int racialSizeInt()
+	{
+		return sizeFacet.racialSizeInt(id);
+	}
+
+	/**
+	 * Now we use the ACTYPE tag on misc info to determine the formula
+	 * 
+	 * @return ac total
+	 */
+	public int getACTotal()
+	{
+		return armorClassFacet.calcACOfType(id, "Total");
+	}
+
+	public List<Language> getAutoLanguages()
+	{
+		return autoLangFacet.getAutoLanguage(id);
+	}
+
+	/**
+	 * Returns the character's Effective Character Level.
+	 * 
+	 * <p>
+	 * The level is calculated by adding total non-monster levels, total
+	 * hitdice, and level adjustment.
+	 * 
+	 * @return The ECL of the character.
+	 */
+	public int getECL()
+	{
+		return levelFacet.getECL(id);
+	}
+
+	public Collection<Kit> getKitInfo()
+	{
+		return kitFacet.getSet(id);
+	}
+
+	public Collection<PCLevelInfo> getLevelInfo()
+	{
+		return levelInfoFacet.getSet(id);
+	}
+
+	public PCLevelInfo getLevelInfo(int index)
+	{
+		return levelInfoFacet.get(id, index);
+	}
+
+	public int getLevelInfoSize()
+	{
+		return levelInfoFacet.getCount(id);
+	}
+
+	public String getLevelInfoClassKeyName(final int idx)
+	{
+		if ((idx >= 0) && (idx < getLevelInfoSize()))
+		{
+			return levelInfoFacet.get(id, idx).getClassKeyName();
+		}
+
+		return Constants.EMPTY_STRING;
+	}
+
+	public int getLevelInfoClassLevel(final int idx)
+	{
+		if ((idx >= 0) && (idx < getLevelInfoSize()))
+		{
+			return levelInfoFacet.get(id, idx).getClassLevel();
+		}
+
+		return 0;
+	}
+
+	/**
+	 * Checks if the stat is a non ability.
+	 * 
+	 * @return true, if is non ability
+	 */
+	public boolean isNonAbility(PCStat stat)
+	{
+		return nonAbilityFacet.isNonAbility(id, stat);
+	}
+
+	/*
+	 * returns true if Equipment is in the secondary weapon list
+	 */
+	public boolean isSecondaryWeapon(final Equipment eq)
+	{
+		if (eq == null)
+		{
+			return false;
+		}
+
+		for (Equipment eqI : secondaryWeaponFacet.getSet(id))
+		{
+			if (eqI.getName().equalsIgnoreCase(eq.getName()) && (eqI.getLocation() == eq.getLocation()))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Calculates total bonus from all stats
+	 * 
+	 * @param aType
+	 * @param aName
+	 * @return stat bonus to
+	 */
+	public double getStatBonusTo(String aType, String aName)
+	{
+		return statBonusFacet.getStatBonusTo(id, aType, aName);
+	}
+
+	public String getUDamForRace()
+	{
+		return unarmedDamageFacet.getUDamForRace(id);
+	}
+
+	public Set<List<String>> getUnarmedDamage()
+	{
+		return unarmedDamageFacet.getSet(id);
+	}
+
+	public int abilityAC()
+	{
+		return armorClassFacet.calcACOfType(id, "Ability");
+	}
+
+	public int baseAC()
+	{
+		return armorClassFacet.calcACOfType(id, "Base");
+	}
+
+	/**
+	 * Get all possible sources of Damage Resistance and calculate
+	 * 
+	 * @return DR
+	 */
+	public String calcDR()
+	{
+		return drFacet.getDRString(id);
+	}
+
+	/**
+	 * Get the value of the weight token without units.
+	 *
+	 * @return The value of the weight token.
+	 */
+	public String getNoUnitToken()
+	{
+		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
+			getWeight());
+	}
+
+	/**
+	 * Get the value of the weight token in units.
+	 *
+	 * @return The value of the weight token.
+	 */
+	public String getWeightToken()
+	{
+		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
+			getWeight())
+			+ Globals.getGameModeUnitSet().getWeightUnit();
+	}
+
+	/**
+	 * Get the DOMAIN token
+	 * @param domainIndex
+	 * @return token
+	 */
+	public String getDomainToken(int domainIndex)
+	{
+		try
+		{
+			Domain domain =
+				new ArrayList<Domain>(getSortedDomainSet()).get(domainIndex);
+	
+			return OutputNameFormatting.getOutputName(domain);
+		}
+		catch (Exception e)
+		{
+			return Constants.EMPTY_STRING;
+		}
+	}
+
+	/*
+	 * returns true if Equipment is in the primary weapon list
+	 */
+	public boolean isPrimaryWeapon(final Equipment eq)
+	{
+		if (eq == null)
+		{
+			return false;
+		}
+
+		for (Equipment eqI : primaryWeaponFacet.getSet(id))
+		{
+			if (eqI.getName().equalsIgnoreCase(eq.getName()) && (eqI.getLocation() == eq.getLocation()))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public int classAC()
+	{
+		return armorClassFacet.calcACOfType(id, "ClassDefense");
+	}
+
+	public int dodgeAC()
+	{
+		return armorClassFacet.calcACOfType(id, "Dodge");
+	}
+
+	public int equipmentAC()
+	{
+		return armorClassFacet.calcACOfType(id, "Equipment") + armorClassFacet.calcACOfType(id, "Armor");
+	}
+
+	public int flatfootedAC()
+	{
+		return armorClassFacet.calcACOfType(id, "Flatfooted");
+	}
+
+	public int minXPForNextECL()
+	{
+		return levelTableFacet.minXPForLevel(levelFacet.getECL(id) + 1, id);
+	}
+
+	public int miscAC()
+	{
+		return armorClassFacet.calcACOfType(id, "Misc");
+	}
+
+	public double multiclassXPMultiplier()
+	{
+		return multiClassFacet.getMultiClassXPMultiplier(id);
+	}
+
+	public int naturalAC()
+	{
+		return armorClassFacet.calcACOfType(id, "NaturalArmor");
+	}
+
+	public int sizeAC()
+	{
+		return armorClassFacet.calcACOfType(id, "Size");
+	}
+
+	public int sizeInt()
+	{
+		return sizeFacet.sizeInt(id);
+	}
+
+	public int totalHitDice()
+	{
+		return levelFacet.getMonsterLevelCount(id);
+	}
+
+	public int totalNonMonsterLevels()
+	{
+		return levelFacet.getNonMonsterLevelCount(id);
+	}
+
+	public Float totalWeight()
+	{
+		return totalWeightFacet.getTotalWeight(id);
+	}
+
+	public int touchAC()
+	{
+		return armorClassFacet.calcACOfType(id, "Touch");
+	}
+
+	public SizeAdjustment getSizeAdjustment()
+	{
+		return sizeFacet.getSizeAdjustment(id);
+	}
+
+	/**
+	 * Determine the number of hands the character has.
+	 * 
+	 * @return The number of hands.
+	 */
+	public int getHands()
+	{
+		return handsFacet.getHands(id);
+	}
+
+	/**
+	 * Determine the character's reach. This is based on their race, any applied
+	 * templates and any other bonuses to reach.
+	 * 
+	 * @return The reach radius.
+	 */
+	public int getReach()
+	{
+		return reachFacet.getReach(id);
+	}
+
+	public boolean hasSkill(Skill skill)
+	{
+		return skillFacet.contains(id, skill);
+	}
+
+	public boolean hasTemplate(PCTemplate template)
+	{
+		return templateFacet.contains(id, template);
+	}
+
+	public Collection<PCStat> getStatSet()
+	{
+		return statFacet.getSet(id);
+	}
+
+	public boolean hasDomain(Domain domain)
+	{
+		return domainFacet.contains(id, domain);
+	}
+
+	public boolean hasDomains()
+	{
+		return !domainFacet.isEmpty(id);
+	}
+
+	public int getDomainCount()
+	{
+		return domainFacet.getCount(id);
+	}
+
+	public Set<Domain> getDomainSet()
+	{
+		return domainFacet.getSet(id);
+	}
+
+	public int getStatCount()
+	{
+		return statFacet.getCount(id);
+	}
+
+	public PCClassLevel getActiveClassLevel(PCClass pcc, int lvl)
+	{
+		return classFacet.getClassLevel(id, pcc, lvl);
+	}
+
+	public int getClassCount()
+	{
+		return classFacet.getCount(id);
+	}
+
+	/*
+	 * Size is taken into account for the currentPC via getLoadMultForSize
+	 */
+	public Float getMaxLoad()
+	{
+		return loadFacet.getMaxLoad(id);
+	}
+
+	public Float getMaxLoad(double mult)
+	{
+		return loadFacet.getMaxLoad(id, mult);
+	}
+
+	public Load getLoadType()
+	{
+		return loadFacet.getLoadType(id);
+	}
+
+	public double getMovementOfType(String moveType)
+	{
+		return moveResultFacet.getMovementOfType(id, moveType);
+	}
+
+	public boolean hasEquipSet()
+	{
+		return !equipSetFacet.isEmpty(id);
+	}
+
+	public boolean hasCharacterSpells(CDOMObject cdo)
+	{
+		return activeSpellsFacet.containsFrom(id, cdo);
+	}
+
+	public Collection<? extends CharacterSpell> getCharacterSpells(CDOMObject cdo)
+	{
+		return activeSpellsFacet.getSet(id, cdo);
+	}
+
+	public AgeSet getAgeSet()
+	{
+		return ageSetFacet.get(id);
+	}
+
+	/**
+	 * Retrieve the set of the character's chronicle entries.
+	 * @return The character's chronicle entries.
+	 */
+	public Collection<ChronicleEntry> getChronicleEntries()
+	{
+		return chronicleEntryFacet.getSet(id);
+	}
+
+	public HitDie getLevelHitDie(PCClass pcClass, final int classLevel)
+	{
+		return hitPointFacet.getLevelHitDie(id, pcClass, classLevel);
+	}
+
+	public List<? extends CDOMList<Spell>> getSpellLists(CDOMObject cdo)
+	{
+		return spellListFacet.getSet(id, cdo);
+	}
+
 }

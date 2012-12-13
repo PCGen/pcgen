@@ -66,7 +66,7 @@ public class InitiativeBonusToken extends Token
 	 */
 	public static int getInitiativeBonusToken(PlayerCharacter pc)
 	{
-		return pc.initiativeMod()
+		return pc.getDisplay().initiativeMod()
 			- pc.getVariableValue("INITCOMP", "").intValue();
 	}
 }

@@ -37,6 +37,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.NonAbilityDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -79,7 +80,8 @@ public class TemplateToken extends Token
 		String retString = "";
 		PCTemplate template;
 
-		List<PCTemplate> tl = pc.getDisplay().getOutputVisibleTemplateList();
+		CharacterDisplay display = pc.getDisplay();
+		List<PCTemplate> tl = display.getOutputVisibleTemplateList();
 
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
@@ -111,12 +113,12 @@ public class TemplateToken extends Token
 			}
 			else if ("SR".equals(aLabel))
 			{
-				retString = Integer.toString(getSRToken(template, pc));
+				retString = Integer.toString(getSRToken(template, display));
 			}
 			else if ("CR".equals(aLabel))
 			{
 				// If the CR ends in .0, remove that for display purposes
-				retString = Float.toString(getCRToken(template, pc));
+				retString = Float.toString(getCRToken(template, display));
 				String decimalPlaceValue =
 						retString.substring(retString.length() - 2);
 				if (decimalPlaceValue.equals(".0"))
@@ -127,7 +129,7 @@ public class TemplateToken extends Token
 			}
 			else if ("DR".equals(aLabel))
 			{
-				retString = pc.calcDR();
+				retString = display.calcDR();
 			}
 			else
 			{
@@ -144,9 +146,9 @@ public class TemplateToken extends Token
 	 * @param pc
 	 * @return value of CR Sub Token
 	 */
-	public static float getCRToken(PCTemplate template, PlayerCharacter pc)
+	public static float getCRToken(PCTemplate template, CharacterDisplay display)
 	{
-		return template.getCR(pc.getTotalLevels(), pc.totalHitDice());
+		return template.getCR(display.getTotalLevels(), display.totalHitDice());
 	}
 
 	/**
@@ -157,8 +159,9 @@ public class TemplateToken extends Token
 	 */
 	public static String getFeatToken(PCTemplate template, PlayerCharacter pc)
 	{
-		List<CategorizedAbilitySelection> fList = pc.feats(template, pc.getTotalLevels(),
-				pc.totalHitDice(), false);
+		CharacterDisplay display = pc.getDisplay();
+		List<CategorizedAbilitySelection> fList = pc.feats(template, display.getTotalLevels(),
+				display.totalHitDice(), false);
 		return StringUtil.join(fList, ", ");
 	}
 
@@ -174,7 +177,7 @@ public class TemplateToken extends Token
 	{
 		StringBuilder retString = new StringBuilder();
 
-		for (PCStat stat : pc.getStatSet())
+		for (PCStat stat : pc.getDisplay().getStatSet())
 		{
 			String modName = stat.getAbb() + "MOD";
 
@@ -224,15 +227,16 @@ public class TemplateToken extends Token
 	 */
 	public static String getSAToken(PCTemplate template, PlayerCharacter pc)
 	{
+		CharacterDisplay display = pc.getDisplay();
 		List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
-		saList.addAll(pc.getResolvedUserSpecialAbilities(template));
-		saList.addAll(pc.getResolvedSpecialAbilities(template));
+		saList.addAll(display.getResolvedUserSpecialAbilities(template));
+		saList.addAll(display.getResolvedSpecialAbilities(template));
 		List<PCTemplate> subList = new ArrayList<PCTemplate>();
-		subList.addAll(template.getConditionalTemplates(pc.getTotalLevels(), pc.totalHitDice()));
+		subList.addAll(template.getConditionalTemplates(display.getTotalLevels(), display.totalHitDice()));
 		for (PCTemplate subt : subList)
 		{
-			saList.addAll(pc.getResolvedUserSpecialAbilities(subt));
-			saList.addAll(pc.getResolvedSpecialAbilities(subt));
+			saList.addAll(display.getResolvedUserSpecialAbilities(subt));
+			saList.addAll(display.getResolvedSpecialAbilities(subt));
 		}
 		List<String> saDescList = new ArrayList<String>();
 		for (SpecialAbility sa : saList)
@@ -256,8 +260,8 @@ public class TemplateToken extends Token
 	 * @param pc
 	 * @return value of SR Sub token
 	 */
-	public static int getSRToken(PCTemplate template, PlayerCharacter pc)
+	public static int getSRToken(PCTemplate template, CharacterDisplay display)
 	{
-		return pc.getDisplay().getTemplateSR(template, pc.getTotalLevels(), pc.totalHitDice());
+		return display.getTemplateSR(template, display.getTotalLevels(), display.totalHitDice());
 	}
 }

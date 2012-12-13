@@ -106,7 +106,7 @@ public class ImagePreview
 
 			new PCGIOHandler().readForPreview(aPC, file.getAbsolutePath());
 
-			final String portraitPath = aPC.getPortraitPath();
+			final String portraitPath = aPC.getDisplay().getPortraitPath();
 
 			image = isNullOrEmpty(portraitPath)
 					? null

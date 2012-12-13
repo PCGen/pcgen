@@ -33,6 +33,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.NoteItem;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.ChronicleEntryFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.DescriptionFacade;
@@ -76,7 +77,8 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 	private static final String NOTE_NAME_GM_NOTES = LanguageBundle
 		.getString("in_gmNotes"); //$NON-NLS-1$
 
-	private PlayerCharacter theCharacter;
+	private final PlayerCharacter theCharacter;
+	private final CharacterDisplay charDisplay;
 	private DefaultListFacade<ChronicleEntryFacade> chronicleEntries;
 	private DefaultListFacade<NoteFacade> notes;
 
@@ -101,8 +103,9 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 	public DescriptionFacadeImpl(PlayerCharacter pc)
 	{
 		theCharacter = pc;
+		charDisplay = pc.getDisplay();
 		chronicleEntries = new DefaultListFacade<ChronicleEntryFacade>();
-		for (ChronicleEntryFacade entry : theCharacter.getChronicleEntries())
+		for (ChronicleEntryFacade entry : charDisplay.getChronicleEntries())
 		{
 			chronicleEntries.addElement(entry);
 		}
@@ -115,36 +118,34 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 			notes.addElement(item);
 		}
 
-		birthday = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.BIRTHDAY));
-		location = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.LOCATION));
-		city = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.RESIDENCE));
-		region = new DefaultReferenceFacade<String>(theCharacter.getRegionString());
-		birthplace = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.BIRTHPLACE));
-		personalityTrait1 = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.TRAIT1));
-		personalityTrait2 = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.TRAIT2));
-		phobias = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.PHOBIAS));
-		interests = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.INTERESTS));
-		catchPhrase = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.CATCH_PHRASE));
-		hairStyle = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.HAIR_STYLE));
-		speechPattern = new DefaultReferenceFacade<String>(theCharacter.getSafeStringFor(StringKey.SPEECH_TENDENCY));
+		birthday = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(StringKey.BIRTHDAY));
+		location = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(StringKey.LOCATION));
+		city = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(StringKey.RESIDENCE));
+		region = new DefaultReferenceFacade<String>(charDisplay.getRegionString());
+		birthplace = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(StringKey.BIRTHPLACE));
+		personalityTrait1 = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(StringKey.TRAIT1));
+		personalityTrait2 = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(StringKey.TRAIT2));
+		phobias = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(StringKey.PHOBIAS));
+		interests = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(StringKey.INTERESTS));
+		catchPhrase = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(StringKey.CATCH_PHRASE));
+		hairStyle = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(StringKey.HAIR_STYLE));
+		speechPattern = new DefaultReferenceFacade<String>(charDisplay.getSafeStringFor(StringKey.SPEECH_TENDENCY));
 		customBiographyFields = new DefaultListFacade<BiographyField>();
 		addCharacterCustomFields();
 	}
 
 	private void addDefaultNotes()
 	{
-		notes.addElement(createDefaultNote(NOTE_NAME_BIO, theCharacter
-			.getDisplay().getBio()));
-		notes.addElement(createDefaultNote(NOTE_NAME_DESCRIP, theCharacter
-			.getDisplay().getDescription()));
+		notes.addElement(createDefaultNote(NOTE_NAME_BIO, charDisplay.getBio()));
+		notes.addElement(createDefaultNote(NOTE_NAME_DESCRIP, charDisplay.getDescription()));
 		notes.addElement(createDefaultNote(NOTE_NAME_COMPANION,
-			theCharacter.getSafeStringFor(StringKey.MISC_COMPANIONS)));
+			charDisplay.getSafeStringFor(StringKey.MISC_COMPANIONS)));
 		notes.addElement(createDefaultNote(NOTE_NAME_OTHER_ASSETS,
-			theCharacter.getSafeStringFor(StringKey.MISC_ASSETS)));
+			charDisplay.getSafeStringFor(StringKey.MISC_ASSETS)));
 		notes.addElement(createDefaultNote(NOTE_NAME_MAGIC_ITEMS,
-			theCharacter.getSafeStringFor(StringKey.MISC_MAGIC)));
+			charDisplay.getSafeStringFor(StringKey.MISC_MAGIC)));
 		notes.addElement(createDefaultNote(NOTE_NAME_GM_NOTES,
-			theCharacter.getSafeStringFor(StringKey.MISC_GM)));
+			charDisplay.getSafeStringFor(StringKey.MISC_GM)));
 	}
 
 	/**

@@ -38,6 +38,7 @@ import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.LanguageChooserFacade;
 import pcgen.core.facade.LanguageFacade;
@@ -59,7 +60,8 @@ import pcgen.core.facade.util.ListFacade;
  */
 public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 {
-	private PlayerCharacter theCharacter;
+	private final PlayerCharacter theCharacter;
+	private final CharacterDisplay charDisplay;
 	private CDOMObject source;
 	private String name;
 	private DefaultListFacade<LanguageFacade> availableList;
@@ -81,6 +83,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	{
 		this.pcFacade = pcFacade;
 		this.theCharacter = pcFacade.getTheCharacter();
+		this.charDisplay = theCharacter.getDisplay();
 		this.name = name;
 		this.source = source;
 		
@@ -121,7 +124,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 			selLangs, false, theCharacter, false,
 				AbilityCategory.LANGBONUS);
 		
-		availLangs.removeAll(theCharacter.getLanguageSet());
+		availLangs.removeAll(charDisplay.getLanguageSet());
 		refreshLangListContents(availLangs, availableList);
 		refreshLangListContents(selLangs, selectedList);
 		refreshLangListContents(selLangs, originalSelectedList);
@@ -142,7 +145,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		ChooserUtilities.modChoices(source, availLangs,
 			selLangs, false, theCharacter, false, null);
 		
-		Set<Language> languageSet = theCharacter.getLanguageSet();
+		Set<Language> languageSet = charDisplay.getLanguageSet();
 		availLangs.removeAll(languageSet);
 		refreshLangListContents(availLangs, availableList);
 		refreshLangListContents(selLangs, selectedList);

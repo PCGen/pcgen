@@ -207,7 +207,7 @@ public class SelectPanel extends JPanel implements ActionListener
 		newValues.clear();
 		oldValues.clear();
 
-		newValues.addAll(equipSet2Set(pc.getEquipSet()));
+		newValues.addAll(equipSet2Set(pc.getDisplay().getEquipSet()));
 		oldValues.addAll(eqSetWidgets.keySet());
 
 		oldValues.removeAll(newValues);
@@ -234,7 +234,7 @@ public class SelectPanel extends JPanel implements ActionListener
 		 the name of an equipment set, given its ID */
 		final Map<String, String> setId2Name = new HashMap<String, String>();
 
-		for (EquipSet eset : pc.getEquipSet())
+		for (EquipSet eset : pc.getDisplay().getEquipSet())
 		{
 			setId2Name.put(eset.getIdPath(), eset.getName());
 		}

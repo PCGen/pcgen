@@ -53,6 +53,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.gui2.tools.Utility;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
@@ -376,7 +377,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 					continue;
 				}
 
-				LevelCommandFactory lcf = aPC.getRace().get(ObjectKey.MONSTER_CLASS);
+				LevelCommandFactory lcf = aPC.getDisplay().getRace().get(ObjectKey.MONSTER_CLASS);
 
 				if (lcf != null)
 				{
@@ -732,7 +733,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 			pid = eSet.getIdPath();
 		}
 
-		for (EquipSet es : aPC.getEquipSet())
+		for (EquipSet es : aPC.getDisplay().getEquipSet())
 		{
 			if (es.getParentIdPath().equals(pid) && (es.getId() > newID))
 			{
@@ -783,7 +784,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 
 	private void addAllToEquipSet(PlayerCharacter aPC, EquipSet eqSet)
 	{
-		for (Equipment eq : aPC.getEquipmentSet())
+		for (Equipment eq : aPC.getDisplay().getEquipmentSet())
 		{
 			addEquipToTarget(aPC, eqSet, "", eq.clone(), new Float(1));
 		}
@@ -793,7 +794,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	{
 		EquipSet eSet;
 
-		if (!aPC.hasEquipSet())
+		if (!aPC.getDisplay().hasEquipSet())
 		{
 			String id = getNewIdPath(aPC, null);
 			String defaultEquipSet = "Default Set";
@@ -803,7 +804,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		}
 		else
 		{
-			eSet = aPC.getEquipSetByIdPath("0.1");
+			eSet = aPC.getDisplay().getEquipSetByIdPath("0.1");
 		}
 
 		return eSet;
@@ -936,7 +937,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		int currentLevels = 0;
 		if (pcClass != null)
 		{
-			currentLevels = aPC.getLevel(pcClass);
+			currentLevels = aPC.getDisplay().getLevel(pcClass);
 		}
 		if (currentLevels < levels)
 		{
@@ -979,7 +980,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		int hands = 0;
 		if (pc != null)
 		{
-			hands = pc.getHands();
+			hands = pc.getDisplay().getHands();
 		}
 
 		List<String> aList = new ArrayList<String>();
@@ -1183,7 +1184,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		// item that is already equipped to a slot
 		HashMap<String, String> slotMap = new HashMap<String, String>();
 
-		for (EquipSet eqSet : pc.getEquipSet())
+		for (EquipSet eqSet : pc.getDisplay().getEquipSet())
 		{
 			if (!eqSet.getParentIdPath().startsWith(idPath))
 			{
@@ -1212,7 +1213,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 			}
 		}
 
-		for (EquipSet eqSet : pc.getEquipSet())
+		for (EquipSet eqSet : pc.getDisplay().getEquipSet())
 		{
 			if (!eqSet.getParentIdPath().startsWith(idPath))
 			{
@@ -1330,16 +1331,17 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 
 	private void rollHP(PlayerCharacter aPC)
 	{
-		for (PCClass pcClass : aPC.getClassSet())
+		CharacterDisplay display = aPC.getDisplay();
+		for (PCClass pcClass : display.getClassSet())
 		{
-			for (int j = 0; j < aPC.getLevel(pcClass); j++)
+			for (int j = 0; j < display.getLevel(pcClass); j++)
 			{
 				int bonus =
 						(int) aPC.getTotalBonusTo("HD", "MIN")
 							+ (int) aPC.getTotalBonusTo("HD", "MIN;CLASS."
 								+ pcClass.getKeyName());
-				int size = aPC.getLevelHitDie(pcClass, j + 1).getDie();
-				PCClassLevel classLevel = aPC.getActiveClassLevel(pcClass, j);
+				int size = display.getLevelHitDie(pcClass, j + 1).getDie();
+				PCClassLevel classLevel = display.getActiveClassLevel(pcClass, j);
 				aPC.setHP(classLevel,
 					Integer.valueOf(new Dice(1, size, bonus).roll()));
 			}

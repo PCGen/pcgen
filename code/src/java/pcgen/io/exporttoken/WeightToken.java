@@ -27,8 +27,8 @@ package pcgen.io.exporttoken;
 
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 
 /**
@@ -41,11 +41,8 @@ import pcgen.io.ExportHandler;
  * @author	Devon Jones
  * @version	$Revision$
  */
-public class WeightToken extends Token
+public class WeightToken extends AbstractExportToken
 {
-	/** Weight token */
-	public static final String TOKENNAME = "WEIGHT";
-
 	/**
 	 * Gets the token name
 	 * 
@@ -55,7 +52,7 @@ public class WeightToken extends Token
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "WEIGHT";
 	}
 
 	/**
@@ -68,20 +65,20 @@ public class WeightToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		String retString = "";
 
-		if (!pc.getDisplay().getSuppressBioField(BiographyField.WEIGHT))
+		if (!display.getSuppressBioField(BiographyField.WEIGHT))
 		{
 			if ("WEIGHT".equals(tokenSource))
 			{
-				retString = getWeightToken(pc);
+				retString = display.getWeightToken();
 			}
 			else if ("WEIGHT.NOUNIT".equals(tokenSource))
 			{
-				retString = getNoUnitToken(pc);
+				retString = display.getNoUnitToken();
 			}
 			else
 			{
@@ -89,7 +86,7 @@ public class WeightToken extends Token
 						tokenSource.substring(tokenSource.lastIndexOf('.') + 1);
 				retString =
 						Globals.getGameModeUnitSet().displayWeightInUnitSet(
-							getLoadToken(type, pc));
+							getLoadToken(type, display));
 			}
 		}
 		
@@ -102,39 +99,14 @@ public class WeightToken extends Token
 	 * @param pc The character to retrieve the value for.
 	 * @return The value of the weight token.
 	 */
-	public static double getLoadToken(String type, PlayerCharacter pc)
+	public static double getLoadToken(String type, CharacterDisplay display)
 	{
 		Float mult = SettingsHandler.getGame().getLoadInfo().getLoadMultiplier(
 				type.toUpperCase());
 		if (mult != null)
 		{
-			return pc.getMaxLoad(mult).intValue();
+			return display.getMaxLoad(mult).intValue();
 		}
 		return 0.0;
-	}
-
-	/**
-	 * Get the value of the weight token without units.
-	 *
-	 * @param pc The character to retrieve the value for.
-	 * @return The value of the weight token.
-	 */
-	public static String getNoUnitToken(PlayerCharacter pc)
-	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			pc.getWeight());
-	}
-
-	/**
-	 * Get the value of the weight token in units.
-	 *
-	 * @param pc The character to retrieve the value for.
-	 * @return The value of the weight token.
-	 */
-	public static String getWeightToken(PlayerCharacter pc)
-	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			pc.getWeight())
-			+ Globals.getGameModeUnitSet().getWeightUnit();
 	}
 }

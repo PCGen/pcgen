@@ -78,14 +78,15 @@ public class FollowerListToken extends AbstractExportToken
 		{
 			for (PlayerCharacter nPC : Globals.getPCList())
 			{
-				if (aF.getFileName().equals(nPC.getFileName()))
+				CharacterDisplay nDisplay = nPC.getDisplay();
+				if (aF.getFileName().equals(nDisplay.getFileName()))
 				{
 					if (needComma)
 					{
 						buf.append(", ");
 					}
 
-					buf.append(FileAccess.filterString(nPC.getName()));
+					buf.append(FileAccess.filterString(nDisplay.getName()));
 					needComma = true;
 				}
 			}

@@ -42,6 +42,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.UIDelegate;
@@ -105,7 +106,7 @@ public class TempBonusHelper
 		String label = LanguageBundle.getString("im_itmSelectItem"); //$NON-NLS-1$
 		if (canApplyToPC)
 		{
-			possibleTargets.add(new CharacterInfoFacade(theCharacter));
+			possibleTargets.add(new CharacterInfoFacade(theCharacter.getDisplay()));
 		}
 		final ArrayList<InfoFacade> selectedList = new ArrayList<InfoFacade>();
 		GeneralChooserFacadeBase chooserFacade =
@@ -169,10 +170,11 @@ public class TempBonusHelper
 	private static List<InfoFacade> getListOfApplicableEquipment(CDOMObject originObj,
 		PlayerCharacter theCharacter)
 	{
+		CharacterDisplay charDisplay = theCharacter.getDisplay();
 		List<InfoFacade> possibleEquipment = new ArrayList<InfoFacade>();
 		boolean found = false;
 		theCharacter.setCalcEquipmentList(theCharacter.getUseTempMods());
-		for (Equipment aEq : theCharacter.getEquipmentSet())
+		for (Equipment aEq : charDisplay.getEquipmentSet())
 		{
 			found = false;
 
@@ -528,11 +530,11 @@ public class TempBonusHelper
 	 */
 	static class CharacterInfoFacade implements InfoFacade
 	{
-		private final PlayerCharacter theCharacter;
+		private final CharacterDisplay charDisplay;
 
-		public CharacterInfoFacade(PlayerCharacter theCharacter)
+		public CharacterInfoFacade(CharacterDisplay charDisplay)
 		{
-			this.theCharacter = theCharacter;
+			this.charDisplay = charDisplay;
 			
 		}
 
@@ -579,7 +581,7 @@ public class TempBonusHelper
 		public String toString()
 		{
 			return LanguageBundle.getFormattedString("in_itmCharacterName", //$NON-NLS-1$
-				theCharacter.getName());
+				charDisplay.getName());
 		}
 
 		/**

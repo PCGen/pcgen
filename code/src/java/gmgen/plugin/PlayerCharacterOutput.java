@@ -46,6 +46,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.QualifiedName;
 import pcgen.core.analysis.StatAnalysis;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.VisionDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.MovementToken;
@@ -57,36 +58,38 @@ import pcgen.util.enumeration.AttackType;
 public class PlayerCharacterOutput
 {
 	private PlayerCharacter pc;
+	private CharacterDisplay display;
 
 	public PlayerCharacterOutput(PlayerCharacter pc)
 	{
 		this.pc = pc;
+		this.display = pc.getDisplay();
 	}
 
 	public String getAC()
 	{
-		return Integer.toString(pc.getACTotal());
+		return Integer.toString(display.getACTotal());
 	}
 
 	public String getACFlatFooted()
 	{
-		return Integer.toString(pc.flatfootedAC());
+		return Integer.toString(display.flatfootedAC());
 	}
 
 	public String getACTouch()
 	{
-		return Integer.toString(pc.touchAC());
+		return Integer.toString(display.touchAC());
 	}
 
 	public String getAlignmentLong()
 	{
-		PCAlignment pcAlignment = pc.getPCAlignment();
+		PCAlignment pcAlignment = display.getPCAlignment();
 		return pcAlignment == null ? "" : pcAlignment.getDisplayName();
 	}
 
 	public String getAlignmentShort()
 	{
-		PCAlignment pcAlignment = pc.getPCAlignment();
+		PCAlignment pcAlignment = display.getPCAlignment();
 		return pcAlignment == null ? "" : pcAlignment.getAbb();
 	}
 
@@ -102,7 +105,7 @@ public class PlayerCharacterOutput
 	 */
 	public String getCR()
 	{
-		float cr = pc.calcCR();
+		float cr = display.calcCR();
 		String retString = "";
 		String crAsString = Float.toString(cr);
 		String decimalPlaceValue =
@@ -139,10 +142,10 @@ public class PlayerCharacterOutput
 	public String getClasses()
 	{
 		StringBuilder sb = new StringBuilder();
-		for (PCClass mClass : pc.getClassSet())
+		for (PCClass mClass : display.getClassSet())
 		{
 			sb.append(mClass.getDisplayName())
-                                .append(pc.getLevel(mClass)).append(" ");
+                                .append(display.getLevel(mClass)).append(" ");
 		}
 
 		return sb.toString();
@@ -153,12 +156,12 @@ public class PlayerCharacterOutput
 	 */
 	public String getRaceType()
 	{
-		return pc.getDisplay().getRaceType();
+		return display.getRaceType();
 	}
 
 	public String getDeity()
 	{
-		Deity deity = pc.getDeity();
+		Deity deity = display.getDeity();
 
 		if (deity != null)
 		{
@@ -247,7 +250,7 @@ public class PlayerCharacterOutput
 
 	public String getGender()
 	{
-		return pc.getGenderObject().toString();
+		return display.getGenderObject().toString();
 	}
 
 	public String getHitDice()
@@ -265,7 +268,7 @@ public class PlayerCharacterOutput
 		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
 				PCStat.class, "DEX");
 		int statMod = StatAnalysis.getStatModFor(pc, dex);
-		int miscMod = pc.initiativeMod() - statMod;
+		int miscMod = display.initiativeMod() - statMod;
 
 		return "+" + miscMod;
 	}
@@ -281,7 +284,7 @@ public class PlayerCharacterOutput
 
 	public String getInitTotal()
 	{
-		return "+" + pc.initiativeMod();
+		return "+" + display.initiativeMod();
 	}
 
 	public String getMeleeTotal()
@@ -297,12 +300,12 @@ public class PlayerCharacterOutput
 
 	public String getName()
 	{
-		return pc.getName();
+		return display.getName();
 	}
 
 	public String getRaceName()
 	{
-		return pc.getRace().getDisplayName();
+		return display.getRace().getDisplayName();
 	}
 
 	public String getRangedTotal()
@@ -318,7 +321,7 @@ public class PlayerCharacterOutput
 
 	public String getRegion()
 	{
-		return pc.getDisplay().getRegionString();
+		return display.getRegionString();
 	}
 
 	public String getSaveFort()
@@ -344,7 +347,7 @@ public class PlayerCharacterOutput
 
 	public String getSize()
 	{
-		return pc.getSize();
+		return display.getSize();
 	}
 
 	public String getSpecialAbilities()
@@ -354,7 +357,7 @@ public class PlayerCharacterOutput
 
 	public String getSpeed()
 	{
-		return MovementToken.getMovementToken(pc);
+		return MovementToken.getMovementToken(display);
 	}
 
 	public String getStat(PCStat stat)
@@ -374,7 +377,7 @@ public class PlayerCharacterOutput
 
 	public String getVision()
 	{
-		return VisionDisplay.getVision(pc.getDisplay());
+		return VisionDisplay.getVision(display);
 	}
 
 	public String getWeaponToken(int weaponNo, String Token)
@@ -496,6 +499,6 @@ public class PlayerCharacterOutput
 
 	public Collection<PCStat> getUnmodifiableStatList()
 	{
-		return pc.getStatSet();
+		return display.getStatSet();
 	}
 }

@@ -33,6 +33,7 @@ import java.util.StringTokenizer;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.Follower;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
 
@@ -98,7 +99,7 @@ public class FollowerToken extends Token
 		}
 
 		String result = "";
-		final List<Follower> followers = new ArrayList<Follower>(pc.getFollowerList());
+		final List<Follower> followers = new ArrayList<Follower>(pc.getDisplay().getFollowerList());
 		if (i < followers.size())
 		{
 			result =
@@ -128,8 +129,9 @@ public class FollowerToken extends Token
 
 		for (PlayerCharacter eachPC : Globals.getPCList())
 		{
-			if (follower.getFileName().equals(eachPC.getFileName())
-				&& follower.getName().equals(eachPC.getName()))
+			CharacterDisplay eachDisplay = eachPC.getDisplay();
+			if (follower.getFileName().equals(eachDisplay.getFileName())
+				&& follower.getName().equals(eachDisplay.getName()))
 			{
 				PlayerCharacter newPC = eachPC;
 				eh.replaceToken(token, bw, newPC);

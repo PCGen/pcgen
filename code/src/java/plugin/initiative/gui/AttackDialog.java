@@ -182,7 +182,7 @@ public class AttackDialog extends JDialog
 	protected void handleAcTypeAction(ActionEvent e)
 	{
 		m_field.setValue(Integer.valueOf(((PcgCombatant) m_targetsCombo
-			.getSelectedItem()).getPC().calcACOfType(
+			.getSelectedItem()).getPC().getDisplay().calcACOfType(
 			m_acTypeCombo.getSelectedItem().toString())));
 		m_tableModel.setAcType(m_acTypeCombo.getSelectedItem().toString());
 	}
@@ -285,7 +285,7 @@ public class AttackDialog extends JDialog
 		{
 			PcgCombatant combatant =
 					(PcgCombatant) m_targetsCombo.getSelectedItem();
-			m_field.setValue(Integer.valueOf(combatant.getPC().calcACOfType(
+			m_field.setValue(Integer.valueOf(combatant.getPC().getDisplay().calcACOfType(
 				m_acTypeCombo.getSelectedItem().toString())));
 			m_tableModel.setTarget(combatant);
 		}
@@ -754,7 +754,7 @@ public class AttackDialog extends JDialog
 				if (getValueAt(row, columnFromKey(COLUMN_KEY_TARGET)) instanceof PcgCombatant)
 				{
 					setValueAt(Integer.valueOf(((PcgCombatant) getValueAt(row,
-						columnFromKey(COLUMN_KEY_TARGET))).getPC()
+						columnFromKey(COLUMN_KEY_TARGET))).getPC().getDisplay()
 						.calcACOfType(m_acType)), row,
 						columnFromKey(COLUMN_KEY_AC));
 				}

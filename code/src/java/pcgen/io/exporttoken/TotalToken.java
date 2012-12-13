@@ -28,6 +28,7 @@ package pcgen.io.exporttoken;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.util.BigDecimalHelper;
@@ -67,7 +68,7 @@ public class TotalToken extends Token
 
 		if ("TOTAL.WEIGHT".equals(tokenSource))
 		{
-			retString = getWeightToken(pc);
+			retString = getWeightToken(pc.getDisplay());
 		}
 		else if ("TOTAL.VALUE".equals(tokenSource))
 		{
@@ -75,11 +76,11 @@ public class TotalToken extends Token
 		}
 		else if ("TOTAL.CAPACITY".equals(tokenSource))
 		{
-			retString = getCapacityToken(pc);
+			retString = getCapacityToken(pc.getDisplay());
 		}
 		else if ("TOTAL.LOAD".equals(tokenSource))
 		{
-			retString = getLoadToken(pc);
+			retString = getLoadToken(pc.getDisplay());
 		}
 
 		return retString;
@@ -90,10 +91,10 @@ public class TotalToken extends Token
 	 * @param pc
 	 * @return the CAPACITY sub token
 	 */
-	public static String getCapacityToken(PlayerCharacter pc)
+	public static String getCapacityToken(CharacterDisplay display)
 	{
 		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			pc.getMaxLoad().doubleValue());
+			display.getMaxLoad().doubleValue());
 	}
 
 	/**
@@ -101,10 +102,9 @@ public class TotalToken extends Token
 	 * @param pc
 	 * @return the LOAD sub token
 	 */
-	public static String getLoadToken(PlayerCharacter pc)
+	public static String getLoadToken(CharacterDisplay display)
 	{
-		Load load =
-				pc.getLoadType();
+		Load load = display.getLoadType();
 
 		switch (load)
 		{
@@ -147,10 +147,10 @@ public class TotalToken extends Token
 	 * @param pc
 	 * @return the WEIGHT sub token
 	 */
-	public static String getWeightToken(PlayerCharacter pc)
+	public static String getWeightToken(CharacterDisplay display)
 	{
 		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			pc.totalWeight().doubleValue())
+			display.totalWeight().doubleValue())
 			+ Globals.getGameModeUnitSet().getWeightUnit();
 	}
 }

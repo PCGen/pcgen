@@ -60,7 +60,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 		pc.setPortraitThumbnailRect(new Rectangle(160, 70, Constants.THUMBNAIL_SIZE, Constants.THUMBNAIL_SIZE));
 		String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
 		assertNotNull("THUMB should not be null ", thumbResult);
-		assertNotSame("Thumb should not be portrait", pc.getPortraitPath(), thumbResult);
+		assertNotSame("Thumb should not be portrait", pc.getDisplay().getPortraitPath(), thumbResult);
 		File thumbFile = new File(thumbResult);
 		assertTrue("File should exist", thumbFile.exists());
 		BufferedImage image = ImageIO.read(thumbFile);
@@ -79,7 +79,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 		pc.setPortraitThumbnailRect(new Rectangle(160, 70, 140, 140));
 		String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
 		assertNotNull("THUMB should not be null ", thumbResult);
-		assertNotSame("Thumb should not be portrait", pc.getPortraitPath(), thumbResult);
+		assertNotSame("Thumb should not be portrait", pc.getDisplay().getPortraitPath(), thumbResult);
 		File thumbFile = new File(thumbResult);
 		assertTrue("File should exist", thumbFile.exists());
 		BufferedImage image = ImageIO.read(thumbFile);

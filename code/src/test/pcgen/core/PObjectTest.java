@@ -138,7 +138,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		pc.setRace(race);
 		pc.addTemplate(template);
 		pc.calcActiveBonuses();
-		assertEquals("Basic DR set.", "1/-", pc.calcDR());
+		assertEquals("Basic DR set.", "1/-", pc.getDisplay().calcDR());
 	}
 
 	/**

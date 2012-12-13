@@ -77,8 +77,9 @@ public class TemplateModifier
 		}
 
 		Map<DamageReduction, Set<Object>> drMap = new IdentityHashMap<DamageReduction, Set<Object>>();
-		int totalLevels = aPC.getTotalLevels();
-		int totalHitDice = aPC.totalHitDice();
+		CharacterDisplay display = aPC.getDisplay();
+		int totalLevels = display.getTotalLevels();
+		int totalHitDice = display.totalHitDice();
 		List<PCTemplate> templList = new ArrayList<PCTemplate>();
 		templList.add(pct);
 		templList.addAll(pct.getConditionalTemplates(totalLevels, totalHitDice));
@@ -118,10 +119,10 @@ public class TemplateModifier
 			mods.append("CR:").append(cr).append(' ');
 		}
 
-		if (aPC.getDisplay().getTemplateSR(pct, totalLevels, totalHitDice) != 0)
+		if (display.getTemplateSR(pct, totalLevels, totalHitDice) != 0)
 		{
 			mods.append("SR:").append(
-				aPC.getDisplay().getTemplateSR(pct, totalLevels, totalHitDice)).append(' ');
+				display.getTemplateSR(pct, totalLevels, totalHitDice)).append(' ');
 		}
 
 		// if (!getDR(aPC.getTotalLevels(), aPC.totalHitDice()).equals(""))

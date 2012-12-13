@@ -1,5 +1,5 @@
 /*
- * ReachToken.java
+ * ACCheckToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -23,22 +23,24 @@
  * Last Edited: $Date$
  *
  */
-package pcgen.io.exporttoken;
+package plugin.exporttokens;
 
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
+import pcgen.util.Delta;
 
-import java.text.DecimalFormat;
-
-//REACH
-public class ReachToken extends Token
+/**
+ * Class deals with ACCHECK Token (Armour Check Penalty)
+ */
+public class ACCheckToken extends Token
 {
-	public static final String TOKENNAME = "REACH";
+	/** Name of the Token */
+	public static final String TOKENNAME = "ACCHECK";
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
+	 * Return the token name
+	 * @return token name
 	 */
 	@Override
 	public String getTokenName()
@@ -53,44 +55,19 @@ public class ReachToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		String retString = "";
-
-		if ("REACH".equals(tokenSource))
-		{
-			retString = getToken(pc);
-		}
-		else if ("REACH.VAL".equals(tokenSource))
-		{
-			return Integer.toString(getReachToken(pc));
-		}
-		else if ("REACH.SQUARES".equals(tokenSource))
-		{
-			retString = getSquaresToken(pc);
-		}
-
-		return retString;
+		return Delta.toString(getACCheckToken(tokenSource, pc));
 	}
 
-	public static int getReachToken(PlayerCharacter pc)
+	/**
+	 * TODO: Rip the processing of this token out of PlayerCharacter
+	 * 
+	 * @param tokenSource
+	 * @param pc - The PC to calculate the ACCHECK for 
+	 * @return THe ACCHECK Penalty
+	 */
+	public static int getACCheckToken(String tokenSource, PlayerCharacter pc)
 	{
-		if (pc != null)
-		{
-			return pc.getReach();
-		}
-
-		return 0;
-	}
-
-	public static String getToken(PlayerCharacter pc)
-	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			getReachToken(pc))
-			+ Globals.getGameModeUnitSet().getDistanceUnit();
-	}
-
-	public static String getSquaresToken(PlayerCharacter pc)
-	{
-		return new DecimalFormat("#.#").format(getReachToken(pc)
-			/ SettingsHandler.getGame().getSquareSize());
+		int mod = pc.modToFromEquipment(tokenSource);
+		return mod;
 	}
 }

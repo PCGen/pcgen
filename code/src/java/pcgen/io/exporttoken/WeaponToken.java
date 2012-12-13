@@ -46,6 +46,7 @@ import pcgen.core.WeaponProf;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SizeUtilities;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.UnarmedDamageDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.util.Delta;
@@ -685,11 +686,11 @@ public class WeaponToken extends Token
 	public static String getHeft(PlayerCharacter pc, Equipment eq)
 	{
 		String retString = "";
-		if (pc.sizeInt() > SizeUtilities.sizeInt(eq.getSize()))
+		if (pc.getDisplay().sizeInt() > SizeUtilities.sizeInt(eq.getSize()))
 		{
 			retString = "LIGHT";
 		}
-		else if (pc.sizeInt() == SizeUtilities.sizeInt(eq.getSize()))
+		else if (pc.getDisplay().sizeInt() == SizeUtilities.sizeInt(eq.getSize()))
 		{
 			retString = "MEDIUM";
 		}
@@ -972,7 +973,7 @@ public class WeaponToken extends Token
 				((int) pc.getTotalBonusTo("WEAPONPROF=" + profName,
 					"TOHIT") + getWeaponProfTypeBonuses(pc, eq, "TOHIT",
 					WPTYPEBONUS_PC))
-					- (int) pc.getStatBonusTo("TOHIT", "TYPE.MELEE")
+					- (int) pc.getDisplay().getStatBonusTo("TOHIT", "TYPE.MELEE")
 					- (int) pc.getSizeAdjustmentBonusTo("TOHIT", "TOHIT");
 		return miscBonus;
 	}
@@ -1375,12 +1376,12 @@ public class WeaponToken extends Token
 			damageMode = DAMAGEMODE_TWOHANDS;
 			hands = 2;
 		}
-		else if (pc.isSecondaryWeapon(eq))
+		else if (pc.getDisplay().isSecondaryWeapon(eq))
 		{
 			damageMode = DAMAGEMODE_OFFHAND;
 			hands = 0;
 		}
-		else if (pc.isPrimaryWeapon(eq))
+		else if (pc.getDisplay().isPrimaryWeapon(eq))
 		{
 			if (eq.getLocation() == EquipmentLocation.EQUIPPED_BOTH)
 			{
@@ -1529,6 +1530,7 @@ public class WeaponToken extends Token
 	public static String getTotalHitToken(PlayerCharacter pc, Equipment eq,
 		int range, int content, int ammo, int attackNum)
 	{
+		CharacterDisplay display = pc.getDisplay();
 		boolean isDouble =
 				(eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
@@ -1551,12 +1553,12 @@ public class WeaponToken extends Token
 			hitModeHands = 2;
 		}
 		// Both Primary and Secondary weapons
-		else if (pc.hasPrimaryWeapons() && pc.hasSecondaryWeapons())
+		else if (display.hasPrimaryWeapons() && display.hasSecondaryWeapons())
 		{
 			// eq is Primary
-			if (pc.isPrimaryWeapon(eq))
+			if (display.isPrimaryWeapon(eq))
 			{
-				Equipment sEq = pc.getSecondaryWeapons().iterator().next();
+				Equipment sEq = display.getSecondaryWeapons().iterator().next();
 
 				if (sEq == null)
 				{
@@ -1576,7 +1578,7 @@ public class WeaponToken extends Token
 				}
 			}
 			// eq is Secondary
-			else if (pc.isSecondaryWeapon(eq))
+			else if (display.isSecondaryWeapon(eq))
 			{
 				if (eq.isWeaponLightForPC(pc))
 				{
@@ -1591,12 +1593,12 @@ public class WeaponToken extends Token
 			}
 		}
 		// Just a single off-hand weapon
-		else if (pc.isSecondaryWeapon(eq) && !pc.hasPrimaryWeapons())
+		else if (display.isSecondaryWeapon(eq) && !display.hasPrimaryWeapons())
 		{
 			hitMode = HITMODE_OHHIT;
 		}
 		// Just a single primary weapon
-		else if (pc.isPrimaryWeapon(eq) && !pc.hasSecondaryWeapons())
+		else if (display.isPrimaryWeapon(eq) && !display.hasSecondaryWeapons())
 		{
 			if (eq.getLocation() == EquipmentLocation.EQUIPPED_BOTH)
 			{
@@ -2073,10 +2075,11 @@ public class WeaponToken extends Token
 						WPTYPEBONUS_PC);
 		}
 
+		CharacterDisplay display = pc.getDisplay();
 		if (!eq.isNatural()
-			&& ((ref == null) || !pc.hasWeaponProf(prof)))
+			&& ((ref == null) || !display.hasWeaponProf(prof)))
 		{
-			baseBonus += pc.getNonProficiencyPenalty();
+			baseBonus += display.getNonProficiencyPenalty();
 		}
 
 		baseBonus += (int) pc.getTotalBonusTo("WEAPONPROF=" + profKey, "TOHIT");
@@ -2265,7 +2268,7 @@ public class WeaponToken extends Token
 		secondariesToadd +=
 				(int) pc.getTotalBonusTo("COMBAT", "SECONDARYATTACKS");
 
-		if (!pc.hasPrimaryWeapons() && (hitMode == HITMODE_TOTALHIT))
+		if (!display.hasPrimaryWeapons() && (hitMode == HITMODE_TOTALHIT))
 		{
 			secondariesToadd = 100;
 		}
@@ -2286,7 +2289,7 @@ public class WeaponToken extends Token
 		// tokens
 		boolean considerEarlyExit =
 				!isDouble
-					&& (hitMode == HITMODE_TWOHIT || pc.isSecondaryWeapon(eq));
+					&& (hitMode == HITMODE_TWOHIT || display.isSecondaryWeapon(eq));
 
 		int toHit = 0;
 		int secondariesAdded = 0;
@@ -2446,9 +2449,9 @@ public class WeaponToken extends Token
 
 		String damString = getEqDamage(pc, eq);
 		int meleeDamageStatBonus =
-				(int) pc.getStatBonusTo("COMBAT", "DAMAGE.MELEE");
+				(int) pc.getDisplay().getStatBonusTo("COMBAT", "DAMAGE.MELEE");
 		// TODO: remove this old syntax
-		meleeDamageStatBonus += (int) pc.getStatBonusTo("DAMAGE", "TYPE.MELEE");
+		meleeDamageStatBonus += (int) pc.getDisplay().getStatBonusTo("DAMAGE", "TYPE.MELEE");
 		double meleeDamageMult =
 				pc.getTotalBonusTo("COMBAT", "DAMAGEMULT:" + hands);
 		meleeDamageMult +=
@@ -2726,9 +2729,9 @@ public class WeaponToken extends Token
 	{
 		if (eq.isMonk() && eq.isUnarmed())
 		{
-			int eqSize = pc.getRace().getSafe(FormulaKey.SIZE).resolve(pc, "")
+			int eqSize = pc.getDisplay().getRace().getSafe(FormulaKey.SIZE).resolve(pc, "")
 					.intValue();
-			int iMod = pc.sizeInt();
+			int iMod = pc.getDisplay().sizeInt();
 
 			/* This modifies damage (by size) from the default when the race is
 			 * not the default size and the character is the default size for
@@ -2804,8 +2807,8 @@ public class WeaponToken extends Token
 		if (eq.isNatural())
 		{
 			//			int eqSize = Globals.sizeInt(pc.getRace().getSize());
-			int eqSize = pc.racialSizeInt();
-			int iMod = pc.sizeInt();
+			int eqSize = pc.getDisplay().racialSizeInt();
+			int iMod = pc.getDisplay().sizeInt();
 			iMod +=
 					(int) pc.getTotalBonusTo("WEAPONPROF=" + profKey,
 						"DAMAGESIZE");

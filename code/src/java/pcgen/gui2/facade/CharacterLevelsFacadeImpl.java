@@ -39,10 +39,10 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.facet.BonusChangeFacet;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeEvent;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeListener;
-import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -52,6 +52,7 @@ import pcgen.core.SkillComparator;
 import pcgen.core.SkillUtilities;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.CharacterLevelFacade;
 import pcgen.core.facade.CharacterLevelsFacade;
 import pcgen.core.facade.ClassFacade;
@@ -82,7 +83,9 @@ public class CharacterLevelsFacadeImpl extends
 		AbstractListFacade<CharacterLevelFacade> implements
 		CharacterLevelsFacade, DataFacetChangeListener<Skill>, BonusChangeListener
 {
-	private PlayerCharacter theCharacter;
+	private final PlayerCharacter theCharacter;
+	private final CharacterDisplay charDisplay;
+
 	private UIDelegate delegate;
 
 	private List<ClassFacade> classLevels;
@@ -102,6 +105,7 @@ public class CharacterLevelsFacadeImpl extends
 		TodoManager todoManager, DataSetFacade dataSetFacade)
 	{
 		this.theCharacter = pc;
+		this.charDisplay = pc.getDisplay();
 		this.delegate = delegate;
 		this.todoManager = todoManager;
 		this.dataSetFacade = dataSetFacade;
@@ -184,8 +188,8 @@ public class CharacterLevelsFacadeImpl extends
 	 */
 	private void refreshClassList()
 	{
-		List<PCClass> newClasses = theCharacter.getClassList();
-		Collection<PCLevelInfo> levelInfo = theCharacter.getLevelInfo();
+		List<PCClass> newClasses = charDisplay.getClassList();
+		Collection<PCLevelInfo> levelInfo = charDisplay.getLevelInfo();
 
 		Map<String, Integer> levelCount = new HashMap<String, Integer>();
 		Map<String, PCClass> classMap = new HashMap<String, PCClass>();
@@ -213,7 +217,7 @@ public class CharacterLevelsFacadeImpl extends
 			
 			classLevels.add(currClass);
 			
-			CharacterLevelFacadeImpl levelFI = new CharacterLevelFacadeImpl(currClass, theCharacter, classLevels.size());
+			CharacterLevelFacadeImpl levelFI = new CharacterLevelFacadeImpl(currClass, classLevels.size());
 			addElement(levelFI);
 			//PCClassLevel classLevel = currClass.getClassLevel(clsLvlNum);
 		}
@@ -242,13 +246,13 @@ public class CharacterLevelsFacadeImpl extends
 		CharacterLevelFacadeImpl levelImpl = (CharacterLevelFacadeImpl) level;
 		int lvlIdx = levelImpl.getCharacterLevel() - 1;
 
-		final String classKeyName = theCharacter.getLevelInfoClassKeyName(lvlIdx);
+		final String classKeyName = charDisplay.getLevelInfoClassKeyName(lvlIdx);
 		PCClass aClass = theCharacter.getClassKeyed(classKeyName);
 		
 		if (aClass != null)
 		{
-			final int clsLvl = theCharacter.getLevelInfoClassLevel(lvlIdx);
-			PCClassLevel pcl = theCharacter.getActiveClassLevel(aClass, clsLvl-1);
+			final int clsLvl = charDisplay.getLevelInfoClassLevel(lvlIdx);
+			PCClassLevel pcl = charDisplay.getActiveClassLevel(aClass, clsLvl-1);
 
 			return pcl;
 		}
@@ -264,7 +268,7 @@ public class CharacterLevelsFacadeImpl extends
 	{
 		int numHp = getHPRolled(level);
 
-		numHp += (int) theCharacter.getStatBonusTo("HP", "BONUS");
+		numHp += (int) charDisplay.getStatBonusTo("HP", "BONUS");
 
 		if (numHp < 1)
 		{
@@ -312,7 +316,7 @@ public class CharacterLevelsFacadeImpl extends
 			return null;
 		}
 
-		return theCharacter.getLevelInfo(getLevelIndex(level));
+		return charDisplay.getLevelInfo(getLevelIndex(level));
 	}
 	
 	private int getLevelIndex(CharacterLevelFacade level)
@@ -393,7 +397,7 @@ public class CharacterLevelsFacadeImpl extends
 	{
 		if (level != null && level instanceof CharacterLevelFacadeImpl)
 		{
-			final String classKeyName = theCharacter.getLevelInfoClassKeyName(getLevelIndex(level));
+			final String classKeyName = charDisplay.getLevelInfoClassKeyName(getLevelIndex(level));
 			PCClass aClass = theCharacter.getClassKeyed(classKeyName);
 			if (skill instanceof Skill)
 			{
@@ -573,14 +577,14 @@ public class CharacterLevelsFacadeImpl extends
 		
 		Skill aSkill = (Skill) skill;
 
-		boolean hasSkill = theCharacter.hasSkill(aSkill);
+		boolean hasSkill = charDisplay.hasSkill(aSkill);
 		if (!hasSkill)
 		{
 			theCharacter.addSkill(aSkill);
 			updateSkillsOutputOrder(aSkill);
 		}
 		
-		final String classKeyName = theCharacter.getLevelInfoClassKeyName(getLevelIndex(level));
+		final String classKeyName = charDisplay.getLevelInfoClassKeyName(getLevelIndex(level));
 		PCClass aClass = theCharacter.getClassKeyed(classKeyName);
 		String errMessage = SkillRankControl.modRanks(rank, aClass, false, theCharacter, aSkill);
 
@@ -777,7 +781,7 @@ public class CharacterLevelsFacadeImpl extends
 		}
 		SkillComparator comparator = new SkillComparator(theCharacter, sort, sortOrder);
 		int nextOutputIndex = 1;
-		List<Skill> skillList = new ArrayList<Skill>(theCharacter.getSkillSet());
+		List<Skill> skillList = new ArrayList<Skill>(charDisplay.getSkillSet());
 		Collections.sort(skillList, comparator);
 
 		for (Skill aSkill : skillList)
@@ -798,7 +802,7 @@ public class CharacterLevelsFacadeImpl extends
 	private int getHighestOutputIndex()
 	{
 		int maxOutputIndex = 0;
-		final List<Skill> skillList = new ArrayList<Skill>(theCharacter.getSkillSet());
+		final List<Skill> skillList = new ArrayList<Skill>(charDisplay.getSkillSet());
 		for (Skill bSkill : skillList)
 		{
 			Integer outputIndex = theCharacter.getAssoc(bSkill, AssociationKey.OUTPUT_INDEX);

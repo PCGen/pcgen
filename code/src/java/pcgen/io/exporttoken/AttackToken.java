@@ -25,12 +25,13 @@
  */
 package pcgen.io.exporttoken;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.util.Delta;
 import pcgen.util.enumeration.AttackType;
-
-import java.util.StringTokenizer;
 
 /**
  * Class Deals with:
@@ -165,7 +166,7 @@ public class AttackToken extends Token
 		}
 		else if (modifier.equals("STAT"))
 		{
-			return Delta.toString(getStatToken(pc, attackType));
+			return Delta.toString(getStatToken(pc.getDisplay(), attackType));
 		}
 		else if (modifier.equals("TOTAL"))
 		{
@@ -211,12 +212,12 @@ public class AttackToken extends Token
 		int tohitBonus =
 				((int) pc.getTotalBonusTo("TOHIT", "TOHIT") + (int) pc
 					.getTotalBonusTo("TOHIT", "TYPE." + aType))
-					- (int) pc.getStatBonusTo("TOHIT", "TYPE." + aType)
+					- (int) pc.getDisplay().getStatBonusTo("TOHIT", "TYPE." + aType)
 					- (int) pc.getSizeAdjustmentBonusTo("TOHIT", "TOHIT");
 		int miscBonus =
 				((int) pc.getTotalBonusTo("COMBAT", "TOHIT") + (int) pc
 					.getTotalBonusTo("COMBAT", "TOHIT." + aType))
-					- (int) pc.getStatBonusTo("COMBAT", "TOHIT." + aType)
+					- (int) pc.getDisplay().getStatBonusTo("COMBAT", "TOHIT." + aType)
 					- (int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT")
 					- (int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT."
 						+ aType)
@@ -250,12 +251,12 @@ public class AttackToken extends Token
 	 * @param aType
 	 * @return stat ATTACK token
 	 */
-	public static int getStatToken(PlayerCharacter pc, String aType)
+	public static int getStatToken(CharacterDisplay display, String aType)
 	{
 		final int tohitBonus =
-				(int) pc.getStatBonusTo("TOHIT", "TYPE." + aType);
+				(int) display.getStatBonusTo("TOHIT", "TYPE." + aType);
 		final int statBonus =
-				(int) pc.getStatBonusTo("COMBAT", "TOHIT." + aType);
+				(int) display.getStatBonusTo("COMBAT", "TOHIT." + aType);
 
 		return statBonus + tohitBonus;
 	}

@@ -22,7 +22,6 @@
  */
 package pcgen.gui2.facade;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.facade.CharacterLevelFacade;
 import pcgen.core.facade.ClassFacade;
 
@@ -43,13 +42,10 @@ public class CharacterLevelFacadeImpl implements CharacterLevelFacade
 
 	private int characterLevel;
 	private ClassFacade classFacade;
-	private PlayerCharacter theCharacter;
 	
-	public CharacterLevelFacadeImpl(ClassFacade classFacade,
-		PlayerCharacter theCharacter, int level)
+	public CharacterLevelFacadeImpl(ClassFacade classFacade, int level)
 	{
 		this.classFacade = classFacade;
-		this.theCharacter = theCharacter;
 		this.characterLevel = level;
 	}
 

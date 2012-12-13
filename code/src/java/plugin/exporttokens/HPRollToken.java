@@ -30,6 +30,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -79,7 +80,7 @@ public class HPRollToken extends Token
 			bString = "ROLL";
 		}
 
-		if ((levelOffset >= pc.getLevelInfoSize()) || (levelOffset < 0))
+		if ((levelOffset >= pc.getDisplay().getLevelInfoSize()) || (levelOffset < 0))
 		{
 			return "0";
 		}
@@ -90,7 +91,7 @@ public class HPRollToken extends Token
 		}
 		else if ("STAT".equals(bString))
 		{
-			retString = Integer.toString(getStatToken(pc, levelOffset));
+			retString = Integer.toString(getStatToken(pc.getDisplay(), levelOffset));
 		}
 		else if ("TOTAL".equals(bString))
 		{
@@ -119,14 +120,15 @@ public class HPRollToken extends Token
 	 */
 	public static int getRollToken(PlayerCharacter pc, int level)
 	{
-		int classLevel = pc.getLevelInfoClassLevel(level) - 1;
+		CharacterDisplay display = pc.getDisplay();
+		int classLevel = display.getLevelInfoClassLevel(level) - 1;
 		int hpRoll = 0;
 
-		PCClass pcClass = pc.getClassKeyed(pc.getLevelInfoClassKeyName(level));
+		PCClass pcClass = pc.getClassKeyed(display.getLevelInfoClassKeyName(level));
 
 		if (pcClass != null)
 		{
-			PCClassLevel pcl = pc.getActiveClassLevel(pcClass, classLevel);
+			PCClassLevel pcl = display.getActiveClassLevel(pcClass, classLevel);
 			Integer hp = pc.getHP(pcl);
 			hpRoll = hp == null ? 0 : hp;
 		}
@@ -140,9 +142,9 @@ public class HPRollToken extends Token
 	 * @param level
 	 * @return the HPROLL.STAT token
 	 */
-	public static int getStatToken(PlayerCharacter pc, int level)
+	public static int getStatToken(CharacterDisplay display, int level)
 	{
-		return (int) pc.getStatBonusTo("HP", "BONUS");
+		return (int) display.getStatBonusTo("HP", "BONUS");
 	}
 
 	/**
@@ -153,6 +155,6 @@ public class HPRollToken extends Token
 	 */
 	public static int getTotalToken(PlayerCharacter pc, int level)
 	{
-		return getRollToken(pc, level) + getStatToken(pc, level);
+		return getRollToken(pc, level) + getStatToken(pc.getDisplay(), level);
 	}
 }

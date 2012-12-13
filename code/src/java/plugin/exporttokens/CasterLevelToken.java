@@ -27,6 +27,7 @@ package plugin.exporttokens;
 
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Logging;
@@ -102,9 +103,10 @@ public class CasterLevelToken extends Token
 	{
 		String cString = "";
 
-		if (pc.getClassCount() > classNumber)
+		CharacterDisplay display = pc.getDisplay();
+		if (display.getClassCount() > classNumber)
 		{
-			PCClass pcClass = pc.getClassList().get(classNumber);
+			PCClass pcClass = display.getClassList().get(classNumber);
 			cString = "CLASS:" + pcClass.getKeyName();
 		}
 		return Float.toString(pc.getVariableValue(TOKENNAME, cString)

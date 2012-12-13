@@ -111,7 +111,7 @@ public class SpellListClassToken extends SpellListToken
 				else if (tokenSource.endsWith(".LEVEL"))
 				{
 					retValue
-						.append(String.valueOf(pc.getLevel(aClass)
+						.append(String.valueOf(pc.getDisplay().getLevel(aClass)
 							+ (int) pc.getTotalBonusTo("PCLEVEL", aClass
 								.getKeyName())));
 				}

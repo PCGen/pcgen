@@ -52,6 +52,7 @@ import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.character.CharacterSpell;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.DescriptionFormatting;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
@@ -65,6 +66,7 @@ import pcgen.util.enumeration.Visibility;
 public class PcgCombatant extends Combatant
 {
 	protected PlayerCharacter pc;
+	private CharacterDisplay display;
 	protected PcRenderer renderer;
 	protected float crAdj = 0;
 
@@ -76,6 +78,7 @@ public class PcgCombatant extends Combatant
 	public PcgCombatant(PlayerCharacter pc)
 	{
 		this.pc = pc;
+		display = pc.getDisplay();
 		this.init = new PcgSystemInitiative(pc);
 
 		PCStat stat = Globals.getContext().ref
@@ -163,7 +166,7 @@ public class PcgCombatant extends Combatant
 	@Override
 	public void setCR(float cr)
 	{
-		this.crAdj = cr - pc.calcCR();
+		this.crAdj = cr - pc.getDisplay().calcCR();
 	}
 
 	/**
@@ -174,7 +177,7 @@ public class PcgCombatant extends Combatant
 	@Override
 	public float getCR()
 	{
-		return pc.calcCR() + crAdj;
+		return pc.getDisplay().calcCR() + crAdj;
 	}
 
 	/**
@@ -197,7 +200,7 @@ public class PcgCombatant extends Combatant
     @Override
 	public String getName()
 	{
-		return pc.getName();
+		return display.getName();
 	}
 
 	/**
@@ -229,7 +232,7 @@ public class PcgCombatant extends Combatant
     @Override
 	public String getPlayer()
 	{
-		return pc.getPlayersName();
+		return display.getPlayersName();
 	}
 
     @Override
@@ -287,7 +290,7 @@ public class PcgCombatant extends Combatant
 	@Override
 	public int getXP()
 	{
-		return pc.getXP();
+		return display.getXP();
 	}
 
 	/**
@@ -703,7 +706,7 @@ public class PcgCombatant extends Combatant
 			for (PCStat stat : pcOut.getUnmodifiableStatList())
 			{
 				String statAbb = stat.getAbb();
-				if (pc.isNonAbility(stat))
+				if (display.isNonAbility(stat))
 				{
 					statBuf.append("<font class='type'>");
 					statBuf.append(statAbb); //|STAT.%stat.NAME|
@@ -745,7 +748,7 @@ public class PcgCombatant extends Combatant
 			statBuf.append("<head><title>");
 			statBuf.append(pcOut.getName()); //|NAME|
 			statBuf.append(" - ");
-			statBuf.append(pc.getPlayersName()); //|PLAYERNAME|
+			statBuf.append(display.getPlayersName()); //|PLAYERNAME|
 			statBuf.append("(");
 			statBuf.append(pc.getCostPool()); //|POOL.COST|
 			statBuf.append(" Points) in GMGEN Statblock Format");
@@ -786,7 +789,7 @@ public class PcgCombatant extends Combatant
 			pc.refreshSkillList(); //force refresh of skills
 
 			List<Skill> skillList =
-					pc.getSkillListInOutputOrder(pc.getDisplay()
+					pc.getSkillListInOutputOrder(display
 						.getPartialSkillList(Visibility.OUTPUT_ONLY));
 			boolean firstLine = true;
 
@@ -838,7 +841,7 @@ public class PcgCombatant extends Combatant
 		{
 			StringBuilder statBuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
-			if (pc.hasDomains())
+			if (display.hasDomains())
 			{
 				//Domains
 				//Deity
@@ -851,7 +854,7 @@ public class PcgCombatant extends Combatant
 				//Domain List with powers
 				boolean firstLine = true;
 
-				for (Domain dom : pc.getDisplay().getSortedDomainSet())
+				for (Domain dom : display.getSortedDomainSet())
 				{
 					if (!firstLine)
 					{
@@ -1018,8 +1021,8 @@ public class PcgCombatant extends Combatant
 				 <!-- End Prepared Spells -->
 			 */
 			ArrayList<PObject> classList =
-					new ArrayList<PObject>(pc.getClassSet());
-			classList.add(pc.getRace());
+					new ArrayList<PObject>(display.getClassSet());
+			classList.add(display.getRace());
 
 			Set<String> bookList = new HashSet<String>(pc.getDisplay().getSpellBookNames());
 			bookList.add(Globals.getDefaultSpellBook());
@@ -1044,7 +1047,7 @@ public class PcgCombatant extends Combatant
 					if (pObj instanceof PCClass) 
 					{
 						PCClass theClass = (PCClass) pObj;
-						maxLevel = (aPC.getLevel(theClass) ==0) ? maxLevel: aPC.getSpellSupport(theClass).getMaxCastLevel(aPC);
+						maxLevel = (aPC.getDisplay().getLevel(theClass) ==0) ? maxLevel: aPC.getSpellSupport(theClass).getMaxCastLevel(aPC);
 					}
 					StringBuilder spellBuff = new StringBuilder();
 					for (int level = 0; level <=maxLevel; level++)

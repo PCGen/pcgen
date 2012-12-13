@@ -7,14 +7,15 @@
 package plugin.charactersheet.gui;
 
 import gmgen.plugin.PlayerCharacterOutput;
+import pcgen.core.Deity;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.VisionDisplay;
 import pcgen.io.exporttoken.AlignmentToken;
 import pcgen.io.exporttoken.HeightToken;
 import pcgen.io.exporttoken.SizeLongToken;
-import pcgen.io.exporttoken.WeightToken;
 
 /**
  * Confirmed no memory Leaks Dec 10, 2004
@@ -849,51 +850,53 @@ public class DetailsPane extends javax.swing.JPanel
 	public void refresh()
 	{
 		new PlayerCharacterOutput(pc);
+		CharacterDisplay display = pc.getDisplay();
 
-		name.setText(pc.getName() + ' ');
-		playerClass.setText(getClasses(pc) + ' ');
-		characterLevel.setText(pc.getECL() + SPACE);
-		experience.setText(pc.getXP() + SPACE);
-		nextLevel.setText(pc.minXPForNextECL() + " ");
+		name.setText(display.getName() + ' ');
+		playerClass.setText(getClasses(display) + ' ');
+		characterLevel.setText(display.getECL() + SPACE);
+		experience.setText(display.getXP() + SPACE);
+		nextLevel.setText(display.minXPForNextECL() + " ");
 
-		playerName.setText(pc.getPlayersName() + ' ');
-		String subRace = pc.getSubRace();
+		playerName.setText(display.getPlayersName() + ' ');
+		String subRace = display.getSubRace();
 		if (subRace == null)
 		{
-			race.setText(pc.getRace().getDisplayName() + ' ');
+			race.setText(display.getRace().getDisplayName() + ' ');
 		}
 		else
 		{
-			race.setText(pc.getRace().getDisplayName() + " (" + subRace + ") ");
+			race.setText(display.getRace().getDisplayName() + " (" + subRace + ") ");
 		}
 		age.setText(pc.getAge() + " ");
-		size.setText(SizeLongToken.getSizeLongToken(pc) + ' ');
-		gender.setText(pc.getGenderObject().toString() + ' ');
+		size.setText(SizeLongToken.getSizeLongToken(pc.getDisplay()) + ' ');
+		gender.setText(display.getGenderObject().toString() + ' ');
 
-		if (pc.getDeity() != null)
+		Deity charDeity = display.getDeity();
+		if (charDeity != null)
 		{
-			deity.setText(OutputNameFormatting.getOutputName(pc.getDeity()) + ' ');
+			deity.setText(OutputNameFormatting.getOutputName(charDeity) + ' ');
 		}
 		else
 		{
 			deity.setText(" ");
 		}
-		height.setText(HeightToken.getHeightToken(pc) + ' ');
-		eyes.setText(pc.getDisplay().getEyeColor() + ' ');
-		weight.setText(WeightToken.getWeightToken(pc) + ' ');
-		hair.setText(pc.getDisplay().getHairColor() + ' ');
+		height.setText(HeightToken.getHeightToken(display) + ' ');
+		eyes.setText(display.getEyeColor() + ' ');
+		weight.setText(display.getWeightToken() + ' ');
+		hair.setText(display.getHairColor() + ' ');
 
-		alignment.setText(AlignmentToken.getAlignmentToken(pc) + ' ');
-		vision.setText(VisionDisplay.getVision(pc.getDisplay()) + ' ');
+		alignment.setText(AlignmentToken.getAlignmentToken(display) + ' ');
+		vision.setText(VisionDisplay.getVision(display) + ' ');
 		points.setText(pc.getCostPool() + SPACE);
 	}
 
-	private String getClasses(PlayerCharacter aPC)
+	private String getClasses(CharacterDisplay display)
 	{
 		StringBuilder sb = new StringBuilder();
-		for (PCClass mClass : aPC.getClassSet())
+		for (PCClass mClass : display.getClassSet())
 		{
-			sb.append(mClass.getAbbrev()).append(aPC.getLevel(mClass)).append(' ');
+			sb.append(mClass.getAbbrev()).append(display.getLevel(mClass)).append(' ');
 		}
 
 		return sb.toString();

@@ -26,14 +26,17 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.StatAnalysis;
+import pcgen.core.display.CharacterDisplay;
 
 public class PcgSystemInitiative extends SystemInitiative
 {
-	protected PlayerCharacter pc;
+	protected final PlayerCharacter pc;
+	private final CharacterDisplay display;
 
 	public PcgSystemInitiative(PlayerCharacter pc)
 	{
 		this.pc = pc;
+		display = pc.getDisplay();
 		PCStat stat = Globals.getContext().ref
 				.getAbbreviatedObject(PCStat.class, "DEX");
 		this.attribute = new SystemAttribute("Dexterity", StatAnalysis.getTotalStatFor(pc, stat));
@@ -52,7 +55,7 @@ public class PcgSystemInitiative extends SystemInitiative
     @Override
 	public void setBonus(int bonus)
 	{
-		this.bonus = bonus - pc.initiativeMod();
+		this.bonus = bonus - display.initiativeMod();
 		setCurrentInitiative(roll + getModifier() + mod);
 	}
 
@@ -61,12 +64,12 @@ public class PcgSystemInitiative extends SystemInitiative
 	{
 		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
 				PCStat.class, "DEX");
-		return pc.initiativeMod() - StatAnalysis.getStatModFor(pc, dex) + bonus;
+		return display.initiativeMod() - StatAnalysis.getStatModFor(pc, dex) + bonus;
 	}
 
     @Override
 	public int getModifier()
 	{
-		return pc.initiativeMod() + bonus;
+		return display.initiativeMod() + bonus;
 	}
 }

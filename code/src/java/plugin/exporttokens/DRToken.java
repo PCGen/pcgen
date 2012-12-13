@@ -1,5 +1,5 @@
 /*
- * ACCheckToken.java
+ * DRToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -23,50 +23,33 @@
  * Last Edited: $Date$
  *
  */
-package pcgen.io.exporttoken;
+package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.util.Delta;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * Class deals with ACCHECK Token (Armour Check Penalty)
+ * Deals with DR token
  */
-public class ACCheckToken extends Token
+public class DRToken extends AbstractExportToken
 {
-	/** Name of the Token */
-	public static final String TOKENNAME = "ACCHECK";
-
 	/**
-	 * Return the token name
-	 * @return token name
+	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "DR";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return Delta.toString(getACCheckToken(tokenSource, pc));
-	}
-
-	/**
-	 * TODO: Rip the processing of this token out of PlayerCharacter
-	 * 
-	 * @param tokenSource
-	 * @param pc - The PC to calculate the ACCHECK for 
-	 * @return THe ACCHECK Penalty
-	 */
-	public static int getACCheckToken(String tokenSource, PlayerCharacter pc)
-	{
-		int mod = pc.modToFromEquipment(tokenSource);
-		return mod;
+		return display.calcDR();
 	}
 }

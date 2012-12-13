@@ -86,6 +86,7 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.character.WieldCategory;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.DescriptionFormatting;
 import pcgen.core.display.MovementDisplay;
 import pcgen.core.display.TemplateModifier;
@@ -138,7 +139,8 @@ public class Gui2InfoFactory implements InfoFactory
 	/** Constant for HTML bold end tag */
 	public static final String END_BOLD = "</b>"; //$NON-NLS-1$
 
-	private PlayerCharacter pc;
+	private final PlayerCharacter pc;
+	private final CharacterDisplay charDisplay;
 	
 	/**
 	 * Create a new Gui2InfoFactory instance for the character.
@@ -146,7 +148,8 @@ public class Gui2InfoFactory implements InfoFactory
 	 */
 	public Gui2InfoFactory(PlayerCharacter pc)
 	{
-		this.pc =pc;
+		this.pc = pc;
+		this.charDisplay = pc.getDisplay();
 	}
 
 	/* (non-Javadoc)
@@ -1098,7 +1101,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		if (tempBonus.getTarget() != null)
 		{
-			String targetName = pc.getName();
+			String targetName = charDisplay.getName();
 			if (tempBonus.getTarget() instanceof CDOMObject)
 			{
 				targetName = ((CDOMObject)tempBonus.getTarget()).getKeyName();
@@ -1276,9 +1279,9 @@ public class Gui2InfoFactory implements InfoFactory
 		Race race = (Race) raceFacade;
 		final StringBuilder retString = new StringBuilder();
 
-		for (PCStat stat : pc.getStatSet())
+		for (PCStat stat : charDisplay.getStatSet())
 		{
-			if (pc.isNonAbility(stat))
+			if (charDisplay.isNonAbility(stat))
 			{
 				if (retString.length() > 0)
 				{
@@ -1497,7 +1500,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getSpellBookInfo(String name)
 	{
-		SpellBook book = pc.getDisplay().getSpellBookByName(name);
+		SpellBook book = charDisplay.getSpellBookByName(name);
 		if (book == null)
 		{
 			return EMPTY_STRING;
@@ -1538,11 +1541,11 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		
 		// Look at each spell on each spellcasting class
-		for (PCClass pcClass : pc.getClassSet())
+		for (PCClass pcClass : charDisplay.getClassSet())
 		{
 			Map<Integer, Integer> spellCountMap = new TreeMap<Integer, Integer>();
 			int highestSpellLevel = -1;
-			for (CharacterSpell charSpell : pc.getCharacterSpells(pcClass))
+			for (CharacterSpell charSpell : charDisplay.getCharacterSpells(pcClass))
 			{
 				for (SpellInfo spellInfo : charSpell.getInfoList())
 				{
@@ -1606,7 +1609,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		b.append(" ("); //$NON-NLS-1$
 		b.append(book.getTypeName());
-		if (book.getName().equals(pc.getSpellBookNameToAutoAddKnown()))
+		if (book.getName().equals(charDisplay.getSpellBookNameToAutoAddKnown()))
 		{
 			b.append(TWO_SPACES).append(BOLD);
 			b.append(

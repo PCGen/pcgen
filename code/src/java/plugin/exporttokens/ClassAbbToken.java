@@ -27,6 +27,7 @@ package plugin.exporttokens;
 
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -79,9 +80,10 @@ public class ClassAbbToken extends Token
 	{
 		String retString = "";
 
-		if (pc.getClassCount() > classNumber)
+		CharacterDisplay display = pc.getDisplay();
+		if (display.getClassCount() > classNumber)
 		{
-			PCClass pcClass = pc.getClassList().get(classNumber);
+			PCClass pcClass = display.getClassList().get(classNumber);
 			String subClassKey = pcClass.getDisplayClassName(pc);
 
 			if (!pcClass.getKeyName().equals(subClassKey))

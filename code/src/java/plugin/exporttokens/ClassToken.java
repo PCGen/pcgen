@@ -37,6 +37,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -71,11 +72,12 @@ public class ClassToken extends Token {
 			i = Integer.parseInt(aTok.nextToken());
 		}
 
+		CharacterDisplay display = pc.getDisplay();
 		if (aTok.hasMoreTokens()) {
 			String subToken = aTok.nextToken();
 
 			if ("LEVEL".equals(subToken)) {
-				int level = getLevelToken(pc, i);
+				int level = getLevelToken(display, i);
 
 				if (level > 0) {
 					return Integer.toString(level);
@@ -84,11 +86,11 @@ public class ClassToken extends Token {
 			} else if ("SALIST".equals(subToken)) {
 				return getSAListToken(pc, i);
 			} else if ("TYPE".equals(subToken)) {
-				return getClassType(pc, i);
+				return getClassType(display, i);
 			}
 		}
 
-		return getClassToken(pc, i);
+		return getClassToken(display, i);
 	}
 
 	/**
@@ -98,13 +100,13 @@ public class ClassToken extends Token {
 	 * @param classNumber
 	 * @return token
 	 */
-	public static String getClassToken(PlayerCharacter pc, int classNumber) {
+	public static String getClassToken(CharacterDisplay display, int classNumber) {
 		String retString = "";
 
-		if (pc.getClassCount() > classNumber) {
-			PCClass pcClass = pc.getClassList().get(classNumber);
+		if (display.getClassCount() > classNumber) {
+			PCClass pcClass = display.getClassList().get(classNumber);
 
-			String subClassKey = pc.getSubClassName(pcClass);
+			String subClassKey = display.getSubClassName(pcClass);
 			if (subClassKey == null || Constants.NONE.equals(subClassKey)
 					|| "".equals(subClassKey)) {
 				retString = OutputNameFormatting.getOutputName(pcClass);
@@ -124,11 +126,11 @@ public class ClassToken extends Token {
 	 * @param classNumber
 	 * @return level token
 	 */
-	public static int getLevelToken(PlayerCharacter pc, int classNumber) {
-		if (pc.getClassCount() > classNumber) {
-			PCClass pcClass = pc.getClassList().get(classNumber);
+	public static int getLevelToken(CharacterDisplay display, int classNumber) {
+		if (display.getClassCount() > classNumber) {
+			PCClass pcClass = display.getClassList().get(classNumber);
 
-			return pc.getLevel(pcClass);
+			return display.getLevel(pcClass);
 		}
 
 		return 0;
@@ -142,8 +144,8 @@ public class ClassToken extends Token {
 	 * @return level token
 	 */
 	public static String getSAListToken(PlayerCharacter pc, int classNumber) {
-		if (pc.getClassCount() > classNumber) {
-			PCClass pcClass = pc.getClassList().get(classNumber);
+		if (pc.getDisplay().getClassCount() > classNumber) {
+			PCClass pcClass = pc.getDisplay().getClassList().get(classNumber);
 			List<String> saList = getClassSpecialAbilityList(pcClass, pc);
 			return StringUtil.join(saList, ", ");
 		}
@@ -163,16 +165,17 @@ public class ClassToken extends Token {
 	 */
 	public static List<String> getClassSpecialAbilityList(PCClass pcclass,
 			final PlayerCharacter aPC) {
+		CharacterDisplay display = aPC.getDisplay();
 		final List<String> formattedList = new ArrayList<String>();
-		
+
 		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
-		saList.addAll(aPC.getResolvedUserSpecialAbilities(pcclass));
-		saList.addAll(aPC.getResolvedSpecialAbilities(pcclass));
-		for (int i = 1; i <= aPC.getLevel(pcclass); i++)
+		saList.addAll(display.getResolvedUserSpecialAbilities(pcclass));
+		saList.addAll(display.getResolvedSpecialAbilities(pcclass));
+		for (int i = 1; i <= display.getLevel(pcclass); i++)
 		{
-			PCClassLevel pcl = aPC.getActiveClassLevel(pcclass, i);
-			saList.addAll(aPC.getResolvedUserSpecialAbilities(pcl));
-			saList.addAll(aPC.getResolvedSpecialAbilities(pcl));
+			PCClassLevel pcl = display.getActiveClassLevel(pcclass, i);
+			saList.addAll(display.getResolvedUserSpecialAbilities(pcl));
+			saList.addAll(display.getResolvedSpecialAbilities(pcl));
 		}
 
 		if (saList.isEmpty())
@@ -253,9 +256,9 @@ public class ClassToken extends Token {
 	 * @param classNumber
 	 * @return class Type
 	 */
-	public static String getClassType(PlayerCharacter pc, int classNumber) {
-		if (pc.getClassCount() > classNumber) {
-			return pc.getClassList().get(classNumber).getType();
+	public static String getClassType(CharacterDisplay display, int classNumber) {
+		if (display.getClassCount() > classNumber) {
+			return display.getClassList().get(classNumber).getType();
 		}
 		return "";
 	}

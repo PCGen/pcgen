@@ -25,11 +25,12 @@
  */
 package plugin.exporttokens;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-
-import java.util.StringTokenizer;
 
 /**
  * Deal with tokens:
@@ -75,49 +76,50 @@ public class DefenseToken extends Token
 		{
 			String defenseType = aTok.nextToken();
 
+			CharacterDisplay display = pc.getDisplay();
 			if (defenseType.equals("TOTAL"))
 			{
-				retString = Integer.toString(getTotalToken(pc));
+				retString = Integer.toString(getTotalToken(display));
 			}
 			else if (defenseType.equals("FLATFOOTED"))
 			{
-				retString = Integer.toString(getFlatFootedToken(pc));
+				retString = Integer.toString(display.flatfootedAC());
 			}
 			else if (defenseType.equals("TOUCH"))
 			{
-				retString = Integer.toString(getTouchToken(pc));
+				retString = Integer.toString(display.touchAC());
 			}
 			else if (defenseType.equals("BASE"))
 			{
-				retString = Integer.toString(getBaseToken(pc));
+				retString = Integer.toString(display.baseAC());
 			}
 			else if (defenseType.equals("ABILITY"))
 			{
-				retString = Integer.toString(getAbilityToken(pc));
+				retString = Integer.toString(display.abilityAC());
 			}
 			else if (defenseType.equals("CLASS"))
 			{
-				retString = Integer.toString(getClassToken(pc));
+				retString = Integer.toString(display.classAC());
 			}
 			else if (defenseType.equals("DODGE"))
 			{
-				retString = Integer.toString(getDodgeToken(pc));
+				retString = Integer.toString(display.dodgeAC());
 			}
 			else if (defenseType.equals("EQUIPMENT"))
 			{
-				retString = Integer.toString(getEquipmentToken(pc));
+				retString = Integer.toString(display.equipmentAC());
 			}
 			else if (defenseType.equals("MISC"))
 			{
-				retString = Integer.toString(getMiscToken(pc));
+				retString = Integer.toString(display.miscAC());
 			}
 			else if (defenseType.equals("NATURAL"))
 			{
-				retString = Integer.toString(getNaturalToken(pc));
+				retString = Integer.toString(display.naturalAC());
 			}
 			else if (defenseType.equals("SIZE"))
 			{
-				retString = Integer.toString(getSizeToken(pc));
+				retString = Integer.toString(display.sizeAC());
 			}
 		}
 
@@ -125,112 +127,12 @@ public class DefenseToken extends Token
 	}
 
 	/**
-	 * Get Ability sub token
-	 * @param pc
-	 * @return Ability sub token
-	 */
-	public static int getAbilityToken(PlayerCharacter pc)
-	{
-		return pc.abilityAC();
-	}
-
-	/**
-	 * Get base sub token
-	 * @param pc
-	 * @return base sub token
-	 */
-	public static int getBaseToken(PlayerCharacter pc)
-	{
-		return pc.baseAC();
-	}
-
-	/**
-	 * Get class sub token
-	 * @param pc
-	 * @return class sub token
-	 */
-	public static int getClassToken(PlayerCharacter pc)
-	{
-		return pc.classAC();
-	}
-
-	/**
-	 * Get dodge sub token
-	 * @param pc
-	 * @return dodge sub toke
-	 */
-	public static int getDodgeToken(PlayerCharacter pc)
-	{
-		return pc.dodgeAC();
-	}
-
-	/**
-	 * Get Equipment sub token
-	 * @param pc
-	 * @return Equipment sub token
-	 */
-	public static int getEquipmentToken(PlayerCharacter pc)
-	{
-		return pc.equipmentAC();
-	}
-
-	/**
-	 * Get flatfooted sub token
-	 * @param pc
-	 * @return flatfooted sub token
-	 */
-	public static int getFlatFootedToken(PlayerCharacter pc)
-	{
-		return pc.flatfootedAC();
-	}
-
-	/**
-	 * Get misc sub token
-	 * @param pc
-	 * @return misc sub token
-	 */
-	public static int getMiscToken(PlayerCharacter pc)
-	{
-		return pc.miscAC();
-	}
-
-	/**
-	 * Get natural sub token
-	 * @param pc
-	 * @return natural sub token
-	 */
-	public static int getNaturalToken(PlayerCharacter pc)
-	{
-		return pc.naturalAC();
-	}
-
-	/**
-	 * Get size sub token
-	 * @param pc
-	 * @return size sub token
-	 */
-	public static int getSizeToken(PlayerCharacter pc)
-	{
-		return pc.sizeAC();
-	}
-
-	/**
 	 * Get total sub token
 	 * @param pc
 	 * @return total sub token
 	 */
-	public static int getTotalToken(PlayerCharacter pc)
+	public static int getTotalToken(CharacterDisplay display)
 	{
-		return pc.getACTotal();
-	}
-
-	/**
-	 * Get touch sub token
-	 * @param pc
-	 * @return touch sub toke
-	 */
-	public static int getTouchToken(PlayerCharacter pc)
-	{
-		return pc.touchAC();
+		return display.getACTotal();
 	}
 }

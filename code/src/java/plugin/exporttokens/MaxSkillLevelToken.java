@@ -65,7 +65,7 @@ public class MaxSkillLevelToken extends Token
 	 */
 	public static int getMaxSkillLevelToken(PlayerCharacter pc)
 	{
-		return SkillUtilities.maxClassSkillForLevel(pc.getTotalLevels(), pc)
+		return SkillUtilities.maxClassSkillForLevel(pc.getDisplay().getTotalLevels(), pc)
 			.intValue();
 	}
 }

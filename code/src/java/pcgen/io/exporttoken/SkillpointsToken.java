@@ -37,6 +37,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
@@ -138,7 +139,7 @@ public class SkillpointsToken extends Token
 	{
 		float usedPoints = 0;
 
-		for (PCClass pcClass : pc.getClassSet())
+		for (PCClass pcClass : pc.getDisplay().getClassSet())
 		{
 			if (pcClass.getSkillPool(pc) > 0)
 			{
@@ -158,11 +159,11 @@ public class SkillpointsToken extends Token
 	{
 		float usedPoints = 0;
 
-		if (classNum < 0 || classNum >= pc.getClassCount())
+		if (classNum < 0 || classNum >= pc.getDisplay().getClassCount())
 		{
 			return 0;
 		}
-		PCClass pcClass = pc.getClassList().get(classNum);
+		PCClass pcClass = pc.getDisplay().getClassList().get(classNum);
 		if (pcClass.getSkillPool(pc) > 0)
 		{
 			usedPoints += pcClass.getSkillPool(pc);
@@ -179,7 +180,7 @@ public class SkillpointsToken extends Token
 	public static int getUsedSkillPoints(PlayerCharacter pc)
 	{
 		float usedPoints = 0;
-		for (Skill aSkill : pc.getSkillSet())
+		for (Skill aSkill : pc.getDisplay().getSkillSet())
 		{
 			List<NamedValue> rankList = pc.getAssocList(aSkill,
 					AssociationListKey.SKILL_RANK);
@@ -204,13 +205,14 @@ public class SkillpointsToken extends Token
 	 */
 	public static int getUsedSkillPoints(PlayerCharacter pc, int classNum)
 	{
-		if (classNum < 0 || classNum >= pc.getClassCount())
+		CharacterDisplay display = pc.getDisplay();
+		if (classNum < 0 || classNum >= display.getClassCount())
 		{
 			return 0;
 		}
-		PCClass targetClass = pc.getClassList().get(classNum);
+		PCClass targetClass = display.getClassList().get(classNum);
 		float usedPoints = 0;
-		for (Skill aSkill : pc.getSkillSet())
+		for (Skill aSkill : display.getSkillSet())
 		{
 			Integer outputIndex = pc.getAssoc(aSkill, AssociationKey.OUTPUT_INDEX);
 			if ((SkillRankControl.getRank(pc, aSkill).doubleValue() > 0)

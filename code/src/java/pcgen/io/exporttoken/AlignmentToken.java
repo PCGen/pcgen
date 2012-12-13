@@ -28,44 +28,41 @@ package pcgen.io.exporttoken;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 
 /**
  * Class deals with ALIGNMENT and ALIGNMENT.SHORT Token
  */
-public class AlignmentToken extends Token
+public class AlignmentToken extends AbstractExportToken
 {
-	/** Token Name */
-	public static final String TOKENNAME = "ALIGNMENT";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "ALIGNMENT";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		String retString = "";
 		
-		if (!pc.getDisplay().getSuppressBioField(BiographyField.ALIGNMENT))
+		if (!display.getSuppressBioField(BiographyField.ALIGNMENT))
 		{
 			if ("ALIGNMENT".equals(tokenSource))
 			{
-				retString = getAlignmentToken(pc);
+				retString = getAlignmentToken(display);
 			}
 			else if ("ALIGNMENT.SHORT".equals(tokenSource))
 			{
-				retString = getShortToken(pc);
+				retString = getShortToken(display);
 			}
 		}
 		
@@ -77,13 +74,13 @@ public class AlignmentToken extends Token
 	 * @param pc
 	 * @return Alignment Token
 	 */
-	public static String getAlignmentToken(PlayerCharacter pc)
+	public static String getAlignmentToken(CharacterDisplay display)
 	{
 		if (Globals.getGameModeAlignmentText().length() == 0)
 		{
 			return "";
 		}
-		final PCAlignment alignment = pc.getPCAlignment();
+		final PCAlignment alignment = display.getPCAlignment();
 		return alignment==null?"None":alignment.getDisplayName();
 	}
 
@@ -92,14 +89,14 @@ public class AlignmentToken extends Token
 	 * @param pc
 	 * @return Alignment Short Token
 	 */
-	public static String getShortToken(PlayerCharacter pc)
+	public static String getShortToken(CharacterDisplay display)
 	{
 		if (Globals.getGameModeAlignmentText().length() == 0)
 		{
 			return "";
 		}
 		
-		final PCAlignment alignment = pc.getPCAlignment();
+		final PCAlignment alignment = display.getPCAlignment();
 		return alignment==null?"None":alignment.getAbb();
 	}
 }

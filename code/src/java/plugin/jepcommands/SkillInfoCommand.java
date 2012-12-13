@@ -86,7 +86,7 @@ public class SkillInfoCommand extends PCGenCommand
 							.toString());
 
 			Object result = null;
-			if (aSkill != null && pc.hasSkill(aSkill))
+			if (aSkill != null && pc.getDisplay().hasSkill(aSkill))
 			{
 				if ("modifier".equalsIgnoreCase((String) param1))
 				{

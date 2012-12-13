@@ -1783,7 +1783,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendPortraitLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_PORTRAIT).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getPortraitPath()));
+		buffer.append(EntityEncoder.encode(thePC.getDisplay().getPortraitPath()));
 		buffer.append(LINE_SEP);
 		
 		Rectangle rect = thePC.getPortraitThumbnailRect();

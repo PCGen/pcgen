@@ -33,9 +33,11 @@ import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.system.LanguageBundle;
@@ -82,7 +84,7 @@ public class RaceToken extends Token
 				final String subToken = preString + SUBTOKENLIST[i];
 				if (subToken.equals(tokenSource))
 				{
-					retString = getSubToken(SUBTOKENLIST[i], pc);
+					retString = getSubToken(SUBTOKENLIST[i], pc.getDisplay());
 				}
 			}
 		}
@@ -91,7 +93,7 @@ public class RaceToken extends Token
 	}
 
 	private static String getSubToken(final String subToken,
-		final PlayerCharacter pc)
+		CharacterDisplay display)
 	{
 		if (!subToken.equals(SUBTOKENLIST[0]))
 		{
@@ -99,8 +101,9 @@ public class RaceToken extends Token
 		}
 		
 		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
-		saList.addAll(pc.getResolvedUserSpecialAbilities(pc.getRace()));
-		saList.addAll(pc.getResolvedSpecialAbilities(pc.getRace()));
+		Race race = display.getRace();
+		saList.addAll(display.getResolvedUserSpecialAbilities(race));
+		saList.addAll(display.getResolvedSpecialAbilities(race));
 
 		if (saList.isEmpty())
 		{
@@ -128,16 +131,17 @@ public class RaceToken extends Token
 	{
 		String retString = Constants.EMPTY_STRING;
 
-		String tempRaceName = OutputNameFormatting.getOutputName(pc.getRace());
+		Race race = pc.getDisplay().getRace();
+		String tempRaceName = OutputNameFormatting.getOutputName(race);
 
 		if (tempRaceName == null || tempRaceName.length() == 0)
 		{
-			tempRaceName = pc.getRace().getDisplayName();
+			tempRaceName = race.getDisplayName();
 		}
 
 		StringBuilder extraRaceInfo = new StringBuilder(40);
 
-		String subRace = pc.getSubRace();
+		String subRace = pc.getDisplay().getSubRace();
 		if (subRace != null)
 		{
 			extraRaceInfo.append(subRace);
@@ -145,7 +149,7 @@ public class RaceToken extends Token
 
 		if (SettingsHandler.hideMonsterClasses())
 		{
-			LevelCommandFactory lcf = pc.getRace().get(ObjectKey.MONSTER_CLASS);
+			LevelCommandFactory lcf = race.get(ObjectKey.MONSTER_CLASS);
 
 			if (lcf != null)
 			{
@@ -155,7 +159,7 @@ public class RaceToken extends Token
 				if (aClass != null)
 				{
 					int minHD = lcf.getLevelCount().resolve(pc, "").intValue();
-					int monsterHD = pc.getLevel(aClass);
+					int monsterHD = pc.getDisplay().getLevel(aClass);
 
 					if (monsterHD != minHD)
 					{

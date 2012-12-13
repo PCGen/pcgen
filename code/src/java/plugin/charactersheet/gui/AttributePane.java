@@ -137,7 +137,7 @@ public class AttributePane extends JPanel
 		setVisible(true);
 		destruct();
 
-		for (PCStat stat : pc.getStatSet())
+		for (PCStat stat : pc.getDisplay().getStatSet())
  		{
 			Attribute attr = new Attribute(stat);
 			attrList.add(attr);
@@ -264,7 +264,7 @@ public class AttributePane extends JPanel
 		 */
 		public void refresh()
 		{
-			attrAbbrev.setText(StatToken.getNameToken(pc, stat));
+			attrAbbrev.setText(stat.getAbb());
 			baseAttr.setText(StatToken.getStatToken(pc, stat, false, false,
 					true, false, 0));
 			baseBonus.setText(StatToken.getModToken(pc, stat, false, false,

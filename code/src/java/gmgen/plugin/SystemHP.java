@@ -174,7 +174,7 @@ public class SystemHP
 			{
 				PcgCombatant pcgcbt = (PcgCombatant) cbt;
 				PlayerCharacter pc = pcgcbt.getPC();
-				String size = pc.getSize();
+				String size = pc.getDisplay().getSize();
 
 				//FIX: This needs to be moved to pcgen's sizeAdjustment.lst
 				if (size.equals("Fine"))

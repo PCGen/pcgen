@@ -68,6 +68,7 @@ import pcgen.core.bonus.BonusUtilities;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.DataSetFacade;
@@ -111,6 +112,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		EquipmentListListener, ListListener<EquipmentFacade>
 {
 	private final PlayerCharacter pc;
+	private final CharacterDisplay charDisplay;
 	private UIDelegate delegate;
 
 	private DefaultListFacade<SpellNode> availableSpellNodes;
@@ -144,6 +146,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		CharacterFacade pcFacade)
 	{
 		this.pc = pc;
+		this.charDisplay = pc.getDisplay();
 		this.delegate = delegate;
 		this.dataSet = dataSet;
 		this.todoManager = todoManager;
@@ -151,7 +154,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		rootNodeMap = new HashMap<String, RootNodeImpl>();
 		
 		spellBookNames = new DefaultListFacade<String>();
-		defaultSpellBook = new DefaultReferenceFacade<String>(pc.getSpellBookNameToAutoAddKnown());
+		defaultSpellBook = new DefaultReferenceFacade<String>(charDisplay.getSpellBookNameToAutoAddKnown());
 		
 		availableSpellNodes = new DefaultListFacade<SpellSupportFacade.SpellNode>();
 		buildAvailableNodes();
@@ -223,9 +226,9 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		{
 			allKnownSpellNodes.addElement(node);
 			knownSpellNodes.addElement(node);
-			if (!StringUtils.isEmpty(pc.getSpellBookNameToAutoAddKnown()))
+			if (!StringUtils.isEmpty(charDisplay.getSpellBookNameToAutoAddKnown()))
 			{
-				addToSpellBook(node, pc.getSpellBookNameToAutoAddKnown());
+				addToSpellBook(node, charDisplay.getSpellBookNameToAutoAddKnown());
 			}
 
 		}
@@ -294,7 +297,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	private void updateSpellsTodo()
 	{
 		boolean hasFree = false;
-		for (PCClass aClass : pc.getClassSet())
+		for (PCClass aClass : charDisplay.getClassSet())
 		{
 			if (pc.getSpellSupport(aClass).hasKnownList() || pc.getSpellSupport(aClass).hasKnownSpells(pc))
 			{
@@ -714,7 +717,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		final HtmlInfoBuilder b = new HtmlInfoBuilder();
 		b.append("<table border=1><tr><td><font size=-2><b>"); //$NON-NLS-1$
 		b.append(OutputNameFormatting.piString(aClass, false)).append(" ["); //$NON-NLS-1$
-		b.append(String.valueOf(pc.getLevel(aClass)
+		b.append(String.valueOf(charDisplay.getLevel(aClass)
 			+ (int) pc.getTotalBonusTo("PCLEVEL", aClass.getKeyName()))); //$NON-NLS-1$
 		b.append("]</b></font></td>"); //$NON-NLS-1$
 
@@ -774,7 +777,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		b.appendLineBreak();
 		b.appendI18nElement("InfoSpells.stat.bonus", aClass.getSpellBaseStat()); //$NON-NLS-1$ 
 
-		if (pc.hasAssocs(aClass, AssociationKey.SPECIALTY) || pc.hasDomains())
+		if (pc.hasAssocs(aClass, AssociationKey.SPECIALTY) || charDisplay.hasDomains())
 		{
 			boolean needComma = false;
 			StringBuilder schoolInfo = new StringBuilder(); 
@@ -785,7 +788,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 				needComma = true;
 			}
 
-			for (Domain d : pc.getDisplay().getSortedDomainSet())
+			for (Domain d : charDisplay.getSortedDomainSet())
 			{
 				if (needComma)
 				{
@@ -805,7 +808,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			set.addAll(sp.getValueList());
 		}
 
-		Collection<? extends SpellProhibitor> prohibList = pc
+		Collection<? extends SpellProhibitor> prohibList = charDisplay
 				.getProhibitedSchools(aClass);
 		if (prohibList != null)
 		{
@@ -864,7 +867,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 					buildExistingSpellMap(availableSpellNodes, pcClass);
 			
 			for (Spell spell : Globals.getSpellsIn(-1,
-				pc.getSpellLists(pcClass), pc))
+				charDisplay.getSpellLists(pcClass), pc))
 			{
 				// Create SpellNodeImpl for each spell
 				CharacterSpell charSpell = new CharacterSpell(pcClass, spell);
@@ -874,7 +877,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 				HashMapToList<CDOMList<Spell>, Integer> masterLevelInfo =
 						pc.getMasterLevelInfo(spell);
 				
-				for (CDOMList<Spell> spellList : pc.getSpellLists(pcClass))
+				for (CDOMList<Spell> spellList : charDisplay.getSpellLists(pcClass))
 				{
 					List<Integer> levels =  masterLevelInfo.getListFor(spellList);
 					if (levels != null)
@@ -943,7 +946,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		List<PObject> pobjList = new ArrayList<PObject>(classList);
 		
 		// Include spells from race etc
-		pobjList.add(pc.getRace());
+		pobjList.add(charDisplay.getRace());
 
 		
 		// Look at each spell on each spellcasting class
@@ -954,7 +957,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		
 		spellBooks.clear();
 		spellBookNames.clearContents();
-		for (SpellBook spellBook : pc.getSpellBooks())
+		for (SpellBook spellBook : charDisplay.getSpellBooks())
 		{
 			if (spellBook.getType() == SpellBook.TYPE_PREPARED_LIST)
 			{
@@ -976,7 +979,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 	private void buildKnownPreparedSpellsForCDOMObject(CDOMObject pObject)
 	{
-		Collection<? extends CharacterSpell> sp = pc.getCharacterSpells(pObject);
+		Collection<? extends CharacterSpell> sp = charDisplay.getCharacterSpells(pObject);
 		List<CharacterSpell> cSpells = new ArrayList<CharacterSpell>(sp);
 
 		// Add in the spells granted by objects
@@ -1013,7 +1016,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 					node.addCount(spellInfo.getTimes() -1);
 				}
 				boolean isSpellBook =
-						pc.getDisplay().getSpellBookByName(book).getType() == SpellBook.TYPE_SPELL_BOOK;
+						charDisplay.getSpellBookByName(book).getType() == SpellBook.TYPE_SPELL_BOOK;
 				// Add to list
 				if (isKnown)
 				{
@@ -1098,7 +1101,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		RootNodeImpl rootNode = rootNodeMap.get(bookName);
 		if (rootNode == null)
 		{
-			SpellBook book = pc.getDisplay().getSpellBookByName(bookName);
+			SpellBook book = charDisplay.getSpellBookByName(bookName);
 			if (book == null)
 			{
 				return null;
@@ -1150,7 +1153,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	private List<PCClass> getCharactersSpellcastingClasses()
 	{
 		List<PCClass> castingClasses = new ArrayList<PCClass>();
-		Collection<PCClass> classes = pc.getClassSet();
+		Collection<PCClass> classes = charDisplay.getClassSet();
 		for (PCClass pcClass : classes)
 		{
 			if (pcClass.get(StringKey.SPELLTYPE) != null)
@@ -1245,7 +1248,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	@Override
 	public void setDefaultSpellBook(String bookName)
 	{
-		SpellBook book = pc.getDisplay().getSpellBookByName(bookName);
+		SpellBook book = charDisplay.getSpellBookByName(bookName);
 		if (book == null || book.getType() != SpellBook.TYPE_SPELL_BOOK)
 		{
 			return;

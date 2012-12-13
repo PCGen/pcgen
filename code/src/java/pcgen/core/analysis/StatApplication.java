@@ -81,7 +81,7 @@ public class StatApplication
 			final StringBuilder sStats = new StringBuilder();
 			final List<String> selectableStats = new ArrayList<String>();
 	
-			for (PCStat aStat : aPC.getStatSet())
+			for (PCStat aStat : aPC.getDisplay().getStatSet())
 			{
 				final int iAdjStat =
 						StatAnalysis.getTotalStatFor(aPC, aStat);

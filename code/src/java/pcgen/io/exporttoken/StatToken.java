@@ -90,11 +90,11 @@ public class StatToken extends Token
 		aTok.nextToken();
 		int indexOfStat;
 		indexOfStat = Integer.parseInt(aTok.nextToken());
-		if ((indexOfStat < 0) || (indexOfStat >= pc.getStatCount()))
+		if ((indexOfStat < 0) || (indexOfStat >= pc.getDisplay().getStatCount()))
 		{
 			return "";
 		}
-		List<PCStat> statList = new ArrayList<PCStat>(pc.getStatSet());
+		List<PCStat> statList = new ArrayList<PCStat>(pc.getDisplay().getStatSet());
 		PCStat stat = statList.get(indexOfStat);
 
 		String findType = "STAT";
@@ -113,11 +113,11 @@ public class StatToken extends Token
 
 			if ("NAME".equals(token))
 			{
-				return getNameToken(pc, stat);
+				return stat.getAbb();
 			}
 			if ("LONGNAME".equals(token))
 			{
-				return getLongNameToken(pc, stat);
+				return stat.getDisplayName();
 			}
 
 			if ("STAT".equals(token))
@@ -210,7 +210,7 @@ public class StatToken extends Token
 		boolean useTemp, boolean useEquip, boolean usePost, boolean useLevel,
 		int aLevel, final boolean checkGameMode)
 	{
-		if (pc.isNonAbility(stat))
+		if (pc.getDisplay().isNonAbility(stat))
 		{
 			return "*";
 		}
@@ -252,7 +252,7 @@ public class StatToken extends Token
 		boolean useTemp, boolean useEquip, boolean usePost, boolean useLevel,
 		int aLevel)
 	{
-		if (pc.isNonAbility(stat))
+		if (pc.getDisplay().isNonAbility(stat))
 		{
 			return "+0";
 		}
@@ -266,7 +266,7 @@ public class StatToken extends Token
 
 	public static String getBaseToken(PlayerCharacter pc, PCStat stat)
 	{
-		if (pc.isNonAbility(stat))
+		if (pc.getDisplay().isNonAbility(stat))
 		{
 			return "*";
 		}
@@ -275,7 +275,7 @@ public class StatToken extends Token
 
 	public static String getBaseModToken(PlayerCharacter pc, PCStat stat)
 	{
-		if (pc.isNonAbility(stat))
+		if (pc.getDisplay().isNonAbility(stat))
 		{
 			return "+0";
 		}
@@ -285,15 +285,7 @@ public class StatToken extends Token
 		return Delta.toString(temp);
 	}
 
-	public static String getNameToken(PlayerCharacter pc, PCStat stat)
-	{
-		return stat.getAbb();
-	}
-
-	public static String getLongNameToken(PlayerCharacter pc, PCStat stat)
-	{
-		return stat.getDisplayName();
-	}
+	
 
 	/*
 	 * Wrapper functions for calls with old arguments

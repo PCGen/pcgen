@@ -9,6 +9,7 @@ import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.BigDecimalHelper;
@@ -443,6 +444,7 @@ public class ArmorToken extends Token
 	private static String _writeArmorProperty(Equipment eq, String property,
 		PlayerCharacter aPC)
 	{
+		CharacterDisplay display = aPC.getDisplay();
 		StringBuilder ret = new StringBuilder();
 
 		if (property.startsWith("NAME"))
@@ -524,12 +526,12 @@ public class ArmorToken extends Token
 					new StringTokenizer(eq.moveString(), ",", false);
 			String tempString = "";
 
-			if (("M".equals(aPC.getSize()) || "S".equals(aPC.getSize()))
+			if (("M".equals(display.getSize()) || "S".equals(display.getSize()))
 				&& (aTok.countTokens() > 0))
 			{
 				tempString = aTok.nextToken();
 
-				if ("S".equals(aPC.getSize()) && (aTok.countTokens() > 1))
+				if ("S".equals(display.getSize()) && (aTok.countTokens() > 1))
 				{
 					tempString = aTok.nextToken();
 				}

@@ -378,7 +378,7 @@ public class SkillToken extends Token
 
 				case SKILL_COST:
 					SkillCost cost = null;
-					for (PCClass pcc : pc.getClassSet())
+					for (PCClass pcc : pc.getDisplay().getClassSet())
 					{
 						if (cost == null)
 						{

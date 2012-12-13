@@ -395,8 +395,8 @@ public class EqContainerwToken extends Token
 
 		if ((pc != null) && (eq.isNatural()))
 		{
-			retString = Globals.adjustDamage(retString, pc.getRace().getSafe(
-					FormulaKey.SIZE).resolve(pc, "").intValue(), pc.sizeInt());
+			retString = Globals.adjustDamage(retString, pc.getDisplay().getRace().getSafe(
+					FormulaKey.SIZE).resolve(pc, "").intValue(), pc.getDisplay().sizeInt());
 		}
 
 		return retString;

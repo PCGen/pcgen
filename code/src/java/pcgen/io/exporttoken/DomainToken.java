@@ -31,7 +31,6 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.display.DescriptionFormatting;
 import pcgen.io.ExportHandler;
 
@@ -91,32 +90,11 @@ public class DomainToken extends Token
 			}
 			else
 			{
-				retString = getDomainToken(pc, domainIndex);
+				retString = pc.getDisplay().getDomainToken(domainIndex);
 			}
 		}
 
 		return retString;
-	}
-
-	/**
-	 * Get the DOMAIN token
-	 * @param pc
-	 * @param domainIndex
-	 * @return token
-	 */
-	public static String getDomainToken(PlayerCharacter pc, int domainIndex)
-	{
-		try
-		{
-			Domain domain =
-				new ArrayList<Domain>(pc.getDisplay().getSortedDomainSet()).get(domainIndex);
-
-			return OutputNameFormatting.getOutputName(domain);
-		}
-		catch (Exception e)
-		{
-			return Constants.EMPTY_STRING;
-		}
 	}
 
 	/**

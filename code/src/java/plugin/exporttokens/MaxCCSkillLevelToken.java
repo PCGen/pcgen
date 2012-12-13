@@ -64,7 +64,7 @@ public class MaxCCSkillLevelToken extends Token
 	 */
 	public static String getMaxCCSkillLevelToken(PlayerCharacter pc)
 	{
-		return SkillUtilities.maxCrossClassSkillForLevel(pc.getTotalLevels(),
+		return SkillUtilities.maxCrossClassSkillForLevel(pc.getDisplay().getTotalLevels(),
 			pc).toString();
 	}
 }

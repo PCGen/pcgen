@@ -1,5 +1,5 @@
 /*
- * DRToken.java
+ * ReachToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -23,45 +23,68 @@
  * Last Edited: $Date$
  *
  */
-package pcgen.io.exporttoken;
+package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import java.text.DecimalFormat;
+
+import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbstractExportToken;
 
-/**
- * Deals with DR token
- */
-public class DRToken extends Token
+//REACH
+public class ReachToken extends AbstractExportToken
 {
-	/** Token Name */
-	public static final String TOKENNAME = "DR";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "REACH";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getDRToken(pc);
+		String retString = "";
+
+		if ("REACH".equals(tokenSource))
+		{
+			retString = getToken(display);
+		}
+		else if ("REACH.VAL".equals(tokenSource))
+		{
+			return Integer.toString(getReachToken(display));
+		}
+		else if ("REACH.SQUARES".equals(tokenSource))
+		{
+			retString = getSquaresToken(display);
+		}
+
+		return retString;
 	}
 
-	/**
-	 * Get the DR Token
-	 * @param pc
-	 * @return DR Token
-	 */
-	public static String getDRToken(PlayerCharacter pc)
+	public static int getReachToken(CharacterDisplay display)
 	{
-		return pc.calcDR();
+		return display.getReach();
+	}
+
+	public static String getToken(CharacterDisplay display)
+	{
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+			getReachToken(display))
+			+ Globals.getGameModeUnitSet().getDistanceUnit();
+	}
+
+	public static String getSquaresToken(CharacterDisplay display)
+	{
+		return new DecimalFormat("#.#").format(getReachToken(display)
+			/ SettingsHandler.getGame().getSquareSize());
 	}
 }

@@ -24,6 +24,7 @@
 package plugin.exporttokens;
 
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SkillToken;
@@ -63,6 +64,7 @@ public class SkillLevelToken extends SkillToken
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
+		CharacterDisplay display = pc.getDisplay();
 		SkillDetails details = buildSkillDetails(tokenSource);
 
 		if (details.getPropertyCount() > 0
@@ -74,14 +76,14 @@ public class SkillLevelToken extends SkillToken
 			{
 				aLevelOffset = Integer.parseInt(details.getSkillId()) - 1;
 
-				if ((aLevelOffset >= pc.getLevelInfoSize())
+				if ((aLevelOffset >= display.getLevelInfoSize())
 					|| (aLevelOffset < 0))
 				{
 					return "0";
 				}
 
 				final PCLevelInfo wLevelInfo =
-						pc.getLevelInfo(aLevelOffset);
+						display.getLevelInfo(aLevelOffset);
 				final int wOutput = wLevelInfo.getSkillPointsGained(pc);
 				return Integer.toString(wOutput);
 			}

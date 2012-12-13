@@ -7,12 +7,18 @@
 package plugin.charactersheet.gui;
 
 import gmgen.plugin.PlayerCharacterOutput;
-import pcgen.core.PlayerCharacter;
-import pcgen.io.exporttoken.*;
-import pcgen.util.Delta;
 
 import java.awt.Font;
 import java.util.Properties;
+
+import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.io.exporttoken.HPToken;
+import pcgen.io.exporttoken.MovementToken;
+import pcgen.io.exporttoken.SRToken;
+import pcgen.io.exporttoken.SpellFailureToken;
+import pcgen.io.exporttoken.VarToken;
+import pcgen.util.Delta;
 
 /**
  * Confirmed no memory Leaks Dec 10, 2004
@@ -1052,14 +1058,15 @@ public class CombatPane1 extends javax.swing.JPanel
 	public void refresh()
 	{
 		PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
+		CharacterDisplay display = pc.getDisplay();
 
 		totalHp.setText(Integer.toString(HPToken.getHPToken(pc)));
-		damageReduction.setText(DRToken.getDRToken(pc) + ' ');
-		speed.setText(MovementToken.getMovementToken(pc));
+		damageReduction.setText(display.calcDR() + ' ');
+		speed.setText(MovementToken.getMovementToken(display));
 
-		totalAc.setText(Integer.toString(pc.getACTotal()));
-		flatAc.setText(Integer.toString(pc.flatfootedAC()));
-		touchAc.setText(Integer.toString(pc.touchAC()));
+		totalAc.setText(Integer.toString(display.getACTotal()));
+		flatAc.setText(Integer.toString(display.flatfootedAC()));
+		touchAc.setText(Integer.toString(display.touchAC()));
 		acBase.setText(pcOut.getExportToken(AC_BASE_TOKEN));
 		acArmor.setText(pcOut.getExportToken(AC_ARMOR_TOKEN));
 		acShield.setText(pcOut.getExportToken(AC_SHIELD_TOKEN));

@@ -280,11 +280,11 @@ public class Page2Panel extends javax.swing.JPanel
 	//TODO: [DJ] add to DomainToken
 	private Map<String, String> getDomainMap(PlayerCharacter aPC)
 	{
-		int numDomains = aPC.getDomainCount();
+		int numDomains = aPC.getDisplay().getDomainCount();
 		Map<String, String> domainMap = new HashMap<String, String>();
 		for (int i = 0; i < numDomains; i++)
 		{
-			domainMap.put(DomainToken.getDomainToken(aPC, i), DomainToken
+			domainMap.put(aPC.getDisplay().getDomainToken(i), DomainToken
 				.getPowerToken(aPC, i));
 		}
 		return domainMap;

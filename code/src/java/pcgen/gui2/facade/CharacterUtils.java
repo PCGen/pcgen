@@ -19,7 +19,7 @@ public class CharacterUtils
 	public static void selectClothes(final PlayerCharacter aPC)
 	{
 		if (Globals.checkRule(RuleConstants.FREECLOTHES)
-			&& ((aPC.totalNonMonsterLevels()) == 1)) //$NON-NLS-1$
+			&& ((aPC.getDisplay().totalNonMonsterLevels()) == 1)) //$NON-NLS-1$
 		{
 			//
 			// See what the PC is already carrying
@@ -34,7 +34,7 @@ public class CharacterUtils
 			// has a zero price attached
 			//
 			boolean hasClothes = false;
-			SizeAdjustment pcSizeAdj = aPC.getSizeAdjustment();
+			SizeAdjustment pcSizeAdj = aPC.getDisplay().getSizeAdjustment();
 
 			if (clothes.size() != 0)
 			{

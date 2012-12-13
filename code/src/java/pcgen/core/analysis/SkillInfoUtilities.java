@@ -86,7 +86,7 @@ public class SkillInfoUtilities
 		{
 			for (Type aType : sk.getTrueTypeList(false))
 			{
-				for (PCStat stat : pc.getStatSet())
+				for (PCStat stat : pc.getDisplay().getStatSet())
 				{
 					//
 					// Get a list of all BONUS:SKILL|TYPE.<type>|x for this

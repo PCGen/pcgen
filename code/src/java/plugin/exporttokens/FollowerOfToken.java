@@ -27,6 +27,7 @@ package plugin.exporttokens;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.Follower;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -70,12 +71,13 @@ public class FollowerOfToken extends Token
 
 		if (masterPC != null)
 		{
-			for (Follower aFollower : masterPC.getFollowerList())
+			CharacterDisplay masterDisplay = masterPC.getDisplay();
+			for (Follower aFollower : masterDisplay.getFollowerList())
 			{
-				if (aFollower.getFileName().equals(pc.getFileName()))
+				if (aFollower.getFileName().equals(pc.getDisplay().getFileName()))
 				{
 					retString =
-							aFollower.getType() + " of " + masterPC.getName();
+							aFollower.getType() + " of " + masterDisplay.getName();
 				}
 			}
 		}

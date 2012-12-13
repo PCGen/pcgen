@@ -53,6 +53,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.chooser.ChooserUtilities;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.DataSetFacade;
@@ -87,7 +88,8 @@ import pcgen.util.enumeration.Visibility;
 public class CharacterAbilities
 {
 
-	private PlayerCharacter theCharacter;
+	private final PlayerCharacter theCharacter;
+	private final CharacterDisplay charDisplay;
 	private UIDelegate delegate;
 
 	private Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> abilityListMap;
@@ -111,6 +113,7 @@ public class CharacterAbilities
 		DataSetFacade dataSetFacade, TodoManager todoManager)
 	{
 		theCharacter = pc;
+		charDisplay = pc.getDisplay();
 		this.delegate = delegate;
 		this.dataSetFacade = dataSetFacade;
 		this.todoManager = todoManager;
@@ -948,7 +951,7 @@ public class CharacterAbilities
 			{
 					Logging
 						.debugPrint("CA for "
-							+ theCharacter.getName()
+							+ charDisplay.getName()
 							+ ". Ignoring granted ability removed for character "
 							+ dfce.getCharID());
 				return;
@@ -998,7 +1001,7 @@ public class CharacterAbilities
 			{
 					Logging
 						.debugPrint("CA for "
-							+ theCharacter.getName()
+							+ charDisplay.getName()
 							+ ". Ignoring active ability removed for character "
 							+ dfce.getCharID());
 				return;

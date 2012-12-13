@@ -36,6 +36,7 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.character.Follower;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.CompanionFacade;
 import pcgen.core.facade.CompanionStubFacade;
@@ -67,7 +68,8 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 {
 
 	private DefaultListFacade<CompanionFacadeDelegate> companionList;
-	private PlayerCharacter theCharacter;
+	private final PlayerCharacter theCharacter;
+	private final CharacterDisplay charDisplay;
 	private DefaultListFacade<CompanionStubFacade> availCompList;
 	private DefaultMapFacade<String, Integer> maxCompanionsMap;
 	private Map<String, CompanionList> keyToCompanionListMap;
@@ -85,6 +87,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		ReferenceFacade<File> fileRef)
 	{
 		this.theCharacter = theCharacter;
+		this.charDisplay = theCharacter.getDisplay();
 		this.todoManager = todoManager;
 		this.companionList = new DefaultListFacade<CompanionFacadeDelegate>();
 		this.availCompList = new DefaultListFacade<CompanionStubFacade>();
@@ -120,7 +123,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 						CharacterFacadeImpl compFacadeImpl =
 								(CharacterFacadeImpl) companion;
 						Follower follower =
-								compFacadeImpl.getTheCharacter().getMaster();
+								compFacadeImpl.getTheCharacter().getDisplay().getMaster();
 						follower.setName(newName);
 					}
 				}
@@ -168,7 +171,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			{
 				CharacterFacadeImpl compFacadeImpl = (CharacterFacadeImpl) compFacade;
 				PlayerCharacter pc = compFacadeImpl.getTheCharacter();
-				pc.setMaster(pc.getMaster());
+				pc.setMaster(pc.getDisplay().getMaster());
 				compFacadeImpl.refreshClassLevelModel();
 				compFacadeImpl.postLevellingUpdates();
 			}
@@ -186,7 +189,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 				.getConstructedCDOMObjects(CompanionList.class))
 		{
 			keyToCompanionListMap.put(compList.getKeyName(), compList);
-			Map<FollowerOption, CDOMObject> fMap = theCharacter.getAvailableFollowers(compList.getKeyName(), null);
+			Map<FollowerOption, CDOMObject> fMap = charDisplay.getAvailableFollowers(compList.getKeyName(), null);
 			for (FollowerOption followerOpt : fMap.keySet())
 			{
 				if (followerOpt.getRace() != Globals.s_EMPTYRACE && followerOpt.qualifies(theCharacter, null))
@@ -210,7 +213,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		
 		if (rebuildCompanionList)
 		{
-			for (Follower follower : theCharacter.getFollowerList())
+			for (Follower follower : charDisplay.getFollowerList())
 			{
 				CompanionFacade comp =
 						new CompanionNotLoaded(follower.getName(), new File(
@@ -293,10 +296,10 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		
 		// Update the companion with the master details
 		Logging.log(Logging.INFO,
-			"Setting master to " + theCharacter.getName() //$NON-NLS-1$
+			"Setting master to " + charDisplay.getName() //$NON-NLS-1$
 				+ " for character " + compFacadeImpl); //$NON-NLS-1$
 		final Follower newMaster =
-				new Follower(theCharacter.getFileName(), theCharacter.getName(), compList);
+				new Follower(charDisplay.getFileName(), charDisplay.getName(), compList);
 		newMaster.setAdjustment(followerOpt.getAdjustment());
 		compFacadeImpl.getTheCharacter().setMaster(newMaster);
 		compFacadeImpl.refreshClassLevelModel();
@@ -325,7 +328,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	private FollowerOption getFollowerOpt(CompanionList compList, Race compRace)
 	{
 		FollowerOption followerOpt = null; 
-		Map<FollowerOption, CDOMObject> fMap = theCharacter.getAvailableFollowers(compList.getKeyName(), null);
+		Map<FollowerOption, CDOMObject> fMap = charDisplay.getAvailableFollowers(compList.getKeyName(), null);
 		for (FollowerOption fOpt : fMap.keySet())
 		{
 			if (compRace == fOpt.getRace())
@@ -349,7 +352,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		}
 		
 		File compFile = companion.getFileRef().getReference();
-		for (Follower follower : theCharacter.getFollowerList())
+		for (Follower follower : charDisplay.getFollowerList())
 		{
 			File followerFile = new File(follower.getFileName());
 			if (followerFile.equals(compFile))
@@ -392,7 +395,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 				{
 					CompanionList compList = keyToCompanionListMap.get(companionType);
 					final Follower newMaster =
-							new Follower(theCharacter.getFileName(), theCharacter.getName(), compList);
+							new Follower(charDisplay.getFileName(), charDisplay.getName(), compList);
 					FollowerOption followerOpt =
 							getFollowerOpt(compList, (Race) character
 								.getRaceRef().getReference());

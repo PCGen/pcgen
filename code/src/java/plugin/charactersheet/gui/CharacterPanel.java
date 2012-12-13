@@ -28,6 +28,7 @@ import pcgen.core.NoteItem;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui2.util.ScrollablePanel;
 import plugin.charactersheet.CharacterSheetPlugin;
@@ -302,8 +303,9 @@ public class CharacterPanel extends FlippingSplitPane
 				}
 			}
 		}
-		String title = pc.getRace().getDisplayName();
-		if (pc.hasCharacterSpells(pc.getRace()) && mainTabs.indexOfTab(title) == -1)
+		CharacterDisplay display = pc.getDisplay();
+		String title = display.getRace().getDisplayName();
+		if (display.hasCharacterSpells(display.getRace()) && mainTabs.indexOfTab(title) == -1)
 		{
 			SpellPage spellPage = new SpellPage(20);
 			spellPage.setPc(pc, pcProperties);

@@ -44,6 +44,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SystemCollections;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.BodyStructureFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
@@ -80,7 +81,8 @@ import pcgen.util.Logging;
 public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		EquipmentListListener, ListListener<EquipmentFacade>
 {
-	private PlayerCharacter theCharacter;
+	private final PlayerCharacter theCharacter;
+	private final CharacterDisplay charDisplay;
 	private EquipSet eqSet;
 	private List<EquipmentTreeListener> listeners = new ArrayList<EquipmentTreeListener>();
 	private DefaultReferenceFacade<String> name;
@@ -110,6 +112,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	{
 		this.delegate = delegate;
 		this.theCharacter = pc;
+		this.charDisplay = pc.getDisplay();
 		this.dataSet = dataSet;
 		this.purchasedList = purchasedList;
 		initForEquipSet(eqSet);
@@ -135,7 +138,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		
 		buildNodeList();
 
-		List<EquipSet> equipList = new ArrayList<EquipSet>(theCharacter.getEquipSet());
+		List<EquipSet> equipList = new ArrayList<EquipSet>(charDisplay.getEquipSet());
 		Collections.sort(equipList);
 		createNaturalWeaponSlots();
 		updateNaturalWeaponSlots();
@@ -167,14 +170,14 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 					if (slot.canContainType("WEAPON"))
 					{
 						// Add phantom nodes for the various weapon slots
-						if (theCharacter.getHands() > 0)
+						if (charDisplay.getHands() > 0)
 						{
 							addEquipNodeForEquipSlot(
 								node,
 								createWeaponEquipSlot(slot,
 									Constants.EQUIP_LOCATION_PRIMARY), true);
 						}
-						for (int i = 1; i < theCharacter.getHands(); ++i)
+						for (int i = 1; i < charDisplay.getHands(); ++i)
 						{
 							if (i > 1)
 							{
@@ -366,7 +369,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		theCharacter.setCalcEquipmentList();
 		if (!Constants.EQUIP_LOCATION_NOTCARRIED.equals(root.toString()))
 		{
-			totalWeight = theCharacter.totalWeight();
+			totalWeight = charDisplay.totalWeight();
 		}
 	}
 
@@ -374,11 +377,11 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 * returns new id_Path with the last id one higher than the current
 	 * highest id for EquipSets with the same ParentIdPath.
 	 * TODO: This needs to be moved to the core.
-	 * @param pc The character owning the equipset.
+	 * @param display The display interface for the character owning the equipset.
 	 * @param parentSet The parent of the equipset that is being created, null if it a root set.
 	 * @return new id path
 	 **/
-	static String getNewIdPath(PlayerCharacter pc, EquipSet parentSet)
+	static String getNewIdPath(CharacterDisplay display, EquipSet parentSet)
 	{
 		String pid = "0";
 		int newID = 0;
@@ -388,7 +391,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 			pid = parentSet.getIdPath();
 		}
 
-		for (EquipSet es : pc.getEquipSet())
+		for (EquipSet es : display.getEquipSet())
 		{
 			if (es.getParentIdPath().equals(pid) && (es.getId() > newID))
 			{
@@ -451,7 +454,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 
 			case EQUIPMENT:
 				parent = targetNode;
-				parentEs = theCharacter.getEquipSetByIdPath(parent.getIdPath());
+				parentEs = charDisplay.getEquipSetByIdPath(parent.getIdPath());
 				equipSlot = targetNode.getSlot();
 				locName = parent.toString();
 				break;
@@ -482,7 +485,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 						int totalQuantity = (int) (existingItem.getQty() + quantity);
 						existingItem.setQty(totalQuantity);
 						EquipSet es =
-								theCharacter
+								charDisplay
 									.getEquipSetByIdPath(((EquipNodeImpl) existing)
 										.getIdPath());
 						es.setQty(es.getQty() + quantity);
@@ -497,7 +500,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		}
 		
 		// Create equip set for the item
-		String id = EquipmentSetFacadeImpl.getNewIdPath(theCharacter, parentEs);
+		String id = EquipmentSetFacadeImpl.getNewIdPath(charDisplay, parentEs);
 		Equipment newItem = item.clone();
 		EquipSet newSet = new EquipSet(id, locName, newItem.getName(), newItem);
 		newItem.setQty(quantity);
@@ -578,7 +581,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		
 		EquipNodeImpl targetNode = (EquipNodeImpl) node;
 		EquipNodeImpl parentNode = (EquipNodeImpl) node.getParent();
-		EquipSet eSet = theCharacter.getEquipSetByIdPath(targetNode.getIdPath());
+		EquipSet eSet = charDisplay.getEquipSetByIdPath(targetNode.getIdPath());
 		if (eSet == null)
 		{
 			Logging.errorPrint("No equipset found for node " + targetNode
@@ -1210,7 +1213,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 				return node.singleOnly ? 1 : node.getSlot().getSlotCount();
 
 			default:
-				EquipSet parentEs = theCharacter.getEquipSetByIdPath(node.getIdPath());
+				EquipSet parentEs = charDisplay.getEquipSetByIdPath(node.getIdPath());
 				return parentEs == null ? 0 : parentEs.getQty().intValue();
 		}
 	}
@@ -1483,7 +1486,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		List<EquipNodeImpl> affectedList = findEquipmentNodes(equipmentFacade);
 		for (EquipNodeImpl equipNode : affectedList)
 		{
-			EquipSet eSet = theCharacter.getEquipSetByIdPath(equipNode.getIdPath());
+			EquipSet eSet = charDisplay.getEquipSetByIdPath(equipNode.getIdPath());
 			if (eSet != null)
 			{
 				removeEquipment(equipNode, eSet.getQty().intValue());
@@ -1550,7 +1553,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 				Collections.sort(affectedList, new EquipLocImportantComparator()); // TODO: Custom sort order
 				for (EquipNodeImpl equipNode : affectedList)
 				{
-					EquipSet eSet = theCharacter.getEquipSetByIdPath(equipNode.getIdPath());
+					EquipSet eSet = charDisplay.getEquipSetByIdPath(equipNode.getIdPath());
 					if (eSet != null)
 					{
 						int numToRemove = Math.min(eSet.getQty().intValue(),numStillToRemove);

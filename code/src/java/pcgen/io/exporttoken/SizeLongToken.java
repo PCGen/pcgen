@@ -25,25 +25,22 @@
  */
 package pcgen.io.exporttoken;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.SizeAdjustment;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 
 /**
  * SIZELONG for export
  */
-public class SizeLongToken extends Token
+public class SizeLongToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "SIZELONG";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "SIZELONG";
 	}
 
 	//TODO: this really should be in the Size token as SIZE.LONG
@@ -51,10 +48,10 @@ public class SizeLongToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return getSizeLongToken(pc);
+		return getSizeLongToken(display);
 	}
 
 	/**
@@ -62,9 +59,9 @@ public class SizeLongToken extends Token
 	 * @param pc
 	 * @return value SIZELONG token
 	 */
-	public static String getSizeLongToken(PlayerCharacter pc)
+	public static String getSizeLongToken(CharacterDisplay display)
 	{
-		final SizeAdjustment sadj = pc.getSizeAdjustment();
+		final SizeAdjustment sadj = display.getSizeAdjustment();
 		if (sadj != null)
 		{
 			return sadj.getDisplayName();

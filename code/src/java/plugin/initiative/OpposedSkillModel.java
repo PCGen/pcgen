@@ -104,7 +104,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 				Skill skill = Globals.getContext().ref
 						.silentlyGetConstructedCDOMObject(Skill.class,
 								aSkillKey);
-				if (skill != null && pc.hasSkill(skill))
+				if (skill != null && pc.getDisplay().hasSkill(skill))
 				{
 					returnValue =
 							Integer.valueOf(SkillModifier.modifier(skill, pc).intValue()

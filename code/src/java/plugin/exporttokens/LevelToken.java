@@ -72,12 +72,12 @@ public class LevelToken extends Token
 			level = Integer.parseInt(aTok.nextToken());
 		}
 
-		if (level < 1 || level >  pc.getLevelInfoSize())
+		if (level < 1 || level >  pc.getDisplay().getLevelInfoSize())
 		{
 			//TODO Error?
 			return "";
 		}
-		PCLevelInfo pcl = pc.getLevelInfo(level - 1);
+		PCLevelInfo pcl = pc.getDisplay().getLevelInfo(level - 1);
 
 		if (aTok.hasMoreTokens())
 		{
@@ -160,7 +160,7 @@ public class LevelToken extends Token
 		}
 		if (aClass != null)
 		{
-			PCClassLevel classLevel = pc.getActiveClassLevel(aClass, pcl.getClassLevel() - 1);
+			PCClassLevel classLevel = pc.getDisplay().getActiveClassLevel(aClass, pcl.getClassLevel() - 1);
 			Integer hp = pc.getHP(classLevel);
 			return hp == null ? "0" : hp.toString();
 		}

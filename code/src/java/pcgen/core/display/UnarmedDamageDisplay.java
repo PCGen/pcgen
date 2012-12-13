@@ -39,18 +39,19 @@ public class UnarmedDamageDisplay
 	public static String getUnarmedDamageString(PlayerCharacter pc,
 		final boolean includeStrBonus, final boolean adjustForPCSize)
 	{
+		CharacterDisplay display = pc.getDisplay();
 		String retString = "2|1d2";
 
 		for (PCClass pcClass : pc.getClassSet())
 		{
 			retString =
 					PlayerCharacterUtilities.getBestUDamString(retString,
-						pcClass.getUdamForLevel(pc.getLevel(pcClass), pc,
+						pcClass.getUdamForLevel(display.getLevel(pcClass), pc,
 							adjustForPCSize));
 		}
 
 		int sizeInt = pc.sizeInt();
-		for (List<String> unarmedDamage : pc.getUnarmedDamage())
+		for (List<String> unarmedDamage : display.getUnarmedDamage())
 		{
 			String aDamage;
 			if (unarmedDamage.size() == 1)
@@ -66,7 +67,7 @@ public class UnarmedDamageDisplay
 						aDamage);
 		}
 		//Test against the default for the race
-		String pObjDamage = pc.getUDamForRace();
+		String pObjDamage = display.getUDamForRace();
 		retString =
 				PlayerCharacterUtilities.getBestUDamString(retString,
 					pObjDamage);
@@ -77,8 +78,8 @@ public class UnarmedDamageDisplay
 					retString.substring(retString.indexOf('|') + 1));
 		if (includeStrBonus)
 		{
-			int sb = (int) pc.getStatBonusTo("DAMAGE", "TYPE.MELEE");
-			sb += (int) pc.getStatBonusTo("DAMAGE", "TYPE=MELEE");
+			int sb = (int) display.getStatBonusTo("DAMAGE", "TYPE.MELEE");
+			sb += (int) display.getStatBonusTo("DAMAGE", "TYPE=MELEE");
 			if (sb != 0)
 			{
 				ret.append(Delta.toString(sb));

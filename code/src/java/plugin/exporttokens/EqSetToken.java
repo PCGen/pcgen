@@ -26,6 +26,7 @@
 package plugin.exporttokens;
 
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -74,7 +75,7 @@ public class EqSetToken extends Token
 		}
 		else if ("EQSET.NAME".equals(tokenSource))
 		{
-			retString = getNameToken(pc);
+			retString = getNameToken(pc.getDisplay());
 		}
 
 		return retString;
@@ -85,9 +86,9 @@ public class EqSetToken extends Token
 	 * @param pc
 	 * @return Name Token
 	 */
-	public static String getNameToken(PlayerCharacter pc)
+	public static String getNameToken(CharacterDisplay display)
 	{
-		return pc.getCurrentEquipSetName();
+		return display.getCurrentEquipSetName();
 	}
 
 	/**

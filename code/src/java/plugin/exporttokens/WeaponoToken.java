@@ -31,6 +31,7 @@ import java.util.StringTokenizer;
 
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.WeaponToken;
 
@@ -77,7 +78,7 @@ public class WeaponoToken extends WeaponToken
 
 		final String ind = aTok.nextToken();
 		final int index = Integer.parseInt(ind);
-		Equipment eq = getWeaponEquipment(pc, index);
+		Equipment eq = getWeaponEquipment(pc.getDisplay(), index);
 
 		if (eq != null)
 		{
@@ -100,9 +101,9 @@ public class WeaponoToken extends WeaponToken
 	 * @param pc The character used to generate the size.
 	 * @return The equipment.
 	 */
-	public static Equipment getWeaponEquipment(final PlayerCharacter pc, final int anIndex)
+	public static Equipment getWeaponEquipment(CharacterDisplay display, final int anIndex)
 	{
-		final List<Equipment> secWeapons = new ArrayList<Equipment>(pc.getSecondaryWeapons());
+		final List<Equipment> secWeapons = new ArrayList<Equipment>(display.getSecondaryWeapons());
 		if (!secWeapons.isEmpty() && anIndex < secWeapons.size())
 		{
 			return secWeapons.get(anIndex);

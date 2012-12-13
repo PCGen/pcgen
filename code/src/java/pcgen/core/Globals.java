@@ -41,7 +41,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.logging.Level;
-import java.util.regex.Pattern;
 
 import javax.swing.JFrame;
 
@@ -1630,46 +1629,6 @@ public final class Globals
 			encumberedMove = 0;
 
 			break;
-		}
-
-		return encumberedMove;
-	}
-
-	/**
-	 * Works for dnd according to the method noted in the faq. (NOTE: The table
-	 * in the dnd faq is wrong for speeds 80 and 90) Not as sure it works for
-	 * all other d20 games.
-	 * 
-	 * @param load
-	 * @param unencumberedMove
-	 *            the unencumbered move value
-	 * @param aPC
-	 * @return encumbered move as an integer
-	 */
-	static double calcEncumberedMove(final Load load, final double unencumberedMove, final PlayerCharacter aPC)
-	{
-		double encumberedMove;
-
-		//
-		// Can we ignore any encumberance for this type? If we can, then there's
-		// no need to do any more calculations.
-		//
-		if (aPC.ignoreEncumberedLoadMove(load))
-		{
-			encumberedMove = unencumberedMove;
-		}
-		else
-		{
-			String formula = SettingsHandler.getGame().getLoadInfo()
-					.getLoadMoveFormula(load.toString());
-			if (formula.length() != 0)
-			{
-				formula = formula.replaceAll(Pattern.quote("$$MOVE$$"), Double
-						.toString(Math.floor(unencumberedMove)));
-				return aPC.getVariableValue(formula, "").doubleValue();
-			}
-
-			encumberedMove = calcEncumberedMove(load, unencumberedMove);
 		}
 
 		return encumberedMove;

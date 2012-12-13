@@ -29,6 +29,7 @@ import java.util.StringTokenizer;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.Follower;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.FollowerToken;
 import pcgen.io.exporttoken.Token;
@@ -130,7 +131,7 @@ public class FollowerTypeToken extends Token
 		}
 
 		String result = "";
-		List<Follower> aList = getFollowersOfType(pc, typeString);
+		List<Follower> aList = getFollowersOfType(pc.getDisplay(), typeString);
 		if (followerIndex > -1 && followerIndex < aList.size())
 		{
 			result =
@@ -144,15 +145,15 @@ public class FollowerTypeToken extends Token
 	/**
 	 * Retrieve a list of followers of the desired type.
 	 * 
-	 * @param pc The targte character 
+	 * @param pc The display for the target character 
 	 * @param typeString The follower type being looked for
 	 * @return The list of qualifying followers.
 	 */
-	private List<Follower> getFollowersOfType(PlayerCharacter pc,
+	private List<Follower> getFollowersOfType(CharacterDisplay display,
 		String typeString)
 	{
 		List<Follower> aList = new ArrayList<Follower>();
-		for (Follower fol : pc.getFollowerList())
+		for (Follower fol : display.getFollowerList())
 		{
 			if (fol.getType().getKeyName().equalsIgnoreCase(typeString))
 			{

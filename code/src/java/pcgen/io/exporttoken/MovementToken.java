@@ -29,22 +29,20 @@ import java.util.StringTokenizer;
 
 import pcgen.base.util.NamedValue;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 
 //MOVEMENT
 //MOVEMENT.movetype
-public class MovementToken extends Token
+public class MovementToken extends AbstractExportToken
 {
-	public static final String TOKENNAME = "MOVEMENT";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "MOVEMENT";
 	}
 
 	//TODO: Move the |MOVEMENT| results into MoveToken, and then Eliminate MovementToken
@@ -53,7 +51,7 @@ public class MovementToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		String retString = "";
@@ -63,34 +61,34 @@ public class MovementToken extends Token
 		if (aTok.hasMoreTokens())
 		{
 			String moveType = aTok.nextToken();
-			retString = getMoveTypeToken(pc, moveType);
+			retString = getMoveTypeToken(display, moveType);
 		}
 		else
 		{
-			retString = getMovementToken(pc);
+			retString = getMovementToken(display);
 		}
 
 		return retString;
 	}
 
-	public static String getMoveTypeToken(PlayerCharacter pc, String moveType)
+	public static String getMoveTypeToken(CharacterDisplay display, String moveType)
 	{
 		String retString = "";
 
-		if (pc.hasMovement(moveType))
+		if (display.hasMovement(moveType))
 		{
-			retString = getRateToken(pc.getMovementOfType(moveType));
+			retString = getRateToken(display.getMovementOfType(moveType));
 		}
 
 		return retString;
 	}
 
-	public static String getMovementToken(PlayerCharacter pc)
+	public static String getMovementToken(CharacterDisplay display)
 	{
 		StringBuilder retString = new StringBuilder();
 		boolean firstLine = true;
 
-		for (NamedValue move : pc.getMovementValues())
+		for (NamedValue move : display.getMovementValues())
 		{
 			if (!firstLine)
 			{

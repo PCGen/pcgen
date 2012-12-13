@@ -31,6 +31,7 @@ import java.util.Set;
 
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
@@ -67,7 +68,7 @@ public class HitDiceToken extends Token
 		}
 		else if ("HITDICE.SHORT".equals(tokenSource))
 		{
-			retString = getShortToken(pc);
+			retString = getShortToken(pc.getDisplay());
 		}
 
 		return retString;
@@ -83,14 +84,15 @@ public class HitDiceToken extends Token
 		StringBuilder ret = new StringBuilder();
 		String del = "";
 
-		for (PCClass pcClass : pc.getClassSet())
+		CharacterDisplay display = pc.getDisplay();
+		for (PCClass pcClass : display.getClassSet())
 		{
 			HashMap<Integer, Integer> hdMap =
 					new LinkedHashMap<Integer, Integer>();
 
-			for (int i = 0; i < pc.getLevel(pcClass); i++)
+			for (int i = 0; i < display.getLevel(pcClass); i++)
 			{
-				int hitDie = pc.getLevelHitDie(pcClass, i + 1).getDie();
+				int hitDie = display.getLevelHitDie(pcClass, i + 1).getDie();
 				if (hitDie != 0)
 				{
 					Integer num = hdMap.get(hitDie);
@@ -118,7 +120,7 @@ public class HitDiceToken extends Token
 		}
 
 		// Get CON bonus contribution to hitpoint total
-		int temp = (int) pc.getStatBonusTo("HP", "BONUS") * pc.getTotalLevels();
+		int temp = (int) display.getStatBonusTo("HP", "BONUS") * display.getTotalLevels();
 
 		// Add in feat bonus
 		temp += (int) pc.getTotalBonusTo("HP", "CURRENTMAX");
@@ -136,20 +138,20 @@ public class HitDiceToken extends Token
 	 * @param pc
 	 * @return the short version of the HITDICE token
 	 */
-	public static String getShortToken(PlayerCharacter pc)
+	public static String getShortToken(CharacterDisplay display)
 	{
 		int dice;
 
 		dice = 0;
 
-		for (PCClass pcClass : pc.getClassSet())
+		for (PCClass pcClass : display.getClassSet())
 		{
 			HashMap<Integer, Integer> hdMap =
 					new LinkedHashMap<Integer, Integer>();
 
-			for (int i = 0; i < pc.getLevel(pcClass); i++)
+			for (int i = 0; i < display.getLevel(pcClass); i++)
 			{
-				int hitDie = pc.getLevelHitDie(pcClass, i + 1).getDie();
+				int hitDie = display.getLevelHitDie(pcClass, i + 1).getDie();
 				Integer num = hdMap.get(hitDie);
 				if (num == null)
 				{

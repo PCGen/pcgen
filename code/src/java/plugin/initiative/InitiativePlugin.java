@@ -395,7 +395,7 @@ public class InitiativePlugin extends GMBPlugin
 		{
 			PlayerCharacter pc = message.getPC();
 			String type = "PC";
-			String player = pc.getPlayersName();
+			String player = pc.getDisplay().getPlayersName();
 
 			//Based on the Player's name, auto set the combatant's type
 			if (player.equalsIgnoreCase("Ally"))

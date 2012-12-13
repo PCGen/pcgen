@@ -229,7 +229,7 @@ public class EquipmentPane extends JPanel
 				Equipment eq = eqList.get(i);
 				gridY = addLine(eq, color, gridY);
 			}
-			addEnd(gridY, TotalToken.getWeightToken(pc), TotalToken
+			addEnd(gridY, TotalToken.getWeightToken(pc.getDisplay()), TotalToken
 				.getValueToken(pc));
 		}
 	}

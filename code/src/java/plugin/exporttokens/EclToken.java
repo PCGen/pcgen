@@ -25,9 +25,9 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 //ECL
 /**
@@ -38,37 +38,24 @@ import pcgen.io.exporttoken.Token;
  *
  * @version $Revision$
  */
-public class EclToken extends Token
+public class EclToken extends AbstractExportToken
 {
-	/** The token supported by this class.  */
-	public static final String TOKENNAME = "ECL";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "ECL";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		return Integer.toString(getEclToken(pc));
-	}
-
-	/**
-	 * Retrieve the ECL of the supplied PC.
-	 * @param pc The character to be queried.
-	 * @return The ECL value
-	 */
-	public static int getEclToken(PlayerCharacter pc)
-	{
-		return pc.getECL();
+		return Integer.toString(display.getECL());
 	}
 }

@@ -210,7 +210,7 @@ public class UnarmedPane extends javax.swing.JPanel
 	{
 		try
 		{
-			Equipment eq = WeaponhToken.getWeaponEquipment(pc);
+			Equipment eq = WeaponhToken.getWeaponEquipment(pc.getDisplay());
 			totalAttackBonus.setText(WeaponToken.getTotalHitToken(pc, eq));
 			damage.setText(WeaponToken.getDamageToken(pc, eq, false, false));
 			StringBuilder sb = new StringBuilder();

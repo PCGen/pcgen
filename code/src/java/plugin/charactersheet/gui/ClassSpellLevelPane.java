@@ -422,7 +422,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 			}
 			else
 			{
-				spellList = pc.getCharacterSpells(pc.getRace());
+				spellList = pc.getDisplay().getCharacterSpells(pc.getDisplay().getRace());
 				spellBook = Constants.INNATE_SPELL_BOOK_NAME;
 			}
 

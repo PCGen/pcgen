@@ -26,7 +26,6 @@
 package pcgen.core;
 
 import java.awt.Rectangle;
-import java.awt.geom.Point2D;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -87,7 +86,6 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.ActiveSpellsFacet;
@@ -95,7 +93,6 @@ import pcgen.cdom.facet.AddedBonusFacet;
 import pcgen.cdom.facet.AddedTemplateFacet;
 import pcgen.cdom.facet.AppliedBonusFacet;
 import pcgen.cdom.facet.AutoEquipmentFacet;
-import pcgen.cdom.facet.AutoLanguageFacet;
 import pcgen.cdom.facet.AvailableSpellFacet;
 import pcgen.cdom.facet.BonusChangeFacet;
 import pcgen.cdom.facet.CheckBonusFacet;
@@ -130,19 +127,13 @@ import pcgen.cdom.facet.UserEquipmentFacet;
 import pcgen.cdom.facet.UserTemplateFacet;
 import pcgen.cdom.facet.XPTableFacet;
 import pcgen.cdom.facet.analysis.AgeSetFacet;
-import pcgen.cdom.facet.analysis.ArmorClassFacet;
 import pcgen.cdom.facet.analysis.BaseMovementFacet;
-import pcgen.cdom.facet.analysis.ChallengeRatingFacet;
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.analysis.CharacterSpellResistanceFacet;
-import pcgen.cdom.facet.analysis.FaceFacet;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
 import pcgen.cdom.facet.analysis.FollowerLimitFacet;
-import pcgen.cdom.facet.analysis.FollowerOptionFacet;
 import pcgen.cdom.facet.analysis.GlobalSkillCostFacet;
 import pcgen.cdom.facet.analysis.HandsFacet;
-import pcgen.cdom.facet.analysis.HasAnyFavoredClassFacet;
-import pcgen.cdom.facet.analysis.InitiativeFacet;
 import pcgen.cdom.facet.analysis.LegalDeityFacet;
 import pcgen.cdom.facet.analysis.LegsFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
@@ -151,19 +142,14 @@ import pcgen.cdom.facet.analysis.ListSkillCostFacet;
 import pcgen.cdom.facet.analysis.LoadFacet;
 import pcgen.cdom.facet.analysis.LocalSkillCostFacet;
 import pcgen.cdom.facet.analysis.MovementResultFacet;
-import pcgen.cdom.facet.analysis.MultiClassFacet;
 import pcgen.cdom.facet.analysis.NonAbilityFacet;
-import pcgen.cdom.facet.analysis.NonProficiencyPenaltyFacet;
 import pcgen.cdom.facet.analysis.QualifyFacet;
 import pcgen.cdom.facet.analysis.RaceTypeFacet;
 import pcgen.cdom.facet.analysis.RacialSubTypesFacet;
 import pcgen.cdom.facet.analysis.ReachFacet;
 import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
 import pcgen.cdom.facet.analysis.StatLockFacet;
-import pcgen.cdom.facet.analysis.SubRaceFacet;
 import pcgen.cdom.facet.analysis.TotalWeightFacet;
-import pcgen.cdom.facet.analysis.UnarmedDamageFacet;
-import pcgen.cdom.facet.analysis.UnencumberedLoadFacet;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.cdom.facet.analysis.VariableFacet;
 import pcgen.cdom.facet.analysis.VisionFacet;
@@ -300,22 +286,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
 	private BaseMovementFacet baseMovementFacet = FacetLibrary.getFacet(BaseMovementFacet.class);
 	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
-	private ChallengeRatingFacet crFacet = FacetLibrary.getFacet(ChallengeRatingFacet.class);
 	private ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private ClassSpellListFacet classSpellListFacet = FacetLibrary.getFacet(ClassSpellListFacet.class);
 	private DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
-	private FaceFacet faceFacet = FacetLibrary.getFacet(FaceFacet.class);
-	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
 	private HandsFacet handsFacet = FacetLibrary.getFacet(HandsFacet.class);
-	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
-	private InitiativeFacet initiativeFacet = FacetLibrary.getFacet(InitiativeFacet.class);
 	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
 	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
 	private MoneyFacet moneyFacet = FacetLibrary.getFacet(MoneyFacet.class);
 	private MonsterCSkillFacet monCSkillFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
-	private MultiClassFacet multiClassFacet = FacetLibrary.getFacet(MultiClassFacet.class);
 	private NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
-	private NonProficiencyPenaltyFacet nonppFacet = FacetLibrary.getFacet(NonProficiencyPenaltyFacet.class);
 	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
 	private QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
 	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
@@ -323,10 +302,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
 	private StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
 	private SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
-	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
 	private TotalWeightFacet totalWeightFacet = FacetLibrary.getFacet(TotalWeightFacet.class);
-	private UnarmedDamageFacet unarmedDamageFacet = FacetLibrary.getFacet(UnarmedDamageFacet.class);
-	private UnencumberedLoadFacet unencumberedLoadFacet = FacetLibrary.getFacet(UnencumberedLoadFacet.class);
 	private UnlockedStatFacet unlockedStatFacet = FacetLibrary.getFacet(UnlockedStatFacet.class);
 	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 
@@ -339,7 +315,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	//The following facets are "minimal" delegation
 	private AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
-	private AutoLanguageFacet autoLangFacet = FacetLibrary.getFacet(AutoLanguageFacet.class);
 	private AutoLanguageListFacet autoLangListFacet = FacetLibrary.getFacet(AutoLanguageListFacet.class);
 	private FreeLanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
 	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
@@ -428,7 +403,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private SpellSupportFacet spellSupportFacet = FacetLibrary.getFacet(SpellSupportFacet.class);
 	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 	private AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
-	private ArmorClassFacet armorClassFacet = FacetLibrary.getFacet(ArmorClassFacet.class);
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
 	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
 	private ChangeProfFacet changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
@@ -1001,16 +975,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Get the current equipment set name.
-	 * 
-	 * @return equipment set name
-	 */
-	public String getCurrentEquipSetName()
-	{
-		return getSafeStringFor(StringKey.CURRENT_EQUIP_SET_NAME);
-	}
-
-	/**
 	 * Get the deity.
 	 * 
 	 * @return deity
@@ -1167,17 +1131,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Get the equipment set by name.
-	 * 
-	 * @param aName the name of the equipSet to retrieve
-	 * @return an Equip set
-	 */
-	public EquipSet getEquipSetByName(final String aName)
-	{
-		return equipSetFacet.getEquipSetByName(id, aName);
-	}
-
-	/**
 	 * Set the number of the current equipSet.
 	 * 
 	 * @param anInt the new value for current equipSet index
@@ -1241,18 +1194,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 
 		return totalWeight;
-	}
-
-	/**
-	 * Count the total number of items of aName within EquipSet idPath.
-	 * 
-	 * @param idPath The root of the equipment set (or subset)
-	 * @param aName The equipment to count
-	 * @return equipment set count
-	 */
-	public Float getEquipSetCount(final String idPath, final String aName)
-	{
-		return equipSetFacet.getEquipSetCount(id, idPath, aName);
 	}
 
 	/**
@@ -1573,20 +1514,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Checks if the user is allowed to change the character's gender.
-	 * 
-	 * <p>
-	 * That is, if no template with a gender lock has been specified.
-	 * 
-	 * @return <tt>true</tt> if the user can freely set the character's
-	 *         gender.
-	 */
-	public boolean canSetGender()
-	{
-		return genderFacet.canSetGender(id);
-	}
-
-	/**
 	 * Sets the character's wealth.
 	 * 
 	 * <p>
@@ -1679,7 +1606,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		return handedFacet.getHanded(id);
 	}
-
 
 	/**
 	 * Sets the character's height in inches.
@@ -1923,7 +1849,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 
 		// If it's a familiar, we need to change it's Skills
-		if (getUseMasterSkill())
+		if (masterFacet.getUseMasterSkill(id))
 		{
 			final Collection<Skill> mList = mPC.getSkillSet();
 			final List<Skill> sKeyList = new ArrayList<Skill>();
@@ -2067,21 +1993,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Gets the list of potential followers of a given type.
-	 * 
-	 * @param aType
-	 *            Type of follower to retrieve list for e.g. Familiar
-	 * @param comp
-	 *            the comparator that will be used to order the returned map.
-	 * @return A MAP of FollowerOption objects representing the possible list
-	 *         of follower choices.
-	 */
-	public Map<FollowerOption, CDOMObject> getAvailableFollowers(final String aType, Comparator<FollowerOption> comp)
-	{
-		return foFacet.getAvailableFollowers(id, aType, comp);
-	}
-
-	/**
 	 * Get the Follower object that is the "master" for this object.
 	 * 
 	 * @return follower master
@@ -2169,14 +2080,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * @return nonProficiencyPenalty. Searches templates first.
-	 */
-	public int getNonProficiencyPenalty()
-	{
-		return nonppFacet.getPenalty(id);
-	}
-
-	/**
 	 * Gets a list of notes associated with the character.
 	 * 
 	 * @return A list of <tt>NoteItem</tt> objects.
@@ -2248,16 +2151,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Selector Gets the path to the portrait of the character.
-	 * 
-	 * @return the path to the portrait file
-	 */
-	public String getPortraitPath()
-	{
-		return getSafeStringFor(StringKey.PORTRAIT_PATH);
-	}
-
-	/**
 	 * Set a new outline for the portrait thumbnail.
 	 * @param rect The thumbnail outline.
 	 */
@@ -2274,26 +2167,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		Rectangle rect = portraitThumbnailRectFacet.get(id);
 		return rect == null ? null : (Rectangle) rect.clone();
-	}
-
-	/**
-	 * Selector gets the character's primary weapons.
-	 * 
-	 * @return primary weapons
-	 */
-	public Collection<Equipment> getPrimaryWeapons()
-	{
-		return primaryWeaponFacet.getSet(id);
-	}
-
-	public boolean hasPrimaryWeapons()
-	{
-		return !primaryWeaponFacet.isEmpty(id);
-	}
-
-	public boolean hasSecondaryWeapons()
-	{
-		return !secondaryWeaponFacet.isEmpty(id);
 	}
 
 	/**
@@ -2317,16 +2190,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Set the character's sub region.
-	 * 
-	 * @param subregion the character's sub region
-	 */
-	private void setSubRegion(SubRegion subregion)
-	{
-		regionFacet.setSubRegion(id, subregion);
-	}
-
-	/**
 	 * Selector build on-the-fly so removing templates won't mess up region.
 	 * 
 	 * @return character region
@@ -2344,16 +2207,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void setResidence(final String aString)
 	{
 		setStringFor(StringKey.RESIDENCE, aString);
-	}
-
-	/**
-	 * Get the character's secondary weapons.
-	 * 
-	 * @return secondary weapons
-	 */
-	public Collection<Equipment> getSecondaryWeapons()
-	{
-		return secondaryWeaponFacet.getSet(id);
 	}
 
 	/**
@@ -2404,16 +2257,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public Collection<ProfProvider<ShieldProf>> getShieldProfList()
 	{
 		return shieldProfFacet.getQualifiedSet(id);
-	}
-
-	/**
-	 * Get size.
-	 * 
-	 * @return size
-	 */
-	public String getSize()
-	{
-		return sizeFacet.getSizeAbb(id);
 	}
 
 	/**
@@ -2584,7 +2427,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * 
 	 * @return List of special abilities as Strings
 	 */
-	public List<String> getSpecialAbilityListStrings()
+	private List<String> getSpecialAbilityListStrings()
 	{
 		List<String> bList = new ArrayList<String>();
 
@@ -2594,16 +2437,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		Collections.sort(bList);
 
 		return bList;
-	}
-
-	public List<SpecialAbility> getResolvedUserSpecialAbilities(CDOMObject cdo)
-	{
-		return userSpecialAbilityFacet.getResolved(id, cdo);
-	}
-
-	public List<SpecialAbility> getResolvedSpecialAbilities(CDOMObject cdo)
-	{
-		return specialAbilityFacet.getResolved(id, cdo);
 	}
 
 	/**
@@ -2753,15 +2586,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public int getSpellLevelTemp()
 	{
 		return spellLevelTemp;
-	}
-
-	/**
-	 * Accessor, Gets the sub-race of the character.
-	 * @return character subrace.
-	 */
-	public String getSubRace()
-	{
-		return subRaceFacet.getSubRace(id);
 	}
 
 	/**
@@ -3276,16 +3100,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		setDirty(true);
 	}
 
-	/**
-	 * Now we use the ACTYPE tag on misc info to determine the formula
-	 * 
-	 * @return ac total
-	 */
-	public int getACTotal()
-	{
-		return armorClassFacet.calcACOfType(id, "Total");
-	}
-
 	public void setAlignment(PCAlignment align)
 	{
 		alignmentFacet.set(id, align);
@@ -3502,11 +3316,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 		getVariableProcessor().addCachedString(cacheLookup, attackString.toString());
 		return attackString.toString();
-	}
-
-	public List<Language> getAutoLanguages()
-	{
-		return autoLangFacet.getAutoLanguage(id);
 	}
 
 	/**
@@ -3778,20 +3587,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		setDirty(true);
 
 		return true;
-	}
-
-	/**
-	 * Returns the character's Effective Character Level.
-	 * 
-	 * <p>
-	 * The level is calculated by adding total non-monster levels, total
-	 * hitdice, and level adjustment.
-	 * 
-	 * @return The ECL of the character.
-	 */
-	public int getECL()
-	{
-		return levelFacet.getECL(id);
 	}
 
 	/**
@@ -4195,16 +3990,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return Constants.EMPTY_STRING;
 	}
 
-	public int getLevelInfoClassLevel(final int idx)
-	{
-		if ((idx >= 0) && (idx < getLevelInfoSize()))
-		{
-			return levelInfoFacet.get(id, idx).getClassLevel();
-		}
-
-		return 0;
-	}
-
 	public PCLevelInfo getLevelInfoFor(final String classKey, int level)
 	{
 		for (PCLevelInfo pcl : getLevelInfo())
@@ -4354,27 +4139,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return div;
 	}
 
-	/*
-	 * returns true if Equipment is in the primary weapon list
-	 */
-	public boolean isPrimaryWeapon(final Equipment eq)
-	{
-		if (eq == null)
-		{
-			return false;
-		}
-
-		for (Equipment eqI : getPrimaryWeapons())
-		{
-			if (eqI.getName().equalsIgnoreCase(eq.getName()) && (eqI.getLocation() == eq.getLocation()))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
 	public boolean isProficientWith(final Equipment eq)
 	{
 		if (eq.isShield())
@@ -4434,27 +4198,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public int getSR()
 	{
 		return calcSR(true);
-	}
-
-	/*
-	 * returns true if Equipment is in the secondary weapon list
-	 */
-	public boolean isSecondaryWeapon(final Equipment eq)
-	{
-		if (eq == null)
-		{
-			return false;
-		}
-
-		for (Equipment eqI : getSecondaryWeapons())
-		{
-			if (eqI.getName().equalsIgnoreCase(eq.getName()) && (eqI.getLocation() == eq.getLocation()))
-			{
-				return true;
-			}
-		}
-
-		return false;
 	}
 
 	/**
@@ -4758,21 +4501,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 
 		return div;
-	}
-
-	public String getUDamForRace()
-	{
-		return unarmedDamageFacet.getUDamForRace(id);
-	}
-
-	public Set<List<String>> getUnarmedDamage()
-	{
-		return unarmedDamageFacet.getSet(id);
-	}
-
-	public boolean getUseMasterSkill()
-	{
-		return masterFacet.getUseMasterSkill(id);
 	}
 
 	/**
@@ -5164,11 +4892,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private String getSpellBonusType(final String bonusType, final String bonusName)
 	{
 		return bonusManager.getSpellBonusType(bonusType, bonusName);
-	}
-
-	public int abilityAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Ability");
 	}
 
 	/**
@@ -5683,11 +5406,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return i;
 	}
 
-	public int baseAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Base");
-	}
-
 	/**
 	 * @return Total base attack bonus as an int
 	 */
@@ -5761,14 +5479,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Calculate the AC for a particular ACTYPE e.g.  Flatfooted
-	 */
-	public int calcACOfType(final String ACType)
-	{
-		return armorClassFacet.calcACOfType(id, ACType);
-	}
-
-	/**
 	 * Creates the activeBonusList which is used to calculate all the bonuses to
 	 * a PC
 	 */
@@ -5818,26 +5528,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		bonusManager.buildActiveBonusMap();
 		cablInt++;
 		bonusChangeFacet.reset(id);
-	}
-
-	/**
-	 * Calculate the Challenge Rating
-	 * 
-	 * @return CR
-	 */
-	public float calcCR()
-	{
-		return crFacet.getCR(id);
-	}
-
-	/**
-	 * Get all possible sources of Damage Resistance and calculate
-	 * 
-	 * @return DR
-	 */
-	public String calcDR()
-	{
-		return drFacet.getDRString(id);
 	}
 
 	public int calcSR(final boolean includeEquipment)
@@ -5979,11 +5669,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public boolean canSelectDeity(final Deity aDeity)
 	{
 		return legalDeityFacet.allows(id, aDeity);
-	}
-
-	public int classAC()
-	{
-		return armorClassFacet.calcACOfType(id, "ClassDefense");
 	}
 
 	/**
@@ -6274,21 +5959,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 	}
 
-	public int dodgeAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Dodge");
-	}
-
-	public int equipmentAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Equipment") + armorClassFacet.calcACOfType(id, "Armor");
-	}
-
-	public int flatfootedAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Flatfooted");
-	}
-
 	/**
 	 * Does the character have this ability as an auto ability.
 	 * 
@@ -6426,19 +6096,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Check to see if this PC should ignore Encumbrance for a specified load
-	 * (Constants.HEAVY_LOAD, etc) If the check is more than the testing type,
-	 * return true
-	 * 
-	 * @param load
-	 * @return true or false
-	 */
-	public boolean ignoreEncumberedLoadMove(final Load load)
-	{
-		return unencumberedLoadFacet.ignoreLoad(id, load);
-	}
-
-	/**
 	 * Change the number of levels a character has in a particular class. Note:
 	 * It is assumed that this method is not used as part of loading a
 	 * previously saved character. there is no way to bypass the prerequisites
@@ -6454,16 +6111,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		incrementClassLevel(mod, aClass, false);
 		setDirty(true);
-	}
-
-	/**
-	 * Initiative Modifier
-	 * 
-	 * @return initiative modifier
-	 */
-	public int initiativeMod()
-	{
-		return initiativeFacet.getInitiative(id);
 	}
 
 	/**
@@ -6627,19 +6274,14 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public int minXPForECL()
 	{
-		return levelTableFacet.minXPForLevel(getECL(), id);
+		return levelTableFacet.minXPForLevel(levelFacet.getECL(id), id);
 	}
 
 	public int minXPForNextECL()
 	{
-		return levelTableFacet.minXPForLevel(getECL() + 1, id);
+		return levelTableFacet.minXPForLevel(levelFacet.getECL(id) + 1, id);
 	}
-
-	public int miscAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Misc");
-	}
-
+	
 	/**
 	 * Apply any modifications to attack rolls from wearing armour the 
 	 * PC is not proficient in.
@@ -6824,21 +6466,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			return modToSpellFailureFromEquipment();
 		}
 		return 0;
-	}
-
-	public double multiclassXPMultiplier()
-	{
-		return multiClassFacet.getMultiClassXPMultiplier(id);
-	}
-
-	public boolean hasAnyFavoredClass()
-	{
-		return hasAnyFavoredFacet.contains(id, Boolean.TRUE);
-	}
-
-	public int naturalAC()
-	{
-		return armorClassFacet.calcACOfType(id, "NaturalArmor");
 	}
 
 	/**
@@ -7061,16 +6688,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return 0;
 	}
 
-	public int sizeAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Size");
-	}
-
 	public int sizeInt()
 	{
 		return sizeFacet.sizeInt(id);
 	}
-
+	
 	public int totalHitDice()
 	{
 		return levelFacet.getMonsterLevelCount(id);
@@ -7098,11 +6720,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return totalWeightFacet.getTotalWeight(id);
 	}
 
-	public int touchAC()
-	{
-		return armorClassFacet.calcACOfType(id, "Touch");
-	}
-
 	/**
 	 * replaces oldItem with newItem in all EquipSets
 	 * 
@@ -7113,16 +6730,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		equipSetFacet.updateEquipSetItem(id, oldItem, newItem);
 		setDirty(true);
-	}
-
-	/**
-	 * Gets whether the character has been changed since last saved.
-	 * 
-	 * @return true or false
-	 */
-	public boolean wasEverSaved()
-	{
-		return !Constants.EMPTY_STRING.equals(getFileName());
 	}
 
 	/**
@@ -10107,16 +9714,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Determine the character's facing.
-	 * 
-	 * @return The facing.
-	 */
-	public Point2D.Double getFace()
-	{
-		return faceFacet.getFace(id);
-	}
-
-	/**
 	 * Determine the number of hands the character has.
 	 * 
 	 * @return The number of hands.
@@ -11016,7 +10613,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		return statFacet.getSet(id);
 	}
-
+	
 	public boolean hasDefaultDomainSource()
 	{
 		return defaultDomainSource != null;
@@ -11063,7 +10660,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		return domainFacet.getCount(id);
 	}
-
+	
 	public Set<Domain> getDomainSet()
 	{
 		return domainFacet.getSet(id);
@@ -11175,11 +10772,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return languageFacet.getCount(id);
 	}
 
-	public boolean hasLanguage(Language lang)
-	{
-		return languageFacet.contains(id, lang);
-	}
-
 	public void setSubstitutionLevel(PCClass pcc, PCClassLevel originalClassLevel)
 	{
 		try
@@ -11195,6 +10787,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public PCClassLevel getActiveClassLevel(PCClass pcc, int lvl)
 	{
 		return classFacet.getClassLevel(id, pcc, lvl);
+	}
+
+	public boolean hasLanguage(Language lang)
+	{
+		return languageFacet.contains(id, lang);
 	}
 
 	public int getClassCount()
@@ -11408,19 +11005,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return visionFacet.getVisionCount(id);
 	}
 
-	/*
-	 * Size is taken into account for the currentPC via getLoadMultForSize
-	 */
-	public Float getMaxLoad()
-	{
-		return loadFacet.getMaxLoad(id);
-	}
-
-	public Float getMaxLoad(double mult)
-	{
-		return loadFacet.getMaxLoad(id, mult);
-	}
-
 	public Load getLoadType()
 	{
 		return loadFacet.getLoadType(id);
@@ -11449,26 +11033,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public double getMovementOfType(String moveType)
 	{
 		return moveResultFacet.getMovementOfType(id, moveType);
-	}
-
-	public int getBaseMovement(String moveType, Load load)
-	{
-		return moveResultFacet.getBaseMovement(id, moveType, load);
-	}
-
-	public boolean hasMovement(String moveType)
-	{
-		return moveResultFacet.hasMovement(id, moveType);
-	}
-
-	public List<NamedValue> getMovementValues()
-	{
-		return moveResultFacet.getMovementValues(id);
-	}
-
-	public boolean hasEquipSet()
-	{
-		return !equipSetFacet.isEmpty(id);
 	}
 
 	public boolean hasFollowers()
@@ -11587,7 +11151,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		activeSpellsFacet.remove(id, cs, cdo);
 	}
 
-	public boolean containsCharacterSpell(CDOMObject cdo, CharacterSpell cs)
+	private boolean containsCharacterSpell(CDOMObject cdo, CharacterSpell cs)
 	{
 		return activeSpellsFacet.containsFrom(id, cs, cdo);
 	}
@@ -11632,12 +11196,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		localAddedSkillCostFacet.remove(id, pcc, skill, sc, owner);
 	}
 
-	public boolean hasLocalCost(PCClass cl, Skill skill, SkillCost sc)
+	private boolean hasLocalCost(PCClass cl, Skill skill, SkillCost sc)
 	{
 		return localSkillCostFacet.contains(id, cl, sc, skill) || localAddedSkillCostFacet.contains(id, cl, skill, sc);
 	}
 
-	public boolean hasLocalCost(Collection<ClassSkillList> coll, Skill skill, SkillCost sc)
+	private boolean hasLocalCost(Collection<ClassSkillList> coll, Skill skill, SkillCost sc)
 	{
 		for (ClassSkillList csl : coll)
 		{
@@ -11882,7 +11446,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		return spellListFacet.getSet(id, cdo);
 	}
-
+	
 	public boolean hasSpellList(CDOMObject cdo, CDOMList<Spell> list)
 	{
 		return spellListFacet.containsFrom(id, list, cdo);

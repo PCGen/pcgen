@@ -380,10 +380,10 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public void addPcgCombatant(PlayerCharacter pc, String type)
 	{
-		String name = initList.getUniqueName(pc.getName());
+		String name = initList.getUniqueName(pc.getDisplay().getName());
 
 		//Changed from != to .equals 10/21/06 thpr
-		if (!name.equals(pc.getName()))
+		if (!name.equals(pc.getDisplay().getName()))
 		{
 			//Means this one is already loaded, so it should be considered a new pc.
 			pc.setName(name);

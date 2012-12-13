@@ -28,34 +28,32 @@ package plugin.exporttokens;
 import java.util.StringTokenizer;
 
 import pcgen.base.util.NamedValue;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbstractExportToken;
 import pcgen.io.exporttoken.MovementToken;
-import pcgen.io.exporttoken.Token;
 
 //MOVE prints out all movename/move pairs
 //MOVE.x prints out movename/move pair
 //MOVE.x.NAME and
 //MOVE.x.RATE produce the appropriate parts.
-public class MoveToken extends Token
+public class MoveToken extends AbstractExportToken
 {
-	public static final String TOKENNAME = "MOVE";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "MOVE";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		String retString = "";
@@ -73,24 +71,24 @@ public class MoveToken extends Token
 
 				if ("NAME".equals(subToken))
 				{
-					retString = pc.getMovementValues().get(moveIndex).getName();
+					retString = display.getMovementValues().get(moveIndex).getName();
 				}
 				else if ("RATE".equals(subToken))
 				{
-					retString = MovementToken.getRateToken(pc.getMovementValues().get(moveIndex).getWeight());
+					retString = MovementToken.getRateToken(display.getMovementValues().get(moveIndex).getWeight());
 				}
 				else if ("SQUARES".equals(subToken))
 				{
-					retString = getSquaresToken(pc, moveIndex);
+					retString = getSquaresToken(display, moveIndex);
 				}
 				else
 				{
-					retString = MovementToken.getMovementToken(pc);
+					retString = MovementToken.getMovementToken(display);
 				}
 			}
 			else
 			{
-				retString = getMoveXToken(pc, moveIndex);
+				retString = getMoveXToken(display, moveIndex);
 			}
 
 			//TODO: merge all of MovementToken here, and eliminate MovementToken
@@ -99,16 +97,16 @@ public class MoveToken extends Token
 		return retString;
 	}
 
-	public static String getMoveXToken(PlayerCharacter pc, int moveIndex)
+	public static String getMoveXToken(CharacterDisplay display, int moveIndex)
 	{
-		NamedValue move = pc.getMovementValues().get(moveIndex);
+		NamedValue move = display.getMovementValues().get(moveIndex);
 		return move.getName() + " "
 				+ MovementToken.getRateToken(move.getWeight());
 	}
 
-	public static String getSquaresToken(PlayerCharacter pc, int moveIndex)
+	public static String getSquaresToken(CharacterDisplay display, int moveIndex)
 	{
-		return Integer.toString((int) (pc.getMovementValues().get(moveIndex)
+		return Integer.toString((int) (display.getMovementValues().get(moveIndex)
 				.getWeight() / SettingsHandler.getGame().getSquareSize()));
 	}
 }

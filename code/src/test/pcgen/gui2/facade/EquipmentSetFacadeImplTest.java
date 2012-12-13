@@ -319,7 +319,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	private EquipSet addEquipToEquipSet(PlayerCharacter pc, EquipSet es,
 		Equipment item, float qty, String locName)
 	{
-		String id = EquipmentSetFacadeImpl.getNewIdPath(pc, es);
+		String id = EquipmentSetFacadeImpl.getNewIdPath(pc.getDisplay(), es);
 		EquipSet newSet = new EquipSet(id, locName, item.getName(), item);
 		item.setQty(qty);
 		newSet.setQty(1.0f);

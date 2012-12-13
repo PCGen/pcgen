@@ -196,7 +196,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Craete a huge bugbear first level
 		bugbear = new PlayerCharacter();
 		bugbear.setRace(bigBugbearRace);
-		assertEquals("big bugbear", "L", bugbear.getSize());
+		assertEquals("big bugbear", "L", bugbear.getDisplay().getSize());
 		setPCStat(bugbear, intel, 10);
 		bugbear.incrementClassLevel(1, humanoidClass);
 		// Test skills granted for each level
@@ -217,7 +217,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Create a nymph - first level
 		PlayerCharacter nymph = new PlayerCharacter();
 		nymph.setRace(nymphRace);
-		assertEquals("nymph", "M", nymph.getSize());
+		assertEquals("nymph", "M", nymph.getDisplay().getSize());
 		setPCStat(nymph, intel, 10);
 		nymph.incrementClassLevel(1, nymphClass);
 		// Test skills granted for each level

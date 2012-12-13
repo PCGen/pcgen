@@ -63,6 +63,7 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.spell.Spell;
 import pcgen.core.system.LoadInfo;
 import pcgen.io.exporttoken.StatToken;
@@ -996,6 +997,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Ability mab = TestHelper.makeAbility("Tester2", AbilityCategory.FEAT, "Mount Container");
 		Ability fab = TestHelper.makeAbility("Tester3", AbilityCategory.FEAT, "Familiar Container");
 		PlayerCharacter pc = getCharacter();
+		CharacterDisplay display = pc.getDisplay();
 		
 		pc.addAbilityNeedCheck(AbilityCategory.FEAT, ab);
 		CDOMSingleRef<CompanionList> ref = new CDOMSimpleSingleRef<CompanionList>(
@@ -1009,25 +1011,25 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		option = new FollowerOption(race, ref);
 		fab.addToListFor(ListKey.COMPANIONLIST, option);
 		
-		Set<FollowerOption> fo = pc.getAvailableFollowers("Familiar", null).keySet();
+		Set<FollowerOption> fo = display.getAvailableFollowers("Familiar", null).keySet();
 		assertTrue("Initially familiar list should be empty", fo.isEmpty());
-		fo = pc.getAvailableFollowers("MOUNT", null).keySet();
+		fo = display.getAvailableFollowers("MOUNT", null).keySet();
 		assertTrue("Initially mount list should be empty", fo.isEmpty());
 		
 		pc.addAbilityNeedCheck(AbilityCategory.FEAT, mab);
-		fo = pc.getAvailableFollowers("Familiar", null).keySet();
+		fo = display.getAvailableFollowers("Familiar", null).keySet();
 		assertTrue("Familiar list should still be empty", fo.isEmpty());
-		fo = pc.getAvailableFollowers("MOUNT", null).keySet();
+		fo = display.getAvailableFollowers("MOUNT", null).keySet();
 		assertFalse("Mount list should not be empty anymore", fo.isEmpty());
 		assertEquals("Mount should be the giant race", giantRace.getKeyName(), fo.iterator().next().getRace().getKeyName());
 		assertEquals("Mount list should only have one entry", 1, fo.size());
 		
 		pc.addAbilityNeedCheck(AbilityCategory.FEAT, fab);
-		fo = pc.getAvailableFollowers("Familiar", null).keySet();
+		fo = display.getAvailableFollowers("Familiar", null).keySet();
 		assertFalse("Familiar list should not be empty anymore", fo.isEmpty());
 		assertEquals("Familiar should be the human race", human.getKeyName(), fo.iterator().next().getRace().getKeyName());
 		assertEquals("Familiar list should only have one entry", 1, fo.size());
-		fo = pc.getAvailableFollowers("MOUNT", null).keySet();
+		fo = display.getAvailableFollowers("MOUNT", null).keySet();
 		assertFalse("Mount list should not be empty anymore", fo.isEmpty());
 		assertEquals("Mount should be the giant race", giantRace.getKeyName(), fo.iterator().next().getRace().getKeyName());
 		assertEquals("Mount list should only have one entry", 1, fo.size());

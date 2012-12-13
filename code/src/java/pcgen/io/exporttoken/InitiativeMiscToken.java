@@ -65,7 +65,7 @@ public class InitiativeMiscToken extends Token
 	 */
 	public static int getInitiativeMiscToken(PlayerCharacter pc)
 	{
-		return pc.initiativeMod()
+		return pc.getDisplay().initiativeMod()
 			- pc.getVariableValue("INITCOMP", "").intValue();
 	}
 }

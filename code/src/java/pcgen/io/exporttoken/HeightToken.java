@@ -27,7 +27,7 @@ package pcgen.io.exporttoken;
 
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 
 /**
@@ -37,42 +37,39 @@ import pcgen.io.ExportHandler;
  * HEIGHT.FOOTPART
  * HEIGHT.INCHPART
  */
-public class HeightToken extends Token
+public class HeightToken extends AbstractExportToken
 {
-	/** Token Name */
-	public static final String TOKENNAME = "HEIGHT";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "HEIGHT";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		String retString = "";
 
-		if (!pc.getDisplay().getSuppressBioField(BiographyField.HEIGHT))
+		if (!display.getSuppressBioField(BiographyField.HEIGHT))
 		{
 			if ("HEIGHT".equals(tokenSource))
 			{
-				retString = getHeightToken(pc);
+				retString = getHeightToken(display);
 			}
 			else if ("HEIGHT.FOOTPART".equals(tokenSource))
 			{
-				retString = getFootPartToken(pc);
+				retString = getFootPartToken(display);
 			}
 			else if ("HEIGHT.INCHPART".equals(tokenSource))
 			{
-				retString = getInchPartToken(pc);
+				retString = getInchPartToken(display);
 			}
 		}
 		
@@ -84,20 +81,20 @@ public class HeightToken extends Token
 	 * @param pc
 	 * @return the HEIGHT token
 	 */
-	public static String getHeightToken(PlayerCharacter pc)
+	public static String getHeightToken(CharacterDisplay display)
 	{
 		String retString = "";
 
 		if ("ftin".equals(Globals.getGameModeUnitSet().getHeightUnit()))
 		{
 			retString =
-					getFootPartToken(pc) + "' " + getInchPartToken(pc) + "\"";
+					getFootPartToken(display) + "' " + getInchPartToken(display) + "\"";
 		}
 		else
 		{
 			retString =
 					Globals.getGameModeUnitSet().displayHeightInUnitSet(
-						pc.getHeight())
+						display.getHeight())
 						+ " " + Globals.getGameModeUnitSet().getHeightUnit();
 		}
 
@@ -109,9 +106,9 @@ public class HeightToken extends Token
 	 * @param pc
 	 * @return the HEIGHT.FOOTPART token
 	 */
-	public static String getFootPartToken(PlayerCharacter pc)
+	public static String getFootPartToken(CharacterDisplay display)
 	{
-		return Integer.toString(pc.getHeight() / 12);
+		return Integer.toString(display.getHeight() / 12);
 	}
 
 	/**
@@ -119,8 +116,8 @@ public class HeightToken extends Token
 	 * @param pc
 	 * @return the HEIGHT.INCHPART token
 	 */
-	public static String getInchPartToken(PlayerCharacter pc)
+	public static String getInchPartToken(CharacterDisplay display)
 	{
-		return Integer.toString(pc.getHeight() % 12);
+		return Integer.toString(display.getHeight() % 12);
 	}
 }

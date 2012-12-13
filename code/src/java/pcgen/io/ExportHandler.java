@@ -56,15 +56,14 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.Follower;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.utils.CoreUtility;
-import pcgen.io.exporttoken.ACCheckToken;
 import pcgen.io.exporttoken.AbilityListToken;
 import pcgen.io.exporttoken.AbilityToken;
 import pcgen.io.exporttoken.AlignmentToken;
 import pcgen.io.exporttoken.AttackToken;
 import pcgen.io.exporttoken.BonusToken;
 import pcgen.io.exporttoken.CheckToken;
-import pcgen.io.exporttoken.DRToken;
 import pcgen.io.exporttoken.DomainToken;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.EqTypeToken;
@@ -73,7 +72,6 @@ import pcgen.io.exporttoken.HPToken;
 import pcgen.io.exporttoken.HeightToken;
 import pcgen.io.exporttoken.InitiativeMiscToken;
 import pcgen.io.exporttoken.MovementToken;
-import pcgen.io.exporttoken.ReachToken;
 import pcgen.io.exporttoken.SRToken;
 import pcgen.io.exporttoken.SizeLongToken;
 import pcgen.io.exporttoken.SkillToken;
@@ -90,6 +88,7 @@ import pcgen.system.PluginLoader;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
+import plugin.exporttokens.ACCheckToken;
 
 /**
  * This class deals with exporting a PC to various types of output sheets 
@@ -1737,7 +1736,6 @@ public final class ExportHandler
 			addToTokenMap(new BonusToken());
 			addToTokenMap(new CheckToken());
 			addToTokenMap(new DomainToken());
-			addToTokenMap(new DRToken());
 			addToTokenMap(new EqToken());
 			addToTokenMap(new EqTypeToken());
 			addToTokenMap(new GameModeToken());
@@ -1745,7 +1743,6 @@ public final class ExportHandler
 			addToTokenMap(new HPToken());
 			addToTokenMap(new InitiativeMiscToken());
 			addToTokenMap(new MovementToken());
-			addToTokenMap(new ReachToken());
 			addToTokenMap(new SizeLongToken());
 			addToTokenMap(new SkillToken());
 			addToTokenMap(new SkillpointsToken());
@@ -2153,9 +2150,10 @@ public final class ExportHandler
 		}
 
 		// Filter out REGION
+		CharacterDisplay display = aPC.getDisplay();
 		if ("REGION".equals(aString.substring(1)))
 		{
-			if (aPC.getDisplay().getRegionString().equals(Constants.NONE))
+			if (display.getRegionString().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2311,7 +2309,7 @@ public final class ExportHandler
 		// Filter out CATCHPHRASE
 		if ("CATCHPHRASE".equals(aString.substring(1)))
 		{
-			String catchPhrase = aPC.getDisplay().getCatchPhrase();
+			String catchPhrase = display.getCatchPhrase();
 			if (catchPhrase.equals(Constants.NONE))
 			{
 				canWrite = false;
@@ -2326,7 +2324,7 @@ public final class ExportHandler
 		// Filter out LOCATION
 		if ("LOCATION".equals(aString.substring(1)))
 		{
-			String location = aPC.getDisplay().getLocation();
+			String location = display.getLocation();
 			if (location.equals(Constants.NONE))
 			{
 				canWrite = false;
@@ -2356,7 +2354,7 @@ public final class ExportHandler
 		// Filter out PHOBIAS
 		if ("PHOBIAS".equals(aString.substring(1)))
 		{
-			String phobias = aPC.getDisplay().getPhobias();
+			String phobias = display.getPhobias();
 			if (phobias.equals(Constants.NONE))
 			{
 				canWrite = false;
@@ -2371,7 +2369,7 @@ public final class ExportHandler
 		// Filter out INTERESTS
 		if ("INTERESTS".equals(aString.substring(1)))
 		{
-			String interests = aPC.getDisplay().getInterests();
+			String interests = display.getInterests();
 			if (interests.equals(Constants.NONE))
 			{
 				canWrite = false;
@@ -2386,7 +2384,7 @@ public final class ExportHandler
 		// Filter out SPEECHTENDENCY
 		if ("SPEECHTENDENCY".equals(aString.substring(1)))
 		{
-			String speechTendency = aPC.getDisplay().getSpeechTendency();
+			String speechTendency = display.getSpeechTendency();
 			if (speechTendency.equals(Constants.NONE))
 			{
 				canWrite = false;
@@ -2401,7 +2399,7 @@ public final class ExportHandler
 		// Filter out PERSONALITY1
 		if ("PERSONALITY1".equals(aString.substring(1)))
 		{
-			String trait1 = aPC.getDisplay().getTrait1();
+			String trait1 = display.getTrait1();
 			if (trait1.equals(Constants.NONE))
 			{
 				canWrite = false;
@@ -2416,7 +2414,7 @@ public final class ExportHandler
 		// Filter out PERSONALITY2
 		if ("PERSONALITY2".equals(aString.substring(1)))
 		{
-			String trait2 = aPC.getDisplay().getTrait2();
+			String trait2 = display.getTrait2();
 			if (trait2.equals(Constants.NONE))
 			{
 				canWrite = false;
@@ -2474,7 +2472,7 @@ public final class ExportHandler
 		// Filter out DESC
 		if ("DESC".equals(aString.substring(1)))
 		{
-			String description = aPC.getDisplay().getDescription();
+			String description = display.getDescription();
 			if (description.equals(Constants.NONE))
 			{
 				canWrite = false;
@@ -2489,7 +2487,7 @@ public final class ExportHandler
 		// Filter out BIO
 		if ("BIO".equals(aString.substring(1)))
 		{
-			String bio = aPC.getDisplay().getBio();
+			String bio = display.getBio();
 			if (bio.equals(Constants.NONE))
 			{
 				canWrite = false;
@@ -2504,7 +2502,7 @@ public final class ExportHandler
 		// Filter out SUBREGION
 		if ("SUBREGION".equals(aString.substring(1)))
 		{
-			if (aPC.getDisplay().getSubRegion().equals(Constants.NONE))
+			if (display.getSubRegion().equals(Constants.NONE))
 			{
 				canWrite = false;
 			}
@@ -2726,7 +2724,7 @@ public final class ExportHandler
 				index = Integer.parseInt(fString.substring(6));
 			}
 
-			canWrite = (index <= aPC.getDomainCount());
+			canWrite = (index <= display.getDomainCount());
 
 			return 0;
 		}

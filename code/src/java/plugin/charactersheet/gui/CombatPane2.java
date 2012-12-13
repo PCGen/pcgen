@@ -291,7 +291,7 @@ public class CombatPane2 extends javax.swing.JPanel
 	{
 		baseAttack.setText(AttackToken.getParsedToken(pc, MELEE, BLANK));
 
-		initTotal.setText(Delta.toString(pc.initiativeMod()));
+		initTotal.setText(Delta.toString(pc.getDisplay().initiativeMod()));
 		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
 				PCStat.class, "DEX");
 		dexMod.setText(StatToken.getModToken(pc, dex));

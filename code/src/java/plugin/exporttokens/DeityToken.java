@@ -45,6 +45,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Logging;
@@ -89,11 +90,12 @@ public class DeityToken extends Token
 	{
 		String retString = "";
 
-		if (pc.getDeity() != null)
+		CharacterDisplay display = pc.getDisplay();
+		Deity deity = display.getDeity();
+		if (deity != null)
 		{
 			StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
 			String subTag = "OUTPUTNAME";
-			Deity deity = pc.getDeity();
 
 			if (aTok.countTokens() > 1)
 			{
@@ -103,14 +105,14 @@ public class DeityToken extends Token
 
 			if ("NAME".equals(subTag))
 			{
-				if (!pc.getDisplay().getSuppressBioField(BiographyField.DEITY))
+				if (!display.getSuppressBioField(BiographyField.DEITY))
 				{
 					retString = deity.getDisplayName();
 				}
 			}
 			else if ("OUTPUTNAME".equals(subTag))
 			{
-				if (!pc.getDisplay().getSuppressBioField(BiographyField.DEITY))
+				if (!display.getSuppressBioField(BiographyField.DEITY))
 				{
 					retString = OutputNameFormatting.getOutputName(deity);
 				}
@@ -158,7 +160,7 @@ public class DeityToken extends Token
 			}
 			else if ("SA".equals(subTag))
 			{
-				retString = getSAToken(deity, pc);
+				retString = getSAToken(deity, display);
 			}
 			else if ("TITLE".equals(subTag))
 			{
@@ -189,11 +191,11 @@ public class DeityToken extends Token
 	 * @param deity
 	 * @return the SA sub token
 	 */
-	public static String getSAToken(Deity deity, PlayerCharacter pc)
+	public static String getSAToken(Deity deity, CharacterDisplay display)
 	{
 		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
-		saList.addAll(pc.getResolvedUserSpecialAbilities(deity));
-		saList.addAll(pc.getResolvedSpecialAbilities(deity));
+		saList.addAll(display.getResolvedUserSpecialAbilities(deity));
+		saList.addAll(display.getResolvedSpecialAbilities(deity));
 
 		if (saList.isEmpty())
 		{

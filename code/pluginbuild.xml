@@ -149,6 +149,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-ACCHECK.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/ACCheckToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${outputplugins.dir}/ExportToken-AGE.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -300,6 +307,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/exporttokens/DirToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-DR.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/DRToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -678,6 +692,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/exporttokens/RaceSubTypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-REACH.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/ReachToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
