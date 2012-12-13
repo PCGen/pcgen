@@ -23,11 +23,12 @@
  * Last Edited: $Date$
  *
  */
-package pcgen.io.exporttoken;
+package plugin.exporttokens;
 
 import pcgen.core.SizeAdjustment;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * SIZELONG for export
@@ -50,16 +51,6 @@ public class SizeLongToken extends AbstractExportToken
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
-	{
-		return getSizeLongToken(display);
-	}
-
-	/**
-	 * Get value SIZELONG token
-	 * @param pc
-	 * @return value SIZELONG token
-	 */
-	public static String getSizeLongToken(CharacterDisplay display)
 	{
 		final SizeAdjustment sadj = display.getSizeAdjustment();
 		if (sadj != null)

@@ -10,12 +10,12 @@ import gmgen.plugin.PlayerCharacterOutput;
 import pcgen.core.Deity;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SizeAdjustment;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.VisionDisplay;
 import pcgen.io.exporttoken.AlignmentToken;
 import pcgen.io.exporttoken.HeightToken;
-import pcgen.io.exporttoken.SizeLongToken;
 
 /**
  * Confirmed no memory Leaks Dec 10, 2004
@@ -869,7 +869,9 @@ public class DetailsPane extends javax.swing.JPanel
 			race.setText(display.getRace().getDisplayName() + " (" + subRace + ") ");
 		}
 		age.setText(pc.getAge() + " ");
-		size.setText(SizeLongToken.getSizeLongToken(pc.getDisplay()) + ' ');
+		SizeAdjustment sadj = display.getSizeAdjustment();
+		String saString = (sadj == null) ? "" : sadj.getDisplayName();
+		size.setText(saString + ' ');
 		gender.setText(display.getGenderObject().toString() + ' ');
 
 		Deity charDeity = display.getDeity();

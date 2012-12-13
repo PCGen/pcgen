@@ -73,7 +73,6 @@ import pcgen.io.exporttoken.HeightToken;
 import pcgen.io.exporttoken.InitiativeMiscToken;
 import pcgen.io.exporttoken.MovementToken;
 import pcgen.io.exporttoken.SRToken;
-import pcgen.io.exporttoken.SizeLongToken;
 import pcgen.io.exporttoken.SkillToken;
 import pcgen.io.exporttoken.SkillpointsToken;
 import pcgen.io.exporttoken.StatToken;
@@ -1740,7 +1739,6 @@ public final class ExportHandler
 			addToTokenMap(new HPToken());
 			addToTokenMap(new InitiativeMiscToken());
 			addToTokenMap(new MovementToken());
-			addToTokenMap(new SizeLongToken());
 			addToTokenMap(new SkillToken());
 			addToTokenMap(new SkillpointsToken());
 			addToTokenMap(new SRToken());
