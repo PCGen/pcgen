@@ -92,6 +92,7 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
 import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
@@ -126,7 +127,8 @@ final class PCGVer2Creator implements IOConstants
 	 * author: Thomas Behr 2002-11-13
 	 */
 
-	private PlayerCharacter thePC;
+	private final PlayerCharacter thePC;
+	private final CharacterDisplay charDisplay;
 	private GameMode mode;
 	private List<? extends CampaignFacade> campaigns;
 
@@ -137,6 +139,7 @@ final class PCGVer2Creator implements IOConstants
 	PCGVer2Creator(final PlayerCharacter aPC, GameMode mode, List<? extends CampaignFacade> campaigns)
 	{
 		thePC = aPC;
+		charDisplay = aPC.getDisplay();
 		this.mode = mode;
 		this.campaigns = campaigns;
 	}
@@ -509,7 +512,7 @@ final class PCGVer2Creator implements IOConstants
 		String delim = Constants.EMPTY_STRING;
 		for (BiographyField field : BiographyField.values())
 		{
-			if (thePC.getSuppressBioField(field))
+			if (charDisplay.getSuppressBioField(field))
 			{
 				buffer.append(delim);
 				buffer.append(field);
@@ -611,7 +614,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendAgeLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_AGE).append(':');
-		buffer.append(thePC.getAge());
+		buffer.append(charDisplay.getAge());
 		buffer.append(LINE_SEP);
 	}
 
@@ -645,10 +648,10 @@ final class PCGVer2Creator implements IOConstants
 		//
 		// Only save alignment if game mode supports it
 		//
-		if (Globals.getGameModeAlignmentText().length() != 0 && thePC.getPCAlignment() != null)
+		if (Globals.getGameModeAlignmentText().length() != 0 && charDisplay.getPCAlignment() != null)
 		{
 			buffer.append(TAG_ALIGNMENT).append(':');
-			buffer.append(thePC.getPCAlignment().getAbb());
+			buffer.append(charDisplay.getPCAlignment().getAbb());
 			buffer.append(LINE_SEP);
 		}
 	}
@@ -656,14 +659,14 @@ final class PCGVer2Creator implements IOConstants
 	private void appendBirthdayLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_BIRTHDAY).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.BIRTHDAY)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.BIRTHDAY)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendBirthplaceLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_BIRTHPLACE).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.BIRTHPLACE)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.BIRTHPLACE)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -672,7 +675,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendCampaignHistoryLines(StringBuilder buffer)
 	{
-		for (ChronicleEntry ce : thePC.getChronicleEntries())
+		for (ChronicleEntry ce : charDisplay.getChronicleEntries())
 		{
 			buffer.append(TAG_CHRONICLE_ENTRY).append(':');
 			buffer.append(ce.isOutputEntry()?"Y":"N:");
@@ -705,14 +708,14 @@ final class PCGVer2Creator implements IOConstants
 	private void appendCatchPhraseLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CATCHPHRASE).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.CATCH_PHRASE)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.CATCH_PHRASE)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendCharacterAssetLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CHARACTERASSET).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.MISC_ASSETS)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.MISC_ASSETS)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -724,42 +727,42 @@ final class PCGVer2Creator implements IOConstants
 	private void appendCharacterBioLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CHARACTERBIO).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.BIO)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.BIO)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendCharacterCompLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CHARACTERCOMP).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.MISC_COMPANIONS)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.MISC_COMPANIONS)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendCharacterDescLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CHARACTERDESC).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.DESCRIPTION)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.DESCRIPTION)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendCharacterMagicLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CHARACTERMAGIC).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.MISC_MAGIC)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.MISC_MAGIC)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendCharacterDmNotesLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CHARACTERDMNOTES).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.MISC_GM)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.MISC_GM)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendCharacterTypeLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CHARACTERTYPE).append(':');
-		buffer.append(thePC.getCharacterType());
+		buffer.append(charDisplay.getCharacterType());
 		buffer.append(LINE_SEP);
 	}
 
@@ -773,14 +776,14 @@ final class PCGVer2Creator implements IOConstants
 	{
 		Cache specials = new Cache();
 
-		for (PCClass pcClass : thePC.getClassSet())
+		for (PCClass pcClass : charDisplay.getClassSet())
 		{
-			int classLevel = thePC.getLevel(pcClass);
+			int classLevel = charDisplay.getLevel(pcClass);
 
 			buffer.append(TAG_CLASS).append(':');
 			buffer.append(EntityEncoder.encode(pcClass.getKeyName()));
 
-			final String subClassKey = thePC.getSubClassName(pcClass);
+			final String subClassKey = charDisplay.getSubClassName(pcClass);
 
 			if (subClassKey != null && !Constants.EMPTY_STRING.equals(subClassKey))
 			{
@@ -826,7 +829,7 @@ final class PCGVer2Creator implements IOConstants
 					.getCastListForLevel(classLevel), ","));
 			}
 
-			Collection<? extends SpellProhibitor> prohib = thePC
+			Collection<? extends SpellProhibitor> prohib = charDisplay
 					.getProhibitedSchools(pcClass);
 			if (prohib != null)
 			{
@@ -874,10 +877,10 @@ final class PCGVer2Creator implements IOConstants
 					specials.put(key, "BONUS|" + save);
 				}
 			}
-			for (int i = 1; i <= thePC.getLevel(pcClass); i++)
+			for (int i = 1; i <= charDisplay.getLevel(pcClass); i++)
 			{
 				key = pcClass.getKeyName() + TAG_SAVE + (i - 1);
-				PCClassLevel pcl = thePC.getActiveClassLevel(pcClass, i);
+				PCClassLevel pcl = charDisplay.getActiveClassLevel(pcClass, i);
 				for (BonusObj save : thePC.getAddedBonusList(pcl))
 				{
 					if (save.saveToPCG())
@@ -891,7 +894,7 @@ final class PCGVer2Creator implements IOConstants
 		//
 		// Save level up information in the order of levelling
 		//
-		for (PCLevelInfo pcl : thePC.getLevelInfo())
+		for (PCLevelInfo pcl : charDisplay.getLevelInfo())
 		{
 			final String classKeyName = pcl.getClassKeyName();
 			int lvl = pcl.getClassLevel() - 1;
@@ -927,7 +930,7 @@ final class PCGVer2Creator implements IOConstants
 			if (pcClass != null)
 			{
 				String aKey =
-						thePC.getSubstitutionClassName(thePC
+						thePC.getSubstitutionClassName(charDisplay
 							.getActiveClassLevel(pcClass, lvl + 1));
 				if (aKey != null)
 				{
@@ -957,7 +960,7 @@ final class PCGVer2Creator implements IOConstants
 				//
 				// Remember what choices were made for each of the ADD: tags
 				//
-				appendAddTokenInfo(buffer, thePC.getActiveClassLevel(pcClass, lvl + 1));
+				appendAddTokenInfo(buffer, charDisplay.getActiveClassLevel(pcClass, lvl + 1));
 			}
 
 			List<PCLevelInfoStat> statList = pcl.getModifiedStats(true);
@@ -1022,9 +1025,9 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendDeityLine(StringBuilder buffer)
 	{
-		if (thePC.getDeity() != null)
+		if (charDisplay.getDeity() != null)
 		{
-			final Deity aDeity = thePC.getDeity();
+			final Deity aDeity = charDisplay.getDeity();
 
 			buffer.append(TAG_DEITY).append(':');
 			buffer.append(EntityEncoder.encode(aDeity.getKeyName()));
@@ -1102,7 +1105,7 @@ final class PCGVer2Creator implements IOConstants
 
 	private void appendDomainLines(StringBuilder buffer)
 	{
-		for (final Domain domain : thePC.getDomainSet())
+		for (final Domain domain : charDisplay.getDomainSet())
 		{
 			// TODO is any of this commented out code any use anymore?:
 			//
@@ -1222,7 +1225,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendEqSetBonuses(StringBuilder buffer)
 	{
-		for (EquipSet eSet : thePC.getEquipSet())
+		for (EquipSet eSet : charDisplay.getEquipSet())
 		{
 			if (eSet.useTempBonusList())
 			{
@@ -1301,7 +1304,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendEquipmentSetLines(StringBuilder buffer)
 	{
 		// Output all the EquipSets
-		final List<EquipSet> eqSetList = new ArrayList<EquipSet>(thePC.getEquipSet());
+		final List<EquipSet> eqSetList = new ArrayList<EquipSet>(charDisplay.getEquipSet());
 		Collections.sort(eqSetList);
 
 		for (EquipSet eqSet : eqSetList)
@@ -1349,7 +1352,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendEyeColorLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_EYECOLOR).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.EYE_COLOR)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.EYE_COLOR)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1472,7 +1475,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendFollowerLines(StringBuilder buffer)
 	{
-		final Follower aMaster = thePC.getMaster();
+		final Follower aMaster = charDisplay.getMaster();
 
 		if (aMaster != null)
 		{
@@ -1488,7 +1491,7 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(TAG_FILE).append(':');
 			buffer
 				.append(EntityEncoder.encode(FileHelper.findRelativePath(
-					new File(thePC.getFileName()),
+					new File(charDisplay.getFileName()),
 					new File(aMaster.getFileName()))));
 			buffer.append('|');
 			buffer.append(TAG_ADJUSTMENT).append(':');
@@ -1498,7 +1501,7 @@ final class PCGVer2Creator implements IOConstants
 
 		if (thePC.hasFollowers())
 		{
-			for (Follower follower : thePC.getFollowerList())
+			for (Follower follower : charDisplay.getFollowerList())
 			{
 				buffer.append(TAG_FOLLOWER).append(':');
 				buffer.append(EntityEncoder.encode(follower.getName()));
@@ -1518,7 +1521,7 @@ final class PCGVer2Creator implements IOConstants
 				if (StringUtils.isNotEmpty(follower.getFileName()))
 				{
 					buffer.append(EntityEncoder.encode(FileHelper
-						.findRelativePath(new File(thePC.getFileName()),
+						.findRelativePath(new File(charDisplay.getFileName()),
 							new File(follower.getFileName()))));
 				}
 				buffer.append(LINE_SEP);
@@ -1529,35 +1532,35 @@ final class PCGVer2Creator implements IOConstants
 	private void appendGenderLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_GENDER).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getGenderObject().name()));
+		buffer.append(EntityEncoder.encode(charDisplay.getGenderObject().name()));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendHairColorLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_HAIRCOLOR).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.HAIR_COLOR)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.HAIR_COLOR)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendHairStyleLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_HAIRSTYLE).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.HAIR_STYLE)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.HAIR_STYLE)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendHandedLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_HANDED).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getHandedObject().name()));
+		buffer.append(EntityEncoder.encode(charDisplay.getHandedObject().name()));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendInterestsLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_INTERESTS).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.INTERESTS)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.INTERESTS)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1575,7 +1578,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendKitLines(StringBuilder buffer)
 	{
-		for (final Kit kit : thePC.getKitInfo())
+		for (final Kit kit : charDisplay.getKitInfo())
 		{
 			buffer.append(TAG_KIT).append(':').append(kit.getKeyName())
 				.append(LINE_SEP);
@@ -1591,7 +1594,7 @@ final class PCGVer2Creator implements IOConstants
 	{
 		String del = Constants.EMPTY_STRING;
 
-		for (final Language lang : thePC.getLanguageSet())
+		for (final Language lang : charDisplay.getLanguageSet())
 		{
 			buffer.append(del);
 			buffer.append(TAG_LANGUAGE).append(':');
@@ -1605,7 +1608,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendLocationLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_LOCATION).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.LOCATION)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.LOCATION)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1648,21 +1651,21 @@ final class PCGVer2Creator implements IOConstants
 	private void appendPersonalityTrait1Line(StringBuilder buffer)
 	{
 		buffer.append(TAG_PERSONALITYTRAIT1).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.TRAIT1)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.TRAIT1)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendPersonalityTrait2Line(StringBuilder buffer)
 	{
 		buffer.append(TAG_PERSONALITYTRAIT2).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.TRAIT2)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.TRAIT2)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendPhobiasLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_PHOBIAS).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.PHOBIAS)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.PHOBIAS)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1741,14 +1744,14 @@ final class PCGVer2Creator implements IOConstants
 	private void appendCharacterNameLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CHARACTERNAME).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getName()));
+		buffer.append(EntityEncoder.encode(charDisplay.getName()));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendHeightLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_HEIGHT).append(':');
-		buffer.append(thePC.getHeight());
+		buffer.append(charDisplay.getHeight());
 		buffer.append(LINE_SEP);
 	}
 
@@ -1777,17 +1780,17 @@ final class PCGVer2Creator implements IOConstants
 	private void appendPlayerNameLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_PLAYERNAME).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getPlayersName()));
+		buffer.append(EntityEncoder.encode(charDisplay.getPlayersName()));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendPortraitLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_PORTRAIT).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getDisplay().getPortraitPath()));
+		buffer.append(EntityEncoder.encode(charDisplay.getPortraitPath()));
 		buffer.append(LINE_SEP);
 		
-		Rectangle rect = thePC.getPortraitThumbnailRect();
+		Rectangle rect = charDisplay.getPortraitThumbnailRect();
 		if (rect != null)
 		{
 			buffer.append(TAG_PORTRAIT_THUMBNAIL_RECT).append(':');
@@ -1805,9 +1808,9 @@ final class PCGVer2Creator implements IOConstants
 	private void appendRaceLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_RACE).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getRace().getKeyName()));
+		buffer.append(EntityEncoder.encode(charDisplay.getRace().getKeyName()));
 		List<FixedStringList> assocList =
-				thePC.getDetailedAssociations(thePC.getRace());
+				thePC.getDetailedAssociations(charDisplay.getRace());
 		if (assocList != null && !assocList.isEmpty())
 		{
 			buffer.append(TAG_SEPARATOR);
@@ -1830,7 +1833,7 @@ final class PCGVer2Creator implements IOConstants
 				}
 			}
 		}
-		appendAddTokenInfo(buffer, thePC.getRace());
+		appendAddTokenInfo(buffer, charDisplay.getRace());
 		buffer.append(LINE_SEP);
 	}
 
@@ -1848,14 +1851,14 @@ final class PCGVer2Creator implements IOConstants
 	private void appendResidenceLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_CITY).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.RESIDENCE)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.RESIDENCE)));
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendSkinColorLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_SKINCOLOR).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.SKIN_COLOR)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.SKIN_COLOR)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -1962,7 +1965,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendExperienceLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_EXPERIENCE).append(':');
-		buffer.append(thePC.getXP());
+		buffer.append(charDisplay.getXP());
 		buffer.append(LINE_SEP);
 	}
 
@@ -1974,7 +1977,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendExperienceTableLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_EXPERIENCETABLE).append(':');
-		buffer.append(thePC.getXPTableName());
+		buffer.append(charDisplay.getXPTableName());
 		buffer.append(LINE_SEP);
 	}
 
@@ -1985,7 +1988,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendRegionLine(StringBuilder buffer)
 	{
-		final String r = thePC.getRegionString();
+		final String r = charDisplay.getRegionString();
 
 		if (r != null)
 		{
@@ -2009,7 +2012,7 @@ final class PCGVer2Creator implements IOConstants
 
 		thePC.populateSkills(includeSkills);
 
-		for (Skill skill : thePC.getSkillSet())
+		for (Skill skill : charDisplay.getSkillSet())
 		{
 			Integer outputIndex =
 					thePC.getAssoc(skill, AssociationKey.OUTPUT_INDEX);
@@ -2069,7 +2072,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendSpeechPatternLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_SPEECHPATTERN).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.SPEECH_TENDENCY)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.SPEECH_TENDENCY)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -2084,7 +2087,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendSpellBookLines(StringBuilder buffer)
 	{
-		for (SpellBook book : thePC.getSpellBooks())
+		for (SpellBook book : charDisplay.getSpellBooks())
 		{
 			String bookName = book.getName();
 			if (!bookName.equals(Globals.getDefaultSpellBook())
@@ -2124,7 +2127,7 @@ final class PCGVer2Creator implements IOConstants
 	{
 		String del;
 
-		for (PCClass pcClass : thePC.getClassSet())
+		for (PCClass pcClass : charDisplay.getClassSet())
 		{
 			for (CharacterSpell cSpell : thePC.getCharacterSpells(pcClass))
 			{
@@ -2219,14 +2222,14 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendSpellListLines(StringBuilder buffer)
 	{
-		for (PCClass pcClass : thePC.getClassSet())
+		for (PCClass pcClass : charDisplay.getClassSet())
 		{
 			TransitionChoice<CDOMListObject<Spell>> csc =
 					pcClass.get(ObjectKey.SPELLLIST_CHOICE);
 			if (csc != null)
 			{
 				List<? extends CDOMList<Spell>> assocList =
-						thePC.getSpellLists(pcClass);
+						charDisplay.getSpellLists(pcClass);
 				buffer.append(TAG_SPELLLIST).append(':');
 				buffer.append(pcClass.getKeyName());
 
@@ -2256,7 +2259,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendStatLines(StringBuilder buffer)
 	{
-		for (PCStat aStat : thePC.getStatSet())
+		for (PCStat aStat : charDisplay.getStatSet())
 		{
 			buffer.append(TAG_STAT).append(':');
 			buffer.append(aStat.getAbb());
@@ -2270,7 +2273,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendTabNameLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_TABNAME).append(':');
-		buffer.append(EntityEncoder.encode(thePC.getSafeStringFor(StringKey.TAB_NAME)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(StringKey.TAB_NAME)));
 		buffer.append(LINE_SEP);
 	}
 
@@ -2333,7 +2336,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendTemplateLines(StringBuilder buffer)
 	{
-		for (PCTemplate template : thePC.getTemplateSet())
+		for (PCTemplate template : charDisplay.getTemplateSet())
 		{
 			//
 			// TEMPLATESAPPLIED:[NAME:<template_name>]
@@ -2425,7 +2428,7 @@ final class PCGVer2Creator implements IOConstants
 
 			int j = 0;
 
-			for (WeaponProf wp : thePC.getDisplay().getSortedWeaponProfs())
+			for (WeaponProf wp : charDisplay.getSortedWeaponProfs())
 			{
 				weaponProficiencies[j++] = wp.getKeyName();
 			}
@@ -2458,12 +2461,12 @@ final class PCGVer2Creator implements IOConstants
 		//
 		// Save any selected racial bonus weapons
 		//
-		appendWeaponProficiencyLines(buffer, thePC.getRace());
+		appendWeaponProficiencyLines(buffer, charDisplay.getRace());
 
 		//
 		// Save any selected template bonus weapons
 		//
-		for (PCTemplate pct : thePC.getTemplateSet())
+		for (PCTemplate pct : charDisplay.getTemplateSet())
 		{
 			appendWeaponProficiencyLines(buffer, pct);
 		}
@@ -2471,7 +2474,7 @@ final class PCGVer2Creator implements IOConstants
 		//
 		// Save any selected class bonus weapons
 		//
-		for (final PCClass pcClass : thePC.getClassSet())
+		for (final PCClass pcClass : charDisplay.getClassSet())
 		{
 			appendWeaponProficiencyLines(buffer, pcClass);
 		}
@@ -2479,7 +2482,7 @@ final class PCGVer2Creator implements IOConstants
 		//
 		// Save any selected domain bonus weapons
 		//
-		for (final Domain d : thePC.getDomainSet())
+		for (final Domain d : charDisplay.getDomainSet())
 		{
 			appendWeaponProficiencyLines(buffer, d);
 		}
@@ -2543,14 +2546,14 @@ final class PCGVer2Creator implements IOConstants
 	private void appendMoneyLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_MONEY).append(':');
-		buffer.append(thePC.getGold().toString());
+		buffer.append(charDisplay.getGold().toString());
 		buffer.append(LINE_SEP);
 	}
 
 	private void appendWeightLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_WEIGHT).append(':');
-		buffer.append(thePC.getWeight());
+		buffer.append(charDisplay.getWeight());
 		buffer.append(LINE_SEP);
 	}
 
