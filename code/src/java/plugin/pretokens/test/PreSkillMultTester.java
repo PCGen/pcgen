@@ -64,7 +64,7 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements Prer
 		final int percentageSignPosition = skillKey.lastIndexOf('%');
 
 		boolean foundMatch = false;
-		for (Skill aSkill : character.getSkillSet())
+		for (Skill aSkill : character.getDisplay().getSkillSet())
 		{
 			final String aSkillKey = aSkill.getKeyName().toUpperCase();
 			if (isType)

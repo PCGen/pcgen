@@ -8,7 +8,6 @@ import pcgen.base.util.ListSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
-import pcgen.core.Equipment;
 import pcgen.core.Language;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
@@ -20,7 +19,6 @@ import pcgen.core.WeaponProf;
 public class TransparentPlayerCharacter extends PlayerCharacter
 {
 
-	public Set<Equipment> equipmentSet = new ListSet<Equipment>();
 	public Set<WeaponProf> weaponProfSet = new ListSet<WeaponProf>();
 	public Set<PCTemplate> templateSet = new ListSet<PCTemplate>();
 	public Map<Skill, Integer> skillSet = new HashMap<Skill, Integer>();
@@ -33,12 +31,6 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	public Set<Skill> classSkillSet = new ListSet<Skill>();
 	public Set<Skill> crossClassSkillSet = new ListSet<Skill>();
 	public Set<Race> qualifiedSet = new ListSet<Race>();
-
-	@Override
-	public Set<Equipment> getEquipmentSet()
-	{
-		return equipmentSet;
-	}
 
 	@Override
 	public Set<WeaponProf> getWeaponProfSet()

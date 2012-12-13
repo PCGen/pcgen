@@ -76,7 +76,7 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements Prerequi
 		else
 		{
 			String desiredAlignment = prereq.getKey();
-			final PCAlignment charAlignment = character.getPCAlignment();
+			final PCAlignment charAlignment = character.getDisplay().getPCAlignment();
 
 			if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
 			{

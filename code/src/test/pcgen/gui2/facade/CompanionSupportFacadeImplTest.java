@@ -117,8 +117,8 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Companion should be the first follower", companion.getName(), follower.getName());
 		assertEquals("Master should have one companion", 1, master.getFollowerList().size());
 		
-		assertNotNull("Companion should have a master now", companion.getMaster());
-		assertEquals("Companion's master", master.getName(), companion.getMaster().getName());
+		assertNotNull("Companion should have a master now", companion.getDisplay().getMaster());
+		assertEquals("Companion's master", master.getName(), companion.getDisplay().getMaster().getName());
 	}
 
 	/**

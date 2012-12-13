@@ -83,7 +83,7 @@ public class PreArmorProfTester extends AbstractPrerequisiteTest implements Prer
 		{
 			typeString = "ARMOR." + aString.substring(10);
 		}
-		for (ProfProvider<ArmorProf> spp : character.getArmorProfList())
+		for (ProfProvider<ArmorProf> spp : character.getDisplay().getArmorProfList())
 		{
 			if (keyEquip != null && spp.providesProficiency(keyEquip.getArmorProf()))
 			{

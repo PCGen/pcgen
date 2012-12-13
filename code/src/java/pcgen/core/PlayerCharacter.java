@@ -82,7 +82,6 @@ import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
-import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
@@ -146,7 +145,6 @@ import pcgen.cdom.facet.analysis.LocalSkillCostFacet;
 import pcgen.cdom.facet.analysis.MovementResultFacet;
 import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.facet.analysis.QualifyFacet;
-import pcgen.cdom.facet.analysis.RaceTypeFacet;
 import pcgen.cdom.facet.analysis.RacialSubTypesFacet;
 import pcgen.cdom.facet.analysis.ReachFacet;
 import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
@@ -383,7 +381,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private HitPointFacet hitPointFacet = FacetLibrary.getFacet(HitPointFacet.class);
 	private KnownSpellFacet knownSpellFacet = FacetLibrary.getFacet(KnownSpellFacet.class);
 
-	private RaceTypeFacet raceTypeFacet = FacetLibrary.getFacet(RaceTypeFacet.class);
 	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 	private LevelTableFacet levelTableFacet = FacetLibrary.getFacet(LevelTableFacet.class);
 	private SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
@@ -564,26 +561,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		ageFacet.set(id, i);
 		setDirty(true);
 		calcActiveBonuses();
-	}
-
-	/**
-	 * Alignment of this PC.
-	 * 
-	 * @return alignment
-	 */
-	public PCAlignment getPCAlignment()
-	{
-		return alignmentFacet.get(id);
-	}
-
-	/**
-	 * Get the armor proficiency list.
-	 * 
-	 * @return armor proficiency list
-	 */
-	public Collection<ProfProvider<ArmorProf>> getArmorProfList()
-	{
-		return armorProfFacet.getQualifiedSet(id);
 	}
 
 	/**
@@ -938,17 +915,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Returns a String with the characters Race Type (e.g. Humanoid).
-	 * 
-	 * @return The character's race type or &quot;None&quot;
-	 */
-	public String getRaceType()
-	{
-		RaceType rt = raceTypeFacet.getRaceType(id);
-		return rt == null ? Constants.NONE : rt.toString();
-	}
-
-	/**
 	 * Gets a <tt>Collection</tt> of racial subtypes for the character (e.g. Good).
 	 * 
 	 * @return A unmodifiable <tt>Collection</tt> of subtypes.
@@ -1063,7 +1029,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * 
 	 * @return List
 	 */
-	public Collection<EquipSet> getEquipSet()
+	private Collection<EquipSet> getEquipSet()
 	{
 		return equipSetFacet.getSet(id);
 	}
@@ -1150,7 +1116,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * 
 	 * @return equipment set
 	 */
-	public Set<Equipment> getEquipmentSet()
+	private Set<Equipment> getEquipmentSet()
 	{
 		return equipmentFacet.getSet(id);
 	}
@@ -1159,7 +1125,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * Get the character's "equipped" equipment.
 	 * @return a set of the "equipped" equipment
 	 */
-	public Set<Equipment> getEquippedEquipmentSet()
+	private Set<Equipment> getEquippedEquipmentSet()
 	{
 		return equippedFacet.getSet(id);
 	}
@@ -1400,18 +1366,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Returns a region (including subregion) string for the character.
-	 * 
-	 * <p/> Build on-the-fly so removing templates won't mess up region
-	 * 
-	 * @return character region
-	 */
-	public String getFullRegion()
-	{
-		return regionFacet.getFullRegion(id);
-	}
-
-	/**
 	 * Sets the character's gender.
 	 * 
 	 * <p>
@@ -1519,21 +1473,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		handedFacet.setHanded(id, h);
 		setDirty(true);
-	}
-
-	/**
-	 * Returns a string for the character's handed.
-	 * 
-	 * <p>
-	 * This method will return the stored handed or the template locked handed
-	 * if there is one. This means the <tt>setHanded()</tt> side effect is not
-	 * really required.
-	 * 
-	 * @return A <tt>String</tt> version of the character's gender.
-	 */
-	public Handed getHandedObject()
-	{
-		return handedFacet.getHanded(id);
 	}
 
 	/**
@@ -1922,23 +1861,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Get the Follower object that is the "master" for this object.
-	 * 
-	 * @return follower master
-	 */
-	public Follower getMaster()
-	{
-		return masterFacet.get(id);
-	}
-
-	/**
 	 * Get the PlayerCharacter that is the "master" for this object.
 	 * 
 	 * @return master PC
 	 */
 	public PlayerCharacter getMasterPC()
 	{
-		Follower followerMaster = getMaster();
+		Follower followerMaster = masterFacet.get(id);
 		if (followerMaster == null)
 		{
 			return null;
@@ -2041,16 +1970,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Gets the name of the player for this character.
-	 * 
-	 * @return The player's name.
-	 */
-	public String getPlayersName()
-	{
-		return getSafeStringFor(StringKey.PLAYERS_NAME);
-	}
-
-	/**
 	 * Set the value of the feat pool.
 	 * @param pool value to set the feat pool to
 	 */
@@ -2086,16 +2005,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void setPortraitThumbnailRect(Rectangle rect)
 	{
 		portraitThumbnailRectFacet.set(id, (Rectangle) rect.clone());
-	}
-
-	/**
-	 * Retrieve the outline for the portrait thumbnail.
-	 * @return The outline for the portrait thumbnail.
-	 */
-	public Rectangle getPortraitThumbnailRect()
-	{
-		Rectangle rect = portraitThumbnailRectFacet.get(id);
-		return rect == null ? null : (Rectangle) rect.clone();
 	}
 
 	/**
@@ -2468,16 +2377,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Get spell books.
-	 * 
-	 * @return spellBooks
-	 */
-	public Collection<SpellBook> getSpellBooks()
-	{
-		return spellBookFacet.getBooks(id);
-	}
-
-	/**
 	 * Get spell class given an index.
 	 * 
 	 * @param ix the index
@@ -2750,11 +2649,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		setDirty(true);
 	}
 
-	public String getXPTableName()
-	{
-		return xpTableFacet.getXPTable(id).getName();
-	}
-
 	public LevelInfo getXPTableLevelInfo(int level)
 	{
 		return xpTableFacet.getLevelInfo(id, level);
@@ -2764,11 +2658,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		characterTypeFacet.setCharacterType(id, characterType);
 		setDirty(true);
-	}
-
-	public String getCharacterType()
-	{
-		return characterTypeFacet.getCharacterType(id);
 	}
 
 	public void addEquipSet(final EquipSet set)
@@ -2996,15 +2885,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	/**
 	 *
-	 * @return the racial size
-	 */
-	public int racialSizeInt()
-	{
-		return sizeFacet.racialSizeInt(id);
-	}
-
-	/**
-	 *
 	 * @param eq
 	 */
 	public void removeEquipment(final Equipment eq)
@@ -3033,14 +2913,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		alignmentFacet.set(id, align);
 		setDirty(true);
-	}
-
-	/**
-	 * @return the allowDebt
-	 */
-	public boolean isAllowDebt()
-	{
-		return moneyFacet.isAllowDebt(id);
 	}
 
 	/**
@@ -3120,11 +2992,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			setClassLevelsBrazenlyTo(classLvlMap);
 		}
 		*/
-		if ((nPC != null) && (getCopyMasterBAB().length() > 0))
+		if ((nPC != null) && (masterFacet.getCopyMasterBAB(id).length() > 0))
 		{
 			masterBAB = nPC.baseAttackBonus();
 
-			final String copyMasterBAB = replaceMasterString(getCopyMasterBAB(), masterBAB);
+			final String copyMasterBAB = replaceMasterString(masterFacet.getCopyMasterBAB(id), masterBAB);
 			masterBAB = getVariableValue(copyMasterBAB, Constants.EMPTY_STRING).intValue();
 			masterTotal = masterBAB + TOHITBonus;
 		}
@@ -3302,14 +3174,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * @return the ignoreCost
-	 */
-	public boolean isIgnoreCost()
-	{
-		return moneyFacet.isIgnoreCost(id);
-	}
-
-	/**
 	 * @param ignoreCost the ignoreCost to set
 	 */
 	public void setIgnoreCost(boolean ignoreCost)
@@ -3429,11 +3293,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		// now we see if this PC is a Familiar/Mount
 		final PlayerCharacter nPC = getMasterPC();
 
-		if ((nPC != null) && (getCopyMasterCheck().length() > 0))
+		if ((nPC != null) && (masterFacet.getCopyMasterCheck(id).length() > 0))
 		{
 			int masterBonus = nPC.getBaseCheck(check);
 
-			final String copyMasterCheck = replaceMasterString(getCopyMasterCheck(), masterBonus);
+			final String copyMasterCheck = replaceMasterString(masterFacet.getCopyMasterCheck(id), masterBonus);
 			masterBonus = getVariableValue(copyMasterCheck, Constants.EMPTY_STRING).intValue();
 
 			// use masters save if better
@@ -3482,21 +3346,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public double getBonusDueToType(final String mainType, final String subType, final String bonusType)
 	{
 		return bonusManager.getBonusDueToType(mainType, subType, bonusType);
-	}
-
-	public String getCopyMasterBAB()
-	{
-		return masterFacet.getCopyMasterBAB(id);
-	}
-
-	public String getCopyMasterCheck()
-	{
-		return masterFacet.getCopyMasterCheck(id);
-	}
-
-	public String getCopyMasterHP()
-	{
-		return masterFacet.getCopyMasterHP(id);
 	}
 
 	public void setCurrentHP(final int currentHP)
@@ -4349,7 +4198,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * @param aName
 	 * @return stat bonus to
 	 */
-	public double getStatBonusTo(String aType, String aName)
+	private double getStatBonusTo(String aType, String aName)
 	{
 		return statBonusFacet.getStatBonusTo(id, aType, aName);
 	}
@@ -5358,10 +5207,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		// get Master's BAB
 		final PlayerCharacter nPC = getMasterPC();
 
-		if ((nPC != null) && (getCopyMasterBAB().length() > 0))
+		if ((nPC != null) && (masterFacet.getCopyMasterBAB(id).length() > 0))
 		{
 			int masterBAB = nPC.baseAttackBonus();
-			final String copyMasterBAB = replaceMasterString(getCopyMasterBAB(), masterBAB);
+			final String copyMasterBAB = replaceMasterString(masterFacet.getCopyMasterBAB(id), masterBAB);
 			masterBAB = getVariableValue(copyMasterBAB, "").intValue();
 
 			getVariableProcessor().addCachedVariable(cacheLookup, Float.valueOf(masterBAB));
@@ -5984,7 +5833,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			return total;
 		}
 
-		if (getCopyMasterHP().length() == 0)
+		if (masterFacet.getCopyMasterHP(id).length() == 0)
 		{
 			return total;
 		}
@@ -5994,7 +5843,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		//
 		int masterHP = nPC.hitPoints();
 
-		final String copyMasterHP = replaceMasterString(getCopyMasterHP(), masterHP);
+		final String copyMasterHP = replaceMasterString(masterFacet.getCopyMasterHP(id), masterHP);
 		masterHP = getVariableValue(copyMasterHP, "").intValue();
 
 		return masterHP;
@@ -8145,7 +7994,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		{
 			cloneClass.addFeatPoolBonus(aClone);
 		}
-		Follower followerMaster = getMaster();
+		Follower followerMaster = masterFacet.get(id);
 		if (followerMaster != null)
 		{
 			aClone.masterFacet.set(id, followerMaster.clone());

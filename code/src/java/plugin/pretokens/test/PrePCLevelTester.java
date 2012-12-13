@@ -43,7 +43,7 @@ public class PrePCLevelTester extends AbstractPrerequisiteTest implements
 
 		final int requiredLevel = Integer.parseInt(prereq.getOperand());
 		final int runningTotal =
-				prereq.getOperator().compare(character.totalNonMonsterLevels(),
+				prereq.getOperator().compare(character.getDisplay().totalNonMonsterLevels(),
 					requiredLevel);
 		return countedTotal(prereq, runningTotal);
 	}

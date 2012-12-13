@@ -48,7 +48,7 @@ public class PreGenderTester extends AbstractPrerequisiteTest implements
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
 		int runningTotal;
-		boolean genderMatches = character.getGenderObject().toString().startsWith(prereq.getKey());
+		boolean genderMatches = character.getDisplay().getGenderObject().toString().startsWith(prereq.getKey());
 		if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
 		{
 			runningTotal = genderMatches ? 1 : 0;

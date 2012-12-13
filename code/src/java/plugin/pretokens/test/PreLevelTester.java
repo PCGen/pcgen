@@ -49,7 +49,7 @@ public class PreLevelTester extends AbstractPrerequisiteTest implements
 
 		final int requiredLevel = Integer.parseInt(prereq.getOperand());
 		final int runningTotal =
-				prereq.getOperator().compare(character.getTotalLevels(),
+				prereq.getOperator().compare(character.getDisplay().getTotalLevels(),
 					requiredLevel);
 		return countedTotal(prereq, runningTotal);
 	}

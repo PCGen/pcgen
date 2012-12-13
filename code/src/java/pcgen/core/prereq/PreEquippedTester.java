@@ -55,7 +55,7 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 		if (character.hasEquipment())
 		{
 			final String aString = prereq.getKey();
-			for ( Equipment eq : character.getEquippedEquipmentSet() )
+			for ( Equipment eq : character.getDisplay().getEquippedEquipmentSet() )
 			{
 				//
 				// Only check equipment of the type we are interested in

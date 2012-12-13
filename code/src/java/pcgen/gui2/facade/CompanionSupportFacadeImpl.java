@@ -147,7 +147,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 						CharacterFacadeImpl compFacadeImpl =
 								(CharacterFacadeImpl) companion;
 						Follower follower =
-								compFacadeImpl.getTheCharacter().getMaster();
+								compFacadeImpl.getTheCharacter().getDisplay().getMaster();
 						follower.setFileName(newFile.getAbsolutePath());
 					}
 				}

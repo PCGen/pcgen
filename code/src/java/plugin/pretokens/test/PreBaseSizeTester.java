@@ -65,7 +65,7 @@ public class PreBaseSizeTester extends AbstractPrerequisiteTest implements Prere
 						"PreBaseSize.error.bad_size", prereq.getOperand())); //$NON-NLS-1$
 			}
 			runningTotal =
-					prereq.getOperator().compare(character.racialSizeInt(),
+					prereq.getOperator().compare(character.getDisplay().racialSizeInt(),
 						targetSize);
 		}
 

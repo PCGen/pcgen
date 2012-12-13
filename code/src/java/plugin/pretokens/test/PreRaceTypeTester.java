@@ -108,7 +108,7 @@ public class PreRaceTypeTester extends AbstractPrerequisiteTest implements Prere
 			critterType.append("Humanoid");
 		}
 	
-		for (PCTemplate t : pc.getTemplateSet())
+		for (PCTemplate t : pc.getDisplay().getTemplateSet())
 		{
 			final String aType = t.getType();
 	

@@ -55,7 +55,7 @@ public class PreHDTester extends AbstractPrerequisiteTest implements
 			final int targetHD = Integer.parseInt(prereq.getOperand());
 
 			runningTotal =
-					prereq.getOperator().compare(character.totalHitDice(),
+					prereq.getOperator().compare(character.getDisplay().totalHitDice(),
 						targetHD);
 		}
 		catch (NumberFormatException nfe)

@@ -120,7 +120,7 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 		else if (requiredRace.startsWith("RACETYPE=") || requiredRace.startsWith("RACETYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
 			String raceToMatch = requiredRace.substring(9);
-			String raceType = character.getRaceType();
+			String raceType = character.getDisplay().getRaceType();
 			boolean isMatchingRaceType = raceType.equalsIgnoreCase(
 				requiredRace.substring(9)) ? true : false;
 			if (isMatchingRaceType) 

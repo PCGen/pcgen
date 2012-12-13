@@ -26,7 +26,6 @@ package pcgen.core;
 
 
 import java.math.BigDecimal;
-import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.ObjectKey;
 
@@ -37,53 +36,6 @@ import pcgen.cdom.enumeration.ObjectKey;
  */
 public class PlayerCharacterUtilities
 {
-	/**
-	 * Picks the biggest die size from two strings in the form V|WdX, YdZ (where
-	 * the WdX represents W X sided dice).  If Z is larger than X, returns
-	 * V|YdZ, otherwise it returns V|WdX
-	 *
-	 * @param   oldString  2|1d3
-	 * @param   newString  1d4
-	 *
-	 * @return  in the example parameters given, will return 2|1d4 (because the
-	 *          4 is bigger than the 3). If the last figure in the new string
-	 *          isn't larger, it returns the original string.
-	 */
-	public static String getBestUDamString(final String oldString, final String newString)
-	{
-		if ((newString == null) || (newString.length() < 2))
-		{
-			return oldString;
-		}
-		if (oldString == null)
-		{
-			StringTokenizer aTok = new StringTokenizer(newString, " dD+-(x)");
-			aTok.nextToken();
-			return Integer.parseInt(aTok.nextToken()) + "|" + newString;
-		}
-
-		StringTokenizer aTok      = new StringTokenizer(oldString, "|");
-		int             sides     = Integer.parseInt(aTok.nextToken());
-		String          retString = oldString;
-
-		aTok = new StringTokenizer(newString, " dD+-(x)");
-
-		if (aTok.countTokens() > 1)
-		{
-			aTok.nextToken();
-
-			final int i = Integer.parseInt(aTok.nextToken());
-
-			if (sides < i)
-			{
-				sides     = i;
-				retString = sides + "|" + newString;
-			}
-		}
-
-		return retString;
-	}
-
 	/**
 	 * Set the Weapon proficiency of one piece of Equipment to the same as the
 	 * Proficiency in another piece of Equipment.  For some bizarre reason, as

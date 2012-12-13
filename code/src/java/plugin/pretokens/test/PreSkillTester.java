@@ -85,7 +85,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		boolean foundMatch = false;
 		boolean foundSkill = false;
 		
-		for (Skill aSkill : character.getSkillSet())
+		for (Skill aSkill : character.getDisplay().getSkillSet())
 		{
 			final String aSkillKey = aSkill.getKeyName().toUpperCase();
 			if (isType)
@@ -215,7 +215,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		HashMap<Skill, Set<Skill>> serveAsSkills, Set<Skill> imitators,
 		PlayerCharacter character)
 	{
-		Set<Skill> skillSet = new HashSet<Skill>(character.getSkillSet());
+		Set<Skill> skillSet = new HashSet<Skill>(character.getDisplay().getSkillSet());
 		for (Skill aSkill : skillSet)
 		{
 			Set<Skill> servesAs = new HashSet<Skill>();

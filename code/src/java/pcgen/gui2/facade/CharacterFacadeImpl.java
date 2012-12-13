@@ -336,7 +336,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			portraitFile = new File(charDisplay.getPortraitPath());
 		}
 		portrait = new DefaultReferenceFacade<File>(portraitFile);
-		cropRect = new RectangleReference(theCharacter.getPortraitThumbnailRect());
+		cropRect = new RectangleReference(charDisplay.getPortraitThumbnailRect());
 		characterType = new DefaultReferenceFacade<String>(charDisplay.getCharacterType());
 
 		tabName = new DefaultReferenceFacade<String>(charDisplay.getTabName());

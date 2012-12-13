@@ -51,7 +51,7 @@ public class PreRegionTester extends AbstractPrerequisiteTest implements Prerequ
 	{
 
 		final String requiredRegion = prereq.getKey().toUpperCase();
-		final String characterRegion = character.getFullRegion().toUpperCase();
+		final String characterRegion = character.getDisplay().getFullRegion().toUpperCase();
 
 		final boolean sameRegion = characterRegion.startsWith(requiredRegion);
 

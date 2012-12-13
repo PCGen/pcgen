@@ -80,7 +80,7 @@ public class PreItemTester extends AbstractPrerequisiteTest implements
 				typeList = CoreUtility.split(stripped, '.');
 			}
 
-			for (Equipment eq : character.getEquipmentSet())
+			for (Equipment eq : character.getDisplay().getEquipmentSet())
 			{
 				if (typeList != null)
 				{

@@ -164,7 +164,7 @@ public class PreTypeTester extends AbstractPrerequisiteTest implements
 			list.add("Humanoid");
 		}
 	
-		for (PCTemplate t : pc.getTemplateSet())
+		for (PCTemplate t : pc.getDisplay().getTemplateSet())
 		{
 			list.add(t.getType());
 		}

@@ -18,10 +18,10 @@
 package pcgen.core.display;
 
 import java.util.List;
+import java.util.StringTokenizer;
 
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.PlayerCharacterUtilities;
 import pcgen.util.Delta;
 
 public class UnarmedDamageDisplay
@@ -42,15 +42,14 @@ public class UnarmedDamageDisplay
 		CharacterDisplay display = pc.getDisplay();
 		String retString = "2|1d2";
 
-		for (PCClass pcClass : pc.getClassSet())
+		for (PCClass pcClass : display.getClassSet())
 		{
 			retString =
-					PlayerCharacterUtilities.getBestUDamString(retString,
-						pcClass.getUdamForLevel(display.getLevel(pcClass), pc,
-							adjustForPCSize));
+					getBestUDamString(retString, pcClass.getUdamForLevel(
+						display.getLevel(pcClass), pc, adjustForPCSize));
 		}
 
-		int sizeInt = pc.sizeInt();
+		int sizeInt = display.sizeInt();
 		for (List<String> unarmedDamage : display.getUnarmedDamage())
 		{
 			String aDamage;
@@ -63,14 +62,12 @@ public class UnarmedDamageDisplay
 				aDamage = unarmedDamage.get(sizeInt);
 			}
 			retString =
-					PlayerCharacterUtilities.getBestUDamString(retString,
+					UnarmedDamageDisplay.getBestUDamString(retString,
 						aDamage);
 		}
 		//Test against the default for the race
 		String pObjDamage = display.getUDamForRace();
-		retString =
-				PlayerCharacterUtilities.getBestUDamString(retString,
-					pObjDamage);
+		retString = getBestUDamString(retString, pObjDamage);
 
 		// string is in form sides|damage, just return damage portion
 		StringBuilder ret =
@@ -86,6 +83,53 @@ public class UnarmedDamageDisplay
 			}
 		}
 		return ret.toString();
+	}
+
+	/**
+	 * Picks the biggest die size from two strings in the form V|WdX, YdZ (where
+	 * the WdX represents W X sided dice).  If Z is larger than X, returns
+	 * V|YdZ, otherwise it returns V|WdX
+	 *
+	 * @param   oldString  2|1d3
+	 * @param   newString  1d4
+	 *
+	 * @return  in the example parameters given, will return 2|1d4 (because the
+	 *          4 is bigger than the 3). If the last figure in the new string
+	 *          isn't larger, it returns the original string.
+	 */
+	public static String getBestUDamString(final String oldString, final String newString)
+	{
+		if ((newString == null) || (newString.length() < 2))
+		{
+			return oldString;
+		}
+		if (oldString == null)
+		{
+			StringTokenizer aTok = new StringTokenizer(newString, " dD+-(x)");
+			aTok.nextToken();
+			return Integer.parseInt(aTok.nextToken()) + "|" + newString;
+		}
+	
+		StringTokenizer aTok      = new StringTokenizer(oldString, "|");
+		int             sides     = Integer.parseInt(aTok.nextToken());
+		String          retString = oldString;
+	
+		aTok = new StringTokenizer(newString, " dD+-(x)");
+	
+		if (aTok.countTokens() > 1)
+		{
+			aTok.nextToken();
+	
+			final int i = Integer.parseInt(aTok.nextToken());
+	
+			if (sides < i)
+			{
+				sides     = i;
+				retString = sides + "|" + newString;
+			}
+		}
+	
+		return retString;
 	}
 
 }

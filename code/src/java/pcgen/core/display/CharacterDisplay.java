@@ -52,6 +52,7 @@ import pcgen.cdom.facet.AutoLanguageFacet;
 import pcgen.cdom.facet.DamageReductionFacet;
 import pcgen.cdom.facet.EquipSetFacet;
 import pcgen.cdom.facet.EquipmentFacet;
+import pcgen.cdom.facet.EquippedEquipmentFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.HitPointFacet;
@@ -106,6 +107,7 @@ import pcgen.cdom.facet.fact.XPFacet;
 import pcgen.cdom.facet.input.ProhibitedSchoolFacet;
 import pcgen.cdom.facet.input.UserSpecialAbilityFacet;
 import pcgen.cdom.facet.model.AlignmentFacet;
+import pcgen.cdom.facet.model.ArmorProfProviderFacet;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
@@ -116,8 +118,10 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfFacet;
+import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.AgeSet;
+import pcgen.core.ArmorProf;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -174,6 +178,8 @@ public class CharacterDisplay
 	private SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
 	private FavoredClassFacet favClassFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
 	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
+	private EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
+	private ArmorProfProviderFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfProviderFacet.class);
 	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
 	private HitPointFacet hitPointFacet = FacetLibrary.getFacet(HitPointFacet.class);
 	private FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
@@ -1621,4 +1627,52 @@ public class CharacterDisplay
 		final PCAlignment alignment = getPCAlignment();
 		return alignment == null ? "None" : alignment.getDisplayName();
 	}
+
+	/**
+	 * Get the armor proficiency list.
+	 * 
+	 * @return armor proficiency list
+	 */
+	public Collection<ProfProvider<ArmorProf>> getArmorProfList()
+	{
+		return armorProfFacet.getQualifiedSet(id);
+	}
+
+	/**
+	 * Get the character's "equipped" equipment.
+	 * @return a set of the "equipped" equipment
+	 */
+	public Set<Equipment> getEquippedEquipmentSet()
+	{
+		return equippedFacet.getSet(id);
+	}
+
+	/**
+	 * Returns a region (including subregion) string for the character.
+	 * 
+	 * <p/> Build on-the-fly so removing templates won't mess up region
+	 * 
+	 * @return character region
+	 */
+	public String getFullRegion()
+	{
+		return regionFacet.getFullRegion(id);
+	}
+
+	/**
+	 * @return the allowDebt
+	 */
+	public boolean isAllowDebt()
+	{
+		return moneyFacet.isAllowDebt(id);
+	}
+
+	/**
+	 * @return the ignoreCost
+	 */
+	public boolean isIgnoreCost()
+	{
+		return moneyFacet.isIgnoreCost(id);
+	}
+
 }
