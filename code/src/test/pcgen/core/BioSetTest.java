@@ -177,7 +177,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		for (int ageCat = 0; ageCat < MAX_AGE.length; ageCat++)
 		{
 			currBioSet.randomize("AGECAT" + ageCat, pc);
-			final int age = pc.getAge();
+			final int age = pc.getDisplay().getAge();
 			//System.out.println("Age for cat " + ageCat + " is " + age + ".");
 			assertTrue("Generated age " + age + " is not between "
 				+ BASE_AGE[ageCat] + " and " + MAX_AGE[ageCat],
@@ -213,23 +213,23 @@ public class BioSetTest extends AbstractCharacterTestCase
 		pc.setRace(human);
 		pc.setAge(12);
 		int idx = pc.getAgeSetIndex();
-		assertEquals("Ageset for " + pc.getAge() + ".", 0, idx);
+		assertEquals("Ageset for " + pc.getDisplay().getAge() + ".", 0, idx);
 
 		pc.setAge(17);
 		idx = pc.getAgeSetIndex();
-		assertEquals("Ageset for " + pc.getAge() + ".", 0, idx);
+		assertEquals("Ageset for " + pc.getDisplay().getAge() + ".", 0, idx);
 
 		pc.setAge(36);
 		idx = pc.getAgeSetIndex();
-		assertEquals("Ageset for " + pc.getAge() + ".", 1, idx);
+		assertEquals("Ageset for " + pc.getDisplay().getAge() + ".", 1, idx);
 
 		pc.setAge(54);
 		idx = pc.getAgeSetIndex();
-		assertEquals("Ageset for " + pc.getAge() + ".", 2, idx);
+		assertEquals("Ageset for " + pc.getDisplay().getAge() + ".", 2, idx);
 
 		pc.setAge(72);
 		idx = pc.getAgeSetIndex();
-		assertEquals("Ageset for " + pc.getAge() + ".", 3, idx);
+		assertEquals("Ageset for " + pc.getDisplay().getAge() + ".", 3, idx);
 
 		Globals.getBioSet().getAgeSet(Region.getConstant(pc.getRegionString()), idx);
 

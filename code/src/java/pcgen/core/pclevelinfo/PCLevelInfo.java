@@ -139,7 +139,7 @@ public final class PCLevelInfo implements Cloneable
 		if ((skillPointsGained == Integer.MIN_VALUE) && (classKeyName.length() > 0))
 		{
 			final PCClass aClass = Globals.getContext().ref.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
-			skillPointsGained = aClass.recalcSkillPointMod(pc, classLevel) +
+			skillPointsGained = pc.recalcSkillPointMod(aClass, classLevel) +
 				getBonusSkillPool(pc);
 		}
 

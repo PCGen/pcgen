@@ -866,7 +866,7 @@ public class DetailsPane extends javax.swing.JPanel
 		{
 			race.setText(display.getRace().getDisplayName() + " (" + subRace + ") ");
 		}
-		age.setText(pc.getAge() + " ");
+		age.setText(display.getAge() + " ");
 		SizeAdjustment sadj = display.getSizeAdjustment();
 		String saString = (sadj == null) ? "" : sadj.getDisplayName();
 		size.setText(saString + ' ');

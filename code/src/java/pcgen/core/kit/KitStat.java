@@ -112,7 +112,7 @@ public class KitStat extends BaseKit
 					if (pcl.getClassKeyName().equals(pcClass.getKeyName()))
 					{
 						final int spMod =
-								pcClass.recalcSkillPointMod(aPC, j + 1);
+								aPC.recalcSkillPointMod(pcClass, j + 1);
 						int alreadySpent =
 								pcl.getSkillPointsGained(aPC)
 									- pcl.getSkillPointsRemaining();

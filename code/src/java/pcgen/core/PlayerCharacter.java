@@ -567,16 +567,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Get the age.
-	 * 
-	 * @return age
-	 */
-	public int getAge()
-	{
-		return ageFacet.getAge(id);
-	}
-
-	/**
 	 * Alignment of this PC.
 	 * 
 	 * @return alignment
@@ -5251,7 +5241,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 				{
 					for (PCLevelInfo pi : getLevelInfo())
 					{
-						final int newSkillPointsGained = pcClass.recalcSkillPointMod(this, pi.getClassLevel());
+						final int newSkillPointsGained = recalcSkillPointMod(pcClass, pi.getClassLevel());
 						if (pi.getClassKeyName().equals(pcClass.getKeyName()))
 						{
 							final int formerGained = pi.getSkillPointsGained(this);
@@ -11438,5 +11428,100 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public Integer getStat(PCStat stat)
 	{
 		return statValueFacet.get(id, stat);
+	}
+
+	public int recalcSkillPointMod(PCClass pcClass, final int total)
+	{
+		// int spMod = getSkillPoints();
+		int lockedMonsterSkillPoints;
+		int spMod = pcClass.getSafe(FormulaKey.START_SKILL_POINTS).resolve(this,
+			pcClass.getQualifiedKey()).intValue();
+	
+		spMod += (int) getTotalBonusTo("SKILLPOINTS", "NUMBER");
+	
+		if (pcClass.isMonster())
+		{
+			lockedMonsterSkillPoints =
+					(int) getTotalBonusTo("MONSKILLPTS", "LOCKNUMBER");
+			if (lockedMonsterSkillPoints > 0)
+			{
+				spMod = lockedMonsterSkillPoints;
+			}
+			else if (total == 1)
+			{
+				int monSkillPts =
+						(int) getTotalBonusTo("MONSKILLPTS", "NUMBER");
+				if (monSkillPts != 0)
+				{
+					spMod = monSkillPts;
+				}
+			}
+	
+			if (total != 1)
+			{
+				// If this level is one that is not entitled to skill points
+				// based
+				// on the monster's size, zero out the skills for this level
+				final int nonSkillHD =
+						(int) getTotalBonusTo("MONNONSKILLHD", "NUMBER");
+				if (total <= nonSkillHD)
+				{
+					spMod = 0;
+				}
+			}
+		}
+	
+		spMod = updateBaseSkillMod(pcClass, spMod);
+	
+		if (total == 1)
+		{
+			if (!SettingsHandler.getGame().isPurchaseStatMode())
+			{
+				setPoolAmount(0);
+			}
+	
+			spMod *= getRace().getSafe(IntegerKey.INITIAL_SKILL_MULT);
+			if (ageFacet.getAge(id) <= 0)
+			{
+				// Only generate a random age if the user hasn't set one!
+				getBioSet().randomize("AGE", this);
+			}
+		}
+		else
+		{
+			spMod *= Globals.getSkillMultiplierForLevel(total);
+		}
+	
+		return spMod;
+	}
+
+	private int updateBaseSkillMod(PCClass pcClass, int spMod)
+	{
+		// skill min is 1, unless class gets 0 skillpoints per level (for second
+		// apprentice class)
+		final int skillMin = (spMod > 0) ? 1 : 0;
+	
+		if (pcClass.getSafe(ObjectKey.MOD_TO_SKILLS))
+		{
+			spMod += (int) getStatBonusTo("MODSKILLPOINTS", "NUMBER");
+	
+			if (spMod < 1)
+			{
+				spMod = 1;
+			}
+		}
+	
+		// Race modifiers apply after Intellegence. BUG 577462
+		spMod += getRace().getSafe(IntegerKey.SKILL_POINTS_PER_LEVEL);
+		spMod = Math.max(skillMin, spMod); // Minimum 1, not sure if bonus
+		// skills per
+	
+		// level can be < 1, better safe than sorry
+		for (PCTemplate template : getTemplateSet())
+		{
+			spMod += template.getSafe(IntegerKey.BONUS_CLASS_SKILL_POINTS);
+		}
+	
+		return spMod;
 	}
 }

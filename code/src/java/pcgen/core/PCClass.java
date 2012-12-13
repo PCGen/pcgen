@@ -44,7 +44,6 @@ import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
@@ -773,71 +772,6 @@ public class PCClass extends PObject implements ClassFacade
 		return true;
 	}
 
-	public int recalcSkillPointMod(final PlayerCharacter aPC, final int total)
-	{
-		// int spMod = getSkillPoints();
-		int lockedMonsterSkillPoints;
-		int spMod = getSafe(FormulaKey.START_SKILL_POINTS).resolve(aPC,
-			getQualifiedKey()).intValue();
-
-		spMod += (int) aPC.getTotalBonusTo("SKILLPOINTS", "NUMBER");
-
-		if (isMonster())
-		{
-			lockedMonsterSkillPoints =
-					(int) aPC.getTotalBonusTo("MONSKILLPTS", "LOCKNUMBER");
-			if (lockedMonsterSkillPoints > 0)
-			{
-				spMod = lockedMonsterSkillPoints;
-			}
-			else if (total == 1)
-			{
-				int monSkillPts =
-						(int) aPC.getTotalBonusTo("MONSKILLPTS", "NUMBER");
-				if (monSkillPts != 0)
-				{
-					spMod = monSkillPts;
-				}
-			}
-
-			if (total != 1)
-			{
-				// If this level is one that is not entitled to skill points
-				// based
-				// on the monster's size, zero out the skills for this level
-				final int nonSkillHD =
-						(int) aPC.getTotalBonusTo("MONNONSKILLHD", "NUMBER");
-				if (total <= nonSkillHD)
-				{
-					spMod = 0;
-				}
-			}
-		}
-
-		spMod = updateBaseSkillMod(aPC, spMod);
-
-		if (total == 1)
-		{
-			if (!SettingsHandler.getGame().isPurchaseStatMode())
-			{
-				aPC.setPoolAmount(0);
-			}
-
-			spMod *= aPC.getRace().getSafe(IntegerKey.INITIAL_SKILL_MULT);
-			if (aPC.getAge() <= 0)
-			{
-				// Only generate a random age if the user hasn't set one!
-				aPC.getBioSet().randomize("AGE", aPC);
-			}
-		}
-		else
-		{
-			spMod *= Globals.getSkillMultiplierForLevel(total);
-		}
-
-		return spMod;
-	}
-
 	/**
 	 * Get the unarmed Damage for this class at the given level.
 	 *
@@ -1209,7 +1143,7 @@ public class PCClass extends PObject implements ClassFacade
 		// Update Skill Points. Modified 20 Nov 2002 by sage_sam
 		// for bug #629643
 		//final int spMod;
-		int spMod = recalcSkillPointMod(aPC, total);
+		int spMod = aPC.recalcSkillPointMod(this, total);
 		if (classLevel.get(ObjectKey.DONTADD_SKILLPOINTS) != null)
 		{
 			spMod = 0;
@@ -1534,41 +1468,6 @@ public class PCClass extends PObject implements ClassFacade
 				.getListFor(ListKey.NATURAL_WEAPON));
 
 		put(ObjectKey.LEVEL_HITDIE, otherClass.get(ObjectKey.LEVEL_HITDIE));
-	}
-
-	/*
-	 * This method updates the base skill modifier based on stat bonus, race
-	 * bonus, and template bonus. Created(Extracted from addLevel) 20 Nov 2002
-	 * by sage_sam for bug #629643
-	 */
-	private int updateBaseSkillMod(final PlayerCharacter aPC, int spMod)
-	{
-		// skill min is 1, unless class gets 0 skillpoints per level (for second
-		// apprentice class)
-		final int skillMin = (spMod > 0) ? 1 : 0;
-
-		if (getSafe(ObjectKey.MOD_TO_SKILLS))
-		{
-			spMod += (int) aPC.getStatBonusTo("MODSKILLPOINTS", "NUMBER");
-
-			if (spMod < 1)
-			{
-				spMod = 1;
-			}
-		}
-
-		// Race modifiers apply after Intellegence. BUG 577462
-		spMod += aPC.getRace().getSafe(IntegerKey.SKILL_POINTS_PER_LEVEL);
-		spMod = Math.max(skillMin, spMod); // Minimum 1, not sure if bonus
-		// skills per
-
-		// level can be < 1, better safe than sorry
-		for (PCTemplate template : aPC.getTemplateSet())
-		{
-			spMod += template.getSafe(IntegerKey.BONUS_CLASS_SKILL_POINTS);
-		}
-
-		return spMod;
 	}
 
 	private SortedMap<Integer, PCClassLevel> levelMap = new TreeMap<Integer, PCClassLevel>();

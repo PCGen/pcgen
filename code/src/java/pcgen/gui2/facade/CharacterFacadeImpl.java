@@ -370,7 +370,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		alignment = new DefaultReferenceFacade<AlignmentFacade>(charDisplay.getPCAlignment());
-		age = new DefaultReferenceFacade<Integer>(theCharacter.getAge());
+		age = new DefaultReferenceFacade<Integer>(charDisplay.getAge());
 		ageCategory = new DefaultReferenceFacade<SimpleFacade>();
 		updateAgeCategoryForAge();
 		currentXP = new DefaultReferenceFacade<Integer>(charDisplay.getXP());
@@ -767,7 +767,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		xpForNextlevel.setReference(charDisplay.minXPForNextECL());
 		xpTableName.setReference(charDisplay.getXPTableName());
 		hpRef.setReference(theCharacter.hitPoints());
-		age.setReference(theCharacter.getAge());
+		age.setReference(charDisplay.getAge());
 		refreshHeightWeight();
 
 		updateLevelTodo();
@@ -1950,7 +1950,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			}
 		}
 		refreshStatScores();
-		age.setReference(theCharacter.getAge());
+		age.setReference(charDisplay.getAge());
 		updateAgeCategoryForAge();
 		refreshHeightWeight();
 		refreshClassLevelModel();
@@ -3002,7 +3002,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				{
 					ageCategory.setReference(ageCat);
 					Globals.getBioSet().randomize("AGECAT" + Integer.toString(idx), theCharacter);
-					age.setReference(theCharacter.getAge());
+					age.setReference(charDisplay.getAge());
 					ageCategory.setReference(ageCat);
 				}
 			}

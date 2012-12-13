@@ -142,7 +142,7 @@ public class MonsterClassFacet implements DataFacetChangeListener<CDOMObject>
 
 					for (int j = 0; j < cLevels; ++j)
 					{
-						cMod += pcClass.recalcSkillPointMod(pc, ++totalLevels);
+						cMod += pc.recalcSkillPointMod(pcClass, ++totalLevels);
 					}
 
 					pc.setAssoc(pcClass, AssociationKey.SKILL_POOL, cMod);
