@@ -372,35 +372,6 @@ public class PCClass extends PObject implements ClassFacade
 	}
 
 	/*
-	 * PCCLASSLEVELONLY This can be simplified, however, since there won't be the
-	 * same subClass type delegation within the new PCClassLevel. - note this
-	 * method is really the PCClassLevel implementation of getDisplayClassName()
-	 * above [so technically this method doesn't go into PCClass, the method
-	 * above does)
-	 */
-	/*
-	 * REFACTOR Once this is in PCClassLevel, at least CONSIDER Whether this
-	 * should be an @Override of getDisplayName()? What additional value does
-	 * this provide by being a separate method?? - thpr 11/6/06
-	 */
-	public String getDisplayClassName(PlayerCharacter pc, final int aLevel)
-	{
-		PCClassLevel lvl = pc.getActiveClassLevel(this, aLevel);
-		String aKey = pc.getSubstitutionClassName(lvl);
-		if (aKey == null)
-		{
-			return getDisplayClassName(pc);
-		}
-		String name = getSubstitutionClassKeyed(aKey).getDisplayName();
-		if (name == null)
-		{
-			return getDisplayClassName(pc);
-		}
-
-		return name;
-	}
-
-	/*
 	 * PCCLASSLEVELONLY Must only be the PCClassLevel since this refers to the
 	 * level in the String that is returned.
 	 */
