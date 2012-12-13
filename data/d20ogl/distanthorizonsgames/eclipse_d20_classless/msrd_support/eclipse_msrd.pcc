@@ -25,6 +25,8 @@ COPYRIGHT:PCGen dataset conversion for "Eclipse: The Codex Persona" Copyright 20
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+#LOGO:@/publisher_logos/DHG_Logo_Border.bmp
+LOGO:@/publisher_logos/DHG_OGL_Logo.jpg
 
 COVER:51254.jpg
 #Block: Universal Functions -------------------------------------------
