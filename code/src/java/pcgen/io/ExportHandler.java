@@ -64,7 +64,6 @@ import pcgen.io.exporttoken.AlignmentToken;
 import pcgen.io.exporttoken.AttackToken;
 import pcgen.io.exporttoken.BonusToken;
 import pcgen.io.exporttoken.CheckToken;
-import pcgen.io.exporttoken.DomainToken;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.EqTypeToken;
 import pcgen.io.exporttoken.GameModeToken;
@@ -1729,7 +1728,6 @@ public final class ExportHandler
 			addToTokenMap(new AttackToken());
 			addToTokenMap(new BonusToken());
 			addToTokenMap(new CheckToken());
-			addToTokenMap(new DomainToken());
 			addToTokenMap(new EqToken());
 			addToTokenMap(new EqTypeToken());
 			addToTokenMap(new GameModeToken());

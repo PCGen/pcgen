@@ -24,8 +24,9 @@ import pcgen.core.Equipment;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
+import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.QualifiedName;
-import pcgen.io.exporttoken.DomainToken;
+import pcgen.core.display.DescriptionFormatting;
 import pcgen.io.exporttoken.EqToken;
 import plugin.charactersheet.CharacterSheetUtils;
 
@@ -277,15 +278,13 @@ public class Page2Panel extends javax.swing.JPanel
 		}
 	}
 
-	//TODO: [DJ] add to DomainToken
 	private Map<String, String> getDomainMap(PlayerCharacter aPC)
 	{
-		int numDomains = aPC.getDisplay().getDomainCount();
 		Map<String, String> domainMap = new HashMap<String, String>();
-		for (int i = 0; i < numDomains; i++)
+		for (pcgen.core.Domain domain : pc.getDisplay().getSortedDomainSet())
 		{
-			domainMap.put(aPC.getDisplay().getDomainToken(i), DomainToken
-				.getPowerToken(aPC, i));
+			domainMap.put(OutputNameFormatting.getOutputName(domain),
+			    DescriptionFormatting.piDescString(pc, domain));
 		}
 		return domainMap;
 	}

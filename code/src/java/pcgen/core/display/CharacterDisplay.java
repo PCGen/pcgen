@@ -139,7 +139,6 @@ import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.core.Vision;
 import pcgen.core.WeaponProf;
-import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.Follower;
@@ -1187,26 +1186,6 @@ public class CharacterDisplay
 		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
 			getWeight())
 			+ Globals.getGameModeUnitSet().getWeightUnit();
-	}
-
-	/**
-	 * Get the DOMAIN token
-	 * @param domainIndex
-	 * @return token
-	 */
-	public String getDomainToken(int domainIndex)
-	{
-		try
-		{
-			Domain domain =
-				new ArrayList<Domain>(getSortedDomainSet()).get(domainIndex);
-	
-			return OutputNameFormatting.getOutputName(domain);
-		}
-		catch (Exception e)
-		{
-			return Constants.EMPTY_STRING;
-		}
 	}
 
 	/*

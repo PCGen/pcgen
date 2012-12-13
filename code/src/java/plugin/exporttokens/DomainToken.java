@@ -23,7 +23,7 @@
  * Last Edited: $Date$
  *
  */
-package pcgen.io.exporttoken;
+package plugin.exporttokens;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -31,8 +31,11 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Domain;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.analysis.OutputNameFormatting;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.DescriptionFormatting;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
 
 /**
  * Deals with tokens:
@@ -90,11 +93,31 @@ public class DomainToken extends Token
 			}
 			else
 			{
-				retString = pc.getDisplay().getDomainToken(domainIndex);
+				retString = getDomainToken(pc.getDisplay(), domainIndex);
 			}
 		}
 
 		return retString;
+	}
+
+	/**
+	 * Get the DOMAIN token
+	 * @param domainIndex
+	 * @return token
+	 */
+	public String getDomainToken(CharacterDisplay display, int domainIndex)
+	{
+		try
+		{
+			Domain domain =
+				new ArrayList<Domain>(display.getSortedDomainSet()).get(domainIndex);
+	
+			return OutputNameFormatting.getOutputName(domain);
+		}
+		catch (Exception e)
+		{
+			return Constants.EMPTY_STRING;
+		}
 	}
 
 	/**
