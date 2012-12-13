@@ -169,7 +169,6 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
-import pcgen.io.exporttoken.WeightToken;
 import pcgen.system.CharacterManager;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -3750,12 +3749,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		double limit = 0.0f;
 		if (mult != null)
 		{
-			limit = WeightToken.getLoadToken(load.toString(), charDisplay);
+			limit = charDisplay.getLoadToken(load.toString());
 		}
 		double lowerLimit = 0.0f;
 		for (Load testLoad : Load.values())
 		{
-			double testLimit = WeightToken.getLoadToken(testLoad.toString(), charDisplay);
+			double testLimit = charDisplay.getLoadToken(testLoad.toString());
 			if (testLoad.compareTo(load) < 0 && testLimit > lowerLimit)
 			{
 				lowerLimit = testLimit;

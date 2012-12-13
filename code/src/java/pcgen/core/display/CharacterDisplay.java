@@ -1585,4 +1585,21 @@ public class CharacterDisplay
 	
 		return pcClass.getDisplayName();
 	}
+
+	/**
+	 * Get the value of the weight token in format WEIGHT.X
+	 * @param type Encumbrance type 
+	 * @param pc The character to retrieve the value for.
+	 * @return The value of the weight token.
+	 */
+	public double getLoadToken(String type)
+	{
+		Float mult = SettingsHandler.getGame().getLoadInfo().getLoadMultiplier(
+				type.toUpperCase());
+		if (mult != null)
+		{
+			return getMaxLoad(mult).intValue();
+		}
+		return 0.0;
+	}
 }

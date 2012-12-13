@@ -83,7 +83,6 @@ import pcgen.io.exporttoken.TotalToken;
 import pcgen.io.exporttoken.VarToken;
 import pcgen.io.exporttoken.WeaponToken;
 import pcgen.io.exporttoken.WeaponhToken;
-import pcgen.io.exporttoken.WeightToken;
 import pcgen.system.PluginLoader;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -1753,7 +1752,6 @@ public final class ExportHandler
 			addToTokenMap(new VarToken());
 			addToTokenMap(new WeaponToken());
 			addToTokenMap(new WeaponhToken());
-			addToTokenMap(new WeightToken());
 			tokenMapPopulated = true;
 		}
 	}

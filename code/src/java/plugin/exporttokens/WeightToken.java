@@ -23,13 +23,13 @@
  * Last Edited: $Date$
  *
  */
-package pcgen.io.exporttoken;
+package plugin.exporttokens;
 
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.core.Globals;
-import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * <code>WeightToken</code>.
@@ -86,27 +86,10 @@ public class WeightToken extends AbstractExportToken
 						tokenSource.substring(tokenSource.lastIndexOf('.') + 1);
 				retString =
 						Globals.getGameModeUnitSet().displayWeightInUnitSet(
-							getLoadToken(type, display));
+							display.getLoadToken(type));
 			}
 		}
 		
 		return retString;
-	}
-
-	/**
-	 * Get the value of the weight token in format WEIGHT.X
-	 * @param type Encumbrance type 
-	 * @param pc The character to retrieve the value for.
-	 * @return The value of the weight token.
-	 */
-	public static double getLoadToken(String type, CharacterDisplay display)
-	{
-		Float mult = SettingsHandler.getGame().getLoadInfo().getLoadMultiplier(
-				type.toUpperCase());
-		if (mult != null)
-		{
-			return display.getMaxLoad(mult).intValue();
-		}
-		return 0.0;
 	}
 }

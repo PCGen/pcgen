@@ -10,7 +10,6 @@ import gmgen.gui.GridBoxLayout;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.io.exporttoken.WeightToken;
 
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -241,22 +240,22 @@ public class WeightPane extends JPanel
 	{
 		CharacterDisplay display = pc.getDisplay();
 		light.setText(Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			new Double(WeightToken.getLoadToken("Light", display)).doubleValue()));
+			new Double(display.getLoadToken("Light")).doubleValue()));
 		medium.setText(Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			new Double(WeightToken.getLoadToken("Medium", display)).doubleValue()));
+			new Double(display.getLoadToken("Medium")).doubleValue()));
 		heavy.setText(Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			new Double(WeightToken.getLoadToken("Heavy", display)).doubleValue()));
+			new Double(display.getLoadToken("Heavy")).doubleValue()));
 		liftHead
 			.setText(Globals.getGameModeUnitSet().displayWeightInUnitSet(
-				new Double(WeightToken.getLoadToken("OverHead", display))
+				new Double(display.getLoadToken("OverHead"))
 					.doubleValue()));
 		liftGround.setText(Globals.getGameModeUnitSet()
 			.displayWeightInUnitSet(
-				new Double(WeightToken.getLoadToken("OffGround", display))
+				new Double(display.getLoadToken("OffGround"))
 					.doubleValue()));
 		drag
 			.setText(Globals.getGameModeUnitSet().displayWeightInUnitSet(
-				new Double(WeightToken.getLoadToken("PushDrag", display))
+				new Double(display.getLoadToken("PushDrag"))
 					.doubleValue()));
 	}
 
