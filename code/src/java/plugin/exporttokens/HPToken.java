@@ -23,10 +23,11 @@
  * Last Edited: $Date$
  *
  */
-package pcgen.io.exporttoken;
+package plugin.exporttokens;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
 
 /**
  * Deals with HP token
@@ -52,16 +53,6 @@ public class HPToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		return getHPToken(pc) + "";
-	}
-
-	/**
-	 * Get the HP Token
-	 * @param pc
-	 * @return the HP Token
-	 */
-	public static int getHPToken(PlayerCharacter pc)
-	{
-		return pc.hitPoints();
+		return Integer.toString(pc.hitPoints());
 	}
 }

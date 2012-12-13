@@ -13,7 +13,6 @@ import java.util.Properties;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.io.exporttoken.HPToken;
 import pcgen.io.exporttoken.MovementToken;
 import pcgen.io.exporttoken.SRToken;
 import pcgen.util.Delta;
@@ -1058,7 +1057,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 		CharacterDisplay display = pc.getDisplay();
 
-		totalHp.setText(Integer.toString(HPToken.getHPToken(pc)));
+		totalHp.setText(Integer.toString(pc.hitPoints()));
 		damageReduction.setText(display.calcDR() + ' ');
 		speed.setText(MovementToken.getMovementToken(display));
 
