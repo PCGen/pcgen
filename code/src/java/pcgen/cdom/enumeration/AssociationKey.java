@@ -55,9 +55,22 @@ import pcgen.core.Ability;
 public final class AssociationKey<T>
 {
 
+	/*
+	 * These items are used by the Load (Context) System to identify the owning
+	 * CDOMObject and the TOKEN that processed to load the item into the
+	 * Context.
+	 */
 	public static final AssociationKey<CDOMObject> OWNER = new AssociationKey<CDOMObject>();
 
 	public static final AssociationKey<String> TOKEN = new AssociationKey<String>();
+
+	/*
+	 * End Load (Context) items
+	 */
+	
+	/*
+	 * These items are used by Tokens to store relationship information to specific items.
+	 */
 
 	public static final AssociationKey<SkillCost> SKILL_COST = new AssociationKey<SkillCost>();
 
@@ -71,8 +84,6 @@ public final class AssociationKey<T>
 
 	public static final AssociationKey<Category<Ability>> CATEGORY = new AssociationKey<Category<Ability>>();
 
-	public static final AssociationKey<Integer> OUTPUT_INDEX = new AssociationKey<Integer>();
-
 	public static final AssociationKey<String> CASTER_LEVEL = new AssociationKey<String>();
 
 	public static final AssociationKey<Formula> TIMES_PER_UNIT = new AssociationKey<Formula>();
@@ -83,16 +94,31 @@ public final class AssociationKey<T>
 
 	public static final AssociationKey<String> DC_FORMULA = new AssociationKey<String>();
 
-	public static final AssociationKey<Integer> DOMAIN_SPELL_COUNT = new AssociationKey<Integer>();
-
 	/**
 	 * controls whether a "virtual Ability" will be saved with the character
 	 */
 	public static final AssociationKey<Boolean> NEEDS_SAVING = new AssociationKey<Boolean>();
 
+	/*
+	 * End token items
+	 */
+
+	/*
+	 * The following items are Associations used for Player Characters and thus
+	 * fall into the domain of CODE-1908 (to have the information stored in the
+	 * associations of these keys moved into facets)
+	 */
+	public static final AssociationKey<Integer> DOMAIN_SPELL_COUNT = new AssociationKey<Integer>();
+
+	public static final AssociationKey<Integer> OUTPUT_INDEX = new AssociationKey<Integer>();
+
 	public static final AssociationKey<String> SPECIALTY = new AssociationKey<String>();
 
 	public static final AssociationKey<Integer> SKILL_POOL = new AssociationKey<Integer>();
+	
+	/*
+	 * End Player Character items related to CODE-1908
+	 */
 
 	private static CaseInsensitiveMap<AssociationKey<?>> map = null;
 
