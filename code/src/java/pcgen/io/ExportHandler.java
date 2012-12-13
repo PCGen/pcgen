@@ -76,7 +76,6 @@ import pcgen.io.exporttoken.SRToken;
 import pcgen.io.exporttoken.SizeLongToken;
 import pcgen.io.exporttoken.SkillToken;
 import pcgen.io.exporttoken.SkillpointsToken;
-import pcgen.io.exporttoken.SpellFailureToken;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.io.exporttoken.Token;
 import pcgen.io.exporttoken.TotalToken;
@@ -1744,7 +1743,6 @@ public final class ExportHandler
 			addToTokenMap(new SizeLongToken());
 			addToTokenMap(new SkillToken());
 			addToTokenMap(new SkillpointsToken());
-			addToTokenMap(new SpellFailureToken());
 			addToTokenMap(new SRToken());
 			addToTokenMap(new StatToken());
 			addToTokenMap(new TotalToken());

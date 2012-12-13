@@ -16,7 +16,6 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.io.exporttoken.HPToken;
 import pcgen.io.exporttoken.MovementToken;
 import pcgen.io.exporttoken.SRToken;
-import pcgen.io.exporttoken.SpellFailureToken;
 import pcgen.util.Delta;
 
 /**
@@ -1076,8 +1075,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		missChance.setText(pc.getVariable(MISSCHANCE_VAR, true).intValue()
 			+ PERCENT);
 
-		spellFailure.setText(SpellFailureToken.getSpellFailureToken(
-			SPELLFAILURE_TOKEN, pc)
+		spellFailure.setText(pc.modToFromEquipment(SPELLFAILURE_TOKEN)
 			+ PERCENT);
 		armorCheck.setText(Delta.toString(pc.modToFromEquipment(ACCHECK_TOKEN)));
 		//Max Dex
