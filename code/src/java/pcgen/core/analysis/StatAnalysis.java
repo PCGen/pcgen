@@ -69,11 +69,10 @@ public class StatAnalysis
 	 * @param stat The abbreviation of the stat to be calculated
 	 * @return The value of the stat
 	 */
-	public static int getTotalStatFor(PlayerCharacter ownerPC, PCStat stat)
+	public static int getTotalStatFor(PlayerCharacter aPC, PCStat stat)
 	{
-		int y = getBaseStatFor(ownerPC, stat);
+		int y = getBaseStatFor(aPC, stat);
 
-		final PlayerCharacter aPC = ownerPC;
 		// Only check for a lock if the stat hasn't been unlocked
 		if (!aPC.hasUnlockedStat(stat))
 		{
