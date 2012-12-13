@@ -622,7 +622,7 @@ public class NotesPanel extends FlippingSplitPane
 				return item.toString();
 			}
 
-			return pc.getDisplayName();
+			return pc.getDisplay().getDisplayName();
 		}
 
 		@Override

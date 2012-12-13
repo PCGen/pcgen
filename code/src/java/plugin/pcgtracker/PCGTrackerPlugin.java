@@ -347,7 +347,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		if (aPCFileName.isEmpty())
 		{
 			prevFile =
-					new File(PCGenSettings.getPcgDir(), aPC.getDisplayName()
+					new File(PCGenSettings.getPcgDir(), aPC.getDisplay().getDisplayName()
 						+ Constants.EXTENSION_CHARACTER_FILE);
 			aPCFileName = prevFile.getAbsolutePath();
 			newPC = true;
@@ -432,7 +432,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		}
 		catch (Exception ex)
 		{
-			String formattedString = LanguageBundle.getFormattedString("in_saveFailMsg", aPC.getDisplayName()); //$NON-NLS-1$
+			String formattedString = LanguageBundle.getFormattedString("in_saveFailMsg", aPC.getDisplay().getDisplayName()); //$NON-NLS-1$
 			JOptionPane.showMessageDialog(null, formattedString, Constants.APPLICATION_NAME,
 				JOptionPane.ERROR_MESSAGE);
 			Logging.errorPrint(formattedString);

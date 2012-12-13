@@ -25,36 +25,32 @@
  */
 package plugin.exporttokens;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.Token;
-
-import java.util.StringTokenizer;
+import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
  * Deals with CLASSABB.x token
  */
-public class ClassAbbToken extends Token
+public class ClassAbbToken extends AbstractExportToken
 {
-	/** Token name */
-	public static final String TOKENNAME = "CLASSABB";
-
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
 	 */
 	@Override
 	public String getTokenName()
 	{
-		return TOKENNAME;
+		return "CLASSABB";
 	}
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -67,7 +63,7 @@ public class ClassAbbToken extends Token
 			i = Integer.parseInt(aTok.nextToken());
 		}
 
-		return getClassAbbToken(pc, i);
+		return getClassAbbToken(display, i);
 	}
 
 	/**
@@ -76,15 +72,14 @@ public class ClassAbbToken extends Token
 	 * @param classNumber
 	 * @return token
 	 */
-	public static String getClassAbbToken(PlayerCharacter pc, int classNumber)
+	public static String getClassAbbToken(CharacterDisplay display, int classNumber)
 	{
 		String retString = "";
 
-		CharacterDisplay display = pc.getDisplay();
 		if (display.getClassCount() > classNumber)
 		{
 			PCClass pcClass = display.getClassList().get(classNumber);
-			String subClassKey = pcClass.getDisplayClassName(pc);
+			String subClassKey = display.getDisplayClassName(pcClass);
 
 			if (!pcClass.getKeyName().equals(subClassKey))
 			{

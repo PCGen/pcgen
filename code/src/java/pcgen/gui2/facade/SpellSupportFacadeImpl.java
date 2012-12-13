@@ -1451,7 +1451,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		JFileChooser fcExport = new JFileChooser();
 		fcExport.setCurrentDirectory(new File(PCGenSettings.getPcgDir()));
 		fcExport.setDialogTitle(LanguageBundle
-			.getString("InfoSpells.export.spells.for") + pc.getDisplayName()); //$NON-NLS-1$
+			.getString("InfoSpells.export.spells.for") + charDisplay.getDisplayName()); //$NON-NLS-1$
 
 		if (fcExport.showSaveDialog(null) != JFileChooser.APPROVE_OPTION)
 		{
@@ -1509,10 +1509,10 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		catch (Exception ex)
 		{
 			Logging.errorPrint(LanguageBundle.getFormattedString(
-				"InfoSpells.export.failed", pc.getDisplayName()), ex); //$NON-NLS-1$
+				"InfoSpells.export.failed", charDisplay.getDisplayName()), ex); //$NON-NLS-1$
 			delegate.showErrorMessage(Constants.APPLICATION_NAME, 
 				LanguageBundle.getFormattedString(
-					"InfoSpells.export.failed.retry", pc.getDisplayName())); //$NON-NLS-1$ 
+					"InfoSpells.export.failed.retry", charDisplay.getDisplayName())); //$NON-NLS-1$ 
 		}
 	}
 

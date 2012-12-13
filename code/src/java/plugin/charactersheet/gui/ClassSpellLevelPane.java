@@ -370,7 +370,7 @@ public class ClassSpellLevelPane extends javax.swing.JPanel
 		this.level = level;
 
 		StringBuilder sb = new StringBuilder();
-		sb.append(pcclass.getDisplayClassName(pc));
+		sb.append(pc.getDisplay().getDisplayClassName(pcclass));
 		sb.append(" Spells, Level ").append(level);
 
 		title.setText(sb.toString());

@@ -338,53 +338,6 @@ public class PCClass extends PObject implements ClassFacade
 	}
 
 	/*
-	 * PCCLASSANDLEVEL This can be simplified, however, since there won't be the
-	 * same subClass type delegation within the new PCClassLevel.
-	 */
-	/*
-	 * Note this is NOT a bug in that this handles subLevel but does not do any
-	 * work for substitution levels... remember that substitution levels are for
-	 * a certain advancement level, not across the entire Class level
-	 * progression.
-	 */
-	/*
-	 * REFACTOR At least CONSIDER Whether this should be an @Override of
-	 * getDisplayName()?  What additional value does this provide by being
-	 * a separate method?? - thpr 11/6/06
-	 */
-	public String getDisplayClassName(PlayerCharacter pc)
-	{
-		if (pc != null)
-		{
-			String subClassKey = pc.getSubClassName(this);
-			if (subClassKey != null && (subClassKey.length() > 0)
-					&& !subClassKey.equals(Constants.NONE))
-			{
-				SubClass sc = getSubClassKeyed(subClassKey);
-				if (sc != null)
-				{
-					return sc.getDisplayName();
-				}
-			}
-		}
-
-		return getDisplayName();
-	}
-
-	/*
-	 * PCCLASSLEVELONLY Must only be the PCClassLevel since this refers to the
-	 * level in the String that is returned.
-	 */
-	public String getFullDisplayClassName(PlayerCharacter pc)
-	{
-		final StringBuilder buf = new StringBuilder();
-
-		buf.append(getDisplayClassName(pc));
-
-		return buf.append(" ").append(pc.getLevel(this)).toString();
-	}
-
-	/*
 	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */

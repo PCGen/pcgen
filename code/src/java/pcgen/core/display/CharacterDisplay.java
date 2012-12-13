@@ -131,10 +131,12 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpellProhibitor;
+import pcgen.core.SubClass;
 import pcgen.core.Vision;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.OutputNameFormatting;
@@ -1436,4 +1438,151 @@ public class CharacterDisplay
 		return spellListFacet.getSet(id, cdo);
 	}
 
+	/**
+	 * @return display name
+	 */
+	public String getDisplayName()
+	{
+		final String custom = getSafeStringFor(StringKey.TAB_NAME);
+
+		if (!Constants.EMPTY_STRING.equals(custom))
+		{
+			return custom;
+		}
+
+		final StringBuilder displayName = new StringBuilder().append(getName());
+
+		// TODO - i18n
+		switch (SettingsHandler.getNameDisplayStyle())
+		{
+		case Constants.DISPLAY_STYLE_NAME:
+			break;
+
+		case Constants.DISPLAY_STYLE_NAME_CLASS:
+			displayName.append(" the ").append(getDisplayClassName());
+
+			break;
+
+		case Constants.DISPLAY_STYLE_NAME_RACE:
+			displayName.append(" the ").append(getDisplayRaceName());
+
+			break;
+
+		case Constants.DISPLAY_STYLE_NAME_RACE_CLASS:
+			displayName.append(" the ").append(getDisplayRaceName()).append(' ').append(getDisplayClassName());
+
+			break;
+
+		case Constants.DISPLAY_STYLE_NAME_FULL:
+			return getFullDisplayName();
+
+		default:
+			break; // custom broken
+		}
+
+		return displayName.toString();
+	}
+
+
+	/**
+	 * Returns a very descriptive name for the character.
+	 * 
+	 * The format is [name] the [level]th level [race name] [classes]
+	 * 
+	 * @return A descriptive string name for the character.
+	 */
+	public String getFullDisplayName()
+	{
+		final int levels = getTotalLevels();
+		final String displayClass;
+
+		// If you aren't multi-classed, don't display redundant class level
+		// information in addition to the total PC level
+		displayClass = classFacet.getCount(id) > 1 ? getFullDisplayClassName() : getDisplayClassName();
+
+		return new StringBuilder().append(getName()).append(" the ").append(levels).append(getOrdinal(levels))
+				.append(" level ").append(getDisplayRaceName()).append(' ').append(displayClass).toString();
+	}
+
+	private String getOrdinal(final int cardinal)
+	{
+		switch (cardinal)
+		{
+		case 1:
+			return "st";
+
+		case 2:
+			return "nd";
+
+		case 3:
+			return "rd";
+
+		default:
+			return "th";
+		}
+	}
+
+	private String getDisplayClassName()
+	{
+		ArrayList<PCClass> classList = getClassList();
+		return (classFacet.isEmpty(id) ? "Nobody" : getDisplayClassName(classList.get(classList.size() - 1)));
+	}
+
+	private String getDisplayRaceName()
+	{
+		final String raceName = getRace().toString();
+
+		return (raceName.equals(Constants.NONESELECTED) ? "Nothing" : raceName);
+	}
+
+	private String getFullDisplayClassName()
+	{
+		if (classFacet.isEmpty(id))
+		{
+			return "Nobody";
+		}
+
+		final StringBuilder buf = new StringBuilder();
+
+		boolean first = true;
+		for (PCClass c : getClassSet())
+		{
+			if (!first)
+			{
+				buf.append('/');
+				first = false;
+			}
+			buf.append(getFullDisplayClassName(c));
+		}
+
+		return buf.toString();
+	}
+
+	public String getFullDisplayClassName(PCClass pcClass)
+	{
+		final StringBuilder buf = new StringBuilder();
+	
+		buf.append(getDisplayClassName(pcClass));
+	
+		return buf.append(" ").append(getLevel(pcClass)).toString();
+	}
+
+	public String getDisplayClassName(PCClass pcClass)
+	{
+		if (this != null)
+		{
+			String subClassKey = getSubClassName(pcClass);
+			if (subClassKey != null && (subClassKey.length() > 0)
+					&& !subClassKey.equals(Constants.NONE))
+			{
+				SubClass sc = pcClass.getSubClassKeyed(subClassKey);
+				if (sc != null)
+				{
+					return sc.getDisplayName();
+				}
+			}
+		}
+	
+		return pcClass.getDisplayName();
+	}
 }

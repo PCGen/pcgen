@@ -87,7 +87,7 @@ public class CharacterSheetModel
 		characters.add(pc);
 		CharacterPanel pcPanel = new CharacterPanel();
 		pcPanel.setPc(pc);
-		masterPane.add(pc.getDisplayName(), pcPanel);
+		masterPane.add(pc.getDisplay().getDisplayName(), pcPanel);
 	}
 
 	/**

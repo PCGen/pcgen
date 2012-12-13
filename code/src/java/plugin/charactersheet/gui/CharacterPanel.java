@@ -272,7 +272,7 @@ public class CharacterPanel extends FlippingSplitPane
 			if (object instanceof PCClass)
 			{
 				PCClass pcclass = (PCClass) object;
-				String className = pcclass.getDisplayClassName(pc);
+				String className = pc.getDisplay().getDisplayClassName(pcclass);
 				int highestSpellLevel = pc.getSpellSupport(pcclass).getHighestLevelSpell(pc);
 				for (int j = 0; j <= highestSpellLevel; j++)
 				{

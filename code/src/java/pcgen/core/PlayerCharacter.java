@@ -1046,51 +1046,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * @return display name
-	 */
-	public String getDisplayName()
-	{
-		final String custom = getSafeStringFor(StringKey.TAB_NAME);
-
-		if (!Constants.EMPTY_STRING.equals(custom))
-		{
-			return custom;
-		}
-
-		final StringBuilder displayName = new StringBuilder().append(getName());
-
-		// TODO - i18n
-		switch (SettingsHandler.getNameDisplayStyle())
-		{
-		case Constants.DISPLAY_STYLE_NAME:
-			break;
-
-		case Constants.DISPLAY_STYLE_NAME_CLASS:
-			displayName.append(" the ").append(getDisplayClassName());
-
-			break;
-
-		case Constants.DISPLAY_STYLE_NAME_RACE:
-			displayName.append(" the ").append(getDisplayRaceName());
-
-			break;
-
-		case Constants.DISPLAY_STYLE_NAME_RACE_CLASS:
-			displayName.append(" the ").append(getDisplayRaceName()).append(' ').append(getDisplayClassName());
-
-			break;
-
-		case Constants.DISPLAY_STYLE_NAME_FULL:
-			return getFullDisplayName();
-
-		default:
-			break; // custom broken
-		}
-
-		return displayName.toString();
-	}
-
-	/**
 	 * set display update TODO - This probably doesn't belong here. It seems to
 	 * only be used by InfoSkills.
 	 * 
@@ -1450,26 +1405,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public Collection<Follower> getFollowerList()
 	{
 		return followerFacet.getSet(id);
-	}
-
-	/**
-	 * Returns a very descriptive name for the character.
-	 * 
-	 * The format is [name] the [level]th level [race name] [classes]
-	 * 
-	 * @return A descriptive string name for the character.
-	 */
-	public String getFullDisplayName()
-	{
-		final int levels = getTotalLevels();
-		final String displayClass;
-
-		// If you aren't multi-classed, don't display redundant class level
-		// information in addition to the total PC level
-		displayClass = classFacet.getCount(id) > 1 ? getFullDisplayClassName() : getDisplayClassName();
-
-		return new StringBuilder().append(getName()).append(" the ").append(levels).append(getOrdinal(levels))
-				.append(" level ").append(getDisplayRaceName()).append(' ').append(displayClass).toString();
 	}
 
 	/**
@@ -6910,19 +6845,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		// setDirty(true);
 	}
 
-	private String getDisplayClassName()
-	{
-		ArrayList<PCClass> classList = getClassList();
-		return (classFacet.isEmpty(id) ? "Nobody" : classList.get(classList.size() - 1).getDisplayClassName(this));
-	}
-
-	private String getDisplayRaceName()
-	{
-		final String raceName = getRace().toString();
-
-		return (raceName.equals(Constants.NONESELECTED) ? "Nothing" : raceName);
-	}
-
 	/**
 	 * Parses through all Equipment items and calculates total Bonus
 	 * 
@@ -6955,29 +6877,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 
 		return bonus;
-	}
-
-	private String getFullDisplayClassName()
-	{
-		if (classFacet.isEmpty(id))
-		{
-			return "Nobody";
-		}
-
-		final StringBuilder buf = new StringBuilder();
-
-		boolean first = true;
-		for (PCClass c : getClassSet())
-		{
-			if (!first)
-			{
-				buf.append('/');
-				first = false;
-			}
-			buf.append(c.getFullDisplayClassName(this));
-		}
-
-		return buf.toString();
 	}
 
 	/**
@@ -7023,24 +6922,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public int getNumAttacks()
 	{
 		return Math.min(Math.max(baseAttackBonus() / 5, 4), 1);
-	}
-
-	private String getOrdinal(final int cardinal)
-	{
-		switch (cardinal)
-		{
-		case 1:
-			return "st";
-
-		case 2:
-			return "nd";
-
-		case 3:
-			return "rd";
-
-		default:
-			return "th";
-		}
 	}
 
 	/**
@@ -11546,4 +11427,5 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		substitutionClassFacet.remove(id, lvl);
 	}
+
 }
