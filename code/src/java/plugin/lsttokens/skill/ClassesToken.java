@@ -18,7 +18,6 @@
 package plugin.lsttokens.skill;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -154,15 +153,14 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 					+ " does not support .CLEAR.");
 			return null;
 		}
-		Collection<CDOMReference> added = masterChanges.getAdded();
 		StringBuilder sb = new StringBuilder();
-		if (added.isEmpty())
+		if (!masterChanges.hasAddedItems())
 		{
 			// That's fine - nothing to do
 			return null;
 		}
 		boolean needBar = false;
-		for (CDOMReference<ClassSkillList> ref : added)
+		for (CDOMReference<ClassSkillList> ref : masterChanges.getAdded())
 		{
 			if (needBar)
 			{

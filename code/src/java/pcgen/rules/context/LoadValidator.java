@@ -92,7 +92,7 @@ public class LoadValidator implements UnconstructedValidator
 				Class<? extends Loadable> qcl = q.getQualifiedClass();
 				if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(qcl))
 				{
-					CDOMSingleRef ref = q.getQualifiedReference();
+					CDOMSingleRef<?> ref = q.getQualifiedReference();
 					String cat = ((CDOMTransparentCategorizedSingleRef<?>) ref)
 							.getLSTCategory();
 					categoryMap.addToListFor(qcl, cat, ref.getLSTformat(false));

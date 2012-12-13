@@ -149,14 +149,13 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 							+ " does not support .CLEAR");
 			return null;
 		}
-		Collection<CDOMReference> added = changes.getAdded();
-		if (added == null || added.isEmpty())
+		if (!changes.hasAddedItems())
 		{
 			// Zero indicates no Token (and no global clear, so nothing to do)
 			return null;
 		}
 		TreeMapToList<String, String> map = new TreeMapToList<String, String>();
-		for (CDOMReference ref : added)
+		for (CDOMReference<?> ref : changes.getAdded())
 		{
 			String mapKey = key;
 			if (CategorizedCDOMObject.class.isAssignableFrom(obj.getClass()))

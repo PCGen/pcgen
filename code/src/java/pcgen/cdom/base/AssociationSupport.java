@@ -77,7 +77,7 @@ public class AssociationSupport implements AssociatedObject
 	@Override
 	public <T> T getAssociation(AssociationKey<T> key)
 	{
-		return (T) (associationMap == null ? null : associationMap.get(key));
+		return (associationMap == null ? null : key.cast(associationMap.get(key)));
 	}
 
 	/**

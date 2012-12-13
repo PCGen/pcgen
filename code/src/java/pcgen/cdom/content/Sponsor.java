@@ -26,7 +26,7 @@ public class Sponsor implements Loadable
 {
 
 	private URI sourceURI;
-	private URL smallImage;
+	//private URL smallImage;
 	private URL largeImage;
 	private URL bannerImage;
 	private String sponsorName;
@@ -93,7 +93,7 @@ public class Sponsor implements Loadable
 
 	public void setSmallImage(URL url)
 	{
-		smallImage = url;
+		//smallImage = url;
 	}
 
 	public void setLargeImage(URL url)

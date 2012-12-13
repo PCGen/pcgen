@@ -67,7 +67,6 @@ public class RaceToken extends Token
 	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
-		@SuppressWarnings("unused")
 		ExportHandler eh)
 	{
 		String retString = Constants.EMPTY_STRING;
