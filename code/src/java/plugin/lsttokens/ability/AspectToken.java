@@ -108,10 +108,9 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 					+ value, context);
 		}
 		Aspect a = parseAspect(key, val);
-		List<Aspect> aspects = null;
 		MapChanges<AspectName, List<Aspect>> mc = context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
 		Map<AspectName, List<Aspect>> fullMap = mc.getAdded();
-		aspects = fullMap.get(a.getKey());
+		List<Aspect> aspects = fullMap.get(a.getKey());
 		if (aspects == null) {
 			aspects = new ArrayList<Aspect>();
 		}
