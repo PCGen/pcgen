@@ -60,7 +60,9 @@ ABILITYCATEGORY:SPELLBREAKER Impervious Choice			VISIBLE:QUALIFY	EDITABLE:YES		E
 ABILITYCATEGORY:Bat Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Acrobatic|Agile Maneuvers|Improved Initiative|Lightning Reflexes|Skill Focus (Perception)													DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Boar Shaman Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Bleeding Critical|Blind-Fight|Diehard|Improved Overrun																		DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:KENSAI Weapon Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Martial Weapon Proficiency|Exotic Weapon Proficiency																			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:KENSAI Weapon Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Martial Weapon Proficiency ~ Kensai|Exotic Weapon Proficiency ~ Kensai																DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Kensai Weapon Focus					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability									ABILITYLIST:Weapon Focus ~ Kensai																								DISPLAYLOCATION:Class Abilities
+
 ABILITYCATEGORY:WILD STALKER Wild Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WILDSTALKERWildTalent																																	DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Rapid Reload						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT											ABILITYLIST:Rapid Reload																									DISPLAYLOCATION:Class Abilities
 
