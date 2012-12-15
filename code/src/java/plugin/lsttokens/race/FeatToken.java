@@ -152,6 +152,23 @@ public class FeatToken extends AbstractTokenWithSeparator<Race> implements
 		return Race.class;
 	}
 
+	/*
+	 * Explanation of: Why is this a deferred token?
+	 * 
+	 * The OVERWRITE behavior of this token changes behavior in such a way that
+	 * the processing below needs to be done *after* processing. It makes the
+	 * OVERWRITE and .CLEAR processing significantly easier, in that it only has
+	 * to worry about one list, and not clearing in two locations. It's also an
+	 * issue because the ListContext list used below is a shared list with other
+	 * tokens, so the overwrite needs to be isolated to this token, so it needs
+	 * to be separate.
+	 * 
+	 * As a result of this, the unparse gets a bit counter-intuitive in that no
+	 * special processing on %LIST needs to be done, so this may look
+	 * inconsistent to other Ability/Feat based tokens
+	 * 
+	 * -thpr Dec 15, 2012
+	 */
 	@Override
 	public boolean process(LoadContext context, Race obj)
 	{
