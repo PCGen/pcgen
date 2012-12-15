@@ -38,6 +38,11 @@ public class TokenStore implements PluginLoader
 		return inst;
 	}
 
+	public static void reset()
+	{
+		inst = new TokenStore();
+	}
+
 	private void populateTokenTypeList()
 	{
 		//miscinfo.lst

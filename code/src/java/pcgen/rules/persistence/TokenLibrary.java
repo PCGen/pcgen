@@ -68,6 +68,16 @@ public class TokenLibrary implements PluginLoader
 
 	static
 	{
+		reset();
+	}
+	
+	public static void reset()
+	{
+		deferredTokens.clear();
+		postDeferredTokens.clear();
+		qualifierMap.clear();
+		primitiveMap.clear();
+		TOKEN_FAMILIES.clear();
 		TOKEN_FAMILIES.add(TokenFamily.CURRENT);
 		TOKEN_FAMILIES.add(TokenFamily.REV514);
 		addToTokenMap(new PreMultParser());

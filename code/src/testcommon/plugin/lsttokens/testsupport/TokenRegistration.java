@@ -77,6 +77,13 @@ public class TokenRegistration
 		}
 	}
 
+	public static void clearTokens()
+	{
+		TokenLibrary.reset();
+		TokenStore.reset();
+		tokenSet.clear();
+	}
+
 	public static Set<String> pwSet = new HashSet<String>();
 
 	public static void register(PrerequisiteWriterInterface writer)

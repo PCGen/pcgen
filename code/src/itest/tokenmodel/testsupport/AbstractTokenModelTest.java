@@ -165,6 +165,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected void setUpContext() throws PersistenceLayerException
 	{
 		ChooserFactory.setInterfaceClassname(RandomChooser.class.getName());
+		TokenRegistration.clearTokens();
 		TokenRegistration.register(AUTO_LANG_TOKEN);
 		TokenRegistration.register(ABILITY_VISIBLE_TOKEN);
 		TokenRegistration.register(AUTO_TOKEN);
@@ -201,6 +202,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		GameMode gamemode = SettingsHandler.getGame();
+		gamemode.clearLoadContext();
 
 		str = createStat("Strength", "STR");
 		str.put(VariableKey.getConstant("LOADSCORE"),
