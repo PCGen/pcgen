@@ -14,7 +14,7 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle
 1																	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Vars and Pools
 4	BONUS:ABILITYPOOL|Gunslinger Feat|CL/4
-5								BONUS:VAR|GunTrainingSelection|(CL-4)/4
+5								BONUS:VAR|GunTrainingSelection|(CL-1)/4
 ###Block: Level progression
 1	ABILITY:Class Ability|AUTOMATIC|Gunsmith ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunsmith
 1	ABILITY:Class Ability|AUTOMATIC|Deeds ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeeds
