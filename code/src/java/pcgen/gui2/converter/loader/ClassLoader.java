@@ -53,7 +53,12 @@ public class ClassLoader implements Loader
 			String lineString, ConversionDecider decider)
 			throws PersistenceLayerException, InterruptedException
 	{
+		List<CDOMObject> list = new ArrayList<CDOMObject>();
 		String[] tokens = lineString.split(FIELD_SEPARATOR);
+		if (tokens.length == 0)
+		{
+			return list;
+		}
 		String firstToken = tokens[0];
 		sb.append(firstToken);
 
@@ -86,7 +91,6 @@ public class ClassLoader implements Loader
 			buildClass = PCClassLevel.class;
 			buildParent = PCClass.class;
 		}
-		List<CDOMObject> list = new ArrayList<CDOMObject>();
 		for (int tok = 1; tok < tokens.length; tok++)
 		{
 			String token = tokens[tok];
