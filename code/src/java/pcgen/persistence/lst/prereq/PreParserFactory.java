@@ -202,4 +202,21 @@ public class PreParserFactory implements PluginLoader
 		return (token.startsWith("PRE") || token.startsWith("!PRE"))
 			&& (token.indexOf(":") > 0);
 	}
+	
+	public static void clear()
+	{
+		parserLookup.clear();
+		if (instance != null)
+		{
+			try
+			{
+				register(new PreMultParser());
+			}
+			catch (PersistenceLayerException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 }

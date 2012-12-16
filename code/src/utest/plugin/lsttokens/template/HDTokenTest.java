@@ -20,7 +20,6 @@ package plugin.lsttokens.template;
 import java.net.URISyntaxException;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import pcgen.core.PCTemplate;
@@ -44,11 +43,12 @@ public class HDTokenTest extends AbstractTokenTestCase<PCTemplate>
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
 			PCTemplate.class);
 
-	private static boolean classSetUpFired = false;
-
-	@BeforeClass
-	public static final void ltClassSetUp() throws PersistenceLayerException
+	@Override
+	@Before
+	public final void setUp() throws PersistenceLayerException,
+			URISyntaxException
 	{
+		super.setUp();
 		TokenRegistration.register(new PreHDParser());
 		TokenRegistration.register(new PreHDWriter());
 		TokenRegistration.register(new CrToken());
@@ -56,19 +56,6 @@ public class HDTokenTest extends AbstractTokenTestCase<PCTemplate>
 		TokenRegistration.register(new SrLst());
 		TokenRegistration.register(new SabLst());
 		TokenRegistration.register(new LegsToken());
-		classSetUpFired = true;
-	}
-
-	@Override
-	@Before
-	public final void setUp() throws PersistenceLayerException,
-			URISyntaxException
-	{
-		super.setUp();
-		if (!classSetUpFired)
-		{
-			ltClassSetUp();
-		}
 	}
 
 	@Override

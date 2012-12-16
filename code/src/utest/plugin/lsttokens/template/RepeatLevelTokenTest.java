@@ -20,7 +20,6 @@ package plugin.lsttokens.template;
 import java.net.URISyntaxException;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import pcgen.core.PCTemplate;
@@ -43,30 +42,18 @@ public class RepeatLevelTokenTest extends AbstractTokenTestCase<PCTemplate>
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>(
 			PCTemplate.class);
 
-	private static boolean classSetUpFired = false;
-
-	@BeforeClass
-	public static final void ltClassSetUp() throws PersistenceLayerException
-	{
-		TokenRegistration.register(new PreLevelParser());
-		TokenRegistration.register(new PreLevelWriter());
-		TokenRegistration.register(new CrToken());
-		TokenRegistration.register(new DrLst());
-		TokenRegistration.register(new SrLst());
-		TokenRegistration.register(new SabLst());
-		classSetUpFired = true;
-	}
-
 	@Override
 	@Before
 	public final void setUp() throws PersistenceLayerException,
 		URISyntaxException
 	{
 		super.setUp();
-		if (!classSetUpFired)
-		{
-			ltClassSetUp();
-		}
+		TokenRegistration.register(new PreLevelParser());
+		TokenRegistration.register(new PreLevelWriter());
+		TokenRegistration.register(new CrToken());
+		TokenRegistration.register(new DrLst());
+		TokenRegistration.register(new SrLst());
+		TokenRegistration.register(new SabLst());
 	}
 
 	@Override

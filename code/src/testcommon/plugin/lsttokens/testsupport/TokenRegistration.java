@@ -82,6 +82,8 @@ public class TokenRegistration
 		TokenLibrary.reset();
 		TokenStore.reset();
 		tokenSet.clear();
+		ppiSet.clear();
+		PreParserFactory.clear();
 	}
 
 	public static Set<String> pwSet = new HashSet<String>();

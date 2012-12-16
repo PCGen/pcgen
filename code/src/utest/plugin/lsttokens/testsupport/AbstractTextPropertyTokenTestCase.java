@@ -22,7 +22,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -38,28 +37,15 @@ public abstract class AbstractTextPropertyTokenTestCase<T extends CDOMObject>
 		extends AbstractTokenTestCase<T>
 {
 
-	private static boolean classSetUpFired = false;
-
-	@BeforeClass
-	public static final void localClassSetUp() throws URISyntaxException,
-			PersistenceLayerException
-	{
-		TokenRegistration.register(new PreLevelParser());
-		TokenRegistration.register(new PreClassParser());
-		TokenRegistration.register(new PreLevelWriter());
-		TokenRegistration.register(new PreClassWriter());
-		classSetUpFired = true;
-	}
-
 	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		if (!classSetUpFired)
-		{
-			localClassSetUp();
-		}
+		TokenRegistration.register(new PreLevelParser());
+		TokenRegistration.register(new PreClassParser());
+		TokenRegistration.register(new PreLevelWriter());
+		TokenRegistration.register(new PreClassWriter());
 	}
 
 	@Test

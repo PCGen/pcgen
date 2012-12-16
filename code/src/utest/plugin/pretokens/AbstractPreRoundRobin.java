@@ -27,12 +27,11 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
-import pcgen.persistence.lst.prereq.PreMultParser;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.TokenLibrary;
 import pcgen.util.Logging;
+import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractPreRoundRobin extends TestCase
 {
@@ -41,18 +40,7 @@ public abstract class AbstractPreRoundRobin extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		registerPreMult();
-	}
-
-	private static boolean registered = false;
-
-	private static void registerPreMult() throws PersistenceLayerException
-	{
-		if (!registered)
-		{
-			registered = true;
-			TokenLibrary.addToTokenMap(new PreMultParser());
-		}
+		TokenRegistration.clearTokens();
 	}
 
 	public final void runRoundRobin(String s)
