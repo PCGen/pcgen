@@ -24,7 +24,6 @@ import java.util.TreeSet;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.PCClass;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.rules.context.LoadContext;
@@ -92,23 +91,15 @@ public class ChoiceToken extends AbstractTokenWithSeparator<SubClass> implements
 				|| type.equals(ProhibitedSpellType.SUBSCHOOL)
 				|| type.equals(ProhibitedSpellType.DESCRIPTOR))
 		{
-			SpellProhibitor spellProb = typeSafeParse(context, sc, type, value
-					.substring(pipeLoc + 1));
-			context.getObjectContext().put(sc, ObjectKey.CHOICE, spellProb);
+			SpellProhibitor sp = new SpellProhibitor();
+			sp.setType(type);
+			sp.addValue(value.substring(pipeLoc + 1));
+			context.getObjectContext().put(sc, ObjectKey.CHOICE, sp);
 			return ParseResult.SUCCESS;
 		}
 
 		return new ParseResult.Fail("Invalid TYPE in " + getTokenName() + ": "
 				+ pstString, context);
-	}
-
-	private SpellProhibitor typeSafeParse(LoadContext context, PCClass pcc,
-			ProhibitedSpellType type, String args)
-	{
-		SpellProhibitor spellProb = new SpellProhibitor();
-		spellProb.setType(type);
-		spellProb.addValue(args);
-		return spellProb;
 	}
 
 	@Override
