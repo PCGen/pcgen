@@ -99,6 +99,7 @@ import pcgen.cdom.facet.ClassSpellListFacet;
 import pcgen.cdom.facet.ConditionalAbilityFacet;
 import pcgen.cdom.facet.ConditionallyGrantedAbilityFacet;
 import pcgen.cdom.facet.DirectAbilityFacet;
+import pcgen.cdom.facet.DomainSpellCountFacet;
 import pcgen.cdom.facet.EquipSetFacet;
 import pcgen.cdom.facet.EquipmentFacet;
 import pcgen.cdom.facet.EquippedEquipmentFacet;
@@ -285,6 +286,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
 	private ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private ClassSpellListFacet classSpellListFacet = FacetLibrary.getFacet(ClassSpellListFacet.class);
+	private DomainSpellCountFacet domainSpellCountFacet = FacetLibrary.getFacet(DomainSpellCountFacet.class);
 	private HandsFacet handsFacet = FacetLibrary.getFacet(HandsFacet.class);
 	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
 	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
@@ -11302,5 +11304,20 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 	
 		return spMod;
+	}
+
+	public void removeDomainSpellCount(PCClass pcc)
+	{
+		domainSpellCountFacet.remove(id, pcc);
+	}
+
+	public Integer getDomainSpellCount(PCClass pcc)
+	{
+		return domainSpellCountFacet.get(id, pcc);
+	}
+
+	public void setDomainSpellCount(PCClass pcc, int i)
+	{
+		domainSpellCountFacet.set(id, pcc, i);
 	}
 }

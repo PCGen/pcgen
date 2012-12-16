@@ -84,8 +84,7 @@ public class DomainApplication
 				{
 					if (SpellLevel.getFirstLvlForKey(gcs, domainSpellList, pc) < maxLevel)
 					{
-						pc.setAssoc(aClass, AssociationKey.DOMAIN_SPELL_COUNT,
-								1);
+						pc.setDomainSpellCount(aClass, 1);
 						break;
 					}
 				}
@@ -169,7 +168,7 @@ public class DomainApplication
 				{
 					if (SpellLevel.getFirstLvlForKey(gcs, domainSpellList, pc) < maxLevel)
 					{
-						pc.removeAssoc(aClass, AssociationKey.DOMAIN_SPELL_COUNT);
+						pc.removeDomainSpellCount(aClass);
 						break;
 					}
 				}

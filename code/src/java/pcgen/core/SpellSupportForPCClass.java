@@ -285,8 +285,7 @@ public class SpellSupportForPCClass
 			// make sure any slots due from specialties
 			total += source.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
 			// (including domains) are added
-			Integer assoc = aPC.getAssoc(source,
-					AssociationKey.DOMAIN_SPELL_COUNT);
+			Integer assoc = aPC.getDomainSpellCount(source);
 			if (assoc != null)
 			{
 				total += assoc;
@@ -364,7 +363,7 @@ public class SpellSupportForPCClass
 		// make sure any slots due from specialties
 		total += source.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
 		// (including domains) are added
-		Integer assoc = aPC.getAssoc(source, AssociationKey.DOMAIN_SPELL_COUNT);
+		Integer assoc = aPC.getDomainSpellCount(source);
 		if (assoc != null)
 		{
 			total += assoc;

@@ -176,6 +176,7 @@
 	</bean>
 	<bean id="directAbilityFacet" class="pcgen.cdom.facet.DirectAbilityFacet" />
 	<bean id="domainFacet" class="pcgen.cdom.facet.model.DomainFacet" />
+	<bean id="domainSpellCountFacet" class="pcgen.cdom.facet.DomainSpellCountFacet" />
 	<bean id="domainSpellListFacet" class="pcgen.cdom.facet.DomainSpellListFacet">
 		<property name="spellListFacet" ref="spellListFacet"/>
 		<property name="domainFacet" ref="domainFacet"/>
