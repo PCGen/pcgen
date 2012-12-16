@@ -65,6 +65,9 @@ public class TokenLibrary implements PluginLoader
 	private static final DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>> primitiveMap =
 			new DoubleKeyMap<Class<?>, String, Class<PrimitiveToken<?>>>();
 	private static final Set<TokenFamily> TOKEN_FAMILIES = new TreeSet<TokenFamily>();
+	private static final CaseInsensitiveMap<Class<? extends BonusObj>> BONUS_TAG_MAP = new CaseInsensitiveMap<Class<? extends BonusObj>>();
+
+	private static TokenLibrary instance = null;
 
 	static
 	{
@@ -77,13 +80,14 @@ public class TokenLibrary implements PluginLoader
 		postDeferredTokens.clear();
 		qualifierMap.clear();
 		primitiveMap.clear();
+		BONUS_TAG_MAP.clear();
 		TOKEN_FAMILIES.clear();
+		TokenFamily.CURRENT.clearTokens();
 		TOKEN_FAMILIES.add(TokenFamily.CURRENT);
+		TokenFamily.REV514.clearTokens();
 		TOKEN_FAMILIES.add(TokenFamily.REV514);
 		addToTokenMap(new PreMultParser());
 	}
-
-	private static final CaseInsensitiveMap<Class<? extends BonusObj>> BONUS_TAG_MAP = new CaseInsensitiveMap<Class<? extends BonusObj>>();
 
 	private TokenLibrary()
 	{
@@ -266,8 +270,6 @@ public class TokenLibrary implements PluginLoader
 		// tokenSources.add(fam);
 		// }
 	}
-
-	private static TokenLibrary instance = null;
 
 	public static TokenLibrary getInstance()
 	{

@@ -253,4 +253,9 @@ public final class TokenFamily implements Comparable<TokenFamily>
 		return rev.hashCode();
 	}
 
+	public void clearTokens()
+	{
+		tokenMap.clear();
+		subTokenMap.clear();
+	}
 }
