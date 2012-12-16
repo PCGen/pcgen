@@ -44,6 +44,7 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfFacet;
+import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
@@ -89,7 +90,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 
 	private static final MultToken ABILITY_MULT_TOKEN =
 			new plugin.lsttokens.ability.MultToken();
-	private static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
+	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
 			new plugin.lsttokens.ChooseLst();
 	private static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN =
 			new plugin.lsttokens.choose.LangToken();
@@ -269,6 +270,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		}
 		context = Globals.getContext();
 		create(Language.class, "Common");
+		context.ref.importObject(AbilityCategory.FEAT);
 		SourceFileLoader.createLangBonusObject(Globals.getContext());
 	}
 

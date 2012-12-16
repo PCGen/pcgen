@@ -1,7 +1,7 @@
 /*
  * AbilityLst.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
- * Copyright 2008 (C) Thomas Parker <thpr@users.sourceforge.net>
+ * Copyright 2008-12 (C) Thomas Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -60,6 +60,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -108,7 +109,7 @@ import pcgen.rules.persistence.token.ParseResult;
  *
  */
 public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>
+		implements CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>
 {
 
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
@@ -141,7 +142,6 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		if (!tok.hasMoreTokens())
 		{
-
 			return new ParseResult.Fail(getTokenName() + " must have a Nature, "
 				+ "Format is: CATEGORY|NATURE|AbilityName: " + value, context);
 		}
@@ -177,6 +177,9 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				+ getTokenName() + ": " + value, context);
 		}
 
+		String lkString = "GA_CA_" + cat + "_" + natureKey;
+		ListKey<ChooseResultActor> lk = ListKey.getKeyFor(ChooseResultActor.class, lkString);
+
 		ArrayList<PrereqObject> edgeList = new ArrayList<PrereqObject>();
 
 		CDOMReference<AbilityList> abilList =
@@ -199,6 +202,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				}
 				context.getListContext().removeAllFromList(getTokenName(), obj,
 					abilList);
+				context.obj.removeFromList(obj, ListKey.GA_CAKEYS, lk);
+				context.obj.removeList(obj, lk);
 				removed = true;
 			}
 			else if (token.startsWith(Constants.LST_DOT_CLEAR_DOT))
@@ -237,8 +242,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 							CDOMSingleRef<Ability> ref = (CDOMSingleRef<Ability>) ability;
 							AbilityTargetSelector ats = new AbilityTargetSelector(
 									getTokenName(), category, ref, nature);
-							context.obj.addToList(obj, ListKey.CHOOSE_ACTOR,
-									ats);
+							context.obj.addToList(obj, ListKey.GA_CAKEYS, lk);
+							context.obj.addToList(obj, lk, ats);
 							edgeList.add(ats);
 							loadList = false;
 						}
@@ -304,8 +309,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> changedLists =
 				context.getListContext()
 					.getChangedLists(obj, AbilityList.class);
-		Changes<ChooseResultActor> actors = context.getObjectContext()
-				.getListChanges(obj, ListKey.CHOOSE_ACTOR);
+		Changes<ListKey<ChooseResultActor>> actors = context.getObjectContext()
+				.getListChanges(obj, ListKey.GA_CAKEYS);
 		Set<String> returnSet = new TreeSet<String>();
 		TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> m = new TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
 		TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>> clear = new TripleKeyMapToList<Nature, Category<Ability>, List<Prerequisite>, CDOMReference<Ability>>();
@@ -336,9 +341,8 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 								assoc.getAssociation(AssociationKey.NATURE);
 						Category<Ability> cat =
 								assoc.getAssociation(AssociationKey.CATEGORY);
-						m
-							.addToListFor(nature, cat, assoc.getPrerequisiteList(),
-								ab);
+						m.addToListFor(nature, cat,
+							assoc.getPrerequisiteList(), ab);
 					}
 				}
 			}
@@ -414,28 +418,34 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				}
 			}
 		}
-		Collection<ChooseResultActor> addedActors = actors.getAdded();
+		Collection<ListKey<ChooseResultActor>> addedActors = actors.getAdded();
 		if (addedActors != null)
 		{
-			for (ChooseResultActor cra : addedActors)
+			for (ListKey<ChooseResultActor> lk : addedActors)
 			{
-				if (getTokenName().equals(cra.getSource()))
+				Changes<ChooseResultActor> cras =
+						context.getObjectContext().getListChanges(obj, lk);
+				for (ChooseResultActor cra : cras.getAdded())
 				{
-					try
+					if (getTokenName().equals(cra.getSource()))
 					{
-						AbilityTargetSelector ats = (AbilityTargetSelector) cra;
-						StringBuilder sb = new StringBuilder();
-						sb.append(ats.getAbilityCategory().getLSTformat())
+						try
+						{
+							AbilityTargetSelector ats =
+									(AbilityTargetSelector) cra;
+							StringBuilder sb = new StringBuilder();
+							sb.append(ats.getAbilityCategory().getLSTformat())
 								.append(Constants.PIPE);
-						sb.append(ats.getNature()).append(Constants.PIPE)
+							sb.append(ats.getNature()).append(Constants.PIPE)
 								.append(cra.getLstFormat());
-						returnSet.add(sb.toString());
-					}
-					catch (PersistenceLayerException e)
-					{
-						context.addWriteMessage(getTokenName()
+							returnSet.add(sb.toString());
+						}
+						catch (PersistenceLayerException e)
+						{
+							context.addWriteMessage(getTokenName()
 								+ " encountered error: " + e.getMessage());
-						return null;
+							return null;
+						}
 					}
 				}
 			}
@@ -449,6 +459,35 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 
 	@Override
 	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
+	}
+
+	/*
+	 * This is a DeferredToken because attempting to extract "self" out of the
+	 * "generic" (widely shared) CHOOSE_ACTOR list is extremely difficult since
+	 * the item added is not this token but a derivative object whose reference
+	 * is not saved by this token. Therefore a unique list is used to store the
+	 * CHOOSE_ACTORs generated by this token and they are added into the
+	 * "global" list when load is complete - thpr Dec 15, 2012
+	 */
+	@Override
+	public boolean process(LoadContext context, CDOMObject cdo)
+	{
+		List<ListKey<ChooseResultActor>> lkList =
+				cdo.getListFor(ListKey.GA_CAKEYS);
+		if (lkList != null)
+		{
+			for (ListKey<ChooseResultActor> lk : lkList)
+			{
+				cdo.addAllToListFor(ListKey.CHOOSE_ACTOR, cdo.getListFor(lk));
+			}
+		}
+		return true;
+	}
+
+	@Override
+	public Class<CDOMObject> getDeferredTokenClass()
 	{
 		return CDOMObject.class;
 	}

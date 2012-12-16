@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-12 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
@@ -487,5 +488,59 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.SEPARATE;
+	}
+
+	@Test
+	public void testValidInputClearWorking() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		assertTrue(parse("FEAT|VIRTUAL|TestWP1"));
+		assertTrue(parse("FEAT|VIRTUAL|" + getClearString()));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testValidInputClearJoinWorking()
+		throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		assertTrue(parse("FEAT|VIRTUAL|" + getClearString()
+			+ getJoinCharacter() + "TestWP1"));
+		assertTrue(parseSecondary("FEAT|VIRTUAL|TestWP1"));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testListTargetClearWorking() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		assertTrue(parse("FEAT|VIRTUAL|TestWP1(%LIST)"));
+		assertTrue(parse("FEAT|VIRTUAL|" + getClearString()));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testClearMixedWorking() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP2");
+		assertTrue(parse("FEAT|VIRTUAL|TestWP2|TestWP1(%LIST)"));
+		assertTrue(parse("FEAT|VIRTUAL|" + getClearString()));
+		assertNoSideEffects();
+	}
+
+	private String getJoinCharacter()
+	{
+		return Constants.PIPE;
+	}
+
+	protected String getClearString()
+	{
+		return ".CLEAR";
 	}
 }
