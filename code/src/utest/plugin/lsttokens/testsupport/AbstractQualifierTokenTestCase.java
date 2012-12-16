@@ -1754,6 +1754,8 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testRoundRobinTestNotQualifierAll()
 			throws PersistenceLayerException
 	{
+		construct(primaryContext, getTargetClass(), "TestWP1");
+		construct(secondaryContext, getTargetClass(), "TestWP1");
 		if (allowsNotQualifier())
 		{
 			runRoundRobin(getSubTokenName() + "|!" + qualifier + "[ALL]");
@@ -1776,6 +1778,8 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testRoundRobinTestQualifierRaw()
 		throws PersistenceLayerException
 	{
+		construct(primaryContext, getTargetClass(), "TestWP1");
+		construct(secondaryContext, getTargetClass(), "TestWP1");
 		if (allowsLoneQualifier())
 		{
 			runRoundRobin(getSubTokenName() + '|' + qualifier);
