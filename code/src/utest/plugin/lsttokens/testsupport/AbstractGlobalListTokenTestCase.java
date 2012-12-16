@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-12 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -584,4 +584,36 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 	{
 		return new AppendingConsolidation(getJoinCharacter());
 	}
+
+	@Test
+	public void testValidInputClearWorking() throws PersistenceLayerException
+	{
+		if (isClearLegal())
+		{
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
+			assertTrue(parse("TestWP1"));
+			assertTrue(parse(getClearString()));
+			assertNoSideEffects();
+		}
+	}
+
+	@Test
+	public void testValidInputClearJoinWorking() throws PersistenceLayerException
+	{
+		if (isClearLegal())
+		{
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
+			assertTrue(parse(getClearString() + getJoinCharacter() + "TestWP1"));
+			assertTrue(parseSecondary("TestWP1"));
+			assertNoSideEffects();
+		}
+	}
+
+	protected String getClearString()
+	{
+		return ".CLEAR";
+	}
+
 }

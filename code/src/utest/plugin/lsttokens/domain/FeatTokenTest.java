@@ -290,4 +290,29 @@ public class FeatTokenTest extends
 	{
 		return Ability.FEATLIST;
 	}
+
+	@Test
+	public void testListTargetClearWorking() throws PersistenceLayerException
+	{
+		if (isClearLegal())
+		{
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
+			assertTrue(parse("TestWP1(%LIST)"));
+			assertTrue(parse(getClearString()));
+			assertNoSideEffects();
+		}
+	}
+
+	@Test
+	public void testClearMixedWorking() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP2");
+		assertTrue(parse("TestWP2|TestWP1(%LIST)"));
+		assertTrue(parse(getClearString()));
+		assertNoSideEffects();
+	}
 }

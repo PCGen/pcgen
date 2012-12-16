@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-12 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -236,5 +236,30 @@ public class FeatTokenTest extends AbstractListKeyTokenTestCase<Race, Ability>
 	{
 		return primaryContext.ref.getCDOMAllReference(getTargetClass(),
 				AbilityCategory.FEAT);
+	}
+
+	@Test
+	public void testListTargetClearWorking() throws PersistenceLayerException
+	{
+		if (isClearLegal())
+		{
+			construct(primaryContext, "TestWP1");
+			construct(secondaryContext, "TestWP1");
+			assertTrue(parse("TestWP1(%LIST)"));
+			assertTrue(parse(getClearString()));
+			assertNoSideEffects();
+		}
+	}
+
+	@Test
+	public void testClearMixedWorking() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP2");
+		assertTrue(parse("TestWP2|TestWP1(%LIST)"));
+		assertTrue(parse(getClearString()));
+		assertNoSideEffects();
 	}
 }

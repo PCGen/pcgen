@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-12 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -268,4 +268,5 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		assertTrue(primaryContext.ref.validate(null));
 		assertTrue(primaryContext.ref.resolveReferences(null));
 	}
+
 }

@@ -296,4 +296,27 @@ public class VFeatLstTest extends AbstractGlobalListTokenTestCase<Ability>
 		construct(secondaryContext, "TestWP1");
 		runRoundRobin("TestWP1 (%LIST)");
 	}
+
+
+	@Test
+	public void testListTargetClearWorking() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		assertTrue(parse("TestWP1(%LIST)"));
+		assertTrue(parse(getClearString()));
+		assertNoSideEffects();
+	}
+
+	@Test
+	public void testClearMixedWorking() throws PersistenceLayerException
+	{
+		construct(primaryContext, "TestWP1");
+		construct(secondaryContext, "TestWP1");
+		construct(primaryContext, "TestWP2");
+		construct(secondaryContext, "TestWP2");
+		assertTrue(parse("TestWP2|TestWP1(%LIST)"));
+		assertTrue(parse(getClearString()));
+		assertNoSideEffects();
+	}
 }
