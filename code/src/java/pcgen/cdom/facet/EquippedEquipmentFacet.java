@@ -122,7 +122,10 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 		{
 			return Collections.emptySet();
 		}
-		return set;
+		Set<Equipment> returnEquipped = new WrappedMapSet<Equipment>(
+				IdentityHashMap.class);
+		returnEquipped.addAll(set);
+		return returnEquipped;
 	}
 
 	public void setEquipmentFacet(EquipmentFacet equipmentFacet)
