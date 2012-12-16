@@ -30,7 +30,9 @@ import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.EquipmentModifier;
+import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.character.CompanionMod;
@@ -88,7 +90,21 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		assertEquals(0, getCount());
 	}
 
-	//Check not *supposed* to do things like this
+	@Test
+	public void testFromCheck() throws PersistenceLayerException
+	{
+		PCCheck source = create(PCCheck.class, "Source");
+		T granted = createGrantedObject();
+		processToken(source);
+		/*
+		 * We never get a chance to test zero since the Checks are added at
+		 * Player Character Construction :)
+		 */
+		assertTrue(containsExpected(granted));
+		assertEquals(1, getCount());
+		checkFacet.remove(id, source);
+		assertEquals(0, getCount());
+	}
 
 	@Test
 	public void testFromClass() throws PersistenceLayerException
@@ -131,13 +147,6 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		companionModFacet.remove(id, source);
 		assertEquals(0, getCount());
 	}
-
-	/*
-	 * TODO An opportunity exists here to consolidate to allow this to test
-	 * CompanionMod and Domain objects, however that requires AbstractListFacet
-	 * and AbstractSourcedListFacet to share an interface that could be used
-	 * here.
-	 */
 
 	@Test
 	public void testFromDeity() throws PersistenceLayerException
@@ -203,7 +212,22 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 	//Need to separate the setting of size from the facet that holds it
 
 	//Skill not *supposed* to do things like this
-	//Stat not *supposed* to do things like this
+
+	@Test
+	public void testFromStat() throws PersistenceLayerException
+	{
+		PCStat source = create(PCStat.class, "Source");
+		T granted = createGrantedObject();
+		processToken(source);
+		/*
+		 * We never get a chance to test zero since the Stats are added at
+		 * Player Character Construction :)
+		 */
+		assertTrue(containsExpected(granted));
+		assertEquals(1, getCount());
+		statFacet.remove(id, source);
+		assertEquals(0, getCount());
+	}
 
 	@Test
 	public void testFromTemplate() throws PersistenceLayerException

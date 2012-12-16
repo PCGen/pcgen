@@ -30,7 +30,9 @@ import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.EquipmentModifier;
+import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
+import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.character.CompanionMod;
@@ -83,7 +85,16 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 		assertEquals(baseCount(), targetFacetCount());
 	}
 
-	//Check not *supposed* to do things like this
+	@Test
+	public void testFromCheck() throws PersistenceLayerException
+	{
+		PCCheck source = create(PCCheck.class, "Source");
+		processToken(source);
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
+		checkFacet.remove(id, source);
+		assertEquals(baseCount(), targetFacetCount());
+	}
 
 	@Test
 	public void testFromClass() throws PersistenceLayerException
@@ -184,7 +195,17 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	//Need to separate the setting of size from the facet that holds it
 
 	//Skill not *supposed* to do things like this
-	//Stat not *supposed* to do things like this
+
+	@Test
+	public void testFromStat() throws PersistenceLayerException
+	{
+		PCStat source = create(PCStat.class, "Source");
+		processToken(source);
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
+		statFacet.remove(id, source);
+		assertEquals(baseCount(), targetFacetCount());
+	}
 
 	@Test
 	public void testFromTemplate() throws PersistenceLayerException
