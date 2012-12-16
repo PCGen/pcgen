@@ -56,7 +56,7 @@ public class EquipmentQualifierTokenTest extends
 
 	public EquipmentQualifierTokenTest()
 	{
-		super("EQUIPMENT", null, false);
+		super("EQUIPMENT", null);
 	}
 
 	@Override

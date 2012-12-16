@@ -51,7 +51,7 @@ public class QualifiedQualifierTokenTest extends
 
 	public QualifiedQualifierTokenTest()
 	{
-		super("QUALIFIED", null, true);
+		super("QUALIFIED", null);
 	}
 
 	@Override

@@ -53,7 +53,7 @@ public class CrossClassQualifierTokenTest extends
 
 	public CrossClassQualifierTokenTest()
 	{
-		super("CROSSCLASS", null, true);
+		super("CROSSCLASS", null);
 	}
 
 	@Override

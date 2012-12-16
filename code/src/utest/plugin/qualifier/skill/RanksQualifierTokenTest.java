@@ -53,7 +53,7 @@ public class RanksQualifierTokenTest extends
 
 	public RanksQualifierTokenTest()
 	{
-		super("RANKS", "4", true);
+		super("RANKS", "4");
 	}
 
 	@Override

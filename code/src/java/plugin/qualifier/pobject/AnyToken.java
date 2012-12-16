@@ -94,6 +94,10 @@ public class AnyToken<T extends CDOMObject> implements QualifierToken<T>
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
+		if (negated)
+		{
+			sb.append('!');
+		}
 		sb.append(getTokenName());
 		if (wasRestricted)
 		{

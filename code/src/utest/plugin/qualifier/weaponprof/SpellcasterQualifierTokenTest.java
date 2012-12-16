@@ -51,7 +51,7 @@ public class SpellcasterQualifierTokenTest extends
 
 	public SpellcasterQualifierTokenTest()
 	{
-		super("SPELLCASTER", null, true);
+		super("SPELLCASTER", null);
 	}
 
 	@Override

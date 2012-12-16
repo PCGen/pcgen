@@ -51,7 +51,7 @@ public class AnyQualifierTokenTest extends
 
 	public AnyQualifierTokenTest()
 	{
-		super("ANY", null, true);
+		super("ANY", null);
 	}
 
 	@Override
@@ -94,7 +94,7 @@ public class AnyQualifierTokenTest extends
 	@Override
 	protected boolean allowsNotQualifier()
 	{
-		return false;
+		return true;
 	}
 
 	@Override
@@ -156,4 +156,26 @@ public class AnyQualifierTokenTest extends
 		primaryContext.ref.importObject(s3);
 		primaryContext.unconditionallyProcess(s3, "TYPE", "Masterful");
 	}
+
+	@Override
+	@Test
+	public void testRoundRobinTestNotQualifierAll()
+		throws PersistenceLayerException
+	{
+		//Not any is empty, so the loader should reject
+		assertFalse(parse(getSubTokenName() + "|!" + "ANY" + "[ALL]"));
+		assertNoSideEffects();
+	}
+
+	@Override
+	@Test
+	public void testRoundRobinTestNotQualifierRaw()
+		throws PersistenceLayerException
+	{
+		//Not any is empty, so the loader should reject
+		assertFalse(parse(getSubTokenName() + "|!" + "ANY"));
+		assertNoSideEffects();
+	}
+	
+	
 }

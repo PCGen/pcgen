@@ -39,7 +39,7 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 
 	public AbstractPCQualifierTokenTestCase()
 	{
-		super("PC", null, true);
+		super("PC", null);
 	}
 
 	@Override

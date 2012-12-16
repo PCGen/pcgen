@@ -53,7 +53,7 @@ public class ExclusiveQualifierTokenTest extends
 
 	public ExclusiveQualifierTokenTest()
 	{
-		super("EXCLUSIVE", null, true);
+		super("EXCLUSIVE", null);
 	}
 
 	@Override

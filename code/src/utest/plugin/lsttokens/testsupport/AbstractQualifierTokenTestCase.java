@@ -62,9 +62,8 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	private final String qualifier;
 	private final String target;
 	private final String token;
-	private final boolean negate;
 
-	protected AbstractQualifierTokenTestCase(String tok, String tgt, boolean allowNegation)
+	protected AbstractQualifierTokenTestCase(String tok, String tgt)
 	{
 		token = tok;
 		target = tgt;
@@ -76,7 +75,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		{
 			qualifier = token + "=" + target;
 		}
-		negate = allowNegation;
 	}
 
 	public String getSubTokenName()
@@ -443,7 +441,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testNegatedQualifierPipe() throws PersistenceLayerException
 	{
-		if (!negate)
+		if (!allowsNotQualifier())
 		{
 			assertFalse(parse(getSubTokenName() + "|!" + qualifier
 					+ "[TYPE=Bar|TYPE=Goo]|" + qualifier
@@ -455,7 +453,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testNegatedQualifierPrim() throws PersistenceLayerException
 	{
-		if (!negate)
+		if (!allowsNotQualifier())
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1");
 			construct(secondaryContext, getTargetClass(), "TestWP1");
@@ -469,7 +467,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testNegatedQualifierParenPrim()
 			throws PersistenceLayerException
 	{
-		if (!negate)
+		if (!allowsNotQualifier())
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1 (Test)");
 			construct(secondaryContext, getTargetClass(), "TestWP1 (Test)");
@@ -482,7 +480,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testNegatedQualifierAll() throws PersistenceLayerException
 	{
-		if (!negate)
+		if (!allowsNotQualifier())
 		{
 			assertFalse(parse(getSubTokenName() + "|!" + qualifier + "[ALL]"));
 			assertNoSideEffects();
@@ -1756,8 +1754,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testRoundRobinTestNotQualifierAll()
 			throws PersistenceLayerException
 	{
-		construct(primaryContext, getTargetClass(), "TestWP1");
-		construct(secondaryContext, getTargetClass(), "TestWP1");
 		if (allowsNotQualifier())
 		{
 			runRoundRobin(getSubTokenName() + "|!" + qualifier + "[ALL]");
@@ -1780,8 +1776,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testRoundRobinTestQualifierRaw()
 		throws PersistenceLayerException
 	{
-		construct(primaryContext, getTargetClass(), "TestWP1");
-		construct(secondaryContext, getTargetClass(), "TestWP1");
 		if (allowsLoneQualifier())
 		{
 			runRoundRobin(getSubTokenName() + '|' + qualifier);
