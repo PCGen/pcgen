@@ -88,6 +88,21 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * DoubleKeyMap
 	 */
 	private Map<K1, Map<K2, V>> map;
+	
+	/**
+	 * Identifies whether the primary map (the map field) should have the top
+	 * level key removed if the inner map for that key is empty. In almost all
+	 * situations, this is a useful cleanup to perform. The only exception to
+	 * this is if the getReadOnlyMapFor method is called, in which case, it is
+	 * "dangerous" to clean up and eliminate the outer map entry, since it will
+	 * result in the returned view becoming detached from the DoubleKeyMap. This
+	 * is thus automatically deactivated on any DoubleKeyMap instance where
+	 * getReadOnlyMapFor is called.
+	 * 
+	 * Note: This only protects against AUTOMATIC cleanup, not *intentional
+	 * destruction* caused by calling remove(K1) or clear()
+	 */
+	private boolean cleanup = true;
 
 	/**
 	 * Creates a new, empty DoubleKeyMap using HashMap as the underlying Map
@@ -266,8 +281,11 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	}
 
 	/**
-	 * Returns true if the DoubleKeyMap contains a value stored under the given
-	 * primary key and any secondary key.
+	 * Returns true if the DoubleKeyMap contains a map stored under the given
+	 * primary key. This may include information stored under any secondary key
+	 * OR a previous call to getReadOnlyMapFor(K1) with the same primary key
+	 * provided to this method [and no subsequent call to remove(K1) or
+	 * clear()].
 	 * 
 	 * @param key1
 	 *            The primary key for retrieving the given value
@@ -317,7 +335,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 		}
 		V removed = localMap.remove(key2);
 		// cleanup!
-		if (localMap.isEmpty())
+		if (cleanup && localMap.isEmpty())
 		{
 			map.remove(key1);
 		}
@@ -332,6 +350,10 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * to the class calling this method (no reference to the returned Map is
 	 * maintained by DoubleKeyMap)
 	 * 
+	 * As a side effect, detaches the view for any Map that was previously
+	 * returned by getReadOnlyMapFor(K1) with the primary key given to this
+	 * method.
+	 * 
 	 * @param key1
 	 *            The primary key used to remove the value in this DoubleKeyMap.
 	 * @return the Map of objects stored in this DoubleKeyMap for the given
@@ -344,7 +366,10 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	}
 
 	/**
-	 * Returns a Set of the primary keys for this DoubleKeyMap
+	 * Returns a Set of the primary keys for this DoubleKeyMap. This set will
+	 * include primary keys where there is information stored under any
+	 * secondary key OR a previous call to getReadOnlyMapFor(K1) was made with
+	 * that primary key [and no subsequent call to remove(K1) or clear()].
 	 * 
 	 * Note: Ownership of the Set is transferred to the calling Object;
 	 * therefore, changes to the returned Set will NOT impact the DoubleKeyMap.
@@ -383,10 +408,14 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	}
 
 	/**
-	 * Clears this DoubleKeyMap
+	 * Clears this DoubleKeyMap.
+	 * 
+	 * As a side effect, detaches the view for any Map that was previously
+	 * returned by getReadOnlyMapFor(K1).
 	 */
 	public void clear()
 	{
+		cleanup = true;
 		map.clear();
 	}
 
@@ -416,6 +445,10 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	/**
 	 * Returns true if the DoubleKeyMap is empty; false otherwise
 	 * 
+	 * Note: This method evaluates information stored under any primary and
+	 * secondary key OR a previous call to getReadOnlyMapFor(K1) for any primary
+	 * key [and no subsequent call to remove(K1) or clear()].
+	 * 
 	 * @return true if the DoubleKeyMap is empty; false otherwise
 	 */
 	public boolean isEmpty()
@@ -425,6 +458,10 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 
 	/**
 	 * Returns the number of primary keys in this DoubleKeyMap
+	 * 
+	 * Note: This method evaluates information stored under any primary and
+	 * secondary key OR a previous call to getReadOnlyMapFor(K1) for any primary
+	 * key [and no subsequent call to remove(K1) or clear()].
 	 * 
 	 * @return the number of primary keys in this DoubleKeyMap
 	 */
@@ -450,8 +487,18 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 		dkm.map = createGlobalMap();
 		for (Map.Entry<K1, Map<K2, V>> me : map.entrySet())
 		{
-			dkm.map.put(me.getKey(), new HashMap<K2, V>(me.getValue()));
+			/*
+			 * Can be empty if a read-only view was previously captured, but we
+			 * don't need to keep those around since nothing is attached to the
+			 * copy
+			 */
+			if (!me.getValue().isEmpty())
+			{
+				dkm.map.put(me.getKey(), new HashMap<K2, V>(me.getValue()));
+			}
 		}
+		//Nothing can be connected (see above)
+		dkm.cleanup = true;
 		return dkm;
 	}
 
@@ -553,5 +600,58 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 					"Class for DoubleKeyMap must possess a public zero-argument constructor",
 					e);
 		}
+	}
+
+	/**
+	 * Returns a read-only map containing the submap for the primary key in this
+	 * DoubleKeyMap.
+	 * 
+	 * The returned map is guaranteed to be a view into this DoubleKeyMap until
+	 * remove(K1) [for the same primary key provided in this method] or clear()
+	 * is called on this DoubleKeyMap. In either of those cases, since it was
+	 * directly instructed to do so, the DoubleKeyMap releases knowledge of the
+	 * map returned through this method and the returned view will no longer
+	 * represent the contents of the DoubleKeyMap.
+	 * 
+	 * It is not the intent of this class to provide any notification if the
+	 * view returned from this method is ever detached.
+	 * 
+	 * If containsKey(K1) would return false for the given primary key, then
+	 * this initializes the map for the primary key given to this method. This
+	 * allows calling this method prior to any information being loaded into the
+	 * DoubleKeyMap for the given key, while maintaining the view of the inner
+	 * map once information is finally loaded. As a result, after calling this
+	 * method, containsKey will ALWAYS return true for the key given to this
+	 * method [until remove(K1) is called for that key or until clear() is
+	 * called].
+	 * 
+	 * Since the returned Map is read-only, the value here is in that it is a
+	 * direct reference to the contents of this DoubleKeyMap, and is therefore
+	 * reference-semantic (the contents of the returned map will change as the
+	 * contents of this DoubleKeyMap are changed). Ownership of the returned Map
+	 * is transferred to the caller, although since it is read-only, that is
+	 * perhaps only relevant for determining the garbage collection time of the
+	 * decorator that makes the returned Map an unmodifiable view into this
+	 * DoubleKeyMap.
+	 * 
+	 * Note that while this is a read-only map, there is no guarantee that this
+	 * returned map is thread-safe. Use in threaded situations with caution.
+	 * 
+	 * @param key1
+	 *            The primary key for which the submap in this DoubleKeyMap
+	 *            should be returned
+	 * @return A read-only map containing the submap for the primary key in this
+	 *         DoubleKeyMap.
+	 */
+	public Map<K2, V> getReadOnlyMapFor(K1 key1)
+	{
+		cleanup = false;
+		Map<K2, V> localMap = map.get(key1);
+		if (localMap == null)
+		{
+			localMap = createLocalMap();
+			map.put(key1, localMap);
+		}
+		return Collections.unmodifiableMap(localMap);
 	}
 }

@@ -32,8 +32,8 @@ import pcgen.core.QualifiedObject;
 
 public class HasDeityWeaponProfFacetTest extends TestCase
 {
-	private CharID id = new CharID();
-	private CharID altid = new CharID();
+	private CharID id = CharID.getID();
+	private CharID altid = CharID.getID();
 	private HasDeityWeaponProfFacet facet = new HasDeityWeaponProfFacet();
 
 	private Listener listener = new Listener();

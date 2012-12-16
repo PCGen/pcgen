@@ -47,8 +47,8 @@ public class SubRaceFacetTest extends TestCase
 		facet = new SubRaceFacet();
 		super.setUp();
 		facet.setTemplateFacet(tfacet);
-		id = new CharID();
-		altid = new CharID();
+		id = CharID.getID();
+		altid = CharID.getID();
 	}
 
 	@Test

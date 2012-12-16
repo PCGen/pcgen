@@ -267,7 +267,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		FacetInitialization.initialize();
 	}
 
-	private CharID id = new CharID();
+	private CharID id = CharID.getID();
 	private final SAtoStringProcessor SA_TO_STRING_PROC;
 	private final SAProcessor SA_PROC;
 	private final CharacterDisplay display = new CharacterDisplay(id);

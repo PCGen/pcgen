@@ -59,8 +59,8 @@ public class StatIntegrationTest extends TestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		id = new CharID();
-		altid = new CharID();
+		id = CharID.getID();
+		altid = CharID.getID();
 		stat1 = new PCStat();
 		stat2 = new PCStat();
 		stat1.put(StringKey.ABB, "Stat1");

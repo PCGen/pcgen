@@ -39,8 +39,8 @@ import pcgen.core.PCClass;
 
 public class ClassFacetTest extends TestCase
 {
-	private CharID id = new CharID();
-	private CharID altid = new CharID();
+	private CharID id = CharID.getID();
+	private CharID altid = CharID.getID();
 	private ClassFacet facet = new ClassFacet();
 
 	private ClassListener classListener = new ClassListener();

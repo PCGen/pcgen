@@ -36,8 +36,8 @@ import pcgen.rules.persistence.TokenLibrary;
 
 public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 {
-	protected CharID id = new CharID();
-	protected CharID altid = new CharID();
+	protected CharID id = CharID.getID();
+	protected CharID altid = CharID.getID();
 
 	private Listener listener = new Listener();
 	protected Object oneSource = new Object();

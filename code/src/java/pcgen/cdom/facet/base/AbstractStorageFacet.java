@@ -33,15 +33,6 @@ import pcgen.util.Logging;
  */
 public abstract class AbstractStorageFacet
 {
-	/** 
-	 * This is a non static copy of the last used character's cache entry. It is 
-	 * purely for use with runtime debuggers that do not allow access to static 
-	 * fields. 
-	 */
-	private Map<Class<?>, Object> lastCharacterDebugCache;
-	private DoubleKeyMap<CharID, Class<?>, Object> debugCache =
-			new DoubleKeyMap<CharID, Class<?>, Object>();
-	
 	/**
 	 * Copies the contents of the AbstractStorageFacet from one Player Character
 	 * to another Player Character, based on the given CharIDs representing
@@ -76,6 +67,15 @@ public abstract class AbstractStorageFacet
 	private static final DoubleKeyMap<CharID, Class<?>, Object> CACHE =
 			new DoubleKeyMap<CharID, Class<?>, Object>();
 
+	/*
+	 * Note: the use of CACHE.getReadOnlyMapFor(K1) in peekAtCache makes calling
+	 * CACHE.removeAll(k1) or CACHE.clear() [not used in this class at the
+	 * moment] a rather dangerous activity that is prone to later frustration in
+	 * debugging. It is advised that if such a call is every considered that
+	 * detailed consideration is made of the consequences so that debugging
+	 * information is not destroyed in the process. - thpr Dec 15, 2012.
+	 */
+	
 	/**
 	 * Removes the information from the cache for a given Player Character and
 	 * facet (as identified by the Class)
@@ -92,8 +92,6 @@ public abstract class AbstractStorageFacet
 	 */
 	public Object removeCache(CharID id, Class<?> cl)
 	{
-		//lastCharacterDebugCache = CACHE.getMapFor(id);
-		debugCache = CACHE;
 		return CACHE.remove(id, cl);
 	}
 
@@ -115,8 +113,6 @@ public abstract class AbstractStorageFacet
 	 */
 	public Object setCache(CharID id, Class<?> cl, Object o)
 	{
-		//lastCharacterDebugCache = CACHE.getMapFor(id);
-		debugCache = CACHE;
 		return CACHE.put(id, cl, o);
 	}
 
@@ -135,8 +131,6 @@ public abstract class AbstractStorageFacet
 	 */
 	public Object getCache(CharID id, Class<?> cl)
 	{
-		//lastCharacterDebugCache = CACHE.getMapFor(id);
-		debugCache = CACHE;
 		return CACHE.get(id, cl);
 	}
 
@@ -180,4 +174,28 @@ public abstract class AbstractStorageFacet
 		return true;
 	}
 
+	/**
+	 * Returns a read-only view into the cache for a given CharID.
+	 * 
+	 * Since the returned Map is read-only, the value here is in that it is a
+	 * direct reference to the contents of cache for a given CharID, and is
+	 * therefore reference-semantic (the contents of the returned map will
+	 * change as the contents of the cache are changed). Ownership of the
+	 * returned Map is transferred to the caller, although since it is
+	 * read-only, that is perhaps only relevant for determining the garbage
+	 * collection time of the decorator that makes the returned Map an
+	 * unmodifiable view into this DoubleKeyMap.
+	 * 
+	 * Note that while this is a read-only map, there is no guarantee that this
+	 * returned map is thread-safe. Use in threaded situations with caution.
+	 * 
+	 * @param id
+	 *            The CharID for which a read-only view of the cache should be
+	 *            returned.
+	 * @return A read-only view of the cache for the given CharID
+	 */
+	public static Map<Class<?>, Object> peekAtCache(CharID id)
+	{
+		return CACHE.getReadOnlyMapFor(id);
+	}
 }

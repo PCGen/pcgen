@@ -34,8 +34,8 @@ public class WeightFacetTest extends TestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		id = new CharID();
-		altid = new CharID();
+		id = CharID.getID();
+		altid = CharID.getID();
 	}
 
 	@Test

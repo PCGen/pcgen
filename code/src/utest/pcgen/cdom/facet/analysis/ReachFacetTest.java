@@ -54,8 +54,8 @@ public class ReachFacetTest extends TestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		id = new CharID();
-		altid = new CharID();
+		id = CharID.getID();
+		altid = CharID.getID();
 		facet = getMockFacet();
 		facet.setRaceFacet(rfacet);
 		facet.setTemplateFacet(tfacet);

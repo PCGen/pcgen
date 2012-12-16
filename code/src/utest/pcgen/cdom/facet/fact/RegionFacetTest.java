@@ -54,8 +54,8 @@ public class RegionFacetTest extends TestCase
 		facet = new RegionFacet();
 		super.setUp();
 		facet.setTemplateFacet(tfacet);
-		id = new CharID();
-		altid = new CharID();
+		id = CharID.getID();
+		altid = CharID.getID();
 	}
 
 	@Test

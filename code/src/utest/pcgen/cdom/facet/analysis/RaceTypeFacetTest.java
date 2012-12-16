@@ -62,8 +62,8 @@ public class RaceTypeFacetTest extends TestCase
 		facet.setRaceFacet(rfacet);
 		facet.setTemplateFacet(tfacet);
 		facet.setCompanionModFacet(cfacet);
-		id = new CharID();
-		altid = new CharID();
+		id = CharID.getID();
+		altid = CharID.getID();
 	}
 
 	@Test

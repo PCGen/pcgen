@@ -29,7 +29,7 @@ public class AgeFacetTest extends AbstractItemFacetTest<Integer>
 
 	private final AgeFacet facet = new AgeFacet();
 
-	private final CharID id = new CharID();
+	private final CharID id = CharID.getID();
 
 	@Override
 	protected AbstractItemFacet<Integer> getFacet()

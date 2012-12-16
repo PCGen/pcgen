@@ -40,8 +40,8 @@ public class VariableFacetTest extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		id = new CharID();
-		altid = new CharID();
+		id = CharID.getID();
+		altid = CharID.getID();
 	}
 
 	@Test

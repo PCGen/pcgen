@@ -33,8 +33,8 @@ import pcgen.core.AbilityCategory;
 
 public class GrantedAbilityFacetTest extends TestCase
 {
-	private CharID id = new CharID();
-	private CharID altid = new CharID();
+	private CharID id = CharID.getID();
+	private CharID altid = CharID.getID();
 	private GrantedAbilityFacet facet = new GrantedAbilityFacet();
 
 	private Listener listener = new Listener();

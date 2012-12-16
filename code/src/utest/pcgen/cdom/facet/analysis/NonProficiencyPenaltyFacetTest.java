@@ -47,8 +47,8 @@ public class NonProficiencyPenaltyFacetTest extends TestCase
 		facet = new NonProficiencyPenaltyFacet();
 		super.setUp();
 		facet.setTemplateFacet(tfacet);
-		id = new CharID();
-		altid = new CharID();
+		id = CharID.getID();
+		altid = CharID.getID();
 	}
 
 	@Test

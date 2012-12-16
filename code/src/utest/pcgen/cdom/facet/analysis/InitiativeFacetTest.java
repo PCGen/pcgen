@@ -49,8 +49,8 @@ public class InitiativeFacetTest extends TestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		id = new CharID();
-		altid = new CharID();
+		id = CharID.getID();
+		altid = CharID.getID();
 		facet = getMockFacet();
 		facet.setFormulaResolvingFacet(new FormulaResolvingFacet());
 		bonusInfo = new HashMap<CharID, Double>();

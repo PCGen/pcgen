@@ -35,8 +35,8 @@ import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		TestCase
 {
-	private CharID id = new CharID();
-	private CharID altid = new CharID();
+	private CharID id = CharID.getID();
+	private CharID altid = CharID.getID();
 
 	private Listener listener = new Listener();
 	ST oneSource = developSource(getTypeObj());

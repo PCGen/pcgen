@@ -41,8 +41,8 @@ public class XPFacetTest extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		id = new CharID();
-		altid = new CharID();
+		id = CharID.getID();
+		altid = CharID.getID();
 		facet = getMockFacet();
 		minXP = new HashMap<Integer, Integer>();
 		minXP.put(1, 0);

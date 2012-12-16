@@ -60,8 +60,8 @@ public class RacialSubTypesFacetTest extends TestCase
 		super.setUp();
 		facet.setRaceFacet(rfacet);
 		facet.setTemplateFacet(tfacet);
-		id = new CharID();
-		altid = new CharID();
+		id = CharID.getID();
+		altid = CharID.getID();
 	}
 
 	@Test

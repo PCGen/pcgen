@@ -17,7 +17,10 @@
  */
 package pcgen.cdom.enumeration;
 
+import java.util.Map;
+
 import pcgen.base.enumeration.TypeSafeConstant;
+import pcgen.cdom.facet.base.AbstractStorageFacet;
 
 /**
  * @author Tom Parker (thpr [at] yahoo.com)
@@ -38,7 +41,16 @@ public final class CharID implements TypeSafeConstant
 	 */
 	private final transient int ordinal;
 
-	public CharID()
+	/**
+	 * A view of the cache for this CharID. Generally useful for debuggers,
+	 * since this is a consolidated point for the cache for a single
+	 * CharID/PlayerCharacter (and useful to be here in CharID since there is
+	 * now code that no longer has any PlayerCharacter reference).
+	 */
+	@SuppressWarnings("unused")
+	private Map<Class<?>, Object> myFacetCache;
+
+	private CharID()
 	{
 		ordinal = ordinalCount++;
 	}
@@ -50,5 +62,12 @@ public final class CharID implements TypeSafeConstant
 	public int getOrdinal()
 	{
 		return ordinal;
+	}
+	
+	public static CharID getID()
+	{
+		CharID id = new CharID();
+		id.myFacetCache = AbstractStorageFacet.peekAtCache(id);
+		return id;
 	}
 }

@@ -44,8 +44,7 @@ public class HandedFacetTest extends TestCase
 	{
 		facet = new HandedFacet();
 		super.setUp();
-		id = new CharID();
-		new CharID();
+		id = CharID.getID();
 	}
 
 	@Test
