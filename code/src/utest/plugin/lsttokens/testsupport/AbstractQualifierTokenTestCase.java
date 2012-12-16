@@ -1864,17 +1864,17 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		assertNoSideEffects();
 	}
 
-	private static final MultToken ABILITY_MULT_TOKEN = new plugin.lsttokens.ability.MultToken();
-	private static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN = new plugin.lsttokens.choose.LangToken();
-	private static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
+	protected static final MultToken ABILITY_MULT_TOKEN = new plugin.lsttokens.ability.MultToken();
+	protected static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN = new plugin.lsttokens.choose.LangToken();
+	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
 			new plugin.lsttokens.ChooseLst();
-	private static final VisibleToken ABILITY_VISIBLE_TOKEN = new plugin.lsttokens.ability.VisibleToken();
-	private static final AutoLst AUTO_TOKEN = new plugin.lsttokens.AutoLst();
-	private static final LangToken AUTO_LANG_TOKEN = new plugin.lsttokens.auto.LangToken();
-	private static final ProficiencyToken EQUIP_PROFICIENCY_TOKEN = new plugin.lsttokens.equipment.ProficiencyToken();
-	private static final TypeLst EQUIP_TYPE_TOKEN = new plugin.lsttokens.TypeLst();
-	private static final LangBonusToken LANGBONUS_PRIM = new plugin.primitive.language.LangBonusToken();
-	private static final plugin.qualifier.language.PCToken PC_QUAL = new plugin.qualifier.language.PCToken();
+	protected static final VisibleToken ABILITY_VISIBLE_TOKEN = new plugin.lsttokens.ability.VisibleToken();
+	protected static final AutoLst AUTO_TOKEN = new plugin.lsttokens.AutoLst();
+	protected static final LangToken AUTO_LANG_TOKEN = new plugin.lsttokens.auto.LangToken();
+	protected static final ProficiencyToken EQUIP_PROFICIENCY_TOKEN = new plugin.lsttokens.equipment.ProficiencyToken();
+	protected static final TypeLst EQUIP_TYPE_TOKEN = new plugin.lsttokens.TypeLst();
+	protected static final LangBonusToken LANGBONUS_PRIM = new plugin.primitive.language.LangBonusToken();
+	protected static final plugin.qualifier.language.PCToken PC_QUAL = new plugin.qualifier.language.PCToken();
 
 	protected void finishLoad()
 	{
