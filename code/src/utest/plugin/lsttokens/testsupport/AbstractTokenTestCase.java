@@ -73,7 +73,7 @@ public abstract class AbstractTokenTestCase<T extends CDOMObject> extends
 		{
 			classSetUp();
 		}
-		// Yea, this causes warnings...
+		TokenRegistration.clearTokens();
 		TokenRegistration.register(getToken());
 		resetContext();
 		expectedPrimaryMessageCount = 0;
