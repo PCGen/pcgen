@@ -80,7 +80,6 @@ import pcgen.system.PluginLoader;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
-import plugin.exporttokens.ACCheckToken;
 
 /**
  * This class deals with exporting a PC to various types of output sheets 
@@ -1722,7 +1721,6 @@ public final class ExportHandler
 		{
 			addToTokenMap(new AbilityToken());
 			addToTokenMap(new AbilityListToken());
-			addToTokenMap(new ACCheckToken());
 			addToTokenMap(new AttackToken());
 			addToTokenMap(new BonusToken());
 			addToTokenMap(new CheckToken());
