@@ -49,22 +49,19 @@ public class ContextXMLTest extends TestCase
 		{
 			beanList.add(bean.getClass().getName());
 		}
-		File f = new File("pcgen.jar");
-		ZipFile jarFile = new ZipFile(f);
-		Enumeration<? extends ZipEntry> entries = jarFile.entries();
+		File f = new File("code/bin/pcgen.jar");
+		Enumeration<? extends ZipEntry> entries = new ZipFile(f).entries();
 		ClassLoader classLoader = ClassLoader.getSystemClassLoader();
 		for (; entries.hasMoreElements();)
 		{
-			ZipEntry jarClass = entries.nextElement();
-			String name = jarClass.getName();
+			String name = entries.nextElement().getName();
 			if (name.startsWith("pcgen/cdom/facet") && name.endsWith(".class"))
 			{
 				String clName =
 						name.substring(0, name.length() - 6).replace('/', '.');
-				Class<?> cl;
 				try
 				{
-					cl = classLoader.loadClass(clName);
+					Class<?> cl = classLoader.loadClass(clName);
 					if (Modifier.isAbstract(cl.getModifiers()))
 					{
 						//No need to worry about abstract classes
