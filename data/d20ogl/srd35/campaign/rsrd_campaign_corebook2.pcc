@@ -27,7 +27,13 @@ INFOTEXT:This is a subset of the RSRD containing rules generally found in Core B
 
 # Basics
 ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_base.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_common.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_companions.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_racial.lst
 ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_monsters.lst
+
+
 
 ABILITYCATEGORY:@/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
 
@@ -54,12 +60,11 @@ EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_enhancing.lst
 FEAT:@/d20ogl/srd35/basics/rsrd_feats_monster.lst|(INCLUDE:CATEGORY=FEAT,Multiattack)
 FEAT:@/d20ogl/srd35/basics/rsrd_feats.lst
 
-KIT:@/d20ogl/srd35/basics/rsrd_kits_races__animals.lst|(INCLUDE:Default Bat|Default Cat|Default Hawk|Default Lizard|Default Owl|Default Rat|Default Raven|Default Snake (Viper/Tiny)|Default Toad|Default Weasel|Default Dog (Riding)|Default Donkey|Default Horse (Heavy)|Default Horse (Light)|Default Horse (Heavy War)|Default Horse (Light War)|Default Mule|Default Pony|Default Pony (War))
+KIT:@/d20ogl/srd35/basics/rsrd_kits_races__animals.lst|(INCLUDE:Bat Default|Cat Default|Hawk Default|Lizard Default|Owl Default|Rat Default|Raven Default|Snake (Viper/Tiny) Default|Toad Default|Weasel Default|Dog (Riding) Default|Donkey Default|Horse (Heavy) Default|Horse (Light) Default|Horse (Warhorse Heavy) Default|Horse (Warhorse Light) Default|Mule Default|Pony Default|Pony (War) Default|Shark (Large) Default|Bat Familiar|Cat Familiar|Hawk Familiar|Lizard Familiar|Owl Familiar|Rat Familiar|Raven Familiar|Snake (Viper/Tiny) Familiar|Toad Familiar|Weasel Familiar)
 KIT:@/d20ogl/srd35/basics/rsrd_kits_races__base.lst
 
 LANGUAGE:@/d20ogl/srd35/basics/rsrd_languages.lst
 
-KIT:@/d20ogl/srd35/basics/rsrd_kits_races__animals.lst|(INCLUDE:Bat Default|Cat Default|Hawk Default|Lizard Default|Owl Default|Rat Default|Raven Default|Snake (Viper/Tiny) Default|Toad Default|Weasel Default|Dog (Riding) Default|Donkey Default|Horse (Heavy) Default|Horse (Light) Default|Horse (Heavy War) Default|Horse (Light War) Default|Mule Default|Pony Default|Pony (War) Default|Bat Familiar|Cat Familiar|Hawk Familiar|Lizard Familiar|Owl Familiar|Rat Familiar|Raven Familiar|Snake (Viper/Tiny) Familiar|Toad Familiar|Weasel Familiar)
 RACE:@/d20ogl/srd35/basics/rsrd_races__animals.lst
 RACE:@/d20ogl/srd35/basics/rsrd_races__base.lst
 

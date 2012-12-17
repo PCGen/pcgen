@@ -28,6 +28,10 @@ ABILITYCATEGORY:@/d20ogl/srd/basics/srd_ability_categories_core.lst
 ABILITY:@/d20ogl/srd/basics/srd_ability_class.lst
 ABILITY:@/d20ogl/srd/basics/srd_ability_monster.lst
 ABILITY:@/d20ogl/srd/basics/srd_ability_misc.lst
+ABILITY:@/d20ogl/srd/basics/srd_abilities_common.lst
+ABILITY:@/d20ogl/srd/basics/srd_abilities_racial.lst
+ABILITY:@/d20ogl/srd/basics/srd_abilities_companions.lst
+ABILITY:@/d20ogl/srd/basics/srd_abilities_prestige.lst
 
 CLASS:@/d20ogl/srd/basics/srd_classes_base.lst
 CLASS:@/d20ogl/srd/basics/srd_classes_creature_types.lst

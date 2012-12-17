@@ -27,7 +27,13 @@ INFOTEXT:This is a subset of the RSRD containing rules generally found in Core B
 
 # Basics
 ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_base.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_common.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_companions.lst
+ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_racial.lst
 ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_monsters.lst
+
+
 
 ABILITYCATEGORY:@/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
 
