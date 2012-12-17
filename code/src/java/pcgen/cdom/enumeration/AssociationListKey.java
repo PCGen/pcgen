@@ -50,7 +50,6 @@ import pcgen.core.Race;
 import pcgen.core.ShieldProf;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.Skill;
-import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
 import pcgen.core.spell.Spell;
 
@@ -74,20 +73,47 @@ import pcgen.core.spell.Spell;
 public final class AssociationListKey<T>
 {
 
+	/*
+	 * CHOICES is a list used to store the choices made in a CHOOSE in a String
+	 * (non-type-safe) fashion
+	 * 
+	 * This should eventually be retired as the CHOOSE system becomes type safe.
+	 * This is closely related to the transition to ChooseSelectionActor instead
+	 * of ChooseResultActor, so this item is related to CODE-1902
+	 */
 	public static final AssociationListKey<FixedStringList> CHOICES = new AssociationListKey<FixedStringList>();
 
-	public static final AssociationListKey<Object> ADD = new AssociationListKey<Object>();
-
+	//SKILL_RANK is a candidate to be sunset as part of CODE-1908
 	public static final AssociationListKey<NamedValue> SKILL_RANK = new AssociationListKey<NamedValue>();
 
+	//CLASSSKILLLIST is a candidate to be sunset as part of CODE-1908
 	public static final AssociationListKey<ClassSkillList> CLASSSKILLLIST = new AssociationListKey<ClassSkillList>();
 
+	/*
+	 * ADD is a widely used key used to store the information about items added to the PC.
+	 * These items are stored against he TransitionChoice.
+	 * This is a candidate to be sunset as part of CODE-1908
+	 */
+	public static final AssociationListKey<Object> ADD = new AssociationListKey<Object>();
+
+	/*
+	 * The following items are used by the tokens to store the information that
+	 * was selected, and this information is intended to be extracted by the
+	 * Facets. So the use of this key is not localized
+	 */
 	public static final AssociationListKey<Ability> ADDED_FEAT = new AssociationListKey<Ability>();
 
 	public static final AssociationListKey<CategorizedAbilitySelection> TEMPLATE_FEAT = new AssociationListKey<CategorizedAbilitySelection>();
 
-	public static final AssociationListKey<SpecialAbility> SPECIAL_ABILITY = new AssociationListKey<SpecialAbility>();
+	/*
+	 * End non-local token-related keys
+	 */
 
+	/*
+	 * The following items are used by the tokens to store (with locality) the
+	 * information that was selected for a given CHOOSE (or other selection
+	 * token), so it can be restored if that selection is made again
+	 */
 	public static final AssociationListKey<PCTemplate> CHOOSE_TEMPLATE = new AssociationListKey<PCTemplate>();
 
 	public static final AssociationListKey<PCStat> CHOOSE_PCSTAT = new AssociationListKey<PCStat>();
@@ -133,6 +159,10 @@ public final class AssociationListKey<T>
 	public static final AssociationListKey<String> CHOOSE_NOCHOICE = new AssociationListKey<String>();
 
 	public static final AssociationListKey<CategorizedAbilitySelection> CHOOSE_FEATSELECTION = new AssociationListKey<CategorizedAbilitySelection>();
+
+	/*
+	 * End CHOOSE Items
+	 */
 
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;
 
