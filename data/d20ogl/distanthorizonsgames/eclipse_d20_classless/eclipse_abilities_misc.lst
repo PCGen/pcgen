@@ -208,11 +208,13 @@ Augmented Magic ~ +1 to Damage Die for Electricity Based Spells	KEY:Augmented Ma
 #
 Self-Development ~ +2 to Stat							KEY:Self-Development ~ Choose Stat +2													CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities.Corruptable	DESC:[Half-Cost] Self-Development +2 to chosen stat(s) each time taken.																																																																														STACK:YES	MULT:YES	CHOOSE:PCSTAT|ALL																																												BONUS:STAT|%LIST|2																		COST:12
 
+Immunity / Aging (Great)							KEY:Immunity ~ Aging Great								CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities.Corruptable																																																																																																																																																							COST:3		DESC:(Uncommon/Minor/Great, 3 CP: can expect to live for many centuries).
 
 
 Immunity / Divination								KEY:Immunity ~ Divination					OUTPUTNAME:Immunity to Divination (3rd level)			CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities.Corruptable	DESC:Common, Minor, Minor/effects of up to level three, 4 CP																																																																																																																																																						COST:4	SOURCEPAGE:p.34
 
 Immunity to Antimagic and Dispelling					KEY:Immunity ~ 4CP																CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities			DESC:(Common, Minor, Great, Specialized: only protects personal magical buffs, Corrupted, only protects Innate Enchantments, 4 CP).																																																																																																																																											COST:4
+Immunity to Antimagic and Dispelling (Epic L9)				KEY:Immunity to Antimagic and Dispelling ~ 18 CP																CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities			DESC:(Common, Minor, Great, Specialized: only protects personal magical buffs, Corrupted, only protects Innate Enchantments, 4 CP).																																																																																																																																											COST:4
 
 
 ###Block: Immunities Commonly Used ----

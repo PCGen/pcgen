@@ -3,6 +3,7 @@
 # ORIGINAL ENTRY DATE: 2011-01-01
 
 
+CATEGORY=Internal|Min Skill.MOD																															DEFINE:CharacterSkillPts|0																																																																																																																																		BONUS:ABILITYPOOL|Character Skills|CharacterSkillPts																																																					BONUS:VAR|CharacterSkillPts|TL+3|TYPE=Human|PRERACE:1,Human	BONUS:VAR|CharacterSkillPts|(INT*3)+(EclipseClassLvl*INT)|PRESTAT:1,INT=12
 # Ability Name														Innate Spells							Bonus to Ability Pool				Allowed Companions
 CATEGORY=Special Ability|Weapon Prof ~ Any one Exotic Weapon.MOD															BONUS:ABILITYPOOL|Exotic Weapon Choice|1
 CATEGORY=Special Ability|Weapon Prof ~ All Simple and Martial plus any one Exotic Weapon.MOD										BONUS:ABILITYPOOL|Exotic Weapon Choice|1

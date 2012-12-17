@@ -41,7 +41,7 @@ Rune Casting Activated																						CATEGORY:FEAT												VISIBLE:NO	
 
 Rune Casting							KEY:Rune Casting Output													CATEGORY:Special Ability	TYPE:SpellCasterOutput																																																							DESC:Your caster level is your Rune Casting Skill/2, your Spell Level is based upon your Rune Mastery Skill/4. Each Spell Level costs 1 mana to cast.
 
-Negate Min 1 Skill Point					KEY:Min Skill														CATEGORY:Internal																														DEFINE:CharacterSkillPts|0																																																																																																																																		BONUS:ABILITYPOOL|Character Skills|CharacterSkillPts																																																					BONUS:VAR|CharacterSkillPts|TL+3|TYPE=Human|PRERACE:1,Human	BONUS:VAR|CharacterSkillPts|(INT*3)+(EclipseClassLvl*INT)|PRESTAT:1,INT=12
+Negate Min 1 Skill Point					KEY:Min Skill														CATEGORY:Internal
 
 Character Points Total						KEY:Character Points Total		SORTKEY:01_A								CATEGORY:Special Ability	TYPE:EclipseAbilityOutput																							DEFINE:CharacterPointsTotal|0																											DESC:Character Points Total %1|CharacterPointsTotal																																																																																																																																																																																																																																																						BENEFIT:Character Points Total %1,|CharacterPointsTotal
 #CharacterPointsTotal var is to track TOTAL CP the character should have. This gives

@@ -2,6 +2,7 @@
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
+CATEGORY=Internal|Min Skill.MOD																															DEFINE:CharacterSkillPts|0																																																																																																																																		BONUS:ABILITYPOOL|Character Skills|CharacterSkillPts																																																					BONUS:VAR|CharacterSkillPts|TL+3|TYPE=Human|PRERACE:1,Human	BONUS:VAR|CharacterSkillPts|(INT*3)+(EclipseClassLvl*INT)|PRESTAT:1,INT=12
 
 # Ability Name								Category of Ability		Define						Stackable?	Multiple?	Choose		Ability																																Bonus to Ability Pool								Modify VAR																																																																																																																																																																																					Class Skill
 Make CSKILL ~ Balance							CATEGORY:Internal																																																																																																																																																																																																																																																			CSKILL:Balance

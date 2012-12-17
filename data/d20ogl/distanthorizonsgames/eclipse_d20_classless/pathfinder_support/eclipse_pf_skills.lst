@@ -112,3 +112,6 @@ Perform (Percussion Instruments).MOD																																									BON
 Perform (String Instruments).MOD																																										BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (String Instruments)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
 Perform (Wind Instruments).MOD																																										BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Wind Instruments)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
 Perform (Sing).MOD																																												BONUS:VAR|MysticArtistSkillTotal|skillinfo("TOTAL","Perform (Sing)")|TYPE=PerformSkill|PREABILITY:1,CATEGORY=Special Ability,TYPE.MysticArtistDefault
+
+
+Martial Arts.MOD		BONUS:SKILL|Martial Arts|3|TYPE=ClassSkill|PRECSKILL:1,Martial Arts|PRESKILL:1,Martial Arts=1

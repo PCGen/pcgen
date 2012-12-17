@@ -3,7 +3,7 @@
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
-
+CATEGORY=Internal|Min Skill.MOD																															DEFINE:CharacterSkillPts|0																																																																																																																																		BONUS:ABILITYPOOL|Character Skills|CharacterSkillPts																																																					BONUS:VAR|CharacterSkillPts|TL+3|TYPE=Human|PRERACE:1,Human	BONUS:VAR|CharacterSkillPts|(INT*3)+(EclipseClassLvl*INT)|PRESTAT:1,INT=12
 # Ability Name								Category of Ability		Define			Ability									Bonus to Ability Pool																								Modify VAR																									Allowed Companions
 CATEGORY=Special Ability|All Automatic Abilities.MOD											ABILITY:Internal|AUTOMATIC|RSRD Feat Gain Bypass
 # This Removes the Level Based FEAT and Replaces it with 6 CP automatically. Assuming characters gain 1 at 1st level, and 1 every 3rd level. Also figured in the Human Racial Bonus.

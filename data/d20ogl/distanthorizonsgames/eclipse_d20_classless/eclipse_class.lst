@@ -387,7 +387,7 @@ CLASS:Point Buy	HD:4		TYPE:Base.PC.Eclipse	ABB:Point		MAXLEVEL:20	DEFINE:Eclipse
 # Class Name	Skill Pts/Lvl
 CLASS:Point Buy	STARTSKILLPTS:0
 ###Block:
-1										BONUS:HD|MAX|var("HDBonus")																								ABILITY:Internal|AUTOMATIC|Grants All Hidden Abilities
+1										BONUS:HD|MAX|var("HDBonus")																								
 1															BONUS:ABILITYPOOL|Character Points|var("CharacterPoints")	BONUS:VAR|CharacterPointsLevelOffSet|24+(24*CL)	DEFINE:CharacterPoints|0
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9																																												DONOTADD:SKILLPOINTS
 1																																						ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
@@ -441,7 +441,7 @@ CLASS:Classless Point Buy	HD:4		TYPE:Base.PC.Eclipse	ABB:Point		MAXLEVEL:20	DEFI
 # Class Name			Skill Pts/Lvl
 CLASS:Classless Point Buy	STARTSKILLPTS:0
 ###Block:
-1										BONUS:HD|MAX|var("HDBonus")									ABILITY:Internal|AUTOMATIC|Grants All Hidden Abilities
+1										BONUS:HD|MAX|var("HDBonus")									
 1															BONUS:ABILITYPOOL|Character Points|48
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9																													DONOTADD:SKILLPOINTS
 2															BONUS:ABILITYPOOL|Character Points|24*(CL-1)
@@ -555,11 +555,11 @@ CLASS:Extra HD 20	HD:20		TYPE:PC	ABB:x			VISIBLE:NO
 
 
 # Class Name	Unique Key			Hit Dice	Type			Ability
-CLASS:Companion	KEY:Companion ~ Eclipse	HD:8		TYPE:Monster	ABILITY:Internal|AUTOMATIC|Grants All Hidden Abilities
+CLASS:Companion	KEY:Companion ~ Eclipse	HD:8		TYPE:Monster	
 
 # Class Name			Skill Pts/Lvl
 CLASS:Companion ~ Eclipse	STARTSKILLPTS:0
-1			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions	ABILITY:Internal|AUTOMATIC|Grants All Hidden Abilities
+1			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions	
 1:REPEATLEVEL:1																						DONOTADD:SKILLPOINTS
 # No Skill Points Added During Level Progression
 1																								DONOTADD:SKILLPOINTS

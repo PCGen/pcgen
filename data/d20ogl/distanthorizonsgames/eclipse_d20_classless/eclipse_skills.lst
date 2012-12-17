@@ -16,7 +16,7 @@ Secrets		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:AdeptChoice.NormalSkill.Secrets
 
 ###Block: Martial Arts Styles --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Skill Name					Output Name								Key Stat	Untrained?		Skill Penalty Apply	Type										Visible		Source Page		Ability																																			Bonus to Ability Pool																		Modify VAR																																						SORTKEY
-Martial Arts																USEUNTRAINED:NO					TYPE:AdeptChoice.MartialArt.NormalSkill																																																																			BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL","Martial Arts"))/2|TYPE=MartialArts
+Martial Arts																USEUNTRAINED:NO					TYPE:AdeptChoice.MartialArts.NormalSkill																																																																			BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL","Martial Arts"))/2|TYPE=MartialArts		BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts")|TYPE=MartialArts
 #Martial Arts Counter			VISIBLE:GUI		SORTKEY:ZZ_DoNotDisplay
 
 #
@@ -72,11 +72,6 @@ Rune Casting (Weather)															USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoi
 Rune Mastery (Lunar)															USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.RuneCasting.NormalSkill							SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
 Rune Mastery (Conjuration)														USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.RuneCasting.NormalSkill							SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
 Rune Mastery (Weather)															USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.RuneCasting.NormalSkill							SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
-
-Rune Casting (Dimensional Magic)															USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.RuneCasting.NormalSkill							SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1	ABILITY:Special Ability|VIRTUAL|Rune Casting (Dimensional Magic)|PRESKILL:1,Rune Casting (Dimensional Magic)=1,Rune Mastery (Dimensional Magic)=1
-Rune Mastery (Dimensional Magic)															USEUNTRAINED:NO	ACHECK:YES			TYPE:AdeptChoice.RuneCasting.NormalSkill							SOURCEPAGE:p.97	ABILITY:FEAT|VIRTUAL|Rune Casting Activated|PRESKILL:1,TYPE.RuneCasting=1
-
-
 
 
 Spellcraft (Rune Casting)												KEYSTAT:INT	USEUNTRAINED:NO															VISIBLE:EXPORT
