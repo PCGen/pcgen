@@ -110,6 +110,10 @@ public final class AssociationKey<T>
 	 */
 	public static final AssociationKey<Integer> OUTPUT_INDEX = new AssociationKey<Integer>();
 
+	/*
+	 * Note: SPECIALTY is best done after SubClassFacet is made type safe.
+	 * Making SubClassFacet type safe is gated by CODE-1928
+	 */
 	public static final AssociationKey<String> SPECIALTY = new AssociationKey<String>();
 
 	public static final AssociationKey<Integer> SKILL_POOL = new AssociationKey<Integer>();
