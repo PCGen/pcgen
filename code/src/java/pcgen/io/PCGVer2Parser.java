@@ -4028,8 +4028,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					// Maybe warn the user?
 				}
 
-				thePC
-					.setAssoc(aSkill, AssociationKey.OUTPUT_INDEX, outputindex);
+				thePC.setSkillOrder(aSkill, outputindex);
 			}
 			else if (TAG_CLASSBOUGHT.equals(tag))
 			{

@@ -31,7 +31,6 @@ import java.util.Map;
 
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -725,10 +724,10 @@ public class CharacterLevelsFacadeImpl extends
 		}
 		else
 		{
-			Integer outputIndex = theCharacter.getAssoc(aSkill, AssociationKey.OUTPUT_INDEX);
+			Integer outputIndex = theCharacter.getSkillOrder(aSkill);
 			if (outputIndex == null || outputIndex == 0)
 			{
-				theCharacter.setAssoc(aSkill, AssociationKey.OUTPUT_INDEX, getHighestOutputIndex() + 1);
+				theCharacter.setSkillOrder(aSkill, getHighestOutputIndex() + 1);
 			}
 		}
 	}
@@ -786,10 +785,10 @@ public class CharacterLevelsFacadeImpl extends
 
 		for (Skill aSkill : skillList)
 		{
-			Integer outputIndex = theCharacter.getAssoc(aSkill, AssociationKey.OUTPUT_INDEX);
+			Integer outputIndex = theCharacter.getSkillOrder(aSkill);
 			if (outputIndex == null || outputIndex >= 0)
 			{
-				theCharacter.setAssoc(aSkill, AssociationKey.OUTPUT_INDEX, nextOutputIndex++);
+				theCharacter.setSkillOrder(aSkill, nextOutputIndex++);
 			}
 		}
 	}
@@ -805,7 +804,7 @@ public class CharacterLevelsFacadeImpl extends
 		final List<Skill> skillList = new ArrayList<Skill>(charDisplay.getSkillSet());
 		for (Skill bSkill : skillList)
 		{
-			Integer outputIndex = theCharacter.getAssoc(bSkill, AssociationKey.OUTPUT_INDEX);
+			Integer outputIndex = theCharacter.getSkillOrder(bSkill);
 			if (outputIndex != null && outputIndex > maxOutputIndex)
 			{
 				maxOutputIndex = outputIndex;

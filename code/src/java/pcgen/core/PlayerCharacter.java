@@ -115,6 +115,7 @@ import pcgen.cdom.facet.MasterSkillFacet;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.PrimaryWeaponFacet;
 import pcgen.cdom.facet.SecondaryWeaponFacet;
+import pcgen.cdom.facet.SkillOutputOrderFacet;
 import pcgen.cdom.facet.SkillPoolFacet;
 import pcgen.cdom.facet.SourcedEquipmentFacet;
 import pcgen.cdom.facet.SpellBookFacet;
@@ -297,6 +298,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
 	private QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
 	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
+	private SkillOutputOrderFacet skillOutputOrderFacet = FacetLibrary.getFacet(SkillOutputOrderFacet.class);
 	private SkillPoolFacet skillPoolFacet = FacetLibrary.getFacet(SkillPoolFacet.class);
 	private StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
 	private StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
@@ -2139,8 +2141,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			@Override
 			public int compare(final Skill skill1, final Skill skill2)
 			{
-				Integer obj1Index = pc.getAssoc(skill1, AssociationKey.OUTPUT_INDEX);
-				Integer obj2Index = pc.getAssoc(skill2, AssociationKey.OUTPUT_INDEX);
+				Integer obj1Index = pc.getSkillOrder(skill1);
+				Integer obj2Index = pc.getSkillOrder(skill2);
 
 				// Force unset items (index of 0) to appear at the end
 				if (obj1Index == null || obj1Index == 0)
@@ -2172,7 +2174,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			final Skill bSkill = i.next();
 
 			Visibility skVis = bSkill.getSafe(ObjectKey.VISIBILITY);
-			Integer outputIndex = this.getAssoc(bSkill, AssociationKey.OUTPUT_INDEX);
+			Integer outputIndex = getSkillOrder(bSkill);
 			if ((outputIndex != null && outputIndex == -1) || skVis.equals(Visibility.HIDDEN)
 					|| skVis.equals(Visibility.DISPLAY_ONLY) || !bSkill.qualifies(this, null))
 			{
@@ -6380,10 +6382,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 		for (Skill skill : localSkillList)
 		{
-			Integer outputIndex = this.getAssoc(skill, AssociationKey.OUTPUT_INDEX);
+			Integer outputIndex = getSkillOrder(skill);
 			if (outputIndex == null || outputIndex >= 0)
 			{
-				this.setAssoc(skill, AssociationKey.OUTPUT_INDEX, nextOutputIndex++);
+				setSkillOrder(skill, nextOutputIndex++);
 			}
 		}
 	}
@@ -11331,4 +11333,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		skillPoolFacet.set(id, pcc, skillPool);
 	}
+
+	public void setSkillOrder(Skill skill, int outputindex)
+	{
+		skillOutputOrderFacet.set(id, skill, outputindex);
+	}
+
+	public Integer getSkillOrder(Skill skill)
+	{
+		return skillOutputOrderFacet.get(id, skill);
+	}
+
 }

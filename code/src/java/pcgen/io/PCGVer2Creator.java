@@ -2014,8 +2014,7 @@ final class PCGVer2Creator implements IOConstants
 
 		for (Skill skill : charDisplay.getSkillSet())
 		{
-			Integer outputIndex =
-					thePC.getAssoc(skill, AssociationKey.OUTPUT_INDEX);
+			Integer outputIndex = thePC.getSkillOrder(skill);
 			if ((SkillRankControl.getRank(thePC, skill).doubleValue() > 0)
 				|| (outputIndex != null && outputIndex != 0))
 			{

@@ -108,7 +108,6 @@ public final class AssociationKey<T>
 	 * fall into the domain of CODE-1908 (to have the information stored in the
 	 * associations of these keys moved into facets)
 	 */
-	public static final AssociationKey<Integer> OUTPUT_INDEX = new AssociationKey<Integer>();
 
 	/*
 	 * Note: SPECIALTY is best done after SubClassFacet is made type safe.

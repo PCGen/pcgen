@@ -35,7 +35,6 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -143,7 +142,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		knowledge[0].setName("KNOWLEDGE (ARCANA)");
 		TestHelper.addType(knowledge[0], "KNOWLEDGE.INT");
 		knowledge[0].put(ObjectKey.KEY_STAT, intel);
-		character.setAssoc(knowledge[0], AssociationKey.OUTPUT_INDEX, 2);
+		character.setSkillOrder(knowledge[0], 2);
 		Globals.getContext().ref.importObject(knowledge[0]);
 		character.addSkill(knowledge[0]);
 		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge[0]);
@@ -153,7 +152,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		knowledge[1].setName("KNOWLEDGE (RELIGION)");
 		TestHelper.addType(knowledge[1], "KNOWLEDGE.INT");
 		knowledge[1].put(ObjectKey.KEY_STAT, intel);
-		character.setAssoc(knowledge[1], AssociationKey.OUTPUT_INDEX, 3);
+		character.setSkillOrder(knowledge[1], 3);
 		Globals.getContext().ref.importObject(knowledge[1]);
 		character.addSkill(knowledge[1]);
 		SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
@@ -163,7 +162,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		tumble.setName("Tumble");
 		tumble.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		tumble.put(ObjectKey.KEY_STAT, dex);
-		character.setAssoc(tumble, AssociationKey.OUTPUT_INDEX, 4);
+		character.setSkillOrder(tumble, 4);
 		Globals.getContext().ref.importObject(tumble);
 		character.addSkill(tumble);
 		SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
@@ -173,7 +172,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		balance.setName("Balance");
 		balance.addToListFor(ListKey.TYPE, Type.getConstant("DEX"));
 		balance.put(ObjectKey.KEY_STAT, dex);
-		character.setAssoc(balance, AssociationKey.OUTPUT_INDEX, 1);
+		character.setSkillOrder(balance, 1);
 		aBonus = Bonus.newBonus(context, "SKILL|Balance|2|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK");
 		
 		if (aBonus != null)

@@ -30,7 +30,6 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.util.NamedValue;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.PCClass;
@@ -214,7 +213,7 @@ public class SkillpointsToken extends Token
 		float usedPoints = 0;
 		for (Skill aSkill : display.getSkillSet())
 		{
-			Integer outputIndex = pc.getAssoc(aSkill, AssociationKey.OUTPUT_INDEX);
+			Integer outputIndex = pc.getSkillOrder(aSkill);
 			if ((SkillRankControl.getRank(pc, aSkill).doubleValue() > 0)
 				|| (outputIndex != null && outputIndex != 0))
 			{
