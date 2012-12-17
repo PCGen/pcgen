@@ -32,7 +32,6 @@ import java.util.TreeSet;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -104,7 +103,7 @@ public class KitStat extends BaseKit
 			aPC.setDirty(true);
 			for (PCClass pcClass : classes)
 			{
-				aPC.setAssoc(pcClass, AssociationKey.SKILL_POOL, 0);
+				aPC.setSkillPool(pcClass, 0);
 				// We don't limit this to MOD_TO_SKILLS classes as they may manually include the INT bonus in the skills.
 				for (int j = 0; j < aPC.getLevelInfoSize(); j++)
 				{
@@ -119,9 +118,9 @@ public class KitStat extends BaseKit
 						pcl.setSkillPointsGained(aPC, spMod);
 						pcl.setSkillPointsRemaining(pcl
 							.getSkillPointsGained(aPC) - alreadySpent);
-						Integer currentPool = aPC.getAssoc(pcClass, AssociationKey.SKILL_POOL);
+						Integer currentPool = aPC.getSkillPool(pcClass);
 						int newSkillPool = (currentPool == null ? 0 : currentPool) + spMod;
-						aPC.setAssoc(pcClass, AssociationKey.SKILL_POOL, newSkillPool);
+						aPC.setSkillPool(pcClass, newSkillPool);
 							aPC.setDirty(true);
 					}
 				}

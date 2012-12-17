@@ -2324,7 +2324,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		if (skillPool > -1)
 		{
-			thePC.setAssoc(aPCClass, AssociationKey.SKILL_POOL, skillPool);
+			thePC.setSkillPool(aPCClass, skillPool);
 		}
 	}
 

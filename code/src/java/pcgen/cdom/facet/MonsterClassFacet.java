@@ -22,13 +22,12 @@ import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.LevelCommandFactory;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.model.ClassFacet;
-import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.ClassFacet.ClassInfo;
+import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -136,7 +135,7 @@ public class MonsterClassFacet implements DataFacetChangeListener<CDOMObject>
 					int cLevels = ci.getLevel(pcClass);
 					classFacet.setLevel(id, pcClass, cLevels);
 
-					pc.setAssoc(pcClass, AssociationKey.SKILL_POOL, 0);
+					pc.setSkillPool(pcClass, 0);
 
 					int cMod = 0;
 
@@ -145,7 +144,7 @@ public class MonsterClassFacet implements DataFacetChangeListener<CDOMObject>
 						cMod += pc.recalcSkillPointMod(pcClass, ++totalLevels);
 					}
 
-					pc.setAssoc(pcClass, AssociationKey.SKILL_POOL, cMod);
+					pc.setSkillPool(pcClass, cMod);
 				}
 			}
 		}

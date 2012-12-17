@@ -797,7 +797,7 @@ final class PCGVer2Creator implements IOConstants
 			buffer.append(classLevel);
 			buffer.append('|');
 			buffer.append(TAG_SKILLPOOL).append(':');
-			Integer currentPool = thePC.getAssoc(pcClass, AssociationKey.SKILL_POOL);
+			Integer currentPool = thePC.getSkillPool(pcClass);
 			buffer.append(currentPool == null ? 0 : currentPool);
 
 			// determine if this class can cast spells

@@ -42,7 +42,6 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -1065,9 +1064,9 @@ public class PCClass extends PObject implements ClassFacade
 			}
 		}
 
-		Integer currentPool = aPC.getAssoc(this, AssociationKey.SKILL_POOL);
+		Integer currentPool = aPC.getSkillPool(this);
 		int newSkillPool = spMod + (currentPool == null ? 0 : currentPool);
-		aPC.setAssoc(this, AssociationKey.SKILL_POOL, newSkillPool);
+		aPC.setSkillPool(this, newSkillPool);
 
 		aPC.setDirty(true);
 
@@ -1234,7 +1233,7 @@ public class PCClass extends PObject implements ClassFacade
 					SkillRankControl.setZeroRanks(this, aPC, skill);
 				}
 
-				Integer currentPool = aPC.getAssoc(this, AssociationKey.SKILL_POOL);
+				Integer currentPool = aPC.getSkillPool(this);
 				spMod = currentPool == null ? 0 : currentPool;
 			}
 
@@ -1279,9 +1278,9 @@ public class PCClass extends PObject implements ClassFacade
 			}
 			else
 			{
-				Integer currentPool = aPC.getAssoc(this, AssociationKey.SKILL_POOL);
+				Integer currentPool = aPC.getSkillPool(this);
 				int newSkillPool = (currentPool == null ? 0 : currentPool) - spMod;
-				aPC.setAssoc(this, AssociationKey.SKILL_POOL, newSkillPool);
+				aPC.setSkillPool(this, newSkillPool);
 				aPC.setDirty(true);
 			}
 

@@ -27,7 +27,6 @@ import pcgen.base.lang.StringUtil;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.PersistentTransitionChoice;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillCost;
@@ -247,9 +246,8 @@ public class SkillRankControl
 		{
 			if (aClass != null)
 			{
-				aPC.setAssoc(aClass, AssociationKey.SKILL_POOL, aClass
-						.getSkillPool(aPC)
-						- (int) (i * rankMod));
+				aPC.setSkillPool(aClass, aClass.getSkillPool(aPC)
+					- (int) (i * rankMod));
 			}
 
 			aPC.setDirty(true);

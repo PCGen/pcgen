@@ -115,6 +115,7 @@ import pcgen.cdom.facet.MasterSkillFacet;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.PrimaryWeaponFacet;
 import pcgen.cdom.facet.SecondaryWeaponFacet;
+import pcgen.cdom.facet.SkillPoolFacet;
 import pcgen.cdom.facet.SourcedEquipmentFacet;
 import pcgen.cdom.facet.SpellBookFacet;
 import pcgen.cdom.facet.SpellListFacet;
@@ -296,6 +297,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
 	private QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
 	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
+	private SkillPoolFacet skillPoolFacet = FacetLibrary.getFacet(SkillPoolFacet.class);
 	private StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
 	private StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
 	private StatValueFacet statValueFacet = FacetLibrary.getFacet(StatValueFacet.class);
@@ -362,7 +364,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private AutoEquipmentListFacet autoListEquipmentFacet = FacetLibrary.getFacet(AutoEquipmentListFacet.class);
 	private MasterSkillFacet masterSkillFacet = FacetLibrary.getFacet(MasterSkillFacet.class);
 	private FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
-
+	
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
 	private UserSpecialAbilityFacet userSpecialAbilityFacet = FacetLibrary.getFacet(UserSpecialAbilityFacet.class);
 	private SpecialAbilityFacet specialAbilityFacet = FacetLibrary.getFacet(SpecialAbilityFacet.class);
@@ -5094,7 +5096,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 							pi.setSkillPointsGained(this, newSkillPointsGained);
 							pi.setSkillPointsRemaining(pi.getSkillPointsRemaining() + newSkillPointsGained
 									- formerGained);
-							setAssoc(pcClass, AssociationKey.SKILL_POOL, pcClass.getSkillPool(this)
+							setSkillPool(pcClass, pcClass.getSkillPool(this)
 									+ newSkillPointsGained - formerGained);
 						}
 					}
@@ -6039,7 +6041,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 				SkillRankControl.replaceClassRank(this, skill, aClass.getKeyName(), cl.getKeyName());
 			}
 
-			setAssoc(bClass, AssociationKey.SKILL_POOL, aClass.getSkillPool(this));
+			setSkillPool(bClass, aClass.getSkillPool(this));
 		} catch (NumberFormatException nfe)
 		{
 			ShowMessageDelegate
@@ -11037,8 +11039,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 						final int formerGained = pi.getSkillPointsGained(this);
 						pi.setSkillPointsGained(this, newSkillPointsGained);
 						pi.setSkillPointsRemaining(pi.getSkillPointsRemaining() + newSkillPointsGained - formerGained);
-						setAssoc(pcClass, AssociationKey.SKILL_POOL, pcClass.getSkillPool(this) + newSkillPointsGained
-								- formerGained);
+						setSkillPool(pcClass, pcClass.getSkillPool(this) + newSkillPointsGained - formerGained);
 						setDirty(true);
 					}
 				}
@@ -11319,5 +11320,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void setDomainSpellCount(PCClass pcc, int i)
 	{
 		domainSpellCountFacet.set(id, pcc, i);
+	}
+
+	public Integer getSkillPool(PCClass pcc)
+	{
+		return skillPoolFacet.get(id, pcc);
+	}
+
+	public void setSkillPool(PCClass pcc, int skillPool)
+	{
+		skillPoolFacet.set(id, pcc, skillPool);
 	}
 }
