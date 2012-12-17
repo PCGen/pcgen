@@ -228,6 +228,7 @@
 	</bean>
 	<bean id="grantedAbilityFacet" class="pcgen.cdom.facet.GrantedAbilityFacet"/>
 	<!-- H -->
+	<bean id="handedFacet" class="pcgen.cdom.facet.fact.HandedFacet"/>
 	<bean id="handsFacet" class="pcgen.cdom.facet.analysis.HandsFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
@@ -357,6 +358,7 @@
 	</bean>
 	<!-- P -->
 	<bean id="prerequisiteFacet" class="pcgen.cdom.facet.PrerequisiteFacet"/>
+	<bean id="primaryWeaponFacet" class="pcgen.cdom.facet.PrimaryWeaponFacet"/>
 	<bean id="prohibitedSchoolFacet" class="pcgen.cdom.facet.input.ProhibitedSchoolFacet"/>
 	<bean id="portraitThumbnailRectFacet" class="pcgen.cdom.facet.fact.PortraitThumbnailRectFacet"/>
 	
@@ -394,6 +396,7 @@
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<!-- S -->
+	<bean id="secondaryWeaponFacet" class="pcgen.cdom.facet.SecondaryWeaponFacet"/>
 	<bean id="shieldProfFacet" class="pcgen.cdom.facet.ShieldProfFacet">
 		<property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
@@ -470,6 +473,7 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="userEquipmentFacet" class="pcgen.cdom.facet.UserEquipmentFacet"/>
+	<bean id="userSpecialAbilityFacet" class="pcgen.cdom.facet.input.UserSpecialAbilityFacet"/>
 	<bean id="userTemplateFacet" class="pcgen.cdom.facet.UserTemplateFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
