@@ -766,6 +766,10 @@ public class ClassFacetTest extends TestCase
 		{
 			assertFalse(facet.setClassLevel(id, t1, pcl));
 		}
+		catch (IllegalArgumentException e)
+		{
+			//Yep okay too!
+		}
 		catch (CloneNotSupportedException e)
 		{
 			fail(e.getMessage());
@@ -846,7 +850,14 @@ public class ClassFacetTest extends TestCase
 	{
 		PCClass cl = new PCClass();
 		facet.addClass(id, new PCClass());
-		assertNull(facet.getClassLevel(id, cl, 1));
+		try
+		{
+			assertNull(facet.getClassLevel(id, cl, 1));
+		}
+		catch (IllegalArgumentException e)
+		{
+			//Yep okay too!
+		}
 	}
 
 	@Test
