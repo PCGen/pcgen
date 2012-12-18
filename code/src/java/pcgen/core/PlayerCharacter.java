@@ -5980,45 +5980,71 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return false;
 	}
 
-	public void makeIntoExClass(final PCClass aClass)
+	public void makeIntoExClass(final PCClass fromClass)
 	{
-		CDOMSingleRef<PCClass> exc = aClass.get(ObjectKey.EX_CLASS);
+		CDOMSingleRef<PCClass> exc = fromClass.get(ObjectKey.EX_CLASS);
 
 		try
 		{
 			PCClass cl = exc.resolvesTo();
-			PCClass bClass = getClassKeyed(cl.getKeyName());
+			PCClass toClass = getClassKeyed(cl.getKeyName());
 
-			if (bClass == null)
+			boolean bClassNew;
+			int toLevel;
+			if (toClass == null)
 			{
-				bClass = cl.clone(); //Still required :(
-
-				rebuildLists(bClass, aClass, getLevel(aClass), this);
-
-				bClass.setLevel(getLevel(aClass), this);
-				for (int i = 0; i < getLevel(aClass); ++i)
-				{
-					PCClassLevel frompcl = getActiveClassLevel(aClass, i + 1);
-					Integer hp = getHP(frompcl);
-					PCClassLevel topcl = getActiveClassLevel(bClass, i + 1);
-					setHP(topcl, hp);
-				}
-
-				classFacet.replaceClass(id, aClass, bClass);
-			} else
+				toClass = cl.clone(); //Still required :(
+				bClassNew = true;
+				toLevel = 0;
+			}
+			else
 			{
-				rebuildLists(bClass, aClass, getLevel(aClass), this);
-				bClass.setLevel(getLevel(bClass) + getLevel(aClass), this);
+				bClassNew = false;
+				toLevel = getLevel(toClass);
+			}
 
-				for (int i = 0; i < getLevel(aClass); ++i)
+			//Capture necessary information
+			final int fromLevel = getLevel(fromClass);
+			Integer[] hpArray = new Integer[fromLevel];
+			for (int i = 0; i < fromLevel; i++)
+			{
+				PCClassLevel frompcl = getActiveClassLevel(fromClass, i);
+				Integer hp = getHP(frompcl);
+				if (hp == null)
 				{
-					PCClassLevel frompcl = getActiveClassLevel(aClass, i + 1);
-					Integer hp = getHP(frompcl);
-					PCClassLevel topcl = getActiveClassLevel(bClass, getLevel(bClass) + i + 1);
-					setHP(topcl, hp);
+					System.err.println("Did not find HP for " + fromClass + " "
+						+ (i + 1) + " " + frompcl);
 				}
+				hpArray[i] = hp;
+			}
 
-				classFacet.removeClass(id, aClass);
+			for (int i = 0; i < fromLevel; i++)
+			{
+				fromClass.doMinusLevelMods(this, fromLevel - i);
+			}
+			fromClass.setLevel(0, this);
+
+			//Do the class swap
+			if (bClassNew)
+			{
+				classFacet.replaceClass(id, fromClass, toClass);
+			}
+			else
+			{
+				classFacet.removeClass(id, fromClass);
+			}
+			toClass.setLevel(toLevel + fromLevel, this);
+
+			//Restore capture info to new class
+			for (int i = 0; i < fromLevel; i++)
+			{
+				PCClassLevel topcl = getActiveClassLevel(toClass, i);
+				setHP(topcl, hpArray[i]);
+			}
+
+			for (int i = 0; i < fromLevel; i++)
+			{
+				toClass.doPlusLevelMods(toLevel + i + 1, this);
 			}
 
 			//
@@ -6028,9 +6054,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			{
 				final PCLevelInfo li = levelInfoFacet.get(id, idx);
 
-				if (li.getClassKeyName().equals(aClass.getKeyName()))
+				if (li.getClassKeyName().equals(fromClass.getKeyName()))
 				{
-					li.setClassKeyName(bClass.getKeyName());
+					li.setClassKeyName(toClass.getKeyName());
 				}
 			}
 
@@ -6040,10 +6066,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			//
 			for (Skill skill : getSkillSet())
 			{
-				SkillRankControl.replaceClassRank(this, skill, aClass.getKeyName(), cl.getKeyName());
+				SkillRankControl.replaceClassRank(this, skill, fromClass.getKeyName(), cl.getKeyName());
 			}
 
-			setSkillPool(bClass, aClass.getSkillPool(this));
+			setSkillPool(toClass, fromClass.getSkillPool(this));
 		} catch (NumberFormatException nfe)
 		{
 			ShowMessageDelegate
@@ -6538,30 +6564,45 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			return;
 		}
 
-		final int iFromLevel = getLevel(fromClass) - iCount;
-		final int iToLevel = getLevel(toClass);
+		final int fromLevel = getLevel(fromClass);
+		final int iFromLevel = fromLevel - iCount;
+		final int toLevel = getLevel(toClass);
 
-		toClass.setLevel(iToLevel + iCount, this);
-
-		for (int i = 0; i < iCount; ++i)
+		//Capture necessary information
+		Integer[] hpArray = new Integer[iCount];
+		for (int i = 0; i < iCount; i++)
 		{
-			PCClassLevel frompcl = getActiveClassLevel(fromClass, iFromLevel + i);
-			Integer hp = getHP(frompcl);
-			PCClassLevel topcl = getActiveClassLevel(toClass, iToLevel + i);
-			setHP(topcl, hp);
-			setHP(frompcl, Integer.valueOf(0));
+			PCClassLevel frompcl = getActiveClassLevel(fromClass, i);
+			hpArray[i] = getHP(frompcl);
 		}
 
-		rebuildLists(toClass, fromClass, iCount, this);
+		for (int i = 0; i < iCount; i++)
+		{
+			fromClass.doMinusLevelMods(this, fromLevel - i);
+		}
 
+		//Do the class level swap
 		fromClass.setLevel(iFromLevel, this);
+		toClass.setLevel(toLevel + iCount, this);
+
+		//Restore capture info to new class
+		for (int i = 0; i < iCount; i++)
+		{
+			PCClassLevel topcl = getActiveClassLevel(toClass, i);
+			setHP(topcl, hpArray[i]);
+		}
+
+		for (int i = 0; i < iCount; i++)
+		{
+			toClass.doPlusLevelMods(toLevel + i + 1, this);
+		}
 
 		// first, change the toClass current PCLevelInfo level
 		for (PCLevelInfo pcl : getLevelInfo())
 		{
 			if (pcl.getClassKeyName().equals(toClass.getKeyName()))
 			{
-				final int iTo = (pcl.getClassLevel() + getLevel(toClass)) - iToLevel;
+				final int iTo = (pcl.getClassLevel() + getLevel(toClass)) - toLevel;
 				pcl.setClassLevel(iTo);
 			}
 		}
@@ -7590,20 +7631,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 
 		calcActiveBonuses();
-	}
-
-	private void rebuildLists(final PCClass toClass, final PCClass fromClass, final int iCount,
-			final PlayerCharacter aPC)
-	{
-		final int fromLevel = getLevel(fromClass);
-		final int toLevel = getLevel(toClass);
-
-		for (int i = 0; i < iCount; ++i)
-		{
-			fromClass.doMinusLevelMods(this, fromLevel - i);
-
-			toClass.doPlusLevelMods(toLevel + i + 1, aPC);
-		}
 	}
 
 	private void removeExcessSkills(final int level)

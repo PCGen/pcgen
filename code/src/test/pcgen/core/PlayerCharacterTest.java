@@ -1123,4 +1123,36 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals(30.0, pc.movementOfType("Fly"), 0.1);
 		assertEquals(60.0, pc.movementOfType("Dig"), 0.1);
 	}
+	
+	public void testMakeIntoExClass()
+	{
+		// Prepare class and ex-class
+		LoadContext context = Globals.getContext();
+		PCClass paladin = new PCClass();
+		paladin.setName("Paladin");
+		context.ref.importObject(paladin);
+		PCClass exPaladin = new PCClass();
+		exPaladin.setName("exPaladin");
+		context.ref.importObject(exPaladin);
+		paladin.put(ObjectKey.EX_CLASS, context.ref.getCDOMReference(PCClass.class, exPaladin.getKeyName()));
+		readyToRun();
+		
+		PlayerCharacter pc = getCharacter();
+		// Add a level of the class
+		pc.incrementClassLevel(2, paladin, true, false);
+		PCClass pcPalClass = pc.getClassKeyed(paladin.getKeyName());
+		pc.setHP(pc.getActiveClassLevel(pcPalClass, 0), 10);
+		pc.setHP(pc.getActiveClassLevel(pcPalClass, 1), 6);
+		
+		// Make it into an ex-class
+		pc.makeIntoExClass(pcPalClass);
+		
+		assertNull("Paladin class should not be held", pc.getClassKeyed(paladin.getKeyName()));
+		PCClass pcExPalClass = pc.getClassKeyed(exPaladin.getKeyName());
+		assertNotNull("Ex-Paladin class should be held", pcExPalClass);
+		PCClassLevel pcLvl1 = pc.getActiveClassLevel(pcExPalClass, 0);
+		assertNotNull("Level 1 should be Ex-Paladin", pcLvl1);
+		assertEquals("Should still be level 2 character", 2, pc.getTotalLevels());
+		assertEquals("Hp at first level incorrect", 10, (int)pc.getHP(pcLvl1));
+	}
 }

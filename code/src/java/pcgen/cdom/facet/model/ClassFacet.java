@@ -527,7 +527,9 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 			Map<Integer, PCClassLevel> localMap = map.get(pcc);
 			if (localMap == null)
 			{
-				return null;
+				throw new IllegalArgumentException(
+					"Level cannot be returned for Class " + pcc.getKeyName()
+						+ " which is not in the PC");
 			}
 			PCClassLevel classLevel = localMap.get(level);
 			if (classLevel == null)
