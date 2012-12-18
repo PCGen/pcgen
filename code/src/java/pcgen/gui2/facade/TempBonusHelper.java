@@ -593,4 +593,53 @@ public class TempBonusHelper
 			return "";
 		}
 	}
+
+	public static void writeOredPrereqs(StringBuilder sb, Prerequisite subreq)
+	{
+		if (subreq.getKind() == null)
+		{
+			// must be an "A or B" operation
+			boolean needSemi = false;
+			for (Prerequisite subsubreq : subreq.getPrerequisites())
+			{
+				if (needSemi)
+				{
+					sb.append(';');
+				}
+				needSemi = true;
+				sb.append(subsubreq.getOperand());
+			}
+		}
+		else
+		{
+			sb.append(subreq.getOperand());
+		}
+	}
+
+	public static String getWriteOperand(Prerequisite prereq)
+	{
+		StringBuilder sb = new StringBuilder();
+		if (Integer.parseInt(prereq.getOperand()) > 1)
+		{
+			// must be a "A and b" operation
+			boolean needComma = false;
+			for (Prerequisite subreq : prereq.getPrerequisites())
+			{
+				if (needComma)
+				{
+					sb.append(',');
+				}
+				needComma = true;
+				writeOredPrereqs(sb, subreq);
+			}
+		}
+		else
+		{
+			for (Prerequisite subreq : prereq.getPrerequisites())
+			{
+				writeOredPrereqs(sb, subreq);
+			}
+		}
+		return sb.toString();
+	}
 }

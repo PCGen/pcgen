@@ -1772,15 +1772,16 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			for (Prerequisite prereq : aBonus.getTempBonusPreApply())
 			{
-				if ("ANYPC".equals(prereq.getOperand()) //$NON-NLS-1$
-					|| "PC".equals(prereq.getOperand())) //$NON-NLS-1$
+				String operand = TempBonusHelper.getWriteOperand(prereq);
+				if ("ANYPC".equals(operand) //$NON-NLS-1$
+					|| "PC".equals(operand)) //$NON-NLS-1$
 				{
 					targetSet.add(LanguageBundle
 						.getString("in_itmBonModelTargetTypeCharacter")); //$NON-NLS-1$
 				}
 				else
 				{
-					targetSet.add(prereq.getOperand());
+					targetSet.add(operand);
 				}
 			}
 		}

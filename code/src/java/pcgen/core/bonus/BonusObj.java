@@ -272,22 +272,31 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		List<Prerequisite> preApplyList = new ArrayList<Prerequisite>();
 		for (final Prerequisite prereq : getPrerequisiteList())
 		{
-			if (prereq.getPrerequisites().isEmpty()
-				&& Prerequisite.APPLY_KIND.equalsIgnoreCase(prereq.getKind()))
+			if (isApplyPrereq(prereq))
 			{
 				preApplyList.add(prereq);
-			}
-
-			for (final Prerequisite premult : prereq.getPrerequisites())
-			{
-				if (Prerequisite.APPLY_KIND.equalsIgnoreCase(premult.getKind()))
-				{
-					preApplyList.add(premult);
-				}
 			}
 		}
 
 		return preApplyList;
+	}
+	
+	private boolean isApplyPrereq(Prerequisite prereq)
+	{
+		if (prereq.getPrerequisites().isEmpty()
+			&& Prerequisite.APPLY_KIND.equalsIgnoreCase(prereq.getKind()))
+		{
+			return true;
+		}
+
+		for (final Prerequisite premult : prereq.getPrerequisites())
+		{
+			if (isApplyPrereq(premult))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	////////////////////////////////////////////////

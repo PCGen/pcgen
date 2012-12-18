@@ -30,6 +30,7 @@ package plugin.pretokens.writer;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
+import pcgen.gui2.facade.TempBonusHelper;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
@@ -75,28 +76,7 @@ public class PreApplyWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 			writer.write("PREAPPLY:" + (prereq.isOverrideQualify() ? "Q:":""));
-
-			if (Integer.parseInt(prereq.getOperand()) > 1)
-			{
-				// must be a "A and b" operation
-				boolean needComma = false;
-				for (Prerequisite subreq : prereq.getPrerequisites())
-				{
-					if (needComma)
-					{
-						writer.write(',');
-					}
-					needComma = true;
-					writeOredPrereqs(writer, subreq);
-				}
-			}
-			else
-			{
-				for (Prerequisite subreq : prereq.getPrerequisites())
-				{
-					writeOredPrereqs(writer, subreq);
-				}
-			}
+			writer.write(TempBonusHelper.getWriteOperand(prereq));
 		}
 		catch (NumberFormatException e)
 		{
@@ -106,29 +86,6 @@ public class PreApplyWriter extends AbstractPrerequisiteWriter implements
 		catch (IOException e)
 		{
 			throw new PersistenceLayerException(e.getMessage());
-		}
-	}
-
-	private void writeOredPrereqs(Writer writer, Prerequisite subreq)
-		throws IOException
-	{
-		if (subreq.getKind() == null)
-		{
-			// must be an "A or B" operation
-			boolean needSemi = false;
-			for (Prerequisite subsubreq : subreq.getPrerequisites())
-			{
-				if (needSemi)
-				{
-					writer.write(';');
-				}
-				needSemi = true;
-				writer.write(subsubreq.getOperand());
-			}
-		}
-		else
-		{
-			writer.write(subreq.getOperand());
 		}
 	}
 
