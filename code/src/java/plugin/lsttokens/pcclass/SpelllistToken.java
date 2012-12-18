@@ -73,7 +73,7 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
 			return new ParseResult.Fail("Count in " + getTokenName()
 					+ " was not valid: " + count.toString(), context);
 		}
-		if (!count.isStatic() || count.resolve(null, "").intValue() <= 0)
+		if (!count.isStatic() || count.resolveStatic().intValue() <= 0)
 		{
 			return new ParseResult.Fail("Count in " + getTokenName() + " must be > 0", context);
 		}

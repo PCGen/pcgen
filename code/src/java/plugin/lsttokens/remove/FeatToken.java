@@ -111,7 +111,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 				return new ParseResult.Fail("Count in " + getTokenName()
 						+ " was not valid: " + count.toString(), context);
 			}
-			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
+			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
 								+ " must be > 0", context);

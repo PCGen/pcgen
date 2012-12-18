@@ -524,10 +524,12 @@ public class EquipmentList {
 			for ( final Race race : Globals.getContext().ref.getConstructedCDOMObjects(Race.class) )
 			{
 				/*
-				 * TODO This has pc == null, which could be a problem
+				 * SIZE: in Race LST files enforces that the formula is fixed,
+				 * so no isStatic() check needed here
 				 */
-				final int iSize = race.getSafe(
-						FormulaKey.SIZE).resolve(null, "").intValue();
+				final int iSize =
+						race.getSafe(FormulaKey.SIZE).resolveStatic()
+							.intValue();
 				gensizesid.add(iSize);
 			}
 

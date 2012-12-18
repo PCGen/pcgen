@@ -95,8 +95,8 @@ public class FixedSizeFormula implements Formula
 
 	/**
 	 * Resolves to the identifying value of the SizeAdjustment provided during
-	 * construction of the FixedSizeFormula. This is resolved in context to the
-	 * given PlayerCharacter and Source identifier.
+	 * construction of the FixedSizeFormula. The given PlayerCharacter and
+	 * source are ignored.
 	 * 
 	 * @param pc
 	 *            The PlayerCharacter relative to which the FixedSizeFormula
@@ -110,14 +110,13 @@ public class FixedSizeFormula implements Formula
 	@Override
 	public Integer resolve(PlayerCharacter pc, String source)
 	{
-		return SizeUtilities.sizeInt(size.getAbbreviation());
+		return resolveStatic();
 	}
 
 	/**
 	 * Resolves to the identifying value of the SizeAdjustment provided during
-	 * construction of the FixedSizeFormula. This is resolved in context to both
-	 * a piece of Equipment, the given PlayerCharacter, and the given Source
-	 * identifier.
+	 * construction of the FixedSizeFormula. The given arguments are ignored as
+	 * no source or context is requried to resolve a FixedSizeFormula.
 	 * 
 	 * @param equipment
 	 *            The Equipment relative to which the FixedSizeFormula should be
@@ -139,7 +138,7 @@ public class FixedSizeFormula implements Formula
 	public Number resolve(Equipment equipment, boolean primary,
 			PlayerCharacter apc, String source)
 	{
-		return SizeUtilities.sizeInt(size.getAbbreviation());
+		return resolveStatic();
 	}
 
 	/**
@@ -160,5 +159,18 @@ public class FixedSizeFormula implements Formula
 	public boolean isValid()
 	{
 		return true;
+	}
+
+	/**
+	 * Resolves to the identifying value of the SizeAdjustment provided during
+	 * construction of the FixedSizeFormula.
+	 * 
+	 * @return The identifying value of the SizeAdjustment this FixedSizeFormula
+	 *         represents.
+	 */
+	@Override
+	public Integer resolveStatic()
+	{
+		return SizeUtilities.sizeInt(size.getAbbreviation());
 	}
 }

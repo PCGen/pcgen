@@ -65,7 +65,7 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 						+ " cannot have only a count: " + value, context);
 			}
 			item = tok.nextToken();
-			if (count.resolve(null, "").intValue() <= 0)
+			if (count.resolveStatic().intValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in "
 						+ getTokenName() + " must be > 0: " + value, context);

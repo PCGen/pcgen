@@ -67,9 +67,10 @@ public class EncounterModel extends DefaultListModel
 			if (rcr != null)
 			{
 				/*
-				 * TODO null may be a problem here?
+				 * CrLst enforces a certain structure x or 1/x where x is an integer,
+				 * so we KNOW this is a fixed value.  We skip the isStatic() test.
 				 */
-				cr += mCRtoPL(rcr.getRating().resolve(null, "").floatValue());
+				cr += mCRtoPL(rcr.getRating().resolveStatic().floatValue());
 			}
 		}
 

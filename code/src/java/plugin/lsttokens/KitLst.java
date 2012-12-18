@@ -83,7 +83,7 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			return new ParseResult.Fail("Count in "
 					+ getTokenName() + " must be a number", context);
 		}
-		if (count.resolve(null, "").intValue() <= 0)
+		if (count.resolveStatic().intValue() <= 0)
 		{
 			return new ParseResult.Fail("Count in "
 					+ getTokenName() + " must be > 0", context);

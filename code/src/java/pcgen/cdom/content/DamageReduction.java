@@ -87,23 +87,15 @@ public class DamageReduction extends ConcretePrereqObject implements
 	}
 
 	/**
-	 * Gets the actual reduction this DR will apply. If a PC has been set on the
-	 * DR object it will evaluate any formulas in the DR and apply any bonuses
-	 * to this DR type that are appropriate.
+	 * Gets the actual reduction this DR will apply. If the reduction is
+	 * variable and requires the PC to process, this will return -1
 	 * 
 	 * @return Amount of damage this DR reduces
 	 */
 	public int getRawReductionValue()
 	{
-		try
-		{
-			return theReduction.resolve(null, "").intValue();
-		}
-		catch (NumberFormatException notUsed)
-		{
-			// Nothing we can do.
-		}
-		return -1;
+		return theReduction.isStatic() ? theReduction.resolveStatic()
+			.intValue() : -1;
 	}
 
 	/**

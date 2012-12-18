@@ -249,6 +249,18 @@ public final class FormulaFactory
 		{
 			return true;
 		}
+
+		/**
+		 * Resolves this IntegerFormula, returning the Integer in this
+		 * IntegerFormula.
+		 * 
+		 * @return the Integer in this IntegerFormula.
+		 */
+		@Override
+		public Integer resolveStatic()
+		{
+			return integer;
+		}
 }
 
 	/**
@@ -356,6 +368,18 @@ public final class FormulaFactory
 		public boolean isValid()
 		{
 			return true;
+		}
+
+		/**
+		 * Resolves this DoubleFormula, returning the Double in this
+		 * DoubleFormula.
+		 * 
+		 * @return the Double in this DoubleFormula.
+		 */
+		@Override
+		public Double resolveStatic()
+		{
+			return dbl;
 		}
 	}
 }

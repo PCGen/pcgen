@@ -108,10 +108,10 @@ public class CrToken extends AbstractNonEmptyToken<Race> implements
 	@Override
 	public boolean process(LoadContext context, Race race)
 	{
-		try
+		Formula levelAdjFormula = race.getSafe(FormulaKey.LEVEL_ADJUSTMENT);
+		if (levelAdjFormula.isStatic())
 		{
-			Number la =
-					race.getSafe(FormulaKey.LEVEL_ADJUSTMENT).resolve(null, "");
+			Number la = levelAdjFormula.resolveStatic();
 			ChallengeRating cr = race.get(ObjectKey.CHALLENGE_RATING);
 			if ((la.floatValue() != 0) && cr == null)
 			{
@@ -119,9 +119,10 @@ public class CrToken extends AbstractNonEmptyToken<Race> implements
 						FormulaFactory.getFormulaFor(la.toString())));
 			}
 		}
-		catch (NullPointerException soWhat)
+		else
 		{
 			//Nothing to do here, matches 5.14 behavior
+			//TODO Should there at LEAST be a message here??
 		}
 		return true;
 	}

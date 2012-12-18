@@ -143,4 +143,10 @@ public class JEPFormula implements Formula
 	{
 		return true;
 	}
+
+	@Override
+	public Number resolveStatic()
+	{
+		throw new UnsupportedOperationException("Formula is not static");
+	}
 }

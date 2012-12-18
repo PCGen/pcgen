@@ -89,7 +89,7 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 				return new ParseResult.Fail("Count in " + getTokenName()
 						+ " was not valid: " + count.toString(), context);
 			}
-			if (count.isStatic() && count.resolve(null, "").doubleValue() <= 0)
+			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{
 				return new ParseResult.Fail("Count in " + getFullName()
 								+ " must be > 0", context);
@@ -243,7 +243,7 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel> i
 							+ " Count");
 					return null;
 				}
-				if (f.isStatic() && f.resolve(null, "").doubleValue() <= 0)
+				if (f.isStatic() && f.resolveStatic().doubleValue() <= 0)
 				{
 					context.addWriteMessage("Count in " + getFullName()
 							+ " must be > 0");

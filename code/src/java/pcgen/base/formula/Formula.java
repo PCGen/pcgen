@@ -33,15 +33,30 @@ public interface Formula
 	 * PlayerCharacter, and any required context beyond the PlayerCharacter is
 	 * taken from the source object. Formatting of the source String may vary.
 	 * 
+	 * It is assumed the PlayerCharacter is not null. If no PlayerCharacter
+	 * exists in the current context, use resolveStatic. If the formula is not
+	 * static and there is no PlayerCharacter in the context, then the Formula
+	 * cannot be resolved.
+	 * 
 	 * @param pc
-	 *            The PlayerCharacter relative to which the Formula should be
-	 *            resolved.
+	 *            The (non-null) PlayerCharacter relative to which the Formula
+	 *            should be resolved.
 	 * @param source
 	 *            The source object of the Formula, for purposes of resolution.
 	 * @return The Number indicating the result of the Formula when resolved in
 	 *         the given context.
 	 */
 	public Number resolve(PlayerCharacter pc, String source);
+
+	/**
+	 * Resolves the static formula relative to the given source object.
+	 * 
+	 * If this method is called on a Formula for which isStatic is false, then
+	 * this method reserves the right to throw an exception of some form.
+	 * 
+	 * @return The Number indicating the result of the (static) Formula.
+	 */
+	public Number resolveStatic();
 
 	/**
 	 * Resolves the formula relative to the given Equipment, EquipmentHead,

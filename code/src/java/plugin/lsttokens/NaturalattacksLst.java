@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -382,10 +383,11 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		List<Equipment> natWeapons = obj.getListFor(ListKey.NATURAL_WEAPON);
 		if (natWeapons != null)
 		{
-			try
+			Formula sizeFormula = obj.getSafe(FormulaKey.SIZE);
+			if (sizeFormula.isStatic())
 			{
-				int isize = obj.getSafe(FormulaKey.SIZE).resolve(null, "")
-						.intValue();
+				int isize =
+						sizeFormula.resolveStatic().intValue();
 				SizeAdjustment size = context.ref.getItemInOrder(
 						SizeAdjustment.class, isize);
 				for (Equipment e : natWeapons)
@@ -394,7 +396,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 					e.put(ObjectKey.SIZE, size);
 				}
 			}
-			catch (NullPointerException npe)
+			else
 			{
 				Logging.errorPrint("SIZE in " + obj.getClass().getSimpleName()
 						+ " " + obj.getKeyName() + " must not be a variable "
