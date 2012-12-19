@@ -28,9 +28,8 @@ package pcgen.io.exporttoken;
 import java.util.StringTokenizer;
 
 import pcgen.core.PlayerCharacter;
-import pcgen.core.display.CharacterDisplay;
+import pcgen.core.analysis.AttackInfo;
 import pcgen.io.ExportHandler;
-import pcgen.util.Delta;
 import pcgen.util.enumeration.AttackType;
 
 /**
@@ -91,7 +90,7 @@ public class AttackToken extends Token
 			String format = aTok.hasMoreTokens() ? aTok.nextToken() : "";
 
 			AttackType attackType = AttackType.valueOf(attackTypeString);
-			retString = getParsedToken(pc, attackType, modifier);
+			retString = AttackInfo.getAttackInfo(pc, attackType, modifier);
 			
 			// SHORT means we only return the first attack bonus
 			if ("SHORT".equalsIgnoreCase(format))
@@ -105,176 +104,5 @@ public class AttackToken extends Token
 		}
 
 		return retString;
-	}
-
-	/**
-	 * Translate an already parsed attack token for the supplied character.
-	 * This will return the attack token value requested for the supplied
-	 * character. Note the return value is always a formatted string such as +8
-	 * or +8/+3
-	 *
-	 * @param pc The character to retrieve the attack value for.
-	 * @param attackType The type of attack to the returned
-	 *                    - GRAPPLE, MELLEE, RANGED or UNARMED
-	 * @param modifier The modified to the attack - BASE, EPIC, MISC,
-	 *                  SIZE, STAT, TOTAL or an empty string
-	 * @return The token value.
-	 */
-	public static String getParsedToken(PlayerCharacter pc, AttackType attackType,
-		String modifier)
-	{
-		if (modifier.equals("TOTAL"))
-		{
-			if (attackType.equals("RANGED"))
-			{
-				int total = getTotalToken(pc, attackType);
-				return pc.getAttackString(AttackType.RANGED, total);
-			}
-			else if (attackType.equals("UNARMED"))
-			{
-				int total = getTotalToken(pc, AttackType.MELEE);
-				// TODO: Is this correct for 3.0 also?
-				return pc.getAttackString(AttackType.MELEE, total);
-				//return pc.getAttackString(Constants.ATTACKSTRING_UNARMED, total);
-			}
-			else
-			{
-				int total = getTotalToken(pc, attackType);
-				return pc.getAttackString(AttackType.MELEE, total);
-			}
-		}
-		return getSubToken(pc, attackType, modifier);
-	}
-
-	private static String getSubToken(PlayerCharacter pc, AttackType attackType,
-		String modifier)
-	{
-		if (modifier.equals("BASE"))
-		{
-			return Delta.toString(getBaseToken(pc));
-		}
-		else if (modifier.equals("EPIC"))
-		{
-			return Delta.toString(getEpicToken(pc));
-		}
-		else if (modifier.equals("MISC"))
-		{
-			return Delta.toString(getMiscToken(pc, attackType));
-		}
-		else if (modifier.equals("SIZE"))
-		{
-			return Delta.toString(getSizeToken(pc, attackType));
-		}
-		else if (modifier.equals("STAT"))
-		{
-			return Delta.toString(getStatToken(pc.getDisplay(), attackType));
-		}
-		else if (modifier.equals("TOTAL"))
-		{
-			// TOTAL is handled in getParsedToken()
-			//int total = getTotalToken(pc, "MELEE");
-			//return pc.getAttackString(Constants.ATTACKSTRING_MELEE, total);
-		}
-		else
-		{
-			return pc.getAttackString(attackType);
-		}
-		return "";
-	}
-
-	/**
-	 * Get the base ATTACK token
-	 * @param pc
-	 * @return base ATTACK token
-	 */
-	public static int getBaseToken(PlayerCharacter pc)
-	{
-		return pc.baseAttackBonus();
-	}
-
-	/**
-	 * Get the epic ATTACK token
-	 * @param pc
-	 * @return epic ATTACK token
-	 */
-	public static int getEpicToken(PlayerCharacter pc)
-	{
-		return (int) pc.getBonusDueToType("COMBAT", "TOHIT", "EPIC");
-	}
-
-	/**
-	 * Get the misc ATTACK token
-	 * @param pc
-	 * @param aType
-	 * @return misc ATTACK token
-	 */
-	public static int getMiscToken(PlayerCharacter pc, AttackType at)
-	{
-		int tohitBonus =
-				((int) pc.getTotalBonusTo("TOHIT", "TOHIT") 
-					+ (int) pc.getTotalBonusTo("TOHIT", "TYPE." + at))
-					- (int) pc.getDisplay().getStatBonusTo("TOHIT", "TYPE." + at)
-					- (int) pc.getSizeAdjustmentBonusTo("TOHIT", "TOHIT");
-		int miscBonus =
-				((int) pc.getTotalBonusTo("COMBAT", "TOHIT")
-					+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT." + at))
-					- (int) pc.getDisplay().getStatBonusTo("COMBAT", "TOHIT." + at)
-					- (int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT")
-					- (int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT." + at)
-					- (int) pc.getBonusDueToType("COMBAT", "TOHIT", "EPIC");
-		return miscBonus + tohitBonus;
-	}
-
-	/**
-	 * Get the size ATTACK token
-	 * @param pc
-	 * @param aType
-	 * @return size ATTACK token
-	 */
-	public static int getSizeToken(PlayerCharacter pc, AttackType aType)
-	{
-		int tohitBonus =
-				(int) pc.getSizeAdjustmentBonusTo("TOHIT", "TOHIT")
-					+ (int) pc.getSizeAdjustmentBonusTo("TOHIT", "TYPE."
-						+ aType);
-		int sizeBonus =
-				(int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT")
-					+ (int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT."
-						+ aType);
-
-		return sizeBonus + tohitBonus;
-	}
-
-	/**
-	 * get stat ATTACK token
-	 * @param pc
-	 * @param aType
-	 * @return stat ATTACK token
-	 */
-	public static int getStatToken(CharacterDisplay display, AttackType at)
-	{
-		final int tohitBonus =
-				(int) display.getStatBonusTo("TOHIT", "TYPE." + at);
-		final int statBonus =
-				(int) display.getStatBonusTo("COMBAT", "TOHIT." + at);
-
-		return statBonus + tohitBonus;
-	}
-
-	/**
-	 * Get total ATTACK token
-	 * @param pc
-	 * @param aType
-	 * @return total ATTACK token
-	 */
-	public static int getTotalToken(PlayerCharacter pc, AttackType at)
-	{
-		final int tohitBonus =
-				(int) pc.getTotalBonusTo("TOHIT", "TOHIT")
-					+ (int) pc.getTotalBonusTo("TOHIT", "TYPE." + at);
-		final int totalBonus =
-				(int) pc.getTotalBonusTo("COMBAT", "TOHIT")
-					+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT." + at);
-		return tohitBonus + totalBonus;
 	}
 }

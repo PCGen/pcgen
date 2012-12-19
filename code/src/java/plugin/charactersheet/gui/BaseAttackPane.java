@@ -8,7 +8,7 @@ package plugin.charactersheet.gui;
 
 import gmgen.gui.GridBoxLayout;
 import pcgen.core.PlayerCharacter;
-import pcgen.io.exporttoken.AttackToken;
+import pcgen.core.analysis.AttackInfo;
 import pcgen.util.enumeration.AttackType;
 
 import javax.swing.JLabel;
@@ -413,34 +413,34 @@ public class BaseAttackPane extends JPanel
 	 */
 	public void refresh()
 	{
-		grappleBab.setText(AttackToken.getParsedToken(pc, GRAPPLE, BLANK));
+		grappleBab.setText(AttackInfo.getAttackInfo(pc, GRAPPLE, BLANK));
 		grappleEpic
-			.setText(AttackToken.getParsedToken(pc, GRAPPLE, EPIC_TOKEN));
+			.setText(AttackInfo.getAttackInfo(pc, GRAPPLE, EPIC_TOKEN));
 		grappleMisc
-			.setText(AttackToken.getParsedToken(pc, GRAPPLE, MISC_TOKEN));
+			.setText(AttackInfo.getAttackInfo(pc, GRAPPLE, MISC_TOKEN));
 		grappleSize
-			.setText(AttackToken.getParsedToken(pc, GRAPPLE, SIZE_TOKEN));
+			.setText(AttackInfo.getAttackInfo(pc, GRAPPLE, SIZE_TOKEN));
 		grappleStat
-			.setText(AttackToken.getParsedToken(pc, GRAPPLE, STAT_TOKEN));
-		grappleTotal.setText(AttackToken.getParsedToken(pc, GRAPPLE,
+			.setText(AttackInfo.getAttackInfo(pc, GRAPPLE, STAT_TOKEN));
+		grappleTotal.setText(AttackInfo.getAttackInfo(pc, GRAPPLE,
 			TOTAL_TOKEN));
 		grappleTemp.setText(PLUS_ZERO);
 
-		meleeBab.setText(AttackToken.getParsedToken(pc, MELEE, BLANK));
-		meleeEpic.setText(AttackToken.getParsedToken(pc, MELEE, EPIC_TOKEN));
-		meleeMisc.setText(AttackToken.getParsedToken(pc, MELEE, MISC_TOKEN));
-		meleeSize.setText(AttackToken.getParsedToken(pc, MELEE, SIZE_TOKEN));
-		meleeStat.setText(AttackToken.getParsedToken(pc, MELEE, STAT_TOKEN));
-		meleeTotal.setText(AttackToken.getParsedToken(pc, MELEE, TOTAL_TOKEN));
+		meleeBab.setText(AttackInfo.getAttackInfo(pc, MELEE, BLANK));
+		meleeEpic.setText(AttackInfo.getAttackInfo(pc, MELEE, EPIC_TOKEN));
+		meleeMisc.setText(AttackInfo.getAttackInfo(pc, MELEE, MISC_TOKEN));
+		meleeSize.setText(AttackInfo.getAttackInfo(pc, MELEE, SIZE_TOKEN));
+		meleeStat.setText(AttackInfo.getAttackInfo(pc, MELEE, STAT_TOKEN));
+		meleeTotal.setText(AttackInfo.getAttackInfo(pc, MELEE, TOTAL_TOKEN));
 		meleeTemp.setText(PLUS_ZERO);
 
-		rangedBab.setText(AttackToken.getParsedToken(pc, RANGED, BLANK));
-		rangedEpic.setText(AttackToken.getParsedToken(pc, RANGED, EPIC_TOKEN));
-		rangedMisc.setText(AttackToken.getParsedToken(pc, RANGED, MISC_TOKEN));
-		rangedSize.setText(AttackToken.getParsedToken(pc, RANGED, SIZE_TOKEN));
-		rangedStat.setText(AttackToken.getParsedToken(pc, RANGED, STAT_TOKEN));
+		rangedBab.setText(AttackInfo.getAttackInfo(pc, RANGED, BLANK));
+		rangedEpic.setText(AttackInfo.getAttackInfo(pc, RANGED, EPIC_TOKEN));
+		rangedMisc.setText(AttackInfo.getAttackInfo(pc, RANGED, MISC_TOKEN));
+		rangedSize.setText(AttackInfo.getAttackInfo(pc, RANGED, SIZE_TOKEN));
+		rangedStat.setText(AttackInfo.getAttackInfo(pc, RANGED, STAT_TOKEN));
 		rangedTotal
-			.setText(AttackToken.getParsedToken(pc, RANGED, TOTAL_TOKEN));
+			.setText(AttackInfo.getAttackInfo(pc, RANGED, TOTAL_TOKEN));
 		rangedTemp.setText(PLUS_ZERO);
 	}
 

@@ -11,7 +11,6 @@ import java.awt.Font;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
-import pcgen.io.exporttoken.AttackToken;
 import pcgen.io.exporttoken.InitiativeMiscToken;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.util.Delta;
@@ -25,7 +24,6 @@ public class CombatPane2 extends javax.swing.JPanel
 {
 	private PlayerCharacter pc;
 
-	private static final String BLANK = "";
 	private static final String SPACE = " ";
 	private static final String EQUALS = "=";
 	private static final String PLUS = "+";
@@ -289,7 +287,7 @@ public class CombatPane2 extends javax.swing.JPanel
 	 */
 	public void refresh()
 	{
-		baseAttack.setText(AttackToken.getParsedToken(pc, AttackType.MELEE, BLANK));
+		pc.getAttackString(AttackType.MELEE);
 
 		initTotal.setText(Delta.toString(pc.getDisplay().initiativeMod()));
 		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
