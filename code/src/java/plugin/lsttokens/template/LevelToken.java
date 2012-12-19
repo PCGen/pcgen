@@ -118,6 +118,7 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		String argument = tok.nextToken();
 		PCTemplate derivative = new PCTemplate();
 		derivative.put(IntegerKey.LEVEL, lvl);
+		context.ref.getManufacturer(PCTemplate.class).addDerivativeObject(derivative);
 		context.getObjectContext().addToList(template, ListKey.LEVEL_TEMPLATES,
 				derivative);
 		try

@@ -232,4 +232,16 @@ public class TrackingManufacturer<T extends Loadable> implements ReferenceManufa
 	{
 		mfg.injectConstructed(mfg);
 	}
+
+	@Override
+	public void addDerivativeObject(T obj)
+	{
+		rm.addDerivativeObject(obj);
+	}
+
+	@Override
+	public Collection<T> getDerivativeObjects()
+	{
+		return rm.getDerivativeObjects();
+	}
 }

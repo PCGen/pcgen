@@ -202,6 +202,7 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		consolidator.put(IntegerKey.START_LEVEL, Integer.valueOf(iLevel));
 		context.getObjectContext().addToList(template,
 				ListKey.REPEATLEVEL_TEMPLATES, consolidator);
+		context.ref.getManufacturer(PCTemplate.class).addDerivativeObject(consolidator);
 
 		for (int count = consecutive; iLevel <= maxLevel; iLevel += lvlIncrement)
 		{
@@ -209,6 +210,7 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 			{
 				PCTemplate derivative = new PCTemplate();
 				derivative.put(IntegerKey.LEVEL, count);
+				context.ref.getManufacturer(PCTemplate.class).addDerivativeObject(derivative);
 				context.getObjectContext().addToList(consolidator,
 						ListKey.LEVEL_TEMPLATES, derivative);
 				try

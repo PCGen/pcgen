@@ -113,6 +113,15 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	private final KeyMap<T> active = new KeyMap<T>();
 
 	/**
+	 * Stores derivative objects (Those that are NOT created by this
+	 * AbstractReferenceManufacturer and are NOT inserted into this
+	 * AbstractReferenceManufacturer. However, these objects exist elsewhere,
+	 * and need to be processed under certain conditions. The getAllObjects()
+	 * method should NOT add this list to the items returned.
+	 */
+	private final List<T> derivatives = new ArrayList<T>();
+
+	/**
 	 * Stores the duplicate objects for identifiers in this
 	 * AbstractReferenceManufacturer. Identifiers will only be stored in this
 	 * Map if an identical identifier already exists in the active map. Also, if
@@ -1289,5 +1298,21 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 		list.addAll(getTypeReferences());
 		list.addAll(getReferenced());
 		return list;
+	}
+
+	@Override
+	public void addDerivativeObject(T obj)
+	{
+		if (obj == null)
+		{
+			throw new IllegalArgumentException("Derivative Object cannot be null");
+		}
+		derivatives.add(obj);
+	}
+
+	@Override
+	public Collection<T> getDerivativeObjects()
+	{
+		return new ArrayList<T>(derivatives);
 	}
 }

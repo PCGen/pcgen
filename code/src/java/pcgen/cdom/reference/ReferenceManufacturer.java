@@ -351,4 +351,8 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	public Collection<CDOMReference<T>> getAllReferences();
 
 	public void injectConstructed(ReferenceManufacturer<T> rm);
+	
+	public void addDerivativeObject(T obj);
+
+	public Collection<T> getDerivativeObjects();
 }

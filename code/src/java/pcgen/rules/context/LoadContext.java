@@ -189,6 +189,10 @@ public abstract class LoadContext
 				{
 					token.process(this, po);
 				}
+				for (T po : rm.getDerivativeObjects())
+				{
+					token.process(this, po);
+				}
 			}
 		}
 	}
