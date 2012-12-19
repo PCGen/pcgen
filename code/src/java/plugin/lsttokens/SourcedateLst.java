@@ -47,7 +47,7 @@ public class SourcedateLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
-	private Date getDate(String value)
+	private static Date getDate(String value)
 	{
 		DateFormat df = new SimpleDateFormat("yyyy-MM"); //$NON-NLS-1$
 		Date theDate;
@@ -64,8 +64,16 @@ public class SourcedateLst extends AbstractNonEmptyToken<CDOMObject> implements
 			}
 			catch (ParseException e)
 			{
-				Logging.log(Logging.LST_ERROR, "Error parsing date", e);
-				return null;
+				DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
+				try
+				{
+					theDate = formatter.parse(value);
+				}
+				catch (ParseException ipe)
+				{
+					Logging.log(Logging.LST_ERROR, "Error parsing date", ipe);
+					return null;
+				}
 			}
 		}
 		return theDate;
