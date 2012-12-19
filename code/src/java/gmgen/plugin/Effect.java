@@ -53,7 +53,7 @@ public class Effect extends Event
     @Override
 	public String getEndText()
 	{
-		return "Effect " + getName() + " Completed or Occured";
+		return "Effect " + getName() + " Completed or Occurred";
 	}
 
 	/**

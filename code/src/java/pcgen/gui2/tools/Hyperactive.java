@@ -60,7 +60,7 @@ public final class Hyperactive implements HyperlinkListener
 			}
 			catch (IOException t)
 			{
-				JOptionPane.showMessageDialog(pane, "<html>An error occured while opening your browser.<br>" +
+				JOptionPane.showMessageDialog(pane, "<html>An error occurred while opening your browser.<br>" +
 						"Please check PCGen's browser settings.</html>", "Could not open browser", JOptionPane.ERROR_MESSAGE);
 				Logging.errorPrint(
 						"Exception in Hyperactive::hyperlinkUpdate", t);

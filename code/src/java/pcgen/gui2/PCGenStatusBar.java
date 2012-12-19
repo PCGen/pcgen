@@ -106,7 +106,7 @@ public final class PCGenStatusBar extends JPanel
 				loadStatusLabel.setIcon(Icons.Ok16.getImageIcon());
 			}
 			loadStatusLabel.setToolTipText(nerrors + " errors and " + nwarnings +
-					" warnings occured while loading the sources");
+					" warnings occurred while loading the sources");
 		}
 	}
 
@@ -115,7 +115,7 @@ public final class PCGenStatusBar extends JPanel
 	 * As the worker is executed information regarding its progress
 	 * will be updated to the PCGenStatusBar's progress bar.
 	 * Upon completion of the task execution the worker returns a
-	 * list of error messages that occured during the task execution.
+	 * list of error messages that occurred during the task execution.
 	 * Its up to the caller of this method figure out what to do with
 	 * the messages (if any).
 	 * @param taskName a string describing the task

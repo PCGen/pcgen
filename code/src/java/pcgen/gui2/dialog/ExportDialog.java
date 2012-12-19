@@ -579,7 +579,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			{
 				if (!((Boolean) get()))
 				{
-					pcgenFrame.showErrorMessage("Could not export " + name, "Error occured while exporting. See log for details.");
+					pcgenFrame.showErrorMessage("Could not export " + name, "Error occurred while exporting. See log for details.");
 				}
 				else
 				{
@@ -593,7 +593,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			catch (ExecutionException ex)
 			{
 				Logging.errorPrint("Could not export " + name, ex.getCause());
-				pcgenFrame.showErrorMessage("Could not export " + name, "Error occured while exporting. See log for details.");
+				pcgenFrame.showErrorMessage("Could not export " + name, "Error occurred while exporting. See log for details.");
 			}
 			finally
 			{

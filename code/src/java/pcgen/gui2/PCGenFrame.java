@@ -1545,7 +1545,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		public void run()
 		{
 			worker.start();
-			//wait until the worker finish and post any errors that occured
+			//wait until the worker finish and post any errors that occurred
 			statusBar.setSourceLoadErrors(worker.get());
 			//now that the SourceFileLoader has finished
 			//handle licenses and whatnot

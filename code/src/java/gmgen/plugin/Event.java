@@ -158,7 +158,7 @@ public class Event implements InitHolder
 	 */
 	public String getEndText()
 	{
-		return "Event " + getName() + " Completed or Occured";
+		return "Event " + getName() + " Completed or Occurred";
 	}
 
 	/**

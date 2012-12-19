@@ -848,7 +848,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	}
 
 	/**
-	 * Logs an error taht has occured during data loading.
+	 * Logs an error that has occurred during data loading.
 	 * This will not only log the message to the system error log,
 	 * but it will also notify all observers of the error.
 	 * @param message the error to notify listeners about

@@ -100,7 +100,7 @@ public class PropertyContextFactory
 		}
 		catch (Exception ex)
 		{
-			Logging.errorPrint("Error occured while reading properties", ex);
+			Logging.errorPrint("Error occurred while reading properties", ex);
 		}
 		finally
 		{
@@ -168,7 +168,7 @@ public class PropertyContextFactory
 		}
 		catch (Exception ex)
 		{
-			Logging.errorPrint("Error occured while storing properties", ex);
+			Logging.errorPrint("Error occurred while storing properties", ex);
 		}
 		finally
 		{

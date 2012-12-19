@@ -640,7 +640,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 
 	/**
 	 * This listener method is intended to listen to the notesDoc. A change event
-	 * has occured, so mark the document as dirty.
+	 * has occurred, so mark the document as dirty.
 	 *
 	 * @param e
 	 *          a Document Event
@@ -987,7 +987,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 
 	/**
 	 * This listener method is intended to listen to the notesDoc. An incert event
-	 * has occured, so mark the document as dirty.
+	 * has occurred, so mark the document as dirty.
 	 *
 	 * @param e
 	 *          a Document Event

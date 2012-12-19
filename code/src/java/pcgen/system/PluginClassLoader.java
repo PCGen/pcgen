@@ -158,12 +158,12 @@ public class PluginClassLoader extends PCGenTask
 					}
 					catch (ClassNotFoundException ex)
 					{
-						Logging.errorPrint("Error occured while loading plugin: " +
+						Logging.errorPrint("Error occurred while loading plugin: " +
 								pluginJar.getName(), ex);
 					}
 					catch (NoClassDefFoundError e)
 					{
-						Logging.errorPrint("Error occured while loading plugin: " +
+						Logging.errorPrint("Error occurred while loading plugin: " +
 								pluginJar.getName(), e);
 					}
 				}
@@ -201,7 +201,7 @@ public class PluginClassLoader extends PCGenTask
 				}
 				catch (Exception ex)
 				{
-					Logging.errorPrint("Error occured while loading plugin class: " +
+					Logging.errorPrint("Error occurred while loading plugin class: " +
 							clazz.getName(), ex);
 				}
 				finally
