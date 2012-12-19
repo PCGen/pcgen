@@ -35,7 +35,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
-import pcgen.io.exporttoken.AttackToken;
 import pcgen.rules.context.LoadContext;
 
 /**

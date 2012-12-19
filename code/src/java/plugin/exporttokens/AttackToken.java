@@ -23,13 +23,14 @@
  * Last Edited: $Date$
  *
  */
-package pcgen.io.exporttoken;
+package plugin.exporttokens;
 
 import java.util.StringTokenizer;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.AttackInfo;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
 import pcgen.util.enumeration.AttackType;
 
 /**

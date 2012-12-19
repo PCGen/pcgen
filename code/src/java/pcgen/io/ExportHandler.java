@@ -60,7 +60,6 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.utils.CoreUtility;
 import pcgen.io.exporttoken.AbilityListToken;
 import pcgen.io.exporttoken.AbilityToken;
-import pcgen.io.exporttoken.AttackToken;
 import pcgen.io.exporttoken.BonusToken;
 import pcgen.io.exporttoken.CheckToken;
 import pcgen.io.exporttoken.EqToken;
@@ -1721,7 +1720,6 @@ public final class ExportHandler
 		{
 			addToTokenMap(new AbilityToken());
 			addToTokenMap(new AbilityListToken());
-			addToTokenMap(new AttackToken());
 			addToTokenMap(new BonusToken());
 			addToTokenMap(new CheckToken());
 			addToTokenMap(new EqToken());
