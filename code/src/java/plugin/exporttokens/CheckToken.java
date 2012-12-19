@@ -23,7 +23,7 @@
  * Last Edited: $Date$
  *
  */
-package pcgen.io.exporttoken;
+package plugin.exporttokens;
 
 import java.util.List;
 import java.util.StringTokenizer;
@@ -32,6 +32,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCCheck;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
 
 /**
@@ -107,8 +108,8 @@ public class CheckToken extends Token
 	public static int getCheckToken(PlayerCharacter pc, String saveType,
 		String saveMods)
 	{
-		PCCheck type = getNameToken(saveType);
-		return pc.calculateSaveBonus(type, "".equals(saveMods) ? "TOTAL"
+		PCCheck check = getNameToken(saveType);
+		return pc.calculateSaveBonus(check, "".equals(saveMods) ? "TOTAL"
 			: saveMods);
 	}
 

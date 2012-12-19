@@ -18,10 +18,11 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import pcgen.core.Globals;
+import pcgen.core.PCCheck;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
-import pcgen.io.exporttoken.CheckToken;
 import pcgen.io.exporttoken.StatToken;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Delta;
 
 /**
@@ -262,10 +263,12 @@ public class SavingThrowPane extends JPanel
 		tempModsLabel.setText(TEMP_MODS);
 		add(tempModsLabel);
 
+		LoadContext context = Globals.getContext();
+
 		//Row 2
 		//Col 1
 		fortPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 0));
-		fortLabel.setText(CheckToken.getNameToken(FORT).toString().toUpperCase());
+		fortLabel.setText(context.ref.getItemInOrder(PCCheck.class, 0).toString().toUpperCase());
 		fortPanel.add(fortLabel);
 		conLabel.setFont(FONT_TEN);
 		conLabel.setText(CON);
@@ -306,7 +309,7 @@ public class SavingThrowPane extends JPanel
 		//Row 3
 		//Col 1
 		refPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 0));
-		refLabel.setText(CheckToken.getNameToken(REFLEX).toString().toUpperCase());
+		refLabel.setText(context.ref.getItemInOrder(PCCheck.class, 1).toString().toUpperCase());
 		refPanel.add(refLabel);
 		dexLabel.setFont(FONT_TEN);
 		dexLabel.setText(DEX);
@@ -347,7 +350,7 @@ public class SavingThrowPane extends JPanel
 		//Row 4
 		//Col 1
 		willPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 0));
-		willLabel.setText(CheckToken.getNameToken(WILL).toString().toUpperCase());
+		willLabel.setText(context.ref.getItemInOrder(PCCheck.class, 2).toString().toUpperCase());
 		willPanel.add(willLabel);
 		wisLabel.setFont(FONT_TEN);
 		wisLabel.setText(WIS);
@@ -461,49 +464,35 @@ public class SavingThrowPane extends JPanel
 
 	public void refresh()
 	{
-		fortTotal.setText(Delta.toString(CheckToken.getCheckToken(pc, FORT,
-			TOTAL_TOKEN)));
-		fortBase.setText(Delta.toString(CheckToken.getCheckToken(pc, FORT,
-			BASE_TOKEN)));
-		PCStat con = Globals.getContext().ref.getAbbreviatedObject(
-				PCStat.class, "CON");
+		LoadContext context = Globals.getContext();
+		PCCheck fort = context.ref.getItemInOrder(PCCheck.class, 0);
+		PCCheck ref = context.ref.getItemInOrder(PCCheck.class, 1);
+		PCCheck will = context.ref.getItemInOrder(PCCheck.class, 2);
+		PCStat con = context.ref.getAbbreviatedObject(PCStat.class, "CON");
+		PCStat dex = context.ref.getAbbreviatedObject(PCStat.class, "DEX");
+		PCStat wis = context.ref.getAbbreviatedObject(PCStat.class, "WIS");
+		fortTotal.setText(Delta.toString(pc.calculateSaveBonus(fort, TOTAL_TOKEN)));
+		fortBase.setText(Delta.toString(pc.calculateSaveBonus(fort, BASE_TOKEN)));
 		fortAbility.setText(StatToken.getModToken(pc, con));
-		fortMagic.setText(Delta.toString(CheckToken.getCheckToken(pc, FORT,
-			MAGIC_TOKEN)));
-		fortMisc.setText(Delta.toString(CheckToken.getCheckToken(pc, FORT,
-			MISC_TOKEN)));
-		fortEpic.setText(Delta.toString(CheckToken.getCheckToken(pc, FORT,
-			EPIC_TOKEN)));
+		fortMagic.setText(Delta.toString(pc.calculateSaveBonus(fort, MAGIC_TOKEN)));
+		fortMisc.setText(Delta.toString(pc.calculateSaveBonus(fort, MISC_TOKEN)));
+		fortEpic.setText(Delta.toString(pc.calculateSaveBonus(fort, EPIC_TOKEN)));
 		fortTemp.setText(PLUS_ZERO);
 
-		refTotal.setText(Delta.toString(CheckToken.getCheckToken(pc, REFLEX,
-			TOTAL_TOKEN)));
-		refBase.setText(Delta.toString(CheckToken.getCheckToken(pc, REFLEX,
-			BASE_TOKEN)));
-		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
-				PCStat.class, "DEX");
+		refTotal.setText(Delta.toString(pc.calculateSaveBonus(ref, TOTAL_TOKEN)));
+		refBase.setText(Delta.toString(pc.calculateSaveBonus(ref, BASE_TOKEN)));
 		refAbility.setText(StatToken.getModToken(pc, dex));
-		refMagic.setText(Delta.toString(CheckToken.getCheckToken(pc, REFLEX,
-			MAGIC_TOKEN)));
-		refMisc.setText(Delta.toString(CheckToken.getCheckToken(pc, REFLEX,
-			MISC_TOKEN)));
-		refEpic.setText(Delta.toString(CheckToken.getCheckToken(pc, REFLEX,
-			EPIC_TOKEN)));
+		refMagic.setText(Delta.toString(pc.calculateSaveBonus(ref, MAGIC_TOKEN)));
+		refMisc.setText(Delta.toString(pc.calculateSaveBonus(ref, MISC_TOKEN)));
+		refEpic.setText(Delta.toString(pc.calculateSaveBonus(ref, EPIC_TOKEN)));
 		refTemp.setText(PLUS_ZERO);
 
-		willTotal.setText(Delta.toString(CheckToken.getCheckToken(pc, WILL,
-			TOTAL_TOKEN)));
-		willBase.setText(Delta.toString(CheckToken.getCheckToken(pc, WILL,
-			BASE_TOKEN)));
-		PCStat wis = Globals.getContext().ref.getAbbreviatedObject(
-				PCStat.class, "WIS");
+		willTotal.setText(Delta.toString(pc.calculateSaveBonus(will, TOTAL_TOKEN)));
+		willBase.setText(Delta.toString(pc.calculateSaveBonus(will, BASE_TOKEN)));
 		willAbility.setText(StatToken.getModToken(pc, wis));
-		willMagic.setText(Delta.toString(CheckToken.getCheckToken(pc, WILL,
-			MAGIC_TOKEN)));
-		willMisc.setText(Delta.toString(CheckToken.getCheckToken(pc, WILL,
-			MISC_TOKEN)));
-		willEpic.setText(Delta.toString(CheckToken.getCheckToken(pc, WILL,
-			EPIC_TOKEN)));
+		willMagic.setText(Delta.toString(pc.calculateSaveBonus(will, MAGIC_TOKEN)));
+		willMisc.setText(Delta.toString(pc.calculateSaveBonus(will, MISC_TOKEN)));
+		willEpic.setText(Delta.toString(pc.calculateSaveBonus(will, EPIC_TOKEN)));
 		willTemp.setText(PLUS_ZERO);
 	}
 
