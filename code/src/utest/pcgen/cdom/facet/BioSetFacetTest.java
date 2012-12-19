@@ -39,7 +39,7 @@ public class BioSetFacetTest extends AbstractItemFacetTest<BioSet>
 	protected BioSet getItem()
 	{
 		BioSet b = new BioSet();
-		b.setName("BioSet" + n);
+		b.setName("BioSet" + n++);
 		return b;
 	}
 }

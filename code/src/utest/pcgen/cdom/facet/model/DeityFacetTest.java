@@ -39,7 +39,7 @@ public class DeityFacetTest extends AbstractItemFacetTest<Deity>
 	protected Deity getItem()
 	{
 		Deity d = new Deity();
-		d.setName("Deity" + n);
+		d.setName("Deity" + n++);
 		return d;
 	}
 }

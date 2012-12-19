@@ -39,7 +39,7 @@ public class AlignmentFacetTest extends AbstractItemFacetTest<PCAlignment>
 	protected PCAlignment getItem()
 	{
 		PCAlignment a = new PCAlignment();
-		a.setName("Align" + n);
+		a.setName("Align" + n++);
 		return a;
 	}
 }

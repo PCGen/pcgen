@@ -39,7 +39,7 @@ public class RaceFacetTest extends AbstractItemFacetTest<Race>
 	protected Race getItem()
 	{
 		Race r = new Race();
-		r.setName("Race" + n);
+		r.setName("Race" + n++);
 		return r;
 	}
 
