@@ -270,7 +270,7 @@ public class CategorizedAbilitySelection extends ConcretePrereqObject implements
 			}
 			else
 			{
-				if (other.selection == null)
+				if (!selection.equals(other.selection))
 				{
 					return false;
 				}
@@ -284,7 +284,7 @@ public class CategorizedAbilitySelection extends ConcretePrereqObject implements
 			}
 			else
 			{
-				if (other.owner == null)
+				if (!owner.equals(other.owner))
 				{
 					return false;
 				}
