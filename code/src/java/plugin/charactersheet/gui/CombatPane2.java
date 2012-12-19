@@ -15,6 +15,7 @@ import pcgen.io.exporttoken.AttackToken;
 import pcgen.io.exporttoken.InitiativeMiscToken;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.util.Delta;
+import pcgen.util.enumeration.AttackType;
 
 /**
  * Confirmed no memory Leaks Dec 10, 2004
@@ -33,7 +34,6 @@ public class CombatPane2 extends javax.swing.JPanel
 	private static final String TOTAL = "Total";
 	private static final String DEX = "Dex";
 	private static final String MISC = "Misc";
-	private static final String MELEE = "MELEE";
 	private static final Font FONT_TEN = new Font("Dialog", 0, 10);
 	private static final Font FONT_NINE = new Font("Dialog", 0, 9);
 
@@ -289,7 +289,7 @@ public class CombatPane2 extends javax.swing.JPanel
 	 */
 	public void refresh()
 	{
-		baseAttack.setText(AttackToken.getParsedToken(pc, MELEE, BLANK));
+		baseAttack.setText(AttackToken.getParsedToken(pc, AttackType.MELEE, BLANK));
 
 		initTotal.setText(Delta.toString(pc.getDisplay().initiativeMod()));
 		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(

@@ -9,6 +9,7 @@ package plugin.charactersheet.gui;
 import gmgen.gui.GridBoxLayout;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.exporttoken.AttackToken;
+import pcgen.util.enumeration.AttackType;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,9 +25,9 @@ public class BaseAttackPane extends JPanel
 {
 	private PlayerCharacter pc;
 
-	private static final String GRAPPLE = "GRAPPLE";
-	private static final String MELEE = "MELEE";
-	private static final String RANGED = "RANGED";
+	private static final AttackType GRAPPLE = AttackType.GRAPPLE;
+	private static final AttackType MELEE = AttackType.MELEE;
+	private static final AttackType RANGED = AttackType.RANGED;
 	private static final String EPIC_TOKEN = "EPIC";
 	private static final String MISC_TOKEN = "MISC";
 	private static final String SIZE_TOKEN = "SIZE";
@@ -230,7 +231,7 @@ public class BaseAttackPane extends JPanel
 		//Row 2
 		//Col 1
 		meleePanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 0));
-		meleeLabel.setText(MELEE);
+		meleeLabel.setText(MELEE.toString());
 		meleePanel.add(meleeLabel);
 		add(meleePanel);
 		//Col 2
@@ -263,7 +264,7 @@ public class BaseAttackPane extends JPanel
 		//Row 3
 		//Col 1
 		rangedPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 0));
-		rangedLabel.setText(RANGED);
+		rangedLabel.setText(RANGED.toString());
 		rangedPanel.add(rangedLabel);
 		add(rangedPanel);
 		//Col 2
@@ -296,7 +297,7 @@ public class BaseAttackPane extends JPanel
 		//Row 4
 		//Col 1
 		grapplePanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 0));
-		grappleLabel.setText(GRAPPLE);
+		grappleLabel.setText(GRAPPLE.toString());
 		grapplePanel.add(grappleLabel);
 		add(grapplePanel);
 		//Col 2

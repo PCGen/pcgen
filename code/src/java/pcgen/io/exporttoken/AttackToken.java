@@ -86,10 +86,11 @@ public class AttackToken extends Token
 
 		if (aTok.hasMoreTokens())
 		{
-			String attackType = aTok.nextToken();
+			String attackTypeString = aTok.nextToken();
 			String modifier = aTok.hasMoreTokens() ? aTok.nextToken() : "";
 			String format = aTok.hasMoreTokens() ? aTok.nextToken() : "";
 
+			AttackType attackType = AttackType.valueOf(attackTypeString);
 			retString = getParsedToken(pc, attackType, modifier);
 			
 			// SHORT means we only return the first attack bonus
@@ -119,7 +120,7 @@ public class AttackToken extends Token
 	 *                  SIZE, STAT, TOTAL or an empty string
 	 * @return The token value.
 	 */
-	public static String getParsedToken(PlayerCharacter pc, String attackType,
+	public static String getParsedToken(PlayerCharacter pc, AttackType attackType,
 		String modifier)
 	{
 		if (modifier.equals("TOTAL"))
@@ -131,7 +132,7 @@ public class AttackToken extends Token
 			}
 			else if (attackType.equals("UNARMED"))
 			{
-				int total = getTotalToken(pc, "MELEE");
+				int total = getTotalToken(pc, AttackType.MELEE);
 				// TODO: Is this correct for 3.0 also?
 				return pc.getAttackString(AttackType.MELEE, total);
 				//return pc.getAttackString(Constants.ATTACKSTRING_UNARMED, total);
@@ -145,7 +146,7 @@ public class AttackToken extends Token
 		return getSubToken(pc, attackType, modifier);
 	}
 
-	private static String getSubToken(PlayerCharacter pc, String attackType,
+	private static String getSubToken(PlayerCharacter pc, AttackType attackType,
 		String modifier)
 	{
 		if (modifier.equals("BASE"))
@@ -176,7 +177,7 @@ public class AttackToken extends Token
 		}
 		else
 		{
-			return pc.getAttackString(AttackType.valueOf(attackType));
+			return pc.getAttackString(attackType);
 		}
 		return "";
 	}
@@ -207,20 +208,19 @@ public class AttackToken extends Token
 	 * @param aType
 	 * @return misc ATTACK token
 	 */
-	public static int getMiscToken(PlayerCharacter pc, String aType)
+	public static int getMiscToken(PlayerCharacter pc, AttackType at)
 	{
 		int tohitBonus =
-				((int) pc.getTotalBonusTo("TOHIT", "TOHIT") + (int) pc
-					.getTotalBonusTo("TOHIT", "TYPE." + aType))
-					- (int) pc.getDisplay().getStatBonusTo("TOHIT", "TYPE." + aType)
+				((int) pc.getTotalBonusTo("TOHIT", "TOHIT") 
+					+ (int) pc.getTotalBonusTo("TOHIT", "TYPE." + at))
+					- (int) pc.getDisplay().getStatBonusTo("TOHIT", "TYPE." + at)
 					- (int) pc.getSizeAdjustmentBonusTo("TOHIT", "TOHIT");
 		int miscBonus =
-				((int) pc.getTotalBonusTo("COMBAT", "TOHIT") + (int) pc
-					.getTotalBonusTo("COMBAT", "TOHIT." + aType))
-					- (int) pc.getDisplay().getStatBonusTo("COMBAT", "TOHIT." + aType)
+				((int) pc.getTotalBonusTo("COMBAT", "TOHIT")
+					+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT." + at))
+					- (int) pc.getDisplay().getStatBonusTo("COMBAT", "TOHIT." + at)
 					- (int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT")
-					- (int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT."
-						+ aType)
+					- (int) pc.getSizeAdjustmentBonusTo("COMBAT", "TOHIT." + at)
 					- (int) pc.getBonusDueToType("COMBAT", "TOHIT", "EPIC");
 		return miscBonus + tohitBonus;
 	}
@@ -231,7 +231,7 @@ public class AttackToken extends Token
 	 * @param aType
 	 * @return size ATTACK token
 	 */
-	public static int getSizeToken(PlayerCharacter pc, String aType)
+	public static int getSizeToken(PlayerCharacter pc, AttackType aType)
 	{
 		int tohitBonus =
 				(int) pc.getSizeAdjustmentBonusTo("TOHIT", "TOHIT")
@@ -251,12 +251,12 @@ public class AttackToken extends Token
 	 * @param aType
 	 * @return stat ATTACK token
 	 */
-	public static int getStatToken(CharacterDisplay display, String aType)
+	public static int getStatToken(CharacterDisplay display, AttackType at)
 	{
 		final int tohitBonus =
-				(int) display.getStatBonusTo("TOHIT", "TYPE." + aType);
+				(int) display.getStatBonusTo("TOHIT", "TYPE." + at);
 		final int statBonus =
-				(int) display.getStatBonusTo("COMBAT", "TOHIT." + aType);
+				(int) display.getStatBonusTo("COMBAT", "TOHIT." + at);
 
 		return statBonus + tohitBonus;
 	}
@@ -267,14 +267,14 @@ public class AttackToken extends Token
 	 * @param aType
 	 * @return total ATTACK token
 	 */
-	public static int getTotalToken(PlayerCharacter pc, String aType)
+	public static int getTotalToken(PlayerCharacter pc, AttackType at)
 	{
 		final int tohitBonus =
 				(int) pc.getTotalBonusTo("TOHIT", "TOHIT")
-					+ (int) pc.getTotalBonusTo("TOHIT", "TYPE." + aType);
+					+ (int) pc.getTotalBonusTo("TOHIT", "TYPE." + at);
 		final int totalBonus =
 				(int) pc.getTotalBonusTo("COMBAT", "TOHIT")
-					+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT." + aType);
+					+ (int) pc.getTotalBonusTo("COMBAT", "TOHIT." + at);
 		return tohitBonus + totalBonus;
 	}
 }
