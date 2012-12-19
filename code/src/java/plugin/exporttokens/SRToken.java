@@ -23,10 +23,11 @@
  * Last Edited: $Date$
  *
  */
-package pcgen.io.exporttoken;
+package plugin.exporttokens;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+import pcgen.io.exporttoken.Token;
 
 /**
  * SR token for export

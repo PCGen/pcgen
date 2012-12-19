@@ -14,7 +14,6 @@ import java.util.Properties;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.exporttoken.MovementToken;
-import pcgen.io.exporttoken.SRToken;
 import pcgen.util.Delta;
 
 /**
@@ -1078,7 +1077,7 @@ public class CombatPane1 extends javax.swing.JPanel
 			+ PERCENT);
 		armorCheck.setText(Delta.toString(pc.modToFromEquipment(ACCHECK_TOKEN)));
 		//Max Dex
-		spellResist.setText(Integer.toString(SRToken.getSRToken(pc)));
+		spellResist.setText(Integer.toString(pc.getSR()));
 		updatePane();
 	}
 
