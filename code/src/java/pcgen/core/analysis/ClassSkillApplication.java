@@ -46,7 +46,7 @@ public class ClassSkillApplication
 		pc.removeAllAssocs(cl, AssociationListKey.CLASSSKILLLIST);
 		for (ClassSkillList st : csc.driveChoice(pc))
 		{
-			pc.addAssoc(pc, AssociationListKey.CLASSSKILLLIST, st);
+			pc.addAssoc(cl, AssociationListKey.CLASSSKILLLIST, st);
 		}
 	}
 
