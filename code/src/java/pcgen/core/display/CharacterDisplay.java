@@ -698,6 +698,11 @@ public class CharacterDisplay
 		return initiativeFacet.getInitiative(id);
 	}
 
+	public int initiativeBonus()
+	{
+		return initiativeFacet.getInitiativeBonus(id);
+	}
+
 	public Handed getHandedObject()
 	{
 		return handedFacet.getHanded(id);

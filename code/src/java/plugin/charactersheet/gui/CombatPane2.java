@@ -11,7 +11,6 @@ import java.awt.Font;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
-import pcgen.io.exporttoken.InitiativeMiscToken;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.util.Delta;
 import pcgen.util.enumeration.AttackType;
@@ -293,8 +292,7 @@ public class CombatPane2 extends javax.swing.JPanel
 		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
 				PCStat.class, "DEX");
 		dexMod.setText(StatToken.getModToken(pc, dex));
-		miscMod.setText(Delta.toString(InitiativeMiscToken
-			.getInitiativeMiscToken(pc)));
+		miscMod.setText(Delta.toString(pc.getDisplay().initiativeBonus()));
 	}
 
 	/**

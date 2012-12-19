@@ -52,6 +52,11 @@ public class InitiativeFacet
 				+ formulaResolvingFacet.resolve(id, initcomp, "").intValue();
 	}
 
+	public int getInitiativeBonus(CharID id)
+	{
+		return (int) bonusCheckingFacet.getBonus(id, "COMBAT", "Initiative");
+	}
+
 	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
 	{
 		this.formulaResolvingFacet = formulaResolvingFacet;
