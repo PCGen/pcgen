@@ -5069,9 +5069,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		if (!isImporting())
 		{
 			List<CategorizedAbilitySelection> templateFeats = feats(inTemplate, getTotalLevels(), totalHitDice(), true);
-			for (int j = 0, y = templateFeats.size(); j < y; ++j)
+			for (CategorizedAbilitySelection cas : templateFeats)
 			{
-				AbilityUtilities.modFeatsFromList(this, templateFeats.get(j));
+				AbilityUtilities.modFeatsFromList(this, cas);
 			}
 		}
 
