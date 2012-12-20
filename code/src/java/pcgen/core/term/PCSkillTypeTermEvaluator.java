@@ -50,6 +50,7 @@ public class PCSkillTypeTermEvaluator
 
 		pc.refreshSkillList();
 
+		//Use Output order to filter for visibility
 		final List<Skill> skillList = pc
 				.getSkillListInOutputOrder(new ArrayList<Skill>(pc
 						.getSkillSet()));
