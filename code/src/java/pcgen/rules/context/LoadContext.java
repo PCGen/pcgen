@@ -132,6 +132,7 @@ public abstract class LoadContext
 		ref.setSourceURI(sourceURI);
 		getListContext().setSourceURI(sourceURI);
 		clearStatefulInformation();
+		Logging.debugPrint("Starting Load of " + sourceURI);
 	}
 
 	/*
