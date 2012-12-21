@@ -84,7 +84,13 @@ public class HdToken extends AbstractTokenWithSeparator<PCTemplate> implements
 			int minusLoc = hdString.indexOf('-');
 			if (minusLoc == -1)
 			{
-				if (hdString.indexOf('+') == hdString.length() - 1)
+				int plusLoc = hdString.indexOf('+');
+				if (plusLoc == 0)
+				{
+					return new ParseResult.Fail("Malformed " + getTokenName()
+						+ " Cannot start with +: " + hdString, context);
+				}
+				else if (plusLoc == hdString.length() - 1)
 				{
 					minhd = Integer.parseInt(hdString.substring(0, hdString
 							.length() - 1));

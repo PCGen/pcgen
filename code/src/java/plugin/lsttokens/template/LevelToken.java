@@ -79,6 +79,12 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		StringTokenizer tok = new StringTokenizer(value, Constants.COLON);
 
 		String levelStr = tok.nextToken();
+		int plusLoc = levelStr.indexOf('+');
+		if (plusLoc == 0)
+		{
+			return new ParseResult.Fail("Malformed " + getTokenName()
+				+ " Level cannot start with +: " + value, context);
+		}
 		int lvl;
 		try
 		{
