@@ -123,6 +123,7 @@ import pcgen.cdom.facet.SpellListFacet;
 import pcgen.cdom.facet.SpellSupportFacet;
 import pcgen.cdom.facet.StartingLanguageFacet;
 import pcgen.cdom.facet.StatBonusFacet;
+import pcgen.cdom.facet.StatCalcFacet;
 import pcgen.cdom.facet.StatValueFacet;
 import pcgen.cdom.facet.SubClassFacet;
 import pcgen.cdom.facet.SubstitutionClassFacet;
@@ -301,6 +302,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private SkillOutputOrderFacet skillOutputOrderFacet = FacetLibrary.getFacet(SkillOutputOrderFacet.class);
 	private SkillPoolFacet skillPoolFacet = FacetLibrary.getFacet(SkillPoolFacet.class);
 	private StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
+	private StatCalcFacet statCalcFacet = FacetLibrary.getFacet(StatCalcFacet.class);
 	private StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
 	private StatValueFacet statValueFacet = FacetLibrary.getFacet(StatValueFacet.class);
 	private SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
@@ -581,7 +583,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		PCStat ss = aClass.get(ObjectKey.SPELL_STAT);
 		if (ss != null)
 		{
-			baseSpellStat = StatAnalysis.getTotalStatFor(this, ss);
+			baseSpellStat = this.getTotalStatFor(ss);
 			// final List<TypedBonus> bonuses = getBonusesTo("STAT",
 			// "BASESPELLSTAT");
 			// bonuses.addAll( getBonusesTo("STAT",
@@ -591,7 +593,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			baseSpellStat += (int) getTotalBonusTo("STAT", "BASESPELLSTAT");
 			baseSpellStat += (int) getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS=" + aClass.getKeyName());
 			baseSpellStat += (int) getTotalBonusTo("STAT", "CAST." + ss.getAbb());
-			baseSpellStat = StatAnalysis.getModForNumber(this, baseSpellStat, ss);
+			baseSpellStat = this.getModForNumber(baseSpellStat, ss);
 		}
 		return baseSpellStat;
 	}
@@ -4251,7 +4253,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public int getTotalStatAtLevel(final PCStat stat, final int level, final boolean includePost)
 	{
-		int curStat = StatAnalysis.getTotalStatFor(this, stat);
+		int curStat = this.getTotalStatFor(stat);
 		for (int idx = getLevelInfoSize() - 1; idx >= level; --idx)
 		{
 			final int statLvlAdjust = levelInfoFacet.get(id, idx).getTotalStatMod(stat, true);
@@ -10144,7 +10146,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			PCStat stat = sp.get(ObjectKey.SPELL_STAT);
 			if (stat != null)
 			{
-				dc += StatAnalysis.getStatModFor(this, stat);
+				dc += this.getStatModFor(stat);
 			}
 		}
 
@@ -10289,7 +10291,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			PCStat stat = sp.get(ObjectKey.SPELL_STAT);
 			if (stat != null)
 			{
-				concentration += StatAnalysis.getStatModFor(this, stat);
+				concentration += this.getStatModFor(stat);
 			}
 		}
 
@@ -11371,4 +11373,24 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return skillOutputOrderFacet.get(id, skill);
 	}
 
+	public int getBaseStatFor(PCStat stat)
+	{
+		return statCalcFacet.getBaseStatFor(id, stat);
+	}
+
+	public int getTotalStatFor(PCStat stat)
+	{
+		return statCalcFacet.getTotalStatFor(id, stat);
+	}
+
+	public int getStatModFor(PCStat stat)
+	{
+		return statCalcFacet.getStatModFor(id, stat);
+	}
+
+	public int getModForNumber(int aNum,
+		PCStat stat)
+	{
+		return statCalcFacet.getModFornumber(id, aNum, stat);
+	}
 }

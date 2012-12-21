@@ -25,7 +25,6 @@ package gmgen.plugin;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.display.CharacterDisplay;
 
 public class PcgSystemInitiative extends SystemInitiative
@@ -39,7 +38,7 @@ public class PcgSystemInitiative extends SystemInitiative
 		display = pc.getDisplay();
 		PCStat stat = Globals.getContext().ref
 				.getAbbreviatedObject(PCStat.class, "DEX");
-		this.attribute = new SystemAttribute("Dexterity", StatAnalysis.getTotalStatFor(pc, stat));
+		this.attribute = new SystemAttribute("Dexterity", pc.getTotalStatFor(stat));
 		bonus = 0;
 		die = new Dice(1, 20);
 	}
@@ -49,7 +48,7 @@ public class PcgSystemInitiative extends SystemInitiative
 	{
 		PCStat stat = Globals.getContext().ref
 				.getAbbreviatedObject(PCStat.class, "DEX");
-		return new SystemAttribute("Dexterity", StatAnalysis.getTotalStatFor(pc, stat));
+		return new SystemAttribute("Dexterity", pc.getTotalStatFor(stat));
 	}
 
     @Override
@@ -64,7 +63,7 @@ public class PcgSystemInitiative extends SystemInitiative
 	{
 		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
 				PCStat.class, "DEX");
-		return display.initiativeMod() - StatAnalysis.getStatModFor(pc, dex) + bonus;
+		return display.initiativeMod() - pc.getStatModFor(dex) + bonus;
 	}
 
     @Override

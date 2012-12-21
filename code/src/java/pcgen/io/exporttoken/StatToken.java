@@ -232,7 +232,7 @@ public class StatToken extends Token
 		}
 		else if (useEquip && useTemp)
 		{
-			aTotal = StatAnalysis.getTotalStatFor(pc, stat);
+			aTotal = pc.getTotalStatFor(stat);
 		}
 		else
 		{
@@ -260,7 +260,7 @@ public class StatToken extends Token
 				Integer.parseInt(getStatToken(pc, stat, useTemp, useEquip,
 					usePost, useLevel, aLevel, false));
 
-		int temp = StatAnalysis.getModForNumber(pc, aTotal, stat);
+		int temp = pc.getModForNumber(aTotal, stat);
 		return Delta.toString(temp);
 	}
 
@@ -270,7 +270,7 @@ public class StatToken extends Token
 		{
 			return "*";
 		}
-		return Integer.toString(StatAnalysis.getBaseStatFor(pc, stat));
+		return Integer.toString(pc.getBaseStatFor(stat));
 	}
 
 	public static String getBaseModToken(PlayerCharacter pc, PCStat stat)
@@ -280,7 +280,7 @@ public class StatToken extends Token
 			return "+0";
 		}
 		int aTotal = Integer.parseInt(getBaseToken(pc, stat));
-		int temp = StatAnalysis.getModForNumber(pc, aTotal, stat);
+		int temp = pc.getModForNumber(aTotal, stat);
 
 		return Delta.toString(temp);
 	}

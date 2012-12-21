@@ -54,7 +54,7 @@ public final class SkillModifier
 		PCStat stat = sk.get(ObjectKey.KEY_STAT);
 		if (stat != null)
 		{
-			bonus = StatAnalysis.getStatModFor(aPC, stat);
+			bonus = aPC.getStatModFor(stat);
 			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + stat.getAbb());
 		}
 		bonus += aPC.getTotalBonusTo("SKILL", keyName);
@@ -141,7 +141,7 @@ public final class SkillModifier
 		}
 		else
 		{
-			return StatAnalysis.getStatModFor(pc, stat);
+			return pc.getStatModFor(stat);
 		}
 	}
 
@@ -217,7 +217,7 @@ public final class SkillModifier
 		PCStat stat = sk.get(ObjectKey.KEY_STAT);
 		if (stat != null)
 		{
-			bonus = StatAnalysis.getStatModFor(aPC, stat);
+			bonus = aPC.getStatModFor(stat);
 			bonus += aPC.getTotalBonusTo("SKILL", "STAT." + stat.getAbb());
 			appendBonusDesc(sk, bonusDetails, bonus, "STAT");
 		}

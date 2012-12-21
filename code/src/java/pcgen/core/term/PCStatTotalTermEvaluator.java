@@ -29,7 +29,6 @@ package pcgen.core.term;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.analysis.StatAnalysis;
 
 public class PCStatTotalTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -47,7 +46,7 @@ public class PCStatTotalTermEvaluator
 	{
 		PCStat stat = Globals.getContext().ref
 				.getAbbreviatedObject(PCStat.class, statAbbrev);
-		return (float) StatAnalysis.getTotalStatFor(pc, stat);
+		return (float) pc.getTotalStatFor(stat);
 	}
 
 	@Override

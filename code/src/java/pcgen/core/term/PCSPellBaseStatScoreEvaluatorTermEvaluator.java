@@ -30,7 +30,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.analysis.StatAnalysis;
 
 public class PCSPellBaseStatScoreEvaluatorTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -60,7 +59,7 @@ public class PCSPellBaseStatScoreEvaluatorTermEvaluator
 			return 10f;
 		}
 
-		return (float) StatAnalysis.getStatModFor(pc, ss);
+		return (float) pc.getStatModFor(ss);
 	}
 
 	@Override

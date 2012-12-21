@@ -100,7 +100,6 @@ import pcgen.core.Skill;
 import pcgen.core.VariableProcessor;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SpellCountCalc;
-import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.EquipSet;
@@ -987,7 +986,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				continue;
 			}
 
-			final int statValue = StatAnalysis.getBaseStatFor(theCharacter, aStat);
+			final int statValue = theCharacter.getBaseStatFor(aStat);
 			i += getPurchaseCostForStat(theCharacter, statValue);
 		}
 		i += (int) theCharacter.getTotalBonusTo("POINTBUY", "SPENT"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -1495,7 +1494,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		if (stat instanceof PCStat && !charDisplay.isNonAbility((PCStat) stat))
 		{
-			return Integer.valueOf(StatAnalysis.getStatModFor(theCharacter, (PCStat) stat));
+			return Integer.valueOf(theCharacter.getStatModFor((PCStat) stat));
 		}
 		return 0;
 	}
@@ -1509,7 +1508,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		DefaultReferenceFacade<Integer> score = statScoreMap.get(stat);
 		if (score == null)
 		{
-			score = new DefaultReferenceFacade<Integer>(StatAnalysis.getTotalStatFor(theCharacter, (PCStat) stat));
+			score = new DefaultReferenceFacade<Integer>(theCharacter.getTotalStatFor((PCStat) stat));
 			statScoreMap.put(stat, score);
 		}
 		return score;
@@ -1525,7 +1524,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return 0;
 		}
-		return StatAnalysis.getBaseStatFor(theCharacter, (PCStat) stat);
+		return theCharacter.getBaseStatFor((PCStat) stat);
 	}
 
 	/* (non-Javadoc)
@@ -1543,7 +1542,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			return "*"; //$NON-NLS-1$
 		}
 
-		return SettingsHandler.getGame().getStatDisplayText(StatAnalysis.getTotalStatFor(theCharacter, (PCStat) stat));
+		return SettingsHandler.getGame().getStatDisplayText(theCharacter.getTotalStatFor((PCStat) stat));
 	}
 
 	/* (non-Javadoc)
@@ -1589,8 +1588,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		int iRace = (int) theCharacter.getRaceBonusTo("STAT", activeStat.getAbb()); //$NON-NLS-1$
 		iRace += (int) theCharacter.getBonusDueToType("STAT", activeStat.getAbb(), "RACIAL");
 
-		return StatAnalysis.getTotalStatFor(theCharacter, activeStat)
-				- StatAnalysis.getBaseStatFor(theCharacter, activeStat) - iRace;
+		return theCharacter.getTotalStatFor(activeStat)
+				- theCharacter.getBaseStatFor(activeStat) - iRace;
 	}
 
 	/* (non-Javadoc)
@@ -1753,7 +1752,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			DefaultReferenceFacade<Integer> score = statScoreMap.get(stat);
 			if (stat instanceof PCStat)
 			{
-				score.setReference(StatAnalysis.getTotalStatFor(theCharacter, (PCStat) stat));
+				score.setReference(theCharacter.getTotalStatFor((PCStat) stat));
 			}
 		}
 		if (charLevelsFacade != null)
@@ -3083,8 +3082,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 					continue;
 				}
 
-				final int currentStat = StatAnalysis.getBaseStatFor(theCharacter, aStat);
-				final int currentMod = StatAnalysis.getStatModFor(theCharacter, aStat);
+				final int currentStat = theCharacter.getBaseStatFor(aStat);
+				final int currentMod = theCharacter.getStatModFor(aStat);
 
 				statTotal += currentStat;
 				modTotal += currentMod;

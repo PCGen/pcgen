@@ -19,75 +19,11 @@
  */
 package pcgen.core.analysis;
 
-import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 
 public class StatAnalysis
 {
-	public static int getBaseStatFor(PlayerCharacter aPC, PCStat stat)
-	{
-		// Only check for a lock if the stat hasn't been unlocked
-		if (!aPC.hasUnlockedStat(stat))
-		{
-			Number val = aPC.getLockedStat(stat);
-			if (val != null)
-			{
-				return val.intValue();
-			}
-		}
-		
-		int z = aPC.getVariableValue("BASE." + stat.getAbb(), "").intValue();
-
-		if (z != 0)
-		{
-			return z;
-		}
-		Integer score = aPC.getStat(stat);
-		return score == null ? 0 : score;
-	}
-
-	public static int getModForNumber(PlayerCharacter ownerPC, int aNum,
-		PCStat stat)
-	{
-		return ownerPC.getVariableValue(
-			stat.getSafe(FormulaKey.STAT_MOD).toString(),
-			Integer.toString(aNum)).intValue();
-	}
-
-	public static int getStatModFor(PlayerCharacter ownerPC, PCStat stat)
-	{
-		return ownerPC.getVariableValue(
-			stat.getSafe(FormulaKey.STAT_MOD).toString(),
-			"STAT:" + stat.getAbb()).intValue();
-	}
-
-	/**
-	 * Calculate the total for the requested stat. If equipment or temporary
-	 * bonuses should be excluded, getPartialStatFor should be used instead.
-	 *
-	 * @param stat The abbreviation of the stat to be calculated
-	 * @return The value of the stat
-	 */
-	public static int getTotalStatFor(PlayerCharacter aPC, PCStat stat)
-	{
-		int y = getBaseStatFor(aPC, stat);
-
-		// Only check for a lock if the stat hasn't been unlocked
-		if (!aPC.hasUnlockedStat(stat))
-		{
-			Number val = aPC.getLockedStat(stat);
-			if (val != null)
-			{
-				return val.intValue();
-			}
-		}
-
-		y += aPC.getTotalBonusTo("STAT", stat.getAbb());
-
-		return y;
-	}
-
 	/**
 	 * Retrieve a correctly calculated attribute value where one or more
 	 * types are excluded.
@@ -109,7 +45,7 @@ public class StatAnalysis
 			}
 		}
 
-		int y = getBaseStatFor(aPC, stat);
+		int y = aPC.getBaseStatFor(stat);
 
 		y += aPC.getPartialStatBonusFor(stat, useTemp, useEquip);
 

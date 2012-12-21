@@ -6,7 +6,6 @@ import pcgen.core.Skill;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
-import pcgen.core.analysis.StatAnalysis;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -47,8 +46,7 @@ public class SkillListModsToken extends Token
 			{
 				modSkill =
 						SkillModifier.modifier(aSkill, pc).intValue()
-							- StatAnalysis.getStatModFor(pc, 
-									aSkill.get(ObjectKey.KEY_STAT));
+							- pc.getStatModFor(aSkill.get(ObjectKey.KEY_STAT));
 			}
 
 			if ((SkillRankControl.getTotalRank(pc, aSkill).intValue() > 0) || (modSkill > 0))

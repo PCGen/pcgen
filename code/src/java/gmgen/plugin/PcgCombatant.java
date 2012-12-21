@@ -50,7 +50,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
-import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.DescriptionFormatting;
@@ -84,7 +83,7 @@ public class PcgCombatant extends Combatant
 		PCStat stat = Globals.getContext().ref
 				.getAbbreviatedObject(PCStat.class, "CON");
 		this.hitPoints = new SystemHP(new SystemAttribute("Constitution",
-				StatAnalysis.getTotalStatFor(pc, stat)), pc.hitPoints(), pc
+				pc.getTotalStatFor(stat)), pc.hitPoints(), pc
 				.hitPoints());
 		setCombatantType("PC");
 	}
@@ -117,8 +116,7 @@ public class PcgCombatant extends Combatant
 			PCStat stat = Globals.getContext().ref
 					.getAbbreviatedObject(PCStat.class, "CON");
 			this.hitPoints =
-					new SystemHP(new SystemAttribute("Constitution", StatAnalysis
-						.getTotalStatFor(pc, stat)), pc.hitPoints(), pc
+					new SystemHP(new SystemAttribute("Constitution", pc.getTotalStatFor(stat)), pc.hitPoints(), pc
 						.hitPoints());
 
 			setStatus(combatant.getAttribute("status").getValue());
@@ -808,8 +806,7 @@ public class PcgCombatant extends Combatant
 				{
 					modSkill =
 							SkillModifier.modifier(skill, pc).intValue()
-								- StatAnalysis.getStatModFor(pc,
-										skill.get(ObjectKey.KEY_STAT));
+								- pc.getStatModFor(skill.get(ObjectKey.KEY_STAT));
 					Logging.debugPrint("modSkill: " + modSkill);
 				}
 

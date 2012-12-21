@@ -30,7 +30,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -54,7 +53,7 @@ public class PreStatTester extends AbstractPrerequisiteTest implements
 		PCStat stat = Globals.getContext().ref
 				.getAbbreviatedObject(PCStat.class, prereq.getKey());
 		final int statValue =
-				StatAnalysis.getTotalStatFor(character, stat);
+				character.getTotalStatFor(stat);
 
 		final int runningTotal =
 				prereq.getOperator().compare(statValue, targetNumber);

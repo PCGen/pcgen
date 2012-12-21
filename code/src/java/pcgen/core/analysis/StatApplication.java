@@ -83,9 +83,9 @@ public class StatApplication
 			for (PCStat aStat : aPC.getDisplay().getStatSet())
 			{
 				final int iAdjStat =
-						StatAnalysis.getTotalStatFor(aPC, aStat);
+						aPC.getTotalStatFor(aStat);
 				final int iCurStat =
-						StatAnalysis.getBaseStatFor(aPC, aStat);
+						aPC.getBaseStatFor(aStat);
 				sStats.append(aStat.getAbb()).append(": ").append(iCurStat);
 	
 				if (iCurStat != iAdjStat)
@@ -94,7 +94,7 @@ public class StatApplication
 				}
 	
 				sStats.append(" (").append(
-					StatAnalysis.getStatModFor(aPC, aStat)).append(
+					aPC.getStatModFor(aStat)).append(
 					")");
 	
 				if (allowStacks || !statsAlreadyBonused.contains(aStat))

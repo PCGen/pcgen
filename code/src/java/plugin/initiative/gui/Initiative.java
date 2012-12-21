@@ -73,11 +73,11 @@ import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
 
 import org.jdom.output.Format;
+
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.analysis.StatAnalysis;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
@@ -951,7 +951,7 @@ public class Initiative extends javax.swing.JPanel
 
 				PCStat stat = Globals.getContext().ref
 						.getAbbreviatedObject(PCStat.class, "CON");
-				if (damage > StatAnalysis.getTotalStatFor(pc, stat))
+				if (damage > pc.getTotalStatFor(stat))
 				{
 					isEnough = true;
 				}

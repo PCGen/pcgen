@@ -45,7 +45,6 @@ import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.QualifiedName;
-import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.VisionDisplay;
 import pcgen.io.ExportHandler;
@@ -267,7 +266,7 @@ public class PlayerCharacterOutput
 	{
 		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
 				PCStat.class, "DEX");
-		int statMod = StatAnalysis.getStatModFor(pc, dex);
+		int statMod = pc.getStatModFor(dex);
 		int miscMod = display.initiativeMod() - statMod;
 
 		return "+" + miscMod;
@@ -277,7 +276,7 @@ public class PlayerCharacterOutput
 	{
 		PCStat dex = Globals.getContext().ref.getAbbreviatedObject(
 				PCStat.class, "DEX");
-		int statMod = StatAnalysis.getStatModFor(pc, dex);
+		int statMod = pc.getStatModFor(dex);
 
 		return "+" + statMod;
 	}
@@ -362,14 +361,14 @@ public class PlayerCharacterOutput
 
 	public String getStat(PCStat stat)
 	{
-		return Integer.toString(StatAnalysis.getTotalStatFor(pc, stat));
+		return Integer.toString(pc.getTotalStatFor(stat));
 	}
 
 	public String getStatMod(PCStat stat)
 	{
 		int returnValue;
 
-		returnValue = StatAnalysis.getStatModFor(pc, stat);
+		returnValue = pc.getStatModFor(stat);
 
 		return (returnValue < 0) ? Integer.toString(returnValue) : "+"
 			+ returnValue;

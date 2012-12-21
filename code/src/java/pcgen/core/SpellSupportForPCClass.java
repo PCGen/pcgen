@@ -42,7 +42,6 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.analysis.SpellLevel;
-import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 
@@ -216,7 +215,7 @@ public class SpellSupportForPCClass
 
 		if (aStat != null)
 		{
-			stat = StatAnalysis.getTotalStatFor(aPC, aStat);
+			stat = aPC.getTotalStatFor(aStat);
 			statString = aStat.getAbb();
 		}
 		final int bonusStat = (int) aPC.getTotalBonusTo("STAT", "KNOWN."
@@ -539,7 +538,7 @@ public class SpellSupportForPCClass
 
 		if (aStat != null)
 		{
-			stat = StatAnalysis.getTotalStatFor(aPC, aStat);
+			stat = aPC.getTotalStatFor(aStat);
 			statString = aStat.getAbb();
 		}
 
