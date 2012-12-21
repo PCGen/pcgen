@@ -112,6 +112,7 @@ import pcgen.cdom.facet.KnownSpellFacet;
 import pcgen.cdom.facet.LevelInfoFacet;
 import pcgen.cdom.facet.MasterFacet;
 import pcgen.cdom.facet.MasterSkillFacet;
+import pcgen.cdom.facet.NoteItemFacet;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.PrimaryWeaponFacet;
 import pcgen.cdom.facet.SecondaryWeaponFacet;
@@ -332,6 +333,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
 	private CharacterTypeFacet characterTypeFacet = FacetLibrary.getFacet(CharacterTypeFacet.class);
+	private NoteItemFacet noteItemFacet = FacetLibrary.getFacet(NoteItemFacet.class);
 
 	//The following are other facets
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
@@ -416,9 +418,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			.getFacet(PortraitThumbnailRectFacet.class);
 
 	private LevelInfoFacet levelInfoFacet = FacetLibrary.getFacet(LevelInfoFacet.class);
-
-	// List of Note objects
-	private final ArrayList<NoteItem> notesList = new ArrayList<NoteItem>();
 
 	private ClassSource defaultDomainSource = null;
 
@@ -1945,9 +1944,14 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * 
 	 * @return A list of <tt>NoteItem</tt> objects.
 	 */
-	public ArrayList<NoteItem> getNotesList()
+	public Collection<NoteItem> getNotesList()
 	{
-		return notesList;
+		return noteItemFacet.getSet(id);
+	}
+
+	public int getNotesCount()
+	{
+		return noteItemFacet.getCount(id);
 	}
 
 	/**
@@ -2769,7 +2773,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void addNotesItem(final NoteItem item)
 	{
-		notesList.add(item);
+		noteItemFacet.add(id, item);
 		setDirty(true);
 	}
 
@@ -8010,10 +8014,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		{
 			Logging.errorPrint("PlayerCharacter.clone failed", e);
 		}
-		for (NoteItem n : getNotesList())
-		{
-			aClone.addNotesItem(n.clone());
-		}
 		Collection<AbstractStorageFacet> beans = SpringHelper.getStorageBeans();
 		for (AbstractStorageFacet bean : beans)
 		{
@@ -11392,5 +11392,16 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		PCStat stat)
 	{
 		return statCalcFacet.getModFornumber(id, aNum, stat);
+	}
+
+	public void removeNote(NoteItem note)
+	{
+		noteItemFacet.remove(id,  note);
+		setDirty(true);
+	}
+
+	public boolean containsNote(NoteItem note)
+	{
+		return noteItemFacet.contains(id, note);
 	}
 }

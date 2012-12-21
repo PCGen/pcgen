@@ -373,10 +373,9 @@ public class NotesPanel extends FlippingSplitPane
 
 	private void populateNotes()
 	{
-		List<NoteItem> notesList = pc.getNotesList();
 		NoteItem csNotes = null;
 		int newNodeId = 0;
-		for (NoteItem note : notesList)
+		for (NoteItem note : pc.getNotesList())
 		{
 			if (note.getId() > newNodeId)
 			{
@@ -432,8 +431,7 @@ public class NotesPanel extends FlippingSplitPane
 		rootTreeNode = new NoteTreeNode(null, pc);
 		notesModel = new DefaultTreeModel(rootTreeNode);
 		notesTree.setModel(notesModel);
-		List<NoteItem> testList = pc.getNotesList();
-		for (NoteItem testnote : testList)
+		for (NoteItem testnote : pc.getNotesList())
 		{
 			//Don't mess with this - I plan on uncommenting this later when I don't need to test the hidden node anymore -DJ
 			//if(!testnote.getName().equals("Hidden")) {
@@ -556,44 +554,37 @@ public class NotesPanel extends FlippingSplitPane
 	{
 		if ((currentItem != null) && textIsDirty)
 		{
-			int x = pc.getNotesList().indexOf(currentItem);
 			currentItem.setValue(notesArea.getText());
 
-			if (x > -1)
+			if (pc.containsNote(currentItem))
 			{
-				(pc.getNotesList().get(x)).setValue(notesArea.getText());
-				pc.setDirty(true);
+				//No action necessary - NoteItem was just updated
 			}
 			else if (currentItem == bioNote)
 			{
 				pc.setBio(notesArea.getText());
-				pc.setDirty(true);
 			}
 			else if (currentItem == descriptionNote)
 			{
 				pc.setDescription(notesArea.getText());
-				pc.setDirty(true);
 			}
 			else if (currentItem == otherAssetsNote)
 			{
 				pc.setStringFor(StringKey.MISC_ASSETS, notesArea.getText());
-				pc.setDirty(true);
 			}
 			else if (currentItem == companionNote)
 			{
 				pc.setStringFor(StringKey.MISC_COMPANIONS, notesArea.getText());
-				pc.setDirty(true);
 			}
 			else if (currentItem == magicItemsNote)
 			{
 				pc.setStringFor(StringKey.MISC_MAGIC, notesArea.getText());
-				pc.setDirty(true);
 			}
 			else if (currentItem == dmNote)
 			{
 				pc.setStringFor(StringKey.MISC_GM, notesArea.getText());
-				pc.setDirty(true);
 			}
+			pc.setDirty(true);
 
 			textIsDirty = false;
 		}
@@ -691,7 +682,7 @@ public class NotesPanel extends FlippingSplitPane
 					{
 						NoteTreeNode ancestorNode =
 								(NoteTreeNode) allChildren.nextElement();
-						pc.getNotesList().remove(ancestorNode.getItem());
+						pc.removeNote(ancestorNode.getItem());
 					}
 
 					aParent.remove(this);

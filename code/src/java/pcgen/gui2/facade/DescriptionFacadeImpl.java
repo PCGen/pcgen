@@ -287,7 +287,7 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 			return;
 		}
 		
-		theCharacter.getNotesList().remove(note);
+		theCharacter.removeNote((NoteItem) note);
 		notes.removeElement(note);
 	}
 

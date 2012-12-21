@@ -352,6 +352,7 @@
 	<bean id="nonProficiencyPenaltyFacet" class="pcgen.cdom.facet.analysis.NonProficiencyPenaltyFacet">
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
+	<bean id="noteItemFacet" class="pcgen.cdom.facet.NoteItemFacet"/>
 	<!-- O -->
 	<bean id="objectAdditionFacet" class="pcgen.cdom.facet.ObjectAdditionFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>

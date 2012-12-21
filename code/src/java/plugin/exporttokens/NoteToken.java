@@ -25,14 +25,15 @@
  */
 package plugin.exporttokens;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.StringTokenizer;
+
 import pcgen.core.NoteItem;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 
 //NOTE
 public class NoteToken extends Token
@@ -198,7 +199,7 @@ public class NoteToken extends Token
 	 * @param parentNode The id of the node to be processed.
 	 */
 	private static void buildSubTree(List<NoteItem> targetList,
-		List<NoteItem> baseList, int parentNode)
+		Collection<NoteItem> baseList, int parentNode)
 	{
 		for (NoteItem note : baseList)
 		{
