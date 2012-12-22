@@ -19,12 +19,10 @@
  */
 package pcgen.core.analysis;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.PersistentTransitionChoice;
@@ -46,27 +44,6 @@ public class SkillRankControl
 {
 
 	/**
-	 * returns ranks taken specifically in skill
-	 * 
-	 * @return ranks taken in skill
-	 */
-	public static Float getRank(PlayerCharacter pc, Skill sk)
-	{
-		double rank = 0.0;
-
-		Collection<NamedValue> rankList = pc.getSkillRankValues(sk);
-		if (rankList != null)
-		{
-			for (NamedValue sd : rankList)
-			{
-				rank += sd.getWeight();
-			}
-		}
-
-		return new Float(rank);
-	}
-
-	/**
 	 * Returns the total ranks of a skill rank + bonus ranks (racial, class, etc
 	 * bonuses). Note that the total ranks could be higher than the max ranks if
 	 * the ranks come from a familiar's master.
@@ -76,7 +53,7 @@ public class SkillRankControl
 	 */
 	public static Float getTotalRank(PlayerCharacter pc, Skill sk)
 	{
-		double baseRanks = getRank(pc, sk).doubleValue();
+		double baseRanks = pc.getRank(sk).doubleValue();
 		double ranks = baseRanks
 				+ (pc == null ? 0.0 : SkillRankControl.getSkillRankBonusTo(pc, sk));
 		if (!Globals.checkRule(RuleConstants.SKILLMAX) && pc.hasClass())
@@ -191,7 +168,7 @@ public class SkillRankControl
 			}
 		}
 
-		if ((getRank(aPC, sk).doubleValue() + rankMod) < 0.0)
+		if ((aPC.getRank(sk).doubleValue() + rankMod) < 0.0)
 		{
 			return "Cannot lower rank below 0";
 		}
@@ -331,23 +308,6 @@ public class SkillRankControl
 		return g;
 	}
 
-	public static String getRanksExplanation(PlayerCharacter pc, Skill sk)
-	{
-		Collection<NamedValue> assocList = pc.getSkillRankValues(sk);
-		String result = StringUtil.join(assocList, ", ");
-		double bonus = getSkillRankBonusTo(pc, sk);
-		if (bonus != 0d)
-		{
-			if (result.length() > 0)
-			{
-				result += "; ";
-			}
-			
-			result += "Skillrank bonus " + NumberFormat.getNumberInstance().format(bonus);
-		}
-		return result;
-	}
-
 	/**
 	 * Get the bonus to a skill rank
 	 * 
@@ -379,7 +339,7 @@ public class SkillRankControl
 				iCount += aPC.getAssocCount(ptc, AssociationListKey.ADD);
 			}
 	
-			if (CoreUtility.doublesEqual(getRank(aPC, sk).doubleValue() + bonus,
+			if (CoreUtility.doublesEqual(aPC.getRank(sk).doubleValue() + bonus,
 					0.0))
 			{
 				//

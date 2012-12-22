@@ -1738,7 +1738,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 					if (mSkill.equals(fSkill))
 					{
 						// need higher rank of the two
-						if (SkillRankControl.getRank(mPC, mSkill).intValue() > SkillRankControl.getRank(this, fSkill)
+						if (mPC.getRank(mSkill).intValue() > this.getRank(fSkill)
 								.intValue())
 						{
 							// first zero current
@@ -1746,7 +1746,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 							// We don't pass in a class here so that the real
 							// skills can be distinguished from the ones from
 							// the master.
-							SkillRankControl.modRanks(SkillRankControl.getRank(mPC, mSkill).doubleValue(), null, true,
+							SkillRankControl.modRanks(mPC.getRank(mSkill).doubleValue(), null, true,
 									this, fSkill);
 						}
 					}
@@ -1765,7 +1765,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			{
 				// familiar doesn't have skill,
 				// but master does, so add it
-				final double sr = SkillRankControl.getRank(mPC, newSkill).doubleValue();
+				final double sr = mPC.getRank(newSkill).doubleValue();
 
 				if (ChooseActivation.hasChooseToken(newSkill))
 				{
@@ -11026,7 +11026,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public float getSkillRank(Skill sk)
 	{
-		return SkillRankControl.getRank(this, sk);
+		return this.getRank(sk);
 	}
 
 	public boolean isQualified(CDOMObject po)
@@ -11420,5 +11420,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void addSkillRankValue(Skill sk, NamedValue value)
 	{
 		skillRankFacet.add(id, sk, value);
+	}
+
+	/**
+	 * returns ranks taken specifically in skill
+	 * 
+	 * @return ranks taken in skill
+	 */
+	public Float getRank(Skill sk)
+	{
+		return skillRankFacet.getRank(id, sk);
 	}
 }

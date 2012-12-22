@@ -216,4 +216,20 @@ public class SkillRankFacet extends AbstractStorageFacet
 			ci.remove(sk, value);
 		}
 	}
+
+	public Float getRank(CharID id, Skill sk)
+	{
+		double rank = 0.0;
+		
+		Collection<NamedValue> rankList = getSet(id, sk);
+		if (rankList != null)
+		{
+			for (NamedValue sd : rankList)
+			{
+				rank += sd.getWeight();
+			}
+		}
+	
+		return new Float(rank);
+	}
 }

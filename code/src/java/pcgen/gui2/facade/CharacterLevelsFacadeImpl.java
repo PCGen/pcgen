@@ -595,7 +595,7 @@ public class CharacterLevelsFacadeImpl extends
 		// Remove the skill from the skill list if we've
 		// just set the rank to zero and it is not untrained
 		//
-		if (CoreUtility.doublesEqual(SkillRankControl.getRank(theCharacter, aSkill).doubleValue(), 0.0)
+		if (CoreUtility.doublesEqual(theCharacter.getRank(aSkill).doubleValue(), 0.0)
 			&& !aSkill.getSafe(ObjectKey.USE_UNTRAINED))
 		{
 			theCharacter.removeSkill(aSkill);

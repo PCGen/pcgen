@@ -78,8 +78,6 @@ import pcgen.core.WeaponProf;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.analysis.SkillInfoUtilities;
-import pcgen.core.analysis.SkillModifier;
-import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellPoint;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -89,6 +87,7 @@ import pcgen.core.character.WieldCategory;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.DescriptionFormatting;
 import pcgen.core.display.MovementDisplay;
+import pcgen.core.display.SkillCostDisplay;
 import pcgen.core.display.TemplateModifier;
 import pcgen.core.display.VisionDisplay;
 import pcgen.core.facade.AbilityFacade;
@@ -403,7 +402,7 @@ public class Gui2InfoFactory implements InfoFactory
 		if (PCGenSettings.OPTIONS_CONTEXT.getBoolean(
 			PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN, false))
 		{
-			bString = SkillModifier.getModifierExplanation(skill, pc, false);
+			bString = SkillCostDisplay.getModifierExplanation(skill, pc, false);
 			if (bString.length() != 0)
 			{
 				infoText.appendLineBreak();
@@ -415,7 +414,7 @@ public class Gui2InfoFactory implements InfoFactory
 		if (PCGenSettings.OPTIONS_CONTEXT.getBoolean(
 			PCGenSettings.OPTION_SHOW_SKILL_RANK_BREAKDOWN, false))
 		{
-			bString = SkillRankControl.getRanksExplanation(pc, skill);
+			bString = SkillCostDisplay.getRanksExplanation(pc, skill);
 			if (bString.length() == 0)
 			{
 				bString = LanguageBundle.getString("in_none"); //$NON-NLS-1$

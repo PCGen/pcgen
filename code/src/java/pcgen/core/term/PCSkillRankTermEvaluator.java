@@ -30,7 +30,6 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.spell.Spell;
-import pcgen.core.analysis.SkillRankControl;
 
 public class PCSkillRankTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -59,7 +58,7 @@ public class PCSkillRankTermEvaluator
 			return "0.0";
 		}
 
-		return SkillRankControl.getRank(pc, skill).toString();		
+		return pc.getRank(skill).toString();		
 	}
 
 	@Override

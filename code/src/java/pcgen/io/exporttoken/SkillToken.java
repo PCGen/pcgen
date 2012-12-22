@@ -37,6 +37,7 @@ import pcgen.core.analysis.QualifiedName;
 import pcgen.core.analysis.SkillInfoUtilities;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.display.SkillCostDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
@@ -420,7 +421,7 @@ public class SkillToken extends Token
 							!("_LONG".equals(propertyText.substring(7)));
 
 					String bonusDetails =
-							SkillModifier.getModifierExplanation(aSkill, pc, shortFrom);
+							SkillCostDisplay.getModifierExplanation(aSkill, pc, shortFrom);
 					retValue.append(bonusDetails);
 					break;
 

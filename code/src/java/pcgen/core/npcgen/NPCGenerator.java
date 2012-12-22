@@ -231,7 +231,7 @@ public class NPCGenerator
 				// we can add this rank to this skill.
 				double maxRanks = aPC.getMaxRank(skill, aClass).
 					doubleValue();
-				double pcRanks = SkillRankControl.getRank(aPC, skill).doubleValue();
+				double pcRanks = aPC.getRank(skill).doubleValue();
 				if (pcRanks + ranks > maxRanks)
 				{
 					Logging.debugPrint("NPCGenerator: Skill already at max."); //$NON-NLS-1$
@@ -242,7 +242,7 @@ public class NPCGenerator
 						Skill chkSkill = skillChoice.getSkill();
 						if (chkSkill != null)
 						{
-							if (SkillRankControl.getRank(aPC, chkSkill).doubleValue() < aPC.getMaxRank(chkSkill, aClass).
+							if (aPC.getRank(chkSkill).doubleValue() < aPC.getMaxRank(chkSkill, aClass).
 									doubleValue())
 							{
 								ranksLeft = true;

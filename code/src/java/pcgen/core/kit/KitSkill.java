@@ -338,7 +338,7 @@ public final class KitSkill extends BaseKit
 		double curRank = 0.0;
 		if (pc.hasSkill(aSkill))
 		{
-			curRank = SkillRankControl.getRank(pc, aSkill).doubleValue();
+			curRank = pc.getRank(aSkill).doubleValue();
 		}
 		double ranksToAdd = ranksLeftToAdd;
 		if (!Globals.checkRule(RuleConstants.SKILLMAX) && (ranksToAdd > 0.0))

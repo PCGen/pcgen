@@ -84,7 +84,6 @@ import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.WeaponProf;
-import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
@@ -2015,7 +2014,7 @@ final class PCGVer2Creator implements IOConstants
 		for (Skill skill : charDisplay.getSkillSet())
 		{
 			Integer outputIndex = thePC.getSkillOrder(skill);
-			if ((SkillRankControl.getRank(thePC, skill).doubleValue() > 0)
+			if ((thePC.getRank(skill).doubleValue() > 0)
 				|| (outputIndex != null && outputIndex != 0))
 			{
 				buffer.append(TAG_SKILL).append(':');

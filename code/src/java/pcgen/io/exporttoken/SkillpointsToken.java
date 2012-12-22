@@ -34,7 +34,6 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.util.BigDecimalHelper;
@@ -212,7 +211,7 @@ public class SkillpointsToken extends Token
 		for (Skill aSkill : display.getSkillSet())
 		{
 			Integer outputIndex = pc.getSkillOrder(aSkill);
-			if ((SkillRankControl.getRank(pc, aSkill).doubleValue() > 0)
+			if ((pc.getRank(aSkill).doubleValue() > 0)
 				|| (outputIndex != null && outputIndex != 0))
 			{
 				Collection<NamedValue> assocList = pc.getSkillRankValues(aSkill);

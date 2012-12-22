@@ -1,5 +1,5 @@
 /*
- * SkillModifierTest.java
+ * SkillCostDisplayTest.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -20,7 +20,7 @@
  *
  * $Id: $
  */
-package pcgen.core.analysis;
+package pcgen.core.display;
 
 import org.junit.Test;
 
@@ -38,6 +38,7 @@ import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.display.SkillCostDisplay;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
@@ -51,7 +52,7 @@ import pcgen.util.TestHelper;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision:  $
  */
-public class SkillModifierTest extends AbstractCharacterTestCase
+public class SkillCostDisplayTest extends AbstractCharacterTestCase
 {
 
 	PCClass pcClass;
@@ -131,18 +132,18 @@ public class SkillModifierTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		setPCStat(pc, cha, 10);
 
-		assertEquals("Initial state", "", SkillModifier.getModifierExplanation(
+		assertEquals("Initial state", "", SkillCostDisplay.getModifierExplanation(
 			bluff, pc, false));
 
 		Ability sf = pc.addAbilityNeedCheck(AbilityCategory.FEAT, skillFocus);
 		pc.addAssociation(sf, "KEY_Bluff");
 		pc.calcActiveBonuses();
 		assertEquals("Bonus after skill focus", "+3[Skill Focus]",
-			SkillModifier.getModifierExplanation(bluff, pc, false));
+			SkillCostDisplay.getModifierExplanation(bluff, pc, false));
 
 		pc.addAbilityNeedCheck(AbilityCategory.FEAT, persuasive);
 		assertEquals("Bonus after persuasive",
-			"+2[Persuasive] +3[Skill Focus]", SkillModifier
+			"+2[Persuasive] +3[Skill Focus]", SkillCostDisplay
 				.getModifierExplanation(bluff, pc, false));
 	}
 
