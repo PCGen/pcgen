@@ -118,6 +118,7 @@ import pcgen.cdom.facet.PrimaryWeaponFacet;
 import pcgen.cdom.facet.SecondaryWeaponFacet;
 import pcgen.cdom.facet.SkillOutputOrderFacet;
 import pcgen.cdom.facet.SkillPoolFacet;
+import pcgen.cdom.facet.SkillRankFacet;
 import pcgen.cdom.facet.SourcedEquipmentFacet;
 import pcgen.cdom.facet.SpellBookFacet;
 import pcgen.cdom.facet.SpellListFacet;
@@ -302,6 +303,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
 	private SkillOutputOrderFacet skillOutputOrderFacet = FacetLibrary.getFacet(SkillOutputOrderFacet.class);
 	private SkillPoolFacet skillPoolFacet = FacetLibrary.getFacet(SkillPoolFacet.class);
+	private SkillRankFacet skillRankFacet = FacetLibrary.getFacet(SkillRankFacet.class);
 	private StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
 	private StatCalcFacet statCalcFacet = FacetLibrary.getFacet(StatCalcFacet.class);
 	private StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
@@ -2211,7 +2213,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 		for (Skill aSkill : getSkillSet())
 		{
-			List<NamedValue> rankList = getAssocList(aSkill, AssociationListKey.SKILL_RANK);
+			Collection<NamedValue> rankList = getSkillRankValues(aSkill);
 			if (rankList != null)
 			{
 				for (NamedValue sd : rankList)
@@ -11403,5 +11405,20 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public boolean containsNote(NoteItem note)
 	{
 		return noteItemFacet.contains(id, note);
+	}
+
+	public Collection<NamedValue> getSkillRankValues(Skill sk)
+	{
+		return skillRankFacet.getSet(id, sk);
+	}
+
+	public void removeSkillRankValue(Skill sk, NamedValue value)
+	{
+		skillRankFacet.remove(id, sk, value);
+	}
+
+	public void addSkillRankValue(Skill sk, NamedValue value)
+	{
+		skillRankFacet.add(id, sk, value);
 	}
 }

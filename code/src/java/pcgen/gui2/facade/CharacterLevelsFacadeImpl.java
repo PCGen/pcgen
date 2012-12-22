@@ -31,7 +31,6 @@ import java.util.Map;
 
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
@@ -676,7 +675,7 @@ public class CharacterLevelsFacadeImpl extends
 	 */
 	private boolean classHasRanksIn(SkillFacade skill, ClassFacade pcClass)
 	{
-		Collection<NamedValue> skillTakenClassList = theCharacter.getSafeAssocList(skill, AssociationListKey.SKILL_RANK);
+		Collection<NamedValue> skillTakenClassList = theCharacter.getSkillRankValues((Skill) skill);
 		for (NamedValue namedValue : skillTakenClassList)
 		{
 			if (pcClass.getKeyName().equals(namedValue.name))

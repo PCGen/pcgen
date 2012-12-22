@@ -21,6 +21,7 @@ package pcgen.core.analysis;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import pcgen.base.lang.StringUtil;
@@ -53,7 +54,7 @@ public class SkillRankControl
 	{
 		double rank = 0.0;
 
-		List<NamedValue> rankList = pc.getAssocList(sk, AssociationListKey.SKILL_RANK);
+		Collection<NamedValue> rankList = pc.getSkillRankValues(sk);
 		if (rankList != null)
 		{
 			for (NamedValue sd : rankList)
@@ -107,7 +108,7 @@ public class SkillRankControl
 		}
 
 		String aCName = aClass.getKeyName();
-		List<NamedValue> rankList = aPC.getAssocList(sk, AssociationListKey.SKILL_RANK);
+		Collection<NamedValue> rankList = aPC.getSkillRankValues(sk);
 		if (rankList == null)
 		{
 			return;
@@ -116,7 +117,7 @@ public class SkillRankControl
 		{
 			if (nv.name.equals(aCName))
 			{
-				aPC.removeAssoc(sk, AssociationListKey.SKILL_RANK, nv);
+				aPC.removeSkillRankValue(sk, nv);
 				double curRankCost = nv.getWeight();
 				String aResp = modRanks(-curRankCost, aClass, false, aPC, sk);
 
@@ -205,7 +206,7 @@ public class SkillRankControl
 		double currentRank = 0.0;
 		double noneRank = 0.0;
 		NamedValue active = null;
-		List<NamedValue> rankList = aPC.getAssocList(sk, AssociationListKey.SKILL_RANK);
+		Collection<NamedValue> rankList = aPC.getSkillRankValues(sk);
 		if (rankList != null)
 		{
 			for (NamedValue nv : rankList)
@@ -224,9 +225,8 @@ public class SkillRankControl
 		}
 		if (active == null)
 		{
-			active = new NamedValue(
-				classKey, 0.0);
-			aPC.addAssoc(sk, AssociationListKey.SKILL_RANK, active);
+			active = new NamedValue(classKey, 0.0);
+			aPC.addSkillRankValue(sk, active);
 		}
 
 		if (currentRank <= 0)
@@ -259,15 +259,15 @@ public class SkillRankControl
 	public static void replaceClassRank(PlayerCharacter pc, Skill sk,
 			String oldClass, String newClass)
 	{
-		List<NamedValue> rankList = pc.getAssocList(sk, AssociationListKey.SKILL_RANK);
+		Collection<NamedValue> rankList = pc.getSkillRankValues(sk);
 		if (rankList != null)
 		{
 			for (NamedValue nv : rankList)
 			{
 				if (nv.name.equals(oldClass))
 				{
-					pc.removeAssoc(sk, AssociationListKey.SKILL_RANK, nv);
-					pc.addAssoc(sk, AssociationListKey.SKILL_RANK, new NamedValue(
+					pc.removeSkillRankValue(sk, nv);
+					pc.addSkillRankValue(sk, new NamedValue(
 							newClass, nv.getWeight()));
 					break;
 				}
@@ -315,7 +315,7 @@ public class SkillRankControl
 		//
 		if (CoreUtility.doublesEqual(newRank, 0.0))
 		{
-			aPC.removeAssoc(sk, AssociationListKey.SKILL_RANK, active);
+			aPC.removeSkillRankValue(sk, active);
 		}
 		else if (active != null)
 		{
@@ -323,8 +323,7 @@ public class SkillRankControl
 		}
 		else
 		{
-			aPC.addAssoc(sk, AssociationListKey.SKILL_RANK, new NamedValue(
-					classKey, g));
+			aPC.addSkillRankValue(sk, new NamedValue(classKey, g));
 		}
 
 		aPC.calcActiveBonuses();
@@ -334,9 +333,8 @@ public class SkillRankControl
 
 	public static String getRanksExplanation(PlayerCharacter pc, Skill sk)
 	{
-		List<NamedValue> assocList = pc.getAssocList(sk, AssociationListKey.SKILL_RANK);
-		String result = StringUtil.join(assocList,
-				", ");
+		Collection<NamedValue> assocList = pc.getSkillRankValues(sk);
+		String result = StringUtil.join(assocList, ", ");
 		double bonus = getSkillRankBonusTo(pc, sk);
 		if (bonus != 0d)
 		{

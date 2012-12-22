@@ -26,11 +26,10 @@
 package pcgen.io.exporttoken;
 
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.Collection;
 import java.util.StringTokenizer;
 
 import pcgen.base.util.NamedValue;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -181,8 +180,7 @@ public class SkillpointsToken extends Token
 		float usedPoints = 0;
 		for (Skill aSkill : pc.getDisplay().getSkillSet())
 		{
-			List<NamedValue> rankList = pc.getAssocList(aSkill,
-					AssociationListKey.SKILL_RANK);
+			Collection<NamedValue> rankList = pc.getSkillRankValues(aSkill);
 			if (rankList != null)
 			{
 				for (NamedValue sd : rankList)
@@ -217,8 +215,7 @@ public class SkillpointsToken extends Token
 			if ((SkillRankControl.getRank(pc, aSkill).doubleValue() > 0)
 				|| (outputIndex != null && outputIndex != 0))
 			{
-				List<NamedValue> assocList = pc.getAssocList(aSkill,
-						AssociationListKey.SKILL_RANK);
+				Collection<NamedValue> assocList = pc.getSkillRankValues(aSkill);
 				if (assocList != null)
 				{
 					for (NamedValue sd : assocList)

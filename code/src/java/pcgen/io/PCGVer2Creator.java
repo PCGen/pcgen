@@ -2026,9 +2026,7 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(outputIndex == null ? 0 : outputIndex);
 				buffer.append('|');
 
-				List<NamedValue> rankList =
-						thePC
-							.getAssocList(skill, AssociationListKey.SKILL_RANK);
+				Collection<NamedValue> rankList = thePC.getSkillRankValues(skill);
 				if (rankList != null)
 				{
 					for (NamedValue sd : rankList)

@@ -30,7 +30,6 @@ import java.util.Map;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FixedStringList;
-import pcgen.base.util.NamedValue;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.SpellLevel;
 import pcgen.cdom.identifier.SpellSchool;
@@ -82,9 +81,6 @@ public final class AssociationListKey<T>
 	 * of ChooseResultActor, so this item is related to CODE-1902
 	 */
 	public static final AssociationListKey<FixedStringList> CHOICES = new AssociationListKey<FixedStringList>();
-
-	//SKILL_RANK is a candidate to be sunset as part of CODE-1908
-	public static final AssociationListKey<NamedValue> SKILL_RANK = new AssociationListKey<NamedValue>();
 
 	//CLASSSKILLLIST is a candidate to be sunset as part of CODE-1908
 	public static final AssociationListKey<ClassSkillList> CLASSSKILLLIST = new AssociationListKey<ClassSkillList>();
