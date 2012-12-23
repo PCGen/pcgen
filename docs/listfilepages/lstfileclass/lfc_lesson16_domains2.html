@@ -31,28 +31,29 @@
 
 		<p class="indent0"><strong>File(s) Covered:</strong> *_domains.lst</p>
 
+		<p class="indent0"><strong>LST Standard</strong>: 6.0.0</p>
+
 		<p class="indent0"><strong>Tags used:</strong></p>
 
-		<p class="indent1"> <code><a href="../globalfilestagpages/globalfilesother.html#CSKIL">CSKILL</a></code>,
-		<code><a href="../globalfilestagpages/globalfilesbonus.html">BONUS:CASTERLEVEL</a></code>,
-		<code><a href="../globalfilestagpages/globalfilesprexxx.html">PRExxx</a></code>,
-		<code><a href="../globalfilestagpages/globalfilesother.html#SPELLS">SPELLS</a></code>,
-		<code><a href="../globalfilestagpages/globalfilesother.html#VFEAT">VFEAT</a></code></p>
+		<p class="indent1"> <code>
+			<a href="../globalfilestagpages/globalfilesother.html#CSKIL">CSKILL</a>,
+			<a href="../globalfilestagpages/globalfilesbonus.html#CASTERLEVEL">BONUS:CASTERLEVEL</a>,
+			<a href="../globalfilestagpages/globalfilesprexxx.html#PREALIGN">PREALIGN</a>,
+			<a href="../globalfilestagpages/globalfilesother.html#SPELLS">SPELLS</a>,
+			<a href="../globalfilestagpages/globalfilesother.html#VFEAT">VFEAT</a>, 
+			<a href="../globalfilestagpages/globalfilesprexxx.html#PRELEVEL">PREALIGN</a>
+		</code></p>
 		<p></p>
 
 <hr>
 
-		<p>This is a continuation of the material presented in Lesson 15, Domains, 
-		The Basics. In this lesson I will go over a handful of global tags needed 
-		to implement the domain powers as described in our sample domains. As with 
-		the previous lesson on domains, I will be using several domains as examples. 
-		Four drawn from the Revised Standard Reference Document (RSRD) and one I 
-		have made up for this class in order to more completely demonstrate a few 
-		specific global tags. The domains we'll look from the RSRD are 
-		<em><strong>Animal</strong></em>, <em><strong>Law</strong></em>, 
-		<em><strong>Trickery</strong></em> and <em><strong>War</strong></em>, 
-		as well as the new domain of 'Poetry'. Our new domain is presented below 
-		in the standard RSRD format so you can follow along.</p>
+		<p>This is a continuation of the material presented in <a href="lfc_lesson15_domains1.html">LST File Class #15, Domain Basics</a>. 
+			In this lesson I will go over a handful of global tags needed to implement the domain powers as described in our sample domains. 
+			As with the previous lesson on domains, I will be using several domains as examples. Four drawn from the Revised Standard 
+			Reference Document (R/SRD) and one I have made up for this class in order to more completely demonstrate a few specific global 
+			tags. The domains we'll look from the RSRD are <em><strong>Animal</strong></em>, <em><strong>Law</strong></em>, 
+			<em><strong>Trickery</strong></em> and <em><strong>War</strong></em>, as well as the new domain of 'Poetry'. Our new domain 
+			is presented below in the standard RSRD format so you can follow along.</p>
 
 		<h3>Example Domain</h3>
 
@@ -97,24 +98,11 @@
 
 <hr>
 
-		<p>Finally, a quick note on a few general conventions used within
-		this class before we jump into it: </p>
-
-		<p>1) I have used the angle brackets, 'Less Than' and 'Greater
-		Than' symbols, to indicate where your text will be entered when
-		building a domain file. Unless explicitly stated in the text of my
-		explanation, you will not include the angle brackets in your tags.</p>
-
-		<p>2) Coding examples and PCGen tags are identified by <code>&lt;code&gt;</code>
-		style.</p>
-
-		<p>3) When referencing a specific PCGen object, i.e. domain,
-		feat, weapon, etc., I have included the name as <strong><em>EMPHASISED</em></strong>
-		text, except for when the object is part of a <code>&lt;code&gt;</code>
-		example or in the case of the class 'Cleric', which is used throughout
-		this article.</p>
-
 		<p>Without further adieu, lets jump right into the lesson.</p>
+
+		<p class="sidebar1">NOTE: The general conventions used within this class can be found on the 
+			<a href="lfc_style_guide.html">LST File Class Style Guide</a>.</p>
+
 		<p></p>
 
 <hr>
@@ -138,11 +126,9 @@
 
 		<p><strong>Example:</strong></p>
 
-		<p class="indent1"><code>Trickery</code>
-		&lt;tab&gt; . . . &lt;tab&gt; <code>CSKILL:Bluff|Disguise|Hide</code></p>
+		<p class="indent1"><code>Trickery &lt;tab&gt; . . . &lt;tab&gt; CSKILL:Bluff|Disguise|Hide</code></p>
 
-		<p class="indent1"><code>Poetry</code>
-		&lt;tab&gt; . . . &lt;tab&gt; <code>CSKILL:TYPE.Perform</code></p>
+		<p class="indent1"><code>Poetry &lt;tab&gt; . . . &lt;tab&gt; CSKILL:TYPE.Perform</code></p>
 
 		<p></p>
 
@@ -202,62 +188,45 @@
 
 		<p><strong>Example:</strong></p>
 
-		<p class="indent1"><code>Law</code>
-		&lt;tab&gt; . . . &lt;tab&gt;<code>
-		BONUS:CASTERLEVEL|DESCRIPTOR.Lawful|1|PRERULE:SYS_DOMAIN</code></p>
+		<p class="indent1"><code>Law &lt;tab&gt; . . . &lt;tab&gt; BONUS:CASTERLEVEL|DESCRIPTOR.Lawful|1|PRERULE:SYS_DOMAIN</code></p>
 
-		<p class="indent1"><code>Poetry</code>
-		&lt;tab&gt; . . . &lt;tab&gt; <code>BONUS:CASTERLEVEL|DESCRIPTOR.Mind-Affecting|1|PRERULE:SYS_DOMAIN</code></p>
+		<p class="indent1"><code>Poetry &lt;tab&gt; . . . &lt;tab&gt; BONUS:CASTERLEVEL|DESCRIPTOR.Mind-Affecting|1|PRERULE:SYS_DOMAIN</code></p>
 
 		<p></p>
 
 <hr>
 
-		<p><code><strong>PRExxx</strong></code></p>
+		<p><code><strong>PREALIGN</strong></code></p>
 
-		<p>This tag is a global tag that applies specific prerequisites
-		to the character before granting the selected domain and its granted
-		powers and spells. You may include as many of these tags as you like
-		and each of them will be applied to the domain as a whole. If the
-		character does not meet ALL <code>PRExxx</code> tags, the
-		domain cannot be selected. Unfortunately, there are too many <code>PRExxx</code>
-		tags to go over in this class so I will restrict my coverage to the
-		most likely tag. That is the <code>PREALIGN</code> tag.</p>
+		<p>The <strong>PRExxx</strong> tags are global tags that apply specific prerequisites to the character before 
+			granting the selected domain and its granted powers and spells. You may include as many of these tags as 
+			you like and each of them will be applied to the domain as a whole. If the character does not meet ALL 
+			<code>PRExxx</code> tags, the domain cannot be selected. Unfortunately, there are too many <code>PRExxx</code> 
+			tags to go over in this class so I will restrict my coverage to the most likely tag. That is the <code>PREALIGN</code> tag.</p>
 
-		<p>The<code> PREALIGN</code> tag applies an alignment
-		requirement to the cleric. The form this tag takes is: </p>
+		<p>The<code> PREALIGN</code> tag applies an alignment requirement to the cleric. The form this tag takes is: </p>
 
 		<p class="indent1"><code>PREALIGN:&lt;alignment list&gt;</code>. </p>
 
-		<p>The alignment list is a comma-delimited list of alignment
-		abbreviations as follows: Lawful Good=<code>NG</code>,
-		Lawful Neutral=<code>LN</code>, Lawful Evil=<code>LE</code>,
-		Neutral Good=<code>NG</code>, True Neutral=<code>TN</code>,
-		Neutral Evil=<code>NE</code>, Chaotic Good=<code>CG</code>,
-		Chaotic Neutral=<code>CN</code>, and Chaotic Evil=<code>CE</code>.
-		An additional identifier is <code>Deity</code>,
-		representing the alignment of the characters deity.</p>
+		<p>The alignment list is a comma-delimited list of alignment abbreviations as follows: Lawful Good=<code>NG</code>, 
+			Lawful Neutral=<code>LN</code>, Lawful Evil=<code>LE</code>, Neutral Good=<code>NG</code>, True Neutral=<code>TN</code>, 
+			Neutral Evil=<code>NE</code>, Chaotic Good=<code>CG</code>, Chaotic Neutral=<code>CN</code>, and Chaotic Evil=<code>CE</code>. 
+			An additional identifier is <code>Deity</code>, representing the alignment of the characters deity.</p>
 
-		<p>Note: The alignments have been assigned specific numbers,
-		which can also be used. The numbers are: 0=LG, 1=LN, 2=LE, 3=NG, 4=TN,
-		5=NE, 6=CG, 7=CN, 8=CE, and 10=Deities alignment. These values can be
-		used instead of the abbreviations </p>
+		<p>Note: The alignments have been assigned specific numbers, which can also be used. The numbers are: 
+			0=LG, 1=LN, 2=LE, 3=NG, 4=TN, 5=NE, 6=CG, 7=CN, 8=CE, and 10=Deities alignment. These values can 
+			be used instead of the abbreviations </p>
 
-		<p>An example of this usage can be seen below for the domain of
-		Law. As there are no restrictions to be applied, either for alignment
-		or by any other cr criteria, for the domain of<em><strong>
-		Poetry</strong></em>, we will not be including a <code>PRExxx</code>
-		tag in our <em><strong>Poetry</strong></em>
-		domain line.</p>
+		<p>An example of this usage can be seen below for the domain of Law. As there are no restrictions to 
+			be applied, either for alignment or by any other cr criteria, for the domain of<em><strong> Poetry</strong></em>, 
+			we will not be including a <code>PRExxx</code> tag in our <em><strong>Poetry</strong></em> domain line.</p>
 
-		<p>As a final note, this tag provides prerequisites that are
-		separate from the prerequisites used in conjunction with the <a href="../datafilestagpages/datafilesdeities.html#DOMAINS"><code>DOMAINS</code></a>
-		tag.</p>
+		<p>As a final note, this tag provides prerequisites that are separate from the prerequisites used in 
+			conjunction with the <a href="../datafilestagpages/datafilesdeities.html#DOMAINS"><code>DOMAINS</code></a> tag.</p>
 
 		<p><strong>Example:</strong></p>
 		
-		<p class="indent1"><code>Law</code>
-		&lt;tab&gt; . . . &lt;tab&gt; <code>PREALIGN:LG,LN,LE</code></p>
+		<p class="indent1"><code>Law &lt;tab&gt; . . . &lt;tab&gt; PREALIGN:LG,LN,LE</code></p>
 
 		<p></p>
 
@@ -362,13 +331,13 @@
 
 		<p><strong>Example:</strong></p>
 
-		<p class="indent1"><code>Animal</code> &lt;tab&gt; . . . &lt;tab&gt; 
-		<code>SPELLS:Animal Domain|TIMES=1|CASTERLEVEL=max(TL,1)|<br>
-		Speak with Animals,11+WIS</code></p>
+		<p class="indent1"><code>Animal &lt;tab&gt; . . . &lt;tab&gt;<br>
+			SPELLS:Animal Domain|TIMES=1|CASTERLEVEL=max(TL,1)|Speak with Animals,11+WIS
+		</code></p>
 
-		<p class="indent1"><code>Poetry</code> &lt;tab&gt; . . . &lt;tab&gt; 
-		<code>SPELLS:Poetry Domain|TIMES=1|CASTERLEVEL=max(TL,1)|<br>
-		Ventriloquism,12+WIS|PRESTAT:1,WIS=12</code></p>
+		<p class="indent1"><code>Poetry &lt;tab&gt; . . . &lt;tab&gt;<br>
+			SPELLS:Poetry Domain|TIMES=1|CASTERLEVEL=max(TL,1)|Ventriloquism,12+WIS|PRESTAT:1,WIS=12
+		</code></p>
 
 <hr>
 
@@ -442,15 +411,15 @@
 
 		<p><strong>Example:</strong></p>
 
-		<p class="indent1"><code>Poetry</code>
-		&lt;tab&gt; . . . &lt;tab&gt; <code>VFEAT:Scribe
-		Scrolls|PRELEVEL:3</code> &lt;tab&gt; <code>VFEAT:Great
-		Intelligence|PRELEVEL:4</code> <br>
-		&lt;tab&gt; <code>VFEAT:Great Intelligence|PRELEVEL:8</code>
-		&lt;tab&gt; <code>VFEAT:Great Intelligence|PRELEVEL:12</code><br>
-		&lt;tab&gt; <code>VFEAT:Great Intelligence|PRELEVEL:16</code>
-		&lt;tab&gt; <code>VFEAT:Greater Intelligence|PRELEVEL:20</code>
-		&lt;tab&gt;<code> </code></p>
+		<p class="indent1"><code>
+			Poetry &lt;tab&gt; . . . &lt;tab&gt;<br>
+			VFEAT:Scribe Scrolls|PRELEVEL:3 &lt;tab&gt;<br>
+			VFEAT:Great Intelligence|PRELEVEL:4 &lt;tab&gt;<br>
+			VFEAT:Great Intelligence|PRELEVEL:8 &lt;tab&gt;<br>
+			VFEAT:Great Intelligence|PRELEVEL:12 &lt;tab&gt;<br>
+			VFEAT:Great Intelligence|PRELEVEL:16 &lt;tab&gt;<br>
+			VFEAT:Greater Intelligence|PRELEVEL:20
+		</code></p>
 
 		<p></p>
 
@@ -463,31 +432,33 @@
 		(all on a single line.):</p>
 
 		<blockquote>
-			<p><code>Poetry</code>&lt;tab&gt;<br>
-			<code>CSKILL:TYPE.Perform</code>&lt;tab&gt;<br>
-			<code>BONUS:CASTERLEVEL|DESCRIPTOR.Mind-Affecting|1|PRERULE:SYS_DOMAIN&lt;</code>tab&gt;<br>
-			<code>SPELLS:Poetry Domain|TIMES=1|CASTERLEVEL=max(TL,1)|Ventriloquism,12+WIS|PRESTAT:1,WIS=12</code>&lt;tab&gt;<br>
-			<code>SOURCEPAGE:SpellListI.rtf</code>&lt;tab&gt;<br>
-			<code>VFEAT:Scribe Scrolls|PRELEVEL:3</code>&lt;tab&gt;<br>
-			<code>VFEAT:Great Intelligence|PRELEVEL:4</code>&lt;tab&gt;<br>
-			<code>VFEAT:Great Intelligence|PRELEVEL:8</code>&lt;tab&gt;<br>
-			<code>VFEAT:Great Intelligence|PRELEVEL:12</code>&lt;tab&gt;<br>
-			<code>VFEAT:Great Intelligence|PRELEVEL:16</code>&lt;tab&gt;<br>
-			<code>VFEAT:Great Intelligence|PRELEVEL:20</code>&lt;tab&gt;<br>
-			<code></code><code>DESC:You are graced by Great Intelligence and gain the ability <br>
-			to Scribe Scrolls at 3rd level. You may use Ventriloquism once a day as a <br>
-			spell-like ability and add all Perform skills to your cleric <br>
-			class skills. You cast mind-affectng spells at +1 caster level. </code>&lt;tab&gt;<br>
-			<code>SPELLLEVEL:DOMAIN|</code><br>
-			<span class="indent1"><code>Poetry=1|Hypnotism|</code></span><br>
-			<span class="indent1"><code>Poetry=2|Suggestion|</code></span><br>
-			<span class="indent1"><code>Poetry=3|Geas (Lesser)|</code></span><br>
-			<span class="indent1"><code>Poetry=4|Modify Memory|</code></span><br>
-			<span class="indent1"><code>Poetry=5|Song of Discord|</code></span><br>
-			<span class="indent1"><code>Poetry=6|Irresistible Dance|</code></span><br>
-			<span class="indent1"><code>Poetry=7|Hold Person (Mass)|</code></span><br>
-			<span class="indent1"><code>Poetry=8|Charm Monster (Mass)|</code></span><br>
-			<span class="indent1"><code>Poetry=9|Hold Monster (Mass)</code></span><br></p>
+			<p><code>
+				Poetry &lt;tab&gt;<br>
+				CSKILL:TYPE.Perform &lt;tab&gt;<br>
+				BONUS:CASTERLEVEL|DESCRIPTOR.Mind-Affecting|1|PRERULE:SYS_DOMAIN &lt;tab&gt;<br>
+				SPELLS:Poetry Domain|TIMES=1|CASTERLEVEL=max(TL,1)|Ventriloquism,12+WIS|PRESTAT:1,WIS=12 &lt;tab&gt;<br>
+				SOURCEPAGE:SpellListI.rtf &lt;tab&gt;<br>
+				VFEAT:Scribe Scrolls|PRELEVEL:3 &lt;tab&gt;<br>
+				VFEAT:Great Intelligence|PRELEVEL:4 &lt;tab&gt;<br>
+				VFEAT:Great Intelligence|PRELEVEL:8 &lt;tab&gt;<br>
+				VFEAT:Great Intelligence|PRELEVEL:12 &lt;tab&gt;<br>
+				VFEAT:Great Intelligence|PRELEVEL:16 &lt;tab&gt;<br>
+				VFEAT:Great Intelligence|PRELEVEL:20 &lt;tab&gt;<br>
+				DESC:You are graced by Great Intelligence and gain the ability <br>
+					<span class="indent1">to Scribe Scrolls at 3rd level. You may use Ventriloquism once a day as a </span><br>
+					<span class="indent1">spell-like ability and add all Perform skills to your cleric </span><br>
+					<span class="indent1">class skills. You cast mind-affectng spells at +1 caster level. &lt;tab&gt;</span><br>
+				SPELLLEVEL:DOMAIN|<br>
+				<span class="indent1">Poetry=1|Hypnotism|</span><br>
+				<span class="indent1">Poetry=2|Suggestion|</span><br>
+				<span class="indent1">Poetry=3|Geas (Lesser)|</span><br>
+				<span class="indent1">Poetry=4|Modify Memory|</span><br>
+				<span class="indent1">Poetry=5|Song of Discord|</span><br>
+				<span class="indent1">Poetry=6|Irresistible Dance|</span><br>
+				<span class="indent1">Poetry=7|Hold Person (Mass)|</span><br>
+				<span class="indent1">Poetry=8|Charm Monster (Mass)|</span><br>
+				<span class="indent1">Poetry=9|Hold Monster (Mass)</span><br>
+			</code></p>
 		</blockquote>
 
 		<p></p>

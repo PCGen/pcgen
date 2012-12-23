@@ -27,12 +27,17 @@
 		<h1>Lesson #15: .lst - Domains ( Part 1, The Basics)</h1>
 
 		<p class="indent0">By Eric C Smith (Maredudd) and Andrew McDougall (Tir Gwaith)</p>
+
 		<p class="indent0"><strong>File(s) Covered:</strong> *_domains.lst</p>
+
+		<p class="indent0"><strong>LST Standard</strong>: 6.0.0</p>
+
 		<p class="indent0"><strong>Tags used:</strong></p>
-		<p class="indent1"><code><a href="../globalfilestagpages/globalfilesother.html#SOURCEPAGE">SOURCEPAGE</a></code>,
-			<code><a href="../datafilestagpages/datafilesdomains.html#DESC">DESC</a></code>,
-			<code><a href="../globalfilestagpages/globalfilesother.html#SPELLLEVEL">SPELLLEVEL:DOMAIN</a></code>
-		</p>
+		<p class="indent1"><code>
+			<a href="../globalfilestagpages/globalfilesother.html#DESC">DESC</a>,
+			<a href="../globalfilestagpages/globalfilesother.html#SPELLLEVEL">SPELLLEVEL:DOMAIN</a>
+			<a href="../globalfilestagpages/globalfilesother.html#SOURCEPAGE">SOURCEPAGE</a>,
+		</code></p>
 
 <hr>
 
@@ -82,13 +87,15 @@
 			<li><strong><em>Hold Monster, Mass</em>:</strong> As hold monster, but all within 30 ft.</li>
 		</ol>
 
-		<p class="indent0"><strong>NOTE:</strong> The Poetry Domain is a little overdone, but I wanted to demonstrate a number of global tags. I would not recommend using the Poetry Domain in your campaign, unless of course you believe the pen is mightier than the sword . . .</p>
-		<p class="indent0">A quick note on a few general conventions used within this class before we jump into it: </p>
-		<p class="indent1">1) I have used the angle brackets, 'Less Than' and 'Greater Than' symbols, to indicate where your text will be entered when building a domain file. Unless explicitly stated in the text of my explanation, you will not include the angle brackets in your tags.</p>
-		<p class="indent1">2) Coding examples and PCGen tags are identified by <code>&lt;code&gt;</code> style.</p>
-		<p class="indent1">3) When referencing a specific PCGen object, i.e. domain, feat, weapon, etc., I have included the name as <strong><em>EMPHASISED</em></strong> text, except for when the object is part of a <code>&lt;code&gt;</code> example or in the case of the class 'Cleric', which is used throughout this article.</p>
+		<p class="indent0">The Poetry Domain is a little overdone, but I wanted to demonstrate a number of global tags. I would not recommend using the Poetry Domain in your campaign, unless of course you believe the pen is mightier than the sword . . .</p>
+
+<hr>
 
 		<p class="indent0">Without further adieu, lets jump right into the lesson.</p>
+		<p></p>
+
+		<p class="sidebar1">NOTE: The general conventions used within this class can be found on the 
+			<a href="lfc_style_guide.html">LST File Class Style Guide</a>.</p>
 
 <hr>
 
@@ -102,33 +109,6 @@
 		<p class="indent0"><strong>Example:</strong></p>
 		<p class="indent1"><code>War</code> &lt;tab&gt;</p>
 		<p class="indent1"><code>Poetry</code> &lt;tab&gt;</p>
-		<p class="indent0"></p>
-
-<hr>
-
-		<p class="indent0"><strong><code>SOURCEPAGE</code></strong></p>
-
-		<p class="indent0">This tag is as simple as it looks. It identifies the page
-		within the source material where you can find the specific description,
-		powers, and spells for the domain you are creating. It takes free-form
-		text but most often you will find it in one of two forms. If your
-		source material is an OGL book the format is usually <code>SOURCEPAGE:p.&lt;#&gt;</code>.
-		If you are working from an online source, such as the RSRD, you would
-		use the filename, so your tag would look like <code>SOURCEPAGE:&lt;filename&gt;.</code></p>
-		<p class="indent0">Since I have created the Poetry Domain from scratch there is
-		no 'source', so there is no <code>SOURCEPAGE</code> tag
-		required, but many functions and filters in PCGen use it, so it is good
-		to include it. Therefore, I will include the tag with an N/A for the
-		source page. I will skip it. The War Domain on the other hand comes
-		from the RSRD and therefore would use the <code>SOURCEPAGE</code>
-		tag per the example below.</p>
-		<p class="indent0">Note: There are three other <code>SOURCExxx</code>
-		tags (<code>SOURCELONG</code>, <code>SOURCESHORT</code>
-		and <code>SOURCEWEB</code>) that will be covered in a
-		separate class so we will not be covering them here.</p>
-		<p class="indent0"><strong>Example:</strong></p>
-		<p class="indent1"><code>War</code> &lt;tab&gt; . . . &lt;tab&gt; <code>SOURCEPAGE:SpellListI.rtf</code></p>
-		<p class="indent1"><code>Poetry</code> &lt;tab&gt; . . . &lt;tab&gt; <code>SOURCEPAGE:N/A</code></p>
 		<p class="indent0"></p>
 
 <hr>
@@ -199,20 +179,55 @@
 
 <hr>
 
+		<p class="indent0"><strong><code>SOURCEPAGE</code></strong></p>
+
+		<p class="indent0">This tag is as simple as it looks. It identifies the page
+		within the source material where you can find the specific description,
+		powers, and spells for the domain you are creating. It takes free-form
+		text but most often you will find it in one of two forms. If your
+		source material is an OGL book the format is usually <code>SOURCEPAGE:p.&lt;#&gt;</code>.
+		If you are working from an online source, such as the RSRD, you would
+		use the filename, so your tag would look like <code>SOURCEPAGE:&lt;filename&gt;.</code></p>
+		<p class="indent0">Since I have created the Poetry Domain from scratch there is
+		no 'source', so there is no <code>SOURCEPAGE</code> tag
+		required, but many functions and filters in PCGen use it, so it is good
+		to include it. Therefore, I will include the tag with an N/A for the
+		source page. I will skip it. The War Domain on the other hand comes
+		from the RSRD and therefore would use the <code>SOURCEPAGE</code>
+		tag per the example below.</p>
+		<p class="indent0">Note: There are three other <code>SOURCExxx</code>
+		tags (<code>SOURCELONG</code>, <code>SOURCESHORT</code>
+		and <code>SOURCEWEB</code>) that will be covered in a
+		separate class so we will not be covering them here.</p>
+		<p class="indent0"><strong>Example:</strong></p>
+		<p class="indent1"><code>War</code> &lt;tab&gt; . . . &lt;tab&gt; <code>SOURCEPAGE:SpellListI.rtf</code></p>
+		<p class="indent1"><code>Poetry</code> &lt;tab&gt; . . . &lt;tab&gt; <code>SOURCEPAGE:N/A</code></p>
+		<p class="indent0"></p>
+
+<hr>
+
 		<h3>Conclusion: The Domain File Entry</h3>
 		<p class="indent0">My domain entry now looks like this (all on a single line.):</p>
 		<blockquote class="indent2">
 			<p class="tagindent2"><code>Poetry</code></p>
+		 	<p class="tagindent2"><code>DESC:You add all Perform skills to your cleric class skills and automatically gain the 
+		 		ability to Scribe Scrolls at 3rd level. You cast mind-affectng spells at +1 caster level and is graced by Great 
+		 		Inteligence every four levels to a maximum of 20th level. If you have a charisma score of 12 or greater you may use 
+		 		Ventriloquism once a day as a spell-like ability.</code></p>
+			<p class="tagindent2"><code>SPELLLEVEL:DOMAIN|Poetry=1|Hypnotism|Poetry=2|Suggestion|Poetry=3|Geas (Lesser)||Modify 
+				Memory|Poetry=5|Song of Discord|Poetry=6|Irresistible Dance|Poetry=7|Hold Person (Mass)|Poetry=8|Charm Monster 
+				(Mass)|Poetry=9|Hold Monster (Mass)</code></p>
 			<p class="tagindent2"><code>SOURCEPAGE:SpellListI.rtf</code></p>
-		 	<p class="tagindent2"><code>DESC:You add all Perform skills to your cleric class skills and automatically gain the ability to Scribe Scrolls at 3rd level. You cast mind-affectng spells at +1 caster level and is graced by Great Inteligence every four levels to a maximum of 20th level. If you have a charisma score of 12 or greater you may use Ventriloquism once a day as a spell-like ability.</code></p>
-			<p class="tagindent2"><code>SPELLLEVEL:DOMAIN|Poetry=1|Hypnotism|Poetry=2|Suggestion|Poetry=3|Geas (Lesser)||Modify Memory|Poetry=5|Song of Discord|Poetry=6|Irresistible Dance|Poetry=7|Hold Person (Mass)|Poetry=8|Charm Monster (Mass)|Poetry=9|Hold Monster (Mass)</code></p>
 			<p class="indent0"></p>
 		</blockquote>
 		<p class="indent0"></p>
 
 <hr>
 
-		<p class="indent0">Well, that's everything you need to add new domains to your campaign, albeit, only the most basic of functionality will exist. You may have noted a number of abilities are included in the <code>DESC</code> tag that this domain entry doesn't implement. To see how to implement these abilities, or Domain Powers, we will move to the next lesson.</p>
+		<p class="indent0">Well, that's everything you need to add new domains to your campaign, albeit, only the 
+			most basic of functionality will exist. You may have noted a number of abilities are included in the 
+			<code>DESC</code> tag that this domain entry doesn't implement. To see how to implement these abilities 
+			we will move to the <a href="lfc_lesson16_domains2.html">LST File Class #16, Domain Powers</a>.</p>
 		<p class="indent0">Maredudd</p>
 
 <hr>
