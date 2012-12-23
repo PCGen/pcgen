@@ -16,7 +16,7 @@ Secrets		KEYSTAT:INT	USEUNTRAINED:NO				TYPE:AdeptChoice.NormalSkill.Secrets
 
 ###Block: Martial Arts Styles --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Skill Name					Output Name								Key Stat	Untrained?		Skill Penalty Apply	Type										Visible		Source Page		Ability																																			Bonus to Ability Pool																		Modify VAR																																						SORTKEY
-Martial Arts																USEUNTRAINED:NO					TYPE:AdeptChoice.MartialArts.NormalSkill																																																																			BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL","Martial Arts"))/2|TYPE=MartialArts		BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts")|TYPE=MartialArts
+Martial Arts																USEUNTRAINED:NO					TYPE:AdeptChoice.MartialArts.NormalSkill.MartialArt																																																																			BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL","Martial Arts"))/2|TYPE=MartialArts		BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts")|TYPE=MartialArts
 #Martial Arts Counter			VISIBLE:GUI		SORTKEY:ZZ_DoNotDisplay
 
 #

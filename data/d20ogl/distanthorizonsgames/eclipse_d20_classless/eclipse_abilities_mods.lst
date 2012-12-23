@@ -4,7 +4,7 @@
 
 
 # Game System Rules
-CATEGORY=Internal|Default.MOD		BONUS:ABILITYPOOL|Character Points|CharacterPoints
+CATEGORY=Internal|Default.MOD		BONUS:ABILITYPOOL|Character Points|CharacterPoints	DEFINE:PointBuyRuneCasterCasterLvl|0
 
 
 #Block: Addons for Comprehensive Abilities ~ No MODs needed
