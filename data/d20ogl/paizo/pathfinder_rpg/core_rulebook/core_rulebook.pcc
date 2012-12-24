@@ -50,6 +50,8 @@ ABILITY:pfcr_abilities_general.lst
 ABILITY:pfcr_abilities_racial_common.lst
 ABILITY:pfcr_abilities_racial.lst
 ABILITY:pfcr_abilities_racial_monster.lst
+ABILITY:pfcr_abilities_homebrew.lst
+
 ARMORPROF:pfcr_profs_armor.lst
 CLASS:pfcr_classes_base.lst
 CLASS:pfcr_classes_companions.lst
