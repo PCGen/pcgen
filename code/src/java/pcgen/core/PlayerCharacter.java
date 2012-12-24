@@ -520,16 +520,18 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		{
 			ageSetKitSelections[i] = false;
 		}
+		//Do BilSet first, since required by Race
+		bioSetFacet.set(id, Globals.getBioSet());
+		//Set Race before Stat/Check due to Default object in Pathfinder/RSRD
+		setRace(Globals.s_EMPTYRACE);
 
 		statFacet.addAll(id, Globals.getContext().ref.getOrderSortedCDOMObjects(PCStat.class));
 		checkFacet.addAll(id, Globals.getContext().ref.getOrderSortedCDOMObjects(PCCheck.class));
-		bioSetFacet.set(id, Globals.getBioSet());
 		campaignFacet.addAll(id, loadedCampaigns);
 
 		setXPTable(SettingsHandler.getGame().getDefaultXPTableName());
 		setCharacterType(SettingsHandler.getGame().getDefaultCharacterType());
 
-		setRace(Globals.s_EMPTYRACE);
 		setName(Constants.EMPTY_STRING);
 		setFeats(0);
 		rollStats(SettingsHandler.getGame().getRollMethod());
@@ -8093,6 +8095,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 		aClone.setDirty(true);
 		aClone.adjustMoveRates();
+		//This mod set is necessary to trigger certain calculations to ensure correct output
+		modSkillPointsBuffer = Integer.MIN_VALUE;
 		aClone.calcActiveBonuses();
 		//Just to be safe
 		aClone.equippedFacet.reset(aClone.id);
