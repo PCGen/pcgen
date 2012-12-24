@@ -517,7 +517,7 @@ Spores											KEY:Spores ~ Cythnigot							CATEGORY:Special Ability	TYPE:Spec
 ###Block: Adding new familiar(s) to the base familiar list
 # Ability Name							Allowed Companions
 CATEGORY=Special Ability|Arcane Bond ~ Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Compsognathus)
-CATEGORY=Special Ability|Witch ~ Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Compsognathus)
+
 
 ###Block: Adding Domain Spells to the Cleric list (Domain Spells ability category)
 # COMMENT: This is commented out because it was only partially implemented.

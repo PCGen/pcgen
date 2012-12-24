@@ -12,6 +12,12 @@ ABILITYCATEGORY:Lycanthrope Kind			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FR
 ABILITYCATEGORY:Cloud Giant Oversized Weapon	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OversizedWeapon		PLURAL:Oversized Weapons			DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Giant Spider Type			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:GiantSpiderType		PLURAL:Giant Spider Types			DISPLAYLOCATION:Racial Abilities
 
+# For the Advanced Races Support - 
+# Added Tiefling
+
+ABILITYCATEGORY:Tiefling Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TieflingRacialTrait	PLURAL:Tiefling Racial Traits			DISPLAYLOCATION:Racial Abilities
+
+
 #
 # End
 #

@@ -399,6 +399,17 @@ Illusionist Learning Bonus	OUTPUTNAME:+2 bonus to Spellcraft when learning Illus
 Necromancer Learning Bonus	OUTPUTNAME:+2 bonus to Spellcraft when learning Necromancy		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES					SOURCEPAGE:ClassesII.rtf
 Transmuter Learning Bonus	OUTPUTNAME:+2 bonus to Spellcraft when learning Transmutation	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES					SOURCEPAGE:ClassesII.rtf
 #
+#Ability File
+Forbid Abjuration		CATEGORY:Special Ability	TYPE:WizardProhibitSchool	!PRESUBCLASS:1,Abjurer		DEFINE:ProhibitAbjuration|0		BONUS:VAR|ProhibitAbjuration|1
+Forbid Conjuration	CATEGORY:Special Ability	TYPE:WizardProhibitSchool	!PRESUBCLASS:1,Conjurer		DEFINE:ProhibitConjuration|0		BONUS:VAR|ProhibitConjuration|1
+Forbid Divination		CATEGORY:Special Ability	TYPE:WizardProhibitSchool	!PRESUBCLASS:1,Diviner		DEFINE:ProhibitDivination|0		BONUS:VAR|ProhibitDivination|1
+Forbid Enchantment	CATEGORY:Special Ability	TYPE:WizardProhibitSchool	!PRESUBCLASS:1,Enchanter	DEFINE:ProhibitEnchantment|0		BONUS:VAR|ProhibitEnchantment|1
+Forbid Evocation		CATEGORY:Special Ability	TYPE:WizardProhibitSchool	!PRESUBCLASS:1,Evoker		DEFINE:ProhibitEvocation|0		BONUS:VAR|ProhibitEvocation|1
+Forbid Illusion		CATEGORY:Special Ability	TYPE:WizardProhibitSchool	!PRESUBCLASS:1,Illusionist	DEFINE:ProhibitIllusion|0		BONUS:VAR|ProhibitIllusion|1
+Forbid Necromancy		CATEGORY:Special Ability	TYPE:WizardProhibitSchool	!PRESUBCLASS:1,Necromancer	DEFINE:ProhibitNecromancy|0		BONUS:VAR|ProhibitNecromancy|1
+Forbid Transmutation	CATEGORY:Special Ability	TYPE:WizardProhibitSchool	!PRESUBCLASS:1,Transmuter	DEFINE:ProhibitTransmutation|0	BONUS:VAR|ProhibitTransmutation|1
+
+#
 Free Spell Book														CATEGORY:Internal									TEMPLATE:Spellbook
 ###Block:
 # Ability Name			Category of Ability	Type				Define																											Automatically Added to Inventory			Automatically Gained Weapon Prof.	Ability												Modify VAR																																	Cost		Aspects

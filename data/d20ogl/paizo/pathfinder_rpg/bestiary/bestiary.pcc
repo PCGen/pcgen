@@ -54,7 +54,8 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary" Copyright 2009-
 #EXTRAFILE:OGL.txt
 
 # Data Files
-ABILITYCATEGORY:pfb_abilitycategories.lst
+
+ABILITY:pfb_abilities_afflictions.lst
 ABILITY:pfb_abilities_monsters_abc.lst
 ABILITY:pfb_abilities_monsters_companions.lst
 ABILITY:pfb_abilities_monsters_def.lst
@@ -67,7 +68,10 @@ ABILITY:pfb_abilities_monsters_stu.lst
 ABILITY:pfb_abilities_monsters_templates.lst
 ABILITY:pfb_abilities_monsters_vw.lst
 ABILITY:pfb_abilities_monsters_xyz.lst
-ABILITY:pfb_abilities_afflictions.lst
+ABILITY:pfb_abilities_racial.lst
+
+ABILITYCATEGORY:pfb_abilitycategories.lst
+
 CLASS:pfb_classes_monster_specific.lst
 EQUIPMENT:pfb_equip_monsters.lst
 KIT:pfb_kits_races_abc.lst
