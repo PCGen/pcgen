@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Mon Mar 15 11:43:24 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Kingmaker Player's Guide	SOURCESHORT:KMPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/kingmaker/v5748btpy8dqh	SOURCEDATE:2010-03
+# Original Entry by: Stefan Radermacher
+
+###Block
+# Race Name			Output Name		Starting Feats	Size		Move			Face/Space	Reach		Bonus to Ability Pool										Combat bonus						Stat bonus																	Ability									Nb Legs	Natural Attacks													Monster Class Name and Starting Level	Main Race Type		Source Page		Apply Kit
+Companion (Thylacine)	OUTPUTNAME:[NAME]	STARTFEATS:1	SIZE:S	MOVE:Walk,30	FACE:5	REACH:5	BONUS:ABILITYPOOL|Companion Level Increase Choice|1|PREVARGTEQ:MasterLevel,4									BONUS:STAT|STR|2	BONUS:STAT|DEX|4	BONUS:STAT|CON|6	BONUS:STAT|INT|-8	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-4	ABILITY:Special Ability|AUTOMATIC|Powerful Jaws ~ Thylacine	LEGS:4	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	MONSTERCLASS:Companion:2			RACETYPE:Companion	SOURCEPAGE:p.7	KIT:1|Companion ~ Thylacine
+Companion (Elk)		OUTPUTNAME:[NAME]	STARTFEATS:1	SIZE:M	MOVE:Walk,50	FACE:5	REACH:5	BONUS:ABILITYPOOL|Companion Level Increase Choice|1|PREVARGTEQ:MasterLevel,7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2	BONUS:STAT|DEX|6	BONUS:STAT|CON|4	BONUS:STAT|INT|-8	BONUS:STAT|WIS|4	BONUS:STAT|CHA|-6											LEGS:4	NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d6				MONSTERCLASS:Companion:2			RACETYPE:Companion	SOURCEPAGE:p.7	KIT:1|Companion ~ Elk
+
+#
+# End
+#
