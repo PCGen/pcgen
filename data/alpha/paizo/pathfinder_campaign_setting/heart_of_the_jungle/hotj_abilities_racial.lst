@@ -14,7 +14,7 @@ Infestation		KEY:Infestation ~ Botfly Swarm	CATEGORY:Special Ability	TYPE:Specia
 ###Block: Hippopotamus Abilities
 # Ability Name	Unique Key					Category of Ability		Type						Define							Description																																											Source Page
 Blood Sweat		KEY:Blood Sweat ~ Hippopotamus	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary									DESC:A hippopotamus excretes a reddish-tinged oil that protects its skin from both the sun and bacteria. It suffers no harm from being in hot environments (up to 140 degrees Fahrenheit) and gains a +2 on Fortitude saves to resist nonmagical diseases.			SOURCEPAGE:p.60
-Capsize		KEY:Capsize ~ Hippopotamus		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary									DESC:A hippopotamus can attempt to capsize a boat or ship of its size or smaller by ramming it as a charge attack and making a combat maneuver check. The DC of this check is 25, or the result of the boat captain's Profession (sailor) check, whichever is higher.	SOURCEPAGE:p.60
+#Capsize		KEY:Capsize ~ Hippopotamus		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary									DESC:A hippopotamus can attempt to capsize a boat or ship of its size or smaller by ramming it as a charge attack and making a combat maneuver check. The DC of this check is 25, or the result of the boat captain's Profession (sailor) check, whichever is higher.	SOURCEPAGE:p.60
 Hold Breath		KEY:Hold Breath ~ Hippopotamus	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:HippopotamusHoldBreathRounds|CONSCORE*4	DESC:A hippopotamus can hold its breath for %1 rounds before it risks drowning.|HippopotamusHoldBreathRounds																										SOURCEPAGE:p.60
 
 ###Block: Togongo Treant Abilities
