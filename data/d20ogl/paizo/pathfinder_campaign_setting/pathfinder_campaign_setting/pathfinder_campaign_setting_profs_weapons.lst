@@ -1,0 +1,41 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pathfinder Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
+
+
+# Weapon Name		Type
+Wooden Stake		TYPE:Simple.Melee.Thrown
+
+Dogslicer			TYPE:Martial.Melee
+War Razor			TYPE:Martial.Melee
+
+Klar				TYPE:Martial.Melee
+Earth Breaker		TYPE:Martial.Melee
+Horsechopper		TYPE:Martial.Melee
+Ogre Hook			TYPE:Martial.Melee
+Khopesh			TYPE:Martial.Melee
+
+Bich'hwa			TYPE:Exotic.Melee
+Flying Talon		TYPE:Exotic.Melee
+Tri-Bladed Katar		TYPE:Exotic.Melee
+Maulaxe			TYPE:Exotic.Melee.Thrown
+Pata				TYPE:Exotic.Melee
+Sawtooth Sabre		TYPE:Exotic.Melee
+Thorn Bracer		TYPE:Exotic.Melee
+
+Aldori Dueling Sword	TYPE:Martial.Exotic.Melee
+Falcata			TYPE:Exotic.Melee
+Temple Sword		TYPE:Exotic.Melee
+Urumi				TYPE:Exotic.Melee
+
+Elven Curved Blade	TYPE:Exotic.Melee
+Bladed Scarf		TYPE:Exotic.Melee
+
+Double Crossbow		TYPE:Exotic.Ranged
+Shoanti Bola		TYPE:Exotic.Ranged
+Thorn Bow			TYPE:Exotic.Ranged
+
+Firearms			TYPE:Exotic.Firearms.Ranged
+
+#
+# End
+#
