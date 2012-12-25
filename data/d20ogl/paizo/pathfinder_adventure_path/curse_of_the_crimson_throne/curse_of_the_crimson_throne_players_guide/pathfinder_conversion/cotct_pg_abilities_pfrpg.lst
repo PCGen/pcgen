@@ -7,7 +7,7 @@ Companion Advancement (Hippogriff)		CATEGORY:Special Ability	TYPE:CompChoice		VI
 
 # Ranger Mods
 CATEGORY=Special Ability|Manyshot.MOD																					!PREFEAT:1,Manyshot,Crossbow Mastery
-Crossbow Mastery					CATEGORY:Special Ability	TYPE:RangerBonusFeat	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Archery	!PREFEAT:1,Manyshot,Crossbow Mastery							PREVARGTEQ:CombatStyleLVL,6	DESC:You can load crossbows with blinding speed and even fire them in melee with little fear of reprisal.	VFEAT:Crossbow Mastery																					SOURCEPAGE:p.130	SOURCEPAGE:p.10
+CATEGORY=Special Ability|Crossbow Mastery.MOD					TYPE:RangerBonusFeat	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Archery	!PREFEAT:1,Manyshot,Crossbow Mastery							PREVARGTEQ:CombatStyleLVL,6	DESC:You can load crossbows with blinding speed and even fire them in melee with little fear of reprisal.	VFEAT:Crossbow Mastery																					SOURCEPAGE:p.130	SOURCEPAGE:p.10
 
 #
 # End

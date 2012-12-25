@@ -6,7 +6,7 @@ TYPE:Paizo Publishing.Pathfinder RPG
 RANK:1
 STATUS:RELEASE
 GENRE:Fantasy
-BOOKTYPE:Core Rules
+BOOKTYPE:Complete Core
 SHOWINMENU:YES
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core,[Pathfinder RPG for Game Masters (includes Monsters)]
 PUBNAMELONG:Paizo Publishing
