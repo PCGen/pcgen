@@ -24,7 +24,9 @@ import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.Language;
 
-public class LanguageFacetTest extends AbstractConsolidatingFacetTest<Language> {
+public class LanguageFacetTest extends
+		AbstractConsolidatingFacetTest<Language, Language>
+{
 
 	private LanguageFacet facet = new LanguageFacet();
 
@@ -55,5 +57,17 @@ public class LanguageFacetTest extends AbstractConsolidatingFacetTest<Language> 
 	protected DataFacetChangeListener<Language> getListener()
 	{
 		return facet;
+	}
+
+	@Override
+	protected Language getSourceObject()
+	{
+		return getObject();
+	}
+
+	@Override
+	protected Language getConverted(Language lang)
+	{
+		return lang;
 	}
 }

@@ -23,7 +23,7 @@ import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.Equipment;
 
 public class NaturalEquipmentFacetTest extends
-		AbstractConsolidatingFacetTest<Equipment>
+		AbstractConsolidatingFacetTest<Equipment, Equipment>
 {
 
 	private NaturalEquipmentFacet facet = new NaturalEquipmentFacet();
@@ -49,5 +49,17 @@ public class NaturalEquipmentFacetTest extends
 	protected DataFacetChangeListener<Equipment> getListener()
 	{
 		return facet;
+	}
+	
+	@Override
+	protected Equipment getSourceObject()
+	{
+		return getObject();
+	}
+
+	@Override
+	protected Equipment getConverted(Equipment e)
+	{
+		return e;
 	}
 }

@@ -23,7 +23,7 @@ import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.PCTemplate;
 
 public class TemplateFacetTest extends
-		AbstractConsolidatingFacetTest<PCTemplate>
+		AbstractConsolidatingFacetTest<PCTemplate, PCTemplate>
 {
 
 	private TemplateFacet facet = new TemplateFacet();
@@ -48,6 +48,18 @@ public class TemplateFacetTest extends
 	protected DataFacetChangeListener<PCTemplate> getListener()
 	{
 		return facet;
+	}
+
+	@Override
+	protected PCTemplate getSourceObject()
+	{
+		return getObject();
+	}
+
+	@Override
+	protected PCTemplate getConverted(PCTemplate t1)
+	{
+		return t1;
 	}
 
 }

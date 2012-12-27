@@ -24,7 +24,7 @@ import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.Campaign;
 
 public class ExpandedCampaignFacetTest extends
-		AbstractConsolidatingFacetTest<Campaign>
+		AbstractConsolidatingFacetTest<Campaign, Campaign>
 {
 
 	private ExpandedCampaignFacet facet = new ExpandedCampaignFacet();
@@ -49,6 +49,18 @@ public class ExpandedCampaignFacetTest extends
 	protected DataFacetChangeListener<Campaign> getListener()
 	{
 		return facet;
+	}
+
+	@Override
+	protected Campaign getSourceObject()
+	{
+		return getObject();
+	}
+
+	@Override
+	protected Campaign getConverted(Campaign camp)
+	{
+		return camp;
 	}
 
 }

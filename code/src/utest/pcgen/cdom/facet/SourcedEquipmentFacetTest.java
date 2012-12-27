@@ -22,7 +22,7 @@ import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.Equipment;
 
 public class SourcedEquipmentFacetTest extends
-		AbstractConsolidatingFacetTest<Equipment>
+		AbstractConsolidatingFacetTest<Equipment, Equipment>
 {
 
 	private SourcedEquipmentFacet facet = new SourcedEquipmentFacet();
@@ -48,5 +48,18 @@ public class SourcedEquipmentFacetTest extends
 	protected DataFacetChangeListener<Equipment> getListener()
 	{
 		return facet;
+	}
+
+	@Override
+	protected Equipment getSourceObject()
+	{
+		return getObject();
+	}
+
+
+	@Override
+	protected Equipment getConverted(Equipment e)
+	{
+		return e;
 	}
 }
