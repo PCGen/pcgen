@@ -1024,7 +1024,7 @@ public class CharacterDisplay
 
 	public String getXPTableName()
 	{
-		return xpTableFacet.getXPTable(id).getName();
+		return xpTableFacet.get(id).getName();
 	}
 
 	/**

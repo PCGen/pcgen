@@ -20,7 +20,6 @@ package pcgen.cdom.facet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.core.LevelInfo;
-import pcgen.core.SettingsHandler;
 import pcgen.core.XPTable;
 
 /**
@@ -56,24 +55,5 @@ public class XPTableFacet extends AbstractItemFacet<XPTable>
 			lInfo = table.getLevelInfo("LEVEL");
 		}
 		return lInfo;
-	}
-
-	/*
-	 * TODO Can't this be inlined? - better NOT to have SettingsHandler
-	 * hardcoded in a facet
-	 */
-	public void setXPTable(CharID id, String xpTable)
-	{
-
-		set(id, SettingsHandler.getGame().getLevelInfo(xpTable));
-	}
-
-	/*
-	 * TODO Can't this be inlined?
-	 */
-	public XPTable getXPTable(CharID id)
-	{
-
-		return get(id);
 	}
 }

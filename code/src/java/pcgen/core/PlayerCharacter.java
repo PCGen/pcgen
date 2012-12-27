@@ -2653,7 +2653,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void setXPTable(final String xpTableName)
 	{
-		xpTableFacet.setXPTable(id, xpTableName);
+		xpTableFacet.set(id, SettingsHandler.getGame().getLevelInfo(xpTableName));
 		setDirty(true);
 	}
 

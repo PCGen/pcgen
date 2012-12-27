@@ -39,32 +39,32 @@ public final class XPTable extends PObject implements XPTableFacade
 	private String name;
 	private Map<String, LevelInfo> infoMap;
 	
-	public XPTable() {
-		
+	public XPTable()
+	{
 		this.name = "Default";
 		this.infoMap = new HashMap<String, LevelInfo>();
 	}
 
-	public XPTable(String xpTable) {
-		
+	public XPTable(String xpTable)
+	{
 		this.name = xpTable;
 		this.infoMap = new HashMap<String, LevelInfo>();
 	}
 
     @Override
-	public String getName() {
-		
+	public String getName()
+	{
 		return name;
 	}
 
-	public void addLevelInfo(String level, LevelInfo levelInfo) {
-		
+	public void addLevelInfo(String level, LevelInfo levelInfo)
+	{
 		infoMap.put(level, levelInfo);
 	}
 
     @Override
-	public LevelInfo getLevelInfo(String levelString) {
-		
+	public LevelInfo getLevelInfo(String levelString)
+	{
 		return infoMap.get(levelString);
 	}
 
@@ -90,8 +90,8 @@ public final class XPTable extends PObject implements XPTableFacade
 		return lInfo;
 	}
 	
-	public boolean validateSequence(String levelValue) {
-		
+	public boolean validateSequence(String levelValue)
+	{
 		int value = getIntValue(levelValue);
 		for (String key : infoMap.keySet())
 		{
