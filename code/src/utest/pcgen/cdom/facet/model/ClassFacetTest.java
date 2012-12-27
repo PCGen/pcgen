@@ -801,6 +801,37 @@ public class ClassFacetTest extends TestCase
 	}
 
 	@Test
+	public void testSetClassLevelNoClass()
+	{
+		PCClass t1 = new PCClass();
+		PCClass diff = new PCClass();
+		facet.addClass(id, diff);
+		PCClassLevel pcl = new PCClassLevel();
+		pcl.put(IntegerKey.LEVEL, 3);
+		try
+		{
+			assertFalse(facet.setClassLevel(id, t1, pcl));
+		}
+		catch (CloneNotSupportedException e)
+		{
+			fail(e.getMessage());
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok as well
+		}
+		try
+		{
+			facet.getClassLevel(id, t1, 3);
+			fail("This should not work: PC does not have this class");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//Yep :)
+		}
+	}
+
+	@Test
 	public void testSetClassLevelUseless()
 	{
 		PCClass t1 = new PCClass();
