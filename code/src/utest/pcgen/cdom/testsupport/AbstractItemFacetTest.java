@@ -214,4 +214,9 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 	protected abstract AbstractItemFacet<T> getFacet();
 
 	protected abstract T getItem();
+	
+	protected CharID getCharID()
+	{
+		return id;
+	}
 }
