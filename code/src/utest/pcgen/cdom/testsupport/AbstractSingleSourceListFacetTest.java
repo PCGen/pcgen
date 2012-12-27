@@ -48,13 +48,13 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		public int removeEventCount;
 
         @Override
-		public void dataAdded(DataFacetChangeEvent dfce)
+		public void dataAdded(DataFacetChangeEvent<CT> dfce)
 		{
 			addEventCount++;
 		}
 
         @Override
-		public void dataRemoved(DataFacetChangeEvent dfce)
+		public void dataRemoved(DataFacetChangeEvent<CT> dfce)
 		{
 			removeEventCount++;
 		}

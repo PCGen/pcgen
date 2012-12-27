@@ -1,19 +1,19 @@
 /*
  * Copyright (c) 2009-2010 Tom Parker <thpr@users.sourceforge.net>
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.cdom.testsupport;
 
@@ -27,14 +27,17 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.QualifiedActor;
+import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.DataFacetChangeListener;
-import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 
-public abstract class AbstractSourcedListFacetTest<T> extends TestCase
+public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
+		extends TestCase
 {
 	protected CharID id = CharID.getID();
 	protected CharID altid = CharID.getID();
@@ -48,13 +51,13 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 		public int addEventCount;
 		public int removeEventCount;
 
-        @Override
+		@Override
 		public void dataAdded(DataFacetChangeEvent<T> dfce)
 		{
 			addEventCount++;
 		}
 
-        @Override
+		@Override
 		public void dataRemoved(DataFacetChangeEvent<T> dfce)
 		{
 			removeEventCount++;
@@ -888,43 +891,7 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 		assertEquals(0, emptyset.size());
 	}
 
-	@Test
-	public void testTypeContainsFrom()
-	{
-		Object source1 = new Object();
-		Object source2 = new Object();
-		T t1 = getObject();
-		T t2 = getAltObject();
-		assertFalse(getFacet().containsFrom(id, source1));
-		assertFalse(getFacet().containsFrom(id, source2));
-		List<T> pct = new ArrayList<T>();
-		pct.add(t1);
-		pct.add(t2);
-		getFacet().addAll(id, pct, source1);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertTrue(getFacet().containsFrom(id, source1));
-		assertFalse(getFacet().containsFrom(id, source2));
-		assertEventCount(2, 0);
-		T t3 = getThirdObject();
-		List<T> pct2 = new ArrayList<T>();
-		pct2.add(t1);
-		pct2.add(t3);
-		getFacet().addAll(id, pct2, source2);
-		assertEquals(3, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertTrue(getFacet().containsFrom(id, source1));
-		assertTrue(getFacet().containsFrom(id, source2));
-		assertEventCount(3, 0);
-		getFacet().remove(id, t3, source2);
-		assertTrue(getFacet().containsFrom(id, source1));
-		assertTrue(getFacet().containsFrom(id, source2));
-		getFacet().remove(id, t1, source2);
-		assertTrue(getFacet().containsFrom(id, source1));
-		assertFalse(getFacet().containsFrom(id, source2));
-	}
-
-	abstract protected AbstractSourcedListFacet<T> getFacet();
+	abstract protected AbstractQualifiedListFacet<T> getFacet();
 
 	abstract protected T getObject();
 
@@ -952,6 +919,314 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 		{
 			e.printStackTrace();
 		}
+	}
+
+	@Test
+	public void testTypeAddSingleGetQualified()
+	{
+		Object source1 = new Object();
+		T t1 = getObject();
+		getFacet().add(id, t1, source1);
+		assertEquals(1, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		assertNotNull(getFacet().getQualifiedSet(id));
+		assertEquals(1, getFacet().getQualifiedSet(id).size());
+		assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		assertEventCount(1, 0);
+		// No cross-pollution
+		assertEquals(0, getFacet().getCount(altid));
+		assertTrue(getFacet().isEmpty(altid));
+		assertNotNull(getFacet().getQualifiedSet(altid));
+		assertTrue(getFacet().getQualifiedSet(altid).isEmpty());
+	}
+
+	@Test
+	public void testTypeAddSingleSourceTwiceGetQualified()
+	{
+		Object source1 = new Object();
+		T t1 = getObject();
+		getFacet().add(id, t1, source1);
+		assertEquals(1, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		assertNotNull(getFacet().getQualifiedSet(id));
+		assertEquals(1, getFacet().getQualifiedSet(id).size());
+		assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		assertEventCount(1, 0);
+		// Add same, still only once in set (and only one event)
+		getFacet().add(id, t1, source1);
+		assertEquals(1, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		assertNotNull(getFacet().getQualifiedSet(id));
+		assertEquals(1, getFacet().getQualifiedSet(id).size());
+		assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		assertEventCount(1, 0);
+	}
+
+	@Test
+	public void testTypeAddSingleTwiceTwoSourceGetQualified()
+	{
+		Object source1 = new Object();
+		Object source2 = new Object();
+		T t1 = getObject();
+		getFacet().add(id, t1, source1);
+		assertEquals(1, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		assertNotNull(getFacet().getQualifiedSet(id));
+		assertEquals(1, getFacet().getQualifiedSet(id).size());
+		assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		assertEventCount(1, 0);
+		// Add same, still only once in set (and only one event)
+		getFacet().add(id, t1, source2);
+		assertEquals(1, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		assertNotNull(getFacet().getQualifiedSet(id));
+		assertEquals(1, getFacet().getQualifiedSet(id).size());
+		assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		assertEventCount(1, 0);
+	}
+
+	@Test
+	public void testTypeAddMultGetQualified()
+	{
+		Object source1 = new Object();
+		T t1 = getObject();
+		getFacet().add(id, t1, source1);
+		assertEquals(1, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		Collection<T> setofone = getFacet().getQualifiedSet(id);
+		assertNotNull(setofone);
+		assertEquals(1, setofone.size());
+		assertEquals(t1, setofone.iterator().next());
+		assertEventCount(1, 0);
+		T t2 = getAltObject();
+		getFacet().add(id, t2, source1);
+		assertEquals(2, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		Collection<T> setoftwo = getFacet().getQualifiedSet(id);
+		assertNotNull(setoftwo);
+		assertEquals(2, setoftwo.size());
+		assertTrue(setoftwo.contains(t1));
+		assertTrue(setoftwo.contains(t2));
+		assertEventCount(2, 0);
+	}
+
+	@Test
+	public void testGetSetQualifiedIndependence()
+	{
+		Object source1 = new Object();
+		T t1 = getObject();
+		T t2 = getObject();
+		getFacet().add(id, t1, source1);
+		Collection<T> set = getFacet().getQualifiedSet(id);
+		try
+		{
+			set.add(t2);
+			// If we can modify, then make sure it's independent of the facet
+			assertEquals(1, getFacet().getCount(id));
+			assertFalse(getFacet().isEmpty(id));
+			assertNotNull(getFacet().getQualifiedSet(id));
+			assertEquals(1, getFacet().getQualifiedSet(id).size());
+			assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		}
+		catch (UnsupportedOperationException e)
+		{
+			// This is ok too
+		}
+		try
+		{
+			set.remove(t1);
+			// If we can modify, then make sure it's independent of the facet
+			assertEquals(1, getFacet().getCount(id));
+			assertFalse(getFacet().isEmpty(id));
+			assertNotNull(getFacet().getQualifiedSet(id));
+			assertEquals(1, getFacet().getQualifiedSet(id).size());
+			assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		}
+		catch (UnsupportedOperationException e)
+		{
+			// This is ok too
+		}
+		List<T> pct = new ArrayList<T>();
+		pct.add(t1);
+		pct.add(t2);
+		try
+		{
+			set.addAll(pct);
+			// If we can modify, then make sure it's independent of the facet
+			assertEquals(1, getFacet().getCount(id));
+			assertFalse(getFacet().isEmpty(id));
+			assertNotNull(getFacet().getQualifiedSet(id));
+			assertEquals(1, getFacet().getQualifiedSet(id).size());
+			assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		}
+		catch (UnsupportedOperationException e)
+		{
+			// This is ok too
+		}
+		try
+		{
+			set.removeAll(pct);
+			// If we can modify, then make sure it's independent of the facet
+			assertEquals(1, getFacet().getCount(id));
+			assertFalse(getFacet().isEmpty(id));
+			assertNotNull(getFacet().getQualifiedSet(id));
+			assertEquals(1, getFacet().getQualifiedSet(id).size());
+			assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		}
+		catch (UnsupportedOperationException e)
+		{
+			// This is ok too
+		}
+		try
+		{
+			set.retainAll(new ArrayList<T>());
+			// If we can modify, then make sure it's independent of the facet
+			assertEquals(1, getFacet().getCount(id));
+			assertFalse(getFacet().isEmpty(id));
+			assertNotNull(getFacet().getQualifiedSet(id));
+			assertEquals(1, getFacet().getQualifiedSet(id).size());
+			assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		}
+		catch (UnsupportedOperationException e)
+		{
+			// This is ok too
+		}
+		getFacet().add(id, t1, source1);
+		try
+		{
+			set.clear();
+			// If we can modify, then make sure it's independent of the facet
+			assertEquals(1, getFacet().getCount(id));
+			assertFalse(getFacet().isEmpty(id));
+			assertNotNull(getFacet().getQualifiedSet(id));
+			assertEquals(1, getFacet().getQualifiedSet(id).size());
+			assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		}
+		catch (UnsupportedOperationException e)
+		{
+			// This is ok too
+		}
+	}
+
+	@Test
+	public void testTypeGetQualifiedSetSource()
+	{
+		Object source1 = new Object();
+		Collection<? extends T> origset =
+				getFacet().getQualifiedSet(id, source1);
+		assertNotNull(origset);
+		assertTrue(origset.isEmpty());
+		T t1 = getObject();
+		T t2 = getAltObject();
+		List<T> pct = new ArrayList<T>();
+		pct.add(t1);
+		pct.add(t2);
+		getFacet().addAll(id, pct, source1);
+		assertEquals(2, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		Collection<? extends T> setoftwo =
+				getFacet().getQualifiedSet(id, source1);
+		assertNotNull(setoftwo);
+		assertEquals(2, setoftwo.size());
+		assertTrue(setoftwo.contains(t1));
+		assertTrue(setoftwo.contains(t2));
+		assertEventCount(2, 0);
+		Object source2 = new Object();
+		T t3 = getThirdObject();
+		List<T> pct2 = new ArrayList<T>();
+		pct2.add(t1);
+		pct2.add(t3);
+		getFacet().addAll(id, pct2, source2);
+		assertEquals(3, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		setoftwo = getFacet().getQualifiedSet(id, source1);
+		assertNotNull(setoftwo);
+		assertEquals(2, setoftwo.size());
+		assertTrue(setoftwo.contains(t1));
+		assertTrue(setoftwo.contains(t2));
+		setoftwo = getFacet().getQualifiedSet(id, source2);
+		assertNotNull(setoftwo);
+		assertEquals(2, setoftwo.size());
+		assertTrue(setoftwo.contains(t1));
+		assertTrue(setoftwo.contains(t3));
+		assertEventCount(3, 0);
+		getFacet().remove(id, t3, source2);
+		Collection<? extends T> setofone =
+				getFacet().getQualifiedSet(id, source2);
+		assertNotNull(setofone);
+		assertEquals(1, setofone.size());
+		assertTrue(setofone.contains(t1));
+		getFacet().remove(id, t1, source2);
+		Collection<? extends T> emptyset =
+				getFacet().getQualifiedSet(id, source2);
+		assertNotNull(emptyset);
+		assertEquals(0, emptyset.size());
+	}
+
+	@Test
+	public void testActOnQualifiedSet()
+	{
+		Object source1 = "Source1";
+		QualifiedActor<T, T> echo = new QualifiedActor<T, T>()
+		{
+			@Override
+			public T act(T object, Object source)
+			{
+				return object;
+			}
+		};
+		Collection<? extends T> origset =
+				getFacet().actOnQualifiedSet(id, echo);
+		assertNotNull(origset);
+		assertTrue(origset.isEmpty());
+		T t1 = getObject();
+		T t2 = getAltObject();
+		List<T> pct = new ArrayList<T>();
+		pct.add(t1);
+		pct.add(t2);
+		getFacet().addAll(id, pct, source1);
+		assertEquals(2, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		Collection<? extends T> setoftwo =
+				getFacet().actOnQualifiedSet(id, echo);
+		assertNotNull(setoftwo);
+		assertEquals(2, setoftwo.size());
+		assertTrue(setoftwo.contains(t1));
+		assertTrue(setoftwo.contains(t2));
+		assertEventCount(2, 0);
+		Object source2 = "Source2";
+		T t3 = getThirdObject();
+		List<T> pct2 = new ArrayList<T>();
+		pct2.add(t1);
+		pct2.add(t3);
+		getFacet().addAll(id, pct2, source2);
+		assertEquals(3, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		List<T> setoffour = getFacet().actOnQualifiedSet(id, echo);
+		assertNotNull(setoffour);
+		assertEquals(4, setoffour.size());
+		assertTrue(setoffour.contains(t1));
+		//two if T1
+		assertTrue(setoffour.indexOf(t1) != setoffour.lastIndexOf(t1));
+		assertTrue(setoffour.contains(t2));
+		assertTrue(setoffour.contains(t3));
+		assertEventCount(3, 0);
+		QualifiedActor<T, String> sourcedep = new QualifiedActor<T, String>()
+		{
+			@Override
+			public String act(T object, Object source)
+			{
+				return object.toString() + ":" + source.toString();
+			}
+		};
+		List<String> stringset = getFacet().actOnQualifiedSet(id, sourcedep);
+		assertNotNull(stringset);
+		assertEquals(4, stringset.size());
+		assertTrue(stringset.contains(t1.toString() + ":" + source1.toString()));
+		assertTrue(stringset.contains(t1.toString() + ":" + source2.toString()));
+		assertTrue(stringset.contains(t2.toString() + ":" + source1.toString()));
+		assertTrue(stringset.contains(t3.toString() + ":" + source2.toString()));
+		assertEventCount(3, 0);
 	}
 
 }

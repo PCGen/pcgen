@@ -25,8 +25,8 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.QualifiedActor;
@@ -504,12 +504,10 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	private void processRemoval(CharID id, Map<T, Set<Object>> componentMap,
 		T obj, Object source)
 	{
-		/*
-		 * TODO obj Null?
-		 * 
-		 * This should probably throw an IllegalArgumentException if obj is
-		 * null, as that behavior would be consistent with AbstractListFacet.
-		 */
+		if (obj == null)
+		{
+			throw new IllegalArgumentException("Object to remove may not be null");
+		}
 		Set<Object> set = componentMap.get(obj);
 		if (set != null)
 		{
@@ -685,7 +683,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 */
 	public Collection<T> getQualifiedSet(CharID id, Object source)
 	{
-		Set<T> set = new HashSet<T>();
+		Set<T> set = new WrappedMapSet<T>(IdentityHashMap.class);
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
@@ -698,7 +696,6 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 					if (prereqFacet.qualifies(id, obj, source))
 					{
 						set.add(obj);
-						break;
 					}
 				}
 			}
@@ -756,13 +753,6 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 					if (prereqFacet.qualifies(id, obj, source))
 					{
 						list.add(qa.act(obj, source));
-						/*
-						 * TODO Need to check if this break is appropriate -
-						 * seems that a QualifiedActor may end up converting in
-						 * way that is source specific and thus breaking after
-						 * one success could result in incorrect answers.
-						 */
-						break;
 					}
 				}
 			}
