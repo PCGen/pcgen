@@ -112,6 +112,18 @@ public class LocalAddedSkillCostFacet extends AbstractStorageFacet
 	public void add(CharID id, PCClass cl, Skill skill, SkillCost sc,
 			CDOMObject source)
 	{
+		if (cl == null)
+		{
+			throw new IllegalArgumentException("PCClass in add cannot be null");
+		}
+		if (skill == null)
+		{
+			throw new IllegalArgumentException("Skill in add cannot be null");
+		}
+		if (sc == null)
+		{
+			throw new IllegalArgumentException("SkillCost in add cannot be null");
+		}
 		Map<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> map = getConstructingInfo(id);
 		Map<SkillCost, Map<Skill, Set<CDOMObject>>> scMap = map.get(cl);
 		if (scMap == null)
@@ -156,6 +168,18 @@ public class LocalAddedSkillCostFacet extends AbstractStorageFacet
 	public void remove(CharID id, PCClass cl, Skill skill, SkillCost sc,
 			CDOMObject source)
 	{
+		if (cl == null)
+		{
+			throw new IllegalArgumentException("PCClass in remove cannot be null");
+		}
+		if (skill == null)
+		{
+			throw new IllegalArgumentException("Skill in remove cannot be null");
+		}
+		if (sc == null)
+		{
+			throw new IllegalArgumentException("SkillCost in remove cannot be null");
+		}
 		Map<PCClass, Map<SkillCost, Map<Skill, Set<CDOMObject>>>> map = getInfo(id);
 		if (map != null)
 		{
