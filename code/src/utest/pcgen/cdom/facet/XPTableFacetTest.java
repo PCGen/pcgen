@@ -22,7 +22,6 @@ import org.junit.Test;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
-import pcgen.core.BioSet;
 import pcgen.core.LevelInfo;
 import pcgen.core.XPTable;
 
