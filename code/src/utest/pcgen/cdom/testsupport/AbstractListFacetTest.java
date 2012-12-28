@@ -94,6 +94,26 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
+	public void testTypeAddNullID()
+	{
+		//Remove to try to avoid any event being formed
+		getFacet().removeDataFacetChangeListener(listener);
+		try
+		{
+			getFacet().add(null, getObject());
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Yep!
+		}
+		testTemplateUnsetZeroCount();
+		testTemplateUnsetEmpty();
+		testTemplateUnsetEmptySet();
+		assertEventCount(0, 0);
+	}
+
+	@Test
 	public void testTemplateAddNull()
 	{
 		try

@@ -156,6 +156,25 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 	}
 
 	@Test
+	public void testItemSetNullID()
+	{
+		//Remove to try to avoid any event being formed
+		getFacet().removeDataFacetChangeListener(listener);
+		T t1 = getItem();
+		try
+		{
+			getFacet().set(null, t1);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Yep!
+		}
+		testItemUnsetEmpty();
+		assertEventCount(0, 0);
+	}
+
+	@Test
 	public void testItemSetGet()
 	{
 		T t1 = getItem();

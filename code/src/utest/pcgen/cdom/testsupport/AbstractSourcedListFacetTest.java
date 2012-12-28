@@ -121,6 +121,28 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 	}
 
 	@Test
+	public void testTypeAddNullID()
+	{
+		Object source1 = new Object();
+		//Remove to try to avoid any event being formed
+		getFacet().removeDataFacetChangeListener(listener);
+		try
+		{
+			getFacet().add(null, getObject(), source1);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			e.printStackTrace();
+			// Yep!
+		}
+		testTypeUnsetZeroCount();
+		testTypeUnsetEmpty();
+		testTypeUnsetEmptySet();
+		assertEventCount(0, 0);
+	}
+
+	@Test
 	public void testTypeAddNullSource()
 	{
 		T t1 = getObject();

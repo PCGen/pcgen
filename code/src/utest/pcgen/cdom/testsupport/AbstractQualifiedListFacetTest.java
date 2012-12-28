@@ -105,6 +105,27 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	}
 
 	@Test
+	public void testTypeAddNullID()
+	{
+		Object source1 = new Object();
+		//Remove to try to avoid any event being formed
+		getFacet().removeDataFacetChangeListener(listener);
+		try
+		{
+			getFacet().add(null, getObject(), source1);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Yep!
+		}
+		testTypeUnsetZeroCount();
+		testTypeUnsetEmpty();
+		testTypeUnsetEmptySet();
+		assertEventCount(0, 0);
+	}
+
+	@Test
 	public void testTypeAddNull()
 	{
 		Object source1 = new Object();

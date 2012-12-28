@@ -101,6 +101,27 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 	}
 
 	@Test
+	public void testTypeAddNullID()
+	{
+		ST source1 = developSource(getTypeObj());
+		//Remove to try to avoid any event being formed
+		getFacet().removeDataFacetChangeListener(listener);
+		try
+		{
+			getFacet().add(null, getTypeObj(), source1);
+			fail();
+		}
+		catch (IllegalArgumentException e)
+		{
+			// Yep!
+		}
+		testObjUnsetZeroCount();
+		testObjUnsetEmpty();
+		testObjUnsetEmptySet();
+		assertEventCount(0, 0);
+	}
+
+	@Test
 	public void testObjAddNull()
 	{
 		ST source1 = developSource(getTypeObj());
