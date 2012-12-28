@@ -39,6 +39,7 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
+import pcgen.util.Logging;
 
 /**
  * LocalSkillCostFacet is a Facet to track Skill costs
@@ -90,6 +91,8 @@ public class LocalSkillCostFacet extends AbstractStorageFacet implements
 		}
 		else
 		{
+			Logging.errorPrint(getClass().getSimpleName() + " was given " + cdo
+				+ " which is not an expected object type");
 			return;
 		}
 		for (CDOMReference<Skill> ref : cdo.getSafeListFor(ListKey.LOCALCSKILL))
@@ -341,6 +344,11 @@ public class LocalSkillCostFacet extends AbstractStorageFacet implements
 	private void add(CharID id, PCClass cl, Skill skill, SkillCost sc,
 		CDOMObject source)
 	{
+		if (cl == null)
+		{
+			throw new IllegalArgumentException(
+				"PCClass source from " + source + " cannot be null in add");
+		}
 		getConstructingInfo(id).add(cl, skill, sc, source);
 	}
 
