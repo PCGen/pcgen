@@ -226,10 +226,7 @@ public class DamageReductionFacet extends
 		{
 			String key = me.getKey().toString();
 			int value = me.getValue();
-			if (id != null)
-			{
-				value += (int) bonusCheckingFacet.getBonus(id, "DR", key);
-			}
+			value += (int) bonusCheckingFacet.getBonus(id, "DR", key);
 			hml.addToListFor(value, key);
 		}
 		for (Integer reduction : hml.getKeySet())
