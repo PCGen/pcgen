@@ -62,6 +62,11 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	 */
 	public void add(CharID id, Category<Ability> cat, Nature nat, Ability obj)
 	{
+		if (obj == null)
+		{
+			throw new IllegalArgumentException(
+				"Ability provided in add must not be null");
+		}
 		boolean isNew = ensureCachedSet(id, cat, nat);
 		if (getCachedSet(id, cat, nat).add(obj) || isNew)
 		{
@@ -124,6 +129,11 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	public boolean remove(CharID id, Category<Ability> cat, Nature nat,
 			Ability obj)
 	{
+		if (obj == null)
+		{
+			throw new IllegalArgumentException(
+				"Ability provided in remove must not be null");
+		}
 		Set<Ability> cached = getCachedSet(id, cat, nat);
 		boolean removed = cached != null && cached.remove(obj);
 		if (removed)
@@ -261,6 +271,16 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	private boolean ensureCachedSet(CharID id, Category<Ability> cat,
 			Nature nat)
 	{
+		if (cat == null)
+		{
+			throw new IllegalArgumentException(
+				"Category provided must not be null");
+		}
+		if (nat == null)
+		{
+			throw new IllegalArgumentException(
+				"Nature provided must not be null");
+		}
 		boolean isNew = false;
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
 		if (catMap == null)
@@ -311,6 +331,16 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	private Set<Ability> getCachedSet(CharID id, Category<Ability> cat,
 			Nature nat)
 	{
+		if (cat == null)
+		{
+			throw new IllegalArgumentException(
+				"Category provided must not be null");
+		}
+		if (nat == null)
+		{
+			throw new IllegalArgumentException(
+				"Nature provided must not be null");
+		}
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
 		if (catMap == null)
 		{
