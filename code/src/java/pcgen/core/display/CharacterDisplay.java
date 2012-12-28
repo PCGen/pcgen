@@ -635,7 +635,7 @@ public class CharacterDisplay
 
 	public String getCharacterType()
 	{
-		return characterTypeFacet.getCharacterType(id);
+		return characterTypeFacet.get(id);
 	}
 
 	/**

@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.facet.fact;
 
-import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 
 /**
@@ -26,14 +25,4 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  */
 public class CharacterTypeFacet extends AbstractItemFacet<String>
 {
-
-	public void setCharacterType(CharID id, String characterType) {
-		
-		set(id, characterType);
-	}
-
-	public String getCharacterType(CharID id) {
-		
-		return get(id);
-	}
 }

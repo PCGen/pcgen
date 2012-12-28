@@ -2664,7 +2664,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void setCharacterType(final String characterType)
 	{
-		characterTypeFacet.setCharacterType(id, characterType);
+		characterTypeFacet.set(id, characterType);
 		setDirty(true);
 	}
 
