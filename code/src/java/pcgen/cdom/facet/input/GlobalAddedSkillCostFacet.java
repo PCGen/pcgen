@@ -105,6 +105,14 @@ public class GlobalAddedSkillCostFacet extends AbstractStorageFacet
 	 */
 	public void add(CharID id, Skill skill, SkillCost sc, CDOMObject source)
 	{
+		if (skill == null)
+		{
+			throw new IllegalArgumentException("Skill for add cannot be null");
+		}
+		if (sc == null)
+		{
+			throw new IllegalArgumentException("SkillCost for add cannot be null");
+		}
 		Map<SkillCost, Map<Skill, Set<CDOMObject>>> map = getConstructingInfo(id);
 		Map<Skill, Set<CDOMObject>> skMap = map.get(sc);
 		if (skMap == null)
@@ -138,6 +146,14 @@ public class GlobalAddedSkillCostFacet extends AbstractStorageFacet
 	 */
 	public void remove(CharID id, Skill skill, SkillCost sc, CDOMObject source)
 	{
+		if (skill == null)
+		{
+			throw new IllegalArgumentException("Skill for remove cannot be null");
+		}
+		if (sc == null)
+		{
+			throw new IllegalArgumentException("SkillCost for remove cannot be null");
+		}
 		Map<SkillCost, Map<Skill, Set<CDOMObject>>> map = getInfo(id);
 		if (map != null)
 		{

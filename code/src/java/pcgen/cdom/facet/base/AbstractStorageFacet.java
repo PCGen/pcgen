@@ -92,6 +92,11 @@ public abstract class AbstractStorageFacet
 	 */
 	public Object removeCache(CharID id, Class<?> cl)
 	{
+		if (id == null)
+		{
+			throw new IllegalArgumentException(
+				"CharID cannot be null in removeCache");
+		}
 		return CACHE.remove(id, cl);
 	}
 
@@ -113,6 +118,11 @@ public abstract class AbstractStorageFacet
 	 */
 	public Object setCache(CharID id, Class<?> cl, Object o)
 	{
+		if (id == null)
+		{
+			throw new IllegalArgumentException(
+				"CharID cannot be null in setCache");
+		}
 		return CACHE.put(id, cl, o);
 	}
 
@@ -131,6 +141,11 @@ public abstract class AbstractStorageFacet
 	 */
 	public Object getCache(CharID id, Class<?> cl)
 	{
+		if (id == null)
+		{
+			throw new IllegalArgumentException(
+				"CharID cannot be null in getCache");
+		}
 		return CACHE.get(id, cl);
 	}
 
@@ -154,6 +169,16 @@ public abstract class AbstractStorageFacet
 	public static boolean areEqualCache(CharID id1, CharID id2,
 		InequalityTester t)
 	{
+		if (id1 == null)
+		{
+			throw new IllegalArgumentException(
+				"CharID #1 cannot be null in areEqualCache");
+		}
+		if (id2 == null)
+		{
+			throw new IllegalArgumentException(
+				"CharID #2 cannot be null in areEqualCache");
+		}
 		Set<Class<?>> set1 = CACHE.getSecondaryKeySet(id1);
 		Set<Class<?>> set2 = CACHE.getSecondaryKeySet(id2);
 		if (!set1.equals(set2))
@@ -196,6 +221,11 @@ public abstract class AbstractStorageFacet
 	 */
 	public static Map<Class<?>, Object> peekAtCache(CharID id)
 	{
+		if (id == null)
+		{
+			throw new IllegalArgumentException(
+				"CharID cannot be null in peekAtCache");
+		}
 		return CACHE.getReadOnlyMapFor(id);
 	}
 }
