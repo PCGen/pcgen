@@ -61,7 +61,7 @@ public class PCCasterLevelTotalTermEvaluator
 				
 				final int pcBonus   = (int) pc.getTotalBonusTo("PCLEVEL", classKey);
 				final int castBonus = (int) pc.getTotalBonusTo("CASTERLEVEL", classKey);
-				final int iClass    = (castBonus == 0) ? pc.getLevel(pcClass) : 0;
+				final int iClass    = (castBonus == 0) ? pc.getDisplay().getLevel(pcClass) : 0;
 
 				String spellType = pcClass.getSpellType();
 

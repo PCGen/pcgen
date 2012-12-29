@@ -39,7 +39,7 @@ public class PCCountLanguagesTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getLanguageCount();
+		return (float) pc.getDisplay().getLanguageCount();
 	}
 
 	@Override

@@ -39,7 +39,7 @@ public class PCCountStatsTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getStatCount();
+		return (float) pc.getDisplay().getStatCount();
 	}
 
 	@Override

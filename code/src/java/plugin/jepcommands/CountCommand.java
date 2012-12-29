@@ -588,7 +588,7 @@ public class CountCommand extends PCGenCommand
 				protected void getData(final PlayerCharacter pc)
 				{
 					objdata = new HashSet<Language>();
-					objdata.addAll(pc.getLanguageSet());
+					objdata.addAll(pc.getDisplay().getLanguageSet());
 				}
 
 				@Override
@@ -728,7 +728,7 @@ public class CountCommand extends PCGenCommand
 				{
 					objdata = new HashSet<Skill>();
 					pc.refreshSkillList();
-					objdata.addAll(pc.getSkillSet());
+					objdata.addAll(pc.getDisplay().getSkillSet());
 				}
 
 				@Override
@@ -787,7 +787,7 @@ public class CountCommand extends PCGenCommand
 				public Object count(final PlayerCharacter pc,
 				                    final Object[] params) throws ParseException
 				{
-					return pc.getSpellBookCount();
+					return pc.getDisplay().getSpellBookCount();
 				}
 
 				@Override

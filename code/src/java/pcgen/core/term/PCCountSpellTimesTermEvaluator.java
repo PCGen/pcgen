@@ -59,7 +59,7 @@ public class PCCountSpellTimesTermEvaluator
 	public Float resolve(PlayerCharacter pc)
 	{
 		String bookName = (classNum == -1) ? Globals.getDefaultSpellBook() :
-						  (bookNum > 0)    ? pc.getSpellBookNames().get(bookNum) :
+						  (bookNum > 0)    ? pc.getDisplay().getSpellBookNames().get(bookNum) :
 						  					 Globals.getDefaultSpellBook();
 
 		if (!"".equals(bookName))

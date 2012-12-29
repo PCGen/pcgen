@@ -53,7 +53,7 @@ public class PCSkillRankTermEvaluator
 	{
 		Skill skill = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(Skill.class, rank);
-		if (skill == null || !pc.hasSkill(skill))
+		if (skill == null || !pc.getDisplay().hasSkill(skill))
 		{
 			return "0.0";
 		}

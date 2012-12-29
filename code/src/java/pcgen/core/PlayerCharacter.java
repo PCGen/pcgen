@@ -331,21 +331,24 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
 
+	//The following are model facets that are only set or getCDOMObjectList or getBonusContainer (nearly isolated)
+	private AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
+	private CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
+	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
+	private CampaignFacet campaignFacet = FacetLibrary.getFacet(CampaignFacet.class);
+	private ExpandedCampaignFacet expandedCampaignFacet = FacetLibrary.getFacet(ExpandedCampaignFacet.class);
+	private AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
+
 	//The following are other facets
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 	private DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
-	private AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
 	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 	private StatBonusFacet statBonusFacet = FacetLibrary.getFacet(StatBonusFacet.class);
-	private CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 	private CheckBonusFacet checkBonusFacet = FacetLibrary.getFacet(CheckBonusFacet.class);
 	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
-	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
-	private CampaignFacet campaignFacet = FacetLibrary.getFacet(CampaignFacet.class);
-	private ExpandedCampaignFacet expandedCampaignFacet = FacetLibrary.getFacet(ExpandedCampaignFacet.class);
 	private BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
 	private UserEquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
 	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
@@ -403,7 +406,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private ListSkillCostFacet listSkillCostFacet = FacetLibrary.getFacet(ListSkillCostFacet.class);
 	private SpellSupportFacet spellSupportFacet = FacetLibrary.getFacet(SpellSupportFacet.class);
 	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
-	private AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
 	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
 	private ChangeProfFacet changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
@@ -3540,16 +3542,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 
 		return weapList;
-	}
-
-	/**
-	 * Calculates the level of the character's favored class
-	 * 
-	 * @return level
-	 */
-	public int getFavoredClassLevel()
-	{
-		return favClassFacet.getFavoredClassLevel(id);
 	}
 
 	/**
@@ -7340,19 +7332,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return aList;
 	}
 
-	/**
-	 * Check if the character has the given Deity.
-	 * 
-	 * @param deity
-	 *            Deity to check for.
-	 * @return <code>true</code> if the character has the Deity,
-	 *         <code>false</code> otherwise.
-	 */
-	public boolean hasDeity(final Deity deity)
-	{
-		return deityFacet.matches(id, deity);
-	}
-
 	private boolean includeSkill(final Skill skill, final int level)
 	{
 		if (level == 2 || SkillRankControl.getTotalRank(this, skill).floatValue() > 0)
@@ -10381,11 +10360,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 	}
 
-	public int getLanguageCount()
-	{
-		return languageFacet.getCount(id);
-	}
-
 	public void setSubstitutionLevel(PCClass pcc, PCClassLevel originalClassLevel)
 	{
 		try
@@ -10406,11 +10380,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public boolean hasLanguage(Language lang)
 	{
 		return languageFacet.contains(id, lang);
-	}
-
-	public int getClassCount()
-	{
-		return classFacet.getCount(id);
 	}
 
 	public boolean hasClass()
@@ -10827,7 +10796,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public Collection<BonusContainer> getBonusContainerList()
 	{
 		List<BonusContainer> list = new ArrayList<BonusContainer>(getCDOMObjectList());
-		list.add(getAgeSet());
+		list.add(ageSetFacet.get(id));
 		GameMode gm = SettingsHandler.getGame();
 		if (gm.isPurchaseStatMode())
 		{
@@ -10836,11 +10805,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			list.add(pbm);
 		}
 		return list;
-	}
-
-	private AgeSet getAgeSet()
-	{
-		return ageSetFacet.get(id);
 	}
 
 	public SkillCost skillCostForPCClass(Skill sk, PCClass aClass)

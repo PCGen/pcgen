@@ -52,7 +52,7 @@ public class PCSkillTypeTermEvaluator
 
 		//Use Output order to filter for visibility
 		final List<Skill> skillList = pc
-				.getSkillListInOutputOrder(new ArrayList<Skill>(pc
+				.getSkillListInOutputOrder(new ArrayList<Skill>(pc.getDisplay()
 						.getSkillSet()));
 
 		Float typeCount = 0f;

@@ -39,7 +39,7 @@ public class PCCountSpellbookTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getSpellBookCount();
+		return (float) pc.getDisplay().getSpellBookCount();
 	}
 
 	@Override

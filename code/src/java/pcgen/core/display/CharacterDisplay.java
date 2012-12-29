@@ -1808,4 +1808,28 @@ public class CharacterDisplay
 	{
 		return noteItemFacet.getSet(id);
 	}
+
+	/**
+	 * Check if the character has the given Deity.
+	 * 
+	 * @param deity
+	 *            Deity to check for.
+	 * @return <code>true</code> if the character has the Deity,
+	 *         <code>false</code> otherwise.
+	 */
+	public boolean hasDeity(final Deity deity)
+	{
+		return deityFacet.matches(id, deity);
+	}
+
+	/**
+	 * Calculates the level of the character's favored class
+	 * 
+	 * @return level
+	 */
+	public int getFavoredClassLevel()
+	{
+		return favClassFacet.getFavoredClassLevel(id);
+	}
+
 }

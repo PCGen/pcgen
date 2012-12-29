@@ -45,7 +45,7 @@ public class PCFavClassLevelTermEvaluator
 	@Override
 	public String evaluate (PlayerCharacter pc)
 	{
-		Integer l = pc.getFavoredClassLevel();
+		Integer l = pc.getDisplay().getFavoredClassLevel();
 		return l.toString();
 	}
 

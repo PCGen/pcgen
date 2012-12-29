@@ -55,7 +55,7 @@ public class PCCLTermEvaluator
 
 		if (aClass != null)
 		{
-			return String.valueOf(pc.getLevel(aClass));
+			return String.valueOf(pc.getDisplay().getLevel(aClass));
 		}
 
 		return "0";
