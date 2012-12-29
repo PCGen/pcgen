@@ -187,9 +187,9 @@ public class BioSetTest extends AbstractCharacterTestCase
 		LocaleDependentTestCase.before(Locale.US);
 		currBioSet.randomize("AGE.HT.WT.EYES.HAIR.SKIN", pc);
 		LocaleDependentTestCase.after();
-		assertTrue("Generated height " + pc.getHeight()
-			+ " is not in required range.", (pc.getHeight() >= 58 && pc
-			.getHeight() <= 78));
+		assertTrue("Generated height " + pc.getDisplay().getHeight()
+			+ " is not in required range.", (pc.getDisplay().getHeight() >= 58 && pc
+					.getDisplay().getHeight() <= 78));
 		assertTrue("Generated weight " + pc.getDisplay().getWeight()
 			+ " is not in required range.", (pc.getDisplay().getWeight() >= 120 && pc
 					.getDisplay().getWeight() <= 280));

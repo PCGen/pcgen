@@ -282,12 +282,20 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private IgnoreCostFacet ignoreCostFacet = FacetLibrary.getFacet(IgnoreCostFacet.class);
 	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
-
-	//The following facets are pure delegation (no exceptions) - could be considered "complete"
-	private AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
+	private HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
+	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
+	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
+	private AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
+	private AutoLanguageListFacet autoLangListFacet = FacetLibrary.getFacet(AutoLanguageListFacet.class);
+	private FreeLanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
+	private CharacterTypeFacet characterTypeFacet = FacetLibrary.getFacet(CharacterTypeFacet.class);
+	private SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
 	private AutoListArmorProfFacet armorProfListFacet = FacetLibrary.getFacet(AutoListArmorProfFacet.class);
 	private AutoListShieldProfFacet shieldProfListFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
 	private AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
+
+	//The following facets are pure delegation (no exceptions) - could be considered "complete"
+	private AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
 	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
 	private ClassSpellListFacet classSpellListFacet = FacetLibrary.getFacet(ClassSpellListFacet.class);
 	private DomainSpellCountFacet domainSpellCountFacet = FacetLibrary.getFacet(DomainSpellCountFacet.class);
@@ -316,18 +324,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * between two facets in a get (A && B)
 	 */
 	//The following facets are "minimal" delegation
-	private AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
-	private AutoLanguageListFacet autoLangListFacet = FacetLibrary.getFacet(AutoLanguageListFacet.class);
-	private FreeLanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
-	private HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
-	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
 	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
 	private SkillLanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
-	private SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
-	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
-	private CharacterTypeFacet characterTypeFacet = FacetLibrary.getFacet(CharacterTypeFacet.class);
 	private NoteItemFacet noteItemFacet = FacetLibrary.getFacet(NoteItemFacet.class);
 
 	//The following are other facets
@@ -1461,16 +1461,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	}
 
 	/**
-	 * Gets the character's height in inches.
-	 * 
-	 * @return The character's height in inches.
-	 */
-	public int getHeight()
-	{
-		return heightFacet.getHeight(id);
-	}
-
-	/**
 	 * Marks the character as being in the process of being loaded.
 	 * 
 	 * <p>
@@ -2390,16 +2380,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public int getSpellLevelTemp()
 	{
 		return spellLevelTemp;
-	}
-
-	/**
-	 * Check  whether the field should be hidden from output. 
-	 * @param field The BiographyField to check export suppression rules for.
-	 * @return true if the field should not be output, false if it may be.
-	 */
-	public boolean getSuppressBioField(BiographyField field)
-	{
-		return suppressBioFieldFacet.getSuppressField(id, field);
 	}
 
 	/**
@@ -3857,11 +3837,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return new Float(maxRanks.floatValue());
 	}
 
-	public double movementOfType(final String moveType)
-	{
-		return moveResultFacet.movementOfType(id, moveType);
-	}
-
 	/**
 	 * Checks if the stat is a non ability.
 	 * 
@@ -3870,11 +3845,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public boolean isNonAbility(PCStat stat)
 	{
 		return nonAbilityFacet.isNonAbility(id, stat);
-	}
-
-	public int getNumberOfMovements()
-	{
-		return moveResultFacet.countMovementTypes(id);
 	}
 
 	public int getOffHandLightBonus()

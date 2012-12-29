@@ -1103,25 +1103,25 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		pc.setRace(human);
 		pc.calcActiveBonuses();
 		pc.adjustMoveRates();
-		assertEquals(0.0, pc.movementOfType("Swim"), 0.1);
-		assertEquals(0.0, pc.movementOfType("Fly"), 0.1);
+		assertEquals(0.0, pc.getDisplay().movementOfType("Swim"), 0.1);
+		assertEquals(0.0, pc.getDisplay().movementOfType("Fly"), 0.1);
 
 		pc.addAbilityNeedCheck(AbilityCategory.FEAT, quickFlySlowSwim);
 		pc.calcActiveBonuses();
 		pc.adjustMoveRates();
-		assertEquals(10.0, pc.movementOfType("Swim"), 0.1);
-		assertEquals(30.0, pc.movementOfType("Fly"), 0.1);
+		assertEquals(10.0, pc.getDisplay().movementOfType("Swim"), 0.1);
+		assertEquals(30.0, pc.getDisplay().movementOfType("Fly"), 0.1);
 
 		pc.addTemplate(template);
 		pc.adjustMoveRates();
-		assertEquals(30.0, pc.movementOfType("Swim"), 0.1);
-		assertEquals(30.0, pc.movementOfType("Fly"), 0.1);
+		assertEquals(30.0, pc.getDisplay().movementOfType("Swim"), 0.1);
+		assertEquals(30.0, pc.getDisplay().movementOfType("Fly"), 0.1);
 
 		pc.addTemplate(template2);
 		pc.adjustMoveRates();
-		assertEquals(30.0, pc.movementOfType("Swim"), 0.1);
-		assertEquals(30.0, pc.movementOfType("Fly"), 0.1);
-		assertEquals(60.0, pc.movementOfType("Dig"), 0.1);
+		assertEquals(30.0, pc.getDisplay().movementOfType("Swim"), 0.1);
+		assertEquals(30.0, pc.getDisplay().movementOfType("Fly"), 0.1);
+		assertEquals(60.0, pc.getDisplay().movementOfType("Dig"), 0.1);
 	}
 	
 	public void testMakeIntoExClass()

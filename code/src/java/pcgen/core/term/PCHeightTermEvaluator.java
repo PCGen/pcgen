@@ -39,7 +39,7 @@ public class PCHeightTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getHeight();
+		return (float) pc.getDisplay().getHeight();
 	}
 
 	@Override

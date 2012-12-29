@@ -49,13 +49,13 @@ public class PCMovementTermEvaluator
 	@Override
 	public String evaluate (PlayerCharacter pc)
 	{
-		return String.valueOf(pc.movementOfType(movement));
+		return String.valueOf(pc.getDisplay().movementOfType(movement));
 	}
 
 	@Override
 	public String evaluate (PlayerCharacter pc, Spell aSpell)
 	{
-		return String.valueOf(pc.movementOfType(movement));
+		return String.valueOf(pc.getDisplay().movementOfType(movement));
 	}
 
 	@Override

@@ -1801,4 +1801,9 @@ public class CharacterDisplay
 		return baseMovementFacet.getSet(id).iterator().next().getDoubleMovement();
 	}
 
+	public double movementOfType(final String moveType)
+	{
+		return moveResultFacet.movementOfType(id, moveType);
+	}
+
 }
