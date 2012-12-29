@@ -278,6 +278,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * Note "pure" here means no getDirty call, and absolutely no other stuff in
 	 * the method. Also any method is not used elsewhere in PlayerCharacter
 	 */
+	//The following facets are write-only isolated (dirty in a set is allowed)
+	private AllowDebtFacet allowDebtFacet = FacetLibrary.getFacet(AllowDebtFacet.class);
+	private IgnoreCostFacet ignoreCostFacet = FacetLibrary.getFacet(IgnoreCostFacet.class);
+	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
+	
 	//The following facets are pure delegation (no exceptions) - could be considered "complete"
 	private AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
 	private AutoListArmorProfFacet armorProfListFacet = FacetLibrary.getFacet(AutoListArmorProfFacet.class);
@@ -289,8 +294,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private DomainSpellCountFacet domainSpellCountFacet = FacetLibrary.getFacet(DomainSpellCountFacet.class);
 	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
 	private GoldFacet goldFacet = FacetLibrary.getFacet(GoldFacet.class);
-	private AllowDebtFacet allowDebtFacet = FacetLibrary.getFacet(AllowDebtFacet.class);
-	private IgnoreCostFacet ignoreCostFacet = FacetLibrary.getFacet(IgnoreCostFacet.class);
 	private MonsterCSkillFacet monCSkillFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
 	private NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
 	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
@@ -318,7 +321,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
 	private AutoLanguageListFacet autoLangListFacet = FacetLibrary.getFacet(AutoLanguageListFacet.class);
 	private FreeLanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
-	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
 	private HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
 	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
 	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
@@ -1365,21 +1367,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		genderFacet.setGender(id, g);
 		setDirty(true);
-	}
-
-	/**
-	 * Returns a string for the character's gender.
-	 * 
-	 * <p>
-	 * This method will return the stored gender or the template locked gender
-	 * if there is one. This means the <tt>setGender()</tt> side effect is not
-	 * really required.
-	 * 
-	 * @return  the character's gender.
-	 */
-	public Gender getGenderObject()
-	{
-		return genderFacet.getGender(id);
 	}
 
 	/**

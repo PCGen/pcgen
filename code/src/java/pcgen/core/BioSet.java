@@ -568,7 +568,7 @@ public final class BioSet extends PObject
 
 		while (genderTok.hasMoreTokens())
 		{
-			if (genderTok.nextToken().equals(pc.getGenderObject().toString()))
+			if (genderTok.nextToken().equals(pc.getDisplay().getGenderObject().toString()))
 			{
 				final String htWtLine = genderTok.nextToken();
 				final StringTokenizer htwtTok = new StringTokenizer(htWtLine, "|", false);
