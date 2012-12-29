@@ -21,8 +21,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.ListSet;
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Language;
@@ -45,9 +48,8 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	public Race race = null;
 	public Set<PCClass> classSet = new ListSet<PCClass>();
 	public int spellcastinglevel = -1;
-	public Set<Skill> classSkillSet = new ListSet<Skill>();
-	public Set<Skill> crossClassSkillSet = new ListSet<Skill>();
 	public Set<Race> qualifiedSet = new ListSet<Race>();
+	public DoubleKeyMap<Skill, PCClass, SkillCost> skillCostMap = new DoubleKeyMap<Skill, PCClass, SkillCost>();
 
 	@Override
 	public Set<WeaponProf> getWeaponProfSet()
@@ -68,15 +70,24 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	}
 
 	@Override
-	public boolean isClassSkill(PCClass cl, Skill sk)
+	public boolean isClassSkill(PCClass aClass, Skill sk)
 	{
-		return classSkillSet.contains(sk);
+		return SkillCost.CLASS.equals(skillCostMap.get(sk, aClass));
 	}
 
 	@Override
-	public boolean isCrossClassSkill(PCClass cl, Skill sk)
+	public SkillCost skillCostForPCClass(Skill sk, PCClass aClass)
 	{
-		return crossClassSkillSet.contains(sk);
+		SkillCost sc = skillCostMap.get(sk, aClass);
+		if (sc == null)
+		{
+			if (sk.getSafe(ObjectKey.EXCLUSIVE))
+			{
+				return SkillCost.EXCLUSIVE;
+			}
+			return SkillCost.CROSS_CLASS;
+		}
+		return sc;
 	}
 
 	@Override
@@ -116,10 +127,10 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	}
 
 	@Override
-	public float getSkillRank(Skill sk)
+	public Float getRank(Skill sk)
 	{
 		return ((skillSet == null) || (skillSet.get(sk) == null)) ? 0f
-				: skillSet.get(sk).floatValue();
+				: skillSet.get(sk);
 	}
 
 	@Override

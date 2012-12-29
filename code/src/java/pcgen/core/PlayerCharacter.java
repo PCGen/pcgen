@@ -110,11 +110,11 @@ import pcgen.cdom.facet.KitFacet;
 import pcgen.cdom.facet.KnownSpellFacet;
 import pcgen.cdom.facet.LevelInfoFacet;
 import pcgen.cdom.facet.MasterFacet;
-import pcgen.cdom.facet.MasterSkillFacet;
 import pcgen.cdom.facet.NoteItemFacet;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.PrimaryWeaponFacet;
 import pcgen.cdom.facet.SecondaryWeaponFacet;
+import pcgen.cdom.facet.SkillCostFacet;
 import pcgen.cdom.facet.SkillOutputOrderFacet;
 import pcgen.cdom.facet.SkillPoolFacet;
 import pcgen.cdom.facet.SkillRankFacet;
@@ -136,13 +136,10 @@ import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.analysis.CharacterSpellResistanceFacet;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
 import pcgen.cdom.facet.analysis.FollowerLimitFacet;
-import pcgen.cdom.facet.analysis.GlobalSkillCostFacet;
 import pcgen.cdom.facet.analysis.LegalDeityFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.analysis.LevelTableFacet;
-import pcgen.cdom.facet.analysis.ListSkillCostFacet;
 import pcgen.cdom.facet.analysis.LoadFacet;
-import pcgen.cdom.facet.analysis.LocalSkillCostFacet;
 import pcgen.cdom.facet.analysis.MovementResultFacet;
 import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.facet.analysis.QualifyFacet;
@@ -176,7 +173,6 @@ import pcgen.cdom.facet.input.AutoListShieldProfFacet;
 import pcgen.cdom.facet.input.AutoListWeaponProfFacet;
 import pcgen.cdom.facet.input.BonusWeaponProfFacet;
 import pcgen.cdom.facet.input.CampaignFacet;
-import pcgen.cdom.facet.input.ClassSkillListFacet;
 import pcgen.cdom.facet.input.FreeLanguageFacet;
 import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.LocalAddedSkillCostFacet;
@@ -212,7 +208,6 @@ import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.AbilityList;
-import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -246,7 +241,6 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.GuiConstants;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceManager;
-import pcgen.rules.context.ReferenceContext;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -298,6 +292,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private SkillLanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
 	private NoteItemFacet noteItemFacet = FacetLibrary.getFacet(NoteItemFacet.class);
 	private UserTemplateFacet userTemplateFacet = FacetLibrary.getFacet(UserTemplateFacet.class);
+	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet = FacetLibrary
+			.getFacet(GlobalAddedSkillCostFacet.class);
+	private LocalAddedSkillCostFacet localAddedSkillCostFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
 
 	//The following facets are pure delegation (no exceptions) - could be considered "complete"
 	private AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
@@ -367,7 +364,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private WeaponProfFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
 	private MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
 	private AutoEquipmentListFacet autoListEquipmentFacet = FacetLibrary.getFacet(AutoEquipmentListFacet.class);
-	private MasterSkillFacet masterSkillFacet = FacetLibrary.getFacet(MasterSkillFacet.class);
 	private FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
 	
 	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
@@ -376,7 +372,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private PrimaryWeaponFacet primaryWeaponFacet = FacetLibrary.getFacet(PrimaryWeaponFacet.class);
 	private SecondaryWeaponFacet secondaryWeaponFacet = FacetLibrary.getFacet(SecondaryWeaponFacet.class);
 
-	private ClassSkillListFacet classSkillListFacet = FacetLibrary.getFacet(ClassSkillListFacet.class);
+	private SkillCostFacet skillCostFacet = FacetLibrary.getFacet(SkillCostFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
@@ -401,12 +397,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
 	private AppliedBonusFacet appliedBonusFacet = FacetLibrary.getFacet(AppliedBonusFacet.class);
 	private AddedBonusFacet addedBonusFacet = FacetLibrary.getFacet(AddedBonusFacet.class);
-	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet = FacetLibrary
-			.getFacet(GlobalAddedSkillCostFacet.class);
-	private GlobalSkillCostFacet globalSkillCostFacet = FacetLibrary.getFacet(GlobalSkillCostFacet.class);
-	private LocalAddedSkillCostFacet localAddedSkillCostFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
-	private LocalSkillCostFacet localSkillCostFacet = FacetLibrary.getFacet(LocalSkillCostFacet.class);
-	private ListSkillCostFacet listSkillCostFacet = FacetLibrary.getFacet(ListSkillCostFacet.class);
 	private SpellSupportFacet spellSupportFacet = FacetLibrary.getFacet(SpellSupportFacet.class);
 	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
@@ -10728,11 +10718,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		globalAddedSkillCostFacet.remove(id, skill, sc, obj);
 	}
 
-	public boolean hasGlobalCost(Skill skill, SkillCost sc)
-	{
-		return globalSkillCostFacet.contains(id, sc, skill) || globalAddedSkillCostFacet.contains(id, skill, sc);
-	}
-
 	public void addLocalCost(PCClass pcc, Skill skill, SkillCost sc, CDOMObject owner)
 	{
 		localAddedSkillCostFacet.add(id, pcc, skill, sc, owner);
@@ -10741,35 +10726,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void removeLocalCost(PCClass pcc, Skill skill, SkillCost sc, CDOMObject owner)
 	{
 		localAddedSkillCostFacet.remove(id, pcc, skill, sc, owner);
-	}
-
-	private boolean hasLocalCost(PCClass cl, Skill skill, SkillCost sc)
-	{
-		return localSkillCostFacet.contains(id, cl, sc, skill) || localAddedSkillCostFacet.contains(id, cl, skill, sc);
-	}
-
-	private boolean hasLocalCost(Collection<ClassSkillList> coll, Skill skill, SkillCost sc)
-	{
-		for (ClassSkillList csl : coll)
-		{
-			if (listSkillCostFacet.contains(id, csl, sc, skill))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public boolean hasMasterSkill(Collection<ClassSkillList> skillLists, Skill sk)
-	{
-		for (ClassSkillList csl : skillLists)
-		{
-			if (masterSkillFacet.hasMasterSkill(csl, sk))
-			{
-				return true;
-			}
-		}
-		return false;
 	}
 
 	public String getSubClassName(PCClass cl)
@@ -10803,47 +10759,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public SkillCost skillCostForPCClass(Skill sk, PCClass aClass)
 	{
-		if (this.isClassSkill(aClass, sk))
-		{
-			return SkillCost.CLASS;
-		} else if (sk.getSafe(ObjectKey.EXCLUSIVE) && !this.isCrossClassSkill(aClass, sk))
-		{
-			return SkillCost.EXCLUSIVE;
-		} else
-		{
-			return SkillCost.CROSS_CLASS;
-		}
-	}
-
-	public boolean isCrossClassSkill(PCClass aClass, Skill sk)
-	{
-		if ((aClass == null) || this.isClassSkill(aClass, sk))
-		{
-			return false;
-		}
-		Collection<ClassSkillList> classSkillList = getClassSkillLists(aClass);
-
-		return hasGlobalCost(sk, SkillCost.CROSS_CLASS) || hasLocalCost(aClass, sk, SkillCost.CROSS_CLASS)
-				|| hasLocalCost(classSkillList, sk, SkillCost.CROSS_CLASS);
+		return skillCostFacet.skillCostForPCClass(id, sk, aClass);
 	}
 
 	public boolean isClassSkill(PCClass aClass, Skill sk)
 	{
-		if (aClass == null)
-		{
-			return false;
-		}
-
-		// test for SKILLLIST skill
-		// TODO Can this be eliminated?
-		if (hasClassSkill(aClass, sk))
-		{
-			return true;
-		}
-
-		Collection<ClassSkillList> classSkillList = getClassSkillLists(aClass);
-		return hasGlobalCost(sk, SkillCost.CLASS) || hasLocalCost(aClass, sk, SkillCost.CLASS)
-				|| hasLocalCost(classSkillList, sk, SkillCost.CLASS) || hasMasterSkill(classSkillList, sk);
+		return skillCostFacet.isClassSkill(id, aClass, sk);
 	}
 
 	public float getSkillRank(Skill sk)
@@ -11262,42 +11183,5 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		Boolean ic = ignoreCostFacet.get(id);
 		return (ic == null) ? SettingsHandler.getGearTab_IgnoreCost() : ic;
-	}
-
-	public boolean hasClassSkill(PCClass pcClass, Skill skill)
-	{
-		Collection<ClassSkillList> classSkillList = classSkillListFacet.getSet(id, pcClass);
-		return (classSkillList != null)
-				&& hasMasterSkill(classSkillList, skill);
-	}
-
-	public final Collection<ClassSkillList> getClassSkillLists(PCClass cl)
-	{
-		Collection<ClassSkillList> classSkillList = classSkillListFacet.getSet(id, cl);
-		if (classSkillList.isEmpty())
-		{
-			List<ClassSkillList> returnList = new ArrayList<ClassSkillList>(2);
-			ReferenceContext ref = Globals.getContext().ref;
-			Class<ClassSkillList> csl = ClassSkillList.class;
-			ClassSkillList l = ref.silentlyGetConstructedCDOMObject(csl, cl.getKeyName());
-			if (l != null)
-			{
-				returnList.add(l);
-			}
-			String subClassKey = getSubClassName(cl);
-			if (subClassKey != null)
-			{
-				l = ref.silentlyGetConstructedCDOMObject(csl, subClassKey);
-				if (l != null)
-				{
-					returnList.add(l);
-				}
-			}
-			return returnList;
-		}
-		else
-		{
-			return classSkillList;
-		}
 	}
 }

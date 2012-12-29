@@ -184,9 +184,26 @@ public class SkillpointsToken extends Token
 			{
 				for (NamedValue sd : rankList)
 				{
-					PCClass pcClass = pc.getClassKeyed(sd.name);
-					usedPoints += (sd.getWeight() * pc.getSkillCostForClass(
-							aSkill, pcClass).getCost());
+					int cost;
+					if ("None".equalsIgnoreCase(sd.name))
+					{
+						/*
+						 * TODO This selection of CROSS_CLASS cost is completely
+						 * arbitrary. It is based on the existing behavior of
+						 * code for getSkillCostForClass when a null class was
+						 * passed in. Long term, this should be established with
+						 * better clarity - thpr Dec 29, 2012
+						 */
+						cost = SkillCost.CROSS_CLASS.getCost();
+					}
+					else
+					{
+						PCClass pcClass = pc.getClassKeyed(sd.name);
+						cost =
+								pc.getSkillCostForClass(aSkill, pcClass)
+									.getCost();
+					}
+				usedPoints += (sd.getWeight() * cost);
 				}
 			}
 		}

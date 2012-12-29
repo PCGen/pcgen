@@ -416,6 +416,16 @@
 		<property name="levelFacet" ref="levelFacet"/>
 	</bean>
 	<bean id="skillFacet" class="pcgen.cdom.facet.model.SkillFacet"/>
+	<bean id="skillCostFacet" class="pcgen.cdom.facet.SkillCostFacet">
+		<property name="classSkillListFacet" ref="classSkillListFacet"/>
+		<property name="globalAddedSkillCostFacet" ref="globalAddedSkillCostFacet"/>
+		<property name="globalSkillCostFacet" ref="globalSkillCostFacet"/>
+		<property name="listSkillCostFacet" ref="listSkillCostFacet"/>
+		<property name="localAddedSkillCostFacet" ref="localAddedSkillCostFacet"/>
+		<property name="localSkillCostFacet" ref="localSkillCostFacet"/>
+		<property name="masterSkillFacet" ref="masterSkillFacet"/>
+		<property name="subClassFacet" ref="subClassFacet"/>
+	</bean>
 	<bean id="skillLanguageFacet" class="pcgen.cdom.facet.input.SkillLanguageFacet">
 		<property name="languageFacet" ref="languageFacet"/>
 	</bean>

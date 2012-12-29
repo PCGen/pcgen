@@ -24,6 +24,7 @@ import org.junit.Test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
@@ -121,8 +122,8 @@ public class ExclusiveQualifierTokenTest extends
 		assertEquals(2, set.size());
 		assertTrue(set.contains(s4));
 		assertTrue(set.contains(s5));
-		pc.classSkillSet.add(s4);
-		pc.crossClassSkillSet.add(s5);
+		pc.skillCostMap.put(s4, cl1, SkillCost.CLASS);
+		pc.skillCostMap.put(s5, cl1, SkillCost.CROSS_CLASS);
 		set = info.getSet(pc);
 		assertTrue(set.isEmpty());
 	}
@@ -142,7 +143,7 @@ public class ExclusiveQualifierTokenTest extends
 		Collection<?> set = info.getSet(pc);
 		assertEquals(1, set.size());
 		assertTrue(set.contains(s4));
-		pc.crossClassSkillSet.add(s4);
+		pc.skillCostMap.put(s4, cl1, SkillCost.CROSS_CLASS);
 		set = info.getSet(pc);
 		assertTrue(set.isEmpty());
 	}
