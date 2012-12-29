@@ -64,7 +64,7 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 
 	public boolean allow(PlayerCharacter pc, WeaponProf pcc)
 	{
-		Deity deity = pc.getDeity();
+		Deity deity = pc.getDisplay().getDeity();
 		if (deity == null)
 		{
 			return false;

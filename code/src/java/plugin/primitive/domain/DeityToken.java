@@ -64,7 +64,7 @@ public class DeityToken implements PrimitiveToken<Domain>
 
 	public boolean allow(PlayerCharacter pc, Domain domain)
 	{
-		Deity deity = pc.getDeity();
+		Deity deity = pc.getDisplay().getDeity();
 		if (deity == null)
 		{
 			return false;

@@ -63,7 +63,7 @@ public class LangBonusToken implements PrimitiveToken<Language>, PrimitiveFilter
 	@Override
 	public boolean allow(PlayerCharacter pc, Language l)
 	{
-		return pc.getLanguageBonusSelectionList().contains(l);
+		return pc.getDisplay().getLanguageBonusSelectionList().contains(l);
 	}
 
 	@Override

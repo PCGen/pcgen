@@ -66,6 +66,7 @@ import pcgen.cdom.facet.SkillCostFacet;
 import pcgen.cdom.facet.SkillRankFacet;
 import pcgen.cdom.facet.SpellBookFacet;
 import pcgen.cdom.facet.SpellListFacet;
+import pcgen.cdom.facet.StartingLanguageFacet;
 import pcgen.cdom.facet.StatBonusFacet;
 import pcgen.cdom.facet.StatCalcFacet;
 import pcgen.cdom.facet.StatValueFacet;
@@ -76,6 +77,7 @@ import pcgen.cdom.facet.analysis.AgeSetFacet;
 import pcgen.cdom.facet.analysis.ArmorClassFacet;
 import pcgen.cdom.facet.analysis.BaseMovementFacet;
 import pcgen.cdom.facet.analysis.ChallengeRatingFacet;
+import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.analysis.FaceFacet;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
 import pcgen.cdom.facet.analysis.FollowerOptionFacet;
@@ -129,6 +131,7 @@ import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfFacet;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.AgeSet;
 import pcgen.core.ArmorProf;
 import pcgen.core.BioSet;
@@ -191,6 +194,8 @@ public class CharacterDisplay
 	private SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
 	private FavoredClassFacet favClassFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
 	private HasAnyFavoredClassFacet hasAnyFavoredFacet = FacetLibrary.getFacet(HasAnyFavoredClassFacet.class);
+	private StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
+	private ChangeProfFacet changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
 	private BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
 	private BaseMovementFacet baseMovementFacet = FacetLibrary.getFacet(BaseMovementFacet.class);
 	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
@@ -1887,6 +1892,27 @@ public class CharacterDisplay
 	public boolean isClassSkill(PCClass aClass, Skill sk)
 	{
 		return skillCostFacet.isClassSkill(id, aClass, sk);
+	}
+
+	public List<WeaponProf> getWeaponProfsInTarget(CDOMGroupRef<WeaponProf> master)
+	{
+		return changeProfFacet.getWeaponProfsInTarget(id, master);
+	}
+
+	/**
+	 * Return a list of bonus languages which the character may select from.
+	 * This function is not efficient, but is sufficient for it's current use of
+	 * only being called when the user requests the bonus language selection
+	 * list. Note: A check will be made for the ALL language and it will be
+	 * replaced with the current list of languages in globals. These should be
+	 * further restricted by the prerequisites of the languages to ensure that
+	 * 'secret' languages are not offered.
+	 * 
+	 * @return List of bonus languages for the character.
+	 */
+	public Set<Language> getLanguageBonusSelectionList()
+	{
+		return startingLangFacet.getSet(id);
 	}
 
 }

@@ -80,7 +80,7 @@ public class TypeToken implements PrimitiveToken<WeaponProf>,
 	@Override
 	public boolean allow(PlayerCharacter pc, WeaponProf obj)
 	{
-		return pc.getWeaponProfsInTarget(typeRef).contains(obj);
+		return pc.getDisplay().getWeaponProfsInTarget(typeRef).contains(obj);
 	}
 
 	@Override
