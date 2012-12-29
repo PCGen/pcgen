@@ -112,7 +112,7 @@ public class DeityToken implements PrimitiveToken<Domain>
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Domain, R> c)
 	{
 		HashSet<R> returnSet = new HashSet<R>();
-		Deity deity = pc.getDeity();
+		Deity deity = pc.getDisplay().getDeity();
 		if (deity == null)
 		{
 			return returnSet;

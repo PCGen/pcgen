@@ -102,7 +102,7 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
 	{
-		Deity deity = pc.getDeity();
+		Deity deity = pc.getDisplay().getDeity();
 		if (deity == null)
 		{
 			return Collections.emptySet();
