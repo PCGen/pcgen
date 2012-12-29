@@ -45,7 +45,7 @@
 		<property name="bioSetFacet" ref="bioSetFacet"/>
 	</bean>
 	<bean id="alignmentFacet" class="pcgen.cdom.facet.model.AlignmentFacet" />
-	<bean id="allowDebtFacet" class="pcgen.cdom.facet.AllowDebtFacet"/>
+	<bean id="allowDebtFacet" class="pcgen.cdom.facet.fact.AllowDebtFacet"/>
 	<bean id="appliedBonusFacet" class="pcgen.cdom.facet.AppliedBonusFacet">
 		<property name="addedBonusFacet" ref="addedBonusFacet"/>
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
@@ -227,7 +227,7 @@
 	<bean id="globalSkillCostFacet" class="pcgen.cdom.facet.analysis.GlobalSkillCostFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
-	<bean id="goldFacet" class="pcgen.cdom.facet.GoldFacet"/>
+	<bean id="goldFacet" class="pcgen.cdom.facet.fact.GoldFacet"/>
 	<bean id="grantedAbilityFacet" class="pcgen.cdom.facet.GrantedAbilityFacet"/>
 	<!-- H -->
 	<bean id="handedFacet" class="pcgen.cdom.facet.fact.HandedFacet"/>
@@ -251,7 +251,7 @@
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 	</bean>
 	<!-- I -->
-	<bean id="ignoreCostFacet" class="pcgen.cdom.facet.IgnoreCostFacet"/>
+	<bean id="ignoreCostFacet" class="pcgen.cdom.facet.fact.IgnoreCostFacet"/>
 	<bean id="initiativeFacet" class="pcgen.cdom.facet.analysis.InitiativeFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
