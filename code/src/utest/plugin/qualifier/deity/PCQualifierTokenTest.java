@@ -70,7 +70,7 @@ public class PCQualifierTokenTest extends
 	@Override
 	protected void addToPCSet(TransparentPlayerCharacter pc, Deity item)
 	{
-		pc.deity = item;
+		pc.display.deity = item;
 	}
 
 	@Override
