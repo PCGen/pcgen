@@ -293,6 +293,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private AutoListArmorProfFacet armorProfListFacet = FacetLibrary.getFacet(AutoListArmorProfFacet.class);
 	private AutoListShieldProfFacet shieldProfListFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
 	private AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
+	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
 
 	//The following facets are pure delegation (no exceptions) - could be considered "complete"
 	private AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
@@ -324,7 +325,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * between two facets in a get (A && B)
 	 */
 	//The following facets are "minimal" delegation
-	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
 	private SkillLanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
@@ -1991,16 +1991,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void setRegion(Region r)
 	{
 		regionFacet.setRegion(id, r);
-	}
-
-	/**
-	 * Selector build on-the-fly so removing templates won't mess up region.
-	 * 
-	 * @return character region
-	 */
-	public String getRegionString()
-	{
-		return regionFacet.getRegion(id);
 	}
 
 	/**
