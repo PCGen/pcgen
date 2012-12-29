@@ -28,10 +28,10 @@ package pcgen.core.term;
 
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCStatModTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 	private final String statAbbrev;
 	
@@ -42,11 +42,11 @@ public class PCStatModTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
 		final PCStat stat = Globals.getContext().ref
 				.getAbbreviatedObject(PCStat.class, statAbbrev);
-		return (float) pc.getStatModFor(stat);
+		return (float) display.getStatModFor(stat);
 	}
 
 	@Override

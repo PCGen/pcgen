@@ -28,10 +28,10 @@ package pcgen.core.term;
 
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCScoreTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 	private final String stat;
 
@@ -42,7 +42,7 @@ public class PCScoreTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
 		if ("".equals(stat))
 		{
@@ -50,7 +50,7 @@ public class PCScoreTermEvaluator
 		}
 		PCStat pcs = Globals.getContext().ref.getAbbreviatedObject(
 				PCStat.class, stat);
-		return (float) pc.getTotalStatFor(pcs);
+		return (float) display.getTotalStatFor(pcs);
 	}
 
 	@Override

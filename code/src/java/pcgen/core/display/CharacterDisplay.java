@@ -61,6 +61,7 @@ import pcgen.cdom.facet.MasterFacet;
 import pcgen.cdom.facet.NoteItemFacet;
 import pcgen.cdom.facet.PrimaryWeaponFacet;
 import pcgen.cdom.facet.SecondaryWeaponFacet;
+import pcgen.cdom.facet.SkillRankFacet;
 import pcgen.cdom.facet.SpellBookFacet;
 import pcgen.cdom.facet.SpellListFacet;
 import pcgen.cdom.facet.StatBonusFacet;
@@ -219,6 +220,7 @@ public class CharacterDisplay
 	private NoteItemFacet noteItemFacet = FacetLibrary.getFacet(NoteItemFacet.class);
 	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
 	private UserSpecialAbilityFacet userSpecialAbilityFacet = FacetLibrary.getFacet(UserSpecialAbilityFacet.class);
+	private SkillRankFacet skillRankFacet = FacetLibrary.getFacet(SkillRankFacet.class);
 	private ShieldProfProviderFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfProviderFacet.class);
 	private SpecialAbilityFacet specialAbilityFacet = FacetLibrary.getFacet(SpecialAbilityFacet.class);
 	private SecondaryWeaponFacet secondaryWeaponFacet = FacetLibrary.getFacet(SecondaryWeaponFacet.class);
@@ -1862,6 +1864,16 @@ public class CharacterDisplay
 	public int getFavoredClassLevel()
 	{
 		return favClassFacet.getFavoredClassLevel(id);
+	}
+
+	/**
+	 * returns ranks taken specifically in skill
+	 * 
+	 * @return ranks taken in skill
+	 */
+	public Float getRank(Skill sk)
+	{
+		return skillRankFacet.getRank(id, sk);
 	}
 
 }

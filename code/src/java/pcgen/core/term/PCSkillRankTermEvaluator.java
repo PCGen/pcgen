@@ -27,12 +27,12 @@
 package pcgen.core.term;
 
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.spell.Spell;
 
 public class PCSkillRankTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 	private final String rank;
 
@@ -43,27 +43,27 @@ public class PCSkillRankTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
-		return convertToFloat(originalText, evaluate(pc));
+		return convertToFloat(originalText, evaluate(display));
 	}
 	
 	@Override
-	public String evaluate(PlayerCharacter pc)
+	public String evaluate(CharacterDisplay display)
 	{
 		Skill skill = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(Skill.class, rank);
-		if (skill == null || !pc.getDisplay().hasSkill(skill))
+		if (skill == null || !display.hasSkill(skill))
 		{
 			return "0.0";
 		}
 
-		return pc.getRank(skill).toString();		
+		return display.getRank(skill).toString();		
 	}
 
 	@Override
-	public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
-		return evaluate(pc);
+	public String evaluate(CharacterDisplay display,  final Spell aSpell) {
+		return evaluate(display);
 	}
 	
 	@Override

@@ -26,10 +26,10 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 
 public class ConstantZeroTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator {
+		extends BasePCDTermEvaluator implements TermEvaluator {
 
 	public ConstantZeroTermEvaluator(String originalText)
 	{
@@ -37,7 +37,7 @@ public class ConstantZeroTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
 		return 0f;
 	}
