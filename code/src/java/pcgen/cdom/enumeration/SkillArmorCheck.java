@@ -79,7 +79,7 @@ public enum SkillArmorCheck
 		@Override
 		protected int calculateMax(PlayerCharacter pc)
 		{
-			return -(int) (pc.totalWeight().doubleValue() / 5.0);
+			return -(int) (pc.getDisplay().totalWeight().doubleValue() / 5.0);
 		}
 
 	};
