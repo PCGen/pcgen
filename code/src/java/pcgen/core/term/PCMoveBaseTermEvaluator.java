@@ -46,7 +46,7 @@ public class PCMoveBaseTermEvaluator
 	@Override
 	public String evaluate (PlayerCharacter pc)
 	{
-		return pc.getBaseMovement().toString();
+		return pc.getDisplay().getBaseMovement().toString();
 	}
 
 	@Override

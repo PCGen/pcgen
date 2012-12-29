@@ -132,7 +132,6 @@ import pcgen.cdom.facet.UserEquipmentFacet;
 import pcgen.cdom.facet.UserTemplateFacet;
 import pcgen.cdom.facet.XPTableFacet;
 import pcgen.cdom.facet.analysis.AgeSetFacet;
-import pcgen.cdom.facet.analysis.BaseMovementFacet;
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.analysis.CharacterSpellResistanceFacet;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
@@ -282,7 +281,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private AutoListArmorProfFacet armorProfListFacet = FacetLibrary.getFacet(AutoListArmorProfFacet.class);
 	private AutoListShieldProfFacet shieldProfListFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
 	private AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
-	private BaseMovementFacet baseMovementFacet = FacetLibrary.getFacet(BaseMovementFacet.class);
 	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
 	private ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private ClassSpellListFacet classSpellListFacet = FacetLibrary.getFacet(ClassSpellListFacet.class);
@@ -11162,11 +11160,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public List<WeaponProf> getWeaponProfsInTarget(CDOMGroupRef<WeaponProf> master)
 	{
 		return changeProfFacet.getWeaponProfsInTarget(id, master);
-	}
-
-	public Double getBaseMovement()
-	{
-		return baseMovementFacet.getSet(id).iterator().next().getDoubleMovement();
 	}
 
 	public void setSubstitutionClassName(PCClassLevel lvl, String subClassKey)

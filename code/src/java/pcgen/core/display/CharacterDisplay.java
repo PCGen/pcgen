@@ -1792,4 +1792,9 @@ public class CharacterDisplay
 		return visionFacet.getVisionCount(id);
 	}
 
+	public Double getBaseMovement()
+	{
+		return baseMovementFacet.getSet(id).iterator().next().getDoubleMovement();
+	}
+
 }
