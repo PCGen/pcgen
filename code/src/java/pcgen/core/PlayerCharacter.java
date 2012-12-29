@@ -176,6 +176,7 @@ import pcgen.cdom.facet.input.AutoListShieldProfFacet;
 import pcgen.cdom.facet.input.AutoListWeaponProfFacet;
 import pcgen.cdom.facet.input.BonusWeaponProfFacet;
 import pcgen.cdom.facet.input.CampaignFacet;
+import pcgen.cdom.facet.input.ClassSkillListFacet;
 import pcgen.cdom.facet.input.FreeLanguageFacet;
 import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.LocalAddedSkillCostFacet;
@@ -221,7 +222,6 @@ import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
-import pcgen.core.analysis.ClassSkillApplication;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.analysis.SpellLevel;
@@ -246,6 +246,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.GuiConstants;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceManager;
+import pcgen.rules.context.ReferenceContext;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -374,6 +375,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private SpecialAbilityFacet specialAbilityFacet = FacetLibrary.getFacet(SpecialAbilityFacet.class);
 	private PrimaryWeaponFacet primaryWeaponFacet = FacetLibrary.getFacet(PrimaryWeaponFacet.class);
 	private SecondaryWeaponFacet secondaryWeaponFacet = FacetLibrary.getFacet(SecondaryWeaponFacet.class);
+
+	private ClassSkillListFacet classSkillListFacet = FacetLibrary.getFacet(ClassSkillListFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
@@ -10757,7 +10760,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return false;
 	}
 
-	public boolean hasMasterSkill(List<ClassSkillList> skillLists, Skill sk)
+	public boolean hasMasterSkill(Collection<ClassSkillList> skillLists, Skill sk)
 	{
 		for (ClassSkillList csl : skillLists)
 		{
@@ -10818,7 +10821,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		{
 			return false;
 		}
-		List<ClassSkillList> classSkillList = ClassSkillApplication.getClassSkillList(this, aClass);
+		Collection<ClassSkillList> classSkillList = getClassSkillLists(aClass);
 
 		return hasGlobalCost(sk, SkillCost.CROSS_CLASS) || hasLocalCost(aClass, sk, SkillCost.CROSS_CLASS)
 				|| hasLocalCost(classSkillList, sk, SkillCost.CROSS_CLASS);
@@ -10833,12 +10836,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 		// test for SKILLLIST skill
 		// TODO Can this be eliminated?
-		if (aClass.hasClassSkill(this, sk))
+		if (hasClassSkill(aClass, sk))
 		{
 			return true;
 		}
 
-		List<ClassSkillList> classSkillList = ClassSkillApplication.getClassSkillList(this, aClass);
+		Collection<ClassSkillList> classSkillList = getClassSkillLists(aClass);
 		return hasGlobalCost(sk, SkillCost.CLASS) || hasLocalCost(aClass, sk, SkillCost.CLASS)
 				|| hasLocalCost(classSkillList, sk, SkillCost.CLASS) || hasMasterSkill(classSkillList, sk);
 	}
@@ -11261,4 +11264,56 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return (ic == null) ? SettingsHandler.getGearTab_IgnoreCost() : ic;
 	}
 
+	public boolean hasClassSkill(PCClass pcClass, Skill skill)
+	{
+		Collection<ClassSkillList> classSkillList = classSkillListFacet.getSet(id, pcClass);
+		return (classSkillList != null)
+				&& hasMasterSkill(classSkillList, skill);
+	}
+
+	public void chooseClassSkillList(PCClass cl)
+	{
+		TransitionChoice<ClassSkillList> csc = cl.get(ObjectKey.SKILLLIST_CHOICE);
+		// if no entry or no choices, just return
+		if (csc == null || (getLevel(cl) < 1))
+		{
+			return;
+		}
+
+		classSkillListFacet.removeAll(id, cl);
+		for (ClassSkillList st : csc.driveChoice(this))
+		{
+			classSkillListFacet.add(id, cl, st);
+		}
+	}
+
+	public final Collection<ClassSkillList> getClassSkillLists(PCClass cl)
+	{
+		Collection<ClassSkillList> classSkillList = classSkillListFacet.getSet(id, cl);
+		if (classSkillList.isEmpty())
+		{
+			List<ClassSkillList> returnList = new ArrayList<ClassSkillList>(2);
+			ReferenceContext ref = Globals.getContext().ref;
+			Class<ClassSkillList> csl = ClassSkillList.class;
+			ClassSkillList l = ref.silentlyGetConstructedCDOMObject(csl, cl.getKeyName());
+			if (l != null)
+			{
+				returnList.add(l);
+			}
+			String subClassKey = getSubClassName(cl);
+			if (subClassKey != null)
+			{
+				l = ref.silentlyGetConstructedCDOMObject(csl, subClassKey);
+				if (l != null)
+				{
+					returnList.add(l);
+				}
+			}
+			return returnList;
+		}
+		else
+		{
+			return classSkillList;
+		}
+	}
 }

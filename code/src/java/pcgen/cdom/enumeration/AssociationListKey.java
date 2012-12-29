@@ -33,7 +33,6 @@ import pcgen.base.util.FixedStringList;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.SpellLevel;
 import pcgen.cdom.identifier.SpellSchool;
-import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Ability;
 import pcgen.core.ArmorProf;
 import pcgen.core.Deity;
@@ -81,9 +80,6 @@ public final class AssociationListKey<T>
 	 * of ChooseResultActor, so this item is related to CODE-1902
 	 */
 	public static final AssociationListKey<FixedStringList> CHOICES = new AssociationListKey<FixedStringList>();
-
-	//CLASSSKILLLIST is a candidate to be sunset as part of CODE-1908
-	public static final AssociationListKey<ClassSkillList> CLASSSKILLLIST = new AssociationListKey<ClassSkillList>();
 
 	/*
 	 * ADD is a widely used key used to store the information about items added to the PC.

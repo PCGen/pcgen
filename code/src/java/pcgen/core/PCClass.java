@@ -42,7 +42,6 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
-import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
@@ -56,11 +55,9 @@ import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.inst.PCClassLevel;
-import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.DomainList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.analysis.AddObjectActions;
-import pcgen.core.analysis.ClassSkillApplication;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.ExchangeLevelApplication;
 import pcgen.core.analysis.SizeUtilities;
@@ -433,7 +430,7 @@ public class PCClass extends PObject implements ClassFacade
 				addFeatPoolBonus(aPC);
 			}
 
-			ClassSkillApplication.chooseClassSkillList(aPC, this);
+			aPC.chooseClassSkillList(this);
 		}
 
 		if (!aPC.isImporting())
@@ -733,18 +730,6 @@ public class PCClass extends PObject implements ClassFacade
 		}
 
 		return aClass;
-	}
-
-	/*
-	 * FINALPCCLASSLEVELONLY This is only part of the level, as the skill list is
-	 * calculated based on other factors, it is not a Tag
-	 */
-	public boolean hasClassSkill(PlayerCharacter pc, Skill skill)
-	{
-		List<ClassSkillList> classSkillList = pc.getAssocList(this,
-				AssociationListKey.CLASSSKILLLIST);
-		return (classSkillList != null)
-				&& pc.hasMasterSkill(classSkillList, skill);
 	}
 
 	/*
