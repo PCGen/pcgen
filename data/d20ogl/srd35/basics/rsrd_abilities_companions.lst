@@ -33,7 +33,9 @@ Trained for Performance		KEY:Animal Training ~ Performance	CATEGORY:Special Abil
 Trained for Riding		KEY:Animal Training ~ Riding		CATEGORY:Special Ability	TYPE:AnimalTrick.AnimalTraining.General.AnimalTrickCome.AnimalTrickHeel.AnimalTrickStay										!PREABILITY:1,CATEGORY=Special Ability,TYPE.AnimalTraining	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Animal Training ~ Riding],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AnimalTrickCome,TYPE.AnimalTrickHeel,TYPE.AnimalTrickStay]																	DESC:An animal trained to bear a rider knows the tricks come, heel, and stay. Training an animal for riding takes 3 weeks.				ABILITY:Special Ability|AUTOMATIC|Animal Trick ~ Come|Animal Trick ~ Heel|Animal Trick ~ Stay												COST:3
 
 
-
+###Block: 'Hidden' Animal Tricks
+# Ability Name	Unique Key				Category of Ability		Type			Description											
+Air Walk		KEY:Animal Trick ~ Air Walk	CATEGORY:Special Ability	TYPE:AnimalTrick	DESC:The animal is trained to move with the aid of the air walk spell.
 
 ###Block:
 
