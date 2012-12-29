@@ -19,7 +19,6 @@ package pcgen.core.display;
 
 import java.awt.Rectangle;
 import java.awt.geom.Point2D;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -102,7 +101,6 @@ import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
 import pcgen.cdom.facet.fact.GenderFacet;
-import pcgen.cdom.facet.fact.GoldFacet;
 import pcgen.cdom.facet.fact.HandedFacet;
 import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
@@ -199,7 +197,6 @@ public class CharacterDisplay
 	private HitPointFacet hitPointFacet = FacetLibrary.getFacet(HitPointFacet.class);
 	private FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
 	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
-	private GoldFacet goldFacet = FacetLibrary.getFacet(GoldFacet.class);
 	private LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
 	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 	private ReachFacet reachFacet = FacetLibrary.getFacet(ReachFacet.class);
@@ -682,11 +679,6 @@ public class CharacterDisplay
 	public Gender getGenderObject()
 	{
 		return genderFacet.getGender(id);
-	}
-
-	public BigDecimal getGold()
-	{
-		return goldFacet.get(id);
 	}
 
 	/**

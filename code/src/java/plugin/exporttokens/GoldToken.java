@@ -27,9 +27,9 @@ package plugin.exporttokens;
 
 import java.math.BigDecimal;
 
-import pcgen.core.display.CharacterDisplay;
+import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.io.exporttoken.Token;
 
 /**
  * Handle the GOLD token which outputs the amount of unallocated wealth
@@ -40,7 +40,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  *
  * @version $Revision$
  */
-public class GoldToken extends AbstractExportToken
+public class GoldToken extends Token
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -55,10 +55,10 @@ public class GoldToken extends AbstractExportToken
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
+	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
 	{
-		return getGoldToken(display).toString();
+		return getGoldToken(pc).toString();
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class GoldToken extends AbstractExportToken
 	 * @param pc The character to be queried.
 	 * @return The amount of gold
 	 */
-	public static BigDecimal getGoldToken(CharacterDisplay display)
+	public static BigDecimal getGoldToken(PlayerCharacter pc)
 	{
-		return display.getGold();
+		return pc.getGold();
 	}
 }

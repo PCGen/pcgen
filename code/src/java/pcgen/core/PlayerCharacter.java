@@ -1410,7 +1410,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public BigDecimal getGold()
 	{
-		return goldFacet.get(id);
+		BigDecimal g = goldFacet.get(id);
+		return (g == null) ? BigDecimal.ZERO : g;
 	}
 
 	/**

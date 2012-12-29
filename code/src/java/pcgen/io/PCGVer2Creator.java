@@ -2542,7 +2542,7 @@ final class PCGVer2Creator implements IOConstants
 	private void appendMoneyLine(StringBuilder buffer)
 	{
 		buffer.append(TAG_MONEY).append(':');
-		buffer.append(charDisplay.getGold().toString());
+		buffer.append(thePC.getGold().toString());
 		buffer.append(LINE_SEP);
 	}
 

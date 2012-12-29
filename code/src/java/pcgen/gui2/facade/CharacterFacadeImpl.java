@@ -434,7 +434,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		purchasedEquip.addListListener(spellSupportFacade);
 		purchasedEquip.addEquipmentListListener(spellSupportFacade);
-		fundsRef = new DefaultReferenceFacade<BigDecimal>(charDisplay.getGold());
+		fundsRef = new DefaultReferenceFacade<BigDecimal>(theCharacter.getGold());
 		wealthRef = new DefaultReferenceFacade<BigDecimal>(theCharacter.totalValue());
 		gearBuySellSchemeRef = new DefaultReferenceFacade<GearBuySellFacade>(findGearBuySellRate());
 		allowDebt = false;
@@ -3256,7 +3256,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void adjustFunds(BigDecimal modVal)
 	{
-		BigDecimal currFunds = charDisplay.getGold();
+		BigDecimal currFunds = theCharacter.getGold();
 		theCharacter.setGold(currFunds.add(modVal));
 		updateWealthFields();
 	}
@@ -3311,7 +3311,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 */
 	private void updateWealthFields()
 	{
-		fundsRef.setReference(charDisplay.getGold());
+		fundsRef.setReference(theCharacter.getGold());
 		wealthRef.setReference(theCharacter.totalValue());
 	}
 
@@ -3434,7 +3434,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 */
 	private boolean canAfford(Equipment selected, double purchaseQty, GearBuySellScheme gearBuySellScheme)
 	{
-		final float currentFunds = charDisplay.getGold().floatValue();
+		final float currentFunds = theCharacter.getGold().floatValue();
 
 		final double itemCost = calcItemCost(selected, purchaseQty, gearBuySellScheme);
 
@@ -4179,7 +4179,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 */
 	private void refreshEquipment()
 	{
-		fundsRef.setReference(charDisplay.getGold());
+		fundsRef.setReference(theCharacter.getGold());
 		wealthRef.setReference(theCharacter.totalValue());
 
 		purchasedEquip.refresh(theCharacter.getEquipmentMasterList());
