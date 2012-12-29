@@ -39,7 +39,7 @@ public class PCCountVisionTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getVisionCount();
+		return (float) pc.getDisplay().getVisionCount();
 	}
 
 	@Override

@@ -1787,4 +1787,9 @@ public class CharacterDisplay
 		return subTypesFacet.getCount(id);
 	}
 
+	public int getVisionCount()
+	{
+		return visionFacet.getVisionCount(id);
+	}
+
 }

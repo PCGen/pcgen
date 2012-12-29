@@ -152,7 +152,6 @@ import pcgen.cdom.facet.analysis.StatLockFacet;
 import pcgen.cdom.facet.analysis.TotalWeightFacet;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.cdom.facet.analysis.VariableFacet;
-import pcgen.cdom.facet.analysis.VisionFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.facet.fact.AgeFacet;
 import pcgen.cdom.facet.fact.CharacterTypeFacet;
@@ -305,7 +304,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private SubstitutionClassFacet substitutionClassFacet = FacetLibrary.getFacet(SubstitutionClassFacet.class);
 	private TotalWeightFacet totalWeightFacet = FacetLibrary.getFacet(TotalWeightFacet.class);
 	private UnlockedStatFacet unlockedStatFacet = FacetLibrary.getFacet(UnlockedStatFacet.class);
-	private VisionFacet visionFacet = FacetLibrary.getFacet(VisionFacet.class);
 
 	/*
 	 * Note "minimal" here means getDirty is allowed on a set, it may be used in
@@ -10672,11 +10670,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public boolean hasSpellBook(String bookName)
 	{
 		return spellBookFacet.containsBookNamed(id, bookName);
-	}
-
-	public int getVisionCount()
-	{
-		return visionFacet.getVisionCount(id);
 	}
 
 	public Load getLoadType()
