@@ -2598,16 +2598,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		setDirty(true);
 	}
 
-	/**
-	 * Gets the character's weight in pounds.
-	 * 
-	 * @return The character's weight.
-	 */
-	public int getWeight()
-	{
-		return weightFacet.getWeight(id);
-	}
-
 	public void setPointBuyPoints(final int argPointBuyPoints)
 	{
 		pointBuyPoints = argPointBuyPoints;

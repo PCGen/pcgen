@@ -40,7 +40,7 @@ public class PCWeightTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getWeight();
+		return (float) pc.getDisplay().getWeight();
 	}
 
 	@Override

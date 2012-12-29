@@ -190,9 +190,9 @@ public class BioSetTest extends AbstractCharacterTestCase
 		assertTrue("Generated height " + pc.getHeight()
 			+ " is not in required range.", (pc.getHeight() >= 58 && pc
 			.getHeight() <= 78));
-		assertTrue("Generated weight " + pc.getWeight()
-			+ " is not in required range.", (pc.getWeight() >= 120 && pc
-			.getWeight() <= 280));
+		assertTrue("Generated weight " + pc.getDisplay().getWeight()
+			+ " is not in required range.", (pc.getDisplay().getWeight() >= 120 && pc
+					.getDisplay().getWeight() <= 280));
 		assertTrue("Generated eye colour " + pc.getSafeStringFor(StringKey.EYE_COLOR)
 			+ " is not valid.", ("Blue".equals(pc.getSafeStringFor(StringKey.EYE_COLOR))));
 		assertTrue("Generated hair colour " + pc.getSafeStringFor(StringKey.HAIR_COLOR)
