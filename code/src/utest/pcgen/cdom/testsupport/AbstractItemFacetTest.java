@@ -17,8 +17,6 @@
  */
 package pcgen.cdom.testsupport;
 
-import java.util.Collection;
-
 import junit.framework.TestCase;
 
 import org.junit.Test;
