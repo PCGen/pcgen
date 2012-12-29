@@ -43,8 +43,8 @@ public class PCBonusLangTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		if (pc.totalNonMonsterLevels() > 1
-				|| (pc.totalNonMonsterLevels() > 0 && pc.totalHitDice() > 0))
+		int nml = pc.getDisplay().totalNonMonsterLevels();
+		if ((nml > 1) || (nml > 0 && pc.getDisplay().totalHitDice() > 0))
 		{
 			if (!Globals.checkRule(RuleConstants.INTBONUSLANG))
 			{

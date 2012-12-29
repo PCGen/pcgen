@@ -45,7 +45,7 @@ public class PCCountSkillsTermEvaluator
 	public Float resolve(PlayerCharacter pc)
 	{
 		int count = 0;
-		Collection<Skill> skills = pc.getSkillSet();
+		Collection<Skill> skills = pc.getDisplay().getSkillSet();
 		for(Skill sk : skills)
 		{
 			Visibility skVis = sk.getSafe(ObjectKey.VISIBILITY);

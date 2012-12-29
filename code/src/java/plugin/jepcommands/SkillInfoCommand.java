@@ -94,7 +94,7 @@ public class SkillInfoCommand extends PCGenCommand
 				}
 				else if ("rank".equalsIgnoreCase((String) param1))
 				{
-					result = pc.getRank(aSkill).doubleValue(); // aSkill.getRank() returns Float
+					result = pc.getDisplay().getRank(aSkill).doubleValue(); // aSkill.getRank() returns Float
 				}
 				else if ("total".equalsIgnoreCase((String) param1))
 				{

@@ -51,7 +51,7 @@ public class PCSkillTypeTermEvaluator
 		pc.refreshSkillList();
 		
 		int count = 0;
-		Collection<Skill> skills = pc.getSkillSet();
+		Collection<Skill> skills = pc.getDisplay().getSkillSet();
 		for(Skill sk : skills)
 		{
 			Visibility skVis = sk.getSafe(ObjectKey.VISIBILITY);

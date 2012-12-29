@@ -26,15 +26,16 @@
 
 package pcgen.core.term;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.character.Follower;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCCountFollowerTypeTransitiveTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 
 	private final String type;
@@ -54,13 +55,13 @@ public class PCCountFollowerTypeTransitiveTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter apc)
+	public Float resolve(CharacterDisplay display)
 	{
-		if (apc.hasFollowers())
+		if (display.hasFollowers())
 		{
 			final List<Follower> aList = new ArrayList<Follower>();
 
-			for ( Follower follower : apc.getFollowerList() )
+			for ( Follower follower : display.getFollowerList() )
 			{
 				if (follower.getType().getKeyName().equalsIgnoreCase(type))
 				{

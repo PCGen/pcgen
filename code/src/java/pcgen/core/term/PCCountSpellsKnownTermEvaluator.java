@@ -53,7 +53,7 @@ public class PCCountSpellsKnownTermEvaluator
 		{
 			if (nums[0] == -1)
 			{
-				for (CDOMObject pcClass : pc.getClassSet())
+				for (CDOMObject pcClass : pc.getDisplay().getClassSet())
 				{
 					count += pc.getCharacterSpellCount(pcClass);
 				}

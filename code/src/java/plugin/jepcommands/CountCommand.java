@@ -316,7 +316,7 @@ public class CountCommand extends PCGenCommand
 				protected void getData(final PlayerCharacter pc)
 				{
 					objdata = new HashSet<PCClass>();
-					objdata.addAll(pc.getClassSet());
+					objdata.addAll(pc.getDisplay().getClassSet());
 				}
 
 				@Override
@@ -408,7 +408,7 @@ public class CountCommand extends PCGenCommand
 						// selection criteria of this leaf node of the parameter tree.
 						// we now convert this to a set of Strings so that the generic doFilterS
 						// can perform set operations on them
-						for (Domain d : pc.getDomainSet())
+						for (Domain d : pc.getDisplay().getDomainSet())
 						{
 							ClassSource source = pc.getDomainSource(d);
 							pSet.add(source.getPcclass().getKeyName());
@@ -537,7 +537,7 @@ public class CountCommand extends PCGenCommand
 				@Override
 				protected void getData(final PlayerCharacter pc)
 				{
-					for (final Follower f : pc.getFollowerList())
+					for (final Follower f : pc.getDisplay().getFollowerList())
 					{
 
 						// map each follower to an empty string. Each of these
@@ -900,7 +900,7 @@ public class CountCommand extends PCGenCommand
 				@Override
 				protected void getData(final PlayerCharacter pc)
 				{
-					objdata.addAll(pc.getTemplateSet());
+					objdata.addAll(pc.getDisplay().getTemplateSet());
 				}
 
 				@Override
