@@ -294,6 +294,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private AutoListShieldProfFacet shieldProfListFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
 	private AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
 	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
+	private SkillLanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
 
 	//The following facets are pure delegation (no exceptions) - could be considered "complete"
 	private AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
@@ -325,7 +326,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * between two facets in a get (A && B)
 	 */
 	//The following facets are "minimal" delegation
-	private SkillLanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
 	private NoteItemFacet noteItemFacet = FacetLibrary.getFacet(NoteItemFacet.class);
@@ -6568,11 +6568,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		addLangFacet.remove(id, aLang, source);
 		setDirty(true);
-	}
-
-	public Set<Language> getSkillLanguages()
-	{
-		return skillLangFacet.getSet(id);
 	}
 
 	public void addSkillLanguage(final Language aLang, CDOMObject source)
