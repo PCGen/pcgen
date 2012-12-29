@@ -39,7 +39,7 @@ public class PCCountRaceSubTypesTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getRacialSubTypeCount();
+		return (float) pc.getDisplay().getRacialSubTypeCount();
 	}
 
 	@Override

@@ -1782,4 +1782,9 @@ public class CharacterDisplay
 		return !templateFacet.isEmpty(id);
 	}
 
+	public int getRacialSubTypeCount()
+	{
+		return subTypesFacet.getCount(id);
+	}
+
 }

@@ -643,7 +643,7 @@ public class CountCommand extends PCGenCommand
 				@Override
 				protected void getData(final PlayerCharacter pc)
 				{
-					objdata.addAll(pc.getRacialSubTypes());
+					objdata.addAll(pc.getDisplay().getRacialSubTypes());
 				}
 
 				@Override

@@ -81,7 +81,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.StringKey;
@@ -148,7 +147,6 @@ import pcgen.cdom.facet.analysis.LocalSkillCostFacet;
 import pcgen.cdom.facet.analysis.MovementResultFacet;
 import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.facet.analysis.QualifyFacet;
-import pcgen.cdom.facet.analysis.RacialSubTypesFacet;
 import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
 import pcgen.cdom.facet.analysis.StatLockFacet;
 import pcgen.cdom.facet.analysis.TotalWeightFacet;
@@ -296,7 +294,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
 	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
 	private QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
-	private RacialSubTypesFacet subTypesFacet = FacetLibrary.getFacet(RacialSubTypesFacet.class);
 	private SkillOutputOrderFacet skillOutputOrderFacet = FacetLibrary.getFacet(SkillOutputOrderFacet.class);
 	private SkillPoolFacet skillPoolFacet = FacetLibrary.getFacet(SkillPoolFacet.class);
 	private SkillRankFacet skillRankFacet = FacetLibrary.getFacet(SkillRankFacet.class);
@@ -911,16 +908,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public int getCostPool()
 	{
 		return costPool;
-	}
-
-	/**
-	 * Gets a <tt>Collection</tt> of racial subtypes for the character (e.g. Good).
-	 * 
-	 * @return A unmodifiable <tt>Collection</tt> of subtypes.
-	 */
-	public Collection<RaceSubType> getRacialSubTypes()
-	{
-		return subTypesFacet.getRacialSubTypes(id);
 	}
 
 	/**
@@ -10609,11 +10596,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void doAfavorForAunitTestThatIgnoresEquippingRules()
 	{
 		equippedFacet.reset(id);
-	}
-
-	public int getRacialSubTypeCount()
-	{
-		return subTypesFacet.getCount(id);
 	}
 
 	public void processAddition(CDOMObject cdo)
