@@ -153,14 +153,16 @@ import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.cdom.facet.analysis.VariableFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.facet.fact.AgeFacet;
+import pcgen.cdom.facet.fact.AllowDebtFacet;
 import pcgen.cdom.facet.fact.CharacterTypeFacet;
 import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
 import pcgen.cdom.facet.fact.GenderFacet;
+import pcgen.cdom.facet.fact.GoldFacet;
 import pcgen.cdom.facet.fact.HandedFacet;
 import pcgen.cdom.facet.fact.HeightFacet;
-import pcgen.cdom.facet.fact.MoneyFacet;
+import pcgen.cdom.facet.fact.IgnoreCostFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
@@ -286,7 +288,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private ClassSpellListFacet classSpellListFacet = FacetLibrary.getFacet(ClassSpellListFacet.class);
 	private DomainSpellCountFacet domainSpellCountFacet = FacetLibrary.getFacet(DomainSpellCountFacet.class);
 	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
-	private MoneyFacet moneyFacet = FacetLibrary.getFacet(MoneyFacet.class);
+	private GoldFacet goldFacet = FacetLibrary.getFacet(GoldFacet.class);
+	private AllowDebtFacet allowDebtFacet = FacetLibrary.getFacet(AllowDebtFacet.class);
+	private IgnoreCostFacet ignoreCostFacet = FacetLibrary.getFacet(IgnoreCostFacet.class);
 	private MonsterCSkillFacet monCSkillFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
 	private NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
 	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
@@ -1390,7 +1394,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setGold(final String aString)
 	{
-		moneyFacet.setGold(id, new BigDecimal(aString));
+		goldFacet.set(id, new BigDecimal(aString));
 		setDirty(true);
 	}
 
@@ -1406,7 +1410,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setGold(final BigDecimal amt)
 	{
-		moneyFacet.setGold(id, amt);
+		goldFacet.set(id, amt);
 		setDirty(true);
 	}
 
@@ -1419,7 +1423,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public BigDecimal getGold()
 	{
-		return moneyFacet.getGold(id);
+		return goldFacet.get(id);
 	}
 
 	/**
@@ -2897,7 +2901,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setAllowDebt(boolean allowDebt)
 	{
-		moneyFacet.setAllowDebt(id, allowDebt);
+		allowDebtFacet.set(id, allowDebt);
 	}
 
 	public String getAttackString(AttackType at)
@@ -3155,7 +3159,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public void setIgnoreCost(boolean ignoreCost)
 	{
-		moneyFacet.setIgnoreCost(id, ignoreCost);
+		ignoreCostFacet.set(id, ignoreCost);
 	}
 
 	/**
@@ -5107,7 +5111,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void adjustGold(final double delta)
 	{
-		moneyFacet.adjustGold(id, delta);
+		goldFacet.adjustGold(id, delta);
 		setDirty(true);
 	}
 

@@ -95,14 +95,16 @@ import pcgen.cdom.facet.analysis.TotalWeightFacet;
 import pcgen.cdom.facet.analysis.UnarmedDamageFacet;
 import pcgen.cdom.facet.analysis.VisionFacet;
 import pcgen.cdom.facet.fact.AgeFacet;
+import pcgen.cdom.facet.fact.AllowDebtFacet;
 import pcgen.cdom.facet.fact.CharacterTypeFacet;
 import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
 import pcgen.cdom.facet.fact.FollowerFacet;
 import pcgen.cdom.facet.fact.GenderFacet;
+import pcgen.cdom.facet.fact.GoldFacet;
 import pcgen.cdom.facet.fact.HandedFacet;
 import pcgen.cdom.facet.fact.HeightFacet;
-import pcgen.cdom.facet.fact.MoneyFacet;
+import pcgen.cdom.facet.fact.IgnoreCostFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
@@ -196,7 +198,9 @@ public class CharacterDisplay
 	private HitPointFacet hitPointFacet = FacetLibrary.getFacet(HitPointFacet.class);
 	private FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
 	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
-	private MoneyFacet moneyFacet = FacetLibrary.getFacet(MoneyFacet.class);
+	private GoldFacet goldFacet = FacetLibrary.getFacet(GoldFacet.class);
+	private AllowDebtFacet allowDebtFacet = FacetLibrary.getFacet(AllowDebtFacet.class);
+	private IgnoreCostFacet ignoreCostFacet = FacetLibrary.getFacet(IgnoreCostFacet.class);
 	private LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
 	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 	private ReachFacet reachFacet = FacetLibrary.getFacet(ReachFacet.class);
@@ -681,7 +685,7 @@ public class CharacterDisplay
 
 	public BigDecimal getGold()
 	{
-		return moneyFacet.getGold(id);
+		return goldFacet.get(id);
 	}
 
 	/**
@@ -1681,7 +1685,7 @@ public class CharacterDisplay
 	 */
 	public boolean isAllowDebt()
 	{
-		return moneyFacet.isAllowDebt(id);
+		return allowDebtFacet.get(id);
 	}
 
 	/**
@@ -1689,7 +1693,7 @@ public class CharacterDisplay
 	 */
 	public boolean isIgnoreCost()
 	{
-		return moneyFacet.isIgnoreCost(id);
+		return ignoreCostFacet.get(id);
 	}
 
 	public Vision getVision(VisionType type)
