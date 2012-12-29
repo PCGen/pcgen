@@ -26,14 +26,14 @@
 
 package pcgen.core.term;
 
-import java.util.List;
 import java.util.Arrays;
+import java.util.List;
 
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCCountMiscMagicTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountMiscMagicTermEvaluator(String originalText)
 	{
@@ -41,9 +41,9 @@ public class PCCountMiscMagicTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
-		String magicString = pc.getSafeStringFor(StringKey.MISC_MAGIC);
+		String magicString = display.getSafeStringFor(StringKey.MISC_MAGIC);
 		List<String> magicList = Arrays.asList(magicString.split("\r?\n"));
 		return (float) magicList.size();
 	}

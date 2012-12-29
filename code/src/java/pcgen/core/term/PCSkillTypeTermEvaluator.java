@@ -26,12 +26,12 @@
 
 package pcgen.core.term;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Collection;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.util.enumeration.Visibility;
 
 public class PCSkillTypeTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -49,23 +49,20 @@ public class PCSkillTypeTermEvaluator
 	public Float resolve(PlayerCharacter pc) {
 
 		pc.refreshSkillList();
-
-		//Use Output order to filter for visibility
-		final List<Skill> skillList = pc
-				.getSkillListInOutputOrder(new ArrayList<Skill>(pc.getDisplay()
-						.getSkillSet()));
-
-		Float typeCount = 0f;
-
-		for ( CDOMObject skill : skillList )
+		
+		int count = 0;
+		Collection<Skill> skills = pc.getSkillSet();
+		for(Skill sk : skills)
 		{
-			if (skill.isType(type))
+			Visibility skVis = sk.getSafe(ObjectKey.VISIBILITY);
+			if (!skVis.equals(Visibility.HIDDEN)
+				&& !skVis.equals(Visibility.DISPLAY_ONLY) && sk.isType(type)
+				&& sk.qualifies(pc, null))
 			{
-				typeCount++;
+				count++;
 			}
 		}
-
-		return typeCount;
+		return (float) count;
 	}
 
 	@Override

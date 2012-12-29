@@ -26,11 +26,11 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.spell.Spell;
 
 public class PCMovementTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 	private final String movement;
 
@@ -41,21 +41,21 @@ public class PCMovementTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
-		return convertToFloat(originalText, evaluate(pc));
+		return convertToFloat(originalText, evaluate(display));
 	}
 
 	@Override
-	public String evaluate (PlayerCharacter pc)
+	public String evaluate (CharacterDisplay display)
 	{
-		return String.valueOf(pc.getDisplay().movementOfType(movement));
+		return String.valueOf(display.movementOfType(movement));
 	}
 
 	@Override
-	public String evaluate (PlayerCharacter pc, Spell aSpell)
+	public String evaluate (CharacterDisplay display, Spell aSpell)
 	{
-		return String.valueOf(pc.getDisplay().movementOfType(movement));
+		return String.valueOf(display.movementOfType(movement));
 	}
 
 	@Override

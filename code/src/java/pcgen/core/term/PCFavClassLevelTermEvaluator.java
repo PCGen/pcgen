@@ -26,10 +26,10 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCFavClassLevelTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCFavClassLevelTermEvaluator(String originalText)
 	{
@@ -37,16 +37,15 @@ public class PCFavClassLevelTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
-		return convertToFloat(originalText, evaluate(pc));
+		return convertToFloat(originalText, evaluate(display));
 	}
 
 	@Override
-	public String evaluate (PlayerCharacter pc)
+	public String evaluate (CharacterDisplay display)
 	{
-		Integer l = pc.getDisplay().getFavoredClassLevel();
-		return l.toString();
+		return Integer.toString(display.getFavoredClassLevel());
 	}
 
 	@Override

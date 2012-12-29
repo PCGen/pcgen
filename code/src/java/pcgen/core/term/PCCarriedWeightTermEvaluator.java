@@ -26,10 +26,10 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCCarriedWeightTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator {
+		extends BasePCDTermEvaluator implements TermEvaluator {
 
 	public PCCarriedWeightTermEvaluator(String originalText)
 	{
@@ -37,9 +37,9 @@ public class PCCarriedWeightTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
-		return pc.getDisplay().totalWeight();
+		return display.totalWeight();
 	}
 
 	@Override

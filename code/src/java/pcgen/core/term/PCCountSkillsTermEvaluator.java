@@ -26,7 +26,12 @@
 
 package pcgen.core.term;
 
+import java.util.Collection;
+
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.Skill;
+import pcgen.util.enumeration.Visibility;
 
 public class PCCountSkillsTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -39,9 +44,19 @@ public class PCCountSkillsTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		// We use the list in output order to ensure the size
-		// does not include hidden skills
-		return (float) pc.getSkillListInOutputOrder().size();
+		int count = 0;
+		Collection<Skill> skills = pc.getSkillSet();
+		for(Skill sk : skills)
+		{
+			Visibility skVis = sk.getSafe(ObjectKey.VISIBILITY);
+			if (!skVis.equals(Visibility.HIDDEN)
+				&& !skVis.equals(Visibility.DISPLAY_ONLY)
+				&& sk.qualifies(pc, null))
+			{
+				count++;
+			}
+		}
+		return (float) count;
 	}
 
 	@Override

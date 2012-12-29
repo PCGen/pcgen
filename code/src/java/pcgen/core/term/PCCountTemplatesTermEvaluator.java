@@ -26,10 +26,10 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCCountTemplatesTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountTemplatesTermEvaluator(String originalText)
 	{
@@ -37,9 +37,9 @@ public class PCCountTemplatesTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
-		return (float) pc.getTemplateCount();
+		return (float) display.getTemplateCount();
 	}
 
 	@Override

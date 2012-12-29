@@ -26,10 +26,10 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCHandsTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator {
+		extends BasePCDTermEvaluator implements TermEvaluator {
 
 	public PCHandsTermEvaluator(
 			String originalText)
@@ -38,9 +38,9 @@ public class PCHandsTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
-		return (float) pc.getDisplay().getHands();
+		return (float) display.getHands();
 	}
 
 	@Override

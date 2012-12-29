@@ -26,13 +26,13 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.core.PCTemplate;
-import pcgen.util.enumeration.Visibility;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.PCTemplate;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.util.enumeration.Visibility;
 
 public class PCCountVisibleTemplatesTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountVisibleTemplatesTermEvaluator(String originalText)
 	{
@@ -40,11 +40,11 @@ public class PCCountVisibleTemplatesTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
 		Float count = 0f;
 
-		for ( PCTemplate template : pc.getTemplateSet() )
+		for ( PCTemplate template : display.getTemplateSet() )
 		{
 			final Visibility vis = template.getSafe(ObjectKey.VISIBILITY);
 

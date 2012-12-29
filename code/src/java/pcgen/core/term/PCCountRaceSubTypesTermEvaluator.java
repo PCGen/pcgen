@@ -26,10 +26,10 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCCountRaceSubTypesTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountRaceSubTypesTermEvaluator(String originalText)
 	{
@@ -37,9 +37,9 @@ public class PCCountRaceSubTypesTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
-		return (float) pc.getDisplay().getRacialSubTypeCount();
+		return (float) display.getRacialSubTypeCount();
 	}
 
 	@Override

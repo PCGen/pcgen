@@ -26,12 +26,12 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.PCClass;
+import pcgen.core.SettingsHandler;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCCountClassesTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountClassesTermEvaluator(String originalText)
 	{
@@ -39,13 +39,13 @@ public class PCCountClassesTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
-		Float s = (float) pc.getDisplay().getClassCount();
+		Float s = (float) display.getClassCount();
 
 		if (SettingsHandler.hideMonsterClasses())
 		{
-			for ( PCClass pcClass : pc.getClassSet() )
+			for ( PCClass pcClass : display.getClassSet() )
 			{
 				if (pcClass.isMonster())
 				{

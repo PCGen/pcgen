@@ -30,10 +30,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCCountMiscCompanionsTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountMiscCompanionsTermEvaluator(String originalText)
 	{
@@ -41,9 +41,9 @@ public class PCCountMiscCompanionsTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
-		String CompString = pc.getSafeStringFor(StringKey.MISC_COMPANIONS);
+		String CompString = display.getSafeStringFor(StringKey.MISC_COMPANIONS);
 		List<String> companions = Arrays.asList(CompString.split("\r?\n"));
 		return (float) companions.size();
 	}

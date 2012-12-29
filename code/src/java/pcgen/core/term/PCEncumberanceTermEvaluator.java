@@ -26,12 +26,12 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.spell.Spell;
 import pcgen.util.enumeration.Load;
 
 public class PCEncumberanceTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCEncumberanceTermEvaluator(String originalText)
 	{
@@ -39,22 +39,22 @@ public class PCEncumberanceTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
-		return convertToFloat(originalText, evaluate(pc));
+		return convertToFloat(originalText, evaluate(display));
 	}
 
 	@Override
-	public String evaluate (PlayerCharacter pc)
+	public String evaluate (CharacterDisplay display)
 	{
-		final Load l = pc.getDisplay().getLoadType();
+		final Load l = display.getLoadType();
 		return ((Integer) l.ordinal()).toString();
 	}
 
 	@Override
-	public String evaluate (PlayerCharacter pc, Spell aSpell)
+	public String evaluate (CharacterDisplay display, Spell aSpell)
 	{
-		return evaluate(pc);
+		return evaluate(display);
 	}
 	
 	@Override

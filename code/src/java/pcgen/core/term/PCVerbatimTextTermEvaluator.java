@@ -26,11 +26,11 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.spell.Spell;
 
 public class PCVerbatimTextTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 
 	public PCVerbatimTextTermEvaluator(String originalText)
@@ -39,17 +39,17 @@ public class PCVerbatimTextTermEvaluator
 	}
 
 	@Override
-	public String evaluate(PlayerCharacter pc) {
+	public String evaluate(CharacterDisplay display) {
 		return originalText;
 	}
 	
 	@Override
-	public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
+	public String evaluate(CharacterDisplay display,  final Spell aSpell) {
 		return originalText;
 	}
 	
 	@Override
-	public Float resolve(PlayerCharacter pc) {
+	public Float resolve(CharacterDisplay display) {
 		return 0f;
 	}
 

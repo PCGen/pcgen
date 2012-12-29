@@ -26,11 +26,11 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.character.Follower;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCCountFollowerTypeTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 
 	private final String type;
@@ -42,11 +42,11 @@ public class PCCountFollowerTypeTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
 		Float countFollower = 0f;
 
-		for ( Follower follower : pc.getFollowerList() )
+		for ( Follower follower : display.getFollowerList() )
 		{
 			if (follower.getType().getKeyName().equalsIgnoreCase(type))
 			{

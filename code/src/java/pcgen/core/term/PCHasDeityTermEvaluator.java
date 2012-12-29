@@ -28,10 +28,10 @@ package pcgen.core.term;
 
 import pcgen.core.Deity;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCHasDeityTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 	private final String deity;
 
@@ -44,11 +44,11 @@ public class PCHasDeityTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
 		Deity d = Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 				Deity.class, deity);
-		return pc.getDisplay().hasDeity(d) ? 1f : 0f;
+		return display.hasDeity(d) ? 1f : 0f;
 	}
 
 	@Override

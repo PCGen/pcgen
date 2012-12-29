@@ -65,6 +65,7 @@ import pcgen.cdom.facet.SecondaryWeaponFacet;
 import pcgen.cdom.facet.SpellBookFacet;
 import pcgen.cdom.facet.SpellListFacet;
 import pcgen.cdom.facet.StatBonusFacet;
+import pcgen.cdom.facet.StatCalcFacet;
 import pcgen.cdom.facet.StatValueFacet;
 import pcgen.cdom.facet.SubClassFacet;
 import pcgen.cdom.facet.SubstitutionClassFacet;
@@ -226,6 +227,7 @@ public class CharacterDisplay
 	private MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
 	private FollowerOptionFacet foFacet = FacetLibrary.getFacet(FollowerOptionFacet.class);
 	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
+	private StatCalcFacet statCalcFacet = FacetLibrary.getFacet(StatCalcFacet.class);
 	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
 	private EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);
 	private AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
@@ -1767,6 +1769,31 @@ public class CharacterDisplay
 	public boolean hasTemplates()
 	{
 		return !templateFacet.isEmpty(id);
+	}
+
+	public int getTotalStatFor(PCStat stat)
+	{
+		return statCalcFacet.getTotalStatFor(id, stat);
+	}
+
+	public int getStatModFor(PCStat stat)
+	{
+		return statCalcFacet.getStatModFor(id, stat);
+	}
+
+	public int getBaseStatFor(PCStat stat)
+	{
+		return statCalcFacet.getBaseStatFor(id, stat);
+	}
+
+	public int getTemplateCount()
+	{
+		return templateFacet.getCount(id);
+	}
+
+	public int getFollowerCount()
+	{
+		return followerFacet.getCount(id);
 	}
 
 	public int getRacialSubTypeCount()

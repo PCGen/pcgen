@@ -10326,16 +10326,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 	}
 
-	public int getTemplateCount()
-	{
-		return templateFacet.getCount(id);
-	}
-
-	public int getStatCount()
-	{
-		return statFacet.getCount(id);
-	}
-
 	public void removeSkill(Skill sk)
 	{
 		skillFacet.remove(id, sk);

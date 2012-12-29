@@ -28,10 +28,10 @@ package pcgen.core.term;
 
 import pcgen.core.Globals;
 import pcgen.core.PCCheck;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCCountChecksTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountChecksTermEvaluator(String originalText)
 	{
@@ -39,7 +39,7 @@ public class PCCountChecksTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
 		return (float) Globals.getContext().ref
 				.getConstructedObjectCount(PCCheck.class);

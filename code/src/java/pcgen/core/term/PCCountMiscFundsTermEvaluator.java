@@ -26,14 +26,14 @@
 
 package pcgen.core.term;
 
-import java.util.List;
 import java.util.Arrays;
+import java.util.List;
 
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 
 public class PCCountMiscFundsTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+		extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountMiscFundsTermEvaluator(String originalText)
 	{
@@ -41,9 +41,9 @@ public class PCCountMiscFundsTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(CharacterDisplay display)
 	{
-		String fundString = pc.getSafeStringFor(StringKey.MISC_ASSETS);
+		String fundString = display.getSafeStringFor(StringKey.MISC_ASSETS);
 		List<String> funds = Arrays.asList(fundString.split("\r?\n"));
 		return (float) funds.size();
 	}
