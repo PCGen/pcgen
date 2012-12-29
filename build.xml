@@ -75,29 +75,24 @@ These files can be renamed and used for releases.
     <property name="manifest.main.class" value="pcgen.system.Main" />
     <property name="default.main.class" value="pcgen.gui.pcGenGUI" />
     <property name="manifest.extra.jars" value="
-        ${lib.dir}/apache/commons-lang-2.4.jar 
-    	${lib.dir}/apache/commons-io-2.1.jar 
-        ${lib.dir}/fop/xercesImpl-2.5.0.jar 
-        ${lib.dir}/fop/avalon-framework-cvs-20020806.jar 
-        ${lib.dir}/fop/xml-apis.jar 
-        ${lib.dir}/fop/xalan-2.5.2.jar 
-        ${lib.dir}/fop/batik.jar 
-        ${lib.dir}/fop/fop.jar 
-        ${lib.dir}/lnf/kunststoff.jar 
-        ${lib.dir}/lnf/skinlf.jar 
-        ${lib.dir}/lnf/wraplf.jar 
-        ${lib.dir}/jep/jep-2.4.1.jar 
-        ${lib.dir}/jep/ext-1.1.1.jar 
+        ${lib.dir}/commons-lang.jar 
+    	${lib.dir}/commons-io.jar 
+        ${lib.dir}/xercesImpl.jar 
+        ${lib.dir}/avalon-framework.jar 
+        ${lib.dir}/xml-apis.jar 
+        ${lib.dir}/xalan.jar 
+        ${lib.dir}/batik-1.5-fop.jar 
+        ${lib.dir}/fop.jar 
+        ${lib.dir}/kunststoff.jar 
+        ${lib.dir}/skinlf.jar 
+        ${lib.dir}/jep.jar 
         ${lib.dir}/jdom.jar 
         ${lib.dir}/MRJ141Stubs.jar 
-        ${lib.dir}/jep/djep-2.24.jar 
-        ${lib.dir}/jep/RngPack-1.1a.jar 
-        ${lib.dir}/tracerapi.jar 
-        ${lib.dir}/cobra/cobra.jar 
-        ${lib.dir}/cobra/js.jar 
-        ${lib.dir}/spring/commons-logging-1.1.1.jar 
-        ${lib.dir}/spring/spring-beans-2.5.6.SEC01.jar 
-        ${lib.dir}/spring/spring-core-2.5.6.SEC01.jar" />
+        ${lib.dir}/cobra.jar 
+        ${lib.dir}/js.jar 
+        ${lib.dir}/commons-logging.jar 
+        ${lib.dir}/spring-beans.jar 
+        ${lib.dir}/spring-core.jar" />
 
     <!-- For writing the compatibility checker jar -->
     <property name="convert-jar.bin.file" value="batch-convert.jar" />
@@ -127,7 +122,7 @@ These files can be renamed and used for releases.
 
     <!-- The jars required to run PCGen -->
     <path id="project.jars">
-        <fileset dir="${lib.dir}" includes="**/*.jar" excludes="**/test/**,javacc.jar,**/emma/**" />
+        <fileset dir="${lib.dir}" includes="**/*.jar" excludes="clover.jar,junit.jar,xmlunit.jar,javacc.jar,emma*.jar" />
     </path>
 
     <!-- The Java CLASSPATH, used by the build process -->
@@ -139,7 +134,7 @@ These files can be renamed and used for releases.
 
     <!-- The Javadoc CLASSPATH, used by the javadoc process -->
     <path id="javadoc.classpath">
-        <pathelement path="${build.classes.dir} ${lib.dir}/lib/junit-4.1.jar" />
+        <pathelement path="${build.classes.dir} ${lib.dir}/junit.jar" />
         <pathelement location="${bin.dir}/${jar.bin.file}" />
         <path refid="project.jars" />
     </path>
@@ -148,7 +143,7 @@ These files can be renamed and used for releases.
     <property name="test.jar.file" value="pcgen-tests.jar" />
     <property name="test.manifest.file" value="code/manifest-tests" />
     <property name="test.framework.class" value="AllJUnitTests" />
-    <property name="test.manifest.extra.jars" value="${manifest.extra.jars} ${lib.dir}/test/junit-4.1.jar ${lib.dir}/test/xmlunit1.0.jar" />
+    <property name="test.manifest.extra.jars" value="${manifest.extra.jars} ${lib.dir}/junit.jar ${lib.dir}/xmlunit.jar" />
     <property name="test.all-output.file" value="TEST-test.AllJUnitTests.txt" />
     <property name="test.bin.pcgen.bat" value="pcgen-tests.bat" />
     <property name="test.bin.pcgen.sh" value="pcgen-tests.sh" />
@@ -156,7 +151,7 @@ These files can be renamed and used for releases.
     <!-- The jars required to test PCGen -->
     <path id="project.test.jars">
         <path refid="project.jars" />
-        <fileset dir="${lib.dir}" includes="**/test/*.jar" />
+        <fileset dir="${lib.dir}" includes="clover.jar,junit.jar,xmlunit.jar,emma*.jar" />
     </path>
 
     <!-- The Java CLASSPATH, used by the test process -->
@@ -508,13 +503,7 @@ pcgen.filepaths=user
                 <exclude name="**/CVS/*, **/.svn/*" />
             </fileset>
             <fileset dir=".">
-                <include name="${lib.dir}/jdom.*"/>
-                <include name="${lib.dir}/djep*"/>
-                <include name="${lib.dir}/mrj*"/>
-                <include name="${lib.dir}/MRJ*"/>
-                <include name="${lib.dir}/jep/*.jar"/>
-                <include name="${lib.dir}/jep/*.txt"/>
-                <exclude name="**/test/**,javacc.jar,**/emma/**" />
+                <exclude name="clover.jar,junit.jar,xmlunit.jar,javacc.jar,emma*.jar" />
             </fileset>
         </zip>
     </target>
@@ -534,14 +523,6 @@ pcgen.filepaths=user
         <zip zipfile="${dist.dir}/${zip.jars.file}">
             <fileset dir=".">
                 <include name="lib/**" />
-                <include name="lib/apache/**" />
-                <include name="lib/cobra/**" />
-                <include name="lib/emma/**" />
-                <include name="lib/fop/**" />
-                <include name="lib/jep/**" />
-                <include name="lib/lnf/**" />
-                <include name="lib/spring/**" />
-                <include name="lib/test/**" />
                 <exclude name="**/CVS/*, **/.svn/*" />
             </fileset>
         </zip>
@@ -572,12 +553,6 @@ pcgen.filepaths=user
             </fileset>
             <fileset dir=".">
                 <include name="lib/**" />
-                <include name="lib/emma/**" />
-                <include name="lib/fop/**" />
-                <include name="lib/jep/**" />
-                <include name="lib/lnf/**" />
-                <include name="lib/test/**" />
-                <include name="lib/spring/**" />
                 <exclude name="**/CVS/*, **/.svn*" />
             </fileset>
             <fileset dir=".">
@@ -704,8 +679,8 @@ pcgen.filepaths=user
         rather than the source files.
     -->
     <path id="emma.lib">
-        <pathelement location="${lib.dir}/emma/emma.jar" />
-        <pathelement location="${lib.dir}/emma/emma_ant.jar" />
+        <pathelement location="${lib.dir}/emma.jar" />
+        <pathelement location="${lib.dir}/emma_ant.jar" />
     </path>
     <taskdef resource="emma_ant.properties" classpathref="emma.lib" />
 
@@ -788,7 +763,7 @@ pcgen.filepaths=user
          the clvoer docs say to do this.
     -->
     <path id="clover.lib">
-        <pathelement location="${lib.dir}/test/clover.jar" />
+        <pathelement location="${lib.dir}/clover.jar" />
     </path>
 
     <!-- Define clover tasks -->
@@ -911,7 +886,6 @@ pcgen.filepaths=user
                 <fileset dir="${basedir}/code/src/itest">
                   <include name="plugin/**/*.java"/>
                   <include name="pcgen/**/*.java"/>
-                  <include name="tokenmodel/**/*.java"/>
                   <exclude name="**/Abstract*.java"/>
                   <exclude name="**/testsupport/*.java"/>
                 </fileset>
@@ -1003,10 +977,10 @@ Class-Path: ${test.manifest.extra.jars}
     <!-- Create the Windows and POSIX scripts to externally run the tests -->
     <target name="test.scripts" depends="init">
         <echo file="${bin.dir}/${test.bin.pcgen.bat}">@echo off
-java -classpath bin/pcgen-tests.jar;bin/pcgen.jar;lib/test/junit-4.1.jar;lib/test/xmlunit1.0.jar;lib/fop/xercesImpl-2.2.1.jar;lib/fop/avalon-framework-cvs-20020806.jar;lib/fop/xml-apis.jar;lib/fop/xalan-2.5.2.jar;lib/fop/batik.jar;lib/fop/fop.jar;lib/lnf/kunststoff.jar;lib/lnf/skinlf.jar;lib/lnf/wraplf.jar;lib/jep/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
+java -classpath bin/pcgen-tests.jar;bin/pcgen.jar;lib/junit.jar;lib/xmlunit.jar;lib/xercesImpl.jar;lib/avalon-framework.jar;lib/xml-apis.jar;lib/xalan.jar;lib/batik.jar;lib/fop.jar;lib/kunststoff.jar;lib/skinlf.jar;lib/jep.jar junit.swingui.TestRunner AllJUnitTests
 </echo>
         <echo file="${bin.dir}/${test.bin.pcgen.sh}">#!/bin/sh
-java -classpath bin/pcgen-tests.jar:bin/pcgen.jar:lib/test/junit-4.1.jar:lib/test/xmlunit1.0.jar:lib/fop/xercesImpl-2.2.1.jar:lib/fop/avalon-framework-cvs-20020806.jar:lib/fop/xml-apis.jar:lib/fop/xalan-2.5.2.jar:lib/fop/batik.jar:lib/fop/fop.jar:lib/lnf/kunststoff.jar:lib/lnf/skinlf.jar:lib/lnf/wraplf.jar:lib/jep/jep-2.24.jar junit.swingui.TestRunner AllJUnitTests
+java -classpath bin/pcgen-tests.jar;bin/pcgen.jar;lib/junit.jar;lib/xmlunit.jar;lib/xercesImpl.jar;lib/avalon-framework.jar;lib/xml-apis.jar;lib/xalan.jar;lib/batik.jar;lib/fop.jar;lib/kunststoff.jar;lib/skinlf.jar;lib/jep.jar junit.swingui.TestRunner AllJUnitTests
 </echo>
         <chmod file="${bin.dir}/${test.bin.pcgen.sh}" perm="+x" />
     </target>
