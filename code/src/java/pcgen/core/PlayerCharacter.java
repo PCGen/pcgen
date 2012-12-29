@@ -11271,22 +11271,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 				&& hasMasterSkill(classSkillList, skill);
 	}
 
-	public void chooseClassSkillList(PCClass cl)
-	{
-		TransitionChoice<ClassSkillList> csc = cl.get(ObjectKey.SKILLLIST_CHOICE);
-		// if no entry or no choices, just return
-		if (csc == null || (getLevel(cl) < 1))
-		{
-			return;
-		}
-
-		classSkillListFacet.removeAll(id, cl);
-		for (ClassSkillList st : csc.driveChoice(this))
-		{
-			classSkillListFacet.add(id, cl, st);
-		}
-	}
-
 	public final Collection<ClassSkillList> getClassSkillLists(PCClass cl)
 	{
 		Collection<ClassSkillList> classSkillList = classSkillListFacet.getSet(id, cl);

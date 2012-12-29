@@ -429,8 +429,6 @@ public class PCClass extends PObject implements ClassFacade
 			{
 				addFeatPoolBonus(aPC);
 			}
-
-			aPC.chooseClassSkillList(this);
 		}
 
 		if (!aPC.isImporting())

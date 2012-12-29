@@ -26,10 +26,19 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
+import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
+import pcgen.cdom.facet.model.ClassFacet;
+import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeEvent;
+import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
+import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
 
 /**
  * ClassClassSkillListListFacet stores the ClassClassSkillListList choices for a
@@ -37,9 +46,15 @@ import pcgen.core.PCClass;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ClassSkillListFacet extends AbstractStorageFacet
+public class ClassSkillListFacet extends AbstractStorageFacet implements
+		ClassLevelChangeListener
 {
 	private final Class<?> thisClass = getClass();
+
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
+		.getFacet(PlayerCharacterTrackingFacet.class);
+
+	private ClassFacet classFacet;
 
 	/**
 	 * Returns the type-safe CacheInfo for this ClassSkillListFacet and the
@@ -83,6 +98,7 @@ public class ClassSkillListFacet extends AbstractStorageFacet
 	 *         CharID; null if no ClassSkillList information has been set for
 	 *         the Player Character.
 	 */
+	@SuppressWarnings("unchecked")
 	private Map<PCClass, Set<ClassSkillList>> getInfo(CharID id)
 	{
 		return (Map<PCClass, Set<ClassSkillList>>) getCache(id, thisClass);
@@ -279,5 +295,46 @@ public class ClassSkillListFacet extends AbstractStorageFacet
 				}
 			}
 		}
+	}
+
+	@Override
+	public void levelChanged(ClassLevelChangeEvent lce)
+	{
+		if ((lce.getOldLevel() == 0) && (lce.getNewLevel() > 0))
+		{
+			PCClass cl = lce.getPCClass();
+			CharID id = lce.getCharID();
+			TransitionChoice<ClassSkillList> csc =
+					cl.get(ObjectKey.SKILLLIST_CHOICE);
+			if (csc != null)
+			{
+				removeAll(id, cl);
+				PlayerCharacter pc = trackingFacet.getPC(id);
+				for (ClassSkillList st : csc.driveChoice(pc))
+				{
+					add(id, cl, st);
+				}
+			}
+		}
+		else if ((lce.getOldLevel() > 0) && (lce.getNewLevel() == 0))
+		{
+			removeAll(lce.getCharID(), lce.getPCClass());
+		}
+	}
+
+	@Override
+	public void levelObjectChanged(ClassLevelObjectChangeEvent lce)
+	{
+		//ignore
+	}
+
+	public void setClassFacet(ClassFacet classFacet)
+	{
+		this.classFacet = classFacet;
+	}
+
+	public void init()
+	{
+		classFacet.addLevelChangeListener(this);
 	}
 }

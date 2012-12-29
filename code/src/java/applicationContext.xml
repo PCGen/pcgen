@@ -150,7 +150,9 @@
 		<property name="classFacet" ref="classFacet"/>
 		<property name="classLevelFacet" ref="classLevelFacet"/>
 	</bean>
-	<bean id="classSkillListFacet" class="pcgen.cdom.facet.input.ClassSkillListFacet" />
+	<bean id="classSkillListFacet" class="pcgen.cdom.facet.input.ClassSkillListFacet">
+			<property name="classFacet" ref="classFacet"/>
+	</bean>
 	<bean id="classSpellListFacet" class="pcgen.cdom.facet.ClassSpellListFacet">
 		<property name="spellListFacet" ref="spellListFacet"/>
 	</bean>
