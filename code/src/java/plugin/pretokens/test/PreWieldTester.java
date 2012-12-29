@@ -25,8 +25,8 @@
 package plugin.pretokens.test;
 
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
@@ -34,7 +34,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author jayme cox <jaymecox@users.sourceforge.net>
  *
  */
-public class PreWieldTester extends AbstractPrerequisiteTest implements
+public class PreWieldTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 
@@ -43,7 +43,7 @@ public class PreWieldTester extends AbstractPrerequisiteTest implements
 	 */
 	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment,
-		PlayerCharacter aPC)
+		CharacterDisplay display)
 	{
 		int runningTotal = 0;
 		if (equipment.getWieldName().equalsIgnoreCase(prereq.getKey()))
