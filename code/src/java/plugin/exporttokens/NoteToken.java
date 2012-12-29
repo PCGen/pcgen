@@ -151,7 +151,7 @@ public class NoteToken extends Token
 		List<NoteItem> noteList = new ArrayList<NoteItem>();
 		List<NoteItem> resultList;
 
-		buildSubTree(noteList, pc.getNotesList(), -1);
+		buildSubTree(noteList, pc.getDisplay().getNotesList(), -1);
 
 		if ("ALL".equals(name))
 		{

@@ -113,7 +113,7 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 		notes = new DefaultListFacade<NoteFacade>();
 		addDefaultNotes();
 		
-		for (NoteItem item : theCharacter.getNotesList())
+		for (NoteItem item : charDisplay.getNotesList())
 		{
 			notes.addElement(item);
 		}
@@ -300,7 +300,7 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 		int parentId = -1;
 		int newNodeId = 0;
 
-		for (NoteItem currItem : theCharacter.getNotesList())
+		for (NoteItem currItem : charDisplay.getNotesList())
 		{
 			if (currItem.getId() > newNodeId)
 			{

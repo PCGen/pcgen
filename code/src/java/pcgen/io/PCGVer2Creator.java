@@ -1630,7 +1630,7 @@ final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendNotesLines(StringBuilder buffer)
 	{
-		for (NoteItem ni : thePC.getNotesList())
+		for (NoteItem ni : charDisplay.getNotesList())
 		{
 			buffer.append(TAG_NOTE).append(':');
 			buffer.append(EntityEncoder.encode(ni.getName()));

@@ -2137,7 +2137,7 @@ public final class ExportHandler
 		// Filter out NOTES
 		if ("NOTES".equals(aString.substring(1)))
 		{
-			if (aPC.getNotesCount() <= 0)
+			if (aPC.getDisplay().getNotesCount() <= 0)
 			{
 				canWrite = false;
 			}

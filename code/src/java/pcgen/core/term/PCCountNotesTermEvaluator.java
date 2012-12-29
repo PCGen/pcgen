@@ -39,7 +39,7 @@ public class PCCountNotesTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getNotesCount();
+		return (float) pc.getDisplay().getNotesCount();
 	}
 
 	@Override

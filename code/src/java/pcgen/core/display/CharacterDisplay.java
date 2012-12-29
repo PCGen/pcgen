@@ -59,6 +59,7 @@ import pcgen.cdom.facet.HitPointFacet;
 import pcgen.cdom.facet.KitFacet;
 import pcgen.cdom.facet.LevelInfoFacet;
 import pcgen.cdom.facet.MasterFacet;
+import pcgen.cdom.facet.NoteItemFacet;
 import pcgen.cdom.facet.PrimaryWeaponFacet;
 import pcgen.cdom.facet.SecondaryWeaponFacet;
 import pcgen.cdom.facet.SpellBookFacet;
@@ -138,6 +139,7 @@ import pcgen.core.FollowerOption;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.Language;
+import pcgen.core.NoteItem;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -218,6 +220,7 @@ public class CharacterDisplay
 	private XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
+	private NoteItemFacet noteItemFacet = FacetLibrary.getFacet(NoteItemFacet.class);
 	private SubRaceFacet subRaceFacet = FacetLibrary.getFacet(SubRaceFacet.class);
 	private UserSpecialAbilityFacet userSpecialAbilityFacet = FacetLibrary.getFacet(UserSpecialAbilityFacet.class);
 	private SpecialAbilityFacet specialAbilityFacet = FacetLibrary.getFacet(SpecialAbilityFacet.class);
@@ -1806,4 +1809,23 @@ public class CharacterDisplay
 		return moveResultFacet.movementOfType(id, moveType);
 	}
 
+	public boolean containsNote(NoteItem note)
+	{
+		return noteItemFacet.contains(id, note);
+	}
+
+	public int getNotesCount()
+	{
+		return noteItemFacet.getCount(id);
+	}
+
+	/**
+	 * Gets a list of notes associated with the character.
+	 * 
+	 * @return A list of <tt>NoteItem</tt> objects.
+	 */
+	public Collection<NoteItem> getNotesList()
+	{
+		return noteItemFacet.getSet(id);
+	}
 }

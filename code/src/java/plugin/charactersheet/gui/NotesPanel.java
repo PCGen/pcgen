@@ -33,6 +33,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.NoteItem;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.utils.Utility;
 import pcgen.system.LanguageBundle;
@@ -44,6 +45,7 @@ import plugin.charactersheet.CharacterSheetPlugin;
 public class NotesPanel extends FlippingSplitPane
 {
 	private PlayerCharacter pc;
+	private CharacterDisplay display;
 	private boolean textIsDirty = false;
 	private NoteItem bioNote = null;
 	private NoteItem companionNote = null;
@@ -333,6 +335,7 @@ public class NotesPanel extends FlippingSplitPane
 		if (this.pc != pc)
 		{
 			this.pc = pc;
+			display = pc.getDisplay();
 			serial = 0;
 			populateNotes();
 		}
@@ -375,7 +378,7 @@ public class NotesPanel extends FlippingSplitPane
 	{
 		NoteItem csNotes = null;
 		int newNodeId = 0;
-		for (NoteItem note : pc.getNotesList())
+		for (NoteItem note : display.getNotesList())
 		{
 			if (note.getId() > newNodeId)
 			{
@@ -431,7 +434,7 @@ public class NotesPanel extends FlippingSplitPane
 		rootTreeNode = new NoteTreeNode(null, pc);
 		notesModel = new DefaultTreeModel(rootTreeNode);
 		notesTree.setModel(notesModel);
-		for (NoteItem testnote : pc.getNotesList())
+		for (NoteItem testnote : display.getNotesList())
 		{
 			//Don't mess with this - I plan on uncommenting this later when I don't need to test the hidden node anymore -DJ
 			//if(!testnote.getName().equals("Hidden")) {
@@ -440,12 +443,12 @@ public class NotesPanel extends FlippingSplitPane
 		}
 
 		// TODO Make bio label read from properties file
-		bioNote = new NoteItem(BIO_NOTEID, -1, "Bio", pc.getDisplay().getBio());
+		bioNote = new NoteItem(BIO_NOTEID, -1, "Bio", display.getBio());
 		nodesToBeAddedList.add(order++, bioNote);
 
 		descriptionNote =
 				new NoteItem(DESCRIPTION_NOTEID, -1, LanguageBundle
-					.getString("in_descrip"), pc.getDisplay().getDescription());
+					.getString("in_descrip"), display.getDescription());
 		nodesToBeAddedList.add(order++, descriptionNote);
 
 		companionNote =
@@ -556,7 +559,7 @@ public class NotesPanel extends FlippingSplitPane
 		{
 			currentItem.setValue(notesArea.getText());
 
-			if (pc.containsNote(currentItem))
+			if (display.containsNote(currentItem))
 			{
 				//No action necessary - NoteItem was just updated
 			}
@@ -698,7 +701,7 @@ public class NotesPanel extends FlippingSplitPane
 
 			parentId = getItem().getId();
 
-			for (NoteItem currItem : pc.getNotesList())
+			for (NoteItem currItem : pc.getDisplay().getNotesList())
 			{
 				if (currItem.getId() > newNodeId)
 				{

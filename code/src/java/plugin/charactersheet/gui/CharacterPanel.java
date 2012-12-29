@@ -355,7 +355,7 @@ public class CharacterPanel extends FlippingSplitPane
 
 	private void populatePcProperties()
 	{
-		for (NoteItem note : pc.getNotesList())
+		for (NoteItem note : pc.getDisplay().getNotesList())
 		{
 			if (note.getName().equals("Hidden"))
 			{
@@ -404,7 +404,7 @@ public class CharacterPanel extends FlippingSplitPane
 			pcProperties.store(os, "Character Sheet Plugin Properties");
 			NoteItem hiddenNote = null;
 			int newNodeId = 0;
-			for (NoteItem testNote : pc.getNotesList())
+			for (NoteItem testNote : pc.getDisplay().getNotesList())
 			{
 				if (testNote.getId() > newNodeId)
 				{

@@ -295,6 +295,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
 	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
 	private SkillLanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
+	private NoteItemFacet noteItemFacet = FacetLibrary.getFacet(NoteItemFacet.class);
 
 	//The following facets are pure delegation (no exceptions) - could be considered "complete"
 	private AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
@@ -328,7 +329,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	//The following facets are "minimal" delegation
 	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
 	private XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
-	private NoteItemFacet noteItemFacet = FacetLibrary.getFacet(NoteItemFacet.class);
 
 	//The following are other facets
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
@@ -1896,21 +1896,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public List<String> getNamedTempBonusDescList()
 	{
 		return bonusManager.getNamedTempBonusDescList();
-	}
-
-	/**
-	 * Gets a list of notes associated with the character.
-	 * 
-	 * @return A list of <tt>NoteItem</tt> objects.
-	 */
-	public Collection<NoteItem> getNotesList()
-	{
-		return noteItemFacet.getSet(id);
-	}
-
-	public int getNotesCount()
-	{
-		return noteItemFacet.getCount(id);
 	}
 
 	/**
@@ -11276,11 +11261,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		noteItemFacet.remove(id,  note);
 		setDirty(true);
-	}
-
-	public boolean containsNote(NoteItem note)
-	{
-		return noteItemFacet.contains(id, note);
 	}
 
 	public Collection<NamedValue> getSkillRankValues(Skill sk)
