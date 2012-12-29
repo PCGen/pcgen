@@ -6295,7 +6295,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		Set<Language> foundLanguages = new HashSet<Language>();
 		//Captures Auto (LANGAUTO) and Persistent choices (CHOOSE, ADD)
 		foundLanguages.addAll(thePC.getLanguageSet());
-		foundLanguages.addAll(thePC.getSkillLanguages());
 		cachedLanguages.removeAll(foundLanguages);
 
 		Set<Language> bonusList = thePC.getLanguageBonusSelectionList();
