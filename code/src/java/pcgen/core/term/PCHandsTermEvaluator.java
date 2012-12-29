@@ -40,7 +40,7 @@ public class PCHandsTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getHands();
+		return (float) pc.getDisplay().getHands();
 	}
 
 	@Override

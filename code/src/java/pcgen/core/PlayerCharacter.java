@@ -139,7 +139,6 @@ import pcgen.cdom.facet.analysis.CharacterSpellResistanceFacet;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
 import pcgen.cdom.facet.analysis.FollowerLimitFacet;
 import pcgen.cdom.facet.analysis.GlobalSkillCostFacet;
-import pcgen.cdom.facet.analysis.HandsFacet;
 import pcgen.cdom.facet.analysis.LegalDeityFacet;
 import pcgen.cdom.facet.analysis.LegsFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
@@ -292,7 +291,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
 	private ClassSpellListFacet classSpellListFacet = FacetLibrary.getFacet(ClassSpellListFacet.class);
 	private DomainSpellCountFacet domainSpellCountFacet = FacetLibrary.getFacet(DomainSpellCountFacet.class);
-	private HandsFacet handsFacet = FacetLibrary.getFacet(HandsFacet.class);
 	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
 	private LegsFacet legsFacet = FacetLibrary.getFacet(LegsFacet.class);
 	private MoneyFacet moneyFacet = FacetLibrary.getFacet(MoneyFacet.class);
@@ -9468,16 +9466,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		{
 			addTemplate(pct);
 		}
-	}
-
-	/**
-	 * Determine the number of hands the character has.
-	 * 
-	 * @return The number of hands.
-	 */
-	public int getHands()
-	{
-		return handsFacet.getHands(id);
 	}
 
 	/**
