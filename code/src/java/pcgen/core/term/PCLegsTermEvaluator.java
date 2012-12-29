@@ -40,7 +40,7 @@ public class PCLegsTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getLegs();
+		return (float) pc.getDisplay().getLegs();
 	}
 
 	@Override
