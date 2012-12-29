@@ -640,6 +640,71 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		}
 	}
 
+	@Test
+	public void testCopyContentsNone()
+	{
+		getFacet().copyContents(altid, id);
+		testTemplateUnsetZeroCount();
+		testTemplateUnsetEmpty();
+		testTemplateUnsetEmptySet();
+	}
+
+	@Test
+	public void testCopyContents()
+	{
+		T t1 = getObject();
+		T t2 = getAltObject();
+		getFacet().add(id, t1);
+		getFacet().add(id, t2);
+		assertEquals(2, getFacet().getCount(id));
+		assertEquals(0, getFacet().getCount(altid));
+		getFacet().copyContents(id, altid);
+		assertEquals(2, getFacet().getCount(altid));
+		assertFalse(getFacet().isEmpty(altid));
+		Collection<T> setoftwo = getFacet().getSet(altid);
+		assertNotNull(setoftwo);
+		assertEquals(2, setoftwo.size());
+		assertTrue(setoftwo.contains(t1));
+		assertTrue(setoftwo.contains(t2));
+		// Prove independence (remove from id)
+		getFacet().remove(id, t1);
+		assertEquals(1, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		Collection<T> setofone = getFacet().getSet(id);
+		assertNotNull(setofone);
+		assertEquals(1, setofone.size());
+		assertTrue(setofone.contains(t2));
+
+		assertEquals(2, getFacet().getCount(altid));
+		assertFalse(getFacet().isEmpty(altid));
+		setoftwo = getFacet().getSet(altid);
+		assertNotNull(setoftwo);
+		assertEquals(2, setoftwo.size());
+		assertTrue(setoftwo.contains(t1));
+		assertTrue(setoftwo.contains(t2));
+		// Prove Independence (remove from altid)
+
+		getFacet().remove(altid, t2);
+		assertEquals(1, getFacet().getCount(id));
+		assertFalse(getFacet().isEmpty(id));
+		setofone = getFacet().getSet(id);
+		assertNotNull(setofone);
+		assertEquals(1, setofone.size());
+		assertTrue(setofone.contains(t2));
+
+		assertEquals(1, getFacet().getCount(altid));
+		assertFalse(getFacet().isEmpty(altid));
+		setofone = getFacet().getSet(altid);
+		assertNotNull(setofone);
+		assertEquals(1, setofone.size());
+		assertTrue(setofone.contains(t1));
+	}
+
+	protected T getAltObject()
+	{
+		return getObject();
+	}
+
 	protected abstract T getObject();
 
 	protected abstract AbstractListFacet<T> getFacet();

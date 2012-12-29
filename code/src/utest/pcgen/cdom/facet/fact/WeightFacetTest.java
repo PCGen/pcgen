@@ -17,17 +17,15 @@
  */
 package pcgen.cdom.facet.fact;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.fact.WeightFacet;
+import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.cdom.testsupport.AbstractItemFacetTest;
 
-public class WeightFacetTest extends TestCase
+public class WeightFacetTest extends AbstractItemFacetTest<Integer>
 {
 	private CharID id;
-	private CharID altid;
 	private WeightFacet facet = new WeightFacet();
 
 	@Override
@@ -35,22 +33,12 @@ public class WeightFacetTest extends TestCase
 	{
 		super.setUp();
 		id = CharID.getID();
-		altid = CharID.getID();
 	}
 
 	@Test
 	public void testWeightUnsetZero()
 	{
 		assertEquals(0, facet.getWeight(id));
-	}
-
-	@Test
-	public void testWeightSetGet()
-	{
-		facet.setWeight(id, 250);
-		assertEquals(250, facet.getWeight(id));
-		facet.setWeight(id, 225);
-		assertEquals(225, facet.getWeight(id));
 	}
 
 	@Test
@@ -70,13 +58,6 @@ public class WeightFacetTest extends TestCase
 	}
 
 	@Test
-	public void testWeightDiffPC()
-	{
-		facet.setWeight(id, 250);
-		assertEquals(0, facet.getWeight(altid));
-	}
-
-	@Test
 	public void testRemoveWeight()
 	{
 		facet.setWeight(id, 25);
@@ -85,13 +66,17 @@ public class WeightFacetTest extends TestCase
 		assertEquals(0, facet.getWeight(id));
 	}
 
-	@Test
-	public void testRemoveAltWeight()
+	@Override
+	protected AbstractItemFacet<Integer> getFacet()
 	{
-		facet.setWeight(id, 25);
-		assertEquals(25, facet.getWeight(id));
-		facet.removeWeight(altid);
-		assertEquals(25, facet.getWeight(id));
+		return facet;
 	}
 
+	private int n = 1;
+
+	@Override
+	protected Integer getItem()
+	{
+		return n++;
+	}
 }

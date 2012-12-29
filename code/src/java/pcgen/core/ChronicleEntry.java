@@ -184,5 +184,31 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 		return (ChronicleEntry) super.clone();
 	}
 	
+	@Override
+	public int hashCode()
+	{
+		return chronicle.hashCode() ^ campaign.hashCode();
+	}
 
+	@Override
+	public boolean equals(Object o)
+	{
+		/*
+		 * TODO This method assumes no bad behavior by a caller of a set* method
+		 * to set a value to null. This is NOT a good assumption, but suitable
+		 * for the moment. - thpr Dec 28, 2012
+		 */
+		if (o instanceof ChronicleEntry)
+		{
+			ChronicleEntry other = (ChronicleEntry) o;
+			return (outputEntry == other.outputEntry)
+				&& (xpField == other.xpField)
+				&& campaign.equals(other.campaign)
+				&& adventure.equals(other.adventure)
+				&& party.equals(other.party) && date.equals(other.date)
+				&& gmField.equals(other.gmField)
+				&& chronicle.equals(other.chronicle);
+		}
+		return false;
+	}
 }

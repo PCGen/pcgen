@@ -17,17 +17,15 @@
  */
 package pcgen.cdom.facet.fact;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.fact.HeightFacet;
+import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.cdom.testsupport.AbstractItemFacetTest;
 
-public class HeightFacetTest extends TestCase
+public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 {
 	private CharID id;
-	private CharID altid;
 	private HeightFacet facet = new HeightFacet();
 
 	@Override
@@ -35,33 +33,23 @@ public class HeightFacetTest extends TestCase
 	{
 		super.setUp();
 		id = CharID.getID();
-		altid = CharID.getID();
 	}
 
 	@Test
-	public void testWeightUnsetZero()
+	public void testHeightUnsetZero()
 	{
 		assertEquals(0, facet.getHeight(id));
 	}
 
 	@Test
-	public void testWeightSetGet()
-	{
-		facet.setHeight(id, 250);
-		assertEquals(250, facet.getHeight(id));
-		facet.setHeight(id, 225);
-		assertEquals(225, facet.getHeight(id));
-	}
-
-	@Test
-	public void testWeightSetZeroValid()
+	public void testHeightSetZeroValid()
 	{
 		facet.setHeight(id, 0);
 		assertEquals(0, facet.getHeight(id));
 	}
 
 	@Test
-	public void testWeightSetNegative()
+	public void testHeightSetNegative()
 	{
 		facet.setHeight(id, -250);
 		/*
@@ -70,14 +58,7 @@ public class HeightFacetTest extends TestCase
 	}
 
 	@Test
-	public void testWeightDiffPC()
-	{
-		facet.setHeight(id, 250);
-		assertEquals(0, facet.getHeight(altid));
-	}
-
-	@Test
-	public void testremoveHeight()
+	public void testRemoveHeight()
 	{
 		facet.setHeight(id, 25);
 		assertEquals(25, facet.getHeight(id));
@@ -85,13 +66,17 @@ public class HeightFacetTest extends TestCase
 		assertEquals(0, facet.getHeight(id));
 	}
 
-	@Test
-	public void testRemoveAltWeight()
+	@Override
+	protected AbstractItemFacet<Integer> getFacet()
 	{
-		facet.setHeight(id, 25);
-		assertEquals(25, facet.getHeight(id));
-		facet.removeHeight(altid);
-		assertEquals(25, facet.getHeight(id));
+		return facet;
 	}
 
+	private int n = 1;
+
+	@Override
+	protected Integer getItem()
+	{
+		return n++;
+	}
 }

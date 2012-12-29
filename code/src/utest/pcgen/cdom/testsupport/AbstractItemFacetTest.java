@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.testsupport;
 
+import java.util.Collection;
+
 import junit.framework.TestCase;
 
 import org.junit.Test;
@@ -228,6 +230,43 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 		assertTrue(getFacet().matches(id, t1));
 		getFacet().remove(id);
 		assertFalse(getFacet().matches(id, t1));
+		assertNull(getFacet().get(id));
+		assertTrue(getFacet().matches(id, null));
+	}
+
+	@Test
+	public void testCopyContentsNone()
+	{
+		getFacet().copyContents(altid, id);
+		assertNull(getFacet().get(id));
+		assertTrue(getFacet().matches(id, null));
+	}
+
+	@Test
+	public void testCopyContentsOne()
+	{
+		T t1 = getItem();
+		T t2 = getItem();
+		getFacet().set(id, t1);
+		getFacet().copyContents(id, altid);
+		assertEquals(t1, getFacet().get(altid));
+		// Prove independence (remove from id)
+		getFacet().set(id, t2);
+		assertEquals(t1, getFacet().get(altid));
+	}
+
+	@Test
+	public void testCopyContentsTwo()
+	{
+		T t1 = getItem();
+		getFacet().set(id, t1);
+		getFacet().copyContents(id, altid);
+		assertEquals(t1, getFacet().get(altid));
+		// Prove Independence (remove from altid)
+		getFacet().remove(altid);
+		assertEquals(t1, getFacet().get(id));
+		assertNull(getFacet().get(altid));
+		assertTrue(getFacet().matches(altid, null));
 	}
 
 	protected abstract AbstractItemFacet<T> getFacet();
