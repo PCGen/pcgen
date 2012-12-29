@@ -96,7 +96,6 @@ import pcgen.cdom.facet.analysis.TotalWeightFacet;
 import pcgen.cdom.facet.analysis.UnarmedDamageFacet;
 import pcgen.cdom.facet.analysis.VisionFacet;
 import pcgen.cdom.facet.fact.AgeFacet;
-import pcgen.cdom.facet.fact.AllowDebtFacet;
 import pcgen.cdom.facet.fact.CharacterTypeFacet;
 import pcgen.cdom.facet.fact.ChronicleEntryFacet;
 import pcgen.cdom.facet.fact.FactFacet;
@@ -105,7 +104,6 @@ import pcgen.cdom.facet.fact.GenderFacet;
 import pcgen.cdom.facet.fact.GoldFacet;
 import pcgen.cdom.facet.fact.HandedFacet;
 import pcgen.cdom.facet.fact.HeightFacet;
-import pcgen.cdom.facet.fact.IgnoreCostFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
@@ -201,8 +199,6 @@ public class CharacterDisplay
 	private FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
 	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
 	private GoldFacet goldFacet = FacetLibrary.getFacet(GoldFacet.class);
-	private AllowDebtFacet allowDebtFacet = FacetLibrary.getFacet(AllowDebtFacet.class);
-	private IgnoreCostFacet ignoreCostFacet = FacetLibrary.getFacet(IgnoreCostFacet.class);
 	private LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
 	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 	private ReachFacet reachFacet = FacetLibrary.getFacet(ReachFacet.class);
@@ -1681,22 +1677,6 @@ public class CharacterDisplay
 	public String getFullRegion()
 	{
 		return regionFacet.getFullRegion(id);
-	}
-
-	/**
-	 * @return the allowDebt
-	 */
-	public boolean isAllowDebt()
-	{
-		return allowDebtFacet.get(id);
-	}
-
-	/**
-	 * @return the ignoreCost
-	 */
-	public boolean isIgnoreCost()
-	{
-		return ignoreCostFacet.get(id);
 	}
 
 	public Vision getVision(VisionType type)

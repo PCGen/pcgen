@@ -1704,10 +1704,10 @@ final class PCGVer2Creator implements IOConstants
 	private void appendGearCostSizeLines(StringBuilder buffer)
 	{
 		buffer.append(TAG_IGNORECOST).append(':');
-		buffer.append(charDisplay.isIgnoreCost() ? 'Y' : 'N');
+		buffer.append(thePC.isIgnoreCost() ? 'Y' : 'N');
 		buffer.append(LINE_SEP);
 		buffer.append(TAG_ALLOWDEBT).append(':');
-		buffer.append(charDisplay.isAllowDebt() ? 'Y' : 'N');
+		buffer.append(thePC.isAllowDebt() ? 'Y' : 'N');
 		buffer.append(LINE_SEP);
 		buffer.append(TAG_AUTORESIZEGEAR).append(':');
 		buffer.append(thePC.isAutoResize() ? 'Y' : 'N');

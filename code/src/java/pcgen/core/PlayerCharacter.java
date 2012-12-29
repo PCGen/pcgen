@@ -296,6 +296,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
 	private SkillLanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
 	private NoteItemFacet noteItemFacet = FacetLibrary.getFacet(NoteItemFacet.class);
+	private UserTemplateFacet userTemplateFacet = FacetLibrary.getFacet(UserTemplateFacet.class);
 
 	//The following facets are pure delegation (no exceptions) - could be considered "complete"
 	private AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
@@ -333,7 +334,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	//The following are other facets
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
-	private UserTemplateFacet userTemplateFacet = FacetLibrary.getFacet(UserTemplateFacet.class);
 	private DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 	private AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
@@ -11287,4 +11287,23 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		return skillRankFacet.getRank(id, sk);
 	}
+
+	/**
+	 * @return the allowDebt
+	 */
+	public boolean isAllowDebt()
+	{
+		Boolean ad = allowDebtFacet.get(id);
+		return (ad == null) ? SettingsHandler.getGearTab_AllowDebt() : ad;
+	}
+
+	/**
+	 * @return the ignoreCost
+	 */
+	public boolean isIgnoreCost()
+	{
+		Boolean ic = ignoreCostFacet.get(id);
+		return (ic == null) ? SettingsHandler.getGearTab_IgnoreCost() : ic;
+	}
+
 }
