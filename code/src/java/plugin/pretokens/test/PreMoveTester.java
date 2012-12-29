@@ -27,8 +27,8 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -37,7 +37,7 @@ import pcgen.system.LanguageBundle;
 /**
  * Passes PREMOVE tags
  */
-public class PreMoveTester extends AbstractPrerequisiteTest implements
+public class PreMoveTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 
@@ -52,13 +52,13 @@ public class PreMoveTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 		throws PrerequisiteException
 	{
 		int runningTotal = 0;
 		int moveAmount = 0;
 
-		if ((character != null) && character.getDisplay().hasMovement())
+		if ((display != null) && display.hasMovement())
 		{
 			final String moveType = prereq.getKey();
 
@@ -73,7 +73,7 @@ public class PreMoveTester extends AbstractPrerequisiteTest implements
 						"PreMove.error.bad_operand", prereq.toString())); //$NON-NLS-1$
 			}
 
-			int speed = (int) character.getDisplay().getMovementOfType(moveType);
+			int speed = (int) display.getMovementOfType(moveType);
 			if (speed >= moveAmount)
 			{
 				runningTotal += speed;

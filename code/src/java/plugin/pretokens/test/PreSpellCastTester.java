@@ -28,8 +28,8 @@ package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
@@ -38,7 +38,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreSpellCastTester extends AbstractPrerequisiteTest implements
+public class PreSpellCastTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 
@@ -46,14 +46,14 @@ public class PreSpellCastTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 
 		final int requiredNumber = Integer.parseInt(prereq.getOperand());
 		final String prereqSpellType = prereq.getKey();
 		int runningTotal = 0;
 
-		for (PCClass aClass : character.getClassSet())
+		for (PCClass aClass : display.getClassSet())
 		{
 			if (prereqSpellType.equalsIgnoreCase(aClass.getSpellType()))
 			{

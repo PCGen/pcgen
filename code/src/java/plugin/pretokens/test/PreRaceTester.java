@@ -39,9 +39,9 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
@@ -50,21 +50,21 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author	byngl <byngl@hotmail.com>
  *
  */
-public class PreRaceTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreRaceTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		final int reqnumber = Integer.parseInt(prereq.getOperand());
 		final String requiredRace = prereq.getKey();
 		int runningTotal = 0;
 		HashMap<Race, HashSet<Race>> servesAsRace = new HashMap<Race, HashSet<Race>>();
-		getImitators(servesAsRace, character);
-		final Race pcRace = character.getRace();
+		getImitators(servesAsRace);
+		final Race pcRace = display.getRace();
 		
 		if (requiredRace.startsWith("TYPE=") || requiredRace.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
@@ -120,7 +120,7 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 		else if (requiredRace.startsWith("RACETYPE=") || requiredRace.startsWith("RACETYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
 			String raceToMatch = requiredRace.substring(9);
-			String raceType = character.getDisplay().getRaceType();
+			String raceType = display.getRaceType();
 			boolean isMatchingRaceType = raceType.equalsIgnoreCase(
 				requiredRace.substring(9)) ? true : false;
 			if (isMatchingRaceType) 
@@ -151,7 +151,7 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 		{
 			final String reqType = requiredRace.substring(12);
 			RaceSubType st = RaceSubType.getConstant(reqType);
-			if (character.getDisplay().containsRacialSubType(st))
+			if (display.containsRacialSubType(st))
 			{
 				++runningTotal;
 			}
@@ -238,7 +238,7 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 		return 0;
 	}
 	
-	private void getImitators(HashMap<Race, HashSet<Race>> serveAsRaces,PlayerCharacter character)
+	private void getImitators(HashMap<Race, HashSet<Race>> serveAsRaces)
 	{
 		for (Race theRace : Globals.getContext().ref.getConstructedCDOMObjects(Race.class))
 		{

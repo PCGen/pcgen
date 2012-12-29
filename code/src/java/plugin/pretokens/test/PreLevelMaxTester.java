@@ -27,8 +27,8 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
@@ -37,7 +37,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreLevelMaxTester extends AbstractPrerequisiteTest implements
+public class PreLevelMaxTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 
@@ -45,11 +45,11 @@ public class PreLevelMaxTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		final int requiredLevel = Integer.parseInt(prereq.getOperand());
 		final int runningTotal =
-				prereq.getOperator().compare(character.getDisplay().totalNonMonsterLevels(),
+				prereq.getOperator().compare(display.totalNonMonsterLevels(),
 					requiredLevel);
 		return countedTotal(prereq, runningTotal);
 	}

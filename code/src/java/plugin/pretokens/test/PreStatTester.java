@@ -29,8 +29,8 @@ package plugin.pretokens.test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
@@ -39,7 +39,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreStatTester extends AbstractPrerequisiteTest implements
+public class PreStatTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 
@@ -47,13 +47,13 @@ public class PreStatTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		final int targetNumber = Integer.parseInt(prereq.getOperand());
 		PCStat stat = Globals.getContext().ref
 				.getAbbreviatedObject(PCStat.class, prereq.getKey());
 		final int statValue =
-				character.getTotalStatFor(stat);
+				display.getTotalStatFor(stat);
 
 		final int runningTotal =
 				prereq.getOperator().compare(statValue, targetNumber);

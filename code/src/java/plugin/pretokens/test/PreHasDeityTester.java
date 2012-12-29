@@ -29,8 +29,8 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -39,15 +39,15 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreHasDeityTester extends AbstractPrerequisiteTest implements
+public class PreHasDeityTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		int runningTotal;
-		final boolean charHasDeity = character.getDeity() != null;
+		final boolean charHasDeity = display.getDeity() != null;
 
 		final String ucOp = prereq.getKey().toUpperCase();
 		final boolean flag =

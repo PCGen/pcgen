@@ -28,9 +28,9 @@ package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.SizeUtilities;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -39,26 +39,26 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreSizeTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreSizeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		final int targetSize = SizeUtilities.sizeInt(prereq.getOperand());
 
 		final int runningTotal =
-				prereq.getOperator().compare(character.getDisplay().sizeInt(), targetSize);
+				prereq.getOperator().compare(display.sizeInt(), targetSize);
 
 		return countedTotal(prereq, runningTotal);
 	}
 
 	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment,
-		PlayerCharacter character) throws PrerequisiteException
+		CharacterDisplay display) throws PrerequisiteException
 	{
 		final int targetSize = SizeUtilities.sizeInt(prereq.getOperand());
 

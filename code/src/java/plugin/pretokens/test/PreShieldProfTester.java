@@ -30,9 +30,9 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.helper.ProfProvider;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.ShieldProf;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
@@ -40,14 +40,14 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreShieldProfTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreShieldProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		final int numberRequired = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
@@ -68,7 +68,7 @@ public class PreShieldProfTester extends AbstractPrerequisiteTest implements Pre
 		}
 		Equipment keyEquip = Globals.getContext().ref
 				.silentlyGetConstructedCDOMObject(Equipment.class, aString);
-		for (ProfProvider<ShieldProf> spp : character.getShieldProfList())
+		for (ProfProvider<ShieldProf> spp : display.getShieldProfList())
 		{
 			if (keyEquip != null && spp.providesProficiency(keyEquip.getShieldProf()))
 			{

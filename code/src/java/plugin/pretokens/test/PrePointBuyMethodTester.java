@@ -24,9 +24,9 @@ package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.GameMode;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
@@ -37,14 +37,14 @@ import pcgen.system.LanguageBundle;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-public class PrePointBuyMethodTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PrePointBuyMethodTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		int runningTotal = 0;
 		final GameMode gm = SettingsHandler.getGame();

@@ -27,8 +27,8 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
@@ -36,19 +36,19 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreDamageReductionTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreDamageReductionTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		int runningTotal = 0;
 
 		final int target = Integer.parseInt(prereq.getOperand());
-		Integer reduction = character.getDisplay().getDR(prereq.getKey());
+		Integer reduction = display.getDR(prereq.getKey());
 		if (reduction != null)
 		{
 			runningTotal = prereq.getOperator().compare(reduction, target);

@@ -31,8 +31,8 @@ import pcgen.cdom.helper.ProfProvider;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -45,14 +45,14 @@ import pcgen.system.LanguageBundle;
  * @author Chris Ward <frugal@purplewombat.co.uk>
  * @version $Revision$
  */
-public class PreArmorProfTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreArmorProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source) throws PrerequisiteException
 	{
 		int runningTotal = 0;
 
@@ -83,7 +83,7 @@ public class PreArmorProfTester extends AbstractPrerequisiteTest implements Prer
 		{
 			typeString = "ARMOR." + aString.substring(10);
 		}
-		for (ProfProvider<ArmorProf> spp : character.getDisplay().getArmorProfList())
+		for (ProfProvider<ArmorProf> spp : display.getArmorProfList())
 		{
 			if (keyEquip != null && spp.providesProficiency(keyEquip.getArmorProf()))
 			{

@@ -29,8 +29,8 @@ package plugin.pretokens.test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Globals;
 import pcgen.core.Language;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -40,7 +40,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreLanguageTester extends AbstractPrerequisiteTest implements
+public class PreLanguageTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 
@@ -48,7 +48,7 @@ public class PreLanguageTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 		throws PrerequisiteException
 	{
 		final String requiredLang = prereq.getKey();
@@ -56,14 +56,14 @@ public class PreLanguageTester extends AbstractPrerequisiteTest implements
 		int runningTotal = 0;
 
 		if (prereq.getKey().equalsIgnoreCase("ANY")) { //$NON-NLS-1$
-			runningTotal = character.getDisplay().getLanguageCount();
+			runningTotal = display.getLanguageCount();
 		}
 		else
 		{
 			final Language aLang = Globals.getContext().ref.silentlyGetConstructedCDOMObject(Language.class, requiredLang);
 			if (aLang != null)
 			{
-				if (character.getDisplay().hasLanguage(aLang))
+				if (display.hasLanguage(aLang))
 				{
 					runningTotal = 1;
 				}

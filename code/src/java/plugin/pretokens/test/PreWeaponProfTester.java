@@ -33,10 +33,9 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -46,7 +45,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreWeaponProfTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreWeaponProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/**
@@ -75,10 +74,9 @@ public class PreWeaponProfTester extends AbstractPrerequisiteTest implements Pre
 	 * @see pcgen.core.prereq.AbstractPrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter, CDOMObject)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 		throws PrerequisiteException
 	{
-		CharacterDisplay display = character.getDisplay();
 		int runningTotal = 0;
 
 		final int number;

@@ -32,22 +32,21 @@ import java.util.List;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
-import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * Prerequisite tester, tests for the presence of a type.
  *
  */
-public class PreTypeTester extends AbstractPrerequisiteTest implements
+public class PreTypeTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 
@@ -66,7 +65,7 @@ public class PreTypeTester extends AbstractPrerequisiteTest implements
 	 */
 	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment,
-		PlayerCharacter aPC) throws PrerequisiteException
+		CharacterDisplay display) throws PrerequisiteException
 	{
 
 		final String requiredType = prereq.getKey();
@@ -102,14 +101,12 @@ public class PreTypeTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter aPC, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
-		CharacterDisplay display = aPC.getDisplay();
-
 		Logging
 			.errorPrint("PRETYPE has been deprecated for non-Equipment Prerequisites."
 				+ "\n  Please use PRERACE as an alternative");
-		if (aPC == null)
+		if (display == null)
 		{
 			return 0;
 		}

@@ -27,10 +27,9 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Vision;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.enumeration.VisionType;
@@ -40,16 +39,15 @@ import pcgen.util.enumeration.VisionType;
  *
  * Checks a characters vision..
  */
-public class PreVisionTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreVisionTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
-		CharacterDisplay display = character.getDisplay();
 		String range = prereq.getOperand();
 		VisionType requiredVisionType =
 			VisionType.getVisionType(prereq.getKey());

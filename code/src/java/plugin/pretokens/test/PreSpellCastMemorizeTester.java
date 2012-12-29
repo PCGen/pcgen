@@ -9,8 +9,8 @@ package plugin.pretokens.test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
@@ -21,7 +21,7 @@ import pcgen.system.LanguageBundle;
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public class PreSpellCastMemorizeTester extends AbstractPrerequisiteTest
+public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest
 		implements PrerequisiteTest
 {
 
@@ -39,7 +39,7 @@ public class PreSpellCastMemorizeTester extends AbstractPrerequisiteTest
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 
 		final int requiredNumber = Integer.parseInt(prereq.getOperand());
@@ -47,7 +47,7 @@ public class PreSpellCastMemorizeTester extends AbstractPrerequisiteTest
 				prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
 		int runningTotal = 0;
 
-		for (PCClass aClass : character.getClassSet())
+		for (PCClass aClass : display.getClassSet())
 		{
 			if (aClass.getSafe(ObjectKey.MEMORIZE_SPELLS) == prereqMemorized)
 			{

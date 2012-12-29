@@ -27,8 +27,8 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -38,7 +38,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreLegsTester extends AbstractPrerequisiteTest implements
+public class PreLegsTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 
@@ -46,7 +46,7 @@ public class PreLegsTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 		throws PrerequisiteException
 	{
 		int runningTotal;
@@ -55,7 +55,7 @@ public class PreLegsTester extends AbstractPrerequisiteTest implements
 			final int targetLegs = Integer.parseInt(prereq.getOperand());
 
 			runningTotal =
-					prereq.getOperator().compare(character.getDisplay().getLegs(),
+					prereq.getOperator().compare(display.getLegs(),
 						targetLegs);
 		}
 		catch (NumberFormatException nfe)

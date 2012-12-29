@@ -12,8 +12,8 @@ import java.util.List;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Pantheon;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -26,14 +26,14 @@ import pcgen.system.LanguageBundle;
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public class PreDeityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreDeityTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 		throws PrerequisiteException
 	{
 		int runningTotal;
@@ -43,7 +43,7 @@ public class PreDeityTester extends AbstractPrerequisiteTest implements Prerequi
 			try
 			{
 				Pantheon pantheon = Pantheon.valueOf(prereq.getKey().substring(9));
-				List<Pantheon> charDeityPantheon = character.getDeity() != null ? character
+				List<Pantheon> charDeityPantheon = display.getDeity() != null ? display
 						.getDeity().getSafeListFor(ListKey.PANTHEON)
 						: new ArrayList<Pantheon>();
 				if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
@@ -93,7 +93,7 @@ public class PreDeityTester extends AbstractPrerequisiteTest implements Prerequi
 		else
 		{
 			final String charDeity =
-					character.getDeity() != null ? character.getDeity()
+					display.getDeity() != null ? display.getDeity()
 						.getKeyName() : ""; //$NON-NLS-1$
 			if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
 				|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))

@@ -25,8 +25,8 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -36,16 +36,16 @@ import pcgen.system.LanguageBundle;
  * @author perchrh
  *
  */
-public class PreAgeSetTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreAgeSetTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source) throws PrerequisiteException
 	{
-		final int ageset = character.getDisplay().getAgeSetIndex();
+		final int ageset = display.getAgeSetIndex();
 
 		int runningTotal=-1;
 		int anInt;
@@ -56,7 +56,7 @@ public class PreAgeSetTester extends AbstractPrerequisiteTest implements Prerequ
 		}
 		catch (NumberFormatException exc)
 		{
-			anInt = character.getDisplay().getBioSet().getAgeSetNamed(prereq.getKey());
+			anInt = display.getBioSet().getAgeSetNamed(prereq.getKey());
 		}
 		catch (Exception e)
 		{

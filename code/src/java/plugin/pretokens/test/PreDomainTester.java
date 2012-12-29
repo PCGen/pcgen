@@ -29,8 +29,8 @@ package plugin.pretokens.test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.Logging;
@@ -39,7 +39,7 @@ import pcgen.util.Logging;
  * @author wardc
  *
  */
-public class PreDomainTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreDomainTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
@@ -48,7 +48,7 @@ public class PreDomainTester extends AbstractPrerequisiteTest implements Prerequ
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		int runningTotal;
 		int number = 0;
@@ -63,12 +63,12 @@ public class PreDomainTester extends AbstractPrerequisiteTest implements Prerequ
 		}
 		
 		if ( prereq.getKey().equalsIgnoreCase("ANY") ) {
-			runningTotal = character.getDomainCount();
+			runningTotal = display.getDomainCount();
 		} else {
 			Domain domain = Globals.getContext().ref
 					.silentlyGetConstructedCDOMObject(DOMAIN_CLASS, prereq
 							.getKey());
-			final boolean hasDomain = domain != null && character.hasDomain(domain);
+			final boolean hasDomain = domain != null && display.hasDomain(domain);
 			runningTotal = hasDomain ? 1 : 0;
 		}
 

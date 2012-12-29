@@ -31,9 +31,9 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.AlignmentConverter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -44,7 +44,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreAlignTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreAlignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -52,17 +52,17 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements Prerequi
 	 */
 	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment,
-		final PlayerCharacter aPC) throws PrerequisiteException
+		final CharacterDisplay display) throws PrerequisiteException
 	{
-		if (aPC == null)
+		if (display == null)
 		{
 			return 0;
 		}
-		return passes(prereq, aPC, equipment);
+		return passes(prereq, display, equipment);
 	}
 
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source) throws PrerequisiteException
 	{
 		//
 		// If game mode doesn't support alignment, then pass the prereq
@@ -76,18 +76,18 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements Prerequi
 		else
 		{
 			String desiredAlignment = prereq.getKey();
-			final PCAlignment charAlignment = character.getDisplay().getPCAlignment();
+			final PCAlignment charAlignment = display.getPCAlignment();
 
 			if (prereq.getOperator().equals(PrerequisiteOperator.EQ))
 			{
-				if (alignMatches(character, desiredAlignment, charAlignment))
+				if (alignMatches(display, desiredAlignment, charAlignment))
 				{
 					runningTotal++;
 				}
 			}
 			else if (prereq.getOperator().equals(PrerequisiteOperator.NEQ))
 			{
-				if (!alignMatches(character, desiredAlignment, charAlignment))
+				if (!alignMatches(display, desiredAlignment, charAlignment))
 				{
 					runningTotal++;
 				}
@@ -112,7 +112,7 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements Prerequi
 	 * @param charAlignment The character's alignment
 	 * @return true if the alignment matches, false if not.
 	 */
-	private boolean alignMatches(final PlayerCharacter character,
+	private boolean alignMatches(final CharacterDisplay display,
 		String desiredAlignment, final PCAlignment charAlignment)
 	{
 		PCAlignment al = getPCAlignment(desiredAlignment);
@@ -121,10 +121,10 @@ public class PreAlignTester extends AbstractPrerequisiteTest implements Prerequi
 			return true;
 		}
 		else if ((desiredAlignment.equalsIgnoreCase("Deity"))
-			&& (character.getDeity() != null))
+			&& (display.getDeity() != null))
 		{
 			final PCAlignment deityAlignStr =
-					character.getDeity().get(ObjectKey.ALIGNMENT);
+					display.getDeity().get(ObjectKey.ALIGNMENT);
 			if (charAlignment.equals(deityAlignStr))
 			{
 				return true;

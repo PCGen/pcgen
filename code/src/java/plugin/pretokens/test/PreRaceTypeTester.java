@@ -31,9 +31,9 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
@@ -42,7 +42,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author	byngl <byngl@hotmail.com>
  *
  */
-public class PreRaceTypeTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreRaceTypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/*
@@ -52,7 +52,7 @@ public class PreRaceTypeTester extends AbstractPrerequisiteTest implements Prere
 	 * pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		final int reqnumber = Integer.parseInt(prereq.getOperand());
 		final String requiredRaceType = prereq.getKey();
@@ -61,7 +61,7 @@ public class PreRaceTypeTester extends AbstractPrerequisiteTest implements Prere
 		try
 		{
 			RaceType preRaceType = RaceType.valueOf(requiredRaceType);
-			if (preRaceType.equals(character.getRace().get(ObjectKey.RACETYPE)))
+			if (preRaceType.equals(display.getRace().get(ObjectKey.RACETYPE)))
 			{
 				runningTotal++;
 			}
@@ -70,7 +70,7 @@ public class PreRaceTypeTester extends AbstractPrerequisiteTest implements Prere
 		{
 			//Can't match
 		}
-		if (getCritterType(character).indexOf(requiredRaceType) >= 0)
+		if (getCritterType(display).indexOf(requiredRaceType) >= 0)
 		{
 			runningTotal++;
 		}
@@ -93,13 +93,13 @@ public class PreRaceTypeTester extends AbstractPrerequisiteTest implements Prere
 	 * @return the list of types
 	 */
     @Deprecated
-	public static String getCritterType(PlayerCharacter pc)
+	public static String getCritterType(CharacterDisplay display)
 	{
 		final StringBuilder critterType = new StringBuilder();
 	
 		// Not too sure about this if, but that's what the previous code
 		// implied...
-		Race race = pc.getRace();
+		Race race = display.getRace();
 		if (race != null)
 		{
 			critterType.append(race.getType());
@@ -108,7 +108,7 @@ public class PreRaceTypeTester extends AbstractPrerequisiteTest implements Prere
 			critterType.append("Humanoid");
 		}
 	
-		for (PCTemplate t : pc.getDisplay().getTemplateSet())
+		for (PCTemplate t : display.getTemplateSet())
 		{
 			final String aType = t.getType();
 	

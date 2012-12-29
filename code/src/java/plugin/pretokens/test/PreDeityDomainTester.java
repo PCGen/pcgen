@@ -30,8 +30,8 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
@@ -40,20 +40,21 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreDeityDomainTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreDeityDomainTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		int runningTotal = 0;
 
-		if (character.getDeity() != null)
+		Deity deity = display.getDeity();
+		if (deity != null)
 		{
-			if (character.getDeity().hasObjectOnList(Deity.DOMAINLIST, Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, prereq.getKey())))
+			if (deity.hasObjectOnList(Deity.DOMAINLIST, Globals.getContext().ref.silentlyGetConstructedCDOMObject(Domain.class, prereq.getKey())))
 			{
 				runningTotal++;
 			}
