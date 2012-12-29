@@ -1,6 +1,9 @@
 # CVS $Revision$ $Author$ -- Sun Jul 31 16:53:43 2011 -- reformated by prettylst.pl v1.39 (build )
 # Original Entry by: Douglas Limmer
 
+###Block: Archetype support
+ABILITYCATEGORY:Marksman Archetype		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:MarksmanArchetype		PLURAL:Marksman Archetypes			DISPLAYLOCATION:Archetype
+
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI	Display Location
 ABILITYCATEGORY:Finesse Marksman Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MarksmanBonus.FinesseMarksmanBonus	PLURAL:Marksman Bonus Feats	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Sniper Marksman Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MarksmanBonus.SniperMarksmanBonus	PLURAL:Marksman Bonus Feats	DISPLAYLOCATION:Feats

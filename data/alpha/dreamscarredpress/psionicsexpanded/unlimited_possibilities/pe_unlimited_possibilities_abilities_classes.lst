@@ -7,6 +7,10 @@ SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWE
 # Ability Name	Category of Ability		Type			Visible		Bonus to Ability Pool
 Aegis			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Aegis")
 
+###Block: Archetype set-up for Aegis
+CATEGORY=Internal|Archetype Display.MOD	ABILITY:Aegis Archetype|AUTOMATIC|Archetype Aegis|PRECLASS:1,Aegis=1
+Archetype Aegis	CATEGORY:Archetype	TYPE:AegisArchetype	VISIBLE:YES
+
 ###Block: Aegis abilities
 #Block: Core class abilities
 # Ability Name	Unique Key				Category of Ability		Type								Define														Description																																																		Choose														Automatically Added to Inventory				Bonus to Ability Pool												Modify VAR							Damage Reduction	Source Page		Description of the Benefits

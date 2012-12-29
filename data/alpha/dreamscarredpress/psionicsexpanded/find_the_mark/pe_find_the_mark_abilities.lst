@@ -5,6 +5,10 @@
 # Ability Name	Category of Ability		Type			Visible		Bonus to Ability Pool
 Marksman		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Marksman")
 
+# Archetype set-up for Marksman
+CATEGORY=Internal|Archetype Display.MOD	ABILITY:Marksman Archetype|AUTOMATIC|Archetype Marksman|PRECLASS:1,Marksman=1
+Archetype Marksman	CATEGORY:Archetype	TYPE:MarksmanArchetype	VISIBLE:YES
+
 ###Block: Marksman Class Abilities
 # Ability Name								Unique Key						Output Name						Category of Ability		Type																						Visible		Required Ability																			Restricted Ability								Required Class		Multiple Requirements																																							Var. Min. Value			Define																														Innate Spells								Description																																		Multiple?	Automatically Gained Feat		Automatically Gained Weapon Prof.	Ability																																																																																																Bonus to Ability Pool													Save checks bonus											Combat bonus														Bonus to skill									Modify VAR																			Add to vision					Weapon prof. bonus													Class Skill		Vision			Cost		Source Page		List of Known Class Spells by Level
 Wind Reader ~ Marksman														OUTPUTNAME:Wind Reader				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural																																																																																																							DEFINE:WindReaderBonus|0	DEFINE:WindReaderTimes|0																																DESC:Gain +%1 on ranged attacks in a round, %2/day.|WindReaderBonus|WindReaderTimes																																																																																																																																																																																													BONUS:VAR|WindReaderBonus|WIS	BONUS:VAR|WindReaderTimes|3+WindReaderLVL																																									SOURCEPAGE:p.3

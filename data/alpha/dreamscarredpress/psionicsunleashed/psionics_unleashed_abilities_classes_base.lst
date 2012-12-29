@@ -3,6 +3,16 @@ SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress
 # Original Entry by: Douglas Limmer
 # SRD Original Entry by: TaluronIscandar
 
+###Block: Archetype set-up for all base classes
+CATEGORY=Internal|Archetype Display.MOD	ABILITY:Psion Archetype|AUTOMATIC|Archetype Psion|PRECLASS:1,Psion=1
+CATEGORY=Internal|Archetype Display.MOD	ABILITY:Psychic Warrior Archetype|AUTOMATIC|Archetype Psychic Warrior|PRECLASS:1,Psychic Warrior=1
+CATEGORY=Internal|Archetype Display.MOD	ABILITY:Soulknife Archetype|AUTOMATIC|Archetype Soulknife|PRECLASS:1,Soulknife=1
+CATEGORY=Internal|Archetype Display.MOD	ABILITY:Wilder Archetype|AUTOMATIC|Archetype Wilder|PRECLASS:1,Wilder=1
+Archetype Psion	CATEGORY:Archetype	TYPE:PsionArchetype	VISIBLE:YES
+Archetype Psychic Warrior	CATEGORY:Archetype	TYPE:PsychicWarriorArchetype	VISIBLE:YES
+Archetype Soulknife	CATEGORY:Archetype	TYPE:SoulknifeArchetype	VISIBLE:YES
+Archetype Wilder	CATEGORY:Archetype	TYPE:WilderArchetype	VISIBLE:YES
+
 # Ability Name						Unique Key							Output Name						Category of Ability		Type										Visible		Required Ability														Var. Min. Value			Var. Must Be Lower		Define																														Description																																									Stackable?	Multiple?	Choose			Selections	Automatically Gained Feat																																																	Automatically Gained Weapon Prof.										Ability																																																																											Bonus to Ability Pool																																		Save checks bonus								Combat bonus																																							Add to base move									Bonus to skill							Modify VAR																			Class Skill				Damage Reduction	Source Page		List of Known Class Spells by Level					Weapon prop. bonus
 Psion Weapon Proficiencies																			CATEGORY:Special Ability	TYPE:Internal								VISIBLE:NO																																																																																																																																																																				AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff|Shortspear
 
