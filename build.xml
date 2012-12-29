@@ -91,6 +91,7 @@ These files can be renamed and used for releases.
         ${lib.dir}/cobra.jar 
         ${lib.dir}/js.jar 
         ${lib.dir}/commons-logging.jar 
+        ${lib.dir}/spring-asm.jar 
         ${lib.dir}/spring-beans.jar 
         ${lib.dir}/spring-core.jar" />
 
