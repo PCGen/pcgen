@@ -152,6 +152,6 @@ public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	@Override
 	public boolean allow(PlayerCharacter pc, Skill sk)
 	{
-		return ranks <= pc.getSkillRank(sk);
+		return ranks <= pc.getDisplay().getRank(sk);
 	}
 }

@@ -29,7 +29,7 @@ public class PCToken extends AbstractPCQualifierToken<PCClass>
 	@Override
 	protected Collection<PCClass> getPossessed(PlayerCharacter pc)
 	{
-		return pc.getClassSet();
+		return pc.getDisplay().getClassSet();
 	}
 
 	@Override

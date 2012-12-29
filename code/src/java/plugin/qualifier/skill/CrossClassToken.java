@@ -31,6 +31,7 @@ import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
@@ -139,10 +140,11 @@ public class CrossClassToken implements QualifierToken<Skill>, PrimitiveFilter<S
 	@Override
 	public boolean allow(PlayerCharacter pc, Skill sk)
 	{
-		Collection<PCClass> classlist = pc.getClassSet();
+		CharacterDisplay display = pc.getDisplay();
+		Collection<PCClass> classlist = display.getClassSet();
 		for (PCClass cl : classlist)
 		{
-			if (SkillCost.CROSS_CLASS.equals(pc.skillCostForPCClass(sk, cl)))
+			if (SkillCost.CROSS_CLASS.equals(display.skillCostForPCClass(sk, cl)))
 			{
 				return true;
 			}

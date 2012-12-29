@@ -30,14 +30,14 @@ public class PCToken extends AbstractPCQualifierToken<Race>
 	@Override
 	protected Collection<Race> getPossessed(PlayerCharacter pc)
 	{
-		Race Race = pc.getRace();
-		if (Race == null)
+		Race race = pc.getDisplay().getRace();
+		if (race == null)
 		{
 			return Collections.emptyList();
 		}
 		else
 		{
-			return Collections.singletonList(pc.getRace());
+			return Collections.singletonList(race);
 		}
 	}
 

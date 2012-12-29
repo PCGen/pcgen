@@ -29,7 +29,7 @@ public class PCToken extends AbstractPCQualifierToken<Language>
 	@Override
 	protected Collection<Language> getPossessed(PlayerCharacter pc)
 	{
-		return pc.getLanguageSet();
+		return pc.getDisplay().getLanguageSet();
 	}
 
 	@Override

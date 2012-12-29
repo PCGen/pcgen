@@ -30,14 +30,14 @@ public class PCToken extends AbstractPCQualifierToken<Deity>
 	@Override
 	protected Collection<Deity> getPossessed(PlayerCharacter pc)
 	{
-		Deity deity = pc.getDeity();
+		Deity deity = pc.getDisplay().getDeity();
 		if (deity == null)
 		{
 			return Collections.emptyList();
 		}
 		else
 		{
-			return Collections.singletonList(pc.getDeity());
+			return Collections.singletonList(deity);
 		}
 	}
 
