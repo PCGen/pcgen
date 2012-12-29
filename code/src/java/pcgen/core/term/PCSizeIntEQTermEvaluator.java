@@ -79,7 +79,7 @@ public class PCSizeIntEQTermEvaluator
 			}
 		}
 
-		return (float) pc.sizeInt() + modSize;
+		return (float) pc.getDisplay().sizeInt() + modSize;
 	}
 
 	@Override

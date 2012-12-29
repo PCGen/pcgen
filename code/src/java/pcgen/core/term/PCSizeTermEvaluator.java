@@ -47,13 +47,13 @@ public class PCSizeTermEvaluator
 	@Override
 	public String evaluate (PlayerCharacter pc)
 	{
-		return String.valueOf(pc.sizeInt());
+		return String.valueOf(pc.getDisplay().sizeInt());
 	}
 
 	@Override
 	public String evaluate (PlayerCharacter pc, Spell aSpell)
 	{
-		return String.valueOf(pc.sizeInt());
+		return String.valueOf(pc.getDisplay().sizeInt());
 	}
 
 	@Override

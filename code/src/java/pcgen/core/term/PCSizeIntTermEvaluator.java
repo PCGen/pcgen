@@ -39,7 +39,7 @@ public class PCSizeIntTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.sizeInt();
+		return (float) pc.getDisplay().sizeInt();
 	}
 
 	@Override
