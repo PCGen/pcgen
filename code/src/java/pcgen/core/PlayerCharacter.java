@@ -2308,7 +2308,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * 
 	 * @return spellBooks
 	 */
-	public List<String> getSpellBookNames()
+	private List<String> getSpellBookNames()
 	{
 		return new ArrayList<String>(spellBookFacet.getBookNames(id));
 	}
@@ -2515,11 +2515,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 
 		return new Float(value);
-	}
-
-	public Collection<WeaponProf> getWeaponProfSet()
-	{
-		return weaponProfFacet.getProfs(id);
 	}
 
 	/**
@@ -10547,7 +10542,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return spellBookFacet.containsBookNamed(id, bookName);
 	}
 
-	public Load getLoadType()
+	private Load getLoadType()
 	{
 		return loadFacet.getLoadType(id);
 	}
@@ -10765,11 +10760,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public boolean isClassSkill(PCClass aClass, Skill sk)
 	{
 		return skillCostFacet.isClassSkill(id, aClass, sk);
-	}
-
-	public float getSkillRank(Skill sk)
-	{
-		return this.getRank(sk);
 	}
 
 	public boolean isQualified(CDOMObject po)
@@ -11039,7 +11029,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			if (ageFacet.getAge(id) <= 0)
 			{
 				// Only generate a random age if the user hasn't set one!
-				getBioSet().randomize("AGE", this);
+				bioSetFacet.get(id).randomize("AGE", this);
 			}
 		}
 		else

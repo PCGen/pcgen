@@ -2507,7 +2507,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			Skill skill = (Skill) speakLangSkill;
 			List<String> langList = theCharacter.getAssociationList(skill);
 			numSkillLangSelected = langList.size();
-			skillLangMax = (int) theCharacter.getSkillRank(skill);
+			skillLangMax = theCharacter.getRank(skill).intValue();
 		}
 
 		int skillLangRemain = skillLangMax - numSkillLangSelected;

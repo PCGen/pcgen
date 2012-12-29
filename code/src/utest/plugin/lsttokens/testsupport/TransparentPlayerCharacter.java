@@ -148,12 +148,6 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	}
 
 	@Override
-	public Set<WeaponProf> getWeaponProfSet()
-	{
-		return weaponProfSet;
-	}
-
-	@Override
 	public Set<PCTemplate> getTemplateSet()
 	{
 		return templateSet;
