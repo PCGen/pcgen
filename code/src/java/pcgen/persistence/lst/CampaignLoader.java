@@ -29,12 +29,15 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -106,6 +109,7 @@ public class CampaignLoader extends LstLineFileLoader
 	{
 		if (Globals.getCampaignByURI(campaign.getSourceURI(), false) == null)
 		{
+			validatePrereqs(campaign.getPrerequisiteList());
 			List<String> copyright = campaign.getListFor(ListKey.SECTION_15);
 			if (copyright != null)
 			{
@@ -122,6 +126,43 @@ public class CampaignLoader extends LstLineFileLoader
 			}
 
 			Globals.addCampaign(campaign);
+		}
+	}
+
+	/**
+	 * Check that all prerequisites specified in the PCC file are 
+	 * supported. Any unsupported prereqs will be reported as LST 
+	 * errors. This is a recursive function allowing it to 
+	 * check nested prereqs.
+	 * 
+	 * @param prereqList The prerequisites to be checked.
+	 */
+	private void validatePrereqs(List<Prerequisite> prereqList)
+	{
+		if (prereqList == null || prereqList.isEmpty())
+		{
+			return;
+		}
+		
+		for (Prerequisite prereq : prereqList)
+		{
+			if (prereq.isCharacterRequired())
+			{
+				final PrerequisiteWriter prereqWriter =
+						new PrerequisiteWriter();
+				ArrayList<Prerequisite> displayList = new ArrayList<Prerequisite>();
+				displayList.add(prereq);
+				String lstString =
+						prereqWriter.getPrerequisiteString(displayList,
+							Constants.TAB);
+				Logging.log(Logging.LST_ERROR, "Prereq " + prereq.getKind()
+					+ " is not supported in PCC files. Prereq was " + lstString
+					+ " in " + campaign.getSourceURI() + ". Prereq will be ignored.");
+			}
+			else
+			{
+				validatePrereqs(prereq.getPrerequisites());
+			}
 		}
 	}
 

@@ -56,6 +56,7 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 		Prerequisite prereq =
 				super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKind(null);
+		prereq.setCharacterRequired(false);
 
 		int commaIndex = formula.indexOf(",");
 
