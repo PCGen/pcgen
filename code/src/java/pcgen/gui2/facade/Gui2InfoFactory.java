@@ -65,6 +65,7 @@ import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
+import pcgen.core.Movement;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -86,7 +87,6 @@ import pcgen.core.character.SpellInfo;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.DescriptionFormatting;
-import pcgen.core.display.MovementDisplay;
 import pcgen.core.display.SkillCostDisplay;
 import pcgen.core.display.TemplateModifier;
 import pcgen.core.display.VisionDisplay;
@@ -1803,6 +1803,11 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			return EMPTY_STRING;
 		}
-		return MovementDisplay.getMovement((Race) race);
+		List<Movement> movements = ((Race) race).getListFor(ListKey.MOVEMENT);
+		if (movements != null && !movements.isEmpty())
+		{
+			return movements.get(0).toString();
+		}
+		return null;
 	}
 }

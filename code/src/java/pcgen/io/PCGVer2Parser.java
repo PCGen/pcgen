@@ -101,7 +101,6 @@ import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
-import pcgen.core.analysis.AlignmentConverter;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.RaceAlignment;
@@ -520,7 +519,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				ShowMessageDelegate.showMessageDialog(
 					"Invalid alignment. Setting to <none selected>",
 					Constants.APPLICATION_NAME, MessageType.INFORMATION);
-				align = AlignmentConverter.getNoAlignment();
+				align = getNoAlignment();
 			}
 			thePC.setAlignment(align);
 
@@ -6366,6 +6365,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			thePC.addDefaultSpellList(pcc);
 		}
+	}
+
+	public PCAlignment getNoAlignment()
+	{
+		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
+				PCAlignment.class, Constants.NONE);
 	}
 
 }

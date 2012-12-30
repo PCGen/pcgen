@@ -90,21 +90,6 @@ public class SizeUtilities
 		return null;
 	}
 
-	public static int getDefaultSizeAdjustments()
-	{
-		int i = 0;
-		for (SizeAdjustment s : Globals.getContext().ref
-				.getOrderSortedCDOMObjects(SizeAdjustment.class))
-		{
-			if (s.getSafe(ObjectKey.IS_DEFAULT_SIZE))
-			{
-				i++;
-			}
-		}
-	
-		return i;
-	}
-
 	public static int getDefaultSizeInt()
 	{
 		List<SizeAdjustment> list = Globals.getContext().ref

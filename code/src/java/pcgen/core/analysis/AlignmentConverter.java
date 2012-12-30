@@ -19,7 +19,6 @@ package pcgen.core.analysis;
 
 import java.util.List;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.util.Logging;
@@ -50,11 +49,5 @@ public class AlignmentConverter
 					+ desiredAlignIdentifier);
 		}
 		return desiredAlign;
-	}
-
-	public static PCAlignment getNoAlignment()
-	{
-		return Globals.getContext().ref.silentlyGetConstructedCDOMObject(
-				ALIGNMENT_CLASS, Constants.NONE);
 	}
 }
