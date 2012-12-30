@@ -35,8 +35,8 @@ import pcgen.util.Logging;
 
 public abstract class BasePCDTermEvaluator extends BasePCTermEvaluator
 {
-	protected String originalText;
 
+	@Override
 	final public String evaluate(PlayerCharacter pc) {
 		return evaluate(pc.getDisplay());
 	}
@@ -45,6 +45,7 @@ public abstract class BasePCDTermEvaluator extends BasePCTermEvaluator
 		return Integer.toString(resolve(display).intValue());
 	}
 
+	@Override
 	final public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
 		return evaluate(pc.getDisplay(), aSpell);	
 	}
@@ -53,6 +54,7 @@ public abstract class BasePCDTermEvaluator extends BasePCTermEvaluator
 		return evaluate(display);
 	}
 
+	@Override
 	final public String evaluate(
 			Equipment eq,
 			boolean primary,
@@ -60,6 +62,7 @@ public abstract class BasePCDTermEvaluator extends BasePCTermEvaluator
 		return evaluate(pc);
 	}
 	
+	@Override
 	final public Float resolve(PlayerCharacter pc)
 	{
 		return resolve(pc.getDisplay());
@@ -67,10 +70,12 @@ public abstract class BasePCDTermEvaluator extends BasePCTermEvaluator
 
 	protected abstract Float resolve(CharacterDisplay display);
 
+	@Override
 	public final Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
 		return convertToFloat(originalText, evaluate(pc, aSpell == null ? null : aSpell.getSpell()));
 	}
 
+	@Override
 	public final Float resolve(
 			Equipment eq,
 			boolean primary,
@@ -78,6 +83,7 @@ public abstract class BasePCDTermEvaluator extends BasePCTermEvaluator
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
+	@Override
 	protected final Float convertToFloat(String element, String foo)
 	{
 		Float d = null;
