@@ -1906,6 +1906,48 @@ Immune
 |ENDFOR|
 	</intelligent_items>
 
+<!--
+	  ====================================
+	  ====================================
+			Words of Power
+	  ====================================
+	  ====================================-->
+	<words_of_powers>
+|IIF(count("ABILITIES";"CATEGORY=Words of Power";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=WordOfPowerOutput")==0)|
+|ELSE|
+	<!-- Words of Power OS Output -->
+|ENDIF|
+|FOR,%wordsofPower,0,count("ABILITIES","CATEGORY=Words of Power","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=WordOfPowerOutput")-1,1,0|
+		<words_of_power>
+|IIF(ABILITYALL.Words of Power.VISIBLE.%wordsofPower.TYPE=WordOfPowerOutput.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Words of Power.VISIBLE.%wordsofPower.TYPE=WordOfPowerOutput| (Ex)</name>
+|ELSE|
+|IIF(ABILITYALL.Words of Power.VISIBLE.%wordsofPower.TYPE=WordOfPowerOutput.TYPE:Supernatural)|
+			<name>|ABILITYALL.Words of Power.VISIBLE.%wordsofPower.TYPE=WordOfPowerOutput| (Su)</name>
+|ELSE|
+|IIF(ABILITYALL.Words of Power.VISIBLE.%wordsofPower.TYPE=WordOfPowerOutput.TYPE:SpellLike)|
+			<name>|ABILITYALL.Words of Power.VISIBLE.%wordsofPower.TYPE=WordOfPowerOutput| (Sp)</name>
+|ELSE|
+|IIF(ABILITYALL.Words of Power.VISIBLE.%wordsofPower.TYPE=WordOfPowerOutput.TYPE:PsiLike)|
+			<name>|ABILITYALL.Words of Power.VISIBLE.%wordsofPower.TYPE=WordOfPowerOutput| (Ps)</name>
+|ELSE|
+			<name>|ABILITYALL.Words of Power.VISIBLE.%wordsofPower.TYPE=WordOfPowerOutput|</name>
+|ENDIF|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+			<description>|ABILITYALL.Words of Power.VISIBLE.%wordsofPower.TYPE=WordOfPowerOutput.DESC|</description>
+			<type>|ABILITYALL.Words of Power.VISIBLE.%wordsofPower.TYPE=WordOfPowerOutput.TYPE|</type>
+			<associated>|ABILITYALL.Words of Power.VISIBLE.%wordsofPower.TYPE=WordOfPowerOutput.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Words of Power.VISIBLE.%wordsofPower.TYPE=WordOfPowerOutput.ASSOCIATEDCOUNT|</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Words of Power</category>
+			<source>|ABILITYALL.Words of Power.VISIBLE.%wordsofPower.TYPE=WordOfPowerOutput.SOURCE|</source>
+		</words_of_power>
+|ENDFOR|
+	</words_of_powers>
 
 	<!--
 	  ====================================
