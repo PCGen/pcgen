@@ -39,13 +39,13 @@ import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.spell.Spell;
 
 /**
- * KnownSpellFacet is a Facet that tracks the Known Spells (and target objects)
- * that are contained in a Player Character.
+ * ConditionallyKnownSpellFacet is a Facet that tracks the Known Spells (and
+ * target objects) that are contained in a Player Character.
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class KnownSpellFacet extends AbstractStorageFacet implements
-		DataFacetChangeListener<CDOMObject>
+public class ConditionallyKnownSpellFacet extends AbstractStorageFacet
+		implements DataFacetChangeListener<CDOMObject>
 {
 
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
@@ -55,9 +55,9 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
-	 * Triggered when one of the Facets to which KnownSpellFacet listens fires a
-	 * DataFacetChangeEvent to indicate a CDOMObject was added to a Player
-	 * Character.
+	 * Triggered when one of the Facets to which ConditionallyKnownSpellFacet
+	 * listens fires a DataFacetChangeEvent to indicate a CDOMObject was added
+	 * to a Player Character.
 	 * 
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
@@ -107,9 +107,9 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 	}
 
 	/**
-	 * Triggered when one of the Facets to which KnownSpellFacet listens fires a
-	 * DataFacetChangeEvent to indicate a CDOMObject was removed from a Player
-	 * Character.
+	 * Triggered when one of the Facets to which ConditionallyKnownSpellFacet
+	 * listens fires a DataFacetChangeEvent to indicate a CDOMObject was removed
+	 * from a Player Character.
 	 * 
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
@@ -188,19 +188,20 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 	}
 
 	/**
-	 * Returns the type-safe Map for this KnownSpellFacet and the given CharID.
-	 * May return null if no information has been set in this KnownSpellFacet
-	 * for the given CharID.
+	 * Returns the type-safe Map for this ConditionallyKnownSpellFacet and the
+	 * given CharID. May return null if no information has been set in this
+	 * ConditionallyKnownSpellFacet for the given CharID.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map is owned by
-	 * KnownSpellFacet, and since it can be modified, a reference to that object
-	 * should not be exposed to any object other than KnownSpellFacet.
+	 * ConditionallyKnownSpellFacet, and since it can be modified, a reference
+	 * to that object should not be exposed to any object other than
+	 * ConditionallyKnownSpellFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Set should be returned
 	 * @return The Set for the Player Character represented by the given CharID;
-	 *         null if no information has been set in this KnownSpellFacet for
-	 *         the Player Character.
+	 *         null if no information has been set in this
+	 *         ConditionallyKnownSpellFacet for the Player Character.
 	 */
 	private Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> getCachedMap(
 		CharID id)
@@ -210,13 +211,15 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 	}
 
 	/**
-	 * Returns a type-safe Map for this KnownSpellFacet and the given CharID.
-	 * Will return a new, empty Map if no information has been set in this
-	 * KnownSpellFacet for the given CharID. Will not return null.
+	 * Returns a type-safe Map for this ConditionallyKnownSpellFacet and the
+	 * given CharID. Will return a new, empty Map if no information has been set
+	 * in this ConditionallyKnownSpellFacet for the given CharID. Will not
+	 * return null.
 	 * 
 	 * Note that this method SHOULD NOT be public. The Map object is owned by
-	 * KnownSpellFacet, and since it can be modified, a reference to that object
-	 * should not be exposed to any object other than KnownSpellFacet.
+	 * ConditionallyKnownSpellFacet, and since it can be modified, a reference
+	 * to that object should not be exposed to any object other than
+	 * ConditionallyKnownSpellFacet.
 	 * 
 	 * @param id
 	 *            The CharID for which the Map should be returned
@@ -237,8 +240,9 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 	}
 
 	/**
-	 * Removes all information for the given source from this KnownSpellFacet
-	 * for the PlayerCharacter represented by the given CharID.
+	 * Removes all information for the given source from this
+	 * ConditionallyKnownSpellFacet for the PlayerCharacter represented by the
+	 * given CharID.
 	 * 
 	 * @param id
 	 *            The CharID representing the Player Character for which items
@@ -292,12 +296,13 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 	 * 
 	 * This method is value-semantic in that ownership of the returned Map is
 	 * transferred to the class calling this method. Modification of the
-	 * returned Map will not modify this KnownSpellFacet and modification of
-	 * this KnownSpellFacet will not modify the returned Map. Modifications to
-	 * the returned Map will also not modify any future or previous objects
-	 * returned by this (or other) methods on KnownSpellFacet. If you wish to
-	 * modify the information stored in this KnownSpellFacet, you must use the
-	 * add*() and remove*() methods of KnownSpellFacet.
+	 * returned Map will not modify this ConditionallyKnownSpellFacet and
+	 * modification of this ConditionallyKnownSpellFacet will not modify the
+	 * returned Map. Modifications to the returned Map will also not modify any
+	 * future or previous objects returned by this (or other) methods on
+	 * ConditionallyKnownSpellFacet. If you wish to modify the information
+	 * stored in this ConditionallyKnownSpellFacet, you must use the add*() and
+	 * remove*() methods of ConditionallyKnownSpellFacet.
 	 * 
 	 * @param id
 	 *            The CharID identifying the Player Character for which the List
@@ -371,12 +376,13 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 	 * 
 	 * This method is value-semantic in that ownership of the returned List is
 	 * transferred to the class calling this method. Modification of the
-	 * returned List will not modify this KnownSpellFacet and modification of
-	 * this KnownSpellFacet will not modify the returned List. Modifications to
-	 * the returned List will also not modify any future or previous objects
-	 * returned by this (or other) methods on KnownSpellFacet. If you wish to
-	 * modify the information stored in this KnownSpellFacet, you must use the
-	 * add*() and remove*() methods of KnownSpellFacet.
+	 * returned List will not modify this ConditionallyKnownSpellFacet and
+	 * modification of this ConditionallyKnownSpellFacet will not modify the
+	 * returned List. Modifications to the returned List will also not modify
+	 * any future or previous objects returned by this (or other) methods on
+	 * ConditionallyKnownSpellFacet. If you wish to modify the information
+	 * stored in this ConditionallyKnownSpellFacet, you must use the add*() and
+	 * remove*() methods of ConditionallyKnownSpellFacet.
 	 * 
 	 * @param id
 	 *            The CharID identifying the Player Character for which the List
@@ -449,7 +455,8 @@ public class KnownSpellFacet extends AbstractStorageFacet implements
 		this.prerequisiteFacet = prerequisiteFacet;
 	}
 
-	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	public void setConsolidationFacet(
+		CDOMObjectConsolidationFacet consolidationFacet)
 	{
 		this.consolidationFacet = consolidationFacet;
 	}

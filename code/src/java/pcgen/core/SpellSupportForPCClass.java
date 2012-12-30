@@ -37,7 +37,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.KnownSpellFacet;
+import pcgen.cdom.facet.ConditionallyKnownSpellFacet;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SpellCountCalc;
@@ -47,8 +47,8 @@ import pcgen.core.spell.Spell;
 
 public class SpellSupportForPCClass
 {
-	private static KnownSpellFacet listManagerFacet = FacetLibrary
-			.getFacet(KnownSpellFacet.class);
+	private static ConditionallyKnownSpellFacet listManagerFacet = FacetLibrary
+			.getFacet(ConditionallyKnownSpellFacet.class);
 	/*
 	 * ALLCLASSLEVELS castForLevelMap is part of PCClassLevel - or nothing at
 	 * all since this seems to be a form of cache? - DELETEVARIABLE

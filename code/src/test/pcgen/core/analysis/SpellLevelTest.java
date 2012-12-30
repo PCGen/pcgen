@@ -32,7 +32,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.KnownSpellFacet;
+import pcgen.cdom.facet.ConditionallyKnownSpellFacet;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -58,8 +58,8 @@ import pcgen.util.TestHelper;
 public class SpellLevelTest extends AbstractCharacterTestCase
 {
 
-	private static KnownSpellFacet listManagerFacet = FacetLibrary
-			.getFacet(KnownSpellFacet.class);
+	private static ConditionallyKnownSpellFacet listManagerFacet = FacetLibrary
+			.getFacet(ConditionallyKnownSpellFacet.class);
 
 	/**
 	 * Test method for {@link pcgen.core.analysis.SpellLevel#getPCBasedBonusKnownSpells(pcgen.core.PlayerCharacter, pcgen.core.PCClass)}.

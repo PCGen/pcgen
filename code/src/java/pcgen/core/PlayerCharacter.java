@@ -106,7 +106,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.facet.HitPointFacet;
 import pcgen.cdom.facet.KitFacet;
-import pcgen.cdom.facet.KnownSpellFacet;
+import pcgen.cdom.facet.ConditionallyKnownSpellFacet;
 import pcgen.cdom.facet.LevelInfoFacet;
 import pcgen.cdom.facet.MasterFacet;
 import pcgen.cdom.facet.NoteItemFacet;
@@ -381,7 +381,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);
 
 	private HitPointFacet hitPointFacet = FacetLibrary.getFacet(HitPointFacet.class);
-	private KnownSpellFacet knownSpellFacet = FacetLibrary.getFacet(KnownSpellFacet.class);
+	private ConditionallyKnownSpellFacet knownSpellFacet = FacetLibrary.getFacet(ConditionallyKnownSpellFacet.class);
 
 	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 	private LevelTableFacet levelTableFacet = FacetLibrary.getFacet(LevelTableFacet.class);
