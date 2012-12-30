@@ -308,10 +308,10 @@ BIO
 	<skills>
 		<skillpoints>
 			<total>12</total>
-			<used>0</used>
-			<unused>12</unused>
+			<used>4</used>
+			<unused>8</unused>
 		</skillpoints>
-		<list_mods></list_mods>
+		<list_mods>Speak Language +2</list_mods>
 		<max_class_skill_level>6</max_class_skill_level>
 		<max_cross_class_skill_level>3</max_cross_class_skill_level>
 		<skill>
@@ -534,6 +534,23 @@ BIO
 			<exclusive>N</exclusive>
 			<trained_total>0</trained_total>
 			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
+			<name>Speak Language(Doosuldorf, Sylvan)</name>
+			<ranks>2.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>2</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability></ability>
+			<synergy>Speak Language(Doosuldorf, Sylvan)</synergy>
+			<untrained>NO</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>2</trained_total>
+			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
 			<name>Stealth</name>
