@@ -34,8 +34,8 @@ import pcgen.rules.persistence.TokenLibrary;
 
 public abstract class AbstractListFacetTest<T> extends TestCase
 {
-	private CharID id;
-	private CharID altid;
+	protected CharID id;
+	protected CharID altid;
 
 	private Listener listener = new Listener();
 
@@ -68,26 +68,26 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		getFacet().addDataFacetChangeListener(listener);
 	}
 
-	private void assertEventCount(int a, int r)
+	protected void assertEventCount(int a, int r)
 	{
 		assertEquals(a, listener.addEventCount);
 		assertEquals(r, listener.removeEventCount);
 	}
 
 	@Test
-	public void testTemplateUnsetZeroCount()
+	public void testListUnsetZeroCount()
 	{
 		assertEquals(0, getFacet().getCount(id));
 	}
 
 	@Test
-	public void testTemplateUnsetEmpty()
+	public void testListUnsetEmpty()
 	{
 		assertTrue(getFacet().isEmpty(id));
 	}
 
 	@Test
-	public void testTemplateUnsetEmptySet()
+	public void testListUnsetEmptySet()
 	{
 		assertNotNull(getFacet().getSet(id));
 		assertTrue(getFacet().getSet(id).isEmpty());
@@ -107,14 +107,14 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		{
 			// Yep!
 		}
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testListUnsetZeroCount();
+		testListUnsetEmpty();
+		testListUnsetEmptySet();
 		assertEventCount(0, 0);
 	}
 
 	@Test
-	public void testTemplateAddNull()
+	public void testAddNullItem()
 	{
 		try
 		{
@@ -125,14 +125,14 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		{
 			// Yep!
 		}
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testListUnsetZeroCount();
+		testListUnsetEmpty();
+		testListUnsetEmptySet();
 		assertEventCount(0, 0);
 	}
 
 	@Test
-	public void testTemplateAddSingleGet()
+	public void testAddSingleGet()
 	{
 		T t1 = getObject();
 		getFacet().add(id, t1);
@@ -150,7 +150,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddSingleTwiceGet()
+	public void testAddSingleTwiceGet()
 	{
 		T t1 = getObject();
 		getFacet().add(id, t1);
@@ -171,7 +171,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddMultGet()
+	public void testAddMultGet()
 	{
 		T t1 = getObject();
 		getFacet().add(id, t1);
@@ -195,7 +195,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
-	public void testTemplateContains()
+	public void testContains()
 	{
 		T t1 = getObject();
 		assertFalse(getFacet().contains(id, t1));
@@ -206,7 +206,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddAllNull()
+	public void testAddAllNull()
 	{
 		try
 		{
@@ -221,17 +221,17 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddAllUseless()
+	public void testAddAllUseless()
 	{
 		getFacet().addAll(id, new ArrayList<T>());
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testListUnsetZeroCount();
+		testListUnsetEmpty();
+		testListUnsetEmptySet();
 		assertEventCount(0, 0);
 	}
 
 	@Test
-	public void testTemplateAddAll()
+	public void testAddAll()
 	{
 		T t1 = getObject();
 		T t2 = getObject();
@@ -259,7 +259,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddAllTwice()
+	public void testAddAllTwice()
 	{
 		T t1 = getObject();
 		List<T> pct = new ArrayList<T>();
@@ -276,7 +276,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddAllNullInList()
+	public void testAddAllNullInList()
 	{
 		T t1 = getObject();
 		T t2 = getObject();
@@ -309,7 +309,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
-	public void testTemplateRemoveUseless()
+	public void testRemoveUseless()
 	{
 		try
 		{
@@ -320,14 +320,14 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		{
 			// Expected
 		}
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testListUnsetZeroCount();
+		testListUnsetEmpty();
+		testListUnsetEmptySet();
 		assertEventCount(0, 0);
 	}
 
 	@Test
-	public void testTemplateAddSingleRemove()
+	public void testAddSingleRemove()
 	{
 		T t1 = getObject();
 		getFacet().add(id, t1);
@@ -347,7 +347,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddUselessRemove()
+	public void testAddUselessRemove()
 	{
 		T t1 = getObject();
 		getFacet().add(id, t1);
@@ -368,7 +368,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
-	public void testTemplateAddSingleTwiceRemove()
+	public void testAddSingleTwiceRemove()
 	{
 		T t1 = getObject();
 		getFacet().add(id, t1);
@@ -388,20 +388,20 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		assertEventCount(1, 0);
 		// Only requires one Remove (internally a Set, not List)
 		getFacet().remove(id, t1);
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testListUnsetZeroCount();
+		testListUnsetEmpty();
+		testListUnsetEmptySet();
 		assertEventCount(1, 1);
 		// Second has no effect
 		getFacet().remove(id, t1);
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testListUnsetZeroCount();
+		testListUnsetEmpty();
+		testListUnsetEmptySet();
 		assertEventCount(1, 1);
 	}
 
 	@Test
-	public void testTemplateAddMultRemove()
+	public void testAddMultRemove()
 	{
 		T t1 = getObject();
 		T t2 = getObject();
@@ -418,7 +418,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
-	public void testTemplateRemoveAllNull()
+	public void testRemoveAllNull()
 	{
 		getFacet().add(id, getObject());
 		try
@@ -433,17 +433,17 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
-	public void testTemplateRemoveAllUseless()
+	public void testRemoveAllUseless()
 	{
 		getFacet().removeAll(id, new ArrayList<T>());
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testListUnsetZeroCount();
+		testListUnsetEmpty();
+		testListUnsetEmptySet();
 		assertEventCount(0, 0);
 	}
 
 	@Test
-	public void testTemplateRemoveAllList()
+	public void testRemoveAllList()
 	{
 		T t1 = getObject();
 		T t2 = getObject();
@@ -472,7 +472,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
-	public void testTemplateRemoveAllTwice()
+	public void testRemoveAllTwice()
 	{
 		T t1 = getObject();
 		T t2 = getObject();
@@ -493,7 +493,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
-	public void testTemplateRemoveAllNullInList()
+	public void testRemoveAllNullInList()
 	{
 		T t1 = getObject();
 		T t2 = getObject();
@@ -523,7 +523,7 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	}
 
 	@Test
-	public void testTemplateRemoveAll()
+	public void testRemoveAll()
 	{
 		assertNotNull(getFacet().removeAll(id));
 		assertTrue(getFacet().removeAll(id).isEmpty());
@@ -538,9 +538,9 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 		assertEquals(2, setoftwo.size());
 		assertTrue(setoftwo.contains(t1));
 		assertTrue(setoftwo.contains(t2));
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testListUnsetZeroCount();
+		testListUnsetEmpty();
+		testListUnsetEmptySet();
 	}
 
 	@Test
@@ -644,9 +644,9 @@ public abstract class AbstractListFacetTest<T> extends TestCase
 	public void testCopyContentsNone()
 	{
 		getFacet().copyContents(altid, id);
-		testTemplateUnsetZeroCount();
-		testTemplateUnsetEmpty();
-		testTemplateUnsetEmptySet();
+		testListUnsetZeroCount();
+		testListUnsetEmpty();
+		testListUnsetEmptySet();
 	}
 
 	@Test
