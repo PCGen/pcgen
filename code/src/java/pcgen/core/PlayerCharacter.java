@@ -207,6 +207,7 @@ import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.AbilityList;
+import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -10924,9 +10925,27 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return defaultValue;
 	}
 
-	public void addBonusKnownSpellsToList(CDOMObject obj, List<CharacterSpell> list)
+	public void addBonusKnownSpellsToList(CDOMObject aClass,
+		List<CharacterSpell> cSpells)
 	{
-		knownSpellFacet.addBonusKnownSpellsToList(id, obj, list);
+		if (!(aClass instanceof PCClass))
+		{
+			return;
+		}
+		ClassSpellList classSpellList =
+				((PCClass) aClass).get(ObjectKey.CLASS_SPELLLIST);
+		Map<Integer, List<Spell>> spellsMap =
+				knownSpellFacet.getKnownSpells(id, classSpellList);
+		for (Integer spellLevel : spellsMap.keySet())
+		{
+			List<Spell> spells = spellsMap.get(spellLevel);
+			for (Spell spell : spells)
+			{
+				CharacterSpell acs = new CharacterSpell(aClass, spell);
+				acs.addInfo(spellLevel, 1, Globals.getDefaultSpellBook());
+				cSpells.add(acs);
+			}
+		}
 	}
 
 	public boolean hasBonusWeaponProfs(CDOMObject owner)
