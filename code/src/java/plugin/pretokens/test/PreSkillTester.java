@@ -37,6 +37,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -56,6 +57,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
+		CharacterDisplay display = character.getDisplay();
 		final int requiredRanks = Integer.parseInt(prereq.getOperand());
 
 		// Compute the skill name from the Prerequisite
@@ -78,14 +80,14 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		
 		HashMap<Skill,Set<Skill>> serveAsSkills = new HashMap<Skill, Set<Skill>>();
 		Set<Skill> imitators = new HashSet<Skill>();
-		this.getImitators(serveAsSkills, imitators, character);
+		this.getImitators(serveAsSkills, imitators, display);
 		
 		int runningTotal = 0;
 
 		boolean foundMatch = false;
 		boolean foundSkill = false;
 		
-		for (Skill aSkill : character.getDisplay().getSkillSet())
+		for (Skill aSkill : display.getSkillSet())
 		{
 			final String aSkillKey = aSkill.getKeyName().toUpperCase();
 			if (isType)
@@ -213,9 +215,9 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 
 	private void getImitators(
 		HashMap<Skill, Set<Skill>> serveAsSkills, Set<Skill> imitators,
-		PlayerCharacter character)
+		CharacterDisplay display)
 	{
-		Set<Skill> skillSet = new HashSet<Skill>(character.getDisplay().getSkillSet());
+		Set<Skill> skillSet = new HashSet<Skill>(display.getSkillSet());
 		for (Skill aSkill : skillSet)
 		{
 			Set<Skill> servesAs = new HashSet<Skill>();

@@ -31,15 +31,15 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
 /**
  * Prerequisite test the type of a piece of armour.
  */
-public class PreArmorTypeTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreArmorTypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -49,14 +49,14 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements Prer
 	// TODO All the equipment related PRE tag code should be refactored into a
 	// common base class.
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 		int runningTotal = 0;
 
-		if (character.getDisplay().hasEquipment())
+		if (display.hasEquipment())
 		{
 			final String desiredType = prereq.getKey();
-			for (Equipment eq : character.getDisplay().getEquippedEquipmentSet())
+			for (Equipment eq : display.getEquippedEquipmentSet())
 			{
 				if (!eq.isArmor())
 				{
@@ -113,7 +113,7 @@ public class PreArmorTypeTester extends AbstractPrerequisiteTest implements Prer
 					}
 					else if (desiredType.indexOf("LIST") >= 0) //$NON-NLS-1$
 					{
-						if (character.isProficientWith(eq))
+						if (display.isProficientWithArmor(eq))
 						{
 							runningTotal++;
 							break;

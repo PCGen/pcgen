@@ -32,6 +32,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.WieldCategory;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -67,11 +68,12 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 				"PreFeat.error", prereq.toString())); //$NON-NLS-1$
 		}
 
-		if (character.getDisplay().hasEquipment())
+		CharacterDisplay display = character.getDisplay();
+		if (display.hasEquipment())
 		{
 
 			final String targetEquip = prereq.getKey();
-			for (Equipment eq : character.getDisplay().getEquippedEquipmentSet())
+			for (Equipment eq : display.getEquippedEquipmentSet())
 			{
 				if (targetEquip.startsWith("WIELDCATEGORY=")
 					|| targetEquip.startsWith("WIELDCATEGORY."))

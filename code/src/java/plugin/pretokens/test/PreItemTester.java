@@ -26,24 +26,24 @@
  */
 package plugin.pretokens.test;
 
+import java.util.List;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.AbstractPrerequisiteTest;
+import pcgen.core.display.CharacterDisplay;
+import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.utils.CoreUtility;
 import pcgen.system.LanguageBundle;
 
-import java.util.List;
-
 /**
  * Sets requirements for items a character must possess.
  *
  */
-public class PreItemTester extends AbstractPrerequisiteTest implements
+public class PreItemTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 
@@ -52,7 +52,7 @@ public class PreItemTester extends AbstractPrerequisiteTest implements
 	 */
 	// TODO Refactor this with all the equipment tests.
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 		throws PrerequisiteException
 	{
 		final int number;
@@ -68,7 +68,7 @@ public class PreItemTester extends AbstractPrerequisiteTest implements
 
 		int runningTotal = 0;
 
-		if (character.getDisplay().hasEquipment())
+		if (display.hasEquipment())
 		{
 			// Work out exactlywhat we are going to test.
 			final String aString = prereq.getKey();
@@ -80,7 +80,7 @@ public class PreItemTester extends AbstractPrerequisiteTest implements
 				typeList = CoreUtility.split(stripped, '.');
 			}
 
-			for (Equipment eq : character.getDisplay().getEquipmentSet())
+			for (Equipment eq : display.getEquipmentSet())
 			{
 				if (typeList != null)
 				{

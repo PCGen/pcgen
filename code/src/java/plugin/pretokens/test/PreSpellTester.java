@@ -36,6 +36,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -57,6 +58,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
+		CharacterDisplay display = character.getDisplay();
 		int requiredNumber = 0;
 		try
 		{
@@ -74,7 +76,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 				character.aggregateSpellList("", "", "", 0, 20); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
 		//Needs to add domain spells as well
-		for (Domain d : character.getDomainSet())
+		for (Domain d : display.getDomainSet())
 		{
 			aArrayList.addAll(Globals.getSpellsIn(-1, Collections
 					.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST)), character));
@@ -83,7 +85,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 		//Are there Innate Spell-like abilities?
 		if (character.getAutoSpells())
 		{
-			Collection<CDOMReference<Spell>> mods = character.getRace()
+			Collection<CDOMReference<Spell>> mods = display.getRace()
 					.getListMods(Spell.SPELLS);
 			if (mods != null)
 			{

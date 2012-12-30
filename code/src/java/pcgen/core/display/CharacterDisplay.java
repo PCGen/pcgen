@@ -1915,4 +1915,9 @@ public class CharacterDisplay
 		return startingLangFacet.getSet(id);
 	}
 
+	public boolean isProficientWithArmor(final Equipment eq)
+	{
+		return armorProfFacet.isProficientWithArmor(id, eq);
+	}
+
 }

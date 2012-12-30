@@ -31,6 +31,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -49,6 +50,7 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
+		CharacterDisplay display = character.getDisplay();
 		final int reqnumber = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
 		HashMap<Skill,HashSet<Skill>> serveAsSkills = new HashMap<Skill, HashSet<Skill>>();

@@ -12,6 +12,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Equipment;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -49,6 +50,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
+		CharacterDisplay display = character.getDisplay();
 		int runningTotal = 0;
 		int countedTotal = 0;
 
@@ -90,25 +92,25 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 		}
 		else if (aString.equals("ANY"))
 		{
-			for (PCClass cl : character.getClassSet())
+			for (PCClass cl : display.getClassSet())
 			{
 				if (prereq.isCountMultiples())
 				{
-					if (character.getLevel(cl) >= preClass)
+					if (display.getLevel(cl) >= preClass)
 					{
 						countedTotal++;
 					}
 				}
 				else
 				{
-					runningTotal = Math.max(runningTotal, character.getLevel(cl));
+					runningTotal = Math.max(runningTotal, display.getLevel(cl));
 				}
 			}
 		}
 		else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))
 		{
 			String typeString = aString.substring(5);
-			for (PCClass cl : character.getClassSet())
+			for (PCClass cl : display.getClassSet())
 			{
 				if (cl.isType(typeString))
 				{
@@ -121,7 +123,8 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 					}
 					else
 					{
-						runningTotal = Math.max(runningTotal, character.getLevel(cl));
+						runningTotal =
+								Math.max(runningTotal, display.getLevel(cl));
 					}
 				}
 				else
@@ -134,14 +137,14 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 							{
 								if (prereq.isCountMultiples())
 								{
-									if (character.getLevel(cl) >= preClass)
+									if (display.getLevel(cl) >= preClass)
 									{
 										countedTotal++;
 									}
 								}
 								else
 								{
-									runningTotal += character.getLevel(cl);
+									runningTotal += display.getLevel(cl);
 								}
 								break;
 							}
@@ -169,7 +172,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 			}
 			else
 			{
-CLASSLIST:		for(PCClass theClass: character.getClassSet())
+CLASSLIST:		for(PCClass theClass: display.getClassSet())
 				{
 					for (CDOMReference<PCClass> ref : theClass
 							.getSafeListFor(ListKey.SERVES_AS_CLASS))
@@ -187,7 +190,7 @@ CLASSLIST:		for(PCClass theClass: character.getClassSet())
 								}
 								else
 								{
-									runningTotal += character.getLevel(theClass);
+									runningTotal += display.getLevel(theClass);
 								}
 								break CLASSLIST;
 							}

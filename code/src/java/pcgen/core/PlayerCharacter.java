@@ -3810,13 +3810,18 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			return shieldProfFacet.isProficientWithShield(id, eq);
 		} else if (eq.isArmor())
 		{
-			return armorProfFacet.isProficientWithArmor(id, eq);
+			return isProficientWithArmor(eq);
 		} else if (eq.isWeapon())
 		{
 			return weaponProfFacet.isProficientWithWeapon(id, eq);
 		}
 
 		return false;
+	}
+
+	public boolean isProficientWithArmor(final Equipment eq)
+	{
+		return armorProfFacet.isProficientWithArmor(id, eq);
 	}
 
 	/**

@@ -30,6 +30,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
@@ -48,6 +49,7 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements Prer
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
+		CharacterDisplay display = character.getDisplay();
 		int runningTotal = 0;
 		final int requiredRanks = Integer.parseInt(prereq.getOperand());
 
@@ -64,7 +66,7 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements Prer
 		final int percentageSignPosition = skillKey.lastIndexOf('%');
 
 		boolean foundMatch = false;
-		for (Skill aSkill : character.getDisplay().getSkillSet())
+		for (Skill aSkill : display.getSkillSet())
 		{
 			final String aSkillKey = aSkill.getKeyName().toUpperCase();
 			if (isType)
