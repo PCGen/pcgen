@@ -20,15 +20,14 @@
 package pcgen.core.display;
 
 import java.text.NumberFormat;
-import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.base.util.NamedValue;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -223,19 +222,31 @@ public class SkillCostDisplay
 
 	public static String getRanksExplanation(PlayerCharacter pc, Skill sk)
 	{
-		Collection<NamedValue> assocList = pc.getSkillRankValues(sk);
-		String result = StringUtil.join(assocList, ", ");
+		StringBuilder sb = new StringBuilder(100);
+		boolean needComma = false;
+		for (PCClass pcc : pc.getSkillRankClasses(sk))
+		{
+			if (needComma)
+			{
+				sb.append(", ");
+			}
+			sb.append(pcc == null ? "None" : pcc.getKeyName());
+			sb.append(':');
+			sb.append(pc.getSkillRankForClass(sk, pcc));
+			needComma = true;
+		}
 		double bonus = SkillRankControl.getSkillRankBonusTo(pc, sk);
 		if (bonus != 0d)
 		{
-			if (result.length() > 0)
+			if (sb.length() > 0)
 			{
-				result += "; ";
+				sb.append("; ");
 			}
 			
-			result += "Skillrank bonus " + NumberFormat.getNumberInstance().format(bonus);
+			sb.append("Skillrank bonus ");
+			sb.append(NumberFormat.getNumberInstance().format(bonus));
 		}
-		return result;
+		return sb.toString();
 	}
 
 }

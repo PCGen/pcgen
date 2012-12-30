@@ -40,7 +40,6 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.FixedStringList;
-import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
@@ -2025,30 +2024,25 @@ final class PCGVer2Creator implements IOConstants
 				buffer.append(outputIndex == null ? 0 : outputIndex);
 				buffer.append('|');
 
-				Collection<NamedValue> rankList = thePC.getSkillRankValues(skill);
-				if (rankList != null)
+				for (PCClass pcc : thePC.getSkillRankClasses(skill))
 				{
-					for (NamedValue sd : rankList)
-					{
-						final PCClass pcClass = thePC.getClassKeyed(sd.name);
-
-						buffer.append(TAG_CLASSBOUGHT).append(':');
-						buffer.append('[');
-						buffer.append(TAG_CLASS).append(':');
-						buffer.append(EntityEncoder.encode(sd.name));
-						buffer.append('|');
-						buffer.append(TAG_RANKS).append(':');
-						buffer.append(sd.getWeight());
-						buffer.append('|');
-						buffer.append(TAG_COST).append(':');
-						buffer.append(Integer.toString(thePC
-							.getSkillCostForClass(skill, pcClass).getCost()));
-						buffer.append('|');
-						buffer.append(TAG_CLASSSKILL).append(':');
-						buffer.append((thePC.isClassSkill(skill, pcClass))
-							? 'Y' : 'N');
-						buffer.append(']');
-					}
+					Double rank = thePC.getSkillRankForClass(skill, pcc);
+					buffer.append(TAG_CLASSBOUGHT).append(':');
+					buffer.append('[');
+					buffer.append(TAG_CLASS).append(':');
+					buffer.append(EntityEncoder.encode(pcc == null ? "None" : pcc.getKeyName()));
+					buffer.append('|');
+					buffer.append(TAG_RANKS).append(':');
+					buffer.append(rank);
+					buffer.append('|');
+					buffer.append(TAG_COST).append(':');
+					buffer.append(Integer.toString(thePC
+						.getSkillCostForClass(skill, pcc).getCost()));
+					buffer.append('|');
+					buffer.append(TAG_CLASSSKILL).append(':');
+					buffer.append((thePC.isClassSkill(skill, pcc))
+						? 'Y' : 'N');
+					buffer.append(']');
 				}
 
 				for (String assoc : thePC.getAssociationList(skill))

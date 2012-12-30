@@ -1,5 +1,4 @@
 /*
- * CharacterLevelsFacadeImpl.java
  * Copyright 2010 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -29,7 +28,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -675,15 +673,8 @@ public class CharacterLevelsFacadeImpl extends
 	 */
 	private boolean classHasRanksIn(SkillFacade skill, ClassFacade pcClass)
 	{
-		Collection<NamedValue> skillTakenClassList = theCharacter.getSkillRankValues((Skill) skill);
-		for (NamedValue namedValue : skillTakenClassList)
-		{
-			if (pcClass.getKeyName().equals(namedValue.name))
-			{
-				return true;
-			}
-		}
-		return false;
+		Double rank = theCharacter.getSkillRankForClass((Skill) skill, (PCClass) pcClass);
+		return (rank != null) && (rank > 0.0d);
 	}
 
 	private void updateSkillsTodo()

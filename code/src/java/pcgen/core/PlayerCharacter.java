@@ -50,7 +50,6 @@ import java.util.TreeSet;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToList;
-import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.BonusContainer;
 import pcgen.cdom.base.CDOMList;
@@ -2141,20 +2140,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 		for (Skill aSkill : getSkillSet())
 		{
-			Collection<NamedValue> rankList = getSkillRankValues(aSkill);
-			if (rankList != null)
+			for (PCClass pcc : getSkillRankClasses(aSkill))
 			{
-				for (NamedValue sd : rankList)
+				if (pcc != null)
 				{
-					final PCClass pcClass = getClassKeyed(sd.name);
-					if (pcClass != null)
-					{
-						final double curRank = sd.getWeight();
-						// Only add the cost for skills associated with a class.
-						// Skill ranks from feats etc are free.
-						final int cost = this.getSkillCostForClass(aSkill, pcClass).getCost();
-						returnValue -= (int) (cost * curRank);
-					}
+					Double curRank = getSkillRankForClass(aSkill, pcc);
+					// Only add the cost for skills associated with a class.
+					// Skill ranks from feats etc are free.
+					final int cost = getSkillCostForClass(aSkill, pcc).getCost();
+					returnValue -= (int) (cost * curRank);
 				}
 			}
 		}
@@ -5957,7 +5951,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			//
 			for (Skill skill : getSkillSet())
 			{
-				SkillRankControl.replaceClassRank(this, skill, fromClass.getKeyName(), cl.getKeyName());
+				SkillRankControl.replaceClassRank(this, skill, fromClass, cl);
 			}
 
 			setSkillPool(toClass, fromClass.getSkillPool(this));
@@ -11132,19 +11126,21 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		setDirty(true);
 	}
 
-	public Collection<NamedValue> getSkillRankValues(Skill sk)
+	public void removeSkillRankValue(Skill sk, PCClass cl)
 	{
-		return skillRankFacet.getSet(id, sk);
+		//Hedge bets on the class
+		skillRankFacet.remove(id, sk, getClassKeyed(cl.getKeyName()));
 	}
 
-	public void removeSkillRankValue(Skill sk, NamedValue value)
+	public void setSkillRankValue(Skill sk, PCClass pcc, double value)
 	{
-		skillRankFacet.remove(id, sk, value);
+		//hedge bets on the class
+		skillRankFacet.set(id, sk, getClassKeyed(pcc.getKeyName()), value);
 	}
-
-	public void addSkillRankValue(Skill sk, NamedValue value)
+	
+	public Collection<PCClass> getSkillRankClasses(Skill sk)
 	{
-		skillRankFacet.add(id, sk, value);
+		return skillRankFacet.getClasses(id, sk);
 	}
 
 	/**
@@ -11173,5 +11169,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		Boolean ic = ignoreCostFacet.get(id);
 		return (ic == null) ? SettingsHandler.getGearTab_IgnoreCost() : ic;
+	}
+
+	public Double getSkillRankForClass(Skill sk, PCClass pcc)
+	{
+		//Yes, the check for "local" class is required (try down-ranking a skill)
+		return skillRankFacet.get(id, sk, getClassKeyed(pcc.getKeyName()));
 	}
 }

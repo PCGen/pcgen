@@ -26,10 +26,8 @@
 package pcgen.io.exporttoken;
 
 import java.math.BigDecimal;
-import java.util.Collection;
 import java.util.StringTokenizer;
 
-import pcgen.base.util.NamedValue;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -179,32 +177,11 @@ public class SkillpointsToken extends Token
 		float usedPoints = 0;
 		for (Skill aSkill : pc.getDisplay().getSkillSet())
 		{
-			Collection<NamedValue> rankList = pc.getSkillRankValues(aSkill);
-			if (rankList != null)
+			for (PCClass pcc : pc.getSkillRankClasses(aSkill))
 			{
-				for (NamedValue sd : rankList)
-				{
-					int cost;
-					if ("None".equalsIgnoreCase(sd.name))
-					{
-						/*
-						 * TODO This selection of CROSS_CLASS cost is completely
-						 * arbitrary. It is based on the existing behavior of
-						 * code for getSkillCostForClass when a null class was
-						 * passed in. Long term, this should be established with
-						 * better clarity - thpr Dec 29, 2012
-						 */
-						cost = SkillCost.CROSS_CLASS.getCost();
-					}
-					else
-					{
-						PCClass pcClass = pc.getClassKeyed(sd.name);
-						cost =
-								pc.getSkillCostForClass(aSkill, pcClass)
-									.getCost();
-					}
-				usedPoints += (sd.getWeight() * cost);
-				}
+				Double rank = pc.getSkillRankForClass(aSkill, pcc);
+				SkillCost skillCost = pc.getSkillCostForClass(aSkill, pcc);
+				usedPoints += (rank * skillCost.getCost());
 			}
 		}
 
@@ -231,20 +208,10 @@ public class SkillpointsToken extends Token
 			if ((pc.getRank(aSkill).doubleValue() > 0)
 				|| (outputIndex != null && outputIndex != 0))
 			{
-				Collection<NamedValue> assocList = pc.getSkillRankValues(aSkill);
-				if (assocList != null)
-				{
-					for (NamedValue sd : assocList)
-					{
-						PCClass pcClass = pc.getClassKeyed(sd.name);
-						if (targetClass == pcClass)
-						{
-							SkillCost skillCost = pc.getSkillCostForClass(
-									aSkill, pcClass);
-							usedPoints += (sd.getWeight() * skillCost.getCost());
-						}
-					}
-				}
+				Double rank = pc.getSkillRankForClass(aSkill, targetClass);
+				SkillCost skillCost =
+						pc.getSkillCostForClass(aSkill, targetClass);
+				usedPoints += (rank * skillCost.getCost());
 			}
 		}
 

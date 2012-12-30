@@ -19,15 +19,18 @@ package pcgen.cdom.facet;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.EventListener;
+import java.util.EventObject;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
-import java.util.Set;
+import java.util.Map.Entry;
 
-import pcgen.base.util.NamedValue;
-import pcgen.base.util.WrappedMapSet;
+import javax.swing.event.EventListenerList;
+
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
+import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
 /**
@@ -40,28 +43,7 @@ public class SkillRankFacet extends AbstractStorageFacet
 {
 	private final Class<?> thisClass = getClass();
 
-	/*
-	 * TODO Storage inconsistent with other facet classes
-	 * 
-	 * This class stores information differently than other classes in the Facet
-	 * structure. This class stores items in a NamedValue, and that is both a
-	 * double value as well as the source PCClass. Since that is a unique and
-	 * constructed object (as well as mutable), that makes it different than
-	 * many other facets that store a value and then the source of those values.
-	 * It should be considered whether this class should be more consistent in
-	 * its storage relative to other facets.
-	 * 
-	 * In fact, you can go as far as saying this is "not good" in the sense that
-	 * the design should probably limit the number of values to once per any
-	 * given class, so this is probably best stored as a DoubleKeyMap (or
-	 * equivalent since those structures are not generally used in the facets).
-	 * First key would be skill, second key would be class.
-	 * 
-	 * Primarily this is done to ease the transition from the pre-facet
-	 * infrastructure where this information was stored in a NamedValue List. So
-	 * this transition was done as one small step, with possible future work. -
-	 * thpr Dec 21, 2012
-	 */
+	private SkillRankChangeSupport support = new SkillRankChangeSupport();
 
 	/**
 	 * Returns the type-safe CacheInfo for this SkillRankFacet and the given
@@ -114,46 +96,75 @@ public class SkillRankFacet extends AbstractStorageFacet
 	 */
 	private static class CacheInfo
 	{
-		Map<Skill, Set<NamedValue>> map = new HashMap<Skill, Set<NamedValue>>();
+		Map<Skill, Map<PCClass, Double>> map = new HashMap<Skill, Map<PCClass, Double>>();
 
-		public void add(Skill skill, NamedValue value)
+		public void set(Skill skill, PCClass pcc, double value)
 		{
-			Set<NamedValue> set = map.get(skill);
-			if (set == null)
+			Map<PCClass, Double> clMap = map.get(skill);
+			if (clMap == null)
 			{
-				set = new WrappedMapSet<NamedValue>(IdentityHashMap.class);
-				map.put(skill, set);
+				clMap = new IdentityHashMap<PCClass, Double>();
+				map.put(skill, clMap);
 			}
-			set.add(value);
+			clMap.put(pcc, value);
 		}
 
-		public Collection<NamedValue> getSet(Skill sk)
+		public Double get(Skill sk, PCClass pcc)
 		{
-			Set<NamedValue> ms = map.get(sk);
-			if (ms == null)
+			Map<PCClass, Double> clMap = map.get(sk);
+			if (clMap == null)
 			{
-				return Collections.emptySet();
+				return null;
 			}
-			Set<NamedValue> set =
-					new WrappedMapSet<NamedValue>(IdentityHashMap.class);
-			set.addAll(ms);
-			return set;
+			return clMap.get(pcc);
 		}
 
-		public void remove(Skill sk, NamedValue value)
+		public Double remove(Skill sk, PCClass pcc)
 		{
-			Set<NamedValue> ms = map.get(sk);
-			if (ms != null)
+			Map<PCClass, Double> clMap = map.get(sk);
+			if (clMap != null)
 			{
-				ms.remove(value);
+				return clMap.remove(pcc);
 			}
+			return null;
+		}
+
+		public double getRank(Skill sk)
+		{
+			double rank = 0.0;
+			Map<PCClass, Double> clMap = map.get(sk);
+			if (clMap != null)
+			{
+				for (Double d : clMap.values())
+				{
+					rank += d;
+				}
+			}
+			return rank;
+		}
+
+		public Collection<PCClass> getClasses(Skill sk)
+		{
+			Map<PCClass, Double> clMap = map.get(sk);
+			if (clMap == null)
+			{
+				return Collections.emptyList();
+			}
+			return Collections.unmodifiableSet(clMap.keySet());
 		}
 
 	}
 
-	public void add(CharID id, Skill skill, NamedValue value)
+	public void set(CharID id, Skill skill, PCClass pcc, double value)
 	{
-		getConstructingInfo(id).add(skill, value);
+		if (skill == null)
+		{
+			throw new IllegalArgumentException("Skill cannot be null in add");
+		}
+		Float oldRank = getRank(id, skill);
+		getConstructingInfo(id).set(skill, pcc, value);
+		Float newRank = getRank(id, skill);
+		support.fireSkillRankChangeEvent(id, skill, oldRank, newRank);
 	}
 
 	/**
@@ -186,50 +197,223 @@ public class SkillRankFacet extends AbstractStorageFacet
 		if (rci != null)
 		{
 			CacheInfo copyci = getConstructingInfo(copy);
-			for (Map.Entry<Skill, Set<NamedValue>> fme : rci.map.entrySet())
+			for (Entry<Skill, Map<PCClass, Double>> fme : rci.map.entrySet())
 			{
 				Skill sk = fme.getKey();
-				for (NamedValue value : fme.getValue())
+				for (Entry<PCClass, Double> clEntry : fme.getValue().entrySet())
 				{
-					copyci.add(sk,
-						new NamedValue(value.getName(), value.getWeight()));
+					copyci.set(sk, clEntry.getKey(), clEntry.getValue());
 				}
 			}
 		}
 	}
 
-	public Collection<NamedValue> getSet(CharID id, Skill sk)
+	public Collection<PCClass> getClasses(CharID id, Skill sk)
 	{
 		CacheInfo ci = getInfo(id);
 		if (ci == null)
 		{
-			return Collections.emptySet();
+			return Collections.emptyList();
 		}
-		return ci.getSet(sk);
+		return ci.getClasses(sk);
 	}
 
-	public void remove(CharID id, Skill sk, NamedValue value)
+	public Double get(CharID id, Skill sk, PCClass pcc)
 	{
+		CacheInfo ci = getInfo(id);
+		if (ci == null)
+		{
+			return null;
+		}
+		return ci.get(sk, pcc);
+	}
+
+	public void remove(CharID id, Skill sk, PCClass pcc)
+	{
+		if (sk == null)
+		{
+			throw new IllegalArgumentException("Skill cannot be null in remove");
+		}
 		CacheInfo ci = getInfo(id);
 		if (ci != null)
 		{
-			ci.remove(sk, value);
+			Float oldRank = getRank(id, sk);
+			ci.remove(sk, pcc);
+			Float newRank = getRank(id, sk);
+			support.fireSkillRankChangeEvent(id, sk, oldRank, newRank);
 		}
 	}
 
-	public Float getRank(CharID id, Skill sk)
+	public float getRank(CharID id, Skill sk)
 	{
 		double rank = 0.0;
-		
-		Collection<NamedValue> rankList = getSet(id, sk);
-		if (rankList != null)
+		CacheInfo ci = getInfo(id);
+		if (ci != null)
 		{
-			for (NamedValue sd : rankList)
+			rank = ci.getRank(sk);
+		}
+		return (float) rank;
+	}
+
+	public void addSkillRankChangeListener(SkillRankChangeListener listener)
+	{
+		support.addLevelChangeListener(listener);
+	}
+
+	public static interface SkillRankChangeListener extends EventListener
+	{
+		public void rankChanged(SkillRankChangeEvent lce);
+	}
+
+	public static class SkillRankChangeEvent extends EventObject
+	{
+		/**
+		 * The ID indicating the owning character for this SkillRankChangeEvent
+		 */
+		private final CharID charID;
+		private final Skill skill;
+		private final float oldRnk;
+		private final float newRnk;
+
+		public SkillRankChangeEvent(CharID source, Skill sk, float oldRank,
+			float newRank)
+		{
+			super(source);
+			if (source == null)
 			{
-				rank += sd.getWeight();
+				throw new IllegalArgumentException("CharID cannot be null");
+			}
+			if (sk == null)
+			{
+				throw new IllegalArgumentException("PCClass cannot be null");
+			}
+			charID = source;
+			skill = sk;
+			oldRnk = oldRank;
+			newRnk = newRank;
+		}
+
+		/**
+		 * Returns an identifier indicating the PlayerCharacter on which this
+		 * event occurred.
+		 * 
+		 * @return A identifier indicating the PlayerCharacter on which this
+		 *         event occurred.
+		 */
+		public CharID getCharID()
+		{
+			return charID;
+		}
+
+		public Skill getSkill()
+		{
+			return skill;
+		}
+
+		public float getOldRank()
+		{
+			return oldRnk;
+		}
+
+		public float getNewRank()
+		{
+			return newRnk;
+		}
+	}
+
+	public static class SkillRankChangeSupport
+	{
+		/**
+		 * The listeners to which SkillRankChangeEvents will be fired when a
+		 * change in the source SkillRankFacet occurs.
+		 */
+		private final EventListenerList listenerList = new EventListenerList();
+
+		/**
+		 * Adds a new SkillRankChangeListener to receive SkillRankChangeEvents
+		 * (EdgeChangeEvent and NodeChangeEvent) from the source SkillRankFacet.
+		 * 
+		 * @param listener
+		 *            The LevelChangeListener to receive SkillRankChangeEvents
+		 */
+		public void addLevelChangeListener(SkillRankChangeListener listener)
+		{
+			listenerList.add(SkillRankChangeListener.class, listener);
+		}
+
+		/**
+		 * Returns an Array of SkillRankChangeListeners receiving
+		 * SkillRankChangeEvents from the source SkillRankFacet.
+		 * 
+		 * Ownership of the returned Array is transferred to the calling Object.
+		 * No reference to the Array is maintained by ClassLevelChangeSupport.
+		 * However, the SkillRankChangeListeners contained in the Array are
+		 * (obviously!) returned BY REFERENCE, and care should be taken with
+		 * modifying those SkillRankChangeListeners.*
+		 * 
+		 * @return An Array of SkillRankChangeListeners receiving
+		 *         SkillRankChangeEvents from the source SkillRankFacet
+		 */
+		public synchronized SkillRankChangeListener[] getLevelChangeListeners()
+		{
+			return listenerList.getListeners(SkillRankChangeListener.class);
+		}
+
+		/**
+		 * Removes a SkillRankChangeListener so that it will no longer receive
+		 * SkillRankChangeEvents from the source SkillRankFacet.
+		 * 
+		 * @param listener
+		 *            The LevelChangeListener to be removed
+		 */
+		public void removeLevelChangeListener(SkillRankChangeListener listener)
+		{
+			listenerList.remove(SkillRankChangeListener.class, listener);
+		}
+
+		/**
+		 * Sends a SkillRankChangeEvent to the SkillRankChangeListeners that are
+		 * receiving SkillRankChangeEvents from the source SkillRankFacet.
+		 * 
+		 * @param id
+		 *            The CharID on which the skill rank change has taken place
+		 * @param sk
+		 *            The Skill to be added to the list of PCClass objects
+		 *            stored in this Facet for the Player Character represented
+		 *            by the given CharID
+		 * @param oldRank
+		 *            The character's previous rank for the given skill
+		 * 
+		 * @param newRank
+		 *            The character's new rank for the given skill.
+		 */
+		protected void fireSkillRankChangeEvent(CharID id, Skill sk,
+			float oldRank, float newRank)
+		{
+			if (oldRank == newRank)
+			{
+				// Nothing to do
+				return;
+			}
+			SkillRankChangeListener[] listeners =
+					listenerList.getListeners(SkillRankChangeListener.class);
+			/*
+			 * This list is decremented from the end of the list to the
+			 * beginning in order to maintain consistent operation with how Java
+			 * AWT and Swing listeners are notified of Events (they are in
+			 * reverse order to how they were added to the Event-owning object).
+			 */
+			SkillRankChangeEvent ccEvent = null;
+			for (int i = listeners.length - 1; i >= 0; i--)
+			{
+				// Lazily create event
+				if (ccEvent == null)
+				{
+					ccEvent =
+							new SkillRankChangeEvent(id, sk, oldRank, newRank);
+				}
+				listeners[i].rankChanged(ccEvent);
 			}
 		}
-	
-		return new Float(rank);
 	}
 }

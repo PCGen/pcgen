@@ -20,10 +20,8 @@
 package pcgen.core.analysis;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -54,8 +52,7 @@ public class SkillRankControl
 	public static Float getTotalRank(PlayerCharacter pc, Skill sk)
 	{
 		double baseRanks = pc.getRank(sk).doubleValue();
-		double ranks = baseRanks
-				+ (pc == null ? 0.0 : SkillRankControl.getSkillRankBonusTo(pc, sk));
+		double ranks = baseRanks + SkillRankControl.getSkillRankBonusTo(pc, sk);
 		if (!Globals.checkRule(RuleConstants.SKILLMAX) && pc.hasClass())
 		{
 			/*
@@ -84,26 +81,16 @@ public class SkillRankControl
 			return;
 		}
 
-		String aCName = aClass.getKeyName();
-		Collection<NamedValue> rankList = aPC.getSkillRankValues(sk);
-		if (rankList == null)
+		Double rank = aPC.getSkillRankForClass(sk, aClass);
+		if (rank != null)
 		{
-			return;
-		}
-		for (NamedValue nv : rankList)
-		{
-			if (nv.name.equals(aCName))
-			{
-				aPC.removeSkillRankValue(sk, nv);
-				double curRankCost = nv.getWeight();
-				String aResp = modRanks(-curRankCost, aClass, false, aPC, sk);
+			aPC.removeSkillRankValue(sk, aClass);
+			String aResp = modRanks(-rank, aClass, false, aPC, sk);
 
-				if (aResp.length() != 0)
-				{
-					// error or debug? XXX
-					Logging.debugPrint(aResp);
-				}
-				break;
+			if (aResp.length() != 0)
+			{
+				// error or debug? XXX
+				Logging.debugPrint(aResp);
 			}
 		}
 	}
@@ -180,36 +167,9 @@ public class SkillRankControl
 			classKey = aClass.getKeyName();
 		}
 
-		double currentRank = 0.0;
-		double noneRank = 0.0;
-		NamedValue active = null;
-		Collection<NamedValue> rankList = aPC.getSkillRankValues(sk);
-		if (rankList != null)
-		{
-			for (NamedValue nv : rankList)
-			{
-				if (nv.name.equals(classKey))
-				{
-					currentRank = nv.getWeight();
-					active = nv;
-					break;
-				}
-				else if (nv.name.equals("None"))
-				{
-					noneRank = nv.getWeight();
-				}
-			}
-		}
-		if (active == null)
-		{
-			active = new NamedValue(classKey, 0.0);
-			aPC.addSkillRankValue(sk, active);
-		}
+		Double rank = aPC.getSkillRankForClass(sk, aClass);
 
-		if (currentRank <= 0)
-		{
-			currentRank = noneRank;
-		}
+		double currentRank = (rank == null) ?  0.0 : rank;
 
 		if (CoreUtility.doublesEqual(currentRank, 0.0) && (rankMod < 0.0))
 		{
@@ -217,7 +177,7 @@ public class SkillRankControl
 					+ ". Try a different one.";
 		}
 
-		rankMod = modRanks2(rankMod, currentRank, active, classKey, aPC, sk);
+		rankMod = modRanks2(rankMod, currentRank, aClass, aPC, sk);
 
 		if (!ignorePrereqs)
 		{
@@ -234,40 +194,40 @@ public class SkillRankControl
 	}
 
 	public static void replaceClassRank(PlayerCharacter pc, Skill sk,
-			String oldClass, String newClass)
+			PCClass oldClass, PCClass newClass)
 	{
-		Collection<NamedValue> rankList = pc.getSkillRankValues(sk);
-		if (rankList != null)
+		Double rank = pc.getSkillRankForClass(sk, oldClass);
+		if (rank != null)
 		{
-			for (NamedValue nv : rankList)
-			{
-				if (nv.name.equals(oldClass))
-				{
-					pc.removeSkillRankValue(sk, nv);
-					pc.addSkillRankValue(sk, new NamedValue(
-							newClass, nv.getWeight()));
-					break;
-				}
-			}
+			pc.removeSkillRankValue(sk, oldClass);
+			pc.setSkillRankValue(sk, newClass, rank);
 		}
 	}
 
-	private static double modRanks2(double g, double curRank,
-			NamedValue active, String classKey, PlayerCharacter aPC, Skill sk)
+	private static double modRanks2(double rankChange, double curRank,
+			PCClass pcc, PlayerCharacter aPC, Skill sk)
 	{
-		double newRank = curRank + g;
+		double newRank = curRank + rankChange;
+
+		//
+		// Modify for the chosen class
+		//
+		if (CoreUtility.doublesEqual(newRank, 0.0))
+		{
+			aPC.removeSkillRankValue(sk, pcc);
+		}
+		else
+		{
+			aPC.setSkillRankValue(sk, pcc, newRank);
+		}
 
 		if (!aPC.isImporting())
 		{
 			if (ChooseActivation.hasChooseToken(sk))
 			{
-				if (!CoreUtility.doublesEqual(g, 0)
+				if (!CoreUtility.doublesEqual(rankChange, 0)
 						&& !CoreUtility.doublesEqual(curRank, (int) newRank))
 				{
-					if (active != null)
-					{
-						active.addWeight(g);
-					}
 					ChooserUtilities.modChoices(sk, new ArrayList<Language>(),
 							new ArrayList<Language>(), true, aPC, true, null);
 					aPC.setDirty(true);
@@ -278,34 +238,13 @@ public class SkillRankControl
 					{
 						newRank = curRank;
 					}
-					if (active != null)
-					{
-						active.removeWeight(g);
-					}
-					g = newRank - curRank;
 				}
 			}
 		}
 
-		//
-		// Modify for the chosen class
-		//
-		if (CoreUtility.doublesEqual(newRank, 0.0))
-		{
-			aPC.removeSkillRankValue(sk, active);
-		}
-		else if (active != null)
-		{
-			active.addWeight(g);
-		}
-		else
-		{
-			aPC.addSkillRankValue(sk, new NamedValue(classKey, g));
-		}
-
 		aPC.calcActiveBonuses();
 
-		return g;
+		return rankChange;
 	}
 
 	/**
