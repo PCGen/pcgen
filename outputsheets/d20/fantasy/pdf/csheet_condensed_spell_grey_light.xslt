@@ -221,6 +221,12 @@
 		<intelligent_items.lightline><subattrib light=""/></intelligent_items.lightline>
 		<intelligent_items.darkline><subattrib medium=""/></intelligent_items.darkline>
 
+		<words_of_powers.title><subattrib centre="" inverse=""/></words_of_powers.title>
+		<words_of_powers.border padding="0.5pt"><subattrib border="" inverse=""/></words_of_powers.border>
+		<words_of_powers.lightline><subattrib light=""/></words_of_powers.lightline>
+		<words_of_powers.darkline><subattrib medium=""/></words_of_powers.darkline>
+
+
 		<casterleveloutputs.title><subattrib centre="" inverse=""/></casterleveloutputs.title>
 		<casterleveloutputs.border padding="0.5pt"><subattrib border="" inverse=""/></casterleveloutputs.border>
 		<casterleveloutputs.lightline><subattrib light=""/></casterleveloutputs.lightline>
