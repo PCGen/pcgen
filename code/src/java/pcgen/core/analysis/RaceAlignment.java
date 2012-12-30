@@ -24,20 +24,4 @@ public class RaceAlignment
 		return true;
 	}
 
-	public static boolean hasAlignmentRestriction(CDOMObject r)
-	{
-		if (r.hasPrerequisites())
-		{
-			for (Prerequisite prereq : r.getPrerequisiteList())
-			{
-				if ("ALIGN".equalsIgnoreCase(prereq.getKind()))
-				{
-					return true;
-				}
-			}
-		}
-	
-		return false;
-	}
-
 }
