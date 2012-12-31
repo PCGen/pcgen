@@ -389,7 +389,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	protected AssociationListKey<SpellLevel> getListKey()
 	{
-		return AssociationListKey.CHOOSE_SPELLLEVEL;
+		return AssociationListKey.getKeyFor(SpellLevel.class, "CHOOSE*SPELLLEVEL");
 	}
 
 	@Override

@@ -66,7 +66,7 @@ public class AlignmentToken extends AbstractSimpleChooseToken<PCAlignment>
 	@Override
 	protected AssociationListKey<PCAlignment> getListKey()
 	{
-		return AssociationListKey.CHOOSE_PCALIGNMENT;
+		return AssociationListKey.getKeyFor(PCALIGNMENT_CLASS, "CHOOSE*ALIGNMENT");
 	}
 
 	@Override

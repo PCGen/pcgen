@@ -86,7 +86,7 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 	@Override
 	protected AssociationListKey<Domain> getListKey()
 	{
-		return AssociationListKey.CHOOSE_DOMAIN;
+		return AssociationListKey.getKeyFor(DOMAIN_CLASS, "CHOOSE*DOMAIN");
 	}
 
 	@Override

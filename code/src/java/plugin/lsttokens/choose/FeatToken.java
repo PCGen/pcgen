@@ -243,7 +243,7 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 
 	protected AssociationListKey<Ability> getListKey()
 	{
-		return AssociationListKey.CHOOSE_FEAT;
+		return AssociationListKey.getKeyFor(ABILITY_CLASS, "CHOOSE*FEAT");
 	}
 
 	@Override

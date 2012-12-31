@@ -61,7 +61,7 @@ public class LangToken extends AbstractQualifiedChooseToken<Language>
 	@Override
 	protected AssociationListKey<Language> getListKey()
 	{
-		return AssociationListKey.CHOOSE_LANGAUGE;
+		return AssociationListKey.getKeyFor(LANGUAGE_CLASS, "CHOOSE*LANGUAGE");
 	}
 
 	@Override

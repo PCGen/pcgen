@@ -274,7 +274,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	protected AssociationListKey<Ability> getListKey()
 	{
-		return AssociationListKey.CHOOSE_ABILITY;
+		return AssociationListKey.getKeyFor(ABILITY_CLASS, "CHOOSE*ABILITY");
 	}
 
 	@Override

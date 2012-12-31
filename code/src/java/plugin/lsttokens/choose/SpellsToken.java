@@ -61,7 +61,7 @@ public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 	@Override
 	protected AssociationListKey<Spell> getListKey()
 	{
-		return AssociationListKey.CHOOSE_SPELL;
+		return AssociationListKey.getKeyFor(SPELL_CLASS, "CHOOSE*SPELL");
 	}
 
 	@Override

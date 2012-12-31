@@ -181,7 +181,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
 	{
-		pc.removeAssoc(owner, AssociationListKey.CHOOSE_NOCHOICE, "");
+		pc.removeAssoc(owner, getListKey(), "");
 		pc.removeAssociation(owner, "");
 		List<ChooseSelectionActor<?>> actors =
 				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
@@ -198,7 +198,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 		String choice)
 	{
-		pc.addAssoc(owner, AssociationListKey.CHOOSE_NOCHOICE, "");
+		pc.addAssoc(owner, getListKey(), "");
 		pc.addAssociation(owner, "");
 		List<ChooseSelectionActor<?>> actors =
 				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
@@ -215,7 +215,12 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	public List<String> getCurrentlySelected(CDOMObject owner,
 		PlayerCharacter pc)
 	{
-		return pc.getAssocList(owner, AssociationListKey.CHOOSE_NOCHOICE);
+		return pc.getAssocList(owner, getListKey());
+	}
+
+	private AssociationListKey<String> getListKey()
+	{
+		return AssociationListKey.getKeyFor(String.class, "CHOOSE*NOCHOICE");
 	}
 
 	@Override
@@ -223,7 +228,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	{
 		StringBuilder sb = new StringBuilder();
 		List<String> list =
-				pc.getAssocList(owner, AssociationListKey.CHOOSE_NOCHOICE);
+				pc.getAssocList(owner, getListKey());
 		int count = (list == null) ? 0 : list.size();
 		if (count > 1)
 		{

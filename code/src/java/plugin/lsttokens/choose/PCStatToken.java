@@ -64,7 +64,7 @@ public class PCStatToken extends AbstractSimpleChooseToken<PCStat>
 	@Override
 	protected AssociationListKey<PCStat> getListKey()
 	{
-		return AssociationListKey.CHOOSE_PCSTAT;
+		return AssociationListKey.getKeyFor(PCSTAT_CLASS, "CHOOSE*PCSTAT");
 	}
 
 	@Override

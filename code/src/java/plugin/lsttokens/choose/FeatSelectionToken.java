@@ -250,7 +250,7 @@ public class FeatSelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	protected AssociationListKey<CategorizedAbilitySelection> getListKey()
 	{
-		return AssociationListKey.CHOOSE_FEATSELECTION;
+		return AssociationListKey.getKeyFor(CategorizedAbilitySelection.class, "CHOOSE*FEATSELECTION");
 	}
 
 	@Override

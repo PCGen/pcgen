@@ -61,7 +61,7 @@ public class DeityToken extends AbstractQualifiedChooseToken<Deity>
 	@Override
 	protected AssociationListKey<Deity> getListKey()
 	{
-		return AssociationListKey.CHOOSE_DEITY;
+		return AssociationListKey.getKeyFor(DEITY_CLASS, "CHOOSE*DEITY");
 	}
 
 	@Override

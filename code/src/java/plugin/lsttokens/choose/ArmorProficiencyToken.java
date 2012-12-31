@@ -62,7 +62,7 @@ public class ArmorProficiencyToken extends
 	@Override
 	protected AssociationListKey<ArmorProf> getListKey()
 	{
-		return AssociationListKey.CHOOSE_ARMORPROFICIENCY;
+		return AssociationListKey.getKeyFor(ARMORPROF_CLASS, "CHOOSE*ARMORPROF");
 	}
 
 	@Override

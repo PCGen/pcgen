@@ -61,7 +61,7 @@ public class ShieldProficiencyToken extends
 	@Override
 	protected AssociationListKey<ShieldProf> getListKey()
 	{
-		return AssociationListKey.CHOOSE_SHIELDPROFICIENCY;
+		return AssociationListKey.getKeyFor(SHIELDPROF_CLASS, "CHOOSE*SHIELDPROF");
 	}
 
 	@Override

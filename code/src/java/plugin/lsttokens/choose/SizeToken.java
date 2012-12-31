@@ -49,6 +49,6 @@ public class SizeToken extends AbstractSimpleChooseToken<SizeAdjustment>
 	@Override
 	protected AssociationListKey<SizeAdjustment> getListKey()
 	{
-		return AssociationListKey.CHOOSE_SIZEADJUSTMENT;
+		return AssociationListKey.getKeyFor(SIZEADJUSTMENT_CLASS, "CHOOSE*SIZEADJUSTMENT");
 	}
 }

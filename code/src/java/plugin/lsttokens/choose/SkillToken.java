@@ -59,7 +59,7 @@ public class SkillToken extends AbstractQualifiedChooseToken<Skill>
 	@Override
 	protected AssociationListKey<Skill> getListKey()
 	{
-		return AssociationListKey.CHOOSE_SKILL;
+		return AssociationListKey.getKeyFor(SKILL_CLASS, "CHOOSE*SKILL");
 	}
 
 	@Override

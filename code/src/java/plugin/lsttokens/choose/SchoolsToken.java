@@ -68,7 +68,7 @@ public class SchoolsToken extends AbstractSimpleChooseToken<SpellSchool>
 	@Override
 	protected AssociationListKey<SpellSchool> getListKey()
 	{
-		return AssociationListKey.CHOOSE_SCHOOL;
+		return AssociationListKey.getKeyFor(SPELLSCHOOL_CLASS, "CHOOSE*SPELLSCHOOL");
 	}
 
 	@Override

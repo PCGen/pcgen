@@ -97,7 +97,7 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 		String choice)
 	{
-		pc.addAssoc(owner, AssociationListKey.CHOOSE_NOCHOICE, choice);
+		pc.addAssoc(owner, getListKey(), choice);
 		pc.addAssociation(owner, choice);
 	}
 
@@ -105,7 +105,7 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	public List<String> getCurrentlySelected(CDOMObject owner,
 		PlayerCharacter pc)
 	{
-		return pc.getAssocList(owner, AssociationListKey.CHOOSE_NOCHOICE);
+		return pc.getAssocList(owner, getListKey());
 	}
 
 	@Override
@@ -132,7 +132,7 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
 	{
-		pc.removeAssoc(owner, AssociationListKey.CHOOSE_NOCHOICE, choice);
+		pc.removeAssoc(owner, getListKey(), choice);
 		pc.removeAssociation(owner, choice);
 		List<ChooseSelectionActor<?>> actors =
 				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
@@ -178,6 +178,11 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	public void setTitle(String chooseTitle)
 	{
 		title = chooseTitle;
+	}
+
+	private AssociationListKey<String> getListKey()
+	{
+		return AssociationListKey.getKeyFor(String.class, "CHOOSE*USERCHOICE");
 	}
 
 }

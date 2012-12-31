@@ -60,7 +60,7 @@ public class TemplateToken extends AbstractQualifiedChooseToken<PCTemplate>
 	@Override
 	protected AssociationListKey<PCTemplate> getListKey()
 	{
-		return AssociationListKey.CHOOSE_TEMPLATE;
+		return AssociationListKey.getKeyFor(PCTEMPLATE_CLASS, "CHOOSE*TEMPLATE");
 	}
 
 	@Override

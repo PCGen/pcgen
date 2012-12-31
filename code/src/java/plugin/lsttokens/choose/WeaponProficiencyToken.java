@@ -61,7 +61,7 @@ public class WeaponProficiencyToken extends
 	@Override
 	protected AssociationListKey<WeaponProf> getListKey()
 	{
-		return AssociationListKey.CHOOSE_WEAPONPROFICIENCY;
+		return AssociationListKey.getKeyFor(WEAPONPROF_CLASS, "CHOOSE*WEAPONPROF");
 	}
 
 	@Override

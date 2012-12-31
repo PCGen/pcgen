@@ -31,25 +31,7 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FixedStringList;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
-import pcgen.cdom.helper.SpellLevel;
-import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.Ability;
-import pcgen.core.ArmorProf;
-import pcgen.core.Deity;
-import pcgen.core.Domain;
-import pcgen.core.Equipment;
-import pcgen.core.Language;
-import pcgen.core.PCAlignment;
-import pcgen.core.PCCheck;
-import pcgen.core.PCClass;
-import pcgen.core.PCStat;
-import pcgen.core.PCTemplate;
-import pcgen.core.Race;
-import pcgen.core.ShieldProf;
-import pcgen.core.SizeAdjustment;
-import pcgen.core.Skill;
-import pcgen.core.WeaponProf;
-import pcgen.core.spell.Spell;
 
 /**
  * @author Tom Parker <thpr@users.sourceforge.net>
@@ -99,61 +81,6 @@ public final class AssociationListKey<T>
 
 	/*
 	 * End non-local token-related keys
-	 */
-
-	/*
-	 * The following items are used by the tokens to store (with locality) the
-	 * information that was selected for a given CHOOSE (or other selection
-	 * token), so it can be restored if that selection is made again
-	 */
-	public static final AssociationListKey<PCTemplate> CHOOSE_TEMPLATE = new AssociationListKey<PCTemplate>();
-
-	public static final AssociationListKey<PCStat> CHOOSE_PCSTAT = new AssociationListKey<PCStat>();
-
-	public static final AssociationListKey<PCCheck> CHOOSE_PCCHECK = new AssociationListKey<PCCheck>();
-
-	public static final AssociationListKey<SizeAdjustment> CHOOSE_SIZEADJUSTMENT = new AssociationListKey<SizeAdjustment>();
-
-	public static final AssociationListKey<PCAlignment> CHOOSE_PCALIGNMENT = new AssociationListKey<PCAlignment>();
-
-	public static final AssociationListKey<Language> CHOOSE_LANGAUGE = new AssociationListKey<Language>();
-
-	public static final AssociationListKey<Equipment> CHOOSE_EQUIPMENT = new AssociationListKey<Equipment>();
-
-	public static final AssociationListKey<ArmorProf> CHOOSE_ARMORPROFICIENCY = new AssociationListKey<ArmorProf>();
-
-	public static final AssociationListKey<ShieldProf> CHOOSE_SHIELDPROFICIENCY = new AssociationListKey<ShieldProf>();
-
-	public static final AssociationListKey<WeaponProf> CHOOSE_WEAPONPROFICIENCY = new AssociationListKey<WeaponProf>();
-
-	public static final AssociationListKey<Ability> CHOOSE_FEAT = new AssociationListKey<Ability>();
-
-	public static final AssociationListKey<Deity> CHOOSE_DEITY = new AssociationListKey<Deity>();
-
-	public static final AssociationListKey<Skill> CHOOSE_SKILL = new AssociationListKey<Skill>();
-
-	public static final AssociationListKey<Domain> CHOOSE_DOMAIN = new AssociationListKey<Domain>();
-
-	public static final AssociationListKey<Race> CHOOSE_RACE = new AssociationListKey<Race>();
-
-	public static final AssociationListKey<PCClass> CHOOSE_CLASS = new AssociationListKey<PCClass>();
-
-	public static final AssociationListKey<Ability> CHOOSE_ABILITY = new AssociationListKey<Ability>();
-
-	public static final AssociationListKey<SpellSchool> CHOOSE_SCHOOL = new AssociationListKey<SpellSchool>();
-
-	public static final AssociationListKey<String> CHOOSE_STRING = new AssociationListKey<String>();
-
-	public static final AssociationListKey<Spell> CHOOSE_SPELL = new AssociationListKey<Spell>();
-
-	public static final AssociationListKey<SpellLevel> CHOOSE_SPELLLEVEL = new AssociationListKey<SpellLevel>();
-
-	public static final AssociationListKey<String> CHOOSE_NOCHOICE = new AssociationListKey<String>();
-
-	public static final AssociationListKey<CategorizedAbilitySelection> CHOOSE_FEATSELECTION = new AssociationListKey<CategorizedAbilitySelection>();
-
-	/*
-	 * End CHOOSE Items
 	 */
 
 	private static CaseInsensitiveMap<AssociationListKey<?>> map = null;

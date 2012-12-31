@@ -49,6 +49,6 @@ public class CheckToken extends AbstractSimpleChooseToken<PCCheck>
 	@Override
 	protected AssociationListKey<PCCheck> getListKey()
 	{
-		return AssociationListKey.CHOOSE_PCCHECK;
+		return AssociationListKey.getKeyFor(PCCHECK_CLASS, "CHOOSE*PCCHECK");
 	}
 }

@@ -61,7 +61,7 @@ public class EquipmentToken extends AbstractQualifiedChooseToken<Equipment>
 	@Override
 	protected AssociationListKey<Equipment> getListKey()
 	{
-		return AssociationListKey.CHOOSE_EQUIPMENT;
+		return AssociationListKey.getKeyFor(EQUIPMENT_CLASS, "CHOOSE*EQUIPMENT");
 	}
 
 	@Override

@@ -81,7 +81,7 @@ public class ClassToken extends AbstractQualifiedChooseToken<PCClass>
 	@Override
 	protected AssociationListKey<PCClass> getListKey()
 	{
-		return AssociationListKey.CHOOSE_CLASS;
+		return AssociationListKey.getKeyFor(PCCLASS_CLASS, "CHOOSE*PCCLASS");
 	}
 
 	@Override

@@ -59,7 +59,7 @@ public class RaceToken extends AbstractQualifiedChooseToken<Race>
 	@Override
 	protected AssociationListKey<Race> getListKey()
 	{
-		return AssociationListKey.CHOOSE_RACE;
+		return AssociationListKey.getKeyFor(RACE_CLASS, "CHOOSE*RACE");
 	}
 
 	@Override

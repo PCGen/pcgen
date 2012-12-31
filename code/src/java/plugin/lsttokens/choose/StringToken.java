@@ -156,7 +156,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	@Override
 	public void removeChoice(PlayerCharacter pc, CDOMObject owner, String choice)
 	{
-		pc.removeAssoc(owner, AssociationListKey.CHOOSE_STRING, choice);
+		pc.removeAssoc(owner, getListKey(), choice);
 		pc.removeAssociation(owner, encodeChoice(choice));
 		List<ChooseSelectionActor<?>> actors =
 				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
@@ -173,7 +173,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
 		String choice)
 	{
-		pc.addAssoc(owner, AssociationListKey.CHOOSE_STRING, choice);
+		pc.addAssoc(owner, getListKey(), choice);
 		pc.addAssociation(owner, encodeChoice(choice));
 		List<ChooseSelectionActor<?>> actors =
 				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
@@ -208,6 +208,11 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	public List<String> getCurrentlySelected(CDOMObject owner,
 		PlayerCharacter pc)
 	{
-		return pc.getAssocList(owner, AssociationListKey.CHOOSE_STRING);
+		return pc.getAssocList(owner, getListKey());
+	}
+
+	protected AssociationListKey<String> getListKey()
+	{
+		return AssociationListKey.getKeyFor(String.class, "CHOOSE*STRING");
 	}
 }
