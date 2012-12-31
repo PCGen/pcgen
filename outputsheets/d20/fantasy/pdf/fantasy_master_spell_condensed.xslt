@@ -368,7 +368,7 @@
 						<xsl:apply-templates select="special_qualities"/>
 						<xsl:apply-templates select="intelligent_items"/>
 						<xsl:apply-templates select="talents"/>	
-						<xsl:apply-templates select="words_of_power"/>
+						<xsl:apply-templates select="words_of_powers"/>
 						<!-- Eclipse Section - Having it's own section is creating an additional blank page -->
 						<xsl:apply-templates select="charcreations"/>
 						<xsl:apply-templates select="disadvantages"/>
