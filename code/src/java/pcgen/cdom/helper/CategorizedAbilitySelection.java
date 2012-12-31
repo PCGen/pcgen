@@ -132,12 +132,14 @@ public class CategorizedAbilitySelection extends ConcretePrereqObject implements
 		if (choice != null && !abil.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			throw new IllegalArgumentException(
-					"AbilitySelection with MULT:NO Ability must not have choices");
+					"AbilitySelection " + choice + " with MULT:NO Ability " + 
+						abil + " must not have choices");
 		}
 		if (choice == null && abil.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
 			throw new IllegalArgumentException(
-					"AbilitySelection with MULT:YES Ability must have choices");
+					"No AbilitySelection with MULT:YES Ability " + 
+						abil + ": must have choices");
 		}
 		owner = parent;
 		category = cat;
