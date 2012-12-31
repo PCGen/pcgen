@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2010.
+ * Copyright (c) Thomas Parker, 2012.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,13 +18,34 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.facet.base.AbstractConditionalSpellFacet;
+import pcgen.cdom.facet.base.AbstractConditionalSpellStorageFacet;
 
-/**
- * ConditionallyKnownSpellFacet is a Facet that tracks the Known Spells (and
- * target objects) that are contained in a Player Character.
- * 
- * @author Thomas Parker (thpr [at] yahoo.com)
- */
-public class ConditionallyKnownSpellFacet extends AbstractConditionalSpellFacet
+public class ConditionallyGrantedKnownSpellFacet extends
+		AbstractConditionalSpellStorageFacet
 {
+	private ConditionallyKnownSpellFacet conditionallyKnownSpellFacet;
+
+	private KnownSpellFacet knownSpellFacet;
+
+	@Override
+	protected AbstractConditionalSpellFacet getConditionalFacet()
+	{
+		return conditionallyKnownSpellFacet;
+	}
+
+	public void setConditionallyKnownSpellFacet(
+		ConditionallyKnownSpellFacet conditionallyKnownSpellFacet)
+	{
+		this.conditionallyKnownSpellFacet = conditionallyKnownSpellFacet;
+	}
+
+	public void setKnownSpellFacet(KnownSpellFacet knownSpellFacet)
+	{
+		this.knownSpellFacet = knownSpellFacet;
+	}
+
+	public void init()
+	{
+		addSpellChangeListener(knownSpellFacet);
+	}
 }

@@ -25,14 +25,14 @@ package pcgen.core.analysis;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
+import java.util.Collection;
 import java.util.Map;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.ConditionallyKnownSpellFacet;
+import pcgen.cdom.facet.KnownSpellFacet;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -58,8 +58,8 @@ import pcgen.util.TestHelper;
 public class SpellLevelTest extends AbstractCharacterTestCase
 {
 
-	private static ConditionallyKnownSpellFacet listManagerFacet = FacetLibrary
-			.getFacet(ConditionallyKnownSpellFacet.class);
+	private static KnownSpellFacet listManagerFacet = FacetLibrary
+			.getFacet(KnownSpellFacet.class);
 
 	/**
 	 * Test method for {@link pcgen.core.analysis.SpellLevel#getPCBasedBonusKnownSpells(pcgen.core.PlayerCharacter, pcgen.core.PCClass)}.
@@ -105,7 +105,7 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 
 		PlayerCharacter aPC = getCharacter();
 
-		Map<Integer, List<Spell>> spellsMap = listManagerFacet.getKnownSpells(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
+		Map<Integer, Collection<Spell>> spellsMap = listManagerFacet.getKnownSpells(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
 		assertEquals("Initial number of spell levels incorrect", 0, spellsMap.size());
 		
 		aPC.addAbilityNeedCheck(AbilityCategory.FEAT, ab1);
@@ -114,9 +114,9 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 		spellsMap = listManagerFacet.getKnownSpells(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
 		assertEquals("Incorrect number of spell levels returned", 1, spellsMap.size());
 		assertEquals("Incorrect spell level returned", new Integer(3), spellsMap.keySet().iterator().next());
-		List<Spell> result = spellsMap.values().iterator().next();
+		Collection<Spell> result = spellsMap.values().iterator().next();
 		assertEquals("Incorrect number of spells returned", 1, result.size());
-		assertEquals("Incorrect spell returned", spell, result.get(0));
+		assertEquals("Incorrect spell returned", spell, result.iterator().next());
 		
 	}
 

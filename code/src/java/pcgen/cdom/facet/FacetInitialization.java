@@ -177,6 +177,8 @@ public class FacetInitialization {
 		FacetLibrary.getFacet(DomainSpellsFacet.class);
 		FacetLibrary.getFacet(ObjectAdditionFacet.class);
 		FacetLibrary.getFacet(AddLevelFacet.class);
+		FacetLibrary.getFacet(AvailableSpellInputFacet.class);
+		FacetLibrary.getFacet(KnownSpellInputFacet.class);
 		//This one is a just in case
 		FacetLibrary.getFacet(ChangeProfFacet.class);
 		//and others just in case...

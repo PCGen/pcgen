@@ -96,6 +96,8 @@ import pcgen.cdom.facet.CheckBonusFacet;
 import pcgen.cdom.facet.ClassSpellListFacet;
 import pcgen.cdom.facet.ConditionalAbilityFacet;
 import pcgen.cdom.facet.ConditionallyGrantedAbilityFacet;
+import pcgen.cdom.facet.ConditionallyGrantedAvailableSpellFacet;
+import pcgen.cdom.facet.ConditionallyGrantedKnownSpellFacet;
 import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.facet.DomainSpellCountFacet;
 import pcgen.cdom.facet.EquipSetFacet;
@@ -106,7 +108,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.facet.HitPointFacet;
 import pcgen.cdom.facet.KitFacet;
-import pcgen.cdom.facet.ConditionallyKnownSpellFacet;
+import pcgen.cdom.facet.KnownSpellFacet;
 import pcgen.cdom.facet.LevelInfoFacet;
 import pcgen.cdom.facet.MasterFacet;
 import pcgen.cdom.facet.NoteItemFacet;
@@ -354,6 +356,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);
 	private ActiveAbilityFacet abFacet = FacetLibrary.getFacet(ActiveAbilityFacet.class);
 	private ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary.getFacet(ConditionallyGrantedAbilityFacet.class);
+	private ConditionallyGrantedKnownSpellFacet cKnSpellFacet = FacetLibrary.getFacet(ConditionallyGrantedKnownSpellFacet.class);
+	private ConditionallyGrantedAvailableSpellFacet cAvSpellFacet = FacetLibrary.getFacet(ConditionallyGrantedAvailableSpellFacet.class);
 	private ConditionalAbilityFacet conditionalFacet = FacetLibrary.getFacet(ConditionalAbilityFacet.class);
 	private GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
 	private DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
@@ -381,7 +385,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);
 
 	private HitPointFacet hitPointFacet = FacetLibrary.getFacet(HitPointFacet.class);
-	private ConditionallyKnownSpellFacet knownSpellFacet = FacetLibrary.getFacet(ConditionallyKnownSpellFacet.class);
+	private KnownSpellFacet knownSpellFacet = FacetLibrary.getFacet(KnownSpellFacet.class);
 
 	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
 	private LevelTableFacet levelTableFacet = FacetLibrary.getFacet(LevelTableFacet.class);
@@ -958,6 +962,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			cache = new ObjectCache();
 			getVariableProcessor().setSerial(serial);
 			cabFacet.update(id);
+			cAvSpellFacet.update(id);
+			cKnSpellFacet.update(id);
 		}
 
 		dirtyFlag = dirtyState;
@@ -9535,6 +9541,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public SkillCost getSkillCostForClass(Skill sk, PCClass cl)
 	{
+		/*
+		 * Unfortunately class can be null if skill awarded by a master
+		 */
+		if (cl == null)
+		{
+			return SkillCost.CROSS_CLASS;
+		}
 		return cache.getSkillCost(this, sk, cl);
 	}
 
@@ -10934,12 +10947,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 		ClassSpellList classSpellList =
 				((PCClass) aClass).get(ObjectKey.CLASS_SPELLLIST);
-		Map<Integer, List<Spell>> spellsMap =
+		Map<Integer, Collection<Spell>> spellsMap =
 				knownSpellFacet.getKnownSpells(id, classSpellList);
 		for (Integer spellLevel : spellsMap.keySet())
 		{
-			List<Spell> spells = spellsMap.get(spellLevel);
-			for (Spell spell : spells)
+			for (Spell spell : spellsMap.get(spellLevel))
 			{
 				CharacterSpell acs = new CharacterSpell(aClass, spell);
 				acs.addInfo(spellLevel, 1, Globals.getDefaultSpellBook());
@@ -11153,13 +11165,17 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void removeSkillRankValue(Skill sk, PCClass cl)
 	{
 		//Hedge bets on the class
-		skillRankFacet.remove(id, sk, getClassKeyed(cl.getKeyName()));
+		PCClass localClass =
+				(cl == null) ? null : getClassKeyed(cl.getKeyName());
+		skillRankFacet.remove(id, sk, localClass);
 	}
 
 	public void setSkillRankValue(Skill sk, PCClass pcc, double value)
 	{
 		//hedge bets on the class
-		skillRankFacet.set(id, sk, getClassKeyed(pcc.getKeyName()), value);
+		PCClass localClass =
+				(pcc == null) ? null : getClassKeyed(pcc.getKeyName());
+		skillRankFacet.set(id, sk, localClass, value);
 	}
 	
 	public Collection<PCClass> getSkillRankClasses(Skill sk)
@@ -11198,6 +11214,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public Double getSkillRankForClass(Skill sk, PCClass pcc)
 	{
 		//Yes, the check for "local" class is required (try down-ranking a skill)
-		return skillRankFacet.get(id, sk, getClassKeyed(pcc.getKeyName()));
+		PCClass localClass =
+				(pcc == null) ? null : getClassKeyed(pcc.getKeyName());
+		return skillRankFacet.get(id, sk, localClass);
+	}
+
+	public int getKnownSpellCountForLevel(CDOMList<Spell> list, int level)
+	{
+		return knownSpellFacet.getKnownSpellCountForLevel(id, list, level);
 	}
 }

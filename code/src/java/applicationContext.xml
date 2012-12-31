@@ -79,9 +79,11 @@
 	<bean id="autoWeaponProfFacet" class="pcgen.cdom.facet.AutoWeaponProfFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
-	<bean id="availableSpellFacet" class="pcgen.cdom.facet.AvailableSpellFacet">
-		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+	<bean id="availableSpellFacet" class="pcgen.cdom.facet.AvailableSpellFacet"/>
+	<bean id="availableSpellInputFacet" class="pcgen.cdom.facet.AvailableSpellInputFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
+		<property name="availableSpellFacet" ref="availableSpellFacet"/>
+		<property name="conditionallyAvailableSpellFacet" ref="conditionallyAvailableSpellFacet"/>
 	</bean>
 	<!-- B -->
 	<bean id="baseMovementFacet" class="pcgen.cdom.facet.analysis.BaseMovementFacet">
@@ -160,12 +162,22 @@
 	<bean id="conditionalAbilityFacet" class="pcgen.cdom.facet.ConditionalAbilityFacet">
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 	</bean>
+	<bean id="conditionallyAvailableSpellFacet" class="pcgen.cdom.facet.ConditionallyAvailableSpellFacet">
+		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+	</bean>
 	<bean id="conditionallyGrantedAbilityFacet" class="pcgen.cdom.facet.ConditionallyGrantedAbilityFacet">
 		<property name="conditionalAbilityFacet" ref="conditionalAbilityFacet"/>
 	</bean>
+	<bean id="conditionallyGrantedAvailableSpellFacet" class="pcgen.cdom.facet.ConditionallyGrantedAvailableSpellFacet">
+		<property name="conditionallyAvailableSpellFacet" ref="conditionallyAvailableSpellFacet"/>
+		<property name="availableSpellFacet" ref="availableSpellFacet"/>
+	</bean>
+	<bean id="conditionallyGrantedKnownSpellFacet" class="pcgen.cdom.facet.ConditionallyGrantedKnownSpellFacet">
+		<property name="conditionallyKnownSpellFacet" ref="conditionallyKnownSpellFacet"/>
+		<property name="knownSpellFacet" ref="knownSpellFacet"/>
+	</bean>
 	<bean id="conditionallyKnownSpellFacet" class="pcgen.cdom.facet.ConditionallyKnownSpellFacet">
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
-		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="conditionalTemplateFacet" class="pcgen.cdom.facet.ConditionalTemplateFacet">
 		<property name="templateFacet" ref="templateFacet"/>
@@ -271,6 +283,12 @@
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="kitFacet" class="pcgen.cdom.facet.KitFacet"/>
+	<bean id="knownSpellFacet" class="pcgen.cdom.facet.KnownSpellFacet"/>
+	<bean id="knownSpellInputFacet" class="pcgen.cdom.facet.KnownSpellInputFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+		<property name="knownSpellFacet" ref="knownSpellFacet"/>
+		<property name="conditionallyKnownSpellFacet" ref="conditionallyKnownSpellFacet"/>
+	</bean>
 	<!-- L -->
 	<bean id="languageFacet" class="pcgen.cdom.facet.model.LanguageFacet">
 		<property name="autoLanguageFacet" ref="autoLanguageFacet"/>
