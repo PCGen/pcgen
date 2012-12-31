@@ -26,13 +26,12 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.cdom.reference.CategorizedCDOMReference;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
@@ -48,7 +47,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * Class deals with FAVOREDCLASS Token
  */
 public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
-		implements CDOMPrimaryToken<PCTemplate>, ChooseResultActor
+		implements CDOMPrimaryToken<PCTemplate>, ChooseSelectionActor<PCClass>
 {
 
 	public static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -72,7 +71,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 	{
 		context.getObjectContext().remove(pct, ObjectKey.ANY_FAVORED_CLASS);
 		context.getObjectContext().removeList(pct, ListKey.FAVORED_CLASS);
-		context.getObjectContext().removeFromList(pct, ListKey.CHOOSE_ACTOR, this);
+		context.getObjectContext().removeFromList(pct, ListKey.NEW_CHOOSE_ACTOR, this);
 		return parseFavoredClass(context, pct, value);
 	}
 
@@ -95,7 +94,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 			}
 			else if (Constants.LST_PERCENT_LIST.equalsIgnoreCase(token))
 			{
-				context.getObjectContext().addToList(cdo, ListKey.CHOOSE_ACTOR,
+				context.getObjectContext().addToList(cdo, ListKey.NEW_CHOOSE_ACTOR,
 						this);
 			}
 			else
@@ -140,8 +139,8 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 	{
 		Changes<CDOMReference<? extends PCClass>> changes = context
 				.getObjectContext().getListChanges(pct, ListKey.FAVORED_CLASS);
-		Changes<ChooseResultActor> listChanges = context.getObjectContext()
-				.getListChanges(pct, ListKey.CHOOSE_ACTOR);
+		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
+				.getListChanges(pct, ListKey.NEW_CHOOSE_ACTOR);
 		Boolean anyfavored = context.getObjectContext().getObject(pct,
 				ObjectKey.ANY_FAVORED_CLASS);
 		SortedSet<String> set = new TreeSet<String>();
@@ -166,10 +165,10 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 				}
 			}
 		}
-		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
 		if (listAdded != null && !listAdded.isEmpty())
 		{
-			for (ChooseResultActor cra : listAdded)
+			for (ChooseSelectionActor<?> cra : listAdded)
 			{
 				if (cra.getSource().equals(getTokenName()))
 				{
@@ -200,41 +199,6 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 		return PCTemplate.class;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.cdom.base.ChooseResultActor#apply(pcgen.core.PlayerCharacter,
-	 *      pcgen.cdom.base.CDOMObject, java.lang.String)
-	 */
-	@Override
-	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
-	{
-		PCClass cls = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(PCCLASS_CLASS, o);
-		if (cls != null)
-		{
-			pc.addFavoredClass(cls, obj);
-		}
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.cdom.base.ChooseResultActor#remove(pcgen.core.PlayerCharacter,
-	 *      pcgen.cdom.base.CDOMObject, java.lang.String)
-	 */
-	@Override
-	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
-	{
-		PCClass cls = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(PCCLASS_CLASS, o);
-		if (cls != null)
-		{
-			pc.removeFavoredClass(cls, obj);
-		}
-
-	}
-
 	@Override
 	public String getSource()
 	{
@@ -245,5 +209,23 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 	public String getLstFormat()
 	{
 		return "%LIST";
+	}
+
+	@Override
+	public void applyChoice(CDOMObject obj, PCClass cls, PlayerCharacter pc)
+	{
+		pc.addFavoredClass(cls, obj);
+	}
+
+	@Override
+	public void removeChoice(CDOMObject obj, PCClass cls, PlayerCharacter pc)
+	{
+		pc.removeFavoredClass(cls, obj);
+	}
+
+	@Override
+	public Class<PCClass> getChoiceClass()
+	{
+		return PCCLASS_CLASS;
 	}
 }

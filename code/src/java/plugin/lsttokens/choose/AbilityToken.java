@@ -174,15 +174,6 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 	public void applyChoice(CDOMObject owner, Ability st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
-		List<ChooseSelectionActor<?>> actors =
-				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
-		if (actors != null)
-		{
-			for (ChooseSelectionActor ca : actors)
-			{
-				ca.applyChoice(owner, st, pc);
-			}
-		}
 	}
 
 	@Override
@@ -208,6 +199,15 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		pc.addAssociation(owner, encodeChoice(choice));
+		List<ChooseSelectionActor<?>> actors =
+				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		if (actors != null)
+		{
+			for (ChooseSelectionActor ca : actors)
+			{
+				ca.applyChoice(owner, choice, pc);
+			}
+		}
 	}
 
 	@Override

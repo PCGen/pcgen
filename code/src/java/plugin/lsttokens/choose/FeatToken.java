@@ -161,15 +161,6 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	public void applyChoice(CDOMObject owner, Ability st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
-		List<ChooseSelectionActor<?>> actors = owner
-				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
-		if (actors != null)
-		{
-			for (ChooseSelectionActor ca : actors)
-			{
-				ca.applyChoice(owner, st, pc);
-			}
-		}
 	}
 
 	@Override
@@ -195,6 +186,15 @@ public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		pc.addAssociation(owner, encodeChoice(choice));
+		List<ChooseSelectionActor<?>> actors = owner
+				.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		if (actors != null)
+		{
+			for (ChooseSelectionActor ca : actors)
+			{
+				ca.applyChoice(owner, choice, pc);
+			}
+		}
 	}
 
 	@Override

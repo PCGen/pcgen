@@ -175,6 +175,15 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	{
 		pc.addAssoc(owner, AssociationListKey.CHOOSE_STRING, choice);
 		pc.addAssociation(owner, encodeChoice(choice));
+		List<ChooseSelectionActor<?>> actors =
+				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		if (actors != null)
+		{
+			for (ChooseSelectionActor ca : actors)
+			{
+				applyChoice(owner, choice, pc, ca);
+			}
+		}
 	}
 
 	@Override
@@ -187,15 +196,6 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	public void applyChoice(CDOMObject owner, String choice, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, choice);
-		List<ChooseSelectionActor<?>> actors =
-				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
-		if (actors != null)
-		{
-			for (ChooseSelectionActor ca : actors)
-			{
-				applyChoice(owner, choice, pc, ca);
-			}
-		}
 	}
 
 	private void applyChoice(CDOMObject owner, String st, PlayerCharacter pc,

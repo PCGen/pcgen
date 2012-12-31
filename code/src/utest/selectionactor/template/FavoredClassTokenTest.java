@@ -15,16 +15,16 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package resultactor.template;
+package selectionactor.template;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.PCClass;
 import plugin.lsttokens.template.FavoredclassToken;
-import resultactor.testsupport.AbstractResultActorTest;
+import selectionactor.testsupport.AbstractSelectionActorTest;
 
-public class FavoredClassTokenTest extends AbstractResultActorTest<PCClass>
+public class FavoredClassTokenTest extends AbstractSelectionActorTest<PCClass>
 {
 
 	static FavoredclassToken cra = new FavoredclassToken();
@@ -36,7 +36,7 @@ public class FavoredClassTokenTest extends AbstractResultActorTest<PCClass>
 	}
 
 	@Override
-	public ChooseResultActor getActor()
+	public ChooseSelectionActor<PCClass> getActor()
 	{
 		return cra;
 	}

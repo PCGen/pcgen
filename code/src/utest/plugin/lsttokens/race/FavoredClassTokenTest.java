@@ -391,14 +391,14 @@ public class FavoredClassTokenTest extends
 	@Test
 	public void testUnparseNullCA() throws PersistenceLayerException
 	{
-		primaryProf.removeListFor(ListKey.CHOOSE_ACTOR);
+		primaryProf.removeListFor(ListKey.NEW_CHOOSE_ACTOR);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
 	public void testUnparseCA() throws PersistenceLayerException
 	{
-		primaryProf.addToListFor(ListKey.CHOOSE_ACTOR, token);
+		primaryProf.addToListFor(ListKey.NEW_CHOOSE_ACTOR, token);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		expectSingle(unparsed, "%LIST");
 	}
@@ -406,7 +406,7 @@ public class FavoredClassTokenTest extends
 	@Test
 	public void testUnparseNullInCAList() throws PersistenceLayerException
 	{
-		primaryProf.addToListFor(ListKey.CHOOSE_ACTOR, null);
+		primaryProf.addToListFor(ListKey.NEW_CHOOSE_ACTOR, null);
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
@@ -421,7 +421,7 @@ public class FavoredClassTokenTest extends
 	@Test
 	public void testUnparseMultipleAll() throws PersistenceLayerException
 	{
-		primaryProf.addToListFor(ListKey.CHOOSE_ACTOR, token);
+		primaryProf.addToListFor(ListKey.NEW_CHOOSE_ACTOR, token);
 		PCClass wp1 = construct(primaryContext, getLegalValue());
 		primaryProf.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef
 				.getRef(wp1));

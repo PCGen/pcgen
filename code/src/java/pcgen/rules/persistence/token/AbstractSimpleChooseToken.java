@@ -209,15 +209,6 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	public void applyChoice(CDOMObject owner, T st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
-		List<ChooseSelectionActor<?>> actors =
-				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
-		if (actors != null)
-		{
-			for (ChooseSelectionActor ca : actors)
-			{
-				applyChoice(owner, st, pc, ca);
-			}
-		}
 	}
 
 	private void applyChoice(CDOMObject owner, T st, PlayerCharacter pc,
@@ -247,6 +238,15 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		pc.addAssociation(owner, encodeChoice(choice));
+		List<ChooseSelectionActor<?>> actors =
+				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		if (actors != null)
+		{
+			for (ChooseSelectionActor ca : actors)
+			{
+				applyChoice(owner, choice, pc, ca);
+			}
+		}
 	}
 
 	@Override

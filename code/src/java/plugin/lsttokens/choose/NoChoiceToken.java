@@ -170,15 +170,6 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	public void applyChoice(CDOMObject owner, String st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, "");
-		List<ChooseSelectionActor<?>> actors =
-				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
-		if (actors != null)
-		{
-			for (ChooseSelectionActor ca : actors)
-			{
-				applyChoice(owner, pc, ca);
-			}
-		}
 	}
 
 	private void applyChoice(CDOMObject owner, PlayerCharacter pc,
@@ -209,6 +200,15 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	{
 		pc.addAssoc(owner, AssociationListKey.CHOOSE_NOCHOICE, "");
 		pc.addAssociation(owner, "");
+		List<ChooseSelectionActor<?>> actors =
+				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		if (actors != null)
+		{
+			for (ChooseSelectionActor ca : actors)
+			{
+				applyChoice(owner, pc, ca);
+			}
+		}
 	}
 
 	@Override
