@@ -431,7 +431,7 @@ Choose String Stack No																		CATEGORY:Special Ability	TYPE:TestMonkey
 ###Block: OS Tests
 
 # Ability Name					Category of Ability			Type																															Visible	Define																							Description															Multiple?	Choose									Selections	Move		Ability																																									Bonus to Ability Pool			Misc bonus				Bonus to skill										Modify VAR					Cost		Aspects																																																																																		More language
-Test OS Output Displays				CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality																																																				DESC:Grabs Multiple Abilities and loads them to display in the various OS blocks that we have.																	ABILITY:Special Ability|AUTOMATIC|Eclipse Master OS|FourE Master OS|MSRD Talent Support|SRD Master OS|SWSE Master OS|WoD Master OS	ABILITY:Natural Attack|AUTOMATIC|TYPE=NaturalAttack
+Test OS Output Displays				CATEGORY:Special Ability		TYPE:SpecialAttack.SpecialQuality																																																				DESC:Grabs Multiple Abilities and loads them to display in the various OS blocks that we have.																	ABILITY:Special Ability|AUTOMATIC|Eclipse Master OS|FourE Master OS|MSRD Talent Support|SRD Master OS|SWSE Master OS|WoD Master OS	ABILITY:Natural Attack|AUTOMATIC|TYPE=NaturalAttack	ABILITY:Words of Power|AUTOMATIC|TYPE=WordsOfPowerOutput
 
 Test OS Output Display - Natural Attacks	CATEGORY:Internal																																																																																													ABILITY:Natural Attack|AUTOMATIC|TYPE=NaturalAttack
 
@@ -483,6 +483,10 @@ WoD Test Master					CATEGORY:Special Ability		TYPE:DemonCant.MageGnosis.VampireD
 # Eclipse Support
 Eclipse Master OS					CATEGORY:Special Ability																																																																																											ABILITY:Special Ability|AUTOMATIC|Eclipse Test Master
 Eclipse Test Master				CATEGORY:Special Ability		TYPE:WitchcraftOutput.EclipseAbilityOutput.EclipseRacialOutput.SpellCasterOutput.CharCreation.Disadvantage.PathoftheDragon.MartialArtsOutput.MysticArtistOutput.Dominion.ChannelingOutput																											DESC:Testing
+
+# Words Of Power Support
+Words of Power					CATEGORY:Words of Power			TYPE:WordsOfPowerOutput.WordsOfPowerDisplay.TargetLevel0	DESC:Spell targets only the caster.																					SOURCEPAGE:p.166
+
 
 
 #################################

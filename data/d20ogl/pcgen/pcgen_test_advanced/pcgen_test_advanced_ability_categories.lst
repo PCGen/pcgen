@@ -9,6 +9,8 @@ ABILITYCATEGORY:Martial Arts ~ Hiten Mitsurugi Ryuu	VISIBLE:QUALIFY	EDITABLE:YES
 
 ABILITYCATEGORY:Any Feat Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:FEAT				TYPE:*																																												PLURAL:Any Feat Choices				DISPLAYLOCATION:Feats
 
+ABILITYCATEGORY:Words of Power	CATEGORY:Words of Power	VISIBLE:QUALIFY	
+
 
 ABILITYCATEGORY:Exotic Weapon Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	POOL:1			CATEGORY:FEAT																																										ABILITYLIST:Exotic Weapon Proficiency	PLURAL:Exotic Weapon Choices			DISPLAYLOCATION:Character Creation Pool
 
