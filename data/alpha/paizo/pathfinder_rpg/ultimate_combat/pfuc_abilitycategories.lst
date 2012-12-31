@@ -11,6 +11,7 @@ ABILITYCATEGORY:Arcane Bomber Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:
 ABILITYCATEGORY:Siege Mage Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:Siege School ~ Display																								DISPLAYLOCATION:Class Abilities
 
 ABILITYCATEGORY:Unarmed Fighter Bonus Style Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnarmedFighterStyle																										PLURAL:Unarmed Fighter Bonus Style Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Gladiator Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.Performance																											PLURAL:Gladiator Bonus Feats			DISPLAYLOCATION:Feats
 
 
 # Gunslinger
