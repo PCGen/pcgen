@@ -27,6 +27,7 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.core.Equipment;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
@@ -41,6 +42,17 @@ import pcgen.system.LanguageBundle;
  */
 public class PreRegionTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
+
+	@Override
+	public int passes(Prerequisite prereq, Equipment equipment,
+		CharacterDisplay display) throws PrerequisiteException
+	{
+		if (display == null)
+		{
+			return 0;
+		}
+		return passes(prereq, display, equipment);
+	}
 
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
