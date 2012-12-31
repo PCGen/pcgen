@@ -141,9 +141,13 @@ public class ChooseDriverFacet extends
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		/*
-		 * TODO Consider whether this needs to be symmetric to add (remove
-		 * associations)
+		 * TODO Consider whether this is the appropriate symmetric action to add
+		 * (remove associations)
 		 */
+		CharID id = dfce.getCharID();
+		PlayerCharacter pc = trackingFacet.getPC(id);
+		CDOMObject cdo = dfce.getCDOMObject();
+		pc.removeAllAssociations(cdo);
 	}
 
 	/**
