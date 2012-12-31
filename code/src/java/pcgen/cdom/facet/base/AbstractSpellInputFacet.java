@@ -44,8 +44,6 @@ public abstract class AbstractSpellInputFacet implements
 		DataFacetChangeListener<CDOMObject>
 {
 
-	private static final Class<Spell> SPELL_CLASS = Spell.class;
-
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
