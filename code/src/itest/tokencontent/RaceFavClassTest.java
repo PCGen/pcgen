@@ -23,9 +23,11 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
+import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.choose.ClassToken;
 import plugin.lsttokens.race.FavclassToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -46,6 +48,7 @@ public class RaceFavClassTest extends AbstractTokenModelTest
 		fcFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
 		context.ref.constructCDOMObject(PCClass.class, "Favorite");
 		TokenRegistration.register(CHOOSE_CLASS_TOKEN);
+		ChooserFactory.setDelegate(new MockUIDelegate());
 	}
 
 	@Test
@@ -67,31 +70,30 @@ public class RaceFavClassTest extends AbstractTokenModelTest
 		assertEquals(baseCount(), targetFacetCount());
 	}
 
-	//CODE-1899 gates this test
-	//	@Test
-	//	public void testList() throws PersistenceLayerException
-	//	{
-	//		Race source = create(Race.class, "Source");
-	//		ParseResult result = token.parseToken(context, source, "%LIST");
-	//		if (result != ParseResult.SUCCESS)
-	//		{
-	//			result.printMessages();
-	//			fail("Test Setup Failed");
-	//		}
-	//		result = CHOOSE_CLASS_TOKEN.parseToken(context, source, "Favorite");
-	//		if (result != ParseResult.SUCCESS)
-	//		{
-	//			result.printMessages();
-	//			fail("Test Setup Failed");
-	//		}
-	//		finishLoad();
-	//		assertEquals(baseCount(), targetFacetCount());
-	//		raceFacet.set(id, source);
-	//		assertTrue(containsExpected());
-	//		assertEquals(baseCount() + 1, targetFacetCount());
-	//		raceFacet.remove(id);
-	//		assertEquals(baseCount(), targetFacetCount());
-	//	}
+	@Test
+	public void testList() throws PersistenceLayerException
+	{
+		Race source = create(Race.class, "Source");
+		ParseResult result = token.parseToken(context, source, "%LIST");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		result = CHOOSE_CLASS_TOKEN.parseToken(context, source, "Favorite");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		finishLoad();
+		assertEquals(baseCount(), targetFacetCount());
+		raceFacet.set(id, source);
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
+		raceFacet.remove(id);
+		assertEquals(baseCount(), targetFacetCount());
+	}
 
 	@Override
 	public CDOMToken<?> getToken()

@@ -109,7 +109,17 @@ public class MockUIDelegate implements UIDelegate
 	@Override
 	public boolean showGeneralChooser(ChooserFacade chooserFacade)
 	{
-		return false;
+		// Select as many choices as needed from the top of the available list 
+		int numChoices =
+				chooserFacade.getRemainingSelections().getReference();
+		for (int i = 0; i < numChoices
+			&& !chooserFacade.getAvailableList().isEmpty(); i++)
+		{
+			chooserFacade.addSelected(chooserFacade.getAvailableList()
+				.getElementAt(0));
+		}
+		chooserFacade.commit();
+		return true;
 	}
 
 	/**
