@@ -458,6 +458,9 @@
 		<property name="equipmentFacet" ref="equipmentFacet"/>
 	</bean>
 	<bean id="spellListFacet" class="pcgen.cdom.facet.SpellListFacet"/>
+	<bean id="spellProhibitorFacet" class="pcgen.cdom.facet.SpellProhibitorFacet">
+		<property name="classFacet" ref="classFacet"/>
+	</bean>
 	<bean id="spellsFacet" class="pcgen.cdom.facet.SpellsFacet">
 		<property name="cdomSourceFacet" ref="cdomSourceFacet"/>
 	</bean>

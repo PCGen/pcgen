@@ -122,6 +122,7 @@ import pcgen.cdom.facet.SkillRankFacet;
 import pcgen.cdom.facet.SourcedEquipmentFacet;
 import pcgen.cdom.facet.SpellBookFacet;
 import pcgen.cdom.facet.SpellListFacet;
+import pcgen.cdom.facet.SpellProhibitorFacet;
 import pcgen.cdom.facet.SpellSupportFacet;
 import pcgen.cdom.facet.StartingLanguageFacet;
 import pcgen.cdom.facet.StatBonusFacet;
@@ -307,7 +308,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private GoldFacet goldFacet = FacetLibrary.getFacet(GoldFacet.class);
 	private MonsterCSkillFacet monCSkillFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
 	private NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
-	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
 	private QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
 	private SkillOutputOrderFacet skillOutputOrderFacet = FacetLibrary.getFacet(SkillOutputOrderFacet.class);
 	private SkillPoolFacet skillPoolFacet = FacetLibrary.getFacet(SkillPoolFacet.class);
@@ -377,6 +377,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private SecondaryWeaponFacet secondaryWeaponFacet = FacetLibrary.getFacet(SecondaryWeaponFacet.class);
 
 	private SkillCostFacet skillCostFacet = FacetLibrary.getFacet(SkillCostFacet.class);
+	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
+	private SpellProhibitorFacet spellProhibitorFacet = FacetLibrary.getFacet(SpellProhibitorFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
@@ -10615,9 +10617,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		monCSkillFacet.remove(id, skill, obj);
 	}
 
-	public Collection<? extends SpellProhibitor> getProhibitedSchools(Object source)
+	public Collection<? extends SpellProhibitor> getProhibitedSchools(PCClass source)
 	{
-		return prohibitedSchoolFacet.getSet(id, source);
+		List<SpellProhibitor> list = new ArrayList<SpellProhibitor>();
+		list.addAll(prohibitedSchoolFacet.getSet(id, source));
+		list.addAll(spellProhibitorFacet.getSet(id, source));
+		return list;
 	}
 
 	public boolean containsProhibitedSchools(Object source)

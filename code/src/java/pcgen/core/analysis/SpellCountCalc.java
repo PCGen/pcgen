@@ -20,7 +20,6 @@
  */
 package pcgen.core.analysis;
 
-import java.util.Collection;
 import java.util.List;
 
 import pcgen.cdom.enumeration.AssociationKey;
@@ -104,32 +103,11 @@ public class SpellCountCalc
 			return true;
 		}
 	
-		for (SpellProhibitor prohibit : cl.getSafeListFor(ListKey.PROHIBITED_SPELLS))
+		for (SpellProhibitor prohibit : aPC.getProhibitedSchools(cl))
 		{
 			if (prohibit.isProhibited(aSpell, aPC, cl))
 			{
 				return true;
-			}
-		}
-	
-		for (SpellProhibitor prohibit : cl.getSafeListFor(ListKey.SPELL_PROHIBITOR))
-		{
-			if (prohibit.isProhibited(aSpell, aPC, cl))
-			{
-				return true;
-			}
-		}
-	
-		Collection<? extends SpellProhibitor> assocList = aPC
-				.getProhibitedSchools(cl);
-		if (assocList != null)
-		{
-			for (SpellProhibitor prohibit : assocList)
-			{
-				if (prohibit.isProhibited(aSpell, aPC, cl))
-				{
-					return true;
-				}
 			}
 		}
 	
