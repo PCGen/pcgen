@@ -39,6 +39,7 @@ import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.CampaignInfoFactory;
+import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.persistence.PersistenceManager;
@@ -91,6 +92,13 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		Campaign aCamp = (Campaign) campaign;
 		
 		final HtmlInfoBuilder infoText = new HtmlInfoBuilder(aCamp.getDisplayName());
+		appendCampaignInfo(aCamp, infoText);
+
+		return infoText.toString();
+	}
+
+	private void appendCampaignInfo(Campaign aCamp, final HtmlInfoBuilder infoText)
+	{
 		infoText.appendLineBreak();
 		if (aCamp.getSizeOfListFor(ListKey.FILE_COVER) > 0)
 		{
@@ -216,12 +224,62 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 			}
 		}
 		
+		List<Campaign> subCampaigns = aCamp.getSubCampaigns();
+		List<CampaignSourceEntry> notFoundSubCampaigns = aCamp.getNotFoundSubCampaigns();
+		if (subCampaigns != null && notFoundSubCampaigns != null
+			&& (!subCampaigns.isEmpty() || !notFoundSubCampaigns.isEmpty()))
+		{
+			infoText.appendLineBreak();
+
+			infoText.appendSmallTitleElement(LanguageBundle
+				.getString("in_infIncludedCampaigns")); //$NON-NLS-1$
+			infoText.appendLineBreak();
+			for (Campaign subCamp : subCampaigns)
+			{
+				infoText.append(subCamp.getDisplayName());
+				infoText.appendLineBreak();
+			}
+			for (CampaignSourceEntry subCse : notFoundSubCampaigns)
+			{
+				infoText.append(LanguageBundle.getFormattedString(
+					"in_infMissingCampaign", subCse.getURI()));
+				infoText.appendLineBreak();
+			}
+		}
+
 		infoText.appendLineBreak();
 		infoText.appendI18nElement("in_infPccPath", aCamp.getSourceURI().getPath());
-
-		return infoText.toString();
 	}
 
+
+	/**
+	 * {@inheritDoc}
+	 */
+	
+	public String getHTMLInfo(SourceSelectionFacade selection)
+	{
+		if (selection.getCampaigns().getSize() == 1)
+		{
+			return getHTMLInfo(selection.getCampaigns().getElementAt(0));
+		}
+		
+		final HtmlInfoBuilder infoText = new HtmlInfoBuilder(selection.toString());
+		for (CampaignFacade campaign : selection.getCampaigns())
+		{
+			if (campaign == null || !(campaign instanceof Campaign))
+			{
+				continue;
+			}
+			Campaign aCamp = (Campaign) campaign;
+			
+			infoText.appendLineBreak();
+			infoText.appendLineBreak();
+			infoText.appendTitleElement(aCamp.getDisplayName());
+			appendCampaignInfo(aCamp, infoText);
+		}
+		return infoText.toString();
+	}
+	
 	/**
 	 * Builds a html display string based on the list of campaign urls.
 	 * 

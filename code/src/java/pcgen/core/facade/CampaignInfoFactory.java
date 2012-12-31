@@ -50,6 +50,13 @@ public interface CampaignInfoFactory
 	 * @param selectedCampaigns The previously selected campaigns to be checked against.
 	 * @return The information on the campaign.
 	 */
-	String getHTMLInfo(CampaignFacade campaign, List<CampaignFacade> selectedCampaigns);
+	public String getHTMLInfo(CampaignFacade campaign, List<CampaignFacade> selectedCampaigns);
+
+	/**
+	 * Produce a html formatted information string for the supplied source selection.
+	 * @param selection The source selection, referring to one or more campaigns.
+	 * @return The information on the campaign(s).
+	 */
+	public String getHTMLInfo(SourceSelectionFacade selection);
 
 }

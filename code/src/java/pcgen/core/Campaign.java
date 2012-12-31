@@ -79,6 +79,29 @@ public class Campaign extends PObject implements CampaignFacade
 		return ret;
 	}
 
+	/**
+	 * Returns a list of the CampaignSourceEntry objects that were referenced 
+	 * by this Campaign but that could nto be found.
+	 * 
+	 * @return A list of <tt>CampaignSourceEntry</tt> objects that could not be found.
+	 */
+	public List<CampaignSourceEntry> getNotFoundSubCampaigns()
+	{
+		final List<CampaignSourceEntry> pccFiles = getSafeListFor(ListKey.FILE_PCC);
+
+		final List<CampaignSourceEntry> ret = new ArrayList<CampaignSourceEntry>();
+		
+		for ( final CampaignSourceEntry cse : pccFiles )
+		{
+			final Campaign campaign = Globals.getCampaignByURI(cse.getURI(), true);
+			if (campaign == null)
+			{
+				ret.add(cse);
+			}
+		}
+		return ret;
+	}
+
 	private ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();
 	private GameReferenceContext gameRefContext = new GameReferenceContext();
 	private LoadContext context = new RuntimeLoadContext(gameRefContext, masterLCS);

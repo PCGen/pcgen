@@ -47,6 +47,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -69,6 +70,8 @@ import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.dialog.DataInstaller;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
+import pcgen.gui2.tools.FlippingSplitPane;
+import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FacadeListModel;
 import pcgen.gui2.util.JTableEx;
@@ -185,8 +188,7 @@ public class SourceSelectionDialog extends JDialog
 		SourceSelectionFacade selection = basicPanel.getSourceSelection();
 		if (selection != null && useBasic)
 		{
-			deleteButton.setEnabled(selection.isModifiable());
-			advancedPanel.setSourceSelection(selection);
+			basicPanel.makeSourceSelected(selection);
 		}
 		else
 		{
@@ -495,10 +497,12 @@ public class SourceSelectionDialog extends JDialog
 
 		private static final String DEFAULT_SOURCE = "Pathfinder RPG for Players"; //$NON-NLS-1$
 		private JList sourceList;
+		private InfoPane infoPane;
 
 		public QuickSourceSelectionPanel()
 		{
 			sourceList = new JList();
+			infoPane = new InfoPane(LanguageBundle.getString("in_src_info")); //$NON-NLS-1$
 			initComponents();
 			initDefaults();
 		}
@@ -535,9 +539,12 @@ public class SourceSelectionDialog extends JDialog
 				}
 
 			});
-			//sourceList.setLayoutOrientation(JList.VERTICAL_WRAP);
-			//sourceList.setVisibleRowCount(2);
-			add(new JScrollPane(sourceList), BorderLayout.CENTER);
+			FlippingSplitPane mainPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, "quickSrcMain");
+			mainPane.setTopComponent(new JScrollPane(sourceList));
+			infoPane.setPreferredSize(new Dimension(800, 150));
+			mainPane.setBottomComponent(infoPane);
+			setLayout(new BorderLayout());
+			add(mainPane, BorderLayout.CENTER);
 		}
 
 		private void initDefaults()
@@ -589,13 +596,29 @@ public class SourceSelectionDialog extends JDialog
 			if (selection != null)
 			{
 				context.setProperty(PROP_SELECTED_SOURCE, selection.toString());
-				advancedPanel.setSourceSelection(selection);
-				deleteButton.setEnabled(selection.isModifiable());
+				makeSourceSelected(selection);
 			}
 			else
 			{
 				deleteButton.setEnabled(false);
 			}
+		}
+
+		/**
+		 * Take the necessary action to show the source the currently selected 
+		 * source. This assumes that the source list has already been updated, 
+		 * either as a default setting, or from a user action. It does not set
+		 * the source to be remembered as the last selection as that may 
+		 * interfere with startup defaults, so the caller must do that if 
+		 * responding to a user action. 
+		 * @param selection The sources selected.
+		 */
+		public void makeSourceSelected(SourceSelectionFacade selection)
+		{
+			advancedPanel.setSourceSelection(selection);
+			deleteButton.setEnabled(selection.isModifiable());
+			infoPane.setText(FacadeFactory.getCampaignInfoFactory()
+				.getHTMLInfo(selection));
 		}
 
 		private class SourceListCellRenderer extends DefaultListCellRenderer
