@@ -1,0 +1,38 @@
+
+###Block: Set up Tiefling default abilities
+# Ability Name							Category of Ability	Ability																							Bonus to Ability Pool
+CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Tiefling Racial Trait Default|PRERACE:1,Tiefling
+
+
+Tiefling Racial Trait Default					CATEGORY:Internal		
+
+CATEGORY=Internal|Tiefling Racial Trait Default.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Darkvision ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingDarkvision
+CATEGORY=Internal|Tiefling Racial Trait Default.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Skilled ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
+CATEGORY=Internal|Tiefling Racial Trait Default.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Spell-Like Ability ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
+CATEGORY=Internal|Tiefling Racial Trait Default.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Fiendish Resistance ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishResistance
+CATEGORY=Internal|Tiefling Racial Trait Default.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Fiendish Sorcery ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishSorcery
+CATEGORY=Internal|Tiefling Racial Trait Default.MOD					ABILITY:Tiefling Racial Trait|AUTOMATIC|Fiendish Language ~ Tiefling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishLanguage
+
+###Block: Default Tiefling Abilities (POOL=6)
+# Ability Name											Unique Key					Category of Ability		Type															Multiple Requirements																							Define															Innate Spells									Description																							Ability																Bonus to Ability Pool				Bonus to skill					Source Page		Auto
+Darkvision												KEY:Darkvision ~ Tiefling		CATEGORY:Special Ability	TYPE:TieflingRacialTrait.TieflingRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Darkvision ~ Tiefling],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingDarkvision]																																																																																						SOURCEPAGE:p.169
+Skilled												KEY:Skilled ~ Tiefling			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.TieflingRacialTrait.TieflingRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Skilled ~ Tiefling],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled]																																DESC:Tieflings have a +2 racial bonus on Bluff and Stealth checks.																																					BONUS:SKILL|Bluff,Stealth|2|TYPE=Racial	SOURCEPAGE:p.169
+Spell-Like Ability										KEY:Spell-Like Ability ~ Tiefling	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SpellLike.TieflingRacialTrait.TieflingRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Spell-Like Ability ~ Tiefling],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA]				DEFINE:TieflingDarknessTimes|1											SPELLS:Innate|TIMES=TieflingDarknessTimes|CASTERLEVEL=TL|Darkness	DESC:Tieflings can use darkness %1/day as a spell-like ability.|TieflingDarknessTimes																																									SOURCEPAGE:p.169
+Fiendish Resistance										KEY:Fiendish Resistance ~ Tiefling	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.TieflingRacialTrait.TieflingRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Fiendish Resistance ~ Tiefling],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishResistance]	DEFINE:FireResistanceBonus|5	DEFINE:ColdResistanceBonus|5	DEFINE:ElectricityResistanceBonus|5												DESC:Tieflings have cold resistance 5, electricity resistance 5, and fire resistance 5.										ABILITY:Special Ability|AUTOMATIC|Resistance to Fire|Resistance to Cold|Resistance to Electricity															SOURCEPAGE:p.169
+# COMMENT: Tricky to implement.
+Fiendish Sorcery											KEY:Fiendish Sorcery ~ Tiefling	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.TieflingRacialTrait.TieflingRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Fiendish Sorcery ~ Tiefling],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishSorcery]																													DESC:Tiefling sorcerers with the Abyssal or Infernal bloodlines treat their Charisma score as 2 points higher for all sorcerer class abilities.																																SOURCEPAGE:p.169
+Fiendish Language											KEY:Fiendish Language ~ Tiefling	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.TieflingRacialTrait.TieflingRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Fiendish Language ~ Tiefling],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishLanguage]																													DESC:Tieflings speak either Abyssal or Infernal.																																	BONUS:ABILITYPOOL|Tiefling Language|1								SOURCEPAGE:p.169
+#Block: Language Choices for Tiefling
+Abyssal												KEY:Abyssal ~ Tiefling Language	CATEGORY:Special Ability	TYPE:TieflingLanguageTrait																																																																																																																										AUTO:LANG|Abyssal
+Infernal												KEY:Infernal ~ Tiefling Language	CATEGORY:Special Ability	TYPE:TieflingLanguageTrait																																																																																																																										AUTO:LANG|Infernal
+
+
+
+
+
+###Block: Tiefling abilities
+# Ability Name		Unique Key					Category of Ability		Type						Visible	Define															Description																									Ability																Bonus to skill					Source Page
+# Skilled			KEY:Skilled ~ Tiefling			CATEGORY:Special Ability	TYPE:TieflingRacialTrait.SpecialQuality.Extraordinary																			DESC:Tieflings have a +2 racial bonus on Bluff and Stealth checks.																																BONUS:SKILL|Bluff,Stealth|2|TYPE=Racial	SOURCEPAGE:p.25
+# Fiendish Resistance	KEY:Fiendish Resistance ~ Tiefling	CATEGORY:Special Ability	TYPE:TieflingRacialTrait.SpecialQuality.Extraordinary		DEFINE:ColdResistanceBonus|5	DEFINE:ElectricityResistanceBonus|5	DEFINE:FireResistanceBonus|5																											ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|Resistance to Electricity|Resistance to Fire								SOURCEPAGE:p.25
+# Fiendish Sorcery		KEY:Fiendish Sorcery ~ Tiefling	CATEGORY:Special Ability	TYPE:TieflingRacialTrait.SpecialQuality.Extraordinary																			DESC:Tiefling sorcerers with the Abyssal or Infernal bloodline treat their Charisma score as 2 points higher for all sorcerer class abilities.	DESC:p.25
+
