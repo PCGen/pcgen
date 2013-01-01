@@ -15,21 +15,21 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package resultactor;
+package selectionactor;
 
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.Domain;
 import pcgen.core.Skill;
-import plugin.lsttokens.CskillLst;
-import resultactor.testsupport.AbstractResultActorTest;
+import plugin.lsttokens.CcskillLst;
+import selectionactor.testsupport.AbstractSelectionActorTest;
 
-public class CskillLstTest extends AbstractResultActorTest<Skill>
+public class CcskillLstTest extends AbstractSelectionActorTest<Skill>
 {
 
-	static CskillLst cra = new CskillLst();
+	static CcskillLst cra = new CcskillLst();
 
 	@Test
 	public void testEmpty()
@@ -38,7 +38,7 @@ public class CskillLstTest extends AbstractResultActorTest<Skill>
 	}
 
 	@Override
-	public ChooseResultActor getActor()
+	public ChooseSelectionActor<Skill> getActor()
 	{
 		return cra;
 	}
@@ -54,7 +54,7 @@ public class CskillLstTest extends AbstractResultActorTest<Skill>
 	{
 		return false;
 	}
-	
+
 	@Override
 	public CDOMObject getOwner()
 	{

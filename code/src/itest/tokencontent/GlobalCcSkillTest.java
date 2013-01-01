@@ -1,0 +1,118 @@
+/*
+ * Copyright (c) 2012 Tom Parker <thpr@users.sourceforge.net>
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package tokencontent;
+
+import org.junit.Test;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.content.Selection;
+import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.analysis.GlobalSkillCostFacet;
+import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
+import pcgen.core.PCTemplate;
+import pcgen.core.Skill;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.persistence.token.CDOMToken;
+import pcgen.rules.persistence.token.ParseResult;
+import plugin.lsttokens.CcskillLst;
+import plugin.lsttokens.choose.SkillToken;
+import tokencontent.testsupport.AbstractContentTokenTest;
+
+public class GlobalCcSkillTest extends AbstractContentTokenTest
+{
+
+	private static CcskillLst token = new CcskillLst();
+	private static SkillToken CHOOSE_SKILL_TOKEN = new SkillToken();
+	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet;
+	private GlobalSkillCostFacet globalSkillCostFacet;
+	private Skill granted;
+
+	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		globalSkillCostFacet =
+				FacetLibrary.getFacet(GlobalSkillCostFacet.class);
+		globalAddedSkillCostFacet =
+				FacetLibrary.getFacet(GlobalAddedSkillCostFacet.class);
+		granted = create(Skill.class, "Granted");
+	}
+
+	@Override
+	public void processToken(CDOMObject source)
+	{
+		ParseResult result = token.parseToken(context, source, "Granted");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		finishLoad();
+	}
+
+	@Test
+	public void testList() throws PersistenceLayerException
+	{
+		PCTemplate source = create(PCTemplate.class, "Source");
+		ParseResult result = token.parseToken(context, source, "LIST");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		result = CHOOSE_SKILL_TOKEN.parseToken(context, source, "Granted");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		finishLoad();
+		assertFalse(globalAddedSkillCostFacet.contains(id, granted, SkillCost.CROSS_CLASS));
+		Selection<PCTemplate, ?> sel = new Selection<PCTemplate, Skill>(source, granted);
+		templateFacet.add(id, sel, this);
+		assertTrue(globalAddedSkillCostFacet.contains(id, granted, SkillCost.CROSS_CLASS));
+		templateFacet.remove(id, sel, this);
+		assertFalse(globalAddedSkillCostFacet.contains(id, granted, SkillCost.CROSS_CLASS));
+	}
+
+	@Override
+	public CDOMToken<?> getToken()
+	{
+		return token;
+	}
+
+	@Override
+	protected boolean containsExpected()
+	{
+		return globalSkillCostFacet.contains(id, SkillCost.CROSS_CLASS, granted);
+	}
+
+	@Override
+	protected int targetFacetCount()
+	{
+		return globalSkillCostFacet.contains(id, SkillCost.CROSS_CLASS, granted) ? 1
+			: 0;
+	}
+
+	@Override
+	protected int baseCount()
+	{
+		return 0;
+	}
+}
