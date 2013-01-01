@@ -15,16 +15,16 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package resultactor.race;
+package selectionactor.race;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.Skill;
 import plugin.lsttokens.race.MoncskillToken;
-import resultactor.testsupport.AbstractResultActorTest;
+import selectionactor.testsupport.AbstractSelectionActorTest;
 
-public class MoncskillTokenTest extends AbstractResultActorTest<Skill>
+public class MoncskillTokenTest extends AbstractSelectionActorTest<Skill>
 {
 
 	static MoncskillToken cra = new MoncskillToken();
@@ -36,7 +36,7 @@ public class MoncskillTokenTest extends AbstractResultActorTest<Skill>
 	}
 
 	@Override
-	public ChooseResultActor getActor()
+	public ChooseSelectionActor<Skill> getActor()
 	{
 		return cra;
 	}

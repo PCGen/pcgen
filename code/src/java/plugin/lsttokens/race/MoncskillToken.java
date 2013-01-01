@@ -27,7 +27,7 @@ import pcgen.base.util.MapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -36,7 +36,6 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.PatternMatchingReference;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.Skill;
@@ -53,7 +52,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * Class deals with MONCSKILL Token
  */
 public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
-		CDOMPrimaryToken<Race>, ChooseResultActor
+		CDOMPrimaryToken<Race>, ChooseSelectionActor<Skill>
 {
 
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
@@ -109,7 +108,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 					if (Constants.LST_LIST.equals(clearText))
 					{
 						context.getObjectContext().removeFromList(race,
-								ListKey.CHOOSE_ACTOR, this);
+								ListKey.NEW_CHOOSE_ACTOR, this);
 					}
 					else
 					{
@@ -150,7 +149,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 					if (Constants.LST_LIST.equals(tokText))
 					{
 						context.getObjectContext().addToList(race,
-								ListKey.CHOOSE_ACTOR, this);
+								ListKey.NEW_CHOOSE_ACTOR, this);
 					}
 					else
 					{
@@ -205,8 +204,8 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 		AssociatedChanges<CDOMReference<Skill>> changes = context
 				.getListContext().getChangesInList(getTokenName(), race,
 						monsterList);
-		Changes<ChooseResultActor> listChanges = context.getObjectContext()
-				.getListChanges(race, ListKey.CHOOSE_ACTOR);
+		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
+				.getListChanges(race, ListKey.NEW_CHOOSE_ACTOR);
 		List<String> list = new ArrayList<String>();
 		Collection<CDOMReference<Skill>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
@@ -222,7 +221,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 					+ ReferenceUtilities
 							.joinLstFormat(removedItems, "|.CLEAR."));
 		}
-		Collection<ChooseResultActor> listRemoved = listChanges.getRemoved();
+		Collection<ChooseSelectionActor<?>> listRemoved = listChanges.getRemoved();
 		if (listRemoved != null && !listRemoved.isEmpty())
 		{
 			if (listRemoved.contains(this))
@@ -254,16 +253,16 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 			}
 			list.add(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
 		}
-		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
 		if (listAdded != null && !listAdded.isEmpty())
 		{
-			for (ChooseResultActor cra : listAdded)
+			for (ChooseSelectionActor<?> csa : listAdded)
 			{
-				if (cra.getSource().equals(getTokenName()))
+				if (csa.getSource().equals(getTokenName()))
 				{
 					try
 					{
-						list.add(cra.getLstFormat());
+						list.add(csa.getLstFormat());
 					}
 					catch (PersistenceLayerException e)
 					{
@@ -289,25 +288,15 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 	}
 
 	@Override
-	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
+	public void applyChoice(CDOMObject obj, Skill skill, PlayerCharacter pc)
 	{
-		Skill skill = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(SKILL_CLASS, o);
-		if (skill != null)
-		{
-			pc.addMonCSkill(skill, obj);
-		}
+		pc.addMonCSkill(skill, obj);
 	}
 
 	@Override
-	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
+	public void removeChoice(CDOMObject obj, Skill skill, PlayerCharacter pc)
 	{
-		Skill skill = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(SKILL_CLASS, o);
-		if (skill != null)
-		{
-			pc.removeMonCSkill(skill, obj);
-		}
+		pc.removeMonCSkill(skill, obj);
 	}
 
 	@Override
@@ -320,5 +309,11 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 	public String getLstFormat()
 	{
 		return "LIST";
+	}
+
+	@Override
+	public Class<Skill> getChoiceClass()
+	{
+		return SKILL_CLASS;
 	}
 }
