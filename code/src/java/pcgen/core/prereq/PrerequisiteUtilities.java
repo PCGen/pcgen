@@ -103,19 +103,17 @@ public final class PrerequisiteUtilities
 
 			final String bString = PrereqHandler.toHtmlString(newList);
 
-			final boolean flag;
-
-
+			final boolean passes;
 			if (aObj instanceof Equipment)
 			{
-				flag = PrereqHandler.passesAll(newList, (Equipment) aObj, aPC);
+				passes = PrereqHandler.passesAll(newList, (Equipment) aObj, aPC);
 			}
 			else
 			{
-				flag = PrereqHandler.passesAll(newList, aPC, null);
+				passes = PrereqHandler.passesAll(newList, aPC, null);
 			}
 
-			if (!flag)
+			if (!passes)
 			{
 				pString.append(SettingsHandler.getPrereqFailColorAsHtmlStart());
 				pString.append("<i>");
@@ -145,7 +143,7 @@ public final class PrerequisiteUtilities
 				}
 			}
 
-			if (!flag)
+			if (!passes)
 			{
 				pString.append("</i>");
 				pString.append(SettingsHandler.getPrereqFailColorAsHtmlEnd());
@@ -169,7 +167,8 @@ public final class PrerequisiteUtilities
 			}
 		}
 
-		return pString.toString();
+		String result = pString.toString().replaceAll("##BR##", "<br>");
+		return result;
 	}
 
 	/**

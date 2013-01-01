@@ -26,6 +26,8 @@
  */
 package pcgen.core.prereq;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
@@ -110,11 +112,43 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 			}
 			else {
 				str.append(delimiter);
+				if (test instanceof PreMult && !delimiter.equals(""))
+				{
+					str.append("##BR##");
+				}
 				str.append(test.toHtmlString(element));
 				delimiter = LanguageBundle.getString("PreMult.html_delimiter"); //$NON-NLS-1$
 			}
 		}
 
+		// Handle some special cases - all required, one required or none required
+		int numRequired = -1;
+		if (StringUtils.isNumeric(prereq.getOperand()))
+		{
+			numRequired = Integer.parseInt(prereq.getOperand());
+		}
+		if ((prereq.getOperator() == PrerequisiteOperator.GTEQ
+			|| prereq.getOperator() == PrerequisiteOperator.GT || prereq
+			.getOperator() == PrerequisiteOperator.EQ)
+			&& numRequired == prereq.getPrerequisites().size())
+		{
+			return LanguageBundle.getFormattedString("PreMult.toHtmlAllOf", //$NON-NLS-1$
+				str.toString());
+		}
+		if ((prereq.getOperator() == PrerequisiteOperator.GTEQ || prereq
+				.getOperator() == PrerequisiteOperator.EQ) && numRequired == 1)
+		{
+			return LanguageBundle.getFormattedString("PreMult.toHtmlEither", //$NON-NLS-1$
+				str.toString());
+		}
+		if ((prereq.getOperator() == PrerequisiteOperator.LT && numRequired == 1)
+			|| ((prereq.getOperator() == PrerequisiteOperator.EQ || prereq
+				.getOperator() == PrerequisiteOperator.LTEQ) && numRequired == 0))
+		{
+			return LanguageBundle.getFormattedString("PreMult.toHtmlNone", //$NON-NLS-1$
+				str.toString());
+		}
+		
 		return LanguageBundle.getFormattedString("PreMult.toHtml",  //$NON-NLS-1$
 				new Object[] {prereq.getOperator().toDisplayString(),
 						prereq.getOperand(),
