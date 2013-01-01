@@ -20,6 +20,7 @@ package tokenmodel.testsupport;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.content.Selection;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
@@ -201,7 +202,7 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		T granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());
-		raceFacet.set(id, source);
+		raceFacet.set(id, getSelectionObject(source));
 		assertTrue(containsExpected(granted));
 		assertEquals(1, getCount());
 		raceFacet.remove(id);
@@ -236,10 +237,11 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		T granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());
-		templateFacet.add(id, source, this);
+		Selection<PCTemplate, ?> sel = getSelectionObject(source);
+		templateFacet.add(id, sel, this);
 		assertTrue(containsExpected(granted));
-		assertEquals((templateFacet == getTargetFacet()) ? 2 : 1, getCount());
-		templateFacet.remove(id, source, this);
+		assertEquals((templateConsolidationFacet == getTargetFacet()) ? 2 : 1, getCount());
+		templateFacet.remove(id, sel, this);
 		assertEquals(0, getCount());
 	}
 

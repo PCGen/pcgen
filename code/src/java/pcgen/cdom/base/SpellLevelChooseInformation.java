@@ -312,4 +312,11 @@ public class SpellLevelChooseInformation implements
 		return StringUtil.joinToStringBuilder(pc.getExpandedAssociations(owner),
 			", ");
 	}
+
+	@Override
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+		SpellLevel item)
+	{
+		choiceActor.removeChoice(pc, owner, item);
+	}
 }

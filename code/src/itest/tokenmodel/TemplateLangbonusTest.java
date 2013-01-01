@@ -19,6 +19,7 @@ package tokenmodel;
 
 import org.junit.Test;
 
+import pcgen.cdom.content.Selection;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.StartingLanguageFacet;
 import pcgen.core.Language;
@@ -49,10 +50,11 @@ public class TemplateLangbonusTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(0, startingLanguageFacet.getCount(id));
-		templateFacet.add(id, source, this);
+		Selection<PCTemplate, ?> sel = getSelectionObject(source);
+		templateFacet.add(id, sel, this);
 		assertTrue(startingLanguageFacet.contains(id, granted));
 		assertEquals(1, startingLanguageFacet.getCount(id));
-		templateFacet.remove(id, source, this);
+		templateFacet.remove(id, sel, this);
 		assertEquals(0, startingLanguageFacet.getCount(id));
 	}
 

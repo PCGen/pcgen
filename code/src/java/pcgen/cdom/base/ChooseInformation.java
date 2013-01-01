@@ -51,6 +51,8 @@ public interface ChooseInformation<T> extends PersistentChoice<T>
 	
 	void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item);
 
+	void removeChoice(PlayerCharacter pc, CDOMObject owner, T item);
+
 	ChoiceManagerList<T> getChoiceManager(CDOMObject owner, int cost);
 
 	CharSequence getDisplay(PlayerCharacter pc, CDOMObject owner);

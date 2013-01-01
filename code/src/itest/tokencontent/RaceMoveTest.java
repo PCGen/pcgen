@@ -48,7 +48,7 @@ public class RaceMoveTest extends AbstractTokenModelTest
 		Race source = create(Race.class, "Source");
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
-		raceFacet.set(id, source);
+		raceFacet.set(id, getSelectionObject(source));
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
 		raceFacet.remove(id);

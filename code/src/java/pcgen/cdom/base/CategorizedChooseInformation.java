@@ -319,4 +319,10 @@ public class CategorizedChooseInformation<T extends Loadable & CategorizedCDOMOb
 		return StringUtil.joinToStringBuilder(pc.getExpandedAssociations(owner),
 				", ");
 	}
+
+	@Override
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T item)
+	{
+		choiceActor.removeChoice(pc, owner, item);
+	}
 }

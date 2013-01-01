@@ -35,6 +35,7 @@ import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
@@ -395,31 +396,31 @@ public class NPCGenerator
 	
 	private void selectDomains( final PlayerCharacter aPC, final PCClass aClass )
 	{
+		final WeightedCollection<Domain> domains = theConfiguration.getDomainWeights(aPC.getDeity().getKeyName(), aClass.getKeyName());
+		for (Iterator<Domain> iterator = domains.iterator(); iterator.hasNext();)
+		{
+			Domain domain = iterator.next();
+			if (!domain.qualifies(aPC, domain))
+			{
+				iterator.remove();
+			}
+		}
+		if (domains.size() == 0)
+		{
+			return;
+		}
 		while (aPC.getDomainCount() < aPC.getMaxCharacterDomains())
 		{
-			final WeightedCollection<Domain> domains = theConfiguration.getDomainWeights(aPC.getDeity().getKeyName(), aClass.getKeyName());
-			for (Iterator<Domain> iterator = domains.iterator(); iterator.hasNext();)
-			{
-				Domain domain = iterator.next();
-				if (!domain.qualifies(aPC, domain))
-				{
-					iterator.remove();
-				}
-			}
-			if (domains.size() == 0)
-			{
-				return;
-			}
 			final Domain domain = domains.getRandomValue();
 
-			// TODO - This seems kind of silly.  How would this ever happen?
+			//Can't add twice, so have to select another...
 			if (aPC.hasDomain(domain))
 			{
-				aPC.removeDomain(domain);
+				continue;
 			}
 			
 			// space remains for another domain, so add it
-			aPC.addDomain(domain);
+			aPC.addDomain(domain, new ClassSource(aClass));
 			DomainApplication.applyDomain(aPC, domain);
 			aPC.calcActiveBonuses();
 		}

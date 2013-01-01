@@ -87,7 +87,6 @@ public class FacetInitialization {
 		UserEquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
 		NaturalWeaponFacet naturalWeaponFacet = FacetLibrary.getFacet(NaturalWeaponFacet.class);
 		EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);
-		ChooseDriverFacet chooseDriverFacet = FacetLibrary.getFacet(ChooseDriverFacet.class);
 
 		CDOMObjectConsolidationFacet cdomObjectFacet = FacetLibrary.getFacet(CDOMObjectConsolidationFacet.class);
 		CDOMObjectSourceFacet cdomSourceFacet = FacetLibrary.getFacet(CDOMObjectSourceFacet.class);
@@ -96,6 +95,7 @@ public class FacetInitialization {
 		GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
 		DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
 		ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary.getFacet(ConditionallyGrantedAbilityFacet.class);
+		OldChooseCleanupFacet occFacet = FacetLibrary.getFacet(OldChooseCleanupFacet.class);
 
 		equipmentFacet.addDataFacetChangeListener(naturalEquipmentFacet);
 		equippedFacet.addDataFacetChangeListener(activeEquipmentFacet);
@@ -103,10 +103,6 @@ public class FacetInitialization {
 		activeEquipmentFacet.addDataFacetChangeListener(activeEqModFacet);
 
 		nwpFacet.addDataFacetChangeListener(weaponProfFacet);
-
-		domainFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
-		raceFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
-		templateFacet.addDataFacetChangeListener(-1000, chooseDriverFacet);
 
 		charObjectFacet.addDataFacetChangeListener(naturalWeaponFacet);
 		naturalWeaponFacet.addDataFacetChangeListener(equipmentFacet);
@@ -119,6 +115,10 @@ public class FacetInitialization {
 
 		directAbilityFacet.addDataFacetChangeListener(grantedAbilityFacet);
 		cabFacet.addDataFacetChangeListener(grantedAbilityFacet);
+
+		raceFacet.addDataFacetChangeListener(occFacet);
+		domainFacet.addDataFacetChangeListener(occFacet);
+		templateFacet.addDataFacetChangeListener(occFacet);
 
 		raceFacet.addDataFacetChangeListener(bioSetTrackingFacet);
 
@@ -177,6 +177,7 @@ public class FacetInitialization {
 		FacetLibrary.getFacet(DomainSpellsFacet.class);
 		FacetLibrary.getFacet(ObjectAdditionFacet.class);
 		FacetLibrary.getFacet(AddLevelFacet.class);
+		FacetLibrary.getFacet(ChooseDriverFacet.class);
 		FacetLibrary.getFacet(AvailableSpellInputFacet.class);
 		FacetLibrary.getFacet(KnownSpellInputFacet.class);
 		//This one is a just in case

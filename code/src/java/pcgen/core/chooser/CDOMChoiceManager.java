@@ -292,4 +292,22 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 				.append(owner.getDisplayName()).append(')').toString();
 	}
 
+	@Override
+	public void removeChoice(PlayerCharacter pc, CDOMObject obj, T selection)
+	{
+		info.removeChoice(pc, obj, selection);
+	}
+
+	@Override
+	public T decodeChoice(String choice)
+	{
+		return info.decodeChoice(Globals.getContext(), choice);
+	}
+
+	@Override
+	public void applyChoice(PlayerCharacter pc, CDOMObject cdo, T selection)
+	{
+		info.getChoiceActor().applyChoice(cdo, selection, pc);
+	}
+
 }

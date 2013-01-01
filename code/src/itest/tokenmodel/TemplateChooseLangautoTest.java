@@ -19,6 +19,7 @@ package tokenmodel;
 
 import org.junit.Test;
 
+import pcgen.cdom.content.Selection;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
@@ -45,10 +46,11 @@ public class TemplateChooseLangautoTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(0, languageFacet.getCount(id));
-		templateFacet.add(id, source, this);
+		Selection<PCTemplate, ?> templ = getSelectionObject(source);
+		templateFacet.add(id, templ, this);
 		assertTrue(languageFacet.contains(id, granted));
 		assertEquals(1, languageFacet.getCount(id));
-		templateFacet.remove(id, source, this);
+		templateFacet.remove(id, templ, this);
 		assertEquals(0, languageFacet.getCount(id));
 	}
 

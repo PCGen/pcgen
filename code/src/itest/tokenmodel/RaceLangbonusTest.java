@@ -49,7 +49,7 @@ public class RaceLangbonusTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(0, startingLanguageFacet.getCount(id));
-		raceFacet.set(id, source);
+		raceFacet.set(id, getSelectionObject(source));
 		assertTrue(startingLanguageFacet.contains(id, granted));
 		assertEquals(1, startingLanguageFacet.getCount(id));
 		raceFacet.remove(id);

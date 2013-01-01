@@ -19,6 +19,7 @@ package tokenmodel;
 
 import org.junit.Test;
 
+import pcgen.cdom.content.Selection;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
@@ -45,10 +46,11 @@ public class TemplateAddLevelTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(0, classFacet.getCount(id));
-		templateFacet.add(id, source, this);
+		Selection<PCTemplate, ?> sel = getSelectionObject(source);
+		templateFacet.add(id, sel, this);
 		assertEquals(1, classFacet.getCount(id));
 		assertNotNull(pc.getClassKeyed("Granted"));
-		templateFacet.remove(id, source, this);
+		templateFacet.remove(id, sel, this);
 		assertEquals(0, classFacet.getCount(id));
 	}
 

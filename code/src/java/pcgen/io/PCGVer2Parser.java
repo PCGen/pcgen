@@ -53,7 +53,6 @@ import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
-import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.ListKey;
@@ -62,8 +61,10 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.facet.ChooseDriverFacet;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.input.DomainInputFacet;
+import pcgen.cdom.facet.input.RaceInputFacet;
+import pcgen.cdom.facet.input.TemplateInputFacet;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.EquipmentHead;
@@ -157,8 +158,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private static final String TAG_PCTEMPLATE = "PCTEMPLATE";
 
-	private ChooseDriverFacet chooseDriverFacet = FacetLibrary
-		.getFacet(ChooseDriverFacet.class);
+	private RaceInputFacet raceInputFacet = FacetLibrary
+			.getFacet(RaceInputFacet.class);
+	private DomainInputFacet domainInputFacet = FacetLibrary
+			.getFacet(DomainInputFacet.class);
+	private TemplateInputFacet templateInputFacet = FacetLibrary
+			.getFacet(TemplateInputFacet.class);
 
 	/**
 	 * DO NOT CHANGE line separator.
@@ -417,9 +422,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		return thePC.getTempBonusMap(sourceStr, targetStr);
 	}
 
-	private void addKeyedTemplate(PCTemplate template)
+	private void addKeyedTemplate(PCTemplate template, String choice)
 	{
 		final int preXP = thePC.getXP();
+		templateInputFacet.importSelection(thePC.getCharID(), template, choice);
 		thePC.addTemplate(template);
 
 		//
@@ -2428,6 +2434,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				// one and add it to the PC domain list
 				ClassSource source = null;
 
+				String fullassoc = null;
 				while (it.hasNext())
 				{
 					element = it.next();
@@ -2440,11 +2447,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					}
 					else if (TAG_ASSOCIATEDDATA.equals(tag))
 					{
-						String fullassoc =
-								EntityEncoder.decode(element.getText());
-						CharID id = thePC.getCharID();
-						chooseDriverFacet
-							.addAssociation(id, aDomain, fullassoc);
+						if (fullassoc != null)
+						{
+							warnings.add("Found multiple selections for Domain: "
+								+ aDomain.getKeyName());
+						}
+						fullassoc = EntityEncoder.decode(element.getText());
 					}
 				}
 				if (source == null)
@@ -2454,7 +2462,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				}
 				else
 				{
-					thePC.addDomain(aDomain, source);
+					domainInputFacet.importSelection(thePC.getCharID(), aDomain, fullassoc, source);
 					DomainApplication.applyDomain(thePC, aDomain);
 				}
 			}
@@ -3832,13 +3840,18 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						race_name);
 			throw new PCGParseException("parseRaceLine", line, msg); //$NON-NLS-1$
 		}
-		if (sTok.hasMoreTokens())
+		String selection = null;
+		while (sTok.hasMoreTokens())
 		{
 			final String aString = sTok.nextToken();
 			if (aString.startsWith(TAG_APPLIEDTO))
 			{
-				chooseDriverFacet.addAssociation(thePC.getCharID(), aRace,
-					aString.substring(TAG_APPLIEDTO.length() + 1));
+				if (selection != null)
+				{
+					warnings.add("Found multiple selections for Race: "
+						+ aRace.getKeyName());
+				}
+				selection = aString.substring(TAG_APPLIEDTO.length() + 1);
 			}
 			else if (!aString.startsWith(TAG_ADDTOKEN))
 			{
@@ -3849,7 +3862,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				warnings.add(msg);
 			}
 		}
-		thePC.setRace(aRace);
+		raceInputFacet.importSelection(thePC.getCharID(), aRace, selection);
+		thePC.setDirty(true);
 
 		//Must process ADD after RACE is added to the PC
 		for (PCGElement e : new PCGTokenizer(line).getElements())
@@ -4752,6 +4766,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				final PCGElement element = it.next();
 
+				String assoc = null;
 				//Must deal with APPLIEDTO first (before item is added to the PC)
 				for (final PCGElement child : element.getChildren())
 				{
@@ -4771,8 +4786,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					}
 					else if (TAG_APPLIEDTO.equals(childTag))
 					{
-						chooseDriverFacet.addAssociation(thePC.getCharID(),
-							aPCTemplate, child.getText());
+						assoc = child.getText();
 					}
 				}
 
@@ -4786,7 +4800,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						{
 							break;
 						}
-						addKeyedTemplate(aPCTemplate);
+						addKeyedTemplate(aPCTemplate, assoc);
 					}
 					else if (TAG_CHOSENFEAT.equals(childTag))
 					{
@@ -4858,7 +4872,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			PCTemplate aPCTemplate =
 					Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 						PCTemplate.class, key);
-			addKeyedTemplate(aPCTemplate);
+			addKeyedTemplate(aPCTemplate, null);
 		}
 	}
 

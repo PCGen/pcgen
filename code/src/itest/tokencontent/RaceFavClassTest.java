@@ -21,6 +21,7 @@ import org.junit.Test;
 
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.FavoredClassFacet;
+import pcgen.cdom.facet.input.RaceInputFacet;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.gui2.facade.MockUIDelegate;
@@ -38,6 +39,8 @@ public class RaceFavClassTest extends AbstractTokenModelTest
 
 	private static FavclassToken token = new FavclassToken();
 	private static ClassToken CHOOSE_CLASS_TOKEN = new ClassToken();
+	protected RaceInputFacet raceInputFacet = FacetLibrary
+			.getFacet(RaceInputFacet.class);
 
 	private FavoredClassFacet fcFacet;
 
@@ -63,7 +66,7 @@ public class RaceFavClassTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(baseCount(), targetFacetCount());
-		raceFacet.set(id, source);
+		raceFacet.set(id, getSelectionObject(source));
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
 		raceFacet.remove(id);
@@ -88,10 +91,10 @@ public class RaceFavClassTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(baseCount(), targetFacetCount());
-		raceFacet.set(id, source);
+		raceInputFacet.set(id, source);
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
-		raceFacet.remove(id);
+		raceInputFacet.remove(id);
 		assertEquals(baseCount(), targetFacetCount());
 	}
 

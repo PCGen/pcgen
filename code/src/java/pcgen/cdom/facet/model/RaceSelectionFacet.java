@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2009.
+ * Copyright (c) Thomas Parker, 2012.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,38 +18,14 @@
 package pcgen.cdom.facet.model;
 
 import pcgen.cdom.content.Selection;
-import pcgen.cdom.facet.DataFacetChangeEvent;
-import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.core.Race;
 
 /**
- * RaceFacet is a Facet that tracks the Race of a Player Character.
+ * RaceSelectionFacet is a Facet that tracks the Race of a Player Character with
+ * the CHOOSE selection that was made
  */
-public class RaceFacet extends AbstractItemFacet<Race> implements
-		DataFacetChangeListener<Selection<Race, ?>>
+public class RaceSelectionFacet extends AbstractItemFacet<Selection<Race, ?>>
 {
-	private RaceSelectionFacet raceSelectionFacet;
 
-	public void setRaceSelectionFacet(RaceSelectionFacet raceSelectionFacet)
-	{
-		this.raceSelectionFacet = raceSelectionFacet;
-	}
-
-	public void init()
-	{
-		raceSelectionFacet.addDataFacetChangeListener(this);
-	}
-
-	@Override
-	public void dataAdded(DataFacetChangeEvent<Selection<Race, ?>> dfce)
-	{
-		set(dfce.getCharID(), dfce.getCDOMObject().getObject());
-	}
-
-	@Override
-	public void dataRemoved(DataFacetChangeEvent<Selection<Race, ?>> dfce)
-	{
-		remove(dfce.getCharID());
-	}
 }

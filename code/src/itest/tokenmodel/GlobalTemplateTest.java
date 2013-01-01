@@ -20,19 +20,35 @@ package tokenmodel;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.input.RaceInputFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.TemplateLst;
+import plugin.lsttokens.choose.TemplateToken;
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 
 public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 {
 
 	private static TemplateLst token = new TemplateLst();
+	protected RaceInputFacet raceInputFacet = FacetLibrary
+			.getFacet(RaceInputFacet.class);
+	private static TemplateToken CHOOSE_TEMPLATE_TOKEN = new TemplateToken();
+
+	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		ChooserFactory.setDelegate(new MockUIDelegate());
+	}
 
 	@Test
 	public void testChoose() throws PersistenceLayerException
@@ -46,12 +62,39 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 			fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, templateFacet.getCount(id));
-		raceFacet.set(id, source);
-		assertTrue(templateFacet.contains(id, granted));
-		assertEquals(1, templateFacet.getCount(id));
+		assertEquals(0, templateConsolidationFacet.getCount(id));
+		raceFacet.set(id, getSelectionObject(source));
+		assertTrue(templateConsolidationFacet.contains(id, granted));
+		assertEquals(1, templateConsolidationFacet.getCount(id));
 		raceFacet.remove(id);
-		assertEquals(0, templateFacet.getCount(id));
+		assertEquals(0, templateConsolidationFacet.getCount(id));
+	}
+
+	@Test
+	public void testList() throws PersistenceLayerException
+	{
+		Race source = create(Race.class, "Source");
+		PCTemplate granted = create(PCTemplate.class, "Granted");
+		ParseResult result = token.parseToken(context, source, "%LIST");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		result = CHOOSE_TEMPLATE_TOKEN.parseToken(context, source, "Granted");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		source.put(ObjectKey.MULTIPLE_ALLOWED, true);
+		finishLoad();
+		assertEquals(0, templateConsolidationFacet.getCount(id));
+		raceInputFacet.set(id, source);
+		assertTrue(templateConsolidationFacet.contains(id, granted));
+		assertEquals(1, templateConsolidationFacet.getCount(id));
+		raceInputFacet.remove(id);
+		assertEquals(0, templateConsolidationFacet.getCount(id));
 	}
 
 	@Override
@@ -75,7 +118,7 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 	@Override
 	protected TemplateFacet getTargetFacet()
 	{
-		return templateFacet;
+		return templateConsolidationFacet;
 	}
 
 	@Override

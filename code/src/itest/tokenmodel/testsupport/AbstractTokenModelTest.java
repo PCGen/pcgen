@@ -20,6 +20,9 @@ package tokenmodel.testsupport;
 import junit.framework.TestCase;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.base.Loadable;
+import pcgen.cdom.content.Selection;
+import pcgen.cdom.content.SourcedSelection;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -38,11 +41,12 @@ import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.LanguageFacet;
-import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.RaceSelectionFacet;
 import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.cdom.facet.model.TemplateSelectionFacet;
 import pcgen.cdom.facet.model.WeaponProfFacet;
 import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
@@ -83,7 +87,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		setUpContext();
 	}
 
-	protected <T extends CDOMObject> T create(Class<T> cl, String key)
+	protected <T extends Loadable> T create(Class<T> cl, String key)
 	{
 		return context.ref.constructCDOMObject(cl, key);
 	}
@@ -156,11 +160,12 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected DomainFacet domainFacet;
 	protected ExpandedCampaignFacet expandedCampaignFacet;
 	protected LanguageFacet languageFacet;
-	protected RaceFacet raceFacet;
+	protected RaceSelectionFacet raceFacet;
 	protected SizeFacet sizeFacet;
 	protected SkillFacet skillFacet;
 	protected StatFacet statFacet;
-	protected TemplateFacet templateFacet;
+	protected TemplateFacet templateConsolidationFacet;
+	protected TemplateSelectionFacet templateFacet;
 	protected WeaponProfFacet weaponProfFacet;
 
 	protected void setUpContext() throws PersistenceLayerException
@@ -192,11 +197,12 @@ public abstract class AbstractTokenModelTest extends TestCase
 		expandedCampaignFacet =
 				FacetLibrary.getFacet(ExpandedCampaignFacet.class);
 		languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
-		raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+		raceFacet = FacetLibrary.getFacet(RaceSelectionFacet.class);
 		sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
 		skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 		statFacet = FacetLibrary.getFacet(StatFacet.class);
-		templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
+		templateFacet = FacetLibrary.getFacet(TemplateSelectionFacet.class);
+		templateConsolidationFacet = FacetLibrary.getFacet(TemplateFacet.class);
 		weaponProfFacet = FacetLibrary.getFacet(WeaponProfFacet.class);
 
 		Globals.createEmptyRace();
@@ -310,4 +316,15 @@ public abstract class AbstractTokenModelTest extends TestCase
 	}
 	
 	public abstract CDOMToken<?> getToken();
+
+	protected <T extends CDOMObject> Selection<T, ?> getSelectionObject(T obj)
+	{
+		return new Selection<T, Object>(obj, null);
+	}
+
+	protected <T extends CDOMObject, ST> SourcedSelection<T, ?, ST> getSourcedSelectionObject(T obj, ST source)
+	{
+		return new SourcedSelection<T, Object, ST>(obj, null, source);
+	}
+
 }

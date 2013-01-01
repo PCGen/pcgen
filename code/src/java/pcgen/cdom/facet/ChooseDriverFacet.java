@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
+ *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
@@ -16,37 +17,34 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.ArrayList;
-
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
-import pcgen.core.Domain;
+import pcgen.cdom.content.Selection;
+import pcgen.cdom.facet.model.DomainSelectionFacet;
+import pcgen.cdom.facet.model.RaceSelectionFacet;
+import pcgen.cdom.facet.model.TemplateSelectionFacet;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 
 /**
- * ChooseDriverFacet is a Facet that drives the selection of a CHOOSE on a
+ * ChooseDriverFacet is a Facet that drives the application of a CHOOSE on a
  * CDOMObject.
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ChooseDriverFacet extends
-		AbstractSingleSourceListFacet<CDOMObject, String> implements
-		DataFacetChangeListener<CDOMObject>
+public class ChooseDriverFacet implements
+		DataFacetChangeListener<Selection<?, ?>>
 {
-	/*
-	 * Note this is a BIT of a hack in using the "source" to hold the
-	 * "associated data"
-	 * 
-	 * TODO This needs to use AbstractAssociationFacet
-	 */
 
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
+		.getFacet(PlayerCharacterTrackingFacet.class);
+
+	private RaceSelectionFacet raceSelectionFacet;
+
+	private DomainSelectionFacet domainSelectionFacet;
+
+	private TemplateSelectionFacet templateSelectionFacet;
 
 	/**
 	 * Triggered when one of the Facets to which ChooseDriverFacet listens fires
@@ -60,70 +58,21 @@ public class ChooseDriverFacet extends
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<Selection<?, ?>> dfce)
 	{
-		CharID id = dfce.getCharID();
-		PlayerCharacter pc = trackingFacet.getPC(id);
-		CDOMObject cdo = dfce.getCDOMObject();
-		if (pc.isImporting())
+		Selection<?, ?> sel = dfce.getCDOMObject();
+		CDOMObject obj = sel.getObject();
+		if (ChooseActivation.hasChooseToken(obj))
 		{
-			String fullassoc = getSource(id, cdo);
-			if (fullassoc != null)
-			{
-				processAssociations(pc, cdo, fullassoc);
-			}
-		}
-		else
-		{
-			if (ChooseActivation.hasChooseToken(cdo))
-			{
-				ChooserUtilities.modChoices(cdo, new ArrayList<Object>(),
-						new ArrayList<Object>(), true, pc, true, null);
-			}
+			PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
+			add(ChooserUtilities.getChoiceManager(obj, pc), pc, obj, sel);
 		}
 	}
 
-	private void processAssociations(PlayerCharacter pc, CDOMObject cdo,
-			String fullassoc)
+	private <T> void add(ChoiceManagerList<T> aMan, PlayerCharacter pc,
+		CDOMObject obj, Selection<?, T> sel)
 	{
-		if (cdo instanceof Domain)
-		{
-			processDomainAssocs(pc, cdo, fullassoc);
-		}
-		else
-		{
-			processAssocs(pc, cdo, fullassoc);
-		}
-	}
-
-	private void processAssocs(PlayerCharacter pc, CDOMObject cdo,
-			String fullassoc)
-	{
-		ChoiceManagerList<Object> controller = ChooserUtilities
-				.getConfiguredController(cdo, pc, null, new ArrayList<String>());
-		String[] assoc = fullassoc.split("\\|", -1);
-		for (String string : assoc)
-		{
-			controller.restoreChoice(pc, cdo, string);
-		}
-	}
-
-	private void processDomainAssocs(PlayerCharacter pc, CDOMObject cdo,
-			String fullassoc)
-	{
-		ChoiceManagerList<Object> controller = ChooserUtilities
-				.getConfiguredController(cdo, pc, null, new ArrayList<String>());
-		String[] assoc = fullassoc.split(Constants.COMMA, -1);
-		for (String string : assoc)
-		{
-			if (string.startsWith("FEAT?"))
-			{
-				int openloc = string.indexOf('(');
-				int closeloc = string.lastIndexOf(')');
-				string = string.substring(openloc + 1, closeloc);
-			}
-			controller.restoreChoice(pc, cdo, string);
-		}
+		aMan.applyChoice(pc, obj, sel.getSelection());
 	}
 
 	/**
@@ -138,33 +87,44 @@ public class ChooseDriverFacet extends
 	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
 	 */
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<Selection<?, ?>> dfce)
 	{
-		/*
-		 * TODO Consider whether this is the appropriate symmetric action to add
-		 * (remove associations)
-		 */
-		CharID id = dfce.getCharID();
-		PlayerCharacter pc = trackingFacet.getPC(id);
-		CDOMObject cdo = dfce.getCDOMObject();
-		pc.removeAllAssociations(cdo);
+		Selection<?, ?> sel = dfce.getCDOMObject();
+		CDOMObject obj = sel.getObject();
+		if (ChooseActivation.hasChooseToken(obj))
+		{
+			PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
+			remove(ChooserUtilities.getChoiceManager(obj, pc), pc, obj, sel);
+		}
 	}
 
-	/**
-	 * Directly adds an association (the result of a CHOOSE) - available for the
-	 * I/O system.
-	 * 
-	 * @param id
-	 *            The CharID identifying the Player Character to which the
-	 *            association should be added
-	 * @param cdo
-	 *            The CDOMObject for which the association should be added
-	 * @param fullassoc
-	 *            The association to be added to the CDOMObject for the Player
-	 *            Character identified by the given CharID
-	 */
-	public void addAssociation(CharID id, CDOMObject cdo, String fullassoc)
+	private <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
+		CDOMObject obj, Selection<?, T> sel)
 	{
-		add(id, cdo, fullassoc);
+		aMan.removeChoice(pc, obj, sel.getSelection());
+	}
+
+	public void setDomainSelectionFacet(
+		DomainSelectionFacet domainSelectionFacet)
+	{
+		this.domainSelectionFacet = domainSelectionFacet;
+	}
+
+	public void setRaceSelectionFacet(RaceSelectionFacet raceSelectionFacet)
+	{
+		this.raceSelectionFacet = raceSelectionFacet;
+	}
+
+	public void setTemplateSelectionFacet(
+		TemplateSelectionFacet templateSelectionFacet)
+	{
+		this.templateSelectionFacet = templateSelectionFacet;
+	}
+
+	public void init()
+	{
+		raceSelectionFacet.addDataFacetChangeListener(1000, this);
+		domainSelectionFacet.addDataFacetChangeListener(1000, this);
+		templateSelectionFacet.addDataFacetChangeListener(1000, this);
 	}
 }

@@ -2211,16 +2211,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			theCharacter.setDefaultDomainSource(new ClassSource(cls, highestLevelInfo.getClassLevel()));
 		}
 
-		domains.addElement(domainFI);
-		theCharacter.addDomain(domain);
-		DomainApplication.applyDomain(theCharacter, domain);
+		if (theCharacter.addDomain(domain))
+		{
+			domains.addElement(domainFI);
+			DomainApplication.applyDomain(theCharacter, domain);
 
-		theCharacter.calcActiveBonuses();
+			theCharacter.calcActiveBonuses();
 
-		remainingDomains.setReference(theCharacter.getMaxCharacterDomains() - charDisplay.getDomainCount());
-		updateDomainTodo();
-		spellSupportFacade.refreshAvailableKnownSpells();
-		companionSupportFacade.refreshCompanionData();
+			remainingDomains.setReference(theCharacter.getMaxCharacterDomains() - charDisplay.getDomainCount());
+			updateDomainTodo();
+			spellSupportFacade.refreshAvailableKnownSpells();
+			companionSupportFacade.refreshCompanionData();
+		}
 	}
 
 	/* (non-Javadoc)
@@ -3901,15 +3903,27 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			Logging.log(Logging.INFO, charDisplay.getName()
 				+ ": Adding template " + template); //$NON-NLS-1$
 			int oldLevel = charLevelsFacade.getSize();
-			templates.addElement(template);
-			theCharacter.addTemplate(template);
-			refreshRaceRelatedFields();
-
-			if (oldLevel != charLevelsFacade.getSize())
+			if (theCharacter.addTemplate(template))
 			{
-				delegate.showLevelUpInfo(this, oldLevel);
+				Logging.log(Logging.INFO, charDisplay.getName()
+					+ ": Successful add of template " + template); //$NON-NLS-1$
+				templates.addElement(template);
+				refreshRaceRelatedFields();
+
+				if (oldLevel != charLevelsFacade.getSize())
+				{
+					delegate.showLevelUpInfo(this, oldLevel);
+				}
 			}
-		} else
+			else
+			{
+				Logging.log(
+						Logging.INFO,
+						charDisplay.getName()
+							+ ": Nope: Add template " + template + " failed because no selection was made"); //$NON-NLS-1$
+			}
+		}
+		else
 		{
 			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle.getString("in_irHaveTemplate"));
 		}

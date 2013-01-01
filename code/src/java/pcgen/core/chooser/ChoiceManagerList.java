@@ -108,4 +108,10 @@ public interface ChoiceManagerList<T> {
 
 	public int getChoicesPerUnitCost();
 
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T selection);
+
+	public void applyChoice(PlayerCharacter pc, CDOMObject owner, T selection);
+
+	public abstract T decodeChoice(String choice);
+
 }

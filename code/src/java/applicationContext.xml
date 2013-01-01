@@ -144,7 +144,11 @@
 		<property name="checkFacet" ref="checkFacet"/>
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 	</bean>
-	<bean id="chooseDriverFacet" class="pcgen.cdom.facet.ChooseDriverFacet"/>
+	<bean id="chooseDriverFacet" class="pcgen.cdom.facet.ChooseDriverFacet">
+		<property name="domainSelectionFacet" ref="domainSelectionFacet"/>
+		<property name="raceSelectionFacet" ref="raceSelectionFacet"/>
+		<property name="templateSelectionFacet" ref="templateSelectionFacet"/>
+	</bean>
 	<bean id="chronicleEntryFacet" class="pcgen.cdom.facet.fact.ChronicleEntryFacet" />
 	<bean id="classFacet" class="pcgen.cdom.facet.model.ClassFacet" />
 	<bean id="classLevelFacet" class="pcgen.cdom.facet.model.ClassLevelFacet" />
@@ -195,7 +199,13 @@
 		<property name="deityFacet" ref="deityFacet"/>
 	</bean>
 	<bean id="directAbilityFacet" class="pcgen.cdom.facet.DirectAbilityFacet" />
-	<bean id="domainFacet" class="pcgen.cdom.facet.model.DomainFacet" />
+	<bean id="domainFacet" class="pcgen.cdom.facet.model.DomainFacet">
+		<property name="domainSelectionFacet" ref="domainSelectionFacet"/>
+	</bean>
+	<bean id="domainInputFacet" class="pcgen.cdom.facet.input.DomainInputFacet">
+		<property name="domainSelectionFacet" ref="domainSelectionFacet"/>
+	</bean>
+	<bean id="domainSelectionFacet" class="pcgen.cdom.facet.model.DomainSelectionFacet"/>
 	<bean id="domainSpellCountFacet" class="pcgen.cdom.facet.DomainSpellCountFacet" />
 	<bean id="domainSpellListFacet" class="pcgen.cdom.facet.DomainSpellListFacet">
 		<property name="spellListFacet" ref="spellListFacet"/>
@@ -391,7 +401,13 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<!-- R -->
-	<bean id="raceFacet" class="pcgen.cdom.facet.model.RaceFacet" />
+	<bean id="raceFacet" class="pcgen.cdom.facet.model.RaceFacet">
+		<property name="raceSelectionFacet" ref="raceSelectionFacet"/>
+	</bean>
+	<bean id="raceInputFacet" class="pcgen.cdom.facet.input.RaceInputFacet">
+		<property name="raceSelectionFacet" ref="raceSelectionFacet"/>
+	</bean>
+	<bean id="raceSelectionFacet" class="pcgen.cdom.facet.model.RaceSelectionFacet"/>
 	<bean id="raceTypeFacet" class="pcgen.cdom.facet.analysis.RaceTypeFacet">
 		<property name="companionModFacet" ref="companionModFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
@@ -489,6 +505,10 @@
 	<bean id="suppressBioFieldFacet" class="pcgen.cdom.facet.fact.SuppressBioFieldFacet" />
 	<!-- T -->
 	<bean id="templateFacet" class="pcgen.cdom.facet.model.TemplateFacet"/>
+	<bean id="templateInputFacet" class="pcgen.cdom.facet.input.TemplateInputFacet">
+		<property name="templateSelectionFacet" ref="templateSelectionFacet"/>
+	</bean>
+	<bean id="templateSelectionFacet" class="pcgen.cdom.facet.model.TemplateSelectionFacet"/>
 	<bean id="totalWeightFacet" class="pcgen.cdom.facet.analysis.TotalWeightFacet">
 		<property name="equipmentFacet" ref="equipmentFacet"/>
 	</bean>
@@ -499,6 +519,7 @@
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="unconditionalTemplateFacet" class="pcgen.cdom.facet.UnconditionalTemplateFacet">
+		<property name="templateSelectionFacet" ref="templateSelectionFacet"/>
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="unencumberedArmorFacet" class="pcgen.cdom.facet.analysis.UnencumberedArmorFacet">

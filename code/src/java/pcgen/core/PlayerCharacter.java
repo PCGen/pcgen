@@ -1,5 +1,4 @@
 /*
- * PlayerCharacter.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -131,7 +130,6 @@ import pcgen.cdom.facet.StatValueFacet;
 import pcgen.cdom.facet.SubClassFacet;
 import pcgen.cdom.facet.SubstitutionClassFacet;
 import pcgen.cdom.facet.UserEquipmentFacet;
-import pcgen.cdom.facet.UserTemplateFacet;
 import pcgen.cdom.facet.XPTableFacet;
 import pcgen.cdom.facet.analysis.AgeSetFacet;
 import pcgen.cdom.facet.analysis.ChangeProfFacet;
@@ -175,12 +173,15 @@ import pcgen.cdom.facet.input.AutoListShieldProfFacet;
 import pcgen.cdom.facet.input.AutoListWeaponProfFacet;
 import pcgen.cdom.facet.input.BonusWeaponProfFacet;
 import pcgen.cdom.facet.input.CampaignFacet;
+import pcgen.cdom.facet.input.DomainInputFacet;
 import pcgen.cdom.facet.input.FreeLanguageFacet;
 import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.LocalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.MonsterCSkillFacet;
 import pcgen.cdom.facet.input.ProhibitedSchoolFacet;
+import pcgen.cdom.facet.input.RaceInputFacet;
 import pcgen.cdom.facet.input.SkillLanguageFacet;
+import pcgen.cdom.facet.input.TemplateInputFacet;
 import pcgen.cdom.facet.input.UserSpecialAbilityFacet;
 import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.ArmorProfProviderFacet;
@@ -294,7 +295,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
 	private SkillLanguageFacet skillLangFacet = FacetLibrary.getFacet(SkillLanguageFacet.class);
 	private NoteItemFacet noteItemFacet = FacetLibrary.getFacet(NoteItemFacet.class);
-	private UserTemplateFacet userTemplateFacet = FacetLibrary.getFacet(UserTemplateFacet.class);
 	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet = FacetLibrary
 			.getFacet(GlobalAddedSkillCostFacet.class);
 	private LocalAddedSkillCostFacet localAddedSkillCostFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
@@ -341,9 +341,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	//The following are other facets
 	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
+	private DomainInputFacet domainInputFacet = FacetLibrary.getFacet(DomainInputFacet.class);
 	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
+	private TemplateInputFacet templateInputFacet = FacetLibrary.getFacet(TemplateInputFacet.class);
 	private DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+	private RaceInputFacet raceInputFacet = FacetLibrary.getFacet(RaceInputFacet.class);
 	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 	private StatBonusFacet statBonusFacet = FacetLibrary.getFacet(StatBonusFacet.class);
 	private CheckBonusFacet checkBonusFacet = FacetLibrary.getFacet(CheckBonusFacet.class);
@@ -3839,18 +3842,21 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * 
 	 * @param newRace
 	 */
-	public void setRace(final Race newRace)
+	public boolean setRace(final Race newRace)
 	{
+		boolean success;
 		if (newRace == null)
 		{
-			raceFacet.set(id, Globals.s_EMPTYRACE);
-		} else
+			success = raceInputFacet.set(id, Globals.s_EMPTYRACE);
+		}
+		else
 		{
-			raceFacet.set(id, newRace);
+			success = raceInputFacet.set(id, newRace);
 		}
 
 		calcActiveBonuses();
 		setDirty(true);
+		return success;
 	}
 
 	/**
@@ -4937,17 +4943,17 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return false;
 	}
 
-	public void addTemplate(final PCTemplate inTemplate)
+	public boolean addTemplate(final PCTemplate inTemplate)
 	{
 		if (inTemplate == null)
 		{
-			return;
+			return false;
 		}
 
 		// Don't allow multiple copies of template.
-		if (templateFacet.contains(id, inTemplate))
+		if (hasTemplate(inTemplate))
 		{
-			return;
+			return false;
 		}
 
 		int lockMonsterSkillPoints = 0; // this is what this value was before
@@ -4961,7 +4967,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			}
 		}
 
-		userTemplateFacet.add(id, inTemplate);
+		boolean added = templateInputFacet.add(id, inTemplate);
+
+		if (!added)
+		{
+			return false;
+		}
 
 		this.setDirty(true);
 
@@ -5026,6 +5037,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 
 		setDirty(true);
+		return true;
 	}
 
 	public void adjustGold(final double delta)
@@ -6334,7 +6346,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void removeTemplate(final PCTemplate inTmpl)
 	{
-		userTemplateFacet.remove(id, inTmpl);
+		templateInputFacet.remove(id, inTmpl);
 		setDirty(true);
 	}
 
@@ -6571,10 +6583,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * are all still valid. Any invalid domains will be removed from the
 	 * character.
 	 */
-	void validateCharacterDomains()
+	public void validateCharacterDomains()
 	{
 		//Clone to avoid Concurrent Mod Exception, CODE-153
-		for (Domain d : new ArrayList<Domain>(domainFacet.getSet(id)))
+		for (Domain d : new ArrayList<Domain>(getDomainSet()))
 		{
 			if (!isDomainValid(d, this.getDomainSource(d)))
 			{
@@ -10231,15 +10243,19 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		defaultDomainSource = cs;
 	}
 
-	public void addDomain(Domain domain)
+	public boolean addDomain(Domain domain)
 	{
-		addDomain(domain, defaultDomainSource);
+		return addDomain(domain, defaultDomainSource);
 	}
 
-	public void addDomain(Domain domain, ClassSource source)
+	public boolean addDomain(Domain domain, ClassSource source)
 	{
-		domainFacet.add(id, domain, source);
-		setDirty(true);
+		boolean added = domainInputFacet.add(id, domain, source);
+		if (added)
+		{
+			setDirty(true);
+		}
+		return added;
 	}
 
 	public boolean hasDomain(Domain domain)
@@ -10249,7 +10265,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void removeDomain(Domain domain)
 	{
-		domainFacet.remove(id, domain);
+		domainInputFacet.remove(id, domain);
 		setDirty(true);
 	}
 

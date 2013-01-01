@@ -20,6 +20,7 @@ package tokencontent.testsupport;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.content.Selection;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
@@ -184,7 +185,7 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 		Race source = create(Race.class, "Source");
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
-		raceFacet.set(id, source);
+		raceFacet.set(id, getSelectionObject(source));
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
 		raceFacet.remove(id);
@@ -213,10 +214,11 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 		PCTemplate source = create(PCTemplate.class, "Source");
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
-		templateFacet.add(id, source, this);
+		Selection<PCTemplate, ?> sel = getSelectionObject(source);
+		templateFacet.add(id, sel, this);
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
-		templateFacet.remove(id, source, this);
+		templateFacet.remove(id, sel, this);
 		assertEquals(baseCount(), targetFacetCount());
 	}
 

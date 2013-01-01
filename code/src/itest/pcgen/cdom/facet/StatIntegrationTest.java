@@ -30,6 +30,7 @@ import pcgen.cdom.facet.analysis.NonAbilityFacet;
 import pcgen.cdom.facet.analysis.StatLockFacet;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.helper.StatLock;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -50,10 +51,11 @@ public class StatIntegrationTest extends TestCase
 	private StatLockFacet lockFacet;
 	private NonAbilityFacet nonAbilityFacet;
 	private RaceFacet rfacet;
-	private UserTemplateFacet tfacet;
+	private TemplateFacet tfacet;
 	private CDOMObjectConsolidationFacet cdomFacet;
 	private PCStat stat1;
 	private PCStat stat2;
+	private Object tsource = new Object();
 
 	@Override
 	public void setUp() throws Exception
@@ -74,7 +76,7 @@ public class StatIntegrationTest extends TestCase
 		nonAbilityFacet.setStatLockFacet(lockFacet);
 		nonAbilityFacet.setUnlockedStatFacet(unlockedFacet);
 		rfacet = new RaceFacet();
-		tfacet = new UserTemplateFacet();
+		tfacet = new TemplateFacet();
 		cdomFacet = new CDOMObjectConsolidationFacet();
 		CDOMObjectBridge bridge = new CDOMObjectBridge();
 		cdomFacet.setBridgeFacet(bridge);
@@ -195,12 +197,12 @@ public class StatIntegrationTest extends TestCase
 		testNonAbilityUnset();
 		PCTemplate t1 = new PCTemplate();
 		causeLockNonAbility(t1, stat1);
-		tfacet.add(id, t1);
+		tfacet.add(id, t1, tsource);
 		assertFalse(nonAbilityFacet.isNonAbility(id, stat2));
 		assertTrue(nonAbilityFacet.isNonAbility(id, stat1));
 		assertFalse(nonAbilityFacet.isNonAbility(altid, stat1));
 		// Make sure cleans up when template removed
-		tfacet.remove(id, t1);
+		tfacet.remove(id, t1, tsource);
 		testNonAbilityUnset();
 		testLockUnset();
 	}
@@ -216,12 +218,12 @@ public class StatIntegrationTest extends TestCase
 		assertNull(lockFacet.getLockedStat(id, stat2));
 		PCTemplate t1 = new PCTemplate();
 		causeLock(t1, stat1, 15);
-		tfacet.add(id, t1);
+		tfacet.add(id, t1, tsource);
 		testNonAbilityUnset();
 		assertEquals(15, lockFacet.getLockedStat(id, stat1));
 		assertNull(lockFacet.getLockedStat(id, stat2));
 		// Make sure cleans up when template removed
-		tfacet.remove(id, t1);
+		tfacet.remove(id, t1, tsource);
 		testNonAbilityUnset();
 		assertEquals(14, lockFacet.getLockedStat(id, stat1));
 		assertNull(lockFacet.getLockedStat(id, stat2));
@@ -236,7 +238,7 @@ public class StatIntegrationTest extends TestCase
 		rfacet.set(id, r);
 		PCTemplate t1 = new PCTemplate();
 		causeUnlock(t1, stat1);
-		tfacet.add(id, t1);
+		tfacet.add(id, t1, tsource);
 		testNonAbilityUnset();
 		testLockUnsetConditional();
 	}
@@ -250,7 +252,7 @@ public class StatIntegrationTest extends TestCase
 		rfacet.set(id, r);
 		PCTemplate t1 = new PCTemplate();
 		causeUnlock(t1, stat1);
-		tfacet.add(id, t1);
+		tfacet.add(id, t1, tsource);
 		testNonAbilityUnset();
 		testLockUnsetConditional();
 	}

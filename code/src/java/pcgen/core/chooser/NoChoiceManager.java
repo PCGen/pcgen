@@ -125,4 +125,23 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	{
 		return 0;
 	}
+
+	@Override
+	public void removeChoice(PlayerCharacter pc, CDOMObject obj, String selection)
+	{
+		info.removeChoice(pc, obj, selection);
+	}
+
+	@Override
+	public String decodeChoice(String choice)
+	{
+		return info.decodeChoice(Globals.getContext(), choice);
+	}
+
+	@Override
+	public void applyChoice(PlayerCharacter pc, CDOMObject cdo,
+		String selection)
+	{
+		info.getChoiceActor().applyChoice(cdo, Constants.EMPTY_STRING, pc);
+	}
 }

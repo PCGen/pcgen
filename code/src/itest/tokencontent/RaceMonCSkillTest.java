@@ -25,6 +25,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.ListSkillCostFacet;
 import pcgen.cdom.facet.input.MonsterCSkillFacet;
+import pcgen.cdom.facet.input.RaceInputFacet;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
@@ -44,6 +45,8 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 
 	private static MoncskillToken token = new MoncskillToken();
 	private static SkillToken CHOOSE_SKILL_TOKEN = new SkillToken();
+	protected RaceInputFacet raceInputFacet = FacetLibrary
+			.getFacet(RaceInputFacet.class);
 
 	private MonsterCSkillFacet mcsFacet;
 	private ListSkillCostFacet lscFacet;
@@ -74,7 +77,7 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 			fail("Test Setup Failed");
 		}
 		finishLoad();
-		raceFacet.set(id, source);
+		raceFacet.set(id, getSelectionObject(source));
 		ClassSkillList dragonCSL =
 				context.ref.silentlyGetConstructedCDOMObject(
 					ClassSkillList.class, "Dragon");
@@ -101,11 +104,11 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(0, mcsFacet.getCount(id));
-		raceFacet.set(id, source);
+		raceInputFacet.set(id, source);
 		assertTrue(mcsFacet.contains(id, context.ref
 			.silentlyGetConstructedCDOMObject(Skill.class, "MySkill")));
 		assertEquals(1, mcsFacet.getCount(id));
-		raceFacet.remove(id);
+		raceInputFacet.remove(id);
 		assertEquals(0, mcsFacet.getCount(id));
 	}
 

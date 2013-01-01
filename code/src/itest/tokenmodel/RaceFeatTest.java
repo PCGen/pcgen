@@ -23,7 +23,9 @@ import org.junit.Test;
 
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.base.AbstractListFacet;
+import pcgen.cdom.facet.input.RaceInputFacet;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -44,6 +46,8 @@ public class RaceFeatTest extends AbstractTokenModelTest
 
 	private static FeatToken token = new FeatToken();
 	private static WeaponProficiencyToken CHOOSE_WP_TOKEN = new WeaponProficiencyToken();
+	protected RaceInputFacet raceInputFacet = FacetLibrary
+			.getFacet(RaceInputFacet.class);
 
 	@Test
 	public void testSimple() throws PersistenceLayerException
@@ -58,7 +62,7 @@ public class RaceFeatTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(0, directAbilityFacet.getCount(id));
-		raceFacet.set(id, source);
+		raceFacet.set(id, getSelectionObject(source));
 		assertTrue(containsExpected(granted, null));
 		assertEquals(1, directAbilityFacet.getCount(id));
 		raceFacet.remove(id);
@@ -97,10 +101,10 @@ public class RaceFeatTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(0, directAbilityFacet.getCount(id));
-		raceFacet.set(id, source);
+		raceInputFacet.set(id, source);
 		assertTrue(containsExpected(granted, "Longsword"));
 		assertEquals(1, directAbilityFacet.getCount(id));
-		raceFacet.remove(id);
+		raceInputFacet.remove(id);
 		assertEquals(0, directAbilityFacet.getCount(id));
 	}
 

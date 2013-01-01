@@ -155,6 +155,7 @@ public class ConditionalTemplateFacet extends AbstractListFacet<PCTemplate>
 
 	public void init()
 	{
+		//TODO does this need to listen to templateFacet as well??
 		addDataFacetChangeListener(templateFacet);
 	}
 }

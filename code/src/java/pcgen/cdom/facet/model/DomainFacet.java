@@ -17,6 +17,9 @@
  */
 package pcgen.cdom.facet.model;
 
+import pcgen.cdom.content.SourcedSelection;
+import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Domain;
@@ -25,7 +28,34 @@ import pcgen.core.Domain;
  * DomainFacet is a Facet that tracks the Domains possessed by a Player
  * Character.
  */
-public class DomainFacet extends AbstractSingleSourceListFacet<Domain, ClassSource>
+public class DomainFacet extends
+		AbstractSingleSourceListFacet<Domain, ClassSource> implements
+		DataFacetChangeListener<SourcedSelection<Domain, ?, ClassSource>>
 {
+	private DomainSelectionFacet domainSelectionFacet;
+
+	public void setDomainSelectionFacet(
+		DomainSelectionFacet domainSelectionFacet)
+	{
+		this.domainSelectionFacet = domainSelectionFacet;
+	}
+
+	public void init()
+	{
+		domainSelectionFacet.addDataFacetChangeListener(this);
+	}
+
+	@Override
+	public void dataAdded(DataFacetChangeEvent<SourcedSelection<Domain, ?, ClassSource>> dfce)
+	{
+		SourcedSelection<Domain, ?, ClassSource> sel = dfce.getCDOMObject();
+		add(dfce.getCharID(), sel.getObject(), sel.getSource());
+	}
+
+	@Override
+	public void dataRemoved(DataFacetChangeEvent<SourcedSelection<Domain, ?, ClassSource>> dfce)
+	{
+		remove(dfce.getCharID(), dfce.getCDOMObject().getObject());
+	}
 
 }

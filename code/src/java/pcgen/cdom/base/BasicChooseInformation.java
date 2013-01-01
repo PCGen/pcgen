@@ -295,4 +295,10 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 		return StringUtil.joinToStringBuilder(pc.getExpandedAssociations(owner),
 			", ");
 	}
+
+	@Override
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T item)
+	{
+		choiceActor.removeChoice(pc, owner, item);
+	}
 }
