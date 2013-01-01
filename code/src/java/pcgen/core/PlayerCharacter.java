@@ -10431,20 +10431,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return abFacet.contains(id, cat, Nature.VIRTUAL, abilityInfo);
 	}
 
-	public void addUserAbility(CategorizedAbilitySelection cas)
-	{
-		Ability newAbility = cas.getAbility();
-		abFacet.add(id, cas.getAbilityCategory(), cas.getNature(), newAbility);
-		String choice = cas.getSelection();
-		if (choice != null)
-		{
-			if (AbilityUtilities.canAddAssociation(this, newAbility, choice))
-			{
-				addAssociation(newAbility, choice);
-			}
-		}
-	}
-
 	public Set<Ability> getAbilityList(Category<Ability> cat, Nature nature)
 	{
 		Set<Ability> newSet = new HashSet<Ability>();
