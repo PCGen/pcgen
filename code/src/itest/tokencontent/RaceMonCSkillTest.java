@@ -105,8 +105,7 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 		finishLoad();
 		assertEquals(0, mcsFacet.getCount(id));
 		raceInputFacet.set(id, source);
-		assertTrue(mcsFacet.contains(id, context.ref
-			.silentlyGetConstructedCDOMObject(Skill.class, "MySkill")));
+		assertTrue(mcsFacet.contains(id, sk));
 		assertEquals(1, mcsFacet.getCount(id));
 		raceInputFacet.remove(id);
 		assertEquals(0, mcsFacet.getCount(id));
