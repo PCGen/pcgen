@@ -67,6 +67,15 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	public String getHTMLInfo(CampaignFacade campaign, List<CampaignFacade> testList)
 	{
 		PersistenceManager pman = PersistenceManager.getInstance();
+		List<URI> oldList = setSourcesForPrereqTesting(testList, pman);
+		String htmlInfo = getHTMLInfo(campaign);
+		pman.setChosenCampaignSourcefiles(oldList);
+		return htmlInfo;
+	}
+
+	private List<URI> setSourcesForPrereqTesting(List<CampaignFacade> testList,
+		PersistenceManager pman)
+	{
 		List<URI> oldList = pman.getChosenCampaignSourcefiles();
 		List<URI> uris = new ArrayList<URI>();
 		for (CampaignFacade campaignFacade : testList)
@@ -74,9 +83,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 			uris.add(((Campaign)campaignFacade).getSourceURI());
 		}
 		pman.setChosenCampaignSourcefiles(uris);
-		String htmlInfo = getHTMLInfo(campaign);
-		pman.setChosenCampaignSourcefiles(oldList);
-		return htmlInfo;
+		return oldList;
 	}
 	
 	/* (non-Javadoc)
@@ -319,6 +326,28 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 			}
 		}
 		return kindList;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getRequirementsHTMLString(CampaignFacade campaign,
+		List<CampaignFacade> testList)
+	{
+		if (campaign == null || !(campaign instanceof Campaign))
+		{
+			return "";
+		}
+		Campaign aCamp = (Campaign) campaign;
+
+		PersistenceManager pman = PersistenceManager.getInstance();
+		List<URI> oldList = setSourcesForPrereqTesting(testList, pman);
+		String preReqHtml = PrerequisiteUtilities.preReqHTMLStringsForList(null,
+			null, aCamp.getPrerequisiteList(), false);
+		pman.setChosenCampaignSourcefiles(oldList);
+		
+		return preReqHtml;
 	}
 
 }

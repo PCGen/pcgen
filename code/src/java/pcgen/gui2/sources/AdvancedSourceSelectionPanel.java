@@ -419,11 +419,21 @@ class AdvancedSourceSelectionPanel extends JPanel
 					if (obj instanceof CampaignFacade)
 					{
 						CampaignFacade camp = (CampaignFacade) obj;
+						if (selectedCampaigns.containsElement(camp))
+						{
+							// Already in the list - ignore
+							continue;
+						}
 						selectedCampaigns.addElement(camp);
 						if (!FacadeFactory.passesPrereqs(gameMode, selectedCampaigns.getContents()))
 						{
+							String prereqDesc =
+									FacadeFactory.getCampaignInfoFactory()
+										.getRequirementsHTMLString(camp,
+											selectedCampaigns.getContents());
 							JOptionPane.showMessageDialog(AdvancedSourceSelectionPanel.this,
-														  LanguageBundle.getString("in_src_badComboMsg"), //$NON-NLS-1$
+														  LanguageBundle.getFormattedString("in_src_badComboMsg", //$NON-NLS-1$
+															  prereqDesc), 
 														  LanguageBundle.getString("in_src_badComboTitle"), //$NON-NLS-1$
 														  JOptionPane.INFORMATION_MESSAGE);
 							selectedCampaigns.removeElement(camp);

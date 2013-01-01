@@ -59,4 +59,13 @@ public interface CampaignInfoFactory
 	 */
 	public String getHTMLInfo(SourceSelectionFacade selection);
 
+	/**
+	 * Produce a html formatted string detailing the requirements for the supplied campaign using 
+	 * a specified set of campaigns for prereq determination.
+	 * @param campaign The campaign to be described
+	 * @param selectedCampaigns The previously selected campaigns to be checked against.
+	 * @return The description of the prerequisites for the campaign.
+	 */
+	public String getRequirementsHTMLString(CampaignFacade campaign,
+		List<CampaignFacade> selectedCampaigns);
 }
