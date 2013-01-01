@@ -33,8 +33,8 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.util.Logging;
 
 /**
@@ -42,7 +42,7 @@ import pcgen.util.Logging;
  * 
  */
 public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>
+		CDOMPrimaryToken<CDOMObject>, PostDeferredToken<CDOMObject>
 {
 
 	@Override
@@ -176,7 +176,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				for (ChooseSelectionActor<?> csa : newactors)
 				{
-					if (!chooseClass.equals(csa.getChoiceClass()))
+					if (!chooseClass.getChoiceClass().equals(csa.getChoiceClass()))
 					{
 						Logging.errorPrint("CHOOSE of type "
 							+ chooseClass.getName() + " on "
@@ -190,5 +190,11 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public int getPriority()
+	{
+		return 0;
 	}
 }
