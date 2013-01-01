@@ -29,12 +29,15 @@ import pcgen.cdom.facet.model.ClassLevelFacet;
 import pcgen.cdom.facet.model.CompanionModFacet;
 import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
+import pcgen.cdom.facet.model.DomainSelectionFacet;
 import pcgen.cdom.facet.model.ExpandedCampaignFacet;
 import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.RaceSelectionFacet;
 import pcgen.cdom.facet.model.SizeFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
+import pcgen.cdom.facet.model.TemplateSelectionFacet;
 import pcgen.cdom.facet.model.WeaponProfFacet;
 
 public class FacetInitialization {
@@ -83,6 +86,10 @@ public class FacetInitialization {
 		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 		ActiveAbilityFacet abFacet = FacetLibrary.getFacet(ActiveAbilityFacet.class);
 
+		DomainSelectionFacet domainSelectionFacet = FacetLibrary.getFacet(DomainSelectionFacet.class);
+		RaceSelectionFacet raceSelectionFacet = FacetLibrary.getFacet(RaceSelectionFacet.class);
+		TemplateSelectionFacet templateSelectionFacet = FacetLibrary.getFacet(TemplateSelectionFacet.class);
+
 		NaturalWeaponProfFacet nwpFacet = FacetLibrary.getFacet(NaturalWeaponProfFacet.class);
 		UserEquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
 		NaturalWeaponFacet naturalWeaponFacet = FacetLibrary.getFacet(NaturalWeaponFacet.class);
@@ -116,9 +123,9 @@ public class FacetInitialization {
 		directAbilityFacet.addDataFacetChangeListener(grantedAbilityFacet);
 		cabFacet.addDataFacetChangeListener(grantedAbilityFacet);
 
-		raceFacet.addDataFacetChangeListener(occFacet);
-		domainFacet.addDataFacetChangeListener(occFacet);
-		templateFacet.addDataFacetChangeListener(occFacet);
+		raceSelectionFacet.addDataFacetChangeListener(-1000, occFacet);
+		domainSelectionFacet.addDataFacetChangeListener(-1000, occFacet);
+		templateSelectionFacet.addDataFacetChangeListener(-1000, occFacet);
 
 		raceFacet.addDataFacetChangeListener(bioSetTrackingFacet);
 

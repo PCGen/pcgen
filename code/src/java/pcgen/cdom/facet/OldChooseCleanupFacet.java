@@ -17,6 +17,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.content.Selection;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.core.PlayerCharacter;
 
@@ -27,19 +28,19 @@ import pcgen.core.PlayerCharacter;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class OldChooseCleanupFacet implements
-		DataFacetChangeListener<CDOMObject>
+		DataFacetChangeListener<Selection<? extends CDOMObject, ?>>
 {
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);
 
 	@Override
-	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataAdded(DataFacetChangeEvent<Selection<? extends CDOMObject, ?>> dfce)
 	{
 		//ignore
 	}
 
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
+	public void dataRemoved(DataFacetChangeEvent<Selection<? extends CDOMObject, ?>> dfce)
 	{
 		/*
 		 * TODO Consider whether this is the appropriate symmetric action to add
@@ -47,7 +48,7 @@ public class OldChooseCleanupFacet implements
 		 */
 		CharID id = dfce.getCharID();
 		PlayerCharacter pc = trackingFacet.getPC(id);
-		CDOMObject cdo = dfce.getCDOMObject();
-		pc.removeAllAssociations(cdo);
+		Selection<? extends CDOMObject, ?> sel = dfce.getCDOMObject();
+		pc.removeAllAssociations(sel.getObject());
 	}
 }
