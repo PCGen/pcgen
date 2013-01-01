@@ -34,6 +34,7 @@ import javax.swing.event.DocumentListener;
 
 import org.apache.commons.lang.StringUtils;
 
+import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.InfoFacade;
 import pcgen.gui2.tools.Icons;
 import pcgen.system.LanguageBundle;
@@ -101,6 +102,10 @@ public class SearchFilterPanel extends JPanel
 		if (element instanceof InfoFacade)
 		{
 			typeStr = ((InfoFacade)element).getType();
+		}
+		else if (element instanceof CampaignFacade)
+		{
+			typeStr = ((CampaignFacade)element).getBookTypes();
 		}
 		final String searchText = searchField.getText();
 		return StringUtils.containsIgnoreCase(element.toString(), searchText)
