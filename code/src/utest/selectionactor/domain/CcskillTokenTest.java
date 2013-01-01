@@ -15,12 +15,12 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package resultactor.domain;
+package selectionactor.domain;
 
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
@@ -28,9 +28,9 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import plugin.lsttokens.domain.CcskillToken;
-import resultactor.testsupport.AbstractResultActorTest;
+import selectionactor.testsupport.AbstractSelectionActorTest;
 
-public class CcskillTokenTest extends AbstractResultActorTest<Skill>
+public class CcskillTokenTest extends AbstractSelectionActorTest<Skill>
 {
 
 	static CcskillToken cra = new CcskillToken();
@@ -42,7 +42,7 @@ public class CcskillTokenTest extends AbstractResultActorTest<Skill>
 	}
 
 	@Override
-	public ChooseResultActor getActor()
+	public ChooseSelectionActor<Skill> getActor()
 	{
 		return cra;
 	}

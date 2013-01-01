@@ -24,14 +24,13 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.reference.PatternMatchingReference;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Domain;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
@@ -48,7 +47,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * 
  */
 public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
-		CDOMPrimaryToken<Domain>, ChooseResultActor
+		CDOMPrimaryToken<Domain>, ChooseSelectionActor<Skill>
 {
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
 
@@ -99,7 +98,7 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 				else if (Constants.LST_LIST.equals(clearText))
 				{
 					context.getObjectContext().removeFromList(obj,
-							ListKey.CHOOSE_ACTOR, this);
+							ListKey.NEW_CHOOSE_ACTOR, this);
 				}
 				else
 				{
@@ -136,7 +135,7 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 					if (Constants.LST_LIST.equals(tokText))
 					{
 						context.getObjectContext().addToList(obj,
-								ListKey.CHOOSE_ACTOR, this);
+								ListKey.NEW_CHOOSE_ACTOR, this);
 					}
 					else
 					{
@@ -183,8 +182,8 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 	{
 		Changes<CDOMReference<Skill>> changes = context.getObjectContext()
 				.getListChanges(obj, ListKey.LOCALCSKILL);
-		Changes<ChooseResultActor> listChanges = context.getObjectContext()
-				.getListChanges(obj, ListKey.CHOOSE_ACTOR);
+		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
+				.getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
 		List<String> list = new ArrayList<String>();
 		Collection<CDOMReference<Skill>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
@@ -200,7 +199,7 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 					+ ReferenceUtilities
 							.joinLstFormat(removedItems, "|.CLEAR."));
 		}
-		Collection<ChooseResultActor> listRemoved = listChanges.getRemoved();
+		Collection<ChooseSelectionActor<?>> listRemoved = listChanges.getRemoved();
 		if (listRemoved != null && !listRemoved.isEmpty())
 		{
 			if (listRemoved.contains(this))
@@ -217,10 +216,10 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 		{
 			list.add(ReferenceUtilities.joinLstFormat(added, Constants.PIPE));
 		}
-		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
 		if (listAdded != null && !listAdded.isEmpty())
 		{
-			for (ChooseResultActor cra : listAdded)
+			for (ChooseSelectionActor<?> cra : listAdded)
 			{
 				if (cra.getSource().equals(getTokenName()))
 				{
@@ -249,30 +248,20 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 	{
 		return Domain.class;
 	}
-
 	@Override
-	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
+	public void applyChoice(CDOMObject obj, Skill skill, PlayerCharacter pc)
 	{
-		Skill skill = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(SKILL_CLASS, o);
-		if (skill != null)
-		{
-			PCClass pcc = pc.getDomainSource((Domain) obj).getPcclass();
-			pc.addLocalCost(pcc, skill, SkillCost.CLASS, obj);
-		}
+		PCClass pcc = pc.getDomainSource((Domain) obj).getPcclass();
+		pc.addLocalCost(pcc, skill, SkillCost.CLASS, obj);
 	}
 
 	@Override
-	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
+	public void removeChoice(CDOMObject obj, Skill skill, PlayerCharacter pc)
 	{
-		Skill skill = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(SKILL_CLASS, o);
-		if (skill != null)
-		{
-			PCClass pcc = pc.getDomainSource((Domain) obj).getPcclass();
-			pc.removeLocalCost(pcc, skill, SkillCost.CLASS, obj);
-		}
+		PCClass pcc = pc.getDomainSource((Domain) obj).getPcclass();
+		pc.removeLocalCost(pcc, skill, SkillCost.CLASS, obj);
 	}
+
 
 	@Override
 	public String getSource()
@@ -284,5 +273,11 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 	public String getLstFormat()
 	{
 		return "LIST";
+	}
+
+	@Override
+	public Class<Skill> getChoiceClass()
+	{
+		return SKILL_CLASS;
 	}
 }
