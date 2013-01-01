@@ -89,7 +89,15 @@ public class AgeSetFacet extends AbstractItemFacet<AgeSet> implements
 	private void update(CharID id)
 	{
 		Region region = Region.getConstant(regionFacet.getRegion(id));
-		set(id, bioSetFacet.get(id).getAgeSet(region, getAgeSetIndex(id)));
+		AgeSet ageSet = bioSetFacet.get(id).getAgeSet(region, getAgeSetIndex(id));
+		if (ageSet == null)
+		{
+			remove(id);
+		}
+		else
+		{
+			set(id, ageSet);
+		}
 	}
 
 	/**
