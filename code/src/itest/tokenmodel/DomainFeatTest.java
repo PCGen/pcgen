@@ -22,16 +22,26 @@ import java.util.Collection;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.base.AbstractListFacet;
+import pcgen.cdom.facet.input.DomainInputFacet;
+import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
 import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
+import pcgen.core.Skill;
+import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.chooser.ChooserFactory;
+import plugin.lsttokens.CskillLst;
+import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.domain.FeatToken;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
@@ -39,6 +49,19 @@ public class DomainFeatTest extends AbstractTokenModelTest
 {
 
 	private static FeatToken token = new FeatToken();
+	private static CskillLst CSKILL_TOKEN = new CskillLst();
+	private static SkillToken CHOOSE_SKILL_TOKEN = new SkillToken();
+	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet = FacetLibrary
+		.getFacet(GlobalAddedSkillCostFacet.class);
+	protected DomainInputFacet domainInputFacet = FacetLibrary
+			.getFacet(DomainInputFacet.class);
+
+	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		ChooserFactory.setDelegate(new MockUIDelegate());
+	}
 
 	@Test
 	public void testSimple() throws PersistenceLayerException
@@ -60,6 +83,53 @@ public class DomainFeatTest extends AbstractTokenModelTest
 		assertEquals(1, directAbilityFacet.getCount(id));
 		domainFacet.remove(id, source);
 		assertEquals(0, directAbilityFacet.getCount(id));
+	}
+
+	@Test
+	public void testTargetList() throws PersistenceLayerException
+	{
+		/*
+		 * If this test breaks, please ensure that Global CSKILL:LIST is
+		 * working. This test DEPENDS on that behavior!
+		 */
+		Domain source = create(Domain.class, "Source");
+		PCClass pcc = create(PCClass.class, "Class");
+		Ability passthru = create(Ability.class, "Passthru");
+		context.ref.reassociateCategory(AbilityCategory.FEAT, passthru);
+		Skill granted = create(Skill.class, "GrantedSkill");
+		create(Skill.class, "IgnoredSkill");
+		ParseResult result = token.parseToken(context, source, "Passthru(%LIST)");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		result = CHOOSE_SKILL_TOKEN.parseToken(context, source, "GrantedSkill");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		result = CHOOSE_SKILL_TOKEN.parseToken(context, passthru, "GrantedSkill|IgnoredSkill");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		passthru.put(ObjectKey.MULTIPLE_ALLOWED, true);
+		result = CSKILL_TOKEN.parseToken(context, passthru, "LIST");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		finishLoad();
+		assertFalse(globalAddedSkillCostFacet.contains(id, granted, SkillCost.CLASS));
+		ClassSource classSource = new ClassSource(pcc);
+		domainInputFacet.add(id, source, classSource);
+		assertTrue(globalAddedSkillCostFacet.contains(id, granted, SkillCost.CLASS));
+		domainInputFacet.remove(id, source);
+		assertFalse(globalAddedSkillCostFacet.contains(id, granted, SkillCost.CLASS));
 	}
 
 	protected boolean containsExpected(Ability granted)

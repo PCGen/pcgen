@@ -819,8 +819,21 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		if (selection != null)
 		{
 			pc.removeAssociation(ability, selection);
+			ChooseInformation<?> chooseInfo = ability.get(ObjectKey.CHOOSE_INFO);
+			if (chooseInfo != null)
+			{
+				removeSelection(pc, chooseInfo, ability, selection);
+			}
 		}
 		remove(id, cas.getAbilityCategory(), cas.getNature(), ability, dfce
 				.getSource());
 	}
+
+	private <T> void removeSelection(PlayerCharacter pc,
+		ChooseInformation<T> chooseInfo, Ability ability, String selection)
+	{
+		T obj = chooseInfo.decodeChoice(Globals.getContext(), selection);
+		chooseInfo.getChoiceActor().removeChoice(pc, ability, obj);
+	}
+
 }
