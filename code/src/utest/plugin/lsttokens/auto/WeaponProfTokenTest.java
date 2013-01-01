@@ -19,7 +19,7 @@ package plugin.lsttokens.auto;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.WeaponProfProvider;
@@ -184,7 +184,7 @@ public class WeaponProfTokenTest extends
 	}
 
 	@Override
-	protected ChooseResultActor getActor()
+	protected ChooseSelectionActor<WeaponProf> getActor()
 	{
 		return subtoken;
 	}

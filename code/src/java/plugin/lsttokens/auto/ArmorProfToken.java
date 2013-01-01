@@ -26,14 +26,13 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.content.ConditionalChoiceActor;
+import pcgen.cdom.content.ConditionalSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.ArmorProfProvider;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -47,7 +46,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, ChooseResultActor
+		CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<ArmorProf>
 {
 
 	private static final Class<ArmorProf> ARMORPROF_CLASS = ArmorProf.class;
@@ -150,19 +149,19 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 			if ("%LIST".equals(aProf))
 			{
 				foundOther = true;
-				ChooseResultActor cra;
+				ChooseSelectionActor<ArmorProf> cra;
 				if (prereq == null)
 				{
 					cra = this;
 				}
 				else
 				{
-					ConditionalChoiceActor cca = new ConditionalChoiceActor(
-							this);
+					ConditionalSelectionActor<ArmorProf> cca =
+							ConditionalSelectionActor.getCSA(this);
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
-				context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, cra);
+				context.obj.addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
 			}
 			else if (Constants.LST_ALL.equalsIgnoreCase(aProf))
 			{
@@ -215,16 +214,16 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 	{
 		Changes<ArmorProfProvider> changes = context.obj.getListChanges(obj,
 				ListKey.AUTO_ARMORPROF);
-		Changes<ChooseResultActor> listChanges = context.getObjectContext()
-				.getListChanges(obj, ListKey.CHOOSE_ACTOR);
+		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
+				.getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
 		Collection<ArmorProfProvider> added = changes.getAdded();
 		Set<String> set = new TreeSet<String>();
-		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
 		boolean foundAny = false;
 		boolean foundOther = false;
 		if (listAdded != null && !listAdded.isEmpty())
 		{
-			for (ChooseResultActor cra : listAdded)
+			for (ChooseSelectionActor<?> cra : listAdded)
 			{
 				if (cra.getSource().equals(getTokenName()))
 				{
@@ -283,25 +282,15 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
+	public void applyChoice(CDOMObject obj, ArmorProf ap, PlayerCharacter pc)
 	{
-		ArmorProf ap = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(ARMORPROF_CLASS, o);
-		if (ap != null)
-		{
-			pc.addArmorProf(obj, ap);
-		}
+		pc.addArmorProf(obj, ap);
 	}
 
 	@Override
-	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
+	public void removeChoice(CDOMObject obj, ArmorProf ap, PlayerCharacter pc)
 	{
-		ArmorProf ap = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(ARMORPROF_CLASS, o);
-		if (ap != null)
-		{
-			pc.removeArmorProf(obj, ap);
-		}
+		pc.removeArmorProf(obj, ap);
 	}
 
 	@Override
@@ -314,5 +303,11 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public String getLstFormat()
 	{
 		return "%LIST";
+	}
+
+	@Override
+	public Class<ArmorProf> getChoiceClass()
+	{
+		return ARMORPROF_CLASS;
 	}
 }

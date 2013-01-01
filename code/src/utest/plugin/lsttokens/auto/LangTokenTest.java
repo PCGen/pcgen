@@ -20,7 +20,7 @@ package plugin.lsttokens.auto;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -60,7 +60,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 	}
 
 	@Override
-	protected ChooseResultActor getActor()
+	protected ChooseSelectionActor<Language> getActor()
 	{
 		return subtoken;
 	}

@@ -24,11 +24,10 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.content.ConditionalChoiceActor;
+import pcgen.cdom.content.ConditionalSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
@@ -44,8 +43,9 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOMSecondaryToken<CDOMObject>,
-		ChooseResultActor {
+public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
+		CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<Language>
+{
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
 
@@ -123,18 +123,19 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 				context.getObjectContext().removeList(obj, ListKey.AUTO_LANGUAGE);
 			} else if ("%LIST".equals(token))
 			{
-				ChooseResultActor cra;
+				ChooseSelectionActor<Language> cra;
 				if (prereq == null)
 				{
 					cra = this;
 				} else
 				{
-					ConditionalChoiceActor cca = new ConditionalChoiceActor(this);
+					ConditionalSelectionActor<Language> cca =
+							ConditionalSelectionActor.getCSA(this);
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
 				foundOther = true;
-				context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, cra);
+				context.obj.addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
 			} else if (Constants.LST_ALL.equals(token))
 			{
 				foundAny = true;
@@ -172,10 +173,10 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 		Changes<QualifiedObject<CDOMReference<Language>>> changes = context.obj.getListChanges(obj,
 				ListKey.AUTO_LANGUAGE);
-		Changes<ChooseResultActor> listChanges = context.getObjectContext().getListChanges(obj, ListKey.CHOOSE_ACTOR);
+		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext().getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
 		Collection<QualifiedObject<CDOMReference<Language>>> added = changes.getAdded();
 		StringBuilder sb = new StringBuilder();
-		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
 		boolean foundAny = false;
 		boolean foundOther = false;
 		if (changes.includesGlobalClear())
@@ -184,7 +185,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 		}
 		if (listAdded != null && !listAdded.isEmpty())
 		{
-			for (ChooseResultActor cra : listAdded)
+			for (ChooseSelectionActor<?> cra : listAdded)
 			{
 				if (cra.getSource().equals(getTokenName()))
 				{
@@ -263,23 +264,15 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 	}
 
 	@Override
-	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
+	public void applyChoice(CDOMObject obj, Language l, PlayerCharacter pc)
 	{
-		Language l = Globals.getContext().ref.silentlyGetConstructedCDOMObject(LANGUAGE_CLASS, o);
-		if (l != null)
-		{
-			pc.addAutoLanguage(l, obj);
-		}
+		pc.addAutoLanguage(l, obj);
 	}
 
 	@Override
-	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
+	public void removeChoice(CDOMObject obj, Language l, PlayerCharacter pc)
 	{
-		Language l = Globals.getContext().ref.silentlyGetConstructedCDOMObject(LANGUAGE_CLASS, o);
-		if (l != null)
-		{
-			pc.removeAutoLanguage(l, obj);
-		}
+		pc.removeAutoLanguage(l, obj);
 	}
 
 	@Override
@@ -292,5 +285,11 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 	public String getLstFormat()
 	{
 		return "%LIST";
+	}
+
+	@Override
+	public Class<Language> getChoiceClass()
+	{
+		return LANGUAGE_CLASS;
 	}
 }

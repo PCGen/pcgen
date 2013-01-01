@@ -26,13 +26,12 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.content.ConditionalChoiceActor;
+import pcgen.cdom.content.ConditionalSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.ShieldProf;
 import pcgen.core.prereq.Prerequisite;
@@ -47,7 +46,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, ChooseResultActor
+		CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<ShieldProf>
 {
 
 	private static final Class<ShieldProf> SHIELDPROF_CLASS = ShieldProf.class;
@@ -150,19 +149,19 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			if ("%LIST".equals(aProf))
 			{
 				foundOther = true;
-				ChooseResultActor cra;
+				ChooseSelectionActor<ShieldProf> cra;
 				if (prereq == null)
 				{
 					cra = this;
 				}
 				else
 				{
-					ConditionalChoiceActor cca = new ConditionalChoiceActor(
-							this);
+					ConditionalSelectionActor<ShieldProf> cca =
+							ConditionalSelectionActor.getCSA(this);
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
-				context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, cra);
+				context.obj.addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
 			}
 			else if (Constants.LST_ALL.equalsIgnoreCase(aProf))
 			{
@@ -214,16 +213,16 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	{
 		Changes<ShieldProfProvider> changes = context.obj.getListChanges(obj,
 				ListKey.AUTO_SHIELDPROF);
-		Changes<ChooseResultActor> listChanges = context.getObjectContext()
-				.getListChanges(obj, ListKey.CHOOSE_ACTOR);
+		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
+				.getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
 		Collection<ShieldProfProvider> added = changes.getAdded();
 		Set<String> set = new TreeSet<String>();
-		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
 		boolean foundAny = false;
 		boolean foundOther = false;
 		if (listAdded != null && !listAdded.isEmpty())
 		{
-			for (ChooseResultActor cra : listAdded)
+			for (ChooseSelectionActor<?> cra : listAdded)
 			{
 				if (cra.getSource().equals(getTokenName()))
 				{
@@ -281,25 +280,15 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	}
 
 	@Override
-	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
+	public void applyChoice(CDOMObject obj, ShieldProf sp, PlayerCharacter pc)
 	{
-		ShieldProf sp = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(SHIELDPROF_CLASS, o);
-		if (sp != null)
-		{
-			pc.addShieldProf(obj, sp);
-		}
+		pc.addShieldProf(obj, sp);
 	}
 
 	@Override
-	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
+	public void removeChoice(CDOMObject obj, ShieldProf sp, PlayerCharacter pc)
 	{
-		ShieldProf sp = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(SHIELDPROF_CLASS, o);
-		if (sp != null)
-		{
-			pc.removeShieldProf(obj, sp);
-		}
+		pc.removeShieldProf(obj, sp);
 	}
 
 	@Override
@@ -312,5 +301,11 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	public String getLstFormat()
 	{
 		return "%LIST";
+	}
+
+	@Override
+	public Class<ShieldProf> getChoiceClass()
+	{
+		return SHIELDPROF_CLASS;
 	}
 }

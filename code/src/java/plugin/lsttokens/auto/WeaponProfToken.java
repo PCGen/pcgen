@@ -23,15 +23,14 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ChooseResultActor;
+import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.content.ConditionalChoiceActor;
+import pcgen.cdom.content.ConditionalSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
 import pcgen.core.WeaponProf;
@@ -47,7 +46,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, ChooseResultActor
+		CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<WeaponProf>
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
@@ -145,19 +144,19 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			if ("%LIST".equals(token))
 			{
 				foundOther = true;
-				ChooseResultActor cra;
+				ChooseSelectionActor<WeaponProf> cra;
 				if (prereq == null)
 				{
 					cra = this;
 				}
 				else
 				{
-					ConditionalChoiceActor cca = new ConditionalChoiceActor(
-							this);
+					ConditionalSelectionActor<WeaponProf> cca =
+							ConditionalSelectionActor.getCSA(this);
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
-				context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, cra);
+				context.obj.addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
 			}
 			else if ("DEITYWEAPONS".equals(token))
 			{
@@ -219,20 +218,20 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		List<String> list = new ArrayList<String>();
-		Changes<ChooseResultActor> listChanges = context.getObjectContext()
-				.getListChanges(obj, ListKey.CHOOSE_ACTOR);
+		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
+				.getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
 		Changes<WeaponProfProvider> changes = context.obj.getListChanges(obj,
 				ListKey.WEAPONPROF);
 		QualifiedObject<Boolean> deityweap = context.obj.getObject(obj,
 				ObjectKey.HAS_DEITY_WEAPONPROF);
 		Collection<WeaponProfProvider> added = changes.getAdded();
-		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
+		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
 		boolean foundAny = false;
 		boolean foundOther = false;
 		if (listAdded != null && !listAdded.isEmpty())
 		{
 			foundOther = true;
-			for (ChooseResultActor cra : listAdded)
+			for (ChooseSelectionActor<?> cra : listAdded)
 			{
 				if (cra.getSource().equals(getTokenName()))
 				{
@@ -317,25 +316,15 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	}
 
 	@Override
-	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
+	public void applyChoice(CDOMObject obj, WeaponProf wp, PlayerCharacter pc)
 	{
-		WeaponProf wp = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, o);
-		if (wp != null)
-		{
-			pc.addWeaponProf(obj, wp);
-		}
+		pc.addWeaponProf(obj, wp);
 	}
 
 	@Override
-	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
+	public void removeChoice(CDOMObject obj, WeaponProf wp, PlayerCharacter pc)
 	{
-		WeaponProf wp = Globals.getContext().ref
-				.silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, o);
-		if (wp != null)
-		{
-			pc.removeWeaponProf(obj, wp);
-		}
+		pc.removeWeaponProf(obj, wp);
 	}
 
 	@Override
@@ -348,5 +337,11 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	public String getLstFormat()
 	{
 		return "%LIST";
+	}
+
+	@Override
+	public Class<WeaponProf> getChoiceClass()
+	{
+		return WEAPONPROF_CLASS;
 	}
 }
