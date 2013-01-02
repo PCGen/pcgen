@@ -885,8 +885,7 @@ pcgen.filepaths=user
             </classpath>
             <batchtest todir="${build.dir}/test-results/xml">
                 <fileset dir="${basedir}/code/src/itest">
-                  <include name="plugin/**/*.java"/>
-                  <include name="pcgen/**/*.java"/>
+                  <include name="**/*.java"/>
                   <exclude name="**/Abstract*.java"/>
                   <exclude name="**/testsupport/*.java"/>
                 </fileset>
