@@ -39,6 +39,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
@@ -62,6 +63,7 @@ import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.system.LanguageBundle;
 
 /**
  * The Class <code>ChooserDialog</code> provides a general dialog to allow the 
@@ -223,7 +225,20 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		}
 		if (e.getActionCommand().equals("OK"))
 		{
-			chooser.commit();
+			if (chooser.isRequireCompleteSelection()
+				&& chooser.getRemainingSelections().getReference() > 0)
+			{
+				JOptionPane.showMessageDialog(this,
+					  LanguageBundle.getFormattedString("in_chooserRequireComplete", //$NON-NLS-1$
+						  chooser.getRemainingSelections().getReference()), 
+						  chooser.getName(), 
+					  JOptionPane.INFORMATION_MESSAGE);
+				return;
+			}
+			else
+			{
+				chooser.commit();
+			}
 		}
 		else
 		{
@@ -340,14 +355,6 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 				default:
 					throw new InternalError();
 			}
-		}
-
-		/**
-		 * @param viewName the viewName to set
-		 */
-		public void setViewName(String viewName)
-		{
-			this.viewName = viewName;
 		}
 	}
 

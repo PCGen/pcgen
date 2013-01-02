@@ -41,6 +41,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.core.chooser.CDOMChooserFacadeImpl;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -48,7 +49,6 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Tab;
 
 /**
@@ -156,20 +156,15 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 			return;
 		}
 
-		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
-		chooser.setPoolFlag(true); // user is required to use all available
-		// pool points
-		chooser.setTotalChoicesAvail(selectedList.size()); // need to remove 1
-		// to add another
-
-		chooser.setTitle("Modify selections for " + choice);
 		Globals.sortChooserLists(availableList, selectedList);
-		chooser.setAvailableList(availableList);
-		chooser.setSelectedList(selectedList);
-		chooser.setVisible(true);
 
-		final int selectedSize = chooser.getSelectedList().size();
-
+		CDOMChooserFacadeImpl<String> chooserFacade =
+				new CDOMChooserFacadeImpl<String>(
+						"Modify selections for " + choice, availableList, 
+					selectedList, 0);
+		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
+		final int selectedSize = chooserFacade.getFinalSelected().size();
+		
 		if (selectedSize != currentSelections)
 		{
 			// need to have the same number of selections when finished
@@ -182,7 +177,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		for (int i = 0; i < selectedSize; ++i)
 		{
 			pc
-					.addAssociation(choice, (String) chooser.getSelectedList()
+					.addAssociation(choice, (String) chooserFacade.getFinalSelected()
 							.get(i));
 		}
 	}

@@ -81,6 +81,8 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 			ChooserTreeViewType.TYPE_NAME;
 
 	private boolean dupsAllowed = false;
+
+	private boolean requireCompleteSelection;
 	
 	/**
 	 * Create a new instance of GeneraChooserFacadeBase with default localised 
@@ -92,7 +94,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	 * @param selected The list of items already selected. The user may choose to deselect items from this list.
 	 * @param maxNewSelections The number of selections the user may make in addition to those in the selected list.
 	 */
-	CDOMChooserFacadeImpl(String name, List<T> available, List<T> selected, int maxNewSelections)
+	public CDOMChooserFacadeImpl(String name, List<T> available, List<T> selected, int maxNewSelections)
 	{
 		this(name, available, selected, maxNewSelections, 
 			LanguageBundle.getString("in_available"), //$NON-NLS-1$
@@ -118,7 +120,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	 * @param addButtonName The label for the add button.
 	 * @param removeButtonName The label for the remove button.
 	 */
-	CDOMChooserFacadeImpl(String name, List<T> available,
+	public CDOMChooserFacadeImpl(String name, List<T> available,
 		List<T> selected, int maxNewSelections,
 		String availableTableTitle, String availableTableTypeNameTitle, 
 		String selectedTableTitle,
@@ -361,6 +363,24 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	public void setAllowsDups(boolean dupsAllowed)
 	{
 		this.dupsAllowed = dupsAllowed;
+	}
+
+	/**
+	 * Identify if the user must use up all remaining selections before closing the chooser.
+	 * @param requireCompleteSelection the requireCompleteSelection to set
+	 */
+	public void setRequireCompleteSelection(boolean requireCompleteSelection)
+	{
+		this.requireCompleteSelection = requireCompleteSelection;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isRequireCompleteSelection()
+	{
+		return requireCompleteSelection;
 	}
 
 	private class CDOMInfoWrapper implements InfoFacade

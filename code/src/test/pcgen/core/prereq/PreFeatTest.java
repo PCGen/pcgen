@@ -206,8 +206,6 @@ public class PreFeatTest extends AbstractCharacterTestCase
 	 */
 	public void test966023c() throws Exception
 	{
-		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
-
 		SettingsHandler.getGame().addToSchoolList("Conjuration");
 		SettingsHandler.getGame().addToSchoolList("Evocation");
 		SettingsHandler.getGame().addToSchoolList("Illusion");
@@ -250,8 +248,6 @@ public class PreFeatTest extends AbstractCharacterTestCase
 	 */
 	public void testExclusion() throws Exception
 	{
-		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
-
 		SettingsHandler.getGame().addToSchoolList("Conjuration");
 		SettingsHandler.getGame().addToSchoolList("Evocation");
 		SettingsHandler.getGame().addToSchoolList("Illusion");

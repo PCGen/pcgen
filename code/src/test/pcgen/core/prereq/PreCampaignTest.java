@@ -77,8 +77,6 @@ public class PreCampaignTest extends PCGenTestCase
 	 */
 	public void test966023c() throws Exception
 	{
-		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
-
 		SettingsHandler.getGame().addToSchoolList("Conjuration");
 		SettingsHandler.getGame().addToSchoolList("Evocation");
 		SettingsHandler.getGame().addToSchoolList("Illusion");

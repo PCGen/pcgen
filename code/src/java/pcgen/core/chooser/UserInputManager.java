@@ -18,7 +18,6 @@ public class UserInputManager extends CDOMChoiceManager<String>
 		super(cdo, chooseType, null, cost);
 	}
 
-	@Override
 	protected ChooserInterface getChooserInstance()
 	{
 		ChooserInterface chooser = ChooserFactory.getUserInputInstance();

@@ -70,6 +70,8 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	private final String availableTableTitle;
 	private ChooserTreeViewType defaultView =
 			ChooserTreeViewType.TYPE_NAME;
+
+	private boolean requireCompleteSelection;
 	
 	/**
 	 * Create a new instance of GeneraChooserFacadeBase with default localised 
@@ -283,6 +285,24 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	public void setDefaultView(ChooserTreeViewType defaultView)
 	{
 		this.defaultView = defaultView;
+	}
+
+	/**
+	 * Identify if the user must use up all remaining selections before closing the chooser.
+	 * @param requireCompleteSelection the requireCompleteSelection to set
+	 */
+	public void setRequireCompleteSelection(boolean requireCompleteSelection)
+	{
+		this.requireCompleteSelection = requireCompleteSelection;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isRequireCompleteSelection()
+	{
+		return requireCompleteSelection;
 	}
 
 }

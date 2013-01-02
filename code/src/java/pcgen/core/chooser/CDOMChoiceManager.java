@@ -213,22 +213,6 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	}
 
 	/**
-	 * Retrieve the appropriate chooser to use and set its title.
-	 * 
-	 * @return The chooser to be displayed to the user.
-	 */
-	protected ChooserInterface getChooserInstance()
-	{
-		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
-		String title = info.getTitle();
-		if (title != null && title.length() > 0)
-		{
-			chooser.setTitle(getTitle());
-		}
-		return chooser;
-	}
-
-	/**
 	 * 
 	 * @param pc
 	 * @param availableList

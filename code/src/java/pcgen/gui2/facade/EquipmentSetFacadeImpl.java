@@ -473,7 +473,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 					&& existing.getNodeType() == NodeType.EQUIPMENT)
 				{
 					EquipNodeImpl existingImpl = (EquipNodeImpl) existing;
-					if (equipSlot != null && equipSlot.equals(existingImpl.getSlot()))
+					if (equipSlot != null && !equipSlot.equals(existingImpl.getSlot()))
 					{
 						continue;
 					}

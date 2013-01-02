@@ -26,9 +26,9 @@ import java.util.Set;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.chooser.CDOMChooserFacadeImpl;
 import pcgen.util.StringPClassUtil;
 import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -178,25 +178,16 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	@Override
 	public Collection<? extends T> driveChoice(PlayerCharacter pc)
 	{
-		ChooserInterface chooser = ChooserFactory.getChooserInstance();
-		int intValue = choiceCount.resolve(pc, "").intValue();
-		chooser.setPoolFlag(required);
-		if (intValue == Integer.MAX_VALUE)
-		{
-			chooser.setPickAll(true);
-		}
-		else
-		{
-			chooser.setTotalChoicesAvail(intValue);
-		}
-		chooser.setAllowsDups(allowStack);
+		int numChoices = choiceCount.resolve(pc, "").intValue();
+		boolean pickall = (numChoices == Integer.MAX_VALUE);
+
 		String title = choices.getTitle();
 		if (title == null)
 		{
 			title = "Choose a "
 					+ StringPClassUtil.getStringFor(choices.getChoiceClass());
 		}
-		chooser.setTitle(title);
+
 		Collection<? extends T> set = choices.getSet(pc);
 		Set<T> allowed = new HashSet<T>();
 		List<Object> assocList = pc.getAssocList(this, AssociationListKey.ADD);
@@ -223,15 +214,22 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 			}
 		}
 
-		if (chooser.pickAll() || intValue == set.size())
+		//TODO: What about allowing duplicates?
+		if (pickall || numChoices == set.size())
 		{
 			return allowed;
 		}
 		else
 		{
-			chooser.setAvailableList(new ArrayList<T>(allowed));
-			chooser.setVisible(true);
-			return chooser.getSelectedList();
+			CDOMChooserFacadeImpl<T> chooserFacade =
+					new CDOMChooserFacadeImpl<T>(
+							title, new ArrayList<T>(allowed), 
+							new ArrayList<T>(), numChoices);
+			chooserFacade.setAllowsDups(allowStack);
+			chooserFacade.setRequireCompleteSelection(required);
+			ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
+			//TODO: What about cancel? Should it be allowed?
+			return chooserFacade.getFinalSelected();
 		}
 	}
 
@@ -299,6 +297,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 * @return The incoming object, cast to the (Generic) type of this
 	 *         TransitionChoice.
 	 */
+	@SuppressWarnings("unchecked")
 	public T castChoice(Object item)
 	{
 		return (T) item;

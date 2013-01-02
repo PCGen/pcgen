@@ -148,4 +148,11 @@ public interface ChooserFacade
 	 * @return The names of branches under which the node should be displayed.
 	 */
 	List<String> getBranchNames(InfoFacade item);
+	
+	/**
+	 * Does the user need to use up all remaining selections before they can 
+	 * commit the chooser.
+	 * @return true if the chooser needs to have 0 remaining selections before being committed.
+	 */
+	public boolean isRequireCompleteSelection();
 }
