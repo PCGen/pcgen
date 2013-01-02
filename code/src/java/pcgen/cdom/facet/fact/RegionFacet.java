@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.fact;
 
+import pcgen.base.lang.ObjectUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -358,6 +359,32 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 		public Region region;
 
 		public SubRegion subregion;
+		
+		@Override
+		public String toString()
+		{
+			return region + " " + subregion + " " + cachedRegion;
+		}
+		
+		@Override
+		public int hashCode()
+		{
+			return (region == null ? -1 : region.hashCode());
+		}
+		
+		@Override
+		public boolean equals(Object o)
+		{
+			if (o instanceof RegionCacheInfo)
+			{
+				RegionCacheInfo other = (RegionCacheInfo) o;
+				return ObjectUtil.compareWithNull(region, other.region)
+					&& ObjectUtil.compareWithNull(subregion, other.subregion)
+					&& ObjectUtil.compareWithNull(cachedRegion, other.cachedRegion);
+			}
+			return false;
+		}
+
 	}
 
 	/**

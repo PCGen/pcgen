@@ -494,6 +494,10 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 		{
 			componentMap.remove(obj);
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
+			if (componentMap.isEmpty())
+			{
+				removeCache(id, getClass());
+			}
 		}
 		return returnVal;
 	}
@@ -528,6 +532,10 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 					fireDataFacetChangeEvent(id, obj,
 							DataFacetChangeEvent.DATA_REMOVED);
 				}
+			}
+			if (componentMap.isEmpty())
+			{
+				removeCache(id, getClass());
 			}
 		}
 	}

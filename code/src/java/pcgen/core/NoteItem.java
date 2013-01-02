@@ -148,4 +148,23 @@ public final class NoteItem implements NoteFacade, Cloneable
 			return null;
 		}
 	}
+
+	@Override
+	public int hashCode()
+	{
+		return 17 * id_value ^ 23 * id_parent;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o instanceof NoteItem)
+		{
+			NoteItem other = (NoteItem) o;
+			return (id_parent == other.id_parent)
+				&& (id_value == other.id_value) && (name.equals(other.name))
+				&& (value.equals(other.value)) && (required == other.required);
+		}
+		return false;
+	}
 }

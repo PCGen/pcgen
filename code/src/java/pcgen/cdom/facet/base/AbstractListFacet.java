@@ -126,6 +126,10 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 			{
 				fireDataFacetChangeEvent(id, obj,
 						DataFacetChangeEvent.DATA_REMOVED);
+				if (componentSet.isEmpty())
+				{
+					removeCache(id, thisClass);
+				}
 			}
 		}
 	}
