@@ -57,16 +57,17 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 		runRoundRobin();
 	}
 
-	@Test
-	public void testDeityAddRemove()
-	{
-		Deity deity = create(Deity.class, "MyDeity");
-		finishLoad();
-		pc.setDeity(deity);
-		//TODO No way to remove a deity once set :(
-		//pc.removeDeity();
-		runRoundRobin();
-	}
+	//TODO No way to remove a deity once set :(
+	//	@Test
+	//	public void testDeityAddRemove()
+	//	{
+	//		Deity deity = create(Deity.class, "MyDeity");
+	//		finishLoad();
+	//		runWriteRead();
+	//		pc.setDeity(deity);
+	//		pc.removeDeity();
+	//		testEquality();
+	//	}
 
 	@Test
 	public void testAlignment()
@@ -76,15 +77,16 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 		runRoundRobin();
 	}
 
-	@Test
-	public void testAlignmentAddRemove()
-	{
-		finishLoad();
-		pc.setAlignment(le);
-		//TODO No way to remove a alignment once set :(
-		//pc.removeAlignment();
-		runRoundRobin();
-	}
+	//TODO No way to remove a alignment once set :(
+	//	@Test
+	//	public void testAlignmentAddRemove()
+	//	{
+	//		finishLoad();
+	//		runWriteRead();
+	//		pc.setAlignment(le);
+	//		pc.removeAlignment();
+	//		testEquality();
+	//	}
 
 	@Test
 	public void testTemplate()
@@ -100,9 +102,10 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	{
 		PCTemplate template = create(PCTemplate.class, "MyTemplate");
 		finishLoad();
+		runWriteRead();
 		pc.addTemplate(template);
 		pc.removeTemplate(template);
-		runRoundRobin();
+		checkEquality();
 	}
 
 	@Test
@@ -117,9 +120,10 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	public void testSpellBookAddRemove()
 	{
 		finishLoad();
+		runWriteRead();
 		pc.addSpellBook("MyBook");
 		pc.delSpellBook("MyBook");
-		runRoundRobin();
+		checkEquality();
 	}
 
 	@Test

@@ -354,6 +354,19 @@ public class AbstractSaveRestoreTest extends TestCase
 
 	protected void runRoundRobin()
 	{
+		runWriteRead();
+		checkEquality();
+	}
+
+	protected void checkEquality()
+	{
+		InequalityTester it = InequalityTesterInst.getInstance();
+		assertTrue(AbstractStorageFacet.areEqualCache(pc.getCharID(),
+			reloadedPC.getCharID(), it));
+	}
+
+	protected void runWriteRead()
+	{
 		GameMode mode = SettingsHandler.getGame();
 		String pcgString =
 				(new PCGVer2Creator(pc, mode, null)).createPCGString();
@@ -362,9 +375,6 @@ public class AbstractSaveRestoreTest extends TestCase
 		ioh.read(reloadedPC, is, true);
 		assertEquals(ioh.getErrors().toString(), 0, ioh.getErrors().size());
 		assertEquals(ioh.getWarnings().toString(), 0, ioh.getWarnings().size());
-		InequalityTester it = InequalityTesterInst.getInstance();
-		assertTrue(AbstractStorageFacet.areEqualCache(pc.getCharID(),
-			reloadedPC.getCharID(), it));
 	}
 
 	protected void setBoilerplate()
