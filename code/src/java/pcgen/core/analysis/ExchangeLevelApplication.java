@@ -28,10 +28,11 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.chooser.CDOMChooserFacadeImpl;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
 
 public class ExchangeLevelApplication
 {
@@ -66,36 +67,34 @@ public class ExchangeLevelApplication
 							//
 							// Build the choice list
 							//
-							final List<String> choiceNames =
-									new ArrayList<String>();
+							final List<Integer> choiceNames =
+									new ArrayList<Integer>();
 	
 							for (int i = 0; i <= iMaxDonation; ++i)
 							{
-								choiceNames.add(Integer.toString(i));
+								choiceNames.add(i);
 							}
 	
 							//
 							// Get number of levels to exchange for this class
 							//
-							final ChooserInterface c =
-									ChooserFactory.getChooserInstance();
-							c
-								.setTitle("Select number of levels to convert from "
-									+ aClass.getDisplayName()
-									+ " to "
-									+ newcl.getDisplayName());
-							c.setTotalChoicesAvail(1);
-							c.setPoolFlag(false);
-							c.setAvailableList(choiceNames);
-							c.setVisible(true);
-	
-							final List<String> selectedList =
-									c.getSelectedList();
+							String title =
+									LanguageBundle.getFormattedString(
+										"in_exchangeLevelsChoice",
+										aClass.getDisplayName(),
+										newcl.getDisplayName());
+							CDOMChooserFacadeImpl<Integer> chooserFacade =
+									new CDOMChooserFacadeImpl<Integer>(
+											title, choiceNames, 
+											new ArrayList<Integer>(), 1);
+							ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
+							final List<Integer> selectedList = chooserFacade.getFinalSelected();
+
 							int iLevels = 0;
 	
 							if (!selectedList.isEmpty())
 							{
-								iLevels = Integer.parseInt(selectedList.get(0));
+								iLevels = selectedList.get(0);
 							}
 	
 							if (iLevels > 0)
