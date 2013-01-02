@@ -37,6 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.domain.CcskillToken;
+import plugin.lsttokens.skill.ExclusiveToken;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public class DomainCcSkillTest extends AbstractTokenModelTest
@@ -73,9 +74,13 @@ public class DomainCcSkillTest extends AbstractTokenModelTest
 			result.printMessages();
 			fail("Test Setup Failed");
 		}
+		new ExclusiveToken().parseToken(context, sk, "Yes");
 		finishLoad();
+		assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.add(id, source, new ClassSource(dragon, 0));
 		assertTrue(lscFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
+		pc.setDirty(true);
+		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.remove(id, source);
 		assertFalse(lscFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
 	}
@@ -96,10 +101,14 @@ public class DomainCcSkillTest extends AbstractTokenModelTest
 			result.printMessages();
 			fail("Test Setup Failed");
 		}
+		new ExclusiveToken().parseToken(context, sk, "Yes");
 		finishLoad();
 		assertFalse(lascFacet.contains(id, dragon, sk, SkillCost.CROSS_CLASS));
+		assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.add(id, source, new ClassSource(dragon, 0));
 		assertTrue(lascFacet.contains(id, dragon, sk, SkillCost.CROSS_CLASS));
+		pc.setDirty(true);
+		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.remove(id, source);
 		assertFalse(lascFacet.contains(id, dragon, sk, SkillCost.CROSS_CLASS));
 	}

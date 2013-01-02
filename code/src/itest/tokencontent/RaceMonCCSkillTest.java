@@ -36,6 +36,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.race.MonccskillToken;
+import plugin.lsttokens.skill.ExclusiveToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
@@ -49,6 +50,7 @@ public class RaceMonCCSkillTest extends AbstractTokenModelTest
 
 	private ListSkillCostFacet lscFacet;
 	private Skill sk;
+	private PCClass dragon;
 
 	@Override
 	protected void setUp() throws Exception
@@ -56,8 +58,7 @@ public class RaceMonCCSkillTest extends AbstractTokenModelTest
 		super.setUp();
 		lscFacet = FacetLibrary.getFacet(ListSkillCostFacet.class);
 		sk = context.ref.constructCDOMObject(Skill.class, "MySkill");
-		PCClass dragon =
-				context.ref.constructCDOMObject(PCClass.class, "Dragon");
+		dragon = context.ref.constructCDOMObject(PCClass.class, "Dragon");
 		dragon.addToListFor(ListKey.TYPE, Type.MONSTER);
 		TokenRegistration.register(CHOOSE_SKILL_TOKEN);
 		ChooserFactory.setDelegate(new MockUIDelegate());
@@ -73,11 +74,14 @@ public class RaceMonCCSkillTest extends AbstractTokenModelTest
 			result.printMessages();
 			fail("Test Setup Failed");
 		}
+		new ExclusiveToken().parseToken(context, sk, "Yes");
 		finishLoad();
+		assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(sk, dragon));
 		raceFacet.set(id, getSelectionObject(source));
 		ClassSkillList dragonCSL =
 				context.ref.silentlyGetConstructedCDOMObject(
 					ClassSkillList.class, "Dragon");
+		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		assertTrue(lscFacet.contains(id, dragonCSL, SkillCost.CROSS_CLASS, sk));
 		raceFacet.remove(id);
 		assertFalse(lscFacet.contains(id, dragonCSL, SkillCost.CROSS_CLASS, sk));

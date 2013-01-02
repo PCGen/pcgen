@@ -51,6 +51,7 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 	private MonsterCSkillFacet mcsFacet;
 	private ListSkillCostFacet lscFacet;
 	private Skill sk;
+	private PCClass dragon;
 
 	@Override
 	protected void setUp() throws Exception
@@ -59,8 +60,7 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 		mcsFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
 		lscFacet = FacetLibrary.getFacet(ListSkillCostFacet.class);
 		sk = context.ref.constructCDOMObject(Skill.class, "MySkill");
-		PCClass dragon =
-				context.ref.constructCDOMObject(PCClass.class, "Dragon");
+		dragon = context.ref.constructCDOMObject(PCClass.class, "Dragon");
 		dragon.addToListFor(ListKey.TYPE, Type.MONSTER);
 		TokenRegistration.register(CHOOSE_SKILL_TOKEN);
 		ChooserFactory.setDelegate(new MockUIDelegate());
@@ -82,6 +82,7 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 				context.ref.silentlyGetConstructedCDOMObject(
 					ClassSkillList.class, "Dragon");
 		assertTrue(lscFacet.contains(id, dragonCSL, SkillCost.CLASS, sk));
+		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
 		raceFacet.remove(id);
 		assertFalse(lscFacet.contains(id, dragonCSL, SkillCost.CLASS, sk));
 	}
@@ -104,9 +105,12 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertEquals(0, mcsFacet.getCount(id));
+		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		raceInputFacet.set(id, source);
 		assertTrue(mcsFacet.contains(id, sk));
 		assertEquals(1, mcsFacet.getCount(id));
+		pc.setDirty(true);
+		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
 		raceInputFacet.remove(id);
 		assertEquals(0, mcsFacet.getCount(id));
 	}

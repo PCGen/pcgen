@@ -74,8 +74,11 @@ public class DomainCSkillTest extends AbstractTokenModelTest
 			fail("Test Setup Failed");
 		}
 		finishLoad();
+		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.add(id, source, new ClassSource(dragon, 0));
 		assertTrue(lscFacet.contains(id, dragon, SkillCost.CLASS, sk));
+		pc.setDirty(true);
+		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.remove(id, source);
 		assertFalse(lscFacet.contains(id, dragon, SkillCost.CLASS, sk));
 	}
@@ -98,8 +101,11 @@ public class DomainCSkillTest extends AbstractTokenModelTest
 		}
 		finishLoad();
 		assertFalse(lascFacet.contains(id, dragon, sk, SkillCost.CLASS));
+		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.add(id, source, new ClassSource(dragon, 0));
 		assertTrue(lascFacet.contains(id, dragon, sk, SkillCost.CLASS));
+		pc.setDirty(true);
+		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.remove(id, source);
 		assertFalse(lascFacet.contains(id, dragon, sk, SkillCost.CLASS));
 	}

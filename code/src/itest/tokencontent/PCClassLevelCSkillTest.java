@@ -32,13 +32,13 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
-import plugin.lsttokens.pcclass.level.CcskillToken;
+import plugin.lsttokens.pcclass.level.CskillToken;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public class PCClassLevelCSkillTest extends AbstractTokenModelTest
 {
 
-	private static CcskillToken token = new CcskillToken();
+	private static CskillToken token = new CskillToken();
 	private Skill sk;
 	private PCClass dragon;
 	private LocalSkillCostFacet lscFacet;
@@ -65,11 +65,14 @@ public class PCClassLevelCSkillTest extends AbstractTokenModelTest
 			fail("Test Setup Failed");
 		}
 		finishLoad();
+		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		classFacet.addClass(id, dragon);
 		classFacet.setLevel(id, dragon, 1);
-		assertTrue(lscFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
+		assertTrue(lscFacet.contains(id, dragon, SkillCost.CLASS, sk));
+		pc.setDirty(true);
+		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
 		classFacet.setLevel(id, dragon, 0);
-		assertFalse(lscFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
+		assertFalse(lscFacet.contains(id, dragon, SkillCost.CLASS, sk));
 	}
 
 	@Override

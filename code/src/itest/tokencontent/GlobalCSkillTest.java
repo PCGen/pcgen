@@ -25,6 +25,7 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.GlobalSkillCostFacet;
 import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
+import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
@@ -82,10 +83,13 @@ public class GlobalCSkillTest extends AbstractContentTokenTest
 			result.printMessages();
 			fail("Test Setup Failed");
 		}
+		PCClass wizard = create(PCClass.class, "Wizard");
 		finishLoad();
 		assertFalse(globalAddedSkillCostFacet.contains(id, granted, SkillCost.CLASS));
 		Selection<PCTemplate, ?> sel = new Selection<PCTemplate, Skill>(source, granted);
+		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(granted, wizard));
 		templateFacet.add(id, sel, this);
+		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(granted, wizard));
 		assertTrue(globalAddedSkillCostFacet.contains(id, granted, SkillCost.CLASS));
 		templateFacet.remove(id, sel, this);
 		assertFalse(globalAddedSkillCostFacet.contains(id, granted, SkillCost.CLASS));

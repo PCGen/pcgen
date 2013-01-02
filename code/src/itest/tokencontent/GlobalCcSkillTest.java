@@ -25,6 +25,7 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.GlobalSkillCostFacet;
 import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
+import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
@@ -32,6 +33,7 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.CcskillLst;
 import plugin.lsttokens.choose.SkillToken;
+import plugin.lsttokens.skill.ExclusiveToken;
 import tokencontent.testsupport.AbstractContentTokenTest;
 
 public class GlobalCcSkillTest extends AbstractContentTokenTest
@@ -82,10 +84,14 @@ public class GlobalCcSkillTest extends AbstractContentTokenTest
 			result.printMessages();
 			fail("Test Setup Failed");
 		}
+		PCClass wizard = create(PCClass.class, "Wizard");
+		new ExclusiveToken().parseToken(context, granted, "Yes");
 		finishLoad();
 		assertFalse(globalAddedSkillCostFacet.contains(id, granted, SkillCost.CROSS_CLASS));
 		Selection<PCTemplate, ?> sel = new Selection<PCTemplate, Skill>(source, granted);
+		assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(granted, wizard));
 		templateFacet.add(id, sel, this);
+		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(granted, wizard));
 		assertTrue(globalAddedSkillCostFacet.contains(id, granted, SkillCost.CROSS_CLASS));
 		templateFacet.remove(id, sel, this);
 		assertFalse(globalAddedSkillCostFacet.contains(id, granted, SkillCost.CROSS_CLASS));
