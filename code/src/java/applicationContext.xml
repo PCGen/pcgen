@@ -459,6 +459,7 @@
 		<property name="localSkillCostFacet" ref="localSkillCostFacet"/>
 		<property name="masterSkillFacet" ref="masterSkillFacet"/>
 		<property name="subClassFacet" ref="subClassFacet"/>
+		<property name="monsterCSkillFacet" ref="monsterCSkillFacet"/>
 	</bean>
 	<bean id="skillLanguageFacet" class="pcgen.cdom.facet.input.SkillLanguageFacet">
 		<property name="languageFacet" ref="languageFacet"/>

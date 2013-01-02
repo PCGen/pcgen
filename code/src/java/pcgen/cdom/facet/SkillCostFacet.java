@@ -30,6 +30,7 @@ import pcgen.cdom.facet.analysis.LocalSkillCostFacet;
 import pcgen.cdom.facet.input.ClassSkillListFacet;
 import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
 import pcgen.cdom.facet.input.LocalAddedSkillCostFacet;
+import pcgen.cdom.facet.input.MonsterCSkillFacet;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -51,6 +52,7 @@ public class SkillCostFacet
 	private LocalSkillCostFacet localSkillCostFacet;
 	private MasterSkillFacet masterSkillFacet;
 	private SubClassFacet subClassFacet;
+	private MonsterCSkillFacet monsterCSkillFacet;
 
 	public SkillCost skillCostForPCClass(CharID id, Skill sk, PCClass aClass)
 	{
@@ -81,12 +83,12 @@ public class SkillCostFacet
 			throw new IllegalArgumentException(
 				"Skill in isClassSkill cannot be null");
 		}
-
 		Collection<ClassSkillList> classSkillList = getClassSkillLists(id, pcc);
 		return hasGlobalCost(id, skill, SkillCost.CLASS)
 			|| hasLocalCost(id, pcc, skill, SkillCost.CLASS)
 			|| hasLocalCost(id, classSkillList, skill, SkillCost.CLASS)
-			|| hasMasterSkill(classSkillList, skill);
+			|| hasMasterSkill(classSkillList, skill)
+			|| monsterCSkillFacet.contains(id, skill);
 	}
 
 	public boolean isCrossClassSkill(CharID id, PCClass pcc, Skill skill)
@@ -225,5 +227,10 @@ public class SkillCostFacet
 	public void setSubClassFacet(SubClassFacet subClassFacet)
 	{
 		this.subClassFacet = subClassFacet;
+	}
+
+	public void setMonsterCSkillFacet(MonsterCSkillFacet monsterCSkillFacet)
+	{
+		this.monsterCSkillFacet = monsterCSkillFacet;
 	}
 }
