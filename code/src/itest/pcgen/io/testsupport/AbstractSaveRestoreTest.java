@@ -81,7 +81,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 
 import compare.InequalityTesterInst;
 
-public class AbstractSaveRestoreTest extends TestCase
+public abstract class AbstractSaveRestoreTest extends TestCase
 {
 
 	protected LoadContext context;
