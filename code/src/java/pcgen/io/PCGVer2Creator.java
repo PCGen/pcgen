@@ -116,7 +116,7 @@ import pcgen.util.StringPClassUtil;
  * @author Thomas Behr 19-03-02
  * @version $Revision$
  */
-final class PCGVer2Creator implements IOConstants
+public final class PCGVer2Creator implements IOConstants
 {
 	/*
 	 * DO NOT CHANGE line separator.
@@ -134,7 +134,7 @@ final class PCGVer2Creator implements IOConstants
 	 * Constructor
 	 * @param aPC
 	 */
-	PCGVer2Creator(final PlayerCharacter aPC, GameMode mode, List<? extends CampaignFacade> campaigns)
+	public PCGVer2Creator(final PlayerCharacter aPC, GameMode mode, List<? extends CampaignFacade> campaigns)
 	{
 		thePC = aPC;
 		charDisplay = aPC.getDisplay();

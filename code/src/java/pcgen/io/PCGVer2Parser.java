@@ -2843,25 +2843,28 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (nature == Nature.VIRTUAL)
 			{
-				ability =
-						AbilityUtilities
-							.addCloneOfAbilityToVirtualListwithChoices(thePC,
-								ability, null, category);
-				if (ability == null)
+				if (!category.equals(AbilityCategory.LANGBONUS))
 				{
-					Logging
-						.errorPrint("Failed to create virtual ability from line "
-							+ line);
-					final String msg =
-							LanguageBundle.getFormattedString(
-								"Warnings.PCGenParser.CouldntAddAbility", //$NON-NLS-1$
-								abilityKey);
-					warnings.add(msg);
-				}
-				else
-				{
-					thePC.setAssoc(ability, AssociationKey.NEEDS_SAVING,
-						Boolean.TRUE);
+					ability =
+							AbilityUtilities
+								.addCloneOfAbilityToVirtualListwithChoices(
+									thePC, ability, null, category);
+					if (ability == null)
+					{
+						Logging
+							.errorPrint("Failed to create virtual ability from line "
+								+ line);
+						final String msg =
+								LanguageBundle.getFormattedString(
+									"Warnings.PCGenParser.CouldntAddAbility", //$NON-NLS-1$
+									abilityKey);
+						warnings.add(msg);
+					}
+					else
+					{
+						thePC.setAssoc(ability, AssociationKey.NEEDS_SAVING,
+							Boolean.TRUE);
+					}
 				}
 			}
 		}
