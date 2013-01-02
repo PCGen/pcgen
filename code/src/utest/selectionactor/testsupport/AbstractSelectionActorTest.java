@@ -21,6 +21,8 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import compare.InequalityTesterInst;
+
 import pcgen.base.test.InequalityTester;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseSelectionActor;

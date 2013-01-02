@@ -16,6 +16,8 @@
  */
 package pcgen.cdom.facet.base;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -183,13 +185,18 @@ public abstract class AbstractStorageFacet
 		Set<Class<?>> set2 = CACHE.getSecondaryKeySet(id2);
 		if (!set1.equals(set2))
 		{
+			List<Class<?>> l1 = new ArrayList<Class<?>>(set1);
+			l1.removeAll(set2);
+			List<Class<?>> l2 = new ArrayList<Class<?>>(set2);
+			l2.removeAll(set1);
+			Logging.errorPrint("Inequal: " + l1 + " " + l2);
 			return false;
 		}
 		for (Class<?> cl : set1)
 		{
 			Object obj1 = CACHE.get(id1, cl);
 			Object obj2 = CACHE.get(id2, cl);
-			String equal = t.testEquality(obj1, obj2);
+			String equal = t.testEquality(obj1, obj2, cl + "/");
 			if (equal != null)
 			{
 				Logging.errorPrint(equal);

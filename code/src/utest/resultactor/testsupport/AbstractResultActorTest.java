@@ -21,6 +21,8 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import compare.InequalityTesterInst;
+
 import pcgen.base.test.InequalityTester;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseResultActor;
@@ -52,7 +54,6 @@ import plugin.lsttokens.auto.LangToken;
 import plugin.lsttokens.equipment.ProficiencyToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
-import selectionactor.testsupport.InequalityTesterInst;
 
 public abstract class AbstractResultActorTest<T extends CDOMObject> extends TestCase
 {

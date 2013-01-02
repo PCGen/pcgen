@@ -18,5 +18,5 @@ package pcgen.base.test;
 
 public interface InequalityTester
 {
-	public String testEquality(Object o1, Object o2);
+	public String testEquality(Object o1, Object o2, String location);
 }

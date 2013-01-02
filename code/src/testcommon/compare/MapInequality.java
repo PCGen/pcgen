@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2010-13 Tom Parker <thpr@users.sourceforge.net>
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
@@ -14,7 +14,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package selectionactor.testsupport;
+package compare;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,18 +22,19 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.base.test.InequalityTester;
 
 public class MapInequality implements InequalityTest<Map<?, ?>>
 {
 
     @Override
-	public String testInequality(Map<?, ?> m1, Map<?, ?> m2, InequalityTester t)
+	public String testInequality(Map<?, ?> m1, Map<?, ?> m2, InequalityTester t, String location)
 	{
 		List<String> reasons = new ArrayList<String>();
 		if (m1.keySet().size() != m2.keySet().size())
 		{
-			return "Inequality in Map Key Size: " + m1.keySet() + " " + m2.keySet();
+			return "MI=@" + location + ": Inequality in Map Key Size: " + m1.keySet() + " " + m2.keySet();
 		}
 		if (!m1.keySet().equals(m2.keySet()))
 		{
@@ -42,7 +43,7 @@ public class MapInequality implements InequalityTest<Map<?, ?>>
 			for (Object o : m1.keySet())
 			{
 				Object o2 = i2.next();
-				String reason = t.testEquality(o, o2);
+				String reason = t.testEquality(o, o2, location + "/k/" + o.getClass());
 				if (reason != null)
 				{
 					found = true;
@@ -51,7 +52,7 @@ public class MapInequality implements InequalityTest<Map<?, ?>>
 			}
 			if (found)
 			{
-				reasons.add("Inequality in Map Keys: " + m1.keySet() + " " + m2.keySet());
+				reasons.add("@MI=" + location + ": Inequality in Map Keys: " + m1.keySet() + " " + m2.keySet());
 			}
 		}
 		if (!m1.values().equals(m2.values()))
@@ -60,26 +61,40 @@ public class MapInequality implements InequalityTest<Map<?, ?>>
 			Collection<?> c2 = m2.values();
 			if (c1.size() != c2.size())
 			{
-				reasons.add("Inequality in Value Size: " + c1.size() + " " + c2.size());
+				reasons.add("@MI=" + location + ": Inequality in Value Size: " + c1.size() + " " + c2.size());
 			}
 			Iterator<?> i2 = c2.iterator();
-			boolean found = false;
+			String potentialProb = null;
 			for (Object o : c1)
 			{
 				Object o2 = i2.next();
-				String reason = t.testEquality(o, o2);
+				String reason = t.testEquality(o, o2, location + "/v/" + o.getClass());
 				if (reason != null)
 				{
-					found = true;
+					potentialProb = reason;
+				}
+			}
+			if (potentialProb != null)
+			{
+				//Collection may be smarter at this than we are...
+				String reason = t.testEquality(c1, c2, location + "/vc/" + c1.getClass());
+				if (reason == null)
+				{
+					//ok!
+					potentialProb = null;
+				}
+				else
+				{
+					reasons.add(potentialProb);
 					reasons.add(reason);
 				}
 			}
-			if (found)
+			if (potentialProb != null)
 			{
-				reasons.add("Inequality in Map Values: " + m1.values() + " " + m2.values() + " {" + m1.values().iterator().next().getClass() + "}");
+				reasons.add("@MI=" + location + ": Inequality in Map Values: " + m1.values() + " " + m2.values() + " {" + m1.values().iterator().next().getClass() + "}");
 			}
 		}
-		return reasons.isEmpty() ? null : reasons.toString();
+		return reasons.isEmpty() ? null : StringUtil.join(reasons, "\n");
 	}
 
 }

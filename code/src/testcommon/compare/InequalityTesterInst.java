@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2010-13 Tom Parker <thpr@users.sourceforge.net>
+ * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
  * Software Foundation; either version 2.1 of the License, or (at your option)
@@ -14,13 +15,18 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package selectionactor.testsupport;
+package compare;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import pcgen.base.lang.StringUtil;
 import pcgen.base.test.InequalityTester;
 import pcgen.core.PlayerCharacter;
 
@@ -29,16 +35,18 @@ public final class InequalityTesterInst implements InequalityTester
 
 	public static InequalityTester instance;
 
-	public static Map<Class<?>, InequalityTest> INEQ_MAP = new HashMap<Class<?>, InequalityTest>();
+	public static Map<Class<?>, InequalityTest> INEQ_MAP =
+			new HashMap<Class<?>, InequalityTest>();
 
 	static
 	{
+		INEQ_MAP.put(Collection.class, new CollectionInequality());
 		INEQ_MAP.put(Map.class, new MapInequality());
 		INEQ_MAP.put(PlayerCharacter.class, new PlayerCharacterInequality());
 	}
 
-    @Override
-	public String testEquality(Object o1, Object o2)
+	@Override
+	public String testEquality(Object o1, Object o2, String location)
 	{
 		List<String> reasons = new ArrayList<String>();
 		if (o1 == null)
@@ -49,14 +57,14 @@ public final class InequalityTesterInst implements InequalityTester
 			}
 			else
 			{
-				return "o1 is null, o2 is a "
-						+ o2.getClass().getCanonicalName();
+				return "@" + location + ": o1 is null, o2 is a "
+					+ o2.getClass().getCanonicalName();
 			}
 		}
 		if (o2 == null)
 		{
-			return "o1 is a " + o1.getClass().getCanonicalName()
-					+ ", o2 is null";
+			return "@IT=" + location + "o1 is a "
+				+ o1.getClass().getCanonicalName() + ", o2 is null";
 		}
 		Class<?> c1 = o1.getClass();
 		Class<?> c2 = o2.getClass();
@@ -64,7 +72,7 @@ public final class InequalityTesterInst implements InequalityTester
 		{
 			if (INEQ_MAP.containsKey(c1))
 			{
-				return runTest(c1, o1, o2);
+				return runTest(c1, o1, o2, location + "/" + c1);
 			}
 			else
 			{
@@ -72,24 +80,26 @@ public final class InequalityTesterInst implements InequalityTester
 				{
 					return null;
 				}
-				reasons
-						.add(c1.getCanonicalName() + " objects not equal: "
-								+ o1);
+				reasons.add("@IT=" + location + "/" + c1.getCanonicalName()
+					+ " objects not equal: " + o1 + " " + o2);
 			}
 		}
 		else
 		{
-			reasons.add(c1.getClass() + " not same class as " + c2.getClass());
+			reasons.add("@IT=" + location + "/" + c1.getClass()
+				+ " not same class as " + c2.getClass());
 		}
-		Class<?>[] if1array = c1.getInterfaces();
-		Class<?>[] if2array = c2.getInterfaces();
-		for (Class<?> if1 : if1array)
+		Set<Class<?>> ifs1 = getInterfaces(c1);
+		Set<Class<?>> ifs2 = getInterfaces(c2);
+		for (Class<?> if1 : ifs1)
 		{
-			for (Class<?> if2 : if2array)
+			for (Class<?> if2 : ifs2)
 			{
 				if (if1.equals(if2) && INEQ_MAP.containsKey(if1))
 				{
-					String rt = runTest(if1, o1, o2);
+					String rt =
+							runTest(if1, o1, o2, location + "/" + c1 + " as "
+								+ if1);
 					if (rt == null)
 					{
 						return null;
@@ -101,13 +111,25 @@ public final class InequalityTesterInst implements InequalityTester
 				}
 			}
 		}
-		return reasons.isEmpty() ? null : reasons.toString();
+		return reasons.isEmpty() ? null : StringUtil.join(reasons, "\n");
+	}
+
+	private Set<Class<?>> getInterfaces(Class<?> c1)
+	{
+		HashSet<Class<?>> if1 = new HashSet<Class<?>>();
+		if1.addAll(Arrays.asList(c1.getInterfaces()));
+		Class<?> sc = c1.getSuperclass();
+		if (sc != null)
+		{
+			if1.addAll(getInterfaces(sc));
+		}
+		return if1;
 	}
 
 	@SuppressWarnings("unchecked")
-	private <T> String runTest(Class<T> c1, Object o1, Object o2)
+	private <T> String runTest(Class<T> c1, Object o1, Object o2, String context)
 	{
-		return INEQ_MAP.get(c1).testInequality(o1, o2, this);
+		return INEQ_MAP.get(c1).testInequality(o1, o2, this, context);
 	}
 
 	public static synchronized InequalityTester getInstance()

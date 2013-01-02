@@ -19,6 +19,8 @@ package resultactor.auto;
 
 import org.junit.Test;
 
+import compare.InequalityTesterInst;
+
 import pcgen.base.test.InequalityTester;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseResultActor;
@@ -34,7 +36,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.ReferenceContext;
 import plugin.lsttokens.auto.FeatToken;
 import resultactor.testsupport.AbstractResultActorTest;
-import selectionactor.testsupport.InequalityTesterInst;
 
 public class FeatTokenTest extends AbstractResultActorTest<Ability>
 {

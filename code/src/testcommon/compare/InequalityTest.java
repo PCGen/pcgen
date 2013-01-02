@@ -14,11 +14,11 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package selectionactor.testsupport;
+package compare;
 
 import pcgen.base.test.InequalityTester;
 
 public interface InequalityTest<T>
 {
-	public String testInequality(T t1, T t2, InequalityTester t);
+	public String testInequality(T t1, T t2, InequalityTester t, String location);
 }
