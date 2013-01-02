@@ -13,7 +13,6 @@ import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
 
 public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 {

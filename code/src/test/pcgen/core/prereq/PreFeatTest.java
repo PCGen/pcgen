@@ -29,13 +29,11 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.WeaponProf;
-import pcgen.gui.utils.SwingChooser;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
-import pcgen.util.chooser.ChooserFactory;
 import plugin.pretokens.parser.PreFeatParser;
 
 /**

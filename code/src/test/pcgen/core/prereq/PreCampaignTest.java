@@ -33,9 +33,7 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.SettingsHandler;
-import pcgen.gui.utils.SwingChooser;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.util.chooser.ChooserFactory;
 
 /**
  * The Class <code>PreCampaignTest</code> checks the procesing
