@@ -15,16 +15,16 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package selectionactor.auto;
+package resultactor.auto;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.core.WeaponProf;
 import plugin.lsttokens.auto.WeaponProfToken;
-import selectionactor.testsupport.AbstractSelectionActorTest;
+import resultactor.testsupport.AbstractResultActorTest;
 
-public class WeaponProfTokenTest extends AbstractSelectionActorTest<WeaponProf>
+public class WeaponProfTokenTest extends AbstractResultActorTest<WeaponProf>
 {
 
 	static WeaponProfToken cra = new WeaponProfToken();
@@ -36,7 +36,7 @@ public class WeaponProfTokenTest extends AbstractSelectionActorTest<WeaponProf>
 	}
 
 	@Override
-	public ChooseSelectionActor<WeaponProf> getActor()
+	public ChooseResultActor getActor()
 	{
 		return cra;
 	}

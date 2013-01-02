@@ -15,19 +15,21 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package selectionactor.auto;
+package resultactor;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.ChooseSelectionActor;
-import pcgen.core.ArmorProf;
-import plugin.lsttokens.auto.ArmorProfToken;
-import selectionactor.testsupport.AbstractSelectionActorTest;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.ChooseResultActor;
+import pcgen.core.Domain;
+import pcgen.core.Skill;
+import plugin.lsttokens.CcskillLst;
+import resultactor.testsupport.AbstractResultActorTest;
 
-public class ArmorProfTokenTest extends AbstractSelectionActorTest<ArmorProf>
+public class CcskillLstTest extends AbstractResultActorTest<Skill>
 {
 
-	static ArmorProfToken cra = new ArmorProfToken();
+	static CcskillLst cra = new CcskillLst();
 
 	@Test
 	public void testEmpty()
@@ -36,20 +38,26 @@ public class ArmorProfTokenTest extends AbstractSelectionActorTest<ArmorProf>
 	}
 
 	@Override
-	public ChooseSelectionActor<ArmorProf> getActor()
+	public ChooseResultActor getActor()
 	{
 		return cra;
 	}
 
 	@Override
-	public Class<ArmorProf> getCDOMClass()
+	public Class<Skill> getCDOMClass()
 	{
-		return ArmorProf.class;
+		return Skill.class;
 	}
 
 	@Override
 	public boolean isGranted()
 	{
 		return false;
+	}
+
+	@Override
+	public CDOMObject getOwner()
+	{
+		return new Domain();
 	}
 }

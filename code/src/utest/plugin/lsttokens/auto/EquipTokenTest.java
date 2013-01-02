@@ -19,7 +19,7 @@ package plugin.lsttokens.auto;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -73,7 +73,7 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 	}
 
 	@Override
-	protected ChooseSelectionActor<Equipment> getActor()
+	protected ChooseResultActor getActor()
 	{
 		return subtoken;
 	}

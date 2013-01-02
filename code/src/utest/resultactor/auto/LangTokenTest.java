@@ -15,21 +15,19 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
-package selectionactor;
+package resultactor.auto;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ChooseSelectionActor;
-import pcgen.core.Domain;
-import pcgen.core.Skill;
-import plugin.lsttokens.CskillLst;
-import selectionactor.testsupport.AbstractSelectionActorTest;
+import pcgen.cdom.base.ChooseResultActor;
+import pcgen.core.Language;
+import plugin.lsttokens.auto.LangToken;
+import resultactor.testsupport.AbstractResultActorTest;
 
-public class CskillLstTest extends AbstractSelectionActorTest<Skill>
+public class LangTokenTest extends AbstractResultActorTest<Language>
 {
 
-	static CskillLst cra = new CskillLst();
+	static LangToken cra = new LangToken();
 
 	@Test
 	public void testEmpty()
@@ -38,26 +36,24 @@ public class CskillLstTest extends AbstractSelectionActorTest<Skill>
 	}
 
 	@Override
-	public ChooseSelectionActor<Skill> getActor()
+	public ChooseResultActor getActor()
 	{
 		return cra;
 	}
 
 	@Override
-	public Class<Skill> getCDOMClass()
+	public Class<Language> getCDOMClass()
 	{
-		return Skill.class;
+		return Language.class;
 	}
 
 	@Override
 	public boolean isGranted()
 	{
+		// TODO This needs to be changed to true, since Languages are
+		// technically granted
+		// However, in PCGen 5.17.3 timeframe they cannot grant items
 		return false;
 	}
-	
-	@Override
-	public CDOMObject getOwner()
-	{
-		return new Domain();
-	}
+
 }

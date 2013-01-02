@@ -23,7 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -97,7 +97,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 
 	protected abstract void loadAllReference();
 
-	protected abstract ChooseSelectionActor<TC> getActor();
+	protected abstract ChooseResultActor getActor();
 
 	protected abstract void loadProf(CDOMSingleRef<TC> ref);
 
@@ -354,7 +354,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	{
 		if (isAllLegal())
 		{
-			primaryProf.addToListFor(ListKey.NEW_CHOOSE_ACTOR, getActor());
+			primaryProf.addToListFor(ListKey.CHOOSE_ACTOR, getActor());
 			loadAllReference();
 			assertBadUnparse();
 		}
@@ -374,7 +374,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	@Test
 	public void testUnparseList() throws PersistenceLayerException
 	{
-		primaryProf.addToListFor(ListKey.NEW_CHOOSE_ACTOR, getActor());
+		primaryProf.addToListFor(ListKey.CHOOSE_ACTOR, getActor());
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		expectSingle(unparsed, getSubTokenName() + '|' + "%LIST");
 	}

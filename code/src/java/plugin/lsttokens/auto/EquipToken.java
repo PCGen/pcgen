@@ -27,12 +27,13 @@ import pcgen.base.util.HashMapToList;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.content.ConditionalSelectionActor;
+import pcgen.cdom.content.ConditionalChoiceActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Equipment;
+import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
 import pcgen.core.prereq.Prerequisite;
@@ -48,7 +49,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<Equipment>
+		CDOMSecondaryToken<CDOMObject>, ChooseResultActor
 {
 
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
@@ -147,19 +148,19 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 			String aProf = tok.nextToken();
 			if ("%LIST".equals(aProf))
 			{
-				ChooseSelectionActor<Equipment> cra;
+				ChooseResultActor cra;
 				if (prereq == null)
 				{
 					cra = this;
 				}
 				else
 				{
-					ConditionalSelectionActor<Equipment> cca =
-							ConditionalSelectionActor.getCSA(this);
+					ConditionalChoiceActor cca = new ConditionalChoiceActor(
+							this);
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
-				context.obj.addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
+				context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, cra);
 			}
 			else
 			{
@@ -184,8 +185,8 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		List<String> list = new ArrayList<String>();
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 
-		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
-				.getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
+		Changes<ChooseResultActor> listChanges = context.getObjectContext()
+				.getListChanges(obj, ListKey.CHOOSE_ACTOR);
 		Changes<QualifiedObject<CDOMReference<Equipment>>> changes = context.obj
 				.getListChanges(obj, ListKey.EQUIPMENT);
 		Collection<QualifiedObject<CDOMReference<Equipment>>> added = changes
@@ -198,10 +199,10 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 				m.addToListFor(qo.getPrerequisiteList(), qo.getRawObject());
 			}
 		}
-		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
+		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
 		if (listAdded != null && !listAdded.isEmpty())
 		{
-			for (ChooseSelectionActor<?> cra : listAdded)
+			for (ChooseResultActor cra : listAdded)
 			{
 				if (cra.getSource().equals(getTokenName()))
 				{
@@ -266,19 +267,28 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject obj, Equipment e, PlayerCharacter pc)
+	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
 	{
-		e = e.clone();
-		e.setQty(1);
-		e.setAutomatic(true);
-		pc.addAutoEquipment(e, obj);
+		Equipment e = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(EQUIPMENT_CLASS, o);
+		if (e != null)
+		{
+			e = e.clone();
+			e.setQty(1);
+			e.setAutomatic(true);
+			pc.addAutoEquipment(e, obj);
+		}
 	}
 
 	@Override
-	public void removeChoice(CDOMObject obj, Equipment e, PlayerCharacter pc)
+	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
 	{
-		//TODO This is probably not symmetric due to the clone :(
-		pc.removeAutoEquipment(e, obj);
+		Equipment e = Globals.getContext().ref
+				.silentlyGetConstructedCDOMObject(EQUIPMENT_CLASS, o);
+		if (e != null)
+		{
+			pc.removeAutoEquipment(e, obj);
+		}
 	}
 
 	@Override
@@ -291,11 +301,5 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public String getLstFormat()
 	{
 		return "%LIST";
-	}
-
-	@Override
-	public Class<Equipment> getChoiceClass()
-	{
-		return EQUIPMENT_CLASS;
 	}
 }

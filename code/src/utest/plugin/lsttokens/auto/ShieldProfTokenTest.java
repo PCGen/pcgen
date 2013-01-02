@@ -24,7 +24,7 @@ import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.helper.ShieldProfProvider;
@@ -81,7 +81,7 @@ public class ShieldProfTokenTest extends AbstractAutoTokenTestCase<ShieldProf>
 	}
 
 	@Override
-	protected ChooseSelectionActor<ShieldProf> getActor()
+	protected ChooseResultActor getActor()
 	{
 		return subtoken;
 	}

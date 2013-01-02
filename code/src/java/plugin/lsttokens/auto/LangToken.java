@@ -24,10 +24,11 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.ChooseResultActor;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.content.ConditionalSelectionActor;
+import pcgen.cdom.content.ConditionalChoiceActor;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
@@ -43,9 +44,8 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<Language>
-{
+public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOMSecondaryToken<CDOMObject>,
+		ChooseResultActor {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
 
@@ -123,19 +123,18 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 				context.getObjectContext().removeList(obj, ListKey.AUTO_LANGUAGE);
 			} else if ("%LIST".equals(token))
 			{
-				ChooseSelectionActor<Language> cra;
+				ChooseResultActor cra;
 				if (prereq == null)
 				{
 					cra = this;
 				} else
 				{
-					ConditionalSelectionActor<Language> cca =
-							ConditionalSelectionActor.getCSA(this);
+					ConditionalChoiceActor cca = new ConditionalChoiceActor(this);
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
 				foundOther = true;
-				context.obj.addToList(obj, ListKey.NEW_CHOOSE_ACTOR, cra);
+				context.obj.addToList(obj, ListKey.CHOOSE_ACTOR, cra);
 			} else if (Constants.LST_ALL.equals(token))
 			{
 				foundAny = true;
@@ -173,10 +172,10 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 		Changes<QualifiedObject<CDOMReference<Language>>> changes = context.obj.getListChanges(obj,
 				ListKey.AUTO_LANGUAGE);
-		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext().getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
+		Changes<ChooseResultActor> listChanges = context.getObjectContext().getListChanges(obj, ListKey.CHOOSE_ACTOR);
 		Collection<QualifiedObject<CDOMReference<Language>>> added = changes.getAdded();
 		StringBuilder sb = new StringBuilder();
-		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
+		Collection<ChooseResultActor> listAdded = listChanges.getAdded();
 		boolean foundAny = false;
 		boolean foundOther = false;
 		if (changes.includesGlobalClear())
@@ -185,7 +184,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		if (listAdded != null && !listAdded.isEmpty())
 		{
-			for (ChooseSelectionActor<?> cra : listAdded)
+			for (ChooseResultActor cra : listAdded)
 			{
 				if (cra.getSource().equals(getTokenName()))
 				{
@@ -264,15 +263,23 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject obj, Language l, PlayerCharacter pc)
+	public void apply(PlayerCharacter pc, CDOMObject obj, String o)
 	{
-		pc.addAutoLanguage(l, obj);
+		Language l = Globals.getContext().ref.silentlyGetConstructedCDOMObject(LANGUAGE_CLASS, o);
+		if (l != null)
+		{
+			pc.addAutoLanguage(l, obj);
+		}
 	}
 
 	@Override
-	public void removeChoice(CDOMObject obj, Language l, PlayerCharacter pc)
+	public void remove(PlayerCharacter pc, CDOMObject obj, String o)
 	{
-		pc.removeAutoLanguage(l, obj);
+		Language l = Globals.getContext().ref.silentlyGetConstructedCDOMObject(LANGUAGE_CLASS, o);
+		if (l != null)
+		{
+			pc.removeAutoLanguage(l, obj);
+		}
 	}
 
 	@Override
@@ -285,11 +292,5 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public String getLstFormat()
 	{
 		return "%LIST";
-	}
-
-	@Override
-	public Class<Language> getChoiceClass()
-	{
-		return LANGUAGE_CLASS;
 	}
 }
