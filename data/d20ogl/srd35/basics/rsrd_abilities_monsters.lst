@@ -2,6 +2,117 @@
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: Eddy Anthony, Tir Gwaith
 
+###Block: Specific Monsters
+# COMMENT: Due to the various overlap and the fact that the Descriptions Are not identical (Example Blind is listed as a Weakness, but it's also a special attack of a creature) It becomes imperative to give each monster entry individual entries.
+
+# Aboleth
+Enslave		KEY:Enslave ~ Aboleth		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DESC:Three times per day, an aboleth can attempt to enslave any one living creature within 30 feet. The target must succeed on a DC 17 Will save or be affected as though by a dominate person spell (caster level 16th). An enslaved creature obeys the aboleth's telepathic commands until freed by remove curse, and can attempt a new Will save every 24 hours to break free. The control is also broken if the aboleth dies or travels more than 1 mile from its slave. The save DC is Charisma-based.
+Psionics		KEY:Psionics ~ Aboleth		CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike		VISIBLE:YES	DESC:At will-hypnotic pattern (DC 15), illusory wall (DC 17), mirage arcana (DC 18), persistent image (DC 18), programmed image (DC 19), project image (DC 20), veil (DC 19). Effective caster level 16th. The save DCs are Charisma-based.
+Slime			KEY:Slime ~ Aboleth		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A blow from an aboleth's tentacle can cause a terrible affliction. A creature hit by a tentacle must succeed on a DC 19 Fortitude save or begin to transform over the next 1d4+1 minutes, the skin gradually becoming a clear, slimy membrane. An afflicted creature must remain moistened with cool, fresh water or take 1d12 points of damage every 10 minutes. The slime reduces the creature's natural armor bonus by 1 (but never to less than 0). The save DC is Constitution-based. A remove disease spell cast before the transformation is complete will restore an afflicted creature to normal. Afterward, however, only a heal or mass heal spell can reverse the affliction.
+Mucus Cloud		KEY:Mucus Cloud ~ Aboleth	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DESC:An aboleth underwater surrounds itself with a viscous cloud of mucus roughly 1 foot thick. Any creature coming into contact with and inhaling this substance must succeed on a DC 19 Fortitude save or lose the ability to breathe air for the next 3 hours. An affected creature suffocates in 2d6 minutes if removed from the water. Renewed contact with the mucus cloud and failing another Fortitude save continues the effect for another 3 hours. The save DC is Constitution-based.
+Skills		KEY:Skills ~ Aboleth		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:An aboleth has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line.
+
+# Achairai
+Black Cloud		KEY:Black Cloud ~ Achairai	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:Up to three times per day an achaierai can release a choking, toxic black cloud. Those other than achaierai within 10 feet instantly take 2d6 points of damage. They must also succeed on a DC 15 Fortitude save or be affected for 3 hours as though by an insanity spell (caster level 16th). The save DC is Constitution-based.
+
+# Allip
+Babble		KEY:Babble ~ Allip		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DESC:An allip constantly mutters and whines to itself, creating a hypnotic effect. All sane creatures within 60 feet of the allip must succeed on a DC 16 Will save or be affected as though by a hypnotism spell for 2d4 rounds. This is a sonic mind-affecting compulsion effect. Creatures that successfully save cannot be affected by the same allip's babble for 24 hours. The save DC is Charisma-based.
+Madness		KEY:Madness ~ Allip		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:Anyone targeting an allip with a thought detection, mind control, or telepathic ability makes direct contact with its tortured mind and takes 1d4 points of Wisdom damage.
+Wisdom Drain	KEY:Wisdom Drain ~ Allip	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DESC:An allip causes 1d4 points of Wisdom drain each time it hits with its incorporeal touch attack. On each such successful attack, it gains 5 temporary hit points.
+
+# ~ Astral Daeva
+Natural Weapons		KEY:Natural Weapons ~ Astral Daeva		CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:An astral deva's natural weapons, as well as any weapons it wields, are treated as good-aligned for the purpose of overcoming damage reduction.
+Spell-Like Abilities	KEY:Spell-Like Abilities ~ Astral Daeva	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:At will-aid, continual flame, detect evil, discern lies (DC 19), dispel evil (DC 20), dispel magic, holy aura (DC 23), holy smite (DC 19), holy word (DC 22), invisibility (self only), plane shift (DC 22), remove curse (DC 18), remove disease (DC 18), remove fear (DC 16); 7/day-cure light wounds (DC 16), see invisibility; 1/day-blade barrier (DC 21), heal (DC 21). Caster level 12th. The save DCs are Charisma-based.
+Change Shape		KEY:Change Shape ~ Astral Daeva		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:An astral deva can assume the form of any Small or Medium humanoid.
+Stun				KEY:Stun ~ Astral Daeva				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DESC:If an astral deva strikes an opponent twice in one round with its mace, that creature must succeed on a DC 22 Fortitude save or be stunned for 1d6 rounds. The save DC is Strength-based.
+Uncanny Dodge		KEY:Uncanny Dodge ~ Astral Daeva		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:An astral deva retains its Dexterity bonus to AC when flat-footed, and it cannot be flanked except by a rogue of at least 16th level. It can flank characters with the uncanny dodge ability as if it were a 12th-level rogue.
+
+# Animated Object
+Blind				KEY:Blind ~ Animated Object			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A sheetlike animated object such as a carpet or tapestry can grapple an opponent up to three sizes larger than itself. The object makes a normal grapple check. If it wins, it wraps itself around the opponent's head, causing that creature to be blinded until removed.
+Constrict			KEY:Constrict ~ Animated Object		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A flexible animated object such as a rope, vine, or rug deals damage equal to its slam damage value plus 1? times its Strength bonus with a successful grapple check against a creature up to one size larger than itself. An object of at least Large size can make constriction attacks against multiple creatures at once, if they all are at least two sizes smaller than the object and can fit under it.
+Hardness			KEY:Hardness ~ Animated Object		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:An animated object has the same hardness it had before it was animated.
+Improved Speed		KEY:Improved Speed ~ Animated Object	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:The base land speed given in the statistics block assume that an animated object lurches, rocks, or slithers along. Objects with two legs (statues, ladders) or a similar shape that allows faster movement have a +10 foot bonus to speed. Objects with multiple legs (tables, chairs) have a +20 foot bonus to speed. Wheeled objects have a +40 foot bonus to speed. Objects might have additional modes of movement. A wooden object can float and has a swim speed equal to half its land speed. A rope or similar sinuous object has a climb speed equal to half its land speed. A sheetlike object can fly (clumsy maneuverability) at half its normal speed.
+Trample			KEY:Trample ~ Animated Object			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:An animated object of at least Large size and with a hardness of at least 10 can trample creatures two or more sizes smaller than itself, dealing damage equal to the object's slam damage + 1 1/2 times its Strength bonus. Opponents who do not make attacks of opportunity against the object can attempt Reflex saves (DC 10 + 1/2 object's HD + object's Str modifier) to halve the damage.
+
+# Ankheg
+Improved Grab		KEY:Improved Grab ~ Ankheg	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:To use this ability, an ankheg must hit with its bite attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If the ankheg is damaged after grabbing its prey, it retreats backward down its tunnel at its land speed (not its burrow speed), dragging the victim with it.
+Spit Acid			KEY:Spit Acid ~ Ankheg		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:30-ft. line, once every 6 hours; damage 4d4 acid, Reflex DC 14 half. One such attack depletes the ankheg's acid supply for 6 hours. It cannot spit acid or deal acid damage during this time. The save DC is Constitution-based. An ankheg does not use this ability unless it is desperate or frustrated. It most often spits acid when reduced to fewer than half its full normal hit points or when it has not successfully grabbed an opponent.
+
+# ~ Aranea
+Poison			KEY:Poison ~ Aranea		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:Injury, Fortitude DC 13, initial damage 1d6 Str, secondary damage 2d6 Str. The save DC is Constitution-based.
+Spells			KEY:Spells ~ Aranea		CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:An aranea casts spells as a 3rd-level sorcerer. It prefers illusions and enchantments and avoids fire spells. Typical Sorcerer Spells Known (6/6; save DC 12 + spell level) 0- daze, detect magic, ghost sound, light, resistance; 1st-mage armor, silent image, sleep.
+Web				KEY:Web ~ Aranea			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:In spider or hybrid form (see below), an aranea can throw a web up to six times per day. This is similar to an attack with a net but has a maximum range of 50 feet, with a range increment of 10 feet, and is effective against targets of up to Large size. The web anchors the target in place, allowing no movement. An entangled creature can escape with a DC 13 Escape Artist check or burst the web with a DC 17 Strength check. The check DCs are Constitution-based, and the Strength check DC includes a +4 racial bonus. The web has 6 hit points, hardness 0, and takes double damage from fire.
+Change Shape		KEY:Change Shape ~ Aranea	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:An aranea's natural form is that of a Medium monstrous spider. It can assume two other forms. The first is a unique Small or Medium humanoid; an aranea in its humanoid form always assumes the same appearance and traits, much as a lycanthrope would. In humanoid form, an aranea cannot use its bite attack, webs, or poison. The second form is a Medium spider-humanoid hybrid. In hybrid form, an aranea looks like a Medium humanoid at first glance, but a DC 18 Spot check reveals the creature's fangs and spinnerets. The aranea retains its bite attack, webs, and poison in this form, and can also wield weapons or wear armor. When in hybrid form, an aranea's speed is 30 feet (6 squares). An aranea remains in one form until it chooses to assume a new one. A change in form cannot be dispelled, nor does an aranea revert to its natural form when killed. A true seeing spell, however, reveals its natural form if it is in humanoid or hybrid form.
+Skills			KEY:Skills ~ Aranea		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Araneas have a +2 racial bonus on Jump, Listen, and Spot checks. They have a +8 racial bonus on Climb checks and can always choose to take 10 on Climb checks even if rushed or threatened.
+
+# Lantern Archon
+Aura of Menace		KEY:Aura of Menace ~ Lantern Archon		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:Will DC 12 negates.
+Light Ray			KEY:Light Ray ~ Lantern Archon		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:A lantern archon's light rays have a range of 30 feet. This attack overcomes damage reduction of any type.
+Spell-Like Abilities	KEY:Spell-Like Abilities ~ Lantern Archon	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:At will-aid, detect evil, continual flame. Caster level 3rd.
+
+# ~ Hound Archon
+Spell-Like Abilities	KEY:Spell-Like Abilities ~ Hound Archon	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:At will-aid, continual flame, detect evil, message. Caster level 6th.
+Aura of Menace		KEY:Aura of Menace ~ Hound Archon		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:Will DC 16 negates.
+Change Shape		KEY:Change Shape ~ Hound Archon		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:A hound archon can assume any canine form of Small to Large size. While in canine form, the hound archon loses its bite, slam, and greatsword attacks, but gains the bite attack of the form it chooses. For the purposes of this ability, canines include any doglike or wolflike animal of the animal type.
+Skills			KEY:Skills ~ Hound Archon			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:While in canine form, a hound archon gains a +4 circumstance bonus on Hide and Survival checks.
+
+# ~ Trumpet Archon
+Spell-Like Abilities	KEY:Spell-Like Abilities ~ Trumpet Archon	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:At will-detect evil, continual flame, message. Caster level 12th.
+Aura of Menace		KEY:Aura of Menace ~ Trumpet Archon		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:Will DC 21 negates.
+Spells			KEY:Spells ~ Trumpet Archon			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Trumpet archons can cast divine spells as 14th-level clerics. A trumpet archon has access to two of the following domains: Air, Destruction, Good, Law, or War (plus any others from its deity). The save DCs are Wisdom-based. Typical Cleric Spells Prepared (6/7/7/6/5/4/4/3; DC 13 + spell level) 0-detect magic, light, purify food and drink, read magic, resistance (2); 1st-bless (2), divine favor (2), protection from chaos*, sanctuary, shield of faith; 2nd-aid*, bull's strength (2), consecrate, lesser restoration, owl's wisdom (2); 3rd-daylight, invisibility purge, magic circle against chaos*, magic vestment, protection from energy (2); 4th- dismissal, divine power, holy smite*, neutralize poison, spell immunity; 5th-dispel evil*, mass cure light wounds, plane shift, raise dead; 6th- blade barrier*, banishment, heal, undeath to death; 7th-dictum*, holy word, mass cure serious wounds. *Domain spell. Domains: Good and Law.
+Trumpet			KEY:Trumpet ~ Trumpet Archon			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:An archon's trumpet produces music of utter clarity, piercing beauty, and, if the trumpet archon wills it, paralyzing awe. All creatures except archons within 100 feet of the blast must succeed on a DC 19 Fortitude save or be paralyzed for 1d4 rounds. The save DC is Charisma-based. The archon can also command its trumpet to become a +4 greatsword as a free action. If a trumpet is ever stolen, it becomes a chunk of useless metal until the owner can recover it. Woe betide any thief caught with one.
+
+# Arrowhawk
+Electricity Ray		KEY:Electricity Ray ~ Arrowhawk	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES	DESC:An arrowhawk can fire this ray once per round, with a range of 50 feet.
+
+# ~ Assassin Vine
+Constrict			KEY:Constrict ~ Assassin Vine		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:An assassin vine deals 1d6+7 points of damage with a successful grapple check.
+Entangle			KEY:Entangle ~ Assassin Vine		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DESC:An assassin vine can animate plants within 30 feet of itself as a free action (Ref DC 13 partial). The effect lasts until the vine dies or decides to end it (also a free action). The save DC is Wisdom-based. The ability is otherwise similar to entangle (caster level 4th).
+Improved Grab		KEY:Improved Grab ~ Assassin Vine	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:To use this ability, an assassin vine must hit with its slam attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, it establishes a hold and can constrict.
+Blindsight			KEY:Blindsight ~ Assassin Vine	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Assassin vines have no visual organs but can ascertain all foes within 30 feet using sound, scent, and vibration.
+Camouflage			KEY:Camouflage ~ Assassin Vine	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Since an assassin vine looks like a normal plant when at rest, it takes a DC 20 Spot check to notice it before it attacks. Anyone with ranks in Survival or Knowledge (nature) can use one of those skills instead of Spot to notice the plant. Dwarves can use stonecunning to notice the subterranean version.
+
+# ~ Athach
+Poison			KEY:Poison ~ Athach			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:Injury, Fortitude DC 22, initial damage 1d6 Str, secondary damage 2d6 Str. The save DC is Constitution-based.
+
+# ~ Avoral
+Natural Weapons		KEY:Natural Weapons ~ Avoral		CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:An avoral's natural weapons, as well as any weapons it wields, are treated as good-aligned for the purpose of overcoming damage reduction.
+Spell-Like Abilities	KEY:Spell-Like Abilities ~ Avoral	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:At will-aid, blur (self only), command (DC 14), detect magic, dimension door, dispel magic, gust of wind (DC 15), hold person (DC 16), light, magic circle against evil (self only), magic missile, see invisibility; 3/day-lightning bolt (DC 16). Caster level 8th. The save DCs are Charisma-based.
+Fear Aura			KEY:Fear Aura ~ Avoral			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DESC:Once per day an avoral can create an aura of fear in a 20-foot radius. It is otherwise identical with fear from an 8th-level caster (save DC 17). The save DC is Charisma-based.
+Lay on Hands		KEY:Lay on Hands ~ Avoral		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:As the paladin class feature, except that each day, an avoral can heal an amount of damage equal to its full normal hit points.
+Speak with Animals	KEY:Speak with Animals ~ Avoral	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:This ability works like speak with animals (caster level 8th) but is a free action and does not require sound.
+True Seeing			KEY:True Seeing ~ Avoral		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:This ability is identical with true seeing (caster level 14th), except that it has personal range and the avoral must concentrate for 1 full round before it takes effect. Thereafter the ability remains in effect as long as the avoral concentrates on it.
+Skills			KEY:Skills ~ Avoral			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:An avoral's sharp eyes give it a +8 racial bonus on Spot checks.
+
+# ~ Azer
+Heat				KEY:Heat ~ Azer				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:An azer's body is intensely hot, so its unarmed attacks deal extra fire damage. Its metallic weapons also conduct this heat.
+
+###Block: B Races
+
+# ~ Barghest
+Natural Weapons		KEY:Natural Weapons ~ Barghest	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:A barghest's natural weapons, as well as any weapons it wields, are treated as evil-aligned and lawful-aligned for the purpose of overcoming damage reduction. Its natural weapons are treated as magic weapons for the purpose of overcoming damage reduction.
+Spell-Like Abilities	KEY:Spell-Like Abilities ~ Barghest	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:At will-blink, levitate, misdirection (DC 14), rage (DC 15); 1/day-charm monster (DC 16), crushing despair (DC 16), dimension door. Caster level equals the barghest's HD. The save DCs are Charisma-based.
+Feed				KEY:Feed ~ Barghest			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:When a barghest slays a humanoid opponent, it can feed on the corpse, devouring both flesh and life force, as a full-round action. Feeding destroys the victim's body and prevents any form of raising or resurrection that requires part of the corpse. There is a 50%% chance that a wish, miracle, or true resurrection spell can restore a devoured victim to life. Check once for each destroyed creature. If the check fails, the creature cannot be brought back to life by mortal magic. A barghest advances in Hit Dice by consuming corpses in this fashion. For every three suitable corpses a barghest devours, it gains 1 Hit Die, and its Strength, Constitution, and natural armor increase by +1. Its attack bonus and saves improve as normal for an outsider of its Hit Dice, and it gains skill points, feats, and ability score improvements normally. The barghest only advances by consuming the corpses of creatures whose Hit Dice or levels are equal to or greater than its own current total. A barghest that reaches 9 Hit Dice through feeding immediately becomes a greater barghest upon completion of the act.
+Change Shape		KEY:Change Shape ~ Barghest		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:A barghest can assume the shape of a goblin or a wolf as a standard action. In goblin form, a barghest cannot use its natural weapons but can wield weapons and wear armor. In wolf form, a barghest loses its claw attacks but retains its bite attack.
+Pass Without Trace	KEY:Pass Without Trace ~ Barghest	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:A barghest in wolf form can use pass without trace (as the spell) as a free action.
+Skills			KEY:Skills ~ Barghest			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A barghest in wolf form gains a +4 circumstance bonus on Hide checks.
+
+# ~ Greater Barghest
+Spell-Like Abilities	KEY:Spell-Like Abilities ~ Greater Barghest	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:In addition to the spell-like abilities all barghests possess, a greater barghest gains the following abilities. At will-invisibility sphere; 1/day-mass bull's strength, mass enlarge person. Caster level equals the greater barghest's HD. The save DC against a greater barghest's spell-like abilities is 14 + spell level.
+
+# ~ Basilisk
+Petrifying Gaze		KEY:Petrifying Gaze ~ Basilisk	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DESC:Turn to stone permanently, range 30 feet; Fortitude DC 13 negates. The save DC is Charisma-based.
+Skills			KEY:Skills ~ Basilisk			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:The basilisk's dull coloration and its ability to remain motionless for long periods of time grant it a +4 racial bonus on Hide checks in natural settings.
+
+# ~ Behir
+Breath Weapon		KEY:Breath Weapon ~ Behir		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DESC:20-foot line, once every 10 rounds, damage 7d6 electricity, Reflex DC 19 half. The save DC is Constitution-based.
+Constrict			KEY:Constrict ~ Behir			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A behir deals 2d8+8 points of damage with a successful grapple check. It can make six rake attacks against a grappled foe as well.
+Improved Grab		KEY:Improved Grab ~ Behir		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:To use this ability, a behir must hit a creature of any size with its bite attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, it it establishes a hold and can attempt to constrict the opponent or swallow the opponent in the following round.
+Rake (Ex)			KEY:Rake ~ Behir				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:Six claws, attack bonus +15 melee, damage 1d4+4.
+Swallow Whole		KEY:Swallow Whole ~ Behir		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A behir can try to swallow a grabbed Medium or smaller opponent by making a successful grapple check. A behir that swallows an opponent can use its Cleave feat to bite and grab another opponent. A swallowed creature takes 2d8+8 points of bludgeoning damage and 8 points of acid damage per round from the behir's gizzard. A swallowed creature can cut its way out by using a light slashing or piercing weapon to deal 25 points of damage to the gizzard (AC 15). Once the creature exits, muscular action closes the hole; another swallowed opponent must cut its own way out. A behir's gizzard can hold 2 Medium, 8 Small, 32 Tiny, or 128 Diminutive or smaller opponents.
+Skills			KEY:Skills ~ Behir			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Behirs have a +8 racial bonus on Climb checks and can always choose to take 10 on Climb checks, even if rushed or threatened.
+
+
 ###Block: RSRD Abilities A-B
 # Ability Name		Category of Ability		Type								Visible	Define				Description
 Ability Drain		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
@@ -28,7 +139,7 @@ Augmented Critical	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			
 Aura of Doom		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES
 Aura of Menace		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES
 Aversion To Daylight	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
-Babble			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES
+Babble			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES	DESC:An allip constantly mutters and whines to itself, creating a hypnotic effect. All sane creatures within 60 feet of the allip must succeed on a DC 16 Will save or be affected as though by a hypnotism spell for 2d4 rounds. This is a sonic mind-affecting compulsion effect. Creatures that successfully save cannot be affected by the same allip's babble for 24 hours. The save DC is Charisma-based.
 Barbed Defense		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Bat Wings			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Battle Frenzy		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
@@ -36,7 +147,7 @@ Bay				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Bear Empathy		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Beard				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Berserk			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
-Black Cloud			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Black Cloud			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:Up to three times per day an achaierai can release a choking, toxic black cloud. Those other than achaierai within 10 feet instantly take 2d6 points of damage. They must also succeed on a DC 15 Fortitude save or be affected for 3 hours as though by an insanity spell (caster level 16th). The save DC is Constitution-based.
 Blazefire			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Blightfire			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Blind				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
@@ -129,7 +240,7 @@ Elemental Endurance								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraord
 Energy Drain									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption		VISIBLE:YES	DEFINE:EnergyDrainLevels|0	DEFINE:EnergyDrainDC|10+(TL/2)+CHA		DESC:Automatically sap a living opponent's vital energy when your melee or ranged attack hits, bestowing %1 negative levels (twice that on a critical hit.)|EnergyDrainLevels																																									SOURCEPAGE:TypesSubtypesAbilities.rtf
 Enervation Ray									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
 Engulf										CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
-Enslave										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Enslave										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES	DESC:Three times per day, an aboleth can attempt to enslave any one living creature within 30 feet. The target must succeed on a DC 17 Will save or be affected as though by a dominate person spell (caster level 16th). An enslaved creature obeys the aboleth's telepathic commands until freed by remove curse, and can attempt a new Will save every 24 hours to break free. The control is also broken if the aboleth dies or travels more than 1 mile from its slave. The save DC is Charisma-based.
 Entangle										CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
 Enthrall										CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
 Ethereal Jaunt									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
@@ -199,10 +310,10 @@ Improved Grab			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Attack
 Improved Tracking			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Infernal Wound			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Inhabit				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
-Ink Cloud				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES
+Ink Cloud				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES	DESC:An octopus can emit a cloud of jet-black ink 10 feet high by 10 feet wide by 10 feet long once per minute as a free action. The cloud provides total concealment, which the octopus normally uses to escape a losing fight. All vision within the cloud is obscured.
 Invisible In Light		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES
 Invisibility			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyAC		VISIBLE:YES
-Jet					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Jet					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:An octopus can jet backward once per round as a full-round action, at a speed of 200 feet. It must move in a straight line, but does not provoke attacks of opportunity while jetting.
 Keen Senses				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES																																																																										BONUS:VAR|LowLightDistance|2|TYPE=Racial
 Kiss					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Leshay Weapons			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
@@ -213,6 +324,7 @@ Light Sensitivity			CATEGORY:Special Ability	TYPE:SpecialQuality.Weakness				VIS
 Liquefy Crystal			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 Luck Bonus				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES	DEFINE:LuckBonusTimes|1	DESC:%1/day|LuckBonusTimes
 Madness				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Madness	KEY:Madness ~ Su	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:Anyone targeting an allip with a thought detection, mind control, or telepathic ability makes direct contact with its tortured mind and takes 1d4 points of Wisdom damage.
 Magic Circle against Evil	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Magic Circle Against Good	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Magic Drain				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
@@ -226,7 +338,7 @@ Mind Feed				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE
 #Mindless				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Misty Breath			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Moan					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
-Mucus Cloud				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Mucus Cloud				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:An aboleth underwater surrounds itself with a viscous cloud of mucus roughly 1 foot thick. Any creature coming into contact with and inhaling this substance must succeed on a DC 19 Fortitude save or lose the ability to breathe air for the next 3 hours. An affected creature suffocates in 2d6 minutes if removed from the water. Renewed contact with the mucus cloud and failing another Fortitude save continues the effect for another 3 hours. The save DC is Constitution-based.
 Mummy Rot				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 
 ###Block: RSRD Abilities N-R
@@ -303,7 +415,7 @@ Shatter				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YE
 Shield Other			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.ModifyAC		VISIBLE:YES
 Shriek				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Single Actions Only		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
-Slime					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Slime					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:A blow from an aboleth's tentacle can cause a terrible affliction. A creature hit by a tentacle must succeed on a DC 19 Fortitude save or begin to transform over the next 1d4+1 minutes, the skin gradually becoming a clear, slimy membrane. An afflicted creature must remain moistened with cool, fresh water or take 1d12 points of damage every 10 minutes. The slime reduces the creature's natural armor bonus by 1 (but never to less than 0). The save DC is Constitution-based. A remove disease spell cast before the transformation is complete will restore an afflicted creature to normal. Afterward, however, only a heal or mass heal spell can reverse the affliction.
 Slow					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
 Smoke					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
 Smoke Claws				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES

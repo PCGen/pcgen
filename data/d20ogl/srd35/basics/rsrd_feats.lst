@@ -9,9 +9,6 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 #	AllowImprovedTurning: Ability to take Improved Turning
 #	WildShape: Ability to take Natural Spell
 
-Tom test 1 - Precheck		TYPE:Test	PRECHECKBASE:1,Reflex=INT
-Tom test 2 - Precheckbase	TYPE:Test	PRECHECK:1,Reflex=INT
-
 # Feat Name				Type								Req. Att.	Required Class								Required Feat									Prohibited Feat						Required Lvl	Multiple Requirements														Required Skill	Required Stat		Var. Min. Value				Define														Description																																																Stackable?	Multiple?	Choose																	Selections	Template					Automatically Gained Armor Prof.	Automatically Gained Shield Prof.							Automatically Gained Weapon Prof.				Ability								Add Spell Lvl	Save checks bonus			Combat bonus																								Bonus to DC						Bonus to HP			% bonus to range								Bonus to skill								Modify VAR																						Weapon prof. bonus								Weapon prop. bonus													Source Page
 Acrobatic				TYPE:General																																																																																					DESC:You get a +2 bonus on all Jump checks and Tumble checks.																																																																																																																																																																BONUS:SKILL|Jump,Tumble|2																																																								SOURCEPAGE:Feats.rtf
 Agile					TYPE:General																																																																																					DESC:You get a +2 bonus on all Balance checks and Escape Artist checks.																																																																																																																																																															BONUS:SKILL|Balance,Escape Artist|2																																																							SOURCEPAGE:Feats.rtf

@@ -2,8 +2,6 @@
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Author: Eddy Anthony
 
-DARKVISION TEST		VISION:Darkvision (60')
-
 # Template Name	Visible	Apply Kit
 Spellbook		VISIBLE:NO	KIT:1|Wizard Spell Book
 
