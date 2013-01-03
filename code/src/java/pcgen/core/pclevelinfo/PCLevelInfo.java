@@ -25,6 +25,7 @@ package pcgen.core.pclevelinfo;
 import java.util.ArrayList;
 import java.util.List;
 
+import pcgen.base.lang.ObjectUtil;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -348,4 +349,29 @@ public final class PCLevelInfo implements Cloneable
 	{
 		skillPointsGained = arg;
 	}
+
+	@Override
+	public int hashCode()
+	{
+		return classLevel * 17 + classKeyName.hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o instanceof PCLevelInfo)
+		{
+			PCLevelInfo other = (PCLevelInfo) o;
+			return classLevel == other.classLevel
+				&& skillPointsGained == other.skillPointsGained
+				&& skillPointsRemaining == other.skillPointsRemaining
+				&& classKeyName.equals(other.classKeyName)
+				&& ObjectUtil.compareWithNull(statsPreModified,
+					other.statsPreModified)
+				&& ObjectUtil.compareWithNull(statsPreModified,
+					other.statsPreModified);
+		}
+		return false;
+	}
+
 }

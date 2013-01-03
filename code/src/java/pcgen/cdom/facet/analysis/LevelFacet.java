@@ -206,6 +206,24 @@ public class LevelFacet extends AbstractStorageFacet implements
 	{
 		public int monsterLevels;
 		public int nonMonsterLevels;
+		
+		@Override
+		public int hashCode()
+		{
+			return monsterLevels * nonMonsterLevels;
+		}
+		
+		@Override
+		public boolean equals(Object o)
+		{
+			if (o instanceof LevelCacheInfo)
+			{
+				LevelCacheInfo other = (LevelCacheInfo) o;
+				return monsterLevels == other.monsterLevels
+					&& nonMonsterLevels == other.nonMonsterLevels;
+			}
+			return false;
+		}
 	}
 
 	@Override

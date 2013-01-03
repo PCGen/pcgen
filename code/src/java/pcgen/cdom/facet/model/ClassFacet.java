@@ -567,6 +567,23 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		{
 			return map.containsKey(pcc);
 		}
+
+		@Override
+		public int hashCode()
+		{
+			return map.hashCode();
+		}
+
+		@Override
+		public boolean equals(Object o)
+		{
+			if (o instanceof ClassInfo)
+			{
+				ClassInfo other = (ClassInfo) o;
+				return map.equals(other.map) && levelmap.equals(other.levelmap);
+			}
+			return false;
+		}
 	}
 
 	@Override
