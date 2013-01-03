@@ -51,15 +51,15 @@ public class ExchangeLevelApplication
 	
 				if (aClass != null)
 				{
-					final int iLevel = aPC.getLevel(aClass);
+					final int iNumOrigClassLevel = aPC.getLevel(aClass);
 	
-					if (iLevel >= iMinLevel)
+					if (iNumOrigClassLevel >= iMinLevel)
 					{
-						iMaxDonation = Math.min(iMaxDonation, iLevel - iLowest);
+						iMaxDonation = Math.min(iMaxDonation, iNumOrigClassLevel - iLowest + 1);
 						if (newcl.hasMaxLevel())
 						{
 							iMaxDonation =
-									Math.min(iMaxDonation, newcl.getSafe(IntegerKey.LEVEL_LIMIT) - 1);
+									Math.min(iMaxDonation, newcl.getSafe(IntegerKey.LEVEL_LIMIT) - aPC.getLevel(newcl));
 						}
 	
 						if (iMaxDonation > 0)

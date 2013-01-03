@@ -713,6 +713,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		//SettingsHandler.setShowStatDialogAtLevelUp(false);
 
 		int oldLevel = charLevelsFacade.getSize();
+		boolean needFullRefresh = false;
 
 		for (ClassFacade classFacade : classes)
 		{
@@ -732,6 +733,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 					// The level change was rejected - no further processing needed.
 					return;
 				}
+				if (((PCClass) classFacade).containsKey(ObjectKey.EXCHANGE_LEVEL))
+				{
+					needFullRefresh = true;
+				}
 			}
 			if (!pcClasses.contains(classFacade))
 			{
@@ -746,7 +751,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		
 		// Calculate any active bonuses
 		theCharacter.calcActiveBonuses();
-		
+
+		if (needFullRefresh)
+		{
+			refreshClassLevelModel();
+		}
 		postLevellingUpdates();
 		delegate.showLevelUpInfo(this, oldLevel);
 	}

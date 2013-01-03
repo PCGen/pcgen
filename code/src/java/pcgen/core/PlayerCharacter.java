@@ -2157,6 +2157,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 				if (pcc != null)
 				{
 					Double curRank = getSkillRankForClass(aSkill, pcc);
+					if (curRank == null)
+					{
+						Logging.errorPrint("Got null on ranks for " + aSkill + " in class " + pcc);
+						curRank = 0.0d;
+					}
 					// Only add the cost for skills associated with a class.
 					// Skill ranks from feats etc are free.
 					final int cost = getSkillCostForClass(aSkill, pcc).getCost();
@@ -6475,11 +6480,16 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		final int toLevel = getLevel(toClass);
 
 		//Capture necessary information
-		Integer[] hpArray = new Integer[iCount];
+		Integer[] hpArray = new Integer[iCount+toLevel];
 		for (int i = 0; i < iCount; i++)
 		{
-			PCClassLevel frompcl = getActiveClassLevel(fromClass, i);
+			PCClassLevel frompcl = getActiveClassLevel(fromClass, i+iFromLevel);
 			hpArray[i] = getHP(frompcl);
+		}
+		for (int i = 0; i < toLevel; i++)
+		{
+			PCClassLevel topcl = getActiveClassLevel(toClass, i);
+			hpArray[i+iCount] = getHP(topcl);
 		}
 
 		for (int i = 0; i < iCount; i++)
@@ -6492,7 +6502,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		toClass.setLevel(toLevel + iCount, this);
 
 		//Restore capture info to new class
-		for (int i = 0; i < iCount; i++)
+		for (int i = 0; i < iCount+toLevel; i++)
 		{
 			PCClassLevel topcl = getActiveClassLevel(toClass, i);
 			setHP(topcl, hpArray[i]);
