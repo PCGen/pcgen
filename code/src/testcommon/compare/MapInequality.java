@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.test.InequalityTester;
@@ -32,27 +33,43 @@ public class MapInequality implements InequalityTest<Map<?, ?>>
 	public String testInequality(Map<?, ?> m1, Map<?, ?> m2, InequalityTester t, String location)
 	{
 		List<String> reasons = new ArrayList<String>();
-		if (m1.keySet().size() != m2.keySet().size())
+		Set<?> k1 = m1.keySet();
+		Set<?> k2 = m2.keySet();
+		if (k1.size() != k2.size())
 		{
 			return "MI=@" + location + ": Inequality in Map Key Size: " + m1.keySet() + " " + m2.keySet();
 		}
-		if (!m1.keySet().equals(m2.keySet()))
+		if (!k1.equals(k2))
 		{
-			Iterator<?> i2 = m2.keySet().iterator();
-			boolean found = false;
-			for (Object o : m1.keySet())
+			Iterator<?> i2 = k2.iterator();
+			String potentialProb = null;
+			for (Object o : k1)
 			{
 				Object o2 = i2.next();
 				String reason = t.testEquality(o, o2, location + "/k/" + o.getClass());
 				if (reason != null)
 				{
-					found = true;
+					potentialProb = reason;
+				}
+			}
+			if (potentialProb != null)
+			{
+				//Collection may be smarter at this than we are...
+				String reason = t.testEquality(k1, k2, location + "/kc/" + k1);
+				if (reason == null)
+				{
+					//ok!
+					potentialProb = null;
+				}
+				else
+				{
+					reasons.add(potentialProb);
 					reasons.add(reason);
 				}
 			}
-			if (found)
+			if (potentialProb != null)
 			{
-				reasons.add("@MI=" + location + ": Inequality in Map Keys: " + m1.keySet() + " " + m2.keySet());
+				reasons.add("@MI=" + location + ": Inequality in Map Keys: " + m1.keySet() + " " + m2.keySet() + " {" + m1.values().iterator().next().getClass() + "}");
 			}
 		}
 		if (!m1.values().equals(m2.values()))

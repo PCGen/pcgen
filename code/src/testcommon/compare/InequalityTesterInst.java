@@ -29,6 +29,7 @@ import java.util.Set;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.test.InequalityTester;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SpellSupportForPCClass;
 
 public final class InequalityTesterInst implements InequalityTester
 {
@@ -42,7 +43,8 @@ public final class InequalityTesterInst implements InequalityTester
 	{
 		INEQ_MAP.put(Collection.class, new CollectionInequality());
 		INEQ_MAP.put(Map.class, new MapInequality());
-		INEQ_MAP.put(PlayerCharacter.class, new PlayerCharacterInequality());
+		INEQ_MAP.put(PlayerCharacter.class, new IgnoreInequality());
+		INEQ_MAP.put(SpellSupportForPCClass.class, new IgnoreInequality());
 	}
 
 	@Override
