@@ -141,7 +141,7 @@ Thunder Fire.MOD					DESC:Ammunition in the targeted firearm deafens opponents.|
 Tongues (Communal).MOD				DESC:As tongues, but you may divide the duration among creatures touched.|!PRERULE:1,DisplayFullSpell
 Touch Injection.MOD				DESC:You can deliver an infusion, elixir, poison, or potion as a touch attack.|!PRERULE:1,DisplayFullSpell
 Twisted Space.MOD					DESC:Targeted creature's attacks target a random square instead of the intended target.|!PRERULE:1,DisplayFullSpell
-Unerring Weapon.MOD				DESC:Grants a +2 bonus, +1 per four caster levels, on attack rolls to confirm a critical hit.|!PRERULE:1,DisplayFullSpell
+Unerring Weapon.MOD				DESC:Grants a +(min((CASTERLEVEL/4)+2,7)) bonus on attack rolls to confirm a critical hit.|!PRERULE:1,DisplayFullSpell
 Viper Bomb Admixture.MOD			DESC:Empowers bombs you throw to summon poisonous biting vipers that bite those hit or splashed by the bomb.|!PRERULE:1,DisplayFullSpell
 Walk through Space.MOD				DESC:You can spend a move action to teleport 30 feet or to stand while prone without provoking attacks of opportunity.|!PRERULE:1,DisplayFullSpell
 Warding Weapon.MOD				DESC:The weapon you use for the focus of this spell defends you, allowing you to cast spells without provoking attacks of opportunity.|!PRERULE:1,DisplayFullSpell
