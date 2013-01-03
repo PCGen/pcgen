@@ -416,21 +416,21 @@ public final class PCGIOHandler extends IOHandler
 
 				// Walk through the levels for this class
 
-				for (int i = 0; i <= aPC.getLevel(pcClass); i++)
+				for (int i = 1; i <= aPC.getLevel(pcClass); i++)
 				{
-					int baseSides = currentPC.getLevelHitDie(pcClass, i + 1).getDie();
-					PCClassLevel pcl = aPC.getActiveClassLevel(pcClass, i);
+					int baseSides = currentPC.getLevelHitDie(pcClass, i).getDie();
+					//TODO i-1 is strange see CODE-1925
+					PCClassLevel pcl = aPC.getActiveClassLevel(pcClass, i - 1);
 					Integer hp = currentPC.getHP(pcl);
 					iRoll = hp == null ? 0 : hp;
 					iSides =
 							baseSides
-							+ (int) pcClass.getBonusTo("HD", "MAX", i + 1,
+							+ (int) pcClass.getBonusTo("HD", "MAX", i,
 													   aPC);
 
 					if (iRoll > iSides)
 					{
-						PCClassLevel classLevel = aPC.getActiveClassLevel(pcClass, i);
-						aPC.setHP(classLevel, Integer.valueOf(iSides));
+						aPC.setHP(pcl, Integer.valueOf(iSides));
 						bFixMade = true;
 					}
 				}
