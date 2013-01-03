@@ -134,11 +134,12 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return thisKey.equalsIgnoreCase( otherKey );
 	}
 
-	@Override
-	public int hashCode()
-	{
-		return getKeyName().hashCode();
-	}
+	//Temporarily commented out since unit tests are badly behaved, see COD#E-1895
+	//	@Override
+	//	public int hashCode()
+	//	{
+	//		return getKeyName().hashCode();
+	//	}
 
 	/**
 	 * Set the name (sets keyname also)
