@@ -27,6 +27,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
+import pcgen.core.Language;
 import pcgen.core.PCClass;
 import pcgen.core.ShieldProf;
 import pcgen.core.Skill;
@@ -168,5 +169,28 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		remove(o);
 		reloadedPC.setDirty(true);
 		assertFalse(reloadedPC.isProficientWith(e));
+	}
+
+	@Test
+	public void testAutoLanguage()
+	{
+		T target = create(getObjectClass(), "Target");
+		Language granted = create(Language.class, "Granted");
+		create(Language.class, "Ignored");
+		new plugin.lsttokens.auto.LangToken().parseToken(context, target,
+			"%LIST");
+		new plugin.lsttokens.choose.LangToken().parseToken(context,
+			target, "Granted|Ignored");
+		Object o = prepare(target);
+		finishLoad();
+		assertFalse(pc.hasLanguage(granted));
+		applyObject(target);
+		assertTrue(pc.hasLanguage(granted));
+		runRoundRobin();
+		assertTrue(pc.hasLanguage(granted));
+		assertTrue(reloadedPC.hasLanguage(granted));
+		remove(o);
+		reloadedPC.setDirty(true);
+		assertFalse(reloadedPC.hasLanguage(granted));
 	}
 }

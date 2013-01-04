@@ -19,18 +19,12 @@ package pcgen.io;
 
 import org.junit.Test;
 
-import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.core.Race;
-import pcgen.core.Skill;
 import pcgen.io.testsupport.AbstractGlobalTargetedSaveRestoreTest;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.choose.ClassToken;
-import plugin.lsttokens.choose.SkillToken;
-import plugin.lsttokens.race.FavclassToken;
-import plugin.lsttokens.race.MoncskillToken;
-import plugin.lsttokens.skill.ExclusiveToken;
+import plugin.lsttokens.template.FavoredclassToken;
 
 public class TemplateTargetSaveRestoreTest extends
 		AbstractGlobalTargetedSaveRestoreTest<PCTemplate>
@@ -61,48 +55,22 @@ public class TemplateTargetSaveRestoreTest extends
 	}
 
 	@Test
-	public void testRaceMonCSkill()
+	public void testTemplateFavoredClass()
 	{
 		PCClass monclass = create(PCClass.class, "MonClass");
 		new TypeLst().parseToken(context, monclass, "Monster");
-		Skill monskill = create(Skill.class, "MonSkill");
-		new ExclusiveToken().parseToken(context, monskill, "Yes");
-		Race monster = create(Race.class, "Monster");
-		Race other = create(Race.class, "Other");
-		Skill skill = create(Skill.class, "MySkill");
-		new ExclusiveToken().parseToken(context, skill, "Yes");
-		new MoncskillToken().parseToken(context, monster, "LIST");
-		new SkillToken().parseToken(context, monster, "MonSkill|MySkill");
-		finishLoad();
-		pc.setRace(monster);
-		runRoundRobin();
-		assertEquals(SkillCost.CLASS,
-			pc.getSkillCostForClass(monskill, monclass));
-		assertEquals(SkillCost.CLASS,
-			reloadedPC.getSkillCostForClass(monskill, monclass));
-		reloadedPC.setRace(other);
-		reloadedPC.setDirty(true);
-		assertEquals(SkillCost.EXCLUSIVE,
-			reloadedPC.getSkillCostForClass(monskill, monclass));
-	}
-
-	@Test
-	public void testRaceFavClass()
-	{
-		PCClass monclass = create(PCClass.class, "MonClass");
-		new TypeLst().parseToken(context, monclass, "Monster");
-		Race monster = create(Race.class, "Monster");
-		Race other = create(Race.class, "Other");
+		PCTemplate monster = create(PCTemplate.class, "Monster");
+		PCTemplate other = create(PCTemplate.class, "Other");
 		create(PCClass.class, "MyClass");
-		new FavclassToken().parseToken(context, monster, "%LIST");
+		new FavoredclassToken().parseToken(context, monster, "%LIST");
 		new ClassToken().parseToken(context, monster, "MonClass|MyClass");
 		finishLoad();
-		pc.setRace(monster);
+		pc.addTemplate(monster);
 		runRoundRobin();
 		assertTrue(pc.getDisplay().getFavoredClasses().contains(monclass));
 		assertTrue(reloadedPC.getDisplay().getFavoredClasses()
 			.contains(monclass));
-		reloadedPC.setRace(other);
+		reloadedPC.removeTemplate(monster);
 		reloadedPC.setDirty(true);
 		assertFalse(reloadedPC.getDisplay().getFavoredClasses()
 			.contains(monclass));

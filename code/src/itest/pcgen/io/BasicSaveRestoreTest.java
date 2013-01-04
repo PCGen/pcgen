@@ -24,12 +24,10 @@ import org.junit.Test;
 import pcgen.core.Deity;
 import pcgen.core.GameMode;
 import pcgen.core.NoteItem;
-import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.io.testsupport.AbstractSaveRestoreTest;
-import plugin.lsttokens.pcclass.HdToken;
 
 public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 {
@@ -175,16 +173,16 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 		runRoundRobin();
 	}
 
-	@Test
-	public void testClass()
-	{
-		PCClass cl = create(PCClass.class, "MyClass");
-		new HdToken().parseToken(context, cl, "6");
-		finishLoad();
-		pc.addClass(cl);
-		pc.incrementClassLevel(1, cl);
-		pc.setHP(pc.getActiveClassLevel(cl, 0), 4);
-		runRoundRobin();
-	}
+//	@Test
+//	public void testClass()
+//	{
+//		PCClass cl = create(PCClass.class, "MyClass");
+//		new HdToken().parseToken(context, cl, "6");
+//		finishLoad();
+//		pc.addClass(cl);
+//		pc.incrementClassLevel(1, cl);
+//		pc.setHP(pc.getActiveClassLevel(cl, 0), 4);
+//		runRoundRobin();
+//	}
 
 }
