@@ -77,6 +77,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
+import plugin.bonustokens.Feat;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 import compare.InequalityTesterInst;
@@ -102,6 +103,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 			TokenRegistration.register(new plugin.lsttokens.level.CcskillmaxToken());
 			SettingsHandler.setGame("3.5");
 			GameMode mode = SettingsHandler.getGame();
+			mode.setBonusFeatLevels("3|3");
 			LevelLoader
 				.parseLine(
 					mode,
@@ -222,6 +224,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		TokenRegistration.register(EQUIP_PROFICIENCY_TOKEN);
 		TokenRegistration.register(LANGBONUS_PRIM);
 		TokenRegistration.register(PC_QUAL);
+		TokenRegistration.register(Feat.class);
 
 		directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
 		activeEqModFacet = FacetLibrary.getFacet(ActiveEqModFacet.class);
@@ -375,6 +378,14 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		ioh.read(reloadedPC, is, true);
 		assertEquals(ioh.getErrors().toString(), 0, ioh.getErrors().size());
 		assertEquals(ioh.getWarnings().toString(), 0, ioh.getWarnings().size());
+	}
+	
+	protected void dumpPC(PlayerCharacter plchar)
+	{
+		GameMode mode = SettingsHandler.getGame();
+		String pcgString =
+				(new PCGVer2Creator(plchar, mode, null)).createPCGString();
+		System.err.println(pcgString);
 	}
 
 	protected void setBoilerplate()

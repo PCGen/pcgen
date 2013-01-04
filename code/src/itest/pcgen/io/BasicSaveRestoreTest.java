@@ -21,24 +21,15 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.Deity;
 import pcgen.core.GameMode;
 import pcgen.core.NoteItem;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.io.testsupport.AbstractSaveRestoreTest;
-import plugin.lsttokens.CcskillLst;
-import plugin.lsttokens.CskillLst;
-import plugin.lsttokens.TypeLst;
-import plugin.lsttokens.choose.ClassToken;
-import plugin.lsttokens.choose.SkillToken;
-import plugin.lsttokens.race.FavclassToken;
-import plugin.lsttokens.race.MoncskillToken;
-import plugin.lsttokens.skill.ExclusiveToken;
+import plugin.lsttokens.pcclass.HdToken;
 
 public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 {
@@ -185,96 +176,15 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	}
 
 	@Test
-	public void testRaceMonCSkill()
+	public void testClass()
 	{
-		PCClass monclass = create(PCClass.class, "MonClass");
-		new TypeLst().parseToken(context, monclass, "Monster");
-		Skill monskill = create(Skill.class, "MonSkill");
-		new ExclusiveToken().parseToken(context, monskill, "Yes");
-		Race monster = create(Race.class, "Monster");
-		Race other = create(Race.class, "Other");
-		Skill skill = create(Skill.class, "MySkill");
-		new ExclusiveToken().parseToken(context, skill, "Yes");
-		new MoncskillToken().parseToken(context, monster, "LIST");
-		new SkillToken().parseToken(context, monster, "MonSkill|MySkill");
+		PCClass cl = create(PCClass.class, "MyClass");
+		new HdToken().parseToken(context, cl, "6");
 		finishLoad();
-		pc.setRace(monster);
+		pc.addClass(cl);
+		pc.incrementClassLevel(1, cl);
+		pc.setHP(pc.getActiveClassLevel(cl, 0), 4);
 		runRoundRobin();
-		assertEquals(SkillCost.CLASS,
-			pc.getSkillCostForClass(monskill, monclass));
-		assertEquals(SkillCost.CLASS,
-			reloadedPC.getSkillCostForClass(monskill, monclass));
-		reloadedPC.setRace(other);
-		reloadedPC.setDirty(true);
-		assertEquals(SkillCost.EXCLUSIVE,
-			reloadedPC.getSkillCostForClass(monskill, monclass));
 	}
 
-	@Test
-	public void testRaceFavClass()
-	{
-		PCClass monclass = create(PCClass.class, "MonClass");
-		new TypeLst().parseToken(context, monclass, "Monster");
-		Race monster = create(Race.class, "Monster");
-		Race other = create(Race.class, "Other");
-		create(PCClass.class, "MyClass");
-		new FavclassToken().parseToken(context, monster, "%LIST");
-		new ClassToken().parseToken(context, monster, "MonClass|MyClass");
-		finishLoad();
-		pc.setRace(monster);
-		runRoundRobin();
-		assertTrue(pc.getDisplay().getFavoredClasses().contains(monclass));
-		assertTrue(reloadedPC.getDisplay().getFavoredClasses()
-			.contains(monclass));
-		reloadedPC.setRace(other);
-		reloadedPC.setDirty(true);
-		assertFalse(reloadedPC.getDisplay().getFavoredClasses()
-			.contains(monclass));
-	}
-
-	@Test
-	public void testGlobalCSkill()
-	{
-		PCClass monclass = create(PCClass.class, "MonClass");
-		new TypeLst().parseToken(context, monclass, "Monster");
-		Skill monskill = create(Skill.class, "MonSkill");
-		new ExclusiveToken().parseToken(context, monskill, "Yes");
-		Race monster = create(Race.class, "Monster");
-		Race other = create(Race.class, "Other");
-		Skill skill = create(Skill.class, "MySkill");
-		new ExclusiveToken().parseToken(context, skill, "Yes");
-		new CskillLst().parseToken(context, monster, "LIST");
-		new SkillToken().parseToken(context, monster, "MonSkill|MySkill");
-		finishLoad();
-		pc.setRace(monster);
-		runRoundRobin();
-		assertEquals(SkillCost.CLASS,
-			reloadedPC.getSkillCostForClass(monskill, monclass));
-		reloadedPC.setRace(other);
-		reloadedPC.setDirty(true);
-		assertEquals(SkillCost.EXCLUSIVE,
-			reloadedPC.getSkillCostForClass(monskill, monclass));
-	}
-
-	@Test
-	public void testGlobalCCSkill()
-	{
-		PCClass myclass = create(PCClass.class, "MyClass");
-		Skill monskill = create(Skill.class, "MonSkill");
-		new ExclusiveToken().parseToken(context, monskill, "Yes");
-		Race monster = create(Race.class, "Monster");
-		Race other = create(Race.class, "Other");
-		create(Skill.class, "MySkill");
-		new CcskillLst().parseToken(context, monster, "LIST");
-		new SkillToken().parseToken(context, monster, "MonSkill|MySkill");
-		finishLoad();
-		pc.setRace(monster);
-		runRoundRobin();
-		assertEquals(SkillCost.CROSS_CLASS,
-			reloadedPC.getSkillCostForClass(monskill, myclass));
-		reloadedPC.setRace(other);
-		reloadedPC.setDirty(true);
-		assertEquals(SkillCost.EXCLUSIVE,
-			reloadedPC.getSkillCostForClass(monskill, myclass));
-	}
 }
