@@ -4865,15 +4865,16 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							}
 						}
 					}
-//					else if (!TAG_ADDTOKEN.equals(childTag)
-//						&& !TAG_TEMPLATESAPPLIED.equals(childTag))
-//					{
-//						final String msg =
-//								LanguageBundle.getFormattedString(
-//									"Warnings.PCGenParser.UnknownTemplateInfo", //$NON-NLS-1$
-//									childTag + ":" + child.getText());
-//						warnings.add(msg);
-//					}
+					//Add handled below, AppliedTo handled in the first loop
+					else if (!TAG_ADDTOKEN.equals(childTag)
+						&& !TAG_APPLIEDTO.equals(childTag))
+					{
+						final String msg =
+								LanguageBundle.getFormattedString(
+									"Warnings.PCGenParser.UnknownTemplateInfo", //$NON-NLS-1$
+									childTag + ":" + child.getText());
+						warnings.add(msg);
+					}
 				}
 			}
 			//Must process ADD after Template is added to the PC
