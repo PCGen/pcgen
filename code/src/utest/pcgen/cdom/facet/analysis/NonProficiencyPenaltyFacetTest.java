@@ -88,10 +88,12 @@ public class NonProficiencyPenaltyFacetTest extends TestCase
 	public void testMultipleGenderSetSecondDominatesGender()
 	{
 		PCTemplate pct = new PCTemplate();
+		pct.setName("PCT");
 		pct.put(IntegerKey.NONPP, -2);
 		tfacet.add(id, pct, this);
 		assertEquals(-2, facet.getPenalty(id));
 		PCTemplate pct2 = new PCTemplate();
+		pct2.setName("Other");
 		pct2.put(IntegerKey.NONPP, -3);
 		tfacet.add(id, pct2, this);
 		assertEquals(-3, facet.getPenalty(id));

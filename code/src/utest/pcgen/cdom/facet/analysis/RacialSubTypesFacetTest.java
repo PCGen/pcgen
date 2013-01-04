@@ -155,10 +155,12 @@ public class RacialSubTypesFacetTest extends TestCase
 		rfacet.set(id, r);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
 		PCTemplate t = new PCTemplate();
+		t.setName("PCT");
 		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
 		tfacet.add(id, t, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO);
 		PCTemplate t2 = new PCTemplate();
+		t2.setName("Other");
 		t2.addToListFor(ListKey.RACESUBTYPE, LAST_RACE_TYPE);
 		tfacet.add(id, t2, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO,
@@ -177,10 +179,12 @@ public class RacialSubTypesFacetTest extends TestCase
 		rfacet.set(id, r);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
 		PCTemplate t = new PCTemplate();
+		t.setName("PCT");
 		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
 		tfacet.add(id, t, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO);
 		PCTemplate t2 = new PCTemplate();
+		t2.setName("Other");
 		t2.addToListFor(ListKey.RACESUBTYPE, LAST_RACE_TYPE);
 		tfacet.add(id, t2, this);
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE, RACE_TYPE_TOO,
@@ -209,12 +213,14 @@ public class RacialSubTypesFacetTest extends TestCase
 		assertFalse(facet.contains(id, RACE_TYPE_TOO));
 		assertFalse(facet.contains(id, LAST_RACE_TYPE));
 		PCTemplate t = new PCTemplate();
+		t.setName("PCT");
 		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
 		tfacet.add(id, t, this);
 		assertTrue(facet.contains(id, TEST_RACE_TYPE));
 		assertTrue(facet.contains(id, RACE_TYPE_TOO));
 		assertFalse(facet.contains(id, LAST_RACE_TYPE));
 		PCTemplate t2 = new PCTemplate();
+		t2.setName("Other");
 		t2.addToListFor(ListKey.RACESUBTYPE, LAST_RACE_TYPE);
 		tfacet.add(id, t2, this);
 		assertTrue(facet.contains(id, TEST_RACE_TYPE));
@@ -248,10 +254,12 @@ public class RacialSubTypesFacetTest extends TestCase
 		assertEquals(1, facet.getCount(id));
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
 		PCTemplate t = new PCTemplate();
+		t.setName("PCT");
 		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
 		tfacet.add(id, t, this);
 		assertEquals(2, facet.getCount(id));
 		PCTemplate t2 = new PCTemplate();
+		t2.setName("Other");
 		t2.addToListFor(ListKey.RACESUBTYPE, LAST_RACE_TYPE);
 		tfacet.add(id, t2, this);
 		assertEquals(3, facet.getCount(id));

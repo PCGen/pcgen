@@ -108,10 +108,12 @@ public class HandsFacetTest extends TestCase
 		rfacet.set(id, r);
 		assertEquals(5, facet.getHands(id));
 		PCTemplate t = new PCTemplate();
+		t.setName("PCT");
 		t.put(IntegerKey.CREATURE_HANDS, 3);
 		tfacet.add(id, t, this);
 		assertEquals(3, facet.getHands(id));
 		PCTemplate t5 = new PCTemplate();
+		t5.setName("Other");
 		t5.put(IntegerKey.CREATURE_HANDS, 4);
 		tfacet.add(id, t5, this);
 		assertEquals(4, facet.getHands(id));

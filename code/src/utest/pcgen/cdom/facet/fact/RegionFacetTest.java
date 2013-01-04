@@ -209,6 +209,7 @@ public class RegionFacetTest extends TestCase
 	public void testMultipleRegionSetSecondDominatesRegion()
 	{
 		PCTemplate pct = new PCTemplate();
+		pct.setName("PCT");
 		pct.put(ObjectKey.REGION, Region.getConstant(TEST_REGION_NAME));
 		tfacet.add(id, pct, this);
 		assertEquals(TEST_REGION_NAME, facet.getRegion(id));
@@ -217,6 +218,7 @@ public class RegionFacetTest extends TestCase
 		assertEquals(Constants.NONE, facet.getCharacterSubRegion(id));
 		assertEquals(TEST_REGION_NAME, facet.getFullRegion(id));
 		PCTemplate pct2 = new PCTemplate();
+		pct2.setName("Other");
 		pct2.put(ObjectKey.REGION, Region.getConstant("TestRegionToo"));
 		tfacet.add(id, pct2, this);
 		assertEquals("TestRegionToo", facet.getRegion(id));
@@ -361,10 +363,12 @@ public class RegionFacetTest extends TestCase
 	public void testMultipleSubRegionSetSecondDominatesSubRegion()
 	{
 		PCTemplate pct = new PCTemplate();
+		pct.setName("PCT");
 		pct.put(ObjectKey.SUBREGION, SubRegion
 				.getConstant(TEST_SUB_REGION_NAME));
 		tfacet.add(id, pct, this);
 		PCTemplate pct2 = new PCTemplate();
+		pct2.setName("Other");
 		pct2.put(ObjectKey.SUBREGION, SubRegion.getConstant("TestRegionToo"));
 		tfacet.add(id, pct2, this);
 		assertEquals(Constants.NONE, facet.getRegion(id));
@@ -475,11 +479,13 @@ public class RegionFacetTest extends TestCase
 	public void testMultipleRegionSubRegionSetSecondDominatesRegionSubRegion()
 	{
 		PCTemplate pct = new PCTemplate();
+		pct.setName("PCT");
 		pct.put(ObjectKey.REGION, Region.getConstant(TEST_REGION_NAME));
 		pct.put(ObjectKey.SUBREGION, SubRegion
 				.getConstant(TEST_SUB_REGION_NAME));
 		tfacet.add(id, pct, this);
 		PCTemplate pct2 = new PCTemplate();
+		pct2.setName("Other");
 		pct2.put(ObjectKey.REGION, Region.getConstant("TestRegionToo"));
 		pct2
 				.put(ObjectKey.SUBREGION, SubRegion
@@ -531,10 +537,12 @@ public class RegionFacetTest extends TestCase
 	public void testExplicitOverrideTemplates()
 	{
 		PCTemplate pct = new PCTemplate();
+		pct.setName("PCT");
 		pct.put(ObjectKey.REGION, Region.getConstant("InitRegion"));
 		pct.put(ObjectKey.SUBREGION, SubRegion.getConstant("InitSubRegion"));
 		tfacet.add(id, pct, this);
 		PCTemplate pct2 = new PCTemplate();
+		pct2.setName("Other");
 		pct2.put(ObjectKey.REGION, Region.getConstant("TestRegionToo"));
 		pct2
 				.put(ObjectKey.SUBREGION, SubRegion
@@ -566,12 +574,14 @@ public class RegionFacetTest extends TestCase
 	{
 		assertTrue(facet.matchesRegion(id, null));
 		PCTemplate pct = new PCTemplate();
+		pct.setName("PCT");
 		pct.put(ObjectKey.REGION, Region.getConstant("InitRegion"));
 		pct.put(ObjectKey.SUBREGION, SubRegion.getConstant("InitSubRegion"));
 		tfacet.add(id, pct, this);
 		assertTrue(facet.matchesRegion(id, Region.getConstant("InitRegion")));
 		assertFalse(facet.matchesRegion(id, Region.getConstant("TestRegionToo")));
 		PCTemplate pct2 = new PCTemplate();
+		pct2.setName("Other");
 		pct2.put(ObjectKey.REGION, Region.getConstant("TestRegionToo"));
 		pct2
 				.put(ObjectKey.SUBREGION, SubRegion

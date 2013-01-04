@@ -108,10 +108,12 @@ public class LegsFacetTest extends TestCase
 		rfacet.set(id, r);
 		assertEquals(5, facet.getLegs(id));
 		PCTemplate t = new PCTemplate();
+		t.setName("PCT");
 		t.put(IntegerKey.LEGS, 3);
 		tfacet.add(id, t, this);
 		assertEquals(3, facet.getLegs(id));
 		PCTemplate t5 = new PCTemplate();
+		t5.setName("Other");
 		t5.put(IntegerKey.LEGS, 4);
 		tfacet.add(id, t5, this);
 		assertEquals(4, facet.getLegs(id));

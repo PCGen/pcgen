@@ -116,10 +116,12 @@ public class GenderFacetTest extends TestCase
 	public void testMultipleGenderSetSecondDominatesGender()
 	{
 		PCTemplate pct = new PCTemplate();
+		pct.setName("PCT");
 		pct.put(ObjectKey.GENDER_LOCK, Gender.Neuter);
 		tfacet.add(id, pct, this);
 		assertEquals(Gender.Neuter, facet.getGender(id));
 		PCTemplate pct2 = new PCTemplate();
+		pct2.setName("Other");
 		pct2.put(ObjectKey.GENDER_LOCK, Gender.Female);
 		tfacet.add(id, pct2, this);
 		assertEquals(Gender.Female, facet.getGender(id));

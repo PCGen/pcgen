@@ -120,11 +120,13 @@ public class FaceFacetTest extends TestCase
 		rfacet.set(id, r);
 		assertEquals(SIZE_10_5, facet.getFace(id));
 		PCTemplate t = new PCTemplate();
+		t.setName("PCT");
 		t.put(ObjectKey.FACE_WIDTH, new BigDecimal(11));
 		t.put(ObjectKey.FACE_HEIGHT, new BigDecimal(12));
 		tfacet.add(id, t, this);
 		assertEquals(SIZE_11_12, facet.getFace(id));
 		PCTemplate t5 = new PCTemplate();
+		t5.setName("Other");
 		t5.put(ObjectKey.FACE_WIDTH, new BigDecimal(3));
 		t5.put(ObjectKey.FACE_HEIGHT, new BigDecimal(2));
 		tfacet.add(id, t5, this);

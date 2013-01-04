@@ -167,10 +167,12 @@ public class RaceTypeFacetTest extends TestCase
 		rfacet.set(id, r);
 		assertEquals(TEST_RACE_TYPE, facet.getRaceType(id));
 		PCTemplate t = new PCTemplate();
+		t.setName("PCT");
 		t.put(ObjectKey.RACETYPE, RACE_TYPE_TOO);
 		tfacet.add(id, t, this);
 		assertEquals(RACE_TYPE_TOO, facet.getRaceType(id));
 		PCTemplate t2 = new PCTemplate();
+		t2.setName("Other");
 		t2.put(ObjectKey.RACETYPE, LAST_RACE_TYPE);
 		tfacet.add(id, t2, this);
 		assertEquals(LAST_RACE_TYPE, facet.getRaceType(id));

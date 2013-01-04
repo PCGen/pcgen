@@ -271,6 +271,7 @@ public class ClassFacetTest extends TestCase
 	public void testPCClassAddMultGet()
 	{
 		PCClass t1 = new PCClass();
+		t1.setName("MyClass");
 		facet.addClass(id, t1);
 		assertEquals(1, facet.getCount(id));
 		assertFalse(facet.isEmpty(id));
@@ -288,6 +289,7 @@ public class ClassFacetTest extends TestCase
 		assertEquals(2, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 1);
 		PCClass t2 = new PCClass();
+		t2.setName("OtherClass");
 		facet.addClass(id, t2);
 		assertEquals(2, facet.getCount(id));
 		assertFalse(facet.isEmpty(id));
@@ -373,6 +375,7 @@ public class ClassFacetTest extends TestCase
 	public void testPCClassAddUselessRemove()
 	{
 		PCClass t1 = new PCClass();
+		t1.setName("MyClass");
 		facet.addClass(id, t1);
 		assertEquals(1, facet.getCount(id));
 		assertFalse(facet.isEmpty(id));
@@ -390,7 +393,9 @@ public class ClassFacetTest extends TestCase
 		assertEquals(2, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 1);
 		// Useless Remove
-		facet.removeClass(id, new PCClass());
+		PCClass other = new PCClass();
+		other.setName("OtherClass");
+		facet.removeClass(id, other);
 		assertEquals(1, facet.getCount(id));
 		assertFalse(facet.isEmpty(id));
 		assertNotNull(facet.getClassSet(id));
@@ -449,7 +454,9 @@ public class ClassFacetTest extends TestCase
 	public void testPCClassAddMultRemove()
 	{
 		PCClass t1 = new PCClass();
+		t1.setName("MyClass");
 		PCClass t2 = new PCClass();
+		t2.setName("OtherClass");
 		facet.addClass(id, t1);
 		facet.addClass(id, t2);
 		facet.removeClass(id, t1);
@@ -484,7 +491,9 @@ public class ClassFacetTest extends TestCase
 	{
 		assertNull(facet.removeAllClasses(id));
 		PCClass t1 = new PCClass();
+		t1.setName("MyClass");
 		PCClass t2 = new PCClass();
+		t2.setName("OtherClass");
 		facet.addClass(id, t1);
 		facet.setLevel(id, t1, 3);
 		facet.addClass(id, t2);
@@ -649,6 +658,7 @@ public class ClassFacetTest extends TestCase
 	public void testPCClassSetLevelUncontainedClass()
 	{
 		PCClass t1 = new PCClass();
+		t1.setName("MyClass");
 		facet.addClass(id, t1);
 		assertEquals(1, facet.getCount(id));
 		assertFalse(facet.isEmpty(id));
@@ -659,7 +669,9 @@ public class ClassFacetTest extends TestCase
 		assertEventCount(1, 0, 0);
 		try
 		{
-			facet.setLevel(id, new PCClass(), 2);
+			PCClass other = new PCClass();
+			other.setName("OtherClass");
+			facet.setLevel(id, other, 2);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -758,8 +770,10 @@ public class ClassFacetTest extends TestCase
 	public void testSetClassLevelOtherAdded()
 	{
 		PCClass cl = new PCClass();
+		cl.setName("MyClass");
 		facet.addClass(id, cl);
 		PCClass t1 = new PCClass();
+		t1.setName("OtherClass");
 		PCClassLevel pcl = new PCClassLevel();
 		pcl.put(IntegerKey.LEVEL, 4);
 		try
@@ -804,7 +818,9 @@ public class ClassFacetTest extends TestCase
 	public void testSetClassLevelNoClass()
 	{
 		PCClass t1 = new PCClass();
+		t1.setName("MyClass");
 		PCClass diff = new PCClass();
+		diff.setName("OtherClass");
 		facet.addClass(id, diff);
 		PCClassLevel pcl = new PCClassLevel();
 		pcl.put(IntegerKey.LEVEL, 3);
@@ -880,6 +896,7 @@ public class ClassFacetTest extends TestCase
 	public void testGetClassLevelOtherSet()
 	{
 		PCClass cl = new PCClass();
+		cl.setName("MyClass");
 		facet.addClass(id, new PCClass());
 		try
 		{

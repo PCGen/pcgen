@@ -140,9 +140,11 @@ public class SubRaceFacetTest extends TestCase
 	public void testMultipleSubRaceSetSecondDominatesSubRace()
 	{
 		PCTemplate pct = new PCTemplate();
+		pct.setName("PCT");
 		pct.put(ObjectKey.SUBRACE, SubRace.getConstant("TestSubRace"));
 		tfacet.add(id, pct, this);
 		PCTemplate pct2 = new PCTemplate();
+		pct2.setName("PCT2");
 		pct2.put(ObjectKey.SUBRACE, SubRace.getConstant("TestSubRaceToo"));
 		tfacet.add(id, pct2, this);
 		assertEquals("TestSubRaceToo", facet.getSubRace(id));

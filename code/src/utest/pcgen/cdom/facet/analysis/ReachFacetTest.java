@@ -154,9 +154,11 @@ public class ReachFacetTest extends TestCase
 		r.put(IntegerKey.REACH, 5);
 		rfacet.set(id, r);
 		PCTemplate t = new PCTemplate();
+		t.setName("PCT");
 		t.put(IntegerKey.REACH, 8);
 		tfacet.add(id, t, this);
 		PCTemplate t2 = new PCTemplate();
+		t2.setName("Other");
 		t2.put(IntegerKey.REACH, 7);
 		tfacet.add(id, t2, this);
 		assertEquals(7, facet.getReach(id));
@@ -179,10 +181,12 @@ public class ReachFacetTest extends TestCase
 		bonusInfo.put(id, 6.0);
 		assertEquals(11, facet.getReach(id));
 		PCTemplate t = new PCTemplate();
+		t.setName("PCT");
 		t.put(IntegerKey.REACH, 8);
 		tfacet.add(id, t, this);
 		assertEquals(14, facet.getReach(id));
 		PCTemplate t2 = new PCTemplate();
+		t2.setName("Other");
 		t2.put(IntegerKey.REACH, 7);
 		tfacet.add(id, t2, this);
 		assertEquals(13, facet.getReach(id));
