@@ -67,6 +67,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.MasterSkillFacet;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.EquipSlot;
+import pcgen.core.chooser.CDOMChooserFacadeImpl;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
@@ -82,7 +83,6 @@ import pcgen.util.InputFactory;
 import pcgen.util.InputInterface;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
 import pcgen.util.enumeration.VisionType;
@@ -1417,23 +1417,32 @@ public final class Globals
 		return getChoiceFromList(title, choiceList, selectedList, pool, false);
 	}
 
+	/**
+	 * Ask the user for a choice from a list.
+	 * @param title The title of the chooser dialog.
+	 * @param choiceList The list of possible choices.
+	 * @param selectedList The values already selected (none of which should be in the available list).
+	 * @param pool The number of choices the user can make.
+	 * @param forceChoice true if the user will be forced to make all choices.
+	 * @return The list of choices made by the user.
+	 */
 	public static <T> List<T> getChoiceFromList(final String title, final List<T> choiceList, final List<T> selectedList, final int pool, final boolean forceChoice)
 	{
-		final ChooserInterface c = ChooserFactory.getChooserInstance();
-		c.setTotalChoicesAvail(pool);
-		c.setPoolFlag(forceChoice);
-		c.setAllowsDups(false);
-		c.setTitle(title);
-		c.setAvailableList(choiceList);
-
+		List<T> startingSelectedList = new ArrayList<T>();
 		if (selectedList != null)
 		{
-			c.setSelectedList(selectedList);
+			startingSelectedList = selectedList;
 		}
 
-		c.setVisible(true);
-
-		return c.getSelectedList();
+		CDOMChooserFacadeImpl<T> chooserFacade =
+				new CDOMChooserFacadeImpl<T>(title,
+						choiceList,
+						startingSelectedList, pool);
+		chooserFacade.setAllowsDups(false);
+		chooserFacade.setRequireCompleteSelection(forceChoice);
+		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
+		
+		return chooserFacade.getFinalSelected();
 	}
 
 	static List<String> getCustColumnWidth()
