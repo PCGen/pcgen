@@ -35,6 +35,7 @@ import pcgen.core.analysis.ChooseActivation;
 import pcgen.rules.context.ReferenceContext;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
+import pcgen.util.SignedInteger;
 import pcgen.util.enumeration.Visibility;
 
 /**
@@ -69,7 +70,7 @@ public final class EquipmentChoice
 	private int pool = 0;
 	private String title = null;
 
-	private List<String> availableList = new ArrayList<String>();
+	private List<Object> availableList = new ArrayList<Object>();
 
 	/**
 	 * Default constructor for the equipment choice class.
@@ -97,19 +98,19 @@ public final class EquipmentChoice
 	{
 		if (neverEmpty && availableList.isEmpty())
 		{
-			final List<String> temp = new ArrayList<String>();
+			final List<Object> temp = new ArrayList<Object>();
 			temp.add("");
 			return new EquipChoiceIterator(temp);
 		}
-		final List<String> finalList;
+		final List<Object> finalList;
 
 		// Account for secondary values (sent as <primary>|<secondary>)
 		if (getMinValue() < getMaxValue())
 		{
-			finalList = new ArrayList<String>();
+			finalList = new ArrayList<Object>();
 			for (int i = 0; i < availableList.size(); i++)
 			{
-				final String choice = availableList.get(i);
+				final String choice = String.valueOf(availableList.get(i));
 				if (choice.indexOf('|') < 0)
 				{
 					for (int j = getMinValue(); j <= getMaxValue(); j += getIncValue())
@@ -164,7 +165,7 @@ public final class EquipmentChoice
 	/**
 	 * @return Returns the availableList.
 	 */
-	public final List<String> getAvailableList()
+	public final List<Object> getAvailableList()
 	{
 		return availableList;
 	}
@@ -687,13 +688,13 @@ public final class EquipmentChoice
 			{
 				if (!skipZero || j != 0)
 				{
-					if (this.isNoSign() && (j >= 0))
+					if (this.isNoSign())
 					{
-						this.getAvailableList().add(Integer.toString(j));
+						this.getAvailableList().add(j);
 					}
 					else
 					{
-						this.getAvailableList().add(Delta.toString(j));
+						this.getAvailableList().add(new SignedInteger(j));
 					}
 				}
 			}
@@ -702,12 +703,12 @@ public final class EquipmentChoice
 		}
 	}
 
-	private static class EquipChoiceIterator implements Iterator<String>
+	private static class EquipChoiceIterator implements Iterator<Object>
 	{
-		List<String> choiceList;
+		List<Object> choiceList;
 		int currPos;
 
-		EquipChoiceIterator(final List<String> list)
+		EquipChoiceIterator(final List<Object> list)
 		{
 			choiceList = list;
 			currPos=0;
@@ -726,7 +727,7 @@ public final class EquipmentChoice
 		 * @see java.util.Iterator#next()
 		 */
         @Override
-		public String next()
+		public Object next()
 		{
 			return choiceList.get(currPos++);
 		}

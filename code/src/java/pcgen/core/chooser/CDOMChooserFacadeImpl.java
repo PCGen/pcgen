@@ -22,8 +22,12 @@
  */
 package pcgen.core.chooser;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
@@ -40,6 +44,7 @@ import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.system.LanguageBundle;
+import pcgen.util.SortKeyAware;
 
 /**
  * The Class <code>GeneraChooserFacadeBase</code> is a base from which a 
@@ -83,6 +88,8 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	private boolean dupsAllowed = false;
 
 	private boolean requireCompleteSelection;
+
+	private final String stringDelimiter;
 	
 	/**
 	 * Create a new instance of GeneraChooserFacadeBase with default localised 
@@ -102,7 +109,30 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 			LanguageBundle.getString("in_selected"),  //$NON-NLS-1$
 			LanguageBundle.getString("in_selRemain"),  //$NON-NLS-1$
 			LanguageBundle.getString("in_add"), //$NON-NLS-1$
-			LanguageBundle.getString("in_remove")); //$NON-NLS-1$
+			LanguageBundle.getString("in_remove"), null); //$NON-NLS-1$
+	}
+	
+	/**
+	 * Create a new instance of GeneraChooserFacadeBase with default localised 
+	 * text for the chooser. Note none of the supplied lists will be directly 
+	 * modified.   
+	 * 
+	 * @param name The title of the chooser.
+	 * @param available The list of items to select from.
+	 * @param selected The list of items already selected. The user may choose to deselect items from this list.
+	 * @param maxNewSelections The number of selections the user may make in addition to those in the selected list.
+	 * @param stringDelimiter A string used to split the user viewable part of a string option from the full string. 
+	 */
+	public CDOMChooserFacadeImpl(String name, List<T> available,
+		List<T> selected, int maxNewSelections, String stringDelimiter)
+	{
+		this(name, available, selected, maxNewSelections, 
+			LanguageBundle.getString("in_available"), //$NON-NLS-1$
+			LanguageBundle.getString("in_typeName"), //$NON-NLS-1$
+			LanguageBundle.getString("in_selected"),  //$NON-NLS-1$
+			LanguageBundle.getString("in_selRemain"),  //$NON-NLS-1$
+			LanguageBundle.getString("in_add"), //$NON-NLS-1$
+			LanguageBundle.getString("in_remove"), stringDelimiter); //$NON-NLS-1$
 	}
 
 	/**
@@ -119,12 +149,14 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	 * @param selectionCountName The label for the number of selections remaining.
 	 * @param addButtonName The label for the add button.
 	 * @param removeButtonName The label for the remove button.
+	 * @param stringDelimiter A string used to split the user viewable part of a string option from the full string. 
 	 */
 	public CDOMChooserFacadeImpl(String name, List<T> available,
 		List<T> selected, int maxNewSelections,
 		String availableTableTitle, String availableTableTypeNameTitle, 
 		String selectedTableTitle,
-		String selectionCountName, String addButtonName, String removeButtonName)
+		String selectionCountName, String addButtonName, String removeButtonName, 
+		String stringDelimiter)
 	{
 		this.name = name;
 		this.origAvailable = available;
@@ -136,15 +168,16 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		this.selectionCountName = selectionCountName;
 		this.addButtonName = addButtonName;
 		this.removeButtonName = removeButtonName;
+		this.stringDelimiter = stringDelimiter;
 				
 		// Build working content
-		availableList = new DefaultListFacade<InfoFacade>(createInfoFacadeList(origAvailable));
-		selectedList = new DefaultListFacade<InfoFacade>(createInfoFacadeList(origSelected));
+		availableList = new DefaultListFacade<InfoFacade>(createInfoFacadeList(origAvailable, stringDelimiter));
+		selectedList = new DefaultListFacade<InfoFacade>(createInfoFacadeList(origSelected, stringDelimiter));
 		numSelectionsRemain = new DefaultReferenceFacade<Integer>(maxNewSelections);
 		finalSelected = new ArrayList<T>(origSelected);
 	}
 
-	private List<InfoFacade> createInfoFacadeList(List<T> origAvailable2)
+	private List<InfoFacade> createInfoFacadeList(List<T> origAvailable2, String stringDelimiter)
 	{
 		List<InfoFacade> infoFacadeList = new ArrayList<InfoFacade>(origAvailable2.size());
 		for (T object : origAvailable2)
@@ -156,6 +189,14 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 			else if (object instanceof CDOMObject)
 			{
 				CDOMInfoWrapper wrapper = new CDOMInfoWrapper((CDOMObject) object);
+				infoFacadeList.add(wrapper);
+			}
+			else if (!StringUtils.isEmpty(stringDelimiter)
+				&& (object instanceof String))
+			{
+				DelimitedStringInfoWrapper wrapper =
+						new DelimitedStringInfoWrapper((String) object,
+							stringDelimiter);
 				infoFacadeList.add(wrapper);
 			}
 			else
@@ -258,8 +299,8 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	@Override
 	public final void rollback()
 	{
-		availableList.setContents(createInfoFacadeList(origAvailable));
-		selectedList.setContents(createInfoFacadeList(origSelected));
+		availableList.setContents(createInfoFacadeList(origAvailable, stringDelimiter));
+		selectedList.setContents(createInfoFacadeList(origSelected, stringDelimiter));
 		numSelectionsRemain.setReference(maxNewSelections);
 		finalSelected.clear();
 		finalSelected.addAll(origSelected);
@@ -459,8 +500,11 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		}
 	}
 
-	private class InfoWrapper implements InfoFacade
+	private static class InfoWrapper implements InfoFacade, SortKeyAware
 	{
+		private static final NumberFormat SORTABLE_NUMBER_FORMAT =
+				new DecimalFormat("0000000000.00000");
+
 		private final Object obj;
 
 		public InfoWrapper(Object cdomObj)
@@ -533,6 +577,103 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 				final List<Type> types = ((CDOMObject)obj).getSafeListFor(ListKey.TYPE);
 				return StringUtil.join(types, ".");
 			}
+			return "";
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getSortKey()
+		{
+			if (obj instanceof Number)
+			{
+				return SORTABLE_NUMBER_FORMAT.format(100000d + ((Number) obj)
+					.doubleValue());
+			}
+			return toString();
+		}
+	}
+
+	private class DelimitedStringInfoWrapper implements InfoFacade
+	{
+		private final String string;
+		private final String delimiter;
+
+		public DelimitedStringInfoWrapper(String string, String delimiter)
+		{
+			this.string = string;
+			this.delimiter = StringUtils.trimToNull(delimiter);
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String toString()
+		{
+			if (delimiter != null)
+			{
+				final int idx = string.indexOf(delimiter);
+
+				if (idx > -1)
+				{
+					return string.substring(0, idx);
+				}
+			}
+			return string;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getSource()
+		{
+			return "";
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getSourceForNodeDisplay()
+		{
+			return "";
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getKeyName()
+		{
+			return string;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public boolean isNamePI()
+		{
+	    	return false;
+		}
+
+		/**
+		 * @return the obj
+		 */
+		public Object getObj()
+		{
+			return string;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String getType()
+		{
 			return "";
 		}
 	}

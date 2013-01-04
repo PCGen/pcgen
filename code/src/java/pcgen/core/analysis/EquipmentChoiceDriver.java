@@ -26,11 +26,12 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentChoice;
 import pcgen.core.EquipmentModifier;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.Delta;
+import pcgen.core.chooser.CDOMChooserFacadeImpl;
+import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
+import pcgen.system.LanguageBundle;
+import pcgen.util.SignedInteger;
 import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
 
 public class EquipmentChoiceDriver
 {
@@ -56,10 +57,7 @@ public class EquipmentChoiceDriver
 			return true;
 		}
 
-		final ChooserInterface chooser = ChooserFactory.getChooserInstance();
-		chooser.setPoolFlag(false);
-		chooser.setVisible(false);
-		List<String> selectedList = parent.getAssociationList(eqMod);
+		List<Object> selectedList = new ArrayList<Object>(parent.getAssociationList(eqMod));
 
 		final EquipmentChoice equipChoice = buildEquipmentChoice(
 				pool,
@@ -70,24 +68,29 @@ public class EquipmentChoiceDriver
 				selectedList.size(),
 				pc);
 
+		int effectiveChoices;
 		if (equipChoice.isBAdd())
 		{
-			chooser.setTotalChoicesAvail(selectedList.size() + equipChoice.getMaxSelect());
+			effectiveChoices = selectedList.size() + equipChoice.getMaxSelect();
 		}
 		else
 		{
-			chooser.setTotalChoicesAvail(selectedList.size());
+			effectiveChoices = selectedList.size();
 		}
 
-		chooser.setAllowsDups(equipChoice.isAllowDuplicates());
-		chooser.setSelectedListTerminator("|");
-		chooser.setTitle("Select " + equipChoice.getTitle() + " (" + eqMod.getDisplayName() + ")");
-		Globals.sortChooserLists(equipChoice.getAvailableList(), selectedList);
-		chooser.setAvailableList(equipChoice.getAvailableList());
-		chooser.setSelectedList(selectedList);
-		chooser.setVisible(true);
+		String title =
+				LanguageBundle.getFormattedString("in_equipChoiceMod", //$NON-NLS-1$
+					equipChoice.getTitle(), eqMod.getDisplayName(), "|");
+		CDOMChooserFacadeImpl<Object> chooserFacade =
+				new CDOMChooserFacadeImpl<Object>(
+						title, equipChoice.getAvailableList(), 
+					selectedList, effectiveChoices);
+		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
+		chooserFacade.setAllowsDups(equipChoice.isAllowDuplicates());
+		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
+		
+		selectedList =  chooserFacade.getFinalSelected();
 
-		selectedList = chooser.getSelectedList();
 		setChoice(parent, eqMod, selectedList, equipChoice);
 
 		return parent.hasAssociations(eqMod);
@@ -95,18 +98,18 @@ public class EquipmentChoiceDriver
 
 	public static void setChoice(Equipment parent, EquipmentModifier eqMod, final String choice, final EquipmentChoice equipChoice)
 	{
-		final List<String> tempList = new ArrayList<String>();
+		final List<Object> tempList = new ArrayList<Object>();
 		tempList.add(choice);
 		setChoice(parent, eqMod, tempList, equipChoice);
 	}
 
-	private static void setChoice(Equipment parent, EquipmentModifier eqMod, final List<String> selectedList, final EquipmentChoice equipChoice)
+	private static void setChoice(Equipment parent, EquipmentModifier eqMod, final List<Object> selectedList, final EquipmentChoice equipChoice)
 	{
 		parent.removeAllAssociations(eqMod);
 
 		for (int i = 0; i < selectedList.size(); i++)
 		{
-			String aString = selectedList.get(i);
+			String aString = String.valueOf(selectedList.get(i));
 
 			if (equipChoice.getMinValue() < equipChoice.getMaxValue())
 			{
@@ -114,7 +117,7 @@ public class EquipmentChoiceDriver
 
 				if (idx < 0)
 				{
-					final List<String> secondaryChoice = new ArrayList<String>();
+					final List<SignedInteger> secondaryChoice = new ArrayList<SignedInteger>();
 
 					for (
 						int j = equipChoice.getMinValue();
@@ -123,25 +126,29 @@ public class EquipmentChoiceDriver
 					{
 						if (j != 0)
 						{
-							secondaryChoice.add(Delta.toString(j));
+							secondaryChoice.add(new SignedInteger(j));
 						}
 					}
 
-					final ChooserInterface chooser = ChooserFactory.getChooserInstance();
-					chooser.setPoolFlag(false);
-					chooser.setVisible(false);
-					chooser.setTitle("Select modifier (" + aString + ")");
-					chooser.setAvailableList(secondaryChoice);
-					chooser.setSelectedList(new ArrayList<Object>());
-					chooser.setTotalChoicesAvail(1);
-					chooser.setVisible(true);
+					String title =
+							LanguageBundle.getFormattedString(
+								"in_equipChoiceSelectMod", aString); //$NON-NLS-1$
+					CDOMChooserFacadeImpl<SignedInteger> chooserFacade =
+							new CDOMChooserFacadeImpl<SignedInteger>(title,
+								secondaryChoice,
+								new ArrayList<SignedInteger>(), 1);
+					chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
+					chooserFacade.setAllowsDups(equipChoice.isAllowDuplicates());
+					ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
+					
+					List<SignedInteger> chosenList =  chooserFacade.getFinalSelected();
 
-					if (chooser.getSelectedList().size() == 0)
+					if (chosenList.size() == 0)
 					{
 						continue;
 					}
 
-					aString += ('|' + ((String) chooser.getSelectedList().get(0)));
+					aString += ('|' + chosenList.get(0).toString());
 				}
 			}
 

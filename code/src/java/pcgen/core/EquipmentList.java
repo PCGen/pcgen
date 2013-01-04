@@ -452,9 +452,9 @@ public class EquipmentList {
 					final EquipmentChoice equipChoice = EquipmentChoiceDriver.buildEquipmentChoice(0, eq, eqMod, false, false, 0, null);
 
 					// Iterate over list, creating an item for each choice.
-					final Iterator<String> equipIter = equipChoice.getChoiceIterator(true);
+					final Iterator<Object> equipIter = equipChoice.getChoiceIterator(true);
 					for (; equipIter.hasNext();) {
-						final String mwChoice = equipIter.next();
+						final String mwChoice = String.valueOf(equipIter.next());
 						eq = eq.clone();
 						eq.addEqModifier(eqMod, true, null, mwChoice, equipChoice);
 
@@ -502,9 +502,9 @@ public class EquipmentList {
 				final EquipmentChoice equipChoice = EquipmentChoiceDriver.buildEquipmentChoice(0, eq, eqMasterwork, false, false, 0, null);
 
 				// Iterate over list, creating an item for each choice.
-				final Iterator<String> equipIter = equipChoice.getChoiceIterator(true);
+				final Iterator<Object> equipIter = equipChoice.getChoiceIterator(true);
 				for (; equipIter.hasNext();) {
-					final String choice = equipIter.next();
+					final String choice = String.valueOf(equipIter.next());
 					createItem(eq, eqMasterwork, null, choice, equipChoice);
 				}
 			}
