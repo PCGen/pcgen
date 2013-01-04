@@ -75,7 +75,7 @@ public abstract class AbstractDisplayPrereqTest extends AbstractPrerequisiteTest
 	    final Equipment    equipment,
 	    PlayerCharacter    character) throws PrerequisiteException
 	{
-		return passes(prereq, equipment, character.getDisplay());
+		return passes(prereq, equipment, character == null ? null : character.getDisplay());
 	}
 
 	/**
