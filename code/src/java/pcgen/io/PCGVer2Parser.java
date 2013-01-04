@@ -4864,7 +4864,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							}
 						}
 					}
-					else
+					else if (!TAG_ADDTOKEN.equals(childTag))
 					{
 						final String msg =
 								LanguageBundle.getFormattedString(
@@ -4872,6 +4872,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 									childTag + ":" + child.getText());
 						warnings.add(msg);
 					}
+				}
+			}
+			//Must process ADD after Template is added to the PC
+			for (PCGElement e : new PCGTokenizer(line).getElements())
+			{
+				String tag = e.getName();
+				if (tag.equals(TAG_ADDTOKEN))
+				{
+					parseAddTokenInfo(e, aPCTemplate);
 				}
 			}
 		}
