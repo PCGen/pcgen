@@ -4740,7 +4740,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * Character Templates methods
 	 * ###############################################################
 	 */
-	private void parseTemplateLine(final String line)
+	private void parseTemplateLine(final String line) throws PCGParseException
 	{
 		if (line.charAt(TAG_TEMPLATESAPPLIED.length() + 1) == '[')
 		{
@@ -4863,6 +4863,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 								}
 							}
 						}
+					}
+					else
+					{
+						final String msg =
+								LanguageBundle.getFormattedString(
+									"Warnings.PCGenParser.UnknownTemplateInfo", //$NON-NLS-1$
+									childTag + ":" + child.getText());
+						warnings.add(msg);
 					}
 				}
 			}
