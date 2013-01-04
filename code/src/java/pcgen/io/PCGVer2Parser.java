@@ -3827,10 +3827,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseRaceLine(final String line) throws PCGParseException
 	{
-		final StringTokenizer sTok =
-				new StringTokenizer(line.substring(TAG_RACE.length() + 1),
-					TAG_SEPARATOR, false);
-		final String race_name = EntityEncoder.decode(sTok.nextToken());
+		List<PCGElement> elements = new PCGTokenizer(line).getElements();
+		PCGElement raceElement = elements.get(0);
+		String race_name = EntityEncoder.decode(raceElement.getText());
 		final Race aRace =
 				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 					Race.class, race_name);
@@ -3844,9 +3843,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			throw new PCGParseException("parseRaceLine", line, msg); //$NON-NLS-1$
 		}
 		String selection = null;
-		while (sTok.hasMoreTokens())
+		//Yes, start at 1, 0 was the race
+		for (int i = 1; i < elements.size(); i++)
 		{
-			final String aString = sTok.nextToken();
+			PCGElement thisElement = elements.get(i);
+			final String aString = thisElement.getName();
 			if (aString.startsWith(TAG_APPLIEDTO))
 			{
 				if (selection != null)
@@ -3854,14 +3855,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					warnings.add("Found multiple selections for Race: "
 						+ aRace.getKeyName());
 				}
-				selection = aString.substring(TAG_APPLIEDTO.length() + 1);
+				selection = thisElement.getText();
 			}
 			else if (!aString.startsWith(TAG_ADDTOKEN))
 			{
 				final String msg =
 						LanguageBundle.getFormattedString(
 							"Warnings.PCGenParser.UnknownRaceInfo", //$NON-NLS-1$
-							aString);
+							aString + ":" + thisElement.getText());
 				warnings.add(msg);
 			}
 		}
