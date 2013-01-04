@@ -69,7 +69,6 @@ public class TemplateTargetSaveRestoreTest extends
 		new ClassToken().parseToken(context, monster, "MonClass|MyClass");
 		finishLoad();
 		pc.addTemplate(monster);
-		dumpPC(pc);
 		runRoundRobin();
 		assertTrue(pc.getDisplay().getFavoredClasses().contains(monclass));
 		assertTrue(reloadedPC.getDisplay().getFavoredClasses()

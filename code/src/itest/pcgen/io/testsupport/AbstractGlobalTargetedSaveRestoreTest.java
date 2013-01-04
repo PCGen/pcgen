@@ -66,6 +66,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		Object o = prepare(target);
 		finishLoad();
 		applyObject(target);
+		dumpPC(pc);
 		runRoundRobin();
 		assertEquals(SkillCost.CLASS,
 			reloadedPC.getSkillCostForClass(granted, monclass));
@@ -186,6 +187,7 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertFalse(pc.hasLanguage(granted));
 		applyObject(target);
 		assertTrue(pc.hasLanguage(granted));
+		dumpPC(pc);
 		runRoundRobin();
 		assertTrue(pc.hasLanguage(granted));
 		assertTrue(reloadedPC.hasLanguage(granted));

@@ -42,32 +42,20 @@ public class MapInequality implements InequalityTest<Map<?, ?>>
 		if (!k1.equals(k2))
 		{
 			Iterator<?> i2 = k2.iterator();
-			String potentialProb = null;
-			for (Object o : k1)
+			boolean found = false;
+			//This makes a "bold" assertion that keys will always be in the same order.
+			//Don't expect this class to work for IdentityHashMap
+			for (Object o :  k1)
 			{
 				Object o2 = i2.next();
-				String reason = t.testEquality(o, o2, location + "/k/" + o.getClass());
+				String reason = t.testEquality(o, o2, location + "/K/");
 				if (reason != null)
 				{
-					potentialProb = reason;
-				}
-			}
-			if (potentialProb != null)
-			{
-				//Collection may be smarter at this than we are...
-				String reason = t.testEquality(k1, k2, location + "/kc/" + k1);
-				if (reason == null)
-				{
-					//ok!
-					potentialProb = null;
-				}
-				else
-				{
-					reasons.add(potentialProb);
+					found = true;
 					reasons.add(reason);
 				}
 			}
-			if (potentialProb != null)
+			if (found)
 			{
 				reasons.add("@MI=" + location + ": Inequality in Map Keys: " + m1.keySet() + " " + m2.keySet() + " {" + m1.values().iterator().next().getClass() + "}");
 			}
@@ -81,32 +69,20 @@ public class MapInequality implements InequalityTest<Map<?, ?>>
 				reasons.add("@MI=" + location + ": Inequality in Value Size: " + c1.size() + " " + c2.size());
 			}
 			Iterator<?> i2 = c2.iterator();
-			String potentialProb = null;
+			boolean found = false;
+			//This makes a "bold" assertion that values (due to keys) will always be in the same order.
+			//Don't expect this class to work for IdentityHashMap
 			for (Object o : c1)
 			{
 				Object o2 = i2.next();
-				String reason = t.testEquality(o, o2, location + "/v/" + o.getClass());
+				String reason = t.testEquality(o, o2, location + "/v/");
 				if (reason != null)
 				{
-					potentialProb = reason;
-				}
-			}
-			if (potentialProb != null)
-			{
-				//Collection may be smarter at this than we are...
-				String reason = t.testEquality(c1, c2, location + "/vc/" + c1.getClass());
-				if (reason == null)
-				{
-					//ok!
-					potentialProb = null;
-				}
-				else
-				{
-					reasons.add(potentialProb);
+					found = true;
 					reasons.add(reason);
 				}
 			}
-			if (potentialProb != null)
+			if (found)
 			{
 				reasons.add("@MI=" + location + ": Inequality in Map Values: " + m1.values() + " " + m2.values() + " {" + m1.values().iterator().next().getClass() + "}");
 			}

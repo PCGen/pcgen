@@ -22,6 +22,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -43,6 +44,8 @@ public final class InequalityTesterInst implements InequalityTester
 	{
 		INEQ_MAP.put(Collection.class, new CollectionInequality());
 		INEQ_MAP.put(Map.class, new MapInequality());
+		INEQ_MAP.put(IdentityHashMap.class, new IdentityHashMapInequality());
+		INEQ_MAP.put(pcgen.cdom.facet.model.ClassFacet.ClassInfo.class, new ClassFacetInfoInequality());
 		INEQ_MAP.put(PlayerCharacter.class, new IgnoreInequality());
 		INEQ_MAP.put(SpellSupportForPCClass.class, new IgnoreInequality());
 	}
