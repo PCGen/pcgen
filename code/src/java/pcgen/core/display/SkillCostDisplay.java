@@ -232,7 +232,8 @@ public class SkillCostDisplay
 			}
 			sb.append(pcc == null ? "None" : pcc.getKeyName());
 			sb.append(':');
-			sb.append(pc.getSkillRankForClass(sk, pcc));
+			Double rank = pc.getSkillRankForClass(sk, pcc);
+			sb.append(rank == null ? 0 : rank);
 			needComma = true;
 		}
 		double bonus = SkillRankControl.getSkillRankBonusTo(pc, sk);
