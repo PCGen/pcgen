@@ -124,7 +124,7 @@ public class DomainApplication
 
 		if (!pc.isImporting())
 		{
-			AddObjectActions.globalChecks(d, pc);
+			AddObjectActions.doBaseChecks(d, pc);
 			BonusActivation.activateBonuses(d, pc);
 		}
 	}
@@ -177,8 +177,7 @@ public class DomainApplication
 
 		if (!pc.isImporting())
 		{
-			AddObjectActions.globalChecks(domain, pc);
-			BonusActivation.activateBonuses(domain, pc);
+			BonusActivation.deactivateBonuses(domain, pc);
 		}
 	}
 	

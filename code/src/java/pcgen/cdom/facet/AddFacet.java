@@ -21,6 +21,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.model.DeityFacet;
+import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PlayerCharacter;
@@ -40,6 +41,8 @@ public class AddFacet implements DataFacetChangeListener<CDOMObject>
 	private DeityFacet deityFacet;
 
 	private TemplateFacet templateFacet;
+
+	private DomainFacet domainFacet;
 
 	/**
 	 * Drives the necessary selections for ADD tokens on a Player Character.
@@ -104,6 +107,11 @@ public class AddFacet implements DataFacetChangeListener<CDOMObject>
 		this.templateFacet = templateFacet;
 	}
 
+	public void setDomainFacet(DomainFacet domainFacet)
+	{
+		this.domainFacet = domainFacet;
+	}
+
 	/**
 	 * Initializes the connections for AddFacet to other facets.
 	 * 
@@ -115,5 +123,6 @@ public class AddFacet implements DataFacetChangeListener<CDOMObject>
 		raceFacet.addDataFacetChangeListener(this);
 		deityFacet.addDataFacetChangeListener(this);
 		templateFacet.addDataFacetChangeListener(this);
+		domainFacet.addDataFacetChangeListener(this);
 	}
 }
