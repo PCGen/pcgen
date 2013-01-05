@@ -198,7 +198,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertFalse(pc.hasLanguage(granted));
 		applyObject(target);
 		assertTrue(pc.hasLanguage(granted));
-		dumpPC(pc);
 		runRoundRobin();
 		assertTrue(pc.hasLanguage(granted));
 		assertTrue(reloadedPC.hasLanguage(granted));
@@ -206,4 +205,29 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		reloadedPC.setDirty(true);
 		assertFalse(reloadedPC.hasLanguage(granted));
 	}
+
+	//TODO We accept this is not symmetric now due to equipment cloning
+	//	@Test
+	//	public void testAutoEquipment()
+	//	{
+	//		T target = create(getObjectClass(), "Target");
+	//		Equipment granted = create(Equipment.class, "Granted");
+	//		create(Equipment.class, "Ignored");
+	//		new plugin.lsttokens.auto.EquipToken().parseToken(context, target,
+	//			"%LIST");
+	//		new plugin.lsttokens.choose.EquipmentToken().parseToken(context,
+	//			target, "Granted|Ignored");
+	//		Object o = prepare(target);
+	//		finishLoad();
+	//		assertFalse(pc.getEquipmentMasterList().contains(granted));
+	//		applyObject(target);
+	//		assertTrue(pc.getEquipmentMasterList().contains(granted));
+	//		dumpPC(pc);
+	//		runRoundRobin();
+	//		assertTrue(pc.getEquipmentMasterList().contains(granted));
+	//		assertTrue(reloadedPC.getEquipmentMasterList().contains(granted));
+	//		remove(o);
+	//		reloadedPC.setDirty(true);
+	//		assertFalse(reloadedPC.getEquipmentMasterList().contains(granted));
+	//	}
 }
