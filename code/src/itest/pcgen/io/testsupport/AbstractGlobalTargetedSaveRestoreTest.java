@@ -65,9 +65,14 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		new SkillToken().parseToken(context, target, "Granted|MySkill");
 		Object o = prepare(target);
 		finishLoad();
+		assertEquals(SkillCost.EXCLUSIVE,
+			pc.getSkillCostForClass(granted, monclass));
 		applyObject(target);
-		dumpPC(pc);
+		assertEquals(SkillCost.CLASS,
+			pc.getSkillCostForClass(granted, monclass));
 		runRoundRobin();
+		assertEquals(SkillCost.CLASS,
+			pc.getSkillCostForClass(granted, monclass));
 		assertEquals(SkillCost.CLASS,
 			reloadedPC.getSkillCostForClass(granted, monclass));
 		remove(o);
@@ -88,8 +93,14 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		new SkillToken().parseToken(context, target, "Granted|MySkill");
 		Object o = prepare(target);
 		finishLoad();
+		assertEquals(SkillCost.EXCLUSIVE,
+			pc.getSkillCostForClass(granted, myclass));
 		applyObject(target);
+		assertEquals(SkillCost.CROSS_CLASS,
+			pc.getSkillCostForClass(granted, myclass));
 		runRoundRobin();
+		assertEquals(SkillCost.CROSS_CLASS,
+			pc.getSkillCostForClass(granted, myclass));
 		assertEquals(SkillCost.CROSS_CLASS,
 			reloadedPC.getSkillCostForClass(granted, myclass));
 		remove(o);

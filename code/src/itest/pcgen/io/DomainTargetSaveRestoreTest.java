@@ -17,11 +17,19 @@
  */
 package pcgen.io;
 
+import org.junit.Test;
+
+import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
+import pcgen.core.Skill;
 import pcgen.io.testsupport.AbstractGlobalTargetedSaveRestoreTest;
+import plugin.lsttokens.choose.SkillToken;
+import plugin.lsttokens.domain.CcskillToken;
+import plugin.lsttokens.domain.CskillToken;
 import plugin.lsttokens.pcclass.HdToken;
+import plugin.lsttokens.skill.ExclusiveToken;
 
 public class DomainTargetSaveRestoreTest extends
 		AbstractGlobalTargetedSaveRestoreTest<Domain>
@@ -59,4 +67,57 @@ public class DomainTargetSaveRestoreTest extends
 		reloadedPC.removeDomain((Domain) o);
 	}
 
+	@Test
+	public void testDomainCSkill()
+	{
+		Skill granted = create(Skill.class, "Granted");
+		new ExclusiveToken().parseToken(context, granted, "Yes");
+		Domain target = create(getObjectClass(), "Target");
+		create(Skill.class, "MySkill");
+		new CskillToken().parseToken(context, target, "LIST");
+		new SkillToken().parseToken(context, target, "Granted|MySkill");
+		Object o = prepare(target);
+		finishLoad();
+		applyObject(target);
+		PCClass myclass = pc.getClassKeyed("MyClass");
+		assertEquals(SkillCost.CLASS,
+			pc.getSkillCostForClass(granted, myclass));
+		runRoundRobin();
+		assertEquals(SkillCost.CLASS,
+			pc.getSkillCostForClass(granted, myclass));
+		myclass = reloadedPC.getClassKeyed("MyClass");
+		assertEquals(SkillCost.CLASS,
+			reloadedPC.getSkillCostForClass(granted, myclass));
+		remove(o);
+		reloadedPC.setDirty(true);
+		assertEquals(SkillCost.EXCLUSIVE,
+			reloadedPC.getSkillCostForClass(granted, myclass));
+	}
+
+	@Test
+	public void testDomainCCSkill()
+	{
+		Skill granted = create(Skill.class, "Granted");
+		new ExclusiveToken().parseToken(context, granted, "Yes");
+		Domain target = create(getObjectClass(), "Target");
+		create(Skill.class, "MySkill");
+		new CcskillToken().parseToken(context, target, "LIST");
+		new SkillToken().parseToken(context, target, "Granted|MySkill");
+		Object o = prepare(target);
+		finishLoad();
+		applyObject(target);
+		PCClass myclass = pc.getClassKeyed("MyClass");
+		assertEquals(SkillCost.CROSS_CLASS,
+			pc.getSkillCostForClass(granted, myclass));
+		runRoundRobin();
+		assertEquals(SkillCost.CROSS_CLASS,
+			pc.getSkillCostForClass(granted, myclass));
+		myclass = reloadedPC.getClassKeyed("MyClass");
+		assertEquals(SkillCost.CROSS_CLASS,
+			reloadedPC.getSkillCostForClass(granted, myclass));
+		remove(o);
+		reloadedPC.setDirty(true);
+		assertEquals(SkillCost.EXCLUSIVE,
+			reloadedPC.getSkillCostForClass(granted, myclass));
+	}
 }
