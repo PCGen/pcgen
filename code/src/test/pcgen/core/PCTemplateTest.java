@@ -158,9 +158,9 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		pc.addTemplate(template);
 		// Need to do this to populate the ability list
 		pc.getAbilityList(cat, Nature.AUTOMATIC);
-		assertTrue("Character should have ability1.", pc.hasAbility(null,
+		assertTrue("Character should have ability1.", hasAbility(pc, null,
 			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", pc.hasAbility(cat,
+		assertTrue("Character should have ability2.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab2));
 	}
 
@@ -219,9 +219,9 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		pc.addTemplate(template);
 		// Need to do this to populate the ability list
 		//pc.getAutomaticAbilityList(AbilityCategory.FEAT);
-		assertTrue("Character should have ability1.", pc.hasAbility(null,
+		assertTrue("Character should have ability1.", hasAbility(pc, null,
 			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", pc.hasAbility(AbilityCategory.FEAT,
+		assertTrue("Character should have ability2.", hasAbility(pc, AbilityCategory.FEAT,
 			Nature.AUTOMATIC, ab2));
 	}
 
@@ -292,22 +292,22 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		pc.addTemplate(template);
 		// Need to do this to populate the ability list
 		pc.getAbilityList(cat, Nature.AUTOMATIC);
-		assertFalse("Character should not have ability1.", pc.hasAbility(null,
+		assertFalse("Character should not have ability1.", hasAbility(pc, null,
 			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", pc.hasAbility(cat,
+		assertTrue("Character should have ability2.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab2));
 		
 		// Level the character up, testing for when the level tag kicks in
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
 		pc.getAbilityList(cat, Nature.AUTOMATIC);
-		assertFalse("Character should not have ability1.", pc.hasAbility(null,
+		assertFalse("Character should not have ability1.", hasAbility(pc, null,
 			Nature.AUTOMATIC, ab1));
 
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
 		pc.getAbilityList(cat, Nature.AUTOMATIC);
-		assertTrue("Character should have ability1.", pc.hasAbility(null,
+		assertTrue("Character should have ability1.", hasAbility(pc, null,
 			Nature.AUTOMATIC, ab1));
 		
 	}
@@ -376,22 +376,22 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		pc.addTemplate(template);
 		// Need to do this to populate the ability list
 		pc.getAbilityList(AbilityCategory.FEAT, Nature.AUTOMATIC);
-		assertFalse("Character should not have ability1.", pc.hasAbility(null,
+		assertFalse("Character should not have ability1.", hasAbility(pc, null,
 			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", pc.hasAbility(AbilityCategory.FEAT,
+		assertTrue("Character should have ability2.", hasAbility(pc, AbilityCategory.FEAT,
 			Nature.AUTOMATIC, ab2));
 		
 		// Level the character up, testing for when the level tag kicks in
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
 		pc.getAbilityList(AbilityCategory.FEAT, Nature.AUTOMATIC);
-		assertFalse("Character should not have ability1.", pc.hasAbility(null,
+		assertFalse("Character should not have ability1.", hasAbility(pc, null,
 			Nature.AUTOMATIC, ab1));
 
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
 		pc.getAbilityList(AbilityCategory.FEAT, Nature.AUTOMATIC);
-		assertTrue("Character should have ability1.", pc.hasAbility(null,
+		assertTrue("Character should have ability1.", hasAbility(pc, null,
 			Nature.AUTOMATIC, ab1));
 		
 	}

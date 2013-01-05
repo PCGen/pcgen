@@ -397,9 +397,9 @@ public class PObjectTest extends AbstractCharacterTestCase
 		pc.setRace(race);
 		// Need to do this to populate the ability list
 		pc.getAbilityList(cat, Nature.AUTOMATIC);
-		assertTrue("Character should have ability1.", pc.hasAbility(null,
+		assertTrue("Character should have ability1.", hasAbility(pc, null,
 			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", pc.hasAbility(cat,
+		assertTrue("Character should have ability2.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab2));
 	}
 	
