@@ -2400,14 +2400,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			return;
 		}
 
-		PCGElement element;
-		String tag;
-
 		final Iterator<PCGElement> it = tokens.getElements().iterator();
 
 		if (it.hasNext())
 		{
-			element = it.next();
+			PCGElement element = it.next();
 
 			// the first element defines the domain name
 			final String domainKey = EntityEncoder.decode(element.getText());
@@ -2438,7 +2435,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				while (it.hasNext())
 				{
 					element = it.next();
-					tag = element.getName();
+					String tag = element.getName();
 
 					if (TAG_SOURCE.equals(tag))
 					{
@@ -2454,6 +2451,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						}
 						fullassoc = EntityEncoder.decode(element.getText());
 					}
+					else if (!tag.equals(TAG_ADDTOKEN))
+					{
+						final String msg =
+								LanguageBundle.getFormattedString(
+									"Warnings.PCGenParser.UnknownDomainInfo", //$NON-NLS-1$
+									tag + ":" + element.getText());
+						warnings.add(msg);
+					}
 				}
 				if (source == null)
 				{
@@ -2464,6 +2469,28 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					domainInputFacet.importSelection(thePC.getCharID(), aDomain, fullassoc, source);
 					DomainApplication.applyDomain(thePC, aDomain);
+				}
+				try
+				{
+					//Must process ADD after DOMAIN is added to the PC
+					for (PCGElement e : new PCGTokenizer(line).getElements())
+					{
+						String tag = e.getName();
+						if (tag.equals(TAG_ADDTOKEN))
+						{
+							parseAddTokenInfo(e, aDomain);
+						}
+					}
+				}
+				catch (PCGParseException pcgpex)
+				{
+					final String msg =
+							LanguageBundle.getFormattedString(
+								"Warnings.PCGenParser.IllegalDomain", //$NON-NLS-1$
+								line, pcgpex.getMessage());
+					warnings.add(msg);
+
+					return;
 				}
 			}
 			else
