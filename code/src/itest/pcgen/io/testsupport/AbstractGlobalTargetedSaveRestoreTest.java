@@ -29,6 +29,7 @@ import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
 import pcgen.core.Language;
 import pcgen.core.PCClass;
+import pcgen.core.PCTemplate;
 import pcgen.core.ShieldProf;
 import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
@@ -230,4 +231,47 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	//		reloadedPC.setDirty(true);
 	//		assertFalse(reloadedPC.getEquipmentMasterList().contains(granted));
 	//	}
+
+	@Test
+	public void testAddLanguage()
+	{
+		Language granted = create(Language.class, "Granted");
+		create(Language.class, "Ignored");
+		T target = create(getObjectClass(), "Target");
+		new plugin.lsttokens.add.LanguageToken().parseToken(context, target,
+			"Granted");
+		Object o = prepare(target);
+		finishLoad();
+		assertFalse(pc.hasLanguage(granted));
+		applyObject(target);
+		assertTrue(pc.hasLanguage(granted));
+		runRoundRobin();
+		assertTrue(pc.hasLanguage(granted));
+		assertTrue(reloadedPC.hasLanguage(granted));
+		remove(o);
+		reloadedPC.setDirty(true);
+		assertFalse(reloadedPC.hasLanguage(granted));
+	}
+
+	@Test
+	public void testAddTemplate()
+	{
+		PCTemplate granted = create(PCTemplate.class, "Granted");
+		create(PCTemplate.class, "Ignored");
+		T target = create(getObjectClass(), "Target");
+		new plugin.lsttokens.add.TemplateToken().parseToken(context, target,
+			"Granted");
+		Object o = prepare(target);
+		finishLoad();
+		assertFalse(pc.hasTemplate(granted));
+		applyObject(target);
+		assertTrue(pc.hasTemplate(granted));
+		runRoundRobin();
+		assertTrue(pc.hasTemplate(granted));
+		assertTrue(reloadedPC.hasTemplate(granted));
+		remove(o);
+		reloadedPC.setDirty(true);
+		assertFalse(reloadedPC.hasTemplate(granted));
+	}
+
 }
