@@ -1014,21 +1014,21 @@ One with the Stone	KEY:One with the Stone ~ DEEP WALKER	CATEGORY:Special Ability
 
 ###Block: Deep Walker ~ Deep Knowledge conditional skills
 # Ability Name								Bonus to skill
-CATEGORY=Special Ability|Deep Knowledge ~ DEEP WALKER.MOD	BONUS:SKILL|Knowledge (Dungeoneering/Underground)|DeepWalkerDeepKnowledgeBonus|PRESKILL:1,Knowledge (Dungeoneering)=1
-CATEGORY=Special Ability|Deep Knowledge ~ DEEP WALKER.MOD	BONUS:SKILL|Perception (Underground)|DeepWalkerDeepKnowledgeBonus|PRESKILL:1,Perception=1
-CATEGORY=Special Ability|Deep Knowledge ~ DEEP WALKER.MOD	BONUS:SKILL|Stealth (Underground)|DeepWalkerDeepKnowledgeBonus|PRESKILL:1,Stealth=1
-CATEGORY=Special Ability|Deep Knowledge ~ DEEP WALKER.MOD	BONUS:SKILL|Survival (Underground)|DeepWalkerDeepKnowledgeBonus|PRESKILL:1,Survival=1
+CATEGORY=Special Ability|Deep Knowledge ~ DEEP WALKER.MOD	BONUS:SKILL|Knowledge (Dungeoneering/Underground)|DeepWalkerDeepKnowledgeBonus
+CATEGORY=Special Ability|Deep Knowledge ~ DEEP WALKER.MOD	BONUS:SKILL|Perception (Underground)|DeepWalkerDeepKnowledgeBonus
+CATEGORY=Special Ability|Deep Knowledge ~ DEEP WALKER.MOD	BONUS:SKILL|Stealth (Underground)|DeepWalkerDeepKnowledgeBonus
+CATEGORY=Special Ability|Deep Knowledge ~ DEEP WALKER.MOD	BONUS:SKILL|Survival (Underground)|DeepWalkerDeepKnowledgeBonus
 
 # Deep Walker ~ Deep Knowledge cascaded conditional skills
-CATEGORY=Special Ability|Deep Knowledge ~ DEEP WALKER.MOD	BONUS:SKILL|Survival (Follow or identify tracks/Underground)|DeepWalkerDeepKnowledgeBonus|PRESKILL:1,Survival (Follow or identify tracks)=1
-CATEGORY=Special Ability|Deep Knowledge ~ DEEP WALKER.MOD	BONUS:SKILL|Perception (Notice unusual stonework/Underground)|DeepWalkerDeepKnowledgeBonus|PRESKILL:1,Perception (Notice unusual stonework)=1
+CATEGORY=Special Ability|Deep Knowledge ~ DEEP WALKER.MOD	BONUS:SKILL|Survival (Follow or identify tracks/Underground)|DeepWalkerDeepKnowledgeBonus
+CATEGORY=Special Ability|Deep Knowledge ~ DEEP WALKER.MOD	BONUS:SKILL|Perception (Notice unusual stonework/Underground)|DeepWalkerDeepKnowledgeBonus
 
 # Deep Walker ~ Rock Hopper conditional skills
-CATEGORY=Special Ability|Rock Hopper ~ DEEP WALKER.MOD	BONUS:SKILL|Acrobatics (Underground)|5|PRESKILL:1,Acrobatics=1
-CATEGORY=Special Ability|Rock Hopper ~ DEEP WALKER.MOD	BONUS:SKILL|Climb (Underground)|5|PRESKILL:1,Climb=1
+CATEGORY=Special Ability|Rock Hopper ~ DEEP WALKER.MOD	BONUS:SKILL|Acrobatics (Underground)|5
+CATEGORY=Special Ability|Rock Hopper ~ DEEP WALKER.MOD	BONUS:SKILL|Climb (Underground)|5
 
 # Deep Walker ~ Rock Hopper cascaded conditional skills
-CATEGORY=Special Ability|Rock Hopper ~ DEEP WALKER.MOD	BONUS:SKILL|Acrobatics (Jump/Underground)|5|PRESKILL:1,Acrobatics (Jump)=1
+CATEGORY=Special Ability|Rock Hopper ~ DEEP WALKER.MOD	BONUS:SKILL|Acrobatics (Jump/Underground)|5
 
 
 ###Block: FALCONER
