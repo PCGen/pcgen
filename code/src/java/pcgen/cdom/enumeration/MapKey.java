@@ -54,7 +54,6 @@ public final class MapKey<K, V>
 	/** ASPECT - a map key. */
 	public static final MapKey<AspectName, List<Aspect>> ASPECT = new MapKey<AspectName, List<Aspect>>();
 	public static final MapKey<String, String> PROPERTY = new MapKey<String, String>();
-	public static final MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>> SPELL_MASTER_INFO = new MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>>();
 	public static final MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>> SPELL_PC_INFO = new MapKey<Spell, HashMapToList<CDOMList<Spell>, Integer>>();
 
 	public static final MapKey<CDOMSingleRef<? extends PCClass>, Integer> APPLIED_CLASS = new MapKey<CDOMSingleRef<? extends PCClass>, Integer>();

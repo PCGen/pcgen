@@ -82,7 +82,7 @@ public abstract class AbstractConditionalSpellFacet extends
 		}
 	}
 
-	private void add(CharID id, CDOMList<Spell> list, Spell spell,
+	public void add(CharID id, CDOMList<Spell> list, Spell spell,
 		AssociatedPrereqObject apo, CDOMObject cdo)
 	{
 		Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>> map =

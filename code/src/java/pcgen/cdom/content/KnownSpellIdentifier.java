@@ -28,7 +28,6 @@ import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.analysis.SpellLevel;
 import pcgen.core.spell.Spell;
 
 /**
@@ -152,8 +151,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 		List<Spell> spellList = new ArrayList<Spell>();
 		for (Spell sp : ref.getContainedObjects())
 		{
-			HashMapToList<CDOMList<Spell>, Integer> hml = SpellLevel
-					.getMasterLevelInfo(null, sp);
+			HashMapToList<CDOMList<Spell>, Integer> hml = pc.getSpellLevelInfo(sp);
 			for (CDOMList<Spell> cdomList : hml.getKeySet())
 			{
 				if (classSpellLists.contains(cdomList))

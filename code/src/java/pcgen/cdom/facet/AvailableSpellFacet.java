@@ -72,7 +72,7 @@ public class AvailableSpellFacet extends AbstractSpellStorageFacet implements
 	 *         of those spell levels available to a Player Character for a given
 	 *         Spell.
 	 */
-	public HashMapToList<CDOMList<Spell>, Integer> getPCBasedLevelInfo(
+	public HashMapToList<CDOMList<Spell>, Integer> getSpellLevelInfo(
 		CharID id, Spell sp)
 	{
 		HashMapToList<CDOMList<Spell>, Integer> levelInfo =
@@ -138,13 +138,14 @@ public class AvailableSpellFacet extends AbstractSpellStorageFacet implements
 	 *         and sources of those spell levels available to a Player Character
 	 *         for a given Spell.
 	 */
-	public DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> getPCBasedLevelInfo(
+	public DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> getSpellLevelInfo(
 		CharID id)
 	{
 		DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> levelInfo =
 				new DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer>();
 		Map<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>> listMap =
 				getCachedMap(id);
+System.err.println("$$" + listMap);
 		if (listMap == null)
 		{
 			return levelInfo;

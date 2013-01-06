@@ -59,13 +59,9 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	private Spell domainSpell;
 	private PCClass divineClass;
 
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
-	protected void setUp() throws Exception
+	protected void additionalSetUp() throws Exception
 	{
-		super.setUp();
 		LoadContext context = Globals.getContext();
 		CampaignSourceEntry source = TestHelper.createSource(getClass());
 
@@ -85,7 +81,6 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 		GenericLoader<Domain> domainLoader = new GenericLoader<Domain>(Domain.class);
 		domainLoader.parseLine(context, null, domainLine, source);
 		sunDomain = context.ref.silentlyGetConstructedCDOMObject(Domain.class, "Sun");
-		context.ref.buildDerivedObjects();
 
 		CDOMReference<ClassSpellList> ref = TokenUtilities.getTypeOrPrimitive(context,
 			ClassSpellList.class, divineClass.getKeyName());
@@ -93,11 +88,9 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 				context.getListContext().addToMasterList("CLASSES", classSpell,
 					ref, classSpell);
 		edge.setAssociation(AssociationKey.SPELL_LEVEL, 1);
-	}
+		context.commit();
 
-	private void readyToRun()
-	{
-		LoadContext context = Globals.getContext();
+		context.ref.buildDerivedObjects();
 		context.resolveDeferredTokens();
 		assertTrue(context.ref.resolveReferences(null));
 	}
@@ -108,8 +101,6 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	 */
 	public void testDomainSpell() throws Exception
 	{
-		readyToRun();
-		
 		PlayerCharacter pc = getCharacter();
 		setPCStat(pc, cha, 15);
 		pc.incrementClassLevel(1, divineClass);
@@ -129,8 +120,6 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	 */
 	public void testPcClassSpell() throws Exception
 	{
-		readyToRun();
-		
 		PlayerCharacter pc = getCharacter();
 		pc.incrementClassLevel(1, divineClass);
 		

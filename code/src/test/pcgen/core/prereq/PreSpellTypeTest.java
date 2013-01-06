@@ -69,10 +69,8 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
-	protected void setUp() throws Exception
+	protected void additionalSetUp() throws Exception
 	{
-		super.setUp();
-
 		LoadContext context = Globals.getContext();
 		wiz = context.ref.constructCDOMObject(PCClass.class, "Wizard");
 		context.unconditionallyProcess(wiz, "SPELLTYPE", "ARCANE");

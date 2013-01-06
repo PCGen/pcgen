@@ -181,7 +181,14 @@
 		<property name="conditionallyKnownSpellFacet" ref="conditionallyKnownSpellFacet"/>
 		<property name="knownSpellFacet" ref="knownSpellFacet"/>
 	</bean>
+	<bean id="conditionallyGrantedMasterAvailableSpellFacet" class="pcgen.cdom.facet.ConditionallyGrantedMasterAvailableSpellFacet">
+		<property name="conditionalMasterAvailableSpellFacet" ref="conditionalMasterAvailableSpellFacet"/>
+		<property name="availableSpellFacet" ref="availableSpellFacet"/>
+	</bean>
 	<bean id="conditionallyKnownSpellFacet" class="pcgen.cdom.facet.ConditionallyKnownSpellFacet">
+		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
+	</bean>
+	<bean id="conditionalMasterAvailableSpellFacet" class="pcgen.cdom.facet.ConditionalMasterAvailableSpellFacet">
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 	</bean>
 	<bean id="conditionalTemplateFacet" class="pcgen.cdom.facet.ConditionalTemplateFacet">
@@ -338,6 +345,10 @@
 		<property name="classLevelFacet" ref="classLevelFacet"/>
 	</bean>
 	<!-- M -->
+	<bean id="masterAvailableSpellInitializationFacet" class="pcgen.cdom.facet.MasterAvailableSpellInitializationFacet">
+		<property name="availableSpellFacet" ref="availableSpellFacet"/>
+		<property name="conditionalMasterAvailableSpellFacet" ref="conditionalMasterAvailableSpellFacet"/>
+	</bean>
 	<bean id="masterFacet" class="pcgen.cdom.facet.MasterFacet">
 		<property name="companionModFacet" ref="companionModFacet"/>
 	</bean>

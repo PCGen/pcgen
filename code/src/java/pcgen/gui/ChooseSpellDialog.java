@@ -369,7 +369,7 @@ final class ChooseSpellDialog extends JDialog
 
 	private void addSpellInfoToList(final Spell aSpell, List<String> unfoundItems, List<PObject> classWithSpell, String spellType)
 	{
-		final HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getLevelInfo(aSpell);
+		final HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getSpellLevelInfo(aSpell);
 
 		if ((levelInfo == null) || (levelInfo.size() == 0))
 		{

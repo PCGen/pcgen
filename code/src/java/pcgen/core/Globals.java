@@ -48,14 +48,11 @@ import org.apache.commons.lang.SystemUtils;
 
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.RandomUtil;
-import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.content.BaseDice;
-import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Pantheon;
@@ -68,7 +65,6 @@ import pcgen.cdom.facet.MasterSkillFacet;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
-import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
@@ -782,62 +778,22 @@ public final class Globals
 	 */
 	public static List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists, PlayerCharacter pc)
 	{
-		MasterListInterface masterLists = Globals.getMasterLists();
-		ArrayList<CDOMReference<CDOMList<Spell>>> useLists = new ArrayList<CDOMReference<CDOMList<Spell>>>();
-		for (CDOMReference ref : masterLists.getActiveLists())
-		{
-			for (CDOMList<Spell> list : spellLists)
-			{
-				if (ref.contains(list))
-				{
-					useLists.add(ref);
-					break;
-				}
-			}
-		}
 		boolean allLevels = level == -1;
 		Set<Spell> spellList = new HashSet<Spell>();
-		for (CDOMReference<CDOMList<Spell>> ref : useLists)
+System.err.println("%%");
+		DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> dkmtl =
+				pc.getSpellLevelInfo();
+		for (Spell spell : dkmtl.getKeySet())
 		{
-			for (Spell spell : masterLists.getObjects(ref))
+			for (CDOMList<Spell> list : dkmtl.getSecondaryKeySet(spell))
 			{
-				Collection<AssociatedPrereqObject> assoc = masterLists
-						.getAssociations(ref, spell);
-				for (AssociatedPrereqObject apo : assoc)
+				if (spellLists.contains(list))
 				{
-					// TODO This null for source is incorrect!
-					if (PrereqHandler.passesAll(apo.getPrerequisiteList(), pc,
-							null))
+					List<Integer> levels = dkmtl.getListFor(spell, list);
+					if (levels != null && (allLevels || levels.contains(level)))
 					{
-						int lvl = apo
-								.getAssociation(AssociationKey.SPELL_LEVEL);
-						if (allLevels || level == lvl)
-						{
-							spellList.add(spell);
-							break;
-						}
-					}
-				}
-			}
-			if (pc != null)
-			{
-				DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> dkmtl = pc
-						.getPCBasedLevelInfo();
-				for (Spell spell : dkmtl.getKeySet())
-				{
-					for (CDOMList<Spell> list : dkmtl.getSecondaryKeySet(spell))
-					{
-						if (spellLists.contains(list))
-						{
-							List<Integer> levels = dkmtl
-									.getListFor(spell, list);
-							if (levels != null
-									&& (allLevels || levels.contains(level)))
-							{
-								spellList.add(spell);
-								break;
-							}
-						}
+						spellList.add(spell);
+						break;
 					}
 				}
 			}

@@ -550,7 +550,7 @@ public class SpellMemToken extends Token
 	private static String replaceTokenSpellMemSourceLevel(Spell aSpell,
 		PlayerCharacter aPC)
 	{
-		final HashMapToList<CDOMList<Spell>, Integer> tempHash = aPC.getLevelInfo(aSpell);
+		final HashMapToList<CDOMList<Spell>, Integer> tempHash = aPC.getSpellLevelInfo(aSpell);
 		StringBuilder tempSource = new StringBuilder();
 		final Set<String> levelSet = new TreeSet<String>();
 

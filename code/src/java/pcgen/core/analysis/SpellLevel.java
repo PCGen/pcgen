@@ -9,7 +9,6 @@ import java.util.TreeSet;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -34,22 +33,13 @@ public class SpellLevel
 			return false;
 		}
 		Set<Integer> resultList = new TreeSet<Integer>();
-		HashMapToList<CDOMList<Spell>, Integer> levelInfo = aPC.getMasterLevelInfo(sp);
-		HashMapToList<CDOMList<Spell>, Integer> pcli = aPC.getPCBasedLevelInfo(sp);
+		HashMapToList<CDOMList<Spell>, Integer> pcli = aPC.getSpellLevelInfo(sp);
 		for (CDOMList<Spell> spellList : lists)
 		{
-			List<Integer> levels = levelInfo.getListFor(spellList);
+			List<Integer> levels = pcli.getListFor(spellList);
 			if (levels != null)
 			{
 				resultList.addAll(levels);
-			}
-			if (resultList.isEmpty())
-			{
-				levels = pcli.getListFor(spellList);
-				if (levels != null)
-				{
-					resultList.addAll(levels);
-				}
 			}
 		}
 		return levelMatch == -1 && !resultList.isEmpty() || levelMatch >= 0
@@ -75,7 +65,7 @@ public class SpellLevel
 	public static int getFirstLvlForKey(Spell sp, CDOMList<Spell> list,
 			PlayerCharacter aPC)
 	{
-		HashMapToList<CDOMList<Spell>, Integer> wLevelInfo = aPC.getLevelInfo(sp);
+		HashMapToList<CDOMList<Spell>, Integer> wLevelInfo = aPC.getSpellLevelInfo(sp);
 		if ((wLevelInfo != null) && (wLevelInfo.size() != 0))
 		{
 			List<Integer> levelList = wLevelInfo.getListFor(list);
@@ -163,46 +153,5 @@ public class SpellLevel
 		}
 
 		return result;
-	}
-
-	public static HashMapToList<CDOMList<Spell>, Integer> getMasterLevelInfo(
-			PlayerCharacter aPC, Spell sp)
-	{
-		HashMapToList<CDOMList<Spell>, Integer> levelInfo = new HashMapToList<CDOMList<Spell>, Integer>();
-
-		MasterListInterface masterLists = Globals.getMasterLists();
-		LISTS: for (CDOMReference<? extends CDOMList> ref : masterLists
-				.getActiveLists())
-		{
-			Collection<AssociatedPrereqObject> assoc = null;
-			for (CDOMList list : ref.getContainedObjects())
-			{
-				if (list instanceof ClassSpellList
-						|| list instanceof DomainSpellList)
-				{
-					if (assoc == null)
-					{
-						CDOMReference r = ref;
-						assoc = masterLists.getAssociations(r, sp);
-						if (assoc == null)
-						{
-							continue LISTS;
-						}
-					}
-					for (AssociatedPrereqObject apo : assoc)
-					{
-						// TODO This null for source is incorrect!
-						if (PrereqHandler.passesAll(apo.getPrerequisiteList(),
-								aPC, null))
-						{
-							Integer lvl = apo
-									.getAssociation(AssociationKey.SPELL_LEVEL);
-							levelInfo.addToListFor(list, lvl);
-						}
-					}
-				}
-			}
-		}
-		return levelInfo;
 	}
 }

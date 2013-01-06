@@ -21,7 +21,6 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.analysis.SpellLevel;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
@@ -48,9 +47,8 @@ public class AllToken extends AbstractRestrictedSpellPrimitive
 	@Override
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
-		HashMapToList<CDOMList<Spell>, Integer> levelInfo = SpellLevel
-				.getMasterLevelInfo(null, spell);
-		levelInfo.addAllLists(pc.getPCBasedLevelInfo(spell));
+		HashMapToList<CDOMList<Spell>, Integer> levelInfo =
+				pc.getSpellLevelInfo(spell);
 		for (CDOMList<Spell> spellList : levelInfo.getKeySet())
 		{
 			for (Integer level : levelInfo.getListFor(spellList))

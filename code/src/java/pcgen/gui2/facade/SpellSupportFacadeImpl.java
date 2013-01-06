@@ -879,7 +879,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 				SpellFacadeImplem spellImplem =
 						new SpellFacadeImplem(pc, spell, charSpell, null);
 
-				HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getLevelInfo(spell);
+				HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getSpellLevelInfo(spell);
 				
 				for (CDOMList<Spell> spellList : charDisplay.getSpellLists(pcClass))
 				{

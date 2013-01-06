@@ -109,6 +109,7 @@ import pcgen.cdom.facet.HitPointFacet;
 import pcgen.cdom.facet.KitFacet;
 import pcgen.cdom.facet.KnownSpellFacet;
 import pcgen.cdom.facet.LevelInfoFacet;
+import pcgen.cdom.facet.MasterAvailableSpellInitializationFacet;
 import pcgen.cdom.facet.MasterFacet;
 import pcgen.cdom.facet.NoteItemFacet;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
@@ -223,7 +224,6 @@ import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellCountCalc;
-import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.SpellPoint;
 import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.bonus.BonusObj;
@@ -534,6 +534,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		populateSkills(SettingsHandler.getSkillsTab_IncludeSkills());
 		// XXX do not set it, as for gender. Remark: not working, value is not set.
 //		setStringFor(StringKey.HANDED, Handed.getDefaultValue().toString());
+		FacetLibrary.getFacet(MasterAvailableSpellInitializationFacet.class).initialize(id);
 		if (load)
 		{
 			insertBonusLanguageAbility();
@@ -4440,7 +4441,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			}
 		}
 
-		final HashMapToList<CDOMList<Spell>, Integer> domainMap = this.getLevelInfo(aSpell);
+		final HashMapToList<CDOMList<Spell>, Integer> domainMap = getSpellLevelInfo(aSpell);
 		if (domainMap != null)
 		{
 			for (CDOMList<?> spellList : domainMap.getKeySet())
@@ -5067,10 +5068,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 		for (PObject pObj : getSpellClassList())
 		{
+System.err.println(pObj);
 			for (int a = minLevel; a <= maxLevel; a++)
 			{
 				for (CharacterSpell cs : getCharacterSpells(pObj, a))
 				{
+System.err.println(cs);
 					final Spell aSpell = cs.getSpell();
 					SpellSchool ss = Globals.getContext().ref.silentlyGetConstructedCDOMObject(SpellSchool.class,
 							school);
@@ -9742,38 +9745,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return sb.toString();
 	}
 
-	public HashMapToList<CDOMList<Spell>, Integer> getMasterLevelInfo(Spell sp)
-	{
-		HashMapToList<CDOMList<Spell>, Integer> hml = cache.get(MapKey.SPELL_MASTER_INFO, sp);
-		if (hml == null)
-		{
-			hml = SpellLevel.getMasterLevelInfo(this, sp);
-			cache.addToMapFor(MapKey.SPELL_MASTER_INFO, sp, hml);
-		}
-		HashMapToList<CDOMList<Spell>, Integer> newhml = new HashMapToList<CDOMList<Spell>, Integer>();
-		newhml.addAllLists(hml);
-		return newhml;
-	}
-
-	public HashMapToList<CDOMList<Spell>, Integer> getPCBasedLevelInfo(Spell sp)
-	{
-		HashMapToList<CDOMList<Spell>, Integer> hml = cache.get(MapKey.SPELL_PC_INFO, sp);
-		if (hml == null)
-		{
-			hml = availSpellFacet.getPCBasedLevelInfo(id, sp);
-			cache.addToMapFor(MapKey.SPELL_PC_INFO, sp, hml);
-		}
-		HashMapToList<CDOMList<Spell>, Integer> newhml = new HashMapToList<CDOMList<Spell>, Integer>();
-		newhml.addAllLists(hml);
-		return newhml;
-	}
-
-	public DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> getPCBasedLevelInfo()
+	public DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> getSpellLevelInfo()
 	{
 		DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> map = cache.get(ObjectKey.SPELL_PC_INFO);
 		if (map == null)
 		{
-			map = availSpellFacet.getPCBasedLevelInfo(id);
+System.err.println("%1");
+			map = availSpellFacet.getSpellLevelInfo(id);
 			cache.put(ObjectKey.SPELL_PC_INFO, map);
 		}
 		DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> newmap = new DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer>();
@@ -9790,11 +9768,17 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * @return Map containing the class levels and domains that may cast the
 	 *         spell
 	 */
-	public HashMapToList<CDOMList<Spell>, Integer> getLevelInfo(Spell sp)
+	public HashMapToList<CDOMList<Spell>, Integer> getSpellLevelInfo(Spell sp)
 	{
-		HashMapToList<CDOMList<Spell>, Integer> levelInfo = getMasterLevelInfo(sp);
-		levelInfo.addAllLists(getPCBasedLevelInfo(sp));
-		return levelInfo;
+		HashMapToList<CDOMList<Spell>, Integer> hml = cache.get(MapKey.SPELL_PC_INFO, sp);
+		if (hml == null)
+		{
+			hml = availSpellFacet.getSpellLevelInfo(id, sp);
+			cache.addToMapFor(MapKey.SPELL_PC_INFO, sp, hml);
+		}
+		HashMapToList<CDOMList<Spell>, Integer> newhml = new HashMapToList<CDOMList<Spell>, Integer>();
+		newhml.addAllLists(hml);
+		return newhml;
 	}
 
 	public CharacterSpell getCharacterSpellForSpell(PObject po, Spell spell)
@@ -9826,10 +9810,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			final int level)
 	{
 		List<CharacterSpell> csList = new ArrayList<CharacterSpell>(getCharacterSpells(spellSource));
-
+System.err.println("!@" + csList);
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
-
+System.err.println("!#" + csList);
 		final ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
 		if (csList.size() == 0)
 		{
@@ -10589,7 +10573,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		List<CharacterSpell> csList = new ArrayList<CharacterSpell>(getCharacterSpells(spellSource));
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
-
+System.err.println("!"+ csList);
 		ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
 		for (CharacterSpell cs : csList)
 		{
@@ -10627,6 +10611,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void addCharacterSpell(CDOMObject cdo, CharacterSpell cs)
 	{
+System.err.println("#$"+ cs);
+Thread.dumpStack();
 		activeSpellsFacet.add(id, cs, cdo);
 	}
 

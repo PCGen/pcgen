@@ -681,6 +681,7 @@ public class SpellSupportForPCClass
 
 	public void calculateKnownSpellsForClassLevel(PlayerCharacter aPC)
 	{
+System.err.println("@@" + source);
 		// If this class has at least one entry in the "Known spells" tag
 		// And we aer set up to automatically assign known spells...
 		if (source.containsListFor(ListKey.KNOWN_SPELLS) && !aPC.isImporting()
@@ -689,6 +690,7 @@ public class SpellSupportForPCClass
 			// Get every spell that can be cast by this class.
 			final List<Spell> cspelllist = Globals.getSpellsIn(-1, aPC
 					.getSpellLists(source), aPC);
+System.err.println("##" + cspelllist);
 			if (cspelllist.isEmpty())
 			{
 				return;
