@@ -1405,11 +1405,21 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>GLOBAL ~ CHOOSE CSKILL (PLEASE MAKE APPROPRIATE SELECTION)</name>
+			<name>Exotic Weapon Proficiency (Jim Long Blade)</name>
+			<description>See Text</description>
+			<type>GENERAL.FIGHTER</type>
+			<associated>Jim Long Blade</associated>
+			<count>1</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>GLOBAL ~ CHOOSE CSKILL (Ability Skill 2, Ability Skill 3)</name>
 			<description></description>
 			<type>GLOBALTESTS</type>
-			<associated>PLEASE MAKE APPROPRIATE SELECTION</associated>
-			<count>1</count>
+			<associated>Ability Skill 2,Ability Skill 3</associated>
+			<count>2</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1470,6 +1480,16 @@ BIO
 			<type>GENERAL.FIGHTER</type>
 			<associated>Suns Weapon Of Choice,Tentacles of the Fey</associated>
 			<count>2</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1625,7 +1645,7 @@ BIO
 		</domain>
 	</domains>
 	<!-- Domains -->
-	<weapon_proficiencies>Bob Racial Weapon, Dagger, Extra Blade, Simple Weapon Four, Simple Weapon One, Simple Weapon Three, Simple Weapon Two, Spear, Suns Weapon Of Choice, Tentacles of the Fey, Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Bob Racial Weapon, Dagger, Extra Blade, Jim Long Blade, Simple Weapon Four, Simple Weapon One, Simple Weapon Three, Simple Weapon Two, Spear, Suns Weapon Of Choice, Tentacles of the Fey, Unarmed Strike</weapon_proficiencies>
 	<languages>Common, MonKee Language</languages>
 
 
