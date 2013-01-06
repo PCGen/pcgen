@@ -50,7 +50,6 @@ public class MasterAvailableSpellInitializationFacet
 	 */
 	public void initialize(CharID id)
 	{
-Thread.dumpStack();
 		MasterListInterface masterLists = Globals.getMasterLists();
 		ArrayList<CDOMReference<CDOMList<Spell>>> useLists =
 				new ArrayList<CDOMReference<CDOMList<Spell>>>();

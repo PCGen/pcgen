@@ -5068,12 +5068,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 		for (PObject pObj : getSpellClassList())
 		{
-System.err.println(pObj);
 			for (int a = minLevel; a <= maxLevel; a++)
 			{
 				for (CharacterSpell cs : getCharacterSpells(pObj, a))
 				{
-System.err.println(cs);
 					final Spell aSpell = cs.getSpell();
 					SpellSchool ss = Globals.getContext().ref.silentlyGetConstructedCDOMObject(SpellSchool.class,
 							school);
@@ -9750,7 +9748,6 @@ System.err.println(cs);
 		DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> map = cache.get(ObjectKey.SPELL_PC_INFO);
 		if (map == null)
 		{
-System.err.println("%1");
 			map = availSpellFacet.getSpellLevelInfo(id);
 			cache.put(ObjectKey.SPELL_PC_INFO, map);
 		}
@@ -9810,10 +9807,8 @@ System.err.println("%1");
 			final int level)
 	{
 		List<CharacterSpell> csList = new ArrayList<CharacterSpell>(getCharacterSpells(spellSource));
-System.err.println("!@" + csList);
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
-System.err.println("!#" + csList);
 		final ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
 		if (csList.size() == 0)
 		{
@@ -10573,7 +10568,6 @@ System.err.println("!#" + csList);
 		List<CharacterSpell> csList = new ArrayList<CharacterSpell>(getCharacterSpells(spellSource));
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
-System.err.println("!"+ csList);
 		ArrayList<CharacterSpell> aList = new ArrayList<CharacterSpell>();
 		for (CharacterSpell cs : csList)
 		{
@@ -10611,8 +10605,6 @@ System.err.println("!"+ csList);
 
 	public void addCharacterSpell(CDOMObject cdo, CharacterSpell cs)
 	{
-System.err.println("#$"+ cs);
-Thread.dumpStack();
 		activeSpellsFacet.add(id, cs, cdo);
 	}
 

@@ -89,30 +89,8 @@ public class KnownSpellFacet extends AbstractSpellStorageFacet implements
 	}
 
 	@Override
-	public void addAll(CharID id, CDOMList<Spell> list, int level,
-		Collection<Spell> spells, Object source)
-	{
-		// TODO Auto-generated method stub
-		super.addAll(id, list, level, spells, source);
-System.err.println("!" + spells);
-Thread.dumpStack();
-	}
-
-	@Override
-	public void add(CharID id, CDOMList<Spell> list, int level, Spell spell,
-		Object cdo)
-	{
-		// TODO Auto-generated method stub
-		super.add(id, list, level, spell, cdo);
-System.err.println("@" + spell);
-Thread.dumpStack();
-	}
-
-	@Override
 	public void spellAdded(SpellChangeEvent sce)
 	{
-System.err.println(sce.getSpell());
-Thread.dumpStack();
 		add(sce.getCharID(), sce.getSpellList(), sce.getLevel(),
 			sce.getSpell(), sce.getSource());
 	}

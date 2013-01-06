@@ -145,7 +145,6 @@ public class AvailableSpellFacet extends AbstractSpellStorageFacet implements
 				new DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer>();
 		Map<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>> listMap =
 				getCachedMap(id);
-System.err.println("$$" + listMap);
 		if (listMap == null)
 		{
 			return levelInfo;

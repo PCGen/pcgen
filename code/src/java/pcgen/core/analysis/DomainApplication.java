@@ -54,7 +54,6 @@ public class DomainApplication
 	{
 		ClassSource source = pc.getDomainSource(d);
 		PCClass aClass = pc.getClassKeyed(source.getPcclass().getKeyName());
-System.err.println("%^" + aClass + " " + d);
 		if (aClass != null)
 		{
 			int maxLevel;
@@ -217,7 +216,6 @@ System.err.println("%^" + aClass + " " + d);
 		{
 			List<Spell> domainSpells = Globals.getSpellsIn(aLevel, Collections
 					.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST)), pc);
-System.err.println("^^" + domainSpells);
 			for (Spell spell : domainSpells)
 			{
 				List<CharacterSpell> slist =

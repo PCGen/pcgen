@@ -780,7 +780,6 @@ public final class Globals
 	{
 		boolean allLevels = level == -1;
 		Set<Spell> spellList = new HashSet<Spell>();
-System.err.println("%%");
 		DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> dkmtl =
 				pc.getSpellLevelInfo();
 		for (Spell spell : dkmtl.getKeySet())
