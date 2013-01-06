@@ -31,7 +31,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -50,12 +49,11 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
-		CharacterDisplay display = character.getDisplay();
 		final int reqnumber = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
 		HashMap<Skill,HashSet<Skill>> serveAsSkills = new HashMap<Skill, HashSet<Skill>>();
 		Set<Skill> imitators = new HashSet<Skill>();
-		this.getImitators(serveAsSkills, imitators, character);
+		this.getImitators(serveAsSkills, imitators);
 
 		// Compute the skill name from the Prerequisite
 		String requiredSkillKey = prereq.getKey().toUpperCase();
@@ -143,8 +141,7 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 	 * @param character
 	 */
 	private void getImitators(
-		HashMap<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators,
-		PlayerCharacter character)
+		HashMap<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators)
 	{
 		for(Skill aSkill: Globals.getContext().ref.getConstructedCDOMObjects(Skill.class))
 		{
