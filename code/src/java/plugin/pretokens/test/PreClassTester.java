@@ -116,7 +116,7 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 				{
 					if (prereq.isCountMultiples())
 					{
-						if (character.getLevel(cl) >= preClass)
+						if (display.getLevel(cl) >= preClass)
 						{
 							countedTotal++;
 						}
@@ -160,14 +160,14 @@ public class PreClassTester extends AbstractPrerequisiteTest implements Prerequi
 			{
 				if (prereq.isCountMultiples())
 				{
-					if (character.getLevel(aClass) >= preClass)
+					if (display.getLevel(aClass) >= preClass)
 					{
 						countedTotal++;
 					}
 				}
 				else
 				{
-					runningTotal += character.getLevel(aClass);
+					runningTotal += display.getLevel(aClass);
 				}
 			}
 			else
@@ -183,7 +183,7 @@ CLASSLIST:		for(PCClass theClass: display.getClassSet())
 							{
 								if (prereq.isCountMultiples())
 								{
-									if (character.getLevel(theClass) >= preClass)
+									if (display.getLevel(theClass) >= preClass)
 									{
 										countedTotal++;
 									}
