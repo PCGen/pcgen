@@ -7,6 +7,8 @@ SOURCELONG:DHG - The Practical Enchanter	SOURCESHORT:TPE	SOURCEWEB:http://www.lu
 ###BLOCK: Practical Enchanter Materials #
 #########################################
 
+CATEGORY=Internal|Default.MOD	DEFINE:SpiritOfWolfSpell|0	ABILITY:Special Ability|AUTOMATIC|Spirit of the Wolf Spell|PREVARGTEQ:SpiritOfWolfSpell,1
+
 # Hedge Mage Feat Work arounds
 # Ability Name			Category of Ability		Type				Required Class		Description																							Ability																			List of Known Class Spells by Level
 Hedge Mage ~ Wizard		CATEGORY:Special Ability	TYPE:HedgeMageChoice	PRECLASS:1,Wizard=1	DESC:Adds the Hedge Magic Spells to the this class; Add Template "01 - Allow Techno Hedge Magic Spells" if you are playing a futuristic game.	ABILITY:Special Ability|AUTOMATIC|Hedge Mage ~ Wizard / Techo|PRETEMPLATE:1,01 - Allow Techno Hedge Magic Spells		SPELLKNOWN:CLASS|Wizard=0|Air Mattress,Blanket,Butcher,Call Domestic Animal,Check Edibility,Check Health,Clean Clothing,Contraception,Create Element,Cure Hide,Dry,Extract (Butter),Gauntlets,Light,Mage Hand,Magnification,Message,Mill,Mnemonic,Painkiller,Pantomime,Prestidigitation,Purify Food and Drink,Sharpen,Soothe Infant,Tally Up,The Good Cook,Transfuse,Umbrella,Unplug Drains|Wizard=1|Alarm,Animal Influence,Child Ward,Dentistry,Deodorize (House),Dowsing,Expel Parasites,Preservation,Process,Relieve Illness,Relieve Poison,Remove (Lice),Scarecrow,Sheer (Sheep),Snapshot,Tarp,Unburn Meal,Unseen Servant|Wizard=2|Continual Flame,Dreamcatcher,Find Stray,Fountain,Harvest,Hearthfire,Herb Mastery,Render,Sow,Spring Cleaning,The Laborers's Word,Thresh,TPE ~ Train Animal,Tree to Lumber,Turn Soil,Ward versus Vermin,Weedkill
