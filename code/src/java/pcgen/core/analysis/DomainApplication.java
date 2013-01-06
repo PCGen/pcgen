@@ -245,37 +245,19 @@ public class DomainApplication
 		}
 	}
 
-	private static void addDomain(final PlayerCharacter aPC, PCClass cl, Domain d,
-			final boolean adding)
+	private static void addDomain(final PlayerCharacter aPC, PCClass cl, Domain d)
 	{
 		if (d.qualifies(aPC, d))
 		{
-			if (adding)
-			{
-				ClassSource source = aPC.getDomainSource(d);
-				if (source != null
-						&& !cl.getKeyName().equals(
-								source.getPcclass().getKeyName()))
-				{
-					// TODO Not entirely correct, as this takes this level, not
-					// the level where BONUS DOMAINS was present
-					ClassSource cs = new ClassSource(cl, aPC
-							.getLevel(cl));
-					aPC.addDomain(d, cs);
-					applyDomain(aPC, d);
-				}
-			}
-			else
-			{
-				if (aPC.hasDomain(d))
-				{
-					aPC.removeDomain(d);
-				}
-			}
+			// TODO Not entirely correct, as this takes this level, not
+			// the level where BONUS DOMAINS was present
+			ClassSource cs = new ClassSource(cl, aPC.getLevel(cl));
+			aPC.addDomain(d, cs);
+			applyDomain(aPC, d);
 		}
 	}
 
-	public static void modDomainsForLevel(PCClass cl, final int aLevel, final boolean adding,
+	public static void addDomainsUpToLevel(PCClass cl, final int aLevel,
 		final PlayerCharacter aPC)
 	{
 	
@@ -299,7 +281,7 @@ public class DomainApplication
 			CDOMSingleRef<Domain> ref = qo.getObject(aPC, cl);
 			if (ref != null)
 			{
-				addDomain(aPC, cl, ref.resolvesTo(), adding);
+				addDomain(aPC, cl, ref.resolvesTo());
 			}
 		}
 		for (int i = 0 ; i <= aLevel; i++)
@@ -313,7 +295,46 @@ public class DomainApplication
 				CDOMSingleRef<Domain> ref = qo.getObject(aPC, cl);
 				if (ref != null)
 				{
-					addDomain(aPC, cl, ref.resolvesTo(), adding);
+					addDomain(aPC, cl, ref.resolvesTo());
+				}
+			}
+		}
+	}
+
+	public static void removeDomainsForLevel(PCClass cl, final int removedLevel,
+		final PlayerCharacter aPC)
+	{
+	
+		/*
+		 * Note this uses ALL of the domains up to and including this level,
+		 * because there is the possibility (albeit strange) that the PC was
+		 * qualified at a previous level change, but the PlayerCharacter is now
+		 * not qualified for the given Domain. Even this has quirks, since it is
+		 * only applied at the time of level increase, but I think that quirk
+		 * should be resolved by a CDOM system around 6.0 - thpr 10/23/06
+		 */
+		for (QualifiedObject<CDOMSingleRef<Domain>> qo : cl.getSafeListFor(ListKey.DOMAIN))
+		{
+			CDOMSingleRef<Domain> ref = qo.getObject(aPC, cl);
+			if (ref == null)
+			{
+				ref = qo.getRawObject();
+				aPC.removeDomain(ref.resolvesTo());
+			}
+		}
+		for (int i = 0 ; i <= removedLevel; i++)
+		{
+			// TODO This stinks for really high level characters - can this ever
+			// get null back?
+			PCClassLevel pcl = aPC.getActiveClassLevel(cl, i);
+			for (QualifiedObject<CDOMSingleRef<Domain>> qo : pcl
+					.getSafeListFor(ListKey.DOMAIN))
+			{
+				CDOMSingleRef<Domain> ref = qo.getObject(aPC, cl);
+				if ((ref == null) || (i == removedLevel))
+				{
+					ref = qo.getRawObject();
+					aPC.removeDomain(ref.resolvesTo());
 				}
 			}
 		}

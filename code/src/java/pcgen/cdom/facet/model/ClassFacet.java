@@ -166,11 +166,12 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		ClassInfo info = getClassInfo(id);
 		if (info != null)
 		{
-			if (info.removeClass(obj))
+			if (info.containsClass(obj))
 			{
+				setLevel(id, obj, 0);
+				info.removeClass(obj);
 				fireDataFacetChangeEvent(id, obj,
 					DataFacetChangeEvent.DATA_REMOVED);
-				setLevel(id, obj, 0);
 			}
 			if (info.isEmpty())
 			{

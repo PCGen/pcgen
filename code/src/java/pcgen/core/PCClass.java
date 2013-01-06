@@ -967,7 +967,7 @@ public class PCClass extends PObject implements ClassFacade
 
 		if (!aPC.isImporting())
 		{
-			DomainApplication.modDomainsForLevel(this, newLevel, true, aPC);
+			DomainApplication.addDomainsUpToLevel(this, newLevel, aPC);
 		}
 
 		int levelUpStats = 0;
@@ -1202,7 +1202,7 @@ public class PCClass extends PObject implements ClassFacade
 
 			doMinusLevelMods(aPC, newLevel + 1);
 
-			DomainApplication.modDomainsForLevel(this, newLevel, false, aPC);
+			DomainApplication.removeDomainsForLevel(this, newLevel + 1, aPC);
 
 			if (newLevel == 0)
 			{
