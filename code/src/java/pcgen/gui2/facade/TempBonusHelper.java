@@ -45,6 +45,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.facade.InfoFacade;
+import pcgen.core.facade.InfoFactory;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
@@ -81,11 +82,13 @@ public class TempBonusHelper
 	 * @param originObj The rules object providing the bonus.
 	 * @param theCharacter The target character.
 	 * @param delegate The user interface delegate which will provide the chooser.
+	 * @param infoFactory An object to provide formatted information about an object. 
 	 * @return The temporary equipment item, the character or null if the request 
 	 * was cancelled.
 	 */
-	static Object getTempBonusTarget(
-		CDOMObject originObj, PlayerCharacter theCharacter, UIDelegate delegate)
+	static Object getTempBonusTarget(CDOMObject originObj,
+		PlayerCharacter theCharacter, UIDelegate delegate,
+		InfoFactory infoFactory)
 	{
 		List<InfoFacade> possibleTargets =
 				getListOfApplicableEquipment(originObj, theCharacter);
@@ -111,7 +114,7 @@ public class TempBonusHelper
 		final ArrayList<InfoFacade> selectedList = new ArrayList<InfoFacade>();
 		GeneralChooserFacadeBase chooserFacade =
 				new GeneralChooserFacadeBase(label, possibleTargets,
-					new ArrayList<InfoFacade>(), 1)
+					new ArrayList<InfoFacade>(), 1, infoFactory)
 				{
 					/**
 					 * {@inheritDoc}

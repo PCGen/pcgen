@@ -202,7 +202,7 @@ public final class KitSpells extends BaseKit
 			{
 				xs = Globals.getChoiceFromList("Choose " + aClass.getKeyName()
 						+ " spell(s) for " + workingBook, aSpellList,
-						new ArrayList<KitSpellBookEntry>(), numberOfChoices);
+						new ArrayList<KitSpellBookEntry>(), numberOfChoices, aPC);
 
 				if (xs.size() != 0)
 				{

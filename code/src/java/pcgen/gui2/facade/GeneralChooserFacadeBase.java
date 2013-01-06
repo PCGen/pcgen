@@ -30,6 +30,7 @@ import pcgen.core.PObject;
 import pcgen.core.facade.ChooserFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.InfoFacade;
+import pcgen.core.facade.InfoFactory;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
@@ -72,6 +73,8 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 			ChooserTreeViewType.TYPE_NAME;
 
 	private boolean requireCompleteSelection;
+
+	private final InfoFactory infoFactory;
 	
 	/**
 	 * Create a new instance of GeneraChooserFacadeBase with default localised 
@@ -82,8 +85,10 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	 * @param available The list of items to select from.
 	 * @param selected The list of items already selected. The user may choose to deselect items from this list.
 	 * @param maxNewSelections The number of selections the user may make in addition to those in the selected list.
+	 * @param infoFactory The factory which provides descriptions for items. 
 	 */
-	GeneralChooserFacadeBase(String name, List<InfoFacade> available, List<InfoFacade> selected, int maxNewSelections)
+	GeneralChooserFacadeBase(String name, List<InfoFacade> available, List<InfoFacade> selected, int maxNewSelections, 
+		InfoFactory infoFactory)
 	{
 		this(name, available, selected, maxNewSelections, 
 			LanguageBundle.getString("in_available"), //$NON-NLS-1$
@@ -91,7 +96,8 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 			LanguageBundle.getString("in_selected"),  //$NON-NLS-1$
 			LanguageBundle.getString("in_selRemain"),  //$NON-NLS-1$
 			LanguageBundle.getString("in_add"), //$NON-NLS-1$
-			LanguageBundle.getString("in_remove")); //$NON-NLS-1$
+			LanguageBundle.getString("in_remove"), //$NON-NLS-1$ 
+			infoFactory); 
 	}
 
 	/**
@@ -108,12 +114,14 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	 * @param selectionCountName The label for the number of selections remaining.
 	 * @param addButtonName The label for the add button.
 	 * @param removeButtonName The label for the remove button.
+	 * @param infoFactory The factory which provides descriptions for items. 
 	 */
 	GeneralChooserFacadeBase(String name, List<InfoFacade> available,
 		List<InfoFacade> selected, int maxNewSelections,
 		String availableTableTitle, String availableTableTypeNameTitle, 
 		String selectedTableTitle,
-		String selectionCountName, String addButtonName, String removeButtonName)
+		String selectionCountName, String addButtonName, String removeButtonName, 
+		InfoFactory infoFactory)
 	{
 		this.name = name;
 		this.origAvailable = available;
@@ -125,6 +133,7 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		this.selectionCountName = selectionCountName;
 		this.addButtonName = addButtonName;
 		this.removeButtonName = removeButtonName;
+		this.infoFactory = infoFactory;
 				
 		// Build working content
 		availableList = new DefaultListFacade<InfoFacade>(origAvailable);
@@ -305,4 +314,22 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		return requireCompleteSelection;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isInfoAvailable()
+	{
+		return true;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public InfoFactory getInfoFactory()
+	{
+		return infoFactory;
+	}
+	
 }

@@ -10,6 +10,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
+import pcgen.gui2.facade.Gui2InfoFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
@@ -163,6 +164,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 					selectedList, effectiveChoices);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		chooserFacade.setAllowsDups(dupsAllowed);
+		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPc));
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 		
 		return chooserFacade.getFinalSelected();

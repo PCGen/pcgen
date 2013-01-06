@@ -199,7 +199,7 @@ public final class KitAbilities extends BaseKit
 				selected =
 						Globals.getChoiceFromList("Choose abilities",
 							available, new ArrayList<AbilitySelection>(),
-							numberOfChoices);
+							numberOfChoices, aPC);
 
 				if (selected.size() != 0)
 				{

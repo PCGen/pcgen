@@ -96,6 +96,13 @@ public interface InfoFactory
 	public String getHTMLInfo(TempBonusFacade tempBonusFacade);
 
 	/**
+	 * Produce the HTML information string for a facade.
+	 * @param facade The object to be described.
+	 * @return The HTML information string
+	 */
+	public String getHTMLInfo(InfoFacade facade);
+
+	/**
 	 * Produce the HTML information string for spell book or spell list.
 	 * @param name The spell book or spell list.
 	 * @return The HTML information string

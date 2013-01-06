@@ -72,6 +72,7 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
+import pcgen.gui2.facade.Gui2InfoFactory;
 import pcgen.persistence.PersistenceManager;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
@@ -1405,16 +1406,19 @@ public final class Globals
 	}
 
 	/**
-	 * Geta choice from a list
-	 * @param title
-	 * @param choiceList
-	 * @param selectedList
-	 * @param pool
+	 * Get a choice from a list
+	 * @param title The title of the chooser dialog.
+	 * @param choiceList The list of possible choices.
+	 * @param selectedList The values already selected (none of which should be in the available list).
+	 * @param pool The number of choices the user can make.
+	 * @param pc The character the choice is being made for.
 	 * @return a choice
 	 */
-	public static <T> List<T> getChoiceFromList(final String title, final List<T> choiceList, final List<T> selectedList, final int pool)
+	public static <T> List<T> getChoiceFromList(final String title,
+		final List<T> choiceList, final List<T> selectedList, final int pool,
+		PlayerCharacter pc)
 	{
-		return getChoiceFromList(title, choiceList, selectedList, pool, false);
+		return getChoiceFromList(title, choiceList, selectedList, pool, false, pc);
 	}
 
 	/**
@@ -1424,9 +1428,12 @@ public final class Globals
 	 * @param selectedList The values already selected (none of which should be in the available list).
 	 * @param pool The number of choices the user can make.
 	 * @param forceChoice true if the user will be forced to make all choices.
+	 * @param pc The character the choice is being made for.
 	 * @return The list of choices made by the user.
 	 */
-	public static <T> List<T> getChoiceFromList(final String title, final List<T> choiceList, final List<T> selectedList, final int pool, final boolean forceChoice)
+	public static <T> List<T> getChoiceFromList(final String title,
+		final List<T> choiceList, final List<T> selectedList, final int pool,
+		final boolean forceChoice, PlayerCharacter pc)
 	{
 		List<T> startingSelectedList = new ArrayList<T>();
 		if (selectedList != null)
@@ -1440,6 +1447,7 @@ public final class Globals
 						startingSelectedList, pool);
 		chooserFacade.setAllowsDups(false);
 		chooserFacade.setRequireCompleteSelection(forceChoice);
+		chooserFacade.setInfoFactory(new Gui2InfoFactory(pc));
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 		
 		return chooserFacade.getFinalSelected();

@@ -77,6 +77,7 @@ import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListEvent;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
 import pcgen.core.facade.InfoFacade;
+import pcgen.core.facade.InfoFactory;
 import pcgen.core.facade.SpellFacade;
 import pcgen.core.facade.SpellSupportFacade;
 import pcgen.core.facade.TodoFacade.CharacterTab;
@@ -129,6 +130,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	private DefaultReferenceFacade<String> defaultSpellBook;
 	private TodoManager todoManager;
 	private CharacterFacade pcFacade;
+	private final InfoFactory infoFactory;
 	
 
 	/**
@@ -146,6 +148,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		CharacterFacade pcFacade)
 	{
 		this.pc = pc;
+		this.infoFactory = pcFacade.getInfoFactory();
 		this.charDisplay = pc.getDisplay();
 		this.delegate = delegate;
 		this.dataSet = dataSet;
@@ -350,7 +353,9 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		}
 		
 		final ArrayList<Ability> selectedList = new ArrayList<Ability>();
-		GeneralChooserFacadeBase chooserFacade = new GeneralChooserFacadeBase(label, availableList, new ArrayList<InfoFacade>(), 99)
+		GeneralChooserFacadeBase chooserFacade =
+				new GeneralChooserFacadeBase(label, availableList,
+					new ArrayList<InfoFacade>(), 99, infoFactory)
 		{
 			/**
 			 * {@inheritDoc}

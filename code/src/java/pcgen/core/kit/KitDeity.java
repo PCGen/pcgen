@@ -175,7 +175,7 @@ public class KitDeity extends BaseKit
 				xs =
 						Globals.getChoiceFromList("Choose Domains", theDomains,
 							new ArrayList<CDOMSingleRef<Domain>>(),
-							numberOfChoices);
+							numberOfChoices, aPC);
 
 				if (xs.size() != 0)
 				{

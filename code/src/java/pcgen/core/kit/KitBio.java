@@ -110,7 +110,7 @@ public class KitBio extends BaseKit
 			{
 				List<Gender> selList = new ArrayList<Gender>(1);
 				Globals.getChoiceFromList("Choose Gender", theGenders, selList,
-					1);
+					1, aPC);
 				if (selList.size() == 1)
 				{
 					selectedGender = selList.get(0);

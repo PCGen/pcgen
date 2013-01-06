@@ -155,4 +155,15 @@ public interface ChooserFacade
 	 * @return true if the chooser needs to have 0 remaining selections before being committed.
 	 */
 	public boolean isRequireCompleteSelection();
+
+	/**
+	 * @return Do the items in this chooser have extra info above a name.
+	 */
+	public boolean isInfoAvailable();
+
+	/**
+	 * Retrieve the factory which provides descriptions for items.
+	 * @return The info factory.  
+	 */
+	public InfoFactory getInfoFactory();
 }

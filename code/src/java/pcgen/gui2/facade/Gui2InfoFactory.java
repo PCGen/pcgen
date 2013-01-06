@@ -95,6 +95,7 @@ import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.DeityFacade;
 import pcgen.core.facade.DomainFacade;
 import pcgen.core.facade.EquipmentFacade;
+import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.InfoFactory;
 import pcgen.core.facade.KitFacade;
 import pcgen.core.facade.RaceFacade;
@@ -109,6 +110,7 @@ import pcgen.core.spell.Spell;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
+import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
@@ -148,7 +150,7 @@ public class Gui2InfoFactory implements InfoFactory
 	public Gui2InfoFactory(PlayerCharacter pc)
 	{
 		this.pc = pc;
-		this.charDisplay = pc.getDisplay();
+		this.charDisplay = pc ==  null ? null : pc.getDisplay();
 	}
 
 	/* (non-Javadoc)
@@ -162,7 +164,7 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 		String[] favClass = Globals.getContext().unparseSubtoken((Race)race, "FAVCLASS");
-		return StringUtil.join(favClass, EMPTY_STRING);
+		return StringUtil.join(favClass, ", ");
 	}
 
 	/* (non-Javadoc)
@@ -252,7 +254,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		String aString;
 		boolean isSubClass = aClass instanceof SubClass;
-		if (isSubClass)
+		if (isSubClass && parentClassFacade != null)
 		{
 			parentClass = (PCClass) parentClassFacade;
 		}
@@ -262,6 +264,13 @@ public class Gui2InfoFactory implements InfoFactory
 					.piString(aClass, false));
 		b.appendLineBreak();
 
+		// Subclass cost - at the top to make choices easier
+		if (isSubClass && aClass.getSafe(IntegerKey.COST) != 0)
+		{
+			b.appendI18nElement("in_clInfoCost", String.valueOf(aClass.getSafe(IntegerKey.COST))); //$NON-NLS-1$
+			b.appendLineBreak();
+		}
+		
 		// Type
 		aString = aClass.getType();
 		if (isSubClass && (aString.length() == 0))
@@ -329,6 +338,16 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 
+		// Sub class extra info
+		if (isSubClass)
+		{
+			int specialtySpells = aClass.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
+			b.appendLineBreak();
+			b.appendI18nElement("in_clSpecialtySpells", Delta.toString(specialtySpells)); //$NON-NLS-1$
+			b.appendSpacer();
+			b.appendI18nElement("in_clSpecialty", ((SubClass) aClass).getChoice()); //$NON-NLS-1$
+		}
+		
 		// Source
 		aString = aClass.getSource();
 		if (isSubClass && (aString.length() == 0))
@@ -1076,7 +1095,7 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 
-		if (!(tempBonusFacade instanceof TempBonusFacade))
+		if (!(tempBonusFacade instanceof TempBonusFacadeImpl))
 		{
 			final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
 			infoText.appendTitleElement(tempBonusFacade.toString());
@@ -1186,6 +1205,80 @@ public class Gui2InfoFactory implements InfoFactory
 			SourceFormat.getFormattedString(originObj,
 				Globals.getSourceDisplay(), true));
 
+		return infoText.toString();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getHTMLInfo(InfoFacade facade)
+	{
+		if (facade == null)
+		{
+			return EMPTY_STRING;
+		}
+		
+		// Use a more detailed info if we can
+		if (facade instanceof AbilityFacade)
+		{
+			return getHTMLInfo((AbilityFacade) facade);
+		}
+		if (facade instanceof ClassFacade)
+		{
+			return getHTMLInfo((ClassFacade) facade, null);
+		}
+		if (facade instanceof DeityFacade)
+		{
+			return getHTMLInfo((DeityFacade) facade);
+		}
+		if (facade instanceof DomainFacade)
+		{
+			return getHTMLInfo((DomainFacade) facade);
+		}
+		if (facade instanceof EquipmentFacade)
+		{
+			return getHTMLInfo((EquipmentFacade) facade);
+		}
+		if (facade instanceof KitFacade)
+		{
+			return getHTMLInfo((KitFacade) facade);
+		}
+		if (facade instanceof RaceFacade)
+		{
+			return getHTMLInfo((RaceFacade) facade);
+		}
+		if (facade instanceof SkillFacade)
+		{
+			return getHTMLInfo((SkillFacade) facade);
+		}
+		if (facade instanceof SpellFacade)
+		{
+			return getHTMLInfo((SpellFacade) facade);
+		}
+		if (facade instanceof TempBonusFacade)
+		{
+			return getHTMLInfo((TempBonusFacade) facade);
+		}
+		if (facade instanceof TemplateFacade)
+		{
+			return getHTMLInfo((TemplateFacade) facade);
+		}
+
+		final HtmlInfoBuilder infoText = new HtmlInfoBuilder();
+		infoText.appendTitleElement(facade.toString());
+		infoText.appendLineBreak();
+
+		if (facade.getType().length() > 0)
+		{
+			infoText.appendI18nElement("in_irInfoType", facade.getType()); //$NON-NLS-1$
+			infoText.appendLineBreak();
+		}
+		
+		infoText.appendI18nElement(
+			"in_itmInfoLabelTextSource", //$NON-NLS-1$
+			facade.getSource());
+		
 		return infoText.toString();
 	}
 

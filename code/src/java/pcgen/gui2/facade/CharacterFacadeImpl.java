@@ -1216,7 +1216,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		Equipment aEq = null;
 		Object target = 
 				TempBonusHelper.getTempBonusTarget(originObj,
-					theCharacter, delegate);
+					theCharacter, delegate, infoFactory);
 		if (target == null)
 		{
 			return;

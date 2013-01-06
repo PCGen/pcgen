@@ -40,6 +40,7 @@ import pcgen.core.PObject;
 import pcgen.core.facade.ChooserFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.InfoFacade;
+import pcgen.core.facade.InfoFactory;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
@@ -90,6 +91,10 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	private boolean requireCompleteSelection;
 
 	private final String stringDelimiter;
+	
+	private boolean infoAvailable = false;
+
+	private InfoFactory infoFactory = null;
 	
 	/**
 	 * Create a new instance of GeneraChooserFacadeBase with default localised 
@@ -185,6 +190,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 			if (object instanceof InfoFacade)
 			{
 				infoFacadeList.add((InfoFacade) object);
+				infoAvailable = true;
 			}
 			else if (object instanceof CDOMObject)
 			{
@@ -422,6 +428,31 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	public boolean isRequireCompleteSelection()
 	{
 		return requireCompleteSelection;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isInfoAvailable()
+	{
+		return infoAvailable;
+	}
+
+	/**
+	 * @return the infoFactory
+	 */
+	public InfoFactory getInfoFactory()
+	{
+		return infoFactory;
+	}
+
+	/**
+	 * @param infoFactory the infoFactory to set
+	 */
+	public void setInfoFactory(InfoFactory infoFactory)
+	{
+		this.infoFactory = infoFactory;
 	}
 
 	private class CDOMInfoWrapper implements InfoFacade

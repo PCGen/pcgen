@@ -218,7 +218,7 @@ public final class KitProf extends BaseKit
 						Globals
 							.getChoiceFromList("Choose Proficiencies",
 								aProfList, new ArrayList<WeaponProf>(),
-								numberOfChoices);
+								numberOfChoices, aPC);
 
 				if (xs.size() != 0)
 				{

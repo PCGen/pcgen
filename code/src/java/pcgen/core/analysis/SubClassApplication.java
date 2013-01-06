@@ -20,9 +20,6 @@
 package pcgen.core.analysis;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 
 import pcgen.cdom.base.Constants;
@@ -34,9 +31,13 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
+import pcgen.core.chooser.CDOMChooserFacadeImpl;
+import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.gui2.facade.Gui2InfoFactory;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
 public class SubClassApplication
@@ -50,12 +51,7 @@ public class SubClassApplication
 			return;
 		}
 	
-		List<String> columnNames = new ArrayList<String>(3);
-		columnNames.add("Name");
-		columnNames.add("Cost");
-		columnNames.add("Other");
-	
-		List<List> choiceList = new ArrayList<List>();
+		List<PCClass> availableList = new ArrayList<PCClass>();
 		String subClassKey = aPC.getSubClassName(cl);
 		boolean subClassSelected = subClassKey != null
 				&& !subClassKey.equals(Constants.NONE)
@@ -67,108 +63,68 @@ public class SubClassApplication
 			{
 				continue;
 			}
-	
-			final List<Object> columnList = new ArrayList<Object>(3);
-	
-			columnList.add(sc);
-			columnList.add(Integer.toString(sc.getSafe(IntegerKey.COST)));
-			columnList.add(SubClassApplication.getSupplementalDisplayInfo(sc));
-	
+				
 			// If a subclass has already been selected, only add that one
 			if (!subClassSelected
 					|| sc.getKeyName().equals(
 							aPC.getSubClassName(cl)))
 			{
-				choiceList.add(columnList);
+				availableList.add(sc);
 			}
 		}
 	
-		Collections.sort(choiceList, new Comparator<List>()
-		{
-            @Override
-			public int compare(List o1, List o2)
-			{
-				try
-				{
-					PCClass class1 = ((List<PCClass>) o1).get(0);
-					PCClass class2 = ((List<PCClass>) o2).get(0);
-					return class1.compareTo(class2);
-				}
-				catch (RuntimeException e)
-				{
-					return 0;
-				}
-			}
-		});
-	
-		// add base class to the chooser at the TOP
+		// add base class to the chooser
 		if (cl.getSafe(ObjectKey.ALLOWBASECLASS)
 				&& (!subClassSelected || cl.getKeyName().equals(
 						aPC.getSubClassName(cl))))
 		{
-			final List<Object> columnList2 = new ArrayList<Object>(3);
-			columnList2.add(cl);
-			columnList2.add("0");
-			columnList2.add("");
-			choiceList.add(0, columnList2);
+			availableList.add(0, cl);
 		}
 	
 		/*
 		 * REFACTOR This makes an assumption that SubClasses are ONLY Schools, which may
 		 * not be a fabulous assumption
 		 */
-		final ChooserInterface c = ChooserFactory.getChooserInstance();
-	
-		c.setTitle("School Choice (Specialisation)");
-		c
-			.setMessageText("Make a selection.  The cost column indicates the cost of that selection. "
-				+ "If this cost is non-zero, you will be asked to also "
-				+ "select items from this list to give up to cover that cost.");
-		c.setTotalChoicesAvail(1);
-		c.setPoolFlag(false);
-	
-		// c.setCostColumnNumber(1); // Allow 1 choice, regardless of
-		// cost...cost will be applied in second phase
-		c.setAvailableColumnNames(columnNames);
-		c.setAvailableList(choiceList);
-	
-		if (choiceList.size() == 1)
+		List<PCClass> selectedSubClasses;
+		CDOMChooserFacadeImpl<PCClass> chooserFacade =
+				new CDOMChooserFacadeImpl<PCClass>(
+					LanguageBundle.getString("in_schoolSpecChoice"), availableList, //$NON-NLS-1$
+					new ArrayList<PCClass>(), 1);
+		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
+		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));
+		
+		if (availableList.size() == 1)
 		{
-			c.setSelectedList(choiceList);
+			selectedSubClasses = availableList;
 		}
-		else if (choiceList.size() != 0)
+		else if (availableList.size() == 0)
 		{
-			c.setVisible(true);
-		}
-	
-		List<List<PCClass>> selectedList;
-		if (!cl.getSafe(ObjectKey.ALLOWBASECLASS))
-		{
-			while (c.getSelectedList().size() == 0)
-			{
-				c.setVisible(true);
-			}
-			selectedList = c.getSelectedList();
-	
+			Logging.log(Logging.WARNING, "No subclass choices avaialble for " + cl);
+			return;
 		}
 		else
 		{
-			selectedList = c.getSelectedList();
+			ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
+			selectedSubClasses = chooserFacade.getFinalSelected();
 		}
 	
-		if (selectedList.size() == 0)
+		if (!cl.getSafe(ObjectKey.ALLOWBASECLASS))
+		{
+			while (selectedSubClasses.size() == 0)
+			{
+				ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
+				selectedSubClasses = chooserFacade.getFinalSelected();
+			}
+		}
+	
+		if (selectedSubClasses.size() == 0)
 		{
 			return;
 		}
 	
-		List<PCClass> selectedRow = selectedList.get(0);
-		if (selectedRow.size() == 0)
-		{
-			return;
-		}
-		PCClass subselected = selectedRow.get(0);
+		PCClass subselected = selectedSubClasses.get(0);
 	
-		if (!selectedList.isEmpty() && subselected instanceof SubClass)
+		if (subselected instanceof SubClass)
 		{
 			aPC.removeProhibitedSchools(cl);
 			/*
@@ -178,8 +134,8 @@ public class SubClassApplication
 	
 			SubClass sc = (SubClass) subselected;
 	
-			choiceList = new ArrayList<List>();
-	
+			availableList.clear();
+
 			for (SubClass sub : subClassList)
 			{
 				if (sub.equals(sc))
@@ -192,20 +148,13 @@ public class SubClassApplication
 					continue;
 				}
 	
-				final List<Object> columnList = new ArrayList<Object>(3);
-	
 				int displayedCost = sub.getProhibitCost();
 				if (displayedCost == 0)
 				{
 					continue;
 				}
 	
-				columnList.add(sub);
-				columnList.add(Integer.toString(displayedCost));
-				columnList.add(SubClassApplication.getSupplementalDisplayInfo(sub));
-				columnList.add(sub.getChoice());
-	
-				choiceList.add(columnList);
+				availableList.add(sub);
 			}
 	
 			setSubClassKey(aPC, cl, sc.getKeyName());
@@ -215,29 +164,22 @@ public class SubClassApplication
 				aPC.setAssoc(cl, AssociationKey.SPECIALTY, sc.getChoice());
 			}
 	
-			columnNames.add("Specialty");
-	
 			if (sc.getSafe(IntegerKey.COST) != 0)
 			{
-				final ChooserInterface c1 = ChooserFactory.getChooserInstance();
-				c1.setTitle("School Choice (Prohibited)");
-				c1.setAvailableColumnNames(columnNames);
-				c1.setAvailableList(choiceList);
-				c1
-					.setMessageText("Make a selection.  You must make as many selections "
-						+ "necessary to cover the cost of your previous selections.");
-				c1.setTotalChoicesAvail(sc.getSafe(IntegerKey.COST));
-				c1.setPoolFlag(true);
-				c1.setCostColumnNumber(1);
-				c1.setNegativeAllowed(true);
-				c1.setVisible(true);
-				selectedList = c1.getSelectedList();
-	
-				for (Iterator<List<PCClass>> i = selectedList.iterator(); i
-					.hasNext();)
+				chooserFacade =
+						new CDOMChooserFacadeImpl<PCClass>(
+							LanguageBundle.getString("in_schoolProhibitChoice"), //$NON-NLS-1$
+							availableList, new ArrayList<PCClass>(), sc
+								.getSafe(IntegerKey.COST));
+				chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
+				chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));
+				chooserFacade.setRequireCompleteSelection(true);
+				ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
+				selectedSubClasses = chooserFacade.getFinalSelected();
+
+				for (PCClass choice : chooserFacade.getFinalSelected())
 				{
-					final List columns = i.next();
-					sc = (SubClass) columns.get(0);
+					sc = (SubClass) choice;
 					SpellProhibitor prohibSchool = new SpellProhibitor();
 					prohibSchool.setType(ProhibitedSpellType.SCHOOL);
 					prohibSchool.addValue(sc.getChoice());
@@ -270,29 +212,6 @@ public class SubClassApplication
 				pc.reInheritClassLevels(cl);
 			}
 		}
-	}
-
-	private static String getSupplementalDisplayInfo(SubClass sc) {
-		boolean added = false;
-		StringBuilder displayInfo = new StringBuilder();
-		if (sc.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY) != 0) {
-			displayInfo.append("SPECIALTY SPELLS:").append(
-					sc.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY));
-			added = true;
-		}
-	
-		if (sc.getSpellBaseStat() != null) {
-			if (added) {
-				displayInfo.append(" ");
-			}
-			displayInfo.append("SPELL BASE STAT:").append(sc.getSpellBaseStat());
-			added = true;
-		}
-	
-		if (!added) {
-			displayInfo.append(' ');
-		}
-		return displayInfo.toString();
 	}
 
 }

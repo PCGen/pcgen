@@ -141,7 +141,7 @@ public final class KitSkill extends BaseKit
 		List<String> warnings)
 	{
 		skillsToAdd = new ArrayList<KitSkillAdd>();
-		List<Skill> skillChoices = getSkillChoices();
+		List<Skill> skillChoices = getSkillChoices(aPC);
 
 		if (skillChoices == null || skillChoices.size() == 0)
 		{
@@ -301,7 +301,7 @@ public final class KitSkill extends BaseKit
 		return "Skills";
 	}
 
-	private List<Skill> getSkillChoices()
+	private List<Skill> getSkillChoices(PlayerCharacter aPC)
 	{
 		final List<Skill> skillsOfType = new ArrayList<Skill>();
 
@@ -321,7 +321,7 @@ public final class KitSkill extends BaseKit
 
 		List<Skill> skillChoices = new ArrayList<Skill>();
 		Globals.getChoiceFromList("Select skill", skillsOfType, skillChoices,
-			getSafeCount());
+			getSafeCount(), aPC);
 
 		return skillChoices;
 	}
