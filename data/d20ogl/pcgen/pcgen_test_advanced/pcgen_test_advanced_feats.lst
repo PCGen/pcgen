@@ -5,7 +5,7 @@ MyTest ~ No Prexxx										TYPE:Code1730
 MyTest ~ Yes Prexxx										TYPE:Code1730						PREFEAT:1,MyTest ~ No Prexxx
 MyTest ~ Yes x2 Prexxx										TYPE:Code1730						PREFEAT:2,MyTest ~ No Prexxx,MyTest ~ Yes Prexxx
 
-
+Add Foo Spell		TYPE:Test.TomTest		SPELLLEVEL:Wizard Test=3|Test Foo Spell
 
 
 
@@ -26,7 +26,52 @@ Test-77	ADD:SPELLCASTER|Sorcerer							TYPE:Test77
 Test-78	ADD:TEMPLATE|Template-73							TYPE:Test78		
 
 
+###Block: TEST-57
+#1) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:NO
+#2) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:NO CHOOSE:NOCHOICE
+#3) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:NO and any CHOOSE except NOCHOICE or USERINPUT.
+#4) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are only chosen once (STACK is effectively left unused)
+#5) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are only chosen once (STACK is effectively left unused)
+#6) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are chosen more than once (STACK is used)
+#7) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are chosen more than once (STACK is used)
+#8) Ability granted by a ADD:VFEAT token where the target naturally has parens
+#9) Ability granted by a ADD:VFEAT where the feat naturally has parens
+#Example is:
+#ADD:VFEAT|SomeAbility(SuperDuperLaserAbility)
 
+
+
+Test-57 Apply A1	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-1
+Test-57 Apply A2	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-2
+Test-57 Apply A3	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-3
+Test-57 Apply A4	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-4
+Test-57 Apply A5	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-5
+Test-57 Apply A6	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-6
+Test-57 Apply A7	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-7
+Test-57 Apply A8	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-8 (Sword (Short))
+Test-57 Apply A9	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-9 (Natural)
+
+
+#1) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:NO
+#2) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:NO CHOOSE:NOCHOICE
+#3) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:NO and any CHOOSE except NOCHOICE or USERINPUT.
+#4) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are only chosen once (STACK is effectively left unused)
+#5) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are only chosen once (STACK is effectively left unused)
+#6) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are chosen more than once (STACK is used)
+#7) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are chosen more than once (STACK is used)
+#8) Ability granted by a ADD:VFEAT token where the target naturally has parens
+#9) Ability granted by a ADD:VFEAT where the feat naturally has parens
+
+
+Test-57-Ability-1			MULT:NO
+Test-57-Ability-2			MULT:YES	STACK:NO	CHOOSE:NOCHOICE
+Test-57-Ability-3			MULT:YES	STACK:NO	CHOOSE:ABILITY|Special Ability|Ability-57-2a|Ability-57-2b
+Test-57-Ability-4			MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Test-57-Ability-5			MULT:YES	STACK:YES	CHOOSE:ABILITY|Special Ability|Ability-57-3a|Ability-57-3b
+Test-57-Ability-6			MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Test-57-Ability-7			MULT:YES	STACK:YES	CHOOSE:ABILITY|Special Ability|Ability-57-4a|Ability-57-4b
+Test-57-Ability-8			MULT:YES	STACK:YES	CHOOSE:WEAPONPROFICIENCY|Sword (Short)
+Test-57-Ability-9 (Natural)
 
 
 

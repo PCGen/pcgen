@@ -1,6 +1,11 @@
 # CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 
 
+CODE-1986a	BONUS:SKILL|Perception (Notice unusual stonework)|2
+CODE-1986b	BONUS:SKILL|Perception (Notice unusual stonework/Underground)|2
+
+
+
 # TEST-26
 # Template Name	Visible	Source Page						Define			Bonus to skill					Ability									Feat							Removable?		Innate Spells										More language
 TEST-26																																FEAT:Toughness|Weapon Focus (DEITYWEAPON)

@@ -147,3 +147,24 @@ Speak Language																					USEUNTRAINED:NO								TYPE:None.Language				
 Read Language																					USEUNTRAINED:NO								TYPE:None.Language																																CHOOSE:LANG|TYPE=Read
 
 #Martial Arts ~ Hiten Mitsurugi Ryuu								OUTPUTNAME:Martial Arts (Hiten Mitsurugi Ryuu)	KEYSTAT:DEX	USEUNTRAINED:NO								TYPE:Dexterity.AdeptChoice.MartialArtsStyle.MartialArts																														ABILITY:Special Ability|AUTOMATIC|Hiten Mitsurugi Ryuu (Dex)	BONUS:ABILITYPOOL|Martial Arts ~ Hiten Mitsurugi Ryuu|(1+skillinfo("TOTAL", "Martial Arts ~ Hiten Mitsurugi Ryuu"))/2																																																																				BONUS:VAR|MartialArtsSkillCounter|(1+skillinfo("TOTAL", "Martial Arts ~ Hiten Mitsurugi Ryuu"))/2|TYPE=MartialArts	BONUS:VAR|MartialArtsSkillTotal|skillinfo("TOTAL","Martial Arts ~ Hiten Mitsurugi Ryuu")|TYPE=MartialArts
+
+
+###Block: Conditional Skill Testing
+#Perception (Conditional Skill 1)		KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Notice unusual stonework).MISC"),var("SKILL.Perception.MISC")	SOURCEPAGE:p.102
+#Perception (Conditional Skill 2)		KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Notice unusual stonework).MISC"),var("SKILL.Perception.MISC")	SOURCEPAGE:p.102
+
+
+###Block: Real Skills
+
+Perception (Notice unusual stonework)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Notice unusual stonework).MISC"),var("SKILL.Perception.MISC")	SOURCEPAGE:p.102
+Perception (Notice unusual stonework/Underground)	KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Notice unusual stonework/Underground).MISC"),var("SKILL.Perception (Notice unusual stonework).MISC")	SOURCEPAGE:unk
+
+
+Perception.MOD	BONUS:SKILL|Perception (Notice unusual stonework)|var("SKILL.Perception.MISC")							BONUS:SKILLRANK|Perception (Notice unusual stonework)|skillinfo("TOTALRANK", "Perception")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Perception (Notice unusual stonework).MISC"),var("SKILL.Perception.MISC")
+Perception.MOD	BONUS:SKILL|Perception (Notice unusual stonework/Underground)|var("SKILL.Perception (Notice unusual stonework).MISC")	BONUS:SKILLRANK|Perception (Notice unusual stonework/Underground)|skillinfo("TOTALRANK","Perception (Notice unusual stonework)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Perception (Notice unusual stonework/Underground).MISC"),var("SKILL.Perception (Notice unusual stonework).MISC")
+
+
+
+
+
+

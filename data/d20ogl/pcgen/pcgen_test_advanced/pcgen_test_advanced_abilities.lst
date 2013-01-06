@@ -8,10 +8,32 @@ Add a Feat see if it depletes the pool															CATEGORY:Special Ability	TY
 
 
 
+###Block: TEST-57
+#1) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:NO
+#2) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:NO CHOOSE:NOCHOICE
+#3) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:NO and any CHOOSE except NOCHOICE or USERINPUT.
+#4) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are only chosen once (STACK is effectively left unused)
+#5) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are only chosen once (STACK is effectively left unused)
+#6) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES CHOOSE:NOCHOICE and the stackable items are chosen more than once (STACK is used)
+#7) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are chosen more than once (STACK is used)
+#8) Ability granted by a ADD:VFEAT token where the target naturally has parens
+#9) Ability granted by a ADD:VFEAT where the feat naturally has parens
+#Example is:
+#ADD:VFEAT|SomeAbility(SuperDuperLaserAbility)
+
+
+Ability-57-2a	CATEGORY:Special Ability
+Ability-57-2b	CATEGORY:Special Ability
+Ability-57-3a	CATEGORY:Special Ability
+Ability-57-3b	CATEGORY:Special Ability
 
 CODE-1712C																				CATEGORY:Special Ability	TYPE:BugReport.Test.CODE.SpecialQuality																																																																			DESC:Select Skills Taken																																																																																										STACK:NO			MULT:YES	CHOOSE:SKILL|FEAT=CODE-1712A
 
 CODE-1712AA																				CATEGORY:Special Ability	TYPE:BugReport.Test.CODE.SpecialQuality																																																																			DESC:Select Skills Taken GRANTED TO FEAT																																																																																								STACK:NO			MULT:YES	CHOOSE:SKILL|ALL																																							AUTO:FEAT|CODE-1712A (%LIST)
+
+
+
+
 
 
 
