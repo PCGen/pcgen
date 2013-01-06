@@ -28,11 +28,11 @@ Stun				KEY:Stun ~ Astral Daeva				CATEGORY:Special Ability	TYPE:SpecialAttack.S
 Uncanny Dodge		KEY:Uncanny Dodge ~ Astral Daeva		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:An astral deva retains its Dexterity bonus to AC when flat-footed, and it cannot be flanked except by a rogue of at least 16th level. It can flank characters with the uncanny dodge ability as if it were a 12th-level rogue.
 
 # Animated Object
-Blind				KEY:Blind ~ Animated Object			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A sheetlike animated object such as a carpet or tapestry can grapple an opponent up to three sizes larger than itself. The object makes a normal grapple check. If it wins, it wraps itself around the opponent's head, causing that creature to be blinded until removed.
-Constrict			KEY:Constrict ~ Animated Object		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A flexible animated object such as a rope, vine, or rug deals damage equal to its slam damage value plus 1? times its Strength bonus with a successful grapple check against a creature up to one size larger than itself. An object of at least Large size can make constriction attacks against multiple creatures at once, if they all are at least two sizes smaller than the object and can fit under it.
-Hardness			KEY:Hardness ~ Animated Object		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:An animated object has the same hardness it had before it was animated.
-Improved Speed		KEY:Improved Speed ~ Animated Object	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:The base land speed given in the statistics block assume that an animated object lurches, rocks, or slithers along. Objects with two legs (statues, ladders) or a similar shape that allows faster movement have a +10 foot bonus to speed. Objects with multiple legs (tables, chairs) have a +20 foot bonus to speed. Wheeled objects have a +40 foot bonus to speed. Objects might have additional modes of movement. A wooden object can float and has a swim speed equal to half its land speed. A rope or similar sinuous object has a climb speed equal to half its land speed. A sheetlike object can fly (clumsy maneuverability) at half its normal speed.
-Trample			KEY:Trample ~ Animated Object			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:An animated object of at least Large size and with a hardness of at least 10 can trample creatures two or more sizes smaller than itself, dealing damage equal to the object's slam damage + 1 1/2 times its Strength bonus. Opponents who do not make attacks of opportunity against the object can attempt Reflex saves (DC 10 + 1/2 object's HD + object's Str modifier) to halve the damage.
+Blind				KEY:Blind ~ Animated Object			CATEGORY:Special Ability	TYPE:AnimatedObject.SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A sheetlike animated object such as a carpet or tapestry can grapple an opponent up to three sizes larger than itself. The object makes a normal grapple check. If it wins, it wraps itself around the opponent's head, causing that creature to be blinded until removed.
+Constrict			KEY:Constrict ~ Animated Object		CATEGORY:Special Ability	TYPE:AnimatedObject.SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A flexible animated object such as a rope, vine, or rug deals damage equal to its slam damage value plus 1? times its Strength bonus with a successful grapple check against a creature up to one size larger than itself. An object of at least Large size can make constriction attacks against multiple creatures at once, if they all are at least two sizes smaller than the object and can fit under it.
+Hardness			KEY:Hardness ~ Animated Object		CATEGORY:Special Ability	TYPE:AnimatedObject.SpecialQuality.Extraordinary	VISIBLE:YES	DESC:An animated object has the same hardness it had before it was animated.
+Improved Speed		KEY:Improved Speed ~ Animated Object	CATEGORY:Special Ability	TYPE:AnimatedObject.SpecialQuality.Extraordinary	VISIBLE:YES	DESC:The base land speed given in the statistics block assume that an animated object lurches, rocks, or slithers along. Objects with two legs (statues, ladders) or a similar shape that allows faster movement have a +10 foot bonus to speed. Objects with multiple legs (tables, chairs) have a +20 foot bonus to speed. Wheeled objects have a +40 foot bonus to speed. Objects might have additional modes of movement. A wooden object can float and has a swim speed equal to half its land speed. A rope or similar sinuous object has a climb speed equal to half its land speed. A sheetlike object can fly (clumsy maneuverability) at half its normal speed.
+Trample			KEY:Trample ~ Animated Object			CATEGORY:Special Ability	TYPE:AnimatedObject.SpecialAttack.Extraordinary	VISIBLE:YES	DESC:An animated object of at least Large size and with a hardness of at least 10 can trample creatures two or more sizes smaller than itself, dealing damage equal to the object's slam damage + 1 1/2 times its Strength bonus. Opponents who do not make attacks of opportunity against the object can attempt Reflex saves (DC 10 + 1/2 object's HD + object's Str modifier) to halve the damage.
 
 # Ankheg
 Improved Grab		KEY:Improved Grab ~ Ankheg	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:To use this ability, an ankheg must hit with its bite attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If the ankheg is damaged after grabbing its prey, it retreats backward down its tunnel at its land speed (not its burrow speed), dragging the victim with it.
@@ -111,6 +111,23 @@ Improved Grab		KEY:Improved Grab ~ Behir		CATEGORY:Special Ability	TYPE:SpecialA
 Rake (Ex)			KEY:Rake ~ Behir				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:Six claws, attack bonus +15 melee, damage 1d4+4.
 Swallow Whole		KEY:Swallow Whole ~ Behir		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A behir can try to swallow a grabbed Medium or smaller opponent by making a successful grapple check. A behir that swallows an opponent can use its Cleave feat to bite and grab another opponent. A swallowed creature takes 2d8+8 points of bludgeoning damage and 8 points of acid damage per round from the behir's gizzard. A swallowed creature can cut its way out by using a light slashing or piercing weapon to deal 25 points of damage to the gizzard (AC 15). Once the creature exits, muscular action closes the hole; another swallowed opponent must cut its own way out. A behir's gizzard can hold 2 Medium, 8 Small, 32 Tiny, or 128 Diminutive or smaller opponents.
 Skills			KEY:Skills ~ Behir			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Behirs have a +8 racial bonus on Climb checks and can always choose to take 10 on Climb checks, even if rushed or threatened.
+
+# ~ Belker
+Smoke Claws			KEY:Smoke Claws ~ Belker		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A belker in smoke form (see below) can engulf opponents by moving on top of them. It fills the air around one Medium or smaller opponent without provoking an attack of opportunity. The target must succeed on a DC 14 Fortitude save or inhale part of the creature. The save DC is Constitution-based. Smoke inside the victim solidifies into a claw and begins to rip at the surrounding organs, dealing 3d4 points of damage per round. An affected creature can attempt another Fortitude save each subsequent round to cough out the semivaporous menace.
+Smoke Form			KEY:Smoke Form ~ Belker			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:Most of the time a belker is more or less solid, but at will it can assume smoke form. It can switch forms once per round as a free action and can spend up to 20 rounds per day in smoke form. A belker in smoke form can fly at a speed of 50 feet (perfect). The ability is otherwise similar to a gaseous form spell (caster level 7th).
+Skills			KEY:Skills ~ Belker			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Belkers have a +4 racial bonus on Move Silently checks.
+
+# ~ Blink Dog
+Blink				KEY:Blink ~ Blink Dog			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:A blink dog can use blink as the spell (caster level 8th), and can evoke or end the effect as a free action.
+Dimension Door		KEY:Dimension Door ~ Blink Dog	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:A blink dog can teleport, as dimension door (caster level 8th), once per round as a free action. The ability affects only the blink dog, which never appears within a solid object and can act immediately after teleporting.
+
+
+# Subraces
+Stonecunning		KEY:Stonecunning ~ Svirfneblin	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:This ability grants deep gnomes a +2 racial bonus on Search checks to notice unusual stonework. A deep gnome who merely comes within 10 feet of unusual stonework can make a Search check as though actively searching, and can use the Search skill to find stonework traps as a rogue can. A svirfneblin can also intuit depth, sensing the approximate distance underground as naturally as a human can sense which way is up.
+Stonecunning		KEY:Stonecunning ~ Deep Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Like dwarves, deep halflings have a +2 racial bonus on checks to notice unusual stonework. Something that isn't stone but that is disguised as stone also counts as unusual stonework. A deep halfling who merely comes within 10 feet of unusual stonework can make a check as though actively searching and can use the Search skill to find stonework traps as a rogue can. A deep halfling can also intuit depth, sensing the approximate distance underground as naturally as a human can sense which way is up.
+
++2 racial bonus on Appraise checks that are related to stone or metal items.		KEY:Halfling Appraise		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality							VISIBLE:YES		BONUS:SKILL|Appraise|DwarfAppraiseSkillBonus|TYPE=Racial|PREAPPLY:PC																													DESC:+%1 racial bonus on Appraise checks that are related to stone or metal items.|DwarfAppraiseSkillBonus	DEFINE:DwarfAppraiseSkillBonus|2
++2 racial bonus on Craft checks that are related to stone or metal.			KEY:Halfling Craft		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality							VISIBLE:YES		BONUS:SKILL|TYPE.Craft|DwarfCraftSkillBonus|TYPE=Racial|PREAPPLY:PC	BONUS:SKILL|Craft (Armorsmithing),Craft (Blacksmithing),Craft (Metalworking),Craft (Stonemasonry),Craft (Stoneworking),Craft (Weaponsmithing)|2|TYPE=Racial		DESC:+%1 racial bonus on Craft checks that are related to stone or metal.|DwarfCraftSkillBonus	DEFINE:DwarfCraftSkillBonus|2
 
 
 ###Block: RSRD Abilities A-B
@@ -601,15 +618,15 @@ Vulnerability to Protection from Evil	CATEGORY:Special Ability	TYPE:SpecialQuali
 
 # Deep Dwarf (these should be merged with the standard Dwarf abilities once OUTPUTNAME can handle variables
 # Ability Name				Output Name													Category of Ability		Type						Visible	Description
-Deep Dwarf Poison Resistance		OUTPUTNAME:+3 racial bonus on saving throws against poison					CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
-Deep Dwarf Spell Resistance		OUTPUTNAME:+3 racial bonus on saving throws against spells and spell-like effects	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
+#Deep Dwarf Poison Resistance		OUTPUTNAME:+3 racial bonus on saving throws against poison					CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES	ASPECT:SaveBonus|+3 racial bonus on saving throws against poison
+#Deep Dwarf Spell Resistance		OUTPUTNAME:+3 racial bonus on saving throws against spells and spell-like effects	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES	ASPECT:SaveBonus|+3 racial bonus on saving throws against spells and spell-like effects
 
 # Duergar Dwarf
-Duergar Dwarf Imunity			OUTPUTNAME:Immunity to paralysis, phantasms, and poison					CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity		VISIBLE:YES
+Immunity to paralysis, phantasms, and poison	KEY:Duergar Dwarf Immunity								CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity.DwarfPoisonResistance		VISIBLE:YES
 
 
 # Elf (Drow)
-Drow Spell Resistance			OUTPUTNAME:+2 racial bonus on Will saves against spells and spell-like abilities	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
+Drow Spell Resistance			OUTPUTNAME:+2 racial bonus on Will saves against spells and spell-like abilities	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES	ASPECT:SaveBonus|+2 racial bonus on Will saves against spells and spell-like abilities
 
 
 # Svirfneblin Gnome
@@ -622,10 +639,10 @@ Pass without Trace																	CATEGORY:Special Ability	TYPE:SpecialQuality.
 
 
 # Half Celestial
-Half Celestial Poison Resistance	OUTPUTNAME:+4 racial bonus to Fortitude saves vs. Poison					CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
+Half Celestial Poison Resistance	OUTPUTNAME:+4 racial bonus to Fortitude saves vs. Poison					CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES	ASPECT:SaveBonus|+4 racial bonus to Fortitude saves vs. Poison
 
 # Xeph
-Xeph Power Resistance			OUTPUTNAME:+1 saves vs. powers, spells, and spell-like effects				CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES
+Xeph Power Resistance			OUTPUTNAME:+1 saves vs. powers, spells, and spell-like effects				CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES	ASPECT:SaveBonus|+1 saves vs. powers, spells, and spell-like effects
 
 
 
