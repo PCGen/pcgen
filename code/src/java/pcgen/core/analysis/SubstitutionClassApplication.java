@@ -27,9 +27,12 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SubstitutionClass;
+import pcgen.core.chooser.CDOMChooserFacadeImpl;
+import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.gui2.facade.Gui2InfoFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
 
 public class SubstitutionClassApplication
 {
@@ -43,8 +46,6 @@ public class SubstitutionClassApplication
 		{
 			return;
 		}
-		List<String> columnNames = new ArrayList<String>(1);
-		columnNames.add("Name");
 
 		List<PCClass> choiceList = new ArrayList<PCClass>();
 		buildSubstitutionClassChoiceList(cl, choiceList, aPC.getLevel(cl), aPC);
@@ -55,20 +56,15 @@ public class SubstitutionClassApplication
 			// base class is chosen.
 		}
 
-		final ChooserInterface c = ChooserFactory.getChooserInstance();
-		c.setTitle("Substitution Levels");
-		c.setMessageText("Choose one of the listed substitution levels "
-				+ "or the base class(top entry).  "
-				+ "Pressing Close will take the standard class level.");
-		c.setTotalChoicesAvail(1);
-		c.setPoolFlag(false);
+		CDOMChooserFacadeImpl<PCClass> chooserFacade =
+				new CDOMChooserFacadeImpl<PCClass>(
+					LanguageBundle.getString("in_SubstLvlChoice"), choiceList, //$NON-NLS-1$
+					new ArrayList<PCClass>(), 1);
+		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
+		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));
+		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 
-		c.setAvailableColumnNames(columnNames);
-		c.setAvailableList(choiceList);
-
-		c.setVisible(true);
-
-		List<PCClass> selectedList = c.getSelectedList();
+		List<PCClass> selectedList = chooserFacade.getFinalSelected();
 		PCClass selected = null;
 		if (!selectedList.isEmpty())
 		{
