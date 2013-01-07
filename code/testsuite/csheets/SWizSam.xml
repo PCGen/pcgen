@@ -1010,8 +1010,30 @@ BIO
 	<ability_objects>
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
+			<name>+1 racial bonus on all saving throws.</name>
+			<description>+1 racial bonus on all saving throws.</description>
+			<type>HALFLINGRACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>+1 racial bonus on attack rolls with thrown weapons and slings.</name>
+			<description>+1 racial bonus on attack rolls with thrown weapons and slings.</description>
+			<type>HALFLINGRACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>+2 morale bonus on saving throws against fear</name>
-			<description></description>
+			<description>+2 morale bonus on saving throws against fear</description>
 			<type>HALFLINGRACIALTRAIT.SAVEBONUS</type>
 			<associated></associated>
 			<count>0</count>
@@ -1021,19 +1043,8 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Halfling Saves</name>
-			<description></description>
-			<type>HALFLINGRACIALTRAIT.SAVEBONUS</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Halfling Skills</name>
-			<description></description>
+			<name>+2 racial bonus on Climb, Jump, Listen, and Move Silently checks.</name>
+			<description>+2 racial bonus on Climb, Jump, Listen, and Move Silently checks.</description>
 			<type>HALFLINGRACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
@@ -1043,19 +1054,8 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Halfling Thrown Attacks</name>
-			<description></description>
-			<type>HALFLINGRACIALTRAIT</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Racial Traits ~ Halfling</name>
-			<description><para>+2 racial bonus on Climb, Jump, Listen, and Move Silently checks. </para><para>+1 racial bonus on all saving throws. </para><para>+2 morale bonus on saving throws against fear: This bonus stacks with the halfling&#39;s +1 bonus on saving throws in general. </para><para>+1 racial bonus on attack rolls with thrown weapons and slings.</para></description>
+			<name>Racial Traits</name>
+			<description><para>+2 racial bonus on Climb, Jump, Listen, and Move Silently checks. </para><para> +1 racial bonus on all saving throws. </para><para> +2 morale bonus on saving throws against fear: This bonus stacks with the halfling&#39;s +1 bonus on saving throws in general. </para><para> +1 racial bonus on attack rolls with thrown weapons and slings.</para></description>
 			<type>SPECIALQUALITY.HALFLINGRACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
