@@ -41,7 +41,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 
 /**
- * ClassClassSkillListListFacet stores the ClassClassSkillListList choices for a
+ * ClassSkillListFacet stores the ClassSkillListFacet choices for a
  * PCClass of a Player Character
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
