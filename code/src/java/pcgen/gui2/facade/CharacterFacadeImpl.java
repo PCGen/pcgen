@@ -1122,13 +1122,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return;
 		}
-		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
+		if (TempBonusHelper.hasAnyPCTempBonus(obj, theCharacter))
 		{
-			if (aBonus.isTempBonus() && aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC))
-			{
-				tempBonuses.add(new TempBonusFacadeImpl(obj));
-				return;
-			}
+			tempBonuses.add(new TempBonusFacadeImpl(obj));
 		}
 	}
 
@@ -1138,13 +1134,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return;
 		}
-		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
+		if (TempBonusHelper.hasNonPCTempBonus(obj, theCharacter))
 		{
-			if (aBonus.isTempBonus() && !aBonus.isTempBonusTarget(BonusObj.TempBonusTarget.PC))
-			{
-				tempBonuses.add(new TempBonusFacadeImpl(obj));
-				return;
-			}
+			tempBonuses.add(new TempBonusFacadeImpl(obj));
 		}
 	}
 
@@ -1154,13 +1146,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return;
 		}
-		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
+		if (TempBonusHelper.hasTempBonus(obj, theCharacter))
 		{
-			if (aBonus.isTempBonus())
-			{
-				tempBonuses.add(new TempBonusFacadeImpl(obj));
-				return;
-			}
+			tempBonuses.add(new TempBonusFacadeImpl(obj));
 		}
 	}
 
@@ -1228,7 +1216,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		// Resolve choices and apply the bonus to the character.
 		TempBonusFacadeImpl appliedTempBonus =
-				TempBonusHelper.applyBonusToCharacter(tempBonus, aEq,
+				TempBonusHelper.applyBonusToCharacter(aEq,
 					originObj, theCharacter);
 		if (appliedTempBonus == null)
 		{

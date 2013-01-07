@@ -27,7 +27,6 @@ package pcgen.core.bonus;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +38,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.context.LoadContext;
@@ -183,125 +181,6 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 		buff.append("]");
 		return buff.toString();
 	}
-
-	/**
-	 * Checks if this bonus is a &quot;Temporary&quot; bonus.
-	 * 
-	 * <p>Temporary bonuses are applied and removed from the TempBonuses tab
-	 * in the application.
-	 * 
-	 * TODO - This should be set as a flag on the bonus.
-	 * 
-	 * @return <tt>true</tt> if this is a temporary bonus.
-	 */
-	public boolean isTempBonus()
-	{
-		if ( !hasPrerequisites() )
-		{
-			return false;
-		}
-		
-		// TODO - This should be handled better
-		for ( final Prerequisite prereq : getPrerequisiteList() )
-		{
-			if ( prereq.getKind() == null )
-			{
-				continue;
-			}
-			if ( prereq.getKind().equalsIgnoreCase(Prerequisite.APPLY_KIND) )
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	/** An enum for the target of a temp bonus */
-	public enum TempBonusTarget {
-		/** This bonus applies only to if the PC has the owner of this bonus */
-		PC,
-		/** Any PC can apply this bonus */
-		ANYPC
-	}
-	
-	/**
-	 * Tests if this bonus' target is the same as the passed in one.
-	 * 
-	 * @param aTarget A TempBonusTarget to test for.
-	 * 
-	 * @return <tt>true</tt> if this bonus has that target.
-	 * 
-	 * <p><b>TODO</b> - This should be set as a flag on bonus creation.
-	 */
-	public boolean isTempBonusTarget( final TempBonusTarget aTarget )
-	{
-		if ( !isTempBonus() || !hasPrerequisites() )
-		{
-			return false;
-		}
-		
-		for ( final Prerequisite prereq : getPrerequisiteList() )
-		{
-			if ( prereq.getOperand().equalsIgnoreCase(aTarget.toString()) )
-			{
-				return true;
-			}
-			for ( final Prerequisite premult : prereq.getPrerequisites() )
-			{
-				if ( premult.getOperand().equalsIgnoreCase(aTarget.toString()) )
-				{
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-	
-	/**
-	 * Retrieve a list of the PREAPPLY prerequisites for this bonus. These are the 
-	 * prereqs that define the bonus as a temporary bonus.
-	 * @return The list of APPLY prereqs. 
-	 */
-	public List<Prerequisite> getTempBonusPreApply()
-	{
-		if (!hasPrerequisites())
-		{
-			return Collections.emptyList();
-		}
-
-		List<Prerequisite> preApplyList = new ArrayList<Prerequisite>();
-		for (final Prerequisite prereq : getPrerequisiteList())
-		{
-			if (isApplyPrereq(prereq))
-			{
-				preApplyList.add(prereq);
-			}
-		}
-
-		return preApplyList;
-	}
-	
-	private boolean isApplyPrereq(Prerequisite prereq)
-	{
-		if (prereq.getPrerequisites().isEmpty()
-			&& Prerequisite.APPLY_KIND.equalsIgnoreCase(prereq.getKind()))
-		{
-			return true;
-		}
-
-		for (final Prerequisite premult : prereq.getPrerequisites())
-		{
-			if (isApplyPrereq(premult))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	////////////////////////////////////////////////
-	//        Public Accessors and Mutators       //
-	////////////////////////////////////////////////
 
 	/**
 	 * @return type of Bonus

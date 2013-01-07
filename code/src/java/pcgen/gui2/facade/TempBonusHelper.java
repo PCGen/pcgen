@@ -23,9 +23,11 @@
 package pcgen.gui2.facade;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
@@ -39,6 +41,7 @@ import pcgen.core.BonusManager;
 import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -67,6 +70,14 @@ import pcgen.util.chooser.ChooserRadio;
  */
 public class TempBonusHelper
 {
+
+	/** An enum for the target of a temp bonus */
+	public enum TempBonusTarget {
+		/** This bonus applies only to if the PC has the owner of this bonus */
+		PC,
+		/** Any PC can apply this bonus */
+		ANYPC
+	}
 
 	/** An empty string. */
 	private static final String EMPTY_STRING = ""; //$NON-NLS-1$
@@ -170,7 +181,7 @@ public class TempBonusHelper
 	 * @param theCharacter The target character.
 	 * @return The list of possible equipment.
 	 */
-	private static List<InfoFacade> getListOfApplicableEquipment(CDOMObject originObj,
+	public static List<InfoFacade> getListOfApplicableEquipment(CDOMObject originObj,
 		PlayerCharacter theCharacter)
 	{
 		CharacterDisplay charDisplay = theCharacter.getDisplay();
@@ -187,7 +198,7 @@ public class TempBonusHelper
 				{
 					continue;
 				}
-				if (aBonus.isTempBonus())
+				if (TempBonusHelper.isTempBonus(aBonus))
 				{
 					boolean passesApply = true;
 					for (Iterator<Prerequisite> iter =
@@ -223,7 +234,7 @@ public class TempBonusHelper
 	 * @param theCharacter The target character.
 	 * @return true if an equipment choice is not required, false if equipment is needed.
 	 */
-	static boolean canApplyToPC(CDOMObject originObj, PlayerCharacter theCharacter)
+	private static boolean canApplyToPC(CDOMObject originObj, PlayerCharacter theCharacter)
 	{
 		boolean hasPCBonus = false;
 
@@ -234,11 +245,10 @@ public class TempBonusHelper
 				continue;
 			}
 
-			if (aBonus.isTempBonus())
+			if (TempBonusHelper.isTempBonus(aBonus))
 			{
-				if ((aBonus
-					.isTempBonusTarget(BonusObj.TempBonusTarget.ANYPC) || aBonus
-					.isTempBonusTarget(BonusObj.TempBonusTarget.PC))
+				if ((TempBonusHelper.isTempBonusTarget(aBonus, TempBonusTarget.ANYPC)
+						|| TempBonusHelper.isTempBonusTarget(aBonus, TempBonusTarget.PC))
 					&& !hasPCBonus)
 				{
 					hasPCBonus = true;
@@ -254,19 +264,18 @@ public class TempBonusHelper
 	 * that piece of equipment. Generally equipment will be a 'temporary'
 	 * equipment item created to show the item with the bonus. 
 	 *  
-	 * @param tempBonus The bonus to be applied.
 	 * @param aEq The temporary equipment item to apply the bonus to. 
 	 * @param originObj The rules object granting the bonus.
-	 * @param theCharacter The character the vonus is being applied to.
+	 * @param theCharacter The character the bonus is being applied to.
 	 */
-	static TempBonusFacadeImpl applyBonusToCharacter(TempBonusFacadeImpl tempBonus,
+	static TempBonusFacadeImpl applyBonusToCharacter(
 		Equipment aEq, CDOMObject originObj, PlayerCharacter theCharacter) 
 	{
 		TempBonusFacadeImpl appliedBonus = null;
 		String repeatValue = EMPTY_STRING;
-		for (BonusObj aBonus : tempBonus.getOriginObj().getBonusList(theCharacter))
+		for (BonusObj aBonus : originObj.getBonusList(theCharacter))
 		{
-			if (aBonus.isTempBonus())
+			if (TempBonusHelper.isTempBonus(aBonus))
 			{
 				String oldValue = aBonus.toString();
 				String newValue = oldValue;
@@ -330,7 +339,7 @@ public class TempBonusHelper
 					if (appliedBonus == null)
 					{
 						String bonusName = new BonusManager(theCharacter).getBonusName(newB, tempBonusInfo);
-						appliedBonus = new TempBonusFacadeImpl(tempBonus.getOriginObj(), target, bonusName);
+						appliedBonus = new TempBonusFacadeImpl(originObj, target, bonusName);
 					}
 				}
 			}
@@ -597,6 +606,201 @@ public class TempBonusHelper
 		}
 	}
 
+	public static boolean isAnyPCTempBonus(BonusObj aBonus)
+	{
+		return TempBonusHelper.isTempBonus(aBonus) && TempBonusHelper.isTempBonusTarget(aBonus, TempBonusTarget.ANYPC);
+	}
+
+	public static boolean isPCTempBonus(BonusObj aBonus)
+	{
+		return TempBonusHelper.isTempBonus(aBonus) && TempBonusHelper.isTempBonusTarget(aBonus, TempBonusTarget.PC);
+	}
+
+	public static boolean isNonPCTempBonus(BonusObj aBonus)
+	{
+		return TempBonusHelper.isTempBonus(aBonus) && !TempBonusHelper.isTempBonusTarget(aBonus, TempBonusTarget.PC);
+	}
+
+	public static boolean isCharacterTempBonus(BonusObj aBonus)
+	{
+		return isAnyPCTempBonus(aBonus) || isPCTempBonus(aBonus);
+	}
+	
+	public static boolean isEquipmentTempBonus(BonusObj aBonus)
+	{
+		return isTempBonus(aBonus) && !isCharacterTempBonus(aBonus);
+	}
+
+	public static boolean isTempBonus(BonusObj bonus)
+	{
+		if ( !bonus.hasPrerequisites() )
+		{
+			return false;
+		}
+		
+		for (final Prerequisite prereq : bonus.getPrerequisiteList())
+		{
+			if (isApplyPrereq(prereq))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public static boolean isApplyPrereq(Prerequisite prereq)
+	{
+		if (prereq.getPrerequisites().isEmpty()
+			&& Prerequisite.APPLY_KIND.equalsIgnoreCase(prereq.getKind()))
+		{
+			return true;
+		}
+
+		for (final Prerequisite premult : prereq.getPrerequisites())
+		{
+			if (isApplyPrereq(premult))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	////////////////////////////////////////////////
+	//        Public Accessors and Mutators       //
+	////////////////////////////////////////////////
+
+	public static boolean isTempBonusTarget(BonusObj bonus, final TempBonusTarget aTarget )
+	{
+		if ( !isTempBonus(bonus) || !bonus.hasPrerequisites() )
+		{
+			return false;
+		}
+		
+		for ( final Prerequisite prereq : bonus.getPrerequisiteList() )
+		{
+			if ( prereq.getOperand().equalsIgnoreCase(aTarget.toString()) )
+			{
+				return true;
+			}
+			for ( final Prerequisite premult : prereq.getPrerequisites() )
+			{
+				if ( premult.getOperand().equalsIgnoreCase(aTarget.toString()) )
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public static boolean hasAnyPCTempBonus(PObject obj, PlayerCharacter theCharacter)
+	{
+		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
+		{
+			if (TempBonusHelper.isAnyPCTempBonus(aBonus))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean hasPCTempBonus(CDOMObject obj,
+		PlayerCharacter theCharacter)
+	{
+		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
+		{
+			if (TempBonusHelper.isPCTempBonus(aBonus))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean hasNonPCTempBonus(CDOMObject obj,
+		PlayerCharacter theCharacter)
+	{
+		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
+		{
+			if (TempBonusHelper.isNonPCTempBonus(aBonus))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean hasCharacterTempBonus(CDOMObject obj,
+		PlayerCharacter theCharacter)
+	{
+		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
+		{
+			if (TempBonusHelper.isCharacterTempBonus(aBonus))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean hasEquipmentTempBonus(CDOMObject obj,
+		PlayerCharacter theCharacter)
+	{
+		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
+		{
+			if (TempBonusHelper.isEquipmentTempBonus(aBonus))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static Set<String> getEquipmentApplyString(CDOMObject obj,
+		PlayerCharacter theCharacter)
+	{
+		Set<String> set = new HashSet<String>();
+		for (BonusObj bonus : obj.getRawBonusList(theCharacter))
+		{
+			if (TempBonusHelper.isTempBonus(bonus))
+			{
+				if (TempBonusHelper.isTempBonusTarget(bonus, TempBonusTarget.ANYPC))
+				{
+					continue;
+				}
+				if (TempBonusHelper.isTempBonusTarget(bonus, TempBonusTarget.PC))
+				{
+					continue;
+				}
+				for (final Prerequisite prereq : bonus.getPrerequisiteList())
+				{
+					if (isApplyPrereq(prereq))
+					{
+						set.add(getWriteOperand(prereq));
+					}
+				}
+			}
+		}
+		//Could be a more severe error (should use has first)
+		return set;
+	}
+
+	public static boolean hasTempBonus(CDOMObject obj,
+		PlayerCharacter theCharacter)
+	{
+		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
+		{
+			if (TempBonusHelper.isTempBonus(aBonus))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public static void writeOredPrereqs(StringBuilder sb, Prerequisite subreq)
 	{
 		if (subreq.getKind() == null)
@@ -646,3 +850,4 @@ public class TempBonusHelper
 		return sb.toString();
 	}
 }
+

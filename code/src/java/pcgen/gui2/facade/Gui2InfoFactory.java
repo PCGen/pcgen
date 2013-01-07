@@ -104,7 +104,6 @@ import pcgen.core.facade.SpellFacade;
 import pcgen.core.facade.TempBonusFacade;
 import pcgen.core.facade.TemplateFacade;
 import pcgen.core.kit.BaseKit;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.core.spell.Spell;
 import pcgen.gui2.util.HtmlInfoBuilder;
@@ -1860,22 +1859,14 @@ public class Gui2InfoFactory implements InfoFactory
 		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) tempBonusFacade;
 
 		Set<String> targetSet = new HashSet<String>();
-		for (BonusObj aBonus : tempBonus.getOriginObj().getRawBonusList(pc))
+		if (TempBonusHelper.hasCharacterTempBonus(tempBonus.getOriginObj(), pc))
 		{
-			for (Prerequisite prereq : aBonus.getTempBonusPreApply())
-			{
-				String operand = TempBonusHelper.getWriteOperand(prereq);
-				if ("ANYPC".equals(operand) //$NON-NLS-1$
-					|| "PC".equals(operand)) //$NON-NLS-1$
-				{
-					targetSet.add(LanguageBundle
-						.getString("in_itmBonModelTargetTypeCharacter")); //$NON-NLS-1$
-				}
-				else
-				{
-					targetSet.add(operand);
-				}
-			}
+			targetSet.add(LanguageBundle
+				.getString("in_itmBonModelTargetTypeCharacter")); //$NON-NLS-1$
+		}
+		if (TempBonusHelper.hasEquipmentTempBonus(tempBonus.getOriginObj(), pc))
+		{
+			targetSet.addAll(TempBonusHelper.getEquipmentApplyString(tempBonus.getOriginObj(), pc));
 		}
 		StringBuilder target = new StringBuilder();
 		for (String string : targetSet)
