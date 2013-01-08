@@ -4179,6 +4179,35 @@ BIO
 						<bonusspell></bonusspell>
 					</spell>
 				<spell>
+						<name>Gentle Repose</name>
+						<outputname>Gentle Repose</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Touch</range>
+						<components>V, S, M/DF</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>3</casterlevel>
+						<dc>16</dc>
+						<duration>3 days</duration>
+						<effect>You preserve the remains of a dead creature so that they do not decay.</effect>
+						<target>Corpse touched</target>
+						<saveinfo>Will negates (object)</saveinfo>
+						<school>
+							<school>Necromancy</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Necromancy</fullschool>
+						</school>
+						<source>
+							<sourcelevel>Clr2, Repose2, Sor3, Wiz3</sourcelevel>
+							<source>Paizo Publishing - Core Rulebook, p.289</source>
+							<sourcepage>p.289</sourcepage>
+							<sourceshort>PFCR</sourceshort>
+						</source>
+						<spell_resistance>Yes (object)</spell_resistance>
+						<description>You preserve the remains of a dead creature so that they do not decay.</description>
+						<bonusspell></bonusspell>
+					</spell>
+				<spell>
 						<name>Heat Metal</name>
 						<outputname>Heat Metal</outputname>
 						<times_memorized>1</times_memorized>
