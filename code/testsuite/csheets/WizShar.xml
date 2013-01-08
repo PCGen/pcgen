@@ -1037,8 +1037,8 @@ BIO
 	<ability_objects>
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
-			<name>Human Bonus Feat</name>
-			<description></description>
+			<name>1 extra feat at 1st level.</name>
+			<description>1 extra feat at 1st level.</description>
 			<type>SPECIALQUALITY.HUMANRACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
@@ -1048,8 +1048,8 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Human Skill Bonus</name>
-			<description>Humans gain 1 extra skill point per level.</description>
+			<name>4 extra skill points at 1st level and 1 extra skill point at each additional level.</name>
+			<description>4 extra skill points at 1st level and 1 extra skill point at each additional level.</description>
 			<type>SPECIALQUALITY.HUMANRACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
