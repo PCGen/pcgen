@@ -1255,7 +1255,7 @@ BIO
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>+1 racial bonus to attack rolls against kobolds and goblinoids (goblins, hobgoblins, and bugbears): Gnomes battle these creatures frequently and practice special techniques for fighting them.</name>
-			<description>+1 racial bonus on attack rolls against kobolds and goblinoids</description>
+			<description>+1 racial bonus to attack rolls against kobolds and goblinoids (goblins, hobgoblins, and bugbears): Gnomes battle these creatures frequently and practice special techniques for fighting them.</description>
 			<type>GNOMERACIALTRAIT.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
@@ -1266,7 +1266,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>+2 racial bonus on Alchemy checks.</name>
-			<description>+2 racial bonus on Craft (alchemy) checks.</description>
+			<description>+2 racial bonus on Alchemy checks.</description>
 			<type>GNOMERACIALTRAIT.RACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
@@ -1299,7 +1299,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>+4 dodge bonus against giants.</name>
-			<description>+4 dodge bonus to Armor Class against monsters of the giant type. Any time a creature loses its Dexterity bonus (if any) to Armor Class, such as when it&#39;s caught flat-footed, it loses its dodge bonus, too.</description>
+			<description>+4 dodge bonus against giants.</description>
 			<type>GNOMERACIALTRAIT.RACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
