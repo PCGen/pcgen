@@ -32,3 +32,8 @@ Elven											TYPE:Spoken
 Undercommon										TYPE:Spoken
 
 Draconic						KEY:Draconic ~ Read	TYPE:Read
+
+English			TYPE:Spoken
+Latin				TYPE:Spoken
+Spanish			TYPE:Spoken
+Dwarven			TYPE:Spoken

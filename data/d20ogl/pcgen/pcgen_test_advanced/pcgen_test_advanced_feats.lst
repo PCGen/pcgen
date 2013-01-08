@@ -41,15 +41,15 @@ Test-78	ADD:TEMPLATE|Template-73							TYPE:Test78
 
 
 
-Test-57 Apply A1	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-1
+Test-57 Apply A1	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-1,Dodge
 Test-57 Apply A2	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-2
-Test-57 Apply A3	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-3
+#Test-57 Apply A3	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-3
 Test-57 Apply A4	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-4
-Test-57 Apply A5	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-5
-Test-57 Apply A6	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-6
+#Test-57 Apply A5	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-5
+Test-57 Apply A6	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-6,Test-57-Ability-6,Test-57-Ability-6
 Test-57 Apply A7	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-7
-Test-57 Apply A8	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-8 (Sword (Short))
-Test-57 Apply A9	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-9 (Natural)
+#Test-57 Apply A8	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-8 (Sword (Short))
+#Test-57 Apply A9	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-9 (Natural)
 
 
 #1) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:NO
@@ -61,6 +61,45 @@ Test-57 Apply A9	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-9 (Natural)
 #7) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:YES and any CHOOSE except NOCHOICE or USERINPUT. and the stackable items are chosen more than once (STACK is used)
 #8) Ability granted by a ADD:VFEAT token where the target naturally has parens
 #9) Ability granted by a ADD:VFEAT where the feat naturally has parens
+
+#With that, let me give you data for 3, 8, and 9. Hopefully you can derive 1-2 and 4-7 from 3...
+
+Test-57 Apply A3 LangGrant		VISIBLE:NO	TYPE:TestFooB	CHOOSE:LANGUAGE	AUTO:LANG|%LIST
+Test-57 Apply A3 FeatSelector		VISIBLE:NO	MULT:YES		CHOOSE:FEATSELECTION|TYPE=TestFooB
+Test-57 Apply A3 MyAddingFeat		TYPE:TEST-57	ADD:VFEAT|Test-57 Apply A3 FeatSelector,Dodge
+
+#Think about how this works when MyAddingFeat is selected. It asks FeatSelector to expand the possible choices, which are "any TYPE=Foo" feat. So it says, "any permutation of LangGrant". Well, THAT is CHOOSE as well, so that gets expanded too... so the choice window looks something like:
+#FeatSelector (LangGrant(English))
+#FeatSelector (LangGrant(French))
+#Dodge
+#Obviously since LangGrant is choosing language it would be STACK:NO (hence this is good for #3 not #5 or #7), but different CHOOSEs there would be stackable (if it were providing a Skill rank bonus for example)
+#===
+
+
+Test-57 Apply A5 LangGrant		VISIBLE:NO	TYPE:TestFooB	CHOOSE:LANGUAGE	AUTO:LANG|%LIST
+Test-57 Apply A5 FeatSelector		VISIBLE:NO	MULT:YES	STACK:YES	CHOOSE:FEATSELECTION|TYPE=TestFooB
+Test-57 Apply A5 MyAddingFeat		TYPE:TEST-57	ADD:VFEAT|Test-57 Apply A5 FeatSelector,Dodge
+
+
+
+#8)
+#Feat file:
+Test-57 Apply A8 MyFeat (is Really Cool)	VISIBLE:NO	TYPE:Foo
+Test-57 Apply A8 MySelectableFeat		VISIBLE:NO		MULT:YES <> CHOOSE:FEATSELECTION|TYPE=Foo
+Test-57 Apply A8 ToBeAdded					ADD:VFEAT|MySelectableFeat,Dodge
+
+#Note the choices you will receive in the window are:
+#MySelectableFeat(My Feat (is Really Cool))
+#Dodge
+#Note the MyFeat (is Really Cool) "naturally" has parenthesis, and that is not a "specific" choice driven by a CHOOSE, whereas MySelectableFeat is written with parenthesis because it has a CHOOSE. Yet we still have 2 sets of parenthesis...
+#Note also in 1-8 when I say "target", I'm referring to the "subitem" like "MyFeat (is Really Cool)"
+#===
+#9)
+Test-57 Apply A9 MyOtherFeat (is Also Cool)	VISIBLE:NO	TYPE:TEST-57
+Test-57 Apply A9 ToBeAdded						TYPE:TEST-57	ADD:VFEAT|Test-57 Apply A9 MyOtherFeat (is Also Cool),Dodge
+
+
+
 
 
 Test-57-Ability-1			MULT:NO
