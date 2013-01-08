@@ -783,12 +783,6 @@ public class BonusManager
 		return checkpointMap != null && checkpointMap.equals(activeBonusMap);
 	}
 
-	public void setTempBonusMap(Map<BonusObj, TempBonusInfo> tbl)
-	{
-		//Need to guarantee identity
-		tempBonusBySource = new IdentityHashMap<BonusObj, TempBonusInfo>(tbl);
-	}
-
 	public Map<BonusObj, TempBonusInfo> getTempBonusMap()
 	{
 		return new IdentityHashMap<BonusObj, TempBonusInfo>(tempBonusBySource);

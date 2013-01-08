@@ -10200,11 +10200,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return domainFacet.getSource(id, d);
 	}
 
-	public void setTempBonusMap(Map<BonusObj, BonusManager.TempBonusInfo> tempBonusMap)
-	{
-		bonusManager.setTempBonusMap(tempBonusMap);
-	}
-
 	public Map<String, String> getBonusStrings(String bonusString, String substring)
 	{
 		return bonusManager.getBonuses(bonusString, substring);
