@@ -1,6 +1,8 @@
 # CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
++2 racial bonus to Search, Spot, and Listen checks. Like an elf, a tallfellow who merely passes within 5 feet of a secret or concealed door is entitled to a Search check as though actively looking for it.	KEY:Halfling Notice Secret Doors	CATEGORY:Special Ability	TYPE:SpecialQuality
+
 # Ability Name			Output Name					Category of Ability		Type									Visible	Define													Description																	Multiple?	Choose											Aspects
 3 Wishes										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
 Acid											CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
