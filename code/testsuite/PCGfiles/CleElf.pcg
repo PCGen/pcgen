@@ -115,6 +115,8 @@ USERPOOL:Turn Undead|POOLPOINTS:0.0
 USERPOOL:Psionic Combat Mode|POOLPOINTS:0.0
 USERPOOL:Psychic Warrior Feat|POOLPOINTS:0.0
 USERPOOL:Slayer Feat|POOLPOINTS:0.0
+ABILITY:Elf Proficiency Choice|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Elf Weapon Choice|APPLIEDTO:Longsword|TYPE:
+USERPOOL:Elf Proficiency Choice|POOLPOINTS:0.0
 
 # Character Weapon proficiencies
 WEAPONPROF:[WEAPON:Blowgun|WEAPON:Club|WEAPON:Crossbow (Heavy)|WEAPON:Crossbow (Light)|WEAPON:Dagger|WEAPON:Dagger (Punching)|WEAPON:Dart|WEAPON:Gauntlet|WEAPON:Gauntlet (Spiked)|WEAPON:Grapple]

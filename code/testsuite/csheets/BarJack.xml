@@ -1256,7 +1256,7 @@ BIO
 		<ability_object>
 			<name>+1 racial bonus to attack rolls against kobolds and goblinoids (goblins, hobgoblins, and bugbears): Gnomes battle these creatures frequently and practice special techniques for fighting them.</name>
 			<description>+1 racial bonus to attack rolls against kobolds and goblinoids (goblins, hobgoblins, and bugbears): Gnomes battle these creatures frequently and practice special techniques for fighting them.</description>
-			<type>GNOMERACIALTRAIT.SPECIALQUALITY</type>
+			<type>GNOMERACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1289,7 +1289,7 @@ BIO
 		<ability_object>
 			<name>+2 racial bonus on saving throws against illusions</name>
 			<description>+2 racial bonus on saving throws against illusions</description>
-			<type>GNOMERACIALTRAIT.SPECIALQUALITY.SAVEBONUS</type>
+			<type>GNOMERACIALTRAIT.SAVEBONUS</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1321,7 +1321,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Gnome Racial Traits</name>
-			<description><para>+2 racial bonus on saving throws against illusions </para><para> +1 racial bonus on attack rolls against kobolds and goblinoids </para><para> +4 dodge bonus against giants. </para><para> +2 racial bonus on Listen checks. </para><para> +2 racial bonus on Alchemy checks. </para><para> Once per day a gnome can use &quot;Speak with Animals&quot; [per the spell] as a spell-like ability to speak with a burrowing mammal (a badger, fox, rabbit, etc.). This ability is innate to gnomes. It has a duration of 1 minute (the gnome is considered a 1st-level caster when he uses this ability, regardless of his actual level). </para><para> Gnomes with Intelligence scores of 10 or higher may cast the 0-level spells (cantrips) dancing lights, ghost sound, and prestidigitation, each once per day. These are arcane spells. Treat the gnome as a 1st-level caster for all spell effects dependent on level (range for all three spells and duration for ghost sound).</para></description>
+			<description><para>+2 racial bonus on saving throws against illusions </para><para> +1 racial bonus to attack rolls against kobolds and goblinoids (goblins, hobgoblins, and bugbears): Gnomes battle these creatures frequently and practice special techniques for fighting them. </para><para> +4 dodge bonus against giants. </para><para> +2 racial bonus on Listen checks. </para><para> +2 racial bonus on Alchemy checks. </para><para> Once per day a gnome can use &quot;Speak with Animals&quot; [per the spell] as a spell-like ability to speak with a burrowing mammal (a badger, fox, rabbit, etc.). This ability is innate to gnomes. It has a duration of 1 minute (the gnome is considered a 1st-level caster when he uses this ability, regardless of his actual level). </para><para> Gnomes with Intelligence scores of 10 or higher may cast the 0-level spells (cantrips) dancing lights, ghost sound, and prestidigitation, each once per day. These are arcane spells. Treat the gnome as a 1st-level caster for all spell effects dependent on level (range for all three spells and duration for ghost sound).</para></description>
 			<type>SPECIALQUALITY.GNOMERACIALTRAIT.RACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
@@ -1333,7 +1333,7 @@ BIO
 		<ability_object>
 			<name>Gnomes with Intelligence scores of 10 or higher may cast the 0-level spells (cantrips) dancing lights, ghost sound, and prestidigitation, each once per day. These are arcane spells. Treat the gnome as a 1st-level caster for all spell effects dependent on level (range for all three spells and duration for ghost sound).</name>
 			<description>Gnomes with Intelligence scores of 10 or higher may cast the 0-level spells (cantrips) dancing lights, ghost sound, and prestidigitation, each once per day. These are arcane spells. Treat the gnome as a 1st-level caster for all spell effects dependent on level (range for all three spells and duration for ghost sound).</description>
-			<type>GNOMERACIALTRAIT.RACIALTRAIT.SPECIALQUALITY</type>
+			<type>GNOMERACIALTRAIT.RACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1377,7 +1377,7 @@ BIO
 		<ability_object>
 			<name>Once per day a gnome can use &quot;Speak with Animals&quot; [per the spell] as a spell-like ability to speak with a burrowing mammal (a badger, fox, rabbit, etc.). This ability is innate to gnomes. It has a duration of 1 minute (the gnome is considered a 1st-level caster when he uses this ability, regardless of his actual level).</name>
 			<description>Once per day a gnome can use &quot;Speak with Animals&quot; [per the spell] as a spell-like ability to speak with a burrowing mammal (a badger, fox, rabbit, etc.). This ability is innate to gnomes. It has a duration of 1 minute (the gnome is considered a 1st-level caster when he uses this ability, regardless of his actual level).</description>
-			<type>GNOMERACIALTRAIT.SPECIALQUALITY</type>
+			<type>GNOMERACIALTRAIT.RACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
