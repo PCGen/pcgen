@@ -1063,17 +1063,6 @@ BIO
 	<ability_objects>
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
-			<name>+1 racial bonus on Listen, Search, and Spot checks.</name>
-			<description>+1 racial bonus on Listen, Search, and Spot checks.</description>
-			<type>HALFELFRACIALTRAIT</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Bardic Knowledge</name>
 			<description>+2 to see whether you know some relevant information about local notable people, legendary items, or noteworthy places.</description>
 			<type>SPECIALQUALITY</type>
@@ -1107,9 +1096,9 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Low-Light</name>
+			<name>Half-Elf Low-Light Vision</name>
 			<description></description>
-			<type></type>
+			<type>HALFELFRACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1118,9 +1107,20 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Low-Light Vision</name>
-			<description> A half-elf can see twice as far as a human in starlight, moonlight, torchlight, and similar conditions of poor illumination. She retains the ability to distinguish color and detail under these conditions.</description>
+			<name>Half-Elf Perception</name>
+			<description>+1 racial bonus on Listen, Search, and Spot checks.</description>
 			<type>HALFELFRACIALTRAIT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Low-Light</name>
+			<description></description>
+			<type></type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1175,17 +1175,6 @@ BIO
 		</ability_object>
 	<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
-			<name>+2 racial saving throw bonus against enchantment spells or effects</name>
-			<description>+2 racial saving throw bonus against enchantment spells or effects</description>
-			<type>HALFELFRACIALTRAIT.SPECIALQUALITY.SAVEBONUS</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
 			<type>INTERNAL</type>
@@ -1209,8 +1198,19 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Immunity to magic sleep effects</name>
-			<description>Immunity to magic sleep effects</description>
+			<description></description>
 			<type>HALFELFRACIALTRAIT.SPECIALQUALITY.IMMUNITY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>T</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>+2 racial saving throw bonus against enchantment spells or effects</name>
+			<description></description>
+			<type>HALFELFRACIALTRAIT.SPECIALQUALITY.SAVEBONUS</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
