@@ -2451,6 +2451,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						}
 						fullassoc = EntityEncoder.decode(element.getText());
 					}
+					else if (tag.equals(TAG_DOMAINGRANTS))
+					{
+						//Can safely ignore
+					}
 					else if (!tag.equals(TAG_ADDTOKEN))
 					{
 						final String msg =
