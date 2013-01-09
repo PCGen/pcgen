@@ -64,6 +64,9 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 	{
 		if (value.indexOf("PREAPPLY:") != -1)
 		{
+			Logging
+				.deprecationPrint("Use of PREAPPLY on a BONUS is deprecated, "
+					+ "please use TEMPBONUS with: " + value);
 			String[] components = value.split("\\|");
 			StringBuilder bonus = new StringBuilder(100);
 			StringBuilder submit = new StringBuilder(100);
