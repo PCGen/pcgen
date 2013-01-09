@@ -451,7 +451,9 @@ public final class PCGIOHandler extends IOHandler
 		//
 		for (PCClass pcClass : currentPC.getClassSet())
 		{
-			pcClass.setLevel(currentPC.getLevel(pcClass), currentPC);
+			currentPC.calcActiveBonuses();
+			currentPC.getSpellSupport(pcClass)
+				.calculateKnownSpellsForClassLevel(currentPC);
 		}
 
 		//
