@@ -27,6 +27,8 @@ Ability-57-2a	CATEGORY:Special Ability
 Ability-57-2b	CATEGORY:Special Ability
 Ability-57-3a	CATEGORY:Special Ability
 Ability-57-3b	CATEGORY:Special Ability
+Ability-57-4a	CATEGORY:Special Ability
+Ability-57-4b	CATEGORY:Special Ability
 
 CODE-1712C																				CATEGORY:Special Ability	TYPE:BugReport.Test.CODE.SpecialQuality																																																																			DESC:Select Skills Taken																																																																																										STACK:NO			MULT:YES	CHOOSE:SKILL|FEAT=CODE-1712A
 
@@ -81,6 +83,9 @@ Default																				CATEGORY:Internal			TYPE:Internal														DEFINE
 #ABILITY:FEAT|VIRTUAL|Greater Weapon Focus(Sun Blade)|PREFEAT:1,Greater Weapon Focus(Sword (Bastard)),Greater Weapon Focus(Sword (Short))	ABILITY:FEAT|VIRTUAL|Greater Weapon Specialization(Sun Blade)|PREFEAT:1,Greater Weapon Specialization(Sword (Bastard)),Greater Weapon Specialization(Sword (Short))	ABILITY:FEAT|VIRTUAL|Weapon Focus(Sun Blade)|PREFEAT:1,Weapon Focus(Sword (Bastard)),Weapon Focus(Sword (Short))	ABILITY:FEAT|VIRTUAL|Weapon Specialization(Sun Blade)|PREFEAT:1,Weapon Specialization(Sword (Bastard)),Weapon Specialization(Sword (Short))	ABILITY:FEAT|VIRTUAL|Greater Weapon Focus(Sling Staff (Halfling ~ Melee))|PREFEAT:1,Greater Weapon Focus(Sling Staff (Halfling))	ABILITY:FEAT|VIRTUAL|Greater Weapon Specialization(Sling Staff (Halfling ~ Melee))|PREFEAT:1,Greater Weapon Specialization(Sling Staff (Halfling))	ABILITY:FEAT|VIRTUAL|Weapon Focus(Sling Staff (Halfling ~ Melee))|PREFEAT:1,Weapon Focus(Sling Staff (Halfling))	ABILITY:FEAT|VIRTUAL|Weapon Specialization(Sling Staff (Halfling ~ Melee))|PREFEAT:1,Weapon Specialization(Sling Staff (Halfling))
 Animal Intelligence																		CATEGORY:Internal			TYPE:Internal							VISIBLE:NO																																																																																																																																																																																																																																																																																																																																																																																																																																																			SOURCEPAGE:p.201
 Tool Use																				CATEGORY:Internal			TYPE:Internal							VISIBLE:NO
+# Mystic Companion Choice
+Strength +1						KEY:Mystic_Comp_Strength				SORTKEY:Stat_1		CATEGORY:Special Ability	TYPE:MysticCompanionBonusStat																																																STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																																																																																																																																																																																																																																																																																																																	BONUS:STAT|STR|1
+Constitution +1					KEY:Mystic_Comp_Constitution				SORTKEY:Stat_3		CATEGORY:Special Ability	TYPE:MysticCompanionBonusStat																																																STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																																																																																																																																																																																																																																																																																																																																	BONUS:STAT|CON|1
 
 #SystemHands is a variable indicating the number of hands the race has.  The Tool Use ability triggers a few other abilities that I won't get into right now.
 

@@ -5,15 +5,15 @@ MyTest ~ No Prexxx										TYPE:Code1730
 MyTest ~ Yes Prexxx										TYPE:Code1730						PREFEAT:1,MyTest ~ No Prexxx
 MyTest ~ Yes x2 Prexxx										TYPE:Code1730						PREFEAT:2,MyTest ~ No Prexxx,MyTest ~ Yes Prexxx
 
-Add Foo Spell		TYPE:Test.TomTest		SPELLLEVEL:Wizard Test=3|Test Foo Spell
+Add Foo Spell		TYPE:Test.TomTest		SPELLLEVEL:CLASS|Wizard Test=3|Test Foo Spell
 
 
 
-Feat Main												TYPE:General																																					STACK:NO			MULT:YES	CHOOSE:SKILLSNAMED|CLASS																											AUTO:FEAT|Feat Choice (%LIST)
+Feat Main												TYPE:General																																					STACK:NO			MULT:YES	CHOOSE:SKILL|CLASS																											AUTO:FEAT|Feat Choice (%LIST)
 
-Feat Choice												TYPE:General																																					STACK:NO			MULT:YES	CHOOSE:SKILLSNAMED|CLASS
+Feat Choice												TYPE:General																																					STACK:NO			MULT:YES	CHOOSE:SKILL|CLASS
 
-Feat Selector											TYPE:GENERAL																																					STACK:YES			MULT:YES	CHOOSE:FEAT=Feat Choice																																																																																															BONUS:SKILL|%LIST|1
+Feat Selector											TYPE:GENERAL																																					STACK:YES			MULT:YES	CHOOSE:SKILL|FEAT=Feat Choice																																																																																															BONUS:SKILL|%LIST|1
 
 
 
@@ -64,7 +64,7 @@ Test-57 Apply A7	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-7
 
 #With that, let me give you data for 3, 8, and 9. Hopefully you can derive 1-2 and 4-7 from 3...
 
-Test-57 Apply A3 LangGrant		VISIBLE:NO	TYPE:TestFooB	CHOOSE:LANGUAGE	AUTO:LANG|%LIST
+Test-57 Apply A3 LangGrant		VISIBLE:NO	TYPE:TestFooB		MULT:YES	CHOOSE:LANG|ALL	AUTO:LANG|%LIST
 Test-57 Apply A3 FeatSelector		VISIBLE:NO	MULT:YES		CHOOSE:FEATSELECTION|TYPE=TestFooB
 Test-57 Apply A3 MyAddingFeat		TYPE:TEST-57	ADD:VFEAT|Test-57 Apply A3 FeatSelector,Dodge
 
@@ -76,7 +76,7 @@ Test-57 Apply A3 MyAddingFeat		TYPE:TEST-57	ADD:VFEAT|Test-57 Apply A3 FeatSelec
 #===
 
 
-Test-57 Apply A5 LangGrant		VISIBLE:NO	TYPE:TestFooB	CHOOSE:LANGUAGE	AUTO:LANG|%LIST
+Test-57 Apply A5 LangGrant		VISIBLE:NO	TYPE:TestFooB		MULT:YES	CHOOSE:LANG|ALL	AUTO:LANG|%LIST
 Test-57 Apply A5 FeatSelector		VISIBLE:NO	MULT:YES	STACK:YES	CHOOSE:FEATSELECTION|TYPE=TestFooB
 Test-57 Apply A5 MyAddingFeat		TYPE:TEST-57	ADD:VFEAT|Test-57 Apply A5 FeatSelector,Dodge
 
@@ -85,7 +85,7 @@ Test-57 Apply A5 MyAddingFeat		TYPE:TEST-57	ADD:VFEAT|Test-57 Apply A5 FeatSelec
 #8)
 #Feat file:
 Test-57 Apply A8 MyFeat (is Really Cool)	VISIBLE:NO	TYPE:Foo
-Test-57 Apply A8 MySelectableFeat		VISIBLE:NO		MULT:YES <> CHOOSE:FEATSELECTION|TYPE=Foo
+Test-57 Apply A8 MySelectableFeat		VISIBLE:NO		MULT:YES	CHOOSE:FEATSELECTION|TYPE=Foo
 Test-57 Apply A8 ToBeAdded					ADD:VFEAT|MySelectableFeat,Dodge
 
 #Note the choices you will receive in the window are:
@@ -121,8 +121,8 @@ CODE-1712B												TYPE:BugReport.Test.CODE																							DESC:Select
 
 A NEW CHOOSE SELECTION ISSUE									TYPE:Hi.Test.Chooser																																				STACK:NO			MULT:YES	CHOOSE:FEATSELECTION|Evasion|Extreme Effort|Increased Speed|Remain Conscious|Robust|Stamina|TITLE=Add a Feat													AUTO:FEAT|%LIST
 
-Evasion												TYPE:Hi																										DESC:Hi, test
-Extreme Effort											TYPE:Hi																										DESC:Hi, test
+Evasion												TYPE:Hi.MySelectableFeat																										DESC:Hi, test
+Extreme Effort											TYPE:Hi.MySelectableFeat																										DESC:Hi, test
 Increased Speed											TYPE:Hi																										DESC:Hi, test
 Remain Conscious											TYPE:Hi																										DESC:Hi, test
 Robust												TYPE:Hi																										DESC:Hi, test

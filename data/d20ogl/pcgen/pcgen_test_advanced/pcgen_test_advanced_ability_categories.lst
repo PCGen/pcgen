@@ -5,7 +5,8 @@ ABILITYCATEGORY:Martial Art Techniques			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:
 ABILITYCATEGORY:Martial Art Skill Power Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability		TYPE:MASpower																																											PLURAL:Martial Arts Power Choices		DISPLAYLOCATION:Character Creation Pool
 
 ABILITYCATEGORY:Martial Arts ~ Hiten Mitsurugi Ryuu	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability		TYPE:MA ~ Hiten Mitsurugi Ryuu																																								PLURAL:Hiten Mitsurugi Ryuu Techniques	DISPLAYLOCATION:Character Creation Pool
-
+ABILITYCATEGORY:Mystic Companion Stat Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MysticCompanionBonusStat	PLURAL:Companion Bonus Stat			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:MySelectableFeat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:FEAT	TYPE:MySelectableFeat				DISPLAYLOCATION:Feats
 
 ABILITYCATEGORY:Any Feat Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:FEAT				TYPE:*																																												PLURAL:Any Feat Choices				DISPLAYLOCATION:Feats
 
