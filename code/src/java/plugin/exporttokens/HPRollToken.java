@@ -102,17 +102,6 @@ public class HPRollToken extends Token
 	}
 
 	/**
-	 * Get the HPROLL token
-	 * @param pc
-	 * @param level
-	 * @return the HPROLL token
-	 */
-	public static int getHPRollToken(PlayerCharacter pc, int level)
-	{
-		return getRollToken(pc, level);
-	}
-
-	/**
 	 * Get the HPROLL.ROLL token
 	 * @param pc
 	 * @param level

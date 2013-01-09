@@ -25,9 +25,10 @@
  */
 package plugin.exporttokens;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
-import pcgen.core.WeaponProf;
 import pcgen.core.display.CharacterDisplay;
+import pcgen.core.display.DisplayUtilities;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
@@ -64,21 +65,14 @@ public class WeaponProfsToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		StringBuilder sb = new StringBuilder();
-		
 		if (SettingsHandler.getWeaponProfPrintout())
 		{
-			boolean first = true;
-			for (final WeaponProf wp : display.getSortedWeaponProfs())
-			{
-				if (first == false)
-				{
-					sb.append(", ");
-				}
-				sb.append(wp.getDisplayName());
-				first = false;
-			}
+			return DisplayUtilities.joinDisplayName(
+				display.getSortedWeaponProfs(), ", ");
 		}
-		return sb.toString();
+		else
+		{
+			return Constants.EMPTY_STRING;
+		}
 	}
 }
