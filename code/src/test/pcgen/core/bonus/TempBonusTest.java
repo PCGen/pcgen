@@ -27,7 +27,6 @@ import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.facade.InfoFacade;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.gui2.facade.TempBonusHelper;
 import pcgen.persistence.PersistenceLayerException;
@@ -40,27 +39,22 @@ public class TempBonusTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
-		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement|PREAPPLY:PC");
-		for (Prerequisite p : bonus.getPrerequisiteList())
-		{
-			assertTrue(TempBonusHelper.isApplyPrereq(p));
-		}
-		assertFalse(TempBonusHelper.isAnyPCTempBonus(bonus));
-		assertTrue(TempBonusHelper.isPCTempBonus(bonus));
-		assertFalse(TempBonusHelper.isNonPCTempBonus(bonus));
-		assertTrue(TempBonusHelper.isCharacterTempBonus(bonus));
-		assertFalse(TempBonusHelper.isEquipmentTempBonus(bonus));
-		assertTrue(TempBonusHelper.isTempBonus(bonus));
-		assertTrue(TempBonusHelper.isTempBonusTarget(bonus, TempBonusHelper.TempBonusTarget.PC));
-		assertFalse(TempBonusHelper.isTempBonusTarget(bonus, TempBonusHelper.TempBonusTarget.ANYPC));
+		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
 		Spell spell = context.ref.constructNowIfNecessary(Spell.class, "PCTempBonusItem");
-		spell.addToListFor(ListKey.BONUS, bonus);
+		spell.addToListFor(ListKey.BONUS_PC, bonus);
 		assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell, character));
 		assertTrue(TempBonusHelper.hasPCTempBonus(spell, character));
 		assertFalse(TempBonusHelper.hasNonPCTempBonus(spell, character));
 		assertTrue(TempBonusHelper.hasCharacterTempBonus(spell, character));
 		assertFalse(TempBonusHelper.hasEquipmentTempBonus(spell, character));
-		assertTrue(TempBonusHelper.getEquipmentApplyString(spell, character).isEmpty());
+		try
+		{
+			assertTrue(TempBonusHelper.getEquipmentApplyString(spell, character).isEmpty());
+		}
+		catch (NullPointerException e)
+		{
+			//This is appropriate too
+		}
 	}
 
 	
@@ -68,27 +62,22 @@ public class TempBonusTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
-		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement|PREAPPLY:ANYPC");
-		for (Prerequisite p : bonus.getPrerequisiteList())
-		{
-			assertTrue(TempBonusHelper.isApplyPrereq(p));
-		}
-		assertTrue(TempBonusHelper.isAnyPCTempBonus(bonus));
-		assertFalse(TempBonusHelper.isPCTempBonus(bonus));
-		assertTrue(TempBonusHelper.isNonPCTempBonus(bonus));
-		assertTrue(TempBonusHelper.isCharacterTempBonus(bonus));
-		assertFalse(TempBonusHelper.isEquipmentTempBonus(bonus));
-		assertTrue(TempBonusHelper.isTempBonus(bonus));
-		assertFalse(TempBonusHelper.isTempBonusTarget(bonus, TempBonusHelper.TempBonusTarget.PC));
-		assertTrue(TempBonusHelper.isTempBonusTarget(bonus, TempBonusHelper.TempBonusTarget.ANYPC));
+		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
 		Spell spell = context.ref.constructNowIfNecessary(Spell.class, "PCTempBonusItem");
-		spell.addToListFor(ListKey.BONUS, bonus);
+		spell.addToListFor(ListKey.BONUS_ANYPC, bonus);
 		assertTrue(TempBonusHelper.hasAnyPCTempBonus(spell, character));
 		assertFalse(TempBonusHelper.hasPCTempBonus(spell, character));
 		assertTrue(TempBonusHelper.hasNonPCTempBonus(spell, character));
 		assertTrue(TempBonusHelper.hasCharacterTempBonus(spell, character));
 		assertFalse(TempBonusHelper.hasEquipmentTempBonus(spell, character));
-		assertTrue(TempBonusHelper.getEquipmentApplyString(spell, character).isEmpty());
+		try
+		{
+			assertTrue(TempBonusHelper.getEquipmentApplyString(spell, character).isEmpty());
+		}
+		catch (NullPointerException e)
+		{
+			//This is appropriate too
+		}
 	}
 
 	
@@ -96,21 +85,10 @@ public class TempBonusTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
-		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement|PREAPPLY:Martial;Simple;Exotic");
-		for (Prerequisite p : bonus.getPrerequisiteList())
-		{
-			assertTrue(TempBonusHelper.isApplyPrereq(p));
-		}
-		assertFalse(TempBonusHelper.isAnyPCTempBonus(bonus));
-		assertFalse(TempBonusHelper.isPCTempBonus(bonus));
-		assertTrue(TempBonusHelper.isNonPCTempBonus(bonus));
-		assertFalse(TempBonusHelper.isCharacterTempBonus(bonus));
-		assertTrue(TempBonusHelper.isEquipmentTempBonus(bonus));
-		assertTrue(TempBonusHelper.isTempBonus(bonus));
-		assertFalse(TempBonusHelper.isTempBonusTarget(bonus, TempBonusHelper.TempBonusTarget.PC));
-		assertFalse(TempBonusHelper.isTempBonusTarget(bonus, TempBonusHelper.TempBonusTarget.ANYPC));
+		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
+		EquipBonus tb = new EquipBonus(bonus, "MARTIAL;SIMPLE;EXOTIC");
 		Spell spell = context.ref.constructNowIfNecessary(Spell.class, "PCTempBonusItem");
-		spell.addToListFor(ListKey.BONUS, bonus);
+		spell.addToListFor(ListKey.BONUS_EQUIP, tb);
 		assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell, character));
 		assertFalse(TempBonusHelper.hasPCTempBonus(spell, character));
 		assertTrue(TempBonusHelper.hasNonPCTempBonus(spell, character));

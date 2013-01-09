@@ -1031,11 +1031,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		//
-		// next do all Feats to get PREAPPLY:ANYtheCharacter
+		// next do all Feats to get TEMPBONUS:ANYPC or TEMPBONUS:EQUIP
 		for (Ability aFeat : Globals.getContext().ref.getManufacturer(Ability.class, AbilityCategory.FEAT)
 				.getAllObjects())
 		{
-			scanForAnyPcTempBonuses(tempBonuses, aFeat);
+			scanForNonPcTempBonuses(tempBonuses, aFeat);
 		}
 
 		//
@@ -1058,7 +1058,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 
 		//
-		// Next do all spells to get PREAPPLY:ANYPC or PREAPPLY:type
+		// Next do all spells to get TEMPBONUS:ANYPC or TEMPBONUS:EQUIP
 		for (Iterator<?> fI = Globals.getSpellMap().values().iterator(); fI.hasNext();)
 		{
 			final Object obj = fI.next();
@@ -1099,10 +1099,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			scanForTempBonuses(tempBonuses, aTemp);
 		}
 
-		// do all Templates to get PREAPPLY:ANYPC
+		// do all Templates to get TEMPBONUS:ANYPC or TEMPBONUS:EQUIP
 		for (PCTemplate aTemp : Globals.getContext().ref.getConstructedCDOMObjects(PCTemplate.class))
 		{
-			scanForAnyPcTempBonuses(tempBonuses, aTemp);
+			scanForNonPcTempBonuses(tempBonuses, aTemp);
 		}
 
 		//
@@ -1114,18 +1114,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		Collections.sort(tempBonuses);
 		availTempBonuses.updateContents(tempBonuses);
-	}
-
-	private void scanForAnyPcTempBonuses(List<TempBonusFacadeImpl> tempBonuses, PObject obj)
-	{
-		if (obj == null)
-		{
-			return;
-		}
-		if (TempBonusHelper.hasAnyPCTempBonus(obj, theCharacter))
-		{
-			tempBonuses.add(new TempBonusFacadeImpl(obj));
-		}
 	}
 
 	private void scanForNonPcTempBonuses(List<TempBonusFacadeImpl> tempBonuses, PObject obj)
@@ -1209,15 +1197,22 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return;
 		}
+		TempBonusFacadeImpl appliedTempBonus;
 		if (target instanceof Equipment)
 		{
 			aEq = (Equipment) target;
+			appliedTempBonus =
+					TempBonusHelper.applyBonusToCharacterEquipment(aEq,
+						originObj, theCharacter);
+		}
+		else
+		{
+			appliedTempBonus =
+					TempBonusHelper.applyBonusToCharacter(originObj,
+						theCharacter);
 		}
 
 		// Resolve choices and apply the bonus to the character.
-		TempBonusFacadeImpl appliedTempBonus =
-				TempBonusHelper.applyBonusToCharacter(aEq,
-					originObj, theCharacter);
 		if (appliedTempBonus == null)
 		{
 			return;

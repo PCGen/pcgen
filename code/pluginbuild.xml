@@ -1489,15 +1489,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${preplugins.dir}/PreToken-PREAPPLY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/pretokens/parser/PreApplyParser.class" />
-					<include name="plugin/pretokens/test/PreApplyTester.class" />
-					<include name="plugin/pretokens/writer/PreApplyWriter.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${preplugins.dir}/PreToken-PREARMORPROF.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -2063,7 +2054,7 @@ jar-all-plugins - Generate the plugin jar files
 		</jar>
 	</target>
 
-	<target name="jar-lst-plugins" depends="jar-lst-global-plugins, jar-lst-ability-plugins, jar-lst-add-plugins, jar-lst-auto-plugins, jar-lst-campaign-plugins, jar-lst-choose-plugins, jar-lst-class-plugins, jar-lst-pcclass-level-plugins, jar-lst-companionmod-plugins, jar-lst-diety-plugins, jar-lst-domain-plugins, jar-lst-equipment-plugins, jar-lst-equipmentmodifier-plugins, jar-lst-equipmentmodifier-choose-plugins, jar-lst-race-plugins, jar-lst-remove-plugins, jar-lst-skill-plugins, jar-lst-spell-plugins, jar-lst-subclass-plugins, jar-lst-substitutionlevel-plugins, jar-lst-template-plugins, jar-lst-weaponprof-plugins, jar-lst-kit-plugins" description="Build (Link) Lst Token plugin jar files">
+	<target name="jar-lst-plugins" depends="jar-lst-global-plugins, jar-lst-ability-plugins, jar-lst-add-plugins, jar-lst-auto-plugins, jar-lst-campaign-plugins, jar-lst-choose-plugins, jar-lst-class-plugins, jar-lst-pcclass-level-plugins, jar-lst-companionmod-plugins, jar-lst-diety-plugins, jar-lst-domain-plugins, jar-lst-equipment-plugins, jar-lst-equipmentmodifier-plugins, jar-lst-equipmentmodifier-choose-plugins, jar-lst-race-plugins, jar-lst-remove-plugins, jar-lst-skill-plugins, jar-lst-spell-plugins, jar-lst-subclass-plugins, jar-lst-substitutionlevel-plugins, jar-lst-tempbonus-plugins, jar-lst-template-plugins, jar-lst-weaponprof-plugins, jar-lst-kit-plugins" description="Build (Link) Lst Token plugin jar files">
 	</target>
 
 	<target name="jar-lst-global-plugins" depends="makeplugindirs" description="Build (Link) Global Lst Token plugin jar files">
@@ -2338,6 +2329,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/SrLst.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/LstToken-TEMPBONUS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/TempBonusLst.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -4436,7 +4434,32 @@ jar-all-plugins - Generate the plugin jar files
 		-->
 	</target>
 
-	<target name="jar-lst-template-plugins" depends="makeplugindirs" description="Build (Link) Weapon Prof Lst Token plugin jar files">
+	<target name="jar-lst-tempbonus-plugins" depends="makeplugindirs" description="Build (Link) Temp Bonus Subtoken plugin jar files">
+		<!-- Template tokens-->
+		<jar jarfile="${lstplugins.dir}/TempBonusLstToken-ANYPC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/tempbonus/AnyPCToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/TempBonusLstToken-EQ.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/tempbonus/EQToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/TempBonusLstToken-PC.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/tempbonus/PCToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="jar-lst-template-plugins" depends="makeplugindirs" description="Build (Link) Template Lst Token plugin jar files">
 		<!-- Template tokens-->
 		<jar jarfile="${lstplugins.dir}/TemplateLstToken-ADDLEVEL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">

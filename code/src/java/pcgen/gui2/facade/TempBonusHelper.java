@@ -24,7 +24,6 @@ package pcgen.gui2.facade;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -32,26 +31,25 @@ import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.BonusManager;
 import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.bonus.EquipBonus;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.InfoFactory;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.prereq.PrereqHandler;
-import pcgen.core.prereq.Prerequisite;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
@@ -70,14 +68,6 @@ import pcgen.util.chooser.ChooserRadio;
  */
 public class TempBonusHelper
 {
-
-	/** An enum for the target of a temp bonus */
-	public enum TempBonusTarget {
-		/** This bonus applies only to if the PC has the owner of this bonus */
-		PC,
-		/** Any PC can apply this bonus */
-		ANYPC
-	}
 
 	/** An empty string. */
 	private static final String EMPTY_STRING = ""; //$NON-NLS-1$
@@ -103,7 +93,7 @@ public class TempBonusHelper
 	{
 		List<InfoFacade> possibleTargets =
 				getListOfApplicableEquipment(originObj, theCharacter);
-		boolean canApplyToPC = canApplyToPC(originObj, theCharacter);
+		boolean canApplyToPC = hasCharacterTempBonus(originObj, theCharacter);
 		if (possibleTargets.isEmpty())
 		{
 			if (canApplyToPC)
@@ -192,155 +182,104 @@ public class TempBonusHelper
 		{
 			found = false;
 
-			for (BonusObj aBonus : originObj.getBonusList(aEq))
+			for (EquipBonus eb : originObj.getListFor(ListKey.BONUS_EQUIP))
 			{
-				if (aBonus == null)
+				String conditions = eb.conditions;
+				boolean passesConditions = passesConditions(aEq, conditions);
+				if (passesConditions && !found)
 				{
-					continue;
-				}
-				if (TempBonusHelper.isTempBonus(aBonus))
-				{
-					boolean passesApply = true;
-					for (Iterator<Prerequisite> iter =
-							aBonus.getPrerequisiteList().iterator(); iter
-						.hasNext()
-						&& passesApply;)
-					{
-						Prerequisite element = iter.next();
-						if (element.getKind() != null
-							&& element.getKind().equalsIgnoreCase(
-								Prerequisite.APPLY_KIND))
-						{
-							if (!PrereqHandler.passes(element, aEq, theCharacter))
-							{
-								passesApply = false;
-							}
-						}
-					}
-					if (passesApply && !found)
-					{
-						possibleEquipment.add(aEq);
-						found = true;
-					}
+					possibleEquipment.add(aEq);
+					found = true;
 				}
 			}
 		}
 		return possibleEquipment;
 	}
-	
-	/**
-	 * Identify if this temporary bonus can be applied to just a character.
-	 * @param originObj The rules object providing the bonus.
-	 * @param theCharacter The target character.
-	 * @return true if an equipment choice is not required, false if equipment is needed.
-	 */
-	private static boolean canApplyToPC(CDOMObject originObj, PlayerCharacter theCharacter)
+
+	private static boolean passesConditions(Equipment aEq, String conditions)
 	{
-		boolean hasPCBonus = false;
-
-		for (BonusObj aBonus : originObj.getBonusList(theCharacter))
+		for (String andToken : conditions.split(","))
 		{
-			if (aBonus == null)
+			boolean passOr = false;
+			for (String orToken : andToken.split("\\;"))
 			{
-				continue;
-			}
-
-			if (TempBonusHelper.isTempBonus(aBonus))
-			{
-				if ((TempBonusHelper.isTempBonusTarget(aBonus, TempBonusTarget.ANYPC)
-						|| TempBonusHelper.isTempBonusTarget(aBonus, TempBonusTarget.PC))
-					&& !hasPCBonus)
+				if (orToken.startsWith("["))
 				{
-					hasPCBonus = true;
+					if (!aEq.isType(orToken.substring(1, orToken.length() - 1)))
+					{
+						passOr = true;
+						break;
+					}
+				}
+				else
+				{
+					if (aEq.isType(orToken))
+					{
+						passOr = true;
+						break;
+					}
 				}
 			}
+			if (!passOr)
+			{
+				return false;
+			}
 		}
-		return hasPCBonus;
+		return true;
 	}
 	
 	/**
-	 * Apply the temporary bonus to the character. The bonus may be applied 
-	 * directly to the character, or if a piece of equipment is nominated to
-	 * that piece of equipment. Generally equipment will be a 'temporary'
-	 * equipment item created to show the item with the bonus. 
-	 *  
-	 * @param aEq The temporary equipment item to apply the bonus to. 
-	 * @param originObj The rules object granting the bonus.
-	 * @param theCharacter The character the bonus is being applied to.
+	 * Apply the temporary bonus to the character's equipment. Generally
+	 * equipment will be a 'temporary' equipment item created to show the item
+	 * with the bonus.
+	 * 
+	 * @param aEq
+	 *            The temporary equipment item to apply the bonus to.
+	 * @param originObj
+	 *            The rules object granting the bonus.
+	 * @param theCharacter
+	 *            The character the bonus is being applied to.
 	 */
-	static TempBonusFacadeImpl applyBonusToCharacter(
+	static TempBonusFacadeImpl applyBonusToCharacterEquipment(
 		Equipment aEq, CDOMObject originObj, PlayerCharacter theCharacter) 
 	{
 		TempBonusFacadeImpl appliedBonus = null;
 		String repeatValue = EMPTY_STRING;
-		for (BonusObj aBonus : originObj.getBonusList(theCharacter))
+		for (EquipBonus eb : originObj.getListFor(ListKey.BONUS_EQUIP))
 		{
-			if (TempBonusHelper.isTempBonus(aBonus))
+			BonusObj aBonus = eb.bonus;
+			String oldValue = aBonus.toString();
+			String newValue = oldValue;
+			if (originObj.getSafe(StringKey.CHOICE_STRING).length() > 0)
 			{
-				String oldValue = aBonus.toString();
-				String newValue = oldValue;
-				if (originObj.getSafe(StringKey.CHOICE_STRING)
-					.length() > 0)
+				BonusInfo bi =
+						TempBonusHelper.getBonusChoice(oldValue, originObj,
+							repeatValue, theCharacter);
+				if (bi == null)
 				{
-					BonusInfo bi =
-							TempBonusHelper.getBonusChoice(oldValue,
-								originObj, repeatValue,
-								theCharacter);
-					if (bi == null)
-					{
-						return null;
-					}
-					newValue = bi.getBonusValue();
-					repeatValue = bi.getRepeatValue();
+					return null;
 				}
-				BonusObj newB = Bonus.newBonus(Globals.getContext(), newValue);
-				if (newB != null)
+				newValue = bi.getBonusValue();
+				repeatValue = bi.getRepeatValue();
+			}
+			BonusObj newB = Bonus.newBonus(Globals.getContext(), newValue);
+			if (newB != null)
+			{
+				// if Target was this PC, then add
+				// bonus to TempBonusMap
+				theCharacter.setApplied(newB, PrereqHandler.passesAll(
+					newB.getPrerequisiteList(), aEq, theCharacter));
+				aEq.addTempBonus(newB);
+				TempBonusInfo tempBonusInfo =
+						theCharacter.addTempBonus(newB, originObj, aEq);
+				if (appliedBonus == null)
 				{
-					// We clear the prereqs and add the non-PREAPPLY prereqs from the old bonus
-					// Why are we doing this? (for qualifies)
-					newB.clearPrerequisiteList();
-					for (Prerequisite prereq : aBonus.getPrerequisiteList())
-					{
-						if (prereq.getKind() == null
-							|| !prereq.getKind().equalsIgnoreCase(
-								Prerequisite.APPLY_KIND))
-						{
-							try
-							{
-								newB.addPrerequisite(prereq.clone());
-							}
-							catch (CloneNotSupportedException e)
-							{
-								throw new UnreachableError(
-										"Prerequisites should be cloneable by PCGen design"); //$NON-NLS-1$
-							}
-						}
-					}
-
-					// if Target was this PC, then add
-					// bonus to TempBonusMap
-					TempBonusInfo tempBonusInfo;
-					Object target;
-					if (aEq == null)
-					{
-						theCharacter.setApplied(newB, newB.qualifies(theCharacter, aEq ));
-						tempBonusInfo = theCharacter.addTempBonus(newB, originObj, theCharacter);
-						target = theCharacter;
-					}
-					else
-					{
-						theCharacter.setApplied(newB, PrereqHandler.passesAll(
-							newB.getPrerequisiteList(), aEq, theCharacter));
-						aEq.addTempBonus(newB);
-						tempBonusInfo = theCharacter.addTempBonus(newB, originObj, aEq);
-						target = aEq;
-					}
-
-					if (appliedBonus == null)
-					{
-						String bonusName = new BonusManager(theCharacter).getBonusName(newB, tempBonusInfo);
-						appliedBonus = new TempBonusFacadeImpl(originObj, target, bonusName);
-					}
+					String bonusName =
+							new BonusManager(theCharacter).getBonusName(newB,
+								tempBonusInfo);
+					appliedBonus =
+							new TempBonusFacadeImpl(originObj, aEq,
+								bonusName);
 				}
 			}
 		}
@@ -356,6 +295,68 @@ public class TempBonusHelper
 		return appliedBonus;
 	}
 	
+	/**
+	 * Apply the temporary bonus to the character. The bonus is applied 
+	 * directly to the character.  
+	 *  
+	 * @param originObj The rules object granting the bonus.
+	 * @param theCharacter The character the bonus is being applied to.
+	 */
+	static TempBonusFacadeImpl applyBonusToCharacter(CDOMObject originObj,
+		PlayerCharacter theCharacter)
+	{
+		TempBonusFacadeImpl appliedBonus = null;
+		String repeatValue = EMPTY_STRING;
+		for (BonusObj aBonus : getTempCharBonusesFor(originObj, theCharacter))
+		{
+			String oldValue = aBonus.toString();
+			String newValue = oldValue;
+			if (originObj.getSafe(StringKey.CHOICE_STRING).length() > 0)
+			{
+				BonusInfo bi =
+						TempBonusHelper.getBonusChoice(oldValue, originObj,
+							repeatValue, theCharacter);
+				if (bi == null)
+				{
+					return null;
+				}
+				newValue = bi.getBonusValue();
+				repeatValue = bi.getRepeatValue();
+			}
+			BonusObj newB = Bonus.newBonus(Globals.getContext(), newValue);
+			if (newB != null)
+			{
+				// if Target was this PC, then add
+				// bonus to TempBonusMap
+				theCharacter
+					.setApplied(newB, newB.qualifies(theCharacter, null));
+				TempBonusInfo tempBonusInfo =
+						theCharacter
+							.addTempBonus(newB, originObj, theCharacter);
+				if (appliedBonus == null)
+				{
+					String bonusName =
+							new BonusManager(theCharacter).getBonusName(newB,
+								tempBonusInfo);
+					appliedBonus =
+							new TempBonusFacadeImpl(originObj, theCharacter,
+								bonusName);
+				}
+			}
+		}
+		
+		return appliedBonus;
+	}
+	
+	private static List<BonusObj> getTempCharBonusesFor(CDOMObject originObj,
+		PlayerCharacter theCharacter)
+	{
+		List<BonusObj> list = new ArrayList<BonusObj>(5);
+		list.addAll(originObj.getSafeListFor(ListKey.BONUS_ANYPC));
+		list.addAll(originObj.getSafeListFor(ListKey.BONUS_PC));
+		return list;
+	}
+
 	static void removeBonusFromCharacter(PlayerCharacter pc, Equipment aEq, CDOMObject aCreator)
 	{
 
@@ -606,248 +607,61 @@ public class TempBonusHelper
 		}
 	}
 
-	public static boolean isAnyPCTempBonus(BonusObj aBonus)
-	{
-		return TempBonusHelper.isTempBonus(aBonus) && TempBonusHelper.isTempBonusTarget(aBonus, TempBonusTarget.ANYPC);
-	}
-
-	public static boolean isPCTempBonus(BonusObj aBonus)
-	{
-		return TempBonusHelper.isTempBonus(aBonus) && TempBonusHelper.isTempBonusTarget(aBonus, TempBonusTarget.PC);
-	}
-
-	public static boolean isNonPCTempBonus(BonusObj aBonus)
-	{
-		return TempBonusHelper.isTempBonus(aBonus) && !TempBonusHelper.isTempBonusTarget(aBonus, TempBonusTarget.PC);
-	}
-
-	public static boolean isCharacterTempBonus(BonusObj aBonus)
-	{
-		return isAnyPCTempBonus(aBonus) || isPCTempBonus(aBonus);
-	}
-	
-	public static boolean isEquipmentTempBonus(BonusObj aBonus)
-	{
-		return isTempBonus(aBonus) && !isCharacterTempBonus(aBonus);
-	}
-
-	public static boolean isTempBonus(BonusObj bonus)
-	{
-		if ( !bonus.hasPrerequisites() )
-		{
-			return false;
-		}
-		
-		for (final Prerequisite prereq : bonus.getPrerequisiteList())
-		{
-			if (isApplyPrereq(prereq))
-			{
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	public static boolean isApplyPrereq(Prerequisite prereq)
-	{
-		if (prereq.getPrerequisites().isEmpty()
-			&& Prerequisite.APPLY_KIND.equalsIgnoreCase(prereq.getKind()))
-		{
-			return true;
-		}
-
-		for (final Prerequisite premult : prereq.getPrerequisites())
-		{
-			if (isApplyPrereq(premult))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
 	////////////////////////////////////////////////
 	//        Public Accessors and Mutators       //
 	////////////////////////////////////////////////
 
-	public static boolean isTempBonusTarget(BonusObj bonus, final TempBonusTarget aTarget )
+	public static boolean hasAnyPCTempBonus(CDOMObject obj,
+		PlayerCharacter theCharacter)
 	{
-		if ( !isTempBonus(bonus) || !bonus.hasPrerequisites() )
-		{
-			return false;
-		}
-		
-		for ( final Prerequisite prereq : bonus.getPrerequisiteList() )
-		{
-			if ( prereq.getOperand().equalsIgnoreCase(aTarget.toString()) )
-			{
-				return true;
-			}
-			for ( final Prerequisite premult : prereq.getPrerequisites() )
-			{
-				if ( premult.getOperand().equalsIgnoreCase(aTarget.toString()) )
-				{
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-	public static boolean hasAnyPCTempBonus(PObject obj, PlayerCharacter theCharacter)
-	{
-		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
-		{
-			if (TempBonusHelper.isAnyPCTempBonus(aBonus))
-			{
-				return true;
-			}
-		}
-		return false;
+		return obj.containsListFor(ListKey.BONUS_ANYPC);
 	}
 
 	public static boolean hasPCTempBonus(CDOMObject obj,
 		PlayerCharacter theCharacter)
 	{
-		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
-		{
-			if (TempBonusHelper.isPCTempBonus(aBonus))
-			{
-				return true;
-			}
-		}
-		return false;
+		return obj.containsListFor(ListKey.BONUS_PC);
 	}
 
 	public static boolean hasNonPCTempBonus(CDOMObject obj,
 		PlayerCharacter theCharacter)
 	{
-		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
-		{
-			if (TempBonusHelper.isNonPCTempBonus(aBonus))
-			{
-				return true;
-			}
-		}
-		return false;
+		return hasEquipmentTempBonus(obj, theCharacter)
+			|| hasAnyPCTempBonus(obj, theCharacter);
 	}
 
 	public static boolean hasCharacterTempBonus(CDOMObject obj,
 		PlayerCharacter theCharacter)
 	{
-		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
-		{
-			if (TempBonusHelper.isCharacterTempBonus(aBonus))
-			{
-				return true;
-			}
-		}
-		return false;
+		return hasAnyPCTempBonus(obj, theCharacter)
+			|| hasPCTempBonus(obj, theCharacter);
 	}
 
 	public static boolean hasEquipmentTempBonus(CDOMObject obj,
 		PlayerCharacter theCharacter)
 	{
-		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
-		{
-			if (TempBonusHelper.isEquipmentTempBonus(aBonus))
-			{
-				return true;
-			}
-		}
-		return false;
+		return obj.containsListFor(ListKey.BONUS_EQUIP);
 	}
 
 	public static Set<String> getEquipmentApplyString(CDOMObject obj,
 		PlayerCharacter theCharacter)
 	{
 		Set<String> set = new HashSet<String>();
-		for (BonusObj bonus : obj.getRawBonusList(theCharacter))
+		//Should use hasEquipmentTempBonus first, so we do NOT do getSafeListFor
+		for (EquipBonus bonus : obj.getListFor(ListKey.BONUS_EQUIP))
 		{
-			if (TempBonusHelper.isTempBonus(bonus))
-			{
-				if (TempBonusHelper.isTempBonusTarget(bonus, TempBonusTarget.ANYPC))
-				{
-					continue;
-				}
-				if (TempBonusHelper.isTempBonusTarget(bonus, TempBonusTarget.PC))
-				{
-					continue;
-				}
-				for (final Prerequisite prereq : bonus.getPrerequisiteList())
-				{
-					if (isApplyPrereq(prereq))
-					{
-						set.add(getWriteOperand(prereq));
-					}
-				}
-			}
+			set.add(bonus.conditions);
 		}
-		//Could be a more severe error (should use has first)
 		return set;
 	}
 
 	public static boolean hasTempBonus(CDOMObject obj,
 		PlayerCharacter theCharacter)
 	{
-		for (BonusObj aBonus : obj.getRawBonusList(theCharacter))
-		{
-			if (TempBonusHelper.isTempBonus(aBonus))
-			{
-				return true;
-			}
-		}
-		return false;
+		return hasEquipmentTempBonus(obj, theCharacter)
+			|| hasAnyPCTempBonus(obj, theCharacter)
+			|| hasPCTempBonus(obj, theCharacter);
 	}
 
-	public static void writeOredPrereqs(StringBuilder sb, Prerequisite subreq)
-	{
-		if (subreq.getKind() == null)
-		{
-			// must be an "A or B" operation
-			boolean needSemi = false;
-			for (Prerequisite subsubreq : subreq.getPrerequisites())
-			{
-				if (needSemi)
-				{
-					sb.append(';');
-				}
-				needSemi = true;
-				sb.append(subsubreq.getOperand());
-			}
-		}
-		else
-		{
-			sb.append(subreq.getOperand());
-		}
-	}
-
-	public static String getWriteOperand(Prerequisite prereq)
-	{
-		StringBuilder sb = new StringBuilder();
-		if (Integer.parseInt(prereq.getOperand()) > 1)
-		{
-			// must be a "A and b" operation
-			boolean needComma = false;
-			for (Prerequisite subreq : prereq.getPrerequisites())
-			{
-				if (needComma)
-				{
-					sb.append(',');
-				}
-				needComma = true;
-				writeOredPrereqs(sb, subreq);
-			}
-		}
-		else
-		{
-			for (Prerequisite subreq : prereq.getPrerequisites())
-			{
-				writeOredPrereqs(sb, subreq);
-			}
-		}
-		return sb.toString();
-	}
 }
 

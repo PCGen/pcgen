@@ -78,6 +78,7 @@ import pcgen.core.SubstitutionClass;
 import pcgen.core.Vision;
 import pcgen.core.WeaponProf;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.bonus.EquipBonus;
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitStat;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -266,6 +267,9 @@ public final class ListKey<T> {
 	public static final ListKey<CDOMReference<Skill>> CLASS_SKILL = new ListKey<CDOMReference<Skill>>();
 	public static final ListKey<CDOMReference<Skill>> LOCALCSKILL = new ListKey<CDOMReference<Skill>>();
 	public static final ListKey<CDOMReference<Skill>> LOCALCCSKILL = new ListKey<CDOMReference<Skill>>();
+	public static final ListKey<BonusObj> BONUS_ANYPC = new ListKey<BonusObj>();
+	public static final ListKey<BonusObj> BONUS_PC = new ListKey<BonusObj>();
+	public static final ListKey<EquipBonus> BONUS_EQUIP = new ListKey<EquipBonus>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 
