@@ -71,7 +71,6 @@ public final class PCGIOHandler extends IOHandler
 
 	private final List<String> errors = new ArrayList<String>();
 	private final List<String> warnings = new ArrayList<String>();
-	private PlayerCharacter aPC;
 
 	/**
 	 * Selector
@@ -206,8 +205,6 @@ public final class PCGIOHandler extends IOHandler
 	public void read(PlayerCharacter pcToBeRead, InputStream in,
 					 final boolean validate)
 	{
-		this.aPC = pcToBeRead;
-
 		warnings.clear();
 
 		final List<String> lines = readPcgLines(in);
@@ -322,8 +319,6 @@ public final class PCGIOHandler extends IOHandler
     @Override
 	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<CampaignFacade> campaigns, OutputStream out)
 	{
-		this.aPC = pcToBeWritten;
-
 		final String pcgString;
 		pcgString = (new PCGVer2Creator(pcToBeWritten, mode, campaigns)).createPCGString();
 
@@ -369,28 +364,28 @@ public final class PCGIOHandler extends IOHandler
 
 		// First make sure the "working" equipment list
 		// is in effect for all the bonuses it may add
-		aPC.setCalcEquipmentList();
+		currentPC.setCalcEquipmentList();
 
 		// make sure the bonuses from companions are applied
-		aPC.setCalcFollowerBonus(currentPC);
+		currentPC.setCalcFollowerBonus(currentPC);
 
 		// pre-calculate all the bonuses
-		aPC.calcActiveBonuses();
+		currentPC.calcActiveBonuses();
 
 		int iSides;
 		int iRoll;
-		final int oldHp = aPC.hitPoints();
+		final int oldHp = currentPC.hitPoints();
 
 		// Recalc the feat pool if required
 		if (parser.isCalcFeatPoolAfterLoad())
 		{
 			double baseFeatPool = parser.getBaseFeatPool();
-			double featPoolBonus = aPC.getRemainingFeatPoints(true);
+			double featPoolBonus = currentPC.getRemainingFeatPoints(true);
 			baseFeatPool -= featPoolBonus;
-			aPC.setFeats(baseFeatPool);
+			currentPC.setFeats(baseFeatPool);
 		}
 
-		for (Ability aFeat : aPC.getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
+		for (Ability aFeat : currentPC.getAbilityList(AbilityCategory.FEAT, Nature.NORMAL))
 		{
 			if (aFeat.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !currentPC.hasAssociations(aFeat))
 			{
@@ -404,33 +399,33 @@ public final class PCGIOHandler extends IOHandler
 		// sk4p 11 Dec 2002
 
 		//PCTemplate aTemplate = null;
-		if (aPC.hasClass())
+		if (currentPC.hasClass())
 		{
-			for (PCClass pcClass : aPC.getClassSet())
+			for (PCClass pcClass : currentPC.getClassSet())
 			{
 				// Ignore if no levels
-				if (aPC.getLevel(pcClass) < 1)
+				if (currentPC.getLevel(pcClass) < 1)
 				{
 					continue;
 				}
 
 				// Walk through the levels for this class
 
-				for (int i = 1; i <= aPC.getLevel(pcClass); i++)
+				for (int i = 1; i <= currentPC.getLevel(pcClass); i++)
 				{
 					int baseSides = currentPC.getLevelHitDie(pcClass, i).getDie();
 					//TODO i-1 is strange see CODE-1925
-					PCClassLevel pcl = aPC.getActiveClassLevel(pcClass, i - 1);
+					PCClassLevel pcl = currentPC.getActiveClassLevel(pcClass, i - 1);
 					Integer hp = currentPC.getHP(pcl);
 					iRoll = hp == null ? 0 : hp;
 					iSides =
 							baseSides
 							+ (int) pcClass.getBonusTo("HD", "MAX", i,
-													   aPC);
+													   currentPC);
 
 					if (iRoll > iSides)
 					{
-						aPC.setHP(pcl, Integer.valueOf(iSides));
+						currentPC.setHP(pcl, Integer.valueOf(iSides));
 						bFixMade = true;
 					}
 				}
@@ -441,7 +436,7 @@ public final class PCGIOHandler extends IOHandler
 		{
 			final String message =
 					"Fixed illegal value in hit points. "
-					+ "Current character hit points: " + aPC.hitPoints()
+					+ "Current character hit points: " + currentPC.hitPoints()
 					+ " not " + oldHp;
 			warnings.add(message);
 		}
@@ -454,20 +449,20 @@ public final class PCGIOHandler extends IOHandler
 		// now that the import is completed. The level isn't affected.
 		//  merton_monk@yahoo.com 2/15/2002
 		//
-		for (PCClass pcClass : aPC.getClassSet())
+		for (PCClass pcClass : currentPC.getClassSet())
 		{
-			pcClass.setLevel(aPC.getLevel(pcClass), currentPC);
+			pcClass.setLevel(currentPC.getLevel(pcClass), currentPC);
 		}
 
 		//
 		// need to calc the movement rates
-		aPC.adjustMoveRates();
+		currentPC.adjustMoveRates();
 
 		// re-calculate all the bonuses
-		aPC.calcActiveBonuses();
+		currentPC.calcActiveBonuses();
 
 		// make sure we are not dirty
-		aPC.setDirty(false);
+		currentPC.setDirty(false);
 	}
 
 	/**
