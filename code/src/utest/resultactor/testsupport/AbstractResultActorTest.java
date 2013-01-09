@@ -98,8 +98,11 @@ public abstract class AbstractResultActorTest<T extends CDOMObject> extends Test
 		actor.remove(pc1, owner, key);
 		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		actor.apply(pc1, owner, key);
+		assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		actor.apply(pc1, owner, key2);
+		assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		actor.remove(pc1, owner, key);
+		assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		actor.apply(pc2, owner, key2);
 		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 	}
