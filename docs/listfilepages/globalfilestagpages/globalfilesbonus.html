@@ -1183,8 +1183,8 @@
 
 <hr>
 
-	<p class="lststatus"><strong><a name="POSTMOVEADD">*** New 4.3.8</a></p>
-	<p class="indent0">Tag Name:</strong> BONUS:POSTMOVEADD|TYPE.x|y</p>
+	<p class="lststatus"><strong><a name="POSTMOVEADD">*** New 4.3.8</a></strong></p>
+	<p class="indent0">Tag Name: BONUS:POSTMOVEADD|TYPE.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Movement type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to movement rate)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
@@ -1810,6 +1810,12 @@
 	<p class="indent2"><code>TEMPBONUS:PC|COMBAT|AC|2</code></p>
 	<p class="indent3">Increases armor class by two for the character granted the LST object containing the <code>TEMPBONUS</code>. This is equivalent to 
 		<code>BONUS:COMBAT|AC|2</code> but is applied as a temporary bonus.</p>
+	<p class="indent2"><code>TEMPBONUS:ANYPC|CHECKS|Fortitude,Reflex|1</code></p>
+	<p class="indent3">Adds one to "Fortitude" and "Reflex" saves for any character. This is equivalent to <code>BONUS:CHECKS|Fortitude,Reflex|1</code> 
+		but is applied as a temporary bonus.</p>
+	<p class="indent2"><code>TEMPBONUS:EQ|TwoHanded|WEAPON|DAMAGE|1</code></p>
+	<p class="indent3">Adds one to the damage done by the two-handed weapon on which the bonus is applied. This is equivalent to <code>BONUS:WEAPON|DAMAGE|1</code> 
+		but is applied as a temporary bonus.</p>
 	<p class="indent1"><strong>Example Conversion from PREAPPLY to TEMPBONUS:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|AC|2|PREAPPLY:PC</code> becomes <code>TEMPBONUS:PC|COMBAT|AC|2</code></p>
 
