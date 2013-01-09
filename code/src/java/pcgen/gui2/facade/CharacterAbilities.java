@@ -449,14 +449,13 @@ public class CharacterAbilities
 		{
 			theCharacter.setDirty(true);
 
-			if (category == AbilityCategory.FEAT)
-			{
-				AbilityUtilities.modAbility(theCharacter, ability, null, AbilityCategory.FEAT);
-			}
-			else
-			{
-				addPCAbility(category, ability);
-			}
+			theCharacter.getSpellList();
+
+			Ability pcAbility =
+					theCharacter.addAbilityNeedCheck(category, ability);
+				
+			AbilityUtilities.finaliseAbility(pcAbility, Constants.EMPTY_STRING,
+					theCharacter, category);
 		}
 		catch (Exception exc)
 		{
@@ -478,17 +477,6 @@ public class CharacterAbilities
 		rebuildAbilityLists();
 	}
 
-	private void addPCAbility(AbilityCategory category, final Ability anAbility)
-	{
-		theCharacter.getSpellList();
-
-		Ability pcAbility =
-				theCharacter.addAbilityNeedCheck(category, anAbility);
-
-		AbilityUtilities.finaliseAbility(pcAbility, Constants.EMPTY_STRING,
-			theCharacter, category);
-	}
-	
 	/**
 	 * Process a request by the user to remove an ability. The user will be  
 	 * informed if the request cannot be allowed. Updates to the displayed 
