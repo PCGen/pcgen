@@ -151,7 +151,8 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="PREAPPLY"></a>Tag Name:</strong> PREAPPLY:x,x</p>
+	<p class="lstdep"><a name="PREAPPLY">*** deprecated 6.1.1 - Remove for 6.4</a> - Use <a href="globalfilesbonus.html#TEMPBONUS">TEMPBONUS</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> PREAPPLY:x,x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ANYPC (Apply to any character).</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> PC (Apply to the character).</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (A type name).</p>
@@ -189,6 +190,8 @@
 	<p class="indent3">This allows the bonus granted to be applied to either ranged or melee weapons.</p>
 	<p class="indent2"><code>PREAPPLY:Weapon,Blunt</code></p>
 	<p class="indent3">This allows the bonus granted to be applied to blunt weapons only.</p>
+	<p class="indent1"><strong>Example Conversion to TEMPBONUS tag:</strong></p>
+	<p class="indent2"><code>BONUS:COMBAT|AC|2|PREAPPLY:PC</code> becomes <code>TEMPBONUS:PC|COMBAT|AC|2</code></p>
 	<p></p>
 
 <hr>

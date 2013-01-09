@@ -31,8 +31,7 @@
 
 	<h1>The Global BONUS Tags</h1>
 
-	<p class="indent1">The BONUS tag tells PCGen that the following information is to be added to a character, in the
-	appropriate places.</p>
+	<p class="indent1">The BONUS tag tells PCGen that the following information is to be added to a character as well as where it is to be added.</p>
 	<p class="indent1">The general format for bonus tags are as follows:</p>
 	<blockquote>
 		<p class="indent1"><code>BONUS:&lt;category&gt;|&lt;group&gt;|&lt;formula&gt;</code></p>
@@ -41,8 +40,8 @@
 	<p class="indent1">Each of the &quot;Tag Names&quot; in this page go in the &lt;category&gt; field,
 		and the &quot;Variables Used&quot; go in the &lt;group&gt; field.</p>
 	<p class="indent1">For the Formula syntax, see the <a href="globalfilesformulas.html">Math Operators and Formulas</a> page.</p>
-    <p class="indent1"><code>LIST</code> is a special case in <em>feats.lst</em>. It can be placed in most &lt;group&gt; categories. LIST
-		will be replaced by the choice from the CHOOSE tag in the feat.</p>
+    <p class="indent1"><code>LIST</code> is a special case in <span class="lstfile">feats.lst</span>. It can be placed in most &lt;group&gt; categories. <code>LIST</code>
+		will be replaced by the choice from a <code>CHOOSE</code> tag contained within the feat.</p>
  	<p></p>
 
 <hr>
@@ -1707,7 +1706,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Weapon proficiency type)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Property (Weapon proficiency property)</p>
 	<p class="indent1"><strong>Variables Used (z):</strong> Number, variable or formula (Number to add)</p>
-	<p class="indent2"><strong>What it Does:</strong></p>
+	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Modifies the indicated property of the weapon proficiency or weapon proficiency type.</li>
 		<li>Weapon proficiency properties defined are:
@@ -1765,10 +1764,12 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL (Effects all weapon categories)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to increase or decrease the category by)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Changes the wield category of weapons a character may use.</p>
-	<p class="indent2">The wield category names are defined in the system/gameModes/miscinfo.lst file.</p>
-	<p class="indent2">This bonus will only have an effect if the gameMode has defined wield categories,
-		currently only the 3.5e RSRD gameMode uses wield categories.</p>
+	<ul class="indent2">
+		<li>Changes the wield category of weapons a character may use.</li>
+		<li>The wield category names are defined in the system/gameModes/miscinfo.lst file.</li>
+		<li>This bonus will only have an effect if the gameMode has defined wield categories,
+			currently only the 3.5e RSRD gameMode uses wield categories.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:WIELDCATEGORY|TwoHanded|-1</code></p>
 	<p class="indent3">Allows a character to wield any larger Two Handed weapon than
@@ -1778,6 +1779,39 @@
 	<p class="indent2"><code>BONUS:WIELDCATEGORY|OneHanded,Light|1</code></p>
 	<p class="indent3">Allows a character to use smaller 'Light' and 'OneHanded' weapons
 		than would normally be allowed.</p>
+
+<hr>
+
+	<p class="lstnew"><a name="TEMPBONUS">*** New 6.01.01</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> TEMPBONUS:x,x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> PC (Target)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ANYPC (Target)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> EQ (Target)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Equipment types)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Text (Bonus subtoken with appropriate syntax and parameters)</p>
+	<p class="indent1"><strong>What it Does:</strong></p>
+	<ul class="indent2">
+		<li>Provides a temporary bonus that can be applied to the applicable target.</li>
+		<li>Temporary bonuses provided by this tag are found only in, and applied through, the <strong>Temporary Bonus Tab</strong>.</li>
+		<li>The temporary bonus includes the following targets:
+			<ul>
+				<li><code>PC</code> - The temporary bonus can only be applied to a character that has been 'granted' the LST object that 
+					contains the <code>TEMPBONUS</code> tag.</li>
+				<li><code>ANYPC</code> - The temporary bonus can be applied to any character whether the LST object containing the 
+					<code>TEMPBONUS</code> tag has been granted to the character or not.</li>
+				<li><code>EQ</code> - The temporary bonus can only be applied to equipment of the type identified by the (y) parameter.</li>
+			</ul>
+		</li>
+		<li>The equipment type, variable (y), is used only when the target of the bonus is <code>EQ</code>, and in this case it is required.</li>
+		<li>The bonus subtoken syntax and parameters are as per the appropriate bonus. (See standard <code>BONUS</code> tag documentation above.</li>
+		<li>As with the standard bonus tags, the <code>TEMPBONUS</code> tag can take <code>TYPE</code> and <code>PRExxx</code> tags.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>TEMPBONUS:PC|COMBAT|AC|2</code></p>
+	<p class="indent3">Increases armor class by two for the character granted the LST object containing the <code>TEMPBONUS</code>. This is equivalent to 
+		<code>BONUS:COMBAT|AC|2</code> but is applied as a temporary bonus.</p>
+	<p class="indent1"><strong>Example Conversion from PREAPPLY to TEMPBONUS:</strong></p>
+	<p class="indent2"><code>BONUS:COMBAT|AC|2|PREAPPLY:PC</code> becomes <code>TEMPBONUS:PC|COMBAT|AC|2</code></p>
 
 <hr>
 
