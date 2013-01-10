@@ -664,7 +664,7 @@ public class CharacterDisplay
 
 	public String getSubClassName(PCClass cl)
 	{
-		return subClassFacet.getSource(id, cl);
+		return subClassFacet.get(id, cl);
 	}
 
 	public final int getLevel(PCClass pcc)
@@ -1693,7 +1693,7 @@ public class CharacterDisplay
 
 	public String getSubstitutionClassName(PCClassLevel lvl)
 	{
-		return substitutionClassFacet.getSource(id, lvl);
+		return substitutionClassFacet.get(id, lvl);
 	}
 
 	public Integer getStat(PCStat stat)

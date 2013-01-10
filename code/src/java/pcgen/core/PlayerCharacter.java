@@ -10217,11 +10217,11 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public SpellSupportForPCClass getSpellSupport(PCClass cl)
 	{
-		SpellSupportForPCClass ss = spellSupportFacet.getSource(id, cl);
+		SpellSupportForPCClass ss = spellSupportFacet.get(id, cl);
 		if (ss == null)
 		{
 			ss = new SpellSupportForPCClass(cl);
-			spellSupportFacet.add(id, cl, ss);
+			spellSupportFacet.set(id, cl, ss);
 		}
 		return ss;
 	}
@@ -10650,12 +10650,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public String getSubClassName(PCClass cl)
 	{
-		return subClassFacet.getSource(id, cl);
+		return subClassFacet.get(id, cl);
 	}
 
 	public void setSubClassName(PCClass cl, String key)
 	{
-		subClassFacet.add(id, cl, key);
+		subClassFacet.set(id, cl, key);
 	}
 
 	public boolean hasTempApplied(CDOMObject mod)
@@ -10899,7 +10899,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void setSubstitutionClassName(PCClassLevel lvl, String subClassKey)
 	{
-		substitutionClassFacet.add(id, lvl, subClassKey);
+		substitutionClassFacet.set(id, lvl, subClassKey);
 	}
 
 	public void removeSubstitutionClassName(PCClassLevel lvl)

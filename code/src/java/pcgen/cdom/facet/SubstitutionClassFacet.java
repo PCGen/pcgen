@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
+import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.cdom.inst.PCClassLevel;
 
 /**
@@ -27,6 +27,6 @@ import pcgen.cdom.inst.PCClassLevel;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SubstitutionClassFacet extends
-		AbstractSingleSourceListFacet<PCClassLevel, String>
+		AbstractAssociationFacet<PCClassLevel, String>
 {
 }

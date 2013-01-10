@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
+import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.core.PCClass;
 import pcgen.core.SpellSupportForPCClass;
 
@@ -28,7 +28,7 @@ import pcgen.core.SpellSupportForPCClass;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SpellSupportFacet extends
-		AbstractSingleSourceListFacet<PCClass, SpellSupportForPCClass>
+		AbstractAssociationFacet<PCClass, SpellSupportForPCClass>
 {
 
 }

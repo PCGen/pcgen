@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
+import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.core.PCClass;
 
 /**
@@ -27,6 +27,6 @@ import pcgen.core.PCClass;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SubClassFacet extends
-		AbstractSingleSourceListFacet<PCClass, String>
+		AbstractAssociationFacet<PCClass, String>
 {
 }

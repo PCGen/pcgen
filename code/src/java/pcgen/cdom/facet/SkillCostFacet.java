@@ -130,7 +130,7 @@ public class SkillCostFacet
 			{
 				returnList.add(l);
 			}
-			String subClassKey = subClassFacet.getSource(id, pcc);
+			String subClassKey = subClassFacet.get(id, pcc);
 			if (subClassKey != null)
 			{
 				l = ref.silentlyGetConstructedCDOMObject(csl, subClassKey);

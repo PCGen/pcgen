@@ -70,7 +70,7 @@ public class MultiClassFacet
 			{
 				continue;
 			}
-			String subClassKey = subClassFacet.getSource(id, pcClass);
+			String subClassKey = subClassFacet.get(id, pcClass);
 			PCClass evalClass = pcClass;
 			if (subClassKey != null && !subClassKey.equals("None"))
 			{

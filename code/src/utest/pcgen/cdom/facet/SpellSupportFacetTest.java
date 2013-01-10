@@ -17,13 +17,13 @@
  */
 package pcgen.cdom.facet;
 
-import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
-import pcgen.cdom.testsupport.AbstractSingleSourceListFacetTest;
+import pcgen.cdom.facet.base.AbstractAssociationFacet;
+import pcgen.cdom.testsupport.AbstractAssociationFacetTest;
 import pcgen.core.PCClass;
 import pcgen.core.SpellSupportForPCClass;
 
 public class SpellSupportFacetTest extends
-		AbstractSingleSourceListFacetTest<PCClass, SpellSupportForPCClass>
+		AbstractAssociationFacetTest<PCClass, SpellSupportForPCClass>
 {
 	private SpellSupportFacet facet = new SpellSupportFacet();
 
@@ -34,7 +34,7 @@ public class SpellSupportFacetTest extends
 	}
 
 	@Override
-	protected AbstractSingleSourceListFacet<PCClass, SpellSupportForPCClass> getFacet()
+	protected AbstractAssociationFacet<PCClass, SpellSupportForPCClass> getFacet()
 	{
 		return facet;
 	}
