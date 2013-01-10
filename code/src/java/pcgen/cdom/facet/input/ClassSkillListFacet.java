@@ -49,8 +49,6 @@ import pcgen.core.PlayerCharacter;
 public class ClassSkillListFacet extends AbstractStorageFacet implements
 		ClassLevelChangeListener
 {
-	private final Class<?> thisClass = getClass();
-
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 		.getFacet(PlayerCharacterTrackingFacet.class);
 
@@ -77,7 +75,7 @@ public class ClassSkillListFacet extends AbstractStorageFacet implements
 		if (rci == null)
 		{
 			rci = new HashMap<PCClass, Set<ClassSkillList>>();
-			setCache(id, thisClass, rci);
+			setCache(id, rci);
 		}
 		return rci;
 	}
@@ -101,7 +99,7 @@ public class ClassSkillListFacet extends AbstractStorageFacet implements
 	@SuppressWarnings("unchecked")
 	private Map<PCClass, Set<ClassSkillList>> getInfo(CharID id)
 	{
-		return (Map<PCClass, Set<ClassSkillList>>) getCache(id, thisClass);
+		return (Map<PCClass, Set<ClassSkillList>>) getCache(id);
 	}
 
 	/**

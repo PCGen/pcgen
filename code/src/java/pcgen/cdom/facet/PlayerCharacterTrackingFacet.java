@@ -27,16 +27,14 @@ import pcgen.core.PlayerCharacter;
  */
 public class PlayerCharacterTrackingFacet extends AbstractStorageFacet
 {
-	private final Class<?> thisClass = getClass();
-
 	public void associatePlayerCharacter(CharID id, PlayerCharacter pc)
 	{
-		setCache(id, thisClass, pc);
+		setCache(id, pc);
 	}
 
 	public PlayerCharacter getPC(CharID id)
 	{
-		return (PlayerCharacter) getCache(id, thisClass);
+		return (PlayerCharacter) getCache(id);
 	}
 
 	@Override

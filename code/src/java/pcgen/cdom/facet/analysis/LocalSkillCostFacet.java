@@ -49,8 +49,6 @@ import pcgen.util.Logging;
 public class LocalSkillCostFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<CDOMObject>
 {
-	private final Class<?> thisClass = getClass();
-
 	private DomainFacet domainFacet;
 	
 	private ClassFacet classFacet;
@@ -152,7 +150,7 @@ public class LocalSkillCostFacet extends AbstractStorageFacet implements
 		if (rci == null)
 		{
 			rci = new CacheInfo();
-			setCache(id, thisClass, rci);
+			setCache(id, rci);
 		}
 		return rci;
 	}
@@ -175,7 +173,7 @@ public class LocalSkillCostFacet extends AbstractStorageFacet implements
 	 */
 	private CacheInfo getInfo(CharID id)
 	{
-		return (CacheInfo) getCache(id, thisClass);
+		return (CacheInfo) getCache(id);
 	}
 
 	/**

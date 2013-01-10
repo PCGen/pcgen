@@ -166,7 +166,7 @@ public class FollowerOptionFacet extends AbstractStorageFacet implements
 			CharID id)
 	{
 		return (CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>>) getCache(
-			id, getClass());
+			id);
 	}
 
 	/**
@@ -190,7 +190,7 @@ public class FollowerOptionFacet extends AbstractStorageFacet implements
 		if (componentMap == null)
 		{
 			componentMap = new CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>>();
-			setCache(id, getClass(), componentMap);
+			setCache(id, componentMap);
 		}
 		Map<FollowerOption, Set<CDOMObject>> foMap = componentMap.get(name);
 		if (foMap == null)

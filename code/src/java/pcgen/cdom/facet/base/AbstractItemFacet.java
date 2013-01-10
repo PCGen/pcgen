@@ -32,8 +32,6 @@ import pcgen.util.Logging;
  */
 public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 {
-	private final Class<?> thisClass = getClass();
-
 	/**
 	 * Sets the item for this AbstractItemFacet and the Player Character
 	 * represented by the given CharID to the given value.
@@ -65,7 +63,7 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 			{
 				fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
 			}
-			setCache(id, thisClass, obj);
+			setCache(id, obj);
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 		}
 	}
@@ -81,7 +79,7 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 	 */
 	public void remove(CharID id)
 	{
-		T old = (T) removeCache(id, thisClass);
+		T old = (T) removeCache(id);
 		if (old != null)
 		{
 			fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
@@ -101,7 +99,7 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 	 */
 	public T get(CharID id)
 	{
-		return (T) getCache(id, thisClass);
+		return (T) getCache(id);
 	}
 
 	/**
@@ -156,7 +154,7 @@ public abstract class AbstractItemFacet<T> extends AbstractDataFacet<T>
 		T obj = get(source);
 		if (obj != null)
 		{
-			setCache(copy, thisClass, obj);
+			setCache(copy, obj);
 		}
 	}
 }

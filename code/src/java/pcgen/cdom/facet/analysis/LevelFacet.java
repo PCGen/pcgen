@@ -48,7 +48,6 @@ public class LevelFacet extends AbstractStorageFacet implements
 	private TemplateFacet templateFacet;
 	private RaceFacet raceFacet;
 	private FormulaResolvingFacet formulaResolvingFacet;
-	private final Class<?> thisClass = getClass();
 	private final LevelChangeSupport support = new LevelChangeSupport();
 
 	/**
@@ -173,7 +172,7 @@ public class LevelFacet extends AbstractStorageFacet implements
 		if (lci == null)
 		{
 			lci = new LevelCacheInfo();
-			setCache(id, thisClass, lci);
+			setCache(id, lci);
 		}
 		return lci;
 	}
@@ -194,7 +193,7 @@ public class LevelFacet extends AbstractStorageFacet implements
 	 */
 	private LevelCacheInfo getInfo(CharID id)
 	{
-		return (LevelCacheInfo) getCache(id, thisClass);
+		return (LevelCacheInfo) getCache(id);
 	}
 
 	/**

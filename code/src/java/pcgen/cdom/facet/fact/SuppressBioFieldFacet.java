@@ -45,8 +45,6 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
 public class SuppressBioFieldFacet extends AbstractStorageFacet
 {
 
-	private final Class<?> thisClass = getClass();
-
 	/*
 	 * TODO Can this use AbstractListFacet? (seems like it can)
 	 */
@@ -64,12 +62,12 @@ public class SuppressBioFieldFacet extends AbstractStorageFacet
 	{
 		@SuppressWarnings("unchecked")
 		Set<BiographyField> suppressedFields =
-				(Set<BiographyField>) getCache(id, thisClass);
+				(Set<BiographyField>) getCache(id);
 		if (suppressedFields == null)
 		{
 			suppressedFields =
 					Collections.synchronizedSet(new HashSet<BiographyField>());
-			setCache(id, thisClass, suppressedFields);
+			setCache(id, suppressedFields);
 		}
 
 		if (suppress)
@@ -94,7 +92,7 @@ public class SuppressBioFieldFacet extends AbstractStorageFacet
 	public boolean getSuppressField(CharID id, BiographyField field)
 	{
 		@SuppressWarnings("unchecked")
-		Set<BiographyField> suppressedFields = (Set<BiographyField>) getCache(id, thisClass);
+		Set<BiographyField> suppressedFields = (Set<BiographyField>) getCache(id);
 		return suppressedFields != null && suppressedFields.contains(field);
 	}
 
@@ -125,13 +123,13 @@ public class SuppressBioFieldFacet extends AbstractStorageFacet
 	public void copyContents(CharID source, CharID copy)
 	{
 		Set<BiographyField> set =
-				(Set<BiographyField>) getCache(source, thisClass);
+				(Set<BiographyField>) getCache(source);
 		if (set != null)
 		{
 			Set<BiographyField> copyset =
 					Collections.synchronizedSet(new HashSet<BiographyField>());
 			copyset.addAll(set);
-			setCache(copy, thisClass, copyset);
+			setCache(copy, copyset);
 		}
 	}
 

@@ -168,7 +168,7 @@ public class FollowerLimitFacet extends AbstractStorageFacet implements
 			CharID id)
 	{
 		return (Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>>) getCache(
-			id, getClass());
+			id);
 	}
 
 	/**
@@ -191,7 +191,7 @@ public class FollowerLimitFacet extends AbstractStorageFacet implements
 		if (componentMap == null)
 		{
 			componentMap = new HashMap<CompanionList, Map<FollowerLimit, Set<CDOMObject>>>();
-			setCache(id, getClass(), componentMap);
+			setCache(id, componentMap);
 		}
 		Map<FollowerLimit, Set<CDOMObject>> foMap = componentMap.get(cl);
 		if (foMap == null)

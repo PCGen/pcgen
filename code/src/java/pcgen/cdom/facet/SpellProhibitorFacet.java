@@ -43,8 +43,6 @@ import pcgen.core.SpellProhibitor;
 public class SpellProhibitorFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<PCClass>
 {
-	private final Class<?> thisClass = getClass();
-
 	private ClassFacet classFacet;
 
 	/**
@@ -96,14 +94,14 @@ public class SpellProhibitorFacet extends AbstractStorageFacet implements
 		if (rci == null)
 		{
 			rci = new CacheInfo();
-			setCache(id, thisClass, rci);
+			setCache(id, rci);
 		}
 		return rci;
 	}
 
 	private CacheInfo getInfo(CharID id)
 	{
-		return (CacheInfo) getCache(id, thisClass);
+		return (CacheInfo) getCache(id);
 	}
 
 	/**

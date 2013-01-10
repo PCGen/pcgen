@@ -56,8 +56,6 @@ import pcgen.util.enumeration.Load;
 public class MovementResultFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<CDOMObject>
 {
-	private final Class<?> thisClass = getClass();
-
 	private MovementFacet movementFacet;
 	private BaseMovementFacet baseMovementFacet;
 	private RaceFacet raceFacet;
@@ -115,7 +113,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 		if (rci == null)
 		{
 			rci = new MovementCacheInfo(id);
-			setCache(id, thisClass, rci);
+			setCache(id, rci);
 		}
 		return rci;
 	}
@@ -137,7 +135,7 @@ public class MovementResultFacet extends AbstractStorageFacet implements
 	 */
 	private MovementCacheInfo getInfo(CharID id)
 	{
-		return (MovementCacheInfo) getCache(id, thisClass);
+		return (MovementCacheInfo) getCache(id);
 	}
 
 	/**

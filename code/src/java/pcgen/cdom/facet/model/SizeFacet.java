@@ -50,7 +50,6 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		BonusChangeListener
 {
 	private static final Class<SizeAdjustment> SIZEADJUSTMENT_CLASS = SizeAdjustment.class;
-	private final Class<?> thisClass = getClass();
 
 	private TemplateFacet templateFacet;
 	private RaceFacet raceFacet;
@@ -249,7 +248,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 		if (rci == null)
 		{
 			rci = new SizeFacetInfo();
-			setCache(id, thisClass, rci);
+			setCache(id, rci);
 		}
 		return rci;
 	}
@@ -270,7 +269,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	 */
 	private SizeFacetInfo getInfo(CharID id)
 	{
-		return (SizeFacetInfo) getCache(id, thisClass);
+		return (SizeFacetInfo) getCache(id);
 	}
 
 	/**

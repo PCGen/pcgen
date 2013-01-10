@@ -277,7 +277,7 @@ public abstract class AbstractSpellStorageFacet extends AbstractStorageFacet
 		CharID id)
 	{
 		return (Map<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>>) getCache(
-			id, getClass());
+			id);
 	}
 
 	/**
@@ -302,7 +302,7 @@ public abstract class AbstractSpellStorageFacet extends AbstractStorageFacet
 		{
 			componentMap =
 					new HashMap<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>>();
-			setCache(id, getClass(), componentMap);
+			setCache(id, componentMap);
 		}
 		return componentMap;
 	}

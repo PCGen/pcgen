@@ -36,8 +36,6 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 {
 	private EquipmentFacet equipmentFacet;
 
-	private final Class<?> thisClass = getClass();
-
 	/**
 	 * Triggered ("manually") when the equipped equipment on a Player Character
 	 * has changed. Evaluates all Equipment available to the Player Character
@@ -50,11 +48,11 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 	public void reset(CharID id)
 	{
 		Set<Equipment> oldEquipped =
-				(Set<Equipment>) removeCache(id, thisClass);
+				(Set<Equipment>) removeCache(id);
 		Set<Equipment> currentEquipment = equipmentFacet.getSet(id);
 		Set<Equipment> newEquipped = new WrappedMapSet<Equipment>(
 				IdentityHashMap.class);
-		setCache(id, thisClass, newEquipped);
+		setCache(id, newEquipped);
 		if (oldEquipped != null)
 		{
 			// Delete items that the PC no longer has at all
@@ -117,7 +115,7 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 	 */
 	public Set<Equipment> getSet(CharID id)
 	{
-		Set<Equipment> set = (Set<Equipment>) getCache(id, thisClass);
+		Set<Equipment> set = (Set<Equipment>) getCache(id);
 		if (set == null)
 		{
 			return Collections.emptySet();
@@ -159,13 +157,13 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{
-		Set<Equipment> set = (Set<Equipment>) getCache(source, thisClass);
+		Set<Equipment> set = (Set<Equipment>) getCache(source);
 		if (set != null)
 		{
 			Set<Equipment> newEquipped = new WrappedMapSet<Equipment>(
 					IdentityHashMap.class);
 			newEquipped.addAll(set);
-			setCache(copy, thisClass, newEquipped);
+			setCache(copy, newEquipped);
 		}
 	}
 
@@ -175,6 +173,6 @@ public class EquippedEquipmentFacet extends AbstractDataFacet<Equipment>
 	 */
 	public void removeAll(CharID id)
 	{
-		removeCache(id, thisClass);		
+		removeCache(id);		
 	}
 }

@@ -213,7 +213,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		{
 			return Collections.emptyMap();
 		}
-		removeCache(id, getClass());
+		removeCache(id);
 		for (Target tgt : componentMap.values())
 		{
 			fireDataFacetChangeEvent(id, tgt.dest,
@@ -340,7 +340,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 */
 	protected Map<S, Target> getCachedMap(CharID id)
 	{
-		return (Map<S, Target>) getCache(id, getClass());
+		return (Map<S, Target>) getCache(id);
 	}
 
 	/**
@@ -364,7 +364,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		if (componentMap == null)
 		{
 			componentMap = getComponentMap();
-			setCache(id, getClass(), componentMap);
+			setCache(id, componentMap);
 		}
 		return componentMap;
 	}

@@ -41,8 +41,6 @@ public class QualifyFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<CDOMObject>
 {
 
-	private final Class<?> thisClass = getClass();
-
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
@@ -95,7 +93,7 @@ public class QualifyFacet extends AbstractStorageFacet implements
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
-		CacheInfo ci = (CacheInfo) getCache(id, thisClass);
+		CacheInfo ci = (CacheInfo) getCache(id);
 
 		if (ci != null)
 		{
@@ -120,11 +118,11 @@ public class QualifyFacet extends AbstractStorageFacet implements
 	 */
 	private CacheInfo getConstructingCacheInfo(CharID id)
 	{
-		CacheInfo ci = (CacheInfo) getCache(id, thisClass);
+		CacheInfo ci = (CacheInfo) getCache(id);
 		if (ci == null)
 		{
 			ci = new CacheInfo();
-			setCache(id, thisClass, ci);
+			setCache(id, ci);
 		}
 		return ci;
 	}
@@ -145,7 +143,7 @@ public class QualifyFacet extends AbstractStorageFacet implements
 	 */
 	private CacheInfo getCacheInfo(CharID id)
 	{
-		return (CacheInfo) getCache(id, thisClass);
+		return (CacheInfo) getCache(id);
 	}
 
 	/**
@@ -280,7 +278,7 @@ public class QualifyFacet extends AbstractStorageFacet implements
 	
 	public int getCount(CharID id)
 	{
-		CacheInfo ci = (CacheInfo) getCache(id, thisClass);
+		CacheInfo ci = (CacheInfo) getCache(id);
 		return (ci == null) ? 0 : ci.hml.size();
 	}
 

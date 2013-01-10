@@ -287,7 +287,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 		{
 			isNew = true;
 			catMap = new HashMap<Category<Ability>, Map<Nature, Set<Ability>>>();
-			setCache(id, getClass(), catMap);
+			setCache(id, catMap);
 		}
 		Map<Nature, Set<Ability>> natureMap = catMap.get(cat);
 		if (natureMap == null)
@@ -372,8 +372,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	private Map<Category<Ability>, Map<Nature, Set<Ability>>> getCachedMap(
 			CharID id)
 	{
-		return (Map<Category<Ability>, Map<Nature, Set<Ability>>>) getCache(id,
-			getClass());
+		return (Map<Category<Ability>, Map<Nature, Set<Ability>>>) getCache(id);
 	}
 
 	/**
@@ -389,7 +388,7 @@ public class ActiveAbilityFacet extends AbstractDataFacet<Ability>
 	{
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap =
 				(Map<Category<Ability>, Map<Nature, Set<Ability>>>) removeCache(
-					id, getClass());
+					id);
 		if (catMap != null)
 		{
 			for (Map.Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap

@@ -213,7 +213,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		{
 			return Collections.emptyMap();
 		}
-		removeCache(id, getClass());
+		removeCache(id);
 		for (T obj : componentMap.keySet())
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
@@ -333,7 +333,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 */
 	protected Map<T, ST> getCachedMap(CharID id)
 	{
-		return (Map<T, ST>) getCache(id, getClass());
+		return (Map<T, ST>) getCache(id);
 	}
 
 	/**
@@ -357,7 +357,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		if (componentMap == null)
 		{
 			componentMap = getComponentMap();
-			setCache(id, getClass(), componentMap);
+			setCache(id, componentMap);
 		}
 		return componentMap;
 	}

@@ -35,6 +35,9 @@ import pcgen.util.Logging;
  */
 public abstract class AbstractStorageFacet
 {
+	
+	public final Class<?> thisClass = getClass();
+
 	/**
 	 * Copies the contents of the AbstractStorageFacet from one Player Character
 	 * to another Player Character, based on the given CharIDs representing
@@ -85,21 +88,18 @@ public abstract class AbstractStorageFacet
 	 * @param id
 	 *            The CharID for which information from the cache should be
 	 *            removed
-	 * @param cl
-	 *            The Class used to identify the facet for which information
-	 *            should be removed.
 	 * @return The information which was removed from the Cache for the Player
 	 *         Character identified by the given CharID and the facet identified
 	 *         by the given Class.
 	 */
-	public Object removeCache(CharID id, Class<?> cl)
+	public Object removeCache(CharID id)
 	{
 		if (id == null)
 		{
 			throw new IllegalArgumentException(
 				"CharID cannot be null in removeCache");
 		}
-		return CACHE.remove(id, cl);
+		return CACHE.remove(id, thisClass);
 	}
 
 	/**
@@ -109,23 +109,20 @@ public abstract class AbstractStorageFacet
 	 * @param id
 	 *            The CharID for which information from the cache should be
 	 *            removed
-	 * @param cl
-	 *            The Class used to identify the facet for which information
-	 *            should be removed.
 	 * @param o
 	 *            The object to be stored in the cache.
 	 * @return The previous information which was removed from the Cache for the
 	 *         Player Character identified by the given CharID and the facet
 	 *         identified by the given Class.
 	 */
-	public Object setCache(CharID id, Class<?> cl, Object o)
+	public Object setCache(CharID id, Object o)
 	{
 		if (id == null)
 		{
 			throw new IllegalArgumentException(
 				"CharID cannot be null in setCache");
 		}
-		return CACHE.put(id, cl, o);
+		return CACHE.put(id, thisClass, o);
 	}
 
 	/**
@@ -135,20 +132,17 @@ public abstract class AbstractStorageFacet
 	 * @param id
 	 *            The CharID for which information from the cache should be
 	 *            removed
-	 * @param cl
-	 *            The Class used to identify the facet for which information
-	 *            should be removed.
 	 * @return The information in the Cache for the Player Character identified
 	 *         by the given CharID and the facet identified by the given Class.
 	 */
-	public Object getCache(CharID id, Class<?> cl)
+	public Object getCache(CharID id)
 	{
 		if (id == null)
 		{
 			throw new IllegalArgumentException(
 				"CharID cannot be null in getCache");
 		}
-		return CACHE.get(id, cl);
+		return CACHE.get(id, thisClass);
 	}
 
 	/**

@@ -32,8 +32,6 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
 public class FactFacet extends AbstractStorageFacet
 {
 
-	private final Class<?> thisClass = getClass();
-
 	/**
 	 * Returns the type-safe Map for this FactFacet and the given CharID. Will
 	 * return a new, empty Map if no information has been set in this FactFacet
@@ -53,7 +51,7 @@ public class FactFacet extends AbstractStorageFacet
 		if (rci == null)
 		{
 			rci = new HashMap<StringKey, String>();
-			setCache(id, thisClass, rci);
+			setCache(id, rci);
 		}
 		return rci;
 	}
@@ -75,7 +73,7 @@ public class FactFacet extends AbstractStorageFacet
 	 */
 	private Map<StringKey, String> getInfo(CharID id)
 	{
-		return (Map<StringKey, String>) getCache(id, thisClass);
+		return (Map<StringKey, String>) getCache(id);
 	}
 
 	/**

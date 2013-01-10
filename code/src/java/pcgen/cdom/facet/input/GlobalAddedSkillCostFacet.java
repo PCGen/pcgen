@@ -37,8 +37,6 @@ import pcgen.core.Skill;
  */
 public class GlobalAddedSkillCostFacet extends AbstractStorageFacet
 {
-	private final Class<?> thisClass = getClass();
-
 	/**
 	 * Returns the type-safe CacheInfo for this GlobalAddedSkillCostFacet and
 	 * the given CharID. Will return a new, empty CacheInfo if no Skill
@@ -61,7 +59,7 @@ public class GlobalAddedSkillCostFacet extends AbstractStorageFacet
 		if (rci == null)
 		{
 			rci = new HashMap<SkillCost, Map<Skill, Set<CDOMObject>>>();
-			setCache(id, thisClass, rci);
+			setCache(id, rci);
 		}
 		return rci;
 	}
@@ -84,8 +82,7 @@ public class GlobalAddedSkillCostFacet extends AbstractStorageFacet
 	 */
 	private Map<SkillCost, Map<Skill, Set<CDOMObject>>> getInfo(CharID id)
 	{
-		return (Map<SkillCost, Map<Skill, Set<CDOMObject>>>) getCache(id,
-			thisClass);
+		return (Map<SkillCost, Map<Skill, Set<CDOMObject>>>) getCache(id);
 	}
 
 	/**

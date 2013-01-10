@@ -344,7 +344,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 		if (catMap == null)
 		{
 			catMap = new HashMap<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>>();
-			setCache(id, getClass(), catMap);
+			setCache(id, catMap);
 		}
 		else
 		{
@@ -433,7 +433,7 @@ public class GrantedAbilityFacet extends AbstractDataFacet<Ability> implements
 			CharID id)
 	{
 		return (Map<Category<Ability>, Map<Nature, Map<Ability, List<Object>>>>) getCache(
-			id, getClass());
+			id);
 	}
 
 	/**

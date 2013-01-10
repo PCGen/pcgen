@@ -132,7 +132,7 @@ public abstract class AbstractConditionalSpellFacet extends
 		CharID id)
 	{
 		return (Map<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>>) getCache(
-			id, getClass());
+			id);
 	}
 
 	/**
@@ -159,7 +159,7 @@ public abstract class AbstractConditionalSpellFacet extends
 		{
 			componentMap =
 					new HashMap<CDOMList<Spell>, Map<Spell, Map<AssociatedPrereqObject, Set<CDOMObject>>>>();
-			setCache(id, getClass(), componentMap);
+			setCache(id, componentMap);
 		}
 		return componentMap;
 	}

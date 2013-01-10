@@ -149,7 +149,7 @@ public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFace
 		{
 			return Collections.emptyMap();
 		}
-		removeCache(id, getClass());
+		removeCache(id);
 		return componentMap;
 	}
 
@@ -265,7 +265,7 @@ public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFace
 	 */
 	protected Map<S, A> getCachedMap(CharID id)
 	{
-		return (Map<S, A>) getCache(id, getClass());
+		return (Map<S, A>) getCache(id);
 	}
 
 	/**
@@ -288,7 +288,7 @@ public abstract class AbstractAssociationFacet<S, A> extends AbstractStorageFace
 		if (componentMap == null)
 		{
 			componentMap = getComponentMap();
-			setCache(id, getClass(), componentMap);
+			setCache(id, componentMap);
 		}
 		return componentMap;
 	}

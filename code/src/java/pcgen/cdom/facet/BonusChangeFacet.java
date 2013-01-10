@@ -33,8 +33,6 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
  */
 public class BonusChangeFacet extends AbstractStorageFacet
 {
-	private final Class<?> thisClass = getClass();
-
 	/**
 	 * The BonusChangeSupport object that manages the listeners that receive
 	 * BonusChangeEvents from this BonusChangeFacet.
@@ -96,7 +94,7 @@ public class BonusChangeFacet extends AbstractStorageFacet
 		if (map == null)
 		{
 			map = new DoubleKeyMap<String, String, Double>();
-			setCache(id, thisClass, map);
+			setCache(id, map);
 		}
 		return map;
 	}
@@ -119,7 +117,7 @@ public class BonusChangeFacet extends AbstractStorageFacet
 	 */
 	private DoubleKeyMap<String, String, Double> getInfo(CharID id)
 	{
-		return (DoubleKeyMap<String, String, Double>) getCache(id, thisClass);
+		return (DoubleKeyMap<String, String, Double>) getCache(id);
 	}
 
 	/**

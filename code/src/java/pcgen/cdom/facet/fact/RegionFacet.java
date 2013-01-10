@@ -46,8 +46,6 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 	 */
 	private TemplateFacet templateFacet;
 
-	private final Class<?> thisClass = getClass();
-
 	/**
 	 * Returns the type-safe RegionCacheInfo for this RegionFacet and the given
 	 * CharID. Will return a new, empty RegionCacheInfo if no Region information
@@ -68,7 +66,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 		if (rci == null)
 		{
 			rci = new RegionCacheInfo();
-			setCache(id, thisClass, rci);
+			setCache(id, rci);
 		}
 		return rci;
 	}
@@ -90,7 +88,7 @@ public class RegionFacet extends AbstractDataFacet<String> implements
 	 */
 	private RegionCacheInfo getInfo(CharID id)
 	{
-		return (RegionCacheInfo) getCache(id, thisClass);
+		return (RegionCacheInfo) getCache(id);
 	}
 
 	/**

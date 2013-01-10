@@ -42,8 +42,6 @@ import pcgen.cdom.facet.DataFacetChangeEvent;
  */
 public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 {
-	private final Class<?> thisClass = getClass();
-
 	/**
 	 * Add the given object to the list of objects stored in this
 	 * AbstractListFacet for the Player Character represented by the given
@@ -128,7 +126,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 						DataFacetChangeEvent.DATA_REMOVED);
 				if (componentSet.isEmpty())
 				{
-					removeCache(id, thisClass);
+					removeCache(id);
 				}
 			}
 		}
@@ -193,7 +191,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 */
 	public Collection<T> removeAll(CharID id)
 	{
-		Collection<T> componentSet = (Collection<T>) removeCache(id, thisClass);
+		Collection<T> componentSet = (Collection<T>) removeCache(id);
 		if (componentSet == null)
 		{
 			return Collections.emptySet();
@@ -311,7 +309,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 	 */
 	protected Collection<T> getCachedSet(CharID id)
 	{
-		return (Collection<T>) getCache(id, thisClass);
+		return (Collection<T>) getCache(id);
 	}
 
 	/**
@@ -333,7 +331,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 		if (componentSet == null)
 		{
 			componentSet = getComponentSet();
-			setCache(id, thisClass, componentSet);
+			setCache(id, componentSet);
 		}
 		return componentSet;
 	}
@@ -453,7 +451,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 				replaceSet.add(obj);
 			}
 		}
-		setCache(id, thisClass, componentSet);
+		setCache(id, componentSet);
 		fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
 		fireDataFacetChangeEvent(id, replacement,
 			DataFacetChangeEvent.DATA_ADDED);
@@ -502,7 +500,7 @@ public abstract class AbstractListFacet<T> extends AbstractDataFacet<T>
 					replaceSet.add(added);
 				}
 			}
-			setCache(id, thisClass, componentSet);
+			setCache(id, componentSet);
 			fireDataFacetChangeEvent(id, added, DataFacetChangeEvent.DATA_ADDED);
 		}
 	}

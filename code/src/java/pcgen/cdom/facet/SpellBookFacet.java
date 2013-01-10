@@ -162,7 +162,7 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 	 */
 	public void removeAll(CharID id)
 	{
-		removeCache(id, getClass());
+		removeCache(id);
 	}
 
 	/**
@@ -182,7 +182,7 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 	 */
 	private Map<String, SpellBook> getCachedMap(CharID id)
 	{
-		return (Map<String, SpellBook>) getCache(id, getClass());
+		return (Map<String, SpellBook>) getCache(id);
 	}
 
 	/**
@@ -204,7 +204,7 @@ public class SpellBookFacet extends AbstractStorageFacet implements
 		if (componentMap == null)
 		{
 			componentMap = new LinkedHashMap<String, SpellBook>();
-			setCache(id, getClass(), componentMap);
+			setCache(id, componentMap);
 		}
 		return componentMap;
 	}

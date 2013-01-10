@@ -129,8 +129,7 @@ public class VariableFacet extends AbstractStorageFacet implements
 	private Map<VariableKey, Map<Formula, Set<CDOMObject>>> getCachedMap(
 			CharID id)
 	{
-		return (Map<VariableKey, Map<Formula, Set<CDOMObject>>>) getCache(id,
-			getClass());
+		return (Map<VariableKey, Map<Formula, Set<CDOMObject>>>) getCache(id);
 	}
 
 	/**
@@ -153,7 +152,7 @@ public class VariableFacet extends AbstractStorageFacet implements
 		if (componentMap == null)
 		{
 			componentMap = new HashMap<VariableKey, Map<Formula, Set<CDOMObject>>>();
-			setCache(id, getClass(), componentMap);
+			setCache(id, componentMap);
 		}
 		return componentMap;
 	}

@@ -231,7 +231,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		{
 			return Collections.emptyMap();
 		}
-		removeCache(id, getClass());
+		removeCache(id);
 		for (T obj : componentMap.keySet())
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
@@ -386,7 +386,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 */
 	private Map<T, Set<Object>> getCachedMap(CharID id)
 	{
-		return (Map<T, Set<Object>>) getCache(id, getClass());
+		return (Map<T, Set<Object>>) getCache(id);
 	}
 
 	/**
@@ -410,7 +410,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		if (componentMap == null)
 		{
 			componentMap = getComponentMap();
-			setCache(id, getClass(), componentMap);
+			setCache(id, componentMap);
 		}
 		return componentMap;
 	}

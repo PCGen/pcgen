@@ -40,8 +40,6 @@ import pcgen.core.PlayerCharacter;
 public class AgeSetKitFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<Integer>
 {
-	private final Class<?> thisClass = getClass();
-
 	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
 			.getFacet(PlayerCharacterTrackingFacet.class);
 
@@ -144,7 +142,7 @@ public class AgeSetKitFacet extends AbstractStorageFacet implements
 	 */
 	private CacheInfo getClassInfo(CharID id)
 	{
-		return (CacheInfo) getCache(id, thisClass);
+		return (CacheInfo) getCache(id);
 	}
 
 	/**
@@ -167,7 +165,7 @@ public class AgeSetKitFacet extends AbstractStorageFacet implements
 		if (info == null)
 		{
 			info = new CacheInfo();
-			setCache(id, thisClass, info);
+			setCache(id, info);
 		}
 		return info;
 	}

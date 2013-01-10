@@ -43,8 +43,6 @@ import pcgen.core.PCClass;
  */
 public class ClassFacet extends AbstractDataFacet<PCClass>
 {
-	private final Class<?> thisClass = getClass();
-
 	private final ClassLevelChangeSupport support =
 			new ClassLevelChangeSupport();
 
@@ -175,7 +173,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 			}
 			if (info.isEmpty())
 			{
-				removeCache(id, thisClass);
+				removeCache(id);
 			}
 		}
 	}
@@ -190,7 +188,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 	 */
 	public ClassInfo removeAllClasses(CharID id)
 	{
-		ClassInfo info = (ClassInfo) removeCache(id, thisClass);
+		ClassInfo info = (ClassInfo) removeCache(id);
 		if (info != null)
 		{
 			for (PCClass obj : info.getClassSet())
@@ -370,7 +368,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 	 */
 	private ClassInfo getClassInfo(CharID id)
 	{
-		return (ClassInfo) getCache(id, thisClass);
+		return (ClassInfo) getCache(id);
 	}
 
 	/**
@@ -393,7 +391,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		if (info == null)
 		{
 			info = new ClassInfo();
-			setCache(id, thisClass, info);
+			setCache(id, info);
 		}
 		return info;
 	}
@@ -593,7 +591,7 @@ public class ClassFacet extends AbstractDataFacet<PCClass>
 		ClassInfo info = getClassInfo(source);
 		if (info != null)
 		{
-			setCache(destination, thisClass, new ClassInfo(info));
+			setCache(destination, new ClassInfo(info));
 		}
 	}
 

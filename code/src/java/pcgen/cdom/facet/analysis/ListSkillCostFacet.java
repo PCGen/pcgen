@@ -31,8 +31,6 @@ import pcgen.core.Skill;
 public class ListSkillCostFacet extends AbstractStorageFacet implements
 		DataFacetChangeListener<CDOMObject>
 {
-	private final Class<?> thisClass = getClass();
-
 	private RaceFacet raceFacet;
 
 	/**
@@ -128,7 +126,7 @@ public class ListSkillCostFacet extends AbstractStorageFacet implements
 		if (rci == null)
 		{
 			rci = new CacheInfo();
-			setCache(id, thisClass, rci);
+			setCache(id, rci);
 		}
 		return rci;
 	}
@@ -150,7 +148,7 @@ public class ListSkillCostFacet extends AbstractStorageFacet implements
 	 */
 	private CacheInfo getInfo(CharID id)
 	{
-		return (CacheInfo) getCache(id, thisClass);
+		return (CacheInfo) getCache(id);
 	}
 
 	/**
