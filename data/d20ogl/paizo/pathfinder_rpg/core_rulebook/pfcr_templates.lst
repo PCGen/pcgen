@@ -93,3 +93,25 @@ Inherent Charisma Bonus +2			VISIBLE:NO																																		BONUS:S
 Inherent Charisma Bonus +3			VISIBLE:NO																																		BONUS:STAT|CHA|3|TYPE=Inherent
 Inherent Charisma Bonus +4			VISIBLE:NO																																		BONUS:STAT|CHA|4|TYPE=Inherent
 Inherent Charisma Bonus +5			VISIBLE:NO																																		BONUS:STAT|CHA|5|TYPE=Inherent
+
+# Following kludge necessary to get around the fact that natural attacks are created Medium except on race
+Sorcerer Claw		VISIBLE:NO	TEMPLATE:CHOOSE:Sorcerer Claw ~ Tiny|Sorcerer Claw ~ Small|Sorcerer Claw ~ Medium|Sorcerer Claw ~ Large|Sorcerer Claw ~ Huge|Sorcerer Claw ~ Gargantuan|Sorcerer Claw ~ Colossal
+
+Sorcerer Claw ~ Tiny			VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d2		BONUS:WEAPONPROF=Claw|WIELDCATEGORY|-2
+Sorcerer Claw ~ Small			VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d3		BONUS:WEAPONPROF=Claw|WIELDCATEGORY|-1
+Sorcerer Claw ~ Medium			VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
+Sorcerer Claw ~ Large			VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d6		BONUS:WEAPONPROF=Claw|WIELDCATEGORY|1
+Sorcerer Claw ~ Huge			VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d8		BONUS:WEAPONPROF=Claw|WIELDCATEGORY|2
+Sorcerer Claw ~ Gargantuan		VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d6		BONUS:WEAPONPROF=Claw|WIELDCATEGORY|3
+Sorcerer Claw ~ Colossal		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d8		BONUS:WEAPONPROF=Claw|WIELDCATEGORY|4
+
+# Following kludge necessary to get around the fact that natural attacks are created Medium except on race
+Dragon Disciple Bite	VISIBLE:NO	TEMPLATE:CHOOSE:Dragon Disciple Bite ~ Tiny|Dragon Disciple Bite ~ Small|Dragon Disciple Bite ~ Medium|Dragon Disciple Bite ~ Large|Dragon Disciple Bite ~ Huge|Dragon Disciple Bite ~ Gargantuan|Dragon Disciple Bite ~ Colossal
+
+Dragon Disciple Bite ~ Tiny		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d3	BONUS:WEAPONPROF=Bite|WIELDCATEGORY|-2
+Dragon Disciple Bite ~ Small		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	BONUS:WEAPONPROF=Bite|WIELDCATEGORY|-1
+Dragon Disciple Bite ~ Medium		VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
+Dragon Disciple Bite ~ Large		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8	BONUS:WEAPONPROF=Bite|WIELDCATEGORY|1
+Dragon Disciple Bite ~ Huge		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6	BONUS:WEAPONPROF=Bite|WIELDCATEGORY|2
+Dragon Disciple Bite ~ Gargantuan	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8	BONUS:WEAPONPROF=Bite|WIELDCATEGORY|3
+Dragon Disciple Bite ~ Colossal	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6	BONUS:WEAPONPROF=Bite|WIELDCATEGORY|4
