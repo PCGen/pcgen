@@ -124,4 +124,11 @@ CLASS:Monk.MOD	DEFINE:NonMonkLevels|TL-classlevel("Monk")	DEFINE:MonkLevelsAdjus
 #CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD19|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD19],[PREVAREQ:MonkLevelsAdjusted,19]
 #CLASS:Monk.MOD		ABILITY:Special Ability|AUTOMATIC|MUD20|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,MUD20],[PREVAREQ:MonkLevelsAdjusted,20]
 
+CLASS:Druid.MOD
+1	DOMAIN:Strength[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[DruidStrengthAllowed,1]]
+1	DOMAIN:Family Subdomain[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[DruidFamilyAllowed,1]]	
+1	DOMAIN:Rage Subdomain[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[DruidRageAllowed,1]]	
+1	DOMAIN:Night Subdomain[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[DruidNightAllowed,1]]	
+1	DOMAIN:Deception Subdomain[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[DruidDeceptionAllowed,1]]
+
 
