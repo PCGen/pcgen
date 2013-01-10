@@ -547,9 +547,6 @@
 	</bean>
 	<bean id="userEquipmentFacet" class="pcgen.cdom.facet.UserEquipmentFacet"/>
 	<bean id="userSpecialAbilityFacet" class="pcgen.cdom.facet.input.UserSpecialAbilityFacet"/>
-	<bean id="userTemplateFacet" class="pcgen.cdom.facet.UserTemplateFacet">
-		<property name="templateFacet" ref="templateFacet"/>
-	</bean>
 	<!-- V -->
 	<bean id="variableFacet" class="pcgen.cdom.facet.analysis.VariableFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
