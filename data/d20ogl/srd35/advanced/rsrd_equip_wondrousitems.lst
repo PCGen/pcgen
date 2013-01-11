@@ -219,11 +219,11 @@ Ioun Stone (Scarlet and Blue)													TYPE:Magic.Wondrous						COST:8000	WT:
 Ioun Stone (Dark Blue)														TYPE:Magic.Wondrous						COST:10000	WT:0				SOURCEPAGE:MagicItemsV.rtf					VFEAT:Alertness
 Ioun Stone (Vibrant Purple)													TYPE:Magic.Wondrous						COST:36000	WT:0				SOURCEPAGE:MagicItemsV.rtf
 Ioun Stone (Iridescent)														TYPE:Magic.Wondrous						COST:18000	WT:0				SOURCEPAGE:MagicItemsV.rtf
-Ioun Stone (Pale Lavender)													TYPE:Magic.Wondrous						COST:20000	WT:0				SOURCEPAGE:MagicItemsV.rtf
+Ioun Stone (Pale Lavender)							EQMOD:CHARGED_ITEM_20|CHARGES[20]	TYPE:Magic.Wondrous						COST:20000	WT:0				SOURCEPAGE:MagicItemsV.rtf
 Ioun Stone (Pearly White)													TYPE:Magic.Wondrous						COST:20000	WT:0				SOURCEPAGE:MagicItemsV.rtf
 Ioun Stone (Pale Green)														TYPE:Magic.Wondrous						COST:30000	WT:0				SOURCEPAGE:MagicItemsV.rtf																				BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Competence	BONUS:COMBAT|TOHIT|1|TYPE=Competence													BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|1|TYPE=Competence																BONUS:VAR|TurnCheckBase|1|TYPE=Competence	SPROP:+1 Competence bonus to ability checks
 Ioun Stone (Orange)														TYPE:Magic.Wondrous						COST:30000	WT:0				SOURCEPAGE:MagicItemsV.rtf	ADD:SPELLCASTER|ANY
-Ioun Stone (Lavender and Green)												TYPE:Magic.Wondrous						COST:40000	WT:0				SOURCEPAGE:MagicItemsV.rtf
+Ioun Stone (Lavender and Green)						EQMOD:CHARGED_ITEM_50|CHARGES[50]	TYPE:Magic.Wondrous						COST:40000	WT:0				SOURCEPAGE:MagicItemsV.rtf
 Iron Bands of Binding														TYPE:Magic.Wondrous						COST:26000	WT:1				SOURCEPAGE:MagicItemsV.rtf
 Iron Flask																TYPE:Magic.Wondrous.Vial					COST:170000	WT:1				SOURCEPAGE:MagicItemsV.rtf
 ###Block:L's
