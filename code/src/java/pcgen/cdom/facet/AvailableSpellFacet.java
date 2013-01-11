@@ -21,7 +21,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.enumeration.CharID;
@@ -108,70 +107,6 @@ public class AvailableSpellFacet extends AbstractSpellStorageFacet implements
 		return levelInfo;
 	}
 
-	/**
-	 * Returns a non-null DoubleKeyMapToList indicating the spells, spell levels
-	 * and sources of those spell levels available to a Player Character for a
-	 * given Spell.
-	 * 
-	 * This may return multiple spell levels because it is possible for a spell
-	 * to be accessible to a Player Character at multiple levels since it may be
-	 * available from multiple sources. This also returns the spell lists
-	 * associated with the given level, since it is possible for a multi-class
-	 * character to have access to the same spell at different levels. By
-	 * returning the source as well as the spell levels, such scenarios can be
-	 * appropriately distinguished.
-	 * 
-	 * This method is value-semantic in that ownership of the returned
-	 * DoubleKeyMapToList is transferred to the class calling this method.
-	 * Modification of the returned DoubleKeyMapToList will not modify this
-	 * AvailableSpellFacet and modification of this AvailableSpellFacet will not
-	 * modify the returned DoubleKeyMapToList. Modifications to the returned
-	 * DoubleKeyMapToList will also not modify any future or previous objects
-	 * returned by this (or other) methods on AvailableSpellFacet. If you wish
-	 * to modify the information stored in this AvailableSpellFacet, you must
-	 * use the add*() and remove*() methods of AvailableSpellFacet.
-	 * 
-	 * @param id
-	 *            The CharID identifying the Player Character for which the
-	 *            spell levels should be returned
-	 * @return A non-null DoubleKeyMapToList indicating the Spells, spell levels
-	 *         and sources of those spell levels available to a Player Character
-	 *         for a given Spell.
-	 */
-	public DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> getSpellLevelInfo(
-		CharID id)
-	{
-		DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> levelInfo =
-				new DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer>();
-		Map<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>> listMap =
-				getCachedMap(id);
-		if (listMap == null)
-		{
-			return levelInfo;
-		}
-		for (Entry<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>> me : listMap
-			.entrySet())
-		{
-			CDOMList<Spell> list = me.getKey();
-			//Check to ensure we don't use SPELLS:
-			if (!(list instanceof ClassSpellList)
-				&& !(list instanceof DomainSpellList))
-			{
-				continue;
-			}
-			for (Entry<Integer, Map<Spell, Set<Object>>> sme : me.getValue()
-				.entrySet())
-			{
-				Integer level = sme.getKey();
-				for (Spell spell : sme.getValue().keySet())
-				{
-					levelInfo.addToListFor(spell, list, level);
-				}
-			}
-		}
-		return levelInfo;
-	}
-
 	@Override
 	public void spellAdded(SpellChangeEvent sce)
 	{
@@ -185,4 +120,5 @@ public class AvailableSpellFacet extends AbstractSpellStorageFacet implements
 		remove(sce.getCharID(), sce.getSpellList(), sce.getLevel(),
 			sce.getSpell(), sce.getSource());
 	}
+
 }

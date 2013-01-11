@@ -19,6 +19,7 @@ package pcgen.cdom.facet.base;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.EventListener;
 import java.util.EventObject;
 import java.util.HashMap;
@@ -550,5 +551,39 @@ public abstract class AbstractSpellStorageFacet extends AbstractStorageFacet
 				listeners[i].spellAdded(ccEvent);
 			}
 		}
+	}
+
+	public Collection<Integer> getLevelsInList(CharID id, CDOMList<Spell> list)
+	{
+		Map<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>> map =
+				getConstructingCachedMap(id);
+		Map<Integer, Map<Spell, Set<Object>>> levelMap = map.get(list);
+		if (levelMap == null)
+		{
+			return Collections.emptyList();
+		}
+		List<Integer> levels = new ArrayList<Integer>();
+		levels.addAll(levelMap.keySet());
+		return levels;
+	}
+
+	public Collection<Spell> getSpellsInListLevel(CharID id,
+		CDOMList<Spell> list, int level)
+	{
+		Map<CDOMList<Spell>, Map<Integer, Map<Spell, Set<Object>>>> map =
+				getConstructingCachedMap(id);
+		Map<Integer, Map<Spell, Set<Object>>> levelMap = map.get(list);
+		if (levelMap == null)
+		{
+			return Collections.emptyList();
+		}
+		Map<Spell, Set<Object>> spellMap = levelMap.get(level);
+		if (spellMap == null)
+		{
+			return Collections.emptyList();
+		}
+		List<Spell> spells = new ArrayList<Spell>();
+		spells.addAll(spellMap.keySet());
+		return spells;
 	}
 }

@@ -46,7 +46,6 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -9743,19 +9742,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return sb.toString();
 	}
 
-	private DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> getSpellLevelInfo()
-	{
-		DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> map = cache.get(ObjectKey.SPELL_PC_INFO);
-		if (map == null)
-		{
-			map = availSpellFacet.getSpellLevelInfo(id);
-			cache.put(ObjectKey.SPELL_PC_INFO, map);
-		}
-		DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> newmap = new DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer>();
-		newmap.addAll(map);
-		return newmap;
-	}
-
 	/**
 	 * This method gets the information about the levels at which classes and
 	 * domains may cast the spell.
@@ -11147,25 +11133,24 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists)
 	{
 		boolean allLevels = level == -1;
-		Set<Spell> spellList = new HashSet<Spell>();
-		DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> dkmtl =
-				getSpellLevelInfo();
-		for (Spell spell : dkmtl.getKeySet())
+		List<Spell> spellList = new ArrayList<Spell>();
+		for (CDOMList<Spell> list : availSpellFacet.getSpellLists(id))
 		{
-			for (CDOMList<Spell> list : dkmtl.getSecondaryKeySet(spell))
+			if (spellLists.contains(list))
 			{
-				if (spellLists.contains(list))
+				for (int lvl : availSpellFacet.getLevelsInList(id, list))
 				{
-					List<Integer> levels = dkmtl.getListFor(spell, list);
-					if (levels != null && (allLevels || levels.contains(level)))
+					if (allLevels || (level == lvl))
 					{
-						spellList.add(spell);
-						break;
+						for (Spell spell : availSpellFacet.getSpellsInListLevel(id, list, lvl))
+						{
+							spellList.add(spell);
+						}
 					}
 				}
 			}
 		}
 	
-		return new ArrayList<Spell>(spellList);
+		return spellList;
 	}
 }

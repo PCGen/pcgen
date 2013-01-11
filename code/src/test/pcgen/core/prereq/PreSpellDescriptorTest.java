@@ -164,7 +164,6 @@ public class PreSpellDescriptorTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-
 	public void testNotSimpleDescriptor() throws Exception
 	{
 		final Prerequisite prereq = new Prerequisite();
@@ -184,7 +183,7 @@ public class PreSpellDescriptorTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
-	public void tesNotTwoClassDescriptor() throws Exception
+	public void testNotTwoClassDescriptor() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 
