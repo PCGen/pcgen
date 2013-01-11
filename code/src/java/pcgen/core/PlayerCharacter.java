@@ -9743,7 +9743,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return sb.toString();
 	}
 
-	public DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> getSpellLevelInfo()
+	private DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> getSpellLevelInfo()
 	{
 		DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> map = cache.get(ObjectKey.SPELL_PC_INFO);
 		if (map == null)
@@ -11134,5 +11134,38 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public int getKnownSpellCountForLevel(CDOMList<Spell> list, int level)
 	{
 		return knownSpellFacet.getKnownSpellCountForLevel(id, list, level);
+	}
+
+	/**
+	 * Returns a List of Spell with following criteria:
+	 *
+	 * @param level      (optional, ignored if < 0),
+	 * @param spellLists the lists of spells
+	 * @param pc TODO
+	 * @return a List of Spell
+	 */
+	public List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists)
+	{
+		boolean allLevels = level == -1;
+		Set<Spell> spellList = new HashSet<Spell>();
+		DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> dkmtl =
+				getSpellLevelInfo();
+		for (Spell spell : dkmtl.getKeySet())
+		{
+			for (CDOMList<Spell> list : dkmtl.getSecondaryKeySet(spell))
+			{
+				if (spellLists.contains(list))
+				{
+					List<Integer> levels = dkmtl.getListFor(spell, list);
+					if (levels != null && (allLevels || levels.contains(level)))
+					{
+						spellList.add(spell);
+						break;
+					}
+				}
+			}
+		}
+	
+		return new ArrayList<Spell>(spellList);
 	}
 }

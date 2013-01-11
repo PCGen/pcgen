@@ -26,7 +26,6 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.list.ClassSpellList;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
 
@@ -146,7 +145,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	{
 		if (ref == null)
 		{
-			return Globals.getSpellsIn(spellLevel, classSpellLists, pc);
+			return pc.getSpellsIn(spellLevel,  classSpellLists);
 		}
 		List<Spell> spellList = new ArrayList<Spell>();
 		for (Spell sp : ref.getContainedObjects())

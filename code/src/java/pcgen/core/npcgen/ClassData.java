@@ -309,7 +309,7 @@ public class ClassData
 		{
 			spells = new WeightedCollection<Spell>();
 			
-			for ( final Spell spell : Globals.getSpellsIn(aLevel, Collections.singletonList(theClass.get(ObjectKey.CLASS_SPELLLIST)), pc) )
+			for ( final Spell spell : pc.getSpellsIn(aLevel,  Collections.singletonList(theClass.get(ObjectKey.CLASS_SPELLLIST))) )
 			{
 				spells.add(spell, 1);
 			}
@@ -360,7 +360,7 @@ public class ClassData
 		{
 			spells = new WeightedCollection<Spell>();
 			
-			for ( final Spell spell : Globals.getSpellsIn(aLevel, Collections.singletonList(theClass.get(ObjectKey.CLASS_SPELLLIST)), pc) )
+			for ( final Spell spell : pc.getSpellsIn(aLevel,  Collections.singletonList(theClass.get(ObjectKey.CLASS_SPELLLIST))) )
 			{
 				spells.add(spell, 1);
 			}

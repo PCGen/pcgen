@@ -525,7 +525,7 @@ final class ChooseSpellDialog extends JDialog
 
 			classSpells = new ArrayList<Spell>();
 
-			for (Spell s : Globals.getSpellsIn(-1, Collections.singletonList(spellList), pc))
+			for (Spell s : pc.getSpellsIn(-1,  Collections.singletonList(spellList)))
 			{
 				if (canCreateItem(s))
 				{

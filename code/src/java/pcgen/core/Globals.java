@@ -34,10 +34,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.logging.Level;
@@ -46,9 +44,7 @@ import javax.swing.JFrame;
 
 import org.apache.commons.lang.SystemUtils;
 
-import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.RandomUtil;
-import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.MasterListInterface;
@@ -766,39 +762,6 @@ public final class Globals
 	public static String getSpellPoints()
 	{
 		return spellPoints;
-	}
-
-	/**
-	 * Returns a List of Spell with following criteria:
-	 *
-	 * @param level      (optional, ignored if < 0),
-	 * @param spellLists the lists of spells
-	 * @param pc TODO
-	 * @return a List of Spell
-	 */
-	public static List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists, PlayerCharacter pc)
-	{
-		boolean allLevels = level == -1;
-		Set<Spell> spellList = new HashSet<Spell>();
-		DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer> dkmtl =
-				pc.getSpellLevelInfo();
-		for (Spell spell : dkmtl.getKeySet())
-		{
-			for (CDOMList<Spell> list : dkmtl.getSecondaryKeySet(spell))
-			{
-				if (spellLists.contains(list))
-				{
-					List<Integer> levels = dkmtl.getListFor(spell, list);
-					if (levels != null && (allLevels || levels.contains(level)))
-					{
-						spellList.add(spell);
-						break;
-					}
-				}
-			}
-		}
-
-		return new ArrayList<Spell>(spellList);
 	}
 
 	/**

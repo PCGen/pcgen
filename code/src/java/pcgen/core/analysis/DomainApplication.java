@@ -76,8 +76,8 @@ public class DomainApplication
 			{
 				DomainSpellList domainSpellList = d
 						.get(ObjectKey.DOMAIN_SPELLLIST);
-				final List<Spell> aList = Globals.getSpellsIn(-1, Collections
-						.singletonList(domainSpellList), pc);
+				final List<Spell> aList = pc.getSpellsIn(-1,  Collections
+				.singletonList(domainSpellList));
 
 				for (Spell gcs : aList)
 				{
@@ -160,8 +160,8 @@ public class DomainApplication
 			{
 				DomainSpellList domainSpellList = domain
 						.get(ObjectKey.DOMAIN_SPELLLIST);
-				final List<Spell> aList = Globals.getSpellsIn(-1, Collections
-						.singletonList(domainSpellList), pc);
+				final List<Spell> aList = pc.getSpellsIn(-1,  Collections
+				.singletonList(domainSpellList));
 
 				for (Spell gcs : aList)
 				{
@@ -214,8 +214,8 @@ public class DomainApplication
 
 		for (int aLevel = minLevel; aLevel <= maxLevel; aLevel++)
 		{
-			List<Spell> domainSpells = Globals.getSpellsIn(aLevel, Collections
-					.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST)), pc);
+			List<Spell> domainSpells = pc.getSpellsIn(aLevel,  Collections
+			.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST)));
 			for (Spell spell : domainSpells)
 			{
 				List<CharacterSpell> slist =

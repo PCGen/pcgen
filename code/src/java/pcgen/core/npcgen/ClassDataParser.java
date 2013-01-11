@@ -25,8 +25,11 @@ package pcgen.core.npcgen;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -36,6 +39,11 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import pcgen.cdom.base.AssociatedPrereqObject;
+import pcgen.cdom.base.CDOMList;
+import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.MasterListInterface;
+import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
@@ -45,9 +53,11 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
+import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Visibility;
@@ -542,7 +552,7 @@ class ClassDataHandler extends DefaultHandler
 			if ( remainingWeight > 0 )
 			{
 				// Add all spells at this weight.
-				final List<Spell> allSpells = Globals.getSpellsIn(theCurrentLevel, Collections.singletonList(theCurrentData.getPCClass().get(ObjectKey.CLASS_SPELLLIST)), null);
+				final List<Spell> allSpells = getSpellsIn(theCurrentLevel,  Collections.singletonList(theCurrentData.getPCClass().get(ObjectKey.CLASS_SPELLLIST)));
 				for ( final Spell spell : allSpells )
 				{
 					if ( theCurrentSpellType == SpellType.KNOWN )
@@ -592,5 +602,57 @@ class ClassDataHandler extends DefaultHandler
 			weight = Integer.parseInt(wtStr.trim());
 		}
 		return weight;
+	}
+
+	/**
+	 * Returns a List of Spell with following criteria:
+	 *
+	 * @param level      (optional, ignored if < 0),
+	 * @param spellLists the lists of spells
+	 * @param pc TODO
+	 * @return a List of Spell
+	 */
+	public static List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists)
+	{
+		MasterListInterface masterLists = Globals.getMasterLists();
+		ArrayList<CDOMReference<CDOMList<Spell>>> useLists = new ArrayList<CDOMReference<CDOMList<Spell>>>();
+		for (CDOMReference ref : masterLists.getActiveLists())
+		{
+			for (CDOMList<Spell> list : spellLists)
+			{
+				if (ref.contains(list))
+				{
+					useLists.add(ref);
+					break;
+				}
+			}
+		}
+		boolean allLevels = level == -1;
+		Set<Spell> spellList = new HashSet<Spell>();
+		for (CDOMReference<CDOMList<Spell>> ref : useLists)
+		{
+			for (Spell spell : masterLists.getObjects(ref))
+			{
+				Collection<AssociatedPrereqObject> assoc = masterLists
+						.getAssociations(ref, spell);
+				for (AssociatedPrereqObject apo : assoc)
+				{
+					// TODO This null for source is incorrect!
+					// TODO Not sure if effect of null for PC
+					if (PrereqHandler.passesAll(apo.getPrerequisiteList(), (PlayerCharacter) null,
+							null))
+					{
+						int lvl = apo
+								.getAssociation(AssociationKey.SPELL_LEVEL);
+						if (allLevels || level == lvl)
+						{
+							spellList.add(spell);
+							break;
+						}
+					}
+				}
+			}
+		}
+		return new ArrayList<Spell>(spellList);
 	}
 }

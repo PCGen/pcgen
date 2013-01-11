@@ -34,7 +34,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Domain;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -78,8 +77,8 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 		//Needs to add domain spells as well
 		for (Domain d : display.getDomainSet())
 		{
-			aArrayList.addAll(Globals.getSpellsIn(-1, Collections
-					.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST)), character));
+			aArrayList.addAll(character.getSpellsIn(-1,  Collections
+			.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST))));
 		}
 
 		//Are there Innate Spell-like abilities?

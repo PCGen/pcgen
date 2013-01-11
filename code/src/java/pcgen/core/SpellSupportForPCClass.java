@@ -594,12 +594,9 @@ public class SpellSupportForPCClass
 									aPC.getDomainSource(d).getPcclass()
 											.getKeyName()))
 							{
-								bList = Globals
-										.getSpellsIn(
-												ix,
-												Collections
-														.singletonList(d
-																.get(ObjectKey.DOMAIN_SPELLLIST)), aPC);
+								bList = aPC.getSpellsIn(ix,  Collections
+								.singletonList(d
+										.get(ObjectKey.DOMAIN_SPELLLIST)));
 							}
 						}
 					}
@@ -687,8 +684,8 @@ public class SpellSupportForPCClass
 				&& aPC.getAutoSpells())
 		{
 			// Get every spell that can be cast by this class.
-			final List<Spell> cspelllist = Globals.getSpellsIn(-1, aPC
-					.getSpellLists(source), aPC);
+			final List<Spell> cspelllist = aPC.getSpellsIn(-1,  aPC
+			.getSpellLists(source));
 			if (cspelllist.isEmpty())
 			{
 				return;
