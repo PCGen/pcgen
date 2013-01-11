@@ -100,26 +100,27 @@
 	
 	<p class="indent2"><code><a name="BAB">BAB</a></code></p>
 	<p class="indent3">For classes which have O (for Other) as their BAB progression, you can use a
-		formula for their BAB progression. e.g. DEFINE:BAB|2*CL would be +2 per
+		formula for their BAB progression. e.g. <code>DEFINE:BAB|2*CL</code> would be +2 per
 		class-level.</p>
 	<p></p>
 	
 	<p class="indent2"><code><a name="BASESPELLSTAT">BASESPELLSTAT</a></code></p>
-	<p class="indent3">This is the mod for the class's base spell stat.</p>
+	<p class="indent3">This is the modifier for the class's base spell stat. This variable can only be used in a <span class="lstfile">class.lst</span> file.</p>
 	<p></p>
 
 	<p class="indent2"><code><a name="BL">BL=name</a></code></p>
-	<p class="indent3">This will return the Bonus Spellcaster Levels to the class specified, which usually
-		come from Prestige classes. For example, lets say you have 2 levels Mystic Theurge which add to
-		both your Cleric and Wizard levels, 3 levels of Archmage which add to your Wizard level, and 1
-		level of Loremaster which adds to your Cleric level. BL=Wizard would return 5 and BL=Cleric would
-		return 3. Replace { with ( and } with ). e.g. BL=Cleric {Special} would return the bonus levels
-		of Cleric (Special) since ( and ) have other meanings in DEFINE variables. If used within a JEP
-		formula you will need to enclose it in a variable function e.g. var(&quot;BL=Cleric {Special}&quot;)		</p>
+	<p class="indent3">This will return the Bonus Spellcaster Levels to the class specified, which usually come from Prestige classes. 
+		For example, lets say you have 2 levels <strong>Mystic Theurge</strong> which add to both your <strong>Cleric</strong> and 
+		<strong>Wizard</strong> levels, 3 levels of <strong>Archmage</strong> which add to your <strong>Wizard</strong> level, and 1
+		level of <strong>Loremaster</strong> which adds to your <strong>Cleric</strong> level. <code>BL=Wizard</code> would return 5 
+		and <code>BL=Cleric</code> would return 3. Replace &quot;{&quot; with &quot;(&quot; and &quot;}&quot; with &quot;)&quot;, 
+		e.g. <code>BL=Cleric {Special}</code> would return the bonus levels of &quot;Cleric (Special)&quot; since &quot;(&quot; 
+		and &quot;)&quot; have other meanings in DEFINE variables. If used within a JEP formula you will need to enclose it in a 
+		variable function e.g. <code>var(&quot;BL=Cleric {Special}&quot;)</code>.</p>
 	<p></p>
 	
 	<p class="indent2"><code><a name="CASTERLEVEL">CASTERLEVEL</a></code></p>
-	<p class="indent3">CASTERLEVEL is a special variable and is valid only in Spell objects and therefore 
+	<p class="indent3">This is a special variable and is valid only in Spell objects and therefore 
   		should only be used in Spell LST Files. See the <a href="../datafilestagpages/datafilesspells.html#CASTERLEVEL">CASTERLEVEL</a>
   		tag entry on the Spell tag page.</p>
 	<p></p>
@@ -133,8 +134,8 @@
 	<p></p>
 	
 	<p class="indent2"><code><a name="CL">CL</a></code></p>
-	<p class="indent3">Class Level of <strong>THIS</strong> class. This variable is valid only in the Class object and should 
-		only be used in Class LST files.</p>
+	<p class="indent3">This provides the class level for the class object in which it is being used. This variable is valid only in the Class object and should 
+		only be used in <span class="lstfile">class.lst</span> files.</p>
 	<p></p>
 	
 	<p class="indent2"><code><a name="CLname">CL=name</a></code></p>
