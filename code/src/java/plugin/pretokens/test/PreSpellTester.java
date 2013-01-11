@@ -77,7 +77,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 		//Needs to add domain spells as well
 		for (Domain d : display.getDomainSet())
 		{
-			aArrayList.addAll(character.getSpellsIn(-1,  Collections
+			aArrayList.addAll(character.getAllSpellsInLists(Collections
 			.singletonList(d.get(ObjectKey.DOMAIN_SPELLLIST))));
 		}
 

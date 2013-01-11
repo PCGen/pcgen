@@ -871,7 +871,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			DoubleKeyMapToList<SpellFacade, String, SpellNode> existingSpells =
 					buildExistingSpellMap(availableSpellNodes, pcClass);
 			
-			for (Spell spell : pc.getSpellsIn(-1,  charDisplay.getSpellLists(pcClass)))
+			for (Spell spell : pc.getAllSpellsInLists(charDisplay.getSpellLists(pcClass)))
 			{
 				// Create SpellNodeImpl for each spell
 				CharacterSpell charSpell = new CharacterSpell(pcClass, spell);

@@ -11122,17 +11122,13 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return knownSpellFacet.getKnownSpellCountForLevel(id, list, level);
 	}
 
-	/**
-	 * Returns a List of Spell with following criteria:
-	 *
-	 * @param level      (optional, ignored if < 0),
-	 * @param spellLists the lists of spells
-	 * @param pc TODO
-	 * @return a List of Spell
-	 */
-	public List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists)
+	public Collection<Spell> getSpellsIn(CDOMList<Spell> list, final int level)
 	{
-		boolean allLevels = level == -1;
+		return availSpellFacet.getSpellsInListLevel(id, list, level);
+	}
+
+	public List<Spell> getAllSpellsInLists(List<? extends CDOMList<Spell>> spellLists)
+	{
 		List<Spell> spellList = new ArrayList<Spell>();
 		for (CDOMList<Spell> list : availSpellFacet.getSpellLists(id))
 		{
@@ -11140,12 +11136,9 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			{
 				for (int lvl : availSpellFacet.getLevelsInList(id, list))
 				{
-					if (allLevels || (level == lvl))
+					for (Spell spell : availSpellFacet.getSpellsInListLevel(id, list, lvl))
 					{
-						for (Spell spell : availSpellFacet.getSpellsInListLevel(id, list, lvl))
-						{
-							spellList.add(spell);
-						}
+						spellList.add(spell);
 					}
 				}
 			}

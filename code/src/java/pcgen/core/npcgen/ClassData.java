@@ -22,7 +22,6 @@
  */
 package pcgen.core.npcgen;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -309,7 +308,8 @@ public class ClassData
 		{
 			spells = new WeightedCollection<Spell>();
 			
-			for ( final Spell spell : pc.getSpellsIn(aLevel,  Collections.singletonList(theClass.get(ObjectKey.CLASS_SPELLLIST))) )
+			for (final Spell spell : pc.getSpellsIn(theClass.get(ObjectKey.CLASS_SPELLLIST),
+				aLevel))
 			{
 				spells.add(spell, 1);
 			}
@@ -360,7 +360,8 @@ public class ClassData
 		{
 			spells = new WeightedCollection<Spell>();
 			
-			for ( final Spell spell : pc.getSpellsIn(aLevel,  Collections.singletonList(theClass.get(ObjectKey.CLASS_SPELLLIST))) )
+			for (final Spell spell : pc.getSpellsIn(theClass.get(ObjectKey.CLASS_SPELLLIST),
+				aLevel))
 			{
 				spells.add(spell, 1);
 			}

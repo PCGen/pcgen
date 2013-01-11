@@ -22,7 +22,6 @@ package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -579,7 +578,7 @@ public class SpellSupportForPCClass
 			{
 				Collection<CharacterSpell> aList = aPC.getCharacterSpells(
 						source, ix);
-				List<Spell> bList = new ArrayList<Spell>();
+				Collection<Spell> bList = new ArrayList<Spell>();
 
 				if (!aList.isEmpty())
 				{
@@ -594,9 +593,8 @@ public class SpellSupportForPCClass
 									aPC.getDomainSource(d).getPcclass()
 											.getKeyName()))
 							{
-								bList = aPC.getSpellsIn(ix,  Collections
-								.singletonList(d
-										.get(ObjectKey.DOMAIN_SPELLLIST)));
+								bList = aPC.getSpellsIn(d.get(ObjectKey.DOMAIN_SPELLLIST),
+											ix);
 							}
 						}
 					}
@@ -684,8 +682,8 @@ public class SpellSupportForPCClass
 				&& aPC.getAutoSpells())
 		{
 			// Get every spell that can be cast by this class.
-			final List<Spell> cspelllist = aPC.getSpellsIn(-1,  aPC
-			.getSpellLists(source));
+			final List<Spell> cspelllist =
+					aPC.getAllSpellsInLists(aPC.getSpellLists(source));
 			if (cspelllist.isEmpty())
 			{
 				return;

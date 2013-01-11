@@ -145,7 +145,12 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	{
 		if (ref == null)
 		{
-			return pc.getSpellsIn(spellLevel,  classSpellLists);
+			List<Spell> returnList = new ArrayList<Spell>();
+			for (CDOMList<Spell> list : classSpellLists)
+			{
+				returnList.addAll(pc.getSpellsIn(list, spellLevel));
+			}
+			return returnList;
 		}
 		List<Spell> spellList = new ArrayList<Spell>();
 		for (Spell sp : ref.getContainedObjects())
