@@ -2287,7 +2287,7 @@ public final class PCGVer2Creator implements IOConstants
 			trackList.add(outString);
 			buffer.append(outString);
 			
-			String bonusName = new BonusManager(thePC).getBonusName(bonus, tbi);
+			String bonusName = new BonusManager(thePC).getBonusDisplayName(bonus, tbi);
 			if (thePC.getTempBonusFilters().contains(bonusName))
 			{
 				buffer.append('|');

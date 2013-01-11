@@ -5875,7 +5875,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			
 			if (!active)
 			{
-				String bonusName = new BonusManager(thePC).getBonusName(newB, tempBonusInfo);
+				String bonusName = new BonusManager(thePC).getBonusDisplayName(newB, tempBonusInfo);
 				thePC.setTempBonusFilter(bonusName);
 			}
 		}

@@ -86,17 +86,17 @@ public class BonusManager
 	}
 
 	/**
-	 * @param prefix
+	 * @param fullyQualifiedBonusType
 	 * @return Total bonus for prefix from the activeBonus HashMap
 	 */
-	private double sumActiveBonusMap(String prefix)
+	private double sumActiveBonusMap(String fullyQualifiedBonusType)
 	{
 		double bonus = 0;
-		prefix = prefix.toUpperCase();
+		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
 
 		final List<String> aList = new ArrayList<String>();
 
-		for (String aKey : activeBonusMap.keySet())
+		for (String fullyQualifedCurrentBonus : activeBonusMap.keySet())
 		{
 			// aKey is either of the form:
 			// COMBAT.AC
@@ -104,24 +104,24 @@ public class BonusManager
 			// COMBAT.AC:Luck
 			// or
 			// COMBAT.AC:Armor.REPLACE
-			if (aList.contains(aKey))
+			if (aList.contains(fullyQualifedCurrentBonus))
 			{
 				continue;
 			}
 
-			String rString = aKey;
+			String currentTypedBonusNameInfo = fullyQualifedCurrentBonus;
 
 			// rString could be something like:
 			// COMBAT.AC:Armor.REPLACE
 			// So need to remove the .STACK or .REPLACE
 			// to get a match for prefix like: COMBAT.AC:Armor
-			if (rString.endsWith(".STACK"))
+			if (currentTypedBonusNameInfo.endsWith(".STACK"))
 			{
-				rString = rString.substring(0, rString.length() - 6);
+				currentTypedBonusNameInfo = currentTypedBonusNameInfo.substring(0, currentTypedBonusNameInfo.length() - 6);
 			}
-			else if (rString.endsWith(".REPLACE"))
+			else if (currentTypedBonusNameInfo.endsWith(".REPLACE"))
 			{
-				rString = rString.substring(0, rString.length() - 8);
+				currentTypedBonusNameInfo = currentTypedBonusNameInfo.substring(0, currentTypedBonusNameInfo.length() - 8);
 			}
 
 			// if prefix is of the form:
@@ -132,23 +132,23 @@ public class BonusManager
 			// COMBAT.AC:Armor.REPLACE
 			// However, it must not match
 			// COMBAT.ACCHECK
-			if ((rString.length() > prefix.length())
-					&& !rString.startsWith(prefix + ":"))
+			if ((currentTypedBonusNameInfo.length() > fullyQualifiedBonusType.length())
+					&& !currentTypedBonusNameInfo.startsWith(fullyQualifiedBonusType + ":"))
 			{
 				continue;
 			}
 
-			if (rString.startsWith(prefix))
+			if (currentTypedBonusNameInfo.startsWith(fullyQualifiedBonusType))
 			{
-				aList.add(rString);
-				aList.add(rString + ".STACK");
-				aList.add(rString + ".REPLACE");
+				aList.add(currentTypedBonusNameInfo);
+				aList.add(currentTypedBonusNameInfo + ".STACK");
+				aList.add(currentTypedBonusNameInfo + ".REPLACE");
 
-				final double aBonus = getActiveBonusForMapKey(rString,
+				final double aBonus = getActiveBonusForMapKey(currentTypedBonusNameInfo,
 						Double.NaN);
-				final double replaceBonus = getActiveBonusForMapKey(rString
+				final double replaceBonus = getActiveBonusForMapKey(currentTypedBonusNameInfo
 						+ ".REPLACE", Double.NaN);
-				final double stackBonus = getActiveBonusForMapKey(rString
+				final double stackBonus = getActiveBonusForMapKey(currentTypedBonusNameInfo
 						+ ".STACK", 0);
 				//
 				// Using NaNs in order to be able to get the max
@@ -185,17 +185,17 @@ public class BonusManager
 	/**
 	 * Searches the activeBonus HashMap for aKey
 	 * 
-	 * @param aKey
+	 * @param fullyQualifiedBonusType
 	 * @param defaultValue
 	 * 
 	 * @return defaultValue if aKey not found
 	 */
-	private double getActiveBonusForMapKey(String aKey,
+	private double getActiveBonusForMapKey(String fullyQualifiedBonusType,
 			final double defaultValue)
 	{
-		aKey = aKey.toUpperCase();
+		fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
 
-		final String regVal = activeBonusMap.get(aKey);
+		final String regVal = activeBonusMap.get(fullyQualifiedBonusType);
 
 		if (regVal != null)
 		{
@@ -205,43 +205,43 @@ public class BonusManager
 		return defaultValue;
 	}
 
-	public double getBonusDueToType(String mainType, String subType,
+	public double getBonusDueToType(String bonusName, String bonusInfo,
 			String bonusType)
 	{
-		final String typeString = mainType + "." + subType + ":" + bonusType;
+		final String typeString = bonusName + "." + bonusInfo + ":" + bonusType;
 
 		return sumActiveBonusMap(typeString);
 	}
 
-	public double getTotalBonusTo(String bonusType, String bonusName)
+	public double getTotalBonusTo(String bonusName, String bonusInfo)
 	{
-		final String prefix = new StringBuilder(bonusType).append('.').append(
-				bonusName).toString();
+		final String prefix = new StringBuilder(bonusName).append('.').append(
+				bonusInfo).toString();
 
 		return sumActiveBonusMap(prefix);
 	}
 
-	public String getSpellBonusType(String bonusType, String bonusName)
+	public String getSpellBonusType(String bonusName, String bonusInfo)
 	{
-		String prefix = new StringBuilder(bonusType).append('.').append(
-				bonusName).toString();
+		String prefix = new StringBuilder(bonusName).append('.').append(
+				bonusInfo).toString();
 		prefix = prefix.toUpperCase();
 
-		for (String aKey : activeBonusMap.keySet())
+		for (String fullyQualifedBonusType : activeBonusMap.keySet())
 		{
-			String aString = aKey;
+			String typedBonusNameInfo = fullyQualifedBonusType;
 
 			// rString could be something like:
 			// COMBAT.AC:Armor.REPLACE
 			// So need to remove the .STACK or .REPLACE
 			// to get a match for prefix like: COMBAT.AC:Armor
-			if (aKey.endsWith(".STACK"))
+			if (fullyQualifedBonusType.endsWith(".STACK"))
 			{
-				aString = aKey.substring(0, aKey.length() - 6);
+				typedBonusNameInfo = fullyQualifedBonusType.substring(0, fullyQualifedBonusType.length() - 6);
 			}
-			else if (aKey.endsWith(".REPLACE"))
+			else if (fullyQualifedBonusType.endsWith(".REPLACE"))
 			{
-				aString = aKey.substring(0, aKey.length() - 8);
+				typedBonusNameInfo = fullyQualifedBonusType.substring(0, fullyQualifedBonusType.length() - 8);
 			}
 
 			// if prefix is of the form:
@@ -252,18 +252,18 @@ public class BonusManager
 			// COMBAT.AC:Armor.REPLACE
 			// However, it must not match
 			// COMBAT.ACCHECK
-			if ((aString.length() > prefix.length())
-					&& !aString.startsWith(prefix + ":"))
+			if ((typedBonusNameInfo.length() > prefix.length())
+					&& !typedBonusNameInfo.startsWith(prefix + ":"))
 			{
 				continue;
 			}
 
-			if (aString.startsWith(prefix))
+			if (typedBonusNameInfo.startsWith(prefix))
 			{
-				final int typeIndex = aString.indexOf(":");
+				final int typeIndex = typedBonusNameInfo.indexOf(":");
 				if (typeIndex > 0)
 				{
-					return (aKey.substring(typeIndex + 1)); // use aKey to get
+					return (fullyQualifedBonusType.substring(typeIndex + 1)); // use aKey to get
 					// .REPLACE or
 					// .STACK
 				}
@@ -310,7 +310,7 @@ public class BonusManager
 			for (BonusPair bp : getStringListFromBonus(bonus))
 			{
 				final double iBonus = bp.resolve(pc).doubleValue();
-				setActiveBonusStack(iBonus, bp.bonusKey, activeBonusMap);
+				setActiveBonusStack(iBonus, bp.fullyQualifiedBonusType, activeBonusMap);
 				if (Logging.isDebugMode())
 				{
 					String id;
@@ -323,7 +323,7 @@ public class BonusManager
 						id = source.toString();
 					}
 					Logging.debugPrint("BONUS: " + id + " : " + iBonus + " : "
-							+ bp.bonusKey);
+							+ bp.fullyQualifiedBonusType);
 				}
 			}
 		}
@@ -361,10 +361,10 @@ public class BonusManager
 		activeBonusBySource = getAllActiveBonuses();
 	}
 
-	public String listBonusesFor(String bonusType, String bonusName)
+	public String listBonusesFor(String bonusName, String bonusInfo)
 	{
-		final String prefix = new StringBuilder(bonusType).append('.').append(
-				bonusName).toString();
+		final String prefix = new StringBuilder(bonusName).append('.').append(
+				bonusInfo).toString();
 		final StringBuilder buf = new StringBuilder();
 		final List<String> aList = new ArrayList<String>();
 
@@ -378,30 +378,30 @@ public class BonusManager
 		// return CoreUtility.commaDelimit(bonusStrings);
 
 		final Set<String> keys = new TreeSet<String>();
-		for (String aKey : activeBonusMap.keySet())
+		for (String fullyQualifiedBonusType : activeBonusMap.keySet())
 		{
-			if (aKey.startsWith(prefix))
+			if (fullyQualifiedBonusType.startsWith(prefix))
 			{
-				keys.add(aKey);
+				keys.add(fullyQualifiedBonusType);
 			}
 		}
-		for (String aKey : keys)
+		for (String fullyQualifiedBonusType : keys)
 		{
 			// make a list of keys that end with .REPLACE
-			if (aKey.endsWith(".REPLACE"))
+			if (fullyQualifiedBonusType.endsWith(".REPLACE"))
 			{
-				aList.add(aKey);
+				aList.add(fullyQualifiedBonusType);
 			}
 			else
 			{
 				String reason = "";
 
-				if (aKey.length() > prefix.length())
+				if (fullyQualifiedBonusType.length() > prefix.length())
 				{
-					reason = aKey.substring(prefix.length() + 1);
+					reason = fullyQualifiedBonusType.substring(prefix.length() + 1);
 				}
 
-				final int b = (int) getActiveBonusForMapKey(aKey, 0);
+				final int b = (int) getActiveBonusForMapKey(fullyQualifiedBonusType, 0);
 
 				if (b == 0)
 				{
@@ -422,13 +422,13 @@ public class BonusManager
 
 		// Now adjust the bonus if the .REPLACE value
 		// replaces the value without .REPLACE
-		for (String replaceKey : aList)
+		for (String fullyQualifiedBonusType_Replace : aList)
 		{
-			if (replaceKey.length() > 7)
+			if (fullyQualifiedBonusType_Replace.length() > 7)
 			{
-				final String aKey = replaceKey.substring(0,
-						replaceKey.length() - 8);
-				final double replaceBonus = getActiveBonusForMapKey(replaceKey,
+				final String aKey = fullyQualifiedBonusType_Replace.substring(0,
+						fullyQualifiedBonusType_Replace.length() - 8);
+				final double replaceBonus = getActiveBonusForMapKey(fullyQualifiedBonusType_Replace,
 						0);
 				double aBonus = getActiveBonusForMapKey(aKey, 0);
 				aBonus += getActiveBonusForMapKey(aKey + ".STACK", 0);
@@ -532,9 +532,9 @@ public class BonusManager
 		for (BonusPair bp : getStringListFromBonus(aBonus))
 		{
 			final double iBonus = bp.resolve(pc).doubleValue();
-			setActiveBonusStack(iBonus, bp.bonusKey, activeBonusMap);
+			setActiveBonusStack(iBonus, bp.fullyQualifiedBonusType, activeBonusMap);
 			Logging.debugPrint("vBONUS: " + anObj.getDisplayName() + " : "
-					+ iBonus + " : " + bp.bonusKey);
+					+ iBonus + " : " + bp.fullyQualifiedBonusType);
 		}
 		prevProcessed.remove(aBonus);
 	}
@@ -545,27 +545,27 @@ public class BonusManager
 	 * 
 	 * @param bonus
 	 *            The value of the bonus.
-	 * @param bonusType
+	 * @param fullyQualifiedBonusType
 	 *            The type of the bonus e.g. STAT.DEX:LUCK
 	 * @param bonusMap
 	 *            The bonus map being built up.
 	 */
-	private void setActiveBonusStack(double bonus, String bonusType,
-			Map<String, String> bonusMap)
+	private void setActiveBonusStack(double bonus,
+		String fullyQualifiedBonusType, Map<String, String> bonusMap)
 	{
-		if (bonusType != null)
+		if (fullyQualifiedBonusType != null)
 		{
-			bonusType = bonusType.toUpperCase();
+			fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
 
 			// only specific bonuses can actually be fractional
 			// -> TODO should define this in external file
-			if (!bonusType.startsWith("ITEMWEIGHT")
-					&& !bonusType.startsWith("ITEMCOST")
-					&& !bonusType.startsWith("ACVALUE")
-					&& !bonusType.startsWith("ITEMCAPACITY")
-					&& !bonusType.startsWith("LOADMULT")
-					&& !bonusType.startsWith("FEAT")
-					&& (bonusType.indexOf("DAMAGEMULT") < 0))
+			if (!fullyQualifiedBonusType.startsWith("ITEMWEIGHT")
+					&& !fullyQualifiedBonusType.startsWith("ITEMCOST")
+					&& !fullyQualifiedBonusType.startsWith("ACVALUE")
+					&& !fullyQualifiedBonusType.startsWith("ITEMCAPACITY")
+					&& !fullyQualifiedBonusType.startsWith("LOADMULT")
+					&& !fullyQualifiedBonusType.startsWith("FEAT")
+					&& (fullyQualifiedBonusType.indexOf("DAMAGEMULT") < 0))
 			{
 				bonus = ((int) bonus); // TODO: never used
 			}
@@ -585,7 +585,7 @@ public class BonusManager
 		// or
 		// COMBAT.AC:Armor.REPLACE
 		//
-		final StringTokenizer aTok = new StringTokenizer(bonusType, ":");
+		final StringTokenizer aTok = new StringTokenizer(fullyQualifiedBonusType, ":");
 
 		if (aTok.countTokens() == 2)
 		{
@@ -609,7 +609,7 @@ public class BonusManager
 
 		// .STACK means stack with everything
 		// .REPLACE means stack with other .REPLACE
-		if (bonusType.endsWith(".STACK") || bonusType.endsWith(".REPLACE"))
+		if (fullyQualifiedBonusType.endsWith(".STACK") || fullyQualifiedBonusType.endsWith(".REPLACE"))
 		{
 			index = 1;
 		}
@@ -622,30 +622,30 @@ public class BonusManager
 
 		if (index == -1) // a non-stacking bonus
 		{
-			final String aVal = bonusMap.get(bonusType);
+			final String aVal = bonusMap.get(fullyQualifiedBonusType);
 
 			if (aVal == null)
 			{
-				putActiveBonusMap(bonusType, String.valueOf(bonus), bonusMap);
+				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(bonus), bonusMap);
 			}
 			else
 			{
-				putActiveBonusMap(bonusType, String.valueOf(Math.max(bonus,
+				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(Math.max(bonus,
 						Float.parseFloat(aVal))), bonusMap);
 			}
 		}
 		else
 		// a stacking bonus
 		{
-			final String aVal = bonusMap.get(bonusType);
+			final String aVal = bonusMap.get(fullyQualifiedBonusType);
 
 			if (aVal == null)
 			{
-				putActiveBonusMap(bonusType, String.valueOf(bonus), bonusMap);
+				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(bonus), bonusMap);
 			}
 			else
 			{
-				putActiveBonusMap(bonusType, String.valueOf(bonus
+				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(bonus
 						+ Float.parseFloat(aVal)), bonusMap);
 			}
 		}
@@ -655,25 +655,25 @@ public class BonusManager
 	 * Put the provided bonus key and value into the supplied bonus map. Some
 	 * sanity checking is done on the key.
 	 * 
-	 * @param aKey
+	 * @param fullyQualifiedBonusType
 	 *            The bonus key
-	 * @param aVal
+	 * @param bonusValue
 	 *            The value of the bonus
 	 * @param bonusMap
 	 *            The map of bonuses being built.
 	 */
-	private void putActiveBonusMap(final String aKey, final String aVal,
-			Map<String, String> bonusMap)
+	private void putActiveBonusMap(final String fullyQualifiedBonusType,
+		final String bonusValue, Map<String, String> bonusMap)
 	{
 		//
 		// This is a bad idea...will add whatever the bonus is to ALL skills
 		//
-		if (aKey.equalsIgnoreCase("SKILL.LIST"))
+		if (fullyQualifiedBonusType.equalsIgnoreCase("SKILL.LIST"))
 		{
 			pc.setDisplayUpdate(true);
 			return;
 		}
-		bonusMap.put(aKey, aVal);
+		bonusMap.put(fullyQualifiedBonusType, bonusValue);
 	}
 
 	public int getPartialStatBonusFor(PCStat stat, boolean useTemp,
@@ -745,10 +745,10 @@ public class BonusManager
 					// bonuses with the stacking rules applied.
 					for (BonusPair bp : getStringListFromBonus(bonus))
 					{
-						if (bp.bonusKey.startsWith(prefix))
+						if (bp.fullyQualifiedBonusType.startsWith(prefix))
 						{
 							setActiveBonusStack(bp.resolve(pc).doubleValue(),
-									bp.bonusKey, bonusMap);
+									bp.fullyQualifiedBonusType, bonusMap);
 						}
 					}
 				}
@@ -788,18 +788,18 @@ public class BonusManager
 		return new IdentityHashMap<BonusObj, TempBonusInfo>(tempBonusBySource);
 	}
 
-	public Map<String, String> getBonuses(String bonusString, String substring)
+	public Map<String, String> getBonuses(String bonusName, String bonusInfo)
 	{
 		Map<String, String> returnMap = new HashMap<String, String>();
-		String prefix = bonusString + "." + substring + ".";
+		String prefix = bonusName + "." + bonusInfo + ".";
 
 		for (Map.Entry<String, String> entry : activeBonusMap.entrySet())
 		{
-			String aKey = entry.getKey();
+			String fullyQualifiedBonusType = entry.getKey();
 
-			if (aKey.startsWith(prefix))
+			if (fullyQualifiedBonusType.startsWith(prefix))
 			{
-				returnMap.put(aKey, entry.getValue());
+				returnMap.put(fullyQualifiedBonusType, entry.getValue());
 			}
 		}
 		return returnMap;
@@ -817,13 +817,13 @@ public class BonusManager
 		tempBonusBySource.remove(bonus);
 	}
 
-	public Set<String> getTempBonusNames()
+	public Set<String> getTempBonusDisplayNames()
 	{
 		final Set<String> ret = new TreeSet<String>();
 		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
 				.entrySet())
 		{
-			ret.add(getBonusName(me.getKey(), me.getValue()));
+			ret.add(getBonusDisplayName(me.getKey(), me.getValue()));
 		}
 		return ret;
 	}
@@ -945,7 +945,7 @@ public class BonusManager
 		{
 			BonusObj bonus = me.getKey();
 			TempBonusInfo ti = me.getValue();
-			if (!tempBonusFilters.contains(getBonusName(bonus, ti)))
+			if (!tempBonusFilters.contains(getBonusDisplayName(bonus, ti)))
 			{
 				ret.put(bonus, ti);
 			}
@@ -1120,7 +1120,7 @@ public class BonusManager
 	 * 
 	 * @return name
 	 */
-	public String getBonusName(BonusObj bonus, TempBonusInfo ti)
+	public String getBonusDisplayName(BonusObj bonus, TempBonusInfo ti)
 	{
 		final StringBuilder buffer = new StringBuilder();
 
@@ -1170,9 +1170,9 @@ public class BonusManager
 		List<BonusPair> bonusList = new ArrayList<BonusPair>();
 
 		// Must use getBonusName because it contains the unaltered bonusType
-		String name = bo.getBonusName();
-		String[] infoArray = bo.getBonusInfo().split(",");
-		String thisType = bo.getTypeString();
+		String bonusName = bo.getBonusName();
+		String[] bonusInfoArray = bo.getBonusInfo().split(",");
+		String bonusType = bo.getTypeString();
 
 		for (FixedStringList assoc : associatedList)
 		{
@@ -1199,38 +1199,38 @@ public class BonusManager
 			}
 			String assocString = asb.toString();
 
-			String thisName;
-			if (name.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
+			String replacedName;
+			if (bonusName.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
 			{
-				thisName = name.replaceAll(VALUE_TOKEN_PATTERN, assocString);
+				replacedName = bonusName.replaceAll(VALUE_TOKEN_PATTERN, assocString);
 			}
 			else
 			{
-				thisName = name;
+				replacedName = bonusName;
 			}
-			List<String> infoList = new ArrayList<String>(4);
-			for (String info : infoArray)
+			List<String> replacedInfoList = new ArrayList<String>(4);
+			for (String bonusInfo : bonusInfoArray)
 			{
-				if (info.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
+				if (bonusInfo.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
 				{
 					for (String expInfo : assoc)
 					{
-						infoList.add(info.replaceAll(VALUE_TOKEN_PATTERN,
+						replacedInfoList.add(bonusInfo.replaceAll(VALUE_TOKEN_PATTERN,
 								expInfo));
 					}
 				}
-				else if (info.indexOf(VAR_TOKEN_REPLACEMENT) >= 0)
+				else if (bonusInfo.indexOf(VAR_TOKEN_REPLACEMENT) >= 0)
 				{
-					infoList.add(name
+					replacedInfoList.add(bonusName
 							.replaceAll(VAR_TOKEN_PATTERN, assocString));
 				}
-				else if (info.equals(LIST_TOKEN_REPLACEMENT))
+				else if (bonusInfo.equals(LIST_TOKEN_REPLACEMENT))
 				{
-					infoList.add(assocString);
+					replacedInfoList.add(assocString);
 				}
 				else
 				{
-					infoList.add(info);
+					replacedInfoList.add(bonusInfo);
 				}
 			}
 			Formula newFormula;
@@ -1258,13 +1258,13 @@ public class BonusManager
 				}
 				newFormula = FormulaFactory.getFormulaFor(thisValue);
 			}
-			for (String thisInfo : infoList)
+			for (String replacedInfo : replacedInfoList)
 			{
 				StringBuilder sb = new StringBuilder();
-				sb.append(thisName).append('.').append(thisInfo);
+				sb.append(replacedName).append('.').append(replacedInfo);
 				if (bo.hasTypeString())
 				{
-					sb.append(':').append(thisType);
+					sb.append(':').append(bonusType);
 				}
 				bonusList.add(new BonusPair(sb.toString(), newFormula,
 						creatorObj));

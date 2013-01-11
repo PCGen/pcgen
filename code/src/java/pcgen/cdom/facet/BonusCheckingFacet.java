@@ -241,7 +241,7 @@ public class BonusCheckingFacet
 					List<BonusPair> bpList = pc.getStringListFromBonus(bonus);
 					for (BonusPair bonusPair : bpList)
 					{
-						String key = bonusPair.bonusKey;
+						String key = bonusPair.fullyQualifiedBonusType;
 						// Strip off the bonus name and the trailing . 
 						if (key.startsWith(bonusName))
 						{

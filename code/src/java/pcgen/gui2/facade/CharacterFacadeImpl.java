@@ -1163,7 +1163,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			TempBonusInfo tbi = me.getValue();
 			Object aC = tbi.source;
 			Object aT = tbi.target;
-			String name = bonusMgr.getBonusName(aBonus, tbi);
+			String name = bonusMgr.getBonusDisplayName(aBonus, tbi);
 
 			if (!found.contains(name))
 			{

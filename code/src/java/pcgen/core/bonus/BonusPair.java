@@ -26,12 +26,12 @@ import pcgen.core.PlayerCharacter;
 public class BonusPair
 {
 	private final Formula formula;
-	public final String bonusKey;
+	public final String fullyQualifiedBonusType;
 	private final Object creatorObj;
 
 	public BonusPair(String key, Formula f, Object source)
 	{
-		bonusKey = key;
+		fullyQualifiedBonusType = key;
 		formula = f;
 		creatorObj = source;
 	}

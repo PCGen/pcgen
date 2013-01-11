@@ -245,7 +245,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
 		assertEquals(1, bonusPairs.size());
 		BonusPair bp = bonusPairs.get(0);
-		assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.bonusKey);
+		assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.fullyQualifiedBonusType);
 		assertEquals(14, bp.resolve(character).intValue());
 	}
 
@@ -273,10 +273,10 @@ public class BonusTest extends AbstractCharacterTestCase
 		assertEquals(2, bonusPairs.size());
 		int totalBonus = 0;
 		BonusPair bp = bonusPairs.get(0);
-		assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.bonusKey);
+		assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.fullyQualifiedBonusType);
 		totalBonus += bp.resolve(character).intValue();
 		bp = bonusPairs.get(1);
-		assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.bonusKey);
+		assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.fullyQualifiedBonusType);
 		totalBonus += bp.resolve(character).intValue();
 		assertEquals(27, totalBonus);
 	}
@@ -304,7 +304,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		assertEquals(2, bonusPairs.size());
 		for (BonusPair bp : bonusPairs)
 		{
-			if (bp.bonusKey.equals("STAT.INT"))
+			if (bp.fullyQualifiedBonusType.equals("STAT.INT"))
 			{
 				assertEquals(5, bp.resolve(character).intValue());
 			}

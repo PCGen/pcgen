@@ -72,7 +72,7 @@ public class SkillCostDisplay
 				{
 					for (BonusPair bp : aPC.getStringListFromBonus(bonus))
 					{
-						String bpKey = bp.bonusKey.toUpperCase();
+						String bpKey = bp.fullyQualifiedBonusType.toUpperCase();
 						if (bpKey.startsWith(bonusKey))
 						{
 							include = true;
@@ -86,7 +86,7 @@ public class SkillCostDisplay
 					double iBonus = 0;
 					for (BonusPair bp : aPC.getStringListFromBonus(bonus))
 					{
-						String bpKey = bp.bonusKey.toUpperCase();
+						String bpKey = bp.fullyQualifiedBonusType.toUpperCase();
 						if (bpKey.startsWith(bonusKey))
 						{
 							iBonus += bp.resolve(aPC).doubleValue();

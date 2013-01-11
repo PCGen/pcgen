@@ -10207,7 +10207,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public Set<String> getTempBonusNames()
 	{
-		return bonusManager.getTempBonusNames();
+		return bonusManager.getTempBonusDisplayNames();
 	}
 
 	public boolean isApplied(BonusObj bonus)
