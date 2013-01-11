@@ -427,9 +427,9 @@
 		<p class="indent1"><strong>Variable Used (x):</strong> Text (Parameter 2)</p>
 		<p class="indent1"><strong>What it Does:</strong></p>
 		<ul class="indent2">
-			<li>This function returns the value of a call to PlayerCharacter.getTotalBonusTo(p1, p2).</li>
-			<li>These values reflect bonuses applied to the parameter not the full value of that parameter.</li>
-			<li>Other valid parameter pairs (x - y) include:
+			<li>This function returns the value of the identified parameter pair.</li>
+			<li>These values reflect only the bonuses applied to the parameter identified and not the total value of that parameter.</li>
+			<li>Valid parameter pairs (x - y) include:
 				<ul>
 					<li>PCLEVEL - &lt;class name&gt;</li>
 					<li>STAT - BASESPELLSTAT</li>
@@ -450,9 +450,9 @@
 			<li>Parameter 1 (x) is optional. If it is not present, it will default to "PCLEVEL".</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
-		<p class="indent2"><code>charbonusto("PCLEVEL", "Cleric")</code></p>
+		<p class="indent2"><code>charbonusto(&quot;PCLEVEL&quot;,&quot;Cleric&quot;)</code></p>
 		<p class="indent3">Returns the number of bonus Spellcaster Levels to the class specified, which usually come from Prestige classes.</p>
-		<p class="indent2"><code>charbonusto("CHECKS", "REFLEX")</code></p>
+		<p class="indent2"><code>charbonusto(&quot;CHECKS&quot;,&quot;Reflex&quot;)</code></p>
 		<p class="indent3">Will return Reflex bonuses from a high Dexterity and other bonuses but not the full reflex save value.</p>
 	</blockquote>
 	<p></p>
