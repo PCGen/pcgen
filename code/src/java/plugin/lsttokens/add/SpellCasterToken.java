@@ -258,7 +258,7 @@ public class SpellCasterToken extends AbstractToken implements
 		pc.calcActiveBonuses();
 		for (PCClass pcClass : pc.getClassSet())
 		{
-			pc.getSpellSupport(pcClass).calculateKnownSpellsForClassLevel(pc);
+			pc.calculateKnownSpellsForClassLevel(pcClass);
 		}
 	}
 
@@ -306,7 +306,7 @@ public class SpellCasterToken extends AbstractToken implements
 			pc.calcActiveBonuses();
 			for (PCClass pcClass : pc.getClassSet())
 			{
-				pc.getSpellSupport(pcClass).calculateKnownSpellsForClassLevel(pc);
+				pc.calculateKnownSpellsForClassLevel(pcClass);
 			}
 		}
 	}

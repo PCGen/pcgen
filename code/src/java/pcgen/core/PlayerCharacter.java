@@ -221,8 +221,10 @@ import pcgen.core.analysis.AddObjectActions;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.ChooseActivation;
+import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.analysis.SpellCountCalc;
+import pcgen.core.analysis.SpellLevel;
 import pcgen.core.analysis.SpellPoint;
 import pcgen.core.analysis.StatAnalysis;
 import pcgen.core.bonus.BonusObj;
@@ -11145,5 +11147,130 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 	
 		return spellList;
+	}
+
+	public void calculateKnownSpellsForClassLevel(PCClass pcc)
+	{
+		if (!pcc.containsListFor(ListKey.KNOWN_SPELLS) || isImporting()
+			|| !getAutoSpells())
+		{
+			return;
+		}
+		// If this class has at least one entry in the "Known spells" tag
+		// And we are set up to automatically assign known spells...
+		List<? extends CDOMList<Spell>> spellLists = getSpellLists(pcc);
+		SpellSupportForPCClass spellSupport = getSpellSupport(pcc);
+		
+		// Recalculate the number of spells per day of each level
+		// that this chracter can cast in this class.
+		spellSupport.calcCastPerDayMapForLevel(this);
+		
+		// Get the maximum spell level that this character can cast.
+		final int maxCastableLevel = spellSupport.getMaxCastLevel();
+
+		for (CDOMList<Spell> list : spellLists)
+		{
+			for (int spellLevel : availSpellFacet.getLevelsInList(id, list))
+			{
+				if (spellLevel <= maxCastableLevel)
+				{
+					for (Spell spell : availSpellFacet.getSpellsInListLevel(id,
+						list, spellLevel))
+					{
+						if (spellSupport.isAutoKnownSpell(spell, spellLevel,
+							true, this))
+						{
+							CharacterSpell cs =
+									getCharacterSpellForSpell(pcc, spell);
+							if (cs == null)
+							{
+								// Create a new character spell for this level.
+								cs = new CharacterSpell(pcc, spell);
+								cs.addInfo(spellLevel, 1,
+									Globals.getDefaultSpellBook());
+								addCharacterSpell(pcc, cs);
+							}
+							else
+							{
+								if (cs.getSpellInfoFor(
+									Globals.getDefaultSpellBook(), spellLevel) == null)
+								{
+									cs.addInfo(spellLevel, 1,
+										Globals.getDefaultSpellBook());
+								}
+								else
+								{
+									// already know this one
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		for (Domain d : getDomainSet())
+		{
+			if (pcc.getKeyName().equals(
+				getDomainSource(d).getPcclass().getKeyName()))
+			{
+				DomainApplication.addSpellsToClassForLevels(this, d, pcc, 0,
+					maxCastableLevel);
+			}
+		}
+	}
+
+	public void removeKnownSpellsForClassLevel(PCClass pcc)
+	{
+		if (!pcc.containsListFor(ListKey.KNOWN_SPELLS) || isImporting()
+			|| !getAutoSpells())
+		{
+			return;
+		}
+
+		if (!hasCharacterSpells(pcc))
+		{
+			return;
+		}
+
+		SpellSupportForPCClass spellSupport = getSpellSupport(pcc);
+
+		List<? extends CDOMList<Spell>> lists = getSpellLists(pcc);
+		List<CharacterSpell> spellsToBeRemoved =
+				new ArrayList<CharacterSpell>();
+
+		for (Iterator<? extends CharacterSpell> iter =
+				getCharacterSpells(pcc).iterator(); iter.hasNext();)
+		{
+			final CharacterSpell charSpell = iter.next();
+
+			final Spell aSpell = charSpell.getSpell();
+
+			// Check that the character can still cast spells of this level.
+			final Integer[] spellLevels =
+					SpellLevel.levelForKey(aSpell, lists, this);
+			for (Integer i = 0; i < spellLevels.length; i++)
+			{
+				final int spellLevel = spellLevels[i];
+				if (spellLevel == -1)
+				{
+					continue;
+				}
+
+				final boolean isKnownAtThisLevel =
+						spellSupport.isAutoKnownSpell(aSpell, spellLevel, true,
+							this);
+
+				if (!isKnownAtThisLevel)
+				{
+					spellsToBeRemoved.add(charSpell);
+				}
+			}
+		}
+
+		for (CharacterSpell characterSpell : spellsToBeRemoved)
+		{
+			removeCharacterSpell(pcc, characterSpell);
+		}
 	}
 }

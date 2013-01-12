@@ -184,7 +184,10 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 		pc.addClass(cl);
 		pc.incrementClassLevel(1, cl);
 		pc.setHP(pc.getActiveClassLevel(cl, 0), 4);
-		runRoundRobin();
+		runWriteRead();
+		//TODO need this to create the spell support :/
+		reloadedPC.getSpellSupport(cl);
+		checkEquality();
 	}
 
 }

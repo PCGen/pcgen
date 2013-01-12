@@ -451,7 +451,7 @@ public class PCClass extends PObject implements ClassFacade
 
 		for (PCClass pcClass : aPC.getClassSet())
 		{
-			aPC.getSpellSupport(pcClass).calculateKnownSpellsForClassLevel(aPC);
+			aPC.calculateKnownSpellsForClassLevel(this);
 		}
 
 		// check to see if we have dropped a level.
@@ -1198,7 +1198,7 @@ public class PCClass extends PObject implements ClassFacade
 
 			//			aPC.adjustFeats(-aPC.getBonusFeatsForNewLevel(this));
 			setLevel(newLevel, aPC);
-			aPC.getSpellSupport(this).removeKnownSpellsForClassLevel(aPC);
+			aPC.removeKnownSpellsForClassLevel(this);
 
 			doMinusLevelMods(aPC, newLevel + 1);
 
