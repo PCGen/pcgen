@@ -133,7 +133,6 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 		}
 		catch (IllegalArgumentException e)
 		{
-			e.printStackTrace();
 			// Yep!
 		}
 		testTypeUnsetZeroCount();
