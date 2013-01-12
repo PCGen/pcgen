@@ -1581,7 +1581,7 @@ public class CharacterDisplay
 
 	public String getDisplayClassName(PCClass pcClass)
 	{
-		if (this != null)
+		if (pcClass != null)
 		{
 			String subClassKey = getSubClassName(pcClass);
 			if (subClassKey != null && (subClassKey.length() > 0)
