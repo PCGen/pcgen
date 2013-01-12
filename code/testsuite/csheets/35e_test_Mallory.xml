@@ -29,10 +29,17 @@ BIO
 				<bonuslist>Sorcerer</bonuslist>
 				<sequence>0</sequence>
 			</class>
-			<levels_total>9</levels_total>
-			<levels_ecl>9</levels_ecl>
+			<class>
+				<name>Add SpellCaster</name>
+				<abbreviation>Add</abbreviation>
+				<level>1</level>
+				<bonuslist>Add SpellCaster</bonuslist>
+				<sequence>1</sequence>
+			</class>
+			<levels_total>10</levels_total>
+			<levels_ecl>10</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Sor9                   </shortform>
+			<shortform> Sor9  Add1                 </shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -52,8 +59,8 @@ BIO
 		</deity>
 		<description>Includes Test-65; Testing two overlapping spells - passes</description>
 		<experience>
-			<current>36000</current>
-			<next_level>45000</next_level>
+			<current>45000</current>
+			<next_level>55000</next_level>
 			<factor>100%</factor>
 			<penalty>0%</penalty>
 		</experience>
@@ -85,7 +92,7 @@ BIO
 			<feet>5</feet>
 			<inches>5</inches>
 		</height>
-		<hitdice>(9d4)</hitdice>
+		<hitdice>(9d4)+(1d4)</hitdice>
 		<interests></interests>
 		<languages>
 			<language>Common</language>
@@ -234,9 +241,9 @@ BIO
 	  ====================================
 	  ====================================-->
 	<hit_points>
-		<points>28</points>
+		<points>31</points>
 		<alternate>11</alternate>
-		<die>(9d4)</die>
+		<die>(9d4)+(1d4)</die>
 		<current/>
 		<subdual/>
 		<damage_reduction></damage_reduction>
@@ -296,6 +303,12 @@ BIO
 				<stat>0</stat>
 				<total>3</total>
 			</roll>
+			<roll>
+				<level>10</level>
+				<roll>3</roll>
+				<stat>0</stat>
+				<total>3</total>
+			</roll>
 		</history>
 	</hit_points>
 	<!--
@@ -343,13 +356,13 @@ BIO
 	  ====================================-->
 	<skills>
 		<skillpoints>
-			<total>36</total>
+			<total>38</total>
 			<used>0</used>
-			<unused>36</unused>
+			<unused>38</unused>
 		</skillpoints>
 		<list_mods>Uber Scripting from five ranks in Test Coding Script +7</list_mods>
-		<max_class_skill_level>12</max_class_skill_level>
-		<max_cross_class_skill_level>6</max_cross_class_skill_level>
+		<max_class_skill_level>13</max_class_skill_level>
+		<max_cross_class_skill_level>6.5</max_cross_class_skill_level>
 		<skill>
 			<name>Acrobatics</name>
 			<ranks>0.0</ranks>
@@ -923,6 +936,10 @@ BIO
 			<class>Sorcerer</class>
 			<ability></ability>
 		</class>
+		<class>
+			<class>Add SpellCaster</class>
+			<ability></ability>
+		</class>
 	</special_abilities>
 	<!--
 	  ====================================
@@ -1427,10 +1444,10 @@ BIO
 						<range></range>
 						<components></components>
 						<castingtime></castingtime>
-						<casterlevel>9</casterlevel>
+						<casterlevel>10</casterlevel>
 						<dc>18</dc>
-						<duration>As long as you want up to 90 days [Should be CL x 10]</duration>
-						<effect>What ever you want here, 9 [casterlevel], 90 [casterlevel x 10], 9 [min casterlevel ,10]</effect>
+						<duration>As long as you want up to 100 days [Should be CL x 10]</duration>
+						<effect>What ever you want here, 10 [casterlevel], 100 [casterlevel x 10], 10 [min casterlevel ,10]</effect>
 						<target>Anywhere but here</target>
 						<saveinfo>Fort Saves</saveinfo>
 						<school>
@@ -1459,6 +1476,7 @@ BIO
 			<level number="8" known="0" cast="0"/>
 			<level number="9" known="0" cast="0"/>
 		</class>
+
 
 	</known_spells>
 		<!-- ### END Known spells ### -->
@@ -1643,6 +1661,7 @@ BIO
 				<level number="8" spellcount="0"/>
 				<level number="9" spellcount="0"/>
 			</class>
+
 
 		</spellbook>
 <!-- END FOR,0,COUNT[SPELLSINBOOK0.2.0],COUNT[SPELLSINBOOK0.2.0],1,1 -->
