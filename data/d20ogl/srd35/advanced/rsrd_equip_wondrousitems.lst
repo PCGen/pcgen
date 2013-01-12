@@ -181,8 +181,8 @@ Golem Manual (Stone)											OUTPUTNAME:[NAME] Golem Manual	TYPE:Magic.Wondrou
 Golem Manual (Greater Stone)										OUTPUTNAME:[NAME] Golem Manual	TYPE:Magic.Wondrous.Book.Consumable											COST:44000	WT:5										SOURCEPAGE:MagicItemsV.rtf
 ###Block: H's
 # Equipment Name						Unique Key								Type						Contains		Cost		Weight	Slot Needed	Source Page				Add 				Virtual Feat	Innate Spells										Save checks bonus							Combat bonus					Add to base move										Bonus to skill																			Bonus to skill point/L		Bonus to nb of slots	Stat bonus					Modify VAR						Special Property
-Hand of Glory															TYPE:Magic.Wondrous.Amulet					COST:8000	WT:2				SOURCEPAGE:MagicItemsV.rtf								SPELLS:Magic Item|TIMES=1|CASTERLEVEL=9|Daylight,13|See Invisibility,13																																																							BONUS:SLOTS|RING|1
-Hand of the Mage															TYPE:Magic.Wondrous.Amulet					COST:900	WT:2				SOURCEPAGE:MagicItemsV.rtf								SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Mage Hand,10
+Hand of Glory															TYPE:Magic.Wondrous.Amulet					COST:8000	WT:2				SOURCEPAGE:MagicItemsV.rtf								SPELLS:Magic Item|TIMES=1|CASTERLEVEL=5|Daylight,13|See Invisibility,13																																																							BONUS:SLOTS|RING|1
+Hand of the Mage															TYPE:Magic.Wondrous.Amulet					COST:900	WT:2				SOURCEPAGE:MagicItemsV.rtf								SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=2|Mage Hand,10
 Handy Haversack															TYPE:Magic.Wondrous.Container		CONTAINS:*120	COST:2000	WT:5				SOURCEPAGE:MagicItemsV.rtf
 Harp of Charming															TYPE:Magic.Wondrous						COST:7500	WT:5				SOURCEPAGE:MagicItemsV.rtf
 Hat of Disguise															TYPE:Magic.Wondrous.Headgear					COST:1800	WT:0				SOURCEPAGE:MagicItemsV.rtf
