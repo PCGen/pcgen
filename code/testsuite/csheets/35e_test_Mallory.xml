@@ -933,6 +933,96 @@ BIO
 	<feats>
 		<!-- Visible standard feats (not including the auto feats) -->
 		<feat>
+			<name>Test-57 Apply A1</name>
+			<description></description>
+			<type>TEST-57</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test-57 Apply A2</name>
+			<description></description>
+			<type>TEST-57</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test-57 Apply A3 MyAddingFeat</name>
+			<description></description>
+			<type>TEST-57</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test-57 Apply A4</name>
+			<description></description>
+			<type>TEST-57</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test-57 Apply A5 MyAddingFeat</name>
+			<description></description>
+			<type>TEST-57</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test-57 Apply A6 (3x)</name>
+			<description></description>
+			<type>TEST-57</type>
+			<associated>,,</associated>
+			<count>3</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test-57 Apply A7</name>
+			<description></description>
+			<type>TEST-57</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test-57 Apply A8 ToBeAdded</name>
+			<description></description>
+			<type>TEST-57</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name>Test-57 Apply A9 ToBeAdded</name>
+			<description></description>
+			<type>TEST-57</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
 			<name>TEST-65</name>
 			<description>Use SPELLS in such a way that it provides a Spell to which the character already has access (Such as an Innate Fireball to a mid level Sorcerer). Ensure that the output is correct across the different conditions (caster level, DC, etc.). Ensure you are using a fixed caster level for the Innate spell that is different than the caster level of the PC.</description>
 			<type>TEST</type>
@@ -962,8 +1052,118 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+		<feat>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
+		<feat>
+			<name></name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count></count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+		</feat>
 		<!-- Auto feats -->
 		<!-- Virtual Feats -->
+		<feat>
+			<name>Test-57-Ability-1</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+		</feat>
+		<feat>
+			<name>Test-57-Ability-2</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+		</feat>
+		<feat>
+			<name>Test-57-Ability-4</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+		</feat>
+		<feat>
+			<name>Test-57-Ability-6</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+		</feat>
+		<feat>
+			<name>Test-57-Ability-7</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+		</feat>
+		<feat>
+			<name>Test-57 Apply A3 FeatSelector</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+		</feat>
+		<feat>
+			<name>Test-57 Apply A5 FeatSelector</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+		</feat>
+		<feat>
+			<name>Test-57 Apply A8 MySelectableFeat</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+		</feat>
+		<feat>
+			<name>Test-57 Apply A9 MyOtherFeat (is Also Cool)</name>
+			<description></description>
+			<type>TEST-57</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>T</virtual>
+		</feat>
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 <!-- Hidden VFEATS -->
