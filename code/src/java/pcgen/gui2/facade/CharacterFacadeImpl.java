@@ -902,16 +902,21 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		final PCClass aClass = theCharacter.getClassKeyed(theClass.getKeyName());
 
 		// Check if the subclass (if any) is qualified for
-		String subClassKey = charDisplay.getSubClassName(aClass);
-		if (aClass != null && subClassKey != null)
+		if (aClass != null)
 		{
-			final PCClass subClass = aClass.getSubClassKeyed(subClassKey);
-			if (subClass != null && !theCharacter.isQualified(subClass))
+			String subClassKey = charDisplay.getSubClassName(aClass);
+			if (subClassKey != null)
 			{
-				delegate.showErrorMessage(Constants.APPLICATION_NAME,
-						LanguageBundle.getFormattedString("in_sumYouAreNotQualifiedToTakeTheClass",//$NON-NLS-1$
-								aClass.getDisplayName() + "/" + subClass.getDisplayName()));//$NON-NLS-1$
-				return false;
+				final PCClass subClass = aClass.getSubClassKeyed(subClassKey);
+				if (subClass != null && !theCharacter.isQualified(subClass))
+				{
+					delegate.showErrorMessage(Constants.APPLICATION_NAME,
+						LanguageBundle.getFormattedString(
+							"in_sumYouAreNotQualifiedToTakeTheClass",//$NON-NLS-1$
+							aClass.getDisplayName()
+								+ "/" + subClass.getDisplayName()));//$NON-NLS-1$
+					return false;
+				}
 			}
 		}
 
