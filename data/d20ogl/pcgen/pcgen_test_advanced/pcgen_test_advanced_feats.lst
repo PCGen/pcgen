@@ -46,7 +46,7 @@ Test-57 Apply A2	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-2
 #Test-57 Apply A3	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-3
 Test-57 Apply A4	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-4
 #Test-57 Apply A5	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-5
-Test-57 Apply A6	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-6,Test-57-Ability-6,Test-57-Ability-6
+Test-57 Apply A6	TYPE:TEST-57	MULT:YES	CHOOSE:NOCHOICE	ADD:VFEAT|Test-57-Ability-6,Test-57-Ability-6,Test-57-Ability-6
 Test-57 Apply A7	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-7
 #Test-57 Apply A8	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-8 (Sword (Short))
 #Test-57 Apply A9	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-9 (Natural)
