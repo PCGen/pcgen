@@ -64,8 +64,8 @@ Test-57 Apply A7	TYPE:TEST-57	ADD:VFEAT|Test-57-Ability-7
 
 #With that, let me give you data for 3, 8, and 9. Hopefully you can derive 1-2 and 4-7 from 3...
 
-Test-57 Apply A3 LangGrant		VISIBLE:NO	TYPE:TestFooB		MULT:YES	CHOOSE:LANG|ALL	AUTO:LANG|%LIST
-Test-57 Apply A3 FeatSelector		VISIBLE:NO	MULT:YES		CHOOSE:FEATSELECTION|TYPE=TestFooB
+Test-57 Apply A3 LangGrant		VISIBLE:EXPORT	TYPE:TestFooB		MULT:YES	CHOOSE:LANG|ALL	AUTO:LANG|%LIST
+Test-57 Apply A3 FeatSelector		VISIBLE:EXPORT	MULT:YES		CHOOSE:FEATSELECTION|TYPE=TestFooB
 Test-57 Apply A3 MyAddingFeat		TYPE:TEST-57	ADD:VFEAT|Test-57 Apply A3 FeatSelector,Dodge
 
 #Think about how this works when MyAddingFeat is selected. It asks FeatSelector to expand the possible choices, which are "any TYPE=Foo" feat. So it says, "any permutation of LangGrant". Well, THAT is CHOOSE as well, so that gets expanded too... so the choice window looks something like:
@@ -76,17 +76,17 @@ Test-57 Apply A3 MyAddingFeat		TYPE:TEST-57	ADD:VFEAT|Test-57 Apply A3 FeatSelec
 #===
 
 
-Test-57 Apply A5 LangGrant		VISIBLE:NO	TYPE:TestFooB		MULT:YES	CHOOSE:LANG|ALL	AUTO:LANG|%LIST
-Test-57 Apply A5 FeatSelector		VISIBLE:NO	MULT:YES	STACK:YES	CHOOSE:FEATSELECTION|TYPE=TestFooB
+Test-57 Apply A5 LangGrant		VISIBLE:EXPORT	TYPE:TestFooB		MULT:YES	CHOOSE:LANG|ALL	AUTO:LANG|%LIST
+Test-57 Apply A5 FeatSelector		VISIBLE:EXPORT	MULT:YES	STACK:YES	CHOOSE:FEATSELECTION|TYPE=TestFooB
 Test-57 Apply A5 MyAddingFeat		TYPE:TEST-57	ADD:VFEAT|Test-57 Apply A5 FeatSelector,Dodge
 
 
 
 #8)
 #Feat file:
-Test-57 Apply A8 MyFeat (is Really Cool)	VISIBLE:NO	TYPE:Foo
-Test-57 Apply A8 MySelectableFeat		VISIBLE:NO		MULT:YES	CHOOSE:FEATSELECTION|TYPE=Foo
-Test-57 Apply A8 ToBeAdded					ADD:VFEAT|MySelectableFeat,Dodge
+Test-57 Apply A8 MyFeat (is Really Cool)	VISIBLE:EXPORT	TYPE:Foo
+Test-57 Apply A8 MySelectableFeat		VISIBLE:EXPORT		MULT:YES	CHOOSE:FEATSELECTION|TYPE=Foo
+Test-57 Apply A8 ToBeAdded			TYPE:TEST-57		ADD:VFEAT|Test-57 Apply A8 MySelectableFeat,Dodge
 
 #Note the choices you will receive in the window are:
 #MySelectableFeat(My Feat (is Really Cool))
@@ -95,22 +95,22 @@ Test-57 Apply A8 ToBeAdded					ADD:VFEAT|MySelectableFeat,Dodge
 #Note also in 1-8 when I say "target", I'm referring to the "subitem" like "MyFeat (is Really Cool)"
 #===
 #9)
-Test-57 Apply A9 MyOtherFeat (is Also Cool)	VISIBLE:NO	TYPE:TEST-57
+Test-57 Apply A9 MyOtherFeat (is Also Cool)	VISIBLE:EXPORT	TYPE:TEST-57
 Test-57 Apply A9 ToBeAdded						TYPE:TEST-57	ADD:VFEAT|Test-57 Apply A9 MyOtherFeat (is Also Cool),Dodge
 
 
 
 
 
-Test-57-Ability-1			MULT:NO
-Test-57-Ability-2			MULT:YES	STACK:NO	CHOOSE:NOCHOICE
-Test-57-Ability-3			MULT:YES	STACK:NO	CHOOSE:ABILITY|Special Ability|Ability-57-2a|Ability-57-2b
-Test-57-Ability-4			MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Test-57-Ability-5			MULT:YES	STACK:YES	CHOOSE:ABILITY|Special Ability|Ability-57-3a|Ability-57-3b
-Test-57-Ability-6			MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Test-57-Ability-7			MULT:YES	STACK:YES	CHOOSE:ABILITY|Special Ability|Ability-57-4a|Ability-57-4b
-Test-57-Ability-8			MULT:YES	STACK:YES	CHOOSE:WEAPONPROFICIENCY|Sword (Short)
-Test-57-Ability-9 (Natural)
+Test-57-Ability-1			VISIBLE:EXPORT	MULT:NO
+Test-57-Ability-2			VISIBLE:EXPORT	MULT:YES	STACK:NO	CHOOSE:NOCHOICE
+Test-57-Ability-3			VISIBLE:EXPORT	MULT:YES	STACK:NO	CHOOSE:ABILITY|Special Ability|Ability-57-2a|Ability-57-2b
+Test-57-Ability-4			VISIBLE:EXPORT	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Test-57-Ability-5			VISIBLE:EXPORT	MULT:YES	STACK:YES	CHOOSE:ABILITY|Special Ability|Ability-57-3a|Ability-57-3b
+Test-57-Ability-6			VISIBLE:EXPORT	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Test-57-Ability-7			VISIBLE:EXPORT	MULT:YES	STACK:YES	CHOOSE:ABILITY|Special Ability|Ability-57-4a|Ability-57-4b
+#Test-57-Ability-8			VISIBLE:EXPORT	MULT:YES	STACK:YES	CHOOSE:WEAPONPROFICIENCY|Sword (Short)
+Test-57-Ability-9 (Natural)	VISIBLE:EXPORT
 
 
 
