@@ -46,6 +46,10 @@ public class GoldFacet extends AbstractItemFacet<BigDecimal>
 	public void adjustGold(CharID id, double delta)
 	{
 		BigDecimal old = get(id);
+		if (old == null)
+		{
+			old = BigDecimal.ZERO;
+		}
 		// I don't really like this hack, but setScale just won't work right...
 		BigDecimal newGold = new BigDecimal(old.doubleValue() + delta).divide(
 				BigDecimal.ONE, 2, BigDecimal.ROUND_HALF_EVEN);
