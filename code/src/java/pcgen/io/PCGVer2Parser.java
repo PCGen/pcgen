@@ -6373,14 +6373,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			List<PersistentTransitionChoice<?>> addList =
 					a.getListFor(ListKey.ADD);
-			for (PersistentTransitionChoice<?> ptc : addList)
+			if (addList != null)
 			{
-				SelectableSet<?> ss = ptc.getChoices();
-				if (ss.getName().equals("LANGUAGE")
-					&& LANGUAGE_CLASS.equals(ss.getChoiceClass()))
+				for (PersistentTransitionChoice<?> ptc : addList)
 				{
-					Collection<?> selected = ss.getSet(thePC);
-					foundlist.addAll((Collection<Language>) selected);
+					SelectableSet<?> ss = ptc.getChoices();
+					if (ss.getName().equals("LANGUAGE")
+						&& LANGUAGE_CLASS.equals(ss.getChoiceClass()))
+					{
+						Collection<?> selected = ss.getSet(thePC);
+						foundlist.addAll((Collection<Language>) selected);
+					}
 				}
 			}
 		}
