@@ -6352,20 +6352,40 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		return calcFeatPoolAfterLoad;
 	}
 
+    private static final Class<Language> LANGUAGE_CLASS = Language.class;
+
 	private void resolveLanguages()
 	{
-		Ability a =
+		Ability langbonus =
 				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 					Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
-		boolean foundLang = thePC.getDetailedAssociationCount(a) > 0;
+		boolean foundLang = thePC.getDetailedAssociationCount(langbonus) > 0;
 
 		Set<Language> foundLanguages = new HashSet<Language>();
 		//Captures Auto (LANGAUTO) and Persistent choices (CHOOSE, ADD)
 		foundLanguages.addAll(thePC.getLanguageSet());
 		cachedLanguages.removeAll(foundLanguages);
 
-		Set<Language> bonusList = thePC.getLanguageBonusSelectionList();
 		List<Language> foundlist = new ArrayList<Language>();
+
+		List<Ability> abilities = thePC.getAllAbilities();
+		for (Ability a : abilities)
+		{
+			List<PersistentTransitionChoice<?>> addList =
+					a.getListFor(ListKey.ADD);
+			for (PersistentTransitionChoice<?> ptc : addList)
+			{
+				SelectableSet<?> ss = ptc.getChoices();
+				if (ss.getName().equals("LANGUAGE")
+					&& LANGUAGE_CLASS.equals(ss.getChoiceClass()))
+				{
+					Collection<?> selected = ss.getSet(thePC);
+					foundlist.addAll((Collection<Language>) selected);
+				}
+			}
+		}
+
+		Set<Language> bonusList = thePC.getLanguageBonusSelectionList();
 		if (!foundLang)
 		{
 			for (Language l : cachedLanguages)
@@ -6374,14 +6394,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				if (bonusList.contains(l))
 				{
 					ChoiceManagerList<Object> controller =
-							ChooserUtilities.getConfiguredController(a, thePC,
-								AbilityCategory.LANGBONUS,
+							ChooserUtilities.getConfiguredController(langbonus,
+								thePC, AbilityCategory.LANGBONUS,
 								new ArrayList<String>());
-					controller.restoreChoice(thePC, a, l.getKeyName());
+					controller.restoreChoice(thePC, langbonus, l.getKeyName());
 				}
 				foundlist.add(l);
 			}
 		}
+
 		cachedLanguages.removeAll(foundlist);
 		for (Language l : cachedLanguages)
 		{
