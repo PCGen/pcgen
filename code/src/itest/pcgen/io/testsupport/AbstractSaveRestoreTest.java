@@ -358,9 +358,15 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	protected void runRoundRobin()
 	{
 		runWriteRead();
+		preEqualityCleanup();
 		checkEquality();
 	}
 
+	protected void preEqualityCleanup()
+	{
+		
+	}
+	
 	protected void checkEquality()
 	{
 		InequalityTester it = InequalityTesterInst.getInstance();

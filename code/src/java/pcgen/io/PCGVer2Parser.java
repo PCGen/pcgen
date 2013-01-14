@@ -41,6 +41,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.base.util.FixedStringList;
+import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.BasicChooseInformation;
 import pcgen.cdom.base.CDOMObject;
@@ -6359,14 +6360,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		Ability langbonus =
 				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 					Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS");
-		boolean foundLang = thePC.getDetailedAssociationCount(langbonus) > 0;
+		int currentBonusLang = thePC.getDetailedAssociationCount(langbonus);
+		boolean foundLang = currentBonusLang > 0;
 
 		Set<Language> foundLanguages = new HashSet<Language>();
-		//Captures Auto (LANGAUTO) and Persistent choices (CHOOSE, ADD)
+		//Captures Auto (AUTO:LANG) and Persistent choices (ADD ex ability and CHOOSE)
 		foundLanguages.addAll(thePC.getLanguageSet());
 		cachedLanguages.removeAll(foundLanguages);
 
-		List<Language> foundlist = new ArrayList<Language>();
+		HashMapToList<Language, Object> sources = new HashMapToList<Language, Object>();
+		Map<Object, Integer> actorLimit = new IdentityHashMap<Object, Integer>();
+		Map<PersistentTransitionChoice, Ability> ptcSources = new IdentityHashMap<PersistentTransitionChoice, Ability>();
 
 		List<Ability> abilities = thePC.getAllAbilities();
 		for (Ability a : abilities)
@@ -6381,36 +6385,124 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					if (ss.getName().equals("LANGUAGE")
 						&& LANGUAGE_CLASS.equals(ss.getChoiceClass()))
 					{
-						Collection<?> selected = ss.getSet(thePC);
-						foundlist.addAll((Collection<Language>) selected);
+						Collection<Language> selected =
+								(Collection<Language>) ss.getSet(thePC);
+						for (Language l : selected)
+						{
+							if (cachedLanguages.contains(l))
+							{
+								int choiceCount =
+										ptc.getCount()
+											.resolve(thePC, a.getSource())
+											.intValue();
+								if (choiceCount > 0)
+								{
+									sources.addToListFor(l, ptc);
+									actorLimit.put(ptc, choiceCount);
+								}
+							}
+						}
 					}
 				}
 			}
 		}
-
-		Set<Language> bonusList = thePC.getLanguageBonusSelectionList();
 		if (!foundLang)
 		{
-			for (Language l : cachedLanguages)
+			Set<Language> bonusAllowed = thePC.getLanguageBonusSelectionList();
+			ChoiceManagerList<Object> controller =
+					ChooserUtilities.getConfiguredController(langbonus, thePC,
+						AbilityCategory.LANGBONUS, new ArrayList<String>());
+			int count = thePC.getBonusLanguageCount();
+			int choiceCount = count - currentBonusLang;
+			if (choiceCount > 0)
 			{
-				// Haven't seen it, check for starting language
-				if (bonusList.contains(l))
+				for (Language l : bonusAllowed)
 				{
-					ChoiceManagerList<Object> controller =
-							ChooserUtilities.getConfiguredController(langbonus,
-								thePC, AbilityCategory.LANGBONUS,
-								new ArrayList<String>());
-					controller.restoreChoice(thePC, langbonus, l.getKeyName());
+					if (cachedLanguages.contains(l))
+					{
+						sources.addToListFor(l, controller);
+						actorLimit.put(controller, choiceCount);
+					}
 				}
-				foundlist.add(l);
+			}
+		}
+		//Try to match them up as best as possible (this matches things with only one possible location...)
+		boolean acted = !cachedLanguages.isEmpty();
+		while (acted)
+		{
+			acted = false;
+			for (Language l : sources.getKeySet())
+			{
+				List<Object> actors = sources.getListFor(l);
+				if ((actors != null) && (actors.size() == 1))
+				{
+					Object actor = actors.get(0);
+					acted = true;
+					processRemoval(langbonus, sources, actorLimit, ptcSources,
+						l, actor);
+				}
+			}
+			if (!acted && !sources.isEmpty() && !actorLimit.isEmpty())
+			{
+				//pick one
+				Language l = sources.getKeySet().iterator().next();
+				Object source = sources.getListFor(l).get(0);
+				processRemoval(langbonus, sources, actorLimit, ptcSources, l, source);
+				acted = true;
 			}
 		}
 
-		cachedLanguages.removeAll(foundlist);
 		for (Language l : cachedLanguages)
 		{
 			warnings.add("Unable to find source: "
 				+ "Character no longer speaks language: " + l.getDisplayName());
+		}
+	}
+
+	protected void processRemoval(Ability langbonus,
+		HashMapToList<Language, Object> sources,
+		Map<Object, Integer> actorLimit,
+		Map<PersistentTransitionChoice, Ability> ptcSources, Language l,
+		Object actor)
+	{
+		Integer limit = actorLimit.get(actor);
+		//apply
+		processActor(langbonus, ptcSources, l, actor);
+		cachedLanguages.remove(l);
+		sources.removeListFor(l);
+		//Remove this sources from all languages (may create more items with only one source)
+		if (limit == 1)
+		{
+			for (Language lang : sources.getKeySet())
+			{
+				sources.removeFromListFor(lang, actor);
+			}
+			//Used up
+			actorLimit.remove(actor);
+		}
+		else
+		{
+			//Use a slot
+			actorLimit.put(actor, limit - 1);
+		}
+	}
+
+	protected void processActor(Ability langbonus,
+		Map<PersistentTransitionChoice, Ability> ptcSources, Language l,
+		Object actor)
+	{
+		if (actor instanceof ChoiceManagerList)
+		{
+			ChoiceManagerList<Object> controller =
+					(ChoiceManagerList<Object>) actor;
+			controller.restoreChoice(thePC, langbonus,
+				l.getKeyName());
+		}
+		else if (actor instanceof PersistentTransitionChoice)
+		{
+			PersistentTransitionChoice<Language> ptc =
+					(PersistentTransitionChoice<Language>) actor;
+			ptc.restoreChoice(thePC, ptcSources.get(ptc), l);
 		}
 	}
 

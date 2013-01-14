@@ -235,11 +235,15 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testAddLanguage()
 	{
-		Language granted = create(Language.class, "Granted");
+		Language granted = create(Language.class, "MyLanguage");
 		create(Language.class, "Ignored");
 		T target = create(getObjectClass(), "Target");
+		//This is a distraction to avoid failure
+		create(Skill.class, "Granted");
+		new SkillToken().parseToken(context, target, "Granted");
+		//end distraction
 		new plugin.lsttokens.add.LanguageToken().parseToken(context, target,
-			"Granted");
+			"MyLanguage");
 		Object o = prepare(target);
 		finishLoad();
 		assertFalse(pc.hasLanguage(granted));
@@ -256,11 +260,15 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testAddTemplate()
 	{
-		PCTemplate granted = create(PCTemplate.class, "Granted");
+		PCTemplate granted = create(PCTemplate.class, "MyTemplate");
 		create(PCTemplate.class, "Ignored");
 		T target = create(getObjectClass(), "Target");
+		//This is a distraction to avoid failure
+		create(Skill.class, "Granted");
+		new SkillToken().parseToken(context, target, "Granted");
+		//end distraction
 		new plugin.lsttokens.add.TemplateToken().parseToken(context, target,
-			"Granted");
+			"MyTemplate");
 		Object o = prepare(target);
 		finishLoad();
 		assertFalse(pc.hasTemplate(granted));
