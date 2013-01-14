@@ -57,15 +57,15 @@ public class SkillRankFacet extends AbstractStorageFacet
 	 * @return The CacheInfo for the Player Character represented by the given
 	 *         CharID.
 	 */
-	private CacheInfo getConstructingInfo(CharID id)
+	private Map<Skill, Map<PCClass, Double>> getConstructingInfo(CharID id)
 	{
-		CacheInfo rci = getInfo(id);
-		if (rci == null)
+		Map<Skill, Map<PCClass, Double>> map = getInfo(id);
+		if (map == null)
 		{
-			rci = new CacheInfo();
-			setCache(id, rci);
+			map = new HashMap<Skill, Map<PCClass, Double>>();
+			setCache(id, map);
 		}
-		return rci;
+		return map;
 	}
 
 	/**
@@ -83,74 +83,9 @@ public class SkillRankFacet extends AbstractStorageFacet
 	 *         CharID; null if no Skill information has been set for the Player
 	 *         Character.
 	 */
-	private CacheInfo getInfo(CharID id)
+	private Map<Skill, Map<PCClass, Double>> getInfo(CharID id)
 	{
-		return (CacheInfo) getCache(id);
-	}
-
-	/**
-	 * CacheInfo is the data structure used by SkillRankFacet to store a Player
-	 * Character's Skill Ranks
-	 */
-	private static class CacheInfo
-	{
-		Map<Skill, Map<PCClass, Double>> map = new HashMap<Skill, Map<PCClass, Double>>();
-
-		public void set(Skill skill, PCClass pcc, double value)
-		{
-			Map<PCClass, Double> clMap = map.get(skill);
-			if (clMap == null)
-			{
-				clMap = new IdentityHashMap<PCClass, Double>();
-				map.put(skill, clMap);
-			}
-			clMap.put(pcc, value);
-		}
-
-		public Double get(Skill sk, PCClass pcc)
-		{
-			Map<PCClass, Double> clMap = map.get(sk);
-			if (clMap == null)
-			{
-				return null;
-			}
-			return clMap.get(pcc);
-		}
-
-		public Double remove(Skill sk, PCClass pcc)
-		{
-			Map<PCClass, Double> clMap = map.get(sk);
-			if (clMap != null)
-			{
-				return clMap.remove(pcc);
-			}
-			return null;
-		}
-
-		public double getRank(Skill sk)
-		{
-			double rank = 0.0;
-			Map<PCClass, Double> clMap = map.get(sk);
-			if (clMap != null)
-			{
-				for (Double d : clMap.values())
-				{
-					rank += d;
-				}
-			}
-			return rank;
-		}
-
-		public Collection<PCClass> getClasses(Skill sk)
-		{
-			Map<PCClass, Double> clMap = map.get(sk);
-			if (clMap == null)
-			{
-				return Collections.emptyList();
-			}
-			return Collections.unmodifiableSet(clMap.keySet());
-		}
-
+		return (Map<Skill, Map<PCClass, Double>>) getCache(id);
 	}
 
 	public void set(CharID id, Skill skill, PCClass pcc, double value)
@@ -160,7 +95,16 @@ public class SkillRankFacet extends AbstractStorageFacet
 			throw new IllegalArgumentException("Skill cannot be null in add");
 		}
 		Float oldRank = getRank(id, skill);
-		getConstructingInfo(id).set(skill, pcc, value);
+		Map<Skill, Map<PCClass, Double>> map = getConstructingInfo(id);
+		Map<PCClass, Double> clMap = map.get(skill);
+		if (clMap == null)
+		{
+			clMap = new IdentityHashMap<PCClass, Double>();
+			map.put(skill, clMap);
+		}
+		clMap.put(pcc, value);
+
+		
 		Float newRank = getRank(id, skill);
 		support.fireSkillRankChangeEvent(id, skill, oldRank, newRank);
 	}
@@ -191,16 +135,15 @@ public class SkillRankFacet extends AbstractStorageFacet
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{
-		CacheInfo rci = getInfo(source);
-		if (rci != null)
+		Map<Skill, Map<PCClass, Double>> map = getInfo(source);
+		if (map != null)
 		{
-			CacheInfo copyci = getConstructingInfo(copy);
-			for (Entry<Skill, Map<PCClass, Double>> fme : rci.map.entrySet())
+			for (Entry<Skill, Map<PCClass, Double>> fme : map.entrySet())
 			{
 				Skill sk = fme.getKey();
 				for (Entry<PCClass, Double> clEntry : fme.getValue().entrySet())
 				{
-					copyci.set(sk, clEntry.getKey(), clEntry.getValue());
+					set(copy, sk, clEntry.getKey(), clEntry.getValue());
 				}
 			}
 		}
@@ -208,22 +151,32 @@ public class SkillRankFacet extends AbstractStorageFacet
 
 	public Collection<PCClass> getClasses(CharID id, Skill sk)
 	{
-		CacheInfo ci = getInfo(id);
-		if (ci == null)
+		Map<Skill, Map<PCClass, Double>> map = getInfo(id);
+		if (map == null)
 		{
 			return Collections.emptyList();
 		}
-		return ci.getClasses(sk);
+		Map<PCClass, Double> clMap = map.get(sk);
+		if (clMap == null)
+		{
+			return Collections.emptyList();
+		}
+		return Collections.unmodifiableSet(clMap.keySet());
 	}
 
 	public Double get(CharID id, Skill sk, PCClass pcc)
 	{
-		CacheInfo ci = getInfo(id);
-		if (ci == null)
+		Map<Skill, Map<PCClass, Double>> map = getInfo(id);
+		if (map == null)
 		{
 			return null;
 		}
-		return ci.get(sk, pcc);
+		Map<PCClass, Double> clMap = map.get(sk);
+		if (clMap == null)
+		{
+			return null;
+		}
+		return clMap.get(pcc);
 	}
 
 	public void remove(CharID id, Skill sk, PCClass pcc)
@@ -232,23 +185,34 @@ public class SkillRankFacet extends AbstractStorageFacet
 		{
 			throw new IllegalArgumentException("Skill cannot be null in remove");
 		}
-		CacheInfo ci = getInfo(id);
-		if (ci != null)
+		Map<Skill, Map<PCClass, Double>> map = getInfo(id);
+		if (map != null)
 		{
-			Float oldRank = getRank(id, sk);
-			ci.remove(sk, pcc);
-			Float newRank = getRank(id, sk);
-			support.fireSkillRankChangeEvent(id, sk, oldRank, newRank);
+			Map<PCClass, Double> clMap = map.get(sk);
+			if (clMap != null)
+			{
+				Float oldRank = getRank(id, sk);
+				clMap.remove(pcc);
+				Float newRank = getRank(id, sk);
+				support.fireSkillRankChangeEvent(id, sk, oldRank, newRank);
+			}
 		}
 	}
 
 	public float getRank(CharID id, Skill sk)
 	{
 		double rank = 0.0;
-		CacheInfo ci = getInfo(id);
-		if (ci != null)
+		Map<Skill, Map<PCClass, Double>> map = getInfo(id);
+		if (map != null)
 		{
-			rank = ci.getRank(sk);
+			Map<PCClass, Double> clMap = map.get(sk);
+			if (clMap != null)
+			{
+				for (Double d : clMap.values())
+				{
+					rank += d;
+				}
+			}
 		}
 		return (float) rank;
 	}
