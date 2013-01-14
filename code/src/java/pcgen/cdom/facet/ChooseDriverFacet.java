@@ -19,6 +19,8 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.Selection;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.DomainSelectionFacet;
 import pcgen.cdom.facet.model.RaceSelectionFacet;
 import pcgen.cdom.facet.model.TemplateSelectionFacet;
@@ -59,7 +61,7 @@ public class ChooseDriverFacet
 		 *            The DataFacetChangeEvent containing the information about
 		 *            the change
 		 * 
-		 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 		 */
 		@Override
 		public void dataAdded(DataFacetChangeEvent<Selection<?, ?>> dfce)
@@ -88,7 +90,7 @@ public class ChooseDriverFacet
 		 *            The DataFacetChangeEvent containing the information about
 		 *            the change
 		 * 
-		 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 		 */
 		@Override
 		public void dataRemoved(DataFacetChangeEvent<Selection<?, ?>> dfce)
@@ -108,7 +110,7 @@ public class ChooseDriverFacet
 		 *            The DataFacetChangeEvent containing the information about
 		 *            the change
 		 * 
-		 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 		 */
 		@Override
 		public void dataAdded(DataFacetChangeEvent<Selection<?, ?>> dfce)
@@ -125,7 +127,7 @@ public class ChooseDriverFacet
 		 *            The DataFacetChangeEvent containing the information about
 		 *            the change
 		 * 
-		 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+		 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 		 */
 		@Override
 		public void dataRemoved(DataFacetChangeEvent<Selection<?, ?>> dfce)

@@ -20,6 +20,8 @@ package pcgen.cdom.facet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.core.BioSet;
 import pcgen.core.PlayerCharacter;
@@ -52,7 +54,7 @@ public class BioSetTrackingFacet extends AbstractItemFacet<BioSet> implements
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
 	 * 
-	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
@@ -76,7 +78,7 @@ public class BioSetTrackingFacet extends AbstractItemFacet<BioSet> implements
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
 	 * 
-	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)

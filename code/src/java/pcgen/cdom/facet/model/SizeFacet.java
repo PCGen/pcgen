@@ -27,13 +27,13 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeEvent;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeListener;
 import pcgen.cdom.facet.BonusCheckingFacet;
-import pcgen.cdom.facet.DataFacetChangeEvent;
-import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeEvent;
 import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeListener;
 import pcgen.cdom.facet.base.AbstractDataFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
@@ -318,7 +318,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
 	 * 
-	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CDOMObject> dfce)
@@ -338,7 +338,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
 	 * 
-	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CDOMObject> dfce)
@@ -354,7 +354,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	 *            The LevelChangeEvent containing the information about the
 	 *            change
 	 * 
-	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void levelChanged(LevelChangeEvent lce)
@@ -370,7 +370,7 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	 *            The BonusChangeEvent containing the information about the
 	 *            change
 	 * 
-	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void bonusChange(BonusChangeEvent bce)

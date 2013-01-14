@@ -18,8 +18,8 @@
 package pcgen.cdom.facet.model;
 
 import pcgen.cdom.facet.AutoLanguageFacet;
-import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.Language;

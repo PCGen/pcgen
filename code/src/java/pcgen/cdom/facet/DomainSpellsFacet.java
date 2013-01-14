@@ -20,6 +20,8 @@ package pcgen.cdom.facet;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.helper.ClassSource;
@@ -59,7 +61,7 @@ public class DomainSpellsFacet extends
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
 	 * 
-	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.DataFacetChangeEvent)
+	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<Domain> dfce)
@@ -107,7 +109,7 @@ public class DomainSpellsFacet extends
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
 	 * 
-	 * @see pcgen.cdom.facet.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.DataFacetChangeEvent)
+	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<Domain> dfce)

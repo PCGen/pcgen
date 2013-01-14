@@ -18,7 +18,7 @@
 package pcgen.cdom.facet.base;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.util.Logging;
 
 /**

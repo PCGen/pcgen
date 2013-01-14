@@ -23,7 +23,7 @@ import java.util.Collections;
 import java.util.LinkedHashSet;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
 
 /**
  * A AbstractListFacet is a DataFacet that contains information about Objects

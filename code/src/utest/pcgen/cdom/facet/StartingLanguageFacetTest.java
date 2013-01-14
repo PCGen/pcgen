@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.Language;

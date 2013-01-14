@@ -30,8 +30,8 @@ import javax.swing.event.EventListenerList;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.base.AbstractDataFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 

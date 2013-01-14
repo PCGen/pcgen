@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 
 /**
  * CDOMObjectSourceFacet consolidates all of the CDOMObjects that are added to a

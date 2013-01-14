@@ -18,9 +18,9 @@
 package pcgen.cdom.facet.model;
 
 import pcgen.cdom.content.Selection;
-import pcgen.cdom.facet.DataFacetChangeEvent;
-import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.base.AbstractItemFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.Race;
 
 /**

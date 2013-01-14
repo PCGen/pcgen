@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.facet.model;
 
-import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.WeaponProfFacet;
 import pcgen.cdom.testsupport.AbstractConsolidatingFacetTest;
 import pcgen.core.WeaponProf;

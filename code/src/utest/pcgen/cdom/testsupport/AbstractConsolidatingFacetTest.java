@@ -21,8 +21,8 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import pcgen.cdom.facet.DataFacetChangeEvent;
-import pcgen.cdom.facet.DataFacetChangeListener;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 
 public abstract class AbstractConsolidatingFacetTest<ST, T> extends
 		AbstractSourcedListFacetTest<T>

@@ -25,6 +25,7 @@ package pcgen.cdom.facet;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
 
 /**
  * The Class <code>CategorizedDataFacetChangeEvent</code> indicates that a facet 

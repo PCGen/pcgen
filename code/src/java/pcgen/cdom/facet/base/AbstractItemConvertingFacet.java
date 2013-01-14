@@ -27,7 +27,7 @@ import java.util.Map.Entry;
 
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
 
 /**
  * An AbstractItemConvertingFacet is a DataFacet that converts information from

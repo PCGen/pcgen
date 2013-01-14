@@ -25,8 +25,8 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.VariableKey;
-import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.analysis.VariableFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.core.PCTemplate;
 
 public class VariableFacetTest extends TestCase

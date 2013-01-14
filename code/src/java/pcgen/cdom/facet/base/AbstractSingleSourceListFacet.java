@@ -29,7 +29,7 @@ import java.util.Set;
 
 import pcgen.base.util.ListSet;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
 
 /**
  * An AbstractSingleSourceListFacet is a DataFacet that contains information

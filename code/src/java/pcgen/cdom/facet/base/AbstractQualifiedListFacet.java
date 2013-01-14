@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Thomas Parker, 2009.
+ * Copyright (c) Thomas Parker, 2013.
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -32,9 +32,9 @@ import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.QualifiedActor;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.DataFacetChangeEvent;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.PrerequisiteFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
 
 /**
  * An AbstractQualifiedListFacet is a DataFacet that contains information about

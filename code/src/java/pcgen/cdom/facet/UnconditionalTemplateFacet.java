@@ -19,6 +19,8 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.content.Selection;
 import pcgen.cdom.facet.base.AbstractListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.TemplateSelectionFacet;
 import pcgen.core.PCTemplate;

@@ -31,7 +31,7 @@ import pcgen.base.util.ListSet;
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
 
 /**
  * An AbstractSourcedListFacet is a DataFacet that contains information about

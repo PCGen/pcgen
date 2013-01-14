@@ -18,9 +18,9 @@
 package pcgen.cdom.facet.model;
 
 import pcgen.cdom.content.SourcedSelection;
-import pcgen.cdom.facet.DataFacetChangeEvent;
-import pcgen.cdom.facet.DataFacetChangeListener;
 import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
+import pcgen.cdom.facet.event.DataFacetChangeEvent;
+import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Domain;
 
