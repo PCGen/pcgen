@@ -6398,6 +6398,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 								if (choiceCount > 0)
 								{
 									sources.addToListFor(l, ptc);
+									ptcSources.put(ptc, a);
 									actorLimit.put(ptc, choiceCount);
 								}
 							}

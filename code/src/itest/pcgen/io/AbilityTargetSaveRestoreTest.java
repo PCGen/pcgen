@@ -21,16 +21,15 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.Language;
-import pcgen.core.Skill;
+import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.io.testsupport.AbstractGlobalTargetedSaveRestoreTest;
-import plugin.lsttokens.choose.SkillToken;
 
 public class AbilityTargetSaveRestoreTest extends
 		AbstractGlobalTargetedSaveRestoreTest<Ability>
@@ -43,7 +42,6 @@ public class AbilityTargetSaveRestoreTest extends
 		{
 			T ab = super.create(cl, key);
 			context.ref.reassociateCategory(AbilityCategory.FEAT, (Ability) ab);
-			((Ability) ab).put(ObjectKey.MULTIPLE_ALLOWED, true);
 			return ab;
 		}
 		else
@@ -61,7 +59,12 @@ public class AbilityTargetSaveRestoreTest extends
 	@Override
 	protected void applyObject(Ability obj)
 	{
-		AbilityUtilities.modAbility(pc, obj, "Granted", AbilityCategory.FEAT);
+		String assoc = null;
+		if (ChooseActivation.hasChooseToken(obj))
+		{
+			assoc = "Granted";
+		}
+		AbilityUtilities.modAbility(pc, obj, assoc, AbilityCategory.FEAT);
 	}
 
 	@Override
@@ -73,104 +76,41 @@ public class AbilityTargetSaveRestoreTest extends
 	@Override
 	protected void remove(Object o)
 	{
-		ChooserUtilities.modChoices((Ability) o, new ArrayList<String>(),
-			new ArrayList<String>(), true, reloadedPC, false,
-			AbilityCategory.FEAT);
-		reloadedPC.removeRealAbility(AbilityCategory.FEAT, (Ability) o);
+		Ability abil = (Ability) o;
+		if (ChooseActivation.hasChooseToken(abil))
+		{
+			ChooserUtilities.modChoices(abil, new ArrayList<String>(),
+				new ArrayList<String>(), true, reloadedPC, false,
+				AbilityCategory.FEAT);
+		}
+		//Have to do this check due to cloning...
+		abil = reloadedPC.getAbilityKeyed(AbilityCategory.FEAT, abil.getKeyName());
+		reloadedPC.removeRealAbility(AbilityCategory.FEAT, abil);
+		//TODO These need to be moved into being core behaviors somehow
+		CDOMObjectUtilities.removeAdds(abil, reloadedPC);
+		CDOMObjectUtilities.restoreRemovals(abil, reloadedPC);
+		reloadedPC.adjustMoveRates();
 	}
 
 	@Override
-	@Test
-	public void testGlobalCSkill()
+	protected void additionalChooseSet(Ability target)
 	{
-		//CODE-2016 needs to ensure this is implemented
+		target.put(ObjectKey.MULTIPLE_ALLOWED, true);
 	}
 
+	//CODE-2016 needs to ensure this gets removed...
 	@Override
-	@Test
-	public void testGlobalCCSkill()
+	protected boolean isSymmetric()
 	{
-		//CODE-2016 needs to ensure this is implemented
-	}
-
-	@Override
-	@Test
-	public void testAutoWeaponProf()
-	{
-		//CODE-2016 needs to ensure this is implemented
-	}
-
-	@Override
-	@Test
-	public void testAutoShieldProf()
-	{
-		//CODE-2016 needs to ensure this is implemented
-	}
-
-	@Override
-	@Test
-	public void testAutoArmorProf()
-	{
-		//CODE-2016 needs to ensure this is implemented
-	}
-
-	@Override
-	@Test
-	public void testAutoLanguage()
-	{
-		Ability target = create(getObjectClass(), "Target");
-		Language granted = create(Language.class, "Granted");
-		create(Language.class, "Ignored");
-		new plugin.lsttokens.auto.LangToken().parseToken(context, target,
-			"%LIST");
-		new plugin.lsttokens.choose.LangToken().parseToken(context,
-			target, "Granted|Ignored");
-		Object o = prepare(target);
-		finishLoad();
-		assertFalse(pc.hasLanguage(granted));
-		applyObject(target);
-		assertTrue(pc.hasLanguage(granted));
-		runRoundRobin();
-		assertTrue(pc.hasLanguage(granted));
-		assertTrue(reloadedPC.hasLanguage(granted));
-		remove(o);
-		reloadedPC.setDirty(true);
-		//CODE-2016 needs to ensure this is implemented
-		//assertFalse(reloadedPC.hasLanguage(granted));
-	}
-
-	@Override
-	@Test
-	public void testAddLanguage()
-	{
-		Language granted = create(Language.class, "MyLanguage");
-		create(Language.class, "Ignored");
-		Ability target = create(getObjectClass(), "Target");
-		//This is a distraction to avoid failure
-		create(Skill.class, "Granted");
-		new SkillToken().parseToken(context, target, "Granted");
-		//end distraction
-		new plugin.lsttokens.add.LanguageToken().parseToken(context, target,
-			"MyLanguage");
-		Object o = prepare(target);
-		finishLoad();
-		assertFalse(pc.hasLanguage(granted));
-		applyObject(target);
-		assertTrue(pc.hasLanguage(granted));
-		runRoundRobin();
-		assertTrue(pc.hasLanguage(granted));
-		assertTrue(reloadedPC.hasLanguage(granted));
-		remove(o);
-		reloadedPC.setDirty(true);
-		//CODE-2016 needs to ensure this is implemented
-		//assertFalse(reloadedPC.hasLanguage(granted));
+		return false;
 	}
 
 	@Override
 	@Test
 	public void testAddTemplate()
 	{
-		//CODE-2016 needs to ensure this is implemented
+		//CODE-2016 Ignore as known to be not symmetric yet :P
 	}
-
+	
+	
 }

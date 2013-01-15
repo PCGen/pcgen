@@ -140,6 +140,7 @@ public class ConcretePersistentTransitionChoice<T> extends
 	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item)
 	{
+		pc.addAssoc(this, AssociationListKey.ADD, item);
 		choiceActor.restoreChoice(pc, owner, item);
 	}
 

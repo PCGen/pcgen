@@ -17,8 +17,7 @@
  */
 package pcgen.io;
 
-import org.junit.Test;
-
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
@@ -59,6 +58,7 @@ public class SkillTargetSaveRestoreTest extends
 	@Override
 	protected Object prepare(Skill obj)
 	{
+		obj.put(ObjectKey.EXCLUSIVE, true);
 		PCClass cl = create(PCClass.class, "MyClass");
 		new HdToken().parseToken(context, cl, "6");
 		return obj;
@@ -88,47 +88,11 @@ public class SkillTargetSaveRestoreTest extends
 		reloadedPC.getSpellSupport(cl);
 	}
 
+	//CODE-2015 needs to ensure this gets removed...
 	@Override
-	@Test
-	public void testGlobalCSkill()
+	protected boolean isSymmetric()
 	{
-		//CODE-2015 needs to ensure this gets done
+		return false;
 	}
 
-	@Override
-	@Test
-	public void testGlobalCCSkill()
-	{
-		//CODE-2015 needs to ensure this gets done
-	}
-
-	@Override
-	@Test
-	public void testAutoWeaponProf()
-	{
-		//CODE-2015 needs to ensure this gets done
-	}
-
-	@Override
-	@Test
-	public void testAutoShieldProf()
-	{
-		//CODE-2015 needs to ensure this gets done
-	}
-
-	@Override
-	@Test
-	public void testAutoArmorProf()
-	{
-		//CODE-2015 needs to ensure this gets done
-	}
-
-	@Override
-	@Test
-	public void testAutoLanguage()
-	{
-		//CODE-2015 needs to ensure this gets done
-	}
-	
-	
 }
