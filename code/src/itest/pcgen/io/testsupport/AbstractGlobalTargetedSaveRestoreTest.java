@@ -63,35 +63,35 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		return true;
 	}
 
-//	@Test
-//	public void testGlobalCSkill()
-//	{
-//		PCClass monclass = create(PCClass.class, "MonClass");
-//		new TypeLst().parseToken(context, monclass, "Monster");
-//		Skill granted = create(Skill.class, "Granted");
-//		new ExclusiveToken().parseToken(context, granted, "Yes");
-//		T target = create(getObjectClass(), "Target");
-//		Skill skill = create(Skill.class, "MySkill");
-//		new ExclusiveToken().parseToken(context, skill, "Yes");
-//		new CskillLst().parseToken(context, target, "Granted");
-//		Object o = prepare(target);
-//		finishLoad();
-//		assertEquals(SkillCost.EXCLUSIVE,
-//			pc.getSkillCostForClass(granted, monclass));
-//		applyObject(target);
-//		assertEquals(SkillCost.CLASS,
-//			pc.getSkillCostForClass(granted, monclass));
-//		runRoundRobin();
-//		assertEquals(SkillCost.CLASS,
-//			pc.getSkillCostForClass(granted, monclass));
-//		assertEquals(SkillCost.CLASS,
-//			reloadedPC.getSkillCostForClass(granted, monclass));
-//		remove(o);
-//		reloadedPC.setDirty(true);
-//		assertEquals(SkillCost.EXCLUSIVE,
-//			reloadedPC.getSkillCostForClass(granted, monclass));
-//	}
-//
+	@Test
+	public void testGlobalCSkill()
+	{
+		PCClass monclass = create(PCClass.class, "MonClass");
+		new TypeLst().parseToken(context, monclass, "Monster");
+		Skill granted = create(Skill.class, "Granted");
+		new ExclusiveToken().parseToken(context, granted, "Yes");
+		T target = create(getObjectClass(), "Target");
+		Skill skill = create(Skill.class, "MySkill");
+		new ExclusiveToken().parseToken(context, skill, "Yes");
+		new CskillLst().parseToken(context, target, "Granted");
+		Object o = prepare(target);
+		finishLoad();
+		assertEquals(SkillCost.EXCLUSIVE,
+			pc.getSkillCostForClass(granted, monclass));
+		applyObject(target);
+		assertEquals(SkillCost.CLASS,
+			pc.getSkillCostForClass(granted, monclass));
+		runRoundRobin();
+		assertEquals(SkillCost.CLASS,
+			pc.getSkillCostForClass(granted, monclass));
+		assertEquals(SkillCost.CLASS,
+			reloadedPC.getSkillCostForClass(granted, monclass));
+		remove(o);
+		reloadedPC.setDirty(true);
+		assertEquals(SkillCost.EXCLUSIVE,
+			reloadedPC.getSkillCostForClass(granted, monclass));
+	}
+
 	@Test
 	public void testGlobalCSkillList()
 	{
@@ -125,33 +125,33 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 				reloadedPC.getSkillCostForClass(granted, monclass));
 		}
 	}
-//
-//	@Test
-//	public void testGlobalCCSkill()
-//	{
-//		PCClass myclass = create(PCClass.class, "SomeClass");
-//		Skill granted = create(Skill.class, "Granted");
-//		new ExclusiveToken().parseToken(context, granted, "Yes");
-//		T target = create(getObjectClass(), "Target");
-//		create(Skill.class, "MySkill");
-//		new CcskillLst().parseToken(context, target, "Granted");
-//		Object o = prepare(target);
-//		finishLoad();
-//		assertEquals(SkillCost.EXCLUSIVE,
-//			pc.getSkillCostForClass(granted, myclass));
-//		applyObject(target);
-//		assertEquals(SkillCost.CROSS_CLASS,
-//			pc.getSkillCostForClass(granted, myclass));
-//		runRoundRobin();
-//		assertEquals(SkillCost.CROSS_CLASS,
-//			pc.getSkillCostForClass(granted, myclass));
-//		assertEquals(SkillCost.CROSS_CLASS,
-//			reloadedPC.getSkillCostForClass(granted, myclass));
-//		remove(o);
-//		reloadedPC.setDirty(true);
-//		assertEquals(SkillCost.EXCLUSIVE,
-//			reloadedPC.getSkillCostForClass(granted, myclass));
-//	}
+
+	@Test
+	public void testGlobalCCSkill()
+	{
+		PCClass myclass = create(PCClass.class, "SomeClass");
+		Skill granted = create(Skill.class, "Granted");
+		new ExclusiveToken().parseToken(context, granted, "Yes");
+		T target = create(getObjectClass(), "Target");
+		create(Skill.class, "MySkill");
+		new CcskillLst().parseToken(context, target, "Granted");
+		Object o = prepare(target);
+		finishLoad();
+		assertEquals(SkillCost.EXCLUSIVE,
+			pc.getSkillCostForClass(granted, myclass));
+		applyObject(target);
+		assertEquals(SkillCost.CROSS_CLASS,
+			pc.getSkillCostForClass(granted, myclass));
+		runRoundRobin();
+		assertEquals(SkillCost.CROSS_CLASS,
+			pc.getSkillCostForClass(granted, myclass));
+		assertEquals(SkillCost.CROSS_CLASS,
+			reloadedPC.getSkillCostForClass(granted, myclass));
+		remove(o);
+		reloadedPC.setDirty(true);
+		assertEquals(SkillCost.EXCLUSIVE,
+			reloadedPC.getSkillCostForClass(granted, myclass));
+	}
 
 	public void testGlobalCCSkillList()
 	{
