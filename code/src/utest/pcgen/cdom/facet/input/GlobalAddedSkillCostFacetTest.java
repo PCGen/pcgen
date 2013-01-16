@@ -37,6 +37,13 @@ public class GlobalAddedSkillCostFacetTest extends TestCase
 	private GlobalAddedSkillCostFacet facet = new GlobalAddedSkillCostFacet();
 	private PCTemplate source1 = new PCTemplate();
 
+	@Override
+	public void setUp()
+	{
+		source1 = new PCTemplate();
+		source1.setName("T1");
+	}
+
 	@Test
 	public void testAddNullID()
 	{

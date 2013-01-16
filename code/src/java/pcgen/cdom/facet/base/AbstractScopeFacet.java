@@ -52,6 +52,14 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet
 
 	public void add(CharID id, S scope, T obj, Object source)
 	{
+		if (scope == null)
+		{
+			throw new IllegalArgumentException("Scope cannot be null");
+		}
+		if(obj == null)
+		{
+			throw new IllegalArgumentException("Object cannot be null");
+		}
 		Map<S, Map<T, Set<Object>>> map = getConstructingInfo(id);
 		Map<T, Set<Object>> scopeMap = map.get(scope);
 		if (scopeMap == null)
@@ -76,6 +84,14 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet
 
 	public void remove(CharID id, S scope, T obj, Object source)
 	{
+		if (scope == null)
+		{
+			throw new IllegalArgumentException("Scope cannot be null");
+		}
+		if(obj == null)
+		{
+			throw new IllegalArgumentException("Object cannot be null");
+		}
 		Map<S, Map<T, Set<Object>>> map = getInfo(id);
 		if (map == null)
 		{
@@ -95,6 +111,15 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet
 		{
 			fireScopeFacetChangeEvent(id, scope, obj,
 				ScopeFacetChangeEvent.DATA_REMOVED);
+			scopeMap.remove(obj);
+		}
+		if (scopeMap.isEmpty())
+		{
+			map.remove(scope);
+		}
+		if (map.isEmpty())
+		{
+			removeCache(id);
 		}
 	}
 
