@@ -57,7 +57,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	{
 		try
 		{
-			getFacet().add(null, class1, getObject(), SkillCost.CLASS, source1);
+			getFacet().add(null, class1, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -70,7 +70,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	{
 		try
 		{
-			getFacet().add(id, null, getObject(), SkillCost.CLASS, source1);
+			getFacet().add(id, null, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -84,7 +84,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	{
 		try
 		{
-			getFacet().add(id, class1, null, SkillCost.CLASS, source1);
+			getFacet().add(id, class1, SkillCost.CLASS, null, source1);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -98,7 +98,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	{
 		try
 		{
-			getFacet().add(id, class1, getObject(), null, source1);
+			getFacet().add(id, class1, null, getObject(), source1);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -111,28 +111,28 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	public void testAddNullSource()
 	{
 		Skill t1 = getObject();
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, null);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CROSS_CLASS));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, null);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CROSS_CLASS, t1));
 		//No cross pollution
-		assertFalse(getFacet().contains(id, class2, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class1, getObject(), SkillCost.CLASS));
-		assertFalse(getFacet().contains(altid, class1, t1, SkillCost.CLASS));
+		assertFalse(getFacet().contains(id, class2, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, getObject()));
+		assertFalse(getFacet().contains(altid, class1, SkillCost.CLASS, t1));
 	}
 
 	@Test
 	public void testAddContains()
 	{
 		Skill t1 = getObject();
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CROSS_CLASS));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CROSS_CLASS, t1));
 		//No cross pollution
-		assertFalse(getFacet().contains(altid, class1, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class2, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class1, getObject(), SkillCost.CLASS));
+		assertFalse(getFacet().contains(altid, class1, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(id, class2, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, getObject()));
 	}
 
 	@Test
@@ -141,7 +141,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 		Skill t1 = getObject();
 		for (SkillCost sc : SkillCost.values())
 		{
-			assertFalse(getFacet().contains(id, class1, t1, sc));
+			assertFalse(getFacet().contains(id, class1, sc, t1));
 		}
 	}
 
@@ -149,20 +149,20 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	public void testAddTwoSources()
 	{
 		Skill t1 = getObject();
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CROSS_CLASS));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CROSS_CLASS, t1));
 		//No cross pollution
-		assertFalse(getFacet().contains(altid, class1, t1, SkillCost.CLASS));
+		assertFalse(getFacet().contains(altid, class1, SkillCost.CLASS, t1));
 
 		PCClass source2 = new PCClass();
 		//Second add doesn't change anything
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source2);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CROSS_CLASS));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source2);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CROSS_CLASS, t1));
 		//No cross pollution
-		assertFalse(getFacet().contains(altid, class1, t1, SkillCost.CLASS));
+		assertFalse(getFacet().contains(altid, class1, SkillCost.CLASS, t1));
 	}
 
 	@Test
@@ -170,46 +170,46 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	{
 		Skill t1 = getObject();
 		Skill t2 = getObject();
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class1, t2, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CROSS_CLASS));
-		assertFalse(getFacet().contains(id, class2, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class2, t2, SkillCost.CLASS));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t2));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CROSS_CLASS, t1));
+		assertFalse(getFacet().contains(id, class2, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(id, class2, SkillCost.CLASS, t2));
 		//No cross pollution
-		assertFalse(getFacet().contains(altid, class1, t1, SkillCost.CLASS));
+		assertFalse(getFacet().contains(altid, class1, SkillCost.CLASS, t1));
 
-		getFacet().add(id, class2, t2, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class1, t2, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CROSS_CLASS));
-		assertTrue(getFacet().contains(id, class2, t2, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class2, t1, SkillCost.CLASS));
+		getFacet().add(id, class2, SkillCost.CLASS, t2, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t2));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CROSS_CLASS, t1));
+		assertTrue(getFacet().contains(id, class2, SkillCost.CLASS, t2));
+		assertFalse(getFacet().contains(id, class2, SkillCost.CLASS, t1));
 		//No cross pollution
-		assertFalse(getFacet().contains(altid, class1, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(altid, class2, t2, SkillCost.CLASS));
+		assertFalse(getFacet().contains(altid, class1, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(altid, class2, SkillCost.CLASS, t2));
 	}
 
 	@Test
 	public void testAddMultGet()
 	{
 		Skill t1 = getObject();
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CROSS_CLASS));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CROSS_CLASS, t1));
 		//No cross pollution
-		assertFalse(getFacet().contains(altid, class1, t1, SkillCost.CLASS));
+		assertFalse(getFacet().contains(altid, class1, SkillCost.CLASS, t1));
 
 		Skill t2 = getAltObject();
 		//Second add doesn't change anything
-		getFacet().add(id, class1, t2, SkillCost.CROSS_CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertTrue(getFacet().contains(id, class1, t2, SkillCost.CROSS_CLASS));
-		assertFalse(getFacet().contains(id, class1, t2, SkillCost.CLASS));
+		getFacet().add(id, class1, SkillCost.CROSS_CLASS, t2, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertTrue(getFacet().contains(id, class1, SkillCost.CROSS_CLASS, t2));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t2));
 		//No cross pollution
-		assertFalse(getFacet().contains(altid, class1, t2, SkillCost.CROSS_CLASS));
+		assertFalse(getFacet().contains(altid, class1, SkillCost.CROSS_CLASS, t2));
 	}
 
 	@Test
@@ -217,7 +217,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	{
 		try
 		{
-			getFacet().remove(null, class1, getObject(), SkillCost.CLASS, source1);
+			getFacet().remove(null, class1, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -231,7 +231,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	{
 		try
 		{
-			getFacet().remove(id, null, getObject(), SkillCost.CLASS, source1);
+			getFacet().remove(id, null, SkillCost.CLASS, getObject(), source1);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -245,7 +245,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	{
 		try
 		{
-			getFacet().remove(id, class1, null, SkillCost.CLASS, source1);
+			getFacet().remove(id, class1, SkillCost.CLASS, null, source1);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -259,7 +259,7 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	{
 		try
 		{
-			getFacet().remove(id, class1, getObject(), null, source1);
+			getFacet().remove(id, class1, null, getObject(), source1);
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -272,66 +272,66 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	public void testRemoveUseless()
 	{
 		//Just don't throw an exception
-		getFacet().remove(id, class1, getAltObject(), SkillCost.CLASS, source1);
+		getFacet().remove(id, class1, SkillCost.CLASS, getAltObject(), source1);
 	}
 
 	@Test
 	public void testRemoveUselessSkill()
 	{
 		Skill t1 = getObject();
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
 		//Just don't throw an exception
-		getFacet().remove(id, class1, getAltObject(), SkillCost.CLASS, source1);
+		getFacet().remove(id, class1, SkillCost.CLASS, getAltObject(), source1);
 	}
 
 	@Test
 	public void testRemoveUselessCost()
 	{
 		Skill t1 = getObject();
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
-		getFacet().add(id, class2, t1, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CROSS_CLASS));
-		assertTrue(getFacet().contains(id, class2, t1, SkillCost.CLASS));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
+		getFacet().add(id, class2, SkillCost.CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CROSS_CLASS, t1));
+		assertTrue(getFacet().contains(id, class2, SkillCost.CLASS, t1));
 		//No cross pollution
-		getFacet().remove(id, class1, t1, SkillCost.CROSS_CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().remove(id, class1, t1, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class2, t1, SkillCost.CLASS));
+		getFacet().remove(id, class1, SkillCost.CROSS_CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().remove(id, class1, SkillCost.CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class2, SkillCost.CLASS, t1));
 	}
 
 	@Test
 	public void testRemoveUselessClass()
 	{
 		Skill t1 = getObject();
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
-		getFacet().add(id, class2, t1, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CROSS_CLASS));
-		assertTrue(getFacet().contains(id, class2, t1, SkillCost.CLASS));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
+		getFacet().add(id, class2, SkillCost.CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CROSS_CLASS, t1));
+		assertTrue(getFacet().contains(id, class2, SkillCost.CLASS, t1));
 		//No cross pollution
-		getFacet().remove(id, class3, t1, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class2, t1, SkillCost.CLASS));
-		getFacet().remove(id, class2, t1, SkillCost.CLASS, source1);
-		assertFalse(getFacet().contains(id, class2, t1, SkillCost.CLASS));
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().remove(id, class1, t1, SkillCost.CLASS, source1);
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
+		getFacet().remove(id, class3, SkillCost.CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class2, SkillCost.CLASS, t1));
+		getFacet().remove(id, class2, SkillCost.CLASS, t1, source1);
+		assertFalse(getFacet().contains(id, class2, SkillCost.CLASS, t1));
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().remove(id, class1, SkillCost.CLASS, t1, source1);
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
 	}
 
 	@Test
 	public void testRemoveUselessSource()
 	{
 		Skill t1 = getObject();
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
 
 		PCClass source2 = new PCClass();
-		getFacet().remove(id, class1, t1, SkillCost.CLASS, source2);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
+		getFacet().remove(id, class1, SkillCost.CLASS, t1, source2);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
 	}
 
 	@Test
@@ -339,67 +339,67 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	{
 		Skill t1 = getObject();
 		PCClass source2 = new PCClass();
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source2);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().remove(id, class1, t1, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source2);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().remove(id, class1, SkillCost.CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
 	}
 
 	public void testRemoveDiffCost()
 	{
 		Skill t1 = getObject();
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().remove(id, class1, t1, SkillCost.CROSS_CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().remove(id, class1, SkillCost.CROSS_CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
 	}
 
 	@Test
 	public void testAddSingleRemove()
 	{
 		Skill t1 = getObject();
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().remove(id, class1, t1, SkillCost.CLASS, source1);
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().remove(id, class1, SkillCost.CLASS, t1, source1);
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
 	}
 
 	@Test
 	public void testAddSingleTwiceRemove()
 	{
 		Skill t1 = getObject();
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().remove(id, class1, t1, SkillCost.CLASS, source1);
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().remove(id, class1, SkillCost.CLASS, t1, source1);
 		//Was added twice, but sources are a SET, removed once works
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
 	}
 
 	@Test
 	public void testAddMultCostRemove()
 	{
 		Skill t1 = getObject();
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CROSS_CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CROSS_CLASS, source1);
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CROSS_CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CROSS_CLASS, t1, source1);
 		/*
 		 * Note behavior here that it returns what is in the database, it does
 		 * NOT attempt to "measure" SkillCost objects
 		 */
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CROSS_CLASS));
-		getFacet().remove(id, class1, t1, SkillCost.CLASS, source1);
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CROSS_CLASS));
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertTrue(getFacet().contains(id, class1, SkillCost.CROSS_CLASS, t1));
+		getFacet().remove(id, class1, SkillCost.CLASS, t1, source1);
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertTrue(getFacet().contains(id, class1, SkillCost.CROSS_CLASS, t1));
 	}
 
 	@Test
@@ -407,16 +407,16 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	{
 		Skill t1 = getObject();
 		Skill t2 = getAltObject();
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
-		assertFalse(getFacet().contains(id, class1, t2, SkillCost.CLASS));
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t2, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertTrue(getFacet().contains(id, class1, t2, SkillCost.CLASS));
-		getFacet().remove(id, class1, t1, SkillCost.CLASS, source1);
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertTrue(getFacet().contains(id, class1, t2, SkillCost.CLASS));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t2));
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t2, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t2));
+		getFacet().remove(id, class1, SkillCost.CLASS, t1, source1);
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t2));
 	}
 
 	@Test
@@ -431,39 +431,39 @@ public class LocalAddedSkillCostFacetTest extends TestCase
 	{
 		Skill t1 = getObject();
 		Skill t2 = getAltObject();
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t1, SkillCost.CLASS, source1);
-		assertFalse(getFacet().contains(id, class1, t2, SkillCost.CLASS));
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		getFacet().add(id, class1, t2, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertTrue(getFacet().contains(id, class1, t2, SkillCost.CLASS));
-		assertFalse(getFacet().contains(id, class2, t2, SkillCost.CLASS));
-		getFacet().add(id, class2, t2, SkillCost.CLASS, source1);
-		assertTrue(getFacet().contains(id, class2, t2, SkillCost.CLASS));
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t1, source1);
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t2));
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		getFacet().add(id, class1, SkillCost.CLASS, t2, source1);
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t2));
+		assertFalse(getFacet().contains(id, class2, SkillCost.CLASS, t2));
+		getFacet().add(id, class2, SkillCost.CLASS, t2, source1);
+		assertTrue(getFacet().contains(id, class2, SkillCost.CLASS, t2));
 		getFacet().copyContents(id, altid);
 
 		//prove the copy
-		assertTrue(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertTrue(getFacet().contains(id, class1, t2, SkillCost.CLASS));
-		assertTrue(getFacet().contains(id, class2, t2, SkillCost.CLASS));
-		assertTrue(getFacet().contains(altid, class1, t1, SkillCost.CLASS));
-		assertTrue(getFacet().contains(altid, class1, t2, SkillCost.CLASS));
-		assertTrue(getFacet().contains(id, class2, t2, SkillCost.CLASS));
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t2));
+		assertTrue(getFacet().contains(id, class2, SkillCost.CLASS, t2));
+		assertTrue(getFacet().contains(altid, class1, SkillCost.CLASS, t1));
+		assertTrue(getFacet().contains(altid, class1, SkillCost.CLASS, t2));
+		assertTrue(getFacet().contains(id, class2, SkillCost.CLASS, t2));
 
 		//prove independence (remove from id)
-		getFacet().remove(id, class1, t1, SkillCost.CLASS, source1);
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertTrue(getFacet().contains(id, class1, t2, SkillCost.CLASS));
-		assertTrue(getFacet().contains(altid, class1, t1, SkillCost.CLASS));
-		assertTrue(getFacet().contains(altid, class1, t2, SkillCost.CLASS));
+		getFacet().remove(id, class1, SkillCost.CLASS, t1, source1);
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t2));
+		assertTrue(getFacet().contains(altid, class1, SkillCost.CLASS, t1));
+		assertTrue(getFacet().contains(altid, class1, SkillCost.CLASS, t2));
 
 		//prove independence (remove from altid)
-		getFacet().remove(altid, class1, t2, SkillCost.CLASS, source1);
-		assertFalse(getFacet().contains(id, class1, t1, SkillCost.CLASS));
-		assertTrue(getFacet().contains(id, class1, t2, SkillCost.CLASS));
-		assertTrue(getFacet().contains(altid, class1, t1, SkillCost.CLASS));
-		assertFalse(getFacet().contains(altid, class1, t2, SkillCost.CLASS));
+		getFacet().remove(altid, class1, SkillCost.CLASS, t2, source1);
+		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t1));
+		assertTrue(getFacet().contains(id, class1, SkillCost.CLASS, t2));
+		assertTrue(getFacet().contains(altid, class1, SkillCost.CLASS, t1));
+		assertFalse(getFacet().contains(altid, class1, SkillCost.CLASS, t2));
 	}
 
 	protected LocalAddedSkillCostFacet getFacet()

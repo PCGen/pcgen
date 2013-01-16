@@ -103,14 +103,14 @@ public class DomainCcSkillTest extends AbstractTokenModelTest
 		}
 		new ExclusiveToken().parseToken(context, sk, "Yes");
 		finishLoad();
-		assertFalse(lascFacet.contains(id, dragon, sk, SkillCost.CROSS_CLASS));
+		assertFalse(lascFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
 		assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.add(id, source, new ClassSource(dragon, 0));
-		assertTrue(lascFacet.contains(id, dragon, sk, SkillCost.CROSS_CLASS));
+		assertTrue(lascFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
 		pc.setDirty(true);
 		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.remove(id, source);
-		assertFalse(lascFacet.contains(id, dragon, sk, SkillCost.CROSS_CLASS));
+		assertFalse(lascFacet.contains(id, dragon, SkillCost.CROSS_CLASS, sk));
 	}
 
 	@Override

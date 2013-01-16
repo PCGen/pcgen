@@ -1,0 +1,432 @@
+/*
+ * Copyright (c) Thomas Parker, 2013.
+ * 
+ * This program is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+ */
+package pcgen.cdom.facet.base;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.IdentityHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+
+import pcgen.base.util.WrappedMapSet;
+import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.facet.event.SubScopeFacetChangeEvent;
+import pcgen.cdom.facet.event.SubScopeFacetChangeListener;
+
+public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet
+{
+	private Map<S1, Map<S2, Map<T, Set<Object>>>> getConstructingInfo(CharID id)
+	{
+		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getInfo(id);
+		if (map == null)
+		{
+			map = new IdentityHashMap<S1, Map<S2, Map<T, Set<Object>>>>();
+			setCache(id, map);
+		}
+		return map;
+	}
+
+	private Map<S1, Map<S2, Map<T, Set<Object>>>> getInfo(CharID id)
+	{
+		return (Map<S1, Map<S2, Map<T, Set<Object>>>>) getCache(id);
+	}
+
+	public void add(CharID id, S1 scope1, S2 scope2, T obj, Object source)
+	{
+		if (scope1 == null)
+		{
+			throw new IllegalArgumentException("Scope 1 cannot be null");
+		}
+		if (scope2 == null)
+		{
+			throw new IllegalArgumentException("Scope 2 cannot be null");
+		}
+		if(obj == null)
+		{
+			throw new IllegalArgumentException("Object cannot be null");
+		}
+		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getConstructingInfo(id);
+		Map<S2, Map<T, Set<Object>>> scope1Map = map.get(scope1);
+		if (scope1Map == null)
+		{
+			scope1Map = new IdentityHashMap<S2, Map<T, Set<Object>>>();
+			map.put(scope1, scope1Map);
+		}
+		Map<T, Set<Object>> scope2Map = scope1Map.get(scope2);
+		if (scope2Map == null)
+		{
+			scope2Map = new IdentityHashMap<T, Set<Object>>();
+			scope1Map.put(scope2, scope2Map);
+		}
+		Set<Object> sources = scope2Map.get(obj);
+		boolean isNew = (sources == null);
+		if (isNew)
+		{
+			sources = new WrappedMapSet<Object>(IdentityHashMap.class);
+			scope2Map.put(obj, sources);
+		}
+		sources.add(source);
+		if (isNew)
+		{
+			fireTwoScopeFacetChangeEvent(id, scope1, scope2, obj,
+				SubScopeFacetChangeEvent.DATA_ADDED);
+		}
+	}
+
+	public void remove(CharID id, S1 scope1, S2 scope2, T obj, Object source)
+	{
+		if (scope1 == null)
+		{
+			throw new IllegalArgumentException("Scope 1 cannot be null");
+		}
+		if (scope2 == null)
+		{
+			throw new IllegalArgumentException("Scope 2 cannot be null");
+		}
+		if(obj == null)
+		{
+			throw new IllegalArgumentException("Object cannot be null");
+		}
+		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getInfo(id);
+		if (map == null)
+		{
+			return;
+		}
+		Map<S2, Map<T, Set<Object>>> scope1Map = map.get(scope1);
+		if (scope1Map == null)
+		{
+			return;
+		}
+		Map<T, Set<Object>> scope2Map = scope1Map.get(scope2);
+		if (scope2Map == null)
+		{
+			return;
+		}
+		Set<Object> sources = scope2Map.get(obj);
+		if (sources == null)
+		{
+			return;
+		}
+		if (sources.remove(source) && sources.isEmpty())
+		{
+			fireTwoScopeFacetChangeEvent(id, scope1, scope2, obj,
+				SubScopeFacetChangeEvent.DATA_REMOVED);
+			scope2Map.remove(obj);
+		}
+		if (scope2Map.isEmpty())
+		{
+			scope1Map.remove(scope2);
+		}
+		if (scope1Map.isEmpty())
+		{
+			map.remove(scope1);
+		}
+		if (map.isEmpty())
+		{
+			removeCache(id);
+		}
+	}
+
+	public Collection<T> getSet(CharID id, S1 scope1, S2 scope2)
+	{
+		if (scope1 == null)
+		{
+			throw new IllegalArgumentException("Scope 1 cannot be null");
+		}
+		if (scope2 == null)
+		{
+			throw new IllegalArgumentException("Scope 2 cannot be null");
+		}
+		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getInfo(id);
+		if (map == null)
+		{
+			return Collections.emptyList();
+		}
+		Map<S2, Map<T, Set<Object>>> scope1Map = map.get(scope1);
+		if (scope1Map == null)
+		{
+			return Collections.emptyList();
+		}
+		Map<T, Set<Object>> scope2Map = scope1Map.get(scope2);
+		if (scope2Map == null)
+		{
+			return Collections.emptyList();
+		}
+		return new ArrayList<T>(scope2Map.keySet());
+	}
+
+	public boolean contains(CharID id, S1 scope1, S2 scope2, T obj)
+	{
+		if (scope1 == null)
+		{
+			throw new IllegalArgumentException("Scope 1 cannot be null");
+		}
+		if (scope2 == null)
+		{
+			throw new IllegalArgumentException("Scope 2 cannot be null");
+		}
+		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getInfo(id);
+		if (map == null)
+		{
+			return false;
+		}
+		Map<S2, Map<T, Set<Object>>> scope1Map = map.get(scope1);
+		if (scope1Map == null)
+		{
+			return false;
+		}
+		Map<T, Set<Object>> scope2Map = scope1Map.get(scope2);
+		return (scope2Map != null) && scope2Map.containsKey(obj);
+	}
+
+	/**
+	 * Copies the contents of the AbstractScopeFacet from one Player Character
+	 * to another Player Character, based on the given CharIDs representing
+	 * those Player Characters.
+	 * 
+	 * This is a method in AbstractScopeFacet in order to avoid exposing the
+	 * mutable Map object to other classes. This should not be inlined, as the
+	 * Map is internal information to AbstractScopeFacet and should not be
+	 * exposed to other classes.
+	 * 
+	 * Note also the copy is a one-time event and no references are maintained
+	 * between the Player Characters represented by the given CharIDs (meaning
+	 * once this copy takes place, any change to the AbstractScopeFacet of one
+	 * Player Character will only impact the Player Character where the
+	 * AbstractScopeFacet was changed).
+	 * 
+	 * @param source
+	 *            The CharID representing the Player Character from which the
+	 *            information should be copied
+	 * @param copy
+	 *            The CharID representing the Player Character to which the
+	 *            information should be copied
+	 */
+	@Override
+	public void copyContents(CharID source, CharID copy)
+	{
+		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getInfo(source);
+		if (map != null)
+		{
+			for (Entry<S1, Map<S2, Map<T, Set<Object>>>> l1me : map.entrySet())
+			{
+				S1 scope1 = l1me.getKey();
+				for (Entry<S2, Map<T, Set<Object>>> l2me : l1me.getValue()
+					.entrySet())
+				{
+					S2 scope2 = l2me.getKey();
+					for (Entry<T, Set<Object>> ome : l2me.getValue().entrySet())
+					{
+						T sp = ome.getKey();
+						for (Object spsource : ome.getValue())
+						{
+							add(copy, scope1, scope2, sp, spsource);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	private final Map<Integer, SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[]> listeners =
+			new TreeMap<Integer, SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[]>();
+
+	/**
+	 * Adds a new ScopeFacetChangeListener to receive TwoScopeFacetChangeEvents
+	 * (EdgeChangeEvent and NodeChangeEvent) from this AbstractScopeFacet. The
+	 * given ScopeFacetChangeListener is added at the default priority (zero).
+	 * 
+	 * Note that the ScopeFacetChangeListeners are a list, meaning a given
+	 * ScopeFacetChangeListener can be added more than once at a given priority,
+	 * and if that occurs, it must be removed an equivalent number of times in
+	 * order to no longer receive events from this AbstractScopeFacet.
+	 * 
+	 * @param listener
+	 *            The ScopeFacetChangeListener to receive
+	 *            TwoScopeFacetChangeEvents from this AbstractScopeFacet
+	 */
+	public void addScopeFacetChangeListener(
+		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T> listener)
+	{
+		addScopeFacetChangeListener(0, listener);
+	}
+
+	/**
+	 * Adds a new ScopeFacetChangeListener to receive TwoScopeFacetChangeEvents
+	 * (EdgeChangeEvent and NodeChangeEvent) from this AbstractScopeFacet.
+	 * 
+	 * The ScopeFacetChangeListener is added at the given priority.
+	 * 
+	 * Note that the ScopeFacetChangeListeners are a list, meaning a given
+	 * ScopeFacetChangeListener can be added more than once at a given priority,
+	 * and if that occurs, it must be removed an equivalent number of times in
+	 * order to no longer receive events from this AbstractScopeFacet.
+	 * 
+	 * @param listener
+	 *            The ScopeFacetChangeListener to receive
+	 *            TwoScopeFacetChangeEvents from this AbstractScopeFacet
+	 */
+	public void addScopeFacetChangeListener(int priority,
+		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T> listener)
+	{
+		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] dfcl =
+				listeners.get(priority);
+		int newSize = (dfcl == null) ? 1 : (dfcl.length + 1);
+		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] newArray =
+				new SubScopeFacetChangeListener[newSize];
+		if (dfcl != null)
+		{
+			System.arraycopy(dfcl, 0, newArray, 1, dfcl.length);
+		}
+		newArray[0] = listener;
+		listeners.put(priority, newArray);
+	}
+
+	/**
+	 * Removes a ScopeFacetChangeListener so that it will no longer receive
+	 * TwoScopeFacetChangeEvents from this AbstractScopeFacet. This will remove
+	 * the data facet change listener from the default priority (zero).
+	 * 
+	 * Note that if the given ScopeFacetChangeListener has been registered under
+	 * a different priority, it will still receive events at that priority
+	 * level.
+	 * 
+	 * @param listener
+	 *            The ScopeFacetChangeListener to be removed
+	 */
+	public void removeScopeFacetChangeListener(
+		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T> listener)
+	{
+		removeScopeFacetChangeListener(0, listener);
+	}
+
+	/**
+	 * Removes a ScopeFacetChangeListener so that it will no longer receive
+	 * TwoScopeFacetChangeEvents from the source DataFacet. This will remove the
+	 * data facet change listener from the given priority.
+	 * 
+	 * Note that if the given ScopeFacetChangeListener has been registered under
+	 * a different priority, it will still receive events at that priority
+	 * level.
+	 * 
+	 * @param listener
+	 *            The ScopeFacetChangeListener to be removed
+	 */
+	public void removeScopeFacetChangeListener(int priority,
+		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T> listener)
+	{
+		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] dfcl =
+				listeners.get(priority);
+		if (dfcl == null)
+		{
+			// No worries
+			return;
+		}
+		int foundLoc = -1;
+		int newSize = dfcl.length - 1;
+		for (int i = newSize; i >= 0; i--)
+		{
+			if (dfcl[i] == listener)
+			{
+				foundLoc = i;
+				break;
+			}
+		}
+		if (foundLoc != -1)
+		{
+			if (dfcl.length == 1)
+			{
+				listeners.remove(priority);
+			}
+			else
+			{
+				SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] newArray =
+						new SubScopeFacetChangeListener[newSize];
+				if (foundLoc != 0)
+				{
+					System.arraycopy(dfcl, 0, newArray, 0, foundLoc);
+				}
+				if (foundLoc != newSize)
+				{
+					System.arraycopy(dfcl, foundLoc + 1, newArray, foundLoc,
+						newSize - foundLoc);
+				}
+				listeners.put(priority, newArray);
+			}
+		}
+	}
+
+	/**
+	 * Sends a NodeChangeEvent to the ScopeFacetChangeListeners that are
+	 * receiving TwoScopeFacetChangeEvents from this AbstractScopeFacet.
+	 * 
+	 * @param id
+	 *            The CharID identifying the Player Character to which the
+	 *            NodeChangeEvent relates
+	 * @param lens
+	 *            The Scope through which this facet's contents are viewed
+	 * @param node
+	 *            The Node that has been added to or removed from this
+	 *            AbstractScopeFacet for the given CharID
+	 * @param type
+	 *            An identifier indicating whether the given CDOMObject was
+	 *            added to or removed from this AbstractScopeFacet
+	 */
+	@SuppressWarnings("rawtypes")
+	protected void fireTwoScopeFacetChangeEvent(CharID id, S1 scope1,
+		S2 scope2, T node, int type)
+	{
+		for (SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] dfclArray : listeners
+			.values())
+		{
+			/*
+			 * This list is decremented from the end of the list to the
+			 * beginning in order to maintain consistent operation with how Java
+			 * AWT and Swing listeners are notified of Events. This is obviously
+			 * subordinate to the priority (loop above).
+			 */
+			SubScopeFacetChangeEvent<S1, S2, T> ccEvent = null;
+			for (int i = dfclArray.length - 1; i >= 0; i--)
+			{
+				// Lazily create event
+				if (ccEvent == null)
+				{
+					ccEvent =
+							new SubScopeFacetChangeEvent<S1, S2, T>(id, scope1,
+								scope2, node, this, type);
+				}
+				SubScopeFacetChangeListener dfcl = dfclArray[i];
+				switch (ccEvent.getEventType())
+				{
+					case SubScopeFacetChangeEvent.DATA_ADDED:
+						dfcl.dataAdded(ccEvent);
+						break;
+					case SubScopeFacetChangeEvent.DATA_REMOVED:
+						dfcl.dataRemoved(ccEvent);
+						break;
+					default:
+						break;
+				}
+			}
+		}
+	}
+
+}

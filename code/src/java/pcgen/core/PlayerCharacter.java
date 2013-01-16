@@ -10628,12 +10628,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void addLocalCost(PCClass pcc, Skill skill, SkillCost sc, CDOMObject owner)
 	{
-		localAddedSkillCostFacet.add(id, pcc, skill, sc, owner);
+		localAddedSkillCostFacet.add(id, pcc, sc, skill, owner);
 	}
 
 	public void removeLocalCost(PCClass pcc, Skill skill, SkillCost sc, CDOMObject owner)
 	{
-		localAddedSkillCostFacet.remove(id, pcc, skill, sc, owner);
+		localAddedSkillCostFacet.remove(id, pcc, sc, skill, owner);
 	}
 
 	public String getSubClassName(PCClass cl)

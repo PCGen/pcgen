@@ -157,7 +157,7 @@ public class SkillCostFacet
 		SkillCost sc)
 	{
 		return localSkillCostFacet.contains(id, pcc, sc, skill)
-			|| localAddedSkillCostFacet.contains(id, pcc, skill, sc);
+			|| localAddedSkillCostFacet.contains(id, pcc, sc, skill);
 	}
 
 	private boolean hasLocalCost(CharID id,
