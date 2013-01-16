@@ -150,7 +150,7 @@ public class SkillCostFacet
 	private boolean hasGlobalCost(CharID id, Skill skill, SkillCost sc)
 	{
 		return globalSkillCostFacet.contains(id, sc, skill)
-			|| globalAddedSkillCostFacet.contains(id, skill, sc);
+			|| globalAddedSkillCostFacet.contains(id, sc, skill);
 	}
 
 	private boolean hasLocalCost(CharID id, PCClass pcc, Skill skill,

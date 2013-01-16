@@ -10618,12 +10618,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void addGlobalCost(SkillCost sc, Skill skill, CDOMObject obj)
 	{
-		globalAddedSkillCostFacet.add(id, skill, sc, obj);
+		globalAddedSkillCostFacet.add(id, sc, skill, obj);
 	}
 
 	public void removeGlobalCost(SkillCost sc, Skill skill, CDOMObject obj)
 	{
-		globalAddedSkillCostFacet.remove(id, skill, sc, obj);
+		globalAddedSkillCostFacet.remove(id, sc, skill, obj);
 	}
 
 	public void addLocalCost(PCClass pcc, Skill skill, SkillCost sc, CDOMObject owner)

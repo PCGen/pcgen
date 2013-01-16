@@ -124,12 +124,12 @@ public class DomainFeatTest extends AbstractTokenModelTest
 			fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertFalse(globalAddedSkillCostFacet.contains(id, granted, SkillCost.CLASS));
+		assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CLASS, granted));
 		ClassSource classSource = new ClassSource(pcc);
 		domainInputFacet.add(id, source, classSource);
-		assertTrue(globalAddedSkillCostFacet.contains(id, granted, SkillCost.CLASS));
+		assertTrue(globalAddedSkillCostFacet.contains(id, SkillCost.CLASS, granted));
 		domainInputFacet.remove(id, source);
-		assertFalse(globalAddedSkillCostFacet.contains(id, granted, SkillCost.CLASS));
+		assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CLASS, granted));
 	}
 
 	protected boolean containsExpected(Ability granted)
