@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.IdentityHashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -86,7 +87,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet
 		sources.add(source);
 		if (isNew)
 		{
-			fireTwoScopeFacetChangeEvent(id, scope1, scope2, obj,
+			fireSubScopeFacetChangeEvent(id, scope1, scope2, obj,
 				SubScopeFacetChangeEvent.DATA_ADDED);
 		}
 	}
@@ -127,7 +128,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet
 		}
 		if (sources.remove(source) && sources.isEmpty())
 		{
-			fireTwoScopeFacetChangeEvent(id, scope1, scope2, obj,
+			fireSubScopeFacetChangeEvent(id, scope1, scope2, obj,
 				SubScopeFacetChangeEvent.DATA_REMOVED);
 			scope2Map.remove(obj);
 		}
@@ -197,6 +198,53 @@ public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet
 		return (scope2Map != null) && scope2Map.containsKey(obj);
 	}
 
+	public void removeAllFromSource(CharID id, Object source)
+	{
+		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getInfo(id);
+		if (map != null)
+		{
+			for (Iterator<Entry<S1, Map<S2, Map<T, Set<Object>>>>> s1it =
+					map.entrySet().iterator(); s1it.hasNext();)
+			{
+				Entry<S1, Map<S2, Map<T, Set<Object>>>> s1entry = s1it.next();
+				S1 scope1 = s1entry.getKey();
+				Map<S2, Map<T, Set<Object>>> scope1Map = s1entry.getValue();
+				for (Iterator<Entry<S2, Map<T, Set<Object>>>> s2it =
+						scope1Map.entrySet().iterator(); s2it.hasNext();)
+				{
+					Entry<S2, Map<T, Set<Object>>> s2entry = s2it.next();
+					S2 scope2 = s2entry.getKey();
+					Map<T, Set<Object>> scope2Map = s2entry.getValue();
+					for (Iterator<Map.Entry<T, Set<Object>>> lmit =
+							scope2Map.entrySet().iterator(); lmit.hasNext();)
+					{
+						Entry<T, Set<Object>> lme = lmit.next();
+						Set<Object> sources = lme.getValue();
+						if (sources.remove(source) && sources.isEmpty())
+						{
+							T obj = lme.getKey();
+							lmit.remove();
+							fireSubScopeFacetChangeEvent(id, scope1, scope2, obj,
+								SubScopeFacetChangeEvent.DATA_REMOVED);
+						}
+					}
+					if (scope2Map.isEmpty())
+					{
+						s2it.remove();
+					}
+				}
+				if (scope1Map.isEmpty())
+				{
+					s1it.remove();
+				}
+			}
+			if (map.isEmpty())
+			{
+				removeCache(id);
+			}
+		}
+	}
+
 	/**
 	 * Copies the contents of the AbstractScopeFacet from one Player Character
 	 * to another Player Character, based on the given CharIDs representing
@@ -263,10 +311,10 @@ public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet
 	 *            The ScopeFacetChangeListener to receive
 	 *            TwoScopeFacetChangeEvents from this AbstractScopeFacet
 	 */
-	public void addScopeFacetChangeListener(
+	public void addSubScopeFacetChangeListener(
 		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T> listener)
 	{
-		addScopeFacetChangeListener(0, listener);
+		addSubScopeFacetChangeListener(0, listener);
 	}
 
 	/**
@@ -284,7 +332,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet
 	 *            The ScopeFacetChangeListener to receive
 	 *            TwoScopeFacetChangeEvents from this AbstractScopeFacet
 	 */
-	public void addScopeFacetChangeListener(int priority,
+	public void addSubScopeFacetChangeListener(int priority,
 		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T> listener)
 	{
 		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] dfcl =
@@ -312,10 +360,10 @@ public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet
 	 * @param listener
 	 *            The ScopeFacetChangeListener to be removed
 	 */
-	public void removeScopeFacetChangeListener(
+	public void removeSubScopeFacetChangeListener(
 		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T> listener)
 	{
-		removeScopeFacetChangeListener(0, listener);
+		removeSubScopeFacetChangeListener(0, listener);
 	}
 
 	/**
@@ -330,7 +378,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet
 	 * @param listener
 	 *            The ScopeFacetChangeListener to be removed
 	 */
-	public void removeScopeFacetChangeListener(int priority,
+	public void removeSubScopeFacetChangeListener(int priority,
 		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T> listener)
 	{
 		SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] dfcl =
@@ -391,7 +439,7 @@ public class AbstractSubScopeFacet<S1, S2, T> extends AbstractStorageFacet
 	 *            added to or removed from this AbstractScopeFacet
 	 */
 	@SuppressWarnings("rawtypes")
-	protected void fireTwoScopeFacetChangeEvent(CharID id, S1 scope1,
+	protected void fireSubScopeFacetChangeEvent(CharID id, S1 scope1,
 		S2 scope2, T node, int type)
 	{
 		for (SubScopeFacetChangeListener<? super S1, ? super S2, ? super T>[] dfclArray : listeners

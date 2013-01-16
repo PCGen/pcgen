@@ -178,6 +178,10 @@ public class AbstractScopeFacet<S, T> extends AbstractStorageFacet
 					it.remove();
 				}
 			}
+			if (map.isEmpty())
+			{
+				removeCache(id);
+			}
 		}
 	}
 
