@@ -61,6 +61,7 @@ import pcgen.cdom.facet.MasterSkillFacet;
 import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
+import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
@@ -1366,6 +1367,7 @@ public final class Globals
 		chooserFacade.setAllowsDups(false);
 		chooserFacade.setRequireCompleteSelection(forceChoice);
 		chooserFacade.setInfoFactory(new Gui2InfoFactory(pc));
+		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 		
 		return chooserFacade.getFinalSelected();

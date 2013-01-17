@@ -29,6 +29,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
+import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.system.LanguageBundle;
@@ -87,6 +88,7 @@ public class ExchangeLevelApplication
 									new CDOMChooserFacadeImpl<Integer>(
 											title, choiceNames, 
 											new ArrayList<Integer>(), 1);
+							chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 							ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 							final List<Integer> selectedList = chooserFacade.getFinalSelected();
 

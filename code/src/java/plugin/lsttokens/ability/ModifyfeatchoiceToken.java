@@ -43,6 +43,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
 import pcgen.core.chooser.ChooserUtilities;
+import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -162,6 +163,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 				new CDOMChooserFacadeImpl<String>(
 						"Modify selections for " + choice, availableList, 
 					selectedList, 0);
+		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 		final int selectedSize = chooserFacade.getFinalSelected().size();
 		

@@ -57,6 +57,7 @@ import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.DelegatingListFacade;
 import pcgen.core.facade.util.ListFacade;
+import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.FacadeListModel;
@@ -68,6 +69,7 @@ import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PropertyContext;
 
 /**
  * The Class <code>ChooserDialog</code> provides a general dialog to allow the 
@@ -117,8 +119,23 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		treeViewModel.setDelegate(chooser.getAvailableList());
 		listModel.setListFacade(chooser.getSelectedList());
 		chooser.getRemainingSelections().addReferenceListener(this);
+		overridePrefs();
 		initComponents();
 		pack();
+	}
+
+	/**
+	 * We don't want some things recalled in preferences (e.g. tree sorting) as they
+	 * aren't the same for all choose data. Ensure we put out desired values in first.  
+	 */
+	private void overridePrefs()
+	{
+		UIPropertyContext baseContext = UIPropertyContext.createContext("tablePrefs");
+		PropertyContext context =
+				baseContext.createChildContext(
+					treeViewModel.getDataView().getPrefsKey());
+		final String VIEW_INDEX_PREFS_KEY = "viewIdx";
+		context.setInt(VIEW_INDEX_PREFS_KEY, treeViewModel.getDefaultTreeViewIndex());
 	}
 
 	private void initComponents()
@@ -219,7 +236,8 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 	{
 		if (!e.getValueIsAdjusting())
 		{
-			if (e.getSource() == availTable.getSelectionModel())
+			if (e.getSource() == availTable.getSelectionModel()
+				&& availTable.getSelectedObject() instanceof InfoFacade)
 			{
 				InfoFacade target = (InfoFacade) availTable.getSelectedObject();
 				InfoFactory factory = chooser.getInfoFactory();

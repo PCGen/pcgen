@@ -74,6 +74,7 @@ import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.EquipmentFacade;
+import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListEvent;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
 import pcgen.core.facade.InfoFacade;
@@ -370,6 +371,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			}
 		};
 		
+		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		boolean result = delegate.showGeneralChooser(chooserFacade);
 		return result ? selectedList : null;
 	}

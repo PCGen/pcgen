@@ -27,6 +27,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
+import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.util.StringPClassUtil;
 import pcgen.util.chooser.ChooserFactory;
 
@@ -227,6 +228,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 							new ArrayList<T>(), numChoices);
 			chooserFacade.setAllowsDups(allowStack);
 			chooserFacade.setRequireCompleteSelection(required);
+			chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 			ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 			//TODO: What about cancel? Should it be allowed?
 			return chooserFacade.getFinalSelected();
