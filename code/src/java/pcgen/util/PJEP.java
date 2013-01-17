@@ -146,23 +146,21 @@ public final class PJEP extends JEP
 	 */
 	public boolean isResultCachable(Node node)
 	{
-		for (int i = 0; i < node.jjtGetNumChildren(); i++)
+		if (node instanceof ASTFunNode)
 		{
-			Node child = node.jjtGetChild(i);
-			if (child instanceof ASTFunNode)
+			ASTFunNode funcNode = (ASTFunNode) node;
+			if (funcNode.getPFMC() instanceof PCGenCommand)
 			{
-				ASTFunNode funcNode = (ASTFunNode) child;
-				if (funcNode.getPFMC() instanceof PCGenCommand)
+				PCGenCommand cmd = (PCGenCommand) funcNode.getPFMC();
+				if (!cmd.getCachable())
 				{
-					PCGenCommand cmd = (PCGenCommand) funcNode.getPFMC();
-					if (!cmd.getCachable())
-					{
-						return false;
-					}
+					return false;
 				}
 			}
-
-			if (!isResultCachable(child))
+		}
+		for (int i = 0; i < node.jjtGetNumChildren(); i++)
+		{
+			if (!isResultCachable(node.jjtGetChild(i)))
 			{
 				return false;
 			}

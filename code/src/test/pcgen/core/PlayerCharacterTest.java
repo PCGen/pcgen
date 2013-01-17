@@ -1156,4 +1156,29 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertEquals("Should still be level 2 character", 2, pc.getTotalLevels());
 		assertEquals("Hp at first level incorrect", 10, (int)pc.getHP(pcLvl1));
 	}
+
+	public void testGetVariableCachingRollTopNode()
+	{
+		readyToRun();
+		final PlayerCharacter character = new PlayerCharacter();
+		character.setRace(human);
+		character.setStat(str, 16);
+		character.incrementClassLevel(2, pcClass, true);
+
+		int iVal = character.getVariableValue("roll(\"1d100\")", "").intValue();
+		boolean match = true;
+		for (int i = 0; i < 10; i++)
+		{
+			int rolledValue = character.getVariableValue("roll(\"1d100\")", "")
+					.intValue();
+			match = (iVal == rolledValue);
+			if (!match)
+			{
+				//break;
+			}
+		}
+
+		assertFalse("Roll function should not be cached.", match);
+	}
+
 }
