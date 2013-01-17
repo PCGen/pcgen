@@ -78,8 +78,8 @@ public abstract class AbstractConditionalSpellStorageFacet extends
 			if (newSpells != null)
 			{
 				toRemove.removeAll(newSpells);
-				removeAll(id, list, level, toRemove, conditionalFacet);
 			}
+			removeAll(id, list, level, toRemove, conditionalFacet);
 		}
 		if (newSpells != null)
 		{
@@ -87,8 +87,8 @@ public abstract class AbstractConditionalSpellStorageFacet extends
 			if (currentSpells != null)
 			{
 				toAdd.removeAll(currentSpells.keySet());
-				addAll(id, list, level, toAdd, conditionalFacet);
 			}
+			addAll(id, list, level, toAdd, conditionalFacet);
 		}
 	}
 

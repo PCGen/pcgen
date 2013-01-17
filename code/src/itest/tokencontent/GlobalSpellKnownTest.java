@@ -21,13 +21,25 @@ import java.util.Collection;
 import java.util.Map;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.FormulaFactory;
+import pcgen.cdom.content.Selection;
+import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.KnownSpellFacet;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
 import pcgen.cdom.list.ClassSpellList;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.PCTemplate;
+import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.SpellknownLst;
+import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.pretokens.parser.PreVariableParser;
+import plugin.pretokens.test.PreVariableTester;
 import tokencontent.testsupport.AbstractContentTokenTest;
 
 public class GlobalSpellKnownTest extends AbstractContentTokenTest
@@ -38,6 +50,17 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 	private ClassSpellList wizardSpellList;
 	private Spell fb;
 
+	private static boolean hasPreSetup = false;
+
+	public void classSetUp()
+	{
+		if (!hasPreSetup)
+		{
+			PrerequisiteTestFactory.register(new PreVariableTester());
+			hasPreSetup = true;
+		}
+	}
+
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -45,6 +68,8 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 		knownSpellFacet = FacetLibrary.getFacet(KnownSpellFacet.class);
 		wizardSpellList = context.ref.constructNowIfNecessary(ClassSpellList.class, "Wizard");
 		fb = context.ref.constructNowIfNecessary(Spell.class, "Fireball");
+		TokenRegistration.register(new PreVariableParser());
+		classSetUp();
 	}
 
 	@Override
@@ -101,5 +126,35 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 	protected int baseCount()
 	{
 		return 0;
+	}
+	
+	public void testConditional()
+	{
+		Ability source = create(Ability.class, "Source");
+		context.ref.reassociateCategory(AbilityCategory.FEAT, source);
+		ParseResult result =
+				token.parseToken(context, source, "CLASS|Wizard=2|Fireball|PREVARLTEQ:3,MyCasterLevel");
+		if (result != ParseResult.SUCCESS)
+		{
+			result.printMessages();
+			fail("Test Setup Failed");
+		}
+		finishLoad();
+		assertEquals(baseCount(), targetFacetCount());
+		CategorizedAbilitySelection cas =
+				new CategorizedAbilitySelection(AbilityCategory.FEAT, source,
+					Nature.AUTOMATIC);
+		directAbilityFacet.add(id, cas);
+		assertFalse(containsExpected());
+		PCTemplate varsource = create(PCTemplate.class, "VarSource");
+		varsource.put(VariableKey.getConstant("MyCasterLevel"), FormulaFactory.getFormulaFor(4.0));
+		Selection<PCTemplate, ?> sel = new Selection<PCTemplate, Object>(varsource, null);
+		templateFacet.add(id, sel, this);
+		//pc.setDirty(true);
+		assertTrue(containsExpected());
+		assertEquals(baseCount() + 1, targetFacetCount());
+		directAbilityFacet.remove(id, cas);
+		pc.setDirty(true);
+		assertEquals(baseCount(), targetFacetCount());
 	}
 }

@@ -78,7 +78,7 @@ public abstract class AbstractSpellStorageFacet extends AbstractStorageFacet
 			if (firenew)
 			{
 				support.fireSpellAddedChangeEvent(id,
-					SpellChangeEvent.DATA_ADDED, list, spell, level);
+					SpellChangeEvent.DATA_ADDED, list, spell, level, source);
 			}
 		}
 	}
@@ -112,7 +112,7 @@ public abstract class AbstractSpellStorageFacet extends AbstractStorageFacet
 		if (firenew)
 		{
 			support.fireSpellAddedChangeEvent(id, SpellChangeEvent.DATA_ADDED,
-				list, spell, level);
+				list, spell, level, cdo);
 		}
 	}
 
@@ -158,7 +158,7 @@ public abstract class AbstractSpellStorageFacet extends AbstractStorageFacet
 							smit.remove();
 							support.fireSpellAddedChangeEvent(id,
 								SpellChangeEvent.DATA_REMOVED, list,
-								sme.getKey(), level);
+								sme.getKey(), level, source);
 						}
 					}
 					if (spellMap.isEmpty())
@@ -196,7 +196,7 @@ public abstract class AbstractSpellStorageFacet extends AbstractStorageFacet
 							spellMap.remove(spell);
 							support.fireSpellAddedChangeEvent(id,
 								SpellChangeEvent.DATA_REMOVED, list, spell,
-								level);
+								level, source);
 						}
 					}
 					if (spellMap.isEmpty())
@@ -231,7 +231,8 @@ public abstract class AbstractSpellStorageFacet extends AbstractStorageFacet
 					{
 						spellMap.remove(spell);
 						support.fireSpellAddedChangeEvent(id,
-							SpellChangeEvent.DATA_REMOVED, list, spell, level);
+							SpellChangeEvent.DATA_REMOVED, list, spell, level,
+							source);
 					}
 					if (spellMap.isEmpty())
 					{
@@ -240,7 +241,7 @@ public abstract class AbstractSpellStorageFacet extends AbstractStorageFacet
 				}
 				if (levelMap.isEmpty())
 				{
-					listMap.remove(level);
+					listMap.remove(list);
 				}
 			}
 		}
@@ -397,11 +398,11 @@ public abstract class AbstractSpellStorageFacet extends AbstractStorageFacet
 		private final Spell spell;
 		private final int lvl;
 
-		public SpellChangeEvent(CharID source, int type, CDOMList<Spell> list,
-			Spell sp, int level)
+		public SpellChangeEvent(CharID id, int type, CDOMList<Spell> list,
+			Spell sp, int level, Object source)
 		{
 			super(source);
-			if (source == null)
+			if (id == null)
 			{
 				throw new IllegalArgumentException("CharID cannot be null");
 			}
@@ -413,7 +414,7 @@ public abstract class AbstractSpellStorageFacet extends AbstractStorageFacet
 			{
 				throw new IllegalArgumentException("Spell cannot be null");
 			}
-			charID = source;
+			charID = id;
 			eventType = type;
 			spelllist = list;
 			spell = sp;
@@ -519,7 +520,7 @@ public abstract class AbstractSpellStorageFacet extends AbstractStorageFacet
 		 *            The level for the Spell added or removed
 		 */
 		protected void fireSpellAddedChangeEvent(CharID id, int type,
-			CDOMList<Spell> list, Spell sp, int level)
+			CDOMList<Spell> list, Spell sp, int level, Object source)
 		{
 			SpellChangeListener[] listeners =
 					listenerList.getListeners(SpellChangeListener.class);
@@ -535,7 +536,7 @@ public abstract class AbstractSpellStorageFacet extends AbstractStorageFacet
 				// Lazily create event
 				if (ccEvent == null)
 				{
-					ccEvent = new SpellChangeEvent(id, type, list, sp, level);
+					ccEvent = new SpellChangeEvent(id, type, list, sp, level, source);
 				}
 				switch (type)
 				{
@@ -548,7 +549,6 @@ public abstract class AbstractSpellStorageFacet extends AbstractStorageFacet
 					default:
 						break;
 				}
-				listeners[i].spellAdded(ccEvent);
 			}
 		}
 	}
