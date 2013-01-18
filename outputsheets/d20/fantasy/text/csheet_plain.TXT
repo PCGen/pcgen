@@ -53,7 +53,7 @@ Skill                   Total   Rnk     Stat    Msc
 -------------------------- Combat --------------------------
 
     Total / Touch / Flat Footed
-AC: |BONUS.COMBAT.AC.TOTAL||FOR.1,((6-STRLEN[BONUS.COMBAT.AC.TOTAL])).INTVAL,6, ,NONE,NONE,1|/ |BONUS.COMBAT.AC.TOTAL.!Armor.!NaturalArmor||FOR.1,((6-STRLEN[BONUS.COMBAT.AC.TOTAL.!Armor.!NaturalArmor])).INTVAL,6, ,NONE,NONE,1|/ |BONUS.COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0|
+AC: |AC.TOTAL||FOR.1,((6-STRLEN[AC.TOTAL])).INTVAL,6, ,NONE,NONE,1|/ |AC.TOTAL.!Armor.!NaturalArmor||FOR.1,((6-STRLEN[AC.TOTAL.!Armor.!NaturalArmor])).INTVAL,6, ,NONE,NONE,1|/ |AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0|
 
 Initiative:   |INITIATIVEMOD.SIGN|
 BAB:          |ATTACK.MELEE|

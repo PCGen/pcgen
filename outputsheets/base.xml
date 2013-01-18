@@ -282,7 +282,7 @@
 	  ====================================-->
 	<armor_class>
 		<total>|AC.Total|</total>
-		<listing>|BONUS.COMBAT.AC.LISTING|</listing>
+		<listing>|AC.LISTING|</listing>
 		<flat>|AC.Flatfooted|</flat>
 		<touch>|AC.Touch|</touch>
 		<base>|AC.Base|</base>
@@ -3236,7 +3236,7 @@ Immune
 			<name>|FOLLOWERTYPE.FAMILIAR.%companion.NAME|</name>
 			<race>|FOLLOWERTYPE.FAMILIAR.%companion.RACE|</race>
 			<hp>|FOLLOWERTYPE.FAMILIAR.%companion.HP|</hp>
-			<ac>|FOLLOWERTYPE.FAMILIAR.%companion.BONUS.COMBAT.AC.TOTAL|</ac>
+			<ac>|FOLLOWERTYPE.FAMILIAR.%companion.AC.TOTAL|</ac>
 			<fortitude>|FOLLOWERTYPE.FAMILIAR.%companion.CHECK.FORTITUDE.TOTAL|</fortitude>
 			<reflex>|FOLLOWERTYPE.FAMILIAR.%companion.CHECK.REFLEX.TOTAL|</reflex>
 			<will>|FOLLOWERTYPE.FAMILIAR.%companion.CHECK.WILL.TOTAL|</will>
@@ -3291,7 +3291,7 @@ Immune
 			<name>|FOLLOWERTYPE.Psicrystal.%companion.NAME|</name>
 			<race>|FOLLOWERTYPE.Psicrystal.%companion.RACE|</race>
 			<hp>|FOLLOWERTYPE.Psicrystal.%companion.HP|</hp>
-			<ac>|FOLLOWERTYPE.Psicrystal.%companion.BONUS.COMBAT.AC.TOTAL|</ac>
+			<ac>|FOLLOWERTYPE.Psicrystal.%companion.AC.TOTAL|</ac>
 			<fortitude>|FOLLOWERTYPE.Psicrystal.%companion.CHECK.FORTITUDE.TOTAL|</fortitude>
 			<reflex>|FOLLOWERTYPE.Psicrystal.%companion.CHECK.REFLEX.TOTAL|</reflex>
 			<will>|FOLLOWERTYPE.Psicrystal.%companion.CHECK.WILL.TOTAL|</will>
@@ -3350,7 +3350,7 @@ Immune
 			<name>|FOLLOWERTYPE.SPECIAL MOUNT.%companion.NAME|</name>
 			<race>|FOLLOWERTYPE.SPECIAL MOUNT.%companion.RACE|</race>
 			<hp>|FOLLOWERTYPE.SPECIAL MOUNT.%companion.HP|</hp>
-			<ac>|FOLLOWERTYPE.SPECIAL MOUNT.%companion.BONUS.COMBAT.AC.TOTAL|</ac>
+			<ac>|FOLLOWERTYPE.SPECIAL MOUNT.%companion.AC.TOTAL|</ac>
 			<fortitude>|FOLLOWERTYPE.SPECIAL MOUNT.%companion.CHECK.FORTITUDE.TOTAL|</fortitude>
 			<reflex>|FOLLOWERTYPE.SPECIAL MOUNT.%companion.CHECK.REFLEX.TOTAL|</reflex>
 			<will>|FOLLOWERTYPE.SPECIAL MOUNT.%companion.CHECK.WILL.TOTAL|</will>
@@ -3405,7 +3405,7 @@ Immune
 			<name>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.NAME|</name>
 			<race>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.RACE|</race>
 			<hp>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.HP|</hp>
-			<ac>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.BONUS.COMBAT.AC.TOTAL|</ac>
+			<ac>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.AC.TOTAL|</ac>
 			<fortitude>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.FORTITUDE.TOTAL|</fortitude>
 			<reflex>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.REFLEX.TOTAL|</reflex>
 			<will>|FOLLOWERTYPE.ANIMAL COMPANION.%companion.CHECK.WILL.TOTAL|</will>
@@ -3459,7 +3459,7 @@ Immune
 			<name>|FOLLOWERTYPE.FOLLOWER.%companion.NAME|</name>
 			<race>|FOLLOWERTYPE.FOLLOWER.%companion.RACE|</race>
 			<hp>|FOLLOWERTYPE.FOLLOWER.%companion.HP|</hp>
-			<ac>|FOLLOWERTYPE.FOLLOWER.%companion.BONUS.COMBAT.AC.TOTAL|</ac>
+			<ac>|FOLLOWERTYPE.FOLLOWER.%companion.AC.TOTAL|</ac>
 			<fortitude>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.FORTITUDE.TOTAL|</fortitude>
 			<reflex>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.REFLEX.TOTAL|</reflex>
 			<will>|FOLLOWERTYPE.FOLLOWER.%companion.CHECK.WILL.TOTAL|</will>

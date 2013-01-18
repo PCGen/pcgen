@@ -41,12 +41,12 @@
 		</abilities>
 		<ac>
 			<sources>
-				<armor type="number">|BONUS.COMBAT.AC.Armor|</armor>
-				<deflection type="number">|BONUS.COMBAT.AC.Deflection|</deflection>
-				<misc type="number">|BONUS.COMBAT.AC.TOTAL.!Base.!Armor.!Shield.!Size.!Deflection.!NaturalArmor.!NaturalArmorEnhancement.!Ability|</misc>
-				<naturalarmor type="number">|BONUS.COMBAT.AC.NaturalArmor.NaturalArmorEnhancement|</naturalarmor>
-				<shield type="number">|BONUS.COMBAT.AC.Shield|</shield>
-				<size type="number">|BONUS.COMBAT.AC.Size|</size>
+				<armor type="number">|AC.Armor|</armor>
+				<deflection type="number">|AC.Deflection|</deflection>
+				<misc type="number">|AC.TOTAL.!Base.!Armor.!Shield.!Size.!Deflection.!NaturalArmor.!NaturalArmorEnhancement.!Ability|</misc>
+				<naturalarmor type="number">|AC.NaturalArmor.NaturalArmorEnhancement|</naturalarmor>
+				<shield type="number">|AC.Shield|</shield>
+				<size type="number">|AC.Size|</size>
 				<temporary type="number">0</temporary>
 			</sources>
 		</ac>
