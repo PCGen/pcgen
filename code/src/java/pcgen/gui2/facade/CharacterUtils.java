@@ -70,7 +70,7 @@ public class CharacterUtils
 				}
 
 				List<Equipment> selectedClothes = new ArrayList<Equipment>();
-				Globals.getChoiceFromList(
+				selectedClothes = Globals.getChoiceFromList(
 					LanguageBundle.getString("in_sumSelectAFreeSetOfClothing"), //$NON-NLS-1$ 
 					clothes, selectedClothes, 1, aPC);
 

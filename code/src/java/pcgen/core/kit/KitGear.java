@@ -209,7 +209,7 @@ public final class KitGear extends BaseKit
 		else
 		{
 			List<Equipment> selected = new ArrayList<Equipment>(1);
-			Globals.getChoiceFromList("Choose equipment", eqList, selected, 1, aPC);
+			selected = Globals.getChoiceFromList("Choose equipment", eqList, selected, 1, aPC);
 			if (selected.size() == 1)
 			{
 				theEquipment = selected.get(0);

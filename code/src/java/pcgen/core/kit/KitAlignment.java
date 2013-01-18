@@ -73,7 +73,7 @@ public class KitAlignment extends BaseKit
 			while (true)
 			{
 				List<PCAlignment> sel = new ArrayList<PCAlignment>(1);
-				Globals.getChoiceFromList("Choose alignment", alignments, sel,
+				sel = Globals.getChoiceFromList("Choose alignment", alignments, sel,
 					1, aPC);
 				if (sel.size() == 1)
 				{

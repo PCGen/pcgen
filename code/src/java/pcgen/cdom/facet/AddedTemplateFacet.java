@@ -169,13 +169,13 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 		{
 			return null;
 		}
-		final List<PCTemplate> selectedList = new ArrayList<PCTemplate>(1);
+		List<PCTemplate> selectedList = new ArrayList<PCTemplate>(1);
 		String title = "Template Choice";
 		if (anOwner != null)
 		{
 			title += " (" + anOwner.getDisplayName() + ")";
 		}
-		Globals.getChoiceFromList(title, availableList, selectedList, 1,
+		selectedList = Globals.getChoiceFromList(title, availableList, selectedList, 1,
 				forceChoice, trackingFacet.getPC(id));
 		if (selectedList.size() == 1)
 		{

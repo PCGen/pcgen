@@ -320,7 +320,7 @@ public final class KitSkill extends BaseKit
 		}
 
 		List<Skill> skillChoices = new ArrayList<Skill>();
-		Globals.getChoiceFromList("Select skill", skillsOfType, skillChoices,
+		skillChoices = Globals.getChoiceFromList("Select skill", skillsOfType, skillChoices,
 			getSafeCount(), aPC);
 
 		return skillChoices;
