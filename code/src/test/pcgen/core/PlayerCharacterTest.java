@@ -1174,7 +1174,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 			match = (iVal == rolledValue);
 			if (!match)
 			{
-				//break;
+				break;
 			}
 		}
 
