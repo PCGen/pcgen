@@ -150,7 +150,7 @@ public class FavClassConvertPlugin extends AbstractToken implements
 	}
 
 	@Override
-	protected String getTokenName()
+	public String getTokenName()
 	{
 		return getProcessedToken();
 	}
