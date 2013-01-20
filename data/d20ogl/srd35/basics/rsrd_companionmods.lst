@@ -1,6 +1,8 @@
 # CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # RSRD Entry by: jaymecox
+# COMMENT: Updates Jan 20, 2013 - HD Growth For Companions reimplemented; Mounts do not gain automatic Barding Proficiency. In fact, there is no 'Barding' proficiency.
+
 
 ###Block: Special Mount
 # Class of the Master		Type				Hit Dice	Spell Res.	Ability																									Automatically Gained Armor Prof.	Combat bonus					Add to base move																																					Stat bonus		Modify VAR
@@ -138,21 +140,30 @@ FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Wolf				KIT:1|Wolf
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Wolverine			KIT:1|Wolverine Companion
 
 ###Block:Animal Companion Size work-around
-#
+# 
 # These bonuses prevent the listed animals from increasing in size when they gain hit dice as a companion
 # This should eventually be done by hard-coding it but for now this work-around will let the 5.8 companions come out with the correct numbers - Eddy
 # Class of the Master		Type				Adjust PC Size
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Badger),Dire Animal (Dire Rat),Wolf,Wolverine|PREVARGT:TL,3
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor)|PREVARGT:TL,5
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolf,Dire Animal (Dire Rat)|PREVARGT:TL,3
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Badger)|PREVARGT:TL,3
 FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Weasel)|PREVARGT:TL,6
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Octopus (Giant),Rhinoceros,Tiger|PREVARGT:TL,12
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Whale (Orca)|PREVARGT:TL,13
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dinosaur (Megaraptor),Dire Animal (Dire Bear),Dire Animal (Dire Boar),Dire Animal (Dire Lion),Snake (Constrictor/Giant)|PREVARGT:TL,16
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Squid (Giant)|PREVARGT:TL,18
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor)|PREVARGT:TL,5
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Wolverine|PREVARGT:TL,3
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Boar)|PREVARGT:TL,16
 FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dinosaur (Elasmosaurus)|PREVARGT:TL,20
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dinosaur (Triceratops),Dire Animal (Dire Shark),Dire Animal (Dire Tiger)|PREVARGT:TL,32
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dinosaur (Tyrannosaurus)|PREVARGT:TL,36
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Rhinoceros,Octopus (Giant)|PREVARGT:TL,12
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Tiger|PREVARGT:TL,12
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Lion),Dinosaur (Megaraptor)|PREVARGT:TL,16
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Snake (Constrictor/Giant)|PREVARGT:TL,16
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Whale (Orca)|PREVARGT:TL,13
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Bear)|PREVARGT:TL,16
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Shark)|PREVARGT:TL,32
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Dire Animal (Dire Tiger),Dinosaur (Triceratops)|PREVARGT:TL,32
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Squid (Giant)|PREVARGT:TL,18
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Eagle|PREVARGT:TL,1
 
+
+#Badger,Camel,Dire Animal (Dire Rat),Dog,Dog (Riding),Eagle,Hawk,Horse (Heavy),Horse (Light),Owl,Pony,Porpoise,Shark (Medium),Snake (Viper/Medium),Snake (Viper/Small),Squid,RACESUBTYPE=AnimalCompanion	COMPANIONLIST:Animal Companion|Ape,Bear (Black),Bison,Boar,Cheetah,Crocodile,Leopard,Lizard (Monitor),Shark (Large),Snake (Constrictor),Snake (Viper/Large),Wolverine|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Bear (Brown),Crocodile (Giant),Lion,Rhinoceros,Snake (Viper/Huge),Tiger|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Bear (Polar),Shark (Huge),Snake (Constrictor/Giant),Whale (Orca)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Elephant,Octopus (Giant)|FOLLOWERADJUSTMENT:-12	COMPANIONLIST:Animal Companion|Squid (Giant)|FOLLOWERADJUSTMENT:-15
 ###Block:Shadowdancer summoned Shadow
 # Class of the Master		Type				Hit Dice	Ability																	Modify VAR
 FOLLOWER:ShadowCompanionLVL=3	TYPE:Shadow Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Cannot be Turned by Other|Cannot Create Spawn|Communiate with Master	BONUS:VAR|ShadowSpawnBlock|1
@@ -160,8 +171,8 @@ FOLLOWER:ShadowCompanionLVL=6	TYPE:Shadow Companion	HD:2
 FOLLOWER:ShadowCompanionLVL=9	TYPE:Shadow Companion	HD:2
 
 ###Block: Standard Companions
-# Class of the Master		Type			Automatically Gained Armor Prof.
-FOLLOWER:NormalMount=1		TYPE:Mount		AUTO:ARMORPROF|ARMORTYPE=Barding
+# Class of the Master		Type
+FOLLOWER:NormalMount=1		TYPE:Mount		
 FOLLOWER:NormalFollower=1	TYPE:Follower
 
 #
