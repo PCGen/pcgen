@@ -169,7 +169,7 @@ public abstract class AbstractToken
 	}
 
 	/** Return the token name */
-	protected abstract String getTokenName();
+	public abstract String getTokenName();
 
 	protected String getPrerequisiteString(LoadContext context,
 		Collection<Prerequisite> prereqs)
