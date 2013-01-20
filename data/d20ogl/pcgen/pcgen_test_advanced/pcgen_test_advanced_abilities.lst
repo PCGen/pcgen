@@ -10,6 +10,9 @@ DISPLAY SPELL STAT	TYPE:FeatTest	CATEGORY:FEAT	ABILITY:Special Ability|AUTOMATIC
 Test Ability 1	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellStatDisplayTestA	DESC:What are the values of charbonusto("STAT","BASESPELLSTAT") (%1) and charbonusto("STAT","BASESPELLSTAT;CLASS.Wizard") (%2)?|charbonusto("STAT","BASESPELLSTAT")|charbonusto("STAT","BASESPELLSTAT;CLASS.Wizard")
 Test Ability 2	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellStatDisplayTestA	DESC:What are the values of BASESPELLSTAT (%1), BASESPELLSTATSCORE (%2), SPELLBASESTAT (%3) and SPELLBASESTATSCORE (%4)?|BASESPELLSTAT|BASESPELLSTATSCORE|SPELLBASESTAT|SPELLBASESTATSCORE
 
+
+Order Works	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Order Region displays only if PREREGION Works.
+
 ###Block: TEST-57
 #1) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:NO
 #2) Ability granted by a ADD:VFEAT token where the target (in parens) is MULT:YES STACK:NO CHOOSE:NOCHOICE

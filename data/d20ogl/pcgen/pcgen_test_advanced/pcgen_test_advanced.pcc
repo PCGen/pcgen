@@ -20,6 +20,12 @@ ISOGL:YES
 
 ABILITY:pcgen_test_advanced_abilities.lst
 
+ABILITY:pcgen_test_advanced_abilities_task_tests.lst
+ABILITY:pcgen_test_advanced_abilities_unit_tests.lst
+
+
+
+
 ABILITYCATEGORY:pcgen_test_advanced_ability_categories.lst
 
 CLASS:pcgen_test_advanced_classes.lst
