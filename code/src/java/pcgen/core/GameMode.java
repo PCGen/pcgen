@@ -48,7 +48,6 @@ import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.content.ACControl;
 import pcgen.cdom.content.RollMethod;
 import pcgen.cdom.content.TabInfo;
-import pcgen.cdom.enumeration.DisplayLocation;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentCategorizedReferenceManufacturer;
@@ -2198,32 +2197,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return getContext().ref
 				.getConstructedCDOMObjects(AbilityCategory.class);
 	}
-
-	/**
-	 * Returns a <tt>Collection</tt> of <tt>AbilityCategory</tt> objects
-	 * defined by this game mode that match the display location.
-	 *
-	 * @param displayLoc The display location to filter for.
-	 * @return A <tt>Collection</tt> of <tt>AbilityCategory</tt> objects.
-	 */
-	public Collection<AbilityCategory> getAllAbilityCatsForDisplayLoc(
-			DisplayLocation displayLoc)
-	{
-		if (displayLoc == null)
-		{
-			return Collections.emptyList();
-		}
-		List<AbilityCategory> catList = new ArrayList<AbilityCategory>();
-		for (AbilityCategory cat : getAllAbilityCategories())
-		{
-			if (displayLoc.equals(cat.getDisplayLocation()))
-			{
-				catList.add(cat);
-			}
-		}
-		return Collections.unmodifiableCollection(catList);
-	}
-
 
 	/**
 	 * Returns a <tt>Collection</tt> of <tt>AbilityCategory</tt> objects
