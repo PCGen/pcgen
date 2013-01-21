@@ -20,7 +20,7 @@ Holy symbol, special, anathema			COST:500	TYPE:SpellFocus	KEY:Focus ~ Holy
 Unholy symbol, special, anathema			COST:500	TYPE:SpellFocus	KEY:Focus ~ UnHoly
 Ivory strips (4 @ 50 ea.)				COST:200	TYPE:SpellFocus	KEY:Focus ~ Ivory Strips
 Laboratory, equipment, cloning			COST:500	TYPE:SpellFocus	KEY:Focus ~ Lab Equip
-Lens, ruby or sapphine, set in golden loop	COST:1500	TYPE:SpellFocus	KEY:Focus ~ Lens in Golden Loop
+Lens, ruby or sapphire, set in golden loop	COST:1500	TYPE:SpellFocus	KEY:Focus ~ Lens in Golden Loop
 Miniature (platinum sword)			COST:250	TYPE:SpellFocus	KEY:Focus ~ Miniature Platinum Sword
 Miniature (portal carving, ivory); marble, small, polished; miniature (spoon, silver) (5 GP ea.) 	COST:15	TYPE:SpellFocus	KEY:Focus ~ Miniature Items
 Prayer wheel					COST:500	TYPE:SpellFocus	KEY:Focus ~ prayer wheel
