@@ -161,11 +161,14 @@
 <hr>
 
 		<p class="status"><a name="BONUSLOADMULT">*** New 5.10.1</a></p>
-		<p class="indent0"><strong>Tag Name:</strong> BONUS:LOADMULT|TYPE=SIZE|x|y</p>
+		<p class="indent0"><strong>Tag Name:</strong> BONUS:LOADMULT|TYPE=SIZE|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Formulas</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Changes the standard amount carried based on the size of the character</p>
+		<ul class="indent2">
+			<li>This tag modifies the <code>SIZEMULT</code> value as defined in the <span class="lstfile">load.lst</span> gamemode file.</li>
+			<li>This tag is used on the <code>SIZENAME</code> line.</li>
+			<li>This tag will take both <code>TYPE</code> and <code>PRExxx</code> tags appended at the end as with all other <code>BONUS</code> tags do.</li>
+		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>BONUS:LOADMULT|TYPE=SIZE|0.125|PRELEGSGTEQ:4</code></p>
 		<p class="indent3">Reduces the amount carried by .125 if the character had 4 or more legs</p>
