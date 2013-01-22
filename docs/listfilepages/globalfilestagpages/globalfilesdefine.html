@@ -11,6 +11,7 @@
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
 		Eddy Anthony - eddybaATmindspringDOTcom
+		Eric C Smith - mareduddATblackrootDOTorg
 
 		Description:
 		Provides information on the use of PCGen Define Tags.
@@ -40,13 +41,13 @@
 		involving system or user-defined variables or numbers.)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Creates a new variable with the name specified and sets its initial value to the number or formula given.</li>
-		<li>Many classes use <code>PREVAR</code> tags, which are pre-requisites based upon variable values.</li>
-		<li>These values are calculated by getting the value of the variable with the highest defined value, and then adding any bonuses which apply to it.</li>
+		<li>Creates a variable with the name specified and sets its initial value to the number or formula given.</li>
+		<li>Many classes use <code>PREVARxx</code> tags, which are pre-requisites based upon variable values.</li>
+		<li>Values are calculated by getting the value of the variable with the highest defined value, and then adding any bonuses which apply to it.</li>
 		<li>PCGen scans the characters race, templates, classes, feats, skills, deity, domains and equipped items for <code>DEFINE</code> tags that match this variable name.</li>
 		<li>If it finds more than one, it keeps the one with the higher value.</li>
 		<li>PCGen then scans the same list of items and looks for <code>BONUS:VAR</code> tags and after figuring out which ones stack, adds those to the highest define value.</li>
-		<li>The resulting value is then compared to the PREVARGT's requirement, which is 3 in this case, and PCGen then indicates if the character meets this requirement or not.</li>
+		<li>The resulting value is then compared to the <code>PREVARxx</code> requirement and PCGen then indicates if the character meets this requirement or not.</li>
 		<li><code>BONUS:VAR</code> tags which reference variables which have not been defined have no effect and the value of that variable will effectively remain at zero (0).</li>
 		<li>The standard use of <code>DEFINE</code> in PCGen release files is to use only one <code>DEFINE</code> per variable and to initially set the value to zero (0) and adjust it with <code>BONUS:VAR</code> tags as needed.</li>
 	</ul>
