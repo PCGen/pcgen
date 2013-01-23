@@ -123,7 +123,7 @@ Spade or Shovel			TYPE:Goods.General															COST:2	WT:8		SOURCEPAGE:Equip
 Spyglass				TYPE:Goods.General															COST:1000	WT:1		SOURCEPAGE:Equipment.rtf
 Tent					TYPE:Goods.General.Resizable														COST:10	WT:20		SOURCEPAGE:Equipment.rtf
 Torch					TYPE:Goods.General.Consumable.LightSource												COST:0.01	WT:1		SOURCEPAGE:Equipment.rtf								QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|1 hr.
-Vial					TYPE:Goods.Container.General.Vial			CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1			COST:1	WT:0.1	SOURCEPAGE:Equipment.rtf
+Vial					TYPE:Goods.Container.General.Vial			CONTAINS:1|Liquid=1|SpellComponent=1|Poison=1|Potion=1	COST:1	WT:0.1	SOURCEPAGE:Equipment.rtf
 Waterskin				TYPE:Goods.Container.General				CONTAINS:4|Liquid=4							COST:1	WT:0		SOURCEPAGE:Equipment.rtf
 Waterskin (Filled)		TYPE:Goods.General.Resizable														COST:1	WT:4		SOURCEPAGE:Equipment.rtf
 Whetstone				TYPE:Goods.General															COST:0.02	WT:1		SOURCEPAGE:Equipment.rtf
