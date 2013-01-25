@@ -515,7 +515,7 @@ SUBCLASSLEVEL:1	ABILITY:Class Ability|AUTOMATIC|Transmuter Learning Bonus
 1	PROHIBITSPELL:SCHOOL.Necromancy|PREVARGTEQ:ProhibitNecromancy,1
 1	PROHIBITSPELL:SCHOOL.Transmutation|PREVARGTEQ:ProhibitTransmutation,1
 ###Block:
-1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|CL/5
+1	CAST:3,1				BONUS:ABILITYPOOL|Wizard Feat|min((CL/5),4)
 2	CAST:4,2
 3	CAST:4,2,1
 4	CAST:4,3,2
