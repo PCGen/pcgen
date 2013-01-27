@@ -158,32 +158,32 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 </table>
 
 |MANUALWHITESPACE|
-<b>AC</b>&nbsp;|AC.Total|,&nbsp;<b>touch</b>&nbsp;|AC.Touch|,&nbsp;<b>flat-footed</b>&nbsp;|AC.Flatfooted|
+<b>AC</b>&nbsp;|BONUS.COMBAT.AC.Total|,&nbsp;<b>touch</b>&nbsp;|BONUS.COMBAT.AC.Touch|,&nbsp;<b>flat-footed</b>&nbsp;|BONUS.COMBAT.AC.Flatfooted|
 
 &nbsp;(
 |IIF(AC.Size:0)|
 |ELSE|
-|AC.Size.SIGN|&nbsp;size,&nbsp;
+|BONUS.COMBAT.AC.Size.SIGN|&nbsp;size,&nbsp;
 |ENDIF|
 |IIF(AC.Ability:0)|
 |ELSE|
-|AC.Ability.SIGN|&nbsp;Dex,&nbsp;
+|BONUS.COMBAT.AC.Ability.SIGN|&nbsp;Dex,&nbsp;
 |ENDIF|
 |IIF(AC.NaturalArmor:0)|
 |ELSE|
-|AC.NaturalArmor.SIGN|&nbsp;natural,&nbsp;
+|BONUS.COMBAT.AC.NaturalArmor.SIGN|&nbsp;natural,&nbsp;
 |ENDIF|
 |IIF(AC.Dodge:0)|
 |ELSE|
-|AC.Dodge.SIGN|&nbsp;dodge,&nbsp;
+|BONUS.COMBAT.AC.Dodge.SIGN|&nbsp;dodge,&nbsp;
 |ENDIF|
 |IIF(AC.Deflection:0)|
 |ELSE|
-|AC.Deflection.SIGN|&nbsp;deflection,&nbsp;
+|BONUS.COMBAT.AC.Deflection.SIGN|&nbsp;deflection,&nbsp;
 |ENDIF|
 |IIF(AC.Misc:0)|
 |ELSE|
-|AC.Misc.SIGN|&nbsp;misc,&nbsp;
+|BONUS.COMBAT.AC.Misc.SIGN|&nbsp;misc,&nbsp;
 |ENDIF|
 |IIF(RACETYPE:Animal.OR.RACETYPE:Companion.OR.RACETYPE:Beast.OR.RACETYPE:Construct.OR.RACETYPE:Dragon.OR.RACETYPE:Magical Beast.OR.RACETYPE:Outsider.OR.RACETYPE:Shapechanger)|
 |IIF(TEXT.LENGTH.ARMOR.EQUIPPED.BARDING.0.NAME:0)|
@@ -206,7 +206,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 |ENDIF|
 |IIF(AC.Shield:0)|
 |ELSE|
-|AC.Shield.SIGN| 
+|BONUS.COMBAT.AC.Shield.SIGN| 
 |IIF(EQ.IS.SHIELD.0.TYPE:HEAVY)|
 &nbsp;Heavy&nbsp;Shield
 |ELSE|
