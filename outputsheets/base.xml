@@ -140,9 +140,12 @@
 		<interests>|INTERESTS|</interests>
 		<languages>
 |FOR,%lang,0,COUNT[LANGUAGES]-1,1,0|
-			<language>|LANGUAGES.%lang|</language>
+			<language>|LANGUAGES.%lang||ABILITYALL.Special Ability.%ability.TYPE=Language.ASPECT.Languages|</language>
 |ENDFOR|
 			<all>|LANGUAGES|</all>
+			<skillbonus>
+					<description></description>
+				</skillbonus>
 		</languages>
 		<location>|LOCATION|</location>
 		<move>
@@ -281,28 +284,28 @@
 	  ====================================
 	  ====================================-->
 	<armor_class>
-		<total>|AC.Total|</total>
-		<listing>|AC.LISTING|</listing>
-		<flat>|AC.Flatfooted|</flat>
-		<touch>|AC.Touch|</touch>
-		<base>|AC.Base|</base>
-		<armor_bonus>|AC.Armor|</armor_bonus>
-		<shield_bonus>|AC.Shield|</shield_bonus>
-		<stat_mod>|AC.Ability|</stat_mod>
-		<size_mod>|AC.Size|</size_mod>
-		<natural>|AC.NaturalArmor|</natural>
-		<deflection>|AC.Deflection|</deflection>
-		<dodge>|AC.Dodge|</dodge>
-		<dodge_bonus>|AC.Dodge|</dodge_bonus>
-		<class_bonus>|AC.ClassDefense|</class_bonus>
+		<total>|BONUS.COMBAT.AC.Total|</total>
+		<listing>|BONUS.COMBAT.AC.LISTING|</listing>
+		<flat>|BONUS.COMBAT.AC.Flatfooted|</flat>
+		<touch>|BONUS.COMBAT.AC.Touch|</touch>
+		<base>|BONUS.COMBAT.AC.Base|</base>
+		<armor_bonus>|BONUS.COMBAT.AC.Armor|</armor_bonus>
+		<shield_bonus>|BONUS.COMBAT.AC.Shield|</shield_bonus>
+		<stat_mod>|BONUS.COMBAT.AC.Ability|</stat_mod>
+		<size_mod>|BONUS.COMBAT.AC.Size|</size_mod>
+		<natural>|BONUS.COMBAT.AC.NaturalArmor|</natural>
+		<deflection>|BONUS.COMBAT.AC.Deflection|</deflection>
+		<dodge>|BONUS.COMBAT.AC.Dodge|</dodge>
+		<dodge_bonus>|BONUS.COMBAT.AC.Dodge|</dodge_bonus>
+		<class_bonus>|BONUS.COMBAT.AC.ClassDefense|</class_bonus>
 |IIF(isgamemode("Modern").OR.isgamemode("Darwins_World_2").OR.isgamemode("Sidewinder"))|
-		<equipment_bonus>|AC.Equipment|</equipment_bonus>
+		<equipment_bonus>|BONUS.COMBAT.AC.Equipment|</equipment_bonus>
 |ENDIF|
-		<misc>|AC.Misc|</misc>
-		<insight>|AC.Insight|</insight>
-		<morale>|AC.Morale|</morale>
-		<sacred>|AC.Sacred|</sacred>
-		<profane>|AC.Profane|</profane>
+		<misc>|BONUS.COMBAT.AC.Misc|</misc>
+		<insight>|BONUS.COMBAT.AC.Insight|</insight>
+		<morale>|BONUS.COMBAT.AC.Morale|</morale>
+		<sacred>|BONUS.COMBAT.AC.Sacred|</sacred>
+		<profane>|BONUS.COMBAT.AC.Profane|</profane>
 
 
 		<miss_chance/>
