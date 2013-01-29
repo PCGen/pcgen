@@ -41,59 +41,59 @@ Shotgun		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Shotgun.Scatter.TwoHandedFireA
 ###Block: Eastern  - Martial
 # Light
 # Weapon Name				Type
-Butterfly Sword				TYPE:EasternEastern.Melee.Martial.Monk
-Iron Brush					TYPE:EasternEastern.Melee.Martial
-Jutte						TYPE:EasternEastern.Melee.Martial.Disarm.Monk
-Kerambit					TYPE:EasternEastern.Melee.Martial
-Lungchuan Tamo				TYPE:EasternEastern.Melee.Martial.Monk
-Shang Gou					TYPE:EasternEastern.Melee.Martial.Disarm.Trip.Monk
-Tonfa						TYPE:EasternEastern.Melee.Martial.Blocking.Monk
-Wushu Dart					TYPE:EasternEastern.Melee.Martial.Monk
+Butterfly Sword				TYPE:Eastern.Melee.Martial.Monk
+Iron Brush					TYPE:Eastern.Melee.Martial
+Jutte						TYPE:Eastern.Melee.Martial.Disarm.Monk
+Kerambit					TYPE:Eastern.Melee.Martial
+Lungchuan Tamo				TYPE:Eastern.Melee.Martial.Monk
+Shang Gou					TYPE:Eastern.Melee.Martial.Disarm.Trip.Monk
+Tonfa						TYPE:Eastern.Melee.Martial.Blocking.Monk
+Wushu Dart					TYPE:Eastern.Melee.Martial.Monk
 
 # One-Handed Melee
-Broadsword (Nine Ring)			TYPE:EasternEastern.Melee.Martial.Monk
-Double Chicken Saber			TYPE:EasternEastern.Melee.Martial.Disarm.Monk
-Sibat						TYPE:EasternEastern.Melee.Martial.Spear
+Broadsword (Nine Ring)			TYPE:Eastern.Melee.Martial.Monk
+Double Chicken Saber			TYPE:Eastern.Melee.Martial.Disarm.Monk
+Sibat						TYPE:Eastern.Melee.Martial.Spear
 
 # Two-Handed Melee
-Hooked Lance				TYPE:EasternEastern.Melee.Martial.Reach.Trip.Polearm
-Monk's Spade				TYPE:EasternEastern.Melee.Martial.Double.Monk.Polearm
-Naginata					TYPE:EasternEastern.Melee.Martial.Reach
-Nodachi					TYPE:EasternEastern.Melee.Martial.Brace.Polearm
-Sansetsukon					TYPE:EasternEastern.Melee.Martial.Blocking.Disarm.Monk
-Sword (Tri-Point Double-Edged)	TYPE:EasternEastern.Melee.Martial.Reach
-Tiger Fork					TYPE:EasternEastern.Melee.Martial.Brace.Monk.Polearm.Spear
+Hooked Lance				TYPE:Eastern.Melee.Martial.Reach.Trip.Polearm
+Monk's Spade				TYPE:Eastern.Melee.Martial.Double.Monk.Polearm
+Naginata					TYPE:Eastern.Melee.Martial.Reach
+Nodachi					TYPE:Eastern.Melee.Martial.Brace.Polearm
+Sansetsukon					TYPE:Eastern.Melee.Martial.Blocking.Disarm.Monk
+Sword (Tri-Point Double-Edged)	TYPE:Eastern.Melee.Martial.Reach
+Tiger Fork					TYPE:Eastern.Melee.Martial.Brace.Monk.Polearm.Spear
 
 # Ranged
-Tube Arrow Shooter			TYPE:EasternEastern.Ranged.Martial
-Poisoned Sand Tube			TYPE:EasternEastern.Ranged.Martial
+Tube Arrow Shooter			TYPE:Eastern.Ranged.Martial
+Poisoned Sand Tube			TYPE:Eastern.Ranged.Martial
 
 
 ###Block: Eastern  - Exotic
 # Light
 # Weapon Name			Type
-Dan Bong				TYPE:EasternEastern.Melee.Exotic.Bludgeoning.Blocking.Monk.Ranged.Thrown
-Emei Piercer			TYPE:EasternEastern.Melee.Exotic.Piercing.Monk
-Fighting Fan			TYPE:EasternEastern.Melee.Exotic.Slashing.Piercing.Distracting.Monk
-Tekko-Kagi (Iron Claw)		TYPE:EasternEastern.Melee.Exotic.Piercing.Disarm
-Wakizashi				TYPE:EasternEastern.Melee.Exotic.Piercing.Slashing.Deadly
+Dan Bong				TYPE:Eastern.Melee.Exotic.Bludgeoning.Blocking.Monk.Ranged.Thrown
+Emei Piercer			TYPE:Eastern.Melee.Exotic.Piercing.Monk
+Fighting Fan			TYPE:Eastern.Melee.Exotic.Slashing.Piercing.Distracting.Monk
+Tekko-Kagi (Iron Claw)		TYPE:Eastern.Melee.Exotic.Piercing.Disarm
+Wakizashi				TYPE:Eastern.Melee.Exotic.Piercing.Slashing.Deadly
 # One-Handed
-Katana				TYPE:EasternEastern.Melee.Exotic.Slashing.Deadly
-Nine-Section Whip			TYPE:EasternEastern.Melee.Exotic.Bludgeoning.Blocking.Distracting.Monk.Trip
-Urumi					TYPE:EasternEastern.Melee.Exotic.Slashing.Distracting
+Katana				TYPE:Eastern.Melee.Exotic.Slashing.Deadly
+Nine-Section Whip			TYPE:Eastern.Melee.Exotic.Bludgeoning.Blocking.Distracting.Monk.Trip
+Urumi					TYPE:Eastern.Melee.Exotic.Slashing.Distracting
 
 # Two-Handed
-Bo Staff				TYPE:EasternEastern.Melee.Exotic.Bludgeoning.Blocking.Double.Monk
-Kama (Double-Chained)		TYPE:EasternEastern.Melee.Exotic.Slashing.Double.Monk.Reach.Trip
-Katana (Double Walking Stick)	TYPE:EasternEastern.Melee.Exotic.Bludgeoning.Double
-Kusarigama (Sickle and Chain)	TYPE:EasternEastern.Melee.Exotic.Slashing.Bludgeoning.Double.Monk.Reach.Trip.Grapple
-Kyoketsu Shoge			TYPE:EasternEastern.Melee.Exotic.Slashing.Piercing.Disarm.Grapple.Monk.Reach.Ranged.Thrown
-Meteor Hammer			TYPE:EasternEastern.Melee.Exotic.Bludgeoning.Reach.Trip
-Sword (Seven-Branched)		TYPE:EasternEastern.Melee.Exotic.Slashing.Disarm.Monk
-Tetsubo				TYPE:EasternEastern.Melee.Exotic.Bludgeoning
+Bo Staff				TYPE:Eastern.Melee.Exotic.Bludgeoning.Blocking.Double.Monk
+Kama (Double-Chained)		TYPE:Eastern.Melee.Exotic.Slashing.Double.Monk.Reach.Trip
+Katana (Double Walking Stick)	TYPE:Eastern.Melee.Exotic.Bludgeoning.Double
+Kusarigama (Sickle and Chain)	TYPE:Eastern.Melee.Exotic.Slashing.Bludgeoning.Double.Monk.Reach.Trip.Grapple
+Kyoketsu Shoge			TYPE:Eastern.Melee.Exotic.Slashing.Piercing.Disarm.Grapple.Monk.Reach.Ranged.Thrown
+Meteor Hammer			TYPE:Eastern.Melee.Exotic.Bludgeoning.Reach.Trip
+Sword (Seven-Branched)		TYPE:Eastern.Melee.Exotic.Slashing.Disarm.Monk
+Tetsubo				TYPE:Eastern.Melee.Exotic.Bludgeoning
 
 # Ranged
-Rope Dart				TYPE:EasternEastern.Ranged.Exotic.Piercing.Blocking.Distracting.Monk
+Rope Dart				TYPE:Eastern.Ranged.Exotic.Piercing.Blocking.Distracting.Monk
 
 # Samurai
 Katana.MOD				TYPE:Samurai.HeavyBlade
