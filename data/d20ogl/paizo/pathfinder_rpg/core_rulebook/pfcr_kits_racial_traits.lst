@@ -51,7 +51,7 @@ STARTPACK:Half Orc Racial Trait Default	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%]
 RACE:Half-Orc	!PRERACE:1,%
 ABILITY:CATEGORY=Half Orc Racial Trait|Intimidating ~ Half-Orc
 ABILITY:CATEGORY=Half Orc Racial Trait|Orc Ferocity ~ Half-Orc
-ABILITY:CATEGORY=Half Orc Racial Trait|Weapon Familiarity ~ Orc
+ABILITY:CATEGORY=Half Orc Racial Trait|Weapon Familiarity ~ Half-Orc
 
 #Block: Halfling Racial
 STARTPACK:Halfling Racial Trait Default	VISIBLE:QUALIFY	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Halfling%]
