@@ -148,13 +148,6 @@ Breath Weapon	KEY:Breath Weapon ~ Dragon Turtle	CATEGORY:Special Ability	TYPE:Sp
 Poison			KEY:Poison ~ Drider			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Bite--injury; save Fort DC %1; frequency 1/round for 6 rounds; effect 1d2 Str; cure 1 save.|PoisonDC																				BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)																											SOURCEPAGE:p.113	ASPECT:Ability Benefit|(DC %1)|PoisonDC
 Undersized Weapons	KEY:Undersized Weapons ~ Drider	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary						DESC:Although a drider is Large, its upper torso is the same size as that of a Medium humanoid. As a result, they wield weapons as if they were one size category smaller than their actual size (Medium for most centaurs).										BONUS:WEAPONPROF=TYPE.Simple|TOHIT|2	BONUS:WEAPONPROF=TYPE.Martial|TOHIT|2	BONUS:WEAPONPROF=TYPE.Exotic|TOHIT|2	BONUS:WIELDCATEGORY|ALL|1	SOURCEPAGE:p.113
 
-###Block: Drow abilities
-# Ability Name		Unique Key				Category of Ability		Type								Description																	Automatically Gained Weapon Prof.				Bonus to skill					Aspects
-Drow Immunities		KEY:Drow Immunities ~ Drow	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	DESC:Drow are immune to magic sleep effects and get a +2 racial bonus to saves against enchantment spells.																	ASPECT:Immunity|Sleep
-Keen Senses			KEY:Keen Senses ~ Drow		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:Drow receive a +2 racial bonus on Perception checks.																		BONUS:SKILL|Perception|2|TYPE=Racial
-Poison Use			KEY:Poison Use ~ Drow		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:Drow are skilled in the use of poison and never risk accidentally poisoning themselves.
-Weapon Familiarity	KEY:Weapon Familiarity ~ Drow	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:Drow are proficient with the hand crossbow, rapier, and short sword.						AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sword (Short)
-
 ###Block: Dryad Abilities
 # Ability Name	Unique Key				Category of Ability		Type							Description																											Source Page		Description of the Benefits
 Tree Meld		KEY:Tree Meld ~ Dryad		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		DESC:A dryad can meld with any tree, similar to how the spell meld into stone functions. She can remain melded with a tree as long as she wishes.				SOURCEPAGE:p.116

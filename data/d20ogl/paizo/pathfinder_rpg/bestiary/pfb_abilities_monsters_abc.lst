@@ -1,9 +1,6 @@
 # CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
-###Block: Aasimar abilities
-# Ability Name	Unique Key			Category of Ability		Type						Description												Bonus to skill						Source Page
-Skilled		KEY:Skilled ~ Aasimar	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Aasimars gain a +2 racial bonus on Diplomacy and Perception checks.	BONUS:SKILL|Diplomacy,Perception|2|TYPE=Racial	SOURCEPAGE:p.7
 
 ###Block: Aboleth abilities
 # Ability Name	Unique Key				Category of Ability		Type							Define					Description																																																																																												Modify VAR										Source Page		Aspects

@@ -1,9 +1,6 @@
 # CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
-###Block: Kobold Abilities
-# Ability Name	Unique Key			Category of Ability		Type						Description											Class Skill				Source Page
-Crafty		KEY:Crafty ~ Kobold	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Craft (Traps) and Stealth are always class skills for a kobold.	CSKILL:Craft (Traps)|Stealth	SOURCEPAGE:p.183
 
 ###Block: Kraken Abilities
 # Ability Name	Unique Key					Category of Ability		Type						Define					Description																												Modify VAR									Source Page		Aspects																									Description of the Benefits

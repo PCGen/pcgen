@@ -83,9 +83,6 @@ Grab				KEY:Grab ~ Gibbering Mouther				CATEGORY:Special Ability	TYPE:SpecialAtt
 Ground Manipulation	KEY:Ground Manipulation ~ Gibbering Mouther	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption							DESC:At will as a standard action, a gibbering mouther can cause stone and earth under its body to grow soft and muddy.																																			SOURCEPAGE:p.153									BENEFIT:At will as a standard action, a gibbering mouther can cause stone and earth under its body to grow soft and muddy. The ground remains muddy for 1 minute after the mouther moves off of the location. A gibbering mouther can move through these areas with ease, but other creatures treat them as difficult terrain.
 Spittle			KEY:Spittle ~ Gibbering Mouther			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	DEFINE:SpittleDC|10+(HD/2)+CON	DESC:Each round as a free action, a gibbering mouther can emit a stream of acidic spittle at one target within 30 feet.																									BONUS:VAR|SpittleDC|2|PREFEAT:1,Ability Focus (Spittle)	SOURCEPAGE:p.153	ASPECT:Ability Benefit|(+6 ranged touch)		BENEFIT:Each round as a free action, a gibbering mouther can emit a stream of acidic spittle at one target within 30 feet. On a successful attack, the target is blinded for 1d4 rounds unless he succeeds on a DC %1 Fortitude save.|SpittleDC
 
-###Block: Goblin abilities
-# Ability Name	Unique Key			Category of Ability		Type						Description										Bonus to skill					Source Page
-Skilled		KEY:Skilled ~ Goblin	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Goblins gain a +4 racial bonus on Ride and Stealth checks.	BONUS:SKILL|Ride,Stealth|4|TYPE=Racial	SOURCEPAGE:p.18
 
 ###Block: Goblin Dog abilities
 # Ability Name	Unique Key					Category of Ability		Type						Define						Description															Modify VAR												Source Page		Aspects								Description of the Benefits
