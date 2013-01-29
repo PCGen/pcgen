@@ -79,7 +79,7 @@ Skilled												KEY:Skilled ~ Goblin	CATEGORY:Special Ability	TYPE:RacialTrai
 CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Hobgoblin Racial Trait Default|PRERACE:1,Hobgoblin
 
 #Hobgoblin Racial Trait Default
-Hobgoblin Racial Trait Default				CATEGORY:Internal																								BONUS:ABILITYPOOL|Hobgoblin Racial Trait|-2
+Hobgoblin Racial Trait Default				CATEGORY:Internal
 CATEGORY=Internal|Hobgoblin Racial Trait Default.MOD					ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Darkvision ~ Hobgoblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HobgoblinDarkvision
 CATEGORY=Internal|Hobgoblin Racial Trait Default.MOD					ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Sneaky ~ Hobgoblin|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HobgoblinSneaky
 
@@ -235,7 +235,7 @@ Light Sensitivity				KEY:Light Sensitivity ~ Duergar	CATEGORY:Special Ability	TY
 CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Merfolk Racial Trait Default|PRERACE:1,Merfolk
 
 #Merfolk Racial Trait Default
-Merfolk Racial Trait Default					CATEGORY:Internal																										BONUS:ABILITYPOOL|Merfolk Racial Trait|-4
+Merfolk Racial Trait Default					CATEGORY:Internal
 CATEGORY=Internal|Merfolk Racial Trait Default.MOD					ABILITY:Merfolk Racial Trait|AUTOMATIC|Low-Light Vision ~ Merfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkLowLightVision
 CATEGORY=Internal|Merfolk Racial Trait Default.MOD					ABILITY:Merfolk Racial Trait|AUTOMATIC|Amphibious ~ Merfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkAmphibious
 CATEGORY=Internal|Merfolk Racial Trait Default.MOD					ABILITY:Merfolk Racial Trait|AUTOMATIC|Armor ~ Merfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkArmor
