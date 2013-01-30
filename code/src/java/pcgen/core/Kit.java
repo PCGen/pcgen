@@ -221,6 +221,9 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	public void testApplyKit(PlayerCharacter aPC, List<BaseKit> thingsToAdd,
 		List<String> warnings)
 	{
+		// Ensure a reset of random values from a prior run
+		selectValue = -1;
+		
 		// We will create a copy of the PC since we may need to add classes and
 		// levels to the PC that the user may choose not to apply.
 		// NOTE: These methods need to be called in the correct order.
