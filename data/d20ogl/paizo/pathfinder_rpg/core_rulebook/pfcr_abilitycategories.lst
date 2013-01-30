@@ -158,3 +158,10 @@ ABILITYCATEGORY:Class Ability				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						
 
 ABILITYCATEGORY:Special Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:SpecialMountSelection																		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Permanency Applied Effects	VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:PermanencySpell																			DISPLAYLOCATION:Class Abilities
+
+
+# Duplicated Multiple Times - Needs to be placed in the CORE Folder once that is all set up.
+ABILITYCATEGORY:Background	VISIBLE:NO	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Background
+#
+ABILITYCATEGORY:Human Ethnicity	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO					CATEGORY:Background	TYPE:HumanEthnicity	PLURAL:Human Ethnicities	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Region of Origin	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:1		CATEGORY:Background	TYPE:Region			PLURAL:Regions of Origin	DISPLAYLOCATION:Background
