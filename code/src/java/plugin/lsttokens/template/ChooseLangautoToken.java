@@ -18,7 +18,6 @@
 package plugin.lsttokens.template;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -44,12 +43,11 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
-import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class ChooseLangautoToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		CDOMSecondaryToken<PCTemplate>, PersistentChoiceActor<Language>,
-		DeferredToken<PCTemplate>, GrantingToken<PCTemplate, Language>
+		DeferredToken<PCTemplate>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
@@ -211,29 +209,5 @@ public class ChooseLangautoToken extends AbstractTokenWithSeparator<PCTemplate> 
 			PlayerCharacter pc)
 	{
 		return Collections.emptyList();
-	}
-
-	@Override
-	public Class<Language> getGrantedClass()
-	{
-		return LANGUAGE_CLASS;
-	}
-
-	@Override
-	public Collection<? extends Language> getGranted(PCTemplate template)
-	{
-		PersistentTransitionChoice<Language> langauto = template
-				.get(ObjectKey.CHOOSE_LANGAUTO);
-		if (langauto == null)
-		{
-			return Collections.emptyList();
-		}
-		return langauto.getChoices().getSet(null);
-	}
-
-	@Override
-	public Class<PCTemplate> getGrantorClass()
-	{
-		return PCTemplate.class;
 	}
 }

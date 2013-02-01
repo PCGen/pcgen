@@ -43,7 +43,6 @@ import pcgen.rules.persistence.token.CDOMSubToken;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ClassWrappedToken;
 import pcgen.rules.persistence.token.DeferredToken;
-import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.rules.persistence.token.PreCompatibilityToken;
 import pcgen.rules.persistence.token.PrimitiveToken;
@@ -57,8 +56,6 @@ public class TokenLibrary implements PluginLoader
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 	private static final Class<CDOMObject> CDOMOBJECT_CLASS = CDOMObject.class;
-	private static final List<GrantingToken<?, ?>> grantingTokens =
-			new ArrayList<GrantingToken<?, ?>>();
 	private static final List<DeferredToken<? extends Loadable>> deferredTokens =
 			new ArrayList<DeferredToken<? extends Loadable>>();
 	private static final TreeMapToList<Integer, PostDeferredToken<? extends Loadable>> postDeferredTokens =
@@ -151,10 +148,6 @@ public class TokenLibrary implements PluginLoader
 
 	public static void addToTokenMap(Object newToken)
 	{
-		if (newToken instanceof GrantingToken)
-		{
-			grantingTokens.add((GrantingToken<?, ?>) newToken);
-		}
 		if (newToken instanceof DeferredToken)
 		{
 			deferredTokens.add((DeferredToken<?>) newToken);
@@ -545,11 +538,6 @@ public class TokenLibrary implements PluginLoader
 	public static Class<? extends BonusObj> getBonus(String bonusName)
 	{
 		return BONUS_TAG_MAP.get(bonusName);
-	}
-
-	public static List<GrantingToken<?, ?>> getGrantingTokens()
-	{
-		return new ArrayList<GrantingToken<?, ?>>(grantingTokens);
 	}
 
 }

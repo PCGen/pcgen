@@ -58,11 +58,6 @@ import pcgen.rules.persistence.token.ParseResult;
 public class FeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>
 {
-	/*
-	 * NOTE: This is not treated as a GrantingToken, as that processing is
-	 * successfully done by ABILITY:
-	 */
-
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	/** 

@@ -36,7 +36,6 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -44,8 +43,7 @@ import pcgen.rules.persistence.token.ParseResult;
  *
  */
 public class TemplateLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>, ChooseSelectionActor<PCTemplate>,
-		GrantingToken<CDOMObject, PCTemplate>
+		CDOMPrimaryToken<CDOMObject>, ChooseSelectionActor<PCTemplate>
 {
 
 	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
@@ -256,29 +254,5 @@ public class TemplateLst extends AbstractToken implements
 	public Class<PCTemplate> getChoiceClass()
 	{
 		return PCTEMPLATE_CLASS;
-	}
-
-	@Override
-	public Class<CDOMObject> getGrantorClass()
-	{
-		return CDOMObject.class;
-	}
-
-	@Override
-	public Class<PCTemplate> getGrantedClass()
-	{
-		return PCTEMPLATE_CLASS;
-	}
-
-	@Override
-	public Collection<? extends PCTemplate> getGranted(CDOMObject obj)
-	{
-		List<PCTemplate> list = new ArrayList<PCTemplate>();
-		for (CDOMReference<PCTemplate> ref : obj
-			.getSafeListFor(ListKey.TEMPLATE))
-		{
-			list.addAll(ref.getContainedObjects());
-		}
-		return list;
 	}
 }

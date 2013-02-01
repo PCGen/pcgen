@@ -392,14 +392,4 @@ public class AbilityRefChoiceSet implements
 		}
 		return state;
 	}
-
-	public Collection<? extends Ability> getAbilities()
-	{
-		List<Ability> list = new ArrayList<Ability>();
-		for (CDOMReference<Ability> ref : abilityRefSet)
-		{
-			list.addAll(ref.getContainedObjects());
-		}
-		return list;
-	}
 }

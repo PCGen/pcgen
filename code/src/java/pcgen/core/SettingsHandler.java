@@ -1350,7 +1350,6 @@ public final class SettingsHandler
 		setShowSingleBoxPerBundle(getPCGenOption("showSingleBoxPerBundle", false)); //$NON-NLS-1$
 		setOutputDeprecationMessages(getPCGenOption("outputDeprecationMessages", true));
 		setInputUnconstructedMessages(getPCGenOption("inputUnconstructedMessages", false));
-		setDetectLoops(getPCGenOption("inputDetectLoops", false));
 		setShowStatDialogAtLevelUp(getPCGenOption("showStatDialogAtLevelUp", true)); //$NON-NLS-1$
 		setShowTipOfTheDay(getPCGenOption("showTipOfTheDay", true)); //$NON-NLS-1$
 		setShowToolBar(getPCGenOption("showToolBar", true)); //$NON-NLS-1$
@@ -3529,18 +3528,6 @@ public final class SettingsHandler
 	public static void setInputUnconstructedMessages(boolean b)
 	{
 		inputUnconstructedMessages = b;
-	}
-
-	private static boolean inputLoopDetection = true;
-	
-	public static boolean detectLoops()
-	{
-		return inputLoopDetection;
-	}
-
-	public static void setDetectLoops(boolean b)
-	{
-		inputLoopDetection = b;
 	}
 
 	/**

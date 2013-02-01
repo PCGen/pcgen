@@ -46,12 +46,10 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Equipment>,
-		GrantingToken<CDOMObject, Equipment>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Equipment>
 {
 
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
@@ -237,38 +235,5 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 			PlayerCharacter pc)
 	{
 		return Collections.emptyList();
-	}
-
-	@Override
-	public Class<CDOMObject> getGrantorClass()
-	{
-		return CDOMObject.class;
-	}
-	
-	@Override
-	public Class<Equipment> getGrantedClass()
-	{
-		return EQUIPMENT_CLASS;
-	}
-
-	@Override
-	public Collection<? extends Equipment> getGranted(CDOMObject obj)
-	{
-		List<Equipment> list = new ArrayList<Equipment>();
-		for (PersistentTransitionChoice<?> ptc : obj.getSafeListFor(ListKey.ADD))
-		{
-			SelectableSet cs = ptc.getChoices();
-			if (getTokenName().equals(cs.getName())
-					&& EQUIPMENT_CLASS.equals(cs.getChoiceClass()))
-			{
-				list.addAll(process(cs));
-			}
-		}
-		return list;
-	}
-
-	private <T> Collection<? extends Equipment> process(SelectableSet<Equipment> cs)
-	{
-		return cs.getSet(null);
 	}
 }

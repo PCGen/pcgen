@@ -56,13 +56,10 @@ public class InputPanel extends PCGenPrefsPanel
 	private static String in_printDeprecation = LanguageBundle
 		.getString("in_Prefs_printDeprecation");
 	private static String in_printUnconstructed = LanguageBundle
-			.getString("in_Prefs_printUnconstructed");
-	private static String in_detectLoops = LanguageBundle
-			.getString("in_Prefs_detectLoops");
+		.getString("in_Prefs_printUnconstructed");
 
 	private JCheckBox printDeprecationMessages = new JCheckBox();
 	private JCheckBox printUnconstructedDetail = new JCheckBox();
-	private JCheckBox detectLoops = new JCheckBox();
 	
 	/**
 	 * Instantiates a new input panel.
@@ -98,13 +95,6 @@ public class InputPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(printUnconstructedDetail, c);
 		this.add(printUnconstructedDetail);
 
-		Utility.buildConstraints(c, 0, 2, 3, 1, 0, 0);
-		detectLoops =
-				new JCheckBox(in_detectLoops, SettingsHandler
-					.inputUnconstructedMessages());
-		gridbag.setConstraints(detectLoops, c);
-		this.add(detectLoops);
-
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
 		JLabel label = new JLabel(" ");
@@ -131,7 +121,6 @@ public class InputPanel extends PCGenPrefsPanel
 			.isSelected());
 		SettingsHandler.setInputUnconstructedMessages(printUnconstructedDetail
 			.isSelected());
-		SettingsHandler.setDetectLoops(detectLoops.isSelected());
 	}
 
 	/* (non-Javadoc)

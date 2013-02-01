@@ -37,7 +37,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -90,7 +89,6 @@ import pcgen.persistence.lst.PCClassLoader;
 import pcgen.persistence.lst.SpellLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.LoadValidator;
-import pcgen.rules.persistence.LoopDetection;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -646,13 +644,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			EqModAttachment.finishEquipment(eq);
 		}
 		validateSingleDefaultSize();
-		if (SettingsHandler.detectLoops())
-		{
-			LoopDetection ld = new LoopDetection(context);
-			ld.initializeObjects();
-			ld.buildConnections();
-			ld.detectLoops();
-		}
 		context.buildTypeLists();
 	}
 

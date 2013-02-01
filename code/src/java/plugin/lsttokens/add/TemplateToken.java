@@ -44,12 +44,10 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
-import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<PCTemplate>,
-		GrantingToken<CDOMObject, PCTemplate>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<PCTemplate>
 {
 
 	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
@@ -223,38 +221,5 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 			PlayerCharacter pc)
 	{
 		return Collections.emptyList();
-	}
-
-	@Override
-	public Class<CDOMObject> getGrantorClass()
-	{
-		return CDOMObject.class;
-	}
-	
-	@Override
-	public Class<PCTemplate> getGrantedClass()
-	{
-		return PCTEMPLATE_CLASS;
-	}
-
-	@Override
-	public Collection<? extends PCTemplate> getGranted(CDOMObject obj)
-	{
-		List<PCTemplate> list = new ArrayList<PCTemplate>();
-		for (PersistentTransitionChoice<?> ptc : obj.getSafeListFor(ListKey.ADD))
-		{
-			SelectableSet cs = ptc.getChoices();
-			if (getTokenName().equals(cs.getName())
-					&& PCTEMPLATE_CLASS.equals(cs.getChoiceClass()))
-			{
-				list.addAll(process(cs));
-			}
-		}
-		return list;
-	}
-
-	private <T> Collection<? extends PCTemplate> process(SelectableSet<PCTemplate> cs)
-	{
-		return cs.getSet(null);
 	}
 }

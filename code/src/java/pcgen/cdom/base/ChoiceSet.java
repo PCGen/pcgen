@@ -258,10 +258,5 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 		{
 			return arcs.getNature();
 		}
-
-		public Collection<? extends Ability> getAbilities()
-		{
-			return arcs.getAbilities();
-		}
 	}
 }
