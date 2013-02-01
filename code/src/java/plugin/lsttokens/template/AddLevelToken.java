@@ -35,13 +35,14 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
+import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * New Token to support Adding Levels to say a Lycanthorpe template
  */
 public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>
+		CDOMPrimaryToken<PCTemplate>, GrantingToken<PCTemplate, PCClass>
 {
 
 	@Override
@@ -140,6 +141,29 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
 
 	@Override
 	public Class<PCTemplate> getTokenClass()
+	{
+		return PCTemplate.class;
+	}
+
+	@Override
+	public Class<PCClass> getGrantedClass()
+	{
+		return PCClass.class;
+	}
+
+	@Override
+	public Collection<? extends PCClass> getGranted(PCTemplate pct)
+	{
+		List<PCClass> classes = new ArrayList<PCClass>();
+		for (LevelCommandFactory lcf : pct.getSafeListFor(ListKey.ADD_LEVEL))
+		{
+			classes.add(lcf.getPCClass());
+		}
+		return classes;
+	}
+
+	@Override
+	public Class<PCTemplate> getGrantorClass()
 	{
 		return PCTemplate.class;
 	}

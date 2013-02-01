@@ -45,10 +45,12 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Language>
+		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Language>,
+		GrantingToken<CDOMObject, Language>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
@@ -244,5 +246,38 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 			PlayerCharacter pc)
 	{
 		return Collections.emptyList();
+	}
+
+	@Override
+	public Class<CDOMObject> getGrantorClass()
+	{
+		return CDOMObject.class;
+	}
+	
+	@Override
+	public Class<Language> getGrantedClass()
+	{
+		return LANGUAGE_CLASS;
+	}
+
+	@Override
+	public Collection<? extends Language> getGranted(CDOMObject obj)
+	{
+		List<Language> list = new ArrayList<Language>();
+		for (PersistentTransitionChoice<?> ptc : obj.getSafeListFor(ListKey.ADD))
+		{
+			SelectableSet cs = ptc.getChoices();
+			if (getTokenName().equals(cs.getName())
+					&& LANGUAGE_CLASS.equals(cs.getChoiceClass()))
+			{
+				list.addAll(process(cs));
+			}
+		}
+		return list;
+	}
+
+	private <T> Collection<? extends Language> process(SelectableSet<Language> cs)
+	{
+		return cs.getSet(null);
 	}
 }

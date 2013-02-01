@@ -42,13 +42,15 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with FEAT Token
  */
 public class FeatToken extends AbstractTokenWithSeparator<Race> implements
-		CDOMPrimaryToken<Race>, DeferredToken<Race>
+		CDOMPrimaryToken<Race>, DeferredToken<Race>,
+		GrantingToken<Race, Ability>
 {
 	public static final Class<Ability> ABILITY_CLASS = Ability.class;
 
@@ -213,4 +215,27 @@ public class FeatToken extends AbstractTokenWithSeparator<Race> implements
 		return true;
 	}
 
+	@Override
+	public Class<Ability> getGrantedClass()
+	{
+		return ABILITY_CLASS;
+	}
+
+	@Override
+	public Collection<? extends Ability> getGranted(Race r)
+	{
+		List<Ability> abilities = new ArrayList<Ability>();
+		for (CDOMReference<Ability> ref : r
+			.getSafeListFor(ListKey.FEAT_TOKEN_LIST))
+		{
+			abilities.addAll(ref.getContainedObjects());
+		}
+		return abilities;
+	}
+
+	@Override
+	public Class<Race> getGrantorClass()
+	{
+		return Race.class;
+	}
 }

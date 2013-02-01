@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens.race;
 
+import java.util.Collection;
+import java.util.Collections;
+
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.LevelCommandFactory;
@@ -29,6 +32,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
@@ -36,7 +40,7 @@ import pcgen.util.Logging;
  * Class deals with MONSTERCLASS Token
  */
 public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
-		CDOMPrimaryToken<Race>, DeferredToken<Race>
+		CDOMPrimaryToken<Race>, DeferredToken<Race>, GrantingToken<Race, PCClass>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -130,5 +134,28 @@ public class MonsterclassToken extends AbstractNonEmptyToken<Race> implements
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public Class<PCClass> getGrantedClass()
+	{
+		return PCClass.class;
+	}
+
+	@Override
+	public Collection<? extends PCClass> getGranted(Race r)
+	{
+		LevelCommandFactory lcf = r.get(ObjectKey.MONSTER_CLASS);
+		if (lcf != null)
+		{
+			return Collections.singletonList(lcf.getPCClass());
+		}
+		return Collections.emptyList();
+	}
+
+	@Override
+	public Class<Race> getGrantorClass()
+	{
+		return Race.class;
 	}
 }

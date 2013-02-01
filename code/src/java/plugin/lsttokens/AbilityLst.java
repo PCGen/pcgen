@@ -25,6 +25,7 @@ package plugin.lsttokens;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -61,6 +62,7 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
@@ -109,7 +111,8 @@ import pcgen.rules.persistence.token.ParseResult;
  *
  */
 public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>
+		implements CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>,
+		GrantingToken<CDOMObject, Ability>
 {
 
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
@@ -490,5 +493,53 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 	public Class<CDOMObject> getDeferredTokenClass()
 	{
 		return CDOMObject.class;
+	}
+
+	@Override
+	public Class<CDOMObject> getGrantorClass()
+	{
+		return CDOMObject.class;
+	}
+
+	@Override
+	public Class<Ability> getGrantedClass()
+	{
+		return ABILITY_CLASS;
+	}
+
+	@Override
+	public Collection<? extends Ability> getGranted(CDOMObject obj)
+	{
+		List<Ability> list = new ArrayList<Ability>();
+		for (CDOMReference ref : obj.getModifiedLists())
+		{
+			list.addAll(processAbilityLists(obj, ref));
+		}
+		return list;
+	}
+
+	private <A extends PrereqObject> Collection<? extends Ability> processAbilityLists(CDOMObject obj,
+		CDOMReference<? extends CDOMList<A>> ref)
+	{
+		for (CDOMList<A> list : ref.getContainedObjects())
+		{
+			if (list instanceof AbilityList)
+			{
+				CDOMReference r = ref;
+				return processAbilityList(obj, r);
+			}
+		}
+		return Collections.emptyList();
+	}
+
+	private Collection<? extends Ability> processAbilityList(CDOMObject cdo,
+		CDOMReference<AbilityList> ref)
+	{
+		List<Ability> list = new ArrayList<Ability>();
+		for (CDOMReference<Ability> objref : cdo.getListMods(ref))
+		{
+			list.addAll(objref.getContainedObjects());
+		}
+		return list;
 	}
 }

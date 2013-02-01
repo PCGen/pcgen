@@ -26,7 +26,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.ChoiceSet;
+import pcgen.cdom.base.ChoiceSet.AbilityChoiceSet;
 import pcgen.cdom.base.ConcretePersistentTransitionChoice;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -50,11 +50,14 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
 public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<CategorizedAbilitySelection>
+		CDOMSecondaryToken<CDOMObject>,
+		PersistentChoiceActor<CategorizedAbilitySelection>,
+		GrantingToken<CDOMObject, Ability>
 {
 
 	private static final Class<CategorizedAbilitySelection> CAT_ABILITY_SELECTION_CLASS =
@@ -195,8 +198,7 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			return new ParseResult.Fail("Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value, context);
 		}
-		ChoiceSet<CategorizedAbilitySelection> cs = new ChoiceSet<CategorizedAbilitySelection>(
-				getTokenName(), rcs);
+		AbilityChoiceSet cs = new AbilityChoiceSet(getTokenName(), rcs);
 		cs.setTitle("Feat Choice");
 		PersistentTransitionChoice<CategorizedAbilitySelection> tc = new ConcretePersistentTransitionChoice<CategorizedAbilitySelection>(
 				cs, count);
@@ -389,5 +391,39 @@ public class FeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			PlayerCharacter pc)
 	{
 		return Collections.emptyList();
+	}
+
+	@Override
+	public Class<CDOMObject> getGrantorClass()
+	{
+		return CDOMObject.class;
+	}
+
+	@Override
+	public Class<Ability> getGrantedClass()
+	{
+		return ABILITY_CLASS;
+	}
+
+	@Override
+	public Collection<? extends Ability> getGranted(CDOMObject obj)
+	{
+		List<Ability> list = new ArrayList<Ability>();
+		for (PersistentTransitionChoice<?> ptc : obj.getSafeListFor(ListKey.ADD))
+		{
+			SelectableSet cs = ptc.getChoices();
+			if (getTokenName().equals(cs.getName())
+					&& CAT_ABILITY_SELECTION_CLASS.equals(cs.getChoiceClass()))
+			{
+				AbilityChoiceSet ascs = (AbilityChoiceSet) cs;
+				list.addAll(process(ascs));
+			}
+		}
+		return list;
+	}
+
+	private <T> Collection<? extends Ability> process(AbilityChoiceSet cs)
+	{
+		return cs.getAbilities();
 	}
 }

@@ -18,6 +18,7 @@
 package plugin.lsttokens.auto;
 
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -41,11 +42,14 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOMSecondaryToken<CDOMObject>,
-		ChooseResultActor {
+public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
+		CDOMSecondaryToken<CDOMObject>, ChooseResultActor,
+		GrantingToken<CDOMObject, Language>
+{
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
 
@@ -292,5 +296,29 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 	public String getLstFormat()
 	{
 		return "%LIST";
+	}
+
+	@Override
+	public Class<Language> getGrantedClass()
+	{
+		return LANGUAGE_CLASS;
+	}
+
+	@Override
+	public Collection<? extends Language> getGranted(CDOMObject obj)
+	{
+		List<Language> list = new ArrayList<Language>();
+		for (QualifiedObject<CDOMReference<Language>> qo : obj
+			.getSafeListFor(ListKey.AUTO_LANGUAGE))
+		{
+			list.addAll(qo.getRawObject().getContainedObjects());
+		}
+		return list;
+	}
+
+	@Override
+	public Class<CDOMObject> getGrantorClass()
+	{
+		return CDOMObject.class;
 	}
 }

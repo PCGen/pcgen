@@ -19,6 +19,7 @@ package plugin.lsttokens.domain;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -45,13 +46,15 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Deal with FEAT token
  */
 public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
-		CDOMPrimaryToken<Domain>, DeferredToken<Domain>
+		CDOMPrimaryToken<Domain>, DeferredToken<Domain>,
+		GrantingToken<Domain, Ability>
 {
 	public static final Class<Ability> ABILITY_CLASS = Ability.class;
 
@@ -239,6 +242,35 @@ public class FeatToken extends AbstractTokenWithSeparator<Domain> implements
 
 	@Override
 	public Class<Domain> getDeferredTokenClass()
+	{
+		return Domain.class;
+	}
+
+	@Override
+	public Class<Ability> getGrantedClass()
+	{
+		return ABILITY_CLASS;
+	}
+
+	@Override
+	public Collection<? extends Ability> getGranted(Domain d)
+	{
+		Collection<CDOMReference<Ability>> mods =
+				d.getListMods(Ability.FEATLIST);
+		if (mods == null)
+		{
+			return Collections.emptyList();
+		}
+		List<Ability> list = new ArrayList<Ability>();
+		for (CDOMReference<Ability> ref : mods)
+		{
+			list.addAll(ref.getContainedObjects());
+		}
+		return list;
+	}
+
+	@Override
+	public Class<Domain> getGrantorClass()
 	{
 		return Domain.class;
 	}

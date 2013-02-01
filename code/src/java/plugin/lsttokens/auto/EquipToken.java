@@ -45,11 +45,13 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, ChooseResultActor
+		CDOMSecondaryToken<CDOMObject>, ChooseResultActor,
+		GrantingToken<CDOMObject, Equipment>
 {
 
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
@@ -301,5 +303,29 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	public String getLstFormat()
 	{
 		return "%LIST";
+	}
+
+	@Override
+	public Class<Equipment> getGrantedClass()
+	{
+		return EQUIPMENT_CLASS;
+	}
+
+	@Override
+	public Collection<? extends Equipment> getGranted(CDOMObject obj)
+	{
+		List<Equipment> list = new ArrayList<Equipment>();
+		for (QualifiedObject<CDOMReference<Equipment>> qo : obj
+			.getSafeListFor(ListKey.EQUIPMENT))
+		{
+			list.addAll(qo.getRawObject().getContainedObjects());
+		}
+		return list;
+	}
+
+	@Override
+	public Class<CDOMObject> getGrantorClass()
+	{
+		return CDOMObject.class;
 	}
 }

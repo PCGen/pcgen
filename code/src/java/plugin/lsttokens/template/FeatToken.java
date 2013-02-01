@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.template;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -50,6 +51,7 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.DeferredToken;
+import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
@@ -58,7 +60,7 @@ import pcgen.util.enumeration.Visibility;
  */
 public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 		CDOMPrimaryToken<PCTemplate>, PersistentChoiceActor<CategorizedAbilitySelection>,
-		DeferredToken<PCTemplate>
+		DeferredToken<PCTemplate>, GrantingToken<PCTemplate, Ability>
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
@@ -289,5 +291,29 @@ public class FeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
 			PlayerCharacter pc)
 	{
 		return Collections.emptyList();
+	}
+
+	@Override
+	public Class<Ability> getGrantedClass()
+	{
+		return ABILITY_CLASS;
+	}
+
+	@Override
+	public Collection<? extends Ability> getGranted(PCTemplate pct)
+	{
+		List<Ability> abilities = new ArrayList<Ability>();
+		for (CDOMReference<Ability> ref : pct
+			.getSafeListFor(ListKey.FEAT_TOKEN_LIST))
+		{
+			abilities.addAll(ref.getContainedObjects());
+		}
+		return abilities;
+	}
+
+	@Override
+	public Class<PCTemplate> getGrantorClass()
+	{
+		return PCTemplate.class;
 	}
 }

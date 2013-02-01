@@ -37,13 +37,14 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.GrantingToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * Class deals with DOMAIN Token
  */
 public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
-		CDOMPrimaryToken<PCClass>
+		CDOMPrimaryToken<PCClass>, GrantingToken<PCClass, Domain>
 {
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
@@ -195,6 +196,30 @@ public class DomainToken extends AbstractTokenWithSeparator<PCClass> implements
 
 	@Override
 	public Class<PCClass> getTokenClass()
+	{
+		return PCClass.class;
+	}
+
+	@Override
+	public Class<Domain> getGrantedClass()
+	{
+		return DOMAIN_CLASS;
+	}
+
+	@Override
+	public Collection<? extends Domain> getGranted(PCClass pcc)
+	{
+		List<Domain> list = new ArrayList<Domain>();
+		for (QualifiedObject<CDOMSingleRef<Domain>> qo : pcc
+			.getSafeListFor(ListKey.DOMAIN))
+		{
+			list.add(qo.getRawObject().resolvesTo());
+		}
+		return list;
+	}
+
+	@Override
+	public Class<PCClass> getGrantorClass()
 	{
 		return PCClass.class;
 	}

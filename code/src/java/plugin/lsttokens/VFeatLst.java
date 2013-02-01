@@ -57,6 +57,10 @@ import pcgen.rules.persistence.token.ParseResult;
 public class VFeatLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>, DeferredToken<CDOMObject>
 {
+	/*
+	 * NOTE: This is not treated as a GrantingToken, as that processing is
+	 * successfully done by ABILITY:
+	 */
 
 	public static final Class<Ability> ABILITY_CLASS = Ability.class;
 
