@@ -582,7 +582,7 @@ GEAR:Scroll (Cure Light Wounds/Divine)		OPTION:22,26
 GEAR:Scroll (Curse Water)				OPTION:27,28
 GEAR:Scroll (Deathwatch)				OPTION:29,30
 GEAR:Scroll (Detect Animals or Plants)		OPTION:31,32
-KIT:Scroll (Detect Alignment)	OPTION:33,35
+KIT:Scroll (Detect Alignment)				OPTION:33,35
 GEAR:Scroll (Detect Snares and Pits)		OPTION:36,37
 GEAR:Scroll (Detect Undead/Divine)			OPTION:38,39
 GEAR:Scroll (Divine Favor)				OPTION:40,41
@@ -707,7 +707,7 @@ GEAR:Scroll (Neutralize Poison/Divine)		OPTION:53,55
 GEAR:Scroll (Obscure Object/Divine)			OPTION:56,57
 GEAR:Scroll (Plant Growth)				OPTION:58,59
 GEAR:Scroll (Prayer)					OPTION:60,62
-GEAR:Scroll (Protection from Energy)		OPTION:63,64
+GEAR:Scroll (Protection from Energy/Divine)	OPTION:63,64
 GEAR:Scroll (Quench)					OPTION:65,66
 GEAR:Scroll (Remove Blindness/Deafness)		OPTION:67,69
 GEAR:Scroll (Remove Curse/Divine)			OPTION:70,71
@@ -764,7 +764,7 @@ GEAR:Scroll (Spell Immunity)				OPTION:82,85
 GEAR:Scroll (Spike Stones)				OPTION:86,87
 GEAR:Scroll (Summon Monster IV/Divine)		OPTION:88,90
 GEAR:Scroll (Summon Nature's Ally IV)		OPTION:91,93
-GEAR:Scroll (Tongues)					OPTION:94,98
+GEAR:Scroll (Tongues/Divine)				OPTION:94,98
 GEAR:Scroll (Tree Stride)				OPTION:99,100
 
 STARTPACK:Divine Scroll Level 5	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
@@ -807,7 +807,7 @@ GEAR:Scroll (Transmute Rock to Mud/Divine)	OPTION:83,85
 GEAR:Scroll (True Seeing/Divine)			OPTION:86,89
 GEAR:Scroll (Unhallow)					OPTION:90,91
 GEAR:Scroll (Wall of Fire/Divine)			OPTION:92,94
-GEAR:Scroll (Wall of Stone)				OPTION:95,97
+GEAR:Scroll (Wall of Stone/Divine)			OPTION:95,97
 GEAR:Scroll (Wall of Thorns)				OPTION:98,100
 
 STARTPACK:Divine Scroll Level 6	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
@@ -853,7 +853,7 @@ STARTPACK:Divine Scroll Level 7	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:
 SELECT:roll("1d100")
 GEAR:Scroll (Animate Plants)			OPTION:1,5
 GEAR:Scroll (Blasphemy)				OPTION:6,9
-#GEAR:Scroll (Changestaff)									OPTION:10,14
+GEAR:Scroll (Changestaff)			OPTION:10,14
 GEAR:Scroll (Control Weather/Divine)	OPTION:15,16
 GEAR:Scroll (Creeping Doom)			OPTION:17,21
 GEAR:Scroll (Cure Serious Wounds/Mass)	OPTION:22,27
@@ -912,7 +912,7 @@ GEAR:Scroll (Elemental Swarm)			OPTION:8,13
 GEAR:Scroll (Energy Drain/Divine)		OPTION:14,19
 GEAR:Scroll (Etherealness/Divine)		OPTION:20,25
 GEAR:Scroll (Foresight/Divine)		OPTION:26,31
-GEAR:Scroll (Gate)				OPTION:32,37
+GEAR:Scroll (Gate/Divine)			OPTION:32,37
 GEAR:Scroll (Heal/Mass)				OPTION:38,46
 GEAR:Scroll (Implosion)				OPTION:47,53
 GEAR:Scroll (Miracle)				OPTION:54,55
@@ -921,7 +921,7 @@ GEAR:Scroll (Shambler)				OPTION:62,66
 GEAR:Scroll (Shapechange/Divine)		OPTION:67,72
 GEAR:Scroll (Soul Bind/Divine)		OPTION:73,77
 GEAR:Scroll (Storm of Vengeance)		OPTION:78,83
-GEAR:Scroll (Summon Monster IX)		OPTION:84,89
+GEAR:Scroll (Summon Monster IX/Divine)	OPTION:84,89
 GEAR:Scroll (Summon Nature's Ally IX)	OPTION:90,95
 GEAR:Scroll (Sympathy/Divine)			OPTION:96,99
 GEAR:Scroll (True Resurrection)		OPTION:100
