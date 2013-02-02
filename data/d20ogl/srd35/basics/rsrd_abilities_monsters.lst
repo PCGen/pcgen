@@ -1529,9 +1529,6 @@ Single Actions Only	KEY:Single Actions Only ~ ZOMBIE TEMPLATE	CATEGORY:Special A
 
 
 
-
-
-
 # Subraces
 Stonecunning		KEY:Stonecunning ~ Svirfneblin	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:This ability grants deep gnomes a +2 racial bonus on Search checks to notice unusual stonework. A deep gnome who merely comes within 10 feet of unusual stonework can make a Search check as though actively searching, and can use the Search skill to find stonework traps as a rogue can. A svirfneblin can also intuit depth, sensing the approximate distance underground as naturally as a human can sense which way is up.
 Stonecunning		KEY:Stonecunning ~ Deep Halfling	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Like dwarves, deep halflings have a +2 racial bonus on checks to notice unusual stonework. Something that isn't stone but that is disguised as stone also counts as unusual stonework. A deep halfling who merely comes within 10 feet of unusual stonework can make a check as though actively searching and can use the Search skill to find stonework traps as a rogue can. A deep halfling can also intuit depth, sensing the approximate distance underground as naturally as a human can sense which way is up.
@@ -2056,6 +2053,46 @@ Half Celestial Poison Resistance	OUTPUTNAME:+4 racial bonus to Fortitude saves v
 # Xeph
 Xeph Power Resistance			OUTPUTNAME:+1 saves vs. powers, spells, and spell-like effects				CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES	ASPECT:SaveBonus|+1 saves vs. powers, spells, and spell-like effects
 
+###Block: Vermin
+
+# ~ Giant Ant
+Acid Sting		KEY:Acid Sting ~ Giant Ant	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A giant soldier ant has a stinger and an acid-producing gland in its abdomen. If it successfully grabs an opponent, it can attempt to sting each round (+3 attack bonus). A hit with the sting attack deals 1d4+1 points of piercing damage and 1d4 points of acid damage.
+Improved Grab	KEY:Improved Grab ~ Giant Ant	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:To use this ability, a giant ant must hit with its bite attack. A giant soldier ant that wins the ensuing grapple check establishes a hold and can sting.
+Skills		KEY:Skills ~ Giant Ant	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Giant ants have a +4 racial bonus on Survival checks when tracking by scent and a +8 racial bonus on Climb checks. A giant ant can always choose to take 10 on Climb checks, even if rushed or threatened.
+
+# ~ Giant Bee
+Poison		KEY:Poison ~ Giant Bee	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:Injury, Fortitude DC 11, initial and secondary damage 1d4 Con. The save DC is Constitution-based. A giant bee that successfully stings another creature pulls away, leaving its stinger in the creature. The bee then dies.
+Skills		KEY:Skills ~ Giant Bee	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Giant bees have a +4 racial bonus on Spot checks. *They also have a +4 racial bonus on Survival checks to orient themselves.
+
+# ~ Giant Bombardier Beetle
+Acid Spray		KEY:Acid Spray ~ Giant Bombardier Beetle	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:When attacked or disturbed, the creature can release a 10-foot cone of acidic vapor once per round. Those within the cone must succeed on a DC 13 Fortitude save or take 1d4+2 points of acid damage. The save DC is Constitution-based.
+
+# ~ Giant Stag Beetle
+Trample		KEY:Trample ~ Giant Stag Beetle	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:Reflex half DC 19. The save DC is Strength-based.
+
+# ~ Giant Praying Mantis
+Improved Grab	KEY:Improved Grab ~ Giant Praying Mantis	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:To use this ability, a giant praying mantis must hit with its claws attack. If it wins the ensuing grapple check, it establishes a hold and makes a bite attack as a primary attack (at its full +6 attack bonus).
+Skills		KEY:Skills ~ Giant Praying Mantis	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A giant praying mantis has a +4 racial bonus on Hide and Spot checks. *Because of its camouflage, the Hide bonus increases to +12 when a mantis is surrounded by foliage.
+
+# ~ Giant Wasp
+Poison		KEY:Poison ~ Giant Wasp	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:Injury, Fortitude DC 14, initial and secondary damage 1d6 Dex. The save DC is Constitution-based.
+Skills		KEY:Skills ~ Giant Wasp	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Giant wasps have a +8 racial bonus on Spot checks. *They also have a +4 racial bonus on Survival checks to orient themselves.
+
+# ~ Monstrous Centipede
+Poison		KEY:Poison ~ Monstrous Centipede	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A monstrous centipede has a poisonous bite. The details vary by the centipede's size, as shown on the table above. The save DCs are Constitution-based. The indicated damage is both initial and secondary damage. 
+Skills		KEY:Skills ~ Monstrous Centipede	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Monstrous centipedes have a +4 racial bonus on Spot checks, and a +8 racial bonus on Climb and Hide checks. They can use either their Strength or Dexterity modifier for Climb checks, whichever is higher. Monstrous scorpions can take 10 on Climb checks, even if threatened or distracted.
+
+# ~ Monstrous Scorpion
+Constrict		KEY:Constrict ~ Monstrous Scorpion	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A monstrous scorpion deals automatic claw damage on a successful grapple check.
+Improved Grab	KEY:Improved Grab ~ Monstrous Scorpion	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:To use this ability, a monstrous scorpion must hit with a claw attack. A monstrous scorpion can use either its Strength modifier or Dexterity modifier for grapple checks, whichever is better.
+Poison		KEY:Poison ~ Monstrous Scorpion	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A monstrous scorpion has a poisonous sting. The details vary by the scorpion's size, as follows. The save DCs are Constitution- based. The indicated damage is initial and secondary damage.
+Skills		KEY:Skills ~ Monstrous Scorpion	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A monstrous scorpion has a +4 racial bonus on Climb, Hide, and Spot checks.
+
+# ~ Monstrous Spider
+Poison		KEY:Poison ~ Monstrous Spider			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A monstrous spider has a poisonous bite. The details vary by the spider's size, as shown on the table below. The save DCs are Constitution-based. The indicated damage is initial and secondary damage.
+Web			KEY:Web ~ Monstrous Spider			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:MonstrousSpiderWebEscapeDC|10+CON	DEFINE:MonstrousSpiderWebBreakDC|10+CON	DEFINE:MonstrousSpiderWebHp|0	DESC:8/day maximum range 50' (Escape DC %1 Break DC %2 Web Hp %3)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp
+Tremorsense		KEY:Tremorsense ~ Monstrous Spider		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:A monstrous spider can detect and pinpoint any creature or object within 60 feet in contact with the ground, or within any range in contact with the spider's webs.
+Skills		KEY:Skills ~ Monstrous Spider			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Monstrous spiders have a +4 racial bonus on Hide and Spot checks and a +8 racial bonus on Climb checks. A monstrous spider can always choose to take 10 on Climb checks, even if rushed or threatened. Monstrous spiders use either their Strength or Dexterity modifier for Climb checks, whichever is higher. *Hunting spiders have a +10 racial bonus on Jump checks and a +8 racial bonus on Spot checks. Web-spinning spiders have a +8 racial bonus on Hide and Move Silently checks when using their webs.
 
 
 
@@ -2109,7 +2146,6 @@ Dominate ~ Vampire	OUTPUTNAME:Dominate		CATEGORY:Special Ability	TYPE:SpecialQua
 Paralyzing Touch ~ Lich	OUTPUTNAME:Paralyzing Touch	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES																				DESC:DC %1|LichAbilityDC
 #Stench ~ Troglodyte	OUTPUTNAME:Stench			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:TrogStenchDC|0																DESC:DC %1|TrogStenchDC
 Touch Attack ~ Lich	OUTPUTNAME:Touch Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES																				DESC:Negative Energy 1d8+5 DC %1|LichAbilityDC
-Web ~ Monstrous Spider	OUTPUTNAME:Web			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:MonstrousSpiderWebEscapeDC|10+CON	DEFINE:MonstrousSpiderWebBreakDC|10+CON	DEFINE:MonstrousSpiderWebHp|0	DESC:8/day maximum range 50' (Escape DC %1 Break DC %2 Web Hp %3)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp
 
 ###Block: Flight Maneuverability
 # Ability Name		Category of Ability		Visible	Define				Choose											Ability																																																																								Modify VAR							Temporary effect description
