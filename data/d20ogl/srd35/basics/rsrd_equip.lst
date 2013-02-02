@@ -79,6 +79,7 @@ Flint and Steel			TYPE:Goods.General															COST:1	WT:0		SOURCEPAGE:Equip
 Grappling Hook			TYPE:Goods.General															COST:1	WT:4		SOURCEPAGE:Equipment.rtf
 Hammer				TYPE:Goods.General															COST:0.5	WT:2		SOURCEPAGE:Equipment.rtf
 Ink (1 Oz. Vial)			TYPE:Goods.General.Writing.Liquid.Vial												COST:8	WT:0		SOURCEPAGE:Equipment.rtf
+Ink (1 Oz. Vial/Other Colors)	TYPE:Goods.General.Writing.Liquid.Vial												COST:16	WT:0		SOURCEPAGE:Equipment.rtf
 Inkpen				TYPE:Goods.General.Writing														COST:0.1	WT:0		SOURCEPAGE:Equipment.rtf
 Jug (Clay)				TYPE:Goods.Container.General				CONTAINS:8|Liquid|SpellComponent=1					COST:0.03	WT:9		SOURCEPAGE:Equipment.rtf
 Ladder (10 Ft.)			TYPE:Goods.General															COST:0.05	WT:20		SOURCEPAGE:Equipment.rtf
