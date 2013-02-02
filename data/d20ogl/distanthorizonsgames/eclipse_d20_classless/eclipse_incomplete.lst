@@ -1,6 +1,35 @@
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse
 #Original Entry: Andrew Maitland
 
+Natives of HuSung gain an innate knack with
+elemental magic, using the Theurgy system. Since
+the power for their spells comes from Improved
+Occult Talent and Inherent Spell, their inherent
+casting level is equal to their base level. Those who
+opt to develop their abilities can become fairly
+formidable. In general, natives of HuSung will have
+two primary elements (Adept, +3 bonus), two
+secondary elements (Adept, +1 Bonus)- and one
+they're weak in (+1 Bonus only).
+! Skill Bonuses: +1 each in Creation, Control, Destruction, Healing, Transformation, and Understanding. Specialized: only for use with the Fire, Air, Earth, Water, and Spirit nouns (3 CP).
+! Adept: Choice of four from among Fire, Air, Earth, Water, and Spirit (6 CP).
+Skill Bonuses: +1 in each of three elements, +3 in each of the two remaining elements (these must be among those chosen as Adept skills) (4 CP). As part of a template, these bonuses do not count against the normal skill limits.
+! Improved Occult Talent: 5x L0 and 3xL1 spell slots. Specialized: no inherent spells, only usable for theurgy, Corrupted, Elemental Magic only (4 CP).
+! Inherent Spell: 2x L2 spell slots per day. Specialized: only to power Theurgy. Corrupted: Elemental Magic only (2 CP).
+Immunity / Elemental Damage: Very Common/Major/Trivial (5 points of damage), (5 CP).
+
+
+
+
+
+
+
+
+
+
+
+
+
 +2 ECL Evil Outsider Template (94 CP out of 95 available):
 
     *
@@ -22,7 +51,7 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse
     *
       Returning (Specialized: must be slain on home plane or can come back after a year, 3 CP)
     *
-      Fortunately – or unfortunately – for them, the entire template is both Specialized and Corrupted: The user is an obvious hideous demon, is inherently evil (and vulnerable to things that target evil creatures regardless of its current alignment), is vulnerable to spells that affect outsiders, and cannot normally be Raised or Resurrected. One-third cost.
+      Fortunately  or unfortunately  for them, the entire template is both Specialized and Corrupted: The user is an obvious hideous demon, is inherently evil (and vulnerable to things that target evil creatures regardless of its current alignment), is vulnerable to spells that affect outsiders, and cannot normally be Raised or Resurrected. One-third cost.
 
 31
 62

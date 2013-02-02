@@ -3,7 +3,7 @@
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
-CATEGORY=Internal|Min Skill.MOD																															DEFINE:CharacterSkillPts|0																																																																																																																																		BONUS:ABILITYPOOL|Character Skills|CharacterSkillPts																																																					BONUS:VAR|CharacterSkillPts|TL+3|TYPE=Human|PRERACE:1,Human	BONUS:VAR|CharacterSkillPts|(INT*3)+(EclipseClassLvl*INT)|PRESTAT:1,INT=12
+CATEGORY=Internal|Min Skill.MOD																															DEFINE:CharacterSkillPts|0																																																																																																																																		BONUS:ABILITYPOOL|Character Skills|CharacterSkillPts																																																					BONUS:VAR|CharacterSkillPts|TL+3|TYPE=Human|PREABILITY:1,CATEGORY=Special Ability,Human Skill Bonus	BONUS:VAR|CharacterSkillPts|(INT*3)+(EclipseClassLvl*INT)|PRESTAT:1,INT=12
 # Ability Name								Category of Ability		Define			Ability									Bonus to Ability Pool																								Modify VAR																									Allowed Companions
 CATEGORY=Special Ability|All Automatic Abilities.MOD											ABILITY:Internal|AUTOMATIC|RSRD Feat Gain Bypass
 # This Removes the Level Based FEAT and Replaces it with 6 CP automatically. Assuming characters gain 1 at 1st level, and 1 every 3rd level. Also figured in the Human Racial Bonus.
@@ -46,6 +46,7 @@ Initial Psychic Warrior Magic Level	KEY:Initial Psychic Warrior		SORTKEY:Magic_L
 Initial Psion Magic Level		KEY:Initial Psion				SORTKEY:Magic_Level_01_Psion			CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:PsionCasterLevel|0		ADD:SPELLCASTER|Psion			BONUS:CASTERLEVEL|Psion|PsionCasterLevel				BONUS:PCLEVEL|Psion|var("PsionMagicLvls")-1					BONUS:VAR|PsionCasterLevel|-var("PsionMagicLvls")	BONUS:VAR|PsionCasterLevel|var("PointBuyPsionCasterLvl")+var("CasterLevelAll")							COST:0
 Initial Wilder Magic Level		KEY:Initial Wilder			SORTKEY:Magic_Level_01_Wilder			CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:WilderCasterLevel|0		ADD:SPELLCASTER|Wilder			BONUS:CASTERLEVEL|Wilder|WilderCasterLevel			BONUS:PCLEVEL|Wilder|var("WilderMagicLvls")-1					BONUS:VAR|WilderCasterLevel|-var("WilderMagicLvls")	BONUS:VAR|WilderCasterLevel|var("PointBuyWilderCasterLvl")+var("CasterLevelAll")							COST:0
 
+Initial Theurgy Sorcerer Magic Level		KEY:Initial Theurgy Sorcerer Magic Level	SORTKEY:Magic_Level_01_Sorcerer		CATEGORY:Special Ability	TYPE:MagicLevels.BaseLevel	DEFINE:SorcererCasterLevel|0		ADD:SPELLCASTER|Sorcerer (Theurgy)		BONUS:CASTERLEVEL|Sorcerer (Thuergy)|SorcererCasterLevel			BONUS:PCLEVEL|Sorcerer (Theurgy)|var("SorcererMagicLvls")-1				BONUS:VAR|SorcererCasterLevel|-var("SorcererMagicLvls")	BONUS:VAR|SorcererCasterLevel|var("PointBuySorcererCasterLvl")+var("CasterLevelAll")					COST:0
 
 ###Block: Base Class Outputs - This is where the DEFINEs and Counters are kept. They are for showing the final product.
 # Ability Name							Unique Key								SORTKEY					Output Name								Category of Ability		Type							Define																	Description																			Stackable?	Multiple?	Choose		Ability									Bonus to Ability Pool																Modify VAR							Cost		Source Page		Description of the Benefits
@@ -128,6 +129,7 @@ Wilder Magic Level											SORTKEY:Magic_Level_02_Psy_C											CATEGORY:Spe
 z Wizard Specialist Forbidden Schools	KEY:Wizard Specialist Forbidden Schools	SORTKEY:Magic_Level_03_Wizard			OUTPUTNAME:Wizard Specialist Forbidden Schools	CATEGORY:Special Ability	TYPE:MagicLevels																																																																DEFINE:ForbidIllusion|0	DEFINE:ForbidEnchantment|0	DEFINE:ForbidConjuration|0	DEFINE:ForbidEvocation|0	DEFINE:ForbidNecromancy|0	DEFINE:ForbidAbjuration|0	DEFINE:ForbidDivination|0	DEFINE:ForbidTransmutation|0	STACK:YES	MULT:YES	CHOOSE:STRING|ForbidAbjuration|ForbidConjuration|ForbidDivination|ForbidEnchantment|ForbidEvocation|ForbidIllusion|ForbidNecromancy|ForbidTransmutation	SELECT:1																									BONUS:VAR|%LIST|1																																																																										COST:0
 
 
+Sorcerer Theurgy Magic Level											SORTKEY:Magic_Level_02_Sorcerer										CATEGORY:Special Ability	TYPE:MagicLevels.BaseMagicLvlCount	PREABILITY:1,CATEGORY=Special Ability,Initial Theurgy Sorcerer Magic Level,Initial Eclipse Sorcerer Magic Level																																		PREVARLTEQ:SorcererMagicLvls,EclipseMagicLvlMax																																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE																										ABILITY:Special Ability|AUTOMATIC|Sorcerer Base																	BONUS:VAR|SorcererMagicLvls|1	BONUS:VAR|PointBuySorcererCasterLvl|1																																																																	COST:8	SOURCEPAGE:p.11
 
 
 ###################################################

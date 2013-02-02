@@ -2,7 +2,7 @@
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
-
+Other Default	CATEGORY:Special Ability	TYPE:SpecialQuality.SpecialAttack	DESC:Display this
 
 # No Level Progression to associate
 # Ability Name								Unique Key			SORTKEY			Category of Ability		Type							Define																		Description																	Stackable?	Multiple?	Choose					Ability								Bonus to Ability Pool			Bonus to DC			Add domain number		Modify VAR																									Cost		Source Page
@@ -29,7 +29,11 @@ Metaspell													SORTKEY:Domain Path	CATEGORY:Special Ability	TYPE:DomainSe
 ~ Adept Skill Buy	KEY:Adept Skill Buy			OUTPUTNAME:~ Adept Skill Buy Choice	CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=AdeptChoice	SELECT:2	BONUS:SKILLRANK|%LIST|1	COST:1
 ~ Full Skill Buy	KEY:Full Skill Buy			OUTPUTNAME:~ Skill Buy Choice		CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=AdeptChoice			BONUS:SKILLRANK|%LIST|1	COST:1
 
-Adept Skill Buy	KEY:Adept Skill Buy ~ Feat Pull							CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|FEAT=Adept		SELECT:2	BONUS:SKILLRANK|%LIST|1	COST:1
+Adept Skill Buy				KEY:Adept Skill Buy ~ Feat Pull							CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|FEAT=Adept		SELECT:2	BONUS:SKILLRANK|%LIST|1	COST:1
+Adept Skill Buy (Double Effect)	KEY:Adept Skill Buy ~ Feat Pull v2				CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|FEAT=Adept		SELECT:1	BONUS:SKILLRANK|%LIST|2	COST:1
+
+Skill Specialty	KEY:Skill Specialty									CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost		STACK:YES	MULT:YES	CHOOSE:USERINPUT			SELECT:1	ABILITY:Character Points|AUTOMATIC|Skill Specialty (%LIST)	COST:1
+
 
 Adept Skill Buy2	KEY:Adept Skill Buy ~ Feat Pull2							CATEGORY:FEAT		TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILL|FEAT=Adept		SELECT:2	BONUS:SKILLRANK|%LIST|1	COST:1
 
@@ -276,7 +280,15 @@ Augmented Bonus / Add Cha Stat to Chosen Skills											KEY:Augmented Bonus ~ 
 Augmented Bonus / Add Cha Stat to Wis Skills											KEY:Augmented Bonus ~ Cha adds to Wis Skills									CATEGORY:Special Ability	TYPE:AugmentedBonus.EclipseAbilityOutput																																STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																														BONUS:SKILL|TYPE=Wisdom|CHA																COST:6	SOURCEPAGE:p.25	BENEFIT:Adds Cha Selection to Wisdom Skills.
 Augmented Bonus / Add Dex Stat to Damage												KEY:Augmented Bonus ~ Dex adds to Damage										CATEGORY:Special Ability	TYPE:AugmentedBonus.EclipseAbilityOutput																																																								BONUS:COMBAT|DAMAGE.Piercing,DAMAGE.Slashing,DAMAGE.Bludgeoning|DEX|TYPE=AugmentBonus																																		COST:6	SOURCEPAGE:p.25	BENEFIT:Adds Dex to Damage.
 
+
+Augmented Bonus / Add Cha Stat to Skill Points											KEY:Augmented Bonus ~ Cha adds to Skill Points									CATEGORY:Special Ability	TYPE:AugmentedBonus.EclipseAbilityOutput																																STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																														BONUS:VAR|CharacterSkillPts|CHA*(TL+3)														COST:6	SOURCEPAGE:p.25	BENEFIT:Adds Cha to Skill Points.
+
+Augmented Bonus / Add Int Base to Theurgy Skills										KEY:Augmented Bonus ~ INT adds to Theurgy Skills								CATEGORY:Special Ability	TYPE:AugmentedBonus.EclipseAbilityOutput																																																								BONUS:SKILL|TYPE=Theurgy|INT																																										COST:6	SOURCEPAGE:p.25	BENEFIT:Adds INT bonus to Theurgy Skills.
+Augmented Bonus / Add Cha Base to Theurgy Skills										KEY:Augmented Bonus ~ CHA adds to Theurgy Skills								CATEGORY:Special Ability	TYPE:AugmentedBonus.EclipseAbilityOutput																																																								BONUS:SKILL|TYPE=Theurgy|CHA																																										COST:6	SOURCEPAGE:p.25	BENEFIT:Adds CHA bonus to Theurgy Skills.
+
+
 Immunity / Dimension Hop uses manifester level											KEY:Immunity ~ Dimension Hop												CATEGORY:Special Ability	TYPE:Abilities.EclipseAbilityOutput																																																																																															BONUS:VAR|DimensionHopRange|10*(TL-1)				COST:12
+
 
 
 ###Block: Misc Changes

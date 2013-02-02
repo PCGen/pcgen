@@ -14,3 +14,33 @@ CLASS:Wizard.MOD
 1	PROHIBITSPELL:SCHOOL.Abjuration|PREVARGTEQ:ForbidAbjuration,1	PROHIBITSPELL:SCHOOL.Abjuration|PREVARGTEQ:ForbidAbjuration,1
 1	PROHIBITSPELL:SCHOOL.Divination|PREVARGTEQ:ForbidDivination,1	PROHIBITSPELL:SCHOOL.Divination|PREVARGTEQ:ForbidDivination,1
 1	PROHIBITSPELL:SCHOOL.Transmutation|PREVARGTEQ:ForbidTransmutation,1	PROHIBITSPELL:SCHOOL.Transmutation|PREVARGTEQ:ForbidTransmutation,1
+
+
+CLASS:Sorcerer (Theurgy)	VISIBLE:NO
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
+CLASS:Sorcerer (Theurgy)	HD:4		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sorcerer (Theurgy)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer (Theurgy)|CL
+###Block:Proficiencies
+###Block: Familiar
+###Block: Level progression
+1	CAST:5,3				KNOWN:4,2
+2	CAST:6,4				KNOWN:5,2
+3	CAST:6,5				KNOWN:5,3
+4	CAST:6,6,3				KNOWN:6,3,1
+5	CAST:6,6,4				KNOWN:6,4,2
+6	CAST:6,6,5,3			KNOWN:7,4,2,1
+7	CAST:6,6,6,4			KNOWN:7,5,3,2
+8	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+9	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+10	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+11	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+12	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+13	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+14	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+15	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3

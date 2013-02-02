@@ -21,7 +21,7 @@ ABILITYCATEGORY:Defender Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FR
 ABILITYCATEGORY:Improved Defender Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability	TYPE:ImprovedDefenderChoice																																																																						PLURAL:Improved Defender Choices			DISPLAYLOCATION:Character Creation Pool
 
 ABILITYCATEGORY:Inherent Spell Selection			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability	TYPE:InherentSpellSelection																																																																						PLURAL:Inherent Spell Selections			DISPLAYLOCATION:Character Creation Pool
-
+ABILITYCATEGORY:Fast Learner					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability	TYPE:FastLearner																																																																																DISPLAYLOCATION:Character Creation Pool						
 
 ABILITYCATEGORY:Template Character Points			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability	TYPE:General.Character Creation.SavingThrow.Proficiencies.CasterLevel.MagicLevels.CombatEnhancements.Base Attack Bonus.Abilities.TemplatesRacial.Metamagical.Channeling.Paths.Dominion.PathoftheDragon.MysticArtist.Pact																																						PLURAL:Template Character Points			DISPLAYLOCATION:Character Creation Pool
 
@@ -33,7 +33,7 @@ ABILITYCATEGORY:Cleric Conversion Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOO
 ABILITYCATEGORY:Censure Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability	TYPE:CensureSelection																																																																							PLURAL:Censure Selections				DISPLAYLOCATION:Character Creation Pool
 ABILITYCATEGORY:Conversion Spell Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability	TYPE:ConversionSpellSelection																																																																						PLURAL:Conversion Spell Selections			DISPLAYLOCATION:Character Creation Pool
 
-
+ABILITYCATEGORY:Martial Arts					VISIBLE:NO		CATEGORY:Martial Arts
 
 
 # Abilities Groups

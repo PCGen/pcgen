@@ -77,6 +77,13 @@ Tumble.MOD							TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKI
 Use Magic Device.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Use Magic Device|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Use Magic Device),Full Skill Buy (Use Magic Device)
 Use Rope.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Use Rope|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Use Rope),Full Skill Buy (Use Rope)
 
+
+Autohypnosis.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Autohypnosis|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Autohypnosis),Full Skill Buy(Autohypnosis)
+Knowledge (Psionics).MOD				TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Knowledge (Psionics)|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Knowledge (Psionics)),Full Skill Buy(Knowledge (Psionics))
+Psicraft.MOD						TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Psicraft|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Psicraft),Full Skill Buy(Psicraft)
+Use Psionic Device.MOD					TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Use Psionic Device|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(Use Psionic Device),Full Skill Buy(Use Psionic Device)
+
+
 #	ABILITY:Internal|VIRTUAL|Make CSKILL ~ x1|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(x1),Full Skill Buy(x1)
 
 # Mystic Artist Sub Skills
