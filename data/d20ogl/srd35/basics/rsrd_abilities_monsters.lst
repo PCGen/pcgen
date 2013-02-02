@@ -2095,6 +2095,11 @@ Tremorsense		KEY:Tremorsense ~ Monstrous Spider		CATEGORY:Special Ability	TYPE:S
 Skills		KEY:Skills ~ Monstrous Spider			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Monstrous spiders have a +4 racial bonus on Hide and Spot checks and a +8 racial bonus on Climb checks. A monstrous spider can always choose to take 10 on Climb checks, even if rushed or threatened. Monstrous spiders use either their Strength or Dexterity modifier for Climb checks, whichever is higher. *Hunting spiders have a +10 racial bonus on Jump checks and a +8 racial bonus on Spot checks. Web-spinning spiders have a +8 racial bonus on Hide and Move Silently checks when using their webs.
 
 
+###Block: Animals
+
+# ~ Rat
+Skills		KEY:Skills ~ Rat			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Rats have a +4 racial bonus on Hide and Move Silently checks, and a +8 racial bonus on Balance, Climb, and Swim checks. A rat can always choose to take 10 on Climb checks, even if rushed or threatened. A rat uses its Dexterity modifier instead of its Strength modifier for Climb and Swim checks. A rat has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line.
+
 
 ###Block: Dragon Breath Weapons
 # Ability Name					Output Name				Category of Ability		Type						Visible	Define																					Description																				Modify VAR
