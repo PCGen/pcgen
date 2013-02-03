@@ -1,0 +1,72 @@
+################################################
+Data Review Part 1
+   File Review
+################################################
+
+General:
+--------
+Files need to be re-named/shortened to follow our new naming convention
+* Done
+
+PCC:
+----
+Needs STATUS tag
+* Done CDC 6/16/11
+
+Consider a different SOURCESHORT... DM might be easy to confuse with DMG... perhaps
+DMGK?
+* Done CDC 6/16/11
+
+Spells:
+-------
+No CLASSES tags in spells list?  (I don't have the source currently, so cannot verify if
+this is correct or not)
+* Not needed, awarded via feat/template CDC 6/16/11
+
+Equipment:
+----------
+Need to separate out the various types of equipment into their own files per standard
+(general, weapon, armor, wondrous etc.)
+* Done
+
+Armor no longer needs .REPLACE in it
+* Done
+
+The Brazen Claw... no such equipmod as VICIOU... should be VICIOUS?
+* Done
+
+################################################
+Data Review Part 2
+   Dataset Completeness
+################################################
+
+Equipment:
+----------
+Pesh missing
+False Pesh missing
+
+Templates:
+----------
+Guild/organization templates missing
+
+Races:
+------
+Allum (all varieties)
+Dhabba
+Eel, Sand
+Ghul
+
+
+################################################
+Data Review Part 3
+   Functionality Testing
+################################################
+
+TBD - need to get source
+
+
+
+
+
+
+

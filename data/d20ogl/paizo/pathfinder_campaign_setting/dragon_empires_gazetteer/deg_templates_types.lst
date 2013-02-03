@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
+
+###Block: Creature Subtypes
+# Template Name	Visible	Race Subtype				Vision
+Kitsune		VISIBLE:NO	RACESUBTYPE:Kitsune|Shapechanger	VISION:Low-light
+Nagaji		VISIBLE:NO	RACESUBTYPE:Reptilian			VISION:Low-light
+Samsaran		VISIBLE:NO	RACESUBTYPE:Samsaran			VISION:Low-light
+Tengu			VISIBLE:NO	RACESUBTYPE:Tengu				VISION:Low-light
+Wayang		VISIBLE:NO	RACESUBTYPE:Wayang			VISION:Darkvision (60')

@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Dragon Empires Gazetteer	SOURCESHORT:DEG	SOURCEWEB:http://paizo.com/products/btpy8pfu	SOURCEDATE:2012-02
+
+###Block: Moon Subdomain powers
+# Ability Name	Unique Key				Category of Ability		Type								Description																																																																																			Source Page
+Moonfire		KEY:Moonfire ~ Moon Subdomain	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.DomainPower	DESC:You can launch a blast of blazing moonlight from your eyes at a single target within 30 feet as a standard action. Moonfire deals %1d8 points of damage, and the target is dazzled for %2 round(s). This damage is the result of raw divine power, and cannot be blocked by energy resistance. A successful Reflex saving throw (DC %3) reduces the damage by half and negates the dazzle effect. You can use this ability %4 time(s) per day. |DomainLVL/2|DomainLVL|10+DomainLVL/2+WIS|max(DomainLVL/4-1,1)	SOURCEPAGE:p.57
