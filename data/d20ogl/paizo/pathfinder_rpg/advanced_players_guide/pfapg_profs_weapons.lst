@@ -35,7 +35,7 @@ Pilum				TYPE:Martial.Ranged.Piercing.RangedPiercing.Spear
 
 # EXOTIC
 # -- light
-Dagger (Swordbreaker)	TYPE:Exotic.Melee.Slashing.MeleeSlashing.Dagger
+Dagger (Swordbreaker)	TYPE:Exotic.Melee.Light.Slashing.MeleeSlashing.Dagger
 
 # -- 1-handers
 Falcata			TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword
