@@ -684,7 +684,7 @@ Stench				KEY:Stench ~ Ghast	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraor
 
 # ~ Giant
 Rock Throwing		KEY:Rock Throwing ~ Giant Shared	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:Adult giants are accomplished rock throwers and receive a +1 racial bonus on attack rolls when throwing rocks. A giant of at least Large size can hurl rocks weighing 40 to 50 pounds each (Small objects) up to five range increments. The size of the range increment varies with the giant's variety. A Huge giant can hurl rocks of 60 to 80 pounds (Medium objects).
-Rock Catching		KEY:Rock Catching ~ Giant Shared	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A giant of at least Large size can catch Small, Medium, or Large rocks (or projectiles of similar shape). Once per round, a giant that would normally be hit by a rock can make a Reflex save to catch it as a free action. The DC is 15 for a Small rock, 20 for a Medium one, and 25 for a Large one. (If the projectile provides a magical bonus on attack rolls, the DC increases by that amount.) The giant must be ready for and aware of the attack in order to make a rock catching attempt.
+Rock Catching		KEY:Rock Catching ~ Giant Shared	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:A giant of at least Large size can catch Small, Medium, or Large rocks (or projectiles of similar shape). Once per round, a giant that would normally be hit by a rock can make a Reflex save to catch it as a free action. The DC is 15 for a Small rock, 20 for a Medium one, and 25 for a Large one. (If the projectile provides a magical bonus on attack rolls, the DC increases by that amount.) The giant must be ready for and aware of the attack in order to make a rock catching attempt.
 
 # ~ Cloud Giant
 Rock Throwing	KEY:Rock Throwing ~ Cloud Giant	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:The range increment is 140 feet for a cloud giant's thrown rocks.
@@ -702,7 +702,7 @@ Rock Throwing	KEY:Rock Throwing ~ Hill Giant	CATEGORY:Special Ability	TYPE:Speci
 
 # ~ Stone Giant
 Rock Throwing	KEY:Rock Throwing ~ Stone Giant	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:The range increment is 180 feet for a stone giant's thrown rocks. It uses both hands when throwing a rock.
-Rock Catching	KEY:Rock Catching ~ Stone Giant	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A stone giant gains a +4 racial bonus on its Reflex save when attempting to catch a thrown rock.
+Rock Catching	KEY:Rock Catching ~ Stone Giant	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:A stone giant gains a +4 racial bonus on its Reflex save when attempting to catch a thrown rock.
 Skills			KEY:Skills ~ Stone Giant	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:*A stone giant gains a +8 racial bonus on Hide checks in rocky terrain.
 
 # ~ Storm Giant
@@ -1523,10 +1523,9 @@ Skills		KEY:Skills ~ Yrthak	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIB
 
 # ~ ZOMBIE TEMPLATE
 Single Actions Only	KEY:Single Actions Only ~ ZOMBIE TEMPLATE	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:Zombies have poor reflexes and can perform only a single move action or attack action each round. A zombie can move up to its speed and attack in the same round, but only if it attempts a charge.
-
-
-
-
+ 
+#Block: Universal Defines
+CATEGORY=Internal|Default.MOD	DEFINE:DefaultDCCon|10+(HD/2)+CON	DEFINE:DefaultDCCha|CHA+(HD/2)+10	DEFINE:PoisonDC|10+(HD/2)+CON	DEFINE:DeathGazeDC|CHA+(HD/2)+10
 
 
 # Subraces
@@ -2089,7 +2088,7 @@ Poison		KEY:Poison ~ Monstrous Scorpion	CATEGORY:Special Ability	TYPE:SpecialAtt
 Skills		KEY:Skills ~ Monstrous Scorpion	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A monstrous scorpion has a +4 racial bonus on Climb, Hide, and Spot checks.
 
 # ~ Monstrous Spider
-Poison		KEY:Poison ~ Monstrous Spider			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A monstrous spider has a poisonous bite. The details vary by the spider's size, as shown on the table below. The save DCs are Constitution-based. The indicated damage is initial and secondary damage.
+Poison		KEY:Poison ~ Monstrous Spider			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A monstrous spider has a poisonous bite. The details vary by the spider's size, as shown on the table below. The save DCs are Constitution-based. The indicated damage is initial and secondary damage. DC %1|PoisonDC
 Web			KEY:Web ~ Monstrous Spider			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:MonstrousSpiderWebEscapeDC|10+CON	DEFINE:MonstrousSpiderWebBreakDC|10+CON	DEFINE:MonstrousSpiderWebHp|0	DESC:8/day maximum range 50' (Escape DC %1 Break DC %2 Web Hp %3)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp
 Tremorsense		KEY:Tremorsense ~ Monstrous Spider		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:A monstrous spider can detect and pinpoint any creature or object within 60 feet in contact with the ground, or within any range in contact with the spider's webs.
 Skills		KEY:Skills ~ Monstrous Spider			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Monstrous spiders have a +4 racial bonus on Hide and Spot checks and a +8 racial bonus on Climb checks. A monstrous spider can always choose to take 10 on Climb checks, even if rushed or threatened. Monstrous spiders use either their Strength or Dexterity modifier for Climb checks, whichever is higher. *Hunting spiders have a +10 racial bonus on Jump checks and a +8 racial bonus on Spot checks. Web-spinning spiders have a +8 racial bonus on Hide and Move Silently checks when using their webs.
@@ -2097,8 +2096,206 @@ Skills		KEY:Skills ~ Monstrous Spider			CATEGORY:Special Ability	TYPE:SpecialQua
 
 ###Block: Animals
 
+# ~ Ape
+Skills	KEY:Skills ~ Ape	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Apes have a +8 racial bonus on Climb checks and can always choose to take 10 on Climb checks, even if rushed or threatened.
+
+# ~ Baboon
+Skills	KEY:Skills ~ Baboon	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Baboons have a +8 racial bonus on Climb checks and can always choose to take 10 on Climb checks, even if rushed or threatened.
+
+# ~ Badger
+Rage		KEY:Rage ~ Badger	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:A badger that takes damage in combat flies into a berserk rage on its next turn, clawing and biting madly until either it or its opponent is dead. It gains +4 to Strength, +4 to Constitution, and -2 to Armor Class. The creature cannot end its rage voluntarily.
+Skills	KEY:Skills ~ Badger	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A badger has a +4 racial bonus on Escape Artist checks. 
+
+# ~ Bat
+Blindsense	KEY:Blindsense ~ Bat	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:A bat notices and locates creatures within 20 feet. Opponents still have 100%% concealment against a creature with blindsense.
+Skills	KEY:Skills ~ Bat	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:*A bat has a +4 racial bonus on Spot and Listen checks. These bonuses are lost if its blindsense is negated.
+
+# ~ Black Bear
+Skills	KEY:Skills ~ Black Bear	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A black bear has a +4 racial bonus on Swim checks.
+
+# ~ Brown Bear
+Improved Grab	KEY:Improved Grab ~ Brown Bear	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:To use this ability, a brown bear must hit with a claw attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity.
+Skills		KEY:Skills ~ Brown Bear			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A brown bear has a +4 racial bonus on Swim checks.
+
+# ~ Polar Bear
+Improved Grab	KEY:Improved Grab ~ Polar Bear	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:To use this ability, a polar bear must hit with a claw attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity.
+Skills		KEY:Skills ~ Polar Bear			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A polar bear has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line. *A polar bear's white coat bestows a +12 racial bonus on Hide checks in snowy areas.
+
+# ~ Bison
+Stampede	KEY:Stampede ~ Bison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:A frightened herd of bison flees as a group in a random direction (but always away from the perceived source of danger). They literally run over anything of Large size or smaller that gets in their way, dealing 1d12 points of damage for each five bison in the herd (Reflex DC 18 half ). The save DC is Strength-based.
+
+# ~ Boar
+Ferocity	KEY:Ferocity ~ Boar	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:A boar is such a tenacious combatant that it continues to fight without penalty even while disabled or dying.
+
+# ~ Cat
+Skills	KEY:Skills ~ Cat	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Cats have a +4 racial bonus on Climb, Hide, and Move Silently checks and a +8 racial bonus on Jump checks. Cats have a +8 racial bonus on Balance checks. They use their Dexterity modifier instead of their Strength modifier for Climb and Jump checks. *In areas of tall grass or heavy undergrowth, the Hide bonus rises to +8.
+
+# ~ Cheetah
+Trip			KEY:Trip ~ Cheetah	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:A cheetah that hits with a claw or bite attack can attempt to trip the opponent (+3 check modifier) as a free action without making a touch attack or provoking an attack of opportunity. If the attempt fails, the opponent cannot react to trip the cheetah.
+Sprint		KEY:Sprint ~ Cheetah	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:Once per hour, a cheetah can move ten times its normal speed (500 feet) when it makes a charge.
+
+# ~ Crocodile
+Improved Grab	KEY:Improved Grab ~ Crocodile	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:To use this ability, a crocodile must hit with its bite attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, the crocodile establishes a hold on the opponent with its mouth and drags it into deep water, attempting to pin it to the bottom.
+Hold Breath		KEY:Hold Breath ~ Crocodile	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:A crocodile can hold its breath for a number of rounds equal to 4 x its Constitution score before it risks drowning.
+Skills		KEY:Skills ~ Crocodile		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A crocodile has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line. *A crocodile gains a +4 racial bonus on Hide checks when in the water. Further, a crocodile can lie in the water with only its eyes and nostrils showing, gaining a +10 cover bonus on Hide checks.
+
+# ~ Giant Crocodile (Same as above)
+
+# ~ Dog
+Skills	KEY:Skills ~ Dog	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Dogs have a +4 racial bonus on Jump checks. *Dogs have a +4 racial bonus on Survival checks when tracking by scent.
+
+# ~ Riding Dog
+Combat	KEY:Combat ~ Riding Dog		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:If trained for war, these animals can make trip attacks just as wolves do (see the Wolf entry). A riding dog can fight while carrying a rider, but the rider cannot also attack unless he or she succeeds on a Ride check.
+Skills	KEY:Skills ~ Riding Dog		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Riding dogs have a +4 racial bonus on Jump checks. *Riding dogs have a +4 racial bonus on Survival checks when tracking by scent.
+
+# ~ Donkey
+Skills	KEY:Skills ~ Donkey	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Donkeys have a +2 racial bonus on Balance checks.
+
+# ~ Eagle
+Skills	KEY:Skills ~ Eagle	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Eagles have a +8 racial bonus on Spot checks.
+
+# ~ Elephant
+Trample	KEY:Trample ~ Elephant	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:Reflex half DC 25. The save DC is Strength-based.
+
+# ~ Hawk
+Skills	KEY:Skills ~ Hawk		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Hawks have a +8 racial bonus on Spot checks.
+
+# ~ Horse
+Combat	KEY:Combat ~ Horse Shared	CATEGORY:Special Ability	TYPE:SpecialAttack.Weakness			VISIBLE:YES	DESC:A horse not trained for war does not normally use its hooves to attack. Its hoof attack is treated as a secondary attack and adds only half the horse's Strength bonus to damage.
+
+# ~ Heavy Horse
+Combat	KEY:Combat ~ Heavy Horse	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:A heavy horse cannot fight while carrying a rider.
+
+# ~ Light Horse
+Combat	KEY:Combat ~ Light Horse	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:A light horse cannot fight while carrying a rider.
+
+# ~ Heavy Warhorse
+Combat	KEY:Combat ~ Heavy Warhorse	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:A heavy warhorse can fight while carrying a rider, but the rider cannot also attack unless he or she succeeds on a Ride check.
+
+# ~ Light Warhorse
+Combat	KEY:Combat ~ Light Warhorse	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:A light warhorse can fight while carrying a rider, but the rider cannot also attack unless he or she succeeds on a Ride check.
+
+# ~ Hyena
+Trip		KEY:Trip ~ Hyena	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:A hyena that hits with its bite attack can attempt to trip the opponent (+2 check modifier) as a free action without making a touch attack or provoking an attack of opportunity. If the attempt fails, the opponent cannot react to trip the hyena. 
+Skills	KEY:Skills ~ Hyena	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:*Hyenas have a +4 racial bonus on Hide checks in areas of tall grass or heavy undergrowth.
+
+# ~ Leopard
+Improved Grab	KEY:Improved Grab ~ Leopard	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:To use this ability, a leopard must hit with its bite attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, it establishes a hold and can rake.
+Pounce		KEY:Pounce ~ Leopard	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:If a leopard charges a foe, it can make a full attack, including two rake attacks.
+Rake			KEY:Rake ~ Leopard	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:Attack bonus +6 melee, damage 1d3+1.
+Skills		KEY:Skills ~ Leopard	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Leopards have a +8 racial bonus on Jump checks and a +4 racial bonus on Hide and Move Silently checks. Leopards have a +8 racial bonus on Balance and Climb checks. A leopard can always choose to take 10 on a Climb check, even if rushed or threatened. *In areas of tall grass or heavy undergrowth, the Hide bonus improves to +8.
+
+# ~ Lion
+Pounce		KEY:Pounce ~ Lion			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:If a lion charges a foe, it can make a full attack, including two rake attacks.
+Improved Grab	KEY:Improved Grab ~ Lion	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:To use this ability, a lion must hit with its bite attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, it establishes a hold and can rake.
+Rake			KEY:Rake ~ Lion			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:Attack bonus +7 melee, damage 1d4+2.
+Skills		KEY:Skills ~ Lion			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Lions have a +4 racial bonus on Balance, Hide, and Move Silently checks. *In areas of tall grass or heavy undergrowth, the Hide bonus improves to +12.
+
+# ~ Lizard
+Skills	KEY:Skills ~ Lizard	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Lizards have a +8 racial bonus on Balance checks. They also have a +8 racial bonus on Climb checks and can always choose to take 10 on Climb checks, even if rushed or threatened. Lizards use their Dexterity modifier instead of their Strength modifier for Climb checks.
+
+# ~ Monitor Lizard
+Skills	KEY:Skills ~ Monitor Lizard	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A monitor lizard has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line. Monitor lizards have a +4 racial bonus on Hide and Move Silently checks. *In forested or overgrown areas, the Hide bonus improves to +8.
+
+# ~ Manta Ray
+Combat	KEY:Combat ~ Manta Ray	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:*If threatened, a manta ray uses its size and weight to ram opponents. This is treated as a secondary attack.
+Skills	KEY:Skills ~ Manta Ray	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A manta ray has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line
+
+# ~ Monkey
+Skills	KEY:Skills ~ Monkey	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Monkeys have a +8 racial bonus on Balance and Climb checks. They can always choose to take 10 on Climb checks, even if rushed or threatened. They use their Dexterity modifier instead of their Strength modifier for Climb checks.
+
+# ~ Mule
+Skills	KEY:Skills ~ Mule	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Mules have a +2 racial bonus on Dexterity checks to avoid slipping or falling.
+
+# ~ Octopus
+Improved Grab	KEY:Improved Grab ~ Octopus	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:To use this ability, an octopus must hit an opponent of any size with its arms attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, it establishes a hold and automatically deals bite damage.
+Ink Cloud		KEY:Ink Cloud ~ Octopus		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:An octopus can emit a cloud of jet-black ink 10 feet high by 10 feet wide by 10 feet long once per minute as a free action. The cloud provides total concealment, which the octopus normally uses to escape a losing fight. All vision within the cloud is obscured.
+Jet			KEY:Jet ~ Octopus			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:An octopus can jet backward once per round as a full-round action, at a speed of 200 feet. It must move in a straight line, but does not provoke attacks of opportunity while jetting.
+Skills		KEY:Skills ~ Octopus		CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES	DESC:An octopus can change colors, giving it a +4 racial bonus on Hide checks. An octopus also can squeeze and contort its body, giving it a +10 racial bonus on Escape Artist checks. An octopus has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line.
+
+# ~ Giant Octopus
+Tentacles		KEY:Tentacles ~ Giant Octopus		CATEGORY:Special Ability	TYPE:SpecialAttack					VISIBLE:YES	DESC:An opponent can attack a giant octopus's tentacles with a sunder attempt as if they were weapons. A giant octopus's tentacles have 10 hit points each. If a giant octopus is currently grappling a target with the tentacle that is being attacked, it usually uses another limb to make its attack of opportunity against the opponent making the sunder attempt. Severing one of a giant octopus's tentacles deals 5 points of damage to the creature. A giant octopus usually withdraws from combat if it loses four tentacles. The creature regrows severed limbs in 1d10+10 days.
+Constrict		KEY:Constrict ~ Giant Octopus		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:A giant octopus deals 2d8+6 points of damage with a successful grapple check.
+Improved Grab	KEY:Improved Grab ~ Giant Octopus	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:To use this ability, a giant octopus must hit an opponent of any size with a tentacle attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, it establishes a hold and can constrict.
+Ink Cloud		KEY:Ink Cloud ~ Giant Octopus		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:A giant octopus can emit a cloud of jet-black ink 20 feet high by 20 feet wide by 20 feet long once per minute as a free action. The cloud provides total concealment, which the octopus normally uses to escape a losing fight. All vision within the cloud is obscured.
+Jet			KEY:Jet ~ Giant Octopus			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:A giant octopus can jet backward once per round as a full-round action, at a speed of 200 feet. It must move in a straight line, but does not provoke attacks of opportunity while jetting. 
+Skills		KEY:Skills ~ Giant Octopus		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A giant octopus can change colors, giving it a +4 racial bonus on Hide checks. A giant octopus also can squeeze and contort its body, giving it a +10 racial bonus on Escape Artist checks. A giant octopus has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line.
+
+# ~ Owl
+Skills	KEY:Skills ~ Owl	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Owls have a +8 racial bonus on Listen checks and a +14 racial bonus on Move Silently checks. *They have a +8 racial bonus on Spot checks in areas of shadowy illumination.
+
+# ~ Pony
+Combat	KEY:Combat ~ Pony	CATEGORY:Special Ability	TYPE:SpecialAttack					VISIBLE:YES	DESC:Ponies are similar to light horses and cannot fight while carrying a rider. *A pony not trained for war does not normally use its hooves to attack but rather to run. Its hoof attack is treated as a secondary attack and adds only half the pony's Strength bonus to damage.
+
+# ~ Warpony
+Combat	KEY:Combat ~ Warpony	CATEGORY:Special Ability	TYPE:SpecialAttack			VISIBLE:YES	DESC:A warpony can fight while carrying a rider, but the rider cannot also attack unless he or she succeeds on a Ride check.
+
+# ~ Porpoise
+Blindsight	KEY:Blindsight ~ Porpoise	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:Porpoises can "see" by emitting high-frequency sounds, inaudible to most other creatures, that allow them to locate objects and creatures within 120 feet. A silence spell negates this and forces the porpoise to rely on its vision, which is approximately as good as a human's.
+Hold Breath	KEY:Hold Breath ~ Porpoise	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:A porpoise can hold its breath for a number of rounds equal to 6 x ?its Constitution score before it risks drowning.
+Skills	KEY:Skills ~ Porpoise		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A porpoise has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line. *A porpoise has a +4 racial bonus on Spot and Listen checks. These bonuses are lost if its blindsight is negated.
+
 # ~ Rat
 Skills		KEY:Skills ~ Rat			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Rats have a +4 racial bonus on Hide and Move Silently checks, and a +8 racial bonus on Balance, Climb, and Swim checks. A rat can always choose to take 10 on Climb checks, even if rushed or threatened. A rat uses its Dexterity modifier instead of its Strength modifier for Climb and Swim checks. A rat has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line.
+
+# ~ Rhinoceros
+Powerful Charge	KEY:Powerful Charge ~ Rhinoceros	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:A rhinoceros deals 4d6+24 points of damage when it makes a charge.
+
+# ~ Shark
+Blindsense	KEY:Blindsense ~ Shark	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:A shark can locate creatures underwater within a 30-foot radius. This ability works only when the shark is underwater.
+Keen Scent	KEY:Keen Scent ~ Shark	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:A shark can notice creatures by scent in a 180-foot radius and detect blood in the water at ranges of up to a mile. 
+Skills	KEY:Skills ~ Shark	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A shark has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line. 
+
+# ~ Snake Shared
+Skills	KEY:Skills ~ Snake Shared	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Snakes have a +4 racial bonus on Hide, Listen, and Spot checks and a +8 racial bonus on Balance and Climb checks. A snake can always choose to take 10 on a Climb check, even if rushed or threatened. Snakes use either their Strength modifier or Dexterity modifier for Climb checks, whichever is higher. A snake has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line.
+
+# ~ Constrictor Snake
+Constrict		KEY:Constrict ~ Constrictor Snake		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:On a successful grapple check, a constrictor snake deals 1d3+4 points of damage.
+Improved Grab	KEY:Improved Grab ~ Constrictor Snake	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:To use this ability, a constrictor snake must hit with its bite attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, it establishes a hold and can constrict.
+
+# ~ Viper Snake
+Poison		KEY:Poison ~ Viper Snake	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:A viper snake has a poisonous bite that deals initial and secondary damage of 1d6 Con. The save DC varies by the snake's size, as shown on the table below. The save DCs are Constitution-based. DC: %1|PoisonDC	DESC:Tiny 10|PRESIZEEQ:T	DESC:Small 10|PRESIZEEQ:S	DESC:Medium 11|PRESIZEEQ:M	DESC:Large 11|PRESIZEEQ:L	DESC:Huge 14|PRESIZEEQ:H
+
+# ~ Squid
+Improved Grab	KEY:Improved Grab ~ Squid	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:To use this ability, a squid must hit an opponent of any size with its arms attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, it establishes a hold and automatically deals bite damage. *A squid has a +4 racial bonus on grapple checks.
+Ink Cloud		KEY:Ink Cloud ~ Squid		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:A squid can emit a cloud of jet-black ink 10 feet high by 10 feet wide by 10 feet long once per minute as a free action. The cloud provides total concealment, which the squid normally uses to escape a losing fight. All vision within the cloud is obscured. 
+Jet			KEY:Jet ~ Squid			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:A squid can jet backward once per round as a full-round action, at a speed of 240 feet. It must move in a straight line, but does not provoke attacks of opportunity while jetting.
+Skills		KEY:Skills ~ Squid		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A squid has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line
+
+# ~ Giant Squid
+Combat		KEY:Combat ~ Giant Squid		CATEGORY:Special Ability	TYPE:SpecialAttack					VISIBLE:YES	DESC:An opponent can attack a giant squid's tentacles with a sunder attempt as if they were weapons. A giant squid's tentacles have 10 hit points each. If a giant squid is currently grappling a target with the tentacle that is being attacked, it usually uses another limb to make its attack of opportunity against the opponent making the sunder attempt. Severing one of a giant squid's tentacles deals 5 points of damage to the creature. A giant squid usually withdraws from combat if it loses five tentacles. The creature regrows severed limbs in 1d10+10 days.
+Constrict		KEY:Constrict ~ Giant Squid		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:A giant squid deals 1d6+8 points of damage with a successful grapple check.
+Improved Grab	KEY:Improved Grab ~ Giant Squid	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:To use this ability, a giant squid must hit an opponent of any size with a tentacle attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, it establishes a hold and can constrict. *A giant squid has a +4 racial bonus on grapple checks.
+Ink Cloud		KEY:Ink Cloud ~ Giant Squid		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:A giant squid can emit a cloud of jet-black ink 20 feet high by 20 feet wide by 20 feet long once per minute as a free action. The cloud provides total concealment, which the squid normally uses to escape a losing fight. All vision within the cloud is obscured.
+Jet			KEY:Jet ~ Giant Squid			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:A giant squid can jet backward once per round as a full-round action, at a speed of 320 feet. It must move in a straight line, but does not provoke attacks of opportunity while jetting.
+Skills		KEY:Skills ~ Giant Squid		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A giant squid has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line.
+
+# ~ Tiger
+Improved Grab	KEY:Improved Grab ~ Tiger	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:To use this ability, a tiger must hit with a claw or bite attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, it establishes a hold and can rake.
+Pounce		KEY:Pounce ~ Tiger		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:If a tiger charges a foe, it can make a full attack, including two rake attacks.
+Rake			KEY:Rake ~ Tiger			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:Attack bonus +9 melee, damage 1d8+3.
+Skills		KEY:Skills ~ Tiger		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Tigers have a +4 racial bonus on Balance, Hide, and Move Silently checks. *In areas of tall grass or heavy undergrowth, the Hide bonus improves to +8.
+
+# ~ Toad
+Skills	KEY:Skills ~ Toad	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A toad's coloration gives it a +4 racial bonus on Hide checks.
+
+# ~ Weasel
+Attach	KEY:Attach ~ Weasel	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:If a weasel hits with a bite attack, it uses its powerful jaws to latch onto the opponent's body and automatically deals bite damage each round it remains attached. An attached weasel loses its Dexterity bonus to Armor Class and has an AC of 12. An attached weasel can be struck with a weapon or grappled itself. To remove an attached weasel through grappling, the opponent must achieve a pin against the creature.
+Skills	KEY:Skills ~ Weasel	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Weasels have a +4 racial bonus on Move Silently checks and a +8 racial bonus on Balance and Climb checks. They use their Dexterity modifier for Climb checks. A weasel can always choose to take 10 on a Climb check, even if rushed or threatened.
+
+# ~ Whale
+Blindsight	KEY:Blindsight ~ Whale	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:Whales can "see" by emitting high-frequency sounds, inaudible to most other creatures, that allow them to locate objects and creatures within 120 feet. A silence spell negates this and forces the whale to rely on its vision, which is approximately as good as a human's.
+Hold Breath	KEY:Hold Breath ~ Whale	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DESC:A whale can hold its breath for a number of rounds equal to 8 x ?its Constitution score before it risks drowning. 
+Skills	KEY:Skills ~ Whale	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:A whale has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line. *A whale has a +4 racial bonus on Spot and Listen checks. These bonuses are lost if its blindsight is negated.
+
+# ~ Wolf
+Trip		KEY:Trip ~ Wolf	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:A wolf that hits with a bite attack can attempt to trip the opponent (+1 check modifier) as a free action without making a touch attack or provoking an attack of opportunity. If the attempt fails, the opponent cannot react to trip the wolf. 
+Skills	KEY:Skills ~ Wolf	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:*Wolves have a +4 racial bonus on Survival checks when tracking by scent.
+
+# ~ Wolverine
+Rage		KEY:Rage ~ Wolverine	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:A wolverine that takes damage in combat flies into a berserk rage on its next turn, clawing and biting madly until either it or its opponent is dead. It gains +4 to Strength, +4 to Constitution, and -2 to Armor Class. The creature cannot end its rage voluntarily.
+Skills	KEY:Skills ~ Wolverine	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Wolverines have a +8 racial bonus on Climb checks and can always choose to take 10 on Climb checks, even if rushed or threatened.
+
 
 
 ###Block: Dragon Breath Weapons
