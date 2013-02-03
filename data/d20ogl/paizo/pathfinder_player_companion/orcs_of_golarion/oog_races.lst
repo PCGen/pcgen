@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Sun Aug  5 18:28:10 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# Author: Henk Slaaf
+SOURCELONG:Orcs of Golarion	SOURCESHORT:OoG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8fvz	SOURCEDATE:2010-12
+
+# Henkslaaf:
+# Make Orc a Base class so it gets Traits and Archetypes.
+# Make Orc a PC class so it sorts first in the Race dropdown on the overview tab
+# Set Orc to CR 1/2 as appropriate for PC characters at level 1.
+# There are no alternative racial traits, so do not bother with Default Racial Abilitities things.
+
+# Race Name	Ability					Type			Challenge Rating
+Orc.MOD	ABILITY:Internal|AUTOMATIC|Default	TYPE:Base.PC	CR:1/2

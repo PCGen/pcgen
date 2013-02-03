@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Fri Sep 30 16:34:18 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+#SOURCELONG:Pirates of the Inner Sea	SOURCESHORT:PotIS	SOURCEWEB:http://paizo.com/products/btpy8qif?Pathfinder-Player-Companion-Pirates-of-the-Inner-Sea	SOURCEDATE:2012-04
+# Original Entry by: Stefan Radermacher
+
+###Block: Class Ability Categories
+# Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Pirate Trick	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PirateTrick	PLURAL:Pirate Tricks		DISPLAYLOCATION:Class Abilities
+
+#
+# End
+#

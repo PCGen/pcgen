@@ -1,0 +1,10 @@
+# CVS $Revision: $ $Author: $ -- Sun Aug  5 18:28:10 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Orcs of Golarion	SOURCESHORT:OoG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8fvz	SOURCEDATE:2010-12
+
+# Light Sensitivity is ended when Fearless is gained
+# Does not work as expected :(
+# CATEGORY=Special Ability|Light Sensitivity.MOD				!PREABILITY:1,CATEGORY=Special Ability,Orc Bloodline ~ Fearless
+
+# Weapon Familiarity ~ Orc should read "Orcs and half-orcs"
+# Ability Name							Clear Description	Description
+CATEGORY=Special Ability|Weapon Familiarity ~ Orc.MOD	DESC:.CLEAR		DESC:Orcs and half-orcs are proficient with greataxes and falchions, and treat any weapon with the word "orc" in its name as a martial weapon.

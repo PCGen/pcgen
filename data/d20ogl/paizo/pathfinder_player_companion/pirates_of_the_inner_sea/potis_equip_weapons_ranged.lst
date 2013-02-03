@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Tue May 29 18:21:08 2012 -- reformated by prettylst.pl v1.39 (build 16265)
+SOURCELONG:Pirates of the Inner Sea	SOURCESHORT:PotIS	SOURCEWEB:http://paizo.com/products/btpy8qif?Pathfinder-Player-Companion-Pirates-of-the-Inner-Sea	SOURCEDATE:2012-04
+# Original Entry by: Stefan Radermacher
+
+###Block: Exotic Weapons
+# Equipment Name	Unique Key				Required Weapon Proficiency		Type									Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Range		Size		Source Page
+Grappling Hook	KEY:Grappling Hook ~ Weapon	PROFICIENCY:WEAPON|Grappling Hook	TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Thrown	COST:6	WT:14		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL	WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.18
+
+###Block: Modifications
+# Equipment Name		Type
+Crossbow (Light).MOD	TYPE:Pirate
+Crossbow (Heavy).MOD	TYPE:Pirate
+
+#
+# End
+#
