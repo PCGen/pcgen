@@ -3,6 +3,7 @@
 # Equipment Name			Required Weapon Proficiency			Required Armor Proficiency	Required Shield Proficiency	Type										Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Range		Size		Add 				Ability													Combat bonus			Special Property
 Test Equipment																				TYPE:CODE433																																	ABILITY:Any Feat Choice|VIRTUAL|AFC 1	ABILITY:Any Feat Choice|AUTOMATIC|AFC 2
 
+Greatcoat	TYPE:Armor.Light	!PREEQUIP:1,TYPE=Armor.Heavy,TYPE=Armor.Medium	COST:20	WT:5	EQMOD:LEATHER		SOURCEPAGE:pg.196	BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:SLOTS|TORSO|1	BONUS:SLOTS|Ring|1	SPROP:Can be worn over Light Armor.
 
 Longbow				PROFICIENCY:WEAPON|Longbow													TYPE:Weapon.Ranged.Piercing.Cool.Magic.RangeIncrementTen			SLOTS:2	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	WIELD:TwoHanded	RANGE:100	SIZE:M																								SPROP:This is a test bow
 
