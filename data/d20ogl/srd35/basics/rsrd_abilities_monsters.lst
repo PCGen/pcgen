@@ -2254,7 +2254,7 @@ Constrict		KEY:Constrict ~ Constrictor Snake		CATEGORY:Special Ability	TYPE:Spec
 Improved Grab	KEY:Improved Grab ~ Constrictor Snake	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:To use this ability, a constrictor snake must hit with its bite attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, it establishes a hold and can constrict.
 
 # ~ Viper Snake
-Poison		KEY:Poison ~ Viper Snake	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:A viper snake has a poisonous bite that deals initial and secondary damage of 1d6 Con. The save DC varies by the snake's size, as shown on the table below. The save DCs are Constitution-based. DC: %1|PoisonDC	DESC:Tiny 10|PRESIZEEQ:T	DESC:Small 10|PRESIZEEQ:S	DESC:Medium 11|PRESIZEEQ:M	DESC:Large 11|PRESIZEEQ:L	DESC:Huge 14|PRESIZEEQ:H
+Poison		KEY:Poison ~ Viper Snake	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:A viper snake has a poisonous bite that deals initial and secondary damage of 1d6 Con. The save DC varies by the snake's size, as shown on the table below. The save DCs are Constitution-based. DC: %1|PoisonDC
 
 # ~ Squid
 Improved Grab	KEY:Improved Grab ~ Squid	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DESC:To use this ability, a squid must hit an opponent of any size with its arms attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, it establishes a hold and automatically deals bite damage. *A squid has a +4 racial bonus on grapple checks.
