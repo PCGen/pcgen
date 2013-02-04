@@ -1,0 +1,25 @@
+# CVS $Revision$ $Author$ -- Tue Oct 16 20:52:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
+# ORIGINAL ENTRY BY: Andrew Maitland
+# ORIGINAL ENTRY DATE: 2011-11-26
+
+# Equipment Name		Required Armor Proficiency		Type				Cost		Weight	AC Penalty Check	Maximum DEX Bonus	% of Spell Failure	Combat bonus				Bonus to skill
+Leafmail			PROFICIENCY:ARMOR|Leafmail		TYPE:Armor.Light		COST:170	WT:6					MAXDEX:9		SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Armor
+# Med
+Draconic Mesh		PROFICIENCY:ARMOR|Draconic Mesh	TYPE:Armor.Medium		COST:30000	WT:40		ACCHECK:-6		MAXDEX:0		SPELLFAILURE:40		BONUS:COMBAT|AC|12|TYPE=Armor
+# Heavy
+Dragon Plate		PROFICIENCY:ARMOR|Dragon Plate	TYPE:Armor.Heavy		COST:5000	WT:70		ACCHECK:-8		MAXDEX:0		SPELLFAILURE:50		BONUS:COMBAT|AC|9|TYPE=Armor
+# Shields
+#Razor Shield	COST:500	BONUS:COMBAT|AC|1|TYPE=Shield			ACCHECK:-1	SPELLFAILURE:5	WT:6	PROFICIENCY:SHIELD|Razor Shield	TYPE:Shield.Light
+# Helms
+Helm (Draconic-Type I)							TYPE:Helm.Headgear	COST:1000	WT:10												BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:SKILL|Spot,Listen|-2
+Helm (Draconic-Type II)							TYPE:Helm.Headgear	COST:1	WT:5												BONUS:COMBAT|AC|1|TYPE=Armor.STACK	BONUS:SKILL|Spot,Listen|-2
+Helm (Great Wyrm)								TYPE:Helm.Headgear	COST:10000	WT:7												BONUS:COMBAT|AC|2|TYPE=Armor.STACK	BONUS:SKILL|Spot,Listen|-3
+
+
+
+# Extra
+Armor Lining								TYPE:Extra			COST:70
+
+
+

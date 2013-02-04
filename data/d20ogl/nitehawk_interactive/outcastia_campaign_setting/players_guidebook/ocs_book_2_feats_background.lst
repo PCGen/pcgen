@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Tue Oct 16 20:52:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
+# ORIGINAL ENTRY BY: Andrew Maitland
+# ORIGINAL ENTRY DATE: 2011-11-26
+
+##164
+# Feat Name			Product Identity?	Type			Prohibited Feat					Description																										Bonus to skill									Source Page
+Alagar Noble		NAMEISPI:YES	TYPE:Background								DESC:You are a member of one of Alagar's noble families and enjoy all the privileges that come with it.																					SOURCEPAGE:p.164
+Blood of the Outcasts				TYPE:Background								DESC:You have the blood of one of the original founders of Outcastia flowing through your veins.																						SOURCEPAGE:p.164
+Outcastia Noble		NAMEISPI:YES	TYPE:Background								DESC:You are a member of one of Outcastia's noble families and enjoy all the privileges that come with it.																					SOURCEPAGE:p.164
+Rock Crawler					TYPE:Background								DESC:You grew up in rocky terrain, making you very comfortable moving about in such an environment.																						SOURCEPAGE:p.164
+Sense of Heritage					TYPE:Background	!PREFEAT:1,Alagar Noble,Outcastia Noble	DESC:You are a member of an influential family, and are able to capitalize on your family's social status.										BONUS:SKILL|Diplomacy,Gather Information,Intimidate|2|TYPE=Morale	SOURCEPAGE:p.164
+Undead Familiarity				TYPE:Background								DESC:Some undead still linger in your homeland, and you have seen enough of them in your upbringing to know how to deal with them more effectively than most.												SOURCEPAGE:p.164
+#TODO: Benefits: Clerics or paladins with this feat gain a +1 competency bonus on all turning checks.
+
+# EOF

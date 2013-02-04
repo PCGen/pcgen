@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
+# ORIGINAL ENTRY BY: Andrew Maitland
+# ORIGINAL ENTRY DATE: 2011-11-26
+
+# Language		Type
+Nightcommon		TYPE:Spoken.Written.Read
+Centaur		TYPE:Spoken.Written.Read
+Voiceless Wraith	TYPE:Spoken.Written.Read

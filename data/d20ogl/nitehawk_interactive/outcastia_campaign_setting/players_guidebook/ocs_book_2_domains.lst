@@ -1,0 +1,21 @@
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
+# ORIGINAL ENTRY BY: Andrew Maitland
+# ORIGINAL ENTRY DATE: 2011-11-26
+
+# Domain Name	Class Skill						Source Page		Description																																				List of Domain Spells by Level
+Emotion		CSKILL:Bluff|Intimidate|Sense Motive	SOURCEPAGE:p.178	DESC:A cleric who chooses the Emotion domain adds Bluff (Cha), Intimidate (Cha), and Sense Motive (Wis) to his class skills. You gain +2 to Bluff, Intimidate, and Sense Motive skill checks.						SPELLLEVEL:DOMAIN|Emotion=1|Cause Fear|Emotion=2|Calm Emotions|Emotion=3|Heroism|Emotion=4|Rage|Emotion=5|Crushing Despair|Emotion=6|Geas/Quest|Emotion=7|Insanity|Emotion=8|Irresistible Dance|Emotion=9|Charm Monster (Mass)
+#Deities: At'tia, Cha'chay, Nordaim, Xandra, Yaesilvanne
+Prophecy									SOURCEPAGE:p.178	DESC:You are able to "see" into the immediate future, allowing you once per day to re-roll a saving throw or attack roll that you have just made. You may then choose whether to keep the original roll, or the new one.	SPELLLEVEL:DOMAIN|Prophecy=1|True Strike|Prophecy=2|Augury|Prophecy=3|Locate Object|Prophecy=4|Divination|Prophecy=5|Commune|Prophecy=6|Find the Path|Prophecy=7|Vision|Prophecy=8|Discern Location|Prophecy=9|Foresight
+#Deities: Filanein, Manunzul, Umblestrand, Varinia
+Time										SOURCEPAGE:p.178	DESC:You age 1/4 slower than normal individuals of your race. Add 25%% to each of the age stages (Middle Age, Old, Venerable, and Max Age) for your race.												SPELLLEVEL:DOMAIN|Time=1|Power Word (Hesitate)|Time=2|Delay Poison|Time=3|Power Word (Delay)|Time=4|Slow|Time=5|Haste|Time=6|Mists of Time|Time=7|Foresight|Time=8|Watcher|Time=9|Time Stop
+#Deities: Darr, Freydis, Manunzul, Ulric
+
+###Block: missing
+#ANTIMAGIC
+#PESTILENCE
+#SHADOW
+
+# Domain Name	Source, Long Desc.		Source, Short Desc.	Source Page
+Antimagic		SOURCELONG:Divine Aspirations	SOURCESHORT:NI_DA		SOURCEPAGE:p.189
+#Deities: Arkonseptsis, Blitzhavoc

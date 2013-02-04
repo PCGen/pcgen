@@ -1,0 +1,35 @@
+
+This printing of the Outcastia Campaign Sourcebook (OCS) Player's Guidebook is done under version 1.0a of the Open Game License and the D20 System Trademark License version 6.0,
+D20 System Trademark Logo Guide 5.0 and the System Reference Document by permission from Wizards of the Coast.
+As with many Open Game License (OGL) products, the ability of future publishers to make use of the material contained in this book is a bit complex. Our intention is to open up as much of
+OCS as possible to be used as Open Game Content (OGC), while maintaining Product Identity (PI) to all aspects of the Creatures & Chaos line of products. Anyone desiring to use the OGC
+materials from this book are encouraged to contact publisher@nitehawk-games.biz if they have any questions or concerns about reproducing material from the OCS in other OGL works. The
+producer and publisher would appreciate anyone using OGC material from this product in other OGL works to kindly reference Outcastia Campaign Setting 5th Edition as the source of that
+material within the text of their work. Open Game Content may only be used under and in accordance with the terms of the OGL as fully set forth in the Legal Appendix.
+Designation of Product Identity: The following items are hereby designated as Product Identity in accordance with Section 1(e) of the Open Game License, version 1.0a: Any and all
+Nitehawk Interactive Games Games logos and identifying marks and trade dress, including all Nitehawk Interactive Games Games Product and Product Line names including but not limited
+to Creatures & Chaos, The Creatures & Choas logo, The Adventurer's Handbook, Outcastia Campaign Setting and the Outcastia CS logo; any elements of the Outcastia setting or other
+Creatures & Chaos products, including but not limited to capitalized names, names of artifacts, spell names, characters, countries, creatures, geographic locations, gods, historic events, magic
+items, organizations or titans; and any and all stories, storylines, plots, thematic elements, and dialogue; and all artwork, symbols, designs, depictions, illustrations, maps and cartography,
+likenesses, poses, logos, symbols, or graphic designs, except such elements that already appear in the d20 System Reference Document (e.g. Nystul or Bigsby) and are already OGC by virtue
+of appearing there. The above Product Identity is not Open Game Content.
+Designation of Open Content: Subject to the Product Identity designation above, the following portions of the OCS is designated as Open Game Content; All contect is considered OGC
+except for artifact names and the names of persons referenced in artifact descriptions (ie. Shadmar and Larishae).
+Limited License for use of spell names and Product Identity (PI) in spell names: Nitehawk Interactive Games hereby grants other OGL publishers a non-exclusive, irrevocable, royalty-free
+limited license to use the spell names and the PI elements which appear in the spell names contained in this book in OGL publications. Use of PI elements is limited solely to using these PI
+elements in the spell name itself and for no other use. For example, the spell name "Wraith of Alfheim" may be used to refer to the spell of the same name, even though "Alfheim-Rigel" is PI
+of Nitehawk Interactive Games. The name "Alfheim-Rigel" or it's shortened form of "Alfheim," however, may not be used in any other way except where it appears as part of the spell name
+if referring to a person. Any publication making use of such spell names and PI elements in spell names must bear a legal notice that both 1) any such PI used is reserved Product Identity,
+not Open Game Content, and 2) spell names are copyright 2009, Nitehawk Interactive Games, all rights reserved.
+Some of the portions of this book which are delineated OGC originate from the System Reference Document and are C1999-2005 Wizards of the Coast, Inc. The remainder of the OGC
+portions of this book are hereby added to Open Game Content and if so used, should bear the COPYRIGHT NOTICE "Outcastia Campaign Sourcebook 5th Edition; Book I: World Tour,
+Copyright 2009, Nitehawk Interactive Games."
+All contents of this book, regardless of designation, are copyrighted 2009 by Nitehawk Interactive Games Games. All rights reserved. Reproduction or use without the written permission of
+the publisher is expressly forbidden, except for the purpose of review or use consistent with the limited license above.
+Outcastia, the Outcastia logo, OCS, Creatures & Chaos, the Creatures & Chaos logo, The Adventurer's Handbook, AHB, Divine Aspirations, Larrgn Steelehart's Deadly Adventures, Mad
+Wizard Shadmar, and Tome of Terrors are trademarks of Nitehawk Interactive Games. All rights reserved.
+The mention of or reference to any company or product in these pages is not a challenge to the trademark or copyright concerned.
+'d20 System' and the 'd20 System' logo are Trademarks owned by Wizards of the Coast and are used according to the terms of the d20 System License version 6.0. A copy of this License
+can he found at www.wizards.com.
+"Dungeons & DragonsR and Wizards of the CoastR are Registered Trademarks of Wizards of the Coast, and are used with Permission."
+PRINTED IN USA. Fifth Edition (World Tour); First Printing November 2009.
