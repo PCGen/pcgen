@@ -462,7 +462,7 @@ function printSpaceReach(aSpace,aReach) {
 |MANUALWHITESPACE|
 |IIF(AC.Size:0)|
 |ELSE|
-&nbsp;&#x0020;&nbsp;&#x0020;(|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||BONUS.COMBAT.AC.Size.SIGN|</font>&#x0020;size
+&nbsp;&#x0020;&nbsp;&#x0020;(|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.Size.SIGN|</font>&#x0020;size
 |ENDIF|
 |IIF(AC.Ability:0)|
 |ELSE|
@@ -471,7 +471,7 @@ function printSpaceReach(aSpace,aReach) {
 |ELSE|
 ,&#x0020;
 |ENDIF|
-|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||BONUS.COMBAT.AC.Ability.SIGN|</font>&#x0020;Dex
+|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.Ability.SIGN|</font>&#x0020;Dex
 |ENDIF|
 |IIF(AC.NaturalArmor:0)|
 |ELSE|
@@ -480,7 +480,7 @@ function printSpaceReach(aSpace,aReach) {
 |ELSE|
 ,&#x0020;
 |ENDIF|
-|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||BONUS.COMBAT.AC.NaturalArmor.SIGN|</font>&#x0020;natural
+|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.NaturalArmor.SIGN|</font>&#x0020;natural
 |ENDIF|
 |IIF(AC.Deflection:0)|
 |ELSE|
@@ -489,7 +489,7 @@ function printSpaceReach(aSpace,aReach) {
 |ELSE|
 ,&#x0020;
 |ENDIF|
-|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||BONUS.COMBAT.AC.Deflection.SIGN|</font>&#x0020;deflection
+|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.Deflection.SIGN|</font>&#x0020;deflection
 |ENDIF|
 |IIF(AC.Misc:0)|
 |ELSE|
@@ -498,7 +498,7 @@ function printSpaceReach(aSpace,aReach) {
 |ELSE|
 ,&#x0020;
 |ENDIF|
-|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||BONUS.COMBAT.AC.Misc.SIGN|</font>&#x0020;misc
+|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.Misc.SIGN|</font>&#x0020;misc
 |ENDIF|
 
 |IIF(AC.Armor:0)|
@@ -508,14 +508,14 @@ function printSpaceReach(aSpace,aReach) {
 |ELSE|
 ,&#x0020;
 |ENDIF|
-|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||BONUS.COMBAT.AC.Armor.SIGN|&#x0020;</font>|EQ.IS.ARMOR.0.NAME|
+|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.Armor.SIGN|&#x0020;</font>|EQ.IS.ARMOR.0.NAME|
 |ENDIF|
 |IIF(AC.Shield:0)|
 |ELSE|
 |IIF(AC.Size:0.AND.AC.Ability:0.AND.AC.NaturalArmor:0.AND.AC.Misc:0.AND.AC.Armor:0)|
 &nbsp;&#x0020;&nbsp;&#x0020;(
 |ELSE|
-,&#x0020;|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||BONUS.COMBAT.AC.Shield.SIGN|</font>
+,&#x0020;|ENDMANUALWHITESPACE|<font face="ScalaSans Caps">|MANUALWHITESPACE||AC.Shield.SIGN|</font>
 |ENDIF|
 |IIF(EQ.IS.SHIELD.0.TYPE:HEAVY)|
 &#x0020;Heavy&#x0020;Shield

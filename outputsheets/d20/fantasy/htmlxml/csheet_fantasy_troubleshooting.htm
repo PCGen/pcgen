@@ -54,34 +54,34 @@ $Date: 2007/03/08 18:57:54 $
 
 <b>Initiative</b> |INITIATIVEMOD| = |STAT.1.MOD.SIGN|[STAT] |INITIATIVEBONUS.SIGN|[MISC]<br>
 
-<b>Armor Class</b> |BONUS.COMBAT.AC.Total| = |BONUS.COMBAT.AC.Base.SIGN|[BASE]
+<b>Armor Class</b> |AC.Total| = |AC.Base.SIGN|[BASE]
 |IIF(AC.Size:0)|
 |ELSE|
-|BONUS.COMBAT.AC.Size.SIGN|[SIZE] 
+|AC.Size.SIGN|[SIZE] 
 |ENDIF|
 |IIF(AC.Ability:0)|
 |ELSE|
-|BONUS.COMBAT.AC.Ability.SIGN|[STAT] 
+|AC.Ability.SIGN|[STAT] 
 |ENDIF|
 |IIF(AC.NaturalArmor:0)|
 |ELSE|
-|BONUS.COMBAT.AC.NaturalArmor.SIGN|[NATURAL] 
+|AC.NaturalArmor.SIGN|[NATURAL] 
 |ENDIF|
 |IIF(AC.Deflection:0)|
 |ELSE|
-|BONUS.COMBAT.AC.Deflection.SIGN|[DEFLECTION] 
+|AC.Deflection.SIGN|[DEFLECTION] 
 |ENDIF|
 |IIF(AC.Misc:0)|
 |ELSE|
-|BONUS.COMBAT.AC.Misc.SIGN|[MISC]
+|AC.Misc.SIGN|[MISC]
 |ENDIF|
 |IIF(AC.Armor:0)|
 |ELSE|
-|BONUS.COMBAT.AC.Armor.SIGN| [|EQ.IS.ARMOR.0.NAME|], 
+|AC.Armor.SIGN| [|EQ.IS.ARMOR.0.NAME|], 
 |ENDIF|
 |IIF(AC.Shield:0)|
 |ELSE|
-|BONUS.COMBAT.AC.Shield.SIGN| 
+|AC.Shield.SIGN| 
 |IIF(EQ.IS.SHIELD.0.TYPE:HEAVY)|
 [Heavy Shield] 
 |ELSE|

@@ -108,38 +108,38 @@ th
   </tr>
   <tr valign="top">
     <td width="25%"><b>Armor Class: </b></td>
-    <td width="75%">|BONUS.COMBAT.AC.Total| (
+    <td width="75%">|AC.Total| (
 |IIF(AC.Size:0)|
 |ELSE|
-|BONUS.COMBAT.AC.Size.SIGN| size, 
+|AC.Size.SIGN| size, 
 |ENDIF|
 |IIF(AC.Ability:0)|
 |ELSE|
-|BONUS.COMBAT.AC.Ability.SIGN| Dex, 
+|AC.Ability.SIGN| Dex, 
 |ENDIF|
 |IIF(AC.NaturalArmor:0)|
 |ELSE|
-|BONUS.COMBAT.AC.NaturalArmor.SIGN| natural, 
+|AC.NaturalArmor.SIGN| natural, 
 |ENDIF|
 |IIF(AC.Dodge:0)|
 |ELSE|
-|BONUS.COMBAT.AC.Dodge.SIGN| dodge,
+|AC.Dodge.SIGN| dodge,
 |ENDIF|
 |IIF(AC.Deflection:0)|
 |ELSE|
-|BONUS.COMBAT.AC.Deflection.SIGN| deflection, 
+|AC.Deflection.SIGN| deflection, 
 |ENDIF|
 |IIF(AC.Misc:0)|
 |ELSE|
-|BONUS.COMBAT.AC.Misc.SIGN| misc
+|AC.Misc.SIGN| misc
 |ENDIF|
 |IIF(AC.Armor:0)|
 |ELSE|
-|BONUS.COMBAT.AC.Armor.SIGN| |EQ.IS.ARMOR.0.NAME|, 
+|AC.Armor.SIGN| |EQ.IS.ARMOR.0.NAME|, 
 |ENDIF|
 |IIF(AC.Shield:0)|
 |ELSE|
-|BONUS.COMBAT.AC.Shield.SIGN| 
+|AC.Shield.SIGN| 
 |IIF(EQ.IS.SHIELD.0.TYPE:HEAVY)|
 Heavy Shield, 
 |ELSE|
@@ -157,7 +157,7 @@ Tower Shield,
 |ELSE|
 |ENDIF|
 |ENDIF|
-) touch |BONUS.COMBAT.AC.Touch|, flatfooted |BONUS.COMBAT.AC.Flatfooted|</td>
+) touch |AC.Touch|, flatfooted |AC.Flatfooted|</td>
   </tr>
 
 |IIF(VAR.UseCombatManueverBonus:1)|

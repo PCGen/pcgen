@@ -65,8 +65,8 @@ vp |HP|; wp |ALTHP|;
 |ENDIF|
 Init |INITIATIVEMOD| 
 (|STAT.1.MOD| Dex, |INITIATIVEBONUS| Misc); Spd |MOVEMENT|; AC 
-|BONUS.COMBAT.AC.Total| (flatfooted |BONUS.COMBAT.AC.Flatfooted|, touch
-|BONUS.COMBAT.AC.Touch|), 
+|AC.Total| (flatfooted |AC.Flatfooted|, touch
+|AC.Touch|), 
 |FOR,%weap,0,COUNT[EQTYPE.WEAPON]-2,1,0|
 |IIF(WEAPON.%weap.BASEHIT:N/A)|
 |WEAPON.%weap.NAME| |WEAPON.%weap.THHIT| |WEAPON.%weap.TYPE| (|WEAPON.%weap.THDAMAGE| |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT| |WEAPON.%weap.HAND| |WEAPON.%weap.SIZE| |WEAPON.%weap.SPROP| |WEAPON.%weap.NOTE|) or 
