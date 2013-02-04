@@ -5,6 +5,7 @@ TYPE:Dreamscarred Press
 RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
+STATUS:BETA
 SETTING:None
 PUBNAMELONG:Dreamscarred Press
 PUBNAMESHORT:DSP
@@ -14,6 +15,7 @@ SOURCESHORT:PEFtM
 SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=73.html
 SOURCEDATE:2011-07
 ISOGL:YES
+PRECAMPAIGN:1,DSP - Psionics Unleashed
 
 COVER:pe_find_the_mark.jpg
 LOGO:@/publisher_logos/Dreamscarred_Press.jpg
@@ -42,8 +44,6 @@ COPYRIGHT:Psionics Unleashed. Copyright 2010, Dreamscarred Press.
 COPYRIGHT:Psionics Expanded. Copyright 2011, Dreamscarred Press.
 COPYRIGHT:PCGen dataset conversion for Psionics Expanded: Find the Mark, Copyright 2011, PCgen Data team (Including but not limited to Doug Limner (distant-scholar))
 
-PRECAMPAIGN:1,DSP - Psionics Unleashed
-STATUS:ALPHA
 
 FORWARDREF:CLASSSPELLLIST|Tactician
 

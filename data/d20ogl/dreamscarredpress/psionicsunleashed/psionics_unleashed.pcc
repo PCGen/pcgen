@@ -3,6 +3,7 @@ CAMPAIGN:DSP - Psionics Unleashed
 GAMEMODE:Pathfinder
 TYPE:Dreamscarred Press
 RANK:6
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:None
@@ -26,7 +27,6 @@ COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; A
 COPYRIGHT:Psionics Unleashed. Copyright 2010, Dreamscarred Press.
 COPYRIGHT:PCGen dataset conversion for Psionics Unleashed, Copyright 2011, PCgen Data team (Including but not limited to Doug Limner (distant-scholar))
 
-STATUS:BETA
 
 ABILITY:psionics_unleashed_abilities_classes_base.lst
 ABILITY:psionics_unleashed_abilities_classes_prestige.lst
