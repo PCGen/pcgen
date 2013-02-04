@@ -1,0 +1,100 @@
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Harrower	HD:6		TYPE:PC.Prestige	ABB:Har		MAXLEVEL:10	SOURCEPAGE:p.276	BONUS:CHECKS|BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Restricted AL	Required Feats		Required Spell School		Req. Spell Type				Required Text				Required Skills
+CLASS:Harrower	!PREALIGN:TN	PREFEAT:1,Harrowed	PRESPELLSCHOOL:3,Divination=0	PRESPELLTYPE:1,Arcane=3,Divine=3	PRETEXT:Must own a Harrow deck	PRESKILL:1,Knowledge (Arcana)=5,Knowledge (Religion)=5	PRESKILL:1,TYPE.Perform=5
+# Class Name	Skill Pts/Lvl
+CLASS:Harrower	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Diplomacy|Knowledge (Arcana)|Knowledge (Local)|Knowledge (Planes)|Knowledge (Religion)|TYPE=Perform|TYPE=Profession|Spellcraft|Use Magic Device
+# Class Name	Define Vars			
+CLASS:Harrower	DEFINE:HarrowerLvl|CL	NAMEISPI:YES
+###Block: Ability Progression
+1	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Blessing of the Harrow
+2	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Harrow Casting|Tower of Intelligence
+3	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Tower of Strength
+4	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Tower of Charisma
+5	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Spirit Deck					BONUS:VAR|SpiritDeckTimes|max(1,1+CHA)
+6	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Divination ~ Harrower
+7	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Tower of Constitution
+8	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Tower of Dexterity
+9	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Tower of Wisdom
+10	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Reading the Signs
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Hellknight	HD:10		TYPE:PC.Prestige	ABB:HKn		MAXLEVEL:10	SOURCEPAGE:p.278	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Restricted AL	Rqd BAB	Required Feats				Required Skills						Other requirement
+CLASS:Hellknight	PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:1,Armor Proficiency (Heavy)	PRESKILL:2,Intimidate=5,Knowledge (Planes)=2	PRETEXT:Must slay a devil with HD greater than your own. This must be witnessed by a Hellknight
+# Class Name	Skill Pts/Lvl	Class Skills
+CLASS:Hellknight	STARTSKILLPTS:2	CSKILL:Intimidate|Knowledge (Local)|Perception|Ride|Sense Motive
+# Class Name	Define Vars	
+CLASS:Hellknight	DEFINE:HellknightLvl|CL	NAMEISPI:YES
+###Block: Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Aura of Law					BONUS:VAR|AuraLawLVL|TL-AlignmentAuraLVL	
+1	ABILITY:Special Ability|AUTOMATIC|Detect Chaos ~ HK|Smite Chaos ~ HK	BONUS:VAR|HKSmiteTimes|(CL+2)/3					BONUS:ABILITYPOOL|Hellknight Order|1
+2	ABILITY:Special Ability|AUTOMATIC|Discern Lies ~ HK|PREVARGT:3+CHA,0	
+2	ABILITY:Special Ability|AUTOMATIC|Hellknight Armor ~ HK			BONUS:VAR|HKArmor|(CL+1)/3
+3	ABILITY:Special Ability|AUTOMATIC|Discipline ~ HK|Force of Will ~ HK	BONUS:VAR|HKDiscipline|CL/3	BONUS:VAR|HKForceOfWill|CL/3	BONUS:ABILITYPOOL|Hellknight Force of Will 1|1
+6																							BONUS:ABILITYPOOL|Hellknight Force of Will 2|1
+7	ABILITY:Special Ability|AUTOMATIC|Lawbringer ~ HK
+9	ABILITY:Special Ability|AUTOMATIC|Infernal Armor ~ HK														BONUS:ABILITYPOOL|Hellknight Force of Will 3|1
+10	ABILITY:Special Ability|AUTOMATIC|Hell's Knight ~ HK
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Low Templar	HD:10		TYPE:PC.Prestige	ABB:Low		MAXLEVEL:10	SOURCEPAGE:p.280	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Feats							Required Skills						
+CLASS:Low Templar	PREFEAT:2,Mounted Combat,Weapon Focus(TYPE=Martial)	PRESKILL:2,Bluff=5,Ride=5	PRESKILL:1,Knowledge (Nobility)=2,Knowledge (Planes)=2
+# Class Name	Skill Pts/Lvl	Class Skills
+CLASS:Low Templar	STARTSKILLPTS:2	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Handle Animal|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Knowledge (Planes)|Linguistics|Ride|Sense Motive|Stealth|Survival
+# Class Name	Define Vars	
+CLASS:Low Templar	DEFINE:LowTemplarLvl|CL
+###Block: Weapon & Armor Proficiencies
+1	ABILITY:Class Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+###Block: Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Crusader ~ Low|Flag of Convenience ~ Low	BONUS:VAR|LowCrusader|(CL+2)/3
+2	ABILITY:Special Ability|AUTOMATIC|Dirty Fighting ~ Low
+3	ABILITY:Special Ability|AUTOMATIC|Sneak Attack						BONUS:VAR|SneakAttack|(CL+2)/5
+5	ABILITY:Special Ability|AUTOMATIC|Live to Fight Another Day ~ Low			BONUS:ABILITYPOOL|Low Templar Path|1
+6	ABILITY:Special Ability|AUTOMATIC|Ruthless ~ Low
+9	ABILITY:Special Ability|AUTOMATIC|Parting Shot ~ Low
+10	ABILITY:Special Ability|AUTOMATIC|Planar Cohort ~ Low					BONUS:ABILITYPOOL|Low Templar Final Choice|1
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Red Mantis Assassin	HD:8		TYPE:PC.Prestige	ABB:RMA		MAXLEVEL:10	SOURCEPAGE:p.282	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Restricted AL	Required Feats																	Required Skills
+CLASS:Red Mantis Assassin	PREALIGN:LE		PREFEAT:4,Alertness,Exotic Weapon Proficiency (Sawtooth Sabre),Two-Weapon Fighting,Weapon Focus (Sawtooth Sabre)	PRESKILL:3,Intimidate=5,Perception=5,Stealth=5
+# Class Name			Skill Pts/Lvl	Class Skills
+CLASS:Red Mantis Assassin	STARTSKILLPTS:6	CSKILL:Acrobatics|Appraise|Bluff|Climb|Disguise|Escape Artist|Heal|Intimidate|Knowledge (Local)|Knowledge (Nature)|Knowledge (Nobility)|Knowledge (Religion)|Perception|Sense Motive|Stealth
+# Class Name			Spell Stat		Spell Type		Memorize	Spellist				Prohibit												Bonus
+CLASS:Red Mantis Assassin	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:2|Sorcerer|Wizard	PROHIBITED:Abjuration,Conjuration,Divination,Enchantment,Evocation,Necromancy	BONUS:CASTERLEVEL|Red Mantis Assassin|CL
+# Class Name			Define Vars	
+CLASS:Red Mantis Assassin	DEFINE:RedMantisLvl|CL	NAMEISPI:YES
+###Block: Weapon & Armor Proficiencies
+1	ABILITY:Class Ability|AUTOMATIC|RMA Weapon Proficiencies
+1	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1	AUTO:FEAT|Armor Proficiency (Light)
+###Block: Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Sabre Fighting|Sneak Attack|Armored Casting ~ RMA	BONUS:VAR|SneakAttack|1	BONUS:VAR|SabreFightingLvl|CL
+2	ABILITY:Special Ability|AUTOMATIC|Prayer Attack|RMA Bonus Spells
+3	ABILITY:Special Ability|AUTOMATIC|Red Shroud
+4	ABILITY:Special Ability|AUTOMATIC|Summon Mantis							BONUS:VAR|SneakAttack|1
+5	ABILITY:Special Ability|AUTOMATIC|Resurrection Sense						BONUS:VAR|SabreFighting|1
+6	ABILITY:Special Ability|AUTOMATIC|Mantis Form|PREVARLT:RedMantisLvl,8
+7															BONUS:VAR|SneakAttack|1
+8	ABILITY:Special Ability|AUTOMATIC|Fading	ABILITY:Special Ability|AUTOMATIC|Blood Mantis Form|PREVARLT:RedMantisLvl,10
+9	ABILITY:Special Ability|AUTOMATIC|Mantis Doom
+10	ABILITY:Special Ability|AUTOMATIC|Death Mantis Form						BONUS:VAR|SneakAttack|1
+###Block: Spells
+1	CAST:0,1		KNOWN:0,2
+2	CAST:0,2		KNOWN:0,3
+3	CAST:0,3		KNOWN:0,4
+4	CAST:0,3,1		KNOWN:0,4,2
+5	CAST:0,4,2		KNOWN:0,4,3
+6	CAST:0,4,3		KNOWN:0,4,4
+7	CAST:0,4,3,1	KNOWN:0,5,4,2
+8	CAST:0,4,4,2	KNOWN:0,5,4,3
+9	CAST:0,5,4,3	KNOWN:0,5,4,4
+10	CAST:0,5,4,3,1	KNOWN:0,5,5,4,2
+
+CLASS:Druid.MOD
+1	PROHIBITSPELL:DESCRIPTOR.Fire|PREFEAT:1,Shade of the Uskwood

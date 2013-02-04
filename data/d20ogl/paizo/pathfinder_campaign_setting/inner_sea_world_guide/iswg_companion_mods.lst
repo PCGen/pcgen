@@ -1,0 +1,9 @@
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by: Paul Shipley
+
+# Animal Companion support for ISWG feats
+FOLLOWER:AnimalCompanionLVL,AndorenFalconry=1	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Companion Andoren Falconry
+
+#
+## End
+#

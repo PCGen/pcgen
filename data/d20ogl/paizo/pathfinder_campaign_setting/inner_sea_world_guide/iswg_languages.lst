@@ -1,0 +1,37 @@
+# CVS $Revision: 12254 $ $Author: eddyanthony $ -- Mon Apr 11 11:19:21 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+
+###Block: Modern Human Languages
+# Language		Type					Source Page
+Hallit		TYPE:Spoken.Written.Read	SOURCEPAGE:p.251	NAMEISPI:YES
+Kelish		TYPE:Spoken.Written.Read	SOURCEPAGE:p.251	NAMEISPI:YES
+Osiriani		TYPE:Spoken.Written.Read	SOURCEPAGE:p.251	NAMEISPI:YES
+Polyglot		TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
+Shadowtongue	TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
+Shoanti		TYPE:Spoken.Written.Read	SOURCEPAGE:p.251	NAMEISPI:YES
+Skald			TYPE:Spoken.Written.Read	SOURCEPAGE:p.251	NAMEISPI:YES
+Tien			TYPE:Spoken.Written.Read	SOURCEPAGE:p.251	NAMEISPI:YES
+Varisian		TYPE:Spoken.Written.Read	SOURCEPAGE:p.251	NAMEISPI:YES
+Vudrani		TYPE:Spoken.Written.Read	SOURCEPAGE:p.251	NAMEISPI:YES
+
+###Block: Ancient Languages
+# Language		Type					Source Page
+Ancient Osiriani	TYPE:Read.Written			SOURCEPAGE:p.251	NAMEISPI:YES
+Azlanti		TYPE:Read.Written			SOURCEPAGE:p.251	NAMEISPI:YES
+# elro - Commenting out as this duplicates with content in PFCR (which this set depends on)
+# Cyclops		TYPE:Read.Written	SOURCEPAGE:p.251
+Jistka		TYPE:Read.Written			SOURCEPAGE:p.251	NAMEISPI:YES
+Tekritanin		TYPE:Read.Written			SOURCEPAGE:p.251	NAMEISPI:YES
+Thassionian		TYPE:Read.Written			SOURCEPAGE:p.251	NAMEISPI:YES
+
+###Block: Other Languages
+# Language	Type					Source Page
+Necril		TYPE:Spoken.Written.Read	SOURCEPAGE:p.251
+Orvian		TYPE:Spoken.Written.Read	SOURCEPAGE:p.251	NAMEISPI:YES
+
+###Block: Bestiary Language
+Strix			TYPE:Spoken.Written.Read	SOURCEPAGE:p.313
+
+#
+# End
+#
