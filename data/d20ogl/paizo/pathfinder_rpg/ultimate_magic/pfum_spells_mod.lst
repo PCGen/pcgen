@@ -1,0 +1,336 @@
+# CVS $Revision$ $Author$ -- Sun Apr 22 08:08:02 2012 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Ultimate Magic	SOURCESHORT:PFUM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# Original Entry by: Stefan Radermacher and Eric Smith (Maredudd)
+
+###Block: Core Rulebook Magus Spells
+# 0-Level Magus Spells
+# Spell Name			Classes of caster
+Acid Splash.MOD			CLASSES:Magus=0
+Arcane Mark.MOD			CLASSES:Magus=0
+Dancing Lights.MOD		CLASSES:Magus=0
+Daze.MOD				CLASSES:Magus=0
+Detect Magic.MOD			CLASSES:Magus=0
+Disrupt Undead.MOD		CLASSES:Magus=0
+Flare.MOD				CLASSES:Magus=0
+Ghost Sound.MOD			CLASSES:Magus=0
+Light.MOD				CLASSES:Magus=0
+Mage Hand.MOD			CLASSES:Magus=0
+Open/Close.MOD			CLASSES:Magus=0
+Prestidigitation.MOD		CLASSES:Magus=0
+Ray of Frost.MOD			CLASSES:Magus=0
+Read Magic.MOD			CLASSES:Magus=0
+
+# 1st-Level Magus Spells
+Burning Hands.MOD			CLASSES:Magus=1
+Chill Touch.MOD			CLASSES:Magus=1
+Color Spray.MOD			CLASSES:Magus=1
+Enlarge Person.MOD		CLASSES:Magus=1
+Expeditious Retreat.MOD		CLASSES:Magus=1
+Feather Fall.MOD			CLASSES:Magus=1
+Floating Disk.MOD			CLASSES:Magus=1
+Grease.MOD				CLASSES:Magus=1
+Jump.MOD				CLASSES:Magus=1
+Magic Missile.MOD			CLASSES:Magus=1
+Magic Weapon.MOD			CLASSES:Magus=1
+Mount.MOD				CLASSES:Magus=1
+Obscuring Mist.MOD		CLASSES:Magus=1
+Ray of Enfeeblement.MOD		CLASSES:Magus=1
+Reduce Person.MOD			CLASSES:Magus=1
+Shield.MOD				CLASSES:Magus=1
+Shocking Grasp.MOD		CLASSES:Magus=1
+Silent Image.MOD			CLASSES:Magus=1
+True Strike.MOD			CLASSES:Magus=1
+Unseen Servant.MOD		CLASSES:Magus=1
+
+# 2nd-Level Magus Spells
+Acid Arrow.MOD			CLASSES:Magus=2
+Alter Self.MOD			CLASSES:Magus=2
+Bear's Endurance.MOD		CLASSES:Magus=2
+Blur.MOD				CLASSES:Magus=2
+Bull's Strength.MOD		CLASSES:Magus=2
+Cat's Grace.MOD			CLASSES:Magus=2
+Darkness.MOD			CLASSES:Magus=2
+Flaming Sphere.MOD		CLASSES:Magus=2
+Fog Cloud.MOD			CLASSES:Magus=2
+Glitterdust.MOD			CLASSES:Magus=2
+Gust of Wind.MOD			CLASSES:Magus=2
+Invisibility.MOD			CLASSES:Magus=2
+Levitate.MOD			CLASSES:Magus=2
+Minor Image.MOD			CLASSES:Magus=2
+Mirror Image.MOD			CLASSES:Magus=2
+Pyrotechnics.MOD			CLASSES:Magus=2
+Scorching Ray.MOD			CLASSES:Magus=2
+Shatter.MOD				CLASSES:Magus=2
+Spider Climb.MOD			CLASSES:Magus=2
+Web.MOD				CLASSES:Magus=2
+
+# 3rd-Level Magus Spells
+Arcane Sight.MOD			CLASSES:Magus=3
+Beast Shape I.MOD			CLASSES:Magus=3
+Blink.MOD				CLASSES:Magus=3
+Daylight.MOD			CLASSES:Magus=3
+Dispel Magic.MOD			CLASSES:Magus=3
+Displacement.MOD			CLASSES:Magus=3
+Fireball.MOD			CLASSES:Magus=3
+Flame Arrow.MOD			CLASSES:Magus=3
+Fly.MOD				CLASSES:Magus=3
+Gaseous Form.MOD			CLASSES:Magus=3
+Haste.MOD				CLASSES:Magus=3
+Keen Edge.MOD			CLASSES:Magus=3
+Lightning Bolt.MOD		CLASSES:Magus=3
+Magic Weapon (Greater).MOD	CLASSES:Magus=3
+Major Image.MOD			CLASSES:Magus=3
+Phantom Steed.MOD			CLASSES:Magus=3
+Ray of Exhaustion.MOD		CLASSES:Magus=3
+Sleet Storm.MOD			CLASSES:Magus=3
+Slow.MOD				CLASSES:Magus=3
+Stinking Cloud.MOD		CLASSES:Magus=3
+Vampiric Touch.MOD		CLASSES:Magus=3
+Water Breathing.MOD		CLASSES:Magus=3
+Wind Wall.MOD			CLASSES:Magus=3
+
+# 4th-Level Magus Spell
+Beast Shape II.MOD		CLASSES:Magus=4
+Black Tentacles.MOD		CLASSES:Magus=4
+Dimension Door.MOD		CLASSES:Magus=4
+Elemental Body I.MOD		CLASSES:Magus=4
+Enlarge Person (Mass).MOD	CLASSES:Magus=4
+Fire Shield.MOD			CLASSES:Magus=4
+Ice Storm.MOD			CLASSES:Magus=4
+Invisibility (Greater).MOD	CLASSES:Magus=4
+Phantasmal Killer.MOD		CLASSES:Magus=4
+Reduce Person (Mass).MOD	CLASSES:Magus=4
+Shout.MOD				CLASSES:Magus=4
+Solid Fog.MOD			CLASSES:Magus=4
+Stoneskin.MOD			CLASSES:Magus=4
+Wall of Fire.MOD			CLASSES:Magus=4
+Wall of Ice.MOD			CLASSES:Magus=4
+
+# 5th-Level Magus Spells
+Baleful Polymorph.MOD		CLASSES:Magus=5
+Beast Shape III.MOD		CLASSES:Magus=5
+Cloudkill.MOD			CLASSES:Magus=5
+Cone of Cold.MOD			CLASSES:Magus=5
+Elemental Body II.MOD		CLASSES:Magus=5
+Interposing Hand.MOD		CLASSES:Magus=5
+Overland Flight.MOD		CLASSES:Magus=5
+Telekinesis.MOD			CLASSES:Magus=5
+Teleport.MOD			CLASSES:Magus=5
+Wall of Force.MOD			CLASSES:Magus=5
+Wall of Stone.MOD			CLASSES:Magus=5
+
+# 6th-Level Magus Spells
+Acid Fog.MOD			CLASSES:Magus=6
+Bear's Endurance (Mass).MOD	CLASSES:Magus=6
+Beast Shape IV.MOD		CLASSES:Magus=6
+Bull's Strength (Mass).MOD	CLASSES:Magus=6
+Cat's Grace (Mass).MOD		CLASSES:Magus=6
+Chain Lightning.MOD		CLASSES:Magus=6
+Disintegrate.MOD			CLASSES:Magus=6
+Dispel Magic (Greater).MOD	CLASSES:Magus=6
+Elemental Body III.MOD		CLASSES:Magus=6
+Flesh to Stone.MOD		CLASSES:Magus=6
+Forceful Hand.MOD			CLASSES:Magus=6
+Form of the Dragon I.MOD	CLASSES:Magus=6
+Freezing Sphere.MOD		CLASSES:Magus=6
+Mislead.MOD				CLASSES:Magus=6
+Stone to Flesh.MOD		CLASSES:Magus=6
+Transformation.MOD		CLASSES:Magus=6
+True Seeing.MOD			CLASSES:Magus=6
+Wall of Iron.MOD			CLASSES:Magus=6
+
+
+###Block: Advanced Player's Guide Magus Spells
+# 0-Level Magus Spells
+# Spell Name		Classes of caster
+Spark.MOD			CLASSES:Magus=0
+
+# 1st-Level Magus Spells
+Flare Burst.MOD		CLASSES:Magus=1
+Hydraulic Push.MOD	CLASSES:Magus=1
+Stone Fist.MOD		CLASSES:Magus=1
+Vanish.MOD			CLASSES:Magus=1
+
+# 2nd-Level Magus Spells
+Burning Gaze.MOD		CLASSES:Magus=2
+Elemental Touch.MOD	CLASSES:Magus=2
+Fire Breath.MOD		CLASSES:Magus=2
+Stone Call.MOD		CLASSES:Magus=2
+
+# 3rd-Level Magus Spells
+Aqueous Orb.MOD		CLASSES:Magus=3
+Cloak of Winds.MOD	CLASSES:Magus=3
+Elemental Aura.MOD	CLASSES:Magus=3
+Hydraulic Torrent.MOD	CLASSES:Magus=3
+Versatile Weapon.MOD	CLASSES:Magus=3
+
+# 4th-Level Magus Spell
+Ball Lightning.MOD	CLASSES:Magus=4
+Detonate.MOD		CLASSES:Magus=4
+Dragon's Breath.MOD	CLASSES:Magus=4
+Firefall.MOD		CLASSES:Magus=4
+River of Wind.MOD		CLASSES:Magus=4
+
+# 5th-Level Magus Spells
+Fire Snake.MOD		CLASSES:Magus=5
+Geyser.MOD			CLASSES:Magus=5
+
+# 6th-Level Magus Spells
+Contagious Flame.MOD	CLASSES:Magus=6
+Sirocco.MOD			CLASSES:Magus=6
+
+
+###Block: New Descriptors
+# Spell Name				Spell Descriptors
+Accelerate Poison.MOD			DESCRIPTOR:Poison
+Antipathy.MOD				DESCRIPTOR:Emotion
+Aura of Greater Courage.MOD		DESCRIPTOR:Emotion
+Bane.MOD					DESCRIPTOR:Emotion
+Bestow Curse.MOD				DESCRIPTOR:Curse
+Blessing of Courage and Life.MOD	DESCRIPTOR:Emotion
+Blindness/Deafness.MOD			DESCRIPTOR:Curse
+Brand.MOD					DESCRIPTOR:Curse
+Brand (Greater).MOD			DESCRIPTOR:Curse
+Calm Animals.MOD				DESCRIPTOR:Emotion
+Calm Emotions.MOD				DESCRIPTOR:Emotion
+Castigate.MOD				DESCRIPTOR:Emotion
+Castigate (Mass).MOD			DESCRIPTOR:Emotion
+Cause Fear.MOD				DESCRIPTOR:Emotion
+Cloudkill.MOD				DESCRIPTOR:Poison
+Contagion.MOD				DESCRIPTOR:Disease
+Crafter's Curse.MOD			DESCRIPTOR:Curse
+Crushing Despair.MOD			DESCRIPTOR:Emotion
+Cup of Dust.MOD				DESCRIPTOR:Curse
+Doom.MOD					DESCRIPTOR:Emotion
+Euphoric Tranquility.MOD		DESCRIPTOR:Emotion
+Eyebite.MOD					DESCRIPTOR:Emotion|Pain
+Fear.MOD					DESCRIPTOR:Emotion
+Feast of Ashes.MOD			DESCRIPTOR:Curse
+Forced Repentance.MOD			DESCRIPTOR:Emotion
+Geas (Lesser).MOD				DESCRIPTOR:Curse
+Geas/Quest.MOD				DESCRIPTOR:Curse
+Ghoul Touch.MOD				DESCRIPTOR:Poison
+Good Hope.MOD				DESCRIPTOR:Emotion
+Hunter's Howl.MOD				DESCRIPTOR:Emotion
+Ill Omen.MOD				DESCRIPTOR:Curse
+Mark of Justice.MOD			DESCRIPTOR:Curse
+Moonstruck.MOD				DESCRIPTOR:Emotion
+Nature's Exile.MOD			DESCRIPTOR:Curse
+Oracle's Burden.MOD			DESCRIPTOR:Curse
+Pain Strike.MOD				DESCRIPTOR:Pain
+Pain Strike (Mass).MOD			DESCRIPTOR:Pain
+Phantasmal Killer.MOD			DESCRIPTOR:Emotion
+Phantasmal Revenge.MOD			DESCRIPTOR:Emotion
+Poison.MOD					DESCRIPTOR:Poison
+Pox Pustules.MOD				DESCRIPTOR:Disease
+Project Image.MOD				DESCRIPTOR:Shadow
+Putrefy Food and Drink.MOD		DESCRIPTOR:Poison
+Rage.MOD					DESCRIPTOR:Emotion
+Rally Point.MOD				DESCRIPTOR:Emotion
+Repel Vermin.MOD				DESCRIPTOR:Pain
+Rest Eternal.MOD				DESCRIPTOR:Curse
+Retribution.MOD				DESCRIPTOR:Pain
+Scare.MOD					DESCRIPTOR:Emotion
+Shades.MOD					DESCRIPTOR:Shadow
+Shadow Conjuration.MOD			DESCRIPTOR:Shadow
+Shadow Conjuration (Greater).MOD	DESCRIPTOR:Shadow
+Shadow Evocation.MOD			DESCRIPTOR:Shadow
+Shadow Evocation (Greater).MOD	DESCRIPTOR:Shadow
+Shadow Walk.MOD				DESCRIPTOR:Shadow
+Shared Wrath.MOD				DESCRIPTOR:Emotion
+Stinking Cloud.MOD			DESCRIPTOR:Poison
+Symbol of Fear.MOD			DESCRIPTOR:Emotion
+Symbol of Pain.MOD			DESCRIPTOR:Pain
+Sympathy.MOD				DESCRIPTOR:Emotion
+Transmute Potion to Poison.MOD	DESCRIPTOR:Poison
+Venomous Bolt.MOD				DESCRIPTOR:Poison
+Weapon of Awe.MOD				DESCRIPTOR:Emotion
+Weird.MOD					DESCRIPTOR:Emotion
+Wrath.MOD					DESCRIPTOR:Emotion
+
+
+###Block: Metal and Wood Elemental Spells
+#Block: Metal Elemental Spells
+# Spell Name			Spell Descriptors
+Mending.MOD				DESCRIPTOR:MetalSchool
+Gravity Bow.MOD			DESCRIPTOR:MetalSchool
+Magic Weapon.MOD			DESCRIPTOR:MetalSchool
+Shocking Grasp.MOD		DESCRIPTOR:MetalSchool
+Defensive Shock.MOD		DESCRIPTOR:MetalSchool
+Glitterdust.MOD			DESCRIPTOR:MetalSchool
+Make Whole.MOD			DESCRIPTOR:MetalSchool
+Shatter.MOD				DESCRIPTOR:MetalSchool
+Silk to Steel.MOD			DESCRIPTOR:MetalSchool
+Chill Metal.MOD			DESCRIPTOR:MetalSchool
+Heat Metal.MOD			DESCRIPTOR:MetalSchool
+Lightning Bolt.MOD		DESCRIPTOR:MetalSchool
+Keen Edge.MOD			DESCRIPTOR:MetalSchool
+Magic Weapon (Greater).MOD	DESCRIPTOR:MetalSchool
+Versatile Weapon.MOD		DESCRIPTOR:MetalSchool
+Malfunction.MOD			DESCRIPTOR:MetalSchool
+Shout.MOD				DESCRIPTOR:MetalSchool
+Stoneskin.MOD			DESCRIPTOR:MetalSchool
+Lightning Arc.MOD			DESCRIPTOR:MetalSchool
+Major Creation.MOD		DESCRIPTOR:MetalSchool
+Rapid Repair.MOD			DESCRIPTOR:MetalSchool
+Rusting Grasp.MOD			DESCRIPTOR:MetalSchool
+Soothe Construct.MOD		DESCRIPTOR:MetalSchool
+Unbreakable Construct.MOD	DESCRIPTOR:MetalSchool
+Chain Lightning.MOD		DESCRIPTOR:MetalSchool
+Disintegrate.MOD			DESCRIPTOR:MetalSchool
+Wall of Iron.MOD			DESCRIPTOR:MetalSchool
+Control Construct.MOD		DESCRIPTOR:MetalSchool
+# COMMENT: Lightning Rod is listed as a Metal-type spell, but doesn't exist in the book (or Core, or APG)
+#Lightning Rod.MOD		DESCRIPTOR:MetalSchool
+Statue.MOD				DESCRIPTOR:MetalSchool
+Call Construct.MOD		DESCRIPTOR:MetalSchool
+Iron Body.MOD			DESCRIPTOR:MetalSchool
+Shout (Greater).MOD		DESCRIPTOR:MetalSchool
+Stormbolts.MOD			DESCRIPTOR:MetalSchool
+Meteor Swarm.MOD			DESCRIPTOR:MetalSchool
+Repel Metal or Stone.MOD	DESCRIPTOR:MetalSchool
+Ride the Lightning.MOD		DESCRIPTOR:MetalSchool
+
+#Block: Wood Elemental spells
+Light.MOD				DESCRIPTOR:WoodSchool
+Alter Winds.MOD			DESCRIPTOR:WoodSchool
+Animate Rope.MOD			DESCRIPTOR:WoodSchool
+Charm Person.MOD			DESCRIPTOR:WoodSchool
+Cat's Grace.MOD			DESCRIPTOR:WoodSchool
+Entangle.MOD			DESCRIPTOR:WoodSchool
+Protection from Arrows.MOD	DESCRIPTOR:WoodSchool
+Web.MOD				DESCRIPTOR:WoodSchool
+Whispering Wind.MOD		DESCRIPTOR:WoodSchool
+Cloak of Winds.MOD		DESCRIPTOR:WoodSchool
+Tongues.MOD				DESCRIPTOR:WoodSchool
+Tree Shape.MOD			DESCRIPTOR:WoodSchool
+Wind Wall.MOD			DESCRIPTOR:WoodSchool
+Charm Monster.MOD			DESCRIPTOR:WoodSchool
+Hallucinatory Terrain.MOD	DESCRIPTOR:WoodSchool
+Minor Creation.MOD		DESCRIPTOR:WoodSchool
+Plant Growth.MOD			DESCRIPTOR:WoodSchool
+River of Wind.MOD			DESCRIPTOR:WoodSchool
+Secure Shelter.MOD		DESCRIPTOR:WoodSchool
+Sirocco.MOD				DESCRIPTOR:WoodSchool
+Command Plants.MOD		DESCRIPTOR:WoodSchool
+Fabricate.MOD			DESCRIPTOR:WoodSchool
+Fickle Winds.MOD			DESCRIPTOR:WoodSchool
+Mirage Arcana.MOD			DESCRIPTOR:WoodSchool
+Sending.MOD				DESCRIPTOR:WoodSchool
+Telepathic Bond.MOD		DESCRIPTOR:WoodSchool
+Battlemind Link.MOD		DESCRIPTOR:WoodSchool
+Cat's Grace (Mass).MOD		DESCRIPTOR:WoodSchool
+Tree Stride.MOD			DESCRIPTOR:WoodSchool
+Control Weather.MOD		DESCRIPTOR:WoodSchool
+Liveoak.MOD				DESCRIPTOR:WoodSchool
+Scouring Winds.MOD		DESCRIPTOR:WoodSchool
+Charm Monster (Mass).MOD	DESCRIPTOR:WoodSchool
+Euphoric Tranquility.MOD	DESCRIPTOR:WoodSchool
+Transmute Metal to Wood.MOD	DESCRIPTOR:WoodSchool
+Control Plants.MOD		DESCRIPTOR:WoodSchool
+Refuge.MOD				DESCRIPTOR:WoodSchool
+Winds of Vengeance.MOD		DESCRIPTOR:WoodSchool
+
+#
+# End
+#
