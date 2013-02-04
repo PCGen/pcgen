@@ -1,0 +1,24 @@
+# CVS $Revision: $ $Author: $ -- Sat Feb 25 18:45:28 2012 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
+# Original Entry by: Jasper Spaans
+
+###Block: Paladin of Freedom Abilities --------------------------------------------------------------------------------------------------
+# Ability Name	Category of Ability		Type							Visible	Description																						Source Page
+Aura of Resolve	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:YES	DESC:Immune to Compulsion effects. Each ally within 10 feet of you gains a +4 morale bonus on saving throws against compulsion effects.	SOURCEPAGE:p.53
+
+###Block: Paladin of Slaughter Abilities --------------------------------------------------------------------------------------------------
+# Ability Name	Category of Ability		Type							Visible	Define								Description													Modify VAR							Source Page
+Debilitating Aura	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura	VISIBLE:YES										DESC:Each enemy within 10 foot takes a -1 penalty to Armor Class.												SOURCEPAGE:p.54
+Deadly Touch	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural		VISIBLE:YES	DEFINE:DeadlyTouch|0	DEFINE:DeadlyTouchLVL|0		DESC:%1 hp/day, Will DC %2 for half dmg|DeadlyTouch|DeadlyTouchLVL/2+max(CHA,0)	BONUS:VAR|DeadlyTouch|DeadlyTouchLVL*max(CHA,0)	SOURCEPAGE:p.54
+Cause Disease	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike			VISIBLE:YES	DEFINE:CauseDisease|0	DEFINE:CauseDiseaseLVL|0	DESC:%1/week|CauseDisease										BONUS:VAR|CauseDisease|CauseDiseaseLVL/3-1	SOURCEPAGE:p.54
+
+
+###Block: Paladin of Slaughter Internals
+# Ability Name				Category of Ability		Type			Visible	Define													Modify VAR																											Source Page
+Paladin of Slaughter Smite Good	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:PaladinSmiteGoodLVL|0										BONUS:VAR|SmiteGood|PaladinSmiteGoodLVL/5+1	BONUS:VAR|SmiteGoodDamage|PaladinSmiteGoodLVL													SOURCEPAGE:p.54
+Paladin of Slaughter Rebuke Undead	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1	DEFINE:PaladinTurnLVL|0	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|PaladinTurnLVL-3|TYPE=Level.REPLACE	SOURCEPAGE:p.54
+
+###Block: Paladin of Tyranny Internals
+# Ability Name				Category of Ability		Type			Visible	Define													Modify VAR																											Source Page
+Paladin of Tyranny Smite Good		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:PaladinSmiteGoodLVL|0										BONUS:VAR|SmiteGood|PaladinSmiteGoodLVL/5+1	BONUS:VAR|SmiteGoodDamage|PaladinSmiteGoodLVL													SOURCEPAGE:p.55
+Paladin of Tyranny Rebuke Undead	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1	DEFINE:PaladinTurnLVL|0	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|PaladinTurnLVL-3|TYPE=Level.REPLACE	SOURCEPAGE:p.55

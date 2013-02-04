@@ -1,0 +1,26 @@
+# CVS $Revision$ $Author$ -- Thu Jun 30 07:42:27 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Expanded - Mind over Body	SOURCESHORT:PEMoB	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=72.html	SOURCEDATE:2011-06
+#Original Entry: Douglas Limmer
+
+# Equipment Name					Type					Cost		Weight	Source Page		Modify VAR
+Boots of the Beast (1d3)			TYPE:Psionic.Universal.Boot	COST:625	WT:0.5	SOURCEPAGE:p.22
+Boots of the Beast (1d4)			TYPE:Psionic.Universal.Boot	COST:1000	WT:0.5	SOURCEPAGE:p.22
+Boots of the Beast (1d6)			TYPE:Psionic.Universal.Boot	COST:3000	WT:0.5	SOURCEPAGE:p.22
+Boots of the Beast (1d8)			TYPE:Psionic.Universal.Boot	COST:5000	WT:0.5	SOURCEPAGE:p.22
+Boots of the Beast (2d6)			TYPE:Psionic.Universal.Boot	COST:7000	WT:0.5	SOURCEPAGE:p.22
+Boots of the Beast (3d6)			TYPE:Psionic.Universal.Boot	COST:11000	WT:0.5	SOURCEPAGE:p.22
+Boots of the Beast (4d6)			TYPE:Psionic.Universal.Boot	COST:15000	WT:0.5	SOURCEPAGE:p.22
+Boots of the Beast (5d6)			TYPE:Psionic.Universal.Boot	COST:19000	WT:0.5	SOURCEPAGE:p.22
+Boots of the Beast (6d6)			TYPE:Psionic.Universal.Boot	COST:22000	WT:0.5	SOURCEPAGE:p.22
+Gloves of the Beast (1d3)			TYPE:Psionic.Universal.Glove	COST:625	WT:0.5	SOURCEPAGE:p.22
+Gloves of the Beast (1d4)			TYPE:Psionic.Universal.Glove	COST:1000	WT:0.5	SOURCEPAGE:p.22
+Gloves of the Beast (1d6)			TYPE:Psionic.Universal.Glove	COST:3000	WT:0.5	SOURCEPAGE:p.22
+Gloves of the Beast (1d8)			TYPE:Psionic.Universal.Glove	COST:5000	WT:0.5	SOURCEPAGE:p.22
+Gloves of the Beast (2d6)			TYPE:Psionic.Universal.Glove	COST:7000	WT:0.5	SOURCEPAGE:p.22
+Gloves of the Beast (3d6)			TYPE:Psionic.Universal.Glove	COST:11000	WT:0.5	SOURCEPAGE:p.22
+Gloves of the Beast (4d6)			TYPE:Psionic.Universal.Glove	COST:15000	WT:0.5	SOURCEPAGE:p.22
+Gloves of the Beast (5d6)			TYPE:Psionic.Universal.Glove	COST:19000	WT:0.5	SOURCEPAGE:p.22
+Gloves of the Beast (6d6)			TYPE:Psionic.Universal.Glove	COST:22000	WT:0.5	SOURCEPAGE:p.22
+Mender's Vestments (extra time)		TYPE:Psionic.Universal.Robe	COST:3750	WT:1		SOURCEPAGE:p.22	BONUS:VAR|TransferWoundsTimes|1
+Mender's Vestments (extra 1d6)		TYPE:Psionic.Universal.Robe	COST:4000	WT:1		SOURCEPAGE:p.22	BONUS:VAR|TransferWoundsDice|1
+Mender's Vestments (extra time and 1d6)	TYPE:Psionic.Universal.Robe	COST:10000	WT:1		SOURCEPAGE:p.22	BONUS:VAR|TransferWoundsTimes|1	BONUS:VAR|TransferWoundsDice|1

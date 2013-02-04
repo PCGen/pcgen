@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Thu Sep  8 18:10:03 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-09
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2011/11/04
+
+STARTPACK:Astral Swarm Default	TYPE:DefaultMonster.AstralSwarm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Astral Swarm]	SOURCEPAGE:p.10
+RACE:Astral Swarm	!PRERACE:1,%
+NAME:Astral Swarm
+ALIGN:TN
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10

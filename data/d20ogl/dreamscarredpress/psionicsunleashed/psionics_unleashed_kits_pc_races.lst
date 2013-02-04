@@ -1,0 +1,80 @@
+# CVS $Revision$ $Author$ -- Sun Jun 19 04:35:41 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
+#Original Entry: Douglas Limmer
+#SRD Original Entry: Unknown
+
+###Block: Racial Trait Kits
+#Blue Racial Kit (POOL=7)
+STARTPACK:Blue Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
+ABILITY:CATEGORY=Blue Racial Trait|Psionic Aptitude
+ABILITY:CATEGORY=Blue Racial Trait|Naturally Psionic
+ABILITY:CATEGORY=Blue Racial Trait|Keen Senses ~ Blue
+ABILITY:CATEGORY=Blue Racial Trait|Pariah ~ Blue
+ABILITY:CATEGORY=Blue Racial Trait|Repletion ~ Blue
+ABILITY:CATEGORY=Blue Racial Trait|Stealthy ~ Blue
+ABILITY:CATEGORY=Blue Racial Trait|Weapon Familiarity ~ Blue
+
+#Dromite Racial Kit (POOL=6)
+STARTPACK:Dromite Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
+ABILITY:CATEGORY=Dromite Racial Trait|Psionic Aptitude
+ABILITY:CATEGORY=Dromite Racial Trait|Naturally Psionic
+ABILITY:CATEGORY=Dromite Racial Trait|Dromite Psionics
+ABILITY:CATEGORY=Dromite Racial Trait|Scent ~ Dromite
+ABILITY:CATEGORY=Dromite Racial Trait|Compound Eyes ~ Dromite
+ABILITY:CATEGORY=Dromite Racial Trait|Chitin ~ Dromite
+
+#Duergar Racial Kit  (POOL=7)
+STARTPACK:Duergar Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
+ABILITY:CATEGORY=Duergar Racial Trait|Psionic Aptitude
+ABILITY:CATEGORY=Duergar Racial Trait|Naturally Psionic
+ABILITY:CATEGORY=Duergar Racial Trait|Duergar Psionics
+ABILITY:CATEGORY=Duergar Racial Trait|Hardy ~ Duergar
+ABILITY:CATEGORY=Duergar Racial Trait|Stability ~ Duergar
+ABILITY:CATEGORY=Duergar Racial Trait|Dwarf Blood ~ Duergar
+ABILITY:CATEGORY=Duergar Racial Trait|Steady ~ Duergar
+
+#Elan Racial Kit  (POOL=5)
+STARTPACK:Elan Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
+ABILITY:CATEGORY=Elan Racial Trait|Psionic Aptitude
+ABILITY:CATEGORY=Elan Racial Trait|Naturally Psionic
+ABILITY:CATEGORY=Elan Racial Trait|Resistance ~ Elan
+ABILITY:CATEGORY=Elan Racial Trait|Resilience ~ Elan
+ABILITY:CATEGORY=Elan Racial Trait|Repletion ~ Elan
+
+#Half-Giant Racial Kit  (POOL=7)
+STARTPACK:Half-Giant Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
+ABILITY:CATEGORY=Half-Giant Racial Trait|Psionic Aptitude
+ABILITY:CATEGORY=Half-Giant Racial Trait|Naturally Psionic
+ABILITY:CATEGORY=Half-Giant Racial Trait|Giant Blood ~ Half-Giant
+ABILITY:CATEGORY=Half-Giant Racial Trait|Fire Acclimated ~ Half-Giant
+ABILITY:CATEGORY=Half-Giant Racial Trait|Powerful Build ~ Half-Giant
+ABILITY:CATEGORY=Half-Giant Racial Trait|Half-Giant Psionics
+ABILITY:CATEGORY=Half-Giant Racial Trait|Survivor ~ Half-Giant
+
+#Maenad Racial Kit  (POOL=9)
+STARTPACK:Maenad Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
+ABILITY:CATEGORY=Maenad Racial Trait|Psionic Aptitude
+ABILITY:CATEGORY=Maenad Racial Trait|Naturally Psionic
+ABILITY:CATEGORY=Maenad Racial Trait|Maenad Psionics
+ABILITY:CATEGORY=Maenad Racial Trait|Sonic Affinity ~ Maenad
+ABILITY:CATEGORY=Maenad Racial Trait|Outburst ~ Maenad
+ABILITY:CATEGORY=Maenad Racial Trait|Inner Rage ~ Maenad
+ABILITY:CATEGORY=Maenad Racial Trait|Ordered Rage ~ Maenad
+ABILITY:CATEGORY=Maenad Racial Trait|Natural Sailor ~ Maenad
+ABILITY:CATEGORY=Maenad Racial Trait|Weapon Familiarity ~ Maenad
+
+#Ophiduan Racial Kit  (POOL=6)
+STARTPACK:Ophiduan Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
+ABILITY:CATEGORY=Ophiduan Racial Trait|Psionic Aptitude
+ABILITY:CATEGORY=Ophiduan Racial Trait|Naturally Psionic
+ABILITY:CATEGORY=Ophiduan Racial Trait|Scaled Hide ~ Ophiduan
+ABILITY:CATEGORY=Ophiduan Racial Trait|Serpent's Bite ~ Ophiduan
+ABILITY:CATEGORY=Ophiduan Racial Trait|Poison Resistant ~ Ophiduan
+ABILITY:CATEGORY=Ophiduan Racial Trait|Weapon Familiarity ~ Ophiduan
+
+#Xeph Racial Kit  (POOL=4)
+STARTPACK:Xeph Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
+ABILITY:CATEGORY=Xeph Racial Trait|Psionic Aptitude
+ABILITY:CATEGORY=Xeph Racial Trait|Naturally Psionic
+ABILITY:CATEGORY=Xeph Racial Trait|Innate Resistance ~ Xeph
+ABILITY:CATEGORY=Xeph Racial Trait|Burst ~ Xeph

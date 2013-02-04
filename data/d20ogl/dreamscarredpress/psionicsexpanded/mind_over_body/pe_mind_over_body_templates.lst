@@ -1,0 +1,23 @@
+# CVS $Revision$ $Author$ -- Thu Jun 30 07:42:27 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Expanded - Mind over Body	SOURCESHORT:PEMoB	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=72.html	SOURCEDATE:2011-06
+# Original Entry by: Douglas Limmer
+
+# Battlesense templates
+
+# Template Name				Visible		Combat bonus												Add to base move										Choose
+Battlesense attack bonus		VISIBLE:DISPLAY	BONUS:COMBAT|TOHIT|%CHOICE|TYPE=Circumstance|PREAPPLY:ANYPC																	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of attack bonus choices
+Battlesense AC bonus			VISIBLE:DISPLAY	BONUS:COMBAT|AC|%CHOICE|TYPE=Circumstance|PREAPPLY:ANYPC																	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of AC bonus choices
+Battlesense weapon damage bonus	VISIBLE:DISPLAY	BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Ranged|2*%CHOICE|TYPE=Circumstance|PREAPPLY:ANYPC													CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of weapon damage bonus choices
+Battlesense speed bonus			VISIBLE:DISPLAY															BONUS:MOVEADD|TYPE.Walk|5*%CHOICE|TYPE=Circumstance|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Number of movement bonus choices
+
+###BLOCK: Determines whether a Metamorph gets Swift Shapeshifter or Master of Forms
+# Template Name				Visible	Template												Required Feat							Prohibited Feat				Req. Known Spell				!PRESPELL					Bonus to Ability Pool						Automatically Gained Feat
+Quick Shift Determination		VISIBLE:NO	TEMPLATE:CHOOSE:Get Swift Shapeshifter|Get Master of All Forms|Get Nothing
+Get Swift Shapeshifter			VISIBLE:NO																							!PREFEAT:1,Swift Shapeshifter																							AUTO:FEAT|Swift Shapeshifter
+Get Master of All Forms			VISIBLE:NO														PREFEAT:1,Swift Shapeshifter					!PREFEAT:1,Master of All Forms																						AUTO:FEAT|Master of All Forms
+Get Nothing					VISIBLE:NO														PREFEAT:2,Swift Shapeshifter,Master of All Forms
+
+### Determines whether a Metamorph gets Major Metamorphosis or some other power.  Not done yet!
+Major Metamorphosis Determination	VISIBLE:NO	TEMPLATE:CHOOSE:Get Major Metamorphosis|Get Level Five Power
+Get Major Metamorphosis			VISIBLE:NO																																			!PRESPELL:1,Metamorphosis (Major)	BONUS:ABILITYPOOL|Metamorph Major Metamorphosis|1
+Get Level Five Power			VISIBLE:NO																													PRESPELL:1,Metamorphosis (Major)							BONUS:ABILITYPOOL|Metamorph Level Five Power|1
