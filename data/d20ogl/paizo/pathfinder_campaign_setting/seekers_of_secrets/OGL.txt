@@ -36,10 +36,6 @@ Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 
 System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 
-Pathﬁnder Chronicles: Guide to the River Kingdoms. Copyright 2010, Paizo Publishing, LLC; Authors: Eric Bailey, Kevin Carter, Elaine Cunningham, Adam Daigle, Mike Ferguson, Joshua J. Frost, Steve Kenson, Rob Manning, Alison McKenzie, Colin Moulder-McComb, China Miéville, Brock Mitchel-Slentz, Jason Nelson, Richard Pett, Chris Pramas, Jeff Quick, Sean K Reynolds, F. Wesley Schneider, Lisa Stevens, Neil Spicer, Matthew Stinson, and John Wick.
+Pathfinder Chronicles: Seekers of Secrets. Copyright 2009, Paizo Publishing, LLC; Authors: Tim Hitchcock, Erik Mona, Sean K Reynolds, James L. Sutter, and Russ Taylor
 
-Yellow Musk Creeper from the Tome of Horrors. © 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Albie Fiore.
-
-Yellow Musk Zombie from the Tome of Horrors. © 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Albie Fiore.
-
-PCGen dataset conversion for "Guide to the River Kingdoms" Copyright 2010, PCGen Data team (Including, but not limited to Stefan Radermacher)
+PCGen dataset conversion for "Seekers of Secrets" Copyright 2009, PCGen Data team (Including, but not limited to Terry Milnes).
