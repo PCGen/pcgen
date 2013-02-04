@@ -654,6 +654,24 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		return true;
 	}
 
+	private boolean checkGameModeEquality(SourceSelectionFacade source1, SourceSelectionFacade source2)
+	{
+		if (source1 == source2)
+		{
+			return true;
+		}
+		if (source1 == null ^ source2 == null)
+		{
+			return false;
+		}
+		//we use reference equality since GameModeFacades come from a fixed database
+		if (source1.getGameMode().getReference() != source2.getGameMode().getReference())
+		{
+			return false;
+		}
+		return true;
+	}
+
 	public boolean saveCharacter(CharacterFacade character)
 	{
 		if (!CharacterManager.characterFilenameValid(character))
@@ -1079,6 +1097,33 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 							.initBoolean(
 								PCGenSettings.OPTION_AUTOLOAD_SOURCES_WITH_PC,
 								true);
+			boolean sourcesSame = checkSourceEquality(sources,
+				currentSourceSelection.getReference());
+			boolean gameModesSame = checkGameModeEquality(sources,
+				currentSourceSelection.getReference());
+			if (!dontLoadSources && !sourcesSame && gameModesSame)
+			{
+				int choice =
+						JOptionPane.showOptionDialog(this, LanguageBundle
+							.getFormattedString("in_loadPcDiffSources",
+								getFormattedCampaigns(currentSourceSelection
+									.getReference()),
+								getFormattedCampaigns(sources)), LanguageBundle
+							.getString("in_loadPcSourcesLoadTitle"),
+							JOptionPane.YES_NO_CANCEL_OPTION,
+							JOptionPane.QUESTION_MESSAGE, null, null, null);
+				if (choice == JOptionPane.CANCEL_OPTION)
+				{
+					return;
+				}
+				if (choice == JOptionPane.NO_OPTION)
+				{
+					CharacterManager.openCharacter(pcgFile, PCGenFrame.this,
+						currentDataSetRef.getReference());
+					return;
+				}
+			}
+			
 			if (dontLoadSources)
 			{
 				if (!checkSourceEquality(sources,
@@ -1125,6 +1170,30 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 	}
 
+	private String getFormattedCampaigns(SourceSelectionFacade sources)
+	{
+		StringBuilder campList = new StringBuilder();
+		campList.append("<UL>");
+		int count = 0;
+		final int maxListLen = 5;
+		for (CampaignFacade facade : sources.getCampaigns())
+		{
+			campList.append("<li>");
+			if (count > maxListLen)
+			{
+				int numExtra = sources.getCampaigns().getSize()-maxListLen;
+				campList.append(String.valueOf(numExtra));
+				campList.append(" other sources</li>");
+				break;
+			}
+			campList.append(facade.toString());
+			campList.append("</li>");
+			count++;
+		}
+		campList.append("</UL>");
+		return campList.toString();
+	}
+	
 	/**
 	 * Asynchronously load the sources required for a character and then load the character.
 	 * @param pcgFile The character to be loaded.
