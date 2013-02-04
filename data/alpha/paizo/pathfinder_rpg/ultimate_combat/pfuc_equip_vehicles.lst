@@ -1,8 +1,0 @@
-# CVS $Revision: 17636 $ $Author: tripleduck $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-
-###Block: Land Vehicles
-# Carriage previously defined in CRB
-# Equipment Name	Clear Types	Type														Contains		Cost		Weight	Source Page		Description
-Carriage.MOD	TYPE:.CLEAR	TYPE:Goods.Transportation.VehicleLand.Container.VehicleLarge.PropulsionMusclePulled	CONTAINS:200|Any	COST:100	WT:600	SOURCEPAGE:p.181	DESC:.CLEAR	DESC:This four-wheeled vehicle can transport as many as four people within an enclosed cab, in addition to one driver and one other person seated next to the driver (often armed). The carriage's roof can carry 200 pounds of cargo. &nl; [Squares] 6 (10 ft. by 15 ft.; 6 feet high) &nl; [Defense] AC 9; Hardness 5 hp 90 (44) Base Save +1 &nl; [Propulsion] muscle (pulled; 6 Medium creatures or 2 Large creatures) &nl; [Driving Check] Handle Animal or Profession (driver) (in the case of creatures with animal intelligence pulling the vehicle), Diplomacy or Intimidate (in the case of intelligent creatures pulling the vehicle) &nl; [Facing] Forward Facing toward the creatures pulling the vehicle &nl; [Driving Device] reins &nl; [Driving Space the most forward squares if the carriage's upper deck. &nl; [Maximum Speed] twice the speed of the pulling creature(s) &nl; [Acceleration] the speed of the pulling creature(s) &nl; [Decks] 2; a lower cab with enough room for four passengers, and an upper deck with room for a driver and another passenger. [Other] CMB +1; CMD 11; Ramming Damage 1d8
-
-

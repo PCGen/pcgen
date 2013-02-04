@@ -1,7 +1,0 @@
-﻿# Original Entry by: Paul Shipley
-
-###Block: Ioun Stone Categories
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural					Display Location
-ABILITYCATEGORY:Ioun Weapon Familiarity	VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:IounWpnFam		PLURAL:Ioun Weapon Familiarities	DISPLAYLOCATION:Equipment
-ABILITYCATEGORY:Esoteric Magic Spell	VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EsotericSpell	PLURAL:Esoteric Magic Spells		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Dispelling Master Class	VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DispellingMaster							DISPLAYLOCATION:Class Abilities
