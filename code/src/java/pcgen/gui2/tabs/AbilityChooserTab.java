@@ -66,6 +66,7 @@ import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.ability.AbilityTreeTableModel;
 import pcgen.gui2.tabs.ability.AbilityTreeViews;
 import pcgen.gui2.tabs.ability.CategoryTableModel;
+import pcgen.gui2.tabs.models.ConcurrentDataView;
 import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
@@ -85,6 +86,7 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class AbilityChooserTab extends FlippingSplitPane implements StateEditable, TodoHandler
 {
+
 	private final FilteredTreeViewTable<CharacterFacade, AbilityFacade> availableTreeViewPanel;
 	private final JTreeTable selectedTreeViewPanel;
 	private final JTable categoryTable;
@@ -123,7 +125,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		addButton.setHorizontalTextPosition(SwingConstants.LEADING);
 		box.add(addButton);
 		box.add(Box.createHorizontalStrut(5));
-		box.setBorder(new EmptyBorder(0,  0, 5, 0));
+		box.setBorder(new EmptyBorder(0, 0, 5, 0));
 		availPanel.add(box, BorderLayout.SOUTH);
 		JPanel selPanel = new JPanel(new BorderLayout());
 		selPanel.add(new JScrollPane(selectedTreeViewPanel), BorderLayout.CENTER);
@@ -133,7 +135,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		box.add(Box.createHorizontalStrut(5));
 		box.add(removeButton);
 		box.add(Box.createHorizontalGlue());
-		box.setBorder(new EmptyBorder(0,  0, 5, 0));
+		box.setBorder(new EmptyBorder(0, 0, 5, 0));
 		selPanel.add(box, BorderLayout.SOUTH);
 		FlippingSplitPane topPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT,
 														  true,
@@ -149,7 +151,6 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		gainedFilterButton.setSelected(true);
 		gainedFilterButton.setFilter(new Filter<CharacterFacade, AbilityCategoryFacade>()
 		{
-
 			@Override
 			public boolean accept(CharacterFacade context, AbilityCategoryFacade element)
 			{
@@ -196,7 +197,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 	}
 
-	private class AvailableAbilityTreeViewModel extends DelegatingListFacade<AbilityFacade>
+	private class AvailableAbilityTreeViewModel extends ConcurrentDataView<AbilityFacade>
 			implements TreeViewModel<AbilityFacade>, ListSelectionListener, DataView<AbilityFacade>
 	{
 
@@ -207,6 +208,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		private final List<? extends DataViewColumn> dataColumns;
 		private final InfoFactory infoFactory;
 		private final String title;
+		private final DelegatingListFacade<AbilityFacade> delegate;
 
 		public AvailableAbilityTreeViewModel(CharacterFacade character,
 											 ListFacade<AbilityCategoryFacade> categories,
@@ -218,22 +220,17 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			this.categories = categories;
 			this.selectionModel = selectionModel;
 			this.infoFactory = character.getInfoFactory();
+			this.delegate = new DelegatingListFacade<AbilityFacade>();
+			delegate.setDelegate(new DefaultListFacade<AbilityFacade>());
 			selectionModel.addListSelectionListener(this);
-			this.setDelegate(new DefaultListFacade<AbilityFacade>());
 
-			dataColumns =
-					Arrays.asList(new DefaultDataViewColumn("in_type", //$NON-NLS-1$
-															String.class),
-								  new DefaultDataViewColumn("in_abColumnsMultiples", //$NON-NLS-1$
-															Boolean.class),
-								  new DefaultDataViewColumn("in_abColumnsStacks", //$NON-NLS-1$
-															Boolean.class),
-								  new DefaultDataViewColumn("in_abColumnsDescription", //$NON-NLS-1$
-															String.class),
-								  new DefaultDataViewColumn("in_abColumnsCost", //$NON-NLS-1$
-															Float.class),
-								  new DefaultDataViewColumn("in_abColumnsSource", //$NON-NLS-1$
-															String.class));
+			dataColumns = Arrays.asList(new DefaultDataViewColumn("in_type", String.class),//$NON-NLS-1$
+										new DefaultDataViewColumn("in_abColumnsMultiples", Boolean.class),//$NON-NLS-1$
+										new DefaultDataViewColumn("in_abColumnsStacks", Boolean.class),//$NON-NLS-1$
+										new DefaultDataViewColumn("in_abColumnsDescription", String.class),//$NON-NLS-1$
+										new DefaultDataViewColumn("in_abColumnsCost", Float.class),//$NON-NLS-1$
+										new DefaultDataViewColumn("in_abColumnsSource", String.class));//$NON-NLS-1$
+
 		}
 
 		@Override
@@ -257,24 +254,13 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		@Override
 		public ListFacade<AbilityFacade> getDataModel()
 		{
-			return this;
+			return delegate;
 		}
 
 		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return dataColumns;
-		}
-
-		@Override
-		public List<?> getData(AbilityFacade obj)
-		{
-			return Arrays.asList(getTypes(obj.getTypes()),
-								 obj.isMult(),
-								 obj.isStackable(),
-								 infoFactory.getDescription(obj),
-								 (int) obj.getCost(),
-								 obj.getSource());
 		}
 
 		private String getTypes(List<String> types)
@@ -291,14 +277,18 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			return ret;
 		}
 
+		@Override
 		public void install()
 		{
+			super.install();
 			availableTreeViewPanel.setTreeViewModel(this);
 			selectedTreeViewPanel.getSelectionModel().addListSelectionListener(this);
 		}
 
+		@Override
 		public void uninstall()
 		{
+			super.uninstall();
 			selectedTreeViewPanel.getSelectionModel().removeListSelectionListener(this);
 		}
 
@@ -314,7 +304,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 				int index = selectionModel.getMinSelectionIndex();
 				if (index != -1)
 				{
-					setDelegate(character.getDataSet().getAbilities((AbilityCategoryFacade) categoryTable.getValueAt(index, 0)));
+					delegate.setDelegate(character.getDataSet().getAbilities((AbilityCategoryFacade) categoryTable.getValueAt(index, 0)));
 				}
 			}
 			else
@@ -325,7 +315,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 					Object data = selectedTreeViewPanel.getValueAt(index, 0);
 					if (data instanceof AbilityCategoryFacade)
 					{
-						setDelegate(character.getDataSet().getAbilities((AbilityCategoryFacade) data));
+						delegate.setDelegate(character.getDataSet().getAbilities((AbilityCategoryFacade) data));
 						// Select the appropriate row in the category table
 						for (int i = 0; i < categoryTable.getRowCount(); i++)
 						{
@@ -335,7 +325,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 								categoryTable.setRowSelectionInterval(i, i);
 							}
 						}
-						
+
 					}
 				}
 			}
@@ -348,6 +338,23 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		public String getPrefsKey()
 		{
 			return title;
+		}
+
+		@Override
+		protected List<?> getDataList(AbilityFacade obj)
+		{
+			return Arrays.asList(getTypes(obj.getTypes()),
+								 obj.isMult(),
+								 obj.isStackable(),
+								 infoFactory.getDescription(obj),
+								 (int) obj.getCost(),
+								 obj.getSource());
+		}
+
+		@Override
+		protected void refreshTableData()
+		{
+			availableTreeViewPanel.refreshModelData();
 		}
 
 	}
@@ -421,8 +428,8 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 					{
 						title =
 								LanguageBundle.getFormattedString(
-									"in_abCatInfo", //$NON-NLS-1$
-									((AbilityCategoryFacade) data).getName());
+								"in_abCatInfo", //$NON-NLS-1$
+								((AbilityCategoryFacade) data).getName());
 						infoPane.setTitle(title);
 
 					}
@@ -553,8 +560,8 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 //	}
 
 	public Hashtable<Object, Object> createState(CharacterFacade character,
-		ListFacade<AbilityCategoryFacade> categories,
-		ListFacade<AbilityCategoryFacade> fullCategoryList, String title)
+												 ListFacade<AbilityCategoryFacade> categories,
+												 ListFacade<AbilityCategoryFacade> fullCategoryList, String title)
 	{
 		Hashtable<Object, Object> state = new Hashtable<Object, Object>();
 		CategoryTableModel categoryTableModel = new CategoryTableModel(character, fullCategoryList, categoryBar, categoryTable);
@@ -565,8 +572,8 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		state.put(ListSelectionModel.class, listModel);
 		state.put(AbilityTreeTableModel.class, new AbilityTreeTableModel(character, categories));
 		state.put(AvailableAbilityTreeViewModel.class,
-			new AvailableAbilityTreeViewModel(character, fullCategoryList,
-				listModel, title));
+				  new AvailableAbilityTreeViewModel(character, fullCategoryList,
+													listModel, title));
 		//state.put(AbilityTransferHandler.class, new AbilityTransferHandler(character));
 		state.put(InfoHandler.class, new InfoHandler(character, categories));
 		state.put(AbilityRenderer.class, new AbilityRenderer(character));
@@ -611,10 +618,9 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		((AddAction) state.get(AddAction.class)).install();
 		((RemoveAction) state.get(RemoveAction.class)).install();
 		((AbilityFilterHandler) state.get(AbilityFilterHandler.class)).install();
-		
+
 		ensureCategorySelected();
 	}
-
 
 	/**
 	 * Ensure that when the tab is displayed a category is selected if any are available.
@@ -630,7 +636,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 				categoryTable.getSelectionModel().setSelectionInterval(0, 0);
 			}
 		}
-		
+
 	}
 
 	/**
@@ -649,10 +655,10 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 				categoryTable.getSelectionModel().setSelectionInterval(i, i);
 				return;
 			}
-			
+
 		}
 	}
-	
+
 	private class AddAction extends AbstractAction
 	{
 
@@ -687,12 +693,12 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 			}
 		}
-		
+
 		public void install()
 		{
 			availableTreeViewPanel.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			availableTreeViewPanel.removeActionListener(this);
@@ -733,12 +739,12 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 				}
 			}
 		}
-		
+
 		public void install()
 		{
 			selectedTreeViewPanel.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			selectedTreeViewPanel.removeActionListener(this);
@@ -746,12 +752,11 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 	}
 
-	private class AbilityFilterHandler 
+	private class AbilityFilterHandler
 	{
 
 		private final Filter<CharacterFacade, AbilityFacade> qFilter = new Filter<CharacterFacade, AbilityFacade>()
 		{
-
 			@Override
 			public boolean accept(CharacterFacade context, AbilityFacade element)
 			{

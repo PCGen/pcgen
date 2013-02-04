@@ -90,6 +90,7 @@ import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.equip.EquipmentSelection;
 import pcgen.gui2.tabs.models.BigDecimalFieldHandler;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
+import pcgen.gui2.tabs.models.ConcurrentDataView;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
@@ -119,7 +120,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private static final Font LABEL_FONT = new Font("Verdana", Font.BOLD, 12); //$NON-NLS-1$
 	private static final Font TEXT_FONT = new Font("Verdana", Font.PLAIN, 12); //$NON-NLS-1$
 	private static final Set<String> primaryTypes = new HashSet<String>();
-
 	private final FilteredTreeViewTable<CharacterFacade, EquipmentFacade> availableTable;
 	private final FilteredTreeViewTable<CharacterFacade, EquipmentFacade> purchasedTable;
 	private final JCheckBox autoResizeBox;
@@ -190,8 +190,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					@Override
 					public boolean accept(CharacterFacade context, EquipmentFacade element)
 					{
-							return context.getInfoFactory().getCost(element) <= context
-								.getFundsRef().getReference().floatValue();
+						return context.getInfoFactory().getCost(element) <= context.getFundsRef().getReference().floatValue();
 					}
 
 				});
@@ -216,7 +215,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			addEquipmentButton.setHorizontalTextPosition(SwingConstants.LEADING);
 			box.add(addEquipmentButton);
 			box.add(Box.createHorizontalStrut(5));
-			box.setBorder(new EmptyBorder(0,  0, 5, 0));
+			box.setBorder(new EmptyBorder(0, 0, 5, 0));
 			panel.add(box, BorderLayout.SOUTH);
 			splitPane.setLeftComponent(panel);
 		}
@@ -236,7 +235,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			box.add(Box.createHorizontalStrut(5));
 			box.add(removeEquipmentButton);
 			box.add(Box.createHorizontalGlue());
-			box.setBorder(new EmptyBorder(0,  0, 5, 0));
+			box.setBorder(new EmptyBorder(0, 0, 5, 0));
 			panel.add(box, BorderLayout.SOUTH);
 			splitPane.setRightComponent(panel);
 		}
@@ -264,7 +263,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private void initMoneyPanel(JPanel panel)
 	{
 		panel.setLayout(new GridBagLayout());
-		
+
 		GridBagConstraints leftGbc = new GridBagConstraints();
 		Insets panelInsets = panel.getInsets();
 		leftGbc.insets = new Insets(2, panelInsets.left, 2, 10);
@@ -308,7 +307,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		goldField.setMinimumSize(new Dimension(50, goldField.getPreferredSize().height));
 		panel.add(goldField, middleGbc);
 		panel.add(createCurrencyLabel(), rightGbc);
-		
+
 		label = new JLabel(LanguageBundle.getString("in_igAddSubFundsLabel")); //$NON-NLS-1$
 		label.setFont(LABEL_FONT);
 		panel.add(label, fullLineGbc);
@@ -319,7 +318,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			gbc2.fill = GridBagConstraints.HORIZONTAL;
 			gbc2.weightx = 1.0;
 			gbc2.insets = new Insets(0, 1, 0, 1);
-			expmodPanel .add(fundsAddButton, gbc2);
+			expmodPanel.add(fundsAddButton, gbc2);
 			expmodPanel.add(fundsSubtractButton, gbc2);
 		}
 		panel.add(expmodPanel, leftGbc);
@@ -327,7 +326,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		goldModField.setFont(TEXT_FONT);
 		panel.add(goldModField, middleGbc);
 		panel.add(createCurrencyLabel(), rightGbc);
-		
+
 		label = new JLabel(LanguageBundle.getString("in_igBuySellRateLabel")); //$NON-NLS-1$
 		label.setFont(LABEL_FONT);
 		fullLineGbc.insets = new Insets(10, 2, 2, 2);
@@ -338,7 +337,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		allowDebt.setFont(LABEL_FONT);
 		panel.add(allowDebt, fullLineGbc);
-		
+
 		fullLineGbc.weighty = 1.0f;
 		panel.add(new JLabel(), fullLineGbc);
 	}
@@ -417,7 +416,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		};
 		state.put(Models.WealthHandler, wealthHandler);
-		
+
 		CharacterComboBoxModel<GearBuySellFacade> buySellModel = new CharacterComboBoxModel<GearBuySellFacade>()
 		{
 
@@ -431,14 +430,14 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		buySellModel.setListFacade(character.getDataSet().getGearBuySellSchemes());
 		buySellModel.setReference(character.getGearBuySellRef());
 		state.put(CharacterComboBoxModel.class, buySellModel);
-		
+
 		return state;
 	}
 
 	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
-		availableTable.setTreeViewModel((TreeViewModel<EquipmentFacade>) state.get(AvailableTreeViewModel.class));
+		((AvailableTreeViewModel) state.get(AvailableTreeViewModel.class)).install();
 		availableTable.setTreeCellRenderer((EquipmentRenderer) state.get(EquipmentRenderer.class));
 		purchasedTable.setTreeViewModel((TreeViewModel<EquipmentFacade>) state.get(PurchasedTreeViewModel.class));
 		purchasedTable.setTreeCellRenderer((EquipmentRenderer) state.get(EquipmentRenderer.class));
@@ -450,7 +449,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		fundsSubtractButton.setAction((FundsSubtractAction) state.get(FundsSubtractAction.class));
 		buySellRateBox.setModel((ComboBoxModel) state.get(CharacterComboBoxModel.class));
 		allowDebt.setAction((AllowDebtAction) state.get(AllowDebtAction.class));
-		
+
 		((EquipInfoHandler) state.get(EquipInfoHandler.class)).install();
 		((EquipmentFilterHandler) state.get(EquipmentFilterHandler.class)).install();
 		((EquipmentTransferHandler) state.get(EquipmentTransferHandler.class)).install();
@@ -467,6 +466,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	@Override
 	public void storeModels(Hashtable<Object, Object> state)
 	{
+		((AvailableTreeViewModel) state.get(AvailableTreeViewModel.class)).uninstall();
 		((EquipInfoHandler) state.get(EquipInfoHandler.class)).uninstall();
 		((AddAction) state.get(AddAction.class)).uninstall();
 		((RemoveAction) state.get(RemoveAction.class)).uninstall();
@@ -484,8 +484,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	private List<EquipmentFacade> getMenuTargets(JTable table, MouseEvent e)
 	{
-		int row = table.rowAtPoint( e.getPoint() );
-		if (! table.isRowSelected(row))
+		int row = table.rowAtPoint(e.getPoint());
+		if (!table.isRowSelected(row))
 		{
 			table.setRowSelectionInterval(row, row);
 		}
@@ -534,12 +534,12 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				availableTable.refilter();
 			}
 		}
-		
+
 		public void install()
 		{
 			availableTable.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			availableTable.removeActionListener(this);
@@ -631,12 +631,12 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				availableTable.refilter();
 			}
 		}
-		
+
 		public void install()
 		{
 			purchasedTable.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			purchasedTable.removeActionListener(this);
@@ -696,7 +696,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				return;
 			}
-			BigDecimal modVal = new BigDecimal(((Number) value).doubleValue()*-1);
+			BigDecimal modVal = new BigDecimal(((Number) value).doubleValue() * -1);
 			character.adjustFunds(modVal);
 		}
 
@@ -795,6 +795,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	 */
 	private class CurrencyLabelHandler
 	{
+
 		private CharacterFacade character;
 
 		public CurrencyLabelHandler(CharacterFacade character)
@@ -811,18 +812,19 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				label.setText(currencyDisplay);
 			}
 		}
+
 	}
 
-	private static class AvailableTreeViewModel
-			implements TreeViewModel<EquipmentFacade>, DataView<EquipmentFacade>
+	private class AvailableTreeViewModel extends ConcurrentDataView<EquipmentFacade>
+			implements TreeViewModel<EquipmentFacade>
 	{
 
-		private static final ListFacade<? extends TreeView<EquipmentFacade>> treeviews =
+		private final ListFacade<? extends TreeView<EquipmentFacade>> treeviews =
 				new DefaultListFacade<TreeView<EquipmentFacade>>(Arrays.asList(EquipmentTreeView.values()));
-		private static final List<DefaultDataViewColumn> columns =
+		private final List<DefaultDataViewColumn> columns =
 				Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
 							  new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, true), //$NON-NLS-1$
-				              new DefaultDataViewColumn("in_igEqModelColSource", String.class, false)); //$NON-NLS-1$
+							  new DefaultDataViewColumn("in_igEqModelColSource", String.class, false)); //$NON-NLS-1$
 		private final CharacterFacade character;
 		private final ListFacade<EquipmentFacade> equipmentList;
 
@@ -830,7 +832,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		{
 			this.character = character;
 			this.equipmentList = character.getDataSet().getEquipment();
-			
+
 			if (primaryTypes.isEmpty())
 			{
 				for (int i = 0; i < equipmentList.getSize(); i++)
@@ -870,15 +872,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 
 		@Override
-		public List<?> getData(EquipmentFacade obj)
-		{
-			return Arrays.asList(character.getInfoFactory().getCost(obj),
-					character.getInfoFactory().getWeight(obj),
-					obj.getSource()
-					);
-		}
-
-		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return columns;
@@ -893,6 +886,26 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			return "PurchaseAvail";  //$NON-NLS-1$
 		}
 
+		@Override
+		protected List<?> getDataList(EquipmentFacade obj)
+		{
+			return Arrays.asList(character.getInfoFactory().getCost(obj),
+								 character.getInfoFactory().getWeight(obj),
+								 obj.getSource());
+		}
+
+		@Override
+		protected void refreshTableData()
+		{
+			availableTable.refreshModelData();
+		}
+
+		@Override
+		public void install()
+		{
+			super.install();
+			availableTable.setTreeViewModel(this);
+		}
 	}
 
 	private class PurchasedTreeViewModel
@@ -975,7 +988,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		TYPE_NAME(LanguageBundle.getString("in_typeName")), //$NON-NLS-1$
 		TYPE_SUBTYPE_NAME(LanguageBundle.getString("in_typeSubtypeName")), //$NON-NLS-1$
 		SOURCE_NAME(LanguageBundle.getString("in_sourceName")); //$NON-NLS-1$
-		
 		//SOURCE_NAME("Source/Name");
 		private String name;
 
@@ -1009,8 +1021,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 								{
 									if (!type.equals(subType))
 									{
-										paths
-											.add(new TreeViewPath<EquipmentFacade>(
+										paths.add(new TreeViewPath<EquipmentFacade>(
 												pobj, type, subType));
 									}
 								}
@@ -1018,14 +1029,14 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 						}
 						return paths;
 					}
-					// Less then two types, fall through to treat it as a type tree.
+				// Less then two types, fall through to treat it as a type tree.
 				case TYPE_NAME:
 					types = pobj.getTypesForDisplay();
 					if (types != null && types.size() > 0)
 					{
 						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<TreeViewPath<EquipmentFacade>>(
 								types.size());
-						for(String type : types)
+						for (String type : types)
 						{
 							if (primaryTypes.contains(type))
 							{
@@ -1034,13 +1045,12 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 						}
 						return paths;
 					}
-					// No types, fall through and treat it as just a name.
+				// No types, fall through and treat it as just a name.
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<EquipmentFacade>(pobj));
 				case SOURCE_NAME:
-					return Collections
-						.singletonList(new TreeViewPath<EquipmentFacade>(pobj,
-							pobj.getSourceForNodeDisplay()));
+					return Collections.singletonList(new TreeViewPath<EquipmentFacade>(pobj,
+																					   pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}
@@ -1070,14 +1080,14 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		@Override
 		public Component getTreeCellRendererComponent(JTree tree, Object value,
-			boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
+													  boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
 		{
 
 			super.getTreeCellRendererComponent(tree, value, sel, expanded,
 											   leaf, row, focus);
 			Object equipObj = ((DefaultMutableTreeNode) value).getUserObject();
 			if (equipObj instanceof EquipmentFacade
-					&& !character.isQualifiedFor((EquipmentFacade) equipObj))
+				&& !character.isQualifiedFor((EquipmentFacade) equipObj))
 			{
 				setForeground(UIPropertyContext.getNotQualifiedColor());
 			}
@@ -1287,7 +1297,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		{
 			this.character = character;
 		}
-		
+
 		/**
 		 * {@inheritDoc}
 		 */
@@ -1325,6 +1335,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		{
 			availableTable.removeMouseListener(this);
 		}
+
 	}
 
 	/**
@@ -1340,14 +1351,14 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		BuyNumMenuItem(CharacterFacade character, List<EquipmentFacade> targets, int quantity)
 		{
 			super(LanguageBundle.getFormattedString(quantity > 0
-				? "in_igBuyMenuCommand" : "in_igBuyN", quantity)); //$NON-NLS-1$ //$NON-NLS-2$
+					? "in_igBuyMenuCommand" : "in_igBuyN", quantity)); //$NON-NLS-1$ //$NON-NLS-2$
 			this.character = character;
 			this.targets = targets;
 			this.quantity = quantity;
 			if (quantity > 0)
 			{
 				setToolTipText(LanguageBundle.getFormattedString(
-					"in_igBuyMenuDesc", quantity)); //$NON-NLS-1$
+						"in_igBuyMenuDesc", quantity)); //$NON-NLS-1$
 			}
 			else
 			{
@@ -1370,7 +1381,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				String selectedValue =
 						JOptionPane.showInputDialog(null, LanguageBundle.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
-							Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
+													Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 				if (selectedValue != null)
 				{
 					try
@@ -1408,7 +1419,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		{
 			this.character = character;
 		}
-		
+
 		/**
 		 * {@inheritDoc}
 		 */
@@ -1470,6 +1481,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		{
 			purchasedTable.removeMouseListener(this);
 		}
+
 	}
 
 	/**
@@ -1477,6 +1489,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	 */
 	private class SellNumMenuItem extends JMenuItem implements ActionListener
 	{
+
 		public static final int SELL_ALL_QUANTITY = -5;
 		private final int quantity;
 		private final CharacterFacade character;
@@ -1485,7 +1498,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		SellNumMenuItem(CharacterFacade character, List<EquipmentFacade> targets, int quantity)
 		{
 			super(LanguageBundle.getFormattedString(quantity > 0
-				? "in_igSellMenuCommand" : (quantity == SELL_ALL_QUANTITY //$NON-NLS-1$
+					? "in_igSellMenuCommand" : (quantity == SELL_ALL_QUANTITY //$NON-NLS-1$
 					? "in_igSellAll" : "in_igSellN"), quantity)); //$NON-NLS-1$ //$NON-NLS-2$
 			this.character = character;
 			this.targets = targets;
@@ -1493,7 +1506,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			if (quantity > 0)
 			{
 				setToolTipText(LanguageBundle.getFormattedString(
-					"in_igSellMenuDesc", quantity)); //$NON-NLS-1$
+						"in_igSellMenuDesc", quantity)); //$NON-NLS-1$
 			}
 			else if (quantity == SELL_ALL_QUANTITY)
 			{
@@ -1521,7 +1534,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				String selectedValue =
 						JOptionPane.showInputDialog(null, LanguageBundle.getString("in_igBuyEnterQuantity"), //$NON-NLS-1$
-							Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
+													Constants.APPLICATION_NAME, JOptionPane.QUESTION_MESSAGE);
 				if (selectedValue != null)
 				{
 					try
@@ -1547,10 +1560,12 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				availableTable.refilter();
 			}
 		}
+
 	}
-	
+
 	private class ModifyChargesMenuItem extends JMenuItem implements ActionListener
 	{
+
 		private final CharacterFacade character;
 		private final List<EquipmentFacade> targets;
 
@@ -1571,10 +1586,12 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		{
 			character.modifyCharges(targets);
 		}
+
 	}
-	
+
 	private class MoveItemMenuItem extends JMenuItem implements ActionListener
 	{
+
 		private final CharacterFacade character;
 		private final CharacterFacade destination;
 		private final List<EquipmentFacade> targets;
@@ -1601,10 +1618,12 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				destination.addPurchasedEquipment(item, 1, false);
 			}
 		}
+
 	}
-	
+
 	private class CopyItemMenuItem extends JMenuItem implements ActionListener
 	{
+
 		private final CharacterFacade character;
 		private final CharacterFacade destination;
 		private final List<EquipmentFacade> targets;
@@ -1630,5 +1649,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				destination.addPurchasedEquipment(item, 1, false);
 			}
 		}
+
 	}
+
 }
