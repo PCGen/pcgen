@@ -23,6 +23,8 @@ package pcgen.gui2.dialog;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.management.ManagementFactory;
@@ -46,6 +48,7 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.tools.Utility;
+import pcgen.system.LanguageBundle;
 import pcgen.system.LoggingRecorder;
 import pcgen.util.Logging;
 
@@ -76,10 +79,29 @@ public class DebugDialog extends JDialog
 	private void initComponents()
 	{
 		Container contentPane = getContentPane();
-		contentPane.setLayout(new BorderLayout());
+		contentPane.setLayout(new GridBagLayout());
 		initDebugLog();
-		contentPane.add(new JScrollPane(debuggingText), BorderLayout.CENTER);
-		contentPane.add(memoryPanel, BorderLayout.SOUTH);
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		gbc.weightx = 1;
+		gbc.weighty = 1;
+		gbc.fill = GridBagConstraints.BOTH;
+		contentPane.add(new JScrollPane(debuggingText), gbc);
+		JButton clearButton = new JButton("Clear");
+		clearButton.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e)
+			{
+				LoggingRecorder.clearLogs();
+				debuggingText.setText("");
+			}
+			
+		});
+		
+		gbc.weighty = 0;
+		contentPane.add(clearButton, gbc);
+		contentPane.add(memoryPanel, gbc);
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
 	}
 

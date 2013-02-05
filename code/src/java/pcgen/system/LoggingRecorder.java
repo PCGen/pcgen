@@ -51,4 +51,9 @@ public class LoggingRecorder extends FileHandler
 		return writer.toString();
 	}
 
+	public static void clearLogs()
+	{
+		writer.getBuffer().setLength(0);
+	}
+
 }
