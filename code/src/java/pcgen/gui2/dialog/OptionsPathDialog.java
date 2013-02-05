@@ -68,7 +68,7 @@ public class OptionsPathDialog extends JDialog
 		JFrame tempFrame = new JFrame("Select Settings Path");
 		tempFrame.setLocationRelativeTo(null);
 		OptionsPathDialog dialog = new OptionsPathDialog(tempFrame);
-		
+
 		tempFrame.setVisible(true);
 		dialog.setVisible(true);
 		tempFrame.setVisible(false);
@@ -94,8 +94,8 @@ public class OptionsPathDialog extends JDialog
 		gridBagConstraints.insets = new Insets(2, 0, 2, 0);
 		getContentPane().add(new JSeparator(), gridBagConstraints);
 
-		label = new JLabel("If you have an existing options.ini file," +
-				"then select the directory containing that file");
+		label = new JLabel("If you have an existing options.ini file,"
+						   + "then select the directory containing that file");
 		gridBagConstraints.insets = new Insets(4, 4, 4, 4);
 		getContentPane().add(label, gridBagConstraints);
 
@@ -104,14 +104,15 @@ public class OptionsPathDialog extends JDialog
 
 		gridBagConstraints.insets = new Insets(0, 4, 0, 4);
 		addRadioButton(
-				"<html><b>PCGen Dir</b>: This is the directory that PCGen is installed into (default)",
+				"<html><b>PCGen Dir</b>: This is the directory that PCGen is installed into",
 				SettingsFilesPath.pcgen.name(), group, handler, gridBagConstraints);
 		// Remark: do mac user really need to be able to put the file either in a specific mac dir or home?
 		if (SystemUtils.IS_OS_MAC_OSX)
 		{
 			addRadioButton("<html><b>Mac User Dir</b>",
 						   SettingsFilesPath.mac_user.name(), group, handler, gridBagConstraints);
-		} else if (SystemUtils.IS_OS_UNIX)
+		}
+		else if (SystemUtils.IS_OS_UNIX)
 		{
 			// putting it the same way as mac. merging all and using a system config dir instead would be better IMHO.
 			addRadioButton("<html><b>Freedesktop configuration sub-directory</b> Use for most Linux/BSD",
@@ -164,9 +165,14 @@ public class OptionsPathDialog extends JDialog
 	private void addRadioButton(String text, String command, ButtonGroup group,
 								ActionListener listener, GridBagConstraints gbc)
 	{
+		boolean selected = command.equals(selectedDir);
+		if (selected)
+		{
+			text += " (default)";//for i18n this will need to be handled differently
+		}
 		JRadioButton rButton = new JRadioButton(text);
 		rButton.setActionCommand(command);
-		rButton.setSelected(command.equals(selectedDir));
+		rButton.setSelected(selected);
 		rButton.addActionListener(listener);
 		group.add(rButton);
 		getContentPane().add(rButton, gbc);
@@ -194,13 +200,13 @@ public class OptionsPathDialog extends JDialog
 					{
 						int confirm =
 								JOptionPane
-									.showConfirmDialog(
-										rootPane,
-										"The folder "
-											+ dir.getAbsolutePath()
-											+ " is not empty.\n"
-											+ "All ini files in this directory may be overwritten. "
-											+ "Are you sure?");
+								.showConfirmDialog(
+								rootPane,
+								"The folder "
+								+ dir.getAbsolutePath()
+								+ " is not empty.\n"
+								+ "All ini files in this directory may be overwritten. "
+								+ "Are you sure?");
 						if (confirm != JOptionPane.YES_OPTION)
 						{
 							return;
