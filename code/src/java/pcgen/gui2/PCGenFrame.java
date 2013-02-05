@@ -1174,16 +1174,17 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	{
 		StringBuilder campList = new StringBuilder();
 		campList.append("<UL>");
-		int count = 0;
-		final int maxListLen = 5;
+		int count = 1;
+		final int maxListLen = 6;
 		for (CampaignFacade facade : sources.getCampaigns())
 		{
 			campList.append("<li>");
-			if (count > maxListLen)
+			if (count >= maxListLen && sources.getCampaigns().getSize() > maxListLen)
 			{
-				int numExtra = sources.getCampaigns().getSize()-maxListLen;
-				campList.append(String.valueOf(numExtra));
-				campList.append(" other sources</li>");
+				int numExtra = sources.getCampaigns().getSize()-maxListLen+1;
+				campList.append(LanguageBundle.getFormattedString(
+					"in_loadPcDiffSourcesExcessSources",
+					String.valueOf(numExtra)));
 				break;
 			}
 			campList.append(facade.toString());
