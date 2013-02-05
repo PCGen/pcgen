@@ -292,3 +292,5 @@ Detect Evil.COPY=Detect Infernal
 Detect Infernal.MOD																				CLASSES:.CLEARALL																																																																																																DESC:.CLEARALL	DESC:Reveals Infernals or Tainted sub-types
 Shillelagh.COPY=Shillelagh UR
 Shillelagh UR.MOD												OUTPUTNAME:Shillelagh (Wind Staff Only)			CLASSES:.CLEARALL																																										TARGETAREA:One touched nonmagical wind staff																																															DESC:.CLEARALL	DESC:Wind Staff becomes +1 weapon dealing damage as if two size categories larger for (CASTERLEVEL) minutes
+
+Cure Light Wounds.MOD	CLASSES:Ulfian Ranger=1

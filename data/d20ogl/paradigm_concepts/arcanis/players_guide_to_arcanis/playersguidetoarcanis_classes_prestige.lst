@@ -97,7 +97,7 @@ CLASS:Blackchanter	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE
 1:REPEATLEVEL:1									ADD:SPELLCASTER|Arcane
 1			BONUS:ABILITYPOOL|Blackchanter Skill Focus|1
 2																						ABILITY:Special Ability|VIRTUAL|Requiem
-3											ADD:FEAT|Skill Focus (TYPE=Nobility),Skill Focus (TYPE=Religion)
+3											ADD:FEAT|Skill Focus (Nobility%),Skill Focus (Religion%)
 4																						ABILITY:Special Ability|VIRTUAL|Elemental Savant (Positive Energy)
 5																						ABILITY:Special Ability|VIRTUAL|Dance Macabre
 
@@ -226,10 +226,10 @@ SUBCLASSLEVEL:8										ABILITY:Special Ability|VIRTUAL|Thracian CSM
 1												ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies																																							AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Tower Shield Proficiency
 1												ABILITY:Special Ability|VIRTUAL|GladiatorUDAM1
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
-3																																																														AUTO:FEAT|Endurance[PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]]
+3																																																														AUTO:FEAT|Endurance|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 5												ABILITY:Special Ability|VIRTUAL|Idolized by the Mob|Signature Weapon|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 6												ABILITY:Special Ability|VIRTUAL|Amazing Fortitude|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
-7	BONUS:VAR|DefensiveRollTimes|1						ABILITY:Special Ability|VIRTUAL|Defensive Roll|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]					AUTO:FEAT|Diehard[PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]]
+7	BONUS:VAR|DefensiveRollTimes|1						ABILITY:Special Ability|VIRTUAL|Defensive Roll|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]					AUTO:FEAT|Diehard|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 9												ABILITY:Special Ability|VIRTUAL|Legendary Fortitude|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
 10												ABILITY:Special Ability|VIRTUAL|As if They Were Gods
 10												ABILITY:Special Ability|VIRTUAL|GladiatorUDAM10|PREMULT:1,[PREMULT:2,[!PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.MEDIUM.EQUIPPED],0,COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]],[PREMULT:2,[PRESUBCLASS:1,Samnite],[PREVAREQ:COUNT[EQTYPE.ARMOR.IS.HEAVY.EQUIPPED],0]]
@@ -331,7 +331,7 @@ CLASS:Master of the Hounds	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Mast
 3																								SPELLLEVEL:CLASS|Master of the Hounds=2|Aid,Bear's Endurance,Bull's Strength,Cure Moderate Wounds,Daze Monster,Heroism,Hold Animal,Summon Nature's Ally II (MoH)
 3			CAST:0,1,0
 4			CAST:0,2,1							ABILITY:Special Ability|VIRTUAL|Augment Summoning Ability (Canines)
-5																								SPELLLEVEL:CLASS|Master of the Hounds=3|Blink,Deep Slumber,Dominate Animal,Greater Magic Fang,Haste,Summon Nature's Ally III (MoH)
+5																								SPELLLEVEL:CLASS|Master of the Hounds=3|Blink,Deep Slumber,Dominate Animal,Magic Fang (Greater),Haste,Summon Nature's Ally III (MoH)
 5			CAST:0,2,1,0						ABILITY:Special Ability|VIRTUAL|Hamstring
 5:REPEATLEVEL:5				BONUS:VAR|HamstringBonus|1
 6			CAST:0,3,2,1						ABILITY:Special Ability|VIRTUAL|Unwavering Devotion
@@ -349,14 +349,14 @@ CLASS:Milandisian Canton	NAMEISPI:YES	HD:10		TYPE:PC.Prestige	ABB:Cantn		MAXLEVE
 CLASS:Milandisian Canton	PREATT:2	PREFEAT:1,Conscript	PREREGION:Milandir	PRESKILL:1,TYPE.Craft,TYPE.Profession=5	PREVARGTEQ:(STAT.3.BASEMOD)+(STAT.4.BASEMOD)+(STAT.5.BASEMOD),0
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Milandisian Canton	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Diplomacy|Heal|Jump|TYPE.History|TYPE.Nobility|TYPE.Profession|Survival|Swim
-1											ADD:FEAT|TYPE=Military,TYPE=Canton,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes	ABILITY:Special Ability|VIRTUAL|Defensive Line
+1											ADD:FEAT|TYPE=Military,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes	ABILITY:Special Ability|VIRTUAL|Defensive Line
 1:REPEATLEVEL:4					BONUS:VAR|LineBonus|1
 2																																						ABILITY:Special Ability|VIRTUAL|Always Set
 3																																						ABILITY:Special Ability|VIRTUAL|Line Defense
-4											ADD:FEAT|TYPE=Military,TYPE=Canton,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes
+4											ADD:FEAT|TYPE=Military,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes
 6																																						ABILITY:Special Ability|VIRTUAL|Counter Charge
 7			SAB:Line Attack (Ex)																																ABILITY:Special Ability|VIRTUAL|Line Attack
-8											ADD:FEAT|TYPE=Military,TYPE=Canton,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes
+8											ADD:FEAT|TYPE=Military,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes
 10																																						ABILITY:Special Ability|VIRTUAL|Rapid Set
 
 ##############################################################################################################################################################################################################################################################################################################################################
@@ -546,8 +546,8 @@ CLASS:Spellcaller	PREMULT:2,[PRESPELLCAST:MEMORIZE=N],[PRESPELLTYPE:1,Arcane=3]	
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellcaller	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Search|Spellcraft
 1					BONUS:ABILITYPOOL|Flexible Known Slot|9	BONUS:ABILITYPOOL|Spell Studies|9									ABILITY:Special Ability|VIRTUAL|Spell Studies|Flexible Spell Slot|Multiple Spontaneous Adjustment
-1:REPEATLEVEL:1																ADD:SPELLCASTER|Arcane[PRESPELLCAST:MEMORIZE=N]
-2:REPEATLEVEL:2|SKIP=0|MAX=4														ADD:FEAT|TYPE=Metamagic
+1:REPEATLEVEL:1																ADD:SPELLCASTER|Arcane
+2:REPEATLEVEL:2|SKIP=0|MAX=4														BONUS:ABILITYPOOL|Metamagic|1
 6																										ABILITY:Special Ability|VIRTUAL|Spell Mimic
 8																										ABILITY:Special Ability|VIRTUAL|Metamagic Casting
 10																										ABILITY:Special Ability|VIRTUAL|Metamagic Mastery

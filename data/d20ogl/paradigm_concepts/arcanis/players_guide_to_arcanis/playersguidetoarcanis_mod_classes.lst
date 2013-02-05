@@ -98,7 +98,7 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Glimpse of the Cauldron,Hold the Spiri
 ###Block: Cleric subclass
 SUBCLASS:Cadic	COST:0	PREDEITY:1,Cadic
 SUBCLASSLEVEL:1																																												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																																			AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Shield Proficiency
-SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Songs in the Night|Cleric=3|Shadow Stride|Cleric=4|Not Where You Think	PROHIBITSPELL:DESCRIPTOR.Light	PROHIBITSPELL:SPELL|Searing Light|Sunbeam|Sunburst	BONUS:VAR|TurnLevelShadowUndead|3						ABILITY:Special Ability|VIRTUAL|Turn Shadow Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Shadow Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	CSKILL:Hide|Move Silently|TYPE.Perform|Sleight of Hand|Tumble	LANGAUTO:Ancient Altharin(Imperial)	VFEAT:Exotic Weapon Proficiency(Crossbow (Hand))															AUTO:WEAPONPROF|Rapier|Sword (Short)|Shortbow
+SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Songs in the Night|Cleric=3|Shadow Stride|Cleric=4|Not Where You Think		BONUS:VAR|TurnLevelShadowUndead|3						ABILITY:Special Ability|VIRTUAL|Turn Shadow Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Shadow Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	CSKILL:Hide|Move Silently|TYPE.Perform|Sleight of Hand|Tumble	LANGAUTO:Ancient Altharin(Imperial)	VFEAT:Exotic Weapon Proficiency(Crossbow (Hand))															AUTO:WEAPONPROF|Rapier|Sword (Short)|Shortbow
 SUBCLASSLEVEL:5																																	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|Improved Uncanny Dodge
 
 ###Block: Cleric subclass
@@ -109,7 +109,7 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Whirlwind of Blades,Skyward|Cleric=3|R
 ###Block: Cleric subclass
 SUBCLASS:Illiir	COST:0	PREDEITY:1,Illiir
 SUBCLASSLEVEL:1																																				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies																																							AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=3|My Honor Is My Strength|Cleric=5|Perfect Human Form|Cleric=7|Revelation|Cleric=9|Word of Purification	PROHIBITSPELL:DESCRIPTOR.Shadow.Darkness	BONUS:VAR|TurnLevelSunlightUndead|2	ABILITY:Special Ability|VIRTUAL|Turn Sunlight Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Sunlight Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	LANGAUTO:Ancient Altharin(Imperial)	VFEAT:Exotic Weapon Proficiency(Gladius)
+SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=3|My Honor Is My Strength|Cleric=5|Perfect Human Form|Cleric=7|Revelation|Cleric=9|Word of Purification		BONUS:VAR|TurnLevelSunlightUndead|2	ABILITY:Special Ability|VIRTUAL|Turn Sunlight Undead|PREABILITY:1,CATEGORY=Special Ability,Turn Undead	ABILITY:Special Ability|VIRTUAL|Rebuke Sunlight Undead|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead	LANGAUTO:Ancient Altharin(Imperial)	VFEAT:Exotic Weapon Proficiency(Gladius)
 SUBCLASSLEVEL:5																																				ABILITY:Special Ability|NORMAL|Fearless
 
 ###Block: Cleric subclass
@@ -180,8 +180,8 @@ SUBCLASSLEVEL:1	BONUS:DOMAIN|NUMBER|-1												CSKILL:TYPE.Geography|TYPE.Nat
 SUBCLASS:Osalian	COST:0	PREDEITY:1,Osalian
 SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
 SUBCLASSLEVEL:1	BONUS:DOMAIN|NUMBER|-1												CSKILL:TYPE.Geography|TYPE.Nature|Survival
-
-
+1	PROHIBITSPELL:DESCRIPTOR.Light|PREDEITY:1,Cadic	PROHIBITSPELL:SPELL.Searing Light|PREDEITY:1,Cadic	PROHIBITSPELL:SPELL.Sunbeam|PREDEITY:1,Cadic	PROHIBITSPELL:SPELL.Sunburst|PREDEITY:1,Cadic
+1	PROHIBITSPELL:DESCRIPTOR.Shadow|PREDEITY:1,Illiir	PROHIBITSPELL:DESCRIPTOR.Darkness|PREDEITY:1,Illiir
 
 # Class Name	Automatically Gained Weapon Prof.				Modify VAR
 CLASS:Druid.MOD	AUTO:WEAPONPROF|Longbow|Shortbow|Terbutje|Khopesh	BONUS:VAR|WildEmpathy|-5|PRERACE:1,Dark-Kin
@@ -202,38 +202,38 @@ CLASS:Monk.MOD	CSKILL:TYPE.Arcana|TYPE.Religion|Examine Martial Technique
 SUBCLASS:Order of Althares			COST:0																											PREREGION:Altheria
 SUBCLASSLEVEL:1													ABILITY:Special Ability|AUTOMATIC|.CLEAR.Monk Proficiencies															CSKILL:Craft (Alchemy)	CCSKILL:TYPE.Perform	ADD:ABILITY|Special Ability|NORMAL|Improved Grapple Feat,Stunning Fist																																																								TEMPLATE:OrderofAltharesFavClass	VFEAT:Exotic Weapon Proficiency(Flintlock (Pistol))|Exotic Weapon Proficiency(Flintlock (Rifle))|Martial Weapon Proficiency(Warhammer)								AUTO:WEAPONPROF|Dagger|Handaxe|Javelin|Quarterstaff|Unarmed Strike
 SUBCLASSLEVEL:2																																													ADD:FEAT|Combat Reflexes|Combat Firing
-SUBCLASSLEVEL:6																																													ADD:FEAT|Improved Disarm|Martial Weapon Technique (Flintlock (Pistol))|Martial Weapon Technique (Warhammer)
+SUBCLASSLEVEL:6																																													ADD:FEAT|Improved Disarm,Martial Weapon Technique (Flintlock (Pistol)),Martial Weapon Technique (Warhammer)
 SUBCLASS:Order of the Blade			COST:0	TEMPLATE:OrderofBladeFavClass
 SUBCLASSLEVEL:1													ABILITY:Special Ability|AUTOMATIC|.CLEAR.Monk Proficiencies|.CLEAR.All Automatic Proficiencies																	ADD:ABILITY|Special Ability|NORMAL|Longsword Weapon Focus,Stunning Fist																																																														VFEAT:Martial Weapon Proficiency(Longsword)																							AUTO:WEAPONPROF|Unarmed Strike
-SUBCLASSLEVEL:2																																													ADD:FEAT|Greater Weapon Focus(Longsword)|Combat Reflexes
-SUBCLASSLEVEL:6																																													ADD:FEAT|Improved Disarm|Martial Weapon Technique (Longsword)
+SUBCLASSLEVEL:2																																													ADD:FEAT|Greater Weapon Focus(Longsword),Combat Reflexes
+SUBCLASSLEVEL:6																																													ADD:FEAT|Improved Disarm,Martial Weapon Technique (Longsword)
 SUBCLASS:Order of the Bronze Sepulcher	COST:0	TEMPLATE:OrderBronzeSepulcherFavClass
 SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|Brothers of the Crypt
 SUBCLASS:Comtemplation of the Elements	COST:0	TEMPLATE:ContElementsFavClass																			PRERACE:1,Elorii
 SUBCLASSLEVEL:1																																													ADD:ABILITY|Special Ability|NORMAL|Elorii Bloodline Feat,Stunning Fist
-SUBCLASSLEVEL:2																																													ADD:ABILITY|Special Ability|NORMAL|Improved Elorii Bloodline Feat,Combat Reflexes|PREFEAT:1,Elorii Bloodline	ADD:ABILITY|Special Ability|NORMAL|Elorii Bloodline Feat,Combat Reflexes|!PREFEAT:1,Elorii Bloodline
-SUBCLASSLEVEL:6																																													ADD:ABILITY|Special Ability|NORMAL|Heightened Elorii Bloodline Feat,Improved Trip|PREFEAT:1,Improved Elorii Bloodline	ADD:ABILITY|Special Ability|NORMAL|Improved Elorii Bloodline Feat,Improved Trip|PREMULT:2,[PREFEAT:Elorii Bloodline],[!PREFEAT:1,Improved Elorii Bloodline]	ADD:ABILITY|Special Ability|NORMAL|Elorii Bloodline Feat,Improved Trip|!PREFEAT:2,Elorii Bloodline,Improved Elorii Bloodline
+SUBCLASSLEVEL:2																																													ADD:ABILITY|Special Ability|NORMAL|Improved Elorii Bloodline Feat,Combat Reflexes,Elorii Bloodline Feat
+SUBCLASSLEVEL:6																																													ADD:ABILITY|Special Ability|NORMAL|Heightened Elorii Bloodline Feat,Improved Trip,Improved Elorii Bloodline Feat,Elorii Bloodline Feat
 SUBCLASSLEVEL:20													ABILITY:Special Ability|NORMAL|Elemental Soul
 SUBCLASS:Order of the Incandescent Path	COST:0
 SUBCLASSLEVEL:1																																																																																																																TEMPLATE:IncandPathFavClass
 SUBCLASSLEVEL:3																																																																																																																																													AUTO:FEAT|Iron Skin
 SUBCLASS:Order of the Irridescent Scale	COST:0	TEMPLATE:IrridScaleFavClass						PREMULT:3,[PRERACE:1,Ss'ressen],[PRETEMPLATE:1,Black Talon],[PREGENDER:MALE]
 # 2006-06-03 errata - issue with stacking of My Body bonuses and Ssethregore book prestige class - note in case that book ever gets coded
-SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|My Body My Soul	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Monk Proficiencies|.CLEAR.All Automatic Proficiencies									ADD:ABILITY:Special Ability|NORMAL|Dragon's Hide Feat,Stunning Fist																																																																																												AUTO:WEAPONPROF|Unarmed Strike
-SUBCLASSLEVEL:2																																													ADD:FEAT|Combat Reflexes|Tail Attack
+SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|My Body My Soul	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Monk Proficiencies|.CLEAR.All Automatic Proficiencies									ADD:ABILITY|Special Ability|NORMAL|Dragon's Hide Feat,Stunning Fist																																																																																												AUTO:WEAPONPROF|Unarmed Strike
+SUBCLASSLEVEL:2																																													ADD:FEAT|Combat Reflexes,Tail Attack
 SUBCLASSLEVEL:6																																													ADD:ABILITY|Special Ability|NORMAL|Avalanche Feat,Improved Trip
 SUBCLASS:Order of the Iron Soul		COST:0
 SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|Iron Soul
 SUBCLASS:Order of the Pearl Maidens		COST:0								PREGENDER:Female
 SUBCLASSLEVEL:1	BONUS:WEAPONPROF=Crossbow|TOHIT|-4|PREFEAT:1,Simple Weapon Proficiency																									CSKILL:TYPE.Perform	CCSKILL:Survival		ADD:ABILITY|Special Ability|NORMAL|Dodge Feat,Stunning Fist																																																																VFEAT:Skill Focus(Profession (Sailor))|Martial Weapon Proficiency(Longbow)
-SUBCLASSLEVEL:2																																													ADD:ABILITY|Special Ability|NORMAL|Deflect Arrows|Mobility Feat
+SUBCLASSLEVEL:2																																													ADD:ABILITY|Special Ability|NORMAL|Deflect Arrows,Mobility Feat
 SUBCLASSLEVEL:3																																																																																																																																													AUTO:FEAT|Master of the Tops
 SUBCLASSLEVEL:6																																																																																																																																													AUTO:FEAT|Hero's Heart|Improved Disarm
 SUBCLASS:Order of the Perfect Union		COST:0
 SUBCLASSLEVEL:1																																													ADD:ABILITY|Special Ability|NORMAL|Unfazed Feat,Stunning Fist																																																									TEMPLATE:PerfectUnionFavClass																																AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
 SUBCLASSLEVEL:2																																																																																																																																													AUTO:FEAT|Callous|Combat Reflexes
 SUBCLASSLEVEL:5													ABILITY:Special Ability|NORMAL|Path of the Stoic Soul
-SUBCLASSLEVEL:6																																													ADD:FEAT|Improved Disarm|Improved Trip|Divinity's Purpose|PRERACE:1,Val
+SUBCLASSLEVEL:6																																													ADD:FEAT|Improved Disarm,Improved Trip,Divinity's Purpose|PRERACE:1,Val
 
 
 # Class Name	Subclass?		Automatic Languages			Bonus Languages
@@ -246,7 +246,7 @@ CLASS:Paladin.MOD	PREALIGN:LG,NG,CG	PREDEITY:1,Y
 # Class Name	Class Skill
 CLASS:Paladin.MOD	CSKILL:TYPE.Nobility|TYPE.Religion|Examine Martial Technique
 SUBCLASS:Paladin of Althares		COST:0	PREDEITY:1,Althares
-SUBCLASSLEVEL:1						BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|NORMAL|Bardic Knowledge		DEFINE:BardicKnowledgeLevel|0							ADD:LANGUAGE|Ancient Altharin(Imperial)	ADD:ABILITY|Special Ability|NORMAL|Flintlock Choice	VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))	AUTO:EQUIP|CHOICE	AUTO:EQUIP|Blastpowder (10)
+SUBCLASSLEVEL:1						BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|NORMAL|Bardic Knowledge		DEFINE:BardicKnowledgeLevel|0							ADD:LANGUAGE|Ancient Altharin(Imperial)	ADD:ABILITY|Special Ability|NORMAL|Flintlock Choice	VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))	AUTO:EQUIP|Blastpowder (10)
 SUBCLASS:Paladin of Belisarda		COST:0	PREDEITY:1,Belisarda
 SUBCLASSLEVEL:1						BONUS:VAR|WildEmpathy|CL										ABILITY:Special Ability|VIRTUAL|Wild Empathy							CSKILL:Knowledge (Nature)|Survival
 SUBCLASS:Paladin of Hurrian		COST:0	PREDEITY:1,Hurrian
@@ -273,7 +273,7 @@ SUBCLASSLEVEL:1																																		CSKILL:Survival																
 
 # Class Name	Class Skill
 CLASS:Ranger.MOD	CSKILL:TYPE.Dungeoneering|TYPE.Nature|TYPE.Geography|TYPE.Religion
-1											VFEAT:Exotic Weapon Proficiency(Flintlock (Rifle))|Exotic Weapon Proficiency(Flintlock (Pistol))[PREMULT:1,[PREFEAT:1,Shining Patrol Service],[PREREGION:Altheria]]
+1											VFEAT:Exotic Weapon Proficiency(Flintlock (Rifle))|Exotic Weapon Proficiency(Flintlock (Pistol))|PREMULT:1,[PREFEAT:1,Shining Patrol Service],[PREREGION:Altheria]
 4	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Animal Companion
 4	ABILITY:Special Ability|VIRTUAL|Arcanis Animal Companion
 

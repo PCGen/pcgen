@@ -247,3 +247,10 @@ ARMORPROF:playersguidetoarcanis_armorprofs.lst
 #EQUIPMOD:&/forgedinmagic/forgedmagic_equipmods_specialmaterials.lst
 #WEAPONPROF:&/forgedinmagic/forgedmagic_weaponprofs.lst
 
+
+FORWARDREF:DOMAIN|Chaos,Evil,Good,Law,Mind
+FORWARDREF:SPELL|Chaos Hammer,Holy Aura,Holy Smite,Order's Wrath,Shield of Law,Unholy Aura,Unholy Blight
+FORWARDREF:LANGUAGE|Draconic,Elven,Gnome,Halfling
+FORWARDREF:RACE|Dinosaur (Deinonychus),Dinosaur (Elasmosaurus),Dinosaur (Megaraptor),Dinosaur (Triceratops),Dinosaur (Tyrannosaurus),Elf,Elf (Drow),Gnome (Svirfneblin),Gnome
+FORWARDREF:FEAT|Speed of Thought
+FORWARDREF:EQUIPMENT|Bite,Claw
