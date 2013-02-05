@@ -214,11 +214,13 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			pane.add(split, BorderLayout.CENTER);
 		}
 		JPanel bottomPane = new JPanel(new FlowLayout());
-		JButton button = new JButton("Ok");
+		JButton button = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
+		button.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok")); //$NON-NLS-1$
 		button.setActionCommand("OK");
 		button.addActionListener(this);
 		bottomPane.add(button);
-		button = new JButton("Cancel");
+		button = new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
+		button.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
 		button.setActionCommand("CANCEL");
 		button.addActionListener(this);
 		bottomPane.add(button);
