@@ -34,3 +34,9 @@ ABILITYCATEGORY:Patrician Advantage Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL
 ABILITYCATEGORY:Spell Mastery Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Feat			TYPE:SpellMast			PLURAL:Spell Mastery			DISPLAYLOCATION:Feats
 ####### If anyone codes Legacy of Damnation, make one of the TYPEs for the feats included in this ability TaintedKeeper
 ABILITYCATEGORY:Path of the Tainted Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Feat			TYPE:TaintedKeeper		PLURAL:Path of the Tainted		DISPLAYLOCATION:Feats
+
+
+#
+ABILITYCATEGORY:HybridDellenov		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:HybridDellenov				DISPLAYLOCATION:Racial Abilities
+
+	

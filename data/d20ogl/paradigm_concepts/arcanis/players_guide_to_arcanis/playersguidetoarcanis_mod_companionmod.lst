@@ -171,7 +171,7 @@ FOLLOWER:NormalFollower=1	TYPE:Follower
 
 ###Block:Special Mount
 # Class of the Master	Type				Hit Dice	Spell Res.	Ability								Automatically Gained Feat											Automatically Gained Armor Prof.	Special ABility								Define						Combat bonus						Add to base move																																					Stat bonus		Main Race Type
-FOLLOWER:Sky Knight=1	TYPE:Special Mount														AUTO:FEAT|Flyby Attack[PRERACE:1,Griffon]	AUTO:FEAT|Mobility[PRERACE:1,Eagle (Giant)]
+FOLLOWER:Sky Knight=1	TYPE:Special Mount														AUTO:FEAT|Flyby Attack|PRERACE:1,Griffon	AUTO:FEAT|Mobility|PRERACE:1,Eagle (Giant)
 FOLLOWER:Sky Knight=3	TYPE:Special Mount														AUTO:FEAT|Hover
 FOLLOWER:Sky Knight=4	TYPE:Special Mount														AUTO:FEAT|Wingover
 FOLLOWER:SMLevel=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Improved Evasion																AUTO:ARMORPROF|ARMORTYPE=Barding	SAB:Share saving throws	SAB:Empathic Link	SAB:Share spells	DEFINE:LOCK.INT|6	DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																																								BONUS:STAT|STR|1	RACETYPE:Magical Beast

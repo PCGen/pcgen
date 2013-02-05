@@ -17,7 +17,7 @@ CLASS:Bard.MOD	CSKILL:Black Market|Research
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source Page			Bonus Languages			Save checks bonus											Combat bonus					Add domain number
-CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	HASSUBCLASS:YES	ALLOWBASECLASS:NO		SOURCEPAGE:ClassesI.rtf	LANGBONUS:Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
+CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20		ALLOWBASECLASS:NO		SOURCEPAGE:ClassesI.rtf	LANGBONUS:Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
 # Class Name	Required Deity
 CLASS:Cleric	PREDEITY:1,Y
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -115,12 +115,12 @@ SUBCLASSLEVEL:5																																				ABILITY:Special Ability|NORMA
 ###Block: Cleric subclass
 SUBCLASS:Fire Dragon	COST:0	PREDEITY:1,Fire Dragon	PREGENDER:FEMALE
 SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies				AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-SUBCLASSLEVEL:1	ABILITY:Special Ability|To Endure the Womb of the Fire Dragon	CSKILL:Survival																								AUTO:WEAPONPROF|Flail (Heavy)
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|To Endure the Womb of the Fire Dragon	CSKILL:Survival																								AUTO:WEAPONPROF|Flail (Heavy)
 
 ###Block: Cleric subclass
 SUBCLASS:Larissan Oracle	COST:0	PREDEITY:1,Larissa
 SUBCLASSLEVEL:1																																																				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies															AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)
-SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=1|Armor of Faith|Cleric=2|Twist of Fate|Cleric=4|Phantasmal Lover|Cleric=5|I Feel You	DOMAIN:Divination																														ABILITY:Special Ability|Stern Demeanor						CSKILL:TYPE.Arcana|Listen|Search|Spot	LANGAUTO:Ancient Altharin(Imperial)	AUTO:FEAT|Simple Weapon Proficiency										AUTO:WEAPONPROF|TYPE.Whip
+SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=1|Armor of Faith|Cleric=2|Twist of Fate|Cleric=4|Phantasmal Lover|Cleric=5|I Feel You	DOMAIN:Divination																														ABILITY:Special Ability|AUTOMATIC|Stern Demeanor						CSKILL:TYPE.Arcana|Listen|Search|Spot	LANGAUTO:Ancient Altharin(Imperial)	AUTO:FEAT|Simple Weapon Proficiency										AUTO:WEAPONPROF|TYPE.Whip
 SUBCLASSLEVEL:3																							BONUS:COMBAT|AC|max(CHA,0)|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0
 SUBCLASSLEVEL:5																																					BONUS:VAR|BardicKnowledgeLevel|((CL)/2)	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|NORMAL|GlimpseoftheForbidden|Bardic Knowledge
 
@@ -138,13 +138,13 @@ SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=1|Skeletal Companion|Cleric=2|Your Time 
 ###Block: Cleric subclass
 SUBCLASS:Nier	COST:0	PREDEITY:1,Nier
 SUBCLASSLEVEL:1											ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies							AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=4|Your Fire is Mine,Steamblast	ABILITY:Special Ability|VIRTUAL|Soul Burns|TurningSpecial		LANGAUTO:Ancient Altharin(Imperial)																								AUTO:WEAPONPROF|Greatsword
+SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=4|Your Fire is Mine,Steamblast	ABILITY:Special Ability|VIRTUAL|Soul Burns|Turning Special		LANGAUTO:Ancient Altharin(Imperial)																								AUTO:WEAPONPROF|Greatsword
 
 ###Block: Cleric subclass
 SUBCLASS:Saluwe	COST:0	PREDEITY:1,Saluwe	PREGENDER:FEMALE
 SUBCLASSLEVEL:1																		ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies										AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 SUBCLASSLEVEL:1	SPELLLEVEL:CLASS|Cleric=2|Crushing Weight|Cleric=3|Battle Spines																					CSKILL:TYPE.Nature|Survival|Swim	AUTO:FEAT|Track														
-SUBCLASSLEVEL:4												BONUS:VAR|RangerAnimalCompLVL|CL	ABILITY:Special Ability|VIRTUAL|Arcanis Animal Companion|Ranger Animal Companion
+SUBCLASSLEVEL:4												BONUS:VAR|RangerAnimalCompLVL|CL	ABILITY:Special Ability|VIRTUAL|Arcanis Animal Companion|Animal Companion
 # supposed to not prohibit based on alignment for Summoning spells - no idea how at this time, so not prohibiting any
 
 ###Block: Cleric subclass
@@ -164,22 +164,22 @@ SUBCLASSLEVEL:3													BONUS:SKILL|Profession (Navigator),Survival,Swim|2		
 ###Block: Cleric subclass
 SUBCLASS:Beroe	COST:0	PREDEITY:1,Beroe
 SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE.Geography|TYPE.Nature|Survival
+SUBCLASSLEVEL:1	BONUS:DOMAIN|NUMBER|-1												CSKILL:TYPE.Geography|TYPE.Nature|Survival
 
 ###Block: Cleric subclass
 SUBCLASS:Keleos	COST:0	PREDEITY:1,Keleos
 SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE.Geography|TYPE.Nature|Survival
+SUBCLASSLEVEL:1	BONUS:DOMAIN|NUMBER|-1												CSKILL:TYPE.Geography|TYPE.Nature|Survival
 
 ###Block: Cleric subclass
 SUBCLASS:Marok	COST:0	PREDEITY:1,Marok
 SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE.Geography|TYPE.Nature|Survival
+SUBCLASSLEVEL:1	BONUS:DOMAIN|NUMBER|-1												CSKILL:TYPE.Geography|TYPE.Nature|Survival
 
 ###Block: Cleric subclass
 SUBCLASS:Osalian	COST:0	PREDEITY:1,Osalian
 SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies									AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency
-SUBCLASSLEVEL:1	BONUS:DOMAIN|-1												CSKILL:TYPE.Geography|TYPE.Nature|Survival
+SUBCLASSLEVEL:1	BONUS:DOMAIN|NUMBER|-1												CSKILL:TYPE.Geography|TYPE.Nature|Survival
 
 
 
@@ -196,7 +196,7 @@ CLASS:Druid.MOD	CSKILL:TYPE.Religion
 CLASS:Fighter.MOD	CSKILL:Examine Martial Technique
 
 # Class Name	Subclass?
-CLASS:Monk.MOD	HASSUBCLASS:YES
+CLASS:Monk.MOD	
 # Class Name	Class Skill
 CLASS:Monk.MOD	CSKILL:TYPE.Arcana|TYPE.Religion|Examine Martial Technique
 SUBCLASS:Order of Althares			COST:0																											PREREGION:Altheria
@@ -221,11 +221,11 @@ SUBCLASS:Order of the Irridescent Scale	COST:0	TEMPLATE:IrridScaleFavClass						
 # 2006-06-03 errata - issue with stacking of My Body bonuses and Ssethregore book prestige class - note in case that book ever gets coded
 SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|My Body My Soul	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Monk Proficiencies|.CLEAR.All Automatic Proficiencies									ADD:ABILITY:Special Ability|NORMAL|Dragon's Hide Feat,Stunning Fist																																																																																												AUTO:WEAPONPROF|Unarmed Strike
 SUBCLASSLEVEL:2																																													ADD:FEAT|Combat Reflexes|Tail Attack
-SUBCLASSLEVEL:6																																													ADD:ABILITY|Special Ability|NORMAL|Avalance Feat,Improved Trip
+SUBCLASSLEVEL:6																																													ADD:ABILITY|Special Ability|NORMAL|Avalanche Feat,Improved Trip
 SUBCLASS:Order of the Iron Soul		COST:0
 SUBCLASSLEVEL:1													ABILITY:Special Ability|NORMAL|Iron Soul
 SUBCLASS:Order of the Pearl Maidens		COST:0								PREGENDER:Female
-SUBCLASSLEVEL:1	BONUS:WEAPONPROF|TYPE=Crossbow|-4|PREFEAT:1,Simple Weapon Proficiency																									CSKILL:TYPE.Perform	CCSKILL:Survival		ADD:ABILITY|Special Ability|NORMAL|Dodge Feat,Stunning Fist																																																																VFEAT:Skill Focus(Profession (Sailor))|Martial Weapon Proficiency(Longbow)
+SUBCLASSLEVEL:1	BONUS:WEAPONPROF=Crossbow|TOHIT|-4|PREFEAT:1,Simple Weapon Proficiency																									CSKILL:TYPE.Perform	CCSKILL:Survival		ADD:ABILITY|Special Ability|NORMAL|Dodge Feat,Stunning Fist																																																																VFEAT:Skill Focus(Profession (Sailor))|Martial Weapon Proficiency(Longbow)
 SUBCLASSLEVEL:2																																													ADD:ABILITY|Special Ability|NORMAL|Deflect Arrows|Mobility Feat
 SUBCLASSLEVEL:3																																																																																																																																													AUTO:FEAT|Master of the Tops
 SUBCLASSLEVEL:6																																																																																																																																													AUTO:FEAT|Hero's Heart|Improved Disarm
@@ -233,20 +233,20 @@ SUBCLASS:Order of the Perfect Union		COST:0
 SUBCLASSLEVEL:1																																													ADD:ABILITY|Special Ability|NORMAL|Unfazed Feat,Stunning Fist																																																									TEMPLATE:PerfectUnionFavClass																																AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
 SUBCLASSLEVEL:2																																																																																																																																													AUTO:FEAT|Callous|Combat Reflexes
 SUBCLASSLEVEL:5													ABILITY:Special Ability|NORMAL|Path of the Stoic Soul
-SUBCLASSLEVEL:6																																													ADD:FEAT|Improved Disarm|Improved Trip|Divinity's Purpose[PRERACE:1,Val]
+SUBCLASSLEVEL:6																																													ADD:FEAT|Improved Disarm|Improved Trip|Divinity's Purpose|PRERACE:1,Val
 
 
 # Class Name	Subclass?		Automatic Languages			Bonus Languages
 ####### per errata 2006-06-03 Divine Grace doesn't stack with the ability of any holy champion class to add an ability bonus to all saving throws, - no idea how to code
 
 # Class Name	Subclass?		Base class as subclass?	Automatic Languages			Bonus Languages
-CLASS:Paladin.MOD	HASSUBCLASS:YES	ALLOWBASECLASS:NO		LANGAUTO:Ancient Altharin(Imperial)	LANGBONUS:Celestial,Infernal
+CLASS:Paladin.MOD		ALLOWBASECLASS:NO		LANGAUTO:Ancient Altharin(Imperial)	LANGBONUS:Celestial,Infernal
 # Class Name	Required AL		Required Deity
 CLASS:Paladin.MOD	PREALIGN:LG,NG,CG	PREDEITY:1,Y
 # Class Name	Class Skill
 CLASS:Paladin.MOD	CSKILL:TYPE.Nobility|TYPE.Religion|Examine Martial Technique
 SUBCLASS:Paladin of Althares		COST:0	PREDEITY:1,Althares
-SUBCLASSLEVEL:1						BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|NORMAL|Bardic Knowledge		DEFINE:BardicKnowledgeLevel|0							ADD:LANGUAGE|Ancient Altharin(Imperial)	ADD:ABILITY|Special Ability|NORMAL|Flintlock Choice	VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol)|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))	AUTO:EQUIP|CHOICE	AUTO:EQUIP|Blastpowder (10)
+SUBCLASSLEVEL:1						BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|NORMAL|Bardic Knowledge		DEFINE:BardicKnowledgeLevel|0							ADD:LANGUAGE|Ancient Altharin(Imperial)	ADD:ABILITY|Special Ability|NORMAL|Flintlock Choice	VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))	AUTO:EQUIP|CHOICE	AUTO:EQUIP|Blastpowder (10)
 SUBCLASS:Paladin of Belisarda		COST:0	PREDEITY:1,Belisarda
 SUBCLASSLEVEL:1						BONUS:VAR|WildEmpathy|CL										ABILITY:Special Ability|VIRTUAL|Wild Empathy							CSKILL:Knowledge (Nature)|Survival
 SUBCLASS:Paladin of Hurrian		COST:0	PREDEITY:1,Hurrian
@@ -302,7 +302,7 @@ CLASS:Wizard.MOD	CSKILL:Research|TYPE.Knowledge
 # Class Name	Required Race
 CLASS:Psion.MOD	PRERACE:1,Val
 # Class Name	Class Skill
-CLASS:Psion.MOD	CSKILL:Examine Martial Technique|PRESUBCLASS:1,Egoist
+CLASS:Psion.MOD	ABILITY:Internal|AUTOMATIC|Cskill Examine Martial Technique|PRESUBCLASS:1,Egoist
 
 # Class Name			Required Race
 CLASS:Psychic Warrior.MOD	PRERACE:1,Val
