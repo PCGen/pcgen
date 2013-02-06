@@ -12,7 +12,7 @@ STARTPACK:Brigand	TYPE:StartingKit	VISIBLE:NO
 FUNDS:gp	QTY:100
 
 STARTPACK:Sword Scion	TYPE:StartingKit	VISIBLE:NO	EQUIPBUY:0
-GEAR:Dueling Sword (Aldori)
+GEAR:Aldori Dueling Sword
 
 #
 # End
