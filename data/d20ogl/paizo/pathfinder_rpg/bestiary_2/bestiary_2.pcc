@@ -113,6 +113,7 @@ ABILITY:pfb2_abilities_monsters_pqr.lst
 ABILITY:pfb2_abilities_monsters_stu.lst
 ABILITY:pfb2_abilities_monsters_vw.lst
 ABILITY:pfb2_abilities_monsters_xyz.lst
+ABILITY:pfb2_abilities_racial.lst
 CLASS:pfb2_classes_monster_specific.lst
 EQUIPMENT:pfb2_equip_monsters.lst
 FEAT:pfb2_feats.lst

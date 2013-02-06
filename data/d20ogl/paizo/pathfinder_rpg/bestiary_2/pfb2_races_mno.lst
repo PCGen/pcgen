@@ -69,7 +69,9 @@ Nightshade (Nightwing)		OUTPUTNAME:[NAME]	STARTFEATS:1	SIZE:H	MOVE:Walk,30,Fly,6
 
 ###Block: O
 # Race Name	Starting Feats	Size		Move			Face/Space	Reach		Vision			Bonus Languages										Stat bonus						Automatically Gained Language	Ability																Main Race Type	Race Subtype		Source Page
-Oread		STARTFEATS:1	SIZE:M	MOVE:Walk,20	FACE:5	REACH:5	VISION:Darkvison (60')	LANGBONUS:Aquan,Auran,Dwarven,Elven,Gnome,Halfling,Ignan,Undercommon	BONUS:STAT|STR,WIS|2	BONUS:STAT|CHA|-2	AUTO:LANG|Common|Terran		ABILITY:Special Ability|AUTOMATIC|Elemental Affinity ~ Oread|Elemental Resistance ~ Oread|Oread Magic	RACETYPE:Outsider	RACESUBTYPE:Native	SOURCEPAGE:p.205
+Oread		STARTFEATS:1	SIZE:M	MOVE:Walk,20	FACE:5	REACH:5	VISION:Darkvison (60')	LANGBONUS:Aquan,Auran,Dwarven,Elven,Gnome,Halfling,Ignan,Undercommon	BONUS:STAT|STR,WIS|2	BONUS:STAT|CHA|-2	AUTO:LANG|Common|Terran		RACETYPE:Outsider	RACESUBTYPE:Native	SOURCEPAGE:p.205
+
+#ABILITY:Special Ability|AUTOMATIC|Elemental Affinity ~ Oread|Elemental Resistance ~ Oread|Oread Magic	
 
 #
 # End
