@@ -172,6 +172,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Load;
+import pcgen.util.enumeration.View;
 
 /**
  * The Class <code>CharacterFacadeImpl</code> is an implementation of 
@@ -3952,7 +3953,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 	private void refreshTemplates()
 	{
-		Collection<PCTemplate> pcTemplates = charDisplay.getTemplateSet();
+		Collection<PCTemplate> pcTemplates = charDisplay.getOutputVisibleTemplateList();
 		for (PCTemplate template : pcTemplates)
 		{
 			if (!templates.containsElement(template))
