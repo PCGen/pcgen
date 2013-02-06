@@ -25,6 +25,7 @@ package pcgen.gui2.facade;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.content.CampaignURL;
@@ -123,12 +124,10 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		}
 
 
-		String bString = SourceFormat.getFormattedString(aCamp,
-		Globals.getSourceDisplay(), true);
-		if (bString.length() == 0)
+		String bString = SourceFormat.getFormattedString(aCamp, SourceFormat.MEDIUM, true);
+		if (StringUtils.isEmpty(bString))
 		{
-			bString = SourceFormat.getFormattedString(aCamp,
-					SourceFormat.LONG, true);
+			bString = SourceFormat.getFormattedString(aCamp, SourceFormat.LONG, true);
 		}
 		infoText.appendI18nElement("in_sumSource", bString); //$NON-NLS-1$
 		infoText.appendI18nFormattedElement("in_infByPub", //$NON-NLS-1$
