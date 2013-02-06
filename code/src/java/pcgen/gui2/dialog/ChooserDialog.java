@@ -172,7 +172,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		buttonPane1.add(addButton);
 		buttonPane1.add(new JLabel(Icons.Forward16.getImageIcon()));
 		leftPane.add(buttonPane1, BorderLayout.SOUTH);
-
+		
 		split.setLeftComponent(leftPane);
 
 		JPanel rightPane = new JPanel(new BorderLayout());
@@ -206,6 +206,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			JSplitPane infoSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 			infoSplit.setTopComponent(split);
 			infoSplit.setBottomComponent(infoPane);
+			infoSplit.setResizeWeight(.8);
 			pane.add(infoSplit, BorderLayout.CENTER);
 			availTable.getSelectionModel().addListSelectionListener(this);
 		}
