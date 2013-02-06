@@ -1,0 +1,38 @@
+# CVS $Revision: $ $Author: $ -- Sat Jan  5 17:52:59 2013 -- reformated by prettylst.pl v1.39 (build 18270)
+SOURCELONG:Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/products/btpy8pg0?Pathfinder-Player-Companion-Dragon-Empires-Primer	SOURCEDATE:2012-01
+# Original Entry by:Jonas Karlsson
+
+###Block: Regional Affinities
+# Template Name					Visible	Source Page		Region
+Regional Affinity (Amanandar)			VISIBLE:NO	SOURCEPAGE:p.8	REGION:Amanandar
+Regional Affinity (Bachuan)			VISIBLE:NO	SOURCEPAGE:p.8	REGION:Bachuan
+Regional Affinity (Chu Ye)			VISIBLE:NO	SOURCEPAGE:p.9	REGION:Chu Ye
+Regional Affinity (Darklands)			VISIBLE:NO	SOURCEPAGE:p.9	REGION:Darklands
+Regional Affinity (Dtang Ma)			VISIBLE:NO	SOURCEPAGE:p.10	REGION:Dtang Ma
+Regional Affinity (Forest of Spirits)	VISIBLE:NO	SOURCEPAGE:p.10	REGION:Forest of Spirits
+Regional Affinity (Goka)			VISIBLE:NO	SOURCEPAGE:p.11	REGION:Goka
+Regional Affinity (Hongal)			VISIBLE:NO	SOURCEPAGE:p.11	REGION:Hongal
+Regional Affinity (Hwanggot)			VISIBLE:NO	SOURCEPAGE:p.12	REGION:Hwanggot
+Regional Affinity (Jinin)			VISIBLE:NO	SOURCEPAGE:p.12	REGION:Jinin
+Regional Affinity (Kaoling)			VISIBLE:NO	SOURCEPAGE:p.13	REGION:Kaoling
+Regional Affinity (Kwanlai)			VISIBLE:NO	SOURCEPAGE:p.13	REGION:Kwanlai
+Regional Affinity (Lingshen)			VISIBLE:NO	SOURCEPAGE:p.14	REGION:Lingshen
+Regional Affinity (Minata)			VISIBLE:NO	SOURCEPAGE:p.14	REGION:Minata
+Regional Affinity (Minkai)			VISIBLE:NO	SOURCEPAGE:p.15	REGION:Minkai
+Regional Affinity (Nagajor)			VISIBLE:NO	SOURCEPAGE:p.15	REGION:Nagajor
+Regional Affinity (Po Li)			VISIBLE:NO	SOURCEPAGE:p.16	REGION:Po Li
+Regional Affinity (Quain)			VISIBLE:NO	SOURCEPAGE:p.16	REGION:Quain
+Regional Affinity (Shaguang)			VISIBLE:NO	SOURCEPAGE:p.17	REGION:Shaguang
+Regional Affinity (Shenmen)			VISIBLE:NO	SOURCEPAGE:p.17	REGION:Shenmen
+Regional Affinity (Shokuro)			VISIBLE:NO	SOURCEPAGE:p.18	REGION:Shokuro
+Regional Affinity (Tianjing)			VISIBLE:NO	SOURCEPAGE:p.18	REGION:Tianjing
+Regional Affinity (Valashmai Jungle)	VISIBLE:NO	SOURCEPAGE:p.19	REGION:Valashmai Jungle
+Regional Affinity (Wall of Heaven)		VISIBLE:NO	SOURCEPAGE:p.19	REGION:Wall of Heaven
+Regional Affinity (Wanshou)			VISIBLE:NO	SOURCEPAGE:p.20	REGION:Wanshou
+Regional Affinity (Xa Hoi)			VISIBLE:NO	SOURCEPAGE:p.20	REGION:Xa Hoi
+Regional Affinity (Xidao)			VISIBLE:NO	SOURCEPAGE:p.21	REGION:Xidao
+Regional Affinity (Zi Ha)			VISIBLE:NO	SOURCEPAGE:p.21	REGION:Zi Ha
+
+#
+# End
+#
