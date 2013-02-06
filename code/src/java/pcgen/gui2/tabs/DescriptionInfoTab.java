@@ -55,6 +55,7 @@ import pcgen.gui2.tabs.bio.NoteInfoPane;
 import pcgen.gui2.tabs.bio.PortraitInfoPane;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * The Class <code>DescriptionInfoTab</code> is a placeholder for the yet to
@@ -165,8 +166,8 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 	{
 		pageList.setModel((ListModel) state.get(ListModel.class));
 		pageList.setSelectionModel((ListSelectionModel) state.get(ListSelectionModel.class));
-		((PageHandler) state.get(PageHandler.class)).install();
 		((NoteListHandler) state.get(NoteListHandler.class)).install();
+		((PageHandler) state.get(PageHandler.class)).install();
 		addButton.setAction(((AddAction) state.get(AddAction.class)));
 	}
 
