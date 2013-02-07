@@ -182,7 +182,7 @@ public class TempBonusHelper
 		{
 			found = false;
 
-			for (EquipBonus eb : originObj.getListFor(ListKey.BONUS_EQUIP))
+			for (EquipBonus eb : originObj.getSafeListFor(ListKey.BONUS_EQUIP))
 			{
 				String conditions = eb.conditions;
 				boolean passesConditions = passesConditions(aEq, conditions);
