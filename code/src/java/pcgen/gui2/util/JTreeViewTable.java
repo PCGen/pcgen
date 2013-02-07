@@ -91,6 +91,8 @@ import pcgen.util.ListMap;
 public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListener
 {
 
+	/** Preferences jey for the width of the tree view column. */
+	private static final String TREE_VIEW_COL_PREFS_KEY = "TreeView";
 	/** The preferences key for the selected tree view index. */
 	private static final String VIEW_INDEX_PREFS_KEY = "viewIdx";
 	private final DynamicTableColumnModelListener listener = new DynamicTableColumnModelListener()
@@ -153,7 +155,12 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 					baseContext.createChildContext(
 						this.viewModel.getDataView().getPrefsKey())
 						.createChildContext("width"); //$NON-NLS-1$
-			context.setInt(normalisePrefsKey(col.getHeaderValue().toString()), (Integer) evt.getNewValue());
+			String colKey = col.getHeaderValue().toString();
+			if (colKey.equals(treetableModel.getSelectedTreeView().getViewName()))
+			{
+				colKey = TREE_VIEW_COL_PREFS_KEY;
+			}
+			context.setInt(normalisePrefsKey(colKey), (Integer) evt.getNewValue());
 		}
 		
 	}
@@ -221,7 +228,7 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		viewColumn.setHeaderValue(startingView.getViewName());
 		model.addColumn(viewColumn);
 		viewColumn.setPreferredWidth(colWidthCtx.initInt(
-			normalisePrefsKey(viewColumn.getHeaderValue().toString()), 150));
+			normalisePrefsKey(TREE_VIEW_COL_PREFS_KEY), 150));
 		viewColumn.addPropertyChangeListener(this);
 
 		for (TableColumn column : columns)
