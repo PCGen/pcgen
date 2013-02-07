@@ -144,6 +144,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	private JDialog sourceSelectionDialog = null;
 	private SourceLoadWorker sourceLoader = null;
 	private String section15 = null;
+	private String lastCharacterPath = null;
 
 	public PCGenFrame()
 	{
@@ -922,7 +923,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	boolean showSaveCharacterChooser(CharacterFacade character)
 	{
 		PCGenSettings context = PCGenSettings.getInstance();
-		String parentPath = context.getProperty(PCGenSettings.PCG_SAVE_PATH);
+		String parentPath = lastCharacterPath; 
+		if (parentPath == null)
+		{
+			parentPath = context.getProperty(PCGenSettings.PCG_SAVE_PATH);
+		}
 		chooser.setCurrentDirectory(new File(parentPath));
 		File file = character.getFileRef().getReference();
 		File prevFile = file;
@@ -978,6 +983,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				{
 					return showSaveCharacterChooser(character);
 				}
+				
+				lastCharacterPath = chooser.getCurrentDirectory().toString(); 
 				return true;
 			}
 			catch (Exception e) 
@@ -995,7 +1002,12 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	void showOpenCharacterChooser()
 	{
 		PCGenSettings context = PCGenSettings.getInstance();
-		chooser.setCurrentDirectory(new File(context.getProperty(PCGenSettings.PCG_SAVE_PATH)));
+		String path = lastCharacterPath; 
+		if (path == null)
+		{
+			path = context.getProperty(PCGenSettings.PCG_SAVE_PATH);
+		}
+		chooser.setCurrentDirectory(new File(path));
 		chooser.setSelectedFile(new File("")); //$NON-NLS-1$
 
 		chooser.resetChoosableFileFilters();
@@ -1008,6 +1020,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		{
 			File file = chooser.getSelectedFile();
 			loadCharacterFromFile(file);
+			lastCharacterPath = chooser.getCurrentDirectory().toString(); 
 		}
 	}
 
