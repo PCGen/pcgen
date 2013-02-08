@@ -41,6 +41,7 @@ ABILITY:pfuc_abilities_racial.lst
 ABILITYCATEGORY:pfuc_abilitycategories.lst
 
 CLASS:pfuc_classes.lst
+CLASS:pfuc_classes_base_mod.lst
 
 COMPANIONMOD:pfuc_companionmods.lst
 
