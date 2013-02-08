@@ -432,22 +432,22 @@ CLASS:Ex-Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Disguise|Handle Ani
 
 # Class Name
 CLASS:Druid.MOD
-1	DOMAIN:Charm[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidCharmAllowed,1]]
-1	DOMAIN:Community[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidCommunityAllowed,1]]
-1	DOMAIN:Darkness[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidDarknessAllowed,1]]
-1	DOMAIN:Death[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidDeathAllowed,1]]
-1	DOMAIN:Destruction[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidDestructionAllowed,1]]
-1	DOMAIN:Glory[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidGloryAllowed,1]]
-1	DOMAIN:Knowledge[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidKnowledgeAllowed,1]]
-1	DOMAIN:Liberation[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidLiberationAllowed,1]]
-1	DOMAIN:Nobility[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidNobilityAllowed,1]]
-1	DOMAIN:Protection[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidProtectionAllowed,1]]
-1	DOMAIN:Repose[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidReposeAllowed,1]]
-1	DOMAIN:Rune[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidRuneAllowed,1]]
-1	DOMAIN:Strength[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidStrengthAllowed,1]]
-1	DOMAIN:Sun[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidSunAllowed,1]]
-1	DOMAIN:Travel[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidTravelAllowed,1]]
-1	DOMAIN:Trickery[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidTrickeryAllowed,1]]
+1	DOMAIN:Charm[PREVAREQ:DruidCharmAllowed,1]
+1	DOMAIN:Community[PREVAREQ:DruidCommunityAllowed,1]
+1	DOMAIN:Darkness[PREVAREQ:DruidDarknessAllowed,1]
+1	DOMAIN:Death[PREVAREQ:DruidDeathAllowed,1]
+1	DOMAIN:Destruction[PREVAREQ:DruidDestructionAllowed,1]
+1	DOMAIN:Glory[PREVAREQ:DruidGloryAllowed,1]
+1	DOMAIN:Knowledge[PREVAREQ:DruidKnowledgeAllowed,1]
+1	DOMAIN:Liberation[PREVAREQ:DruidLiberationAllowed,1]
+1	DOMAIN:Nobility[PREVAREQ:DruidNobilityAllowed,1]
+1	DOMAIN:Protection[PREVAREQ:DruidProtectionAllowed,1]
+1	DOMAIN:Repose[PREVAREQ:DruidReposeAllowed,1]
+1	DOMAIN:Rune[PREVAREQ:DruidRuneAllowed,1]
+1	DOMAIN:Strength[PREVAREQ:DruidStrengthAllowed,1]
+1	DOMAIN:Sun[PREVAREQ:DruidSunAllowed,1]
+1	DOMAIN:Travel[PREVAREQ:DruidTravelAllowed,1]
+1	DOMAIN:Trickery[PREVAREQ:DruidTrickeryAllowed,1]
 
 ###Block: Wizard ---------------
 
