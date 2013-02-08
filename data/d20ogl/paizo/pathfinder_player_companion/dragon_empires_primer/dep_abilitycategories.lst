@@ -2,15 +2,6 @@
 #SOURCELONG:Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih	SOURCEDATE:2010-11
 # Original Entry by:Swiftbrook
 
-###Block: Master Category
-# Ability Category		Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object
-#ABILITYCATEGORY:Background	VISIBLE:NO	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Background
-
-###Block: Background Ability Categories
-# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number	Category of Object	Type of Object		Plural description for UI	Display Location
-#ABILITYCATEGORY:Human Ethnicity	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO					CATEGORY:Background	TYPE:HumanEthnicity	PLURAL:Human Ethnicities	DISPLAYLOCATION:Background
-#ABILITYCATEGORY:Region of Origin	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:1		CATEGORY:Background	TYPE:Region			PLURAL:Regions of Origin	DISPLAYLOCATION:Background
-
 #
 # End
 #

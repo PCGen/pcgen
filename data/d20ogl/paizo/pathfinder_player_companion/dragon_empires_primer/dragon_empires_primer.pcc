@@ -28,7 +28,7 @@ INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishin
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Pathfinder Player Companion: Dragon Empires Primer Copyright 2011, Paizo Publishing, LLC; Authors: Tim Hitchcock and Colin McComb.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Dragon Empires Primer" Copyright 2012, PCGen Data Team (including, but not limited to swiftbrook, Paul Shipley, Paul Grosse, Andrew Maitland)
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Dragon Empires Primer" Copyright 2013, PCGen Data Team (including, but not limited to swiftbrook, Paul Shipley, Paul Grosse, Andrew Maitland, Stefan Radermacher)
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
@@ -38,9 +38,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Dragon Empi
 ABILITY:dep_abilities_background.lst
 ABILITY:dep_abilities_traits.lst
 ABILITYCATEGORY:dep_abilitycategories.lst
-# LANGUAGE:dep_languages.lst
-#RACE:dep_races.lst
-#SKILL:dep_skills.lst
+KIT:dep_kits_traits.lst
+LANGUAGE:dep_languages.lst
+RACE:dep_races.lst
+SKILL:dep_skills.lst
 TEMPLATE:dep_templates_background.lst
 
 #

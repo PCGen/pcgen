@@ -1,0 +1,9 @@
+# CVS $Revision: 16260 $ $Author: zaister $ -- Fri Feb 24 11:05:32 2012 -- reformated by prettylst.pl v1.39 (build 16265)
+SOURCELONG:Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/products/btpy8pg0?Pathfinder-Player-Companion-Dragon-Empires-Primer	SOURCEDATE:2012-01
+
+STARTPACK:Chosen Child	TYPE:StartingKit	VISIBLE:NO
+FUNDS:gp	QTY:900
+
+#
+# End
+#

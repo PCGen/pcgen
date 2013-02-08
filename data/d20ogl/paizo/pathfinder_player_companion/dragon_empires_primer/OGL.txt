@@ -32,10 +32,10 @@ The following text is the property of Wizards of the Coast, Inc. and is Copyrigh
 
 15 COPYRIGHT NOTICE
 
-Open Game License v 1.0a © 2000, Wizards of the Coast, Inc.
+Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 
-System Reference Document © 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 
-Pathfinder Player Companion: Dragon Empires Primer © 2011, Paizo Publishing, LLC; Authors: Tim Hitchcock and Colin McComb.
+Pathfinder Player Companion: Dragon Empires Primer Copyright 2011, Paizo Publishing, LLC; Authors: Tim Hitchcock and Colin McComb.
 
-PCGen dataset conversion for "Dragon Empires Primer" Copyright 2013, PCGen Data team (Including, but not limited to swiftbrook, Paul Shipley)
+PCGen dataset conversion for "Dragon Empires Primer" Copyright 2013, PCGen Data team (Including, but not limited to swiftbrook, Paul Shipley,Stefan Radermacher)
