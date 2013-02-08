@@ -268,7 +268,7 @@ Animal Companion	KEY:Nature's Bond ~ Animal Companion							CATEGORY:Special Abi
 Druid Domain	KEY:Nature's Bond ~ Druid Domain								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.NatureBond	VISIBLE:DISPLAY						ABILITY:Special Ability|AUTOMATIC|Domains															SOURCEPAGE:p.50	BONUS:VAR|DruidAirAllowed,DruidAnimalAllowed,DruidEarthAllowed,DruidFireAllowed,DruidPlantAllowed,DruidWaterAllowed,DruidWeatherAllowed|1|TYPE=DruidDomain
 
 # COMMENT: Druid Allowed Domain Defines
-CATEGORY=Internal|Default.MOD	DEFINE:DruidAnimalAllowed|0	DEFINE:DruidEarthAllowed|0	DEFINE:DruidFireAllowed|0	DEFINE:DruidPlantAllowed|0	DEFINE:DruidWaterAllowed|0	DEFINE:DruidWeatherAllowed|0
+CATEGORY=Internal|Default.MOD	DEFINE:DruidAirAllowed|0	DruidWeatherAllowed	DEFINE:DruidAnimalAllowed|0	DEFINE:DruidEarthAllowed|0	DEFINE:DruidFireAllowed|0	DEFINE:DruidPlantAllowed|0	DEFINE:DruidWaterAllowed|0	DEFINE:DruidWeatherAllowed|0
 
 
 #Domain Choices

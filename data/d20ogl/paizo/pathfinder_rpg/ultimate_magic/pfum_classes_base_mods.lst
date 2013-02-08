@@ -30,26 +30,26 @@ CLASS:Cleric.MOD
 
 # Class Name
 CLASS:Druid.MOD
-1	DOMAIN:Aquatic[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidAquaticAllowed,1]]
-1	DOMAIN:Arctic[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidArcticAllowed,1]]
-1	DOMAIN:Cave[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidCaveAllowed,1]]
-1	DOMAIN:Desert[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidDesertAllowed,1]]
-1	DOMAIN:Eagle[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidEagleAllowed,1]]
-1	DOMAIN:Frog[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidFrogAllowed,1]]
-1	DOMAIN:Jungle[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidJungleAllowed,1]]
-1	DOMAIN:Monkey[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidMonkeyAllowed,1]]
-1	DOMAIN:Mountain[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidMountainAllowed,1]]
-1	DOMAIN:Plains[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidPlainsAllowed,1]]
-1	DOMAIN:Serpent[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidSerpentAllowed,1]]
-1	DOMAIN:Swamp[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidSwampAllowed,1]]
-1	DOMAIN:Wolf[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidWolfAllowed,1]]
+1	DOMAIN:Aquatic[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidAquaticAllowed,1]]
+1	DOMAIN:Arctic[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidArcticAllowed,1]]
+1	DOMAIN:Cave[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidCaveAllowed,1]]
+1	DOMAIN:Desert[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidDesertAllowed,1]]
+1	DOMAIN:Eagle[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidEagleAllowed,1]]
+1	DOMAIN:Frog[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidFrogAllowed,1]]
+1	DOMAIN:Jungle[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidJungleAllowed,1]]
+1	DOMAIN:Monkey[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidMonkeyAllowed,1]]
+1	DOMAIN:Mountain[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidMountainAllowed,1]]
+1	DOMAIN:Plains[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidPlainsAllowed,1]]
+1	DOMAIN:Serpent[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidSerpentAllowed,1]]
+1	DOMAIN:Swamp[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidSwampAllowed,1]]
+1	DOMAIN:Wolf[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidWolfAllowed,1]]
 
 ###Block: Additional Domains for Druid archetypes
-1	DOMAIN:Cloud Subdomain[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidCloudAllowed,1]]
-1	DOMAIN:Destruction[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidDestructionAllowed,1]]
-1	DOMAIN:Storms Subdomain[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidStormsAllowed,1]]
-1	DOMAIN:War[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidWarAllowed,1]]
-1	DOMAIN:Wind Subdomain[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Druid Domain],[PREVAREQ:DruidWindAllowed,1]]
+1	DOMAIN:Cloud Subdomain[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidCloudAllowed,1]]
+1	DOMAIN:Destruction[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidDestructionAllowed,1]]
+1	DOMAIN:Storms Subdomain[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidStormsAllowed,1]]
+1	DOMAIN:War[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidWarAllowed,1]]
+1	DOMAIN:Wind Subdomain[PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain],[PREVAREQ:DruidWindAllowed,1]]
 
 ###Block: Wizard Elemental Schools
 
