@@ -3,11 +3,10 @@ SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RotRPG	SOURCEWEB:htt
 # Original Entry by: Stefan Radermacher
 
 ###Block: Human Ethnicities
-# Template Name			Visible	Bonus to Ability Pool			Subrace
-Human Ethnicity			VISIBLE:NO	BONUS:ABILITYPOOL|Human Ethnicity|1
-Human Ethnicity (Chelaxian)	VISIBLE:NO							SUBRACE:Chelaxian
-Human Ethnicity (Varisian)	VISIBLE:NO							SUBRACE:Varisian
-Human Ethnicity (Shoanti)	VISIBLE:NO							SUBRACE:Shoanti
+# Template Name			Visible	Subrace
+Human Ethnicity (Chelaxian)	VISIBLE:NO	SUBRACE:Chelaxian
+Human Ethnicity (Varisian)	VISIBLE:NO	SUBRACE:Varisian
+Human Ethnicity (Shoanti)	VISIBLE:NO	SUBRACE:Shoanti
 
 ###Block: Regional Affinities
 # Template Name			Visible	Source Page		Region

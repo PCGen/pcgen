@@ -3,10 +3,9 @@ SOURCELONG:Sargava, the Lost Colony	SOURCESHORT:StLC	SOURCEWEB:http://paizo.com/
 # Original Entry by: Stefan Radermacher
 
 ###Block: Human Ethnicities
-# Template Name			Visible	Template			Bonus to Ability Pool			Subrace
-Human Ethnicity			VISIBLE:NO					BONUS:ABILITYPOOL|Human Ethnicity|1
-Human Ethnicity (Chelaxian)	VISIBLE:NO											SUBRACE:Chelaxian
-Human Ethnicity (Mwangi)	VISIBLE:NO	TEMPLATE:Mwangi Tribe							SUBRACE:Mwangi
+# Template Name			Visible	Template			Subrace
+Human Ethnicity (Chelaxian)	VISIBLE:NO					SUBRACE:Chelaxian
+Human Ethnicity (Mwangi)	VISIBLE:NO	TEMPLATE:Mwangi Tribe	SUBRACE:Mwangi
 
 ###Block: Mwangi Tribe
 # Template Name		Visible	Bonus to Ability Pool			Subrace

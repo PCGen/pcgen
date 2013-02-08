@@ -3,20 +3,19 @@ SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/sto
 # Original Entry by:Stefan Radermacher
 
 ###Block: Human Ethnicities
-# Template Name			Visible	Source Page		Bonus to Ability Pool			Subrace
-Human Ethnicity			VISIBLE:NO				BONUS:ABILITYPOOL|Human Ethnicity|1
-Human Ethnicity (Azlanti)	VISIBLE:NO	SOURCEPAGE:p.12							SUBRACE:Azlanti
-Human Ethnicity (Chelaxian)	VISIBLE:NO	SOURCEPAGE:p.13							SUBRACE:Chelaxian
-Human Ethnicity (Garundi)	VISIBLE:NO	SOURCEPAGE:p.14							SUBRACE:Garundi
-Human Ethnicity (Keleshite)	VISIBLE:NO	SOURCEPAGE:p.15							SUBRACE:Keleshite
-Human Ethnicity (Kellid)	VISIBLE:NO	SOURCEPAGE:p.16							SUBRACE:Kellid
-Human Ethnicity (Mwangi)	VISIBLE:NO	SOURCEPAGE:p.17							SUBRACE:Mwangi
-Human Ethnicity (Shoanti)	VISIBLE:NO	SOURCEPAGE:p.18							SUBRACE:Shoanti
-Human Ethnicity (Taldan)	VISIBLE:NO	SOURCEPAGE:p.19							SUBRACE:Taldan
-Human Ethnicity (Tian)		VISIBLE:NO	SOURCEPAGE:p.20							SUBRACE:Tian
-Human Ethnicity (Ulfen)		VISIBLE:NO	SOURCEPAGE:p.21							SUBRACE:Ulfen
-Human Ethnicity (Varisian)	VISIBLE:NO	SOURCEPAGE:p.22							SUBRACE:Varisian
-Human Ethnicity (Vudrani)	VISIBLE:NO	SOURCEPAGE:p.23							SUBRACE:Vudrani
+# Template Name			Visible	Source Page		Subrace
+Human Ethnicity (Azlanti)	VISIBLE:NO	SOURCEPAGE:p.12	SUBRACE:Azlanti
+Human Ethnicity (Chelaxian)	VISIBLE:NO	SOURCEPAGE:p.13	SUBRACE:Chelaxian
+Human Ethnicity (Garundi)	VISIBLE:NO	SOURCEPAGE:p.14	SUBRACE:Garundi
+Human Ethnicity (Keleshite)	VISIBLE:NO	SOURCEPAGE:p.15	SUBRACE:Keleshite
+Human Ethnicity (Kellid)	VISIBLE:NO	SOURCEPAGE:p.16	SUBRACE:Kellid
+Human Ethnicity (Mwangi)	VISIBLE:NO	SOURCEPAGE:p.17	SUBRACE:Mwangi
+Human Ethnicity (Shoanti)	VISIBLE:NO	SOURCEPAGE:p.18	SUBRACE:Shoanti
+Human Ethnicity (Taldan)	VISIBLE:NO	SOURCEPAGE:p.19	SUBRACE:Taldan
+Human Ethnicity (Tian)		VISIBLE:NO	SOURCEPAGE:p.20	SUBRACE:Tian
+Human Ethnicity (Ulfen)		VISIBLE:NO	SOURCEPAGE:p.21	SUBRACE:Ulfen
+Human Ethnicity (Varisian)	VISIBLE:NO	SOURCEPAGE:p.22	SUBRACE:Varisian
+Human Ethnicity (Vudrani)	VISIBLE:NO	SOURCEPAGE:p.23	SUBRACE:Vudrani
 
 ###Block: Regional Affinities
 # Template Name					Visible	Source Page		Bonus Languages					Region

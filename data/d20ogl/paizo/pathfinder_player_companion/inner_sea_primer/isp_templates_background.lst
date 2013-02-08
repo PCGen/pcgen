@@ -3,20 +3,19 @@ SOURCELONG:Inner Sea Primer	SOURCESHORT:ISP	SOURCEWEB:http://paizo.com/store/byC
 # Original Entry by:Stefan Radermacher
 
 ###Block: Human Ethnicities
-# Template Name			Product Identity?	Visible	Source Page		Bonus to Ability Pool			Subrace
-Human Ethnicity						VISIBLE:NO				BONUS:ABILITYPOOL|Human Ethnicity|1
-Human Ethnicity (Azlanti)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.30							SUBRACE:Azlanti
-Human Ethnicity (Chelaxian)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.30							SUBRACE:Chelaxian
-Human Ethnicity (Garundi)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.30							SUBRACE:Garundi
-Human Ethnicity (Keleshite)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.30							SUBRACE:Keleshite
-Human Ethnicity (Kellid)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31							SUBRACE:Kellid
-Human Ethnicity (Mwangi)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31							SUBRACE:Mwangi
-Human Ethnicity (Shoanti)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31							SUBRACE:Shoanti
-Human Ethnicity (Taldan)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31							SUBRACE:Taldan
-Human Ethnicity (Tian)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31							SUBRACE:Tian
-Human Ethnicity (Ulfen)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31							SUBRACE:Ulfen
-Human Ethnicity (Varisian)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31							SUBRACE:Varisian
-Human Ethnicity (Vudrani)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31							SUBRACE:Vudrani
+# Template Name			Product Identity?	Visible	Source Page		Subrace
+Human Ethnicity (Azlanti)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.30	SUBRACE:Azlanti
+Human Ethnicity (Chelaxian)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.30	SUBRACE:Chelaxian
+Human Ethnicity (Garundi)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.30	SUBRACE:Garundi
+Human Ethnicity (Keleshite)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.30	SUBRACE:Keleshite
+Human Ethnicity (Kellid)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Kellid
+Human Ethnicity (Mwangi)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Mwangi
+Human Ethnicity (Shoanti)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Shoanti
+Human Ethnicity (Taldan)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Taldan
+Human Ethnicity (Tian)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Tian
+Human Ethnicity (Ulfen)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Ulfen
+Human Ethnicity (Varisian)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Varisian
+Human Ethnicity (Vudrani)	NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.31	SUBRACE:Vudrani
 
 ###Block: Regional Affinities
 # Template Name					Product Identity?	Visible	Source Page		Bonus Languages					Region
