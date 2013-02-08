@@ -8,6 +8,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
+PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -34,17 +35,29 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Dragon Empi
 #EXTRAFILE:OGL.txt
 
 # Data files
-#ABILITY:dep_abilities_archetypes.lst
+ABILITY:dep_abilities_archetypes.lst
 ABILITY:dep_abilities_background.lst
 ABILITY:dep_abilities_traits.lst
 ABILITYCATEGORY:dep_abilitycategories.lst
+CLASS:dep_classes_base.lst
+DOMAIN:dep_domains.lst
+FEAT:dep_feats.lst
 KIT:dep_kits_traits.lst
 LANGUAGE:dep_languages.lst
 RACE:dep_races.lst
 SKILL:dep_skills.lst
+SPELL:dep_spells.lst
 TEMPLATE:dep_templates_background.lst
+WEAPONPROF:dep_profs_weapon.lst
+
+# Out Of Set Equipment
+EQUIPMENT:*/d20ogl/paizo/pathfinder_rpg/ultimate_combat/pfuc_equip_weap_eastern.lst|(INCLUDE:Butterfly Sword,Fighting Fan,Iron Brush)
+WEAPONPROF:*/d20ogl/paizo/pathfinder_rpg/ultimate_combat/pfuc_profs_weapon.lst
+SPELL:*/d20ogl/paizo/pathfinder_rpg/ultimate_magic/pfum_spells.lst|(INCLUDE:Haunting Mists ,Masterwork Transformation,Share Memory,Tapestry's Embrace,Orb of the Void)
+
+# Forward References
+FORWARDREF:CLASSSPELLLIST|Magus
 
 #
 # End
 #
-

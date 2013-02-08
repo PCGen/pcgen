@@ -45,12 +45,6 @@ Xa Hoi			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Empir
 Xidao				NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:War-Weary Aquatic Nation				TEMPLATE:Regional Affinity (Xidao)				SOURCEPAGE:p.21
 Zi Ha				NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Sacred Land of Reincarnation			TEMPLATE:Regional Affinity (Zi Ha)				SOURCEPAGE:p.21
 
-
-###Block: Placeholder objects for no Human Ethnicities or Regional Affinities
-# Ability Name	Unique Key				Category of Ability	Type
-# None			KEY:None ~ HumanEthnicity	CATEGORY:Background	TYPE:HumanEthnicity
-# Unknown		KEY:Unknown ~ HumanEthnicity	CATEGORY:Background	TYPE:HumanEthnicity
-
 #
 # End
 #
