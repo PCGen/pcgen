@@ -315,11 +315,11 @@ else {
             {   destination         => "$DEST_NSIS_BASE_FOLDER/lib",
                 files_to_keep_ref   => [
                     # directory
-                    qr{ [/] (?: apache | cobra | jep | spring ) [/] }xmsi,
+                    qr{ [/] (?: apache ) [/] }xmsi,
 
                     # files
                     qr{ [/]
-                        (?:  xml-apis | xalan | xerces  )
+                        (?:  xml-apis | xalan | xerces | cobra | jep | spring | commons  )
                         [^/]* \z
                     }xmsi,
                 ]
@@ -342,7 +342,8 @@ else {
 
                     # files
                     qr{ [/]
-                        (?: javacc | junit | xmlunit | jep | apache | cobra | spring | xml-apis | xalan | xerces | fop | jdom   )
+                        (?: javacc | junit | xmlunit | jep | apache | cobra | spring | xml-apis | xalan | xerces | fop | jdom | commons 
+                        	| objenesis | clover | easymock | emma | hamcrest  )
                         [^/]* \z
                     }xmsi,
                 ],
