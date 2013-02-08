@@ -115,3 +115,7 @@ Dragon Disciple Bite ~ Large		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon
 Dragon Disciple Bite ~ Huge		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6	BONUS:WEAPONPROF=Bite|WIELDCATEGORY|2
 Dragon Disciple Bite ~ Gargantuan	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8	BONUS:WEAPONPROF=Bite|WIELDCATEGORY|3
 Dragon Disciple Bite ~ Colossal	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6	BONUS:WEAPONPROF=Bite|WIELDCATEGORY|4
+
+###Block: Human Ethnicities
+# Template Name	Visible	Bonus to Ability Pool
+Human Ethnicity	VISIBLE:NO	BONUS:ABILITYPOOL|Human Ethnicity|1
