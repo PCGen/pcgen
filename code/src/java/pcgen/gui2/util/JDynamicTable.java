@@ -22,10 +22,7 @@ package pcgen.gui2.util;
 
 import java.awt.Container;
 import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.util.List;
-
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
@@ -36,17 +33,15 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.event.TableColumnModelEvent;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
-
-import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.event.DynamicTableColumnModelListener;
 import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
-import pcgen.system.PropertyContext;
 
 /**
+ *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class JDynamicTable extends JTableEx implements PropertyChangeListener
+public class JDynamicTable extends JTableEx
 {
 
 	private final DynamicTableColumnModelListener listener = new DynamicTableColumnModelListener()
@@ -76,19 +71,7 @@ public class JDynamicTable extends JTableEx implements PropertyChangeListener
 	private final JButton cornerButton = new JButton(new CornerAction());
 	private DynamicTableColumnModel dynamicColumnModel = null;
 	private JPopupMenu menu = new JPopupMenu();
-	private final PropertyContext baseContext;
-	private final String prefsKey;
 
-	/**
-	 * Create a new instance of JDynamicTable
-	 * @param prefsKey The key for storage of use preferences for the table.
-	 */
-	public JDynamicTable(String prefsKey)
-	{
-		this.prefsKey = prefsKey;
-		baseContext = UIPropertyContext.createContext("tablePrefs");
-	}
-	
 	@Override
 	protected void configureEnclosingScrollPane()
 	{
@@ -170,27 +153,8 @@ public class JDynamicTable extends JTableEx implements PropertyChangeListener
 			this.dynamicColumnModel.removeDynamicTableColumnModelListener(listener);
 		}
 		this.dynamicColumnModel = columnModel;
-
-		PropertyContext viewPrefsContext =
-				baseContext.createChildContext(prefsKey);
-		PropertyContext colWidthCtx = viewPrefsContext.createChildContext("width"); //$NON-NLS-1$
-		PropertyContext colVisibleCtx = viewPrefsContext.createChildContext("visible"); //$NON-NLS-1$
-		for (int i = 0; i < columnModel.getColumnCount(); i++)
-		{
-			TableColumn column = columnModel.getColumn(i);
-			String colKey =
-					normalisePrefsKey(column.getHeaderValue().toString());
-			column.setPreferredWidth(colWidthCtx.initInt(colKey, 75));
-			columnModel.setVisible(
-				column,
-				colVisibleCtx.initBoolean(colKey,
-					columnModel.isVisible(column)));
-			column.addPropertyChangeListener(this);
-		}		
-		
 		columnModel.addDynamicTableColumnModelListener(listener);
 		super.setColumnModel(columnModel);
-		
 		List<TableColumn> columns = columnModel.getAvailableColumns();
 		menu.removeAll();
 		if (!columns.isEmpty())
@@ -204,30 +168,6 @@ public class JDynamicTable extends JTableEx implements PropertyChangeListener
 		else
 		{
 			cornerButton.setVisible(false);
-		}
-	}
-
-	private String normalisePrefsKey(String origKey)
-	{
-		return origKey.replaceAll("[^\\w\\.]", "_"); //$NON-NLS-1$ //$NON-NLS-2$
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public void propertyChange(PropertyChangeEvent evt)
-	{
-		if (isShowing() && "width".equals(evt.getPropertyName()) //$NON-NLS-1$
-			&& evt.getSource() instanceof TableColumn)
-		{
-			TableColumn col = (TableColumn) evt.getSource();
-			PropertyContext context =
-					baseContext.createChildContext(prefsKey)
-						.createChildContext("width"); //$NON-NLS-1$
-			String colKey = col.getHeaderValue().toString();
-			context.setInt(normalisePrefsKey(colKey),
-				(Integer) evt.getNewValue());
 		}
 	}
 
@@ -268,11 +208,6 @@ public class JDynamicTable extends JTableEx implements PropertyChangeListener
 		public void actionPerformed(ActionEvent e)
 		{
 			dynamicColumnModel.setVisible(column, visible = !visible);
-			PropertyContext context =
-					baseContext.createChildContext(prefsKey)
-						.createChildContext("visible"); //$NON-NLS-1$
-			context.setBoolean(normalisePrefsKey(column.getHeaderValue()
-				.toString()), visible);
 		}
 
 	}

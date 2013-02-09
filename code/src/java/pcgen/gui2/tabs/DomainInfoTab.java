@@ -41,6 +41,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableColumn;
 
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.DeityFacade;
@@ -67,7 +68,9 @@ import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.InfoPane;
+import pcgen.gui2.tools.PrefTableColumnModel;
 import pcgen.gui2.util.JDynamicTable;
+import pcgen.gui2.util.table.DynamicTableColumnModel;
 import pcgen.gui2.util.table.TableUtils;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
@@ -100,7 +103,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 		super("Domain");
 		this.deityTable = new FilteredTreeViewTable<Object, DeityFacade>();
-		this.domainTable = new JDynamicTable("DomainList");
+		this.domainTable = new JDynamicTable();
 		this.domainRowHeaderTable = TableUtils.createDefaultTable();
 		this.selectedDeity = new JLabel();
 		this.selectDeity = new JButton();
@@ -145,8 +148,11 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		dbar.addDisplayableFilter(qFilterButton);
 		domainFilter = dbar;
 		panel.add(dbar, BorderLayout.NORTH);
+
 		selectionModel = domainTable.getSelectionModel();
 		selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		domainTable.setAutoCreateColumnsFromModel(false);
+		domainTable.setColumnModel(createDomainColumnModel());
 		JScrollPane scrollPane = TableUtils.createCheckBoxSelectionPane(domainTable, domainRowHeaderTable);
 		panel.add(scrollPane, BorderLayout.CENTER);
 
@@ -166,6 +172,18 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		splitPane.setRightComponent(domainInfo);
 		setBottomComponent(splitPane);
 		setResizeWeight(.65);
+	}
+
+	public DynamicTableColumnModel createDomainColumnModel()
+	{
+		PrefTableColumnModel model = new PrefTableColumnModel("DomainList", 1);
+		TableColumn column = new TableColumn(0);
+		column.setHeaderValue(LanguageBundle.getString("in_domains")); //$NON-NLS-1$
+		model.addColumn(column, true, 150);
+		column = new TableColumn(1);
+		column.setHeaderValue(LanguageBundle.getString("in_source")); //$NON-NLS-1$
+		model.addColumn(column, true, 150);
+		return model;
 	}
 
 	@Override
@@ -264,7 +282,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			{
 				setForeground(UIPropertyContext.getNotQualifiedColor());
 			}
-			else
+			else if (!isSelected)
 			{
 				setForeground(UIPropertyContext.getQualifiedColor());
 			}
@@ -393,12 +411,12 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				}
 			}
 		}
-		
+
 		public void install()
 		{
 			deityTable.addActionListener(this);
 		}
-		
+
 		public void uninstall()
 		{
 			deityTable.removeActionListener(this);
@@ -406,12 +424,11 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	}
 
-	private class QualifiedFilterHandler 
+	private class QualifiedFilterHandler
 	{
 
 		private final Filter<Object, DomainFacade> qFilter = new Filter<Object, DomainFacade>()
 		{
-
 			@Override
 			public boolean accept(Object context, DomainFacade element)
 			{
@@ -430,8 +447,9 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		{
 			qFilterButton.setFilter(qFilter);
 		}
+
 	}
-	
+
 	private class DomainTableHandler implements FilterHandler
 	{
 
@@ -556,7 +574,6 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private final ListListener<DomainFacade> listListener = new ListListener<DomainFacade>()
 		{
-
 			@Override
 			public void elementAdded(ListEvent<DomainFacade> e)
 			{
@@ -621,19 +638,6 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public int getColumnCount()
 		{
 			return 2;
-		}
-
-		@Override
-		public String getColumnName(int column)
-		{
-			switch (column)
-			{
-				case 0:
-					return LanguageBundle.getString("in_domains"); //$NON-NLS-1$
-				case 1:
-					return LanguageBundle.getString("in_source"); //$NON-NLS-1$
-			}
-			return null;
 		}
 
 		@Override
@@ -714,8 +718,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public List<?> getData(DeityFacade obj)
 		{
 			return Arrays.asList(obj.getAlignment(),
-				infoFactory.getDomains(obj), infoFactory.getPantheons(obj), 
-				obj.getSource());
+								 infoFactory.getDomains(obj), infoFactory.getPantheons(obj),
+								 obj.getSource());
 		}
 
 		@Override
@@ -737,12 +741,12 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	private enum DeityTreeView implements TreeView<DeityFacade>
 	{
+
 		NAME("in_deity"), //$NON-NLS-1$
 		ALIGNMENT_NAME("in_alignmentDeity"), //$NON-NLS-1$
 		DOMAIN_NAME("in_domainDeity"), //$NON-NLS-1$
 		PANTHEON_NAME("in_pantheonDeity"), //$NON-NLS-1$
 		SOURCE_NAME("in_sourceDeity"); //$NON-NLS-1$
-		
 		private String name;
 
 		private DeityTreeView(String name)
@@ -771,8 +775,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					}
 					return paths;
 				case ALIGNMENT_NAME:
-					return Collections.singletonList(new TreeViewPath<DeityFacade>(pobj, 
-							pobj.getAlignment()));
+					return Collections.singletonList(new TreeViewPath<DeityFacade>(pobj,
+																				   pobj.getAlignment()));
 				case PANTHEON_NAME:
 					for (String pantheon : pobj.getPantheons())
 					{
@@ -780,8 +784,8 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					}
 					return paths;
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<DeityFacade>(pobj, 
-							pobj.getSourceForNodeDisplay()));
+					return Collections.singletonList(new TreeViewPath<DeityFacade>(pobj,
+																				   pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}

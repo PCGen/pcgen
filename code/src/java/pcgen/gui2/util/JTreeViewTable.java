@@ -59,6 +59,7 @@ import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.tools.PrefTableColumnModel;
 import pcgen.gui2.util.event.DynamicTableColumnModelListener;
 import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
@@ -88,16 +89,15 @@ import pcgen.util.ListMap;
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 @SuppressWarnings("serial")
-public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListener
+public class JTreeViewTable<T> extends JTreeTable
 {
 
-	/** Preferences jey for the width of the tree view column. */
+	/** Preferences key for the width of the tree view column. */
 	private static final String TREE_VIEW_COL_PREFS_KEY = "TreeView";
 	/** The preferences key for the selected tree view index. */
 	private static final String VIEW_INDEX_PREFS_KEY = "viewIdx";
 	private final DynamicTableColumnModelListener listener = new DynamicTableColumnModelListener()
 	{
-
 		@Override
 		public void availableColumnAdded(TableColumnModelEvent event)
 		{
@@ -140,36 +140,6 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override
-	public void propertyChange(PropertyChangeEvent evt)
-	{
-		if (isShowing() && "width".equals(evt.getPropertyName()) //$NON-NLS-1$
-			&& evt.getSource() instanceof TableColumn)
-		{
-			TableColumn col = (TableColumn) evt.getSource();
-//			Logging.errorPrint("new width of " + evt.getNewValue() + " for "
-//				+ this.viewModel.getDataView().getPrefsKey() + "."
-//				+ normalisePrefsKey(col.getHeaderValue().toString()) + " from "
-//				+ evt.getOldValue());
-			PropertyContext context =
-					baseContext.createChildContext(
-						this.viewModel.getDataView().getPrefsKey())
-						.createChildContext("width"); //$NON-NLS-1$
-			String colKey = col.getHeaderValue().toString();
-			if (colKey.equals(treetableModel.getSelectedTreeView().getViewName()))
-			{
-				colKey = TREE_VIEW_COL_PREFS_KEY;
-			}
-			context.setInt(normalisePrefsKey(colKey), (Integer) evt.getNewValue());
-		}
-		
-	}
-
-	private String normalisePrefsKey(String origKey)
-	{
-		return origKey.replaceAll("[^\\w\\.]", "_"); //$NON-NLS-1$ //$NON-NLS-2$
-	}
-	
 	protected <TM> TreeViewTableModel<TM> createDefaultTreeViewTableModel(DataView<TM> dataView)
 	{
 		return new TreeViewTableModel<TM>(dataView);
@@ -190,32 +160,13 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		@SuppressWarnings("unchecked")
 		ListMap<Visibility, TableColumn, List<TableColumn>> listMap =
 				CollectionMaps.createListMap(HashMap.class, ArrayList.class);
-		PropertyContext viewPrefsContext =
-				baseContext.createChildContext(this.viewModel.getDataView()
-					.getPrefsKey());
-		PropertyContext colWidthCtx = viewPrefsContext.createChildContext("width"); //$NON-NLS-1$
-		PropertyContext colVisibleCtx = viewPrefsContext.createChildContext("visible"); //$NON-NLS-1$
 		int index = 1;
 		for (DataViewColumn column : dataView.getDataColumns())
 		{
 			TableColumn tableColumn = new TableColumn(index++);
 			tableColumn.setHeaderValue(column.getName());
-			String prefsKey =
-					normalisePrefsKey(tableColumn.getHeaderValue().toString());
 			Visibility vis = column.getVisibility();
-			if (vis != Visibility.ALWAYS_VISIBLE)
-			{
-				boolean showCol =
-						colVisibleCtx.initBoolean(prefsKey,
-							vis == Visibility.INITIALLY_VISIBLE);
-				vis =
-						showCol ? Visibility.INITIALLY_VISIBLE
-							: Visibility.INITIALLY_INVISIBLE;
-			}
 			listMap.add(vis, tableColumn);
-
-			tableColumn.setPreferredWidth(colWidthCtx.initInt(prefsKey, 75));
-			tableColumn.addPropertyChangeListener(this);
 		}
 
 		List<TableColumn> columns = listMap.get(Visibility.ALWAYS_VISIBLE);
@@ -223,17 +174,17 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		{
 			columns = Collections.emptyList();
 		}
-		DynamicTableColumnModel model = new DefaultDynamicTableColumnModel(columns.size() + 1);
+
+		PrefTableColumnModel model = new PrefTableColumnModel(this.viewModel.getDataView().getPrefsKey(),
+															  columns.size() + 1);
 		TableColumn viewColumn = new TableColumn();
 		viewColumn.setHeaderValue(startingView.getViewName());
-		model.addColumn(viewColumn);
-		viewColumn.setPreferredWidth(colWidthCtx.initInt(
-			normalisePrefsKey(TREE_VIEW_COL_PREFS_KEY), 150));
-		viewColumn.addPropertyChangeListener(this);
+		viewColumn.setIdentifier(TREE_VIEW_COL_PREFS_KEY);
+		model.addColumn(viewColumn, true, 150);
 
 		for (TableColumn column : columns)
 		{
-			model.addColumn(column);
+			model.addColumn(column, true, 75);
 		}
 
 		columns = listMap.get(Visibility.INITIALLY_VISIBLE);
@@ -241,8 +192,7 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		{
 			for (TableColumn column : columns)
 			{
-				model.addColumn(column);
-				model.setVisible(column, true);
+				model.addColumn(column, true, 75);
 			}
 		}
 
@@ -251,7 +201,7 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		{
 			for (TableColumn column : columns)
 			{
-				model.addColumn(column);
+				model.addColumn(column, false, 75);
 			}
 		}
 		return model;
@@ -399,15 +349,15 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 
 	protected void setTreeView(TreeView<? super T> view)
 	{
-		TableColumn viewColumn = getColumn(treetableModel.getSelectedTreeView().getViewName());
+		TableColumn viewColumn = getColumn(TREE_VIEW_COL_PREFS_KEY);
 		treetableModel.setSelectedTreeView(view);
 		viewColumn.setHeaderValue(view.getViewName());
 		sortModel();
 		getTableHeader().repaint();
 		PropertyContext context =
 				baseContext.createChildContext(
-					this.viewModel.getDataView().getPrefsKey());
-		
+				this.viewModel.getDataView().getPrefsKey());
+
 		int index = getIndex(viewModel.getTreeViews(), view);
 		if (index >= 0)
 		{
@@ -422,7 +372,7 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 	 * @return The index or -1 if not found.
 	 */
 	private int getIndex(ListFacade<? extends TreeView<T>> treeViews,
-		TreeView<? super T> view)
+						 TreeView<? super T> view)
 	{
 		for (int i = 0; i < treeViews.getSize(); i++)
 		{
@@ -446,7 +396,7 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
 		PropertyContext context =
 				baseContext.createChildContext(
-					viewModel.getDataView().getPrefsKey());
+				viewModel.getDataView().getPrefsKey());
 		int viewIndex = context.initInt(VIEW_INDEX_PREFS_KEY, viewModel.getDefaultTreeViewIndex());
 		TreeView<? super T> startingView = views.getElementAt(viewIndex);
 		DataView<T> dataView = viewModel.getDataView();
@@ -466,7 +416,6 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		setColumnModel(createTableColumnModel(startingView, dataView));
 		SwingUtilities.invokeLater(new Runnable()
 		{
-
 			@Override
 			public void run()
 			{
@@ -483,15 +432,15 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 	{
 		return treetableModel.getSelectedTreeView();
 	}
-	
+
 	/**
-     * Find the named view.
+	 * Find the named view.
 	 * @param views The list of TreeViews.
 	 * @param viewName The name of the desired view.
 	 * @return The matching view, or the first one if none match.
 	 */
 	private TreeView<? super T> findViewByName(
-		ListFacade<? extends TreeView<T>> views, String viewName)
+			ListFacade<? extends TreeView<T>> views, String viewName)
 	{
 		for (TreeView<T> treeView : views)
 		{
@@ -534,7 +483,7 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 			ListFacade<? extends TreeView<T>> views = viewModel.getTreeViews();
 			PropertyContext context =
 					baseContext.createChildContext(viewModel.getDataView()
-						.getPrefsKey());
+					.getPrefsKey());
 			int viewIndex = context.initInt(VIEW_INDEX_PREFS_KEY, viewModel.getDefaultTreeViewIndex());
 			TreeView<? super T> startingView =
 					views.getElementAt(viewIndex);
@@ -593,12 +542,6 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		public void actionPerformed(ActionEvent e)
 		{
 			dynamicColumnModel.setVisible(column, visible = !visible);
-			PropertyContext context =
-					baseContext.createChildContext(
-						viewModel.getDataView().getPrefsKey())
-						.createChildContext("visible"); //$NON-NLS-1$
-			context.setBoolean(normalisePrefsKey(column.getHeaderValue()
-				.toString()), visible);
 		}
 
 	}
@@ -663,7 +606,7 @@ public class JTreeViewTable<T> extends JTreeTable implements PropertyChangeListe
 		protected void maybeShowPopup(MouseEvent e)
 		{
 			if (e.isPopupTrigger() && getTrackedColumn().getHeaderValue()
-					== treetableModel.getSelectedTreeView().getViewName())
+									  == treetableModel.getSelectedTreeView().getViewName())
 			{
 				TableColumnModel columnmodel = getColumnModel();
 				Rectangle rect = getHeaderRect(columnmodel.getColumnIndexAtX(e.getX()));

@@ -109,12 +109,12 @@ public class JTableSortingHeader extends JTableHeader implements MouseListener
 				setModel(defaultModel);
 			}
 			Icon icon = null;
-			TableColumn currentColumn = jTable.getColumn(value);
+			int modelIndex = jTable.convertColumnIndexToModel(column);
 			List<? extends SortingPriority> list = getTable().getSortingPriority();
 			if (!list.isEmpty())
 			{
 				SortingPriority order = list.get(0);
-				if (order.getColumn() == currentColumn.getModelIndex())
+				if (order.getColumn() == modelIndex)
 				{
 					switch (order.getMode())
 					{

@@ -76,6 +76,7 @@ import pcgen.gui2.tabs.equip.EquipmentSelection;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.InfoPane;
+import pcgen.gui2.tools.PrefTableColumnModel;
 import pcgen.gui2.util.JDynamicTable;
 import pcgen.gui2.util.JTreeTable;
 import pcgen.gui2.util.SortMode;
@@ -129,7 +130,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	public EquipInfoTab()
 	{
 		super("Equip");
-		this.equipmentTable = new JDynamicTable("EquipList");
+		this.equipmentTable = new JDynamicTable();
 		this.equipViewBox = new JComboBox(EquipView.values());
 		this.infoPane = new InfoPane();
 		this.equipmentSetTable = new JTreeTable()
@@ -274,26 +275,23 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	private DynamicTableColumnModel createEquipmentColumnModel()
 	{
-		DefaultDynamicTableColumnModel model = new DefaultDynamicTableColumnModel(1);
+		PrefTableColumnModel model = new PrefTableColumnModel("EquipList",1);
+		
 		TableColumn column = new TableColumn(0);
 		column.setHeaderValue(LanguageBundle.getString("in_nameLabel")); //$NON-NLS-1$
-		model.addColumn(column);
+		model.addColumn(column, true, 150);
 		column = new TableColumn(1);
 		column.setHeaderValue(LanguageBundle.getString("in_type")); //$NON-NLS-1$
-		model.addColumn(column);
-		model.setVisible(column, true);
+		model.addColumn(column, true, 75);
 		column = new TableColumn(2);
 		column.setHeaderValue(LanguageBundle.getString("in_equipLocationAbbrev")); //$NON-NLS-1$
-		model.addColumn(column);
-		model.setVisible(column, true);
+		model.addColumn(column, true, 75);
 		column = new TableColumn(3);
 		column.setHeaderValue(LanguageBundle.getString("in_equipQuantityAbbrev")); //$NON-NLS-1$
-		model.addColumn(column);
-		model.setVisible(column, true);
+		model.addColumn(column, true, 75);
 		column = new TableColumn(4);
 		column.setHeaderValue(LanguageBundle.getString("in_equipWeightAbbrev")); //$NON-NLS-1$
-		model.addColumn(column);
-		model.setVisible(column, true);
+		model.addColumn(column, true, 75);
 		return model;
 	}
 
