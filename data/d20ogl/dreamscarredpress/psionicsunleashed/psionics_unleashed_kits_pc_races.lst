@@ -25,13 +25,13 @@ ABILITY:CATEGORY=Dromite Racial Trait|Chitin ~ Dromite
 
 #Duergar Racial Kit  (POOL=7)
 STARTPACK:Duergar Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
-ABILITY:CATEGORY=Duergar Racial Trait|Psionic Aptitude
-ABILITY:CATEGORY=Duergar Racial Trait|Naturally Psionic
-ABILITY:CATEGORY=Duergar Racial Trait|Duergar Psionics
-ABILITY:CATEGORY=Duergar Racial Trait|Hardy ~ Duergar
-ABILITY:CATEGORY=Duergar Racial Trait|Stability ~ Duergar
-ABILITY:CATEGORY=Duergar Racial Trait|Dwarf Blood ~ Duergar
-ABILITY:CATEGORY=Duergar Racial Trait|Steady ~ Duergar
+ABILITY:CATEGORY=DuergarDSP Racial Trait|Psionic Aptitude
+ABILITY:CATEGORY=DuergarDSP Racial Trait|Naturally Psionic
+ABILITY:CATEGORY=DuergarDSP Racial Trait|DuergarDSP Psionics
+ABILITY:CATEGORY=DuergarDSP Racial Trait|Hardy ~ DuergarDSP
+ABILITY:CATEGORY=DuergarDSP Racial Trait|Stability ~ DuergarDSP
+ABILITY:CATEGORY=DuergarDSP Racial Trait|Dwarf Blood ~ DuergarDSP
+ABILITY:CATEGORY=DuergarDSP Racial Trait|Steady ~ DuergarDSP
 
 #Elan Racial Kit  (POOL=5)
 STARTPACK:Elan Racial Trait Default	VISIBLE:NO	APPLY:INSTANT

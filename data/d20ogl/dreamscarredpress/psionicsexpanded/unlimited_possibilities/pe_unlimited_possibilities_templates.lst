@@ -23,5 +23,5 @@ Get Improved Psicrystal	VISIBLE:NO												PREFEAT:1,Psicrystal Affinity					
 ###Block: Failed Transformation templates (where needed)
 # Template Name			Size		Visible	Ability								Move			Vision
 Failed Transformation Blue	SIZE:S	VISIBLE:NO													VISION:Darkvision (60')
-Failed Transformation Duergar			VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Steady ~ Duergar	MOVE:Walk,20	VISION:Darkvision (60')
+Failed Transformation Duergar			VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Steady ~ DuergarDSP	MOVE:Walk,20	VISION:Darkvision (60')
 Failed Transformation Dwarf			VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Steady ~ Dwarf	MOVE:Walk,20	VISION:Darkvision (60')
