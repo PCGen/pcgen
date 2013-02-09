@@ -313,13 +313,11 @@ else {
         other_copies_ref => [
             # In the installation base folder, we have jep, spring, cobra etc
             {   destination         => "$DEST_NSIS_BASE_FOLDER/lib",
-                files_to_keep_ref   => [
-                    # directory
-                    qr{ [/] (?: apache ) [/] }xmsi,
-
-                    # files
+                files_to_skip_ref   => [
+                    # files - skip jars installed using other options and testing only jars
                     qr{ [/]
-                        (?:  xml-apis | xalan | xerces | cobra | jep | spring | commons  )
+                        (?:  kunststoff | skinlf | fop | jdom
+                        	| javacc | junit | xmlunit | objenesis | clover | easymock | emma | hamcrest  )
                         [^/]* \z
                     }xmsi,
                 ]
@@ -336,14 +334,10 @@ else {
             },
             # In the skin folder option, we take all the other librairies
             {   destination         => "$DEST_NSIS_OPTION_FOLDER/plugin/skin/lib",
-                files_to_skip_ref   => [
-                    # directory
-                    qr{ [/] javancss [/] }xmsi,
-
+                files_to_keep_ref   => [
                     # files
                     qr{ [/]
-                        (?: javacc | junit | xmlunit | jep | apache | cobra | spring | xml-apis | xalan | xerces | fop | jdom | commons 
-                        	| objenesis | clover | easymock | emma | hamcrest  )
+                        (?: kunststoff | skinlf  )
                         [^/]* \z
                     }xmsi,
                 ],

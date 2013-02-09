@@ -360,34 +360,18 @@ Section Uninstall
 	; Delete Shortcut Directory
 	RMDir /r "$$SMPROGRAMS\PCGen\$${APPDIR}"
 
-	MessageBox MB_YESNO|MB_ICONEXCLAMATION "Do you wish a full uninstall? $$\nThis will remove all versions of pcgen from your computer." IDYES Full IDNO Partial
-
-	Full:
-	MessageBox MB_YESNO "This option could be dangerous, if you have other versions of $${APPNAME}, or if $${APPNAMEANDVERSION} was installed to a directory other than the default.  Do you wish to proceed?" IDYES Proceed IDNO Save
-	
-	Proceed:
-	; Clean up PCGen program directorys
-	; This is a safer mode
-	RMDir /r "$$INSTDIR"
-	; Delete Shortcut Directory
-	RMDir /r "$$SMPROGRAMS\PCGen"
-	;Remove registry entry
-	DeleteRegKey HKLM "Software\$${APPNAME}"
-
-	Goto End
-	
-	Partial:
 	MessageBox MB_YESNO "Do you wish to save, your characters, custom sources etc? $$\nAnswering no will delete $${APPDIR}." IDYES Save IDNO NoSave
 
 	Save:
 	CreateDirectory "$$INSTDIR\$${APPDIR}_Save"
 	CreateDirectory "$$INSTDIR\$${APPDIR}_Save\characters"
 	CreateDirectory "$$INSTDIR\$${APPDIR}_Save\customsources"
-	CreateDirectory "$$INSTDIR\$${APPDIR}_Save\options"
+	CreateDirectory "$$INSTDIR\$${APPDIR}_Save\settings"
 	CreateDirectory "$$INSTDIR\$${APPDIR}_Save\GMGen"
-	CopyFiles /SILENT "$$INSTDIR\$${APPDIR}\characters\*.*" 					"$$INSTDIR\$${APPDIR}_Save\characters\"
+	CopyFiles /SILENT "$$INSTDIR\$${APPDIR}\characters\*.*" 			"$$INSTDIR\$${APPDIR}_Save\characters\"
 	CopyFiles /SILENT "$$INSTDIR\$${APPDIR}\data\customsources\*.*" 	"$$INSTDIR\$${APPDIR}_Save\customsources\"
-	CopyFiles /SILENT "$$INSTDIR\$${APPDIR}\*.ini" 										"$$INSTDIR\$${APPDIR}_Save\options\"
+	CopyFiles /SILENT "$$INSTDIR\$${APPDIR}\*.ini" 						"$$INSTDIR\$${APPDIR}_Save\"
+	CopyFiles /SILENT "$$INSTDIR\$${APPDIR}\settings\*.*" 				"$$INSTDIR\$${APPDIR}_Save\settings\"
 	;Ed- This has not been tested, Please test.
 	CopyFiles /SILENT "$$INSTDIR\$${APPDIR}\plugins\Notes\*.*" 				"$$INSTDIR\$${APPDIR}_Save\GMGen\"
 	MessageBox MB_ICONINFORMATION|MB_OK "A shortcut will be created on your desktop to the saved files."
@@ -405,6 +389,7 @@ Section Uninstall
 	RMDir /r "$$INSTDIR\$${APPDIR}\plugins"
 	RMDir /r "$$INSTDIR\$${APPDIR}\preview"
 	RMDir /r "$$INSTDIR\$${APPDIR}\system"
+	RMDir /r "$$INSTDIR\$${APPDIR}\settings"
 	;Ed- below would be the removal of all files in the PCGen root directory, on a file by file basis.
 	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\pcgen.jar"
 	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\pcgen-release-notes-$${SIMPVER}.html"
@@ -413,8 +398,10 @@ Section Uninstall
 	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\pcgen_low_mem.bat"
 	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\batch-convert.jar"
 	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\filepaths.ini"
-	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\options.ini"
-	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\filters.ini"
+	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\config.ini"
+	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\logging.properties"
+	Delete /REBOOTOK "$$INSTDIR\$${APPDIR}\pcgen.log"
+	
 	RMDir "$$INSTDIR\$${APPDIR}"
 
 	End:
