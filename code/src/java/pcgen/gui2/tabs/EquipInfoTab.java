@@ -129,7 +129,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	public EquipInfoTab()
 	{
 		super("Equip");
-		this.equipmentTable = new JDynamicTable();
+		this.equipmentTable = new JDynamicTable("EquipList");
 		this.equipViewBox = new JComboBox(EquipView.values());
 		this.infoPane = new InfoPane();
 		this.equipmentSetTable = new JTreeTable()
