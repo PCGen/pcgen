@@ -390,4 +390,24 @@ public class AbilityUtilities
 				|| (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && !pc
 						.containsAssociated(a, newAssociation));
 	}
+
+	/**
+	 * Identify if the object passed in is a feat.
+	 * @param obj The object to be checked.
+	 * @return true if this is a feat, false if not.
+	 */
+	public static boolean isFeat(Object obj)
+	{
+		if (!(obj instanceof Ability))
+		{
+			return false;
+		}
+		Ability ability = (Ability) obj;
+		if (ability.getCDOMCategory() == null)
+		{
+			return false;
+		}
+		return ability.getCDOMCategory() == AbilityCategory.FEAT
+			|| (ability.getCDOMCategory().getParentCategory() == AbilityCategory.FEAT);
+	}
 }

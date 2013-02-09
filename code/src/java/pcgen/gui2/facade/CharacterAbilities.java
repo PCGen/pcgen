@@ -804,8 +804,10 @@ public class CharacterAbilities
 		ability =
 				Globals.getContext().ref.silentlyGetConstructedCDOMObject(
 					Ability.class, theCategory, aKey);
-		if (ability != null && !ability.qualifies(theCharacter, ability)
-			&& !Globals.checkRule(RuleConstants.FEATPRE))
+		if (ability != null
+			&& !ability.qualifies(theCharacter, ability)
+			&& (!Globals.checkRule(RuleConstants.FEATPRE) || !AbilityUtilities
+				.isFeat(ability)))
 		{
 			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle
 				.getString("InfoAbility.Messages.NotQualified")); //$NON-NLS-1$

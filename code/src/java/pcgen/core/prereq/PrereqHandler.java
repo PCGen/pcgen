@@ -33,6 +33,7 @@ import java.util.Collection;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Ability;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -75,11 +76,13 @@ public final class PrereqHandler
 			return true;
 		}
 
-		if ((caller instanceof PCClass) && Globals.checkRule(RuleConstants.CLASSPRE)) //$NON-NLS-1$
+		if ((caller instanceof PCClass)
+			&& Globals.checkRule(RuleConstants.CLASSPRE))
 		{
 			return true;
 		}
-		if ((caller instanceof Ability) && Globals.checkRule(RuleConstants.FEATPRE)) //$NON-NLS-1$
+		if ((caller instanceof Ability) && (AbilityUtilities.isFeat(caller))
+			&& Globals.checkRule(RuleConstants.FEATPRE))
 		{
 			return true;
 		}

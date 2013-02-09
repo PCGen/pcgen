@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.StringTokenizer;
 
 import pcgen.core.Ability;
+import pcgen.core.AbilityUtilities;
 import pcgen.core.AssociationStore;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -51,7 +52,9 @@ public class BonusCalc
 	
 		final String aTypePlusName = new StringBuilder(aType).append('.').append(aName).append('.').toString();
 	
-		if (!BonusCalc.dontRecurse && (po instanceof Ability) && !Globals.checkRule(RuleConstants.FEATPRE))
+		if (!BonusCalc.dontRecurse && (po instanceof Ability)
+			&& (AbilityUtilities.isFeat(obj))
+			&& !Globals.checkRule(RuleConstants.FEATPRE))
 		{
 			// SUCK!  This is horrid, but bonusTo is actually recursive with respect to
 			// passesPreReqToGain and there is no other way to do this without decomposing the
