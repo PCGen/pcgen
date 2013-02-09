@@ -27,7 +27,7 @@ ABILITY:CATEGORY=Dromite Racial Trait|Chitin ~ Dromite
 STARTPACK:Duergar Racial Trait Default	VISIBLE:NO	APPLY:INSTANT
 ABILITY:CATEGORY=DuergarDSP Racial Trait|Psionic Aptitude
 ABILITY:CATEGORY=DuergarDSP Racial Trait|Naturally Psionic
-ABILITY:CATEGORY=DuergarDSP Racial Trait|DuergarDSP Psionics
+ABILITY:CATEGORY=DuergarDSP Racial Trait|Duergar Psionics
 ABILITY:CATEGORY=DuergarDSP Racial Trait|Hardy ~ DuergarDSP
 ABILITY:CATEGORY=DuergarDSP Racial Trait|Stability ~ DuergarDSP
 ABILITY:CATEGORY=DuergarDSP Racial Trait|Dwarf Blood ~ DuergarDSP
