@@ -172,16 +172,6 @@ public class DebugDialog extends JDialog
 		{
 			setBorder(BorderFactory.createTitledBorder("Memory Usage"));
 			setLayout(new BorderLayout());
-			add(new JScrollPane(memoryTable)
-			{
-
-				@Override
-				public Dimension getMaximumSize()
-				{
-					return super.getPreferredSize();
-				}
-
-			}, BorderLayout.CENTER);
 			memoryTable.setFocusable(false);
 			memoryTable.setRowSelectionAllowed(false);
 			memoryTable.setPreferredScrollableViewportSize(memoryTable.getPreferredSize());
@@ -198,7 +188,16 @@ public class DebugDialog extends JDialog
 				}
 
 			});
+			add(new JScrollPane(memoryTable)
+			{
 
+				@Override
+				public Dimension getMaximumSize()
+				{
+					return super.getPreferredSize();
+				}
+
+			}, BorderLayout.CENTER);
 			gcButton.setActionCommand("COLLECT");
 			gcButton.addActionListener(this);
 			add(gcButton, BorderLayout.SOUTH);
