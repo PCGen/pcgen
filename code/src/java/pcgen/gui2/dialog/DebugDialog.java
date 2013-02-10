@@ -190,9 +190,15 @@ public class DebugDialog extends JDialog
 			});
 			add(new JScrollPane(memoryTable)
 			{
-
+ 
 				@Override
 				public Dimension getMaximumSize()
+				{
+					return super.getPreferredSize();
+				}
+
+				@Override
+				public Dimension getMinimumSize()
 				{
 					return super.getPreferredSize();
 				}
