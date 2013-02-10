@@ -53,7 +53,7 @@ WEAPONPROF:dep_profs_weapon.lst
 # Out Of Set Equipment
 EQUIPMENT:*/d20ogl/paizo/pathfinder_rpg/ultimate_combat/pfuc_equip_weap_eastern.lst|(INCLUDE:Butterfly Sword,Fighting Fan,Iron Brush)
 WEAPONPROF:*/d20ogl/paizo/pathfinder_rpg/ultimate_combat/pfuc_profs_weapon.lst
-SPELL:*/d20ogl/paizo/pathfinder_rpg/ultimate_magic/pfum_spells.lst|(INCLUDE:Haunting Mists ,Masterwork Transformation,Share Memory,Tapestry's Embrace,Orb of the Void)
+SPELL:*/d20ogl/paizo/pathfinder_rpg/ultimate_magic/pfum_spells.lst|(INCLUDE:Haunting Mists,Masterwork Transformation,Share Memory,Tapestry's Embrace,Orb of the Void)
 
 # Forward References
 FORWARDREF:CLASSSPELLLIST|Magus
