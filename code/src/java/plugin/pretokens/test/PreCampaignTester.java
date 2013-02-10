@@ -23,6 +23,7 @@
 package plugin.pretokens.test;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -115,15 +116,18 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 		for (URI element : selCampaigns)
 		{
 			final Campaign aCampaign = Globals.getCampaignByURI(element, false);
-
-			for (String listType : aCampaign.getBookTypeList())
+			List<Campaign> fullCampList = getFullCampaignList(aCampaign);
+			for (Campaign camp : fullCampList)
 			{
-				if (aCampaign != null && bookType.equalsIgnoreCase(listType))
+				for (String listType : camp.getBookTypeList())
 				{
-					matchingCampaigns.add(aCampaign);
-					break;
-				}
-			}				
+					if (aCampaign != null && bookType.equalsIgnoreCase(listType))
+					{
+						matchingCampaigns.add(camp);
+						break;
+					}
+				}				
+			}
 		}
 		return matchingCampaigns.size();
 	}
@@ -153,10 +157,13 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 				{
 					final Campaign aCampaign =
 							Globals.getCampaignByURI(element);
-
-					if (campaign.equals(aCampaign))
+					List<Campaign> campList = getFullCampaignList(aCampaign);
+					for (Campaign camp : campList)
 					{
-						++total;
+						if (campaign.equals(camp))
+						{
+							++total;
+						}
 					}
 				}
 			}
@@ -168,6 +175,34 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 				+ source.getSourceURI());
 		}
 		return total;
+	}
+
+	/**
+	 * Retrieve a list of the listed campaign and all campaigns it includes.
+	 * @param aCampaign The master campaign.
+	 * @return The list of included campaigns.
+	 */
+	private List<Campaign> getFullCampaignList(Campaign aCampaign)
+	{
+		List<Campaign> campList = new ArrayList<Campaign>();
+		addChildrenRecursively(campList, aCampaign);
+		return campList;
+	}
+
+	/**
+	 * Add the campaign and its children to the supplied list. This will recurse 
+	 * through the children to include all descendants. 
+	 * @param campList The list being built up.
+	 * @param aCampaign The campaign to be added.
+	 */
+	private void addChildrenRecursively(List<Campaign> campList,
+		Campaign aCampaign)
+	{
+		campList.add(aCampaign);
+		for (Campaign subCampaign : aCampaign.getSubCampaigns())
+		{
+			addChildrenRecursively(campList, subCampaign);
+		}
 	}
 
 	/**

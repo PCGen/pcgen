@@ -18,97 +18,190 @@
  *
  * Created on 27/07/2008 15:46:38
  *
- * $Id: $
+ * $Id$
  */
 package pcgen.core.prereq;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
-import pcgen.PCGenTestCase;
-import pcgen.base.lang.UnreachableError;
-import pcgen.core.Ability;
+import org.junit.Test;
+
+import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
-import pcgen.core.SettingsHandler;
+import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.CampaignSourceEntry;
+import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.util.Logging;
 
 /**
- * The Class <code>PreCampaignTest</code> checks the procesing
+ * The Class <code>PreCampaignTest</code> checks the processing
  * of the PRECAMPAIGN tag.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
+ * Last Editor: $Author$
+ * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @version $Revision$
  */
-public class PreCampaignTest extends PCGenTestCase
+public class PreCampaignTest extends AbstractCharacterTestCase
 {
+	private Campaign sourceCamp;
+	private Campaign camp1;
+	private Campaign camp2KeyParent;
+	private Campaign camp3;
+	private Campaign camp4Wild;
+	private Campaign camp6TypeParent;
+
+	@Override
+	public void setUp() throws Exception
+	{
+		super.setUp();
+		
+		sourceCamp = buildCampaign("Source");
+		camp1 = buildCampaign("Camp1");
+		
+		camp2KeyParent = buildCampaign("Camp2");
+		camp3 = buildCampaign("Camp3");
+		CampaignSourceEntry cse = new CampaignSourceEntry(camp3, camp3.getSourceURI());
+		camp2KeyParent.addToListFor(ListKey.FILE_PCC, cse);
+		
+		camp4Wild = buildCampaign("Camp4");
+		camp4Wild.addToListFor(ListKey.BOOK_TYPE, "Wild");
+		camp6TypeParent = buildCampaign("Camp5");
+		cse = new CampaignSourceEntry(camp4Wild, camp4Wild.getSourceURI());
+		camp6TypeParent.addToListFor(ListKey.FILE_PCC, cse);
+	}
+
 	
 	/**
-	 * The main method.
-	 * 
-	 * @param args the arguments
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreCampaignTest.class);
-	}
-
-	/**
-	 * Suite.
-	 * 
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreCampaignTest.class);
-	}
-
-	/**
-	 * Test966023c.
+	 * Test matching by key.
 	 * 
 	 * @throws Exception the exception
 	 */
-	public void test966023c() throws Exception
+	@Test
+	public void testKeyMatch() throws Exception
 	{
-		SettingsHandler.getGame().addToSchoolList("Conjuration");
-		SettingsHandler.getGame().addToSchoolList("Evocation");
-		SettingsHandler.getGame().addToSchoolList("Illusion");
-		SettingsHandler.getGame().addToSchoolList("Necromany");
-//		final PlayerCharacter character = getCharacter();
-		final Ability spellFocus = new Ability();
+		// Setup campaigns
+		PersistenceManager pmgr = PersistenceManager.getInstance();
+		List<URI> uris = new ArrayList<URI>();
+		pmgr.setChosenCampaignSourcefiles(uris);
+		
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		Prerequisite preCamp1 = factory.parse("PRECAMPAIGN:1,Camp1");
+		assertFalse("Nonpresent campaign should not be found",
+			PrereqHandler.passes(preCamp1, (PlayerCharacter) null, sourceCamp));
 
-		CampaignSourceEntry cse;
+		uris = new ArrayList<URI>();
+		uris.add(camp1.getSourceURI());
+		pmgr.setChosenCampaignSourcefiles(uris);
+
+		assertTrue("Present campaign should be found",
+			PrereqHandler.passes(preCamp1, (PlayerCharacter) null, sourceCamp));
+		
+	}
+	
+	/**
+	 * Test matching by book type.
+	 * 
+	 * @throws Exception the exception
+	 */
+	@Test
+	public void testTypeMatch() throws Exception
+	{
+		// Setup campaigns
+		PersistenceManager pmgr = PersistenceManager.getInstance();
+		List<URI> uris = new ArrayList<URI>();
+		uris.add(camp1.getSourceURI());
+		pmgr.setChosenCampaignSourcefiles(uris);
+		
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		Prerequisite preCamp1 = factory.parse("PRECAMPAIGN:1,BOOKTYPE=Wild");
+		assertFalse("No typed campaign should be found",
+			PrereqHandler.passes(preCamp1, (PlayerCharacter) null, sourceCamp));
+
+		uris.add(camp4Wild.getSourceURI());
+		pmgr.setChosenCampaignSourcefiles(uris);
+
+		assertTrue("Typed campaign should be found",
+			PrereqHandler.passes(preCamp1, (PlayerCharacter) null, sourceCamp));
+		
+	}
+	
+	/**
+	 * Test matching by key.
+	 * 
+	 * @throws Exception the exception
+	 */
+	@Test
+	public void testNestedKeyMatch() throws Exception
+	{
+		// Setup campaigns
+		PersistenceManager pmgr = PersistenceManager.getInstance();
+		List<URI> uris = new ArrayList<URI>();
+		uris.add(camp1.getSourceURI());
+		pmgr.setChosenCampaignSourcefiles(uris);
+		
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		Prerequisite preCampaign = factory.parse("PRECAMPAIGN:1,Camp3");
+		assertFalse("Nonpresent campaign should not be found",
+			PrereqHandler.passes(preCampaign, (PlayerCharacter) null, sourceCamp));
+
+		uris.add(camp2KeyParent.getSourceURI());
+		pmgr.setChosenCampaignSourcefiles(uris);
+
+		assertTrue("Present but nested campaign should be found",
+			PrereqHandler.passes(preCampaign, (PlayerCharacter) null, sourceCamp));
+		
+	}
+	
+	/**
+	 * Test matching by book type.
+	 * 
+	 * @throws Exception the exception
+	 */
+	@Test
+	public void testNestedTypeMatch() throws Exception
+	{
+		// Setup campaigns
+		PersistenceManager pmgr = PersistenceManager.getInstance();
+		List<URI> uris = new ArrayList<URI>();
+		uris.add(camp1.getSourceURI());
+		pmgr.setChosenCampaignSourcefiles(uris);
+		
+		final PreParserFactory factory = PreParserFactory.getInstance();
+		Prerequisite preCamp1 = factory.parse("PRECAMPAIGN:1,BOOKTYPE=Wild");
+		assertFalse("No typed campaign should be found",
+			PrereqHandler.passes(preCamp1, (PlayerCharacter) null, sourceCamp));
+
+		uris.add(camp6TypeParent.getSourceURI());
+		pmgr.setChosenCampaignSourcefiles(uris);
+
+		assertTrue("Typed campaign should be found",
+			PrereqHandler.passes(preCamp1, (PlayerCharacter) null, sourceCamp));
+		
+	}
+
+	private Campaign buildCampaign(String key)
+	{
+		Campaign camp = new Campaign();
+		camp.setKeyName(key);
+		camp.setName(key);
 		try
 		{
-			cse = new CampaignSourceEntry(new Campaign(),
-					new URI("file:/" + getClass().getName() + ".java"));
+			camp.setSourceURI(new URI("file:/" + key));
 		}
 		catch (URISyntaxException e)
 		{
-			throw new UnreachableError(e);
+			Logging.errorPrint("PreCampaignTest.buildCampaign failed", e);
+			throw new RuntimeException(e);
 		}
-
-//		final String spellFocusStr =
-//				"Spell Focus	TYPE:General	DESC:See Text	STACK:NO	MULT:YES	CHOOSE:SCHOOLS|1	BONUS:DC|SCHOOL.%LIST|1	SOURCEPAGE:Feats.rtf";
-//		final FeatLoader featLoader = new FeatLoader();
-//		featLoader.parseLine(Globals.getContext(), spellFocus, spellFocusStr, cse);
-//		character.addFeat(spellFocus, null);
-//		spellFocus.addAssociated("Evocation");
-//
-//		final Prerequisite preSpellFocus = new Prerequisite();
-//		preSpellFocus.setKind("FEAT");
-//		preSpellFocus.setKey("Spell Focus");
-//		preSpellFocus.setSubKey("Conjuration");
-//		preSpellFocus.setOperand("1");
-//		preSpellFocus.setOperator(PrerequisiteOperator.EQ);
-//
-//		final boolean passes =
-//				PrereqHandler.passes(preSpellFocus, character, null);
-//		assertFalse(passes);
+		Globals.addCampaign(camp);
+		return camp;
 	}
 }
