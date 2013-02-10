@@ -27,6 +27,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
@@ -454,6 +455,8 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			{
 				pageImage = createNewPage();
 				Graphics g = pageImage.getGraphics();
+				Graphics2D g2 = (Graphics2D) g;
+				g2.scale(4, 4);
 				try
 				{
 					renderer.print(g, format, currentPage);
@@ -462,7 +465,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 				{
 					Logging.errorPrint(null, ex);
 				}
-				g.dispose();
+				g2.dispose();
 				pageCache[currentPage] = pageImage;
 			}
 			previewImage = pageImage.getScaledInstance(getPreviewWidth(), getPreviewHeight(), Image.SCALE_SMOOTH);
@@ -472,7 +475,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		{
 			int pageWidth = (int) format.getWidth();
 			int pageHeight = (int) format.getHeight();
-			return new BufferedImage(pageWidth, pageHeight, BufferedImage.TYPE_INT_ARGB);
+			return new BufferedImage(4*pageWidth, 4*pageHeight, BufferedImage.TYPE_INT_ARGB);
 		}
 
 		private static Image createBrokenPage()
