@@ -2027,23 +2027,27 @@ public final class PCGVer2Creator implements IOConstants
 
 				for (PCClass pcc : thePC.getSkillRankClasses(skill))
 				{
-					Double rank = thePC.getSkillRankForClass(skill, pcc);
-					buffer.append(TAG_CLASSBOUGHT).append(':');
-					buffer.append('[');
-					buffer.append(TAG_CLASS).append(':');
-					buffer.append(EntityEncoder.encode(pcc == null ? "None" : pcc.getKeyName()));
-					buffer.append('|');
-					buffer.append(TAG_RANKS).append(':');
-					buffer.append(rank);
-					buffer.append('|');
-					buffer.append(TAG_COST).append(':');
-					buffer.append(Integer.toString(thePC
-						.getSkillCostForClass(skill, pcc).getCost()));
-					buffer.append('|');
-					buffer.append(TAG_CLASSSKILL).append(':');
-					buffer.append((thePC.isClassSkill(skill, pcc))
-						? 'Y' : 'N');
-					buffer.append(']');
+					if (pcc != null)
+					{
+						Double rank = thePC.getSkillRankForClass(skill, pcc);
+						buffer.append(TAG_CLASSBOUGHT).append(':');
+						buffer.append('[');
+						buffer.append(TAG_CLASS).append(':');
+						buffer.append(EntityEncoder.encode(pcc == null ? "None"
+							: pcc.getKeyName()));
+						buffer.append('|');
+						buffer.append(TAG_RANKS).append(':');
+						buffer.append(rank);
+						buffer.append('|');
+						buffer.append(TAG_COST).append(':');
+						buffer.append(Integer.toString(thePC
+							.getSkillCostForClass(skill, pcc).getCost()));
+						buffer.append('|');
+						buffer.append(TAG_CLASSSKILL).append(':');
+						buffer.append((thePC.isClassSkill(skill, pcc)) ? 'Y'
+							: 'N');
+						buffer.append(']');
+					}
 				}
 
 				for (String assoc : thePC.getAssociationList(skill))

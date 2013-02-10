@@ -11078,6 +11078,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		skillRankFacet.set(id, sk, localClass, value);
 	}
 	
+	/**
+	 * Retrieve the classes that have ranks in this skill. NB: For granted ranks 
+	 * this may include null.
+	 * @param sk The skill to be checked.
+	 * @return The collection of classes with ranks - may include null as a PCClass.
+	 */
 	public Collection<PCClass> getSkillRankClasses(Skill sk)
 	{
 		return skillRankFacet.getClasses(id, sk);
