@@ -51,6 +51,7 @@ import javax.swing.JFrame;
 import javax.swing.JRootPane;
 import javax.swing.JTabbedPane;
 import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
 
 import org.apache.commons.lang.SystemUtils;
 
@@ -227,9 +228,8 @@ public final class Utility
 		Rectangle screenBounds =
 				GraphicsEnvironment.getLocalGraphicsEnvironment()
 					.getMaximumWindowBounds();
-		Point centreOfParent =
-				new Point(parent.getX() + (parent.getWidth() / 2),
-					parent.getY() + (parent.getHeight() / 2));
+		Point centreOfParent = new Point(parent.getWidth() / 2, parent.getHeight() / 2);
+		SwingUtilities.convertPointToScreen(centreOfParent, parent);
 		// Default to centre of parent
 		Point location =
 				new Point(centreOfParent.x - (dialog.getWidth() / 2),
