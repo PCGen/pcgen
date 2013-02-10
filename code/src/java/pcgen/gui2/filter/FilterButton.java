@@ -24,6 +24,9 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JToggleButton;
+import org.apache.commons.lang.StringUtils;
+import pcgen.gui2.UIPropertyContext;
+import pcgen.system.PropertyContext;
 
 /**
  * This class represents a simple filter represented as a toggle button. When the button is selected
@@ -38,10 +41,23 @@ public class FilterButton<C, E> extends JToggleButton
 
 	private FilterHandler filterHandler;
 	private Filter<C, E> filter;
+	private PropertyContext filterContext;
 
-	public FilterButton()
+	public FilterButton(String prefKey)
 	{
+		this(prefKey, false);
+	}
+
+	public FilterButton(String prefKey, boolean defaultSelectedState)
+	{
+		if (StringUtils.isEmpty(prefKey))
+		{
+			throw new NullPointerException("prefKey cannot be null");
+		}
 		addActionListener(this);
+		PropertyContext baseContext = UIPropertyContext.createContext("filterPrefs");
+		filterContext = baseContext.createChildContext(prefKey);
+		setSelected(filterContext.initBoolean("active", defaultSelectedState));
 	}
 
 	@Override
@@ -73,6 +89,7 @@ public class FilterButton<C, E> extends JToggleButton
 	public void actionPerformed(ActionEvent e)
 	{
 		filterHandler.refilter();
+		filterContext.setBoolean("active", isSelected());
 	}
 
 }

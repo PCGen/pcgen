@@ -95,8 +95,8 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		this.infoPane = new InfoPane(LanguageBundle.getString("in_irRaceInfo")); //$NON-NLS-1$
 		this.selectRaceButton = new JButton();
 		this.removeButton = new JButton();
-		this.qFilterButton = new FilterButton<Object, RaceFacade>();
-		this.noRacialHdFilterButton = new FilterButton<Object, RaceFacade>();
+		this.qFilterButton = new FilterButton<Object, RaceFacade>("RaceQualified");
+		this.noRacialHdFilterButton = new FilterButton<Object, RaceFacade>("RaceNoHD");
 		initComponents();
 	}
 
@@ -188,6 +188,8 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
+		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
+		((NoRacialHdFilterHandler) state.get(NoRacialHdFilterHandler.class)).install();
 		raceTable.setTreeViewModel((RaceTreeViewModel) state.get(Models.AvailableViewModel));
 		selectedTable.setTreeViewModel((RaceTreeViewModel) state.get(Models.SelectedViewModel));
 		((RaceDataView) state.get(Models.AvailableDataModel)).install();
@@ -195,9 +197,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		((InfoHandler) state.get(InfoHandler.class)).install();
 		((SelectRaceAction) state.get(SelectRaceAction.class)).install();
 		((RemoveRaceAction) state.get(RemoveRaceAction.class)).install();
-		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
-		((NoRacialHdFilterHandler) state.get(NoRacialHdFilterHandler.class)).install();
-
+		
 		raceTable.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class));
 		selectedTable.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class));
 		selectRaceButton.setAction((SelectRaceAction) state.get(SelectRaceAction.class));

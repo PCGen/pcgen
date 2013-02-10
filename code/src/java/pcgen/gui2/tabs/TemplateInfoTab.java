@@ -88,7 +88,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
 		this.infoPane = new InfoPane("in_irTemplateInfo"); //$NON-NLS-1$
-		this.qFilterButton = new FilterButton<CharacterFacade, TemplateFacade>();
+		this.qFilterButton = new FilterButton<CharacterFacade, TemplateFacade>("TemplateQualified");
 		initComponents();
 	}
 
@@ -176,6 +176,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
+		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
 		availableTable.setTreeViewModel((TemplateTreeViewModel) state.get(Models.AvailableModel));
 		selectedTable.setTreeViewModel((TemplateTreeViewModel) state.get(Models.SelectedModel));
 		((TemplateDataView) state.get(Models.AvailableDataView)).install();
@@ -183,8 +184,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		((InfoHandler) state.get(Models.InfoHandler)).install();
 		((AddAction) state.get(Models.AddAction)).install();
 		((RemoveAction) state.get(Models.RemoveAction)).install();
-		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
-
+		
 		addButton.setAction((AddAction) state.get(Models.AddAction));
 		removeButton.setAction((RemoveAction) state.get(Models.RemoveAction));
 		availableTable.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(Models.TemplateRenderer));
@@ -345,7 +345,6 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		private final Filter<CharacterFacade, TemplateFacade> qFilter = new Filter<CharacterFacade, TemplateFacade>()
 		{
-
 			@Override
 			public boolean accept(CharacterFacade context, TemplateFacade element)
 			{

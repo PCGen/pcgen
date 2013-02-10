@@ -170,7 +170,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			FilterBar<CharacterFacade, EquipmentFacade> filterBar = new FilterBar<CharacterFacade, EquipmentFacade>();
 			{// Filters
 				filterBar.addDisplayableFilter(new SearchFilterPanel());
-				FilterButton<CharacterFacade, EquipmentFacade> premadeFilter = new FilterButton<CharacterFacade, EquipmentFacade>();
+				FilterButton<CharacterFacade, EquipmentFacade> premadeFilter =
+						new FilterButton<CharacterFacade, EquipmentFacade>("EqQualified");//$NON-NLS-1$
 				premadeFilter.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 				premadeFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
 				{
@@ -182,7 +183,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					}
 
 				});
-				FilterButton<CharacterFacade, EquipmentFacade> customFilter = new FilterButton<CharacterFacade, EquipmentFacade>();
+				FilterButton<CharacterFacade, EquipmentFacade> customFilter =
+						new FilterButton<CharacterFacade, EquipmentFacade>("EqAffordable");//$NON-NLS-1$
 				customFilter.setText(LanguageBundle.getString("in_igAffordFilter")); //$NON-NLS-1$
 				customFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
 				{
@@ -437,6 +439,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
+		((EquipmentFilterHandler) state.get(EquipmentFilterHandler.class)).install();
 		((AvailableTreeViewModel) state.get(AvailableTreeViewModel.class)).install();
 		availableTable.setTreeCellRenderer((EquipmentRenderer) state.get(EquipmentRenderer.class));
 		purchasedTable.setTreeViewModel((TreeViewModel<EquipmentFacade>) state.get(PurchasedTreeViewModel.class));
@@ -451,7 +454,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		allowDebt.setAction((AllowDebtAction) state.get(AllowDebtAction.class));
 
 		((EquipInfoHandler) state.get(EquipInfoHandler.class)).install();
-		((EquipmentFilterHandler) state.get(EquipmentFilterHandler.class)).install();
 		((EquipmentTransferHandler) state.get(EquipmentTransferHandler.class)).install();
 		((UseAutoResizeAction) state.get(UseAutoResizeAction.class)).install();
 		((AddAction) state.get(AddAction.class)).install();

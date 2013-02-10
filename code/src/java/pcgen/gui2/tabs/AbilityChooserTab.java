@@ -106,7 +106,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
 		this.categoryBar = new FilterBar<CharacterFacade, AbilityCategoryFacade>();
-		this.qFilterButton = new FilterButton<CharacterFacade, AbilityFacade>();
+		this.qFilterButton = new FilterButton<CharacterFacade, AbilityFacade>("AbilityQualified");
 		initComponents();
 	}
 
@@ -145,10 +145,10 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 		setTopComponent(topPane);
 
-		FilterButton<CharacterFacade, AbilityCategoryFacade> gainedFilterButton = new FilterButton<CharacterFacade, AbilityCategoryFacade>();
+		FilterButton<CharacterFacade, AbilityCategoryFacade> gainedFilterButton =
+				new FilterButton<CharacterFacade, AbilityCategoryFacade>("AbilityGained", true);
 		gainedFilterButton.setText(LanguageBundle.getString("in_gained")); //$NON-NLS-1$
 		gainedFilterButton.setEnabled(true);
-		gainedFilterButton.setSelected(true);
 		gainedFilterButton.setFilter(new Filter<CharacterFacade, AbilityCategoryFacade>()
 		{
 			@Override
@@ -600,12 +600,12 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	public void restoreState(Hashtable<?, ?> state)
 	{
 		//AbilityTransferHandler handler = (AbilityTransferHandler) state.get(AbilityTransferHandler.class);
-
+		((CategoryFilterHandler) state.get(CategoryFilterHandler.class)).install();
+		((AbilityFilterHandler) state.get(AbilityFilterHandler.class)).install();
 		categoryTable.setModel((CategoryTableModel) state.get(CategoryTableModel.class));
 		categoryTable.setSelectionModel((ListSelectionModel) state.get(ListSelectionModel.class));
 		//selectedTreeViewPanel.setTransferHandler(handler);
 		//availableTreeViewPanel.setTransferHandler(handler);
-
 		selectedTreeViewPanel.setTreeTableModel((AbilityTreeTableModel) state.get(AbilityTreeTableModel.class));
 		((AvailableAbilityTreeViewModel) state.get(AvailableAbilityTreeViewModel.class)).install();
 		selectedTreeViewPanel.setTreeCellRenderer((AbilityRenderer) state.get(AbilityRenderer.class));
@@ -613,12 +613,10 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		addButton.setAction((AddAction) state.get(AddAction.class));
 		removeButton.setAction((RemoveAction) state.get(RemoveAction.class));
 		((InfoHandler) state.get(InfoHandler.class)).install();
-		((CategoryFilterHandler) state.get(CategoryFilterHandler.class)).install();
 		((CategoryTableModel) state.get(CategoryTableModel.class)).install();
 		((AddAction) state.get(AddAction.class)).install();
 		((RemoveAction) state.get(RemoveAction.class)).install();
-		((AbilityFilterHandler) state.get(AbilityFilterHandler.class)).install();
-
+		
 		ensureCategorySelected();
 	}
 

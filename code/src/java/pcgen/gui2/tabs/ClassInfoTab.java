@@ -117,7 +117,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		this.tabTitle = new TabTitle("in_clClass"); //$NON-NLS-1$
 		this.infoPane = new InfoPane(LanguageBundle.getString("in_clInfo")); //$NON-NLS-1$
 		this.spinner = new JSpinner(new SpinnerNumberModel(1, 1, 50, 1));
-		this.qFilterButton = new FilterButton<Object, ClassFacade>();
+		this.qFilterButton = new FilterButton<Object, ClassFacade>("ClassQualified");
 		initComponents();
 	}
 
@@ -302,12 +302,12 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		addButton.setAction(addClassAction);
 		removeButton.setAction(removeClassAction);
 
+		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
 		availableTable.setTreeViewModel((ClassTreeViewModel) state.get(ClassTreeViewModel.class));
 		availableTable.setTreeCellRenderer((QualifiedTreeCellRenderer) state.get(QualifiedTreeCellRenderer.class));
 
 		((InfoHandler) state.get(InfoHandler.class)).install();
 		((AddClassAction) state.get(AddClassAction.class)).install();
-		((QualifiedFilterHandler) state.get(QualifiedFilterHandler.class)).install();
 		setSelectedClass((ClassFacade) state.get(SELECTED_CLASS));
 	}
 

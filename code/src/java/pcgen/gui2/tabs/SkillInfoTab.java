@@ -100,8 +100,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		this.skillcostTable = new JTable();
 		this.skillpointTable = new JTable();
 		this.infoPane = new InfoPane();
-		this.cFilterButton = new FilterButton<CharacterFacade, SkillFacade>();
-		this.trainedFilterButton = new FilterButton<CharacterFacade, SkillFacade>();
+		this.cFilterButton = new FilterButton<CharacterFacade, SkillFacade>("SkillQualified");
+		this.trainedFilterButton = new FilterButton<CharacterFacade, SkillFacade>("SkillTrained");
 		this.tabTitle = new TabTitle("in_skills"); //$NON-NLS-1$
 		this.htmlPane = new JEditorPane();
 		initComponents();
@@ -203,11 +203,12 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	@Override
 	public void restoreModels(Hashtable<?, ?> state)
 	{
+		((FilterHandler) state.get(FilterHandler.class)).install();
 		skillpointTable.setModel((SkillPointTableModel) state.get(SkillPointTableModel.class));
 		skillpointTable.setSelectionModel((ListSelectionModel) state.get(ListSelectionModel.class));
 		skillcostTable.setModel((SkillCostTableModel) state.get(SkillCostTableModel.class));
 		skillTable.setDefaultEditor(Float.class, (SkillRankSpinnerEditor) state.get(SkillRankSpinnerEditor.class));
-		((FilterHandler) state.get(FilterHandler.class)).install();
+		
 		((SkillTreeViewModel) state.get(SkillTreeViewModel.class)).install(skillTable);
 		((InfoHandler) state.get(InfoHandler.class)).install();
 		((LevelSelectionHandler) state.get(LevelSelectionHandler.class)).install();

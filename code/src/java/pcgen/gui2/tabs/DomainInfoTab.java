@@ -110,7 +110,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		this.selectedDomain = new JLabel();
 		this.deityInfo = new InfoPane("in_deityInfo"); //$NON-NLS-1$
 		this.domainInfo = new InfoPane("in_domainInfo"); //$NON-NLS-1$
-		this.qFilterButton = new FilterButton<Object, DomainFacade>();
+		this.qFilterButton = new FilterButton<Object, DomainFacade>("DomainQualified");
 		initComponents();
 	}
 
