@@ -139,10 +139,10 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Spellcasting abilities
 1	ABILITY:Class Ability|AUTOMATIC|Orisons ~ Druid
 1	ABILITY:Class Ability|AUTOMATIC|Spontaneous Casting ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidSpontaneousCasting
-
 ###Block: Nature Bond Choice
-1																					BONUS:ABILITYPOOL|Nature Bond|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureBond	BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain	BONUS:VAR|AnimalCompanionLVL|CL|PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Animal Companion	BONUS:VAR|DomainLVL|CL
-# COMMENT: Deprecating the DruidXNotAllowed Syntax, leaving in for a cycle for Homebrews
+1	BONUS:ABILITYPOOL|Nature Bond|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureBond	BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Druid Domain	BONUS:VAR|AnimalCompanionLVL|CL|PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Animal Companion	BONUS:VAR|DomainLVL|CL
+###Block: Domains
+#COMMENT: Deprecating the DruidXNotAllowed Syntax, leaving in for a cycle for Homebrews
 1	DOMAIN:Air[PREMULT:2,[PREVAREQ:DruidAirAllowed,1],[PREVARLT:DruidAirNotAllowed,1]]
 1	DOMAIN:Animal[PREMULT:2,[PREVAREQ:DruidAnimalAllowed,1],[PREVARLT:DruidAnimalNotAllowed,1]]
 1	DOMAIN:Earth[PREMULT:2,[PREVAREQ:DruidEarthAllowed,1],[PREVARLT:DruidEarthNotAllowed,1]]

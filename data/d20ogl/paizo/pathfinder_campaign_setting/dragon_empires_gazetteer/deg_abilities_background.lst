@@ -11,7 +11,3 @@ Tian-Min		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	T
 Tian-Shu		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Tian-Shu)		SOURCEPAGE:p.6
 Tian-Sing		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Tian-Sing)	SOURCEPAGE:p.6
 
-###Block: Placeholder objects for no Human Ethnicities or Regional Affinities
-# Ability Name	Unique Key				Category of Ability	Type
-None			KEY:None ~ HumanEthnicity	CATEGORY:Background	TYPE:HumanEthnicity
-Unknown		KEY:Unknown ~ HumanEthnicity	CATEGORY:Background	TYPE:HumanEthnicity

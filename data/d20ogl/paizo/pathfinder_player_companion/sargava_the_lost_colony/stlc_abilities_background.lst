@@ -26,11 +26,6 @@ Sargava (City of Eleder)	NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DI
 Sargava (City of Kalabuto)	NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY						TEMPLATE:Regional Affinity (City of Kalabuto)
 Sargava (M'neri Plains)		NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY						TEMPLATE:Regional Affinity (M'neri Plains)
 
-###Block: Placeholder objects for no Human Ethnicities or Regional Affinities
-# Ability Name	Category of Ability	Type					Visible
-None			CATEGORY:Background	TYPE:HumanSubrace.Region	VISIBLE:DISPLAY
-Unknown		CATEGORY:Background	TYPE:HumanSubrace.Region	VISIBLE:DISPLAY
-
 #
 # End
 #

@@ -17,9 +17,12 @@ Varisian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	T
 Vudrani		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanEthnicity	VISIBLE:DISPLAY	TEMPLATE:Human Ethnicity (Vudrani)		AUTO:LANG|Vudrani			SOURCEPAGE:p.38
 
 ###Block: Placeholder objects for no Human Ethnicities or Regional Affinities
-# Ability Name	Category of Ability	Type
-None			CATEGORY:Background	TYPE:HumanEthnicity.Region
-Unknown		CATEGORY:Background	TYPE:HumanEthnicity.Region
+# Ability Name	Unique Key				Category of Ability	Type
+None			KEY:None ~ HumanEthnicity	CATEGORY:Background	TYPE:HumanEthnicity
+Unknown		KEY:Unknown ~ HumanEthnicity	CATEGORY:Background	TYPE:HumanEthnicity
+#
+None			KEY:None ~ Region			CATEGORY:Background	TYPE:Region
+Unknown		KEY:Unknown ~ Region		CATEGORY:Background	TYPE:Region
 
 ###Block: Alternate Class Features
 # Ability Name		Unique Key					Category of Ability		Type										Define																												Description																																				Multiple?	Choose				Automatically Gained Weapon Prof.	Combat bonus																Modify VAR				Source Page		Aspects																Description of the Benefits

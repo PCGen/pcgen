@@ -32,7 +32,7 @@ COPYRIGHT:PCGen dataset conversion for "Cheliax, Empire of Devils" Copyright 200
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
-
+BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Base
 # Data files
 ABILITY:cheliax_empire_of_devils_abilities_background.lst
 ABILITY:cheliax_empire_of_devils_abilities_traits.lst

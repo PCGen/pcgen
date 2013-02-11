@@ -13,7 +13,3 @@ Qadiran		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanSubrace	VISIBLE:DISPLAY	TEMP
 # Ability Name	Product Identity?	Category of Ability	Type		Visible		Description				Template					Source Page
 Qadira		NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Desert Frontier Kingdom	TEMPLATE:Regional Affinity (Qadira)	SOURCEPAGE:p.120
 
-###Block: Placeholder objects for no Human Ethnicities or Regional Affinities
-# Ability Name	Category of Ability	Type
-None			CATEGORY:Background	TYPE:HumanSubrace.Region
-Unknown		CATEGORY:Background	TYPE:HumanSubrace.Region

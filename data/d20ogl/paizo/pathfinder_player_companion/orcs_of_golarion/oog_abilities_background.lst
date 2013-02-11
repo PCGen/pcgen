@@ -10,13 +10,6 @@ Realm of the Mammoth Lords	NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:
 Ustalav				NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Ustalav)				SOURCEPAGE:p.23
 River Kingdoms			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (River Kingdoms)			SOURCEPAGE:p.23
 
-###Block: Placeholder objects for no Orc Regional Affinities
-# Ability Name	Product Identity?	Category of Ability	Type	Visible
-
-# Ability Name	Product Identity?	Category of Ability	Type		Visible
-None			NAMEISPI:NO		CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY
-Unknown		NAMEISPI:NO		CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY
-
 #
 # End
 #

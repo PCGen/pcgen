@@ -33,6 +33,7 @@ DESC:Golarion, the exciting world of the Pathfinder Adventure Paths and Pathfind
 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
+BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Base
 
 ABILITYCATEGORY:pathfinder_campaign_setting_abilitycategories.lst
 ABILITY:pathfinder_campaign_setting_abilities_35e.lst

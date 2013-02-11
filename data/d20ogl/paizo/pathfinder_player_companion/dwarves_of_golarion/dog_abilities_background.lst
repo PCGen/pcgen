@@ -12,10 +12,6 @@ Lands of the Linnorm Kings	NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:
 Osirion				NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Osirion)				SOURCEPAGE:p.19
 Shattered Range			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	TEMPLATE:Regional Affinity (Shattered Range)			SOURCEPAGE:p.18
 
-###Block: Placeholder objects for no Dwarf Regional Affinities
-# Ability Name	Product Identity?	Category of Ability	Type		Visible
-None			NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY
-Unknown		NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY
 #
 # End
 #
