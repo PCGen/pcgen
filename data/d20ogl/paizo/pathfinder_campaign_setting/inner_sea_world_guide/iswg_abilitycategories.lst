@@ -4,12 +4,12 @@
 
 ###Block: Master Category
 # Ability Category		Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object
-ABILITYCATEGORY:Background	VISIBLE:NO	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Background
+#ABILITYCATEGORY:Background	VISIBLE:NO	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Background
 
 ###Block: Background Ability Categories
 # Ability Category			Base Pool	Visible		Editable?		Edit Pool?	Fractional?		Category of Object		Type of Object		Plural description for UI		Display Location
-ABILITYCATEGORY:Human Ethnicity			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	CATEGORY:Background		TYPE:HumanEthnicity	PLURAL:Human Ethnicities		DISPLAYLOCATION:Background
-ABILITYCATEGORY:Region of Origin	POOL:1	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	CATEGORY:Background		TYPE:Region			PLURAL:Regions of Origin		DISPLAYLOCATION:Background
+#ABILITYCATEGORY:Human Ethnicity			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	CATEGORY:Background		TYPE:HumanEthnicity	PLURAL:Human Ethnicities		DISPLAYLOCATION:Background
+#ABILITYCATEGORY:Region of Origin	POOL:1	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	CATEGORY:Background		TYPE:Region			PLURAL:Regions of Origin		DISPLAYLOCATION:Background
 ABILITYCATEGORY:Shoanti Clan				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	CATEGORY:Background		TYPE:ShoantiClan		PLURAL:Shoanti Clans			DISPLAYLOCATION:Background
 
 ###Block: Hellknight Abilities

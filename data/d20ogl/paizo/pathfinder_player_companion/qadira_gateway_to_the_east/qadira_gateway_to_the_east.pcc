@@ -33,7 +33,7 @@ DESC:A hot-blooded realm of riches, slavery, and blood feuds, the desert nation 
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
-BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Base
+BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 # Data files
 ABILITYCATEGORY:qge_abilitycategories.lst
 ABILITY:qge_abilities_background.lst

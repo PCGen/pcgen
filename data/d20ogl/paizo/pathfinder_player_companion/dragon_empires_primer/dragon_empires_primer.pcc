@@ -33,7 +33,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Dragon Empi
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
-BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Base
+BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 # Data files
 ABILITY:dep_abilities_archetypes.lst
 ABILITY:dep_abilities_background.lst

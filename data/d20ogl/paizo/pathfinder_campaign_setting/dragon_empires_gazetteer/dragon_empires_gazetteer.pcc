@@ -46,7 +46,7 @@ FORWARDREF:RACE|Tengu
 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
-BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Base
+BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 
 #ADDITIONAL FILES:
 LANGUAGE:*/d20ogl/paizo/pathfinder_campaign_setting/pathfinder_campaign_setting/pathfinder_campaign_setting_languages.lst

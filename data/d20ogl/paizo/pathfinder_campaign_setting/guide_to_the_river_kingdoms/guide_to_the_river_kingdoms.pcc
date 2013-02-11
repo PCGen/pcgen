@@ -34,7 +34,7 @@ COPYRIGHT:PCGen dataset conversion for "Guide to the River Kingdoms" Copyright 2
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
-BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Base
+BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 
 # Data Files
 ABILITY:guide_to_the_river_kingdoms_abilities.lst
