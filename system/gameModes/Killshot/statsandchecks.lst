@@ -5,7 +5,8 @@
 #
 # Stat definitions for Killshot mode
 #
-STATNAME:Body		ABB:BDY	DEFINE:TrainingPool|0		DEFINE:AdditionalTrainingCost|0	BONUS:VAR|AdditionalTrainingCost|2*(count("ABILITIES","CATEGORY=Special Ability","TYPE=Focus")-1)	BONUS:VAR|AdditionalTrainingCost|2|PREABILITY:4,CATEGORY=Special Ability,TYPE=Focus	DEFINE:TrainingCost|0	BONUS:VAR|TrainingPool|-var("AdditionalTrainingCost")
+STATNAME:Body		ABB:BDY	DEFINE:TrainingPool|0		DEFINE:AdditionalTrainingCost|0	
+#BONUS:VAR|AdditionalTrainingCost|2*(count("ABILITIES","CATEGORY=Special Ability","TYPE=Focus")-1)	BONUS:VAR|AdditionalTrainingCost|2|PREABILITY:4,CATEGORY=Special Ability,TYPE=Focus	DEFINE:TrainingCost|0	BONUS:VAR|TrainingPool|-var("AdditionalTrainingCost")
 STATNAME:Sense		ABB:SEN
 STATNAME:Mind		ABB:MND
 
