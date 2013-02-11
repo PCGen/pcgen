@@ -119,7 +119,14 @@ public class ConvertPanel extends JPanel
 			@Override
 			public void progressAllowed(ProgressEvent pe)
 			{
-				nextButton.setEnabled(true);
+				if (pe.getID() == ProgressEvent.AUTO_ADVANCE)
+				{
+					proceedToNextPanel();
+				}
+				else
+				{
+					nextButton.setEnabled(true);
+				}
 			}
 
 			@Override
@@ -133,17 +140,7 @@ public class ConvertPanel extends JPanel
 			@Override
 			public void actionPerformed(ActionEvent arg0)
 			{
-				Thread t = new Thread(new Runnable()
-				{
-					@Override
-					public void run()
-					{
-						CursorControlUtilities.startWaitCursor(basePanel);
-						runNextPanel();
-						CursorControlUtilities.stopWaitCursor(basePanel);
-					}
-				});
-				t.start();
+				proceedToNextPanel();
 			}
 		});
 		buttonBox.add(nextButton);
@@ -190,6 +187,21 @@ public class ConvertPanel extends JPanel
 		runNextPanel();
 	}
 
+	private void proceedToNextPanel()
+	{
+		Thread t = new Thread(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				CursorControlUtilities.startWaitCursor(basePanel);
+				runNextPanel();
+				CursorControlUtilities.stopWaitCursor(basePanel);
+			}
+		});
+		t.start();
+	}
+
 	public void prepare(ConvertSubPanel panel, boolean allowPrev)
 	{
 		setButtonVisibility(panel.isLast(), allowPrev);
@@ -201,8 +213,14 @@ public class ConvertPanel extends JPanel
 	{
 		nextButton.setEnabled(false);
 		prevButton.setEnabled(allowPrev);
-		finishButton.setVisible(displayingLast);
-		cancelButton.setVisible(!displayingLast);
+		//finishButton.setVisible(displayingLast);
+		cancelButton.setVisible(true);
+	}
+
+	private void showFinishButton()
+	{
+		finishButton.setVisible(true);
+		cancelButton.setVisible(false);
 	}
 
 	public void checkExit()
@@ -239,6 +257,7 @@ public class ConvertPanel extends JPanel
 				else
 				{
 					nextpanel = null;
+					showFinishButton();
 				}
 		} while (nextpanel != null && nextpanel.autoAdvance(properties));
 	}

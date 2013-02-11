@@ -98,8 +98,6 @@ public final class PCGenDataConvert extends JFrame
 		panels.add(new SummaryPanel());
 
 		panels.add(new RunConvertPanel(installPanel.getStatusField()));
-		panels.add(new MessagePanel("PCGen Data Conversion Complete!",
-			ProgressEvent.NOT_ALLOWED));
 
 		frame.getContentPane().add(installPanel);
 		frame.pack();

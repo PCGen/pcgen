@@ -84,7 +84,7 @@ public class StartupPanel extends ConvertSubPanel
 				message.add(new JLabel("Initialization complete, press next button to continue..."));
 				message.revalidate();
 		        
-				fireProgressEvent(ProgressEvent.ALLOWED);
+				fireProgressEvent(ProgressEvent.AUTO_ADVANCE);
 			}
 		}).start();
 		return true;

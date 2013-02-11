@@ -200,7 +200,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				}
 				progressBar.setValue(progressBar.getMaximum());
 		        
-				fireProgressEvent(ProgressEvent.ALLOWED);
+				fireProgressEvent(ProgressEvent.AUTO_ADVANCE);
 			}
 		}).start();
 		return true;

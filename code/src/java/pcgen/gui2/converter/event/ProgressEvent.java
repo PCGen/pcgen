@@ -28,6 +28,8 @@ public class ProgressEvent extends EventObject
 
 	public static final int ALLOWED = 0;
 
+	public static final int AUTO_ADVANCE = 2;
+
 	private int ident;
 
 	public ProgressEvent(Object arg0, int id)

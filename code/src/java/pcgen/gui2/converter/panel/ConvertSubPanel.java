@@ -136,6 +136,7 @@ public abstract class ConvertSubPanel implements ProgressMonitor
 					switch (ccEvent.getID())
 					{
 					case ProgressEvent.ALLOWED:
+					case ProgressEvent.AUTO_ADVANCE:
 						((ProgressListener) listeners[i + 1])
 								.progressAllowed(ccEvent);
 						break;
