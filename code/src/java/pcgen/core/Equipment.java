@@ -5710,6 +5710,26 @@ public final class Equipment extends PObject implements Serializable,
 			aBump +=
 					(int) aPC.getTotalBonusTo("WEAPONPROF=" + expProfName,
 						"WIELDCATEGORY");
+
+			// loops for each equipment type
+			int modWield = 0;
+			for (String eqType : typeList())
+			{
+				final StringBuilder sB = new StringBuilder("WEAPONPROF=TYPE.");
+				sB.append(eqType);
+
+				// get the type bonus (ex TYPE.MARTIAL)
+				final int i =
+						(int) aPC.getTotalBonusTo(sB.toString(),
+							"WIELDCATEGORY");
+
+				// get the highest bonus
+				if (i < modWield)
+				{
+					modWield = i;
+				}
+			}
+			aBump += modWield;
 		}
 
 		// or a bonus from the weapon itself

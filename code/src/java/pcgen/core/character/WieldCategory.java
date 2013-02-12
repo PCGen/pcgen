@@ -194,6 +194,25 @@ public final class WieldCategory implements Loadable
 			aBump += (int) pc.getTotalBonusTo("WIELDCATEGORY", eq
 					.getWieldName());
 			aBump += (int) pc.getTotalBonusTo("WIELDCATEGORY", "ALL");
+
+			// loops for each equipment type
+			int modWield = 0;
+			for ( String eqType : eq.typeList() )
+			{
+				final StringBuilder sB = new StringBuilder("WEAPONPROF=TYPE.");
+				sB.append(eqType);
+
+				// get the type bonus (ex TYPE.MARTIAL)
+				final int i = (int) pc.getTotalBonusTo(sB.toString(), "WIELDCATEGORY");
+
+				// get the highest bonus
+				if (i < modWield)
+				{
+					modWield = i;
+				}
+			}
+			aBump += modWield;
+						
 			if (aBump != 0)
 			{
 				final int newSizeInt = eq.sizeInt() + aBump;
