@@ -1960,19 +1960,19 @@ Immune
 			Occupations
 	  ====================================
 	  ====================================-->
-|IIF(count("ABILITIES";"CATEGORY=Occupation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")==0)|
+|IIF(count("ABILITIES";"CATEGORY=Starting Occupation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")==0)|
 |ELSE|
 |ENDIF|
 	<occupations>
-|FOR,%occupation,0,count("ABILITIES","CATEGORY=Occupation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%occupation,0,count("ABILITIES","CATEGORY=Starting Occupation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 		<occupation>
-			<name>|ABILITYALL.Occupation.VISIBLE.%occupation|</name>
-			<description>|ABILITYALL.Occupation.VISIBLE.%occupation.DESC|</description>
-			<type>|ABILITYALL.Occupation.VISIBLE.%occupation.TYPE|</type>
-			<associated>|ABILITYALL.Occupation.VISIBLE.%occupation.ASSOCIATED|</associated>
-			<count>|ABILITYALL.Occupation.VISIBLE.%occupation.ASSOCIATEDCOUNT|</count>
-			<source>|ABILITYALL.Occupation.VISIBLE.%occupation.SOURCE|</source>
-			<category>Occupation</category>
+			<name>|ABILITYALL.Starting Occupation.VISIBLE.%occupation|</name>
+			<description>|ABILITYALL.Starting Occupation.VISIBLE.%occupation.DESC|</description>
+			<type>|ABILITYALL.Starting Occupation.VISIBLE.%occupation.TYPE|</type>
+			<associated>|ABILITYALL.Starting Occupation.VISIBLE.%occupation.ASSOCIATED|</associated>
+			<count>|ABILITYALL.Starting Occupation.VISIBLE.%occupation.ASSOCIATEDCOUNT|</count>
+			<source>|ABILITYALL.Starting Occupation.VISIBLE.%occupation.SOURCE|</source>
+			<category>Starting Occupation</category>
 		</occupation>
 |ENDFOR|
 	</occupations>

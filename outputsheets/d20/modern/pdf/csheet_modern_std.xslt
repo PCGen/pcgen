@@ -240,7 +240,7 @@
 		<medium color="black" background-color="lightgrey" border-color="black"/>
 		<dark color="black" background-color="lightgrey" border-color="black"/>
 		<very.dark color="black" background-color="lightgrey" border-color="black"/>
-		<inverse color="black" background-color="#999999" border-color="black"/>
+		<inverse color="white" background-color="black" border-color="black"/>
 
 		<bio display-align="after" color="black" background-color="transparent" border-color="black"></bio>
 		<bio.title border-top-width="0.5pt" border-top-style="solid"><subattrib normal=""/></bio.title>
@@ -398,6 +398,18 @@
 		<special_attacks.lightline><subattrib light=""/></special_attacks.lightline>
 		<special_attacks.darkline><subattrib medium=""/></special_attacks.darkline>
 
+		<talents.title><subattrib centre="" inverse=""/></talents.title>
+		<talents.border padding="0.5pt"><subattrib border="" inverse=""/></talents.border>
+		<talents.lightline><subattrib light=""/></talents.lightline>
+		<talents.darkline><subattrib medium=""/></talents.darkline>
+
+		<occupations.title><subattrib centre="" inverse=""/></occupations.title>
+		<occupations.border padding="0.5pt"><subattrib border="" inverse=""/></occupations.border>
+		<occupations.lightline><subattrib light=""/></occupations.lightline>
+		<occupations.darkline><subattrib medium=""/></occupations.darkline>
+
+
+
 		<archetypes.title><subattrib centre="" inverse=""/></archetypes.title>
 		<archetypes.border padding="0.5pt"><subattrib border="" inverse=""/></archetypes.border>
 		<archetypes.lightline><subattrib light=""/></archetypes.lightline>
@@ -461,6 +473,11 @@
 	</myAttribs:myAttribs>
 	<xsl:variable name="vAttribs" select="document('')/*/myAttribs:*"/>
 
+	<xsl:attribute-set name="talents.title" use-attribute-sets="border centre">
+		<xsl:attribute name="background-color">black</xsl:attribute>
+		<xsl:attribute name="border-color">black</xsl:attribute>
+		<xsl:attribute name="color">white</xsl:attribute>
+	</xsl:attribute-set>
 
 	<xsl:attribute-set name="border">
 		<xsl:attribute name="border-width">0.5pt</xsl:attribute>
@@ -1140,7 +1157,10 @@
 						<xsl:apply-templates select="special_abilities" />
 						<xsl:apply-templates select="special_qualities" />
 						<xsl:apply-templates select="feats" />
-						<xsl:apply-templates select="feats/feat[contains(., 'OCCUPATION')]" mode="starting_occupation" />
+<!-->						<xsl:apply-templates select="feats/feat[contains(., 'OCCUPATION')]" mode="starting_occupation" />	-->
+						<xsl:apply-templates select="occupations" />
+						<xsl:apply-templates select="talents" />
+
 						<xsl:apply-templates select="mutations" />
 						<xsl:apply-templates select="weapon_proficiencies" />
 						<xsl:apply-templates select="languages" />
@@ -3796,6 +3816,45 @@
 		</fo:table>
 	</xsl:if>
 	</xsl:template>
+
+
+
+	<!--
+====================================
+====================================
+	TEMPLATE - Talents
+====================================
+====================================-->
+	<xsl:template match="talents">
+		<xsl:if test="count(talent) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'talents'" />
+				<xsl:with-param name="title" select="'Talents'" />
+				<xsl:with-param name="list" select="talent"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+
+	<!--
+====================================
+====================================
+	TEMPLATE - Occupations
+====================================
+====================================-->
+	<xsl:template match="occupations">
+		<xsl:if test="count(occupation) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'occupations'" />
+				<xsl:with-param name="title" select="'Occupations'" />
+				<xsl:with-param name="list" select="occupation"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+
 
 <!--
 ====================================
