@@ -63,12 +63,17 @@ public class PCGenSettings extends PropertyContext
 	public static final String CHAR_PORTRAITS_PATH = "pcgen.files.portaits";
 	public static final String BACKUP_PCG_PATH = "pcgen.files.characters.backup";
 	public static final String SELECTED_SPELL_SHEET_PATH = "pcgen.files.selectedSpellOutputSheet";
-	public static final String CONVERT_OUTPUT_SAVE_PATH = "pcgen.files.convertOutput";
 	public static final String RECENT_CHARACTERS = "recentCharacters";
 	public static final String RECENT_PARTIES = "recentParties";
 	public static final String LAST_LOADED_SOURCES = "lastLoadedSources";
 	public static final String LAST_LOADED_GAME = "lastLoadedGame";
 
+	/* Data converter saved choices. */
+	public static final String CONVERT_OUTPUT_SAVE_PATH = "pcgen.convert.outputPath";
+	public static final String CONVERT_INPUT_PATH = "pcgen.convert.inputPath";
+	public static final String CONVERT_GAMEMODE = "pcgen.convert.gamemode";
+	public static final String CONVERT_SOURCES = "pcgen.convert.sources";
+	
 	public static final PropertyContext GMGEN_OPTIONS_CONTEXT = instance.createChildContext("gmgen.options");
 	
 	private PCGenSettings()

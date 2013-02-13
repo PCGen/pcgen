@@ -38,6 +38,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.gui2.converter.event.ProgressEvent;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.ConfigurationSettings;
+import pcgen.system.PCGenSettings;
 
 /**
  * The Class <code>SourceSelectionPanel</code> gathers the source 
@@ -162,6 +163,10 @@ public class SourceSelectionPanel extends ConvertSubPanel
 							path = fileToOpen;
 							SourceFolder.OTHER.setFile(fileToOpen);
 							pc.put(ObjectKey.DIRECTORY, path);
+							PCGenSettings context = PCGenSettings.getInstance();
+							context.setProperty(
+								PCGenSettings.CONVERT_INPUT_PATH,
+								path.getAbsolutePath());
 							JRadioButton button = radioButtons[SourceFolder.OTHER.ordinal()];
 							button.setSelected(true);
 							button.setText(buildFolderText(SourceFolder.OTHER, fileToOpen.getAbsolutePath()));
@@ -186,6 +191,12 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		{
 			selectedPath = selectedFile.getAbsolutePath();
 		}
+		else
+		{
+			PCGenSettings context = PCGenSettings.getInstance();
+			selectedPath =
+					context.getProperty(PCGenSettings.CONVERT_INPUT_PATH, null);
+		}
 		ButtonGroup group = new ButtonGroup();
 		boolean haveSelected = false;
 		Font font = panel.getFont();
@@ -199,6 +210,9 @@ public class SourceSelectionPanel extends ConvertSubPanel
 				@Override
 				public void actionPerformed(ActionEvent e)
 				{
+					PCGenSettings context = PCGenSettings.getInstance();
+					context.setProperty(PCGenSettings.CONVERT_INPUT_PATH,
+						buttonFolder.getFile().getAbsolutePath());
 					pc.put(ObjectKey.DIRECTORY, buttonFolder.getFile());
 				}
 			});
@@ -255,7 +269,16 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		
 		if (!haveSelected)
 		{
-			if (radioButtons[SourceFolder.VENDORDATA.ordinal()].isEnabled())
+			if (selectedPath != null)
+			{
+				JRadioButton btn = radioButtons[SourceFolder.OTHER.ordinal()];
+				btn.setSelected(true);
+				selectedFile = new File(selectedPath);
+				SourceFolder.OTHER.setFile(selectedFile);
+				path = selectedFile;
+				btn.setText(buildFolderText(SourceFolder.OTHER, selectedFile.getAbsolutePath()));				
+			}
+			else if (radioButtons[SourceFolder.VENDORDATA.ordinal()].isEnabled())
 			{
 				JRadioButton btn = radioButtons[SourceFolder.VENDORDATA.ordinal()];
 				btn.setSelected(true);

@@ -38,6 +38,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -46,6 +48,7 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.gui2.converter.event.ProgressEvent;
 import pcgen.gui2.tools.Utility;
+import pcgen.system.PCGenSettings;
 
 /**
  * The Class <code>CampaignPanel</code> displays a panel allowing 
@@ -149,6 +152,7 @@ public class CampaignPanel extends ConvertSubPanel
 					int[] selRows = table.getSelectedRows();
 					if (selRows.length == 0)
 					{
+						saveSourceSelection(pc);
 						fireProgressEvent(ProgressEvent.NOT_ALLOWED);
 					}
 					else
@@ -159,6 +163,7 @@ public class CampaignPanel extends ConvertSubPanel
 									(Campaign) model.getValueAt(row, 0);
 							pc.addToListFor(ListKey.CAMPAIGN, selCampaign);
 						}
+						saveSourceSelection(pc);
 						fireProgressEvent(ProgressEvent.ALLOWED);
 					}
 				}
@@ -171,6 +176,45 @@ public class CampaignPanel extends ConvertSubPanel
 		gbc.fill = GridBagConstraints.BOTH;
 		panel.add(listScroller, gbc);
 		
+		initSourceSelection(model, table);
+	}
+
+	/**
+	 * 
+	 */
+	private void initSourceSelection(CampaignTableModel model, JTable table)
+	{
+		// Select any previous selections
+		PCGenSettings context = PCGenSettings.getInstance();
+		String sourceString = context
+			.initProperty(PCGenSettings.CONVERT_SOURCES, "");
+		String sources[] = sourceString.split("\\|");
+		for (String srcName : sources)
+		{
+			for (Campaign camp : gameModeCampaigns)
+			{
+				if (camp.toString().equals(srcName))
+				{
+					for (int i = 0; i<model.getRowCount(); i++)
+					{
+						if (camp.equals(model.getValueAt(i, 0)))
+						{
+							table.getSelectionModel().addSelectionInterval(i, i);
+							break;
+						}
+					}
+					break;
+				}
+			}
+		}
+	}
+	
+	private void saveSourceSelection(CDOMObject pc)
+	{
+		List<Campaign> selCampaigns = pc.getSafeListFor(ListKey.CAMPAIGN);
+		PCGenSettings context = PCGenSettings.getInstance();
+		context
+			.setProperty(PCGenSettings.CONVERT_SOURCES, StringUtils.join(selCampaigns, "|"));
 	}
 
 	/**

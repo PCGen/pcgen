@@ -36,6 +36,7 @@ import pcgen.gui2.converter.event.ProgressEvent;
 import pcgen.gui2.util.JComboBoxEx;
 import pcgen.persistence.CampaignFileLoader;
 import pcgen.system.ConfigurationSettings;
+import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 public class GameModePanel extends ConvertSubPanel
@@ -114,7 +115,11 @@ public class GameModePanel extends ConvertSubPanel
 
 	private void getSelection(CDOMObject pc)
 	{
-		pc.put(ObjectKey.GAME_MODE, (GameMode) gameModeCombo.getSelectedItem());
+		GameMode gameMode = (GameMode) gameModeCombo.getSelectedItem();
+		pc.put(ObjectKey.GAME_MODE, gameMode);
+
+		PCGenSettings context = PCGenSettings.getInstance();
+		context.setProperty(PCGenSettings.CONVERT_GAMEMODE, gameMode.getName());
 	}
 
 	@Override
@@ -140,12 +145,16 @@ public class GameModePanel extends ConvertSubPanel
 				saveGameMode(pc);
 			}
 		});
+		PCGenSettings context = PCGenSettings.getInstance();
+		SettingsHandler.setGame(context
+			.initProperty(PCGenSettings.CONVERT_GAMEMODE, SettingsHandler
+				.getGame().getName()));
 		GameMode currGame = SettingsHandler.getGame();
 		if (pc.get(ObjectKey.GAME_MODE) != null)
 		{
 			currGame = pc.get(ObjectKey.GAME_MODE);
 		}
-		gameModeCombo.setSelectedItem(currGame.getDisplayName());
+		gameModeCombo.setSelectedItem(currGame);
 		getSelection(pc);
 		saveGameMode(pc);
 
