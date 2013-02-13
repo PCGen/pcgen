@@ -32,11 +32,9 @@ import org.apache.commons.lang.SystemUtils;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.inst.ObjectCache;
-import pcgen.gui2.converter.event.ProgressEvent;
 import pcgen.gui2.converter.panel.CampaignPanel;
 import pcgen.gui2.converter.panel.ConvertSubPanel;
 import pcgen.gui2.converter.panel.GameModePanel;
-import pcgen.gui2.converter.panel.MessagePanel;
 import pcgen.gui2.converter.panel.RunConvertPanel;
 import pcgen.gui2.converter.panel.SourceSelectionPanel;
 import pcgen.gui2.converter.panel.StartupPanel;
