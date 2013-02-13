@@ -71,15 +71,18 @@ public class LSTConverter extends Observable
 	private final File rootDir;
 	private final DoubleKeyMapToList<Loader, URI, CDOMObject> injected = new DoubleKeyMapToList<Loader, URI, CDOMObject>();
 	private final ConversionDecider decider;
+	private Writer changeLogWriter;
 	
 	public LSTConverter(EditorLoadContext lc, File root, String outputDir,
-			ConversionDecider cd)
+			ConversionDecider cd, Writer changeLogWriter) 
 	{
 		context = lc;
 		rootDir = root;
 		outDir = outputDir;
-		loaders = setupLoaders(context);
 		decider = cd;
+		
+		this.changeLogWriter = changeLogWriter;
+		loaders = setupLoaders(context, changeLogWriter);
 	}
 
 	/**
@@ -188,6 +191,7 @@ public class LSTConverter extends Observable
 				ensureParents(outFile.getParentFile());
 				try
 				{
+					changeLogWriter.append("\nProcessing " + in + "\n");
 					String result = load(uri, loader);
 					if (result != null)
 					{
@@ -217,39 +221,40 @@ public class LSTConverter extends Observable
 		}
 	}
 
-	private List<Loader> setupLoaders(EditorLoadContext context)
+	private List<Loader> setupLoaders(EditorLoadContext context, Writer changeLogWriter)
 	{
 		List<Loader> loaderList = new ArrayList<Loader>();
 		loaderList.add(new BasicLoader<WeaponProf>(context, WeaponProf.class,
-				ListKey.FILE_WEAPON_PROF));
+				ListKey.FILE_WEAPON_PROF, changeLogWriter));
 		loaderList.add(new BasicLoader<ArmorProf>(context, ArmorProf.class,
-				ListKey.FILE_ARMOR_PROF));
+				ListKey.FILE_ARMOR_PROF, changeLogWriter));
 		loaderList.add(new BasicLoader<ShieldProf>(context, ShieldProf.class,
-				ListKey.FILE_SHIELD_PROF));
+				ListKey.FILE_SHIELD_PROF, changeLogWriter));
 		loaderList.add(new BasicLoader<Skill>(context, Skill.class,
-				ListKey.FILE_SKILL));
+				ListKey.FILE_SKILL, changeLogWriter));
 		loaderList.add(new BasicLoader<Language>(context, Language.class,
-				ListKey.FILE_LANGUAGE));
+				ListKey.FILE_LANGUAGE, changeLogWriter));
 		loaderList.add(new BasicLoader<Ability>(context, Ability.class,
-				ListKey.FILE_FEAT));
+				ListKey.FILE_FEAT, changeLogWriter));
 		loaderList.add(new BasicLoader<Ability>(context, Ability.class,
-				ListKey.FILE_ABILITY));
+				ListKey.FILE_ABILITY, changeLogWriter));
 		loaderList.add(new BasicLoader<Race>(context, Race.class,
-				ListKey.FILE_RACE));
+				ListKey.FILE_RACE, changeLogWriter));
 		loaderList.add(new BasicLoader<Domain>(context, Domain.class,
-				ListKey.FILE_DOMAIN));
+				ListKey.FILE_DOMAIN, changeLogWriter));
 		loaderList.add(new BasicLoader<Spell>(context, Spell.class,
-				ListKey.FILE_SPELL));
+				ListKey.FILE_SPELL, changeLogWriter));
 		loaderList.add(new BasicLoader<Deity>(context, Deity.class,
-				ListKey.FILE_DEITY));
+				ListKey.FILE_DEITY, changeLogWriter));
 		loaderList.add(new BasicLoader<PCTemplate>(context, PCTemplate.class,
-				ListKey.FILE_TEMPLATE));
-		loaderList.add(new EquipmentLoader(context, ListKey.FILE_EQUIP));
+				ListKey.FILE_TEMPLATE, changeLogWriter));
+		loaderList.add(new EquipmentLoader(context, ListKey.FILE_EQUIP,
+			changeLogWriter));
 		loaderList.add(new BasicLoader<EquipmentModifier>(context,
-				EquipmentModifier.class, ListKey.FILE_EQUIP_MOD));
+				EquipmentModifier.class, ListKey.FILE_EQUIP_MOD, changeLogWriter));
 		loaderList.add(new BasicLoader<CompanionMod>(context, CompanionMod.class,
-				ListKey.FILE_COMPANION_MOD));
-		loaderList.add(new ClassLoader(context));
+				ListKey.FILE_COMPANION_MOD, changeLogWriter));
+		loaderList.add(new ClassLoader(context, changeLogWriter));
 		loaderList.add(new CopyLoader(ListKey.FILE_ABILITY_CATEGORY));
 		loaderList.add(new CopyLoader(ListKey.LICENSE_FILE));
 		loaderList.add(new CopyLoader(ListKey.FILE_KIT));

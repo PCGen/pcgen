@@ -17,6 +17,8 @@
  */
 package pcgen.gui2.converter.loader;
 
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,10 +44,12 @@ public class ClassLoader implements Loader
 {
 	public static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
 	private final EditorLoadContext context;
+	private final Writer changeLogWriter;
 
-	public ClassLoader(EditorLoadContext lc)
+	public ClassLoader(EditorLoadContext lc, Writer changeLogWriter)
 	{
 		context = lc;
+		this.changeLogWriter = changeLogWriter;
 	}
 
 	@Override
@@ -111,7 +115,7 @@ public class ClassLoader implements Loader
 				obj.put(ObjectKey.TOKEN_PARENT, parent);
 			}
 			List<CDOMObject> injected = processToken(sb, firstToken, obj, parent, token,
-					decider);
+					decider, line);
 			if (injected != null)
 			{
 				list.addAll(injected);
@@ -127,7 +131,7 @@ public class ClassLoader implements Loader
 	}
 
 	private List<CDOMObject> processToken(StringBuilder sb, String firstToken, CDOMObject obj,
-			CDOMObject alt, String token, ConversionDecider decider)
+			CDOMObject alt, String token, ConversionDecider decider, int line)
 			throws PersistenceLayerException, InterruptedException
 	{
 		final int colonLoc = token.indexOf(':');
@@ -156,6 +160,17 @@ public class ClassLoader implements Loader
 		}
 		if (tpe.isConsumed())
 		{
+			if (!token.equals(tpe.getResult()))
+			{
+				try
+				{
+					changeLogWriter.append("Line " + line + " converted '"+token+"' to '" + tpe.getResult() +"'.\n");
+				}
+				catch (IOException e)
+				{
+					Logging.errorPrint("Unable to log change", e);
+				}
+			}
 			sb.append(tpe.getResult());
 		}
 		else

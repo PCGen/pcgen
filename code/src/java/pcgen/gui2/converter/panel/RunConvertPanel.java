@@ -31,12 +31,16 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -69,6 +73,7 @@ import pcgen.io.PCGFile;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
 
 /**
@@ -117,6 +122,8 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	@Override
 	public boolean performAnalysis(final CDOMObject pc)
 	{
+		logSummary(pc);
+		
 		final File rootDir = pc.get(ObjectKey.DIRECTORY);
 		final File outDir = pc.get(ObjectKey.WRITE_DIRECTORY);
 		totalCampaigns = new ArrayList<Campaign>(pc.getSafeListFor(ListKey.CAMPAIGN));
@@ -151,8 +158,27 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				mode.resolveInto(context.ref);
 				//Necessary for those still using Globals.getContext
 				mode.resolveInto(mode.getContext().ref);
-				LSTConverter converter = new LSTConverter(context, rootDir,
-						outDir.getAbsolutePath(), RunConvertPanel.this);
+				LSTConverter converter;
+				Writer changeLogWriter;
+				try
+				{
+					File changeLogFile = new File("dataChanges.log");
+					changeLogWriter = new FileWriter(changeLogFile);
+
+					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			        String startTime = simpleDateFormat.format(new Date());
+					changeLogWriter.append("PCGen Data Converter v"
+						+ PCGenPropBundle.getVersionNumber()
+						+ " - conversion started at " + startTime + "\n");
+					changeLogWriter.append("Outputting files to " + outDir.getAbsolutePath() + "\n");
+				}
+				catch (IOException e1)
+				{
+					Logging.errorPrint("Failed to initialise LSTConverter", e1);
+					return;
+				}
+				converter = new LSTConverter(context, rootDir,
+						outDir.getAbsolutePath(), RunConvertPanel.this, changeLogWriter);
 				converter.addObserver(RunConvertPanel.this);
 				int numFiles = 0;
 				for (Campaign campaign : totalCampaigns)
@@ -177,6 +203,15 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 					e.printStackTrace();
 				}
 
+				try
+				{
+					changeLogWriter.close();
+				}
+				catch (IOException e)
+				{
+					Logging.errorPrint("LSTConverter.wrapUp failed", e);
+					
+				}
 				converter.deleteObserver( RunConvertPanel.this );
 				Logging.removeHandler( getHandler() );
 				try
@@ -189,7 +224,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 					// Ignore exception
 				}
 				setCurrentFilename("");
-				addMessage("\nConversion complete, press next button to finish...");
+				addMessage("\nConversion complete.");
 				if (getHandler().getNumErrors() > 0)
 				{
 					JOptionPane.showMessageDialog(null, LanguageBundle
@@ -533,6 +568,23 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 
 		});
 
+	}
+
+	
+	private void logSummary(final CDOMObject pc)
+	{
+		Logging.log(Logging.INFO, "Running data conversion using the following settings:");
+		Logging.log(Logging.INFO, "Source Folder: " + pc.get(ObjectKey.DIRECTORY).getAbsolutePath());
+		Logging.log(Logging.INFO, "Destination Folder: " +  pc.get(ObjectKey.WRITE_DIRECTORY).getAbsolutePath());
+		Logging.log(Logging.INFO, "Game mode: " + pc.get(ObjectKey.GAME_MODE).getDisplayName());
+		List<Campaign> campaigns = pc.getSafeListFor(ListKey.CAMPAIGN);
+		StringBuilder campDisplay = new StringBuilder("");
+		for (int i = 0; i < campaigns.size(); i++)
+		{
+			campDisplay.append(campaigns.get(i).getDisplayName());
+			campDisplay.append("\n");
+		}
+		Logging.log(Logging.INFO, "Sources: " + campDisplay.toString());
 	}
 
 }

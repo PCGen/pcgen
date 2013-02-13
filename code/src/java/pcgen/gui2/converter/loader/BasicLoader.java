@@ -17,6 +17,8 @@
  */
 package pcgen.gui2.converter.loader;
 
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,13 +42,15 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 	private final Class<T> cdomClass;
 	private final ListKey<CampaignSourceEntry> listkey;
 	private final EditorLoadContext context;
+	private final Writer changeLogWriter;
 
 	public BasicLoader(EditorLoadContext lc, Class<T> cl,
-			ListKey<CampaignSourceEntry> lk)
+			ListKey<CampaignSourceEntry> lk, Writer changeLogWriter)
 	{
 		context = lc;
 		cdomClass = cl;
 		listkey = lk;
+		this.changeLogWriter = changeLogWriter;
 	}
 
 	@Override
@@ -75,7 +79,7 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 					+ tok + " " + token);
 			obj.put(StringKey.CONVERT_NAME, tokens[0]);
 			List<CDOMObject> injected = processToken(sb, objectName, obj,
-					token, decider);
+					token, decider, line);
 			if (injected != null)
 			{
 				list.addAll(injected);
@@ -87,7 +91,7 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 	}
 
 	private List<CDOMObject> processToken(StringBuilder sb, String objectName,
-			CDOMObject obj, String token, ConversionDecider decider)
+			CDOMObject obj, String token, ConversionDecider decider, int line)
 			throws PersistenceLayerException, InterruptedException
 	{
 		final int colonLoc = token.indexOf(':');
@@ -111,6 +115,17 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 		String error = TokenConverter.process(tpe);
 		if (tpe.isConsumed())
 		{
+			if (!token.equals(tpe.getResult()))
+			{
+				try
+				{
+					changeLogWriter.append("Line " + line + " converted '"+token+"' to '" + tpe.getResult() +"'.\n");
+				}
+				catch (IOException e)
+				{
+					Logging.errorPrint("Unable to log change", e);
+				}
+			}
 			sb.append(tpe.getResult());
 		}
 		else
