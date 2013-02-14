@@ -303,7 +303,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:CHECKS|Fortitude,Reflex|1</code></p>
 	<p class="indent3">Adds one to &quot;Fortitude&quot; and &quot;Reflex&quot; saves.</p>
-	<p class="indent2"><code>CHOOSE:NUMCHOICES=1|Fortitude|Reflex|Will &lt;tab&gt; BONUS:CHECKS|%LIST|1</code></p>
+	<p class="indent2"><code>CHOOSE:NUMCHOICES=1|CHECK|Fortitude|Reflex|Will &lt;tab&gt; BONUS:CHECKS|%LIST|1</code></p>
 	<p class="indent3">The selection, &quot;Fortitude&quot;, &quot;Reflex&quot; or &quot;Will&quot;, is put 
 		into the <code>BONUS:CHECKS</code> tag in place of the <code>%LIST</code></p>
 	<p class="indent2"><code>BONUS:CHECKS|Willpower||max(CHA,WIS)-WIS</code></p>
@@ -574,7 +574,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:DC|SPELL.Fireball|7</code></p>
 	<p class="indent3">Adds 7 to the DC of the spell Fireball.</p>
-	<p class="indent2"><code>CHOOSE:SCHOOLS|ALL &lt;tab&gt; BONUS:DC|SCHOOL.%LIST|1</code></p>
+	<p class="indent2"><code>CHOOSE:DC|SCHOOLS|ALL &lt;tab&gt; BONUS:DC|SCHOOL.%LIST|1</code></p>
 	<p class="indent3">Choose 1 School and add 1 to its DC.</p>
 	<p class="indent2"><code>BONUS:DC|ALLSPELLS|1</code></p>
 	<p class="indent3">Adds 1 to the DC of all spells.</p>
@@ -1088,7 +1088,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:SLOTS|RING|1</code></p>
 	<p class="indent3">Adds one ring slot to character.</p>
-	<p class="indent2"><code>BONUS:SLOTS|LIST|1 &lt;tab&gt; CHOOSE:Armor|Shield|Bracer</code></p>
+	<p class="indent2"><code>BONUS:SLOTS|LIST|1 &lt;tab&gt; CHOOSE:STRING|Armor|Shield|Bracer</code></p>
 	<p class="indent3">Adds one slot chosen from Armor, Shield or Bracer to the character.</p>
 	<p></p>
 
@@ -1172,7 +1172,7 @@
 	<p class="indent3">Adds two to character's STR stat.</p>
 	<p class="indent2"><code>BONUS:STAT|DEX,CON,INT|1</code></p>
 	<p class="indent3">Adds 1 to character's DEX, CON, &amp; INT stats.</p>
-	<p class="indent2"><code>CHOOSE:Ability|STR|DEX|CON &lt;tab&gt; STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; BONUS:STAT|%LIST|1|TYPE=Inherent</code></p>
+	<p class="indent2"><code>CHOOSE:STAT|STR|DEX|CON &lt;tab&gt; STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; BONUS:STAT|%LIST|1|TYPE=Inherent</code></p>
 	<p class="indent3">Adds 1 to character's STR, DEX, &amp; CON stats, can be chosen multiple time, does not stack.</p>
 	<p class="indent2"><code>#Dwarf Racial Progression.MOD &lt;tab&gt; BONUS:STAT|CON|2|PRELEVEL:3
 		&lt;tab&gt; BONUS:STAT|STR|2|PRELEVEL:5 &lt;tab&gt; BONUS:STAT|CON|2|PRELEVEL:7 &lt;tab&gt;
