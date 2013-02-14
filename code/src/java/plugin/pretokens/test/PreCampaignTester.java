@@ -116,18 +116,18 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 		for (URI element : selCampaigns)
 		{
 			final Campaign aCampaign = Globals.getCampaignByURI(element, false);
-			List<Campaign> fullCampList = getFullCampaignList(aCampaign);
-			for (Campaign camp : fullCampList)
-			{
-				for (String listType : camp.getBookTypeList())
+//			List<Campaign> fullCampList = getFullCampaignList(aCampaign);
+//			for (Campaign camp : fullCampList)
+//			{
+				for (String listType : aCampaign.getBookTypeList())
 				{
 					if (aCampaign != null && bookType.equalsIgnoreCase(listType))
 					{
-						matchingCampaigns.add(camp);
+						matchingCampaigns.add(aCampaign);
 						break;
 					}
 				}				
-			}
+//			}
 		}
 		return matchingCampaigns.size();
 	}
@@ -157,14 +157,14 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 				{
 					final Campaign aCampaign =
 							Globals.getCampaignByURI(element);
-					List<Campaign> campList = getFullCampaignList(aCampaign);
-					for (Campaign camp : campList)
-					{
-						if (campaign.equals(camp))
+//					List<Campaign> campList = getFullCampaignList(aCampaign);
+//					for (Campaign camp : campList)
+//					{
+						if (campaign.equals(aCampaign))
 						{
 							++total;
 						}
-					}
+//					}
 				}
 			}
 		}
