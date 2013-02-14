@@ -1125,12 +1125,13 @@
 	<p class="lststatus"><a name="MOVEADD">*** New 4.3.8</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> BONUS:MOVEADD|TYPE.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Movement type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> All</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to movement rate)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Adds to movement of the listed TYPE.</li>
-		<li>Done before MOVEMULT and POSTMOVEADD calculations.</li>
-		<li>It only works on MOVE types that have been defined in a MOVE or MOVECLONE tag.</li>
+		<li>Done before <code>MOVEMULT</code> and <code>POSTMOVEADD</code> calculations.</li>
+		<li>It only works on MOVE types that have been defined in a <code>MOVE</code> or <code>MOVECLONE</code> tag.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:MOVEADD|TYPE.Walk|10</code></p>
@@ -1146,12 +1147,13 @@
 	<p class="lststatus"><a name="MOVEMULT">*** New 4.3.8</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> BONUS:MOVEMULT|TYPE.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Movement type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> All</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to multiply the movement rate)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>Multiplies the movement of the listed TYPEs.</li>
-		<li>Done before MOVEMULT and POSTMOVEADD calculations.</li>
-		<li>It only works on MOVE types that have been defined in a MOVE or MOVECLONE tag.</li>
+		<li>Done before <code>MOVEMULT</code> and <code>POSTMOVEADD</code> calculations.</li>
+		<li>It only works on MOVE types that have been defined in a <code>MOVE</code> or <code>MOVECLONE</code> tag.</li>
 	</ul>
 	<p class="sidebar1">Note: PCGen does not use both <code>BONUS:MOVEMULT</code> and <code>BONUS:POSTMOVEADD</code> in calculating the total move adjustment. 
 		The total move adjustment is set to the greatest value between (Base Move + POSTMOVEADD) and (Base Move x MOVEMULT).</p>
@@ -1187,12 +1189,13 @@
 	<p class="lststatus"><strong><a name="POSTMOVEADD">*** New 4.3.8</a></strong></p>
 	<p class="indent0">Tag Name: BONUS:POSTMOVEADD|TYPE.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Movement type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> All</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to add to movement rate)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
 	<ul class="indent2">
 		<li>This tag will increase the movement of the listed TYPE(s).</li>
-		<li>Done after MOVEMULT and MOVEADD calculations.</li>
-		<li>It only works on MOVE types that have been defined in a MOVE or MOVECLONE tag.</li>
+		<li>Done after <code>MOVEMULT</code> and <code>MOVEADD</code> calculations.</li>
+		<li>It only works on MOVE types that have been defined in a <code>MOVE</code> or <code>MOVECLONE</code> tag.</li>
 	</ul>
 	<p class="sidebar1">Note: PCGen does not use both <code>BONUS:MOVEMULT</code> and <code>BONUS:POSTMOVEADD</code> in calculating the total move adjustment. 
 		The total move adjustment is set to the greatest value between (Base Move + POSTMOVEADD) and (Base Move x MOVEMULT).</p>
