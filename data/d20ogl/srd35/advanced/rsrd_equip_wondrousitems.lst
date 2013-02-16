@@ -232,7 +232,7 @@ Iron Bands of Binding														TYPE:Magic.Wondrous						COST:26000	WT:1				S
 Iron Flask																TYPE:Magic.Wondrous.Vial					COST:170000	WT:1				SOURCEPAGE:MagicItemsV.rtf
 ###Block:L's
 # Equipment Name				Required Weapon Proficiency		Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page				Spell Res.	Damage Reduction	Bonus to skill		Weapon prop. bonus																Special Property
-Lantern of Revealing									TYPE:Magic.Wondrous									COST:30000	WT:2														SOURCEPAGE:MagicItemsV.rtf
+Lantern of Revealing									TYPE:Magic.Wondrous.LightSource.Container		CONTAINS:1|Liquid=1	COST:30000	WT:2														SOURCEPAGE:MagicItemsV.rtf	QUALITY:Bright Illumination|30 ft.		QUALITY:Shadowy Illumination|60 ft.		QUALITY:Duration|6 hr./pint										SPROP:When lit, Invisibility Purge in 25' radius.			
 Lens of Detection										TYPE:Magic.Wondrous									COST:3500	WT:1														SOURCEPAGE:MagicItemsV.rtf						BONUS:SKILL|Search|5																				SPROP:+5 to Survival while Tracking
 Lyre of Building										TYPE:Magic.Wondrous									COST:13000	WT:5														SOURCEPAGE:MagicItemsV.rtf
 Mantle of Faith										TYPE:Magic.Wondrous.Cape								COST:76000	WT:0														SOURCEPAGE:MagicItemsV.rtf			DR:5/Evil
