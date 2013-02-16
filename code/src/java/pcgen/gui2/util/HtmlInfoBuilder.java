@@ -178,7 +178,7 @@ public class HtmlInfoBuilder
 	 */
 	public HtmlInfoBuilder appendI18nFormattedElement(final String propertyKey, final String... value)
 	{
-		buffer.append(LanguageBundle.getFormattedString(propertyKey, value));
+		buffer.append(LanguageBundle.getFormattedString(propertyKey, new Object[]{value}));
 		return this;
 	}
 	
