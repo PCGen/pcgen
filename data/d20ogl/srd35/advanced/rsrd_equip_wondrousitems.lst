@@ -235,8 +235,8 @@ Iron Flask																TYPE:Magic.Wondrous.Vial					COST:170000	WT:1				SOURC
 Lantern of Revealing									TYPE:Magic.Wondrous									COST:30000	WT:2														SOURCEPAGE:MagicItemsV.rtf
 Lens of Detection										TYPE:Magic.Wondrous									COST:3500	WT:1														SOURCEPAGE:MagicItemsV.rtf						BONUS:SKILL|Search|5																				SPROP:+5 to Survival while Tracking
 Lyre of Building										TYPE:Magic.Wondrous									COST:13000	WT:5														SOURCEPAGE:MagicItemsV.rtf
-Mantle of Faith										TYPE:Magic.Wondrous.Clothing								COST:76000	WT:0														SOURCEPAGE:MagicItemsV.rtf			DR:5/Evil
-Mantle of Spell Resistance								TYPE:Magic.Wondrous									COST:90000	WT:0														SOURCEPAGE:MagicItemsV.rtf	SR:21
+Mantle of Faith										TYPE:Magic.Wondrous.Cape								COST:76000	WT:0														SOURCEPAGE:MagicItemsV.rtf			DR:5/Evil
+Mantle of Spell Resistance								TYPE:Magic.Wondrous.Cape									COST:90000	WT:0														SOURCEPAGE:MagicItemsV.rtf	SR:21
 Manual of Bodily Health +1								TYPE:Magic.Wondrous.Book.Consumable							COST:27500	WT:5														SOURCEPAGE:MagicItemsV.rtf
 Manual of Bodily Health +2								TYPE:Magic.Wondrous.Book.Consumable							COST:55000	WT:5														SOURCEPAGE:MagicItemsV.rtf
 Manual of Bodily Health +3								TYPE:Magic.Wondrous.Book.Consumable							COST:82500	WT:5														SOURCEPAGE:MagicItemsV.rtf
@@ -349,7 +349,7 @@ Tome of Understanding +5								TYPE:Magic.Wondrous.Book.Consumable	COST:137500	
 Unguent of Timelessness									TYPE:Magic.Wondrous.Vial.Consumable	COST:150	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Universal Solvent										TYPE:Magic.Wondrous.Vial.Consumable	COST:50	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Vest of Escape										TYPE:Magic.Wondrous.Shirt		COST:5200	WT:0										SOURCEPAGE:MagicItemsV.rtf																				BONUS:SKILL|Escape Artist|6|TYPE=Competence	BONUS:SKILL|Open Lock|4|TYPE=Competence
-Vestments (Druid)					OUTPUTNAME:Vestments, [NAME]	TYPE:Magic.Wondrous.Clothing		COST:10000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																								BONUS:VAR|WildShapeTimes|1
+Vestments (Druid)					OUTPUTNAME:Vestments, [NAME]	TYPE:Magic.Wondrous.Shirt		COST:10000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																								BONUS:VAR|WildShapeTimes|1
 Well of Many Worlds									TYPE:Magic.Wondrous			COST:82000	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Wind Fan											TYPE:Magic.Wondrous			COST:5500	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Wings of Flying										TYPE:Magic.Wondrous.Cape		COST:54000	WT:2										SOURCEPAGE:MagicItemsV.rtf			SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=17|Fly,13
