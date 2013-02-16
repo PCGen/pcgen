@@ -22,7 +22,7 @@ Tindertwig				TYPE:Goods.Alchemical.Consumable			COST:1	WT:0		SOURCEPAGE:Equipme
 ###Block:Clothing
 # Equipment Name		Output Name				Type							Cost		Weight	Source Page				Special Property
 Outfit (Artisan's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:1	WT:4		SOURCEPAGE:Equipment.rtf
-Vestments (Cleric's)	OUTPUTNAME:[NAME] Vestments	TYPE:Goods.Clothing.Resizable			COST:5	WT:6		SOURCEPAGE:Equipment.rtf
+Vestments (Cleric's)	OUTPUTNAME:[NAME] Vestments	TYPE:Goods.Shirt.Resizable			COST:5	WT:6		SOURCEPAGE:Equipment.rtf
 Outfit (Cold Weather)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable			COST:8	WT:7		SOURCEPAGE:Equipment.rtf	SPROP: +5 circumstance bonus on Fort saves vs cold
 Outfit (Courtier's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable			COST:30	WT:6		SOURCEPAGE:Equipment.rtf
 Outfit (Entertainer's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:3	WT:4		SOURCEPAGE:Equipment.rtf
