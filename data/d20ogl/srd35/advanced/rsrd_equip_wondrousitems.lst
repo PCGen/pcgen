@@ -55,7 +55,8 @@ Belt of Dwarvenkind												TYPE:Magic.Wondrous.Belt													COST:14900	W
 Belt of Giant Strength +4											TYPE:Magic.Wondrous.Belt													COST:16000	WT:1										SOURCEPAGE:MagicItemsV.rtf																																																											BONUS:STAT|STR|4|TYPE=Enhancement
 Belt of Giant Strength +6											TYPE:Magic.Wondrous.Belt													COST:36000	WT:1										SOURCEPAGE:MagicItemsV.rtf																																																											BONUS:STAT|STR|6|TYPE=Enhancement
 Blessed Book													TYPE:Magic.Wondrous.Book.Spellbook				NUMPAGES:1000	PAGEUSAGE:max(SPELLLEVEL,1)	COST:12500	WT:1										SOURCEPAGE:MagicItemsV.rtf
-Boat (Folding)						OUTPUTNAME:Boat, Folding			TYPE:Magic.Wondrous														COST:7200	WT:4										SOURCEPAGE:MagicItemsV.rtf
+#Boat (Folding)						OUTPUTNAME:Boat, Folding			TYPE:Magic.Wondrous														COST:7200	WT:4										SOURCEPAGE:MagicItemsV.rtf
+Boat (Folding)						OUTPUTNAME:Boat, Folding			TYPE:Magic.Wondrous.Transportation.Ships.Container	CONTAINS:UNLIM|Any					COST:7200	WT:4										SOURCEPAGE:MagicItemsV.rtf
 Boots of Elvenkind												TYPE:Magic.Wondrous.Boot													COST:2500	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf																																																			BONUS:SKILL|Move Silently|5|TYPE=Competence
 Boots of Levitation												TYPE:Magic.Wondrous.Boot													COST:7500	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf
 Boots of Speed													TYPE:Magic.Wondrous.Boot													COST:12000	WT:1		SLOTS:2							SOURCEPAGE:MagicItemsV.rtf
