@@ -1,5 +1,5 @@
 # CVS $Revision: 9628 $ $Author: eddyanthony $ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
-CAMPAIGN:Paizo - Inner Sea World Guide (without bestiary)
+CAMPAIGN:Paizo - Inner Sea World Guide
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
 RANK:3
@@ -8,7 +8,6 @@ GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
-!PRECAMPAIGN:1,Paizo - Inner Sea World Guide (with bestiary)
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
