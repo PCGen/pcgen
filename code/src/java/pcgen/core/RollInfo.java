@@ -250,13 +250,15 @@ public final class RollInfo
 					default:
 						Logging.errorPrint("Bizarre dice parser error in '"
 							+ rollString + "': not a valid delimiter");
+						return "Bad roll parsing in '" + rollString
+							+ "': invalid delimiter '" + tok.charAt(0) + "'.";
 				}
 			}
 		}
 
 		catch (NumberFormatException ex)
 		{
-			Logging.errorPrint(
+			Logging.debugPrint(
 				"Bad roll string in '" + rollString + "': " + ex, ex);
 			return "Bad roll string in '" + rollString + "': " + ex;
 		}
