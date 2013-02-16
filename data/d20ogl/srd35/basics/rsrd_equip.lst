@@ -83,9 +83,9 @@ Ink (1 Oz. Vial/Other Colors)	TYPE:Goods.General.Writing.Liquid.Vial												
 Inkpen				TYPE:Goods.General.Writing														COST:0.1	WT:0		SOURCEPAGE:Equipment.rtf
 Jug (Clay)				TYPE:Goods.Container.General				CONTAINS:8|Liquid|SpellComponent=1					COST:0.03	WT:9		SOURCEPAGE:Equipment.rtf
 Ladder (10 Ft.)			TYPE:Goods.General															COST:0.05	WT:20		SOURCEPAGE:Equipment.rtf
-Lamp (Common)			TYPE:Goods.General.LightSource													COST:0.1	WT:1		SOURCEPAGE:Equipment.rtf								QUALITY:Bright Illumination|15 ft.	QUALITY:Shadowy Illumination|30 ft.	QUALITY:Duration|6 hr./pint
-Lantern (Bullseye)		TYPE:Goods.General.LightSource													COST:12	WT:3		SOURCEPAGE:Equipment.rtf								QUALITY:Bright Illumination|60 ft. cone	QUALITY:Shadowy Illumination|120 ft. cone	QUALITY:Duration|6 hr./pint
-Lantern (Hooded)			TYPE:Goods.General.LightSource													COST:7	WT:2		SOURCEPAGE:Equipment.rtf								QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr./pint
+Lamp (Common)			TYPE:Goods.General.LightSource.Container		CONTAINS:1|Liquid=1							COST:0.1	WT:1		SOURCEPAGE:Equipment.rtf								QUALITY:Bright Illumination|15 ft.	QUALITY:Shadowy Illumination|30 ft.	QUALITY:Duration|6 hr./pint
+Lantern (Bullseye)		TYPE:Goods.General.LightSource.Container		CONTAINS:1|Liquid=1							COST:12	WT:3		SOURCEPAGE:Equipment.rtf								QUALITY:Bright Illumination|60 ft. cone	QUALITY:Shadowy Illumination|120 ft. cone	QUALITY:Duration|6 hr./pint
+Lantern (Hooded)			TYPE:Goods.General.LightSource.Container		CONTAINS:1|Liquid=1							COST:7	WT:2		SOURCEPAGE:Equipment.rtf								QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr./pint
 Lock (Very Simple)		TYPE:Goods.General															COST:20	WT:1		SOURCEPAGE:Equipment.rtf
 Lock (Average)			TYPE:Goods.General															COST:40	WT:1		SOURCEPAGE:Equipment.rtf
 Lock (Good)				TYPE:Goods.General															COST:80	WT:1		SOURCEPAGE:Equipment.rtf
