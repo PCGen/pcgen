@@ -374,6 +374,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		state.put(AddCustomAction.class, new AddCustomAction(character));
 		state.put(AddAction.class, new AddAction(character));
 		state.put(RemoveAction.class, new RemoveAction(character));
+		state.put(DeleteCustomAction.class, new DeleteCustomAction(character));
 		state.put(FundsAddAction.class, new FundsAddAction(character));
 		state.put(FundsSubtractAction.class, new FundsSubtractAction(character));
 		state.put(AllowDebtAction.class, new AllowDebtAction(character));
@@ -577,6 +578,42 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 							equip = character.getEquipmentSizedForCharacter(equip);
 						}
 						character.addPurchasedEquipment(equip, 1, true);
+					}
+				}
+			}
+		}
+
+	}
+
+	/**
+	 * The Class <code>DeleteCustomAction</code> defines an action to delete a 
+	 * custom equipment item.
+	 * 
+	 * @author James Dempsey <jdempsey@users.sourceforge.net>
+	 */
+	private class DeleteCustomAction extends AbstractAction
+	{
+
+		private CharacterFacade character;
+
+		public DeleteCustomAction(CharacterFacade character)
+		{
+			super(LanguageBundle.getString("in_igDeleteCustom")); //$NON-NLS-1$
+			this.character = character;
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			List<?> data = availableTable.getSelectedData();
+			if (data != null)
+			{
+				for (Object object : data)
+				{
+					if (object instanceof EquipmentFacade)
+					{
+						EquipmentFacade equip = (EquipmentFacade) object;
+						character.deleteCustomEquipment(equip);
 					}
 				}
 			}
@@ -1325,6 +1362,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			popupMenu.add(new BuyNumMenuItem(character, targets, 0));
 			popupMenu.addSeparator();
 			popupMenu.add(new AddCustomAction(character));
+			popupMenu.add(new DeleteCustomAction(character));
 			popupMenu.show(e.getComponent(), e.getX(), e.getY());
 		}
 

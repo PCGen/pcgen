@@ -3491,7 +3491,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		if (updatedItem != null)
 		{
 			final double prevQty = (updatedItem.qty() < 0) ? 0 : updatedItem.qty();
-			final double newQty = prevQty - quantity;
+			final double newQty = Math.max(prevQty - quantity, 0);
 
 			if (newQty <= 0)
 			{
@@ -3533,6 +3533,44 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		updateWealthFields();
 	}
 
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void deleteCustomEquipment(EquipmentFacade eqFacade)
+	{
+		if (eqFacade == null || !(eqFacade instanceof Equipment))
+		{
+			return;
+		}
+
+		Equipment itemToBeDeleted = (Equipment) eqFacade;
+		
+		if (!itemToBeDeleted.isType(Constants.TYPE_CUSTOM))
+		{
+			return;
+		}
+		
+		if (!delegate.showWarningConfirm(LanguageBundle
+			.getString("in_igDeleteCustomWarnTitle"),//$NON-NLS-1$
+			LanguageBundle.getFormattedString("in_igDeleteCustomWarning", //$NON-NLS-1$
+				itemToBeDeleted)))
+		{
+			return;
+		}
+		
+		removePurchasedEquipment(itemToBeDeleted, Integer.MAX_VALUE);
+		Globals.getContext().ref.forget(itemToBeDeleted);
+		
+		if (dataSet.getEquipment() instanceof DefaultListFacade<?>)
+		{
+			((DefaultListFacade<EquipmentFacade>) dataSet.getEquipment())
+				.removeElement(itemToBeDeleted);
+		}
+		
+	}
+	
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#isQualifiedFor(pcgen.core.facade.EquipmentFacade)
 	 */
