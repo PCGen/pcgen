@@ -38,6 +38,7 @@ import javax.swing.JTextField;
 
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * The Class <code>ConversionChoiceDialog</code> is responsible for 
@@ -131,6 +132,7 @@ public class ConversionInputDialog extends JDialog implements
 			{
 				result = field.getText();
 				setVisible(false);
+				logInput();
 			}
 		});
 		
@@ -144,5 +146,12 @@ public class ConversionInputDialog extends JDialog implements
 	{
 		result = field.getText();
 		setVisible(false);
+		logInput();
+	}
+
+	private void logInput()
+	{
+		Logging.log(Logging.INFO, "Decision required: " + introText
+			+ "\nValue entered: " + result);
 	}
 }

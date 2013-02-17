@@ -40,6 +40,7 @@ import javax.swing.JTextArea;
 
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
  * The Class <code>ConversionChoiceDialog</code> is responsible for 
@@ -150,6 +151,7 @@ public class ConversionChoiceDialog extends JDialog implements
 			{
 				result = choiceCombo.getSelectedIndex();
 				setVisible(false);
+				logChoice();
 			}
 		});
 		
@@ -163,5 +165,14 @@ public class ConversionChoiceDialog extends JDialog implements
 	{
 		result = choiceCombo.getSelectedIndex();
 		setVisible(false);
+		logChoice();
+	}
+
+	private void logChoice()
+	{
+		Logging
+			.log(Logging.INFO,
+				"Decision required: " + introText + "\nChoices: " + choices
+					+ "\nChoice made: " + choices.get(result));
 	}
 }
