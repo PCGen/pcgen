@@ -73,6 +73,7 @@ public class PCGenSettings extends PropertyContext
 	public static final String CONVERT_INPUT_PATH = "pcgen.convert.inputPath";
 	public static final String CONVERT_GAMEMODE = "pcgen.convert.gamemode";
 	public static final String CONVERT_SOURCES = "pcgen.convert.sources";
+	public static final String CONVERT_DATA_LOG_FILE = "pcgen.convert.dataLogFile";
 	
 	public static final PropertyContext GMGEN_OPTIONS_CONTEXT = instance.createChildContext("gmgen.options");
 	

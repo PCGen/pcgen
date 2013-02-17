@@ -74,6 +74,7 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
+import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
@@ -100,11 +101,17 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	private String lastNotifiedFilename = "";
 	private String currFilename = "";
 	private Component statusField;
+	private File changeLogFile;
 
 	public RunConvertPanel(Component statusField)
 	{
 		context = new EditorLoadContext();
 		this.statusField = statusField;
+		PCGenSettings context = PCGenSettings.getInstance();
+		String dataLogFileName =
+				context.initProperty(PCGenSettings.CONVERT_DATA_LOG_FILE,
+					"dataChanges.log");		 
+		changeLogFile = new File(dataLogFileName);
 	}
 	
 	/* (non-Javadoc)
@@ -162,7 +169,6 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				Writer changeLogWriter;
 				try
 				{
-					File changeLogFile = new File("dataChanges.log");
 					changeLogWriter = new FileWriter(changeLogFile);
 
 					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -256,6 +262,17 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		gbc.insets = new Insets(0, 10, 5, 10);
 		panel.add(introLabel, gbc);
 
+
+		JLabel explainLabel = new JLabel("<html>The LST data is being converted. In the log, " +
+				"LSTERROR rows are errors that need to be manually corrected in the source data. " +
+				"LSTWARN rows indicate changes the converter is making. " + 
+				"See " + changeLogFile.getAbsolutePath() + " for a log of all data changes.</html>");
+		explainLabel.setFocusable(true);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0);
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		gbc.insets = new Insets(0, 10, 5, 10);
+		panel.add(explainLabel, gbc);
+		
         progressBar = getProgressBar();
         Dimension d = progressBar.getPreferredSize();
         d.width = 400;
@@ -585,6 +602,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 			campDisplay.append("\n");
 		}
 		Logging.log(Logging.INFO, "Sources: " + campDisplay.toString());
+		Logging.log(Logging.INFO, "Logging changes to " + changeLogFile.getAbsolutePath());
 	}
 
 }
