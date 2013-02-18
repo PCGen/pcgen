@@ -22,6 +22,7 @@
  */
 package pcgen.gui2.util;
 
+import java.util.Arrays;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -178,7 +179,7 @@ public class HtmlInfoBuilder
 	 */
 	public HtmlInfoBuilder appendI18nFormattedElement(final String propertyKey, final String... value)
 	{
-		buffer.append(LanguageBundle.getFormattedString(propertyKey, new Object[]{value}));
+		buffer.append(LanguageBundle.getFormattedString(propertyKey, (Object[]) value));
 		return this;
 	}
 	
