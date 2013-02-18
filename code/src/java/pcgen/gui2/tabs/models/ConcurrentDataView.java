@@ -55,14 +55,15 @@ public abstract class ConcurrentDataView<E> implements DataView<E>
 		}
 
 	});
-	private final Runnable refreshRunnable = new Runnable(){
+	private final Runnable refreshRunnable = new Runnable()
+	{
 
 		@Override
 		public void run()
 		{
 			refreshTableData();
 		}
-		
+
 	};
 	private final Map<E, List<?>> dataMap;
 	private boolean installed = false;
@@ -82,17 +83,11 @@ public abstract class ConcurrentDataView<E> implements DataView<E>
 			public List<?> call() throws Exception
 			{
 				List<?> list = getDataList(obj);
-				if (!list.equals(dataMap.get(obj)))
+				if (!list.equals(dataMap.get(obj))
+					&& dataMap.put(obj, list) != null
+					&& installed)
 				{
-					if (dataMap.put(obj, list) == null)
-					{
-						return list;
-					}
-					if (installed)
-					{
-						SwingUtilities.invokeLater(refreshRunnable);
-					}
-
+					SwingUtilities.invokeLater(refreshRunnable);
 				}
 				return list;
 			}

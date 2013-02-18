@@ -25,7 +25,6 @@ import javax.swing.table.TableColumn;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.system.PropertyContext;
-import pcgen.util.Logging;
 
 /**
  * This is a type of DynamicTableColumnModel which links each of the added columns

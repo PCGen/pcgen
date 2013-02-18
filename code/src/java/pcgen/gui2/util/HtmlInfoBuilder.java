@@ -22,7 +22,6 @@
  */
 package pcgen.gui2.util;
 
-import java.util.Arrays;
 import pcgen.system.LanguageBundle;
 
 /**
