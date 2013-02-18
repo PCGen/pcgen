@@ -72,6 +72,163 @@ Wire Walk				CLASSES:Mage,Techno Mage=4							SCHOOL:Conjuration	SUBSCHOOL:Telep
 #Tree Shape									SCHOOL:Transmutation										TYPE:Divine			COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You										DURATION:(CASTERLEVEL) hours [D]					SAVEINFO:None							SPELLRES:No				DESC:You look exactly like a tree for (CASTERLEVEL) hours.		ITEM:Potion
 #Tree Stride									SCHOOL:Conjuration	SUBSCHOOL:Teleportation						TYPE:Divine			COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Personal			TARGETAREA:You										DURATION:(CASTERLEVEL) hours or until expended; see text	SAVEINFO:None							SPELLRES:No				DESC:Step from one tree to another far away.
 
+
+#Mystics gets same list as Acolytes, but no cure/inflict spells
+################1st
+Create Water.MOD			CLASSES:Mystic=0
+Cure Minor Wounds.MOD		CLASSES:Mystic=0
+Detect Magical Aura.MOD		CLASSES:Mystic=0
+Inflict Minor Wounds.MOD	CLASSES:Mystic=0
+Light.MOD				CLASSES:Mystic=0
+Read Magic.MOD			CLASSES:Mystic=0
+Resistance.MOD			CLASSES:Mystic=0
+Virtue.MOD				CLASSES:Mystic=0
+#1st level
+Bane.MOD				CLASSES:Mystic=1
+Bless.MOD				CLASSES:Mystic=1
+Cause Fear.MOD			CLASSES:Mystic=1
+Command.MOD				CLASSES:Mystic=1
+Comprehend Languages.MOD	CLASSES:Mystic=1
+Cure Light Wounds.MOD		CLASSES:Mystic=1
+Inflict Light Wounds.MOD	CLASSES:Mystic=1
+Magic Weapon.MOD			CLASSES:Mystic=1
+Remove Fear.MOD			CLASSES:Mystic=1
+Shield of Faith.MOD		CLASSES:Mystic=1
+#2nd level
+Aid.MOD				CLASSES:Mystic=2
+Augury.MOD				CLASSES:Mystic=2
+Cure Moderate Wounds.MOD	CLASSES:Mystic=2
+Dataread.MOD			CLASSES:Mystic=2
+Delay Poison.MOD			CLASSES:Mystic=2
+Enhance Ability.MOD		CLASSES:Mystic=2
+Hold Person.MOD			CLASSES:Mystic=2
+Inflict Moderate Wounds.MOD	CLASSES:Mystic=2
+Lesser Restoration.MOD		CLASSES:Mystic=2
+Remove Paralysis.MOD		CLASSES:Mystic=2
+Resist Energy.MOD			CLASSES:Mystic=2
+Silence.MOD				CLASSES:Mystic=2
+Spider Climb (Spell).MOD	CLASSES:Mystic=2
+Zone of Truth.MOD			CLASSES:Mystic=2
+#3rd
+Animate Dead.MOD			CLASSES:Mystic=3
+Bestow Curse.MOD			CLASSES:Mystic=3
+Cure Serious Wounds.MOD		CLASSES:Mystic=3
+Dispel Magic.MOD			CLASSES:Mystic=3
+Glyph of Warding.MOD		CLASSES:Mystic=3
+Inflict Serious Wounds.MOD	CLASSES:Mystic=3
+Locate Object.MOD			CLASSES:Mystic=3
+Prayer.MOD				CLASSES:Mystic=3
+Recharge.MOD			CLASSES:Mystic=3
+Remove Curse.MOD			CLASSES:Mystic=3
+Remove Disease.MOD		CLASSES:Mystic=3
+Searing Light.MOD			CLASSES:Mystic=3
+Status.MOD				CLASSES:Mystic=3
+Water Breathing.MOD		CLASSES:Mystic=3
+#4th Level
+Cure Critical Wounds.MOD		CLASSES:Mystic=4
+Discern Lies.MOD				CLASSES:Mystic=4
+Faith's Fury.MOD				CLASSES:Mystic=4
+Freedom of Movement (Spell).MOD	CLASSES:Mystic=4
+Greater Magic Weapon.MOD		CLASSES:Mystic=4
+Inflict Critical Wounds.MOD		CLASSES:Mystic=4
+Neutralize Poison.MOD			CLASSES:Mystic=4
+Restoration.MOD				CLASSES:Mystic=4
+Tongues.MOD					CLASSES:Mystic=4
+#5th
+Break Enchantment.MOD			CLASSES:Mystic=5
+Flaming Wrath.MOD				CLASSES:Mystic=5
+Greater Command.MOD			CLASSES:Mystic=5
+Insect Plague.MOD				CLASSES:Mystic=5
+Mass Cure Light Wounds.MOD		CLASSES:Mystic=5
+Mass Inflict Light Wounds.MOD		CLASSES:Mystic=5
+Raise Dead.MOD				CLASSES:Mystic=5
+True Seeing.MOD				CLASSES:Mystic=5
+Wall of Stone.MOD				CLASSES:Mystic=5
+
+#0th
+Detect Magical Aura.MOD			CLASSES:Techno Mage=0
+Light.MOD					CLASSES:Techno Mage=0
+Mage Hand.MOD				CLASSES:Techno Mage=0
+Message.MOD					CLASSES:Techno Mage=0
+Prestidigitation.MOD			CLASSES:Techno Mage=0
+Read Magic.MOD				CLASSES:Techno Mage=0
+Resistance.MOD				CLASSES:Techno Mage=0
+#1st
+Burning Hands.MOD				CLASSES:Techno Mage=1
+Cause Fear.MOD				CLASSES:Techno Mage=1
+Change Self.MOD				CLASSES:Techno Mage=1
+Comprehend Languages.MOD		CLASSES:Techno Mage=1
+#Dancing Lights is incorrectly flagged as level 0, should be 1
+Dancing Lights.MOD			CLASSES:.CLEARALL	CLASSES:Mage,Techno Mage=1
+Feather Fall (Spell).MOD		CLASSES:Techno Mage=1
+Hold Portal.MOD				CLASSES:Techno Mage=1
+Jump.MOD					CLASSES:Techno Mage=1
+Mage Armor.MOD				CLASSES:Techno Mage=1
+Magic Missile.MOD				CLASSES:Techno Mage=1
+Magic Weapon.MOD				CLASSES:Techno Mage=1
+Power Device.MOD				CLASSES:Techno Mage=1
+Ray of Fatigue.MOD			CLASSES:Techno Mage=1
+Shield.MOD					CLASSES:Techno Mage=1
+Sleep.MOD					CLASSES:Techno Mage=1
+True Strike.MOD				CLASSES:Techno Mage=1
+#2nd
+Arcane Lock.MOD				CLASSES:Techno Mage=2
+Blur.MOD					CLASSES:Techno Mage=2
+Darkvision.MOD				CLASSES:Techno Mage=2
+Enhance Ability.MOD			CLASSES:Techno Mage=2
+Glitterdust.MOD				CLASSES:Techno Mage=2
+Invisibility.MOD				CLASSES:Techno Mage=2
+Knock (Spell).MOD				CLASSES:Techno Mage=2
+Levitate.MOD				CLASSES:Techno Mage=2
+Locate Object.MOD				CLASSES:Techno Mage=2
+Magic Mouth.MOD				CLASSES:Techno Mage=2
+Protection from Arrows/Bullets.MOD	CLASSES:Techno Mage=2
+Resist Energy.MOD				CLASSES:Techno Mage=2
+See Invisibility.MOD			CLASSES:Techno Mage=2
+Spider Climb (Spell).MOD		CLASSES:Techno Mage=2
+Web.MOD					CLASSES:Techno Mage=2
+#3rd
+Dispel Magic.MOD				CLASSES:Techno Mage=3
+Displacement.MOD				CLASSES:Techno Mage=3
+Fireball.MOD				CLASSES:Techno Mage=3
+Flaming Projectiles.MOD			CLASSES:Techno Mage=3
+Greater Magic Weapon.MOD		CLASSES:Techno Mage=3
+Halt Undead.MOD				CLASSES:Techno Mage=3
+Haste.MOD					CLASSES:Techno Mage=3
+Hold Person.MOD				CLASSES:Techno Mage=3
+Invisibility Sphere.MOD			CLASSES:Techno Mage=3
+Keen Edge.MOD				CLASSES:Techno Mage=3
+Lightning Bolt.MOD			CLASSES:Techno Mage=3
+Slow.MOD					CLASSES:Techno Mage=3
+Tongues.MOD					CLASSES:Techno Mage=3
+Water Breathing.MOD			CLASSES:Techno Mage=3
+#4th
+Animate Dead.MOD				CLASSES:Techno Mage=4
+Arcane Eye.MOD				CLASSES:Techno Mage=4
+Bestow Curse.MOD				CLASSES:Techno Mage=4
+Confusion.MOD				CLASSES:Techno Mage=4
+Dimension Door (Spell).MOD		CLASSES:Techno Mage=4
+Energy Trap.MOD				CLASSES:Techno Mage=4
+Fear.MOD					CLASSES:Techno Mage=4
+Ice Storm.MOD				CLASSES:Techno Mage=4
+Minor Globe of Invulnerability.MOD	CLASSES:Techno Mage=4
+Remove Curse.MOD				CLASSES:Techno Mage=4
+Shout.MOD					CLASSES:Techno Mage=4
+Stoneskin.MOD				CLASSES:Techno Mage=4
+Wall of Fire.MOD				CLASSES:Techno Mage=4
+Wall of Ice.MOD				CLASSES:Techno Mage=4
+#5th
+Cloudkill.MOD				CLASSES:Techno Mage=5
+Cone of Cold.MOD				CLASSES:Techno Mage=5
+Hold Monster.MOD				CLASSES:Techno Mage=5
+Passwall.MOD				CLASSES:Techno Mage=5
+Phantom Watchdog.MOD			CLASSES:Techno Mage=5
+Telekinesis.MOD				CLASSES:Techno Mage=5
+Wall of Force.MOD				CLASSES:Techno Mage=5
+Wall of Iron.MOD				CLASSES:Techno Mage=5
+Wall of Stone.MOD				CLASSES:Techno Mage=5
+
+
 #
 # End
 #
