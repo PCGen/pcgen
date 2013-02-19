@@ -354,7 +354,7 @@
 	<p class="indent0"><strong>Tag Name:</strong> SCHOOL:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell School Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This is a | (pipe) delimited list of Schools the spell belongs to and is used for specialist
+	<p class="indent2">This is a pipe-delimited (|) list of Schools the spell belongs to and is used for specialist
 		wizards to determine their favored schools bonus spells.</p>
 	<p class="indent2">.CLEAR - this CAN be chained, e.g. SCHOOL:.CLEAR|x|x|.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -366,6 +366,26 @@
 	<p class="indent3">For the Class Channeler of level 7 the spell Summon Monster VII is modified, moving it from whatever schools it was in to just &quot;Greater Conjuration&quot;.</p>
 	<p class="indent2"><code>SCHOOL:.CLEAR &lt;tab&gt; SCHOOL:Illusion</code></p>
 	<p class="indent3">This clears the schools list and replaces with &quot;Illusion&quot; schools.</p>
+	<p></p>
+
+<hr>
+
+	<p class="status"><a name="SPELLPOINTCOST">*** New 5.13.x</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> SPELLPOINTCOST:x=y|x=y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TOTAL (Total cost)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell effect)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell effect cost)</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This establishes the additional spell point cost for spell enhancements.</li>
+		<li>This is a pipe-delimited (|) list of spell effects and spell effect costs.</li>
+		<li><code>TOTAL=x</code> determines the total cost of the spell, over-riding all other effect costs.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>SPELLPOINTCOST:Evoke Fire=4|Range=1|Area of Effect=1</code></p>
+	<p class="indent3">Enhancing the "Evoke Fire" effect would cost 4 spell points, the "Range" and "Area of Effect" one point each.</p>
+	<p class="indent2"><code>SPELLPOINTCOST:TOTAL=4</code></p>
+	<p class="indent3">Enhancing the spell costs 4 spell points.</p>
 	<p></p>
 
 <hr>
