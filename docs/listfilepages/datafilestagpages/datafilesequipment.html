@@ -371,7 +371,7 @@
 				next variable listed after  another &quot;|&quot; (pipe).</li>
 		<li>Each variable needs to be defined (via the global
 			<a href="../globalfilestagpages/globalfilesdefine.html">DEFINE</a> tag.)</li>
-		<li>SPROP tags can be qualified with <a href="globalfilesprexxx.html">PRExxx</a> tags.
+		<li>SPROP tags can be qualified with <a href="../globalfilestagpages/globalfilesprexxx.html">PRExxx</a> tags.
 				SPROP tags qualified with PRExxx tags will not display unless the character meets the prerequisites.</li>
 		<li>Variable substitution and PRExxx qualifying can be combined in one SPROP tag.</li>
 	</ul>
@@ -380,7 +380,7 @@
 	<p class="indent3">Output sheet reads &quot;Shines with an inner light&quot; under the item.</p>
 	<p class="indent2"><code>SPROP:Squash code bugs % times per day|TL</code></p>
 	<p class="indent3">For a 5th level character the output sheet would read &quot;Squash code bugs 5 times per day&quot; under the item.</p>
-	<p class="indent2"><code>SPROP:+2 against undead|PRECLASS:Paladin=1</code></p>
+	<p class="indent2"><code>SPROP:+2 against undead|PRECLASS:1,Paladin=1</code></p>
 	<p class="indent3">Outputs the text if the character has at least 1 level of Paladin.</p>
 	<p class="indent2"><code>SPROP:+% vs. code bugs|ColaIntake|PRESKILL:1,Programming=10</code></p>
 	<p class="indent3">If the character has the Programming skill of at least 10 and the variable
