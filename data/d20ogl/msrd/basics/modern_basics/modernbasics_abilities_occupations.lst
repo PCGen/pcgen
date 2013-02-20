@@ -38,6 +38,12 @@ Technician			CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:YES	DESC:Scien
 White Collar		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:YES	DESC:Office workers and desk jockeys, lawyers, accountants, insurance agents, bank personnel, financial advisors, tax preparers, clerks, sales personnel, real estate agents, and a variety of mid-level managers fall within the scope of this starting																																									BONUS:ABILITYPOOL|White Collar Occupation Skills|2								BONUS:VAR|WealthBonus|3					SOURCEPAGE:Occupations.rtf
 None				CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:YES																																																																																																											SOURCEPAGE:Occupations.rtf
 
+# Default Assist...
+CATEGORY=Internal|Default.MOD		ABILITY:Internal|AUTOMATIC|Template First Class Select|PREABILITY:1,CATEGORY=Starting Occupation,TYPE.Occupation
+
+Template First Class Select	CATEGORY:Internal	TEMPLATE:CHOOSE:StrongSkills|FastSkills|ToughSkills|SmartSkills|DedicatedSkills|CharismaticSkills
+
+
 ###Block: The Skill choices
 # Ability Name							Category of Ability		Type																														Visible		Required Template													Add 					Bonus to skill									Class Skill
 Balance(class skill)						CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Athlete_Skills.Emergency_Services_Skills.Rural_Skills																		VISIBLE:DISPLAY	PRETEMPLATE:1,StrongSkills,ToughSkills,SmartSkills,DedicatedSkills,CharismaticSkills																	CSKILL:Balance
