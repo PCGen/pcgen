@@ -156,6 +156,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL (All classes)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Class type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> .CLEARALL</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
@@ -164,6 +165,7 @@
 			<code>SPELLLIST</code> tag in the appropriate class file object. (i.e. If the &quot;Enchanter&quot; 
 			subclass is included as part of a <code>CLASSES</code> tag in a spell, there must be an &quot;Enchanter&quot; subclass 
 			defined in a loaded class file.</li>
+		<li><code>.CLEARALL</code> will clear all classes or class/level pairs from the <code>CLASSES</code> tag.</li>
 		<li>This tag can be qualified with PRExxx statements but all such PRExxx statements must be enclosed 
 			within square-brackets ([]) instead of the usual pipe-delineation (|).</li>
 	</ul>
@@ -250,11 +252,15 @@
 	<p class="status"><a name="DOMAINS">*** Updated 5.11.11</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> DOMAINS:x,x=y|x,x=y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Domain name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> .CLEARALL</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell level)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This indicates that this spell is the indicated level for the named domain.</p>
-	<p class="indent2">This tag can now be qualified with PRExxx statements.  Please note that you must
-		enclose the PRExxx statement with [ ] instead of the usual Pipe delineation.</p>
+	<ul class="indent2">
+		<li>This indicates that this spell is the indicated level for the named domain.</li>
+		<li><code>.CLEARALL</code> will clear all classes or class/level pairs from the <code>CLASSES</code> tag.</li>
+		<li>This tag can now be qualified with <code>PRExxx</code> statements.  Please note that you must
+			enclose the <code>PRExxx</code> statement with [ ] instead of the usual Pipe delineation.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>DOMAINS:Charm=2|Beauty=3</code></p>
 	<p class="indent3">Indicates that this is a 2nd level spell for the Charm domain, and 3rd level for the
@@ -268,7 +274,7 @@
 		prestige class.</p>
 	<p class="indent2"><code>Binding.MOD &lt;tab&gt; DOMAINS:Fate=8</code></p>
 	<p class="indent3">Indicates that this is a 8th level spell for the Fate domain.</p>
-	<p class="indent1">Deprecated Syntax:</p>
+	<p class="indent1"><strong>Deprecated Syntax:</strong></p>
 	<p class="indent2"><code>DOMAINS:.CLEAR</code> replaced by <code>DOMAINS:.CLEARALL.</code></p>
 	<p class="indent3">This is done due to the past side-effects between the <code>CLASSES</code> and 
 		<code>DOMAINS</code> tags. Note that any single <code>.CLEAR</code> is equivalent to both 
