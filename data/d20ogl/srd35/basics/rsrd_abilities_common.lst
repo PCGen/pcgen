@@ -27,7 +27,7 @@ Default				CATEGORY:Internal
 CATEGORY=Internal|Default.MOD																ABILITY:Internal|AUTOMATIC|Defines Required
 CATEGORY=Internal|Default.MOD																ABILITY:Internal|AUTOMATIC|Master Traits
 
-Holy Avenger Spell Resistance	CATEGORY:Internal		BONUS:SR|PaladinLvl+5|TYPE=SpellResistance	
+Holy Avenger Spell Resistance	CATEGORY:Internal		BONUS:MISC|SR|PaladinLvl+5|TYPE=SpellResistance	
 
 Master Traits			CATEGORY:Internal		TYPE:Internal	VISIBLE:NO	DEFINE:AnimalGrowthActivated|0	ABILITY:Internal|AUTOMATIC|Damage Reduction 10/magic|PREVAREQ:AnimalGrowthActivated,1
 # COMMENT: Assigns the Trait based upon RACETYPE
