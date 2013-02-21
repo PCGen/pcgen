@@ -645,7 +645,7 @@ Magus Arcana			KEY:Magus Arcana ~ KENSAI				CATEGORY:Special Ability	TYPE:Archet
 #Exotic Weapon Proficiency	KEY:Exotic Weapon Proficiency ~ Kensai		CATEGORY:Special Ability	TYPE:ArchetypeAbility.SpecialQuality							MULT:YES	CHOOSE:WEAPONPROFICIENCY|ANY[TYPE=Exotic]			AUTO:WEAPONPROF|%LIST
 Kensai Weapon Proficiency	KEY:Weapon Proficiency ~ Kensai			CATEGORY:Special Ability	TYPE:ArchetypeAbility.SpecialQuality							MULT:YES	CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Exotic]|!PC[TYPE=Martial]			AUTO:WEAPONPROF|%LIST
 
-Weapon Focus			KEY:Weapon Focus Display ~ Kensai				CATEGORY:Special Ability	TYPE:ArchetypeAbility.SpecialQuality							MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC					BONUS:WEAPONPROF=%LIST|TOHIT|1
+Weapon Focus			KEY:Weapon Focus Display ~ Kensai				CATEGORY:Special Ability	TYPE:ArchetypeAbility.SpecialQuality							MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC					BONUS:WEAPONPROF=%LIST|TOHIT|1	SERVESAS:ABILITY=FEAT|Weapon Focus
 
 # MYRMIDARCH
 Diminished Spellcasting		KEY:Diminished Spellcasting ~ MYRMIDARCH		CATEGORY:Special Ability	TYPE:ArchetypeAbility.SpecialQuality												DESC:Myrmidarchs cast one fewer spell of each level than normal. If this reduces the number to 0, he may cast spells of that level only if his Intelligence allows bonus spells of that level.																																																																																																						ABILITY:Internal|AUTOMATIC|Magus SpellCasting Reduction																																																																			SOURCEPAGE:p.56
