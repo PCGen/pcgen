@@ -22,6 +22,7 @@ package pcgen.core.facade;
 
 import java.util.EventListener;
 import java.util.EventObject;
+
 import pcgen.core.facade.util.ListFacade;
 
 /**
@@ -56,6 +57,17 @@ public interface EquipmentSetFacade
 	public EquipmentListFacade getEquippedItems();
 
 	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment, int quantity);
+
+	/**
+	 * Insert an item of equipment into a specific location in the equipment set. 
+	 * @param node The parent node to which the equipment will be added.
+	 * @param equipment The item of equipment to be added.
+	 * @param quantity The number of instances of the item to be added.
+	 * @param beforeNode The node above which the equipment should be inserted.
+	 * @return The item of equipment that was actually added. 
+	 */
+	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment,
+		int quantity, EquipNode beforeNode);
 
 	public EquipmentFacade removeEquipment(EquipNode node, int quantity);
 

@@ -179,7 +179,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Should be no sideeffects to num carried", 0, item.getCarried(), 0.01);
 		assertEquals("Should be no sideeffects to equipped", 0, item.getNumberEquipped());
 		assertEquals("First add node list size", NUM_BASE_NODES+1, esfi.getNodes().getSize());
-		assertEquals("generated equip set id", "0.1.1", ((EquipNodeImpl)esfi.getNodes().getElementAt(NUM_BASE_NODES)).getIdPath());
+		assertEquals("generated equip set id", "0.1.01", ((EquipNodeImpl)esfi.getNodes().getElementAt(NUM_BASE_NODES)).getIdPath());
 
 		Equipment secondEquip = (Equipment) esfi.addEquipment(root, item, 1);
 		assertEquals("Second add num carried", 3, secondEquip.getCarried(), 0.01);

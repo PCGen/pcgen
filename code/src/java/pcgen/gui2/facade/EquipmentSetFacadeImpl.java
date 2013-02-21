@@ -35,6 +35,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.BodyStructure;
@@ -401,15 +403,74 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 
 		++newID;
 
-		return pid + '.' + newID;
+		NumberFormat format = new DecimalFormat("00");
+		return pid + '.' + format.format(newID);
 	}
 
+	private String shiftEquipSetsDown(CharacterDisplay display, EquipSet parentSet, EquipNodeImpl startingNode)
+	{
+		String pid = "0";
+		NumberFormat format = new DecimalFormat("00");
+
+		if (parentSet != null)
+		{
+			pid = parentSet.getIdPath();
+		}
+
+		String startingPath = startingNode.idPath;
+		int startingId = EquipSet.getIdFromPath(startingPath);
+		for (EquipSet es : display.getEquipSet())
+		{
+			int esId = es.getId();
+			if (es.getParentIdPath().equals(pid) && (esId >= startingId))
+			{
+				String origPath = es.getIdPath();
+				esId++;
+				String newPath = pid + '.' + format.format(esId);
+				es.setIdPath(newPath);
+				EquipNodeImpl node = getNodeAtPath(origPath);
+				if (node != null)
+				{
+					node.setIdPath(newPath);
+				}
+			}
+		}
+		
+		return startingPath;
+	}
+	
+	private EquipNodeImpl getNodeAtPath(String path)
+	{
+		for (EquipNode node : nodeList)
+		{
+			if (node instanceof EquipNodeImpl)
+			{
+				EquipNodeImpl nodeImpl = (EquipNodeImpl) node;
+				if (path.equals(nodeImpl.getIdPath()))
+				{
+					return nodeImpl;
+				}
+			}
+		}
+		return null;
+	}
+	
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.EquipmentSetFacade#addEquipment(pcgen.core.facade.EquipmentSetFacade.EquipNode, pcgen.core.facade.EquipmentFacade, int)
 	 */
 	@Override
 	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment,
 		int quantity)
+	{
+		return addEquipment(node, equipment, quantity, null);
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment,
+		int quantity, EquipNode beforeNode)
 	{
 		if (!(node instanceof EquipNodeImpl))
 		{
@@ -500,7 +561,15 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		}
 		
 		// Create equip set for the item
-		String id = EquipmentSetFacadeImpl.getNewIdPath(charDisplay, parentEs);
+		String id;
+		if (beforeNode != null && beforeNode instanceof EquipNodeImpl)
+		{
+			id = shiftEquipSetsDown(charDisplay, parentEs, (EquipNodeImpl) beforeNode);
+		}
+		else
+		{
+			id = EquipmentSetFacadeImpl.getNewIdPath(charDisplay, parentEs);
+		}
 		Equipment newItem = item.clone();
 		EquipSet newSet = new EquipSet(id, locName, newItem.getName(), newItem);
 		newItem.setQty(quantity);
@@ -1403,6 +1472,14 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		}
 
 		/**
+		 * @param idPath the idPath to set
+		 */
+		public void setIdPath(String idPath)
+		{
+			this.idPath = idPath;
+		}
+
+		/**
 		 * @return The key to be used for sorting EquipNodes
 		 */
 		String getSortKey()
@@ -1455,9 +1532,41 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 			if (o instanceof EquipNodeImpl)
 			{
 				EquipNodeImpl other = (EquipNodeImpl) o;
+
+				String orderThis = getOrder(this);
+				String orderOther = getOrder(other);
+				
+				if (!orderThis.equals(orderOther))
+				{
+					return orderThis.compareTo(orderOther);
+				}
+				if (getIdPath() != null && other.getIdPath() != null)
+				{
+					return getIdPath().compareTo(other.getIdPath());
+				}
 				return getSortKey().compareTo(other.getSortKey());
 			}
 			return toString().compareTo(o.toString());
+		}
+
+		/**
+		 * Retrieve the order of the node, that is the top level 
+		 * order of the body structures. 
+		 * @param equipNodeImpl The node to be examined.
+		 * @return The order applicable to the node.
+		 */
+		private String getOrder(EquipNodeImpl equipNodeImpl)
+		{
+			if (StringUtils.isNotBlank(equipNodeImpl.order))
+			{
+				return equipNodeImpl.order;
+			}
+			EquipNodeImpl enParent = equipNodeImpl.parent;
+			if (enParent != null)
+			{
+				return getOrder(enParent);
+			}
+			return "";
 		}
 		
 	}

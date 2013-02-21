@@ -862,6 +862,10 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			JTable.DropLocation location = (JTable.DropLocation) support.getDropLocation();
 			int row = location.getRow();
 			EquipNode node = (EquipNode) equipmentSetTable.getValueAt(row, 0);
+			if (node == null)
+			{
+				return false;
+			}
 			if (location.isInsertRow())
 			{
 				node = node.getParent();
@@ -914,8 +918,10 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			JTable.DropLocation location = (JTable.DropLocation) support.getDropLocation();
 			int row = location.getRow();
 			EquipNode node = (EquipNode) equipmentSetTable.getValueAt(row, 0);
+			EquipNode beforeNode = null;
 			if (location.isInsertRow())
 			{
+				beforeNode = node;
 				node = node.getParent();
 			}
 			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
@@ -930,7 +936,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				for (EquipNode equipNode : equipNodeArray)
 				{
 					equipSet.removeEquipment(equipNode, 1);
-					equipSet.addEquipment(node, equipNode.getEquipment(), 1);
+					equipSet.addEquipment(node, equipNode.getEquipment(), 1, beforeNode);
 				}
 			}
 			else if (support.isDataFlavorSupported(equipmentArrayFlavor))
@@ -942,7 +948,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				}
 				for (EquipmentFacade equipmentFacade : equipmentArray)
 				{
-					equipSet.addEquipment(node, equipmentFacade, 1);
+					equipSet.addEquipment(node, equipmentFacade, 1, beforeNode);
 				}
 			}
 			return true;

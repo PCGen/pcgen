@@ -97,6 +97,33 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	private boolean useTempBonuses = true;
 
 	/**
+	 * Retrieve the id from a path, that is the last number in the sequence.
+	 * e.g. The id of the path 0.1.17 is 17.  
+	 * @param path The path to be interpreted.
+	 * @return The numeric id
+	 */
+	public static int getIdFromPath(String path)
+	{
+		int id = 0;
+
+		try
+		{
+			final StringTokenizer aTok = new StringTokenizer(path, Constants.EQUIP_SET_PATH_SEPARATOR, false);
+
+			while (aTok.hasMoreTokens())
+			{
+				id = Integer.parseInt(aTok.nextToken());
+			}
+		}
+		catch (NullPointerException e)
+		{
+			Logging.errorPrint("Error in EquipSet.getId", e);
+		}
+
+		return id;
+	}
+
+	/**
 	 * Constructor
 	 * @param id
 	 * @param aName
@@ -129,23 +156,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 **/
 	public int getId()
 	{
-		int id = 0;
-
-		try
-		{
-			final StringTokenizer aTok = new StringTokenizer(id_path, Constants.EQUIP_SET_PATH_SEPARATOR, false);
-
-			while (aTok.hasMoreTokens())
-			{
-				id = Integer.parseInt(aTok.nextToken());
-			}
-		}
-		catch (NullPointerException e)
-		{
-			Logging.errorPrint("Error in EquipSet.getId", e);
-		}
-
-		return id;
+		return EquipSet.getIdFromPath(id_path);
 	}
 
 	/**
