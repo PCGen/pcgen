@@ -292,6 +292,9 @@ CATEGORY=Internal|Default.MOD																																																			
 CATEGORY=Internal|Default.MOD																																																																																																																																																																																																														ABILITY:Special Ability|AUTOMATIC|Qlippoth Traits|PRERACE:1,RACESUBTYPE=Qlippoth
 CATEGORY=Internal|Default.MOD																																																																																																																																																																																																														ABILITY:Special Ability|AUTOMATIC|Qlippoth ~ Cythnigot Traits|PRERACE:1,RACESUBTYPE=Qlippoth ~ Cythnigot
 
+###Block: Add template for ability bonuses for creatures with class levels
+# Ability Name			Template
+CATEGORY=Internal|Default.MOD	TEMPLATE:Creature with Class Levels
 
 Aeon Traits															CATEGORY:Special Ability									VISIBLE:NO																																																																																																																																																																															TEMPLATE:Aeon
 Agathion Traits														CATEGORY:Special Ability									VISIBLE:NO																																																																																																																																																																															TEMPLATE:Agathion
