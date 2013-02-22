@@ -57,14 +57,10 @@ Halfling Racial Trait Default				CATEGORY:Internal
 
 # Base Races
 # COMMENT: These Add the Racial Trait Defaults based upon the RACE - We only set this up for PC Races.
-CATEGORY=Internal|Select Racial Traits.MOD					ABILITY:Internal|AUTOMATIC|Human Racial Trait Default|PRERACE:1,Human
-CATEGORY=Internal|Select Racial Traits.MOD					ABILITY:Internal|AUTOMATIC|Dwarf Racial Trait Default|PRERACE:1,RACESUBTYPE=Dwarf
-CATEGORY=Internal|Select Racial Traits.MOD					ABILITY:Internal|AUTOMATIC|Elf Racial Trait Default|PRERACE:1,RACESUBTYPE=Elf
-CATEGORY=Internal|Select Racial Traits.MOD					ABILITY:Internal|AUTOMATIC|Gnome Racial Trait Default|PRERACE:1,RACESUBTYPE=Gnome
-CATEGORY=Internal|Select Racial Traits.MOD					ABILITY:Internal|AUTOMATIC|Half-Elf Racial Trait Default|PRERACE:1,Half-Elf
-CATEGORY=Internal|Select Racial Traits.MOD					ABILITY:Internal|AUTOMATIC|Half-Orc Racial Trait Default|PRERACE:1,Half-Orc
-CATEGORY=Internal|Select Racial Traits.MOD					ABILITY:Internal|AUTOMATIC|Halfling Racial Trait Default|PRERACE:1,RACESUBTYPE=Halfling
-
+#CATEGORY=Internal|Select Racial Traits.MOD					ABILITY:Internal|AUTOMATIC|Dwarf Racial Trait Default|PRERACE:1,RACESUBTYPE=Dwarf
+#CATEGORY=Internal|Select Racial Traits.MOD					ABILITY:Internal|AUTOMATIC|Elf Racial Trait Default|PREMULT:2,[PRERACE:1,RACESUBTYPE=Elf],[!PRERACE:1,Half-Elf]
+#CATEGORY=Internal|Select Racial Traits.MOD					ABILITY:Internal|AUTOMATIC|Gnome Racial Trait Default|PRERACE:1,RACESUBTYPE=Gnome
+#CATEGORY=Internal|Select Racial Traits.MOD					ABILITY:Internal|AUTOMATIC|Halfling Racial Trait Default|PRERACE:1,RACESUBTYPE=Halfling
 
 ###Block: Racial Traits
 # Human
