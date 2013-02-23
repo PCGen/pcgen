@@ -254,3 +254,30 @@ Catapult (Light)	TYPE:Goods.SiegeEngine	COST:550	SOURCEPAGE:WildernessandEnviron
 Ballista		TYPE:Goods.SiegeEngine	COST:500	SOURCEPAGE:WildernessandEnvironment.rtf	SPROP:120' Range, 3d8 damage, 19-20 Critical, 1 man crew
 Ram			TYPE:Goods.SiegeEngine	COST:1000	SOURCEPAGE:WildernessandEnvironment.rtf	SPROP:3d6 damage, 10 man crew
 Siege Tower		TYPE:Goods.SiegeEngine	COST:2000	SOURCEPAGE:WildernessandEnvironment.rtf	SPROP:20 man crew
+
+
+###Block: Golems and other constructs and related equipment
+Golem (Clay)			OUTPUTNAME: [Name] Golem	TYPE:Construct.Container		COST:40000		WT:600	SOURCEPAGE:MonstersG.rtf
+Golem (Flesh)			OUTPUTNAME: [Name] Golem	TYPE:Construct.Container		COST:20000		WT:500	SOURCEPAGE:MonstersG.rtf
+Golem (Iron)			OUTPUTNAME: [Name] Golem	TYPE:Construct.Container		COST:150000		WT:5000	SOURCEPAGE:MonstersG.rtf
+Golem (Stone)			OUTPUTNAME: [Name] Golem	TYPE:Construct.Container		COST:90000		WT:2000	SOURCEPAGE:MonstersG.rtf
+Golem (Stone/Greater)		OUTPUTNAME: [Name] Golem	TYPE:Construct.Container		COST:196000		WT:32000	SOURCEPAGE:MonstersG.rtf
+Golem (Mithral)			OUTPUTNAME: [Name] Golem	TYPE:Construct.Epic.Container		COST:490000		WT:8500	SOURCEPAGE:EpicMonsters(G-W).rtf
+Golem (Adamantine)		OUTPUTNAME: [Name] Golem	TYPE:Construct.Epic.Container		COST:950000		WT:45000	SOURCEPAGE:EpicMonsters(G-W).rtf
+Colossus (Flesh)			OUTPUTNAME: [Name] Colossus	TYPE:Construct.Epic.Container		COST:1320000	WT:40500	SOURCEPAGE:EpicMonsters(A-E).rtf
+Colossus (Stone)			OUTPUTNAME: [Name] Colossus	TYPE:Construct.Epic.Container		COST:1320000	WT:250000	SOURCEPAGE:EpicMonsters(A-E).rtf
+Colossus (Iron)			OUTPUTNAME: [Name] Colossus	TYPE:Construct.Epic.Container		COST:1799000	WT:150000	SOURCEPAGE:EpicMonsters(A-E).rtf
+Shield Guardian								TYPE:Construct.Container		COST:120000		WT:1200	SOURCEPAGE:MonstersS.rtf
+Amulet (Shield Guardian)						TYPE:Magic.Amulet.Construct		COST:20000		WT:0		SOURCEPAGE:MonstersS.rtf
+Homunculus									TYPE:Construct.Container		COST:0		WT:0		SOURCEPAGE:MonstersH-I.rtf
+Laboratory (Homunculus)							TYPE:Goods.Tools.Construct		COST:500 		WT:40		SOURCEPAGE:MonstersH-I.rtf
+Laboratory (Shield Guardian)						TYPE:Goods.Tools.Construct		COST:500		WT:40		SOURCEPAGE:MonstersS.rtf
+
+# Each contruct-related item was given a newly-made Construct type.
+# The names could include the HD of the creature since that determines its size and part of its cost. An equipment modification somehow?
+# The COST of constructs, where not provided directly (i.e. Mithral and Adamantine Golems and the Colossuses), are calculated usingly the generally-close formula of twice the total of the creation cost minus the stated materials' costs.
+# The Homunculus has no cost as it is "never sold". No weight is given, but it would be approximately 1 to 8 lbs. based on its "Tiny" size. Maybe just assign 4.5 lbs. (the ave.) or some figure?
+# The weight of the Mithral Golem is as if "8 1/2 tons of pure iron" was "polymorphed into mithral" weighing half as much.
+# The weight of the Stone Colusses is calculated as a 2/3 ratio after the 2/3 ratio of body weight to block weight for the Stone Golem.
+# The weight of the Flesh Colusses is calculated as the combined average weight of 300 humans (135 lbs. each), based on the construction details.
+# The weight of the labs was made the same as the Alchemist's lab, to which they were described as being similar.
