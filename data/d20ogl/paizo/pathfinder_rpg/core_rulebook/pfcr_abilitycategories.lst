@@ -101,6 +101,8 @@ ABILITYCATEGORY:Nature Bond			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIO
 ABILITYCATEGORY:Druid Domain			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DruidDomain			PLURAL:Druid Domain Choices		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Weapon Mastery		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WeaponMastery		PLURAL:Weapon Mastery			DISPLAYLOCATION:Class Abilities
 
+ABILITYCATEGORY:Ki Pool Stat Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:KiStatChoice			PLURAL:Ki Pool Stat Choice			DISPLAYLOCATION:Class Abilities
+
 ###Block: Wizard Arcane School Abilities
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
 ABILITYCATEGORY:Necromancer Channeling	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NecromancerChanneling	PLURAL:Necromancer Channeling Choices	DISPLAYLOCATION:Class Abilities
