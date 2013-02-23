@@ -27,7 +27,7 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle
 ###Block: Ninja
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define							Save checks bonus												Combat bonus
-CLASS:Ninja		HD:8		TYPE:Base.PC	ABB:Nin		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLvl|CL	DEFINE:RogueTalentLVL|0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Ninja		HD:8		TYPE:Base.PC	ABB:Nin		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLvl|CL	DEFINE:RogueTalentLVL|0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE		BONUS:VAR|KiPool|1	DEFINE:KiPoolCha|1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
 ###Block: Proficiencies
@@ -37,7 +37,6 @@ CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|D
 1	BONUS:VAR|NinjaSneakAttackLVL|CL
 2	BONUS:VAR|KiPoolLVL|CL
 2	BONUS:VAR|NinjaTrickLVL|CL	BONUS:VAR|RogueTalentLVL|CL
-#3	BONUS:VAR|NinjaTrapSenseLVL|CL
 3	BONUS:VAR|NinjaNoTraceLVL|CL
 4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
 4	BONUS:VAR|UncannyDodgeLevel|CL/4
@@ -46,7 +45,7 @@ CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|D
 1	ABILITY:Class Ability|AUTOMATIC|Poison Use ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaPoison
 1	ABILITY:Class Ability|AUTOMATIC|Sneak Attack|Sneak Attack ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaSneakAttack
 2	ABILITY:Class Ability|AUTOMATIC|Ninja Trick ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaTrick
-#3	ABILITY:Class Ability|AUTOMATIC|Trap Sense|Trap Sense ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaTrapSense
+2	ABILITY:Class Ability|AUTOMATIC|Ki Pool|Ki Pool ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaKiPool
 3	ABILITY:Class Ability|AUTOMATIC|No Trace ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaNoTrace
 4	ABILITY:Class Ability|AUTOMATIC|Uncanny Dodge ~ Base
 6	ABILITY:Class Ability|AUTOMATIC|Light Steps ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaLightSteps
