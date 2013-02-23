@@ -323,3 +323,39 @@ GEAR:Horn of Valhalla (Silver)	OPTION:1,40
 GEAR:Horn of Valhalla (Brass)		OPTION:41,75
 GEAR:Horn of Valhalla (Bronze)	OPTION:76,90
 GEAR:Horn of Valhalla (Iron)		OPTION:91,100
+
+
+###Block: Cursed Items
+ 
+STARTPACK:Specific Cursed Items		TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+SELECT:roll("1d100")
+GEAR:Incense of Obsession			OPTION:01,05
+GEAR:Ring (Clumsiness)				OPTION:06,15
+GEAR:Amulet of Inescapable Location		OPTION:16,20
+GEAR:Stone of Weight (Loadstone)		OPTION:21,25
+GEAR:Bracers of Defenselessness		OPTION:26,30
+GEAR:Gauntlets of Fumbling			OPTION:31,35
+GEAR:Sword -2 (Cursed)				OPTION:36,40
+GEAR:Armor of Rage				OPTION:41,43
+GEAR:Medallion of Thought Projection	OPTION:44,46
+GEAR:Flask of Curses				OPTION:47,52
+GEAR:Dust of Sneezing and Choking		OPTION:53,54
+GEAR:Helm of Opposite Alignment		OPTION:55
+GEAR:Potion (Poison)				OPTION:56,60
+GEAR:Broom of Animated Attack			OPTION:61
+GEAR:Robe of Powerlessness			OPTION:62,63
+GEAR:Vacuous Grimoire				OPTION:64
+GEAR:Spear (Cursed Backbiter)			OPTION:65,68
+GEAR:Armor of Arrow Attraction		OPTION:69,70
+GEAR:Net of Snaring				OPTION:71,72
+GEAR:Bag of Devouring				OPTION:73,75
+GEAR:Mace of Blood				OPTION:76,80
+GEAR:Robe of Vermin				OPTION:81,85
+GEAR:Periapt of Foul Rotting			OPTION:86,88
+GEAR:Sword (Berserking)				OPTION:89,92
+GEAR:Boots of Dancing				OPTION:93,96
+GEAR:Crystal Hypnosis Ball			OPTION:97
+GEAR:Necklace of Strangulation		OPTION:98
+GEAR:Cloak of Poisonousness			OPTION:99
+GEAR:Scarab of Death				OPTION:100
+
