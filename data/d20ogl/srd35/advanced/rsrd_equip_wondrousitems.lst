@@ -369,8 +369,10 @@ Broom of Animated Attack									TYPE:Magic.Wondrous.Cursed				COST:5200	WT:3			
 Cloak of Poisonousness										TYPE:Magic.Wondrous.Cape.Cursed			COST:62000	WT:1	SOURCEPAGE:MagicItemsVI.rtf
 Crystal Hypnosis Ball										TYPE:Magic.Artifact.Cursed				COST:0	WT:7	SOURCEPAGE:MagicItemsVI.rtf	SPROP:Appears to be a normal Crystal Ball.
 Dust of Sneezing and Choking									TYPE:Magic.Wondrous.Cursed				COST:2400	WT:0	SOURCEPAGE:MagicItemsVI.rtf	SPROP:Appears to be Dust of Appearance.
+
 # COMMENT: Used weight for a Flask (empty), but it can appear as "an ordinary beaker, bottle, container, decanter, flask, or jug."
 Flask of Curses											TYPE:Magic.Wondrous.Cursed				COST:2100	WT:1.5	SOURCEPAGE:MagicItemsVI.rtf
+
 # COMMENT: First had three types (generic, glove form, and gauntlet form) here as they weigh differently, based on the description, and appear as different items. Could just keep the first.
 #Gauntlets of Fumbling										TYPE:Magic.Wondrous.Glove.Cursed			COST:1300	WT:0	SOURCEPAGE:MagicItemsVI.rtf	SPROP:Appear to be Gloves of Dexterity or Gauntlets of Ogre Power. Fumble held items 50% of the time.	BONUS:STAT|DEX|-2					
 Gauntlets of Fumbling (Gloves)								TYPE:Magic.Wondrous.Glove.Cursed			COST:1300	WT:0	SOURCEPAGE:MagicItemsVI.rtf	SPROP:Appear to be Gloves of Dexterity. Fumble held items 50%% of the time.		BONUS:STAT|DEX|-2
@@ -380,21 +382,28 @@ Incense of Obsession										TYPE:Magic.Wondrous.Consumable.Cursed		COST:200	WT
 Mace of Blood				PROFICIENCY:WEAPON|Mace (Heavy)		TYPE:Magic.Enhancement.Weapon.Melee.Simple.Specific.Bludgeoning.Mace.Cursed	COST:16000	WT:8		CRITMULT:x2		CRITRANGE:1		DAMAGE:1d8	EQMOD:STEEL		WIELD:OneHanded		SIZE:M	SOURCEPAGE:MagicItemsVI.rtf	BONUS:WEAPON|DAMAGE,TOHIT|3|TYPE=Enhancement	SPROP:Must be coated in blood every day, or its bonus fades away until the mace is coated again. DC 13 Will save every day it is possessed or become Chaotic Evil.
 Medallion of Thought Projection								TYPE:Magic.Wondrous.Amulet.Cursed			COST:1800	WT:0	SOURCEPAGE:MagicItemsVI.rtf	SPROP:Appears to be a Medallion of Thoughts.
 Necklace of Strangulation									TYPE:Magic.Wondrous.Amulet.Cursed			COST:60000	WT:0	SOURCEPAGE:MagicItemsVI.rtf	SPROP:Appears to be a rare and wondrous piece of valuable jewelry.
+
 # COMMENT: The Net of Snaring "can be commanded to shoot forth up to 30 feet to trap a creature." This sounds more like a limit than a traditonal range increment, so how to handle it? (Same with the regular net, however.)
 Net of Snaring		PROFICIENCY:WEAPON|Net	TYPE:Magic.Enhancement.Weapon.Exotic.Ranged.Standard.Thrown.Specific.Cursed	COST:10000	WT:6	EQMOD:ROPE	RANGE:30			SOURCEPAGE:MagicItemsVI.rtf	BONUS:WEAPON|TOHIT|3|TYPE=Enhancement	SPROP:May only be used underwater. 30 Ft. range.
 Periapt of Foul Rotting										TYPE:Magic.Wondrous.Amulet.Cursed			COST:17000	WT:0							SOURCEPAGE:MagicItemsVI.rtf	SPROP:Appears as an engraved gem of little value.
-#It is described as a potion gone bad, so Potion type, but also can be created by Create Wondrous Items, so Wondrous type.
+
+# COMMENT: It is described as a potion gone bad, so Potion type, but also can be created by Create Wondrous Items, so Wondrous type.
 Potion (Poison)						OUTPUTNAME:Potion of [NAME]	TYPE:Magic.Wondrous.Potion.Consumable.Cursed	COST:5000	WT:0	SOURCEPAGE:MagicItemsVI.rtf
 Robe of Powerlessness										TYPE:Magic.Wondrous.Robe.Cursed			COST:5500	WT:1	SOURCEPAGE:MagicItemsVI.rtf	BONUS:STAT|STR|-10	BONUS:STAT|INT|-10	SPROP:Appears to be a magic robe of another sort.	SPROP:Change Self at will
 Robe of Vermin											TYPE:Magic.Wondrous.Robe.Cursed			COST:16500	WT:1	SOURCEPAGE:MagicItemsVI.rtf	BONUS:COMBAT|INITIATIVE|-5	BONUS:COMBAT|TOHIT|-2	BONUS:CHECKS|ALL|-2	BONUS:SKILL|ALL|-2	SPROP:Appears to offer great magical defence (+4 saves). Must make a Concentration check (DC 20 + SL) or lose the spell.
+
 # COMMENT: Although the caster level to the Ring of Clumsiness is 15, I kept it at CL 1 because it said it "operates exactly like a ring of feather falling." 
 Ring (Clumsiness)						OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring.Cursed					COST:500	WT:0	SOURCEPAGE:MagicItemsVI.rtf	BONUS:STAT|DEX|-4	BONUS:MISC|SPELLFAILURE|20	SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=1|Feather Fall	SPROP:Functions as a Ring of Feather Falling.
 Scarab of Death											TYPE:Magic.Wondrous.Amulet.Cursed			COST:80000	WT:0				SOURCEPAGE:MagicItemsVI.rtf	SPROP:This small pin appears to be any one of the various beneficial amulets, brooches, or scarabs.
 Spear (Cursed Backbiter)	OUTPUTNAME:Spear, Cursed Backbiter	PROFICIENCY:WEAPON|Shortspear	TYPE:Magic.Enhancement.Weapon.Melee.Ranged.Thrown.Simple.Standard.Piercing.Spear.Specific.Cursed	COST:7500	WT:3	CRITMULT:x3	CRITRANGE:1	DAMAGE:1d6	EQMOD:WOOD	WIELD:OneHanded	RANGE:20	SIZE:M	SOURCEPAGE:MagicItemsVI.rtf	SPROP:+2 Shortspear. Damages wielder on a natural 1.	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement
+
 # COMMENT: Works using "-(MOVEBASE/2)", but not the more ideal "(MOVEMULT 0.5)".
-Stone of Weight (Loadstone)										TYPE:Magic.Wondrous.Cursed			COST:1000	WT:0	SOURCEPAGE:MagicItemsVI.rtf	BONUS:MOVEADD|TYPE.Walk|-(MOVEBASE/2)		SPROP:Appears to be a dark, smoothly polished stone. Reduces base land speed 50%.
+Stone of Weight (Loadstone)										TYPE:Magic.Wondrous.Cursed			COST:1000	WT:0	SOURCEPAGE:MagicItemsVI.rtf	BONUS:MOVEADD|TYPE.Walk|-(MOVEBASE/2)		SPROP:Appears to be a dark, smoothly polished stone. Reduces base land speed 50%%.
 Sword -2 (Cursed)		OUTPUTNAME:Sword, -2 Cursed	PROFICIENCY:WEAPON|Longsword	TYPE:Magic.Enhancement.Weapon.Melee.Martial.Standard.Slashing.Sword.Specific.Cursed		COST:1500	WT:4	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:STEEL	WIELD:OneHanded		SIZE:M	SOURCEPAGE:MagicItemsV.rtf	BONUS:WEAPON|DAMAGE,TOHIT|-2|TYPE=Enhancement	SPROP:-2 to hit and damage (minimum 1 pt. damage).
-Sword (Berserking)	OUTPUTNAME:Sword, Berserking	PROFICIENCY:WEAPON|Greatsword	TYPE:Magic.Enhancement.Weapon.Melee.Martial.Standard.Slashing.Sword.Specific.Cursed	COST:17500	WT:8	CRITMULT:x2	CRITRANGE:2	DAMAGE:2d6	EQMOD:STEEL	WIELD:TwoHanded		SIZE:M	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement	TEMPBONUS:PC|STAT|STR|4		TEMPBONUS:PC|STAT|CON|4		TEMPBONUS:PC|CHECKS|Will|2|TYPE=Morale	TEMPBONUS:PC|COMBAT|AC|-2	SPROP:User gains all benefits and drawbacks of barbarian rage.
+
+# COMMENT: Reimplement once 6.0 is finished	TEMPBONUS:PC|STAT|STR|4		TEMPBONUS:PC|STAT|CON|4		TEMPBONUS:PC|CHECKS|Will|2|TYPE=Morale	TEMPBONUS:PC|COMBAT|AC|-2	SPROP:User gains all benefits and drawbacks of barbarian rage.
+Sword (Berserking)	OUTPUTNAME:Sword, Berserking	PROFICIENCY:WEAPON|Greatsword	TYPE:Magic.Enhancement.Weapon.Melee.Martial.Standard.Slashing.Sword.Specific.Cursed	COST:17500	WT:8	CRITMULT:x2	CRITRANGE:2	DAMAGE:2d6	EQMOD:STEEL	WIELD:TwoHanded		SIZE:M	BONUS:WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement	BONUS:STAT|STR|4|PREAPPLY:PC		BONUS:STAT|CON|4|PREAPPLY:PC		BONUS:CHECKS|Will|2|TYPE=Morale|PREAPPLY:PC	BONUS:COMBAT|AC|-2|PREAPPLY:PC	SPROP:User gains all benefits and drawbacks of barbarian rage.
+
 # COMMENT: Made the Vacuous Grimoire 3 lbs. since it is described as a normal-appearing book, and so probably not as hefty as the Tomes and Manuals.
 Vacuous Grimoire											TYPE:Magic.Wondrous.Book.Cursed			COST:6000	WT:3	SOURCEPAGE:MagicItemsVI.rtf	SPROP:Appears like a normal book on some mildly interesting topic.
 

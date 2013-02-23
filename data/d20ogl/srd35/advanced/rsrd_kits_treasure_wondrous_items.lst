@@ -334,7 +334,8 @@ GEAR:Ring (Clumsiness)				OPTION:06,15
 GEAR:Amulet of Inescapable Location		OPTION:16,20
 GEAR:Stone of Weight (Loadstone)		OPTION:21,25
 GEAR:Bracers of Defenselessness		OPTION:26,30
-GEAR:Gauntlets of Fumbling			OPTION:31,35
+KIT:Gauntlets of Fumbling			OPTION:31,35
+
 GEAR:Sword -2 (Cursed)				OPTION:36,40
 GEAR:Armor of Rage				OPTION:41,43
 GEAR:Medallion of Thought Projection	OPTION:44,46
@@ -359,3 +360,7 @@ GEAR:Necklace of Strangulation		OPTION:98
 GEAR:Cloak of Poisonousness			OPTION:99
 GEAR:Scarab of Death				OPTION:100
 
+STARTPACK:Gauntlets of Fumbling	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
+SELECT:roll("1d100")
+GEAR:Gauntlets of Fumbling (Gloves)		OPTION:1,50
+GEAR:Gauntlets of Fumbling (Gauntlets)	OPTION:51,100
