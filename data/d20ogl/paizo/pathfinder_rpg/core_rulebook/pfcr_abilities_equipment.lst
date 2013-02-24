@@ -1,6 +1,9 @@
 # CVS $Revision$ $Author$ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 # Abilities for Intelligent Magic Items
 
+Spell Resistance ~ 18	CATEGORY:Internal	SR:18
+
+
 # Ability Name																Unique Key						Category of Ability		Type											Required Ability											Restricted Ability								Define																Description																																							Stackable?	Multiple?	Choose									Selections	Move			Ability																																				Bonus to Ability Pool																Modify VAR																																							Cost
 Base Intelligent Item																						CATEGORY:Intelligent Item																																				DEFINE:SpeechBonusLang|0	DEFINE:IntItemNegativeLevel|0																																																																			ABILITY:Special Ability|AUTOMATIC|Negative Levels|PREVARGTEQ:NegLevels,1	ABILITY:Intelligent Item|AUTOMATIC|Intelligent Item ~ Empathy|Intelligent Item ~ Lang(Common)|Intelligent Item ~ Senses|Intelligent Item ~ Stat	BONUS:ABILITYPOOL|Intelligent Item Alignment|1	BONUS:ABILITYPOOL|Intelligent Item Languages|SpeechBonusLang	BONUS:VAR|IntItemNegativeLevel|1|PREVARGTEQ:IntelligentItemEgo,20	BONUS:VAR|IntItemNegativeLevel|1|PREVARGTEQ:IntelligentItemEgo,30
 # Automatics
