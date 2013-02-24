@@ -2,7 +2,7 @@
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2012-02-03
 
-
+ABILITYCATEGORY:Choose Attack Rolls Stat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									TYPE:AttackStatChoice																										DISPLAYLOCATION:Class Abilities
 # Ability Category							Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list																			Plural description for UI			Display Location
 ABILITYCATEGORY:Spellslinger Gun Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:Arcane Gun ~ Display																								DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Spellslinger Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Special Ability									ABILITYLIST:School of the Gun ~ Display																							DISPLAYLOCATION:Class Abilities
