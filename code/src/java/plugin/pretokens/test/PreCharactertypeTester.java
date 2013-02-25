@@ -45,7 +45,8 @@ public class PreCharactertypeTester extends AbstractDisplayPrereqTest implements
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
-		if (display.getCharacterType().equalsIgnoreCase(prereq.getKey()))
+		String characterType = display.getCharacterType();
+		if (characterType != null && characterType.equalsIgnoreCase(prereq.getKey()))
 		{
 			return countedTotal(prereq, 1);
 		}
