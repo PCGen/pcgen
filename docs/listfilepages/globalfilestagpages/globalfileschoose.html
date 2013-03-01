@@ -477,7 +477,8 @@
 <hr>
 
 	<p class="lstnew"><a name="FEAT2">*** New 5.17.3</a></p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEAT|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
+	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEAT|w|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
+	<p class="indent1"><strong>Variables Used (w):</strong> TITLE=Text (Chooser title)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat by key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat by key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
@@ -534,7 +535,7 @@
 	<p class="indent2"><code>CHOOSE:FEATADD|TYPE=Fighter</code></p>
 	<p class="indent3">This will produce a list of all fighter feats. The selected feat will be added to the character's feats.</p>
 	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:FEATADD|Dodge|Toughness</code> becomes <code>CHOOSE:FEAT|Dodge|Toughness &lt;tab&gt; AUTO:FEAT|%LIST</code></p>
+	<p class="indent2"><code>CHOOSE:FEATADD|Dodge|Toughness</code> becomes <code>CHOOSE:FEATSELECTION|Dodge|Toughness &lt;tab&gt; AUTO:FEAT|%LIST</code></p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
@@ -584,7 +585,8 @@
 <hr>
 
 	<p class="lstnew"><a name="FEATSELECTION">*** New 5.17.3</a></p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEATSELECTION|x|y|y[z]|y[x,x]|x,y,y[x],y[x,x]</p>
+	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEATSELECTION|w|x|y|y[z]|y[x,x]|x,y,y[x],y[x,x]</p>
+	<p class="indent1"><strong>Variables Used (w):</strong> TITLE=Text (Chooser title)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited Feat type)</p>
