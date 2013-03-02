@@ -125,43 +125,43 @@ CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|
 #SUBCLASS:Black Dragon Disciple	CHOICE:Black Dragon Disciple
 SUBCLASS:Black Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Line of Acid
-SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Acid
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Acid
 #SUBCLASS:Blue Dragon Disciple	CHOICE:Blue Dragon Disciple
 SUBCLASS:Blue Dragon Disciple		COST:0
 SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Line of Lightning
-SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Electricity
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity
 #SUBCLASS:Green Dragon Disciple	CHOICE:Green Dragon Disciple
 SUBCLASS:Green Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Cone of Gas
-SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Acid
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Acid
 #SUBCLASS:Red Dragon Disciple		CHOICE:Red Dragon Disciple
 SUBCLASS:Red Dragon Disciple		COST:0
 SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Cone of Fire
-SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Fire
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
 #SUBCLASS:White Dragon Disciple	CHOICE:White Dragon Disciple
 SUBCLASS:White Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Cone of Cold
-SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Cold
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
 #SUBCLASS:Brass Dragon Disciple	CHOICE:Brass Dragon Disciple
 SUBCLASS:Brass Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Line of Fire
-SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Fire
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
 #SUBCLASS:Bronze Dragon Disciple	CHOICE:Bronze Dragon Disciple
 SUBCLASS:Bronze Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Line of Lightning
-SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Electricity
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity
 #SUBCLASS:Copper Dragon Disciple	CHOICE:Copper Dragon Disciple
 SUBCLASS:Copper Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Line of Acid
-SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Acid
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Acid
 #SUBCLASS:Gold Dragon Disciple		CHOICE:Gold Dragon Disciple
 SUBCLASS:Gold Dragon Disciple		COST:0
 SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Cone of Fire
-SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Fire
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
 #SUBCLASS:Silver Dragon Disciple	CHOICE:Silver Dragon Disciple
 SUBCLASS:Silver Dragon Disciple	COST:0
 SUBCLASSLEVEL:3	ABILITY:Class Ability|AUTOMATIC|DD~Cone of Cold
-SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Cold
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Dragon Disciple
 1										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|BreathWeaponDC|10+CL+CON	DEFINE:BreathWeaponDC|0
 2										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1								BONUS:STAT|STR|2																												TEMPLATE:Dragon Disciple Attacks
@@ -172,7 +172,7 @@ SUBCLASSLEVEL:10	ABILITY:Class Ability|AUTOMATIC|Immunity To Cold
 7																		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK							BONUS:VAR|BreathWeaponDice|2
 8										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1								BONUS:STAT|INT|2
 9										BONUS:ABILITYPOOL|Dragon Disciple Bonus Spell|1																									ABILITY:Class Ability|AUTOMATIC|Dragon Wings
-10		BONUS:VAR|BlindsenseRange|60|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowLightVision|1									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|BreathWeaponDice|2							ABILITY:Class Ability|AUTOMATIC|Immunity To Paralysis|Immunity To Sleep
+10		BONUS:VAR|BlindsenseRange|60|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|HasLowLightVision|1									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|4	BONUS:STAT|CHA|2	BONUS:VAR|BreathWeaponDice|2							ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis|Immunity To Sleep
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus												Combat bonus
 CLASS:Duelist	HD:10		TYPE:PC.Prestige	ABB:Dul		MAXLEVEL:10	SOURCEPAGE:PrestigeClasses.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
