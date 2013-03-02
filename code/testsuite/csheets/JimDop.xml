@@ -1646,7 +1646,7 @@ BIO
 		<ability_object>
 			<name>Weapon and Armor Proficiency</name>
 			<description>A fighter is proficient with all simple and martial weapons and with all armor (heavy, medium, and light) and shields (including tower shields).</description>
-			<type>SPECIALQUALITY</type>
+			<type>CLASSABILITY.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
