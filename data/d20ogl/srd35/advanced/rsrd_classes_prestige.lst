@@ -99,7 +99,7 @@ CLASS:Blackguard	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 5	BONUS:VAR|UndeadCompanionLVL|CL|PRECLASS:1,Ex Paladin=9	ABILITY:Class Ability|AUTOMATIC|Undead Companion|PRECLASS:1,Ex Paladin=9
 5	BONUS:VAR|FiendishServantLVL|CL					ABILITY:Class Ability|AUTOMATIC|Fiendish Servant
 ###Block: Weapons / Armor Proficiencies
-1	ABILITY:Class Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Block: Normal Progression
@@ -181,7 +181,7 @@ CLASS:Duelist	PREATT:6	PREFEAT:3,Dodge,Mobility,Weapon Finesse	PRESKILL:2,TYPE.P
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYPE=Perform|Sense Motive|Spot|Tumble
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Duelist
-1	ABILITY:Class Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 ###Block: Normal Level Progression
 1	BONUS:VAR|CannyDefenseLVL|CL				ABILITY:Class Ability|AUTOMATIC|Canny Defense
 2	BONUS:VAR|ImprovedReaction|floor((CL+4)/6)*2	ABILITY:Class Ability|AUTOMATIC|Improved Reaction
