@@ -1410,7 +1410,7 @@ BIO
 		<ability_object>
 			<name>Psionic</name>
 			<description>Total Power Points 37; Base Power Points 25; Bonus Power Points 12</description>
-			<type>SPECIALQUALITY</type>
+			<type>CLASSABILITY.CLASSABILITY.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1466,7 +1466,7 @@ BIO
 		<ability_object>
 			<name>Psion Weapon Proficiencies</name>
 			<description></description>
-			<type>INTERNAL</type>
+			<type>CLASSABILITY.CLASSABILITY.INTERNAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
