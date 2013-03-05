@@ -220,6 +220,8 @@ Immunity / Divination								KEY:Immunity ~ Divination					OUTPUTNAME:Immunity t
 Immunity to Antimagic and Dispelling					KEY:Immunity ~ 4CP																CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities			DESC:(Common, Minor, Great, Specialized: only protects personal magical buffs, Corrupted, only protects Innate Enchantments, 4 CP).																																																																																																																																											COST:4
 Immunity to Antimagic and Dispelling (Epic L9)				KEY:Immunity to Antimagic and Dispelling ~ 18 CP																CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities			DESC:(Common, Minor, Great, Specialized: only protects personal magical buffs, Corrupted, only protects Innate Enchantments, 4 CP).																																																																																																																																											COST:4
 
+Immunity to Antimagic and Dispelling vrs Innate Enchantments (Epic L9)				KEY:Immunity to Antimagic and Dispelling vrs Innate Enchantments ~ 9 CP																CATEGORY:Special Ability	TYPE:General.EclipseAbilityOutput.Abilities			DESC:(Common, Minor, Great, Specialized: only protects personal magical buffs, Corrupted, only protects Innate Enchantments, 4 CP).																																																																																																																																											COST:9
+
 
 ###Block: Immunities Commonly Used ----
 # Common and not Common Immunities
@@ -249,6 +251,9 @@ Immunity / XP Cost Initial Innate Enchanment																											CATEGORY:
 Immunity / XP Cost Innate Enchantment																												CATEGORY:Special Ability	TYPE:Abilities.General.EclipseAbilityOutput			DESC:(2 CP) Handles initial Innate Enchantment, L1 only.																																																																																											COST:2				BENEFIT:(2 CP) Handles initial Innate Enchantment, L1 only.
 Immunity / Living off the land																													CATEGORY:Special Ability	TYPE:EclipseAbility.Abilities.EclipseAbilityOutput		DESC:Minor Immunity/"living off the land", needs less supplies to get along then other characters. That's not usually a problem, so Uncommon/Minor/Trivial (2 CP).																																																																									COST:2
 Immunity / Sleep needs only 4 hours																													CATEGORY:Special Ability	TYPE:EclipseAbility.Abilities.EclipseAbilityOutput		DESC:Minor Immunity/ Sleep, needs less sleep to get along then other characters. Uncommon/Minor/Trivial (2 CP).																																																																																		COST:2
+
+
+Immunity / The XP Cost of Innate Enchantments																											CATEGORY:Special Ability	TYPE:Abilities.General.EclipseAbilityOutput			DESC:Uncommon, Minor, Trivial, 1 CP																																																																																											COST:1				
 
 
 # Augment Bonus Items:

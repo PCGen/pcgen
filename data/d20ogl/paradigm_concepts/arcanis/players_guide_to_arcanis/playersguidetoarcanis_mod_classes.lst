@@ -233,7 +233,7 @@ SUBCLASS:Order of the Perfect Union		COST:0
 SUBCLASSLEVEL:1																																													ADD:ABILITY|Special Ability|NORMAL|Unfazed Feat,Stunning Fist																																																									TEMPLATE:PerfectUnionFavClass																																AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling
 SUBCLASSLEVEL:2																																																																																																																																													AUTO:FEAT|Callous|Combat Reflexes
 SUBCLASSLEVEL:5													ABILITY:Special Ability|NORMAL|Path of the Stoic Soul
-SUBCLASSLEVEL:6																																													ADD:FEAT|Improved Disarm,Improved Trip,Divinity's Purpose|PRERACE:1,Val
+SUBCLASSLEVEL:6																																													ADD:FEAT|Improved Disarm,Improved Trip,Divinity's Purpose
 
 
 # Class Name	Subclass?		Automatic Languages			Bonus Languages
