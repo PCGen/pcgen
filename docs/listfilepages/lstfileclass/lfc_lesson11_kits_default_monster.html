@@ -26,29 +26,48 @@
 		<p>By Aaron Divinsky (boomer70).</p>
 		
 		<p class="indent0"><strong>File(s) Covered:</strong> *kit_races.lst</p>
+		<p class="indent0"><strong>PCGen LST Standard:</strong> PCGen 6.00.x</p>
+		<p class="indent0"><strong>GameMode:</strong> 3.5e (RSRD)</p>
 		<p class="indent0"><strong>Tags used:</strong></p>
 		
-		<p class="indent1">The tags used in this LST File Class are described in detail in 
-			the <a href="../datafilestagpages/datafilesstartingkits.html">Starting Kit</a> section of theLST Tag dictionary. 
-  			Additionally, the <a href="../globalfilestagpages/globalfilesprexxx.html">PRExxx</a> tags are described in more 
-  			detail in the LST Tag Dictionary as well.</p>
+		<p class="indent1"><code>
+			<a href="../datafilestagpages/datafilesstartingkits.html#STARTPACK">STARTPACK</a>, 
+			<a href="../globalfilestagpages/globalfilesprexxx.html">PRExxx</a>, 
+			<a href="../datafilestagpages/datafilesstartingkits.html#EQUIPBUY">EQUIPBUT</a>, 
+			<a href="../datafilestagpages/datafilesstartingkits.html#VISIBLE">VISIBLE</a>, 
+			<a href="../datafilestagpages/datafilesstartingkits.html#RACE">RACE</a>, 
+			<a href="../datafilestagpages/datafilesstartingkits.html#NAME">NAME</a>, 
+			<a href="../datafilestagpages/datafilesstartingkits.html#GENDER">GENDER</a>, 
+			<a href="../datafilestagpages/datafilesstartingkits.html#ALIGN">ALIGN</a>, 
+			<a href="../datafilestagpages/datafilesstartingkits.html#STAT">STAT</a>
+			<a href="../datafilestagpages/datafilesstartingkits.html#SKILL">SKILL</a>
+			<a href="../datafilestagpages/datafilesstartingkits.html#RANK">RANK</a>
+			<a href="../datafilestagpages/datafilesstartingkits.html#COUNT">COUNT</a>
+			<a href="../datafilestagpages/datafilesstartingkits.html#FREE">FREE</a>
+		</code></p>
+
+<hr>
 
 		<p>This lesson is intended to cover creating your own &quot;Default Monster Kits&quot;.&nbsp; 
-		Default Monster Kits are used to encode the information about the default version of
-		a monster as provided in the source material.</p>
+			Default Monster Kits are used to encode the information about the default version of
+			a monster as provided in the source material.</p>
+
 		<p>The first thing to note is that a different file set is used when creating Default Monster
-		Kits than when creating the monster.&nbsp; The files in question are called &quot;Starting Kits&quot;
-		or just Kits for short.&nbsp; Kit files have a slightly different syntax than other LST files
-		you may already be familiar with.</p>
+			Kits than when creating the monster.&nbsp; The files in question are called &quot;Starting Kits&quot;
+			or just Kits for short.&nbsp; Kit files have a slightly different syntax than other LST files
+			you may already be familiar with.</p>
+
 		<p>The format for a Kit file is each Kit starts with a <code>STARTPACK</code> tag and ends when
-		the code sees another <code>STARTPACK</code> tag or the end of file.&nbsp; Most tags in
-		a Kit file appear one to a line as opposed to tab separated as in other list files.&nbsp; 
-		However, there are some tags which require multiple tags per line and these tags <strong>do</strong>
-		need to be tab separated.</p>
-		<p>This lesson is not intended as a treatise on Kit files in general.&nbsp; As always, see the 
-		documentation for more information on Kit file tags.</p>
+			the code sees another <code>STARTPACK</code> tag or the end of file.&nbsp; Most tags in
+			a Kit file appear one to a line as opposed to tab separated as in other list files.&nbsp; 
+			However, there are some tags which require multiple tags per line and these tags <strong>do</strong>
+			need to be tab separated.</p>
+
+		<p>This lesson is not intended as a treatise on Kit files in general.&nbsp; As always, see the documentation for 
+			more information on <a href="../datafilestagpages/datafilesstartingkits.html">Starting Kit</a> file tags.</p>
+
 		<p>We will revisit our friends the Solar and the Ninja Monkey that we created in the 
-		previous lessons on races and use them as examples in this lesson as well.</p>
+			previous lessons on races and use them as examples in this lesson as well.</p>
 
 <hr>
 		<p><a href="../datafilestagpages/datafilesstartingkits.html#STARTPACK"><strong><code>STARTPACK</code></strong></a></p>
@@ -59,7 +78,7 @@
 		<p>The Solar's entry would be: </p>
 
 		<blockquote>
-			<p><code>STARTPACK:Default Celestial (Solar)</code></p>
+			<p><code>STARTPACK:Default Angel (Solar)</code></p>
 		</blockquote>
 
 		<p>The entry for the Ninja Monkey will be:</p>
@@ -67,10 +86,6 @@
 		<blockquote>
 			<p><code>STARTPACK:Default Ninja Monkey</code></p>
 		</blockquote>
-
-		<p class="sidebar"><strong>Update to RSRD</strong><br/>
-			The Solar is an Angel in the RSRD so our tag would be:The tag in 3.5 would look like:<br>
-			&nbsp; &nbsp; STARTPACK:Default Angel (Solar)</p>
 
 <hr>
 
@@ -80,13 +95,13 @@
 			for anyone to be able to take that kit.&nbsp; All global prereqs are allowable on this line.</p>
 
 		<p>For default monsters we want to make sure that only a character with a matching race or no race
-			selected can take the kit.&nbsp; We don't want those pesky Ninja Monkeys selecting our Default Celestial (Solar) kit.</p>
+			selected can take the kit.&nbsp; We don't want those pesky Ninja Monkeys selecting our Default Angel (Solar) kit.</p>
 
-		<p>To do this we will add a <code>PRERACE</code> tag to the <code>STARTPACK</code> line we started above.  
-			So we enter a few tabs and type:</p>
+		<p>To do this we will add a <a href="../globalfilestagpages/globalfilesprexxx.html#PRERACE"><code>PRERACE</code></a> tag to 
+			the <code>STARTPACK</code> line we started above. So we enter a few tabs and type:</p>
 
 		<blockquote>
-			<p><code>PRERACE:Celestial (Solar)</code></p>
+			<p><code>PRERACE:1,Angel (Solar)</code></p>
 		</blockquote>
 
 		<p>However, we also want to allow new characters without a race to select this Kit.  To do this we need
@@ -95,13 +110,13 @@
 			&nbsp; So the final tag for the Solar would be:</p>
 
 		<blockquote>
-			<p><code>PREMULT:1,[PRERACE:Celestial (Solar)],[!PRERACE:%]</code></p>
+			<p><code>PREMULT:1,[PRERACE:1,Angel (Solar)],[!PRERACE:1,%]</code></p>
 		</blockquote>
 
 		<p>The tag will be very similar for the Ninja Monkey.</p>
 
 		<blockquote>
-			<p><code>PREMULT:1,[PRERACE:Ninja Monkey],[!PRERACE:%]</code></p>
+			<p><code>PREMULT:1,[PRERACE:1,Ninja Monkey],[!PRERACE:1,%]</code></p>
 		</blockquote>
 
 <hr>
@@ -147,12 +162,12 @@
 			tag.&nbsp; In our case we will use part of the prereq we entered for race above.</p>
 
 		<blockquote>
-			<p><code>RACE:Celestial (Solar)&lt;tab&gt;!PRERACE:%</code></p>
+			<p><code>RACE:Angel (Solar)&lt;tab&gt;!PRERACE:1,%</code></p>
 		</blockquote>
 
-		<p>This tells the program execute this line to set the character's race to Celestial (Solar) only
+		<p>This tells the program execute this line to set the character's race to Angel (Solar) only
 			if the character doesn't already have a race selected.&nbsp; For the Ninja Monkey just 
-			replace Celestial (Solar) with Ninja Monkey in the above line.</p>
+			replace Angel (Solar) with Ninja Monkey in the above line.</p>
 
 <hr>
 
@@ -174,7 +189,7 @@
 			Neither the Solar nor the Ninja Monkey specify a particular gender so we will skip this tag for them</p>
 
 		<p>Just to illustrate if you wanted to create a special female version of the 
-			Solar you could specify &quot;GENDER:Female&quot; on either the <code>NAME</code> line or its
+			Solar you could specify <code>GENDER:Female</code> on either the <code>NAME</code> line or on its
 			own line.</p>
 
 <hr>
@@ -231,44 +246,47 @@
 
 <hr>
 
-		<p><a href="../datafilestagpages/datafilesstartingkits.html#SKILL"><strong><code>SKILL</code></strong></a>/<a href="../datafilestagpages/datafilesstartingkits.html#RANK"><strong><code>RANK</code></strong></a></p>
+		<p><a href="../datafilestagpages/datafilesstartingkits.html#SKILL"><strong><code>SKILL</code></strong></a> /
+			<a href="../datafilestagpages/datafilesstartingkits.html#RANK"><strong><code>RANK</code></strong></a> /
+			<a href="../datafilestagpages/datafilesstartingkits.html#COUNT"><strong><code>COUNT</code></strong></a> /
+			<a href="../datafilestagpages/datafilesstartingkits.html#FREE"><strong><code>FREE</code></strong></a></p>
 
 		<p>This set of tags, which must appear on the same line, allows you to buy skill ranks
-			in a skill for the character applying the kit.&nbsp; All of the comments under the section
-			for <code>BONUS:SKILLRANK</code> apply here as well, except that the workaround for skills
-			which require a choice is not required.&nbsp; To handle a choice of skills in a default
-			kit we enter all the choices separated by a pipe character &quot;|&quot;.&nbsp; We then use
-			the special tag <code>COUNT</code> to specify how many choice from the list the character 
-			should get.&nbsp; You can specify specific skills or types of skills like <code>TYPE.Knowledge</code>.</p>
+			in a skill for the character applying the kit. All of the comments under the section
+			for <a href="../globalfilestagpages/globalfilesbonus.html#SKILLRANK"><code>BONUS:SKILLRANK</code></a> 
+			apply here as well, except that the workaround for skills which require a choice is not required. 
+			To handle a choice of skills in a default kit we enter all the choices separated by a pipe (|) character. 
+			We then use the special tag <code>COUNT</code> to specify how many choices from the list the character 
+			should get. You can specify specific skills or types of skills like <code>TYPE=Knowledge</code>.</p>
 
-		<p>The skills are granted exactly as if you had picked them from the user interface.&nbsp; The
-			character must have sufficient skill points to buy the listed skills.&nbsp; Occasionally a 
-			source will grant more ranks than the monster can actually pay for.&nbsp; In these cases you
-			have two options.&nbsp; You can either not grant the ranks and note that the source appears
-			to be in error or you can use the <code>FREE:YES</code> tag on the <code>SKILL</code> line to
-			grant the extra ranks for &quot;free&quot; (no skill points will be spent).</p>
+		<p>The skills are granted exactly as if you had picked them from the user interface. The
+			character must have sufficient skill points to buy the listed skills. Occasionally a 
+			source will grant more ranks than the monster can actually pay for. In these cases you
+			have two options. You can either not grant the ranks and note that the source appears
+			to be in error or you can use the <code>FREE:YES</code> tag on the <strong>SKILL</strong> 
+			line to grant the extra ranks for &quot;free&quot; (no skill points will be spent).</p>
 
-		<p>The kit will also enforce the user preference for Max Ranks for a skill.&nbsp; Sometimes in
-			order to get the listed total bonus to a skill it would be necessary to grant more ranks than
-			the max ranks for a skill.&nbsp; Usually this happens with cross-class skills.&nbsp; To allow 
-			the skill to go above the maximum you can set the &quot;Bypass Max Skill Rank&quot; setting in
-			the PCGen preferences.</p>
+		<p>The kit will also enforce the user preference for Max Ranks for a skill. Sometimes in order to get 
+			the listed total bonus to a skill it would be necessary to grant more ranks than the max ranks 
+			for a skill. Usually this happens with cross-class skills. To allow the skill to go above the 
+			maximum you can set the &quot;Bypass Max Skill Rank&quot; setting in the PCGen preferences.</p>
 
 		<p>With all that being said our we would add the following lines to our Solar kit 
 			(each SKILL/RANK pair should be on a new line, replace <code> TAB </code> with a real tab character):
 
 		<blockquote>
 			<p><code>
-			  SKILL:Concentration TAB RANK:11<br/>
-			  SKILL:Escape Artist TAB RANK:25<br/>
-			  SKILL:Hide TAB RANK:25<br/>
-			  SKILL:Listen TAB RANK:25<br/>
-			  SKILL:Move Silently TAB RANK:25<br/>
-			  SKILL:Sense Motive TAB RANK:25<br/>
-			  SKILL:Spot TAB RANK:25<br/>
-			  SKILL:Search TAB RANK:25<br/>
-			  SKILL:Spellcraft TAB RANK:13<br/>
-			  SKILL:TYPE.Knowledge|TYPE.Craft TAB COUNT:5 TAB RANK:25<br/>
+				&nbsp; &nbsp; SKILL:Diplomacy &lt;tab&gt; RANK:23<br/>
+				&nbsp; &nbsp; SKILL:Concentration &lt;tab&gt; RANK:25<br/>
+				&nbsp; &nbsp; SKILL:Escape Artist &lt;tab&gt; RANK:25<br/>
+				&nbsp; &nbsp; SKILL:Hide &lt;tab&gt; RANK:25<br/>
+				&nbsp; &nbsp; SKILL:Listen &lt;tab&gt; RANK:25<br/>
+				&nbsp; &nbsp; SKILL:Move Silently &lt;tab&gt; RANK:25<br/>
+				&nbsp; &nbsp; SKILL:Search &lt;tab&gt; RANK:25<br/>
+				&nbsp; &nbsp; SKILL:Sense Motive &lt;tab&gt; RANK:25<br/>
+				&nbsp; &nbsp; SKILL:Spellcraft &lt;tab&gt; RANK:21<br/>
+				&nbsp; &nbsp; SKILL:Spot &lt;tab&gt; RANK:25<br/>
+				&nbsp; &nbsp; SKILL:TYPE=Knowledge|TYPE=Craft &lt;tab&gt; RANK:25 &lt;tab&gt; COUNT:5<br/>
 			</code></p>
 		</blockquote>
 
@@ -276,50 +294,25 @@
 
 		<blockquote>
 			<p><code>
-			  SKILL:Balance TAB RANK:5<br/>
-			  SKILL:Hide TAB RANK:5<br/>
-			  SKILL:Jump TAB RANK:5<br/>
-			  SKILL:Listen TAB RANK:5<br/>
-			  SKILL:Move Silently TAB RANK:5<br/>
-			  SKILL:Spot TAB RANK:5<br/>
+				&nbsp; &nbsp; SKILL:Hide &lt;tab&gt; RANK:4<br/>
+				&nbsp; &nbsp; SKILL:Listen &lt;tab&gt; RANK:3<br/>
+				&nbsp; &nbsp; SKILL:Move Silently &lt;tab&gt; RANK:4<br/>
+				&nbsp; &nbsp; SKILL:Spot &lt;tab&gt; RANK:3<br/>
 			</code></p>
 
 		</blockquote>
 
-		<p class="sidebar"><strong>Update to RSRD</strong><br/>
-			The skill ranks for the RSRD versions of the monsters are as follows:<br/>
-				<code>
-				&nbsp; &nbsp; SKILL:Diplomacy TAB RANK:23<br/>
-				&nbsp; &nbsp; SKILL:Concentration TAB RANK:25<br/>
-				&nbsp; &nbsp; SKILL:Escape Artist TAB RANK:25<br/>
-				&nbsp; &nbsp; SKILL:Hide TAB RANK:25<br/>
-				&nbsp; &nbsp; SKILL:Listen TAB RANK:25<br/>
-				&nbsp; &nbsp; SKILL:Move Silently TAB RANK:25<br/>
-				&nbsp; &nbsp; SKILL:Search TAB RANK:25<br/>
-				&nbsp; &nbsp; SKILL:Sense Motive TAB RANK:25<br/>
-				&nbsp; &nbsp; SKILL:Spellcraft TAB RANK:21<br/>
-				&nbsp; &nbsp; SKILL:Spot TAB RANK:25<br/>
-				&nbsp; &nbsp; SKILL:TYPE=Knowledge|TYPE=Craft TAB RANK:25 TAB COUNT:5<br/>
-				</code><br/>
-			Our Ninja Monkey will be very similar:<br/>
-				<code>
-				&nbsp; &nbsp; SKILL:Hide TAB RANK:4<br/>
-				&nbsp; &nbsp; SKILL:Listen TAB RANK:3<br/>
-				&nbsp; &nbsp; SKILL:Move Silently TAB RANK:4<br/>
-				&nbsp; &nbsp; SKILL:Spot TAB RANK:3<br/>
-				</code>
-		</p>
-
 <hr>
 
-		<p><a href="../datafilestagpages/datafilesstartingkits.html#FEAT"><strong><code>FEAT</code></strong></a></p>
+		<p><a href="../datafilestagpages/datafilesstartingkits.html#FEAT"><strong><code>FEAT</code></strong></a> / 
+			<a href="../datafilestagpages/datafilesstartingkits.html#FREE"><strong><code>FREE</code></strong></a></p>
 
-		<p>The <code>FEAT</code> tag is a very simple one.&nbsp; It simply lists each
-			feat a creature gets one to a line.&nbsp; The <code>FREE:YES</code> tag can be 
-			added to the line to grant the feat without charging the feat pool.&nbsp; This would
-			primarily useful if a creature has more feats than it should for its HD.</p>
+		<p>The <code>FEAT</code> tag is a very simple one. It simply lists each feat a creature gets one to a line. 
+			The <code>FREE:YES</code> tag can be added to the <strong>FEAT</strong> line, as it was done on the 
+			<strong>SKILL</strong> line above, to grant the feat without charging the feat pool. This would primarily 
+			useful if a creature has more feats than it should for its HD.</p>
 
-		<p>Our Solar is fairly straightforward.&nbsp; The code appears below.</p>
+		<p>Our Solar is fairly straightforward. The code appears below.</p>
 
 		<blockquote>
 			<p>
@@ -336,18 +329,21 @@
 
 <hr>
 
-		<p><a href="../datafilestagpages/datafilesstartingkits.html#GEAR"><strong><code>GEAR</code></strong></a></p>
+		<p><a href="../datafilestagpages/datafilesstartingkits.html#GEAR"><strong><code>GEAR</code></strong></a> /
+			<a href="../datafilestagpages/datafilesstartingkits.html#EQMOD"><strong><code>EQMOD</code></strong></a> /
+			<a href="../datafilestagpages/datafilesstartingkits.html#SIZE"><strong><code>SIZE</code></strong></a> /
+			<a href="../datafilestagpages/datafilesstartingkits.html#LOCATION"><strong><code>LOCATION</code></strong></a></p>
 
 		<p>The last set of tags we need to cover to complete our Solar and Ninja Monkey
 			examples are the <code>GEAR</code> tags.&nbsp; The Solar gets two pieces of 
 			equipment by default, a +5 dancing vorpal greatsword and a +2 mighty (+5 Str) composite 
 			longbow.&nbsp; To enter this into the kit we first grant the base item with the 
-			<code>GEAR</code> tag like so &quot;<code>GEAR:Greatsword</code>&quot;.</p>
+			<code>GEAR</code> tag like so: <code>GEAR:Greatsword</code>.</p>
 
-		<p>Then we need to add the special abilities to the base item.&nbsp; We do this by adding
-			EQMODs just like using the equipment customizer.&nbsp; For the greatsword we need to
-			add the following EQMODs, MWORKW, PLUS5W, DANCE, and VORPAL.&nbsp; So we will add the
-			following code to the <code>GEAR</code> line we created earlier: <code>EQMOD:MWORKW.PLUS5W.DANCE.VORPAL</code>.</p>
+		<p>Then we need to add the special abilities to the base item.&nbsp; We do this by adding EQMODs just like using the 
+			equipment customizer.&nbsp; For the greatsword we need to add the following EQMODs: <strong>MWORKW</strong>, 
+			<strong>PLUS5W</strong>, <strong>DANCE</strong>, and <strong>VORPAL</strong>. So we will add the following code 
+			to the <strong>GEAR</strong> line we created earlier: <code>EQMOD:MWORKW.PLUS5W.DANCE.VORPAL</code>.</p>
 
 		<p>Now we need to make sure that the item is the correct size for the creature we are
 			creating.&nbsp; By default, PCGen creates all items at Medium size.&nbsp; Our Solar however
@@ -355,7 +351,7 @@
 			this with the <code>SIZE</code> tag.&nbsp; The <code>SIZE</code> tag takes the single
 			character abbreviation for size or a special tag <code>PC</code> to size the item
 			to whatever size the character is.&nbsp; We will add the <code>SIZE:PC</code> tag to our
-			<code>GEAR</code> line to make sure that the Solar's greatsword grows if it does (by 
+			<strong>GEAR</strong> line to make sure that the Solar's greatsword grows if it does (by 
 			adding HD).</p>
 
 		<p>The last thing we need to do is equip the item.&nbsp; If we do not equip the item
@@ -375,8 +371,8 @@
 		<blockquote>
 			<p>
 				<code>
-				GEAR:Greatsword TAB EQMOD:MWORKW.PLUS5W.DANCE.VORPAL TAB SIZE:PC TAB LOCATION:Both Hands<br/>
-				GEAR:Longbow (Composite) TAB EQMOD:MWORKW.BOWSTR|5.PLUS2W TAB SIZE:PC TAB LOCATION:Carried
+				GEAR:Greatsword &lt;tab&gt; EQMOD:MWORKW.PLUS5W.DANCE.VORPAL &lt;tab&gt; SIZE:PC &lt;tab&gt; LOCATION:Both Hands<br/>
+				GEAR:Longbow (Composite) &lt;tab&gt; EQMOD:MWORKW.BOWSTR|5.PLUS2W &lt;tab&gt; SIZE:PC &lt;tab&gt; LOCATION:Carried
 				</code>
 			</p>
 		</blockquote>
@@ -384,12 +380,14 @@
 <hr>
 
 		<p>Well, this brings to a close the lessons on creating monster kits for use 
-			in PCGen.&nbsp; There is much more you can do with kits.&nbsp; I encourage you to check
+			in PCGen. There is much more you can do with kits. I encourage you to check
 			out the documentation for more in depth information on everything kits can do.</p>
 
 		<p>Aaron, Docs 2nd</p>
 
 		<p></p>
+
+<hr>
 
 		<p>
 			<a href="http://validator.w3.org/check?uri=referer"><img

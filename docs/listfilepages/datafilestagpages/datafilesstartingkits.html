@@ -468,7 +468,7 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Grants the character the indicated spells if they are legally available.</li>
-			<li>You can specify spells by using a | (pipe) delimited list.</li>
+			<li>You can specify spells by using a pipe-delimited (|) list.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>SPELLS:Detect Magic|Ghost Sound|Light|Read Magic</code></p>
@@ -610,7 +610,7 @@
 		<p class="indent2"><code>SPELLS:LEVEL=1 &lt;tab&gt; COUNT:2</code></p>
 		<p class="indent3">Would allow the choice of two first level spells.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
-		<p class="indent2">DOMAIN, FEAT, PROF, or SPELLS line</p>
+		<p class="indent2">SKILL, DOMAIN, FEAT, PROF, or SPELLS lines</p>
 		<p></p>
 
 <hr>
@@ -919,19 +919,23 @@
 
 		<p class="status"><a name="VISIBLE">*** Updated 5.9.2</a></p>
 		<p class="indent0"><strong>Tag Name:</strong> VISIBLE:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Property (YES or NO)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> YES (Default)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> NO</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> QUALIFY</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>YES - Displays the name of the KIT in the KIT selection window.</li>
-			<li>NO - Hides the name of the KIT in the KIT selection window.</li>
-			<li>QUALIFY - Displays the name of the KIT only if the character passes the prerequisites.</li>
-			<li>This is an optional tag and if not used it will default to YES.</li>
+			<li>This is an optional tag that determins whether the KIT appears in the KIT Selection window.</li>
+			<li><code>YES</code> - Displays the name of the KIT in the KIT selection window.</li>
+			<li><code>NO</code> - Hides the name of the KIT in the KIT selection window.</li>
+			<li><code>QUALIFY</code> - Displays the name of the KIT only if the character passes the prerequisites.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>VISIBLE:YES</code></p>
 		<p class="indent3">Shows the KIT name in PCGen.</p>
 		<p class="indent2"><code>VISIBLE:NO</code></p>
 		<p class="indent3">Hides the KIT name in PCGen.</p>
+		<p class="indent2"><code>VISIBLE:QUALIFY</code></p>
+		<p class="indent3">The KIT name will be displayed in PCGen if the character meets all prerequisites.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">STARTPACK lines</p>
 		<p></p>
