@@ -103,7 +103,7 @@
 
 <hr>
 
-	<p class="status"><a name="CONTAINS">*** Updated 5.14.0</a></span></p>
+	<p class="status"><span class="status"><a name="CONTAINS">*** Updated 5.14.0</a></span></p>
 	<p class="indent0"><strong>Tag Name:</strong> CONTAINS:x|y=z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Weight held)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Item type)</p>
@@ -113,22 +113,24 @@
 	<ul class="indent2">
 		<li>This tag is used to define how much, by weight and what type of object, a container can hold.</li>
 		<li>Any object with <code>CONTAINS</code> must also include a <code>TYPE:Container</code> tag for the <code>CONTAINS</code> tag to be activated.</li>
-		<li>The first parameter (x) is the maximum weight the container can hold.</li>
-		<ul>
-			<li>An asterisk (*) means that the weight added doesn't change the weight of the container (e.g. a Bag of Holding).</li>
-			<li>A number followed by a percentage (%) symbol before the quantity will reduce
-				the total encumbrance weight of items in the container by the percentage specified.</li>
-			<li>The name of the weight unit is defined in the game mode system files in the <span class="lstfile">miscinfo.lst</span> file
-				with the tag <code>WEIGHTUNITABBREV</code>.</li>
-		</ul>
-		<li>The second parameter (y) identifies the type of items the container may hold.</li>
-		<ul>
-			<li>If there are no type's specified the container may hold anything</li>
-			<li>Specific tags (Potions, Rings, Armor, etc) can be specified with a limit to
-				how many can be in the container (e.g. Scroll Case)</li>
-			<li>If specific tags are used the container may only hold the listed object types.</li>
-			<li>A limit to the total number of things contained can be specified by setting a Total=x tag.</li>
-		</ul>
+		<li>The first parameter (x) is the maximum weight the container can hold.
+			<ul>
+				<li>An asterisk (*) means that the weight added doesn't change the weight of the container (e.g. a Bag of Holding).</li>
+				<li>A number followed by a percentage (%) symbol before the quantity will reduce
+					the total encumbrance weight of items in the container by the percentage specified.</li>
+				<li>The name of the weight unit is defined in the game mode system files in the <span class="lstfile">miscinfo.lst</span> file
+					with the tag <code>WEIGHTUNITABBREV</code>.</li>
+			</ul>
+		</li>
+		<li>The second parameter (y) identifies the type of items the container may hold.
+			<ul>
+				<li>If there are no type's specified the container may hold anything</li>
+				<li>Specific tags (Potions, Rings, Armor, etc) can be specified with a limit to
+					how many can be in the container (e.g. Scroll Case)</li>
+				<li>If specific tags are used the container may only hold the listed object types.</li>
+				<li>A limit to the total number of things contained can be specified by setting a Total=x tag.</li>
+			</ul>
+		</li>
 		<li>The third parameter (z) identifies the quantity allowed for the associated type of items.</li>
 	</ul>
 	<p class="sidebar1"><strong>Note:</strong> <code>UNLIM</code> may be used, in either (x) or (z), to indicate an unlimited
@@ -214,7 +216,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (file path)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">This occurs on an equipment line and sets the path to the icon to be used for the equipment item.
-		The path is relative to the pcgen install folder. The same @, & and * shortcuts as are used in PCC files may be
+		The path is relative to the pcgen install folder. The same @, &amp; and * shortcuts as are used in PCC files may be
 		 used in the path to specify where the path is relative to.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ICON:@/d20ogl/srd35/icons/backpack.png</code></p>
@@ -394,12 +396,15 @@
 	<p class="indent0"><strong><a name="WT">Tag Name:</a></strong> WT:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Item Weight)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">The weight of the item in question. You can specify any positive
-		number weight or if no weight use a 0 (zero)</p>
+	<ul class="indent2">
+		<li>Provides the weight of the item in question.</li>
+		<li>The <code>WT</code> tag will take a number greater than or equal to zero (0) for the weight.</li>
+		<li>The units for the weight is set with the <code>WEIGHTUNIT</code> tag in the gameMode 
+			<span class="lstfile">miscinfo.lst</span> file.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>WT:5</code></p>
-	<p class="indent3">Item weighs 5 coins.</p>
-
+	<p class="indent3">Item weighs 5 lbs.</p>
 
 <hr>
 
@@ -597,8 +602,8 @@
 
 <hr>
 
-	<p class="status"><strong><a name="PROFICIENCY">*** Updated 5.13.8</a></p>
-	<p class="indent0">Tag Name:</strong> PROFICIENCY:x|y</p>
+	<p class="status"><strong><a name="PROFICIENCY">*** Updated 5.13.8</a></strong></p>
+	<p class="indent0"><strong>Tag Name:</strong> PROFICIENCY:x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (WEAPON, ARMOR, or SHIELD)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Proficiency Name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
