@@ -195,7 +195,7 @@
 
 <hr>
 
-	<p class="lstdep"><a name="ARMORTYPE">*** Deprecated Syntax 5.17.4</a> - Use TBD - Remove 6.2</p>
+	<p class="lstdep"><a name="ARMORTYPE">*** Deprecated Syntax 5.17.4</a> - Use <a href="#ARMORPROFICIENCY">CHOOSE:ARMORPROFICIENCY</a> - Remove 6.2</p>
 	<p><a name="ARMORTYPE"></a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:ARMORTYPE</p>
 	<p class="indent1"><strong>Variables Used:</strong> None</p>
@@ -455,7 +455,7 @@
 
 <hr>
 
-	<p class="lstdep"><a name="FEAT">*** Deprecated Syntax 5.17.3</a> - Remove 6.2</p>
+	<p class="lstdep"><a name="FEAT">*** Deprecated Syntax 5.17.3</a> - See <strong><a href="#FEATCONVERSION">Conversion Notes Below</strong></a> - Remove 6.2</p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEAT=x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -468,6 +468,8 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:FEAT=Weapon Focus</code></p>
 	<p class="indent3">Will display a list of all the character's choices for the Weapon Focus feat.</p>
+	<p class="indent1"><a name="FEATCONVERSION"><strong>Example Conversion to New Syntax:</strong></a></p>
+	<p class="indent2"><code>CHOOSE:FEAT=Weapon Focus</code> becomes <code>CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus|PC</code> - Use <a href="#WEAPONPROFICIENCY">CHOOSE:WEAPONPROFICIENCY</a></p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
@@ -1106,7 +1108,7 @@
 
 <hr>
 
-	<p class="lstdep"><a name="SPELLCLASSES">*** Deprecated Syntax 5.17.4</a> - Use TBD - Remove 6.2</p>
+	<p class="lstdep"><a name="SPELLCLASSES">*** Deprecated Syntax 5.17.4</a> - Use <a href="#CLASS">CHOOSE:CLASS|SPELLCASTER</a> - Remove 6.2</p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLCLASSES</p>
 	<p class="indent1"><strong>Variables Used:</strong> None</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -1119,6 +1121,8 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:SPELLCLASSES</code></p>
 	<p class="indent3">Will produce a list of the character's classes that can cast spells.</p>
+	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
+	<p class="indent2"><code>CHOOSE:SPELLCLASSES</code> becomes <code>CHOOSE:CLASS|SPELLCASTER</code></p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
