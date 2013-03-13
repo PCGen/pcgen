@@ -68,7 +68,7 @@ public class AutoSizingColumnModel extends DefaultTableColumnModel
 					m_table.getDefaultRenderer(m_table.getModel()
 						.getColumnClass(getColumnCount()));
 
-			if (renderer != null)
+			if (renderer != null && getColumnCount() > 0)
 			{
 				for (int row = 0; row < rowCount; row++)
 				{

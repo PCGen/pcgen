@@ -62,7 +62,7 @@ public class PlayerCharacterOutput
 	public PlayerCharacterOutput(PlayerCharacter pc)
 	{
 		this.pc = pc;
-		this.display = pc.getDisplay();
+		this.display = pc == null ? null : pc.getDisplay();
 	}
 
 	public String getAC()
