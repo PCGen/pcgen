@@ -358,6 +358,24 @@ Wings of Flying										TYPE:Magic.Wondrous.Cape		COST:54000	WT:2										SOUR
 # Equipment Name					Output Name			Type					Cost		Weight	Source Page				Save checks bonus
 Periapt of the Night Hag (Heartstone)	OUTPUTNAME:Heartstone	TYPE:Magic.Wondrous.Amulet	COST:1800	WT:0		SOURCEPAGE:MonstersM-N.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|2|TYPE=Resistance
 
+###Block: Items implied by Wondrous Items
+# Equipment Name					Output Name				Type								Contains			Cost		Weight	Size		Source Page						Special Property
+# For Robe of Useful Items
+Bag (Coin)						OUTPUTNAME:Bag, [NAME]		TYPE:Goods.Container.General				CONTAINS:2|Any		COST:0.05	WT:0.25			SOURCEPAGE:MagicItemsV.rtf			SPROP:for Robe of Useful Items.
+Coffer (Silver)					OUTPUTNAME:Coffer, [NAME]	TYPE:Goods.Container.General				CONTAINS:UNLIM|Any	COST:2	WT:3				SOURCEPAGE:MagicItemsV.rtf			SPROP:for Robe of Useful Items. 6 in. by 6 in. by 1 ft.
+Dog (War)						OUTPUTNAME:[NAME] Dog		TYPE:Mount.Goods.Transportation.Container		CONTAINS:*300|Any		COST:150	WT:0		SIZE:M	SOURCEPAGE:MagicItemsV.rtf			SPROP:for Robe of Useful Items. Treat as Dog (Riding)
+Door (Iron)						OUTPUTNAME:Door, [NAME]		TYPE:Magic.Wondrous.Consumable							COST:0	WT:0				SOURCEPAGE:MagicItemsV.rtf			SPROP:for Robe of Useful Items. Up to 10 ft. wide and 10 ft. high and barred on one side--must be placed upright, attaches and hinges itself.
+Gem (Robe/100 gp)										TYPE:Goods.Gem										COST:100	WT:0				SOURCEPAGE:MagicItemsV.rtf			SPROP:for Robe of Useful Items.
+Ladder (24 Ft.)					OUTPUTNAME:Ladder, [NAME]	TYPE:Goods.General									COST:0.12	WT:48				SOURCEPAGE:MagicItemsV.rtf			SPROP:for Robe of Useful Items.
+Mirror (Large/Steel/Highly Polished)						TYPE:Goods.General									COST:100	WT:30				SOURCEPAGE:MagicItemsV.rtf			SPROP:for Robe of Useful Items. 2 by 4 ft.
+Pit (Open)						OUTPUTNAME:Pit, [NAME]		TYPE:Magic.Wondrous.Consumable							COST:0	WT:0				SOURCEPAGE:MagicItemsV.rtf			SPROP:for Robe of Useful Items
+Window											TYPE:Magic.Wondrous.Consumable							COST:0	WT:0				SOURCEPAGE:MagicItemsV.rtf			SPROP:for Robe of Useful Items. 2 ft. by 4 ft., up to 2 ft. deep
+
+# The weight of the Mirror (Large/Steel/Highly Polished) was calculated as the average weight per square foot of the magical mirrors.
+# The weight and value of the Ladder (24 Ft./Wood) was calculated as 2.4 times that of a the Ladder (10 Ft.).
+# The Bag was made at half the weight and cost of a regular Sack. Non-resizable as it should be the same size for anyone. Made it hold just twice what it comes with.
+# The weight of the Coffer (Silver) was a pure guess.
+
 ###Block: Cursed Items
 Amulet of Inescapable Location								TYPE:Magic.Wondrous.Amulet.Cursed			COST:1000	WT:0										SOURCEPAGE:MagicItemsVI.rtf	SPROP:Appears to be an Amulet of Proof against Detection and Location, but -10 penalty on all saves against divination spells.
 Armor of Arrow Attraction	PROFICIENCY:ARMOR|Full Plate				TYPE:Magic.Enhancement.Armor.Heavy.Standard.Suit.Specific.Cursed	COST:1500	WT:50	ACCHECK:-6	EQMOD:MAGIC_COST|-1650.MWORKA.PLUS3A.STEEL	MAXDEX:1	SPELLFAILURE:35	BONUS:COMBAT|AC|8|TYPE=Armor	SOURCEPAGE:MagicItemsVI.rtf	SPROP:+3 in melee, -15 vs. ranged weapons																																
