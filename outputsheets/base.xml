@@ -85,21 +85,18 @@
 		</classes>
 		<deity>
 			<name>|DEITY|</name>
+			<alignment>|DEITY.ALIGNMENT|</alignment>
+			<description>|DEITY.DESCRIPTION|</description>
+			<domainlist>|DEITY.DOMAINLIST|</domainlist>
+			<favoredweapon>|DEITY.FAVOREDWEAPON|</favoredweapon>
+			<holyitem>|DEITY.HOLYITEM|</holyitem>
+			<pantheonlist>|DEITY.PANTHEONLIST|</pantheonlist>
+			<source>|DEITY.SOURCE|</source>
+			<special_abilities>|DEITY.SA|</special_abilities>
+			<appearance>|DEITY.APPEARANCE|</appearance>
+			<title>|DEITY.TITLE|</title>
+			<worshippers>|DEITY.WORSHIPPERS|</worshippers>
 		</deity>
-		<deity_info>
-				<name>|DEITY|</name>
-				<alignment>|DEITY.ALIGNMENT|</alignment>
-				<description>|DEITY.DESCRIPTION|</description>
-				<domainlist>|DEITY.DOMAINLIST|</domainlist>
-				<favoredweapon>|DEITY.FAVOREDWEAPON|</favoredweapon>
-				<holyitem>|DEITY.HOLYITEM|</holyitem>
-				<pantheonlist>|DEITY.PANTHEONLIST|</pantheonlist>
-				<source>|DEITY.SOURCE|</source>
-				<special_abilities>|DEITY.SA|</special_abilities>
-				<appearance>|DEITY.APPEARANCE|</appearance>
-				<title>|DEITY.TITLE|</title>
-				<worshippers>|DEITY.WORSHIPPERS|</worshippers>
-		</deity_info>
 		<description>|DESC|</description>
 		<experience>
 			<current>|EXP.CURRENT|</current>
@@ -170,7 +167,7 @@
 		<race>|RACE|</race>
 		<race>
 			<racetype>|RACETYPE|</racetype>
-|FOR,%racesubtype,0,COUNT[RACESUBTYPES]-1,1,0|
+|FOR,%racesubtype,0,COUNT[RACESUBTYPE]-1,1,0|
 			<racesubtype>|RACESUBTYPE.%racesubtype|</racesubtype>
 |ENDFOR|
 		</race>
@@ -215,6 +212,7 @@
 |ENDFOR|
 		</notes>
 	</basics>
+
 	<!--
 	  ====================================
 	  ====================================
