@@ -619,12 +619,15 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 	/**
 	 * Set the game mode name
-	 * @param aString
+	 * @param aString The MENUENTRY value.
 	 */
 	public void setModeName(final String aString)
 	{
 		menuEntry = aString;
-		displayName = aString.replace("&", "");
+		String name = aString.replace("&&", "__AMP__"); 
+		name = name.replace("&", ""); 
+		name = name.replace("__AMP__", "&"); 
+		displayName = name;
 	}
 
 	/**
