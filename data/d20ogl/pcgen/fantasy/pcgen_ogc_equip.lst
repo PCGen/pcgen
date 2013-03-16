@@ -3,18 +3,32 @@ SOURCELONG:PCGen Open Gaming Content	SOURCESHORT:PCGen OGC	SOURCEWEB:../../../..
 
 # Original Entry by: Eddy Anthony
 
-###Block: Weapon Accessories
+# Weapon containers (the Quiver and Sheath) are made to scale here with weapons, rather than with containers. (Only Small and Large version were done.)
+# Armor Accessories are made to scale here with armor. (Only Small and Large version were done.)
+# Javelins were removed from the Quiver and replaced by the more arrow-like Dart. Darts, Javelins, and Shortspears could be added to a second type of container, if desired.
+# Possible Sheaf (Javelin) or Quiver (Missile)	TYPE:Goods.Container	CONTAINS:18|Total=12|Dart=12|Javelin=9|Shortspear=6	COST:0.1	WT:0.5
 
-# Equipment Name	Type				Contains														Cost		Weight	Source Page
-Quiver		TYPE:Goods.Container	CONTAINS:UNLIM|Total=20|Arrow=20|Bolt=20|SpecificArrow=20|SpecificBolt=20|Javelin=10	COST:0.1	WT:0.5	SOURCEPAGE:PCGen Docs - PCGen OGC
-Sheath		TYPE:Goods.Container	CONTAINS:UNLIM|Weapon=1												COST:0.1	WT:0.5	SOURCEPAGE:PCGen Docs - PCGen OGC
+###Block: Weapon Accessories
+# Equipment Name		Type					Contains													Cost		Weight	Source Page
+Quiver			TYPE:Goods.Container		CONTAINS:3|Total=20|Arrow=20|Bolt=20|SpecificArrow=20|SpecificBolt=20|Dart=6		COST:0.1	WT:0.5	SOURCEPAGE:PCGen Docs - PCGen OGC
+Quiver (Small)		TYPE:Goods.Container		CONTAINS:1.5|Total=20|Arrow=20|Bolt=20|SpecificArrow=20|SpecificBolt=20|Dart=6	COST:0.1	WT:0.25	SOURCEPAGE:PCGen Docs - PCGen OGC
+Quiver (Large)		TYPE:Goods.Container		CONTAINS:6|Total=20|Arrow=20|Bolt=20|SpecificArrow=20|SpecificBolt=20|Dart=6		COST:0.2	WT:1		SOURCEPAGE:PCGen Docs - PCGen OGC
+Sheath			TYPE:Goods.Container		CONTAINS:UNLIM|Weapon=1											COST:0.1	WT:0.5	SOURCEPAGE:PCGen Docs - PCGen OGC
+Sheath (Small)		TYPE:Goods.Container		CONTAINS:UNLIM|Weapon=1											COST:0.1	WT:0.25	SOURCEPAGE:PCGen Docs - PCGen OGC
+Sheath (Large)		TYPE:Goods.Container		CONTAINS:UNLIM|Weapon=1											COST:0.2	WT:1		SOURCEPAGE:PCGen Docs - PCGen OGC
 
 ###Block: Armor Accessories
 
-# Equipment Name	Output Name				Type				Cost		Weight	Source Page
-Armor Padding						TYPE:Goods.Shirt		COST:5	WT:3		SOURCEPAGE:PCGen Docs - PCGen OGC
-Cap (Steel)		OUTPUTNAME:Steel Cap		TYPE:Goods.Headgear	COST:1	WT:2		SOURCEPAGE:PCGen Docs - PCGen OGC
-Helmet (Visored)	OUTPUTNAME:Visored Helmet	TYPE:Goods.Headgear	COST:5	WT:5		SOURCEPAGE:PCGen Docs - PCGen OGC
+# Equipment Name			Output Name					Type				Cost		Weight	Source Page
+Armor Padding									TYPE:Goods.Shirt		COST:5	WT:3		SOURCEPAGE:PCGen Docs - PCGen OGC
+Armor Padding (Small)								TYPE:Goods.Shirt		COST:5	WT:1.5	SOURCEPAGE:PCGen Docs - PCGen OGC
+Armor Padding (Large)								TYPE:Goods.Shirt		COST:10	WT:6		SOURCEPAGE:PCGen Docs - PCGen OGC
+Cap (Steel)				OUTPUTNAME:Steel Cap			TYPE:Goods.Headgear	COST:1	WT:2		SOURCEPAGE:PCGen Docs - PCGen OGC
+Cap (Steel/Small)			OUTPUTNAME:Steel Cap (Small)		TYPE:Goods.Headgear	COST:1	WT:1		SOURCEPAGE:PCGen Docs - PCGen OGC
+Cap (Steel/Large)			OUTPUTNAME:Steel Cap (Large)		TYPE:Goods.Headgear	COST:2	WT:4		SOURCEPAGE:PCGen Docs - PCGen OGC
+Helmet (Visored)			OUTPUTNAME:Visored Helmet		TYPE:Goods.Headgear	COST:5	WT:5		SOURCEPAGE:PCGen Docs - PCGen OGC
+Helmet (Visored/Small)		OUTPUTNAME:Visored Helmet (Small)	TYPE:Goods.Headgear	COST:5	WT:2.5	SOURCEPAGE:PCGen Docs - PCGen OGC
+Helmet (Visored/Large)		OUTPUTNAME:Visored Helmet (Large)	TYPE:Goods.Headgear	COST:10	WT:10		SOURCEPAGE:PCGen Docs - PCGen OGC
 
 ###Block: Wondrous Items
 
