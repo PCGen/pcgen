@@ -11,6 +11,9 @@ Spells (Ray)			TYPE:Simple.RangedTouch.Spell
 Spells (Touch)			TYPE:Simple
 Unarmed Strike			TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
 Grapple				TYPE:Simple.Melee.Unarmed.Bludgeoning
+# Other
+Shieldbash				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning
+
 # -- light melee
 Dagger				TYPE:Simple.Light.Melee.Ranged.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing.RangedPiercing.RangedSlashing
 Dagger (Punching)			TYPE:Simple.Light.Melee.Dagger.Piercing.MeleePiercing
@@ -42,7 +45,7 @@ Handaxe				TYPE:Martial.Light.Melee.Slashing.MeleeSlashing.Axe
 Kukri					TYPE:Martial.Light.Melee.Slashing.MeleeSlashing
 Pick (Light)			TYPE:Martial.Light.Melee.Piercing.MeleePiercing.Pick
 Sap					TYPE:Martial.Light.Melee.Bludgeoning.MeleeBludgeoning
-Shieldbash (Light)		TYPE:Martial.Light.Melee.Bludgeoning.MeleeBludgeoning
+#Shieldbash (Light)		TYPE:Martial.Light.Melee.Bludgeoning.MeleeBludgeoning
 Spiked Armor			TYPE:Martial.Light.Melee.Piercing.MeleePiercing
 Starknife				TYPE:Martial.Light.Melee.Ranged.Piercing.MeleePiercing.RangedPiercing.Dagger
 Sword (Short)			TYPE:Martial.Light.Melee.Piercing.MeleePiercing.Sword
@@ -53,7 +56,7 @@ Longsword				TYPE:Martial.OneHanded.Melee.Slashing.MeleeSlashing.Sword
 Pick (Heavy)			TYPE:Martial.OneHanded.Melee.Piercing.MeleePiercing.Pick
 Rapier				TYPE:Martial.OneHanded.Melee.Piercing.MeleePiercing.Sword
 Scimitar				TYPE:Martial.OneHanded.Melee.Slashing.MeleeSlashing.Sword
-Shieldbash (Heavy)		TYPE:Martial.OneHanded.Melee.Bludgeoning.MeleeBludgeoning
+#Shieldbash (Heavy)		TYPE:Martial.OneHanded.Melee.Bludgeoning.MeleeBludgeoning
 Trident				TYPE:Martial.OneHanded.Melee.Thrown.Piercing.RangedPiercing.MeleePiercing.Spear
 Warhammer				TYPE:Martial.OneHanded.Melee.Bludgeoning.MeleeBludgeoning.Hammer
 # 2-handers
@@ -66,6 +69,7 @@ Greatsword				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.TwoHande
 Guisarme				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded
 Halberd				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded.Piercing.MeleePiercing
 Lance					TYPE:Martial.TwoHanded.Melee.Piercing.MeleePiercing.TwoHanded.Spear
+
 Ranseur				TYPE:Martial.TwoHanded.Melee.Piercing.MeleePiercing.Polearm.TwoHanded
 Scythe				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing.TwoHanded
 Sword (Bastard)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Sword.TwoHanded
