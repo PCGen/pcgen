@@ -427,5 +427,62 @@ Vacuous Grimoire											TYPE:Magic.Wondrous.Book.Cursed			COST:6000	WT:3	SOUR
 
 
 #
+# Alternate Equipment Experiments
+#
+
+################### Necklaces of Fireballs
+# Original had each strand able to hold the maximum number for its 'type' (3, 5, 7, or 9; or 9, 3, 5, 7, 9, 7, 9, and 9, respectively), but now just have each able to hold
+# nine maximum, which is what I did with the blank strand.
+Necklace of Fireballs Strand		SORTKEY:Necklace of Fireballs 0			TYPE:Magic.Wondrous			CONTAINS:0|Consumable=9		COST:0	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"Begins empty. May contain up to 9 Fireball Spheres"
+
+Necklace of Fireballs I 2		SORTKEY:Necklace of Fireballs 1			TYPE:Magic.Wondrous			CONTAINS:0|Consumable=9		COST:1650	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"1-5d6 2-3d6 Fireballs - Value:1,650 gp"
+Necklace of Fireballs II 2		SORTKEY:Necklace of Fireballs 2			TYPE:Magic.Wondrous			CONTAINS:0|Consumable=9		COST:2700	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"1-6d6 2-4d6 2-2d6 Fireballs - Value:2,700 gp"
+Necklace of Fireballs III 2		SORTKEY:Necklace of Fireballs 3			TYPE:Magic.Wondrous			CONTAINS:0|Consumable=9		COST:4350	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"1-7d6 2-5d6 4-3d6 Fireballs - Value:4,350 gp"
+Necklace of Fireballs IV 2		SORTKEY:Necklace of Fireballs 4			TYPE:Magic.Wondrous			CONTAINS:0|Consumable=9		COST:5400	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"1-8d6 2-6d6 2-4d6 4-2d6 Fireballs - Value:5,400 gp"
+Necklace of Fireballs V 2		SORTKEY:Necklace of Fireballs 5			TYPE:Magic.Wondrous			CONTAINS:0|Consumable=9		COST:5850	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"1-9d6 2-7d6 2-5d6 2-3d6 Fireballs - Value:5,850 gp"
+Necklace of Fireballs VI 2		SORTKEY:Necklace of Fireballs 6			TYPE:Magic.Wondrous			CONTAINS:0|Consumable=9		COST:8100	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"1-10d6 2-8d6 2-6d6 4-4d6 Fireballs - Value:8,100 gp"
+Necklace of Fireballs VII 2		SORTKEY:Necklace of Fireballs 7			TYPE:Magic.Wondrous			CONTAINS:0|Consumable=9		COST:8700	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"1-10d6 2-9d6 2-7d6 2-5d6 2-3d6 Fireballs - Value:8,700 gp"
+
+Necklace of Fireballs Sphere 2d6	SORTKEY:Necklace of Fireballs Sphere 02 		TYPE:Magic.Wondrous.Consumable						COST:300	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"for Necklace of Fireballs"
+Necklace of Fireballs Sphere 3d6	SORTKEY:Necklace of Fireballs Sphere 03		TYPE:Magic.Wondrous.Consumable						COST:450	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"for Necklace of Fireballs"
+Necklace of Fireballs Sphere 4d6	SORTKEY:Necklace of Fireballs Sphere 04		TYPE:Magic.Wondrous.Consumable						COST:600	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"for Necklace of Fireballs"
+Necklace of Fireballs Sphere 5d6	SORTKEY:Necklace of Fireballs Sphere 05		TYPE:Magic.Wondrous.Consumable						COST:750	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"for Necklace of Fireballs"
+Necklace of Fireballs Sphere 6d6	SORTKEY:Necklace of Fireballs Sphere 06		TYPE:Magic.Wondrous.Consumable						COST:900	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"for Necklace of Fireballs"
+Necklace of Fireballs Sphere 7d6	SORTKEY:Necklace of Fireballs Sphere 07		TYPE:Magic.Wondrous.Consumable						COST:1050	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"for Necklace of Fireballs"
+Necklace of Fireballs Sphere 8d6	SORTKEY:Necklace of Fireballs Sphere 08 		TYPE:Magic.Wondrous.Consumable						COST:1200	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"for Necklace of Fireballs"
+Necklace of Fireballs Sphere 9d6	SORTKEY:Necklace of Fireballs Sphere 09 		TYPE:Magic.Wondrous.Consumable						COST:1350	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"for Necklace of Fireballs"
+Necklace of Fireballs Sphere 10d6	SORTKEY:Necklace of Fireballs Sphere 10 		TYPE:Magic.Wondrous.Consumable						COST:1500	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:"for Necklace of Fireballs"
+
+################### Robe of Stars
+# Had to specially name the shuriken +5, since I couldn't tell whether regular shuriken +5 would be created or not by the autogen
+# (since the setting can be yes or no) and didn't want to then duplicate an item. The Specific container with the weight limit should be specific enough.
+Robe of Stars 2									TYPE:Magic.Wondrous.Robe.Container				CONTAINS:*3|Specific=6		COST:58000	WT:1		SOURCEPAGE:MagicItemsV.rtf																									BONUS:CHECKS|Fortitude,Will,Reflex|1|TYPE=Luck	SPROP:Allows Astral travel, contains 6 +5 Shuriken
+Robe of Stars Shuriken +5		PROFICIENCY:WEAPON|Shuriken	TYPE:Magic.Enhancement.Weapon.Exotic.Ranged.Piercing.Standard.Monk.Thrown.Specific	COST:0	WT:0.1	SOURCEPAGE:MagicItemsV.rtf	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d2	EQMOD:STEEL.THROWN_AMMO	WIELD:Light	RANGE:10	SIZE:M	SOURCEPAGE:Equipment.rtf	BONUS:WEAPON|DAMAGE,TOHIT|5|TYPE=Enhancement
+
+################### Robe of Bones
+# The Robe of Bones with the standard compliment of "patches" represented by consumable material components. The correct number of each (2) is supplied by a kit.
+Robe of Bones 2		TYPE:Magic.Wondrous.Container.Robe	CONTAINS:*0|Consumable=12		COST:2400	WT:1	SOURCEPAGE:MagicItemsV.rtf
+Robe of Bones Skeleton (Goblin/Small)		TYPE:Magic.Wondrous.Consumable	COST:0	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:for Robe of Bones
+Robe of Bones Skeleton (Human Commoner/Medium)	TYPE:Magic.Wondrous.Consumable	COST:0	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:for Robe of Bones
+Robe of Bones Skeleton (Wolf/Medium)		TYPE:Magic.Wondrous.Consumable	COST:0	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:for Robe of Bones
+Robe of Bones Zombie (Goblin/Small)			TYPE:Magic.Wondrous.Consumable	COST:0	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:for Robe of Bones
+Robe of Bones Zombie (Human Commoner/Medium)	TYPE:Magic.Wondrous.Consumable	COST:0	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:for Robe of Bones
+Robe of Bones Zombie (Wolf/Medium)			TYPE:Magic.Wondrous.Consumable	COST:0	WT:0		SOURCEPAGE:MagicItemsV.rtf	SPROP:for Robe of Bones
+
+####################### Comment *** Robe of Useful Items implied items now part of rsrd_equip_wondrousitems.lst
+####################### Robe of Useful Items
+# The Robe of Useful Items with the standard compliment of "patches" represented by consumable material components. The correct number of each constant item (2) is supplied by a kit.
+# The random nature of some items is also supplied by a kit. The needed items for the kit are created below.
+# Equipment Name					Output Name				Type								Contains			Cost		Weight	Size		Source Page						Special Property
+
+Robe of Useful Items 2									TYPE:Magic.Wondrous.Robe				CONTAINS:*UNLIM|Any	COST:7000	WT:1				SOURCEPAGE:MagicItemsV.rtf			SPROP:Equip with kit.
+
+# The weight of the Mirror (Large/Steel/Highly Polished) was calculated as the average weight per square foot of the magical mirrors.
+# The weight and value of the Ladder (24 Ft./Wood) was calculated as 2.4 times that of a the Ladder (10 Ft.).
+# The Bag was made at half the weight and cost of a regular Sack. Non-resizable as it should be the same size for anyone. Made it hold just twice what it comes with.
+# The weight of the Coffer (Silver) was a pure guess.
+####################### Comment *** Robe of Useful Items implied items now part of rsrd_equip_wondrousitems.lst
+
+
 # EOF
 #
