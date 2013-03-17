@@ -24,7 +24,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Using KEYs with faulty old names to keep pre-exsiting PCG files working
 # Helm of Comprehend Languages and Read Magic	has KEY:Helm of Comprehending Languages and Reading Magic
 # Gloves of Swimming and Climbing			has KEY:Gloves of Swimming/Climbing
-# Ioun Stone (Dull Grey) [old name]			has KEY:Ioun Stone (Dull Gray) [new name]	
+# Ioun Stone (Dull Gray) [new name]			has KEY:Ioun Stone (Dull Grey) [old name]	
 
 # Equipment Name						Output Name						Type						Contains		Number of Pages	Page Usage				Cost		Weight	Slot Needed	Modifier					Source Page				Ability																		Vision			Combat bonus																	Add to base move						Bonus to skill						Stat bonus					Unarmed Damage Level bonus	Modify VAR									Weapon prof. bonus																																																																											Special Property																																																	Automatically Gained Language
 Amulet of Health +2												TYPE:Magic.Wondrous.Amulet													COST:4000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																																											BONUS:STAT|CON|2|TYPE=Enhancement
@@ -211,7 +211,7 @@ Horseshoes of Speed														TYPE:Magic.Wondrous.Boot					COST:3000	WT:12		S
 Horseshoes of a Zephyr														TYPE:Magic.Wondrous.Boot					COST:6000	WT:4		SLOTS:4							SOURCEPAGE:MagicItemsV.rtf
 Incense of Meditation														TYPE:Magic.Wondrous.Consumable				COST:4900	WT:1										SOURCEPAGE:MagicItemsV.rtf
 Instant Fortress															TYPE:Magic.Wondrous						COST:55000	WT:0										SOURCEPAGE:MagicItemsV.rtf
-Ioun Stone (Dull Grey)	KEY:Ioun Stone (Dull Gray)	OUTPUTNAME:Ioun Stone, Dull Gray Ellipsoid	TYPE:Magic.Wondrous						COST:25	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Ioun Stone (Dull Gray)	KEY:Ioun Stone (Dull Grey)	OUTPUTNAME:Ioun Stone, Dull Gray Ellipsoid	TYPE:Magic.Wondrous						COST:25	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Ioun Stone (Clear)						OUTPUTNAME:Ioun Stone, Clear Spindle		TYPE:Magic.Wondrous						COST:4000	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Ioun Stone (Dusty Rose)						OUTPUTNAME:Ioun Stone, Dusty Rose Prism		TYPE:Magic.Wondrous						COST:5000	WT:0										SOURCEPAGE:MagicItemsV.rtf																													BONUS:COMBAT|AC|1|TYPE=Insight
 Ioun Stone (Deep Red)						OUTPUTNAME:Ioun Stone, Deep Red Sphere		TYPE:Magic.Wondrous						COST:8000	WT:0										SOURCEPAGE:MagicItemsV.rtf																																																																														BONUS:STAT|DEX|2|TYPE=Enhancement
