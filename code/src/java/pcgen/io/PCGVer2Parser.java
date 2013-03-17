@@ -40,6 +40,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.base.util.FixedStringList;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -2205,6 +2207,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		int level = -1;
 		int skillPool = -1;
+		String subClassKey = Constants.NONE;
 
 		while (it.hasNext())
 		{
@@ -2213,7 +2216,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			if (TAG_SUBCLASS.equals(tag))
 			{
-				String subClassKey = EntityEncoder.decode(element.getText());
+				subClassKey = EntityEncoder.decode(element.getText());
 				if ((subClassKey.length() > 0)
 					&& !subClassKey.equals(Constants.NONE))
 				{
@@ -2234,8 +2237,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						}
 					}
 				}
-				SubClassApplication
-					.setSubClassKey(thePC, aPCClass, subClassKey);
 			}
 
 			if (TAG_LEVEL.equals(tag))
@@ -2309,6 +2310,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			thePC.addClass(aPCClass);
 
+			if (StringUtils.isNotBlank(subClassKey)
+				&& !subClassKey.equals(Constants.NONE))
+			{
+				SubClassApplication
+					.setSubClassKey(thePC, aPCClass, subClassKey);
+			}
+			
 			for (int i = 0; i < level; ++i)
 			{
 				PCLevelInfo levelInfo =
