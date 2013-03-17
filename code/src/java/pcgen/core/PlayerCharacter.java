@@ -958,6 +958,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	/**
 	 * Sets the character changed since last save.
+	 * NB: This is not a 'safe' call - its use should be considered carefully and in 
+	 * particular it should not be called from a method used as part of PlayerCharacter 
+	 * cloning as this can mean conditional abilities get dropped when they are actually 
+	 * qualified for, just not at that point in the clone.
 	 * 
 	 * @param dirtyState the new "dirty" value (may be false to indicate no change)
 	 */
@@ -2588,7 +2592,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void addEquipSet(final EquipSet set)
 	{
 		equipSetFacet.add(id, set);
-		setDirty(true);
+		//setDirty(true);
 	}
 
 	/**
@@ -4944,7 +4948,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		if (!spellBookFacet.containsBookNamed(id, book.getName()))
 		{
 			spellBookFacet.add(id, book);
-			setDirty(true);
+			//setDirty(true);
 			return true;
 		}
 		return false;
@@ -7900,6 +7904,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		// be able to reset them. Need to call new PlayerCharacter()
 		// aClone = (PlayerCharacter)super.clone();
 		aClone = new PlayerCharacter(true, campaignFacet.getSet(id));
+		aClone.variableProcessor = new VariableProcessorPC(aClone);
 		try
 		{
 			aClone.assocSupt = assocSupt.clone();
@@ -7979,8 +7984,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		// order in which the skills will be output.
 		aClone.skillsOutputOrder = skillsOutputOrder;
 		aClone.spellLevelTemp = spellLevelTemp;
-		// Is this OK?
-		aClone.variableProcessor = new VariableProcessorPC(aClone);
 		aClone.pointBuyPoints = pointBuyPoints;
 
 		aClone.setDirty(true);
