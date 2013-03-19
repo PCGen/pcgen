@@ -239,7 +239,7 @@ Charges (30)	KEY:CHARGED_ITEM_30	COST:((BASECOST/30)*%CHARGES)-BASECOST	VISIBLE:
 Charges (40)	KEY:CHARGED_ITEM_40	COST:((BASECOST/40)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|40
 Charges (50)	KEY:CHARGED_ITEM_50	COST:((BASECOST/50)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|50
 
-# Specific versions - 4 is for Bracelet of Friends, 6 is for Talisman artifacts, 12 is for Scarab of protection, 34 is for Deck of Illusions, 36 is for Cube of Force, 101 is for Brooch of Shielding
+# Specific versions - 4 is for Bracelet of Friends, 6 is for Talisman artifacts, 12 is for Scarab of Protection, 34 is for Deck of Illusions, 36 is for Cube of Force, 101 is for Brooch of Shielding
 Charges (4)		KEY:CHARGED_ITEM_4	COST:((BASECOST/4)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|4
 Charges (6)		KEY:CHARGED_ITEM_6	COST:((BASECOST/6)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|6
 Charges (12)	KEY:CHARGED_ITEM_12	COST:((BASECOST/12)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|12
@@ -248,9 +248,9 @@ Charges (36)	KEY:CHARGED_ITEM_36	COST:((BASECOST/36)*%CHARGES)-BASECOST	VISIBLE:
 Charges (101)	KEY:CHARGED_ITEM_101	COST:((BASECOST/101)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|101
 
 # These EQMODs are used for adding charges to items which are not associated with a spell effect.
-# Its set to VISIBLE:NO because this would only be called from an item and so should not be available in the customizer.
-# The COST modifies the base items cost by the number of charges it has left, when fully charged the items base COST is unchanged, at half the number of charges the items price is half its listed value, etc...
-# There is a CHOOSE tag in the line because I found that the checkboxes would not display on the OS unless its there.
+# It's set to VISIBLE:NO because this would only be called from an item and so should not be available in the customizer.
+# The COST modifies the base item's cost by the number of charges it has left, when fully charged the items base COST is unchanged, at half the number of charges the items price is half its listed value, etc...
+# There is a CHOOSE tag in the line because I found that the checkboxes would not display on the OS unless it's there.
 # The NAMEOPT:SPELL prevents the number of charges from being tacked on to the name of the item unless there is less than the maximum number of charges.
 # With this EQMOD in place one only needs to add this line to any item which needs 10 charges:
 
@@ -262,8 +262,8 @@ Charges (101)	KEY:CHARGED_ITEM_101	COST:((BASECOST/101)*%CHARGES)-BASECOST	VISIB
 Arcane Archer Enhancement	KEY:ARCANE_ARCHER_AMMO	TYPE:Ammunition	COST:0	VISIBLE:QUALIFY	PRETYPE:1,Arrow	!PRETYPE:1,Enhancement	BONUS:WEAPON|DAMAGE,TOHIT|ArrowEnhancement|TYPE=Enhancement
 
 ###Block: Generic Magical Enhancment modifiers
-# This can be added to specific Armors and Weapons to adjust the cost to the equivilant plus value or monitary cost
-# This is usefull because if the item is resized the cost modifier due to size is taken from the COST tag in the item and this EQMOD cost is not factored in
+# This can be added to specific Armors and Weapons to adjust the cost to the equivilant plus value or monetary cost
+# This is useful because if the item is resized the cost modifier due to size is taken from the COST tag in the item and this EQMOD cost is not factored in
 
 # Modifier Name			Unique Key			Plus		Cost			Choose
 Magical Enhancments (+1)	KEY:MAGIC_ENHANCE_1	PLUS:1
