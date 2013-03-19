@@ -285,7 +285,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (!catString.startsWith("CATEGORY="))
 		{
 			throw new IllegalArgumentException(
-				"String in getAbilitySelectionFromPersistentFormat "
+				"String in AbilityToken.decodeChoice "
 					+ "must start with CATEGORY=, found: " + s);
 		}
 		String cat = catString.substring(9);
@@ -293,7 +293,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (ac == null)
 		{
 			throw new IllegalArgumentException(
-				"Category in getAbilitySelectionFromPersistentFormat "
+				"Category in AbilityToken.decodeChoice "
 					+ "must exist found: " + cat);
 		}
 		String ab = st.nextToken();
@@ -303,7 +303,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		if (a == null)
 		{
 			throw new IllegalArgumentException(
-				"Second argument in String in getAbilitySelectionFromPersistentFormat "
+				"Second argument in String in AbilityToken.decodeChoice "
 					+ "must be an Ability, but it was not found: " + s);
 		}
 		return a;
