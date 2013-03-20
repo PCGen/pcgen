@@ -112,7 +112,13 @@ $Date$
   <td class="topline">POINTS</td>
  </tr>
  <tr>
-  <td colspan="1" class="h">|CLASSLIST|</td>
+  <td colspan="1" class="h">|CLASSLIST|
+|IIF(count("ABILITIES";"CATEGORY=Archetype";"TYPE=Archetype";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|FOR,%archetype,0,count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+  (|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype|)
+|ENDFOR|
+|ENDIF|
+  </td>
   <td colspan="1" class="h">|EXP.CURRENT|</td>
   <td colspan="1" class="h">|RACE|</td>
   <td class="h">|SIZELONG| / |FACE|</td>
