@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # RSRD Entry by: jaymecox
 # COMMENT: Updates Jan 20, 2013 - HD Growth For Companions reimplemented; Mounts do not gain automatic Barding Proficiency. In fact, there is no 'Barding' proficiency.
@@ -42,7 +42,7 @@ FOLLOWER:UndeadCompanionLVL=19	TYPE:Undead Companion	HD:2		SR:24																
 FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
 
 ###Block:Familiar
-# Class of the Master	Type			Spell Res.	Ability																Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Combat bonus					Modify VAR									Main Race Type
+# Class of the Master	Type			Spell Res.	Ability																Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Combat bonus					Modify VAR
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link	ABILITY:Internal|AUTOMATIC|Intelligence Lock Tracker	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Share Spells																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|IntelligenceLockNumber|6	BONUS:VAR|MasterLvl|1
 FOLLOWER:FamiliarLVL=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells																									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|IntelligenceLockNumber|1	BONUS:VAR|MasterLvl|2
@@ -140,7 +140,7 @@ FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Wolf				KIT:1|Wolf
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Wolverine			KIT:1|Wolverine Companion
 
 ###Block:Animal Companion Size work-around
-# 
+#
 # These bonuses prevent the listed animals from increasing in size when they gain hit dice as a companion
 # This should eventually be done by hard-coding it but for now this work-around will let the 5.8 companions come out with the correct numbers - Eddy
 # Class of the Master		Type				Adjust PC Size
@@ -172,7 +172,7 @@ FOLLOWER:ShadowCompanionLVL=9	TYPE:Shadow Companion	HD:2
 
 ###Block: Standard Companions
 # Class of the Master		Type
-FOLLOWER:NormalMount=1		TYPE:Mount		
+FOLLOWER:NormalMount=1		TYPE:Mount
 FOLLOWER:NormalFollower=1	TYPE:Follower
 
 #

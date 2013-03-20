@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Oct  8 23:34:04 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn and Tir-Gwaith
 
@@ -17,14 +17,14 @@ CLASS:Diamond Guardsman	HD:12		TYPE:PC.Prestige	ABB:DGu		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Diamond Guardsman	PREALIGN:LG,LN,NG,TN	PREATT:6	PREFEAT:2,Endurance,Diehard	PRERACE:1,Dwarf (DF)	PRETEXT:The character must be accepted for membership by the Diamond Guard of Aradath.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Diamond Guardsman	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Concentration|Diplomacy|Jump|Listen|TYPE=Profession|Sense Motive|Spot|Swim
-1																													AUTO:FEAT|Simple Weapon Proficiency														AUTO:WEAPONPROF|Murblade|Urgrosh (Dwarven)|Waraxe (Dwarven)|TYPE=Martial	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1																													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+1																			ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies											AUTO:FEAT|Simple Weapon Proficiency																			AUTO:WEAPONPROF|Murblade|Urgrosh (Dwarven)|Waraxe (Dwarven)|TYPE=Martial
+1																																									AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 1	SAB:Soul Blade (+%)|SoulBlade					BONUS:VAR|SoulBlade|(CL+1)/2	DEFINE:SoulBlade|0
-2	SAB:Shield Brother (full round action)|PREVARLT:CL,4																VFEAT:Combat Expertise
+2	SAB:Shield Brother (full round action)|PREVARLT:CL,4																												VFEAT:Combat Expertise
 4	SAB:Shield Brother (standard action)|PREVARLT:CL,6
 6	SAB:Shield Brother (move action)
 8	SAB:Greater Combat Expertise
-10																			SPELLS:Class|TIMES=1|Foresight
+10																															SPELLS:Class|TIMES=1|Foresight
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Forge Magus	HD:4		TYPE:PC.Prestige	ABB:FMa		MAXLEVEL:10	SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
@@ -55,7 +55,7 @@ CLASS:Warden of the Watch	HD:8		TYPE:PC.Prestige	ABB:WWa		MAXLEVEL:10	SOURCEPAGE
 CLASS:Warden of the Watch	PREATT:4	PREMULT:3,[PRESKILL:1,Knowledge (History)=5],[PRESKILL:3,TYPE.Strength=5,TYPE.Dexterity=5,TYPE.Constitution=5,TYPE.Intelligence=5,TYPE.Wisdom=5,TYPE.Charisma=5],[PRESKILL:2,TYPE.Strength=8,TYPE.Dexterity=8,TYPE.Constitution=8,TYPE.Intelligence=8,TYPE.Wisdom=8,TYPE.Charisma=8]	PRERACE:1,Elf (Dawn),Elf (Ghost),Elf (Moon),Elf (Wood)(DF)	PRESPELLTYPE:1,Arcane=2	PRETEXT:See Text.	PREWEAPONPROF:1,TYPE.Sword	PREWEAPONPROF:1,TYPE.Shortbow,TYPE.Longbow
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Warden of the Watch	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|Handle Animal|Intimidate|Jump|Knowledge (Geography)|Knowledge (Local Sildanyr)|Knowledge (Local Valhedar Dominion)|Listen|TYPE=Profession|Ride|Sense Motive|Spellcraft|Spot|Swim
-1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)	AUTO:WEAPONPROF|TYPE=Martial		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)	AUTO:WEAPONPROF|TYPE=Martial
 ###block: Normal progression
 1	SAB:Mind the Pattern
 2																ADD:SPELLCASTER|ANY
@@ -75,7 +75,7 @@ CLASS:Night Hunter	HD:8		TYPE:PC.Prestige	ABB:NHu		MAXLEVEL:10	SOURCEPAGE:p.29	B
 CLASS:Night Hunter	PREALIGN:LN,NG,TN,NE,CN	PREATT:6	PREFEAT:2,Alertness,Stealthy	PRERACE:1,Elf (Night)	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Night Hunter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Handle Animal|Hide|Intimidate|Jump|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spot|Survival|Swim|Tumble|Use Rope
-1																	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1																	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 1	SAB:Heart of Darkness	BONUS:ABILITYPOOL|Night Hunter Gift|1	BONUS:VISION|DarkVision|30
 3					BONUS:ABILITYPOOL|Night Hunter Gift|1
 4	SAB:Form of Darkness
@@ -143,8 +143,8 @@ CLASS:Griffin Guard	HD:10		TYPE:PC.Prestige	ABB:GrG		MAXLEVEL:10	SOURCEPAGE:p.52
 CLASS:Griffin Guard	PREATT:6	PREFEAT:1,Weapon Focus	PRESKILL:3,Knowledge (Geography)=2,Heal=2,Survival=8	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Griffin Guard	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Heal|Hide|Intimidate|Jump|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spot|Survival|Swim|Tumble|Use Rope
-1													AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1						ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Martial
+1																		AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1	SAB:Griffin's Hate
 2	SAB:Forestwalker
 4	SAB:Griffin's Wings		ABILITY:Special Ability|AUTOMATIC|Evasion
@@ -183,7 +183,7 @@ CLASS:Lone Walker	HD:12		TYPE:PC.Prestige	ABB:LWa		MAXLEVEL:10	SOURCEPAGE:p.62	B
 CLASS:Lone Walker	PREATT:6	PREFEAT:3,Endurance,Great Fortitude,Iron Will	PRERACE:1,Minotaur (DF)	PRESKILL:1,Knowledge (History)=4	PRESKILL:1,Survival=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lone Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Intimidate|Jump|Knowledge (History)|Listen|TYPE=Profession|Search|Spot|Survival|Swim|Tumble
-1																	AUTO:FEAT|Simple Weapon Proficiency		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies					AUTO:FEAT|Simple Weapon Proficiency
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
@@ -378,12 +378,12 @@ CLASS:Knight Adamant	HD:10		TYPE:PC.Prestige	ABB:KAd		MAXLEVEL:10	SOURCEPAGE:p.1
 CLASS:Knight Adamant	PREALIGN:LG,LN,NG	PREATT:7	PREFEAT:2,Cleave,Power Attack	PRETEXT:The character must be a disciple of Alharra.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Knight Adamant	STARTSKILLPTS:2	CSKILL:Diplomacy|Handle Animal|Heal|TYPE=Profession|Ride|Sense Motive|Spot
-1																							AUTO:FEAT|Simple Weapon Proficiency										AUTO:WEAPONPROF|TYPE=Martial		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1																							AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency
+1																ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies								AUTO:FEAT|Simple Weapon Proficiency															AUTO:WEAPONPROF|TYPE=Martial
+1																																			AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency
 1	SAB:Headlong
 2	SAB:Disrupt Concentration
 3	SAB:Aura of Valor (%/day)|AuraValor	BONUS:VAR|AuraValor|CL/3	DEFINE:AuraValor|0
-4																SPELLS:Class|TIMES=ATWILL|Detect Evil
+4																												SPELLS:Class|TIMES=ATWILL|Detect Evil
 5	SAB:Improved Power Attack
 7	SAB:Shield Followthrough
 8	SAB:Shining Beacon
@@ -395,8 +395,8 @@ CLASS:Disciple of St. Baedras	HD:10		TYPE:PC.Prestige	ABB:Baed		MAXLEVEL:10	SOUR
 CLASS:Disciple of St. Baedras	PREABILITY:1,CATEGORY=Special Ability,Sneak Attack	PREATT:6	PREFEAT:1,Combat Expertise	PRETEXT:See Text.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Disciple of St. Baedras	STARTSKILLPTS:2	CSKILL:Bluff|Disguise|Hide|Intimidate|Move Silently|Sense Motive|Sleight of Hand|Spot|Tumble
-1																												AUTO:FEAT|Simple Weapon Proficiency						AUTO:WEAPONPROF|TYPE=Martial		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1																												AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency
+1																				ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency											AUTO:WEAPONPROF|TYPE=Martial
+1																																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency
 1														BONUS:VAR|SneakAttackDice|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2	SAB:Defend the Cause	BONUS:ABILITYPOOL|Disciple of St. Baedras Feat|1
 3	SAB:Bravado
@@ -411,8 +411,8 @@ CLASS:Lion of the Host	HD:10		TYPE:PC.Prestige	ABB:Lion		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Lion of the Host	PREALIGN:LG,LN,NG,TN,CG,CN	PREATT:5	PREFEAT:2,Endurance,Toughness	PRESKILL:1,Knowledge (Religion)=8	PRESPELLTYPE:1,Divine=2	PRETEXT:See Text.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Lion of the Host	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Jump|TYPE=Profession|Survival|Swim
-1																			AUTO:FEAT|Simple Weapon Proficiency										AUTO:WEAPONPROF|TYPE=Martial		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
-1																			AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency
+1																			ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency															AUTO:WEAPONPROF|TYPE=Martial
+1																															AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency
 1	SAB:Word of Faith %/day|WordFaith	BONUS:VAR|WordFaith|1	DEFINE:WordFaith|0	ADD:SPELLCASTER|ANY
 2	SAB:Vigor (sleep)												ADD:SPELLCASTER|ANY
 3	SAB:Restful Touch												ADD:SPELLCASTER|ANY
@@ -458,7 +458,7 @@ CLASS:Binder	HD:6		TYPE:PC.Prestige	ABB:Bind		MAXLEVEL:10	SOURCEPAGE:p.124	BONUS
 CLASS:Binder	PREFEAT:1,TYPE=ItemCreation	PREFEAT:2,CHECKMULT,Skill Focus (Craft%)	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:1,Arcane=3Divine=3=1=1=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Binder	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Decipher Script|Gather Information|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
-1	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 ###Block: Normal level progression
 1	SAB:Hightened Crafting (Ex)		BONUS:ABILITYPOOL|Binder Bind Item Choice|1	ADD:SPELLCASTER|ANY
 2							BONUS:ABILITYPOOL|Binder School Choice|1		ADD:SPELLCASTER|ANY

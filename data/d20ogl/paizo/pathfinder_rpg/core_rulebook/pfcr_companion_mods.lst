@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Andrew Maitland
 
@@ -12,7 +12,7 @@ FOLLOWER:AnimalCompanionLVL=5		TYPE:Animal Companion	HD:1																							
 FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Devotion																														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=7		TYPE:Animal Companion																																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=8		TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
-FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	HD:1																		AUTO:FEAT|Multiattack	DEFINE:Multiattack|1									BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	HD:1																		AUTO:FEAT|Multiattack		DEFINE:Multiattack|1					BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=10	TYPE:Animal Companion	HD:1																																																		BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=11	TYPE:Animal Companion																																																			BONUS:VAR|MasterLevel|1
 FOLLOWER:AnimalCompanionLVL=12	TYPE:Animal Companion	HD:1																																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1

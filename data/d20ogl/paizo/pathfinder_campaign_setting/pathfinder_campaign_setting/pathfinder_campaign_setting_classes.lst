@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Pathfinder Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
 
 
@@ -57,7 +57,7 @@ CLASS:Low Templar	STARTSKILLPTS:2
 1	BONUS:ABILITYPOOL|Low Templar Favored Enemy|1	BONUS:VAR|LowTemplarFavoredEnemy|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Flag of Convenience
 2																ABILITY:Special Ability|AUTOMATIC|Dirty Fighting
 3																ABILITY:Special Ability|AUTOMATIC|Wolf in Sheep's Clothing
-4									BONUS:VAR|SneakAttackDice|CL/4			ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+4									BONUS:VAR|SneakAttackDice|CL/4		ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 5	BONUS:ABILITYPOOL|Low Templar Path|CL/5
 6																ABILITY:Special Ability|AUTOMATIC|Live to Fight Another Day|Reputation for Ruthlessness
 9																ABILITY:Special Ability|AUTOMATIC|Parting Shot

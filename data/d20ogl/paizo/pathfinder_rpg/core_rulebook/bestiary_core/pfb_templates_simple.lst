@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Nov 28 13:37:53 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 # Added 3rd printing errata - SR
@@ -12,18 +12,18 @@ Giant Creature		CR:1			VISIBLE:YES					SOURCEPAGE:p.295																									
 Young Creature		CR:-1			VISIBLE:YES					SOURCEPAGE:p.295																																			BONUS:COMBAT|AC|-2|TYPE=NaturalArmor.STACK											BONUS:SIZEMOD|NUMBER|-1	BONUS:STAT|DEX|4|TYPE=Size	BONUS:STAT|STR,CON|-4
 
 ###Block: Builder Templates
-# Template Name				Challenge Rating	Visible		Required Race				Bonus to Ability Pool																								Combat bonus					Adjust PC Size		Stat bonus						Weapon prof. bonus																Natural Attacks
-Size Change (Increase by 1)					VISIBLE:DISPLAY																																									BONUS:SIZEMOD|NUMBER|1
-Size Change (Increase by 2)					VISIBLE:DISPLAY																																									BONUS:SIZEMOD|NUMBER|2
-Size Change (Decrease by 1)					VISIBLE:DISPLAY																																									BONUS:SIZEMOD|NUMBER|-1
-Size Change (Decrease by 2)					VISIBLE:DISPLAY																																									BONUS:SIZEMOD|NUMBER|-2
+# Template Name			Visible		Adjust PC Size
+Size Change (Increase by 1)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|1
+Size Change (Increase by 2)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|2
+Size Change (Decrease by 1)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|-1
+Size Change (Decrease by 2)	VISIBLE:DISPLAY	BONUS:SIZEMOD|NUMBER|-2
 
 ###Block: Template for ability bonuses for creatures with class levels, applied automatically.
-# Template Name			Visible	Bonus to Ability Pool
-Creature with Class Levels	VISIBLE:NO	BONUS:ABILITYPOOL|Class Level +4 Ability Adjustment|2|PREMULT:2,[PRECLASS:1,TYPE.Monster],[PRECLASS:1,TYPE.PC,TYPE.NPC]	BONUS:ABILITYPOOL|Class Level +2 Ability Adjustment|2|PREMULT:2,[PRECLASS:1,TYPE.Monster],[PRECLASS:1,TYPE.PC,TYPE.NPC]	BONUS:ABILITYPOOL|Class Level -2 Ability Adjustment|1|PREMULT:2,[PRECLASS:1,TYPE.Monster],[PRECLASS:1,TYPE.PC,TYPE.NPC]
+# Template Name				Challenge Rating	Visible	Required Race				Bonus to Ability Pool																																																									Combat bonus					Stat bonus					Weapon prof. bonus																Natural Attacks
+Creature with Class Levels					VISIBLE:NO							BONUS:ABILITYPOOL|Class Level +4 Ability Adjustment|2|PREMULT:2,[PRECLASS:1,TYPE.Monster],[PRECLASS:1,TYPE.PC,TYPE.NPC]	BONUS:ABILITYPOOL|Class Level +2 Ability Adjustment|2|PREMULT:2,[PRECLASS:1,TYPE.Monster],[PRECLASS:1,TYPE.PC,TYPE.NPC]	BONUS:ABILITYPOOL|Class Level -2 Ability Adjustment|1|PREMULT:2,[PRECLASS:1,TYPE.Monster],[PRECLASS:1,TYPE.PC,TYPE.NPC]
 
 # Companion Shared Templates:
-Advanced Creature (Heavy Horse)	CR:1						PRERACE:1,Companion (Horse),Horse																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK					BONUS:STAT|STR,DEX,CON,WIS,CHA|4	BONUS:WEAPONPROF=Hoof|DAMAGESIZE|1	BONUS:WEAPONPROF=Bite|TOHIT|-5	BONUS:WEAPONPROF=Bite|DAMAGE|-ceil(STR/2)	NATURALATTACKS:Bite,Weapon.Natural.Melee.Slashing.Bludgeoning.Piercing,*1,1d4
+Advanced Creature (Heavy Horse)	CR:1					PRERACE:1,Companion (Horse),Horse																																																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX,CON,WIS,CHA|4	BONUS:WEAPONPROF=Hoof|DAMAGESIZE|1	BONUS:WEAPONPROF=Bite|TOHIT|-5	BONUS:WEAPONPROF=Bite|DAMAGE|-ceil(STR/2)	NATURALATTACKS:Bite,Weapon.Natural.Melee.Slashing.Bludgeoning.Piercing,*1,1d4
 
 
 

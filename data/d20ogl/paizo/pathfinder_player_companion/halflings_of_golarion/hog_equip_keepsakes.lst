@@ -1,11 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Halflings of Golarion	SOURCESHORT:HoG	SOURCEWEB:http://paizo.com/products/btpy8i8p?Pathfinder-Player-Companion-Halflings-of-Golarion	SOURCEDATE:2010-12
 #ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
 #ORIGINAL ENTRY DATE: 2012/12/29
 
 
 ###Block: Halfling Keepsakes
-# Equipment Name			Type								Cost		Weight	Source Page		Quality and value															Special Property
-Sacred Keepsake				TYPE:SpellFocus		COST:0		WT:0		MODS:REQUIRED	SOURCEPAGE:p.24
+# Equipment Name	Type			Cost		Weight	Requires Modification?	Source Page
+Sacred Keepsake	TYPE:SpellFocus	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:p.24
 # The items included below are examples from the book but I'm not certain if we should include them.
 #Black Bead					TYPE:		COST:		WT:		SOURCEPAGE:p.24	SPROP:Usually a trophy seized from a foe, this bead often commemorates tasks involving defeating a threat through manipulation or deception rather than direct action. A halfling who uses the bead while casting cause fear can target multiple creatures within range of the spell so long as their total Hit Dice does not exceed 5. A creature that fails its saving throw becomes shaken for 1d4 rounds; a successful save means that the spell has no effect.
 #Blessed Button				TYPE:SpellFocus		COST:0		WT:0	SOURCEPAGE:p.24 SPROP:This brass button often commemorates tasks requiring the youth to destroy or drive off a threat to the community without directly engaging it in handto-hand combat. A halfling who uses it while casting bless weapon on a sling affects enables the sling to confer the spell’s benefits to the ammunition it fires.

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 # Original entry by wizofice2001
 SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com	SOURCEDATE:2001-01
 
@@ -64,8 +64,8 @@ CLASS:Scav		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Decipher Script|For
 ###Block: Normal Level Progression
 1																			BONUS:VAR|SneakAttackDice|CL/5+1																		ADD:FEAT|Primitive Craft Skill Bonus,Skill Focus Advanced	ABILITY:Special Ability|AUTOMATIC|Nature Sense	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 4	SAB:Radiation Sense
-8	SAB:Canny Defense (%)|WIS				BONUS:COMBAT|AC|WIS|PREVAREQ:LowArmor,0|TYPE=Enhancement						DEFINE:LowArmor|var("COUNT[EQTYPE.ARMOR.EQUIPPED]")-var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")
-12	SAB:Feign Death (% rounds)|FeignDeathRounds																DEFINE:FeignDeathRounds|CL*10
+8	SAB:Canny Defense (%)|WIS				BONUS:COMBAT|AC|WIS|PREVAREQ:LowArmor,0|TYPE=Enhancement							DEFINE:LowArmor|var("COUNT[EQTYPE.ARMOR.EQUIPPED]")-var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.LIGHT]")
+12	SAB:Feign Death (% rounds)|FeignDeathRounds																	DEFINE:FeignDeathRounds|CL*10
 16	SAB:Shadow in the Open
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page			Save checks bonus												Combat bonus

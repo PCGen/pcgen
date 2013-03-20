@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Nov 18 18:07:01 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-09
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2011/10/26
@@ -8,8 +8,9 @@ SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWE
 Aegis			CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Aegis")
 
 ###Block: Archetype set-up for Aegis
-CATEGORY=Internal|Archetype Display.MOD	ABILITY:Aegis Archetype|AUTOMATIC|Archetype Aegis|PRECLASS:1,Aegis=1
-Archetype Aegis	CATEGORY:Archetype	TYPE:AegisArchetype	VISIBLE:YES
+# Ability Name					Category of Ability	Type				Visible	Ability
+CATEGORY=Internal|Archetype Display.MOD											ABILITY:Aegis Archetype|AUTOMATIC|Archetype Aegis|PRECLASS:1,Aegis=1
+Archetype Aegis					CATEGORY:Archetype	TYPE:AegisArchetype	VISIBLE:YES
 
 ###Block: Aegis abilities
 #Block: Core class abilities

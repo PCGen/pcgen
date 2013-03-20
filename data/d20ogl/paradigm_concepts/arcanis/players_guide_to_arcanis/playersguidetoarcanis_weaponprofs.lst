@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 17:24:32 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -68,6 +68,6 @@ Tail Bracer				TYPE:Exotic.Melee.Bludgeoning.Piercing.OneHanded.Gauntlet							H
 Blastpowder Siege Weapons	TYPE:Siege.Ranged.Bludgeoning.RangedBludgeoning									HANDS:0
 
 
-# Missing 
-Wind Staff		
+# Missing
+Wind Staff
 Khopesh

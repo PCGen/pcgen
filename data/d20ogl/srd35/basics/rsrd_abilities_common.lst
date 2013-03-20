@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 
 #BLOCK: Where to store Abilities
 # Ability Name							Unique Key							Category of Ability	Define																																															Choose							Ability																																																												Save checks bonus												Combat bonus																															Bonus to skill							Modify VAR
@@ -21,13 +21,13 @@ Bardic Inspire Courage						KEY:Bardic Inspire Courage (For Others)		CATEGORY:In
 Bardic Inspire Competence					KEY:Bardic Inspire Competence (For Others)	CATEGORY:Internal		DEFINE:OtherInspireCompetenceBonus|0																																																																																																																																																														BONUS:SKILL|TYPE.Standard|OtherInspireCompetenceBonus	BONUS:VAR|OtherInspireCompetenceBonus|2
 ###Block: Creature Type Traits
 # COMMENT: 'Default' is the defacto master ability that is automatically applied to ALL creatures. From it you can cascade other abilities. USE PRExxx to control when these are applied.
-# Ability Name			Category of Ability	Type			Visible	Define					Ability
+# Ability Name			Category of Ability	Type			Visible	Define					Ability														Misc bonus
 Default				CATEGORY:Internal
 
 CATEGORY=Internal|Default.MOD																ABILITY:Internal|AUTOMATIC|Defines Required
 CATEGORY=Internal|Default.MOD																ABILITY:Internal|AUTOMATIC|Master Traits
 
-Holy Avenger Spell Resistance	CATEGORY:Internal		BONUS:MISC|SR|PaladinLvl+5|TYPE=SpellResistance	
+Holy Avenger Spell Resistance	CATEGORY:Internal																												BONUS:MISC|SR|PaladinLvl+5|TYPE=SpellResistance
 
 Master Traits			CATEGORY:Internal		TYPE:Internal	VISIBLE:NO	DEFINE:AnimalGrowthActivated|0	ABILITY:Internal|AUTOMATIC|Damage Reduction 10/magic|PREVAREQ:AnimalGrowthActivated,1
 # COMMENT: Assigns the Trait based upon RACETYPE
@@ -137,7 +137,7 @@ Giant Traits										CATEGORY:Special Ability	TYPE:TraitAbility																
 Humanoid Traits										CATEGORY:Special Ability	TYPE:TraitAbility
 Magical Beast Traits									CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																																BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
 Monstrous Humanoid Traits								CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																																																																		BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
-Ooze Traits											CATEGORY:Special Ability	TYPE:TraitAbility				DEFINE:OozeObjectAcidDamageAmount|0	DEFINE:OozeHasObjectAcidDamage|0																																																																																																																																																							TEMPLATE:Ooze																																										BONUS:VAR|OozeObjectAcidDamageAmount|10+(HD/2)+CON	VISION:Blind	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Blindsight ~ Ooze Shared
+Ooze Traits											CATEGORY:Special Ability	TYPE:TraitAbility				DEFINE:OozeObjectAcidDamageAmount|0	DEFINE:OozeHasObjectAcidDamage|0																																																																																																																																																							TEMPLATE:Ooze		ABILITY:Special Ability|AUTOMATIC|Blindsight ~ Ooze Shared																															BONUS:VAR|OozeObjectAcidDamageAmount|10+(HD/2)+CON	VISION:Blind	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Outsider Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Outsider House Rule ~ Martial Weapons|PRERULE:1,OutsiderZeroHDGainMartialWeapons																					BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
 Plant Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
 Undead Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																						TEMPLATE:Undead																																				BONUS:SKILL|Concentration|CHA-CON
@@ -182,11 +182,11 @@ Swarm Traits			KEY:Traits Output ~ Swarm			CATEGORY:Special Ability	TYPE:Special
 Water Traits			KEY:Traits Output ~ Water			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait													DESC:Always have swim speeds and can move in water without making Swim checks/ can breathe underwater and usually can breathe air as well
 
 ###Block: Creature Subtype Traits
-# Ability Name		Category of Ability		Type								Define			Template		Ability																												Combat bonus											Modify VAR
+# Ability Name		Category of Ability		Type								Define			Template		Ability																																						Combat bonus											Modify VAR
 Air Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility
-Angel Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Immunity To Acid|Immunity To Cold|Immunity To Petrification|Protective Aura|Tongues	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light														BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Angel Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Immunity To Acid|Immunity To Cold|Immunity To Petrification|Protective Aura|Tongues	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																								BONUS:VAR|DarkvisionRange|60|TYPE=Base
 Aquatic Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
-Archon Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Aura of Menace ~ Archon|Magic Circle against Evil ~ Archon|Teleport ~ Archon|Tongues ~ Archon|Immunity to Electricity|Immunity to Petrification	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																				BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Archon Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Aura of Menace ~ Archon|Magic Circle against Evil ~ Archon|Teleport ~ Archon|Tongues ~ Archon|Immunity to Electricity|Immunity to Petrification	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light														BONUS:VAR|DarkvisionRange|60|TYPE=Base
 Augmented Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Chaotic Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Cold Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Immunity To Cold|Vulnerability To Fire
@@ -198,7 +198,7 @@ Extraplanar Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility
 Fire Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Immunity To Fire|Vulnerability To Cold
 Goblinoid Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Good Traits			CATEGORY:Special Ability	TYPE:SubTraitAbility
-Incorporeal Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility					DEFINE:CanNotGrapple|1																																	BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX
+Incorporeal Traits	CATEGORY:Special Ability	TYPE:SubTraitAbility					DEFINE:CanNotGrapple|1																																											BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX
 Lawful Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Native Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
 Reptilian Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility
@@ -211,8 +211,8 @@ Mindless			CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.Extraordinar
 
 
 #
-Demon Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity|Immunity To Poison|Resistance To Acid|Resistance To Cold|Resistance To Fire|Summon Demon|Telepathy	BONUS:VAR|AcidResistanceBonus|10|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance	BONUS:VAR|FireResistanceBonus|10|TYPE=Resistance
-Devil Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Immunity To Fire|Immunity To Poison|See in Darkness ~ Devil|Summon ~ Devil|Telepathy|Resistance To Acid|Resistance To Cold	BONUS:VAR|AcidResistanceBonus|10|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance
+Demon Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity|Immunity To Poison|Resistance To Acid|Resistance To Cold|Resistance To Fire|Summon Demon|Telepathy																										BONUS:VAR|AcidResistanceBonus|10|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance	BONUS:VAR|FireResistanceBonus|10|TYPE=Resistance
+Devil Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Immunity To Fire|Immunity To Poison|See in Darkness ~ Devil|Summon ~ Devil|Telepathy|Resistance To Acid|Resistance To Cold																										BONUS:VAR|AcidResistanceBonus|10|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance
 Mephit Traits		CATEGORY:Special Ability	TYPE:SubTraitAbility												ABILITY:Special Ability|AUTOMATIC|Natural Weapons ~ Mephit|Breath Weapon ~ Mephit|Spell-Like Abilities ~ Mephit|Summon Mephit ~ Mephit|Fast Healing ~ Mephit
 
 

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Blood and Relics 2nd Edition	SOURCESHORT:BnR2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53	SOURCEDATE:2004-01
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus		Modify VAR
@@ -37,7 +37,7 @@ CLASS:Omega Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.44	BONUS:CHE
 CLASS:Omega Knight	PREATT:5	PREFEAT:2,Track,Secret Society (Isayeret Omega/6)	PRESKILL:2,Knowledge (Arcane Lore)=5,Knowledge (Tactics)=10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Omega Knight	STARTSKILLPTS:4	CSKILL:Climb|Craft (Structural)|Demolitions|Drive|Hide|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Tactics)|Move Silently|Spot|Survival|Swim
-1																															BONUS:ABILITYPOOL|Weapon Focus|1
+1								BONUS:ABILITYPOOL|Weapon Focus|1
 2	SAB:Omega Knight +%|OmegaKnight									BONUS:VAR|OmegaKnight|(CL+1)/3	DEFINE:OmegaKnight|0
 3																										ADD:FEAT|TYPE=OmegaKnight
 4								BONUS:ABILITYPOOL|Weapon Specialization|1							DEFINE:WeapSpecQualify|1
@@ -100,8 +100,8 @@ CLASS:Black Knight	PREFEAT:3,Conviction (Dark Power),Profane Ritual,Secret Socie
 CLASS:Black Knight	STARTSKILLPTS:4	CSKILL:Climb|Decipher Script|Disable Device|Forgery|Hide|Intimidate|Jump|Knowledge (Arcane Lore)|Knowledge (Art)|Knowledge (Business)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Tactics)|Knowledge (Theology and Philosophy)|Move Silently|Research|Search|Sense Motive
 1	SAB:Dark Calling
 2	SAB:Immune to Disease
-3							BONUS:VAR|InflictWounds|(CL+3)/3					AUTO:FEAT|Inflict Wounds
+3							BONUS:VAR|InflictWounds|(CL+3)/3						AUTO:FEAT|Inflict Wounds
 4	SAB:Contagious Touch
-5	SAB:Vermin Swarm %/day|VerminSwarm	BONUS:VAR|VerminSwarm|CL/5		DEFINE:VerminSwarm|0
+5	SAB:Vermin Swarm %/day|VerminSwarm	BONUS:VAR|VerminSwarm|CL/5			DEFINE:VerminSwarm|0
 7	SAB:Vermin Shape
 8							BONUS:VAR|SneakAttackDice|((CL-6)/2)*2					AUTO:FEAT|Sneak Attack

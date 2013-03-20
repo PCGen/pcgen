@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Paradigm - Codex Arcanis	SOURCESHORT:Codex Arcanis	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2001-01
 #Original entry by Greg G (Phantom of Krankor)
 
@@ -164,7 +164,7 @@ Glyph of Warding.MOD			CLASSES:Ehtzara=4
 Goodberry.MOD				CLASSES:Ehtzara=2
 Greater Dispelling.MOD			CLASSES:Ehtzara=6
 Greater Glyph of Warding.MOD		CLASSES:Ehtzara=6
-Magic Fang (Greater).MOD												DOMAINS:Saurian=4
+Magic Fang (Greater).MOD											DOMAINS:Saurian=4
 Greater Planar Binding.MOD		CLASSES:Ehtzara=7
 Greater Scrying.MOD			CLASSES:Ehtzara=7							DOMAINS:Secrets=8
 Greater Shadow Conjuration.MOD	CLASSES:Ehtzara=5

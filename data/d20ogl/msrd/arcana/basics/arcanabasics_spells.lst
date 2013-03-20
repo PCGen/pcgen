@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 # Spell Name			Classes of caster									School			Sub-School			Spell Descriptors				Type				Components			Casting Time			Range						Item		Target Area or Effect															Duration							Save Info											Spell Resistance							Cost		Description																										Save checks bonus															Combat bonus							Bonus to HP									Bonus to skill													Stat bonus							Choose								Source Page				Temporary effect description
@@ -75,55 +75,56 @@ Wire Walk				CLASSES:Mage,Techno Mage=4							SCHOOL:Conjuration	SUBSCHOOL:Telep
 
 #Mystics gets same list as Acolytes, but no cure/inflict spells
 ################1st
-Create Water.MOD			CLASSES:Mystic=0
-Cure Minor Wounds.MOD		CLASSES:Mystic=0
-Detect Magical Aura.MOD		CLASSES:Mystic=0
-Inflict Minor Wounds.MOD	CLASSES:Mystic=0
-Light.MOD				CLASSES:Mystic=0
-Read Magic.MOD			CLASSES:Mystic=0
-Resistance.MOD			CLASSES:Mystic=0
-Virtue.MOD				CLASSES:Mystic=0
+# Spell Name				Classes of caster
+Create Water.MOD				CLASSES:Mystic=0
+Cure Minor Wounds.MOD			CLASSES:Mystic=0
+Detect Magical Aura.MOD			CLASSES:Mystic=0
+Inflict Minor Wounds.MOD		CLASSES:Mystic=0
+Light.MOD					CLASSES:Mystic=0
+Read Magic.MOD				CLASSES:Mystic=0
+Resistance.MOD				CLASSES:Mystic=0
+Virtue.MOD					CLASSES:Mystic=0
 #1st level
-Bane.MOD				CLASSES:Mystic=1
-Bless.MOD				CLASSES:Mystic=1
-Cause Fear.MOD			CLASSES:Mystic=1
-Command.MOD				CLASSES:Mystic=1
-Comprehend Languages.MOD	CLASSES:Mystic=1
-Cure Light Wounds.MOD		CLASSES:Mystic=1
-Inflict Light Wounds.MOD	CLASSES:Mystic=1
-Magic Weapon.MOD			CLASSES:Mystic=1
-Remove Fear.MOD			CLASSES:Mystic=1
-Shield of Faith.MOD		CLASSES:Mystic=1
+Bane.MOD					CLASSES:Mystic=1
+Bless.MOD					CLASSES:Mystic=1
+Cause Fear.MOD				CLASSES:Mystic=1
+Command.MOD					CLASSES:Mystic=1
+Comprehend Languages.MOD		CLASSES:Mystic=1
+Cure Light Wounds.MOD			CLASSES:Mystic=1
+Inflict Light Wounds.MOD		CLASSES:Mystic=1
+Magic Weapon.MOD				CLASSES:Mystic=1
+Remove Fear.MOD				CLASSES:Mystic=1
+Shield of Faith.MOD			CLASSES:Mystic=1
 #2nd level
-Aid.MOD				CLASSES:Mystic=2
-Augury.MOD				CLASSES:Mystic=2
-Cure Moderate Wounds.MOD	CLASSES:Mystic=2
-Dataread.MOD			CLASSES:Mystic=2
-Delay Poison.MOD			CLASSES:Mystic=2
-Enhance Ability.MOD		CLASSES:Mystic=2
-Hold Person.MOD			CLASSES:Mystic=2
-Inflict Moderate Wounds.MOD	CLASSES:Mystic=2
-Lesser Restoration.MOD		CLASSES:Mystic=2
-Remove Paralysis.MOD		CLASSES:Mystic=2
-Resist Energy.MOD			CLASSES:Mystic=2
-Silence.MOD				CLASSES:Mystic=2
-Spider Climb (Spell).MOD	CLASSES:Mystic=2
-Zone of Truth.MOD			CLASSES:Mystic=2
+Aid.MOD					CLASSES:Mystic=2
+Augury.MOD					CLASSES:Mystic=2
+Cure Moderate Wounds.MOD		CLASSES:Mystic=2
+Dataread.MOD				CLASSES:Mystic=2
+Delay Poison.MOD				CLASSES:Mystic=2
+Enhance Ability.MOD			CLASSES:Mystic=2
+Hold Person.MOD				CLASSES:Mystic=2
+Inflict Moderate Wounds.MOD		CLASSES:Mystic=2
+Lesser Restoration.MOD			CLASSES:Mystic=2
+Remove Paralysis.MOD			CLASSES:Mystic=2
+Resist Energy.MOD				CLASSES:Mystic=2
+Silence.MOD					CLASSES:Mystic=2
+Spider Climb (Spell).MOD		CLASSES:Mystic=2
+Zone of Truth.MOD				CLASSES:Mystic=2
 #3rd
-Animate Dead.MOD			CLASSES:Mystic=3
-Bestow Curse.MOD			CLASSES:Mystic=3
-Cure Serious Wounds.MOD		CLASSES:Mystic=3
-Dispel Magic.MOD			CLASSES:Mystic=3
-Glyph of Warding.MOD		CLASSES:Mystic=3
-Inflict Serious Wounds.MOD	CLASSES:Mystic=3
-Locate Object.MOD			CLASSES:Mystic=3
-Prayer.MOD				CLASSES:Mystic=3
-Recharge.MOD			CLASSES:Mystic=3
-Remove Curse.MOD			CLASSES:Mystic=3
-Remove Disease.MOD		CLASSES:Mystic=3
-Searing Light.MOD			CLASSES:Mystic=3
-Status.MOD				CLASSES:Mystic=3
-Water Breathing.MOD		CLASSES:Mystic=3
+Animate Dead.MOD				CLASSES:Mystic=3
+Bestow Curse.MOD				CLASSES:Mystic=3
+Cure Serious Wounds.MOD			CLASSES:Mystic=3
+Dispel Magic.MOD				CLASSES:Mystic=3
+Glyph of Warding.MOD			CLASSES:Mystic=3
+Inflict Serious Wounds.MOD		CLASSES:Mystic=3
+Locate Object.MOD				CLASSES:Mystic=3
+Prayer.MOD					CLASSES:Mystic=3
+Recharge.MOD				CLASSES:Mystic=3
+Remove Curse.MOD				CLASSES:Mystic=3
+Remove Disease.MOD			CLASSES:Mystic=3
+Searing Light.MOD				CLASSES:Mystic=3
+Status.MOD					CLASSES:Mystic=3
+Water Breathing.MOD			CLASSES:Mystic=3
 #4th Level
 Cure Critical Wounds.MOD		CLASSES:Mystic=4
 Discern Lies.MOD				CLASSES:Mystic=4

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
 
 # Removed the (TYPE=Slashing) to the Living blade... I can't get it to
@@ -28,9 +28,9 @@ CLASS:Brawler	PREATT:5	PREFEAT:2,Alertness,Improved Unarmed Strike	PRESTAT:1,STR
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Brawler	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim
 1	UDAM:1,1,1,1d2,1d3,1d4,1d6,1d8,1d10		BONUS:VAR|SneakAttackDice|1									ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2	UDAM:1,1,1,1d2,1d3,1d4,1d6,1d8,1d10														ABILITY:Special Ability|AUTOMATIC|Combat Awareness ~ Brawler
+2	UDAM:1,1,1,1d2,1d3,1d4,1d6,1d8,1d10															ABILITY:Special Ability|AUTOMATIC|Combat Awareness ~ Brawler
 3	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8
-4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8													ABILITY:Special Ability|AUTOMATIC|Surprise Guard ~ Brawler
+4	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8														ABILITY:Special Ability|AUTOMATIC|Surprise Guard ~ Brawler
 5	UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8	BONUS:VAR|SneakAttackDice|1	BONUS:VAR|BarroomFury|1	DEFINE:BarroomFury|0	ABILITY:Special Ability|AUTOMATIC|Barroom Fury ~ Brawler
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus

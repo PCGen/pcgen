@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Oct 12 14:05:16 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 #SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
 
 # Master Categories
@@ -74,34 +74,34 @@ ABILITYCATEGORY:Negotiator Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRAC
 ABILITYCATEGORY:Techie Mastercraft	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TechieMastercraft	PLURAL:Techie Mastercraft	DISPLAYLOCATION:Class Abilities
 
 ###Block: Single Ability Class Features
-# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
-ABILITYCATEGORY:Weapon Focus				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:WeaponFocus				PLURAL:Weapon Focus				DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Greater Weapon Focus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GreaterWeaponFocus			PLURAL:Greater Weapon Focus			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Weapon Specialization		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WeaponSpecialization		PLURAL:Weapon Specialization			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Greater Weapon Specialization	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GreaterWeaponSpecialization	PLURAL:Greater Weapon Specialization	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Improved Critical			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ImprovedCritical			PLURAL:Improved Critical			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Spell Mastery				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SpellMastery				PLURAL:Spell Mastery				DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Builder					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Builder				PLURAL:Builder					DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Savant					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			ABILITYLIST:Savant			PLURAL:Savant					DISPLAYLOCATION:Class Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list	Plural description for UI			Display Location
+ABILITYCATEGORY:Weapon Focus				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:WeaponFocus								PLURAL:Weapon Focus				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Greater Weapon Focus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GreaterWeaponFocus							PLURAL:Greater Weapon Focus			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Weapon Specialization		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WeaponSpecialization						PLURAL:Weapon Specialization			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Greater Weapon Specialization	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GreaterWeaponSpecialization					PLURAL:Greater Weapon Specialization	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Improved Critical			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ImprovedCritical							PLURAL:Improved Critical			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Spell Mastery				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SpellMastery								PLURAL:Spell Mastery				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Builder					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Builder								PLURAL:Builder					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Savant					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent									ABILITYLIST:Savant	PLURAL:Savant					DISPLAYLOCATION:Class Abilities
 
 # Core Class Talent Pools
-# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
-ABILITYCATEGORY:Strong Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:StrongTalent				PLURAL:Strong Talents				DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Fast Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:FastTalent				PLURAL:Fast Talents				DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Tough Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:ToughTalent				PLURAL:Tough Talents				DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Smart Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:SmartTalent				PLURAL:Smart Talents				DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Dedicated Talent			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:DedicatedTalent			PLURAL:Dedicated Talents			DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Charismatic Talent			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:CharismaticTalent			PLURAL:Charismatic Talents			DISPLAYLOCATION:Class Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list	Plural description for UI			Display Location
+ABILITYCATEGORY:Strong Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:StrongTalent								PLURAL:Strong Talents				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Fast Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:FastTalent								PLURAL:Fast Talents				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Tough Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:ToughTalent								PLURAL:Tough Talents				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Smart Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:SmartTalent								PLURAL:Smart Talents				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Dedicated Talent			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:DedicatedTalent							PLURAL:Dedicated Talents			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Charismatic Talent			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Talent			TYPE:CharismaticTalent							PLURAL:Charismatic Talents			DISPLAYLOCATION:Class Abilities
 
 # Creature Type Proficiency Bonus Feat Pools
-# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
-ABILITYCATEGORY:Aberration Proficiency		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:AberrationProficiency		PLURAL:Aberration Proficiencies		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Fey Proficiency			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:FeyProficiency			PLURAL:Fey Proficiencies			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Giant Proficiency			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:GiantProficiency			PLURAL:Giant Proficiencies			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Humanoid Proficiency		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:HumanoidProficiency		PLURAL:Humanoid Proficiencies			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Monstrous Humanoid Proficiency	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MonstrousHumanoidProficiency	PLURAL:Monstrous Humanoid Proficiencies	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Outsider Proficiency		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:OutsiderProficiency		PLURAL:Outsider Proficiencies			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Undead Proficiency			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:UndeadProficiency			PLURAL:Undead Proficiencies			DISPLAYLOCATION:Feats
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Specific choices list	Plural description for UI			Display Location
+ABILITYCATEGORY:Aberration Proficiency		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:AberrationProficiency						PLURAL:Aberration Proficiencies		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Fey Proficiency			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:FeyProficiency							PLURAL:Fey Proficiencies			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Giant Proficiency			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:GiantProficiency							PLURAL:Giant Proficiencies			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Humanoid Proficiency		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:HumanoidProficiency						PLURAL:Humanoid Proficiencies			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Monstrous Humanoid Proficiency	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MonstrousHumanoidProficiency					PLURAL:Monstrous Humanoid Proficiencies	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Outsider Proficiency		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:OutsiderProficiency						PLURAL:Outsider Proficiencies			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Undead Proficiency			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:UndeadProficiency							PLURAL:Undead Proficiencies			DISPLAYLOCATION:Feats
 
 #
 ## EOF

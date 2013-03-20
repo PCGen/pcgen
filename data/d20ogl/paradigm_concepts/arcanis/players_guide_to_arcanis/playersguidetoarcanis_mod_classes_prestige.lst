@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 17:24:32 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
@@ -34,10 +34,10 @@ CLASS:Hierophant.MOD	PREFEAT:1,TYPE=Metamagic	PREMULT:1,[!PREDEITY:1,Belisarda],
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Hierophant.MOD	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Knowledge (Arcana)|TYPE.Religion|TYPE.Profession|Spellcraft
 #1	BONUS:ABILITYPOOL|Hierophant Ability|CL
-2	ADD:SPELLCASTER|1|Divine	
-3	ADD:SPELLCASTER|1|Divine	
-4	ADD:SPELLCASTER|1|Divine	
-5	ADD:SPELLCASTER|1|Divine	
+2	ADD:SPELLCASTER|1|Divine
+3	ADD:SPELLCASTER|1|Divine
+4	ADD:SPELLCASTER|1|Divine
+5	ADD:SPELLCASTER|1|Divine
 
 # Class Name		Class Skill
 CLASS:Loremaster.MOD	CSKILL:Research

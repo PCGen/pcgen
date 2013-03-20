@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov  1 17:00:18 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
 #Original Entry by: Andrew Maitland
 
@@ -16,17 +16,17 @@ FOLLOWER:WildPackLvl=9	TYPE:Wild Pack			SAB:Devotion (Ex)																							
 FOLLOWER:WildPackLvl=1	TYPE:Wild Pack	PRERACE:1,Dog (Riding)	KIT:1|Dog (Riding) Companion
 
 ###Block:Animal Champion Companion
-# Class of the Master	Type						Hit Dice	Virtual Feat				Special ABility					Define			Combat bonus						Stat bonus
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion									SAB:Link (Ex)	SAB:Share Spells (Ex)
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Champion Companion	HD:2								SAB:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompanionLVL=6	TYPE:Animal Champion Companion	HD:2								SAB:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:AnimalCompanionLVL=9	TYPE:Animal Champion Companion	HD:2		VFEAT:Multiattack|PREHANDSGTEQ:3	SAB:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+# Class of the Master			Type						Hit Dice	Virtual Feat				Special ABility					Define			Combat bonus						Stat bonus
+FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Champion Companion									SAB:Link (Ex)	SAB:Share Spells (Ex)
+FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Champion Companion	HD:2								SAB:Evasion (Ex)					DEFINE:EvasionUsable|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Champion Companion	HD:2								SAB:Devotion (Ex)									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Champion Companion	HD:2		VFEAT:Multiattack|PREHANDSGTEQ:3	SAB:Multiattack (Ex)								BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 FOLLOWER:AnimalCompanionLVL=12	TYPE:Animal Champion Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Champion Companion	HD:2								SAB:Improved Evasion (Ex)							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Champion Companion	HD:2																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 
 ###Block: Kit Application
-# Class of the Master	Type						Required Race					Apply Kit
+# Class of the Master		Type						Required Race					Apply Kit
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Ape					KIT:1|Ape Companion
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Badger					KIT:1|Badger Companion
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Bear (Black)				KIT:1|Bear (Black) Companion
@@ -79,7 +79,7 @@ FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Tiger				
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Wolf					KIT:1|Wolf Companion
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Wolverine				KIT:1|Wolverine Companion
 ###Block: New Animals
-# Class of the Master	Type						Required Race				Apply Kit
+# Class of the Master		Type						Required Race				Apply Kit
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Wildcat				KIT:1|Wildcat Companion
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Caracal				KIT:1|Caracal Companion
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Champion Companion	PRERACE:1,Snake (Spitting Cobra)	KIT:1|Snake (Spitting Cobra) Companion
@@ -154,7 +154,7 @@ FOLLOWER:CompanionPackLvl=1	TYPE:Companion Pack	PRERACE:1,Lynx				KIT:1|Lynx Com
 FOLLOWER:CompanionPackLvl=1	TYPE:Companion Pack	PRERACE:1,Saber-Tooth			KIT:1|Saber-Tooth Companion
 
 ###Block: Add Animal Companions to main RSRD
-# Class of the Master	Type				Required Race				Apply Kit
+# Class of the Master		Type				Required Race				Apply Kit
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Wildcat				KIT:1|Wildcat Companion
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Caracal				KIT:1|Caracal Companion
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Snake (Spitting Cobra)	KIT:1|Snake (Spitting Cobra) Companion

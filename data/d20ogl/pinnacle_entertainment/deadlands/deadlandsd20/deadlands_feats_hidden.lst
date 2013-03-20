@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
 ###Block: Agency Operative class features
@@ -75,11 +75,11 @@ Jury Rig		TYPE:ClassAbility	VISIBLE:NO	SAB:Jury Rig %|JuryRig	DEFINE:JuryRig|0	S
 Jinx			TYPE:ClassAbility	VISIBLE:NO	SAB:Jinx						SOURCEPAGE:p.32
 
 ###Block: Maverick class features
-# Feat Name			Type			Visible	Special ABility		Virtual Feat		Save checks bonus						Modify VAR			Source Page
-Extraordinary Luck	TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Luck					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)					SOURCEPAGE:p.34
-Gambler's Luck		TYPE:ClassAbility	VISIBLE:NO	SAB:Gambler's Luck																	SOURCEPAGE:p.34
+# Feat Name			Type			Visible	Special ABility		Virtual Feat		Save checks bonus						Modify VAR				Source Page
+Extraordinary Luck	TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Luck					BONUS:CHECKS|Fortitude,Reflex,Will|max(CHA,0)						SOURCEPAGE:p.34
+Gambler's Luck		TYPE:ClassAbility	VISIBLE:NO	SAB:Gambler's Luck																		SOURCEPAGE:p.34
 Maverick Sneak Attack	TYPE:ClassAbility	VISIBLE:NO					VFEAT:Sneak Attack									BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.34
-Slippery Mind		TYPE:ClassAbility	VISIBLE:NO	SAB:Slippery Mind																		SOURCEPAGE:p.34
+Slippery Mind		TYPE:ClassAbility	VISIBLE:NO	SAB:Slippery Mind																			SOURCEPAGE:p.34
 # Not sure on the Maverick Sneak Attack, but had to remove the ADD:SPECIAL. - Tir Gwaith
 
 ###Block: Rowdy class abilities
@@ -122,7 +122,7 @@ Defensive Roll	TYPE:RogueSpecialAbilities	VISIBLE:NO		SAB:Defensive Roll								
 Evasion							VISIBLE:NO		SAB:Evasion (Ex)|PHBFeatEvasion																							DEFINE:PHBFeatEvasion|var("COUNT[FEATNAME=Improved Evasion]")-1																																											SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Improved Evasion	TYPE:RogueSpecialAbilities	VISIBLE:NO		SAB:Improved Evasion (Ex)																																																																													SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Leadership Score	TYPE:Special			VISIBLE:NO																																																													CHOOSE:NUMBER|MIN=-10|MAX=10|TITLE=Leadership Score Adjustment				BONUS:VAR|LeadershipScore|%CHOICE|PREAPPLY:PC								TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.
-Sneak Attack	TYPE:Special			VISIBLE:NO		SAB:Sneak Attack %1d%2|SneakAttackDice|SneakAttackDie																				DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDie|6																																														SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Sneak Attack	TYPE:Special			VISIBLE:NO		SAB:Sneak Attack %1d%2|SneakAttackDice|SneakAttackDie																				DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDie|6																																													SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Skill Mastery	TYPE:RogueSpecialAbilities	VISIBLE:EXPORT																																																	DESC:Take 10 on listed skills, %1|%LIST	STACK:NO	MULT:YES	CHOOSE:SKILL|ALL									SELECT:3+INT									SOURCEPAGE:srdbasiccharacterclassesii.rtf
 Uncanny Dodge						VISIBLE:NO		SAB:Uncanny Dodge (Dex bonus to AC)|UncannyDodge	SAB:Uncanny Dodge (can't be flanked)|ImprovedUncannyDodge	SAB:Uncanny Dodge (+% against traps)|UncannyTraps	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)
 

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Roles and Classes - Covert Hero	SOURCESHORT:CovertHero	SOURCEWEB:http://swordsedgepublishing.ca/Products.html	SOURCEDATE:2005-01
 
 ###Block: Defensive Talent Tree
@@ -8,8 +8,8 @@ CATEGORY=Talent|Uncanny Dodge I.MOD		TYPE:CovertHeroTalent.DefensiveTalent
 CATEGORY=Talent|Uncanny Dodge II.MOD	TYPE:CovertHeroTalent.DefensiveTalent
 
 ###Block: Offensive Talent Tree
-# Ability Name				Category of Ability	Type							Visible	Required Feat		Special ABility							Define							Description				Stackable?	Multiple?	Choose		Modify VAR			Source Page
-Crippling Strike				CATEGORY:Talent		TYPE:CovertHeroTalent.OffensiveTalent	VISIBLE:YES	PREFEAT:1,Sneak Attack	SAB:Crippling Strike (Ex)													DESC:Class Special Ability												SOURCEPAGE:p.3
+# Ability Name				Category of Ability	Type							Visible	Required Feat		Special ABility							Define								Description				Stackable?	Multiple?	Choose		Modify VAR				Source Page
+Crippling Strike				CATEGORY:Talent		TYPE:CovertHeroTalent.OffensiveTalent	VISIBLE:YES	PREFEAT:1,Sneak Attack	SAB:Crippling Strike (Ex)														DESC:Class Special Ability													SOURCEPAGE:p.3
 CATEGORY=Talent|Opportunist.MOD					TYPE:CovertHeroTalent.OffensiveTalent
 Sneak Attack				CATEGORY:Talent		TYPE:CovertHeroTalent.OffensiveTalent	VISIBLE:YES					SAB:Sneak Attack +%d%|SneakAttackDice|SneakAttackDie	DEFINE:SneakAttackDie|6	DEFINE:SneakAttackDice|0	DESC:Class Special Ability	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.4
 

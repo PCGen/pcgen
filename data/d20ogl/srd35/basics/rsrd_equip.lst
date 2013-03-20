@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 13 01:30:35 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: abernat/altered by dlm1065
 
@@ -257,21 +257,22 @@ Siege Tower		TYPE:Goods.SiegeEngine	COST:2000	SOURCEPAGE:WildernessandEnvironmen
 
 
 ###Block: Golems and other constructs and related equipment
-Golem (Clay)			OUTPUTNAME: [Name] Golem	TYPE:Construct.Container		COST:40000		WT:600	SOURCEPAGE:MonstersG.rtf
-Golem (Flesh)			OUTPUTNAME: [Name] Golem	TYPE:Construct.Container		COST:20000		WT:500	SOURCEPAGE:MonstersG.rtf
-Golem (Iron)			OUTPUTNAME: [Name] Golem	TYPE:Construct.Container		COST:150000		WT:5000	SOURCEPAGE:MonstersG.rtf
-Golem (Stone)			OUTPUTNAME: [Name] Golem	TYPE:Construct.Container		COST:90000		WT:2000	SOURCEPAGE:MonstersG.rtf
-Golem (Stone/Greater)		OUTPUTNAME: [Name] Golem	TYPE:Construct.Container		COST:196000		WT:32000	SOURCEPAGE:MonstersG.rtf
-Golem (Mithral)			OUTPUTNAME: [Name] Golem	TYPE:Construct.Epic.Container		COST:490000		WT:8500	SOURCEPAGE:EpicMonsters(G-W).rtf
-Golem (Adamantine)		OUTPUTNAME: [Name] Golem	TYPE:Construct.Epic.Container		COST:950000		WT:45000	SOURCEPAGE:EpicMonsters(G-W).rtf
-Colossus (Flesh)			OUTPUTNAME: [Name] Colossus	TYPE:Construct.Epic.Container		COST:1320000	WT:40500	SOURCEPAGE:EpicMonsters(A-E).rtf
-Colossus (Stone)			OUTPUTNAME: [Name] Colossus	TYPE:Construct.Epic.Container		COST:1320000	WT:250000	SOURCEPAGE:EpicMonsters(A-E).rtf
-Colossus (Iron)			OUTPUTNAME: [Name] Colossus	TYPE:Construct.Epic.Container		COST:1799000	WT:150000	SOURCEPAGE:EpicMonsters(A-E).rtf
-Shield Guardian								TYPE:Construct.Container		COST:120000		WT:1200	SOURCEPAGE:MonstersS.rtf
-Amulet (Shield Guardian)						TYPE:Magic.Amulet.Construct		COST:20000		WT:0		SOURCEPAGE:MonstersS.rtf
-Homunculus									TYPE:Construct.Container		COST:0		WT:0		SOURCEPAGE:MonstersH-I.rtf
-Laboratory (Homunculus)							TYPE:Goods.Tools.Construct		COST:500 		WT:40		SOURCEPAGE:MonstersH-I.rtf
-Laboratory (Shield Guardian)						TYPE:Goods.Tools.Construct		COST:500		WT:40		SOURCEPAGE:MonstersS.rtf
+# Equipment Name			Output Name				Type					Cost			Weight	Source Page
+Golem (Clay)			OUTPUTNAME: [Name] Golem	TYPE:Construct.Container	COST:40000		WT:600	SOURCEPAGE:MonstersG.rtf
+Golem (Flesh)			OUTPUTNAME: [Name] Golem	TYPE:Construct.Container	COST:20000		WT:500	SOURCEPAGE:MonstersG.rtf
+Golem (Iron)			OUTPUTNAME: [Name] Golem	TYPE:Construct.Container	COST:150000		WT:5000	SOURCEPAGE:MonstersG.rtf
+Golem (Stone)			OUTPUTNAME: [Name] Golem	TYPE:Construct.Container	COST:90000		WT:2000	SOURCEPAGE:MonstersG.rtf
+Golem (Stone/Greater)		OUTPUTNAME: [Name] Golem	TYPE:Construct.Container	COST:196000		WT:32000	SOURCEPAGE:MonstersG.rtf
+Golem (Mithral)			OUTPUTNAME: [Name] Golem	TYPE:Construct.Epic.Container	COST:490000		WT:8500	SOURCEPAGE:EpicMonsters(G-W).rtf
+Golem (Adamantine)		OUTPUTNAME: [Name] Golem	TYPE:Construct.Epic.Container	COST:950000		WT:45000	SOURCEPAGE:EpicMonsters(G-W).rtf
+Colossus (Flesh)			OUTPUTNAME: [Name] Colossus	TYPE:Construct.Epic.Container	COST:1320000	WT:40500	SOURCEPAGE:EpicMonsters(A-E).rtf
+Colossus (Stone)			OUTPUTNAME: [Name] Colossus	TYPE:Construct.Epic.Container	COST:1320000	WT:250000	SOURCEPAGE:EpicMonsters(A-E).rtf
+Colossus (Iron)			OUTPUTNAME: [Name] Colossus	TYPE:Construct.Epic.Container	COST:1799000	WT:150000	SOURCEPAGE:EpicMonsters(A-E).rtf
+Shield Guardian								TYPE:Construct.Container	COST:120000		WT:1200	SOURCEPAGE:MonstersS.rtf
+Amulet (Shield Guardian)						TYPE:Magic.Amulet.Construct	COST:20000		WT:0		SOURCEPAGE:MonstersS.rtf
+Homunculus									TYPE:Construct.Container	COST:0		WT:0		SOURCEPAGE:MonstersH-I.rtf
+Laboratory (Homunculus)							TYPE:Goods.Tools.Construct	COST:500		WT:40		SOURCEPAGE:MonstersH-I.rtf
+Laboratory (Shield Guardian)						TYPE:Goods.Tools.Construct	COST:500		WT:40		SOURCEPAGE:MonstersS.rtf
 
 # Each contruct-related item was given a newly-made Construct type.
 # The names could include the HD of the creature since that determines its size and part of its cost. An equipment modification somehow?

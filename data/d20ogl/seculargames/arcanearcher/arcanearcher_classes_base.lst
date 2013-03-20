@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Advanced Character Guide - Arcane Archer	SOURCESHORT:ArcaneArcher	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#aa	SOURCEDATE:2005-01
 #Originally done by Paul W. King
 
@@ -36,14 +36,14 @@ CLASS:Arcane Archer ~ Core	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CA
 ###Block: Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)
-1																												AUTO:SHIELDPROF|Buckler
+1																							AUTO:SHIELDPROF|Buckler
 ###Block: Standard
-1																										VFEAT:Point Blank Shot
-2																										BONUS:ABILITYPOOL|Weapon Focus|1
-3																										VFEAT:Precise Shot
-4	BONUS:VAR|ArrowEnhancement|min((CL-1)/3,5)									ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
-5																	ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
-6	BONUS:VAR|SeekerArrowTimes|CL/6											ABILITY:Special Ability|AUTOMATIC|Seeker Arrow
-9	BONUS:VAR|PhaseArrowTimes|(CL+1)/10											ABILITY:Special Ability|AUTOMATIC|Phase Arrow
-14	BONUS:VAR|HailArrowsTargets|CL/2	BONUS:VAR|HailArrowsTimes|1						ABILITY:Special Ability|AUTOMATIC|Hail of Arrows
-15	BONUS:VAR|ArrowDeathLevel|CL							DEFINE:ArrowDeathLevel|0	ABILITY:Special Ability|AUTOMATIC|Arrow of Death
+1																																VFEAT:Point Blank Shot
+2	BONUS:ABILITYPOOL|Weapon Focus|1
+3																																VFEAT:Precise Shot
+4							BONUS:VAR|ArrowEnhancement|min((CL-1)/3,5)									ABILITY:Special Ability|AUTOMATIC|Enhance Arrow
+5																							ABILITY:Special Ability|AUTOMATIC|Imbue Arrow
+6							BONUS:VAR|SeekerArrowTimes|CL/6											ABILITY:Special Ability|AUTOMATIC|Seeker Arrow
+9							BONUS:VAR|PhaseArrowTimes|(CL+1)/10											ABILITY:Special Ability|AUTOMATIC|Phase Arrow
+14							BONUS:VAR|HailArrowsTargets|CL/2	BONUS:VAR|HailArrowsTimes|1						ABILITY:Special Ability|AUTOMATIC|Hail of Arrows
+15							BONUS:VAR|ArrowDeathLevel|CL							DEFINE:ArrowDeathLevel|0	ABILITY:Special Ability|AUTOMATIC|Arrow of Death

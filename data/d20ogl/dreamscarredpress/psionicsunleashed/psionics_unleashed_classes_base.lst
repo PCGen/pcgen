@@ -1,4 +1,4 @@
-# CVS $Revision: 17406 $ $Author: amaitland $ -- Sun Jun 19 04:35:41 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision: 17406 $ $Author: amaitland $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html	SOURCEDATE:2010-12
 #Original Entry: Douglas Limmer
 #SRD Original Entry: Arknight
@@ -70,11 +70,11 @@ CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorMartialWeaponProficiency	AUTO:FEAT|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorMartialWeaponProficiency
-1	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorSimpleWeaponProficiency
-1																	AUTO:FEAT|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorHeavyArmorProficiency,TYPE.PsychicWarriorArmorProficiencies
-1																	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorLightArmorProficiency,TYPE.PsychicWarriorArmorProficiencies
-1																	AUTO:FEAT|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorMediumArmorProficiency,TYPE.PsychicWarriorArmorProficiencies
-1																	AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorShieldProficiency
+1																									AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorSimpleWeaponProficiency
+1																									AUTO:FEAT|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorHeavyArmorProficiency,TYPE.PsychicWarriorArmorProficiencies
+1																									AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorLightArmorProficiency,TYPE.PsychicWarriorArmorProficiencies
+1																									AUTO:FEAT|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorMediumArmorProficiency,TYPE.PsychicWarriorArmorProficiencies
+1																									AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorShieldProficiency
 
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|PsychicWarriorML|CL	BONUS:VAR|PsychicWarriorML|var("BL=Psychic Warrior")	BONUS:VAR|IsPsionic|1																							DEFINE:PsychicWarriorML|0	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
@@ -87,28 +87,28 @@ CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 1	BONUS:VAR|BonusPowerPoints|(WIS*PsychicWarriorPL)/2|TYPE=PsychicWarriorBonusPP
 
 ###Block: Class Info
-1					BONUS:ABILITYPOOL|Primary Warrior Path|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorWarriorPath			BONUS:VAR|WarriorPathLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorWarriorPath
-1	KNOWN:0,1			BONUS:ABILITYPOOL|Psychic Warrior Feat|1	BONUS:VAR|PrereqBAB|(CL+3)/4|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPsionicProficiency	DEFINE:PrereqBAB|BAB		ABILITY:Special Ability|AUTOMATIC|Psionic Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPsionicProficiency
-1																								ABILITY:Special Ability|AUTOMATIC|Warrior's Path|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorWarriorPath
+1					BONUS:ABILITYPOOL|Primary Warrior Path|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorWarriorPath		BONUS:VAR|WarriorPathLVL|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorWarriorPath
+1	KNOWN:0,1			BONUS:ABILITYPOOL|Psychic Warrior Feat|1													BONUS:VAR|PrereqBAB|(CL+3)/4|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPsionicProficiency	DEFINE:PrereqBAB|BAB		ABILITY:Special Ability|AUTOMATIC|Psionic Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPsionicProficiency
+1																																														ABILITY:Special Ability|AUTOMATIC|Warrior's Path|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorWarriorPath
 2	KNOWN:0,2			BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat2
 3	KNOWN:0,3
 4	KNOWN:0,3,1
 5	KNOWN:0,3,2			BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat5
-6	KNOWN:0,3,3																						ABILITY:Special Ability|AUTOMATIC|Martial Power|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorMartialPower
+6	KNOWN:0,3,3																																												ABILITY:Special Ability|AUTOMATIC|Martial Power|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorMartialPower
 7	KNOWN:0,3,3,1
 8	KNOWN:0,3,3,2		BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat8
-9	KNOWN:0,3,3,3		BONUS:ABILITYPOOL|Secondary Warrior Path|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorSecondaryPath	ABILITY:Special Ability|AUTOMATIC|Secondary Path|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorSecondaryPath
+9	KNOWN:0,3,3,3		BONUS:ABILITYPOOL|Secondary Warrior Path|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorSecondaryPath																							ABILITY:Special Ability|AUTOMATIC|Secondary Path|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorSecondaryPath
 10	KNOWN:0,3,3,3,1
 11	KNOWN:0,3,3,3,2		BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat11
-12	KNOWN:0,3,3,3,3																					ABILITY:Special Ability|AUTOMATIC|Twisting Path|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorTwistingPath
+12	KNOWN:0,3,3,3,3																																											ABILITY:Special Ability|AUTOMATIC|Twisting Path|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorTwistingPath
 13	KNOWN:0,3,3,3,3,1
 14	KNOWN:0,3,3,3,3,2		BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat14
-15	KNOWN:0,3,3,3,3,3		DEFINE:PathweavingLVL|CL	BONUS:VAR|PathweavingLVL|-CL|PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPathweaving	ABILITY:Special Ability|AUTOMATIC|Pathweaving|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPathweaving
+15	KNOWN:0,3,3,3,3,3																					BONUS:VAR|PathweavingLVL|-CL|PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPathweaving		DEFINE:PathweavingLVL|CL	ABILITY:Special Ability|AUTOMATIC|Pathweaving|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorPathweaving
 16	KNOWN:0,3,3,3,3,3,1
 17	KNOWN:0,3,3,3,3,3,2	BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat17
 18	KNOWN:0,3,3,3,3,3,3
 19	KNOWN:0,3,3,3,3,3,4
-20	KNOWN:0,3,3,3,3,3,5	BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat20		ABILITY:Special Ability|AUTOMATIC|Eternal Warrior|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorEternalWarrior
+20	KNOWN:0,3,3,3,3,3,5	BONUS:ABILITYPOOL|Psychic Warrior Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorBonusFeat20																								ABILITY:Special Ability|AUTOMATIC|Eternal Warrior|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsychicWarriorEternalWarrior
 
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR

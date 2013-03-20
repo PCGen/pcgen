@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:The Way of the Gun	SOURCESHORT:WayotGun	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
@@ -66,12 +66,12 @@ CLASS:Desperado	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Demolitions|Forger
 1	AUTO:FEAT|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 ###Block: Normal Progression
 1	SAB:Mean as a Rattler	SAB:Sneak Attack +%d6|SneakAttackDice	BONUS:SKILL|Diplomacy|-2	BONUS:VAR|SneakAttackDice|(CL+2)/3	DEFINE:SneakAttackDice|0
-2	SAB:Paunch (%/day)|Paunch											BONUS:VAR|Paunch|1			DEFINE:Paunch|0
-3	SAB:Hideout %|Hideout												BONUS:VAR|Hideout|1			DEFINE:Hideout|0
-5																BONUS:VAR|Paunch|1
+2	SAB:Paunch (%/day)|Paunch												BONUS:VAR|Paunch|1			DEFINE:Paunch|0
+3	SAB:Hideout %|Hideout													BONUS:VAR|Hideout|1			DEFINE:Hideout|0
+5																	BONUS:VAR|Paunch|1
 6	SAB:Gang
-8																BONUS:VAR|Hideout|1
-9																BONUS:VAR|Paunch|1
+8																	BONUS:VAR|Hideout|1
+9																	BONUS:VAR|Paunch|1
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Automatically Gained Weapon Prof.						Save checks bonus																			Combat bonus
 CLASS:Gunsmith	HD:6		TYPE:PC.Prestige	ABB:Gsm		MAXLEVEL:10	SOURCEPAGE:p.23	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|1+floor(CL/5)+floor((CL+3)/5)	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE

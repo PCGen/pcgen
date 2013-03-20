@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Nov 12 13:14:44 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-09
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2011/10/26
@@ -11,12 +11,12 @@ No Combat Maneuvers									CATEGORY:Special Ability							VISIBLE:NO	DEFINE:NoC
 ###Block: Advanced Constructs Astral Construct abilities
 #Block: Menu A
 
-# Ability Name	Unique Key				Category of Ability		Type							Visible	Required Template				Define				Description														Stackable?	Multiple?	Choose		Automatically Gained Feat	Combat bonus					Bonus to HP			Modify VAR				Weapon prof. bonus													Natural Attacks
-Armor Spikes	KEY:Astral_Armor Spikes		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct						DESC:Do extra 1d6 piercing damage with trample, constrict, bull rush, or grapple attack.																																													NATURALATTACKS:Armor Spikes,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d6
+# Ability Name	Unique Key				Category of Ability		Type							Visible	Required Template				Define				Description														Stackable?	Multiple?	Choose		Automatically Gained Feat	Combat bonus					Modify VAR				Weapon prof. bonus													Natural Attacks
+Armor Spikes	KEY:Astral_Armor Spikes		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct						DESC:Do extra 1d6 piercing damage with trample, constrict, bull rush, or grapple attack.																																									NATURALATTACKS:Armor Spikes,Weapon.Natural.Melee.Finesseable.Piercing,*1,1d6
 Dodge			KEY:Astral_Dodge			CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																												AUTO:FEAT|Dodge
 Might			KEY:Astral_Might			CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																																	BONUS:COMBAT|DAMAGE.Melee|1|TYPE=Might
 Talons		KEY:Astral_Talons			CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct						DESC:Slam attacks do either slashing or piercing damage.
-Utility		KEY:Astral_Utility		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct	DEFINE:AstralUtilityDC|8	DESC:The astral construct can perform various tasks up to DC %1.|AstralUtilityDC		STACK:YES	MULT:YES	CHOOSE:NOCHOICE																	BONUS:VAR|AstralUtilityDC|2
+Utility		KEY:Astral_Utility		CATEGORY:Special Ability	TYPE:SpecialQuality.AstralConstructMenuA	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct	DEFINE:AstralUtilityDC|8	DESC:The astral construct can perform various tasks up to DC %1.|AstralUtilityDC		STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|AstralUtilityDC|2
 #Block: Menu B
 Great Cleave	KEY:Astral_Great Cleave		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																												AUTO:FEAT|Great Cleave
 Improved Might	KEY:Astral_Improved Might	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																																	BONUS:COMBAT|DAMAGE.Melee|3|TYPE=Might
@@ -24,4 +24,4 @@ Reach			KEY:Astral_Reach			CATEGORY:Special Ability	TYPE:SpecialAttack.AstralCon
 Stunning Fist	KEY:Astral_Stunning Fist	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuB	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct						DESC:The astral construct can use Stunning Fist with its slam attacks.											AUTO:FEAT|Stunning Fist
 #Block: Menu C
 Greater Might	KEY:Astral_Greater Might	CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuC	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																																	BONUS:COMBAT|DAMAGE.Melee|5|TYPE=Might
-Tail Slap		KEY:Astral_Tail Slap		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuC	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																																																	BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|TOHIT|3|PREFEAT:1,Multiattack	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+Tail Slap		KEY:Astral_Tail Slap		CATEGORY:Special Ability	TYPE:SpecialAttack.AstralConstructMenuC	VISIBLE:YES	PRETEMPLATE:1,Advanced Construct																																													BONUS:WEAPONPROF=Tail Slap|TOHIT|-5	BONUS:WEAPONPROF=Tail Slap|TOHIT|3|PREFEAT:1,Multiattack	NATURALATTACKS:Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8

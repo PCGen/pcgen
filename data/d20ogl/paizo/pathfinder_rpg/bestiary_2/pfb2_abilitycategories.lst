@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 22 14:51:19 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 #SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: ? and Douglas Limmer
@@ -14,12 +14,12 @@ ABILITYCATEGORY:Ogrekin Disadvantageous Deformity	VISIBLE:QUALIFY	EDITABLE:YES		
 ABILITYCATEGORY:Petitioner Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Petitioner					PLURAL:Petitioner Traits				DISPLAYLOCATION:Racial Abilities
 
 # Racial Abilities
-ABILITYCATEGORY:Dhampir Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DhampirRacialTrait		PLURAL:Dhampir Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Fetchling Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FetchlingRacialTrait	PLURAL:Fetchling Racial Traits	DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Ifrit Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:IfritRacialTrait		PLURAL:Ifrit Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Oread Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OreadRacialTrait		PLURAL:Oread Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Sylph Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SylphRacialTrait		PLURAL:Sylph Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Undine Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UndineRacialTrait		PLURAL:Undine Racial Traits		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Grippli Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GrippliRacialTrait		PLURAL:Grippli Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dhampir Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DhampirRacialTrait				PLURAL:Dhampir Racial Traits				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Fetchling Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FetchlingRacialTrait			PLURAL:Fetchling Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Ifrit Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:IfritRacialTrait				PLURAL:Ifrit Racial Traits				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Oread Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OreadRacialTrait				PLURAL:Oread Racial Traits				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Sylph Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SylphRacialTrait				PLURAL:Sylph Racial Traits				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Undine Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UndineRacialTrait				PLURAL:Undine Racial Traits				DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Grippli Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GrippliRacialTrait				PLURAL:Grippli Racial Traits				DISPLAYLOCATION:Racial Abilities
 
 

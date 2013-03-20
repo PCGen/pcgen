@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -1182,7 +1182,7 @@ GEAR:Scroll (Cure Light Wounds/Divine)		OPTION:22,26
 GEAR:Scroll (Curse Water)				OPTION:27,28
 GEAR:Scroll (Deathwatch)				OPTION:29,30
 GEAR:Scroll (Detect Animals or Plants)		OPTION:31,32
-KIT:Scroll (Detect Alignment)				OPTION:33,35
+KIT:Scroll (Detect Alignment)	OPTION:33,35
 GEAR:Scroll (Detect Snares and Pits)		OPTION:36,37
 GEAR:Scroll (Detect Undead/Divine)			OPTION:38,39
 GEAR:Scroll (Divine Favor)				OPTION:40,41

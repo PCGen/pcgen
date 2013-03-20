@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 #SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher, Eric Smith (Maredudd) and Andrew Maitland
 
@@ -154,14 +154,14 @@ ABILITYCATEGORY:Oracle Favored Bonus Spell				VISIBLE:QUALIFY	EDITABLE:YES		EDIT
 
 # Traits Sub Selections
 ABILITYCATEGORY:Campaign Trait Choice					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TraitCampaignChoice													PLURAL:Campaign Trait Choices						DISPLAYLOCATION:Traits
-ABILITYCATEGORY:Adoptive Race						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdoptiveRace				PLURAL:Adotive Races							DISPLAYLOCATION:Traits
-ABILITYCATEGORY:Dwarf Race Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DwarfTrait					PLURAL:Dwarf Race Traits						DISPLAYLOCATION:Traits
-ABILITYCATEGORY:Elf Race Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfTrait					PLURAL:Elf Race Traits						DISPLAYLOCATION:Traits
-ABILITYCATEGORY:Gnome Race Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomeTrait					PLURAL:Gnome Race Traits						DISPLAYLOCATION:Traits
-ABILITYCATEGORY:Half Elf Race Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfElfTrait					PLURAL:Half-Elf Race Traits						DISPLAYLOCATION:Traits
-ABILITYCATEGORY:Half Orc Race Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfOrcTrait					PLURAL:Half-Orc Race Traits						DISPLAYLOCATION:Traits
-ABILITYCATEGORY:Halfling Race Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalflingTrait					PLURAL:Halfling Race Traits						DISPLAYLOCATION:Traits
-ABILITYCATEGORY:Human Race Trait					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HumanTrait					PLURAL:Human Race Traits						DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Adoptive Race							VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdoptiveRace															PLURAL:Adotive Races							DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Dwarf Race Trait						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DwarfTrait															PLURAL:Dwarf Race Traits						DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Elf Race Trait						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElfTrait															PLURAL:Elf Race Traits							DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Gnome Race Trait						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomeTrait															PLURAL:Gnome Race Traits						DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Half Elf Race Trait						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfElfTrait															PLURAL:Half-Elf Race Traits						DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Half Orc Race Trait						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalfOrcTrait															PLURAL:Half-Orc Race Traits						DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Halfling Race Trait						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HalflingTrait														PLURAL:Halfling Race Traits						DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Human Race Trait						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HumanTrait															PLURAL:Human Race Traits						DISPLAYLOCATION:Traits
 
 
 ###Block: Elemental Wizard Opposition School choices
@@ -200,8 +200,9 @@ ABILITYCATEGORY:Water Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDI
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list						Plural description for UI				Display Location
 #ABILITYCATEGORY:Giant Spider Type				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:GiantSpiderType										PLURAL:Giant Spider Types				DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Guileful Polyglot Additional Language	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Guileful Polyglot Language Selection	PLURAL:Guileful Polyglot Additional Languages	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Companion Bonus Skill				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability					ABILITYLIST:Companion Bonus Skill
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Specific choices list						Plural description for UI				Display Location
+ABILITYCATEGORY:Guileful Polyglot Additional Language	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Guileful Polyglot Language Selection	PLURAL:Guileful Polyglot Additional Languages	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Companion Bonus Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Companion Bonus Skill
 
 #
 # End

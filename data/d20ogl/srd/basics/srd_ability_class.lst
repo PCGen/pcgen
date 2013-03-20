@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 # Original Entry by Tir Gwaith
 
@@ -9,7 +9,7 @@ SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yah
 #########################################################
 
 # Ability Name				Category of Ability		Type								Visible	Define																														Description																																																		Ability										Save checks bonus							Combat bonus								Stat bonus																	Modify VAR																																																								Source Page						Aspects
-Sneak Attack				CATEGORY:Special Ability	TYPE:SpecialAttack					VISIBLE:YES	DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDie|6																								DESC:%1d%2 damage any time your target would be denied a Dexterity bonus to AC or when you flank your target|SneakAttackDice|SneakAttackDie																																																																																																																																						SOURCEPAGE:srdbasiccharacterclassesii.rtf	ASPECT:Ability Benefit|%1d%2|SneakAttackDice|SneakAttackDie
+Sneak Attack				CATEGORY:Special Ability	TYPE:SpecialAttack					VISIBLE:YES	DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDie|6																							DESC:%1d%2 damage any time your target would be denied a Dexterity bonus to AC or when you flank your target|SneakAttackDice|SneakAttackDie																																																																																																																																					SOURCEPAGE:srdbasiccharacterclassesii.rtf	ASPECT:Ability Benefit|%1d%2|SneakAttackDice|SneakAttackDie
 Rage						CATEGORY:Special Ability	TYPE:SpecialQuality.AttackOption.ModifyAC		VISIBLE:YES	DEFINE:RageTimes|0	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:RageMorale|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	DESC:%1 times/day (%2 rounds)|RageTimes|RageDuration|PREVARLT:GreaterRage,1	DESC:%1 times/day (%2 rounds)|RageTimes|RageDuration|PREMULT:2,[PREVARGTEQ:GreaterRage,1],[PREVARLT:TirelessRage,1]	DESC:%1 times/day and no longer winded after (%2 rounds)|RageTimes|RageDuration|PREVARGTEQ:TirelessRage,1												BONUS:CHECKS|Will|RageMorale|TYPE=Rage|PREAPPLY:PC	BONUS:COMBAT|AC|-1*RageACPenalty|TYPE=Rage|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|TYPE=Rage|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageMorale|RageBonus/2	BONUS:VAR|RageDuration|-(RageConBonus/2)|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|Enraged|1|TYPE=Rage|PREAPPLY:PC	BONUS:VAR|RageBonus|2|PREVARGTEQ:GreaterRage,1
 Retain Dex To AC ~ Flat-footed	CATEGORY:Special Ability	TYPE:Internal						VISIBLE:NO																																DESC:You retain your Dexterity bonus to AC even when flat-footed
 Uncanny Dodge				CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES	DEFINE:UncannyDodge|0	DEFINE:ImprovedUncannyDodge|max(UncannyDodge-1,0)	DEFINE:UncannyTraps|max(UncannyDodge-2,0)												DESC:Dex bonus to AC|PREVARGT:UncannyDodge,0	DESC:Can't be flanked|PREVARGT:ImprovedUncannyDodge,0	DESC:+%1 against traps|UncannyTraps|PREVARGT:UncannyTraps,0																									ABILITY:Special Ability|AUTOMATIC|Retain Dex To AC ~ Flat-footed
@@ -20,9 +20,9 @@ Evasion					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	
 Timeless Body	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	TEMPLATE:Timeless Body	SOURCEPAGE:ClassesI.rtf
 
 ###Block: Companions
-# Ability Name	Category of Ability		Type						Visible	Define			Allow Follower			Allowed Companions																																																																																																							Source Page
+# Ability Name	Category of Ability		Type						Visible	Define				Allow Follower			Allowed Companions																																																																																																							Source Page
 Animal Companion	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:AnimalCompanionLVL|0	FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Badger,Camel,Crocodile,Dog,Dog (Riding),Eagle,Hawk,Horse (Heavy),Horse (Light),Owl,Pony,Porpoise,Shark (Medium),Snake (Medium Viper),Snake (Small Viper),Squid,Wolf	COMPANIONLIST:Animal Companion|Ape,Bear (Black),Bison,Boar,Cheetah,Leopard,Snake (Constrictor),Snake (Large Viper),Wolverine|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Bear (Brown),Crocodile (Giant),Lion,Rhinoceros,Snake (Huge Viper),Tiger|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Bear (Polar),Snake (Giant Constrictor)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Elephant|FOLLOWERADJUSTMENT:-12
-Special Mount	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES	DEFINE:SpecialMountLVL|0		FOLLOWERS:Special Mount|1	COMPANIONLIST:Special Mount|ANY																																																																																																					SOURCEPAGE:ClassesII.rtf
+Special Mount	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES	DEFINE:SpecialMountLVL|0	FOLLOWERS:Special Mount|1	COMPANIONLIST:Special Mount|ANY																																																																																																					SOURCEPAGE:ClassesII.rtf
 Summon Familiar	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DEFINE:FamiliarLVL|0		FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Tiny Viper),Toad,Weasel
 
 ###Block: Smiting
@@ -41,17 +41,17 @@ Negative Levels	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	DEFINE:
 
 
 ###Block: Class Proficiencies
-# Ability Name							Unique Key						Category of Ability		Type							Visible		Serves As						Define																Description												Automatically Gained Weapon Prof.																																				Ability
-All Automatic Proficiencies												CATEGORY:Special Ability	TYPE:Internal					VISIBLE:NO																																							AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple
-All Martial Weapon Proficiencies											CATEGORY:Special Ability	TYPE:Internal					VISIBLE:NO		SERVESAS:FEAT|Martial Weapon Proficiency																															AUTO:WEAPONPROF|TYPE=Martial
-Druid Weapon Proficiencies												CATEGORY:Special Ability	TYPE:Internal					VISIBLE:NO																																							AUTO:WEAPONPROF|Club|Dagger|Dart|Halfspear|Longspear|Quarterstaff|Scimitar|Sickle|Shortspear|Sling
-Monk Weapon Proficiencies												CATEGORY:Special Ability	TYPE:Internal					VISIBLE:NO																																							AUTO:WEAPONPROF|Unarmed Strike|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Shuriken|Siangham|Sling
-Rogue Weapon Proficiencies												CATEGORY:Special Ability	TYPE:Internal					VISIBLE:NO																																							AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier|PRESIZEGTEQ:M
-Wizard Weapon Proficiencies												CATEGORY:Special Ability	TYPE:Internal					VISIBLE:NO																																							AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
-Shadowdancer Weapon Proficiencies											CATEGORY:Special Ability	TYPE:Internal					VISIBLE:NO																																							AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier
-Assassin Weapon Proficiencies												CATEGORY:Special Ability	TYPE:Internal					VISIBLE:NO																																							AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dart|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|TYPE=Dagger
+# Ability Name				Unique Key						Category of Ability		Type			Visible		Serves As						Description											Automatically Gained Weapon Prof.
+All Automatic Proficiencies									CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO																					AUTO:WEAPONPROF|Gauntlet|Unarmed Strike|Spells(Ray)|Grapple
+All Martial Weapon Proficiencies								CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO		SERVESAS:FEAT|Martial Weapon Proficiency													AUTO:WEAPONPROF|TYPE=Martial
+Druid Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO																					AUTO:WEAPONPROF|Club|Dagger|Dart|Halfspear|Longspear|Quarterstaff|Scimitar|Sickle|Shortspear|Sling
+Monk Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO																					AUTO:WEAPONPROF|Unarmed Strike|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Shuriken|Siangham|Sling
+Rogue Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO																					AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dagger (Punching)|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Sword (Short)	AUTO:WEAPONPROF|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier|PRESIZEGTEQ:M
+Wizard Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO																					AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
+Shadowdancer Weapon Proficiencies								CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO																					AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Dagger|Dart|Mace (Light)|Sap|Shortbow|Shortbow (Composite)|Club|Crossbow (Heavy)|Mace (Heavy)|Morningstar|Quarterstaff|Rapier
+Assassin Weapon Proficiencies									CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO																					AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Crossbow (Heavy)|Dart|Rapier|Sap|Shortbow|Shortbow (Composite)|Sword (Short)|TYPE=Dagger
 
-Martial Weapon Proficiency					KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT			TYPE:Internal					VISIBLE:EXPORT																									DESC:You understand how to use all types of martial weapons in combat.
+Martial Weapon Proficiency		KEY:Martial Weapon Proficiency Output	CATEGORY:FEAT			TYPE:Internal	VISIBLE:EXPORT								DESC:You understand how to use all types of martial weapons in combat.
 
 
 #######################################

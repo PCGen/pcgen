@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Original Entry by: Aaron Divinsky <boomer70@yahoo.com>
 
@@ -326,15 +326,15 @@ GEAR:Horn of Valhalla (Iron)		OPTION:91,100
 
 
 ###Block: Cursed Items
- 
-STARTPACK:Specific Cursed Items		TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+
+STARTPACK:Specific Cursed Items	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
 GEAR:Incense of Obsession			OPTION:01,05
 GEAR:Ring (Clumsiness)				OPTION:06,15
 GEAR:Amulet of Inescapable Location		OPTION:16,20
 GEAR:Stone of Weight (Loadstone)		OPTION:21,25
 GEAR:Bracers of Defenselessness		OPTION:26,30
-KIT:Gauntlets of Fumbling			OPTION:31,35
+KIT:Gauntlets of Fumbling	OPTION:31,35
 
 GEAR:Sword -2 (Cursed)				OPTION:36,40
 GEAR:Armor of Rage				OPTION:41,43
@@ -371,85 +371,85 @@ GEAR:Gauntlets of Fumbling (Gauntlets)	OPTION:51,100
 
 ################### Necklaces of Fireballs, Types I to VII
 #"1-5d6 2-3d6 Fireballs - Value:1,650 gp"
-STARTPACK:Necklace of Fireballs I			SORTKEY:Necklace of Fireballs 1	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:100
+STARTPACK:Necklace of Fireballs I	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:100	SORTKEY:Necklace of Fireballs 1
 GEAR:Necklace of Fireballs I 2
 KIT:Necklace of Fireballs Spheres I
 
-STARTPACK:Necklace of Fireballs Spheres I		SORTKEY:Necklace of Fireballs Spheres 01	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
-GEAR:Necklace of Fireballs Sphere 5d6		QTY:1
-GEAR:Necklace of Fireballs Sphere 3d6		QTY:2
+STARTPACK:Necklace of Fireballs Spheres I	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Necklace of Fireballs Spheres 01
+GEAR:Necklace of Fireballs Sphere 5d6	QTY:1
+GEAR:Necklace of Fireballs Sphere 3d6	QTY:2
 
 #"1-6d6 2-4d6 2-2d6 Fireballs - Value:2,700 gp"
-STARTPACK:Necklace of Fireballs II			SORTKEY:Necklace of Fireballs 2	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:100
+STARTPACK:Necklace of Fireballs II	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:100	SORTKEY:Necklace of Fireballs 2
 GEAR:Necklace of Fireballs II 2
 KIT:Necklace of Fireballs Spheres II
 
-STARTPACK:Necklace of Fireballs Spheres II	SORTKEY:Necklace of Fireballs Spheres 02	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
-GEAR:Necklace of Fireballs Sphere 6d6		QTY:1
-GEAR:Necklace of Fireballs Sphere 4d6		QTY:2
-GEAR:Necklace of Fireballs Sphere 2d6		QTY:2
+STARTPACK:Necklace of Fireballs Spheres II	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Necklace of Fireballs Spheres 02
+GEAR:Necklace of Fireballs Sphere 6d6	QTY:1
+GEAR:Necklace of Fireballs Sphere 4d6	QTY:2
+GEAR:Necklace of Fireballs Sphere 2d6	QTY:2
 
 #"1-7d6 2-5d6 4-3d6 Fireballs - Value:4,350 gp"
-STARTPACK:Necklace of Fireballs III			SORTKEY:Necklace of Fireballs 3	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:100
+STARTPACK:Necklace of Fireballs III	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:100	SORTKEY:Necklace of Fireballs 3
 GEAR:Necklace of Fireballs III 2
 KIT:Necklace of Fireballs Spheres III
 
-STARTPACK:Necklace of Fireballs Spheres III	SORTKEY:Necklace of Fireballs Spheres 03	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
-GEAR:Necklace of Fireballs Sphere 7d6		QTY:1
-GEAR:Necklace of Fireballs Sphere 5d6		QTY:2
-GEAR:Necklace of Fireballs Sphere 3d6		QTY:4
+STARTPACK:Necklace of Fireballs Spheres III	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Necklace of Fireballs Spheres 03
+GEAR:Necklace of Fireballs Sphere 7d6	QTY:1
+GEAR:Necklace of Fireballs Sphere 5d6	QTY:2
+GEAR:Necklace of Fireballs Sphere 3d6	QTY:4
 
 #"1-8d6 2-6d6 2-4d6 4-2d6 Fireballs - Value:5,400 gp"
-STARTPACK:Necklace of Fireballs IV			SORTKEY:Necklace of Fireballs 4	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:100
+STARTPACK:Necklace of Fireballs IV	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:100	SORTKEY:Necklace of Fireballs 4
 GEAR:Necklace of Fireballs IV 2
 KIT:Necklace of Fireballs Spheres IV
 
-STARTPACK:Necklace of Fireballs Spheres IV	SORTKEY:Necklace of Fireballs Spheres 04	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
-GEAR:Necklace of Fireballs Sphere 8d6		QTY:1
-GEAR:Necklace of Fireballs Sphere 6d6		QTY:2
-GEAR:Necklace of Fireballs Sphere 4d6		QTY:2
-GEAR:Necklace of Fireballs Sphere 2d6		QTY:4
+STARTPACK:Necklace of Fireballs Spheres IV	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Necklace of Fireballs Spheres 04
+GEAR:Necklace of Fireballs Sphere 8d6	QTY:1
+GEAR:Necklace of Fireballs Sphere 6d6	QTY:2
+GEAR:Necklace of Fireballs Sphere 4d6	QTY:2
+GEAR:Necklace of Fireballs Sphere 2d6	QTY:4
 
 #"1-9d6 2-7d6 2-5d6 2-3d6 Fireballs - Value:5,850 gp"
-STARTPACK:Necklace of Fireballs V			SORTKEY:Necklace of Fireballs 5	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:100
+STARTPACK:Necklace of Fireballs V	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:100	SORTKEY:Necklace of Fireballs 5
 GEAR:Necklace of Fireballs V 2
 KIT:Necklace of Fireballs Spheres V
 
-STARTPACK:Necklace of Fireballs Spheres V		SORTKEY:Necklace of Fireballs Spheres 05	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
-GEAR:Necklace of Fireballs Sphere 9d6		QTY:1
-GEAR:Necklace of Fireballs Sphere 7d6		QTY:2
-GEAR:Necklace of Fireballs Sphere 5d6		QTY:2
-GEAR:Necklace of Fireballs Sphere 3d6		QTY:2
+STARTPACK:Necklace of Fireballs Spheres V	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Necklace of Fireballs Spheres 05
+GEAR:Necklace of Fireballs Sphere 9d6	QTY:1
+GEAR:Necklace of Fireballs Sphere 7d6	QTY:2
+GEAR:Necklace of Fireballs Sphere 5d6	QTY:2
+GEAR:Necklace of Fireballs Sphere 3d6	QTY:2
 
 #"1-10d6 2-8d6 2-6d6 4-4d6 Fireballs - Value:8,100 gp"
-STARTPACK:Necklace of Fireballs VI			SORTKEY:Necklace of Fireballs 6	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:100
+STARTPACK:Necklace of Fireballs VI	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:100	SORTKEY:Necklace of Fireballs 6
 GEAR:Necklace of Fireballs VI 2
 KIT:Necklace of Fireballs Spheres VI
 
-STARTPACK:Necklace of Fireballs Spheres VI	SORTKEY:Necklace of Fireballs Spheres 06	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
-GEAR:Necklace of Fireballs Sphere 10d6		QTY:1
-GEAR:Necklace of Fireballs Sphere 8d6		QTY:2
-GEAR:Necklace of Fireballs Sphere 6d6		QTY:2
-GEAR:Necklace of Fireballs Sphere 4d6		QTY:4
+STARTPACK:Necklace of Fireballs Spheres VI	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Necklace of Fireballs Spheres 06
+GEAR:Necklace of Fireballs Sphere 10d6	QTY:1
+GEAR:Necklace of Fireballs Sphere 8d6	QTY:2
+GEAR:Necklace of Fireballs Sphere 6d6	QTY:2
+GEAR:Necklace of Fireballs Sphere 4d6	QTY:4
 
 #"1-10d6 2-9d6 2-7d6 2-5d6 2-3d6 Fireballs - Value:8,700 gp"
-STARTPACK:Necklace of Fireballs VII			SORTKEY:Necklace of Fireballs 7	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:100
+STARTPACK:Necklace of Fireballs VII	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:100	SORTKEY:Necklace of Fireballs 7
 GEAR:Necklace of Fireballs VII 2
 KIT:Necklace of Fireballs Spheres VII
 
-STARTPACK:Necklace of Fireballs Spheres VII	SORTKEY:Necklace of Fireballs Spheres 07	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
-GEAR:Necklace of Fireballs Sphere 10d6		QTY:1
-GEAR:Necklace of Fireballs Sphere 9d6		QTY:2
-GEAR:Necklace of Fireballs Sphere 7d6		QTY:2
-GEAR:Necklace of Fireballs Sphere 5d6		QTY:2
-GEAR:Necklace of Fireballs Sphere 3d6		QTY:2
+STARTPACK:Necklace of Fireballs Spheres VII	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0	SORTKEY:Necklace of Fireballs Spheres 07
+GEAR:Necklace of Fireballs Sphere 10d6	QTY:1
+GEAR:Necklace of Fireballs Sphere 9d6	QTY:2
+GEAR:Necklace of Fireballs Sphere 7d6	QTY:2
+GEAR:Necklace of Fireballs Sphere 5d6	QTY:2
+GEAR:Necklace of Fireballs Sphere 3d6	QTY:2
 
 ################### Robe of Bones
-STARTPACK:Robe of Bones						TYPE:Treasure	VISIBLE:YES		APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Robe of Bones	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 GEAR:Robe of Bones 2
 KIT:Robe of Bones Patches
 
-STARTPACK:Robe of Bones Patches				TYPE:Treasure	VISIBLE:YES		APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Robe of Bones Patches	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 GEAR:Robe of Bones Skeleton (Goblin/Small)		QTY:2
 GEAR:Robe of Bones Skeleton (Human Commoner/Medium)	QTY:2
 GEAR:Robe of Bones Skeleton (Wolf/Medium)			QTY:2
@@ -458,72 +458,72 @@ GEAR:Robe of Bones Zombie (Human Commoner/Medium)	QTY:2
 GEAR:Robe of Bones Zombie (Wolf/Medium)			QTY:2
 
 ################### Robe of Stars
-STARTPACK:Robe of Stars			TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
-GEAR:Robe of Stars 2	
+STARTPACK:Robe of Stars	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+GEAR:Robe of Stars 2
 KIT:Robe of Stars Shuriken +5
 
-STARTPACK:Robe of Stars Shuriken +5			TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
-GEAR:Robe of Stars Shuriken +5				QTY:6
+STARTPACK:Robe of Stars Shuriken +5	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+GEAR:Robe of Stars Shuriken +5	QTY:6
 
 ################### Robe of Useful Items
-# "Robe of Useful Items" and "Robe of Useful Items Gear" assign the constant items and calls the Kit "Robe of Useful Items Component Number", which 
+# "Robe of Useful Items" and "Robe of Useful Items Gear" assign the constant items and calls the Kit "Robe of Useful Items Component Number", which
 # generates 4d4 calls to the Kit "Robe of Useful Items Component", which has the possible random items in the Robe.
 
-STARTPACK:Robe of Useful Items		TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+STARTPACK:Robe of Useful Items	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 GEAR:Robe of Useful Items 2
 KIT:Robe of Useful Items Gear
 
-STARTPACK:Robe of Useful Items Gear		TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
-GEAR:Dagger							QTY:2
-GEAR:Lantern (Bullseye)					QTY:2
-GEAR:Mirror (Large/Steel/Highly Polished)		QTY:2
-GEAR:Pole (10 Ft.)					QTY:2
-GEAR:Rope (Hempen/50 Ft.)				QTY:2
-GEAR:Sack							QTY:2
+STARTPACK:Robe of Useful Items Gear	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+GEAR:Dagger						QTY:2
+GEAR:Lantern (Bullseye)				QTY:2
+GEAR:Mirror (Large/Steel/Highly Polished)	QTY:2
+GEAR:Pole (10 Ft.)				QTY:2
+GEAR:Rope (Hempen/50 Ft.)			QTY:2
+GEAR:Sack						QTY:2
 KIT:Robe of Useful Items Component Number
 
 # Trying to get 4d4 (i.e. 4-16, at the appropriate distribution) calls to "Robe of Useful Items Component"
 STARTPACK:Robe of Useful Items Component Number	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("4d4")
-KIT:Robe of Useful Items Component					OPTION:16
-KIT:Robe of Useful Items Component					OPTION:15,16
-KIT:Robe of Useful Items Component					OPTION:14,16
-KIT:Robe of Useful Items Component					OPTION:13,16
-KIT:Robe of Useful Items Component					OPTION:12,16
-KIT:Robe of Useful Items Component					OPTION:11,16
-KIT:Robe of Useful Items Component					OPTION:10,16
-KIT:Robe of Useful Items Component					OPTION:9,16
-KIT:Robe of Useful Items Component					OPTION:8,16
-KIT:Robe of Useful Items Component					OPTION:7,16
-KIT:Robe of Useful Items Component					OPTION:6,16
-KIT:Robe of Useful Items Component					OPTION:5,16
-KIT:Robe of Useful Items Component					OPTION:4,16
-KIT:Robe of Useful Items Component					OPTION:4,16
-KIT:Robe of Useful Items Component					OPTION:4,16
-KIT:Robe of Useful Items Component					OPTION:4,16
+KIT:Robe of Useful Items Component	OPTION:16
+KIT:Robe of Useful Items Component	OPTION:15,16
+KIT:Robe of Useful Items Component	OPTION:14,16
+KIT:Robe of Useful Items Component	OPTION:13,16
+KIT:Robe of Useful Items Component	OPTION:12,16
+KIT:Robe of Useful Items Component	OPTION:11,16
+KIT:Robe of Useful Items Component	OPTION:10,16
+KIT:Robe of Useful Items Component	OPTION:9,16
+KIT:Robe of Useful Items Component	OPTION:8,16
+KIT:Robe of Useful Items Component	OPTION:7,16
+KIT:Robe of Useful Items Component	OPTION:6,16
+KIT:Robe of Useful Items Component	OPTION:5,16
+KIT:Robe of Useful Items Component	OPTION:4,16
+KIT:Robe of Useful Items Component	OPTION:4,16
+KIT:Robe of Useful Items Component	OPTION:4,16
+KIT:Robe of Useful Items Component	OPTION:4,16
 
 STARTPACK:Robe of Useful Items Component	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
-GEAR:Bag (Coin)								OPTION:1,8
-GEAR:Coin (Gold)					QTY:100		OPTION:1,8
-GEAR:Coffer (Silver)							OPTION:9,15
-GEAR:Door (Iron)								OPTION:16,22
-GEAR:Gem (Robe/100 gp)				QTY:10		OPTION:23,30
-GEAR:Ladder (24 Ft.)							OPTION:31,44
-GEAR:Mule									OPTION:45,51
-GEAR:Saddlebags								OPTION:45,51
-GEAR:Pit (Open)								OPTION:52,59
-GEAR:Potion (Cure Serious Wounds)					OPTION:60,68
-GEAR:Rowboat								OPTION:69,75
-KIT:Minor Scroll Spell							OPTION:76,83
-GEAR:Dog (War)					QTY:2			OPTION:84,90
-GEAR:Window									OPTION:91,96
-GEAR:Ram (Portable)							OPTION:97,100
+GEAR:Bag (Coin)						OPTION:1,8
+GEAR:Coin (Gold)				QTY:100	OPTION:1,8
+GEAR:Coffer (Silver)					OPTION:9,15
+GEAR:Door (Iron)						OPTION:16,22
+GEAR:Gem (Robe/100 gp)			QTY:10	OPTION:23,30
+GEAR:Ladder (24 Ft.)					OPTION:31,44
+GEAR:Mule							OPTION:45,51
+GEAR:Saddlebags						OPTION:45,51
+GEAR:Pit (Open)						OPTION:52,59
+GEAR:Potion (Cure Serious Wounds)			OPTION:60,68
+GEAR:Rowboat						OPTION:69,75
+KIT:Minor Scroll Spell	OPTION:76,83
+GEAR:Dog (War)				QTY:2		OPTION:84,90
+GEAR:Window							OPTION:91,96
+GEAR:Ram (Portable)					OPTION:97,100
 
 
 #For Robe of Useful Items. Like Minor Scrolls, but for only one arcane or divine spell.
 STARTPACK:Minor Scroll Spell	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
 SELECT:roll("1d100")
-KIT:Minor Arcane Scroll Spell		OPTION:1,70
-KIT:Minor Divine Scroll Spell		OPTION:71,100
+KIT:Minor Arcane Scroll Spell	OPTION:1,70
+KIT:Minor Divine Scroll Spell	OPTION:71,100
 

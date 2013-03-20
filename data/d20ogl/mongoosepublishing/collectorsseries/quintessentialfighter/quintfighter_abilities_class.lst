@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter	SOURCESHORT:QuintFight	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
 
 # ~ Berserker
@@ -60,10 +60,10 @@ Freedom of Movement	KEY:Freedom of Movement ~ Swashbuckler		CATEGORY:Special Abi
 
 ###Block: Peasant Hero
 # Feat Name						Type			Visible	Special ABility			Stackable?	Multiple?	Choose																		Weapon prof. bonus							Source Page
-# Ability Name					Category of Ability		Type						Stackable?	Multiple?	Choose																		Weapon prof. bonus							Source Page
+# Ability Name					Category of Ability		Type						Stackable?	Multiple?	Choose																	Weapon prof. bonus							Source Page
 Peasant Hero Weapon Competence Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility	STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC[Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Shortspear|Sword (Short)|War Rake]	BONUS:WEAPONPROF=%LIST|TOHIT|1|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
 Peasant Hero 5th level Weapon Competence	CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility	STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC[Axe (Carpenter's)|Dagger|Quarterstaff|Scythe|Shortspear|Sword (Short)|War Rake]	BONUS:WEAPONPROF=%LIST|TOHIT|2|TYPE=Competence.REPLACE	SOURCEPAGE:p.24
-Inspire Commoners					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																		SOURCEPAGE:p.24
-Harmless Bluff					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																		SOURCEPAGE:p.24
-Improvise Weapon					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																		SOURCEPAGE:p.24
-Unconventional Skill				CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																		SOURCEPAGE:p.24
+Inspire Commoners					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																	SOURCEPAGE:p.24
+Harmless Bluff					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																	SOURCEPAGE:p.24
+Improvise Weapon					CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																	SOURCEPAGE:p.24
+Unconventional Skill				CATEGORY:Special Ability	TYPE:SpecialQuality.ClassAbility																																	SOURCEPAGE:p.24

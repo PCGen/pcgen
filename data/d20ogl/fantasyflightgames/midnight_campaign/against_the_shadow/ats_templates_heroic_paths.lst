@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html	SOURCEDATE:2003-01
 #Original Entry By: Aaron Divinsky
 
@@ -76,8 +76,8 @@ Heroic Path (Painless)	OUTPUTNAME:Painless Heroic Path	VISIBLE:YES	SOURCEPAGE:p.
 ###########################
 ###Block: Pureblood Heroic Path
 ###########################
-# Template Name		Output Name					Visible	Source Page		Define			Required Var. value	Bonus to Ability Pool																																																																																	Bonus Number of Feats																					Modify VAR																	Ability									Automatically Gained Feat
-Heroic Path (Pureblood)	OUTPUTNAME:Pureblood Heroic Path	VISIBLE:YES	SOURCEPAGE:p. 31	DEFINE:HeroicPath|1	PREVAREQ:HeroicPath,0	BONUS:ABILITYPOOL|Pureblood Skill Mastery|1|PREPCLEVEL:MIN=4	BONUS:ABILITYPOOL|Heroic Ability Boost|1|PREPCLEVEL:MIN=5	BONUS:ABILITYPOOL|Pureblood Skill Mastery|1|PREPCLEVEL:MIN=9	BONUS:ABILITYPOOL|Heroic Ability Boost|1|PREPCLEVEL:MIN=10	BONUS:ABILITYPOOL|Pureblood Skill Mastery|1|PREPCLEVEL:MIN=14	BONUS:ABILITYPOOL|Heroic Ability Boost|1|PREPCLEVEL:MIN=15	BONUS:ABILITYPOOL|Pureblood Skill Mastery|1|PREPCLEVEL:MIN=19	BONUS:ABILITYPOOL|Heroic Ability Boost|1|PREPCLEVEL:MIN=20	BONUS:FEAT|POOL|1|PREPCLEVEL:MIN=3	BONUS:FEAT|POOL|1|PREPCLEVEL:MIN=8	BONUS:FEAT|POOL|1|PREPCLEVEL:MIN=13	BONUS:FEAT|POOL|1|PREPCLEVEL:MIN=18	BONUS:VAR|MasterAdventurerBonus|min(8,floor((TL+4)/5)*2)	BONUS:VAR|BloodOfKingsBonus|(floor((TL+3)/5)*2)	ABILITY:FEAT|AUTOMATIC|Blood of Kings|PREPCLEVEL:MIN=2	ADD:FEAT|Master Adventurer
+# Template Name		Output Name					Visible	Source Page		Define			Required Var. value	Bonus to Ability Pool																																																																																	Bonus Number of Feats																					Modify VAR																	Add 					Ability
+Heroic Path (Pureblood)	OUTPUTNAME:Pureblood Heroic Path	VISIBLE:YES	SOURCEPAGE:p. 31	DEFINE:HeroicPath|1	PREVAREQ:HeroicPath,0	BONUS:ABILITYPOOL|Pureblood Skill Mastery|1|PREPCLEVEL:MIN=4	BONUS:ABILITYPOOL|Heroic Ability Boost|1|PREPCLEVEL:MIN=5	BONUS:ABILITYPOOL|Pureblood Skill Mastery|1|PREPCLEVEL:MIN=9	BONUS:ABILITYPOOL|Heroic Ability Boost|1|PREPCLEVEL:MIN=10	BONUS:ABILITYPOOL|Pureblood Skill Mastery|1|PREPCLEVEL:MIN=14	BONUS:ABILITYPOOL|Heroic Ability Boost|1|PREPCLEVEL:MIN=15	BONUS:ABILITYPOOL|Pureblood Skill Mastery|1|PREPCLEVEL:MIN=19	BONUS:ABILITYPOOL|Heroic Ability Boost|1|PREPCLEVEL:MIN=20	BONUS:FEAT|POOL|1|PREPCLEVEL:MIN=3	BONUS:FEAT|POOL|1|PREPCLEVEL:MIN=8	BONUS:FEAT|POOL|1|PREPCLEVEL:MIN=13	BONUS:FEAT|POOL|1|PREPCLEVEL:MIN=18	BONUS:VAR|MasterAdventurerBonus|min(8,floor((TL+4)/5)*2)	BONUS:VAR|BloodOfKingsBonus|(floor((TL+3)/5)*2)	ADD:FEAT|Master Adventurer	ABILITY:FEAT|AUTOMATIC|Blood of Kings|PREPCLEVEL:MIN=2
 
 ###########################
 ###Block: Seaborn Heroic Path

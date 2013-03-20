@@ -1,43 +1,43 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
 ###Block: Conditional skills (for output only)
-# Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value														Source Page
-Acrobatics (Jump)					KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Acrobatics (Jump).MISC"),var("SKILL.Acrobatics.MISC")					SOURCEPAGE:p.87
-Appraise (Precious metals and gemstones)	KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Appraise (Precious metals and gemstones).MISC"),var("SKILL.Appraise.MISC")		SOURCEPAGE:p.90
-Perception (Notice unusual stonework)	KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Notice unusual stonework).MISC"),var("SKILL.Perception.MISC")		SOURCEPAGE:p.102
-Perception (Trapfinding)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Trapfinding).MISC"),var("SKILL.Perception.MISC")				SOURCEPAGE:p.102
-Spellcraft (Identify magic item)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Spellcraft (Identify magic item).MISC"),var("SKILL.Spellcraft.MISC")			SOURCEPAGE:p.106
-Survival (Follow or identify tracks)	KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Follow or identify tracks).MISC"),var("SKILL.Survival.MISC")		SOURCEPAGE:p.107
+# Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Required Ability									Req. Rule (in options)		Prohibited Var. Value														Source Page
+Acrobatics (Jump)					KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT												PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Acrobatics (Jump).MISC"),var("SKILL.Acrobatics.MISC")					SOURCEPAGE:p.87
+Appraise (Precious metals and gemstones)	KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT												PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Appraise (Precious metals and gemstones).MISC"),var("SKILL.Appraise.MISC")		SOURCEPAGE:p.90
+Perception (Notice unusual stonework)	KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT												PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Notice unusual stonework).MISC"),var("SKILL.Perception.MISC")		SOURCEPAGE:p.102
+Perception (Trapfinding)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT												PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Perception (Trapfinding).MISC"),var("SKILL.Perception.MISC")				SOURCEPAGE:p.102
+Spellcraft (Identify magic item)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT												PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Spellcraft (Identify magic item).MISC"),var("SKILL.Spellcraft.MISC")			SOURCEPAGE:p.106
+Survival (Follow or identify tracks)	KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT												PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Follow or identify tracks).MISC"),var("SKILL.Survival.MISC")		SOURCEPAGE:p.107
 
 # Conditional skills for bard's Versatile Performance ability
-Bluff (Perform (Act))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Bluff (Perform (Act)).MISC"),var("SKILL.Bluff.MISC")					SOURCEPAGE:p.90	PREABILITY:1,CATEGORY=Special Ability,Act
-Disguise (Perform (Act))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Disguise (Perform (Act)).MISC"),var("SKILL.Disguise.MISC")				SOURCEPAGE:p.95	PREABILITY:1,CATEGORY=Special Ability,Act
+Bluff (Perform (Act))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Act					PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Bluff (Perform (Act)).MISC"),var("SKILL.Bluff.MISC")					SOURCEPAGE:p.90
+Disguise (Perform (Act))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Act					PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Disguise (Perform (Act)).MISC"),var("SKILL.Disguise.MISC")				SOURCEPAGE:p.95
 #
-Bluff (Perform (Comedy))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Bluff (Perform (Comedy)).MISC"),var("SKILL.Bluff.MISC")					SOURCEPAGE:p.90	PREABILITY:1,CATEGORY=Special Ability,Comedy
-Intimidate (Perform (Comedy))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Intimidate (Perform (Comedy)).MISC"),var("SKILL.Intimidate.MISC")			SOURCEPAGE:p.99	PREABILITY:1,CATEGORY=Special Ability,Comedy
+Bluff (Perform (Comedy))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Comedy				PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Bluff (Perform (Comedy)).MISC"),var("SKILL.Bluff.MISC")					SOURCEPAGE:p.90
+Intimidate (Perform (Comedy))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Comedy				PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Intimidate (Perform (Comedy)).MISC"),var("SKILL.Intimidate.MISC")			SOURCEPAGE:p.99
 #´
-Acrobatics (Perform (Dance))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Acrobatics (Perform (Dance)).MISC"),var("SKILL.Acrobatics.MISC")			SOURCEPAGE:p.87	PREABILITY:1,CATEGORY=Special Ability,Dance
-Fly (Perform (Dance))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Fly (Perform (Dance)).MISC"),var("SKILL.Fly.MISC")						SOURCEPAGE:p.96	PREABILITY:1,CATEGORY=Special Ability,Dance
+Acrobatics (Perform (Dance))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Dance				PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Acrobatics (Perform (Dance)).MISC"),var("SKILL.Acrobatics.MISC")			SOURCEPAGE:p.87
+Fly (Perform (Dance))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Dance				PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Fly (Perform (Dance)).MISC"),var("SKILL.Fly.MISC")						SOURCEPAGE:p.96
 #
-Diplomacy (Perform (Keyboards))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Perform (Keyboards)).MISC"),var("SKILL.Diplomacy.MISC")			SOURCEPAGE:p.93	PREABILITY:1,CATEGORY=Special Ability,Keyboard Instruments
-Sense Motive (Perform (Keyboards))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Sense Motive (Perform (Keyboards)).MISC"),var("SKILL.Sense Motive.MISC")		SOURCEPAGE:p.104	PREABILITY:1,CATEGORY=Special Ability,Keyboard Instruments
+Diplomacy (Perform (Keyboards))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Perform (Keyboards)).MISC"),var("SKILL.Diplomacy.MISC")			SOURCEPAGE:p.93
+Sense Motive (Perform (Keyboards))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Sense Motive (Perform (Keyboards)).MISC"),var("SKILL.Sense Motive.MISC")		SOURCEPAGE:p.104
 #
-Diplomacy (Perform (Oratory))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Perform (Oratory)).MISC"),var("SKILL.Diplomacy.MISC")			SOURCEPAGE:p.93	PREABILITY:1,CATEGORY=Special Ability,Oratory
-Sense Motive (Perform (Oratory))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Sense Motive (Perform (Oratory)).MISC"),var("SKILL.Sense Motive.MISC")		SOURCEPAGE:p.104	PREABILITY:1,CATEGORY=Special Ability,Oratory
+Diplomacy (Perform (Oratory))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Oratory				PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Perform (Oratory)).MISC"),var("SKILL.Diplomacy.MISC")			SOURCEPAGE:p.93
+Sense Motive (Perform (Oratory))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Oratory				PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Sense Motive (Perform (Oratory)).MISC"),var("SKILL.Sense Motive.MISC")		SOURCEPAGE:p.104
 #
-Handle Animal (Perform (Percussion))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Handle Animal (Perform (Percussion)).MISC"),var("SKILL.Handle Animal.MISC")	SOURCEPAGE:p.97	PREABILITY:1,CATEGORY=Special Ability,Percussion Instruments
-Intimidate (Perform (Percussion))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Intimidate (Perform (Percussion)).MISC"),var("SKILL.Intimidate.MISC")		SOURCEPAGE:p.99	PREABILITY:1,CATEGORY=Special Ability,Percussion Instruments
+Handle Animal (Perform (Percussion))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Handle Animal (Perform (Percussion)).MISC"),var("SKILL.Handle Animal.MISC")	SOURCEPAGE:p.97
+Intimidate (Perform (Percussion))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Intimidate (Perform (Percussion)).MISC"),var("SKILL.Intimidate.MISC")		SOURCEPAGE:p.99
 #
-Bluff (Perform (Sing))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Bluff (Perform (Sing)).MISC"),var("SKILL.Bluff.MISC")					SOURCEPAGE:p.90	PREABILITY:1,CATEGORY=Special Ability,Sing
-Sense Motive (Perform (Sing))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Sense Motive (Perform (Sing)).MISC"),var("SKILL.Sense Motive.MISC")			SOURCEPAGE:p.104	PREABILITY:1,CATEGORY=Special Ability,Sing
+Bluff (Perform (Sing))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Sing				PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Bluff (Perform (Sing)).MISC"),var("SKILL.Bluff.MISC")					SOURCEPAGE:p.90
+Sense Motive (Perform (Sing))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Sing				PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Sense Motive (Perform (Sing)).MISC"),var("SKILL.Sense Motive.MISC")			SOURCEPAGE:p.104
 #
-Bluff (Perform (Strings))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Bluff (Perform (Strings)).MISC"),var("SKILL.Bluff.MISC")					SOURCEPAGE:p.90	PREABILITY:1,CATEGORY=Special Ability,String Instruments
-Diplomacy (Perform (Strings))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Perform (Strings)).MISC"),var("SKILL.Diplomacy.MISC")			SOURCEPAGE:p.93	PREABILITY:1,CATEGORY=Special Ability,String Instruments
+Bluff (Perform (Strings))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,String Instruments		PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Bluff (Perform (Strings)).MISC"),var("SKILL.Bluff.MISC")					SOURCEPAGE:p.90
+Diplomacy (Perform (Strings))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,String Instruments		PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Perform (Strings)).MISC"),var("SKILL.Diplomacy.MISC")			SOURCEPAGE:p.93
 #
-Diplomacy (Perform (Wind))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Perform (Wind)).MISC"),var("SKILL.Diplomacy.MISC")				SOURCEPAGE:p.93	PREABILITY:1,CATEGORY=Special Ability,Wind Instruments
-Handle Animal (Perform (Wind))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Handle Animal (Perform (Wind)).MISC"),var("SKILL.Handle Animal.MISC")		SOURCEPAGE:p.97	PREABILITY:1,CATEGORY=Special Ability,Wind Instruments
+Diplomacy (Perform (Wind))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Perform (Wind)).MISC"),var("SKILL.Diplomacy.MISC")				SOURCEPAGE:p.93
+Handle Animal (Perform (Wind))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Handle Animal (Perform (Wind)).MISC"),var("SKILL.Handle Animal.MISC")		SOURCEPAGE:p.97
 
 
 ###Block: Skill .MODs

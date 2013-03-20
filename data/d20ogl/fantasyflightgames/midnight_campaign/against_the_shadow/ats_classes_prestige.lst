@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Midnight - Against the Shadow	SOURCESHORT:AtS	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html	SOURCEDATE:2003-01
 #Original Entry By: Aaron Divinsky
 
@@ -55,7 +55,7 @@ CLASS:Avenging Knife	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Disgui
 1																											AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																											AUTO:FEAT|The Drop
 2																											AUTO:FEAT|Security Breach
-3	BONUS:VAR|SneakAttackDice|CL/3										ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+3	BONUS:VAR|SneakAttackDice|CL/3									ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 # TODO Improved Feint doesn't exist in 3.0
 #3															VFEAT:Improved Feint
 4																											AUTO:FEAT|Target Study
@@ -139,15 +139,15 @@ CLASS:Sarcosan Knight	HD:10		TYPE:PC.Prestige	ABB:SarKn		MAXLEVEL:10	SOURCEPAGE:
 CLASS:Sarcosan Knight	PREATT:6	PREFEAT:3,Mounted Combat,Ride-By Attack,Spirited Charge	PRERACE:1,Human (Sarcosan),Human (Erenlander)	PRESKILL:3,Ride=8,Handle Animal=4,Intimidate=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sarcosan Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Jump|TYPE=Profession|Ride|Spot|Swim
-1																																																		ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1																																																																		AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
-1			BONUS:VAR|HorseLordLvl|CL																																																											AUTO:FEAT|Horse Lord
-1			BONUS:VAR|SarSMLevel|CL																																																												AUTO:FEAT|Sarcosan Mount
+1																																																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
+1																																																																AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency
+1			BONUS:VAR|HorseLordLvl|CL																																																									AUTO:FEAT|Horse Lord
+1			BONUS:VAR|SarSMLevel|CL																																																										AUTO:FEAT|Sarcosan Mount
 2:REPEATLEVEL:3						ADD:FEAT|Mounted Maneuver
 3:REPEATLEVEL:3						ADD:FEAT|Mounted Archery,Sarcosan Pureblood,Skill Focus (Ride),Trample,Weapon Focus (Cedeku),Weapon Focus (Scimitar),Weapon Focus (Shortbow),Weapon Specialization (Cedeku),Weapon Specialization (Scimitar),Weapon Specialization (Shortbow)
-4																																																																		AUTO:FEAT|Spur On
+4																																																																AUTO:FEAT|Spur On
 7								ADD:FEAT|Devastating Attack
-10																																																																		AUTO:FEAT|Sweeping Strike
+10																																																																AUTO:FEAT|Sweeping Strike
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Smuggler	HD:6		TYPE:PC.Prestige	ABB:Smg		MAXLEVEL:10	SOURCEPAGE:p. 59	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE

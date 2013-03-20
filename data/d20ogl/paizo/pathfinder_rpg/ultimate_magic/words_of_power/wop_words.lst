@@ -1,10 +1,10 @@
-# CVS $Revision: $ $Author: $ -- Sun Oct 14 21:10:22 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision: $ $Author: $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Words of Power	SOURCESHORT:PFWoP	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: 2012/06/12
 
 ###Block: Target Words
-# Ability Name	Category of Ability	Type			Description																									Source Page
+# Ability Name	Category of Ability	Type							Description																									Source Page
 Personal		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.TargetLevel0	DESC:Spell targets only the caster.																					SOURCEPAGE:p.166
 Selected		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.TargetLevel0	DESC:Spell targets a single target within Close range as ranged touch or melee touch.   Boost (3 to effects): One target per caster level, Medium range	SOURCEPAGE:p.166
 Barrier		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.TargetLevel3	DESC:Spell creates a barrier within Close range.  Boost: Larger barrier, any vertical shape											SOURCEPAGE:p.166
@@ -15,16 +15,16 @@ Line			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.TargetLevel1	DESC:Spell c
 ###Block: Effect Words
 
 #Block: Acid Words
-# Ability Name		Category of Ability	Type																					Description																			Source Page
+# Ability Name		Category of Ability	Type																								Description																			Source Page
 Acid Burn			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Acid.Druid0.Inquisitor0.Magus0.Sorcerer0.Summoner0.Wizard0										DESC:1d3 acid damage.																	SOURCEPAGE:p.167
-Corrosive Bolt		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Acid.Magus2.Sorcerer2.Wizard2															DESC:1d4/caster level acid damage, max 5; also on 2nd round.										SOURCEPAGE:p.167
-Acid Wave			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Acid.Magus4.Sorcerer4.Wizard4															DESC:1d6/caster level acid damage, max 10; also sickens.											SOURCEPAGE:p.167
-Caustic Cloud		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Acid.Sorcerer7.Witch6.Wizard7															DESC:1d6/caster level acid damage, max 20; also fatigues; cloud.										SOURCEPAGE:p.168
+Corrosive Bolt		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Acid.Magus2.Sorcerer2.Wizard2														DESC:1d4/caster level acid damage, max 5; also on 2nd round.										SOURCEPAGE:p.167
+Acid Wave			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Acid.Magus4.Sorcerer4.Wizard4														DESC:1d6/caster level acid damage, max 10; also sickens.											SOURCEPAGE:p.167
+Caustic Cloud		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Acid.Sorcerer7.Witch6.Wizard7														DESC:1d6/caster level acid damage, max 20; also fatigues; cloud.										SOURCEPAGE:p.168
 
 #Block: Alignment Words
 Alignment Shield		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Alignment.Cleric1.Inquisitor1.Paladin1.Sorcerer1.Wizard1										DESC:Protection from chosen alignment.														SOURCEPAGE:p.168
 Alignment Assault		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Alignment.Cleric5.Inquisitor5.Paladin4													DESC:1d8/2 caster levels damage to chosen alignment, max 8; also staggers.								SOURCEPAGE:p.168
-Alignment Aura		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Alignment.Cleric8																	DESC:Greater protection from chosen alignment.													SOURCEPAGE:p.168
+Alignment Aura		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Alignment.Cleric8																DESC:Greater protection from chosen alignment.													SOURCEPAGE:p.168
 
 #Block: Animal Words
 Nature's Calm		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Animal.Druid1.Ranger1.Witch1															DESC:Calms animals and magical beasts.														SOURCEPAGE:p.168
@@ -47,7 +47,7 @@ Permanent Paralysis	CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Bindi
 Fortify			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Alchemist1.Cleric1.Inquisitor1.Paladin1.Ranger1.Sorcerer1.Summoner1.Wizard1						DESC:+1 to saves and +HD temporary hit points.													SOURCEPAGE:p.170
 Energy Resistance		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Alchemist2.Cleric2.Druid2.Inquisitor2.Paladin2.Ranger1.Sorcerer2.Summoner2.Wizard2					DESC:Resistance 10 to one energy type.  Boost:Resistance 20.										SOURCEPAGE:p.170
 Enhance Form		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Alchemist2.Bard2.Cleric2.Druid2.Magus2.Paladin2.Ranger2.Sorcerer2.Summoner2.Wizard2					DESC:+4 enhancement bonus to Str, Dex, or Con; end early for +8.										SOURCEPAGE:p.171
-Perfect Form		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Alchemist4.Bard4.Cleric4.Druid4.Magus4.Sorcerer4.Summoner4.Wizard4								DESC:+4 enhancement bonus to Str, Dex, and Con.													SOURCEPAGE:p.171
+Perfect Form		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Alchemist4.Bard4.Cleric4.Druid4.Magus4.Sorcerer4.Summoner4.Wizard4							DESC:+4 enhancement bonus to Str, Dex, and Con.													SOURCEPAGE:p.171
 Energy Immunity		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Body.Alchemist6.Cleric6.Druid6.Inquisitor6.Sorcerer6.Summoner6.Wizard6								DESC:Immunity to one energy type.															SOURCEPAGE:p.171
 
 #Block: Change Words
@@ -59,7 +59,7 @@ Monstrous Form		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Change.Al
 Cold Snap			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Cold.Druid0.Magus0.Sorcerer0.Wizard0													DESC:1d3 cold damage.																	SOURCEPAGE:p.172
 Frost Fingers		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Cold.Druid2.Magus2.Sorcerer2.Wizard2													DESC:1d6/caster level cold damage, max 5; also staggers.											SOURCEPAGE:p.172
 Ice Blast			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Cold.Druid4.Magus4.Sorcerer4.Witch4.Wizard4												DESC:1d6/caster level cold damage, max 10; also entangles.											SOURCEPAGE:p.172
-Winter's Wrath		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Cold.Druid8.Sorcerer8.Wizard8															DESC:1d6/caster level cold damage, max 20; 1d4 Dex damage; also creates blizzard.							SOURCEPAGE:p.172
+Winter's Wrath		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Cold.Druid8.Sorcerer8.Wizard8														DESC:1d6/caster level cold damage, max 20; 1d4 Dex damage; also creates blizzard.							SOURCEPAGE:p.172
 
 #Block: Command Words
 Friendship			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Command.Bard1.Sorcerer1.Witch1.Wizard1													DESC:Target humanoid treats caster as ally.													SOURCEPAGE:p.172
@@ -70,11 +70,11 @@ Crush Will			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Command.Bard
 #Block: Concealing Words
 Fade				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Concealing.Alchemist1.Bard1.Inquisitor1.Magus1.Sorcerer1.Summoner1.Witch1.Wizard1						DESC:Short invisibility.  Boost: Attacks don't end invisibility.										SOURCEPAGE:p.173
 Disappear			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Concealing.Alchemist2.Bard2.Inquisitor2.Magus2.Sorcerer2.Summoner2.Witch2.Wizard2						DESC:Invisibility.  Boost(2): Attacks don't end invisibility.										SOURCEPAGE:p.173
-Unseen Shell		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Concealing.Bard4.Sorcerer4.Witch4.Wizard4													DESC:Area invisibility.  Boost(2): Attacks don't end invisibility.									SOURCEPAGE:p.173
+Unseen Shell		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Concealing.Bard4.Sorcerer4.Witch4.Wizard4												DESC:Area invisibility.  Boost(2): Attacks don't end invisibility.									SOURCEPAGE:p.173
 
 #Block: Death Words
 Undeath			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Death.Cleric2.Sorcerer3.Wizard3														DESC:Create skeletons or zombies.															SOURCEPAGE:p.173
-Grave Bane			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Death.Cleric4.Druid5.Inquisitor5.Paladin4													DESC:+4 sacred bonus on saves vs. death; cannot gain negative levels; auto stabilize.						SOURCEPAGE:p.173
+Grave Bane			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Death.Cleric4.Druid5.Inquisitor5.Paladin4												DESC:+4 sacred bonus on saves vs. death; cannot gain negative levels; auto stabilize.						SOURCEPAGE:p.173
 Life Leech			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Death.Magus4.Sorcerer4.Witch4.Wizard4													DESC:1d4 temporary negative levels.  Boost(5): Permanent negative levels.								SOURCEPAGE:p.174
 Slay				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Death.Cleric6.Druid7.Sorcerer6.Witch6.Wizard6												DESC:Living target takes 10/caster level damage, max 150.											SOURCEPAGE:p.174
 
@@ -109,20 +109,20 @@ Thunder Strike		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Electrici
 
 #Block: Fear Words
 Spook				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fear.Bard1.Cleric1.Inquisitor1.Sorcerer1.Witch1.Wizard1										DESC:Target is frightened, up to 5 HD.														SOURCEPAGE:p.177
-Terror			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fear.Bard3.Inquisitor4.Sorcerer4.Witch4.Wizard4												DESC:Target is frightened, shaken if save made.													SOURCEPAGE:p.177
-Horror			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fear.Sorcerer7.Witch7.Wizard7															DESC:Target takes 10/caster level damage.														SOURCEPAGE:p.177
+Terror			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fear.Bard3.Inquisitor4.Sorcerer4.Witch4.Wizard4											DESC:Target is frightened, shaken if save made.													SOURCEPAGE:p.177
+Horror			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fear.Sorcerer7.Witch7.Wizard7														DESC:Target takes 10/caster level damage.														SOURCEPAGE:p.177
 
 #Block: Fire Words
 Flame Jet			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Druid0.Magus0.Sorcerer0.Wizard0													DESC:1d4 fire damage.																	SOURCEPAGE:p.177
 Burning Flash		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Druid2.Inquisitor2.Magus1.Sorcerer1.Witch1.Wizard1										DESC:1d4/caster level fire damage, max 5  Boost(1): 1d6/caster level damage.								SOURCEPAGE:p.177
-Fire Blast			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Magus3.Sorcerer3.Wizard3															DESC:1d6/caster level fire damage, max 10.													SOURCEPAGE:p.177
+Fire Blast			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Magus3.Sorcerer3.Wizard3														DESC:1d6/caster level fire damage, max 10.													SOURCEPAGE:p.177
 Cinder Storm		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Cleric5.Druid5.Inquisitor5.Magus5.Sorcerer5.Summoner5.Wizard5								DESC:1d6/caster level fire damage, max 15.													SOURCEPAGE:p.177
-Inferno			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Druid8.Sorcerer8.Wizard8															DESC:1d8/caster level fire damage, max 20.													SOURCEPAGE:p.177
-True Fire			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Druid9.Sorcerer9.Wizard9															DESC:1d6/caster level fire damage, max 20; no save.												SOURCEPAGE:p.177
+Inferno			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Druid8.Sorcerer8.Wizard8														DESC:1d8/caster level fire damage, max 20.													SOURCEPAGE:p.177
+True Fire			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Fire.Druid9.Sorcerer9.Wizard9														DESC:1d6/caster level fire damage, max 20; no save.												SOURCEPAGE:p.177
 
 #Block: Flight Words
-Glide				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Flight.Alchemist1.Bard1.Magus1.Sorcerer1.Summoner1.Witch1.Wizard1									DESC:Fall slowly.																		SOURCEPAGE:p.178
-Float				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Flight.Alchemist2.Bard2.Magus2.Sorcerer2.Summoner2.Witch2.Wizard2									DESC:Move up and down at 30'/round.															SOURCEPAGE:p.178
+Glide				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Flight.Alchemist1.Bard1.Magus1.Sorcerer1.Summoner1.Witch1.Wizard1								DESC:Fall slowly.																		SOURCEPAGE:p.178
+Float				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Flight.Alchemist2.Bard2.Magus2.Sorcerer2.Summoner2.Witch2.Wizard2								DESC:Move up and down at 30'/round.															SOURCEPAGE:p.178
 Soar				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Flight.Alchemist3.Cleric4.Magus3.Sorcerer3.Summoner3.Witch3.Wizard3								DESC:Fly 60' (average).																	SOURCEPAGE:p.178
 
 #Block: Force Words
@@ -146,34 +146,34 @@ Echo				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illusion.Bard0.So
 Glamering			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illusion.Bard2.Sorcerer3.Wizard3														DESC:Create image.																	SOURCEPAGE:p.180
 
 #Block: Illumination Words
-Radiance			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illumination.Bard1.Cleric1.Druid1.Inquisitor1.Magus1.Sorcerer1.Witch1.Wizard1							DESC:Create torch light.																SOURCEPAGE:p.180
+Radiance			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illumination.Bard1.Cleric1.Druid1.Inquisitor1.Magus1.Sorcerer1.Witch1.Wizard1						DESC:Create torch light.																SOURCEPAGE:p.180
 Gloom				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illumination.Bard2.Cleric2.Magus2.Sorcerer2.Witch2.Wizard2										DESC:Create darkness.																	SOURCEPAGE:p.180
 Sunshine			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Illumination.Bard3.Cleric3.Druid3.Paladin3.Sorcerer3.Wizard3									DESC:Create bright light.																SOURCEPAGE:p.180
 
 #Block: Language Words
 Decipher			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Language.Alchemist1.Bard0.Cleric0.Druid0.Inquisitor0.Magus0.Paladin1.Ranger1.Sorcerer0.Summoner0.Witch0.Wizard0	DESC:Read a language.																	SOURCEPAGE:p.180
 Translate			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Language.Alchemist3.Bard2.Cleric4.Sorcerer3.Wizard3											DESC:Read, write, speak, and understand one language.												SOURCEPAGE:p.181
-Far Casting			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Language.Bard5.Cleric5.Sorcerer5.Witch5.Wizard5												DESC:Communicate with far away target.														SOURCEPAGE:p.181
+Far Casting			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Language.Bard5.Cleric5.Sorcerer5.Witch5.Wizard5											DESC:Communicate with far away target.														SOURCEPAGE:p.181
 
 #Block: Life Words
-Purify			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Life.Alchemist4.Bard4.Cleric4.Druid4.Inquisitor4.Paladin4.Ranger4									DESC:End an affliction or remove negative levels.												SOURCEPAGE:p.181
+Purify			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Life.Alchemist4.Bard4.Cleric4.Druid4.Inquisitor4.Paladin4.Ranger4								DESC:End an affliction or remove negative levels.												SOURCEPAGE:p.181
 Revive			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Life.Cleric5.Druid5.Witch5															DESC:Restore life to the recently dead.														SOURCEPAGE:p.181
 Life Touch			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Life.Cleric8.Witch8																DESC:Restore life to the dead.															SOURCEPAGE:p.181
 
 #Block: Pain Words
 Cramp				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Pain.Bard0.Cleric0.Inquisitor0.Sorcerer0.Witch0.Wizard0										DESC:Reduce speed of target.																SOURCEPAGE:p.181
 Wrack				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Pain.Bard1.Cleric1.Inquisitor1.Sorcerer1.Witch1.Wizard1										DESC:Target is sickened.																SOURCEPAGE:p.182
-Torture			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Pain.Bard3.Inquisitor3.Sorcerer3.Witch3.Wizard3												DESC:Target is nauseated.																SOURCEPAGE:p.182
+Torture			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Pain.Bard3.Inquisitor3.Sorcerer3.Witch3.Wizard3											DESC:Target is nauseated.																SOURCEPAGE:p.182
 
 #Block: Power Words
-Blind				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Power.Sorcerer7.Wizard7																DESC:Target is blinded.																	SOURCEPAGE:p.182
-Stun				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Power.Sorcerer8.Wizard8																DESC:Target is stunned.																	SOURCEPAGE:p.182
-Kill				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Power.Sorcerer9.Wizard9																DESC:Target is killed.																	SOURCEPAGE:p.182
+Blind				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Power.Sorcerer7.Wizard7															DESC:Target is blinded.																	SOURCEPAGE:p.182
+Stun				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Power.Sorcerer8.Wizard8															DESC:Target is stunned.																	SOURCEPAGE:p.182
+Kill				CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Power.Sorcerer9.Wizard9															DESC:Target is killed.																	SOURCEPAGE:p.182
 
 #Block: Sonic  Words
 Discordant Note		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Sonic.Bard2.Cleric2.Magus2															DESC:1d4/caster level sonic damage, max 5; also staggers.											SOURCEPAGE:p.182
 Sound Blast			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Sonic.Bard4.Magus4.Sorcerer4.Wizard4													DESC:1d6/caster level sonic damage, max 10.													SOURCEPAGE:p.182
-Destructive Vibration	CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Sonic.Bard6.Sorcerer7.Wizard7															DESC:1d6/caster level sonic damage, max 15; also deafens.											SOURCEPAGE:p.182
+Destructive Vibration	CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Sonic.Bard6.Sorcerer7.Wizard7														DESC:1d6/caster level sonic damage, max 15; also deafens.											SOURCEPAGE:p.182
 
 #Block: Summoning Words
 Servitor I			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Bard1.Cleric1.Druid1.Ranger1.Sorcerer1.Summoner1.Witch1.Wizard1							DESC:Summon Monster/Nature's Ally I; summoned creature is target of other effect words.						SOURCEPAGE:p.183
@@ -181,10 +181,10 @@ Servitor II			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.B
 Servitor III		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Bard3.Cleric3.Druid3.Ranger3.Sorcerer3.Witch3.Wizard3									DESC:Summon Monster/Nature's Ally III; summoned creature is target of other effect words.						SOURCEPAGE:p.183
 Servitor IV			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Bard4.Cleric4.Druid4.Ranger4.Sorcerer4.Summoner3.Witch4.Wizard4							DESC:Summon Monster/Nature's Ally IV; summoned creature is target of other effect words.						SOURCEPAGE:p.183
 Servitor V			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Bard5.Cleric5.Druid5.Sorcerer5.Witch5.Wizard5										DESC:Summon Monster/Nature's Ally V; summoned creature is target of other effect words.						SOURCEPAGE:p.184
-Servitor VI			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Bard6.Cleric6.Druid6.Sorcerer6.Summoner4.Witch6.Wizard6									DESC:Summon Monster/Nature's Ally VI; summoned creature is target of other effect words.						SOURCEPAGE:p.184
-Servitor VII		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Cleric7.Druid7.Sorcerer7.Summoner5.Witch7.Wizard7										DESC:Summon Monster/Nature's Ally VII; summoned creature is target of other effect words.						SOURCEPAGE:p.184
+Servitor VI			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Bard6.Cleric6.Druid6.Sorcerer6.Summoner4.Witch6.Wizard6								DESC:Summon Monster/Nature's Ally VI; summoned creature is target of other effect words.						SOURCEPAGE:p.184
+Servitor VII		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Cleric7.Druid7.Sorcerer7.Summoner5.Witch7.Wizard7									DESC:Summon Monster/Nature's Ally VII; summoned creature is target of other effect words.						SOURCEPAGE:p.184
 Servitor VIII		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Cleric8.Druid8.Sorcerer8.Witch8.Wizard8											DESC:Summon Monster/Nature's Ally VIII; summoned creature is target of other effect words.					SOURCEPAGE:p.184
-Servitor IX			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Cleric9.Druid9.Sorcerer9.Summoner6.Witch9.Wizard9										DESC:Summon Monster/Nature's Ally IX; summoned creature is target of other effect words.						SOURCEPAGE:p.184
+Servitor IX			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Summoning.Cleric9.Druid9.Sorcerer9.Summoner6.Witch9.Wizard9									DESC:Summon Monster/Nature's Ally IX; summoned creature is target of other effect words.						SOURCEPAGE:p.184
 
 #Block: Teleportation Words
 Dimensional Hop		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Teleportation.Bard3.Magus3.Sorcerer3.Summoner3.Witch3.Wizard3									DESC:Teleport willing targets to location within range.											SOURCEPAGE:p.184
@@ -209,20 +209,20 @@ Stone Wall			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wall.Cleric5
 Blade Wall			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wall.Cleric6.Summoner5																DESC:1d6/caster level when touching or passing through wall.										SOURCEPAGE:p.186
 
 #Block: Weather Words
-Fog Bank			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Weather.Cleric1.Druid1.Sorcerer1.Witch1.Wizard1												DESC:Blocks sight.  Boost: If used with burst target word, caster can move fog.							SOURCEPAGE:p.186
+Fog Bank			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Weather.Cleric1.Druid1.Sorcerer1.Witch1.Wizard1											DESC:Blocks sight.  Boost: If used with burst target word, caster can move fog.							SOURCEPAGE:p.186
 Wind Blast			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Weather.Druid2.Sorcerer3.Wizard3														DESC:Creates blast of air.																SOURCEPAGE:p.187
 Blizzard			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Weather.Druid3.Magus3.Sorcerer3.Witch3.Wizard3												DESC:Create concealment and slippery ground.  Boost(1): 2d6 cold damage.								SOURCEPAGE:p.187
-Storm Master		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Weather.Cleric7.Druid7.Sorcerer7.Witch7.Wizard7												DESC:Alters weather within a mile.  Boost: Change weather more quickly.									SOURCEPAGE:p.187
+Storm Master		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Weather.Cleric7.Druid7.Sorcerer7.Witch7.Wizard7											DESC:Alters weather within a mile.  Boost: Change weather more quickly.									SOURCEPAGE:p.187
 
 #Block: Wounding Words
-Bleeding Wounds		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Cleric0.Inquisitor0.Sorcerer0.Witch0.Wizard0											DESC:Dying creature takes 1 bleed damage each turn.  Boost(1): 1d3 bleed damage.							SOURCEPAGE:p.187
-Lesser Wound		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Cleric1.Inquisitor1.Witch1														DESC:Deal 1d6+1/caster level damage, max +5.  Boost: 1d8 base damage.									SOURCEPAGE:p.187
-Moderate Wound		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Cleric2.Inquisitor2.Witch2														DESC:Deal 2d6+1/caster level damage, max +10.  Boost: 2d8 base damage.									SOURCEPAGE:p.187
-Greater Wound		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Cleric3.Inquisitor3.Witch3														DESC:Deal 3d6+1/caster level damage, max +15.  Boost: 3d8 base damage.									SOURCEPAGE:p.188
-Elder Wound			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Cleric4.Inquisitor4.Witch4														DESC:Deal 4d6+1/caster level damage, max +20.  Boost: 4d8 base damage.									SOURCEPAGE:p.188
+Bleeding Wounds		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Cleric0.Inquisitor0.Sorcerer0.Witch0.Wizard0										DESC:Dying creature takes 1 bleed damage each turn.  Boost(1): 1d3 bleed damage.							SOURCEPAGE:p.187
+Lesser Wound		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Cleric1.Inquisitor1.Witch1													DESC:Deal 1d6+1/caster level damage, max +5.  Boost: 1d8 base damage.									SOURCEPAGE:p.187
+Moderate Wound		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Cleric2.Inquisitor2.Witch2													DESC:Deal 2d6+1/caster level damage, max +10.  Boost: 2d8 base damage.									SOURCEPAGE:p.187
+Greater Wound		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Cleric3.Inquisitor3.Witch3													DESC:Deal 3d6+1/caster level damage, max +15.  Boost: 3d8 base damage.									SOURCEPAGE:p.188
+Elder Wound			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.Effect.Wounding.Cleric4.Inquisitor4.Witch4													DESC:Deal 4d6+1/caster level damage, max +20.  Boost: 4d8 base damage.									SOURCEPAGE:p.188
 
 ###Block: Meta Words
-# Ability Name	Category of Ability	Type			Visible	Description											Source Page
+# Ability Name	Category of Ability	Type						Visible	Description											Source Page
 Boost			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.MetaLevel0			DESC:Activates boost of effect word.						SOURCEPAGE:p.188
 Careful		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.MetaLevel1			DESC:No somatic component.								SOURCEPAGE:p.188
 Distant		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.MetaLevel0			DESC:Increases range.									SOURCEPAGE:p.188
@@ -235,9 +235,9 @@ Quiet			CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.MetaLevel1			DESC:No ver
 Simple		CATEGORY:Words of Power	TYPE:WordsOfPowerOutput.MetaLevel1			DESC:No material component.								SOURCEPAGE:p.188
 
 #Block: Placeholder Meta Words for levels without meta words (to avoid warnings)
-Placeholder2	CATEGORY:Words of Power	TYPE:MetaLevel2	VISIBLE:NO
-Placeholder3	CATEGORY:Words of Power	TYPE:MetaLevel3	VISIBLE:NO
-Placeholder6	CATEGORY:Words of Power	TYPE:MetaLevel6	VISIBLE:NO
-Placeholder7	CATEGORY:Words of Power	TYPE:MetaLevel7	VISIBLE:NO
-Placeholder8	CATEGORY:Words of Power	TYPE:MetaLevel8	VISIBLE:NO
-Placeholder9	CATEGORY:Words of Power	TYPE:MetaLevel9	VISIBLE:NO
+Placeholder2	CATEGORY:Words of Power	TYPE:MetaLevel2				VISIBLE:NO
+Placeholder3	CATEGORY:Words of Power	TYPE:MetaLevel3				VISIBLE:NO
+Placeholder6	CATEGORY:Words of Power	TYPE:MetaLevel6				VISIBLE:NO
+Placeholder7	CATEGORY:Words of Power	TYPE:MetaLevel7				VISIBLE:NO
+Placeholder8	CATEGORY:Words of Power	TYPE:MetaLevel8				VISIBLE:NO
+Placeholder9	CATEGORY:Words of Power	TYPE:MetaLevel9				VISIBLE:NO

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Thu Jun 30 07:42:27 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Psionics Expanded - Mind over Body	SOURCESHORT:PEMoB	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=72.html	SOURCEDATE:2011-06
 # Original Entry: Douglas Limmer
 
@@ -100,7 +100,7 @@ Wither					CLASSES:Psion,Vitalist,Wilder=4				SCHOOL:Psychometabolism											
 
 ### Block: Modify powers to add to Tactician power list
 # COMMENT: Need Tactician spell list to exist!
-Battlesense.MOD	CLASSES:Tactician=3
+Battlesense.MOD				CLASSES:Tactician=3
 
 ### Block: Modify powers to add to Marksman power list
 # COMMENT: Already exists in data set that introduces the Marksman class.

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 
 ###Block: Department Abilities
 
@@ -33,7 +33,7 @@ Custom Ride		CATEGORY:Special Ability	TYPE:SpecialQuality.CoreAbility	DEFINE:Cus
 
 # Feat Name			Type					Visible	Special ABility																																				Define											Stackable?	Multiple?	Choose			Add 					Add to base move													Modify VAR
 # Ability Name		Category of Ability		Type							Define											Description																																					Stackable?	Multiple?	Choose		Bonus to Ability Pool				Add to base move													Modify VAR
-Sneak Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.Special			DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDieSize|6					DESC: +%1d%2|SneakAttackDice|SneakAttackDieSize
+Sneak Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.Special			DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDieSize|6			DESC: +%1d%2|SneakAttackDice|SneakAttackDieSize
 Uncanny Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.Special			DEFINE:UncannyDodge|0	DEFINE:UncannyTraps|max((UncannyDodge-2),0)	DESC:Uncanny Dodge (Dex bonus to Defense)|PREVAREQ:UncannyDodge,1	DESC:Uncanny Dodge (can't be flanked)|PREVAREQ:UncannyDodge,2	DESC:Uncanny Dodge (can't be flanked, +%1 against traps)|UncannyTraps|PREVARGTEQ:UncannyDodge,3
 Evasion			CATEGORY:Special Ability	TYPE:SpecialQuality.Special			DEFINE:EvasionFactor|0									DESC:Evasion (no damage on save)|PREVAREQ:EvasionFactor,1	DESC:Evasion (fail saves for half)|PREVAREQ:EvasionFactor,2	DESC:Evasion (fail saves for quarter)|PREVARGTEQ:EvasionFactor,3
 

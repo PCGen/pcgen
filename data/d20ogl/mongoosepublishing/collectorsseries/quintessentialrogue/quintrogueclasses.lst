@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
 
 # Move Rogue Proficiency change into hidden feat from SRD's new method.
@@ -31,10 +31,10 @@ CLASS:Commando	STARTSKILLPTS:2	CSKILL:Balance|Climb|Hide|Intuit Direction|Listen
 1													AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1													AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1						ABILITY:Special Ability|AUTOMATIC|Live off the Land ~ Commando	ABILITY:Special Ability|AUTOMATIC|Silent Strike ~ Commando
+1							ABILITY:Special Ability|AUTOMATIC|Live off the Land ~ Commando	ABILITY:Special Ability|AUTOMATIC|Silent Strike ~ Commando
 2	BONUS:VAR|SneakAttackDice|CL/2
-3						ABILITY:Special Ability|AUTOMATIC|Prepare Ambush ~ Commando
-5						ABILITY:Special Ability|AUTOMATIC|Sniper ~ Commando
+3							ABILITY:Special Ability|AUTOMATIC|Prepare Ambush ~ Commando
+5							ABILITY:Special Ability|AUTOMATIC|Sniper ~ Commando
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
 CLASS:Crusading Footpad	HD:6		TYPE:PC.Prestige	ABB:CrF		MAXLEVEL:10	SOURCEPAGE:p.24-26	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
@@ -62,11 +62,11 @@ CLASS:Deep Tracker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Decipher Script|Diplo
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1						ABILITY:Special Ability|AUTOMATIC|Monster Knowledge ~ Deep Tracker	ABILITY:Special Ability|AUTOMATIC|Underneath Explorer ~ Deep Tracker
+1							ABILITY:Special Ability|AUTOMATIC|Monster Knowledge ~ Deep Tracker	ABILITY:Special Ability|AUTOMATIC|Underneath Explorer ~ Deep Tracker
 2	BONUS:VAR|SneakAttackDice|CL/2	ABILITY:Special Ability|AUTOMATIC|Pathfinder ~ Deep Tracker	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-3						ABILITY:Special Ability|AUTOMATIC|Emissary ~ Deep Tracker
-4						ABILITY:Special Ability|AUTOMATIC|Maze Sense ~ Deep Tracker
-5						ABILITY:Special Ability|AUTOMATIC|Dark Sense ~ Deep Tracker
+3							ABILITY:Special Ability|AUTOMATIC|Emissary ~ Deep Tracker
+4							ABILITY:Special Ability|AUTOMATIC|Maze Sense ~ Deep Tracker
+5							ABILITY:Special Ability|AUTOMATIC|Dark Sense ~ Deep Tracker
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Executioner	HD:8		TYPE:PC.Prestige	ABB:Exe		MAXLEVEL:5	SOURCEPAGE:p.28-30	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -94,13 +94,13 @@ CLASS:Shadowy Avenger	STARTSKILLPTS:4	CSKILL:Alchemy|Climb|TYPE=Craft|Disable De
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	BONUS:SKILL|Sense Motive|2|TYPE=Competence						ABILITY:Special Ability|AUTOMATIC|Eye for Detail ~ Shadowy Avenger	ABILITY:Special Ability|AUTOMATIC|Urban Ranger ~ Shadowy Avenger
+1	BONUS:SKILL|Sense Motive|2|TYPE=Competence							ABILITY:Special Ability|AUTOMATIC|Eye for Detail ~ Shadowy Avenger	ABILITY:Special Ability|AUTOMATIC|Urban Ranger ~ Shadowy Avenger
 2									BONUS:VAR|SneakAttackDice|CL/2	ABILITY:Special Ability|AUTOMATIC|Scrounger ~ Shadowy Avenger	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-3														ABILITY:Special Ability|AUTOMATIC|Punish the Guilty ~ Shadowy Avenger
-5	BONUS:SKILL|Intimidate|2|TYPE=Competence							ABILITY:Special Ability|AUTOMATIC|Fearsome Reputation ~ Shadowy Avenger
-7														ABILITY:Special Ability|AUTOMATIC|Alchemical Genius ~ Shadowy Avenger												VFEAT:Brew Potion
-9														ABILITY:Special Ability|AUTOMATIC|Long Arm of the Law ~ Shadowy Avenger
-10														ABILITY:Special Ability|AUTOMATIC|Angel of Judgement ~ Shadowy Avenger
+3															ABILITY:Special Ability|AUTOMATIC|Punish the Guilty ~ Shadowy Avenger
+5	BONUS:SKILL|Intimidate|2|TYPE=Competence								ABILITY:Special Ability|AUTOMATIC|Fearsome Reputation ~ Shadowy Avenger
+7															ABILITY:Special Ability|AUTOMATIC|Alchemical Genius ~ Shadowy Avenger												VFEAT:Brew Potion
+9															ABILITY:Special Ability|AUTOMATIC|Long Arm of the Law ~ Shadowy Avenger
+10															ABILITY:Special Ability|AUTOMATIC|Angel of Judgement ~ Shadowy Avenger
 
 #TBD - implement Superior Knowledge?
 

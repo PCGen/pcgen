@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 17:24:32 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
@@ -96,10 +96,10 @@ CLASS:Blackchanter	PREABILITY:1,CATEGORY=Special Ability,Bardic Music	!PREALIGN:
 CLASS:Blackchanter	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE.Craft|Diplomacy|Gather Information|Jump|TYPE.Knowledge|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Speak Language|Spellcraft|Swim|Tumble
 1:REPEATLEVEL:1									ADD:SPELLCASTER|Arcane
 1			BONUS:ABILITYPOOL|Blackchanter Skill Focus|1
-2																						ABILITY:Special Ability|VIRTUAL|Requiem
+2																					ABILITY:Special Ability|VIRTUAL|Requiem
 3											ADD:FEAT|Skill Focus (Nobility%),Skill Focus (Religion%)
-4																						ABILITY:Special Ability|VIRTUAL|Elemental Savant (Positive Energy)
-5																						ABILITY:Special Ability|VIRTUAL|Dance Macabre
+4																					ABILITY:Special Ability|VIRTUAL|Elemental Savant (Positive Energy)
+5																					ABILITY:Special Ability|VIRTUAL|Dance Macabre
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
@@ -191,8 +191,8 @@ CLASS:Emerald Society Archaeologist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluf
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Subclass?		Base class as subclass?	Source, Long Desc.				Source Page		Save checks bonus											Combat bonus
-CLASS:Gladiator	HD:8		TYPE:PC.Prestige	ABB:Gldtr		MAXLEVEL:10		ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.186	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source, Long Desc.				Source Page		Save checks bonus											Combat bonus
+CLASS:Gladiator	HD:8		TYPE:PC.Prestige	ABB:Gldtr		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:p.186	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Req. Att.	Required Feat
 CLASS:Gladiator	PREATT:3	PREFEAT:2,Combat Expertise,Dodge
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -264,12 +264,12 @@ CLASS:Hurrianic Aegis	PREALIGN:LG,LN,NG,TN,CG,CN	PRECHECKBASE:1,Fortitude=5	PRED
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Hurrianic Aegis	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion/Hurrian)|TYPE.Nature|TYPE.Profession|Sense Motive|Spellcraft|Survival
 1:REPEATLEVEL:2	BONUS:COMBAT|AC|1|TYPE=Deflection
-1													ABILITY:Special Ability|VIRTUAL|Hurrian's Shield	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies				AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
+1													ABILITY:Special Ability|VIRTUAL|Hurrian's Shield	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
 2:REPEATLEVEL:1							ADD:SPELLCASTER|Divine
 2													ABILITY:Special Ability|VIRTUAL|Grtr Domain Focus(Refuge)|Toughness Ability
 3													ABILITY:Special Ability|VIRTUAL|Spontaneous Shield Other
 4													ABILITY:Special Ability|VIRTUAL|Hurrian's Wall
-5:REPEATLEVEL:3																								AUTO:FEAT|Improved Toughness
+5:REPEATLEVEL:3																																AUTO:FEAT|Improved Toughness
 5													ABILITY:Special Ability|VIRTUAL|Extra Protection Domain Spell
 6													ABILITY:Special Ability|VIRTUAL|Mass Shield Other Ability
 7													ABILITY:Special Ability|VIRTUAL|Hurrian's Fortress
@@ -351,13 +351,13 @@ CLASS:Milandisian Canton	PREATT:2	PREFEAT:1,Conscript	PREREGION:Milandir	PRESKIL
 CLASS:Milandisian Canton	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Diplomacy|Heal|Jump|TYPE.History|TYPE.Nobility|TYPE.Profession|Survival|Swim
 1											ADD:FEAT|TYPE=Military,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes	ABILITY:Special Ability|VIRTUAL|Defensive Line
 1:REPEATLEVEL:4					BONUS:VAR|LineBonus|1
-2																																						ABILITY:Special Ability|VIRTUAL|Always Set
-3																																						ABILITY:Special Ability|VIRTUAL|Line Defense
+2																																				ABILITY:Special Ability|VIRTUAL|Always Set
+3																																				ABILITY:Special Ability|VIRTUAL|Line Defense
 4											ADD:FEAT|TYPE=Military,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes
-6																																						ABILITY:Special Ability|VIRTUAL|Counter Charge
-7			SAB:Line Attack (Ex)																																ABILITY:Special Ability|VIRTUAL|Line Attack
+6																																				ABILITY:Special Ability|VIRTUAL|Counter Charge
+7			SAB:Line Attack (Ex)																														ABILITY:Special Ability|VIRTUAL|Line Attack
 8											ADD:FEAT|TYPE=Military,Weapon Focus(Halberd),Weapon Focus(Crossbow (Heavy)),Combat Reflexes,Rapid Reload,Great Fortitude,Iron Will,Lightning Reflexes
-10																																						ABILITY:Special Ability|VIRTUAL|Rapid Set
+10																																				ABILITY:Special Ability|VIRTUAL|Rapid Set
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
@@ -403,16 +403,16 @@ CLASS:Onaran Templar	PREATT:5	PREFEAT:2,Iron Will,Church Education	PRESKILL:1,TY
 CLASS:Onaran Templar	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Jump|TYPE.History|TYPE.Religion|TYPE.Profession|Ride|Sense Motive|Spellcraft|Swim
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels																																											Caster level
 CLASS:Onaran Templar	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:Bless|Bless Weapon|Cure Light Wounds|Divine Favor|Restoration (Lesser)|Magic Weapon|Aid|Bull's Strength|Bear's Endurance|Cat's Grace|Cure Moderate Wounds|Dispel Magic|Magic Weapon (Greater)|Prayer|Beltine's Blessed Strike|Death Ward|Divine Smite|Restoration|Sword of Faith	BONUS:CASTERLEVEL|Onaran Templar|CL
-1																																																																													SPELLLEVEL:CLASS|Onaran Templar=1|Bless,Bless Weapon,Cure Light Wounds,Divine Favor,Restoration (Lesser),Magic Weapon
+1																																																																									SPELLLEVEL:CLASS|Onaran Templar=1|Bless,Bless Weapon,Cure Light Wounds,Divine Favor,Restoration (Lesser),Magic Weapon
 1					CAST:0,1																				ABILITY:Special Ability|VIRTUAL|Relentless	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
-2																																																																													SPELLLEVEL:CLASS|Onaran Templar=2|Aid,Bull's Strength,Bear's Endurance,Cat's Grace
+2																																																																									SPELLLEVEL:CLASS|Onaran Templar=2|Aid,Bull's Strength,Bear's Endurance,Cat's Grace
 2					CAST:0,1,0																				ABILITY:Special Ability|VIRTUAL|Religious Fury
 2:REPEATLEVEL:4|SKIP=0|MAX=6										BONUS:VAR|ReligiousFuryTimes|1
 3					CAST:0,1,1																				ABILITY:Special Ability|VIRTUAL|Strength of the Spirit
-4																																																																													SPELLLEVEL:CLASS|Onaran Templar=3|Cure Moderate Wounds,Dispel Magic,Magic Weapon (Greater),Prayer
+4																																																																									SPELLLEVEL:CLASS|Onaran Templar=3|Cure Moderate Wounds,Dispel Magic,Magic Weapon (Greater),Prayer
 4					CAST:0,1,1,0	DOMAIN:War	BONUS:DOMAIN|NUMBER|1													ABILITY:Special Ability|VIRTUAL|Unshakable Dogma
 5					CAST:0,2,1,1
-6																																																																													SPELLLEVEL:CLASS|Onaran Templar=4|Beltine's Blessed Strike,Death Ward,Divine Smite,Restoration,Sword of Faith
+6																																																																									SPELLLEVEL:CLASS|Onaran Templar=4|Beltine's Blessed Strike,Death Ward,Divine Smite,Restoration,Sword of Faith
 6					CAST:0,2,2,1,0
 7					CAST:0,3,2,1,1													ADD:FEAT|Weapon Specialization
 8					CAST:0,3,3,2,2
@@ -545,12 +545,12 @@ CLASS:Spellcaller	NAMEISPI:YES	HD:4		TYPE:PC.Prestige	ABB:SpClr		MAXLEVEL:10	SOU
 CLASS:Spellcaller	PREMULT:2,[PRESPELLCAST:MEMORIZE=N],[PRESPELLTYPE:1,Arcane=3]	PRESKILL:2,TYPE.Arcana,Spellcraft=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellcaller	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Decipher Script|TYPE.Knowledge|TYPE.Profession|Search|Spellcraft
-1					BONUS:ABILITYPOOL|Flexible Known Slot|9	BONUS:ABILITYPOOL|Spell Studies|9									ABILITY:Special Ability|VIRTUAL|Spell Studies|Flexible Spell Slot|Multiple Spontaneous Adjustment
+1					BONUS:ABILITYPOOL|Flexible Known Slot|9	BONUS:ABILITYPOOL|Spell Studies|9					ABILITY:Special Ability|VIRTUAL|Spell Studies|Flexible Spell Slot|Multiple Spontaneous Adjustment
 1:REPEATLEVEL:1																ADD:SPELLCASTER|Arcane
-2:REPEATLEVEL:2|SKIP=0|MAX=4														BONUS:ABILITYPOOL|Metamagic|1
-6																										ABILITY:Special Ability|VIRTUAL|Spell Mimic
-8																										ABILITY:Special Ability|VIRTUAL|Metamagic Casting
-10																										ABILITY:Special Ability|VIRTUAL|Metamagic Mastery
+2:REPEATLEVEL:2|SKIP=0|MAX=4	BONUS:ABILITYPOOL|Metamagic|1
+6																						ABILITY:Special Ability|VIRTUAL|Spell Mimic
+8																						ABILITY:Special Ability|VIRTUAL|Metamagic Casting
+10																						ABILITY:Special Ability|VIRTUAL|Metamagic Mastery
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
@@ -596,14 +596,14 @@ CLASS:Ulfilan Ranger	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE.Craft|Handl
 CLASS:Ulfilan Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ulfian Ranger|CL
 
 # Resist Elements listed as a spell - doesn't exist anywhere, not mentioned in errata
-1																																													SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alarm,Detect Animals or Plants,Detect Snares and Pits,Feather Fall,Jump,Pass without Trace,Shillelagh UR
+1																																									SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alarm,Detect Animals or Plants,Detect Snares and Pits,Feather Fall,Jump,Pass without Trace,Shillelagh UR
 1	CAST:0,1		ABILITY:Special Ability|VIRTUAL|Homeland Advantage	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)	AUTO:WEAPONPROF|Wind Staff
 2	CAST:0,1		ABILITY:Special Ability|VIRTUAL|Hurrian's Might
 # Protection from Elements listed as a spell - doesn't exist anywhere, not mentioned in errata
-3																																													SPELLLEVEL:CLASS|Ulfilan Ranger=2|Cure Light Wounds,Delay Poison,Heat Metal,Shocking Grasp,Spider Climb
+3																																									SPELLLEVEL:CLASS|Ulfilan Ranger=2|Cure Light Wounds,Delay Poison,Heat Metal,Shocking Grasp,Spider Climb
 3	CAST:0,2,1
-4	CAST:0,2,1		ABILITY:Special Ability|VIRTUAL|Storm Domain																																		SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alter Wind|Ulfilan Ranger=2|Endure Elements|Ulfilan Ranger=3|Lightning Bolt|Ulfilan Ranger=4|Call Lightning Storm|Ulfilan Ranger=5|Control Winds|Ulfian Ranger=6|Wind Walk|Ulfilan Ranger=7|Control Weather|Ulfilan Ranger=8|Whirlwind|Ulfilan Ranger=9|Storm of Vengeance
-5																																													SPELLLEVEL:CLASS|Ulfilan Ranger=3|Call Lightning,Commune with Nature,Gust of Wind
+4	CAST:0,2,1		ABILITY:Special Ability|VIRTUAL|Storm Domain																														SPELLLEVEL:CLASS|Ulfilan Ranger=1|Alter Wind|Ulfilan Ranger=2|Endure Elements|Ulfilan Ranger=3|Lightning Bolt|Ulfilan Ranger=4|Call Lightning Storm|Ulfilan Ranger=5|Control Winds|Ulfian Ranger=6|Wind Walk|Ulfilan Ranger=7|Control Weather|Ulfilan Ranger=8|Whirlwind|Ulfilan Ranger=9|Storm of Vengeance
+5																																									SPELLLEVEL:CLASS|Ulfilan Ranger=3|Call Lightning,Commune with Nature,Gust of Wind
 5	CAST:0,2,2,1	ABILITY:Special Ability|VIRTUAL|Craft Wind Staff
 
 ##############################################################################################################################################################################################################################################################################################################################################
@@ -650,15 +650,15 @@ CLASS:Warrior of the Eternal Flame	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Cra
 # Class Name				Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Warrior of the Eternal Flame	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Warrior of the Eternal Flame|CL|PRECLASS:1,Warrior of the Eternal Flame=2
 1											BONUS:ABILITYPOOL|Blessings of Flame|1						ABILITY:Special Ability|VIRTUAL|Child of Nier	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|Shield Proficiency|Tower Shield Proficiency
-2																																																																										SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Bless Weapon,Magic Weapon,Cause Fear,Dancing Lights,Pyrotechnics,Spiritual Weapon
+2																																																																						SPELLLEVEL:CLASS|Warrior of the Eternal Flame=1|Bless Weapon,Magic Weapon,Cause Fear,Dancing Lights,Pyrotechnics,Spiritual Weapon
 2					CAST:0,0		KNOWN:0,1														ABILITY:Special Ability|VIRTUAL|To Tap the Fire Within
 3					CAST:0,1		KNOWN:0,1														ABILITY:Special Ability|VIRTUAL|Call Forth His Servants
-4					CAST:0,1,0		KNOWN:0,2,1														ABILITY:Special Ability|VIRTUAL|Bonus Domain WEF																																											SPELLLEVEL:CLASS|Warrior of the Eternal Flame=2|Continual Flame,Flaming Sphere,Flame Blade,Magic Vestment,Resist Energy (Fire)|Warrior of the Eternal Flame=1|Burning Hands|Warrior of the Eternal Flame=2|Produce Flame|Warrior of the Eternal Flame=3|Resist Energy|Warrior of the Eternal Flame=4|Wall of Fire|Warrior of the Eternal Flame=5|Fire Shield|Warrior of the Eternal Flame=6|Fire Seeds|Warrior of the Eternal Flame=7|Fire Storm|Warrior of the Eternal Flame=8|Incendiary Cloud|Warrior of the Eternal Flame=9|Elemental Swarm
+4					CAST:0,1,0		KNOWN:0,2,1														ABILITY:Special Ability|VIRTUAL|Bonus Domain WEF																																							SPELLLEVEL:CLASS|Warrior of the Eternal Flame=2|Continual Flame,Flaming Sphere,Flame Blade,Magic Vestment,Resist Energy (Fire)|Warrior of the Eternal Flame=1|Burning Hands|Warrior of the Eternal Flame=2|Produce Flame|Warrior of the Eternal Flame=3|Resist Energy|Warrior of the Eternal Flame=4|Wall of Fire|Warrior of the Eternal Flame=5|Fire Shield|Warrior of the Eternal Flame=6|Fire Seeds|Warrior of the Eternal Flame=7|Fire Storm|Warrior of the Eternal Flame=8|Incendiary Cloud|Warrior of the Eternal Flame=9|Elemental Swarm
 4:REPEATLEVEL:2|SKIP=0|MAX=10							BONUS:ABILITYPOOL|Blessings of Flame|1
 5					CAST:0,1,1		KNOWN:0,2,1
-6					CAST:0,1,1,0	KNOWN:0,2,2,1								BONUS:VAR|SmiteAnyTimes|1																																																				SPELLLEVEL:CLASS|Warrior of the Eternal Flame=3|Fire Trap,Flame Arrow,Magic Weapon (Greater),Mantle of Unassailable Flame,Scorching Ray|Warrior of the Eternal Flame=1|Inflict Light Wounds|Warrior of the Eternal Flame=2|Shatter|Warrior of the Eternal Flame=3|Contagion|Warrior of the Eternal Flame=4|Inflict Critical Wounds|Warrior of the Eternal Flame=5|Inflict Light Wounds (Mass)|Warrior of the Eternal Flame=6|Harm|Warrior of the Eternal Flame=7|Disintegrate|Warrior of the Eternal Flame=8|Earthquake|Warrior of the Eternal Flame=9|Implosion
+6					CAST:0,1,1,0	KNOWN:0,2,2,1								BONUS:VAR|SmiteAnyTimes|1																																																SPELLLEVEL:CLASS|Warrior of the Eternal Flame=3|Fire Trap,Flame Arrow,Magic Weapon (Greater),Mantle of Unassailable Flame,Scorching Ray|Warrior of the Eternal Flame=1|Inflict Light Wounds|Warrior of the Eternal Flame=2|Shatter|Warrior of the Eternal Flame=3|Contagion|Warrior of the Eternal Flame=4|Inflict Critical Wounds|Warrior of the Eternal Flame=5|Inflict Light Wounds (Mass)|Warrior of the Eternal Flame=6|Harm|Warrior of the Eternal Flame=7|Disintegrate|Warrior of the Eternal Flame=8|Earthquake|Warrior of the Eternal Flame=9|Implosion
 7					CAST:0,2,1,1	KNOWN:0,3,2,1													ABILITY:Special Ability|VIRTUAL|Fury of Nier
-8																																																																										SPELLLEVEL:CLASS|Warrior of the Eternal Flame=4|Fireball,Fire Shield,Flame Strike,Wall of Fire
+8																																																																						SPELLLEVEL:CLASS|Warrior of the Eternal Flame=4|Fireball,Fire Shield,Flame Strike,Wall of Fire
 8					CAST:0,2,2,1,0	KNOWN:0,3,2,2,1
 9					CAST:0,3,2,1,1	KNOWN:0,3,3,2,2													ABILITY:Special Ability|VIRTUAL|Nier's Embrace
 10					CAST:0,3,3,2,2	KNOWN:0,3,3,2,2													ABILITY:Special Ability|VIRTUAL|Nier's Gift|Fire from the Gates of Heaven
@@ -680,8 +680,8 @@ CLASS:Weapon Savant	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE.Craft|Examin
 
 ##############################################################################################################################################################################################################################################################################################################################################
 
-# Class Name			Product Identity?	Hit Dice	Type			Max Level	Subclass?		Source, Long Desc.				Save checks bonus												Combat bonus
-CLASS:Combat Styles of Onara	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:5		SOURCELONG:Player's Guide to Arcanis	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source, Long Desc.				Save checks bonus												Combat bonus
+CLASS:Combat Styles of Onara	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCELONG:Player's Guide to Arcanis	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Req. Att.	Required Feat			Required Skill
 CLASS:Combat Styles of Onara	PREATT:5	PREFEAT:1,Combat Expertise	PRESKILL:1,Balance=5
 # Class Name			Skill Pts/Lvl	Class Skill

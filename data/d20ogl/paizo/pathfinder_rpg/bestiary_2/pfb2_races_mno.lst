@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Nov 12 23:40:43 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: Stefan Radermacher and Douglas Limmer
@@ -68,10 +68,10 @@ Nightshade (Nightwave)		OUTPUTNAME:[NAME]	STARTFEATS:1	SIZE:C	MOVE:Swim,60		FACE
 Nightshade (Nightwing)		OUTPUTNAME:[NAME]	STARTFEATS:1	SIZE:H	MOVE:Walk,30,Fly,60	FACE:15	REACH:15	BONUS:COMBAT|AC|17|TYPE=NaturalArmor						BONUS:SKILL|Stealth (In darkness)|8|TYPE=Racial	BONUS:STAT|STR|20	BONUS:STAT|DEX,INT|8	BONUS:STAT|WIS,CHA|10					BONUS:VAR|Maneuverability|4	BONUS:VAR|SLA_CL|14																										BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))						AUTO:LANG|Abyssal|Common|Infernal					ABILITY:Special Ability|AUTOMATIC|Cold ~ Nightwing|Detect Magic ~ Constant|Flight Maneuverability|Immunity to Cold|Magic Drain ~ Nightwing|Magic Fang ~ Constant|Telepathy																LEGS:2	HANDS:0	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing.Cold,*1,4d10																SR:25		DR:15/good and silver	MONSTERCLASS:Undead:17				RACETYPE:Undead		RACESUBTYPE:Extraplanar|Nightshade			CR:14			SOURCEPAGE:p.203	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=14|Contagion,14+CHA|Deeper Darkness|Unholy Blight,14+CHA	SPELLS:Innate|TIMES=3|CASTERLEVEL=14|Confusion,14+CHA|Dispel Magic (Greater)|Haste|Hold Monster,15+CHA|Invisibility	SPELLS:Innate|TIMES=1|CASTERLEVEL=14|Cone of Cold,15+CHA|Finger of Death,17+CHA|Plane Shift,17+CHA|Summon Monster VI (Nightwing)																	KIT:1|CE
 
 ###Block: O
-# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Vision			Bonus Languages										Stat bonus						Automatically Gained Language	Ability																Main Race Type	Race Subtype		Source Page
+# Race Name	Starting Feats	Size		Move			Face/Space	Reach		Vision			Bonus Languages										Stat bonus						Automatically Gained Language	Main Race Type	Race Subtype		Source Page
 Oread		STARTFEATS:1	SIZE:M	MOVE:Walk,20	FACE:5	REACH:5	VISION:Darkvison (60')	LANGBONUS:Aquan,Auran,Dwarven,Elven,Gnome,Halfling,Ignan,Undercommon	BONUS:STAT|STR,WIS|2	BONUS:STAT|CHA|-2	AUTO:LANG|Common|Terran		RACETYPE:Outsider	RACESUBTYPE:Native	SOURCEPAGE:p.205
 
-#ABILITY:Special Ability|AUTOMATIC|Elemental Affinity ~ Oread|Elemental Resistance ~ Oread|Oread Magic	
+#ABILITY:Special Ability|AUTOMATIC|Elemental Affinity ~ Oread|Elemental Resistance ~ Oread|Oread Magic
 
 #
 # End

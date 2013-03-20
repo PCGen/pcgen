@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
@@ -241,7 +241,7 @@ CLASS:Point Buy	HD:4		TYPE:Base.PC.Eclipse	ABB:Point		MAXLEVEL:20	DEFINE:Eclipse
 # Class Name	Skill Pts/Lvl
 CLASS:Point Buy	STARTSKILLPTS:0
 ###Block:
-1										BONUS:HD|MAX|var("HDBonus")																								
+1										BONUS:HD|MAX|var("HDBonus")
 1															BONUS:ABILITYPOOL|Character Points|var("CharacterPoints")	BONUS:VAR|CharacterPointsLevelOffSet|24+(24*CL)	DEFINE:CharacterPoints|0
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9																																												DONOTADD:SKILLPOINTS
 1																																						ABILITY:Special Ability|AUTOMATIC|All Automatic Abilities|All Automatic Proficiencies
@@ -274,7 +274,7 @@ CLASS:Classless Point Buy	HD:4		TYPE:Base.PC.Eclipse	ABB:Point		MAXLEVEL:20	DEFI
 # Class Name			Skill Pts/Lvl
 CLASS:Classless Point Buy	STARTSKILLPTS:0
 ###Block:
-1										BONUS:HD|MAX|var("HDBonus")									
+1										BONUS:HD|MAX|var("HDBonus")
 1															BONUS:ABILITYPOOL|Character Points|48
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9																													DONOTADD:SKILLPOINTS
 2															BONUS:ABILITYPOOL|Character Points|24*(CL-1)
@@ -366,11 +366,11 @@ CLASS:Extra HD 20	HD:20		TYPE:PC	ABB:x			VISIBLE:NO
 1:REPEATLEVEL:1	TEMPLATE:HD4L1	DONOTADD:SKILLPOINTS
 
 
-# Class Name	Unique Key			Hit Dice	Type			Ability
-CLASS:Companion	KEY:Companion ~ Eclipse	HD:8		TYPE:Monster	
+# Class Name	Unique Key			Hit Dice	Type
+CLASS:Companion	KEY:Companion ~ Eclipse	HD:8		TYPE:Monster
 
 # Class Name			Skill Pts/Lvl
 CLASS:Companion ~ Eclipse	STARTSKILLPTS:0
-1			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions	
-1:REPEATLEVEL:1																						DONOTADD:SKILLPOINTS
+1			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions
+1:REPEATLEVEL:1												DONOTADD:SKILLPOINTS
 #

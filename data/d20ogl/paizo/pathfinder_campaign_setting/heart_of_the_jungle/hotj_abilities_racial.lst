@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Jul  6 15:45:26 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Heart of the Jungle	SOURCESHORT:HotJ	SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy8evh	SOURCEDATE:2010-07
 # Original Entry by:Stefan Radermacher
 
@@ -12,10 +12,10 @@ Infestation		KEY:Infestation ~ Giant Botfly	CATEGORY:Special Ability	TYPE:Specia
 Infestation		KEY:Infestation ~ Botfly Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:BotflySwarmInfestationDC|10+(HD/2)+CON	DESC:A living creature injured by a botfly swarm's attack must make a DC %1 Fortitude save or be infested with the swarm's larvae. The larvae may be cut out of the host with a DC 15 Heal check, though each attempt inflicts 1d8 points of damage whether or not it's successful. A Cure Disease spell destroys all larvae without further harm to the host. Botfly larvae: Infestation; Fort DC %1; Onset 1 day; Frequency 1/day; Effect 1d4 Con damage.|BotflySwarmInfestationDC																																																																																	SOURCEPAGE:p.59
 
 ###Block: Hippopotamus Abilities
-# Ability Name	Unique Key					Category of Ability		Type						Define							Description																																											Source Page
-Blood Sweat		KEY:Blood Sweat ~ Hippopotamus	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary									DESC:A hippopotamus excretes a reddish-tinged oil that protects its skin from both the sun and bacteria. It suffers no harm from being in hot environments (up to 140 degrees Fahrenheit) and gains a +2 on Fortitude saves to resist nonmagical diseases.			SOURCEPAGE:p.60
+# Ability Name	Unique Key					Category of Ability		Type						Define							Description																																									Source Page
+Blood Sweat		KEY:Blood Sweat ~ Hippopotamus	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary									DESC:A hippopotamus excretes a reddish-tinged oil that protects its skin from both the sun and bacteria. It suffers no harm from being in hot environments (up to 140 degrees Fahrenheit) and gains a +2 on Fortitude saves to resist nonmagical diseases.	SOURCEPAGE:p.60
 #Capsize		KEY:Capsize ~ Hippopotamus		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary									DESC:A hippopotamus can attempt to capsize a boat or ship of its size or smaller by ramming it as a charge attack and making a combat maneuver check. The DC of this check is 25, or the result of the boat captain's Profession (sailor) check, whichever is higher.	SOURCEPAGE:p.60
-Hold Breath		KEY:Hold Breath ~ Hippopotamus	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:HippopotamusHoldBreathRounds|CONSCORE*4	DESC:A hippopotamus can hold its breath for %1 rounds before it risks drowning.|HippopotamusHoldBreathRounds																										SOURCEPAGE:p.60
+Hold Breath		KEY:Hold Breath ~ Hippopotamus	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:HippopotamusHoldBreathRounds|CONSCORE*4	DESC:A hippopotamus can hold its breath for %1 rounds before it risks drowning.|HippopotamusHoldBreathRounds																								SOURCEPAGE:p.60
 
 ###Block: Togongo Treant Abilities
 # Ability Name			Unique Key					Category of Ability		Type								Define							Description																																																																																																																																																																																	Source Page

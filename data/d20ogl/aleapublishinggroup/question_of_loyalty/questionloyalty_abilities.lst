@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:A Question of Loyalty: A Guidebook to Military Orders	SOURCESHORT:GuideMO	SOURCEWEB:http://www.aleapublishing.com	SOURCEDATE:2003-01
 # Original Entry: Andrew Maitland
 
@@ -63,7 +63,7 @@ Firm Grasp				KEY:Combat Enlightenment ~ Firm Grasp			CATEGORY:Special Ability	T
 Zealous Haste			KEY:Combat Enlightenment ~ Zealous Haste			CATEGORY:Special Ability	TYPE:SpecialQuality.TeutonicKnightCombat	PREVARGTEQ:TeutonicCombatEnlightenment,4
 Zealous Strike			KEY:Combat Enlightenment ~ Zealous Strike			CATEGORY:Special Ability	TYPE:SpecialQuality.TeutonicKnightCombat	PREVARGTEQ:TeutonicCombatEnlightenment,5
 One-Weapon (One Mind)		KEY:Combat Enlightenment ~ One-Weapon One Mind		CATEGORY:Special Ability	TYPE:SpecialQuality.TeutonicKnightCombat	PREVARGTEQ:TeutonicCombatEnlightenment,6
-Two-Weapons (One Mind)		KEY:Combat Enlightenment ~ Two-Weapons One Mind	CATEGORY:Special Ability	TYPE:SpecialQuality.TeutonicKnightCombat	PREVARGTEQ:TeutonicCombatEnlightenment,6
+Two-Weapons (One Mind)		KEY:Combat Enlightenment ~ Two-Weapons One Mind		CATEGORY:Special Ability	TYPE:SpecialQuality.TeutonicKnightCombat	PREVARGTEQ:TeutonicCombatEnlightenment,6
 
 ### COMMENT: These were created if the TEMPLATE - LEVEL:x:FEAT doesn't work
 #hiddensolomonbrotherhood-5	CATEGORY:Special Ability	TYPE:SpecialQuality																																								STACK:NO	MULT:YES	CHOOSE:FEAT|Absorb Arcana|Arcane Heresy|Contemplation|Forbidden Arcana|Mind over Body|Reflection|True Insight

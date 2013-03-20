@@ -1,16 +1,16 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object																																				Specific choices list				Plural description for UI			Display Location
 ABILITYCATEGORY:Martial Art Techniques			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability		TYPE:MartialArtsSkill																																										PLURAL:Martial Art Techniques			DISPLAYLOCATION:Character Creation Pool
 ABILITYCATEGORY:Martial Art Skill Power Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability		TYPE:MASpower																																											PLURAL:Martial Arts Power Choices		DISPLAYLOCATION:Character Creation Pool
 
 ABILITYCATEGORY:Martial Arts ~ Hiten Mitsurugi Ryuu	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability		TYPE:MA ~ Hiten Mitsurugi Ryuu																																								PLURAL:Hiten Mitsurugi Ryuu Techniques	DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:Mystic Companion Stat Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:Special Ability	TYPE:MysticCompanionBonusStat	PLURAL:Companion Bonus Stat			DISPLAYLOCATION:Character Creation Pool
-ABILITYCATEGORY:MySelectableFeat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	CATEGORY:FEAT	TYPE:MySelectableFeat				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Mystic Companion Stat Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:Special Ability		TYPE:MysticCompanionBonusStat																																									PLURAL:Companion Bonus Stat			DISPLAYLOCATION:Character Creation Pool
+ABILITYCATEGORY:MySelectableFeat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:FEAT				TYPE:MySelectableFeat																																																	DISPLAYLOCATION:Feats
 
 ABILITYCATEGORY:Any Feat Choice				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES					CATEGORY:FEAT				TYPE:*																																												PLURAL:Any Feat Choices				DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Words of Power	CATEGORY:Words of Power	VISIBLE:QUALIFY	
+ABILITYCATEGORY:Words of Power				VISIBLE:QUALIFY																CATEGORY:Words of Power
 
 
 ABILITYCATEGORY:Exotic Weapon Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:YES	POOL:1			CATEGORY:FEAT																																										ABILITYLIST:Exotic Weapon Proficiency	PLURAL:Exotic Weapon Choices			DISPLAYLOCATION:Character Creation Pool

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 # Original Entry by: Stefan Radermacher
 
@@ -22,8 +22,8 @@ SOURCELONG:Bestiary 2	SOURCESHORT:PFB2	SOURCEWEB:http://paizo.com/store/byCompan
 # ORIGINAL ENTRY: Douglas Limmer
 # ORIGINAL ENTRY DATE: Unknown
 
-# Language	Type
-Daemon	TYPE:Spoken.Written.Read
-D'ziriak	TYPE:Spoken.Written.Read
-Grippli	TYPE:Spoken.Written.Read
-Protean	TYPE:Spoken.Written.Read
+# Language			Type
+Daemon			TYPE:Spoken.Written.Read
+D'ziriak			TYPE:Spoken.Written.Read
+Grippli			TYPE:Spoken.Written.Read
+Protean			TYPE:Spoken.Written.Read

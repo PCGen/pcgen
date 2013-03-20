@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  6 12:54:03 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 # SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
 # Original Entry by: Ratheof Blithwyn, conversion to Abilities by Eddy Anthony
 
@@ -168,7 +168,7 @@ ABILITYCATEGORY:Unsuffering Level 3 Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOO
 ABILITYCATEGORY:Unsuffering Level 4 Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnsufferingLPL4	DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Unsuffering Level 5 Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnsufferingLPL5	DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Legendary Path	TYPE:LegendaryPath		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Legendary Path			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LegendaryPath	DISPLAYLOCATION:Class Abilities
 #
 # End
 #

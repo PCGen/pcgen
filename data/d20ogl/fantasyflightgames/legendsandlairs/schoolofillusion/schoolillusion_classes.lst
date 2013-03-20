@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  6 20:47:23 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:http://www.fantasyflightgames.com/dd38.html	SOURCEDATE:2003-02
 # Original Entry by: Ratheof Blithwyn
 
@@ -52,15 +52,15 @@ CLASS:Arcane Herald	PREFEAT:1,Scribe Scroll	PRESKILL:1,Knowledge (Heraldry)=8	PR
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Herald	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Innuendo|Intimidate|TYPE=Knowledge|Perform|TYPE=Profession|Ride|Scry|Sense Motive|Spellcraft
 1	SAB:Grand Words			BONUS:VAR|FamiliarLVL|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
-2	SAB:Craft Ink							ADD:SPELLCASTER|ANY
-3	SAB:Clever Wit							ADD:SPELLCASTER|ANY
-4	SAB:Elegant Hand (messages)					ADD:SPELLCASTER|ANY
-5	SAB:Showy Gestures						ADD:SPELLCASTER|ANY
-6	SAB:Tidings								ADD:SPELLCASTER|ANY
-7	SAB:Meaningful Glances						ADD:SPELLCASTER|ANY
-8	SAB:Elegant Hand (illusions)					ADD:SPELLCASTER|ANY
-9	SAB:Renowned Prowess						ADD:SPELLCASTER|ANY
-10	SAB:The Messenger							ADD:SPELLCASTER|ANY
+2	SAB:Craft Ink								ADD:SPELLCASTER|ANY
+3	SAB:Clever Wit								ADD:SPELLCASTER|ANY
+4	SAB:Elegant Hand (messages)						ADD:SPELLCASTER|ANY
+5	SAB:Showy Gestures							ADD:SPELLCASTER|ANY
+6	SAB:Tidings									ADD:SPELLCASTER|ANY
+7	SAB:Meaningful Glances							ADD:SPELLCASTER|ANY
+8	SAB:Elegant Hand (illusions)						ADD:SPELLCASTER|ANY
+9	SAB:Renowned Prowess							ADD:SPELLCASTER|ANY
+10	SAB:The Messenger								ADD:SPELLCASTER|ANY
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus

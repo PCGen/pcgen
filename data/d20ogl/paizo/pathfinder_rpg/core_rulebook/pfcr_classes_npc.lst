@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
@@ -61,7 +61,7 @@ CLASS:Expert	HD:8		TYPE:Base.NPC	ABB:Exp		MAXLEVEL:20	SOURCEPAGE:p.450	BONUS:CHE
 CLASS:Expert	STARTSKILLPTS:6
 ###Block: Proficiencies
 1	ABILITY:Class Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1												AUTO:FEAT|Armor Proficiency (Light)
+1											AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Class skills
 1	BONUS:ABILITYPOOL|Expert Class Skills|10
 

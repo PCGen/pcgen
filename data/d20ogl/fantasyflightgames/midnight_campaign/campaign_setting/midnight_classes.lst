@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Midnight Campaign Source Book	SOURCESHORT:MDNT	SOURCEWEB:http://www.fantasyflightgames.com/midnight.html	SOURCEDATE:2002-01
 # Original Entry by: Tir Gwaith
 
@@ -15,26 +15,26 @@ SUBCLASS:Spiritual Channeler		COST:0	SPELLSTAT:WIS
 SUBCLASSLEVEL:1																																						AUTO:FEAT|Magecraft (Spiritual)
 SUBCLASS:Charismatic Channeler	COST:0	SPELLSTAT:CHA
 SUBCLASSLEVEL:1	SAB:Force of Personality (+% up to % rounds)|ForcePersonality|PersonalityRounds	BONUS:VAR|ForcePersonality|CL+CHA	BONUS:VAR|PersonalityRounds|CL+3		DEFINE:PersonalityRounds|0	DEFINE:ForcePersonality|0	AUTO:FEAT|Magecraft (Charismatic)
-1	CAST:1,1								ADD:FEAT|Spellcasting (Transmutation)	ADD:FEAT|TYPE=Spellcasting
+1	CAST:1,1									ADD:FEAT|Spellcasting (Transmutation)	ADD:FEAT|TYPE=Spellcasting
 2	CAST:1,1				BONUS:VAR|FamiliarLVL|CL													ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 3	CAST:1,1,1
-4	CAST:1,1,1								ADD:FEAT|TYPE=Spellcasting
+4	CAST:1,1,1									ADD:FEAT|TYPE=Spellcasting
 5	CAST:1,1,1,1
 6	CAST:1,1,1,1
 7	CAST:1,1,1,1,1
-8	CAST:1,1,1,1,1							ADD:FEAT|TYPE=Spellcasting
+8	CAST:1,1,1,1,1								ADD:FEAT|TYPE=Spellcasting
 9	CAST:1,1,1,1,1,1
 10	CAST:1,1,1,1,1,1
 11	CAST:1,1,1,1,1,1,1
-12	CAST:1,1,1,1,1,1,1						ADD:FEAT|TYPE=Spellcasting
+12	CAST:1,1,1,1,1,1,1							ADD:FEAT|TYPE=Spellcasting
 13	CAST:1,1,1,1,1,1,1,1
 14	CAST:1,1,1,1,1,1,1,1
 15	CAST:1,1,1,1,1,1,1,1,1
-16	CAST:1,1,1,1,1,1,1,1,1						ADD:FEAT|TYPE=Spellcasting
+16	CAST:1,1,1,1,1,1,1,1,1							ADD:FEAT|TYPE=Spellcasting
 17	CAST:1,1,1,1,1,1,1,1,1,1
 18	CAST:1,1,1,1,1,1,1,1,1,1
 19	CAST:1,1,1,1,1,1,1,1,1,1
-20	CAST:1,1,1,1,1,1,1,1,1,1					ADD:FEAT|TYPE=Spellcasting
+20	CAST:1,1,1,1,1,1,1,1,1,1						ADD:FEAT|TYPE=Spellcasting
 
 # Class Name	Hit Dice	Type			Max Level	Save checks bonus												Combat bonus
 CLASS:Defender	HD:8		TYPE:PC.Base	MAXLEVEL:20	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -159,7 +159,7 @@ CLASS:Freerider	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intuit Dir
 1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: Normal Level Progression
-1	SAB:Horse Lord																																												AUTO:FEAT|Leadership
+1	SAB:Horse Lord																																											AUTO:FEAT|Leadership
 2	SAB:Loyal Companions
 3																				ADD:FEAT|Alertness,Mounted Archery,Ride-By Attack,Sarcosan Pureblood,Skill Focus(Ride),Spirited Charge,Trample,Weapon Focus(Shortbow%),Weapon Focus(Lance)
 4	SAB:Inspiring Leader (Su) +%|InspiringLeader	BONUS:VAR|InspiringLeader|CL/4	DEFINE:InspiringLeader|0

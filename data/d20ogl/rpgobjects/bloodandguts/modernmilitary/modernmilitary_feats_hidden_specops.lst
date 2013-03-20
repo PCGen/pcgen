@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23	SOURCEDATE:2003-01
 # Original Entry by Paul W. King
 
@@ -8,8 +8,8 @@ Cat Nap		TYPE:MentalToughness.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Mental Toughn
 Mental Toughness	TYPE:MentalToughness.SpecOpsTraining	VISIBLE:NO						SAB:+% to any saving throw to resist fatigue, hunger, torture, brainwashing, fear, combat fatigue and intimidation|SpecOpsLVL																											SOURCEPAGE:p.8
 
 ###Block:Silent Kill
-# Feat Name		Type						Visible	Required Feat			Ability							Modify VAR			Source Page
-Silent Kill 1	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Commando Training	ABILITY:Special Ability|AUTOMATIC|Sneak Attack					SOURCEPAGE:p.9
+# Feat Name		Type						Visible	Required Feat			Ability							Modify VAR				Source Page
+Silent Kill 1	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Commando Training	ABILITY:Special Ability|AUTOMATIC|Sneak Attack						SOURCEPAGE:p.9
 Silent Kill 2	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Silent Kill 1										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
 Silent Kill 3	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Silent Kill 2										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
 Silent Kill 4	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Silent Kill 3										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9

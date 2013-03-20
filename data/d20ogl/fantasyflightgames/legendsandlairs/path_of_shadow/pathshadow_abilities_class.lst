@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
 # Original entry by: Blithwyn
 
@@ -84,16 +84,16 @@ Urban Tracking	CATEGORY:Special Ability	TYPE:QuestionerSpecialAbilities	VISIBLE:
 
 ###Block:White Rose special abilities (similar to the rogue)
 # Feat Name					Type						Visible	Prohibited Feat					Special ABility			Stackable?	Multiple?	Add					Source Page
-# Ability Name				Category of Ability		Type						Visible	Prohibited Feat					Special ABility			Stackable?	Multiple?	Bonus to Ability Pool			Source Page
-Final Stroke				CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Final Stroke													SOURCEPAGE:Chap.1, White Rose, Special Ability
-Narrow Miss					CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Narrow Miss													SOURCEPAGE:Chap.1, White Rose, Special Ability
-Parry						CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Parry														SOURCEPAGE:Chap.1, White Rose, Special Ability
-Rapid Strike				CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Rapid Strike %/day|CL											SOURCEPAGE:Chap.1, White Rose, Special Ability
-Combat Prowess				CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO													STACK:YES	MULT:YES	BONUS:ABILITYPOOL|Fighter Feat|1	SOURCEPAGE:Chap.1, White Rose, Special Ability	CHOOSE:NOCHOICE
-White Rose Favored Enemy one		CATEGORY:Special Ability	TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO																	BONUS:ABILITYPOOL|Favored Enemy|1	SOURCEPAGE:Chap.1, White Rose, Special Ability
-White Rose Favored Enemy two		CATEGORY:Special Ability	TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO	!PREFEAT:1,White Rose Favored Enemy one										BONUS:ABILITYPOOL|Favored Enemy|1	SOURCEPAGE:Chap.1, White Rose, Special Ability
-White Rose Favored Enemy three	CATEGORY:Special Ability	TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO	!PREFEAT:1,White Rose Favored Enemy two										BONUS:ABILITYPOOL|Favored Enemy|1	SOURCEPAGE:Chap.1, White Rose, Special Ability
-White Rose Favored Enemy four		CATEGORY:Special Ability	TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO	!PREFEAT:1,White Rose Favored Enemy three										BONUS:ABILITYPOOL|Favored Enemy|1	SOURCEPAGE:Chap.1, White Rose, Special Ability
-White Rose Favored Enemy five		CATEGORY:Special Ability	TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO	!PREFEAT:1,White Rose Favored Enemy four										BONUS:ABILITYPOOL|Favored Enemy|1	SOURCEPAGE:Chap.1, White Rose, Special Ability
+# Ability Name				Category of Ability		Type						Visible	Prohibited Feat					Special ABility			Stackable?	Multiple?	Choose		Bonus to Ability Pool			Source Page
+Final Stroke				CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Final Stroke																SOURCEPAGE:Chap.1, White Rose, Special Ability
+Narrow Miss					CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Narrow Miss																SOURCEPAGE:Chap.1, White Rose, Special Ability
+Parry						CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Parry																	SOURCEPAGE:Chap.1, White Rose, Special Ability
+Rapid Strike				CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO								SAB:Rapid Strike %/day|CL														SOURCEPAGE:Chap.1, White Rose, Special Ability
+Combat Prowess				CATEGORY:Special Ability	TYPE:WhiteRoseSpecialAbilities	VISIBLE:NO													STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Fighter Feat|1	SOURCEPAGE:Chap.1, White Rose, Special Ability
+White Rose Favored Enemy one		CATEGORY:Special Ability	TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO																				BONUS:ABILITYPOOL|Favored Enemy|1	SOURCEPAGE:Chap.1, White Rose, Special Ability
+White Rose Favored Enemy two		CATEGORY:Special Ability	TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO	!PREFEAT:1,White Rose Favored Enemy one													BONUS:ABILITYPOOL|Favored Enemy|1	SOURCEPAGE:Chap.1, White Rose, Special Ability
+White Rose Favored Enemy three	CATEGORY:Special Ability	TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO	!PREFEAT:1,White Rose Favored Enemy two													BONUS:ABILITYPOOL|Favored Enemy|1	SOURCEPAGE:Chap.1, White Rose, Special Ability
+White Rose Favored Enemy four		CATEGORY:Special Ability	TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO	!PREFEAT:1,White Rose Favored Enemy three													BONUS:ABILITYPOOL|Favored Enemy|1	SOURCEPAGE:Chap.1, White Rose, Special Ability
+White Rose Favored Enemy five		CATEGORY:Special Ability	TYPE:WhiteRoseFavoredEnemy		VISIBLE:NO	!PREFEAT:1,White Rose Favored Enemy four													BONUS:ABILITYPOOL|Favored Enemy|1	SOURCEPAGE:Chap.1, White Rose, Special Ability
 #zzzz The Favored Enemy only works if the class prereqs are removed from the SRD ranger hidden feats.
 #zzzz Would prefer to have them removed from SRD, but could .MOD in worst case.....TBD

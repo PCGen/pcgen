@@ -1,8 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 17:24:32 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 
-Remove Rebuke Undead	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:This Character cannot use Rebuke Undead.
+# Ability Name				Output Name				Category of Ability		Type						Visible		Required Ability							Required Feat			Multiple Requirements							Special ABility																					Define			Innate Spells									Description																																	Multiple?	Choose								Template				Move			Clone Movement		Ability							Caster level					Add to base move			Bonus to skill						Modify VAR							Weapon prof. bonus			Allowed Companions																																																																																																																																																																														Source Page		Natural Attacks										List of Domain Spells by Level
+Remove Rebuke Undead								CATEGORY:Special Ability	TYPE:SpecialQuality																																																																				DESC:This Character cannot use Rebuke Undead.
 
 # Ability Name				Output Name				Category of Ability		Type						Visible		Required Ability							Required Feat			Multiple Requirements							Special ABility																					Define			Innate Spells									Description																																	Multiple?	Choose								Template				Move			Clone Movement		Ability							Caster level					Add to base move			Bonus to skill						Modify VAR							Weapon prof. bonus			Allowed Companions																																																																																																																																																																														Source Page		Natural Attacks										List of Domain Spells by Level
 Right To Carry									CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO																										SAB:Right to Carry Flintlocks

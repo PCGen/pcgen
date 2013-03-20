@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 #Original Entry by Arknight
 
@@ -82,7 +82,7 @@ Superior Weapon Specialization	CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:Y
 Superior Combat Expertise		CATEGORY:Talent		TYPE:Talent.WMSuperior	VISIBLE:YES															DESC:Superior Combat Expertise																							SOURCEPAGE:p. 58
 
 ###Block: Companion support
-# Ability Name	Category of Ability	Type							Visible	Special ABility		Define			Allow Follower			Allowed Companions
+# Ability Name	Category of Ability	Type							Visible	Special ABility		Define				Allow Follower			Allowed Companions
 Animal Partner	CATEGORY:Talent		TYPE:Talent.SymbioteTalent.AnimalPartner	VISIBLE:YES	SAB:Animal Partner (Ex)	DEFINE:AnimalCompanionLVL|0	FOLLOWERS:Animal Partner|1	COMPANIONLIST:Animal Partner|RACETYPE=Animal	COMPANIONLIST:Animal Partner|Cynemie,Desert Horse,Fraxx Steed,Grunt,Lurking Panther,Rad Wolf,Ravening Hound,Snoffle Hog,Two Headed Mutant Bear
 
 #

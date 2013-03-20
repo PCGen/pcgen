@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
 #Original Entry: Eddy Anthony (MoSaT)
 
@@ -28,10 +28,10 @@ CLASS:Homefront Guardian	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|D
 1	AUTO:FEAT|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1												ADD:FEAT|Homefront Guardian Skill Bonus	ABILITY:Special Ability|AUTOMATIC|Poison Use
+1													ADD:FEAT|Homefront Guardian Skill Bonus	ABILITY:Special Ability|AUTOMATIC|Poison Use
 2	BONUS:VAR|SneakAttackDice|CL/2	BONUS:VAR|HomefrontPoisonSave|CL/2								ABILITY:Special Ability|AUTOMATIC|Poison Save ~ Homefront Guardian	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-3												ADD:FEAT|Homefront Guardian Skill Bonus	ABILITY:Special Ability|AUTOMATIC|Homeblood use ~ Homefront Guardian
-5												ADD:FEAT|Homefront Guardian Skill Bonus	ABILITY:Special Ability|AUTOMATIC|Homeblood Immunity ~ Homefront Guardian
+3													ADD:FEAT|Homefront Guardian Skill Bonus	ABILITY:Special Ability|AUTOMATIC|Homeblood use ~ Homefront Guardian
+5													ADD:FEAT|Homefront Guardian Skill Bonus	ABILITY:Special Ability|AUTOMATIC|Homeblood Immunity ~ Homefront Guardian
 
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus

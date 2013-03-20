@@ -1,6 +1,8 @@
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 
 
-Remove Alchemist Brew Potion		CATEGORY:Archetype	TYPE:AlchemistBrewPotion.Homebrew.ClassAbilityRemoval	COST:0
+# Ability Name				Category of Ability	Type										Cost
+Remove Alchemist Brew Potion		CATEGORY:Archetype	TYPE:AlchemistBrewPotion.Homebrew.ClassAbilityRemoval		COST:0
 Remove Cavalier Expert Trainer	CATEGORY:Archetype	TYPE:CavalierExpertTrainer.Homebrew.ClassAbilityRemoval	COST:0
 
 

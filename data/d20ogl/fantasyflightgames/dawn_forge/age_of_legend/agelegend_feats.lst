@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Age of Legend	SOURCESHORT:ALe	SOURCEWEB:http://www.fantasyflightgames.com/df02.html	SOURCEDATE:2004-04
 # Original Entry by: Ratheof Blithwyn
 
@@ -37,22 +37,22 @@ The Cruelest Hand			TYPE:Cultural																																															
 Voice of the Dark Brothers	TYPE:Cultural				PREABILITY:1,CATEGORY=Special Ability,Wild Empathy																																								PRETEMPLATE:1,Region (Subterranean Morningstar Mountains)				DESC:You have learned to speak to Lathail's chosen creatures																			SOURCEPAGE:p.19
 
 ###block Regional Feats Chapter Three
-# Feat Name		Output Name			Type			Required Feat		Req. Spell Type		Required Stat	Required Template								Description																Save checks bonus				Class Skill				Source Page
-Champion's Call					TYPE:Cultural									PRESTAT:1,CHA=13	PRETEMPLATE:1,Region (Anderland),Region (Durning Highlands)	DESC:You know how to call up the heroic spirit that hides in the heart of every human														SOURCEPAGE:p.39
-Craftsman's Focus					TYPE:Cultural									PRESTAT:1,INT=13	PRETEMPLATE:1,Region (Anderland)					DESC:You have specialized in a single craft to the exclusion of all others																SOURCEPAGE:p.40
-Farmer's Son					TYPE:Cultural									PRESTAT:1,CON=13	PRETEMPLATE:1,Region (Anderland)					DESC:You once stood vigil on crops and herds throughout the lonely nights of winter															SOURCEPAGE:p.40
-Healer's Hands					TYPE:Cultural									PRESTAT:1,DEX=13	PRETEMPLATE:1,Region (Anderland)					DESC:Your dextrous hands can bind wounds quickly and efficiently																		SOURCEPAGE:p.40
-Hunter's Wealth					TYPE:Cultural									PRESTAT:1,WIS=13	PRETEMPLATE:1,Region (Anderland)					DESC:You have a gift for finding plenty even in the harshest conditions																	SOURCEPAGE:p.40
-Traveler's Step					TYPE:Cultural									PRESTAT:1,STR=13	PRETEMPLATE:1,Region (Anderland)					DESC:You have gained a longer stride from traveling the wide plains of Anderland															SOURCEPAGE:p.40
-Able-Bodied						TYPE:Cultural												PRETEMPLATE:1,Region (Dreaming Isles)				DESC:Long hours in the rigging have given you remarkable physical fitness					BONUS:CHECKS|Reflex,Fortitude|1						SOURCEPAGE:p.40
-Bilge Rat						TYPE:Cultural												PRETEMPLATE:1,Region (Dreaming Isles)				DESC:You have worked the worst job in the fleet. What you saw there toughened your nerves and stomach												SOURCEPAGE:p.40
-Explorer						TYPE:Cultural												PRETEMPLATE:1,Region (Dreaming Isles)				DESC:Years of privation at sea allow you to go for long periods of time without food or water													SOURCEPAGE:p.40
-Seer							TYPE:Cultural					PRESPELLTYPE:1,Any=1				PRETEMPLATE:1,Region (Dreaming Isles)				DESC:The blood of a powerful dreamer and diviner courses through your veins.																SOURCEPAGE:p.41
-Tale Spinner					TYPE:Cultural												PRETEMPLATE:1,Region (Dreaming Isles)				DESC:You may not have seen everything there is to be seen, but you can convince others that you have							CSKILL:Perform (Oratory)	SOURCEPAGE:p.41
-Far Runner						TYPE:Cultural	PREFEAT:1,Endurance								PRETEMPLATE:1,Region (Durning Highlands)				DESC:You have run the Horn Race																							SOURCEPAGE:p.41
-Honorable Duelist					TYPE:Cultural									PRESTAT:1,DEX=13	PRETEMPLATE:1,Region (Durning Highlands)				DESC:See Text																										SOURCEPAGE:p.42
-Stoneknapper					TYPE:Cultural												PRETEMPLATE:1,Region (Durning Highlands)				DESC:You know the almost forgotten art of making weapons from stone or wood											CSKILL:Craft (Stonemasonry)	SOURCEPAGE:p.42
-True Speaker					TYPE:Cultural												PRETEMPLATE:1,Region (Durning Highlands)				DESC:You have mastered the bardic cant of the highlands																			SOURCEPAGE:p.42
+# Feat Name		Type			Required Feat		Req. Spell Type		Required Stat	Required Template								Description																Save checks bonus				Class Skill				Source Page
+Champion's Call	TYPE:Cultural									PRESTAT:1,CHA=13	PRETEMPLATE:1,Region (Anderland),Region (Durning Highlands)	DESC:You know how to call up the heroic spirit that hides in the heart of every human														SOURCEPAGE:p.39
+Craftsman's Focus	TYPE:Cultural									PRESTAT:1,INT=13	PRETEMPLATE:1,Region (Anderland)					DESC:You have specialized in a single craft to the exclusion of all others																SOURCEPAGE:p.40
+Farmer's Son	TYPE:Cultural									PRESTAT:1,CON=13	PRETEMPLATE:1,Region (Anderland)					DESC:You once stood vigil on crops and herds throughout the lonely nights of winter															SOURCEPAGE:p.40
+Healer's Hands	TYPE:Cultural									PRESTAT:1,DEX=13	PRETEMPLATE:1,Region (Anderland)					DESC:Your dextrous hands can bind wounds quickly and efficiently																		SOURCEPAGE:p.40
+Hunter's Wealth	TYPE:Cultural									PRESTAT:1,WIS=13	PRETEMPLATE:1,Region (Anderland)					DESC:You have a gift for finding plenty even in the harshest conditions																	SOURCEPAGE:p.40
+Traveler's Step	TYPE:Cultural									PRESTAT:1,STR=13	PRETEMPLATE:1,Region (Anderland)					DESC:You have gained a longer stride from traveling the wide plains of Anderland															SOURCEPAGE:p.40
+Able-Bodied		TYPE:Cultural												PRETEMPLATE:1,Region (Dreaming Isles)				DESC:Long hours in the rigging have given you remarkable physical fitness					BONUS:CHECKS|Reflex,Fortitude|1						SOURCEPAGE:p.40
+Bilge Rat		TYPE:Cultural												PRETEMPLATE:1,Region (Dreaming Isles)				DESC:You have worked the worst job in the fleet. What you saw there toughened your nerves and stomach												SOURCEPAGE:p.40
+Explorer		TYPE:Cultural												PRETEMPLATE:1,Region (Dreaming Isles)				DESC:Years of privation at sea allow you to go for long periods of time without food or water													SOURCEPAGE:p.40
+Seer			TYPE:Cultural					PRESPELLTYPE:1,Any=1				PRETEMPLATE:1,Region (Dreaming Isles)				DESC:The blood of a powerful dreamer and diviner courses through your veins.																SOURCEPAGE:p.41
+Tale Spinner	TYPE:Cultural												PRETEMPLATE:1,Region (Dreaming Isles)				DESC:You may not have seen everything there is to be seen, but you can convince others that you have							CSKILL:Perform (Oratory)	SOURCEPAGE:p.41
+Far Runner		TYPE:Cultural	PREFEAT:1,Endurance								PRETEMPLATE:1,Region (Durning Highlands)				DESC:You have run the Horn Race																							SOURCEPAGE:p.41
+Honorable Duelist	TYPE:Cultural									PRESTAT:1,DEX=13	PRETEMPLATE:1,Region (Durning Highlands)				DESC:See Text																										SOURCEPAGE:p.42
+Stoneknapper	TYPE:Cultural												PRETEMPLATE:1,Region (Durning Highlands)				DESC:You know the almost forgotten art of making weapons from stone or wood											CSKILL:Craft (Stonemasonry)	SOURCEPAGE:p.42
+True Speaker	TYPE:Cultural												PRETEMPLATE:1,Region (Durning Highlands)				DESC:You have mastered the bardic cant of the highlands																			SOURCEPAGE:p.42
 
 #Craftsman's Focus might be possible to code
 #Stoneknapper: used Stonemasonry instead of Stoneworking.??

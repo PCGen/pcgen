@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 
 # Class Name		Output Name					Hit Dice
 CLASS:Test Code Bugs	OUTPUTNAME:Testing Code Bug 1730	HD:1
@@ -195,19 +195,22 @@ CLASS:Wizard	VISIBLE:YES
 
 
 
-CLASS:Wizard Test		HD:4	KNOWNSPELLS:LEVEL=3,TYPE=Foo	
-CLASS:Wizard Test		STARTSKILLPTS:2	CSKILL:ALL
-CLASS:Wizard Test		SPELLTYPE:Arcane	SPELLSTAT:INT	BONUS:CASTERLEVEL|Wizard Test|CL
-1	CAST:10,10,10,10,10	
-2	CAST:10,10,10,10,10	
-3	CAST:10,10,10,10,10	
-4	CAST:10,10,10,10,10	
-5	CAST:10,10,10,10,10	
-6	CAST:10,10,10,10,10	
-7	CAST:10,10,10,10,10	
-8	CAST:10,10,10,10,10	
-9	CAST:10,10,10,10,10	
-10	CAST:10,10,10,10,10	
+# Class Name	Hit Dice
+CLASS:Wizard Test	HD:4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wizard Test	STARTSKILLPTS:2	CSKILL:ALL
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
+CLASS:Wizard Test	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=3,TYPE=Foo		BONUS:CASTERLEVEL|Wizard Test|CL
+1	CAST:10,10,10,10,10
+2	CAST:10,10,10,10,10
+3	CAST:10,10,10,10,10
+4	CAST:10,10,10,10,10
+5	CAST:10,10,10,10,10
+6	CAST:10,10,10,10,10
+7	CAST:10,10,10,10,10
+8	CAST:10,10,10,10,10
+9	CAST:10,10,10,10,10
+10	CAST:10,10,10,10,10
 
 
 
@@ -258,6 +261,8 @@ CLASS:Test13	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Test13
 
 
 # TEST 85
+
+# Class Name		Hit Dice
 CLASS:Add SpellCaster	HD:4
 1	ADD:SPELLCASTER|Arcane
 

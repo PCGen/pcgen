@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb  6 21:41:36 2009 -- reformated by prettylst.pl v1.39 (build 9132)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Fantasy Flight Games - Traps and Treachery	SOURCESHORT:TrapTreach	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-07
 
 # Applied errata from http://www.fantasyflightgames.com/lltterrata.html (Roofrunner) - Byngl
@@ -24,8 +24,8 @@ CLASS:Guildmaster	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Dis
 1	AUTO:FEAT|Guildmaster Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1	SAB:Favor %|Favor	SAB:Guild Hall	BONUS:VAR|Favor|CL/5+1		DEFINE:Favor|0		ADD:CLASSSKILLS|2|TYPE=Knowledge
-2	SAB:Reputation +%|Reputation		BONUS:VAR|Reputation|CL/2	DEFINE:Reputation|0
+1	SAB:Favor %|Favor	SAB:Guild Hall	BONUS:VAR|Favor|CL/5+1			DEFINE:Favor|0		ADD:CLASSSKILLS|2|TYPE=Knowledge
+2	SAB:Reputation +%|Reputation		BONUS:VAR|Reputation|CL/2		DEFINE:Reputation|0
 3	SAB:Respectable Citizen
 4							BONUS:VAR|SneakAttackDice|CL/4
 5	SAB:Just the Man for the Job.

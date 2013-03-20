@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#we	SOURCEDATE:2006-01
 # Original Entry by: Paul W. King, Jan 2007
 
@@ -9,20 +9,20 @@ CLASS:Heir of Balyk	PREALIGN:LE	PREFEAT:1,Endurance	PRERACE:1,Elf (Winter)	PRESK
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Heir of Balyk	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Intimidate|TYPE=Knowledge|TYPE=Profession|Ride|Sense Motive|Spellcraft
 ###Block: Domain stuff
-3	DOMAIN:Treachery[PREFEAT:1,Heir of Balyk Treachery Domain]|Hate[PREFEAT:1,Heir of Balyk Hate Domain]|Devil[PREFEAT:1,Heir of Balyk Devil Domain]	BONUS:DOMAIN|NUMBER|1	BONUS:ABILITYPOOL|Heir of Balyk Domain|1
-6																										BONUS:DOMAIN|NUMBER|1	BONUS:ABILITYPOOL|Heir of Balyk Domain|1
-9																										BONUS:DOMAIN|NUMBER|1	BONUS:ABILITYPOOL|Heir of Balyk Domain|1
+3	DOMAIN:Treachery[PREFEAT:1,Heir of Balyk Treachery Domain]|Hate[PREFEAT:1,Heir of Balyk Hate Domain]|Devil[PREFEAT:1,Heir of Balyk Devil Domain]	BONUS:ABILITYPOOL|Heir of Balyk Domain|1	BONUS:DOMAIN|NUMBER|1
+6																										BONUS:ABILITYPOOL|Heir of Balyk Domain|1	BONUS:DOMAIN|NUMBER|1
+9																										BONUS:ABILITYPOOL|Heir of Balyk Domain|1	BONUS:DOMAIN|NUMBER|1
 ###Block: Normal Level Progression
 1									ADD:SPELLCASTER|Divine
-1					BONUS:VAR|HeirBalyk|CL									ABILITY:Special Ability|AUTOMATIC|Power of Deception
-2									ADD:SPELLCASTER|Divine					ABILITY:Special Ability|AUTOMATIC|Dark Blessing ~ Heir of Balyk
+1					BONUS:VAR|HeirBalyk|CL					ABILITY:Special Ability|AUTOMATIC|Power of Deception
+2									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Dark Blessing ~ Heir of Balyk
 3									ADD:SPELLCASTER|Divine
-4									AUTO:FEAT|Leadership					ABILITY:Special Ability|AUTOMATIC|Heir of Balyk Leadership
+4													ABILITY:Special Ability|AUTOMATIC|Heir of Balyk Leadership		AUTO:FEAT|Leadership
 5									ADD:SPELLCASTER|Divine
 6	BONUS:DOMAIN|NUMBER|1					ADD:SPELLCASTER|Divine
 8									ADD:SPELLCASTER|Divine
 9	BONUS:DOMAIN|NUMBER|1					ADD:SPELLCASTER|Divine
-10																	ABILITY:Special Ability|AUTOMATIC|Extra Domain Spell
+10													ABILITY:Special Ability|AUTOMATIC|Extra Domain Spell
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Keeper of the Ice	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2

@@ -1,8 +1,8 @@
-# CVS $Revision$ $Author$ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
-# Skill Name				Key Stat	Untrained?		Skill Penalty Apply	Type					Visible		Source Page		Choose			Ability					Bonus to skill																																					Temporary effect description																			Automatically Gained Language
+# Skill Name				Key Stat	Untrained?		Skill Penalty Apply	Type					Visible		Source Page		Choose			Selections					Bonus to skill																																					Temporary effect description																			Automatically Gained Language
 Acrobatics					KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity						SOURCEPAGE:p.87											BONUS:SKILL|Acrobatics|3|TYPE=ClassSkill|PRECSKILL:1,Acrobatics|PRESKILL:1,Acrobatics=1	BONUS:SKILL|Acrobatics (Jump)|floor((var("MOVE[Walk]")-30)/10)*4
 Appraise					KEYSTAT:INT								TYPE:Intelligence						SOURCEPAGE:p.90											BONUS:SKILL|Appraise|3|TYPE=ClassSkill|PRECSKILL:1,Appraise|PRESKILL:1,Appraise=1
 Bluff						KEYSTAT:CHA								TYPE:Charisma						SOURCEPAGE:p.90											BONUS:SKILL|Bluff|3|TYPE=ClassSkill|PRECSKILL:1,Bluff|PRESKILL:1,Bluff=1
@@ -49,7 +49,7 @@ Knowledge (Nature)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge
 Knowledge (Nobility)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge				SOURCEPAGE:p.100											BONUS:SKILL|Knowledge (Nobility)|3|TYPE=ClassSkill|PRECSKILL:1,Knowledge (Nobility)|PRESKILL:1,Knowledge (Nobility)=1
 Knowledge (Planes)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge				SOURCEPAGE:p.100											BONUS:SKILL|Knowledge (Planes)|3|TYPE=ClassSkill|PRECSKILL:1,Knowledge (Planes)|PRESKILL:1,Knowledge (Planes)=1
 Knowledge (Religion)			KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge				SOURCEPAGE:p.100											BONUS:SKILL|Knowledge (Religion)|3|TYPE=ClassSkill|PRECSKILL:1,Knowledge (Religion)|PRESKILL:1,Knowledge (Religion)=1
-Linguistics					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence						SOURCEPAGE:p.101	CHOOSE:LANG|TYPE=Spoken							BONUS:SKILL|Linguistics|3|TYPE=ClassSkill|PRECSKILL:1,Linguistics|PRESKILL:1,Linguistics=1																																															AUTO:LANG|%LIST	SELECT:LinguisticsLanguageChoice
+Linguistics					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence						SOURCEPAGE:p.101	CHOOSE:LANG|TYPE=Spoken	SELECT:LinguisticsLanguageChoice	BONUS:SKILL|Linguistics|3|TYPE=ClassSkill|PRECSKILL:1,Linguistics|PRESKILL:1,Linguistics=1																																															AUTO:LANG|%LIST
 Perception					KEYSTAT:WIS								TYPE:Wisdom							SOURCEPAGE:p.102											BONUS:SKILL|Perception|3|TYPE=ClassSkill|PRECSKILL:1,Perception|PRESKILL:1,Perception=1
 Perform (Act)				KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform					SOURCEPAGE:p.102											BONUS:SKILL|Perform (Act)|3|TYPE=ClassSkill|PRECSKILL:1,Perform (Act)|PRESKILL:1,Perform (Act)=1
 Perform (Comedy)				KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform					SOURCEPAGE:p.102											BONUS:SKILL|Perform (Comedy)|3|TYPE=ClassSkill|PRECSKILL:1,Perform (Comedy)|PRESKILL:1,Perform (Comedy)=1

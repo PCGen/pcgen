@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 # Original entry by: Blithwyn
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
 
@@ -298,10 +298,10 @@ CLASS:Royal Assassin	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disab
 ###Block: Normal Progression
 1	SAB:Death Attack
 2								BONUS:VAR|SneakAttackDice|CL/2					ADD:FEAT|Ambidexterity,Blind-Fight,Cleave,Combat Reflexes,Dodge,Exotic Weapon Proficiency,Expertise,Far Shot,Great Cleave,Improved Bull Rush,Improved Critical,Improved Disarm,Improved Initiative,Improved Trip,Improved Two-Weapon Fighting,Improved Unarmed Strike,Mobility,Point Blank Shot,Power Attack,Precise Shot,Quick Draw,Rapid Shot,Shot on the Run,Spring Attack,Sunder,Two-Weapon Fighting,Weapon Finesse,Weapon Focus,Whirlwind Attack
-5	SAB:Assassin of Evil +%|AssassinofEvil	BONUS:VAR|AssassinofEvil|1	DEFINE:AssassinofEvil|0
-6																	ADD:FEAT|Ambidexterity,Blind-Fight,Cleave,Combat Reflexes,Dodge,Exotic Weapon Proficiency,Expertise,Far Shot,Great Cleave,Improved Bull Rush,Improved Critical,Improved Disarm,Improved Initiative,Improved Trip,Improved Two-Weapon Fighting,Improved Unarmed Strike,Mobility,Point Blank Shot,Power Attack,Precise Shot,Quick Draw,Rapid Shot,Shot on the Run,Spring Attack,Sunder,Two-Weapon Fighting,Weapon Finesse,Weapon Focus,Whirlwind Attack
+5	SAB:Assassin of Evil +%|AssassinofEvil	BONUS:VAR|AssassinofEvil|1		DEFINE:AssassinofEvil|0
+6																		ADD:FEAT|Ambidexterity,Blind-Fight,Cleave,Combat Reflexes,Dodge,Exotic Weapon Proficiency,Expertise,Far Shot,Great Cleave,Improved Bull Rush,Improved Critical,Improved Disarm,Improved Initiative,Improved Trip,Improved Two-Weapon Fighting,Improved Unarmed Strike,Mobility,Point Blank Shot,Power Attack,Precise Shot,Quick Draw,Rapid Shot,Shot on the Run,Spring Attack,Sunder,Two-Weapon Fighting,Weapon Finesse,Weapon Focus,Whirlwind Attack
 9								BONUS:VAR|AssassinofEvil|1
-10																	ADD:FEAT|Ambidexterity,Blind-Fight,Cleave,Combat Reflexes,Dodge,Exotic Weapon Proficiency,Expertise,Far Shot,Great Cleave,Improved Bull Rush,Improved Critical,Improved Disarm,Improved Initiative,Improved Trip,Improved Two-Weapon Fighting,Improved Unarmed Strike,Mobility,Point Blank Shot,Power Attack,Precise Shot,Quick Draw,Rapid Shot,Shot on the Run,Spring Attack,Sunder,Two-Weapon Fighting,Weapon Finesse,Weapon Focus,Whirlwind Attack
+10																		ADD:FEAT|Ambidexterity,Blind-Fight,Cleave,Combat Reflexes,Dodge,Exotic Weapon Proficiency,Expertise,Far Shot,Great Cleave,Improved Bull Rush,Improved Critical,Improved Disarm,Improved Initiative,Improved Trip,Improved Two-Weapon Fighting,Improved Unarmed Strike,Mobility,Point Blank Shot,Power Attack,Precise Shot,Quick Draw,Rapid Shot,Shot on the Run,Spring Attack,Sunder,Two-Weapon Fighting,Weapon Finesse,Weapon Focus,Whirlwind Attack
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus

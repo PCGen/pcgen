@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Apr  6 22:56:20 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
 
 #
@@ -23,15 +23,15 @@ CLASS:Medicine Man	STARTSKILLPTS:6	CSKILL:Animal Empathy|Balance|Climb|Concentra
 ###Block: Class Features
 1	ADD:ABILITY|1|FEAT|AUTOMATIC|TYPE.TotemAnimal
 ###Block: Normal Progression
-1						BONUS:CASTERLEVEL|TYPE.Divine|CL
+1	BONUS:CASTERLEVEL|TYPE.Divine|CL
 2																				ABILITY:FEAT|AUTOMATIC|Read Spirit
 3																				ABILITY:FEAT|AUTOMATIC|Shared Life
 4																				ABILITY:FEAT|AUTOMATIC|Improved Augury
 5												ADD:ABILITY|1|FEAT|AUTOMATIC|TYPE=Metamagic
 6																				ABILITY:FEAT|AUTOMATIC|Rain Dance
-7	BONUS:VAR|BecomeTotemTimes|1															ABILITY:FEAT|AUTOMATIC|Become Totem
+7							BONUS:VAR|BecomeTotemTimes|1									ABILITY:FEAT|AUTOMATIC|Become Totem
 8												ADD:ABILITY|1|FEAT|AUTOMATIC|TYPE=Metamagic
-9	BONUS:VAR|BecomeTotemTimes|1
+9							BONUS:VAR|BecomeTotemTimes|1
 10																				ABILITY:FEAT|AUTOMATIC|Shape of the Beast
 
 #
@@ -50,15 +50,15 @@ CLASS:Hunter	STARTSKILLPTS:4	CSKILL:Climb|Hide|Intuit Direction|Jump|Listen|Move
 1	AUTO:FEAT|Simple Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Progression
-1:REPEATLEVEL:3																	ADD:ABILITY|1|FEAT|AUTOMATIC|Point Blank Shot,Far Shot,Precise Shot,Shot on the Run
-2	BONUS:VAR|CrackShotMult|1				AUTO:FEAT|Crack Shot
-3	BONUS:VAR|VitalShotCritRangeBonusedWeapons|1	AUTO:FEAT|Vital Shot
-5	BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
-6	BONUS:VAR|CrackShotMult|1
-7	BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
-8									AUTO:FEAT|Arrow of Death
-9	BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
-10	BONUS:VAR|CrackShotMult|1
+1:REPEATLEVEL:3									ADD:ABILITY|1|FEAT|AUTOMATIC|Point Blank Shot,Far Shot,Precise Shot,Shot on the Run
+2			BONUS:VAR|CrackShotMult|1																		AUTO:FEAT|Crack Shot
+3			BONUS:VAR|VitalShotCritRangeBonusedWeapons|1															AUTO:FEAT|Vital Shot
+5			BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
+6			BONUS:VAR|CrackShotMult|1
+7			BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
+8																									AUTO:FEAT|Arrow of Death
+9			BONUS:VAR|VitalShotCritRangeBonusedWeapons|1
+10			BONUS:VAR|CrackShotMult|1
 
 #Class:Slaver (Complete)
 
@@ -72,17 +72,17 @@ CLASS:Slaver	STARTSKILLPTS:2	CSKILL:Animal Empathy|Bluff|Handle Animal|Intimidat
 1	AUTO:FEAT|Simple Weapon Proficiency|Slaver Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Progression
-1																	AUTO:FEAT|Break Slave|Terrifying Visage
-2																	AUTO:FEAT|Slaver Command
-2:REPEATLEVEL:2																	BONUS:VAR|SlaverCommandTimes|1
-3											VFEAT:Weapon Focus(Whip)		AUTO:FEAT|Master of the Whip
-4																	AUTO:FEAT|Dominator
-5											VFEAT:Weapon Specialization(Whip)	AUTO:FEAT|Touch of the Lash
-6																	AUTO:FEAT|Aura of Weakness
-7																	AUTO:FEAT|Slave Trader
-8					BONUS:VAR|AuraofWeaknessRange|30
-9	SAB:Frightful Presence
-10																	AUTO:FEAT|Master of Wills
+1																			AUTO:FEAT|Break Slave|Terrifying Visage
+2																			AUTO:FEAT|Slaver Command
+2:REPEATLEVEL:2					BONUS:VAR|SlaverCommandTimes|1
+3													VFEAT:Weapon Focus(Whip)		AUTO:FEAT|Master of the Whip
+4																			AUTO:FEAT|Dominator
+5													VFEAT:Weapon Specialization(Whip)	AUTO:FEAT|Touch of the Lash
+6																			AUTO:FEAT|Aura of Weakness
+7																			AUTO:FEAT|Slave Trader
+8							BONUS:VAR|AuraofWeaknessRange|30
+9			SAB:Frightful Presence
+10																			AUTO:FEAT|Master of Wills
 
 #
 # Dark Elf Prestige Classes (QC'd)
@@ -121,14 +121,14 @@ CLASS:Spider Warrior	STARTSKILLPTS:2	CSKILL:Animal Empathy|Balance|Climb|Handle 
 1	AUTO:FEAT|Simple Weapon Proficiency|All Martial Weapon Proficiencies
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 ###Block: Normal Progression
-1:REPEATLEVEL:2											ADD:FEAT|Alertness,Improved Initiative,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run
-2							AUTO:FEAT|Spider Mount
-3							AUTO:FEAT|Immunity to Webs
-4	BONUS:VAR|SummonSpidersTimes|1	AUTO:FEAT|Summon Spiders
-6							AUTO:FEAT|Immunity to Poison
-7	BONUS:VAR|SummonSpidersTimes|1
-8							AUTO:FEAT|Spider Climb
-10	BONUS:VAR|SummonSpidersTimes|1	AUTO:FEAT|Spider Shape
+1:REPEATLEVEL:2							ADD:FEAT|Alertness,Improved Initiative,Mounted Combat,Mounted Archery,Trample,Ride-By Attack,Spirited Charge,Point Blank Shot,Far Shot,Precise Shot,Rapid Shot,Shot on the Run
+2																																							AUTO:FEAT|Spider Mount
+3																																							AUTO:FEAT|Immunity to Webs
+4			BONUS:VAR|SummonSpidersTimes|1																															AUTO:FEAT|Summon Spiders
+6																																							AUTO:FEAT|Immunity to Poison
+7			BONUS:VAR|SummonSpidersTimes|1
+8																																							AUTO:FEAT|Spider Climb
+10			BONUS:VAR|SummonSpidersTimes|1																															AUTO:FEAT|Spider Shape
 
 #
 # Giant Prestige Classes (QC'd)
@@ -165,22 +165,22 @@ CLASS:Karhollan Guard	STARTSKILLPTS:2	CSKILL:Climb|Craft (Stoneworking)|Diplomac
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus					Combat bonus
 CLASS:The Returned	HD:8		TYPE:PC.Prestige	ABB:Rtnd		MAXLEVEL:10	SOURCEPAGE:pg.50	BONUS:CHECKS|Fortitude,Reflex|CL/2+2	BONUS:COMBAT|BAB|
-# Class Name		Restricted AL	Req. Att.	!PRECHECK			Required Text
+# Class Name		Required AL					Req. Att.	Prohibited Check		Required Text
 CLASS:The Returned	PREALIGN:LN,LE,NG,TN,NE,CG,CN,CE	PREATT:4	!PRECHECK:1,Will=6	PRETEXT:The character must be a hero to a group of people and must undergo blasphemous rites. See text.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:The Returned	STARTSKILLPTS:3	CSKILL:Bluff|Climb|Concentration|Diplomacy|Intimidate|Jump|Knowledge (Arcana)|Listen|Spellcraft|Swim
 ###Block: Class Features
 ###Block: Normal Progression
-1					AUTO:FEAT|Demons Heart|Demons Mark
-2	BONUS:VAR|UGBonus|2	AUTO:FEAT|Unholy Glory		VFEAT:Leadership
-3	BONUS:VAR|FMLevel|CL	AUTO:FEAT|Summon Familiar
-4					AUTO:FEAT|Forbidden Lore
-5	BONUS:VAR|UGBonus|2		BONUS:VAR|LeadershipScore|1
-6					AUTO:FEAT|Surrender the Soul
-7					AUTO:FEAT|Sense Outsider
-8	BONUS:VAR|UGBonus|2		BONUS:VAR|LeadershipScore|1
-9					AUTO:FEAT|Demon in Form
-10					AUTO:FEAT|Demon in Fact
+1													AUTO:FEAT|Demons Heart|Demons Mark
+2	BONUS:VAR|UGBonus|2						VFEAT:Leadership	AUTO:FEAT|Unholy Glory
+3	BONUS:VAR|FMLevel|CL									AUTO:FEAT|Summon Familiar
+4													AUTO:FEAT|Forbidden Lore
+5	BONUS:VAR|UGBonus|2	BONUS:VAR|LeadershipScore|1
+6													AUTO:FEAT|Surrender the Soul
+7													AUTO:FEAT|Sense Outsider
+8	BONUS:VAR|UGBonus|2	BONUS:VAR|LeadershipScore|1
+9													AUTO:FEAT|Demon in Form
+10													AUTO:FEAT|Demon in Fact
 
 #
 # Goblin Prestige Classes
@@ -197,26 +197,26 @@ CLASS:Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Intimidate|K
 ###Block: Class Features
 1	CHOOSE:WEAPONPROF|1|DEITYWEAPON
 ###Block: Normal Progression
-1						ADD:SPELLCASTER|Divine	AUTO:FEAT|Strength of Purpose		VFEAT:Leadership
-2						ADD:SPELLCASTER|Divine	AUTO:FEAT|Divine Wrath
-3	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine	AUTO:FEAT|Leadership
-4						ADD:SPELLCASTER|Divine	AUTO:FEAT|Enlightened Madness
+1						ADD:SPELLCASTER|Divine	VFEAT:Leadership	AUTO:FEAT|Strength of Purpose
+2						ADD:SPELLCASTER|Divine				AUTO:FEAT|Divine Wrath
+3	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine				AUTO:FEAT|Leadership
+4						ADD:SPELLCASTER|Divine				AUTO:FEAT|Enlightened Madness
 5						ADD:SPELLCASTER|Divine
-6	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine	AUTO:FEAT|Scorn the Heretic
-7						ADD:SPELLCASTER|Divine	AUTO:FEAT|Divine Grace
-8						ADD:SPELLCASTER|Divine	AUTO:FEAT|Departure
+6	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine				AUTO:FEAT|Scorn the Heretic
+7						ADD:SPELLCASTER|Divine				AUTO:FEAT|Divine Grace
+8						ADD:SPELLCASTER|Divine				AUTO:FEAT|Departure
 9	BONUS:VAR|LeadershipScore|1	ADD:SPELLCASTER|Divine
-10						ADD:SPELLCASTER|Divine	AUTO:FEAT|Exemplar Revealed
+10						ADD:SPELLCASTER|Divine				AUTO:FEAT|Exemplar Revealed
 
 #Class:Ex-Exemplar (Complete)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus
-CLASS:Ex Exemplar	HD:8		TYPE:PC.Prestige	ABB:ExEx	MAXLEVEL:10	SOURCEPAGE:pg.58	BONUS:CHECKS|Fortitude,Will|CL/2+2	BONUS:CHECKS|Will|CL/3	BONUS:COMBAT|BAB|CL-1
-# Class Name	Required AL			Required Check Base	Required Domain				Required Feat		Required Race	Required Text
-CLASS:Ex Exemplar			PRECHECKBASE:1,Will=5	PREDOMAIN:1,Chaos,Law,Good,Law	PREFEAT:1,Iron Will	PRERACE:1,Goblin	PRETEXT:Character must make contact with a direct servant of their deity, their deity, or a powerful (CR IS+) Outsider of their chosen domain, and convince this other entity to support them to the exemplary prestige class.
+CLASS:Ex Exemplar	HD:8		TYPE:PC.Prestige	ABB:ExEx		MAXLEVEL:10	SOURCEPAGE:pg.58	BONUS:CHECKS|Fortitude,Will|CL/2+2	BONUS:CHECKS|Will|CL/3	BONUS:COMBAT|BAB|CL-1
+# Class Name	Required Check Base	Required Domain				Required Feat		Required Race	Required Text
+CLASS:Ex Exemplar	PRECHECKBASE:1,Will=5	PREDOMAIN:1,Chaos,Law,Good,Law	PREFEAT:1,Iron Will	PRERACE:1,Goblin	PRETEXT:Character must make contact with a direct servant of their deity, their deity, or a powerful (CR IS+) Outsider of their chosen domain, and convince this other entity to support them to the exemplary prestige class.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ex Exemplar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Heal|Intimidate|Knowledge (Religion)|Perform|Scry|Spellcraft
-###Block: 
+###Block:
 
 #
 # Hobgoblin Prestige Classes
@@ -233,16 +233,16 @@ CLASS:Servants of the One	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|G
 ###Block: Class Features
 1	SAB:Lost Souls - You may contact your fellow servants by sendings %/day.|CL
 ###Block: Normal Progression
-1:REPEATLEVEL:2														ADD:SPELLCASTER|Divine
-2	AUTO:FEAT|One Heart Many Hands
-3	AUTO:FEAT|Hollow Heart
-4	AUTO:FEAT|The Flesh is Weak
-5	AUTO:FEAT|The Hunger of the Damned
-6	AUTO:FEAT|Ensnare the Mind
+1:REPEATLEVEL:2	ADD:SPELLCASTER|Divine
+2							AUTO:FEAT|One Heart Many Hands
+3							AUTO:FEAT|Hollow Heart
+4							AUTO:FEAT|The Flesh is Weak
+5							AUTO:FEAT|The Hunger of the Damned
+6							AUTO:FEAT|Ensnare the Mind
 7
 8
-9	AUTO:FEAT|Many Bodies One Soul
-10	AUTO:FEAT|Eternitys Humble Offerings
+9							AUTO:FEAT|Many Bodies One Soul
+10							AUTO:FEAT|Eternitys Humble Offerings
 
 #
 # Impossible Things Prestige Classes (QC'd)
@@ -260,9 +260,9 @@ CLASS:Humanoid Hunter	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Hide|Jump|Knowledge (Hum
 1	ABILITY:FEAT|AUTOMATIC|Simple Weapon Proficiency|All Martial Weapon Proficiencies|PRERACE:1,RACETYPE=Humanoid
 1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)|PRERACE:1,RACETYPE=Humanoid
 ###Block: Humanoid Hunter Class Features
-1:REPEATLEVEL:2		ADD:FEAT|TYPE=Fighter
+1:REPEATLEVEL:2	ADD:FEAT|TYPE=Fighter
 ###Block: Favored Enemy
-1:REPEATLEVEL:1		ADD:ABILITY|1|Special Ability|AUTOMATIC|HHFavored Enemy
+1:REPEATLEVEL:1	ADD:ABILITY|1|Special Ability|AUTOMATIC|HHFavored Enemy
 ###Block: Normal Progression
 2	ABILITY:FEAT|AUTOMATIC|Smite Humanoid
 6	ABILITY:FEAT|AUTOMATIC|Hide the Beast
@@ -281,12 +281,12 @@ CLASS:The Broken	PREALIGN:LE,NE,CE	PRESPELLTYPE:1,ANY=3	PRETEXT:Must find and en
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:The Broken	STARTSKILLPTS:3	CSKILL:Alchemy|Bluff|Concentration|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Scry|Spellcraft
 ###Block: Class Features
-1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY		BONUS:STAT|CON|-1
+1:REPEATLEVEL:1		BONUS:STAT|CON|-1	ADD:SPELLCASTER|ANY
 #1:REPEATLEVEL:1	BONUS:STAT|INT|1|PREMULT:3,[PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[!PRECLASS:1,Bard=1,Sorcerer=1]
 #1:REPEATLEVEL:1	BONUS:STAT|WIS|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[!PRECLASS:1,Bard=1,Sorcerer=1]
 #1:REPEATLEVEL:1	BONUS:STAT|CHA|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[PRECLASS:1,Bard=1,Sorcerer=1]
 #1:REPEATLEVEL:1	BONUS:STAT|CHA|1|PREMULT:3,[!PRECLASS:1,Wizard=1],[!PRECLASS:1,Cleric=1,Druid=1,Ranger=1],[PRECLASS:1,Bard=1,Sorcerer=1]
-2:REPEATLEVEL:2|MAX=8	ADD:FEAT|TYPE=Metamagic
+2:REPEATLEVEL:2|MAX=8				ADD:FEAT|TYPE=Metamagic
 ###Block: Normal Progression
 1						AUTO:FEAT|The Wasting|No Pain
 2
@@ -371,9 +371,9 @@ CLASS:Chaos Crusader	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Diplo
 4												AUTO:FEAT|Voice of Thunder
 5												AUTO:FEAT|Hand of God
 6
-7									BONUS:DR|-|1	AUTO:FEAT|Gathering Horde
-8			BONUS:VAR|VoiceofThunderTimes|1
-9									BONUS:DR|-|1
+7			BONUS:DR|-|1							AUTO:FEAT|Gathering Horde
+8						BONUS:VAR|VoiceofThunderTimes|1
+9			BONUS:DR|-|1
 10												AUTO:FEAT|Dispel Good
 
 #
@@ -411,12 +411,12 @@ CLASS:Underworld Druid of Thovis	PRECLASS:1,SPELLCASTER.Divine=5	PREDEITY:1,Thov
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Underworld Druid of Thovis	STARTSKILLPTS:4	CSKILL:Animal Empathy|Concentration|TYPE.Craft|Diplomacy|Handle Animal|Heal|Intuit Direction|Knowledge (Nature)|TYPE=Profession|Scry|Spellcraft|Swim|Wilderness Lore
 ###Block: Class Features
-1:REPEATLEVEL:1		ADD:SPELLCASTER|Druid
+1:REPEATLEVEL:1																																																																							ADD:SPELLCASTER|Druid
 ## Need to add Wild Shape effects from Underworld Forms Ability
-3	BONUS:VAR|DruidWildShape|CL+2																																																														DEFINE:DruidWildShape|0	AUTO:FEAT|Wild Shape
-3	BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeElementalTimes|2|PREVARGTEQ:DruidWildShape,18
-3	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,5	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,6	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,7	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,10	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,14	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,18
-3	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,8	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,11	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,12	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,15	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,20
+3			BONUS:VAR|DruidWildShape|CL+2																																																														DEFINE:DruidWildShape|0					AUTO:FEAT|Wild Shape
+3			BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeElementalTimes|2|PREVARGTEQ:DruidWildShape,18
+3			BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,5	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,6	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,7	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,10	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,14	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,18
+3			BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,8	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,11	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,12	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,15	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,20
 ###Block: Normal Progression
 1				AUTO:FEAT|Underworld Denizen
 2	DOMAIN:Earth|Fire	AUTO:FEAT|Blessing of Thovis

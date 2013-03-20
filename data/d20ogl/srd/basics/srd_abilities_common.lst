@@ -1,19 +1,21 @@
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 
-Default	CATEGORY:Internal
+# Ability Name							Category of Ability	Define																Automatically Added to Inventory			Ability														Modify VAR
+Default								CATEGORY:Internal
 
-CATEGORY=Internal|Default.MOD		DEFINE:GauntletOS|0	DEFINE:UnarmedLethal|0	BONUS:VAR|GauntletOS|1|PREARMORTYPE:1,TYPE.Heavy	BONUS:VAR|UnarmedLethal|GauntletOS	AUTO:EQUIP|Gauntlet|PREARMORTYPE:1,TYPE.Heavy
+CATEGORY=Internal|Default.MOD									DEFINE:GauntletOS|0	DEFINE:UnarmedLethal|0										AUTO:EQUIP|Gauntlet|PREARMORTYPE:1,TYPE.Heavy																BONUS:VAR|GauntletOS|1|PREARMORTYPE:1,TYPE.Heavy	BONUS:VAR|UnarmedLethal|GauntletOS
 
 
 
 #BLOCK: Where to store Abilities
-Grants All Hidden Abilities												CATEGORY:Internal																																																																																											ABILITY:Internal|AUTOMATIC|Defines Required
+Grants All Hidden Abilities					CATEGORY:Internal																											ABILITY:Internal|AUTOMATIC|Defines Required
 #COMMENT: This allows further expansion without having to MOD characters. It will grant abilities as needed
 
 # Bardic Abilities for Non-Bard Use
 #CATEGORY=Internal|Grants All Hidden Abilities.MOD	ABILITY:Internal|AUTOMATIC|Master Traits
-CATEGORY=Internal|Grants All Hidden Abilities.MOD																																																																																																					ABILITY:Special Ability|AUTOMATIC|Low Light Vision|PREVISION:1,Low-Light=1,Low Light=1
+CATEGORY=Internal|Grants All Hidden Abilities.MOD																														ABILITY:Special Ability|AUTOMATIC|Low Light Vision|PREVISION:1,Low-Light=1,Low Light=1
 
-Defines Required														CATEGORY:Internal																				DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:LowLightRange|2
+Defines Required							CATEGORY:Internal		DEFINE:EnableBardicInspireCourage|0	DEFINE:EnableBardicInspireCompetence|0	DEFINE:LowLightRange|2
 #Low-light Vision							KEY:Low light Vision				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision											DEFINE:LowLightRange|2														DESC:You can see %1x as far as humans in low illumination.|LowLightRange
 
 ###Block: Creature Type Traits

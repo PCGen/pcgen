@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2002-01
 # Original entry by: Blithwyn
 
@@ -43,33 +43,33 @@ Enhanced Charisma IV		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.Legen
 Enhanced Charisma V		TYPE:LegendaryEnhancedCHA	VISIBLE:NO	!PREFEAT:1,TYPE.LegendaryEnhancedCHA	SAB:Enhanced Charisma V		BONUS:STAT|CHA|5|TYPE=Legendary	SOURCEPAGE:p.103
 
 ###Block:Abyssal Infiltrator legendary abilities
-# Feat Name				Type								Visible	Required Class				Prohibited Feat				Special ABility					Innate Spells							Choose			Selections	Bonus to skill				Source Page
-Abyssal Skill I			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill I											MULT:YES	CHOOSE:SKILL|CLASS			BONUS:SKILL|LIST|3|TYPE=Legendary	SOURCEPAGE:p.83
-Abyssal Skill II			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill II											MULT:YES	CHOOSE:SKILL|CLASS	SELECT:2	BONUS:SKILL|LIST|6|TYPE=Legendary	SOURCEPAGE:p.83
-Abyssal Skill III			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill III											MULT:YES	CHOOSE:SKILL|CLASS	SELECT:3	BONUS:SKILL|LIST|9|TYPE=Legendary	SOURCEPAGE:p.83
-Abyssal Skill IV			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill IV											MULT:YES	CHOOSE:SKILL|CLASS	SELECT:4	BONUS:SKILL|LIST|12|TYPE=Legendary	SOURCEPAGE:p.83
-Abyssal Skill V			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill V											MULT:YES	CHOOSE:SKILL|CLASS	SELECT:5	BONUS:SKILL|LIST|16|TYPE=Legendary	SOURCEPAGE:p.83
-Deadly Precision I		TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision I (Ex)																								SOURCEPAGE:p.83
-Deadly Precision II		TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision II (Ex)																								SOURCEPAGE:p.83
-Deadly Precision III		TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision III (Ex)																								SOURCEPAGE:p.83
-Deadly Precision IV		TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision IV (Ex)																								SOURCEPAGE:p.83
-Deadly Precision V		TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision V (Ex)																								SOURCEPAGE:p.83
-Resist the Power of Faith I	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith I (Ex)																						SOURCEPAGE:p.83
-Resist the Power of Faith II	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith II (Ex)																						SOURCEPAGE:p.83
-Resist the Power of Faith III	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith III (Ex)																						SOURCEPAGE:p.83
-Resist the Power of Faith IV	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith IV (Ex)																						SOURCEPAGE:p.83
-Resist the Power of Faith V	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith V (Ex)																						SOURCEPAGE:p.83
+# Feat Name				Type								Visible	Required Class				Prohibited Feat				Special ABility					Innate Spells							Multiple?	Choose			Selections	Bonus to skill				Source Page
+Abyssal Skill I			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill I													MULT:YES	CHOOSE:SKILL|CLASS			BONUS:SKILL|LIST|3|TYPE=Legendary	SOURCEPAGE:p.83
+Abyssal Skill II			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill II													MULT:YES	CHOOSE:SKILL|CLASS	SELECT:2	BONUS:SKILL|LIST|6|TYPE=Legendary	SOURCEPAGE:p.83
+Abyssal Skill III			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill III													MULT:YES	CHOOSE:SKILL|CLASS	SELECT:3	BONUS:SKILL|LIST|9|TYPE=Legendary	SOURCEPAGE:p.83
+Abyssal Skill IV			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill IV													MULT:YES	CHOOSE:SKILL|CLASS	SELECT:4	BONUS:SKILL|LIST|12|TYPE=Legendary	SOURCEPAGE:p.83
+Abyssal Skill V			TYPE:LAAbyssalSkill.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LAAbyssalSkill	SAB:Abyssal Skill V													MULT:YES	CHOOSE:SKILL|CLASS	SELECT:5	BONUS:SKILL|LIST|16|TYPE=Legendary	SOURCEPAGE:p.83
+Deadly Precision I		TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision I (Ex)																										SOURCEPAGE:p.83
+Deadly Precision II		TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision II (Ex)																										SOURCEPAGE:p.83
+Deadly Precision III		TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision III (Ex)																										SOURCEPAGE:p.83
+Deadly Precision IV		TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision IV (Ex)																										SOURCEPAGE:p.83
+Deadly Precision V		TYPE:LADeadlyPrecision.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LADeadlyPrecision	SAB:Deadly Precision V (Ex)																										SOURCEPAGE:p.83
+Resist the Power of Faith I	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith I (Ex)																								SOURCEPAGE:p.83
+Resist the Power of Faith II	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith II (Ex)																								SOURCEPAGE:p.83
+Resist the Power of Faith III	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith III (Ex)																								SOURCEPAGE:p.83
+Resist the Power of Faith IV	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith IV (Ex)																								SOURCEPAGE:p.83
+Resist the Power of Faith V	TYPE:LAResistPowerFaith.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LAResistPowerFaith	SAB:Resist the Power of Faith V (Ex)																								SOURCEPAGE:p.83
 # maybe add x/day a la smite evil
-Smite Good I			TYPE:LASmiteGood.AbyssalInfiltratorLAPL1		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good I (Su)																									SOURCEPAGE:p.83
-Smite Good II			TYPE:LASmiteGood.AbyssalInfiltratorLAPL2		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good II (Su)																									SOURCEPAGE:p.83
-Smite Good III			TYPE:LASmiteGood.AbyssalInfiltratorLAPL3		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good III (Su)																									SOURCEPAGE:p.83
-Smite Good IV			TYPE:LASmiteGood.AbyssalInfiltratorLAPL4		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good IV (Su)																									SOURCEPAGE:p.83
-Smite Good V			TYPE:LASmiteGood.AbyssalInfiltratorLAPL5		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good V (Su)																									SOURCEPAGE:p.83
-Unseen Assassin I			TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin I (Sp)			SPELLS:Innate|TIMES=1|Ethereal Jaunt|Invisibility													SOURCEPAGE:p.83
-Unseen Assassin II		TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin II (Sp)			SPELLS:Innate|TIMES=2|Ethereal Jaunt|Invisibility													SOURCEPAGE:p.83
-Unseen Assassin III		TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin III (Sp)			SPELLS:Innate|TIMES=3|Ethereal Jaunt|Invisibility													SOURCEPAGE:p.83
-Unseen Assassin IV		TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin IV (Sp)			SPELLS:Innate|TIMES=4|Ethereal Jaunt|Invisibility													SOURCEPAGE:p.83
-Unseen Assassin V			TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin V (Sp)			SPELLS:Innate|TIMES=5|Ethereal Jaunt|Invisibility													SOURCEPAGE:p.83
+Smite Good I			TYPE:LASmiteGood.AbyssalInfiltratorLAPL1		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good I (Su)																											SOURCEPAGE:p.83
+Smite Good II			TYPE:LASmiteGood.AbyssalInfiltratorLAPL2		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good II (Su)																											SOURCEPAGE:p.83
+Smite Good III			TYPE:LASmiteGood.AbyssalInfiltratorLAPL3		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good III (Su)																											SOURCEPAGE:p.83
+Smite Good IV			TYPE:LASmiteGood.AbyssalInfiltratorLAPL4		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good IV (Su)																											SOURCEPAGE:p.83
+Smite Good V			TYPE:LASmiteGood.AbyssalInfiltratorLAPL5		VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LASmiteGood		SAB:Smite Good V (Su)																											SOURCEPAGE:p.83
+Unseen Assassin I			TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL1	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=1	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin I (Sp)			SPELLS:Innate|TIMES=1|Ethereal Jaunt|Invisibility															SOURCEPAGE:p.83
+Unseen Assassin II		TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL2	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=2	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin II (Sp)			SPELLS:Innate|TIMES=2|Ethereal Jaunt|Invisibility															SOURCEPAGE:p.83
+Unseen Assassin III		TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL3	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=3	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin III (Sp)			SPELLS:Innate|TIMES=3|Ethereal Jaunt|Invisibility															SOURCEPAGE:p.83
+Unseen Assassin IV		TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL4	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=4	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin IV (Sp)			SPELLS:Innate|TIMES=4|Ethereal Jaunt|Invisibility															SOURCEPAGE:p.83
+Unseen Assassin V			TYPE:LAUnseenAssassin.AbyssalInfiltratorLAPL5	VISIBLE:NO	PRECLASS:1,Abyssal Infiltrator=5	!PREFEAT:1,TYPE.LAUnseenAssassin	SAB:Unseen Assassin V (Sp)			SPELLS:Innate|TIMES=5|Ethereal Jaunt|Invisibility															SOURCEPAGE:p.83
 
 
 ###Block:Blood Thief legendary abilities
@@ -168,47 +168,47 @@ Lucky Shot V					TYPE:LALuckyShot.FortuneFoolLAPL5		VISIBLE:NO	PRECLASS:1,Fortun
 
 
 ###Block:Grey Hand legendary abilities
-# Feat Name			Type						Visible	Required Class		Prohibited Feat				Special ABility			Combat bonus			Stat bonus					Modify VAR			Source Page
-Cunning I			TYPE:LACunning.GreyHandLAPL1		VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LACunning		SAB:Cunning I								BONUS:STAT|INT|1|TYPE=Legendary					SOURCEPAGE:p.88
-Cunning II			TYPE:LACunning.GreyHandLAPL2		VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LACunning		SAB:Cunning II								BONUS:STAT|INT|2|TYPE=Legendary					SOURCEPAGE:p.88
-Cunning III			TYPE:LACunning.GreyHandLAPL3		VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LACunning		SAB:Cunning III								BONUS:STAT|INT|3|TYPE=Legendary					SOURCEPAGE:p.88
-Cunning IV			TYPE:LACunning.GreyHandLAPL4		VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LACunning		SAB:Cunning IV								BONUS:STAT|INT|4|TYPE=Legendary					SOURCEPAGE:p.88
-Cunning V			TYPE:LACunning.GreyHandLAPL5		VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LACunning		SAB:Cunning V								BONUS:STAT|INT|5|TYPE=Legendary					SOURCEPAGE:p.88
-Killer's Grace I		TYPE:LAKillerGrace.GreyHandLAPL1	VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LAKillerGrace		SAB:Killer's Grace I							BONUS:STAT|DEX|1|TYPE=Legendary					SOURCEPAGE:p.88
-Killer's Grace II		TYPE:LAKillerGrace.GreyHandLAPL2	VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LAKillerGrace		SAB:Killer's Grace II							BONUS:STAT|DEX|2|TYPE=Legendary					SOURCEPAGE:p.88
-Killer's Grace III	TYPE:LAKillerGrace.GreyHandLAPL3	VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LAKillerGrace		SAB:Killer's Grace III							BONUS:STAT|DEX|3|TYPE=Legendary					SOURCEPAGE:p.88
-Killer's Grace IV		TYPE:LAKillerGrace.GreyHandLAPL4	VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LAKillerGrace		SAB:Killer's Grace IV							BONUS:STAT|DEX|4|TYPE=Legendary					SOURCEPAGE:p.88
-Killer's Grace V		TYPE:LAKillerGrace.GreyHandLAPL5	VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LAKillerGrace		SAB:Killer's Grace V							BONUS:STAT|DEX|5|TYPE=Legendary					SOURCEPAGE:p.88
-Killing Attack I		TYPE:LAKillingAttack.GreyHandLAPL1	VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LAKillingAttack	SAB:Killing Attack I (Ex)																SOURCEPAGE:p.88
-Killing Attack II		TYPE:LAKillingAttack.GreyHandLAPL2	VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LAKillingAttack	SAB:Killing Attack II (Ex)																SOURCEPAGE:p.88
-Killing Attack III	TYPE:LAKillingAttack.GreyHandLAPL3	VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LAKillingAttack	SAB:Killing Attack III (Ex)																SOURCEPAGE:p.88
-Killing Attack IV		TYPE:LAKillingAttack.GreyHandLAPL4	VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LAKillingAttack	SAB:Killing Attack IV (Ex)																SOURCEPAGE:p.88
-Killing Attack V		TYPE:LAKillingAttack.GreyHandLAPL5	VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LAKillingAttack	SAB:Killing Attack V (Ex)																SOURCEPAGE:p.88
-Coup de Main I		TYPE:LACoupMain.GreyHandLAPL1		VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LACoupMain		SAB:Coup de Main I (Ex)		BONUS:COMBAT|INITIATIVE|2											SOURCEPAGE:p.89
-Coup de Main II		TYPE:LACoupMain.GreyHandLAPL2		VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LACoupMain		SAB:Coup de Main II (Ex)	BONUS:COMBAT|INITIATIVE|4											SOURCEPAGE:p.89
-Coup de Main III		TYPE:LACoupMain.GreyHandLAPL3		VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LACoupMain		SAB:Coup de Main III (Ex)	BONUS:COMBAT|INITIATIVE|6											SOURCEPAGE:p.89
-Coup de Main IV		TYPE:LACoupMain.GreyHandLAPL4		VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LACoupMain		SAB:Coup de Main IV (Ex)	BONUS:COMBAT|INITIATIVE|8											SOURCEPAGE:p.89
-Coup de Main V		TYPE:LACoupMain.GreyHandLAPL5		VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LACoupMain		SAB:Coup de Main V (Ex)		BONUS:COMBAT|INITIATIVE|10											SOURCEPAGE:p.89
-Fading Presence I		TYPE:LAFadingPresence.GreyHandLAPL1	VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LAFadingPresence	SAB:Fading Presence I (Ex)																SOURCEPAGE:p.89
-Fading Presence II	TYPE:LAFadingPresence.GreyHandLAPL2	VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LAFadingPresence	SAB:Fading Presence II (Ex)																SOURCEPAGE:p.89
-Fading Presence III	TYPE:LAFadingPresence.GreyHandLAPL3	VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LAFadingPresence	SAB:Fading Presence III (Ex)																SOURCEPAGE:p.89
-Fading Presence IV	TYPE:LAFadingPresence.GreyHandLAPL4	VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LAFadingPresence	SAB:Fading Presence IV (Ex)																SOURCEPAGE:p.89
-Fading Presence V		TYPE:LAFadingPresence.GreyHandLAPL5	VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LAFadingPresence	SAB:Fading Presence V (Ex)																SOURCEPAGE:p.89
+# Feat Name			Type						Visible	Required Class		Prohibited Feat				Special ABility			Combat bonus			Stat bonus					Modify VAR				Source Page
+Cunning I			TYPE:LACunning.GreyHandLAPL1		VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LACunning		SAB:Cunning I								BONUS:STAT|INT|1|TYPE=Legendary						SOURCEPAGE:p.88
+Cunning II			TYPE:LACunning.GreyHandLAPL2		VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LACunning		SAB:Cunning II								BONUS:STAT|INT|2|TYPE=Legendary						SOURCEPAGE:p.88
+Cunning III			TYPE:LACunning.GreyHandLAPL3		VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LACunning		SAB:Cunning III								BONUS:STAT|INT|3|TYPE=Legendary						SOURCEPAGE:p.88
+Cunning IV			TYPE:LACunning.GreyHandLAPL4		VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LACunning		SAB:Cunning IV								BONUS:STAT|INT|4|TYPE=Legendary						SOURCEPAGE:p.88
+Cunning V			TYPE:LACunning.GreyHandLAPL5		VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LACunning		SAB:Cunning V								BONUS:STAT|INT|5|TYPE=Legendary						SOURCEPAGE:p.88
+Killer's Grace I		TYPE:LAKillerGrace.GreyHandLAPL1	VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LAKillerGrace		SAB:Killer's Grace I							BONUS:STAT|DEX|1|TYPE=Legendary						SOURCEPAGE:p.88
+Killer's Grace II		TYPE:LAKillerGrace.GreyHandLAPL2	VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LAKillerGrace		SAB:Killer's Grace II							BONUS:STAT|DEX|2|TYPE=Legendary						SOURCEPAGE:p.88
+Killer's Grace III	TYPE:LAKillerGrace.GreyHandLAPL3	VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LAKillerGrace		SAB:Killer's Grace III							BONUS:STAT|DEX|3|TYPE=Legendary						SOURCEPAGE:p.88
+Killer's Grace IV		TYPE:LAKillerGrace.GreyHandLAPL4	VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LAKillerGrace		SAB:Killer's Grace IV							BONUS:STAT|DEX|4|TYPE=Legendary						SOURCEPAGE:p.88
+Killer's Grace V		TYPE:LAKillerGrace.GreyHandLAPL5	VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LAKillerGrace		SAB:Killer's Grace V							BONUS:STAT|DEX|5|TYPE=Legendary						SOURCEPAGE:p.88
+Killing Attack I		TYPE:LAKillingAttack.GreyHandLAPL1	VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LAKillingAttack	SAB:Killing Attack I (Ex)																	SOURCEPAGE:p.88
+Killing Attack II		TYPE:LAKillingAttack.GreyHandLAPL2	VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LAKillingAttack	SAB:Killing Attack II (Ex)																	SOURCEPAGE:p.88
+Killing Attack III	TYPE:LAKillingAttack.GreyHandLAPL3	VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LAKillingAttack	SAB:Killing Attack III (Ex)																	SOURCEPAGE:p.88
+Killing Attack IV		TYPE:LAKillingAttack.GreyHandLAPL4	VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LAKillingAttack	SAB:Killing Attack IV (Ex)																	SOURCEPAGE:p.88
+Killing Attack V		TYPE:LAKillingAttack.GreyHandLAPL5	VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LAKillingAttack	SAB:Killing Attack V (Ex)																	SOURCEPAGE:p.88
+Coup de Main I		TYPE:LACoupMain.GreyHandLAPL1		VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LACoupMain		SAB:Coup de Main I (Ex)		BONUS:COMBAT|INITIATIVE|2												SOURCEPAGE:p.89
+Coup de Main II		TYPE:LACoupMain.GreyHandLAPL2		VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LACoupMain		SAB:Coup de Main II (Ex)	BONUS:COMBAT|INITIATIVE|4												SOURCEPAGE:p.89
+Coup de Main III		TYPE:LACoupMain.GreyHandLAPL3		VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LACoupMain		SAB:Coup de Main III (Ex)	BONUS:COMBAT|INITIATIVE|6												SOURCEPAGE:p.89
+Coup de Main IV		TYPE:LACoupMain.GreyHandLAPL4		VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LACoupMain		SAB:Coup de Main IV (Ex)	BONUS:COMBAT|INITIATIVE|8												SOURCEPAGE:p.89
+Coup de Main V		TYPE:LACoupMain.GreyHandLAPL5		VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LACoupMain		SAB:Coup de Main V (Ex)		BONUS:COMBAT|INITIATIVE|10												SOURCEPAGE:p.89
+Fading Presence I		TYPE:LAFadingPresence.GreyHandLAPL1	VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LAFadingPresence	SAB:Fading Presence I (Ex)																	SOURCEPAGE:p.89
+Fading Presence II	TYPE:LAFadingPresence.GreyHandLAPL2	VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LAFadingPresence	SAB:Fading Presence II (Ex)																	SOURCEPAGE:p.89
+Fading Presence III	TYPE:LAFadingPresence.GreyHandLAPL3	VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LAFadingPresence	SAB:Fading Presence III (Ex)																	SOURCEPAGE:p.89
+Fading Presence IV	TYPE:LAFadingPresence.GreyHandLAPL4	VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LAFadingPresence	SAB:Fading Presence IV (Ex)																	SOURCEPAGE:p.89
+Fading Presence V		TYPE:LAFadingPresence.GreyHandLAPL5	VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LAFadingPresence	SAB:Fading Presence V (Ex)																	SOURCEPAGE:p.89
 Murderous I			TYPE:LAMurderous.GreyHandLAPL1	VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LAMurderous		SAB:Murderous I (Ex)													BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.89
 Murderous II		TYPE:LAMurderous.GreyHandLAPL2	VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LAMurderous		SAB:Murderous II (Ex)													BONUS:VAR|SneakAttackDice|2	SOURCEPAGE:p.89
 Murderous III		TYPE:LAMurderous.GreyHandLAPL3	VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LAMurderous		SAB:Murderous III (Ex)													BONUS:VAR|SneakAttackDice|3	SOURCEPAGE:p.89
 Murderous IV		TYPE:LAMurderous.GreyHandLAPL4	VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LAMurderous		SAB:Murderous IV (Ex)													BONUS:VAR|SneakAttackDice|4	SOURCEPAGE:p.89
 Murderous V			TYPE:LAMurderous.GreyHandLAPL5	VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LAMurderous		SAB:Murderous V (Ex)													BONUS:VAR|SneakAttackDice|5	SOURCEPAGE:p.89
-Shadow of Death I		TYPE:LAShadowDeath.GreyHandLAPL1	VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LAShadowDeath		SAB:Shadow of Death I (Ex)																SOURCEPAGE:p.89
-Shadow of Death II	TYPE:LAShadowDeath.GreyHandLAPL2	VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LAShadowDeath		SAB:Shadow of Death II (Ex)																SOURCEPAGE:p.89
-Shadow of Death III	TYPE:LAShadowDeath.GreyHandLAPL3	VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LAShadowDeath		SAB:Shadow of Death III (Ex)																SOURCEPAGE:p.89
-Shadow of Death IV	TYPE:LAShadowDeath.GreyHandLAPL4	VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LAShadowDeath		SAB:Shadow of Death IV (Ex)																SOURCEPAGE:p.89
-Shadow of Death V		TYPE:LAShadowDeath.GreyHandLAPL5	VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LAShadowDeath		SAB:Shadow of Death V (Ex)																SOURCEPAGE:p.89
-Unrepentant I		TYPE:LAUnrepentant.GreyHandLAPL1	VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LAUnrepentant		SAB:Unrepentant I (Ex)																	SOURCEPAGE:p.89
-Unrepentant II		TYPE:LAUnrepentant.GreyHandLAPL2	VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LAUnrepentant		SAB:Unrepentant II (Ex)																	SOURCEPAGE:p.89
-Unrepentant III		TYPE:LAUnrepentant.GreyHandLAPL3	VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LAUnrepentant		SAB:Unrepentant III (Ex)																SOURCEPAGE:p.89
-Unrepentant IV		TYPE:LAUnrepentant.GreyHandLAPL4	VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LAUnrepentant		SAB:Unrepentant IV (Ex)																	SOURCEPAGE:p.89
-Unrepentant V		TYPE:LAUnrepentant.GreyHandLAPL5	VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LAUnrepentant		SAB:Unrepentant V (Ex)																	SOURCEPAGE:p.89
+Shadow of Death I		TYPE:LAShadowDeath.GreyHandLAPL1	VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LAShadowDeath		SAB:Shadow of Death I (Ex)																	SOURCEPAGE:p.89
+Shadow of Death II	TYPE:LAShadowDeath.GreyHandLAPL2	VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LAShadowDeath		SAB:Shadow of Death II (Ex)																	SOURCEPAGE:p.89
+Shadow of Death III	TYPE:LAShadowDeath.GreyHandLAPL3	VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LAShadowDeath		SAB:Shadow of Death III (Ex)																	SOURCEPAGE:p.89
+Shadow of Death IV	TYPE:LAShadowDeath.GreyHandLAPL4	VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LAShadowDeath		SAB:Shadow of Death IV (Ex)																	SOURCEPAGE:p.89
+Shadow of Death V		TYPE:LAShadowDeath.GreyHandLAPL5	VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LAShadowDeath		SAB:Shadow of Death V (Ex)																	SOURCEPAGE:p.89
+Unrepentant I		TYPE:LAUnrepentant.GreyHandLAPL1	VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LAUnrepentant		SAB:Unrepentant I (Ex)																		SOURCEPAGE:p.89
+Unrepentant II		TYPE:LAUnrepentant.GreyHandLAPL2	VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LAUnrepentant		SAB:Unrepentant II (Ex)																		SOURCEPAGE:p.89
+Unrepentant III		TYPE:LAUnrepentant.GreyHandLAPL3	VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LAUnrepentant		SAB:Unrepentant III (Ex)																	SOURCEPAGE:p.89
+Unrepentant IV		TYPE:LAUnrepentant.GreyHandLAPL4	VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LAUnrepentant		SAB:Unrepentant IV (Ex)																		SOURCEPAGE:p.89
+Unrepentant V		TYPE:LAUnrepentant.GreyHandLAPL5	VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LAUnrepentant		SAB:Unrepentant V (Ex)																		SOURCEPAGE:p.89
 
 
 ###Block:Hand of the Reaper legendary abilities
@@ -417,27 +417,27 @@ Shadow Sentinels V	TYPE:ALShadowSentinels.QueenShadowsLAPL5	VISIBLE:NO	PRECLASS:
 
 
 ###Block:Rogue Prince legendary abilities
-# Feat Name			Type							Visible	Required Class			Prohibited Feat				Special ABility				Bonus to skill									Modify VAR			Source Page
-Center of Balance I	TYPE:LACenterBalance.RoguePrinceLAPL1	VISIBLE:NO	PRECLASS:1,Rogue Prince=1	!PREFEAT:1,TYPE.LACenterBalance	SAB:Center of Balance I (Ex)																	SOURCEPAGE:p.106
-Center of Balance II	TYPE:LACenterBalance.RoguePrinceLAPL2	VISIBLE:NO	PRECLASS:1,Rogue Prince=2	!PREFEAT:1,TYPE.LACenterBalance	SAB:Center of Balance II (Ex)																	SOURCEPAGE:p.106
-Center of Balance III	TYPE:LACenterBalance.RoguePrinceLAPL3	VISIBLE:NO	PRECLASS:1,Rogue Prince=3	!PREFEAT:1,TYPE.LACenterBalance	SAB:Center of Balance III (Ex)																SOURCEPAGE:p.106
-Center of Balance IV	TYPE:LACenterBalance.RoguePrinceLAPL4	VISIBLE:NO	PRECLASS:1,Rogue Prince=4	!PREFEAT:1,TYPE.LACenterBalance	SAB:Center of Balance IV (Ex)																	SOURCEPAGE:p.106
-Center of Balance V	TYPE:LACenterBalance.RoguePrinceLAPL5	VISIBLE:NO	PRECLASS:1,Rogue Prince=5	!PREFEAT:1,TYPE.LACenterBalance	SAB:Center of Balance V (Ex)																	SOURCEPAGE:p.106
-Luck of Royalty I		TYPE:LALuckRoyalty.RoguePrinceLAPL1		VISIBLE:NO	PRECLASS:1,Rogue Prince=1	!PREFEAT:1,TYPE.LALuckRoyalty		SAB:Luck of Royalty I (Ex)																	SOURCEPAGE:p.106
-Luck of Royalty II	TYPE:LALuckRoyalty.RoguePrinceLAPL2		VISIBLE:NO	PRECLASS:1,Rogue Prince=2	!PREFEAT:1,TYPE.LALuckRoyalty		SAB:Luck of Royalty II (Ex)																	SOURCEPAGE:p.106
-Luck of Royalty III	TYPE:LALuckRoyalty.RoguePrinceLAPL3		VISIBLE:NO	PRECLASS:1,Rogue Prince=3	!PREFEAT:1,TYPE.LALuckRoyalty		SAB:Luck of Royalty III (Ex)																	SOURCEPAGE:p.106
-Luck of Royalty IV	TYPE:LALuckRoyalty.RoguePrinceLAPL4		VISIBLE:NO	PRECLASS:1,Rogue Prince=4	!PREFEAT:1,TYPE.LALuckRoyalty		SAB:Luck of Royalty IV (Ex)																	SOURCEPAGE:p.106
-Luck of Royalty V		TYPE:LALuckRoyalty.RoguePrinceLAPL5		VISIBLE:NO	PRECLASS:1,Rogue Prince=5	!PREFEAT:1,TYPE.LALuckRoyalty		SAB:Luck of Royalty V (Ex)																	SOURCEPAGE:p.106
-Platinum Tongue I		TYPE:LAPlatinumTongue.RoguePrinceLAPL1	VISIBLE:NO	PRECLASS:1,Rogue Prince=1	!PREFEAT:1,TYPE.LAPlatinumTongue	SAB:Platinum Tongue I (Ex)		BONUS:SKILL|Bluff,Diplomacy,Gather Information|2|TYPE=Legendary					SOURCEPAGE:p.106
-Platinum Tongue II	TYPE:LAPlatinumTongue.RoguePrinceLAPL2	VISIBLE:NO	PRECLASS:1,Rogue Prince=2	!PREFEAT:1,TYPE.LAPlatinumTongue	SAB:Platinum Tongue II (Ex)		BONUS:SKILL|Bluff,Diplomacy,Gather Information|4|TYPE=Legendary					SOURCEPAGE:p.106
-Platinum Tongue III	TYPE:LAPlatinumTongue.RoguePrinceLAPL3	VISIBLE:NO	PRECLASS:1,Rogue Prince=3	!PREFEAT:1,TYPE.LAPlatinumTongue	SAB:Platinum Tongue III (Ex)		BONUS:SKILL|Bluff,Diplomacy,Gather Information|6|TYPE=Legendary					SOURCEPAGE:p.106
-Platinum Tongue IV	TYPE:LAPlatinumTongue.RoguePrinceLAPL4	VISIBLE:NO	PRECLASS:1,Rogue Prince=4	!PREFEAT:1,TYPE.LAPlatinumTongue	SAB:Platinum Tongue IV (Ex)		BONUS:SKILL|Bluff,Diplomacy,Gather Information|8|TYPE=Legendary					SOURCEPAGE:p.106
-Platinum Tongue V		TYPE:LAPlatinumTongue.RoguePrinceLAPL5	VISIBLE:NO	PRECLASS:1,Rogue Prince=5	!PREFEAT:1,TYPE.LAPlatinumTongue	SAB:Platinum Tongue V (Ex)		BONUS:SKILL|Bluff,Diplomacy,Gather Information|10|TYPE=Legendary					SOURCEPAGE:p.106
-Prince's Grace I		TYPE:LAPrinceGrace.RoguePrinceLAPL1		VISIBLE:NO	PRECLASS:1,Rogue Prince=1	!PREFEAT:1,TYPE.LAPrinceGrace		SAB:Prince's Grace I (Ex)																	SOURCEPAGE:p.106
-Prince's Grace II		TYPE:LAPrinceGrace.RoguePrinceLAPL2		VISIBLE:NO	PRECLASS:1,Rogue Prince=2	!PREFEAT:1,TYPE.LAPrinceGrace		SAB:Prince's Grace II (Ex)																	SOURCEPAGE:p.106
-Prince's Grace III	TYPE:LAPrinceGrace.RoguePrinceLAPL3		VISIBLE:NO	PRECLASS:1,Rogue Prince=3	!PREFEAT:1,TYPE.LAPrinceGrace		SAB:Prince's Grace III (Ex)																	SOURCEPAGE:p.106
-Prince's Grace IV		TYPE:LAPrinceGrace.RoguePrinceLAPL4		VISIBLE:NO	PRECLASS:1,Rogue Prince=4	!PREFEAT:1,TYPE.LAPrinceGrace		SAB:Prince's Grace IV (Ex)																	SOURCEPAGE:p.106
-Prince's Grace V		TYPE:LAPrinceGrace.RoguePrinceLAPL5		VISIBLE:NO	PRECLASS:1,Rogue Prince=5	!PREFEAT:1,TYPE.LAPrinceGrace		SAB:Prince's Grace V (Ex)																	SOURCEPAGE:p.106
+# Feat Name			Type							Visible	Required Class			Prohibited Feat				Special ABility				Bonus to skill									Modify VAR				Source Page
+Center of Balance I	TYPE:LACenterBalance.RoguePrinceLAPL1	VISIBLE:NO	PRECLASS:1,Rogue Prince=1	!PREFEAT:1,TYPE.LACenterBalance	SAB:Center of Balance I (Ex)																		SOURCEPAGE:p.106
+Center of Balance II	TYPE:LACenterBalance.RoguePrinceLAPL2	VISIBLE:NO	PRECLASS:1,Rogue Prince=2	!PREFEAT:1,TYPE.LACenterBalance	SAB:Center of Balance II (Ex)																		SOURCEPAGE:p.106
+Center of Balance III	TYPE:LACenterBalance.RoguePrinceLAPL3	VISIBLE:NO	PRECLASS:1,Rogue Prince=3	!PREFEAT:1,TYPE.LACenterBalance	SAB:Center of Balance III (Ex)																	SOURCEPAGE:p.106
+Center of Balance IV	TYPE:LACenterBalance.RoguePrinceLAPL4	VISIBLE:NO	PRECLASS:1,Rogue Prince=4	!PREFEAT:1,TYPE.LACenterBalance	SAB:Center of Balance IV (Ex)																		SOURCEPAGE:p.106
+Center of Balance V	TYPE:LACenterBalance.RoguePrinceLAPL5	VISIBLE:NO	PRECLASS:1,Rogue Prince=5	!PREFEAT:1,TYPE.LACenterBalance	SAB:Center of Balance V (Ex)																		SOURCEPAGE:p.106
+Luck of Royalty I		TYPE:LALuckRoyalty.RoguePrinceLAPL1		VISIBLE:NO	PRECLASS:1,Rogue Prince=1	!PREFEAT:1,TYPE.LALuckRoyalty		SAB:Luck of Royalty I (Ex)																		SOURCEPAGE:p.106
+Luck of Royalty II	TYPE:LALuckRoyalty.RoguePrinceLAPL2		VISIBLE:NO	PRECLASS:1,Rogue Prince=2	!PREFEAT:1,TYPE.LALuckRoyalty		SAB:Luck of Royalty II (Ex)																		SOURCEPAGE:p.106
+Luck of Royalty III	TYPE:LALuckRoyalty.RoguePrinceLAPL3		VISIBLE:NO	PRECLASS:1,Rogue Prince=3	!PREFEAT:1,TYPE.LALuckRoyalty		SAB:Luck of Royalty III (Ex)																		SOURCEPAGE:p.106
+Luck of Royalty IV	TYPE:LALuckRoyalty.RoguePrinceLAPL4		VISIBLE:NO	PRECLASS:1,Rogue Prince=4	!PREFEAT:1,TYPE.LALuckRoyalty		SAB:Luck of Royalty IV (Ex)																		SOURCEPAGE:p.106
+Luck of Royalty V		TYPE:LALuckRoyalty.RoguePrinceLAPL5		VISIBLE:NO	PRECLASS:1,Rogue Prince=5	!PREFEAT:1,TYPE.LALuckRoyalty		SAB:Luck of Royalty V (Ex)																		SOURCEPAGE:p.106
+Platinum Tongue I		TYPE:LAPlatinumTongue.RoguePrinceLAPL1	VISIBLE:NO	PRECLASS:1,Rogue Prince=1	!PREFEAT:1,TYPE.LAPlatinumTongue	SAB:Platinum Tongue I (Ex)		BONUS:SKILL|Bluff,Diplomacy,Gather Information|2|TYPE=Legendary						SOURCEPAGE:p.106
+Platinum Tongue II	TYPE:LAPlatinumTongue.RoguePrinceLAPL2	VISIBLE:NO	PRECLASS:1,Rogue Prince=2	!PREFEAT:1,TYPE.LAPlatinumTongue	SAB:Platinum Tongue II (Ex)		BONUS:SKILL|Bluff,Diplomacy,Gather Information|4|TYPE=Legendary						SOURCEPAGE:p.106
+Platinum Tongue III	TYPE:LAPlatinumTongue.RoguePrinceLAPL3	VISIBLE:NO	PRECLASS:1,Rogue Prince=3	!PREFEAT:1,TYPE.LAPlatinumTongue	SAB:Platinum Tongue III (Ex)		BONUS:SKILL|Bluff,Diplomacy,Gather Information|6|TYPE=Legendary						SOURCEPAGE:p.106
+Platinum Tongue IV	TYPE:LAPlatinumTongue.RoguePrinceLAPL4	VISIBLE:NO	PRECLASS:1,Rogue Prince=4	!PREFEAT:1,TYPE.LAPlatinumTongue	SAB:Platinum Tongue IV (Ex)		BONUS:SKILL|Bluff,Diplomacy,Gather Information|8|TYPE=Legendary						SOURCEPAGE:p.106
+Platinum Tongue V		TYPE:LAPlatinumTongue.RoguePrinceLAPL5	VISIBLE:NO	PRECLASS:1,Rogue Prince=5	!PREFEAT:1,TYPE.LAPlatinumTongue	SAB:Platinum Tongue V (Ex)		BONUS:SKILL|Bluff,Diplomacy,Gather Information|10|TYPE=Legendary						SOURCEPAGE:p.106
+Prince's Grace I		TYPE:LAPrinceGrace.RoguePrinceLAPL1		VISIBLE:NO	PRECLASS:1,Rogue Prince=1	!PREFEAT:1,TYPE.LAPrinceGrace		SAB:Prince's Grace I (Ex)																		SOURCEPAGE:p.106
+Prince's Grace II		TYPE:LAPrinceGrace.RoguePrinceLAPL2		VISIBLE:NO	PRECLASS:1,Rogue Prince=2	!PREFEAT:1,TYPE.LAPrinceGrace		SAB:Prince's Grace II (Ex)																		SOURCEPAGE:p.106
+Prince's Grace III	TYPE:LAPrinceGrace.RoguePrinceLAPL3		VISIBLE:NO	PRECLASS:1,Rogue Prince=3	!PREFEAT:1,TYPE.LAPrinceGrace		SAB:Prince's Grace III (Ex)																		SOURCEPAGE:p.106
+Prince's Grace IV		TYPE:LAPrinceGrace.RoguePrinceLAPL4		VISIBLE:NO	PRECLASS:1,Rogue Prince=4	!PREFEAT:1,TYPE.LAPrinceGrace		SAB:Prince's Grace IV (Ex)																		SOURCEPAGE:p.106
+Prince's Grace V		TYPE:LAPrinceGrace.RoguePrinceLAPL5		VISIBLE:NO	PRECLASS:1,Rogue Prince=5	!PREFEAT:1,TYPE.LAPrinceGrace		SAB:Prince's Grace V (Ex)																		SOURCEPAGE:p.106
 Sneak Attack I		TYPE:LASneakAttack.RoguePrinceLAPL1		VISIBLE:NO	PRECLASS:1,Rogue Prince=1	!PREFEAT:1,TYPE.LASneakAttack																			BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.106
 Sneak Attack II		TYPE:LASneakAttack.RoguePrinceLAPL2		VISIBLE:NO	PRECLASS:1,Rogue Prince=2	!PREFEAT:1,TYPE.LASneakAttack																			BONUS:VAR|SneakAttackDice|2	SOURCEPAGE:p.106
 Sneak Attack III		TYPE:LASneakAttack.RoguePrinceLAPL3		VISIBLE:NO	PRECLASS:1,Rogue Prince=3	!PREFEAT:1,TYPE.LASneakAttack																			BONUS:VAR|SneakAttackDice|3	SOURCEPAGE:p.106

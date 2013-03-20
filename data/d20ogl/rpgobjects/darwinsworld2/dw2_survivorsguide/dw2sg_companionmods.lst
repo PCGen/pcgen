@@ -1,20 +1,20 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
 
 #Share Saving Throws - Automatic for Companions?
 #                      If so, how best to disable at lvls 1 & 2?
 
 ###Block:Animal Partner
-# Class of the Master	Type				Hit Dice	Special ABility				Define			Combat bonus	Stat bonus										Modify VAR			Template
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Partner			SAB:Bond of Friendship			DEFINE:CurrentInt|INT	BONUS:COMBAT|AC|1	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|INT|(6-CurrentInt)
-FOLLOWER:AnimalCompanionLVL=2	TYPE:Animal Partner	HD:1															BONUS:STAT|INT|1													TEMPLATE:Companion Evasion
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Partner			SAB:Share Saving Throws							BONUS:COMBAT|AC|1	BONUS:STAT|INT|1
-FOLLOWER:AnimalCompanionLVL=4	TYPE:Animal Partner	HD:1															BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|INT|1							TEMPLATE:Companion Track
-FOLLOWER:AnimalCompanionLVL=5	TYPE:Animal Partner			SAB:Man's Best Friend (+%)|mbFriend	DEFINE:mbFriend|0		BONUS:COMBAT|AC|1	BONUS:STAT|INT|1									BONUS:VAR|mbFriend|2
-FOLLOWER:AnimalCompanionLVL=6	TYPE:Animal Partner	HD:1		SAB:Familiarity											BONUS:STAT|INT|1
-FOLLOWER:AnimalCompanionLVL=7	TYPE:Animal Partner			SAB:Never Quits								BONUS:COMBAT|AC|1	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|INT|1
-FOLLOWER:AnimalCompanionLVL=8	TYPE:Animal Partner	HD:1															BONUS:STAT|INT|1									BONUS:VAR|mbFriend|2
-FOLLOWER:AnimalCompanionLVL=9	TYPE:Animal Partner													BONUS:COMBAT|AC|1	BONUS:STAT|INT|1													TEMPLATE:Companion Improved Evasion
+# Class of the Master			Type				Hit Dice	Special ABility				Define			Combat bonus	Stat bonus										Modify VAR			Template
+FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Partner			SAB:Bond of Friendship			DEFINE:CurrentInt|INT	BONUS:COMBAT|AC|1	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|INT|(6-CurrentInt)
+FOLLOWER:AnimalCompanionLVL=2		TYPE:Animal Partner	HD:1															BONUS:STAT|INT|1													TEMPLATE:Companion Evasion
+FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Partner			SAB:Share Saving Throws							BONUS:COMBAT|AC|1	BONUS:STAT|INT|1
+FOLLOWER:AnimalCompanionLVL=4		TYPE:Animal Partner	HD:1															BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|INT|1							TEMPLATE:Companion Track
+FOLLOWER:AnimalCompanionLVL=5		TYPE:Animal Partner			SAB:Man's Best Friend (+%)|mbFriend	DEFINE:mbFriend|0		BONUS:COMBAT|AC|1	BONUS:STAT|INT|1									BONUS:VAR|mbFriend|2
+FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Partner	HD:1		SAB:Familiarity											BONUS:STAT|INT|1
+FOLLOWER:AnimalCompanionLVL=7		TYPE:Animal Partner			SAB:Never Quits								BONUS:COMBAT|AC|1	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|INT|1
+FOLLOWER:AnimalCompanionLVL=8		TYPE:Animal Partner	HD:1															BONUS:STAT|INT|1									BONUS:VAR|mbFriend|2
+FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Partner													BONUS:COMBAT|AC|1	BONUS:STAT|INT|1													TEMPLATE:Companion Improved Evasion
 FOLLOWER:AnimalCompanionLVL=10	TYPE:Animal Partner	HD:1		SAB:Speak With Symbiote										BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:STAT|INT|1
 #
 

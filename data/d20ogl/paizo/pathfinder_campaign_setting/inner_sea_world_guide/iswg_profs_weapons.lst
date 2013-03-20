@@ -1,4 +1,4 @@
-# CVS $Revision: 12254 $ $Author: eddyanthony $ -- Fri Apr 22 12:15:01 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision: 12254 $ $Author: eddyanthony $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 # Original Entry by: Stefan Radermacher
 
@@ -18,7 +18,7 @@ Ogre Hook		TYPE:Martial.Melee.TwoHanded.Piercing.MeleePiercing
 ###Block: Exotic Weapons
 #-----one handed -------
 # Equipment Name					Required Weapon Proficiency
-# Weapon Name					Type
+# Weapon Name		Product Identity?	Type
 Aldori Dueling Sword	NAMEISPI:YES	TYPE:Martial.Exotic.Melee.OneHanded.Finessable.Slashing.MeleeSlashing
 Sawtooth Sabre					TYPE:Exotic.Melee.OneHanded.Slashing.MeleeSlashing
 Urumi							TYPE:Exotic.Melee.OneHanded.Slashing.MeleeSlashing

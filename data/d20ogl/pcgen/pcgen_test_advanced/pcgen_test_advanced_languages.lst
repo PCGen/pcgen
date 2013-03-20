@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 ###Lang
 # Language						Unique Key			Type					Required AL		Required Class
 Doosuldorf										TYPE:Spoken
@@ -33,7 +33,7 @@ Undercommon										TYPE:Spoken
 
 Draconic						KEY:Draconic ~ Read	TYPE:Read
 
-English			TYPE:Spoken
-Latin				TYPE:Spoken
-Spanish			TYPE:Spoken
-Dwarven			TYPE:Spoken
+English										TYPE:Spoken
+Latin											TYPE:Spoken
+Spanish										TYPE:Spoken
+Dwarven										TYPE:Spoken

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Modern Dispatch #75 - U.S.H.E.R. Dossiers #1	SOURCESHORT:MD75-USHER#1	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=198	SOURCEDATE:2004-01
 # Original Entry by: Paul W. King
 
@@ -21,7 +21,7 @@ CLASS:Superspy	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.2	BONUS:CHECKS|BAS
 CLASS:Superspy	PREFEAT:1,Low Profile	PRESKILL:2,Hide=10,Move Silently=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Superspy	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|Computer Use|Craft (Chemical)|Craft (Electronic)|Demolitions|Disable Device|Disguise|Drive|Escape Artist|Forgery|Gamble|Gather Information|Hide|Investigate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Navigate|Search|Sense Motive|Spot|Survival|Swim|Tumble
-1						ADD:FEAT|TYPE=AgencyTraining
+1							ADD:FEAT|TYPE=AgencyTraining
 2	BONUS:VAR|SneakAttackDice|CL/2						AUTO:FEAT|Sneak Attack
-3						ADD:FEAT|TYPE=AgencyTraining
-5						ADD:FEAT|TYPE=AgencyTraining
+3							ADD:FEAT|TYPE=AgencyTraining
+5							ADD:FEAT|TYPE=AgencyTraining

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 
 ###Block: Shared Abilities ---------------------------------------------------------------------------------
@@ -38,7 +38,7 @@ Maximize Spell	CATEGORY:Special Ability					VISIBLE:NO											DESC:All variab
 Quicken Spell	CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO																																							ADDSPELLLEVEL:4
 Scribe Scroll	CATEGORY:Special Ability					VISIBLE:NO											DESC:Create a scroll, level is set at time of creation...																																							SOURCEPAGE:msrdadvancedclassesII.rtf
 Scribe Tattoo	CATEGORY:Special Ability					VISIBLE:NO											DESC:Create a tattoo, level is set at time of creation...																																							SOURCEPAGE:msrdadvancedclassesII.rtf
-Summon Familiar	CATEGORY:Special Ability					VISIBLE:NO	SAB:Summon Familiar			DEFINE:FamiliarLVL|0																																	FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Snake (Tiny/Viper),Toad
+Summon Familiar	CATEGORY:Special Ability					VISIBLE:NO	SAB:Summon Familiar			DEFINE:FamiliarLVL|0																																FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Snake (Tiny/Viper),Toad
 Web Access Spells	CATEGORY:Special Ability	TYPE:VirtualPossession	VISIBLE:NO	SAB:Can use Web Access as spellbook
 
 ###Block: Artificer Craft Artifice Abilities

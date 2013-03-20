@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Feb 19 12:28:33 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 #SOURCELONG:Pathfinder Chronicles: Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
 
 
@@ -7,9 +7,9 @@
 ABILITYCATEGORY:Background	VISIBLE:NO	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Background
 
 ###Block: Background Ability Categories
-# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number	Category of Object	Type of Object		Plural description for UI	Display Location
-ABILITYCATEGORY:Human Ethnicity	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO					CATEGORY:Background	TYPE:HumanEthnicity	PLURAL:Human Ethnicities	DISPLAYLOCATION:Background
-ABILITYCATEGORY:Region of Origin	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO					CATEGORY:Background	TYPE:Region			PLURAL:Regions of Origin	DISPLAYLOCATION:Background
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Human Ethnicity	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background	TYPE:HumanEthnicity	PLURAL:Human Ethnicities	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Region of Origin	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background	TYPE:Region			PLURAL:Regions of Origin	DISPLAYLOCATION:Background
 
 ###Block: Class Feature Ability Categories
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location

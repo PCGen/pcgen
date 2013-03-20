@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
@@ -100,51 +100,51 @@ FOLLOWER:MysticCompanionLvl=19	TYPE:Mystic Companion																												
 FOLLOWER:MysticCompanionLvl=20	TYPE:Mystic Companion	HD:1																																																																			BONUS:COMBAT|BAB|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionCPLvl|3
 
 ###Block: Animal Progression
-# Class of the Master		Type				Hit Dice	Ability																				Define			Save checks bonus																Combat bonus													Stat bonus							Modify VAR								Main Race Type
+# Class of the Master		Type				Hit Dice	Ability																	Define			Save checks bonus																Combat bonus													Stat bonus							Modify VAR								Main Race Type
 FOLLOWER:CompanionLvl=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Animal Tricks and Training|Bonus Tricks	DEFINE:CompanionCPLvl|0																																										BONUS:VAR|CompanionCPLvl|3					RACETYPE:Magical Beast
-FOLLOWER:CompanionLvl=2		TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=3		TYPE:Animal Companion	HD:2																							DEFINE:BonusTricks|0	BONUS:CHECKS|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:CHECKS|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
-FOLLOWER:CompanionLvl=4		TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=5		TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=6		TYPE:Animal Companion	HD:2																											BONUS:CHECKS|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:CHECKS|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
-FOLLOWER:CompanionLvl=7		TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=8		TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=9		TYPE:Animal Companion	HD:2																											BONUS:CHECKS|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:CHECKS|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
-FOLLOWER:CompanionLvl=10	TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=11	TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=12	TYPE:Animal Companion	HD:2																											BONUS:CHECKS|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:CHECKS|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
-FOLLOWER:CompanionLvl=13	TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=14	TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=15	TYPE:Animal Companion	HD:2																											BONUS:CHECKS|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:CHECKS|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
-FOLLOWER:CompanionLvl=16	TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=17	TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=18	TYPE:Animal Companion	HD:2																											BONUS:CHECKS|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:CHECKS|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
-FOLLOWER:CompanionLvl=19	TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
-FOLLOWER:CompanionLvl=20	TYPE:Animal Companion																																																																					BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=2		TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=3		TYPE:Animal Companion	HD:2																				DEFINE:BonusTricks|0	BONUS:CHECKS|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:CHECKS|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
+FOLLOWER:CompanionLvl=4		TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=5		TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=6		TYPE:Animal Companion	HD:2																								BONUS:CHECKS|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:CHECKS|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
+FOLLOWER:CompanionLvl=7		TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=8		TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=9		TYPE:Animal Companion	HD:2																								BONUS:CHECKS|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:CHECKS|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
+FOLLOWER:CompanionLvl=10	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=11	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=12	TYPE:Animal Companion	HD:2																								BONUS:CHECKS|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:CHECKS|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
+FOLLOWER:CompanionLvl=13	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=14	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=15	TYPE:Animal Companion	HD:2																								BONUS:CHECKS|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:CHECKS|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
+FOLLOWER:CompanionLvl=16	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=17	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=18	TYPE:Animal Companion	HD:2																								BONUS:CHECKS|Fortitude,Reflex|2|TYPE=CompanionBonus.STACK	BONUS:CHECKS|Will|1|TYPE=CompanionBonus.STACK	BONUS:COMBAT|BAB|2|TYPE=CompanionBonus.STACK	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1|TYPE=CompanionBonus.STACK	BONUS:VAR|CompanionCPLvl|3	BONUS:VAR|BonusTricks|1
+FOLLOWER:CompanionLvl=19	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
+FOLLOWER:CompanionLvl=20	TYPE:Animal Companion																																																																		BONUS:VAR|CompanionCPLvl|3
 
 
 ###Block: For Homebrews or different creatures - Currently testing Master > Follower Issues.
-# Class of the Master		Type								Hit Dice	Ability																				Define					Combat bonus				Modify VAR													Multiple Requirements
-FOLLOWER:OtherCompanionLvl=1	TYPE:Other Companion							ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Animal Tricks and Training|Bonus Tricks	DEFINE:CompanionTransferenceValue|0	BONUS:COMBAT|AC|CompanionCPLvl	BONUS:VAR|CompanionCPLvl|CompanionTransferenceValue	BONUS:VAR|BonusTricks|20
-FOLLOWER:OtherCompanionLvl=2	TYPE:Other Companion																												DEFINE:OtherCompanionLvl|0								BONUS:VAR|CompanionCPLvl|2*var("OtherCompanionLvl")
+# Class of the Master			Type													Hit Dice	Ability																	Define					Combat bonus				Modify VAR													Multiple Requirements
+FOLLOWER:OtherCompanionLvl=1		TYPE:Other Companion												ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Animal Tricks and Training|Bonus Tricks	DEFINE:CompanionTransferenceValue|0	BONUS:COMBAT|AC|CompanionCPLvl	BONUS:VAR|CompanionCPLvl|CompanionTransferenceValue	BONUS:VAR|BonusTricks|20
+FOLLOWER:OtherCompanionLvl=2		TYPE:Other Companion																														DEFINE:OtherCompanionLvl|0								BONUS:VAR|CompanionCPLvl|2*var("OtherCompanionLvl")
 
 # Implement a Method to grant additional HD
-FOLLOWER:ExtraHD=1		TYPE:Familiar.Special Mount.Animal Companion.Mystic Companion.Other Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 1],[PREVARGTEQ:CompanionExtraHD,1]
-FOLLOWER:ExtraHD=2		TYPE:Familiar.Special Mount.Animal Companion.Mystic Companion.Other Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 2],[PREVARGTEQ:CompanionExtraHD,2]
-FOLLOWER:ExtraHD=3		TYPE:Familiar.Special Mount.Animal Companion.Mystic Companion.Other Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 3],[PREVARGTEQ:CompanionExtraHD,3]
-FOLLOWER:ExtraHD=4		TYPE:Familiar.Special Mount.Animal Companion.Mystic Companion.Other Companion	HD:1																																																	PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 4],[PREVARGTEQ:CompanionExtraHD,4]
+FOLLOWER:ExtraHD=1			TYPE:Familiar.Special Mount.Animal Companion.Mystic Companion.Other Companion	HD:1																																														PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 1],[PREVARGTEQ:CompanionExtraHD,1]
+FOLLOWER:ExtraHD=2			TYPE:Familiar.Special Mount.Animal Companion.Mystic Companion.Other Companion	HD:1																																														PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 2],[PREVARGTEQ:CompanionExtraHD,2]
+FOLLOWER:ExtraHD=3			TYPE:Familiar.Special Mount.Animal Companion.Mystic Companion.Other Companion	HD:1																																														PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 3],[PREVARGTEQ:CompanionExtraHD,3]
+FOLLOWER:ExtraHD=4			TYPE:Familiar.Special Mount.Animal Companion.Mystic Companion.Other Companion	HD:1																																														PREMULT:1,[PRETEMPLATE:1,Companion Extra HD ~ 4],[PREVARGTEQ:CompanionExtraHD,4]
 
 
 #COMMENT: Added a method to increase Familiar HP, as per The Practical Enchanter and other custom sources allows.
 
-FOLLOWER:RiderBattleDanceBonus=1	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_1|PREVARGTEQ:AllowMysticBonus,1
-FOLLOWER:RiderBattleDanceBonus=2	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_2|PREVARGTEQ:AllowMysticBonus,1
-FOLLOWER:RiderBattleDanceBonus=3	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_3|PREVARGTEQ:AllowMysticBonus,1
-FOLLOWER:RiderBattleDanceBonus=4	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_4|PREVARGTEQ:AllowMysticBonus,1
-FOLLOWER:RiderBattleDanceBonus=5	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_5|PREVARGTEQ:AllowMysticBonus,1
-FOLLOWER:RiderBattleDanceBonus=6	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_6|PREVARGTEQ:AllowMysticBonus,1
-FOLLOWER:RiderBattleDanceBonus=7	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_7|PREVARGTEQ:AllowMysticBonus,1
-FOLLOWER:RiderBattleDanceBonus=8	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion		ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_8|PREVARGTEQ:AllowMysticBonus,1
+FOLLOWER:RiderBattleDanceBonus=1	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_1|PREVARGTEQ:AllowMysticBonus,1
+FOLLOWER:RiderBattleDanceBonus=2	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_2|PREVARGTEQ:AllowMysticBonus,1
+FOLLOWER:RiderBattleDanceBonus=3	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_3|PREVARGTEQ:AllowMysticBonus,1
+FOLLOWER:RiderBattleDanceBonus=4	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_4|PREVARGTEQ:AllowMysticBonus,1
+FOLLOWER:RiderBattleDanceBonus=5	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_5|PREVARGTEQ:AllowMysticBonus,1
+FOLLOWER:RiderBattleDanceBonus=6	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_6|PREVARGTEQ:AllowMysticBonus,1
+FOLLOWER:RiderBattleDanceBonus=7	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_7|PREVARGTEQ:AllowMysticBonus,1
+FOLLOWER:RiderBattleDanceBonus=8	TYPE:Familiar.Special Mount.Mystic Companion.Animal Companion.Other Companion			ABILITY:Special Ability|AUTOMATIC|Mystic_Comp_Wis_8|PREVARGTEQ:AllowMysticBonus,1
 
 
 ###EOF

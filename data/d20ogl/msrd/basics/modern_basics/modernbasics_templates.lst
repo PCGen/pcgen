@@ -1,11 +1,11 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 #Original Entry by: Tir Gwaith and Doug McMillan, Temporary Bonus Templates by Eddy Anthony
 
 #added Bonus from Weapon Finesse (Unarmed Strike) to Unarmed Lethal Strike template - Frank Kliewe
 
 ###Block: Occupation
-# Template Name	Visible	Template																Bonus to Ability Pool
+# Template Name	Visible	Bonus to Ability Pool
 Occupation		VISIBLE:NO	BONUS:ABILITYPOOL|Occupation|1
 
 ###Block: Assigned for Occupation prerequisites, it's how we know what class was taken first and thus which skills are 1st level class skills --Eddy

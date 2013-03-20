@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 # Template Name	Visible	Source Page					Define			Combat bonus								Bonus to HP													Stat bonus		Ability																															Automatically Gained Feat	Apply Kit			Removable?		Type		Vision
@@ -9,14 +9,14 @@ Spellbook		VISIBLE:NO																																																											
 #
 # - Tir Gwaith
 # Template Name	Visible	Source Page					Define			Combat bonus								Bonus to HP													Stat bonus		Ability																															Automatically Gained Feat	Apply Kit			Removable?		Type		Vision
-Construct		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.CON|10	ABILITY:Special Ability|AUTOMATIC|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Poison																						REMOVABLE:YES
+Construct		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.CON|10																												ABILITY:Special Ability|AUTOMATIC|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Poison																									REMOVABLE:YES
 # Added all dragons skills to keep the race files down in size.
-Dragon		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf					ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis|Immunity To Sleep																													REMOVABLE:YES	TYPE:Dragon
+Dragon		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf																																ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis|Immunity To Sleep																													REMOVABLE:YES	TYPE:Dragon
 Elemental		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf																																ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Paralysis|Immunity To Poison|Immunity To Stunning																					REMOVABLE:YES
 Incorporeal		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.STR|10	BONUS:COMBAT|TOHIT|DEX|TYPE=NotRanged																					ABILITY:Special Ability|AUTOMATIC|Incorporeal Traits																																	REMOVABLE:YES
 Ooze			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.INT|10											BONUS:HP|CURRENTMAX|max((SIZE-2),0)*5	BONUS:HP|CURRENTMAX|max((SIZE-6),0)*5				ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Polymorph|Immunity To Sleep|Immunity To Stunning										REMOVABLE:YES
 Plant			VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf																																ABILITY:Special Ability|AUTOMATIC|Immunity To Critical Hits|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Sleep|Immunity To Stunning										REMOVABLE:YES
-Undead		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.CON|10																												ABILITY:Special Ability|AUTOMATIC|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Sleep|Immunity To Stunning												REMOVABLE:YES	TYPE:Undead	VISION:Darkvision (60')
+Undead		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.CON|10																												ABILITY:Special Ability|AUTOMATIC|Immunity To Disease|Immunity To Mind-Affecting|Immunity To Paralysis|Immunity To Poison|Immunity To Sleep|Immunity To Stunning															REMOVABLE:YES	TYPE:Undead	VISION:Darkvision (60')
 Vermin		VISIBLE:NO	SOURCEPAGE:srdcreatureoverview.rtf	DEFINE:LOCK.INT|10																												ABILITY:Special Ability|AUTOMATIC|Immunity To Mind-Affecting																															REMOVABLE:YES	TYPE:Vermin
 #
 Mindless		VISIBLE:NO							DEFINE:LOCK.INT|10

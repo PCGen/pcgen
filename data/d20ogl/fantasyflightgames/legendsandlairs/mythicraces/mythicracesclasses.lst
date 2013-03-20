@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Fantasy Flight Games - Mythic Races	SOURCESHORT:MythicRace	SOURCEWEB:http://www.fantasyflightgames.com/ll.html	SOURCEDATE:2001-09
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
@@ -204,13 +204,13 @@ CLASS:Claw of the Hunt	STARTSKILLPTS:4	CSKILL:Balance|Climb|Control Shape|Hide|I
 1													AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
 1																											BONUS:VAR|SneakAttackDice|1					ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
-2	SAB:Hunter's Claws +%|HunterClaw	BONUS:COMBAT|DAMAGE.Natural|HunterClaw|TYPE=Enhancement	BONUS:COMBAT|TOHIT.Natural|HunterClaw|TYPE=Enhancement					DEFINE:HunterClaw|CL/2
+2	SAB:Hunter's Claws +%|HunterClaw	BONUS:COMBAT|DAMAGE.Natural|HunterClaw|TYPE=Enhancement	BONUS:COMBAT|TOHIT.Natural|HunterClaw|TYPE=Enhancement						DEFINE:HunterClaw|CL/2
 3	SAB:Defensive Shift
-4																																			ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir
+4																																				ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir
 5																											BONUS:VAR|SneakAttackDice|1
-7																																			ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir
+7																																				ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir
 9																											BONUS:VAR|SneakAttackDice|1
-10																																			ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir
+10																																				ADD:FEAT|TYPE=Fighter,TYPE=Mhuinntir
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Niomus Windweaver	HD:4		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.83	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
