@@ -55,7 +55,7 @@ CLASS:Avenging Knife	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Disgui
 1																											AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
 1																											AUTO:FEAT|The Drop
 2																											AUTO:FEAT|Security Breach
-3	BONUS:VAR|SneakAttack|CL/3										ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+3	BONUS:VAR|SneakAttackDice|CL/3										ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 # TODO Improved Feint doesn't exist in 3.0
 #3															VFEAT:Improved Feint
 4																											AUTO:FEAT|Target Study

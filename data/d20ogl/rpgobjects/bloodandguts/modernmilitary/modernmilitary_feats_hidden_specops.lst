@@ -10,9 +10,9 @@ Mental Toughness	TYPE:MentalToughness.SpecOpsTraining	VISIBLE:NO						SAB:+% to 
 ###Block:Silent Kill
 # Feat Name		Type						Visible	Required Feat			Ability							Modify VAR			Source Page
 Silent Kill 1	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Commando Training	ABILITY:Special Ability|AUTOMATIC|Sneak Attack					SOURCEPAGE:p.9
-Silent Kill 2	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Silent Kill 1										BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.9
-Silent Kill 3	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Silent Kill 2										BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.9
-Silent Kill 4	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Silent Kill 3										BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.9
+Silent Kill 2	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Silent Kill 1										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
+Silent Kill 3	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Silent Kill 2										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
+Silent Kill 4	TYPE:SilentKill.SpecOpsTraining	VISIBLE:NO	PREFEAT:1,Silent Kill 3										BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.9
 
 ###Block: Strategy
 # Feat Name				Type							Visible	Required Feat						Required Skill				Special ABility			Bonus to skill				Source Page

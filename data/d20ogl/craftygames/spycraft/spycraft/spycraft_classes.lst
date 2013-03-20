@@ -52,7 +52,7 @@ CLASS:Fixer		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Boating|Climb|TYPE=Cr
 ###Block:
 1																										TEMPLATE:Class Core Ability	AUTO:FEAT|Armor Proficiency (Light)|Weapon Group Proficiency (Handgun)|Weapon Group Proficiency (Hurled)|Weapon Group Proficiency (Melee)|Weapon Group Proficiency (Rifle)
 2								BONUS:VAR|EvasionFactor|1+(CL>=11)+(CL>=19)
-3								BONUS:VAR|SneakAttack|(CL-1)/2
+3								BONUS:VAR|SneakAttackDice|(CL-1)/2
 4								BONUS:VAR|UncannyDodge|CL/4
 5																DEFINE:FixerImprovisation|0	DEFINE:FixerMasterThief|0
 6	BONUS:ABILITYPOOL|Fixer Class Ability|1

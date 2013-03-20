@@ -91,7 +91,7 @@ CLASS:Terrorist	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Craft (Chemical)|Craft (Elect
 1	SAB:Suicidal Attack
 ### will need help on figuring out how to deal with Fanaticism
 2	SAB:Fanaticism									ADD:FEAT|TYPE=Terrorist
-3						BONUS:VAR|SneakAttack|(CL-1)/2					ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+3						BONUS:VAR|SneakAttackDice|(CL-1)/2					ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 4												ADD:FEAT|TYPE=Terrorist
 5	SAB:Improved Suicidal Attack
 6												ADD:FEAT|TYPE=Terrorist

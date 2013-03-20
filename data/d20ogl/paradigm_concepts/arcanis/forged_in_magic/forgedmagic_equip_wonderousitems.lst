@@ -131,7 +131,7 @@ Girdle of Marok					TYPE:Magic.Wondrous.Belt	COST:138000			SOURCEPAGE:p.85						
 Gloves of Draining				TYPE:Magic.Wondrous.Glove	COST:6480	SLOTS:2	SOURCEPAGE:p.85												SPELLS:Gloves of Draining|TIMES=1|CASTERLEVEL=6|Vampiric Touch
 Gloves of Skillful Manipulation		TYPE:Magic.Wondrous.Glove	COST:10000	SLOTS:2	SOURCEPAGE:p.85
 Gloves of the Diplomat				TYPE:Magic.Wondrous.Glove	COST:7500	SLOTS:2	SOURCEPAGE:p.86
-Gloves of the Scoundrel				TYPE:Magic.Wondrous.Glove	COST:20000	SLOTS:2	SOURCEPAGE:p.86	ABILITY:Special Ability|VIRTUAL|Sneak Attack																																															BONUS:VAR|SneakAttack|2
+Gloves of the Scoundrel				TYPE:Magic.Wondrous.Glove	COST:20000	SLOTS:2	SOURCEPAGE:p.86	ABILITY:Special Ability|VIRTUAL|Sneak Attack																																															BONUS:VAR|SneakAttackDice|2
 Goggles of the Homeland Protector		TYPE:Magic.Wondrous.Eyegear	COST:11340			SOURCEPAGE:p.86
 Grimm's Armband of Ever-Ready Blades	TYPE:Magic.Wondrous.Bracer	COST:55000			SOURCEPAGE:p.86
 Gris-Gris Bag					TYPE:Magic.Wondrous		COST:14000			SOURCEPAGE:p.87																																									BONUS:SKILL|Craft (Alchemy)|5|TYPE=Competence

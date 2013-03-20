@@ -92,7 +92,7 @@ CLASS:Master Spy	PREFEAT:2,Deceitful,Iron Will	PRESKILL:4,Bluff=7,Disguise=7,Per
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Master Spy	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Use Magic Device
 ##Block: Normal Level Progression
-1	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Class Ability|AUTOMATIC|Art of Deception ~ Master Spy|Master of Disguise ~ Master Spy|Sneak Attack ~ Master Spy
+1	BONUS:VAR|SneakAttackDice|(CL+1)/2	ABILITY:Class Ability|AUTOMATIC|Art of Deception ~ Master Spy|Master of Disguise ~ Master Spy|Sneak Attack ~ Master Spy
 2							ABILITY:Class Ability|AUTOMATIC|Glib Lie ~ Master Spy|Mask Alignment ~ Master Spy
 3							ABILITY:Class Ability|AUTOMATIC|Nonmagical Aura ~ Master Spy|Superficial Knowledge ~ Master Spy
 4							ABILITY:Class Ability|AUTOMATIC|Concealed Thoughts ~ Master Spy|Quick Change ~ Master Spy

@@ -65,7 +65,7 @@ CLASS:Desperado	PREALIGN:LE,TN,NE,CE	PREATT:6	PRESKILL:3,Gunplay=4,Ride=6,Wilder
 CLASS:Desperado	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Demolitions|Forgery|Gamblin'|Gunplay|Hide|Holdout|Intimidate|Jump|Knowledge (Geography)|Knowledge (Local)|Move Silently|Open Lock|TYPE=Profession|Ride|Search|Speed Load|Wilderness Lore
 1	AUTO:FEAT|Firearms Proficiency (Pistol)|Firearms Proficiency (Rifle)|Firearms Proficiency (Shotgun)|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistol|TYPE=Rifle|TYPE=Shotgun
 ###Block: Normal Progression
-1	SAB:Mean as a Rattler	SAB:Sneak Attack +%d6|SneakAttack	BONUS:SKILL|Diplomacy|-2	BONUS:VAR|SneakAttack|(CL+2)/3	DEFINE:SneakAttack|0
+1	SAB:Mean as a Rattler	SAB:Sneak Attack +%d6|SneakAttackDice	BONUS:SKILL|Diplomacy|-2	BONUS:VAR|SneakAttackDice|(CL+2)/3	DEFINE:SneakAttackDice|0
 2	SAB:Paunch (%/day)|Paunch											BONUS:VAR|Paunch|1			DEFINE:Paunch|0
 3	SAB:Hideout %|Hideout												BONUS:VAR|Hideout|1			DEFINE:Hideout|0
 5																BONUS:VAR|Paunch|1

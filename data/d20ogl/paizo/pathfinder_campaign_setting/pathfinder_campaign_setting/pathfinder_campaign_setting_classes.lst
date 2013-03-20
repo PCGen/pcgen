@@ -57,7 +57,7 @@ CLASS:Low Templar	STARTSKILLPTS:2
 1	BONUS:ABILITYPOOL|Low Templar Favored Enemy|1	BONUS:VAR|LowTemplarFavoredEnemy|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Flag of Convenience
 2																ABILITY:Special Ability|AUTOMATIC|Dirty Fighting
 3																ABILITY:Special Ability|AUTOMATIC|Wolf in Sheep's Clothing
-4									BONUS:VAR|SneakAttack|CL/4			ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+4									BONUS:VAR|SneakAttackDice|CL/4			ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 5	BONUS:ABILITYPOOL|Low Templar Path|CL/5
 6																ABILITY:Special Ability|AUTOMATIC|Live to Fight Another Day|Reputation for Ruthlessness
 9																ABILITY:Special Ability|AUTOMATIC|Parting Shot
@@ -72,7 +72,7 @@ CLASS:Red Mantis Assassin	STARTSKILLPTS:6
 # Class Name			Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Red Mantis Assassin	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Red Mantis Assassin|CL
 ###Block: Ability Progression
-1	BONUS:VAR|SneakAttack|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Sawtooth Mastery|Sneak Attack
+1	BONUS:VAR|SneakAttackDice|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Sawtooth Mastery|Sneak Attack
 2							ABILITY:Special Ability|AUTOMATIC|Prayer Attack
 3							ABILITY:Special Ability|AUTOMATIC|Red Shroud
 4							ABILITY:Special Ability|AUTOMATIC|Call Mantis
@@ -102,13 +102,13 @@ CLASS:Red Mantis Assassin	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTE
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Shackles Pirate	HD:8		TYPE:PC.Prestige	ABB:ShPrt		MAXLEVEL:10	SOURCEPAGE:p.232	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE
 # Class Name		Required AL				Req. Att.	Var. Min. Value
-CLASS:Shackles Pirate	PREALIGN:NG,CG,TN,CN,NE,CE	PREATT:3	PREVARGTEQ:SneakAttack,2
+CLASS:Shackles Pirate	PREALIGN:NG,CG,TN,CN,NE,CE	PREATT:3	PREVARGTEQ:SneakAttackDice,2
 # Class Name		Skill Pts/Lvl
 CLASS:Shackles Pirate	STARTSKILLPTS:8
 ###Block: Ability Progression
 1	BONUS:VAR|SoddenStealthBonus|2	ABILITY:Special Ability|AUTOMATIC|Quick Appraise|Sodden Stealth
 2							ABILITY:Special Ability|AUTOMATIC|Bogstep|Deep Breath
-3	BONUS:VAR|SneakAttack|CL/3
+3	BONUS:VAR|SneakAttackDice|CL/3
 4							ABILITY:Special Ability|AUTOMATIC|Navigate Maelstrom
 5	BONUS:VAR|SoddenStealthBonus|2
 7							ABILITY:Special Ability|AUTOMATIC|Grapple Ship

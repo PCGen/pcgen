@@ -41,6 +41,6 @@ Sanctuary				KEY:Sanctuary ~ Knight Subclass				CATEGORY:Special Ability	TYPE:Sp
 
 # ~ Scoundrel Subclass
 No Honor Amoung Thieves		KEY:No Honor Amoung Thieves ~ Scoundrel Subclass	CATEGORY:Special Ability	TYPE:SpecialQuality
-Bonus Sneak Attack		KEY:Bonus Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:ScoundrelSneakAttackDie|4	DEFINE:ScoundrelSneakAttack|0	DESC:+%1d%2|ScoundrelSneakAttack|ScoundrelSneakAttackDie
+Bonus Sneak Attack		KEY:Bonus Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:ScoundrelSneakAttackDieSize|4	DEFINE:ScoundrelSneakAttackDice|0	DESC:+%1d%2|ScoundrelSneakAttackDice|ScoundrelSneakAttackDieSize
 Impromptu Sneak Attack		KEY:Impromptu Sneak Attack ~ Scoundrel Subclass		CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:ImpromptuSneakTimes|0							DESC:%1/day|ImpromptuSneakTimes
 Bonus HP				KEY:Bonus HP ~ Scoundrel Subclass				CATEGORY:Special Ability	TYPE:SpecialQuality			DEFINE:ScoundrelHitDieBonus|0							DESC:%1d6 HP|ScoundrelHitDieBonus

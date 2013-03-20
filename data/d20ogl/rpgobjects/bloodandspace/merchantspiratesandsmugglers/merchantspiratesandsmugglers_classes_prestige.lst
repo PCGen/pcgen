@@ -9,7 +9,7 @@ CLASS:Corporate Fixer	PREMULT:2,[PREFEAT:2,Track,Urban Tracking],[PREABILITY:1,C
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Corporate Fixer	STARTSKILLPTS:6	CSKILL:Climb|Computer Use|Craft (Chemical)|Demolitions|Disable Device|Disguise|Drive|Gather Information|Hide|Investigate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Streetwise)|Listen|Move Silently|Navigate|Pilot|Research|Sense Motive|Spot|Survival
 ###Block:Sneak Attack
-2	BONUS:VAR|SneakAttack|CL/2	BONUS:VAR|SwiftStrike|SneakAttack|PREABILITY:1,CATEGORY=Special Ability,Swift Strike
+2	BONUS:VAR|SneakAttackDice|CL/2	BONUS:VAR|SwiftStrike|SneakAttackDice|PREABILITY:1,CATEGORY=Special Ability,Swift Strike
 ###Block:Normal Progression
 1	SAB:Find the Quarry
 3	SAB:Elude the Quarry

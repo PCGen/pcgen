@@ -22,6 +22,6 @@ CLASS:Superspy	PREFEAT:1,Low Profile	PRESKILL:2,Hide=10,Move Silently=10
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Superspy	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|Computer Use|Craft (Chemical)|Craft (Electronic)|Demolitions|Disable Device|Disguise|Drive|Escape Artist|Forgery|Gamble|Gather Information|Hide|Investigate|Jump|Knowledge (Behavioral Sciences)|Knowledge (Civics)|Knowledge (Current Events)|Knowledge (History)|Knowledge (Popular Culture)|Knowledge (Streetwise)|Knowledge (Tactics)|Listen|Move Silently|Navigate|Search|Sense Motive|Spot|Survival|Swim|Tumble
 1						ADD:FEAT|TYPE=AgencyTraining
-2	BONUS:VAR|SneakAttack|CL/2						AUTO:FEAT|Sneak Attack
+2	BONUS:VAR|SneakAttackDice|CL/2						AUTO:FEAT|Sneak Attack
 3						ADD:FEAT|TYPE=AgencyTraining
 5						ADD:FEAT|TYPE=AgencyTraining

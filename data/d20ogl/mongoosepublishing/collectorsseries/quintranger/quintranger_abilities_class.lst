@@ -174,7 +174,7 @@ Tiger's Fearful Symmetry	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	S
 ###Block:Animal Champion ~ (Dire Weasel)	PREFEAT:2,Skill Focus(Appraise),Skill Focus(Sleight of Hand)
 # Ability Name		Category of Ability		Type			Visible	Special ABility			Ability							Bonus to skill					Modify VAR			Class Skill
 Weasel's Gaze		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Weasel's Gaze (Ex)																					CSKILL:Appraise|Sleight of Hand
-Weasel's Sneakiness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Weasel's Sneakiness (Ex)	ABILITY:Special Ability|AUTOMATIC|Sneak Attack								BONUS:VAR|SneakAttack|2
+Weasel's Sneakiness	CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Weasel's Sneakiness (Ex)	ABILITY:Special Ability|AUTOMATIC|Sneak Attack								BONUS:VAR|SneakAttackDice|2
 Weasel's Acumen		CATEGORY:Special Ability	TYPE:Class.Hidden	VISIBLE:NO	SAB:Weasel's Acumen (Ex)									BONUS:SKILL|Appraise|2|TYPE=Competence
 
 ###Block:Animal Champion ~ (Whale)

@@ -53,7 +53,7 @@ CLASS:Low Templar	DEFINE:LowTemplarLvl|CL
 ###Block: Level Progression
 1	ABILITY:Special Ability|AUTOMATIC|Crusader ~ Low|Flag of Convenience ~ Low	BONUS:VAR|LowCrusader|(CL+2)/3
 2	ABILITY:Special Ability|AUTOMATIC|Dirty Fighting ~ Low
-3	ABILITY:Special Ability|AUTOMATIC|Sneak Attack						BONUS:VAR|SneakAttack|(CL+2)/5
+3	ABILITY:Special Ability|AUTOMATIC|Sneak Attack						BONUS:VAR|SneakAttackDice|(CL+2)/5
 5	ABILITY:Special Ability|AUTOMATIC|Live to Fight Another Day ~ Low			BONUS:ABILITYPOOL|Low Templar Path|1
 6	ABILITY:Special Ability|AUTOMATIC|Ruthless ~ Low
 9	ABILITY:Special Ability|AUTOMATIC|Parting Shot ~ Low
@@ -74,16 +74,16 @@ CLASS:Red Mantis Assassin	DEFINE:RedMantisLvl|CL	NAMEISPI:YES
 1	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
 1	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Sabre Fighting|Sneak Attack|Armored Casting ~ RMA	BONUS:VAR|SneakAttack|1	BONUS:VAR|SabreFightingLvl|CL
+1	ABILITY:Special Ability|AUTOMATIC|Sabre Fighting|Sneak Attack|Armored Casting ~ RMA	BONUS:VAR|SneakAttackDice|1	BONUS:VAR|SabreFightingLvl|CL
 2	ABILITY:Special Ability|AUTOMATIC|Prayer Attack|RMA Bonus Spells
 3	ABILITY:Special Ability|AUTOMATIC|Red Shroud
-4	ABILITY:Special Ability|AUTOMATIC|Summon Mantis							BONUS:VAR|SneakAttack|1
+4	ABILITY:Special Ability|AUTOMATIC|Summon Mantis							BONUS:VAR|SneakAttackDice|1
 5	ABILITY:Special Ability|AUTOMATIC|Resurrection Sense						BONUS:VAR|SabreFighting|1
 6	ABILITY:Special Ability|AUTOMATIC|Mantis Form|PREVARLT:RedMantisLvl,8
-7															BONUS:VAR|SneakAttack|1
+7															BONUS:VAR|SneakAttackDice|1
 8	ABILITY:Special Ability|AUTOMATIC|Fading	ABILITY:Special Ability|AUTOMATIC|Blood Mantis Form|PREVARLT:RedMantisLvl,10
 9	ABILITY:Special Ability|AUTOMATIC|Mantis Doom
-10	ABILITY:Special Ability|AUTOMATIC|Death Mantis Form						BONUS:VAR|SneakAttack|1
+10	ABILITY:Special Ability|AUTOMATIC|Death Mantis Form						BONUS:VAR|SneakAttackDice|1
 ###Block: Spells
 1	CAST:0,1		KNOWN:0,2
 2	CAST:0,2		KNOWN:0,3

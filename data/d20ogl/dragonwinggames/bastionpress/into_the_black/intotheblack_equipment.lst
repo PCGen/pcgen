@@ -27,7 +27,7 @@ Morningstar of Bloodletting.MOD													COST:32000			EQMOD:PLUS2W	SOURCEPAGE
 
 Potion (of Wrestling Prowess)				OUTPUTNAME:Potion [NAME]	TYPE:Potion.Magic			COST:450						SOURCEPAGE:p.73
 Ring (of Strength Stealing)				OUTPUTNAME:Ring [NAME]		TYPE:Ring.Magic			COST:15000						SOURCEPAGE:p.73
-Ring (of the Assassin)					OUTPUTNAME:Ring [NAME]		TYPE:Ring.Magic			COST:30000						SOURCEPAGE:p.73	ABILITY:Special Ability|AUTOMATIC|Sneak Attack	BONUS:STAT|DEX|2|TYPE=Enhancement	BONUS:VAR|SneakAttack|1
+Ring (of the Assassin)					OUTPUTNAME:Ring [NAME]		TYPE:Ring.Magic			COST:30000						SOURCEPAGE:p.73	ABILITY:Special Ability|AUTOMATIC|Sneak Attack	BONUS:STAT|DEX|2|TYPE=Enhancement	BONUS:VAR|SneakAttackDice|1
 
 
 Rocket Broom											TYPE:Goods.Magic			COST:36100	WT:3					SOURCEPAGE:p.73

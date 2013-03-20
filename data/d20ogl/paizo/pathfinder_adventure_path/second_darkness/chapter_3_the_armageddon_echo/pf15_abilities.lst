@@ -42,7 +42,7 @@ Disciple of Insight	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainR
 Disciple of Spirit	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																					BONUS:STAT|CHA|2|TYPE=Enhancement	SOURCEPAGE:p. 61
 Disciple of Torment	CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																					BONUS:STAT|CON|2|TYPE=Enhancement	SOURCEPAGE:p. 61
 Disciple of Vigor		CATEGORY:Special Ability	TYPE:SpecialQuality.DiscipleOfPainRoutine																																					BONUS:STAT|STR|2|TYPE=Enhancement	SOURCEPAGE:p. 61
-Cruelty			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DEFINE:SneakAttackDie|6	DEFINE:SneakAttack|0	DESC:You gain the sneak attack ability (+%1d%2), but only when using slashing weapons.|SneakAttack|SneakAttackDie															SOURCEPAGE:p. 61
+Cruelty			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DEFINE:SneakAttackDie|6	DEFINE:SneakAttackDice|0	DESC:You gain the sneak attack ability (+%1d%2), but only when using slashing weapons.|SneakAttackDice|SneakAttackDie															SOURCEPAGE:p. 61
 Blood Control		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	DEFINE:BloodControlBonus|0				DESC:You gain precise control over the movement of blood within your body (%1 points/round)|BloodControlBonus															SOURCEPAGE:p. 62
 Pain Mastery		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC									DESC:Your tolerance and enjoyment of pain increases your resistance to nonlethal damage.																			SOURCEPAGE:p. 62
 
@@ -97,7 +97,7 @@ CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:You gain a malleable fo
 CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Three times per day, as a free action, you may add the effects of the spell poison to any melee attack that just dealt damage.|PREDEITY:1,Jubilex
 CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:You gain a climb speed equal to half your base land speed and you can communicate with all vermin.|PREDEITY:1,Mazmezz
 CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Three times per day, as a free action, you may add the effects of the spell blindness to any ranged attack that just dealt damage.|PREDEITY:1,Nocticula
-CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:You gain sneak attack +3d6 as per a rogue.|PREDEITY:1,Shax																	ABILITY:Special Ability|VIRTUAL|Sneak Attack|PREDEITY:1,Shax		BONUS:VAR|SneakAttack|3|PREDEITY:1,Shax
+CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:You gain sneak attack +3d6 as per a rogue.|PREDEITY:1,Shax																	ABILITY:Special Ability|VIRTUAL|Sneak Attack|PREDEITY:1,Shax		BONUS:VAR|SneakAttackDice|3|PREDEITY:1,Shax
 CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Your enchantment spells and spell-like abilities become hard to resist, granting you a +1 bonus to their save DCs.|PREDEITY:1,Socothbenoth
 CATEGORY=Special Ability|Demonic Boon (Greater).MOD	DESC:Once per day, you may draw power from the blood of your victims.|PREDEITY:1,Zura
 

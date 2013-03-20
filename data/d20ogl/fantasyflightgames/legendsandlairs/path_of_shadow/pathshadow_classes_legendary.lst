@@ -48,7 +48,7 @@ CLASS:Fortune's Fool	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Cr
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus
 CLASS:Grey Hand	HD:6		TYPE:PC.Legendary	ABB:GrHa		MAXLEVEL:5	SOURCEPAGE:Chap.2, Grey Hand	BONUS:CHECKS|BASE.Reflex|CL/2+3	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3+1	BONUS:COMBAT|BAB|CL
 # Class Name	Req. Att.	Required Feat							Req. Special Ability	Required Skill									Var. Min. Value
-CLASS:Grey Hand	PREATT:9	PREFEAT:3,Improved Critical,Weapon Focus,Skill Focus	PRESA:1,Death Attack	PRESKILL:4,Disguise=10,Intimidate=10,Hide=15,Move Silently=15	PREVARGTEQ:SneakAttack,5
+CLASS:Grey Hand	PREATT:9	PREFEAT:3,Improved Critical,Weapon Focus,Skill Focus	PRESA:1,Death Attack	PRESKILL:4,Disguise=10,Intimidate=10,Hide=15,Move Silently=15	PREVARGTEQ:SneakAttackDice,5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Grey Hand	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Jump|Listen|Move Silently|Open Lock|Pick Pocket|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Simple Weapon Proficiency

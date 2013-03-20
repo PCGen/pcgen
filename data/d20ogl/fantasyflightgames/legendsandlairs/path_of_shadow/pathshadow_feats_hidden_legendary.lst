@@ -194,11 +194,11 @@ Fading Presence II	TYPE:LAFadingPresence.GreyHandLAPL2	VISIBLE:NO	PRECLASS:1,Gre
 Fading Presence III	TYPE:LAFadingPresence.GreyHandLAPL3	VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LAFadingPresence	SAB:Fading Presence III (Ex)																SOURCEPAGE:p.89
 Fading Presence IV	TYPE:LAFadingPresence.GreyHandLAPL4	VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LAFadingPresence	SAB:Fading Presence IV (Ex)																SOURCEPAGE:p.89
 Fading Presence V		TYPE:LAFadingPresence.GreyHandLAPL5	VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LAFadingPresence	SAB:Fading Presence V (Ex)																SOURCEPAGE:p.89
-Murderous I			TYPE:LAMurderous.GreyHandLAPL1	VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LAMurderous		SAB:Murderous I (Ex)													BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.89
-Murderous II		TYPE:LAMurderous.GreyHandLAPL2	VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LAMurderous		SAB:Murderous II (Ex)													BONUS:VAR|SneakAttack|2	SOURCEPAGE:p.89
-Murderous III		TYPE:LAMurderous.GreyHandLAPL3	VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LAMurderous		SAB:Murderous III (Ex)													BONUS:VAR|SneakAttack|3	SOURCEPAGE:p.89
-Murderous IV		TYPE:LAMurderous.GreyHandLAPL4	VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LAMurderous		SAB:Murderous IV (Ex)													BONUS:VAR|SneakAttack|4	SOURCEPAGE:p.89
-Murderous V			TYPE:LAMurderous.GreyHandLAPL5	VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LAMurderous		SAB:Murderous V (Ex)													BONUS:VAR|SneakAttack|5	SOURCEPAGE:p.89
+Murderous I			TYPE:LAMurderous.GreyHandLAPL1	VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LAMurderous		SAB:Murderous I (Ex)													BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.89
+Murderous II		TYPE:LAMurderous.GreyHandLAPL2	VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LAMurderous		SAB:Murderous II (Ex)													BONUS:VAR|SneakAttackDice|2	SOURCEPAGE:p.89
+Murderous III		TYPE:LAMurderous.GreyHandLAPL3	VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LAMurderous		SAB:Murderous III (Ex)													BONUS:VAR|SneakAttackDice|3	SOURCEPAGE:p.89
+Murderous IV		TYPE:LAMurderous.GreyHandLAPL4	VISIBLE:NO	PRECLASS:1,Grey Hand=4	!PREFEAT:1,TYPE.LAMurderous		SAB:Murderous IV (Ex)													BONUS:VAR|SneakAttackDice|4	SOURCEPAGE:p.89
+Murderous V			TYPE:LAMurderous.GreyHandLAPL5	VISIBLE:NO	PRECLASS:1,Grey Hand=5	!PREFEAT:1,TYPE.LAMurderous		SAB:Murderous V (Ex)													BONUS:VAR|SneakAttackDice|5	SOURCEPAGE:p.89
 Shadow of Death I		TYPE:LAShadowDeath.GreyHandLAPL1	VISIBLE:NO	PRECLASS:1,Grey Hand=1	!PREFEAT:1,TYPE.LAShadowDeath		SAB:Shadow of Death I (Ex)																SOURCEPAGE:p.89
 Shadow of Death II	TYPE:LAShadowDeath.GreyHandLAPL2	VISIBLE:NO	PRECLASS:1,Grey Hand=2	!PREFEAT:1,TYPE.LAShadowDeath		SAB:Shadow of Death II (Ex)																SOURCEPAGE:p.89
 Shadow of Death III	TYPE:LAShadowDeath.GreyHandLAPL3	VISIBLE:NO	PRECLASS:1,Grey Hand=3	!PREFEAT:1,TYPE.LAShadowDeath		SAB:Shadow of Death III (Ex)																SOURCEPAGE:p.89
@@ -438,11 +438,11 @@ Prince's Grace II		TYPE:LAPrinceGrace.RoguePrinceLAPL2		VISIBLE:NO	PRECLASS:1,Ro
 Prince's Grace III	TYPE:LAPrinceGrace.RoguePrinceLAPL3		VISIBLE:NO	PRECLASS:1,Rogue Prince=3	!PREFEAT:1,TYPE.LAPrinceGrace		SAB:Prince's Grace III (Ex)																	SOURCEPAGE:p.106
 Prince's Grace IV		TYPE:LAPrinceGrace.RoguePrinceLAPL4		VISIBLE:NO	PRECLASS:1,Rogue Prince=4	!PREFEAT:1,TYPE.LAPrinceGrace		SAB:Prince's Grace IV (Ex)																	SOURCEPAGE:p.106
 Prince's Grace V		TYPE:LAPrinceGrace.RoguePrinceLAPL5		VISIBLE:NO	PRECLASS:1,Rogue Prince=5	!PREFEAT:1,TYPE.LAPrinceGrace		SAB:Prince's Grace V (Ex)																	SOURCEPAGE:p.106
-Sneak Attack I		TYPE:LASneakAttack.RoguePrinceLAPL1		VISIBLE:NO	PRECLASS:1,Rogue Prince=1	!PREFEAT:1,TYPE.LASneakAttack																			BONUS:VAR|SneakAttack|1	SOURCEPAGE:p.106
-Sneak Attack II		TYPE:LASneakAttack.RoguePrinceLAPL2		VISIBLE:NO	PRECLASS:1,Rogue Prince=2	!PREFEAT:1,TYPE.LASneakAttack																			BONUS:VAR|SneakAttack|2	SOURCEPAGE:p.106
-Sneak Attack III		TYPE:LASneakAttack.RoguePrinceLAPL3		VISIBLE:NO	PRECLASS:1,Rogue Prince=3	!PREFEAT:1,TYPE.LASneakAttack																			BONUS:VAR|SneakAttack|3	SOURCEPAGE:p.106
-Sneak Attack IV		TYPE:LASneakAttack.RoguePrinceLAPL4		VISIBLE:NO	PRECLASS:1,Rogue Prince=4	!PREFEAT:1,TYPE.LASneakAttack																			BONUS:VAR|SneakAttack|4	SOURCEPAGE:p.106
-Sneak Attack V		TYPE:LASneakAttack.RoguePrinceLAPL5		VISIBLE:NO	PRECLASS:1,Rogue Prince=5	!PREFEAT:1,TYPE.LASneakAttack																			BONUS:VAR|SneakAttack|5	SOURCEPAGE:p.106
+Sneak Attack I		TYPE:LASneakAttack.RoguePrinceLAPL1		VISIBLE:NO	PRECLASS:1,Rogue Prince=1	!PREFEAT:1,TYPE.LASneakAttack																			BONUS:VAR|SneakAttackDice|1	SOURCEPAGE:p.106
+Sneak Attack II		TYPE:LASneakAttack.RoguePrinceLAPL2		VISIBLE:NO	PRECLASS:1,Rogue Prince=2	!PREFEAT:1,TYPE.LASneakAttack																			BONUS:VAR|SneakAttackDice|2	SOURCEPAGE:p.106
+Sneak Attack III		TYPE:LASneakAttack.RoguePrinceLAPL3		VISIBLE:NO	PRECLASS:1,Rogue Prince=3	!PREFEAT:1,TYPE.LASneakAttack																			BONUS:VAR|SneakAttackDice|3	SOURCEPAGE:p.106
+Sneak Attack IV		TYPE:LASneakAttack.RoguePrinceLAPL4		VISIBLE:NO	PRECLASS:1,Rogue Prince=4	!PREFEAT:1,TYPE.LASneakAttack																			BONUS:VAR|SneakAttackDice|4	SOURCEPAGE:p.106
+Sneak Attack V		TYPE:LASneakAttack.RoguePrinceLAPL5		VISIBLE:NO	PRECLASS:1,Rogue Prince=5	!PREFEAT:1,TYPE.LASneakAttack																			BONUS:VAR|SneakAttackDice|5	SOURCEPAGE:p.106
 
 
 ###Block:Savant legendary abilities

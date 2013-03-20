@@ -117,8 +117,8 @@ CLASS:Cerberus Agent	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Diplomacy|Disguise|Forge
 5	ABILITY:Special Ability|AUTOMATIC|Aura of Intimidation ~ Cerberus Agent
 10	ABILITY:Special Ability|AUTOMATIC|Aura of Despair ~ Cerberus Agent
 ###Block:
-4	BONUS:VAR|SneakAttack|1
-7	BONUS:VAR|SneakAttack|1
+4	BONUS:VAR|SneakAttackDice|1
+7	BONUS:VAR|SneakAttackDice|1
 ###Block:
 2	BONUS:ABILITYPOOL|Cerberus Agent Bonus Feat|1
 3	BONUS:ABILITYPOOL|Cerberus Agent Bonus Feat|1

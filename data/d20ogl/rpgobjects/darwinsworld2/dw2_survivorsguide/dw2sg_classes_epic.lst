@@ -93,14 +93,14 @@ CLASS:Tech Looter	PREATT:6	PREFEAT:1,Advanced Technology	PRESKILL:6,Knowledge (T
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Tech Looter	STARTSKILLPTS:5	CSKILL:Computer Use|Decipher Script|Disable Device|Drive|Gather Information|Hide|Knowledge (Ancient Lore)|Knowledge (Technology)|Listen|Move Silently|Navigate|Repair|Search|Sleight of Hand|Spot|Survival
 
-1	SAB:Contacts										BONUS:VAR|SneakAttack|1	AUTO:FEAT|Sneak Attack
+1	SAB:Contacts										BONUS:VAR|SneakAttackDice|1	AUTO:FEAT|Sneak Attack
 2	SAB:Ancient Sense
 3						BONUS:ABILITYPOOL|Tech Looter Feat|CL/3
 4	SAB:Beat Feat
-5													BONUS:VAR|SneakAttack|1
+5													BONUS:VAR|SneakAttackDice|1
 7	SAB:On the Lookout (+%)|CL
 8	SAB:Tech Mastery
-10													BONUS:VAR|SneakAttack|1
+10													BONUS:VAR|SneakAttackDice|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define						Save checks bonus												Combat bonus		Modify VAR
 CLASS:Trade Master	HD:6		TYPE:Base.Epic	ABB:TMstr		MAXLEVEL:10	SOURCEPAGE:p. 55	DEFINE:Reputation|0	DEFINE:Wealth|0	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|(CL/2)	BONUS:VAR|ClassDefense|((CL+1)/2)	BONUS:VAR|Reputation|((CL-1)/3)+2	BONUS:VAR|ActionLVL|CL	BONUS:VAR|Action|6+(CL/2)

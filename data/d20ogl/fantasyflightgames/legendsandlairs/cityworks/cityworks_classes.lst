@@ -39,7 +39,7 @@ CLASS:Assassin (CW)	PREALIGN:LN,LE,TN,NE,CN,CE
 CLASS:Assassin (CW)	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Spot
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial		ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies
 ###Block: Sneak Attack stacking Variables
-1	BONUS:VAR|SneakAttack|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+1	BONUS:VAR|SneakAttackDice|(CL+1)/2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 ###Block: Normal progression
 1	SAB:Assassination
 2	SAB:Weapon Mastery (+%/die Sneak Attack Bonus Damage)|AssassinWeaponSneakAttack																		DEFINE:AssassinWeaponSneakAttack|1	ADD:FEAT|TYPE=AssassinSpecialAbilities

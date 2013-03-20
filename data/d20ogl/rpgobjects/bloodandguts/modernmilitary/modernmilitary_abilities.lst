@@ -44,10 +44,10 @@ CATEGORY=Starting Occupation|Survival(class skill).MOD										TYPE:CombatEngin
 CATEGORY=Starting Occupation|Treat Injury(class skill).MOD										TYPE:NBCSkills.MedicalSkills
 
 #Copied from SRD to eliminate simplistic INCLUDE: tag causing errors - Fluxxdog
-Sneak Attack												CATEGORY:Special Ability	TYPE:SpecialAttack																								VISIBLE:NO	SAB:Sneak Attack %d%|SneakAttack|SneakAttackDie	DEFINE:SneakAttack|0	DEFINE:SneakAttackDie|6	DESC:%1d%2 damage any time your target would be denied a Dexterity bonus to AC or when you flank your target|SneakAttack|SneakAttackDie	SOURCEPAGE:srdbasiccharacterclassesii.rtf	ASPECT:Ability Benefit|%1d%2|SneakAttack|SneakAttackDie
+Sneak Attack												CATEGORY:Special Ability	TYPE:SpecialAttack																								VISIBLE:NO	SAB:Sneak Attack %d%|SneakAttackDice|SneakAttackDie	DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDie|6	DESC:%1d%2 damage any time your target would be denied a Dexterity bonus to AC or when you flank your target|SneakAttackDice|SneakAttackDie	SOURCEPAGE:srdbasiccharacterclassesii.rtf	ASPECT:Ability Benefit|%1d%2|SneakAttackDice|SneakAttackDie
 
 # Due to the Guerilla class having sneak attack as an OPTION, Sneak attack is giving itself
-# BONUS:VAR|SneakAttack|1 to resolve conflicts.
+# BONUS:VAR|SneakAttackDice|1 to resolve conflicts.
 ###Block: Sneak Attack Mod
 # Ability Name					Modify VAR
-CATEGORY=Special Ability|Sneak Attack.MOD	BONUS:VAR|SneakAttack|1
+CATEGORY=Special Ability|Sneak Attack.MOD	BONUS:VAR|SneakAttackDice|1

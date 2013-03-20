@@ -21,7 +21,7 @@ CLASS:Arcane Crossbowman	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Hide|Listen|Mov
 1																	AUTO:FEAT|Shield Proficiency
 ###Block: standard
 1	BONUS:VAR|EnhanceBolt|(CL+2)/3	ABILITY:Special Ability|AUTOMATIC|Enhance Bolt|Poison Use
-2	BONUS:VAR|SneakAttack|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+2	BONUS:VAR|SneakAttackDice|(CL+1)/3	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 3							ABILITY:Special Ability|AUTOMATIC|Imbue Bolt
 6	BONUS:VAR|SeekerBoltTimes|1		ABILITY:Special Ability|AUTOMATIC|Seeker Bolt
 9	BONUS:VAR|PhaseBoltTimes|1		ABILITY:Special Ability|AUTOMATIC|Phase Bolt

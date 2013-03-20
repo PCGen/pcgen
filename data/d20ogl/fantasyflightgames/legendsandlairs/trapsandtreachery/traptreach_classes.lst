@@ -17,7 +17,7 @@ CLASS:Discreet Companion	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disguise|Forgery
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
 CLASS:Guildmaster	HD:6		TYPE:PC.Prestige	ABB:fg2		MAXLEVEL:10	SOURCEPAGE:p.23-26	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL				Req. Att.	Required Feat						Required Skill											Var. Min. Value
-CLASS:Guildmaster	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:3	PREFEAT:2,Leadership,Skill Focus (Intimidate)	PRESKILL:5,Bluff=5,Disguise=4,Gather Information=10,Diplomacy=8,Intimidate=8	PREVARGTEQ:SneakAttack,1
+CLASS:Guildmaster	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:3	PREFEAT:2,Leadership,Skill Focus (Intimidate)	PRESKILL:5,Bluff=5,Disguise=4,Gather Information=10,Diplomacy=8,Intimidate=8	PREVARGTEQ:SneakAttackDice,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Guildmaster	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Innuendo|Intimidate|Intuit Direction|Listen|Move Silently|Open Lock|Perform|Pick Pocket|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Urban Lore|Use Rope
 ###Block: Proficiencies
@@ -27,7 +27,7 @@ CLASS:Guildmaster	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Dis
 1	SAB:Favor %|Favor	SAB:Guild Hall	BONUS:VAR|Favor|CL/5+1		DEFINE:Favor|0		ADD:CLASSSKILLS|2|TYPE=Knowledge
 2	SAB:Reputation +%|Reputation		BONUS:VAR|Reputation|CL/2	DEFINE:Reputation|0
 3	SAB:Respectable Citizen
-4							BONUS:VAR|SneakAttack|CL/4
+4							BONUS:VAR|SneakAttackDice|CL/4
 5	SAB:Just the Man for the Job.
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus												Combat bonus
@@ -62,7 +62,7 @@ CLASS:Trapmaster	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVE
 1	ABILITY:Special Ability|AUTOMATIC|Rogue Weapon Proficiencies
 1												AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Normal Level Progression
-1				SAB:Trapsmithing					BONUS:VAR|SneakAttack|(CL+2)/3					ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+1				SAB:Trapsmithing					BONUS:VAR|SneakAttackDice|(CL+2)/3					ABILITY:Special Ability|AUTOMATIC|Sneak Attack
 2				SAB:Trap Resistance +%|TrapResistance	BONUS:VAR|TrapResistance|CL/2		DEFINE:TrapResistance|0
 3	CAST:0,0		SAB:Trap Sense
 4	CAST:0,1

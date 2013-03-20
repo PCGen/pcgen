@@ -168,13 +168,13 @@ CLASS:Tunnel-Fighter	PREATT:5	PREFEAT:3,Alertness,Improved Initiative,Point Blan
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Tunnel-Fighter	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Hide|Intimidate|Innuendo|Intuit Direction|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Read Lips|Search|Sense Motive|Spot|Swim|Tumble|Use Rope
 1						ABILITY:Special Ability|AUTOMATIC|Ambush Expert|Quick and Quiet
-2	BONUS:VAR|SneakAttack|1		ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Uncanny Dodge
+2	BONUS:VAR|SneakAttackDice|1		ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Uncanny Dodge
 3	BONUS:VAR|TunnelFightWall|3	ABILITY:Special Ability|AUTOMATIC|Tunnel Fighting
-4	BONUS:VAR|SneakAttack|1
+4	BONUS:VAR|SneakAttackDice|1
 5	BONUS:VAR|UncannyDodge|1
-6	BONUS:VAR|SneakAttack|1
+6	BONUS:VAR|SneakAttackDice|1
 7	BONUS:VAR|TunnelFightWall|-1
-8	BONUS:VAR|SneakAttack|1
+8	BONUS:VAR|SneakAttackDice|1
 10	BONUS:VAR|TunnelFightWall|-1
 
 

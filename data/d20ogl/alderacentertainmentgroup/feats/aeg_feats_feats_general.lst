@@ -456,7 +456,7 @@ Quick Load		TYPE:General.Fighter	PREATT:1										PRESTAT:1,DEX=13													
 # COMMENT: Should I Make A Exotic - Firearms And Reniasance Weapon Pro?
 Quick Reload	TYPE:General.Fighter			PREFEAT:2,Combat Reflexes,Exotic Weapon Proficiency				PRETEXT:Exotic Weapon Proficiency (firearms)						DESC:You skill with a firearm extends to reloading it a fast and accurate manner.								SOURCEPAGE:p.65
 Quick Shot		TYPE:General.Fighter	PREATT:1										PRESTAT:1,DEX=13														DESC:Though inaccurate, you can fire a light crossbow without fully loading the weapon.							SOURCEPAGE:p.65
-Quick Strike	TYPE:General.Fighter	PREATT:5																					PREVARGTEQ:SneakAttackDie,2.	DESC:Your speed with a blade is unparalleled allowing you to strike quickly and effectively.						SOURCEPAGE:p.65
+Quick Strike	TYPE:General.Fighter	PREATT:5																					PREVARGTEQ:SneakAttackDie,2	DESC:Your speed with a blade is unparalleled allowing you to strike quickly and effectively.						SOURCEPAGE:p.65
 Quickening		TYPE:General				PREFEAT:2,Improved Initiative,Lightning Reflexes	PRESTAT:1,DEX=13														DESC:You move faster than lightning.										BONUS:COMBAT|INITIATIVE|2	SOURCEPAGE:p.66
 
 ###Block: R

@@ -241,7 +241,7 @@ CLASS:Robber Baron	HD:8		TYPE:Base.PC	ABB:RBr		MAXLEVEL:20	SOURCEPAGE:29	VFEAT:L
 CLASS:Robber Baron	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Disguise|Forgery|Gather Information|Handle Animal|Hide|Intimidate|Jump|Knowledge (Nobility and Royalty)|Listen|Move Silently|TYPE=Profession|Ride|Sleight of Hand
 1																										VFEAT:Improved Feint	AUTO:ARMORPROF|ARMORTYPE=Heavy|ARMORTYPE=Light|ARMORTYPE=Medium						AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|TYPE=SIMPLE|TYPE=Martial
 2																					ADD:FEAT|Mounted Combat
-3	SAB:Sneak Attack +%d6|SneakAttack	BONUS:VAR|SneakAttack|CL/3	BONUS:VAR|KnightLevel|CL-2																									AUTO:FEAT|Knight's Warhorse
+3	SAB:Sneak Attack +%d6|SneakAttackDice	BONUS:VAR|SneakAttackDice|CL/3	BONUS:VAR|KnightLevel|CL-2																									AUTO:FEAT|Knight's Warhorse
 4																					ADD:FEAT|TYPE=RobberBaron
 5							BONUS:VAR|MountedCombat|CL/5						DEFINE:MountedCombat|0
 8																					ADD:FEAT|TYPE=RobberBaron

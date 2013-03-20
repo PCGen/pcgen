@@ -381,7 +381,7 @@ CLASS:Myrmidon	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Examine Martial Technique
 # Class Name		Product Identity?	Hit Dice	Abbreviation	Max Level	Source, Long Desc.				Source Page		Save checks bonus												Combat bonus
 CLASS:Obsidian Sniper	NAMEISPI:YES	HD:6		ABB:ObSnp		MAXLEVEL:10	SOURCELONG:Player's Guide to Arcanis	SOURCEPAGE:201	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Feat							Required Skill					Var. Min. Value
-CLASS:Obsidian Sniper	PREFEAT:3,Far Shot,Point Blank Shot,Precise Shot	PRESKILL:3,Hide,Move Silently,Spot=8	PREVARGTEQ:SneakAttack,2
+CLASS:Obsidian Sniper	PREFEAT:3,Far Shot,Point Blank Shot,Precise Shot	PRESKILL:3,Hide,Move Silently,Spot=8	PREVARGTEQ:SneakAttackDice,2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Obsidian Sniper	STARTSKILLPTS:4	CSKILL:Balance|Black Market|Bluff|Climb|TYPE.Craft|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|TYPE.Perform|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1														ABILITY:Special Ability|VIRTUAL|Deadly Accuracy|Ranged Sneak Attack
@@ -574,7 +574,7 @@ CLASS:Talon of the Hawk	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	ABB:TotHk		MAXLEVEL:
 CLASS:Talon of the Hawk	PREABILITY:1,CATEGORY=Special Ability,Favored Enemy (Ymandrakes)	PREATT:5	PREFEAT:2,Spell Penetration,Improved Counterspell	PRESKILL:1,Concentration=8	PRESKILL:2,TYPE.Arcana,Spellcraft=5	PRESKILL:1,Survival=4	PRETEMPLATE:1,Hawk
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Talon of the Hawk	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE.Craft|Diplomacy|Examine Martial Technique|Gather Information|Hide|Intimidate|Jump|TYPE.Arcana|TYPE.History|Listen|Move Silently|TYPE.Profession|Ride|Sense Motive|Survival|Spot|Swim|Tumble|Use Magic Device
-1			BONUS:VAR|SneakAttack|1+(CL>=2)+(CL>=5)+(CL>=10)	BONUS:VAR|DispelFocus|2+(2*(CL>=8))	DEFINE:DispelFocus|0					ABILITY:Special Ability|VIRTUAL|Dispel Focus	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|Sneak Attack	AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Shield Proficiency
+1			BONUS:VAR|SneakAttackDice|1+(CL>=2)+(CL>=5)+(CL>=10)	BONUS:VAR|DispelFocus|2+(2*(CL>=8))	DEFINE:DispelFocus|0					ABILITY:Special Ability|VIRTUAL|Dispel Focus	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|Sneak Attack	AUTO:FEAT|Simple Weapon Proficiency|Armor Proficiency (Light)|Shield Proficiency
 1:REPEATLEVEL:1																				ADD:SPELLCASTER|Arcane
 1:REPEATLEVEL:8	BONUS:VAR|DispelFocus|2
 2																																																AUTO:FEAT|Armored Caster
