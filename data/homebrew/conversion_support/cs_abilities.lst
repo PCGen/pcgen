@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 # Original Entry By: Andrew Maitland (LegacyKing)
 # Original Entry Date: 11-2012
 
@@ -5,16 +6,17 @@
 ###Block: All Old Conversion vars to port forward for Homebrews and older sets
 
 # Companion Support - 3e, 3.5e, PF gamemodes all use this:
-CATEGORY=Internal|Default.MOD	BONUS:VAR|SpecialMountLVL|SMLevel			DEFINE:SMLevel|0
-CATEGORY=Internal|Default.MOD	BONUS:VAR|AnimalCompanionLVL|CompLevel		DEFINE:CompLevel|0
-CATEGORY=Internal|Default.MOD	BONUS:VAR|FamiliarLVL|FMLevel				DEFINE:FMLevel|0
-CATEGORY=Internal|Default.MOD	BONUS:VAR|ShadowCompanionLVL|ShadowCompanion	DEFINE:ShadowCompanion|0
-CATEGORY=Internal|Default.MOD	BONUS:VAR|FiendishServantLVL|FSLevel		DEFINE:FSLevel|0
-CATEGORY=Internal|Default.MOD	BONUS:VAR|PsiCrystalLVL|PCrystalLevel		DEFINE:PCrystalLevel|0
-CATEGORY=Internal|Default.MOD	BONUS:VAR|EidolonLVL|EidolonLevel			DEFINE:EidolonLevel|0
+# Ability Name			Define				Modify VAR
+CATEGORY=Internal|Default.MOD	DEFINE:SMLevel|0			BONUS:VAR|SpecialMountLVL|SMLevel
+CATEGORY=Internal|Default.MOD	DEFINE:CompLevel|0		BONUS:VAR|AnimalCompanionLVL|CompLevel
+CATEGORY=Internal|Default.MOD	DEFINE:FMLevel|0			BONUS:VAR|FamiliarLVL|FMLevel
+CATEGORY=Internal|Default.MOD	DEFINE:ShadowCompanion|0	BONUS:VAR|ShadowCompanionLVL|ShadowCompanion
+CATEGORY=Internal|Default.MOD	DEFINE:FSLevel|0			BONUS:VAR|FiendishServantLVL|FSLevel
+CATEGORY=Internal|Default.MOD	DEFINE:PCrystalLevel|0		BONUS:VAR|PsiCrystalLVL|PCrystalLevel
+CATEGORY=Internal|Default.MOD	DEFINE:EidolonLevel|0		BONUS:VAR|EidolonLVL|EidolonLevel
 # Rogue
-CATEGORY=Internal|Default.MOD	BONUS:VAR|SneakAttackDice|SneakAttack		DEFINE:SneakAttack|0
-CATEGORY=Internal|Default.MOD	BONUS:VAR|SneakAttackDieSize|SneakAttackDie	DEFINE:SneakAttackDie|0
+CATEGORY=Internal|Default.MOD	DEFINE:SneakAttack|0		BONUS:VAR|SneakAttackDice|SneakAttack
+CATEGORY=Internal|Default.MOD	DEFINE:SneakAttackDie|0		BONUS:VAR|SneakAttackDieSize|SneakAttackDie
 
 #CATEGORY=Internal|Default.MOD	BONUS:VAR|
 #CATEGORY=Internal|Default.MOD	BONUS:VAR|
@@ -28,4 +30,4 @@ CATEGORY=Internal|Default.MOD	BONUS:VAR|SneakAttackDieSize|SneakAttackDie	DEFINE
 #CATEGORY=Internal|Default.MOD	BONUS:VAR|TurnCheckUndead
 
 # Pathfinder Cavalier Update
-CATEGORY=Internal|Default.MOD	BONUS:VAR|CavalierMountLVL|CavalierLevel		DEFINE:CavalierLevel|0
+CATEGORY=Internal|Default.MOD	DEFINE:CavalierLevel|0		BONUS:VAR|CavalierMountLVL|CavalierLevel
