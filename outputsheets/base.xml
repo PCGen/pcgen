@@ -1425,8 +1425,6 @@ Immune
 |ENDFOR|
 	</checklists>
 
-IIF(ABILITY.Special Ability.%subability.ASPECT.ChildAbility:ABILITYAUTO.Special Ability.%ability.ASPECT.MasterAbility)
-This could occur inside a double loop, and would be true if the value of the ChildAbility ASPECT of the ability represented by %subability is equal to the value of the MasterAbility ASPECT of the ability represented by %ability.
 	<!-- Proficiency lists -->
 	<proficiency_specials>
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=ProfOutput")==0)|
