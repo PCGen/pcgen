@@ -406,7 +406,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 ###Block:
 1	ABILITY:Class Ability|AUTOMATIC|Cantrips ~ Sorcerer
 ###Block:
-1	VFEAT:Eschew Materials
+1	ABILITY:Special Ability|AUTOMATIC|Eschew Materials ~ Sorcerer|!PREABILITY:1,CATEGORY=Archetype,TYPE.SorcererEschewMaterials
 ###Block: Level progression
 1	CAST:0,3				KNOWN:4,2
 2	CAST:0,4				KNOWN:5,2
