@@ -139,6 +139,13 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		{
 			List<String> tokens = track.getListFor(ref, uri);
 			Set<String> tokenNames = new TreeSet<String>();
+			for (String tok : tokens)
+			{
+				if (tok != null)
+				{
+					tokenNames.add(tok);
+				}
+			}
 			tokenNames.addAll(tokens);
 			Logging.errorPrint("  Was used in " + uri + " in tokens: "
 					+ tokenNames);
