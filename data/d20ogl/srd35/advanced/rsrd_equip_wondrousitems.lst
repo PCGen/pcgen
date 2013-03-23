@@ -11,6 +11,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Lens of Detection - is the SPROP:+5 to Survival while Tracking supposed to be detailed in this file ?
 # Mantle of Faith: Did DR:5/evil - do we need to check for previous DR ?
 # Necklace of fireballs: no weight given, different from 3.0
+# Sovereign Glue (Flask) weight put at 2: 8 oz. contained plus 1.5 for a Flask (Empty)
 # Unguent of Timelessness TYPE:Magic.Wondrous.Vial - Vial correct ?
 
 # Changed/added Output Names to match table names in Magic Items V (Wondrous Items)
@@ -321,6 +322,7 @@ Shrouds of Disintegration										TYPE:Magic.Wondrous.Consumable	COST:6600	WT:1
 Silversheen													TYPE:Magic.Wondrous.Vial.Consumable	COST:250	WT:0										SOURCEPAGE:MagicItemsV.rtf
 Slippers of Spider Climbing										TYPE:Magic.Wondrous.Boot		COST:4800	WT:0.5	SLOTS:2							SOURCEPAGE:MagicItemsV.rtf
 Sovereign Glue												TYPE:Magic.Wondrous.Vial.Consumable	COST:2400	WT:0										SOURCEPAGE:MagicItemsV.rtf
+Sovereign Glue (Flask)											TYPE:Magic.Wondrous.Flask		COST:16800	WT:2				EQMOD:CHARGED_ITEM_7|CHARGES[7]	SOURCEPAGE:MagicItemsV.rtf
 Stone of Alarm												TYPE:Magic.Wondrous			COST:2700	WT:2										SOURCEPAGE:MagicItemsV.rtf
 Stone of Controlling Earth Elementals								TYPE:Magic.Wondrous			COST:100000	WT:5										SOURCEPAGE:MagicItemsV.rtf
 Stone of Good Luck (Luckstone)									TYPE:Magic.Wondrous			COST:20000	WT:0										SOURCEPAGE:MagicItemsV.rtf												BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Luck	BONUS:SKILL|TYPE.Strength,TYPE.Dexterity,TYPE.Constitution,TYPE.Intelligence,TYPE.Wisdom,TYPE.Charisma|1|TYPE=Luck	BONUS:VAR|TurnCheckBase|1|TYPE=Luck	SPROP:+1 Luck bonus to ability checks
