@@ -42,8 +42,8 @@ Ring of Weaponbreaking															TYPE:Magic.Epic.Ring	COST:600000		WT:0		SOU
 Ring (Epic Psionics V)		OUTPUTNAME:Ring of [NAME]	TYPE:Psionic.Epic.Ring	COST:250000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:VAR|BasePowerPoints|43
 Ring (Epic Psionics VI)		OUTPUTNAME:Ring of [NAME]	TYPE:Psionic.Epic.Ring	COST:360000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:VAR|BasePowerPoints|63
 Ring (Epic Psionics VII)	OUTPUTNAME:Ring of [NAME]	TYPE:Psionic.Epic.Ring	COST:490000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:VAR|BasePowerPoints|87
-Ring (Epic Psionics IX)		OUTPUTNAME:Ring of [NAME]	TYPE:Psionic.Epic.Ring	COST:640000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:VAR|BasePowerPoints|115
-Ring (Epic Psionics X)		OUTPUTNAME:Ring of [NAME]	TYPE:Psionic.Epic.Ring	COST:810000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:VAR|BasePowerPoints|147
+Ring (Epic Psionics VIII)	OUTPUTNAME:Ring of [NAME]	TYPE:Psionic.Epic.Ring	COST:640000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:VAR|BasePowerPoints|115
+Ring (Epic Psionics IX)		OUTPUTNAME:Ring of [NAME]	TYPE:Psionic.Epic.Ring	COST:810000	WT:0		SOURCEPAGE:epicMagicItemsOther.rtf	BONUS:VAR|BasePowerPoints|147
 
 
 ###Block:Rods
