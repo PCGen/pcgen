@@ -301,6 +301,10 @@ Malediction									CLASSES:Sorcerer,Witch,Wizard=3		SCHOOL:Necromancy		DESCRIPT
 Severed Fate								CLASSES:Witch=2|Cleric=3			SCHOOL:Enchantment					COMPS:V, S		CASTTIME:1 standard action	RANGE:Close	ITEM:Potion	TARGETAREA:One living creature									DURATION:(CASTERLEVEL*10) minutes						SAVEINFO:Will negates			SPELLRES:Yes	DESC:Target is shaken and cannot use hero points.																			SOURCEPAGE:p.324
 Unravel Destiny								CLASSES:Cleric,Sorcerer,Witch,Wizard=3	SCHOOL:Divination						COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Close	ITEM:Potion	TARGETAREA:One creature											DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates			SPELLRES:Yes	DESC:Target gets -2 on ability checks, attack rolls, saving throws, and skill check per hero point it possesses and takes 2d6 damage when spending hero points.	SOURCEPAGE:p.325
 
+###Block: Temp Mods
+Strong Jaw.MOD	BONUS:COMBAT|DAMAGESIZE|2|TYPE=Temporary|PREAPPLY:Natural;Unarmed
+
+
 ###Block: Potion Spells
 #Absorbing Touch.MOD	ITEM:Potion
 #Accelerate Poison.MOD	ITEM:Potion
