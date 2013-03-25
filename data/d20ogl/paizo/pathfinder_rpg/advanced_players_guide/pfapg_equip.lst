@@ -105,12 +105,13 @@ Snowshoes								TYPE:Goods.Clothing.Resizable	COST:5	WT:4		SOURCEPAGE:p.182
 ###Block:Animal-Related Gear
 # Equipment Name			Type						Cost		Weight	Source Page
 Animal Harness			TYPE:Goods.Animal				COST:2	WT:2		SOURCEPAGE:p.182
-Cage (Diminutive or Fine)	TYPE:Goods.Animal				COST:10	WT:2		SOURCEPAGE:p.182
-Cage (Huge)				TYPE:Goods.Animal				COST:60	WT:960	SOURCEPAGE:p.182
-Cage (Large)			TYPE:Goods.Animal				COST:30	WT:240	SOURCEPAGE:p.182
-Cage (Small or Medium)		TYPE:Goods.Animal				COST:15	WT:60		SOURCEPAGE:p.182
-Cage (Tiny)				TYPE:Goods.Animal				COST:2	WT:5		SOURCEPAGE:p.182
+Cage (Diminutive or Fine)	TYPE:Goods.Animal.Container		COST:10	WT:2		SOURCEPAGE:p.182	CONTAINS:1|Animal=1
+Cage (Huge)				TYPE:Goods.Animal.Container		COST:60	WT:960	SOURCEPAGE:p.182	CONTAINS:1|Animal=1
+Cage (Large)			TYPE:Goods.Animal.Container		COST:30	WT:240	SOURCEPAGE:p.182	CONTAINS:1|Animal=1
+Cage (Small or Medium)		TYPE:Goods.Animal.Container		COST:15	WT:60		SOURCEPAGE:p.182	CONTAINS:1|Animal=1
+Cage (Tiny)				TYPE:Goods.Animal.Container		COST:2	WT:5		SOURCEPAGE:p.182	CONTAINS:1|Animal=1
 Dog Sled				TYPE:Goods.Transportation.Animal	COST:20	WT:300	SOURCEPAGE:p.182
+
 
 ###Block:Entertainment Items
 # Equipment Name		Output Name					Type					Cost		Weight	Source Page
