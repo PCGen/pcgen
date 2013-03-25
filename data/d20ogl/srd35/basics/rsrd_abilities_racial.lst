@@ -89,7 +89,7 @@ CATEGORY=Internal|Dwarf Racial Trait Default.MOD	ABILITY:Dwarf Racial Trait|AUTO
 CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSleepImmunity
 CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Notice Secret Doors|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfNoticeSecretDoors
 CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf Perception|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfPerception
-CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialVision
+CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Low-Light Vision ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialVision
 CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Elf Weapon Proficiency|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponProficiency
 
 CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMATIC|Racial Traits ~ Elf
@@ -98,7 +98,7 @@ CATEGORY=Internal|Elf Racial Trait Default.MOD		ABILITY:Elf Racial Trait|AUTOMAT
 CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Save Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSaveBonus
 CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Attacks|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeAttacks
 #CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Speak with Animals|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSpeakWithAnimals
-CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialVision
+CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Low-Light Vision ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialVision
 CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Racial Traits ~ Gnome
 CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Weapon Familiarity ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeWeaponFamiliarity
 CATEGORY=Internal|Gnome Racial Trait Default.MOD	ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Illusion DC|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeIllusionDC
