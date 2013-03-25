@@ -239,7 +239,9 @@ Charges (30)	KEY:CHARGED_ITEM_30	COST:((BASECOST/30)*%CHARGES)-BASECOST	VISIBLE:
 Charges (40)	KEY:CHARGED_ITEM_40	COST:((BASECOST/40)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|40
 Charges (50)	KEY:CHARGED_ITEM_50	COST:((BASECOST/50)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|50
 
-# Specific versions - 4 is for Bracelet of Friends, 6 is for Talisman artifacts, 7 is for Sovereign Glue (Flask), 9 is for the Nine Lives Stealer, 12 is for Scarab of Protection, 34 is for Deck of Illusions, 36 is for Cube of Force, 101 is for Brooch of Shielding
+# Specific versions 1 and 2 are for the Luck Blade - 4 is for Bracelet of Friends, 6 is for Talisman artifacts, 7 is for Sovereign Glue (Flask), 9 is for the Nine Lives Stealer, 12 is for Scarab of Protection, 34 is for Deck of Illusions, 36 is for Cube of Force, 101 is for Brooch of Shielding
+Charges (1)		KEY:CHARGED_ITEM_1	COST:((BASECOST/1)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|1
+Charges (2)		KEY:CHARGED_ITEM_2	COST:((BASECOST/2)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|2
 Charges (4)		KEY:CHARGED_ITEM_4	COST:((BASECOST/4)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|4
 Charges (6)		KEY:CHARGED_ITEM_6	COST:((BASECOST/6)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|6
 Charges (7)		KEY:CHARGED_ITEM_7	COST:((BASECOST/7)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|7
