@@ -40,6 +40,7 @@ Ring (Friend Shield)					OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	CO
 Ring (Friend Shield/1 of 2)				OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:25000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
 Ring (Invisibility)					OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:20000	WT:0								SOURCEPAGE:MagicItemsIII.rtf								SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=3|Invisibility
 Ring (Jumping)						OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:2500	WT:0								SOURCEPAGE:MagicItemsIII.rtf																									BONUS:SKILL|Jump|5|TYPE=Competence
+Ring of Jumping (Improved)				OUTPUTNAME:Ring of Jumping, [NAME]											TYPE:Magic.Ring	COST:10000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																									BONUS:SKILL|Jump|10|TYPE=Competence
 Ring (Meld into Stone)					OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:27000	WT:0								SOURCEPAGE:MagicItemsIII.rtf								SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=5|Meld into Stone
 Ring (Mind Shielding)					OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:8000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
 Ring (Protection +1)					OUTPUTNAME:Ring of [NAME]						SORTKEY:Ring of Protection +01	TYPE:Magic.Ring	COST:2000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																			BONUS:COMBAT|AC|1|TYPE=Deflection

@@ -28,7 +28,7 @@ GEAR:Ring (Protection +2)		OPTION:9,18
 GEAR:Ring (Force Shield)		OPTION:19,23
 GEAR:Ring (Ram)				OPTION:24,28
 GEAR:Ring of Climbing (Improved)	OPTION:29,34
-# Missing GEAR:Ring of Jumping (Improved)					OPTION:35,40
+GEAR:Ring of Jumping (Improved)	OPTION:35,40
 GEAR:Ring (Swimming/Improved)		OPTION:41,46
 GEAR:Ring of Animal Friendship	OPTION:47,51
 KIT:Ring (Energy Resistance/Minor)	OPTION:50,56
