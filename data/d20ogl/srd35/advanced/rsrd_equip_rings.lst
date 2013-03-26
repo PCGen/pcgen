@@ -34,7 +34,7 @@ Ring (Energy Resistance/Fire/Greater)		OUTPUTNAME:Greater Ring of Energy Resista
 Ring (Energy Resistance/Sonic/Greater)		OUTPUTNAME:Greater Ring of Energy Resistance (Sonic)								TYPE:Magic.Ring	COST:44000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																																							SPROP:Absorbs 30 points of Sonic damage
 Ring (Evasion)						OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:25000	WT:0								SOURCEPAGE:MagicItemsIII.rtf	ABILITY:Special Ability|VIRTUAL|Evasion
 Ring (Feather Falling)					OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:2200	WT:0								SOURCEPAGE:MagicItemsIII.rtf								SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=1|Feather Fall
-Ring (Force Shield)					OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:8500	WT:0								SOURCEPAGE:MagicItemsIII.rtf																			BONUS:COMBAT|AC|2
+Ring (Force Shield)					OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:8500	WT:0								SOURCEPAGE:MagicItemsIII.rtf																			BONUS:COMBAT|AC|2|TYPE=Shield
 Ring (Freedom of Movement)				OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:40000	WT:0								SOURCEPAGE:MagicItemsIII.rtf								SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=7|Freedom of Movement
 Ring (Friend Shield)					OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:50000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
 Ring (Friend Shield/1 of 2)				OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:25000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
