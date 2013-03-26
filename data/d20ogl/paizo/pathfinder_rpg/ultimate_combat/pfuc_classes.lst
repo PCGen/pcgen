@@ -13,13 +13,14 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency|Exotic Weapon Proficiency (Firearms)	AUTO:WEAPONPROF|TYPE.Firearm
 1																	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Vars and Pools
-4	BONUS:ABILITYPOOL|Gunslinger Feat|CL/4
-5								BONUS:VAR|GunTrainingSelection|(CL-1)/4
+4	BONUS:VAR|GunslingerBonusFeatCount|CL/4
+5	BONUS:VAR|GunTrainingSelection|(CL-1)/4
 ###Block: Level progression
 1	ABILITY:Class Ability|AUTOMATIC|Gunsmith ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunsmith
 1	ABILITY:Class Ability|AUTOMATIC|Deeds ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeeds
 1	ABILITY:Class Ability|AUTOMATIC|Grit ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGrit
 2	ABILITY:Class Ability|AUTOMATIC|Nimble ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerNimble
+4	ABILITY:Class Ability|AUTOMATIC|Bonus Feats ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerBonusFeat
 5	ABILITY:Class Ability|AUTOMATIC|Gun Training ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining
 20	ABILITY:Class Ability|AUTOMATIC|True Grit ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerTrueGrit
 
