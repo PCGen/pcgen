@@ -1208,7 +1208,7 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
-			<name>Immunity to sleep spells and similar magical effects. </name>
+			<name>Immunity to sleep spells and similar magical effects.</name>
 			<description>Immunity to magic sleep effects</description>
 			<type>HALFELFRACIALTRAIT.SPECIALQUALITY.IMMUNITY</type>
 			<associated></associated>
