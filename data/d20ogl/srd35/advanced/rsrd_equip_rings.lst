@@ -47,7 +47,7 @@ Ring (Protection +2)					OUTPUTNAME:Ring of [NAME]						SORTKEY:Ring of Protecti
 Ring (Protection +3)					OUTPUTNAME:Ring of [NAME]						SORTKEY:Ring of Protection +03	TYPE:Magic.Ring	COST:18000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																			BONUS:COMBAT|AC|3|TYPE=Deflection
 Ring (Protection +4)					OUTPUTNAME:Ring of [NAME]						SORTKEY:Ring of Protection +04	TYPE:Magic.Ring	COST:32000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																			BONUS:COMBAT|AC|4|TYPE=Deflection
 Ring (Protection +5)					OUTPUTNAME:Ring of [NAME]						SORTKEY:Ring of Protection +05	TYPE:Magic.Ring	COST:50000	WT:0								SOURCEPAGE:MagicItemsIII.rtf																			BONUS:COMBAT|AC|5|TYPE=Deflection
-Ring (Ram)							OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:8600	WT:0								SOURCEPAGE:MagicItemsIII.rtf
+Ring (Ram)							OUTPUTNAME:Ring of the [NAME]												TYPE:Magic.Ring	COST:8600	WT:0	EQMOD:CHARGED_ITEM_50|CHARGES[50]		SOURCEPAGE:MagicItemsIII.rtf
 Ring (Regeneration)					OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:90000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
 Ring (Shooting Stars)					OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:50000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
 Ring (Spell Storing/Minor)				OUTPUTNAME:Ring of [NAME]												TYPE:Magic.Ring	COST:18000	WT:0								SOURCEPAGE:MagicItemsIII.rtf
