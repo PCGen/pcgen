@@ -9,26 +9,29 @@ SOURCELONG:PCGen Open Gaming Content	SOURCESHORT:PCGen OGC	SOURCEWEB:../../../..
 # Possible Sheaf (Javelin) or Quiver (Missile)	TYPE:Goods.Container	CONTAINS:18|Total=12|Dart=12|Javelin=9|Shortspear=6	COST:0.1	WT:0.5
 
 ###Block: Weapon Accessories
-# Equipment Name	Type				Contains													Cost		Weight	Source Page
-Quiver		TYPE:Goods.Container	CONTAINS:3|Total=20|Arrow=20|Bolt=20|SpecificArrow=20|SpecificBolt=20|Dart=6		COST:0.1	WT:0.5	SOURCEPAGE:PCGen Docs - PCGen OGC
-Quiver (Small)	TYPE:Goods.Container	CONTAINS:1.5|Total=20|Arrow=20|Bolt=20|SpecificArrow=20|SpecificBolt=20|Dart=6	COST:0.1	WT:0.25	SOURCEPAGE:PCGen Docs - PCGen OGC
-Quiver (Large)	TYPE:Goods.Container	CONTAINS:6|Total=20|Arrow=20|Bolt=20|SpecificArrow=20|SpecificBolt=20|Dart=6		COST:0.2	WT:1		SOURCEPAGE:PCGen Docs - PCGen OGC
-Sheath		TYPE:Goods.Container	CONTAINS:UNLIM|Weapon=1											COST:0.1	WT:0.5	SOURCEPAGE:PCGen Docs - PCGen OGC
-Sheath (Small)	TYPE:Goods.Container	CONTAINS:UNLIM|Weapon=1											COST:0.1	WT:0.25	SOURCEPAGE:PCGen Docs - PCGen OGC
-Sheath (Large)	TYPE:Goods.Container	CONTAINS:UNLIM|Weapon=1											COST:0.2	WT:1		SOURCEPAGE:PCGen Docs - PCGen OGC
+# Equipment Name		Sort Key			Type				Contains													Cost		Weight	Source Page
+Quiver			SORTKEY:Quiver 01		TYPE:Goods.Container	CONTAINS:3|Total=20|Arrow=20|Bolt=30|SpecificArrow=20|SpecificBolt=30|Dart=6		COST:0.1	WT:0.5	SOURCEPAGE:PCGen Docs - PCGen OGC
+Quiver (Large)		SORTKEY:Quiver 02		TYPE:Goods.Container	CONTAINS:6|Total=20|Arrow=20|Bolt=30|SpecificArrow=20|SpecificBolt=30|Dart=6		COST:0.2	WT:1		SOURCEPAGE:PCGen Docs - PCGen OGC
+Quiver (Small)		SORTKEY:Quiver 03		TYPE:Goods.Container	CONTAINS:1.5|Total=20|Arrow=20|Bolt=30|SpecificArrow=20|SpecificBolt=30|Dart=6	COST:0.1	WT:0.25	SOURCEPAGE:PCGen Docs - PCGen OGC
+Quiver (Long)		SORTKEY:Quiver 04		TYPE:Goods.Container	CONTAINS:18|Total=9|Javelin=9|Shortspear=6							COST:0.1	WT:0.5	SOURCEPAGE:PCGen Docs - PCGen OGC
+Quiver (Long/Large)	SORTKEY:Quiver 05		TYPE:Goods.Container	CONTAINS:36|Total=9|Javelin=9|Shortspear=6							COST:0.2	WT:1		SOURCEPAGE:PCGen Docs - PCGen OGC
+Quiver (Long/Small)	SORTKEY:Quiver 06		TYPE:Goods.Container	CONTAINS:9|Total=9|Javelin=9|Shortspear=6								COST:0.1	WT:0.25	SOURCEPAGE:PCGen Docs - PCGen OGC
+Sheath							TYPE:Goods.Container	CONTAINS:UNLIM|Weapon=1											COST:0.1	WT:0.5	SOURCEPAGE:PCGen Docs - PCGen OGC
+Sheath (Large)						TYPE:Goods.Container	CONTAINS:UNLIM|Weapon=1											COST:0.2	WT:1		SOURCEPAGE:PCGen Docs - PCGen OGC
+Sheath (Small)						TYPE:Goods.Container	CONTAINS:UNLIM|Weapon=1											COST:0.1	WT:0.25	SOURCEPAGE:PCGen Docs - PCGen OGC
 
 ###Block: Armor Accessories
 
 # Equipment Name		Output Name					Type				Cost		Weight	Source Page
 Armor Padding								TYPE:Goods.Shirt		COST:5	WT:3		SOURCEPAGE:PCGen Docs - PCGen OGC
-Armor Padding (Small)							TYPE:Goods.Shirt		COST:5	WT:1.5	SOURCEPAGE:PCGen Docs - PCGen OGC
 Armor Padding (Large)							TYPE:Goods.Shirt		COST:10	WT:6		SOURCEPAGE:PCGen Docs - PCGen OGC
+Armor Padding (Small)							TYPE:Goods.Shirt		COST:5	WT:1.5	SOURCEPAGE:PCGen Docs - PCGen OGC
 Cap (Steel)			OUTPUTNAME:Steel Cap			TYPE:Goods.Headgear	COST:1	WT:2		SOURCEPAGE:PCGen Docs - PCGen OGC
-Cap (Steel/Small)		OUTPUTNAME:Steel Cap (Small)		TYPE:Goods.Headgear	COST:1	WT:1		SOURCEPAGE:PCGen Docs - PCGen OGC
 Cap (Steel/Large)		OUTPUTNAME:Steel Cap (Large)		TYPE:Goods.Headgear	COST:2	WT:4		SOURCEPAGE:PCGen Docs - PCGen OGC
+Cap (Steel/Small)		OUTPUTNAME:Steel Cap (Small)		TYPE:Goods.Headgear	COST:1	WT:1		SOURCEPAGE:PCGen Docs - PCGen OGC
 Helmet (Visored)		OUTPUTNAME:Visored Helmet		TYPE:Goods.Headgear	COST:5	WT:5		SOURCEPAGE:PCGen Docs - PCGen OGC
-Helmet (Visored/Small)	OUTPUTNAME:Visored Helmet (Small)	TYPE:Goods.Headgear	COST:5	WT:2.5	SOURCEPAGE:PCGen Docs - PCGen OGC
 Helmet (Visored/Large)	OUTPUTNAME:Visored Helmet (Large)	TYPE:Goods.Headgear	COST:10	WT:10		SOURCEPAGE:PCGen Docs - PCGen OGC
+Helmet (Visored/Small)	OUTPUTNAME:Visored Helmet (Small)	TYPE:Goods.Headgear	COST:5	WT:2.5	SOURCEPAGE:PCGen Docs - PCGen OGC
 
 ###Block: Wondrous Items
 
