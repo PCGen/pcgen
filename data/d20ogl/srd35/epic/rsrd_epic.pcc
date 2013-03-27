@@ -52,6 +52,9 @@ SPELL:rsrd_spells_epic.lst
 KIT:rsrd_kits_epic_races.lst
 KIT:rsrd_kits_epic_races_dragons.lst
 
+# Random Treasure Tables
+KIT:rsrd_kits_treasure_epic_equip.lst
+
 WEAPONPROF:rsrd_weaponprofs_epic.lst
 
 HIDETYPE:FEAT|EpicBarbarian|EpicBard|EpicCleric|EpicDruid|EpicFighter|EpicMonk|EpicPaladin|EpicRanger|EpicRogue|EpicSorcerer|EpicWizard
