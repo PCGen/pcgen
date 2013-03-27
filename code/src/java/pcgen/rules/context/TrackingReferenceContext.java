@@ -146,7 +146,6 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 					tokenNames.add(tok);
 				}
 			}
-			tokenNames.addAll(tokens);
 			Logging.errorPrint("  Was used in " + uri + " in tokens: "
 					+ tokenNames);
 		}
