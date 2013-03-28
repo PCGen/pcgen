@@ -18,7 +18,7 @@ Chest (Large)			OUTPUTNAME:Chest, Large				TYPE:Goods.General.Container			CONTAI
 Chest (Huge)			OUTPUTNAME:Chest, Huge				TYPE:Goods.General.Container			CONTAINS:UNLIM|Any	COST:25	WT:250	SOURCEPAGE:p.182
 Earplugs											TYPE:Goods.General								COST:0.03	WT:0		SOURCEPAGE:p.182
 Hourglass (1 hour)		OUTPUTNAME:Hourglass, 1 hour			TYPE:Goods.General								COST:25	WT:1		SOURCEPAGE:p.182
-Hourglass (1 minute)		OUTPUTNAME:Hourglass, 1 minite		TYPE:Goods.General								COST:20	WT:0.5	SOURCEPAGE:p.182
+Hourglass (1 minute)		OUTPUTNAME:Hourglass, 1 minute		TYPE:Goods.General								COST:20	WT:0.5	SOURCEPAGE:p.182
 Hourglass (6 seconds)		OUTPUTNAME:Hourglass, 6 seconds		TYPE:Goods.General								COST:10	WT:0		SOURCEPAGE:p.182
 Iron Spike											TYPE:Goods.General								COST:0.05	WT:1		SOURCEPAGE:p.182
 Magnet											TYPE:Goods.General								COST:0.5	WT:0.5	SOURCEPAGE:p.182
@@ -29,8 +29,8 @@ Periscope											TYPE:Goods.General								COST:20	WT:4		SOURCEPAGE:p.182
 Ring (Poison Pill)		OUTPUTNAME:Ring, Poison Pill			TYPE:Goods.General								COST:20	WT:0		SOURCEPAGE:p.182
 Powder											TYPE:Goods.General								COST:0.01	WT:0.5	SOURCEPAGE:p.182
 Rice Paper (Sheet)		OUTPUTNAME:Rice Paper, Sheet			TYPE:Goods.General								COST:0.05	WT:0		SOURCEPAGE:p.182
-Rope (Spider Silk/50 ft.)	OUTPUTNAME:Rope, SPider Silk (50 ft.)	TYPE:Goods.General								COST:100	WT:4		SOURCEPAGE:p.182
-Scroll Case											TYPE:Goods.General								COST:1	WT:0.5	SOURCEPAGE:p.182
+Rope (Spider Silk/50 ft.)	OUTPUTNAME:Rope, Spider Silk (50 ft.)	TYPE:Goods.General								COST:100	WT:4		SOURCEPAGE:p.182
+Scroll Case											TYPE:Goods.General.Container		CONTAINS:UNLIM|Scroll=10	COST:1	WT:0.5	SOURCEPAGE:p.182	SPROP:A leather or wooden scroll case easily holds four scrolls; you can cram more inside, but retrieving any of them becomes a full-round action rather than a move action.
 Signal Horn											TYPE:Goods.General								COST:1	WT:2		SOURCEPAGE:p.182
 Smoked Goggles										TYPE:Goods.General								COST:10	WT:0		SOURCEPAGE:p.182
 String (50 ft.)										TYPE:Goods.General								COST:0.01	WT:0.5	SOURCEPAGE:p.182
@@ -111,7 +111,6 @@ Cage (Large)			TYPE:Goods.Animal.Container		COST:30	WT:240	SOURCEPAGE:p.182	CONT
 Cage (Small or Medium)		TYPE:Goods.Animal.Container		COST:15	WT:60		SOURCEPAGE:p.182	CONTAINS:1|Animal=1
 Cage (Tiny)				TYPE:Goods.Animal.Container		COST:2	WT:5		SOURCEPAGE:p.182	CONTAINS:1|Animal=1
 Dog Sled				TYPE:Goods.Transportation.Animal	COST:20	WT:300	SOURCEPAGE:p.182
-
 
 ###Block:Entertainment Items
 # Equipment Name		Output Name					Type					Cost		Weight	Source Page
