@@ -5632,12 +5632,12 @@
 						<fo:table-cell padding-top="1pt">
 							<fo:block font-size="7pt">QTY</fo:block>
 						</fo:table-cell>
-						<fo:table-cell padding-top="1pt">
-							<fo:block font-size="7pt">WT</fo:block>
+						<fo:table-cell padding-top="1pt"  number-columns-spanned="2">
+							<fo:block font-size="7pt">WT / COST</fo:block>
 						</fo:table-cell>
-						<fo:table-cell padding-top="1pt">
-							<fo:block font-size="7pt">COST</fo:block>
-						</fo:table-cell>
+<!-->						<fo:table-cell padding-top="1pt">
+							<fo:block font-size="7pt"></fo:block>
+						</fo:table-cell>	-->
 					</fo:table-row>
 				</fo:table-header>
 				<fo:table-footer>
@@ -5645,7 +5645,7 @@
 						<xsl:call-template name="attrib">
 							<xsl:with-param name="attribute" select="'equipment.title'"/>
 						</xsl:call-template>
-						<fo:table-cell padding-top="1pt" number-columns-spanned="3">
+						<fo:table-cell padding-top="1pt">
 							<fo:block font-size="7pt">TOTAL WEIGHT CARRIED/VALUE</fo:block>
 						</fo:table-cell>
 						<fo:table-cell padding-top="1pt">
@@ -5653,15 +5653,15 @@
 								<xsl:value-of select="total/weight"/>
 							</fo:block>
 						</fo:table-cell>
-						<fo:table-cell padding-top="1pt">
+						<fo:table-cell padding-top="1pt" number-columns-spanned="2">
 							<fo:block font-size="7pt">
-								/ <xsl:variable name="TotalValue">
+								<xsl:variable name="TotalValue">
 									<xsl:call-template name="Total">
 										<xsl:with-param name="Items" select="item[contains(type, 'COIN')=false and contains(type, 'GEM')=false]"/>
 										<xsl:with-param name="RunningTotal" select="0"/>
 									</xsl:call-template>
 								</xsl:variable>
-								<xsl:value-of select="format-number($TotalValue, '##,##0.#')"/> gp
+								<xsl:value-of select="format-number($TotalValue, '##,##0.#')"/>gp
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
@@ -5684,13 +5684,13 @@
 									</xsl:if>
 									<xsl:value-of select="name"/>
 								</fo:block>
-								<fo:block space-before.optimum="1pt" font-size="5pt">
+			<!-->					<fo:block space-before.optimum="1pt" font-size="5pt">
 									<xsl:value-of select="contents"/>
-								</fo:block>
-								<fo:block space-before.optimum="1pt" font-size="5pt">
+								</fo:block>	-->
+			<!-->					<fo:block space-before.optimum="1pt" font-size="5pt">
 									<xsl:value-of select="special_properties"/>
 									<xsl:value-of select="quality"/>
-								</fo:block>
+								</fo:block>	-->
 								<fo:block space-before.optimum="1pt" font-size="5pt">
 									<xsl:value-of select="note"/>
 								</fo:block>
@@ -5703,7 +5703,21 @@
 									</fo:block>
 								</xsl:if>
 								<!-- Display the ammunition as a series of checkboxes -->
-								<xsl:if test="contains(type, 'POTION') or contains(type, 'AMMUNITION') or contains(type, 'CONSUMABLE')">
+						<!-->		<xsl:if test="contains(type, 'POTION') and quantity &gt; 1">
+									<fo:block font-size="7pt" font-family="ZapfDingbats">
+										<xsl:call-template name="for.loop">
+Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>	-->
+								<xsl:if test="contains(type, 'AMMUNITION') and quantity &gt; 1">
+									<fo:block font-size="7pt" font-family="ZapfDingbats">
+										<xsl:call-template name="for.loop">
+											<xsl:with-param name="count" select="checkbox"/>
+										</xsl:call-template>
+									</fo:block>
+								</xsl:if>
+								<xsl:if test="contains(type, 'CONSUMABLE') and quantity &gt; 1">
 									<fo:block font-size="7pt" font-family="ZapfDingbats">
 										<xsl:call-template name="for.loop">
 											<xsl:with-param name="count" select="checkbox"/>
@@ -5721,20 +5735,36 @@
 									<xsl:value-of select="quantity"/>
 								</fo:block>
 							</fo:table-cell>
-							<fo:table-cell>
+							<fo:table-cell  number-columns-spanned="2">
 								<fo:block text-align="center" space-before.optimum="1pt" font-size="7pt">
 									<xsl:value-of select="format-number(weight, '##,##0.#')"/>
 									<xsl:if test="quantity &gt; 1">
 										(<xsl:value-of select="format-number(weight * quantity, '##,##0.#')"/>)
 									</xsl:if>
+									<xsl:text> / </xsl:text>
+									<xsl:value-of select="format-number(cost, '##,##0.#')"/>
+									<xsl:if test="quantity &gt; 1">
+										(<xsl:value-of select="format-number(cost * quantity, '##,##0.#')"/>)
+									</xsl:if>
 								</fo:block>
 							</fo:table-cell>
-							<fo:table-cell>
+<!-->							<fo:table-cell>
 								<fo:block text-align="center" space-before.optimum="1pt" font-size="7pt">
 									<xsl:value-of select="format-number(cost, '##,##0.#')"/>
 									<xsl:if test="quantity &gt; 1">
 										(<xsl:value-of select="format-number(cost * quantity, '##,##0.#')"/>)
 									</xsl:if>
+								</fo:block>
+							</fo:table-cell>	-->
+						</fo:table-row>
+<!-- Special Properties Now Span entire row -->
+						<fo:table-row>
+							<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat('equipment.', $shade)"/></xsl:call-template>
+							<fo:table-cell number-columns-spanned="5">
+								<fo:block space-before.optimum="1pt" font-size="5pt">
+									<xsl:value-of select="special_properties"/>
+									<xsl:value-of select="quality"/>
+									<xsl:value-of select="contents"/>
 								</fo:block>
 							</fo:table-cell>
 						</fo:table-row>
