@@ -137,7 +137,7 @@ ABILITYCATEGORY:Intelligent Item Purpose		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL
 ABILITYCATEGORY:Intelligent Item Purpose Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES					CATEGORY:Intelligent Item	TYPE:ItemPurposePower												PLURAL:Intelligent Item Purpose Power	DISPLAYLOCATION:Intelligent Magic Item
 
 # Master Category
-ABILITYCATEGORY:Afflictions				VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Afflictions																	PLURAL:Afflictions				DISPLAYLOCATION:Afflictions
+ABILITYCATEGORY:Afflictions				VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Afflictions																	PLURAL:Afflictions				DISPLAYLOCATION:Misc
 
 # Child Category
 #ABILITYCATEGORY:Affliction				VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Afflictions
@@ -159,7 +159,7 @@ ABILITYCATEGORY:Class Ability				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						
 
 
 ABILITYCATEGORY:Special Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:SpecialMountSelection																		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Permanency Applied Effects	VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:PermanencySpell																			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Permanency Applied Effects	VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:PermanencySpell																			DISPLAYLOCATION:Misc
 
 
 # Duplicated Multiple Times - Needs to be placed in the CORE Folder once that is all set up.
