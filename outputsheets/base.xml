@@ -1397,7 +1397,7 @@ Immune
 |%|
 	</class_features>
 
-	<!-- Abilites with check lists -->
+	<!-- Abilites with check lists - master/child abilities -->
 	<checklists>
 |FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=CheckList")-1,1,0|
 |IIF(ABILITYALL.Special Ability.%ability.TYPE=CheckList.HASASPECT.CheckCount:Y)|
@@ -1420,6 +1420,20 @@ Immune
 			<source>|ABILITYALL.Special Ability.VISIBLE.%ability.TYPE=CheckList.SOURCE|</source>
 			<check_count>|ABILITYALL.Special Ability.%ability.TYPE=CheckList.ASPECT.CheckCount.INTVAL|</check_count>
 			<check_type>|ABILITYALL.Special Ability.%ability.TYPE=CheckList.ASPECT.CheckType|</check_type>
+|IIF(ABILITYALL.Special Ability.%ability.TYPE=CheckList.HASASPECT.MasterAbility:Y)|
+			<master>|ABILITYALL.Special Ability.%ability.TYPE=CheckList.ASPECT.MasterAbility|</master>
+|FOR,%subability,0,count("ABILITIES","CATEGORY=Special Ability")-1,1,0|
+|IIF(ABILITYALL.Special Ability.%subability.ASPECT.ChildAbility:ABILITYALL.Special Ability.%ability.TYPE=CheckList.ASPECT.MasterAbility)|
+			<subability>
+				<name>|ABILITYALL.Special Ability.%subability|</name>
+				<description>|ABILITYALL.Special Ability.%subability.DESC|</description>
+				<type>|ABILITYALL.Special Ability.%subability.TYPE|</type>
+				<source>|ABILITYALL.Special Ability.%subability.SOURCE|</source>
+				<child>|ABILITYALL.Special Ability.%subability.ASPECT.ChildAbility|</child>
+			</subability>
+|ENDIF|
+|ENDFOR|
+|ENDIF|
 		</checklist>
 |ENDIF|
 |ENDFOR|
