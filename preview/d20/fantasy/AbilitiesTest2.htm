@@ -55,23 +55,23 @@ $Date: 2012-02-02 13:23:59 +0100 (Do, 02 Feb 2012) $
 |ENDFOR|
 <hr>
 	<!-- Abilites with check lists -->
-<h3>NATURE=AUTO</h3>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","NATURE=AUTOMATIC")-1,1,0|
-|IIF(ABILITYAUTO.Special Ability.%ability.HASASPECT.CheckType:Y)|
-<b>Name: |ABILITYAUTO.Special Ability.%ability|</b><br>
-Description: |ABILITYAUTO.Special Ability.%ability.DESC|<br>
-Type: |ABILITYAUTO.Special Ability.%ability.TYPE|<br>
-Source: |ABILITYAUTO.Special Ability.%ability.SOURCE|<br>
-Check Count: |ABILITYAUTO.Special Ability.%ability.ASPECT.CheckCount.INTVAL|<br>
-Check Type: |ABILITYAUTO.Special Ability.%ability.ASPECT.CheckType|<br>
-|IIF(ABILITYAUTO.Special Ability.%ability.HASASPECT.MasterAbility:Y)|
-|FOR,%subability,0,count("ABILITIES","CATEGORY=Special Ability","NATURE=NORMAL")-1,1,0|
-|IIF(ABILITY.Special Ability.%subability.ASPECT.ChildAbility:ABILITYAUTO.Special Ability.%ability.ASPECT.MasterAbility)|
+<h3>NATURE=ALL</h3>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability")-1,1,0|
+|IIF(ABILITYALL.Special Ability.%ability.HASASPECT.CheckType:Y)|
+<b>Name: |ABILITYALL.Special Ability.%ability|</b><br>
+Description: |ABILITYALL.Special Ability.%ability.DESC|<br>
+Type: |ABILITYALL.Special Ability.%ability.TYPE|<br>
+Source: |ABILITYALL.Special Ability.%ability.SOURCE|<br>
+Check Count: |ABILITYALL.Special Ability.%ability.ASPECT.CheckCount.INTVAL|<br>
+Check Type: |ABILITYALL.Special Ability.%ability.ASPECT.CheckType|<br>
+|IIF(ABILITYALL.Special Ability.%ability.HASASPECT.MasterAbility:Y)|
+|FOR,%subability,0,count("ABILITIES","CATEGORY=Special Ability")-1,1,0|
+|IIF(ABILITYALL.Special Ability.%subability.ASPECT.ChildAbility:ABILITYALL.Special Ability.%ability.ASPECT.MasterAbility)|
 <br>
---Name: |ABILITY.Special Ability.%subability|<br>
---Description: |ABILITY.Special Ability.%subability.DESC|<br>
---Type: |ABILITY.Special Ability.%subability.TYPE|<br>
---Source: |ABILITY.Special Ability.%subability.SOURCE|<br>
+--Name: |ABILITYALL.Special Ability.%subability|<br>
+--Description: |ABILITYALL.Special Ability.%subability.DESC|<br>
+--Type: |ABILITYALL.Special Ability.%subability.TYPE|<br>
+--Source: |ABILITYALL.Special Ability.%subability.SOURCE|<br>
 |ENDIF|
 |ENDFOR|
 |ENDIF|
