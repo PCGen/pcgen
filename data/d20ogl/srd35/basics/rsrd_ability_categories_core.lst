@@ -33,7 +33,7 @@ ABILITYCATEGORY:Simple Weapon Proficiency Choice	VISIBLE:QUALIFY	EDITABLE:YES		E
 ###Block: Alternate Class Features
 # Ability Category				Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI		Display Location
 ABILITYCATEGORY:ACF				VISIBLE:NO	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF
-ABILITYCATEGORY:Alternate Class Feature	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF		TYPE:ACF		PLURAL:Alternate Class Features	DISPLAYLOCATION:Alternate Class Features
+ABILITYCATEGORY:Alternate Class Feature	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:ACF		TYPE:ACF		PLURAL:Alternate Class Features	DISPLAYLOCATION:Misc
 
 ###Block: Homebrew and Supplemental Support
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object	Specific choices list				Display Location
@@ -64,7 +64,7 @@ ABILITYCATEGORY:Class Ability				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						
 
 
 ABILITYCATEGORY:Special Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:SpecialMountSelection							DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Permanency Applied Effects	VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:PermanencySpell								DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Permanency Applied Effects	VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES					CATEGORY:Special Ability	TYPE:PermanencySpell								DISPLAYLOCATION:Misc
 #
 # End
 #
