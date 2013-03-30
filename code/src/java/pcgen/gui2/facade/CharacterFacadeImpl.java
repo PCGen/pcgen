@@ -2922,6 +2922,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		characterType.setReference(newType);
 		theCharacter.setCharacterType(newType);
+		theCharacter.calcActiveBonuses();
+		
+		// This can affect traits mainly.
+		characterAbilities.rebuildAbilityLists();
 	}
 
 	/* (non-Javadoc)
