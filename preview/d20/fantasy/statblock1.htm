@@ -167,7 +167,13 @@ Spell Resistance |SR|,
   </tr>
   <tr valign="top">
     <td width="25%"><b>Challenge Rating: </b></td>
-    <td width="75%">|CR| </td>
+    <td width="75%">
+|IIF(CR:0)|
+&mdash;
+|ELSE|
+|CR|
+|ENDIF|
+    </td>
   </tr>
   <tr valign="top">
     <td width="25%"><b>Alignment: </b></td>

@@ -37,7 +37,13 @@ $Date$
 <body>
 <span class="header">Created using PCGen |EXPORT.VERSION| on |EXPORT.DATE|</span>
 <p><b>|NAME|, |GENDER| |RACE||%REGION| From |REGION|.|%| |CLASSLIST|</b>&nbsp;
-CR |CR|; Size: |SIZE| Face: |FACE.SHORT| Type 
+CR 
+|IIF(CR:0)|
+&mdash;
+|ELSE|
+|CR|
+|ENDIF|
+; Size: |SIZE| Face: |FACE.SHORT| Type 
 |IIF(RACETYPE:None)|
 |TEXT.TITLE.TYPE|
 |ELSE|

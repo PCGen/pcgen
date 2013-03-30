@@ -114,7 +114,13 @@
 		<skin>
 			<color>|COLOR.SKIN|</color>
 		</skin>
-		<cr>|CR|</cr>
+		<cr>
+|IIF(CR:0)|
+&mdash;
+|ELSE|
+|CR|
+|ENDIF|
+		</cr>
 		<face>
 			<face>|FACE|</face>
 			<short>|FACE.SHORT|</short>

@@ -32,7 +32,15 @@ $Date$
 <table width="100%">
 	<tr>
 		<td><b><font size="+1">|TEXT.UPPER.NAME|</font></b></td>
-		<td align="right"><b><font size="+1">CR |CR|</font></b></td>
+		<td align="right">
+			<b><font size="+1">CR 
+|IIF(CR:0)|
+&mdash;
+|ELSE|
+|CR|
+|ENDIF|
+			</font></b>
+		</td>
 	</tr>
 </table>
 

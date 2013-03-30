@@ -5449,7 +5449,13 @@ function RemoveStat (attribute) {
 	</tr>
 	<tr>
 		<td class="lb8">|TOTALLEVELS|</td>
-		<td class="lb8">|CR|</td>
+		<td class="lb8">
+|IIF(CR:0)|
+&mdash;
+|ELSE|
+|CR|
+|ENDIF|
+		</td>
 		<td class="lb8" width="100px"><input id="button3" type="button" value="Collapse Bio Header" name="button3" onclick="ToggleDIV('FullWideHeader');ToggleDIV('NarrowLeftHeader');" /></td>
 		<td class="lb8">|EXP.NEXT|</td>
 		<td class="lb8">|AGE|</td>

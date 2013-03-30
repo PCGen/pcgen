@@ -364,7 +364,15 @@ function printSpaceReach(aSpace,aReach) {
 <table width="95%" border="0" cellspacing="0" cellpadding="0" summary="Name Field">
 	<tr valign="top">
 		<td width="75%"><b><font face="ScalaSans Caps" size="+1">|NAME|</font></b></td>
-		<td width="25%"><b><font face="ScalaSans Caps" size="+1">CR |CR|</font></b></td>
+		<td width="25%">
+			<b><font face="ScalaSans Caps" size="+1">CR 
+|IIF(CR:0)|
+&mdash;
+|ELSE|
+|CR|
+|ENDIF|
+			</font></b>
+		</td>
 	</tr>
 </table>
 |GENDER.LONG| |RACE| 
