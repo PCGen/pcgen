@@ -1,0 +1,47 @@
+body  {
+	font-family: Arial;
+	font-size: 10pt; 
+	text-align: left; 
+	color: black;
+	background: white; 
+	font-weight: normal; 
+	margin: 0px; 
+	padding: 5px;
+}
+
+p {
+		text-indent: -2em;
+		margin-left: 2em	
+}
+
+p.xp {
+	font-size: 12pt;
+}
+
+
+table.section {
+	width: 100%;
+	font-size: 9pt;
+	font-weight: bold;
+	border-top-width: 1px;
+	border-top-color: black;
+	border-top-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: black;
+	border-bottom-style: solid;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+table.name {
+	width: 100%;
+	color: white;
+	background: black;
+	font-weight: bold;
+}
+
+td.name {
+	font-variant: small-caps;
+	padding-left: 5px; 
+	padding-right: 5px;
+}
