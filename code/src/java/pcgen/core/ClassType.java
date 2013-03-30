@@ -38,6 +38,8 @@ public final class ClassType implements Cloneable
 {
 	private String theName = "";
 	private String crFormula = "";
+	private String crMod = "";
+	private int crModPriority = 0;
 	private boolean xpPenalty = true;
 	private boolean isMonster = false;
 
@@ -75,6 +77,42 @@ public final class ClassType implements Cloneable
 	public String getCRFormula()
 	{
 		return crFormula;
+	}
+
+	/**
+	 * Set the CR Mod
+	 * @param crMod
+	 */
+	public void setCRMod(final String crMod)
+	{
+		this.crMod = crMod;
+	}
+
+	/**
+	 * Get the CR Mod
+	 * @return CR Mod
+	 */
+	public String getCRMod()
+	{
+		return crMod;
+	}
+
+	/**
+	 * Set the CR Mod priority
+	 * @param crModPrio
+	 */
+	public void setCRModPriority(final int crModPriority)
+	{
+		this.crModPriority = crModPriority;
+	}
+
+	/**
+	 * Get the CR Mod priority
+	 * @return CR Mod priority
+	 */
+	public int getCRModPriority()
+	{
+		return crModPriority;
 	}
 
 	/**

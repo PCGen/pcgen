@@ -673,7 +673,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 			throw new UnreachableError(e);
 		}
 		String classPCCText =
-				"CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr	ABILITY:TestCat|AUTOMATIC|Ability1\n"
+				"CLASS:Cleric	HD:8		CLASSTYPE:PC	TYPE:Base.PC	ABB:Clr	ABILITY:TestCat|AUTOMATIC|Ability1\n"
 					+ "CLASS:Cleric	STARTSKILLPTS:2\n"
 					+ "2	ABILITY:TestCat|AUTOMATIC|Ability2";
 		PCClass pcclass = parsePCClassText(classPCCText, source);
@@ -848,7 +848,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		// Create the humanoid class
 		String classDef =
-				"CLASS:Humanoid	KEY:KEY_Humanoid	HD:8		TYPE:Monster	STARTSKILLPTS:1	"
+				"CLASS:Humanoid	KEY:KEY_Humanoid	HD:8		CLASSTYPE:Monster	STARTSKILLPTS:1	"
 					+ "MODTOSKILLS:NO	MONSKILL:6+INT	MONNONSKILLHD:1|PRESIZELTEQ:M	"
 					+ "MONNONSKILLHD:2|PRESIZEEQ:L";
 		PCClassLoader classLoader = new PCClassLoader();
@@ -857,7 +857,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		Globals.getContext().ref.importObject(humanoidClass);
 
 		classDef =
-				"CLASS:Nymph		KEY:KEY_Nymph	TYPE:Monster	HD:6	STARTSKILLPTS:6	MODTOSKILLS:YES	";
+				"CLASS:Nymph		KEY:KEY_Nymph	CLASSTYPE:Monster	HD:6	STARTSKILLPTS:6	MODTOSKILLS:YES	";
 		classLoader = new PCClassLoader();
 		nymphClass = classLoader.parseLine(context, null, classDef, source);
 		Globals.getContext().ref.importObject(nymphClass);

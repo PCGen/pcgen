@@ -26,6 +26,7 @@
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -38,6 +39,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.math.Fraction;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMReference;
@@ -67,7 +69,6 @@ import pcgen.system.PropertyContext;
 import pcgen.util.ComparableComparator;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
-
 
 /**
  * Handles game modes.
@@ -126,6 +127,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String weaponCategories = "";
 	private String weaponTypes = "";
 	private String weaponReachFormula = "";
+	private Map<String, Integer> xpAwardsMap = new HashMap<String, Integer>();
+	private Map<Integer, Float> crStepsMap = new HashMap<Integer, Float>();
+	private String crThreshold = null;
 	private String rankModFormula = "";
 	private String addWithMetamagic = "";
 	private boolean allowAutoResize = false;
@@ -184,6 +188,8 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 	private List<String> resizableTypeList = new ArrayList<String>();
 	private List<String> characterTypeList = new ArrayList<String>();
+	private List<String> monsterRoleList = new ArrayList<String>();
+	private String monsterRoleDefault = "";
 	private Map<Class<?>, Set<String>> hiddenTypes = new HashMap<Class<?>, Set<String>>();
 
 	private List<String> xpTableNames = new ArrayList<String>();
@@ -943,6 +949,33 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
+	 * Get the XP awards
+	 * @return the XP awards
+	 */
+	public Map<String, Integer> getXPAwards()
+	{
+		return xpAwardsMap;
+	}
+
+	/**
+	 * Get the CR steps for CRs lower than CR 1
+	 * @return the CR steps
+	 */
+	public Map<Integer, Float> getCRSteps()
+	{
+		return crStepsMap;
+	}
+
+	/**
+	 * Get the CR steps for CRs lower than CR 1
+	 * @return the CR steps
+	 */
+	public String getCRThreshold()
+	{
+		return crThreshold;
+	}
+
+	/**
 	 * Return true if the AC Type is Valid
 	 * @param ACType
 	 * @return true if the AC Type is Valid
@@ -994,6 +1027,21 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 			if (bString.startsWith("CRFORMULA:"))
 			{
 				aClassType.setCRFormula(bString.substring(10));
+			}
+			else if (bString.startsWith("CRMOD:"))
+			{
+				aClassType.setCRMod(bString.substring(6));
+			}
+			else if (bString.startsWith("CRMODPRIORITY:"))
+			{
+				try 
+				{
+					aClassType.setCRModPriority(new Integer(bString.substring(14)));
+				}
+				catch(NumberFormatException e)
+				{
+					Logging.errorPrint("Illegal value for miscinfo.CLASSTYPE.CRMODPRIORITY: " + bString.substring(14));
+				}
 			}
 			else if (bString.startsWith("XPPENALTY:"))
 			{
@@ -1108,6 +1156,57 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public void addWieldCategory(final WieldCategory wCat)
 	{
 		getModeContext().ref.importObject(wCat);
+	}
+
+	/**
+	 * Set the XP Awards
+	 * @param aString
+	 */
+	public void setXPAwards(final String aString)
+	{
+		String sTmp = "";;
+		StringTokenizer aTok = new StringTokenizer(aString, "|", false);
+		
+		while (aTok.hasMoreTokens())
+		{
+			try
+			{
+				sTmp = aTok.nextToken();
+				final String xpAward[] = sTmp.split("=");
+				xpAwardsMap.put(xpAward[0], new Integer(xpAward[1]));
+			}
+			catch (ArrayIndexOutOfBoundsException e)
+			{
+				Logging.errorPrint("Illegal value for miscinfo.XPAWARD: " + sTmp);
+			}
+			catch (NumberFormatException e)
+			{
+				Logging.errorPrint("Illegal value for miscinfo.XPAWARD: " + sTmp);
+			}
+		}
+	}
+
+	/**
+	 * Set the CR steps for CRs lower than CR 1
+	 * @param aString
+	 */
+	public void setCRSteps(final String aString)
+	{
+		StringTokenizer aTok = new StringTokenizer(aString, "|", false);
+		
+		for (Integer index = 0; aTok.hasMoreTokens(); index--)
+		{
+			crStepsMap.put(index, Fraction.getFraction(aTok.nextToken()).floatValue());
+		}
+	}
+
+	/**
+	 * Set the CR key class threshold
+	 * @param aString
+	 */
+	public void setCRThreshold(final String aString)
+	{
+			crThreshold = aString;
 	}
 
     @Override
@@ -2383,7 +2482,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 	/**
 	 * Retrieve the list of character types (e.g. PC or NPC).
-	 * @return the resizableTypeList
+	 * @return the characterTypeList
 	 */
 	public List<String> getCharacterTypeList()
 	{
@@ -2391,14 +2490,51 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	}
 
 	/**
-	 * Set the list of equipment types which flag it as able to
-	 * be resized by the automatic resize feature.
+	 * Set the list of character types (e.g. PC or NPC).
 	 *
 	 * @param characterTypeList the characterTypeList to set
 	 */
 	public void setCharacterTypeList(List<String> characterTypeList)
 	{
 		this.characterTypeList = characterTypeList;
+	}
+
+	/**
+	 * Retrieve the list of monster roles
+	 * @return the monsterRoleList
+	 */
+	public List<String> getMonsterRoleList()
+	{
+		return Collections.unmodifiableList(monsterRoleList);
+	}
+
+	/**
+	 * Set the list of known monster roles.
+	 *
+	 * @param monsterRoleList the monsterRoleList to set
+	 */
+	public void setMonsterRoleList(List<String> monsterRoleList)
+	{
+		this.monsterRoleList = monsterRoleList;
+	}
+
+	/**
+	 * Retrieve the default monster role
+	 * @return the monsterRoleDefault
+	 */
+	public List<String> getMonsterRoleDefaultList()
+	{
+		return new ArrayList<String>(Arrays.asList(monsterRoleDefault));
+	}
+
+	/**
+	 * Set the list of known monster roles.
+	 *
+	 * @param monsterRoleList the monsterRoleList to set
+	 */
+	public void setMonsterRoleDefault(String monsterRoleDefault)
+	{
+		this.monsterRoleDefault = monsterRoleDefault;
 	}
 
 	private ConsolidatedListCommitStrategy masterLCS = new ConsolidatedListCommitStrategy();

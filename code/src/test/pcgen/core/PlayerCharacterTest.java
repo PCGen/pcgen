@@ -127,7 +127,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		// Giant Class
 		giantClass = new PCClass();
 		giantClass.setName("Giant");
-		giantClass.addToListFor(ListKey.TYPE, Type.getConstant("MONSTER"));
+		giantClass.put(StringKey.CLASSTYPE, "MONSTER");
 		final BonusObj babClassBonus = Bonus.newBonus(context, "COMBAT|BAB|CL*3/4");
 		giantClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
 		context.ref.importObject(giantClass);
@@ -168,21 +168,21 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	
 		class2LpfM = new PCClass();
 		class2LpfM.setName("2LpfM");
-		class2LpfM.addToListFor(ListKey.TYPE, Type.getConstant("MONSTER"));
+		class2LpfM.put(StringKey.CLASSTYPE, "MONSTER");
 		class2LpfM.put(IntegerKey.LEVELS_PER_FEAT, 2);
 		class2LpfM.put(StringKey.LEVEL_TYPE, "MONSTER");
 		context.ref.importObject(class2LpfM);
 		
 		class3LpfM = new PCClass();
 		class3LpfM.setName("3LpfM");
-		class3LpfM.addToListFor(ListKey.TYPE, Type.getConstant("MONSTER"));
+		class3LpfM.put(StringKey.CLASSTYPE, "MONSTER");
 		class3LpfM.put(IntegerKey.LEVELS_PER_FEAT, 3);
 		class3LpfM.put(StringKey.LEVEL_TYPE, "MONSTER");
 		context.ref.importObject(class3LpfM);
 		
 		class3LpfBlank = new PCClass();
 		class3LpfBlank.setName("3LpfBlank");
-		class3LpfBlank.addToListFor(ListKey.TYPE, Type.getConstant("Foo"));
+		class3LpfBlank.put(StringKey.CLASSTYPE, "Foo");
 		class3LpfBlank.put(IntegerKey.LEVELS_PER_FEAT, 3);
 		context.ref.importObject(class3LpfBlank);
 

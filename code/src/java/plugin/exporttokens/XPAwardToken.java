@@ -18,14 +18,12 @@
  *
  * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * Current Ver: $Revision: 18611 $
+ * Last Editor: $Author: thpr $
+ * Last Edited: $Date: 2012-12-11 00:27:59 +0100 (Di, 11 Dez 2012) $
  *
  */
 package plugin.exporttokens;
-
-import org.apache.commons.lang.math.Fraction;
 
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
@@ -34,7 +32,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deal with CR Token
  */
-public class CRToken extends AbstractExportToken
+public class XPAwardToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -42,7 +40,7 @@ public class CRToken extends AbstractExportToken
 	@Override
 	public String getTokenName()
 	{
-		return "CR";
+		return "XPAWARD";
 	}
 
 	/**
@@ -52,42 +50,8 @@ public class CRToken extends AbstractExportToken
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)
 	{
-		String retString = "";
-		Float cr = display.calcCR();
-		
-		String crAsString = Float.toString(cr);
-		String decimalPlaceValue =
-				crAsString.substring(crAsString.length() - 2);
-		
-		if (cr > 0 && cr < 1)
-		{
-			// If the CR is a fractional CR then we convert to a 1/x format
-			Fraction fraction = Fraction.getFraction(cr);// new Fraction(CR);
-			int denominator = fraction.getDenominator();
-			int numerator = fraction.getNumerator();
-			retString = numerator + "/" + denominator;
-		}
-		else if (cr >= 1 || cr == 0)
-		{
-			int newCr = -99;
-			if (decimalPlaceValue.equals(".0"))
-			{
-				newCr = (int) cr.floatValue();
-			}
-		
-			if (newCr > -99)
-			{
-				retString = retString + newCr;
-			}
-			else
-			{
-				retString = retString + cr;
-			}
-		}
-		else if (cr.isNaN())
-		{
-			retString = "0";
-		}
-		return retString;
+		int award = display.getXPAward();
+		String xpAward = String.format("%,d", award);
+		return xpAward;
 	}
 }

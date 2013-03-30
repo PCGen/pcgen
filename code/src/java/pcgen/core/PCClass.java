@@ -523,17 +523,24 @@ public class PCClass extends PObject implements ClassFacade
 			return mon.booleanValue();
 		}
 
-		for (Type type : getTrueTypeList(false))
-		{
-			final ClassType aClassType =
-					SettingsHandler.getGame().getClassTypeByName(type.toString());
+		ClassType aClassType =
+				SettingsHandler.getGame().getClassTypeByName(getClassType());
 
-			if ((aClassType != null) && aClassType.isMonster())
+		if ((aClassType != null) && aClassType.isMonster())
+		{
+			return true;
+		}
+		else
+		{
+			for (Type type : getTrueTypeList(false))
 			{
-				return true;
+				aClassType = SettingsHandler.getGame().getClassTypeByName(type.toString());
+				if ((aClassType != null) && aClassType.isMonster())
+				{
+					return true;
+				}
 			}
 		}
-
 		return false;
 	}
 

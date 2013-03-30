@@ -61,6 +61,8 @@ public final class MapKey<K, V>
 	public static final MapKey<String, String> QUALITY = new MapKey<String, String>();
 	public static final MapKey<AttackType, Integer> ATTACK_CYCLE = new MapKey<AttackType, Integer>();
 	public static final MapKey<String, KitTable> KIT_TABLE = new MapKey<String, KitTable>();
+	
+	public static final MapKey<String, Float> CRMOD = new MapKey<String, Float>();
 
 	/**
 	 * Private constructor to prevent instantiation of this class.

@@ -61,6 +61,8 @@ public class FormulaKey implements TypeSafeConstant
 
 	public static final FormulaKey CR = getConstant("CR");
 
+	public static final FormulaKey CRMOD = getConstant("CRMOD");
+
 	public static final FormulaKey SELECT = getConstant("SELECT",
 			FormulaFactory.ONE);
 

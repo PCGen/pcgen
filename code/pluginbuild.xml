@@ -1073,6 +1073,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${outputplugins.dir}/ExportToken-XPAWARD.jar" manifest="${src.java.dir}/plugin/exporttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/exporttokens/XPAwardToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 	</target>
 
 	<target name="jar-bonus-plugins" depends="makeplugindirs" description="Build (Link) plugin Bonus Token jar files">
@@ -3169,6 +3176,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-CLASSTYPE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/ClasstypeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${lstplugins.dir}/ClassLstToken-CSKILL.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -3320,6 +3334,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/pcclass/ProhibitspellToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/ClassLstToken-ROLE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/pcclass/RoleToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -4053,6 +4074,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-CRMOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/CrModToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${lstplugins.dir}/RaceLstToken-FACE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -4162,6 +4190,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/race/ReachToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${lstplugins.dir}/RaceLstToken-ROLE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/race/RoleToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -5427,6 +5462,20 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-CRSTEPS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/CRStepsToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-CRTHRESHOLD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/CRThresholdToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-CURRENCYUNITABBREV.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>
@@ -5607,6 +5656,20 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/gamemode/MenutooltipToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-MONSTERROLEDEFAULT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/MonsterRoleDefaultToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-MONSTERROLES.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/MonsterRolesToken.class" />
 				</patternset>
 			</fileset>
 		</jar>
@@ -5811,6 +5874,13 @@ jar-all-plugins - Generate the plugin jar files
 			<fileset dir="${build.classes.dir}">
 				<patternset>
 					<include name="plugin/lsttokens/gamemode/WieldcategoryToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-XPAWARD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/XPAwardToken.class" />
 				</patternset>
 			</fileset>
 		</jar>

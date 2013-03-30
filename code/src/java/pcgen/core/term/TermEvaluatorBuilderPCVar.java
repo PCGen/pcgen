@@ -94,6 +94,21 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		}
 	},
 
+	COMPLETE_PC_BASECR
+			("BASECR",
+			new String[] { "BASECR" },
+			true) {
+
+		@Override
+		public TermEvaluator getTermEvaluator(
+				final String expressionString, 
+				final String src, 
+				final String matchedSection) {
+
+			return new PCBaseCRTermEvaluator(expressionString);
+		}
+	},
+
 	COMPLETE_PC_BASESPELLSTAT
 			("BASESPELLSTAT",
 			 new String[] { "BASESPELLSTAT" },

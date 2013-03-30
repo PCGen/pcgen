@@ -190,6 +190,11 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return Collections.unmodifiableList(ret);
 	}
 	
+	public String getClassType()
+	{
+		return get(StringKey.CLASSTYPE);
+	}
+	
 	/**
 	 * If aType begins with an &#34; (Exclamation Mark) the &#34; will be
 	 * removed before checking the type.

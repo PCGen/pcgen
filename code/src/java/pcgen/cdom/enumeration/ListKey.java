@@ -257,6 +257,7 @@ public final class ListKey<T> {
 	public static final ListKey<ChooseSelectionActor<?>> NEW_CHOOSE_ACTOR = new ListKey<ChooseSelectionActor<?>>();
 	public static final ListKey<KitStat> STAT_LIST = new ListKey<KitStat>();
 	public static final ListKey<ListKey<ChooseResultActor>> GA_CAKEYS = new ListKey<ListKey<ChooseResultActor>>();
+	public static final ListKey<String> MONSTER_ROLES = new ListKey<String>();
 
 	//These are case sensitive, please do not change them to upper case
 	public static final ListKey<String> HIDDEN_Equipment = new ListKey<String>();

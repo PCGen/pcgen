@@ -774,9 +774,19 @@ public class CharacterDisplay
 		return getSafeStringFor(StringKey.PLAYERS_NAME);
 	}
 
-	public float calcCR()
+	public Float calcCR()
 	{
 		return crFacet.getCR(id);
+	}
+
+	public float calcBaseCR()
+	{
+		return crFacet.calcRaceCR(id);
+	}
+
+	public int getXPAward()
+	{
+		return crFacet.getXPAward(id);
 	}
 
 	public Set<Domain> getSortedDomainSet()
