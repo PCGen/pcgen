@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:35:39 2013 -- reformated by prettylst.pl v1.50 (build 19091)
 SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
 #Original Entry by: Paul King
 
-# Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
-CLASS:Arcane Arranger	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Arcane Arranger	HD:6		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/3	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|CL*6
 # Class Name		Multiple Requirements
 CLASS:Arcane Arranger	PREMULT:2,[PRESKILL:2,Diplomacy=6,Gather Information=6],[PRESKILL:1,Knowledge (Arcane Lore)=6,Knowledge (Business)=6,Knowledge (Current Events)=6,Knowledge (Popular Culture)=6,Knowledge (Streetwise)=6]
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -19,8 +19,8 @@ CLASS:Arcane Arranger	STARTSKILLPTS:6	CSKILL:Bluff|Computer Use|Decipher Script|
 9	BONUS:ABILITYPOOL|Arcane Arranger Feat|1
 10								BONUS:VAR|UpMySleeveLvl|1
 
-# Class Name			Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
-CLASS:Archaic Weaponsmaster	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name			Hit Dice	Type			Class Type		Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
+CLASS:Archaic Weaponsmaster	HD:10		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
 # Class Name			Req. Att.	Required Feat
 CLASS:Archaic Weaponsmaster	PREATT:3	PREFEAT:2,Archaic Weapons Proficiency,Weapon Focus
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -35,8 +35,8 @@ CLASS:Archaic Weaponsmaster	STARTSKILLPTS:2	CSKILL:Climb|Craft (Mechanical)|Craf
 9	BONUS:ABILITYPOOL|Archaic Weaponmaster Feat|1
 10	BONUS:ABILITYPOOL|Increased Weapon Critical Selection|1
 
-# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
-CLASS:Glamourist	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Glamourist	HD:6		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Skill
 CLASS:Glamourist	PRESKILL:2,Bluff=6,Sense Motive=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -52,8 +52,8 @@ CLASS:Glamourist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Decipher S
 9	BONUS:ABILITYPOOL|Glamourist Feat|1
 10							ABILITY:Special Ability|AUTOMATIC|Charm Person		SPELLS:Class|TIMES=1|CASTERLEVEL=CL|Charm Person,11+CHA|PRESTAT:1,CHA=11
 
-# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
-CLASS:Mystic	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Mystic	HD:6		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+5)/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Skill
 CLASS:Mystic	PRESKILL:3,Diplomacy=6,Knowledge (Theology and Philosophy)=6,Listen=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -86,8 +86,8 @@ CLASS:Mystic	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Mystic
 
 # Psionic Agent moved to psionics subfolder set folder
 
-# Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus									Combat bonus		Modify VAR
-CLASS:Shadow Hunter	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-2)/3	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page						Save checks bonus									Combat bonus		Modify VAR
+CLASS:Shadow Hunter	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-2)/3	BONUS:VAR|Action|CL*6
 # Class Name		Req. Att.	Required Feat													Required Skill
 CLASS:Shadow Hunter	PREATT:2	PREFEAT:1,Track	PREFEAT:1,Personal Firearms Proficiency,Archaic Weapons Proficiency	PRESKILL:3,Investigate=6,Sense Motive=6,Knowledge (Arcane Lore)=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -102,8 +102,8 @@ CLASS:Shadow Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|In
 9	BONUS:ABILITYPOOL|Shadow Hunter Feat|1
 10								BONUS:VAR|TargetBonus|-1						ABILITY:Special Ability|AUTOMATIC|Locate Target
 
-# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
-CLASS:Shadowjack	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
+CLASS:Shadowjack	HD:6		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Skill
 CLASS:Shadowjack	PRESKILL:3,Computer Use=6,Craft (Electronic)=6,Disable Device=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -119,8 +119,8 @@ CLASS:Shadowjack	STARTSKILLPTS:6	CSKILL:Computer Use|Craft (Electronic)|Craft (M
 9	BONUS:ABILITYPOOL|Shadowjack Feat|1
 10														ABILITY:Special Ability|AUTOMATIC|Virtual Incantations
 
-# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
-CLASS:Speed Demon	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Speed Demon	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Check Base	Required Feat			Required Skill
 CLASS:Speed Demon	PRECHECKBASE:1,Reflex=2	PREFEAT:1,Vehicle Expert	PRESKILL:1,Drive=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -136,8 +136,8 @@ CLASS:Speed Demon	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Craft (Electronic
 9	BONUS:ABILITYPOOL|Speed Demon Feat|1	ABILITY:Special Ability|AUTOMATIC|Restore Vehicle
 10								ABILITY:Special Ability|AUTOMATIC|One with the Machine
 
-# Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
-CLASS:Street Warrior	HD:10		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
+CLASS:Street Warrior	HD:10		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
 # Class Name		Req. Att.	Required Feat				Required Skill
 CLASS:Street Warrior	PREATT:3	PREFEAT:2,Brawl,Streetfighting	PRESKILL:1,Knowledge (Streetwise)=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -153,8 +153,8 @@ CLASS:Street Warrior	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Disable Device|Drive
 9	BONUS:ABILITYPOOL|Street Warrior Feat|1
 10													ABILITY:Special Ability|AUTOMATIC|Advanced Streetfighting
 
-# Class Name		Hit Dice	Type			Max Level	Source Page						Save checks bonus																Combat bonus		Modify VAR
-CLASS:Swashbuckler	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page						Save checks bonus																Combat bonus		Modify VAR
+CLASS:Swashbuckler	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name		Req. Att.	Required Feat			Required Skill
 CLASS:Swashbuckler	PREATT:2	PREFEAT:1,Weapon Finesse	PRESKILL:2,Balance=6,Tumble=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -170,8 +170,8 @@ CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Hide|Jump|
 9	BONUS:ABILITYPOOL|Swashbuckler Feat|1
 10															ABILITY:Special Ability|AUTOMATIC|Touche
 
-# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
-CLASS:Techno Mage	HD:6		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page						Save checks bonus												Combat bonus		Modify VAR
+CLASS:Techno Mage	HD:6		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL/2	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|CL/3	BONUS:VAR|Action|CL*6
 # Class Name	Required Skill
 CLASS:Techno Mage	PRESKILL:4,Computer Use=6,Craft (Electronic)=6,Knowledge (Arcane Lore)=6,Repair=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -192,8 +192,8 @@ CLASS:Techno Mage	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK
 9	CAST:4,4,4,3,2,1	BONUS:ABILITYPOOL|Techno Mage Feat|1
 10	CAST:4,4,4,3,3,2										ABILITY:Special Ability|AUTOMATIC|Quicken Spell
 
-# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus															Combat bonus		Modify VAR
-CLASS:Thrasher	HD:12		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page						Save checks bonus															Combat bonus		Modify VAR
+CLASS:Thrasher	HD:12		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|(CL+3)*2/5	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL-1)/4	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Feat			Required Skill
 CLASS:Thrasher	PREATT:2	PREFEAT:1,Athletic,Endurance	PRESKILL:2,Concentration=6,Survival=6
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -207,8 +207,8 @@ CLASS:Thrasher	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Drive|Professi
 9			BONUS:ABILITYPOOL|Thrasher Feat|1
 10									BONUS:DR|+1|5
 
-# Class Name	Hit Dice	Type			Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
-CLASS:Wildlord	HD:8		TYPE:PC.Advanced	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page						Save checks bonus											Combat bonus		Modify VAR
+CLASS:Wildlord	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaAdvancedClasses.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)/2	BONUS:VAR|Reputation|(CL+2)/3	BONUS:VAR|Action|CL*6
 # Class Name	Req. Att.	Required Skill
 CLASS:Wildlord	PREATT:2	PRESKILL:2,Handle Animal=6,Survival=6
 # Class Name	Skill Pts/Lvl	Class Skill

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:38:33 2013 -- reformated by prettylst.pl v1.50 (build 19091)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
 # Author: Thomas/Chipoulou tjannes@vub.ac.be
 
@@ -28,11 +28,11 @@ Rod (Withering)				OUTPUTNAME:Rod of [NAME]	PROFICIENCY:WEAPON|Mace (Light)	TYPE
 Rod (Wonder)				OUTPUTNAME:Rod of [NAME]							TYPE:Magic.Rod																COST:12000	WT:5		BASEITEM:Rod																																				SOURCEPAGE:MagicItemsIII.rtf
 
 ###Block: weapons for Rod of Lordly Might selections
-# Equipment Name					Sort Key							Output Name					Required Weapon Proficiency	Type															Cost			Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Wield Category	Requires Modification?	Range		Reach Multiplier	Size		Source Page					Weapon prop. bonus					Special Property
-Rod of Lordly Might Battleaxe			SORTKEY:Rod of Lordly Might Battleaxe		OUTPUTNAME:+4 Battleaxe			PROFICIENCY:WEAPON|Battleaxe	TYPE:Magic.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Axe					COST:10		WT:6		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:MAGIC_COST|-32310.PLUS4W.STEEL		WIELD:OneHanded	MODS:NO								SIZE:M	SOURCEPAGE:MagicItemsIII.rtf
-Rod of Lordly Might Flaming Longsword	SORTKEY:Rod of Lordly Might Flaming Longsword	OUTPUTNAME:+1 Flaming Longsword	PROFICIENCY:WEAPON|Longsword	TYPE:Magic.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword				COST:15		WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:MAGIC_COST|-8315.PLUS1W.STEEL.FLM_M		WIELD:OneHanded	MODS:NO								SIZE:M	SOURCEPAGE:MagicItemsIII.rtf
-Rod of Lordly Might Longspear			SORTKEY:Rod of Lordly Might Longspear		OUTPUTNAME:+3 Longspear			PROFICIENCY:WEAPON|Longspear	TYPE:Magic.Enhancement.Weapon.Melee.TwoHanded.Simple.Reach.Specific.Piercing.Spear		COST:5		WT:9		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:MAGIC_COST|-18305.PLUS3W.WOOD			WIELD:TwoHanded	MODS:NO					REACHMULT:2		SIZE:M	SOURCEPAGE:MagicItemsIII.rtf
-Rod of Lordly Might Shortspear		SORTKEY:Rod of Lordly Might Shortspear		OUTPUTNAME:+3 Shortspear		PROFICIENCY:WEAPON|Shortspear	TYPE:Magic.Enhancement.Weapon.Melee.Ranged.Thrown.Simple.Specific.Piercing.Spear		COST:1		WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:MAGIC_COST|-18301.PLUS3W.WOOD			WIELD:OneHanded	MODS:NO			RANGE:20				SIZE:M	SOURCEPAGE:MagicItemsIII.rtf
+# Equipment Name					Output Name					Required Weapon Proficiency	Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier						Wield Category	Requires Modification?	Range		Reach Multiplier	Size		Source Page				SORTKEY
+Rod of Lordly Might Battleaxe			OUTPUTNAME:+4 Battleaxe			PROFICIENCY:WEAPON|Battleaxe	TYPE:Magic.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Axe				COST:10	WT:6		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:MAGIC_COST|-32310.PLUS4W.STEEL	WIELD:OneHanded	MODS:NO								SIZE:M	SOURCEPAGE:MagicItemsIII.rtf	SORTKEY:Rod of Lordly Might Battleaxe
+Rod of Lordly Might Flaming Longsword	OUTPUTNAME:+1 Flaming Longsword	PROFICIENCY:WEAPON|Longsword	TYPE:Magic.Enhancement.Weapon.Melee.Martial.Specific.Slashing.Sword			COST:15	WT:4		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:MAGIC_COST|-8315.PLUS1W.STEEL.FLM_M	WIELD:OneHanded	MODS:NO								SIZE:M	SOURCEPAGE:MagicItemsIII.rtf	SORTKEY:Rod of Lordly Might Flaming Longsword
+Rod of Lordly Might Longspear			OUTPUTNAME:+3 Longspear			PROFICIENCY:WEAPON|Longspear	TYPE:Magic.Enhancement.Weapon.Melee.TwoHanded.Simple.Reach.Specific.Piercing.Spear	COST:5	WT:9		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:MAGIC_COST|-18305.PLUS3W.WOOD		WIELD:TwoHanded	MODS:NO					REACHMULT:2		SIZE:M	SOURCEPAGE:MagicItemsIII.rtf	SORTKEY:Rod of Lordly Might Longspear
+Rod of Lordly Might Shortspear		OUTPUTNAME:+3 Shortspear		PROFICIENCY:WEAPON|Shortspear	TYPE:Magic.Enhancement.Weapon.Melee.Ranged.Thrown.Simple.Specific.Piercing.Spear	COST:1	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:MAGIC_COST|-18301.PLUS3W.WOOD		WIELD:OneHanded	MODS:NO			RANGE:20				SIZE:M	SOURCEPAGE:MagicItemsIII.rtf	SORTKEY:Rod of Lordly Might Shortspear
 
 
 ###Block:Metamagic Rods

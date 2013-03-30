@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:48:04 2013 -- reformated by prettylst.pl v1.50 (build 19091)
 
 # Class Name		Output Name					Hit Dice
 CLASS:Test Code Bugs	OUTPUTNAME:Testing Code Bug 1730	HD:1
@@ -7,8 +7,8 @@ CLASS:Test Code Bugs	OUTPUTNAME:Testing Code Bug 1730	HD:1
 
 ###Class
 
-# Class Name	Hit Dice	Type			Save checks bonus				Combat bonus									Add domain number
-CLASS:MonKee	HD:12		TYPE:PC.Base	BONUS:CHECKS|BASE.Fortitude|CL+4	BONUS:COMBAT|BAB|CL+3|TYPE=Base.REPLACE	BONUS:COMBAT|AC|TL	BONUS:DOMAIN|NUMBER|3
+# Class Name	Hit Dice	Type			Class Type		Save checks bonus				Combat bonus									Add domain number
+CLASS:MonKee	HD:12		TYPE:PC.Base	CLASSTYPE:PC	BONUS:CHECKS|BASE.Fortitude|CL+4	BONUS:COMBAT|BAB|CL+3|TYPE=Base.REPLACE	BONUS:COMBAT|AC|TL	BONUS:DOMAIN|NUMBER|3
 # Class Name	Spell Stat		Spell Type		Caster level
 CLASS:MonKee	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|MonKee|CL	BONUS:CASTERLEVEL|MonKee|CL+4
 SUBCLASS:MonKee Junior	COST:0	TYPE:SubclassMonkee
@@ -16,11 +16,11 @@ SUBCLASSLEVEL:1	SAB:Sab Test for MonKee Junior	ABILITY:Special Ability|AUTOMATIC
 1	CAST:8,7,6,5,4,3,2,1,0							SPELLLEVEL:CLASS|MonKee=1|Spell Test ~ MM|PREVAREQ:CL,4
 2					CSKILL:Test Skill (Class Level)
 
-# Class Name	Hit Dice	Type
-CLASS:Animal	HD:8		TYPE:Monster
+# Class Name	Hit Dice	Type			Class Type
+CLASS:Animal	HD:8		TYPE:Monster	CLASSTYPE:Monster
 
-# Class Name			Type
-CLASS:KeePer of Knowledge	TYPE:PC.Base
+# Class Name			Type			Class Type
+CLASS:KeePer of Knowledge	TYPE:PC.Base	CLASSTYPE:PC
 # Class Name			Class Skill
 CLASS:KeePer of Knowledge	CSKILL:Test Crafting|Craft (Two)|TYPE=Craft
 # Class Name			Spell Type		Caster level
@@ -39,16 +39,16 @@ SUBSTITUTIONLEVEL:1																															AUTO:FEAT|Dodge
 2	CAST:5,4,3,2,1						BONUS:DOMAIN|NUMBER|3+(CL/2)
 3	CAST:10,9,8,7,6,5,4,3,2,1,0,0,0,0,0,0,0,0,0,0,0
 
-# Class Name			Type
-CLASS:Running With Scissors	TYPE:NPC.Monster
+# Class Name			Type			Class Type
+CLASS:Running With Scissors	TYPE:NPC.Monster	CLASSTYPE:Monster
 # Class Name			Class Skill
 CLASS:Running With Scissors	CSKILL:Monkey Building Sensation
 
 
 # Older Testing Stuff
 
-# Class Name			Hit Dice	Type
-CLASS:Tom Test Copy Deal	HD:1		TYPE:Base.PC
+# Class Name			Hit Dice	Type			Class Type
+CLASS:Tom Test Copy Deal	HD:1		TYPE:Base.PC	CLASSTYPE:PC
 #SAB:Tom Test Works
 #SAB:Tom Test Works|PREVARGTEQ:CL,2
 1	SAB:Tom Test Works|PREFEAT:1,Dodge
@@ -57,15 +57,15 @@ CLASS:Tom Test Copy Deal	HD:1		TYPE:Base.PC
 CLASS:Tom Test Copy Deal.COPY=Testing the Copy
 
 
-# Class Name		Type			Save checks bonus		Combat bonus		Innate Spells
-CLASS:SpellCaster One	TYPE:Base.PC	BONUS:CHECKS|ALL|1	BONUS:COMBAT|BAB|1	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Fireball,18	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Magic Missile,80
+# Class Name		Type			Class Type		Save checks bonus		Combat bonus		Innate Spells
+CLASS:SpellCaster One	TYPE:Base.PC	CLASSTYPE:PC	BONUS:CHECKS|ALL|1	BONUS:COMBAT|BAB|1	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Fireball,18	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Magic Missile,80
 # Class Name		Spell Stat		Spell Type		Memorize
 CLASS:SpellCaster One	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES
 1	CAST:6,6	BONUS:SKILL|Athletics|25|PREVARGTEQ:CL,BASESPELLSTAT	BONUS:SKILL|Acrobatics|25|PREVARGTEQ:CL,1	BONUS:VAR|MyVar|10	DEFINE:MyVar|0
 2																										SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Fireball	SPELLS:Not Innate|TIMES=1|CASTERLEVEL=1|Magic Missile,80
 
-# Class Name		Type			Save checks bonus		Combat bonus
-CLASS:SpellCaster Two	TYPE:Base.PC	BONUS:CHECKS|ALL|1	BONUS:COMBAT|BAB|1
+# Class Name		Type			Class Type		Save checks bonus		Combat bonus
+CLASS:SpellCaster Two	TYPE:Base.PC	CLASSTYPE:PC	BONUS:CHECKS|ALL|1	BONUS:COMBAT|BAB|1
 # Class Name		Var. Must Be Grater
 CLASS:SpellCaster Two	PREVARGT:2,BASESPELLSTAT
 # Class Name		Spell Stat		Spell Type		Memorize
@@ -73,8 +73,8 @@ CLASS:SpellCaster Two	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES
 1	CAST:6,6	BONUS:SKILL|Athletics|25|PREVARGTEQ:MyVar,BASESPELLSTAT	BONUS:SKILL|Acrobatics|25|PREVARGTEQ:CL,1
 
 
-# Class Name		Type			Save checks bonus		Combat bonus
-CLASS:SpellCaster Three	TYPE:Base.PC	BONUS:CHECKS|ALL|1	BONUS:COMBAT|BAB|1
+# Class Name		Type			Class Type		Save checks bonus		Combat bonus
+CLASS:SpellCaster Three	TYPE:Base.PC	CLASSTYPE:PC	BONUS:CHECKS|ALL|1	BONUS:COMBAT|BAB|1
 # Class Name		Var. Min. Value
 CLASS:SpellCaster Three	PREVARGTEQ:MyVar,1
 # Class Name		Spell Stat		Spell Type		Memorize
@@ -82,8 +82,8 @@ CLASS:SpellCaster Three	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES
 1	CAST:6,6
 
 
-# Class Name		Hit Dice	Type			Save checks bonus											Combat bonus
-CLASS:Basic Fighter	HD:10		TYPE:Base.PC	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|TL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Class Type		Save checks bonus											Combat bonus
+CLASS:Basic Fighter	HD:10		TYPE:Base.PC	CLASSTYPE:PC	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|TL|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Basic Fighter	STARTSKILLPTS:2	CSKILL:TYPE=TestSkills
 1	AUTO:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|Extra Blade
@@ -92,8 +92,8 @@ CLASS:Basic Fighter	STARTSKILLPTS:2	CSKILL:TYPE=TestSkills
 
 # Alice and Charlie Classes -
 
-# Class Name	Hit Dice	Type			Add 														Save checks bonus											Combat bonus					Add domain number
-CLASS:Alice Class	HD:10		TYPE:Base.PC	ADD:CLASSSKILLS|Exclusing Skill_2,Exclusing Skill_3	ADD:FEAT|Add Feat Class Line	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
+# Class Name	Hit Dice	Type			Class Type		Add 														Save checks bonus											Combat bonus					Add domain number
+CLASS:Alice Class	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ADD:CLASSSKILLS|Exclusing Skill_2,Exclusing Skill_3	ADD:FEAT|Add Feat Class Line	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Alice Class	STARTSKILLPTS:2	CSKILL:Class Skill 1
 # Class Name	Spell Type		Memorize		Automatically Known Spell Levels			Caster level
@@ -103,8 +103,8 @@ CLASS:Alice Class	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:Alice Class Known Sp
 3										ADD:FEAT|Add Feat Class Level
 
 
-# Class Name		Hit Dice	Type			Combat bonus
-CLASS:Charlie Class	HD:10		TYPE:Base.PC	BONUS:COMBAT|AC|22|TYPE=Deflection
+# Class Name		Hit Dice	Type			Class Type		Combat bonus
+CLASS:Charlie Class	HD:10		TYPE:Base.PC	CLASSTYPE:PC	BONUS:COMBAT|AC|22|TYPE=Deflection
 # Class Name		Skill Pts/Lvl
 CLASS:Charlie Class	STARTSKILLPTS:2
 # Class Name		Spell Stat		Spell Type		Caster level
@@ -146,8 +146,8 @@ CLASS:Test Spell DC	HD:4
 
 #CLASS:Cleric.MOD	SPELLLIST:1|Druid
 
-# Class Name	Hit Dice	Type
-CLASS:Companion	HD:8		TYPE:Monster
+# Class Name	Hit Dice	Type			Class Type
+CLASS:Companion	HD:8		TYPE:Monster	CLASSTYPE:Monster
 # Class Name	Skill Pts/Lvl
 CLASS:Companion	STARTSKILLPTS:0
 1			ABILITY:Special Ability|AUTOMATIC|Character Points For Companions
@@ -155,13 +155,13 @@ CLASS:Companion	STARTSKILLPTS:0
 
 
 
-# Class Name	Hit Dice	Type
-CLASS:Domain Test	HD:4		TYPE:PC.Base
+# Class Name	Hit Dice	Type			Class Type
+CLASS:Domain Test	HD:4		TYPE:PC.Base	CLASSTYPE:PC
 2	BONUS:DOMAIN|NUMBER|4
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
-CLASS:Bard		HD:6		TYPE:Base.PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus
+CLASS:Bard		HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required AL
 CLASS:Bard		PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -214,8 +214,8 @@ CLASS:Wizard Test	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=3,TYPE=Foo		B
 
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
-CLASS:Sorcerer	HD:4		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus
+CLASS:Sorcerer	HD:4		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl
 CLASS:Sorcerer	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -246,8 +246,8 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 
 # More Test Cases
 
-# Class Name		Hit Dice	Type
-CLASS:Test Nothing	HD:4		TYPE:PC.Base
+# Class Name		Hit Dice	Type			Class Type
+CLASS:Test Nothing	HD:4		TYPE:PC.Base	CLASSTYPE:PC
 
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Test13	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Test13|CL
@@ -333,8 +333,8 @@ CLASS:Test56
 
 ### Eclipse Set Test Class
 
-# Class Name			Output Name		Hit Dice	Type				Abbreviation	Max Level	Define			Combat bonus
-CLASS:Eclipse Point Buy (d08)	OUTPUTNAME:d8E	HD:8		TYPE:Base.PC.Eclipse	ABB:d8E		MAXLEVEL:20	DEFINE:EclipseClass|1	BONUS:COMBAT|BAB|var("Warcraft Bonus")|TYPE=Base
+# Class Name			Output Name		Hit Dice	Type				Class Type		Abbreviation	Max Level	Define			Combat bonus
+CLASS:Eclipse Point Buy (d08)	OUTPUTNAME:d8E	HD:8		TYPE:Base.PC.Eclipse	CLASSTYPE:PC	ABB:d8E		MAXLEVEL:20	DEFINE:EclipseClass|1	BONUS:COMBAT|BAB|var("Warcraft Bonus")|TYPE=Base
 # Class Name			Skill Pts/Lvl
 CLASS:Eclipse Point Buy (d08)	STARTSKILLPTS:0
 ###Block:
@@ -367,8 +367,8 @@ CLASS:Eclipse Point Buy (d08)	STARTSKILLPTS:0
 
 ###BLOCK: This is a changing class - DO NOT BASE any Test Cases off of it
 
-# Class Name		Hit Dice	Type
-CLASS:Test Current	HD:4		TYPE:PC.Base
+# Class Name		Hit Dice	Type			Class Type
+CLASS:Test Current	HD:4		TYPE:PC.Base	CLASSTYPE:PC
 # Class Name		Class Skill
 CLASS:Test Current	CSKILL:Speak Language
 #1		ADD:ABILITY|1|Special Ability|VIRTUAL|Test Current
