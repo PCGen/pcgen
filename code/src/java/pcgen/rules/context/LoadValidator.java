@@ -70,15 +70,25 @@ public class LoadValidator implements UnconstructedValidator
 		simpleMap = new HashMapToList<Class<?>, String>();
 		for (Campaign c : campaignList)
 		{
-			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
+			addCampaignForwardRefToSimpleMap(c);
+		}
+	}
+
+	private void addCampaignForwardRefToSimpleMap(Campaign c)
+	{
+		for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
+		{
+			Class<? extends Loadable> qcl = q.getQualifiedClass();
+			if (!CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(qcl))
 			{
-				Class<? extends Loadable> qcl = q.getQualifiedClass();
-				if (!CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(qcl))
-				{
-					simpleMap.addToListFor(qcl, q.getQualifiedReference()
-							.getLSTformat(false));
-				}
+				simpleMap.addToListFor(qcl, q.getQualifiedReference()
+						.getLSTformat(false));
 			}
+		}
+		
+		for (Campaign subCampaign : c.getSubCampaigns())
+		{
+			addCampaignForwardRefToSimpleMap(subCampaign);
 		}
 	}
 
@@ -87,17 +97,27 @@ public class LoadValidator implements UnconstructedValidator
 		categoryMap = new DoubleKeyMapToList<Class<?>, String, String>();
 		for (Campaign c : campaignList)
 		{
-			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
+			addCampaignForwardRefToCategoryMap(c);
+		}
+	}
+
+	private void addCampaignForwardRefToCategoryMap(Campaign c)
+	{
+		for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
+		{
+			Class<? extends Loadable> qcl = q.getQualifiedClass();
+			if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(qcl))
 			{
-				Class<? extends Loadable> qcl = q.getQualifiedClass();
-				if (CATEGORIZED_CDOM_OBJECT_CLASS.isAssignableFrom(qcl))
-				{
-					CDOMSingleRef<?> ref = q.getQualifiedReference();
-					String cat = ((CDOMTransparentCategorizedSingleRef<?>) ref)
-							.getLSTCategory();
-					categoryMap.addToListFor(qcl, cat, ref.getLSTformat(false));
-				}
+				CDOMSingleRef ref = q.getQualifiedReference();
+				String cat = ((CDOMTransparentCategorizedSingleRef<?>) ref)
+						.getLSTCategory();
+				categoryMap.addToListFor(qcl, cat, ref.getLSTformat(false));
 			}
+		}
+		
+		for (Campaign subCampaign : c.getSubCampaigns())
+		{
+			addCampaignForwardRefToCategoryMap(subCampaign);
 		}
 	}
 

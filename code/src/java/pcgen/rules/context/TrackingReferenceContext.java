@@ -169,6 +169,11 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 
 	<T> void track(CDOMReference<T> ref)
 	{
+		String src = getSource();
+		if (src == null)
+		{
+			src = "";
+		}
 		track.addToListFor(ref, getSourceURI(), getSource());
 	}
 
