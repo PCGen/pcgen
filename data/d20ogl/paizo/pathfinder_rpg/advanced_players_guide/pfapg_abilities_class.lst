@@ -16,12 +16,12 @@ CATEGORY=Internal|Archetype Display.MOD												ABILITY:Oracle Archetype|AUTO
 CATEGORY=Internal|Archetype Display.MOD												ABILITY:Summoner Archetype|AUTOMATIC|Archetype Summoner|PRECLASS:1,Summoner=1
 CATEGORY=Internal|Archetype Display.MOD												ABILITY:Witch Archetype|AUTOMATIC|Archetype Witch|PRECLASS:1,Witch=1
 
-Archetype Alchemist				CATEGORY:Archetype	TYPE:AlchemistArchetype		VISIBLE:YES
-Archetype Cavalier				CATEGORY:Archetype	TYPE:CavalierArchetype		VISIBLE:YES
-Archetype Inquisitor				CATEGORY:Archetype	TYPE:InquisitorArchetype	VISIBLE:YES
-Archetype Oracle					CATEGORY:Archetype	TYPE:OracleArchetype		VISIBLE:YES
-Archetype Summoner				CATEGORY:Archetype	TYPE:SummonerArchetype		VISIBLE:YES
-Archetype Witch					CATEGORY:Archetype	TYPE:WitchArchetype		VISIBLE:YES
+Archetype Alchemist				CATEGORY:Archetype	TYPE:AlchemistArchetype		VISIBLE:NO
+Archetype Cavalier				CATEGORY:Archetype	TYPE:CavalierArchetype		VISIBLE:NO
+Archetype Inquisitor				CATEGORY:Archetype	TYPE:InquisitorArchetype	VISIBLE:NO
+Archetype Oracle					CATEGORY:Archetype	TYPE:OracleArchetype		VISIBLE:NO
+Archetype Summoner				CATEGORY:Archetype	TYPE:SummonerArchetype		VISIBLE:NO
+Archetype Witch					CATEGORY:Archetype	TYPE:WitchArchetype		VISIBLE:NO
 
 
 ###Block: Alchemist class features

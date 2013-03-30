@@ -10,9 +10,9 @@ CATEGORY=Internal|Archetype Display.MOD	ABILITY:Ninja Archetype|AUTOMATIC|Archet
 CATEGORY=Internal|Archetype Display.MOD	ABILITY:Samurai Archetype|AUTOMATIC|Archetype Samurai|PRECLASS:1,Samurai=1
 ###Block: Archetype Display Abilities
 # Ability Name					Category of Ability	Type					Visible	Automatically Gained Weapon Prof.
-Archetype Gunslinger				CATEGORY:Archetype	TYPE:GunslingerArchetype	VISIBLE:YES
-Archetype Ninja					CATEGORY:Archetype	TYPE:NinjaArchetype		VISIBLE:YES
-Archetype Samurai					CATEGORY:Archetype	TYPE:SamuraiArchetype		VISIBLE:YES
+Archetype Gunslinger				CATEGORY:Archetype	TYPE:GunslingerArchetype	VISIBLE:NO
+Archetype Ninja					CATEGORY:Archetype	TYPE:NinjaArchetype		VISIBLE:NO
+Archetype Samurai					CATEGORY:Archetype	TYPE:SamuraiArchetype		VISIBLE:NO
 
 # Ability Name					Category of Ability	Type					Visible	Automatically Gained Weapon Prof.
 Exotic Weapon Proficiency ~ Firearms	CATEGORY:Internal									AUTO:WEAPONPROF|TYPE=Firearm

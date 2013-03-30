@@ -1248,14 +1248,14 @@ CATEGORY=Internal|Archetype Display.MOD																																									
 #CATEGORY=Internal|Archetype Display.MOD		ABILITY: Archetype|AUTOMATIC|Archetype |PRECLASS:1,=1
 
 # Bucket Displayers
-Archetype Barbarian				CATEGORY:Archetype	TYPE:BarbarianArchetype	VISIBLE:YES
-Archetype Bard					CATEGORY:Archetype	TYPE:BardArchetype	VISIBLE:YES
-Archetype Druid					CATEGORY:Archetype	TYPE:DruidArchetype	VISIBLE:YES
-Archetype Fighter					CATEGORY:Archetype	TYPE:FighterArchetype	VISIBLE:YES
-Archetype Monk					CATEGORY:Archetype	TYPE:MonkArchetype	VISIBLE:YES
-Archetype Paladin					CATEGORY:Archetype	TYPE:PaladinArchetype	VISIBLE:YES
-Archetype Ranger					CATEGORY:Archetype	TYPE:RangerArchetype	VISIBLE:YES
-Archetype Rogue					CATEGORY:Archetype	TYPE:RogueArchetype	VISIBLE:YES
-Archetype Wizard					CATEGORY:Archetype	TYPE:WizardArchetype	VISIBLE:YES
-Archetype Sorcerer				CATEGORY:Archetype	TYPE:SorcererArchetype	VISIBLE:YES
-Archetype Cleric					CATEGORY:Archetype	TYPE:ClericArchetype	VISIBLE:YES
+Archetype Barbarian				CATEGORY:Archetype	TYPE:BarbarianArchetype	VISIBLE:NO
+Archetype Bard					CATEGORY:Archetype	TYPE:BardArchetype	VISIBLE:NO
+Archetype Druid					CATEGORY:Archetype	TYPE:DruidArchetype	VISIBLE:NO
+Archetype Fighter					CATEGORY:Archetype	TYPE:FighterArchetype	VISIBLE:NO
+Archetype Monk					CATEGORY:Archetype	TYPE:MonkArchetype	VISIBLE:NO
+Archetype Paladin					CATEGORY:Archetype	TYPE:PaladinArchetype	VISIBLE:NO
+Archetype Ranger					CATEGORY:Archetype	TYPE:RangerArchetype	VISIBLE:NO
+Archetype Rogue					CATEGORY:Archetype	TYPE:RogueArchetype	VISIBLE:NO
+Archetype Wizard					CATEGORY:Archetype	TYPE:WizardArchetype	VISIBLE:NO
+Archetype Sorcerer				CATEGORY:Archetype	TYPE:SorcererArchetype	VISIBLE:NO
+Archetype Cleric					CATEGORY:Archetype	TYPE:ClericArchetype	VISIBLE:NO
