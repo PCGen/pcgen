@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:47:19 2013 -- reformated by prettylst.pl v1.50 (build 19091)
 SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 
-# Class Name		Output Name			Hit Dice	Type			Max Level		Source Page		Ability														Save checks bonus											Combat bonus
-CLASS:Couatl Outsider	OUTPUTNAME:Outsider	HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Outsider Traits	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Output Name			Hit Dice	Type			Class Type		Max Level		Source Page		Ability														Save checks bonus											Combat bonus
+CLASS:Couatl Outsider	OUTPUTNAME:Outsider	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Outsider Traits	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race	Reg. Race Type
 CLASS:Couatl Outsider	PRERACE:1,Couatl	PRERACETYPE:Outsider
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -16,8 +16,8 @@ CLASS:Couatl Outsider	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:2|Cle
 1						ADD:SPELLCASTER|Sorcerer
 2	BONUS:PCLEVEL|Sorcerer|8
 
-# Class Name			Output Name			Hit Dice	Type			Max Level		Source Page		Levels per Feat	Ability																		Save checks bonus											Combat bonus					Template
-CLASS:Outsider (Mindless)	OUTPUTNAME:Outsider	HD:10		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	LEVELSPERFEAT:0	ABILITY:Special Ability|AUTOMATIC|Outsider Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	TEMPLATE:Mindless
+# Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page		Levels per Feat	Ability																		Save checks bonus											Combat bonus					Template
+CLASS:Outsider (Mindless)	OUTPUTNAME:Outsider	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	LEVELSPERFEAT:0	ABILITY:Special Ability|AUTOMATIC|Outsider Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	TEMPLATE:Mindless
 # Class Name			Reg. Race Type
 CLASS:Outsider (Mindless)	PRERACETYPE:Outsider
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
@@ -25,8 +25,8 @@ CLASS:Outsider (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
 
-# Class Name	Output Name			Hit Dice	Type			Max Level		Source Page		Ability																		Save checks bonus											Combat bonus
-CLASS:Drider	OUTPUTNAME:Aberration	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.306	ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Output Name			Hit Dice	Type			Class Type		Max Level		Source Page		Ability																		Save checks bonus											Combat bonus
+CLASS:Drider	OUTPUTNAME:Aberration	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.306	ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Drider	PRERACETYPE:Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -39,8 +39,8 @@ SUBSTITUTIONLEVEL:1	BONUS:PCLEVEL|Sorcerer|5	DEFINE:IsDriderSorcerer|1	ADD:SPELL
 SUBSTITUTIONCLASS:Drider Wizard
 SUBSTITUTIONLEVEL:1	BONUS:PCLEVEL|Wizard|5		DEFINE:IsDriderWizard|1		ADD:SPELLCASTER|Wizard
 
-# Class Name		Hit Dice	Type			Max Level		Source Page		Ability					Save checks bonus											Combat bonus
-CLASS:Guardian Naga	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.213	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Class Type		Max Level		Source Page		Ability					Save checks bonus											Combat bonus
+CLASS:Guardian Naga	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.213	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Required Race			Reg. Race Type
 CLASS:Guardian Naga	PRERACE:1,Naga (Guardian)	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -49,8 +49,8 @@ CLASS:Guardian Naga	STARTSKILLPTS:4	MODTOSKILLS:YES			CSKILL:Acrobatics|Climb|Es
 CLASS:Guardian Naga	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Guardian Naga|9	SPELLLIST:2|Cleric|Sorcerer
 12	CAST:0,6,6,6,4	KNOWN:8,5,4,3,2
 
-# Class Name	Hit Dice	Type			Max Level		Source Page		Ability					Save checks bonus											Combat bonus
-CLASS:Spirit Naga	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.215	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability					Save checks bonus											Combat bonus
+CLASS:Spirit Naga	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.215	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Required Race		Reg. Race Type
 CLASS:Spirit Naga	PRERACE:1,Naga (Spirit)	PRERACETYPE:Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
