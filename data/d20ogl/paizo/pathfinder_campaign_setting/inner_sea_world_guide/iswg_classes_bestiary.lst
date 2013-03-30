@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:43:22 2013 -- reformated by prettylst.pl v1.50 (build 19091)
 SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
 # Original Entry by: Paul Shipley
 
-# Class Name			Product Identity?	Hit Dice	Type			Max Level		Source Page		Ability																	Save checks bonus											Combat bonus					Template
-CLASS:Daughter of Urgathoa	NAMEISPI:YES	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	TEMPLATE:Undead
+# Class Name			Product Identity?	Hit Dice	Type			Class Type		Max Level		Source Page		Ability																	Save checks bonus											Combat bonus					Template
+CLASS:Daughter of Urgathoa	NAMEISPI:YES	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	TEMPLATE:Undead
 # Class Name			Reg. Race Type
 CLASS:Daughter of Urgathoa	PRERACETYPE:Undead
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill

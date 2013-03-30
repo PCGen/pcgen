@@ -1,14 +1,18 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:41:49 2013 -- reformated by prettylst.pl v1.50 (build 19091)
 SOURCELONG:Second Darkness, Chapter 3: The Armageddon Echo	SOURCESHORT:PF15	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep	SOURCEDATE:2008-10
 # Original Entry by Eddy Anthony (MoSaT)
 
 
+# Class Name		Class Type
+CLASS:Pain Taster.MOD	CLASSTYPE:PC
 # Class Name		Clear Prereq.	Required AL				Required Feat						Required Skill		Required Text
 CLASS:Pain Taster.MOD	PRE:.CLEAR		PREALIGN:LN,TN,CN,LE,NE,CE	PREFEAT:3,Diehard,Endurance,Great Fortitude	PRESKILL:1,Intimidate=5	PRETEXT:Must survive a special ritual designed to inure him to pain.
 # Class Name		Remove Class Skill	Class Skill
 CLASS:Pain Taster.MOD	CSKILL:.CLEAR		CSKILL:Acrobatics|Climb|Escape Artist|Heal|Intimidate|Sense Motive|Survival
 
 
+# Class Name			Class Type
+CLASS:Demonic Initiate.MOD	CLASSTYPE:PC
 # Class Name			Clear Prereq.	Required AL	Required Feat		Required Skill						Required Text
 CLASS:Demonic Initiate.MOD	PRE:.CLEAR		PREALIGN:CE	PREFEAT:1,Iron Will	PRESKILL:2,Knowledge (Planes)=5,Spellcraft=1	PRETEXT:Foresworn to a demonic patron
 # Class Name			Remove Class Skill	Class Skill

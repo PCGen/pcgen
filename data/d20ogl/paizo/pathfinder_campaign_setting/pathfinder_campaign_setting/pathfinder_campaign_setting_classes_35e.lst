@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:43:38 2013 -- reformated by prettylst.pl v1.50 (build 19091)
 SOURCELONG:Pathfinder Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
 
 
@@ -154,8 +154,8 @@ CLASS:Low Templar.MOD	PRESKILL:3,Bluff=4,Knowledge (Nobility and Royalty)=4,Ride
 CLASS:Low Templar.MOD	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Handle Animal|Hide|Intimidate|Knowledge (Local)|Knowledge (Nobility and Royalty)|Knowledge (The Planes)|Move Silently|Ride|Sense Motive|Survival|Use Rope
 
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Pathfinder Chronicler	HD:8		TYPE:PC.Prestige	ABB:PfC		MAXLEVEL:10	SOURCEPAGE:p.228	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+1	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Pathfinder Chronicler	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:PfC		MAXLEVEL:10	SOURCEPAGE:p.228	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+1	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Required Skill										Required Text
 CLASS:Pathfinder Chronicler	PRESKILL:3,Decipher Script=4,Perform (Oratory)=8,Profession (Scribe)=8	PRETEXT:Must have written and published something (other than a magical scroll or other device) for which another person (not a PC) paid at least 50 gp.
 # Class Name			Skill Pts/Lvl	Class Skill

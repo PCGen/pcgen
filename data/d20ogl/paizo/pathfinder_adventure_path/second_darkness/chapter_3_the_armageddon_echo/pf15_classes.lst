@@ -1,10 +1,10 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:41:49 2013 -- reformated by prettylst.pl v1.50 (build 19091)
 SOURCELONG:Second Darkness - Chapter 3: The Armageddon Echo	SOURCESHORT:PF15	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ep	SOURCEDATE:2008-10
 # Original Entry by Eddy Anthony (MoSaT)
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Pain Taster	HD:10		TYPE:PC.Prestige	ABB:PnTst		MAXLEVEL:5	SOURCEPAGE:p. 61	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Pain Taster	HD:10		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:PnTst		MAXLEVEL:5	SOURCEPAGE:p. 61	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Required AL				Required Feat						Required Skill					Required Text
 CLASS:Pain Taster	PREALIGN:LN,TN,CN,LE,NE,CE	PREFEAT:3,Diehard,Endurance,Great Fortitude	PRESKILL:2,Concentration=4,Intimidate=8	PRETEXT:Must survive a special ritual designed to inure him to pain.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -16,8 +16,8 @@ CLASS:Pain Taster	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Escape Arti
 5																											ABILITY:Special Ability|AUTOMATIC|Pain Mastery
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Demonic Initiate	HD:8		TYPE:PC.Prestige	ABB:DmInt		MAXLEVEL:5	SOURCEPAGE:p. 63	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Demonic Initiate	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:DmInt		MAXLEVEL:5	SOURCEPAGE:p. 63	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE
 # Class Name		Required AL	Required Feat		Required Skill							Required Text
 CLASS:Demonic Initiate	PREALIGN:CE	PREFEAT:1,Iron Will	PRESKILL:2,Knowledge (The Planes)=8,Spellcraft=4	PRETEXT:Foresworn to a demonic patron
 # Class Name		Skill Pts/Lvl	Class Skill

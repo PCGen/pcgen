@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat Sep 29 06:25:42 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:43:46 2013 -- reformated by prettylst.pl v1.50 (build 19091)
 
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI			Display Location
 ABILITYCATEGORY:Imp Companion Trick			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ImpCompTrick		PLURAL:Imp Companion Tricks			DISPLAYLOCATION:Class Abilities
