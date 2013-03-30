@@ -6,7 +6,7 @@
 ###Block: Gunslinger
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
-CLASS:Gunslinger	HD:10		TYPE:Base.PC	ABB:Gun		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:GunslingerLvl|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Gunslinger	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Gun		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:GunslingerLvl|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Engineering)|Knowledge (Local)|Perception|TYPE=Profession|Ride|Sleight of Hand|Survival|Swim
 ###Block:Proficiencies
@@ -28,7 +28,7 @@ CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle
 ###Block: Ninja
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define											Save checks bonus												Combat bonus					Modify VAR
-CLASS:Ninja		HD:8		TYPE:Base.PC	ABB:Nin		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLvl|CL	DEFINE:RogueTalentLVL|0	DEFINE:KiPoolCha|1	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|KiPool|1
+CLASS:Ninja		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Nin		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLvl|CL	DEFINE:RogueTalentLVL|0	DEFINE:KiPoolCha|1	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|KiPool|1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
 ###Block: Proficiencies
@@ -57,7 +57,7 @@ CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|D
 ###Block: Samurai
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define									Save checks bonus											Combat bonus
-CLASS:Samurai	HD:10		TYPE:Base.PC	ABB:Sam		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:FighterWeaponQualifyLVL|CL	DEFINE:SamuraiLvl|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Samurai	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sam		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:FighterWeaponQualifyLVL|CL	DEFINE:SamuraiLvl|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
 ###Block:Proficiencies

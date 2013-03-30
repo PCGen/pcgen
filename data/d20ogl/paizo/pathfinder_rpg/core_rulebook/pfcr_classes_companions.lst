@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:44:50 2013 -- reformated by prettylst.pl v1.50 (build 19091)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Andrew Maitland
 
-# Class Name	Output Name		Hit Dice	Type				Abbreviation	Max Level	Source Page		Ability											Visible	Save checks bonus											Combat bonus
-CLASS:Companion	OUTPUTNAME:Animal	HD:8		TYPE:Monster.Companion	ABB:AC		MAXLEVEL:20	SOURCEPAGE:p.52	ABILITY:Special Ability|AUTOMATIC|Animal Traits|PREVAREQ:NoTypeTraits,0	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Output Name		Hit Dice	Type				Class Type			Abbreviation	Max Level	Source Page		Ability											Visible	Save checks bonus											Combat bonus
+CLASS:Companion	OUTPUTNAME:Animal	HD:8		TYPE:Monster.Companion	CLASSTYPE:Companion	ABB:AC		MAXLEVEL:20	SOURCEPAGE:p.52	ABILITY:Special Ability|AUTOMATIC|Animal Traits|PREVAREQ:NoTypeTraits,0	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Companion	STARTSKILLPTS:1	CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Stealth|Survival|Swim
 ###Block: Level Advancement
@@ -11,8 +11,8 @@ CLASS:Companion	STARTSKILLPTS:1	CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimi
 
 #COMMENT: Used for the Shadow Companion - Removes HD pop up
 
-# Class Name		Hit Dice	Type				Max Level		Source Page		Ability																	Visible	Save checks bonus											Combat bonus
-CLASS:Shadow Companion	HD:8		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	VISIBLE:NO	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type				Class Type			Max Level		Source Page		Ability																	Visible	Save checks bonus											Combat bonus
+CLASS:Shadow Companion	HD:8		TYPE:Monster.Companion	CLASSTYPE:Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	VISIBLE:NO	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Reg. Race Type
 CLASS:Shadow Companion	PRERACETYPE:Undead
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill

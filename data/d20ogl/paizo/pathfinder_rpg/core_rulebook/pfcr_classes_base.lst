@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:44:50 2013 -- reformated by prettylst.pl v1.50 (build 19091)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher and Eric C. Smith (Maredudd); Archetype work by Andrew Maitland
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Ability																		Define			Save checks bonus											Combat bonus
-CLASS:Barbarian	HD:12		TYPE:Base.PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex-Barbarian	SOURCEPAGE:p.31	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills	DEFINE:BarbarianLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class			Source Page		Ability																		Define			Save checks bonus											Combat bonus					Monster Role
+CLASS:Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex-Barbarian	SOURCEPAGE:p.31	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills	DEFINE:BarbarianLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat.Skill
 # Class Name	Restricted AL
 CLASS:Barbarian	!PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl
@@ -25,8 +25,8 @@ CLASS:Barbarian	STARTSKILLPTS:4
 20																								ABILITY:Class Ability|AUTOMATIC|Mighty Rage
 #TODO: See about implementing a better method for the Uncanny Dodge; Barbarian Loses one or both with some Archetypes.
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Ability																		Visible	Define			Save checks bonus											Combat bonus
-CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	ABB:Brb		MAXLEVEL:20	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills	VISIBLE:NO	DEFINE:BarbarianLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Ability																		Visible	Define			Save checks bonus											Combat bonus					Monster Role
+CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	ABILITY:Internal|AUTOMATIC|Class Skills ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianClassSkills	VISIBLE:NO	DEFINE:BarbarianLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat.Skill
 # Class Name		Skill Pts/Lvl
 CLASS:Ex-Barbarian	STARTSKILLPTS:4
 ###Block:Proficiencies
@@ -41,8 +41,8 @@ CLASS:Ex-Barbarian	STARTSKILLPTS:4
 14																			ABILITY:Class Ability|AUTOMATIC|Indomitable Will
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																Define					Save checks bonus											Combat bonus
-CLASS:Bard		HD:8		TYPE:Base.PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:p.34	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardClassSkills	DEFINE:BardLvl|CL	DEFINE:BardLvl|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																Define					Save checks bonus											Combat bonus					Monster Role
+CLASS:Bard		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:p.34	ABILITY:Internal|AUTOMATIC|Class Skills ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardClassSkills	DEFINE:BardLvl|CL	DEFINE:BardLvl|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Skill
 # Class Name	Skill Pts/Lvl
 CLASS:Bard		STARTSKILLPTS:6
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -74,8 +74,8 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Bonus Languages					Ability																	Define							Save checks bonus											Combat bonus
-CLASS:Cleric	HD:8		TYPE:Base.PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:p.38	LANGBONUS:Abyssal,Celestial,Infernal	ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericClassSkills	DEFINE:ClericLvl|CL	DEFINE:ClericLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Bonus Languages					Ability																	Define							Save checks bonus											Combat bonus					Monster Role
+CLASS:Cleric	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:p.38	LANGBONUS:Abyssal,Celestial,Infernal	ABILITY:Internal|AUTOMATIC|Class Skills ~ Cleric|!PREABILITY:1,CATEGORY=Archetype,TYPE.ClericClassSkills	DEFINE:ClericLvl|CL	DEFINE:ClericLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Cleric
 # Class Name	Skill Pts/Lvl
 CLASS:Cleric	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
@@ -119,8 +119,8 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 20	CAST:4,4,4,4,4,4,4,4,4,4
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Bonus Languages	Ability																	Define			Automatically Gained Language	Save checks bonus											Combat bonus
-CLASS:Druid		HD:8		TYPE:Base.PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:p.48	LANGBONUS:Sylvan	ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidClassSkills	DEFINE:DruidLVL|CL	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Bonus Languages	Ability																	Define			Automatically Gained Language	Save checks bonus											Combat bonus					Monster Role
+CLASS:Druid		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	SOURCEPAGE:p.48	LANGBONUS:Sylvan	ABILITY:Internal|AUTOMATIC|Class Skills ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidClassSkills	DEFINE:DruidLVL|CL	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Druid
 # Class Name	Required AL
 CLASS:Druid		PREALIGN:NG,LN,TN,CN,NE
 # Class Name	Skill Pts/Lvl
@@ -175,8 +175,8 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 20	CAST:4,4,4,4,4,4,4,4,4,4
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																	Define			Save checks bonus											Combat bonus
-CLASS:Fighter	HD:10		TYPE:Base.PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:p.55	ABILITY:Internal|AUTOMATIC|Class Skills ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterClassSkills	DEFINE:FighterLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																	Define			Save checks bonus											Combat bonus					Monster Role
+CLASS:Fighter	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:p.55	ABILITY:Internal|AUTOMATIC|Class Skills ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterClassSkills	DEFINE:FighterLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat.Skill
 # Class Name	Skill Pts/Lvl
 CLASS:Fighter	STARTSKILLPTS:2
 ###Block:Proficiencies
@@ -215,8 +215,8 @@ CLASS:Fighter	STARTSKILLPTS:2
 20	BONUS:ABILITYPOOL|Weapon Mastery|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponMastery
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																Define										Save checks bonus								Combat bonus					Modify VAR
-CLASS:Monk		HD:8		TYPE:Base.PC	ABB:Mnk		MAXLEVEL:20	SOURCEPAGE:p.56	ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkClassSkills	DEFINE:FlurryOfBlows|1	DEFINE:MonkLvl|CL	DEFINE:KiPoolWis|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|KiPool|1
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																Define										Save checks bonus								Combat bonus					Modify VAR			Monster Role
+CLASS:Monk		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Mnk		MAXLEVEL:20	SOURCEPAGE:p.56	ABILITY:Internal|AUTOMATIC|Class Skills ~ Monk|!PREABILITY:1,CATEGORY=Archetype,TYPE.MonkClassSkills	DEFINE:FlurryOfBlows|1	DEFINE:MonkLvl|CL	DEFINE:KiPoolWis|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|KiPool|1	ROLE:None
 # Class Name	Multiple Requirements
 CLASS:Monk		PREMULT:1,[PREALIGN:LG,LN,LE],[PREABILITY:1,CATEGORY=Archetype,TYPE.MonkAlignment]
 # Class Name	Skill Pts/Lvl
@@ -259,8 +259,8 @@ CLASS:Monk		STARTSKILLPTS:4
 #9	ABILITY:Class Ability|AUTOMATIC|Evasion|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkEvasion
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Ability																	Visible	Define			Save checks bonus											Combat bonus
-CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		MAXLEVEL:20	EXCLASS:Ex-Paladin	SOURCEPAGE:p.60	ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinClassSkills	VISIBLE:YES	DEFINE:PaladinLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class			Source Page		Ability																	Visible	Define			Save checks bonus											Combat bonus					Monster Role
+CLASS:Paladin	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Pld		MAXLEVEL:20	EXCLASS:Ex-Paladin	SOURCEPAGE:p.60	ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinClassSkills	VISIBLE:YES	DEFINE:PaladinLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:None
 # Class Name	Required AL
 CLASS:Paladin	PREALIGN:LG
 # Class Name	Skill Pts/Lvl
@@ -317,8 +317,8 @@ CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3
 19	CAST:0,4,3,3,2
 20	CAST:0,4,4,3,3
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ability																	Visible	Define			Save checks bonus											Combat bonus
-CLASS:Ex-Paladin	HD:10		TYPE:Base.PC	ABB:XPal		MAXLEVEL:20	ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinClassSkills	VISIBLE:NO	DEFINE:PaladinLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ability																	Visible	Define			Save checks bonus											Combat bonus
+CLASS:Ex-Paladin	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:XPal		MAXLEVEL:20	ABILITY:Internal|AUTOMATIC|Class Skills ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinClassSkills	VISIBLE:NO	DEFINE:PaladinLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl
 CLASS:Ex-Paladin	STARTSKILLPTS:2
 ###Block:Proficiencies
@@ -327,8 +327,8 @@ CLASS:Ex-Paladin	STARTSKILLPTS:2
 1																	AUTO:FEAT|Shield Proficiency
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																Define			Save checks bonus											Combat bonus
-CLASS:Ranger	HD:10		TYPE:Base.PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:p.64	ABILITY:Internal|AUTOMATIC|Class Skills ~ Ranger|!PREABILITY:1,CATEGORY=Archetype,RangerClassSkills	DEFINE:RangerLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																Define			Save checks bonus											Combat bonus					Monster Role
+CLASS:Ranger	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:p.64	ABILITY:Internal|AUTOMATIC|Class Skills ~ Ranger|!PREABILITY:1,CATEGORY=Archetype,RangerClassSkills	DEFINE:RangerLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat.Skill
 # Class Name	Skill Pts/Lvl
 CLASS:Ranger	STARTSKILLPTS:6
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels			Craft Level Mult.	Caster level
@@ -366,8 +366,8 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 20	CAST:0,4,4,3,3	BONUS:VAR|MasterHunterLVL|CL							ABILITY:Class Ability|AUTOMATIC|Master Hunter|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerMasterHunter
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																Define							Save checks bonus												Combat bonus
-CLASS:Rogue		HD:8		TYPE:Base.PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:p.67	ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,RogueClassSkills	DEFINE:RogueLvl|CL	DEFINE:RogueLvl|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																Define							Save checks bonus												Combat bonus					Monster Role
+CLASS:Rogue		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:p.67	ABILITY:Internal|AUTOMATIC|Class Skills ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,RogueClassSkills	DEFINE:RogueLvl|CL	DEFINE:RogueLvl|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Skill
 # Class Name	Skill Pts/Lvl
 CLASS:Rogue		STARTSKILLPTS:8
 ###Block:Proficiencies
@@ -393,8 +393,8 @@ CLASS:Rogue		STARTSKILLPTS:8
 20	ABILITY:Class Ability|AUTOMATIC|Master Strike|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueMasterStrike
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Ability																	Define			Save checks bonus											Combat bonus
-CLASS:Sorcerer	HD:6		TYPE:Base.PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:p.70	ABILITY:Internal|AUTOMATIC|Class Skills ~ Sorcerer|!PREABILITY:1,CATEGORY=Archetype,SorcererClassSkills	DEFINE:SorcererLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Ability																	Define			Save checks bonus											Combat bonus					Monster Role
+CLASS:Sorcerer	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:p.70	ABILITY:Internal|AUTOMATIC|Class Skills ~ Sorcerer|!PREABILITY:1,CATEGORY=Archetype,SorcererClassSkills	DEFINE:SorcererLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	ROLE:Sorcerer
 # Class Name	Skill Pts/Lvl
 CLASS:Sorcerer	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -430,8 +430,8 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 20	CAST:0,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Bonus Languages		Ability																Visible	Define																Save checks bonus											Combat bonus
-CLASS:Wizard	HD:6		TYPE:Base.PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:p.77	LANGBONUS:Draconic	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,WizardClassSkills	VISIBLE:YES	DEFINE:WizardLvl|CL	DEFINE:UniversalSchoolLVL|0	DEFINE:DisallowWizardArcaneSchoolArchetype|0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Bonus Languages		Ability																Visible	Define																Save checks bonus											Combat bonus					Monster Role
+CLASS:Wizard	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:p.77	LANGBONUS:Draconic	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,WizardClassSkills	VISIBLE:YES	DEFINE:WizardLvl|CL	DEFINE:UniversalSchoolLVL|0	DEFINE:DisallowWizardArcaneSchoolArchetype|0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	ROLE:Wizard
 # Class Name	Skill Pts/Lvl
 CLASS:Wizard	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level

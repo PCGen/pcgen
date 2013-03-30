@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:45:17 2013 -- reformated by prettylst.pl v1.50 (build 19091)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:PFAPG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 #Original Entry By: Andrew Maitland
 
@@ -302,6 +302,7 @@ Severed Fate								CLASSES:Witch=2|Cleric=3			SCHOOL:Enchantment					COMPS:V, S
 Unravel Destiny								CLASSES:Cleric,Sorcerer,Witch,Wizard=3	SCHOOL:Divination						COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Close	ITEM:Potion	TARGETAREA:One creature											DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates			SPELLRES:Yes	DESC:Target gets -2 on ability checks, attack rolls, saving throws, and skill check per hero point it possesses and takes 2d6 damage when spending hero points.	SOURCEPAGE:p.325
 
 ###Block: Temp Mods
+# Spell Name	Combat bonus
 Strong Jaw.MOD	BONUS:COMBAT|DAMAGESIZE|2|TYPE=Temporary|PREAPPLY:Natural;Unarmed
 
 
