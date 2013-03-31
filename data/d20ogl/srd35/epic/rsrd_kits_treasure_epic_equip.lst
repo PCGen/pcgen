@@ -12,6 +12,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 #STARTPACK:Epic Rods
 # From http://www.wizards.com/d20/files/v35/EpicMagicItems2.rtf
 #STARTPACK:Epic Staves
+#STARTPACK:Staff (Planar Might)
 #STARTPACK:Epic Wondrous Items
 
 
@@ -141,13 +142,20 @@ GEAR:Staff (Walls)		OPTION:19,27
 GEAR:Staff (Winter)		OPTION:28,36
 GEAR:Staff (Prism)		OPTION:37,45
 GEAR:Staff (Rapid Barrage)	OPTION:46,54
-GEAR:Staff (Planar Might)	OPTION:55,63
+KIT:Staff (Planar Might)	OPTION:55,63
 GEAR:Staff (Domination)		OPTION:64,71
 GEAR:Staff (Fiery Power)	OPTION:72,79
 GEAR:Staff (Nature's Fury)	OPTION:80,87
 GEAR:Staff (The Hierophants)	OPTION:88,95
 GEAR:Staff (Cosmos)		OPTION:96,98
 GEAR:Staff (Necromancy/Epic)	OPTION:99,100
+
+STARTPACK:Staff (Planar Might)	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
+SELECT:roll("1d4")
+GEAR:Staff (Planar Might/Bane (Outsiders (chaotic)))	OPTION:1
+GEAR:Staff (Planar Might/Bane (Outsiders (evil)))	OPTION:2
+GEAR:Staff (Planar Might/Bane (Outsiders (good)))	OPTION:3
+GEAR:Staff (Planar Might/Bane (Outsiders (lawful)))	OPTION:4
 
 
 # http://www.wizards.com/d20/files/v35/EpicMagicItems2.rtf
