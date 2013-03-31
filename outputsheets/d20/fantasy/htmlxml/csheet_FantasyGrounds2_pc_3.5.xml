@@ -134,7 +134,7 @@
 |ENDFOR|
 		</coins>
 		<defenses>
-      <damagereduction type="number">|DR|</damagereduction>
+      <damagereduction type="string">|DR|</damagereduction>
       <sr>
         <base type="number">|SR|</base>
         <misc type="number"/>
