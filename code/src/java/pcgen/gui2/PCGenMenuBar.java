@@ -293,6 +293,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 		@Override
 		public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
 		{
+			clearSelection();
 			setSelectedItem(e.getNewReference());
 		}
 		

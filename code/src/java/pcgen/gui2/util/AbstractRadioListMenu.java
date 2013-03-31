@@ -71,6 +71,14 @@ public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> imple
 		}
 	}
 
+	/**
+	 * Update the menu so that no entries are selected. 
+	 */
+	public void clearSelection()
+	{
+		group.clearSelection();
+	}
+	
 	private static class RadioMenuItem extends JRadioButtonMenuItem
 	{
 
