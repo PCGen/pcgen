@@ -281,6 +281,8 @@ public class BonusManager
 	void buildActiveBonusMap()
 	{
 		activeBonusMap = new ConcurrentHashMap<String, String>();
+		Map<String, String> nonStackMap = new ConcurrentHashMap<String, String>();
+		Map<String, String> stackMap = new ConcurrentHashMap<String, String>();
 		Set<BonusObj> processedBonuses = new WrappedMapSet<BonusObj>(
 				IdentityHashMap.class);
 
@@ -310,7 +312,11 @@ public class BonusManager
 			for (BonusPair bp : getStringListFromBonus(bonus))
 			{
 				final double iBonus = bp.resolve(pc).doubleValue();
-				setActiveBonusStack(iBonus, bp.fullyQualifiedBonusType, activeBonusMap);
+				setActiveBonusStack(iBonus, bp.fullyQualifiedBonusType,
+					nonStackMap, stackMap);
+				totalBonusesForType(nonStackMap, stackMap,
+					bp.fullyQualifiedBonusType, activeBonusMap);
+				
 				if (Logging.isDebugMode())
 				{
 					String id;
@@ -347,8 +353,37 @@ public class BonusManager
 			}
 
 			processBonus(bonus, new WrappedMapSet<BonusObj>(
-					IdentityHashMap.class), processedBonuses);
+					IdentityHashMap.class), processedBonuses, nonStackMap, stackMap);
 		}
+	}
+
+	/**
+	 * Combines the non-stacking bonus maximum and stacking 
+	 * bonus totals to a total bonus for the bonus type. 
+	 *  
+	 * @param nonStackMap
+	 *            The map of non-stacking (i.e. highest wins) bonuses being built up.
+	 * @param stackMap
+	 *            The map of stacking (i.e. total all) bonuses being built up.
+	 * @param fullyQualifiedBonusType
+	 *            The type of the bonus e.g. STAT.DEX:LUCK
+	 * @param targetMap
+	 *            The map of bonuses (stack+non-stack) being built up which will be populated with the total bonus.
+	 */
+	private void totalBonusesForType(Map<String, String> nonStackMap,
+		Map<String, String> stackMap, String fullyQualifiedBonusType,
+		Map<String, String> targetMap)
+	{
+		if (fullyQualifiedBonusType != null)
+		{
+			fullyQualifiedBonusType = fullyQualifiedBonusType.toUpperCase();
+		}
+		String nonStackString = nonStackMap.get(fullyQualifiedBonusType);
+		Float nonStackVal =  nonStackString == null ? 0.0f : Float.valueOf(nonStackString);
+		String stackString = stackMap.get(fullyQualifiedBonusType);
+		Float stackVal =  stackString == null ? 0.0f : Float.valueOf(stackString);
+		Float FullValue = nonStackVal + stackVal;
+		putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(FullValue), targetMap);
 	}
 
 	public Collection<BonusObj> getActiveBonusList()
@@ -469,12 +504,17 @@ public class BonusManager
 	 *            The bonus to be processed.
 	 * @param prevProcessed
 	 *            The list of bonuses which have already been processed in this
-	 *            run.
+	 *            stack of calls to processBonus.
 	 * @param processedBonuses
-	 *            TODO
+	 *            The list of bonuses which have already been processed overall.
+	 * @param nonStackMap
+	 *            The map of non-stacking (i.e. highest wins) bonuses being built up.
+	 * @param stackMap
+	 *            The map of stacking (i.e. total all) bonuses being built up.
 	 */
 	private void processBonus(final BonusObj aBonus,
-			final Set<BonusObj> prevProcessed, Set<BonusObj> processedBonuses)
+		final Set<BonusObj> prevProcessed, Set<BonusObj> processedBonuses,
+		Map<String, String> nonStackMap, Map<String, String> stackMap)
 	{
 		// Make sure we don't get into an infinite loop - can occur due to LST
 		// coding or best guess dependancy mapping
@@ -508,7 +548,8 @@ public class BonusManager
 		for (BonusObj newBonus : aList)
 		{
 			// Recursively call itself
-			processBonus(newBonus, prevProcessed, processedBonuses);
+			processBonus(newBonus, prevProcessed, processedBonuses,
+				nonStackMap, stackMap);
 		}
 
 		// Double check that it hasn't been processed yet
@@ -532,7 +573,9 @@ public class BonusManager
 		for (BonusPair bp : getStringListFromBonus(aBonus))
 		{
 			final double iBonus = bp.resolve(pc).doubleValue();
-			setActiveBonusStack(iBonus, bp.fullyQualifiedBonusType, activeBonusMap);
+			setActiveBonusStack(iBonus, bp.fullyQualifiedBonusType, nonStackMap, stackMap);
+			totalBonusesForType(nonStackMap, stackMap,
+				bp.fullyQualifiedBonusType, activeBonusMap);
 			Logging.debugPrint("vBONUS: " + anObj.getDisplayName() + " : "
 					+ iBonus + " : " + bp.fullyQualifiedBonusType);
 		}
@@ -547,11 +590,14 @@ public class BonusManager
 	 *            The value of the bonus.
 	 * @param fullyQualifiedBonusType
 	 *            The type of the bonus e.g. STAT.DEX:LUCK
-	 * @param bonusMap
-	 *            The bonus map being built up.
+	 * @param nonStackbonusMap
+	 *            The map of non-stacking (i.e. highest wins) bonuses being built up.
+	 * @param stackingBonusMap
+	 *            The map of stacking (i.e. total all) bonuses being built up.
 	 */
 	private void setActiveBonusStack(double bonus,
-		String fullyQualifiedBonusType, Map<String, String> bonusMap)
+		String fullyQualifiedBonusType, Map<String, String> nonStackbonusMap,
+		Map<String, String> stackingBonusMap)
 	{
 		if (fullyQualifiedBonusType != null)
 		{
@@ -622,31 +668,33 @@ public class BonusManager
 
 		if (index == -1) // a non-stacking bonus
 		{
-			final String aVal = bonusMap.get(fullyQualifiedBonusType);
+			final String aVal = nonStackbonusMap.get(fullyQualifiedBonusType);
 
 			if (aVal == null)
 			{
-				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(bonus), bonusMap);
+				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(bonus), nonStackbonusMap);
 			}
 			else
 			{
+				float existingBonus = Float.parseFloat(aVal);
 				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(Math.max(bonus,
-						Float.parseFloat(aVal))), bonusMap);
+						existingBonus)), nonStackbonusMap);
 			}
 		}
 		else
 		// a stacking bonus
 		{
-			final String aVal = bonusMap.get(fullyQualifiedBonusType);
+			final String aVal = stackingBonusMap.get(fullyQualifiedBonusType);
 
 			if (aVal == null)
 			{
-				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(bonus), bonusMap);
+				putActiveBonusMap(fullyQualifiedBonusType,
+					String.valueOf(bonus), stackingBonusMap);
 			}
 			else
 			{
 				putActiveBonusMap(fullyQualifiedBonusType, String.valueOf(bonus
-						+ Float.parseFloat(aVal)), bonusMap);
+						+ Float.parseFloat(aVal)), stackingBonusMap);
 			}
 		}
 	}
@@ -682,6 +730,8 @@ public class BonusManager
 		String statAbbr = stat.getAbb();
 		final String prefix = "STAT." + statAbbr;
 		Map<String, String> bonusMap = new HashMap<String, String>();
+		Map<String, String> nonStackMap = new ConcurrentHashMap<String, String>();
+		Map<String, String> stackMap = new ConcurrentHashMap<String, String>();
 
 		for (BonusObj bonus : getActiveBonusList())
 		{
@@ -748,7 +798,9 @@ public class BonusManager
 						if (bp.fullyQualifiedBonusType.startsWith(prefix))
 						{
 							setActiveBonusStack(bp.resolve(pc).doubleValue(),
-									bp.fullyQualifiedBonusType, bonusMap);
+									bp.fullyQualifiedBonusType, nonStackMap, stackMap);
+							totalBonusesForType(nonStackMap, stackMap,
+								bp.fullyQualifiedBonusType, bonusMap);
 						}
 					}
 				}
