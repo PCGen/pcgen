@@ -120,8 +120,8 @@
 !define APPNAME "PCGen"
 !define APPNAMEANDVERSION "$${APPNAME} $${LONGVER}"
 !define APPDIR "PCGen$${SIMPVER}"
-!define TargetVer "1.5"
-!define OverVer "1.6"
+!define TargetVer "1.6"
+!define OverVer "1.8"
 !define OutName "pcgen$${SIMPVER}_win_install"
 
 
@@ -154,6 +154,9 @@ Icon "$${SrcDir}\Local\PCGen2.ico"
 ; Modern interface settings
 !include "MUI.nsh"
 
+; if/then/else etc
+!include 'LogicLib.nsh'
+
 !define MUI_ABORTWARNING
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "$${SrcDir}\PCGen_$${SIMPVER}b\docs\acknowledgments\PCGenLicense.txt"
@@ -171,6 +174,7 @@ Icon "$${SrcDir}\Local\PCGen2.ico"
 ; Set User Variables
 Var "JREVer"
 Var "JDKVer"
+Var "CalcJavaVer"
 
 Function .onInit
 
@@ -184,9 +188,25 @@ Function .onInit
 	IfErrors 0 FoundVM
 
 	ClearErrors
+	SetRegView 64
+	ReadRegStr $$R0 HKLM "SOFTWARE\JavaSoft\Java Runtime Environment" "CurrentVersion"
+	StrCpy $$JREVer $$R0
+	ReadRegStr $$R0 HKLM "SOFTWARE\JavaSoft\Java Runtime Environment\$$R0" "JavaHome"
+	SetRegView 32
+	IfErrors 0 FoundVM
+
+	ClearErrors
 	ReadRegStr $$R0 HKLM "SOFTWARE\JavaSoft\Java Development Kit" "CurrentVersion"
 	StrCpy $$JDKVer $$R0
 	ReadRegStr $$R0 HKLM "SOFTWARE\JavaSoft\Java Development Kit\$$R0" "JavaHome"
+	IfErrors 0 FoundVM
+
+	ClearErrors
+	SetRegView 64
+	ReadRegStr $$R0 HKLM "SOFTWARE\JavaSoft\Java Development Kit" "CurrentVersion"
+	StrCpy $$JDKVer $$R0
+	ReadRegStr $$R0 HKLM "SOFTWARE\JavaSoft\Java Development Kit\$$R0" "JavaHome"
+	SetRegView 32
 	IfErrors 0 FoundVM
 
 	ClearErrors
@@ -207,21 +227,26 @@ Function .onInit
 	DetailPrint "Java was found"
 	DetailPrint $$JREVer
 	DetailPrint $$JDKVer
-	IntCmp $$JREVer $${TargetVer} VMGood VMOld VMOver
-	IntCmp $$JDKVer $${TargetVer} VMGood VMOld VMOver
-	Goto Error
+	$${If} $$JREVer != ''
+		StrCpy $$CalcJavaVer $$JREVer
+	$${ElseIf} $$JDKVer != '' 
+		StrCpy $$CalcJavaVer $$JDKVer
+	$${EndIf}
 
-	VMOver:
-	IntCmp $$JREVer $${OverVer} VMHigh VMGood VMHigh
-	IntCmp $$JDKVer $${OverVer} VMHigh VMGood VMHigh
-	Goto Error
+	$${If} $$CalcJavaVer S&lt; $${TargetVer}
+		 Goto VMOld
+	$${ElseIf} $$CalcJavaVer S&gt;= $${OverVer}
+		 Goto VMHigh
+	$${Else}
+		 Goto VMGood
+	$${EndIf}
 
 	VMHigh:
 	DetailPrint "Java Version Bad"
 	Sleep 800
 	MessageBox MB_ICONEXCLAMATION|MB_YESNO \
-		'Found Java Runtime Environment installed on your computer. \
-		$$\nVersion was not "$${TargetVer}". \
+		'Found Java Runtime Environment v$$CalcJavaVer installed on your computer. \
+		$$\nThis version is not yet supported. We recommend version $${TargetVer}. \
 		$$\n$$\nWould you like to visit the Java website to download newest?' \
 		IDNO Error
 	ExecShell open "http://java.com/en/download/windows_automatic.jsp"
@@ -235,8 +260,8 @@ Function .onInit
 	DetailPrint "Java Version Bad"
 	Sleep 800
 	MessageBox MB_ICONEXCLAMATION|MB_YESNO \
-		'Found Java Runtime Environment installed on your computer. \
-		$$\nVersion was not "$${TargetVer}". \
+		'Found Java Runtime Environment v$$CalcJavaVer installed on your computer. \
+		$$\nThis version is no longer supported. We recommend version $${TargetVer}. \
 		$$\n$$\nWould you like to visit the Java website to download newest?' \
 		IDNO Error
 	ExecShell open "http://java.com/en/download/windows_automatic.jsp"
