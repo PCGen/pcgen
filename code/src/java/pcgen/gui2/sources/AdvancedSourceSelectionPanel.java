@@ -285,7 +285,15 @@ class AdvancedSourceSelectionPanel extends JPanel
 	
 	public void setSourceSelection(SourceSelectionFacade sources)
 	{
-		gameModeList.setSelectedItem(sources.getGameMode().getReference());
+		GameModeFacade selectedGame = sources.getGameMode().getReference();
+		for (int i=0; i< gameModeList.getModel().getSize(); i++)
+		{
+			GameModeDisplayFacade gmdf = (GameModeDisplayFacade) gameModeList.getModel().getElementAt(i);
+			if (gmdf.getGameMode() == selectedGame)
+			{
+				gameModeList.setSelectedItem(gmdf);
+			}
+		}
 		selectedCampaigns.setContents(ListFacades.wrap(sources.getCampaigns()));
 	}
 	
