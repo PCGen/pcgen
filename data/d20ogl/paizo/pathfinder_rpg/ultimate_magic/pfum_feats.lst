@@ -3,7 +3,7 @@ SOURCELONG:Ultimate Magic	SOURCESHORT:PFUM	SOURCEWEB:http://paizo.com/pathfinder
 # ORIGINAL ENTRY: Stefan Radermacher, Henk Slaaf, Douglas Limmer and Paul Shipley
 # ORIGINAL ENTRY DATE: Unknown
 # Feat Name
-ClericChannelPositiveEnergyLVL+1)/2
+
 ###Block: Feats
 # Feat Name					Type					Required Ability															Req. Att.	Required Class				Required Feat																		Required Lvl	Multiple Requirements																			Required Shield Proficiencies			Required Skill				Req. Known Spell																																					Required Casting Type		Req. Spell Type						Required Stat					Var. Min. Value									Define			Description																												Stackable?	Multiple?	Choose									Add Spell Lvl	Bonus to Ability Pool				Bonus to skill																																					Modify VAR											Source Page		Description of the Benefits
 # NEEDS DATA WORK: CHOOSE:ABILITY|Special Ability|PC[TYPE=PerDayOracleRevelation] didn't work.
