@@ -44,10 +44,10 @@
 		  <a href="../globalfilestagpages/globalfilesbonus.html#MISCCR">BONUS:MISC|CR</a>, 
 		  <a href="../globalfilestagpages/globalfilesbonus.html#MISCSR">BONUS:MISC|SR</a></code>
 
-		<p class="indent1">The template tags HD and LEVEL are used in templates to grant 
-		  characters feats and abilities at specific levels based on the characters total 
-		  levels and is independent of any specific character classes. The HD tag is counted 
-		  against levels of Monster Classes and the LEVEL tag is counted against the characters 
+		<p class="indent1">The template tags HD and LEVEL are used in templates to grant a
+		  character feats and abilities at specific levels based on the character's total 
+		  levels and are independent of any specific character classes. The HD tag is counted 
+		  against levels of Monster Classes and the LEVEL tag is counted against the character's 
 		  total levels from all classes. Both the HD and LEVEL tags provide the following 
 		  functions: granting Damage Reduction, granting additions to Challenge Rating 
 		  and Spell Resistance, granting Special Abilities and granting automatic feats.</p>
@@ -68,7 +68,7 @@
 
 		<h3>HD and LEVEL Syntax</h3>
 		
-		<p>At it's core the HD and LEVEL tags are an older form of PRExxx tags, the HD 
+		<p>At its core the HD and LEVEL tags are an older form of PRExxx tags, the HD 
 		  tag is a prerequisite for a specified number of monster levels and the LEVEL tag is a prerequisite 
 		  for the number of total levels the character has. Both of these tags can be 
 		  expressed with this syntax:</p>
@@ -82,7 +82,7 @@
 		<p>The function of the HD tag is replaced by the prerequisite tag 
 		  <a href="../globalfilestagpages/globalfilesprexxx.html#PREHD">PREHD</a> 
 		  and the function of the LEVEL tag is replaced by the prerequisite tag 
-		  <a href="../globalfilestagpages/globalfilesprexxx.html#PRELEVEL">PRELEVEL</a>.All 
+		  <a href="../globalfilestagpages/globalfilesprexxx.html#PRELEVEL">PRELEVEL</a>. All 
 		  of the ranges that can be specified by the HD and LEVEL tags can be replicated 
 		  with the syntax that PREHD and PRELEVEL use as well as a good deal more because 
 		  of the flexibility these tags have. For example:</p>
@@ -95,19 +95,19 @@
 
 		<p>The same syntax applies to LEVEL and PRELEVEL. In addition there is now a 
 		  <a href="../globalfilestagpages/globalfilesprexxx.html#PREPCLEVEL">PREPCLEVEL</a> 
-		  tag which is a prerequisite for the number of non-monster level the character 
+		  tag which is a prerequisite for the number of non-monster levels the character 
 		  has. This is quite useful if you need a prerequisite based on the number of 
-		  character classes the character has regardless of the number of racial hitdice. 
+		  character levels the character has regardless of the number of racial hitdice. 
 		  This is commonly used to regulate feats which can only be taken at first level 
 		  with PREPCLEVEL:MAX=1, if PRELEVEL:MAX=1 were used then an Ogre with no character 
-		  class level would not qualify because it has more than 1 levels total even though 
+		  class levels would not qualify because it has more than 1 level total even though 
 		  they are all monster class levels.</p>
   
 		<hr>
 
 		<h3>CR (Challenge Rating)</h3>
 		
-		<p>All Characters have a CR value which is initially set by the CR tag is the 
+		<p>All Characters have a CR value which is initially set by the CR tag in the 
 		  race line. A CR tag by itself in a template will add to this value. HD:x:CR:y 
 		  and LEVEL:x:CR:y will both add to the CR value at the levels specified. BONUS:MISC|CR|x 
 		  can be used to replace this function in both HD and LEVEL</p>
@@ -137,7 +137,7 @@
 		<p>DR granted by the HD or LEVEL tags can also be handled directly by the 
 		  <a href="../globalfilestagpages/globalfilesother.html#DR">DR</a> 
 		  tag and the <a href="../globalfilestagpages/globalfilesbonus.html#DR">BONUS:DR</a> 
-		  tag since these both take PRExxx tags. There are two aspect to these tags which 
+		  tag since these both take PRExxx tags. There are two aspects to these tags which 
 		  need to be kept in mind, the first is that the DR tag does not stack with itself. 
 		  The second is that the BONUS:DR tag requires that the character must already 
 		  have a DR tag of the kind it will bonus or it will have no effect. This means 
