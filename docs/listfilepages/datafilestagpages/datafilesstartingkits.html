@@ -33,7 +33,7 @@
 			section talks about <a href="#HOWTO">Building a Starting Kit</a> while the second contains 
 			the <a href="#DICTIONARY">Starting Kit Tag Dictionary</a>. The tag dictionary is further 
 			broken down into three sub-sections, one each for <a href="#REGIONTAGS">The Region Tag</a>, 
-			<a href="#LINEHDRTAGS">Line Header Tags</a>and <a href="#MISCTAGS">Miscellaneous Tags</a>.</p>
+			<a href="#LINEHDRTAGS">Line Header Tags</a> and <a href="#MISCTAGS">Miscellaneous Tags</a>.</p>
 		<p class="indent0">For more information about creating kits, check out the 
 			<a href="../lstfileclass/lfc_lesson11_kits_default_monster.html">Default Monster Kit</a> LST 
 			File Class.</p>
@@ -141,7 +141,7 @@
 		<ul class="indent2">
 			<li>This sets a prerequisite region for all kits below the tag.</li>
 			<li>You can use multiple REGION tags in a kit file. Each time it is used it will apply to the kits listed below it.</li>
-			<li>A characters Region may be set using the REGION global tag or with a REGION tag found within a template.</li>
+			<li>A character's Region may be set using the REGION global tag or with a REGION tag found within a template.</li>
 			<li>This tag is now optional in kit files.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -243,10 +243,10 @@
 		<p class="indent0"><strong>Tag Name:</strong> DEITY:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of Deity)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets characters Deity if qualified.</p>
+		<p class="indent2">Sets character's Deity if qualified.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DEITY:Kong</code></p>
-		<p class="indent3">Sets characters Deity to &quot;Kong&quot;.</p>
+		<p class="indent3">Sets character's Deity to &quot;Kong&quot;.</p>
 		<p></p>
 
 <hr>
@@ -255,14 +255,14 @@
 		<p class="indent0"><strong>Tag Name:</strong> DOMAIN:x|x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Domain Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets characters Domains if qualified.
+		<p class="indent2">Sets character's Domains if qualified.
 			COUNT can be used to limit the number of choices granted by the kit.
 			If not present the character can take as many as he is normally allowed</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">DOMAIN must be used in lines that start with DEITY.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>DOMAIN:Animal</code></p>
-		<p class="indent3">Sets the characters Domain to &quot;Animal&quot; if qualified.</p>
+		<p class="indent3">Sets the character's Domain to &quot;Animal&quot; if qualified.</p>
 		<p></p>
 
 <hr>
@@ -295,7 +295,7 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Currency Abbreviation found in miscinfo file
 			(i.e. gp, euro, dollars, etc)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Adds a specified amount of currency to the characters cash
+		<p class="indent2">Adds a specified amount of currency to the character's cash
 			 pool in the Gear Sub-tab of the Inventory Tab. The FUNDS tag is paired with
 			 a QTY tag which is used to set the amount granted. When used in a FUNDS line
 			 QTY will take a number or formula with variables. It is possible to generate
@@ -305,7 +305,7 @@
 		<p class="indent2"><code>FUNDS:gp &lt;tab&gt; QTY:100</code></p>
 		<p class="indent3">Adds 100 gp to the Gold pool which the character may now spend on equipment.</p>
 		<p class="indent2"><code>FUNDS:gp &lt;tab&gt; QTY:10*TL</code></p>
-		<p class="indent3">Adds 10 times the characters total level of gp to the Gold pool.</p>
+		<p class="indent3">Adds 10 times the character's total level of gp to the Gold pool.</p>
 		<p class="indent2"><code>FUNDS:gp &lt;tab&gt; QTY:10*roll(&quot;2d4&quot;)</code></p>
 		<p class="indent3">Adds 2d4 times 10 gp to the Gold pool.</p>
 		<p></p>
@@ -318,7 +318,7 @@
 		<p class="indent2">Grants the gear indicated to the character if they can afford to purchase it.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>GEAR:Sack</code></p>
-		<p class="indent3">Would put a &quot;Sack&quot; into the PCs equipment if they can afford it.</p>
+		<p class="indent3">Would put a &quot;Sack&quot; into the PC's equipment if they can afford it.</p>
 		<p></p>
 
 <hr>
@@ -327,13 +327,13 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Gender designation)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Establishes the characters/creatures gender</li>
+			<li>Establishes the character's/creature's gender</li>
 			<li>Valid gender designations (Male, Female, Neuter) are in defined in GameMode 
 				<em>biosettings.lst</em> file, <a href="../../listfilepages/systemfilestagpages/systemfilesbiosettingslist.html#SEX">SEX</a> tag.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>GENDER:Male</code></p>
-		<p class="indent3">The character/creature's gender is &quot;Male&quot;.</p>
+		<p class="indent3">The character's/creature's gender is &quot;Male&quot;.</p>
 		<p></p>
 
 
@@ -373,12 +373,12 @@
 
 		<p class="status"><a name="NAME">*** New 5.9.3</a></p>
 		<p class="indent0"><strong>Tag Name:</strong> NAME:x</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (The characters new name)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (The character's new name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Sets a name to the kit recipient.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>NAME:Code Monkey</code></p>
-		<p class="indent3">Sets the characters name to &quot;Code Monkey&quot;.</p>
+		<p class="indent3">Sets the character's name to &quot;Code Monkey&quot;.</p>
 		<p></p>
 
 <hr>
@@ -407,10 +407,10 @@
 		<p class="indent0"><strong>Tag Name:</strong> RACE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Race Name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Sets the characters race.</p>
+		<p class="indent2">Sets the character's race.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>RACE:Bugbear</code></p>
-		<p class="indent3">Sets the characters race to Sets the characters race.</p>
+		<p class="indent3">Sets the character's race to Bugbear.</p>
 		<p></p>
 
 
@@ -635,7 +635,7 @@
 		<p class="indent2"><code>EQMOD:KEEN.BANE|Undead</code> or <code>EQMOD:BANE|Undead.KEEN</code></p>
 		<p class="indent3">Bane Undead is added to the item.</p>
 		<p class="indent2"><code>EQMOD:ABILITYPLUS|STR+2</code></p>
-		<p class="indent3">Applies a +2 STR bonus to the char when using the item.</p>
+		<p class="indent3">Applies a +2 STR bonus to the character when using the item.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">GEAR line</p>
 		<p></p>
@@ -727,7 +727,7 @@
 		<p class="indent2"><code>GEAR:Shield (Light/Wood) &lt;tab&gt; LOCATION:Equipped</code></p>
 		<p class="indent3">Equips the Shield to the Shield slot.</p>
 		<p class="indent2"><code>GEAR:Javelin &lt;tab&gt; LOCATION:Carried</code></p>
-		<p class="indent3">Equips the Morningstar to the Javelin to Carried.</p>
+		<p class="indent3">Equips the Javelin to Carried.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">GEAR lines</p>
 		<p></p>
@@ -743,7 +743,7 @@
 			range and returns the relevant &quot;value&quot;.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>LOOKUP:Minor Special Ability (P/S),roll("1d100")</code></p>
-		<p class="indent3">A random number is generated between 1 and 100 and the item coresponding 
+		<p class="indent3">A random number is generated between 1 and 100 and the item corresponding to 
 			that number will be selected from the &quot;Minor Special Ability (P/S)&quot; table.</p>
 		<p class="indent1"><strong>Where it is Used:</strong></p>
 		<p class="indent2">GEAR and TABLE lines</p>
@@ -785,7 +785,7 @@
 		<p class="indent2"><code>GEAR:The One Ring &lt;tab&gt; OPTION:100</code></p>
 		<p class="indent3">The SELECT tag sets a value between 1 and 100. If that value
 			falls within 1-50 the Scimitar is granted, if the value is between 51 and 100
-			the Falchion is granted, if the value is between 1 and the characters Strength
+			the Falchion is granted, if the value is between 1 and the character's Strength
 			bonus times 5 the Full Plate is granted, if the value is between 1 and 10 or
 			75 and 100 the Shield is granted. If the SELECT value is exactly 100 The One
 			Ring is granted and you had better start packing.</p>
@@ -875,7 +875,7 @@
 		<p class="status"><a name="SIZE">*** New 5.9.2</a></p>
 		<p class="indent0"><strong>Tag Name:</strong> SIZE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Size category (F,D,T,S,M,L,H,G,C)</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> PC (matches the equipment to the characters size)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> PC (matches the equipment to the character's size)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Enlarges or reduces the GEAR item to the size specified.</p>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -903,7 +903,7 @@
 				EQMOD:MI_CLE|76,82|EQMOD:SPL_STR|83,87|EQMOD:THROW|88,91|EQMOD:THNDR_M|92,95|
 				EQMOD:VICIOU|96,100</code></p>
 		</blockquote>
-		<p class="indent3">This table consistes of the following eqmods, granted by random determianation of 1d100, 
+		<p class="indent3">This table consists of the following eqmods, granted by random determination of 1d100, 
 			<span class="lstobj">BANE_M</span> on a 1-10, <span class="lstobj">DEFEND</span> on an 11-17, 
 			<span class="lstobj">FLM_M</span> on a 18-27, <span class="lstobj">FROST_M</span> on a 28-37, 
 			<span class="lstobj">SHOCK_M</span> on a 38-47, <span class="lstobj">GHOST_M</span> on a 48-67, 

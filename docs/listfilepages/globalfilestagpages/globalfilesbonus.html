@@ -209,7 +209,7 @@
     	matching types.</p>
 	<p class="indent1">While you can't <code>.CLEAR</code> a <code>BONUS</code> tag you can add a counter
 		bonus that would negate it. In this case you would add a counter bonus and <code>PRExxx</code>
-		tag it with the reverse of the feats prerequisite.</p>
+		tag it with the reverse of the feat's prerequisite.</p>
 	<p></p>
 
 <hr>
@@ -266,7 +266,7 @@
 	<p class="indent2"><code>BONUS:CASTERLEVEL|SCHOOL.Transmutation|2</code></p>
 	<p class="indent3">Adds 2 to caster level for all spells of the 'Transmutation' school.</p>
 	<p class="indent2"><code>BONUS:CASTERLEVEL|Paladin|CL/2|PRECLASSLEVEL:Paladin=4 </code></p>
-	<p class="indent3">Sets the Paladins spell caster level to half his class level after he reaches level 4.</p>
+	<p class="indent3">Sets the Paladin's spell caster level to half his class level after he reaches level 4.</p>
 	<p class="indent3">(Note that the syntax used in this last example is only valid in a class line)</p>
 	<p class="indent2"><code>CLASS:Defender.MOD &lt;tab&gt; SPELLSTAT:INT &lt;tab&gt; BONUSSPELLSTAT:NONE &lt;tab&gt; SPELLTYPE:Arcane &lt;tab&gt; SPELLBOOK:NO &lt;tab&gt; BONUS:CASTERLEVEL|Defender|TL &lt;tab&gt; SPELLLIST:1|Channeler</code></p>
 	<p class="indent3">Modifying the class Defender changes all of these tags to determine bonus spells and maximum casting level.</p>
@@ -279,7 +279,7 @@
 	<p class="indent1"><strong>Examples using .RESET:</strong></p>
 	<p class="indent2"><code>CASTERLEVEL|TYPE.Divine.RESET|max(CASTERLEVEL.TOTAL,10)</code></p>
 	<p class="indent3">In this example all Divine spells would have a caster level of either 10
-		or the PC's default caster level, which ever is higher.</p>
+		or the PC's default caster level, whichever is higher.</p>
 	<p class="indent2"><code>BONUS:CASTERLEVEL|SPELL.Fireball.RESET|7</code></p>
 	<p class="indent2"><code>BONUS:CASTERLEVEL|SCHOOL.Evocation.RESET|3</code></p>
 	<p class="indent3">These two bonuses in combination would result in a caster level of 10 for Fireball
@@ -452,7 +452,7 @@
 	<p class="indent2"><code>BONUS:COMBAT|DAMAGE.Piercing|2</code></p>
 	<p class="indent3">Increases &quot;Piercing&quot; damage bonus by two.</p>
 	<p class="indent2"><code>BONUS:COMBAT|DAMAGE.Unarmed,DAMAGE.Thrown|DEX</code></p>
-	<p class="indent3">Adds the characters dexterity modifier to both &quot;Unarmed&quot; and &quot;Thrown&quot; 
+	<p class="indent3">Adds the character's dexterity modifier to both &quot;Unarmed&quot; and &quot;Thrown&quot; 
 		damage.</p>
 	<p class="indent2"><code>BONUS:COMBAT|DAMAGEMULT:0|0.5</code></p>
 	<p class="indent3">Increases the damage multiplier by half your strength bonus. Combined with the
@@ -488,7 +488,7 @@
 	<p class="indent2"><code>CHOOSE:WEAPONPROFS|3 &lt;tab&gt; BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent</code></p>
 	<p class="indent3">Increases Attack bonus by one for three WEAPONPROFS based on Talent.</p>
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT.THROWN|2|TYPE=Racial</code></p>
-	<p class="indent3">Increases Attack for thrown weapons bonus by two.</p>
+	<p class="indent3">Increases Attack for thrown weapon's bonus by two.</p>
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT.SLASHING|2|TYPE=Enhancement</code></p>
 	<p class="indent3">Increases Attack bonus by two when using a Slashing weapon.</p>
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT-PRIMARY|2</code></p>
@@ -638,7 +638,7 @@
 	<p class="indent0"><strong>Tag Name:</strong> BONUS:FEAT|POOL|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to add or subtract from the feat pool)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Modifies the characters feat pool total. Can be qualified by PRExxx tags and TYPE tags like other BONUS tags.</p>
+	<p class="indent2">Modifies the character's feat pool total. Can be qualified by PRExxx tags and TYPE tags like other BONUS tags.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:FEAT|POOL|1</code></p>
 	<p class="indent3">Increases the feat pool by one.</p>
@@ -673,7 +673,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Property (MIN or MAX)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to increase the Hit Dice by)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Increases characters Hit Dice size. Valid only in Class lines.</p>
+	<p class="indent2">Increases character's Hit Dice size. Valid only in Class lines.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:HD|MAX|2</code></p>
 	<p class="indent3">Increases maximum of the HD by two points (1d4 goes to 1d6).</p>
@@ -788,7 +788,7 @@
 	<p class="indent2"><code>BONUS:MOVEADD|TYPE.Walk|5|PREVARLT:ENCUMBERANCE,1</code></p>
 	<p class="indent3">Adds 5 to Walk so long as the character is not at medium load.</p>
 	<p class="indent2"><code>BONUS:MOVEADD|TYPE.Walk|10|TYPE=Enhancement|PREAPPLY:ANYPC</code></p>
-	<p class="indent3">Adds 5 to the characters Walk as an enhancement of some sort.</p>
+	<p class="indent3">Adds 5 to the character's Walk as an enhancement of some sort.</p>
 	<p></p>
 
 <hr>
@@ -1042,11 +1042,11 @@
 	<p class="indent2">Adds to the number of points in the skill pool of the class at the level specified. </p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:SKILLPOOL|CLASS=Fighter;LEVEL=2|2</code></p>
-	<p class="indent3">Adds 2 additional skillpoints to the characters skill pool
-		at the second level of the characters Fighter Class.</p>
+	<p class="indent3">Adds 2 additional skillpoints to the character's skill pool
+		at the second level of the character's Fighter Class.</p>
 	<p class="indent2"><code>BONUS:SKILLPOOL|CLASS=Wizard;LEVEL=5|4|PRESTAT:1,INT=18</code></p>
-	<p class="indent3">Adds 4 additional skillpoints to the characters skill pool
-		at the fifth level of the characters Wizard Class if he has an intelligence of 18 or better.</p>
+	<p class="indent3">Adds 4 additional skillpoints to the character's skill pool
+		at the fifth level of the character's Wizard Class if he has an intelligence of 18 or better.</p>
 	<p></p>
 
 <hr>
@@ -1122,7 +1122,7 @@
 	<p class="indent2"><code>BONUS:SPELLCASTMULT|CLASS=Wizard;LEVEL=1|2</code></p>
 	<p class="indent3">You can cast 2 times as many 1<sup>st</sup> lvl <code>Wizard</code> spells as normal.</p>
 	<p class="indent2"><code>BONUS:SPELLCASTMULT|TYPE=Arcane;LEVEL=1|2</code></p>
-	<p class="indent3">You can cast 2 times as many 1<sup>st</sup> lvl spell of Arcane type as normal.</p>
+	<p class="indent3">You can cast 2 times as many 1<sup>st</sup> lvl spells of Arcane type as normal.</p>
 	<p></p>
 
 <hr>
@@ -1173,7 +1173,7 @@
 	<p class="indent2"><code>BONUS:STAT|DEX,CON,INT|1</code></p>
 	<p class="indent3">Adds 1 to character's DEX, CON, &amp; INT stats.</p>
 	<p class="indent2"><code>CHOOSE:STAT|STR|DEX|CON &lt;tab&gt; STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; BONUS:STAT|%LIST|1|TYPE=Inherent</code></p>
-	<p class="indent3">Adds 1 to character's STR, DEX, &amp; CON stats, can be chosen multiple time, does not stack.</p>
+	<p class="indent3">Adds 1 to character's STR, DEX, &amp; CON stats, can be chosen multiple times, does not stack.</p>
 	<p class="indent2"><code>#Dwarf Racial Progression.MOD &lt;tab&gt; BONUS:STAT|CON|2|PRELEVEL:3
 		&lt;tab&gt; BONUS:STAT|STR|2|PRELEVEL:5 &lt;tab&gt; BONUS:STAT|CON|2|PRELEVEL:7 &lt;tab&gt;
 		BONUS:STAT|WIS|2|PRELEVEL:9</code></p>
@@ -1189,7 +1189,7 @@
 	<p class="indent0"><strong>Tag Name:</strong> BONUS:STAT|BASESPELLKNOWNSTAT|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to adjust stat bonus by)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Adds a virtual bonus to characters base spell stat bonus
+	<p class="indent2">Adds a virtual bonus to character's base spell stat bonus
 		when PCGen calculates the number of spells the character knows.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:STAT|BASESPELLKNOWNSTAT|1</code></p>
@@ -1203,7 +1203,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number, variable or formula (Number to adjust stat bonus by)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Adds a virtual bonus to characters base spell stat bonus
+	<p class="indent2">Adds a virtual bonus to character's base spell stat bonus
 		when PCGen calculates the number of spells the character knows for the class specified.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:STAT|BASESPELLKNOWNSTAT;Class=Wizard|2</code></p>
@@ -1215,7 +1215,7 @@
 	<p class="indent0"><strong><a name="STATBASESPELLSTAT">Tag Name:</a></strong> BONUS:STAT|BASESPELLSTAT|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number, variable or formula (Number to adjust stat bonus by)</p>
 	<p class="indent1"><strong>What it Does:</strong></p>
-	<p class="indent2">Adds to characters base spell stat bonus.</p>
+	<p class="indent2">Adds to character's base spell stat bonus.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:STAT|BASESPELLSTAT|1</code></p>
 	<p class="indent3">Adds 1 to all of the character's base spell stat bonus.</p>
@@ -1304,7 +1304,7 @@
 	<p class="indent2"><code>BONUS:VISION|Darkvision|30</code></p>
 	<p class="indent3">Adds DarkVision (30') if you don't have Darkvision, otherwise it increases your darkvision range by 30'.</p>
 	<p class="indent2"><code>BONUS:VISION|Darkvision|((CL/4).TRUNC+1)*10</code></p>
-	<p class="indent3">Increases a characters Darkvision by 10 feet every four levels starting at 1st level.</p>
+	<p class="indent3">Increases a character's Darkvision by 10 feet every four levels starting at 1st level.</p>
 	<p class="indent2"><code>BONUS:VISION|Darkvision|60|PRERACE:1,TYPE=Robot</code></p>
 	<p class="indent3">Adds Darkvision (60') if you don't have Darkvision, otherwise it increases your darkvision range by 60', if you are a robot.</p>
 
@@ -1351,16 +1351,16 @@
 	<p class="indent2"><code>BONUS:WEAPON|TOHIT,DAMGE|1</code></p>
 	<p class="indent3">Adds one to weapon to-hit and damage.</p>
 	<p class="indent2"><code>BONUS:WEAPON|ATTACKS|1</code></p>
-	<p class="indent3">Adds one attack to the weapons attack progression.</p>
+	<p class="indent3">Adds one attack to the weapon's attack progression.</p>
 	<p class="indent2"><code>BONUS:WEAPON|ATTACKSPROGRESS|1</code></p>
-	<p class="indent3">Limits the weapons attack progression to one.</p>
+	<p class="indent3">Limits the weapon's attack progression to one.</p>
 	<p class="indent2"><code>BONUS:WEAPON|WIELDCATEGORY|1</code></p>
-	<p class="indent3">Raises the weapons wieldcatagory, if it were Light it becomes OneHanded.</p>
+	<p class="indent3">Raises the weapon's wieldcatagory, if it were Light it becomes OneHanded.</p>
 	<p class="indent2"><code>BONUS:WEAPON|DAMAGE,TOHIT|min(2,(TL/6)|TYPE=Enhancement|PRELEVEL:6</code></p>
-	<p class="indent3">Raises the weapons damage and to-hit, between 2 and (Total Level divided by 6) if character is over level 6.</p>
+	<p class="indent3">Raises the weapon's damage and to-hit, between 2 and (Total Level divided by 6) if character is over level 6.</p>
 	<p class="indent2"><code>BONUS:WEAPON|DAMAGEMULT:1|.5</code></p>
 	<p class="indent3">Increases the damage multiplier of the weapon by half your strength bonus 
-		when wielding in your primary hand.</p>
+		when wielded in your primary hand.</p>
 	<p></p>
 
 <hr>
@@ -1385,7 +1385,7 @@
 			<li>DAMAGESIZE (Raises or lowers the damage dice on the same scale as weapon size,
 				See <a href="#COMBATDAMAGESIZE">BONUS:COMBAT|DAMAGESIZE</a> for the scale)</li>
 			<li>DAMAGE-SHORTRANGE (Adds to the damage of the weapon at short range as defined in the GameMode files)</li>
-			<li>PCSIZE (Adds to the characters size in relation to the weapon)</li>
+			<li>PCSIZE (Adds to the character's size in relation to the weapon)</li>
 			<li>TOHIT (Adds to the attack bonus of the weapon)</li>
 			<li>TOHIT-SHORTRANGE (Adds to the attack bonus of the weapon at short range as defined in the GameMode files)</li>
 			<li>TOHITOVERSIZE (Decreases the handedness of a weapon)</li>
@@ -1407,11 +1407,11 @@
   	<p class="indent2"><code>BONUS:WEAPONPROF=Greatsword|TOHITOVERSIZE|1</code></p>
   	<p class="indent3">Allows a medium character to use a Greatsword one handed without penalty.</p>
 	<p class="indent2"><code>BONUS:WEAPONPROF=Longsword|WIELDCATEGORY|-1</code></p>
-	<p class="indent3">Lowers the weapons wieldcatagory, if it were OneHanded it becomes Light.</p>
+	<p class="indent3">Lowers the weapon's wieldcatagory, if it were OneHanded it becomes Light.</p>
 	<p class="indent2"><code>CHOOSE:FEAT=Weapon Focus|1 &lt;tab&gt; BONUS:WEAPONPROF=%LIST|TOHIT|1</code></p>
-	<p class="indent3">Chooser for weapons proficiency to add 1 to the to-hit of a Weapon Focus.</p>
+	<p class="indent3">Chooser for weapon's proficiency to add 1 to the to-hit of a Weapon Focus.</p>
 	<p class="indent2"><code>CHOOSE:FEAT=Greater Weapon Focus|1 &lt;tab&gt; BONUS:WEAPONPROF=%LIST|DAMAGE|2</code></p>
-	<p class="indent3">Chooser for weapons proficiency to add 2 to the damager of a Weapon Focus.</p>
+	<p class="indent3">Chooser for weapon's proficiency to add 2 to the damager of a Weapon Focus.</p>
   	<p class="indent2"><code>BONUS:WEAPONPROF=Cannon|TOHIT|-2|TYPE=GunneryPenalty</code></p>
   	<p class="indent3">Subtracts two from the to hit of Cannons due to gunnery.</p>
   	<p class="indent2"><code>BONUS:WEAPONPROF=Dagger|DAMAGEMULT:0|.5</code></p>
