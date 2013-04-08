@@ -478,8 +478,7 @@ Robe of Bones Zombie (Wolf/Medium)																				TYPE:Magic.Wondrous.Consum
 # The Robe of Useful Items with the standard compliment of "patches" represented by consumable material components. The correct number of each constant item (2) is supplied by a kit.
 # The random nature of some items is also supplied by a kit. The needed items for the kit are created below.
 # Equipment Name					Output Name				Type								Contains			Cost		Weight	Size		Source Page						Special Property
-
-Robe of Useful Items 2																						TYPE:Magic.Wondrous.Robe													CONTAINS:*UNLIM|Any		COST:7000	WT:1																																			SOURCEPAGE:MagicItemsV.rtf																																																																							SPROP:Equip with kit.
+Robe of Useful Items 2									TYPE:Magic.Wondrous.Robe.Container			CONTAINS:*UNLIM|Any	COST:7000	WT:1				SOURCEPAGE:MagicItemsV.rtf			SPROP:Equip with kit.
 
 # The weight of the Mirror (Large/Steel/Highly Polished) was calculated as the average weight per square foot of the magical mirrors.
 # The weight and value of the Ladder (24 Ft./Wood) was calculated as 2.4 times that of a the Ladder (10 Ft.).
