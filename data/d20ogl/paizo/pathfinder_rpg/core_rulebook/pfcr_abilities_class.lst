@@ -544,21 +544,13 @@ Tongue of the Sun and Moon								CATEGORY:Special Ability	TYPE:SpecialQuality.E
 Empty Body											CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyMovement																						DESC:You can assume an ethereal state for 1 minute as though using the spell Etherealness.																																																																																																																																								SOURCEPAGE:p.60											BENEFIT:You can assume an ethereal state for 1 minute as though using the spell Etherealness. Using this ability is a move action that consumes 3 points for your Ki pool. This ability only affects you and cannot be used to make other creatures ethereal.
 Perfect Self										CATEGORY:Special Ability	TYPE:SpecialQuality																										DESC:You are treated as an Outsider for the purpose of spells and magical effects.																																																																																																																																							DR:10/Chaotic	SOURCEPAGE:p.60											BENEFIT:You are treated as an Outsider for the purpose of spells and magical effects. Additionally gain Damage Reduction 10/Chaotic. Unlike other outsiders, you can still be brought back from the dead as if you were a member of your previous creature type.
 
-Ki Pool Tracker		CATEGORY:Internal		DEFINE:KiPoints|0	DEFINE:KiPoolLVL|0	BONUS:VAR|KiPoints|KiPoolLVL/2
-
+Ki Pool Tracker		CATEGORY:Internal		DEFINE:KiPoints|0	DEFINE:KiPoolLVL|0	BONUS:VAR|KiPoints|KiPoolLVL/2			BONUS:ABILITYPOOL|Ki Pool Stat Choice|1|PREVARGTEQ:KiPool,2	ABILITY:Internal|AUTOMATIC|Ki Stat Choice ~ Wisdom|PREVAREQ:KiPool,1,KiPoolWis,1	ABILITY:Internal|AUTOMATIC|Ki Stat Choice ~ Charisma|PREVAREQ:KiPool,1,KiPoolCha,1	ABILITY:Internal|AUTOMATIC|Ki Stat Choice ~ Intelligence|PREVAREQ:KiPool,1,KiPoolInt,1
 
 CATEGORY=Internal|Default.MOD																										DEFINE:KiPool|0
 # Set up for Multiclass Support Ki Pool - This Auto Grants a Ki Pool Stat if single class, or gives choice if multiples
-CATEGORY=Special Ability|Ki Pool.MOD																																																																																										BONUS:ABILITYPOOL|Ki Pool Stat Choice|1|PREVARGTEQ:KiPool,2
-CATEGORY=Special Ability|Ki Pool.MOD																																																																											ABILITY:Internal|AUTOMATIC|Ki Stat Choice ~ Wisdom|PREVAREQ:KiPool,1,KiPoolWis,1
-CATEGORY=Special Ability|Ki Pool.MOD																																																																											ABILITY:Internal|AUTOMATIC|Ki Stat Choice ~ Charisma|PREVAREQ:KiPool,1,KiPoolCha,1
-CATEGORY=Special Ability|Ki Pool.MOD																																																																											ABILITY:Internal|AUTOMATIC|Ki Stat Choice ~ Intelligence|PREVAREQ:KiPool,1,KiPoolInt,1
-
-
 Ki Stat Choice ~ Wisdom									CATEGORY:Internal			TYPE:KiStatChoice							PREVARGT:KiPoolWis,0																																																																																																																																			BONUS:VAR|KiPoints|WIS
 Ki Stat Choice ~ Charisma								CATEGORY:Internal			TYPE:KiStatChoice							PREVARGT:KiPoolCha,0																																																																																																																																			BONUS:VAR|KiPoints|CHA
 Ki Stat Choice ~ Intelligence								CATEGORY:Internal			TYPE:KiStatChoice							PREVARGT:KiPoolInt,0																																																																																																																																			BONUS:VAR|KiPoints|INT
-
 
 ###Block: Monk Ability Descriptions
 # Ability Name						Description of the Benefits
