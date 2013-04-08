@@ -78,7 +78,7 @@ Fighting Fan			TYPE:Eastern.Melee.Exotic.Slashing.Piercing.Distracting.Monk
 Tekko-Kagi (Iron Claw)		TYPE:Eastern.Melee.Exotic.Piercing.Disarm
 Wakizashi				TYPE:Eastern.Melee.Exotic.Piercing.Slashing.Deadly
 # One-Handed
-Katana				TYPE:Eastern.Melee.Exotic.Slashing.Deadly
+Katana				TYPE:Eastern.Melee.Martial.Exotic.Slashing.Deadly
 Nine-Section Whip			TYPE:Eastern.Melee.Exotic.Bludgeoning.Blocking.Distracting.Monk.Trip
 Urumi					TYPE:Eastern.Melee.Exotic.Slashing.Distracting
 
