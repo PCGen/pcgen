@@ -336,11 +336,8 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 				return;
 			}
 			
-			removeNote(note);
-			NoteInfoPane notePane =
-					createNotePane(note, character, listModel, notePaneList,
-						e.getIndex());
-			addPage(notePane);
+			int noteIndex = e.getIndex();
+			listModel.set(noteIndex, listModel.getElementAt(noteIndex));
 		}
 	}
 	
