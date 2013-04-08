@@ -12,7 +12,7 @@ Spells (Touch)			TYPE:Simple
 Unarmed Strike			TYPE:Simple.Light.Melee.Unarmed.Bludgeoning
 Grapple				TYPE:Simple.Melee.Unarmed.Bludgeoning
 # Other
-Shieldbash				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning
+Shieldbash				TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.OneHanded.Close
 
 # -- light melee
 Dagger				TYPE:Simple.Light.Melee.Ranged.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing.RangedPiercing.RangedSlashing
@@ -60,20 +60,20 @@ Scimitar				TYPE:Martial.OneHanded.Melee.Slashing.MeleeSlashing.Sword
 Trident				TYPE:Martial.OneHanded.Melee.Thrown.Piercing.RangedPiercing.MeleePiercing.Spear
 Warhammer				TYPE:Martial.OneHanded.Melee.Bludgeoning.MeleeBludgeoning.Hammer
 # 2-handers
-Falchion				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.TwoHanded
-Glaive				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded
-Greataxe				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Axe.TwoHanded
-Greatclub				TYPE:Martial.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Club.TwoHanded
-Flail (Heavy)			TYPE:Martial.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Flail.TwoHanded
-Greatsword				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.TwoHanded
-Guisarme				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded
-Halberd				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm.TwoHanded.Piercing.MeleePiercing
-Lance					TYPE:Martial.TwoHanded.Melee.Piercing.MeleePiercing.TwoHanded.Spear
+Falchion				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Sword
+Glaive				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm
+Greataxe				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Axe
+Greatclub				TYPE:Martial.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Club
+Flail (Heavy)			TYPE:Martial.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Flail
+Greatsword				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Sword
+Guisarme				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm
+Halberd				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Polearm.Piercing.MeleePiercing
+Lance					TYPE:Martial.TwoHanded.Melee.Piercing.MeleePiercing.Spear
 
-Ranseur				TYPE:Martial.TwoHanded.Melee.Piercing.MeleePiercing.Polearm.TwoHanded
-Scythe				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing.TwoHanded
-Sword (Bastard)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Sword.TwoHanded
-Waraxe (Dwarven)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Axe.TwoHanded.Dwarven
+Ranseur				TYPE:Martial.TwoHanded.Melee.Piercing.MeleePiercing.Polearm
+Scythe				TYPE:Martial.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing
+Sword (Bastard)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Sword
+Waraxe (Dwarven)			TYPE:Martial.TwoHanded.Exotic.Melee.Slashing.MeleeSlashing.Axe.Dwarven
 # --ranged
 Longbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow.Archery										HANDS:2
 Shortbow				TYPE:Martial.Ranged.Piercing.RangedPiercing.Bow.Archery										HANDS:2
@@ -86,13 +86,13 @@ Siangham				TYPE:Exotic.Light.Melee.Piercing.MeleePiercing
 # -- 1-handers
 Whip					TYPE:Exotic.OneHanded.Melee.Slashing.MeleeSlashing.Reach
 # -- 2-handers
-Axe (Orc Double)			TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Orc.Axe.DoubleWeapon.TwoHanded
-Chain (Spiked)			TYPE:Exotic.TwoHanded.Melee.Piercing.MeleePiercing.Reach.TwoHanded
-Curve Blade (Elven)		TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.TwoHanded.Elven
-Flail (Dire)			TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.TwoHanded.Flail
-Hammer (Gnome Hooked)		TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Piercing.MeleePiercing.Hammer.Pick.TwoHanded.Gnome
-Sword (Two-Bladed)		TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.TwoHanded.DoubleWeapon
-Urgrosh (Dwarven)			TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing.Axe.TwoHanded.DoubleWeapon.Dwarven
+Axe (Orc Double)			TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Orc.Axe.DoubleWeapon
+Chain (Spiked)			TYPE:Exotic.TwoHanded.Melee.Piercing.MeleePiercing.Reach
+Curve Blade (Elven)		TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.Elven
+Flail (Dire)			TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Flail
+Hammer (Gnome Hooked)		TYPE:Exotic.TwoHanded.Melee.Bludgeoning.MeleeBludgeoning.Piercing.MeleePiercing.Hammer.Pick.Gnome
+Sword (Two-Bladed)		TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Sword.DoubleWeapon
+Urgrosh (Dwarven)			TYPE:Exotic.TwoHanded.Melee.Slashing.MeleeSlashing.Piercing.MeleePiercing.Axe.DoubleWeapon.Dwarven
 # -- ranged
 Bolas					TYPE:Exotic.Thrown.Bludgeoning
 Crossbow (Hand)			TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow.Archery
