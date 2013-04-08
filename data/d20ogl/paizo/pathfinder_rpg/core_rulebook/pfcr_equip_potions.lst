@@ -91,7 +91,7 @@ Potion of Water Walk					TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:
 
 ###Block: Oils
 # Equipment Name				Type					Cost		Weight	Source Page		Special Property
-Oil of Bless Weapon			TYPE:Magic.Potion.Consumable	COST:100	WT:0		SOURCEPAGE:p.477	SPROP:This transmutation makes a weapon strike true against evil foes. Duration 1 minute.
+Oil of Bless Weapon			TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477	SPROP:This transmutation makes a weapon strike true against evil foes. Duration 1 minute.
 Oil of Darkness				TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	SPROP:Object radiates darkness out to a 20-foot radius for 3 minutes.
 Oil of Daylight				TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477	SPROP:Object radiates light out to a 20-foot radius for 3 minutes.
 Oil of Flame Arrow			TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477	SPROP:Turn up to 50 projectiles into fiery projectiles. Duration 30 minutes.
