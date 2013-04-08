@@ -46,7 +46,7 @@ CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|D
 1	ABILITY:Class Ability|AUTOMATIC|Poison Use ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaPoison
 1	ABILITY:Class Ability|AUTOMATIC|Sneak Attack|Sneak Attack ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaSneakAttack
 2	ABILITY:Class Ability|AUTOMATIC|Ninja Trick ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaTrick
-2	ABILITY:Class Ability|AUTOMATIC|Ki Pool|Ki Pool ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaKiPool
+2	ABILITY:Class Ability|AUTOMATIC|Ki Pool ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaKiPool
 3	ABILITY:Class Ability|AUTOMATIC|No Trace ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaNoTrace
 4	ABILITY:Class Ability|AUTOMATIC|Uncanny Dodge ~ Base
 6	ABILITY:Class Ability|AUTOMATIC|Light Steps ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaLightSteps
