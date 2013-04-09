@@ -323,9 +323,9 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		copySettingsPanel = new CopySettingsPanel();
 		addPanelToTree(gameModeNode, copySettingsPanel);
 		rootNode.add(gameModeNode);
-		
-		DefaultMutableTreeNode pluginNode =
-				new DefaultMutableTreeNode("Plugins");
+
+		DefaultMutableTreeNode pluginNode = new DefaultMutableTreeNode(
+				LanguageBundle.getString("in_Prefs_plugins")); //$NON-NLS-1$
 
 		addPluginPanes(rootNode, pluginNode);
 
