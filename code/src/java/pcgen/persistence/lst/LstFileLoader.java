@@ -24,6 +24,7 @@
  */
 package pcgen.persistence.lst;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -66,7 +67,7 @@ public final class LstFileLoader
 	public static final char LINE_COMMENT_CHAR = '#'; //$NON-NLS-1$
 
 	/** The String that separates individual objects */
-	public static final String LINE_SEPARATOR_REGEXP = "(\r|\n)"; //$NON-NLS-1$
+	public static final String LINE_SEPARATOR_REGEXP = "(\r\n?|\n)"; //$NON-NLS-1$
 
 	/**
 	 * This method reads the given URL and stores its contents in the provided
@@ -88,7 +89,6 @@ public final class LstFileLoader
 				"LstFileLoader.readFromURI() received a null uri parameter!");
 		}
 		
-		StringBuilder dataBuffer = new StringBuilder();
 		URL url;
 		try {
 			url = uri.toURL();
@@ -99,11 +99,26 @@ public final class LstFileLoader
 		}
 		InputStream inputStream = null;
 
+		StringBuilder dataBuffer = null;
 		try
 		{
 			//only load local urls, unless loading of URLs is allowed
 			if (!CoreUtility.isNetURL(url) || SettingsHandler.isLoadURLs())
 			{
+				// try to make a buffer of sufficient size in one go to save on GC
+				int size = 2048;
+				if ("file".equals(url.getProtocol())) 
+				{
+					long fileSize = new File(url.getPath()).length();
+					if (fileSize > 0)
+					{
+						// this is an overestimate if the LST has wide 
+						// characters, but it's accurate for ASCII
+						size = (int) fileSize; 
+					}
+				}
+				dataBuffer = new StringBuilder(size);
+
 				// Get the URL and open the stream
 				inputStream = url.openStream();
 
@@ -169,6 +184,6 @@ public final class LstFileLoader
 				}
 			}
 		}
-		return dataBuffer;
+		return dataBuffer == null ? new StringBuilder() : dataBuffer;
 	}
 }

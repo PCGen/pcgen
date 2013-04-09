@@ -366,8 +366,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 			aString = aString.replaceAll("\r?\n\t", "\t");
 		}
 		
-		String[] fileLines = aString.replaceAll("\r\n", "\r").split(
-				LstFileLoader.LINE_SEPARATOR_REGEXP);
+		String[] fileLines = aString.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
 
 		for (int i = 0; i < fileLines.length; i++)
 		{

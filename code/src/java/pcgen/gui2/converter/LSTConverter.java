@@ -309,8 +309,7 @@ public class LSTConverter extends Observable
 		StringBuilder resultBuffer = new StringBuilder(dataBuffer.length());
 		final String aString = dataBuffer.toString();
 
-		String[] fileLines = aString.replaceAll("\r\n", "\r").split(
-				LstFileLoader.LINE_SEPARATOR_REGEXP);
+		String[] fileLines = aString.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
 		for (int line = 0; line < fileLines.length; line++)
 		{
 			String lineString = fileLines[line];
