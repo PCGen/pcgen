@@ -333,6 +333,16 @@ public class ListKeyMapToList
 	}
 
 	/**
+	 * Returns true if this structure contains no Lists.
+	 * 
+	 * @return true if this structure contains no Lists; false otherwise
+	 */
+	public boolean isEmpty()
+	{
+		return map.isEmpty();
+	}
+
+	/**
 	 * Returns the consistent-with-equals hashCode for this ListKeyMapToList
 	 * 
 	 * @see java.lang.Object#hashCode()

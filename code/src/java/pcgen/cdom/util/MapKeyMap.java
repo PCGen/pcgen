@@ -234,6 +234,16 @@ public class MapKeyMap
 	{
 		return map.getKeySet();
 	}
+	
+ 	/**
+	 * Returns true if this structure contains no Maps.
+	 * 
+	 * @return true if this structure contains no Maps; false otherwise
+	 */
+	public boolean isEmpty()
+	{
+		return map.isEmpty();
+	}
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this MapKeyMap.

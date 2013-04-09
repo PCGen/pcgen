@@ -31,6 +31,7 @@ import java.util.Set;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.DoubleKeyMapToList;
+import pcgen.base.util.MapToList;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -60,32 +61,32 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 */
 	/** A map to hold items keyed by Integers for the object */
 	// TODO make this final once clone() is no longer required...
-	private Map<IntegerKey, Integer> integerChar = new HashMap<IntegerKey, Integer>();
+	private Map<IntegerKey, Integer> integerChar = null;
 
 	/** A map to hold items keyed by Strings for the object */
 	// TODO make this final once clone() is no longer required...
-	private Map<StringKey, String> stringChar = new HashMap<StringKey, String>();
+	private Map<StringKey, String> stringChar = null;
 
 	/** A map to hold items keyed by Strings for the object */
 	// TODO make this final once clone() is no longer required...
-	private Map<FormulaKey, Formula> formulaChar = new HashMap<FormulaKey, Formula>();
+	private Map<FormulaKey, Formula> formulaChar = null;
 
 	/** A map to hold items keyed by Strings for the object */
 	// TODO make this final once clone() is no longer required...
-	private Map<VariableKey, Formula> variableChar = new HashMap<VariableKey, Formula>();
+	private Map<VariableKey, Formula> variableChar = null;
 
 	/** A map to hold items keyed by Strings for the object */
 	// TODO make this final once clone() is no longer required...
-	private Map<ObjectKey<?>, Object> objectChar = new HashMap<ObjectKey<?>, Object>();
+	private Map<ObjectKey<?>, Object> objectChar = null;
 
 	/** A map of Lists for the object */
 	// TODO make this final once clone() is no longer required...
 	// TODO Make this private once PObject is cleaned up
-	protected ListKeyMapToList listChar = new ListKeyMapToList();
+	private ListKeyMapToList listChar = null;
 
 	/** A map of Maps for the object */
 	// TODO make this final once clone() is no longer required...
-	private MapKeyMap mapChar = new MapKeyMap();
+	private MapKeyMap mapChar = null;
 	
 	// TODO make this final once clone() is no longer required...
 	/*
@@ -93,78 +94,94 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * match the integration tests that we perform, and their current behavior.
 	 * Not sure if this is really tbe best solution?
 	 */
-	private DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject> cdomListMods = new DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject>(HashMap.class, LinkedHashMap.class);
+	private DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject> cdomListMods = null;
 
 	public final boolean containsKey(IntegerKey key)
 	{
-		return integerChar.containsKey(key);
+		return integerChar == null ? false : integerChar.containsKey(key);
 	}
 
 	public final Integer get(IntegerKey key)
 	{
-		return integerChar.get(key);
+		return integerChar == null ? null : integerChar.get(key);
 	}
 
 	public final int getSafe(IntegerKey key)
 	{
-		Integer intValue = integerChar.get(key);
+		Integer intValue = integerChar == null ? null : integerChar.get(key);
 		return intValue == null ? key.getDefault() : intValue;
 	}
 
 	public final Integer put(IntegerKey key, Integer intValue)
 	{
+		if (integerChar == null)
+		{
+			integerChar = new HashMap<IntegerKey, Integer>();
+		}
 		return integerChar.put(key, intValue);
 	}
 
 	public final Integer remove(IntegerKey key)
 	{
-		return integerChar.remove(key);
+		Integer out = integerChar == null ? null : integerChar.remove(key);
+		if (out != null && integerChar.isEmpty())
+		{
+			integerChar = null;
+		}
+		return out;
 	}
 
 	public final Set<IntegerKey> getIntegerKeys()
 	{
-		return new HashSet<IntegerKey>(integerChar.keySet());
+		return integerChar == null ? Collections.<IntegerKey>emptySet() : new HashSet<IntegerKey>(integerChar.keySet());
 	}
 
 	public final boolean containsKey(StringKey key)
 	{
-		return stringChar.containsKey(key);
+		return stringChar == null ? false : stringChar.containsKey(key);
 	}
 
 	public final String get(StringKey key)
 	{
-		return stringChar.get(key);
+		return stringChar == null ? null : stringChar.get(key);
 	}
 
 	public final String getSafe(StringKey key)
 	{
-		String str = stringChar.get(key);
+		String str = stringChar == null ? null : stringChar.get(key);
 		return str == null ? "" : str;
 	}
 
 	public final String put(StringKey key, String value)
 	{
+		if (stringChar == null)
+			stringChar = new HashMap<StringKey, String>();
 		return stringChar.put(key, value);
 	}
 
 	public final String remove(StringKey key)
 	{
-		return stringChar.remove(key);
+		String out = stringChar == null ? null : stringChar.remove(key);
+		if (out != null && stringChar.isEmpty())
+		{
+			stringChar = null;
+		}
+		return out;
 	}
 
 	public final Set<StringKey> getStringKeys()
 	{
-		return new HashSet<StringKey>(stringChar.keySet());
+		return stringChar == null ? Collections.<StringKey>emptySet() : new HashSet<StringKey>(stringChar.keySet());
 	}
 
 	public final boolean containsKey(FormulaKey key)
 	{
-		return formulaChar.containsKey(key);
+		return formulaChar == null ? false : formulaChar.containsKey(key);
 	}
 
 	public final Formula get(FormulaKey key)
 	{
-		return formulaChar.get(key);
+		return formulaChar == null ? null : formulaChar.get(key);
 	}
 
 	public final Formula getSafe(FormulaKey key)
@@ -175,103 +192,138 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final Formula put(FormulaKey key, Formula value)
 	{
+		if (formulaChar == null)
+		{
+			formulaChar = new HashMap<FormulaKey, Formula>();
+		}
 		return formulaChar.put(key, value);
 	}
 
 	public final Formula remove(FormulaKey key)
 	{
-		return formulaChar.remove(key);
+		Formula out = formulaChar == null ? null : formulaChar.remove(key);
+		if (out != null && formulaChar.isEmpty())
+		{
+			formulaChar = null;
+		}
+		return out;
 	}
 
 	public final Set<FormulaKey> getFormulaKeys()
 	{
-		return new HashSet<FormulaKey>(formulaChar.keySet());
+		return formulaChar == null ? Collections.<FormulaKey>emptySet() : new HashSet<FormulaKey>(formulaChar.keySet());
 	}
 
 	public final boolean containsKey(VariableKey key)
 	{
-		return variableChar.containsKey(key);
+		return variableChar == null ? false : variableChar.containsKey(key);
 	}
 
 	public final Formula get(VariableKey key)
 	{
-		return variableChar.get(key);
+		return variableChar == null ? null : variableChar.get(key);
 	}
 
 	public final Set<VariableKey> getVariableKeys()
 	{
-		return new HashSet<VariableKey>(variableChar.keySet());
+		return variableChar == null ? Collections.<VariableKey>emptySet() : new HashSet<VariableKey>(variableChar.keySet());
 	}
 
 	public final Formula put(VariableKey key, Formula value)
 	{
+		if (variableChar == null)
+		{
+			variableChar = new HashMap<VariableKey, Formula>();
+		}
 		return variableChar.put(key, value);
 	}
 
 	public final Formula remove(VariableKey key)
 	{
-		return variableChar.remove(key);
+		Formula out = variableChar == null ? null : variableChar.remove(key);
+		if (out != null && variableChar.isEmpty())
+		{
+			variableChar = null;
+		}
+		return out;
 	}
 
 	public final void removeAllVariables()
 	{
-		variableChar.clear();
+		variableChar = null;
 	}
 
 	public final boolean containsKey(ObjectKey<?> key)
 	{
-		return objectChar.containsKey(key);
+		return objectChar == null ? false : objectChar.containsKey(key);
 	}
 
 	public final <OT> OT get(ObjectKey<OT> key)
 	{
-		return key.cast(objectChar.get(key));
+		return objectChar == null ? null : key.cast(objectChar.get(key));
 	}
 
 	public final <OT> OT getSafe(ObjectKey<OT> key)
 	{
-		OT obj = key.cast(objectChar.get(key));
+		OT obj = get(key);
 		return obj == null ? key.getDefault() : obj;
 	}
 
 	public final <OT> OT put(ObjectKey<OT> key, OT value)
 	{
+		if (objectChar == null)
+		{
+			objectChar = new HashMap<ObjectKey<?>, Object>();
+		}
 		return key.cast(objectChar.put(key, value));
 	}
 
 	public final <OT> OT remove(ObjectKey<OT> key)
 	{
-		return key.cast(objectChar.remove(key));
+		OT out = objectChar == null ? null : key.cast(objectChar.remove(key));
+		if (out != null && objectChar.isEmpty())
+		{
+			objectChar = null;
+		}
+		return out;
 	}
 
 	public final Set<ObjectKey<?>> getObjectKeys()
 	{
-		return new HashSet<ObjectKey<?>>(objectChar.keySet());
+		return objectChar == null ? Collections.<ObjectKey<?>>emptySet() : new HashSet<ObjectKey<?>>(objectChar.keySet());
 	}
 
 	public final boolean containsListFor(ListKey<?> key)
 	{
-		return listChar.containsListFor(key);
+		return listChar == null ? false : listChar.containsListFor(key);
 	}
 
 	public final <T> void addToListFor(ListKey<T> key, T element)
 	{
+		if (listChar == null)
+		{
+			listChar = new ListKeyMapToList();
+		}
 		listChar.addToListFor(key, element);
 	}
 
 	public final <T> void addAllToListFor(ListKey<T> key, Collection<T> elementCollection)
 	{
+		if (listChar == null)
+		{
+			listChar = new ListKeyMapToList();
+		}
 		listChar.addAllToListFor(key, elementCollection);
 	}
 
 	public final <T> List<T> getListFor(ListKey<T> key)
 	{
-		return listChar.getListFor(key);
+		return listChar == null ? null : listChar.getListFor(key);
 	}
 
 	public final <T> List<T> getSafeListFor(ListKey<T> key)
 	{
-		return listChar.containsListFor(key) ? listChar.getListFor(key)
+		return listChar != null && listChar.containsListFor(key) ? listChar.getListFor(key)
 				: new ArrayList<T>();
 	}
 	
@@ -282,42 +334,53 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final int getSizeOfListFor(ListKey<?> key)
 	{
-		return listChar.sizeOfListFor(key);
+		// The javadoc says throw NPE, but the code returns 0, so I also return 0 here
+		return listChar == null ? 0 : listChar.sizeOfListFor(key);
 	}
 
 	public final int getSafeSizeOfListFor(ListKey<?> key)
 	{
-		return listChar.containsListFor(key) ? listChar.sizeOfListFor(key) : 0;
+		return listChar == null ? 0 : listChar.containsListFor(key) ? listChar.sizeOfListFor(key) : 0;
 	}
 
 	public final <T> boolean containsInList(ListKey<T> key, T element)
 	{
-		return listChar.containsInList(key, element);
+		return listChar == null ? false : listChar.containsInList(key, element);
 	}
 
 	public final <T> boolean containsAnyInList(ListKey<T> key, Collection<T> elementCollection)
 	{
-		return listChar.containsAnyInList(key, elementCollection);
+		return listChar == null ? false : listChar.containsAnyInList(key, elementCollection);
 	}
 
 	public final <T> T getElementInList(ListKey<T> key, int index)
 	{
-		return listChar.getElementInList(key, index);
+		return listChar == null ? null : listChar.getElementInList(key, index);
 	}
 
 	public final <T> List<T> removeListFor(ListKey<T> key)
 	{
-		return listChar.removeListFor(key);
+		List<T> out = listChar == null ? null : listChar.removeListFor(key);
+		if (out != null && listChar.isEmpty())
+		{
+			listChar = null;
+		}
+		return out;
 	}
 
 	public final <T> boolean removeFromListFor(ListKey<T> key, T element)
 	{
-		return listChar.removeFromListFor(key, element);
+		boolean removed = listChar == null ? false : listChar.removeFromListFor(key, element);
+		if (removed && listChar.isEmpty())
+		{
+			listChar = null;
+		}
+		return removed;
 	}
 
 	public final Set<ListKey<?>> getListKeys()
 	{
-		return listChar.getKeySet();
+		return listChar == null ? Collections.<ListKey<?>>emptySet() : listChar.getKeySet();
 	}
 
 	// ===== MapKeyMap Methods =====
@@ -331,6 +394,10 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 */
 	public final <K, V> V addToMapFor(MapKey<K, V> mapKey, K key, V value)
 	{
+		if (mapChar == null)
+		{
+			mapChar = new MapKeyMap();
+		}
 		return mapChar.addToMapFor(mapKey, key, value);
 	}
 
@@ -342,7 +409,14 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 */
 	public final <K, V> void removeFromMapFor(MapKey<K, V> mapKey, K key)
 	{
-		mapChar.removeFromMapFor(mapKey, key);
+		if (mapChar != null)
+		{
+			boolean removed = mapChar.removeFromMapFor(mapKey, key);
+			if (removed && mapChar.isEmpty())
+			{
+				mapChar = null;
+			}
+		}
 	}
 
 	/**
@@ -352,7 +426,14 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 */
 	public final <K, V> void removeMapFor(MapKey<K, V> mapKey)
 	{
-		mapChar.removeMapFor(mapKey);
+		if (mapChar != null)
+		{
+			Map<K, V> removed = mapChar.removeMapFor(mapKey);
+			if (removed != null && mapChar.isEmpty())
+			{
+				mapChar = null;
+			}
+		}
 	}
 
 	/**
@@ -363,7 +444,9 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 */
 	public final <K, V> Map<K, V> getMapFor(MapKey<K, V> mapKey)
 	{
-		return mapChar.getMapFor(mapKey);
+		// The javadoc for getMapFor() says that it returns null, but the implementation does NOT
+		// This caused an NPE in AspectToken.parseNonEmptyToken because it assumed a non-null map
+		return mapChar == null ? Collections.<K, V>emptyMap() : mapChar.getMapFor(mapKey);
 	}
 
 	/**
@@ -374,7 +457,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 */
 	public final <K, V> Set<K> getKeysFor(MapKey<K, V> mapKey)
 	{
-		return mapChar.getKeysFor(mapKey);
+		return mapChar == null ? Collections.<K>emptySet() : mapChar.getKeysFor(mapKey);
 	}
 
 	/**
@@ -389,7 +472,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 */
 	public final <K, V> V get(MapKey<K, V> mapKey, K key2)
 	{
-		return mapChar.get(mapKey, key2);
+		return mapChar == null ? null : mapChar.get(mapKey, key2);
 	}
 
 	/**
@@ -403,7 +486,12 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 */
 	public final <K, V> boolean removeFromMap(MapKey<K, V> mapKey, K key2)
 	{
-		return mapChar.removeFromMapFor(mapKey, key2);
+		boolean removed = mapChar == null ? false : mapChar.removeFromMapFor(mapKey, key2);
+		if (removed && mapChar.isEmpty())
+		{
+			mapChar = null;
+		}
+		return removed;
 	}
 
 	/**
@@ -413,7 +501,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 */
 	public final Set<MapKey<?, ?>> getMapKeys()
 	{
-		return mapChar.getKeySet();
+		return mapChar == null ? Collections.<MapKey<?, ?>>emptySet() : mapChar.getKeySet();
 	}
 	
 	@Override
@@ -437,7 +525,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final int getSafeSizeOfMapFor(MapKey<?, ?> mapKey)
 	{
-		return mapChar.containsMapFor(mapKey) ? mapChar.getKeysFor(mapKey).size() : 0;
+		return mapChar != null && mapChar.containsMapFor(mapKey) ? mapChar.getKeysFor(mapKey).size() : 0;
 	}
 
 	@Override
@@ -456,37 +544,37 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			return false;
 		}
-		if (!integerChar.equals(cdo.integerChar))
+		if (integerChar == null ? cdo.integerChar != null : !integerChar.equals(cdo.integerChar))
 		{
 			// System.err.println("CDOM Inequality Integer");
 			// System.err.println(integerChar + " " + cdo.integerChar);
 			return false;
 		}
-		if (!stringChar.equals(cdo.stringChar))
+		if (stringChar == null ? cdo.stringChar != null : !stringChar.equals(cdo.stringChar))
 		{
 			// System.err.println("CDOM Inequality String");
 			// System.err.println(stringChar + " " + cdo.stringChar);
 			return false;
 		}
-		if (!formulaChar.equals(cdo.formulaChar))
+		if (formulaChar == null ? cdo.formulaChar != null : !formulaChar.equals(cdo.formulaChar))
 		{
 			// System.err.println("CDOM Inequality Formula");
 			// System.err.println(formulaChar + " " + cdo.formulaChar);
 			return false;
 		}
-		if (!variableChar.equals(cdo.variableChar))
+		if (variableChar == null ? cdo.variableChar != null : !variableChar.equals(cdo.variableChar))
 		{
 			// System.err.println("CDOM Inequality Variable");
 			// System.err.println(variableChar + " " + cdo.variableChar);
 			return false;
 		}
-		if (!objectChar.equals(cdo.objectChar))
+		if (objectChar == null ? cdo.objectChar != null : !objectChar.equals(cdo.objectChar))
 		{
 			// System.err.println("CDOM Inequality Object");
 			// System.err.println(objectChar + " " + cdo.objectChar);
 			return false;
 		}
-		if (!listChar.equals(cdo.listChar))
+		if (listChar == null ? cdo.listChar != null : !listChar.equals(cdo.listChar))
 		{
 //			 System.err.println("CDOM Inequality List");
 //			 System.err.println(listChar + " " + cdo.listChar);
@@ -494,11 +582,11 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 //			 + cdo.listChar.getKeySet());
 			return false;
 		}
-		if (!mapChar.equals(cdo.mapChar))
+		if (mapChar == null ? cdo.mapChar != null : !mapChar.equals(cdo.mapChar))
 		{
 			return false;
 		}
-		if (!cdomListMods.equals(cdo.cdomListMods))
+		if (cdomListMods == null ? cdo.cdomListMods != null : !cdomListMods.equals(cdo.cdomListMods))
 		{
 			// System.err.println("CDOM Inequality ListMods");
 			// System.err.println(cdomListMods + " " + cdo.cdomListMods);
@@ -520,6 +608,12 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			CDOMReference<? extends CDOMList<? extends PrereqObject>> listRef,
 			CDOMReference<T> granted, AssociatedPrereqObject associations)
 	{
+		if (cdomListMods == null)
+		{
+			cdomListMods =
+					new DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject>(
+						HashMap.class, LinkedHashMap.class);
+		}
 		cdomListMods.addToListFor(listRef, granted, associations);
 	}
 
@@ -527,20 +621,28 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			CDOMReference<? extends CDOMList<? extends PrereqObject>> listRef,
 			CDOMReference<T> granted)
 	{
-		cdomListMods.removeListFor(listRef, granted);
+		if (cdomListMods != null)
+		{
+			List<AssociatedPrereqObject> removed =
+					cdomListMods.removeListFor(listRef, granted);
+			if (removed != null && cdomListMods.isEmpty())
+			{
+				cdomListMods = null;
+			}
+		}
 	}
 
 	public final boolean hasListMods(
 			CDOMReference<? extends CDOMList<? extends PrereqObject>> listRef)
 	{
-		return cdomListMods.containsListFor(listRef);
+		return cdomListMods == null ? false : cdomListMods.containsListFor(listRef);
 	}
 
 	// TODO Is there a way to get type safety here?
 	public final <BT extends PrereqObject> Collection<CDOMReference<BT>> getListMods(
 			CDOMReference<? extends CDOMList<BT>> listRef)
 	{
-		Set set = cdomListMods.getSecondaryKeySet(listRef);
+		Set set = cdomListMods == null ? null : cdomListMods.getSecondaryKeySet(listRef);
 		if (set == null || set.isEmpty())
 		{
 			return null;
@@ -563,7 +665,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 			CDOMReference<? extends CDOMList<? extends PrereqObject>> listRef,
 			CDOMReference<?> key)
 	{
-		return cdomListMods.getListFor(listRef, key);
+		return cdomListMods == null ? null : cdomListMods.getListFor(listRef, key);
 	}
 
 	/**
@@ -571,7 +673,10 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 */
 	public final Collection<CDOMReference<? extends CDOMList<? extends PrereqObject>>> getModifiedLists()
 	{
-		return cdomListMods.getKeySet();
+		return cdomListMods == null
+			? Collections
+				.<CDOMReference<? extends CDOMList<? extends PrereqObject>>> emptySet()
+			: cdomListMods.getKeySet();
 	}
 
 	@Override
@@ -588,37 +693,109 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public final void overlayCDOMObject(CDOMObject cdo)
 	{
 		addAllPrerequisites(cdo.getPrerequisiteList());
-		integerChar.putAll(cdo.integerChar);
-		stringChar.putAll(cdo.stringChar);
-		formulaChar.putAll(cdo.formulaChar);
-		objectChar.putAll(cdo.objectChar);
-		variableChar.putAll(cdo.variableChar);
-		listChar.addAllLists(cdo.listChar);
-		mapChar.putAll(cdo.mapChar);
-		cdomListMods.addAll(cdo.cdomListMods);
+		if (cdo.integerChar != null)
+		{
+			if (integerChar == null)
+			{
+				integerChar = new HashMap<IntegerKey, Integer>();
+			}
+			integerChar.putAll(cdo.integerChar);
+		}
+		if (cdo.stringChar != null)
+		{
+			if (stringChar == null)
+			{
+				stringChar = new HashMap<StringKey, String>();
+			}
+			stringChar.putAll(cdo.stringChar);
+		}
+		if (cdo.formulaChar != null)
+		{
+			if (formulaChar == null)
+			{
+				formulaChar = new HashMap<FormulaKey, Formula>();
+			}
+			formulaChar.putAll(cdo.formulaChar);
+		}
+		if (cdo.objectChar != null)
+		{
+			if (objectChar == null)
+			{
+				objectChar = new HashMap<ObjectKey<?>, Object>();
+			}
+			objectChar.putAll(cdo.objectChar);
+		}
+		if (cdo.variableChar != null)
+		{
+			if (variableChar == null)
+			{
+				variableChar = new HashMap<VariableKey, Formula>();
+			}
+			variableChar.putAll(cdo.variableChar);
+		}
+		if (cdo.listChar != null)
+		{
+			if (listChar == null)
+			{
+				listChar = new ListKeyMapToList();
+			}
+			listChar.addAllLists(cdo.listChar);
+		}
+		if (cdo.mapChar != null)
+		{
+			if (mapChar == null)
+			{
+				mapChar = new MapKeyMap();
+			}
+			mapChar.putAll(cdo.mapChar);
+		}
+		if (cdo.cdomListMods != null)
+		{
+			if (cdomListMods == null)
+			{
+				cdomListMods =
+						new DoubleKeyMapToList<CDOMReference<? extends CDOMList<? extends PrereqObject>>, CDOMReference<?>, AssociatedPrereqObject>(
+							HashMap.class, LinkedHashMap.class);
+			}
+			cdomListMods.addAll(cdo.cdomListMods);
+		}
 	}
 
 	@Override
 	public CDOMObject clone() throws CloneNotSupportedException
 	{
 		CDOMObject clone = (CDOMObject) super.clone();
-		clone.integerChar = new HashMap<IntegerKey, Integer>(integerChar);
-		clone.stringChar = new HashMap<StringKey, String>(stringChar);
-		clone.formulaChar = new HashMap<FormulaKey, Formula>(formulaChar);
-		clone.variableChar = new HashMap<VariableKey, Formula>(variableChar);
-		clone.objectChar = new HashMap<ObjectKey<?>, Object>(objectChar);
-		clone.listChar = new ListKeyMapToList();
-		clone.listChar.addAllLists(listChar);
-		clone.mapChar = new MapKeyMap();
-		clone.mapChar.putAll(mapChar);
-		clone.cdomListMods = cdomListMods.clone();
+		clone.integerChar = integerChar == null ? null : new HashMap<IntegerKey, Integer>(integerChar);
+		clone.stringChar = stringChar == null ? null : new HashMap<StringKey, String>(stringChar);
+		clone.formulaChar = formulaChar == null ? null : new HashMap<FormulaKey, Formula>(formulaChar);
+		clone.variableChar = variableChar == null ? null : new HashMap<VariableKey, Formula>(variableChar);
+		clone.objectChar = objectChar == null ? null : new HashMap<ObjectKey<?>, Object>(objectChar);
+		if (listChar != null)
+		{
+			clone.listChar = new ListKeyMapToList();
+			clone.listChar.addAllLists(listChar);
+		}
+		if (mapChar != null)
+		{
+			clone.mapChar = new MapKeyMap();
+			clone.mapChar.putAll(mapChar);
+		}
+		clone.cdomListMods = cdomListMods == null ? null : cdomListMods.clone();
 		clone.ownBonuses(clone);
 		return clone;
 	}
 
 	public void removeAllFromList(CDOMReference<? extends CDOMList<?>> listRef)
 	{
-		cdomListMods.removeListsFor(listRef);
+		if (cdomListMods != null)
+		{
+			MapToList<CDOMReference<?>, AssociatedPrereqObject> removed =
+					cdomListMods.removeListsFor(listRef);
+			if (removed != null && cdomListMods.isEmpty())
+			{
+				cdomListMods = null;
+			}
+		}
 	}
 
 	@Override
