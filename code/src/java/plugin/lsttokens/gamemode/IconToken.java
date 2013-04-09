@@ -96,7 +96,7 @@ public class IconToken implements EquipIconLstToken
 			
 		}
 		
-		gameMode.setEquipTypeIcon(equipType, iconPath, priority);
+		gameMode.setEquipTypeIcon(equipType.intern(), iconPath.intern(), priority);
 		return true;
 	}
 
