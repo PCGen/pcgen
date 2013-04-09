@@ -76,7 +76,7 @@ public final class GameModeLoader
 		if (token != null)
 		{
 			LstUtils.deprecationCheck(token, gameMode.getName(), source, value);
-			if (!token.parse(gameMode, value, source))
+			if (!token.parse(gameMode, value.intern(), source))
 			{
 				Logging.errorPrint("Error parsing misc. game info "
 					+ gameMode.getName() + '/' + source + ':'

@@ -33,6 +33,8 @@ public abstract class AbstractNonEmptyToken<T> extends AbstractToken implements 
 		ParseResult pr = checkNonEmpty(value);
 		if (pr.passed())
 		{
+			// new String() just in case because this seems to be where a lot of the substrings pass through
+			value = new String(value);
 			pr = parseNonEmptyToken(context, obj, value);
 		}
 		return pr;

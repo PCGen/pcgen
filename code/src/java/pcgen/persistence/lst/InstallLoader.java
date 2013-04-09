@@ -86,7 +86,7 @@ public class InstallLoader extends LstLineFileLoader
 		if (token != null)
 		{
 			LstUtils.deprecationCheck(token, campaign, value);
-			if (!token.parse(campaign, value, sourceURI))
+			if (!token.parse(campaign, new String(value), sourceURI))
 			{
 				Logging.errorPrint("Error parsing install "
 					+ campaign.getDisplayName() + ':' + inputLine);

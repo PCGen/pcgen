@@ -71,7 +71,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 
 		if (colToken.hasMoreTokens())
 		{
-			spell.setName(colToken.nextToken());
+			spell.setName(colToken.nextToken().intern());
 			spell.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 			spell.setSourceURI(source.getURI());
 			if (isnew)
@@ -83,7 +83,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 
 		while (colToken.hasMoreElements())
 		{
-			LstUtils.processToken(context, spell, source, colToken.nextToken().trim());
+			LstUtils.processToken(context, spell, source, colToken.nextToken());
 		}
 
 		completeObject(context, source, spell);

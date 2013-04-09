@@ -70,32 +70,32 @@ public class TraitLoader extends LstLineFileLoader
 			switch (traitType)
 			{
 				case 0:
-					SystemCollections.addToTraitList(lstLine, gameMode);
+					SystemCollections.addToTraitList(lstLine.intern(), gameMode);
 
 					break;
 
 				case 1:
-					SystemCollections.addToSpeechList(lstLine, gameMode);
+					SystemCollections.addToSpeechList(lstLine.intern(), gameMode);
 
 					break;
 
 				case 2:
-					SystemCollections.addToPhraseList(lstLine, gameMode);
+					SystemCollections.addToPhraseList(lstLine.intern(), gameMode);
 
 					break;
 
 				case 3:
-					SystemCollections.addToPhobiaList(lstLine, gameMode);
+					SystemCollections.addToPhobiaList(lstLine.intern(), gameMode);
 
 					break;
 
 				case 4:
-					SystemCollections.addToInterestsList(lstLine, gameMode);
+					SystemCollections.addToInterestsList(lstLine.intern(), gameMode);
 
 					break;
 
 				case 5:
-					SystemCollections.addToHairStyleList(lstLine, gameMode);
+					SystemCollections.addToHairStyleList(lstLine.intern(), gameMode);
 
 					break;
 

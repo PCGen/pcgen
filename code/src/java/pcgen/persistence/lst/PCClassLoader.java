@@ -87,7 +87,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				if (subClass == null)
 				{
 					subClass = new SubClass();
-					subClass.setName(n);
+					subClass.setName(n.intern());
 					subClass.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 					subClass.setSourceURI(source.getURI());
 					target.addSubClass(subClass);
@@ -100,7 +100,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				if (subClassList != null)
 				{
 					subClass = subClassList.get(subClassList.size() - 1);
-					subClass.addToListFor(ListKey.SUB_CLASS_LEVEL, new DeferredLine(source, lstLine.substring(14)));
+					subClass.addToListFor(ListKey.SUB_CLASS_LEVEL, new DeferredLine(source, lstLine.substring(14).intern()));
 				}
 			}
 			return target;
@@ -137,7 +137,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				if (substitutionClass == null)
 				{
 					substitutionClass = new SubstitutionClass();
-					substitutionClass.setName(name);
+					substitutionClass.setName(name.intern());
 					substitutionClass.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 					substitutionClass.setSourceURI(source.getURI());
 					target.addSubstitutionClass(substitutionClass);
@@ -160,7 +160,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				{
 					substitutionClass = substitutionClassList
 							.get(substitutionClassList.size() - 1);
-					substitutionClass.addToListFor(ListKey.SUB_CLASS_LEVEL, new DeferredLine(source, lstLine.substring(18)));
+					substitutionClass.addToListFor(ListKey.SUB_CLASS_LEVEL, new DeferredLine(source, lstLine.substring(18).intern()));
 				}
 			}
 			return target;
@@ -199,7 +199,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 					completeObject(context, source, pcClass);
 				}
 				pcClass = new PCClass();
-				pcClass.setName(name);
+				pcClass.setName(name.intern());
 				pcClass.setSourceURI(source.getURI());
 				pcClass.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 				context.addStatefulInformation(pcClass);
@@ -210,7 +210,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			{
 				pcClass =
 						context.ref.silentlyGetConstructedCDOMObject(PCClass.class, name.substring(0, name
-						.length() - 4));
+						.length() - 4).intern());
 			}
 			parseLineIntoClass(context, pcClass, source, restOfLine);
 		}
@@ -313,7 +313,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			String key = token.substring(0, colonLoc);
 			String value = (colonLoc == token.length() - 1) ? null : token
 					.substring(colonLoc + 1);
-			if (context.processToken(classlevel, key, value))
+			if (context.processToken(classlevel, key.intern(), value.intern()))
 			{
 				context.commit();
 			}
@@ -361,7 +361,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			String key = token.substring(0, colonLoc);
 			String value = (colonLoc == token.length() - 1) ? null : token
 					.substring(colonLoc + 1);
-			if (context.processToken(pcClass, key, value))
+			if (context.processToken(pcClass, key.intern(), value.intern()))
 			{
 				context.commit();
 			}

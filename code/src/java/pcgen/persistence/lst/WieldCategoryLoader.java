@@ -78,7 +78,7 @@ public class WieldCategoryLoader
 				if (cat == null)
 				{
 					cat = new WieldCategory();
-					cat.setName(value);
+					cat.setName(value.intern());
 					gameMode.addWieldCategory(cat);
 				}
 			}

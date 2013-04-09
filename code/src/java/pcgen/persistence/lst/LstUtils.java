@@ -155,9 +155,9 @@ public class LstUtils
 			return;
 		}
 	
-		String key = token.substring(0, colonLoc);
+		String key = token.substring(0, colonLoc).intern();
 		String value = (colonLoc == token.length() - 1) ? null : token
-				.substring(colonLoc + 1);
+				.substring(colonLoc + 1).intern();
 		if (context.processToken(po, key, value))
 		{
 			context.commit();

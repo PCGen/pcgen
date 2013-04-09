@@ -90,7 +90,7 @@ public class PointBuyLoader extends SimpleLoader<Loadable>
 					+ sourceURI);
 			return null;
 		}
-		Loadable loadable = context.ref.constructCDOMObject(loadClass, name);
+		Loadable loadable = context.ref.constructCDOMObject(loadClass, name.intern());
 		loadable.setSourceURI(sourceURI);
 		return loadable;
 	}

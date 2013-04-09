@@ -510,7 +510,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 												testString.length() - 1))
 										.toString();
 							}
-							dependMap.put(testString, "1");
+							dependMap.put(testString.intern(), "1");
 						}
 					}
 				}

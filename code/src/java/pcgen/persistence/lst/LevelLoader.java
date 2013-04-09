@@ -82,6 +82,7 @@ public final class LevelLoader
 			}
 			else
 			{
+				value = value.intern();
 				gameMode.addXPTableName(value);
 				return value;
 			}
@@ -118,7 +119,7 @@ public final class LevelLoader
 
 			if (token != null)
 			{
-				final String value = colString.substring(idxColon + 1);
+				final String value = colString.substring(idxColon + 1).intern();
 				LstUtils.deprecationCheck(token, levelInfo.getLevelString(),
 					source, value);
 				if (!token.parse(levelInfo, value))

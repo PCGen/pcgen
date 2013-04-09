@@ -18,7 +18,7 @@ public class EqslotToken implements EquipSlotLstToken
     @Override
 	public boolean parse(EquipSlot eqSlot, String value, String gameMode)
 	{
-		eqSlot.setSlotName(value);
+		eqSlot.setSlotName(value.intern());
 		return true;
 	}
 }

@@ -209,10 +209,10 @@ public class Bonus
 			return null;
 		}
 
-		aBonus.putOriginalString(bonusString);
-		aBonus.setBonusName(bonusName);
-		aBonus.setTypeOfBonus(typeOfBonus);
-		Formula val = aBonus.setValue(bValue);
+		aBonus.putOriginalString(bonusString.intern());
+		aBonus.setBonusName(bonusName.intern());
+		aBonus.setTypeOfBonus(typeOfBonus.intern());
+		Formula val = aBonus.setValue(bValue.intern());
 		if (!val.isValid())
 		{
 			Logging.errorPrint("Could not create bonusObj for:" + bonusString
@@ -260,7 +260,7 @@ public class Bonus
 						aBonus.setStackingFlag(StackType.STACK);
 					}
 				}
-				final boolean result = aBonus.addType(bonusType);
+				final boolean result = aBonus.addType(bonusType.intern());
 
 				if (!result)
 				{
@@ -275,7 +275,7 @@ public class Bonus
 
 		if (equalOffset >= 0)
 		{
-			aBonus.setVariable(bonusName.substring(equalOffset + 1));
+			aBonus.setVariable(bonusName.substring(equalOffset + 1).intern());
 		}
 
 		StringTokenizer aTok = new StringTokenizer(bonusInfo, ",");

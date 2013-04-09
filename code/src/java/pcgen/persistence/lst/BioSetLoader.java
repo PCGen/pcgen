@@ -108,7 +108,7 @@ public final class BioSetLoader extends LstLineFileLoader
 				currentAgeSetIndex = Integer.parseInt(ageIndexString);
 				StringTokenizer colToken = new StringTokenizer(line
 						.substring(pipeLoc + 1), SystemLoader.TAB_DELIM);
-				AgeSet ageSet = new AgeSet(colToken.nextToken(),
+				AgeSet ageSet = new AgeSet(colToken.nextToken().intern(),
 						currentAgeSetIndex);
 				while (colToken.hasMoreTokens())
 				{
@@ -151,7 +151,7 @@ public final class BioSetLoader extends LstLineFileLoader
 				}
 				else if (colString.startsWith("REGION:"))
 				{
-					regionName = colString.substring(7);
+					regionName = colString.substring(7).intern();
 				}
 				else if (PreParserFactory.isPreReqString(colString))
 				{
@@ -164,11 +164,12 @@ public final class BioSetLoader extends LstLineFileLoader
 				}
 				else
 				{
-					String aString = "";
+					String aString = colString;
 
 					if (preReqList != null)
 					{
-						final StringBuilder sBuf = new StringBuilder(100);
+						final StringBuilder sBuf = new StringBuilder(100+colString.length());
+						sBuf.append(colString);
 
 						for (int i = 0, x = preReqList.size(); i < x; ++i)
 						{
@@ -179,8 +180,8 @@ public final class BioSetLoader extends LstLineFileLoader
 						aString = sBuf.toString();
 					}
 
-					bioSet.addToUserMap(regionName, raceName, colString
-							+ aString, currentAgeSetIndex);
+					bioSet.addToUserMap(regionName, raceName.intern(), 
+							aString.intern(), currentAgeSetIndex);
 				}
 			}
 		}
@@ -193,10 +194,17 @@ public final class BioSetLoader extends LstLineFileLoader
 		{
 			while (tok.hasMoreTokens())
 			{
+				// in the code below, I use "new String()" to unlink the string from the containing file to save memory,
+				// but I don't intern() the string because it's not fully parsed yet so don't want to add permgen overhead
+				// to a string that's just going to get GC'd eventually
+				//
+				// This pessimization might be removable if we get all impls of CDOMToken.parseToken() to intern. But right
+				// now there are too many of them...
+
 				String currentTok = tok.nextToken();
 				if (currentTok.startsWith("BONUS:"))
 				{
-					if (context.processToken(dummy, "BONUS", currentTok.substring(6)))
+					if (context.processToken(dummy, "BONUS", new String(currentTok.substring(6))))
 					{
 						context.commit();
 					}
@@ -209,7 +217,7 @@ public final class BioSetLoader extends LstLineFileLoader
 				}
 				else if (currentTok.startsWith("KIT:"))
 				{
-					if (context.processToken(dummy, "KIT", currentTok.substring(4)))
+					if (context.processToken(dummy, "KIT", new String(currentTok.substring(4))))
 					{
 						context.commit();
 					}

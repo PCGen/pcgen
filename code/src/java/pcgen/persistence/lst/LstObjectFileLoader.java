@@ -431,7 +431,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 				}
 				else
 				{
-					List<ModEntry> modLines = new ArrayList<ModEntry>();
+					List<ModEntry> modLines = new ArrayList<ModEntry>(1);
 					modLines.add(new ModEntry(sourceEntry, line, i + 1));
 					modEntryList.add(modLines);
 				}
@@ -531,7 +531,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		final int nameEnd = name.indexOf(COPY_SUFFIX);
 		final String baseName = name.substring(0, nameEnd);
 		final String copyName = name.substring(nameEnd + 6);
-		T copy = getCopy(context, baseName, copyName);
+		T copy = getCopy(context, baseName, copyName.intern());
 		if (copy != null)
 		{
 			if (sepLoc != -1)

@@ -105,7 +105,7 @@ public final class GenericLoader<T extends CDOMObject> extends
 				SystemLoader.TAB_DELIM);
 		if (colToken.hasMoreTokens())
 		{
-			po.setName(colToken.nextToken());
+			po.setName(colToken.nextToken().intern());
 			po.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 			po.setSourceURI(source.getURI());
 			if (isnew)

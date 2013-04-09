@@ -1018,7 +1018,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 		final ClassType aClassType = new ClassType();
 		final StringTokenizer aTok = new StringTokenizer(aString, "\t");
-		aClassType.setName(aTok.nextToken()); //Name of the Class Type
+		aClassType.setName(aTok.nextToken().intern()); //Name of the Class Type
 
 		while (aTok.hasMoreTokens())
 		{

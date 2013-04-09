@@ -108,9 +108,9 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 					prereq.addPrerequisite(subreq);
 					count++;
 				}
-				subreq.setOperator(compType);
-				subreq.setKey(first);
-				subreq.setOperand(second);
+				subreq.setOperator(compType.intern());
+				subreq.setKey(first.intern());
+				subreq.setOperand(second.intern());
 			}
 			if (count > 0)
 			{

@@ -63,7 +63,7 @@ public final class FeatLoader extends AbilityLoader
 			feat = new Ability();
 			int tabLoc = lstLine.indexOf(SystemLoader.TAB_DELIM);
 			String name = tabLoc == -1 ? lstLine : lstLine.substring(0, tabLoc);
-			feat.setName(name);
+			feat.setName(name.intern());
 			feat.setCDOMCategory(AbilityCategory.FEAT);
 			context.addStatefulInformation(feat);
 			context.ref.importObject(feat);

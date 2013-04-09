@@ -59,7 +59,7 @@ public class ContainsToken implements EquipSlotLstToken
 		final String[] types=type.split(",");
 		for (String pair : types)
 		{
-			eqSlot.addContainedType(pair);
+			eqSlot.addContainedType(pair.intern());
 		}
 		eqSlot.setContainNum(num);
 		return true;

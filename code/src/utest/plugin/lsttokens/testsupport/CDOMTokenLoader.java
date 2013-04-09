@@ -81,7 +81,7 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 			String key = token.substring(0, colonLoc);
 			String value = (colonLoc == token.length() - 1) ? null : token
 					.substring(colonLoc + 1);
-			if (context.processToken(obj, key, value))
+			if (context.processToken(obj, key.intern(), value.intern()))
 			{
 				context.commit();
 			}
@@ -117,6 +117,7 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 		}
 
 		processCopies(context);
+		copyList.clear();
 
 		// Now handle .MOD items
 		// TODO processMods();
@@ -201,7 +202,7 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 		{
 			try
 			{
-				parseLine(context, getCDOMObject(context, firstToken),
+				parseLine(context, getCDOMObject(context, firstToken.intern()),
 						restOfLine, uri);
 			}
 			catch (PersistenceLayerException ple)
@@ -260,7 +261,7 @@ public class CDOMTokenLoader<T extends CDOMObject> implements CDOMLoader<T>
 						+ " " + sourceName + " but it was never built");
 				continue;
 			}
-			T copy = context.cloneConstructedCDOMObject(sourceObj, copyName);
+			T copy = context.cloneConstructedCDOMObject(sourceObj, copyName.intern());
 			try
 			{
 				parseLine(context, copy, restOfLine, me.source.getURI());

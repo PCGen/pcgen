@@ -70,17 +70,17 @@ public class LocationLoader extends LstLineFileLoader
 			switch (traitType)
 			{
 				case 0:
-					SystemCollections.addToLocationList(lstLine, gameMode);
+					SystemCollections.addToLocationList(lstLine.intern(), gameMode);
 
 					break;
 
 				case 1:
-					SystemCollections.addToBirthplaceList(lstLine, gameMode);
+					SystemCollections.addToBirthplaceList(lstLine.intern(), gameMode);
 
 					break;
 
 				case 2:
-					SystemCollections.addToCityList(lstLine, gameMode);
+					SystemCollections.addToCityList(lstLine.intern(), gameMode);
 
 					break;
 

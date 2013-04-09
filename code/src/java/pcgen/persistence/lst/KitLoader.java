@@ -127,7 +127,7 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 			String firstToken = st.nextToken();
 			int colonLoc = firstToken.indexOf(':');
 			target = context.ref.constructCDOMObject(Kit.class, firstToken
-					.substring(colonLoc + 1));
+					.substring(colonLoc + 1).intern());
 			target.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 			target.setSourceURI(source.getURI());
 			context.addStatefulInformation(target);
@@ -152,7 +152,7 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 				String key = token.substring(0, cLoc);
 				String value = (cLoc == token.length() - 1) ? null : token
 						.substring(cLoc + 1);
-				if (context.processToken(target, key, value))
+				if (context.processToken(target, key.intern(), value.intern()))
 				{
 					context.commit();
 				}
@@ -175,7 +175,7 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 				if (!region.equalsIgnoreCase(Constants.LST_NONE))
 				{
 					// Add a real prereq for the REGION: tag
-					if (context.addStatefulToken("PREREGION:" + region))
+					if (context.addStatefulToken("PREREGION:" + region.intern()))
 					{
 						context.commit();
 					}
@@ -192,7 +192,7 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 				while (st.hasMoreTokens())
 				{
 					String gt = st.nextToken();
-					if (!context.addStatefulToken(gt))
+					if (!context.addStatefulToken(gt.intern()))
 					{
 						Logging.errorPrint("Invalid Stateful Token: " + gt);
 					}

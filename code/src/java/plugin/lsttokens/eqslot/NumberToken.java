@@ -18,7 +18,7 @@ public class NumberToken implements EquipSlotLstToken
     @Override
 	public boolean parse(EquipSlot eqSlot, String value, String gameMode)
 	{
-		eqSlot.setSlotNumType(value);
+		eqSlot.setSlotNumType(value.intern());
 		return true;
 	}
 }

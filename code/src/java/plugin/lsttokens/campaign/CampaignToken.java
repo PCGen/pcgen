@@ -42,7 +42,7 @@ public class CampaignToken extends AbstractNonEmptyToken<Campaign> implements
     @Override
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
-		campaign.setName(value);
+		campaign.setName(value.intern());
 		return true;
 	}
 
@@ -57,7 +57,7 @@ public class CampaignToken extends AbstractNonEmptyToken<Campaign> implements
 		 * be .MODed or .COPYed, so direct access isn't a critical problem. -
 		 * thpr 12/23/08
 		 */
-		campaign.setName(value);
+		campaign.setName(value.intern());
 		return ParseResult.SUCCESS;
 	}
 

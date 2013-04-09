@@ -441,8 +441,8 @@ public abstract class LoadContext
 		{
 			stateful = new ObjectCache();
 		}
-		return processToken(stateful, s.substring(0, colonLoc), s
-			.substring(colonLoc + 1));
+		return processToken(stateful, s.substring(0, colonLoc).intern(),
+				s.substring(colonLoc + 1).intern());
 	}
 
 	public void addStatefulInformation(CDOMObject target)

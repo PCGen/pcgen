@@ -298,7 +298,7 @@ public final class LstSystemLoader implements SystemLoader
 
 			if (aType.equals("load"))
 			{
-				gameMode.addLoadString(aLine);
+				gameMode.addLoadString(aLine.intern());
 			}
 			else if (aType.equals("level"))
 			{

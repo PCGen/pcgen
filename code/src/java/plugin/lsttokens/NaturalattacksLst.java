@@ -109,7 +109,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				return pr;
 			}
-			Equipment anEquip = createNaturalWeapon(context, obj, tokString);
+			Equipment anEquip = createNaturalWeapon(context, obj, tokString.intern());
 
 			if (anEquip == null)
 			{
@@ -171,6 +171,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			return null;
 		}
 
+		attackName = attackName.intern();
 		Equipment anEquip = new Equipment();
 		anEquip.setName(attackName);
 		anEquip.put(ObjectKey.PARENT, obj);

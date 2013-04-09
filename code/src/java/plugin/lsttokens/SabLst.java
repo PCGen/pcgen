@@ -98,11 +98,11 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 					+ aString, context);
 		}
 
-		SpecialAbility sa = new SpecialAbility(firstToken);
+		SpecialAbility sa = new SpecialAbility(firstToken.intern());
 
 		if (!tok.hasMoreTokens())
 		{
-			sa.setName(firstToken);
+			sa.setName(firstToken.intern());
 			context.getObjectContext().addToList(obj, ListKey.SAB, sa);
 			return ParseResult.SUCCESS;
 		}

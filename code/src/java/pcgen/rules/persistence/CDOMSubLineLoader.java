@@ -74,7 +74,7 @@ public class CDOMSubLineLoader<T extends Loadable>
 			String key = token.substring(0, colonLoc);
 			String value = (colonLoc == token.length() - 1) ? null : token
 					.substring(colonLoc + 1);
-			boolean passed = context.processToken(obj, key, value);
+			boolean passed = context.processToken(obj, key.intern(), value.intern());
 			if (passed)
 			{
 				context.commit();

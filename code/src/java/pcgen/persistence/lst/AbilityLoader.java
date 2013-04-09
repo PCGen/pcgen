@@ -73,7 +73,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 		
 		if (colToken.hasMoreTokens())
 		{
-			anAbility.setName(colToken.nextToken());
+			anAbility.setName(colToken.nextToken().intern());
 			anAbility.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 			anAbility.setSourceURI(source.getURI());
 			if (isnew)
@@ -83,8 +83,9 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 			}
 		}
 
-		while (colToken.hasMoreTokens()) {
-			LstUtils.processToken(context, anAbility, source, colToken.nextToken().trim());
+		while (colToken.hasMoreTokens()) 
+		{
+			LstUtils.processToken(context, anAbility, source, colToken.nextToken());
 		}
 
 		completeObject(context, source, anAbility);
