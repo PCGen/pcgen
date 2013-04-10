@@ -29,7 +29,7 @@
 	<h1>Template Files</h1>
 
 	<p>A Template is a series of special 'ideas' that are applied to a character.</p>
-	<p>These 'ideas' take the form of Undead, Lycanthropy Celestial, Outsider, etc, and
+	<p>These 'ideas' take the form of Undead, Lycanthropy, Celestial, Outsider, etc., and
 		enhance your character is some way. Each template is one line only and the first
 		field must be the template name.</p>
 	<p></p>
@@ -76,7 +76,7 @@
 <hr>
 
 	<p class="indent0"><strong><a name="BONUSSKILLPOINTS">Tag Name:</a></strong> BONUSSKILLPOINTS:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of bonus skill point &gt;0)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of bonus skill points &gt;0)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>The numeric value provided will be multiplied by 4 at first level and granted to the character 
@@ -137,7 +137,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Challenge rating adjustment &gt;0)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This is the amount the characters challenge rating is increased by this template.</li>
+		<li>This is the amount the character's challenge rating is increased by this template.</li>
 		<li><strong>.MOD Behavior:</strong> When modifying a template, with the <code>.MOD</code> tag, given an existing <code>CR</code> 
 			tag, the data included in a new <code>CR</code> tag will overwrite the existing tag data.</li>
 	</ul>
@@ -211,7 +211,7 @@
 	<p class="indent2">Initial Template: <code>Darkling &lt;tab&gt; FAVOREDCLASS:Sorcerer</code>
 	<p class="indent2">Modified By: <code>Darkling.MOD &lt;tab&gt; FAVOREDCLASS:Wizard.Necromancer</code></p>
 	<p class="indent2">Is Equivalent To: <code>Darkling &lt;tab&gt; FAVOREDCLASS:Sorcerer|Wizard.Necromancer</code></p>
-	<p class="indent3">Darkling's &quot;favored class&quot; is the &qquot;Sorcerer&quot; and the &quot;Wizard&quot; sub-class, 
+	<p class="indent3">Darkling's &quot;favored class&quot; is the &quot;Sorcerer&quot; and the &quot;Wizard&quot; sub-class, 
 		the &quot;Necromancer&quot;.</p>
 	<p></p>
 
@@ -254,7 +254,7 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>GENDERLOCK:Female</code></p>
-	<p class="indent3">The characters gender is set to and locked as &quot;Female&quot;.</p>
+	<p class="indent3">The character's gender is set to and locked as &quot;Female&quot;.</p>
 	<p class="indent1"><strong>.MOD Example:</strong></p>
 	<p class="indent2">Initial Template: <code>Darkling Sorcerer &lt;tab&gt; GENDERLOCK:Female</code>
 	<p class="indent2">Modified By: <code>Darkling Sorcerer.MOD &lt;tab&gt; GENDERLOCK:Male</code></p>
@@ -320,7 +320,7 @@
 		seven.</p>
 	<p class="indent2"><code>HD:15+:SA:Uncanny Dodge</code></p>
 	<p class="indent3">Grants the &quot;Uncanny Dodge&quot; special ability if natural hit
-		dice is grater than fifteen.</p>
+		dice is greater than fifteen.</p>
 	<p class="indent2"><code>HD:10+:FEAT:Alertness</code></p>
 	<p class="indent3">Grants the &quot;Alertness&quot; feat if natural hit dice is greater
 		than ten.</p>
@@ -330,7 +330,7 @@
 	<p class="indent2">Modified By: <code>Werewolf.MOD &lt;tab&gt; HD:2-7:CR:2</code></p>
 	<p class="indent2">Is Equivalent To: <code>Werewolf &lt;tab&gt; HD:1-3:DR:5/1 &lt;tab&gt; HD:2-7:CR:2</code>.</p>
 	<p class="indent3">The werewolf gains Damage Reduction of &quot;5/1&quot; if natural hit dice is between 
-		one and three, and is granted and increase in Challenge Rating of two if natural hit dice is between 
+		one and three, and is granted an increase in Challenge Rating of two if natural hit dice is between 
 		two and seven.</p>
 	<p></p>
 
@@ -371,33 +371,33 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>HITDIE:12</code></p>
-	<p class="indent3">The character now has a Hit Dice of 12.</p>
+	<p class="indent3">The character now has a Hit Die size of 12.</p>
 	<p class="indent2"><code>HITDIE:%+2</code></p>
-	<p class="indent3">Adds 2 to the current Hit Dice size.</p>
+	<p class="indent3">Adds 2 to the current Hit Die size.</p>
 	<p class="indent2"><code>HITDIE:%-4</code></p>
-	<p class="indent3">Subtracts 4 from the current Hit Dice size.</p>
+	<p class="indent3">Subtracts 4 from the current Hit Die size.</p>
 	<p class="indent2"><code>HITDIE:%*3</code></p>
-	<p class="indent3">Multiplies the current Hit Dice size by 3.</p>
+	<p class="indent3">Multiplies the current Hit Die size by 3.</p>
 	<p class="indent2"><code>HITDIE:%/2</code></p>
-	<p class="indent3">Divides the current Hit Dice size by 2.</p>
+	<p class="indent3">Divides the current Hit Die size by 2.</p>
 	<p class="indent2"><code>HITDIE:%up2</code></p>
-	<p class="indent3">Steps up the Hit Dice size by two steps. If the creature has a Hit Die of d6 it will be stepped up to d10.</p>
+	<p class="indent3">Steps up the Hit Die size by two steps. If the creature has a Hit Die of d6 it will be stepped up to d10.</p>
 	<p class="indent2"><code>HITDIE:%down1</code></p>
-	<p class="indent3">Steps down the Hit Dice size by one step. If the creature has a Hit Die of d6 it will be stepped down to d4.</p>
+	<p class="indent3">Steps down the Hit Die size by one step. If the creature has a Hit Die of d6 it will be stepped down to d4.</p>
 	<p class="indent2"><code>HITDIE:%up1|CLASS.TYPE=Monster</code></p>
-	<p class="indent3">Steps up the Hit Dice size by one step for any Monster class levels the creature has.
+	<p class="indent3">Steps up the Hit Die size by one step for any Monster class levels the creature has.
 		If the creature has a Monster class Hit Die of d8 it will be stepped up to d10.</p>
 	<p class="indent2"><code>HITDIE:%Hup4</code></p>
-	<p class="indent3">Steps up the Hit Dice size by four steps. If the class has a Hit Die of d6 it will be stepped up to d20.</p>
+	<p class="indent3">Steps up the Hit Die size by four steps. If the class has a Hit Die of d6 it will be stepped up to d20.</p>
 	<p class="indent2"><code>HITDIE:%Hdown3</code></p>
-	<p class="indent3">Steps down the Hit Dice size by three steps. If the class has a Hit Die of d6 it will be stepped down to d2.</p>
+	<p class="indent3">Steps down the Hit Die size by three steps. If the class has a Hit Die of d6 it will be stepped down to d2.</p>
 	<p class="indent2"><code>&lt;template name&gt;.MOD &lt;tab&gt; HITDIE:8</code></p>
-	<p class="indent3">The character now has a Hit Die of 8.</p>
+	<p class="indent3">The character now has a Hit Die size of 8.</p>
 	<p class="indent1"><strong>.MOD Example:</strong></p>
 	<p class="indent2">Initial Template: <code>Darkling Sorcerer &lt;tab&gt; HITDIE:6</code>
 	<p class="indent2">Modified By: <code>Darkling Sorcerer.MOD &lt;tab&gt; HITDIE:8</code></p>
 	<p class="indent2">Is Equivalent To: <code>Darkling Sorcerer &lt;tab&gt; HITDIE:8</code></p>
-	<p class="indent3">The Darkling Sorcerer's Hit Die is now &quot;8&quot;.</p>
+	<p class="indent3">The Darkling Sorcerer's Hit Die size is now &quot;8&quot;.</p>
 	<p></p>
 
 <hr>
@@ -413,7 +413,7 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>LANGAUTO:Common,Gnome</code></p>
-	<p class="indent3">The characters gains the &quot;Common&quot; &amp; &quot;Gnome&quot; languages
+	<p class="indent3">The character gains the &quot;Common&quot; &amp; &quot;Gnome&quot; languages
 		  automatically.</p>
 	<p class="indent1"><strong>.MOD Example:</strong></p>
 	<p class="indent2">Initial Template: <code>Space Monkey &lt;tab&gt; LANGAUTO:Simian</code>
@@ -438,7 +438,7 @@
 		<li>This is a comma-delimited (,) list of the languages a character can choose from based upon their Intelligence Stat.</li>
 		<li>When using 'ALL', no other language designation is necessary.</li>
 		<li><strong>.MOD Behavior:</strong> When modifying a template, with the <code>.MOD</code> tag, given an existing <code>LANGBONUS</code> 
-			tag, the data included in a new <code>LANFBONUS</code> tag will be appended to the existing tag data.</li>
+			tag, the data included in a new <code>LANGBONUS</code> tag will be appended to the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>LANGBONUS:TYPE=Spoken,Draconic</code></p>
@@ -486,8 +486,8 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Grants the character an ability at the level specified.</li>
-		<li>This is the characters total character level.</li>
-		<li>The ability of these tags have been enhanced so that they can call any global tag.<br />
+		<li>This is the character's total character level.</li>
+		<li>The abilities of these tags have been enhanced so that they can call any global tag.<br />
 		<li>The text may contain the following tags:<br />
 		<ul>
 			<li><code>ABILITY</code> - <a href="../globalfilestagpages/globalfilesother.html#ABILITY">Ability</a></li>
@@ -541,7 +541,7 @@
 	<ul class="indent2">
 		<li>Raises the Effective Character Level (ECL) of the creature by the number specified by adding 
 			the Level Adjustment to the Monster Hit Dice and/or Character Levels.</li>
-		<li>The ECL is factored in when determining how much experience is needed to raise a characters 
+		<li>The ECL is factored in when determining how much experience is needed to raise a character's 
 			level. For example, a 1st level character with a Level adjustment of 3 would need the same 
 			amount of experience to reach 2nd level as a 4th level character with no level adjustments 
 			would need to reach 5th level.</li>
@@ -563,17 +563,17 @@
 <hr>
 
 	<p class="indent0"><strong><a name="NONPP">Tag Name:</a></strong> NONPP:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (Non proficiency penalty &lt;= 0)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Non-proficiency penalty &lt;= 0)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Sets he character's penalty for non proficiency in a weapon to the number specified.</li>
+		<li>Sets he character's penalty for non-proficiency in a weapon to the number specified.</li>
 		<li>The number specified must be less-than or equal to zero (0).</li>
 		<li><strong>.MOD Behavior:</strong> When modifying a template, with the <code>.MOD</code> tag, given an existing <code>NONPP</code> 
 			tag, the data included in a new <code>NONPP</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>NONPP:-2</code></p>
-	<p class="indent3">The non proficiency penalty is minus two.</p>
+	<p class="indent3">The non-proficiency penalty is minus two.</p>
 	<p class="indent1"><strong>.MOD Example:</strong></p>
 	<p class="indent2">Initial Template: <code>&lt;template name&gt; &lt;tab&gt; NONPP:-2</code>
 	<p class="indent2">Modified By: <code>&lt;template name&gt;.MOD &lt;tab&gt; NONPP:-1</code></p>
@@ -630,7 +630,7 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>RACETYPE:Undead</code></p>
-	<p class="indent3">The Creature is now of the &quot;Undead&quot; type.</p>
+	<p class="indent3">The creature is now of the &quot;Undead&quot; type.</p>
 	<p class="indent1"><strong>.MOD Example:</strong></p>
 	<p class="indent2">Initial Template: <code>&lt;template name&gt; &lt;tab&gt; RACETYPE:Undead</code>
 	<p class="indent2">Modified By: <code>&lt;template name&gt;.MOD &lt;tab&gt; RACETYPE:Outsider</code></p>
@@ -644,7 +644,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Reach in Feet &gt;= 0)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Changes the creature reach.</li>
+		<li>Changes the creature's reach.</li>
 		<li><strong>.MOD Behavior:</strong> When modifying a template, with the <code>.MOD</code> tag, given an existing <code>REACH</code> 
 			tag, the data included in a new <code>REACH</code> tag will overwrite the existing tag data.</li>
 	</ul>
@@ -671,7 +671,7 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>REGION:Timbuktu</code></p>
-	<p class="indent3">Character is from &quot;Timbuktu&quot;.</p>
+	<p class="indent3">The character is from &quot;Timbuktu&quot;.</p>
 	<p class="indent1"><strong>.MOD Example:</strong></p>
 	<p class="indent2">Initial Template: <code>&lt;template name&gt; &lt;tab&gt; REGION:Timbuktu</code>
 	<p class="indent2">Modified By: <code>&lt;template name&gt;.MOD &lt;tab&gt; REGION:Saskatewan</code></p>
@@ -720,7 +720,7 @@
 		<li>Continuing the above example, if you specified skipping an interval every two (2) intervals (&quot;w&quot;), the
 			line would repeat at levels 4, 10, 13, 19, 22, 28, etc...</li>
 		<li>&quot;x&quot; specifies the level at which the progression ends.</li>
-		<li>&quot;y&quot; specifies the level at which the progression starts</li>
+		<li>&quot;y&quot; specifies the level at which the progression starts.</li>
 		<li>&quot;z&quot; specifies the tag which provides the benefit granted by the REPEATELEVEL tag.</li>
 		<li>Valid tags to be used as part o the REPEATELEVEL tag are: <code>SR</code>, <code>SAB</code>, <code>DR</code>, 
 			<code>CR</code>, and <code>FEAT</code>, each with its own suntax and parameter requirements.</li>
@@ -755,7 +755,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number or Formula (Numeric value of the size value)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Sets the characters size, which is used in determining TO-HIT, AC, and affects some skills.</li>
+		<li>Sets the character's size, which is used in determining TO-HIT, AC, and affects some skills.</li>
 		<li>Sizes are defined by the numeric values 0 thru 8 and may have textual values defined in the appropriate 
 			GameMode file. (See Game Mode File &gt; Size Adjustment &gt; 
 			<a href="../../listfilepages/systemfilestagpages/systemfilessizeadjustment.html#SIZENAME">SIZENAME TAG</a>)</li>
@@ -765,7 +765,7 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SIZE:M</code></p>
-	<p class="indent3">Character is &quot;Medium&quot; size.</p>
+	<p class="indent3">The character is &quot;Medium&quot; size.</p>
 	<p class="indent2"><code>SIZE:max(AnimalSize,SIZE)</code></p>
 	<p class="indent3">Sets the character's size to the maximum of the variable &quot;AnimalSize&quot; and
 		current size.</p>
@@ -867,8 +867,8 @@
 			but PCGen's current Data Standard is to include no more that one in each LST object.</li>
 		<li>Though the <code>TEMPLATE:CHOOSE</code> tag is not a gobal tag it can be used in the 
 			<a href="datafilesability.html#TEMPLATECHOOSE">Ability</a>, 
-			<a href="datafilesclasses.html#TEMPLATECHOOSE">Class</a>, 
-			<a href="datafilesraces.html#TEMPLATECHOOSE">Race</a> and files.</li>
+			<a href="datafilesclasses.html#TEMPLATECHOOSE">Class</a>, and
+			<a href="datafilesraces.html#TEMPLATECHOOSE">Race</a> files.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>TEMPLATE:CHOOSE:Celestial|Outsider</code></p>
@@ -926,7 +926,7 @@
 	<p class="indent2">Initial Template: <code>Grunt &lt;tab&gt; WEAPONBONUS:TYPE.Simple</code>
 	<p class="indent2">Modified By: <code>Grunt.MOD &lt;tab&gt; WEAPONBONUS:TYPE.Martial</code></p>
 	<p class="indent2">Is Equivalent To: <code>Grunt &lt;tab&gt; WEAPONBONUS:TYPE.Simple|TYPE.Martial</code>.</p>
-	<p class="indent3">The Grunt may choose between Simple and Martial weapons for a singls bonus 
+	<p class="indent3">The Grunt may choose between Simple and Martial weapons for a single bonus 
 		weapon proficiency.</p>
 	<p></p>
 

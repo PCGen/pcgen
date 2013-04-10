@@ -336,7 +336,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (F,D,T,S,M,L,H,G,C)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Determines the size of the Item. (F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal.</li>
+		<li>Determines the size of the Item. (F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal.)</li>
 		<li>The size designations, including abbreviations, are dependant upon the gamemode used and may be redefined in the sizeadjustments.lst file.</li>
 		<li>In third edition rules size of weapons is used in determining Proficiency qualifications and wielding abilities for weapons.</li>
 		<li>In 3.5 edition rules weapon size no longer determines the actual size of the weapon but instead determines the size of the creature the weapon was made for. <a href="#WIELD">WIELD</a> tag is used in determining Proficiency qualifications and wielding abilities for weapons.
@@ -523,7 +523,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Critical Modifier)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This is the weapons critical multiplier as outputted to the character sheet.</li>
+		<li>This is the weapon's critical multiplier as outputted to the character sheet.</li>
 		<li>The special character (-) is used to indicate no critical multiplier for the equipment.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -539,7 +539,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Attack's critical chance)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This is the weapons critical threat range.</li>
+		<li>This is the weapon's critical threat range.</li>
 		<li>1 = 20, 2 = 19 &amp; 20, 3 = 18 - 20, etc</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -581,8 +581,8 @@
 	<p class="indent0"><strong>Tag Name:</strong> HANDS:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Hands required)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">The required number of hands to use this item.
-		(e.g. a short sword will use HANDS:1, a buckler HANDS:0. The default is 1)</p>
+	<p class="indent2">The required number of hands to use this item
+		(e.g. a short sword will use HANDS:1, a buckler HANDS:0). The default is 1.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>HANDS:2</code></p>
 	<p class="indent3">Item is wielded with 2 hands.</p>
@@ -597,7 +597,7 @@
 		maximum dexterity bonus that can be had while wearing the armor.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>MAXDEX:3</code></p>
-	<p class="indent3">Item allow maximum dexterity bonus of three when equipped.</p>
+	<p class="indent3">Item allows a maximum dexterity bonus of three when equipped.</p>
 	<p></p>
 
 <hr>
@@ -623,7 +623,7 @@
 	<p class="indent0"><strong><a name="RANGE">Tag Name:</a></strong> RANGE:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Distance of one range increment)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Sets the distance of the weapons range increment.</p>
+	<p class="indent2">Sets the distance of the weapon's range increment.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>RANGE:50</code></p>
 	<p class="indent3">One range increment for this weapon is 50 ft.</p>
@@ -656,7 +656,7 @@
 	<p class="indent2">The numerical value supplied is used by the
 		<a href="../systemfilestagpages/gamemodemiscinfolist.html#WEAPONREACH">WEAPONREACH</a>
   		miscinfo.lst tag to calculate the reach the wielder gains with the weapon.
-		In general it adds to the weapons Reach minus the first 5 feet of the characters natural reach,
+		In general it adds to the weapon's Reach minus the first 5 feet of the character's natural reach,
 		so a character with a natural reach of 10 wielding a weapon with a REACH value of 10
 		will have a reach of 15 with that weapon.</p>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -673,12 +673,12 @@
 	<p class="indent2">The numerical value supplied is used by the
 		<a href="../systemfilestagpages/gamemodemiscinfolist.html#WEAPONREACH">WEAPONREACH</a>
   		miscinfo.lst tag to calculate the reach the wielder gains with the weapon.
-		In general it multiplies the characters natural reach,
+		In general it multiplies the character's natural reach,
 		so a character with a natural reach of 10 wielding a weapon with a WEAPONREACH value of 2
 		will have a reach of 20 with that weapon.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>REACHMULT:2</code></p>
-	<p class="indent3">Item reaches 2 times the characters normal reach.</p>
+	<p class="indent3">Item reaches 2 times the character's normal reach.</p>
 	<p></p>
 
 <hr>
