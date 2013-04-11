@@ -11,6 +11,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.doomsdaybook.NameGenPanel;
 import pcgen.gui2.tools.Utility;
+import pcgen.system.LanguageBundle;
 
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -36,7 +37,11 @@ public class RandomNamePlugin extends GMBPlugin
 	private NameGenPanel theView;
 
 	/** The English name of the plugin. */
-	private String name = "Random Names";
+	private static final String NAME = "Random Names"; //$NON-NLS-1$
+	/** Key of plugin tab. */
+	private static final String IN_NAME = "in_plugin_randomname_name"; //$NON-NLS-1$
+	/** Mnemonic in menu for {@link #IN_NAME} */
+	private static final String IN_NAME_MN = "in_mn_plugin_randomname_name"; //$NON-NLS-1$
 
 	/** The version number of the plugin. */
 	private String version = "01.00.99.01.00";
@@ -62,7 +67,7 @@ public class RandomNamePlugin extends GMBPlugin
 	public void start()
 	{
 		theView = new NameGenPanel(new File(getDataDir()));
-		GMBus.send(new TabAddMessage(this, name, getView(), getPluginSystem()));
+		GMBus.send(new TabAddMessage(this, getLocalizedName(), getView(), getPluginSystem()));
 		initMenus();
 	}
 
@@ -86,7 +91,12 @@ public class RandomNamePlugin extends GMBPlugin
     @Override
 	public String getName()
 	{
-		return name;
+		return NAME;
+	}
+	
+	private String getLocalizedName()
+	{
+		return LanguageBundle.getString(IN_NAME);
 	}
 
 	/**
@@ -145,8 +155,8 @@ public class RandomNamePlugin extends GMBPlugin
 	 */
 	public void initMenus()
 	{
-		nameToolsItem.setMnemonic('R');
-		nameToolsItem.setText("Random Name Generator");
+		nameToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
+		nameToolsItem.setText(getLocalizedName());
 		nameToolsItem.addActionListener(new ActionListener()
 		{
             @Override
