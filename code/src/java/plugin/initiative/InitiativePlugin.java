@@ -75,7 +75,7 @@ public class InitiativePlugin extends GMBPlugin
 {
 
 	/** Name used for initiative logging. */
-	public static final String LOG_NAME = "Initiative";
+	public static final String LOG_NAME = "Initiative"; //$NON-NLS-1$
 
 	/** The user interface that this class will be using. */
 	private Initiative theView;
@@ -195,6 +195,7 @@ public class InitiativePlugin extends GMBPlugin
 			chooser.setCurrentDirectory(defaultFile);
 		}
 
+		// TODO should probably handle zip pcg
 		String[] pcgs = new String[]{"pcg", "pcp"};
 		String[] init = new String[]{"gmi", "init"};
 		SimpleFileFilter ff = new SimpleFileFilter(init, "Initiative Export");

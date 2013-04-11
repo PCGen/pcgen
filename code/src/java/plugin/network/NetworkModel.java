@@ -262,6 +262,7 @@ public class NetworkModel
 		JTabbedPane logPane = view.getLogPane();
 
 		JTextPane pane = new JTextPane();
+		pane.setEditable(false);
 		ExtendedHTMLEditorKit htmlKit = new ExtendedHTMLEditorKit();
 		pane.setEditorKit(htmlKit);
 		ExtendedHTMLDocument extDoc =
@@ -395,14 +396,14 @@ public class NetworkModel
 		}
 		logPane.setIconAt(logPane.indexOfTab("Logs"),
 			new javax.swing.ImageIcon(getClass().getResource(
-				"/pcgen/gui/resource/NewEnvelope.gif")));
+				"/pcgen/resource/images/NewEnvelope.gif")));
 
 		if (!(gmgenPane.getSelectedComponent() instanceof NetworkView))
 		{
 			int index = gmgenPane.indexOfComponent(view);
 			javax.swing.ImageIcon icon =
 					new javax.swing.ImageIcon(getClass().getResource(
-						"/pcgen/gui/resource/NewEnvelope.gif"));
+						"/pcgen/resource/images/NewEnvelope.gif"));
 			gmgenPane.setIconAt(index, icon);
 		}
 	}

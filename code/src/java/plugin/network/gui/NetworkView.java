@@ -6,6 +6,8 @@
 
 package plugin.network.gui;
 
+import javax.swing.JPanel;
+
 import pcgen.system.LanguageBundle;
 
 /**
@@ -13,9 +15,10 @@ import pcgen.system.LanguageBundle;
  * @author  ddjone3
  */
 // TODO remove the error panel from the toolbar, and put it in a message box at the bottom of the window.
-public class NetworkView extends javax.swing.JPanel
+public class NetworkView extends JPanel
 {
-
+	private static final long serialVersionUID = 4984238484753403840L;
+	
 	private static final String DEFAULT_IP = "0.0.0.0"; //$NON-NLS-1$
 
 	/** Creates new form NetworkView */
@@ -106,6 +109,7 @@ public class NetworkView extends javax.swing.JPanel
 		userList.setBorder(new javax.swing.border.EtchedBorder());
 		userList.setModel(new javax.swing.AbstractListModel()
 		{
+			// TODO i18n Broadcast (and change in other part of plugin)
 			String[] strings = {"Broadcast"};
 
 			public int getSize()
@@ -198,7 +202,7 @@ public class NetworkView extends javax.swing.JPanel
 
 	public void setConnectionText(String title, String text)
 	{
-		noteTitle.setText(LanguageBundle.getFormattedString("{0}: ", title));
+		noteTitle.setText(LanguageBundle.getFormattedString("in_plugin_network_connectiontext", title)); //$NON-NLS-1$
 		noteText.setText(text);
 	}
 

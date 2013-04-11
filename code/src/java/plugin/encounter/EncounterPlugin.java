@@ -55,24 +55,27 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.gui2.tools.Utility;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.ChooserRadio;
 import plugin.encounter.gui.EncounterView;
 
 /**
- * The <code>EncounterPlugin</code> controlls the various classes that are
+ * This class controls the various classes that are
  * involved in the functionality of the Encounter Generator.  This <code>class
  * </code> is a plugin for the <code>GMGenSystem</code>, is called by the
  * <code>PluginLoader</code> and will create a model and a view for this plugin.
- * @author Expires 2003
  * @version 2.10
  */
 public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		ItemListener, MouseListener
 {
+	/** Directory where Data for this plug-in is expected to be. */
+	private static final String DIR_ENCOUNTER = "encounter_tables"; //$NON-NLS-1$
+
 	/** Name of the log */
-	public static final String LOG_NAME = "Encounter";
+	public static final String LOG_NAME = "Encounter"; //$NON-NLS-1$
 
 	/** The model that holds all the data for generating encounters. */
 	private EncounterModel theModel;
@@ -95,7 +98,11 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	private RaceModel theRaces;
 
 	/** The English name of the plugin. */
-	private String name = "Encounter";
+	private static final String NAME = "Encounter"; //$NON-NLS-1$
+	/** Key of plugin tab. */
+	private static final String IN_NAME = "in_plugin_encounter_name"; //$NON-NLS-1$
+	/** Mnemonic in menu for {@link #IN_NAME} */
+	private static final String IN_NAME_MN = "in_mn_plugin_encounter_name"; //$NON-NLS-1$
 
 	/** The version number of the plugin. */
 	private String version = "01.00.99.01.00";
@@ -121,13 +128,13 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	@Override
 	public void start()
 	{
-		theModel = new EncounterModel(getDataDir());
+		theModel = new EncounterModel(getDataDir() + File.separator + DIR_ENCOUNTER);
 		theView = new EncounterView();
 		theRaces = new RaceModel();
 		theList = new InitHolderList();
 		createView();
 
-		GMBus.send(new TabAddMessage(this, name, getView(), getPluginSystem()));
+		GMBus.send(new TabAddMessage(this, getLocalizedName(), getView(), getPluginSystem()));
 		initMenus();
 	}
 
@@ -169,7 +176,12 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	@Override
 	public String getName()
 	{
-		return name;
+		return NAME;
+	}
+	
+	private String getLocalizedName()
+	{
+		return LanguageBundle.getString(IN_NAME);
 	}
 
 	/**
@@ -236,7 +248,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		else
 		{
 			Logging.errorPrint("Unhandled ActionEvent: "
-				+ e.getSource().toString());
+				+ e.getSource());
 		}
 
 		updateUI();
@@ -249,7 +261,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	public void handleGenerateEncounter(EncounterModel m)
 	{
 		File f =
-				new File(getDataDir() + File.separator + "encounter_tables"
+				new File(getDataDir() + File.separator + DIR_ENCOUNTER
 					+ File.separator + "environments.xml");
 		ReadXML xml;
 
@@ -415,8 +427,8 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	 */
 	public void initMenus()
 	{
-		encounterToolsItem.setMnemonic('n');
-		encounterToolsItem.setText("Encounter Generator");
+		encounterToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
+		encounterToolsItem.setText(getLocalizedName());
 		encounterToolsItem.addActionListener(new ActionListener()
 		{
             @Override
@@ -429,7 +441,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	}
 
 	/**
-	 * Enables or diabales items on the GUI depending on the state of the
+	 * Enables or disables items on the GUI depending on the state of the
 	 * model.
 	 * @see ItemListener#itemStateChanged(ItemEvent)
 	 */
@@ -518,7 +530,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 
 	private void createView()
 	{
-		theEnvironments = new EnvironmentModel(getDataDir());
+		theEnvironments = new EnvironmentModel(getDataDir() + File.separator + DIR_ENCOUNTER);
 
 		theView.getLibraryCreatures().setModel(theRaces);
 		theView.getEncounterCreatures().setModel(theModel);
@@ -654,7 +666,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		if (table.startsWith("["))
 		{
 			tablePath =
-					getDataDir() + File.separator + "encounter_tables"
+					getDataDir() + File.separator + DIR_ENCOUNTER
 						+ File.separator
 						+ table.substring(1, table.length() - 1);
 			Logging.errorPrint("subfile " + tablePath);
@@ -855,7 +867,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	private void generateXofYEL(String size, String totalEL)
 	{
 		File f =
-				new File(getDataDir() + File.separator + "encounter_tables"
+				new File(getDataDir() + File.separator + DIR_ENCOUNTER
 					+ File.separator + "4_1.xml");
 		ReadXML xml;
 		VectorTable table41;

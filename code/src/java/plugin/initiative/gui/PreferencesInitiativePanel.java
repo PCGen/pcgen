@@ -34,14 +34,17 @@ import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
 
 /**
- * Panel that tracks the misc preferences
+ * Panel that tracks the miscellaneous preferences.
  *
  * @author devon
  * @since April 7, 2003
  */
 public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 {
+	private static final long serialVersionUID = -2518295310535094440L;
 
+	private static final String SETTING_ROLL_PC_INITIATIVES = ".rollPCInitiatives"; //$NON-NLS-1$
+	
 	private JPanel performancePanel;
 	private JPanel mainPanel;
 	private JCheckBox rollPCInitiatives;
@@ -57,20 +60,18 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 	public void applyPreferences()
 	{
 		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
-			+ ".rollPCInitiatives", getRollPCInitiatives());
+			+ SETTING_ROLL_PC_INITIATIVES, getRollPCInitiatives());
 	}
 
     @Override
 	public void initPreferences()
 	{
 		setRollPCInitiatives(SettingsHandler.getGMGenOption(
-			InitiativePlugin.LOG_NAME + ".rollPCInitiatives", true));
+			InitiativePlugin.LOG_NAME + SETTING_ROLL_PC_INITIATIVES, true));
 	}
 
 	/**
-	 * <p>
-	 * Turns on or off refresh on state cange
-	 * </p>
+	 * Turns on or off refresh on state change
 	 *
 	 * @param b
 	 */
@@ -80,11 +81,9 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 	}
 
 	/**
-	 * <p>
 	 * Gets current setting of refresh on state change
-	 * </p>
 	 *
-	 * @return true or false
+	 * @return {@code true} if the roll pc initiative is selected
 	 */
 	private boolean getRollPCInitiatives()
 	{
@@ -94,7 +93,7 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 	@Override
 	public String toString()
 	{
-		return LanguageBundle.getString("in_gmgen_init"); //$NON-NLS-1$
+		return LanguageBundle.getString("in_plugin_initiative"); //$NON-NLS-1$
 	}
 
 	private void initComponents()
@@ -110,7 +109,7 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 		performancePanel.setLayout(new BoxLayout(performancePanel,
 			BoxLayout.Y_AXIS));
 		rollPCInitiatives
-			.setText(LanguageBundle.getString("in_gmgen_rollPcInit"));
+			.setText(LanguageBundle.getString("in_plugin_initiative_rollPcInit")); //$NON-NLS-1$
 		performancePanel.add(rollPCInitiatives);
 
 		mainPanel.add(performancePanel);

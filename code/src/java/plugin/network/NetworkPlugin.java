@@ -8,6 +8,7 @@ import gmgen.pluginmgr.messages.*;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
+import pcgen.system.LanguageBundle;
 import plugin.network.gui.NetworkView;
 import plugin.network.gui.PreferencesNetworkingPanel;
 
@@ -29,10 +30,14 @@ import java.awt.event.ActionListener;
  */
 public class NetworkPlugin extends GMBPlugin
 {
-	public static final String LOG_NAME = "Network";
+	public static final String LOG_NAME = "Network"; //$NON-NLS-1$
 
 	/** The English name of the plugin. */
-	private String name = "Network";
+	private static final String NAME = "Network"; //$NON-NLS-1$
+	/** Key of plugin tab. */
+	private static final String IN_NAME = "in_plugin_network_name"; //$NON-NLS-1$
+	/** Mnemonic in menu for {@link #IN_NAME} */
+	private static final String IN_NAME_MN = "in_mn_plugin_network_name"; //$NON-NLS-1$
 
 	/** The version number of the plugin. */
 	private String version = "01.00.99.01.00";
@@ -62,10 +67,10 @@ public class NetworkPlugin extends GMBPlugin
 	public void start()
 	{
 		model = new NetworkModel();
-		GMBus.send(new TabAddMessage(this, name, model.getView(),
+		GMBus.send(new TabAddMessage(this, getLocalizedName(), model.getView(),
 			getPluginSystem()));
 		initMenus();
-		GMBus.send(new PreferencesPanelAddMessage(this, name,
+		GMBus.send(new PreferencesPanelAddMessage(this, getLocalizedName(),
 			new PreferencesNetworkingPanel(model)));
 	}
 
@@ -89,7 +94,12 @@ public class NetworkPlugin extends GMBPlugin
     @Override
 	public String getName()
 	{
-		return name;
+		return NAME;
+	}
+	
+	private String getLocalizedName()
+	{
+		return LanguageBundle.getString(IN_NAME);
 	}
 
 	/**
@@ -136,7 +146,7 @@ public class NetworkPlugin extends GMBPlugin
 			try
 			{
 				GMGenSystemView.getTabPane().setIconAt(
-					GMGenSystemView.getTabPane().indexOfTab(name), null);
+					GMGenSystemView.getTabPane().indexOfTab(getLocalizedName()), null);
 			}
 			catch (Exception e)
 			{
@@ -187,8 +197,8 @@ public class NetworkPlugin extends GMBPlugin
 
 	private void initMenus()
 	{
-		netToolsItem.setMnemonic('N');
-		netToolsItem.setText("Network");
+		netToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
+		netToolsItem.setText(getLocalizedName());
 		netToolsItem.addActionListener(new ActionListener()
 		{
             @Override

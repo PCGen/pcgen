@@ -18,7 +18,7 @@ import pcgen.core.Race;
  * functionality for the Encounter Generator.<br>
  * Created on February 19, 2003<br>
  * Updated on March 12, 2003
- * @author  Expires 2003
+ * 
  * @author John Dells <JohnDells@woh.rr.com>
  * @version 2.10
  */
@@ -28,14 +28,6 @@ public class EncounterModel extends DefaultListModel
 
 	/** All the characters or creatures in combat. */
 	private PlayerCharacter[] PCs;
-
-	/**
-	 * Creates a new instance of EncounterModel
-	 */
-	public EncounterModel()
-	{
-		this("");
-	}
 
 	/**
 	 * Creates a new instance of EncounterModel
@@ -53,7 +45,7 @@ public class EncounterModel extends DefaultListModel
 	public int getCR()
 	{
 		ReadXML xml;
-		File f = new File(dir + File.separator + "encounter_tables/4_1.xml");
+		File f = new File(dir + File.separator + "4_1.xml"); //$NON-NLS-1$
 		int i;
 		float cr = 0;
 

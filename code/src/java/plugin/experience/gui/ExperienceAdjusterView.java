@@ -13,10 +13,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import pcgen.core.utils.CoreUtility;
 import pcgen.system.LanguageBundle;
+import plugin.experience.ExperienceAdjusterModel;
 
 /**
  * The View for the Experience Adjuster.  This view is independant and will be
@@ -25,10 +29,9 @@ import pcgen.system.LanguageBundle;
  * <code>JTabbedPane</code> of the <code>GMGenSystemView</code>.<br>
  * Created on February 19, 2003<br>
  * Updated on March 6, 2003
- * @author  Expires 2003
  * @version 2.10
  */
-// TODO use multi colomn list rather than a single line
+// TODO use multi column list rather than a single line
 public class ExperienceAdjusterView extends javax.swing.JPanel
 {
 	// TODO make this l&f / UIManager value dependent
@@ -84,12 +87,15 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 	/** The user editable field that takes in experience to add. */
 	private javax.swing.JTextField experienceToAdd;
 
+	private ExperienceAdjusterModel model;
+
 	/**
 	 * Creates an instance of <code>ExperienceAdjusterView</code>
 	 * <code>ExperienceAdjusterController</code>.
 	 */
-	public ExperienceAdjusterView()
+	public ExperienceAdjusterView(ExperienceAdjusterModel model)
 	{
+		this.model = model;
 		initComponents();
 	}
 
@@ -372,6 +378,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		experienceMultSlider.setMaximum(10);
 		experienceMultSlider.setMinimum(-5);
 		experienceMultSlider.setValue(0);
+		// TODO the false value (the slider’s) should not be visible, only the real one should
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 1;
@@ -379,6 +386,37 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		gridBagConstraints.gridwidth = 2;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		jPanel8.add(experienceMultSlider, gridBagConstraints);
+		experienceMultSlider.addChangeListener(new ChangeListener() {
+			
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				double realValue = getSliderRealValue();
+
+				if (CoreUtility.doublesEqual(realValue, 0.5)) {
+					getExperienceMultNameLabel().setText(
+							LanguageBundle.getString("in_plugin_xp_half")); //$NON-NLS-1$
+				} else if (realValue <= .7) {
+					getExperienceMultNameLabel().setText(
+							LanguageBundle.getString("in_plugin_xp_easier")); //$NON-NLS-1$
+				} else if ((realValue > .7) && (realValue < 1.5)) {
+					getExperienceMultNameLabel().setText(
+							LanguageBundle.getString("in_plugin_xp_normal")); //$NON-NLS-1$
+				} else if (realValue >= 1.5) {
+					getExperienceMultNameLabel().setText(
+							LanguageBundle.getString("in_plugin_xp_harder")); //$NON-NLS-1$
+				}
+
+				if (CoreUtility.doublesEqual(realValue, 2)) {
+					getExperienceMultNameLabel().setText(
+							LanguageBundle.getString("in_plugin_xp_twice")); //$NON-NLS-1$
+				}
+
+				getExperienceMultLabel().setText(
+						LanguageBundle.getPrettyMultiplier(realValue));
+
+				model.setMultiplier(realValue);
+			}
+		});
 
 		addExperienceToPartyButton.setText(LanguageBundle.getString("in_plugin_xp_addXpToParty")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -388,7 +426,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		jPanel8.add(addExperienceToPartyButton, gridBagConstraints);
 
-		experienceMultLabel.setText(LanguageBundle.getString("in_plugin_xp_1x")); //$NON-NLS-1$
+		experienceMultLabel.setText(LanguageBundle.getPrettyMultiplier(1d));
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
@@ -441,5 +479,14 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		jPanel6.add(jPanel8);
 
 		add(jPanel6);
+	}
+
+	private double calculateRealValue(int i) {
+		return 1.0 + (i * 0.1);
+	}
+
+	public double getSliderRealValue()
+	{
+		return calculateRealValue(getExperienceMultSlider().getValue());
 	}
 }

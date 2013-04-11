@@ -21,14 +21,6 @@ public class EnvironmentModel extends DefaultComboBoxModel
 	private String dir;
 
 	/**
-	 * Constructor for EnvironmentModel.
-	 */
-	public EnvironmentModel()
-	{
-		this("");
-	}
-
-	/**
 	 * Constructor
 	 * @param parentDir
 	 */
@@ -45,14 +37,13 @@ public class EnvironmentModel extends DefaultComboBoxModel
 	{
 		VectorTable table;
 		ReadXML reader;
-		File f =
-				new File(dir + File.separator
-					+ "encounter_tables/environments.xml");
+		File f = new File(dir + File.separator + "environments.xml"); //$NON-NLS-1$
 
 		this.removeAllElements();
 
 		if (!f.exists())
 		{
+			// TODO Make it so that the view also indicate that the file is missing.
 			Logging.errorPrint("Eek! environments.xml is missing!");
 
 			return;

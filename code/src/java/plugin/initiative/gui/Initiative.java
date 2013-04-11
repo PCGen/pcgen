@@ -55,6 +55,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
@@ -71,7 +72,6 @@ import javax.swing.text.NumberFormatter;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.input.SAXBuilder;
-
 import org.jdom.output.Format;
 
 import pcgen.core.Globals;
@@ -2699,18 +2699,6 @@ public class Initiative extends javax.swing.JPanel
 		buttonPanelTop.setLayout(new javax.swing.BoxLayout(buttonPanelTop,
 			javax.swing.BoxLayout.X_AXIS));
 
-		bRoll.setText("Start Combat");
-		bRoll.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				bRollActionPerformed(evt);
-			}
-		});
-
-		buttonPanelTop.add(bRoll);
-
 		bAddCombatant.setText("Add Combatant");
 		bAddCombatant.addActionListener(new java.awt.event.ActionListener()
 		{
@@ -2723,9 +2711,8 @@ public class Initiative extends javax.swing.JPanel
 
 		buttonPanelTop.add(bAddCombatant);
 
-		//		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".ShowDuplicateButton", false))
-		//		{
 		bDuplicateCombatant.setText("Duplicate");
+		bDuplicateCombatant.setEnabled(false);
 		bDuplicateCombatant
 			.addActionListener(new java.awt.event.ActionListener()
 			{
@@ -2736,32 +2723,33 @@ public class Initiative extends javax.swing.JPanel
 				}
 			});
 
+		bDelete.setText("Delete");
+		bDelete.addActionListener(new java.awt.event.ActionListener()
+		{
+            @Override
+			public void actionPerformed(java.awt.event.ActionEvent evt)
+			{
+				bDeleteActionPerformed(evt);
+			}
+		});
+
+		buttonPanelTop.add(bDelete);
+		
 		buttonPanelTop.add(bDuplicateCombatant);
-		//		}
+		
+		buttonPanelTop.add(new JSeparator());
 
-		bNextInit.setText("Next Initiative");
-		bNextInit.addActionListener(new java.awt.event.ActionListener()
+		bRoll.setText("Start Combat");
+		bRoll.addActionListener(new java.awt.event.ActionListener()
 		{
             @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				bNextInitActionPerformed(evt);
+				bRollActionPerformed(evt);
 			}
 		});
 
-		buttonPanelTop.add(bNextInit);
-
-		bRefocus.setText("Refocus");
-		bRefocus.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				bRefocusActionPerformed(evt);
-			}
-		});
-
-		buttonPanelTop.add(bRefocus);
+		buttonPanelTop.add(bRoll);
 
 		bCombatantReRoll.setText("Roll");
 		bCombatantReRoll.addActionListener(new java.awt.event.ActionListener()
@@ -2775,17 +2763,33 @@ public class Initiative extends javax.swing.JPanel
 
 		buttonPanelTop.add(bCombatantReRoll);
 
-		bDelete.setText("Delete");
-		bDelete.addActionListener(new java.awt.event.ActionListener()
+		bNextInit.setText("Next Initiative");
+		bNextInit.addActionListener(new java.awt.event.ActionListener()
 		{
             @Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
-				bDeleteActionPerformed(evt);
+				bNextInitActionPerformed(evt);
 			}
 		});
 
-		buttonPanelTop.add(bDelete);
+		buttonPanelTop.add(bNextInit);
+		
+		buttonPanelTop.add(new JSeparator());
+
+		bRefocus.setText("Refocus");
+		bRefocus.addActionListener(new java.awt.event.ActionListener()
+		{
+            @Override
+			public void actionPerformed(java.awt.event.ActionEvent evt)
+			{
+				bRefocusActionPerformed(evt);
+			}
+		});
+
+		buttonPanelTop.add(bRefocus);
+		
+		buttonPanelTop.add(new JSeparator());
 
 		bRefresh.setText("Refresh Tabs");
 		bRefresh.addActionListener(new ActionListener()
@@ -2803,7 +2807,6 @@ public class Initiative extends javax.swing.JPanel
 
 		topToolbar.add(jPanel2);
 
-		lCounter.setFont(new java.awt.Font("Dialog", 0, 18));
 		topToolbar.add(lCounter);
 
 		add(topToolbar, java.awt.BorderLayout.NORTH);
@@ -2835,7 +2838,19 @@ public class Initiative extends javax.swing.JPanel
 					combatantTablePropertyChange(evt);
 				}
 			});
+		combatantTable.getSelectionModel().addListSelectionListener(
+				new ListSelectionListener()
+				{
 
+					@Override
+					public void valueChanged(ListSelectionEvent e)
+					{
+						boolean hasSelection = combatantTable.getSelectedRow() > -1;
+						bDuplicateCombatant.setEnabled(hasSelection);
+						bDelete.setEnabled(hasSelection);
+						bCombatantReRoll.setEnabled(hasSelection);
+					}
+				});
 		jScrollPane1.setViewportView(combatantTable);
 		jScrollEvents.setViewportView(tpCombatInfo);
 		

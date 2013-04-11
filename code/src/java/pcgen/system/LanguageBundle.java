@@ -163,4 +163,20 @@ public final class LanguageBundle
 	 * Standard bundle key prefix.
 	 */
 	public static final String KEY_PREFIX = "in_"; //$NON-NLS-1$
+	
+	/**
+	 * Allow pretty formatting of multiplier. For example, if d is 0.5d, it returns “× ½”.
+	 * @param d a double value
+	 * @return a formated String
+	 */
+	public static String getPrettyMultiplier(double d)
+	{
+		if (0.25d == d)
+			return LanguageBundle.getString("in_multQuarter"); //$NON-NLS-1$
+		else if (0.5d == d)
+			return LanguageBundle.getString("in_multHalf"); //$NON-NLS-1$
+		else if (0.75d == d)
+			return LanguageBundle.getString("in_multThreeQuarter"); //$NON-NLS-1$
+		else return MessageFormat.format(LanguageBundle.getString("in_multiply"), d); //$NON-NLS-1$
+	}
 }

@@ -154,13 +154,7 @@ class TravelMethodImplementation implements TravelMethod
 		if (n2 == null)
 			return null;
 		StringBuilder n = new StringBuilder();
-		if (0.25d == n2.doubleValue())
-			n.append(LanguageBundle.getString("in_multQuarter")); //$NON-NLS-1$
-		else if (0.5d == n2.doubleValue())
-			n.append(LanguageBundle.getString("in_multHalf")); //$NON-NLS-1$
-		else if (0.75d == n2.doubleValue())
-			n.append(LanguageBundle.getString("in_multThreeQuarter")); //$NON-NLS-1$
-		else n.append(MessageFormat.format(LanguageBundle.getString("in_multiply"), n2)); //$NON-NLS-1$
+		n.append(LanguageBundle.getPrettyMultiplier(n2.doubleValue()));
 		if (c.getAddMph().doubleValue() != 0)
 		{
 			n.append("\n").append(MessageFormat.format(LanguageBundle.getString("in_plusMph"), c.getAddMph())); //$NON-NLS-1$ //$NON-NLS-2$

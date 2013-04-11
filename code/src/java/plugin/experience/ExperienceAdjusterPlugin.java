@@ -18,7 +18,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.text.NumberFormat;
 
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -30,8 +29,8 @@ import javax.swing.filechooser.FileFilter;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
-import pcgen.core.utils.CoreUtility;
 import pcgen.gui2.tools.Utility;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import plugin.experience.gui.AddDefeatedCombatant;
 import plugin.experience.gui.ExperienceAdjusterView;
@@ -50,7 +49,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 		ActionListener, ChangeListener, KeyListener /*Observer*/
 {
 	/** Log name */
-	public static final String LOG_NAME = "Experience_Adjuster";
+	public static final String LOG_NAME = "Experience_Adjuster"; //$NON-NLS-1$
 
 	/** The model that holds all the data for this section. */
 	protected ExperienceAdjusterModel eaModel;
@@ -63,7 +62,11 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	protected JMenuItem experienceToolsItem = new JMenuItem();
 
 	/** The English name of the plugin. */
-	protected String name = "Experience";
+	private static final String NAME = "Experience"; //$NON-NLS-1$
+	/** Key of plugin tab. */
+	private static final String IN_NAME = "in_plugin_experience_name"; //$NON-NLS-1$
+	/** Mnemonic in menu for {@link #IN_NAME} */
+	private static final String IN_NAME_MN = "in_mn_plugin_experience_name"; //$NON-NLS-1$
 
 	/** The version number of the plugin. */
 	protected String version = "01.00.99.01.00";
@@ -89,12 +92,12 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	public void start()
 	{
 		eaModel = new ExperienceAdjusterModel(getDataDir());
-		eaView = new ExperienceAdjusterView();
-		GMBus.send(new PreferencesPanelAddMessage(this, name,
+		eaView = new ExperienceAdjusterView(eaModel);
+		GMBus.send(new PreferencesPanelAddMessage(this, getLocalizedName(),
 			new PreferencesExperiencePanel()));
 		initListeners();
 		update();
-		GMBus.send(new TabAddMessage(this, name, getView(), getPluginSystem()));
+		GMBus.send(new TabAddMessage(this, getLocalizedName(), getView(), getPluginSystem()));
 		initMenus();
 	}
 
@@ -127,7 +130,12 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	@Override
 	public String getName()
 	{
-		return name;
+		return NAME;
+	}
+	
+	private String getLocalizedName()
+	{
+		return LanguageBundle.getString(IN_NAME);
 	}
 
 	/**
@@ -323,36 +331,7 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	 */
 	public void handleMultiplierSlider()
 	{
-		int value = eaView.getExperienceMultSlider().getValue();
-		double realValue = 1.0 + (value * 0.1);
-		eaModel.setMultiplier(realValue);
-
-		if (CoreUtility.doublesEqual(realValue, 0.5))
-		{
-			eaView.getExperienceMultNameLabel().setText("Half as Hard");
-		}
-		else if (realValue <= .7)
-		{
-			eaView.getExperienceMultNameLabel().setText("Much Easier");
-		}
-		else if ((realValue > .7) && (realValue < 1.5))
-		{
-			eaView.getExperienceMultNameLabel().setText("Normal");
-		}
-		else if (realValue >= 1.5)
-		{
-			eaView.getExperienceMultNameLabel().setText("Much Harder");
-		}
-
-		if (CoreUtility.doublesEqual(realValue, 2))
-		{
-			eaView.getExperienceMultNameLabel().setText("Twice as Hard");
-		}
-
-		NumberFormat nf = java.text.NumberFormat.getNumberInstance();
-		nf.setMaximumFractionDigits(1);
-
-		eaView.getExperienceMultLabel().setText(nf.format(realValue) + "×");
+		// TODO the group box stuff should listen to the slider change directly
 		handleGroupBox();
 	}
 
@@ -413,8 +392,8 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	 */
 	public void initMenus()
 	{
-		experienceToolsItem.setMnemonic('E');
-		experienceToolsItem.setText("Experience Adjuster");
+		experienceToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
+		experienceToolsItem.setText(getLocalizedName());
 		experienceToolsItem.addActionListener(new ActionListener()
 		{
             @Override
