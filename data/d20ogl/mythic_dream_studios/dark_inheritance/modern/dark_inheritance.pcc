@@ -35,9 +35,6 @@ INFOTEXT:For best use load FX options with this.
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
-#d20ogl\mythic_dream_studios\dark_inheritance\modern\dark_inheritance_abilities_occupations.lst
-#d20ogl\mythic_dream_studios\dark_inheritance\modern\dark_inheritance_abilities_talents.lst
-#d20ogl\mythic_dream_studios\dark_inheritance\modern\dark_inheritance_ability_categories.lst
 
 ABILITY:dark_inheritance_abilities_occupations.lst
 ABILITY:dark_inheritance_abilities_talents.lst
