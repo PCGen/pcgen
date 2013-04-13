@@ -403,14 +403,18 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 
 		++newID;
 
-		NumberFormat format = new DecimalFormat("00");
+		NumberFormat format =
+				parentSet != null ? new DecimalFormat("00")
+					: new DecimalFormat("0");
 		return pid + '.' + format.format(newID);
 	}
 
 	private String shiftEquipSetsDown(CharacterDisplay display, EquipSet parentSet, EquipNodeImpl startingNode)
 	{
 		String pid = "0";
-		NumberFormat format = new DecimalFormat("00");
+		NumberFormat format =
+				parentSet != null ? new DecimalFormat("00")
+					: new DecimalFormat("0");
 
 		if (parentSet != null)
 		{

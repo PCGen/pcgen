@@ -85,7 +85,9 @@ import pcgen.util.Logging;
  */
 public final class EquipSet implements Comparable<EquipSet>, Cloneable
 {
-
+	/** The root path of the default equipment set. */
+	public static String DEFAULT_SET_PATH = "0.1";
+	
 	private Equipment eq_item;
 	private Float qty = new Float(1);
 	private Map<BonusObj, BonusManager.TempBonusInfo> tempBonusBySource = new IdentityHashMap<BonusObj, BonusManager.TempBonusInfo>();

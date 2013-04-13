@@ -53,7 +53,7 @@ public class NaturalEquipSetFacet implements DataFacetChangeListener<Equipment>
 	public void dataAdded(DataFacetChangeEvent<Equipment> dfce)
 	{
 		PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
-		EquipSet eSet = pc.getEquipSetByIdPath("0.1");
+		EquipSet eSet = pc.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);
 		if (eSet != null)
 		{
 			Equipment eq = dfce.getCDOMObject();

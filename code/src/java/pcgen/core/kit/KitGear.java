@@ -368,12 +368,12 @@ public final class KitGear extends BaseKit
 			EquipSet eSet = null;
 			if (theTarget != null)
 			{
-				eSet = aPC.getEquipSetForItem(aPC.getEquipSetByIdPath("0.1"),
+				eSet = aPC.getEquipSetForItem(aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH),
 						theTarget);
 			}
 			if (eSet == null)
 			{
-				eSet = aPC.getEquipSetByIdPath("0.1");
+				eSet = aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);
 			}
 			if (eSet == null)
 			{
@@ -424,12 +424,12 @@ public final class KitGear extends BaseKit
 		}
 		if (theTarget == null)
 		{
-			eSet = aPC.getEquipSetByIdPath("0.1");
+			eSet = aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);
 		}
 		else
 		{
 			eSet =
-				aPC.getEquipSetForItem(aPC.getEquipSetByIdPath("0.1"),
+				aPC.getEquipSetForItem(aPC.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH),
 					theTarget);
 		}
 

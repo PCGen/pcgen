@@ -426,7 +426,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	// Temporary Bonuses
 	private List<Equipment> tempBonusItemList = new ArrayList<Equipment>();
 
-	private String calcEquipSetId = "0.1"; //$NON-NLS-1$
+	private String calcEquipSetId = EquipSet.DEFAULT_SET_PATH; //$NON-NLS-1$
 	private String descriptionLst = "EMPTY"; //$NON-NLS-1$
 
 	// whether to add auto known spells each level
@@ -8370,6 +8370,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			if (locName.length() == 0)
 			{
 				return null;
+			}
+		}
+		// If it is to go into equipped, check for a specific slot it should be in.
+		else if (locName.equalsIgnoreCase("Equipped"))
+		{
+			String singleLoc = getSingleLocation(eqI);
+			if (singleLoc.length() >= 0)
+			{
+				locName = singleLoc; 
 			}
 		}
 

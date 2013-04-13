@@ -29,13 +29,13 @@ import pcgen.core.GameMode;
 import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.AlignmentFacade;
+import pcgen.core.facade.BodyStructureFacade;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.DeityFacade;
 import pcgen.core.facade.DomainFacade;
 import pcgen.core.facade.EquipmentFacade;
-import pcgen.core.facade.BodyStructureFacade;
 import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.GearBuySellFacade;
 import pcgen.core.facade.KitFacade;
@@ -63,6 +63,10 @@ public class MockDataSetFacade implements DataSetFacade
 	private DefaultListFacade<BodyStructureFacade> equipmentLoc;
 	private DefaultListFacade<AbilityCategoryFacade> abilityCat;
 	private final GameMode game;
+	private DefaultListFacade<RaceFacade> races;
+	private DefaultListFacade<SkillFacade> skills;
+	private DefaultListFacade<StatFacade> stats;
+	private DefaultListFacade<GearBuySellFacade> gearBuySellSchemes;
 
 
 	public MockDataSetFacade(GameMode gameMode)
@@ -70,6 +74,10 @@ public class MockDataSetFacade implements DataSetFacade
 		this.game = gameMode;
 		equipmentLoc = new DefaultListFacade<BodyStructureFacade>();
 		abilityCat = new DefaultListFacade<AbilityCategoryFacade>();
+		races = new DefaultListFacade<RaceFacade>();
+		skills = new DefaultListFacade<SkillFacade>();
+		stats  = new DefaultListFacade<StatFacade>();
+		gearBuySellSchemes = new DefaultListFacade<GearBuySellFacade>();
 	}
 	
 	/* (non-Javadoc)
@@ -215,8 +223,7 @@ public class MockDataSetFacade implements DataSetFacade
     @Override
 	public ListFacade<RaceFacade> getRaces()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return races;
 	}
 
 	/* (non-Javadoc)
@@ -225,8 +232,7 @@ public class MockDataSetFacade implements DataSetFacade
     @Override
 	public ListFacade<SkillFacade> getSkills()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return skills;
 	}
 
 	/* (non-Javadoc)
@@ -255,8 +261,7 @@ public class MockDataSetFacade implements DataSetFacade
     @Override
 	public ListFacade<StatFacade> getStats()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return stats;
 	}
 
 	/* (non-Javadoc)
@@ -275,8 +280,7 @@ public class MockDataSetFacade implements DataSetFacade
 	@Override
 	public ListFacade<GearBuySellFacade> getGearBuySellSchemes()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return gearBuySellSchemes;
 	}
 
 	/**
