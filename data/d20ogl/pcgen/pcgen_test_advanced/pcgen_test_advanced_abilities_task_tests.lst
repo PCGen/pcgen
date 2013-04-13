@@ -1,0 +1,30 @@
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+
+
+
+
+# TEST-88	BONUS:HD|MIN;CLASS.Fighter
+# Ability Name	Category of Ability	Type					Stat bonus			Bonus									Modify HD type
+TEST-88a		CATEGORY:FEAT		TYPE:SpecialQuality.TEST-88														BONUS:HD|MIN;CLASS.Sorcerer|5
+TEST-88b		CATEGORY:FEAT		TYPE:SpecialQuality.TEST-88														BONUS:HD|MAX;CLASS.Sorcerer|5
+
+#Please see if:
+#BONUS:HD|MIN;CLASS.Fighter|x
+#will parse and be applied
+#Also check with MIN replaced by MAX.
+
+
+# TEST-89		BONUS:SPECIALTYSPELLKNOWN
+Test-89		CATEGORY:FEAT		TYPE:SpecialQuality.TEST-89					BONUS:SPECIALTYSPELLKNOWN|CLASS.Sorcerer;LEVEL.1|80
+#where v is a value
+#See if this parses and applies
+
+
+# TEST-90	Test BONUS:STAT|CAST.x|v
+
+TEST-90		CATEGORY:FEAT		TYPE:SpecialQuality.TEST-90	BONUS:STAT|CAST.CHA|80
+#where v is a value
+#Note this has to be applied to a character with a class with SPELLSTAT:INT (or matching whatever the BONUS above has)
+#Test this to see if this parses in the input system and applies properly to a PC.
+#If so, please open a DOC FREQ/BUG to get this added to the docs
+
