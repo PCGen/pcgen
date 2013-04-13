@@ -46,14 +46,10 @@ TEMPLATE:sovereigntemplates.lst
 WEAPONPROF:sovereignweapprofs.lst
 LANGUAGE:sovereignlanguages.lst
 
-# This seems to be SRD duplicates
-#CLASS:sovereignphbclasses.lst
-#EQUIPMENT:sovereignphbequip.lst
-#EQUIPMENT:sovereignequiparmorshields.lst
-#EQUIPMENT:sovereignequipweapranged.lst
+# This seems to be SRD duplicates - left the new items in.
+EQUIPMENT:sovereignequiparmorshields.lst
+EQUIPMENT:sovereignequipweapranged.lst
 
-#Not yet functional
-#FEAT:sovereignmagicfeats.lst
 
 FEAT:sovereignmagicfeats.lst
 EQUIPMENT:sovereignweapmasterwork.lst

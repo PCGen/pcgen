@@ -49,7 +49,7 @@ TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/chapter_
 
 # Customized Pathfinder RPG data files
 ABILITY:pf3_abilities_pfrpg.lst
-#KIT:pf3_kits_npcs_pfrpg.lst
+KIT:pf3_kits_npcs_pfrpg.lst
 KIT:pf3_kits_races_pfrpg.lst
 RACE:pf3_races_pfrpg.lst
 

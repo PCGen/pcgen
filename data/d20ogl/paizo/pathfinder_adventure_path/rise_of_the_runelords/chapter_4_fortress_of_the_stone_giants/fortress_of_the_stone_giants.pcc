@@ -46,6 +46,5 @@ RACE:pf4_races.lst
 TEMPLATE:pf4_templates.lst
 
 #
-#KIT:pf4_kits_animals.lst
-#KIT:pf4_kits_npcs.lst
+KIT:pf4_kits_npcs.lst
 #WEAPONPROF:pf4_weaponprofs.lst

@@ -32,10 +32,6 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=1142&it=1?affilia
 #EXTRAFILE:OGL.txt
 
 BIOSET:hotwwbiosettings.lst
-
-# conflicts with core rulebook file
-#CLASS:hotwwclasses.lst
-
 EQUIPMENT:hotwwequiparmorshields.lst
 EQUIPMENT:hotwwequipweapmelee.lst
 RACE:hotwwracesa.lst

@@ -51,6 +51,7 @@ ABILITY:pf11_ability_pfrpg.lst
 CLASS:pf11_classes_monster_pfrpg.lst
 KIT:pf11_kit_pfrpg.lst
 RACE:pf11_race_pfrpg.lst
+EQUIPMENT:pf11_equipment_pfrpg.lst
 
 # Prevent unconstructed reference errors
 FORWARDREF:EQMOD|BANE_M

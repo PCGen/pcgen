@@ -82,8 +82,8 @@ SPELL:loe_spells_mod.lst
 TEMPLATE:loe_templates_nationalities.lst
 TEMPLATE:loe_templates.lst
 
-# Commented out this file as there is no Domain tab in this gameMode to access it
-#DEITY:loe_deities.lst
+DEITY:loe_deities.lst
+KIT:loe_kits.lst
 
 # Suppress forward references
 FORWARDREF:EQUIPMENT|Flurry of Blows

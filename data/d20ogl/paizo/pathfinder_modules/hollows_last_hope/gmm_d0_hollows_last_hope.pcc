@@ -35,7 +35,7 @@ DESC:The town of Falcon's Hollow needs a miracle. The plague has come to the tow
 ABILITY:gmm_d0_racial_abilities.lst
 EQUIPMENT:gmm_d0_equipment_magic.lst
 KIT:gmm_d0_monster_kits.lst
-#KIT:gmm_d0_npc_kits.lst
+KIT:gmm_d0_npc_kits.lst
 RACE:gmm_d0_race.lst
 
 ##

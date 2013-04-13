@@ -42,6 +42,7 @@ ABILITY:qge_abilities_racial.lst
 ABILITY:qge_abilities_traits.lst
 CLASS:qge_classes_prestige.lst
 CLASS:qge_classes_monster.lst
+DEITY:qge_deities.lst
 EQUIPMENT:qge_equip.lst
 EQUIPMOD:qge_equipmods.lst
 FEAT:qge_feats.lst
