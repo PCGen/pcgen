@@ -19,10 +19,10 @@ Email: drew0500@yahoo.com
 </tr>
 <tr>
      <td><Brown>|NAME|</Brown></td>
-     <td><Brown> <a href="http://www.d20srd.org/srd/classes/ranger.htm" target="_blank">|CLASSLIST|</a> 4</Brown></td>
-     <td><Brown> <a href="http://www.d20srd.org/srd/races.htm" target="_blank">|RACE|</a></Brown></td>
-     <td><Brown> <a href="http://www.d20srd.org/srd/description.htm#alignment" target="_blank">|ALIGNMENT|</a></Brown></td>
-     <td><Brown> <a href="http://rpol.net/display.cgi?gi=37407&ti=5&date=1292995541" target="_blank">Ehlonna</a></Brown></td>
+     <td><Brown>|CLASSLIST|</Brown></td>
+     <td><Brown>|RACE|</a></Brown></td>
+     <td><Brown>|ALIGNMENT|</a></Brown></td>
+     <td><Brown>|DEITY|</a></Brown></td>
 </tr>
 </table> 
 <table width="100%">
@@ -48,6 +48,16 @@ Email: drew0500@yahoo.com
 </tr>
 </table>
 <table width="100%">
+|FOR,%stat,0,COUNT[STATS]-1,1,1|
+
+<tr><th>Ability Score</th><td class="ab"><b>|STAT.%stat.NAME|</b><font style="font-size:5pt"><br />|STAT.%stat.LONGNAME|</font></td></tr>
+<tr><th>Ability Modifier</th><td class="abb">|STAT.%stat.NOTEMP.NOEQUIP|</td></tr>
+<tr><th>Temporary Score</th><td class="abb">|STAT.%stat.MOD.NOTEMP.NOEQUIP|</td></tr>
+<tr><th>Temporary Score</th><td class="abt">|STAT.%stat|</td></tr>
+<tr><th>Temporary Modifier </th><td class="abt">|STAT.%stat.MOD|</td></tr>
+
+
+
 <tr>
      <th> </th>
      <th>STR  </th>
@@ -93,6 +103,9 @@ Email: drew0500@yahoo.com
      <td><red><center> </center></red></td>
      <td><red><center> </center></red></td>
 </tr>
+
+|ENDFOR|
+
 </table>
 <table width="100%">
 <tr>
