@@ -42,6 +42,8 @@ ABILITYCATEGORY:faeries_abilitycategories.lst
 
 CLASS:faeries_classes.lst
 
+COMPANIONMOD:faeries_companionmods.lst
+
 DEITY:faeries_deities.lst
 
 DOMAIN:faeries_domains.lst

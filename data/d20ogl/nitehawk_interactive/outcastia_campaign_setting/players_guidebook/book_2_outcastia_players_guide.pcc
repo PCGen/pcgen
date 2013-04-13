@@ -46,7 +46,8 @@ EQUIPMENT:ocs_book_2_equip_weapons.lst
 
 FEAT:ocs_book_2_feats.lst
 FEAT:ocs_book_2_feats_background.lst
-#FEAT:ocs_book_2_feats_epic.lst
+FEAT:ocs_book_2_feats_epic.lst
+FEAT:ocs_book_2_feats_regional.lst
 
 LANGUAGE:ocs_book_2_languages.lst
 

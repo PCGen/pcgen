@@ -49,6 +49,7 @@ COPYRIGHT:PCGen dataset conversion for "Psionics Expanded - Unlimited Possibilit
 
 FORWARDREF:CLASSSPELLLIST|Marksman
 
+ABILITY:pe_unlimited_possibilities_abilities.lst
 ABILITY:pe_unlimited_possibilities_abilities_classes.lst
 ABILITY:pe_unlimited_possibilities_abilities_monsters.lst
 ABILITY:pe_unlimited_possibilities_abilities_alternate_racial_traits.lst

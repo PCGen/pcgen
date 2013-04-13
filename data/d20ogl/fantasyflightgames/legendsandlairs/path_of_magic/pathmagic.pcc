@@ -23,12 +23,11 @@ COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; 
 COPYRIGHT:Path of Magic Copyright 2002, Fantasy Flight Publishing, Inc.
 COPYRIGHT:PCGen dataset conversion for the Path of Magic Copyright 2004-2005, PCgen Data team (Including, but not limited to Anders Lindgren (Ratheof Blithwyn), Andrew McDougall (Tir Gwaith))
 
+ABILITY:pathmagic_abilities_class.lst
 CLASS:pathmagic_classes_prestige.lst
 CLASS:pathmagic_classes_legendary.lst
 CLASS:pathmagic_classes_variant.lst
 FEAT:pathmagic_feats.lst
-FEAT:pathmagic_feats_hidden.lst
-#EQUIPMENT:pathmagic_equip.lst
 SKILL:pathmagic_skills.lst
 SPELL:pathmagic_spells.lst
 TEMPLATE:pathmagic_templates.lst

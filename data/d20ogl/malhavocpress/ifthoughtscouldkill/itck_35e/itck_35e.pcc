@@ -30,6 +30,7 @@ INFOTEXT:Power names and other proper names from If Thoughts Could Kill are ©20
 
 ABILITY:../itck_abilities_class.lst
 ABILITYCATEGORY:../itck_abilitycategories.lst
+ABILITYCATEGORY:itck_abilitycategories_35e.lst
 
 BIOSET:itck_biosettings_35e.lst
 CLASS:itck_classes_35e.lst

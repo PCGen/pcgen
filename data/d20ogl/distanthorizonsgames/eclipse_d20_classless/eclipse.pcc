@@ -32,6 +32,7 @@ URL:RPG Now! Shareware|http://www.rpgnow.com/product_info.php?products_id=51255&
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+#EXTRAFILE: ~ eclipse_master issues and work around file.lst
 
 COVER:51254.jpg
 #Block: Universal Functions -------------------------------------------

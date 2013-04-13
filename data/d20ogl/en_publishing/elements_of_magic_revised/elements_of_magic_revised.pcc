@@ -40,7 +40,7 @@ CLASS:eomr_class_core.lst
 FEAT:eomr_feats.lst
 SKILL:eomr_skills.lst
 
-#SPELL:eomr_spells.lst
+SPELL:eomr_spells.lst
 
 #
 # End
