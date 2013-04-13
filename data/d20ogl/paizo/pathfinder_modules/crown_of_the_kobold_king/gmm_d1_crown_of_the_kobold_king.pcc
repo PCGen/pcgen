@@ -36,7 +36,6 @@ ABILITY:gmm_d1_racial_abilities.lst
 EQUIPMENT:gmm_d1_equipment_magic.lst
 EQUIPMENT:gmm_d1_equipment_weapons.lst
 KIT:gmm_d1_monster_kits.lst
-#KIT:gmm_d1_npc_kits.lst
 RACE:gmm_d1_race.lst
 TEMPLATE:gmm_d1_templates.lst
 WEAPONPROF:gmm_d1_weaponprofs.lst

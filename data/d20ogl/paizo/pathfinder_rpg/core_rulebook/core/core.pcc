@@ -49,6 +49,12 @@ ABILITYCATEGORY:core_abilitycategories.lst
 FEAT:core_feat.lst
 KIT:core_kits.lst
 LANGUAGE:core_languages.lst
+
+ARMORPROF:core_profs_armor.lst
+SHIELDPROF:core_profs_shield.lst
+WEAPONPROF:core_profs_weapon.lst
+
+RACE:core_races.lst
 SKILL:core_skills.lst
 SKILL:core_skills_conditional.lst
 SPELL:core_spells.lst
