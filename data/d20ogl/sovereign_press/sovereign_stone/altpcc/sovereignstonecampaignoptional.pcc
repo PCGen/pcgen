@@ -28,4 +28,4 @@ FEAT:@/d20ogl/srd/basics/srd_feats.lst|(EXCLUDE:CATEGORY=FEAT,Brew Potion,Craft 
 SKILL:@/d20ogl/srd/basics/srd_skills.lst|(EXCLUDE:Control Shape|Craft (Metalworking)|Knowledge (Geology)|Knowledge (Minerals)|Knowledge (Plane of Air)|Knowledge (Plane of Water)|Profession (Hunt))
 #CLASS:@/permissioned/sovereignpress/sovereignstone/sovereignphbclasses.lst
 #EQUIPMENT:@/permissioned/sovereignpress/sovereignstone/sovereignphbequip.lst
-EQUIPMENT:@/alpha/sovereignpress/sovereignstone/sovereignphbequip.lst
+EQUIPMENT:@/d20ogl/sovereign_press/sovereign_stone/sovereignphbequip.lst
