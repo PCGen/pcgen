@@ -50,3 +50,24 @@ Mancatcher			TYPE:Exotic.Melee.Piercing.MeleePiercing.Spear.TwoHanded
 Boomerang			TYPE:Exotic.Ranged.Bludgeoning.RangedBludgeoning
 Crossbow (Double)		TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow								HANDS:2
 Lasso				TYPE:Exotic.Ranged.Lasso												HANDS:2
+
+###Weapon Groups:
+Bardiche.MOD	TYPE:Axe.Polearm
+Chakram.MOD	TYPE:Bladeheavy.Thrown
+Falcata.MOD	TYPE:Bladeheavy
+Khopesh.MOD	TYPE:Bladeheavy
+Temple Sword.MOD	TYPE:Bladeheavy
+Bayonet.MOD	TYPE:Bladelight.Close
+Dagger (Swordbreaker).MOD	TYPE:Bladelight
+#Brass Knuckles.MOD	TYPE:Close.Monk
+Wooden Stake.MOD	TYPE:Close
+Crossbow (Double).MOD	TYPE:Crossbow
+Cestus.MOD	TYPE:Monk
+Bec De Corbin.MOD	TYPE:Polearm
+Bill.MOD	TYPE:Polearm
+Glaive-Guisarme.MOD	TYPE:Polearm
+Lucern Hammer.MOD	TYPE:Polearm
+Mancatcher.MOD	TYPE:Polearm
+Boomerang.MOD	TYPE:Thrown
+Lasso.MOD	TYPE:Thrown
+Sword Cane.MOD	TYPE:Bladelight

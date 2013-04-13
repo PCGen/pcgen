@@ -5,7 +5,7 @@
 
 # Dummy Proficiency to Trigger granting all Firearms Profs
 # Weapon Name			Type											Nb Hands
-Firearms				TYPE:Exotic.Exotic
+Firearms				TYPE:Exotic
 
 #-(Early) One-Handed Firearms
 Bukler Gun				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
@@ -41,28 +41,28 @@ Shotgun		TYPE:Ranged.Piercing.Bludgeoning.Firearm.Shotgun.Scatter.TwoHandedFireA
 ###Block: Eastern  - Martial
 # Light
 # Weapon Name				Type
-Butterfly Sword				TYPE:Eastern.Melee.Martial.Monk
-Iron Brush					TYPE:Eastern.Melee.Martial
-Jutte						TYPE:Eastern.Melee.Martial.Disarm.Monk
-Kerambit					TYPE:Eastern.Melee.Martial
-Lungchuan Tamo				TYPE:Eastern.Melee.Martial.Monk
-Shang Gou					TYPE:Eastern.Melee.Martial.Disarm.Trip.Monk
-Tonfa						TYPE:Eastern.Melee.Martial.Blocking.Monk
-Wushu Dart					TYPE:Eastern.Melee.Martial.Monk
+Butterfly Sword				TYPE:Eastern.Melee.Martial.Light.Monk
+Iron Brush					TYPE:Eastern.Melee.Martial.Light
+Jutte						TYPE:Eastern.Melee.Martial.Light.Disarm.Monk
+Kerambit					TYPE:Eastern.Melee.Martial.Light
+Lungchuan Tamo				TYPE:Eastern.Melee.Martial.Light.Monk
+Shang Gou					TYPE:Eastern.Melee.Martial.Light.Disarm.Trip.Monk
+Tonfa						TYPE:Eastern.Melee.Martial.Light.Blocking.Monk
+Wushu Dart					TYPE:Eastern.Melee.Martial.Light.Monk
 
 # One-Handed Melee
-Broadsword (Nine Ring)			TYPE:Eastern.Melee.Martial.Monk
-Double Chicken Saber			TYPE:Eastern.Melee.Martial.Disarm.Monk
-Sibat						TYPE:Eastern.Melee.Martial.Spear
+Broadsword (Nine Ring)			TYPE:Eastern.Melee.Martial.OneHanded.Monk
+Double Chicken Saber			TYPE:Eastern.Melee.Martial.OneHanded.Disarm.Monk
+Sibat						TYPE:Eastern.Melee.Martial.OneHanded.Spear
 
 # Two-Handed Melee
-Hooked Lance				TYPE:Eastern.Melee.Martial.Reach.Trip.Polearm
-Monk's Spade				TYPE:Eastern.Melee.Martial.Double.Monk.Polearm
-Naginata					TYPE:Eastern.Melee.Martial.Reach
-Nodachi					TYPE:Eastern.Melee.Martial.Brace.Polearm
-Sansetsukon					TYPE:Eastern.Melee.Martial.Blocking.Disarm.Monk
-Sword (Tri-Point Double-Edged)	TYPE:Eastern.Melee.Martial.Reach
-Tiger Fork					TYPE:Eastern.Melee.Martial.Brace.Monk.Polearm.Spear
+Hooked Lance				TYPE:Eastern.Melee.Martial.TwoHanded.Reach.Trip.Polearm
+Monk's Spade				TYPE:Eastern.Melee.Martial.TwoHanded.Double.Monk.Polearm
+Naginata					TYPE:Eastern.Melee.Martial.TwoHanded.Reach
+Nodachi					TYPE:Eastern.Melee.Martial.TwoHanded.Brace.Polearm
+Sansetsukon					TYPE:Eastern.Melee.Martial.TwoHanded.Blocking.Disarm.Monk
+Sword (Tri-Point Double-Edged)	TYPE:Eastern.Melee.Martial.TwoHanded.Reach
+Tiger Fork					TYPE:Eastern.Melee.Martial.TwoHanded.Brace.Monk.Polearm.Spear
 
 # Ranged
 Tube Arrow Shooter			TYPE:Eastern.Ranged.Martial
@@ -72,25 +72,25 @@ Poisoned Sand Tube			TYPE:Eastern.Ranged.Martial
 ###Block: Eastern  - Exotic
 # Light
 # Weapon Name			Type
-Dan Bong				TYPE:Eastern.Melee.Exotic.Bludgeoning.Blocking.Monk.Ranged.Thrown
-Emei Piercer			TYPE:Eastern.Melee.Exotic.Piercing.Monk
-Fighting Fan			TYPE:Eastern.Melee.Exotic.Slashing.Piercing.Distracting.Monk
-Tekko-Kagi (Iron Claw)		TYPE:Eastern.Melee.Exotic.Piercing.Disarm
-Wakizashi				TYPE:Eastern.Melee.Exotic.Piercing.Slashing.Deadly
+Dan Bong				TYPE:Eastern.Melee.Exotic.Light.Bludgeoning.Blocking.Monk.Ranged.Thrown
+Emei Piercer			TYPE:Eastern.Melee.Exotic.Light.Piercing.Monk
+Fighting Fan			TYPE:Eastern.Melee.Exotic.Light.Slashing.Piercing.Distracting.Monk
+Tekko-Kagi (Iron Claw)		TYPE:Eastern.Melee.Exotic.Light.Piercing.Disarm
+Wakizashi				TYPE:Eastern.Melee.Exotic.Light.Piercing.Slashing.Deadly
 # One-Handed
-Katana				TYPE:Eastern.Melee.Martial.Exotic.Slashing.Deadly
-Nine-Section Whip			TYPE:Eastern.Melee.Exotic.Bludgeoning.Blocking.Distracting.Monk.Trip
-Urumi					TYPE:Eastern.Melee.Exotic.Slashing.Distracting
+Katana				TYPE:Eastern.Melee.Martial.OneHanded.Exotic.Slashing.Deadly
+Nine-Section Whip			TYPE:Eastern.Melee.Exotic.OneHanded.Bludgeoning.Blocking.Distracting.Monk.Trip
+Urumi					TYPE:Eastern.Melee.Exotic.OneHanded.Slashing.Distracting
 
 # Two-Handed
-Bo Staff				TYPE:Eastern.Melee.Exotic.Bludgeoning.Blocking.Double.Monk
-Kama (Double-Chained)		TYPE:Eastern.Melee.Exotic.Slashing.Double.Monk.Reach.Trip
-Katana (Double Walking Stick)	TYPE:Eastern.Melee.Exotic.Bludgeoning.Double
-Kusarigama (Sickle and Chain)	TYPE:Eastern.Melee.Exotic.Slashing.Bludgeoning.Double.Monk.Reach.Trip.Grapple
-Kyoketsu Shoge			TYPE:Eastern.Melee.Exotic.Slashing.Piercing.Disarm.Grapple.Monk.Reach.Ranged.Thrown
-Meteor Hammer			TYPE:Eastern.Melee.Exotic.Bludgeoning.Reach.Trip
-Sword (Seven-Branched)		TYPE:Eastern.Melee.Exotic.Slashing.Disarm.Monk
-Tetsubo				TYPE:Eastern.Melee.Exotic.Bludgeoning
+Bo Staff				TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Blocking.Double.Monk
+Kama (Double-Chained)		TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Double.Monk.Reach.Trip
+Katana (Double Walking Stick)	TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Double
+Kusarigama (Sickle and Chain)	TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Bludgeoning.Double.Monk.Reach.Trip.Grapple
+Kyoketsu Shoge			TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Piercing.Disarm.Grapple.Monk.Reach.Ranged.Thrown
+Meteor Hammer			TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning.Reach.Trip
+Sword (Seven-Branched)		TYPE:Eastern.Melee.Exotic.TwoHanded.Slashing.Disarm.Monk
+Tetsubo				TYPE:Eastern.Melee.Exotic.TwoHanded.Bludgeoning
 
 # Ranged
 Rope Dart				TYPE:Eastern.Ranged.Exotic.Piercing.Blocking.Distracting.Monk
@@ -100,39 +100,35 @@ Katana.MOD				TYPE:Samurai.HeavyBlade
 Naginata.MOD			TYPE:Samurai.Polearm
 Wakizashi.MOD			TYPE:Samurai.LightBlade
 
-
 ###Block: Gladiator
 # Martial
-
-# Light
 # Weapon Name		Type
-Gladius			TYPE:GladiatorMelee.Martial.Piercing.Performance
+Gladius			TYPE:GladiatorMelee.Martial.Piercing.Performance.Light
 
 # One-Handed
-Scizore			TYPE:GladiatorMelee.Martial.Piercing.Performance
+Scizore			TYPE:GladiatorMelee.Martial.Piercing.Performance.OneHanded
 
 # Ranged
 Amentum (Javelin)		TYPE:GladiatorMelee.Martial.Piercing.Performance.Thrown.Ranged.Spear
 
 # EXOTIC
 # Light
-Aklys (Gladiator)		TYPE:GladiatorMelee.Exotic.Bludgeoning.Ranged.Thrown.Performance.Trip
+Aklys (Gladiator)		TYPE:GladiatorMelee.Exotic.Bludgeoning.Ranged.Thrown.Light.Performance.Trip
 # COMMENT: Conflicts with Pathfinder Bestiary version which is a Simple Weapon for Derro.
-Knuckle Axe			TYPE:GladiatorMelee.Exotic.Slashing.Performance.Monk
-Madu				TYPE:GladiatorMelee.Exotic.Piercing.Performance
-Pata				TYPE:GladiatorMelee.Exotic.Piercing.Performance
-Quadrens			TYPE:GladiatorMelee.Exotic.Piercing.Performance
-Scorpion Whip		TYPE:GladiatorMelee.Exotic.Slashing.Performance
-Sica				TYPE:GladiatorMelee.Exotic.Slashing.Performance
+Knuckle Axe			TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light.Monk
+Madu				TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
+Pata				TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
+Quadrens			TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
+Scorpion Whip		TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light
+Sica				TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light
 
 # One-Handed
-Hooked Axe			TYPE:GladiatorMelee.Exotic.Slashing.Performance.Disarm.Trip
-Shotel			TYPE:GladiatorMelee.Exotic.Piercing.Performance
+Hooked Axe			TYPE:GladiatorMelee.Exotic.Slashing.Performance.Disarm.Trip.OneHanded
+Shotel			TYPE:GladiatorMelee.Exotic.Piercing.Performance.OneHanded
 # Two-Handed
-Flying Blade		TYPE:GladiatorMelee.Exotic.Slashing.Performance.Reach
+Flying Blade		TYPE:GladiatorMelee.Exotic.Slashing.Performance.Reach.TwoHanded
 # RANGED
 Throwing Shield		TYPE:GladiatorMelee.Ranged.Thrown.Exotic.Bludgeoning.Performance.Trip
-
 
 # Bronze Age
 # Two-Handed Melee
@@ -145,7 +141,6 @@ Harpoon			TYPE:Piercing.Ranged.Thrown.Exotic.Fragile.Grapple.Spear
 
 #Ranged
 Kestros			TYPE:Piercing.Exotic.Ranged
-
 
 # Stone Age
 #Simple
@@ -168,10 +163,7 @@ Taiaha			TYPE:StoneAge.Exotic.Bludgeoning.Piercing.Double
 Terbutje (Great)		TYPE:StoneAge.Exotic.Slashing.Fragile
 Wahaika			TYPE:StoneAge.Exotic.Bludgeoning.Disarm
 
-
 # Siege Engines
-
-
 #Direct-Fire Engines	 Cost		Dmg		Critical			Range		Type1 Crew Aim Load Speed
 # Large Siege Engines
 Ballista (Light)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
@@ -183,8 +175,6 @@ Firedrake			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
 # Gargantuan Siege Engines
 Ballista (Gate Breaker)	TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
 Firewyrm			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
-
-#Indirect-Fire Engines Cost Dmg Critical Range Type Crew Aim Load Speed
 
 # Large Siege Engines
 Bombard (Light)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
@@ -202,4 +192,86 @@ Trebuchet (Standard)	TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeonin
 Bombard (Heavy)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
 Catapult (Heavy)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
 Trebuchet (Heavy)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+
+###Bock: Weapon Groups:
+Hooked Axe.MOD	TYPE:Axe.Polearm
+Knuckle Axe.MOD	TYPE:Axe
+Mattock.MOD	TYPE:Axe
+Pata.MOD	TYPE:Axe.Bladelight
+#
+Double Chicken Saber.MOD	TYPE:Bladeheavy.Monk
+Katana (Double Walking Stick).MOD	TYPE:Bladeheavy
+Terbutje (Great).MOD	TYPE:Bladeheavy
+Katana.MOD	TYPE:Bladeheavy
+Broadsword (Nine-Ring).MOD	TYPE:Bladeheavy
+Nodachi.MOD	TYPE:Bladeheavy.Polearm
+Sword (Seven-Branched).MOD	TYPE:Bladeheavy.Monk
+Shotel.MOD	TYPE:Bladeheavy
+Terbutje.MOD	TYPE:Bladeheavy
+#
+Butterfly Sword.MOD	TYPE:Bladelight.Monk
+Gladius.MOD	TYPE:Bladelight
+Kerambit.MOD	TYPE:Bladelight
+Quadrens.MOD	TYPE:Bladelight
+Sica.MOD	TYPE:Bladelight
+Wakizashi.MOD	TYPE:Bladelight
+#
+Dan Bong.MOD	TYPE:Close.Monk
+Emei Piercer.MOD	TYPE:Close.Monk
+Fighting Fan.MOD	TYPE:Close.Monk
+Iron Brush.MOD	TYPE:Close
+Madu.MOD	TYPE:Close
+Mere Club.MOD	TYPE:Close
+Scizore.MOD	TYPE:Close
+Tekko-Kagi (Iron Claw).MOD	TYPE:Close
+Tonfa.MOD	TYPE:Close.Monk
+Wushu Dart.MOD	TYPE:Close.Monk.Thrown
+#
+Tube Arrow Shooter.MOD	TYPE:Crossbow
+#
+#Firearms: All One-Handed, Two-Handed, And Siege Firearms
+#
+Chain Spear.MOD	TYPE:Flail
+Kama (Double Chained).MOD	TYPE:Flail.Monk
+Flying Blade.MOD	TYPE:Flail
+Kusarigama (Sickle and Chain).MOD	TYPE:Flail.Monk
+Kyoketsu Shoge.MOD	TYPE:Flail.Monk
+Meteor Hammer.MOD	TYPE:Flail
+Nine-Section Whip.MOD	TYPE:Flail.Monk
+Sansetsukon.MOD	TYPE:Flail.Monk
+Scorpion Whip.MOD	TYPE:Flail
+Urumi.MOD	TYPE:Flail.Monk
+#
+Aklys (Gladiator).MOD	TYPE:Hammer.Thrown
+Mere Club.MOD	TYPE:Hammer
+Taiaha.MOD	TYPE:Hammer
+Tetsubo.MOD	TYPE:Hammer
+Wahaika.MOD	TYPE:Hammer
+#
+Bo Staff.MOD	TYPE:Monk
+Jutte.MOD	TYPE:Monk
+Monk's Spade.MOD	TYPE:Monk.Polearm
+Broadsword (Nine-Ring).MOD	TYPE:Monk
+Rope Dart.MOD	TYPE:Monk.Thrown
+Shang Gou.MOD	TYPE:Monk
+Tiger Fork.MOD	TYPE:Monk.Polearm
+Sword (Tri-Point Double-Edged).MOD	TYPE:Monk
+
+Naginata.MOD	TYPE:Polearm
+
+Amentum.MOD	TYPE:Spear.Thrown
+Boar Spear.MOD	TYPE:Spear
+Pilum.MOD	TYPE:Spear
+Sibat.MOD	TYPE:Spear
+Tiger Fork.MOD	TYPE:Spear
+
+Atlatl.MOD	TYPE:Thrown
+Harpoon.MOD	TYPE:Thrown
+Kestros.MOD	TYPE:Thrown
+Poisoned Sand Tube.MOD	TYPE:Thrown
+Throwing Shield.MOD	TYPE:Thrown
+
+#Siege Engines: All Siege Engines
+
+
 
