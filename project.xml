@@ -278,6 +278,11 @@
       <version>2.24</version>
       <url>http://www.singsurf.org/djep/</url>
     </dependency>
+	<dependency>
+		<groupId>org.freemarker</groupId>
+		<artifactId>freemarker</artifactId>
+		<version>2.3.19</version>
+	</dependency>        
     <dependency>
       <groupId>org.jdom</groupId>
       <artifactId>jdom</artifactId>
