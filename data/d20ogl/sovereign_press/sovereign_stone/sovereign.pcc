@@ -51,7 +51,6 @@ EQUIPMENT:sovereignequiparmorshields.lst
 EQUIPMENT:sovereignequipweapranged.lst
 
 
-FEAT:sovereignmagicfeats.lst
 EQUIPMENT:sovereignweapmasterwork.lst
 #EQUIPMOD:sovereignequipmods.lst
 #EQUIPMOD:@/d20ogl/srd/basics/srd_equipmods_mundane.lst|(EXCLUDE:Armor Spikes|Shield Spikes)

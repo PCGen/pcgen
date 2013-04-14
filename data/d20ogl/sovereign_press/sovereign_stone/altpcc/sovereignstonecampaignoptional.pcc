@@ -17,7 +17,7 @@ COPYRIGHT:Sovereign Stone Campaign Sourcebook Copyright 2001, Sovereign Press, I
 COPYRIGHT:PCGen dataset conversion for Sovereign Stone Core Rules Copyright 2003, PCGen Data Team (including, but not limited to: Andrew (Tir Gwaith) McDougal, Paul W. King)
 INFOTEXT:For loading in SS and only the parts of the PHB SS uses.<p>In other words for setting up a standard 'Official SS Campaign'.
 
-LSTEXCLUDE:srdracesphb.lst|srdlanguages.lst|srdequipcoinsgems.lst
+LSTEXCLUDE:srd_races_base.lst|srd_languages.lst|srd_equipcoinsgems.lst
 #The above items are officially illegal in the SS world.
 PCC:@/homebrew/conversion_support/conversion_support.pcc
 
@@ -28,4 +28,4 @@ FEAT:@/d20ogl/srd/basics/srd_feats.lst|(EXCLUDE:CATEGORY=FEAT,Brew Potion,Craft 
 SKILL:@/d20ogl/srd/basics/srd_skills.lst|(EXCLUDE:Control Shape|Craft (Metalworking)|Knowledge (Geology)|Knowledge (Minerals)|Knowledge (Plane of Air)|Knowledge (Plane of Water)|Profession (Hunt))
 #CLASS:@/permissioned/sovereignpress/sovereignstone/sovereignphbclasses.lst
 #EQUIPMENT:@/permissioned/sovereignpress/sovereignstone/sovereignphbequip.lst
-EQUIPMENT:@/d20ogl/sovereign_press/sovereign_stone/sovereignphbequip.lst
+#EQUIPMENT:@/d20ogl/sovereign_press/sovereign_stone/sovereignphbequip.lst
