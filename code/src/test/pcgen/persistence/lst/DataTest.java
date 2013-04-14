@@ -25,6 +25,7 @@ package pcgen.persistence.lst;
 import static org.junit.Assert.assertEquals;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -38,6 +39,7 @@ import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.SystemUtils;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -53,6 +55,8 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.Main;
 import pcgen.system.PCGenTask;
 import pcgen.system.PropertyContextFactory;
+import pcgen.util.Logging;
+import pcgen.util.TestHelper;
 
 /**
  * The Class <code>DataTest</code> checks the data files for known issues.
@@ -67,6 +71,8 @@ import pcgen.system.PropertyContextFactory;
 
 public class DataTest
 {
+	/** The name of our dummy config file. */
+	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
 	/**
 	 * Initialise the plugins and load the game mode and campaign files.
@@ -75,6 +81,15 @@ public class DataTest
 	public static void onceOnly()
 	{
 		loadGameModes();
+	}
+	
+	/**
+	 * Tidy up the config file we created. 
+	 */
+	@AfterClass
+	public static void afterClass()
+	{
+		new File(TEST_CONFIG_FILE).delete();		
 	}
 	
 	/**
@@ -208,7 +223,7 @@ public class DataTest
 	 * Scan for any data files that are not referred to by any campaign.
 	 * This test should be activated once DATA-1039 has been actioned. 
 	 */
-	@Ignore
+	@Test
 	public void orphanFilesTest()
 	{
 		File dataFolder = new File(ConfigurationSettings.getPccFilesDir());
@@ -237,7 +252,7 @@ public class DataTest
 		// Flag any missing files
 		assertEquals(
 			"Some data files are orphaned.",
-			"", report);
+			"", report.toString());
 	}
 
 	private List<CampaignSourceEntry> getLstFilesForCampaign(Campaign campaign)
@@ -270,9 +285,21 @@ public class DataTest
 	
 	private static void loadGameModes()
 	{
+		String configFolder = "testsuite";
+		String pccLoc = TestHelper.findDataFolder();
+		try
+		{
+			TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
+				pccLoc);
+		}
+		catch (IOException e)
+		{
+			Logging.errorPrint("DataTest.loadGameModes failed", e);
+		}
+		
 		PropertyContextFactory configFactory = new PropertyContextFactory(SystemUtils.USER_DIR);
-		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
-		Main.loadProperties(true);
+		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance(TEST_CONFIG_FILE));
+		Main.loadProperties(false);
 		PCGenTask loadPluginTask = Main.createLoadPluginTask();
 		loadPluginTask.execute();
 		GameModeFileLoader gameModeFileLoader = new GameModeFileLoader();

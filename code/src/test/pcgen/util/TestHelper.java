@@ -26,6 +26,14 @@ package pcgen.util;
 
 import gmgen.pluginmgr.PluginLoader;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.lang.reflect.Field;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -483,4 +491,65 @@ public class TestHelper
 		}
 	}
 
+	/**
+	 * Locate the data folder which contains the primary set of LST data. This 
+	 * defaults to the data folder under the current directory, but can be 
+	 * customised in the config.ini folder. 
+	 * @return The path of the data folder.
+	 */
+	public static String findDataFolder()
+	{
+		// Set the pcc location to "data"
+		String pccLoc = "data";
+		try
+		{
+			// Read in options.ini and override the pcc location if it exists
+			BufferedReader br =
+					new BufferedReader(new InputStreamReader(
+						new FileInputStream("config.ini"), "UTF-8"));
+			while (br.ready())
+			{
+				String line = br.readLine();
+				if (line != null
+					&& line.startsWith("pccFilesPath="))
+				{
+					pccLoc = line.substring(13);
+					break;
+				}
+			}
+			br.close();
+		}
+		catch (IOException e)
+		{
+			// Ignore, see method comment
+		}
+		return pccLoc;
+	}
+
+	/**
+	 * Write a settings/config file for use by unit tests.
+	 * @param configFileName The name of the new config file.
+	 * @param configFolder The folder in which other settings files will be saved.
+	 * @param pccLoc The location of the data folder.
+	 * @return The file that was created.
+	 * @throws IOException If the file cannot be written.
+	 */
+	public static File createDummySettingsFile(String configFileName,
+		String configFolder, String pccLoc) throws IOException
+	{
+		File configFile = new File(configFileName);
+		BufferedWriter bw =
+				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
+					configFile), "UTF-8"));
+		bw.write("settingsPath=" + configFolder + "\r\n");
+		if (pccLoc != null)
+		{
+			System.out.println("Using PCC Location of '" + pccLoc + "'.");
+			bw.write("pccFilesPath=" + pccLoc + "\r\n");
+		}
+		bw.write("customPathr=testsuite\\\\customdata\r\n");
+		bw.close();
+
+		return configFile;
+	}
 }

@@ -20,6 +20,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.persistence.PersistenceManager;
 import pcgen.system.Main;
+import pcgen.util.TestHelper;
 
 /**
  * A pcGenGUITestCase is an XMLTestCase.  It is an abstract 
@@ -117,30 +118,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 		
 		String configFolder = "testsuite";
 		
-		// Set the pcc location to "data"
-		String pccLoc = "data";
-		try
-		{
-			// Read in options.ini and override the pcc location if it exists
-			BufferedReader br =
-					new BufferedReader(new InputStreamReader(
-						new FileInputStream("config.ini"), "UTF-8"));
-			while (br.ready())
-			{
-				String line = br.readLine();
-				if (line != null
-					&& line.startsWith("pccFilesPath="))
-				{
-					pccLoc = line.substring(13);
-					break;
-				}
-			}
-			br.close();
-		}
-		catch (IOException e)
-		{
-			// Ignore, see method comment
-		}
+		String pccLoc = TestHelper.findDataFolder();
 
 		// The String holder for the XML of the expected result
 		String expected;
@@ -152,18 +130,21 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 		 */
 		try
 		{
-			File configFile = new File(TEST_CONFIG_FILE);
-			BufferedWriter bw =
-					new BufferedWriter(new OutputStreamWriter(
-						new FileOutputStream(configFile), "UTF-8"));
-			bw.write("settingsPath=" + configFolder + "\r\n");
-			if (pccLoc != null)
-			{
-				System.out.println("Using PCC Location of '" + pccLoc + "'.");
-				bw.write("pccFilesPath=" + pccLoc + "\r\n");
-			}
-			bw.write("customPathr=testsuite\\\\customdata\r\n");
-			bw.close();
+			TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
+				pccLoc);
+					
+//					new File(TEST_CONFIG_FILE);
+//			BufferedWriter bw =
+//					new BufferedWriter(new OutputStreamWriter(
+//						new FileOutputStream(configFile), "UTF-8"));
+//			bw.write("settingsPath=" + configFolder + "\r\n");
+//			if (pccLoc != null)
+//			{
+//				System.out.println("Using PCC Location of '" + pccLoc + "'.");
+//				bw.write("pccFilesPath=" + pccLoc + "\r\n");
+//			}
+//			bw.write("customPathr=testsuite\\\\customdata\r\n");
+//			bw.close();
 
 			// Fire off PCGen, which will produce an XML file 
 			String characterFile = "code/testsuite/PCGfiles/" + character
