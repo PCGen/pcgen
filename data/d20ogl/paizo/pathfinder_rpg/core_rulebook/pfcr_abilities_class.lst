@@ -17,6 +17,35 @@ Tireless Rage								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.
 Mighty Rage									CATEGORY:Special Ability	TYPE:Internal.ClassAbility							VISIBLE:NO																																																																																														BONUS:VAR|RageStrBonus,RageConBonus|2	BONUS:VAR|RageSaveBonus|1
 Indomitable Will								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Rage.SaveBonus																															DESC:While in rage, you gain a +4 bonus on Will saves to resist enchantment spells.																																																																																					SOURCEPAGE:p.34	ASPECT:SaveBonus|When raging gain +4 bonus to Will saves vs. Enchantment spells.				BENEFIT:While in rage, you gain a +4 bonus on Will saves to resist enchantment spells. This bonus stacks with all other modifiers, including the morale bonus on Will saves you also recieve during your rage.
 
+###Block: Archetype Support
+CATEGORY=Special Ability|Trap Sense ~ Barbarian.MOD	BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,1|PREABILITY:1,CATEGORY=Archetype,BarbarianTrapSense1
+CATEGORY=Special Ability|Trap Sense ~ Barbarian.MOD	BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,2|PREABILITY:1,CATEGORY=Archetype,BarbarianTrapSense2
+CATEGORY=Special Ability|Trap Sense ~ Barbarian.MOD	BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,3|PREABILITY:1,CATEGORY=Archetype,BarbarianTrapSense3
+CATEGORY=Special Ability|Trap Sense ~ Barbarian.MOD	BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,4|PREABILITY:1,CATEGORY=Archetype,BarbarianTrapSense4
+CATEGORY=Special Ability|Trap Sense ~ Barbarian.MOD	BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,5|PREABILITY:1,CATEGORY=Archetype,BarbarianTrapSense5
+CATEGORY=Special Ability|Trap Sense ~ Barbarian.MOD	BONUS:VAR|TrapSenseBonus|-1|PREVARGTEQ:BarbarianTrapSenseLVL/3,6|PREABILITY:1,CATEGORY=Archetype,BarbarianTrapSense6
+
+CATEGORY=Special Ability|Damage Reduction ~ Barbarian.MOD	BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,1|PREABILITY:1,CATEGORY=Archetype,BarbarianDamageReduction1
+CATEGORY=Special Ability|Damage Reduction ~ Barbarian.MOD	BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,2|PREABILITY:1,CATEGORY=Archetype,BarbarianDamageReduction2
+CATEGORY=Special Ability|Damage Reduction ~ Barbarian.MOD	BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,3|PREABILITY:1,CATEGORY=Archetype,BarbarianDamageReduction3
+CATEGORY=Special Ability|Damage Reduction ~ Barbarian.MOD	BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,4|PREABILITY:1,CATEGORY=Archetype,BarbarianDamageReduction4
+CATEGORY=Special Ability|Damage Reduction ~ Barbarian.MOD	BONUS:VAR|BarbarianDR|-1|PREVARGTEQ:(BarbarianDRLVL-4)/3,5|PREABILITY:1,CATEGORY=Archetype,BarbarianDamageReduction5
+
+
+###Block:
+CATEGORY=Special Ability|Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,2|PREABILITY:1,CATEGORY=Archetype,BarbarianRagePower2
+CATEGORY=Special Ability|Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,4|PREABILITY:1,CATEGORY=Archetype,BarbarianRagePower4
+CATEGORY=Special Ability|Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,6|PREABILITY:1,CATEGORY=Archetype,BarbarianRagePower6
+CATEGORY=Special Ability|Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,8|PREABILITY:1,CATEGORY=Archetype,BarbarianRagePower8
+CATEGORY=Special Ability|Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,10|PREABILITY:1,CATEGORY=Archetype,BarbarianRagePower10
+CATEGORY=Special Ability|Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,12|PREABILITY:1,CATEGORY=Archetype,BarbarianRagePower12
+CATEGORY=Special Ability|Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,14|PREABILITY:1,CATEGORY=Archetype,BarbarianRagePower14
+CATEGORY=Special Ability|Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,16|PREABILITY:1,CATEGORY=Archetype,BarbarianRagePower16
+CATEGORY=Special Ability|Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,18|PREABILITY:1,CATEGORY=Archetype,BarbarianRagePower18
+CATEGORY=Special Ability|Rage Powers.MOD	BONUS:ABILITYPOOL|Rage Power|-1|PREVARGTEQ:RagePowersLVL,20|PREABILITY:1,CATEGORY=Archetype,BarbarianRagePower20
+
+
+
 ###Block: Barbarian Rage Powers
 # Ability Name			Unique Key				Category of Ability		Type								Required Ability								Multiple Requirements														Var. Min. Value				Var. Must Be Lower		Define										Description																												Stackable?	Multiple?	Choose		Add to base move						Bonus to skill									Modify VAR																Vision						Source Page		Aspects				Description of the Benefits
 Animal Fury									CATEGORY:Special Ability	TYPE:RagePower.SpecialAttack.Extraordinary																																																		DESC:While raging, you gain a bite attack.																																																																								SOURCEPAGE:p.32	ASPECT:ChildAbility|Rage	BENEFIT:While raging, you gain a bite attack, If uses as a part of a full-attack action, the bite is made at your full base attack bonus-5. If the bite hits, it deals 1d%1+%2 points of damage. You can make a bite attack as part of the action to maintain or break free from a grapple. This attack is resolved before the grapple check is made. If the bite attack hits, any grapple checks you make against the target this round are at a +2 bonus.|if(SIZE==4,4,3)|floor(STR/2)
