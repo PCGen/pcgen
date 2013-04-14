@@ -15,14 +15,14 @@ CLASS:Barbarian	STARTSKILLPTS:4
 1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianArmorProficiencies
 1	AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianShieldProficiency,TYPE.BarbarianArmorProficiencies
 ###Block: Level Progression
-1	BONUS:VAR|RageLVL|CL																				ABILITY:Class Ability|AUTOMATIC|Rage	ABILITY:Class Ability|AUTOMATIC|Fast Movement ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement
-2	BONUS:VAR|RagePowersLVL|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3	ABILITY:Class Ability|AUTOMATIC|Rage Powers	ABILITY:Class Ability|AUTOMATIC|Uncanny Dodge ~ Base|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianUncannyDodge,TYPE.BarbarianImprovedUncannyDodge
+1	BONUS:VAR|RageLVL|CL																				ABILITY:Class Ability|AUTOMATIC|Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRage	ABILITY:Class Ability|AUTOMATIC|Fast Movement ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement
+2	BONUS:VAR|RagePowersLVL|CL	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3	ABILITY:Class Ability|AUTOMATIC|Rage Powers|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePowers	ABILITY:Class Ability|AUTOMATIC|Uncanny Dodge ~ Base|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianUncannyDodge,TYPE.BarbarianImprovedUncannyDodge
 3	BONUS:VAR|BarbarianTrapSenseLVL|CL																		ABILITY:Class Ability|AUTOMATIC|Trap Sense ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense
 7	BONUS:VAR|BarbarianDRLVL|CL																			ABILITY:Class Ability|AUTOMATIC|Damage Reduction ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction
-11																								ABILITY:Class Ability|AUTOMATIC|Greater Rage
-14																								ABILITY:Class Ability|AUTOMATIC|Indomitable Will
-17																								ABILITY:Class Ability|AUTOMATIC|Tireless Rage
-20																								ABILITY:Class Ability|AUTOMATIC|Mighty Rage
+11																								ABILITY:Class Ability|AUTOMATIC|Greater Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianGreaterRage
+14																								ABILITY:Class Ability|AUTOMATIC|Indomitable Will|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianIndomitableWill
+17																								ABILITY:Class Ability|AUTOMATIC|Tireless Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTirelessRage
+20																								ABILITY:Class Ability|AUTOMATIC|Mighty Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianMightyRage
 #TODO: See about implementing a better method for the Uncanny Dodge; Barbarian Loses one or both with some Archetypes.
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Ability																		Visible	Define			Save checks bonus											Combat bonus					Monster Role
