@@ -101,6 +101,7 @@ public class DataTest
 	public void pathLengthTest()
 	{
 		String dataPath = ConfigurationSettings.getPccFilesDir();
+		System.out.println("Got datapath of " + new File(dataPath).getAbsolutePath());
 		
 		Set<String> allowedNames =
 				new HashSet<String>(Arrays.asList(
@@ -121,7 +122,7 @@ public class DataTest
 					"curse_of_the_crimson_throne_players_guide_pfrpg.pcc"));
 		List<File> newLongPaths = new ArrayList<File>();
 		
-		int dataPathLen = dataPath.length();
+		int dataPathLen = new File(dataPath).getAbsolutePath().length();
 		List<String> longPaths = new ArrayList<String>();
 		
 		File dataFolder = new File(dataPath);
@@ -222,14 +223,20 @@ public class DataTest
 	/**
 	 * Scan for any data files that are not referred to by any campaign.
 	 * This test should be activated once DATA-1039 has been actioned. 
+	 * @throws IOException If a file path cannot be converted.
 	 */
 	@Test
-	public void orphanFilesTest()
+	public void orphanFilesTest() throws IOException
 	{
 		File dataFolder = new File(ConfigurationSettings.getPccFilesDir());
 		Collection<File> listFiles =
 				FileUtils.listFiles(dataFolder, new String[]{"lst"}, true);
-		int dataPathLen = dataFolder.getPath().length();
+		List<String> fileNames = new ArrayList<String>(listFiles.size());
+		for (File file : listFiles)
+		{
+			fileNames.add(file.getCanonicalPath());
+		}
+		int dataPathLen = dataFolder.getCanonicalPath().length();
 		
 		for (Campaign campaign : Globals.getCampaignList())
 		{
@@ -238,14 +245,14 @@ public class DataTest
 			for (CampaignSourceEntry cse : cseList)
 			{
 				File lstFile = new File(cse.getURI());
-				listFiles.remove(lstFile);
+				fileNames.remove(lstFile.getCanonicalPath());
 			}
 		}
 
 		StringBuilder report = new StringBuilder();
-		for (File orphan : listFiles)
+		for (String orphan : fileNames)
 		{
-			report.append(orphan.getPath().substring(dataPathLen+1));
+			report.append(orphan.substring(dataPathLen+1));
 			report.append("\r\n");
 		}
 		
@@ -287,6 +294,7 @@ public class DataTest
 	{
 		String configFolder = "testsuite";
 		String pccLoc = TestHelper.findDataFolder();
+		System.out.println("Got data folder of " + pccLoc);
 		try
 		{
 			TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
