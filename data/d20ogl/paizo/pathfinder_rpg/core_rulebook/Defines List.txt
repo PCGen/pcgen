@@ -1,4 +1,17 @@
 
+############################################
+##		Universal Variables		##
+############################################
+
+
+# DEFINE VARIABLE					FUNCTION
+UncannyDodgeLevel					Value =1 Grants Uncanny Dodge
+ " "							Value =2 Grants Improved Uncanny Dodge
+#NOTE: This should never be a FORMULA Format, it should be presented in a Class
+#	 with a clearly defined BONUS:VAR|UncannyDodgeLevel|1 no class ever has more the two iterations of this.
+
+UncannyDodgeFlankingLevel			Sets the Level for being Flanked by a higher level rogue for purposes of sneak attack.
+
 
 
 #############################################
@@ -10,6 +23,7 @@
 
 #Barbarian Class		@Barbarian
 
+# NAME OF TYPE					FUNCTION
 BarbarianWeaponProficiencies			Disables ALL Class Weapon Proficiencies
 BarbarianArmorProficiencies			Disables ALL Class Armor & Shield Proficiencies
 BarbarianShieldProficiency			Disables Class Shield Proficiency
@@ -27,29 +41,29 @@ BarbarianUncannyDodge				Disables Barbarian Uncanny Dodge and Improved Uncanny D
 BarbarianImprovedUncannyDodge			Disables Barbarian Uncanny Dodge and Improved Uncanny Dodge
 
 # Trap Sense Ability Variables
-# NAME OF TYPE		FUNCTION
-BarbarianTrapSense#	Disables the +# gained
+# NAME OF TYPE			FUNCTION
+BarbarianTrapSense#		Disables the +# gained
 #All listed -
-BarbarianTrapSense1	Disables the +1 gained
-BarbarianTrapSense2	Disabled the +2 gained
-BarbarianTrapSense3	Disabled the +3 gained
-BarbarianTrapSense4	Disabled the +4 gained
-BarbarianTrapSense5	Disabled the +5 gained
-BarbarianTrapSense6	Disabled the +6 gained
+BarbarianTrapSense1		Disables the +1 gained
+BarbarianTrapSense2		Disabled the +2 gained
+BarbarianTrapSense3		Disabled the +3 gained
+BarbarianTrapSense4		Disabled the +4 gained
+BarbarianTrapSense5		Disabled the +5 gained
+BarbarianTrapSense6		Disabled the +6 gained
 
 ###
-BarbarianRagePower#	Disables the gained Rage Power at level #
+BarbarianRagePower#		Disables the gained Rage Power at level #
 #All listed -
-BarbarianRagePower2	Disables the gained Rage Power at level 2
-BarbarianRagePower4	Disables the gained Rage Power at level 4
-BarbarianRagePower6	Disables the gained Rage Power at level 6
-BarbarianRagePower8	Disables the gained Rage Power at level 8
-BarbarianRagePower10	Disables the gained Rage Power at level 10
-BarbarianRagePower12	Disables the gained Rage Power at level 12
-BarbarianRagePower14	Disables the gained Rage Power at level 14
-BarbarianRagePower16	Disables the gained Rage Power at level 16
-BarbarianRagePower18	Disables the gained Rage Power at level 18
-BarbarianRagePower20	Disables the gained Rage Power at level 20
+BarbarianRagePower2		Disables the gained Rage Power at level 2
+BarbarianRagePower4		Disables the gained Rage Power at level 4
+BarbarianRagePower6		Disables the gained Rage Power at level 6
+BarbarianRagePower8		Disables the gained Rage Power at level 8
+BarbarianRagePower10		Disables the gained Rage Power at level 10
+BarbarianRagePower12		Disables the gained Rage Power at level 12
+BarbarianRagePower14		Disables the gained Rage Power at level 14
+BarbarianRagePower16		Disables the gained Rage Power at level 16
+BarbarianRagePower18		Disables the gained Rage Power at level 18
+BarbarianRagePower20		Disables the gained Rage Power at level 20
 
 BarbarianDamageReduction#	Disables the +# granted to Barbarian DR
 #
