@@ -164,7 +164,7 @@
 <hr>
 
 	<h2>Special BONUS Types</h2>
-	<p class="indent1">There are a two types of special &quot;types&quot; defined in the <em>miscinfo.lst</em> file
+	<p class="indent1">There are two types of special &quot;types&quot; defined in the <em>miscinfo.lst</em> file
 		in the <em>system/gamemode</em> folders. These are the <a href="#BONUSSTACKS">Bonus Stack Types</a> and the <a href="#ACTYPE">AC Types</a>.</p>
 	<blockquote>
 	<h3><a name="BONUSSTACKS">Bonus Stacks</a></h3>
@@ -440,7 +440,7 @@
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>BONUS:COMBAT|AC|2|TYPE=Enhancement</code></p>
-	<p class="indent3">Increases enchantment armor bonus by two.</p>
+	<p class="indent3">Increases the enhancement armor bonus by two.</p>
 	<p class="indent2"><code>BONUS:COMBAT|AC|7|TYPE=NaturalArmor.REPLACE</code></p>
 	<p class="indent3">Replaces the natural armor bonus to seven.</p>
 	<p class="indent2"><code>BONUS:COMBAT|ATTACKS|2</code></p>
@@ -492,9 +492,9 @@
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT.SLASHING|2|TYPE=Enhancement</code></p>
 	<p class="indent3">Increases Attack bonus by two when using a Slashing weapon.</p>
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT-PRIMARY|2</code></p>
-	<p class="indent3">Increases Primary Attack bonus to two.</p>
+	<p class="indent3">Increases Primary Attack bonus by two.</p>
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT-SECONDARY|1</code></p>
-	<p class="indent3">Increases Secondary Attack bonus to one.</p>
+	<p class="indent3">Increases Secondary Attack bonus by one.</p>
 	<p class="indent2"><code>BONUS:COMBAT|TOHIT-SHORTRANGE|1</code></p>
 	<p class="indent3">Adds one to character's short range To-Hit attack rolls.</p>
 	<p></p>
@@ -526,11 +526,11 @@
 	<p class="indent2"><code>BONUS:CONCENTRATION|ALLSPELLS|1</code></p>
 	<p class="indent3">Adds 1 the concentration check bonuses for all spells.</p>
 	<p class="indent2"><code>BONUS:CONCENTRATION|Sorcerer|1</code></p>
-	<p class="indent3">Adds 1 to Sorcerer spell increase the concentration check bonuses.</p>
+	<p class="indent3">Adds 1 to Sorcerer spell concentration check bonuses.</p>
 	<p class="indent2"><code>BONUS:CONCENTRATION|TYPE.Arcane|1</code></p>
 	<p class="indent3">Adds 1 to Arcane spell concentration check bonuses.</p>
 	<p class="indent2"><code>BONUS:CONCENTRATION|SPELL.Levitate|2</code></p>
-	<p class="indent3">Adds 2 to concentration check bonus for the 'Levitate' spell.</p>
+	<p class="indent3">Adds 2 to concentration check bonuses for the 'Levitate' spell.</p>
 	<p class="indent2"><code>BONUS:CONCENTRATION|SCHOOL.Transmutation|2</code></p>
 	<p class="indent3">Adds 2 to concentration check bonuses for all spells of the 'Transmutation' school.</p>
 	<p class="indent2"><code>BONUS:CONCENTRATION|SPELL.Fireball|2</code></p>
@@ -614,7 +614,7 @@
 	  to be coordinated with a DR:#/&lt;string&gt;).</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:DR|+1|10</code></p>
-	<p class="indent3">If the +1 DR type, was currently at 5/+1 this tag would add 10 making it 15/+1.</p>
+	<p class="indent3">If the +1 DR type was currently at 5/+1 this tag would add 10 making it 15/+1.</p>
 	<p></p>
 
 <hr>
@@ -678,7 +678,7 @@
 	<p class="indent2"><code>BONUS:HD|MAX|2</code></p>
 	<p class="indent3">Increases maximum of the HD by two points (1d4 goes to 1d6).</p>
 	<p class="indent2"><code> BONUS:HD|MIN|1</code></p>
-	<p class="indent3">Increases the minimum of the HD by 1 point (1d4 goes to 1d3+1 for example 2 - 4 are the possibilities).</p>
+	<p class="indent3">Increases the minimum of the HD by 1 point (1d4 goes to 1d3+1, for example, and 2 - 4 are the possibilities).</p>
 	<p></p>
 
 <hr>
@@ -694,9 +694,9 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:HP|ALTHP|3</code></p>
-	<p class="indent3">Adds three to total the secondary hit points.</p>
+	<p class="indent3">Adds three to the total secondary hit points.</p>
 	<p class="indent2"><code>BONUS:HP|ALTHP|5|TYPE=Species</code></p>
-	<p class="indent3">Adds five to total the secondary hit points for species reasons.</p>
+	<p class="indent3">Adds five to the total secondary hit points for species reasons.</p>
 	<p class="indent2"><code>BONUS:HP|CURRENTMAX|2</code></p>
 	<p class="indent3">Character gains two additional hit points.</p>
 	<p class="indent2"><code>STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:NUMCHOICES=1|STAT|CON
@@ -1193,7 +1193,7 @@
 		when PCGen calculates the number of spells the character knows.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:STAT|BASESPELLKNOWNSTAT|1</code></p>
-	<p class="indent3">Adds 1 to all of the character's base spell stat bonus when calculating the number of spells known.</p>
+	<p class="indent3">Adds 1 to all of the character's base spell stat bonuses when calculating the number of spells known.</p>
 	<p></p>
 
 <hr>
@@ -1218,7 +1218,7 @@
 	<p class="indent2">Adds to character's base spell stat bonus.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:STAT|BASESPELLSTAT|1</code></p>
-	<p class="indent3">Adds 1 to all of the character's base spell stat bonus.</p>
+	<p class="indent3">Adds 1 to all of the character's base spell stat bonuses.</p>
 	<p></p>
 
 <hr>
@@ -1284,9 +1284,9 @@
 	<p class="indent2"><code>BONUS:VAR|SneakAttack,TrapSense|1</code></p>
 	<p class="indent3">Adds 1 to character's SneakAttack and TrapSense variables.</p>
 	<p class="indent2"><code>BONUS:VAR|LegacyPoints|%CHOICE|PRERACE:1,Titan|PREAPPLY:ANYPC &lt;tab&gt; CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=Legacy Points</code></p>
-	<p class="indent3">A chooser to let you select the number of points to add, from 1 to 10, if your a Titan and a PC.</p>
+	<p class="indent3">A chooser to let you select the number of points to add, from 1 to 10, if you're a Titan and a PC.</p>
 	<p class="indent2"><code>BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base</code></p>
-	<p class="indent3">Sets the character's base TurnTimesBase variable to three plus the Charasma Modifier.</p>
+	<p class="indent3">Sets the character's base TurnTimesBase variable to three plus the Charisma Modifier.</p>
 	<p></p>
 
 <hr>
@@ -1437,7 +1437,7 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>BONUS:WIELDCATEGORY|TwoHanded|-1</code></p>
-	<p class="indent3">Allows a character to wield any larger Two Handed weapon than
+	<p class="indent3">Allows a character to wield a larger Two Handed weapon than
 		would normally be allowed.</p>
 	<p class="indent2"><code>BONUS:WIELDCATEGORY|ALL|-1</code></p>
 	<p class="indent3">Allows a character to use all weapons that are one Size Category larger.</p>

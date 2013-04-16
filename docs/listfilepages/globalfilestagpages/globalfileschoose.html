@@ -110,8 +110,8 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This will produce a list of &quot;Alignments&quot;. (e.g. LG, TN, CE, etc. for 3.5e gameMode)</li>
-		<li>Use of the <code>FEAT</code> subtag will provide the alignment selected by the referenced feqt. 
+		<li>This will produce a list of &quot;Alignments&quot; (e.g. LG, TN, CE, etc. for 3.5e gameMode).</li>
+		<li>Use of the <code>FEAT</code> subtag will provide the alignment selected by the referenced feat. 
 			The feat referenced must contain a <code>CHOOSE:ALIGNMENT</code> tag.</li>
 		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
 			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
@@ -319,7 +319,7 @@
 	<ul class="indent2">
 		<li>Will present a list of deities that matches the stipulated criteria.</li>
 		<li>Using the <code>ALIGN=Text</code> sub-tag will provide a list of deities of the referenced alignment.</li>
-		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of deity selected by the referenced feat. The feat 
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of deities selected by the referenced feat. The feat 
 			referenced must contain a <code>CHOOSE:DEITY</code> tag.</li>
 		<li>Using the <code>PANTEON=Text</code> sub-tag will provide a list of deities of the referenced pantheon.</li>
 		<li>Global qualifiers work for equipment. Use of the qualifiers has the following effect:
@@ -409,7 +409,7 @@
 	<ul class="indent2">
 		<li>Will present a list of equipment that matches the stipulated criteria.</li>
 		<li>Using the <code>WIELD=Text</code> sub-tag will provide a list of equipment of the referenced wield type. The wield type must one of the 
-			following three type: Light, One-Handed, Two-Handed.</li>
+			following three types: Light, One-Handed, Two-Handed.</li>
 		<li>Global qualifiers work for equipment. Use of the qualifiers has the following effect:
 			<ul>
 				<li><strong>ANY</strong> - Will return a list of all equipment.</li>
@@ -527,7 +527,7 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of feats that match the type or name specified. The selected 
-			feat will be added to the characters feats.</li>
+			feat will be added to the character's feats.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
 	</ul>
@@ -678,9 +678,9 @@
 	<p class="indent2"><code>CHOOSE:LANG|Common|Goblin</code></p>
 	<p class="indent3">Presents the &quot;Common&quot; and &quot;Goblin&quot; languages for selection.</p>
 	<p class="indent2"><code>CHOOSE:LANG|Common,Goblin</code></p>
-	<p class="indent3">No languages are presented as no languages is both &quot;Common&quot; and &quot;Goblin&quot;.</p>
+	<p class="indent3">No languages are presented as no language is both &quot;Common&quot; and &quot;Goblin&quot;.</p>
 	<p class="indent2"><code>CHOOSE:LANG|Common|TYPE=Foo,PC</code></p>
-	<p class="indent3">Presents the &quot;Common&quot; languages and any languages that have the &quot;Foo&quot; type which is 
+	<p class="indent3">Presents the &quot;Common&quot; language and any languages that have the &quot;Foo&quot; type which are 
 		already selected by the Player Character.</p>
 	<p></p>
 
@@ -712,10 +712,10 @@
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:NONCLASSSKILLLIST|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name) or LIST</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of skills specified or all cross class skills for the character.</p>
+	<p class="indent2">This will produce a list of skills specified or all cross-class skills for the character.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:NONCLASSSKILLLIST|LIST</code></p>
-	<p class="indent3">This will produce a list of cross class skills for the character.</p>
+	<p class="indent3">This will produce a list of cross-class skills for the character.</p>
 	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
 	<p class="indent2"><code>CHOOSE:NONCLASSSKILLLIST|LIST</code> becomes <code>CHOOSE:SKILL|CROSSCLASS</code></p>
 	<p class="indent2"><code>CHOOSE:NONCLASSSKILLLIST|LIST|Spot,Search</code> becomes <code>CHOOSE:SKILL|CROSSCLASS|Spot|Search</code></p>
@@ -755,7 +755,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This will produce a list of all stats listed or otherwise meets the criteria included.</li>
+		<li>This will produce a list of all stats listed or that otherwise meet the criteria included.</li>
 		<li>The stats listed, including the type, must be defined in the Game Mode file.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
 			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
@@ -816,7 +816,7 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This will produce a list of all races matching the criteria.</li>
-		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of races selected by the referenced feat.The feat 
+		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of races selected by the referenced feat. The feat 
 			referenced must contain a <code>CHOOSE:RACE</code> tag.</li>
 		<li>Using the <code>RACETYPE=Text</code> sub-tag will provide a list of races selected by the referenced race-type. The referenced 
 			race-type is defined in the race's <code>RACETYPE</code> tag.</li>
@@ -879,7 +879,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>This will produce a list of &quot;Schools&quot; of magic. (e.g. Abjuration, Evocation, etc.)</li>
+		<li>This will produce a list of &quot;Schools&quot; of magic (e.g. Abjuration, Evocation, etc.).</li>
 		<li>Use of the <code>FEAT</code> subtag will provide the <strong>SCHOOL</strong> selection made in the referenced feat. 
 			The feat referenced must contain a <code>CHOOSE:SCHOOLS</code> tag.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
@@ -1075,7 +1075,7 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Skill type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ALL (Displays all skills)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> CLASS (Displays all class skills)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> CROSSCLASS (Displays all cross class skills)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> CROSSCLASS (Displays all cross-class skills)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> EXCLUSIVE (Displays all exclusive skills)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> RANKS=Number (Displays all skills the PC has of the listed rank)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> NORANK (Displays all skills the PC has no ranks in)</p>
@@ -1091,7 +1091,7 @@
 	<p class="indent2"><code>CHOOSE:SKILLSNAMED|Knowledge%</code></p>
 	<p class="indent3">This will produce a list of skills starting with Knowledge from which the character can pick.</p>
 	<p class="indent2"><code>CHOOSE:SKILLSNAMED|CROSSCLASS|Craft%</code></p>
-	<p class="indent3">This will produce a list of all cross class skills as well as all Craft skills even if they are not cross class.</p>
+	<p class="indent3">This will produce a list of all cross-class skills as well as all Craft skills even if they are not cross-class.</p>
 	<p class="indent2"><code>CHOOSE:SKILLSNAMED|RANKS=20</code></p>
 	<p class="indent3">This will produce a list of all skills the character has 20 ranks or more in.</p>
 	<p class="indent2"><code>CHOOSE:SKILLSNAMED|NORANK</code></p>
@@ -1349,10 +1349,10 @@
 	<p class="indent2"><code>CHOOSE:TEMPLATE|Mindless,Undead</code></p>
 	<p class="indent3">No templates are presented as no template is both &quot;Mindless&quot; and &quot;Undead&quot;.</p>
 	<p class="indent2"><code>CHOOSE:TEMPLATE|Mindless|TYPE=Foo,PC</code></p>
-	<p class="indent3">Presents the &quot;Mindless&quot; template and any templates that have the &quot;Foo&quot; type which is 
+	<p class="indent3">Presents the &quot;Mindless&quot; template and any templates that have the &quot;Foo&quot; type which are 
 		already selected by the Player Character.</p>
 	<p class="indent2"><code>CHOOSE:TEMPLATE|Mindless|PC[TYPE=Foo]</code></p>
-	<p class="indent3">Presents the &quot;Mindless&quot; template and any templates that have the &quot;Foo&quot; type which is 
+	<p class="indent3">Presents the &quot;Mindless&quot; template and any templates that have the &quot;Foo&quot; type which are 
 		already selected by the Player Character.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files.</p>
@@ -1386,7 +1386,7 @@
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>CHOOSE:WEAPONFOCUS|TYPE.Sword</code></p>
-	<p class="indent3">Present a list of weaponprofs associated with a characters Weapon Focus feats that match a given equipment type.</p>
+	<p class="indent3">Present a list of weaponprofs associated with a character's Weapon Focus feats that match a given equipment type.</p>
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
@@ -1420,7 +1420,7 @@
 	<ul class="indent2">
 		<li>I cannot explain how this tag works but it does.</li>
 		<li>This tag is used in the War Domain to grant proficiency in, and the Weapon Focus feat of, the
-			dieties Favored Weapon to the cleric that has selected that domain.</li>
+			diety's Favored Weapon to the cleric that has selected that domain.</li>
 		<li>The syntax using brackets ([]) will be changed in PCGen 6.0.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -1528,7 +1528,7 @@
 				<li>LIST - All character's weapon profs are added to list</li>
 				<li>DEITYWEAPON - All the character's Deity's favorite weapons are added to the list</li>
 				<li>Size.y&lt;Weapon prof name&gt; - Weapon prof is added to list if character is at least size specified and the character has the proficiency specified. Other options
-					are F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal).</li>
+					are F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal.</li>
 				<li>WSize.string - The character's weapon prof is added to the list if the wield category matches the specified type.</li>
 				<li>Spellcaster.string - The specified weapon proficiency will be added to the list if the character is a spellcaster.</li>
 				<li>ADD.string - The specified weapon proficiency is added to the list unconditionally.</li>
@@ -1572,7 +1572,7 @@
 
   	<h3><a name="PREFIX">CHOOSE Tag Prefixes</a></h3>
 	<p class="indent0">The CHOOSE tag uses &quot;Prefix&quot; tags to modify the application of
-	the CHOOSE tag. The prefix tags are inserted into the CHOOSE tags syntax immediately after the
+	the CHOOSE tag. The prefix tags are inserted into the CHOOSE tag's syntax immediately after the
 	colon (:) and before the first argument, using a pipe (|) as a delimiter between itself and
 	the first argument.</p>
 	<p class="indent0">The valid prefix tags are detailed below.</p>
@@ -1593,12 +1593,12 @@
 	<p class="indent3">The user can select the same choice more than once, but the user will never be allowed more than
 		3 choices total, each made one at a time.</p>
 	<p class="indent2"><code>CHOOSE:NUMCHOICES=6|SKILLSNAMED|Craft%|3</code></p>
-	<p class="indent3">The user can select this chooser multiple times and will be allowed to select upto 3 Craft
+	<p class="indent3">The user can select this chooser multiple times and will be allowed to select up to 3 Craft
 		subskills each time the chooser is selected, but may only make 6 Craft subskill sellection total.</p>
 	<p class="indent2"><code>CHOOSE:NUMCHOICES=3|SKILLSNAMED|TYPE=Strength|TYPE=Dexterity|TYPE=Constitution|TYPE=Intelligence|TYPE=Wisdom</code></p>
 	<p class="indent3">The user will be allowed to select one skill from &quot;Strength&quot; &quot;Dexterity&quot;
 		&quot;Constitution&quot; &quot;Intelligence&quot; and &quot;Wisdom&quot; skills each time the chooser
-		is takem but is limited to a maximum of three such selections through this chooser.</p>
+		is taken but is limited to a maximum of three such selections through this chooser.</p>
 	<p class="indent2"><code>SELECT:3 &lt;tab&gt; CHOOSE:NUMCHOICES=6|SKILLSNAMED|TYPE=Knowledge</code></p>
 	<p class="indent3">The user can select three (3) &quot;Knowledge&quot; type skills each time he takes the
 		associated feat but may take no more than six (6) &quot;Knowledge&quot; type skills total no matter how

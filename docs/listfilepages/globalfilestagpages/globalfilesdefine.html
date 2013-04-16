@@ -42,9 +42,9 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Creates a variable with the name specified and sets its initial value to the number or formula given.</li>
-		<li>Many classes use <code>PREVARxx</code> tags, which are pre-requisites based upon variable values.</li>
+		<li>Many classes use <code>PREVARxx</code> tags, which are prerequisites based upon variable values.</li>
 		<li>Values are calculated by getting the value of the variable with the highest defined value, and then adding any bonuses which apply to it.</li>
-		<li>PCGen scans the characters race, templates, classes, feats, skills, deity, domains and equipped items for <code>DEFINE</code> tags that match this variable name.</li>
+		<li>PCGen scans the character's race, templates, classes, feats, skills, deity, domains and equipped items for <code>DEFINE</code> tags that match this variable name.</li>
 		<li>If it finds more than one, it keeps the one with the higher value.</li>
 		<li>PCGen then scans the same list of items and looks for <code>BONUS:VAR</code> tags and after figuring out which ones stack, adds those to the highest define value.</li>
 		<li>The resulting value is then compared to the <code>PREVARxx</code> requirement and PCGen then indicates if the character meets this requirement or not.</li>
@@ -55,7 +55,7 @@
 	<p class="indent2"><code>DEFINE:MonkeyChop|2</code></p>
 	<p class="indent3">Creates a new variable named MonkeyChop and sets the initial value to 2.</p>
 	<p class="indent2"><code>DEFINE:MonkeySwing|0 &lt;tab&gt; BONUS:VAR|MonkeySwing|TL/2</code></p>
-	<p class="indent3">Creates a new variable named <strong>MonkeySwing</strong> and sets the initial value to zero, then bonuses the variable to half the characters total level.</p>
+	<p class="indent3">Creates a new variable named <strong>MonkeySwing</strong> and sets the initial value to zero, then bonuses the variable to half the character's total level.</p>
 
 <hr>
 
@@ -64,7 +64,7 @@
 	<p class="indent0">For those unfamiliar with computer programming or higher math a variable is a symbol which represents a
 		quantity that is not fixed. Most people's first introduction to variables is in algebra where you might be given a problem 
 		such as &quot;x+y=z&quot;. In this formula, the &quot;x&quot;, &quot;y&quot; and &quot;z&quot; are variables. PCGen uses 
-		variables and formulas for a wide variety of purposes through out the program. Some variables are created in LST files, 
+		variables and formulas for a wide variety of purposes throughout the program. Some variables are created in LST files, 
 		and are henceforth called user-defined variables, while others are system-defined, that is they are hard-coded into PCGen's code-base. 
 		While both types of variable can be used in any formula in any LST file, only system-defined variables can be used in any gameMode. 
 		Only user-defined variables can be modified through the use of the <code>BONUS:VAR</code> tag.</p>
@@ -88,7 +88,7 @@
 	<h2><a name="PreDefinedVariables">System-Defined Variables</a></h2>
 		
 	<p class="indent0">All variables listed below are global in nature, unless explicitly stated 
-		within the variable specific documentation, and can be used in any formula, in any file, in any gamemode.</p>
+		within the variable-specific documentation, and can be used in any formula, in any file, in any gamemode.</p>
 	<p></p>
 		
 	<p class="indent2"><code><a name="ACCHECK">ACCHECK</a></code></p>
@@ -101,7 +101,7 @@
 	
 	<p class="indent2"><code><a name="BAB">BAB</a></code></p>
 	<p class="indent3">For classes which have O (for Other) as their BAB progression, you can use a
-		formula for their BAB progression. e.g. <code>DEFINE:BAB|2*CL</code> would be +2 per
+		formula for their BAB progression, e.g. <code>DEFINE:BAB|2*CL</code> would be +2 per
 		class-level.</p>
 	<p></p>
 	
@@ -111,7 +111,7 @@
 
 	<p class="indent2"><code><a name="BL">BL=name</a></code></p>
 	<p class="indent3">This will return the Bonus Spellcaster Levels to the class specified, which usually come from Prestige classes. 
-		For example, lets say you have 2 levels <strong>Mystic Theurge</strong> which add to both your <strong>Cleric</strong> and 
+		For example, let's say you have 2 levels <strong>Mystic Theurge</strong> which add to both your <strong>Cleric</strong> and 
 		<strong>Wizard</strong> levels, 3 levels of <strong>Archmage</strong> which add to your <strong>Wizard</strong> level, and 1
 		level of <strong>Loremaster</strong> which adds to your <strong>Cleric</strong> level. <code>BL=Wizard</code> would return 5 
 		and <code>BL=Cleric</code> would return 3. Replace &quot;{&quot; with &quot;(&quot; and &quot;}&quot; with &quot;)&quot;, 
@@ -237,7 +237,7 @@
 	
 	<p class="indent2"><code><a name="ENCUMBERANCE">ENCUMBERANCE</a></code></p>
 	<p class="indent3">This is a value representing the character's current encumbrance level
-		(0=Light, 1=Medium 2=Heavy, 3=Over-Loaded).</p>
+		(0=Light, 1=Medium, 2=Heavy, 3=Over-Loaded).</p>
 	<p></p>
 	
 	<p class="lstnew"><a name="HANDS">*** New 5.17.9</a></p><p></p>

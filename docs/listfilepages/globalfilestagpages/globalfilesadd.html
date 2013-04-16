@@ -34,7 +34,7 @@
 			and the character does not qualify for any TYPE=Foo feat, there will be no pop-up or
 			choice.</li>
 		<li>This tag is a &quot;fire and forget&quot; tag. Once the containing object (e.g. Class,
-			Feat, Race, etc.) is applied, and assuming that the characters qualifies for the object
+			Feat, Race, etc.) is applied, and assuming that the character qualifies for the object
 			being added, this tag will fire. If the object is then removed, the effect of this
 			tag will not be removed.</li>
 	</ol>
@@ -64,7 +64,7 @@
 		(TYPE=SlamWeapons)</code> tag normally found in that template.</p>
 	<p class="indent2"><code>CLASS:Gunslinger.MOD &lt;tab&gt; ADD:.CLEAR.LEVEL2 &lt;tab&gt; ADD:.CLEAR.LEVEL3
 		&lt;tab&gt; ADD:.CLEAR.LEVEL6 &lt;tab&gt; ADD:.CLEAR.LEVEL8 &lt;tab&gt; ADD:.CLEAR.LEVEL9</code></p>
-	<p class="indent3">This modification of the Gunslinger Class removes the benefits of level 2,3,6,8, and
+	<p class="indent3">This modification of the Gunslinger Class removes the benefits of levels 2, 3, 6, 8, and
 		9, replacing them with nothing.</p>
 	<p></p>
 
@@ -94,7 +94,7 @@
 		or &quot;Electric Boogalo&quot;.</p>
 	<p class="indent2"><code>ADD:ABILITY|FEAT|VIRTUAL|TYPE=General,TYPE=Metamagic,TYPE=ItemCreation</code></p>
 	<p class="indent3">Add one virtual feat from &quot;General&quot;, any &quot;Metamagic&quot;,
-		any &quot;ItemCreation&quot; type feats .</p>
+		any &quot;ItemCreation&quot; type feats.</p>
 	<p></p>
 
 <hr>
@@ -147,7 +147,7 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ADD:FEAT|2|Alertness,TYPE=Fighter,Electric Boogalo</code></p>
 	<p class="indent3">Add two feats from a list of feats consisting of &quot;Alertness&quot;, any &quot;Fighter&quot; type feats
-		oad &quot;Electric Boogalo&quot;.</p>
+		and &quot;Electric Boogalo&quot;.</p>
 	<p class="indent2"><code>ADD:FEAT|TYPE=General,TYPE=Metamagic,TYPE=ItemCreation</code></p>
 	<p class="indent3">Add one feat from the list of feats consisting of &quot;General&quot;, any &quot;Metamagic&quot;,
 		or any &quot;ItemCreation&quot; type feats.</p>
@@ -196,7 +196,7 @@
 	<p class="indent1"><strong>Variables Used (z):</strong> Text (Special ability name or description.)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
-		<li>Will add a number y) of special abilities, from the presented list of special abilities (y), to the character.</li>
+		<li>Will add a number (y) of special abilities, from the presented list of special abilities (y), to the character.</li>
 		<li>If the count (y) is not used the first special ability will be selected.</li>
 		<li>If count (y) is used the character will be given a choice of one to the limit of count (y) from
 			the items listed (z).</li>
@@ -251,13 +251,13 @@
 		<li>When allowing more than one selection, including a count (x) of greater than one, multiple
 			classes can be selected but the same class cannot be selected twice.</li>
 		<li>If you wish to select the same class more than once, you must use two tags.</li>
-		<li>The bonus level confers only it's spellcasting capabilities, no other bonuses or benefits from
+		<li>The bonus level confers only its spellcasting capabilities, no other bonuses or benefits from
 			the class are granted.</li>
 		<li>When used on a class line the list of choices that come up will NOT include the class that the
 			tag is in.</li>
 		<li>The specified class must have its own spell list.</li>
 		<li>This tag will not grant a bonus spell casting level for a class that uses the CASTAS tag or in
-			some other way rides on another classes spell list.</li>
+			some other way rides on another class's spell list.</li>
 		<li>The &quot;ANY&quot; property will present a list of all the spellcasting classes the PC already has levels
 			in.</li>
 		<li>When using a type such as Divine or Arcane the SPELLTYPE of all the spellcasting classes the PC
