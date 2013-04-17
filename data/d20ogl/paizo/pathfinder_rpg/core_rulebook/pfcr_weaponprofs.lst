@@ -121,8 +121,8 @@ Axe (Orc Double).MOD	TYPE:Axe
 Axe (Throwing).MOD	TYPE:Axe
 
 #Blades, Heavy:
-Bastard Sword.MOD	TYPE:Bladeheavy
-Elven Curve Blade.MOD	TYPE:Bladeheavy
+Sword (Bastard).MOD	TYPE:Bladeheavy
+Curve Blade (Elven).MOD	TYPE:Bladeheavy
 Falchion.MOD	TYPE:Bladeheavy
 Greatsword.MOD	TYPE:Bladeheavy
 Longsword.MOD	TYPE:Bladeheavy
@@ -147,21 +147,21 @@ Shortbow.MOD	TYPE:Bow
 
 #Close:
 Gauntlet.MOD	TYPE:Close
-Shield (Heavy).MOD	TYPE:Close
-Light Shield.MOD	TYPE:Close
-Punching Dagger.MOD	TYPE:Close
+#Shield (Heavy).MOD	TYPE:Close
+#Shield (Light).MOD	TYPE:Close
+Dagger (Punching).MOD	TYPE:Close
 Sap.MOD	TYPE:Close
-Spiked Armor.MOD	TYPE:Close
-Spiked Gauntlet.MOD	TYPE:Close
-Spiked Shield.MOD	TYPE:Close
+#Spiked Armor.MOD	TYPE:Close
+Gauntlet (Spiked).MOD	TYPE:Close
+#Spiked Shield.MOD	TYPE:Close
 Unarmed Strike.MOD	TYPE:Close
 
 #Crossbows:
 Crossbow (Hand).MOD	TYPE:Crossbow
 Crossbow (Heavy).MOD	TYPE:Crossbow
-Crossbow (Heavy Repeating).MOD	TYPE:Crossbow
+Crossbow (Repeating Heavy).MOD	TYPE:Crossbow
 Crossbow (Light).MOD	TYPE:Crossbow
-Crossbow (Light Repeating).MOD	TYPE:Crossbow
+Crossbow (Repeating Light).MOD	TYPE:Crossbow
 
 #Double: 
 Flail (Dire).MOD	TYPE:Double
@@ -193,10 +193,10 @@ Kama.MOD	TYPE:Monk
 Quarterstaff.MOD	TYPE:Monk
 Sai.MOD	TYPE:Monk
 Shuriken.MOD	TYPE:Monk
-Unarmed Strike.MOD	TYPE:Monk
+Unarmed Strike.MOD	TYPE:Monk.Natural
 
 #Natural:
-Unarmed Strike.MOD	TYPE:Natural
+#Unarmed Strike.MOD	TYPE:
 #Bite.MOD	TYPE:Natural
 #Claw.MOD	TYPE:Natural
 #Gore.MOD	TYPE:Natural
@@ -211,7 +211,7 @@ Ranseur.MOD	TYPE:Polearm
 
 #Spears:
 Javelin.MOD	TYPE:Spear
-Harpoon.MOD	TYPE:Spear
+#Harpoon.MOD	TYPE:Spear
 Lance.MOD	TYPE:Spear
 Longspear.MOD	TYPE:Spear
 Shortspear.MOD	TYPE:Spear
@@ -235,4 +235,6 @@ Spear.MOD	TYPE:Thrown
 Starknife.MOD	TYPE:Thrown
 Axe (Throwing).MOD	TYPE:Thrown
 Trident.MOD	TYPE:Thrown
+
+
 
