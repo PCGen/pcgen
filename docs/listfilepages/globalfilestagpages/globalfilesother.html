@@ -30,7 +30,7 @@
 
 	<p>This page is broken into two sections.</p>
 	<ol class="indent0">
-		<li>The first section covers miscelaneous tags that can be used in all data-files (excluding
+		<li>The first section covers miscellaneous tags that can be used in all data-files (excluding
 		the pcc and specialist files).</li>
 		<li>The second section covers sub-tags that can be used in many tags whether global or not.</li>
 	</ol>
@@ -256,7 +256,7 @@
 			<li>When including the <code>TYPE=Text</code> or <code>TYPE,Text</code> sub-tag you may 
 				use a period-delimted (.) list of weapon types. This will grant the character proficiency 
 				with weapons that meet all of the listed weapon types.</li>
-			<li>When using the <code>DEITYWEAPONS</code> sub-tag, all of the deities favored weapons, except 
+			<li>When using the <code>DEITYWEAPONS</code> sub-tag, all of the deity's favored weapons, except 
 				for natural weapons, are added.  If the deity specifies &quot;ALL&quot; or &quot;ANY&quot; for
 				its favored weapon, no weapons will be added.</li>
 			<li>PRExxx tags are allowed with this tag and use the pipe-delimited (|) syntax.</li>
@@ -322,7 +322,7 @@
 	<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; CSKILL:.CLEAR &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot</code></p>
 	<p class="indent3">Modified Class that removes all class skills in the object previously, then adds in the specific list.</p>
 	<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; CSKILL:.CLEAR.Handle Animal|.CLEAR.Ride|Heal &lt;tab&gt; CSKILL:Pilot</code></p>
-	<p class="indent3">Modified Class that removes only Handle Animal and Ride from the origianl class skill list, and then adds Heal and Pilot.</p>
+	<p class="indent3">Modified Class that removes only Handle Animal and Ride from the original class skill list, and then adds Heal and Pilot.</p>
 	<p></p>
 
 <hr>
@@ -332,14 +332,14 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Type.&lt;Skill Type&gt;)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> LIST</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Grants the listed exclusive skills as cross class skills.</p>
+	<p class="indent2">Grants the listed exclusive skills as cross-class skills.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>CCSKILL:Listen|Spot</code></p>
-	<p class="indent3">The &quot;Listen&quot; and &quot;Spot&quot; skills are made cross class skills.</p>
+	<p class="indent3">The &quot;Listen&quot; and &quot;Spot&quot; skills are made cross-class skills.</p>
 	<p class="indent2"><code>CCSKILL:Search|TYPE.Knowledge</code></p>
-	<p class="indent3">The &quot;Search&quot; and &quot;Knowledge&quot; type skills are made cross class skills.</p>
+	<p class="indent3">The &quot;Search&quot; and &quot;Knowledge&quot; type skills are made cross-class skills.</p>
 	<p class="indent2"><code>CCSKILL:LIST</code></p>
-	<p class="indent3">Skills selected in the associated choice are made cross class skills.</p>
+	<p class="indent3">Skills selected in the associated choice are made cross-class skills.</p>
 	<p class="indent2"><code>CLASS:Blackguard.MOD &lt;tab&gt; STARTSKILLPTS:2 &lt;tab&gt; CSKILL:.CLEAR|Handle Animal|Ride &lt;tab&gt; CSKILL:Concentration|TYPE.Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE.Profession|Climb|Jump|Listen|Spot|Swim|Pilot &lt;tab&gt; CCSKILL:Handle Animal|Ride</code></p>
 	<p class="indent3">Modified Class that changes all of these Tags from their starting values..</p>
 	<p></p>
@@ -403,7 +403,7 @@
 	<p class="indent1"><strong>What it does:</strong> </p>
 	<p class="indent2">Locks the specified ability score to a specific value regardless of any other bonuses
 		to that ability. If the locked value is 10 the OS will output an asterisk (*) instead of the number.
-		This is commonly used when a creature has a non-ability such as the undeads lack of a constitution score.</p>
+		This is commonly used when a creature has a non-ability such as the undead's lack of a constitution score.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DEFINE:LOCK.CON|10</code></p>
 	<p class="indent3">Constitution is set to 10 and an asterisk is output.</p>
@@ -528,7 +528,7 @@
 		<li>This defines the damage reduction this feat/class/template/etc. bestows.</li>
 		<li>Multiple damage types can be specified by separating them with "and" or "or" as appropriate.</li>
 		<li>DR tags with the same damage types do not stack, only the DR tag with the highest value will be used.</li>
-		<li>Damage Reduction's must be first defined in this manner before a 
+		<li>Damage Reductions must be first defined in this manner before a 
 		<a href="globalfilesbonus.html#DR">BONUS:DR</a> tag can be used to add to them.</li>
 		<li>If a lst file tries to do a BONUS:DR|+1|10 and no DR:xx/+1 has ever
 			been defined, the bonus will do nothing.</li>
@@ -571,7 +571,7 @@
 	<p class="indent1"><strong>Variables Used (x): </strong>Number (number of options user may select).</p>
 	<p class="indent1"><strong>Variables Used (y): </strong>Text (Name of kit).</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Offers a choice starting kits.</p>
+	<p class="indent2">Offers a choice of starting kits.</p>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>KIT:1|Wizard1|Illusionist1</code></p>
 	<p class="indent3">Offers a choice of the Wizard1 or Illusionist1 starting kits.</p>
@@ -592,7 +592,7 @@
 	<p class="indent2"><code>Human.MOD &lt;tab&gt; LANGAUTO:Remarian &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt; LANGBONUS:Aeylamdyarian,Calisian,Desolati,Galkarnic,Homish,Launhymian</code></p>
 	<p class="indent3">The language &quot;Remarian&quot; is added and then all languages are cleared, including the newly added &quot;Remarian&quot; and any free 
 		racial and class languages, and the languages &quot;Aeylamdyarian&quot;, &quot;Calisian&quot;, &quot;Desolati&quot;, &quot;Galkarnic&quot;, &quot;Homish&quot;, 
-		and &quot;Launhymian&quot; are granted by the <code>LANGBONUS</code> tag. Note that the >CLEAR should be performed first.</p>
+		and &quot;Launhymian&quot; are granted by the <code>LANGBONUS</code> tag. Note that the .CLEAR should be performed first.</p>
 	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
 	<p class="indent2"><code>LANGAUTO:Common,Gnome</code> becomes <code>AUTO:LANG|Common|Gnome</code></p>
 	<p class="indent2"><code>Gnome.MOD &lt;tab&gt; LANGAUTO:.CLEAR &lt;tab&gt; LANGAUTO:Low Coryani,Gnome</code> becomes</p>
@@ -668,12 +668,12 @@
 			treated as a primary weapon and the second is treated as a secondary attack.</li>
 		<li>Natural weapon types (x) should be period-delimited (.). This must always
 			start with &quot;Weapon&quot; and &quot;Natural&quot; and must be followed
-			by either &quot;Melee&quot; or &quot;Ranged&quot;.	After that the weapons
+			by either &quot;Melee&quot; or &quot;Ranged&quot;.	After that the weapon's
 			damage types are listed which can be &quot;Bludgeoning&quot;,
 			&quot;Piercing&quot; or &quot;Slashing&quot; or any combination of the three.</li>
 		<li>If the number of attacks (y) has an asterisk in front of the number it
 			indicates that the number of attacks is non-iterative, that is it is not
-			based on the creatures attack progression but rather how many of the
+			based on the creature's attack progression but rather how many of the
 			natural weapons it possesses.</li>
 		<li>The damage the natural weapon does is entered in the standard dice notation
 			such as &quot;1d8&quot; and &quot;4d10&quot;.</li>
@@ -844,13 +844,13 @@
 	<p class="indent2"><code>SAB:.CLEAR.+1d6 to natural weapons &lt;tab&gt; SAB:+1d8 to natural weapons </code></p>
 	<p class="indent3">Clears the &quot;Natural Weapons&quot; value and makes it +1d8 instead.</p>
 	<p class="indent2"><code>SAB:Banana toss|PRERACE:monkey</code></p>
-	<p class="indent3">Grants the special ability &quot;Banana toss&quot; if the characters race is &quot;monkey&quot;.</p>
+	<p class="indent3">Grants the special ability &quot;Banana toss&quot; if the character's race is &quot;monkey&quot;.</p>
 	<p class="indent2"><code>SAB:Banana toss via (%CHOICE) &lt;tab&gt; STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt;
 		CHOOSE:Air|Earth|Fire|Water</code></p>
 		<p class="indent3">Offers a Choice between Air/Earth/Fire/Water for banana tossing, may be used multiple
 		times, but selected only once.</p>
 	<p class="indent2"><code> 4 &lt;tab&gt; SAB:.CLEAR.Shield Brother (full round action) &lt;tab&gt; SAB:Shield Brother (standard action)</code></p>
-	<p class="indent3">Clears the 4th level value and makes it &quot;Shield Brother (standard action)&quot;instead.</p>
+	<p class="indent3">Clears the 4th level value and makes it &quot;Shield Brother (standard action)&quot; instead.</p>
 	<p class="indent2"><code>SAB:.CLEAR.Poison</code></p>
 	<p class="indent3">Clears the &quot;Poison&quot; value and replaces it with nothing.</p>
 	<p class="indent2"><code>CLASS:Toto</code></p>
@@ -1082,7 +1082,7 @@
 				<li>PRExxx's apply to the whole tag.</li>
 			</ul>
 		</li>
-		<li>Formulas which use comma's within them should be encapsulated using parentheses &quot;( )&quot;.</li>
+		<li>Formulas which use commas within them should be encapsulated using parentheses &quot;( )&quot;.</li>
 		<li>Because the <code>SPELLS</code> tag is not associated with any one class the variable &quot;CL&quot; will not work in it.</li>
 		<li><a href="../../listfilepages/listfileLSTstandards.html#STDSPELLNAME">Standard Spellbook Names</a></li>
 	</ul>
@@ -1110,7 +1110,7 @@
 	<p class="indent2">This indicates the Spell Resistance this feat/class/template/etc. bestows.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SR:TL+10</code></p>
-	<p class="indent3">This would set the Spell Resistance to be the characters total
+	<p class="indent3">This would set the Spell Resistance to be the character's total
 		class levels + 10 on output for their total spell resistance.</p>
 	<p></p>
 
@@ -1181,7 +1181,7 @@
 		<li>If nine (9) fields are included, they will represent the damage done for each size, from 
 			left to right, &quot;Fine&quot; to &quot;Colossal&quot;.</li>
 		<li>If only one (1) field is included, it will represent the damage done irrespective of the 
-			creatures size.</li>
+			creature's size.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>UDAM:1,1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8</code></p>
@@ -1279,7 +1279,7 @@
 	<ul class="indent1">
 		<li>This tag grants the specified pipe-delimited (|) list of vision types to the character</li>
 		<li>.CLEAR. will clear the vision listed after it from the character.</li>
-		<li>.SET. will change the characters vision to the new vision.</li>
+		<li>.SET. will change the character's vision to the new vision.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>VISION:Low-light</code></p>
