@@ -56,11 +56,12 @@ Bardiche.MOD	TYPE:Axe.Polearm
 Chakram.MOD	TYPE:Bladeheavy.Thrown
 Falcata.MOD	TYPE:Bladeheavy
 Khopesh.MOD	TYPE:Bladeheavy
-Temple Sword.MOD	TYPE:Bladeheavy
+Sword (Temple).MOD	TYPE:Bladeheavy
 Bayonet.MOD	TYPE:Bladelight.Close
 Dagger (Swordbreaker).MOD	TYPE:Bladelight
 #Brass Knuckles.MOD	TYPE:Close.Monk
-Wooden Stake.MOD	TYPE:Close
+#Wooden Stake.MOD	TYPE:Close
+Stake.MOD	TYPE:Close
 Crossbow (Double).MOD	TYPE:Crossbow
 Cestus.MOD	TYPE:Monk
 Bec De Corbin.MOD	TYPE:Polearm
