@@ -203,7 +203,7 @@ Double Chicken Saber.MOD	TYPE:Bladeheavy.Monk
 Katana (Double Walking Stick).MOD	TYPE:Bladeheavy
 Terbutje (Great).MOD	TYPE:Bladeheavy
 Katana.MOD	TYPE:Bladeheavy
-Broadsword (Nine-Ring).MOD	TYPE:Bladeheavy
+Broadsword (Nine Ring).MOD	TYPE:Bladeheavy
 Nodachi.MOD	TYPE:Bladeheavy.Polearm
 Sword (Seven-Branched).MOD	TYPE:Bladeheavy.Monk
 Shotel.MOD	TYPE:Bladeheavy
@@ -231,8 +231,8 @@ Tube Arrow Shooter.MOD	TYPE:Crossbow
 #
 #Firearms: All One-Handed, Two-Handed, And Siege Firearms
 #
-Chain Spear.MOD	TYPE:Flail
-Kama (Double Chained).MOD	TYPE:Flail.Monk
+#Chain Spear.MOD	TYPE:Flail
+Kama (Double-Chained).MOD	TYPE:Flail.Monk
 Flying Blade.MOD	TYPE:Flail
 Kusarigama (Sickle and Chain).MOD	TYPE:Flail.Monk
 Kyoketsu Shoge.MOD	TYPE:Flail.Monk
@@ -259,8 +259,8 @@ Sword (Tri-Point Double-Edged).MOD	TYPE:Monk
 
 Naginata.MOD	TYPE:Polearm
 
-Amentum.MOD	TYPE:Spear.Thrown
-Boar Spear.MOD	TYPE:Spear
+Amentum (Javelin).MOD	TYPE:Spear.Thrown
+#Boar Spear.MOD	TYPE:Spear
 Pilum.MOD	TYPE:Spear
 Sibat.MOD	TYPE:Spear
 Tiger Fork.MOD	TYPE:Spear
@@ -272,6 +272,4 @@ Poisoned Sand Tube.MOD	TYPE:Thrown
 Throwing Shield.MOD	TYPE:Thrown
 
 #Siege Engines: All Siege Engines
-
-
 
