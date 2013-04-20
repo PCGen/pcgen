@@ -92,7 +92,8 @@ Stink Bomb*			KEY:Discovery ~ Stink Bomb		CATEGORY:Special Ability	TYPE:SpecialA
 
 ###Block: Mutagen Templates
 
-
+###Block: Archetype Support
+CATEGORY=Special Ability|Discovery ~ Alchemist.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL/2,1|PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery1
 
 ###Block: Alchemist grand discoveries
 # Ability Name		Unique Key					Category of Ability		Type								Required Ability									Description																																												Stat bonus
