@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Mar 30 17:44:50 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+# CVS $Revision$ $Author$ -- Sat Apr 20 12:56:48 2013 -- reformated by prettylst.pl v1.50 (build 19967)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher and Eric C. Smith (Maredudd); Archetype work by Andrew Maitland
 
@@ -16,7 +16,7 @@ CLASS:Barbarian	STARTSKILLPTS:4
 1	AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianShieldProficiency,TYPE.BarbarianArmorProficiencies
 ###Block: Variable Progression
 1	BONUS:VAR|RageLVL|CL
-2	BONUS:VAR|RagePowersLVL|CL	
+2	BONUS:VAR|RagePowersLVL|CL
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
 2	BONUS:VAR|UncannyDodgeLevel|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianUncannyDodge
 3	BONUS:VAR|BarbarianTrapSenseLVL|CL
@@ -25,7 +25,7 @@ CLASS:Barbarian	STARTSKILLPTS:4
 ###Block: Level Progression
 1	ABILITY:Class Ability|AUTOMATIC|Rage|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRage
 1	ABILITY:Class Ability|AUTOMATIC|Fast Movement ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianFastMovement
-2	ABILITY:Class Ability|AUTOMATIC|Rage Powers|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePowers	
+2	ABILITY:Class Ability|AUTOMATIC|Rage Powers|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianRagePowers
 2	ABILITY:Class Ability|AUTOMATIC|Uncanny Dodge ~ Base
 3	ABILITY:Class Ability|AUTOMATIC|Trap Sense ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianTrapSense
 7	ABILITY:Class Ability|AUTOMATIC|Damage Reduction ~ Barbarian|!PREABILITY:1,CATEGORY=Archetype,TYPE.BarbarianDamageReduction
@@ -182,7 +182,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 10	CAST:4,4,4,3,3,2
 11	CAST:4,4,4,4,3,2,1
 12	CAST:4,4,4,4,3,3,2
-13	CAST:4,4,4,4,4,3,2,1							ABILITY:Class Ability|AUTOMATIC|A Thousand Faces|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidThousandFaces
+13	CAST:4,4,4,4,4,3,2,1							ABILITY:Class Ability|AUTOMATIC|A Thousand Faces|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidThousandFaces,TYPE.DruidAThousandFaces
 14	CAST:4,4,4,4,4,3,3,2
 15	CAST:4,4,4,4,4,4,3,2,1							ABILITY:Class Ability|AUTOMATIC|Timeless Body|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidTimelessBody
 16	CAST:4,4,4,4,4,4,3,3,2

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Apr 20 12:48:30 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sat Apr 20 12:56:48 2013 -- reformated by prettylst.pl v1.50 (build 19967)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -117,5 +117,5 @@ Dragon Disciple Bite ~ Gargantuan		VISIBLE:NO																																			
 Dragon Disciple Bite ~ Colossal		VISIBLE:NO																																											PRESIZEEQ:C								BONUS:WEAPONPROF=Bite|WIELDCATEGORY|4	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6
 
 ###Block: Human Ethnicities
-# Template Name				Size		Face/Space	Reach		Visible		Template																																																																																																																																Var. Min. Value				Bonus to Ability Pool			Combat bonus				Stat bonus
-Human Ethnicity										VISIBLE:NO																																																																																																																																									BONUS:ABILITYPOOL|Human Ethnicity|1
+# Template Name	Visible	Bonus to Ability Pool
+Human Ethnicity	VISIBLE:NO	BONUS:ABILITYPOOL|Human Ethnicity|1

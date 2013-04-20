@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Jan 17 06:06:23 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Sat Apr 20 12:48:30 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Core Rulebook	SOURCESHORT:PFCR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: abernat
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -111,89 +111,90 @@ Rock					TYPE:Simple.Ranged.Bludgeoning.Thrown.Rock
 ###Block: Weapon Groups:
 
 #Axes:
-Battleaxe.MOD	TYPE:Axe
-Waraxe (Dwarven).MOD	TYPE:Axe
-Greataxe.MOD	TYPE:Axe
-Handaxe.MOD	TYPE:Axe
-Pick (Heavy).MOD	TYPE:Axe
-Pick (Light).MOD	TYPE:Axe
-Axe (Orc Double).MOD	TYPE:Axe
-Axe (Throwing).MOD	TYPE:Axe
+# Weapon Name				Type
+Battleaxe.MOD				TYPE:Axe
+Waraxe (Dwarven).MOD			TYPE:Axe
+Greataxe.MOD				TYPE:Axe
+Handaxe.MOD					TYPE:Axe
+Pick (Heavy).MOD				TYPE:Axe
+Pick (Light).MOD				TYPE:Axe
+Axe (Orc Double).MOD			TYPE:Axe
+Axe (Throwing).MOD			TYPE:Axe
 
 #Blades, Heavy:
-Sword (Bastard).MOD	TYPE:Bladeheavy
-Curve Blade (Elven).MOD	TYPE:Bladeheavy
-Falchion.MOD	TYPE:Bladeheavy
-Greatsword.MOD	TYPE:Bladeheavy
-Longsword.MOD	TYPE:Bladeheavy
-Scimitar.MOD	TYPE:Bladeheavy
-Scythe.MOD	TYPE:Bladeheavy
-Sword (Two-Bladed).MOD	TYPE:Bladeheavy
+Sword (Bastard).MOD			TYPE:Bladeheavy
+Curve Blade (Elven).MOD			TYPE:Bladeheavy
+Falchion.MOD				TYPE:Bladeheavy
+Greatsword.MOD				TYPE:Bladeheavy
+Longsword.MOD				TYPE:Bladeheavy
+Scimitar.MOD				TYPE:Bladeheavy
+Scythe.MOD					TYPE:Bladeheavy
+Sword (Two-Bladed).MOD			TYPE:Bladeheavy
 
 #Blades, Light:
-Dagger.MOD	TYPE:Bladelight
-Kama.MOD	TYPE:Bladelight
-Kukri.MOD	TYPE:Bladelight
-Rapier.MOD	TYPE:Bladelight
-Sword (Short).MOD	TYPE:Bladelight
-Sickle.MOD	TYPE:Bladelight
-Starknife.MOD	TYPE:Bladelight
+Dagger.MOD					TYPE:Bladelight
+Kama.MOD					TYPE:Bladelight
+Kukri.MOD					TYPE:Bladelight
+Rapier.MOD					TYPE:Bladelight
+Sword (Short).MOD				TYPE:Bladelight
+Sickle.MOD					TYPE:Bladelight
+Starknife.MOD				TYPE:Bladelight
 
 #Bows:
 #Composite Longbow.MOD	TYPE:Bow
 #Composite Shortbow.MOD	TYPE:Bow
-Longbow.MOD	TYPE:Bow
-Shortbow.MOD	TYPE:Bow
+Longbow.MOD					TYPE:Bow
+Shortbow.MOD				TYPE:Bow
 
 #Close:
-Gauntlet.MOD	TYPE:Close
+Gauntlet.MOD				TYPE:Close
 #Shield (Heavy).MOD	TYPE:Close
 #Shield (Light).MOD	TYPE:Close
-Dagger (Punching).MOD	TYPE:Close
-Sap.MOD	TYPE:Close
+Dagger (Punching).MOD			TYPE:Close
+Sap.MOD					TYPE:Close
 #Spiked Armor.MOD	TYPE:Close
-Gauntlet (Spiked).MOD	TYPE:Close
+Gauntlet (Spiked).MOD			TYPE:Close
 #Spiked Shield.MOD	TYPE:Close
-Unarmed Strike.MOD	TYPE:Close
+Unarmed Strike.MOD			TYPE:Close
 
 #Crossbows:
-Crossbow (Hand).MOD	TYPE:Crossbow
-Crossbow (Heavy).MOD	TYPE:Crossbow
+Crossbow (Hand).MOD			TYPE:Crossbow
+Crossbow (Heavy).MOD			TYPE:Crossbow
 Crossbow (Repeating Heavy).MOD	TYPE:Crossbow
-Crossbow (Light).MOD	TYPE:Crossbow
+Crossbow (Light).MOD			TYPE:Crossbow
 Crossbow (Repeating Light).MOD	TYPE:Crossbow
 
-#Double: 
-Flail (Dire).MOD	TYPE:Double
-Urgrosh (Dwarven).MOD	TYPE:Double
-Hammer (Gnome Hooked).MOD	TYPE:Double
-Axe (Orc Double).MOD	TYPE:Double
-Quarterstaff.MOD	TYPE:Double
-Sword (Two-Bladed).MOD	TYPE:Double
+#Double:
+Flail (Dire).MOD				TYPE:Double
+Urgrosh (Dwarven).MOD			TYPE:Double
+Hammer (Gnome Hooked).MOD		TYPE:Double
+Axe (Orc Double).MOD			TYPE:Double
+Quarterstaff.MOD				TYPE:Double
+Sword (Two-Bladed).MOD			TYPE:Double
 
 
 #Flails:
-Flail (Dire).MOD	TYPE:Flail
-Flail.MOD	TYPE:Flail
-Flail (Heavy).MOD	TYPE:Flail
-Morningstar.MOD	TYPE:Flail
-Chain (Spiked).MOD	TYPE:Flail
-Whip.MOD	TYPE:Flail
+Flail (Dire).MOD				TYPE:Flail
+Flail.MOD					TYPE:Flail
+Flail (Heavy).MOD				TYPE:Flail
+Morningstar.MOD				TYPE:Flail
+Chain (Spiked).MOD			TYPE:Flail
+Whip.MOD					TYPE:Flail
 
-#Hammers: 
-Club.MOD	TYPE:Hammer
-Greatclub.MOD	TYPE:Hammer
-Mace (Heavy).MOD	TYPE:Hammer
-Hammer (Light).MOD	TYPE:Hammer
-Mace (Light).MOD	TYPE:Hammer
-Warhammer.MOD	TYPE:Hammer
+#Hammers:
+Club.MOD					TYPE:Hammer
+Greatclub.MOD				TYPE:Hammer
+Mace (Heavy).MOD				TYPE:Hammer
+Hammer (Light).MOD			TYPE:Hammer
+Mace (Light).MOD				TYPE:Hammer
+Warhammer.MOD				TYPE:Hammer
 
-#Monk: 
-Kama.MOD	TYPE:Monk
-Quarterstaff.MOD	TYPE:Monk
-Sai.MOD	TYPE:Monk
-Shuriken.MOD	TYPE:Monk
-Unarmed Strike.MOD	TYPE:Monk.Natural
+#Monk:
+Kama.MOD					TYPE:Monk
+Quarterstaff.MOD				TYPE:Monk
+Sai.MOD					TYPE:Monk
+Shuriken.MOD				TYPE:Monk
+Unarmed Strike.MOD			TYPE:Monk.Natural
 
 #Natural:
 #Unarmed Strike.MOD	TYPE:
@@ -204,37 +205,37 @@ Unarmed Strike.MOD	TYPE:Monk.Natural
 #Wing.MOD	TYPE:Natural
 
 #Polearms:
-Glaive.MOD	TYPE:Polearm
-Guisarme.MOD	TYPE:Polearm
-Halberd.MOD	TYPE:Polearm
-Ranseur.MOD	TYPE:Polearm
+Glaive.MOD					TYPE:Polearm
+Guisarme.MOD				TYPE:Polearm
+Halberd.MOD					TYPE:Polearm
+Ranseur.MOD					TYPE:Polearm
 
 #Spears:
-Javelin.MOD	TYPE:Spear
+Javelin.MOD					TYPE:Spear
 #Harpoon.MOD	TYPE:Spear
-Lance.MOD	TYPE:Spear
-Longspear.MOD	TYPE:Spear
-Shortspear.MOD	TYPE:Spear
-Spear.MOD	TYPE:Spear
-Trident.MOD	TYPE:Spear
+Lance.MOD					TYPE:Spear
+Longspear.MOD				TYPE:Spear
+Shortspear.MOD				TYPE:Spear
+Spear.MOD					TYPE:Spear
+Trident.MOD					TYPE:Spear
 
 #Thrown:
-Blowgun.MOD	TYPE:Thrown
-Bolas.MOD	TYPE:Thrown
-Club.MOD	TYPE:Thrown
-Dagger.MOD	TYPE:Thrown
-Dart.MOD	TYPE:Thrown
-Sling Staff (Halfling).MOD	TYPE:Thrown
-Javelin.MOD	TYPE:Thrown
-Hammer (Light).MOD	TYPE:Thrown
-Net.MOD	TYPE:Thrown
-Shortspear.MOD	TYPE:Thrown
-Shuriken.MOD	TYPE:Thrown
-Sling.MOD	TYPE:Thrown
-Spear.MOD	TYPE:Thrown
-Starknife.MOD	TYPE:Thrown
-Axe (Throwing).MOD	TYPE:Thrown
-Trident.MOD	TYPE:Thrown
+Blowgun.MOD					TYPE:Thrown
+Bolas.MOD					TYPE:Thrown
+Club.MOD					TYPE:Thrown
+Dagger.MOD					TYPE:Thrown
+Dart.MOD					TYPE:Thrown
+Sling Staff (Halfling).MOD		TYPE:Thrown
+Javelin.MOD					TYPE:Thrown
+Hammer (Light).MOD			TYPE:Thrown
+Net.MOD					TYPE:Thrown
+Shortspear.MOD				TYPE:Thrown
+Shuriken.MOD				TYPE:Thrown
+Sling.MOD					TYPE:Thrown
+Spear.MOD					TYPE:Thrown
+Starknife.MOD				TYPE:Thrown
+Axe (Throwing).MOD			TYPE:Thrown
+Trident.MOD					TYPE:Thrown
 
 
 

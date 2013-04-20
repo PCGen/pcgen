@@ -72,3 +72,44 @@ BarbarianDamageReduction2	Disables the +2 granted to Barbarian DR (2/- remains 1
 BarbarianDamageReduction3	Disables the +3 granted to Barbarian DR (etc.)
 BarbarianDamageReduction4	Disables the +4 granted to Barbarian DR
 BarbarianDamageReduction5	Disables the +5 granted to Barbarian DR
+
+
+
+# Ranger	@Ranger
+RangerTrack
+RangerWild Empathy
+RangerFavoredTerrain
+RangerHuntersBond
+RangerWoodlandStride
+RangerQuarry
+RangerCamouflage
+RangerImprovedQuarry
+
+
+
+###############################################################
+###		ADVANCED PLAYER GUIDE ARCHETYPE TYPES		###
+###############################################################
+
+# NAME OF TYPE			FUNCTION
+SummonerSummonMonster		Disables the Summon Monster Ability
+
+
+
+
+
+
+
+###############################################################
+###		ULTIMATE COMBAT ARCHETYPE TYPES			###
+###############################################################
+
+GunslingerQuickClearDeed.
+GunslingerPistolWhipDeed.
+GunslingerDeadShotDeed
+GunslingerLightningReloadDeed.
+GunslingerGrit
+GunslingerNimble
+GunslingerGunTraining1.
+GunslingerGunTraining2.
+GunslingerGunTraining4.
