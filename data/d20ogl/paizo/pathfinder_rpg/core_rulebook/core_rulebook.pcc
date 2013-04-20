@@ -54,7 +54,6 @@ ABILITY:pfcr_abilities_racial.lst
 ABILITY:pfcr_abilities_racial_monster.lst
 ABILITY:pfcr_abilities_homebrew.lst
 
-ARMORPROF:pfcr_profs_armor.lst
 CLASS:pfcr_classes_base.lst
 CLASS:pfcr_classes_companions.lst
 CLASS:pfcr_classes_npc.lst
@@ -97,16 +96,21 @@ KIT:pfcr_kits_racial_traits.lst
 LANGUAGE:pfcr_languages.lst
 RACE:pfcr_races_base.lst
 RACE:pfcr_races_companions.lst
+
+ARMORPROF:pfcr_profs_armor.lst
 SHIELDPROF:pfcr_profs_shield.lst
+WEAPONPROF:pfcr_weaponprofs.lst
+
 SKILL:pfcr_skills_conditional.lst
 SKILL:pfcr_skills.lst
 SPELL:pfcr_spells_domain.lst
 SPELL:pfcr_spells.lst
 SPELL:pfcr_spells_mods.lst
 
-TEMPLATE:pfcr_templates_conditional.lst
 TEMPLATE:pfcr_templates.lst
-WEAPONPROF:pfcr_weaponprofs.lst
+TEMPLATE:pfcr_templates_conditional.lst
+TEMPLATE:pfcr_templates_wildshape.lst
+
 
 # Load Essential Bestiary Data with Core
 PCC:bestiary_core/bestiary_core.pcc
