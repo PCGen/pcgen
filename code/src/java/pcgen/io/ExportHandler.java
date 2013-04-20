@@ -1988,7 +1988,7 @@ public final class ExportHandler
 		{
 			return true;
 		}
-		if (StringUtils.isBlank(aString))
+		if (aString.length() == 0)
 		{
 			return true;
 		}
