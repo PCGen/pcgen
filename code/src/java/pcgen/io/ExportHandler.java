@@ -41,6 +41,8 @@ import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -1983,6 +1985,10 @@ public final class ExportHandler
 		// If we 'cannot write' and the string is non-empty, non-filter token then 
 		// there is nothing to replace so return 0
 		if (!canWrite && (aString.length() > 0) && (aString.charAt(0) != '%'))
+		{
+			return true;
+		}
+		if (StringUtils.isBlank(aString))
 		{
 			return true;
 		}
