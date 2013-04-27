@@ -2444,7 +2444,7 @@ BIO
 		</domain>
 	</domains>
 	<!-- Domains -->
-	<weapon_proficiencies>Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Grapple, Javelin, Longspear, Mace (Heavy), Mace (Light), Morningstar, Quarterstaff, Rock, Scimitar, Shieldbash, Shortspear, Sickle, Sling, Spear, Spells (Ray), Spells (Touch), Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Grapple, Javelin, Longspear, Mace (Heavy), Mace (Light), Morningstar, Quarterstaff, Rock, Scimitar, Shortspear, Sickle, Sling, Spear, Spells (Ray), Spells (Touch), Unarmed Strike</weapon_proficiencies>
 	<languages>Celestial, Common</languages>
 
 	<templates>
