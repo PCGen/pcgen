@@ -130,8 +130,8 @@ CLASS:Nature Warden	STARTSKILLPTS:4	CSKILL:Handle Animal|Heal|Knowledge (Geograp
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
 CLASS:Rage Prophet	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:RP		MAXLEVEL:10	SOURCEPAGE:p.275	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Reflex|(CL+1)/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-# Class Name		Required Ability										Req. Att.	Required Skill
-CLASS:Rage Prophet	PREABILITY:2,CATEGORY=Special Ability,Oracle's Curse,Moment of Clarity	PREATT:5	PRESKILL:1,Knowledge (Religion)=5
+# Class Name		Required Ability												Req. Att.	Required Skill
+CLASS:Rage Prophet	PREABILITY:2,CATEGORY=Special Ability,Oracle's Curse,Moment of Clarity ~ Rage Power	PREATT:5	PRESKILL:1,Knowledge (Religion)=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rage Prophet	STARTSKILLPTS:4	CSKILL:Climb|Heal|Intimidate|Knowledge (History)|Knowledge (Religion)|Sense Motive|Spellcraft|Swim
 ##Block: Normal Level Progression
