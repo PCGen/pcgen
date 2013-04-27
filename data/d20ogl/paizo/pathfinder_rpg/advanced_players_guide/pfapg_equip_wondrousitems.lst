@@ -122,7 +122,7 @@ Soul Soap				TYPE:Magic.Wondrous.Consumable	COST:200	WT:2		SOURCEPAGE:p.309
 
 ###Block:T
 # Equipment Name		Type					Cost		Weight	Source Page		Ability
-Torc of Lionheart Fury	TYPE:Magic.Wondrous.Neck	COST:8000	WT:1		SOURCEPAGE:p.310	ABILITY:Special Ability|AUTOMATIC|Fearless Rage|PRECLASS:1,Barbarian=12
+Torc of Lionheart Fury	TYPE:Magic.Wondrous.Neck	COST:8000	WT:1		SOURCEPAGE:p.310	ABILITY:Special Ability|AUTOMATIC|Fearless Rage ~ Rage Power|PRECLASS:1,Barbarian=12
 
 ###Block:V
 # Equipment Name		Type					Cost		Weight	Source Page		Ability
