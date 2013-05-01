@@ -70,23 +70,23 @@ Stunning Shot			KEY:Stunning Shot ~ Gunslinger									CATEGORY:Special Ability	
 # Gunslinger Archetype Support
 ###Block: Deed Support
 CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Deadeye ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeadeyeDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Gunslinger's Dodge ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunslingersDodgeDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Quick Clear ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerQuickClearDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Gunslinger Initiative ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunslingerInitiativeDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Pistol-Whip ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerPistolWhipDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Utility Shot ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerUtilityShotDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Dead Shot ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeadShotDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Startling Shot ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerStartlingShotDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Targeting ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerTargetingDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Bleeding Wound ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerBleedingWoundDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Expert Loading ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerExpertLoadingDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Lightning Reload ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerLightningReloadDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Evasive ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerEvasiveDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Menacing Shot ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerMenacingShotDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Slinger's Luck ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerSlingersLuckDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Cheat Death ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerCheatDeathDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Death's Shot ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeathsShotDeed
-CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Stunning Shot ~ Gunslinger!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerStunningShotDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Gunslinger's Dodge ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunslingersDodgeDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Quick Clear ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerQuickClearDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Gunslinger Initiative ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunslingerInitiativeDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Pistol-Whip ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerPistolWhipDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Utility Shot ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerUtilityShotDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Dead Shot ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeadShotDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Startling Shot ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerStartlingShotDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Targeting ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerTargetingDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Bleeding Wound ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerBleedingWoundDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Expert Loading ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerExpertLoadingDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Lightning Reload ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerLightningReloadDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Evasive ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerEvasiveDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Menacing Shot ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerMenacingShotDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Slinger's Luck ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerSlingersLuckDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Cheat Death ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerCheatDeathDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Death's Shot ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeathsShotDeed
+CATEGORY=Special Ability|Deeds ~ Gunslinger.MOD	Stunning Shot ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerStunningShotDeed
 
 ###Block: Gun Training
 CATEGORY=Special Ability|Gun Training ~ Gunslinger.MOD	BONUS:ABILITYPOOL|Gun Training Choice|-1|PRECLASS:1,Gunslinger=5|PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining1
