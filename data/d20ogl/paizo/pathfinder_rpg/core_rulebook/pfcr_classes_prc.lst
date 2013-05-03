@@ -122,15 +122,15 @@ CLASS:Eldritch Knight	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Elk		MAXLEVEL:10	
 CLASS:Eldritch Knight	PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon Proficiencies	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Climb|Knowledge (Arcana)|Knowledge (Nobility)|Linguistics|Ride|Sense Motive|Spellcraft|Swim
-1	BONUS:ABILITYPOOL|Fighter Feat|1					ABILITY:Class Ability|AUTOMATIC|Diverse Training
+1	BONUS:ABILITYPOOL|Fighter Bonus Feat|1					ABILITY:Class Ability|AUTOMATIC|Diverse Training
 2							ADD:SPELLCASTER|Arcane
 3							ADD:SPELLCASTER|Arcane
 4							ADD:SPELLCASTER|Arcane
-5	BONUS:ABILITYPOOL|Fighter Feat|1	ADD:SPELLCASTER|Arcane
+5	BONUS:ABILITYPOOL|Fighter Bonus Feat|1	ADD:SPELLCASTER|Arcane
 6							ADD:SPELLCASTER|Arcane
 7							ADD:SPELLCASTER|Arcane
 8							ADD:SPELLCASTER|Arcane
-9	BONUS:ABILITYPOOL|Fighter Feat|1	ADD:SPELLCASTER|Arcane
+9	BONUS:ABILITYPOOL|Fighter Bonus Feat|1	ADD:SPELLCASTER|Arcane
 10							ADD:SPELLCASTER|Arcane	ABILITY:Class Ability|AUTOMATIC|Spell Critical
 
 
