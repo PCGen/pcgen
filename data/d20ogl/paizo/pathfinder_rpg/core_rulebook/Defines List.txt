@@ -73,6 +73,22 @@ BarbarianDamageReduction3	Disables the +3 granted to Barbarian DR (etc.)
 BarbarianDamageReduction4	Disables the +4 granted to Barbarian DR
 BarbarianDamageReduction5	Disables the +5 granted to Barbarian DR
 
+# Fighter	@Fighter
+###Block:
+TYPE.FighterWeaponProficiencies	Disables all the Fighter Weapon Proficiencies
+TYPE.FighterArmorProficiencies	Disables all the Fighter Armor Proficiencies
+TYPE.FighterLightArmorProficiency	Disables only the Light Armor Proficiencies
+TYPE.FighterMediumArmorProficiency	Disables only the Medium Armor Proficiencies
+TYPE.FighterHeavyArmorProficiency	Disables only the Heavy Armor Proficiencies
+TYPE.FighterShieldProficiency		Disables only the Shield Proficiencies (Excludes Tower Shield)
+TYPE.FighterTowerShieldProficiency	Disables only the Tower Shield Proficiencies
+
+TYPE.FighterBonusFeats
+TYPE.FighterBravery
+TYPE.FighterArmorTraining_ALL
+TYPE.FighterWeaponTraining_ALL
+TYPE.FighterArmorMastery
+TYPE.FighterWeaponMastery
 
 
 # Ranger	@Ranger
