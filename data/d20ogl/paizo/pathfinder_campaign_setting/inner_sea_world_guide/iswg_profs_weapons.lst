@@ -33,6 +33,14 @@ Pistol						TYPE:Exotic.Ranged.OneHanded.Bludgeoning.Piercing.Firearm
 Musket						TYPE:Exotic.Ranged.TwoHanded.Bludgeoning.Piercing.Firearm
 Cannon						TYPE:Exotic.Ranged.Siege.Bludgeoning.Piercing.Firearm
 
+#ISWG Weapon		Fighter Weapon Category
+Dogslicer.MOD		TYPE:Bladelight
+Earth Breaker.MOD		TYPE:Hammer
+Horsechopper.MOD		TYPE:Polearm
+Ogre Hook.MOD		TYPE:Polearm
+Sawtooth Sabre.MOD	TYPE:Bladeheavy
+Urumi.MOD			TYPE:Flail.Monk
+
 #
 # End
 #
