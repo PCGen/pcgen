@@ -41,7 +41,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.SystemUtils;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -181,9 +180,8 @@ public class DataTest
 	
 	/**
 	 * Scan for any campaigns referring to missing data files. 
-	 * This test should be activated once DATA-1040 has been actioned. 
 	 */
-	@Ignore
+	@Test
 	public void missingFilesTest()
 	{
 		int dataPathLen = ConfigurationSettings.getPccFilesDir().length();
@@ -217,7 +215,7 @@ public class DataTest
 		// Flag any missing files
 		assertEquals(
 			"Some data files are missing.",
-			"", report);
+			"", report.toString());
 	}
 	
 	/**
