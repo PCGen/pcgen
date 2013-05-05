@@ -915,7 +915,32 @@ pcgen.filepaths=user
             </batchtest>
         </junit>
     </target>
-    
+
+
+    <!-- Run the data tests -->
+    <target name="datatest" depends="dodatatest, failure.notice, success.notice, reporttest" 
+    	description="Run the data verification tests. Also produces the variable definition report.">
+    </target>
+	
+	<target name="dodatatest">
+        <junit fork="yes" printsummary="on" failureproperty="junitfailure" dir="${basedir}">
+            <jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
+            <jvmarg value="-Demma.coverage.out.merge=true" />
+            <jvmarg value="-Xmx256M" />
+            <formatter type="plain" />
+            <formatter type="xml" />
+            <classpath>
+                <path refid="test.project.classpath" />
+                <path refid="emma.lib" />
+            </classpath>
+            <batchtest todir="${build.dir}/test-results/xml">
+                <fileset dir="${basedir}/code/src/test">
+                  <include name="pcgen/persistence/lst/DataTest.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+	</target>
+	
     <!-- Generate a failure notice if the junit tests failed -->
     <target name="failure.notice" if="junitfailure">
         <tstamp>
