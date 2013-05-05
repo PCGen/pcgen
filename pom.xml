@@ -647,6 +647,19 @@
         </plugins>
     </build>
 
+	<reporting>
+		<!-- Include the program java doc in the generated site. -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+  
     <dependencies>
         <!-- Compilation Dependencies -->
         <dependency>
