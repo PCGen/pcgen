@@ -187,6 +187,11 @@ public final class ExportHandler
 	 */
 	public void write(PlayerCharacter aPC, BufferedWriter out)
 	{
+		if (templateFile == null)
+		{
+			throw new IllegalStateException("Template file must not be null");
+		}
+		
 		// TODO Not sure why this is here, it sets the outputfilter to 
 		// be that of the character sheet template, makes no sense?
 		FileAccess.setCurrentOutputFilter(templateFile.getName());
