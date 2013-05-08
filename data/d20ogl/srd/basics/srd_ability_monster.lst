@@ -466,7 +466,8 @@ Succubus Disguise				OUTPUTNAME:+10 to Disguise in Alternate Form													CA
 Unicorn Immunities																							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
 Unicorn Wilderness Lore Checks	OUTPUTNAME:+3 competence bonus on Wilderness Lore checks within forest									CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
 Wyvern Spot					OUTPUTNAME:+3 Spot when flying durring daylight													CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
-Drow Resistance				OUTPUTNAME:+2 racial bonus to Will saves against spells and spell-like abilities							CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
+###Block:
+Racial Save Bonus						KEY:Racial Save Bonus ~ Drow				CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES		DEFINE:DrowRacialSaveBonus|2																																																							DESC:+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus																																		ASPECT:SaveBonus|+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus
 
 ###Block: Creature Type Traits
 # Ability Name		Category of Ability		Type				Visible	Description
