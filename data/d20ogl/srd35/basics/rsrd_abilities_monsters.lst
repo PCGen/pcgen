@@ -574,6 +574,7 @@ Poison							KEY:Poison ~ Drow						CATEGORY:Special Ability	TYPE:SpecialAttack.
 Spell-Like Abilities					KEY:Spell-Like Abilities ~ Drow			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES		DEFINE:DancingLightsTimes|1	DEFINE:DarknessTimes|1	DEFINE:FaerieFireTimes|1	SPELLS:Innate|TIMES=DancingLightsTimes|CASTERLEVEL=TL|Dancing Lights,10+CHA|PRESTAT:1,INT=10	SPELLS:Innate|TIMES=DarknessTimes|CASTERLEVEL=TL|Darkness,12+CHA|PRESTAT:1,INT=10	SPELLS:Innate|TIMES=FaerieFireTimes|CASTERLEVEL=TL|Faerie Fire,11+CHA|PRESTAT:1,INT=10	DESC:Drow can use the following spell-like abilities once per day: dancing lights, darkness, faerie fire. Caster level equals the drow's class levels.
 Light Blindness						KEY:Light Blindness ~ Drow				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																																																													DESC:Abrupt exposure to bright light (such as sunlight or a daylight spell) blinds drow for 1 round. On subsequent rounds, they are dazzled as long as they remain in the affected area.
 Weapon Proficiency					KEY:Weapon Proficiency ~ Drow				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																																																													DESC:A drow is automatically proficient with the hand crossbow, the rapier, and the short sword. This trait replaces the high elf 's weapon proficiency.
+Racial Save Bonus						KEY:Racial Save Bonus ~ Drow				CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES		DEFINE:DrowRacialSaveBonus|2																																																							DESC:+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus																																		ASPECT:SaveBonus|+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus
 
 # ~ Ethereal Filcher
 Detect Magic						KEY:Detect Magic ~ Ethereal Filcher			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES																																																													DESC:Ethereal filchers can detect magic as the spell (caster level 5th) at will.
@@ -1528,7 +1529,7 @@ Immunities												KEY:Immunities ~ Yrthak						CATEGORY:Special Ability	TYPE
 Skills												KEY:Skills ~ Yrthak						CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES																								DESC:Yrthaks have a +4 racial bonus on Listen checks.
 
 # ~ ZOMBIE TEMPLATE
-Single Actions Only										KEY:Single Actions Only ~ ZOMBIE TEMPLATE			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES																								DESC:Zombies have poor reflexes and can perform only a single move action or attack action each round. A zombie can move up to its speed and attack in the same round, but only if it attempts a charge.
+Single Actions Only										KEY:Single Actions Only ~ Zombie			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES																								DESC:Zombies have poor reflexes and can perform only a single move action or attack action each round. A zombie can move up to its speed and attack in the same round, but only if it attempts a charge.
 
 #Block: Universal Defines
 CATEGORY=Internal|Default.MOD																																	DEFINE:DefaultDCCon|10+(HD/2)+CON	DEFINE:DefaultDCCha|CHA+(HD/2)+10	DEFINE:PoisonDC|10+(HD/2)+CON	DEFINE:DeathGazeDC|CHA+(HD/2)+10
@@ -2064,8 +2065,6 @@ Vulnerability to Protection from Evil	CATEGORY:Special Ability	TYPE:SpecialQuali
 Immunity to paralysis, phantasms, and poison	KEY:Duergar Dwarf Immunity															CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity.DwarfPoisonResistance	VISIBLE:YES
 
 
-# Elf (Drow)
-Drow Spell Resistance										OUTPUTNAME:+2 racial bonus on Will saves against spells and spell-like abilities	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus					VISIBLE:YES																													ASPECT:SaveBonus|+2 racial bonus on Will saves against spells and spell-like abilities
 
 
 # Svirfneblin Gnome
