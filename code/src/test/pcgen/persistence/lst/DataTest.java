@@ -264,6 +264,7 @@ public class DataTest
 	{
 		List<CampaignSourceEntry> cseList =
 				new ArrayList<CampaignSourceEntry>();
+		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_PCC));
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_LST_EXCLUDE));
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_RACE));
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_CLASS));
