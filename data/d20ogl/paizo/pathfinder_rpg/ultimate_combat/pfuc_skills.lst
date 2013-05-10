@@ -35,3 +35,6 @@ Acrobatics (Jump).MOD				BONUS:SKILL|Acrobatics (Jump/Underground)|var("SKILL.Ac
 Climb.MOD						BONUS:SKILL|Climb (Underground)|var("SKILL.Climb.MISC")											BONUS:SKILLRANK|Climb (Underground)|skillinfo("TOTALRANK", "Climb")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Climb (Underground).MISC"),var("SKILL.Climb.MISC")
 
 #Perception (Notice unusual stonework).MOD	BONUS:SKILL|Perception (Notice unusual stonework/Underground)|var("SKILL.Perception (Notice unusual stonework).MISC")	BONUS:SKILLRANK|Perception (Notice unusual stonework/Underground)|skillinfo("TOTALRANK", "Perception (Notice unusual stonework)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Perception (Notice unusual stonework/Underground).MISC"),var("SKILL.Perception (Notice unusual stonework).MISC")
+
+Ride.MOD						BONUS:SKILL|Ride (Samurai Mount)|var("SKILL.Ride.MISC")	BONUS:SKILL|Ride (Samurai Mount)|SamuraiMountACP	DEFINE:RideACP|var(ARMOR.0.ACCHECK)	DEFINE:SamuraiMountACP|RideACP-(RideACP*2)	BONUS:SKILLRANK|Ride (Samurai Mount)|skillinfo("TOTALRANK", "Ride")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai
+Ride (Samurai Mount)				KEYSTAT:DEX							TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai														
