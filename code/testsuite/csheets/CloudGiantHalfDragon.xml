@@ -1853,7 +1853,7 @@ BIO
 					<outputname>Levitate (self plus 2,000 pounds)</outputname>
 					<times_memorized>3</times_memorized>
 					<range>Personal</range>
-					<components>V, S, F</components>
+					<components>None</components>
 					<castingtime>1 standard action</castingtime>
 					<casterlevel>15</casterlevel>
 					<dc></dc>
@@ -1957,7 +1957,7 @@ BIO
 					<outputname>Levitate (self plus 2,000 pounds)</outputname>
 					<times_memorized>3</times_memorized>
 					<range>Personal</range>
-					<components>V, S, F</components>
+					<components>None</components>
 					<castingtime>1 standard action</castingtime>
 					<casterlevel>15</casterlevel>
 					<dc></dc>
