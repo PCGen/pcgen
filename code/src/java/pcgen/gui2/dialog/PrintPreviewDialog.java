@@ -36,9 +36,7 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.awt.print.PageFormat;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
+import java.awt.print.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.BufferedWriter;
@@ -76,7 +74,6 @@ import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.commons.io.filefilter.SuffixFileFilter;
 import org.apache.commons.io.filefilter.TrueFileFilter;
-import org.apache.fop.render.awt.AWTRenderer;
 import pcgen.cdom.base.Constants;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
@@ -84,7 +81,8 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.io.ExportHandler;
 import pcgen.system.ConfigurationSettings;
-import pcgen.util.FOPHandler;
+import pcgen.util.fop.FOPHandler;
+import pcgen.util.fop.FOPHandlerFactory;
 import pcgen.util.Logging;
 
 /**
@@ -127,7 +125,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		super(frame, true);
 		this.frame = frame;
 		this.character = frame.getSelectedCharacterRef().getReference();
-		this.handler = new FOPHandler();
+		this.handler = FOPHandlerFactory.createFOPHandlerImpl(true);
 		this.sheetPreview = new SheetPreview();
 		this.sheetBox = new JComboBox();
 		this.progressBar = new JProgressBar();
@@ -246,10 +244,10 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		}
 		else if (PRINT_COMMAND.equals(e.getActionCommand()))
 		{
-			AWTRenderer renderer = sheetPreview.getRenderer();
+			Pageable renderer = sheetPreview.getPageable();
 			PrinterJob printerJob = PrinterJob.getPrinterJob();
-			printerJob.setPrintable(renderer);
-			printerJob.setPageable(renderer);
+			printerJob.setPageable(sheetPreview.getPageable());
+			//printerJob.setPageable((Pageable)sheetPreview.getPageable());
 			if (printerJob.printDialog())
 			{
 				try
@@ -362,7 +360,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		private static final PageFormat format = new PageFormat();
 		private Image[] pageCache;
 		private double scaleFactor = .75;
-		private AWTRenderer renderer;
+		private Pageable renderer;
 		private Image previewImage;
 		private int currentPage;
 
@@ -421,12 +419,12 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			repaint();
 		}
 
-		public AWTRenderer getRenderer()
+		public Pageable getPageable()
 		{
 			return renderer;
 		}
 
-		public void setRenderer(AWTRenderer renderer)
+		public void setRenderer(Pageable renderer)
 		{
 			this.renderer = renderer;
 			if (renderer.getNumberOfPages() > 0)
@@ -459,7 +457,8 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 				g2.scale(4, 4);
 				try
 				{
-					renderer.print(g, format, currentPage);
+					Printable printable = renderer.getPrintable(currentPage);
+					printable.print(g, format, currentPage);
 				}
 				catch (PrinterException ex)
 				{
@@ -501,7 +500,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 
 	}
 
-	private class PreviewLoader extends SwingWorker<AWTRenderer, Object>
+	private class PreviewLoader extends SwingWorker<Pageable, Object>
 	{
 
 		private URI uri;
@@ -516,7 +515,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		}
 
 		@Override
-		protected AWTRenderer doInBackground() throws Exception
+		protected Pageable doInBackground() throws Exception
 		{
 			URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
 			File xsltFile = new File(osPath.resolve(uri));
@@ -524,7 +523,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			printToXMLFile(temp, character);
 			handler.setInputFile(temp, xsltFile);
 			handler.run();
-			return (AWTRenderer) handler.getRenderer();
+			return (Pageable) handler.getPageable();
 		}
 
 		@Override
@@ -535,7 +534,7 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 			enableEditGroup(true);
 			try
 			{
-				AWTRenderer renderer = get();
+				Pageable renderer = get();
 				sheetPreview.setRenderer(renderer);
 				pageBox.setModel(createPagesModel(renderer.getNumberOfPages()));
 			}

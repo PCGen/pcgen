@@ -46,7 +46,8 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
-import pcgen.util.FOPHandler;
+import pcgen.util.fop.FOPHandler;
+import pcgen.util.fop.FOPHandlerFactory;
 import pcgen.util.Logging;
 
 /**
@@ -225,7 +226,7 @@ public class BatchExporter
 	{
 		String extension =
 				StringUtils.substringAfterLast(templateFile.getName(), ".");
-		FOPHandler handler = new FOPHandler();
+		FOPHandler handler = FOPHandlerFactory.createFOPHandlerImpl(true);
 		File tempFile = null;
 		try
 		{
@@ -370,7 +371,7 @@ public class BatchExporter
 	{
 		String extension =
 				StringUtils.substringAfterLast(templateFile.getName(), ".");
-		FOPHandler handler = new FOPHandler();
+		FOPHandler handler = FOPHandlerFactory.createFOPHandlerImpl(true);
 		File tempFile = null;
 		try
 		{

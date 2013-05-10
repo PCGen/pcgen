@@ -32,8 +32,6 @@ public final class JEPResourceChecker
 {
 	private static int missingResourceCount;
 	private static StringBuilder resourceBuffer;
-	private static final String whereToGetIt =
-			"<a href=\"http://svn.sourceforge.net/viewcvs.cgi/*checkout*/pcgen/Trunk/pcgen/lib/jep/jep-2.3.1.jar\">jep-2.3.1.jar</a>";
 
 	static
 	{
@@ -53,26 +51,10 @@ public final class JEPResourceChecker
 		return missingResourceCount;
 	}
 
-	/**
-	 * Get the missing resource message
-	 * @return the missing resource message
-	 */
-	public static String getMissingResourceMessage()
-	{
-		if (missingResourceCount != 0)
-		{
-			return resourceBuffer.toString() + "\n"
-				+ FOPResourceChecker.getItHereMsg + whereToGetIt + "\n"
-				+ FOPResourceChecker.missingLibMsg;//TODO Why does this have hardcoded file separators? JK070115
-		}
-
-		return "";
-	}
-
 	private static void checkResource()
 	{
-		if (!FOPResourceChecker.hasResource("org.nfunk.jep.JEP",
-			"jep-2.3.1.jar", resourceBuffer))
+		if (!ResourceChecker.hasResource("org.nfunk.jep.JEP",
+				"jep-2.3.1.jar", resourceBuffer))
 		{
 			++missingResourceCount;
 		}

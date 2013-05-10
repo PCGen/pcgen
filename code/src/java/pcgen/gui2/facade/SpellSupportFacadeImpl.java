@@ -95,7 +95,8 @@ import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.system.BatchExporter;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
-import pcgen.util.FOPHandler;
+import pcgen.util.fop.FOPHandler;
+import pcgen.util.fop.FOPHandlerFactory;
 import pcgen.util.Logging;
 
 /**
@@ -1530,7 +1531,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 */
 	private void pdfExport(final File outFile, File tmpFile, File xsltFile)
 	{
-		FOPHandler fh = new FOPHandler();
+		FOPHandler fh = FOPHandlerFactory.createFOPHandlerImpl(true);
 
 		// setting up pdf renderer
 		fh.setMode(FOPHandler.PDF_MODE);
