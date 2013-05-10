@@ -110,7 +110,9 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 
 		try
 		{
-			final StringTokenizer aTok = new StringTokenizer(path, Constants.EQUIP_SET_PATH_SEPARATOR, false);
+			final StringTokenizer aTok =
+					new StringTokenizer(path,
+						Constants.EQUIP_SET_PATH_SEPARATOR, false);
 
 			while (aTok.hasMoreTokens())
 			{
@@ -123,6 +125,47 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		}
 
 		return id;
+	}
+
+	/**
+	 * Retrieve the parent path of this path, that is the sequence without 
+	 * the last number.
+	 * e.g. The parent of the path 0.1.17 is 0.1  
+	 * @param path The path to be interpreted.
+	 * @return The parent path.
+	 */
+	public static String getParentPath(String path)
+	{
+		int idx = path.lastIndexOf(Constants.EQUIP_SET_PATH_SEPARATOR);
+		if (idx < 0)
+		{
+			return "";
+		}
+		
+		return path.substring(0, idx);
+	}
+
+	/**
+	 * Retrieve the depth from a path, that is the number of numbers in the sequence.
+	 * e.g. The depth of the path 0.1.17 is 3.  
+	 * @param path The path to be interpreted.
+	 * @return The numeric depth
+	 */
+	public static int getPathDepth(String path)
+	{
+		try
+		{
+			final StringTokenizer aTok =
+					new StringTokenizer(path,
+						Constants.EQUIP_SET_PATH_SEPARATOR, false);
+			return aTok.countTokens();
+		}
+		catch (NullPointerException e)
+		{
+			Logging.errorPrint("Error in EquipSet.getPathDepth", e);
+		}
+
+		return 0;
 	}
 
 	/**

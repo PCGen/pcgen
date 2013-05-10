@@ -130,6 +130,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.GuiConstants;
+import pcgen.io.migration.EquipSetMigration;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
@@ -1305,6 +1306,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			{
 				parseEquipmentSetLine(line);
 			}
+			EquipSetMigration.migrateEquipSets(thePC, pcgenVersion);
 		}
 
 		/**

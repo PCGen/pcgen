@@ -312,7 +312,7 @@ public class EquipmentTreeTableModel implements SortableTreeTableModel, ListList
 
 		List<EquipNode> children = pathMap.get(parent);
 
-		int index = Collections.binarySearch(children, child, pathComparator);
+		int index = children.indexOf(child);
 
 		pathMap.remove(parent, index);
 		fireTreeNodesRemoved(this, getPathToRoot(parent), new int[]

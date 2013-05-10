@@ -30,9 +30,13 @@ import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -44,8 +48,10 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTree;
@@ -59,6 +65,8 @@ import javax.swing.table.TableColumn;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 
+import pcgen.core.BodyStructure;
+import pcgen.core.facade.BodyStructureFacade;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.EquipmentSetFacade;
@@ -75,14 +83,16 @@ import pcgen.gui2.tabs.equip.EquipmentModels.EquipView;
 import pcgen.gui2.tabs.equip.EquipmentSelection;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tools.FlippingSplitPane;
+import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.tools.PrefTableColumnModel;
 import pcgen.gui2.util.JDynamicTable;
 import pcgen.gui2.util.JTreeTable;
 import pcgen.gui2.util.SortMode;
 import pcgen.gui2.util.SortingPriority;
-import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
+import pcgen.gui2.util.event.PopupMouseAdapter;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
+import pcgen.gui2.util.table.SortableTableModel;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -310,6 +320,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		state.put(EquipmentRenderer.class, new EquipmentRenderer(character));
 		state.put(EquipmentTransferHandler.class, new EquipmentTransferHandler(character));
 		state.put(EquipmentSetTransferHandler.class, new EquipmentSetTransferHandler(character));
+		state.put(OrderPopupMenuHandler.class, new OrderPopupMenuHandler(character));
 		state.put(ExpandAllAction.class, new ExpandAllAction());
 		state.put(CollapseAllAction.class, new CollapseAllAction());
 		return state;
@@ -327,6 +338,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		((EquipmentRenderer) state.get(EquipmentRenderer.class)).install();
 		((EquipmentTransferHandler) state.get(EquipmentTransferHandler.class)).install();
 		((EquipmentSetTransferHandler) state.get(EquipmentSetTransferHandler.class)).install();
+		((OrderPopupMenuHandler) state.get(OrderPopupMenuHandler.class)).install();
 		unequipAllButton.setAction((UnequipAllAction) state.get(UnequipAllAction.class));
 		newSetButton.setAction((AddSetAction) state.get(AddSetAction.class));
 		removeSetButton.setAction((RemoveSetAction) state.get(RemoveSetAction.class));
@@ -342,12 +354,28 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		((EquipmentModel) state.get(EquipmentModel.class)).uninstall();
 		((EquipmentModels) state.get(EquipmentModels.class)).uninstall();
 		((EquipInfoHandler) state.get(EquipInfoHandler.class)).uninstall();
+		((OrderPopupMenuHandler) state.get(OrderPopupMenuHandler.class)).uninstall();
 	}
 
 	@Override
 	public TabTitle getTabTitle()
 	{
 		return new TabTitle("in_equipping"); //$NON-NLS-1$
+	}
+
+	private List<Integer> getMenuTargets(JTable table, MouseEvent e)
+	{
+		int row = table.rowAtPoint(e.getPoint());
+		if (!table.isRowSelected(row))
+		{
+			table.setRowSelectionInterval(row, row);
+		}
+		List<Integer> targets = new ArrayList<Integer>();
+		for (int selRow : table.getSelectedRows())
+		{
+			targets.add(selRow);
+		}
+		return targets;
 	}
 
 	private class AddSetAction extends AbstractAction
@@ -935,8 +963,9 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				}
 				for (EquipNode equipNode : equipNodeArray)
 				{
-					equipSet.removeEquipment(equipNode, 1);
-					equipSet.addEquipment(node, equipNode.getEquipment(), 1, beforeNode);
+					int quantity = equipSet.getQuantity(equipNode);
+					equipSet.removeEquipment(equipNode, quantity);
+					equipSet.addEquipment(node, equipNode.getEquipment(), quantity, beforeNode);
 				}
 			}
 			else if (support.isDataFlavorSupported(equipmentArrayFlavor))
@@ -952,6 +981,258 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				}
 			}
 			return true;
+		}
+
+	}
+
+	private class OrderPopupMenuHandler extends PopupMouseAdapter
+	{
+
+		private final CharacterFacade character;
+
+		OrderPopupMenuHandler(CharacterFacade character)
+		{
+			this.character = character;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void showPopup(MouseEvent e)
+		{
+			List<Integer> targets = getMenuTargets(equipmentSetTable, e);
+			if (targets.isEmpty())
+			{
+				return;
+			}
+
+			List<EquipNode> upTargets = new ArrayList<EquipmentSetFacade.EquipNode>();
+			List<EquipNode> downTargets = new ArrayList<EquipmentSetFacade.EquipNode>();
+			List<EquipNode> sortTargets = new ArrayList<EquipmentSetFacade.EquipNode>();
+			EquipNode[] relativeNodes = filterTargets(targets, upTargets, downTargets, sortTargets);
+			
+			JPopupMenu popupMenu = new JPopupMenu();
+			if (!upTargets.isEmpty() || !downTargets.isEmpty())
+			{
+				popupMenu.add(new MoveEquipUpMenuItem(character, upTargets, relativeNodes[0]));
+				popupMenu.add(new MoveEquipDownMenuItem(character, downTargets, relativeNodes[1]));
+			}
+			if (!sortTargets.isEmpty())
+			{
+				if (!upTargets.isEmpty() || !downTargets.isEmpty())
+				{
+					popupMenu.addSeparator();
+					
+				}
+				popupMenu.add(new SortEquipMenuItem(character, sortTargets));
+			}
+			if (popupMenu.getComponents().length > 0)
+			{
+				popupMenu.show(e.getComponent(), e.getX(), e.getY());
+			}
+		}
+
+		private EquipNode[] filterTargets(List<Integer> targetRows,
+			List<EquipNode> upTargets, List<EquipNode> downTargets,
+			List<EquipNode> sortTargets)
+		{
+			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
+			SortableTableModel equipSetModel = equipmentSetTable.getModel();
+			int beforeRow = equipSetModel.getRowCount();
+			int afterRow = 0;
+			for (Integer selRow : targetRows)
+			{
+				Object value = equipSetModel.getValueAt(selRow, 0);
+				if (!(value instanceof EquipNode))
+				{
+					continue;
+				}
+				EquipNode equipNode = (EquipNode) value;
+				if (!isInGeneralBodyStructure(equipNode))
+				{
+					continue;
+				}
+				
+				switch (equipNode.getNodeType())
+				{
+					case BODY_SLOT:
+						sortTargets.add(equipNode);
+						break;
+
+					case EQUIPMENT:
+						// Check node is not the top item in the parent
+						upTargets.add(equipNode);
+						downTargets.add(equipNode);
+						// Check item is a container
+						if (equipSet.isContainer(equipNode.getEquipment()))
+						{
+							sortTargets.add(equipNode);
+						}
+						break;
+						
+					default:
+						break;
+				}
+			}
+			
+			// Set the before and after nodes
+			EquipNode[] relativeNodes = new EquipNode[]{null, null};
+			if (beforeRow >= 0)
+			{
+				relativeNodes[0] =
+						(EquipNode) equipSetModel.getValueAt(beforeRow, 0);
+			}
+			if (afterRow < equipSetModel.getRowCount())
+			{
+				relativeNodes[1] =
+						(EquipNode) equipSetModel.getValueAt(afterRow, 0);
+			}
+			return relativeNodes;
+		}
+
+		/**
+		 * Identify if the EquipNode is within one of the general 
+		 * body structures (equipped, carried and not carried)  
+		 * 
+		 * @param equipNode The node to check.
+		 * @return true if it is in a general body structure.
+		 */
+		private boolean isInGeneralBodyStructure(EquipNode equipNode)
+		{
+			BodyStructureFacade bodyStructure =
+					equipNode.getBodyStructure();
+			return (bodyStructure instanceof BodyStructure
+				&& ((BodyStructure) bodyStructure).getEquipSlots()
+					.isEmpty());
+		}
+		
+		public void install()
+		{
+			equipmentSetTable.addMouseListener(this);
+		}
+
+		public void uninstall()
+		{
+			equipmentSetTable.removeMouseListener(this);
+		}
+
+	}
+
+	/**
+	 * Menu item for moving the selected equipment up a step in their container.
+	 */
+	private class MoveEquipUpMenuItem extends JMenuItem implements ActionListener
+	{
+		private final CharacterFacade character;
+		private final List<EquipNode> targets;
+		private final EquipNode beforeNode;
+
+		MoveEquipUpMenuItem(CharacterFacade character, List<EquipNode> targets, EquipNode beforeNode)
+		{
+			super(LanguageBundle.getString("in_equipMoveUpMenuCommand")); //$NON-NLS-1$ 
+			this.character = character;
+			this.targets = targets;
+			this.beforeNode = beforeNode;
+			setToolTipText(LanguageBundle.getString("in_equipMoveUpMenuDesc")); //$NON-NLS-1$
+			setIcon(Icons.Up16.getImageIcon());
+			setEnabled(!targets.isEmpty());
+
+			addActionListener(this);
+		}
+
+		/**
+		 * Action to move the current item up in the current container
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			EquipmentSetFacade equipSet =
+					character.getEquipmentSetRef().getReference();
+			for (EquipNode equipNode : targets)
+			{
+				equipSet.moveEquipment(equipNode, -1);
+			}
+		}
+
+	}
+
+	/**
+	 * Menu item for moving the selected equipment up a step in their container.
+	 */
+	private class MoveEquipDownMenuItem extends JMenuItem implements ActionListener
+	{
+		private final CharacterFacade character;
+		private final List<EquipNode> targets;
+		private final EquipNode afterNode;
+
+		MoveEquipDownMenuItem(CharacterFacade character, List<EquipNode> targets, EquipNode beforeNode)
+		{
+			super(LanguageBundle.getString("in_equipMoveDownMenuCommand")); //$NON-NLS-1$ 
+			this.character = character;
+			this.targets = targets;
+			this.afterNode = beforeNode;
+			setToolTipText(LanguageBundle.getString("in_equipMoveDownMenuDesc")); //$NON-NLS-1$
+			setIcon(Icons.Down16.getImageIcon());
+			setEnabled(!targets.isEmpty());
+
+			addActionListener(this);
+		}
+
+		/**
+		 * Action to move the current item up in the current container
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			EquipmentSetFacade equipSet =
+					character.getEquipmentSetRef().getReference();
+			for (EquipNode equipNode : targets)
+			{
+				equipSet.moveEquipment(equipNode, 1);
+			}
+		}
+
+	}
+
+	/**
+	 * Menu item for moving the selected equipment up a step in their container.
+	 */
+	private class SortEquipMenuItem extends JMenuItem implements ActionListener
+	{
+		private final CharacterFacade character;
+		private final List<EquipNode> targets;
+
+		SortEquipMenuItem(CharacterFacade character, List<EquipNode> targets)
+		{
+			super(LanguageBundle.getString("in_equipSortAscMenuCommand")); //$NON-NLS-1$ 
+			this.character = character;
+			this.targets = targets;
+			setToolTipText(LanguageBundle.getString("in_equipSortAscMenuDesc")); //$NON-NLS-1$
+			setIcon(Icons.FForward16.getImageIcon());
+			setEnabled(!targets.isEmpty());
+
+			addActionListener(this);
+		}
+
+		/**
+		 * Action to move the current item up in the current container
+		 */
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+//			if (num > 0)
+//			{
+//				for (EquipmentFacade equip : targets)
+//				{
+//					if (character.isAutoResize())
+//					{
+//						equip = character.getEquipmentSizedForCharacter(equip);
+//					}
+//					character.addPurchasedEquipment(equip, num, false);
+//					availableTable.refilter();
+//				}
+//			}
 		}
 
 	}

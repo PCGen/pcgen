@@ -162,4 +162,14 @@ public interface EquipmentSetFacade
 
 	}
 
+	/**
+	 * Move the equipment a certain number of slots up (negative) or down 
+	 * (positive) in the tree.
+	 * 
+	 * @param node The equipment node to be moved.
+	 * @param numRowsToMove The number of rows to move.
+	 * @return true if the move was successful, false if it could not be made.
+	 */
+	public boolean moveEquipment(EquipNode node, int numRowsToMove);
+
 }

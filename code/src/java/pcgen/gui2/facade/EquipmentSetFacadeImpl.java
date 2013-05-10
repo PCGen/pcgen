@@ -33,6 +33,7 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
@@ -409,7 +410,18 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		return pid + '.' + format.format(newID);
 	}
 
-	private String shiftEquipSetsDown(CharacterDisplay display, EquipSet parentSet, EquipNodeImpl startingNode)
+	/**
+	 * Shift the equipment sets down to make room for an item to be inserted.
+	 * @param parentSet The equipment set the item is being inserted into.
+	 * @param startingNode The first equipment node to be moved down.
+	 * @param origPathToNode A map of the equipment nodes to their original paths.
+	 * @param origPathToEquipSet A map of the equipment sets to their original paths.
+	 * @return The path which has been available.
+	 */
+	private String shiftEquipSetsDown(
+		EquipSet parentSet, EquipNodeImpl startingNode,
+		Map<String, EquipNodeImpl> origPathToNode,
+		Map<String, EquipSet> origPathToEquipSet)
 	{
 		String pid = "0";
 		NumberFormat format =
@@ -420,43 +432,100 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		{
 			pid = parentSet.getIdPath();
 		}
+		//Logging.errorPrint("Moving children of " + parentSet + " down, starting with " + startingNode + " .");
 
 		String startingPath = startingNode.idPath;
 		int startingId = EquipSet.getIdFromPath(startingPath);
-		for (EquipSet es : display.getEquipSet())
+		for (Entry<String, EquipNodeImpl> entry : origPathToNode.entrySet())
 		{
+			String origPath = entry.getKey();
+			EquipNodeImpl node = entry.getValue();
+			EquipSet es = origPathToEquipSet.get(origPath);
+
 			int esId = es.getId();
-			if (es.getParentIdPath().equals(pid) && (esId >= startingId))
+			if (es.getParentIdPath().equals(pid))
 			{
-				String origPath = es.getIdPath();
-				esId++;
+				if  (esId >= startingId)
+				{
+					esId++;
+				}
 				String newPath = pid + '.' + format.format(esId);
 				es.setIdPath(newPath);
-				EquipNodeImpl node = getNodeAtPath(origPath);
-				if (node != null)
-				{
-					node.setIdPath(newPath);
-				}
+				updateContainerPath(origPath, newPath, origPathToNode, origPathToEquipSet);
+				node.setIdPath(newPath);
+				nodeList.modifyElement(node);
 			}
 		}
 		
-		return startingPath;
+		String newPath = pid + '.' + format.format(startingId);
+		return newPath;
 	}
 	
-	private EquipNodeImpl getNodeAtPath(String path)
+	/**
+	 * Update the path of any items contained within an equipment item being moved. 
+	 * 
+	 * @param parentOrigPath The original path of the container.
+	 * @param parentNewPath The new path of the container.
+	 * @param origPathToNode The map of the equipment nodes by path.
+	 * @param origPathToEquipSet The map of the equipment sets by path.
+	 */
+	private void updateContainerPath(String parentOrigPath,
+		String parentNewPath, Map<String, EquipNodeImpl> origPathToNode,
+		Map<String, EquipSet> origPathToEquipSet)
 	{
-		for (EquipNode node : nodeList)
+		for (Entry<String, EquipSet> entry : origPathToEquipSet.entrySet())
 		{
-			if (node instanceof EquipNodeImpl)
+			String origItemPath = entry.getKey();
+			EquipSet itemEs = entry.getValue();
+
+			if (origItemPath.startsWith(parentOrigPath)
+				&& !origItemPath.equals(parentOrigPath))
 			{
-				EquipNodeImpl nodeImpl = (EquipNodeImpl) node;
-				if (path.equals(nodeImpl.getIdPath()))
+				String newItemPath =
+						origItemPath.replace(parentOrigPath, parentNewPath);
+				itemEs.setIdPath(newItemPath);
+				EquipNodeImpl node = origPathToNode.get(origItemPath);
+				if (node != null)
 				{
-					return nodeImpl;
+					node.setIdPath(newItemPath);
+					nodeList.modifyElement(node);
 				}
 			}
 		}
-		return null;
+	}
+
+	/**
+	 * Create a map of the character's equipment nodes keyed on their current 
+	 * id paths.
+	 * @return A map of id paths and the matching equipment nodes.
+	 */
+	private Map<String, EquipNodeImpl> buildPathNodeMap()
+	{
+		Map<String, EquipNodeImpl> pathMap = new HashMap<String, EquipmentSetFacadeImpl.EquipNodeImpl>();
+		for (EquipNode node : nodeList)
+		{
+			if (node instanceof EquipNodeImpl && ((EquipNodeImpl) node).getIdPath() != null)
+			{
+				EquipNodeImpl eni = (EquipNodeImpl) node;
+				pathMap.put(eni.idPath, eni);
+			}
+		}
+		return pathMap;
+	}
+	
+	/**
+	 * Create a map of the character's equipment sets keyed on their current 
+	 * id paths.
+	 * @return A map of id paths and the matching equipment sets.
+	 */
+	private Map<String, EquipSet> buildPathEquipSetMap()
+	{
+		Map<String, EquipSet> esMap = new HashMap<String, EquipSet>();
+		for (EquipSet es : charDisplay.getEquipSet())
+		{
+			esMap.put(es.getIdPath(), es);
+		}
+		return esMap;
 	}
 	
 	/* (non-Javadoc)
@@ -568,7 +637,9 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		String id;
 		if (beforeNode != null && beforeNode instanceof EquipNodeImpl)
 		{
-			id = shiftEquipSetsDown(charDisplay, parentEs, (EquipNodeImpl) beforeNode);
+			id =
+					shiftEquipSetsDown(parentEs, (EquipNodeImpl) beforeNode,
+						buildPathNodeMap(), buildPathEquipSetMap());
 		}
 		else
 		{
@@ -607,7 +678,197 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		
 		return newItem;
 	}
-	
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean moveEquipment(EquipNode node, int numRowsToMove)
+	{
+		// Confirm our assumptions
+		if (!(node instanceof EquipNodeImpl)
+			|| !(node.getBodyStructure() instanceof BodyStructure)
+			|| node.getNodeType() != NodeType.EQUIPMENT
+			|| node.getParent() == null)
+		{
+			return false;
+		}
+		if (numRowsToMove == 0)
+		{
+			return true;
+		}
+		BodyStructure bodyStruct = (BodyStructure) node.getBodyStructure();
+		if (!bodyStruct.isHoldsAnyType())
+		{
+			return false;
+		}
+		EquipNodeImpl equipNode = (EquipNodeImpl) node;
+		
+		List<EquipNode> orderedEquipNodes =
+				new ArrayList<EquipmentSetFacade.EquipNode>(
+					nodeList.getContents());
+		Collections.sort(orderedEquipNodes);
+		
+		// Get current location
+		int currLoc = orderedEquipNodes.indexOf(node);
+		if (currLoc < 0)
+		{
+			return false;
+		}
+		
+		// Calculate new location
+		EquipNodeImpl beforeNode;
+		boolean addAsLastChildOfParent = false; 
+		if (numRowsToMove < 0)
+		{
+			beforeNode =
+					scanBackForNewLoc(equipNode, orderedEquipNodes,
+						numRowsToMove * -1, currLoc);
+		}
+		else
+		{
+			beforeNode =
+					scanForwardForNewLoc(equipNode, orderedEquipNodes,
+						numRowsToMove, currLoc);
+			addAsLastChildOfParent =
+					beforeNode == null;
+		}
+
+		// Move the equipment item
+		Map<String, EquipNodeImpl> origPathToNode = buildPathNodeMap();
+		Map<String, EquipSet> origPathToEquipSet = buildPathEquipSetMap();
+		nodeList.removeElement(equipNode);
+		String origIdPath = equipNode.getIdPath();
+		EquipSet parentEs =
+				charDisplay.getEquipSetByIdPath(EquipSet
+					.getParentPath(origIdPath));
+		EquipSet nodeEs = charDisplay.getEquipSetByIdPath(origIdPath);
+		String newIdPath;
+		if (addAsLastChildOfParent)
+		{
+			newIdPath =
+					EquipmentSetFacadeImpl.getNewIdPath(charDisplay, parentEs);
+		}
+		else
+		{
+			newIdPath =
+					shiftEquipSetsDown(parentEs, (EquipNodeImpl) beforeNode,
+						origPathToNode, origPathToEquipSet);
+		}
+		nodeEs.setIdPath(newIdPath);
+		equipNode.setIdPath(newIdPath);
+		nodeList.addElement(equipNode);
+
+		// Update children of the item
+		updateContainerPath(origIdPath, newIdPath, origPathToNode,
+			origPathToEquipSet);
+
+		return true;
+	}
+
+
+	/**
+	 * Scan back in the node list to find the row that is a certain number of 
+	 * steps above the starting row. This will skip past the contents of any 
+	 * containers which do not contain the start row.
+	 *  
+	 * @param equipNode The node being moved.
+	 * @param orderedEquipNodes The sorted list of all equipment nodes for this equipment set.
+	 * @param numRowsToMove The positive number of rows to move back
+	 * @param startRow The row at which the node is currently located.
+	 * @return The node currently at the new lcoation.
+	 */
+	private EquipNodeImpl scanBackForNewLoc(EquipNodeImpl equipNode,
+		List<EquipNode> orderedEquipNodes, int numRowsToMove, int startRow)
+	{
+		int currIndex = startRow;
+		int numRowsMoved = 0;
+		String lastIdPath = equipNode.getIdPath();
+		EquipNodeImpl lastRowNode = equipNode;
+		while (currIndex > 0 && numRowsMoved < numRowsToMove)
+		{
+			currIndex--;
+			int lastDepth = EquipSet.getPathDepth(lastIdPath);
+			EquipNodeImpl currRowNode = (EquipNodeImpl) orderedEquipNodes.get(currIndex);
+			int currRowDepth = EquipSet.getPathDepth(currRowNode.getIdPath());
+
+			if (lastDepth < currRowDepth)
+			{
+				// Ignore this child of a higher container
+			}
+			else if (equipNode.getBodyStructure() != currRowNode
+				.getBodyStructure()
+				|| equipNode.getParent() != currRowNode.getParent())
+			{
+				// We've gone too far (outside the target body structure or 
+				// past where the item can be equipped), so return the last item 
+				// we could equip to
+				return lastRowNode;
+			}
+			else 
+			{
+				// Valid target - parent or sibling of prev row
+				numRowsMoved++;
+				lastIdPath = currRowNode.getIdPath();
+				lastRowNode = currRowNode;
+			}
+		}
+		return lastRowNode;
+	}
+
+	/**
+	 * Scan forward in the node list to find the row that is a certain number of 
+	 * steps below the starting row. This will skip past the contents of any 
+	 * containers which do not contain the start row.
+	 *  
+	 * @param equipNode The node being moved.
+	 * @param orderedEquipNodes The sorted list of all equipment nodes for this equipment set.
+	 * @param numRowsToMove The positive number of rows to move forward
+	 * @param startRow The row at which the node is currently located.
+	 * @return The node currently at the new lcoation.
+	 */
+	private EquipNodeImpl scanForwardForNewLoc(EquipNodeImpl equipNode,
+		List<EquipNode> orderedEquipNodes, int numRowsToMove, int startRow)
+	{
+		int currIndex = startRow;
+		int numRowsMoved = 0;
+		String lastIdPath = equipNode.getIdPath();
+		EquipNodeImpl lastRowNode = equipNode;
+		while (currIndex < orderedEquipNodes.size() && numRowsMoved <= numRowsToMove)
+		{
+			currIndex++;
+			int lastDepth = EquipSet.getPathDepth(lastIdPath);
+			EquipNodeImpl currRowNode = (EquipNodeImpl) orderedEquipNodes.get(currIndex);
+			if (currRowNode.getIdPath() == null)
+			{
+				return null;
+			}
+			int currRowDepth = EquipSet.getPathDepth(currRowNode.getIdPath());
+
+			if (lastDepth < currRowDepth)
+			{
+				// Ignore this child of a lower container
+			}
+			else if (equipNode.getBodyStructure() != currRowNode
+				.getBodyStructure()
+				|| equipNode.getParent() != currRowNode.getParent())
+			{
+				// We've gone too far (outside the target body structure or 
+				// past where the item can be equipped), so return the last item 
+				// we could equip to
+				return null;
+			}
+			else 
+			{
+				// Valid target - sibling of prev row or sibling of prev row's parent.
+				numRowsMoved++;
+				lastIdPath = currRowNode.getIdPath();
+				lastRowNode = currRowNode;
+			}
+		}
+		return lastRowNode;
+	}
+
+
 	/**
 	 * Reorder the equipment for output to cater for any changes in the 
 	 * equipment list. Note this assumes this equipment set is the active one 
@@ -896,8 +1157,9 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 			}
 		}
 	}
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.EquipmentSetFacade#getName()
+
+	/**
+	 * @return The name of the equipment set. 
 	 */
 	public String getName()
 	{

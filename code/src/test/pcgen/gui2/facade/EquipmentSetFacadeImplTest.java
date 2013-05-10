@@ -33,6 +33,12 @@ import pcgen.gui2.facade.EquipmentSetFacadeImpl.EquipNodeImpl;
  */
 public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 {
+	/* Equipment names constants */
+	private static final String QUARTERSTAFF = "Quarterstaff";
+	private static final String SATCHEL = "Satchel";
+	private static final String BOOK = "Book";
+	private static final String BEDROLL = "Bedroll";
+	
 	private static final String LOC_HANDS = "HANDS";
 	private static final String LOC_BOTH_HANDS = "Both Hands";
 	private static final String LOC_PRIMARY = "Primary Hand";
@@ -71,11 +77,11 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
 		Equipment item = new Equipment();
-		item.setName("Satchel");
+		item.setName(SATCHEL);
 		Equipment item2 = new Equipment();
-		item2.setName("Book");
+		item2.setName(BOOK);
 		Equipment item3 = new Equipment();
-		item3.setName("Quarterstaff");
+		item3.setName(QUARTERSTAFF);
 		
 		EquipSet satchelEs = addEquipToEquipSet(pc, es, item, 1.0f);
 		addEquipToEquipSet(pc, satchelEs, item2, 1.0f);
@@ -262,7 +268,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	/**
 	 * Verify the getRequiredLoc method. 
 	 */
-	public void testgetRequiredLoc()
+	public void testGetRequiredLoc()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
 		EquipmentSetFacadeImpl esfi =
@@ -292,6 +298,113 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Natural weapom should replace hands.", "HANDS", requiredLoc.getBodyStructure().toString());
 	}
 	
+	
+	/**
+	 * Check that EquipmentSetFacadeImpl can move an equipment item up the list.
+	 */
+	public void testMoveEquipmentUp()
+	{
+		EquipmentSetFacadeImpl esfi = prepareEquipmentSet();
+		ListFacade<EquipNode> nodeList = esfi.getNodes();
+		assertFalse("Expected a non empty path set", nodeList.isEmpty());
+		EquipNodeImpl quarterstaffNode = getEquipNodeByName(nodeList, QUARTERSTAFF);
+		//assertEquals("Incorrect item name", item3.getName(), quarterstaffNode.toString());
+		assertEquals("Incorrect item type", NodeType.EQUIPMENT, quarterstaffNode.getNodeType());
+		assertEquals("Incorrect parent", Constants.EQUIP_LOCATION_EQUIPPED, quarterstaffNode.getParent().toString());
+		assertEquals("Incorrect path", "0.1.02", quarterstaffNode.getIdPath());
+		
+		EquipNodeImpl bookNode = getEquipNodeByName(nodeList, BOOK);;
+		assertEquals("Incorrect path", "0.1.01.01", bookNode.getIdPath());
+		EquipNodeImpl satchelNode = getEquipNodeByName(nodeList, SATCHEL);;
+		assertEquals("Incorrect path", "0.1.01", satchelNode.getIdPath());
+		
+		assertTrue("Move up failed unexpectedly", esfi.moveEquipment(quarterstaffNode, -1));
+		assertEquals("Incorrect quarterstaff path", "0.1.01", quarterstaffNode.getIdPath());
+		assertEquals("Incorrect satchel path", "0.1.02", satchelNode.getIdPath());
+		assertEquals("Incorrect book path", "0.1.02.01", bookNode.getIdPath());
+	}
+	
+	/**
+	 * Check that EquipmentSetFacadeImpl can move an equipment item down the list.
+	 */
+	public void testMoveEquipmentDown()
+	{
+		EquipmentSetFacadeImpl esfi = prepareEquipmentSet();
+		ListFacade<EquipNode> nodeList = esfi.getNodes();
+		assertFalse("Expected a non empty path set", nodeList.isEmpty());
+		EquipNodeImpl quarterstaffNode = getEquipNodeByName(nodeList, QUARTERSTAFF);
+		//assertEquals("Incorrect item name", item3.getName(), quarterstaffNode.toString());
+		assertEquals("Incorrect item type", NodeType.EQUIPMENT, quarterstaffNode.getNodeType());
+		assertEquals("Incorrect parent", Constants.EQUIP_LOCATION_EQUIPPED, quarterstaffNode.getParent().toString());
+		assertEquals("Incorrect path", "0.1.02", quarterstaffNode.getIdPath());
+		
+		EquipNodeImpl bookNode = getEquipNodeByName(nodeList, BOOK);;
+		assertEquals("Incorrect path", "0.1.01.01", bookNode.getIdPath());
+		EquipNodeImpl satchelNode = getEquipNodeByName(nodeList, SATCHEL);;
+		assertEquals("Incorrect path", "0.1.01", satchelNode.getIdPath());
+		EquipNodeImpl bedrollNode = getEquipNodeByName(nodeList, BEDROLL);;
+		assertEquals("Incorrect path", "0.1.03", bedrollNode.getIdPath());
+		
+		assertTrue("Move down failed unexpectedly",
+			esfi.moveEquipment(satchelNode, 1));
+		assertEquals("Incorrect quarterstaff path after move down.", "0.1.02",
+			quarterstaffNode.getIdPath());
+		assertEquals("Incorrect satchel path after move down.", "0.1.03",
+			satchelNode.getIdPath());
+		assertEquals("Incorrect book path after move down.", "0.1.03.01",
+			bookNode.getIdPath());
+		assertEquals("Incorrect bedroll path after move down.", "0.1.04",
+			bedrollNode.getIdPath());
+		
+		assertTrue("Move to bottom failed unexpectedly",
+			esfi.moveEquipment(satchelNode, 1));
+		assertEquals("Incorrect quarterstaff path after move to bottom.", "0.1.02",
+			quarterstaffNode.getIdPath());
+		assertEquals("Incorrect satchel path after move to bottom.", "0.1.05",
+			satchelNode.getIdPath());
+		assertEquals("Incorrect book path after move to bottom.", "0.1.05.01",
+			bookNode.getIdPath());
+		assertEquals("Incorrect bedroll path after move to bottom.", "0.1.04",
+			bedrollNode.getIdPath());
+	}
+	
+
+	private EquipmentSetFacadeImpl prepareEquipmentSet()
+	{
+		PlayerCharacter pc = getCharacter();
+		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
+		pc.addEquipSet(es);
+		Equipment item = new Equipment();
+		item.setName(SATCHEL);
+		Equipment item2 = new Equipment();
+		item2.setName(BOOK);
+		Equipment item3 = new Equipment();
+		item3.setName(QUARTERSTAFF);
+		Equipment item4 = new Equipment();
+		item4.setName(BEDROLL);
+
+		EquipSet satchelEs = addEquipToEquipSet(pc, es, item, 1.0f);
+		addEquipToEquipSet(pc, satchelEs, item2, 1.0f);
+		addEquipToEquipSet(pc, es, item3, 1.0f);
+		addEquipToEquipSet(pc, es, item4, 1.0f);
+
+		return new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
+			dataset, equipmentList);
+	}
+	
+	private EquipNodeImpl getEquipNodeByName(ListFacade<EquipNode> nodeList,
+		String name)
+	{
+		for (EquipNode equipNode : nodeList)
+		{
+			if (name.equals(equipNode.toString()))
+			{
+				return (EquipNodeImpl) equipNode;
+			}
+		}
+		
+		return null;
+	}
 	
 	/**
 	 * Add the equipment item to the equipset.
