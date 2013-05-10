@@ -256,7 +256,7 @@ Summon Nature's Ally IX.MOD													CLASSES:Shaman=9
 Turn Haunting.MOD															CLASSES:Shaman=9
 
 # Witch Spells
-#0  level:
+#0 level:
 Acid Splash.MOD															CLASSES:Witch=0
 Charming Flare.MOD														CLASSES:Witch=0
 Dancing Lights.MOD														CLASSES:Witch=0
