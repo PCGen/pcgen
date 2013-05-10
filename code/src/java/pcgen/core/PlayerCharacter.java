@@ -7964,7 +7964,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		aClone.spellBookFacet.removeAll(aClone.id);
 		for (String book : spellBookFacet.getBookNames(id))
 		{
-			aClone.addSpellBook(book);
+			aClone.addSpellBook((SpellBook) spellBookFacet.getBookNamed(id,
+				book).clone());
 		}
 		aClone.calcEquipSetId = calcEquipSetId;
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
