@@ -514,6 +514,13 @@ public interface CharacterFacade extends CompanionFacade
 	public void setCharacterType(String characterType);
 
 	/**
+	 * Set the character's associated preview sheet
+	 * *
+	 * @param previewSheet The preview sheet to be set
+	 */
+	public void setPreviewSheet(String previewSheet);
+
+	/**
 	 * @return A reference to the name of the character's XP table
 	 */
 	public ReferenceFacade<String> getXPTableNameRef();
@@ -527,7 +534,7 @@ public interface CharacterFacade extends CompanionFacade
 	 * @return A reference to the name of the character's 
 	 * associated preview sheet
 	 */
-	//public ReferenceFacade<String> getPreviewSheetRef();
+	public ReferenceFacade<String> getPreviewSheetRef();
 
 	/**
 	 * Set the character's age in years.

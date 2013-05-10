@@ -109,6 +109,7 @@ import pcgen.cdom.facet.fact.GenderFacet;
 import pcgen.cdom.facet.fact.HandedFacet;
 import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
+import pcgen.cdom.facet.fact.PreviewSheetFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
 import pcgen.cdom.facet.fact.WeightFacet;
@@ -255,6 +256,7 @@ public class CharacterDisplay
 	private DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
 	private PortraitThumbnailRectFacet portraitThumbnailRectFacet = FacetLibrary
 			.getFacet(PortraitThumbnailRectFacet.class);
+	private PreviewSheetFacet previewSheetFacet = FacetLibrary.getFacet(PreviewSheetFacet.class);
 
 	public CharacterDisplay(CharID id)
 	{
@@ -651,6 +653,11 @@ public class CharacterDisplay
 	public String getCharacterType()
 	{
 		return characterTypeFacet.get(id);
+	}
+
+	public String getPreviewSheet()
+	{
+		return previewSheetFacet.get(id);
 	}
 
 	/**

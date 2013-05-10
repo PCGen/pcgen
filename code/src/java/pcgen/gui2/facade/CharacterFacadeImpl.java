@@ -222,6 +222,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private DefaultReferenceFacade<Integer> xpForNextlevel;
 	private DefaultReferenceFacade<String> xpTableName;
 	private DefaultReferenceFacade<String> characterType;
+	private DefaultReferenceFacade<String> previewSheet;
 	private DefaultReferenceFacade<Integer> age;
 	private DefaultReferenceFacade<SimpleFacade> ageCategory;
 	private DefaultListFacade<SimpleFacade> ageCategoryList;
@@ -337,6 +338,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		portrait = new DefaultReferenceFacade<File>(portraitFile);
 		cropRect = new RectangleReference(charDisplay.getPortraitThumbnailRect());
 		characterType = new DefaultReferenceFacade<String>(charDisplay.getCharacterType());
+		previewSheet = new DefaultReferenceFacade<String>(charDisplay.getPreviewSheet());
 
 		tabName = new DefaultReferenceFacade<String>(charDisplay.getTabName());
 		playersName = new DefaultReferenceFacade<String>(charDisplay.getPlayersName());
@@ -2926,6 +2928,19 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		
 		// This can affect traits mainly.
 		characterAbilities.rebuildAbilityLists();
+	}
+
+	@Override
+	public ReferenceFacade<String> getPreviewSheetRef()
+	{
+		return previewSheet;
+	}
+
+	@Override
+	public void setPreviewSheet(String newSheet)
+	{
+		previewSheet.setReference(newSheet);
+		theCharacter.setPreviewSheet(newSheet);
 	}
 
 	/* (non-Javadoc)

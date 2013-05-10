@@ -160,6 +160,7 @@ import pcgen.cdom.facet.fact.HandedFacet;
 import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.IgnoreCostFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
+import pcgen.cdom.facet.fact.PreviewSheetFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
 import pcgen.cdom.facet.fact.WeightFacet;
@@ -299,6 +300,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet = FacetLibrary
 			.getFacet(GlobalAddedSkillCostFacet.class);
 	private LocalAddedSkillCostFacet localAddedSkillCostFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
+	private PreviewSheetFacet previewSheetFacet = FacetLibrary.getFacet(PreviewSheetFacet.class);
 
 	//The following facets are pure delegation (no exceptions) - could be considered "complete"
 	private AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
@@ -526,6 +528,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 		setXPTable(SettingsHandler.getGame().getDefaultXPTableName());
 		setCharacterType(SettingsHandler.getGame().getDefaultCharacterType());
+		setPreviewSheet(SettingsHandler.getGame().getDefaultPreviewSheet());
 
 		setName(Constants.EMPTY_STRING);
 		setFeats(0);
@@ -2586,6 +2589,12 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void setCharacterType(final String characterType)
 	{
 		characterTypeFacet.set(id, characterType);
+		setDirty(true);
+	}
+
+	public void setPreviewSheet(final String previewSheet)
+	{
+		previewSheetFacet.set(id, previewSheet);
 		setDirty(true);
 	}
 

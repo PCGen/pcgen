@@ -342,6 +342,10 @@ interface IOConstants
 
 	/** PRESTAT */
 	String TAG_PRESTAT = "PRESTAT";
+
+	/** Preview Sheet */
+	String TAG_PREVIEWSHEET = "PREVIEWSHEET";
+
 	/** PROHIBITED */
 	String TAG_PROHIBITED = "PROHIBITED";
 	/** PROMPT */

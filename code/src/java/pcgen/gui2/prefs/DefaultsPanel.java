@@ -25,17 +25,22 @@ package pcgen.gui2.prefs;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.io.File;
+import java.io.FilenameFilter;
 import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
+import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.JComboBoxEx;
 import pcgen.gui2.tools.Utility;
+import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -53,10 +58,11 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class DefaultsPanel extends PCGenPrefsPanel
 {
-	private static String in_defaults =
-		LanguageBundle.getString("in_Prefs_defaults");
+	private static final String DEFAULT_PREVIEW_SHEET_KEY = "CharacterSheetInfoTab.defaultPreviewSheet.";
+	private static String in_defaults = LanguageBundle.getString("in_Prefs_defaults");
 	private JComboBoxEx xpTableCombo = new JComboBoxEx();
 	private JComboBoxEx characterTypeCombo = new JComboBoxEx();
+	private JComboBoxEx previewSheetCombo = new JComboBoxEx();
 
 	/**
 	 * Instantiates a new defaults panel.
@@ -99,6 +105,16 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(characterTypeCombo, c);
 		this.add(characterTypeCombo);
 
+		Utility.buildConstraints(c, 0, 2, 2, 1, 0, 0);
+		label =
+				new JLabel(LanguageBundle
+					.getString("in_Prefs_previewSheet"));
+		gridbag.setConstraints(label, c);
+		this.add(label);
+		Utility.buildConstraints(c, 2, 2, 1, 1, 0, 0);
+		gridbag.setConstraints(previewSheetCombo, c);
+		this.add(previewSheetCombo);
+
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
 		label = new JLabel(" ");
@@ -124,6 +140,10 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		final GameMode gameMode = SettingsHandler.getGame();
 		gameMode.setDefaultXPTableName(String.valueOf(xpTableCombo.getSelectedItem()));
 		gameMode.setDefaultCharacterType(String.valueOf(characterTypeCombo.getSelectedItem()));
+		gameMode.setDefaultPreviewSheet(String.valueOf(previewSheetCombo.getSelectedItem()));
+
+		UIPropertyContext.getInstance().setProperty(
+				DEFAULT_PREVIEW_SHEET_KEY + gameMode.getName(), String.valueOf(previewSheetCombo.getSelectedItem()));
 	}
 
 	/* (non-Javadoc)
@@ -133,12 +153,9 @@ public class DefaultsPanel extends PCGenPrefsPanel
 	public void applyOptionValuesToControls()
 	{
 		final GameMode gameMode = SettingsHandler.getGame();
+
 		final String xpTableName = gameMode.getDefaultXPTableName();
-		final String characterType = gameMode.getDefaultCharacterType();
-
 		List<String> xpTableNames = gameMode.getXPTableNames();
-		List<String> characterTypes = gameMode.getCharacterTypeList();
-
 		xpTableCombo.removeAllItems();
 		for (String name : xpTableNames)
 		{
@@ -146,6 +163,8 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		}
 		xpTableCombo.setSelectedItem(xpTableName);
 
+		final String characterType = gameMode.getDefaultCharacterType();
+		List<String> characterTypes = gameMode.getCharacterTypeList();
 		characterTypeCombo.removeAllItems();
 		for (String name : characterTypes)
 		{
@@ -153,6 +172,27 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		}
 		characterTypeCombo.setSelectedItem(characterType);
 		
+		final String previewSheet = UIPropertyContext.getInstance().initProperty(
+			DEFAULT_PREVIEW_SHEET_KEY + gameMode, gameMode.getDefaultPreviewSheet());
+			
+		String previewDir = ConfigurationSettings.getPreviewDir();
+		File sheetDir = new File(previewDir, gameMode.getCharSheetDir());
+		if (sheetDir.exists() && sheetDir.isDirectory())
+		{
+			String[] files = sheetDir.list(new FilenameFilter()
+			{
+				@Override
+				public boolean accept(File path, String filename)
+				{
+					File file = new File(path, filename);
+					return file.isFile() && !file.isHidden();
+				}
+			});
+			//String[] files = sheetDir.list();
+			previewSheetCombo.removeAllItems();
+			previewSheetCombo.setModel(new DefaultComboBoxModel(files));
+			previewSheetCombo.sortItems();
+			previewSheetCombo.setSelectedItem(previewSheet);
+		}
 	}
-
 }

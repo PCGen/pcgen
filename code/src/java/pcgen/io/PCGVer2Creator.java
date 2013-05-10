@@ -182,6 +182,7 @@ public final class PCGVer2Creator implements IOConstants
 		appendRollMethodLine(buffer);
 		appendPurchasePointsLine(buffer);
 		appendCharacterTypeLine(buffer);
+		appendPreviewSheetLine(buffer);
 
 		//appendUnlimitedPoolCheckedLine(buffer);
 		appendPoolPointsLine(buffer);
@@ -764,6 +765,12 @@ public final class PCGVer2Creator implements IOConstants
 		buffer.append(LINE_SEP);
 	}
 
+	private void appendPreviewSheetLine(StringBuilder buffer)
+	{
+		buffer.append(TAG_PREVIEWSHEET).append(':');
+		buffer.append(charDisplay.getPreviewSheet());
+		buffer.append(LINE_SEP);
+	}
 
 	/*
 	 * ###############################################################

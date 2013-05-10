@@ -903,6 +903,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			parseCharacterTypeLine(cache.get(TAG_CHARACTERTYPE).get(0));
 		}
 
+		if (cache.containsKey(TAG_PREVIEWSHEET))
+		{
+			parsePreviewSheetLine(cache.get(TAG_PREVIEWSHEET).get(0));
+		}
+
 		if (cache.containsKey(TAG_AUTOSPELLS))
 		{
 			parseAutoSpellsLine(cache.get(TAG_AUTOSPELLS).get(0));
@@ -2630,6 +2635,17 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 		thePC.setCharacterType(characterType);
 	}
+
+	private void parsePreviewSheetLine(final String line)
+			throws PCGParseException
+		{
+			final StringTokenizer stok =
+					new StringTokenizer(
+						line.substring(TAG_PREVIEWSHEET.length() + 1), TAG_END,
+						false);
+
+			thePC.setPreviewSheet(stok.nextToken());
+		}
 
 	/*
 	 * ###############################################################

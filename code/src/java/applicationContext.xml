@@ -404,6 +404,7 @@
 	</bean>
 	<!-- P -->
 	<bean id="prerequisiteFacet" class="pcgen.cdom.facet.PrerequisiteFacet"/>
+	<bean id="previewSheetFacet" class="pcgen.cdom.facet.fact.PreviewSheetFacet"/>
 	<bean id="primaryWeaponFacet" class="pcgen.cdom.facet.PrimaryWeaponFacet"/>
 	<bean id="prohibitedSchoolFacet" class="pcgen.cdom.facet.input.ProhibitedSchoolFacet"/>
 	<bean id="portraitThumbnailRectFacet" class="pcgen.cdom.facet.fact.PortraitThumbnailRectFacet"/>

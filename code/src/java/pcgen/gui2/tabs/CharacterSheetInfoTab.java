@@ -48,7 +48,6 @@ import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.ListFacades;
-import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.csheet.CharacterSheetPanel;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
@@ -186,7 +185,6 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 	{
 
 		/** Prefs key for the character sheet for a game mode. */
-		private static final String DEFAULT_CHAR_SHEET_KEY = "CharacterSheetInfoTab.defaultCharSheet.";
 		private CharacterFacade character;
 		private ComboBoxModel model;
 
@@ -211,10 +209,14 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 				model = new DefaultComboBoxModel(files);
 
 				File file = null;
-				String charSheet = Main.getStartupCharacterSheet();
-				if (charSheet != null)
+				String previewSheet = character.getPreviewSheetRef().toString();
+				if (previewSheet == null)
 				{
-					file = new File(sheetDir, charSheet);
+					previewSheet  = game.getDefaultCharSheet();
+				}
+				if (previewSheet  != null)
+				{
+					file = new File(sheetDir, previewSheet);
 					if (!file.isFile())
 					{
 						Logging.errorPrint("Invalid Character Sheet: " + file.getAbsolutePath()); //$NON-NLS-1$
@@ -222,11 +224,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 				}
 				if (file == null || !file.isFile())
 				{
-					String sheet =
-							UIPropertyContext.getInstance().initProperty(
-								DEFAULT_CHAR_SHEET_KEY + game.getName(),
-								game.getDefaultCharSheet());
-					file = new File(sheetDir, sheet);
+					file = new File(sheetDir, Main.getStartupCharacterSheet());
 				}
 				model.setSelectedItem(file);
 			}
@@ -251,9 +249,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 				File outputSheet = (File) sheetBox.getSelectedItem();
 				csheet.setCharacterSheet(outputSheet);
 				csheet.refresh();
-				UIPropertyContext.getInstance().setProperty(
-					DEFAULT_CHAR_SHEET_KEY + character.getDataSet().getGameMode().getName()
-						, outputSheet.getName());
+				character.setPreviewSheet(outputSheet.getName());
 			}
 		}
 
