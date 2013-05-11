@@ -121,7 +121,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		}
 		catch (NullPointerException e)
 		{
-			Logging.errorPrint("Error in EquipSet.getId", e);
+			Logging.errorPrint("Error in EquipSet.getId " + path, e);
 		}
 
 		return id;
@@ -497,7 +497,33 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		// it's inside a container, don't try to equip
 		if (aTok.countTokens() > Constants.ID_PATH_LENGTH_FOR_NON_CONTAINED)
 		{
-			eq_item.addEquipmentToLocation(qty, EquipmentLocation.CONTAINED, false, aPC);
+			// Get back to carried/equipped/not carried to determine correct location
+			StringBuilder rootPath = new StringBuilder(); 
+			for (int i = 0; i < Constants.ID_PATH_LENGTH_FOR_NON_CONTAINED; i++)
+			{
+				if (i > 0)
+				{
+					rootPath.append(".");
+				}
+				rootPath.append(aTok.nextToken());
+			}
+			EquipSet rootSet = aPC.getEquipSetByIdPath(rootPath.toString());
+			if (rootSet != null && rootSet.name.startsWith(Constants.EQUIP_LOCATION_CARRIED))
+			{
+				eq_item.addEquipmentToLocation(qty, EquipmentLocation.CARRIED_NEITHER, false, aPC);
+			}
+			else if (rootSet != null && rootSet.name.startsWith(Constants.EQUIP_LOCATION_NOTCARRIED))
+			{
+				eq_item.addEquipmentToLocation(qty, EquipmentLocation.NOT_CARRIED, false, aPC);
+			}
+			else if (rootSet != null && rootSet.name.startsWith(Constants.EQUIP_LOCATION_EQUIPPED))
+			{
+				eq_item.addEquipmentToLocation(qty, EquipmentLocation.EQUIPPED_NEITHER, false, aPC);
+			}
+			else
+			{
+				eq_item.addEquipmentToLocation(qty, EquipmentLocation.CONTAINED, false, aPC);
+			}
 		}
 		else if (name.startsWith(Constants.EQUIP_LOCATION_CARRIED))
 		{

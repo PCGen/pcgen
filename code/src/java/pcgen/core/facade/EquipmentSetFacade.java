@@ -172,4 +172,12 @@ public interface EquipmentSetFacade
 	 */
 	public boolean moveEquipment(EquipNode node, int numRowsToMove);
 
+	/**
+	 * Sort the contents of the supplied node in alphabetical order.
+	 * @param parentNode The node, may be a container or a general 
+	 * body slot.
+	 * @return true if the sort was successful, false if it could not be done.
+	 */
+	public boolean sortEquipment(EquipNode parentNode);
+
 }

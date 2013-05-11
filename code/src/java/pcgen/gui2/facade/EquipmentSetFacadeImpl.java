@@ -765,6 +765,65 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		return true;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean sortEquipment(EquipNode parentNode)
+	{
+		// Confirm our assumptions
+		if (!(parentNode instanceof EquipNodeImpl)
+			|| !(parentNode.getBodyStructure() instanceof BodyStructure)
+			|| (parentNode.getNodeType() != NodeType.EQUIPMENT && parentNode
+				.getNodeType() != NodeType.BODY_SLOT))
+		{
+			return false;
+		}
+		BodyStructure bodyStruct = (BodyStructure) parentNode.getBodyStructure();
+		if (!bodyStruct.isHoldsAnyType())
+		{
+			return false;
+		}
+		
+		String pid = ((EquipNodeImpl)parentNode).idPath;
+		List<EquipNodeImpl> childList = new ArrayList<EquipmentSetFacadeImpl.EquipNodeImpl>();
+		Map<String, EquipNodeImpl> origPathToNode = buildPathNodeMap();
+		Map<String, EquipSet> origPathToEquipSet = buildPathEquipSetMap();
+		for (Entry<String, EquipNodeImpl> entry : origPathToNode.entrySet())
+		{
+			String origPath = entry.getKey();
+			EquipNodeImpl node = entry.getValue();
+			EquipSet es = origPathToEquipSet.get(origPath);
+
+			if (node.parent == parentNode)
+			{
+				childList.add(node);
+				if (pid == null)
+				{
+					pid = es.getParentIdPath();
+				}
+			}
+		}
+		
+		// Sort child list
+		Collections.sort(childList, new EquipNameComparator());
+		
+		// Renumber paths
+		int id = 1;
+		NumberFormat format =new DecimalFormat("00");
+		for (EquipNodeImpl childNode : childList)
+		{
+			String origPath = childNode.idPath;
+			String newPath = pid + '.' + format.format(id);
+			nodeList.removeElement(childNode);
+			EquipSet es = origPathToEquipSet.get(origPath);
+			es.setIdPath(newPath);
+			updateContainerPath(origPath, newPath, origPathToNode, origPathToEquipSet);
+			childNode.setIdPath(newPath);
+			nodeList.addElement(childNode);
+			id++;
+		}
+		return true;
+	}
 
 	/**
 	 * Scan back in the node list to find the row that is a certain number of 
@@ -789,7 +848,9 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 			currIndex--;
 			int lastDepth = EquipSet.getPathDepth(lastIdPath);
 			EquipNodeImpl currRowNode = (EquipNodeImpl) orderedEquipNodes.get(currIndex);
-			int currRowDepth = EquipSet.getPathDepth(currRowNode.getIdPath());
+			int currRowDepth =
+					currRowNode.getIdPath() == null ? 0 : EquipSet
+						.getPathDepth(currRowNode.getIdPath());
 
 			if (lastDepth < currRowDepth)
 			{
@@ -836,6 +897,10 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		while (currIndex < orderedEquipNodes.size() && numRowsMoved <= numRowsToMove)
 		{
 			currIndex++;
+			if (currIndex == orderedEquipNodes.size())
+			{
+				return null;
+			}
 			int lastDepth = EquipSet.getPathDepth(lastIdPath);
 			EquipNodeImpl currRowNode = (EquipNodeImpl) orderedEquipNodes.get(currIndex);
 			if (currRowNode.getIdPath() == null)
@@ -1987,6 +2052,26 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 			}
 
 			return node1.compareTo(node2);
+		}
+	
+	}
+
+	/**
+	 * The Class <code>EquipNameComparator</code> compares EquipNodes based 
+	 * on alpha order by sort key (if defined) or name.
+	 */
+
+	public static class EquipNameComparator implements
+			Comparator<EquipNodeImpl>
+	{
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public int compare(EquipNodeImpl node1, EquipNodeImpl node2)
+		{
+			return node1.getSortKey().compareTo(node2.getSortKey());
 		}
 	
 	}

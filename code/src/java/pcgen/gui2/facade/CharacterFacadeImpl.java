@@ -40,6 +40,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import javax.swing.undo.UndoManager;
@@ -2656,14 +2657,30 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			try
 			{
-				Logging.log(Logging.DEBUG, "Starting export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
+				Logging.log(Logging.ERROR, "Starting export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
 				PlayerCharacter exportPc =  getExportCharacter();
+				//PlayerCharacter exportPc =  theCharacter;
 				theHandler.write(exportPc, buf);
-				Logging.log(Logging.DEBUG, "Finished export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
+				Logging.log(Logging.ERROR, "Finished export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
 				return;
 			} catch (ConcurrentModificationException e)
 			{
-				Logging.log(Logging.DEBUG, "Retrying export after ConcurrentModificationException");
+				Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
+				for (Entry<Thread, StackTraceElement[]> threadEntry : allStackTraces.entrySet())
+				{
+					if (threadEntry.getValue().length > 1 )
+					{
+						StringBuilder sb = new StringBuilder("Thread: " + threadEntry.getKey() + "\n");
+						for (StackTraceElement elem : threadEntry.getValue())
+						{
+							sb.append("  ");
+							sb.append(elem.toString());
+							sb.append("\n");
+						}
+						Logging.log(Logging.INFO, sb.toString());
+					}
+				}
+				Logging.log(Logging.WARNING, "Retrying export after ConcurrentModificationException", e);
 				try
 				{
 					Thread.sleep(1000);
@@ -2753,7 +2770,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void setHanded(HandedFacade handedness)
 	{
-		Logging.log(Logging.ERROR, "CharacterFacadeImpl @ setHanded to "+((Handed) handedness).name()); //$NON-NLS-1$
 		this.handedness.setReference(handedness);
 		theCharacter.setHanded((Handed) handedness);
 	}
@@ -4238,8 +4254,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		characterType.setReference(charDisplay.getCharacterType());
 		alignment.setReference(charDisplay.getPCAlignment());
 		refreshStatScores();
-		refreshAvailableTempBonuses();
-
 	}
 
 	/**

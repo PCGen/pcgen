@@ -122,6 +122,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private final InfoPane infoPane;
 	private final JButton unequipButton;
 	private final JButton unequipAllButton;
+	private final JButton moveUpButton;
+	private final JButton moveDownButton;
 	private final JButton equipButton;
 	private final JComboBox equipSetBox;
 	private final JButton newSetButton;
@@ -156,6 +158,8 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		this.equipButton = new JButton();
 		this.unequipButton = new JButton();
 		this.unequipAllButton = new JButton();
+		this.moveUpButton = new JButton();
+		this.moveDownButton = new JButton();
 		this.equipSetBox = new JComboBox();
 		this.newSetButton = new JButton();
 		this.removeSetButton = new JButton();
@@ -277,6 +281,10 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		selPanelbuttonsBox.add(unequipButton);
 		selPanelbuttonsBox.add(Box.createHorizontalStrut(3));
 		selPanelbuttonsBox.add(unequipAllButton);
+		selPanelbuttonsBox.add(Box.createHorizontalStrut(3));
+		selPanelbuttonsBox.add(moveUpButton);
+		selPanelbuttonsBox.add(Box.createHorizontalStrut(3));
+		selPanelbuttonsBox.add(moveDownButton);
 		selPanelbuttonsBox.add(Box.createHorizontalGlue());
 		selPanelbuttonsBox.setBorder(BorderFactory.createEmptyBorder(5, 0, 5, 0));
 		panel.add(selPanelbuttonsBox, BorderLayout.SOUTH);
@@ -330,9 +338,9 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	public void restoreModels(Hashtable<?, ?> state)
 	{
 		((EquipmentModel) state.get(EquipmentModel.class)).install(equipmentSetTable);
-		((EquipmentModels) state.get(EquipmentModels.class)).install(equipViewBox, equipmentTable,
-																	 tableFilter, equipmentSetTable,
-																	 equipButton, unequipButton);
+		((EquipmentModels) state.get(EquipmentModels.class)).install(
+			equipViewBox, equipmentTable, tableFilter, equipmentSetTable,
+			equipButton, unequipButton, moveUpButton, moveDownButton);
 		((LabelsUpdater) state.get(LabelsUpdater.class)).install();
 		((EquipInfoHandler) state.get(EquipInfoHandler.class)).install();
 		((EquipmentRenderer) state.get(EquipmentRenderer.class)).install();
@@ -1221,18 +1229,12 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-//			if (num > 0)
-//			{
-//				for (EquipmentFacade equip : targets)
-//				{
-//					if (character.isAutoResize())
-//					{
-//						equip = character.getEquipmentSizedForCharacter(equip);
-//					}
-//					character.addPurchasedEquipment(equip, num, false);
-//					availableTable.refilter();
-//				}
-//			}
+			EquipmentSetFacade equipSet =
+					character.getEquipmentSetRef().getReference();
+			for (EquipNode equipNode : targets)
+			{
+				equipSet.sortEquipment(equipNode);
+			}
 		}
 
 	}

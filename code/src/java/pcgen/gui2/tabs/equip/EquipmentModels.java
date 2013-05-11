@@ -64,6 +64,7 @@ import pcgen.gui2.filter.FilterHandler;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.JTableEx;
 import pcgen.gui2.util.JTreeTable;
+import pcgen.gui2.util.table.SortableTableModel;
 import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.system.LanguageBundle;
 
@@ -114,6 +115,8 @@ public class EquipmentModels
 	private final EquipViewHandler viewHandler;
 	private final EquipAction equipAction;
 	private final UnequipAction unequipAction;
+	private final MoveUpAction moveUpAction;
+	private final MoveDownAction moveDownAction;
 	private final EquipFilterHandler filterHandler;
 	private EquipView selectedView;
 	private EquipmentTableModel selectedModel;
@@ -139,12 +142,15 @@ public class EquipmentModels
 		this.viewHandler = new EquipViewHandler();
 		this.equipAction = new EquipAction();
 		this.unequipAction = new UnequipAction();
+		this.moveUpAction = new MoveUpAction();
+		this.moveDownAction = new MoveDownAction();
 		this.filterHandler = new EquipFilterHandler();
 	}
 
 	public void install(JComboBox equipBox, JTableEx eqTable,
 		DisplayableFilter<? super CharacterFacade, ? super EquipmentFacade> filter,
-		JTreeTable eqSetTable, JButton equipButton, JButton unequipButton)
+		JTreeTable eqSetTable, JButton equipButton, JButton unequipButton, 
+		JButton moveUpButton, JButton moveDownButton)
 	{
 		this.equipViewBox = equipBox;
 		this.equipmentTable = eqTable;
@@ -152,6 +158,8 @@ public class EquipmentModels
 		viewHandler.install();
 		equipButton.setAction(equipAction);
 		unequipButton.setAction(unequipAction);
+		moveUpButton.setAction(moveUpAction);
+		moveDownButton.setAction(moveDownAction);
 		equipAction.install();
 		unequipAction.install();
 
@@ -170,6 +178,34 @@ public class EquipmentModels
 		}
 	}
 
+	private List<EquipNode> getSelectedEquipmentSetNodes()
+	{
+		int[] rows = equipmentSetTable.getSelectedRows();
+		List<EquipNode> paths = new ArrayList<EquipNode>();
+		for (int i = 0; i < rows.length; i++)
+		{
+			EquipNode path = (EquipNode) equipmentSetTable.getValueAt(rows[i], 0);
+			if (path.getNodeType() == NodeType.EQUIPMENT)
+			{
+				paths.add(path);
+			}
+		}
+		return paths;
+	}
+
+	private void selectNodeInEquipmentSetTable(EquipNode nodeToSelect)
+	{
+		SortableTableModel model = equipmentSetTable.getModel();
+		for (int i = 0; i < model.getRowCount(); i++)
+		{
+			if (nodeToSelect == model.getValueAt(i, 0))
+			{
+				equipmentSetTable.getSelectionModel().setSelectionInterval(i, i);
+				break;
+			}
+		}
+	}
+	
 	private static JScrollPane prepareScrollPane(JTable table)
 	{
 		JScrollPane pane = new JScrollPane(table);
@@ -287,16 +323,7 @@ public class EquipmentModels
 		public void actionPerformed(ActionEvent e)
 		{
 			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
-			int[] rows = equipmentSetTable.getSelectedRows();
-			List<EquipNode> paths = new ArrayList<EquipNode>();
-			for (int i = 0; i < rows.length; i++)
-			{
-				EquipNode path = (EquipNode) equipmentSetTable.getValueAt(rows[i], 0);
-				if (path.getNodeType() == NodeType.EQUIPMENT)
-				{
-					paths.add(path);
-				}
-			}
+			List<EquipNode> paths = getSelectedEquipmentSetNodes();
 			if (!paths.isEmpty())
 			{
 				Object[][] data = new Object[paths.size()][3];
@@ -615,6 +642,79 @@ public class EquipmentModels
 		public void actionPerformed(ActionEvent e)
 		{
 			stopCellEditing();
+		}
+
+	}
+
+	private class MoveUpAction extends AbstractAction
+	{
+
+		public MoveUpAction()
+		{
+			super(LanguageBundle.getString("in_equipMoveUpMenuCommand")); //$NON-NLS-1$
+			this.putValue(SMALL_ICON, Icons.Up16.getImageIcon());
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
+			List<EquipNode> paths = getSelectedEquipmentSetNodes();
+			if (!paths.isEmpty())
+			{
+				for (EquipNode node : paths)
+				{
+					equipSet.moveEquipment(node, -1);
+				}
+				selectNodeInEquipmentSetTable(paths.get(0));
+			}
+		}
+
+		
+		public void install()
+		{
+			equipmentSetTable.addActionListener(this);
+		}
+		
+		public void uninstall()
+		{
+			equipmentSetTable.removeActionListener(this);
+		}
+
+	}
+
+	private class MoveDownAction extends AbstractAction
+	{
+
+		public MoveDownAction()
+		{
+			super(LanguageBundle.getString("in_equipMoveDownMenuCommand")); //$NON-NLS-1$
+			this.putValue(SMALL_ICON, Icons.Down16.getImageIcon());
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			EquipmentSetFacade equipSet = character.getEquipmentSetRef().getReference();
+			List<EquipNode> paths = getSelectedEquipmentSetNodes();
+			if (!paths.isEmpty())
+			{
+				for (EquipNode node : paths)
+				{
+					equipSet.moveEquipment(node, 1);
+				}
+				selectNodeInEquipmentSetTable(paths.get(0));
+			}
+		}
+		
+		public void install()
+		{
+			equipmentSetTable.addActionListener(this);
+		}
+		
+		public void uninstall()
+		{
+			equipmentSetTable.removeActionListener(this);
 		}
 
 	}
