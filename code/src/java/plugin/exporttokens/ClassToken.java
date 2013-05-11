@@ -89,6 +89,8 @@ public class ClassToken extends Token {
 				return getType(display, i);
 			} else if ("CLASSTYPE".equals(subToken)) {
 				return getClassType(display, i);
+			} else if ("ISMONSTER".equals(subToken)) {
+				return isMonster(display, i);
 			}
 		}
 
@@ -271,4 +273,12 @@ public class ClassToken extends Token {
 		}
 		return "";
 	}
+	
+	public static String isMonster(CharacterDisplay display, int classNumber) {
+		if (display.getClassCount() > classNumber) {
+			return (display.getClassList().get(classNumber).isMonster() ? "Y" : "N");
+		}
+		return "";
+	}
+
 }
