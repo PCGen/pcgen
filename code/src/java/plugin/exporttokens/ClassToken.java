@@ -86,6 +86,8 @@ public class ClassToken extends Token {
 			} else if ("SALIST".equals(subToken)) {
 				return getSAListToken(pc, i);
 			} else if ("TYPE".equals(subToken)) {
+				return getType(display, i);
+			} else if ("CLASSTYPE".equals(subToken)) {
 				return getClassType(display, i);
 			}
 		}
@@ -256,9 +258,16 @@ public class ClassToken extends Token {
 	 * @param classNumber
 	 * @return class Type
 	 */
-	public static String getClassType(CharacterDisplay display, int classNumber) {
+	public static String getType(CharacterDisplay display, int classNumber) {
 		if (display.getClassCount() > classNumber) {
 			return display.getClassList().get(classNumber).getType();
+		}
+		return "";
+	}
+	
+	public static String getClassType(CharacterDisplay display, int classNumber) {
+		if (display.getClassCount() > classNumber) {
+			return display.getClassList().get(classNumber).getClassType();
 		}
 		return "";
 	}
