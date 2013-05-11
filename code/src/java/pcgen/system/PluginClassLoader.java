@@ -138,6 +138,7 @@ public class PluginClassLoader extends PCGenTask
 			loader.storeClassDef(name, buffer);
 			classList.add(name);
 		}
+		file.close();
 		/*
 		 * Loading files and loading classes can both be lengthy processes. This splits the tasks
 		 * so that class loading occurs in another thread thus allowing both processes to
