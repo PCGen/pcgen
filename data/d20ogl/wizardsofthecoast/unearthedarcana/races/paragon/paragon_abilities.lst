@@ -3,6 +3,14 @@ SOURCELONG:Unearthed Arcana	SOURCESHORT:UA
 # Original Entry by: Tir-Gwaith
 # Updated by: Andrew Maitland
 
+###Block: Drow
+Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Drow Paragon		SOURCEPAGE:p.33	CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Drow paragons are proficient with all simple weapons, rapiers, longswords, and hand crossbows, and with light armor.
+Spells per Day			KEY:Spells ~ Drow Paragon					SOURCEPAGE:p.33	CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:At 1st and 3rd level, a female drow paragon gains new spells per day as if she had also gained a level in cleric. A male drow paragon instead gains new spells per day as if he had gained a level of wizard. The paragon does not, however, gain any other benefit a character of that class would have gained (bonus metamagic feats, and so on). This essentially means that the character adds the level of drow paragon to her level in cleric or wizard, then determines spells per day and caster level accordingly. If the drow paragon is female and has no levels in cleric, or is male and has no levels in wizard, this class feature has no effect.
+Improved Spell-Like Abilities	KEY:Improved Spell-Like Abilities ~ Drow Paragon	SOURCEPAGE:p.33	CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:At 1st level, a drow paragon gains one additional daily use of each of her innate spelllike abilities.	BONUS:VAR|DancingLightsTimes,DarknessTimes,FaerieFireTimes|1
+Improved Darkvision		KEY:Improved Darkvision ~ Drow Paragon			SOURCEPAGE:p.33	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:At 2nd level, a drow paragon's darkvision range increases by 30 feet.	BONUS:VAR|DarkvisionRange|30
+Light Sensitivity			KEY:Light Sensitivity ~ Drow Paragon			SOURCEPAGE:p.33	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DrowLightBlindness	DESC:A 2nd-level drow paragon's light blindness is lessened to light sensitivity. Instead of being blinded by bright light, she is merely dazzled in bright sunlight or within the radius of a daylight spell.
+Ability Boost			KEY:Ability Boost ~ Drow Paragon				SOURCEPAGE:p.33	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:At 3rd level, a drow paragon's Dexterity score increases by 2 points.	BONUS:STAT|DEX|2|TYPE=Racial.STACK
+
 ###Block: Dwarf Paragon
 # Ability Name			Unique Key								Category of Ability		Type						Description																																																												Stat bonus					Modify VAR								Source Page
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Dwarf Paragon	CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Dwarf paragons are proficient with all simple and martial weapons, with light, medium, and heavy armor, and with shields (but not with tower shields).																																																			SOURCEPAGE:p.35

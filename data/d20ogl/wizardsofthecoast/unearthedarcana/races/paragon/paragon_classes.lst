@@ -3,7 +3,18 @@ SOURCELONG:Unearthed Arcana	SOURCESHORT:UA
 # Original Entry by: Tir-Gwaith
 # Updated by: Andrew Maitland
 
-# Drow Paragon	32
+CLASS:Drow Paragon	HD:6		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.32	DEFINE:DrowParagonLVL|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required Race
+CLASS:Drow Paragon	PRERACE:1,Elf (Drow)
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Drow Paragon	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Hide|Intimidate|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Spellcraft|Spot|Survival|Swim
+###Block: Class Features
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Drow Paragon|Spells ~ Drow Paragon|Improved Spell-Like Abilities ~ Drow Paragon
+2	ABILITY:Special Ability|AUTOMATIC|Improved Darkvision ~ Drow Paragon|Light Sensitivity ~ Drow Paragon
+3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Drow Paragon
+###Block:
+1	BONUS:PCLEVEL|Wizard|1|PREGENDER:M		BONUS:PCLEVEL|Cleric|1|PREGENDER:F
+3	BONUS:PCLEVEL|Wizard|1|PREGENDER:M		BONUS:PCLEVEL|Cleric|1|PREGENDER:F
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Define				Save checks bonus											Combat bonus
 CLASS:Dwarf Paragon	HD:10		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.33	DEFINE:DwarfParagonLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -20,7 +31,7 @@ CLASS:Dwarf Paragon	STARTSKILLPTS:2	CSKILL:Appraise|Climb|TYPE=Craft|Intimidate|
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Define			Save checks bonus												Combat bonus
 CLASS:Elf Paragon	HD:8		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.35	DEFINE:ElfParagonLVL|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Multiple Requirements
-CLASS:Elf Paragon	PREMULT:1,[PRERACE:1,Elf%],[PREMULT:3,[PRERACE:1,Half-Elf],[PRECLASS:1,Half-Elf Paragon=1],[!PRECLASS:1,Human Paragon=1]]
+CLASS:Elf Paragon	PREMULT:1,[PREMULT:2,[PRERACE:1,Elf%],[!PRERACE:1,Elf (Drow)]],[PREMULT:3,[PRERACE:1,Half-Elf],[PRECLASS:1,Half-Elf Paragon=1],[!PRECLASS:1,Human Paragon=1]]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Elf Paragon	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Spellcraft|Spot|Survival|Swim
 ###Block: Proficiencies
