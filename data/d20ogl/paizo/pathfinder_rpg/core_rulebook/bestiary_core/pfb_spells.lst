@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Bestiary	SOURCESHORT:PFB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
+SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 ###Block: Custom Spells with restrictions as used in spell-like abilities
 # Spell Name						Output Name																		School			Sub-School					Spell Descriptors						Spell Variations			Type				Components		Casting Time			Range					Item		Target Area or Effect																							Duration													Save Info											Spell Resistance							Description																																						Source Page
