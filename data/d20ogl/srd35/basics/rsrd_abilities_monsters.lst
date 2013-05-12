@@ -1172,8 +1172,8 @@ Daylight												KEY:Daylight ~ Planetouched Aasimar				CATEGORY:Special Abil
 Skills												KEY:Skills ~ Planetouched Aasimar				CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES																								DESC:An aasimar has a +2 racial bonus on Spot and Listen checks.
 
 # ~ Planetouched Tiefling
-Darkness												KEY:Darkness ~ Planetouched Tiefling			CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike				VISIBLE:YES																								DESC:A tiefling can use darkness once per day (caster level equal to class levels).
-Skills												KEY:Skills ~ Planetouched Tiefling				CATEGORY:Special Ability	TYPE:SpecialAttack					VISIBLE:YES																								DESC:A tiefling has a +2 racial bonus on Bluff and Hide checks.
+Darkness												KEY:Darkness ~ Planetouched Tiefling			CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike				VISIBLE:YES																								DESC:A tiefling can use darkness once per day (caster level equal to class levels).		SPELLS:Innate|TIMES=var("TieflingDarknessTimes")|CASTERLEVEL=max(1,TL)|Darkness,12+CHA	DEFINE:TieflingDarknessTimes|1
+Skills												KEY:Skills ~ Planetouched Tiefling				CATEGORY:Special Ability	TYPE:SpecialAttack					VISIBLE:YES																								DESC:A tiefling has a +%1 racial bonus on Bluff and Hide checks.|TieflingSkillBonus	DEFINE:TieflingSkillBonus|2	BONUS:SKILL|Bluff,Hide|TieflingSkillBonus|TYPE=Racial
 
 # ~ Pseudodragon
 Poison												KEY:Poison ~ Pseudodragon					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES																								DESC:Injury, Fortitude DC 14, initial damage sleep for 1 minute, secondary damage sleep for 1d3 hours. The save DC is Constitution-based and includes a +2 racial bonus.
