@@ -1,0 +1,124 @@
+# CVS $Revision: 460 $ $Author: tir $ -- Sat Oct 31 11:22:46 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
+# Original Entry by: Tir-Gwaith and Paul W. King
+
+# Class Name
+CLASS:Bard.COPY=Bardic Sage
+
+# Class Name
+CLASS:Bard.COPY=Divine Bard
+
+# Class Name
+CLASS:Bard.COPY=Savage Bard
+
+# Class Name	Prohibited Class
+CLASS:Bard.MOD	!PRECLASS:1,Bardic Sage=1,Divine Bard=1,Savage Bard=1
+
+# Class Name		Abbreviation	Source Page		Save checks bonus
+CLASS:Bardic Sage.MOD	ABB:BrdSge		SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Reflex|floor(CL/3)-floor(CL/2+2)
+# Class Name		Clear Prereq.	Required AL		Prohibited Class
+CLASS:Bardic Sage.MOD	PRE:.CLEAR		PREALIGN:NG,TN,NE	!PRECLASS:1,Bard=1,Divine Bard=1,Savage Bard=1
+# Class Name		Spell Stat		Stat for Bonus Spells	Caster level				Bonus to DC					Use Spell List
+CLASS:Bardic Sage.MOD	SPELLSTAT:INT	BONUSSPELLSTAT:CHA	BONUS:CASTERLEVEL|Bardic Sage|CL	BONUS:DC|CLASS.Bardic Sage|CHA-INT	SPELLLIST:2|Bard|Bardic Sage
+###Block: spells
+1	SPELLLEVEL:CLASS|Bardic Sage=1|Detect Chaos,Detect Evil,Detect Good,Detect Law
+1	SPELLLEVEL:CLASS|Bardic Sage=2|Zone of Truth
+1	SPELLLEVEL:CLASS|Bardic Sage=3|Arcane Sight
+1	SPELLLEVEL:CLASS|Bardic Sage=4|Analyze Dweomer,Sending
+1	SPELLLEVEL:CLASS|Bardic Sage=5|Contact Other Plane,Scrying (Greater)
+1	SPELLLEVEL:CLASS|Bardic Sage=6|True Seeing,Vision
+###Block: Normal progression
+1	BONUS:VAR|BardicKnowledge|2
+1	BONUS:VAR|InspireDurationBase|-2
+# Extra Spells Known - Not sure how to limit it to Divination.
+#   Tried to do as Subclass, similar to Wizard specialities, but no-go with the spontaneous caster.
+###Block: Extra spells known
+1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=0|1
+1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=1|1
+1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=2|1
+1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=3|1
+1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=4|1
+1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=5|1
+1	BONUS:SPELLKNOWN|CLASS=Bardic Sage;LEVEL=6|1
+
+#Spellcasting
+#
+#A bardic sage learns and casts spells as a normal bard, with a few exceptions. In addition to the
+# normal number of spells known, a bardic sage knows one divination spell of each spell level he is
+# capable of casting. For example, a 1st-level bardic sage knows four 0-level bard spells plus one
+# 0-level bard spell of the divination school (such as detect magic, know direction, or read magic.
+# The bardic sage's number of spells per day does not change.
+#
+
+
+# Class Name		Abbreviation	Source Page
+CLASS:Divine Bard.MOD	ABB:DvnBrd		SOURCEPAGE:p.50
+# Class Name		Prohibited Class
+CLASS:Divine Bard.MOD	!PRECLASS:1,Bard=1,Bardic Sage=1,Savage Bard=1
+# Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Caster level				Bonus to DC					Use Spell List
+CLASS:Divine Bard.MOD	SPELLSTAT:WIS	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Divine Bard|CL	BONUS:DC|CLASS.Divine Bard|CHA-WIS	SPELLLIST:1|Bard
+###Block: Expanded spell list options
+1	SPELLLEVEL:CLASS|Divine Bard=0|Create Water,Cure Minor Wounds
+1	SPELLLEVEL:CLASS|Divine Bard=1|Detect Evil,Detect Good,Detect Law,Protection from Evil,Protection from Good,Protection from Law
+1	SPELLLEVEL:CLASS|Divine Bard=2|Consecrate,Desecrate,Gentle Repose
+1	SPELLLEVEL:CLASS|Divine Bard=3|Magic Circle Against Evil,Magic Circle Against Good,Magic Circle Against Law,Prayer
+1	SPELLLEVEL:CLASS|Divine Bard=4|Remove Disease,Speak with Dead,Sending
+1	SPELLLEVEL:CLASS|Divine Bard=5|Divination,Restoration
+1	SPELLLEVEL:CLASS|Divine Bard=6|Commune,Hallow,Unhallow,Raise Dead
+###Block: alignment spell restrictions
+1	PROHIBITSPELL:DESCRIPTOR.Lawful
+1	PROHIBITSPELL:DESCRIPTOR.Chaotic|PREALIGN:TN
+1	PROHIBITSPELL:DESCRIPTOR.Good|PREALIGN:NE,CE,TN
+1	PROHIBITSPELL:DESCRIPTOR.Evil|PREALIGN:NG,CG,TN
+
+
+# Class Name		Abbreviation	Source Page		Save checks bonus
+CLASS:Savage Bard.MOD	ABB:SvgBrd		SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Reflex|CL/3-floor(CL/2+2)	BONUS:CHECKS|BASE.Fortitude|CL/2+2-floor(CL/3)
+# Class Name		Required AL		Prohibited Class
+CLASS:Savage Bard.MOD	PREALIGN:CG,CN,CE	!PRECLASS:1,Bard=1,Bardic Sage=1,Divine Bard=1
+# Class Name		Remove Class Skill						Class Skill
+CLASS:Savage Bard.MOD	CSKILL:.CLEAR.Decipher Script|.CLEAR.Speak Language	CSKILL:Survival
+# Class Name		Caster level				Use Spell List
+CLASS:Savage Bard.MOD	BONUS:CASTERLEVEL|Savage Bard|CL	SPELLLIST:1|Savage Bard
+###Block: Illiteracy
+# (Copy this line and include the hidden feat for any other Illiterate class.)
+#	Currently, this does not take into account the removal using Skill points.
+1	BONUS:VAR|IllteracyLVL|CL	DEFINE:IllteracyLVL|0	ABILITY:Special Ability|VIRTUAL|Illiteracy|PREVAREQ:TL,IlliteracyLVL
+###Block: Spell List
+# This doesn't take into accound Bard spells from other sources.  No way to 'Remove spells from a spell list'
+1	SPELLLEVEL:CLASS|Savage Bard=0|Dancing Lights,Daze,Detect Magic,Flare,Ghost Sound,Know Direction,Light,Lullaby,Mage Hand,Mending,Message,Open/Close,Resistance,Summon Instrument
+1	SPELLLEVEL:CLASS|Savage Bard=1|Alarm,Animate Rope,Calm Emotions,Cause Fear,Charm Person,Cure Light Wounds,Detect Snares and Pits,Disguise Self,Endure Elements,Expeditious Retreat,Feather Fall,Grease,Hideous Laughter,Hypnotism,Identify,Confusion (Lesser),Magic Mouth,Magic Aura,Obscure Object,Remove Fear,Silent Image,Sleep,Summon Nature's Ally I,Undetectable Alignment,Unseen Servant,Ventriloquism
+1	SPELLLEVEL:CLASS|Savage Bard=2|Alter Self,Animal Messenger,Animal Trance,Blindness/Deafness,Blur,Bull's Strength,Cat's Grace,Cure Moderate Wounds,Darkness,Daze Monster,Delay Poison,Detect Thoughts,Eagle's Splendor,Enthrall,Fox's Cunning,Glitterdust,Heroism,Hold Person,Hypnotic Pattern,Invisibility,Locate Object,Minor Image,Mirror Image,Misdirection,Pass without Trace,Pyrotechnics,Rage,Scare,Shatter,Silence,Sound Burst,Suggestion,Summon Nature's Ally II,Summon Swarm,Tongues,Whispering Wind
+1	SPELLLEVEL:CLASS|Savage Bard=3|Blink,Charm Monster,Clairaudience/Clairvoyance,Confusion,Crushing Despair,Cure Serious Wounds,Daylight,Deep Slumber,Dispel Magic,Displacement,Fear,Gaseous Form,Geas (Lesser),Glibness,Good Hope,Haste,Illusory Script,Invisibility Sphere,Major Image,Phantom Steed,Remove Curse,Scrying,Sculpt Sound,Secret Page,See Invisibility,Slow,Snare,Speak with Animals,Summon Nature's Ally III,Tiny Hut
+1	SPELLLEVEL:CLASS|Savage Bard=4|Break Enchantment,Cure Critical Wounds,Detect Scrying,Dimension Door,Dominate Person,Freedom of Movement,Hallucinatory Terrain,Hold Monster,Insect Plague,Invisibility (Greater),Legend Lore,Locate Creature,Modify Memory,Neutralize Poison,Rainbow Pattern,Repel Vermin,Secure Shelter,Shadow Conjuration,Shout,Speak with Plants,Summon Nature's Ally IV,Zone of Silence
+1	SPELLLEVEL:CLASS|Savage Bard=5|Commune with Nature,Cure Light Wounds (Mass),Dispel Magic (Greater),Dream,False Vision,Heroism (Greater),Mind Fog,Mirage Arcana,Mislead,Nightmare,Persistent Image,Seeming,Shadow Evocation,Shadow Walk,Song of Discord,Suggestion (Mass),Summon Nature's Ally V
+1	SPELLLEVEL:CLASS|Savage Bard=6|Analyze Dweomer,Animate Objects,Cat's Grace (Mass),Charm Monster (Mass),Creeping Doom,Eagle's Splendor (Mass),Eyebite,Find the Path,Fox's Cunning (Mass),Geas/Quest,Heroes' Feast,Irresistible Dance,Permanent Image,Programmed Image,Project Image,Reincarnate,Scrying (Greater),Summon Nature's Ally VI,Sympathetic Vibration,Veil
+
+
+# From Page 58, "Other class variants.
+#Since this is an option, and not subclass, I'm NOT changing the SOURCE info.
+
+# Class Name
+CLASS:Bard.MOD
+###Block: Remove Bardic Knowledge, the various Inspires
+1	BONUS:VAR|BardicKnowledgeLvl|-CL			ABILITY:Special Ability|AUTOMATIC|.CLEAR.Bardic Knowledge
+1	BONUS:VAR|BardicKnowledge|-BardicKnowledgeLvl
+###Block: Bardic Music Abilities by level
+1	ABILITY:Special Ability|VIRTUAL|.CLEAR.Bardic Inspire Courage
+1	ABILITY:Special Ability|VIRTUAL|.CLEAR.Bardic Inspire Competence
+1	ABILITY:Special Ability|VIRTUAL|.CLEAR.Bardic Inspire Greatness
+1	ABILITY:Special Ability|VIRTUAL|.CLEAR.Bardic Inspire Heroics
+###Block: Grant Choice via Ability Pool
+1	BONUS:ABILITYPOOL|Bard Variant|1
+###Block: Grant Bardic Knowledge again, using "Regular Bard" Checks
+1	BONUS:VAR|BardicKnowledgeLvl|CL|PREABILITY:1,CATEGORY=Special Ability,Regular Bard			ABILITY:Special Ability|AUTOMATIC|Bardic Knowledge|PREABILITY:1,CATEGORY=Special Ability,Regular Bard
+1	BONUS:VAR|BardicKnowledge|BardicKnowledgeLvl|PREABILITY:1,CATEGORY=Special Ability,Regular Bard
+###Block: Grant Inspire abilities again, using "Regular Bard" Checks
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Courage|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1|PREABILITY:1,CATEGORY=Special Ability,Regular Bard
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Competence|PRESKILL:1,TYPE.Perform=6|PREVARGTEQ:BardicMusicLvl,3|PREABILITY:1,CATEGORY=Special Ability,Regular Bard
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Greatness|PRESKILL:1,TYPE.Perform=12|PREVARGTEQ:BardicMusicLvl,9|PREABILITY:1,CATEGORY=Special Ability,Regular Bard
+1	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Heroics|PRESKILL:1,TYPE.Perform=18|PREVARGTEQ:BardicMusicLvl,15|PREABILITY:1,CATEGORY=Special Ability,Regular Bard
+###Block: Animal Companion
+1	BONUS:VAR|WildEmpathy|CL|PREABILITY:1,CATEGORY=Special Ability,Druidlike Bard	ABILITY:Special Ability|AUTOMATIC|Nature Sense|Wild Empathy|PREABILITY:1,CATEGORY=Special Ability,Druidlike Bard
+1	BONUS:VAR|CompLevel|CL|PREABILITY:1,CATEGORY=Special Ability,Druidlike Bard	ABILITY:Special Ability|AUTOMATIC|Animal Companion|PREABILITY:1,CATEGORY=Special Ability,Druidlike Bard
+4														ABILITY:Special Ability|AUTOMATIC|Resist Nature's Lure|PREABILITY:1,CATEGORY=Special Ability,Druidlike Bard

@@ -1,0 +1,39 @@
+# CVS $Revision: 457 $ $Author: tir $ -- Sun May 12 11:13:43 2013 -- reformated by prettylst.pl v1.50 (build 19967)
+SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
+# Original Entry by: Tir-Gwaith
+
+###Block: Totem abilities.
+# Ability Name		Output Name														Category of Ability		Type								Description																		Source Page
+Bear Totem 5th level	OUTPUTNAME:+4 bonus on grapple checks when raging							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:+4 bonus on grapple checks when raging												SOURCEPAGE:p.48
+Boar Totem Diehard Rage	OUTPUTNAME:When raging, a boar-totem barbarian is treated as having the Diehard feat	CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality			DESC:When raging, a boar-totem barbarian is treated as having the Diehard feat						SOURCEPAGE:p.48
+Dragon Totem 2nd level	OUTPUTNAME:+2 bonus on saves against paralysis and sleep effects.					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:+2 bonus on saves against paralysis and sleep effects.										SOURCEPAGE:p.48
+Horse Totem 3rd level	OUTPUTNAME:+2 bonus on Handle Animal with regard to horses						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:+2 bonus on Handle Animal with regard to horses	DESC:+2 bonus to Ride a horse	DESC:+2 bonus to Ride a horse	SOURCEPAGE:p.49
+Lion Totem 5th level	OUTPUTNAME:+2 bonus on damage rolls when charging							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	DESC:+2 bonus on damage rolls when charging												SOURCEPAGE:p.49
+Serpant Totem 1st Level	OUTPUTNAME:+2 bonus on Fortitude saves against poison							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			DESC:+2 bonus on Fortitude saves against poison												SOURCEPAGE:p.49
+
+# RSRD Frightful Presence defines DC with HD/2. Dragon Totem Barbarians don't automatically get that,
+#	so possibly need to modify the RSRD with a second ability to do the stacking correctly. - Tir Gwaith
+#	For now, this is just linked to the RSRD ability of same name.
+
+###Block: change Barbarian Rage to be a choice in GUI
+# Ability Name						Type					Visible		Description
+CATEGORY=Special Ability|Barbarian Rage.MOD	TYPE:Internal.RageChoice	VISIBLE:DISPLAY	DESC:Standard Barbarian Rage
+###Block: Rage Alternatives
+# Ability Name			Category of Ability		Type					Visible		Description											Ability															Modify VAR																											Source Page
+Barbarian Hunter			CATEGORY:Special Ability	TYPE:Internal.RageChoice	VISIBLE:DISPLAY	DESC:Replace Barbarian Rage with Favored Enemy and Archery Combat Style	ABILITY:Special Ability|AUTOMATIC|Basic Favored Enemy|Ranger Favored Enemy|Archery Combat Style																													SOURCEPAGE:p.58
+Barbarian Whirling Frenzy	CATEGORY:Special Ability	TYPE:Internal.RageChoice	VISIBLE:DISPLAY	DESC:Strength, AC and Reflex saves and extra attacks while in Frenzy																	BONUS:VAR|FrenzyEvasion|1|PREVARGTEQ:BarbRagePowerLVL,14	BONUS:VAR|RageBonus|2|PREVARGTEQ:BarbRagePowerLVL,11	BONUS:VAR|RageBonus|2|PREVARGTEQ:BarbRagePowerLVL,20	SOURCEPAGE:p.66
+
+###Block:Whirling Frenzy (Display and Ability)
+# Ability Name	Category of Ability		Type						Visible	Define																															Description																																																																							Save checks bonus						Combat bonus																								Modify VAR
+Whirling Frenzy	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DEFINE:RageTimes|0	DEFINE:RageDuration|0	DEFINE:RageStrBonus|0	DEFINE:FrenzyACBonus|0	DEFINE:FrenzyReflexBonus|0	DEFINE:Frenzied|0	DEFINE:RageBonus|4	DEFINE:FrenzyEvasion|0	DESC:%1 times/day (%2 rounds)|RageTimes|RageDuration	DESC:Bonues while in Whirling Frenzy (STR +%1, AC +%2, Reflex +%3, Extra Attack with all attacks at -2 penalty)|RageStrBonus|FrenzyACBonus|FrenzyReflexBonus|PREVAREQ:FrenzyEvasion,0	DESC:Bonues while in Whirling Frenzy (STR +%1, AC +%2, Reflex +%3, Extra Attack with all attacks at -2 penalty, Evasion)|RageStrBonus|FrenzyACBonus|FrenzyReflexBonus|PREVARNEQ:FrenzyEvasion,0	BONUS:CHECKS|Reflex|RageReflexBonus|PREAPPLY:PC	BONUS:COMBAT|STR|RageStrBonus|PREAPPLY:PC	BONUS:COMBAT|AC|FrenzyACBonus|PREAPPLY:PC	BONUS:COMBAT|ATTACKS|1|PREAPPLY:PC	BONUS:COMBAT|TOHIT|-2|PREAPPLY:PC	BONUS:VAR|Frenzied|1|PREAPPLY:PC	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|FrenzyACBonus,FrenzyReflexBonus|RageBonus/2
+
+#Whirling Frenzy VARs.  I've tried to re-use Rage VARs, so other feats can still work
+# with the Frenzy version. If this becomes a problem, we'll need to make them separate Frenzy Vars.
+# - Tir Gwaith
+# 	RageTimes         - Number of times per day
+# 	RageDuration      - Length of Frenzy
+# 	RageStrBonus      - Bonus to Strength while in Frenzy
+# 	FrenzyACBonus     * Bonus to AC while in Frenzy
+# 	FrenzyReflexBonus * Bonus to Reflex while in Frenzy
+# 	Frenzied          * Whether or not character is in Frenzy for temp bonuses
+# 	RageBonus         - Bonus tracker for the Rage benefit numbers

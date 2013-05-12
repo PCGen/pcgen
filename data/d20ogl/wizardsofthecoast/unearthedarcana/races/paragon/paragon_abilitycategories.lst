@@ -1,0 +1,15 @@
+# CVS $Revision$ $Author$ -- Sun May 12 11:13:43 2013 -- reformated by prettylst.pl v1.50 (build 19967)
+#SOURCELONG:Unearthed Arcana	SOURCESHORT:UA
+# Original Entry by: Tir Gwaith
+
+
+# Ability Category				Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object					Specific choices list																			Plural description for UI		Display Location
+ABILITYCATEGORY:Human Paragon Stat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HumanParagon																											PLURAL:Human Paragon Stats		DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Adaptive Learning Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HumanParagonAdaptiveLearningChoice																							PLURAL:Adaptive Learning Choice	DISPLAYLOCATION:Race Abilities
+
+
+
+ABILITYCATEGORY:Elf Paragon Weapon Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability								ABILITYLIST:Weapon Focus(Rapier)|Weapon Focus(Longsword)|Weapon Focus(Shortsword)|Weapon Focus(Shortbow)|Weapon Focus(Longbow)							DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Half-Elf Paragon Stat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:HalfElfParagonStat																										PLURAL:Half-Elf Paragon Stats		DISPLAYLOCATION:Race Abilities
+
+ABILITYCATEGORY:Tiefling Resistance Boost	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TieflingResistanceChoice																									PLURAL:Tiefling Resistance Boost	DISPLAYLOCATION:Race Abilities

@@ -1,0 +1,8 @@
+# CVS $Revision: 453 $ $Author: tir $ -- Fri Oct 30 19:11:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
+# Original Entry by: Tir-Gwaith
+
+# Template Name		Visible	Clone Movement
+Ape Totem Climb Half	VISIBLE:NO	MOVECLONE:Walk,Climb,/2
+Ape Totem Climb Full	VISIBLE:NO	MOVECLONE:Walk,Climb,*4
+
