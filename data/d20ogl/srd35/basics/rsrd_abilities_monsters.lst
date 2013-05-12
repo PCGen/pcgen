@@ -1529,7 +1529,7 @@ Immunities												KEY:Immunities ~ Yrthak						CATEGORY:Special Ability	TYPE
 Skills												KEY:Skills ~ Yrthak						CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES																								DESC:Yrthaks have a +4 racial bonus on Listen checks.
 
 # ~ ZOMBIE TEMPLATE
-Single Actions Only										KEY:Single Actions Only ~ Zombie			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES																								DESC:Zombies have poor reflexes and can perform only a single move action or attack action each round. A zombie can move up to its speed and attack in the same round, but only if it attempts a charge.
+Single Actions Only										KEY:Single Actions Only ~ Zombie Template				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES																								DESC:Zombies have poor reflexes and can perform only a single move action or attack action each round. A zombie can move up to its speed and attack in the same round, but only if it attempts a charge.
 
 #Block: Universal Defines
 CATEGORY=Internal|Default.MOD																																	DEFINE:DefaultDCCon|10+(HD/2)+CON	DEFINE:DefaultDCCha|CHA+(HD/2)+10	DEFINE:PoisonDC|10+(HD/2)+CON	DEFINE:DeathGazeDC|CHA+(HD/2)+10
