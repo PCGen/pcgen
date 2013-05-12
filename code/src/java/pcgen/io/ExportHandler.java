@@ -34,14 +34,14 @@ import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -120,13 +120,11 @@ public final class ExportHandler
 	private File templateFile;
 
 	/**
-	 * This holds 'things that we might want to loop over', for use with |FOR 
-	 * and |IIF constructs
-	 * 
-	 * TODO This is pretty ugly.  No idea what sort of junk could be in here.
+	 * These maps hold the loop variables and parameters of FOR constructs that 
+	 * will be replaced by their actual values when evaluated.
 	 */
-	private final Map<Object, Object> loopVariables =
-			new HashMap<Object, Object>();
+	private final Map<Object, Object> loopVariables = new HashMap<Object, Object>();
+	private final Map<Object, Object> loopParameters = new HashMap<Object, Object>();
 
 	/** The delimiter used by embedded DFOR/FOR loops */
 	private String csheetTag2 = "\\";
@@ -514,6 +512,47 @@ public final class ExportHandler
 
 		};
 	}
+	
+	private class VariableComparator implements Comparator<Object>
+	{
+		@Override
+		public int compare(Object o1, Object o2)
+		{
+			final String s1 = (o1 == null ? "" : o1.toString());
+			final String s2 = (o2 == null ? "" : o2.toString());
+			
+			if (s1.length() > s2.length())
+			{
+				return -1;
+			}
+			else if (s1.length() < s2.length())
+			{
+				return 1;
+			}
+			else
+			{
+				return s1.compareTo(s2);
+			}
+		}
+	}
+	
+	private String replaceVariables(String expr, Map<Object,Object> variables)
+	{
+		List<Object> keys = new ArrayList<Object>(variables.keySet());
+		Collections.sort(keys, new VariableComparator());
+		
+		for (final Object anObject : variables.keySet())
+		{
+			if (anObject != null)
+			{
+				final String fString = anObject.toString();
+				final String rString = variables.get(fString).toString();
+				expr = expr.replaceAll(Pattern.quote(fString), rString);
+			}
+		}
+		return expr;
+	}
+	
 	/**
 	 * Helper method to evaluate an expression, used by OIF and IIF tokens
 	 * 
@@ -545,23 +584,12 @@ public final class ExportHandler
 		}
 
 		/* 
-		 * Deal with objects held in the loopVariables set, e.g. 
-		 * Replace the key place holder with the actual value
-		 * 
-		 * TODO need to understand this
+		 * Deal with objects held in the loopVariables and loopParameters
+		 * sets, e.g. replace the key place holder with the actual value
 		 */
 		String expr1 = expr;
-		for (final Object anObject : loopVariables.keySet())
-		{
-			if (anObject == null)
-			{
-				continue;
-			}
-
-			final String fString = anObject.toString();
-			final String rString = loopVariables.get(fString).toString();
-			expr1 = expr1.replaceAll(Pattern.quote(fString), rString);
-		}
+		expr1 = replaceVariables(expr1, loopParameters);
+		expr1 = replaceVariables(expr1, loopVariables);
 
 		// Deal with HASVAR:
 		if (expr1.startsWith("HASVAR:"))
@@ -895,34 +923,28 @@ public final class ExportHandler
 				String maxString = nextFor.max();
 				String stepString = nextFor.step();
 
-				// Go through the list of objects in the loopVariables set
-				// And set the values in place of keys for min, max and step
-				for (final Object anObject : loopVariables.keySet())
-				{
-					if (anObject == null)
-					{
-						continue;
-					}
-
-					final String fString = anObject.toString();
-					final String rString =
-							loopVariables.get(fString).toString();
-					minString =
-							minString.replaceAll(Pattern.quote(fString),
-								rString);
-					maxString =
-							maxString.replaceAll(Pattern.quote(fString),
-								rString);
-					stepString =
-							stepString.replaceAll(Pattern.quote(fString),
-								rString);
-				}
-
+				// Go through the list of objects in the loopVariables and loopParameters
+				// sets and set the values in place of keys for min, max and step
+				minString = replaceVariables(minString, loopParameters);
+				minString = replaceVariables(minString, loopVariables);
+				maxString = replaceVariables(maxString, loopParameters);
+				maxString = replaceVariables(maxString, loopVariables);
+				stepString = replaceVariables(stepString, loopParameters);
+				stepString = replaceVariables(stepString, loopVariables);
+						
 				int minValue = getVarValue(minString, aPC);
 				int maxValue = getVarValue(maxString, aPC);
 				int stepValue = getVarValue(stepString, aPC);
+				String var = nextFor.var();
+				loopParameters.put(var + ".MIN", minValue);
+				loopParameters.put(var + ".MAX", maxValue);
+				loopParameters.put(var + ".STEP", stepValue);
 
 				loopFOR(nextFor, minValue, maxValue, stepValue, output, fa, aPC);
+				loopParameters.remove(var + ".MIN");
+				loopParameters.remove(var + ".MAX");
+				loopParameters.remove(var + ".STEP");
+
 				existsOnly = nextFor.exists();
 				loopVariables.remove(nextFor.var());
 			}
@@ -935,21 +957,8 @@ public final class ExportHandler
 			else
 			{
 				String lineString = (String) aChild;
-
-				for (final Object anObject : loopVariables.keySet())
-				{
-					if (anObject == null)
-					{
-						continue;
-					}
-
-					final String fString = anObject.toString();
-					final String rString =
-							loopVariables.get(fString).toString();
-					lineString =
-							lineString.replaceAll(Pattern.quote(fString),
-								rString);
-				}
+				lineString = replaceVariables(lineString, loopParameters);
+				lineString = replaceVariables(lineString, loopVariables);
 
 				replaceLine(lineString, output, aPC);
 
@@ -1015,30 +1024,26 @@ public final class ExportHandler
 				String maxString = nextFor.max();
 				String stepString = nextFor.step();
 
-				for (Object anObject : loopVariables.keySet())
-				{
-					if (anObject == null)
-					{
-						continue;
-					}
-
-					String fString = anObject.toString();
-					String rString = loopVariables.get(fString).toString();
-					minString =
-							minString.replaceAll(Pattern.quote(fString),
-								rString);
-					maxString =
-							maxString.replaceAll(Pattern.quote(fString),
-								rString);
-					stepString =
-							stepString.replaceAll(Pattern.quote(fString),
-								rString);
-				}
+				minString = replaceVariables(minString, loopParameters);
+				minString = replaceVariables(minString, loopVariables);
+				maxString = replaceVariables(maxString, loopParameters);
+				maxString = replaceVariables(maxString, loopVariables);
+				stepString = replaceVariables(stepString, loopParameters);
+				stepString = replaceVariables(stepString, loopVariables);
 
 				final int varMin = getVarValue(minString, aPC);
 				final int varMax = getVarValue(maxString, aPC);
 				final int varStep = getVarValue(stepString, aPC);
+				String var = nextFor.var();
+				loopParameters.put(var + ".MIN", varMin);
+				loopParameters.put(var + ".MAX", varMax);
+				loopParameters.put(var + ".STEP", varMax);
+				
 				loopFOR(nextFor, varMin, varMax, varStep, output, fa, aPC);
+				loopParameters.remove(var + ".MIN");
+				loopParameters.remove(var + ".MAX");
+				loopParameters.remove(var + ".STEP");
+
 				existsOnly = node.exists();
 				loopVariables.remove(nextFor.var());
 			}
@@ -1049,20 +1054,8 @@ public final class ExportHandler
 			else
 			{
 				String lineString = (String) node.children().get(y);
-
-				for (Object anObject : loopVariables.keySet())
-				{
-					if (anObject == null)
-					{
-						continue;
-					}
-
-					String fString = anObject.toString();
-					String rString = loopVariables.get(fString).toString();
-					lineString =
-							lineString.replaceAll(Pattern.quote(fString),
-								rString);
-				}
+				lineString = replaceVariables(lineString, loopParameters);
+				lineString = replaceVariables(lineString, loopVariables);
 
 				noMoreItems = false;
 				replaceLine(lineString, output, aPC);
