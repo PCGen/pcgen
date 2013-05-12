@@ -5,7 +5,7 @@ SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
 # ALLOWBASECLASS:NO with "Barbarian" Subclass, so there won't be any stacking issues. - Tir Gwaith
 
 # Class Name		Subclass?		Base class as subclass?
-CLASS:Barbarian.MOD	HASSUBCLASS:YES	ALLOWBASECLASS:NO
+CLASS:Barbarian.MOD		ALLOWBASECLASS:NO
 ###Block: Ape Totem
 SUBCLASS:Ape Totem Barbarian	ABB:ApeBbn	COST:0	SOURCEPAGE:p.48
 SUBCLASSLEVEL:1						TEMPLATE:Ape Totem Climb Half
@@ -28,7 +28,7 @@ SUBCLASSLEVEL:7	BONUS:VAR|BarbarianDR|1
 #
 ###Block: Dragon Totem
 SUBCLASS:Dragon Totem Barbarian	ABB:DgnBbn	COST:0	SOURCEPAGE:p.48
-SUBCLASSLEVEL:1																							AUTO:FEAT|Blind Fight
+SUBCLASSLEVEL:1																							AUTO:FEAT|Blind-Fight
 SUBCLASSLEVEL:2													ABILITY:Special Ability|AUTOMATIC|Dragon Totem 2nd level
 SUBCLASSLEVEL:5	BONUS:VAR|FrightfulPresDC|CL/2	BONUS:VAR|FrightfulPresRange|30	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 #

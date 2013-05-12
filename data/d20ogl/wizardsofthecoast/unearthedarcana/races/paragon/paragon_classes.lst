@@ -3,6 +3,8 @@ SOURCELONG:Unearthed Arcana	SOURCESHORT:UA
 # Original Entry by: Tir-Gwaith
 # Updated by: Andrew Maitland
 
+# Drow Paragon	32
+
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Define				Save checks bonus											Combat bonus
 CLASS:Dwarf Paragon	HD:10		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.33	DEFINE:DwarfParagonLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Race
@@ -45,22 +47,22 @@ CLASS:Gnome Paragon	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Hide
 3	BONUS:PCLEVEL|Bard|1
 
 
-# Class Name			Output Name					Hit Dice	Type					Abbreviation	Max Level	Subclass?		Source Page		Define					Save checks bonus											Combat bonus
-CLASS:Half-Dragon Paragon	OUTPUTNAME:Half-Dragon Paragon	HD:12		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	HASSUBCLASS:YES	SOURCEPAGE:p.xx	DEFINE:HalfDragonParagonLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Output Name					Hit Dice	Type					Abbreviation	Max Level	Source Page		Define					Save checks bonus											Combat bonus
+CLASS:Half-Dragon Paragon	OUTPUTNAME:Half-Dragon Paragon	HD:12		TYPE:PC.Prestige.Paragon	ABB:Par		MAXLEVEL:3	SOURCEPAGE:p.37	DEFINE:HalfDragonParagonLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Required Race		Required Template
-CLASS:Half-Dragon Paragon	PRERACE:1,RACETYPE=Dragon	PRETEMPLATE:Half Dragon
+CLASS:Half-Dragon Paragon	PRERACE:1,RACETYPE=Dragon	PRETEMPLATE:1,Half Dragon
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Half-Dragon Paragon	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Intimidate|TYPE=Knowledge|Listen|Search|Sense Motive|Spot
-SUBCLASS:Black Half-Dragon Paragon	COST:0	PRETEMPLATE:Half Dragon (Black)	CSKILL:Hide|Move Silently|Swim
-SUBCLASS:Blue Half-Dragon Paragon	COST:0	PRETEMPLATE:Half Dragon (Blue)	CSKILL:Bluff|Hide|Spellcraft
-SUBCLASS:Brass Half-Dragon Paragon	COST:0	PRETEMPLATE:Half Dragon (Brass)	CSKILL:Bluff|Gather Information|Survival
-SUBCLASS:Bronze Half-Dragon Paragon	COST:0	PRETEMPLATE:Half Dragon (Bronze)	CSKILL:Disguise|Survival|Swim
-SUBCLASS:Copper Half-Dragon Paragon	COST:0	PRETEMPLATE:Half Dragon (Copper)	CSKILL:Bluff|Hide|Jump
-SUBCLASS:Gold Half-Dragon Paragon	COST:0	PRETEMPLATE:Half Dragon (Gold)	CSKILL:Disguise|Heal|Swim
-SUBCLASS:Green Half-Dragon Paragon	COST:0	PRETEMPLATE:Half Dragon (Green)	CSKILL:Bluff|Hide|Move Silently
-SUBCLASS:Red Half-Dragon Paragon	COST:0	PRETEMPLATE:Half Dragon (Red)		CSKILL:Appraise|Bluff|Jump
-SUBCLASS:Silver Half-Dragon Paragon	COST:0	PRETEMPLATE:Half Dragon (Silver)	CSKILL:Bluff|Jump|TYPE=Perform
-SUBCLASS:White Half-Dragon Paragon	COST:0	PRETEMPLATE:Half Dragon (White)	CSKILL:Hide|Move Silently|Swim
+SUBCLASS:Black Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Black)	CSKILL:Hide|Move Silently|Swim
+SUBCLASS:Blue Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Blue)	CSKILL:Bluff|Hide|Spellcraft
+SUBCLASS:Brass Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Brass)	CSKILL:Bluff|Gather Information|Survival
+SUBCLASS:Bronze Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Bronze)	CSKILL:Disguise|Survival|Swim
+SUBCLASS:Copper Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Copper)	CSKILL:Bluff|Hide|Jump
+SUBCLASS:Gold Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Gold)	CSKILL:Disguise|Heal|Swim
+SUBCLASS:Green Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Green)	CSKILL:Bluff|Hide|Move Silently
+SUBCLASS:Red Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Red)		CSKILL:Appraise|Bluff|Jump
+SUBCLASS:Silver Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (Silver)	CSKILL:Bluff|Jump|TYPE=Perform
+SUBCLASS:White Half-Dragon Paragon	COST:0	PRETEMPLATE:1,Half Dragon (White)	CSKILL:Hide|Move Silently|Swim
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Half-Dragon Paragon|Sorcerous Blood ~ Half-Dragon Paragon
 2	ABILITY:Special Ability|AUTOMATIC|Natural Armor Increase ~ Half-Dragon Paragon
@@ -98,9 +100,6 @@ CLASS:Halfling Paragon	PRERACE:1,Halfling%
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Halfling Paragon	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Survival|Swim
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Simple Weapon Proficiency
-1											AUTO:ARMORPROF|ARMORTYPE=Light
-###Block: Class Features
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Halfling Paragon|Athletic Prowess ~ Halfling Paragon|Save Bonus ~ Halfling Paragon
 2	ABILITY:Special Ability|AUTOMATIC|Thrown Weapon Mastery ~ Halfling Paragon
 3	ABILITY:Special Ability|AUTOMATIC|Ability Boost ~ Halfling Paragon
