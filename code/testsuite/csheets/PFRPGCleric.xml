@@ -815,7 +815,7 @@ BIO
 			<critical>20/x2</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 		</unarmed>
-		
+
 		<weapon>
 			<common>
 				<name>
@@ -2537,7 +2537,7 @@ BIO
 							<sourcelevel>Clr0, Sor0, Wiz0</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.249</source>
 							<sourcepage>p.249</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>You cause a living creature that is below 0 hit points but stabilized to resume dying.</description>
@@ -2566,7 +2566,7 @@ BIO
 							<sourcelevel>Adp1, Clr0, Drd0, Pld1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.262</source>
 							<sourcepage>p.262</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>This spell generates wholesome, drinkable water, just like clean rain water.</description>
@@ -2595,7 +2595,7 @@ BIO
 							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.267</source>
 							<sourcepage>p.267</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>You detect magical auras.</description>
@@ -2624,7 +2624,7 @@ BIO
 							<sourcelevel>Clr0, Drd0, Pld1, Rgr1, Sor0, Wiz0</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.268</source>
 							<sourcepage>p.268</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>You determine whether a creature, object, or area has been poisoned or is poisonous.</description>
@@ -2653,7 +2653,7 @@ BIO
 							<sourcelevel>Clr0, Drd0</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.292</source>
 							<sourcepage>p.292</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>This spell imbues the subject with a touch of divine guidance.</description>
@@ -2682,7 +2682,7 @@ BIO
 							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.304</source>
 							<sourcepage>p.304</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>This spell causes a touched object to glow like a torch.</description>
@@ -2711,7 +2711,7 @@ BIO
 							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.312</source>
 							<sourcepage>p.312</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless, object)</spell_resistance>
 						<description>This spell repairs damaged objects, restoring 1d4 hit points to the object.</description>
@@ -2740,7 +2740,7 @@ BIO
 							<sourcelevel>Clr0, Drd0</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.328</source>
 							<sourcepage>p.328</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (object)</spell_resistance>
 						<description>This spell makes spoiled, rotten, diseased, poisonous, or otherwise contaminated food and water pure and suitable for eating and drinking.</description>
@@ -2769,7 +2769,7 @@ BIO
 							<sourcelevel>Brd0, Clr0, Drd0, Pld1, Rgr1, Sor0, Wiz0</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.330</source>
 							<sourcepage>p.330</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance></spell_resistance>
 						<description>You can decipher magical inscriptions on objects--books, scrolls, weapons, and the like--that would otherwise be unintelligible.</description>
@@ -2798,7 +2798,7 @@ BIO
 							<sourcelevel>Brd0, Clr0, Drd0, Pld1, Sor0, Wiz0</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.334</source>
 							<sourcepage>p.334</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>You imbue the subject with magical energy that protects it from harm, granting it a +1 resistance bonus on saves.</description>
@@ -2827,7 +2827,7 @@ BIO
 							<sourcelevel>Clr0, Drd0</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.348</source>
 							<sourcepage>p.348</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>Upon casting this spell, you target a living creature that has -1 or fewer hit points.</description>
@@ -2856,7 +2856,7 @@ BIO
 							<sourcelevel>Clr0, Drd0, Pld1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.365</source>
 							<sourcepage>p.365</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>With a touch, you infuse a creature with a tiny surge of life, granting the subject 1 temporary hit point.</description>
@@ -2887,7 +2887,7 @@ BIO
 							<sourcelevel>Clr1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.246</source>
 							<sourcepage>p.246</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>Bane fills your enemies with fear and doubt.</description>
@@ -2916,7 +2916,7 @@ BIO
 							<sourcelevel>Clr1, Community1, Pld1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.249</source>
 							<sourcepage>p.249</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>Bless fills your allies with courage.</description>
@@ -2945,7 +2945,7 @@ BIO
 							<sourcelevel>Clr1, Pld1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.249</source>
 							<sourcepage>p.249</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (object)</spell_resistance>
 						<description>This transmutation imbues a flask of water with positive energy, turning it into holy water.</description>
@@ -2974,7 +2974,7 @@ BIO
 							<sourcelevel>Brd1, Clr1, Death1, Sor1, Wiz1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.252</source>
 							<sourcepage>p.252</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>The affected creature becomes frightened.</description>
@@ -3003,7 +3003,7 @@ BIO
 							<sourcelevel>Clr1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.256</source>
 							<sourcepage>p.256</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>You give the subject a single command, which it obeys to the best of its ability at its earliest opportunity.</description>
@@ -3032,7 +3032,7 @@ BIO
 							<sourcelevel>Brd1, Clr1, Knowledge1, Sor1, Wiz1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.258</source>
 							<sourcepage>p.258</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance></spell_resistance>
 						<description>You can understand the spoken words of creatures or read otherwise incomprehensible written messages.</description>
@@ -3061,7 +3061,7 @@ BIO
 							<sourcelevel>Brd1, Clr1, Drd1, Healing1, Pld1, Rgr2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.263</source>
 							<sourcepage>p.263</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless); see text</spell_resistance>
 						<description>When laying your hand upon a living creature, you channel positive energy that cures 1d8+(min(5,CASTERLEVEL)) points of damage.</description>
@@ -3090,7 +3090,7 @@ BIO
 							<sourcelevel>Clr1, Repose1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.265</source>
 							<sourcepage>p.265</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>Using the powers of necromancy, you can determine the condition of creatures near death within the spell&#39;s range.</description>
@@ -3119,7 +3119,7 @@ BIO
 							<sourcelevel>Clr1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.266</source>
 							<sourcepage>p.266</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>You can sense the auras of chaotic creatures.</description>
@@ -3148,7 +3148,7 @@ BIO
 							<sourcelevel>Clr1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.266</source>
 							<sourcepage>p.266</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>You can sense the presence of evil.</description>
@@ -3177,7 +3177,7 @@ BIO
 							<sourcelevel>Clr1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.267</source>
 							<sourcepage>p.267</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>You can sense the presence of good.</description>
@@ -3206,7 +3206,7 @@ BIO
 							<sourcelevel>Clr1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.267</source>
 							<sourcepage>p.267</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>You can sense the auras of lawful creatures.</description>
@@ -3235,7 +3235,7 @@ BIO
 							<sourcelevel>Clr1, Pld1, Sor1, Wiz1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.269</source>
 							<sourcepage>p.269</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>You can detect the aura that surrounds undead creatures.</description>
@@ -3264,7 +3264,7 @@ BIO
 							<sourcelevel>Clr1, Nobility1, Pld1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.273</source>
 							<sourcepage>p.273</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance></spell_resistance>
 						<description>Calling upon the strength and wisdom of a deity, you gain a +(max(1,min(3,floor(CASTERLEVEL/3)))) luck bonus on attack and weapon damage rolls.</description>
@@ -3293,7 +3293,7 @@ BIO
 							<sourcelevel>Clr1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.274</source>
 							<sourcepage>p.274</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>This spell fills a single subject with a feeling of horrible dread that causes it to become shaken.</description>
@@ -3322,7 +3322,7 @@ BIO
 							<sourcelevel>Clr1, Drd1, Pld1, Rgr1, Sor1, Sun1, Wiz1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.277</source>
 							<sourcepage>p.277</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>A creature protected by endure elements suffers no harm from being in a hot or cold environment.</description>
@@ -3351,7 +3351,7 @@ BIO
 							<sourcelevel>Clr1, Drd1, Pld1, Rgr1, Sor1, Sun1, Wiz1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.277</source>
 							<sourcepage>p.277</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>A creature protected by endure elements suffers no harm from being in a hot or cold environment.</description>
@@ -3380,7 +3380,7 @@ BIO
 							<sourcelevel>Clr1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.278</source>
 							<sourcepage>p.278</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance></spell_resistance>
 						<description>A magical field appears around you, glowing with a chaotic blast of multicolored hues deflecting incoming arrows, rays, and other ranged attacks.</description>
@@ -3409,7 +3409,7 @@ BIO
 							<sourcelevel>Clr1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.296</source>
 							<sourcepage>p.296</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>Undead cannot see, hear, or smell creatures warded by this spell.</description>
@@ -3438,7 +3438,7 @@ BIO
 							<sourcelevel>Clr1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.300</source>
 							<sourcepage>p.300</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>When laying your hand upon a creature, you channel negative energy that deals 1d8+(min(5,CASTERLEVEL)) points of damage.</description>
@@ -3467,7 +3467,7 @@ BIO
 							<sourcelevel>Clr1, Drd1, Earth1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.310</source>
 							<sourcepage>p.310</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless, object)</spell_resistance>
 						<description>You transmute as many as three pebbles, which can be no larger than sling bullets, so that they strike with great force when thrown or slung.</description>
@@ -3496,7 +3496,7 @@ BIO
 							<sourcelevel>Clr1, Pld1, Sor1, War1, Wiz1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.310</source>
 							<sourcepage>p.310</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless, object)</spell_resistance>
 						<description>Magic weapon gives a weapon a +1 enhancement bonus on attack and damage rolls.</description>
@@ -3525,7 +3525,7 @@ BIO
 							<sourcelevel>Air1, Clr1, Darkness1, Drd1, Sor1, Water1, Weather1, Wiz1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.317</source>
 							<sourcepage>p.317</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>A misty, stationary vapor arises around you obscuring all sight, including darkvision, beyond 5 feet.</description>
@@ -3554,7 +3554,7 @@ BIO
 							<sourcelevel>Clr1, Law1, Pld1, Sor1, Wiz1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.327</source>
 							<sourcepage>p.327</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No; see text</spell_resistance>
 						<description>This spell wards a creature from attacks by chaotic creatures, from mental control, and from summoned creatures.</description>
@@ -3583,7 +3583,7 @@ BIO
 							<sourcelevel>Clr1, Good1, Pld1, Sor1, Wiz1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.327</source>
 							<sourcepage>p.327</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No; see text</spell_resistance>
 						<description>This spell wards a creature from attacks by evil creatures, from mental control, and from summoned creatures.</description>
@@ -3612,7 +3612,7 @@ BIO
 							<sourcelevel>Chaos1, Clr1, Sor1, Wiz1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.328</source>
 							<sourcepage>p.328</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No; see text</spell_resistance>
 						<description>This spell wards a creature from attacks by lawful creatures, from mental control, and from summoned creatures.</description>
@@ -3641,7 +3641,7 @@ BIO
 							<sourcelevel>Brd1, Clr1, Liberation1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.332</source>
 							<sourcepage>p.332</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>You instill courage in the subject, granting it a +4 morale bonus against fear effects for 10 minutes.</description>
@@ -3670,7 +3670,7 @@ BIO
 							<sourcelevel>Clr1, Protection1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.336</source>
 							<sourcepage>p.336</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>Any opponent attempting to directly attack the warded creature, even with a targeted spell, must attempt a Will save.</description>
@@ -3699,7 +3699,7 @@ BIO
 							<sourcelevel>Clr1, Glory1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.342</source>
 							<sourcepage>p.342</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>This spell creates a shimmering, magical field around the target that averts and deflects attacks.</description>
@@ -3728,7 +3728,7 @@ BIO
 							<sourcelevel>Clr1, Glory1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.342</source>
 							<sourcepage>p.342</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>This spell creates a shimmering, magical field around the target that averts and deflects attacks.</description>
@@ -3757,7 +3757,7 @@ BIO
 							<sourcelevel>Brd1, Clr1, Sor1, Wiz1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.350</source>
 							<sourcepage>p.350</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>This spell summons an extraplanar creature.</description>
@@ -3788,7 +3788,7 @@ BIO
 							<sourcelevel>Clr2, Luck2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.239</source>
 							<sourcepage>p.239</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>Aid grants +1 morale bonus on attack rolls and saves vs fear effects, plus 1d8 + (min(CASTERLEVEL,10)) temporary hit points.</description>
@@ -3817,7 +3817,7 @@ BIO
 							<sourcelevel>Clr2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.240</source>
 							<sourcepage>p.240</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless, object)</spell_resistance>
 						<description>Align weapon makes a weapon chaotic, evil, good, or lawful, as you choose.</description>
@@ -3846,7 +3846,7 @@ BIO
 							<sourcelevel>Clr2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.245</source>
 							<sourcepage>p.245</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance></spell_resistance>
 						<description>An augury can tell you whether a particular action will bring good or bad results for you in the immediate future.</description>
@@ -3875,7 +3875,7 @@ BIO
 							<sourcelevel>Clr2, Drd2, Rgr2, Sor2, Wiz2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.246</source>
 							<sourcepage>p.246</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>The affected creature gains greater vitality and stamina granting the subject a +4 enhancement bonus to Constitution.</description>
@@ -3904,7 +3904,7 @@ BIO
 							<sourcelevel>Glory2, Pld1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.250</source>
 							<sourcepage>p.250</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>This transmutation makes a weapon strike true against evil foes.</description>
@@ -3933,7 +3933,7 @@ BIO
 							<sourcelevel>Clr2, Drd2, Pld2, Sor2, Strength2, Wiz2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.251</source>
 							<sourcepage>p.251</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>The subject becomes stronger granting a +4 enhancement bonus to Strength.</description>
@@ -3962,7 +3962,7 @@ BIO
 							<sourcelevel>Brd2, Charm2, Clr2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.252</source>
 							<sourcepage>p.252</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>This spell calms agitated creatures.</description>
@@ -3991,7 +3991,7 @@ BIO
 							<sourcelevel>Clr2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.258</source>
 							<sourcepage>p.258</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>This spell blesses an area with positive energy.</description>
@@ -4020,7 +4020,7 @@ BIO
 							<sourcelevel>Brd2, Clr2, Drd3, Healing2, Pld3, Rgr3</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.263</source>
 							<sourcepage>p.263</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless) or yes; see text</spell_resistance>
 						<description>When laying your hand upon a living creature, you channel positive energy that cures 2d8+(min(10,CASTERLEVEL)) points of damage.</description>
@@ -4049,7 +4049,7 @@ BIO
 							<sourcelevel>Brd2, Clr2, Sor2, Wiz2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.263</source>
 							<sourcepage>p.263</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>This spell causes an object to radiate darkness out to a 20-foot radius.</description>
@@ -4078,7 +4078,7 @@ BIO
 							<sourcelevel>Brd2, Clr2, Drd2, Pld2, Rgr1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.265</source>
 							<sourcepage>p.265</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>The subject becomes temporarily immune to poison.</description>
@@ -4107,7 +4107,7 @@ BIO
 							<sourcelevel>Brd2, Clr2, Pld2, Sor2, Wiz2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.275</source>
 							<sourcepage>p.275</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>The transmuted creature becomes more poised, articulate, and personally forceful gaining a +4 enhancement bonus to Charisma.</description>
@@ -4136,7 +4136,7 @@ BIO
 							<sourcelevel>Brd2, Clr2, Nobility2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.278</source>
 							<sourcepage>p.278</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>If you have the attention of a group of creatures, you can use this spell to hold them enthralled.</description>
@@ -4165,7 +4165,7 @@ BIO
 							<sourcelevel>Clr2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.281</source>
 							<sourcepage>p.281</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance></spell_resistance>
 						<description>You gain intuitive insight into the workings of traps.</description>
@@ -4194,7 +4194,7 @@ BIO
 							<sourcelevel>Clr2, Repose2, Sor3, Wiz3</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.289</source>
 							<sourcepage>p.289</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (object)</spell_resistance>
 						<description>You preserve the remains of a dead creature so that they do not decay.</description>
@@ -4223,7 +4223,7 @@ BIO
 							<sourcelevel>Drd2, Sun2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.294</source>
 							<sourcepage>p.294</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (object)</spell_resistance>
 						<description>Heat metal causes metal objects to become red-hot.</description>
@@ -4252,7 +4252,7 @@ BIO
 							<sourcelevel>Brd2, Clr2, Sor3, Wiz3</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.296</source>
 							<sourcepage>p.296</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>The subject becomes paralyzed and freezes in place.</description>
@@ -4281,7 +4281,7 @@ BIO
 							<sourcelevel>Clr2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.300</source>
 							<sourcepage>p.300</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>When laying your hand upon a creature, you channel negative energy that deals 2d8+(min(10,CASTERLEVEL)) points of damage.</description>
@@ -4310,7 +4310,7 @@ BIO
 							<sourcelevel>Clr2, Sor2, Wiz2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.311</source>
 							<sourcepage>p.311</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless, object)</spell_resistance>
 						<description>This spell functions as mending, except that it repairs (min(5,CASTERLEVEL))d6 points of damage when cast on a construct creature.</description>
@@ -4339,7 +4339,7 @@ BIO
 							<sourcelevel>Clr2, Drd2, Pld2, Rgr2, Sor2, Wiz2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.318</source>
 							<sourcepage>p.318</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>The transmuted creature becomes wiser gaining a +4 enhancement bonus to Wisdom.</description>
@@ -4368,7 +4368,7 @@ BIO
 							<sourcelevel>Clr2, Liberation2, Pld2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.332</source>
 							<sourcepage>p.332</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>You can free one or more creatures from the effects of temporary paralysis or related magic.</description>
@@ -4397,7 +4397,7 @@ BIO
 							<sourcelevel>Clr2, Drd2, Pld2, Rgr1, Sor2, Wiz2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.334</source>
 							<sourcepage>p.334</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>This abjuration grants a creature limited protection from damage of whichever one of five energy types you select.</description>
@@ -4426,7 +4426,7 @@ BIO
 							<sourcelevel>Clr2, Drd2, Pld1</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.334</source>
 							<sourcepage>p.334</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>Lesser restoration dispels any magical effects reducing one of the subject&#39;s ability scores or cures 1d4 points of temporary ability damage to one of the subject&#39;s ability scores.</description>
@@ -4455,7 +4455,7 @@ BIO
 							<sourcelevel>Brd2, Clr2, Sor2, Wiz2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.341</source>
 							<sourcepage>p.341</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>Shatter creates a loud, ringing noise that breaks brittle, nonmagical objects; sunders a single solid, nonmagical object; or damages a crystalline creature.</description>
@@ -4484,7 +4484,7 @@ BIO
 							<sourcelevel>Clr2, Community2, Pld2, Protection2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.342</source>
 							<sourcepage>p.342</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>This spell wards the subject and creates a mystic connection between you and the subject so that some of its wounds are transferred to you.</description>
@@ -4513,7 +4513,7 @@ BIO
 							<sourcelevel>Brd2, Clr2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.343</source>
 							<sourcepage>p.343</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes; see text or no (object)</spell_resistance>
 						<description>Upon the casting of this spell, complete silence prevails in the affected area.</description>
@@ -4542,7 +4542,7 @@ BIO
 							<sourcelevel>Brd2, Clr2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.346</source>
 							<sourcepage>p.346</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>You blast an area with a tremendous cacophony.</description>
@@ -4571,7 +4571,7 @@ BIO
 							<sourcelevel>Clr2, War2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.348</source>
 							<sourcepage>p.348</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>A weapon made of force appears and attacks foes at a distance, as you direct it, dealing 1d8+(min(5,floor(CASTERLEVEL/3))) force damage per hit.</description>
@@ -4600,7 +4600,7 @@ BIO
 							<sourcelevel>Clr2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.349</source>
 							<sourcepage>p.349</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (harmless)</spell_resistance>
 						<description>When you need to keep track of comrades who may get separated, status allows you to mentally monitor their relative positions and general condition.</description>
@@ -4629,7 +4629,7 @@ BIO
 							<sourcelevel>Brd2, Clr2, Sor2, Wiz2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.352</source>
 							<sourcepage>p.352</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>No</spell_resistance>
 						<description>This spell functions like summon monster I, except that you can summon one creature from the 2nd-level list or 1d3 creatures of the same kind from the 1st-level list.</description>
@@ -4658,7 +4658,7 @@ BIO
 							<sourcelevel>Brd1, Clr2, Pld2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.363</source>
 							<sourcepage>p.363</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes (object)</spell_resistance>
 						<description>An undetectable alignment spell conceals the alignment of an object or a creature from all forms of divination.</description>
@@ -4687,7 +4687,7 @@ BIO
 							<sourcelevel>Clr2, Pld2</sourcelevel>
 							<source>Paizo Publishing - Core Rulebook, p.371</source>
 							<sourcepage>p.371</sourcepage>
-							<sourceshort>PFCR</sourceshort>
+							<sourceshort>CRB</sourceshort>
 						</source>
 						<spell_resistance>Yes</spell_resistance>
 						<description>Creatures within the emanation area (or those who enter it) can&#39;t speak any deliberate and intentional lies.</description>
