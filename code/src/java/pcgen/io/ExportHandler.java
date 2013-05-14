@@ -936,14 +936,14 @@ public final class ExportHandler
 				int maxValue = getVarValue(maxString, aPC);
 				int stepValue = getVarValue(stepString, aPC);
 				String var = nextFor.var();
-				loopParameters.put(var + ".MIN", minValue);
-				loopParameters.put(var + ".MAX", maxValue);
-				loopParameters.put(var + ".STEP", stepValue);
+				loopParameters.put(var + "!MIN", minValue);
+				loopParameters.put(var + "!MAX", maxValue);
+				loopParameters.put(var + "!STEP", stepValue);
 
 				loopFOR(nextFor, minValue, maxValue, stepValue, output, fa, aPC);
-				loopParameters.remove(var + ".MIN");
-				loopParameters.remove(var + ".MAX");
-				loopParameters.remove(var + ".STEP");
+				loopParameters.remove(var + "!MIN");
+				loopParameters.remove(var + "!MAX");
+				loopParameters.remove(var + "!STEP");
 
 				existsOnly = nextFor.exists();
 				loopVariables.remove(nextFor.var());
@@ -1035,14 +1035,14 @@ public final class ExportHandler
 				final int varMax = getVarValue(maxString, aPC);
 				final int varStep = getVarValue(stepString, aPC);
 				String var = nextFor.var();
-				loopParameters.put(var + ".MIN", varMin);
-				loopParameters.put(var + ".MAX", varMax);
-				loopParameters.put(var + ".STEP", varMax);
+				loopParameters.put(var + "!MIN", varMin);
+				loopParameters.put(var + "!MAX", varMax);
+				loopParameters.put(var + "!STEP", varMax);
 				
 				loopFOR(nextFor, varMin, varMax, varStep, output, fa, aPC);
-				loopParameters.remove(var + ".MIN");
-				loopParameters.remove(var + ".MAX");
-				loopParameters.remove(var + ".STEP");
+				loopParameters.remove(var + "!MIN");
+				loopParameters.remove(var + "!MAX");
+				loopParameters.remove(var + "!STEP");
 
 				existsOnly = node.exists();
 				loopVariables.remove(nextFor.var());
