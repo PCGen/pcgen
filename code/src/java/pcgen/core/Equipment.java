@@ -6147,7 +6147,7 @@ public final class Equipment extends PObject implements Serializable,
 				total =
 						new Float(total
 							+ (anEquip.getWeightAsDouble(aPC) * anEquip
-								.getCarried()));
+								.getQty()));
 			}
 		}
 
@@ -6256,10 +6256,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			Equipment aEquip = getContainedEquipment(it);
 
-			if (aEquip.getCarried() > 0.0f)
-			{
-				contents.add(aEquip);
-			}
+			contents.add(aEquip);
 		}
 
 		return contents;
