@@ -479,7 +479,7 @@ SKILL:Spot							RANK:48
 FEAT:Alertness
 FEAT:Cleave
 FEAT:Combat Reflexes
-FEAT:Empower Spell Like Ability
+FEAT:Empower Spell
 FEAT:Flyby Attack
 FEAT:Hover
 FEAT:Improved Critical(Bite)
@@ -488,7 +488,7 @@ FEAT:Improved Critical(Wing)
 FEAT:Improved Critical(Tail Slap)
 FEAT:Improved Initiative
 FEAT:Improved Sunder
-FEAT:Maximize Spell Like Ability
+FEAT:Maximize Spell
 FEAT:Power Attack
 FEAT:Spell Knowledge
 #(Sorcerer 5,Sorcerer 6)
