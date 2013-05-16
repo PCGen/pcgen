@@ -125,7 +125,7 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|
 1							BONUS:VAR|MndBladeLVL|CL				DEFINE:MndBladeLVL|0	ABILITY:Special Ability|AUTOMATIC|Form Mind Blade|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeFormMindBlade	ABILITY:Special Ability|AUTOMATIC|Shape Mind Blade|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeShapeMindBlade	ABILITY:Special Ability|AUTOMATIC|Throw Mind Blade|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeThrowMindBlade
 1	BONUS:ABILITYPOOL|Blade Skill|CL/2													ABILITY:Special Ability|AUTOMATIC|Enhanced Mind Blade|PREMULT:2,[PREVARGTEQ:MndBladeLVL,3],[!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeEnhancedMindBlade]
 3							BONUS:VAR|PsychicStrikeDiceNumber|(CL+1)/4					ABILITY:Special Ability|AUTOMATIC|Psychic Strike
-5																			ABILITY:Special Ability|AUTOMATIC|Quick Draw Mind Blade
+5																			ABILITY:Special Ability|AUTOMATIC|Quick Draw Mind Blade|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeQuickDraw
 20																			ABILITY:Special Ability|AUTOMATIC|Mind Blade Mastery
 
 ###Block: Class Info
