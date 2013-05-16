@@ -73,14 +73,13 @@ CATEGORY=Internal|Dwarf Racial Trait Default.MOD					ABILITY:Dwarf Racial Trait|
 CATEGORY=Internal|Dwarf Racial Trait Default.MOD					ABILITY:Dwarf Racial Trait|AUTOMATIC|Steady ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSteady
 CATEGORY=Internal|Dwarf Racial Trait Default.MOD					ABILITY:Dwarf Racial Trait|AUTOMATIC|Weapon Familiarity ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity
 CATEGORY=Internal|Dwarf Racial Trait Default.MOD					ABILITY:Dwarf Racial Trait|AUTOMATIC|Darkvision ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision
-
+CATEGORY=Internal|Dwarf Racial Trait Default.MOD					ABILITY:Dwarf Racial Trait|AUTOMATIC|Language ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfLanguage
 #
 CATEGORY=Internal|Elf Racial Trait Default.MOD						ABILITY:Elf Racial Trait|AUTOMATIC|Elven Immunities ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfImmunities
 CATEGORY=Internal|Elf Racial Trait Default.MOD						ABILITY:Elf Racial Trait|AUTOMATIC|Elven Magic ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfMagic
 CATEGORY=Internal|Elf Racial Trait Default.MOD						ABILITY:Elf Racial Trait|AUTOMATIC|Weapon Familiarity ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponFamiliarity
 CATEGORY=Internal|Elf Racial Trait Default.MOD						ABILITY:Elf Racial Trait|AUTOMATIC|Keen Senses ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSenses
 CATEGORY=Internal|Elf Racial Trait Default.MOD						ABILITY:Elf Racial Trait|AUTOMATIC|Low-Light Vision ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialVision
-
 #
 CATEGORY=Internal|Gnome Racial Trait Default.MOD					ABILITY:Gnome Racial Trait|AUTOMATIC|Defensive Training ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeDefensiveTraining
 CATEGORY=Internal|Gnome Racial Trait Default.MOD					ABILITY:Gnome Racial Trait|AUTOMATIC|Gnome Magic ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeMagic
@@ -90,7 +89,6 @@ CATEGORY=Internal|Gnome Racial Trait Default.MOD					ABILITY:Gnome Racial Trait|
 CATEGORY=Internal|Gnome Racial Trait Default.MOD					ABILITY:Gnome Racial Trait|AUTOMATIC|Keen Senses ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSenses
 CATEGORY=Internal|Gnome Racial Trait Default.MOD					ABILITY:Gnome Racial Trait|AUTOMATIC|Weapon Familiarity ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeWeaponFamiliarity
 CATEGORY=Internal|Gnome Racial Trait Default.MOD					ABILITY:Gnome Racial Trait|AUTOMATIC|Low-Light Vision ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialVision
-
 #
 CATEGORY=Internal|Half Elf Racial Trait Default.MOD					ABILITY:Half Elf Racial Trait|AUTOMATIC|Adaptability ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfAdaptability
 CATEGORY=Internal|Half Elf Racial Trait Default.MOD					ABILITY:Half Elf Racial Trait|AUTOMATIC|Multitalented ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfMultitalented
@@ -98,21 +96,18 @@ CATEGORY=Internal|Half Elf Racial Trait Default.MOD					ABILITY:Half Elf Racial 
 CATEGORY=Internal|Half Elf Racial Trait Default.MOD					ABILITY:Half Elf Racial Trait|AUTOMATIC|Keen Senses ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfSenses
 CATEGORY=Internal|Half Elf Racial Trait Default.MOD					ABILITY:Half Elf Racial Trait|AUTOMATIC|Low-Light Vision ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision
 CATEGORY=Internal|Half Elf Racial Trait Default.MOD					ABILITY:Half Elf Racial Trait|AUTOMATIC|Elf Blood ~ Half-Elf
-
 #
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD					ABILITY:Half Orc Racial Trait|AUTOMATIC|Intimidating ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcIntimidating
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD					ABILITY:Half Orc Racial Trait|AUTOMATIC|Orc Ferocity ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcFerocity
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD					ABILITY:Half Orc Racial Trait|AUTOMATIC|Weapon Familiarity ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcWeaponFamiliarity
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD					ABILITY:Half Orc Racial Trait|AUTOMATIC|Darkvision ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcRacialVision
 CATEGORY=Internal|Half Orc Racial Trait Default.MOD					ABILITY:Half Orc Racial Trait|AUTOMATIC|Orc Blood
-
 #
 CATEGORY=Internal|Halfling Racial Trait Default.MOD					ABILITY:Halfling Racial Trait|AUTOMATIC|Fearless ~ Halfling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingFearless
 CATEGORY=Internal|Halfling Racial Trait Default.MOD					ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling Luck ~ Halfling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingLuck
 CATEGORY=Internal|Halfling Racial Trait Default.MOD					ABILITY:Halfling Racial Trait|AUTOMATIC|Keen Senses ~ Halfling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingKeenSenses
 CATEGORY=Internal|Halfling Racial Trait Default.MOD					ABILITY:Halfling Racial Trait|AUTOMATIC|Sure-Footed ~ Halfling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingSureFooted
 CATEGORY=Internal|Halfling Racial Trait Default.MOD					ABILITY:Halfling Racial Trait|AUTOMATIC|Weapon Familiarity ~ Halfling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingWeaponFamiliarity
-
 #
 CATEGORY=Internal|Human Racial Trait Default.MOD					ABILITY:Human Racial Trait|AUTOMATIC|Bonus Feat ~ Human|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanBonusFeat
 CATEGORY=Internal|Human Racial Trait Default.MOD					ABILITY:Human Racial Trait|AUTOMATIC|Skilled ~ Human|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanSkilled
@@ -132,6 +127,7 @@ Stonecunning		KEY:Stonecunning ~ Dwarf		CATEGORY:Special Ability	TYPE:RacialTrai
 Steady			KEY:Steady ~ Dwarf			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.DwarfRacialTrait.DwarfRacialDefault						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Steady ~ Dwarf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSteady]												DESC:Dwarves never have their speed reduced by armor or encumbrance.																																																																																										SOURCEPAGE:p.21																																	UNENCUMBEREDMOVE:HeavyLoad|HeavyArmor
 Weapon Familiarity	KEY:Weapon Familiarity ~ Dwarf	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.DwarfRacialTrait.DwarfRacialDefault						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Weapon Familiarity ~ Dwarf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity]								DESC:Dwarves are proficient with battleaxes, heavy picks, and warhammers, and treat any weapon with the word "dwarven" in its name as a martial weapon.																													AUTO:WEAPONPROF|Battleaxe|Pick (Heavy)|Warhammer																								BONUS:WEAPONPROF=Waraxe (Dwarven)|WIELDCATEGORY|-1	CHANGEPROF:TYPE.Dwarven=Martial	SOURCEPAGE:p.21
 Darkvision			KEY:Darkvision ~ Dwarf			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.DwarfRacialTrait.DwarfRacialDefault.RacialVision	VISIBLE:DISPLAY	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Darkvision ~ Dwarf],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision]																																																																																								BONUS:VAR|RacialVision|1
+Language			KEY:Language ~ Dwarf			CATEGORY:Special Ability	TYPE:RacialTraits.DwarfRacialTrait.DwarfRacialDefault					AUTO:LANG|Common|Dwarven
 
 ###Block: Elf Abilities
 # Ability Name		Unique Key				Category of Ability		Type																Visible		Multiple Requirements																					Description																																			Automatically Gained Weapon Prof.				Bonus to skill								Modify VAR				Change Weapon Prof. Category	Source Page		Aspects
