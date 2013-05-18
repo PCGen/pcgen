@@ -75,11 +75,22 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 		if (prereq.getKey().startsWith("BOOKTYPE="))
 		{
 			runningTotal +=
-					countCampaignByBookType(prereq.getKey().substring(9));
+					countCampaignByBookType(prereq.getKey().substring(9), false);
+		}
+		else if (prereq.getKey().startsWith("INCLUDESBOOKTYPE="))
+		{
+			runningTotal +=
+					countCampaignByBookType(prereq.getKey().substring(17), true);
+		}
+		else if (prereq.getKey().startsWith("INCLUDES="))
+		{
+			runningTotal +=
+					countCampaignByName(prereq.getKey().substring(9), source,
+						true);
 		}
 		else
 		{
-			runningTotal += countCampaignByName(prereq.getKey(), source);
+			runningTotal += countCampaignByName(prereq.getKey(), source, false);
 		}
 
 		runningTotal = prereq.getOperator().compare(runningTotal, number);
@@ -91,10 +102,12 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 * are of the book type.
 	 * 
 	 * @param bookType the book type
+	 * @param includeSubCampaigns Should we count included sub campaigns that match
 	 * 
 	 * @return the number of matching campaigns
 	 */
-	private int countCampaignByBookType(String bookType)
+	private int countCampaignByBookType(String bookType,
+		boolean includeSubCampaigns)
 	{
 		Set<Campaign> matchingCampaigns = new HashSet<Campaign>();
 		List<Campaign> campList = Globals.getCampaignList();
@@ -116,18 +129,27 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 		for (URI element : selCampaigns)
 		{
 			final Campaign aCampaign = Globals.getCampaignByURI(element, false);
-//			List<Campaign> fullCampList = getFullCampaignList(aCampaign);
-//			for (Campaign camp : fullCampList)
-//			{
-				for (String listType : aCampaign.getBookTypeList())
+			List<Campaign> fullCampList;
+			if (includeSubCampaigns)
+			{
+				fullCampList = getFullCampaignList(aCampaign);
+			}
+			else
+			{
+				fullCampList = new ArrayList<Campaign>();
+				fullCampList.add(aCampaign);
+			}
+			for (Campaign camp : fullCampList)
+			{
+				for (String listType : camp.getBookTypeList())
 				{
-					if (aCampaign != null && bookType.equalsIgnoreCase(listType))
+					if (bookType.equalsIgnoreCase(listType))
 					{
-						matchingCampaigns.add(aCampaign);
+						matchingCampaigns.add(camp);
 						break;
 					}
 				}				
-//			}
+			}
 		}
 		return matchingCampaigns.size();
 	}
@@ -137,16 +159,17 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 * supplied key name.
 	 * 
 	 * @param key The key to be checked for
+	 * @param includeSubCampaigns Should we count included sub campaigns that match
 	 * @return The number of matching campaigns
 	 */
-	private int countCampaignByName(final String key, CDOMObject source)
+	private int countCampaignByName(final String key, CDOMObject source, boolean includeSubCampaigns)
 	{
 		int total = 0;
-		Campaign campaign = Globals.getCampaignKeyedSilently(key);
-		if (campaign != null)
+		Campaign campaignToFind = Globals.getCampaignKeyedSilently(key);
+		if (campaignToFind != null)
 		{
 			PersistenceManager pMan = PersistenceManager.getInstance();
-			if (campaign.getKeyName().equals(key) && pMan.isLoaded(campaign))
+			if (campaignToFind.getKeyName().equals(key) && pMan.isLoaded(campaignToFind))
 			{
 				++total;
 			}
@@ -157,14 +180,24 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 				{
 					final Campaign aCampaign =
 							Globals.getCampaignByURI(element);
-//					List<Campaign> campList = getFullCampaignList(aCampaign);
-//					for (Campaign camp : campList)
-//					{
-						if (campaign.equals(aCampaign))
+					if (includeSubCampaigns)
+					{
+						List<Campaign> campList = getFullCampaignList(aCampaign);
+						for (Campaign camp : campList)
+						{
+							if (camp.equals(campaignToFind))
+							{
+								++total;
+							}
+						}
+					}
+					else
+					{
+						if (aCampaign.equals(campaignToFind))
 						{
 							++total;
 						}
-//					}
+					}
 				}
 			}
 		}
