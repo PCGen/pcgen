@@ -87,6 +87,16 @@ public abstract class AbstractTokenModelTest extends TestCase
 		setUpContext();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void tearDown() throws Exception
+	{
+		ChooserFactory.popChooserClassname();
+		super.tearDown();
+	}
+
 	protected <T extends Loadable> T create(Class<T> cl, String key)
 	{
 		return context.ref.constructCDOMObject(cl, key);
@@ -170,7 +180,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 
 	protected void setUpContext() throws PersistenceLayerException
 	{
-		ChooserFactory.setInterfaceClassname(RandomChooser.class.getName());
+		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(AUTO_LANG_TOKEN);
 		TokenRegistration.register(ABILITY_VISIBLE_TOKEN);

@@ -226,7 +226,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		context.ref.importObject(wpnProfTestC);
 	
 		SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
-		ChooserFactory.setInterfaceClassname(RandomChooser.class.getName());
+		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
 	
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "ADD",
 				"FEAT|KEY_Exotic Weapon Proficiency (Weapon B)");
@@ -252,6 +252,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	@Override
 	protected void tearDown()
 	{
+		ChooserFactory.popChooserClassname();
 		Logging.setDebugMode(false);
 		human.removeListFor(ListKey.BONUS);
 		giantRace.removeListFor(ListKey.BONUS);
@@ -469,7 +470,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, pcClass, true);
 
 		SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
-		ChooserFactory.setInterfaceClassname(RandomChooser.class.getName());
+		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
 
 		is((int) character.getRemainingFeatPoints(true), eq(2), "Start with 2 feats");
 		try
@@ -480,6 +481,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		catch (HeadlessException e)
 		{
 			Logging.debugPrint("Ignoring Headless exception.");
+		}
+		finally
+		{
+			ChooserFactory.popChooserClassname();
 		}
 	}
 

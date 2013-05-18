@@ -540,8 +540,7 @@ public class NPCGenerator
 							final NameElement aNameChoice)
 	{
 		// Force a more quiet process
-		final String oldChooser = ChooserFactory.getInterfaceClassname();
-		ChooserFactory.setInterfaceClassname(
+		ChooserFactory.pushChooserClassname(
 			"pcgen.util.chooser.RandomChooser"); //$NON-NLS-1$
 
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
@@ -762,7 +761,7 @@ public class NPCGenerator
 		{
 			SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 			SettingsHandler.setSingleChoicePreference(tempChoicePref);
-			ChooserFactory.setInterfaceClassname(oldChooser);
+			ChooserFactory.popChooserClassname();
 		}
 	}
 }

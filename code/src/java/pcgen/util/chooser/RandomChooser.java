@@ -22,6 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.base.util.RandomUtil;
+import pcgen.core.facade.ChooserFacade;
+import pcgen.core.facade.InfoFacade;
+import pcgen.core.facade.util.ListFacade;
 
 /**
  * An implementation of the Chooser Interface that does not display a GUI but
@@ -30,7 +33,7 @@ import pcgen.base.util.RandomUtil;
  * @author    Aaron Divinsky
  * @version $Revision$
  */
-public final class RandomChooser implements ChooserInterface
+public final class RandomChooser implements ChooserInterface, ChoiceHandler
 {
 	/** The list of available items */
 	private List theAvailableList = new ArrayList();
@@ -311,4 +314,32 @@ public final class RandomChooser implements ChooserInterface
 		return selectionsPerUnitCost * totalSelectionsAvailable
 				- theSelectedList.size();
 	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean makeChoice(ChooserFacade chooserFacade)
+	{
+		while (chooserFacade.getRemainingSelections().getReference() > 0
+			&& !chooserFacade.getAvailableList().isEmpty())
+		{
+			ListFacade<InfoFacade> availableList = chooserFacade.getAvailableList();
+			final InfoFacade addObj =
+					availableList.getElementAt(RandomUtil
+						.getRandomInt(availableList.getSize() - 1));
+			chooserFacade.addSelected(addObj);
+		}
+		
+		if (chooserFacade.getRemainingSelections().getReference() == 0
+			|| !chooserFacade.isRequireCompleteSelection())
+		{
+			chooserFacade.commit();
+			return true;
+		}
+
+		chooserFacade.rollback();
+		return false;
+	}
+	
 }

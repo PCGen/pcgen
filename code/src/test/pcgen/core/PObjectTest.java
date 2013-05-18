@@ -53,6 +53,7 @@ import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import pcgen.util.chooser.ChooserFactory;
+import pcgen.util.chooser.RandomChooser;
 
 /**
  * Test the PObject class.
@@ -408,7 +409,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 */
 	public void testRemoveFeat()
 	{
-		ChooserFactory.setInterfaceClassname("pcgen.util.chooser.RandomChooser");
+		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
 		Ability alertness = TestHelper.makeAbility("Alertness", AbilityCategory.FEAT, "General");
 		Race arRace = TestHelper.makeRace("AddRemove");
 		LoadContext context = Globals.getContext();
@@ -429,6 +430,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		pc.incrementClassLevel(2, pcClass);
 		assertEquals("Number of feats at 2nd level", 2.0, pc.getRemainingFeatPoolPoints(), 0.1);
 		assertNull("No longer has feat", pc.getAbilityKeyed(AbilityCategory.FEAT, alertness.getKeyName()));
+		ChooserFactory.popChooserClassname();
 	}
 	
 	/**

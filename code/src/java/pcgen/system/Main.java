@@ -395,7 +395,6 @@ public final class Main
 		Utility.setApplicationTitle(Constants.APPLICATION_NAME);
 
 		//TODO: Remove these registrations once the old choosers are fully replaced.
-		ChooserFactory.setInterfaceClassname(SwingChooser.class.getName());
 		ChooserFactory.setRadioInterfaceClassname(SwingChooserRadio.class.getName());
 		ChooserFactory.setUserInputInterfaceClassname(SwingChooserUserInput.class.getName());
 		InputFactory.setInterfaceClassname(DialogInputInterface.class

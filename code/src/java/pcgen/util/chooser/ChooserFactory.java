@@ -19,6 +19,8 @@
  */
 package pcgen.util.chooser;
 
+import java.util.Stack;
+
 import pcgen.core.facade.UIDelegate;
 
 /**
@@ -31,10 +33,11 @@ import pcgen.core.facade.UIDelegate;
  */
 public final class ChooserFactory
 {
-	private static String interfaceClassname = null;
 	private static String radioInterfaceClassname = null;
 	private static String userInputInterfaceClassname = null;
 	private static UIDelegate delegate;
+	private final static Stack<String> interfaceClassNameStack = new Stack<String>();
+
 	/**
 	 * Deliberately private so it can't be instantiated.
 	 */
@@ -44,19 +47,24 @@ public final class ChooserFactory
 	}
 
 	/**
-	 * The default implementation returns a SwingChooser
-	 * @return ChooserInterface
+	 * Retrieve an optional handler for making choices. If no handler is 
+	 * currently registered, it is expected that the UI class caller will 
+	 * display an interactive dialog. If multiple handlers are currently 
+	 * registered the most recently registered (LIFO) will be returned.
+	 * 
+	 * @return The most recently registered ChoiceHandler, if any.
 	 */
-	public static ChooserInterface getChooserInstance()
+	public static ChoiceHandler getChoiceHandler()
 	{
-		if (interfaceClassname == null)
+		if (interfaceClassNameStack.isEmpty())
 		{
 			return null;
 		}
+		String className = interfaceClassNameStack.peek();
 		try
 		{
-			Class<?> c = Class.forName(interfaceClassname);
-			ChooserInterface ci = (ChooserInterface) c.newInstance();
+			Class<?> c = Class.forName(className);
+			ChoiceHandler ci = (ChoiceHandler) c.newInstance();
 			return ci;
 		}
 		catch (ClassNotFoundException e)
@@ -129,11 +137,29 @@ public final class ChooserFactory
 	}
 
 	/**
-	 * @param interfaceClassname The interfaceClassname to set.
+	 * Add a chooser class name to the top of the stack of class names. 
+	 * Existing chooser class names will be preserved but will not 
+	 * be used until this one is popped off the stack.
+	 * 
+	 * @param chooserClassname The chooser class name to add.  
 	 */
-	public static void setInterfaceClassname(String interfaceClassname)
+	public static void pushChooserClassname(String chooserClassname)
 	{
-		ChooserFactory.interfaceClassname = interfaceClassname;
+		ChooserFactory.interfaceClassNameStack.push(chooserClassname);
+	}
+
+	/**
+	 * Remove a name from the top of the stack of chooser class names. This 
+	 * will then expose the next newest class name, or empty the stack. 
+	 * @return The class name that was removed.
+	 */
+	public static String popChooserClassname()
+	{
+		if (ChooserFactory.interfaceClassNameStack.isEmpty())
+		{
+			return null;
+		}
+		return ChooserFactory.interfaceClassNameStack.pop();
 	}
 
 	/**
@@ -150,15 +176,6 @@ public final class ChooserFactory
 	public static void setUserInputInterfaceClassname(String uiInterfaceClassname)
 	{
 		ChooserFactory.userInputInterfaceClassname = uiInterfaceClassname;
-	}
-
-	/**
-	 * Get the class name of the interface
-	 * @return the class name of the interface
-	 */
-	public static String getInterfaceClassname()
-	{
-		return ChooserFactory.interfaceClassname;
 	}
 
 	/**

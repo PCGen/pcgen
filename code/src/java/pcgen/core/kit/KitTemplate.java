@@ -105,10 +105,9 @@ public class KitTemplate extends BaseKit
 	{
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
-		final String oldChooser = ChooserFactory.getInterfaceClassname();
 		if (!apply)
 		{
-			ChooserFactory.setInterfaceClassname(
+			ChooserFactory.pushChooserClassname(
 				"pcgen.util.chooser.RandomChooser"); //$NON-NLS-1$
 		}
 		HashMapToList<PCTemplate, PCTemplate> selectedMap =
@@ -137,7 +136,7 @@ public class KitTemplate extends BaseKit
 
 		if (!apply)
 		{
-			ChooserFactory.setInterfaceClassname(oldChooser);
+			ChooserFactory.popChooserClassname();
 		}
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 		return selectedMap;
