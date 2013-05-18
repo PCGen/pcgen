@@ -13,6 +13,7 @@
 		Eddy Anthony - eddybaATmindspringDOTcom
 		Terry FitzSimons - fitzsimonsATmintelDOTnet
 		Eric C. Smith - mareduddATblackrootDOTorg
+		Stefan Radermacher - stefanATzaisterDOTde
 
 		Description:
 		Provides information on the content of PCGen Race Files.
@@ -78,6 +79,22 @@
 	<p class="indent2">Modified By: <code>Boar.MOD &lt;tab&gt; CR:3</code></p>
 	<p class="indent2">Results In: <code>Boar &lt;tab&gt; CR:3</code></p>
 	<p class="indent3">The Boar's CR is set to 3.</p>
+	<p></p>
+
+<hr>
+
+	<p class="new"><a name="CRMOD">*** New 6.1.2</a></p>
+	<p class="indent0"><strong><a name="CRMOD">Tag Name:</a></strong> CRMOD:x.x|y</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (a class type as defined in the game mode).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Formula (a standard PCGen LST formula).</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">Overrule the CRMODs from the game mode for creatures of the race. The CRMOD is 
+		set to the value of y for all class types specified as x</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CRMOD:PC.NPC|0</code></p>
+	<p class="indent3">In the Pathfinder RPG, a drow noble's CR is always equal to his character level.</p>
+	<p class="indent2"><code>CRMOD:NPC|-3</code></p>
+	<p class="indent3">In the Pathfinder RPG, the CR of a kobold with only NPC classes is equal to his character level minus 3.</p>
 	<p></p>
 
 <hr>
@@ -438,6 +455,25 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>REACH:10</code></p>
 	<p class="indent3">The race has a reach of ten feet.</p>
+	<p></p>
+
+<hr>
+
+	<p class="new"><a name="ROLE">*** New 6.1.2</a></p>
+	<p class="indent0"><strong><a name="ROLE">Tag Name:</a></strong> ROLE:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (a monster role as defined in the game mode).</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">Specifies the monster role or roles of a creature. Used to determine CR for creatures with
+		both racial hit dice and class levels.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>ROLE:Combat</code></p>
+	<p class="indent3">Character levels in classes associated with the Combat role are key levels for CR calculation 
+		purposes for this creature.</p>
+	<p class="indent2"><code>ROLE:Combat.Skill</code></p>
+	<p class="indent3">Character levels in classes associated with either the Combat role or the Skill role are key
+		levels for CR calculation purposes for this creature.</p>
+	<p class="indent2"><code>ROLE:Cleric</code></p>
+	<p class="indent3">Cleric levels are key levels for CR calculation purposes for this creature.</p> 
 	<p></p>
 
 <hr>

@@ -106,6 +106,7 @@
 		<p class="indent3">Display the character's type.</p>
 
 		<p></p><hr>
+		<p class="new"><a name="CLASS">*** Updated 6.1.2</a></p>
 		<p class="indent0"><strong><a name="CLASS">Token Name:</a></strong> CLASS.x.y</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The classes position in the character's class list
 		                                                                 - 0-based index).</p>
@@ -114,6 +115,8 @@
 			<li>None - Displays the xth class' name.</li>
 			<li>LEVEL - Displays the xth class' level.</li>
 			<li>TYPE - Displays the xth class' type.</li>
+			<li>CLASSTYPE - Displays the xth class' class type.</li>
+			<li>ISMONSTER - Displays the xth class' ISMONSTER flag (Y/N).</li>
 		</ul>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Displays the xth class' name or level.</p>
@@ -807,6 +810,16 @@
 		<p class="indent3">Displays characters weight in the currently selected weight unit.</p>
 		<p class="indent2"><code>WEIGHT.LIGHT</code></p>
 		<p class="indent3">Displays max weight for the light load category.</p>
+
+		<p></p><hr>
+		<p class="new"><a name="CRMOD">*** New 6.1.2</a></p>
+		<p class="indent0"><strong><a name="XPAWARD">Token Name:</a></strong>XPAWARD</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Display the experience award for this creature. This is only used for game modes
+			with fixed XP awards per CR, such as the Pathfinder RPG.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>XPAWARD</code></p>
+		<p class="indent3">Display the XP award.</p>
 
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img

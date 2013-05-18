@@ -13,6 +13,7 @@
 		Eddy Anthony - eddybaATmindspringDOTcom
 		Terry FitzSimons - fitzsimonsATmintelDOTnet
 		Eric C. Smith - mareduddATblackrootDOTorg
+		Stefan Radermacher - stefanATzaisterDOTde
 
 		Description:
 		Provides information on the use of PCGen Game Mode: Misc Info List File.
@@ -466,15 +467,70 @@
 		<p class="indent2">TAB Line.</p>
 
 		<p></p><hr>
+		<p class="new"><a name="CRFORMULA">*** Updated 6.1.2</a></p>
 		<p class="indent0"><strong><a name="CRFORMULA">Tag Name:</a></strong> CRFORMULA:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Formula (a standard PCGen LST formula).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Specifies the formula to be used when calculating the CR.</p>
+		<p class="indent2">Specifies the formula to be used when calculating the CR, or "NONE" to define a class type
+			for creatures that do not have a CR value, such als animal companions.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>CRFORMULA:CL</code></p>
-		<p class="indent3">CR's will be calculated by CL (Class Level).</p>
+		<p class="indent3">CR for a class of this type is equal to CL (Class Level).</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">CLASSTYPE Line.</p>
+
+		<p></p><hr>
+		<p class="new"><a name="CRMOD">*** New 6.1.2</a></p>
+		<p class="indent0"><strong><a name="CRMOD">Tag Name:</a></strong> CRMOD:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Formula (a standard PCGen LST formula).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Specifies the CR reduction mandated by a certain class type. E.g., for Pathfinder, a character
+			with PC classes has his CRFORMULA value reduced by 1 after adding up, a character with only NPC classes has his 
+			CRFORMULA formula value reduced by 2 after adding up.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CRMOD:-1</code></p>
+		<p class="indent3">CR will be reduces by 1 after all CRFORMULA values are added up.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">CLASSTYPE Line.</p>
+
+		<p></p><hr>
+		<p class="new"><a name="CRMODPRIORITY">*** New 6.1.2</a></p>
+		<p class="indent0"><strong><a name="CRMODPRIORITY">Tag Name:</a></strong> CRMODPRIORITY:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Integer.</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">If a character has multiple classes with different class types (such as, for example, an
+			aristocrat/fighter), this tag determines which CRMOD is applied. For Pathfinder, if a character has a PC
+			class, the CRMOD is –1, but if he has ONLY NPC classes, the CRMOD is –2. Thus, the PC CRMOD takes priority.
+			The CRMODPROIRITY tag determines the priority in a way that PCGen will choose the CRMOD with the lowest
+			value of CRMODPROIRITY.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CRMODPRIORITY:1</code></p>
+		<p class="indent3">The CRMOD of this class type has the higher priority.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">CLASSTYPE Line.</p>
+
+		<p></p><hr>
+		<p class="new"><a name="CRSTEPS">*** New 6.1.2</a></p>
+		<p class="indent0"><strong><a name="CRSTEPS">Tag Name:</a></strong> CRSTEPS:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (a fractional CR).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Lists the "lower than CR 1" CRs in decreasing steps, so that PCGen can do correct CR 
+			reductions and return a string result as used in the rules.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CRSTEPS:1/2|1/3|1/4|1/6|1/8</code></p>
+		<p class="indent3">Descending CR values below CR 1.</p>
+
+		<p></p><hr>
+		<p class="new"><a name="CRTHRESHOLD">*** New 6.1.2</a></p>
+		<p class="indent0"><strong><a name="CRTHRESHOLD">Tag Name:</a></strong> CRTHRESHOLD:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Formula (a standard PCGen LST formula).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Defines the threshold beyond which further class levels are counted as 1 CR per level for 
+			non-key classes.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>CRSTEPS:BASECR</code></p>
+		<p class="indent3">Non-key class levels beyond a count of a creature's base CR count as 1 full CR instead of
+			1/2 CR.</p>
 
 		<p></p><hr>
 		<p class="indent0"><strong><a name="CURRENCYUNIT">Tag Name:</a></strong> CURRENCYUNIT:x</p>
@@ -926,6 +982,27 @@
 		<p class="indent3">Simulates rolling 5 six sided dice, rerolling any 1's and 2's and dropping the 2 lowest.</p>
 		<p class="indent1"><strong>Where is this used:</strong></p>
 		<p class="indent2">In a <a href="#ROLLMETHOD">ROLLMETHOD</a> line.</p>
+
+		<p></p><hr>
+		<p class="new"><a name="MONSTERROLEDEFAULT">*** New 6.1.2</a></p>
+		<p class="indent0"><strong><a name="MONSTERROLEDEFAULT">Tag Name:</a></strong> MONSTERROLEDEFAULT:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (The name of a monster role).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Defines which monster role is to be assumed if none is listed.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>MONSTERROLEDEFAULT:Combat</code></p>
+		<p class="indent3">Creatures with no ROLE defined, should be assumed to have a combat monster role if needed.</p>
+
+		<p></p><hr>
+		<p class="new"><a name="MONSTERROLES">*** New 6.1.2</a></p>
+		<p class="indent0"><strong><a name="MONSTERROLES">Tag Name:</a></strong> MONSTERROLES:x|x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (The name of a monster role).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Defines all the available monster roles in a game mode. These roles are used
+			to determine CR for creatures with both racial hit dice and character classes.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>MONSTERROLES:Combat|Skill|Special|Cleric|Druid|Sorcerer|Wizard</code></p>
+		<p class="indent3">Defines a list of monster roles.</p>
 
 		<p></p><hr>
 		<p class="indent0"><strong><a name="NAME">Tag Name:</a></strong> NAME:x</p>
@@ -1553,8 +1630,8 @@
 		<p class="indent2">Used in <a href="#UNITSET">UNITSET</a> lines.</p>
 
 		<p></p><hr>
-		<p class="new">a name="WIELDCATEGORY">*** New 5.5.2</a></p>
-		<p class="indent0"><strong><Tag Name:</strong> WIELDCATEGORY:x</p>
+		<p class="new"><a name="WIELDCATEGORY">*** New 5.5.2</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> WIELDCATEGORY:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of wield category)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Defines how PCGen handles differences between PC size and Weapon size based on the weapons WIELD tag.</p>
@@ -1567,6 +1644,18 @@
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>WIELDCATEGORY:Light</code></p>
 		<p class="indent3">Defines 'Light' weapon category.</p>
+
+		<p></p><hr>
+		<p class="new"><a name="XPAWARD">*** New 6.1.2</a></p>
+		<p class="indent0"><strong><a name="XPAWARD">Tag Name:</a></strong> XPAWARD:x=y|x=y</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (A CR value).</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Number (An experience point value).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">For a game mode that uses fixed experience point awards per CR, this tag defines a list of
+			thise awards for each CR listed.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><Code>XPAWARD:1=400|2=600|3=800|4=1200|5=1600|6=2400|7=3200|8=4800</code></p>
+		<p class="indent3">Define the fixed experience point awards for the Pathfinder RPG (excerpt).</p>
 
 		<p></p><hr>
 		<p class="indent0"><strong><a name="XPPENALTY">Tag Name:</a></strong> XPPENALTY:x</p>

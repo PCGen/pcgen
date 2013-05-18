@@ -251,6 +251,19 @@
 
 <hr>
 
+	<p class="new"><a name="CLASSTYPE">*** New 6.1.2</a></p>
+	<p class="indent0"><strong><a name="CLASSTYPE">Tag Name:</a></strong> CLASSTYPE:x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (a class type as defined in the game mode).</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">Specifies a class type defined in the game mode that is used to determine CR for 
+		creatures with this class.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CLASSTYPE:PC</code></p>
+	<p class="indent3">The PC class type is used to determine the CR for a creaturw with this class.</p>
+	<p></p>
+
+<hr>
+
 	<p class="indent0"><strong><a name="HD">Tag Name:</a></strong> HD:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (4, 6, 8, 10, 12. default is 0)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -623,6 +636,23 @@
 	<p class="indent3">Prohibits the character from taking either &quot;Fireball&quot; or &quot;Lightening Bolt&quot; spells.</p>
 	<p class="indent1"><strong>Where it is used:</strong></p>
 	<p class="indent2">Class Line and Class Level Line.</p>
+	<p></p>
+
+<hr>
+
+	<p class="new"><a name="ROLE">*** New 6.1.2</a></p>
+	<p class="indent0"><strong><a name="ROLE">Tag Name:</a></strong> ROLE:x.x</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (a monster role as defined in the game mode).</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<p class="indent2">Specifies the monster role or roles associated with a character class. Used to determine CR 
+		for creatures with both racial hit dice and class levels.</p>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>ROLE:Skill</code></p>
+	<p class="indent3">Character levels in this class are key levels for CR calculation purposes for creatures with 
+		the Skill role.</p>
+	<p class="indent2"><code>ROLE:Combat.Skill</code></p>
+	<p class="indent3">Character levels in this class are key levels for CR calculation purposes for creatures with 
+		either the Combat role or the Skill role.</p>
 	<p></p>
 
 <hr>
