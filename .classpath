@@ -43,5 +43,6 @@
 	<classpathentry kind="lib" path="lib/xml-apis.jar"/>
 	<classpathentry kind="lib" path="lib/xmlParserAPIs.jar"/>
 	<classpathentry kind="lib" path="lib/xmlunit.jar"/>
+	<classpathentry kind="lib" path="lib/freemarker.jar"/>
 	<classpathentry kind="output" path="code/build.eclipse"/>
 </classpath>
