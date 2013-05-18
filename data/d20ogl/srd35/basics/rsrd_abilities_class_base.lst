@@ -140,6 +140,19 @@ Bardic Song of Freedom							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQ
 Bardic Inspire Heroics							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:InspireHeroicsDuration|InspireDurationBase	DEFINE:InspireHeroicsAllies|0	DEFINE:InspireHeroicsSaves|0	DEFINE:InspireHeroicsDodge|0									DESC:character and %1 willing allies gain +%2 moral bonus on saving throws and +%3 dodge bonus to AC (Concentration + %4 rounds).|InspireHeroicsAllies|InspireHeroicsSaves|InspireHeroicsDodge|InspireHeroicsDuration																																									BONUS:CHECKS|ALL|4|TYPE=Moral|PREAPPLY:ANYPC	BONUS:COMBAT|AC|4|TYPE=Dodge|PREAPPLY:ANYPC												BONUS:VAR|InspireHeroicsAllies|(BardicMusicLvl-12)/3	BONUS:VAR|InspireHeroicsSaves,InspireHeroicsDodge|4										TEMPDESC:A bard can use music or poetics to inspire tremendous heroism in himself or a single willing ally within 30 feet
 Bardic Mass Suggestion							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialAttack.SpellLike		VISIBLE:YES	DEFINE:MassSuggestionDC|SuggestionDC																										DESC:Will DC %1 negates - as Suggestion, but simultaneously to any number of creatures the character has already fascinated|MassSuggestionDC
 Armored Casting (Bard)		OUTPUTNAME:Armored Casting	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality			VISIBLE:YES																																	DESC:You may wear light armor without incurring the normal arcane spell failure chance.
+# Monster Support
+CATEGORY=Special Ability|Bardic Music.MOD	ABILITY:Special Ability|VIRTUAL|Bardic Countersong|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1|!PREABILITY:1,CATEGORY=ACF,TYPE.BardCountersong
+CATEGORY=Special Ability|Bardic Music.MOD	ABILITY:Special Ability|VIRTUAL|Bardic Fascinate|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1|!PREABILITY:1,CATEGORY=ACF,TYPE.BardFascinate
+CATEGORY=Special Ability|Bardic Music.MOD	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Courage|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1|!PREABILITY:1,CATEGORY=ACF,TYPE.BardInspireCourage
+CATEGORY=Special Ability|Bardic Music.MOD	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Competence|PRESKILL:1,TYPE.Perform=6|PREVARGTEQ:BardicMusicLvl,3|!PREABILITY:1,CATEGORY=ACF,TYPE.BardCompetence
+CATEGORY=Special Ability|Bardic Music.MOD	ABILITY:Special Ability|VIRTUAL|Bardic Suggestion|PRESKILL:1,TYPE.Perform=9|PREVARGTEQ:BardicMusicLvl,6|!PREABILITY:1,CATEGORY=ACF,TYPE.BardSuggestion
+CATEGORY=Special Ability|Bardic Music.MOD	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Greatness|PRESKILL:1,TYPE.Perform=12|PREVARGTEQ:BardicMusicLvl,9|!PREABILITY:1,CATEGORY=ACF,TYPE.BardInspireGreatness
+CATEGORY=Special Ability|Bardic Music.MOD	ABILITY:Special Ability|VIRTUAL|Bardic Song of Freedom|PRESKILL:1,TYPE.Perform=15|PREVARGTEQ:BardicMusicLvl,12|!PREABILITY:1,CATEGORY=ACF,TYPE.BardSongOfFreedom
+CATEGORY=Special Ability|Bardic Music.MOD	ABILITY:Special Ability|VIRTUAL|Bardic Inspire Heroics|PRESKILL:1,TYPE.Perform=18|PREVARGTEQ:BardicMusicLvl,15|!PREABILITY:1,CATEGORY=ACF,TYPE.BardInspireHeroics
+CATEGORY=Special Ability|Bardic Music.MOD	ABILITY:Special Ability|VIRTUAL|Bardic Mass Suggestion|PRESKILL:1,TYPE.Perform=21|PREVARGTEQ:BardicMusicLvl,18|!PREABILITY:1,CATEGORY=ACF,TYPE.BardMassSuggestion
+
+
+
 
 ###Block: Druid Wild Shape ability
 # Ability Name	Category of Ability		Type								Visible	Define																			Description

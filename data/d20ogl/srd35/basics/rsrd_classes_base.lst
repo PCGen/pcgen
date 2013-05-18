@@ -72,15 +72,15 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 1	ABILITY:Class Ability|AUTOMATIC|Bardic Knowledge|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicKnowledge
 1	ABILITY:Class Ability|AUTOMATIC|Bardic Music|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicMusic
 1	ABILITY:Class Ability|AUTOMATIC|Armored Casting (Bard)|!PREABILITY:1,CATEGORY=ACF,TYPE.BardArmoredCasting
-1	ABILITY:Class Ability|VIRTUAL|Bardic Countersong|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1|!PREABILITY:1,CATEGORY=ACF,TYPE.BardCountersong
-1	ABILITY:Class Ability|VIRTUAL|Bardic Fascinate|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1|!PREABILITY:1,CATEGORY=ACF,TYPE.BardFascinate
-1	ABILITY:Class Ability|VIRTUAL|Bardic Inspire Courage|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1|!PREABILITY:1,CATEGORY=ACF,TYPE.BardInspireCourage
-1	ABILITY:Class Ability|VIRTUAL|Bardic Inspire Competence|PRESKILL:1,TYPE.Perform=6|PREVARGTEQ:BardicMusicLvl,3|!PREABILITY:1,CATEGORY=ACF,TYPE.BardCompetence
-1	ABILITY:Class Ability|VIRTUAL|Bardic Suggestion|PRESKILL:1,TYPE.Perform=9|PREVARGTEQ:BardicMusicLvl,6|!PREABILITY:1,CATEGORY=ACF,TYPE.BardSuggestion
-1	ABILITY:Class Ability|VIRTUAL|Bardic Inspire Greatness|PRESKILL:1,TYPE.Perform=12|PREVARGTEQ:BardicMusicLvl,9|!PREABILITY:1,CATEGORY=ACF,TYPE.BardInspireGreatness
-1	ABILITY:Class Ability|VIRTUAL|Bardic Song of Freedom|PRESKILL:1,TYPE.Perform=15|PREVARGTEQ:BardicMusicLvl,12|!PREABILITY:1,CATEGORY=ACF,TYPE.BardSongOfFreedom
-1	ABILITY:Class Ability|VIRTUAL|Bardic Inspire Heroics|PRESKILL:1,TYPE.Perform=18|PREVARGTEQ:BardicMusicLvl,15|!PREABILITY:1,CATEGORY=ACF,TYPE.BardInspireHeroics
-1	ABILITY:Class Ability|VIRTUAL|Bardic Mass Suggestion|PRESKILL:1,TYPE.Perform=21|PREVARGTEQ:BardicMusicLvl,18|!PREABILITY:1,CATEGORY=ACF,TYPE.BardMassSuggestion
+#1	ABILITY:Class Ability|VIRTUAL|Bardic Countersong|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1|!PREABILITY:1,CATEGORY=ACF,TYPE.BardCountersong
+#1	ABILITY:Class Ability|VIRTUAL|Bardic Fascinate|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1|!PREABILITY:1,CATEGORY=ACF,TYPE.BardFascinate
+#1	ABILITY:Class Ability|VIRTUAL|Bardic Inspire Courage|PRESKILL:1,TYPE.Perform=3|PREVARGTEQ:BardicMusicLvl,1|!PREABILITY:1,CATEGORY=ACF,TYPE.BardInspireCourage
+#1	ABILITY:Class Ability|VIRTUAL|Bardic Inspire Competence|PRESKILL:1,TYPE.Perform=6|PREVARGTEQ:BardicMusicLvl,3|!PREABILITY:1,CATEGORY=ACF,TYPE.BardCompetence
+#1	ABILITY:Class Ability|VIRTUAL|Bardic Suggestion|PRESKILL:1,TYPE.Perform=9|PREVARGTEQ:BardicMusicLvl,6|!PREABILITY:1,CATEGORY=ACF,TYPE.BardSuggestion
+#1	ABILITY:Class Ability|VIRTUAL|Bardic Inspire Greatness|PRESKILL:1,TYPE.Perform=12|PREVARGTEQ:BardicMusicLvl,9|!PREABILITY:1,CATEGORY=ACF,TYPE.BardInspireGreatness
+#1	ABILITY:Class Ability|VIRTUAL|Bardic Song of Freedom|PRESKILL:1,TYPE.Perform=15|PREVARGTEQ:BardicMusicLvl,12|!PREABILITY:1,CATEGORY=ACF,TYPE.BardSongOfFreedom
+#1	ABILITY:Class Ability|VIRTUAL|Bardic Inspire Heroics|PRESKILL:1,TYPE.Perform=18|PREVARGTEQ:BardicMusicLvl,15|!PREABILITY:1,CATEGORY=ACF,TYPE.BardInspireHeroics
+#1	ABILITY:Class Ability|VIRTUAL|Bardic Mass Suggestion|PRESKILL:1,TYPE.Perform=21|PREVARGTEQ:BardicMusicLvl,18|!PREABILITY:1,CATEGORY=ACF,TYPE.BardMassSuggestion
 ###Block: Level progression
 1	CAST:2			KNOWN:4
 2	CAST:3,0			KNOWN:5,2
