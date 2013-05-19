@@ -508,37 +508,11 @@ Bonus Feat						KEY:Bonus Feat ~ Wolf Shaman				CATEGORY:Special Ability	TYPE:Ar
 Animal Companion					KEY:Animal Companion ~ Wolf Shaman			CATEGORY:Special Ability	TYPE:ArchetypeDruid.SpecialQuality.NatureBond	DESC:A wolf shaman who chooses an animal companion must select a wolf. If choosing a domain, the wolf shaman must choose from the Animal, Community, Liberation, and Travel domains.	DEFINE:AnimalCompanionLVL|0	FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Companion (Wolf)	SOURCEPAGE:p.103
 Druid Domain					KEY:Druid Domain ~ Wolf Shaman			CATEGORY:Special Ability	TYPE:ArchetypeDruid.SpecialQuality.NatureBond	DESC:A wolf shaman who chooses an animal companion must select a wolf. If choosing a domain, the wolf shaman must choose from the Animal, Community, Liberation, and Travel domains.	BONUS:VAR|DruidAnimalAllowed,DruidCommunityAllowed,DruidLiberationAllowed,DruidTravelAllowed|1|TYPE=DruidDomain																																												SOURCEPAGE:p.103
 
-###Block: Druid domain changes
-# Ability Name							Var. Must Be Lower			Define
-CATEGORY=Special Ability|Druid Domain ~ Air.MOD		PREVARLT:DruidAirAllowed,1
-CATEGORY=Special Ability|Druid Domain ~ Animal.MOD	PREVARLT:DruidAnimalAllowed,1
-CATEGORY=Special Ability|Druid Domain ~ Earth.MOD	PREVARLT:DruidEarthAllowed,1
-CATEGORY=Special Ability|Druid Domain ~ Fire.MOD	PREVARLT:DruidFireAllowed,1
-CATEGORY=Special Ability|Druid Domain ~ Plant.MOD	PREVARLT:DruidPlantAllowed,1
-CATEGORY=Special Ability|Druid Domain ~ Water.MOD	PREVARLT:DruidWaterAllowed,1
-CATEGORY=Special Ability|Druid Domain ~ Weather.MOD	PREVARLT:DruidWeatherAllowed,1
-
 # COMMENT: Druid Allowed Domain Defines
 CATEGORY=Internal|Default.MOD											DEFINE:DruidCharmAllowed|0	DEFINE:DruidCommunityAllowed|0	DEFINE:DruidDarknessAllowed|0	DEFINE:DruidDeathAllowed|0	DEFINE:DruidDestructionAllowed|0	DEFINE:DruidGloryAllowed|0	DEFINE:DruidKnowledgeAllowed|0	DEFINE:DruidLiberationAllowed|0	DEFINE:DruidNobilityAllowed|0	DEFINE:DruidProtectionAllowed|0	DEFINE:DruidReposeAllowed|0	DEFINE:DruidRuneAllowed|0	DEFINE:DruidStrengthAllowed|0	DEFINE:DruidSunAllowed|0	DEFINE:DruidTravelAllowed|0	DEFINE:DruidTrickeryAllowed|0
 
 ###Block: New Druid domains
-# Ability Name	Unique Key					Output Name						Category of Ability		Type								Required Var. value			Source Page
-Charm			KEY:Druid Domain ~ Charm		OUTPUTNAME:Druid Domain (Charm)		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidCharmAllowed,1		SOURCEPAGE:p.102
-Community		KEY:Druid Domain ~ Community		OUTPUTNAME:Druid Domain (Community)		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidCommunityAllowed,1	SOURCEPAGE:p.102
-Darkness		KEY:Druid Domain ~ Darkness		OUTPUTNAME:Druid Domain (Darkness)		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidDarknessAllowed,1	SOURCEPAGE:p.98
-Death			KEY:Druid Domain ~ Death		OUTPUTNAME:Druid Domain (Death)		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidDeathAllowed,1		SOURCEPAGE:p.98
-Destruction		KEY:Druid Domain ~ Destruction	OUTPUTNAME:Druid Domain (Destruction)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidDestructionAllowed,1	SOURCEPAGE:p.98
-Glory			KEY:Druid Domain ~ Glory		OUTPUTNAME:Druid Domain (Glory)		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidGloryAllowed,1		SOURCEPAGE:p.103
-Knowledge		KEY:Druid Domain ~ Knowledge		OUTPUTNAME:Druid Domain (Knowledge)		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidKnowledgeAllowed,1	SOURCEPAGE:p.102
-Liberation		KEY:Druid Domain ~ Liberation		OUTPUTNAME:Druid Domain (Liberation)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidLiberationAllowed,1	SOURCEPAGE:p.103
-Nobility		KEY:Druid Domain ~ Nobility		OUTPUTNAME:Druid Domain (Nobility)		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidNobilityAllowed,1	SOURCEPAGE:p.102
-Protection		KEY:Druid Domain ~ Protection		OUTPUTNAME:Druid Domain (Protection)	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidProtectionAllowed,1	SOURCEPAGE:p.102
-Repose		KEY:Druid Domain ~ Repose		OUTPUTNAME:Druid Domain (Repose)		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidReposeAllowed,1		SOURCEPAGE:p.102
-Rune			KEY:Druid Domain ~ Rune			OUTPUTNAME:Druid Domain (Rune)		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidRuneAllowed,1		SOURCEPAGE:p.102
-Strength		KEY:Druid Domain ~ Strength		OUTPUTNAME:Druid Domain (Strength)		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidStrengthAllowed,1	SOURCEPAGE:p.102
-Sun			KEY:Druid Domain ~ Sun			OUTPUTNAME:Druid Domain (Sun)			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidSunAllowed,1		SOURCEPAGE:p.103
-Travel		KEY:Druid Domain ~ Travel		OUTPUTNAME:Druid Domain (Travel)		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidTravelAllowed,1		SOURCEPAGE:p.103
-Trickery		KEY:Druid Domain ~ Trickery		OUTPUTNAME:Druid Domain (Trickery)		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.DruidDomain	PREVAREQ:DruidTrickeryAllowed,1	SOURCEPAGE:p.103
+# Charm,Community,Darkness,Death,Destruction,Glory,Knowledge,Liberation,Nobility,Protection,Repose,Rune,Strength,Sun,Travel,Trickery
 
 #------------------#
 ##	FIGHTER	##
