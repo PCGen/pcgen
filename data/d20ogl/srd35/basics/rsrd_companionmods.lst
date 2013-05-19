@@ -175,14 +175,14 @@ FOLLOWER:ShadowCompanionLVL=9	TYPE:Shadow Companion	HD:2
 FOLLOWER:NormalMount=1		TYPE:Mount
 FOLLOWER:NormalFollower=1	TYPE:Follower
 
-FOLLOWER:CohortLVL		TYPE:Cohort
+FOLLOWER:LeadershipScore=1	TYPE:Cohort
 
-FOLLOWER:1				TYPE:Follower LVL 1
-FOLLOWER:1				TYPE:Follower LVL 2
-FOLLOWER:1				TYPE:Follower LVL 3
-FOLLOWER:1				TYPE:Follower LVL 4
-FOLLOWER:1				TYPE:Follower LVL 5
-FOLLOWER:1				TYPE:Follower LVL 6
+FOLLOWER:LeadershipScore=1	TYPE:Follower LVL 1
+FOLLOWER:LeadershipScore=1	TYPE:Follower LVL 2
+FOLLOWER:LeadershipScore=1	TYPE:Follower LVL 3
+FOLLOWER:LeadershipScore=1	TYPE:Follower LVL 4
+FOLLOWER:LeadershipScore=1	TYPE:Follower LVL 5
+FOLLOWER:LeadershipScore=1	TYPE:Follower LVL 6
 
 			
 
