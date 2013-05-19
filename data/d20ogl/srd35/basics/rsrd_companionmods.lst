@@ -175,6 +175,17 @@ FOLLOWER:ShadowCompanionLVL=9	TYPE:Shadow Companion	HD:2
 FOLLOWER:NormalMount=1		TYPE:Mount
 FOLLOWER:NormalFollower=1	TYPE:Follower
 
+FOLLOWER:CohortLVL		TYPE:Cohort
+
+FOLLOWER:1				TYPE:Follower LVL 1
+FOLLOWER:1				TYPE:Follower LVL 2
+FOLLOWER:1				TYPE:Follower LVL 3
+FOLLOWER:1				TYPE:Follower LVL 4
+FOLLOWER:1				TYPE:Follower LVL 5
+FOLLOWER:1				TYPE:Follower LVL 6
+
+			
+
 #
 # End
 #
