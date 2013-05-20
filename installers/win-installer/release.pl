@@ -223,7 +223,7 @@ close(NSISC);
 print "Copy Windows local files...\n";
 
 rcopy( "$SRC_NSIS/Local", "$DEST_BASE_FOLDER/nsis_dir/Local" );
-rmtree( "$DEST_BASE_FOLDER/nsis_dir/Local/.svn" );
+#rmtree( "$DEST_BASE_FOLDER/nsis_dir/Local/.svn" );
 
 # Copy the release notes over
 
@@ -511,12 +511,12 @@ else {
         other_copies_ref => [
             {   destination         => "$DEST_NSIS_BASE_FOLDER/data",
                 files_to_keep_ref   => [ qr{ [/] customsources [/]   }xmsi,
-                                         qr{ [/] my_dataset [/]      }xmsi,
+                                         qr{ [/] homebrew [/]      }xmsi,
                                          qr{ [/] publisher_logos [/] }xmsi, ],
             },
             {   destination         => "$DEST_NSIS_OPTION_FOLDER/data",
                 files_to_skip_ref   => [ qr{ [/] customsources [/]   }xmsi,
-                                         qr{ [/] my_dataset [/]      }xmsi,
+                                         qr{ [/] homebrew [/]      }xmsi,
                                          qr{ [/] publisher_logos [/] }xmsi, ],
             },
         ],
