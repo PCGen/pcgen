@@ -2657,11 +2657,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			try
 			{
-				Logging.log(Logging.ERROR, "Starting export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
+				Logging.log(Logging.DEBUG, "Starting export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
 				PlayerCharacter exportPc =  getExportCharacter();
 				//PlayerCharacter exportPc =  theCharacter;
 				theHandler.write(exportPc, buf);
-				Logging.log(Logging.ERROR, "Finished export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
+				Logging.log(Logging.DEBUG, "Finished export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
 				return;
 			} catch (ConcurrentModificationException e)
 			{
