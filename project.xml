@@ -5,7 +5,7 @@
   <id>pcgen</id>
   <groupId>pcgen</groupId>
   <name>PCGen</name>
-  <currentVersion>6.01.01</currentVersion>
+  <currentVersion>6.01.02</currentVersion>
   <organization>
     <name>SourceForge</name>
     <url>http://sourceforge.net/</url>
@@ -278,11 +278,11 @@
       <version>2.24</version>
       <url>http://www.singsurf.org/djep/</url>
     </dependency>
-	<dependency>
-		<groupId>org.freemarker</groupId>
-		<artifactId>freemarker</artifactId>
-		<version>2.3.19</version>
-	</dependency>        
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>2.3.19</version>
+    </dependency>
     <dependency>
       <groupId>org.jdom</groupId>
       <artifactId>jdom</artifactId>
@@ -791,6 +791,11 @@
       <id>6.01.01</id>
       <name>6.01.01</name>
       <tag>release-6.01.01</tag>
+    </version>
+    <version>
+      <id>6.01.02</id>
+      <name>6.01.02</name>
+      <tag>release-6.01.02</tag>
     </version>
   </versions>
 </project>
