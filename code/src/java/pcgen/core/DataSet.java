@@ -249,6 +249,7 @@ public class DataSet implements DataSetFacade
 		gearBuySellSchemes.addElement(new GearBuySellScheme("Market price", fullPrice, halfPrice, fullPrice));
 		gearBuySellSchemes.addElement(new GearBuySellScheme("Character build", fullPrice, fullPrice, fullPrice));
 		gearBuySellSchemes.addElement(new GearBuySellScheme("Cashless", free, free, free));
+		gearBuySellSchemes.addElement(new GearBuySellScheme("Crafting", halfPrice, halfPrice, fullPrice));
 	}
 
     @Override
