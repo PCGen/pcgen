@@ -14,14 +14,14 @@ Monk Outsider	OUTPUTNAME:Outsider	VISIBLE:EXPORT	DR:10/Magic		SOURCEPAGE:Classes
 # Post 5.10 the use of these should be hunted down and deleted
 
 # Template Name	Visible	Source Page						Define
-Construct		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10
-Ooze			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.INT|10
-Undead		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.CON|10
+Construct		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINESTAT:NONSTAT|CON
+Ooze			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINESTAT:NONSTAT|INT
+Undead		VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINESTAT:NONSTAT|CON
 
 ###Block: Creature Subtypes
 # Template Name		Visible	Source Page						Define			Required AL	Required Race			Var. Max. Value		Automatically Gained Language
 Goblinoid			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf																AUTO:LANG|Goblin
-Incorporeal			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINE:LOCK.STR|10
+Incorporeal			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf	DEFINESTAT:NONSTAT|STR
 
 #DEPRECATED:
 Aberration			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
@@ -59,7 +59,7 @@ Native			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf							PRERACE:1,RACETY
 
 ###Block: Variable Type Traits
 # Template Name	Visible	Define
-Mindless		VISIBLE:NO	DEFINE:LOCK.INT|10
+Mindless		VISIBLE:NO	DEFINESTAT:NONSTAT|INT
 
 ###Block: Fractional Hit Die Adjustments for Monster classes
 # Template Name	Hit Dice Size			Visible
