@@ -56,7 +56,7 @@ public class UserEquipmentFacet extends AbstractSourcedListFacet<Equipment>
 	 * Removes a piece of Equipment from this facet when the Equipment has been
 	 * removed from a Player Character.
 	 * 
-	 * Triggered when one of the Facets to which UnlockedStatFacet listens fires
+	 * Triggered when one of the Facets to which UserEquipmentFacet listens fires
 	 * a DataFacetChangeEvent to indicate a piece of Equipment was removed from
 	 * a Player Character.
 	 * 
