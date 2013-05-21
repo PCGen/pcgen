@@ -1806,6 +1806,55 @@ Immune
 		</special_attack>
 |ENDFOR|
 	</special_attacks>
+
+		<!--
+	  ====================================
+	  ====================================
+			Racial Traits
+	  ====================================
+	  ====================================-->
+
+	<racial_traits>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=RaceTrait")-1,1,0|
+|IIF(ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.HASASPECT.RaceTraitMaster:Y)|
+		<racial_trait>
+|IIF(ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.%ability.TYPE=RaceTrait| (Ex)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.%ability.TYPE=RaceTrait| (Su)</name>
+|ELSE|
+|IIF(ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.%ability.TYPE=RaceTrait| (Sp)</name>
+|ELSE|
+|ENDIF|
+|ENDIF|
+|ENDIF|
+			<header>|ABILITYALL.Special Ability.%ability.TYPE=RaceTrait|</header>
+			<description>|ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.DESC|</description>
+			<type>|ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.TYPE|</type>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%ability.TYPE=RaceTrait.SOURCE|</source>
+			<check_count>|ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.ASPECT.CheckCount.INTVAL|</check_count>
+			<check_type>|ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.ASPECT.CheckType|</check_type>
+|IIF(ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.HASASPECT.MasterAbility:Y)|
+			<master>|ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.ASPECT.MasterAbility|</master>
+|FOR,%subability,0,count("ABILITIES","CATEGORY=Special Ability")-1,1,0|
+|IIF(ABILITYALL.Special Ability.%subability.ASPECT.ChildAbility:ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.ASPECT.MasterAbility)|
+			<subability>
+				<name>|ABILITYALL.Special Ability.%subability|</name>
+				<description>|ABILITYALL.Special Ability.%subability.DESC|</description>
+				<type>|ABILITYALL.Special Ability.%subability.TYPE|</type>
+				<source>|ABILITYALL.Special Ability.%subability.SOURCE|</source>
+				<child>|ABILITYALL.Special Ability.%subability.ASPECT.ChildAbility|</child>
+			</subability>
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+		</racial_trait>
+|ENDIF|
+|ENDFOR|
+	</racial_traits>
+
 		<!--
 	  ====================================
 	  ====================================
