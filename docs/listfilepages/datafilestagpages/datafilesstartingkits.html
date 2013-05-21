@@ -27,22 +27,22 @@
 	<body>
 
 		<h1>Starting Kit Files</h1>
-		<p class="indent0">The &quot;Starting Kit&quot; file defines the &quot;Starting Kits&quot;, 
-			or kits for short, that are used to simplify the creation of NPCs and monsters as well 
-			as the random generation of treasure. The page is divided into two sections. The first 
-			section talks about <a href="#HOWTO">Building a Starting Kit</a> while the second contains 
-			the <a href="#DICTIONARY">Starting Kit Tag Dictionary</a>. The tag dictionary is further 
-			broken down into three sub-sections, one each for <a href="#REGIONTAGS">The Region Tag</a>, 
+		<p class="indent0">The &quot;Starting Kit&quot; file defines the &quot;Starting Kits&quot;,
+			or kits for short, that are used to simplify the creation of NPCs and monsters as well
+			as the random generation of treasure. The page is divided into two sections. The first
+			section talks about <a href="#HOWTO">Building a Starting Kit</a> while the second contains
+			the <a href="#DICTIONARY">Starting Kit Tag Dictionary</a>. The tag dictionary is further
+			broken down into three sub-sections, one each for <a href="#REGIONTAGS">The Region Tag</a>,
 			<a href="#LINEHDRTAGS">Line Header Tags</a> and <a href="#MISCTAGS">Miscellaneous Tags</a>.</p>
-		<p class="indent0">For more information about creating kits, check out the 
-			<a href="../lstfileclass/lfc_lesson11_kits_default_monster.html">Default Monster Kit</a> LST 
+		<p class="indent0">For more information about creating kits, check out the
+			<a href="../lstfileclass/lfc_lesson11_kits_default_monster.html">Default Monster Kit</a> LST
 			File Class.</p>
 		<p></p>
 
 <hr>
 
 		<h2><a name="HOWTO">Building a Starting Kit</a></h2>
-		<p class="indent0">Unlike most LST file objects, which are implemented on a single line for 
+		<p class="indent0">Unlike most LST file objects, which are implemented on a single line for
 			each object, starting kits are defined as a block of lines with specific information
 			contained on each line. The general block structure is as follows:</p>
 
@@ -51,58 +51,59 @@
 		<p class="indent1">Region Block (Optional)</p>
 		<p class="indent2">Region line using the <a href="#REGION"><code>REGION</code></a> tag.</p>
 		<p class="indent2">Starting Kit Block</p>
-		<p class="indent3">STARTPACK line using the <a href="#STARTPACK"><code>STARTPACK</code></a>, 
-			<a href="#APPLY"><code>APPLY</code></a>,  
-			<a href="#EQUIPBUY"><code>EQUIPBUY</code></a>  
+		<p class="indent3">STARTPACK line using the <a href="#STARTPACK"><code>STARTPACK</code></a>,
+			<a href="#APPLY"><code>APPLY</code></a>,
+			<a href="#EQUIPBUY"><code>EQUIPBUY</code></a>
 			and <a href="#VISIBLE"><code>VISIBLE</code></a> tags.</p>
 		<p class="indent3">RACE line using the <a href="#RACE"><code>RACE</code></a> and TBD tags.</p>
 		<p class="indent3">NAME line using the <a href="#NAME"><code>NAME</code></a> tag.</p>
 		<p class="indent3">GENDER line using the <a href="#GENDER"><code>GENDER</code></a> tag.</p>
+		<p class="indent3">AGE line using the <a href="#AGE"><code>AGE</code></a> tag.</p>
 		<p class="indent3">ALIGN line using the <a href="#ALIGN"><code>ALIGN</code></a> and TBD tags.</p>
 		<p class="indent3">STAT line using the <a href="#STAT"><code>STAT</code></a> and TBD tags.</p>
-		<p class="indent3">CLASS line using the <a href="#CLASS"><code>CLASS</code></a> 
+		<p class="indent3">CLASS line using the <a href="#CLASS"><code>CLASS</code></a>
 			and <a href="#LEVEL"><code>LEVEL</code></a> tags.</p>
-		<p class="indent3">SKILL line for Class using the <a href="#SKILL"><code>SKILL</code></a> and 
-			<a href="#FREE"><code>FREE</code></a>, 
-			<a href="#RANK"><code>RANK</code></a> 
+		<p class="indent3">SKILL line for Class using the <a href="#SKILL"><code>SKILL</code></a> and
+			<a href="#FREE"><code>FREE</code></a>,
+			<a href="#RANK"><code>RANK</code></a>
 			and <a href="#SELECTION"><code>SELECTION</code></a> tags.</p>
 		<p class="indent3">DEITY line using the <a href="#DEITY"><code>DEITY</code></a> and TBD tags.</p>
-		<p class="indent3">DOMAIN line using the <a href="#DOMAIN"><code>DOMAIN</code></a> 
+		<p class="indent3">DOMAIN line using the <a href="#DOMAIN"><code>DOMAIN</code></a>
 			and <a href="#COUNT"><code>COUNT</code></a> tags.</p>
-		<p class="indent3">PROF line using the <a href="#PROF"><code>PROF</code></a>, 
-			<a href="#COUNT"><code>COUNT</code></a> 
+		<p class="indent3">PROF line using the <a href="#PROF"><code>PROF</code></a>,
+			<a href="#COUNT"><code>COUNT</code></a>
 			and <a href="#RACIAL"><code>RACIAL</code></a> tags.</p>
-		<p class="indent3">FEAT line using the <a href="#FEAT"><code>FEAT</code></a>, 
-			<a href="#FREE"><code>FREE</code></a> 
+		<p class="indent3">FEAT line using the <a href="#FEAT"><code>FEAT</code></a>,
+			<a href="#FREE"><code>FREE</code></a>
 			and <a href="#COUNT"><code>COUNT</code></a> tags.</p>
 		<p class="indent3">ABILITY line using the <a href="#CATEGORY"><code>ABILITY:CATEGORY</code></a and TBD tags.</p>
-		<p class="indent3">LEVELABILITY line using the <a href="#LEVELABILITY"><code>LEVELABILITY</code></a> 
+		<p class="indent3">LEVELABILITY line using the <a href="#LEVELABILITY"><code>LEVELABILITY</code></a>
 			and <a href="#ABILITY"><code>ABILITY:PROMPT</code></a> tags.</p>
 		<p class="indent3">TEMPLATE line using the <a href="#TEMPLATE"><code>TEMPLATE</code></a and TBD tags.</p>
-		<p class="indent3">FUNDS line using the <a href="#FUNDS"><code>FUNDS</code></a> and TBD tags.</p> 
-		<p class="indent3">GEAR line using the <a href="#GEAR"><code>GEAR</code></a>, 
-			<a href="#EQMOD"><code>EQMOD</code></a>, 
-			<a href="#LOCATION"><code>LOCATION</code></a>, 
-			<a href="#LOOKUP"><code>LOOKUP</code></a>, 
+		<p class="indent3">FUNDS line using the <a href="#FUNDS"><code>FUNDS</code></a> and TBD tags.</p>
+		<p class="indent3">GEAR line using the <a href="#GEAR"><code>GEAR</code></a>,
+			<a href="#EQMOD"><code>EQMOD</code></a>,
+			<a href="#LOCATION"><code>LOCATION</code></a>,
+			<a href="#LOOKUP"><code>LOOKUP</code></a>,
 			<a href="#MAXCOST"><code>MAXCOST</code></a>
 			and <a href="#QTY"><code>QTY</code></a> tags.</p>
-		<p class="indent3">TABLE line using the <a href="#TABLE"><code>TABLE</code></a>, 
-			<a href="#LOOKUP"><code>LOOKUP</code></a> 
+		<p class="indent3">TABLE line using the <a href="#TABLE"><code>TABLE</code></a>,
+			<a href="#LOOKUP"><code>LOOKUP</code></a>
 			and <a href="#VALUES"><code>VALUES</code></a> tags.</p>
-		<p class="indent3">SPELLS line using the <a href="#SPELLS"><code>SPELLS</code></a> 
+		<p class="indent3">SPELLS line using the <a href="#SPELLS"><code>SPELLS</code></a>
 			and <a href="#COUNT"><code>COUNT</code></a> tags.</p>
 		<p class="indent2">Special Kit Block</p>
-				<p class="indent3">SELECT line using the <a href="#SELECT"><code>SELECT</code></a> tag 
+				<p class="indent3">SELECT line using the <a href="#SELECT"><code>SELECT</code></a> tag
 					in conjunction with any line listed above containing the <a href="#OPTION"><code>OPTION</code></a> tag.</p>
 		<p></p>
 
 		<h4>A Note on Prerequisites</h4>
-		
-		<p class="indent0">All Starting Kit Lines are fully capable of being limited by the use of 
-			PRExxx tags. Many of these tags grant things to the character only if they can obtain 
-			it legally. This means that if you cannot afford all the gear in the list, the kit will 
-			purchase as much as possible until you run out of money. If you have previously gone to the 
-			inventory screen and set the program to make all purchases cost zero, the kit will purchase 
+
+		<p class="indent0">All Starting Kit Lines are fully capable of being limited by the use of
+			PRExxx tags. Many of these tags grant things to the character only if they can obtain
+			it legally. This means that if you cannot afford all the gear in the list, the kit will
+			purchase as much as possible until you run out of money. If you have previously gone to the
+			inventory screen and set the program to make all purchases cost zero, the kit will purchase
 			everything for zero. Or if the kit is set to try to give you a feat which would normally be unavailable
 			to you, but you have set the program options to ignore requirements, then that is fine,
 			the kit will give you the feat.</p>
@@ -110,18 +111,18 @@
 
 
 		<h4>A Note on Kit/Race Interactions</h4>
-		
-		<p class="indent0">Use of a KIT tag, calling out a racial kit, in a Race object will cause PCGen to crash 
+
+		<p class="indent0">Use of a KIT tag, calling out a racial kit, in a Race object will cause PCGen to crash
 			if the following two conditions are met:</p>
 		<ol class="indent1">
 			<li>The racial kit x contains a RACE:x tag, e.g. <code>RACE:Goblin</code></li>
 			<li>The race x object contains a KIT:x tag, e.g. <code>KIT:Goblin</code></li>
 		</ol>
-		
-		<p class="indent0">This combination of objects/tags will cause an infinite loop which in turn will 
-			cause PCGen to crash. To prevent this you must use the <code>!PRERACE:1,x</code> tag. For the 
+
+		<p class="indent0">This combination of objects/tags will cause an infinite loop which in turn will
+			cause PCGen to crash. To prevent this you must use the <code>!PRERACE:1,x</code> tag. For the
 			example used above that would mean <code>!PRERACE:1,Goblin</code>.</p>
-		
+
 		<p></p>
 
 <hr>
@@ -187,7 +188,7 @@
 		</ul>
 		<p class="sidebar1">NOTE: While multiple categories can be defined currently, this syntax is strongly discouraged
 			as the results may be unpredictable.</p>
-		
+
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ABILITY:CATEGORY=FEAT|Weapon Focus (Greataxe)</code></p>
 		<p class="indent3">Would grant the "Greataxe Weapon Focus" feat.</p>
@@ -204,6 +205,18 @@
 		<p class="indent2"><code>ABILITY:CATEGORY=Salient Divine Ability|Alter Form&lt;tab&gt;FREE:YES</code></p>
 		<p class="indent3">Would grant the Alter Form salient divine ability without charging the salient divine ability
 			pool.</p>
+		<p></p>
+
+<hr>
+
+		<p class="status"><a name="AGE">*** New 6.1.3</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> AGE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (The character's age)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Sets the age of the kit recipient.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>AGE:46</code></p>
+		<p class="indent3">Sets the character's age to 46.</p>
 		<p></p>
 
 <hr>
@@ -328,7 +341,7 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Establishes the character's/creature's gender</li>
-			<li>Valid gender designations (Male, Female, Neuter) are in defined in GameMode 
+			<li>Valid gender designations (Male, Female, Neuter) are in defined in GameMode
 				<em>biosettings.lst</em> file, <a href="../../listfilepages/systemfilestagpages/systemfilesbiosettingslist.html#SEX">SEX</a> tag.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -345,7 +358,7 @@
 		<p class="indent1"><strong>What it does:</strong> </p>
 		<ul class="indent2">
 			<li><code>LANGBONUS</code> chooses from the Bonus Language Selections if there are enough language bonuses to be spent.</li>
-			<li>This tag requires that a <code>LANGBONUS</code> tag be included in the <span class="lstfile">race.lst</span> file 
+			<li>This tag requires that a <code>LANGBONUS</code> tag be included in the <span class="lstfile">race.lst</span> file
 				in which the character upon which the kit is being applied to is defined.</li>
 		</ul>
 		<p class="indent1"><strong>Where it is used:</strong></p>
@@ -388,8 +401,8 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Presents a pipe-delimited (|) list of weapon proficiencies for the character to choose from.</li>
-	  		<li>If the <code>RACIAL:YES</code> tag is included on the line, PCGen will fill any racial 
-	  			bonus proficiency choices first, otherwise it will try to fill any class bonus proficiency 
+	  		<li>If the <code>RACIAL:YES</code> tag is included on the line, PCGen will fill any racial
+	  			bonus proficiency choices first, otherwise it will try to fill any class bonus proficiency
 	  			choices. If there are any choices left they will be granted as bonus proficiencies.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -421,14 +434,14 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> JEP formula or VAR</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Sets a value that can be checked at any point after this tag appears in 
+			<li>Sets a value that can be checked at any point after this tag appears in
 				a kit using the <a href="#OPTION">OPTION</a> tag.
-			<li>This tag is used, in conjunction with the <code>OPTION</code> tag, to 
+			<li>This tag is used, in conjunction with the <code>OPTION</code> tag, to
 				randomly determine if an item will be granted by the kit.</li>
 			<li>The <code>OPTION</code> tag can be added to any kit line and the object will
 				only be granted if the range specified by the OPTION tag matches the number
 				generated by the <code>SELECT</code> tag.</li>
-			<li>If more than one <code>SELECT</code> tag is used in a kit, each use of 
+			<li>If more than one <code>SELECT</code> tag is used in a kit, each use of
 				it will reset the value for the OPTION tags below it.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -443,12 +456,12 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Skill type)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Grants the skill indicated to the character if they can legally have that 
+			<li>Grants the skill indicated to the character if they can legally have that
 				many additional ranks of that skill.</li>
-			<li>The number of ranks granted are determined by the <code>RANK</code> tag 
+			<li>The number of ranks granted are determined by the <code>RANK</code> tag
 				immediately following the <code>SKILL</code> tag.</li>
 			<li><code>RANK</code> tag MUST be used on all SKILL lines.</li>
-			<li>If indicated skill is a class skill then ranks will be purchased as such, 
+			<li>If indicated skill is a class skill then ranks will be purchased as such,
 				and likewise for cross-class skills.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -457,7 +470,7 @@
 		<p class="indent2"><code>SKILL:TYPE=Knowledge RANK:4</code></p>
 		<p class="indent3">Gives four ranks of &quot;Knowledge&quot; type skills if they can afford it.</p>
 		<p class="indent2"><code>SKILL:Bluff|Concentration|Hide RANK:18 COUNT:2</code></p>
-		<p class="indent3">This would offer a chooser and allow you to pick 2 of the three listed 
+		<p class="indent3">This would offer a chooser and allow you to pick 2 of the three listed
 			skills and grant 18 ranks to the chosen skills.</p>
 		<p></p>
 
@@ -472,7 +485,7 @@
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>SPELLS:Detect Magic|Ghost Sound|Light|Read Magic</code></p>
-		<p class="indent3">Would give the <span class="lstobj">Detect Magic</span>, 
+		<p class="indent3">Would give the <span class="lstobj">Detect Magic</span>,
 			<span class="lstobj">Ghost Sound</span>, <span class="lstobj">Light</span> and
 			<span class="lstobj">Read Magic</span> spells if the PC has free spells.</p>
 		<p class="indent2"><code>SPELLS:LEVEL=0 </code></p>
@@ -532,7 +545,7 @@
 		<p class="indent0"><strong><a name="TABLE">Tag Name:</a></strong> TABLE:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Table name)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Identifies a table of values to be used in conjunction with the 
+		<p class="indent2">Identifies a table of values to be used in conjunction with the
 			<code>VALUES</code> tag and called by a <code>LOOKUP</code> tag.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>TABLE:Minor Special Ability (P/S)</code></p>
@@ -738,12 +751,12 @@
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Table name)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> JEP formula or VAR</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Matches the value of the JEP formula or VAR (y variable) with the 
-			associated table's (x variable) <code>VALUES</code> tag's upper and lower selection 
+		<p class="indent2">Matches the value of the JEP formula or VAR (y variable) with the
+			associated table's (x variable) <code>VALUES</code> tag's upper and lower selection
 			range and returns the relevant &quot;value&quot;.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>LOOKUP:Minor Special Ability (P/S),roll("1d100")</code></p>
-		<p class="indent3">A random number is generated between 1 and 100 and the item corresponding to 
+		<p class="indent3">A random number is generated between 1 and 100 and the item corresponding to
 			that number will be selected from the &quot;Minor Special Ability (P/S)&quot; table.</p>
 		<p class="indent1"><strong>Where it is Used:</strong></p>
 		<p class="indent2">GEAR and TABLE lines</p>
@@ -834,13 +847,13 @@
 
 		<p class="indent0"><strong><a name="RANK">Tag Name:</a></strong> RANK:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Skill rank)</p>
-		<p class="indent1"><strong>What it does:</strong></p>	
+		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Grants the number of ranks to the skill indicated, in the immediately preceeding 
-				<code>SKILL</code> tag, to the character if they can legally have that many 
+			<li>Grants the number of ranks to the skill indicated, in the immediately preceeding
+				<code>SKILL</code> tag, to the character if they can legally have that many
 				additional ranks of that skill.</li>
 			<li><code>RANK</code> tag MUST be used on all SKILL lines.</li>
-			<li>If the indicated skill is a class skill then ranks will be purchased as such, 
+			<li>If the indicated skill is a class skill then ranks will be purchased as such,
 				and likewise for cross-class skills.</li>
 		</ul>
 		<p class="indent1"><strong>Examples:</strong></p>
@@ -860,7 +873,7 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>Makes selection of languages for ranks of the Speak Language skill.</li>
-			<li>This tag is used, in conjunction with the <code>SKILL</code> and <code>RANK</code> tags, to 
+			<li>This tag is used, in conjunction with the <code>SKILL</code> and <code>RANK</code> tags, to
 				select languages.</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
@@ -889,12 +902,12 @@
 
 		<p class="indent0"><strong><a name="VALUES">Tag Name:</a></strong> VALUES:x|y,z|x|y.z</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> EQMOD:Text (Eqmod key)</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> LOOKUP Tag (See 
+		<p class="indent1"><strong>Variables Used (x):</strong> LOOKUP Tag (See
 			<a href="#LOOKUP">LOOKUP Tag</a> docs)</p>
 		<p class="indent1"><strong>Variables Used (y):</strong> Number (Lower selection range)</p>
 		<p class="indent1"><strong>Variables Used (z):</strong> Number (Upper selection range)</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Defines the {&quot;value&quot;,selection range} pairs for the associated 
+		<p class="indent2">Defines the {&quot;value&quot;,selection range} pairs for the associated
 			<a href="#TABLE">TABLE</a>.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<blockquote class="indent2">
@@ -903,13 +916,13 @@
 				EQMOD:MI_CLE|76,82|EQMOD:SPL_STR|83,87|EQMOD:THROW|88,91|EQMOD:THNDR_M|92,95|
 				EQMOD:VICIOU|96,100</code></p>
 		</blockquote>
-		<p class="indent3">This table consists of the following eqmods, granted by random determination of 1d100, 
-			<span class="lstobj">BANE_M</span> on a 1-10, <span class="lstobj">DEFEND</span> on an 11-17, 
-			<span class="lstobj">FLM_M</span> on a 18-27, <span class="lstobj">FROST_M</span> on a 28-37, 
-			<span class="lstobj">SHOCK_M</span> on a 38-47, <span class="lstobj">GHOST_M</span> on a 48-67, 
-			<span class="lstobj">KIFOC</span> on a 68-71, <span class="lstobj">MERC_M</span> on a 72-75, 
-			<span class="lstobj">MI_CLE</span> on a76-82 <span class="lstobj">SPL_STR</span> on a 83-87, 
-			<span class="lstobj">THROW</span> on a 88-91, <span class="lstobj">THNDR_M</span> on a 92-95, or 
+		<p class="indent3">This table consists of the following eqmods, granted by random determination of 1d100,
+			<span class="lstobj">BANE_M</span> on a 1-10, <span class="lstobj">DEFEND</span> on an 11-17,
+			<span class="lstobj">FLM_M</span> on a 18-27, <span class="lstobj">FROST_M</span> on a 28-37,
+			<span class="lstobj">SHOCK_M</span> on a 38-47, <span class="lstobj">GHOST_M</span> on a 48-67,
+			<span class="lstobj">KIFOC</span> on a 68-71, <span class="lstobj">MERC_M</span> on a 72-75,
+			<span class="lstobj">MI_CLE</span> on a76-82 <span class="lstobj">SPL_STR</span> on a 83-87,
+			<span class="lstobj">THROW</span> on a 88-91, <span class="lstobj">THNDR_M</span> on a 92-95, or
 			<span class="lstobj">VICIOU</span> on a 96-100.</p>
 		<p class="indent1"><strong>Where it is Used:</strong></p>
 		<p class="indent2">TABLE lines</code></p>

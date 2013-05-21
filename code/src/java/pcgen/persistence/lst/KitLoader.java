@@ -105,6 +105,8 @@ public final class KitLoader extends LstObjectFileLoader<Kit>
 				KitFunds.class));
 		kitLoader.addLineLoader(new CDOMSubLineLoader<KitLangBonus>(
 				"LANGBONUS", KitLangBonus.class));
+		kitLoader.addLineLoader(new CDOMSubLineLoader<KitBio>("AGE",
+				KitBio.class));
 	}
 
 	@Override

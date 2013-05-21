@@ -4714,6 +4714,13 @@ jar-all-plugins - Generate the plugin jar files
 
 	<target name="jar-lst-kit-plugins" depends="makeplugindirs" description="Build (Link) Kit Lst Token plugin jar files">
 		<!-- Kit tokens-->
+		<jar jarfile="${lstplugins.dir}/KitLstToken-AGE.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/kit/AgeToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${lstplugins.dir}/KitLstToken-NAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

@@ -41,6 +41,7 @@ import pcgen.core.PlayerCharacter;
 public class KitBio extends BaseKit
 {
 	private String theCharacterName = null;
+	private Integer theCharacterAge = null;
 	private List<Gender> theGenders = null;
 	private transient Gender selectedGender = null;
 
@@ -59,6 +60,20 @@ public class KitBio extends BaseKit
 	}
 
 	/**
+	 * Set the character's age to set for this kit item.
+	 * @param age The age to use.
+	 */
+	public void setCharacterAge(final Integer age)
+	{
+		theCharacterAge = age;
+	}
+
+	public Integer getCharacterAge()
+	{
+		return theCharacterAge;
+	}
+
+	/**
 	 * This method actually applies any changes that can be made by the
 	 * kit to the specified PlayerCharacter.
 	 *
@@ -70,6 +85,10 @@ public class KitBio extends BaseKit
 		if (theCharacterName != null)
 		{
 			aPC.setName(theCharacterName);
+		}
+		if (theCharacterAge != null)
+		{
+			aPC.setAge(theCharacterAge);
 		}
 		if (selectedGender != null)
 		{
@@ -138,6 +157,10 @@ public class KitBio extends BaseKit
 		if (theGenders != null)
 		{
 			info.append(" Gender: " + StringUtil.join(theGenders, ", "));
+		}
+		if (theCharacterAge != null)
+		{
+			info.append(" Age: " + theCharacterAge);
 		}
 
 		return info.toString();
