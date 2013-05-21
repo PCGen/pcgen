@@ -140,22 +140,22 @@ public class DefineLstTest extends AbstractGlobalTokenTestCase
 		runRoundRobin("VariableName|if(var(\"SIZE==3||SIZE==4\"),5,0)");
 	}
 
-	@Test
-	public void testRoundRobinLock() throws PersistenceLayerException
-	{
-		runRoundRobin("LOCK.STR|10");
-	}
+//	DEFINE:LOCK deprecated and now changes to DEFINESTAT:LOCK or DEFINESTAT:NONSTAT
+//	public void testRoundRobinLock() throws PersistenceLayerException
+//	{
+//		runRoundRobin("LOCK.STR|10");
+//	}
 
-	@Test
-	public void testRoundRobinUnlock() throws PersistenceLayerException
-	{
-		runRoundRobin("UNLOCK.STR");
-	}
+//	DEFINE:UNLOCK deprecated and now changes to DEFINESTAT:STAT
+//	public void testRoundRobinUnlock() throws PersistenceLayerException
+//	{
+//		runRoundRobin("UNLOCK.STR");
+//	}
 
 	@Override
 	protected String getLegalValue()
 	{
-		return "LOCK.STR|10";
+		return "FooVar|10";
 	}
 
 	@Override
