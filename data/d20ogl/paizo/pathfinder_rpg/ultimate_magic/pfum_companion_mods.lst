@@ -483,14 +483,14 @@ MASTERBONUSRACE:Familiar (Blue-Ringed Octopus)	TYPE:Familiar														BONUS:
 MASTERBONUSRACE:Familiar (Donkey Rat)		TYPE:Familiar	BONUS:CHECKS|Fortitude|2																	VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Fox (UM))			TYPE:Familiar	BONUS:CHECKS|Reflex|2																		VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Goat)			TYPE:Familiar														BONUS:SKILL|Survival|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Greensting Scorpion)	TYPE:Familiar						BONUS:COMBAT|INITIATIVE|2												VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Greensting Scorpion)	TYPE:Familiar						BONUS:COMBAT|INITIATIVE|4												VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Hedgehog)			TYPE:Familiar	BONUS:CHECKS|Will|2																		VFEAT:Alertness
 MASTERBONUSRACE:Familiar (House Centipede)	TYPE:Familiar														BONUS:SKILL|Stealth|3					VFEAT:Alertness
 MASTERBONUSRACE:Familiar (King Crab)		TYPE:Familiar																		BONUS:VAR|CMB_Grapple|2	VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Pig)			TYPE:Familiar														BONUS:SKILL|Diplomacy|3					VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Scarlet Spider)		TYPE:Familiar														BONUS:SKILL|Climb|3					VFEAT:Alertness
 MASTERBONUSRACE:Familiar (Thrush)			TYPE:Familiar														BONUS:SKILL|Diplomacy|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Turtle)			TYPE:Familiar						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE									VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Turtle)			TYPE:Familiar						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK										VFEAT:Alertness
 
 ###Block: Abilities for specific types of familiars
 # Class of the Master	Type			Required Race			Apply Kit
