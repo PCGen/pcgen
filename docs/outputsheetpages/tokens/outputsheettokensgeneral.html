@@ -3,14 +3,14 @@
 <html>
 	<!--
 		PCGen Documentation Project
-		
+
 		$Author$
 		$Date$
 		$Revision$
-		
+
 		Contributors:
 		Shane Molnar - shaneATcliftonmotelDOTcomDOTau
-		
+
 		Description:
 		Provides information on the use of Output Sheet Tokens: General Information.
 	-->
@@ -19,7 +19,7 @@
 		<link rel="stylesheet" type="text/css" href="../../pcgen.css">
   		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	</head>
-	
+
 	<body>
 		<h1>General Information Output Sheet Tokens</h1>
 
@@ -30,6 +30,15 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>AGE</code></p>
 		<p class="indent3">Displays characters age.</p>
+
+		<p></p><hr>
+		<p class="new"><a name="AGECATEGORY">*** New 6.1.3</a></p>
+		<p class="indent0"><strong><a name="AGECATEGORY">Token Name:</a></strong> AGE.CATEGORY</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays characters age category.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2"><code>AGE.CATEGORY</code></p>
+		<p class="indent3">Displays characters age category.</p>
 
 		<p></p><hr>
 		<p class="indent0"><strong><a name="ALIGNMENT">Token Name:</a></strong> ALIGNMENT</p>
@@ -50,13 +59,13 @@
 		<p></p><hr>
 		<p class="indent0"><strong><a name="ALTHP">Token Name:</a></strong> ALTHP</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays characters Alternate Hit Points as defined by the <code>BONUS:HP|ALTHP|x</code> tag. 
-		This is used in gameModes which uses two separate categories of hit points 
+		<p class="indent2">Displays characters Alternate Hit Points as defined by the <code>BONUS:HP|ALTHP|x</code> tag.
+		This is used in gameModes which uses two separate categories of hit points
 		such as Spycraft which uses Wound Points and Vitality Points.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>ALTHP</code></p>
 		<p class="indent3">Displays characters Alternate Hit Points.</p>
-		
+
 		<p></p><hr>
 		<p class="indent0"><strong><a name="BIO">Token Name:</a></strong> BIO</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -265,7 +274,7 @@
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Displays the area you occupy.</p>
 		<p class="indent2">Used for the Face statistic in 3.0 rules and the Space statistic in 3.5 rules.</p>
-		<p class="indent2">The <a href="../../listfilepages/datafilestagpages/datafilesraces.html#FACE">FACE</a> 
+		<p class="indent2">The <a href="../../listfilepages/datafilestagpages/datafilesraces.html#FACE">FACE</a>
 		tag from which the FACE token gets its data can be one or two integers (x,y).</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>FACE.SHORT</code></p>
@@ -278,7 +287,7 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>FAVOREDLIST</code></p>
 		<p class="indent3">Displays a comma delimited list of all your favored classes.</p>
-		
+
 		<p></p><hr>
 		<p class="indent0"><strong><a name="FOLLOWER">Token Name:</a></strong> FOLLOWER.x.y</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The follower's position in the character's follower list
@@ -318,7 +327,7 @@
 			<li>FOLLOWER - Followers considered to be Henchmen.</li>
 			<li>SPECIAL MOUNT - Followers considered to be Special Mounts.</li>
 		</ul>
-		<p class="indent1"><strong> Variables Used (y):</strong> Number (The follower of the type specified's position in 
+		<p class="indent1"><strong> Variables Used (y):</strong> Number (The follower of the type specified's position in
 			the character's follower list - 0-based index).</p>
 		<p class="indent1"><strong> Variables Used (z):</strong> Text (Any valid csheet token).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -337,7 +346,7 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>GAMEMODE</code></p>
 		<p class="indent3">Displays the current Game Mode.</p>
-		
+
 		<p></p><hr>
 		<p class="indent0"><strong><a name="GENDER">Token Name:</a></strong> GENDER.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Gender output type).</p>
@@ -553,7 +562,7 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>PAPERINFO.NAME</code></p>
 		<p class="indent3">Displays the name of the Paper Type defined in the Output Preferences.</p>
-				
+
 		<p></p><hr>
 		<p class="new">*** new 5.7.14</p>
 		<p class="indent0"><strong><a name="PC">Token Name:</a></strong> PC.x</p>
@@ -638,10 +647,10 @@
 		<p></p><hr>
 		<p class="new">*** New 5.9.4</p>
 		<p class="indent0"><strong><a name="RACESUBTYPE">Token Name:</a></strong> RACESUBTYPE.x</p>
-		<p class="indent1"><strong> Variables Used (x):</strong> Number 
+		<p class="indent1"><strong> Variables Used (x):</strong> Number
 			(The subtypes position in the character's subtypes list - 0-based index).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays characters race subtype as set by the 
+		<p class="indent2">Displays characters race subtype as set by the
 		<a href="../../listfilepages/datafilestagpages/datafilesraces.html#RACESUBTYPE">RACESUBTYPE</a> race tag.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>RACESUBTYPE.0</code></p>
@@ -651,7 +660,7 @@
 		<p class="new">*** New 5.9.4</p>
 		<p class="indent0"><strong><a name="RACETYPE">Token Name:</a></strong> RACETYPE</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays characters race type as set by the 
+		<p class="indent2">Displays characters race type as set by the
 		<a href="../../listfilepages/datafilestagpages/datafilesraces.html#RACETYPE">RACETYPE</a> race tag.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>RACETYPE</code></p>
@@ -748,7 +757,7 @@
 		<p></p><hr>
 		<p class="indent0"><strong><a name="TYPE">Token Name:</a></strong> TYPE</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays the type set by the 
+		<p class="indent2">Displays the type set by the
 		<a href="../../listfilepages/datafilestagpages/datafilesraces.html#TYPE">TYPE</a> race tag.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>TYPE</code></p>
@@ -802,8 +811,8 @@
 			<li>PUSHDRAG - Displays the max weight for the PushDrag load category.</li>
 		</ul>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2">Displays characters weight information. 
-		The last six properties are defined in the Load.lst gameMode file with the 
+		<p class="indent2">Displays characters weight information.
+		The last six properties are defined in the Load.lst gameMode file with the
 		<a href="../../listfilepages/systemfilestagpages/gamemodeloadlist.html#ENCUMBRANCE">ENCUMBRANCE</a> tag</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>WEIGHT</code></p>
