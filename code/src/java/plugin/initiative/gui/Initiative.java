@@ -409,6 +409,7 @@ public class Initiative extends javax.swing.JPanel
 	public void addTab(final Combatant cbt)
 	{
 		javax.swing.JTextPane lp = new javax.swing.JTextPane();
+		lp.setContentType( "text/html" );
 		InfoCharacterDetails ic = new InfoCharacterDetails(cbt, lp);
 		tpaneInfo.addTab(cbt.getName(), ic.getScrollPane());
 		lp.setEditable(false);

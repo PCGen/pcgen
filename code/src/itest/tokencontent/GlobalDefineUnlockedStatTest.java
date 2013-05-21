@@ -23,12 +23,13 @@ import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.DefineLst;
+import plugin.lsttokens.DefineStatLst;
 import tokencontent.testsupport.AbstractContentTokenTest;
 
 public class GlobalDefineUnlockedStatTest extends AbstractContentTokenTest
 {
 
-	private static DefineLst token = new DefineLst();
+	private static DefineStatLst token = new DefineStatLst();
 	private UnlockedStatFacet unlockedStatFacet;
 
 	@Override
@@ -41,7 +42,7 @@ public class GlobalDefineUnlockedStatTest extends AbstractContentTokenTest
 	@Override
 	public void processToken(CDOMObject source)
 	{
-		ParseResult result = token.parseToken(context, source, "UNLOCK.INT");
+		ParseResult result = token.parseToken(context, source, "UNLOCK|INT");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();

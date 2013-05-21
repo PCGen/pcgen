@@ -2,7 +2,10 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.facet.analysis.NonStatStatFacet;
+import pcgen.cdom.facet.analysis.NonStatToStatFacet;
 import pcgen.cdom.facet.analysis.StatLockFacet;
+import pcgen.cdom.facet.analysis.StatMinValueFacet;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.core.PCStat;
 
@@ -15,6 +18,13 @@ public class StatCalcFacet
 		.getFacet(StatLockFacet.class);
 	private UnlockedStatFacet unlockedStatFacet = FacetLibrary
 		.getFacet(UnlockedStatFacet.class);
+	private NonStatStatFacet nonStatStatFacet = FacetLibrary
+			.getFacet(NonStatStatFacet.class);
+	private NonStatToStatFacet nonStatToStatFacet = FacetLibrary
+			.getFacet(NonStatToStatFacet.class);
+	private StatMinValueFacet statMinValueFacet = FacetLibrary
+			.getFacet(StatMinValueFacet.class);
+
 	private VariableCheckingFacet variableCheckingFacet = FacetLibrary
 		.getFacet(VariableCheckingFacet.class);
 	private BonusCheckingFacet bonusCheckingFacet = FacetLibrary
@@ -32,30 +42,66 @@ public class StatCalcFacet
 	{
 		int y = getBaseStatFor(id, stat);
 
+		// Check for a non stat, but only if it hasn't been reset to a stat
+		if (!nonStatToStatFacet.contains(id, stat))
+		{
+			if (nonStatStatFacet.contains(id, stat))
+			{
+				return 10;
+			}
+		}
+
+		int minStatValue = Integer.MIN_VALUE;
+		Number val = statMinValueFacet.getStatMinValue(id, stat);
+		if (val != null)
+		{
+			minStatValue = val.intValue();
+		}
+		
 		// Only check for a lock if the stat hasn't been unlocked
 		if (!unlockedStatFacet.contains(id, stat))
 		{
-			Number val = statLockFacet.getLockedStat(id, stat);
+			val = statLockFacet.getLockedStat(id, stat);
 			if (val != null)
 			{
-				return val.intValue();
+				int total =
+						val.intValue()
+							+ (int) bonusCheckingFacet.getBonus(id,
+								"LOCKEDSTAT", stat.getAbb());
+				return Math.max(minStatValue, total);
 			}
 		}
 
 		y += bonusCheckingFacet.getBonus(id, "STAT", stat.getAbb());
 
-		return y;
+		return Math.max(minStatValue, y);
 	}
 
 	public int getBaseStatFor(CharID id, PCStat stat)
 	{
+		// Check for a non stat, but only if it hasn't been reset to a stat
+		if (!nonStatToStatFacet.contains(id, stat))
+		{
+			if (nonStatStatFacet.contains(id, stat))
+			{
+				return 10;
+			}
+		}
+
+		int minStatValue = Integer.MIN_VALUE;
+		Number val = statMinValueFacet.getStatMinValue(id, stat);
+		if (val != null)
+		{
+			minStatValue = val.intValue();
+		}
+
 		// Only check for a lock if the stat hasn't been unlocked
 		if (!unlockedStatFacet.contains(id, stat))
 		{
-			Number val = statLockFacet.getLockedStat(id, stat);
+			val = statLockFacet.getLockedStat(id, stat);
 			if (val != null)
 			{
-				return val.intValue();
+				return Math.max(minStatValue, val.intValue());
 			}
 		}
 
@@ -65,10 +111,10 @@ public class StatCalcFacet
 
 		if (z != 0)
 		{
-			return z;
+			return Math.max(minStatValue, z);
 		}
 		Integer score = statValueFacet.get(id, stat);
-		return score == null ? 0 : score;
+		return Math.max(minStatValue, score == null ? 0 : score);
 	}
 
 	public int getStatModFor(CharID id, PCStat stat)

@@ -115,7 +115,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		// Set value
 		for (String s : str)
 		{
-			assertTrue(parse(s));
+			assertTrue("Should be able to parse " + s, parse(s));
 		}
 		// Get back the appropriate token:
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);

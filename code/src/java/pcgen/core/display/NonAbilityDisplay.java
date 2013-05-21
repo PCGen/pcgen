@@ -26,27 +26,6 @@ public class NonAbilityDisplay
 {
 
 	/**
-	 * Takes a StatLock. If that StatLock indicates a stat has been locked at 10
-	 * then it is considered a non-ability.
-	 * 
-	 * TODO This is insanely bad design, it's completely arse about face. What
-	 * should have been done was find a way to mark a stat as a non-ability and
-	 * then have the stat checking code interpret that as "no bonus or penalty -
-	 * treat like it was locked at 10". Doing it this way means there is no way
-	 * to actually lock a stat at 10. TODO: Fix this mess! disparaging comments
-	 * Andrew Wilson 20060308
-	 * 
-	 * @param stat
-	 *            the stat in question
-	 * 
-	 * @return Whether this has been defined as a non-ability
-	 */
-	public static boolean isLockedStat(StatLock lock)
-	{
-		return lock.getLockValue().toString().equals("10");
-	}
-
-	/**
 	 * Returns true if the given PCStat is not an ability as locked in the given
 	 * CDOMObject.
 	 * 
@@ -63,19 +42,16 @@ public class NonAbilityDisplay
 	public static boolean isNonAbilityForObject(PCStat stat, CDOMObject po)
 	{
 		// An unlock will always override a lock, so check it first
-		if (po == null || po.containsInList(ListKey.UNLOCKED_STATS, stat))
+		if (po == null || po.containsInList(ListKey.NONSTAT_TO_STAT_STATS, stat))
 		{
 			return false;
 		}
 	
-		for (StatLock sl : po.getSafeListFor(ListKey.STAT_LOCKS))
+		for (PCStat nsStat : po.getSafeListFor(ListKey.NONSTAT_STATS))
 		{
-			if (sl.getLockedStat().equals(stat))
+			if (nsStat.equals(stat))
 			{
-				if (isLockedStat(sl))
-				{
-					return true;
-				}
+				return true;
 			}
 		}
 	

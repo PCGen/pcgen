@@ -142,6 +142,8 @@ import pcgen.cdom.facet.analysis.LevelTableFacet;
 import pcgen.cdom.facet.analysis.LoadFacet;
 import pcgen.cdom.facet.analysis.MovementResultFacet;
 import pcgen.cdom.facet.analysis.NonAbilityFacet;
+import pcgen.cdom.facet.analysis.NonStatStatFacet;
+import pcgen.cdom.facet.analysis.NonStatToStatFacet;
 import pcgen.cdom.facet.analysis.QualifyFacet;
 import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
 import pcgen.cdom.facet.analysis.StatLockFacet;
@@ -322,6 +324,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
 	private SubstitutionClassFacet substitutionClassFacet = FacetLibrary.getFacet(SubstitutionClassFacet.class);
 	private UnlockedStatFacet unlockedStatFacet = FacetLibrary.getFacet(UnlockedStatFacet.class);
+	private NonStatStatFacet nonStatStatFacet = FacetLibrary.getFacet(NonStatStatFacet.class);
+	private NonStatToStatFacet nonStatToStatFacet = FacetLibrary.getFacet(NonStatToStatFacet.class);
 
 	/*
 	 * Note "minimal" here means getDirty is allowed on a set, it may be used in
@@ -9728,6 +9732,19 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public <T> void setAssoc(Object obj, AssociationKey<T> ak, T o)
 	{
 		assocSupt.setAssoc(obj, ak, o);
+	}
+
+	public boolean hasNonStatStat(PCStat stat)
+	{
+		// Check for a non stat, but only if it hasn't been reset to a stat
+		if (!nonStatToStatFacet.contains(id, stat))
+		{
+			if (nonStatStatFacet.contains(id, stat))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public boolean hasUnlockedStat(PCStat stat)

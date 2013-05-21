@@ -391,11 +391,17 @@
 	<bean id="naturalWeaponFacet" class="pcgen.cdom.facet.NaturalWeaponFacet"/>
 	<bean id="naturalWeaponProfFacet" class="pcgen.cdom.facet.NaturalWeaponProfFacet"/>
 	<bean id="nonAbilityFacet" class="pcgen.cdom.facet.analysis.NonAbilityFacet">
-		<property name="unlockedStatFacet" ref="unlockedStatFacet"/>
-		<property name="statLockFacet" ref="statLockFacet"/>
+		<property name="nonStatStatFacet" ref="nonStatStatFacet"/>
+		<property name="nonStatToStatFacet" ref="nonStatToStatFacet"/>
 	</bean>
 	<bean id="nonProficiencyPenaltyFacet" class="pcgen.cdom.facet.analysis.NonProficiencyPenaltyFacet">
 		<property name="templateFacet" ref="templateFacet"/>
+	</bean>
+	<bean id="nonStatStatFacet" class="pcgen.cdom.facet.analysis.NonStatStatFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
+	<bean id="nonStatToStatFacet" class="pcgen.cdom.facet.analysis.NonStatToStatFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="noteItemFacet" class="pcgen.cdom.facet.NoteItemFacet"/>
 	<!-- O -->
@@ -508,6 +514,10 @@
 		<property name="statFacet" ref="statFacet"/>
 	</bean>
 	<bean id="statLockFacet" class="pcgen.cdom.facet.analysis.StatLockFacet">
+		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
+	<bean id="statMinValueFacet" class="pcgen.cdom.facet.analysis.StatMinValueFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>

@@ -18,9 +18,7 @@
 package pcgen.cdom.facet.analysis;
 
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.helper.StatLock;
 import pcgen.core.PCStat;
-import pcgen.core.display.NonAbilityDisplay;
 
 /**
  * NonAbilityFacet is a Facet that tracks the Non-Abilities (PCStat objects)
@@ -30,8 +28,8 @@ import pcgen.core.display.NonAbilityDisplay;
  */
 public class NonAbilityFacet
 {
-	private UnlockedStatFacet unlockedStatFacet;
-	private StatLockFacet statLockFacet;
+	private NonStatStatFacet nonStatStatFacet;
+	private NonStatToStatFacet nonStatToStatFacet;
 
 	/**
 	 * Returns true if the given PCStat is not an ability for the Player
@@ -48,28 +46,21 @@ public class NonAbilityFacet
 	 */
 	public boolean isNonAbility(CharID id, PCStat stat)
 	{
-		if (unlockedStatFacet.contains(id, stat))
+		if (nonStatToStatFacet.contains(id, stat))
 		{
 			return false;
 		}
-		for (StatLock lock : statLockFacet.getSet(id))
-		{
-			if ((lock.getLockedStat().equals(stat)) && NonAbilityDisplay.isLockedStat(lock))
-			{
-				return true;
-			}
-		}
-		return false;
+		return nonStatStatFacet.contains(id, stat);
 	}
 
-	public void setUnlockedStatFacet(UnlockedStatFacet unlockedStatFacet)
+	public void setNonStatStatFacet(NonStatStatFacet nonStatStatFacet)
 	{
-		this.unlockedStatFacet = unlockedStatFacet;
+		this.nonStatStatFacet = nonStatStatFacet;
 	}
 
-	public void setStatLockFacet(StatLockFacet statLockFacet)
+	public void setNonStatToStatFacet(NonStatToStatFacet nonStatToStatFacet)
 	{
-		this.statLockFacet = statLockFacet;
+		this.nonStatToStatFacet = nonStatToStatFacet;
 	}
 
 }

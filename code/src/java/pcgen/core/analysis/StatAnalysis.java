@@ -35,6 +35,11 @@ public class StatAnalysis
 	 */
 	public static int getPartialStatFor(PlayerCharacter aPC, PCStat stat, boolean useTemp, boolean useEquip)
 	{
+		if (aPC.hasNonStatStat(stat))
+		{
+			return 10;
+		}
+		
 		// Only check for a lock if the stat hasn't been unlocked
 		if (!aPC.hasUnlockedStat(stat))
 		{

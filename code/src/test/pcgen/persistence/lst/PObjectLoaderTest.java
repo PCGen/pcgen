@@ -97,7 +97,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 		}
 	}
 
-	public void testUnlockDefine() throws Exception
+	public void testUnlockDefineStat() throws Exception
 	{
 		LoadContext context = Globals.getContext();
 		
@@ -115,7 +115,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		Ability feat = new Ability();
 
-		is(context.processToken(feat, "DEFINE", "UNLOCK.INT"), eq(true),
+		is(context.processToken(feat, "DEFINESTAT", "UNLOCK|INT"), eq(true),
 			"Parse fails for unlock");
 		context.commit();
 		Logging.clearParseMessages();
@@ -131,8 +131,9 @@ public class PObjectLoaderTest extends PCGenTestCase
 		ploader.startSystemPlugins(Constants.SYSTEM_TOKENS);
 		Ability feat = new Ability();
 
-		is(Globals.getContext().processToken(feat, "DEFINE", "UNLOCK.INT|0"), eq(false),
-			"Parse fails to catch bad unlock define");
+		is(Globals.getContext()
+			.processToken(feat, "DEFINESTAT", "UNLOCK|INT|0"), eq(false),
+			"Parse fails to catch bad unlock definestat");
 	}
 
 	public void testParsePreClear() throws Exception

@@ -33,6 +33,7 @@ import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 /**
  * @author djones4
@@ -72,7 +73,9 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 			}
 			PCStat stat = context.ref.getAbbreviatedObject(PCSTAT_CLASS, value
 					.substring(7));
-			context.obj.addToList(obj, ListKey.UNLOCKED_STATS, stat);
+			context.obj.addToList(obj, ListKey.NONSTAT_TO_STAT_STATS, stat);
+			Logging.deprecationPrint("DEFINE:UNLOCK. has been deprecated, "
+				+ "please use DEFINESTAT:STAT| or DEFINESTAT:UNLOCK|", context);
 			return ParseResult.SUCCESS;
 		}
 		if (!sep.hasNext())
@@ -103,8 +106,19 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 			{
 				PCStat stat = context.ref.getAbbreviatedObject(PCSTAT_CLASS,
 						firstItem.substring(5));
-				context.getObjectContext().addToList(obj, ListKey.STAT_LOCKS,
-						new StatLock(stat, f));
+				if (f.isStatic() && f.resolveStatic().equals(10))
+				{
+					context.obj.addToList(obj, ListKey.NONSTAT_STATS, stat);
+				}
+				else
+				{
+					context.getObjectContext().addToList(obj, ListKey.STAT_LOCKS,
+							new StatLock(stat, f));
+				}
+				Logging.deprecationPrint("DEFINE:LOCK. has been deprecated, "
+					+ "please use DEFINESTAT:LOCK| or DEFINESTAT:NONSTAT|",
+					context);
+				
 			}
 			else
 			{
@@ -124,10 +138,6 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<StatLock> changes = context.getObjectContext().getListChanges(
-				obj, ListKey.STAT_LOCKS);
-		Changes<PCStat> ulchanges = context.getObjectContext().getListChanges(
-				obj, ListKey.UNLOCKED_STATS);
 		Set<VariableKey> keys = context.getObjectContext().getVariableKeys(obj);
 		TreeSet<String> set = new TreeSet<String>();
 		if (keys != null && !keys.isEmpty())
@@ -136,38 +146,6 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 			{
 				set.add(key.toString() + Constants.PIPE
 						+ context.getObjectContext().getVariable(obj, key));
-			}
-		}
-		if (changes != null && !changes.isEmpty())
-		{
-			if (changes.includesGlobalClear())
-			{
-				context.addWriteMessage("DEFINE:LOCK does not support .CLEAR");
-				return null;
-			}
-			if (changes.hasAddedItems())
-			{
-				for (StatLock sl : changes.getAdded())
-				{
-					set.add("LOCK." + sl.getLockedStat().getLSTformat() + "|"
-							+ sl.getLockValue());
-				}
-			}
-		}
-		if (ulchanges != null && !ulchanges.isEmpty())
-		{
-			if (ulchanges.includesGlobalClear())
-			{
-				context.addWriteMessage("DEFINE:UNLOCK "
-						+ "does not support .CLEAR");
-				return null;
-			}
-			if (ulchanges.hasAddedItems())
-			{
-				for (PCStat st : ulchanges.getAdded())
-				{
-					set.add("UNLOCK." + st.getLSTformat());
-				}
 			}
 		}
 		if (set.isEmpty())

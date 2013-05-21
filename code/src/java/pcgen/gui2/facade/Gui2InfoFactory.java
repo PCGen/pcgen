@@ -1150,6 +1150,15 @@ public class Gui2InfoFactory implements InfoFactory
 						bonusDesc = pcstat.getName();
 					}
 				}
+				else if ("LOCKEDSTAT".equals(bonusObj.getTypeOfBonus())) //$NON-NLS-1$
+				{
+					final PCStat pcstat = Globals.getContext().ref
+							.getAbbreviatedObject(PCStat.class, bonusObj.getBonusInfo());
+					if (pcstat != null)
+					{
+						bonusDesc = pcstat.getName() + " (locked)";
+					}
+				}
 				
 				bonusValues.append(adj + " " + bonusDesc);  //$NON-NLS-1$
 			}

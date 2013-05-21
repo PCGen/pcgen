@@ -49,6 +49,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	PCTemplate locker;
 	PCTemplate unlocker;
 	Ability bonus;
+	Ability lockedBonus;
 
 	/* (non-Javadoc)
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
@@ -67,11 +68,16 @@ public class StatListTest extends AbstractCharacterTestCase
 		unlocker.setName("unlocker");
 		unlocker.addToListFor(ListKey.UNLOCKED_STATS, str);
 		bonus = TestHelper.makeAbility("Bonus", AbilityCategory.FEAT, "General.Fighter");
-		final BonusObj aBonus = Bonus.newBonus(context, "STAT|STR|7|TYPE=Enhancement");
-		
+		BonusObj aBonus = Bonus.newBonus(context, "STAT|STR|7|TYPE=Enhancement");
 		if (aBonus != null)
 		{
 			bonus.addToListFor(ListKey.BONUS, aBonus);
+		}
+		lockedBonus = TestHelper.makeAbility("LockedBonus", AbilityCategory.FEAT, "General.Fighter");
+		aBonus = Bonus.newBonus(context, "LOCKEDSTAT|STR|3|TYPE=Morale");
+		if (aBonus != null)
+		{
+			lockedBonus.addToListFor(ListKey.BONUS, aBonus);
 		}
 
 		setPCStat(pc, str, 6);
@@ -89,11 +95,15 @@ public class StatListTest extends AbstractCharacterTestCase
 		// Bonus should not affect base stat
 		pc.addAbilityNeedCheck(AbilityCategory.FEAT, bonus);
 		pc.calcActiveBonuses();
-		assertEquals("Stat should still be locked", 6, pc.getBaseStatFor(str));
+		assertEquals("Stat should still be base", 6, pc.getBaseStatFor(str));
 		
 		pc.addTemplate(locker);
 		assertEquals("Stat should now be locked", 12, pc.getBaseStatFor(str));
 
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, lockedBonus);
+		pc.calcActiveBonuses();
+		assertEquals("Stat should still be locked", 12, pc.getBaseStatFor(str));
+		
 		pc.addTemplate(unlocker);
 		assertEquals("Stat should now be unlocked", 6, pc.getBaseStatFor(str));
 	}
@@ -115,8 +125,34 @@ public class StatListTest extends AbstractCharacterTestCase
 		pc.addTemplate(locker);
 		assertEquals("Stat should now be locked", 12, pc.getTotalStatFor(str));
 
+		pc.addAbilityNeedCheck(AbilityCategory.FEAT, lockedBonus);
+		pc.calcActiveBonuses();
+		assertEquals("Stat should be locked but bonused", 15, pc.getTotalStatFor(str));
+
 		pc.addTemplate(unlocker);
 		assertEquals("Stat should now be unlocked", 13, pc.getTotalStatFor(str));
+	}
+	
+	/**
+	 * Test out the output of stats where a min value is in place. 
+	 */
+	public void testMinValueStat()
+	{
+		PlayerCharacter pc = getCharacter();
+		assertEquals("Starting STR should be 6", 6, pc.getTotalStatFor(str));
+		assertEquals("Starting STR mod", -2, pc.getStatModFor(str));
+
+		// With template lock
+		PCTemplate statMinValTemplate = new PCTemplate();
+		statMinValTemplate.setName("minval");
+		statMinValTemplate.addToListFor(ListKey.STAT_MINVALUE, new StatLock(
+			str, FormulaFactory.getFormulaFor(8)));
+		pc.addTemplate(statMinValTemplate);
+		assertEquals("STR now has minimum value", 8, pc.getTotalStatFor(str));
+		assertEquals("Starting STR mod", -1, pc.getStatModFor(str));
+		pc.removeTemplate(statMinValTemplate);
+		assertEquals("STR no longer has minimum value", 6, pc.getTotalStatFor(str));
+		assertEquals("Starting STR mod", -2, pc.getStatModFor(str));
 	}
 
 }

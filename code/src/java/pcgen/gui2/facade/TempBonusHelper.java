@@ -176,6 +176,10 @@ public class TempBonusHelper
 	{
 		CharacterDisplay charDisplay = theCharacter.getDisplay();
 		List<InfoFacade> possibleEquipment = new ArrayList<InfoFacade>();
+		if (originObj == null)
+		{
+			return possibleEquipment;
+		}
 		boolean found = false;
 		theCharacter.setCalcEquipmentList(theCharacter.getUseTempMods());
 		for (Equipment aEq : charDisplay.getEquipmentSet())
