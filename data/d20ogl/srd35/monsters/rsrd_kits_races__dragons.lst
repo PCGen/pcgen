@@ -1,0 +1,2054 @@
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+# True dragons added by Matt Chambers (Otiendikil)
+
+### Two blocks, "True Dragons, stats set to Default by the kit" and "True Dragons, stats unchanged by the kit"
+
+###
+###Block: True Dragons, stats set to Default by the kit
+###
+
+STARTPACK:Dragon (Black Wyrmling) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[!PRERACE:1,Dragon (Black Wyrmling)]	SORTKEY:Dragon (Black 01)
+RACE:Dragon (Black Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Black Wyrmling)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:7
+SKILL:Search	RANK:7
+SKILL:Spot		RANK:7
+
+
+STARTPACK:Dragon (Black Very Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Very Young)]	SORTKEY:Dragon (Black 02)
+RACE:Dragon (Black Very Young)	!PRERACE:1,%
+NAME:Dragon (Black Very Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:10
+SKILL:Search	RANK:10
+SKILL:Spot		RANK:10
+
+
+STARTPACK:Dragon (Black Young) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Young)]		SORTKEY:Dragon (Black 03)
+RACE:Dragon (Black Young)	!PRERACE:1,%
+NAME:Dragon (Black Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:13
+SKILL:Search	RANK:13
+SKILL:Spot		RANK:13
+
+
+STARTPACK:Dragon (Black Juvenile) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Juvenile)]	SORTKEY:Dragon (Black 04)
+RACE:Dragon (Black Juvenile)	!PRERACE:1,%
+NAME:Dragon (Black Juvenile)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:16
+SKILL:Search	RANK:16
+SKILL:Spot		RANK:16
+
+
+STARTPACK:Dragon (Black Young Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Young Adult)]	SORTKEY:Dragon (Black 05)
+RACE:Dragon (Black Young Adult)	!PRERACE:1,%
+NAME:Dragon (Black Young Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:19
+SKILL:Search	RANK:19
+SKILL:Spot		RANK:19
+
+
+STARTPACK:Dragon (Black Adult) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Adult)]		SORTKEY:Dragon (Black 06)
+RACE:Dragon (Black Adult)	!PRERACE:1,%
+NAME:Dragon (Black Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:22
+SKILL:Search	RANK:22
+SKILL:Spot		RANK:22
+
+
+STARTPACK:Dragon (Black Mature Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Mature Adult)]	SORTKEY:Dragon (Black 07)
+RACE:Dragon (Black Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Black Mature Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:25
+SKILL:Search	RANK:25
+SKILL:Spot		RANK:25
+
+
+STARTPACK:Dragon (Black Old) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Old)]		SORTKEY:Dragon (Black 08)
+RACE:Dragon (Black Old)	!PRERACE:1,%
+NAME:Dragon (Black Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:28
+SKILL:Search	RANK:28
+SKILL:Spot		RANK:28
+
+
+STARTPACK:Dragon (Black Very Old) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Very Old)]	SORTKEY:Dragon (Black 09)
+RACE:Dragon (Black Very Old)	!PRERACE:1,%
+NAME:Dragon (Black Very Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:31
+SKILL:Search	RANK:31
+SKILL:Spot		RANK:31
+
+
+STARTPACK:Dragon (Black Ancient) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Ancient)]		SORTKEY:Dragon (Black 10)
+RACE:Dragon (Black Ancient)	!PRERACE:1,%
+NAME:Dragon (Black Ancient)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:34
+SKILL:Search	RANK:34
+SKILL:Spot		RANK:34
+
+
+STARTPACK:Dragon (Black Wyrm) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Wyrm)]		SORTKEY:Dragon (Black 11)
+RACE:Dragon (Black Wyrm)	!PRERACE:1,%
+NAME:Dragon (Black Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:37
+SKILL:Search	RANK:37
+SKILL:Spot		RANK:37
+
+
+STARTPACK:Dragon (Black Great Wyrm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Great Wyrm)]	SORTKEY:Dragon (Black 12)
+RACE:Dragon (Black Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Black Great Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:40
+SKILL:Search	RANK:40
+SKILL:Spot		RANK:40
+
+
+STARTPACK:Dragon (Blue Wyrmling) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Wyrmling)]		SORTKEY:Dragon (Blue 01)
+RACE:Dragon (Blue Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Blue Wyrmling)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:9
+SKILL:Search	RANK:9
+SKILL:Spot		RANK:9
+
+
+STARTPACK:Dragon (Blue Very Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Very Young)]	SORTKEY:Dragon (Blue 02)
+RACE:Dragon (Blue Very Young)	!PRERACE:1,%
+NAME:Dragon (Blue Very Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:12
+SKILL:Search	RANK:12
+SKILL:Spot		RANK:12
+
+
+STARTPACK:Dragon (Blue Young) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Young)]		SORTKEY:Dragon (Blue 03)
+RACE:Dragon (Blue Young)	!PRERACE:1,%
+NAME:Dragon (Blue Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:15
+SKILL:Search	RANK:15
+SKILL:Spot		RANK:15
+
+
+STARTPACK:Dragon (Blue Juvenile) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Juvenile)]		SORTKEY:Dragon (Blue 04)
+RACE:Dragon (Blue Juvenile)	!PRERACE:1,%
+NAME:Dragon (Blue Juvenile)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:18
+SKILL:Search	RANK:18
+SKILL:Spot		RANK:18
+
+
+STARTPACK:Dragon (Blue Young Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Young Adult)]	SORTKEY:Dragon (Blue 05)
+RACE:Dragon (Blue Young Adult)	!PRERACE:1,%
+NAME:Dragon (Blue Young Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:21
+SKILL:Search	RANK:21
+SKILL:Spot		RANK:21
+
+
+STARTPACK:Dragon (Blue Adult) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Adult)]		SORTKEY:Dragon (Blue 06)
+RACE:Dragon (Blue Adult)	!PRERACE:1,%
+NAME:Dragon (Blue Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:24
+SKILL:Search	RANK:24
+SKILL:Spot		RANK:24
+
+
+STARTPACK:Dragon (Blue Mature Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Mature Adult)]	SORTKEY:Dragon (Blue 07)
+RACE:Dragon (Blue Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Blue Mature Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:27
+SKILL:Search	RANK:27
+SKILL:Spot		RANK:27
+
+
+STARTPACK:Dragon (Blue Old) Default			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Old)]		SORTKEY:Dragon (Blue 08)
+RACE:Dragon (Blue Old)	!PRERACE:1,%
+NAME:Dragon (Blue Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:30
+SKILL:Search	RANK:30
+SKILL:Spot		RANK:30
+
+
+STARTPACK:Dragon (Blue Very Old) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Very Old)]		SORTKEY:Dragon (Blue 09)
+RACE:Dragon (Blue Very Old)	!PRERACE:1,%
+NAME:Dragon (Blue Very Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:33
+SKILL:Search	RANK:33
+SKILL:Spot		RANK:33
+
+
+STARTPACK:Dragon (Blue Ancient) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Ancient)]		SORTKEY:Dragon (Blue 10)
+RACE:Dragon (Blue Ancient)	!PRERACE:1,%
+NAME:Dragon (Blue Ancient)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:36
+SKILL:Search	RANK:36
+SKILL:Spot		RANK:36
+
+
+STARTPACK:Dragon (Blue Wyrm) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Wyrm)]		SORTKEY:Dragon (Blue 11)
+RACE:Dragon (Blue Wyrm)	!PRERACE:1,%
+NAME:Dragon (Blue Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:39
+SKILL:Search	RANK:39
+SKILL:Spot		RANK:39
+
+
+STARTPACK:Dragon (Blue Great Wyrm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Great Wyrm)]	SORTKEY:Dragon (Blue 12)
+RACE:Dragon (Blue Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Blue Great Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:42
+SKILL:Search	RANK:42
+SKILL:Spot		RANK:42
+
+
+STARTPACK:Dragon (Green Wyrmling) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Wyrmling)]	SORTKEY:Dragon (Green 01)
+RACE:Dragon (Green Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Green Wyrmling)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:8
+SKILL:Search	RANK:8
+SKILL:Spot		RANK:8
+
+
+STARTPACK:Dragon (Green Very Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Very Young)]	SORTKEY:Dragon (Green 02)
+RACE:Dragon (Green Very Young)	!PRERACE:1,%
+NAME:Dragon (Green Very Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:11
+SKILL:Search	RANK:11
+SKILL:Spot		RANK:11
+
+
+STARTPACK:Dragon (Green Young) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Young)]		SORTKEY:Dragon (Green 03)
+RACE:Dragon (Green Young)	!PRERACE:1,%
+NAME:Dragon (Green Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:14
+SKILL:Search	RANK:14
+SKILL:Spot		RANK:14
+
+
+STARTPACK:Dragon (Green Juvenile) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Juvenile)]	SORTKEY:Dragon (Green 04)
+RACE:Dragon (Green Juvenile)	!PRERACE:1,%
+NAME:Dragon (Green Juvenile)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:17
+SKILL:Search	RANK:17
+SKILL:Spot		RANK:17
+
+
+STARTPACK:Dragon (Green Young Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Young Adult)]	SORTKEY:Dragon (Green 05)
+RACE:Dragon (Green Young Adult)	!PRERACE:1,%
+NAME:Dragon (Green Young Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:20
+SKILL:Search	RANK:20
+SKILL:Spot		RANK:20
+
+
+STARTPACK:Dragon (Green Adult) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Adult)]		SORTKEY:Dragon (Green 06)
+RACE:Dragon (Green Adult)	!PRERACE:1,%
+NAME:Dragon (Green Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:23
+SKILL:Search	RANK:23
+SKILL:Spot		RANK:23
+
+
+STARTPACK:Dragon (Green Mature Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Mature Adult)]	SORTKEY:Dragon (Green 07)
+RACE:Dragon (Green Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Green Mature Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:26
+SKILL:Search	RANK:26
+SKILL:Spot		RANK:26
+
+
+STARTPACK:Dragon (Green Old) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Old)]		SORTKEY:Dragon (Green 08)
+RACE:Dragon (Green Old)	!PRERACE:1,%
+NAME:Dragon (Green Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:29
+SKILL:Search	RANK:29
+SKILL:Spot		RANK:29
+
+
+STARTPACK:Dragon (Green Very Old) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Very Old)]	SORTKEY:Dragon (Green 09)
+RACE:Dragon (Green Very Old)	!PRERACE:1,%
+NAME:Dragon (Green Very Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:32
+SKILL:Search	RANK:32
+SKILL:Spot		RANK:32
+
+
+STARTPACK:Dragon (Green Ancient) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Ancient)]		SORTKEY:Dragon (Green 10)
+RACE:Dragon (Green Ancient)	!PRERACE:1,%
+NAME:Dragon (Green Ancient)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:35
+SKILL:Search	RANK:35
+SKILL:Spot		RANK:35
+
+
+STARTPACK:Dragon (Green Wyrm) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Wyrm)]		SORTKEY:Dragon (Green 11)
+RACE:Dragon (Green Wyrm)	!PRERACE:1,%
+NAME:Dragon (Green Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:38
+SKILL:Search	RANK:38
+SKILL:Spot		RANK:38
+
+
+STARTPACK:Dragon (Green Great Wyrm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Great Wyrm)]	SORTKEY:Dragon (Green 12)
+RACE:Dragon (Green Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Green Great Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:41
+SKILL:Search	RANK:41
+SKILL:Spot		RANK:41
+
+
+STARTPACK:Dragon (Red Wyrmling) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Wyrmling)]		SORTKEY:Dragon (Red 01)
+RACE:Dragon (Red Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Red Wyrmling)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:10
+SKILL:Search	RANK:10
+SKILL:Spot		RANK:10
+
+
+STARTPACK:Dragon (Red Very Young) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Very Young)]	SORTKEY:Dragon (Red 02)
+RACE:Dragon (Red Very Young)	!PRERACE:1,%
+NAME:Dragon (Red Very Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:13
+SKILL:Search	RANK:13
+SKILL:Spot		RANK:13
+
+
+STARTPACK:Dragon (Red Young) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Young)]		SORTKEY:Dragon (Red 03)
+RACE:Dragon (Red Young)	!PRERACE:1,%
+NAME:Dragon (Red Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:16
+SKILL:Search	RANK:16
+SKILL:Spot		RANK:16
+
+
+STARTPACK:Dragon (Red Juvenile) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Juvenile)]		SORTKEY:Dragon (Red 04)
+RACE:Dragon (Red Juvenile)	!PRERACE:1,%
+NAME:Dragon (Red Juvenile)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:19
+SKILL:Search	RANK:19
+SKILL:Spot		RANK:19
+
+
+STARTPACK:Dragon (Red Young Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Young Adult)]	SORTKEY:Dragon (Red 05)
+RACE:Dragon (Red Young Adult)	!PRERACE:1,%
+NAME:Dragon (Red Young Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:22
+SKILL:Search	RANK:22
+SKILL:Spot		RANK:22
+
+
+STARTPACK:Dragon (Red Adult) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Adult)]		SORTKEY:Dragon (Red 06)
+RACE:Dragon (Red Adult)	!PRERACE:1,%
+NAME:Dragon (Red Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:25
+SKILL:Search	RANK:25
+SKILL:Spot		RANK:25
+
+
+STARTPACK:Dragon (Red Mature Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Mature Adult)]	SORTKEY:Dragon (Red 07)
+RACE:Dragon (Red Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Red Mature Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:28
+SKILL:Search	RANK:28
+SKILL:Spot		RANK:28
+
+
+STARTPACK:Dragon (Red Old) Default			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Old)]			SORTKEY:Dragon (Red 08)
+RACE:Dragon (Red Old)	!PRERACE:1,%
+NAME:Dragon (Red Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:31
+SKILL:Search	RANK:31
+SKILL:Spot		RANK:31
+
+
+STARTPACK:Dragon (Red Very Old) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Very Old)]		SORTKEY:Dragon (Red 09)
+RACE:Dragon (Red Very Old)	!PRERACE:1,%
+NAME:Dragon (Red Very Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:34
+SKILL:Search	RANK:34
+SKILL:Spot		RANK:34
+
+
+STARTPACK:Dragon (Red Ancient) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Ancient)]		SORTKEY:Dragon (Red 10)
+RACE:Dragon (Red Ancient)	!PRERACE:1,%
+NAME:Dragon (Red Ancient)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:37
+SKILL:Search	RANK:37
+SKILL:Spot		RANK:37
+
+
+STARTPACK:Dragon (Red Wyrm) Default			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Wyrm)]		SORTKEY:Dragon (Red 11)
+RACE:Dragon (Red Wyrm)	!PRERACE:1,%
+NAME:Dragon (Red Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:40
+SKILL:Search	RANK:40
+SKILL:Spot		RANK:40
+
+
+STARTPACK:Dragon (Red Great Wyrm) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Great Wyrm)]	SORTKEY:Dragon (Red 12)
+RACE:Dragon (Red Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Red Great Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:43
+SKILL:Search	RANK:43
+SKILL:Spot		RANK:43
+
+
+STARTPACK:Dragon (White Wyrmling) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Wyrmling)]	SORTKEY:Dragon (White 01)
+RACE:Dragon (White Wyrmling)	!PRERACE:1,%
+NAME:Dragon (White Wyrmling)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:6
+SKILL:Search	RANK:6
+SKILL:Spot		RANK:6
+
+
+STARTPACK:Dragon (White Very Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Very Young)]	SORTKEY:Dragon (White 02)
+RACE:Dragon (White Very Young)	!PRERACE:1,%
+NAME:Dragon (White Very Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:9
+SKILL:Search	RANK:9
+SKILL:Spot		RANK:9
+
+
+STARTPACK:Dragon (White Young) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Young)]		SORTKEY:Dragon (White 03)
+RACE:Dragon (White Young)	!PRERACE:1,%
+NAME:Dragon (White Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:12
+SKILL:Search	RANK:12
+SKILL:Spot		RANK:12
+
+
+STARTPACK:Dragon (White Juvenile) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Juvenile)]	SORTKEY:Dragon (White 04)
+RACE:Dragon (White Juvenile)	!PRERACE:1,%
+NAME:Dragon (White Juvenile)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:15
+SKILL:Search	RANK:15
+SKILL:Spot		RANK:15
+
+
+STARTPACK:Dragon (White Young Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Young Adult)]	SORTKEY:Dragon (White 05)
+RACE:Dragon (White Young Adult)	!PRERACE:1,%
+NAME:Dragon (White Young Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:18
+SKILL:Search	RANK:18
+SKILL:Spot		RANK:18
+
+
+STARTPACK:Dragon (White Adult) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Adult)]		SORTKEY:Dragon (White 06)
+RACE:Dragon (White Adult)	!PRERACE:1,%
+NAME:Dragon (White Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:21
+SKILL:Search	RANK:21
+SKILL:Spot		RANK:21
+
+
+STARTPACK:Dragon (White Mature Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Mature Adult)]	SORTKEY:Dragon (White 07)
+RACE:Dragon (White Mature Adult)	!PRERACE:1,%
+NAME:Dragon (White Mature Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:24
+SKILL:Search	RANK:24
+SKILL:Spot		RANK:24
+
+
+STARTPACK:Dragon (White Old) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Old)]		SORTKEY:Dragon (White 08)
+RACE:Dragon (White Old)	!PRERACE:1,%
+NAME:Dragon (White Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:27
+SKILL:Search	RANK:27
+SKILL:Spot		RANK:27
+
+
+STARTPACK:Dragon (White Very Old) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Very Old)]	SORTKEY:Dragon (White 09)
+RACE:Dragon (White Very Old)	!PRERACE:1,%
+NAME:Dragon (White Very Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:30
+SKILL:Search	RANK:30
+SKILL:Spot		RANK:30
+
+
+STARTPACK:Dragon (White Ancient) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Ancient)]		SORTKEY:Dragon (White 10)
+RACE:Dragon (White Ancient)	!PRERACE:1,%
+NAME:Dragon (White Ancient)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:33
+SKILL:Search	RANK:33
+SKILL:Spot		RANK:33
+
+
+STARTPACK:Dragon (White Wyrm) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Wyrm)]		SORTKEY:Dragon (White 11)
+RACE:Dragon (White Wyrm)	!PRERACE:1,%
+NAME:Dragon (White Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:36
+SKILL:Search	RANK:36
+SKILL:Spot		RANK:36
+
+
+STARTPACK:Dragon (White Great Wyrm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Great Wyrm)]	SORTKEY:Dragon (White 12)
+RACE:Dragon (White Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (White Great Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:39
+SKILL:Search	RANK:39
+SKILL:Spot		RANK:39
+
+
+STARTPACK:Dragon (Brass Wyrmling) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Wyrmling)]	SORTKEY:Dragon (Brass 01)
+RACE:Dragon (Brass Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Brass Wyrmling)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:7
+SKILL:Search	RANK:7
+SKILL:Spot		RANK:7
+
+
+STARTPACK:Dragon (Brass Very Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Very Young)]	SORTKEY:Dragon (Brass 02)
+RACE:Dragon (Brass Very Young)	!PRERACE:1,%
+NAME:Dragon (Brass Very Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:10
+SKILL:Search	RANK:10
+SKILL:Spot		RANK:10
+
+
+STARTPACK:Dragon (Brass Young) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Young)]		SORTKEY:Dragon (Brass 03)
+RACE:Dragon (Brass Young)	!PRERACE:1,%
+NAME:Dragon (Brass Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:13
+SKILL:Search	RANK:13
+SKILL:Spot		RANK:13
+
+
+STARTPACK:Dragon (Brass Juvenile) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Juvenile)]	SORTKEY:Dragon (Brass 04)
+RACE:Dragon (Brass Juvenile)	!PRERACE:1,%
+NAME:Dragon (Brass Juvenile)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:16
+SKILL:Search	RANK:16
+SKILL:Spot		RANK:16
+
+
+STARTPACK:Dragon (Brass Young Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Young Adult)]	SORTKEY:Dragon (Brass 05)
+RACE:Dragon (Brass Young Adult)	!PRERACE:1,%
+NAME:Dragon (Brass Young Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:19
+SKILL:Search	RANK:19
+SKILL:Spot		RANK:19
+
+
+STARTPACK:Dragon (Brass Adult) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Adult)]		SORTKEY:Dragon (Brass 06)
+RACE:Dragon (Brass Adult)	!PRERACE:1,%
+NAME:Dragon (Brass Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:22
+SKILL:Search	RANK:22
+SKILL:Spot		RANK:22
+
+
+STARTPACK:Dragon (Brass Mature Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Mature Adult)]	SORTKEY:Dragon (Brass 07)
+RACE:Dragon (Brass Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Brass Mature Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:25
+SKILL:Search	RANK:25
+SKILL:Spot		RANK:25
+
+
+STARTPACK:Dragon (Brass Old) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Old)]		SORTKEY:Dragon (Brass 08)
+RACE:Dragon (Brass Old)	!PRERACE:1,%
+NAME:Dragon (Brass Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:28
+SKILL:Search	RANK:28
+SKILL:Spot		RANK:28
+
+
+STARTPACK:Dragon (Brass Very Old) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Very Old)]	SORTKEY:Dragon (Brass 09)
+RACE:Dragon (Brass Very Old)	!PRERACE:1,%
+NAME:Dragon (Brass Very Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:31
+SKILL:Search	RANK:31
+SKILL:Spot		RANK:31
+
+
+STARTPACK:Dragon (Brass Ancient) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Ancient)]		SORTKEY:Dragon (Brass 10)
+RACE:Dragon (Brass Ancient)	!PRERACE:1,%
+NAME:Dragon (Brass Ancient)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:34
+SKILL:Search	RANK:34
+SKILL:Spot		RANK:34
+
+
+STARTPACK:Dragon (Brass Wyrm) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Wyrm)]		SORTKEY:Dragon (Brass 11)
+RACE:Dragon (Brass Wyrm)	!PRERACE:1,%
+NAME:Dragon (Brass Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:37
+SKILL:Search	RANK:37
+SKILL:Spot		RANK:37
+
+
+STARTPACK:Dragon (Brass Great Wyrm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Great Wyrm)]	SORTKEY:Dragon (Brass 12)
+RACE:Dragon (Brass Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Brass Great Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:40
+SKILL:Search	RANK:40
+SKILL:Spot		RANK:40
+
+
+STARTPACK:Dragon (Bronze Wyrmling) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Wyrmling)]	SORTKEY:Dragon (Bronze 01)
+RACE:Dragon (Bronze Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Bronze Wyrmling)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:9
+SKILL:Search	RANK:9
+SKILL:Spot		RANK:9
+
+
+STARTPACK:Dragon (Bronze Very Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Very Young)]	SORTKEY:Dragon (Bronze 02)
+RACE:Dragon (Bronze Very Young)	!PRERACE:1,%
+NAME:Dragon (Bronze Very Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:12
+SKILL:Search	RANK:12
+SKILL:Spot		RANK:12
+
+
+STARTPACK:Dragon (Bronze Young) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Young)]		SORTKEY:Dragon (Bronze 03)
+RACE:Dragon (Bronze Young)	!PRERACE:1,%
+NAME:Dragon (Bronze Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:15
+SKILL:Search	RANK:15
+SKILL:Spot		RANK:15
+
+
+STARTPACK:Dragon (Bronze Juvenile) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Juvenile)]	SORTKEY:Dragon (Bronze 04)
+RACE:Dragon (Bronze Juvenile)	!PRERACE:1,%
+NAME:Dragon (Bronze Juvenile)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:18
+SKILL:Search	RANK:18
+SKILL:Spot		RANK:18
+
+
+STARTPACK:Dragon (Bronze Young Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Young Adult)]	SORTKEY:Dragon (Bronze 05)
+RACE:Dragon (Bronze Young Adult)	!PRERACE:1,%
+NAME:Dragon (Bronze Young Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:21
+SKILL:Search	RANK:21
+SKILL:Spot		RANK:21
+
+
+STARTPACK:Dragon (Bronze Adult) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Adult)]		SORTKEY:Dragon (Bronze 06)
+RACE:Dragon (Bronze Adult)	!PRERACE:1,%
+NAME:Dragon (Bronze Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:24
+SKILL:Search	RANK:24
+SKILL:Spot		RANK:24
+
+
+STARTPACK:Dragon (Bronze Mature Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Mature Adult)]	SORTKEY:Dragon (Bronze 07)
+RACE:Dragon (Bronze Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Bronze Mature Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:27
+SKILL:Search	RANK:27
+SKILL:Spot		RANK:27
+
+
+STARTPACK:Dragon (Bronze Old) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Old)]		SORTKEY:Dragon (Bronze 08)
+RACE:Dragon (Bronze Old)	!PRERACE:1,%
+NAME:Dragon (Bronze Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:30
+SKILL:Search	RANK:30
+SKILL:Spot		RANK:30
+
+
+STARTPACK:Dragon (Bronze Very Old) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Very Old)]	SORTKEY:Dragon (Bronze 09)
+RACE:Dragon (Bronze Very Old)	!PRERACE:1,%
+NAME:Dragon (Bronze Very Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:33
+SKILL:Search	RANK:33
+SKILL:Spot		RANK:33
+
+
+STARTPACK:Dragon (Bronze Ancient) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Ancient)]	SORTKEY:Dragon (Bronze 10)
+RACE:Dragon (Bronze Ancient)	!PRERACE:1,%
+NAME:Dragon (Bronze Ancient)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:36
+SKILL:Search	RANK:36
+SKILL:Spot		RANK:36
+
+
+STARTPACK:Dragon (Bronze Wyrm) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Wyrm)]		SORTKEY:Dragon (Bronze 11)
+RACE:Dragon (Bronze Wyrm)	!PRERACE:1,%
+NAME:Dragon (Bronze Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:39
+SKILL:Search	RANK:39
+SKILL:Spot		RANK:39
+
+
+STARTPACK:Dragon (Bronze Great Wyrm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Great Wyrm)]	SORTKEY:Dragon (Bronze 12)
+RACE:Dragon (Bronze Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Bronze Great Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:42
+SKILL:Search	RANK:42
+SKILL:Spot		RANK:42
+
+
+STARTPACK:Dragon (Copper Wyrmling) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Wyrmling)]	SORTKEY:Dragon (Copper 01)
+RACE:Dragon (Copper Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Copper Wyrmling)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:8
+SKILL:Search	RANK:8
+SKILL:Spot		RANK:8
+
+
+STARTPACK:Dragon (Copper Very Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Very Young)]	SORTKEY:Dragon (Copper 02)
+RACE:Dragon (Copper Very Young)	!PRERACE:1,%
+NAME:Dragon (Copper Very Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:11
+SKILL:Search	RANK:11
+SKILL:Spot		RANK:11
+
+
+STARTPACK:Dragon (Copper Young) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Young)]		SORTKEY:Dragon (Copper 03)
+RACE:Dragon (Copper Young)	!PRERACE:1,%
+NAME:Dragon (Copper Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:14
+SKILL:Search	RANK:14
+SKILL:Spot		RANK:14
+
+
+STARTPACK:Dragon (Copper Juvenile) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Juvenile)]	SORTKEY:Dragon (Copper 04)
+RACE:Dragon (Copper Juvenile)	!PRERACE:1,%
+NAME:Dragon (Copper Juvenile)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:17
+SKILL:Search	RANK:17
+SKILL:Spot		RANK:17
+
+
+STARTPACK:Dragon (Copper Young Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Young Adult)]	SORTKEY:Dragon (Copper 05)
+RACE:Dragon (Copper Young Adult)	!PRERACE:1,%
+NAME:Dragon (Copper Young Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:20
+SKILL:Search	RANK:20
+SKILL:Spot		RANK:20
+
+
+STARTPACK:Dragon (Copper Adult) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Adult)]		SORTKEY:Dragon (Copper 06)
+RACE:Dragon (Copper Adult)	!PRERACE:1,%
+NAME:Dragon (Copper Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:23
+SKILL:Search	RANK:23
+SKILL:Spot		RANK:23
+
+
+STARTPACK:Dragon (Copper Mature Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Mature Adult)]	SORTKEY:Dragon (Copper 07)
+RACE:Dragon (Copper Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Copper Mature Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:26
+SKILL:Search	RANK:26
+SKILL:Spot		RANK:26
+
+
+STARTPACK:Dragon (Copper Old) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Old)]		SORTKEY:Dragon (Copper 08)
+RACE:Dragon (Copper Old)	!PRERACE:1,%
+NAME:Dragon (Copper Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:29
+SKILL:Search	RANK:29
+SKILL:Spot		RANK:29
+
+
+STARTPACK:Dragon (Copper Very Old) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Very Old)]	SORTKEY:Dragon (Copper 09)
+RACE:Dragon (Copper Very Old)	!PRERACE:1,%
+NAME:Dragon (Copper Very Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:32
+SKILL:Search	RANK:32
+SKILL:Spot		RANK:32
+
+
+STARTPACK:Dragon (Copper Ancient) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Ancient)]	SORTKEY:Dragon (Copper 10)
+RACE:Dragon (Copper Ancient)	!PRERACE:1,%
+NAME:Dragon (Copper Ancient)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:35
+SKILL:Search	RANK:35
+SKILL:Spot		RANK:35
+
+
+STARTPACK:Dragon (Copper Wyrm) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Wyrm)]		SORTKEY:Dragon (Copper 11)
+RACE:Dragon (Copper Wyrm)	!PRERACE:1,%
+NAME:Dragon (Copper Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:38
+SKILL:Search	RANK:38
+SKILL:Spot		RANK:38
+
+
+STARTPACK:Dragon (Copper Great Wyrm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Great Wyrm)]	SORTKEY:Dragon (Copper 12)
+RACE:Dragon (Copper Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Copper Great Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:41
+SKILL:Search	RANK:41
+SKILL:Spot		RANK:41
+
+
+STARTPACK:Dragon (Gold Wyrmling) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Wyrmling)]		SORTKEY:Dragon (Gold 01)
+RACE:Dragon (Gold Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Gold Wyrmling)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:11
+SKILL:Search	RANK:11
+SKILL:Spot		RANK:11
+
+
+STARTPACK:Dragon (Gold Very Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Very Young)]	SORTKEY:Dragon (Gold 02)
+RACE:Dragon (Gold Very Young)	!PRERACE:1,%
+NAME:Dragon (Gold Very Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:14
+SKILL:Search	RANK:14
+SKILL:Spot		RANK:14
+
+
+STARTPACK:Dragon (Gold Young) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Young)]		SORTKEY:Dragon (Gold 03)
+RACE:Dragon (Gold Young)	!PRERACE:1,%
+NAME:Dragon (Gold Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:17
+SKILL:Search	RANK:17
+SKILL:Spot		RANK:17
+
+
+STARTPACK:Dragon (Gold Juvenile) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Juvenile)]		SORTKEY:Dragon (Gold 04)
+RACE:Dragon (Gold Juvenile)	!PRERACE:1,%
+NAME:Dragon (Gold Juvenile)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:20
+SKILL:Search	RANK:20
+SKILL:Spot		RANK:20
+
+
+STARTPACK:Dragon (Gold Young Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Young Adult)]	SORTKEY:Dragon (Gold 05)
+RACE:Dragon (Gold Young Adult)	!PRERACE:1,%
+NAME:Dragon (Gold Young Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:23
+SKILL:Search	RANK:23
+SKILL:Spot		RANK:23
+
+
+STARTPACK:Dragon (Gold Adult) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Adult)]		SORTKEY:Dragon (Gold 06)
+RACE:Dragon (Gold Adult)	!PRERACE:1,%
+NAME:Dragon (Gold Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:26
+SKILL:Search	RANK:26
+SKILL:Spot		RANK:26
+
+
+STARTPACK:Dragon (Gold Mature Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Mature Adult)]	SORTKEY:Dragon (Gold 07)
+RACE:Dragon (Gold Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Gold Mature Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:29
+SKILL:Search	RANK:29
+SKILL:Spot		RANK:29
+
+
+STARTPACK:Dragon (Gold Old) Default			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Old)]		SORTKEY:Dragon (Gold 08)
+RACE:Dragon (Gold Old)	!PRERACE:1,%
+NAME:Dragon (Gold Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:32
+SKILL:Search	RANK:32
+SKILL:Spot		RANK:32
+
+
+STARTPACK:Dragon (Gold Very Old) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Very Old)]		SORTKEY:Dragon (Gold 09)
+RACE:Dragon (Gold Very Old)	!PRERACE:1,%
+NAME:Dragon (Gold Very Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:35
+SKILL:Search	RANK:35
+SKILL:Spot		RANK:35
+
+
+STARTPACK:Dragon (Gold Ancient) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Ancient)]		SORTKEY:Dragon (Gold 10)
+RACE:Dragon (Gold Ancient)	!PRERACE:1,%
+NAME:Dragon (Gold Ancient)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:38
+SKILL:Search	RANK:38
+SKILL:Spot		RANK:38
+
+
+STARTPACK:Dragon (Gold Wyrm) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Wyrm)]		SORTKEY:Dragon (Gold 11)
+RACE:Dragon (Gold Wyrm)	!PRERACE:1,%
+NAME:Dragon (Gold Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:41
+SKILL:Search	RANK:41
+SKILL:Spot		RANK:41
+
+
+STARTPACK:Dragon (Gold Great Wyrm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Great Wyrm)]	SORTKEY:Dragon (Gold 12)
+RACE:Dragon (Gold Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Gold Great Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:44
+SKILL:Search	RANK:44
+SKILL:Spot		RANK:44
+
+
+STARTPACK:Dragon (Silver Wyrmling) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Wyrmling)]	SORTKEY:Dragon (Silver 01)
+RACE:Dragon (Silver Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Silver Wyrmling)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:10
+SKILL:Search	RANK:10
+SKILL:Spot		RANK:10
+
+
+STARTPACK:Dragon (Silver Very Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Very Young)]	SORTKEY:Dragon (Silver 02)
+RACE:Dragon (Silver Very Young)	!PRERACE:1,%
+NAME:Dragon (Silver Very Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:13
+SKILL:Search	RANK:13
+SKILL:Spot		RANK:13
+
+
+STARTPACK:Dragon (Silver Young) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Young)]		SORTKEY:Dragon (Silver 03)
+RACE:Dragon (Silver Young)	!PRERACE:1,%
+NAME:Dragon (Silver Young)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:16
+SKILL:Search	RANK:16
+SKILL:Spot		RANK:16
+
+
+STARTPACK:Dragon (Silver Juvenile) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Juvenile)]	SORTKEY:Dragon (Silver 04)
+RACE:Dragon (Silver Juvenile)	!PRERACE:1,%
+NAME:Dragon (Silver Juvenile)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:19
+SKILL:Search	RANK:19
+SKILL:Spot		RANK:19
+
+
+STARTPACK:Dragon (Silver Young Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Young Adult)]	SORTKEY:Dragon (Silver 05)
+RACE:Dragon (Silver Young Adult)	!PRERACE:1,%
+NAME:Dragon (Silver Young Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:22
+SKILL:Search	RANK:22
+SKILL:Spot		RANK:22
+
+
+STARTPACK:Dragon (Silver Adult) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Adult)]		SORTKEY:Dragon (Silver 06)
+RACE:Dragon (Silver Adult)	!PRERACE:1,%
+NAME:Dragon (Silver Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:25
+SKILL:Search	RANK:25
+SKILL:Spot		RANK:25
+
+
+STARTPACK:Dragon (Silver Mature Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Mature Adult)]	SORTKEY:Dragon (Silver 07)
+RACE:Dragon (Silver Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Silver Mature Adult)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:28
+SKILL:Search	RANK:28
+SKILL:Spot		RANK:28
+
+
+STARTPACK:Dragon (Silver Old) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Old)]		SORTKEY:Dragon (Silver 08)
+RACE:Dragon (Silver Old)	!PRERACE:1,%
+NAME:Dragon (Silver Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:31
+SKILL:Search	RANK:31
+SKILL:Spot		RANK:31
+
+
+STARTPACK:Dragon (Silver Very Old) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Very Old)]	SORTKEY:Dragon (Silver 09)
+RACE:Dragon (Silver Very Old)	!PRERACE:1,%
+NAME:Dragon (Silver Very Old)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:34
+SKILL:Search	RANK:34
+SKILL:Spot		RANK:34
+
+
+STARTPACK:Dragon (Silver Ancient) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Ancient)]	SORTKEY:Dragon (Silver 10)
+RACE:Dragon (Silver Ancient)	!PRERACE:1,%
+NAME:Dragon (Silver Ancient)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:37
+SKILL:Search	RANK:37
+SKILL:Spot		RANK:37
+
+
+STARTPACK:Dragon (Silver Wyrm) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Wyrm)]		SORTKEY:Dragon (Silver 11)
+RACE:Dragon (Silver Wyrm)	!PRERACE:1,%
+NAME:Dragon (Silver Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:40
+SKILL:Search	RANK:40
+SKILL:Spot		RANK:40
+
+
+STARTPACK:Dragon (Silver Great Wyrm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Great Wyrm)]	SORTKEY:Dragon (Silver 12)
+RACE:Dragon (Silver Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Silver Great Wyrm)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:43
+SKILL:Search	RANK:43
+SKILL:Spot		RANK:43
+
+
+
+###
+###Block: True Dragons, stats unchanged by the kit
+###
+
+STARTPACK:Dragon (Black Wyrmling) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Wyrmling)]	SORTKEY:Dragon (Black 01u)
+RACE:Dragon (Black Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Black Wyrmling)
+SKILL:Listen	RANK:7
+SKILL:Search	RANK:7
+SKILL:Spot		RANK:7
+
+
+STARTPACK:Dragon (Black Very Young) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Very Young)]	SORTKEY:Dragon (Black 02u)
+RACE:Dragon (Black Very Young)	!PRERACE:1,%
+NAME:Dragon (Black Very Young)
+SKILL:Listen	RANK:10
+SKILL:Search	RANK:10
+SKILL:Spot		RANK:10
+
+
+STARTPACK:Dragon (Black Young) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Young)]		SORTKEY:Dragon (Black 03u)
+RACE:Dragon (Black Young)	!PRERACE:1,%
+NAME:Dragon (Black Young)
+SKILL:Listen	RANK:13
+SKILL:Search	RANK:13
+SKILL:Spot		RANK:13
+
+
+STARTPACK:Dragon (Black Juvenile) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Juvenile)]	SORTKEY:Dragon (Black 04u)
+RACE:Dragon (Black Juvenile)	!PRERACE:1,%
+NAME:Dragon (Black Juvenile)
+SKILL:Listen	RANK:16
+SKILL:Search	RANK:16
+SKILL:Spot		RANK:16
+
+
+STARTPACK:Dragon (Black Young Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Young Adult)]	SORTKEY:Dragon (Black 05u)
+RACE:Dragon (Black Young Adult)	!PRERACE:1,%
+NAME:Dragon (Black Young Adult)
+SKILL:Listen	RANK:19
+SKILL:Search	RANK:19
+SKILL:Spot		RANK:19
+
+
+STARTPACK:Dragon (Black Adult) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Adult)]		SORTKEY:Dragon (Black 06u)
+RACE:Dragon (Black Adult)	!PRERACE:1,%
+NAME:Dragon (Black Adult)
+SKILL:Listen	RANK:22
+SKILL:Search	RANK:22
+SKILL:Spot		RANK:22
+
+
+STARTPACK:Dragon (Black Mature Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Mature Adult)]	SORTKEY:Dragon (Black 07u)
+RACE:Dragon (Black Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Black Mature Adult)
+SKILL:Listen	RANK:25
+SKILL:Search	RANK:25
+SKILL:Spot		RANK:25
+
+
+STARTPACK:Dragon (Black Old) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Old)]		SORTKEY:Dragon (Black 08u)
+RACE:Dragon (Black Old)	!PRERACE:1,%
+NAME:Dragon (Black Old)
+SKILL:Listen	RANK:28
+SKILL:Search	RANK:28
+SKILL:Spot		RANK:28
+
+
+STARTPACK:Dragon (Black Very Old) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Very Old)]	SORTKEY:Dragon (Black 09u)
+RACE:Dragon (Black Very Old)	!PRERACE:1,%
+NAME:Dragon (Black Very Old)
+SKILL:Listen	RANK:31
+SKILL:Search	RANK:31
+SKILL:Spot		RANK:31
+
+
+STARTPACK:Dragon (Black Ancient) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Ancient)]		SORTKEY:Dragon (Black 10u)
+RACE:Dragon (Black Ancient)	!PRERACE:1,%
+NAME:Dragon (Black Ancient)
+SKILL:Listen	RANK:34
+SKILL:Search	RANK:34
+SKILL:Spot		RANK:34
+
+
+STARTPACK:Dragon (Black Wyrm) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Wyrm)]		SORTKEY:Dragon (Black 11u)
+RACE:Dragon (Black Wyrm)	!PRERACE:1,%
+NAME:Dragon (Black Wyrm)
+SKILL:Listen	RANK:37
+SKILL:Search	RANK:37
+SKILL:Spot		RANK:37
+
+
+STARTPACK:Dragon (Black Great Wyrm) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Great Wyrm)]	SORTKEY:Dragon (Black 12u)
+RACE:Dragon (Black Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Black Great Wyrm)
+SKILL:Listen	RANK:40
+SKILL:Search	RANK:40
+SKILL:Spot		RANK:40
+
+
+STARTPACK:Dragon (Blue Wyrmling) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Wyrmling)]		SORTKEY:Dragon (Blue 01u)
+RACE:Dragon (Blue Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Blue Wyrmling)
+SKILL:Listen	RANK:9
+SKILL:Search	RANK:9
+SKILL:Spot		RANK:9
+
+
+STARTPACK:Dragon (Blue Very Young) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Very Young)]	SORTKEY:Dragon (Blue 02u)
+RACE:Dragon (Blue Very Young)	!PRERACE:1,%
+NAME:Dragon (Blue Very Young)
+SKILL:Listen	RANK:12
+SKILL:Search	RANK:12
+SKILL:Spot		RANK:12
+
+
+STARTPACK:Dragon (Blue Young) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Young)]		SORTKEY:Dragon (Blue 03u)
+RACE:Dragon (Blue Young)	!PRERACE:1,%
+NAME:Dragon (Blue Young)
+SKILL:Listen	RANK:15
+SKILL:Search	RANK:15
+SKILL:Spot		RANK:15
+
+
+STARTPACK:Dragon (Blue Juvenile) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Juvenile)]		SORTKEY:Dragon (Blue 04u)
+RACE:Dragon (Blue Juvenile)	!PRERACE:1,%
+NAME:Dragon (Blue Juvenile)
+SKILL:Listen	RANK:18
+SKILL:Search	RANK:18
+SKILL:Spot		RANK:18
+
+
+STARTPACK:Dragon (Blue Young Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Young Adult)]	SORTKEY:Dragon (Blue 05u)
+RACE:Dragon (Blue Young Adult)	!PRERACE:1,%
+NAME:Dragon (Blue Young Adult)
+SKILL:Listen	RANK:21
+SKILL:Search	RANK:21
+SKILL:Spot		RANK:21
+
+
+STARTPACK:Dragon (Blue Adult) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Adult)]		SORTKEY:Dragon (Blue 06u)
+RACE:Dragon (Blue Adult)	!PRERACE:1,%
+NAME:Dragon (Blue Adult)
+SKILL:Listen	RANK:24
+SKILL:Search	RANK:24
+SKILL:Spot		RANK:24
+
+
+STARTPACK:Dragon (Blue Mature Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Mature Adult)]	SORTKEY:Dragon (Blue 07u)
+RACE:Dragon (Blue Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Blue Mature Adult)
+SKILL:Listen	RANK:27
+SKILL:Search	RANK:27
+SKILL:Spot		RANK:27
+
+
+STARTPACK:Dragon (Blue Old) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Old)]		SORTKEY:Dragon (Blue 08u)
+RACE:Dragon (Blue Old)	!PRERACE:1,%
+NAME:Dragon (Blue Old)
+SKILL:Listen	RANK:30
+SKILL:Search	RANK:30
+SKILL:Spot		RANK:30
+
+
+STARTPACK:Dragon (Blue Very Old) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Very Old)]		SORTKEY:Dragon (Blue 09u)
+RACE:Dragon (Blue Very Old)	!PRERACE:1,%
+NAME:Dragon (Blue Very Old)
+SKILL:Listen	RANK:33
+SKILL:Search	RANK:33
+SKILL:Spot		RANK:33
+
+
+STARTPACK:Dragon (Blue Ancient) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Ancient)]		SORTKEY:Dragon (Blue 10u)
+RACE:Dragon (Blue Ancient)	!PRERACE:1,%
+NAME:Dragon (Blue Ancient)
+SKILL:Listen	RANK:36
+SKILL:Search	RANK:36
+SKILL:Spot		RANK:36
+
+
+STARTPACK:Dragon (Blue Wyrm) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Wyrm)]		SORTKEY:Dragon (Blue 11u)
+RACE:Dragon (Blue Wyrm)	!PRERACE:1,%
+NAME:Dragon (Blue Wyrm)
+SKILL:Listen	RANK:39
+SKILL:Search	RANK:39
+SKILL:Spot		RANK:39
+
+
+STARTPACK:Dragon (Blue Great Wyrm) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Great Wyrm)]	SORTKEY:Dragon (Blue 12u)
+RACE:Dragon (Blue Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Blue Great Wyrm)
+SKILL:Listen	RANK:42
+SKILL:Search	RANK:42
+SKILL:Spot		RANK:42
+
+
+STARTPACK:Dragon (Green Wyrmling) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Wyrmling)]	SORTKEY:Dragon (Green 01u)
+RACE:Dragon (Green Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Green Wyrmling)
+SKILL:Listen	RANK:8
+SKILL:Search	RANK:8
+SKILL:Spot		RANK:8
+
+
+STARTPACK:Dragon (Green Very Young) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Very Young)]	SORTKEY:Dragon (Green 02u)
+RACE:Dragon (Green Very Young)	!PRERACE:1,%
+NAME:Dragon (Green Very Young)
+SKILL:Listen	RANK:11
+SKILL:Search	RANK:11
+SKILL:Spot		RANK:11
+
+
+STARTPACK:Dragon (Green Young) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Young)]		SORTKEY:Dragon (Green 03u)
+RACE:Dragon (Green Young)	!PRERACE:1,%
+NAME:Dragon (Green Young)
+SKILL:Listen	RANK:14
+SKILL:Search	RANK:14
+SKILL:Spot		RANK:14
+
+
+STARTPACK:Dragon (Green Juvenile) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Juvenile)]	SORTKEY:Dragon (Green 04u)
+RACE:Dragon (Green Juvenile)	!PRERACE:1,%
+NAME:Dragon (Green Juvenile)
+SKILL:Listen	RANK:17
+SKILL:Search	RANK:17
+SKILL:Spot		RANK:17
+
+
+STARTPACK:Dragon (Green Young Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Young Adult)]	SORTKEY:Dragon (Green 05u)
+RACE:Dragon (Green Young Adult)	!PRERACE:1,%
+NAME:Dragon (Green Young Adult)
+SKILL:Listen	RANK:20
+SKILL:Search	RANK:20
+SKILL:Spot		RANK:20
+
+
+STARTPACK:Dragon (Green Adult) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Adult)]		SORTKEY:Dragon (Green 06u)
+RACE:Dragon (Green Adult)	!PRERACE:1,%
+NAME:Dragon (Green Adult)
+SKILL:Listen	RANK:23
+SKILL:Search	RANK:23
+SKILL:Spot		RANK:23
+
+
+STARTPACK:Dragon (Green Mature Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Mature Adult)]	SORTKEY:Dragon (Green 07u)
+RACE:Dragon (Green Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Green Mature Adult)
+SKILL:Listen	RANK:26
+SKILL:Search	RANK:26
+SKILL:Spot		RANK:26
+
+
+STARTPACK:Dragon (Green Old) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Old)]		SORTKEY:Dragon (Green 08u)
+RACE:Dragon (Green Old)	!PRERACE:1,%
+NAME:Dragon (Green Old)
+SKILL:Listen	RANK:29
+SKILL:Search	RANK:29
+SKILL:Spot		RANK:29
+
+
+STARTPACK:Dragon (Green Very Old) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Very Old)]	SORTKEY:Dragon (Green 09u)
+RACE:Dragon (Green Very Old)	!PRERACE:1,%
+NAME:Dragon (Green Very Old)
+SKILL:Listen	RANK:32
+SKILL:Search	RANK:32
+SKILL:Spot		RANK:32
+
+
+STARTPACK:Dragon (Green Ancient) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Ancient)]		SORTKEY:Dragon (Green 10u)
+RACE:Dragon (Green Ancient)	!PRERACE:1,%
+NAME:Dragon (Green Ancient)
+SKILL:Listen	RANK:35
+SKILL:Search	RANK:35
+SKILL:Spot		RANK:35
+
+
+STARTPACK:Dragon (Green Wyrm) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Wyrm)]		SORTKEY:Dragon (Green 11u)
+RACE:Dragon (Green Wyrm)	!PRERACE:1,%
+NAME:Dragon (Green Wyrm)
+SKILL:Listen	RANK:38
+SKILL:Search	RANK:38
+SKILL:Spot		RANK:38
+
+
+STARTPACK:Dragon (Green Great Wyrm) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Great Wyrm)]	SORTKEY:Dragon (Green 12u)
+RACE:Dragon (Green Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Green Great Wyrm)
+SKILL:Listen	RANK:41
+SKILL:Search	RANK:41
+SKILL:Spot		RANK:41
+
+
+STARTPACK:Dragon (Red Wyrmling) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Wyrmling)]		SORTKEY:Dragon (Red 01u)
+RACE:Dragon (Red Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Red Wyrmling)
+SKILL:Listen	RANK:10
+SKILL:Search	RANK:10
+SKILL:Spot		RANK:10
+
+
+STARTPACK:Dragon (Red Very Young) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Very Young)]	SORTKEY:Dragon (Red 02u)
+RACE:Dragon (Red Very Young)	!PRERACE:1,%
+NAME:Dragon (Red Very Young)
+SKILL:Listen	RANK:13
+SKILL:Search	RANK:13
+SKILL:Spot		RANK:13
+
+
+STARTPACK:Dragon (Red Young) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Young)]		SORTKEY:Dragon (Red 03u)
+RACE:Dragon (Red Young)	!PRERACE:1,%
+NAME:Dragon (Red Young)
+SKILL:Listen	RANK:16
+SKILL:Search	RANK:16
+SKILL:Spot		RANK:16
+
+
+STARTPACK:Dragon (Red Juvenile) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Juvenile)]		SORTKEY:Dragon (Red 04u)
+RACE:Dragon (Red Juvenile)	!PRERACE:1,%
+NAME:Dragon (Red Juvenile)
+SKILL:Listen	RANK:19
+SKILL:Search	RANK:19
+SKILL:Spot		RANK:19
+
+
+STARTPACK:Dragon (Red Young Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Young Adult)]	SORTKEY:Dragon (Red 05u)
+RACE:Dragon (Red Young Adult)	!PRERACE:1,%
+NAME:Dragon (Red Young Adult)
+SKILL:Listen	RANK:22
+SKILL:Search	RANK:22
+SKILL:Spot		RANK:22
+
+
+STARTPACK:Dragon (Red Adult) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Adult)]		SORTKEY:Dragon (Red 06u)
+RACE:Dragon (Red Adult)	!PRERACE:1,%
+NAME:Dragon (Red Adult)
+SKILL:Listen	RANK:25
+SKILL:Search	RANK:25
+SKILL:Spot		RANK:25
+
+
+STARTPACK:Dragon (Red Mature Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Mature Adult)]	SORTKEY:Dragon (Red 07u)
+RACE:Dragon (Red Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Red Mature Adult)
+SKILL:Listen	RANK:28
+SKILL:Search	RANK:28
+SKILL:Spot		RANK:28
+
+
+STARTPACK:Dragon (Red Old) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Old)]			SORTKEY:Dragon (Red 08u)
+RACE:Dragon (Red Old)	!PRERACE:1,%
+NAME:Dragon (Red Old)
+SKILL:Listen	RANK:31
+SKILL:Search	RANK:31
+SKILL:Spot		RANK:31
+
+
+STARTPACK:Dragon (Red Very Old) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Very Old)]		SORTKEY:Dragon (Red 09u)
+RACE:Dragon (Red Very Old)	!PRERACE:1,%
+NAME:Dragon (Red Very Old)
+SKILL:Listen	RANK:34
+SKILL:Search	RANK:34
+SKILL:Spot		RANK:34
+
+
+STARTPACK:Dragon (Red Ancient) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Ancient)]		SORTKEY:Dragon (Red 10u)
+RACE:Dragon (Red Ancient)	!PRERACE:1,%
+NAME:Dragon (Red Ancient)
+SKILL:Listen	RANK:37
+SKILL:Search	RANK:37
+SKILL:Spot		RANK:37
+
+
+STARTPACK:Dragon (Red Wyrm) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Wyrm)]		SORTKEY:Dragon (Red 11u)
+RACE:Dragon (Red Wyrm)	!PRERACE:1,%
+NAME:Dragon (Red Wyrm)
+SKILL:Listen	RANK:40
+SKILL:Search	RANK:40
+SKILL:Spot		RANK:40
+
+
+STARTPACK:Dragon (Red Great Wyrm) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Great Wyrm)]	SORTKEY:Dragon (Red 12u)
+RACE:Dragon (Red Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Red Great Wyrm)
+SKILL:Listen	RANK:43
+SKILL:Search	RANK:43
+SKILL:Spot		RANK:43
+
+
+STARTPACK:Dragon (White Wyrmling) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Wyrmling)]	SORTKEY:Dragon (White 01u)
+RACE:Dragon (White Wyrmling)	!PRERACE:1,%
+NAME:Dragon (White Wyrmling)
+SKILL:Listen	RANK:6
+SKILL:Search	RANK:6
+SKILL:Spot		RANK:6
+
+
+STARTPACK:Dragon (White Very Young) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Very Young)]	SORTKEY:Dragon (White 02u)
+RACE:Dragon (White Very Young)	!PRERACE:1,%
+NAME:Dragon (White Very Young)
+SKILL:Listen	RANK:9
+SKILL:Search	RANK:9
+SKILL:Spot		RANK:9
+
+
+STARTPACK:Dragon (White Young) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Young)]		SORTKEY:Dragon (White 03u)
+RACE:Dragon (White Young)	!PRERACE:1,%
+NAME:Dragon (White Young)
+SKILL:Listen	RANK:12
+SKILL:Search	RANK:12
+SKILL:Spot		RANK:12
+
+
+STARTPACK:Dragon (White Juvenile) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Juvenile)]	SORTKEY:Dragon (White 04u)
+RACE:Dragon (White Juvenile)	!PRERACE:1,%
+NAME:Dragon (White Juvenile)
+SKILL:Listen	RANK:15
+SKILL:Search	RANK:15
+SKILL:Spot		RANK:15
+
+
+STARTPACK:Dragon (White Young Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Young Adult)]	SORTKEY:Dragon (White 05u)
+RACE:Dragon (White Young Adult)	!PRERACE:1,%
+NAME:Dragon (White Young Adult)
+SKILL:Listen	RANK:18
+SKILL:Search	RANK:18
+SKILL:Spot		RANK:18
+
+
+STARTPACK:Dragon (White Adult) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Adult)]		SORTKEY:Dragon (White 06u)
+RACE:Dragon (White Adult)	!PRERACE:1,%
+NAME:Dragon (White Adult)
+SKILL:Listen	RANK:21
+SKILL:Search	RANK:21
+SKILL:Spot		RANK:21
+
+
+STARTPACK:Dragon (White Mature Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Mature Adult)]	SORTKEY:Dragon (White 07u)
+RACE:Dragon (White Mature Adult)	!PRERACE:1,%
+NAME:Dragon (White Mature Adult)
+SKILL:Listen	RANK:24
+SKILL:Search	RANK:24
+SKILL:Spot		RANK:24
+
+
+STARTPACK:Dragon (White Old) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Old)]		SORTKEY:Dragon (White 08u)
+RACE:Dragon (White Old)	!PRERACE:1,%
+NAME:Dragon (White Old)
+SKILL:Listen	RANK:27
+SKILL:Search	RANK:27
+SKILL:Spot		RANK:27
+
+
+STARTPACK:Dragon (White Very Old) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Very Old)]	SORTKEY:Dragon (White 09u)
+RACE:Dragon (White Very Old)	!PRERACE:1,%
+NAME:Dragon (White Very Old)
+SKILL:Listen	RANK:30
+SKILL:Search	RANK:30
+SKILL:Spot		RANK:30
+
+
+STARTPACK:Dragon (White Ancient) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Ancient)]		SORTKEY:Dragon (White 10u)
+RACE:Dragon (White Ancient)	!PRERACE:1,%
+NAME:Dragon (White Ancient)
+SKILL:Listen	RANK:33
+SKILL:Search	RANK:33
+SKILL:Spot		RANK:33
+
+
+STARTPACK:Dragon (White Wyrm) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Wyrm)]		SORTKEY:Dragon (White 11u)
+RACE:Dragon (White Wyrm)	!PRERACE:1,%
+NAME:Dragon (White Wyrm)
+SKILL:Listen	RANK:36
+SKILL:Search	RANK:36
+SKILL:Spot		RANK:36
+
+
+STARTPACK:Dragon (White Great Wyrm) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Great Wyrm)]	SORTKEY:Dragon (White 12u)
+RACE:Dragon (White Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (White Great Wyrm)
+SKILL:Listen	RANK:39
+SKILL:Search	RANK:39
+SKILL:Spot		RANK:39
+
+
+STARTPACK:Dragon (Brass Wyrmling) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Wyrmling)]	SORTKEY:Dragon (Brass 01u)
+RACE:Dragon (Brass Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Brass Wyrmling)
+SKILL:Listen	RANK:7
+SKILL:Search	RANK:7
+SKILL:Spot		RANK:7
+
+
+STARTPACK:Dragon (Brass Very Young) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Very Young)]	SORTKEY:Dragon (Brass 02u)
+RACE:Dragon (Brass Very Young)	!PRERACE:1,%
+NAME:Dragon (Brass Very Young)
+SKILL:Listen	RANK:10
+SKILL:Search	RANK:10
+SKILL:Spot		RANK:10
+
+
+STARTPACK:Dragon (Brass Young) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Young)]		SORTKEY:Dragon (Brass 03u)
+RACE:Dragon (Brass Young)	!PRERACE:1,%
+NAME:Dragon (Brass Young)
+SKILL:Listen	RANK:13
+SKILL:Search	RANK:13
+SKILL:Spot		RANK:13
+
+
+STARTPACK:Dragon (Brass Juvenile) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Juvenile)]	SORTKEY:Dragon (Brass 04u)
+RACE:Dragon (Brass Juvenile)	!PRERACE:1,%
+NAME:Dragon (Brass Juvenile)
+SKILL:Listen	RANK:16
+SKILL:Search	RANK:16
+SKILL:Spot		RANK:16
+
+
+STARTPACK:Dragon (Brass Young Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Young Adult)]	SORTKEY:Dragon (Brass 05u)
+RACE:Dragon (Brass Young Adult)	!PRERACE:1,%
+NAME:Dragon (Brass Young Adult)
+SKILL:Listen	RANK:19
+SKILL:Search	RANK:19
+SKILL:Spot		RANK:19
+
+
+STARTPACK:Dragon (Brass Adult) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Adult)]		SORTKEY:Dragon (Brass 06u)
+RACE:Dragon (Brass Adult)	!PRERACE:1,%
+NAME:Dragon (Brass Adult)
+SKILL:Listen	RANK:22
+SKILL:Search	RANK:22
+SKILL:Spot		RANK:22
+
+
+STARTPACK:Dragon (Brass Mature Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Mature Adult)]	SORTKEY:Dragon (Brass 07u)
+RACE:Dragon (Brass Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Brass Mature Adult)
+SKILL:Listen	RANK:25
+SKILL:Search	RANK:25
+SKILL:Spot		RANK:25
+
+
+STARTPACK:Dragon (Brass Old) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Old)]		SORTKEY:Dragon (Brass 08u)
+RACE:Dragon (Brass Old)	!PRERACE:1,%
+NAME:Dragon (Brass Old)
+SKILL:Listen	RANK:28
+SKILL:Search	RANK:28
+SKILL:Spot		RANK:28
+
+
+STARTPACK:Dragon (Brass Very Old) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Very Old)]	SORTKEY:Dragon (Brass 09u)
+RACE:Dragon (Brass Very Old)	!PRERACE:1,%
+NAME:Dragon (Brass Very Old)
+SKILL:Listen	RANK:31
+SKILL:Search	RANK:31
+SKILL:Spot		RANK:31
+
+
+STARTPACK:Dragon (Brass Ancient) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Ancient)]		SORTKEY:Dragon (Brass 10u)
+RACE:Dragon (Brass Ancient)	!PRERACE:1,%
+NAME:Dragon (Brass Ancient)
+SKILL:Listen	RANK:34
+SKILL:Search	RANK:34
+SKILL:Spot		RANK:34
+
+
+STARTPACK:Dragon (Brass Wyrm) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Wyrm)]		SORTKEY:Dragon (Brass 11u)
+RACE:Dragon (Brass Wyrm)	!PRERACE:1,%
+NAME:Dragon (Brass Wyrm)
+SKILL:Listen	RANK:37
+SKILL:Search	RANK:37
+SKILL:Spot		RANK:37
+
+
+STARTPACK:Dragon (Brass Great Wyrm) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Great Wyrm)]	SORTKEY:Dragon (Brass 12u)
+RACE:Dragon (Brass Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Brass Great Wyrm)
+SKILL:Listen	RANK:40
+SKILL:Search	RANK:40
+SKILL:Spot		RANK:40
+
+
+STARTPACK:Dragon (Bronze Wyrmling) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Wyrmling)]	SORTKEY:Dragon (Bronze 01u)
+RACE:Dragon (Bronze Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Bronze Wyrmling)
+SKILL:Listen	RANK:9
+SKILL:Search	RANK:9
+SKILL:Spot		RANK:9
+
+
+STARTPACK:Dragon (Bronze Very Young) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Very Young)]	SORTKEY:Dragon (Bronze 02u)
+RACE:Dragon (Bronze Very Young)	!PRERACE:1,%
+NAME:Dragon (Bronze Very Young)
+SKILL:Listen	RANK:12
+SKILL:Search	RANK:12
+SKILL:Spot		RANK:12
+
+
+STARTPACK:Dragon (Bronze Young) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Young)]		SORTKEY:Dragon (Bronze 03u)
+RACE:Dragon (Bronze Young)	!PRERACE:1,%
+NAME:Dragon (Bronze Young)
+SKILL:Listen	RANK:15
+SKILL:Search	RANK:15
+SKILL:Spot		RANK:15
+
+
+STARTPACK:Dragon (Bronze Juvenile) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Juvenile)]	SORTKEY:Dragon (Bronze 04u)
+RACE:Dragon (Bronze Juvenile)	!PRERACE:1,%
+NAME:Dragon (Bronze Juvenile)
+SKILL:Listen	RANK:18
+SKILL:Search	RANK:18
+SKILL:Spot		RANK:18
+
+
+STARTPACK:Dragon (Bronze Young Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Young Adult)]	SORTKEY:Dragon (Bronze 05u)
+RACE:Dragon (Bronze Young Adult)	!PRERACE:1,%
+NAME:Dragon (Bronze Young Adult)
+SKILL:Listen	RANK:21
+SKILL:Search	RANK:21
+SKILL:Spot		RANK:21
+
+
+STARTPACK:Dragon (Bronze Adult) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Adult)]		SORTKEY:Dragon (Bronze 06u)
+RACE:Dragon (Bronze Adult)	!PRERACE:1,%
+NAME:Dragon (Bronze Adult)
+SKILL:Listen	RANK:24
+SKILL:Search	RANK:24
+SKILL:Spot		RANK:24
+
+
+STARTPACK:Dragon (Bronze Mature Adult) Unchanged Stats	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Mature Adult)]	SORTKEY:Dragon (Bronze 07u)
+RACE:Dragon (Bronze Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Bronze Mature Adult)
+SKILL:Listen	RANK:27
+SKILL:Search	RANK:27
+SKILL:Spot		RANK:27
+
+
+STARTPACK:Dragon (Bronze Old) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Old)]		SORTKEY:Dragon (Bronze 08u)
+RACE:Dragon (Bronze Old)	!PRERACE:1,%
+NAME:Dragon (Bronze Old)
+SKILL:Listen	RANK:30
+SKILL:Search	RANK:30
+SKILL:Spot		RANK:30
+
+
+STARTPACK:Dragon (Bronze Very Old) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Very Old)]	SORTKEY:Dragon (Bronze 09u)
+RACE:Dragon (Bronze Very Old)	!PRERACE:1,%
+NAME:Dragon (Bronze Very Old)
+SKILL:Listen	RANK:33
+SKILL:Search	RANK:33
+SKILL:Spot		RANK:33
+
+
+STARTPACK:Dragon (Bronze Ancient) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Ancient)]	SORTKEY:Dragon (Bronze 10u)
+RACE:Dragon (Bronze Ancient)	!PRERACE:1,%
+NAME:Dragon (Bronze Ancient)
+SKILL:Listen	RANK:36
+SKILL:Search	RANK:36
+SKILL:Spot		RANK:36
+
+
+STARTPACK:Dragon (Bronze Wyrm) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Wyrm)]		SORTKEY:Dragon (Bronze 11u)
+RACE:Dragon (Bronze Wyrm)	!PRERACE:1,%
+NAME:Dragon (Bronze Wyrm)
+SKILL:Listen	RANK:39
+SKILL:Search	RANK:39
+SKILL:Spot		RANK:39
+
+
+STARTPACK:Dragon (Bronze Great Wyrm) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Great Wyrm)]	SORTKEY:Dragon (Bronze 12u)
+RACE:Dragon (Bronze Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Bronze Great Wyrm)
+SKILL:Listen	RANK:42
+SKILL:Search	RANK:42
+SKILL:Spot		RANK:42
+
+
+STARTPACK:Dragon (Copper Wyrmling) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Wyrmling)]	SORTKEY:Dragon (Copper 01u)
+RACE:Dragon (Copper Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Copper Wyrmling)
+SKILL:Listen	RANK:8
+SKILL:Search	RANK:8
+SKILL:Spot		RANK:8
+
+
+STARTPACK:Dragon (Copper Very Young) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Very Young)]	SORTKEY:Dragon (Copper 02u)
+RACE:Dragon (Copper Very Young)	!PRERACE:1,%
+NAME:Dragon (Copper Very Young)
+SKILL:Listen	RANK:11
+SKILL:Search	RANK:11
+SKILL:Spot		RANK:11
+
+
+STARTPACK:Dragon (Copper Young) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Young)]		SORTKEY:Dragon (Copper 03u)
+RACE:Dragon (Copper Young)	!PRERACE:1,%
+NAME:Dragon (Copper Young)
+SKILL:Listen	RANK:14
+SKILL:Search	RANK:14
+SKILL:Spot		RANK:14
+
+
+STARTPACK:Dragon (Copper Juvenile) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Juvenile)]	SORTKEY:Dragon (Copper 04u)
+RACE:Dragon (Copper Juvenile)	!PRERACE:1,%
+NAME:Dragon (Copper Juvenile)
+SKILL:Listen	RANK:17
+SKILL:Search	RANK:17
+SKILL:Spot		RANK:17
+
+
+STARTPACK:Dragon (Copper Young Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Young Adult)]	SORTKEY:Dragon (Copper 05u)
+RACE:Dragon (Copper Young Adult)	!PRERACE:1,%
+NAME:Dragon (Copper Young Adult)
+SKILL:Listen	RANK:20
+SKILL:Search	RANK:20
+SKILL:Spot		RANK:20
+
+
+STARTPACK:Dragon (Copper Adult) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Adult)]		SORTKEY:Dragon (Copper 06u)
+RACE:Dragon (Copper Adult)	!PRERACE:1,%
+NAME:Dragon (Copper Adult)
+SKILL:Listen	RANK:23
+SKILL:Search	RANK:23
+SKILL:Spot		RANK:23
+
+
+STARTPACK:Dragon (Copper Mature Adult) Unchanged Stats	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Mature Adult)]	SORTKEY:Dragon (Copper 07u)
+RACE:Dragon (Copper Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Copper Mature Adult)
+SKILL:Listen	RANK:26
+SKILL:Search	RANK:26
+SKILL:Spot		RANK:26
+
+
+STARTPACK:Dragon (Copper Old) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Old)]		SORTKEY:Dragon (Copper 08u)
+RACE:Dragon (Copper Old)	!PRERACE:1,%
+NAME:Dragon (Copper Old)
+SKILL:Listen	RANK:29
+SKILL:Search	RANK:29
+SKILL:Spot		RANK:29
+
+
+STARTPACK:Dragon (Copper Very Old) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Very Old)]	SORTKEY:Dragon (Copper 09u)
+RACE:Dragon (Copper Very Old)	!PRERACE:1,%
+NAME:Dragon (Copper Very Old)
+SKILL:Listen	RANK:32
+SKILL:Search	RANK:32
+SKILL:Spot		RANK:32
+
+
+STARTPACK:Dragon (Copper Ancient) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Ancient)]	SORTKEY:Dragon (Copper 10u)
+RACE:Dragon (Copper Ancient)	!PRERACE:1,%
+NAME:Dragon (Copper Ancient)
+SKILL:Listen	RANK:35
+SKILL:Search	RANK:35
+SKILL:Spot		RANK:35
+
+
+STARTPACK:Dragon (Copper Wyrm) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Wyrm)]		SORTKEY:Dragon (Copper 11u)
+RACE:Dragon (Copper Wyrm)	!PRERACE:1,%
+NAME:Dragon (Copper Wyrm)
+SKILL:Listen	RANK:38
+SKILL:Search	RANK:38
+SKILL:Spot		RANK:38
+
+
+STARTPACK:Dragon (Copper Great Wyrm) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Great Wyrm)]	SORTKEY:Dragon (Copper 12u)
+RACE:Dragon (Copper Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Copper Great Wyrm)
+SKILL:Listen	RANK:41
+SKILL:Search	RANK:41
+SKILL:Spot		RANK:41
+
+
+STARTPACK:Dragon (Gold Wyrmling) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Wyrmling)]		SORTKEY:Dragon (Gold 01u)
+RACE:Dragon (Gold Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Gold Wyrmling)
+SKILL:Listen	RANK:11
+SKILL:Search	RANK:11
+SKILL:Spot		RANK:11
+
+
+STARTPACK:Dragon (Gold Very Young) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Very Young)]	SORTKEY:Dragon (Gold 02u)
+RACE:Dragon (Gold Very Young)	!PRERACE:1,%
+NAME:Dragon (Gold Very Young)
+SKILL:Listen	RANK:14
+SKILL:Search	RANK:14
+SKILL:Spot		RANK:14
+
+
+STARTPACK:Dragon (Gold Young) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Young)]		SORTKEY:Dragon (Gold 03u)
+RACE:Dragon (Gold Young)	!PRERACE:1,%
+NAME:Dragon (Gold Young)
+SKILL:Listen	RANK:17
+SKILL:Search	RANK:17
+SKILL:Spot		RANK:17
+
+
+STARTPACK:Dragon (Gold Juvenile) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Juvenile)]		SORTKEY:Dragon (Gold 04u)
+RACE:Dragon (Gold Juvenile)	!PRERACE:1,%
+NAME:Dragon (Gold Juvenile)
+SKILL:Listen	RANK:20
+SKILL:Search	RANK:20
+SKILL:Spot		RANK:20
+
+
+STARTPACK:Dragon (Gold Young Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Young Adult)]	SORTKEY:Dragon (Gold 05u)
+RACE:Dragon (Gold Young Adult)	!PRERACE:1,%
+NAME:Dragon (Gold Young Adult)
+SKILL:Listen	RANK:23
+SKILL:Search	RANK:23
+SKILL:Spot		RANK:23
+
+
+STARTPACK:Dragon (Gold Adult) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Adult)]		SORTKEY:Dragon (Gold 06u)
+RACE:Dragon (Gold Adult)	!PRERACE:1,%
+NAME:Dragon (Gold Adult)
+SKILL:Listen	RANK:26
+SKILL:Search	RANK:26
+SKILL:Spot		RANK:26
+
+
+STARTPACK:Dragon (Gold Mature Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Mature Adult)]	SORTKEY:Dragon (Gold 07u)
+RACE:Dragon (Gold Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Gold Mature Adult)
+SKILL:Listen	RANK:29
+SKILL:Search	RANK:29
+SKILL:Spot		RANK:29
+
+
+STARTPACK:Dragon (Gold Old) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Old)]		SORTKEY:Dragon (Gold 08u)
+RACE:Dragon (Gold Old)	!PRERACE:1,%
+NAME:Dragon (Gold Old)
+SKILL:Listen	RANK:32
+SKILL:Search	RANK:32
+SKILL:Spot		RANK:32
+
+
+STARTPACK:Dragon (Gold Very Old) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Very Old)]		SORTKEY:Dragon (Gold 09u)
+RACE:Dragon (Gold Very Old)	!PRERACE:1,%
+NAME:Dragon (Gold Very Old)
+SKILL:Listen	RANK:35
+SKILL:Search	RANK:35
+SKILL:Spot		RANK:35
+
+
+STARTPACK:Dragon (Gold Ancient) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Ancient)]		SORTKEY:Dragon (Gold 10u)
+RACE:Dragon (Gold Ancient)	!PRERACE:1,%
+NAME:Dragon (Gold Ancient)
+SKILL:Listen	RANK:38
+SKILL:Search	RANK:38
+SKILL:Spot		RANK:38
+
+
+STARTPACK:Dragon (Gold Wyrm) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Wyrm)]		SORTKEY:Dragon (Gold 11u)
+RACE:Dragon (Gold Wyrm)	!PRERACE:1,%
+NAME:Dragon (Gold Wyrm)
+SKILL:Listen	RANK:41
+SKILL:Search	RANK:41
+SKILL:Spot		RANK:41
+
+
+STARTPACK:Dragon (Gold Great Wyrm) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Great Wyrm)]	SORTKEY:Dragon (Gold 12u)
+RACE:Dragon (Gold Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Gold Great Wyrm)
+SKILL:Listen	RANK:44
+SKILL:Search	RANK:44
+SKILL:Spot		RANK:44
+
+
+STARTPACK:Dragon (Silver Wyrmling) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Wyrmling)]	SORTKEY:Dragon (Silver 01u)
+RACE:Dragon (Silver Wyrmling)	!PRERACE:1,%
+NAME:Dragon (Silver Wyrmling)
+SKILL:Listen	RANK:10
+SKILL:Search	RANK:10
+SKILL:Spot		RANK:10
+
+
+STARTPACK:Dragon (Silver Very Young) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Very Young)]	SORTKEY:Dragon (Silver 02u)
+RACE:Dragon (Silver Very Young)	!PRERACE:1,%
+NAME:Dragon (Silver Very Young)
+SKILL:Listen	RANK:13
+SKILL:Search	RANK:13
+SKILL:Spot		RANK:13
+
+
+STARTPACK:Dragon (Silver Young) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Young)]		SORTKEY:Dragon (Silver 03u)
+RACE:Dragon (Silver Young)	!PRERACE:1,%
+NAME:Dragon (Silver Young)
+SKILL:Listen	RANK:16
+SKILL:Search	RANK:16
+SKILL:Spot		RANK:16
+
+
+STARTPACK:Dragon (Silver Juvenile) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Juvenile)]	SORTKEY:Dragon (Silver 04u)
+RACE:Dragon (Silver Juvenile)	!PRERACE:1,%
+NAME:Dragon (Silver Juvenile)
+SKILL:Listen	RANK:19
+SKILL:Search	RANK:19
+SKILL:Spot		RANK:19
+
+
+STARTPACK:Dragon (Silver Young Adult) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Young Adult)]	SORTKEY:Dragon (Silver 05u)
+RACE:Dragon (Silver Young Adult)	!PRERACE:1,%
+NAME:Dragon (Silver Young Adult)
+SKILL:Listen	RANK:22
+SKILL:Search	RANK:22
+SKILL:Spot		RANK:22
+
+
+STARTPACK:Dragon (Silver Adult) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Adult)]		SORTKEY:Dragon (Silver 06u)
+RACE:Dragon (Silver Adult)	!PRERACE:1,%
+NAME:Dragon (Silver Adult)
+SKILL:Listen	RANK:25
+SKILL:Search	RANK:25
+SKILL:Spot		RANK:25
+
+
+STARTPACK:Dragon (Silver Mature Adult) Unchanged Stats	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Mature Adult)]	SORTKEY:Dragon (Silver 07u)
+RACE:Dragon (Silver Mature Adult)	!PRERACE:1,%
+NAME:Dragon (Silver Mature Adult)
+SKILL:Listen	RANK:28
+SKILL:Search	RANK:28
+SKILL:Spot		RANK:28
+
+
+STARTPACK:Dragon (Silver Old) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Old)]		SORTKEY:Dragon (Silver 08u)
+RACE:Dragon (Silver Old)	!PRERACE:1,%
+NAME:Dragon (Silver Old)
+SKILL:Listen	RANK:31
+SKILL:Search	RANK:31
+SKILL:Spot		RANK:31
+
+
+STARTPACK:Dragon (Silver Very Old) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Very Old)]	SORTKEY:Dragon (Silver 09u)
+RACE:Dragon (Silver Very Old)	!PRERACE:1,%
+NAME:Dragon (Silver Very Old)
+SKILL:Listen	RANK:34
+SKILL:Search	RANK:34
+SKILL:Spot		RANK:34
+
+
+STARTPACK:Dragon (Silver Ancient) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Ancient)]	SORTKEY:Dragon (Silver 10u)
+RACE:Dragon (Silver Ancient)	!PRERACE:1,%
+NAME:Dragon (Silver Ancient)
+SKILL:Listen	RANK:37
+SKILL:Search	RANK:37
+SKILL:Spot		RANK:37
+
+
+STARTPACK:Dragon (Silver Wyrm) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Wyrm)]		SORTKEY:Dragon (Silver 11u)
+RACE:Dragon (Silver Wyrm)	!PRERACE:1,%
+NAME:Dragon (Silver Wyrm)
+SKILL:Listen	RANK:40
+SKILL:Search	RANK:40
+SKILL:Spot		RANK:40
+
+
+STARTPACK:Dragon (Silver Great Wyrm) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Great Wyrm)]	SORTKEY:Dragon (Silver 12u)
+RACE:Dragon (Silver Great Wyrm)	!PRERACE:1,%
+NAME:Dragon (Silver Great Wyrm)
+SKILL:Listen	RANK:43
+SKILL:Search	RANK:43
+SKILL:Spot		RANK:43
+
+

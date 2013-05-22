@@ -1,5 +1,6 @@
 # CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+# Advanced, true dragons added by Matt Chambers (Otiendikil). Two blocks, "Advanced, True Dragons, stats set to Default by the kit" and "Advanced, True Dragons, stats unchanged by the kit"
 
 STARTPACK:Dragon (Force Wyrmling) Default	SORTKEY:Dragon (Force 01)	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Force Wyrmling)]
 RACE:Dragon (Force Wyrmling)	!PRERACE:1,%
@@ -1031,3 +1032,308 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights|Daze|Detect Magic|Gh
 GEAR:Staff (Cosmos)				LOCATION:Equipped
 GEAR:Ring (Regeneration)			LOCATION:Equipped
 GEAR:Coin (Gold)			QTY:15563	LOCATION:Not Carried
+
+# Advanced, true dragons added by Matt Chambers (Otiendikil)
+
+### Two blocks, "Advanced, True Dragons, stats set to Default by the kit" and "Advanced, True Dragons, stats unchanged by the kit"
+
+###
+###Block: Advanced, True Dragons, stats set to Default by the kit
+###
+
+STARTPACK:Dragon (Black Great Wyrm/Colossal) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Great Wyrm/Colossal)]			SORTKEY:Dragon (Black 13)
+RACE:Dragon (Black Great Wyrm/Colossal)	!PRERACE:1,%
+NAME:Dragon (Black Great Wyrm, Colossal)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:46
+SKILL:Search	RANK:46
+SKILL:Spot		RANK:46
+
+
+STARTPACK:Dragon (Black Great Wyrm/Colossal Plus) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Great Wyrm/Colossal Plus)]		SORTKEY:Dragon (Black 14)
+RACE:Dragon (Black Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Black Great Wyrm, Colossal Plus)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:58
+SKILL:Search	RANK:58
+SKILL:Spot		RANK:58
+
+
+STARTPACK:Dragon (Blue Great Wyrm/Colossal) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Great Wyrm/Colossal)]			SORTKEY:Dragon (Blue 13)
+RACE:Dragon (Blue Great Wyrm/Colossal)	!PRERACE:1,%
+NAME:Dragon (Blue Great Wyrm, Colossal)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:45
+SKILL:Search	RANK:45
+SKILL:Spot		RANK:45
+
+
+STARTPACK:Dragon (Blue Great Wyrm/Colossal Plus) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Great Wyrm/Colossal Plus)]		SORTKEY:Dragon (Blue 14)
+RACE:Dragon (Blue Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Blue Great Wyrm, Colossal Plus)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:57
+SKILL:Search	RANK:57
+SKILL:Spot		RANK:57
+
+
+STARTPACK:Dragon (Green Great Wyrm/Colossal) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Great Wyrm/Colossal)]			SORTKEY:Dragon (Green 13)
+RACE:Dragon (Green Great Wyrm/Colossal)	!PRERACE:1,%
+NAME:Dragon (Green Great Wyrm, Colossal)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:45
+SKILL:Search	RANK:45
+SKILL:Spot		RANK:45
+
+
+STARTPACK:Dragon (Green Great Wyrm/Colossal Plus) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Great Wyrm/Colossal Plus)]		SORTKEY:Dragon (Green 14)
+RACE:Dragon (Green Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Green Great Wyrm, Colossal Plus)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:56
+SKILL:Search	RANK:56
+SKILL:Spot		RANK:56
+
+
+STARTPACK:Dragon (Red Great Wyrm/Colossal Plus) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Great Wyrm/Colossal Plus)]		SORTKEY:Dragon (Red 13)
+RACE:Dragon (Red Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Red Great Wyrm, Colossal Plus)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:55
+SKILL:Search	RANK:55
+SKILL:Spot		RANK:55
+
+
+STARTPACK:Dragon (White Great Wyrm/Colossal) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Great Wyrm/Colossal)]			SORTKEY:Dragon (White 13)
+RACE:Dragon (White Great Wyrm/Colossal)	!PRERACE:1,%
+NAME:Dragon (White Great Wyrm, Colossal)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:46
+SKILL:Search	RANK:46
+SKILL:Spot		RANK:46
+
+
+STARTPACK:Dragon (White Great Wyrm/Colossal Plus) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Great Wyrm/Colossal Plus)]		SORTKEY:Dragon (White 14)
+RACE:Dragon (White Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (White Great Wyrm, Colossal Plus)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:58
+SKILL:Search	RANK:58
+SKILL:Spot		RANK:58
+
+
+STARTPACK:Dragon (Brass Great Wyrm/Colossal) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Great Wyrm/Colossal)]			SORTKEY:Dragon (Brass 13)
+RACE:Dragon (Brass Great Wyrm/Colossal)	!PRERACE:1,%
+NAME:Dragon (Brass Great Wyrm, Colossal)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:46
+SKILL:Search	RANK:46
+SKILL:Spot		RANK:46
+
+
+STARTPACK:Dragon (Brass Great Wyrm/Colossal Plus) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Great Wyrm/Colossal Plus)]		SORTKEY:Dragon (Brass 14)
+RACE:Dragon (Brass Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Brass Great Wyrm, Colossal Plus)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:58
+SKILL:Search	RANK:58
+SKILL:Spot		RANK:58
+
+
+STARTPACK:Dragon (Bronze Great Wyrm/Colossal) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Great Wyrm/Colossal)]		SORTKEY:Dragon (Bronze 13)
+RACE:Dragon (Bronze Great Wyrm/Colossal)	!PRERACE:1,%
+NAME:Dragon (Bronze Great Wyrm, Colossal)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:45
+SKILL:Search	RANK:45
+SKILL:Spot		RANK:45
+
+
+STARTPACK:Dragon (Bronze Great Wyrm/Colossal Plus) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Great Wyrm/Colossal Plus)]		SORTKEY:Dragon (Bronze 14)
+RACE:Dragon (Bronze Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Bronze Great Wyrm, Colossal Plus)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:57
+SKILL:Search	RANK:57
+SKILL:Spot		RANK:57
+
+
+STARTPACK:Dragon (Copper Great Wyrm/Colossal) Default		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Great Wyrm/Colossal)]		SORTKEY:Dragon (Copper 13)
+RACE:Dragon (Copper Great Wyrm/Colossal)	!PRERACE:1,%
+NAME:Dragon (Copper Great Wyrm, Colossal)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:47
+SKILL:Search	RANK:47
+SKILL:Spot		RANK:47
+
+
+STARTPACK:Dragon (Copper Great Wyrm/Colossal Plus) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Great Wyrm/Colossal Plus)]		SORTKEY:Dragon (Copper 14)
+RACE:Dragon (Copper Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Copper Great Wyrm, Colossal Plus)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:59
+SKILL:Search	RANK:59
+SKILL:Spot		RANK:59
+
+
+STARTPACK:Dragon (Gold Great Wyrm/Colossal Plus) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Great Wyrm/Colossal Plus)]		SORTKEY:Dragon (Gold 13)
+RACE:Dragon (Gold Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Gold Great Wyrm, Colossal Plus)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:53
+SKILL:Search	RANK:53
+SKILL:Spot		RANK:53
+
+
+STARTPACK:Dragon (Silver Great Wyrm/Colossal Plus) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Great Wyrm/Colossal Plus)]		SORTKEY:Dragon (Silver 13)
+RACE:Dragon (Silver Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Silver Great Wyrm, Colossal Plus)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Listen	RANK:55
+SKILL:Search	RANK:55
+SKILL:Spot		RANK:55
+
+
+
+###
+###Block: Advanced, True Dragons, stats unchanged by the kit
+###
+
+STARTPACK:Dragon (Black Great Wyrm/Colossal) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Great Wyrm/Colossal)]		SORTKEY:Dragon (Black 13u)
+RACE:Dragon (Black Great Wyrm/Colossal)	!PRERACE:1,%
+NAME:Dragon (Black Great Wyrm, Colossal)
+SKILL:Listen	RANK:46
+SKILL:Search	RANK:46
+SKILL:Spot		RANK:46
+
+
+STARTPACK:Dragon (Black Great Wyrm/Colossal Plus) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Black Great Wyrm/Colossal Plus)]	SORTKEY:Dragon (Black 14u)
+RACE:Dragon (Black Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Black Great Wyrm, Colossal Plus)
+SKILL:Listen	RANK:58
+SKILL:Search	RANK:58
+SKILL:Spot		RANK:58
+
+
+STARTPACK:Dragon (Blue Great Wyrm/Colossal) Unchanged Stats			TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Great Wyrm/Colossal)]		SORTKEY:Dragon (Blue 13u)
+RACE:Dragon (Blue Great Wyrm/Colossal)	!PRERACE:1,%
+NAME:Dragon (Blue Great Wyrm, Colossal)
+SKILL:Listen	RANK:45
+SKILL:Search	RANK:45
+SKILL:Spot		RANK:45
+
+
+STARTPACK:Dragon (Blue Great Wyrm/Colossal Plus) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Blue Great Wyrm/Colossal Plus)]	SORTKEY:Dragon (Blue 14u)
+RACE:Dragon (Blue Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Blue Great Wyrm, Colossal Plus)
+SKILL:Listen	RANK:57
+SKILL:Search	RANK:57
+SKILL:Spot		RANK:57
+
+
+STARTPACK:Dragon (Green Great Wyrm/Colossal) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Great Wyrm/Colossal)]		SORTKEY:Dragon (Green 13u)
+RACE:Dragon (Green Great Wyrm/Colossal)	!PRERACE:1,%
+NAME:Dragon (Green Great Wyrm, Colossal)
+SKILL:Listen	RANK:45
+SKILL:Search	RANK:45
+SKILL:Spot		RANK:45
+
+
+STARTPACK:Dragon (Green Great Wyrm/Colossal Plus) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Green Great Wyrm/Colossal Plus)]	SORTKEY:Dragon (Green 14u)
+RACE:Dragon (Green Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Green Great Wyrm, Colossal Plus)
+SKILL:Listen	RANK:56
+SKILL:Search	RANK:56
+SKILL:Spot		RANK:56
+
+
+STARTPACK:Dragon (Red Great Wyrm/Colossal Plus) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red Great Wyrm/Colossal Plus)]	SORTKEY:Dragon (Red 13u)
+RACE:Dragon (Red Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Red Great Wyrm, Colossal Plus)
+SKILL:Listen	RANK:55
+SKILL:Search	RANK:55
+SKILL:Spot		RANK:55
+
+
+STARTPACK:Dragon (White Great Wyrm/Colossal) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Great Wyrm/Colossal)]		SORTKEY:Dragon (White 13u)
+RACE:Dragon (White Great Wyrm/Colossal)	!PRERACE:1,%
+NAME:Dragon (White Great Wyrm, Colossal)
+SKILL:Listen	RANK:46
+SKILL:Search	RANK:46
+SKILL:Spot		RANK:46
+
+
+STARTPACK:Dragon (White Great Wyrm/Colossal Plus) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (White Great Wyrm/Colossal Plus)]	SORTKEY:Dragon (White 14u)
+RACE:Dragon (White Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (White Great Wyrm, Colossal Plus)
+SKILL:Listen	RANK:58
+SKILL:Search	RANK:58
+SKILL:Spot		RANK:58
+
+
+STARTPACK:Dragon (Brass Great Wyrm/Colossal) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Great Wyrm/Colossal)]		SORTKEY:Dragon (Brass 13u)
+RACE:Dragon (Brass Great Wyrm/Colossal)	!PRERACE:1,%
+NAME:Dragon (Brass Great Wyrm, Colossal)
+SKILL:Listen	RANK:46
+SKILL:Search	RANK:46
+SKILL:Spot		RANK:46
+
+
+STARTPACK:Dragon (Brass Great Wyrm/Colossal Plus) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Brass Great Wyrm/Colossal Plus)]	SORTKEY:Dragon (Brass 14u)
+RACE:Dragon (Brass Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Brass Great Wyrm, Colossal Plus)
+SKILL:Listen	RANK:58
+SKILL:Search	RANK:58
+SKILL:Spot		RANK:58
+
+
+STARTPACK:Dragon (Bronze Great Wyrm/Colossal) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Great Wyrm/Colossal)]	SORTKEY:Dragon (Bronze 13u)
+RACE:Dragon (Bronze Great Wyrm/Colossal)	!PRERACE:1,%
+NAME:Dragon (Bronze Great Wyrm, Colossal)
+SKILL:Listen	RANK:45
+SKILL:Search	RANK:45
+SKILL:Spot		RANK:45
+
+
+STARTPACK:Dragon (Bronze Great Wyrm/Colossal Plus) Unchanged Stats	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Bronze Great Wyrm/Colossal Plus)]	SORTKEY:Dragon (Bronze 14u)
+RACE:Dragon (Bronze Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Bronze Great Wyrm, Colossal Plus)
+SKILL:Listen	RANK:57
+SKILL:Search	RANK:57
+SKILL:Spot		RANK:57
+
+
+STARTPACK:Dragon (Copper Great Wyrm/Colossal) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Great Wyrm/Colossal)]	SORTKEY:Dragon (Copper 13u)
+RACE:Dragon (Copper Great Wyrm/Colossal)	!PRERACE:1,%
+NAME:Dragon (Copper Great Wyrm, Colossal)
+SKILL:Listen	RANK:47
+SKILL:Search	RANK:47
+SKILL:Spot		RANK:47
+
+
+STARTPACK:Dragon (Copper Great Wyrm/Colossal Plus) Unchanged Stats	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Copper Great Wyrm/Colossal Plus)]	SORTKEY:Dragon (Copper 14u)
+RACE:Dragon (Copper Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Copper Great Wyrm, Colossal Plus)
+SKILL:Listen	RANK:59
+SKILL:Search	RANK:59
+SKILL:Spot		RANK:59
+
+
+STARTPACK:Dragon (Gold Great Wyrm/Colossal Plus) Unchanged Stats		TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Gold Great Wyrm/Colossal Plus)]	SORTKEY:Dragon (Gold 13u)
+RACE:Dragon (Gold Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Gold Great Wyrm, Colossal Plus)
+SKILL:Listen	RANK:53
+SKILL:Search	RANK:53
+SKILL:Spot		RANK:53
+
+
+STARTPACK:Dragon (Silver Great Wyrm/Colossal Plus) Unchanged Stats	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Silver Great Wyrm/Colossal Plus)]	SORTKEY:Dragon (Silver 13u)
+RACE:Dragon (Silver Great Wyrm/Colossal Plus)	!PRERACE:1,%
+NAME:Dragon (Silver Great Wyrm, Colossal Plus)
+SKILL:Listen	RANK:55
+SKILL:Search	RANK:55
+SKILL:Spot		RANK:55
+
+#
+#End
+#
