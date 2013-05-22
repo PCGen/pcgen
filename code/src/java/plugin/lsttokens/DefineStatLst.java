@@ -84,7 +84,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 		catch (IllegalArgumentException e1)
 		{
 			return new ParseResult.Fail(
-				"Found unexpected sub tag " + firstItem + " in " + getTokenName() + ";" +value
+				"Found unexpected sub tag " + firstItem + " in " + getTokenName() + ":" +value
 				+ ". Must be one of "
 				+ StringUtils.join(DefineStatSubToken.values(), ", ") + ".",
 				context);
