@@ -52,7 +52,7 @@ FOLLOWER:AnimalCompanionLVL=20	TYPE:Animal Companion	HD:1																							
 
 ###Block:Special Mount - Same Table but slightly different animal list was warranted plus INT needs to be locked at 6
 # Class of the Master		Type				Hit Dice	Spell Res.		Ability																	Automatically Gained Feat	Automatically Gained Armor Prof.	Define			Bonus to Ability Pool					Combat bonus					Stat bonus			Modify VAR									Main Race Type			Template
-FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Link|Share Spells							AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0																				DEFINESTAT:MINVALUE|6	BONUS:VAR|MasterLevel|1	RACETYPE:Animal
+FOLLOWER:SpecialMountLVL=1	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Link|Share Spells							AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINE:MasterLevel|0																				DEFINESTAT:MINVALUE|INT|6	BONUS:VAR|MasterLevel|1	RACETYPE:Animal
 FOLLOWER:SpecialMountLVL=2	TYPE:Special Mount	HD:1																																																									BONUS:VAR|MasterLevel|1
 FOLLOWER:SpecialMountLVL=3	TYPE:Special Mount						ABILITY:Special Ability|AUTOMATIC|Evasion																																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1
 FOLLOWER:SpecialMountLVL=4	TYPE:Special Mount	HD:1																																						BONUS:ABILITYPOOL|Companion Stat Increase|1												BONUS:VAR|MasterLevel|1
@@ -76,21 +76,21 @@ FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount	HD:1																													
 ###Block:Familiar - No apparent changes from RSRD
 # Class of the Master	Type			Spell Res.	Ability																Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Combat bonus					Modify VAR					Main Race Type
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link		COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Share Spells																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|6	RACETYPE:Animal/Magical Beast
-FOLLOWER:FamiliarLVL=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells																									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|7
-FOLLOWER:FamiliarLVL=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																										BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|8
-FOLLOWER:FamiliarLVL=7	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Animals of Its Kind																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|9
-FOLLOWER:FamiliarLVL=9	TYPE:Familiar																																					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|10
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Share Spells																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|6	RACETYPE:Animal/Magical Beast
+FOLLOWER:FamiliarLVL=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells																									BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|7
+FOLLOWER:FamiliarLVL=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																										BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|8
+FOLLOWER:FamiliarLVL=7	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Animals of Its Kind																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|9
+FOLLOWER:FamiliarLVL=9	TYPE:Familiar																																					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|10
 # Locking INT to 10 makes it a non-ability.
-FOLLOWER:FamiliarLVL=11	TYPE:Familiar	SR:16		ABILITY:Special Ability|AUTOMATIC|Spell Resistance ~ Familiar																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|11
+FOLLOWER:FamiliarLVL=11	TYPE:Familiar	SR:16		ABILITY:Special Ability|AUTOMATIC|Spell Resistance ~ Familiar																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|11
 FOLLOWER:FamiliarLVL=12	TYPE:Familiar	SR:17
-FOLLOWER:FamiliarLVL=13	TYPE:Familiar	SR:18		ABILITY:Special Ability|AUTOMATIC|Scry on Familiar																										BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|12
+FOLLOWER:FamiliarLVL=13	TYPE:Familiar	SR:18		ABILITY:Special Ability|AUTOMATIC|Scry on Familiar																										BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|12
 FOLLOWER:FamiliarLVL=14	TYPE:Familiar	SR:19
-FOLLOWER:FamiliarLVL=15	TYPE:Familiar	SR:20																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|13
+FOLLOWER:FamiliarLVL=15	TYPE:Familiar	SR:20																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|13
 FOLLOWER:FamiliarLVL=16	TYPE:Familiar	SR:21
-FOLLOWER:FamiliarLVL=17	TYPE:Familiar	SR:22																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|14
+FOLLOWER:FamiliarLVL=17	TYPE:Familiar	SR:22																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|14
 FOLLOWER:FamiliarLVL=18	TYPE:Familiar	SR:23
-FOLLOWER:FamiliarLVL=19	TYPE:Familiar	SR:24																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|15
+FOLLOWER:FamiliarLVL=19	TYPE:Familiar	SR:24																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|15
 FOLLOWER:FamiliarLVL=20	TYPE:Familiar	SR:25
 
 ###Block: Specific Familiars
