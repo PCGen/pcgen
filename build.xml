@@ -831,6 +831,8 @@ pcgen.filepaths=user
                     <exclude name="**/AllJUnitTests.java" />
                     <exclude name="**/Abstract*.java" />
                     <exclude name="pcgen/core/Test.java" />
+                	<!-- The data isn't ready for this test yet - use datatest target to run this one -->
+                    <exclude name="pcgen/persistence/lst/DataLoadTest.java" />
                 </fileset>
             </batchtest>
             <!-- test name="${test.framework.class}" / -->
@@ -922,7 +924,7 @@ pcgen.filepaths=user
     	description="Run the data verification tests. Also produces the variable definition report.">
     </target>
 	
-	<target name="dodatatest">
+	<target name="dodatatest" depends="testclean, test.jar">
         <junit fork="yes" printsummary="on" failureproperty="junitfailure" dir="${basedir}">
             <jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
             <jvmarg value="-Demma.coverage.out.merge=true" />
@@ -936,6 +938,7 @@ pcgen.filepaths=user
             <batchtest todir="${build.dir}/test-results/xml">
                 <fileset dir="${basedir}/code/src/test">
                   <include name="pcgen/persistence/lst/DataTest.java"/>
+                  <include name="pcgen/persistence/lst/DataLoadTest.java"/>
                 </fileset>
             </batchtest>
         </junit>

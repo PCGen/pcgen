@@ -289,9 +289,19 @@ public class FacadeFactory
 		PCGenSettings.getInstance().setStringArray("hiddenSources", hiddenElements);
 	}
 
-	public static SourceSelectionFacade createSourceSelection(GameModeFacade gameMode, List<? extends CampaignFacade> campaignList)
+	public static SourceSelectionFacade createSourceSelection(
+		GameModeFacade gameMode, List<? extends CampaignFacade> campaignList)
 	{
-		return new BasicSourceSelectionFacade(null, new DefaultListFacade(campaignList), gameMode);
+		return new BasicSourceSelectionFacade(null, new DefaultListFacade(
+			campaignList), gameMode);
+	}
+
+	public static SourceSelectionFacade createSourceSelection(
+		GameModeFacade gameMode, List<? extends CampaignFacade> campaignList,
+		String sourceTitle)
+	{
+		return new BasicSourceSelectionFacade(sourceTitle,
+			new DefaultListFacade(campaignList), gameMode);
 	}
 
 	/**

@@ -547,7 +547,7 @@ public class TestHelper
 			System.out.println("Using PCC Location of '" + pccLoc + "'.");
 			bw.write("pccFilesPath=" + pccLoc + "\r\n");
 		}
-		bw.write("customPathr=testsuite\\\\customdata\r\n");
+		bw.write("customPath=testsuite\\\\customdata\r\n");
 		bw.close();
 
 		return configFile;
