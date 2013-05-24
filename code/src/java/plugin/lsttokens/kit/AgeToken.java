@@ -72,12 +72,12 @@ public class AgeToken extends AbstractNonEmptyToken<KitBio> implements
 	@Override
 	public String[] unparse(LoadContext context, KitBio kitName)
 	{
-		String bd = kitName.getCharacterName();
+		Integer bd = kitName.getCharacterAge();
 		if (bd == null)
 		{
 			return null;
 		}
-		return new String[] { bd };
+		return new String[] { bd.toString() };
 	}
 
 }
