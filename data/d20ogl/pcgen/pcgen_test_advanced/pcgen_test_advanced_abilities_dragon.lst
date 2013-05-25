@@ -1,0 +1,154 @@
+
+###Block: Size Mods for Automatic Changes
+REACH_0	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:REACH_0
+REACH_5	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:REACH_5
+REACH_10	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:REACH_10
+REACH_15	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:REACH_15
+REACH_20	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:REACH_20
+REACH_30	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:REACH_30
+#
+FACE_0	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_0
+FACE_1	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_1
+FACE_2	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_2
+FACE_5	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_5
+FACE_10	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_10
+FACE_15	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_15
+FACE_20	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_20
+FACE_30	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_30
+#
+SIZE_F	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_F
+SIZE_D	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_D
+SIZE_T	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_T
+SIZE_S	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_S
+SIZE_M	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_M
+SIZE_L	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_L
+SIZE_H	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_H
+SIZE_G	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_G
+SIZE_C	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_C
+SIZE_C+	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_C+
+
+###Block: Internal Level Adjustment Mods
+LEVEL_ADJUSTMENT_1	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:LEVEL_ADJUSTMENT_1
+LEVEL_ADJUSTMENT_2	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:LEVEL_ADJUSTMENT_2
+LEVEL_ADJUSTMENT_3	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:LEVEL_ADJUSTMENT_3
+LEVEL_ADJUSTMENT_4	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:LEVEL_ADJUSTMENT_4
+LEVEL_ADJUSTMENT_5	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:LEVEL_ADJUSTMENT_5
+LEVEL_ADJUSTMENT_6	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:LEVEL_ADJUSTMENT_6
+
+
+True Dragon Defaults	CATEGORY:Internal
+	DEFINE:DragonSizeTracker|1
+	ABILITY:Internal|AUTOMATIC|SIZE_T|PREVAREQ:DragonSizeTracker,1
+	ABILITY:Internal|AUTOMATIC|SIZE_S|PREVAREQ:DragonSizeTracker,2
+	ABILITY:Internal|AUTOMATIC|SIZE_M|PREVAREQ:DragonSizeTracker,3
+	ABILITY:Internal|AUTOMATIC|SIZE_L|PREVAREQ:DragonSizeTracker,4
+	ABILITY:Internal|AUTOMATIC|SIZE_H|PREVAREQ:DragonSizeTracker,5
+	ABILITY:Internal|AUTOMATIC|SIZE_G|PREVAREQ:DragonSizeTracker,6
+	ABILITY:Internal|AUTOMATIC|SIZE_C|PREVAREQ:DragonSizeTracker,7
+	DEFINE:DragonLevelAdjustment|0
+	ABILITY:Internal|AUTOMATIC|LEVEL_ADJUSTMENT_1|PREVAREQ:DragonLevelAdjustment,1
+	ABILITY:Internal|AUTOMATIC|LEVEL_ADJUSTMENT_2|PREVAREQ:DragonLevelAdjustment,2
+	ABILITY:Internal|AUTOMATIC|LEVEL_ADJUSTMENT_3|PREVAREQ:DragonLevelAdjustment,3
+	ABILITY:Internal|AUTOMATIC|LEVEL_ADJUSTMENT_4|PREVAREQ:DragonLevelAdjustment,4
+	ABILITY:Internal|AUTOMATIC|LEVEL_ADJUSTMENT_5|PREVAREQ:DragonLevelAdjustment,5
+	ABILITY:Internal|AUTOMATIC|LEVEL_ADJUSTMENT_6|PREVAREQ:DragonLevelAdjustment,6
+	ABILITY:Internal|AUTOMATIC|DRAGON_FLY_SPEED_100|PRESIZELTEQ:S
+	ABILITY:Internal|AUTOMATIC|DRAGON_FLY_SPEED_150|PRESIZEGTEQ:M|PRESIZELTEQ:H
+	ABILITY:Internal|AUTOMATIC|DRAGON_FLY_SPEED_200|PRESIZEGTEQ:G
+	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_T|PRESIZEEQ:T
+	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_S|PRESIZEEQ:S
+	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_M|PRESIZEEQ:M
+	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_L|PRESIZEEQ:L
+	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_H|PRESIZEEQ:H
+	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_G|PRESIZEEQ:G
+	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_C|PRESIZEEQ:C
+	ABILITY:Internal|AUTOMATIC|Wyrmling|PREVARLTEQ:DragonAge,1
+	ABILITY:Internal|AUTOMATIC|Very Young|PREVAREQ:DragonAge,2
+	ABILITY:Internal|AUTOMATIC|Young|PREVAREQ:DragonAge,3
+	ABILITY:Internal|AUTOMATIC|Juvenile|PREVAREQ:DragonAge,4
+	ABILITY:Internal|AUTOMATIC|Young Adult|PREVAREQ:DragonAge,5
+	ABILITY:Internal|AUTOMATIC|Adult|PREVAREQ:DragonAge,6
+	ABILITY:Internal|AUTOMATIC|Mature Adult|PREVAREQ:DragonAge,7
+	ABILITY:Internal|AUTOMATIC|Old|PREVAREQ:DragonAge,8
+	ABILITY:Internal|AUTOMATIC|Very Old|PREVAREQ:DragonAge,9
+	ABILITY:Internal|AUTOMATIC|Ancient|PREVAREQ:DragonAge,10
+	ABILITY:Internal|AUTOMATIC|Wyrm|PREVAREQ:DragonAge,11
+	ABILITY:Internal|AUTOMATIC|Great Wyrm|PREVARGTEQ:DragonAge,12
+	DEFINE:DragonBreathWeaponLine|30	BONUS:VAR|DragonBreathWeaponLine|10|PRESIZEGTEQ:S	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:M	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:L	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:H	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:G	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:C	DEFINE:DragonBreathWeaponCone|15	BONUS:VAR|DragonBreathWeaponCone|5|PRESIZEGTEQ:S	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:M	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:L	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:H	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:G	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:C
+	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability
+	ABILITY:Special Ability|AUTOMATIC|Bite ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Claw ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Wing ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Tail Slap ~ Dragon|PRESIZEGTEQ:L
+	ABILITY:Special Ability|AUTOMATIC|Crush ~ Dragon|PRESIZEGTEQ:H
+	ABILITY:Special Ability|AUTOMATIC|Tail Sweep ~ Dragon|PRESIZEGTEQ:G
+	ABILITY:Special Ability|AUTOMATIC|Grappling ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Frightful Presence ~ Dragon|PREVARGTEQ:DragonAge,5
+	ABILITY:Special Ability|AUTOMATIC|Spells ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Spell-Like Abilities ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Damage Reduction ~ Dragon|PREVARGTEQ:DragonAge,5
+	ABILITY:Special Ability|AUTOMATIC|Immunities ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Spell Resistance ~ Dragon|PREVARGTEQ:DragonAge,5
+	ABILITY:Special Ability|AUTOMATIC|Blindsense ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Keen Senses ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Skills ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Feats ~ Dragon
+
+Bite				KEY:Bite ~ Dragon								CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Bite attacks deal the indicated damage plus the dragon's Strength bonus. A dragon also can use its bite to snatch opponents if it has the Snatch feat (see page 304).
+Claw				KEY:Claw ~ Dragon								CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Claw attacks deal the indicated damage plus 1/2 the dragon's Strength bonus (round down). The dragon also can use its claws to snatch opponents if it has the Snatch feat (see page 304). Claw attacks are secondary attacks, requiring a -5 penalrty on the attack roll. (Many dragons choose the Multiattack feat to lessen this penalty to -2).
+Wing				KEY:Wing ~ Dragon								CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:The dragon can slam opponents with its wings, even when flying. Wing attacks deal the indicated damage plus 1/2 the dragon's Strength bonus (round down) and are treated as secondary attacks.
+Tail Slap			KEY:Tail Slap ~ Dragon							CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:The dragon can slap one opponent each round with its tail. A tail slap deals the indicated damage plus 1-1/2 times the dragon's Strength bonus (round down) and is treated as a secondary attack.
+Grappling			KEY:Grappling ~ Dragon							CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Dragons do not favor grapple attacks, though their crush attack (and Snatch feat, if they know it) use normal grapple rules. A dragon can always use its breath weapon while grappling, as well as its spells and spell-like or supernatural abilities, provided it succeeds on Concentration checks.
+
+
+
+
+DRAGON_FLY_SPEED_100	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,100	DEFINE:Maneuverability|3
+DRAGON_FLY_SPEED_150	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,150	DEFINE:Maneuverability|2
+DRAGON_FLY_SPEED_200	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,200	DEFINE:Maneuverability|1
+
+DRAGON_ATTACKS_T	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (5' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+DRAGON_ATTACKS_S	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (5' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+DRAGON_ATTACKS_M	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (5' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+DRAGON_ATTACKS_L	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (10' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+DRAGON_ATTACKS_H	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (15' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+DRAGON_ATTACKS_G	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (20' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
+DRAGON_ATTACKS_C	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (30' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d8|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+
+Wyrmling		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Wyrmling
+Very Young		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Very Young
+Young			CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Young
+Juvenile		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Juvenile
+Young Adult		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Young Adult
+Adult			CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Adult
+Mature Adult	CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Mature Adult
+Old			CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Old
+Very Old		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Very Old
+Ancient		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Ancient
+Wyrm			CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Wyrm
+Great Wyrm		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Great Wyrm
+
+
+Racial Traits ~ Black Dragon	CATEGORY:Internal
+	BONUS:STAT|STR|max(2*(DragonAge-1),0)
+	BONUS:STAT|CON|(2*(ceil(DragonAge/2)))
+	BONUS:STAT|INT,CHA|-2|PREVARLTEQ:DragonAge,2
+	BONUS:STAT|INT,CHA|max(2*(DragonAge/2-2),0)
+	BONUS:STAT|WIS|max(2*(DragonAge/2-4),0)
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Black Dragon
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,2
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,3
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,5
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,7
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,11
+	BONUS:VAR|DragonLevelAdjustment|3|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,3
+	BONUS:VAR|DragonLevelAdjustment|4|PREVAREQ:DragonAge,4
+	DEFINE:DragonAge|(DragonLVL-1)/3
+	MOVE:Walk,60,Swim,60
+	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
+
+#Breath Weapon (Su)	KEY:Breath Weapon ~ Black Dragon	SOURCEPAGE:p.71	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A black dragon has one type of breath weapon, a line of acid. Damage %1d%2, DC %3, Length %4|BlackDragonBWDice|BlackDragonBWDieSize|BreathWeaponDC|DragonBreathWeaponLength	DEFINE:BlackDragonBWDice|DragonAge*2	DEFINE:BlackDragonBWDieSize|4	DEFINE:BreathWeaponDC|10+(HD/2)+CON	DEFINE:DragonBreathWeaponLength|DragonBreathWeaponLine
+
+Dragon Age Selected	CATEGORY:Internal	VISIBLE:NO
+

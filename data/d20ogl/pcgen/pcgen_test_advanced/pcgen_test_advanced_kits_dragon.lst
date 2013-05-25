@@ -1,0 +1,51 @@
+
+STARTPACK:Dragon Default Stat Array
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+STARTPACK:Dragon Age 01 ~ Wyrmling		TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+
+STARTPACK:Dragon Age 02 ~ Very Young	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:3	
+
+STARTPACK:Dragon Age 03 ~ Young		TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:6	
+
+STARTPACK:Dragon Age 04 ~ Juvenile		TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:9	
+
+STARTPACK:Dragon Age 05 ~ Young Adult	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:12	
+
+STARTPACK:Dragon Age 06 ~ Adult		TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:15	
+
+STARTPACK:Dragon Age 07 ~ Mature Adult	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:18	
+
+STARTPACK:Dragon Age 08 ~ Old			TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+ABILITY:CATEGORY=Internal|Dragon Age Selected
+CLASS:Dragon	LEVEL:21	
+
+STARTPACK:Dragon Age 09 ~ Very Old		TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:24	
+
+STARTPACK:Dragon Age 10 ~ Ancient		TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:27	
+
+STARTPACK:Dragon Age 11 ~ Wyrm		TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:30	
+
+STARTPACK:Dragon Age 12 ~ Great Wyrm	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:33	
+
