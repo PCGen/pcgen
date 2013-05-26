@@ -35,7 +35,7 @@ LEVEL_ADJUSTMENT_4	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:LEVEL_ADJUSTMENT_4
 LEVEL_ADJUSTMENT_5	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:LEVEL_ADJUSTMENT_5
 LEVEL_ADJUSTMENT_6	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:LEVEL_ADJUSTMENT_6
 
-
+# Natural Armor For Wyrmling is a variable based upon type, but always increases by 3 thereafter
 True Dragon Defaults	CATEGORY:Internal
 	DEFINE:DragonSizeTracker|1
 	ABILITY:Internal|AUTOMATIC|SIZE_T|PREVAREQ:DragonSizeTracker,1
@@ -45,6 +45,8 @@ True Dragon Defaults	CATEGORY:Internal
 	ABILITY:Internal|AUTOMATIC|SIZE_H|PREVAREQ:DragonSizeTracker,5
 	ABILITY:Internal|AUTOMATIC|SIZE_G|PREVAREQ:DragonSizeTracker,6
 	ABILITY:Internal|AUTOMATIC|SIZE_C|PREVAREQ:DragonSizeTracker,7
+	DEFINE:DragonNaturalArmor|3*(DragonAge-1)
+	BONUS:COMBAT|AC|DragonNaturalArmor|TYPE=NaturalArmor
 	DEFINE:DragonLevelAdjustment|0
 	ABILITY:Internal|AUTOMATIC|LEVEL_ADJUSTMENT_1|PREVAREQ:DragonLevelAdjustment,1
 	ABILITY:Internal|AUTOMATIC|LEVEL_ADJUSTMENT_2|PREVAREQ:DragonLevelAdjustment,2
@@ -94,7 +96,7 @@ True Dragon Defaults	CATEGORY:Internal
 	ABILITY:Special Ability|AUTOMATIC|Keen Senses ~ Dragon
 	ABILITY:Special Ability|AUTOMATIC|Skills ~ Dragon
 	ABILITY:Special Ability|AUTOMATIC|Feats ~ Dragon
-
+#
 Bite				KEY:Bite ~ Dragon								CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Bite attacks deal the indicated damage plus the dragon's Strength bonus. A dragon also can use its bite to snatch opponents if it has the Snatch feat (see page 304).
 Claw				KEY:Claw ~ Dragon								CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Claw attacks deal the indicated damage plus 1/2 the dragon's Strength bonus (round down). The dragon also can use its claws to snatch opponents if it has the Snatch feat (see page 304). Claw attacks are secondary attacks, requiring a -5 penalrty on the attack roll. (Many dragons choose the Multiattack feat to lessen this penalty to -2).
 Wing				KEY:Wing ~ Dragon								CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:The dragon can slam opponents with its wings, even when flying. Wing attacks deal the indicated damage plus 1/2 the dragon's Strength bonus (round down) and are treated as secondary attacks.
@@ -113,14 +115,11 @@ Blindsense (Ex)		KEY:Blindsense ~ Dragon							CATEGORY:Special Ability	TYPE:Rac
 Keen Senses (Ex)		KEY:Keen Senses ~ Dragon						CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A dragon sees four times as well a human in shadowy illumination and twice as well in normal light. It also has darkvision out to 120 feet.
 Skills			KEY:Skills ~ Dragon							CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:All dragons have skill points equal to (6 + Int modifier, minimum 1) ? (Hit Dice + 3). Most dragons purchase the following skills at the maximum ranks possible: Listen, Search, and Spot. The remaining skill points are generally spent on Concentration, Diplomacy, Escape Artist, Intimidate, Knowledge (any), Sense Motive, and Use Magic Device at a cost of 1 skill point per rank. All these skills are considered class skills for dragons. (Each dragon has other class skills as well, as noted in the variety descriptions.)
 Feats				KEY:Feats ~ Dragon							CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:All dragons have one feat, plus an additional feat per 3 Hit Dice, just like any other creature. Dragons favor Alertness, Blind-Fight, Cleave, Flyby Attack, Hover, Improved Initiative, Improved Sunder, Power Attack, Snatch, Weapon Focus (claw or bite), Wingover, and any metamagic feat that is available and useful to sorcerers.
-
-
-
-
+# This sets speed and maneuverability based upon size (Note Gold Dragon is 50' faster and needs a BONUS:MOVEADD applied.)
 DRAGON_FLY_SPEED_100	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,100	DEFINE:Maneuverability|3
 DRAGON_FLY_SPEED_150	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,150	DEFINE:Maneuverability|2
 DRAGON_FLY_SPEED_200	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,200	DEFINE:Maneuverability|1
-
+# This applies attacks based upon size
 DRAGON_ATTACKS_T	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (5' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
 DRAGON_ATTACKS_S	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (5' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
 DRAGON_ATTACKS_M	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (5' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
@@ -128,7 +127,7 @@ DRAGON_ATTACKS_L	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (10' reach),We
 DRAGON_ATTACKS_H	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (15' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
 DRAGON_ATTACKS_G	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (20' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
 DRAGON_ATTACKS_C	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (30' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d8|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
-
+# This sets subrace
 Wyrmling		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Wyrmling
 Very Young		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Very Young
 Young			CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Young
@@ -160,6 +159,7 @@ Racial Traits ~ Black Dragon	CATEGORY:Internal
 	DEFINE:DragonAge|(DragonLVL-1)/3
 	MOVE:Walk,60,Swim,60
 	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
+	BONUS:VAR|DragonNaturalArmor|3
 
 Breath Weapon	KEY:Breath Weapon ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A black dragon has one type of breath weapon, a line of acid. Damage %1d%2, DC %3, Length %4|BlackDragonBWDice|BlackDragonBWDieSize|BreathWeaponDC|DragonBreathWeaponLength	DEFINE:BlackDragonBWDice|DragonAge*2	DEFINE:BlackDragonBWDieSize|4	DEFINE:BreathWeaponDC|10+(HD/2)+CON	DEFINE:DragonBreathWeaponLength|DragonBreathWeaponLine
 
