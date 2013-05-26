@@ -222,9 +222,9 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 						Logging.errorPrint("Invalid Character Sheet: " + file.getAbsolutePath()); //$NON-NLS-1$
 					}
 				}
-				if (file == null || !file.isFile())
+				if ((file == null || !file.isFile()) && game.getDefaultCharSheet() != null)
 				{
-					file = new File(sheetDir, Main.getStartupCharacterSheet());
+					file = new File(sheetDir, game.getDefaultCharSheet());
 				}
 				model.setSelectedItem(file);
 			}
