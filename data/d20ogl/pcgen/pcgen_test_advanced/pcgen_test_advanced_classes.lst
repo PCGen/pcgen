@@ -1,5 +1,13 @@
 # CVS $Revision$ $Author$ -- Sat Mar 30 17:48:04 2013 -- reformated by prettylst.pl v1.50 (build 19091)
 
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus								Combat bonus
+CLASS:Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Dragon	PRERACETYPE:Dragon
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
+
+
 # Class Name		Output Name					Hit Dice
 CLASS:Test Code Bugs	OUTPUTNAME:Testing Code Bug 1730	HD:1	
 #1	ABILITY:Special Ability|AUTOMATIC|TYPE.CodeBugOfTheDayTester

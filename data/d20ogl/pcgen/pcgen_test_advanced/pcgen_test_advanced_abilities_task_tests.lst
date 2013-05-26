@@ -15,9 +15,14 @@ TEST-88b		CATEGORY:FEAT		TYPE:SpecialQuality.TEST-88														BONUS:HD|MAX;C
 
 
 # TEST-89		BONUS:SPECIALTYSPELLKNOWN
-Test-89		CATEGORY:FEAT		TYPE:SpecialQuality.TEST-89					BONUS:SPECIALTYSPELLKNOWN|CLASS.Sorcerer;LEVEL.1|80
+#Test-89		CATEGORY:FEAT		TYPE:SpecialQuality.TEST-89					
+#BONUS:SPECIALTYSPELLKNOWN|CLASS.Sorcerer;LEVEL.1|80
 #where v is a value
 #See if this parses and applies
+# COMMENT: Throw an error:
+#17:08:13.531 SEVERE Thread-10 Bonus:180 Unrecognized bonus: SPECIALTYSPELLKNOWN|CLASS.Sorcerer;LEVEL.1|80
+#17:08:13.532 LSTERROR Thread-10 LstUtils:168 BONUS was given invalid bonus: SPECIALTYSPELLKNOWN|CLASS.Sorcerer;LEVEL.1|80 (Source: file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/pcgen/pcgen_test_advanced/pcgen_test_advanced_abilities_task_tests.lst)
+#17:08:13.532 LSTERROR Thread-10 LstUtils:168 Illegal Token 'BONUS' 'SPECIALTYSPELLKNOWN|CLASS.Sorcerer;LEVEL.1|80' for pcgen.core.Ability Test-89 in file:/D:/pcgen/pcgen_dev/Trunk/pcgen/data/d20ogl/pcgen/pcgen_test_advanced/pcgen_test_advanced_abilities_task_tests.lst
 
 
 # TEST-90	Test BONUS:STAT|CAST.x|v

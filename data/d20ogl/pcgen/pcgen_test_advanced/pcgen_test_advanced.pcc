@@ -59,6 +59,7 @@ COMPANIONLIST:Follower|ANY
 
 
 # Dragon Redesign Test Case
+ABILITY:pcgen_test_advanced_abilities_dragon.lst
 KIT:pcgen_test_advanced_kits_dragon.lst
 RACE:pcgen_test_advanced_races_dragon.lst
 TEMPLATE:pcgen_test_advanced_templates_dragon.lst

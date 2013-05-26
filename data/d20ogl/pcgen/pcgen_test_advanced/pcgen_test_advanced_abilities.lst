@@ -1045,7 +1045,423 @@ Innate Enchantment / Enhanced Attribute (+2 Wisdom)								KEY:Innate Enchantmen
 
 
 ####################
-#DRAGON TEST
+
+###Block: RSRD Abilities A-B
+# Ability Name		Category of Ability		Type								Visible	Define				Description
+Ability Drain		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Adhesive			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Acid				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Acid Cloud			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Acid Spray			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Acid Sting			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Air Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Air Walk			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Alacrity			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+All-Around Vision		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense		VISIBLE:YES
+Alter Shape			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Alternate Form		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES	DEFINE:AlternateFormTimes|0	DESC:%1/day|AlternateFormTimes|PREVARGT:AlternateFormTimes,0
+Amorphous			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Amorphous Physiology	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Amphibious			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Animate Objects		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Animate Trees		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Antimagic Field		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Astral Projection		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Attach			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Augmented Critical	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Aura of Doom		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES
+Aura of Menace		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES
+Aversion To Daylight	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
+Babble			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES						DESC:An allip constantly mutters and whines to itself, creating a hypnotic effect. All sane creatures within 60 feet of the allip must succeed on a DC 16 Will save or be affected as though by a hypnotism spell for 2d4 rounds. This is a sonic mind-affecting compulsion effect. Creatures that successfully save cannot be affected by the same allip's babble for 24 hours. The save DC is Charisma-based.
+Barbed Defense		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Bat Wings			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Battle Frenzy		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Bay				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Bear Empathy		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Beard				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Berserk			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Black Cloud			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES						DESC:Up to three times per day an achaierai can release a choking, toxic black cloud. Those other than achaierai within 10 feet instantly take 2d6 points of damage. They must also succeed on a DC 15 Fortitude save or be affected for 3 hours as though by an insanity spell (caster level 16th). The save DC is Constitution-based.
+Blazefire			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Blightfire			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Blind				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
+Blinding			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Blinding Beauty		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DEFINE:BlindingBeauty|0		DESC:DC %1|BlindingBeauty
+Blink				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Blood Drain			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Blood Frenzy		CATEGORY:Special Ability	TYPE:SpecialAttack					VISIBLE:YES
+Blur				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Boar Empathy		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Body Thief			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Burn				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+
+###Block: RSRD Abilities C-D
+# Ability Name			Category of Ability		Type								Visible	Define																	Description																																											Save checks bonus										Combat bonus														Bonus to HP											Bonus to skill				Modify VAR											Source Page						Temporary effect description
+Capsize				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Captivating Song			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Carapace				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Cascade Flu				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Chameleon Ability			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Change Shape			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES																			DESC:You can assume the appearance of a specific creature or type of creature, but retain most of your own physical qualities.																																																																																	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Change Size				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Charisma Drain			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Charm Person			CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike				VISIBLE:YES
+Charm Reptiles			CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike				VISIBLE:YES	DEFINE:CharmReptilesTimes|3														DESC:%1/day|CharmReptilesTimes
+Charming Gaze			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES	DEFINE:CharmingGazeDC|0															DESC:DC %1|CharmingGazeDC|PREVARGT:CharmingGazeDC,0																																																																																		BONUS:VAR|CharmingGazeDC|2|PREFEAT:1,Ability Focus (Charming Gaze)
+Children of the Night		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Chronal Blast			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Cloudwalking			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Cocoon				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Cold					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES																			DESC:Your body generates intense cold, causing opponents to take an extra 1d8 points of cold damage every time you succeed on a natural attack. Creatures attacking you unarmed or with natural weapons take this same cold damage each time one of their attacks hits.
+Cold Aura				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES																			DESC:A 10-foot-radius spread cold aura surrounds a you. Creatures of the cold sub-type are treated as if having turn resistance +6 (if undead) and fast healing 10. Creatures subject to cold Damage take 2d10 cold Damage each round they remain within the cold aura.
+Combustion				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Compound Eyes			CATEGORY:Special Ability	TYPE:SpecialQuality.Sense				VISIBLE:YES																																																																																																							BONUS:SKILL|Spot|2|TYPE=Racial
+Concealing Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura		VISIBLE:YES
+Confusion Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES																			DESC:This ability operates continuously, as the confusion spell but with a 30-foot radius. Potential victims can make a Will save (DC 47) to resist confusion.
+Constant Insight			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Constitution Drain		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Constrict				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES																			DESC:You can crush an opponent, dealing bludgeoning damage, after making a successful grapple check.																																																																																						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Corporeal Instability		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Corrosive Slime			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Corrupt Water			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES	DEFINE:CorruptWaterPresDC|10+(HD/2)+CHA	DEFINE:CorruptWaterTimes|1							DESC:%1/day (DC %2)|CorruptWaterTimes|CorruptWaterPresDC
+Create/Destroy Water		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES	DEFINE:CreateDestroyWaterTimes|3													DESC:%1/day|CreateDestroyWaterTimes
+Create Spawn			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Crush					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DEFINE:CrushDice|0	DEFINE:CrushDamageDie|0	DEFINE:CrushBonusDamage|0	DEFINE:CrushDC|10+(HD/2)+CON	DESC:DC %1|CrushDC|PREVAREQ:CrushDice,0	DESC:%1d%2+%3 (DC %4)|CrushDice|CrushDamageDie|CrushBonusDamage|CrushDC|PREVARGT:CrushDice,0																																																																				BONUS:VAR|CrushDC|2|PREFEAT:1,Ability Focus (Crush)
+Crush Item				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Cure Serious Wounds		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Curse of Lycanthropy		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Cursed Wound			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Dance of Ruin			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Dancing Chains			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Darkness				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Aura			VISIBLE:YES
+Daylight				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Daylight Powerlessness		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
+Death Gaze				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES	DEFINE:DeathGazeDC|CHA+(HD/2)+10													DESC:DC %1|DeathGazeDC																																																																																							BONUS:VAR|DeathGazeDC|2|PREFEAT:1,Ability Focus (Death Gaze)
+Death Throes			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Deflecting Force			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Desecrating Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES																			DESC:You give off a 20-foot radius emanation of utter desecration, imbuing your surroundings with negative energy.																									BONUS:CHECKS|ALL|2|TYPE=Profane	BONUS:CHECKS|ALL|-2|PREAPPLY:PC	BONUS:COMBAT|TOHIT,DAMAGE.Melee|2|TYPE=Profane	BONUS:COMBAT|TOHIT,DAMAGE.Melee|-2|PREAPPLY:PC	BONUS:HP|CURRENTMAX|HD*2	BONUS:HP|CURRENTMAX|-(HD*2)|PREAPPLY:PC																			SOURCEPAGE:MonstersM-N.rtf			TEMPDESC:Apply this penalty if the nightshade's desecrating aura ability is dispelled by a dispel evil spell or similar effect, or if it enters a consecrated or hallowed area.
+Despair				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Destabilize Form			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Destructive Harmonics		CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Detect Gems				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.Sense			VISIBLE:YES	DEFINE:DetectGemsTimes|3														DESC:%1/day|DetectGemsTimes
+Detect Magic			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		VISIBLE:YES
+Detect Thoughts			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		VISIBLE:YES
+Dimension Door			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyMovement	VISIBLE:YES
+Dimensional Travel		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.ModifyMovement	VISIBLE:YES
+Dire Winter				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES
+Discorporate			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Disease				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Disintegrating Touch		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Dispel Psionics			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Displacement			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Distraction				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Dominate Monster			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Dominated Creature		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Domination				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Double Damage Against Objects	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.AttackOption	VISIBLE:YES
+Double Manifest			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Drag					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Draw Moisture			CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike				VISIBLE:YES	DEFINE:DrawMoistureDice|2	DEFINE:DrawMoistureDamageDie|8								DESC:%1d%2 damage DC %3 half|DrawMoistureDice|DrawMoistureDamageDie|12+CHA
+Dream Haunting			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Drench				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+
+###Block: RSRD Abilities E-G
+# Ability Name				Output Name				Category of Ability		Type									Visible	Define											Description																																																																																	Modify VAR												Source Page						Aspects
+Earth Glide										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Earth Mastery									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Eat Thoughts									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Elemental Endurance								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Energy Drain									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption		VISIBLE:YES	DEFINE:EnergyDrainLevels|0	DEFINE:EnergyDrainDC|10+(TL/2)+CHA		DESC:Automatically sap a living opponent's vital energy when your melee or ranged attack hits, bestowing %1 negative levels (twice that on a critical hit.)|EnergyDrainLevels																																																																			SOURCEPAGE:TypesSubtypesAbilities.rtf
+Enervation Ray									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Engulf										CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
+Enslave										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES													DESC:Three times per day, an aboleth can attempt to enslave any one living creature within 30 feet. The target must succeed on a DC 17 Will save or be affected as though by a dominate person spell (caster level 16th). An enslaved creature obeys the aboleth's telepathic commands until freed by remove curse, and can attempt a new Will save every 24 hours to break free. The control is also broken if the aboleth dies or travels more than 1 mile from its slave. The save DC is Charisma-based.
+Entangle										CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
+Enthrall										CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
+Ethereal Jaunt									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Etherealness									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Evil Eye										CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
+Evil Gaze										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Explosion										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Extract Brains									CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike					VISIBLE:YES
+Eye Rays										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Fast Healing									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC		VISIBLE:YES	DEFINE:FastHealing|0									DESC:You regain %1 hit points per round. Fast healing does not restore hit points lost from starvation, thirst, or suffocation, and it does not allow a creature to regrow lost body parts.|FastHealing																																																														SOURCEPAGE:TypesSubtypesAbilities.rtf	ASPECT:Ability Benefit|%1|FastHealing
+Fear											CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Fear Aura										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura			VISIBLE:YES	DEFINE:FearAuraDC|0	DEFINE:FearAuraRadius|0					DESC:%1 ft. radius, DC %2|FearAuraRadius|FearAuraDC|PREVARGT:FearAuraDC,0
+Fear Gaze										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Feed											CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Ferocity										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Fiddle										CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Fiery Aura										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura			VISIBLE:YES
+Fiery Bite										CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
+Fiery Hardness									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Fiery Overrun									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Fiery Touch										CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
+Find Master										CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Find Target										CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:YES
+Fire Acclimated									CATEGORY:Special Ability	TYPE:SpecialQuality						VISIBLE:YES	DEFINE:FireAcclimatedBonus|2								DESC:+%1 all saves vs. fire|FireAcclimatedBonus
+Fists of Thunder and Lightning						CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Flaming Body									CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Flaming Hooves									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Flight (Ex)					OUTPUTNAME:Flight			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES													DESC:You can cease or resume flight as a free action
+Flight (Su)					OUTPUTNAME:Flight			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES													DESC:You can cease or resume flight as a free action
+Freedom of Movement								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement	VISIBLE:YES
+Freeze										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Freezing Bite									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Freezing Fog									CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike					VISIBLE:YES	DEFINE:FreezingFogTimes|3								DESC:%1/day|FreezingFogTimes
+Freshwater Sensitivity								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness		VISIBLE:YES
+Frightful Howl									CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Frightful Presence								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.MindAffecting.Fear	VISIBLE:YES	DEFINE:FrightfulPresRange|0	DEFINE:FrightfulPresenceDC|10+(HD/2)+CHA	DESC:%1 ft DC %2|FrightfulPresRange|FrightfulPresenceDC|PREVARGT:FrightfulPresRange,0	DESC:Your very presence unsettling to foes. It takes effect automatically when you perform some sort of dramatic action (such as charging, attacking, or snarling). Opponents within range who witness the action may become frightened or shaken.																											BONUS:VAR|FrightfulPresenceDC|2|PREFEAT:1,Ability Focus (Frightful Presence)	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Frightful Presence ~ Su			OUTPUTNAME:Frightful Presence	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.MindAffecting.Fear	VISIBLE:YES	DEFINE:FrightfulPresRange|0	DEFINE:FrightfulPresenceDC|10+(HD/2)+CHA	DESC:%1 ft DC %2|FrightfulPresRange|FrightfulPresenceDC|PREVARGT:FrightfulPresRange,0	DESC:Your very presence unsettling to foes. It takes effect automatically when you perform some sort of dramatic action (such as charging, attacking, or snarling). Opponents within range who witness the action may become frightened or shaken.																											BONUS:VAR|FrightfulPresenceDC|2|PREFEAT:1,Ability Focus (Frightful Presence)	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Gaseous Form (Sp)				OUTPUTNAME:Gaseous Form		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike					VISIBLE:YES													DESC:You have the spell-like ability to take the form of a cloud of vapor or gas
+Gaseous Form (Su)				OUTPUTNAME:Gaseous Form		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES													DESC:You have the supernatural ability to take the form of a cloud of vapor or gas
+Gaze											CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES													DESC:This takes effect when opponents look at your eyes.																																																																																						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Ghoul Fever										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Gibbering										CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Gills											CATEGORY:Special Ability	TYPE:SpecialQuality						VISIBLE:YES
+Greater Invisibility								CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.ModifyAC			VISIBLE:YES
+Ground Manipulation								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Guard											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Guarded Thoughts									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC		VISIBLE:YES
+
+###Block: RSRD Abilities H-M
+# Ability Name			Unique Key		Category of Ability		Type								Visible	Define			Description																																																																																Modify VAR						Source Page
+Half-Dragon Wings						CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
+Haste								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Head Tentacles						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Headloss Resistance					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Heat								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES					DESC:deals an additional 1d6 of Fire damage whenever it hits in melee or in each round it maintains a hold when grappling.
+Heat Aura							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES
+Hide Mind							CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Hive Mind							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Hold Breath							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Host Protection						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Howl								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Hunefer Rot							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Icewalking							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Impale							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Implant							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Improved Grab						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES					DESC:If you hit with a melee weapon, you deal normal damage and can attempt to start a grapple as a free action without provoking an attack of opportunity. No initial touch attack is required. You have the option to conduct the grapple normally, or simply use the part of your body it used in the improved grab to hold the opponent at a -20 penalty on grapple checks, but are not considered grappled yourself.																				SOURCEPAGE:TypesSubtypesAbilities.rtf
+Improved Tracking						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Infernal Wound						CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Inhabit							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Ink Cloud							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES					DESC:An octopus can emit a cloud of jet-black ink 10 feet high by 10 feet wide by 10 feet long once per minute as a free action. The cloud provides total concealment, which the octopus normally uses to escape a losing fight. All vision within the cloud is obscured.
+Invisible In Light					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC	VISIBLE:YES
+Invisibility						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyAC		VISIBLE:YES
+Jet								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES					DESC:An octopus can jet backward once per round as a full-round action, at a speed of 200 feet. It must move in a straight line, but does not provoke attacks of opportunity while jetting.
+Keen Senses							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES																																																																																						BONUS:VAR|LowLightDistance|2|TYPE=Racial
+Kiss								CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Leshay Weapons						CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Leap								CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Lethal Shock						CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Light Blindness						CATEGORY:Special Ability	TYPE:SpecialQuality.Weakness				VISIBLE:YES
+Light Sensitivity						CATEGORY:Special Ability	TYPE:SpecialQuality.Weakness				VISIBLE:YES					DESC:Dazzled in bright sunlight or within the radius of a daylight spell.
+Liquefy Crystal						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Luck Bonus							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES	DEFINE:LuckBonusTimes|1	DESC:%1/day|LuckBonusTimes
+Madness							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Madness				KEY:Madness ~ Su	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES					DESC:Anyone targeting an allip with a thought detection, mind control, or telepathic ability makes direct contact with its tortured mind and takes 1d4 points of Wisdom damage.
+Magic Circle against Evil				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Magic Circle Against Good				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Magic Drain							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Make Whole							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Manifestation						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Melt Weapons						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Mimicry							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Mimic Shape							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Mind Consuming Gaze					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Mind Feed							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+#Mindless				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Misty Breath						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Moan								CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Mucus Cloud							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES					DESC:An aboleth underwater surrounds itself with a viscous cloud of mucus roughly 1 foot thick. Any creature coming into contact with and inhaling this substance must succeed on a DC 19 Fortitude save or lose the ability to breathe air for the next 3 hours. An affected creature suffocates in 2d6 minutes if removed from the water. Renewed contact with the mucus cloud and failing another Fortitude save continues the effect for another 3 hours. The save DC is Constitution-based.
+Mummy Rot							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+
+###Block: RSRD Abilities N-R
+# Ability Name				Output Name									Category of Ability		Type									Visible	Define					Description																														Multiple?	Choose				Automatically Gained Weapon Prof.	Combat bonus					Modify VAR												Weapon prof. bonus																		Source Page
+Natural Cunning														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Natural Invisibility													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC		VISIBLE:YES
+Natural Magic Weapons													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Natural Weapons Treated as Epic											CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Naturally Psionic														CATEGORY:Special Ability	TYPE:SpecialQuality						VISIBLE:YES	DEFINE:RaceBonusPP|0			DESC:+%1 BonusPP|RaceBonusPP|PREVARGT:RaceBonusPP,0
+Negative Energy Affinity												CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Negative Energy Aura													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura			VISIBLE:YES
+Null Psionic Exhalation													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Null Time Field														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Oversized Weapon														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES																																						MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																											BONUS:WEAPONPROF=%LIST|PCSIZE|1
+Outburst															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
+Paralysis (Ex)				OUTPUTNAME:Paralysis							CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES	DEFINE:ParalysisDC|10+(HD/2)+CHA	DESC:This special attack renders the victim immobile. Paralyzed creatures cannot move, speak, or take any physical actions. The creature is rooted to the spot, frozen and helpless.																					BONUS:VAR|ParalysisDC|2|PREFEAT:1,Ability Focus (Paralysis)																									SOURCEPAGE:TypesSubtypesAbilities.rtf
+Paralysis (Su)				OUTPUTNAME:Paralysis							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES	DEFINE:ParalysisDC|10+(HD/2)+CHA	DESC:This special attack renders the victim immobile. Paralyzed creatures cannot move, speak, or take any physical actions. The creature is rooted to the spot, frozen and helpless.																					BONUS:VAR|ParalysisDC|2|PREFEAT:1,Ability Focus (Paralysis)																									SOURCEPAGE:TypesSubtypesAbilities.rtf
+Paralytic Tentacles													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
+Paralyzing Gaze														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Paralyzing Touch														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES	DEFINE:ParalyzingTouchDC|0		DESC:DC %1|ParalyzingTouchDC|PREVARGT:ParalyzingTouchDC,0																																										BONUS:VAR|ParalyzingTouchDC|2|PREFEAT:1,Ability Focus (Paralyzing Touch)
+Perfect Automatic Still Spell												CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Petrification														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Petrifying Gaze														CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Phylactery Transference													CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Pipes																CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Plane Shift															CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.ModifyMovement		VISIBLE:YES
+Planar Travel														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement	VISIBLE:YES
+Planewalk															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Poison															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES	DEFINE:PoisonDC|10+(HD/2)+CON		DESC:Poison attacks deal initial damage and possibly secondary damage a minute later to the opponent on failed Fortitude saves (DC %1).|PoisonDC																											BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)																										SOURCEPAGE:TypesSubtypesAbilities.rtf
+Positive Energy Lash													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Pounce															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:YES							DESC:When you make a charge, you can follow with a full attack.																																																																											SOURCEPAGE:TypesSubtypesAbilities.rtf
+Power Conversion														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Powerful Build														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES							DESC:One size larger for opposed checks if advantageous, also for being affected by special attacks based on size.																									BONUS:COMBAT|TOHIT.GRAPPLE|4|PRESIZELT:C														BONUS:WEAPONPROF=TYPE.Simple|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Martial|PCSIZE|1	BONUS:WEAPONPROF=TYPE.Exotic|PCSIZE|1	SOURCEPAGE:PsionicMonsters.rtf
+Powerful Charge														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:YES							DESC:When you make a charge, you deal extra damage in addition to the normal benefits and hazards of a charge.																																																																			SOURCEPAGE:TypesSubtypesAbilities.rtf
+Prismatic Blur														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
+Prismatic Emanations													CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES
+Protection From Sonics													CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC		VISIBLE:YES
+Protective Aura														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura			VISIBLE:YES
+Protective Slime														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyAC			VISIBLE:YES
+Push																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Quiescence															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Quickness															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Quills															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Rake																CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:YES							DESC:You gain extra natural attacks when you grapple or pounce your foe.																																																																									SOURCEPAGE:TypesSubtypesAbilities.rtf
+Rat Empathy															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Recognition															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Regeneration														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyAC		VISIBLE:YES	DEFINE:RegenerationRate|0
+Regenerate in Water			OUTPUTNAME:Regenerate only if mostly immersed in water	CATEGORY:Special Ability	TYPE:SpecialQuality.ModifyAC					VISIBLE:YES
+Rejuvenation														CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Repletion															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Resilience															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Resistance															CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES
+Rend																CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:YES																																																																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
+Rend Armor															CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption		VISIBLE:YES
+Resilient															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Roar																CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural				VISIBLE:YES	DEFINE:RoarDC|10+(HD/2)+CHA		DESC:DC %1|RoarDC																																																	BONUS:VAR|RoarDC|2|PREFEAT:1,Ability Focus (Roar)
+Rock Catching														CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Rock Throwing														CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES																																													AUTO:WEAPONPROF|Giant Rock
+Rotting Constriction													CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
+Rush																CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+Rust																CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				VISIBLE:YES
+Rustproof															CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				VISIBLE:YES
+
+###Block: RSRD Abilities S
+# Ability Name			Category of Ability		Type								Visible	Define						Description																																																																																																															Combat bonus									Modify VAR											Source Page
+Safekeeping				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Savage				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Scare					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.Supernatural	VISIBLE:YES
+#Scent					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense		VISIBLE:YES	DEFINE:ScentRange|0				DESC:%1 ft. range|ScentRange|PREVARGT:ScentRange,0
+Sending				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Shadow Blend			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Shadow Shift			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Shatter				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Shield Other			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.ModifyAC		VISIBLE:YES
+Shriek				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Single Actions Only		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Slime					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES								DESC:A blow from an aboleth's tentacle can cause a terrible affliction. A creature hit by a tentacle must succeed on a DC 19 Fortitude save or begin to transform over the next 1d4+1 minutes, the skin gradually becoming a clear, slimy membrane. An afflicted creature must remain moistened with cool, fresh water or take 1d12 points of damage every 10 minutes. The slime reduces the creature's natural armor bonus by 1 (but never to less than 0). The save DC is Constitution-based. A remove disease spell cast before the transformation is complete will restore an afflicted creature to normal. Afterward, however, only a heal or mass heal spell can reverse the affliction.
+Slow					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Smoke					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Smoke Claws				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Smoke Form				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Sonic Blast				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Sonic Lance				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Sound Imitation			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES	DEFINE:SoundImitationDC|10+(HD/2)+CHA	DESC:DC %1|SoundImitationDC																																																																																																																							BONUS:VAR|SoundImitationDC|2|PREFEAT:1,Ability Focus (Sound Imitation)
+Speak with Animals		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES
+Speak With Sharks			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Communicate	VISIBLE:YES
+Special Arrows			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
+Spell Deflection			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Spell Storing			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Spell Suck				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Spider Climb			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Spikes				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
+Spit Acid				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Spittle				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Split					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Spores				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Spore Cough				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Sprint				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Squeeze				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Stampede				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Stasis Touch			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Steal Essence			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Stench				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Aura		VISIBLE:YES	DEFINE:StenchDC|10+(HD/2)+CON			DESC:DC %1|StenchDC																																																																																																																								BONUS:VAR|StenchDC|2|PREFEAT:1,Ability Focus (Stench)
+Sticky				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Stomp					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Stone Shape				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Strands				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Strength Damage			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Strong Swimmers			CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES
+Stun					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Stunning Glance			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES	DEFINE:StunningGlance|0				DESC:DC %1|StunningGlance
+Stunning Roar			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Stunning Screech			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Stunning Shock			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Summon Air Elemental		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Summon Creature			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Summon Demon			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Summon Devil			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Summon Djinni			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES	DEFINE:SummonDjinniDC|0				DESC:DC %1|SummonDjinniDC
+Summon Elder Fire Elemental	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Summon Fiend			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Summon Hecatoncheires		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Summon Iron Golem			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Summon Mephit			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Summon Nightcrawler		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Summon Nightwalker		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Summon Past Time Duplicate	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Summon Undead			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Summon White Dragon		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike				VISIBLE:YES
+Sunlight Powerlessness		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
+Superior Low-light Vision	CATEGORY:Special Ability	TYPE:SpecialQuality.Vision													DESC:Aquatic elves can see four times as far as a human in starlight, moonlight, torchlight, and similar conditions of low illumination.																																																																																																					BONUS:VAR|LowLightDistance|2|TYPE=Racial
+Superior Multiweapon Fighting	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
+Superior Two-Weapon Fighting	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES																																																																																																																								BONUS:COMBAT|TOHIT-PRIMARY|6	BONUS:COMBAT|TOHIT-SECONDARY|10
+Swallow Whole			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES								DESC:If you begin your turn with an opponent held in your mouth, you can attempt a new grapple check (as though attempting to pin the opponent). If successful, you swallow your prey, and the opponent takes bite damage.																																																																																																			SOURCEPAGE:TypesSubtypesAbilities.rtf
+
+###Block: RSRD Abilities T-W
+# Ability Name			Category of Ability		Type								Visible	Define																			Description																																	Modify VAR															Source Page						Aspects
+Tail Sweep				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES	DEFINE:TailSweepDice|0	DEFINE:TailSweepDamageDie|0	DEFINE:TailSweepBonusDamage|0	DEFINE:TailSweepDC|10+(HD/2)+CON	DESC:%1d%2+%3 (DC %4)|TailSweepDice|TailSweepDamageDie|TailSweepBonusDamage|TailSweepDC|PREVARGT:TailSweepDice,0																BONUS:VAR|TailSweepDC|2|PREFEAT:1,Ability Focus (Tail Sweep)
+Telepathy				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES	DEFINE:TelepathyRange|0																	DESC:%1 ft. range|TelepathyRange|PREVARGT:TelepathyRange,0
+Teleport				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyMovement	VISIBLE:YES
+Time Filch				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Time Leach				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Time Regression			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Tiger Empathy			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Tongues				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Communicate	VISIBLE:YES
+Trample				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES	DEFINE:TrampleDC|10																	DESC:As a full-round action, you can move up to twice your speed and literally run over any opponents at least one size category smaller than you. (Reflex half DC %1)|TrampleDC					BONUS:VAR|TrampleDC|2|PREFEAT:1,Ability Focus (Trample)	BONUS:VAR|TrampleDC|STR+(HD/2)	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Transparent				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.ModifyAC		VISIBLE:YES
+Trap Essence			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Trap the Soul			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES	DEFINE:TrapTheSoulDC|0																	DESC:DC %1|TrapTheSoulDC|PREVARGT:TrapTheSoulDC,0
+Tree Dependent			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Trill					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Trip					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
+Triple Damage Against Objects	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary.AttackOption	VISIBLE:YES
+True Seeing				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		VISIBLE:YES
+Trumpet				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Turn Resistance			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DEFINE:TurnResistBonus|0	DEFINE:TurnResistEHD|TL+TurnResistBonus									DESC:+%1|TurnResistBonus|PREVARGT:TurnResistBonus,0	DESC:When resolving a turn, rebuke, command, or bolster attempt, add +%1 number to your Hit Dice total (total %2).|TurnResistBonus|TurnResistEHD																	SOURCEPAGE:TypesSubtypesAbilities.rtf	ASPECT:Ability Bonus|+%1|TurnResistBonus
+Unearthly Grace			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Unnatural Aura			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Aura		VISIBLE:YES
+Unnerving Gaze			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Vampiric Touch			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Vorpal Sword			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.AttackOption	VISIBLE:YES
+Vortex				CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Vortex ~ Ex				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
+Water Breathing			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Water Dependent			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
+Water Mastery			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Weakness				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
+Web					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Whirlwind				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Whirlwind Blast			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Wings					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Wisdom Drain			CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES
+Wolf Empathy			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES
+Worst Nightmare			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES
+Wounding				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES
 
 
 
+###Block: Resistances
+# Ability Name			Category of Ability		Visible	Define					Ability
+Resistance To Acid		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:AcidResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Acid Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Acid,Vulnerability To Acid
+Resistance To Cold		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ColdResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Cold Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Cold,Vulnerability To Cold
+Resistance To Fire		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:FireResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Fire Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Fire,Vulnerability To Fire
+Resistance To Electricity	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ElectricityResistanceBonus|0	ABILITY:Special Ability|VIRTUAL|Resistance To Electricity Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Electricity,Vulnerability To Electricity
+Resistance To Sonic		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:SonicResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance To Sonic Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity To Sonic,Vulnerability To Sonic
+
+###Block: Resistances Output
+# Ability Name				Output Name						Category of Ability		Type								Visible	Description																			Aspects
+Resistance To Acid Output		OUTPUTNAME:Resistance To Acid			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:You may ignore %1 points of Acid damage each time you take Acid damage|AcidResistanceBonus					ASPECT:Resistance|Acid	ASPECT:Ability Benefit|%1|AcidResistanceBonus
+Resistance To Cold Output		OUTPUTNAME:Resistance To Cold			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:You may ignore %1 points of Cold damage each time you take Cold damage|ColdResistanceBonus					ASPECT:Resistance|Cold	ASPECT:Ability Benefit|%1|ColdResistanceBonus
+Resistance To Fire Output		OUTPUTNAME:Resistance To Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:You may ignore %1 points of Fire damage each time you take Fire damage|FireResistanceBonus					ASPECT:Resistance|Fire	ASPECT:Ability Benefit|%1|FireResistanceBonus
+Resistance To Electricity Output	OUTPUTNAME:Resistance To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:You may ignore %1 points of Electricity damage each time you take Electricity damage|ElectricityResistanceBonus	ASPECT:Resistance|Electricity	ASPECT:Ability Benefit|%1|ElectricityResistanceBonus
+Resistance To Sonic Output		OUTPUTNAME:Resistance To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:You may ignore %1 points of Sonic damage each time you take Sonic damage|SonicResistanceBonus				ASPECT:Resistance|Sonic	ASPECT:Ability Benefit|%1|SonicResistanceBonus
