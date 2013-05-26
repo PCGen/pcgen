@@ -520,6 +520,7 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
+			List<T> removedKeys = new ArrayList<T>();
 			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap
 					.entrySet().iterator(); it.hasNext();)
 			{
@@ -529,13 +530,17 @@ public abstract class AbstractSourcedListFacet<T> extends AbstractDataFacet<T>
 				{
 					T obj = me.getKey();
 					it.remove();
-					fireDataFacetChangeEvent(id, obj,
-							DataFacetChangeEvent.DATA_REMOVED);
+					removedKeys.add(obj);
 				}
 			}
 			if (componentMap.isEmpty())
 			{
 				removeCache(id);
+			}
+			for (T obj : removedKeys)
+			{
+				fireDataFacetChangeEvent(id, obj,
+						DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}
