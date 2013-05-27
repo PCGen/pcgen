@@ -17,31 +17,18 @@ ISOGL:YES
 
 
 ABILITY:pcgen_test_advanced_abilities.lst
-
 ABILITY:pcgen_test_advanced_abilities_task_tests.lst
 ABILITY:pcgen_test_advanced_abilities_unit_tests.lst
-
-
-
-
 ABILITYCATEGORY:pcgen_test_advanced_ability_categories.lst
-
 CLASS:pcgen_test_advanced_classes.lst
-
-
 COMPANIONMOD:pcgen_test_advanced_companionmods.lst
 DEITY:pcgen_test_advanced_deities.lst
 DOMAIN:pcgen_test_advanced_domains.lst
-
 EQUIPMENT:pcgen_test_advanced_equip.lst
 EQUIPMOD:pcgen_test_advanced_equipmods.lst
-
 FEAT:pcgen_test_advanced_feats.lst
-
 KIT:pcgen_test_advanced_kits.lst
-
 LANGUAGE:pcgen_test_advanced_languages.lst
-
 RACE:pcgen_test_advanced_races.lst
 WEAPONPROF:pcgen_test_advanced_profs_weapons.lst
 ARMORPROF:pcgen_test_advanced_profs_armor.lst
@@ -58,6 +45,7 @@ COMPANIONLIST:Follower|ANY
 
 # Dragon Redesign Test Case
 ABILITY:pcgen_test_advanced_abilities_dragon.lst
+CLASS:pcgen_test_advanced_classes_dragon.lst
 KIT:pcgen_test_advanced_kits_dragon.lst
 RACE:pcgen_test_advanced_races_dragon.lst
 TEMPLATE:pcgen_test_advanced_templates_dragon.lst
