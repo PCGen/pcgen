@@ -48,7 +48,7 @@ CLASS:Blue Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Co
 # Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
 CLASS:Blue Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Air|DOMAIN.Evil|DOMAIN.Law
 1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
-1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
+1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base	BONUS:VAR|DarkvisionRange|120|TYPE=Base
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Lightning
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity

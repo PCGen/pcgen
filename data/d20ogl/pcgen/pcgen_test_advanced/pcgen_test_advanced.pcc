@@ -63,6 +63,7 @@ ABILITY:pcgen_test_advanced_abilities_dragon.lst
 KIT:pcgen_test_advanced_kits_dragon.lst
 RACE:pcgen_test_advanced_races_dragon.lst
 TEMPLATE:pcgen_test_advanced_templates_dragon.lst
+SPELL:pcgen_test_advanced_spells_rsrd.lst
 
 
 #
