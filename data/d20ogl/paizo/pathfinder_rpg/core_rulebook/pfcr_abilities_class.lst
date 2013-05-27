@@ -324,6 +324,15 @@ CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, th
 CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, this functions as Elemental Body III|PREVAREQ:WildShapeProgression,4
 CATEGORY=Special Ability|Wild Shape.MOD	DESC:When changing into an elemental, this functions as Elemental Body IV|PREVARGTEQ:WildShapeProgression,5
 
+###Block: Wild Shape creature abilities copied from bestiary
+# Ability Name	Unique Key						Category of Ability		Type									Description																																	Move			Source Page
+Ink Cloud		KEY:Ink Cloud ~ Octopus Wild Shape		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive		DESC:An octopus can emit a 10ft radius sphere of ink once per minute as a free action. The ink provides total concealment in water, and persists for 1 minute.											SOURCEPAGE:p.219
+Jet			KEY:Jet ~ Octopus Wild Shape			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement	DESC:An octopus can jet backward once per round as a full-round action, at a speed of 200 ft. It must move in a straight line while jetting, and does not provoke attacks of opportunity when it does so.	MOVE:Jet,200	SOURCEPAGE:p.219
+Poison		KEY:Poison ~ Lizard Monitor Wild Shape	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:PoisonDC|10+(HD/2)+CON	DESC:Bite--injury; save Fort DC %1; onset 1 minute; frequency 1/hour for 6 hours; effect 1d2 Dexterity damage; cure 1 save.|PoisonDC	BONUS:VAR|PoisonDC|2|PREFEAT:1,Ability Focus (Poison)	SOURCEPAGE:p.194	ASPECT:Ability Benefit|(DC %1)|PoisonDC
+Poison		KEY:Poison ~ Octopus Wild Shape		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				DESC:Bite-injury; save Fort DC 13; frequency 1/round for 6 rounds; effect 1 Str; cure 1 save.																						SOURCEPAGE:p.219
+Sprint		KEY:Sprint ~ Cheetah Wild Shape		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ModifyMovement	DESC:Once per hour, a cheetah can move at 10 times its normal speed (500 feet) when it makes a charge.	SOURCEPAGE:p.40
+Tongue		KEY:Tongue ~ Giant Frog Wild Shape		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:A giant frog's tongue is a primary attack with reach equal to three times the frog's normal reach (15 feet for a Medium giant frog). A giant frog's tongue deals no damage on a hit, but can be used to grab. A giant frog does not gain the grappled condition while using its tongue in this manner.	SOURCEPAGE:p.135
+
 ###Block: Druid Wild Shape
 # Ability Name			Category of Ability		Type			Visible	Define			Modify VAR
 # Wild Shape Progression | 1 = L4, 2 = L6, 3 = L8, 4 = L10, 5 = L12, 6 = L14, 7 = L16, 8 = L18, 9 = L20
