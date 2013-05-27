@@ -6,6 +6,7 @@ Black Dragon
 	KIT:1|Dragon Default Stat Array
 	MONSTERCLASS:Dragon:4
 	RACETYPE:Dragon
+	RACESUBTYPE:Water
 	STARTFEATS:1
 	ADD:SPELLCASTER|Sorcerer
 	BONUS:PCLEVEL|Sorcerer|-1|PREVARLTEQ:DragonAge,4
@@ -24,6 +25,7 @@ Blue Dragon
 	KIT:1|Dragon Default Stat Array
 	MONSTERCLASS:Dragon:6
 	RACETYPE:Dragon
+	RACESUBTYPE:Earth
 	STARTFEATS:1
 	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
 	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
@@ -45,6 +47,7 @@ Green Dragon
 	KIT:1|Dragon Default Stat Array
 	MONSTERCLASS:Dragon:6
 	RACETYPE:Dragon
+	RACESUBTYPE:Air
 	STARTFEATS:1
 	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
 	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
@@ -65,6 +68,7 @@ Red Dragon
 	KIT:1|Dragon Default Stat Array
 	MONSTERCLASS:Dragon:6
 	RACETYPE:Dragon
+	RACESUBTYPE:Fire
 	STARTFEATS:1
 	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
 	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
@@ -85,6 +89,7 @@ White Dragon
 	KIT:1|Dragon Default Stat Array
 	MONSTERCLASS:Dragon:6
 	RACETYPE:Dragon
+	RACESUBTYPE:Cold
 	STARTFEATS:1
 	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
 	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
@@ -105,6 +110,7 @@ Brass Dragon
 	KIT:1|Dragon Default Stat Array
 	MONSTERCLASS:Dragon:6
 	RACETYPE:Dragon
+	RACESUBTYPE:Fire
 	STARTFEATS:1
 	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
 	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
@@ -125,6 +131,7 @@ Bronze Dragon
 	KIT:1|Dragon Default Stat Array
 	MONSTERCLASS:Dragon:6
 	RACETYPE:Dragon
+	RACESUBTYPE:Water
 	STARTFEATS:1
 	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
 	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
@@ -145,6 +152,7 @@ Copper Dragon
 	KIT:1|Dragon Default Stat Array
 	MONSTERCLASS:Dragon:6
 	RACETYPE:Dragon
+	RACESUBTYPE:Earth
 	STARTFEATS:1
 	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
 	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
@@ -165,6 +173,7 @@ Gold Dragon
 	KIT:1|Dragon Default Stat Array
 	MONSTERCLASS:Dragon:6
 	RACETYPE:Dragon
+	RACESUBTYPE:Fire
 	STARTFEATS:1
 	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
 	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
@@ -185,6 +194,7 @@ Silver Dragon
 	KIT:1|Dragon Default Stat Array
 	MONSTERCLASS:Dragon:6
 	RACETYPE:Dragon
+	RACESUBTYPE:Cold
 	STARTFEATS:1
 	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
 	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4

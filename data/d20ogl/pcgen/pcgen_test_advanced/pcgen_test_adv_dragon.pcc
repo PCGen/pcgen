@@ -1,9 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
-CAMPAIGN:PCGen Advanced Testing Set - Code & Data Team Use Only
+CAMPAIGN:PCGen Advanced Testing Set - Dragon Test Case
 RANK:1
 GAMEMODE:35e
-#|MSRD|3e|Modern|Pathfinder
-#COMMENT: Will need to break it out into each gamemode eventually
 STATUS:TESTONLY
 GENRE:Any
 BOOKTYPE:Supplement
@@ -57,6 +55,14 @@ TEMPLATE:pcgen_test_advanced_templates_local.lst
 COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY
 
+
+# Dragon Redesign Test Case
+ABILITY:pcgen_test_advanced_abilities_dragon.lst
+KIT:pcgen_test_advanced_kits_dragon.lst
+RACE:pcgen_test_advanced_races_dragon.lst
+TEMPLATE:pcgen_test_advanced_templates_dragon.lst
+SPELL:pcgen_test_advanced_spells_dragon.lst
+DOMAIN:pcgen_test_advanced_domains_dragon.lst
 
 #
 # DONE
