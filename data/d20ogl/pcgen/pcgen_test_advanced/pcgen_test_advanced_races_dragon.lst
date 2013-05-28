@@ -1,4 +1,6 @@
 
+#COMMENT: Change Var name 'LongRace' to 'RaceIsLong' makes more sense.
+
 Black Dragon
 	KEY:Dragon (Black)
 	SORTKEY:Dragon_Chromatic
@@ -14,7 +16,7 @@ Black Dragon
 	CR:3
 	DEFINE:LongRace|1
 	LEGS:4
-
+#	MONCSKILL:Hide|Move Silently|Swim|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Blue Dragon
 	
@@ -36,172 +38,6 @@ Blue Dragon
 	CR:3
 	DEFINE:LongRace|1
 	LEGS:4
+#	MONCSKILL:Bluff|Hide|Spellcraft|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 
-Green Dragon
-	
-	KEY:Dragon (Green)
-	
-	SORTKEY:Dragon_Chromatic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Green Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:6
-	RACETYPE:Dragon
-	RACESUBTYPE:Air
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-4)*2|PREVARGTEQ:DragonAge,5
-	DEFINE:DragonAirAllowed|1
-	DEFINE:DragonEvilAllowed|1
-	DEFINE:DragonLawAllowed|1
-	CR:3
-	DEFINE:LongRace|1
-	LEGS:4
-
-Red Dragon
-	
-	KEY:Dragon (Red)
-	
-	SORTKEY:Dragon_Chromatic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Red Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:6
-	RACETYPE:Dragon
-	RACESUBTYPE:Fire
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-4)*2|PREVARGTEQ:DragonAge,5
-	DEFINE:DragonAirAllowed|1
-	DEFINE:DragonEvilAllowed|1
-	DEFINE:DragonLawAllowed|1
-	CR:3
-	DEFINE:LongRace|1
-	LEGS:4
-
-White Dragon
-	
-	KEY:Dragon (White)
-	
-	SORTKEY:Dragon_Chromatic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ White Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:6
-	RACETYPE:Dragon
-	RACESUBTYPE:Cold
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-4)*2|PREVARGTEQ:DragonAge,5
-	DEFINE:DragonAirAllowed|1
-	DEFINE:DragonEvilAllowed|1
-	DEFINE:DragonLawAllowed|1
-	CR:3
-	DEFINE:LongRace|1
-	LEGS:4
-
-Brass Dragon
-	
-	KEY:Dragon (Brass)
-	
-	SORTKEY:Dragon_Metallic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Brass Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:6
-	RACETYPE:Dragon
-	RACESUBTYPE:Fire
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-4)*2|PREVARGTEQ:DragonAge,5
-	DEFINE:DragonAirAllowed|1
-	DEFINE:DragonEvilAllowed|1
-	DEFINE:DragonLawAllowed|1
-	CR:3
-	DEFINE:LongRace|1
-	LEGS:4
-
-Bronze Dragon
-	
-	KEY:Dragon (Bronze)
-	
-	SORTKEY:Dragon_Metallic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Bronze Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:6
-	RACETYPE:Dragon
-	RACESUBTYPE:Water
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-4)*2|PREVARGTEQ:DragonAge,5
-	DEFINE:DragonAirAllowed|1
-	DEFINE:DragonEvilAllowed|1
-	DEFINE:DragonLawAllowed|1
-	CR:3
-	DEFINE:LongRace|1
-	LEGS:4
-
-Copper Dragon
-	
-	KEY:Dragon (Copper)
-	
-	SORTKEY:Dragon_Metallic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Copper Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:6
-	RACETYPE:Dragon
-	RACESUBTYPE:Earth
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-4)*2|PREVARGTEQ:DragonAge,5
-	DEFINE:DragonAirAllowed|1
-	DEFINE:DragonEvilAllowed|1
-	DEFINE:DragonLawAllowed|1
-	CR:3
-	DEFINE:LongRace|1
-	LEGS:4
-
-Gold Dragon
-	
-	KEY:Dragon (Gold)
-	
-	SORTKEY:Dragon_Metallic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gold Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:6
-	RACETYPE:Dragon
-	RACESUBTYPE:Fire
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-4)*2|PREVARGTEQ:DragonAge,5
-	DEFINE:DragonAirAllowed|1
-	DEFINE:DragonEvilAllowed|1
-	DEFINE:DragonLawAllowed|1
-	CR:3
-	DEFINE:LongRace|1
-	LEGS:4
-
-Silver Dragon
-	
-	KEY:Dragon (Silver)
-	
-	SORTKEY:Dragon_Metallic
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Silver Dragon
-	KIT:1|Dragon Default Stat Array
-	MONSTERCLASS:Dragon:6
-	RACETYPE:Dragon
-	RACESUBTYPE:Cold
-	STARTFEATS:1
-	ADD:SPELLCASTER|Sorcerer/Cleric (Dragon)
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|-1|PREVARLTEQ:DragonAge,4
-	BONUS:PCLEVEL|Sorcerer/Cleric (Dragon)|(DragonAge-4)*2|PREVARGTEQ:DragonAge,5
-	DEFINE:DragonAirAllowed|1
-	DEFINE:DragonEvilAllowed|1
-	DEFINE:DragonLawAllowed|1
-	CR:3
-	DEFINE:LongRace|1
-	LEGS:4

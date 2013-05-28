@@ -26,7 +26,7 @@ Longbow				TYPE:Martial.Bow.Longbow.WeaponGroupBows
 Deity Weapon Puni			TYPE:Exotic
 Deity Weapon Second Puni	TYPE:Martial
 
-
+Greatsword		TYPE:Melee.Martial
 
 # Bob Specific Tests
 Bob Long Blade			TYPE:Bob.Exotic

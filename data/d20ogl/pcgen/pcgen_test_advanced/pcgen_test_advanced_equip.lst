@@ -47,3 +47,11 @@ Buckler Shield															PROFICIENCY:SHIELD|Light	TYPE:Shield.Light									
 Heavy Shield															PROFICIENCY:SHIELD|Heavy	TYPE:Shield.Heavy																																																															BONUS:COMBAT|AC|2|TYPE=Shield
 
 Test Equip Feat																				TYPE:FeatTestEquip.Any.Misc																																											ADD:FEAT|Add Feat Equip
+
+
+# Sprop repeat issue
+
+#Greatsword of Fire and Cold							PROFICIENCY:WEAPON|Greatsword		TYPE:Custom_JIRJ.Magic.Weapon.Weapon.Melee.Martial.Specific.Slashing.Sword			COST:50	WT:8				CRITMULT:x2		CRITRANGE:2		DAMAGE:2d6		EQMOD:STEEL.PLUS1W.FLM_M.FROST_M		WIELD:TwoHanded								SIZE:M	SOURCEPAGE:Custom		BASEITEM:Greatsword											SPROP:The Flaming Sword of Fire and Cold is a plus 1 Flaming Greatsword with a Greater Crystal of Cold Assault. It deals an extra 1d6 of fire damage and an extra 1d6 of Cold when it hits and reduces the targets speed by 10ft for 1 round.
+
+
+
