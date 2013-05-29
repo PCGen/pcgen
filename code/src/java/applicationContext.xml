@@ -517,6 +517,10 @@
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
+	<bean id="statMaxValueFacet" class="pcgen.cdom.facet.analysis.StatMaxValueFacet">
+		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
 	<bean id="statMinValueFacet" class="pcgen.cdom.facet.analysis.StatMinValueFacet">
 		<property name="formulaResolvingFacet" ref="formulaResolvingFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>

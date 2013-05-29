@@ -174,6 +174,12 @@ public class DefineStatLstTest extends AbstractGlobalTokenTestCase
 		runRoundRobin("MINVALUE|STR|3");
 	}
 
+	@Test
+	public void testRoundRobinMaxValue() throws PersistenceLayerException
+	{
+		runRoundRobin("MAXVALUE|STR|3");
+	}
+
 	@Override
 	protected String getLegalValue()
 	{

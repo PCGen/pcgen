@@ -211,6 +211,7 @@ public final class ListKey<T> {
 	public static final ListKey<PCStat> NONSTAT_TO_STAT_STATS = new ListKey<PCStat>();
 	public static final ListKey<StatLock> STAT_LOCKS = new ListKey<StatLock>();
 	public static final ListKey<StatLock> STAT_MINVALUE = new ListKey<StatLock>();
+	public static final ListKey<StatLock> STAT_MAXVALUE = new ListKey<StatLock>();
 	public static final ListKey<TransitionChoice<Kit>> KIT_CHOICE = new ListKey<TransitionChoice<Kit>>();
 	public static final ListKey<Movement> MOVEMENT = new ListKey<Movement>();
 	public static final ListKey<Movement> BASE_MOVEMENT = new ListKey<Movement>();

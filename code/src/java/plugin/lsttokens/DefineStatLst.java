@@ -56,7 +56,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 
 	public enum DefineStatSubToken 
 	{
-		LOCK, UNLOCK, NONSTAT, STAT, MINVALUE;
+		LOCK, UNLOCK, NONSTAT, STAT, MINVALUE, MAXVALUE;
 	}
 	
 	@Override
@@ -104,7 +104,9 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 		}
 		
 		Formula f = null;
-		if (subToken == DefineStatSubToken.LOCK || subToken == DefineStatSubToken.MINVALUE)
+		if (subToken == DefineStatSubToken.LOCK
+			|| subToken == DefineStatSubToken.MINVALUE
+			|| subToken == DefineStatSubToken.MAXVALUE)
 		{
 			if (!sep.hasNext())
 			{
@@ -149,6 +151,11 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 				context.getObjectContext().addToList(obj, ListKey.STAT_MINVALUE,
 					new StatLock(stat, f));
 				break;
+
+			case MAXVALUE:
+				context.getObjectContext().addToList(obj, ListKey.STAT_MAXVALUE,
+					new StatLock(stat, f));
+				break;
 		}
 		
 		return ParseResult.SUCCESS;
@@ -167,6 +174,8 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			obj, ListKey.NONSTAT_TO_STAT_STATS);
 		Changes<StatLock> minValueChanges = context.getObjectContext().getListChanges(
 			obj, ListKey.STAT_MINVALUE);
+		Changes<StatLock> maxValueChanges = context.getObjectContext().getListChanges(
+			obj, ListKey.STAT_MAXVALUE);
 		TreeSet<String> set = new TreeSet<String>();
 		if (lockChanges != null && !lockChanges.isEmpty())
 		{
@@ -227,6 +236,17 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 				for (StatLock sl : minValueChanges.getAdded())
 				{
 					set.add("MINVALUE|" + sl.getLockedStat().getLSTformat() + "|"
+							+ sl.getLockValue());
+				}
+			}
+		}
+		if (maxValueChanges != null && !maxValueChanges.isEmpty())
+		{
+			if (maxValueChanges.hasAddedItems())
+			{
+				for (StatLock sl : maxValueChanges.getAdded())
+				{
+					set.add("MAXVALUE|" + sl.getLockedStat().getLSTformat() + "|"
 							+ sl.getLockValue());
 				}
 			}

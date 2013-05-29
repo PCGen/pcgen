@@ -5,6 +5,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.facet.analysis.NonStatStatFacet;
 import pcgen.cdom.facet.analysis.NonStatToStatFacet;
 import pcgen.cdom.facet.analysis.StatLockFacet;
+import pcgen.cdom.facet.analysis.StatMaxValueFacet;
 import pcgen.cdom.facet.analysis.StatMinValueFacet;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.core.PCStat;
@@ -24,6 +25,8 @@ public class StatCalcFacet
 			.getFacet(NonStatToStatFacet.class);
 	private StatMinValueFacet statMinValueFacet = FacetLibrary
 			.getFacet(StatMinValueFacet.class);
+	private StatMaxValueFacet statMaxValueFacet = FacetLibrary
+			.getFacet(StatMaxValueFacet.class);
 
 	private VariableCheckingFacet variableCheckingFacet = FacetLibrary
 		.getFacet(VariableCheckingFacet.class);
@@ -57,6 +60,13 @@ public class StatCalcFacet
 		{
 			minStatValue = val.intValue();
 		}
+
+		int maxStatValue = Integer.MAX_VALUE;
+		val = statMaxValueFacet.getStatMaxValue(id, stat);
+		if (val != null)
+		{
+			maxStatValue = val.intValue();
+		}
 		
 		// Only check for a lock if the stat hasn't been unlocked
 		if (!unlockedStatFacet.contains(id, stat))
@@ -68,12 +78,14 @@ public class StatCalcFacet
 						val.intValue()
 							+ (int) bonusCheckingFacet.getBonus(id,
 								"LOCKEDSTAT", stat.getAbb());
+				total = Math.min(maxStatValue, total);
 				return Math.max(minStatValue, total);
 			}
 		}
 
 		y += bonusCheckingFacet.getBonus(id, "STAT", stat.getAbb());
 
+		y = Math.min(maxStatValue, y);
 		return Math.max(minStatValue, y);
 	}
 
@@ -95,13 +107,21 @@ public class StatCalcFacet
 			minStatValue = val.intValue();
 		}
 
+		int maxStatValue = Integer.MAX_VALUE;
+		val = statMaxValueFacet.getStatMaxValue(id, stat);
+		if (val != null)
+		{
+			maxStatValue = val.intValue();
+		}
+
 		// Only check for a lock if the stat hasn't been unlocked
 		if (!unlockedStatFacet.contains(id, stat))
 		{
 			val = statLockFacet.getLockedStat(id, stat);
 			if (val != null)
 			{
-				return Math.max(minStatValue, val.intValue());
+				int base = Math.min(maxStatValue, val.intValue());
+				return Math.max(minStatValue, base);
 			}
 		}
 
@@ -111,10 +131,12 @@ public class StatCalcFacet
 
 		if (z != 0)
 		{
+			z = Math.min(maxStatValue, z);
 			return Math.max(minStatValue, z);
 		}
 		Integer score = statValueFacet.get(id, stat);
-		return Math.max(minStatValue, score == null ? 0 : score);
+		int base = Math.min(maxStatValue, score == null ? 0 : score);
+		return Math.max(minStatValue, base);
 	}
 
 	public int getStatModFor(CharID id, PCStat stat)
