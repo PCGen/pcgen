@@ -5,39 +5,63 @@
  */
 package plugin.encounter.gui;
 
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.AbstractListModel;
+import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+
 import pcgen.gui2.tools.Icons;
+import pcgen.system.LanguageBundle;
 
 /**
- *
- * @author  Soulcatcher
+ * View part (in MVC model) of the encounter plugin, a JPanel.
+ * 
+ * @author Soulcatcher
+ * @author Vincent Lhote
  */
-public class EncounterView extends javax.swing.JPanel
+public class EncounterView extends JPanel
 {
-	private javax.swing.JButton addCreature;
-	private javax.swing.JButton generateEncounter;
-	private javax.swing.JButton removeCreature;
-	private javax.swing.JButton transferToTracker;
-	private javax.swing.JComboBox environment;
-	private javax.swing.JLabel encounterLevel;
-	private javax.swing.JLabel jLabel3;
+	private static final long serialVersionUID = 6127095703012846620L;
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JLabel jLabel4;
-	private javax.swing.JLabel numberLabel;
-	private javax.swing.JLabel targetLabel;
-	private javax.swing.JList encounterCreatures;
-	private javax.swing.JList libraryCreatures;
-	private javax.swing.JPanel jPanel1;
-	private javax.swing.JPanel jPanel2;
-	private javax.swing.JPanel jPanel3;
-	private javax.swing.JPanel jPanel4;
-	private javax.swing.JPanel jPanel5;
-	private javax.swing.JPanel jPanel6;
-	private javax.swing.JScrollPane jScrollPane1;
-	private javax.swing.JScrollPane jScrollPane2;
-	private javax.swing.JTextField numberOfCreatures;
-	private javax.swing.JTextField targetEncounterLevel;
+	private JButton addCreature;
+	private JButton generateEncounter;
+	private JButton removeCreature;
+	private JButton transferToTracker;
+	private JComboBox environment;
+	private JLabel encounterLevel;
+	private JLabel jLabel3;
+
+	private JLabel jLabel4;
+	private JLabel numberLabel;
+	private JLabel targetLabel;
+	private JList encounterCreatures;
+	private JList libraryCreatures;
+	private JPanel jPanel1;
+	private JPanel jPanel2;
+	private JPanel jPanel3;
+	private JPanel jPanel4;
+	private JPanel jPanel5;
+	private JPanel jPanel6;
+	private JScrollPane jScrollPane1;
+	private JScrollPane jScrollPane2;
+	private JTextField numberOfCreatures;
+	private JTextField targetEncounterLevel;
 
 	/** Creates new form EnvounterView */
 	public EncounterView()
@@ -67,7 +91,7 @@ public class EncounterView extends javax.swing.JPanel
 	 * Set encounter Model
 	 * @param model
 	 */
-	public void setEncounterModel(javax.swing.DefaultListModel model)
+	public void setEncounterModel(DefaultListModel model)
 	{
 		encounterCreatures.setModel(model);
 	}
@@ -103,7 +127,7 @@ public class EncounterView extends javax.swing.JPanel
 	 * Set library model
 	 * @param model
 	 */
-	public void setLibraryModel(javax.swing.AbstractListModel model)
+	public void setLibraryModel(AbstractListModel model)
 	{
 		libraryCreatures.setModel(model);
 	}
@@ -189,161 +213,158 @@ public class EncounterView extends javax.swing.JPanel
 		return transferToTracker;
 	}
 
-	private void generateEncounterActionPerformed(java.awt.event.ActionEvent evt)
+	private void generateEncounterActionPerformed(ActionEvent evt)
 	{
-		//GEN-FIRST:event_generateEncounterActionPerformed
-
 		// Add your handling code here:
 	}
 
-	//GEN-LAST:event_generateEncounterActionPerformed
 
 	/** This method is called from within the constructor to
 	 * initialize the form.
 	 */
 	private void initComponents()
 	{
-		java.awt.GridBagConstraints gridBagConstraints;
+		GridBagConstraints gridBagConstraints;
 
-		jPanel1 = new javax.swing.JPanel();
-		targetLabel = new javax.swing.JLabel();
-		targetEncounterLevel = new javax.swing.JTextField();
-		numberLabel = new javax.swing.JLabel();
-		numberOfCreatures = new javax.swing.JTextField();
-		jLabel3 = new javax.swing.JLabel();
-		environment = new javax.swing.JComboBox();
-		generateEncounter = new javax.swing.JButton();
-		transferToTracker = new javax.swing.JButton();
-		jPanel4 = new javax.swing.JPanel();
-		jPanel2 = new javax.swing.JPanel();
-		jScrollPane1 = new javax.swing.JScrollPane();
-		libraryCreatures = new javax.swing.JList();
-		jPanel6 = new javax.swing.JPanel();
-		jPanel3 = new javax.swing.JPanel();
-		addCreature = new javax.swing.JButton();
-		removeCreature = new javax.swing.JButton();
-		jScrollPane2 = new javax.swing.JScrollPane();
-		encounterCreatures = new javax.swing.JList();
-		jPanel5 = new javax.swing.JPanel();
-		jLabel4 = new javax.swing.JLabel();
-		encounterLevel = new javax.swing.JLabel();
+		jPanel1 = new JPanel();
+		targetLabel = new JLabel();
+		targetEncounterLevel = new JTextField();
+		numberLabel = new JLabel();
+		numberOfCreatures = new JTextField();
+		jLabel3 = new JLabel();
+		environment = new JComboBox();
+		generateEncounter = new JButton();
+		transferToTracker = new JButton();
+		jPanel4 = new JPanel();
+		jPanel2 = new JPanel();
+		jScrollPane1 = new JScrollPane();
+		libraryCreatures = new JList();
+		jPanel6 = new JPanel();
+		jPanel3 = new JPanel();
+		addCreature = new JButton();
+		removeCreature = new JButton();
+		jScrollPane2 = new JScrollPane();
+		encounterCreatures = new JList();
+		jPanel5 = new JPanel();
+		jLabel4 = new JLabel();
+		encounterLevel = new JLabel();
 
-		setLayout(new java.awt.BorderLayout());
+		setLayout(new BorderLayout());
 
-		jPanel1.setLayout(new java.awt.GridBagLayout());
+		jPanel1.setLayout(new GridBagLayout());
 
-		targetLabel.setText("Target EL");
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		targetLabel.setText(LanguageBundle.getString("in_plugin_encounter_targetEL")); //$NON-NLS-1$
+		gridBagConstraints = new GridBagConstraints();
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		jPanel1.add(targetLabel, gridBagConstraints);
 
-		targetEncounterLevel.setText("1");
+		targetEncounterLevel.setText(Integer.toString(1));
 		targetEncounterLevel
-			.addActionListener(new java.awt.event.ActionListener()
+			.addActionListener(new ActionListener()
 			{
             @Override
-				public void actionPerformed(java.awt.event.ActionEvent evt)
+				public void actionPerformed(ActionEvent evt)
 				{
 					targetEncounterLevelActionPerformed(evt);
 				}
 			});
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 1;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 0, 5, 0);
 		jPanel1.add(targetEncounterLevel, gridBagConstraints);
 
-		numberLabel.setText("Number of Creatures");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		numberLabel.setText(LanguageBundle.getString("in_plugin_encounter_numbercreature")); //$NON-NLS-1$
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 2;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		jPanel1.add(numberLabel, gridBagConstraints);
 
-		numberOfCreatures.setText("1");
-		numberOfCreatures.addActionListener(new java.awt.event.ActionListener()
+		numberOfCreatures.setText(Integer.toString(0));
+		numberOfCreatures.addActionListener(new ActionListener()
 		{
             @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
+			public void actionPerformed(ActionEvent evt)
 			{
 				numberOfCreaturesActionPerformed(evt);
 			}
 		});
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 3;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 0, 5, 0);
 		jPanel1.add(numberOfCreatures, gridBagConstraints);
 
-		jLabel3.setText("Environment");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		jLabel3.setText(LanguageBundle.getString("in_plugin_encounter_environment")); //$NON-NLS-1$
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 4;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		jPanel1.add(jLabel3, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 5;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 0, 5, 0);
 		jPanel1.add(environment, gridBagConstraints);
 
-		generateEncounter.setText("New Encounter");
-		generateEncounter.addActionListener(new java.awt.event.ActionListener()
+		generateEncounter.setText(LanguageBundle.getString("in_plugin_encounter_newEncounter")); //$NON-NLS-1$
+		generateEncounter.addActionListener(new ActionListener()
 		{
             @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
+			public void actionPerformed(ActionEvent evt)
 			{
 				generateEncounterActionPerformed(evt);
 			}
 		});
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 6;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 0, 5, 0);
 		jPanel1.add(generateEncounter, gridBagConstraints);
 
-		transferToTracker.setText("Begin Combat");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		transferToTracker.setText(LanguageBundle.getString("in_plugin_encounter_beginCombat")); //$NON-NLS-1$
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 7;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		jPanel1.add(transferToTracker, gridBagConstraints);
 
-		add(jPanel1, java.awt.BorderLayout.EAST);
+		add(jPanel1, BorderLayout.EAST);
 
-		jPanel4.setLayout(new java.awt.BorderLayout());
+		jPanel4.setLayout(new BorderLayout());
 
-		jPanel2.setLayout(new java.awt.GridLayout(1, 0));
+		jPanel2.setLayout(new GridLayout(1, 0));
 
 		jScrollPane1.setViewportView(libraryCreatures);
 
 		jPanel2.add(jScrollPane1);
 
-		jPanel6.setLayout(new javax.swing.BoxLayout(jPanel6,
-			javax.swing.BoxLayout.X_AXIS));
+		jPanel6.setLayout(new BoxLayout(jPanel6,
+			BoxLayout.X_AXIS));
 
-		jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3,
-			javax.swing.BoxLayout.Y_AXIS));
+		jPanel3.setLayout(new BoxLayout(jPanel3,
+			BoxLayout.Y_AXIS));
 
 		addCreature.setIcon(Icons.Forward16.getImageIcon());
-		addCreature.setMaximumSize(new java.awt.Dimension(50, 50));
-		addCreature.setMinimumSize(new java.awt.Dimension(50, 50));
+		addCreature.setMaximumSize(new Dimension(50, 50));
+		addCreature.setMinimumSize(new Dimension(50, 50));
 		jPanel3.add(addCreature);
 
 		removeCreature.setIcon(Icons.Back16.getImageIcon());
-		removeCreature.setMaximumSize(new java.awt.Dimension(50, 50));
-		removeCreature.setMinimumSize(new java.awt.Dimension(50, 50));
+		removeCreature.setMaximumSize(new Dimension(50, 50));
+		removeCreature.setMinimumSize(new Dimension(50, 50));
 		jPanel3.add(removeCreature);
 
 		jPanel6.add(jPanel3);
@@ -354,36 +375,26 @@ public class EncounterView extends javax.swing.JPanel
 
 		jPanel2.add(jPanel6);
 
-		jPanel4.add(jPanel2, java.awt.BorderLayout.CENTER);
+		jPanel4.add(jPanel2, BorderLayout.CENTER);
 
-		jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
+		jPanel5.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
-		jLabel4.setText("Total Encounter Level: ");
+		jLabel4.setText(LanguageBundle.getString("in_plugin_encounter_totalEL")); //$NON-NLS-1$
 		jPanel5.add(jLabel4);
 
-		encounterLevel.setText("0");
+		encounterLevel.setText(Integer.toString(0));
 		jPanel5.add(encounterLevel);
 
-		jPanel4.add(jPanel5, java.awt.BorderLayout.SOUTH);
+		jPanel4.add(jPanel5, BorderLayout.SOUTH);
 
-		add(jPanel4, java.awt.BorderLayout.CENTER);
+		add(jPanel4, BorderLayout.CENTER);
 	}
 
-	private void numberOfCreaturesActionPerformed(java.awt.event.ActionEvent evt)
-	{
-		//GEN-FIRST:event_numberOfCreaturesActionPerformed
-
+	private void numberOfCreaturesActionPerformed(ActionEvent evt) {
 		// Add your handling code here:
 	}
 
-	//GEN-LAST:event_numberOfCreaturesActionPerformed
-
-	private void targetEncounterLevelActionPerformed(
-		java.awt.event.ActionEvent evt)
-	{
-		//GEN-FIRST:event_targetEncounterLevelActionPerformed
-
+	private void targetEncounterLevelActionPerformed(ActionEvent evt) {
 		// Add your handling code here:
 	}
-	//GEN-LAST:event_targetEncounterLevelActionPerformed
 }
