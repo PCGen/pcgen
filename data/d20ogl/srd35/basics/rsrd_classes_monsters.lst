@@ -30,6 +30,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 CLASS:Aberration	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Aberration	PRERACETYPE:Aberration
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Aberration]],[PRERACE:1,RACESUBTYPE=Augmented Aberration]
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Aberration	STARTSKILLPTS:2	MODTOSKILLS:YES
 
@@ -37,6 +38,7 @@ CLASS:Aberration	STARTSKILLPTS:2	MODTOSKILLS:YES
 CLASS:Animal	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Prohibited Class			Reg. Race Type
 CLASS:Animal	!PRECLASS:1,Animal (Will)=1	PRERACETYPE:Animal
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Animal]],[PRERACE:1,RACESUBTYPE=Augmented Animal]
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Animal	STARTSKILLPTS:2	MODTOSKILLS:YES
 
@@ -44,6 +46,7 @@ CLASS:Animal	STARTSKILLPTS:2	MODTOSKILLS:YES
 CLASS:Animal (Will)	OUTPUTNAME:Animal	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Prohibited Class		Reg. Race Type
 CLASS:Animal (Will)	!PRECLASS:1,Animal=1	PRERACETYPE:Animal
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Animal]],[PRERACE:1,RACESUBTYPE=Augmented Animal]
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Animal (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
@@ -51,6 +54,7 @@ CLASS:Animal (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES
 CLASS:Construct	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Construct	PRERACETYPE:Construct
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Construct]],[PRERACE:1,RACESUBTYPE=Augmented Construct]
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Construct	STARTSKILLPTS:2	MODTOSKILLS:YES
 
@@ -58,6 +62,7 @@ CLASS:Construct	STARTSKILLPTS:2	MODTOSKILLS:YES
 CLASS:Construct (Mindless)	OUTPUTNAME:Construct	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Reg. Race Type
 CLASS:Construct (Mindless)	PRERACETYPE:Construct
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Construct]],[PRERACE:1,RACESUBTYPE=Augmented Construct]
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Construct (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 
@@ -65,6 +70,7 @@ CLASS:Construct (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 CLASS:Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Dragon	PRERACETYPE:Dragon
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Dragon]],[PRERACE:1,RACESUBTYPE=Augmented Dragon]
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
 
@@ -72,6 +78,7 @@ CLASS:Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
 CLASS:Elemental	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Elemental	PRERACETYPE:Elemental
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Elemental]],[PRERACE:1,RACESUBTYPE=Augmented Elemental]
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental	STARTSKILLPTS:2	MODTOSKILLS:YES
 
@@ -79,6 +86,7 @@ CLASS:Elemental	STARTSKILLPTS:2	MODTOSKILLS:YES
 CLASS:Elemental (Air/Fire)	OUTPUTNAME:Elemental	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Reg. Race Type
 CLASS:Elemental (Air/Fire)	PRERACETYPE:Elemental
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Elemental]],[PRERACE:1,RACESUBTYPE=Augmented Elemental]
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental (Air/Fire)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
@@ -86,6 +94,7 @@ CLASS:Elemental (Air/Fire)	STARTSKILLPTS:2	MODTOSKILLS:YES
 CLASS:Elemental (Earth/Water)	OUTPUTNAME:Elemental	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Reg. Race Type
 CLASS:Elemental (Earth/Water)	PRERACETYPE:Elemental
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Elemental]],[PRERACE:1,RACESUBTYPE=Augmented Elemental]
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental (Earth/Water)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
@@ -93,6 +102,7 @@ CLASS:Elemental (Earth/Water)	STARTSKILLPTS:2	MODTOSKILLS:YES
 CLASS:Elemental (Mindless)	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Reflex|CL/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Reg. Race Type
 CLASS:Elemental (Mindless)	PRERACETYPE:Elemental
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Elemental]],[PRERACE:1,RACESUBTYPE=Augmented Elemental]
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Elemental (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 
@@ -100,6 +110,7 @@ CLASS:Elemental (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 CLASS:Fey		HD:6		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Fey Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Fey		PRERACETYPE:Fey
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Fey]],[PRERACE:1,RACESUBTYPE=Augmented Fey]
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Fey		STARTSKILLPTS:6	MODTOSKILLS:YES
 
@@ -107,6 +118,7 @@ CLASS:Fey		STARTSKILLPTS:6	MODTOSKILLS:YES
 CLASS:Giant		HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Giant Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Giant		PRERACETYPE:Giant
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Giant]],[PRERACE:1,RACESUBTYPE=Augmented Giant]
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Giant		STARTSKILLPTS:2	MODTOSKILLS:YES
 
@@ -115,6 +127,7 @@ CLASS:Giant		STARTSKILLPTS:2	MODTOSKILLS:YES
 CLASS:Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Prohibited Class							Reg. Race Type
 CLASS:Humanoid	!PRECLASS:1,Humanoid (Fortitude)=1,Humanoid (Will)=1	PRERACETYPE:Humanoid
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Humanoid]],[PRERACE:1,RACESUBTYPE=Augmented Humanoid]
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
 
@@ -122,6 +135,7 @@ CLASS:Humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
 CLASS:Humanoid (Fortitude)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Prohibited Class					Reg. Race Type
 CLASS:Humanoid (Fortitude)	!PRECLASS:1,Humanoid=1,Humanoid (Will)=1	PRERACETYPE:Humanoid
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Humanoid]],[PRERACE:1,RACESUBTYPE=Augmented Humanoid]
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Humanoid (Fortitude)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
@@ -130,6 +144,7 @@ CLASS:Humanoid (Fortitude)	STARTSKILLPTS:2	MODTOSKILLS:YES
 CLASS:Humanoid (Will)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Prohibited Class						Reg. Race Type
 CLASS:Humanoid (Will)	!PRECLASS:1,Humanoid=1,Humanoid (Fortitude)=1	PRERACETYPE:Humanoid
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Humanoid]],[PRERACE:1,RACESUBTYPE=Augmented Humanoid]
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Humanoid (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
@@ -138,20 +153,23 @@ CLASS:Humanoid (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES
 CLASS:Magical Beast	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Reg. Race Type
 CLASS:Magical Beast	PRERACETYPE:Magical Beast
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Magical Beast]],[PRERACE:1,RACESUBTYPE=Augmented Magical Beast]
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Magical Beast	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name			Hit Dice	Type			Class Type		Max Level		Source Page					Ability																Save checks bonus											Combat bonus
-CLASS:Monstrous humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Monstrous Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name			Reg. Race Type
-CLASS:Monstrous humanoid	PRERACETYPE:Monstrous humanoid
+CLASS:Monstrous Humanoid	PRERACETYPE:Monstrous Humanoid
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Monstrous Humanoid]],[PRERACE:1,RACESUBTYPE=Augmented Monstrous Humanoid]
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
-CLASS:Monstrous humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
+CLASS:Monstrous Humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Levels per Feat	Save checks bonus								Combat bonus
 CLASS:Ooze		HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Ooze		PRERACETYPE:Ooze
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Ooze]],[PRERACE:1,RACESUBTYPE=Augmented Ooze]
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Ooze		STARTSKILLPTS:0	MODTOSKILLS:NO
 
@@ -159,6 +177,7 @@ CLASS:Ooze		STARTSKILLPTS:0	MODTOSKILLS:NO
 CLASS:Ooze (Intelligent)	OUTPUTNAME:Ooze	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Reg. Race Type
 CLASS:Ooze (Intelligent)	PRERACETYPE:Ooze
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Ooze]],[PRERACE:1,RACESUBTYPE=Augmented Ooze]
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Ooze (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
@@ -166,6 +185,7 @@ CLASS:Ooze (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES
 CLASS:Outsider	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Outsider Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Outsider	PRERACETYPE:Outsider
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Outsider]],[PRERACE:1,RACESUBTYPE=Augmented Outsider]
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Outsider	STARTSKILLPTS:8	MODTOSKILLS:YES
 
@@ -173,6 +193,7 @@ CLASS:Outsider	STARTSKILLPTS:8	MODTOSKILLS:YES
 CLASS:Plant		HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Plant		PRERACETYPE:Plant
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Plant]],[PRERACE:1,RACESUBTYPE=Augmented Plant]
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Plant		STARTSKILLPTS:2	MODTOSKILLS:YES
 
@@ -180,6 +201,7 @@ CLASS:Plant		STARTSKILLPTS:2	MODTOSKILLS:YES
 CLASS:Plant (Mindless)	OUTPUTNAME:Plant	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name		Reg. Race Type
 CLASS:Plant (Mindless)	PRERACETYPE:Plant
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Plant]],[PRERACE:1,RACESUBTYPE=Augmented Plant]
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Plant (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 
@@ -187,6 +209,7 @@ CLASS:Plant (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 CLASS:Undead	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Undead	PRERACETYPE:Undead
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Undead]],[PRERACE:1,RACESUBTYPE=Augmented Undead]
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Undead	STARTSKILLPTS:4	MODTOSKILLS:YES
 
@@ -194,6 +217,7 @@ CLASS:Undead	STARTSKILLPTS:4	MODTOSKILLS:YES
 CLASS:Undead (Mindless)	OUTPUTNAME:Undead	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	ABILITY:Special Ability|AUTOMATIC|Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
 # Class Name		Reg. Race Type
 CLASS:Undead (Mindless)	PRERACETYPE:Undead
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Undead]],[PRERACE:1,RACESUBTYPE=Augmented Undead]
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Undead (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 
@@ -201,6 +225,7 @@ CLASS:Undead (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 CLASS:Vermin	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Vermin	PRERACETYPE:Vermin
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Vermin]],[PRERACE:1,RACESUBTYPE=Augmented Vermin]
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Vermin	STARTSKILLPTS:0	MODTOSKILLS:NO
 
@@ -208,5 +233,6 @@ CLASS:Vermin	STARTSKILLPTS:0	MODTOSKILLS:NO
 CLASS:Vermin (Intelligent)	OUTPUTNAME:Vermin	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name			Reg. Race Type
 CLASS:Vermin (Intelligent)	PRERACETYPE:Vermin
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Vermin]],[PRERACE:1,RACESUBTYPE=Augmented Animal]
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Vermin (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES

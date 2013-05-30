@@ -26,6 +26,9 @@ Default				CATEGORY:Internal
 
 CATEGORY=Internal|Default.MOD																ABILITY:Internal|AUTOMATIC|Defines Required
 CATEGORY=Internal|Default.MOD																ABILITY:Internal|AUTOMATIC|Master Traits
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Assign Base Race Tracker|PRECLASS:1,ANY=1
+
+Assign Base Race Tracker	CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Base Race Type
 
 Holy Avenger Spell Resistance	CATEGORY:Internal																												BONUS:MISC|SR|PaladinLvl+5|TYPE=SpellResistance
 
@@ -37,8 +40,7 @@ Master Traits			CATEGORY:Internal		TYPE:Internal	VISIBLE:NO	DEFINE:AnimalGrowthA
 ###			TYPES						###
 #########################################################
 
-
-###Block:
+###Block: Traits and Features Assignment
 # Ability Name				Ability
 CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PRERACE:1,RACETYPE=Aberration
 CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Animal Traits|PRERACE:1,RACETYPE=Animal,Animal/Magical Beast
@@ -55,6 +57,8 @@ CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Outsider T
 CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Plant Traits|PRERACE:1,RACETYPE=Plant
 CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Undead Traits|PRERACE:1,RACETYPE=Undead
 CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Vermin Traits|PRERACE:1,RACETYPE=Vermin
+#A creature with the augmented subtype usually has the _traits_ of its current type, but the _features_ of its original type. FEATURES = CLASS in pcgen, TRAITS = Abilities
+#For example, a wizard's raven familiar has an animal's features and the traits of a magical beast.
 
 #COMMENT: Assigns the Subtype Trait based upon RACESUBTYPE:
 ###Block:
@@ -125,16 +129,41 @@ CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Out
 CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Swarm|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Swarm]
 CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Traits Output ~ Water|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Water]
 
+#Augmented Subtype: A creature receives this subtype whenever something happens to change its original type. 
+#The augmented subtype is always paired with the creature's original type. 
+#For example, a wizard's raven familiar is a magical beast (augmented animal). 
+#A creature with the augmented subtype usually has the _traits_ of its current type, but the _features_ of its original type.
+#For example, a wizard's raven familiar has an animal's features and the traits of a magical beast.
+
+###Block: Augmented Subtypes
+Augmented Aberration		CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeAberration		TEMPLATE:RaceSubtype ~ Augmented Aberration
+Augmented Animal			CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeAnimal			TEMPLATE:RaceSubtype ~ Augmented Animal
+Augmented Construct		CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeConstruct			TEMPLATE:RaceSubtype ~ Augmented Construct
+Augmented Dragon			CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeDragon			TEMPLATE:RaceSubtype ~ Augmented Dragon
+Augmented Elemental		CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeElemental			TEMPLATE:RaceSubtype ~ Augmented Elemental
+Augmented Fey			CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeFey				TEMPLATE:RaceSubtype ~ Augmented Fey
+Augmented Giant			CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeGiant			TEMPLATE:RaceSubtype ~ Augmented Giant
+Augmented Humanoid		CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeHumanoid			TEMPLATE:RaceSubtype ~ Augmented Humanoid
+Augmented Magical Beast		CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeMagicalBeast		TEMPLATE:RaceSubtype ~ Augmented Magical Beast
+Augmented Monstrous Humanoid	CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeMonstrousHumanoid	TEMPLATE:RaceSubtype ~ Augmented Monstrous Humanoid
+Augmented Ooze			CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeAugmentedOoze		TEMPLATE:RaceSubtype ~ Augmented Ooze
+Augmented Outsider		CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeOutsider			TEMPLATE:RaceSubtype ~ Augmented Outsider
+Augmented Plant			CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypePlant			TEMPLATE:RaceSubtype ~ Augmented Plant
+Augmented Undead			CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeUndead			TEMPLATE:RaceSubtype ~ Augmented Undead
+Augmented Vermin			CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeVermin			TEMPLATE:RaceSubtype ~ Augmented Vermin
+
+
 ###Block: RACE TRAITS
+# COMMENT: Splitting these into Traits and Features for Augemented Support
 # Ability Name			Unique Key						Category of Ability		Type						Define											Description																																																																																																																																																					Template			Ability																			Bonus to HP													Bonus to skill				Modify VAR								Vision		Source Page
 Aberration Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																																																																		BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
-Animal Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
+Animal Traits										CATEGORY:Special Ability	TYPE:TraitAbility		DEFINESTAT:MINVALUE|INT|1	DEFINESTAT:MAXVALUE|INT|2																																																																																																																																																																							ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
 Construct Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																						TEMPLATE:Construct	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light												BONUS:HP|CURRENTMAX|max(SIZE-2,0)*10	BONUS:HP|CURRENTMAX|max(SIZE-6,0)*10							BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
 Dragon Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																																BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
 Elemental Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																																																																		BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
 Fey Traits											CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
 Giant Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
-Humanoid Traits										CATEGORY:Special Ability	TYPE:TraitAbility
+Humanoid Traits										CATEGORY:Special Ability	TYPE:TraitAbility		DEFINESTAT:MINVALUE|INT|3
 Magical Beast Traits									CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																																BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
 Monstrous Humanoid Traits								CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																																																																		BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
 Ooze Traits											CATEGORY:Special Ability	TYPE:TraitAbility				DEFINE:OozeObjectAcidDamageAmount|0	DEFINE:OozeHasObjectAcidDamage|0																																																																																																																																																							TEMPLATE:Ooze		ABILITY:Special Ability|AUTOMATIC|Blindsight ~ Ooze Shared																															BONUS:VAR|OozeObjectAcidDamageAmount|10+(HD/2)+CON	VISION:Blind	SOURCEPAGE:TypesSubtypesAbilities.rtf
@@ -142,6 +171,22 @@ Outsider Traits										CATEGORY:Special Ability	TYPE:TraitAbility													
 Plant Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
 Undead Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																						TEMPLATE:Undead																																				BONUS:SKILL|Concentration|CHA-CON
 Vermin Traits										CATEGORY:Special Ability	TYPE:TraitAbility																																																																																																																																																																																																																		BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
+#
+Aberration Features									CATEGORY:Special Ability	TYPE:FeatureAbility																																																																																																																																																																																																																		BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Animal Features										CATEGORY:Special Ability	TYPE:FeatureAbility		DEFINESTAT:MINVALUE|INT|1	DEFINESTAT:MAXVALUE|INT|2																																																																																																																																																																							ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
+Construct Features									CATEGORY:Special Ability	TYPE:FeatureAbility																																																																																																																																																																						TEMPLATE:Construct	ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light												BONUS:HP|CURRENTMAX|max(SIZE-2,0)*10	BONUS:HP|CURRENTMAX|max(SIZE-6,0)*10							BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Dragon Features										CATEGORY:Special Ability	TYPE:FeatureAbility																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																																BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Elemental Features									CATEGORY:Special Ability	TYPE:FeatureAbility																																																																																																																																																																																																																		BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Fey Features										CATEGORY:Special Ability	TYPE:FeatureAbility																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
+Giant Features										CATEGORY:Special Ability	TYPE:FeatureAbility																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
+Humanoid Features										CATEGORY:Special Ability	TYPE:FeatureAbility		DEFINESTAT:MINVALUE|INT|3
+Magical Beast Features									CATEGORY:Special Ability	TYPE:FeatureAbility																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																																BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Monstrous Humanoid Features								CATEGORY:Special Ability	TYPE:FeatureAbility																																																																																																																																																																																																																		BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Ooze Features										CATEGORY:Special Ability	TYPE:FeatureAbility				DEFINE:OozeObjectAcidDamageAmount|0	DEFINE:OozeHasObjectAcidDamage|0																																																																																																																																																							TEMPLATE:Ooze		ABILITY:Special Ability|AUTOMATIC|Blindsight ~ Ooze Shared																															BONUS:VAR|OozeObjectAcidDamageAmount|10+(HD/2)+CON	VISION:Blind	SOURCEPAGE:TypesSubtypesAbilities.rtf
+Outsider Features										CATEGORY:Special Ability	TYPE:FeatureAbility																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Outsider House Rule ~ Martial Weapons|PRERULE:1,OutsiderZeroHDGainMartialWeapons																					BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
+Plant Features										CATEGORY:Special Ability	TYPE:FeatureAbility																																																																																																																																																																										ABILITY:Special Ability|AUTOMATIC|Vision ~ Low-Light																																												SOURCEPAGE:TypesSubtypesAbilities.rtf
+Undead Features										CATEGORY:Special Ability	TYPE:FeatureAbility																																																																																																																																																																						TEMPLATE:Undead																																				BONUS:SKILL|Concentration|CHA-CON
+Vermin Features										CATEGORY:Special Ability	TYPE:FeatureAbility																																																																																																																																																																																																																		BONUS:VAR|DarkvisionRange|60|TYPE=Base						SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 #Block: DISPLAY OUTPUT To toggle ACTUAL display of the Traits on the Character Sheet
 Aberration Traits			KEY:Traits Output ~ Aberration		CATEGORY:Special Ability	TYPE:SpecialQuality															DESC:Aberrations eat/sleep/breathe																																																																																																																																																																																																									SOURCEPAGE:TypesSubtypesAbilities.rtf

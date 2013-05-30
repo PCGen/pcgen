@@ -56,6 +56,45 @@ Water				VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Extraplanar			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf
 Native			VISIBLE:NO	SOURCEPAGE:TypesSubtypesAbilities.rtf							PRERACE:1,RACETYPE=Outsider
 
+#
+Base Race Type	VISIBLE:NO	TEMPLATE:CHOOSE:Base Race Type ~ Aberration|Base Race Type ~ Animal|Base Race Type ~ Construct|Base Race Type ~ Dragon|Base Race Type ~ Elemental|Base Race Type ~ Fey|Base Race Type ~ Giant|Base Race Type ~ Humanoid|Base Race Type ~ Magical Beast|Base Race Type ~ Monstrous Humanoid|Base Race Type ~ Ooze|Base Race Type ~ Outsider|Base Race Type ~ Plant|Base Race Type ~ Undead|Base Race Type ~ Vermin
+#
+Base Race Type ~ Aberration		VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Augmented Aberration|!PRERACE:1,RACETYPE=Aberration	PRERACE:1,RACETYPE=Aberration
+Base Race Type ~ Animal			VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Augmented Animal|!PRERACE:1,RACETYPE=Animal	PRERACE:1,RACETYPE=Animal
+Base Race Type ~ Construct		VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Augmented Construct|!PRERACE:1,RACETYPE=Construct	PRERACE:1,RACETYPE=Construct
+Base Race Type ~ Dragon			VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Augmented Dragon|!PRERACE:1,RACETYPE=Dragon	PRERACE:1,RACETYPE=Dragon
+Base Race Type ~ Elemental		VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Augmented Elemental|!PRERACE:1,RACETYPE=Elemental	PRERACE:1,RACETYPE=Elemental
+Base Race Type ~ Fey			VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Augmented Fey|!PRERACE:1,RACETYPE=Fey	PRERACE:1,RACETYPE=Fey
+Base Race Type ~ Giant			VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Augmented Giant|!PRERACE:1,RACETYPE=Giant	PRERACE:1,RACETYPE=Giant
+Base Race Type ~ Humanoid		VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Augmented Humanoid|!PRERACE:1,RACETYPE=Humanoid	PRERACE:1,RACETYPE=Humanoid
+Base Race Type ~ Magical Beast	VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Augmented Magical Beast|!PRERACE:1,RACETYPE=Magical Beast	PRERACE:1,RACETYPE=Magical Beast
+Base Race Type ~ Monstrous Humanoid	VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Augmented Monstrous Humanoid|!PRERACE:1,RACETYPE=Monstrous Humanoid	PRERACE:1,RACETYPE=Monstrous Humanoid
+Base Race Type ~ Ooze			VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Augmented Ooze|!PRERACE:1,RACETYPE=Ooze	PRERACE:1,RACETYPE=Ooze
+Base Race Type ~ Outsider		VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Augmented Outsider|!PRERACE:1,RACETYPE=Outsider	PRERACE:1,RACETYPE=Outsider
+Base Race Type ~ Plant			VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Augmented Plant|!PRERACE:1,RACETYPE=Plant	PRERACE:1,RACETYPE=Plant
+Base Race Type ~ Undead			VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Augmented Undead|!PRERACE:1,RACETYPE=Undead	PRERACE:1,RACETYPE=Undead
+Base Race Type ~ Vermin			VISIBLE:NO	ABILITY:Internal|AUTOMATIC|Augmented Vermin|!PRERACE:1,RACETYPE=Vermin	PRERACE:1,RACETYPE=Vermin
+#
+RaceSubtype ~ Augmented Aberration			VISIBLE:NO	RACESUBTYPE:Augmented Aberration
+RaceSubtype ~ Augmented Animal			VISIBLE:NO	RACESUBTYPE:Augmented Animal
+RaceSubtype ~ Augmented Construct			VISIBLE:NO	RACESUBTYPE:Augmented Construct
+RaceSubtype ~ Augmented Dragon			VISIBLE:NO	RACESUBTYPE:Augmented Dragon
+RaceSubtype ~ Augmented Elemental			VISIBLE:NO	RACESUBTYPE:Augmented Elemental
+RaceSubtype ~ Augmented Fey				VISIBLE:NO	RACESUBTYPE:Augmented Fey
+RaceSubtype ~ Augmented Giant				VISIBLE:NO	RACESUBTYPE:Augmented Giant
+RaceSubtype ~ Augmented Humanoid			VISIBLE:NO	RACESUBTYPE:Augmented Humanoid
+RaceSubtype ~ Augmented Magical Beast		VISIBLE:NO	RACESUBTYPE:Augmented Magical Beast
+RaceSubtype ~ Augmented Monstrous Humanoid	VISIBLE:NO	RACESUBTYPE:Augmented Monstrous Humanoid
+RaceSubtype ~ Augmented Ooze				VISIBLE:NO	RACESUBTYPE:Augmented Ooze
+RaceSubtype ~ Augmented Outsider			VISIBLE:NO	RACESUBTYPE:Augmented Outsider
+RaceSubtype ~ Augmented Plant				VISIBLE:NO	RACESUBTYPE:Augmented Plant
+RaceSubtype ~ Augmented Undead			VISIBLE:NO	RACESUBTYPE:Augmented Undead
+RaceSubtype ~ Augmented Vermin			VISIBLE:NO	RACESUBTYPE:Augmented Vermin
+
+
+
+	ABILITY:Special Ability|AUTOMATIC|
+
 
 ###Block: Variable Type Traits
 # Template Name	Visible	Define
