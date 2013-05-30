@@ -26,7 +26,7 @@ Default				CATEGORY:Internal
 
 CATEGORY=Internal|Default.MOD																ABILITY:Internal|AUTOMATIC|Defines Required
 CATEGORY=Internal|Default.MOD																ABILITY:Internal|AUTOMATIC|Master Traits
-CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Assign Base Race Tracker|PRECLASS:1,ANY=1
+#CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Assign Base Race Tracker|PRERACE:1,%|PRECLASS:1,ANY=1
 
 Assign Base Race Tracker	CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Base Race Type
 
@@ -43,7 +43,7 @@ Master Traits			CATEGORY:Internal		TYPE:Internal	VISIBLE:NO	DEFINE:AnimalGrowthA
 ###Block: Traits and Features Assignment
 # Ability Name				Ability
 CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Aberration Traits|PRERACE:1,RACETYPE=Aberration
-CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Animal Traits|PRERACE:1,RACETYPE=Animal,Animal/Magical Beast
+CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Animal Traits|PRERACE:1,RACETYPE=Animal
 CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Construct Traits|PRERACE:1,RACETYPE=Construct
 CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Dragon Traits|PRERACE:1,RACETYPE=Dragon
 CATEGORY=Internal|Master Traits.MOD	ABILITY:Special Ability|AUTOMATIC|Elemental Traits|PRERACE:1,RACETYPE=Elemental
