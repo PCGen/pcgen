@@ -90,11 +90,11 @@ RaceSubtype ~ Augmented Outsider			VISIBLE:NO	RACESUBTYPE:Augmented Outsider
 RaceSubtype ~ Augmented Plant				VISIBLE:NO	RACESUBTYPE:Augmented Plant
 RaceSubtype ~ Augmented Undead			VISIBLE:NO	RACESUBTYPE:Augmented Undead
 RaceSubtype ~ Augmented Vermin			VISIBLE:NO	RACESUBTYPE:Augmented Vermin
-
-
-
-	ABILITY:Special Ability|AUTOMATIC|
-
+#
+Familiar Race Change					VISIBLE:NO	TEMPLATE:CHOOSE:Animal Base|Non-Animal Base
+# Animal Based Familiars change to a Magical Beast (Augmented Animal), all others remain the same race type.
+Animal Base		VISIBLE:NO	PRERACE:1,RACETYPE=Animal	RACETYPE:Magical Beast
+Non-Animal Base	VISIBLE:NO	!PRERACE:1,RACETYPE=Animal
 
 ###Block: Variable Type Traits
 # Template Name	Visible	Define

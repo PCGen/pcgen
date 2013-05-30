@@ -42,8 +42,10 @@ FOLLOWER:UndeadCompanionLVL=19	TYPE:Undead Companion	HD:2		SR:24																
 FOLLOWER:UndeadCompanionLVL=20	TYPE:Undead Companion			SR:25
 
 ###Block:Familiar
+#COMMENT: Familiar is an Animal that becomes a Magical Beast
+
 # Class of the Master	Type			Spell Res.	Ability										Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Combat bonus					Modify VAR
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link				COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Empathic Link				COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES	TEMPLATE:Familiar Race Change
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Improved Evasion|Share Spells																		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|6	BONUS:VAR|MasterLvl|1
 FOLLOWER:FamiliarLVL=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Spells																			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|7	BONUS:VAR|MasterLvl|2
 FOLLOWER:FamiliarLVL=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Speak with Master																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|8	BONUS:VAR|MasterLvl|2
