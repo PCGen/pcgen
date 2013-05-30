@@ -34,7 +34,7 @@ public final class WeaponProf extends MultiTagBonusObj
 {
 	private static final String[] bonusTags =
 			{"CRITMULTADD", "CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGE",
-				"DAMAGE-SHORTRANGE", "DAMAGESIZE", "PCSIZE", "TOHIT",
+				"DAMAGE-SHORTRANGE", "DAMAGESIZE", "PCSIZE", "REACH", "TOHIT",
 				"TOHIT-SHORTRANGE", "TOHITOVERSIZE", "WEAPONBAB",
 				"WIELDCATEGORY"};
 

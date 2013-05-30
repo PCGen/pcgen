@@ -256,10 +256,17 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		fineSword.put(ObjectKey.SIZE, medium);
 		fineSword.put(ObjectKey.BASESIZE, medium);
 
+		WeaponProf spearwp = new WeaponProf();
+		spearwp.setName("Spear");
+		spearwp.put(StringKey.KEY_NAME, "KEY_SPEAR");
+		spearwp.addToListFor(ListKey.TYPE, Type.getConstant("MARTIAL"));
+		context.ref.importObject(spearwp);
+
 		longSpear = new Equipment();
 		longSpear.setName("Longspear");
 		longSpear.put(StringKey.KEY_NAME, "KEY_LONGSPEAR");
 		longSpear.put(StringKey.OUTPUT_NAME, "Longspear");
+		longSpear.put(ObjectKey.WEAPON_PROF, new CDOMDirectSingleRef<WeaponProf>(spearwp));
 		TestHelper.addType(longSpear, "Weapon.Melee.Martial.Standard.Piercing.Spear");
 		longSpear.getEquipmentHead(1).put(StringKey.DAMAGE, "1d6");
 		longSpear.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
@@ -726,6 +733,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 	public void testWpnReach()
 	{
+		LoadContext context = Globals.getContext();
 		PlayerCharacter character = getCharacter();
 		character.addEquipment(largeSword);
 		EquipSet es =
@@ -754,6 +762,20 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		assertEquals(
 			"Reach for a reach multiple weapon on a character with normal reach",
 			"10", token.getToken("WEAPON.4.REACH", character, null));
+		
+		// Check we can bonus the reach
+		PCTemplate lsReachTemplate = new PCTemplate();
+		lsReachTemplate.setName("LongSpear Long Arm");
+		BonusObj aBonus = Bonus.newBonus(context, "WEAPONPROF=KEY_SPEAR|REACH|5");
+		if (aBonus != null)
+		{
+			lsReachTemplate.addToListFor(ListKey.BONUS, aBonus);
+		}
+		character.addTemplate(lsReachTemplate);
+		assertEquals(
+			"Reach for a reach weapon (10') on a character with bonus for the proficiency",
+			"15", token.getToken("WEAPON.3.REACH", character, null));
+		
 	}
 	
 	/**
