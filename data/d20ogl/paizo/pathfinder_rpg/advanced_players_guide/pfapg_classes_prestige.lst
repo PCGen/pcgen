@@ -156,11 +156,14 @@ CLASS:Stalwart Defender	PREATT:7	PREFEAT:5,Dodge,Endurance,Toughness,Armor Profi
 CLASS:Stalwart Defender	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|Perception|Sense Motive
 ##Block: Normal Level Progression
 1							ABILITY:Class Ability|AUTOMATIC|Defensive Stance ~ Stalwart Defender
-2	BONUS:VAR|DefensivePowerLVL|CL	ABILITY:Class Ability|AUTOMATIC|Defensive Powers ~ Stalwart Defender
+2	BONUS:VAR|DefensivePowerLVL|1	ABILITY:Class Ability|AUTOMATIC|Defensive Powers ~ Stalwart Defender
 3							ABILITY:Class Ability|AUTOMATIC|Uncanny Dodge ~ Stalwart Defender
-5	BONUS:VAR|DamageReductionLVL|CL	ABILITY:Class Ability|AUTOMATIC|Damage Reduction ~ Stalwart Defender
-7							ABILITY:Class Ability|AUTOMATIC|Improved Uncanny Dodge ~ Stalwart Defender
+4	BONUS:VAR|DefensivePowerLVL|1
+5	BONUS:VAR|DamageReductionLVL|1	ABILITY:Class Ability|AUTOMATIC|Damage Reduction ~ Stalwart Defender
+6	BONUS:VAR|DefensivePowerLVL|1
+7	BONUS:VAR|DamageReductionLVL|2	ABILITY:Class Ability|AUTOMATIC|Improved Uncanny Dodge ~ Stalwart Defender
+8	BONUS:VAR|DefensivePowerLVL|1
 9							ABILITY:Class Ability|AUTOMATIC|Mobile Defense ~ Stalwart Defender
-10							ABILITY:Class Ability|AUTOMATIC|Last Word ~ Stalwart Defender
+10		BONUS:VAR|DefensivePowerLVL|1	BONUS:VAR|DamageReductionLVL|2	ABILITY:Class Ability|AUTOMATIC|Last Word ~ Stalwart Defender
 
 #EOF
