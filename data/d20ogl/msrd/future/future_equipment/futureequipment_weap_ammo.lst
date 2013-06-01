@@ -4,19 +4,19 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 
 #Progress Level 6 Ammunition Types
 # Equipment Name			Output Name								Type									Cost		Weight	Source Page					Special Property
-Bio-Agent (20)			OUTPUTNAME:Ammunition, Bio-Agent, 20 pack			TYPE:Ammunition.Standard.Bullet.Poison.PL6		COST:14	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:-1 to damage, poisonous bio-agent with effects identical to cyanogen gas, Mil(+3)
-Power Pack (50)			OUTPUTNAME:Power Pack, 50 charges				TYPE:Ammunition.Standard.Energy.PL6				COST:8	WT:0		SOURCEPAGE:FutureEquipment.rtf
+Bio-Agent (20)			BASEQTY:20	OUTPUTNAME:Ammunition, Bio-Agent, 20 pack			TYPE:Ammunition.Standard.Bullet.Poison.PL6		COST:14	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:-1 to damage, poisonous bio-agent with effects identical to cyanogen gas, Mil(+3)
+Power Pack (50)			BASEQTY:50	OUTPUTNAME:Power Pack, 50 charges				TYPE:Ammunition.Standard.Energy.PL6				COST:8	WT:0		SOURCEPAGE:FutureEquipment.rtf
 
 #Progress Level 7 Ammunition Types
-Deflecting Ammunition (20)	OUTPUTNAME:Ammunition, deflecting, 20 pack		TYPE:Ammunition.Standard.Bullet.PL7				COST:12	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:deflecting ammunition can be bounced around any barrier, Lic(+1)
-Plasma-Coated Ammunition (20)	OUTPUTNAME:Ammunition, plasma-coated, 20 pack		TYPE:Ammunition.Standard.Bullet.PL7				COST:13	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:reduces the Defense bonus provided by armor by 2, to a minimum of +1, half of the damage it deals is fire damage, and half of the damage is ballistic damage, Res(+2)
-Seeker Ammunition (20)		OUTPUTNAME:Ammunition, Seeker, 20 pack			TYPE:Ammunition.Standard.Bullet.PL7				COST:15	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:+1 bonus on all ranged attacks, Res(+2)
-Rail Gun Shards (20)		OUTPUTNAME:Ammunition, rail gun shards, 20 pack		TYPE:Ammunition.Standard.Shard.PL7				COST:10	WT:0		SOURCEPAGE:FutureEquipment.rtf
+Deflecting Ammunition (20)	BASEQTY:20	OUTPUTNAME:Ammunition, deflecting, 20 pack		TYPE:Ammunition.Standard.Bullet.PL7				COST:12	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:deflecting ammunition can be bounced around any barrier, Lic(+1)
+Plasma-Coated Ammunition (20)	BASEQTY:20	OUTPUTNAME:Ammunition, plasma-coated, 20 pack		TYPE:Ammunition.Standard.Bullet.PL7				COST:13	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:reduces the Defense bonus provided by armor by 2, to a minimum of +1, half of the damage it deals is fire damage, and half of the damage is ballistic damage, Res(+2)
+Seeker Ammunition (20)		BASEQTY:20	OUTPUTNAME:Ammunition, Seeker, 20 pack			TYPE:Ammunition.Standard.Bullet.PL7				COST:15	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:+1 bonus on all ranged attacks, Res(+2)
+Rail Gun Shards (20)		BASEQTY:20	OUTPUTNAME:Ammunition, rail gun shards, 20 pack		TYPE:Ammunition.Standard.Shard.PL7				COST:10	WT:0		SOURCEPAGE:FutureEquipment.rtf
 
 #Progress Level 8 Ammunition Types
-Phasing Ammunition (20)		OUTPUTNAME:Ammunition, phasing, 20 pack			TYPE:Ammunition.Standard.Bullet.PL8				COST:16	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:negate the benefits of cover, Res(+2)
-Power Pack (10)			OUTPUTNAME:Power Pack, 10 charges				TYPE:Ammunition.Standard.Energy.PL8				COST:8	WT:0		SOURCEPAGE:FutureEquipment.rtf
-Power Pack (30)			OUTPUTNAME:Power Pack, 30 charges				TYPE:Ammunition.Standard.Energy.PL8				COST:8	WT:0		SOURCEPAGE:FutureEquipment.rtf
+Phasing Ammunition (20)		BASEQTY:20	OUTPUTNAME:Ammunition, phasing, 20 pack			TYPE:Ammunition.Standard.Bullet.PL8				COST:16	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:negate the benefits of cover, Res(+2)
+Power Pack (10)			BASEQTY:10	OUTPUTNAME:Power Pack, 10 charges				TYPE:Ammunition.Standard.Energy.PL8				COST:8	WT:0		SOURCEPAGE:FutureEquipment.rtf
+Power Pack (30)			BASEQTY:30	OUTPUTNAME:Power Pack, 30 charges				TYPE:Ammunition.Standard.Energy.PL8				COST:8	WT:0		SOURCEPAGE:FutureEquipment.rtf
 
 
 #Single Shot versions

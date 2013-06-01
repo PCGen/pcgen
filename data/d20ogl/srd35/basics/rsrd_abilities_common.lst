@@ -26,6 +26,7 @@ Default				CATEGORY:Internal
 
 CATEGORY=Internal|Default.MOD																ABILITY:Internal|AUTOMATIC|Defines Required
 CATEGORY=Internal|Default.MOD																ABILITY:Internal|AUTOMATIC|Master Traits
+# COMMENT: Disabled till we figure out what is going on with the end game - Augmented Subtype shouldn't be applied.
 #CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Assign Base Race Tracker|PRERACE:1,%|PRECLASS:1,ANY=1
 
 Assign Base Race Tracker	CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Base Race Type
