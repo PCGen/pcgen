@@ -23,10 +23,10 @@ BIO
 		<catchphrase></catchphrase>
 		<classes>
 			<class>
-				<name>Monstrous humanoid</name>
+				<name>Monstrous Humanoid</name>
 				<abbreviation>Mon</abbreviation>
 				<level>4</level>
-				<bonuslist>Monstrous humanoid</bonuslist>
+				<bonuslist>Monstrous Humanoid</bonuslist>
 				<sequence>0</sequence>
 			</class>
 			<class>
@@ -1358,7 +1358,7 @@ BIO
 	<special_abilities>
 		<race></race>
 		<class>
-			<class>Monstrous humanoid</class>
+			<class>Monstrous Humanoid</class>
 			<ability></ability>
 		</class>
 		<class>
