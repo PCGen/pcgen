@@ -68,13 +68,13 @@ public class EquipIconLoader extends LstLineFileLoader
 			LstUtils.deprecationCheck(token, key, sourceURI, lstLine);
 			if (!token.parse(game, value, sourceURI))
 			{
-				Logging.errorPrint("Error parsing EuipIcon object: " + lstLine
+				Logging.errorPrint("Error parsing EquipIcon object: " + lstLine
 					+ " at " + sourceURI.toString());
 			}
 		}
 		else
 		{
-			Logging.errorPrint("Illegal EuipIcon object: " + lstLine + " at "
+			Logging.errorPrint("Illegal EquipIcon object: " + lstLine + " at "
 				+ sourceURI.toString());
 		}
 	}

@@ -620,6 +620,19 @@ public final class CoreUtility
 		return (inVer[0] == currVer[0] && inVer[1] == currVer[1]);
 	}
 
+	/**
+	 * Check if the two versions are different only in release number. i.e. 
+	 * they have the same major and minor versions.
+	 * 
+	 * @param ver1 A PCGen version number to be compared.
+	 * @param ver2 A PCGen version number to be compared.
+	 * @return true if they have the same major and minor versions.
+	 */
+	public static boolean sameMajorMinorVer(int[] ver1, int[] ver2)
+	{
+		return (ver1[0] == ver2[0] && ver1[1] == ver2[1]);
+	}
+
 	public static URL processFileToURL(String value) throws MalformedURLException
 	{
 		StringBuilder inputPath = new StringBuilder(100);

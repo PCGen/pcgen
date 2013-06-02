@@ -485,6 +485,10 @@ public class PluginBuildTest extends PCGenTestCase
 		sourceFolder = new File("code/src/java/plugin/lsttokens/gamemode/eqsizepenalty");
 		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
 
+		jarPrefix = "GameMode-MigrateToken-";
+		sourceFolder = new File("code/src/java/plugin/lsttokens/gamemode/migrate");
+		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
+
 		jarPrefix = "GameMode-RollMethodToken-";
 		sourceFolder = new File("code/src/java/plugin/lsttokens/gamemode/rollmethod");
 		checkPluginJars(jarPrefix, sourceFolder, jarFolder);

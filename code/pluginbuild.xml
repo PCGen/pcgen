@@ -5950,6 +5950,49 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<!-- GameMode: Migration tokens-->
+		<jar jarfile="${systemlstplugins.dir}/GameMode-MigrateToken-MAXDEVVER.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/migrate/MaxDevVerToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-MigrateToken-MAXVER.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/migrate/MaxVerToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-MigrateToken-MINDEVVER.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/migrate/MinDevVerToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-MigrateToken-MINVER.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/migrate/MinVerToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-MigrateToken-NEWCATEGORY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/migrate/NewCategoryToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-MigrateToken-NEWKEY.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/migrate/NewKeyToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<!-- GameMode: RollMethod tokens-->
 		<jar jarfile="${systemlstplugins.dir}/GameMode-RollMethodToken-METHOD.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">

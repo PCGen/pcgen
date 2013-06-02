@@ -34,6 +34,7 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.core.character.EquipSlot;
+import pcgen.core.system.MigrationRule;
 
 /**
  * Contains lists of stuff loaded from system-wide lst files.
@@ -77,6 +78,7 @@ public class SystemCollections
 	private static final Map<String, Set<String>> traitMap = new HashMap<String, Set<String>>();
 	private static final Map<String, List<String>> bodyStructureMap = new HashMap<String, List<String>>();
 	private static final Map<String, List<EquipSlot>> equipSlotMap = new HashMap<String, List<EquipSlot>>();
+	private static final Map<String, List<MigrationRule>> migrationRuleMap = new HashMap<String, List<MigrationRule>>();
 
 	/**
 	 * Make sure it doesn't get instantiated.
@@ -199,6 +201,27 @@ public class SystemCollections
 			bodyStructures = Collections.emptyList();
 		}
 		return Collections.unmodifiableList(bodyStructures);
+	}
+
+	/**
+	 * Return an <b>unmodifiable</b> version of the migration rules list.
+	 * @return an <b>unmodifiable</b> version of the migration rules list.
+	 */
+	public static List<MigrationRule> getUnmodifiableMigrationRuleList(String gameModeName)
+	{
+		// Try getting an migrationRuleList for the currently selected gamemode
+		List<MigrationRule> migrationRuleList = migrationRuleMap.get(gameModeName);
+		if (migrationRuleList == null)
+		{
+			// if that list doesn't exist, try the default migrationRuleList
+			migrationRuleList = migrationRuleMap.get("*");
+		}
+		if (migrationRuleList == null)
+		{
+			// if that's also empty, return an empty list
+			migrationRuleList = Collections.emptyList();
+		}
+		return Collections.unmodifiableList(migrationRuleList);
 	}
 
 	/**
@@ -428,6 +451,26 @@ public class SystemCollections
 		}
 	}
 
+
+	/**
+	 * Add the migration rule to the game mode's migration rule list.
+	 * @param migrationRule The migration rule to be added.
+	 * @param gameMode = key in the migrationRuleMap to which to add the migrationRule
+	 */
+	public static void addToMigrationRulesList(final MigrationRule migrationRule, final String gameMode)
+	{
+		List<MigrationRule> migrationRuleList = migrationRuleMap.get(gameMode);
+		if (migrationRuleList == null)
+		{
+			migrationRuleList = new ArrayList<MigrationRule>();
+			migrationRuleMap.put(gameMode, migrationRuleList);
+		}
+		if (!migrationRuleList.contains(migrationRule))
+		{
+			migrationRuleList.add(migrationRule);
+		}
+	}
+	
 	//GAMEMODELIST
 
 	/**
@@ -589,6 +632,14 @@ public class SystemCollections
 	public static void clearEquipSlotsMap()
 	{
 		equipSlotMap.clear();
+	}
+
+	/**
+	 * Empty the migration rules list.
+	 */
+	public static void clearMigrationRuleMap()
+	{
+		migrationRuleMap.clear();
 	}
 
 	/**

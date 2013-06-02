@@ -59,6 +59,9 @@ public class TokenStore implements PluginLoader
 
 		//install.lst
 		tokenTypeList.add(InstallLstToken.class);
+
+		//migrate.lst
+		tokenTypeList.add(MigrationLstToken.class);
 	}
 
     @Override

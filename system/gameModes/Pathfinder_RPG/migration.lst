@@ -1,0 +1,41 @@
+#
+# Current Ver: $Revision$
+# Last Editor: $Author$
+# Last Edited: $Date$
+#
+# Rules for migrating characters from old data to new.
+#
+
+# Examples
+# SOURCE:JDTEST	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXVER:6.0.0	MAXDEVVER:6.1.1
+# EQUIPMENT:JDTEST	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXDEVVER:6.1.2
+
+# Barbarian rage powers - key corrections from DATA-1058
+ABILITY:Special Ability|Animal Fury				NEWKEY:Animal Fury ~ Rage Power				MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Clear Mind				NEWKEY:Clear Mind ~ Rage Power				MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Fearless Rage			NEWKEY:Fearless Rage ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Increased Damage Reduction	NEWKEY:Increased Damage Reduction ~ Rage Power	MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Guarded Stance			NEWKEY:Guarded Stance ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Internal Fortitude		NEWKEY:Internal Fortitude ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Intimidating Glare		NEWKEY:Intimidating Glare ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Knockback				NEWKEY:Knockback ~ Rage Power				MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Low-Light Vision		NEWKEY:Low-Light Vision ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Mighty Swing			NEWKEY:Mighty Swing ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Moment of Clarity		NEWKEY:Moment of Clarity ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Night Vision			NEWKEY:Night Vision ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|No Escape				NEWKEY:No Escape ~ Rage Power				MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Powerful Blow			NEWKEY:Powerful Blow ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Quick Reflexes			NEWKEY:Quick Reflexes ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Raging Climber			NEWKEY:Raging Climber ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Raging Leaper			NEWKEY:Raging Leaper ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Raging Swimmer			NEWKEY:Raging Swimmer ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Renewed Vigor			NEWKEY:Renewed Vigor ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Rolling Dodge			NEWKEY:Rolling Dodge ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Roused Anger			NEWKEY:Roused Anger ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Scent					NEWKEY:Scent ~ Rage Power					MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Strength Surge			NEWKEY:Strength Surge ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Superstition			NEWKEY:Superstition ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Surprise Accuracy		NEWKEY:Surprise Accuracy ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Swift Foot				NEWKEY:Swift Foot ~ Rage Power				MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Terrifying Howl			NEWKEY:Terrifying Howl ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
+ABILITY:Special Ability|Unexpected Strike		NEWKEY:Unexpected Strike ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02

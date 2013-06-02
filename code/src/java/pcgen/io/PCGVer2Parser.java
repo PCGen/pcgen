@@ -28,7 +28,6 @@ package pcgen.io;
 import java.awt.Rectangle;
 import java.io.File;
 import java.math.BigDecimal;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -130,7 +129,11 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.GuiConstants;
+import pcgen.io.migration.AbilityMigration;
+import pcgen.io.migration.AbilityMigration.CategorisedKey;
 import pcgen.io.migration.EquipSetMigration;
+import pcgen.io.migration.EquipmentMigration;
+import pcgen.io.migration.SourceMigration;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.ReferenceContext;
@@ -244,6 +247,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		buildPcgLineCache(lines);
 
+		/*
+		 * VERSION:x.x.x
+		 */
+		if (cache.containsKey(TAG_VERSION))
+		{
+			parseVersionLine(cache.get(TAG_VERSION).get(0));
+		}
+
 		if (!cache.containsKey(TAG_GAMEMODE))
 		{
 			Logging
@@ -286,7 +297,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		 *
 		 * first thing to do is checking campaigns - no matter what!
 		 */
-		List<Campaign> campaigns = getCampaignList(cache.get(TAG_CAMPAIGN));
+		List<Campaign> campaigns = getCampaignList(cache.get(TAG_CAMPAIGN), mode.getName());
 		if (campaigns.isEmpty())
 		{
 			Logging.errorPrint("Character's campaign entry was empty.");
@@ -799,6 +810,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 */
 	private void parseCachedLines() throws PCGParseException
 	{
+		/*
+		 * VERSION:x.x.x
+		 */
+		if (cache.containsKey(TAG_VERSION))
+		{
+			parseVersionLine(cache.get(TAG_VERSION).get(0));
+		}
+
 		if (cache.containsKey(TAG_GAMEMODE))
 		{
 			parseGameMode(cache.get(TAG_GAMEMODE).get(0));
@@ -815,14 +834,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (cache.containsKey(TAG_CAMPAIGN))
 		{
 			parseCampaignLines(cache.get(TAG_CAMPAIGN));
-		}
-
-		/*
-		 * VERSION:x.x.x
-		 */
-		if (cache.containsKey(TAG_VERSION))
-		{
-			parseVersionLine(cache.get(TAG_VERSION).get(0));
 		}
 
 		/*
@@ -1578,10 +1589,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	/**
 	 * Retrieve a list of campaigns named on the supplied lines. 
 	 * @param lines The campaign lines from the PCG file.
+	 * @param gameModeName The name of the charater's game mode.
 	 * @return The list of campaigns.
 	 * @throws PCGParseException 
 	 */
-	private List<Campaign> getCampaignList(List<String> lines)
+	private List<Campaign> getCampaignList(List<String> lines, String gameModeName)
 		throws PCGParseException
 	{
 
@@ -1608,80 +1620,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			for (PCGElement element : tokens.getElements())
 			{
+				String sourceKey = SourceMigration.getNewSourceKey(element.getText(), pcgenVersion, gameModeName);
 				final Campaign aCampaign =
-						Globals.getCampaignKeyed(element.getText());
+						Globals.getCampaignKeyed(sourceKey);
 
 				if (aCampaign != null)
 				{
 					campaigns.add(aCampaign);
-				}
-			}
-		}
-
-		return campaigns;
-	}
-
-	/**
-	 * Build a list of campaigns as specified on the supplied lines. 
-	 * @param lines The campaign lines from the PCG file.
-	 * @return The list of campaigns.
-	 * @throws PCGParseException If the line format is invalid
-	 */
-	private List<Campaign> getCampaignList(final List<String> lines,
-		Collection<Campaign> loaded, List<URI> chosenCampaignSourcefiles)
-		throws PCGParseException
-	{
-		final List<Campaign> campaigns = new ArrayList<Campaign>();
-		PCGTokenizer tokens;
-
-		GameMode game = SettingsHandler.getGame();
-		Set<String> modeNames = new HashSet<String>(game.getAllowedModes());
-		modeNames.add(game.getName());
-
-		for (final String line : lines)
-		{
-			try
-			{
-				tokens = new PCGTokenizer(line);
-			}
-			catch (PCGParseException pcgpex)
-			{
-				/*
-				 * Campaigns are critical for characters,
-				 * need to stop the load process
-				 *
-				 * Thomas Behr 14-08-02
-				 */
-				throw new PCGParseException(
-					"parseCampaignLines", line, pcgpex.getMessage()); //$NON-NLS-1$
-			}
-
-			for (PCGElement element : tokens.getElements())
-			{
-				final Campaign aCampaign =
-						Globals.getCampaignKeyed(element.getText());
-
-				if (aCampaign != null)
-				{
-					boolean match = false;
-					for (String mode : aCampaign
-						.getSafeListFor(ListKey.GAME_MODE))
-					{
-						match = modeNames.contains(mode);
-						if (match)
-						{
-							break;
-						}
-					}
-					if (match)
-					{
-						if (!loaded.contains(aCampaign))
-						{
-							campaigns.add(aCampaign);
-							chosenCampaignSourcefiles.add(aCampaign
-								.getSourceURI());
-						}
-					}
 				}
 			}
 		}
@@ -2762,12 +2707,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			final PCGElement element = it.next();
 
 			abilityCat = EntityEncoder.decode(element.getText());
-			innateCategory =
-					SettingsHandler.getGame().getAbilityCategory(abilityCat);
-			if (innateCategory == null)
-			{
-				missingCat = abilityCat;
-			}
 		}
 
 		// The next element will be the ability key
@@ -2776,6 +2715,19 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			final PCGElement element = it.next();
 
 			abilityKey = EntityEncoder.decode(element.getText());
+			// Check for an ability that has been updated.
+			CategorisedKey categorisedKey =
+					AbilityMigration.getNewAbilityKey(abilityCat, abilityKey,
+						pcgenVersion, SettingsHandler.getGame().getName());
+			abilityCat = categorisedKey.getCategory();
+			abilityKey = categorisedKey.getKey();
+			innateCategory =
+					SettingsHandler.getGame().getAbilityCategory(abilityCat);
+			if (innateCategory == null)
+			{
+				missingCat = abilityCat;
+			}
+					
 			if (innateCategory == null || category == null)
 			{
 				final String msg =
@@ -5352,7 +5304,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			return;
 		}
 
-		final String itemKey;
+		String itemKey;
 		Equipment aEquip;
 
 		PCGElement element;
@@ -5361,6 +5313,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		// the first element defines the item key name
 		element = tokens.getElements().get(0);
 		itemKey = EntityEncoder.decode(element.getText());
+		// Check for an equipment key that has been updated.
+		itemKey =
+				EquipmentMigration.getNewEquipmentKey(itemKey, pcgenVersion,
+					SettingsHandler.getGame().getName());
 
 		// might be dynamically created container
 		aEquip = thePC.getEquipmentNamed(itemKey);
@@ -5410,6 +5366,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							{
 								baseItemKey =
 										EntityEncoder.decode(child.getText());
+								// Check for an equipment key that has been updated.
+								baseItemKey =
+										EquipmentMigration
+											.getNewEquipmentKey(baseItemKey,
+												pcgenVersion, SettingsHandler
+													.getGame().getName());
 							}
 							else if (TAG_DATA.equals(childTag))
 							{

@@ -52,6 +52,7 @@ import pcgen.persistence.lst.LoadInfoLoader;
 import pcgen.persistence.lst.LocationLoader;
 import pcgen.persistence.lst.LstFileLoader;
 import pcgen.persistence.lst.LstLineFileLoader;
+import pcgen.persistence.lst.MigrationLoader;
 import pcgen.persistence.lst.PointBuyLoader;
 import pcgen.persistence.lst.SimpleLoader;
 import pcgen.persistence.lst.SimplePrefixLoader;
@@ -147,6 +148,7 @@ public class GameModeFileLoader extends PCGenTask
 	private LocationLoader locationLoader = new LocationLoader();
 	private SizeAdjustmentLoader sizeLoader = new SizeAdjustmentLoader();
 	private StatsAndChecksLoader statCheckLoader = new StatsAndChecksLoader();
+	private MigrationLoader migrationLoader = new MigrationLoader();
 	private BioSetLoader bioLoader = new BioSetLoader();
 	private SimpleLoader<Sponsor> sponsorLoader = new SimplePrefixLoader<Sponsor>(Sponsor.class, "SPONSOR");
 	private EquipIconLoader equipIconLoader = new EquipIconLoader();
@@ -227,6 +229,10 @@ public class GameModeFileLoader extends PCGenTask
 					gm.addPointBuyStatCost(pbc);
 				}
 
+				// Load migration.lst
+				loadGameModeLstFile(context, migrationLoader, gmName, gameFile,
+					"migration.lst");
+				
 				loadGameModeLstFile(context, bioLoader, gmName, gameFile, "bio" + File.separator +
 						"biosettings.lst");
 			}
