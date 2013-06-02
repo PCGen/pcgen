@@ -2,6 +2,7 @@
 SOURCELONG:Core Rulebook	SOURCESHORT:CRB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher and Andrew McDougall (Tir Gwaith) and Maredudd (Eric C Smith)
+# Incorporated 05/30/2013 errata (Stefan Radermacher)
 
 ###Block:A
 # Equipment Name						Type								Cost		Weight	Modifier	Requires Modification?	Source Page		Combat bonus						Special Property
@@ -93,7 +94,7 @@ Candle of Invocation (Neutral-Evil)		OUTPUTNAME:Candle of Invocation, [NAME]		TY
 Candle of Invocation (Chaotic-Evil)		OUTPUTNAME:Candle of Invocation, [NAME]		TYPE:Magic.Wondrous.Consumable	COST:8400	WT:0.5							SOURCEPAGE:p.505																																			SPROP:+2 morale bonus on attack rolls, saving throws, and skill checks while within 30 feet of the flame if chaotic-evil.
 # Candle of Invocation: Need on for each alignment plus cleric level bonus as it relates to spells per day.
 Candle of Truth													TYPE:Magic.Wondrous.Consumable	COST:2500	WT:0.5							SOURCEPAGE:p.505
-Cape of the Mountebank												TYPE:Magic.Wondrous.Cloak		COST:10080	WT:1								SOURCEPAGE:p.505	SPELLS:Cape of the Mountebank|TIMES=1|CASTERLEVEL=9|Dimension Door
+Cape of the Mountebank												TYPE:Magic.Wondrous.Cloak		COST:10800	WT:1								SOURCEPAGE:p.505	SPELLS:Cape of the Mountebank|TIMES=1|CASTERLEVEL=9|Dimension Door
 Carpet of Flying (5 ft by 5 ft)		OUTPUTNAME:Carpet of Flying, 5 ft. by 5 ft.	TYPE:Magic.Wondrous			COST:20000	WT:8								SOURCEPAGE:p.505
 Carpet of Flying (5 ft by 10 ft)		OUTPUTNAME:Carpet of Flying, 5 ft. by 10 ft.	TYPE:Magic.Wondrous			COST:35000	WT:10								SOURCEPAGE:p.505
 Carpet of Flying (10 ft by 10 ft)		OUTPUTNAME:Carpet of Flying, 10 ft. by 10 ft.	TYPE:Magic.Wondrous			COST:60000	WT:15								SOURCEPAGE:p.505
@@ -274,7 +275,7 @@ Iron Flask											TYPE:Magic.Wondrous				COST:170000	WT:1		EQMOD:USES_PER_DAY
 ###Block:L
 # Equipment Name		Type						Cost		Weight	Source Page		Bonus to skill											Quality and value																		Special Property
 Lantern of Revealing	TYPE:Magic.Wondrous.LightSource	COST:30000	WT:2		SOURCEPAGE:p.522														QUALITY:Normal Illumination|30 ft. radius	QUALITY:Increased Illumination|60 ft. radius	QUALITY:Duration|6 hr./pint	SPROP:Reveals all invisible creatures and objects within 25 feet.
-Lens of Detection		TYPE:Magic.Wondrous			COST:3500	WT:1		SOURCEPAGE:p.522	BONUS:SKILL|Perception,Survival (Follow or identify tracks)|5|TYPE=Competence
+Lens of Detection		TYPE:Magic.Wondrous.Eyegear		COST:3500	WT:1		SOURCEPAGE:p.522	BONUS:SKILL|Perception,Survival (Follow or identify tracks)|5|TYPE=Competence
 Lyre of Building		TYPE:Magic.Wondrous.Instrument	COST:13000	WT:5		SOURCEPAGE:p.522
 
 ###Block:M
