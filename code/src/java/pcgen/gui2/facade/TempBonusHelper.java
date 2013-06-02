@@ -52,8 +52,6 @@ import pcgen.core.facade.UIDelegate;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
-import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserRadio;
 
 /**
  * The Class <code>TempBonusHelper</code> splits out processing for temporary 
@@ -479,25 +477,20 @@ public class TempBonusHelper
 
 			if ((max > 0) || (min <= max))
 			{
-				List<String> numberList = new ArrayList<String>();
+				List<Integer> numberList = new ArrayList<Integer>();
 
 				for (int i = min; i <= max; i++)
 				{
-					numberList.add(Integer.toString(i));
+					numberList.add(i);
 				}
 
 				// let them choose the number from a radio list
-				ChooserRadio c = ChooserFactory.getRadioInstance();
-				c.setAvailableList(numberList);
-				c.setVisible(false);
-				c.setTitle(LanguageBundle.getString("in_itmPickNumber")); //$NON-NLS-1$
-				c.setMessageText(titleString);
-				c.setVisible(true);
-
-				ArrayList<String> selectedList = c.getSelectedList();
+				List<Integer> selectedList = new ArrayList<Integer>();
+				selectedList = Globals.getChoiceFromList(titleString, numberList, selectedList, 1,
+					false, true, pc);
 				if (selectedList.size() > 0)
 				{
-					final String aI = selectedList.get(0);
+					final String aI = String.valueOf(selectedList.get(0));
 
 					// need to parse the bonus.getValue()
 					// string and replace %CHOICE

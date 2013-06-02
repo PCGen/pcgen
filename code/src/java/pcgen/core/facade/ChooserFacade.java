@@ -157,6 +157,14 @@ public interface ChooserFacade
 	public boolean isRequireCompleteSelection();
 
 	/**
+	 * Would the caller prefer this choice be shown as a simple set of radio 
+	 * buttons. Note: This preference may be ignored if the UIDelegate deems 
+	 * the choice unsuitable for this presentation style.
+	 * @return Should the choice be presented as radio buttons if possible?
+	 */
+	public boolean isPreferRadioSelection();
+
+	/**
 	 * @return Do the items in this chooser have extra info above a name.
 	 */
 	public boolean isInfoAvailable();

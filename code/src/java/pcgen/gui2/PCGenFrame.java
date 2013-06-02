@@ -96,6 +96,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.dialog.AboutDialog;
 import pcgen.gui2.dialog.ChooserDialog;
 import pcgen.gui2.dialog.PostLevelUpDialog;
+import pcgen.gui2.dialog.RadioChooserDialog;
 import pcgen.gui2.dialog.TipOfTheDay;
 import pcgen.gui2.sources.SourceSelectionDialog;
 import pcgen.gui2.tabs.InfoTabbedPane;
@@ -1605,10 +1606,22 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			return choiceHandler.makeChoice(chooserFacade);
 		}
 
-		ChooserDialog dialog = new ChooserDialog(this, chooserFacade);
-		Utility.setDialogRelativeLocation(this, dialog);
-		dialog.setVisible(true);
-		return dialog.isCommitted();
+		if (chooserFacade.isPreferRadioSelection()
+			&& chooserFacade.getAvailableList().getSize() <= 20
+			&& chooserFacade.getRemainingSelections().getReference() == 1)
+		{
+			RadioChooserDialog dialog = new RadioChooserDialog(this, chooserFacade);
+			Utility.setDialogRelativeLocation(this, dialog);
+			dialog.setVisible(true);
+			return dialog.isCommitted();
+		}
+		else
+		{
+			ChooserDialog dialog = new ChooserDialog(this, chooserFacade);
+			Utility.setDialogRelativeLocation(this, dialog);
+			dialog.setVisible(true);
+			return dialog.isCommitted();
+		}
 	}
 
 	/*

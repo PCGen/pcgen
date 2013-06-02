@@ -57,8 +57,6 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
-import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserRadio;
 import plugin.encounter.gui.EncounterView;
 
 /**
@@ -1127,17 +1125,14 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 				eqI)))
 			{
 				// let them choose where to put the item
-				ChooserRadio c = ChooserFactory.getRadioInstance();
-				c.setAvailableList(aList);
-				c.setVisible(false);
-				c.setTitle(eqI.getName());
-				c.setMessageText("Select a location for this item");
-				c.setVisible(true);
-				aList = c.getSelectedList();
-
-				if (aList.size() > 0)
+				List<String> selectedList = new ArrayList<String>();
+				selectedList =
+						Globals.getChoiceFromList("Select a location for "
+							+ eqI.getName(), aList, selectedList, 1, false,
+							true, pc);
+				if (selectedList.size() > 0)
 				{
-					location = aList.get(0);
+					location = selectedList.get(0);
 				}
 			}
 		}

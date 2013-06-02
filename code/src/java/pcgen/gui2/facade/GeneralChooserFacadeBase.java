@@ -73,6 +73,7 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 			ChooserTreeViewType.TYPE_NAME;
 
 	private boolean requireCompleteSelection;
+	private boolean preferRadioSelection;
 
 	private final InfoFactory infoFactory;
 	
@@ -312,6 +313,16 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	public boolean isRequireCompleteSelection()
 	{
 		return requireCompleteSelection;
+	}
+
+	public boolean isPreferRadioSelection()
+	{
+		return preferRadioSelection;
+	}
+
+	public void setPreferRadioSelection(boolean preferRadioSelection)
+	{
+		this.preferRadioSelection = preferRadioSelection;
 	}
 
 	/**

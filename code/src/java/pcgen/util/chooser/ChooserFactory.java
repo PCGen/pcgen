@@ -33,7 +33,6 @@ import pcgen.core.facade.UIDelegate;
  */
 public final class ChooserFactory
 {
-	private static String radioInterfaceClassname = null;
 	private static String userInputInterfaceClassname = null;
 	private static UIDelegate delegate;
 	private final static Stack<String> interfaceClassNameStack = new Stack<String>();
@@ -65,33 +64,6 @@ public final class ChooserFactory
 		{
 			Class<?> c = Class.forName(className);
 			ChoiceHandler ci = (ChoiceHandler) c.newInstance();
-			return ci;
-		}
-		catch (ClassNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
-		{
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	/**
-	 * Get the radio instance
-	 * @return ChooserRadio
-	 */
-	public static ChooserRadio getRadioInstance()
-	{
-		try
-		{
-			Class<?> c = Class.forName(radioInterfaceClassname);
-			ChooserRadio ci = (ChooserRadio) c.newInstance();
 			return ci;
 		}
 		catch (ClassNotFoundException e)
@@ -163,28 +135,11 @@ public final class ChooserFactory
 	}
 
 	/**
-	 * @param radioInterfaceClassname The radioInterfaceClassname to set.
-	 */
-	public static void setRadioInterfaceClassname(String radioInterfaceClassname)
-	{
-		ChooserFactory.radioInterfaceClassname = radioInterfaceClassname;
-	}
-
-	/**
 	 * @param uiInterfaceClassname The uiInterfaceClassname to set.
 	 */
 	public static void setUserInputInterfaceClassname(String uiInterfaceClassname)
 	{
 		ChooserFactory.userInputInterfaceClassname = uiInterfaceClassname;
-	}
-
-	/**
-	 * Get the class name of the radio interface
-	 * @return the class name of hte radio interface
-	 */
-	public static String getRadioInterfaceClassname()
-	{
-		return ChooserFactory.radioInterfaceClassname;
 	}
 
 	/**

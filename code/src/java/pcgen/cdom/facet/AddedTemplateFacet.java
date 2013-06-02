@@ -176,7 +176,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<PCTemplate>
 			title += " (" + anOwner.getDisplayName() + ")";
 		}
 		selectedList = Globals.getChoiceFromList(title, availableList, selectedList, 1,
-				forceChoice, trackingFacet.getPC(id));
+				forceChoice, false, trackingFacet.getPC(id));
 		if (selectedList.size() == 1)
 		{
 			return selectedList.get(0);

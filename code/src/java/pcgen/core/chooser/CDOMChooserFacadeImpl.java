@@ -90,6 +90,8 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 
 	private boolean requireCompleteSelection;
 
+	private boolean preferRadioSelection = false;
+
 	private final String stringDelimiter;
 	
 	private boolean infoAvailable = false;
@@ -428,6 +430,23 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	public boolean isRequireCompleteSelection()
 	{
 		return requireCompleteSelection;
+	}
+
+	/**
+	 * @param preferRadioSelection Should this choice be displayed using radio buttons? 
+	 */
+	public void setPreferRadioSelection(boolean preferRadioSelection)
+	{
+		this.preferRadioSelection = preferRadioSelection;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isPreferRadioSelection()
+	{
+		return preferRadioSelection;
 	}
 
 	/**

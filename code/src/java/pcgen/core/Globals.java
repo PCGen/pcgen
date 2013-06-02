@@ -1337,7 +1337,7 @@ public final class Globals
 		final List<T> choiceList, final List<T> selectedList, final int pool,
 		PlayerCharacter pc)
 	{
-		return getChoiceFromList(title, choiceList, selectedList, pool, false, pc);
+		return getChoiceFromList(title, choiceList, selectedList, pool, false, false, pc);
 	}
 
 	/**
@@ -1347,12 +1347,13 @@ public final class Globals
 	 * @param selectedList The values already selected (none of which should be in the available list).
 	 * @param pool The number of choices the user can make.
 	 * @param forceChoice true if the user will be forced to make all choices.
+	 * @param preferRadioSelection true if this would be better presented as a radio button list
 	 * @param pc The character the choice is being made for.
 	 * @return The list of choices made by the user.
 	 */
 	public static <T> List<T> getChoiceFromList(final String title,
 		final List<T> choiceList, final List<T> selectedList, final int pool,
-		final boolean forceChoice, PlayerCharacter pc)
+		final boolean forceChoice, final boolean preferRadioSelection, PlayerCharacter pc)
 	{
 		List<T> startingSelectedList = new ArrayList<T>();
 		if (selectedList != null)
@@ -1368,6 +1369,7 @@ public final class Globals
 		chooserFacade.setRequireCompleteSelection(forceChoice);
 		chooserFacade.setInfoFactory(new Gui2InfoFactory(pc));
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
+		chooserFacade.setPreferRadioSelection(preferRadioSelection);
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 		
 		return chooserFacade.getFinalSelected();
