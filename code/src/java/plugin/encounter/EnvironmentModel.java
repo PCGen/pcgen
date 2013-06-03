@@ -5,6 +5,7 @@ package plugin.encounter;
 
 import gmgen.io.ReadXML;
 import gmgen.io.VectorTable;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 import javax.swing.DefaultComboBoxModel;
@@ -37,22 +38,22 @@ public class EnvironmentModel extends DefaultComboBoxModel
 	{
 		VectorTable table;
 		ReadXML reader;
-		File f = new File(dir + File.separator + "environments.xml"); //$NON-NLS-1$
+		File f = new File(dir, "environments.xml"); //$NON-NLS-1$
 
 		this.removeAllElements();
 
 		if (!f.exists())
 		{
 			// TODO Make it so that the view also indicate that the file is missing.
-			Logging.errorPrint("Eek! environments.xml is missing!");
-
+			Logging.errorPrintLocalised("in_plugin_encounter_error_missing", f); //$NON-NLS-1$
+			
 			return;
 		}
 
 		reader = new ReadXML(f);
 		table = reader.getTable();
 
-		this.addElement("Generic");
+		this.addElement(LanguageBundle.getString("in_plugin_encounter_generic")); //$NON-NLS-1$
 
 		for (int x = 1; x < table.sizeY(); x++)
 		{

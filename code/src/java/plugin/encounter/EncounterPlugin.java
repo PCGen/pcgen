@@ -103,7 +103,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	private static final String IN_NAME_MN = "in_mn_plugin_encounter_name"; //$NON-NLS-1$
 
 	/** The version number of the plugin. */
-	private String version = "01.00.99.01.00";
+	private String version = "01.00.99.01.00"; //$NON-NLS-1$
 
 	/**
 	 * Creates an instance of this class creating a new <code>InitHolderList
@@ -245,8 +245,8 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		}
 		else
 		{
-			Logging.errorPrint("Unhandled ActionEvent: "
-				+ e.getSource());
+			Logging.errorPrintLocalised("in_plugin_encounter_error_unhandled", //$NON-NLS-1$
+					e.getSource());
 		}
 
 		updateUI();
@@ -269,8 +269,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 		}
 		else
 		{
-			Logging.errorPrint("handleGenerateEncounter:");
-			Logging.errorPrint(f.toString());
+			Logging.errorPrintLocalised("in_plugin_encounter_error_missing", f); //$NON-NLS-1$
 
 			return;
 		}
@@ -874,7 +873,7 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 
 		if (!f.exists())
 		{
-			Logging.errorPrint("ACK! No FILE! " + f.toString());
+			Logging.errorPrintLocalised("in_plugin_encounter_error_missing", f); //$NON-NLS-1$
 
 			return;
 		}
