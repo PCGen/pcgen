@@ -193,22 +193,6 @@ public class Logging
 	/**
 	 * Print localised information message if PCGen is debugging.
 	 *
-	 * @param param1 String information message (usually variable)
-	 * @param param2 Object information message (usually value)
-	 */
-	public static void debugPrintLocalised(final String param1, Object param2)
-	{
-		Logger l = getLogger();
-		if (l.isLoggable(DEBUG))
-		{
-			String msg = LanguageBundle.getFormattedString(param1, param2);
-			l.log(DEBUG, msg);
-		}
-	}
-
-	/**
-	 * Print localised information message if PCGen is debugging.
-	 *
 	 * @param message String information message (usually variable)
 	 * @param param1 Object information message (usually value)
 	 * @param param2 Object information message (usually value)
@@ -255,13 +239,16 @@ public class Logging
 	}
 
 	/**
-	 * Print a localized error message including parameter substitution.  The
+	 * Print a localized error message including parameter substitution. The
 	 * method will issue a beep if the application is running in Debug mode.
-	 * <p>This method accepts a variable number of parameters and will replace
+	 * <p>
+	 * This method accepts a variable number of parameters and will replace
 	 * <code>{argno}</code> in the string with each passed paracter in turn.
-	 * @param aKey A key for the localized string in the language bundle
-	 * @param varargs Variable number of parameters to substitute into the 
-	 * string
+	 * 
+	 * @param aKey
+	 *            A key for the localized string in the language bundle
+	 * @param varargs
+	 *            Variable number of parameters to substitute into the string
 	 */
 	public static void errorPrintLocalised(final String aKey, Object... varargs)
 	{
