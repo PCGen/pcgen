@@ -119,6 +119,11 @@ public class StatToken extends Token
 			{
 				return stat.getDisplayName();
 			}
+		
+			if ("ISNONABILITY".equals(token))
+			{
+				return pc.getDisplay().isNonAbility(stat) ? "Y" : "N";
+			}
 
 			if ("STAT".equals(token))
 			{
