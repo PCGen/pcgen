@@ -52,6 +52,7 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.content.Selection;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.Gender;
@@ -67,6 +68,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.LanguageFacet;
+import pcgen.cdom.facet.model.TemplateSelectionFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -270,6 +272,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private int lastExportCharSerial = 0;
 	private PlayerCharacter lastExportChar = null;
 	private LanguageListener langListener;
+	private TemplateListener templateListener;
 	
 	/**
 	 * Create a new character facade for an existing character.
@@ -295,7 +298,10 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
     @Override
 	public void closeCharacter()
 	{
-		FacetLibrary.getFacet(LanguageFacet.class).removeDataFacetChangeListener(langListener);
+		FacetLibrary.getFacet(LanguageFacet.class)
+			.removeDataFacetChangeListener(langListener);
+		FacetLibrary.getFacet(TemplateSelectionFacet.class)
+			.removeDataFacetChangeListener(templateListener);
 		characterAbilities.closeCharacter();
 		charLevelsFacade.closeCharacter();
 		GMBus.send(new PCClosedMessage(null, theCharacter));
@@ -419,6 +425,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		buildAvailableDomainsList();
 
 		templates = new DefaultListFacade<TemplateFacade>(charDisplay.getTemplateSet());
+		templateListener = new TemplateListener(); 
+		FacetLibrary.getFacet(TemplateSelectionFacet.class).addDataFacetChangeListener(templateListener);
 
 		initTodoList();
 
@@ -601,7 +609,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		characterAbilities.addAbility(category, ability);
 		refreshKitList();
-		refreshTemplates();
 		refreshAvailableTempBonuses();
 		buildAvailableDomainsList();
 		companionSupportFacade.refreshCompanionData();
@@ -771,7 +778,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		characterAbilities.rebuildAbilityLists();
 		companionSupportFacade.refreshCompanionData();
 		refreshKitList();
-		refreshTemplates();
 		refreshAvailableTempBonuses();
 		refreshEquipment();
 		currentXP.setReference(charDisplay.getXP());
@@ -1958,7 +1964,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		xpForNextlevel.setReference(charDisplay.minXPForNextECL());
 		xpTableName.setReference(charDisplay.getXPTableName());
 		hpRef.setReference(theCharacter.hitPoints());
-		refreshTemplates();
 		refreshAvailableTempBonuses();
 		companionSupportFacade.refreshCompanionData();
 
@@ -4020,7 +4025,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle.getString("in_irNotRemovable"));
 		}
-		refreshTemplates();
 	}
 
 	private void refreshTemplates()
@@ -4446,6 +4450,40 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				return;
 			}
 			refreshLanguageList();
+		}
+		
+	}
+	
+	/**
+	 * The Class <code>TemplateListener</code> tracks adding and removal of 
+	 * templates to the character.
+	 */
+	public class TemplateListener implements DataFacetChangeListener<Selection<PCTemplate, ?>>
+	{
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void dataAdded(DataFacetChangeEvent<Selection<PCTemplate, ?>> dfce)
+		{
+			if (dfce.getCharID() != theCharacter.getCharID())
+			{
+				return;
+			}
+			refreshTemplates();
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void dataRemoved(DataFacetChangeEvent<Selection<PCTemplate, ?>> dfce)
+		{
+			if (dfce.getCharID() != theCharacter.getCharID())
+			{
+				return;
+			}
+			refreshTemplates();
 		}
 		
 	}
