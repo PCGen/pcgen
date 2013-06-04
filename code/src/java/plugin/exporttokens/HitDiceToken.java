@@ -62,9 +62,14 @@ public class HitDiceToken extends Token
 	{
 		String retString = "";
 
-		if ("HITDICE".equals(tokenSource))
+		if ("HITDICE".equals(tokenSource) ||
+			"HITDICE.LONG".equals(tokenSource))
 		{
 			retString = getHitDiceToken(pc);
+		}
+		else if ("HITDICE.MEDIUM".equals(tokenSource))
+		{
+			retString = getMediumToken(pc);
 		}
 		else if ("HITDICE.SHORT".equals(tokenSource))
 		{
@@ -75,9 +80,9 @@ public class HitDiceToken extends Token
 	}
 
 	/**
-	 * Get the HITDICE token
+	 * Get the medium version of the HITDICE token
 	 * @param pc
-	 * @return the HITDICE token
+	 * @return the medium version of the HITDICE token
 	 */
 	public static String getHitDiceToken(PlayerCharacter pc)
 	{
@@ -119,6 +124,70 @@ public class HitDiceToken extends Token
 			}
 		}
 
+		// Get CON bonus contribution to hitpoint total
+		int temp = (int) display.getStatBonusTo("HP", "BONUS") * display.getTotalLevels();
+
+		// Add in feat bonus
+		temp += (int) pc.getTotalBonusTo("HP", "CURRENTMAX");
+
+		if (temp != 0)
+		{
+			ret.append(Delta.toString(temp));
+		}
+
+		return ret.toString();
+	}
+
+	/**
+	 * Get the HITDICE token
+	 * @param pc
+	 * @return the HITDICE token
+	 */
+	public static String getMediumToken(PlayerCharacter pc)
+	{
+		StringBuilder ret = new StringBuilder();
+		String del = "";
+		Integer total = 0;
+
+		HashMap<Integer, Integer> hdMap =
+				new LinkedHashMap<Integer, Integer>();
+
+		CharacterDisplay display = pc.getDisplay();
+		for (PCClass pcClass : display.getClassSet())
+		{
+			for (int i = 0; i < display.getLevel(pcClass); i++)
+			{
+				int hitDie = display.getLevelHitDie(pcClass, i + 1).getDie();
+				if (hitDie != 0)
+				{
+					Integer num = hdMap.get(hitDie);
+					if (num == null)
+					{
+						hdMap.put(hitDie, 1);
+					}
+					else
+					{
+						hdMap.put(hitDie, num.intValue() + 1);
+					}
+				}
+			}
+		}
+		Set<Integer> keys = hdMap.keySet();
+
+		if (keys.size() > 1)
+		{
+			ret.append(getShortToken(display));
+			ret.append(" HD; ");
+		}
+		for (int key : keys)
+		{
+			Integer value = hdMap.get(key);
+			ret.append(del);
+			ret.append(value).append("d").append(key);
+			total += value;
+			del = "+";
+		}
+	
 		// Get CON bonus contribution to hitpoint total
 		int temp = (int) display.getStatBonusTo("HP", "BONUS") * display.getTotalLevels();
 
