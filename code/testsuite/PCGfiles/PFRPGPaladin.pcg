@@ -1,0 +1,257 @@
+PCGVERSION:2.0
+
+# System Information
+CAMPAIGN:Paizo - Pathfinder Roleplaying Game Core Rulebook|CAMPAIGN:Paizo - Pathfinder Roleplaying Game Advanced Player's Guide|CAMPAIGN:Paizo - Carrion Crown Player's Guide|CAMPAIGN:Paizo - Inner Sea Primer|CAMPAIGN:Paizo - Pathfinder Roleplaying Game Ultimate Combat|CAMPAIGN:Paizo - Pathfinder Roleplaying Game Ultimate Magic
+VERSION:6.01.03-dev
+ROLLMETHOD:2|EXPRESSION:Epic Fantasy
+PURCHASEPOINTS:Y|TYPE:Epic Fantasy
+CHARACTERTYPE:PC
+PREVIEWSHEET:Standard.htm
+POOLPOINTS:21
+POOLPOINTSAVAIL:20
+GAMEMODE:Pathfinder_RPG
+TABLABEL:0
+AUTOSPELLS:Y
+USEHIGHERKNOWN:N
+USEHIGHERPREPPED:N
+LOADCOMPANIONS:N
+USETEMPMODS:Y
+AUTOSORTGEAR:N
+SKILLSOUTPUTORDER:0
+IGNORECOST:N
+ALLOWDEBT:N
+AUTORESIZEGEAR:N
+
+# Character Bio
+CHARACTERNAME:Florian Syrkov
+TABNAME:Florian Lvl6
+PLAYERNAME:James
+HEIGHT:70
+WEIGHT:160
+AGE:33
+GENDER:Male
+HANDED:Right
+SKINCOLOR:Tanned
+EYECOLOR:Blue
+HAIRCOLOR:Black
+HAIRSTYLE:Mid length hair and beard
+LOCATION:
+CITY:Sturnidae
+BIRTHDAY:
+BIRTHPLACE:
+PERSONALITYTRAIT1:
+PERSONALITYTRAIT2:Well mannered
+SPEECHPATTERN:
+PHOBIAS:
+INTERESTS:
+CATCHPHRASE:
+PORTRAIT:D&colon;\Users\James\Documents\PCGen Chars\Images\Florian.jpg
+PORTRAITTHUMBNAILRECT:174,67,160,160
+
+# Character Attributes
+STAT:STR|SCORE:16
+STAT:DEX|SCORE:12
+STAT:CON|SCORE:14
+STAT:INT|SCORE:8
+STAT:WIS|SCORE:12
+STAT:CHA|SCORE:14
+ALIGN:LG
+RACE:Human
+
+# Character Class(es)
+CLASS:Paladin|LEVEL:6|SKILLPOOL:0|SPELLBASE:CHA|CANCASTPERDAY:0,1
+CLASSABILITIESLEVEL:Paladin=1|HITPOINTS:10|PRESTAT:CON=-1|PRESTAT:WIS=2|SKILLSGAINED:2|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Paladin=2|HITPOINTS:6|SKILLSGAINED:2|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Paladin=3|HITPOINTS:6|SKILLSGAINED:2|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Paladin=4|HITPOINTS:6|PRESTAT:CON=1|SKILLSGAINED:2|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Paladin=5|HITPOINTS:6|SKILLSGAINED:2|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Paladin=6|HITPOINTS:6|SKILLSGAINED:2|SKILLSREMAINING:0
+
+# Character Experience
+EXPERIENCE:23000
+EXPERIENCETABLE:Medium
+
+# Character Templates
+TEMPLATESAPPLIED:[NAME:Creature with Class Levels]
+TEMPLATESAPPLIED:[NAME:Human Ethnicity]
+TEMPLATESAPPLIED:[NAME:Human]
+TEMPLATESAPPLIED:[NAME:Regional Affinity (Ustalav)]
+TEMPLATESAPPLIED:[NAME:Human Ethnicity (Varisian)]
+
+# Character Region
+REGION:Ustalav
+
+# Character Skills
+SKILL:Acrobatics|OUTPUTORDER:1|
+SKILL:Appraise|OUTPUTORDER:4|
+SKILL:Bluff|OUTPUTORDER:5|
+SKILL:Climb|OUTPUTORDER:6|
+SKILL:Craft (Untrained)|OUTPUTORDER:7|
+SKILL:Diplomacy|OUTPUTORDER:8|CLASSBOUGHT:[CLASS:Paladin|RANKS:2.0|COST:1|CLASSSKILL:Y]
+SKILL:Disguise|OUTPUTORDER:9|
+SKILL:Escape Artist|OUTPUTORDER:10|
+SKILL:Fly|OUTPUTORDER:11|
+SKILL:Heal|OUTPUTORDER:14|
+SKILL:Intimidate|OUTPUTORDER:15|
+SKILL:Perception|OUTPUTORDER:19|CLASSBOUGHT:[CLASS:Paladin|RANKS:2.0|COST:1|CLASSSKILL:N]
+SKILL:Perform (Untrained)|OUTPUTORDER:21|
+SKILL:Ride|OUTPUTORDER:23|CLASSBOUGHT:[CLASS:Paladin|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Sense Motive|OUTPUTORDER:24|CLASSBOUGHT:[CLASS:Paladin|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Stealth|OUTPUTORDER:25|
+SKILL:Survival|OUTPUTORDER:26|
+SKILL:Swim|OUTPUTORDER:27|
+SKILL:Knowledge (Religion)|OUTPUTORDER:17|CLASSBOUGHT:[CLASS:Paladin|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Linguistics|OUTPUTORDER:18|CLASSBOUGHT:[CLASS:Paladin|RANKS:1.0|COST:1|CLASSSKILL:N]|ASSOCIATEDDATA:Varisian
+SKILL:Profession (Merchant)|OUTPUTORDER:22|CLASSBOUGHT:[CLASS:Paladin|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Knowledge (Nobility)|OUTPUTORDER:16|CLASSBOUGHT:[CLASS:Paladin|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Perform (Dance)|OUTPUTORDER:20|CLASSBOUGHT:[CLASS:Paladin|RANKS:1.0|COST:1|CLASSSKILL:N]
+SKILL:Acrobatics (Jump)|OUTPUTORDER:2|
+SKILL:Handle Animal|OUTPUTORDER:13|CLASSBOUGHT:[CLASS:Paladin|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Acrobatics (Perform (Dance))|OUTPUTORDER:3|
+SKILL:Fly (Perform (Dance))|OUTPUTORDER:12|
+
+# Character Languages
+LANGUAGE:Varisian|LANGUAGE:Common
+
+# Character Feats
+FEATPOOL:-4.0
+
+# Character Abilities
+ABILITY:Ability Bonus|TYPE:NORMAL|CATEGORY:Special Ability|KEY:+2 Strength|TYPE:AbilityBonus
+USERPOOL:Ability Bonus|POOLPOINTS:0.0
+ABILITY:Divine Bond|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Celestial Spirit|TYPE:SpecialQuality.SpellLike.DivineBond|DESC:Your divine bond allows you to enhance your weapon as a standard action by calling upon the aid of a celestial spirit.
+USERPOOL:Divine Bond|POOLPOINTS:0.0
+ABILITY:Favored Class|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Paladin|TYPE:FavoredClass
+USERPOOL:Favored Class|POOLPOINTS:0.0
+ABILITY:Favored Class Bonus|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Bonus Energy Resistance|APPLIEDTO:,|TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin|DESC:Add +1 to the paladin's energy resistance to one kind of energy (maximum +10).
+ABILITY:Favored Class Bonus|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Bonus Skill Point|APPLIEDTO:Diplomacy,Diplomacy,Diplomacy,Diplomacy|TYPE:FavoredClassBonus
+USERPOOL:Favored Class Bonus|POOLPOINTS:0.0
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Reward of Grace|TYPE:General|DESC:When you lay on hands, divine energy ripples through you, granting you grace.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Power Attack|TYPE:Combat.AttackOption.AbyssalBloodline.DraconicBloodline.ElementalBloodline.BorealBloodline.SaurianShamanBonus.DjinniBloodline.EfreetiBloodline.MaridBloodline.ShaitanBloodline|DESC:You can make exceptionally deadly melee attacks by sacrificing accuracy for strength.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Weapon Focus|APPLIEDTO:Flail (Heavy)|TYPE:Combat.WeaponFocus.DestinedBloodline.OracleWeaponMastery|DESC:You are especially good at using your chosen weapon.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Skill Focus|APPLIEDTO:Diplomacy|TYPE:General.SkillFocus|DESC:You are particularly adept at your chosen skill.
+USERPOOL:FEAT|POOLPOINTS:0.0
+ABILITY:Human Ethnicity|TYPE:NORMAL|CATEGORY:Background|KEY:Varisian|TYPE:HumanEthnicity
+USERPOOL:Human Ethnicity|POOLPOINTS:0.0
+ABILITY:Mercy|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Staggered Mercy|TYPE:SpecialQuality.Supernatural.Mercy.LayOnHands|DESC:Whenever you use Lay on Hands to heal damage to one target, the target is no longer staggered, unless it is at exactly 0 hit points.
+ABILITY:Mercy|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Sickened Mercy|TYPE:SpecialQuality.Supernatural.Mercy.LayOnHands|DESC:Whenever you use Lay on Hands to heal damage to one target, the target is no longer sickened.
+USERPOOL:Mercy|POOLPOINTS:0.0
+ABILITY:Region of Origin|TYPE:NORMAL|CATEGORY:Background|KEY:Ustalav|TYPE:Region|DESC:Fog-Shrouded Land of Gothic Horror
+USERPOOL:Region of Origin|POOLPOINTS:0.0
+ABILITY:Traits|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Rich Parents ~ Trait|TYPE:Trait.BasicTrait.SocialTrait|DESC:You were born into a rich family, perhaps even the nobility.
+ABILITY:Traits|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Chance Savior|TYPE:Trait.CampaignTrait|DESC:Fate smiled on you and Professor Lorrimor one day in the not so distant past. Through a matter of pure chance, you were in a position to save the late scholar's life and did so. His gratitude was effusive, and he promised that he would never forget you. You are unsure of the nature of the summons in his will, but believe he may have listed you as a possible heir in thanks for saving him from an untimely demise. Your ability to think quickly on your feet has stayed with you, and you quite often feel that you're in the right place at the right time. You gain a +2 trait bonus on Initiative checks.
+USERPOOL:Traits|POOLPOINTS:0.0
+ABILITY:*LANGBONUS|TYPE:VIRTUAL|CATEGORY:*LANGBONUS|KEY:*LANGBONUS|APPLIEDTO:|TYPE:
+USERPOOL:*LANGBONUS|POOLPOINTS:0.0
+
+# Character Weapon proficiencies
+WEAPONPROF:[WEAPON:Amentum (Javelin)|WEAPON:Atlatl|WEAPON:Axe (Throwing)|WEAPON:Bardiche|WEAPON:Battleaxe|WEAPON:Bayonet|WEAPON:Bec de Corbin|WEAPON:Bill|WEAPON:Blowgun|WEAPON:Broadsword (Nine Ring)]
+WEAPONPROF:[WEAPON:Butterfly Sword|WEAPON:Cestus|WEAPON:Chakram|WEAPON:Club|WEAPON:Crossbow (Heavy)|WEAPON:Crossbow (Light)|WEAPON:Dagger|WEAPON:Dagger (Punching)|WEAPON:Dart|WEAPON:Double Chicken Saber]
+WEAPONPROF:[WEAPON:Falchion|WEAPON:Flail|WEAPON:Flail (Heavy)|WEAPON:Gauntlet|WEAPON:Gauntlet (Spiked)|WEAPON:Gladius|WEAPON:Glaive|WEAPON:Glaive-Guisarme|WEAPON:Grapple|WEAPON:Greataxe]
+WEAPONPROF:[WEAPON:Greatclub|WEAPON:Greatsword|WEAPON:Guisarme|WEAPON:Halberd|WEAPON:Hammer (Light)|WEAPON:Handaxe|WEAPON:Hooked Lance|WEAPON:Iron Brush|WEAPON:Javelin|WEAPON:Jutte]
+WEAPONPROF:[WEAPON:Katana|WEAPON:Kerambit|WEAPON:Kukri|WEAPON:Lance|WEAPON:Longbow|WEAPON:Longspear|WEAPON:Longsword|WEAPON:Lucern Hammer|WEAPON:Lungchuan Tamo|WEAPON:Mace (Heavy)]
+WEAPONPROF:[WEAPON:Mace (Light)|WEAPON:Mattock|WEAPON:Mere Club|WEAPON:Monk's Spade|WEAPON:Morningstar|WEAPON:Naginata|WEAPON:Nodachi|WEAPON:Pick (Heavy)|WEAPON:Pick (Light)|WEAPON:Pilum]
+WEAPONPROF:[WEAPON:Poisoned Sand Tube|WEAPON:Quarterstaff|WEAPON:Ranseur|WEAPON:Rapier|WEAPON:Rhomphaia|WEAPON:Rock|WEAPON:Sansetsukon|WEAPON:Sap|WEAPON:Scimitar|WEAPON:Scizore]
+WEAPONPROF:[WEAPON:Scythe|WEAPON:Shang Gou|WEAPON:Shieldbash|WEAPON:Shortbow|WEAPON:Shortspear|WEAPON:Sibat|WEAPON:Sickle|WEAPON:Sling|WEAPON:Spear|WEAPON:Spear (Boar)]
+WEAPONPROF:[WEAPON:Spells (Ray)|WEAPON:Spells (Touch)|WEAPON:Spiked Armor|WEAPON:Stake|WEAPON:Starknife|WEAPON:Sword (Bastard)|WEAPON:Sword (Short)|WEAPON:Sword (Tri-Point Double-Edged)|WEAPON:Sword Cane|WEAPON:Tepoztopilli]
+WEAPONPROF:[WEAPON:Terbutje|WEAPON:Tiger Fork|WEAPON:Tonfa|WEAPON:Trident|WEAPON:Tube Arrow Shooter|WEAPON:Unarmed Strike|WEAPON:Waraxe (Dwarven)|WEAPON:Warhammer|WEAPON:Wushu Dart]
+
+# Character Equipment
+MONEY:488
+EQUIPNAME:Explorer's Outfit|OUTPUTORDER:24|COST:0|WT:8.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Outfit (Explorer's)|DATA:NAME=Explorer's Outfit$KEY=Outfit (Explorer's)$COSTMOD=-10]
+EQUIPNAME:Lantern (Bullseye)|OUTPUTORDER:11|COST:12|WT:3.0|QUANTITY:1.0
+EQUIPNAME:Grappling Hook|OUTPUTORDER:23|COST:1|WT:4.0|QUANTITY:1.0
+EQUIPNAME:Iron Spike|OUTPUTORDER:10|COST:0.05|WT:1.0|QUANTITY:3.0
+EQUIPNAME:Sunrod|OUTPUTORDER:14|COST:2|WT:1.0|QUANTITY:2.0
+EQUIPNAME:Ring of Protection +1|OUTPUTORDER:3|COST:2000|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Dagger|OUTPUTORDER:15|COST:2.0|WT:1.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Dagger|DATA:NAME=Dagger$EQMOD=STEEL]
+EQUIPNAME:Outfit (Traveler's)|OUTPUTORDER:0|COST:1|WT:5.0|QUANTITY:1.0
+EQUIPNAME:Flail +1 (Heavy)|OUTPUTORDER:1|COST:2315.0|WT:10.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Flail (Heavy)|DATA:NAME=Flail +1 (Heavy)$EQMOD=DISARM.STEEL.TRIP.PLUS1W]
+EQUIPNAME:Horse (Heavy/Combat Trained)|OUTPUTORDER:19|COST:300|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Oil (1 Pint Flask)|OUTPUTORDER:12|COST:0.1|WT:1.0|QUANTITY:2.0
+EQUIPNAME:Gauntlet|OUTPUTORDER:0|COST:0.0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Gauntlet (Part of Armor Suit)|DATA:NAME=Gauntlet$KEY=Gauntlet (Part of Armor Suit)$EQMOD=STEEL]
+EQUIPNAME:Flint and Steel|OUTPUTORDER:7|COST:1|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Javelin|OUTPUTORDER:16|COST:1.0|WT:2.0|QUANTITY:5.0|CUSTOMIZATION:[BASEITEM:Javelin|DATA:NAME=Javelin$EQMOD=WOOD]
+EQUIPNAME:Saddlebags|OUTPUTORDER:21|COST:4|WT:8.0|QUANTITY:1.0
+EQUIPNAME:Full Plate +1|OUTPUTORDER:4|COST:2650.0|WT:50.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Full Plate|DATA:NAME=Full Plate +1$EQMOD=STEEL.PLUS1A]
+EQUIPNAME:Rope (Silk/50 ft.)|OUTPUTORDER:13|COST:10|WT:5.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Rope (Silk/50 ft)|DATA:NAME=Rope (Silk/50 ft.)$KEY=Rope (Silk/50 ft)]
+EQUIPNAME:Holy Symbol (Silver)|OUTPUTORDER:8|COST:25|WT:1.0|QUANTITY:1.0
+EQUIPNAME:Saddle (Military)|OUTPUTORDER:20|COST:20|WT:30.0|QUANTITY:1.0
+EQUIPNAME:Backpack|OUTPUTORDER:5|COST:2|WT:2.0|QUANTITY:1.0
+EQUIPNAME:Holy Water (Flask)|OUTPUTORDER:9|COST:25|WT:1.0|QUANTITY:2.0
+EQUIPNAME:Waterskin (Filled)|OUTPUTORDER:25|COST:1|WT:4.0|QUANTITY:1.0
+EQUIPNAME:Bedroll|OUTPUTORDER:22|COST:0.1|WT:5.0|QUANTITY:1.0
+EQUIPNAME:Wooden Stake|OUTPUTORDER:18|COST:0.0|WT:1.0|QUANTITY:4.0|CUSTOMIZATION:[BASEITEM:Stake (Wood)|DATA:NAME=Wooden Stake$KEY=Stake (Wood)$EQMOD=WOOD]
+EQUIPNAME:Antitoxin (Vial)|OUTPUTORDER:6|COST:50|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Gauntlet, Spiked|OUTPUTORDER:2|COST:5.0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Gauntlet (Spiked)|DATA:NAME=Gauntlet, Spiked$KEY=Gauntlet (Spiked)$EQMOD=STEEL]
+EQUIPNAME:Longsword (Alchemical Silver)|OUTPUTORDER:17|COST:105.0|WT:4.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Longsword|DATA:NAME=Longsword (Alchemical Silver)$EQMOD=STEEL.ALCHM]
+EQUIPNAME:Gauntlet|OUTPUTORDER:0|COST:0.0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Gauntlet (Part of Armor Suit)|DATA:KEY=Gauntlet (Part of Armor Suit)$EQMOD=STEEL]
+EQUIPNAME:Gauntlet|OUTPUTORDER:0|COST:2.0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Gauntlet|DATA:EQMOD=STEEL]
+EQUIPSET:Default Set|ID:0.1|USETEMPMODS:Y
+EQUIPSET:Unarmed|ID:0.1.01|VALUE:Gauntlet (Spiked)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Torso|ID:0.1.02|VALUE:Outfit (Traveler's)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Carried|ID:0.1.03|VALUE:Stake (Wood)|QUANTITY:2.0|USETEMPMODS:Y
+EQUIPSET:Both Hands|ID:0.1.04|VALUE:Flail +1 (Heavy)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Ring|ID:0.1.05|VALUE:Ring of Protection +1|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Armor|ID:0.1.06|VALUE:Full Plate +1|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Equipped|ID:0.1.07|VALUE:Backpack|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.07.01|VALUE:Rope (Silk/50 ft)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.07.02|VALUE:Antitoxin (Vial)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.07.03|VALUE:Flint and Steel|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.07.04|VALUE:Holy Symbol (Silver)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.07.05|VALUE:Holy Water (Flask)|QUANTITY:2.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.07.06|VALUE:Iron Spike|QUANTITY:3.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.07.07|VALUE:Lantern (Bullseye)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.07.08|VALUE:Oil (1 Pint Flask)|QUANTITY:2.0|USETEMPMODS:Y
+EQUIPSET:Backpack|ID:0.1.07.09|VALUE:Sunrod|QUANTITY:2.0|USETEMPMODS:Y
+EQUIPSET:Carried|ID:0.1.08|VALUE:Dagger|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Carried|ID:0.1.09|VALUE:Javelin|QUANTITY:3.0|USETEMPMODS:Y
+EQUIPSET:Carried|ID:0.1.10|VALUE:Longsword (Alchemical Silver)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Not Carried|ID:0.1.11|VALUE:Horse (Heavy/Combat Trained)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Horse (Heavy/Combat Trained)|ID:0.1.11.01|VALUE:Javelin|QUANTITY:2.0|USETEMPMODS:Y
+EQUIPSET:Horse (Heavy/Combat Trained)|ID:0.1.11.02|VALUE:Saddle (Military)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Horse (Heavy/Combat Trained)|ID:0.1.11.03|VALUE:Saddlebags|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Saddlebags|ID:0.1.11.03.01|VALUE:Wooden Stake|QUANTITY:2.0|USETEMPMODS:Y
+EQUIPSET:Saddlebags|ID:0.1.11.03.02|VALUE:Bedroll|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Saddlebags|ID:0.1.11.03.03|VALUE:Grappling Hook|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Saddlebags|ID:0.1.11.03.04|VALUE:Explorer's Outfit|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Saddlebags|ID:0.1.11.03.05|VALUE:Waterskin (Filled)|QUANTITY:1.0|USETEMPMODS:Y
+CALCEQUIPSET:0.1
+
+# Temporary Bonuses
+TEMPBONUS:FEAT=Power Attack (Two-Handed)|TBTARGET:Flail +1 (Heavy)|TBBONUS:WEAPON&pipe;TOHIT&pipe;-POWERATTACKMODIFIER&pipe;TYPE=TEMPORARY|TBBONUS:WEAPON&pipe;DAMAGE&pipe;3*POWERATTACKMODIFIER&pipe;TYPE=TEMPORARY
+
+# EquipSet Temp Bonuses
+
+# Character Deity/Domain
+DEITY:Abadar|DEITYDOMAINS:[DOMAIN:Earth|DOMAIN:Law|DOMAIN:Nobility|DOMAIN:Protection|DOMAIN:Travel|DOMAIN:Defense Subdomain|DOMAIN:Inevitable Subdomain|DOMAIN:Leadership Subdomain|DOMAIN:Martyr Subdomain|DOMAIN:Metal Subdomain|DOMAIN:Trade Subdomain]|ALIGNALLOW:|DESC:God of cities, wealth, merchants, law|HOLYITEM:|DEITYFAVWEAP:[WEAPON:Crossbow (Light)]|DEITYALIGN:Lawful Neutral
+
+# Character Spells Information
+SPELLBOOK:Class|TYPE:4
+SPELLBOOK:Prepared Spells|TYPE:2
+SPELLNAME:Compel Hostility|TIMES:1|CLASS:Paladin|BOOK:Prepared Spells|SPELLLEVEL:1|SOURCE:[TYPE:CLASS|NAME:Paladin]
+SPELLNAME:Restoration (Lesser)|TIMES:1|CLASS:Paladin|BOOK:Prepared Spells|SPELLLEVEL:1|SOURCE:[TYPE:CLASS|NAME:Paladin]
+
+# Character Description/Bio/History
+CHARACTERBIO:The Syrkov family have always been canny traders.  They have kept up with trends and got in early and out before interest waned. As result they hav built up quite some resources (and rivals).&cr;&nl;&cr;
+CHARACTERDESC:
+CHARACTERCOMP:
+CHARACTERASSET:
+CHARACTERMAGIC:
+CHARACTERDMNOTES:
+
+# Kits
+KIT:Rich Parents
+
+# Character Master/Follower
+
+# Character Notes Tab
+
+# Age Set Selections
+AGESET:1:1:0:0:0:0:0:0:0:0
+
+# Campaign History
+
+# Suppressed Biography Fields
+SUPPRESSBIOFIELDS:
+

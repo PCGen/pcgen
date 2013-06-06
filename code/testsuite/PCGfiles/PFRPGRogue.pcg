@@ -1,0 +1,285 @@
+PCGVERSION:2.0
+
+# System Information
+CAMPAIGN:Paizo - Pathfinder Roleplaying Game Core Rulebook|CAMPAIGN:Paizo - Pathfinder Roleplaying Game Advanced Player's Guide|CAMPAIGN:Paizo - Kingmaker Player's Guide|CAMPAIGN:Paizo - Inner Sea Primer
+VERSION:6.01.03-dev
+ROLLMETHOD:2|EXPRESSION:Epic Fantasy
+PURCHASEPOINTS:Y|TYPE:Epic Fantasy
+CHARACTERTYPE:PC
+PREVIEWSHEET:Standard.htm
+POOLPOINTS:0
+POOLPOINTSAVAIL:25
+GAMEMODE:Pathfinder_RPG
+TABLABEL:0
+AUTOSPELLS:Y
+USEHIGHERKNOWN:N
+USEHIGHERPREPPED:N
+LOADCOMPANIONS:N
+USETEMPMODS:Y
+AUTOSORTGEAR:Y
+SKILLSOUTPUTORDER:0
+IGNORECOST:N
+ALLOWDEBT:N
+AUTORESIZEGEAR:Y
+
+# Character Bio
+CHARACTERNAME:Ronald Millbridge
+TABNAME:Ronald Lvl 12
+PLAYERNAME:James
+HEIGHT:34
+WEIGHT:32
+AGE:23
+GENDER:Male
+HANDED:Left
+SKINCOLOR:Almond
+EYECOLOR:Brown
+HAIRCOLOR:Red-brown
+HAIRSTYLE:
+LOCATION:
+CITY:
+BIRTHDAY:
+BIRTHPLACE:
+PERSONALITYTRAIT1:Planner
+PERSONALITYTRAIT2:Pleasant smelling
+SPEECHPATTERN:
+PHOBIAS:Being Restrained
+INTERESTS:
+CATCHPHRASE:
+PORTRAIT:
+
+# Character Attributes
+STAT:STR|SCORE:14
+STAT:DEX|SCORE:18
+STAT:CON|SCORE:11
+STAT:INT|SCORE:13
+STAT:WIS|SCORE:12
+STAT:CHA|SCORE:12
+ALIGN:NG
+RACE:Halfling
+
+# Character Class(es)
+CLASS:Rogue|LEVEL:12|SKILLPOOL:0
+CLASSABILITIESLEVEL:Rogue=1|HITPOINTS:8|PRESTAT:CON=-1|PRESTAT:INT=1|PRESTAT:STR=0|SKILLSGAINED:9|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Rogue=2|HITPOINTS:5|SKILLSGAINED:9|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Rogue=3|HITPOINTS:5|SKILLSGAINED:9|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Rogue=4|HITPOINTS:5|PRESTAT:DEX=1|SKILLSGAINED:9|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Rogue=5|HITPOINTS:5|SKILLSGAINED:9|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Rogue=6|HITPOINTS:5|SKILLSGAINED:9|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Rogue=7|HITPOINTS:5|SKILLSGAINED:9|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Rogue=8|HITPOINTS:5|SKILLSGAINED:9|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Rogue=9|HITPOINTS:5|SKILLSGAINED:9|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Rogue=10|HITPOINTS:5|SKILLSGAINED:9|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Rogue=11|HITPOINTS:4|SKILLSGAINED:9|SKILLSREMAINING:0
+CLASSABILITIESLEVEL:Rogue=12|HITPOINTS:5|PRESTAT:CON=1|SKILLSGAINED:9|SKILLSREMAINING:0
+
+# Character Experience
+EXPERIENCE:220000
+EXPERIENCETABLE:Medium
+
+# Character Templates
+TEMPLATESAPPLIED:[NAME:Creature with Class Levels]
+TEMPLATESAPPLIED:[NAME:Halfling]
+TEMPLATESAPPLIED:[NAME:Regional Affinity (River Kingdoms)]
+
+# Character Region
+REGION:The River Kingdoms
+
+# Character Skills
+SKILL:Acrobatics|OUTPUTORDER:1|CLASSBOUGHT:[CLASS:Rogue|RANKS:12.0|COST:1|CLASSSKILL:Y]
+SKILL:Appraise|OUTPUTORDER:3|CLASSBOUGHT:[CLASS:Rogue|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Bluff|OUTPUTORDER:4|CLASSBOUGHT:[CLASS:Rogue|RANKS:9.0|COST:1|CLASSSKILL:Y]
+SKILL:Climb|OUTPUTORDER:5|CLASSBOUGHT:[CLASS:Rogue|RANKS:3.0|COST:1|CLASSSKILL:Y]
+SKILL:Craft (Untrained)|OUTPUTORDER:7|
+SKILL:Diplomacy|OUTPUTORDER:8|CLASSBOUGHT:[CLASS:Rogue|RANKS:2.0|COST:1|CLASSSKILL:Y]
+SKILL:Disguise|OUTPUTORDER:10|CLASSBOUGHT:[CLASS:Rogue|RANKS:11.0|COST:1|CLASSSKILL:Y]
+SKILL:Escape Artist|OUTPUTORDER:11|CLASSBOUGHT:[CLASS:Rogue|RANKS:12.0|COST:1|CLASSSKILL:Y]
+SKILL:Fly|OUTPUTORDER:12|
+SKILL:Heal|OUTPUTORDER:14|
+SKILL:Intimidate|OUTPUTORDER:15|CLASSBOUGHT:[CLASS:Rogue|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Perception|OUTPUTORDER:21|CLASSBOUGHT:[CLASS:Rogue|RANKS:12.0|COST:1|CLASSSKILL:Y]
+SKILL:Perform (Untrained)|OUTPUTORDER:23|
+SKILL:Ride|OUTPUTORDER:25|
+SKILL:Sense Motive|OUTPUTORDER:26|CLASSBOUGHT:[CLASS:Rogue|RANKS:2.0|COST:1|CLASSSKILL:Y]
+SKILL:Stealth|OUTPUTORDER:28|CLASSBOUGHT:[CLASS:Rogue|RANKS:12.0|COST:1|CLASSSKILL:Y]
+SKILL:Survival|OUTPUTORDER:29|
+SKILL:Swim|OUTPUTORDER:30|CLASSBOUGHT:[CLASS:Rogue|RANKS:2.0|COST:1|CLASSSKILL:Y]
+SKILL:Acrobatics (Jump)|OUTPUTORDER:2|
+SKILL:Disable Device|OUTPUTORDER:9|CLASSBOUGHT:[CLASS:Rogue|RANKS:12.0|COST:1|CLASSSKILL:Y]
+SKILL:Handle Animal|OUTPUTORDER:13|CLASSBOUGHT:[CLASS:Rogue|RANKS:1.0|COST:1|CLASSSKILL:N]
+SKILL:Knowledge (Geography)|OUTPUTORDER:18|
+SKILL:Knowledge (Local)|OUTPUTORDER:19|CLASSBOUGHT:[CLASS:Rogue|RANKS:3.0|COST:1|CLASSSKILL:Y]
+SKILL:Perception (Trapfinding)|OUTPUTORDER:22|
+SKILL:Sleight of Hand|OUTPUTORDER:27|CLASSBOUGHT:[CLASS:Rogue|RANKS:2.0|COST:1|CLASSSKILL:Y]
+SKILL:Use Magic Device|OUTPUTORDER:31|CLASSBOUGHT:[CLASS:Rogue|RANKS:8.0|COST:1|CLASSSKILL:Y]
+SKILL:Knowledge (Dungeoneering)|OUTPUTORDER:16|
+SKILL:Profession (Cook)|OUTPUTORDER:24|CLASSBOUGHT:[CLASS:Rogue|RANKS:1.0|COST:1|CLASSSKILL:Y]
+SKILL:Linguistics|OUTPUTORDER:20|CLASSBOUGHT:[CLASS:Rogue|RANKS:1.0|COST:1|CLASSSKILL:Y]|ASSOCIATEDDATA:Sylvan|ASSOCIATEDDATA:Skald
+SKILL:Knowledge (Engineering)|OUTPUTORDER:17|
+SKILL:Craft (Traps)|OUTPUTORDER:6|CLASSBOUGHT:[CLASS:Rogue|RANKS:1.0|COST:1|CLASSSKILL:Y]
+
+# Character Languages
+LANGUAGE:Varisian|LANGUAGE:Halfling|LANGUAGE:Hallit|LANGUAGE:Aklo|LANGUAGE:Common|LANGUAGE:Skald|LANGUAGE:Sylvan|LANGUAGE:Elven|LANGUAGE:Giant
+
+# Character Feats
+FEATPOOL:-6.0
+
+# Character Abilities
+ABILITY:Combat Trick Feat|TYPE:NORMAL|CATEGORY:FEAT|KEY:Dodge|TYPE:Combat.CelestialBloodline.ElementalBloodline.FeyBloodline.AquaticBloodline.ShadowBloodline.StarsoulBloodline.StormbornBloodline.DruidShamanLion|DESC:Your training and reflexes allow you to react swiftly to avoid an opponent's attack.
+USERPOOL:Combat Trick Feat|POOLPOINTS:0.0
+ABILITY:Favored Class|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Rogue|TYPE:FavoredClass
+USERPOOL:Favored Class|POOLPOINTS:0.0
+ABILITY:Favored Class Bonus|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Bonus Hit Point|APPLIEDTO:,,,,,|TYPE:FavoredClassBonus
+ABILITY:Favored Class Bonus|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Bonus Skill Point|APPLIEDTO:Handle Animal,Knowledge (Geography),Sense Motive,Knowledge (Local),Knowledge (Dungeoneering),Knowledge (Engineering)|TYPE:FavoredClassBonus
+USERPOOL:Favored Class Bonus|POOLPOINTS:0.0
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Combat Expertise|TYPE:Combat.AttackOption.ModifyAC.InfernalBloodline.DreamspunBloodline.DruidShamanSerpent|DESC:You can increase your defense at the expense of your accuracy.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Quick Draw|TYPE:Combat.ShadowBloodline|DESC:You can draw weapons faster than most.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Improved Two-Weapon Fighting|TYPE:Combat|DESC:You are skilled at fighting with two weapons.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Weapon Finesse|TYPE:Combat.CelestialBloodline.ElementalBloodline.ShadowBloodline|DESC:You are trained in using your agility in melee combat, as opposed to brute strength.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Two-Weapon Fighting|TYPE:Combat|DESC:You can fight with a weapon in each of your hands. You can make one extra attack each round with the secondary weapon.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Fleet|APPLIEDTO:|TYPE:General.VerdantBloodline|DESC:You are faster than most.
+USERPOOL:FEAT|POOLPOINTS:0.0
+ABILITY:Guileful Polyglot Additional Language|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Guileful Polyglot Language Selection|APPLIEDTO:Aklo,Hallit,Giant,Varisian|TYPE:GuilefulPolygotLang.SpecialQuality.Extraordinary|DESC:A rogue with this talent who has at least one rank in Linguistics gains four additional languages. A rogue with this talent who does not have any ranks in Linguistics gains two additional languages. If the rogue later gains ranks in Linguistics, she gains two additional languages, to a total of four additional languages above those granted by the Linguistics skill itself. &amp;nl;Languages selected - %1&pipe;%LIST
+USERPOOL:Guileful Polyglot Additional Language|POOLPOINTS:0.0
+ABILITY:Region of Origin|TYPE:NORMAL|CATEGORY:Background|KEY:River Kingdoms|TYPE:Region|DESC:Independent Realms of Low Character
+USERPOOL:Region of Origin|POOLPOINTS:0.0
+ABILITY:Rogue Talent|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Crippling Strike|TYPE:SpecialAttack.Extraordinary.RogueTalent.RogueAdvancedTalent.AttackOption|DESC:You can sneak attack opponents with such precision that your blows weaken and hamper them.
+ABILITY:Rogue Talent|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Guileful Polyglot ~ Rogue Talent|TYPE:RogueTalent|DESC:A rogue with this talent who has at least one rank in Linguistics gains four additional languages. A rogue with this talent who does not have any ranks in Linguistics gains two additional languages. If the rogue later gains ranks in Linguistics, she gains two additional languages, to a total of four additional languages above those granted by the Linguistics skill itself.
+ABILITY:Rogue Talent|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Improved Evasion ~ Rogue|TYPE:SpecialQuality.Extraordinary.RogueTalent.RogueAdvancedTalent|DESC:Like Evasion, you still take no damage on a successfulk Reflex saving throw against attacks, additionaly you take only half damage on a failed save.
+ABILITY:Rogue Talent|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Canny Observer ~ Rogue Talent|TYPE:RogueTalent.SpecialQuality.Extraordinary|DESC:When a rogue with this talent makes a Perception check to hear the details of a conversation or to find concealed or secret objects (including doors and traps), she gains a +4 bonus.
+ABILITY:Rogue Talent|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Combat Trick|TYPE:SpecialQuality.Extraordinary.RogueTalent|DESC:You gain a bonus combat feat.
+ABILITY:Rogue Talent|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Trap Spotter|TYPE:SpecialQuality.Extraordinary.RogueTalent|DESC:Whenever you come within %1 feet of a trap, you receive an immediate Perception skill check to notice the trap. This check should be made in secret by the GM.&pipe;TrapSpotterDistance
+USERPOOL:Rogue Talent|POOLPOINTS:0.0
+ABILITY:Traits|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Natural-Born Leader ~ Trait|TYPE:Trait.BasicTrait.SocialTrait|DESC:You've always found yourself in positions where others look up to you as a leader, and you can distinctly remember an event from your early childhood where you led several other children to accomplish a goal that each of you individually could not.
+ABILITY:Traits|TYPE:NORMAL|CATEGORY:Special Ability|KEY:Brigand|TYPE:Trait.CampaignTrait|DESC:You hail from the River Kingdoms or the more lawless reaches of Brevoy. Life has been hard for you. Perhaps your parents and siblings were crooks and con artists, or maybe your rough, lonely life lead you to fall in with thieves and worse. You know how to ambush travelers, bully traders, avoid the law, and camp where no one might find you. Recently, you've run into some trouble, either with the law or with other bandits, and you're looking to get away to somewhere no one would ever think to look for you. An expedition into the rugged wilderness seems like a perfect way to lie low until the trouble blows over. You gain a +1 trait bonus on Bluff, Diplomacy, Intimidate, and Sense Motive checks when dealing with brigands, thieves, bandits, and their ilk.
+USERPOOL:Traits|POOLPOINTS:0.0
+ABILITY:*LANGBONUS|TYPE:VIRTUAL|CATEGORY:*LANGBONUS|KEY:*LANGBONUS|APPLIEDTO:Elven|TYPE:
+USERPOOL:*LANGBONUS|POOLPOINTS:0.0
+
+# Character Weapon proficiencies
+WEAPONPROF:[WEAPON:Bayonet|WEAPON:Blowgun|WEAPON:Cestus|WEAPON:Club|WEAPON:Crossbow (Hand)|WEAPON:Crossbow (Heavy)|WEAPON:Crossbow (Light)|WEAPON:Dagger|WEAPON:Dagger (Punching)|WEAPON:Dart]
+WEAPONPROF:[WEAPON:Gauntlet|WEAPON:Gauntlet (Spiked)|WEAPON:Grapple|WEAPON:Javelin|WEAPON:Longspear|WEAPON:Mace (Heavy)|WEAPON:Mace (Light)|WEAPON:Morningstar|WEAPON:Quarterstaff|WEAPON:Rapier]
+WEAPONPROF:[WEAPON:Rock|WEAPON:Sap|WEAPON:Shortbow|WEAPON:Shortspear|WEAPON:Sickle|WEAPON:Sling|WEAPON:Spear|WEAPON:Spear (Boar)|WEAPON:Spells (Ray)|WEAPON:Spells (Touch)]
+WEAPONPROF:[WEAPON:Stake|WEAPON:Sword (Short)|WEAPON:Unarmed Strike]
+
+# Character Equipment
+MONEY:1258.00
+EQUIPNAME:Saddle (Riding)|OUTPUTORDER:36|COST:10|WT:25.0|QUANTITY:1.0
+EQUIPNAME:Dog (Riding)|OUTPUTORDER:31|COST:150|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Bedroll|OUTPUTORDER:33|COST:0.1|WT:5.0|QUANTITY:1.0
+EQUIPNAME:Amulet of Natural Armor +2|OUTPUTORDER:1|COST:8000|WT:0.02|QUANTITY:1.0
+EQUIPNAME:Cloak of Resistance +3|OUTPUTORDER:9|COST:9000|WT:1.0|QUANTITY:1.0
+EQUIPNAME:Inkpen|OUTPUTORDER:18|COST:0.1|WT:0.0|QUANTITY:2.0
+EQUIPNAME:Bullets, Sling (10)|OUTPUTORDER:11|COST:0.1|WT:5.0|QUANTITY:2.0|CUSTOMIZATION:[BASEITEM:Bullets (Sling/10)|DATA:NAME=Bullets, Sling (10)$EQMOD=STEEL]
+EQUIPNAME:Rope of Climbing|OUTPUTORDER:23|COST:3000|WT:3.0|QUANTITY:1.0
+EQUIPNAME:Headband of Vast Intelligence +2 ( Maximize Knowledge SkillKnowledge (Geography))|OUTPUTORDER:2|COST:4000.0|WT:1.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Headband of Vast Intelligence +2|DATA:NAME=Headband of Vast Intelligence +2 ( Maximize Knowledge SkillKnowledge (Geography))$EQMOD=MAX_KNW&pipe;Knowledge (Geography)]
+EQUIPNAME:Dagger (Small)|OUTPUTORDER:32|COST:2.0|WT:0.5|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Dagger|DATA:NAME=Dagger (Small)$KEY=AUTOSIZESDagger$SIZE=S$EQMOD=STEEL]
+EQUIPNAME:Coin (Gold Piece)|OUTPUTORDER:27|COST:1|WT:0.02|QUANTITY:1.0
+EQUIPNAME:Ring of Protection +2|OUTPUTORDER:5|COST:8000|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Sealing Wax|OUTPUTORDER:24|COST:1|WT:1.0|QUANTITY:1.0
+EQUIPNAME:Parchment (Sheet)|OUTPUTORDER:15|COST:0.2|WT:0.0|QUANTITY:4.0
+EQUIPNAME:Masterwork Sap (Small)|OUTPUTORDER:30|COST:301.0|WT:1.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Sap|DATA:NAME=Masterwork Sap (Small)$SIZE=S$EQMOD=NONLETHAL.MWORKW]
+EQUIPNAME:Sling (Small)|OUTPUTORDER:29|COST:0.0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Sling|DATA:NAME=Sling (Small)$KEY=AUTOSIZESSling$SIZE=S$EQMOD=LEATHER]
+EQUIPNAME:Lantern (Bullseye)|OUTPUTORDER:19|COST:12|WT:3.0|QUANTITY:1.0
+EQUIPNAME:Ring of Swimming|OUTPUTORDER:6|COST:2500|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Rapier +1 (Small)|OUTPUTORDER:4|COST:2320.0|WT:1.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Rapier|DATA:NAME=Rapier +1 (Small)$SIZE=S$EQMOD=STEEL.PLUS1W]
+EQUIPNAME:Map of Inner Daggermark|OUTPUTORDER:14|COST:0.2|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Parchment (Sheet)|DATA:NAME=Map of Inner Daggermark$SPROP=(Parchment (Sheet))]
+EQUIPNAME:Rations (Trail/Per Day)|OUTPUTORDER:22|COST:0.5|WT:1.0|QUANTITY:5.0
+EQUIPNAME:Chain Shirt +1 (Small/Mithral)|OUTPUTORDER:8|COST:2100.0|WT:6.25|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Chain Shirt|DATA:NAME=Chain Shirt +1 (Small/Mithral)$SIZE=S$EQMOD=STEEL.MITHRAL_ARMR_LT.PLUS1A]
+EQUIPNAME:Outfit (Explorer's/Small)|OUTPUTORDER:10|COST:0|WT:2.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Outfit (Explorer's)|DATA:NAME=Outfit (Explorer's/Small)$SIZE=S$COSTMOD=-10]
+EQUIPNAME:Flint and Steel|OUTPUTORDER:17|COST:1|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Map Maker's Kit|OUTPUTORDER:39|COST:10|WT:2.0|QUANTITY:1.0
+EQUIPNAME:Masterwork Morningstar (Small/Alchemical Silver)|OUTPUTORDER:34|COST:398.0|WT:3.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Morningstar|DATA:NAME=Masterwork Morningstar (Small/Alchemical Silver)$SIZE=S$EQMOD=STEEL.ALCHM.MWORKW]
+EQUIPNAME:Grappling Hook|OUTPUTORDER:38|COST:1|WT:4.0|QUANTITY:1.0
+EQUIPNAME:Coin (Silver Piece)|OUTPUTORDER:28|COST:0.1|WT:0.02|QUANTITY:6.0
+EQUIPNAME:Case (Map or Scroll)|OUTPUTORDER:13|COST:1|WT:0.5|QUANTITY:1.0
+EQUIPNAME:Masterwork Thieves' Tools|OUTPUTORDER:25|COST:100.0|WT:1.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Thieves' Tools|DATA:NAME=Masterwork Thieves' Tools$EQMOD=MWORKT]
+EQUIPNAME:Waterskin|OUTPUTORDER:41|COST:1|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Saddlebags|OUTPUTORDER:37|COST:4|WT:8.0|QUANTITY:1.0
+EQUIPNAME:Backpack (Masterwork) (Small)|OUTPUTORDER:12|COST:50|WT:1.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Backpack (Masterwork)|DATA:NAME=Backpack (Masterwork) (Small)$KEY=AUTOSIZESBackpack (Masterwork)$SIZE=S]
+EQUIPNAME:Masterwork Rapier (Small/Cold Iron)|OUTPUTORDER:35|COST:340.0|WT:1.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Rapier|DATA:NAME=Masterwork Rapier (Small/Cold Iron)$SIZE=S$EQMOD=STEEL.MWORKW.C_IRON]
+EQUIPNAME:Boots of Elvenkind|OUTPUTORDER:11|COST:2500|WT:1.0|QUANTITY:1.0
+EQUIPNAME:Pouch (Belt)|OUTPUTORDER:26|COST:1|WT:0.5|QUANTITY:1.0
+EQUIPNAME:Oil (1 Pint Flask)|OUTPUTORDER:20|COST:0.1|WT:1.0|QUANTITY:2.0
+EQUIPNAME:Tent|OUTPUTORDER:40|COST:10|WT:20.0|QUANTITY:1.0
+EQUIPNAME:Potion of Cure Light Wounds|OUTPUTORDER:21|COST:50|WT:0.0|QUANTITY:1.0
+EQUIPNAME:Dagger +1 (Small)|OUTPUTORDER:3|COST:2302.0|WT:0.5|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Dagger|DATA:NAME=Dagger +1 (Small)$SIZE=S$EQMOD=STEEL.PLUS1W]
+EQUIPNAME:Belt of Incredible Dexterity +2|OUTPUTORDER:7|COST:4000|WT:1.0|QUANTITY:1.0
+EQUIPSET:Default Set|ID:0.1|USETEMPMODS:Y
+EQUIPSET:Carried|ID:0.1.01|VALUE:Bullets (Sling/10)|QUANTITY:2.0|USETEMPMODS:Y
+EQUIPSET:Neck|ID:0.1.02|VALUE:Amulet of Natural Armor +2|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Headband|ID:0.1.03|VALUE:Headband of Vast Intelligence +2 ( Maximize Knowledge SkillKnowledge (Geography))|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Secondary Hand|ID:0.1.04|VALUE:Dagger +1 (Small)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Primary Hand|ID:0.1.05|VALUE:Rapier +1 (Small)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Ring|ID:0.1.06|VALUE:Ring of Protection +2|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Ring|ID:0.1.07|VALUE:Ring of Swimming|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Belt|ID:0.1.08|VALUE:Belt of Incredible Dexterity +2|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Armor|ID:0.1.09|VALUE:Chain Shirt +1 (Small/Mithral)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Shoulders|ID:0.1.10|VALUE:Cloak of Resistance +3|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Torso|ID:0.1.11|VALUE:Outfit (Explorer's/Small)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Feet|ID:0.1.12|VALUE:Boots of Elvenkind|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Equipped|ID:0.1.13|VALUE:Backpack (Masterwork) (Small)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack (Masterwork) (Small)|ID:0.1.13.01|VALUE:Case (Map or Scroll)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Case (Map or Scroll)|ID:0.1.13.01.01|VALUE:Map of Inner Daggermark|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Case (Map or Scroll)|ID:0.1.13.01.02|VALUE:Parchment (Sheet)|QUANTITY:4.0|USETEMPMODS:Y
+EQUIPSET:Backpack (Masterwork) (Small)|ID:0.1.13.02|VALUE:Flint and Steel|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack (Masterwork) (Small)|ID:0.1.13.03|VALUE:Inkpen|QUANTITY:2.0|USETEMPMODS:Y
+EQUIPSET:Backpack (Masterwork) (Small)|ID:0.1.13.04|VALUE:Lantern (Bullseye)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack (Masterwork) (Small)|ID:0.1.13.05|VALUE:Oil (1 Pint Flask)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack (Masterwork) (Small)|ID:0.1.13.06|VALUE:Potion of Cure Light Wounds|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack (Masterwork) (Small)|ID:0.1.13.07|VALUE:Rations (Trail/Per Day)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack (Masterwork) (Small)|ID:0.1.13.08|VALUE:Rope of Climbing|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Backpack (Masterwork) (Small)|ID:0.1.13.09|VALUE:Sealing Wax|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Equipped|ID:0.1.14|VALUE:Masterwork Thieves' Tools|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Equipped|ID:0.1.15|VALUE:Pouch (Belt)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Pouch (Belt)|ID:0.1.15.01|VALUE:Coin (Gold Piece)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Pouch (Belt)|ID:0.1.15.02|VALUE:Coin (Silver Piece)|QUANTITY:6.0|USETEMPMODS:Y
+EQUIPSET:Carried|ID:0.1.16|VALUE:Sling (Small)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Carried|ID:0.1.17|VALUE:Masterwork Sap (Small)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Not Carried|ID:0.1.18|VALUE:Dog (Riding)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Dog (Riding)|ID:0.1.18.01|VALUE:Dagger (Small)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Dog (Riding)|ID:0.1.18.02|VALUE:Bedroll|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Dog (Riding)|ID:0.1.18.03|VALUE:Masterwork Morningstar (Small/Alchemical Silver)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Dog (Riding)|ID:0.1.18.04|VALUE:Masterwork Rapier (Small/Cold Iron)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Dog (Riding)|ID:0.1.18.05|VALUE:Saddle (Riding)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Dog (Riding)|ID:0.1.18.06|VALUE:Saddlebags|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Saddlebags|ID:0.1.18.06.01|VALUE:Oil (1 Pint Flask)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Saddlebags|ID:0.1.18.06.02|VALUE:Rations (Trail/Per Day)|QUANTITY:4.0|USETEMPMODS:Y
+EQUIPSET:Saddlebags|ID:0.1.18.06.03|VALUE:Grappling Hook|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Saddlebags|ID:0.1.18.06.04|VALUE:Map Maker's Kit|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Saddlebags|ID:0.1.18.06.05|VALUE:Tent|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Dog (Riding)|ID:0.1.18.07|VALUE:Waterskin|QUANTITY:1.0|USETEMPMODS:Y
+CALCEQUIPSET:0.1
+
+# Temporary Bonuses
+
+# EquipSet Temp Bonuses
+
+# Character Deity/Domain
+DEITY:Cayden Cailean|DEITYDOMAINS:[DOMAIN:Chaos|DOMAIN:Charm|DOMAIN:Good|DOMAIN:Strength|DOMAIN:Travel|DOMAIN:Azata Subdomain (Chaos)|DOMAIN:Azata Subdomain (Good)|DOMAIN:Exploration Subdomain|DOMAIN:Ferocity Subdomain|DOMAIN:Love Subdomain|DOMAIN:Lust Subdomain|DOMAIN:Resolve Subdomain]|ALIGNALLOW:|DESC:God of freedom, wine, bravery|HOLYITEM:|DEITYFAVWEAP:[WEAPON:Rapier]|DEITYALIGN:Chaotic Good
+
+# Character Spells Information
+
+# Character Description/Bio/History
+CHARACTERBIO:
+CHARACTERDESC:
+CHARACTERCOMP:
+CHARACTERASSET:
+CHARACTERMAGIC:
+CHARACTERDMNOTES:
+
+# Kits
+KIT:Brigand
+
+# Character Master/Follower
+
+# Character Notes Tab
+NOTE:Character Sheet Notes|ID:1|PARENTID:-1|VALUE:
+
+# Age Set Selections
+AGESET:1:1:0:0:0:0:0:0:0:0
+
+# Campaign History
+
+# Suppressed Biography Fields
+SUPPRESSBIOFIELDS:
+
