@@ -22,7 +22,7 @@ All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special.ClassAbil
 Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO								AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Whip|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
 
 ###Block: Proficiency Master Groups - Cut Down on Cross Referencing
-Weapon Prof ~ Auto	CATEGORY:Internal	TYPE:WeaponProfAuto				AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)
+Weapon Prof ~ Auto	CATEGORY:Internal	TYPE:WeaponProfAuto				AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)	ABILITY:FEAT|AUTOMATIC|CMB Output
 Weapon Prof ~ Simple	CATEGORY:Internal	TYPE:WeaponProfSimple.WeaponProfMartial	AUTO:WEAPONPROF|TYPE=Simple
 Weapon Prof ~ Martial	CATEGORY:Internal	TYPE:WeaponProfMartial				AUTO:WEAPONPROF|TYPE=Martial
 ###Block: Armor Types
