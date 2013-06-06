@@ -107,7 +107,7 @@
     <site>
       <id>pcgen.website</id>
       <name>PCGen Website</name>
-      <url>file://localhost/home/pcgen/public_html/autobuilds/</url>
+      <url>file://localhost/home/pcgen1/public_html/autobuilds/</url>
     </site>
   </distributionManagement>
 
