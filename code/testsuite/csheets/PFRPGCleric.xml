@@ -2058,61 +2058,11 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<!-- Auto feats -->
-		<feat>
-			<name>Armor Proficiency, Light</name>
-			<description>When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Dexterity- and Strength-based skill checks.</description>
-			<type>COMBAT</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Armor Proficiency, Medium</name>
-			<description>When you wear a type of armor with which you are proficient, the armor check penalty for that armor applies only to Dexterity- and Strength-based skill checks.</description>
-			<type>COMBAT</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Shield Proficiency</name>
-			<description>When you use a shield (except a tower shield), the shield&#39;s armor check penalty only applies to Strength- and Dexterity-based skills.</description>
-			<type>COMBAT</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name>Simple Weapon Proficiency</name>
-			<description>You make attack rolls with simple weapons without penalty.</description>
-			<type>GENERAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
 <!-- Hidden VFEATS -->
 <!-- END Hidden VFEATS -->
-		<feat>
-			<name>CMB Output</name>
-			<description></description>
-			<type>INTERNAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-		</feat>
 	</feats>
 	<!--
 	  ====================================
@@ -2136,7 +2086,7 @@ BIO
 		<ability_object>
 			<name>Channel Positive Energy</name>
 			<description>You can unleash a wave of positive energy. You must choose to deal 2d6 points of positive energy damage to undead creatures or to heal living creatures of 2d6 points of damage. Creatures that take damage from channeled energy receive a DC 14 Will save to halve the damage. You can use this abilty 6 times per day.</description>
-			<type>SUPERNATURAL.SPECIALATTACK.CHANNELENERGY.CHECKLIST</type>
+			<type>CLERICCLASSABILITY.SUPERNATURAL.SPECIALATTACK.CHANNELENERGY.CHECKLIST</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -2170,7 +2120,7 @@ BIO
 		<ability_object>
 			<name>Orisons</name>
 			<description>You can prepare a number of orisons, or 0-level spells. These spells are cast like any other spells, but they are not expended when used and may be used again.</description>
-			<type>SPECIALQUALITY</type>
+			<type>CLERICCLASSABILITY.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2192,7 +2142,7 @@ BIO
 		<ability_object>
 			<name>Spontaneous Casting</name>
 			<description>You can channel stored spell energy into healing spells that you did not prepare ahead of time. You can &quot;lose&quot; any prepared spell that is not an orison or domain spell in order to cast any cure spell of the same spell level or lower (a cure spell is any spell with &quot;Cure&quot; in its name).</description>
-			<type>SPECIALQUALITY</type>
+			<type>CLERICCLASSABILITY.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2203,7 +2153,7 @@ BIO
 		<ability_object>
 			<name>Sun&#39;s Blessing</name>
 			<description>Whenever you channel positive energy to harm undead creatures, add a +3 bonus to the damage dealt. Undead do not add their channel resistance to their saves when you channel positive energy.</description>
-			<type>SPECIALATTACK.SUPERNATURAL.DOMAINPOWER</type>
+			<type>CLERICCLASSABILITY.SPECIALATTACK.SUPERNATURAL.DOMAINPOWER</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2214,7 +2164,18 @@ BIO
 		<ability_object>
 			<name>Touch of Glory</name>
 			<description>You can cause you hand to shimmer with divine radiance, allowing you to touch a creature as a standard action and give it a +3 bonus to a single Charisma-based skill check or Charisma ability check. This ability lasts for one hour or until the creature touched elects to apply the bonus to a roll. You can use this ability to grant the bonus 7 times per day.</description>
-			<type>SPECIALQUALITY.SPELLLIKE.DOMAINPOWER.CHECKLIST</type>
+			<type>CLERICCLASSABILITY.SPECIALQUALITY.SPELLLIKE.DOMAINPOWER.CHECKLIST</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon and Armor Proficiency</name>
+			<description>Clerics are proficient with all simple weapons, with all types of armor (light, medium, and heavy), and with shields (except tower shields). A cleric who chooses the War domain receives the Weapon Focus feat related to his deity&#39;s weapon as a bonus feat. He also receives the appropriate Martial Weapon Proficiency feat as a bonus feat, if the weapon falls into that category.</description>
+			<type>CLERICCLASSABILITY.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2226,7 +2187,7 @@ BIO
 		<ability_object>
 			<name>Aura of Good</name>
 			<description>You project a moderate good aura.</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.AURA</type>
+			<type>SPECIALQUALITY.EXTRAORDINARY.AURA.CLERICCLASSABILITY.PALADINCLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -2303,31 +2264,9 @@ BIO
 		</ability_object>
 	<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
-			<name>All Automatic Proficiencies</name>
-			<description></description>
-			<type>SPECIAL.CLASSABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
 			<name>Channel Energy</name>
 			<description></description>
-			<type>INTERNAL.CLASSABILITY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Cleric Weapon Proficiencies</name>
-			<description></description>
-			<type>SPECIAL.CLASSABILITY</type>
+			<type>CLERICCLASSABILITY.INTERNAL.CLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2338,7 +2277,7 @@ BIO
 		<ability_object>
 			<name>Domains</name>
 			<description></description>
-			<type>INTERNAL.CLASSABILITY</type>
+			<type>CLERICCLASSABILITY.INTERNAL.CLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -2369,6 +2308,39 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 	<!-- Visible Automatic "Internal" Ability Objects -->
+		<ability_object>
+			<name>Armor Prof ~ Heavy</name>
+			<description></description>
+			<type>ARMORPROFHEAVY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Armor Prof ~ Light</name>
+			<description></description>
+			<type>ARMORPROFLIGHT.ARMORPROFMEDIUM.ARMORPROFHEAVY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Armor Prof ~ Medium</name>
+			<description></description>
+			<type>ARMORPROFMEDIUM.ARMORPROFHEAVY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
 		<ability_object>
 			<name>Cleric Core Class Skills</name>
 			<description></description>
@@ -2406,6 +2378,39 @@ BIO
 			<name>Select Racial Traits</name>
 			<description></description>
 			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Shield Prof</name>
+			<description></description>
+			<type>SHIELDPROFTOWER.SHIELDPROF</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon Prof ~ Auto</name>
+			<description></description>
+			<type>WEAPONPROFAUTO</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Weapon Prof ~ Simple</name>
+			<description></description>
+			<type>WEAPONPROFSIMPLE.WEAPONPROFMARTIAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
