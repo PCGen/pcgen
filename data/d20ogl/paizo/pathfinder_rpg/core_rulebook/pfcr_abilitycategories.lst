@@ -14,6 +14,22 @@ ABILITYCATEGORY:Favored Class Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	
 ABILITYCATEGORY:Obsessive Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ObsessiveBonus	PLURAL:Obsessive Bonuses		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Adaptability Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:SkillFocus		PLURAL:Adaptability Bonus Feats	DISPLAYLOCATION:Feats
 
+###Block: Base Class Ability Display
+ABILITYCATEGORY:Barbarian Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:BarbarianClassAbility	PLURAL:Barbarian Class Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Bard Class Ability		VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:BardClassAbility		PLURAL:Bard Class Abilities		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Cleric Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:ClericClassAbility		PLURAL:Clerc Class Abilities		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Druid Class Ability		VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:DruidClassAbility		PLURAL:Druid Class Abilities		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Fighter Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:FighterClassAbility	PLURAL:Fighter Class Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Monk Class Ability		VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:MonkClassAbility		PLURAL:Monk Class Abilities		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Paladin Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:PaladinClassAbility	PLURAL:Paladin Class Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Ranger Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:RangerClassAbility		PLURAL:Ranger Class Abilities		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Rogue Class Ability		VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:RogueClassAbility		PLURAL:Rogue Class Abilities		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Sorcerer Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:SorcererClassAbility	PLURAL:Sorcerer Class Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Wizard Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:WizardClassAbility		PLURAL:Wizard Class Abilities		DISPLAYLOCATION:Class Abilities
+
+# Prestige Classes still need to be done.
+#ABILITYCATEGORY:Barbarian Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:BarbarianClassAbility	PLURAL:Barbarian Class Abilities	DISPLAYLOCATION:Class Abilities
+
 ###Block: Character Traits
 # Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI		Display Location
 ABILITYCATEGORY:Traits		VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Trait		PLURAL:Traits				DISPLAYLOCATION:Traits
@@ -155,7 +171,7 @@ ABILITYCATEGORY:Spell Focus				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTI
 
 # COMMENT: This can be used to allow Users to see Monster Traits - Requires all 'ABILITY:Special Ability|AUTOMATIC' to 'ABILITY:Racial Trait|AUTOMATIC'
 ABILITYCATEGORY:Racial Trait				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:RacialTrait.SpecialQuality.SpecialAttack															DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Class Ability				VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.SpecialAttack								PLURAL:Class Abilities				DISPLAYLOCATION:Class Abilities
+#ABILITYCATEGORY:Class Ability				VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.SpecialAttack								PLURAL:Class Abilities				DISPLAYLOCATION:Class Abilities
 
 
 ABILITYCATEGORY:Special Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:SpecialMountSelection																		DISPLAYLOCATION:Class Abilities
@@ -167,3 +183,6 @@ ABILITYCATEGORY:Background				VISIBLE:NO		EDITABLE:NO			EDITPOOL:YES	FRACTIONALP
 #
 ABILITYCATEGORY:Human Ethnicity			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background		TYPE:HumanEthnicity												PLURAL:Human Ethnicities			DISPLAYLOCATION:Background
 ABILITYCATEGORY:Region of Origin			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background		TYPE:Region														PLURAL:Regions of Origin			DISPLAYLOCATION:Background
+
+
+

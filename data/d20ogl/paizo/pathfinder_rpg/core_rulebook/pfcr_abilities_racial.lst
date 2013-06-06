@@ -40,6 +40,8 @@ CATEGORY=Internal|Default.MOD																																												ABILITY
 
 
 ###Block:
+
+# DEVELOPER NOTE: Rename these to our proper standard 'Racial Traits ~ RaceName'
 # Ability Name							Category of Ability	Ability
 Select Racial Traits						CATEGORY:Internal
 Dwarf Racial Trait Default					CATEGORY:Internal
@@ -52,15 +54,15 @@ Human Racial Trait Default					CATEGORY:Internal
 
 # Ability Name							Category of Ability	Ability																							Bonus to Ability Pool
 
-CATEGORY=Internal|Default.MOD									ABILITY:Internal|AUTOMATIC|Select Racial Traits
+#CATEGORY=Internal|Default.MOD									ABILITY:Internal|AUTOMATIC|Select Racial Traits
 # COMMENT: This selects the correct racial traits based upon chosen race
-CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Dwarf Racial Trait Default|PRERACE:1,Dwarf
-CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Elf Racial Trait Default|PRERACE:1,Elf
-CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Gnome Racial Trait Default|PRERACE:1,Gnome
-CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Half Elf Racial Trait Default|PRERACE:1,Half-Elf
-CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Half Orc Racial Trait Default|PRERACE:1,Half-Orc
-CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Halfling Racial Trait Default|PRERACE:1,Halfling
-CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Human Racial Trait Default|PRERACE:1,Human
+#CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Dwarf Racial Trait Default|PRERACE:1,Dwarf
+#CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Elf Racial Trait Default|PRERACE:1,Elf
+#CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Gnome Racial Trait Default|PRERACE:1,Gnome
+#CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Half Elf Racial Trait Default|PRERACE:1,Half-Elf
+#CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Half Orc Racial Trait Default|PRERACE:1,Half-Orc
+#CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Halfling Racial Trait Default|PRERACE:1,Halfling
+#CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Human Racial Trait Default|PRERACE:1,Human
 
 #Block: Racial Traits
 #

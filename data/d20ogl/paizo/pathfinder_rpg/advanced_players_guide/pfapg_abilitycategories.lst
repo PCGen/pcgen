@@ -11,6 +11,18 @@ ABILITYCATEGORY:Oracle Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FR
 ABILITYCATEGORY:Summoner Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:SummonerArchetype		PLURAL:Summoner Archetypes		DISPLAYLOCATION:Archetype
 ABILITYCATEGORY:Witch Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:WitchArchetype		PLURAL:Witch Archetypes			DISPLAYLOCATION:Archetype
 
+###Block: Base Class Ability Display
+ABILITYCATEGORY:Alchemist Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:AlchemistClassAbility	PLURAL:Alchemist Class Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Cavalier Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:CavalierClassAbility	PLURAL:Cavalier Class Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Inquisitor Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:InquisitorClassAbility	PLURAL:Inquisitor Class Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Oracle Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:OracleClassAbility		PLURAL:Oracle Class Abilities		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Summoner Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:SummonerClassAbility	PLURAL:Summoner Class Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Witch Class Ability		VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:WitchClassAbility		PLURAL:Witch Class Abilities		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Antipaladin Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:AntipaladinClassAbility	PLURAL:Antipaladin Class Abilities	DISPLAYLOCATION:Class Abilities
+
+
+
+
 # Alchemist
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Alchemist Discovery			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AlchemistDiscovery		PLURAL:Alchemist Discoveries		DISPLAYLOCATION:Class Abilities
@@ -203,6 +215,8 @@ ABILITYCATEGORY:Water Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDI
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Specific choices list						Plural description for UI				Display Location
 ABILITYCATEGORY:Guileful Polyglot Additional Language	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Guileful Polyglot Language Selection	PLURAL:Guileful Polyglot Additional Languages	DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Companion Bonus Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Companion Bonus Skill
+
+ABILITYCATEGORY:Defensive Stance Power			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DefensiveStancePower		DISPLAYLOCATION:Class Abilities
 
 #
 # End
