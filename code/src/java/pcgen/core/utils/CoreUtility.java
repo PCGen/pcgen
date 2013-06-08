@@ -105,6 +105,14 @@ public final class CoreUtility
 				return result3;
 			}
 
+			final int result4 = obj1.getAppliedName().compareToIgnoreCase(
+					obj2.getAppliedName());
+
+			if (result4 != 0)
+			{
+				return result4;
+			}
+
 			return obj1.getParentName().compareToIgnoreCase(
 					obj2.getParentName());
 		}
