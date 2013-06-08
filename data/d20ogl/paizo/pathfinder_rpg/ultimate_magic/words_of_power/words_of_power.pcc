@@ -63,6 +63,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Magic" Copyright
 ABILITY:wop_abilities_archetypes.lst
 ABILITY:wop_abilities_classes.lst
 ABILITY:wop_words.lst
+ABILITY:wop_abilities_extra_words.lst
 ABILITYCATEGORY:wop_abilitycategories.lst
 FEAT:wop_feats.lst
 SPELL:wop_example_spells.lst
