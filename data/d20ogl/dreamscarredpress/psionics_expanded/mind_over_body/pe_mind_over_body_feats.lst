@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Thu Jun 30 07:42:27 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Expanded - Mind over Body	SOURCESHORT:PEMoB	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=72.html	SOURCEDATE:2011-06
+#Original Entry: Douglas Limmer
+
+# Feat Name			Type					Required Ability							Required Class				Required Skill				Req. Known Spell														Var. Must Be Grater	Description																Stackable?	Multiple?	Choose					Modify VAR					Source Page
+Efficient Aid		TYPE:Psionic			PREABILITY:1,CATEGORY=Special Ability,Request Aid							PRESKILL:1,Heal=7																				PREVARGT:IsPsionic,0	DESC:Request aid heals 4 hit points per power point.																			BONUS:VAR|RequestAidAmount|1		SOURCEPAGE:p.10
+Enhance Steal Life	TYPE:Psionic			PREABILITY:1,CATEGORY=Special Ability,Steal Life																													PREVARGT:IsPsionic,0	DESC:Increase save of Steal Life by spending power points, DC +1/3 points spent.																				SOURCEPAGE:p.10
+Expanded Collective	TYPE:Psionic			PREABILITY:1,CATEGORY=Special Ability,Collective																													PREVARGT:IsPsionic,0	DESC:Add two more creatures to collective.										STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:VAR|CollectiveMinds|2		SOURCEPAGE:p.10
+Extra Power Known		TYPE:Psionic.StudentSurge										PRECLASS:1,SPELLCASTER.Psionic=1																							PREVARGT:IsPsionic,0	DESC:Learn an additional power from your class list.									STACK:NO	MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Psionic							SOURCEPAGE:p.10
+###COMMENT:Needs work, similar to Expanded Knowledge
+Extra Transfer		TYPE:Psionic			PREABILITY:1,CATEGORY=Special Ability,Transfer Wounds																													PREVARGT:IsPsionic,0	DESC:You can transfer wounds 2 more times per day.																			BONUS:VAR|TransferWoundsTimes|2	SOURCEPAGE:p.10
+Fast Aid			TYPE:Psionic			PREABILITY:1,CATEGORY=Special Ability,Request Aid							PRESKILL:2,Heal=7,Spellcraft=7																	PREVARGT:IsPsionic,0	DESC:Your allies may request aid as a swift action.																									SOURCEPAGE:p.10
+Harmonic Resonance	TYPE:Psionic			PREABILITY:1,CATEGORY=Special Ability,Collective							PRESKILL:1,Spellcraft=3																			PREVARGT:IsPsionic,0	DESC:You can choose %1 powers from your collective members when you choose powers.|max(INT,WIS,CHA)																	SOURCEPAGE:p.10
+###COMMENT:Should use BASESPELLSTAT instead of max(INT,WIS,CHA), but BASESPELLSTAT doesn't seem to work.
+Improved Metamorphosis	TYPE:Psionic																								PRESPELL:1,Metamorphosis (Minor),Metamorphosis,Metamorphosis (Greater),Metamorphosis (True)	PREVARGT:IsPsionic,0	DESC:Gain one additional menu option from metamorphosis-type power.																						SOURCEPAGE:p.11
+Unwilling Participant	TYPE:Psionic			PREABILITY:1,CATEGORY=Special Ability,Collective																													PREVARGT:IsPsionic,0	DESC:You can attempt to force others into your collective.																								SOURCEPAGE:p.11

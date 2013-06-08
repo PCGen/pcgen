@@ -1,0 +1,51 @@
+# CVS $Revision$ $Author$ -- Fri Nov 18 18:07:01 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-09
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2011/10/27
+
+###Block: Aegis pseudo-equipment
+
+#Block: Astral suits
+# NEEDS CODE/DATA WORK: Astral Armor and Astral Juggernaut should override
+# NEEDS CODE/DATA WORK:   other worn armor.  Right now, they take a slot.
+# Equipment Name			Output Name		Required Weapon Proficiency				Required Armor Proficiency	Type								Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Maximum DEX Bonus	Range		Source Page		% of Spell Failure	Ability																				Combat bonus													Bonus Equipment Modifiers					Bonus Armor Modifiers
+Astral Skin															PROFICIENCY:ARMOR|Astral Suit	TYPE:Skin.AstralSuit					COST:0	WT:0																							SOURCEPAGE:p.3					ABILITY:Special Ability|AUTOMATIC|Astral Skin ~ Aegis|PREABILITY:1,CATEGORY=Special Ability,Form Astral Suit ~ Aegis
+Astral Armor														PROFICIENCY:ARMOR|Astral Suit	TYPE:Armor.Medium.Suit.AstralSuit			COST:-150	WT:40		ACCHECK:-5												EQMOD:MWORKA	MAXDEX:2				SOURCEPAGE:p.3	SPELLFAILURE:30		ABILITY:Special Ability|AUTOMATIC|Astral Armor ~ Aegis|PREABILITY:1,CATEGORY=Special Ability,Form Astral Suit ~ Aegis		BONUS:COMBAT|AC|6|TYPE=Armor											BONUS:EQM|WEIGHTADD|-10|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|ACCHECK|1|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|ACCHECK|1|PREABILITY:1,CATEGORY=Special Ability,Flexible Suit ~ Aegis	BONUS:EQMARMOR|MAXDEX|1|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|SPELLFAILURE|-5|PREVARGT:AstralSuitLVL,7
+Astral Juggernaut														PROFICIENCY:ARMOR|Astral Suit	TYPE:Armor.Heavy.Suit.AstralSuit			COST:-150	WT:50		ACCHECK:-7												EQMOD:MWORKA	MAXDEX:0				SOURCEPAGE:p.4	SPELLFAILURE:40		ABILITY:Special Ability|AUTOMATIC|Astral Juggernaut ~ Aegis|PREABILITY:1,CATEGORY=Special Ability,Form Astral Suit ~ Aegis	BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:COMBAT|AC|1|TYPE=Armor.STACK|PREVARGT:AstralSuitLVL,6										BONUS:EQMARMOR|ACCHECK|1|PREVARGT:AstralSuitLVL,6	BONUS:EQMARMOR|ACCHECK|1|PREABILITY:1,CATEGORY=Special Ability,Flexible Suit ~ Aegis	BONUS:EQMARMOR|MAXDEX|1|PREVARGT:AstralSuitLVL,6	BONUS:EQMARMOR|SPELLFAILURE|-5|PREVARGT:AstralSuitLVL,6
+
+#Block: Weapons for astral suit
+Astral Suit Ranged Attack				PROFICIENCY:WEAPON|Astral Suit Ranged Attack						TYPE:Weapon.Ranged.Standard.Piercing.Projectile	COST:0	WT:0					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8							RANGE:30	SOURCEPAGE:p.6
+Astral Suit Ram 1			OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram								TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0					CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6									SOURCEPAGE:p.8
+Astral Suit Ram 2			OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram								TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0					CRITMULT:x2			CRITRANGE:1			DAMAGE:3d6									SOURCEPAGE:p.8
+Astral Suit Ram 3			OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram								TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0					CRITMULT:x2			CRITRANGE:1			DAMAGE:4d6									SOURCEPAGE:p.8
+Astral Suit Ram 4			OUTPUTNAME:Ram	PROFICIENCY:WEAPON|Astral Suit Ram								TYPE:Weapon.Melee.Standard.Bludgeoning.Ram	COST:0	WT:0					CRITMULT:x2			CRITRANGE:1			DAMAGE:5d6									SOURCEPAGE:p.8
+
+###Block: Crystal Shard from Metacreative Talent trait
+# Equipment Name	Required Weapon Proficiency		Type								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page
+Crystal Shard	PROFICIENCY:WEAPON|Crystal Shard	TYPE:Weapon.Ranged.Standard.Slashing.Thrown	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d2	RANGE:10	SOURCEPAGE:p.35
+
+###Block: Mundane items
+# Equipment Name	Required Weapon Proficiency		Type																Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Source Page
+Xephyr Knife	PROFICIENCY:WEAPON|Xephyr Knife	TYPE:Weapon.Melee.Light.Finesseable.Ranged.Thrown.Exotic.Standard.Piercing.Slashing.BladeLight	COST:15	WT:1		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6	SOURCEPAGE:p.33
+
+
+###Block: Psionic items
+# NEEDS DATA WORK: Requires a change in the Nomad's Step ability
+# Equipment Name					Output Name				Type						Cost		Weight	Slot Needed	Source Page		Ability										Modify VAR																																	Special Property
+Boots of the Nomad									TYPE:Psionic.Wondrous.Boot		COST:10000	WT:1		SLOTS:2	SOURCEPAGE:p.42	ABILITY:Special Ability|AUTOMATIC|Nomad's Step ~ Psychoportation	BONUS:VAR|NomadsStepLVL|4																														SPROP:Gain Nomad's Step as 4th-level Nomad, or add 4 to Nomad level for Nomad's Step
+Circlet of the Sheltered Mind								TYPE:Psionic.Wondrous.Headgear	COST:7500	WT:2				SOURCEPAGE:p.42												BONUS:VAR|PsychicEnervationPercent|-5																												SPROP:Reduce enervation chance by 5%
+# NEEDS CODE/DATA WORK: Can't pick a power to add to the item
+Ioun Stone (Green and White)			OUTPUTNAME:Ioun Stone, [NAME]	TYPE:Psionic.Wondrous.Ioun		COST:12000	WT:0				SOURCEPAGE:p.42																																														SPROP:Grants an additional power known.
+Student's Robes										TYPE:Psionic.Wondrous.Robe		COST:13000	WT:1				SOURCEPAGE:p.42												BONUS:VAR|PsychometabolismDisciplineLVL,PsychokinesisDisciplineLVL,PsychoportationDisciplineLVL,ClairsentienceDisciplineLVL,MetacreativityDisciplineLVL,TelepathyDisciplineLVL,GeneralistDisciplineLVL|5	SPROP:Psion level treated as five higher for discipline abilities.
+# NEEDS DATA WORK: Warrior's paths would each need their own LVL variable.
+# COMMENT: Each new Warrior's Path needs a new item.
+# COMMENT: Allowing a CHOOSE in an item would avoid this.
+Warrior's Bracer (Ascetic Path)							TYPE:Psionic.Wondrous.Bracer		COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.42																																														SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Assassin's Path)							TYPE:Psionic.Wondrous.Bracer		COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.42																																														SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Brawling Path)							TYPE:Psionic.Wondrous.Bracer		COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.42																																														SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Feral Warrior Path)						TYPE:Psionic.Wondrous.Bracer		COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.42																																														SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Mind Knight Path)							TYPE:Psionic.Wondrous.Bracer		COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.42																																														SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Weaponmaster Path)						TYPE:Psionic.Wondrous.Bracer		COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.42																																														SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Archer Path)							TYPE:Psionic.Wondrous.Bracer		COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.42																																														SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Infiltrator Path)							TYPE:Psionic.Wondrous.Bracer		COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.42																																														SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
+Warrior's Bracer (Survivor Path)							TYPE:Psionic.Wondrous.Bracer		COST:15000	WT:0		SLOTS:1	SOURCEPAGE:p.42																																														SPROP:Treat level as 4 higher for trance and maneuver for specific warrior's path, or can use the trance and maneuver 3/day for 1 minute if path is not known.
