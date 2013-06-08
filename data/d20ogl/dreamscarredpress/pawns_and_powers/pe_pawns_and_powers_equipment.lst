@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Sat Jun  8 13:27:17 2013 -- reformated by prettylst.pl v1.50 (build 19967)
+SOURCELONG:Psionics Expanded - Pawns and Powers	SOURCESHORT:PEPP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-12
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2012/10/24
+
+###Block: Psionic items
+# NEEDS DATA WORK: Need to see how collectives interact before adding vitalist to item																			SPROP:Gain Nomad's Step as 4th-level Nomad, or add 4 to Nomad level for Nomad's Step
+# Equipment Name						Type						Cost		Weight	Slot Needed	Source Page		Modify VAR						Special Property
+Headband of the Great Village (1 creature)	TYPE:Psionic.Wondrous.Headband	COST:3000	WT:0.5	SLOTS:1	SOURCEPAGE:p.30	BONUS:VAR|TacticianCollectiveMinds|1	SPROP:Mindlink with 1 creature within 30 ft.	SPROP:Add one to size of collective|PREVARGT:TacticianCollectiveMinds,0
+Headband of the Great Village (2 creatures)	TYPE:Psionic.Wondrous.Headband	COST:12000	WT:0.5	SLOTS:1	SOURCEPAGE:p.30	BONUS:VAR|TacticianCollectiveMinds|2	SPROP:Mindlink with 2 creatures within 30 ft.	SPROP:Add two to size of collective|PREVARGT:TacticianCollectiveMinds,0
+Headband of the Great Village (3 creatures)	TYPE:Psionic.Wondrous.Headband	COST:27000	WT:0.5	SLOTS:1	SOURCEPAGE:p.30	BONUS:VAR|TacticianCollectiveMinds|3	SPROP:Mindlink with 3 creatures within 30 ft.	SPROP:Add three to size of collective|PREVARGT:TacticianCollectiveMinds,0

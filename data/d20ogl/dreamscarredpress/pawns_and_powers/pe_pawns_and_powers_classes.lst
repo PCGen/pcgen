@@ -1,0 +1,145 @@
+# CVS $Revision: $ $Author: $ -- Sat Jun  8 13:27:17 2013 -- reformated by prettylst.pl v1.50 (build 19967)
+SOURCELONG:Psionics Expanded - Pawns and Powers	SOURCESHORT:PEPP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-12
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2012/09/22
+
+###Block: Tactician
+
+# Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR
+CLASS:Tactician	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Tactician	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Climb|TYPE.Craft|Diplomacy|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Psionics)|Linguistics|Perception|TYPE.Perform|TYPE.Profession|Ride|Sense Motive|Spellcraft|Swim|Use Magic Device
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Tactician	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Tactician|CL
+
+#Block: Proficiencies
+1																																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies								AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency Output	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency
+
+#Block: Psionic Ability
+1						BONUS:VAR|IsPsionic|1																											DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic
+1						BONUS:VAR|TacticianLVL|CL																										DEFINE:TacticianLVL|0
+1						BONUS:VAR|TacticianPL|TacticianLVL	BONUS:VAR|TacticianPL|var("BL=Tactician")																		DEFINE:TacticianPL|0
+1						BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:TacticianPL,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:TacticianPL,3
+1						BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:TacticianPL,4	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:TacticianPL,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:TacticianPL,6
+1						BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:TacticianPL,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:TacticianPL,8	BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:TacticianPL,9
+1						BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:TacticianPL,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:TacticianPL,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:TacticianPL,12
+1						BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:TacticianPL,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:TacticianPL,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:TacticianPL,15
+1						BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:TacticianPL,16	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:TacticianPL,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:TacticianPL,18
+1						BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:TacticianPL,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:TacticianPL,20
+1						BONUS:VAR|BonusPowerPoints|(INT*TacticianPL)/2|TYPE=TacticianBonusPP
+
+1						BONUS:VAR|TacticianCL|TacticianLVL	BONUS:VAR|TacticianCL|var("BL=Tactician")																		DEFINE:TacticianCL|0
+
+#Block: Powers Known
+1	KNOWN:3,1
+2	KNOWN:3,2
+3	KNOWN:3,2,1
+4	KNOWN:3,2,2
+5	KNOWN:3,2,2,1
+6	KNOWN:3,2,2,2
+7	KNOWN:3,2,2,2,1
+8	KNOWN:3,2,2,2,2
+9	KNOWN:3,2,2,2,2,1
+10	KNOWN:3,2,2,2,2,2
+11	KNOWN:3,2,2,2,2,2,1
+12	KNOWN:3,2,2,2,2,2,2
+13	KNOWN:3,2,2,2,2,2,2,1
+14	KNOWN:3,2,2,2,2,2,2,2
+15	KNOWN:3,2,2,2,2,2,2,2,1
+16	KNOWN:3,2,2,2,2,2,2,2,2
+17	KNOWN:3,2,2,2,2,2,2,2,2,1
+18	KNOWN:3,2,2,2,2,2,2,2,2,2
+19	KNOWN:3,2,2,2,2,2,2,2,2,3
+20	KNOWN:3,2,2,2,2,2,2,2,2,4
+
+#Block: Class Info
+1																																								ABILITY:Special Ability|AUTOMATIC|Collective ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianCollective
+1																																								ABILITY:Special Ability|AUTOMATIC|Coordinated Strike ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianCoordinatedStrike
+2																																								ABILITY:Special Ability|AUTOMATIC|Spirit of Many ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianSpiritOfMany
+3																																								ABILITY:Special Ability|AUTOMATIC|Telepathy ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianTelepathy
+4																																								ABILITY:Special Ability|AUTOMATIC|Strategy ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianStrategy
+5																																								ABILITY:Special Ability|AUTOMATIC|Improved Share ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianImprovedShare
+6																																								ABILITY:Special Ability|AUTOMATIC|Coordinate ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianCoordinate
+6																																								ABILITY:Special Ability|AUTOMATIC|Teamwork Feats ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianTeamworkFeats
+8																																								ABILITY:Special Ability|AUTOMATIC|Echo Effect ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianEchoEffect
+14																																								ABILITY:Special Ability|AUTOMATIC|Pooled Knowledge ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianPooledKnowledge
+15																																								ABILITY:Internal|AUTOMATIC|Collective Range Unlimited ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianCollectiveRangeUnlimited
+19																																								ABILITY:Internal|AUTOMATIC|Collective Range Planar ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianCollectiveRangePlanar
+20																																								ABILITY:Special Ability|AUTOMATIC|Master Strategist ~ Tactician|!PREABILITY:1,CATEGORY=Archetype,TYPE.TacticianMasterStrategist
+
+
+###Block: Psion Advanced Disciplines
+#Block: Insight Advanced Discipline
+
+# Class Name
+CLASS:Psion.MOD
+SUBCLASS:Insight	COST:0	PROHIBITCOST:0	SPELLLIST:2|Seer|Psion	CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Diplomacy|Perception
+SUBCLASSLEVEL:1	BONUS:VAR|ClairsentienceDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Insight Advanced Discipline
+
+#Block:Jaunting Advanced Discipline
+SUBCLASS:Jaunting	COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion	CSKILL:Autohypnosis|TYPE.Craft|TYPE.Knowledge|TYPE.Profession|Spellcraft|Climb|Fly|Survival|Swim
+SUBCLASSLEVEL:1	BONUS:VAR|PsychoportationDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Jaunting Advanced Discipline
+
+
+###Block: Sighted Seeker prestige class
+
+# Class Name		Hit Dice	Type					Max Level	Base class as subclass?	Source Page		Save checks bonus													Combat bonus						Modify VAR
+CLASS:Sighted Seeker	HD:8		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude|(CL+1)/3	BONUS:COMBAT|BAB|(CL*3)/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+# Class Name		Req. Att.	Multiple Requirements												Required Skill						Var. Must Be Grater
+CLASS:Sighted Seeker	PREATT:4	PREMULT:1,[PREFEAT:1,Skill Focus(Survival)],[PREABILITY:1,CATEGORY=Special Ability,Track]	PRESKILL:3,Diplomacy=2,Perception=5,Survival=2	PREVARGT:TotalPowerPoints,0
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Sighted Seeker	STARTSKILLPTS:6	CSKILL:Diplomacy|Knowledge (Local)|Knowledge (Nature)|Knowledge (Psionics)|Perception|Sense Motive|Spellcraft|Stealth|Survival
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Sighted Seeker	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Sighted Seeker|CL
+
+SUBCLASS:Sighted Seeker (Own Manifesting)		COST:0	PROHIBITCOST:0
+#	SPELLLIST:1|Sighted Seeker
+#SUBCLASS:Sighted Seeker (Own Manifesting)	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Sighted Seeker (Own Manifesting)|CL
+
+#Block: Psionic Ability
+SUBCLASSLEVEL:1				BONUS:VAR|IsPsionic|1																											ABILITY:Special Ability|AUTOMATIC|Psionic	DEFINE:IsPsionic|0
+SUBCLASSLEVEL:1				BONUS:VAR|SightedSeekerLVL|CL																																	DEFINE:SightedSeekerLVL|0
+SUBCLASSLEVEL:1				BONUS:VAR|SightedSeekerPL|SightedSeekerLVL	BONUS:VAR|SightedSeekerPL|var("BL=Sighted Seeker")																					DEFINE:SightedSeekerPL|0
+SUBCLASSLEVEL:1				BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:SightedSeekerPL,2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:SightedSeekerPL,3
+SUBCLASSLEVEL:1				BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:SightedSeekerPL,4	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:SightedSeekerPL,5	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:SightedSeekerPL,6
+SUBCLASSLEVEL:1				BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:SightedSeekerPL,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:SightedSeekerPL,8	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:SightedSeekerPL,9
+SUBCLASSLEVEL:1				BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:SightedSeekerPL,10
+SUBCLASSLEVEL:1				BONUS:VAR|BonusPowerPoints|(WIS*SightedSeekerPL)/2|TYPE=SightedSeekerBonusPP
+
+SUBCLASSLEVEL:1				BONUS:VAR|SightedSeekerCL|SightedSeekerLVL	BONUS:VAR|SightedSeekerCL|var("BL=Sighted Seeker")																					DEFINE:SightedSeekerCL|0
+
+#Block: Powers Known
+SUBCLASSLEVEL:1	KNOWN:0,1
+SUBCLASSLEVEL:2	KNOWN:0,3
+SUBCLASSLEVEL:3	KNOWN:0,4
+SUBCLASSLEVEL:4	KNOWN:0,4,1
+SUBCLASSLEVEL:5	KNOWN:0,4,2
+SUBCLASSLEVEL:6	KNOWN:0,4,3
+SUBCLASSLEVEL:7	KNOWN:0,4,3,1
+SUBCLASSLEVEL:8	KNOWN:0,4,3,3
+SUBCLASSLEVEL:9	KNOWN:0,4,3,3,1
+SUBCLASSLEVEL:10	KNOWN:0,4,3,3,2
+
+SUBCLASS:Sighted Seeker (Advance Manifesting)	COST:0	PROHIBITCOST:0
+SUBCLASSLEVEL:2				BONUS:VAR|MndBladeLVL|1																																							ADD:SPELLCASTER|Psionic
+SUBCLASSLEVEL:3				BONUS:VAR|MndBladeLVL|1																																							ADD:SPELLCASTER|Psionic
+SUBCLASSLEVEL:4				BONUS:VAR|MndBladeLVL|1																																							ADD:SPELLCASTER|Psionic
+SUBCLASSLEVEL:6				BONUS:VAR|MndBladeLVL|1																																							ADD:SPELLCASTER|Psionic
+SUBCLASSLEVEL:7				BONUS:VAR|MndBladeLVL|1																																							ADD:SPELLCASTER|Psionic
+SUBCLASSLEVEL:8				BONUS:VAR|MndBladeLVL|1																																							ADD:SPELLCASTER|Psionic
+SUBCLASSLEVEL:10				BONUS:VAR|MndBladeLVL|1																																							ADD:SPELLCASTER|Psionic
+
+1	ABILITY:Special Ability|AUTOMATIC|Favored Prey ~ Sighted Seeker
+1	ABILITY:Internal|AUTOMATIC|Urban Tracking ~ Sighted Seeker|Weapon and Armor Proficiencies ~ Sighted Seeker
+2	ABILITY:Special Ability|AUTOMATIC|Passive Seeking ~ Sighted Seeker
+3	ABILITY:Special Ability|AUTOMATIC|Mark Prey ~ Sighted Seeker
+4	ABILITY:Special Ability|AUTOMATIC|Prescient Tactics ~ Sighted Seeker
+5	ABILITY:Special Ability|AUTOMATIC|Seeker's Analysis ~ Sighted Seeker
+7	ABILITY:Special Ability|AUTOMATIC|Sighted Analysis ~ Sighted Seeker
+8	ABILITY:Internal|AUTOMATIC|Hypercognition ~ Sighted Seeker
+9	ABILITY:Special Ability|AUTOMATIC|The Sight ~ Sighted Seeker
+10	ABILITY:Internal|AUTOMATIC|Metafaculty ~ Sighted Seeker
+
+#
+# End
+#
