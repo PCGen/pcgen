@@ -85,6 +85,11 @@ public class CollectionToAbilitySelection implements
 		return collection.getCollection(pc, new ExpandingConverter(pc, category));
 	}
 
+	public Category<Ability> getCategory()
+	{
+		return category;
+	}
+
 	/**
 	 * Returns the consistent-with-equals hashCode for this
 	 * CollectionToAbilitySelection

@@ -1,0 +1,335 @@
+/*
+ * AbilitySelectionToken.java
+ * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ * Created on 06/06/2013
+ *
+ * $Id$
+ */
+package plugin.lsttokens.choose;
+
+import java.util.List;
+
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.CategorizedAbilitySelectionChooseInformation;
+import pcgen.cdom.base.Category;
+import pcgen.cdom.base.ChooseInformation;
+import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.choiceset.CollectionToAbilitySelection;
+import pcgen.cdom.enumeration.AssociationListKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.helper.CategorizedAbilitySelection;
+import pcgen.cdom.reference.ReferenceManufacturer;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
+import pcgen.core.PlayerCharacter;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
+import pcgen.rules.persistence.token.CDOMSecondaryToken;
+import pcgen.rules.persistence.token.ParseResult;
+
+/**
+ * New chooser plugin, handles ability selection.
+ * 
+ * 
+ * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @version $Revision$
+ */
+public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>,
+		PersistentChoiceActor<CategorizedAbilitySelection>
+{
+	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS =
+			AbilityCategory.class;
+
+	@Override
+	public String getParentToken()
+	{
+		return "CHOOSE";
+	}
+
+	@Override
+	protected char separator()
+	{
+		return '|';
+	}
+	
+	protected ParseResult parseTokenWithSeparator(LoadContext context,
+		ReferenceManufacturer<Ability> rm, Category<Ability> category,
+		CDOMObject obj, String value)
+	{
+		int pipeLoc = value.lastIndexOf('|');
+		String activeValue;
+		String title;
+		if (pipeLoc == -1)
+		{
+			activeValue = value;
+			title = getDefaultTitle();
+		}
+		else
+		{
+			String titleString = value.substring(pipeLoc + 1);
+			if (titleString.startsWith("TITLE="))
+			{
+				title = titleString.substring(6);
+				if (title.startsWith("\""))
+				{
+					title = title.substring(1, title.length() - 1);
+				}
+				if (title == null || title.length() == 0)
+				{
+					return new ParseResult.Fail(getParentToken() + ":"
+						+ getTokenName() + " had TITLE= but no title: " + value, context);
+				}
+				activeValue = value.substring(0, pipeLoc);
+			}
+			else
+			{
+				activeValue = value;
+				title = getDefaultTitle();
+			}
+		}
+
+		PrimitiveCollection<Ability> prim = context.getChoiceSet(rm, activeValue);
+		if (prim == null)
+		{
+			return ParseResult.INTERNAL_ERROR;
+		}
+		if (!prim.getGroupingState().isValid())
+		{
+			return new ParseResult.Fail("Non-sensical " + getFullName()
+				+ ": Contains ANY and a specific reference: " + value, context);
+		}
+		CollectionToAbilitySelection pcs =
+				new CollectionToAbilitySelection(category, prim);
+		CategorizedAbilitySelectionChooseInformation tc =
+				new CategorizedAbilitySelectionChooseInformation(
+					getTokenName(), pcs);
+		tc.setTitle(title);
+		tc.setChoiceActor(this);
+		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
+		return ParseResult.SUCCESS;
+	}
+
+	private String getFullName()
+	{
+		return getParentToken() + ":" + getTokenName();
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, CDOMObject cdo)
+	{
+		ChooseInformation<?> tc =
+				context.getObjectContext()
+					.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		if (tc == null)
+		{
+			return null;
+		}
+		if (!tc.getName().equals(getTokenName()))
+		{
+			// Don't unparse anything that isn't owned by this SecondaryToken
+			/*
+			 * TODO Either this really needs to be a check against the subtoken
+			 * (which thus needs to be stored in the ChooseInfo) or there needs
+			 * to be a loadtime check that no more than once CHOOSE subtoken
+			 * uses the same AssociationListKey... :P
+			 */
+			return null;
+		}
+		if (!tc.getGroupingState().isValid())
+		{
+			context.addWriteMessage("Invalid combination of objects"
+				+ " was used in: " + getParentToken() + ":" + getTokenName());
+			return null;
+		}
+
+		StringBuilder sb = new StringBuilder();
+		sb.append(((CategorizedAbilitySelectionChooseInformation) tc).getCategory());
+		sb.append('|');
+		sb.append(tc.getLSTformat());
+		String title = tc.getTitle();
+		if (!title.equals(getDefaultTitle()))
+		{
+			sb.append("|TITLE=");
+			sb.append(title);
+		}
+		return new String[]{sb.toString()};
+	}
+
+	@Override
+	public void applyChoice(CDOMObject owner, CategorizedAbilitySelection st,
+		PlayerCharacter pc)
+	{
+		restoreChoice(pc, owner, st);
+	}
+
+	@Override
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
+		CategorizedAbilitySelection choice)
+	{
+		pc.removeAssoc(owner, getListKey(), choice);
+		List<ChooseSelectionActor<?>> actors =
+				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		if (actors != null)
+		{
+			for (ChooseSelectionActor ca : actors)
+			{
+				ca.removeChoice(owner, choice, pc);
+			}
+		}
+		pc.removeAssociation(owner, encodeChoice(choice));
+	}
+
+	@Override
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
+		CategorizedAbilitySelection choice)
+	{
+		pc.addAssoc(owner, getListKey(), choice);
+		pc.addAssociation(owner, encodeChoice(choice));
+		List<ChooseSelectionActor<?>> actors =
+				owner.getListFor(ListKey.NEW_CHOOSE_ACTOR);
+		if (actors != null)
+		{
+			for (ChooseSelectionActor ca : actors)
+			{
+				ca.applyChoice(owner, choice, pc);
+			}
+		}
+	}
+
+	@Override
+	public List<CategorizedAbilitySelection> getCurrentlySelected(CDOMObject owner,
+		PlayerCharacter pc)
+	{
+		return pc.getAssocList(owner, getListKey());
+	}
+
+	@Override
+	public boolean allow(CategorizedAbilitySelection choice, PlayerCharacter pc, boolean allowStack)
+	{
+		/*
+		 * This is universally true, as any filter for qualify, etc. was dealt
+		 * with by the ChoiceSet built during parse
+		 */
+		return true;
+	}
+
+	private static final Class<Ability> ABILITY_CLASS = Ability.class;
+
+	@Override
+	public String getTokenName()
+	{
+		return "ABILITYSELECTION";
+	}
+
+	@Override
+	public ParseResult parseTokenWithSeparator(LoadContext context,
+		CDOMObject obj, String value)
+	{
+		int barLoc = value.indexOf('|');
+		if (barLoc == -1)
+		{
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
+				+ " requires a CATEGORY and arguments : " + value, context);
+		}
+		String cat = value.substring(0, barLoc);
+		Category<Ability> category =
+				context.ref.silentlyGetConstructedCDOMObject(
+					ABILITY_CATEGORY_CLASS, cat);
+		if (category == null)
+		{
+			return new ParseResult.Fail("CHOOSE:" + getTokenName()
+				+ " found invalid CATEGORY: " + cat + " in value: " + value,
+				context);
+		}
+		String abilities = value.substring(barLoc + 1);
+		return parseTokenWithSeparator(context,
+			context.ref.getManufacturer(ABILITY_CLASS, category), category,
+			obj, abilities);
+	}
+
+	@Override
+	public Class<CDOMObject> getTokenClass()
+	{
+		return CDOMObject.class;
+	}
+
+	protected String getDefaultTitle()
+	{
+		return "Ability choice";
+	}
+
+	protected AssociationListKey<CategorizedAbilitySelection> getListKey()
+	{
+		return AssociationListKey.getKeyFor(CategorizedAbilitySelection.class, "CHOOSE*ABILITYSELECTION");
+	}
+
+	// TODO - code below here needs to be made category aware
+	@Override
+	public CategorizedAbilitySelection decodeChoice(LoadContext context, String s)
+	{
+		return CategorizedAbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+//		Ability ability = Globals.getContext().ref
+//				.silentlyGetConstructedCDOMObject(Ability.class,
+//						AbilityCategory.FEAT, s);
+//
+//		if (ability == null)
+//		{
+//			List<String> choices = new ArrayList<String>();
+//			String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
+//			ability = Globals.getContext().ref
+//					.silentlyGetConstructedCDOMObject(Ability.class,
+//							AbilityCategory.FEAT, baseKey);
+//			if (ability == null)
+//			{
+//				throw new IllegalArgumentException("String in decodeChoice "
+//						+ "must be a Feat Key "
+//						+ "(or Feat Key with Selection if appropriate), was: "
+//						+ s);
+//			}
+//			return new CategorizedAbilitySelection(AbilityCategory.FEAT,
+//				ability, Nature.NORMAL, choices.get(0));
+//		}
+//		else if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
+//		{
+//			/*
+//			 * MULT:YES, CHOOSE:NOCHOICE can land here
+//			 * 
+//			 * TODO There needs to be better validation at some point that this
+//			 * is proper (meaning it is actually CHOOSE:NOCHOICE!)
+//			 */
+//			return new CategorizedAbilitySelection(AbilityCategory.FEAT,
+//				ability, Nature.NORMAL, "");
+//		}
+//		else
+//		{
+//			return new CategorizedAbilitySelection(AbilityCategory.FEAT,
+//				ability, Nature.NORMAL);
+//		}
+	}
+
+	@Override
+	public String encodeChoice(CategorizedAbilitySelection choice)
+	{
+		return choice.getPersistentFormat();
+	}
+
+}
