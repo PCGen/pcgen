@@ -5351,13 +5351,18 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			if (classSpellType != null
 					&& ("Any".equalsIgnoreCase(spellType) || classSpellType.equalsIgnoreCase(spellType)))
 			{
+				int numCastLevel = this.getSpellSupport(aClass).getCastForLevel(spellLevel, this);
+				
 				// Get the number of known spells for the level
 				known += this.getSpellSupport(aClass).getKnownForLevel(spellLevel, "null", this);
-				known += this.getSpellSupport(aClass).getSpecialtyKnownForLevel(spellLevel, this);
+				if (numCastLevel > 0)
+				{
+					known += this.getSpellSupport(aClass).getSpecialtyKnownForLevel(spellLevel, this);
+				}
 
 				// See if the character can cast
 				// at the required spell level
-				cast += this.getSpellSupport(aClass).getCastForLevel(spellLevel, this);
+				cast += numCastLevel;
 
 				// If they don't memorise spells and don't have
 				// a CastList then they use something funky

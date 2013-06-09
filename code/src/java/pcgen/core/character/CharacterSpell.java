@@ -63,15 +63,12 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	}
 
 	/**
-	 * bookName = name of spellbook/list
-	 * level = actual level of spell (adjusted by feats)
-	 * specialty: -1 = inSpecialty insensitive
-	 * specialty: 0 = inSpecialty==false
-	 * specialty: 1 = inSpecialty==true
-	 * Returns index of SpellInfo in infoList, or -1 if it doesn't exist
-	 * @param bookName
-	 * @param level
-	 * @param specialty
+	 * Returns index of SpellInfo in infoList, or -1 if it doesn't exist.
+	 * 
+	 * @param pc The character to query.
+	 * @param bookName name of spellbook/list
+	 * @param level actual level of spell (adjusted by feats)
+	 * @param specialty -1 = inSpecialty insensitive;<br/>0 = inSpecialty==false; and <br/> 1 = inSpecialty==true
 	 * @return info index
 	 */
 	public int getInfoIndexFor(PlayerCharacter pc, final String bookName, final int level, final int specialty)

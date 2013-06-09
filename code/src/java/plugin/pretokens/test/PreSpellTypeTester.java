@@ -85,9 +85,10 @@ public class PreSpellTypeTester extends AbstractPrerequisiteTest implements
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return LanguageBundle.getFormattedString("PreSpellType.toHtml", //$NON-NLS-1$
-			prereq.getOperator().toDisplayString(),
-			1, prereq.getKey(), prereq.getOperand());
+		return LanguageBundle.getFormattedString(
+			"PreSpellType.toHtmlSingle", //$NON-NLS-1$
+			prereq.getOperator().toDisplayString(), 1, prereq.getKey(),
+			prereq.getOperand());
 	}
 
 }
