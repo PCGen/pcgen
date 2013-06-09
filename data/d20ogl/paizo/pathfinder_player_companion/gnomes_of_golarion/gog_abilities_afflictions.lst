@@ -6,4 +6,4 @@ SOURCELONG:Gnomes of Golarion	SOURCESHORT:GoG	SOURCEWEB:http://paizo.com/product
 
 ### Curses
 # Ability Name	Category of Ability	Type				Multiple Requirements						Description																	Source Page
-The Bleaching	CATEGORY:Afflictions	TYPE:Curse.Affliction	PREMULT:2,[PRERACE:1,Gnome],[PREAGESET:1,Middle Age]	DESC:Curse; Will DC varies (see text) halts or reverses;Onset middle age;Frequency 1/year;Effect see text	SOURCEPAGE:pg.25
+The Bleaching	CATEGORY:Afflictions	TYPE:Curse.Affliction	PREMULT:2,[PRERACE:1,Gnome],[PREAGESET:1,Middle-Aged]	DESC:Curse; Will DC varies (see text) halts or reverses;Onset middle age;Frequency 1/year;Effect see text	SOURCEPAGE:pg.25
