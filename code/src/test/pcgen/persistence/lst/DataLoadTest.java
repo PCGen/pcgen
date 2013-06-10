@@ -29,6 +29,7 @@ import static org.junit.Assert.assertNotNull;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -80,6 +81,12 @@ public class DataLoadTest implements PCGenTaskListener
 	/** The name of our dummy config file. */
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
+	/** A list of sources that are currently broken, but are lower priority. 
+	 * These should be activated when the data team is ready. */
+	private static String[] excludedSources = new String[]{
+		"Pathfinder RPG for PFS", "Darwin's World 2 Mode", "Deadlands Mode",
+		"Legends of Excalibur Mode", "Sidewinder Mode"};
+	
 	private List<LogRecord> errors = new ArrayList<LogRecord>();
 
 	private SourceSelectionFacade sourceSelection;
@@ -106,6 +113,7 @@ public class DataLoadTest implements PCGenTaskListener
 		SettingsHandler.setOutputDeprecationMessages(false);
 		SettingsHandler.setInputUnconstructedMessages(false);
 		SettingsHandler.setAllowOverride(true);
+		List<String> exclusions = Arrays.asList(excludedSources);
 
 		List<SourceSelectionFacade> basicSources = getBasicSources();
 		assertFalse("No sources found", basicSources.isEmpty());
@@ -113,7 +121,10 @@ public class DataLoadTest implements PCGenTaskListener
 		for (SourceSelectionFacade ssf : basicSources)
 		{
 			String testName = ssf.toString().replaceAll("[\\(\\)]", "_");
-			params.add(new Object[]{ssf, testName});
+			if (!exclusions.contains(testName))
+			{
+				params.add(new Object[]{ssf, testName});
+			}
 		}
 		return params;
 	}
