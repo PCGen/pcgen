@@ -196,6 +196,19 @@
 
 <hr>
 
+		<p class="status"><a name="ALLOWAUTORESIZE">*** New 5.6.1</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> ALLOWAUTORESIZE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Boolean (Y or N).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This tag is used in the <span class="lstfile">gameMode/miscinfo.lst</span> file to identify 
+			whether PCGen should allow the auto-resizing of equipment.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>ALLOWAUTORESIZE:Y</code></p>
+		<p class="indent3">This gameMode will automatically resize equipment when purchased</p>
+		<p></p>
+
+<hr>
+
 		<p class="indent0"><strong><a name="ALTHPABBREV">Tag Name:</a></strong> ALTHPABBREV:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (What you want you games secondary HP
 			equivalent to be abbreviated to).</p>
@@ -1170,8 +1183,24 @@
 		<p class="indent3">Subtracts ACTYPE:Base to the ACTYPE being defined in the ACTYPE line.</p>
 		<p class="indent2"><code>REMOVE:Shield</code></p>
 		<p class="indent3">Subtracts ACTYPE:Shield to the ACTYPE being defined in the ACTYPE line.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+
+		<p class="status"><a name="RESIZABLEEQUIPTYPE">*** New 5.14.0</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> RESIZABLEEQUIPTYPE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Equipment Type).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This provides a pip-delimited (|) list of the equipment types that can be resized by 
+			the automatic resize feature of PCGen.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>RESIZABLEEQUIPTYPE:Weapon|Resizable</code></p>
+		<p class="indent3">Equipment with a type of either Weapon or Resizable may be automatically resized to 
+			match the character's size.</p>
+		<p></p>
+
+<hr>
+
 		<p class="status"><a name="ROLLMETHOD">*** New 5.9.3</a></p>
 		<p class="indent0"><strong>Tag Name:</strong> ROLLMETHOD:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Description of random Stat rolling method).</p>
