@@ -9,7 +9,7 @@ CLASS:Marksman	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|E
 CLASS:Marksman	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Marksman|CL
 
 ## Proficiencies
-1																																																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)	AUTO:SHIELDPROF|SHIELDTYPE=Buckler	AUTO:WEAPONPROF|TYPE=Light.Martial|TYPE=Martial.Ranged|TYPE=Martial.Thrown
+1																																																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)	AUTO:SHIELDPROF|SHIELDTYPE=Buckler	AUTO:WEAPONPROF|TYPE=Light.Martial|TYPE=Martial.Ranged|TYPE=Martial.Thrown		AUTO:WEAPONPROF|Sling Staff (Halfling)|PRERACE:1,Halfling
 
 ## Psionic Ability
 1											BONUS:VAR|MarksmanML|CL	BONUS:VAR|MarksmanML|var("BL=Marksman")	BONUS:VAR|IsPsionic|1																						DEFINE:MarksmanML|0	DEFINE:IsPsionic|0		ABILITY:Special Ability|AUTOMATIC|Psionic
