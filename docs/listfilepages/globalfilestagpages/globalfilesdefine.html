@@ -100,9 +100,10 @@
 	<p></p>
 	
 	<p class="indent2"><code><a name="BAB">BAB</a></code></p>
-	<p class="indent3">For classes which have O (for Other) as their BAB progression, you can use a
-		formula for their BAB progression, e.g. <code>DEFINE:BAB|2*CL</code> would be +2 per
-		class-level.</p>
+	<p class="indent3">This is the Base Attack Bonus. The progression for the BAB is set for each individual 
+		class in the <span class="lstfile">class.lst</span> file. The BAB progression is set using the global 
+		<code>BONUS:COMBAT|BAB</code> tag, which will take a formula. As an example, <code>BONUS:COMBAT|BAB|CL*2</code> 
+		would grant a BAB of +2 per class-level.</p>
 	<p></p>
 	
 	<p class="indent2"><code><a name="BASECR">BASECR</a></code></p>
