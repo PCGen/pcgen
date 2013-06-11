@@ -425,7 +425,7 @@
 
 <hr>
 
-	<p class="lststatus"><a name="DESC">*** Updated 5.11.1</a></p>
+	<p class="lstnew"><a name="DESC">*** Updated 6.01.3</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> DESC:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (ability description)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (deity description)</p>
@@ -435,17 +435,17 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (spell description)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent1">
-		<li>The DESC tags provides a description appropriate for the object it is attached to, i.e. ability, deity, domain, equipment, feat, or spell.</li>
-		<li>PRExxx tags can be used with the DESC tag.</li>
-		<li>Multiple DESC tags per line are allowed with all qualifying DESC tags being concatonated for output and separated by commas (,).</li>
-		<li><code>.CLEAR</code> will clear all DESC tags.</li>
+		<li>The <code>DESC</code> tags provides a description appropriate for the object it is attached to, i.e. ability, deity, domain, equipment, feat, or spell.</li>
+		<li>PRExxx tags can be used with the <code>DESC</code> tag.</li>
+		<li>Multiple <code>DESC</code> tags per line are allowed with all qualifying <code>DESC</code> tags being concatonated for output and separated by spaces.</li>
+		<li><code>.CLEAR</code> will clear all <code>DESC</code> tags.</li>
 		<li><code>.CLEAR.(regular expression match)</code> will clear specific instances.</li>
-		<li>DESC tags now take variable substitution.<br>
+		<li><code>DESC</code> tags now take variable substitution.<br>
 		<ul>
-			<li>Within the text a % followed by a number will substitute the #th variable from the
-				variable list associated with the DESC. For example, %1 will substitute the first
-				variable into that position in the DESC</li>
-			<li>Variables are specified after the descriptive text and are pipe-delimited (|).</li>
+			<li>Within the text a percent-sign (%) followed by a number (#) will substitute the #th variable from the
+				variable list associated with the <code>DESC</code>. For example, %1 will substitute the first
+				variable into that position in the <code>DESC</code></li>
+			<li>Variables are specified at the end of the descriptive text and are pipe-delimited (|).</li>
 			<li>The special parameter %% will insert an actual % character into the text.</li>
 			<li>If the parameter needs to be next to a number the parameter number should be surrounded
 				in curly brackets { }. For example, %{1000}gp.</li>
@@ -455,12 +455,12 @@
 			<li><code>%CHOICE</code> - Will replace the first associated choice in the object.</li>
 			<li><code>%FEAT</code> - Will substitute the descriptions of feats within the object that match the associated preqrequisites.</li>
 			<li><code>%LIST</code> - Will substitute all choices comma separated into that parameter.</li>
-			<li><code>%NAME</code> - The name of the object this DESC tag is in.</li>
+			<li><code>%NAME</code> - The name of the object this <code>DESC</code> tag is in.</li>
 		</ul>
 		<li>Formulas can be parsed and the results replaced in the output by enclosing the variables and
 			formulas within parentheses.<br>
 		<ul>
-			<li><a href="#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for
+			<li><a href="globalfilesdefine.html#CASTERLEVEL">CASTERLEVEL</a>, a variable specifically designed for
 				this purpose, is commonly used though other variables can be used as well.</li>
 			<li>Because anything within parentheses is assumed to be a formula to be parsed,
 				text containing parentheses must substitute brackets [ ] in place of parentheses.</li>
@@ -468,8 +468,8 @@
 				regular expressions. Basically it allows for pattern matching in strings. You can
 				create fairly powerful match structures using things like character groups "[a-zA-Z]"
 				match any alphabetic character or groupings "(bat|super)man" match batman or superman
-				and many many more. So, for example, you could do a CLEARALL by doing DESC:.CLEAR..*,
-				or clear all exceptional abilities by doing DESC:.CLEAR.\(Ex\), or clear everything
+				and many many more. So, for example, you could clear all DESC tags by doing <code>DESC:.CLEAR..*</code>,
+				or clear all exceptional abilities by doing <code>DESC:.CLEAR.\(Ex\)</code>, or clear everything
 				that's non-numeric with <code>DESC:.CLEAR.[A-Za-z]</code>.</li>
 		</ul>
 	</ul>
