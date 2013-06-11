@@ -156,7 +156,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Nature Bond Choice
 1	BONUS:ABILITYPOOL|Nature Bond|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureBond
 ###Block: Domains
-	BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidDomain
+1	BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidDomain
 ###Block: Domain Selections
 1	DOMAIN:Air[PREVAREQ:DruidAirAllowed,1]
 1	DOMAIN:Animal[PREVAREQ:DruidAnimalAllowed,1]
