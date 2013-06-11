@@ -1,5 +1,7 @@
 # CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 
+Default	CATEGORY:Internal
+
 ###Block: Department Abilities
 
 # Feat Name		Type					Visible	Stackable?	Multiple?	Choose				Bonus to skill			Stat bonus										Class Skill	Cost
