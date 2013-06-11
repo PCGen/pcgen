@@ -1365,7 +1365,7 @@
 
 <hr>
 
-	<p class="lststatus"><a name="WEAPONPROF">*** Updated 5.5.2</a></p>
+	<p class="lstnew"><a name="WEAPONPROF">*** Updated 6.01.3</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> BONUS:WEAPONPROF=x|y,y|z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon proficiency name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Weapon proficiency type)</p>
@@ -1376,20 +1376,21 @@
 		<li>Modifies the indicated property of the weapon proficiency or weapon proficiency type.</li>
 		<li>Weapon proficiency properties defined are:
 		<ul>
-			<li>CRITMULTADD (Adds to the critical multiplier of the weapon)</li>
-			<li>CRITRANGEADD (Adds to the critical range of the weapon)</li>
-			<li>CRITRANGEDOUBLE (Doubles the critical range of the weapon)</li>
-			<li>DAMAGE (Adds to the damage of the weapon)</li>
-			<li>DAMAGEMULT (Adds to the damage multiplier,
-				See <a href="#COMBATDAMAGEMULT">BONUS:COMBAT|DAMAGEMULT</a> for syntax)</li>
-			<li>DAMAGESIZE (Raises or lowers the damage dice on the same scale as weapon size,
-				See <a href="#COMBATDAMAGESIZE">BONUS:COMBAT|DAMAGESIZE</a> for the scale)</li>
-			<li>DAMAGE-SHORTRANGE (Adds to the damage of the weapon at short range as defined in the GameMode files)</li>
-			<li>PCSIZE (Adds to the character's size in relation to the weapon)</li>
-			<li>TOHIT (Adds to the attack bonus of the weapon)</li>
-			<li>TOHIT-SHORTRANGE (Adds to the attack bonus of the weapon at short range as defined in the GameMode files)</li>
-			<li>TOHITOVERSIZE (Decreases the handedness of a weapon)</li>
-			<li>WIELDCATEGORY (Raises or lowers the wieldcatagory of the weapon)</li>
+			<li><code>CRITMULTADD</code> adds to the critical multiplier of the weapon.</li>
+			<li><code>CRITRANGEADD</code> (adds to the critical range of the weapon.</li>
+			<li><code>CRITRANGEDOUBLE</code> doubles the critical range of the weapon.</li>
+			<li><code>DAMAGE</code> adds to the damage of the weapon.</li>
+			<li><code>DAMAGEMULT</code> adds to the damage multiplier,
+				See <a href="#COMBATDAMAGEMULT">BONUS:COMBAT|DAMAGEMULT</a> for syntax.</li>
+			<li><code>DAMAGESIZE</code> raises or lowers the damage dice on the same scale as weapon size,
+				See <a href="#COMBATDAMAGESIZE">BONUS:COMBAT|DAMAGESIZE</a> for the scale.</li>
+			<li><code>DAMAGE-SHORTRANGE</code> adds to the damage of the weapon at short range as defined in the GameMode files.</li>
+			<li><code>PCSIZE</code> adds to the character's size in relation to the weapon.</li>
+			<li><code>REACH</code> modifies the REACH for the specified weapon.</li>
+			<li><code>TOHIT</code> adds to the attack bonus of the weapon.</li>
+			<li><code>TOHIT-SHORTRANGE</code> adds to the attack bonus of the weapon at short range as defined in the GameMode files.</li>
+			<li><code>TOHITOVERSIZE</code> decreases the handedness of a weapon.</li>
+			<li><code>WIELDCATEGORY</code> raises or lowers the wieldcatagory of the weapon.</li>
 		</ul>
 		</li>
 	</ul>
@@ -1404,6 +1405,8 @@
   	<p class="indent3">Adds one to the damage of Shortbows at short range.</p>
   	<p class="indent2"><code>BONUS:WEAPONPROF=Longsword|PCSIZE|1</code></p>
   	<p class="indent3">Allows a small character to use a longsword as if he were medium sized.</p>
+  	<p class="indent2"><code>BONUS:WEAPONPROF=Bite|REACH|5</code></p>
+  	<p class="indent3">Would increase the reach of a creature's Bite by 5.</p>
   	<p class="indent2"><code>BONUS:WEAPONPROF=Greatsword|TOHITOVERSIZE|1</code></p>
   	<p class="indent3">Allows a medium character to use a Greatsword one handed without penalty.</p>
 	<p class="indent2"><code>BONUS:WEAPONPROF=Longsword|WIELDCATEGORY|-1</code></p>
