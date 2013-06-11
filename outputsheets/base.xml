@@ -1735,6 +1735,9 @@ Immune
 |ENDIF|
 |FOR,%specialquality,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=SpecialQuality")-1,1,0|
 		<special_quality>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.HASASPECT.Name:Y)|
+			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.ASPECT.Name|</name>
+|ELSE|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Ex)</name>
 |ELSE|
@@ -1748,6 +1751,7 @@ Immune
 			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality| (Ps)</name>
 |ELSE|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality|</name>
+|ENDIF|
 |ENDIF|
 |ENDIF|
 |ENDIF|

@@ -6756,6 +6756,8 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 				<xsl:with-param name="list" select="feat[hidden != 'T' and name != '']"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
+				<xsl:with-param name="benefit.tag" select="'benefit'"/>
+
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
