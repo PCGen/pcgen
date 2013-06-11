@@ -25,11 +25,12 @@
  */
 package pcgen.core.character;
 
-import pcgen.core.Globals;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
+import pcgen.core.Globals;
 
 /**
  * <code>SpellInfo</code>
@@ -182,6 +183,26 @@ public final class SpellInfo implements Comparable<SpellInfo>
 		}
 
 		aBuf.append("] ");
+
+		return aBuf.toString();
+	}
+
+	public String getAppliedName()
+	{
+		if (featList == null || featList.isEmpty())
+		{
+			return "";
+		}
+
+		final StringBuilder aBuf = new StringBuilder();
+		for (int i = 0; i < featList.size(); i++)
+		{
+			aBuf.append(featList.get(i).getSafe(StringKey.APPLIED_NAME));
+			if (i < featList.size())
+			{
+				aBuf.append(" ");
+			}
+		}
 
 		return aBuf.toString();
 	}

@@ -216,6 +216,14 @@ public class SpellMemToken extends Token
 					{
 						retValue.append(OutputNameFormatting.getOutputName(aSpell) + si.toString());
 					}
+					else if ("BASENAME".equals(aLabel))
+					{
+						retValue.append(OutputNameFormatting.getOutputName(aSpell));
+					}
+					else if ("APPLIEDNAME".equals(aLabel))
+					{
+						retValue.append(si.getAppliedName());
+					}
 					else if ("PPCOST".equals(aLabel))
 					{
 						if (si.getActualPPCost() != -1)
