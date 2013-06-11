@@ -5,7 +5,7 @@
   <id>pcgen</id>
   <groupId>pcgen</groupId>
   <name>PCGen</name>
-  <currentVersion>6.01.02</currentVersion>
+  <currentVersion>6.01.03</currentVersion>
   <organization>
     <name>SourceForge</name>
     <url>http://sourceforge.net/</url>
@@ -796,6 +796,11 @@
       <id>6.01.02</id>
       <name>6.01.02</name>
       <tag>release-6.01.02</tag>
+    </version>
+    <version>
+      <id>6.01.03</id>
+      <name>6.01.03</name>
+      <tag>release-6.01.03</tag>
     </version>
   </versions>
 </project>
