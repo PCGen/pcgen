@@ -48,6 +48,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
@@ -95,6 +96,7 @@ import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.system.BatchExporter;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
+import pcgen.util.enumeration.Visibility;
 import pcgen.util.fop.FOPHandler;
 import pcgen.util.fop.FOPHandlerFactory;
 import pcgen.util.Logging;
@@ -392,7 +394,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 		for (Ability aFeat : feats)
 		{
-			if (aFeat.isType("Metamagic")) //$NON-NLS-1$
+			if (aFeat.isType("Metamagic") &&  //$NON-NLS-1$
+					!aFeat.get(ObjectKey.VISIBILITY).equals(Visibility.DISPLAY_ONLY))
 			{
 				characterMetaMagicFeats.add(aFeat);
 			}
