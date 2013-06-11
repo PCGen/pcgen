@@ -735,8 +735,8 @@ FEAT:Weapon Focus (Longsword)
 GEAR:Full Plate	LOCATION:Equipped	EQMOD:PLUS1A
 GEAR:Longsword	LOCATION:Equipped	EQMOD:PLUS1W	EQMOD:KEEN
 
-STARTPACK:Coach of the Silent Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Coach of the Silent]
-RACE:Coach of the Silent	!PRERACE:1,%
+STARTPACK:Coach of the Silent Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dullahan (Coach of the Silent)]
+RACE:Dullahan (Coach of the Silent)	!PRERACE:1,%
 NAME:Coach of the Silent
 ALIGN:LE
 STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
