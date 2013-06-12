@@ -55,7 +55,6 @@ import pcgen.gui2.tabs.bio.NoteInfoPane;
 import pcgen.gui2.tabs.bio.PortraitInfoPane;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.system.LanguageBundle;
-import pcgen.util.Logging;
 
 /**
  * The Class <code>DescriptionInfoTab</code> is a placeholder for the yet to

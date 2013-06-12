@@ -37,7 +37,6 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.Status;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
-import pcgen.core.Globals;
 import pcgen.core.facade.CampaignFacade;
 import pcgen.core.facade.CampaignInfoFactory;
 import pcgen.core.facade.SourceSelectionFacade;

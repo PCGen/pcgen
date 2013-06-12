@@ -51,7 +51,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
-import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMDirectSingleRef;

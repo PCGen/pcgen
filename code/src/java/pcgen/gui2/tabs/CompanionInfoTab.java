@@ -64,7 +64,6 @@ import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.DisplayAwareTab;
 import pcgen.gui2.util.JTreeTable;
-import pcgen.gui2.util.JTreeViewTable;
 import pcgen.gui2.util.treetable.AbstractTreeTableModel;
 import pcgen.gui2.util.treetable.DefaultTreeTableNode;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;

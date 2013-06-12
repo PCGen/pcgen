@@ -48,7 +48,6 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.tools.Utility;
-import pcgen.system.LanguageBundle;
 import pcgen.system.LoggingRecorder;
 import pcgen.util.Logging;
 

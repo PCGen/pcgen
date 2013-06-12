@@ -25,9 +25,7 @@ package plugin.lsttokens.gamemode;
 import java.net.URI;
 
 import pcgen.core.GameMode;
-import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.GameModeLstToken;
-import pcgen.util.Logging;
 
 /**
  * <code>ResizableEquipTypeToken</code> parses the list of equipment

@@ -29,7 +29,6 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.helper.StatLock;
 import pcgen.core.PCStat;
 import pcgen.core.utils.ParsingSeparator;
-import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;

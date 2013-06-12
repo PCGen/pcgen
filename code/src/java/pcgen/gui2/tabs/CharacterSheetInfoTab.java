@@ -57,7 +57,6 @@ import pcgen.gui2.util.event.ListDataAdapter;
 import pcgen.gui2.util.table.TableUtils;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
-import pcgen.system.Main;
 import pcgen.util.Logging;
 
 /**

@@ -24,25 +24,12 @@ package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.cdom.base.AssociatedPrereqObject;
-import pcgen.cdom.base.CDOMList;
-import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.content.ChallengeRating;
-import pcgen.cdom.enumeration.AssociationKey;
-import pcgen.cdom.enumeration.MapKey;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.list.ClassSpellList;
-import pcgen.core.analysis.SpellLevel;
-import pcgen.core.spell.Spell;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.TokenUtilities;
 import pcgen.util.TestHelper;
 
 /**

@@ -25,7 +25,6 @@ import org.apache.commons.lang.math.Fraction;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
-import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;

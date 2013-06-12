@@ -19,7 +19,6 @@ package pcgen.core.display;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.helper.StatLock;
 import pcgen.core.PCStat;
 
 public class NonAbilityDisplay
