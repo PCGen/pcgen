@@ -251,7 +251,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		for (Iterator iter = symTab.keySet().iterator(); iter.hasNext();)
 		{
 			String key = (String) iter.next();
-			Double value = (Double) symTab.get(key);
+			Double value = (Double) symTab.getValue(key);
 			System.out.println(key + " => " + value);
 		}
 		jep.addVariable("MONKLVL", 5);
