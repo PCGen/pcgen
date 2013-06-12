@@ -36,6 +36,7 @@ import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 /**
  *
@@ -125,26 +126,23 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 	@Override
 	protected void addGlobalObject(final CDOMObject cdo)
 	{
-		final Object obj = Globals.getSpellMap().get(cdo.getKeyName());
-		if (obj == null)
+		if (cdo instanceof Spell)
 		{
-			Globals.addToSpellMap(cdo.getKeyName(), cdo);
-		}
-		else
-		{
-			final List<Spell> spellList;
-			if (obj instanceof Spell)
+			final Spell spell = Globals.getSpellMap().get(cdo.getKeyName());
+			if (spell == null)
 			{
-				spellList = new ArrayList<Spell>();
-				Globals.removeFromSpellMap(((Spell) obj).getKeyName());
-				Globals.addToSpellMap(cdo.getKeyName(), spellList);
-				spellList.add((Spell) obj);
+				Globals.addToSpellMap(cdo.getKeyName(), (Spell) cdo);
 			}
 			else
 			{
-				spellList = (List<Spell>) obj;
+				final List<Spell> spellList = new ArrayList<Spell>();
+				Globals.removeFromSpellMap(spell.getKeyName());
+				spellList.add((Spell) spell);
 			}
-			spellList.add((Spell) cdo);
+		}
+		else
+		{
+			Logging.errorPrint("Non-spell object passed: " + cdo);
 		}
 	}
 }

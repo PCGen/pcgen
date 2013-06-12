@@ -37,7 +37,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
-import java.util.TreeMap;
 import java.util.logging.Level;
 
 import javax.swing.JFrame;
@@ -117,10 +116,7 @@ public final class Globals
 	/** we need maps for efficient lookups */
 	private static Map<URI, Campaign>        campaignMap     = new HashMap<URI, Campaign>();
 	private static Map<String, Campaign>        campaignNameMap     = new HashMap<String, Campaign>();
-
-	/** TODO Why can spellMap contain both Spell and List<Spell>? Change to always contain List<Spell> (it is possible said list only has one member, but that's ok.)
-	 * Does  need to be sorted? If not, change to HashMap.*/
-	private static Map<String, Object>        spellMap        = new TreeMap<String, Object>();
+	private static Map<String, Spell>        spellMap        = new HashMap<String, Spell>();
 	private static Map<String, String>        eqSlotMap       = new HashMap<String, String>();
 
 	/** We use lists for efficient iteration */
@@ -705,43 +701,27 @@ public final class Globals
 	 */
 	public static Spell getSpellKeyed(final String aKey)
 	{
-		final Object obj = getSpellMap().get(aKey);
-
-		if (obj != null)
-		{
-			if (obj instanceof Spell)
-			{
-				return (Spell)obj;
-			}
-
-			if (obj instanceof ArrayList)
-			{
-				return (Spell) ((ArrayList) obj).get(0);
-			}
-		}
-
-		return null;
+		return getSpellMap().get(aKey);
 	}
 
 	/**
 	 * Get spell map
 	 * @return spell map
 	 */
-	public static Map<String, ?> getSpellMap()
+	public static Map<String, Spell> getSpellMap()
 	{
 		return Collections.unmodifiableMap(spellMap);
 	}
 
 	/**
-	 * Add an item to the spell map. generally this will either 
-	 * be a Spell object or a list of Spells
+	 * Add spell to the spell map.
 	 * 
 	 * @param key The key the object is associated with.
 	 * @param anObject The object to be added to the map.
 	 */
-	public static void addToSpellMap(final String key, final Object anObject)
+	public static void addToSpellMap(final String key, final Spell spell)
 	{
-		spellMap.put(key, anObject);
+		spellMap.put(key, spell);
 	}
 
 	/**
@@ -1040,7 +1020,7 @@ public final class Globals
 		//////////////////////////////////////
 
 		// Clear Maps (not strictly necessary, but done for consistency)
-		spellMap = new HashMap<String, Object>();
+		spellMap = new HashMap<String, Spell>();
 		VisionType.clearConstants();
 
 		// Perform other special cleanup
