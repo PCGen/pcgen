@@ -75,7 +75,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
@@ -1341,7 +1340,7 @@ final class EqBuilder extends JPanel
 			String spellType = csd.getSpellType();
 			int baseSpellLevel = csd.getBaseSpellLevel();
 			int casterLevel = csd.getCasterLevel();
-			List<Ability> metamagicFeats = csd.getMetamagicFeats();
+			Object[] metamagicFeats = csd.getMetamagicFeats();
 
 			int charges = -1;
 

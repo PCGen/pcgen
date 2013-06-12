@@ -147,7 +147,7 @@ public class EqModSpellInfo
 			final CDOMObject spellCastingClass, final Spell theSpell,
 			final String spellVariant, final String spellType,
 			final int spellLevel, final int spellCasterLevel,
-			final List<Ability> spellMetamagicFeats, final int charges)
+			final Object[] spellMetamagicFeats, final int charges)
 	{
 		final StringBuilder spellInfo = new StringBuilder(100);
 		spellInfo.append("SPELLNAME[").append(theSpell.getKeyName()).append(
@@ -170,7 +170,7 @@ public class EqModSpellInfo
 					.append("] ");
 		}
 
-		if ((spellMetamagicFeats != null) && (spellMetamagicFeats.size() > 0))
+		if ((spellMetamagicFeats != null) && (spellMetamagicFeats.length > 0))
 		{
 			/*
 			 * Have considered whether this needs to be expanded to include
@@ -178,16 +178,17 @@ public class EqModSpellInfo
 			 * used by toString()
 			 */
 			spellInfo.append("METAFEATS[");
-			boolean comma = false;
 
-			for (Ability aFeat : spellMetamagicFeats)
+			for (int i = 0; i < spellMetamagicFeats.length; i++)
 			{
-				if (comma)
+				final Ability aFeat = (Ability) spellMetamagicFeats[i];
+
+				if (i != 0)
 				{
 					spellInfo.append(", ");
 				}
+
 				spellInfo.append(aFeat.getKeyName());
-				comma = true;
 			}
 
 			spellInfo.append("] ");

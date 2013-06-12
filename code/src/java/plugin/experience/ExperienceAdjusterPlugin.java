@@ -236,10 +236,13 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 		{
 			try
 			{
-				for (Object item : eaView.getCharacterList().getSelectedValuesList())
+				Object[] list = eaView.getCharacterList().getSelectedValues();
+
+				for (int i = 0; i < list.length; i++)
 				{
-					eaModel.addExperienceToCharacter((ExperienceListItem)item, 
-							Integer.parseInt(eaView.getExperienceField().getText()));
+					eaModel.addExperienceToCharacter(
+						(ExperienceListItem) list[i], Integer.parseInt(eaView
+							.getExperienceField().getText()));
 				}
 			}
 			catch (NumberFormatException e)
@@ -270,18 +273,24 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	{
 		if (eaView.getCharacterList().getSelectedIndex() != -1)
 		{
-			for (Object item : eaView.getCharacterList().getSelectedValuesList())
+			Object[] list = eaView.getCharacterList().getSelectedValues();
+
+			for (int i = 0; i < list.length; i++)
 			{
-				Combatant cbt = ((ExperienceListItem) item).getCombatant();
+				ExperienceListItem item = (ExperienceListItem) list[i];
+				Combatant cbt = item.getCombatant();
 				adjustCR(cbt);
 			}
 		}
 
 		if (eaView.getEnemyList().getSelectedIndex() != -1)
 		{
-			for (Object item : eaView.getEnemyList().getSelectedValuesList())
+			Object[] list = eaView.getEnemyList().getSelectedValues();
+
+			for (int i = 0; i < list.length; i++)
 			{
-				Combatant cbt = ((ExperienceListItem) item).getCombatant();
+				ExperienceListItem item = (ExperienceListItem) list[i];
+				Combatant cbt = item.getCombatant();
 				adjustCR(cbt);
 			}
 		}
@@ -333,9 +342,11 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	{
 		if (eaView.getEnemyList().getSelectedIndex() != -1)
 		{
-			for (Object item : eaView.getEnemyList().getSelectedValuesList())
+			Object[] list = eaView.getEnemyList().getSelectedValues();
+
+			for (int i = 0; i < list.length; i++)
 			{
-				eaModel.removeEnemy((ExperienceListItem) item);
+				eaModel.removeEnemy((ExperienceListItem) list[i]);
 			}
 		}
 
