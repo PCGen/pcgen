@@ -236,13 +236,10 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 		{
 			try
 			{
-				Object[] list = eaView.getCharacterList().getSelectedValues();
-
-				for (int i = 0; i < list.length; i++)
+				for (Object item : eaView.getCharacterList().getSelectedValuesList())
 				{
-					eaModel.addExperienceToCharacter(
-						(ExperienceListItem) list[i], Integer.parseInt(eaView
-							.getExperienceField().getText()));
+					eaModel.addExperienceToCharacter((ExperienceListItem)item, 
+							Integer.parseInt(eaView.getExperienceField().getText()));
 				}
 			}
 			catch (NumberFormatException e)
@@ -273,24 +270,18 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	{
 		if (eaView.getCharacterList().getSelectedIndex() != -1)
 		{
-			Object[] list = eaView.getCharacterList().getSelectedValues();
-
-			for (int i = 0; i < list.length; i++)
+			for (Object item : eaView.getCharacterList().getSelectedValuesList())
 			{
-				ExperienceListItem item = (ExperienceListItem) list[i];
-				Combatant cbt = item.getCombatant();
+				Combatant cbt = ((ExperienceListItem) item).getCombatant();
 				adjustCR(cbt);
 			}
 		}
 
 		if (eaView.getEnemyList().getSelectedIndex() != -1)
 		{
-			Object[] list = eaView.getEnemyList().getSelectedValues();
-
-			for (int i = 0; i < list.length; i++)
+			for (Object item : eaView.getEnemyList().getSelectedValuesList())
 			{
-				ExperienceListItem item = (ExperienceListItem) list[i];
-				Combatant cbt = item.getCombatant();
+				Combatant cbt = ((ExperienceListItem) item).getCombatant();
 				adjustCR(cbt);
 			}
 		}
@@ -342,11 +333,9 @@ public class ExperienceAdjusterPlugin extends GMBPlugin implements
 	{
 		if (eaView.getEnemyList().getSelectedIndex() != -1)
 		{
-			Object[] list = eaView.getEnemyList().getSelectedValues();
-
-			for (int i = 0; i < list.length; i++)
+			for (Object item : eaView.getEnemyList().getSelectedValuesList())
 			{
-				eaModel.removeEnemy((ExperienceListItem) list[i]);
+				eaModel.removeEnemy((ExperienceListItem) item);
 			}
 		}
 

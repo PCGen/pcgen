@@ -199,11 +199,11 @@ final class ChooseSpellDialog extends JDialog
 	 * Get the meta magic feats
 	 * @return the meta magic feats
 	 */
-	public Object[] getMetamagicFeats()
+	public List<Ability> getMetamagicFeats()
 	{
 		if (lstMetamagicFeats != null && lstMetamagicFeats.getSelectedIndex() > -1)
 		{
-			return lstMetamagicFeats.getSelectedValues();
+			return lstMetamagicFeats.getSelectedValuesList();
 		}
 
 		return null;
@@ -557,14 +557,9 @@ final class ChooseSpellDialog extends JDialog
 		{
 			levelAdjust = 0;
 
-			final Object[] selectedMetamagicFeats = getMetamagicFeats();
-
-			if (selectedMetamagicFeats != null)
+			for (Ability selectedMetamagicFeat: getMetamagicFeats())
 			{
-				for (int i = 0; i < selectedMetamagicFeats.length; i++)
-				{
-					levelAdjust += ((Ability) selectedMetamagicFeats[i]).getSafe(IntegerKey.ADD_SPELL_LEVEL);
-				}
+				levelAdjust += selectedMetamagicFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
 			}
 		}
 

@@ -300,11 +300,9 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	{
 		if (!theView.getLibraryCreatures().isSelectionEmpty())
 		{
-			Object[] values = theView.getLibraryCreatures().getSelectedValues();
-
-			for (int i = 0; i < values.length; i++)
+			for (Object value : theView.getLibraryCreatures().getSelectedValuesList())
 			{
-				theModel.addElement(values[i]);
+				theModel.addElement(value);
 			}
 
 			updateUI();
@@ -351,12 +349,9 @@ public class EncounterPlugin extends GMBPlugin implements ActionListener,
 	{
 		if (!theView.getEncounterCreatures().isSelectionEmpty())
 		{
-			Object[] values =
-					theView.getEncounterCreatures().getSelectedValues();
-
-			for (int i = 0; i < values.length; i++)
+			for (Object value : theView.getEncounterCreatures().getSelectedValuesList())
 			{
-				theModel.removeElement(values[i]);
+				theModel.removeElement(value);
 			}
 
 			updateUI();
