@@ -1073,14 +1073,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		//
 		// Next do all spells to get TEMPBONUS:ANYPC or TEMPBONUS:EQUIP
-		for (Iterator<?> fI = Globals.getSpellMap().values().iterator(); fI.hasNext();)
+		for (Spell spell : Globals.getSpellMap().values())
 		{
-			final Object obj = fI.next();
-			if (obj instanceof Spell)
-			{
-				Spell aSpell = (Spell) obj;
-				scanForNonPcTempBonuses(tempBonuses, aSpell);
-			}
+			scanForNonPcTempBonuses(tempBonuses, spell);
 		}
 
 		//

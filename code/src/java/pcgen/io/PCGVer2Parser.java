@@ -4285,7 +4285,6 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 		final List<Ability> metaFeats = new ArrayList<Ability>();
 
-		Object obj = null;
 		int ppCost = -1;
 
 		for (final PCGElement element : tokens.getElements())
@@ -4297,16 +4296,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				final String spellName =
 						EntityEncoder.decode(element.getText());
 
-				// either NULL (no spell), a Spell instance,
-				// or ArrayList of Spells (with same name)
-				obj = Globals.getSpellMap().get(spellName);
+				// either NULL (no spell) a Spell instance,
+				aSpell = Globals.getSpellMap().get(spellName);
 
-				if (obj instanceof Spell)
-				{
-					aSpell = (Spell) obj;
-				}
-
-				if (obj == null)
+				if (aSpell == null)
 				{
 					final String message =
 							"Could not find spell named: " + spellName;
@@ -4455,7 +4448,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 		}
 
-		if ((obj == null) || (aPCClass == null) || (spellBook == null))
+		if ((aPCClass == null) || (spellBook == null))
 		{
 			final String message = "Illegal Spell line ignored: " + line;
 			warnings.add(message);
@@ -4471,35 +4464,35 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			source = aPCClass;
 		}
 
-		if (obj instanceof List)
-		{
-			// find the instance of Spell in this class
-			// best suited to this spell
-			for (final Spell spell : (ArrayList<Spell>) obj)
-			{
-				// valid spell has a non-negative spell level
-				if ((spell != null)
-					&& (SpellLevel.getFirstLevelForKey(spell,
-						thePC.getSpellLists(source), thePC) >= 0))
-				{
-					aSpell = spell;
-					break;
-				}
-			}
-			if (aSpell == null)
-			{
-				Logging.errorPrint("Could not resolve spell " + obj.toString());
-			}
-		}
+//		if (obj instanceof List)
+//		{
+//			// find the instance of Spell in this class
+//			// best suited to this spell
+//			for (final Spell spell : (ArrayList<Spell>) obj)
+//			{
+//				// valid spell has a non-negative spell level
+//				if ((spell != null)
+//					&& (SpellLevel.getFirstLevelForKey(spell,
+//						thePC.getSpellLists(source), thePC) >= 0))
+//				{
+//					aSpell = spell;
+//					break;
+//				}
+//			}
+//			if (aSpell == null)
+//			{
+//				Logging.errorPrint("Could not resolve spell " + obj.toString());
+//			}
+//		}
 
-		if (aSpell == null)
-		{
-			final String message =
-					"Could not find spell named: " + String.valueOf(obj);
-			warnings.add(message);
-
-			return;
-		}
+//		if (aSpell == null)
+//		{
+//			final String message =
+//					"Could not find spell named: " + String.valueOf(obj);
+//			warnings.add(message);
+//
+//			return;
+//		}
 
 		// just to make sure the spellbook is present
 		thePC.addSpellBook(spellBook);

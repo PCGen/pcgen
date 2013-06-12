@@ -663,32 +663,12 @@ public final class CustomData
 		{
 			writeCustomHeader(bw);
 
-			final Iterator<?> e = Globals.getSpellMap().values().iterator();
-
-			while (e.hasNext())
+			for(Spell spell : Globals.getSpellMap().values())
 			{
-				final Object obj = e.next();
-
-				if (obj instanceof ArrayList)
+				if (spell.isType(Constants.TYPE_CUSTOM))
 				{
-					for (Iterator<Spell> e2 = ((ArrayList<Spell>) obj).iterator(); e2.hasNext();)
-					{
-						final Spell aSpell = e2.next();
-
-						if (aSpell.isType(Constants.TYPE_CUSTOM))
-						{
-							bw.write(aSpell.getPCCText());
-							bw.newLine();
-						}
-					}
-				}
-				else
-				{
-					if (((Spell) obj).isType(Constants.TYPE_CUSTOM))
-					{
-						bw.write(((Spell) obj).getPCCText());
-						bw.newLine();
-					}
+					bw.write(spell.getPCCText());
+					bw.newLine();
 				}
 			}
 		}

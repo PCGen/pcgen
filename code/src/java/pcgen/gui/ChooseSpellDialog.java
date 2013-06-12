@@ -1087,30 +1087,11 @@ final class ChooseSpellDialog extends JDialog
 		}
 		else
 		{
-			final Map<String, ?> spellMap = Globals.getSpellMap();
-
-			for (String aKey : spellMap.keySet())
+			for (Spell spell : Globals.getSpellMap().values())
 			{
-				final Object obj = spellMap.get(aKey);
-
-				if (obj instanceof ArrayList)
+				if (isSpellOfSubType(spell))
 				{
-					for (Object o : (ArrayList) obj)
-					{
-						Spell bSpell = (Spell) o;
-
-						if (isSpellOfSubType(bSpell))
-						{
-							addSpellInfoToList(bSpell, unfoundItems, classWithSpell, spellType);
-						}
-					}
-				}
-				else
-				{
-					if (isSpellOfSubType((Spell) obj))
-					{
-						addSpellInfoToList((Spell) obj, unfoundItems, classWithSpell, spellType);
-					}
+					addSpellInfoToList(spell, unfoundItems, classWithSpell, spellType);
 				}
 			}
 
