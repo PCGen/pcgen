@@ -150,7 +150,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 
 		if (e.getSource() == theView.getSaveButton())
 		{
-			for (Object obj : theView.getLoadedList().getSelectedValuesList())
+			for (Object obj : theView.getLoadedList().getSelectedValues())
 			{
 				PlayerCharacter pc = model.get(obj);
 				savePC(pc, false);
@@ -159,7 +159,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 
 		if (e.getSource() == theView.getSaveAsButton())
 		{
-			for (Object obj : theView.getLoadedList().getSelectedValuesList())
+			for (Object obj : theView.getLoadedList().getSelectedValues())
 			{
 				PlayerCharacter pc = model.get(obj);
 				savePC(pc, true);
@@ -249,7 +249,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 		else if (message instanceof PCClosedMessage)
 		{
 			PCClosedMessage cmessage = (PCClosedMessage) message;
-			for (Object obj : theView.getLoadedList().getSelectedValuesList())
+			for (Object obj : theView.getLoadedList().getSelectedValues())
 			{
 				PlayerCharacter pc = model.get(obj);
 				if (pc == cmessage.getPC())
@@ -319,7 +319,7 @@ public class PCGTrackerPlugin extends GMBPlugin implements
 
 	public void removeSelected()
 	{
-		for (Object obj : theView.getLoadedList().getSelectedValuesList())
+		for (Object obj : theView.getLoadedList().getSelectedValues())
 		{
 			PlayerCharacter pc = model.get(obj);
 			model.removeElement(obj);
