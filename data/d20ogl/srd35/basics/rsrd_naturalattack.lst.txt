@@ -2,7 +2,13 @@
 
 Illustrative Purposes (Not sure what the max cap is for Flurry)
 
-Flurry of Blows	KEY:Flurry of Blows	NUMATTACKS:min(1+((BAB-1)/3),5)	CRITMULT:x2	CRITRANGE:1
+Need Method to handle iterative attacks - this would apply to Flurry and Companions which gain second attack.
+
+Can we do NUMATTACKS:TIER=1|x	NUMATTACKS:TIER=2|x	NUMATTACKS:TIER=3|x	NUMATTACKS:TIER=4
+
+Add ITERTIVEATTACKS:
+
+Flurry of Blows	KEY:Flurry of Blows	ITERATIVEATTACKS:min(1+((BAB-1)/3),5)	CRITMULT:x2	CRITRANGE:1
 
 # Level 1+
 Flurry of Blows.MOD	DAMAGE:1d1|PRESIZEEQ:F|PREVARGTEQ:MonkUnarmedLVL,0|PREVARLTEQ:MonkUnarmedLVL,3
@@ -66,3 +72,5 @@ Flurry of Blows.MOD	DAMAGE:8d8|PRESIZEEQ:G|PREVARGTEQ:MonkUnarmedLVL,20|PREVARLT
 Flurry of Blows.MOD	DAMAGE:12d8|PRESIZEEQ:C|PREVARGTEQ:MonkUnarmedLVL,20|PREVARLTEQ:MonkUnarmedLVL,20
 
 # Multiple 
+
+Bite	KEY:Bite ~ Animal Companion
