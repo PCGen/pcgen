@@ -1,0 +1,102 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+#WeaponProf
+# Weapon Name			Type
+Light Blades
+Martial
+Suns Weapon Of Choice		TYPE:Simple.Sword
+Fine Wine Blade			TYPE:Martial.Sword
+
+Extra Blade				TYPE:Sword
+
+MonKee Fu Hands			TYPE:Exotic
+Uber Sword				TYPE:Exotic.Sword
+Cool Sword				TYPE:Martial.Sword.Blade.Special
+
+Rapier				TYPE:Martial
+Giant Rock
+
+Simple Weapon One			TYPE:Simple
+Simple Weapon Two			TYPE:Simple
+Simple Weapon Three		TYPE:Simple
+Simple Weapon Four		TYPE:Simple
+
+Longbow				TYPE:Martial.Bow.Longbow.WeaponGroupBows
+
+# Deity Specific Weapons For Bob Tests
+Deity Weapon Puni			TYPE:Exotic
+Deity Weapon Second Puni	TYPE:Martial
+
+Greatsword		TYPE:Melee.Martial
+
+# Bob Specific Tests
+Bob Long Blade			TYPE:Bob.Exotic
+Bob Short Blade			TYPE:Bob.Exotic
+Bob Two Hand Blade		TYPE:Bob.Exotic
+#
+Jim Long Blade			TYPE:Jim.Exotic
+Jim Short Blade			TYPE:Jim.Exotic
+Jim Two Handed Blade		TYPE:Jim.Exotic
+#
+Auto Weapon Standard		TYPE:Standard.Martial
+#
+Can Have as Simple		TYPE:CanHave.Exotic
+Can Have as Simple Two		TYPE:CanHave.Exotic
+
+# Racial
+Bob Racial Weapon			TYPE:Racial.Martial
+Bob Racial Weapon Two		TYPE:Racial
+
+
+Longsword				TYPE:Martial
+Dagger				TYPE:Simple
+Short Sword				TYPE:Martial
+
+Spear					TYPE:Simple
+Template Weapon Test		TYPE:Exotic
+Template Weapon Test Two	TYPE:Exotic
+
+
+# Test 45 through 49 - These are for Testing 1 through 7 iterations of the FEATSELECTION Requests
+Test-45-1				TYPE:Test.Exotic
+Test-45-2				TYPE:Test.Exotic
+Test-45-3				TYPE:Test.Exotic
+Test-45-4				TYPE:Test.Exotic
+Test-45-5				TYPE:Test.Exotic
+Test-45-6				TYPE:Test.Exotic
+Test-45-7				TYPE:Test.Exotic
+
+Test-46-1				TYPE:Test.Exotic
+Test-46-2				TYPE:Test.Exotic
+Test-46-3				TYPE:Test.Exotic
+Test-46-4				TYPE:Test.Exotic
+Test-46-5				TYPE:Test.Exotic
+Test-46-6				TYPE:Test.Exotic
+Test-46-7				TYPE:Test.Exotic
+
+Test-47-1				TYPE:Test.Exotic
+Test-47-2				TYPE:Test.Exotic
+Test-47-3				TYPE:Test.Exotic
+Test-47-4				TYPE:Test.Exotic
+Test-47-5				TYPE:Test.Exotic
+Test-47-6				TYPE:Test.Exotic
+Test-47-7				TYPE:Test.Exotic
+
+Test-48-1				TYPE:Test.Exotic
+Test-48-2				TYPE:Test.Exotic
+Test-48-3				TYPE:Test.Exotic
+Test-48-4				TYPE:Test.Exotic
+Test-48-5				TYPE:Test.Exotic
+Test-48-6				TYPE:Test.Exotic
+Test-48-7				TYPE:Test.Exotic
+
+Test-49-1				TYPE:Test.Exotic
+Test-49-2				TYPE:Test.Exotic
+Test-49-3				TYPE:Test.Exotic
+Test-49-4				TYPE:Test.Exotic
+Test-49-5				TYPE:Test.Exotic
+Test-49-6				TYPE:Test.Exotic
+Test-49-7				TYPE:Test.Exotic
+
+
+Crossbow (Hand)			TYPE:RangedDrow
+Sword (Short)			TYPE:MeleeDrow
