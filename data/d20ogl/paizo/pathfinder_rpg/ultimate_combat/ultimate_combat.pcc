@@ -33,6 +33,9 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Combat" Copyrigh
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+# FORWARDREFs for companions defined in Bestiary but used by UC archetypes
+FORWARDREF:RACE|Companion (Bat (Dire)),Companion (Dinosaur (Ankylosaurus)),Companion (Herd Animal (Aurochs)),Companion (Herd Animal (Bison)),Companion (Dinosaur (Brachiosaurus)),Companion (Elephant),Companion (Elephant (Mastodon)),Companion (Dinosaur (Triceratops)),Companion (Dinosaur (Tyrannosaurus))
+
 # Data files
 ABILITY:pfuc_abilities.lst
 ABILITY:pfuc_abilities_archetypes.lst
