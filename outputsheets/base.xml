@@ -25,8 +25,10 @@
 			<html>|DIR.HTML|</html>
 			<temp>|DIR.TEMP|</temp>
 		</directories>
-		<invalidtohit>|INVALIDTEXT.TOHIT|</invalidtohit>
-		<invaliddamage>|INVALIDTEXT.DAMAGE|</invaliddamage>
+		<invalidtext>
+			<tohit>|INVALIDTEXT.TOHIT|</tohit>
+			<damage>|INVALIDTEXT.DAMAGE|</damage>
+		</invalidtext>
 	</export>
 	<unit_set>
 		<name>|UNITSET|</name>
@@ -759,6 +761,10 @@ Immune
 				<sequence>|%weap|</sequence>
 			</common>
 			<melee>
+				<invalidtext>
+					<tohit>|INVALIDTEXT.TOHIT|</tohit>
+					<damage>|INVALIDTEXT.DAMAGE|</damage>
+				</invalidtext>
 				<hand>|WEAPON.%weap.HAND|</hand>
 				<w1_h1_p>
 					<!-- One weapon, 1 hand, primary hand -->
