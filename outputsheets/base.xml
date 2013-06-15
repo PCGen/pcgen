@@ -25,6 +25,8 @@
 			<html>|DIR.HTML|</html>
 			<temp>|DIR.TEMP|</temp>
 		</directories>
+		<invalidtohit>|INVALIDTEXT.TOHIT|</invalidtohit>
+		<invaliddamage>|INVALIDTEXT.DAMAGE|</invaliddamage>
 	</export>
 	<unit_set>
 		<name>|UNITSET|</name>
