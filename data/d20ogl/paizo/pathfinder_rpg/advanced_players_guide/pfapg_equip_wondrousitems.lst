@@ -126,7 +126,7 @@ Torc of Lionheart Fury	TYPE:Magic.Wondrous.Neck	COST:8000	WT:1		SOURCEPAGE:p.310
 
 ###Block:V
 # Equipment Name		Type					Cost		Weight	Source Page		Ability
-Vest of the Cockroach	TYPE:Magic.Wondrous.Vest	COST:1600	WT:2		SOURCEPAGE:p.310	ABILITY:Special Ability|AUTOMATIC|Resiliency|PREVARGTEQ:RogueTalentLVL,1
+Vest of the Cockroach	TYPE:Magic.Wondrous.Vest	COST:16000	WT:2		SOURCEPAGE:p.310	ABILITY:Special Ability|AUTOMATIC|Resiliency|PREVARGTEQ:RogueTalentLVL,1
 
 ###Block:W
 # Equipment Name				Type						Cost		Weight	Source Page		Special Property
