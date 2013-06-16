@@ -5,7 +5,7 @@
 
 
 # Equipment Name			Required Weapon Proficiency				Type																	Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier	Wield Category	Range		Size		Source Page		Special Property
-Bukler Gun				PROFICIENCY:WEAPON|Bukler Gun				TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1	COST:750	WT:6		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d6						RANGE:10						SPROP:Misfire 1 (5 ft.)
+Buckler Gun				PROFICIENCY:WEAPON|Buckler Gun				TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1	COST:750	WT:6		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d6						RANGE:10						SPROP:Misfire 1 (5 ft.)
 Pepperbox				PROFICIENCY:WEAPON|Pepperbox				TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1	COST:3000	WT:5		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d8						RANGE:20						SPROP:Misfire 1-2 (5 ft.)
 Pistol				PROFICIENCY:WEAPON|Pistol				TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1	COST:1000	WT:4		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d8	EQMOD:STEEL	WIELD:OneHanded	RANGE:20	SIZE:M	SOURCEPAGE:p.x	SPROP:Misfire on 1 (5 ft)
 Pistol (Coat)			PROFICIENCY:WEAPON|Pistol (Coat)			TYPE:Weapon.Exotic.Ranged.Standard.Piercing.Bludgeoning.Container.Projectile.Firearm.Pistol		CONTAINS:1|FirearmBullet=1	COST:750	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d4						RANGE:10						SPROP:Misfire 1 (5 ft.)

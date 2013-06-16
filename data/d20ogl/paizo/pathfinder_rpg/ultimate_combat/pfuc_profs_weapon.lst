@@ -8,7 +8,7 @@
 Firearms				TYPE:Exotic
 
 #-(Early) One-Handed Firearms
-Bukler Gun				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
+Buckler Gun				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
 Pepperbox				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm
 Pistol				TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol
 Pistol (Coat)			TYPE:Ranged.Piercing.Bludgeoning.Firearm.OneHandedFireArm.Pistol

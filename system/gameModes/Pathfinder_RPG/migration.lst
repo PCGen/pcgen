@@ -39,3 +39,6 @@ ABILITY:Special Ability|Surprise Accuracy		NEWKEY:Surprise Accuracy ~ Rage Power
 ABILITY:Special Ability|Swift Foot				NEWKEY:Swift Foot ~ Rage Power				MAXVER:6.00.01	MAXDEVVER:6.01.02
 ABILITY:Special Ability|Terrifying Howl			NEWKEY:Terrifying Howl ~ Rage Power			MAXVER:6.00.01	MAXDEVVER:6.01.02
 ABILITY:Special Ability|Unexpected Strike		NEWKEY:Unexpected Strike ~ Rage Power		MAXVER:6.00.01	MAXDEVVER:6.01.02
+
+# Ultimate Combat 
+EQUIPMENT:Bukler Gun	NEWKEY:Buckler Gun		MAXVER:6.0.02	MAXDEVVER:6.1.4
