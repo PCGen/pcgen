@@ -8,7 +8,7 @@
 	<xsl:template match="melee">
 		<xsl:param name="column_width" select="'wide'" />
 		<xsl:choose>
-			<xsl:when test="w1_h1_p/to_hit = invalidtext/tohit">
+			<xsl:when test="w1_h1_p/to_hit = /character/export/invalidtext/tohit">
 				<xsl:call-template name="simple_weapon">
 					<xsl:with-param name="to_hit" select="w1_h2/to_hit"/>
 					<xsl:with-param name="damage" select="w1_h2/damage"/>
