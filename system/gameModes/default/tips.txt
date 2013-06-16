@@ -32,4 +32,4 @@ PCGEN doesn't always deal with levelling down perfectly.  So before you level up
 Confused about gold in your inventory?  You can purchase coins, gems etc. with your pooled gold to get them shown on your inventory.
 You will see small &gt;, &lt;, &lt;up&gt; and &lt;down&gt; arrows on the panes of the PCGen windows. You can click on these to get one of the panes to expand to its full width/length.
 Use the <em>Edit > Add Kit</em> menu to select predefined kits to add to your character. Options available include standard gear packs, starting gold or even standard monsters. 
-PCGen is an Open Source project which means anyone can contribute. If you want to help drop a mail to <a href="mailto:PR@pcgen.org">PR@pcgen.org</a> or <a href="mailto:Content@pcgen.org">Content@pcgen.org</a>, or simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists.
+PCGen is an Open Source project which means anyone can contribute. If you want to help drop a mail to <a href="mailto:help@pcgen.org">help@pcgen.org</a>, or simply post a message with the title <strong>"I Want To Help"</strong> in one of the mailing lists.
