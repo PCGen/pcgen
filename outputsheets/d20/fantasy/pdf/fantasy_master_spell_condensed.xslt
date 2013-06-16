@@ -3788,7 +3788,7 @@
 						<fo:block font-size="6pt" font-weight="bold" space-before="1pt">Dam</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
-				<xsl:if test="not(w1_h1_p/to_hit = 'N/A' and w1_h1_p/damage = 'N/A' and w2_p_oh/to_hit = 'N/A' and w2_p_oh/damage = 'N/A')">
+				<xsl:if test="not(w1_h1_p/to_hit = /character/export/invalidtext/tohit and w1_h1_p/damage = /character/export/invalidtext/damage and w2_p_oh/to_hit = /character/export/invalidtext/tohit and w2_p_oh/damage = /character/export/invalidtext/damage)">
 					<fo:table-row keep-with-next.within-column="always">
 						<!-- 1HP, 2WP-OH -->
 						<xsl:call-template name="weapon.complex.tohit">
@@ -3803,7 +3803,7 @@
 						</xsl:call-template>
 					</fo:table-row>
 				</xsl:if>
-				<xsl:if test="not(w1_h1_o/to_hit = 'N/A' and w1_h1_o/damage = 'N/A' and w2_p_ol/to_hit = 'N/A' and w2_p_ol/damage = 'N/A')">
+				<xsl:if test="not(w1_h1_o/to_hit = /character/export/invalidtext/tohit and w1_h1_o/damage = /character/export/invalidtext/damage and w2_p_ol/to_hit = /character/export/invalidtext/tohit and w2_p_ol/damage = /character/export/invalidtext/damage)">
 				<fo:table-row keep-with-next.within-column="always">
 					<!-- 1HO, 2WPOL -->
 					<xsl:call-template name="weapon.complex.tohit">
