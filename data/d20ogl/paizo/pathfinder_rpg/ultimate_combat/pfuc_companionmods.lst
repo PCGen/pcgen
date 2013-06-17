@@ -3,26 +3,26 @@
 
 
 # Class of the Master			Type				Hit Dice	Ability																							Automatically Gained Feat	Define							Bonus to Ability Pool					Combat bonus					Stat bonus			Modify VAR							Main Race Type
-FOLLOWER:SamuraiMountLVL=1	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link	ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Riding	AUTO:FEAT|Armor Proficiency (Light)						DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																																	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
-FOLLOWER:SamuraiMountLVL=2	TYPE:Animal Companion	HD:1																																																																													BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=3	TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Evasion																																																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:SamuraiMountLVL=4	TYPE:Animal Companion	HD:1																																																		BONUS:ABILITYPOOL|Companion Stat Increase|1																				BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=5	TYPE:Animal Companion	HD:1																																																																													BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=6	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Devotion																																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:SamuraiMountLVL=7	TYPE:Animal Companion																																																																														BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=8	TYPE:Animal Companion	HD:1																																																																													BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=9	TYPE:Animal Companion	HD:1																										AUTO:FEAT|Multiattack																					BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:SamuraiMountLVL=10	TYPE:Animal Companion	HD:1																																																																													BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=11	TYPE:Animal Companion																																																																														BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=12	TYPE:Animal Companion	HD:1																																																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:SamuraiMountLVL=13	TYPE:Animal Companion	HD:1																																																																													BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=14	TYPE:Animal Companion	HD:1																																																		BONUS:ABILITYPOOL|Companion Stat Increase|1																				BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=15	TYPE:Animal Companion																																																											BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:SamuraiMountLVL=16	TYPE:Animal Companion	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																																																			BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=17	TYPE:Animal Companion	HD:1																																																																													BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=18	TYPE:Animal Companion	HD:1																																																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:SamuraiMountLVL=19	TYPE:Animal Companion																																																																														BONUS:VAR|MasterLevel|1
-FOLLOWER:SamuraiMountLVL=20	TYPE:Animal Companion	HD:1																																																		BONUS:ABILITYPOOL|Companion Stat Increase|1																				BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=1	TYPE:Samurai Mount			ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training|Bonus Tricks|Link	ABILITY:Animal Trick|NORMAL|Animal Training ~ Combat Riding	AUTO:FEAT|Armor Proficiency (Light)						DEFINE:MasterLevel|0	DEFINE:BonusTricks|0																																	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1	RACETYPE:Animal
+FOLLOWER:SamuraiMountLVL=2	TYPE:Samurai Mount	HD:1																																																																													BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=3	TYPE:Samurai Mount			ABILITY:Special Ability|AUTOMATIC|Evasion																																																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLVL=4	TYPE:Samurai Mount	HD:1																																																		BONUS:ABILITYPOOL|Companion Stat Increase|1																				BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=5	TYPE:Samurai Mount	HD:1																																																																													BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=6	TYPE:Samurai Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Devotion																																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLVL=7	TYPE:Samurai Mount																																																																														BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=8	TYPE:Samurai Mount	HD:1																																																																													BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=9	TYPE:Samurai Mount	HD:1																										AUTO:FEAT|Multiattack																					BONUS:ABILITYPOOL|Companion Stat Increase|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLVL=10	TYPE:Samurai Mount	HD:1																																																																													BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=11	TYPE:Samurai Mount																																																																														BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=12	TYPE:Samurai Mount	HD:1																																																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLVL=13	TYPE:Samurai Mount	HD:1																																																																													BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=14	TYPE:Samurai Mount	HD:1																																																		BONUS:ABILITYPOOL|Companion Stat Increase|1																				BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=15	TYPE:Samurai Mount																																																											BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLVL=16	TYPE:Samurai Mount	HD:1		ABILITY:Special Ability|AUTOMATIC|Improved Evasion																																																																			BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=17	TYPE:Samurai Mount	HD:1																																																																													BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=18	TYPE:Samurai Mount	HD:1																																																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK									BONUS:STAT|STR,DEX|1	BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:SamuraiMountLVL=19	TYPE:Samurai Mount																																																																														BONUS:VAR|MasterLevel|1
+FOLLOWER:SamuraiMountLVL=20	TYPE:Samurai Mount	HD:1																																																		BONUS:ABILITYPOOL|Companion Stat Increase|1																				BONUS:VAR|MasterLevel|1
 #
 
 
