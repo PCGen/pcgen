@@ -57,7 +57,7 @@ CLASS:Bard		STARTSKILLPTS:6
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 ###Block:Proficiencies
-1	ABILITY:Bard Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Bard	
+1	ABILITY:Bard Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Bard
 ###Block: Level progression
 1	CAST:0,1			KNOWN:4,2			BONUS:VAR|BardicKnowledgeLVL,BardicPerformanceLVL|CL	ABILITY:Bard Class Ability|AUTOMATIC|Bardic Knowledge|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicKnowledge	ABILITY:Bard Class Ability|AUTOMATIC|Bardic Countersong|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCounterSong	ABILITY:Bard Class Ability|AUTOMATIC|Bardic Performance|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicPerformance	ABILITY:Bard Class Ability|AUTOMATIC|Armored Casting|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmoredCasting	ABILITY:Bard Class Ability|AUTOMATIC|Cantrips ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCantrips
 2	CAST:0,2			KNOWN:5,3			BONUS:VAR|VersatilePerformanceLVL|CL			ABILITY:Bard Class Ability|AUTOMATIC|Versatile Performance|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardVersatilePerformance	ABILITY:Bard Class Ability|AUTOMATIC|Well-Versed|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWellVersed
@@ -142,13 +142,13 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	ABILITY:Druid Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Druid
 1	ABILITY:Druid Class Ability|AUTOMATIC|Orisons ~ Druid
 1	ABILITY:Druid Class Ability|AUTOMATIC|Spontaneous Casting ~ Druid|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidSpontaneousCasting
-1	ABILITY:Druid Class Ability|AUTOMATIC|Druid Wild Shape|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape	
-1	
+1	ABILITY:Druid Class Ability|AUTOMATIC|Druid Wild Shape|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape
+1
 1	ABILITY:Druid Class Ability|AUTOMATIC|Nature Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidNatureSense
 1	ABILITY:Druid Class Ability|AUTOMATIC|Wild Empathy|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildEmpathy
 2	ABILITY:Druid Class Ability|AUTOMATIC|Woodland Stride|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWoodlandStride
 3	ABILITY:Druid Class Ability|AUTOMATIC|Trackless Step|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidTracklessStep
-4	ABILITY:Druid Class Ability|AUTOMATIC|Wild Shape|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape	
+4	ABILITY:Druid Class Ability|AUTOMATIC|Wild Shape|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidWildShape
 4	ABILITY:Druid Class Ability|AUTOMATIC|Resist Nature's Lure|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidResistNaturesLure
 9	ABILITY:Druid Class Ability|AUTOMATIC|Venom Immunity|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidVenomImmunity
 13	ABILITY:Druid Class Ability|AUTOMATIC|A Thousand Faces|!PREABILITY:1,CATEGORY=Archetype,TYPE.DruidThousandFaces,TYPE.DruidAThousandFaces
@@ -243,7 +243,7 @@ CLASS:Monk		STARTSKILLPTS:4
 4	BONUS:VAR|KiPoolLVL,SlowFallLVL|CL
 5	BONUS:VAR|HighJumpLVL|CL
 7	BONUS:VAR|WholenessOfBodyLVL|CL
-12	BONUS:VAR|AbundantStepLVL|CL	
+12	BONUS:VAR|AbundantStepLVL|CL
 13	BONUS:VAR|DiamondSoulLVL|CL
 ###Block:
 1	KIT:1|Monk Flurry of Blows
@@ -380,6 +380,7 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|
 1	BONUS:VAR|RangerFavoredTerrainLVL|CL	ABILITY:Special Ability|AUTOMATIC|Basic Favored Terrain|Ranger Favored Terrain|!PREABILITY:1,CATEGORY=Archetype,TYPE.RangerFavoredTerrain
 1	BONUS:VAR|WildEmpathy|CL
 1	BONUS:VAR|TrackLVL|CL
+2	BONUS:VAR|CombatStyleLVL|CL
 4	BONUS:VAR|HuntersBondLVL|CL
 4	BONUS:VAR|AnimalCompanionLVL|CL-3
 20	BONUS:VAR|MasterHunterLVL|CL
