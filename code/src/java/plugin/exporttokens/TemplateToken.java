@@ -103,6 +103,10 @@ public class TemplateToken extends Token
 			{
 				retString = getOutputNameToken(template);
 			}
+			else if ("APPLIEDNAME".equals(aLabel))
+			{
+				retString = template.getAppliedName();
+			}
 			else if ("SA".equals(aLabel))
 			{
 				retString = getSAToken(template, pc);

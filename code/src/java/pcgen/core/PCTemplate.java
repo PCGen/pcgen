@@ -31,6 +31,7 @@ import java.util.List;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.facade.TemplateFacade;
 import pcgen.util.enumeration.Visibility;
@@ -149,5 +150,15 @@ public final class PCTemplate extends PObject implements TemplateFacade
 		}
 		// end potential TO-DO change
 		return list;
+	}
+	
+	public String getAppliedName()
+	{
+		String retValue = getSafe(StringKey.APPLIED_NAME);
+		if ("".equals(retValue))
+		{
+			retValue = toString();
+		}
+		return retValue;
 	}
 }
