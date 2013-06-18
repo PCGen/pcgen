@@ -1301,36 +1301,6 @@ BIO
 
 	<templates>
 		<list></list>
-		<template>
-			<name></name>
-			<strmod></strmod>
-			<dexmod></dexmod>
-			<conmod></conmod>
-			<intmod></intmod>
-			<wismod></wismod>
-			<chamod></chamod>
-			<cr></cr>
-			<dr></dr>
-			<feat></feat>
-			<sa></sa>
-			<sr></sr>
-			<bonuslist></bonuslist>
-		</template>
-		<template>
-			<name></name>
-			<strmod></strmod>
-			<dexmod></dexmod>
-			<conmod></conmod>
-			<intmod></intmod>
-			<wismod></wismod>
-			<chamod></chamod>
-			<cr></cr>
-			<dr></dr>
-			<feat></feat>
-			<sa></sa>
-			<sr></sr>
-			<bonuslist></bonuslist>
-		</template>
 	</templates>
 
 
