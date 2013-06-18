@@ -26,7 +26,14 @@
 
 package pcgen.core.term;
 
+import java.util.Collection;
+import java.util.Set;
+
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.core.PCTemplate;
 import pcgen.core.display.CharacterDisplay;
+import pcgen.util.enumeration.View;
+import pcgen.util.enumeration.Visibility;
 
 public class PCCountTemplatesTermEvaluator 
 		extends BasePCDTermEvaluator implements TermEvaluator
@@ -39,7 +46,15 @@ public class PCCountTemplatesTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		return (float) display.getTemplateCount();
+		Float count = new Float(0);
+		for (PCTemplate template : display.getTemplateSet())
+		{
+			if (template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE, true))
+			{
+				count++;
+			}
+		}
+		return count;
 	}
 
 	@Override
