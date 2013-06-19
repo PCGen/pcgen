@@ -27,7 +27,10 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.io.File;
 import java.io.FileFilter;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Hashtable;
+
 import javax.swing.Box;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
@@ -39,6 +42,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.ListDataEvent;
+
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.EquipmentSetFacade;
 import pcgen.core.facade.GameModeFacade;
@@ -204,6 +208,14 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 						return pathname.isFile() && !pathname.isHidden();
 					}
 
+				});
+				Arrays.sort(files, new Comparator<File>()
+				{
+					@Override
+				    public int compare(File f1, File f2)
+				    {
+				        return f1.toString().compareToIgnoreCase(f2.toString());
+				    }
 				});
 				model = new DefaultComboBoxModel(files);
 
