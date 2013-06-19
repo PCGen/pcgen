@@ -4128,8 +4128,24 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (TAG_ASSOCIATEDDATA.equals(tag))
 			{
-				thePC.addAssociation(aSkill,
-					EntityEncoder.decode(element.getText()));
+				String key = EntityEncoder.decode(element.getText());
+				ChoiceManagerList<Object> controller =
+						ChooserUtilities.getConfiguredController(aSkill, thePC,
+							null, new ArrayList<String>());
+				if (controller != null)
+				{
+					String[] assoc = key.split(Constants.COMMA, -1);
+					for (String string : assoc)
+					{
+						controller.restoreChoice(thePC, aSkill, string);
+					}
+				}
+				else
+				{
+					warnings
+						.add("Failed to find choose controller for skill "
+							+ aSkill);
+				}
 			}
 			else if (tag.equals(TAG_LEVELABILITY))
 			{

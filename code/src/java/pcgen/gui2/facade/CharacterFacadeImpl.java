@@ -2516,13 +2516,23 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		numSkillLang.setReference(skillLangRemain);
 		if (skillLangRemain > 0)
 		{
-			todoManager
-					.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Languages", "in_sumTodoSkillLanguage", 112));
-		} else
+			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab,
+				"Languages", "in_sumTodoSkillLanguage", 112));
+		}
+		else
 		{
 			todoManager.removeTodo("in_sumTodoSkillLanguage");
 		}
-
+		if (skillLangRemain < 0)
+		{
+			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab,
+				"Languages", "in_sumTodoSkillLanguageTooMany", 112));
+		}
+		else
+		{
+			todoManager.removeTodo("in_sumTodoSkillLanguageTooMany");
+		}
+		
 		long endTime = new Date().getTime();
 		Logging.log(Logging.DEBUG, "refreshLanguageList took " + (endTime - startTime) + " ms.");
 	}
