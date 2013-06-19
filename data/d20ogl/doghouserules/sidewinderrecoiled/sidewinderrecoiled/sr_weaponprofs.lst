@@ -2,6 +2,9 @@
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html	SOURCEDATE:2004-12
 # Original Entry by: Lone Jedi (MSRD by bD_92)
 
+Grapple	TYPE:Unarmed.Melee
+Ray		TYPE:Unarmed.Melee
+
 #Ranged
 # Weapon Name					Type
 Harpers Ferry Pistol				TYPE:PersonalFirearm
@@ -59,44 +62,44 @@ Lasso							TYPE:ExoticRanged
 Net							TYPE:ExoticRanged
 
 #Melee
-Brass Knuckles					TYPE:Simple
-Cleaver						TYPE:Simple
-Club							TYPE:Simple
-Coup Stick						TYPE:Simple
-Knife							TYPE:Simple
-Pistol Whip						TYPE:Simple
-Pitchfork						TYPE:Simple
-Rifle Butt						TYPE:Simple
-Sap							TYPE:Simple
-Sledgehammer					TYPE:Simple
-Staff							TYPE:Simple
-Unarmed Strike					TYPE:Simple
+Brass Knuckles					TYPE:Melee.Simple
+Cleaver						TYPE:Melee.Simple
+Club							TYPE:Melee.Simple
+Coup Stick						TYPE:Melee.Simple
+Knife							TYPE:Melee.Simple.Light
+Pistol Whip						TYPE:Melee.Simple
+Pitchfork						TYPE:Melee.Simple
+Rifle Butt						TYPE:Melee.Simple
+Sap							TYPE:Melee.Simple
+Sledgehammer					TYPE:Melee.Simple
+Staff							TYPE:Melee.Simple
+Unarmed Strike					TYPE:Melee.Simple
 
-Ax							TYPE:Archaic
-Bayonet (Fixed)					TYPE:Archaic
-Bowie Knife						TYPE:Archaic
-Hatchet						TYPE:Archaic
-Tomahawk						TYPE:Archaic
-Longsword						TYPE:Archaic
-Pickax						TYPE:Archaic
-Rapier						TYPE:Archaic
-Saber							TYPE:Archaic
-Spear							TYPE:Archaic
-Straight Razor					TYPE:Archaic
-Sword cane						TYPE:Archaic
+Ax							TYPE:Melee.Archaic
+Bayonet (Fixed)					TYPE:Melee.Archaic
+Bowie Knife						TYPE:Melee.Archaic
+Hatchet						TYPE:Melee.Archaic
+Tomahawk						TYPE:Melee.Archaic
+Longsword						TYPE:Melee.Archaic
+Pickax						TYPE:Melee.Archaic
+Rapier						TYPE:Melee.Archaic
+Saber							TYPE:Melee.Archaic
+Spear							TYPE:Melee.Archaic
+Straight Razor					TYPE:Melee.Archaic
+Sword cane						TYPE:Melee.Archaic
 
-Chain							TYPE:Exotic
-Claymore						TYPE:Exotic
+Chain							TYPE:Melee.Exotic
+Claymore						TYPE:Melee.Exotic
 
 #Improvised
-Improvised Weapon (Diminutive)		TYPE:Improvised
-Improvised Weapon (Tiny)			TYPE:Improvised
-Improvised Weapon (Small)			TYPE:Improvised
-Improvised Weapon (Medium)			TYPE:Improvised
-Improvised Weapon (Large)			TYPE:Improvised
-Improvised Weapon (Huge)			TYPE:Improvised
-Improvised Weapon (Gargantuan)		TYPE:Improvised
-Improvised Weapon (Colossal)			TYPE:Improvised
+Improvised Weapon (Diminutive)		TYPE:Melee.Improvised
+Improvised Weapon (Tiny)			TYPE:Melee.Improvised
+Improvised Weapon (Small)			TYPE:Melee.Improvised
+Improvised Weapon (Medium)			TYPE:Melee.Improvised
+Improvised Weapon (Large)			TYPE:Melee.Improvised
+Improvised Weapon (Huge)			TYPE:Melee.Improvised
+Improvised Weapon (Gargantuan)		TYPE:Melee.Improvised
+Improvised Weapon (Colossal)			TYPE:Melee.Improvised
 #
-Improvised Weapon					TYPE:Improvised
+Improvised Weapon					TYPE:Melee.Improvised
 
