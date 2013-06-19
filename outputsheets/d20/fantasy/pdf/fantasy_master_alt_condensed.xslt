@@ -974,13 +974,13 @@
 			 size of each weapon block in turn so that a correct cumulative
 		 height can be determined -->
 		<!--
-		This does not seem to work very well.	-->
+		This does not seem to work very well.
 
-		<xsl:value-of select="floor((140-$featureheight)div 28) "/>
+		<xsl:value-of select="floor((140-$featureheight)div 28) "/>	-->
 
-<!--		For now, just make it 3 weapons max.
+<!--		For now, just make it 3 weapons max.	-->
 		
-		<xsl:value-of select="4"/>	-->
+		<xsl:value-of select="3"/>
 	</xsl:template>
 	<!--
 ====================================
