@@ -167,7 +167,12 @@ public final class Globals
 				{
 					return collator.compare(key1, key2);
 				}
-				return collator.compare(o1.getDisplayName(), o2.getDisplayName());
+				if (!o1.getDisplayName().equals(o2.getDisplayName()))
+				{
+					return collator.compare(o1.getDisplayName(), o2.getDisplayName());
+				}
+				// Fall back to keyname if the displayname is the same
+				return collator.compare(o1.getKeyName(), o2.getKeyName());
 			}
 		};
 
