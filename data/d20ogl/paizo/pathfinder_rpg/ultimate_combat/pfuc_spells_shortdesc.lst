@@ -89,7 +89,7 @@ Mount (Communal).MOD				DESC:As mount, but you may divide the duration among cre
 Mutagenic Touch.MOD				DESC:You can pass a weaker version of your mutagen to another creature.|!PRERULE:1,DisplayFullSpell
 Named Bullet (Greater).MOD			DESC:As named bullet, but deals 2 points of damage for every caster level.|!PRERULE:1,DisplayFullSpell
 Named Bullet.MOD					DESC:Imbues ammunition with accuracy against a specific creature type.|!PRERULE:1,DisplayFullSpell
-Negative Reaction.MOD				DESC:Targeted creature may not positively inf luence anyone.|!PRERULE:1,DisplayFullSpell
+Negative Reaction.MOD				DESC:Targeted creature may not positively influence anyone.|!PRERULE:1,DisplayFullSpell
 Nondetection (Communal).MOD			DESC:As nondetection, but you may divide the duration among creatures touched.|!PRERULE:1,DisplayFullSpell
 Obsidian Flow.MOD					DESC:Converts the surface of the ground into molten glass.|!PRERULE:1,DisplayFullSpell
 Peacebond.MOD					DESC:Locks a weapon in place on the target's body.|!PRERULE:1,DisplayFullSpell
