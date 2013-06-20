@@ -3,6 +3,11 @@
 # Bob Tests - PCG Bob needs only the simple addition of the 'Template ~ Bob Tests' Template and it will take care of testing Bob.
 # The Template has an Ability granted but only if Bob meets the requirements; the Test Includes the Requirements, so ALL tests should = True.
 
+
+Fast Healing		CATEGORY:Special Ability	TYPE:SpecialQuality	ASPECT:Name|Fast Healing %1|FastHealing	DEFINE:FastHealing|0
+
+
+
 # Ability Name					Category of Ability		Type								Description																																			Ability										Add
 Add a Feat see if it depletes the pool	CATEGORY:Special Ability	TYPE:CodeBugOfTheDayTester.Special Ability	DESC:ADD:FEAT Test																																												ADD:FEAT|TYPE=Code1730
 
