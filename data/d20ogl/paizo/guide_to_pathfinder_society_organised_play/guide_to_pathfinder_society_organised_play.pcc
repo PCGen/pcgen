@@ -38,10 +38,12 @@ COPYRIGHT:PCGen dataset conversion for "Guide to Pathfinder Society Organized Pl
 ABILITYCATEGORY:gtpop_abilitycategories.lst
 ABILITY:gtpop_abilities.lst
 CLASS:gtpop_classes.lst
+KIT:gtpop_kits.lst
 FEAT:gtpop_feats.lst
 SKILL:gtpop_skills_conditional.lst
 SPELL:gtpop_spells.lst
 EQUIPMENT:gtpop_equip.lst
+
 
 #
 # End
