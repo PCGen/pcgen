@@ -239,3 +239,19 @@ Trident.MOD					TYPE:Thrown
 
 
 
+# swordlike weapons (including bastard swords, daggers, elven curve blades, falchions, greatswords, kukris, longswords, 
+#punching daggers, rapiers, scimitars, short swords, and two-bladed swords).
+Sword (Bastard).MOD	TYPE:SwordLike.Tengu
+Dagger.MOD			TYPE:SwordLike.Tengu
+Curve Blade (Elven).MOD	TYPE:SwordLike.Tengu
+Falchion.MOD		TYPE:SwordLike.Tengu
+Greatsword.MOD		TYPE:SwordLike.Tengu
+Kukri.MOD			TYPE:SwordLike.Tengu
+Longsword.MOD		TYPE:SwordLike.Tengu
+Dagger (Punching).MOD	TYPE:SwordLike.Tengu
+Rapier.MOD			TYPE:SwordLike.Tengu
+Scimitar.MOD		TYPE:SwordLike.Tengu
+Sword (Short).MOD		TYPE:SwordLike.Tengu
+Sword (Two-Bladed).MOD	TYPE:SwordLike.Tengu
+
+
