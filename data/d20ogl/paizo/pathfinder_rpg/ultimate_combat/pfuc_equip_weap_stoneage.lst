@@ -23,4 +23,4 @@ Atlatl Dart								TYPE:Ammo.AtlatlDart																	COST:1	WT:2
 Terbutje (Great)	PROFICIENCY:WEAPON|Terbutje (Great)	TYPE:Weapon.Melee.StoneAge.Slashing.Fragile													COST:12	WT:4		CRITMULT:x2			CRITRANGE:2							DAMAGE:1d10	WIELD:OneHanded
 Wahaika		PROFICIENCY:WEAPON|Wahaika		TYPE:Weapon.Melee.StoneAge.Bludgeoning.Disarm													COST:3	WT:3		CRITMULT:x2			CRITRANGE:1							DAMAGE:1d6					RANGE:10	WIELD:OneHanded
 # Double
-Taiaha		PROFICIENCY:WEAPON|Taiaha		TYPE:Weapon.Melee.StoneAge.Bludgeoning.Piercing.Double	ALTTYPE:Weapon.Bludgeoning.Piercing					COST:10	WT:8		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x3		DAMAGE:1d10	ALTDAMAGE:1d6	WIELD:OneHanded
+Taiaha		PROFICIENCY:WEAPON|Taiaha		TYPE:Weapon.Melee.StoneAge.Bludgeoning.Piercing.Double	ALTTYPE:Weapon.Bludgeoning.Piercing					COST:10	WT:8		CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x3		DAMAGE:1d10	ALTDAMAGE:1d6	WIELD:TwoHanded
