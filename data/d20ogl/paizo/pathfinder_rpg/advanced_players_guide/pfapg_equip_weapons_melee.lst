@@ -31,13 +31,13 @@ Lucern Hammer								PROFICIENCY:WEAPON|Lucern Hammer		TYPE:Weapon.Melee.TwoHand
 ####Block: Exotic Weapons
 #------light---------
 # Equipment Name		Output Name					Required Weapon Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier			Wield Category	Range		Size		Source Page		Weapon prop. bonus
-Dagger (Swordbreaker)	OUTPUTNAME:Swordbreaker Dagger	PROFICIENCY:WEAPON|Dagger (Swordbreaker)	TYPE:Weapon.Melee.Light.Finesseable.Exotic.Standard.Dagger					COST:10	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4					EQMOD:DISARM.STEEL	WIELD:Light				SIZE:M	SOURCEPAGE:p.177
+Dagger (Swordbreaker)	OUTPUTNAME:Swordbreaker Dagger	PROFICIENCY:WEAPON|Dagger (Swordbreaker)	TYPE:Weapon.Melee.Light.Finesseable.Exotic.Standard.Dagger.Tengu				COST:10	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4					EQMOD:DISARM.STEEL	WIELD:Light				SIZE:M	SOURCEPAGE:p.177
 
 #------one-handed---------
 # Equipment Name		Output Name					Required Weapon Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier			Wield Category	Range		Size		Source Page		Weapon prop. bonus
-Falcata									PROFICIENCY:WEAPON|Falcata			TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade				COST:18	WT:4		CRITMULT:x3			CRITRANGE:2			DAMAGE:1d8					EQMOD:STEEL			WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
-Khopesh									PROFICIENCY:WEAPON|Khopesh			TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade				COST:20	WT:8		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					EQMOD:STEEL.TRIP		WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
-Sword (Temple)		OUTPUTNAME:Temple Sword			PROFICIENCY:WEAPON|Sword (Temple)		TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade				COST:30	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					EQMOD:MONK.STEEL.TRIP	WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
+Falcata									PROFICIENCY:WEAPON|Falcata			TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade.Tengu				COST:18	WT:4		CRITMULT:x3			CRITRANGE:2			DAMAGE:1d8					EQMOD:STEEL			WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
+Khopesh									PROFICIENCY:WEAPON|Khopesh			TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade.Tengu				COST:20	WT:8		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					EQMOD:STEEL.TRIP		WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
+Sword (Temple)		OUTPUTNAME:Temple Sword			PROFICIENCY:WEAPON|Sword (Temple)		TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade.Tengu				COST:30	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					EQMOD:MONK.STEEL.TRIP	WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
 
 #------two-handed---------
 # Equipment Name		Output Name					Required Weapon Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier			Wield Category	Range		Size		Source Page		Weapon prop. bonus

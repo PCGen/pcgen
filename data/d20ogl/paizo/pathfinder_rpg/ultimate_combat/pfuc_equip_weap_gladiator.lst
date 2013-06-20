@@ -4,7 +4,7 @@
 
 # Light
 # Equipment Name	Required Weapon Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range
-Gladius		PROFICIENCY:WEAPON|Gladius			TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance				COST:15	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6
+Gladius		PROFICIENCY:WEAPON|Gladius			TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance.Sword.Tengu		COST:15	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6
 
 # One-Handed
 Scizore		PROFICIENCY:WEAPON|Scizore			TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance				COST:20	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10
@@ -29,7 +29,7 @@ Sica			PROFICIENCY:WEAPON|Sica				TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slash
 Hooked Axe		PROFICIENCY:WEAPON|Hooked Axe			TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance.Disarm.Trip		COST:20	WT:7		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8
 Shotel		PROFICIENCY:WEAPON|Shotel			TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Piercing.Performance				COST:30	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8
 # Two-Handed
-Flying Blade	PROFICIENCY:WEAPON|Flying Blade		TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance.Reach			COST:40	WT:12		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d12
+Flying Blade	PROFICIENCY:WEAPON|Flying Blade		TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance.Reach.Sword.Tengu	COST:40	WT:12		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d12
 # RANGED
 Throwing Shield	PROFICIENCY:WEAPON|Throwing Shield		TYPE:Weapon.GladiatorWeapon.Melee.Ranged.Thrown.Exotic.Bludgeoning.Performance.Trip	COST:50			CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	RANGE:20
 
