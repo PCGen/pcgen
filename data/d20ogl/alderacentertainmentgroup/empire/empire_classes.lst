@@ -1,40 +1,43 @@
-# CVS $Revision$ $Author$ -- Thu Feb 22 13:04:59 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+# CVS $Revision$ $Author$ -- Thu Jun 20 17:08:21 2013 -- reformated by prettylst.pl v1.50 (build 19967)
 SOURCELONG:Alderac Entertainment Group (AEG) - Empire	SOURCESHORT:Empire	SOURCEWEB:http://alderac.com/d20
 
 ########
 ######## Noble Base class
 ########
 
-CLASS:Noble		KEY:Noble		HD:6		ABB:Nob		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3		BONUS:CHECKS|BASE.Will|CL/2+2		BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	
-CLASS:Noble		CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|Ride|Sense Motive|Speak Language|Spot|Swim		STARTSKILLPTS:4
+# Class Name	Unique Key	Hit Dice	Abbreviation	Save checks bonus											Combat bonus
+CLASS:Noble		KEY:Noble	HD:6		ABB:Nob		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|Ride|Sense Motive|Speak Language|Spot|Swim
 ###Block:Proficiencies
-1	AUTO:WEAPONPROF|TYPE.Martial
-1	AUTO:WEAPONPROF|TYPE.Simple
-1	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
-1	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
+1																																AUTO:WEAPONPROF|TYPE.Martial
+1																																AUTO:WEAPONPROF|TYPE.Simple
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Armor Proficiency (Heavy)
+1																	AUTO:FEAT|Shield Proficiency|Tower Shield Proficiency
 ###Progression
-1	AUTO:FEAT|Iron Will
+1																	AUTO:FEAT|Iron Will
 1	BONUS:ABILITYPOOL|Realm Feat|CL/5+1
-2	ABILITY:Special Ability|AUTOMATIC|Strength of Will ~ Noble
-3	ABILITY:Special Ability|AUTOMATIC|Canny Administrator
-6	ABILITY:Special Ability|AUTOMATIC|Noble Bearing
-8	ABILITY:Special Ability|AUTOMATIC|Expert Financier
-12	ABILITY:Special Ability|AUTOMATIC|Indomitable Will ~ Noble
-13	ABILITY:Special Ability|AUTOMATIC|Master of Protocol
-18	ABILITY:Special Ability|AUTOMATIC|Political Master
-20	ABILITY:Special Ability|AUTOMATIC|Renowned Monarch
+2							ABILITY:Special Ability|AUTOMATIC|Strength of Will ~ Noble
+3							ABILITY:Special Ability|AUTOMATIC|Canny Administrator
+6							ABILITY:Special Ability|AUTOMATIC|Noble Bearing
+8							ABILITY:Special Ability|AUTOMATIC|Expert Financier
+12							ABILITY:Special Ability|AUTOMATIC|Indomitable Will ~ Noble
+13							ABILITY:Special Ability|AUTOMATIC|Master of Protocol
+18							ABILITY:Special Ability|AUTOMATIC|Political Master
+20							ABILITY:Special Ability|AUTOMATIC|Renowned Monarch
 
 ########
 ######## Hero of the People Prestige class
 ########
 
 #Prestige Class - Hero of the People
-# Class Name				Hit Dice	Type					Abbreviation	Max Level		Save checks bonus																Combat bonus
-CLASS:Hero of the People	HD:6		TYPE:PC.Prestige		ABB:HoP			MAXLEVEL:5		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name				Req. Skill													Required Feat															Required Race		Req. Spell Type
-CLASS:Hero of the People	PRESKILL:1,TYPE.Perform=13		PRESKILL:1,Diplomacy=13		PREFEAT:3,Heroic Leader,Inspiring Leader,Leadership
-# Class Name				Skill Pts/Lvl		Class Skill
-CLASS:Hero of the People	STARTSKILLPTS:4		CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Listen|TYPE.Perform|Search|Sense Motive|Spot
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Save checks bonus											Combat bonus
+CLASS:Hero of the People	HD:6		TYPE:PC.Prestige	ABB:HoP		MAXLEVEL:5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Required Feat							Required Skill
+CLASS:Hero of the People	PREFEAT:3,Heroic Leader,Inspiring Leader,Leadership	PRESKILL:1,TYPE.Perform=13	PRESKILL:1,Diplomacy=13
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Hero of the People	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intimidate|Listen|TYPE.Perform|Search|Sense Motive|Spot
 1	ABILITY:Special Ability|AUTOMATIC|Will of the People
 2	ABILITY:Special Ability|AUTOMATIC|Army of the People
 3	ABILITY:Special Ability|AUTOMATIC|Work of the People
@@ -46,17 +49,18 @@ CLASS:Hero of the People	STARTSKILLPTS:4		CSKILL:Bluff|Diplomacy|Gather Informat
 ########
 
 #Prestige Class - Political Mastermind
-# Class Name				Hit Dice	Type					Abbreviation	Max Level		Save checks bonus																Combat bonus
-CLASS:Political Mastermind	HD:6		TYPE:PC.Prestige		ABB:PMM			MAXLEVEL:5		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
-# Class Name				Req. Skill													Required Feat															Required Race		Req. Spell Type
-CLASS:Political Mastermind	PRESKILL:1,Diplomacy=13		PRESKILL:1,Gather Information=13	PRESKILL:1,Intimidate=13	PRESKILL:1,Sense Motive=13		PREFEAT:2,Clever Businessman,Leadership		PRESTAT:1,CHA=16
-# Class Name				Skill Pts/Lvl		Class Skill
-CLASS:Political Mastermind	STARTSKILLPTS:4		CSKILL:Bluff|Diplomacy|Forgery|Gather Information|Intimidate|Listen|TYPE.Perform|Search|Sense Motive|Speak Language
-1	ABILITY:Special Ability|AUTOMATIC|Friends in high places
-2	ABILITY:Special Ability|AUTOMATIC|Friend in need
-3	ABILITY:Special Ability|AUTOMATIC|Web of power		DEFINE:WebOfPowerCount|0	BONUS:VAR|WebOfPowerCount|1
-4	ABILITY:Special Ability|AUTOMATIC|Staunch allies
-5										BONUS:VAR|WebOfPowerCount|1
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Save checks bonus											Combat bonus
+CLASS:Political Mastermind	HD:6		TYPE:PC.Prestige	ABB:PMM		MAXLEVEL:5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name			Required Feat					Required Skill																		Required Stat
+CLASS:Political Mastermind	PREFEAT:2,Clever Businessman,Leadership	PRESKILL:1,Diplomacy=13	PRESKILL:1,Gather Information=13	PRESKILL:1,Intimidate=13	PRESKILL:1,Sense Motive=13	PRESTAT:1,CHA=16
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Political Mastermind	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Forgery|Gather Information|Intimidate|Listen|TYPE.Perform|Search|Sense Motive|Speak Language
+1											ABILITY:Special Ability|AUTOMATIC|Friends in high places
+2											ABILITY:Special Ability|AUTOMATIC|Friend in need
+3	BONUS:VAR|WebOfPowerCount|1	DEFINE:WebOfPowerCount|0	ABILITY:Special Ability|AUTOMATIC|Web of power
+4											ABILITY:Special Ability|AUTOMATIC|Staunch allies
+5	BONUS:VAR|WebOfPowerCount|1
 
 
 
@@ -68,6 +72,8 @@ CLASS:Political Mastermind	STARTSKILLPTS:4		CSKILL:Bluff|Diplomacy|Forgery|Gathe
 ########
 ######## Barbarian Empire abilities
 ########
+
+# Class Name
 CLASS:Barbarian.MOD
 5	ABILITY:Special Ability|AUTOMATIC|Ferocious Warlord
 10	ABILITY:Special Ability|AUTOMATIC|Berserker Lord
@@ -77,6 +83,8 @@ CLASS:Barbarian.MOD
 ########
 ######## Bard Empire abilities
 ########
+
+# Class Name
 CLASS:Bard.MOD
 5	ABILITY:Special Ability|AUTOMATIC|Beloved Leader
 10	ABILITY:Special Ability|AUTOMATIC|Political Operative
@@ -86,6 +94,8 @@ CLASS:Bard.MOD
 ########
 ######## Cleric Empire abilities
 ########
+
+# Class Name
 CLASS:Cleric.MOD
 5	ABILITY:Special Ability|AUTOMATIC|Religious Authority
 10	ABILITY:Special Ability|AUTOMATIC|Divine Blessing
@@ -95,6 +105,8 @@ CLASS:Cleric.MOD
 ########
 ######## Druid Empire abilities
 ########
+
+# Class Name
 CLASS:Druid.MOD
 5	ABILITY:Special Ability|AUTOMATIC|Nature's Bounty
 10	ABILITY:Special Ability|AUTOMATIC|King of Forest and Field
@@ -104,6 +116,8 @@ CLASS:Druid.MOD
 ########
 ######## Fighter Empire abilities
 ########
+
+# Class Name
 CLASS:Fighter.MOD
 5	ABILITY:Special Ability|AUTOMATIC|Martial Training
 10	ABILITY:Special Ability|AUTOMATIC|Keen Tactician
@@ -113,6 +127,8 @@ CLASS:Fighter.MOD
 ########
 ######## Monk Empire abilities
 ########
+
+# Class Name
 CLASS:Monk.MOD
 5	ABILITY:Special Ability|AUTOMATIC|Keeper of Order
 10	ABILITY:Special Ability|AUTOMATIC|Leader of the Way
@@ -122,6 +138,8 @@ CLASS:Monk.MOD
 ########
 ######## Paladin Empire abilities
 ########
+
+# Class Name
 CLASS:Paladin.MOD
 5	ABILITY:Special Ability|AUTOMATIC|The Good King
 10	ABILITY:Special Ability|AUTOMATIC|Legion of Honor
@@ -131,6 +149,8 @@ CLASS:Paladin.MOD
 ########
 ######## Ranger Empire abilities
 ########
+
+# Class Name
 CLASS:Ranger.MOD
 5	ABILITY:Special Ability|AUTOMATIC|Rugged Frontiersmen
 10	ABILITY:Special Ability|AUTOMATIC|Ranger Lord
@@ -140,6 +160,8 @@ CLASS:Ranger.MOD
 ########
 ######## Rogue Empire abilities
 ########
+
+# Class Name
 CLASS:Rogue.MOD
 5	ABILITY:Special Ability|AUTOMATIC|Black Marketeer
 10	ABILITY:Special Ability|AUTOMATIC|Friends in Low Places
@@ -149,6 +171,8 @@ CLASS:Rogue.MOD
 ########
 ######## Sorcerer Empire abilities
 ########
+
+# Class Name
 CLASS:Sorcerer.MOD
 5	ABILITY:Special Ability|AUTOMATIC|Call of Magic
 10	ABILITY:Special Ability|AUTOMATIC|Strength of Will ~ Sorcerer
@@ -158,6 +182,8 @@ CLASS:Sorcerer.MOD
 ########
 ######## Wizard Empire abilities
 ########
+
+# Class Name
 CLASS:Wizard.MOD
 5	ABILITY:Special Ability|AUTOMATIC|Keeper of Secrets
 10	ABILITY:Special Ability|AUTOMATIC|Arcane Cabal
