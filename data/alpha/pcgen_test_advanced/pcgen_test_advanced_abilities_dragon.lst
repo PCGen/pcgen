@@ -91,7 +91,20 @@ True Dragon Defaults	CATEGORY:Internal
 	ABILITY:Internal|AUTOMATIC|Ancient|PREVAREQ:DragonAge,10
 	ABILITY:Internal|AUTOMATIC|Wyrm|PREVAREQ:DragonAge,11
 	ABILITY:Internal|AUTOMATIC|Great Wyrm|PREVARGTEQ:DragonAge,12
-	DEFINE:DragonBreathWeaponLine|30	BONUS:VAR|DragonBreathWeaponLine|10|PRESIZEGTEQ:S	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:M	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:L	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:H	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:G	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:C	DEFINE:DragonBreathWeaponCone|15	BONUS:VAR|DragonBreathWeaponCone|5|PRESIZEGTEQ:S	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:M	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:L	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:H	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:G	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:C
+	DEFINE:DragonBreathWeaponLine|30
+	BONUS:VAR|DragonBreathWeaponLine|10|PRESIZEGTEQ:S
+	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:M
+	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:L
+	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:H
+	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:G
+	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:C
+	DEFINE:DragonBreathWeaponCone|15
+	BONUS:VAR|DragonBreathWeaponCone|5|PRESIZEGTEQ:S
+	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:M
+	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:L
+	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:H
+	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:G
+	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:C
 	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability
 	ABILITY:Special Ability|AUTOMATIC|Bite ~ Dragon
 	ABILITY:Special Ability|AUTOMATIC|Claw ~ Dragon
@@ -111,7 +124,7 @@ True Dragon Defaults	CATEGORY:Internal
 	ABILITY:Special Ability|AUTOMATIC|Keen Senses ~ Dragon
 	ABILITY:Special Ability|AUTOMATIC|Skills ~ Dragon
 	ABILITY:Special Ability|AUTOMATIC|Feats ~ Dragon
-#
+###Block: Default True Dragon Abilities
 Bite				KEY:Bite ~ Dragon								CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Bite attacks deal the indicated damage plus the dragon's Strength bonus. A dragon also can use its bite to snatch opponents if it has the Snatch feat (see page 304).
 Claw				KEY:Claw ~ Dragon								CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Claw attacks deal the indicated damage plus 1/2 the dragon's Strength bonus (round down). The dragon also can use its claws to snatch opponents if it has the Snatch feat (see page 304). Claw attacks are secondary attacks, requiring a -5 penalrty on the attack roll. (Many dragons choose the Multiattack feat to lessen this penalty to -2).
 Wing				KEY:Wing ~ Dragon								CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:The dragon can slam opponents with its wings, even when flying. Wing attacks deal the indicated damage plus 1/2 the dragon's Strength bonus (round down) and are treated as secondary attacks.
@@ -134,7 +147,7 @@ Feats				KEY:Feats ~ Dragon							CATEGORY:Special Ability	TYPE:RaceAbility.Spec
 DRAGON_FLY_SPEED_100	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,100	DEFINE:Maneuverability|3
 DRAGON_FLY_SPEED_150	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,150	DEFINE:Maneuverability|2
 DRAGON_FLY_SPEED_200	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,200	DEFINE:Maneuverability|1
-#
+# This sets the Default Dragon Attacks which are soley based upon Size.
 DRAGON_ATTACKS_T	CATEGORY:Internal	VISIBLE:NO	TEMPLATE:DRAGON_ATTACKS_T
 DRAGON_ATTACKS_S	CATEGORY:Internal	VISIBLE:NO	TEMPLATE:DRAGON_ATTACKS_S
 DRAGON_ATTACKS_M	CATEGORY:Internal	VISIBLE:NO	TEMPLATE:DRAGON_ATTACKS_M
@@ -156,8 +169,165 @@ Ancient		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Ancient
 Wyrm			CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Wyrm
 Great Wyrm		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Great Wyrm
 
-# Black Dragon
+###Block: Black Dragon
 Racial Traits ~ Black Dragon	CATEGORY:Internal
+	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Black Dragon|Immunity to Acid|Water Breathing ~ Black Dragon
+	ABILITY:Special Ability|AUTOMATIC|Other Spell-Like Abilities ~ Black Dragon|PREVARGTEQ:DragonAge,4
+	ABILITY:Special Ability|AUTOMATIC|Corrupt Water ~ Black Dragon|PREVARGTEQ:DragonAge,10
+	ABILITY:Special Ability|AUTOMATIC|Charm Reptile ~ Black Dragon|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|STR|max(2*(DragonAge-1),0)|TYPE=Racial|PREVARGTEQ:DragonAge,2
+	BONUS:STAT|STR|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,1
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,6
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|INT,CHA|-2|TYPE=Racial|PREVARLTEQ:DragonAge,2
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,2
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,3
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,5
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,7
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,11
+	BONUS:VAR|DragonLevelAdjustment|3|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,3
+	BONUS:VAR|DragonLevelAdjustment|4|PREVAREQ:DragonAge,4
+	DEFINE:DragonAge|(DragonLVL-1)/3
+	MOVE:Walk,60,Swim,60
+	BONUS:VAR|DragonNaturalArmor|3
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,2
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,3
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,4
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,5
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,6
+	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,7
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,8
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,9
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
+
+Breath Weapon	KEY:Breath Weapon ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A black dragon has one type of breath weapon, a line of acid. Damage %1d%2, DC %3, Length %4|BlackDragonBWDice|BlackDragonBWDieSize|BreathWeaponDC|DragonBreathWeaponLength	DEFINE:BlackDragonBWDice|DragonAge*2	DEFINE:BlackDragonBWDieSize|4	DEFINE:BreathWeaponDC|10+(HD/2)+CON	DEFINE:DragonBreathWeaponLength|DragonBreathWeaponLine
+Water Breathing	KEY:Water Breathing ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Extraordinary	DESC:A black dragon can breathe underwater indefinitely and can freely use its breath weapon, spells, and other abilities while submerged.
+Darkness		KEY:Darkness ~ Black Dragon		CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike
+Corrupt Water	KEY:Corrupt Water ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike		DESC:Once per day an adult or older black dragon can stagnate 10 cubic feet of water, making it become still, foul, and unable to support animal life. The ability spoils liquids containing water. Magic items (such as potions) and items in a creature's possession must succeed on a Will save (DC equal to that of the dragon's frightful presence) or become fouled. This ability is the equivalent of a 1st-level spell. Its range is equal to that of the dragon's frightful presence.
+Plant Growth	KEY:Plant Growth ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike
+Insect Plague	KEY:Insect Plague ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike
+Charm Reptile	KEY:Charm Reptile ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike		DESC:A great wyrm black dragon can use this ability three times per day. It works as a mass charm spell that affects only reptilian animals. The dragon can communicate with any charmed reptiles as though casting a speak with animals spell. This ability is the equivalent of a 1st-level spell.
+Other Spell-Like Abilities	KEY:Other Spell-Like Abilities ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike		DESC:3/day-darkness (juvenile or older; radius 10 feet per age category), insect plague (ancient or older); 1/day-plant growth (old or older).
+
+
+Dragon Age Selected	CATEGORY:Internal	VISIBLE:NO
+
+# COMMENT: Blue is copy of black for testing, this is all incorrect do NOT use for the actual BLUE
+Racial Traits ~ Blue Dragon	CATEGORY:Internal
+	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
+	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Blue Dragon
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Blue Dragon
+	BONUS:STAT|STR|max(2*(DragonAge-1),0)|TYPE=Racial
+	BONUS:STAT|STR|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,1
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,6
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|INT,CHA|-2|TYPE=Racial|PREVARLTEQ:DragonAge,2
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,2
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,3
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,5
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,7
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,11
+	BONUS:VAR|DragonLevelAdjustment|3|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,3
+	BONUS:VAR|DragonLevelAdjustment|4|PREVAREQ:DragonAge,4
+	DEFINE:DragonAge|(DragonLVL-1)/3
+	MOVE:Walk,60,Swim,60
+	BONUS:VAR|DragonNaturalArmor|3
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,2
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,3
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,4
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,5
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,6
+	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,7
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,8
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,9
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
+
+
+# INCOMPLETE PLACEHOLDERS
+Racial Traits ~ Green Dragon	CATEGORY:Internal
+	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Black Dragon
+	BONUS:STAT|STR|max(2*(DragonAge-1),0)|TYPE=Racial
+	BONUS:STAT|STR|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,1
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,6
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|INT,CHA|-2|TYPE=Racial|PREVARLTEQ:DragonAge,2
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,2
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,3
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,5
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,7
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,11
+	BONUS:VAR|DragonLevelAdjustment|3|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,3
+	BONUS:VAR|DragonLevelAdjustment|4|PREVAREQ:DragonAge,4
+	DEFINE:DragonAge|(DragonLVL-1)/3
+	MOVE:Walk,60,Swim,60
+	BONUS:VAR|DragonNaturalArmor|3
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,2
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,3
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,4
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,5
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,6
+	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,7
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,8
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,9
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
+
+Racial Traits ~ Red Dragon	CATEGORY:Internal
 	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
 	BONUS:STAT|STR|max(2*(DragonAge-1),0)|TYPE=Racial
 	BONUS:STAT|STR|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
@@ -203,18 +373,29 @@ Racial Traits ~ Black Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
 
-Breath Weapon	KEY:Breath Weapon ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A black dragon has one type of breath weapon, a line of acid. Damage %1d%2, DC %3, Length %4|BlackDragonBWDice|BlackDragonBWDieSize|BreathWeaponDC|DragonBreathWeaponLength	DEFINE:BlackDragonBWDice|DragonAge*2	DEFINE:BlackDragonBWDieSize|4	DEFINE:BreathWeaponDC|10+(HD/2)+CON	DEFINE:DragonBreathWeaponLength|DragonBreathWeaponLine
-
-
-Dragon Age Selected	CATEGORY:Internal	VISIBLE:NO
-
-# COMMENT: Blue is copy of black for testing, this is all incorrect do NOT use for the actual BLUE
-Racial Traits ~ Blue Dragon	CATEGORY:Internal
-	BONUS:STAT|STR|max(2*(DragonAge-1),0)
-	BONUS:STAT|CON|(2*(ceil(DragonAge/2)))
-	BONUS:STAT|INT,CHA|-2|PREVARLTEQ:DragonAge,2
-	BONUS:STAT|INT,CHA|max(2*(ceil(DragonAge/2)-2),0)
-	BONUS:STAT|WIS|floor((DragonAge-3)/2)|PREVARGTEQ:DragonAge,5
+Racial Traits ~ White Dragon	CATEGORY:Internal
+	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
+	BONUS:STAT|STR|max(2*(DragonAge-1),0)|TYPE=Racial
+	BONUS:STAT|STR|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,1
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,6
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|INT,CHA|-2|TYPE=Racial|PREVARLTEQ:DragonAge,2
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
 	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Black Dragon
 	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,2
 	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,3
@@ -223,31 +404,248 @@ Racial Traits ~ Blue Dragon	CATEGORY:Internal
 	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,11
 	BONUS:VAR|DragonLevelAdjustment|3|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,3
 	BONUS:VAR|DragonLevelAdjustment|4|PREVAREQ:DragonAge,4
-	DEFINE:DragonAge|(DragonLVL-3)/3
+	DEFINE:DragonAge|(DragonLVL-1)/3
 	MOVE:Walk,60,Swim,60
-	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
 	BONUS:VAR|DragonNaturalArmor|3
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,2
-	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,3
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,3
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,4
-	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,5
-	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,6
-	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,7
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,5
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,6
+	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,7
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,8
-	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,9
-	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,10
-	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,11
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,9
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
 
-
-# INCOMPLETE PLACEHOLDERS
-Racial Traits ~ Green Dragon	CATEGORY:Internal
-Racial Traits ~ Red Dragon	CATEGORY:Internal
-Racial Traits ~ White Dragon	CATEGORY:Internal
 Racial Traits ~ Brass Dragon	CATEGORY:Internal
-Racial Traits ~ Bronze Dragon	CATEGORY:Internal
-Racial Traits ~ Copper Dragon	CATEGORY:Internal
-Racial Traits ~ Gold Dragon	CATEGORY:Internal
-Racial Traits ~ Silver Dragon	CATEGORY:Internal
+	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
+	BONUS:STAT|STR|max(2*(DragonAge-1),0)|TYPE=Racial
+	BONUS:STAT|STR|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,1
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,6
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|INT,CHA|-2|TYPE=Racial|PREVARLTEQ:DragonAge,2
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Black Dragon
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,2
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,3
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,5
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,7
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,11
+	BONUS:VAR|DragonLevelAdjustment|3|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,3
+	BONUS:VAR|DragonLevelAdjustment|4|PREVAREQ:DragonAge,4
+	DEFINE:DragonAge|(DragonLVL-1)/3
+	MOVE:Walk,60,Swim,60
+	BONUS:VAR|DragonNaturalArmor|3
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,2
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,3
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,4
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,5
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,6
+	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,7
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,8
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,9
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
 
+Racial Traits ~ Bronze Dragon	CATEGORY:Internal
+	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
+	BONUS:STAT|STR|max(2*(DragonAge-1),0)|TYPE=Racial
+	BONUS:STAT|STR|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,1
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,6
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|INT,CHA|-2|TYPE=Racial|PREVARLTEQ:DragonAge,2
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Black Dragon
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,2
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,3
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,5
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,7
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,11
+	BONUS:VAR|DragonLevelAdjustment|3|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,3
+	BONUS:VAR|DragonLevelAdjustment|4|PREVAREQ:DragonAge,4
+	DEFINE:DragonAge|(DragonLVL-1)/3
+	MOVE:Walk,60,Swim,60
+	BONUS:VAR|DragonNaturalArmor|3
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,2
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,3
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,4
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,5
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,6
+	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,7
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,8
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,9
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
+
+Racial Traits ~ Copper Dragon	CATEGORY:Internal
+	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
+	BONUS:STAT|STR|max(2*(DragonAge-1),0)|TYPE=Racial
+	BONUS:STAT|STR|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,1
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,6
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|INT,CHA|-2|TYPE=Racial|PREVARLTEQ:DragonAge,2
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Black Dragon
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,2
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,3
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,5
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,7
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,11
+	BONUS:VAR|DragonLevelAdjustment|3|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,3
+	BONUS:VAR|DragonLevelAdjustment|4|PREVAREQ:DragonAge,4
+	DEFINE:DragonAge|(DragonLVL-1)/3
+	MOVE:Walk,60,Swim,60
+	BONUS:VAR|DragonNaturalArmor|3
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,2
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,3
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,4
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,5
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,6
+	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,7
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,8
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,9
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
+
+Racial Traits ~ Gold Dragon	CATEGORY:Internal
+	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
+	BONUS:STAT|STR|max(2*(DragonAge-1),0)|TYPE=Racial
+	BONUS:STAT|STR|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,1
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,6
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|INT,CHA|-2|TYPE=Racial|PREVARLTEQ:DragonAge,2
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Black Dragon
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,2
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,3
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,5
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,7
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,11
+	BONUS:VAR|DragonLevelAdjustment|3|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,3
+	BONUS:VAR|DragonLevelAdjustment|4|PREVAREQ:DragonAge,4
+	DEFINE:DragonAge|(DragonLVL-1)/3
+	MOVE:Walk,60,Swim,60
+	BONUS:VAR|DragonNaturalArmor|3
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,2
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,3
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,4
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,5
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,6
+	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,7
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,8
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,9
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
+
+Racial Traits ~ Silver Dragon	CATEGORY:Internal
+	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
+	BONUS:STAT|STR|max(2*(DragonAge-1),0)|TYPE=Racial
+	BONUS:STAT|STR|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,1
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,6
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|INT,CHA|-2|TYPE=Racial|PREVARLTEQ:DragonAge,2
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Black Dragon
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,2
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,3
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,5
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,7
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,11
+	BONUS:VAR|DragonLevelAdjustment|3|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,3
+	BONUS:VAR|DragonLevelAdjustment|4|PREVAREQ:DragonAge,4
+	DEFINE:DragonAge|(DragonLVL-1)/3
+	MOVE:Walk,60,Swim,60
+	BONUS:VAR|DragonNaturalArmor|3
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,2
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,3
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,4
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,5
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,6
+	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,7
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,8
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,9
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
 
