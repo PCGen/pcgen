@@ -128,7 +128,8 @@ public class AbilityToken extends Token
 
 		// Get the Ability Category from the Gamemode given the key
 		final String categoryString = aTok.nextToken();
-		final AbilityCategory aCategory =
+		final AbilityCategory aCategory = "ANY".equals(categoryString) ? 
+				AbilityCategory.ANY :
 				SettingsHandler.getGame().getAbilityCategory(categoryString);
 
 		// Get the ABILITY token for the category
@@ -715,7 +716,7 @@ public class AbilityToken extends Token
 				SettingsHandler.getGame().getAllAbilityCategories();
 		for (AbilityCategory aCat : allCats)
 		{
-			if (aCat.getParentCategory().equals(aCategory))
+			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
 			{
 				listOfAbilities.addAll(pc.getAbilityList(aCat, Nature.NORMAL));
 			}

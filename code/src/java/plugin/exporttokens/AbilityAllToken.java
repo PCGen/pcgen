@@ -80,7 +80,7 @@ public class AbilityAllToken extends AbilityToken
 				SettingsHandler.getGame().getAllAbilityCategories();
 		for (AbilityCategory aCat : allCats)
 		{
-			if (aCat.getParentCategory().equals(aCategory))
+			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
 			{
 				ret.addAll(pc.getRealAbilitiesListAnyCat(aCat));
 				ret.addAll(pc.getAbilityList(aCat, Nature.AUTOMATIC));
