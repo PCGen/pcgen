@@ -177,6 +177,9 @@ public final class SettingsHandler
 	private static File pcgenVendorDataDir =
 		new File(Globals.getDefaultPath()
 			+ File.separator + "vendordata"); //$NON-NLS-1$
+	private static File pcgenHomebrewDataDir =
+			new File(Globals.getDefaultPath()
+				+ File.separator + "homebrewdata"); //$NON-NLS-1$
 	private static File pcgenSponsorDir =
 		new File(Globals.getDefaultPath()
 			+ File.separator + "system" //$NON-NLS-1$
@@ -1309,6 +1312,8 @@ public final class SettingsHandler
 						System.getProperty("user.dir") + File.separator + "data")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setPcgenVendorDataDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenVendorDataDir", //$NON-NLS-1$
 			Globals.getUserFilesPath() + File.separator + "vendordata")))); //$NON-NLS-1$ //$NON-NLS-2$
+		setPcgenHomebrewDataDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenHomebrewDataDir", //$NON-NLS-1$
+				Globals.getUserFilesPath() + File.separator + "homebrewdata")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setPcgenSystemDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenSystemDir", //$NON-NLS-1$
 						System.getProperty("user.dir") + File.separator + "system")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setPcgenThemePackDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenThemePackDir", //$NON-NLS-1$
@@ -1480,6 +1485,16 @@ public final class SettingsHandler
 		else
 		{
 			getOptions().setProperty("pcgen.files.pcgenVendorDataDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
+		}
+
+		if (getPcgenHomebrewDataDir() != null)
+		{
+			getOptions().setProperty("pcgen.files.pcgenHomebrewDataDir", //$NON-NLS-1$
+				retractRelativePath(getPcgenHomebrewDataDir().getAbsolutePath()));
+		}
+		else
+		{
+			getOptions().setProperty("pcgen.files.pcgenHomebrewDataDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		if (getPcgenSystemDir() != null)
@@ -1860,6 +1875,15 @@ public final class SettingsHandler
 		pcgenVendorDataDir = aFile;
 	}
 
+	public static void setPcgenHomebrewDataDir(final File aFile)
+	{
+		if (aFile != null && !aFile.exists())
+		{
+			aFile.mkdirs();
+		}
+		pcgenHomebrewDataDir = aFile;
+	}
+
 	/**
 	 * @deprecated Use ConfigurationSettings.getVendorDataDir()
 	 * @return the vendor data directory
@@ -1867,6 +1891,15 @@ public final class SettingsHandler
 	public static File getPcgenVendorDataDir()
 	{
 		return pcgenVendorDataDir;
+	}
+
+	/**
+	 * @deprecated Use ConfigurationSettings.getVendorDataDir()
+	 * @return the vendor data directory
+	 */
+	public static File getPcgenHomebrewDataDir()
+	{
+		return pcgenHomebrewDataDir;
 	}
 
 	public static void setPcgenSponsorDir(final File aFile)

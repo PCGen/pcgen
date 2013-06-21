@@ -302,12 +302,26 @@ public class CampaignSourceEntry implements SourceEntry
 			return new File(ConfigurationSettings.getVendorDataDir(), path)
 				.toURI();
 		}
+		else if (basePath.charAt(0) == '$')
+		{
+			String pathNoLeader =
+					trimLeadingFileSeparator(basePath.substring(1));
+			String path = CoreUtility.fixFilenamePath(pathNoLeader);
+			return new File(ConfigurationSettings.getHomebrewDataDir(), path)
+				.toURI();
+		}
 		else if (basePath.charAt(0) == '*')
 		{
 			String pathNoLeader =
 					trimLeadingFileSeparator(basePath.substring(1));
 			String path = CoreUtility.fixFilenamePath(pathNoLeader);
 			File pccFile =
+					new File(ConfigurationSettings.getHomebrewDataDir(), path);
+			if (pccFile.exists())
+			{
+				return pccFile.toURI();
+			}
+			pccFile =
 					new File(ConfigurationSettings.getVendorDataDir(), path);
 			if (pccFile.exists())
 			{
@@ -317,7 +331,7 @@ public class CampaignSourceEntry implements SourceEntry
 				.toURI();
 		}
 		/*
-		 * If the line doesn't use "@" or "&" then it's a relative path
+		 * If the line doesn't use "@", "&", or "$" then it's a relative path
 		 * 
 		 * 1) If the path starts with '/data', assume it means the PCGen
 		 * data dir 2) Otherwise, assume that the path is relative to the

@@ -92,6 +92,11 @@ public class CampaignFileLoader extends PCGenTask
 			{
 				findPCCFiles(new File(vendorDataDir));
 			}
+			final String homebrewDataDir = ConfigurationSettings.getHomebrewDataDir();
+			if (homebrewDataDir != null)
+			{
+				findPCCFiles(new File(homebrewDataDir));
+			}
 		}
 		setMaximum(campaignFiles.size());
 		loadCampaigns();

@@ -39,6 +39,7 @@ public final class ConfigurationSettings extends PropertyContext
 	public static final String PLUGINS_DIR = "pluginsPath";
 	public static final String PREVIEW_DIR = "previewPath";
 	public static final String VENDOR_DATA_DIR = "vendordataPath";
+	public static final String HOMEBREW_DATA_DIR = "homebrewdataPath";
 	public static final String DOCS_DIR = "docsPath";
 	public static final String PCC_FILES_DIR = "pccFilesPath";
 	public static final String CUSTOM_DATA_DIR = "customPath";
@@ -59,6 +60,7 @@ public final class ConfigurationSettings extends PropertyContext
 		setProperty(PREVIEW_DIR, "@preview");
 		setProperty(DOCS_DIR, "@docs");
 		setProperty(VENDOR_DATA_DIR, "@vendordata");
+		setProperty(HOMEBREW_DATA_DIR, "@homebrewdata");
 		setProperty(PCC_FILES_DIR, "@data");
 		setProperty(CUSTOM_DATA_DIR, "@data/customsources".replace('/', File.separatorChar));
 	}
@@ -73,6 +75,7 @@ public final class ConfigurationSettings extends PropertyContext
 		relativize(PREVIEW_DIR);
 		relativize(DOCS_DIR);
 		relativize(VENDOR_DATA_DIR);
+		relativize(HOMEBREW_DATA_DIR);
 		relativize(PCC_FILES_DIR);
 		relativize(CUSTOM_DATA_DIR);
 	}
@@ -154,6 +157,11 @@ public final class ConfigurationSettings extends PropertyContext
 	public static String getVendorDataDir()
 	{
 		return getDirectory(VENDOR_DATA_DIR);
+	}
+
+	public static String getHomebrewDataDir()
+	{
+		return getDirectory(HOMEBREW_DATA_DIR);
 	}
 
 	public static String getPccFilesDir()

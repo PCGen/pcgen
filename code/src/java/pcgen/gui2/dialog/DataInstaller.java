@@ -204,6 +204,9 @@ public class DataInstaller extends JFrame
 	/** The button for the vendor data location. */
 	private JRadioButton locVendorDataButton;
 	
+	/** The button for the homebrew data location. */
+	private JRadioButton locHomebrewDataButton;
+	
 	/** The install button. */
 	private JButton installButton;
 	
@@ -484,6 +487,10 @@ public class DataInstaller extends JFrame
 		{
 			return Destination.VENDORDATA;
 		}
+		if (locHomebrewDataButton.isSelected())
+		{
+			return Destination.HOMEBREWDATA;
+		}
 		return null;
 	}
 
@@ -550,9 +557,16 @@ public class DataInstaller extends JFrame
 		locVendorDataButton.setToolTipText(LanguageBundle
 			.getString("in_diVendorData_tip"));
 		exclusiveGroup.add(locVendorDataButton);
+		locHomebrewDataButton =
+				new JRadioButton(LanguageBundle
+					.getString("in_diHomebrewData"));
+		locHomebrewDataButton.setToolTipText(LanguageBundle
+			.getString("in_diHomebrewData_tip"));
+		exclusiveGroup.add(locHomebrewDataButton);
 		JPanel optionsPanel = new JPanel();
 		optionsPanel.add(locDataButton);
 		optionsPanel.add(locVendorDataButton);
+		optionsPanel.add(locHomebrewDataButton);
 		Utility.buildConstraints(gbc, 1, 2, 3, 1, 0.0, 0.0);
 		gridbag.setConstraints(optionsPanel, gbc);
 		gbc.fill = GridBagConstraints.NONE;
@@ -608,6 +622,10 @@ public class DataInstaller extends JFrame
 		{
 			case VENDORDATA:
 				destDir = new File(ConfigurationSettings.getVendorDataDir());
+				break;
+
+			case HOMEBREWDATA:
+				destDir = new File(ConfigurationSettings.getHomebrewDataDir());
 				break;
 
 			case DATA:
@@ -810,6 +828,7 @@ public class DataInstaller extends JFrame
 		{
 			locDataButton.setSelected(false);
 			locVendorDataButton.setSelected(false);
+			locHomebrewDataButton.setSelected(false);
 		}
 		else
 		{
@@ -820,6 +839,9 @@ public class DataInstaller extends JFrame
 					break;
 				case VENDORDATA:
 					locVendorDataButton.setSelected(true);
+					break;
+				case HOMEBREWDATA:
+					locHomebrewDataButton.setSelected(true);
 					break;
 			}
 		}

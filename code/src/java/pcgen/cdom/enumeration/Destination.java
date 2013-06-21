@@ -29,7 +29,8 @@ package pcgen.cdom.enumeration;
 public enum Destination
 {
 	DATA("DATA"), 
-	VENDORDATA("VENDORDATA");
+	VENDORDATA("VENDORDATA"),
+	HOMEBREWDATA("HOMEBREWDATA");
 
 	private final String text;
 	

@@ -223,6 +223,7 @@ public final class LstSystemLoader implements SystemLoader
 		// Load the initial campaigns
 		loadPCCFilesInDirectory(ConfigurationSettings.getPccFilesDir());
 		loadPCCFilesInDirectory(ConfigurationSettings.getVendorDataDir());
+		loadPCCFilesInDirectory(ConfigurationSettings.getHomebrewDataDir());
 
 		// Now that those are loaded, make sure to initialize the recursive campaigns
 		initRecursivePccFiles();

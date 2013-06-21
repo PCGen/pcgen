@@ -77,7 +77,8 @@ public class GameModePanel extends ConvertSubPanel
 		File sourceDir = pc.get(ObjectKey.DIRECTORY);
 		String name = sourceDir.getAbsolutePath();
 		if (!name.equals(ConfigurationSettings.getPccFilesDir())
-			&& !name.equals(ConfigurationSettings.getVendorDataDir()))
+			&& !name.equals(ConfigurationSettings.getVendorDataDir())
+			&& !name.equals(ConfigurationSettings.getHomebrewDataDir()))
 		{
 			// User has selected another path - we need to load the sources from there.
 			Logging.log(Logging.INFO, "Loading campaigns from " + sourceDir);

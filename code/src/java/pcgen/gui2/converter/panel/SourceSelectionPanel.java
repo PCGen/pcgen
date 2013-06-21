@@ -60,6 +60,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 	private enum SourceFolder {
 		DATA ("Data directory", ConfigurationSettings.getPccFilesDir()),
 		VENDORDATA ("Vendor data directory", ConfigurationSettings.getVendorDataDir()),
+		HOMEBREWDATA ("Homebrew data directory", ConfigurationSettings.getHomebrewDataDir()),
 		OTHER ("Other directory", ".");
 		
 		private final String title;
@@ -283,6 +284,12 @@ public class SourceSelectionPanel extends ConvertSubPanel
 				JRadioButton btn = radioButtons[SourceFolder.VENDORDATA.ordinal()];
 				btn.setSelected(true);
 				selectedFile = SourceFolder.VENDORDATA.getFile();
+			}
+			else if (radioButtons[SourceFolder.HOMEBREWDATA.ordinal()].isEnabled())
+			{
+				JRadioButton btn = radioButtons[SourceFolder.HOMEBREWDATA.ordinal()];
+				btn.setSelected(true);
+				selectedFile = SourceFolder.HOMEBREWDATA.getFile();
 			}
 			else
 			{
