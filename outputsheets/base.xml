@@ -216,12 +216,10 @@
 |ENDIF|
 |ENDFOR|
 |FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=NotesSection")-1,1,0|
-|IIF(ABILITYALL.Special Ability.%ability.HASASPECT.NotesSection:Y)|
 			<note>
 				<name>|ABILITYALL.Special Ability.%ability.ASPECT.NotesSection|</name>
 				<value>|ABILITYALL.Special Ability.%ability.ASPECT.Notes|</value>
 			</note>
-|ENDIF|
 |ENDFOR|
 		</notes>
 	</basics>
