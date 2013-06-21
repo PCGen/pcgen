@@ -1,0 +1,4 @@
+# CVS $Revision$ $Author$ -- Thu Feb 22 13:04:59 2007 -- reformated by prettylst.pl v1.36 (build 2045)
+SOURCELONG:Alderac Entertainment Group (AEG) - Empire	SOURCESHORT:Empire	SOURCEWEB:http://alderac.com/d20
+
+Knowledge (Economics)				KEYSTAT:INT			USEUNTRAINED:NO				TYPE:Intelligence.Knowledge
