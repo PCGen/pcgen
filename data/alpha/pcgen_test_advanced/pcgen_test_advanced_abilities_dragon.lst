@@ -134,7 +134,7 @@ Feats				KEY:Feats ~ Dragon							CATEGORY:Special Ability	TYPE:RaceAbility.Spec
 DRAGON_FLY_SPEED_100	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,100	DEFINE:Maneuverability|3
 DRAGON_FLY_SPEED_150	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,150	DEFINE:Maneuverability|2
 DRAGON_FLY_SPEED_200	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,200	DEFINE:Maneuverability|1
-# This applies attacks based upon size - Not Working (NATURALATTACKS are broken across the board!)
+#
 DRAGON_ATTACKS_T	CATEGORY:Internal	VISIBLE:NO	TEMPLATE:DRAGON_ATTACKS_T
 DRAGON_ATTACKS_S	CATEGORY:Internal	VISIBLE:NO	TEMPLATE:DRAGON_ATTACKS_S
 DRAGON_ATTACKS_M	CATEGORY:Internal	VISIBLE:NO	TEMPLATE:DRAGON_ATTACKS_M
@@ -156,13 +156,30 @@ Ancient		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Ancient
 Wyrm			CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Wyrm
 Great Wyrm		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Great Wyrm
 
-
+# Black Dragon
 Racial Traits ~ Black Dragon	CATEGORY:Internal
+	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
 	BONUS:STAT|STR|max(2*(DragonAge-1),0)|TYPE=Racial
-	BONUS:STAT|CON|(2*(ceil(DragonAge/2)))|TYPE=Racial
-	BONUS:STAT|INT,CHA|-2|PREVARLTEQ:DragonAge,2|TYPE=Racial
-	BONUS:STAT|INT,CHA|max(2*(ceil(DragonAge/2)-2),0)|TYPE=Racial
-	BONUS:STAT|WIS|floor((DragonAge-3)/2)|TYPE=Racial|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|STR|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,1
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,6
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|INT,CHA|-2|TYPE=Racial|PREVARLTEQ:DragonAge,2
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
 	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Black Dragon
 	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,2
 	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,3
@@ -173,7 +190,6 @@ Racial Traits ~ Black Dragon	CATEGORY:Internal
 	BONUS:VAR|DragonLevelAdjustment|4|PREVAREQ:DragonAge,4
 	DEFINE:DragonAge|(DragonLVL-1)/3
 	MOVE:Walk,60,Swim,60
-	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
 	BONUS:VAR|DragonNaturalArmor|3
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,2
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,3
@@ -188,6 +204,7 @@ Racial Traits ~ Black Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
 
 Breath Weapon	KEY:Breath Weapon ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A black dragon has one type of breath weapon, a line of acid. Damage %1d%2, DC %3, Length %4|BlackDragonBWDice|BlackDragonBWDieSize|BreathWeaponDC|DragonBreathWeaponLength	DEFINE:BlackDragonBWDice|DragonAge*2	DEFINE:BlackDragonBWDieSize|4	DEFINE:BreathWeaponDC|10+(HD/2)+CON	DEFINE:DragonBreathWeaponLength|DragonBreathWeaponLine
+
 
 Dragon Age Selected	CATEGORY:Internal	VISIBLE:NO
 
