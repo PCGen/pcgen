@@ -26,14 +26,10 @@
 
 package pcgen.core.term;
 
-import java.util.Collection;
-import java.util.Set;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.util.enumeration.View;
-import pcgen.util.enumeration.Visibility;
 
 public class PCCountTemplatesTermEvaluator 
 		extends BasePCDTermEvaluator implements TermEvaluator
