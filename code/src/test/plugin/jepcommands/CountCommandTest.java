@@ -462,13 +462,13 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		character.addAssociation(clone, "devour");
 		character.setDirty(true);
 		
-		is(character.getVariableValue(s,""), eq(2.0, 0.1), s + " two choices");
+		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " two choices");
 
 		character.addAssociation(clone, "nibble");
 		assertEquals(3, character.getAssocCount(clone, AssociationListKey.CHOICES));
 		character.setDirty(true);
 
-		is(character.getVariableValue(s,""), eq(3.0, 0.1), s + " three choices");
+		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " three choices");
 	}
 
 	public void testCountAbilitiesByKey()
@@ -502,12 +502,12 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		character.addAssociation(clone, "devour");
 		character.setDirty(true);
 		
-		is(character.getVariableValue(s,""), eq(2.0, 0.1), s + " two choices");
+		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " two choices");
 
 		character.addAssociation(clone, "nibble");
 		character.setDirty(true);
 
-		is(character.getVariableValue(s,""), eq(3.0, 0.1), s + " three choices");
+		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " three choices");
 		
 		String countStr = "count(\"ABILITIES\",\"KEY=KEY_Turning\")";
 		is(character.getVariableValue(countStr,""), eq(1.0, 0.1), countStr + " single application");
