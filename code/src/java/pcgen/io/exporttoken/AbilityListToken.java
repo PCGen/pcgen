@@ -131,6 +131,7 @@ public class AbilityListToken extends Token
 		// Default values
 		List<String> types = new ArrayList<String>();
 		List<String> negate = new ArrayList<String>();
+		String aspect = null;
 
 		while (aTok.hasMoreTokens())
 		{
@@ -148,11 +149,17 @@ public class AbilityListToken extends Token
 					types.add(typeStr.substring(typeInd + 5));
 				}
 			}
+			
+			int aspectInd = typeStr.indexOf("ASPECT=");
+			if (aspectInd != -1 && typeStr.length() > 7)
+			{
+				aspect = typeStr.substring(aspectInd + 7);
+			}
 		}
 
 		List<Ability> aList =
 				AbilityToken.buildAbilityList(types, negate, null,
-					AbilityToken.ABILITY_VISIBLE, abilityList);
+					AbilityToken.ABILITY_VISIBLE, aspect, abilityList);
 
 		boolean needComma = false;
 		for (Ability ability : aList)

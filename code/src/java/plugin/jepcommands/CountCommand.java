@@ -29,6 +29,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
@@ -36,9 +37,12 @@ import java.util.Stack;
 import org.nfunk.jep.ParseException;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.AspectName;
+import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
+import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
@@ -76,6 +80,7 @@ public class CountCommand extends PCGenCommand
 		NATURE,
 		TYPE,
 		VISIBILITY,
+		ASPECT,
 		CAT,
 		NAM,
 		NAT,
@@ -136,7 +141,7 @@ public class CountCommand extends PCGenCommand
 					catch (IllegalArgumentException ex)
 					{
 						Logging.errorPrint(
-							"Bad paramter to count(\"Ability\"), " + c);
+							"Bad parameter to count(\"Ability\"), " + c);
 						return new HashSet<CDOMObject>();
 					}
 
@@ -182,7 +187,7 @@ public class CountCommand extends PCGenCommand
 							catch (IllegalArgumentException ex)
 							{
 								Logging.errorPrint(
-									"Bad paramter to count(\"Ability\"), no such NATURE "
+									"Bad parameter to count(\"Ability\"), no such NATURE "
 										+ c);
 								n = Nature.ANY;
 							}
@@ -218,9 +223,14 @@ public class CountCommand extends PCGenCommand
 							catch (IllegalArgumentException ex)
 							{
 								Logging.errorPrint(
-									"Bad paramter to count(\"Ability\"), no such Visibility "
+									"Bad parameter to count(\"Ability\"), no such Visibility "
 										+ keyValue[1]);
 							}
+							break;
+
+						case ASPECT:
+							cs = filterAbilitiesByAspect(keyValue);
+							break;
 					}
 
 					return cs;
@@ -275,6 +285,31 @@ public class CountCommand extends PCGenCommand
 						final String name = ab.getKeyName();
 
 						if (!name.equalsIgnoreCase(keyValue[1]))
+						{
+							abIt.remove();
+						}
+					}
+					return cs;
+				}
+
+				/**
+				 * Filter the abilities by aspect.
+				 * @param keyValue The count parameters. The 2nd entry is the aspect to be matched.
+				 * @return The set of abilities matching the key.
+				 */
+				private Set<Ability> filterAbilitiesByAspect(final String[] keyValue)
+				{
+					Set<Ability> cs;
+					final Iterator<? extends CDOMObject> abIt;
+					cs = new HashSet<Ability>(abdata.get(Nature.ANY));
+					abIt = cs.iterator();
+
+					while (abIt.hasNext())
+					{
+						final Ability ab = (Ability) abIt.next();
+
+						List<Aspect> target = ab.get(MapKey.ASPECT, AspectName.getConstant(keyValue[1]));
+						if (target == null)
 						{
 							abIt.remove();
 						}
@@ -461,7 +496,7 @@ public class CountCommand extends PCGenCommand
 					catch (IllegalArgumentException ex)
 					{
 						Logging.errorPrint(
-							"Bad paramter to count(\"Equipment\"), " + c);
+							"Bad parameter to count(\"Equipment\"), " + c);
 						return new HashSet<CDOMObject>();
 					}
 
