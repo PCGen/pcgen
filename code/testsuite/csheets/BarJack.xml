@@ -1289,7 +1289,7 @@ BIO
 		<ability_object>
 			<name>+2 racial bonus on saving throws against illusions</name>
 			<description>+2 racial bonus on saving throws against illusions</description>
-			<type>GNOMERACIALTRAIT.SAVEBONUS</type>
+			<type>GNOMERACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

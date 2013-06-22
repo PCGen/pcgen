@@ -3816,7 +3816,7 @@ BIO
 		<ability_object>
 			<name>Fearless</name>
 			<description>Halflings receive a +2 racial bonus on saving throws against fear. This bonus stacks with the bonus granted by Halfling Luck.</description>
-			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT.SAVEBONUS</type>
+			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -3904,7 +3904,7 @@ BIO
 		<ability_object>
 			<name>Trap Sense</name>
 			<description>You gain a +4 bonus on Reflex saves made to avoid traps, and a +4 dodge bonus to AC against attacks made by traps.</description>
-			<type>SPECIALQUALITY.EXTRAORDINARY.DEFENSIVE.SAVEBONUS.BARBARIANCLASSABILITY</type>
+			<type>SPECIALQUALITY.EXTRAORDINARY.DEFENSIVE.BARBARIANCLASSABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

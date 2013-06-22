@@ -1177,7 +1177,7 @@ BIO
 		<ability_object>
 			<name>+2 racial saving throw bonus against enchantment spells or effects</name>
 			<description>+2 racial saving throw bonus against enchantment spells or effects</description>
-			<type>HALFELFRACIALTRAIT.SPECIALQUALITY.SAVEBONUS</type>
+			<type>HALFELFRACIALTRAIT.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

@@ -1034,7 +1034,7 @@ BIO
 		<ability_object>
 			<name>+2 morale bonus on saving throws against fear</name>
 			<description>+2 morale bonus on saving throws against fear</description>
-			<type>HALFLINGRACIALTRAIT.SAVEBONUS</type>
+			<type>HALFLINGRACIALTRAIT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

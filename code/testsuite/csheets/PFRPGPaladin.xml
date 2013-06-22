@@ -3148,7 +3148,7 @@ BIO
 		<ability_object>
 			<name>Smite Evil</name>
 			<description>You can call out to the powers of good to aid you in your struggle against evil 2 times per day. As a swift action, you choose one target within sight to smite. If this target is evil, you add +2 to your attack rolls and +6 to all damage rolls made against the target of your smite. If the target of Smite Evil is an outsider with the evil subtype, an evil-aligned dragon, or an undead creature, the bonus to damage on the first successful attack increases to +12. Regardless of the target, Smite Evil attacks automatically bypass any DR the creature might possess. In addition, while smite evil is in effect, you gain a +2 deflection bonus to your AC against attacks made by the target of the smite. If you target a creature that is not evil, the smite is wasted with no effect. The Smite Evil effect remains until the target of the smite is dead or the next time you rest and regain your uses of this ability.</description>
-			<type>PALADINCLASSABILITY.SPECIALATTACK.SUPERNATURAL.CHECKLIST</type>
+			<type>PALADINCLASSABILITY.SPECIALATTACK.SUPERNATURAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>

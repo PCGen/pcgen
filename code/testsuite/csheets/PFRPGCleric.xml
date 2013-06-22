@@ -2096,7 +2096,7 @@ BIO
 		<ability_object>
 			<name>Channel Positive Energy</name>
 			<description>You can unleash a wave of positive energy. You must choose to deal 2d6 points of positive energy damage to undead creatures or to heal living creatures of 2d6 points of damage. Creatures that take damage from channeled energy receive a DC 14 Will save to halve the damage. You can use this abilty 6 times per day.</description>
-			<type>CLERICCLASSABILITY.SUPERNATURAL.SPECIALATTACK.CHANNELENERGY.CHECKLIST</type>
+			<type>CLERICCLASSABILITY.SUPERNATURAL.SPECIALATTACK.CHANNELENERGY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -2174,7 +2174,7 @@ BIO
 		<ability_object>
 			<name>Touch of Glory</name>
 			<description>You can cause you hand to shimmer with divine radiance, allowing you to touch a creature as a standard action and give it a +3 bonus to a single Charisma-based skill check or Charisma ability check. This ability lasts for one hour or until the creature touched elects to apply the bonus to a roll. You can use this ability to grant the bonus 7 times per day.</description>
-			<type>CLERICCLASSABILITY.SPECIALQUALITY.SPELLLIKE.DOMAINPOWER.CHECKLIST</type>
+			<type>CLERICCLASSABILITY.SPECIALQUALITY.SPELLLIKE.DOMAINPOWER</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
