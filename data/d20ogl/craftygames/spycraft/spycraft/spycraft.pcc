@@ -39,7 +39,8 @@ ABILITY:spycraft_abilities_class.lst
 ABILITY:spycraft_abilities_skill.lst
 ABILITYCATEGORY:spycraft_abilitycategory.lst
 
-BIOSET:spycraft_biosettings.lst
+# COMMENT: Moved to the GameMode Bio file
+#BIOSET:spycraft_biosettings.lst
 CLASS:spycraft_classes.lst
 RACE:spycraft_departments.lst
 FEAT:spycraft_feats.lst
