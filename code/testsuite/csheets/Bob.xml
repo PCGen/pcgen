@@ -1139,16 +1139,6 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
-		<feat>
-			<name></name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count></count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
 		<!-- Auto feats -->
 		<feat>
 			<name>Ability B</name>
@@ -1230,16 +1220,6 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
-		<feat>
-			<name></name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count></count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
 		<!-- Virtual Feats -->
 		<feat>
 			<name>Feat G</name>
@@ -1281,28 +1261,6 @@ BIO
 			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name></name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count></count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name></name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count></count>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1975,17 +1933,6 @@ BIO
 			<type>CLASS.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name></name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count></count>
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>

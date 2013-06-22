@@ -1484,56 +1484,6 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
-		<feat>
-			<name></name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count></count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name></name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count></count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name></name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count></count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name></name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count></count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
-		<feat>
-			<name></name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count></count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-		</feat>
 		<!-- Auto feats -->
 		<feat>
 			<name>Simple Weapon Proficiency</name>
