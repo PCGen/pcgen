@@ -25,7 +25,7 @@ Ethereal Attack					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural.Att
 Ethereal Sight					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.Sense		DEFINE:EtheralSightDuration|0	DEFINE:EtherealSightTimes|max(CHA,1)	DESC:See Etheral creatures %1 rounds (%2 / day)|EtheralSightDuration|EtherealSightTimes														SOURCEPAGE:p.131
 Ghostly Insight					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary															DESC:By observing a ghost for more than 4 rounds, you can determine what happend to the person or creature	DESC:+8 Diplomacy and Sense Motive when dealing with ghosts	SOURCEPAGE:p.131
 Resistance to Frightful Moan			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	DEFINE:ResistanceFrightfulMoanHD|0							DESC:Immune to feat causing effects of ghosts with %1 or less HD|ResistanceFrightfulMoanHD													SOURCEPAGE:p.131
-Improved Resistance to Frightful Moan	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.SaveBonus													DESC:+%1 to all Will saves when attempting to resist a ghost's fightful moan attack|CHA														SOURCEPAGE:p.131
+Improved Resistance to Frightful Moan	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary															DESC:+%1 to all Will saves when attempting to resist a ghost's fightful moan attack|CHA														SOURCEPAGE:p.131
 Planar Shift					CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural.ModifyMovement	DEFINE:PlanarShiftDuration|CHA							DESC:Full round to shift, may stay for %1 rounds|PlanarShiftDuration																	SOURCEPAGE:p.131
 Contact Ether Plane				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																DESC:See text																										SOURCEPAGE:p.131
 

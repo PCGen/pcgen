@@ -2,8 +2,8 @@
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 ###Block: Pegasus abilities
-# Ability Name		Unique Key					Category of Ability		Type					Description											Source Page		Aspects
-Resistance to Poison	KEY:Resistance to Poison ~ Pegasus	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus	DESC:You receive a +4 racial bonus on saving throws against poison.	SOURCEPAGE:p.225	ASPECT:SaveBonus|+4 vs. poison
+# Ability Name		Unique Key					Category of Ability		Type				Description											Source Page		Aspects
+Resistance to Poison	KEY:Resistance to Poison ~ Pegasus	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:You receive a +4 racial bonus on saving throws against poison.	SOURCEPAGE:p.225	ASPECT:SaveBonus|+4 vs. poison
 
 ###Block: Phase Spider abilities
 # Ability Name	Unique Key					Category of Ability		Type								Define				Innate Spells									Description																																Modify VAR								Source Page

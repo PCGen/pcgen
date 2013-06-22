@@ -33,15 +33,15 @@ Kiriton Flight (Poor)																	CATEGORY:Special Ability							MOVE:Fly,20
 
 ###Block: Sslithrak abilities
 # Ability Name				Output Name																Category of Ability		Type					Source Page
-Sslithrak Heat and Cold Resistance	OUTPUTNAME:+1 racial saving throw bonus to all cold and heat based attacks, both magical and normal	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus	SOURCEPAGE:p.22
+Sslithrak Heat and Cold Resistance	OUTPUTNAME:+1 racial saving throw bonus to all cold and heat based attacks, both magical and normal	CATEGORY:Special Ability	TYPE:SpecialQuality		SOURCEPAGE:p.22
 Sslithrak Diplomancy Penalty		OUTPUTNAME:-2 racial penalty to Diplomacy checks when dealing with elves					CATEGORY:Special Ability	TYPE:SpecialQuality		SOURCEPAGE:p.22
 Sslithrak Keen direction		OUTPUTNAME:+2 racial bonus to Survival skill checks when trying to determine direction			CATEGORY:Special Ability	TYPE:SpecialQuality		SOURCEPAGE:p.22
 Sslithrak Immune to Maze		OUTPUTNAME:Immune to Maze spells												CATEGORY:Special Ability	TYPE:SpecialQuality.Immunity	SOURCEPAGE:p.22
 
 ###Block: Tarnat abilities
-# Ability Name		Output Name													Category of Ability		Type					Visible	Description																																		Source Page
-Orc Dwarven Blood		OUTPUTNAME:Orc-Dwarven Blood										CATEGORY:Special Ability	TYPE:SpecialQuality				DESC:For all purposes, Tarnats are considered orcs and dwarves. They may use weapons and items only usable by orcs and only usable by dwarves, and weapons meant to only harm dwarves or orcs may harm them.	SOURCEPAGE:p.14
-Tarnat Spell Resistance	OUTPUTNAME:+1 racial bonus on saving throws against spells and spell-like effects	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus	VISIBLE:YES																																				SOURCEPAGE:p.25
+# Ability Name		Output Name													Category of Ability		Type				Visible	Description																																		Source Page
+Orc Dwarven Blood		OUTPUTNAME:Orc-Dwarven Blood										CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:For all purposes, Tarnats are considered orcs and dwarves. They may use weapons and items only usable by orcs and only usable by dwarves, and weapons meant to only harm dwarves or orcs may harm them.	SOURCEPAGE:p.14
+Tarnat Spell Resistance	OUTPUTNAME:+1 racial bonus on saving throws against spells and spell-like effects	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES																																				SOURCEPAGE:p.25
 
 ###Block: Ulf abilities
 # Ability Name	Output Name				Category of Ability		Type				Description																																		Source Page

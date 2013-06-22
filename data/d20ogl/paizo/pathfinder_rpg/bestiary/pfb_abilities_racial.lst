@@ -229,8 +229,8 @@ Spell-Like Ability (Enlarge Person)	KEY:SLA Enlarge Person ~ Duergar	CATEGORY:Sp
 Light Sensitivity				KEY:Light Sensitivity ~ Duergar	CATEGORY:Special Ability	TYPE:DuergarRacialTrait.DuergarRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Light Sensitivity ~ Duergar],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarLightSensitivity]																																																					SOURCEPAGE:p.186
 
 ###Block: Duergar Abilities
-# Ability Name		Unique Key			Category of Ability		Type					Source Page		Aspects
-+2 Save vs. Spells	KEY:Duergar vs Spells	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus	SOURCEPAGE:p.117	ASPECT:SaveBonus|+2 vs. Spells
+# Ability Name		Unique Key			Category of Ability		Type				Source Page		Aspects
++2 Save vs. Spells	KEY:Duergar vs Spells	CATEGORY:Special Ability	TYPE:SpecialQuality	SOURCEPAGE:p.117	ASPECT:SaveBonus|+2 vs. Spells
 
 
 

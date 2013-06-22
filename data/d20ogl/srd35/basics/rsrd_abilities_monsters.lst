@@ -581,7 +581,7 @@ Poison							KEY:Poison ~ Drow						CATEGORY:Special Ability	TYPE:SpecialAttack.
 Spell-Like Abilities					KEY:Spell-Like Abilities ~ Drow			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES		DEFINE:DancingLightsTimes|1	DEFINE:DarknessTimes|1	DEFINE:FaerieFireTimes|1	SPELLS:Innate|TIMES=DancingLightsTimes|CASTERLEVEL=TL|Dancing Lights,10+CHA|PRESTAT:1,INT=10	SPELLS:Innate|TIMES=DarknessTimes|CASTERLEVEL=TL|Darkness,12+CHA|PRESTAT:1,INT=10	SPELLS:Innate|TIMES=FaerieFireTimes|CASTERLEVEL=TL|Faerie Fire,11+CHA|PRESTAT:1,INT=10	DESC:Drow can use the following spell-like abilities once per day: dancing lights, darkness, faerie fire. Caster level equals the drow's class levels.
 Light Blindness						KEY:Light Blindness ~ Drow				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																																																													DESC:Abrupt exposure to bright light (such as sunlight or a daylight spell) blinds drow for 1 round. On subsequent rounds, they are dazzled as long as they remain in the affected area.
 Weapon Proficiency					KEY:Weapon Proficiency ~ Drow				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																																																													DESC:A drow is automatically proficient with the hand crossbow, the rapier, and the short sword. This trait replaces the high elf 's weapon proficiency.
-Racial Save Bonus						KEY:Racial Save Bonus ~ Drow				CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES		DEFINE:DrowRacialSaveBonus|2																																																							DESC:+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus																																		ASPECT:SaveBonus|+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus
+Racial Save Bonus						KEY:Racial Save Bonus ~ Drow				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES		DEFINE:DrowRacialSaveBonus|2																																																							DESC:+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus																																		ASPECT:SaveBonus|+%1 racial bonus on Will saves against spells and spell-like abilities|DrowRacialSaveBonus
 
 # ~ Ethereal Filcher
 Detect Magic						KEY:Detect Magic ~ Ethereal Filcher			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES																																																													DESC:Ethereal filchers can detect magic as the spell (caster level 5th) at will.
@@ -2058,15 +2058,15 @@ Vulnerability To Sunlight			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraor
 Vulnerability to Protection from Evil	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
 
 ###Block:
-
+3
 
 
 
 
 # Deep Dwarf (these should be merged with the standard Dwarf abilities once OUTPUTNAME can handle variables
-# Ability Name				Output Name													Category of Ability		Type						Visible	Description
-#Deep Dwarf Poison Resistance		OUTPUTNAME:+3 racial bonus on saving throws against poison					CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES	ASPECT:SaveBonus|+3 racial bonus on saving throws against poison
-#Deep Dwarf Spell Resistance		OUTPUTNAME:+3 racial bonus on saving throws against spells and spell-like effects	CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus		VISIBLE:YES	ASPECT:SaveBonus|+3 racial bonus on saving throws against spells and spell-like effects
+# Ability Name				Output Name													Category of Ability		Type				Visible	Description
+#Deep Dwarf Poison Resistance		OUTPUTNAME:+3 racial bonus on saving throws against poison					CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	ASPECT:SaveBonus|+3 racial bonus on saving throws against poison
+#Deep Dwarf Spell Resistance		OUTPUTNAME:+3 racial bonus on saving throws against spells and spell-like effects	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	ASPECT:SaveBonus|+3 racial bonus on saving throws against spells and spell-like effects
 
 # Duergar Dwarf
 # Ability Name						Unique Key				Output Name													Category of Ability		Type									Visible	Description																											Aspects
@@ -2085,10 +2085,10 @@ Pass without Trace																								CATEGORY:Special Ability	TYPE:SpecialQ
 
 
 # Half Celestial
-Half Celestial Poison Resistance								OUTPUTNAME:+4 racial bonus to Fortitude saves vs. Poison					CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus					VISIBLE:YES																													ASPECT:SaveBonus|+4 racial bonus to Fortitude saves vs. Poison
+Half Celestial Poison Resistance								OUTPUTNAME:+4 racial bonus to Fortitude saves vs. Poison					CATEGORY:Special Ability	TYPE:SpecialQuality						VISIBLE:YES																													ASPECT:SaveBonus|+4 racial bonus to Fortitude saves vs. Poison
 
 # Xeph
-Xeph Power Resistance										OUTPUTNAME:+1 saves vs. powers, spells, and spell-like effects				CATEGORY:Special Ability	TYPE:SpecialQuality.SaveBonus					VISIBLE:YES																													ASPECT:SaveBonus|+1 saves vs. powers, spells, and spell-like effects
+Xeph Power Resistance										OUTPUTNAME:+1 saves vs. powers, spells, and spell-like effects				CATEGORY:Special Ability	TYPE:SpecialQuality						VISIBLE:YES																													ASPECT:SaveBonus|+1 saves vs. powers, spells, and spell-like effects
 
 ###Block: Vermin
 
