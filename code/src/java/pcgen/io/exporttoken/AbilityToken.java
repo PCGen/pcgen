@@ -128,8 +128,7 @@ public class AbilityToken extends Token
 
 		// Get the Ability Category from the Gamemode given the key
 		final String categoryString = aTok.nextToken();
-		final AbilityCategory aCategory = "ANY".equals(categoryString) ? 
-				AbilityCategory.ANY :
+		final AbilityCategory aCategory =
 				SettingsHandler.getGame().getAbilityCategory(categoryString);
 
 		// Get the ABILITY token for the category
@@ -183,8 +182,6 @@ public class AbilityToken extends Token
 		String abilityType = null;
 		// Ability Types Filter List
 		String key = null;
-		// Ability Aspect Filter
-		String aspect = null;
 		// Ability List
 		List<Ability> aList = null;
 
@@ -263,21 +260,13 @@ public class AbilityToken extends Token
 			{
 				key = typeStr.substring(keyInd + 4);
 			}
-			
-			int aspectInd = typeStr.indexOf("ASPECT=");
-			// If it's ASPECT and it actually has a value attached then process it
-			if (aspectInd != -1 && typeStr.length() > 7)
-			{
-				aspect = typeStr.substring(aspectInd + 7);
-			}
-			
 		}
 
 		// Build the list of abilities that we should display
 		if (key == null)
 		{
 			aList = AbilityToken.buildAbilityList(types, negate, abilityType,
-					visibility, aspect, abilityList);
+					visibility, abilityList);
 		}
 		else
 		{
@@ -300,13 +289,11 @@ public class AbilityToken extends Token
 	 *            The list of types it must not match any of.
 	 * @param abilityType
 	 *            The type definition it must match.
-	 * @param aspect
-	 *            The aspect which it must match.
-	 * @return List of abilities based on the type, visibility, and aspect selection.
+	 * @return List of abilities based on the type and visibility selection.
 	 */
 	static List<Ability> buildAbilityList(List<String> types,
 		List<String> negate, String abilityType, int visibility,
-		String aspect, List<Ability> listOfAbilities)
+		List<Ability> listOfAbilities)
 	{
 		// List to build up
 		List<Ability> aList = new ArrayList<Ability>();
@@ -316,16 +303,15 @@ public class AbilityToken extends Token
 
 		boolean matchTypeDef = false;
 		boolean matchVisibilityDef = false;
-		boolean matchAspectDef = false;
 
 		// For each ability figure out whether it should be displayed depending
 		// on its visibility filtering and its ability type filtering 
 		for (Ability aAbility : listOfAbilities)
 		{
-			matchTypeDef = abilityMatchesType(abilityType, aAbility, types, negate);
+			matchTypeDef =
+					abilityMatchesType(abilityType, aAbility, types, negate);
 			matchVisibilityDef = abilityMatchesVisibility(visibility, aAbility);
-			matchAspectDef = abilityMatchesAspect(aspect, aAbility);
-			if (matchTypeDef && matchVisibilityDef && matchAspectDef)
+			if (matchTypeDef && matchVisibilityDef)
 			{
 				aList.add(aAbility);
 			}
@@ -454,19 +440,6 @@ public class AbilityToken extends Token
 				break;
 		}
 		return matchVisibilityDef;
-	}
-
-	/**
-	 * Helper method, returns true if the ability has the aspect we are matching on.
-	 * 
-	 * @param aspect The aspecte we're trying to match on
-	 * @param aAbility The ability
-	 * @return True if it matches the aspect else false
-	 */
-	private static boolean abilityMatchesAspect(String aspect, Ability aAbility)
-	{
-		return (aspect == null) ||
-			(aAbility.get(MapKey.ASPECT, AspectName.getConstant(aspect)) != null);
 	}
 
 	/**
@@ -716,7 +689,7 @@ public class AbilityToken extends Token
 				SettingsHandler.getGame().getAllAbilityCategories();
 		for (AbilityCategory aCat : allCats)
 		{
-			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
+			if (aCat.getParentCategory().equals(aCategory))
 			{
 				listOfAbilities.addAll(pc.getAbilityList(aCat, Nature.NORMAL));
 			}
