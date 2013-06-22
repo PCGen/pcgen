@@ -332,44 +332,23 @@
 			SKILLS
 	  ====================================
 	  ====================================-->
-<skillinfo>
-			<conditional_modifiers>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SkillBonus")-1,1,0|
-|IIF(ABILITYALL.Special Ability.%ability.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
-				<skillbonus>
-					<description>|ABILITYALL.Special Ability.%ability.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
-				</skillbonus>
-|ENDIF|
+	<skillinfo>
+		<conditional_modifiers>
+|FOR,%ability,0,count("ABILITIES","ASPECT=SkillBonus")-1,1,0|
+			<skillbonus>
+				<description>|ABILITYALL.ANY.%ability.ASPECT=SkillBonus.ASPECT.SkillBonus|</description>
+			</skillbonus>
 |ENDFOR|
-
-|FOR,%feat,0,COUNT[FEATTYPE.SkillBonus]-1,1,0|
-|IIF(FEAT.%feat.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
-				<skillbonus>
-					<description>|FEAT.%feat.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
-				</skillbonus>
-|ENDIF|
-|ENDFOR|
-			</conditional_modifiers>
-</skillinfo>
+		</conditional_modifiers>
+	</skillinfo>
 	<skills>
-			<conditional_modifiers>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SkillBonus")-1,1,0|
-|IIF(ABILITYALL.Special Ability.%ability.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
-				<skillbonus>
-					<description>|ABILITYALL.Special Ability.%ability.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
-				</skillbonus>
-|ENDIF|
+		<conditional_modifiers>
+|FOR,%ability,0,count("ABILITIES","ASPECT=SkillBonus")-1,1,0|
+			<skillbonus>
+				<description>|ABILITYALL.ANY.%ability.ASPECT=SkillBonus.ASPECT.SkillBonus|</description>
+			</skillbonus>
 |ENDFOR|
-
-
-|FOR,%feat,0,COUNT[FEATTYPE.SkillBonus]-1,1,0|
-|IIF(FEAT.%feat.TYPE=SkillBonus.HASASPECT.SkillBonus:Y)|
-				<skillbonus>
-					<description>|FEAT.%feat.TYPE=SkillBonus.ASPECT.SkillBonus|</description>
-				</skillbonus>
-|ENDIF|
-|ENDFOR|
-			</conditional_modifiers>
+		</conditional_modifiers>
 		<skillpoints>
 			<total>|SKILLPOINTS.TOTAL|</total>
 			<used>|SKILLPOINTS.USED|</used>
@@ -413,24 +392,11 @@
 	  ====================================-->
 	<saving_throws>
 		<conditional_modifiers>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SaveBonus")-1,1,0|
-|IIF(ABILITYALL.Special Ability.VISIBLE.%ability.TYPE=SaveBonus.HASASPECT.SaveBonus:Y)|
+|FOR,%ability,0,count("ABILITIES","ASPECT=SaveBonus")-1,1,0|
 			<savebonus>
-				<description>|ABILITYALL.Special Ability.%ability.TYPE=SaveBonus.ASPECT.SaveBonus|</description>
+				<description>|ABILITYALL.ANY.%ability.ASP=SaveBonus.ASPECT.SaveBonus|</description>
 			</savebonus>
-|ENDIF|
 |ENDFOR|
-
-|FOR,%ability,0,count("ABILITIES","CATEGORY=FEAT","TYPE=SaveBonus")-1,1,0|
-|IIF(ABILITYALL.FEAT.VISIBLE.%ability.TYPE=SaveBonus.HASASPECT.SaveBonus:Y)|
-			<savebonus>
-				<description>|ABILITYALL.FEAT.%ability.TYPE=SaveBonus.ASPECT.SaveBonus|</description>
-			</savebonus>
-|ENDIF|
-|ENDFOR|
-
-
-
 		</conditional_modifiers>
 		<saving_throw>
 			<name>
@@ -1261,34 +1227,30 @@ Immune
 
 	<!-- Turning ability -->
 
-|FOR,%turncount,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Turning"),1,0|
-|IIF(ABILITYALL.Special Ability.%turncount.TYPE=Turning.HASASPECT.TurnType:Y)|
-	<turning kind="|TEXT.UPPER.ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnKind|" type="|TEXT.UPPER.ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnType|">
-		<level>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel.INTVAL|</level>
-		<turn_check>1d20|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnCheck.INTVAL.SIGN|</turn_check>
-		<damage>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnDamage|</damage>
-		<uses_per_day>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnTimes.INTVAL|</uses_per_day>
-		<notes>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnNotes|</notes>
+|FOR,%turncount,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=TurnType"),1,0|
+	<turning kind="|TEXT.UPPER.ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnKind|" type="|TEXT.UPPER.ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnType|">
+		<level>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel.INTVAL|</level>
+		<turn_check>1d20|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnCheck.INTVAL.SIGN|</turn_check>
+		<damage>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnDamage|</damage>
+		<uses_per_day>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnTimes.INTVAL|</uses_per_day>
+		<notes>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnNotes|</notes>
 		</turning>
-|ENDIF|
 |ENDFOR|
 
 <!-- Eclipse Channeling -->
-|FOR,%eclipsecount,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ChannelingOutput"),1,0|
-|IIF(ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.HASASPECT.ChannelingType:Y)|			
-	<eclipse_channeling kind="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingKind|" type="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingType|">	
-		<level>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingLevel.INTVAL|</level>
-		<channeling_check>1d20|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingCheck.INTVAL.SIGN|</channeling_check>
-		<intensity>1d20|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingIntensity.INTVAL.SIGN|</intensity>
-		<channel_intensity>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingIntensity.INTVAL|</channel_intensity>
-		<damage>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitude||ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitudeBonus.SIGN||ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitudeFactor|</damage>
-		<damage_bonus>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitudeBonus|</damage_bonus>
-		<uses_per_day>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingUses.INTVAL|</uses_per_day>
-		<range>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingRange.INTVAL|</range>
-		<notes>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingNotes|</notes>
-		<factor>|ABILITYALL.Special Ability.%eclipsecount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitudeFactor|</factor>
+|FOR,%eclipsecount,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=ChannelingType"),1,0|
+	<eclipse_channeling kind="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingKind|" type="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingType|">	
+		<level>|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingLevel.INTVAL|</level>
+		<channeling_check>1d20|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingCheck.INTVAL.SIGN|</channeling_check>
+		<intensity>1d20|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingIntensity.INTVAL.SIGN|</intensity>
+		<channel_intensity>|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingIntensity.INTVAL|</channel_intensity>
+		<damage>|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingMagnitude||ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingMagnitudeBonus.SIGN||ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingMagnitudeFactor|</damage>
+		<damage_bonus>|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingMagnitudeBonus|</damage_bonus>
+		<uses_per_day>|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingUses.INTVAL|</uses_per_day>
+		<range>|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingRange.INTVAL|</range>
+		<notes>|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingNotes|</notes>
+		<factor>|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingMagnitudeFactor|</factor>
 	</eclipse_channeling>
-|ENDIF|
 |ENDFOR|
 
 <!-- Channel Energy -->
@@ -1388,29 +1350,27 @@ Immune
 
 	<!-- Abilites with check lists -->
 	<checklists>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=CheckList")-1,1,0|
-|IIF(ABILITYALL.Special Ability.%ability.TYPE=CheckList.HASASPECT.CheckCount:Y)|
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=CheckType")-1,1,0|
 		<checklist>
-|IIF(ABILITYALL.Special Ability.%ability.TYPE=CheckList.TYPE:Extraordinary)|
-			<name>|ABILITYALL.Special Ability.%ability.TYPE=CheckList| (Ex)</name>
+|IIF(ABILITYALL.Special Ability.%ability.ASPECT=CheckType.TYPE:Extraordinary)|
+			<name>|ABILITYALL.Special Ability.%ability.ASPECT=CheckType| (Ex)</name>
 |ELSE|
-|IIF(ABILITYALL.Special Ability.%ability.TYPE=CheckList.TYPE:Supernatural)|
-			<name>|ABILITYALL.Special Ability.%ability.TYPE=CheckList| (Su)</name>
+|IIF(ABILITYALL.Special Ability.%ability.ASPECT=CheckType.TYPE:Supernatural)|
+			<name>|ABILITYALL.Special Ability.%ability.ASPECT=CheckType| (Su)</name>
 |ELSE|
-|IIF(ABILITYALL.Special Ability.%ability.TYPE=CheckList.TYPE:SpellLike)|
-			<name>|ABILITYALL.Special Ability.%ability.TYPE=CheckList| (Sp)</name>
+|IIF(ABILITYALL.Special Ability.%ability.ASPECT=CheckType.TYPE:SpellLike)|
+			<name>|ABILITYALL.Special Ability.%ability.ASPECT=CheckType| (Sp)</name>
 |ELSE|
 |ENDIF|
 |ENDIF|
 |ENDIF|
-			<header>|ABILITYALL.Special Ability.%ability.TYPE=CheckList|</header>
-			<description>|ABILITYALL.Special Ability.%ability.TYPE=CheckList.DESC|</description>
-			<type>|ABILITYALL.Special Ability.%ability.TYPE=CheckList.TYPE|</type>
-			<source>|ABILITYALL.Special Ability.VISIBLE.%ability.TYPE=CheckList.SOURCE|</source>
-			<check_count>|ABILITYALL.Special Ability.%ability.TYPE=CheckList.ASPECT.CheckCount.INTVAL|</check_count>
-			<check_type>|ABILITYALL.Special Ability.%ability.TYPE=CheckList.ASPECT.CheckType|</check_type>
+			<header>|ABILITYALL.Special Ability.%ability.ASPECT=CheckType|</header>
+			<description>|ABILITYALL.Special Ability.%ability.ASPECT=CheckType.DESC|</description>
+			<type>|ABILITYALL.Special Ability.%ability.ASPECT=CheckType.TYPE|</type>
+			<source>|ABILITYALL.Special Ability.VISIBLE.%ability.ASPECT=CheckType.SOURCE|</source>
+			<check_count>|ABILITYALL.Special Ability.%ability.ASPECT=CheckType.ASPECT.CheckCount.INTVAL|</check_count>
+			<check_type>|ABILITYALL.Special Ability.%ability.ASPECT=CheckType.ASPECT.CheckType|</check_type>
 		</checklist>
-|ENDIF|
 |ENDFOR|
 	</checklists>
 

@@ -56,17 +56,16 @@ $Date: 2012-02-02 13:23:59 +0100 (Do, 02 Feb 2012) $
 <hr>
 	<!-- Abilites with check lists -->
 <h3>NATURE=ALL</h3>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability")-1,1,0|
-|IIF(ABILITYALL.Special Ability.%ability.HASASPECT.CheckType:Y)|
-<b>Name: |ABILITYALL.Special Ability.%ability|</b><br>
-Description: |ABILITYALL.Special Ability.%ability.DESC|<br>
-Type: |ABILITYALL.Special Ability.%ability.TYPE|<br>
-Source: |ABILITYALL.Special Ability.%ability.SOURCE|<br>
-Check Count: |ABILITYALL.Special Ability.%ability.ASPECT.CheckCount.INTVAL|<br>
-Check Type: |ABILITYALL.Special Ability.%ability.ASPECT.CheckType|<br>
+|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=CheckType")-1,1,0|
+<b>Name: |ABILITYALL.Special Ability.ASPECT=CheckType.%ability|</b><br>
+Description: |ABILITYALL.Special Ability.%ability.ASPECT=CheckType.DESC|<br>
+Type: |ABILITYALL.Special Ability.%ability.ASPECT=CheckType.TYPE|<br>
+Source: |ABILITYALL.Special Ability.%ability.ASPECT=CheckType.SOURCE|<br>
+Check Count: |ABILITYALL.Special Ability.%ability.ASPECT=CheckType.ASPECT.CheckCount.INTVAL|<br>
+Check Type: |ABILITYALL.Special Ability.%ability.ASPECT=CheckType.ASPECT.CheckType|<br>
 |IIF(ABILITYALL.Special Ability.%ability.HASASPECT.MasterAbility:Y)|
 |FOR,%subability,0,count("ABILITIES","CATEGORY=Special Ability")-1,1,0|
-|IIF(ABILITYALL.Special Ability.%subability.ASPECT.ChildAbility:ABILITYALL.Special Ability.%ability.ASPECT.MasterAbility)|
+|IIF(ABILITYALL.Special Ability.%subability.ASPECT.ChildAbility:ABILITYALL.Special Ability.%ability.ASPECT=CheckType.ASPECT.MasterAbility)|
 <br>
 --Name: |ABILITYALL.Special Ability.%subability|<br>
 --Description: |ABILITYALL.Special Ability.%subability.DESC|<br>
@@ -76,7 +75,6 @@ Check Type: |ABILITYALL.Special Ability.%ability.ASPECT.CheckType|<br>
 |ENDFOR|
 |ENDIF|
 <hr>
-|ENDIF|
 |ENDFOR|
 </body>
 </html>

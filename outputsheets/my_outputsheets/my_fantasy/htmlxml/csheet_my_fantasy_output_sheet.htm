@@ -1302,68 +1302,65 @@ Wisdom
 |%|
 <!-- STOP Domain Table -->
 <!-- Start Turning Table -->
-|FOR,%turncount,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Turning"),1,0|
-|IIF(ABILITYALL.Special Ability.%turncount.TYPE=Turning.HASASPECT.TurnType:Y)|
+|FOR,%turncount,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=TurnType"),1,0|
    <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
      <tr>
-      <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnType| |ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnKind|</b></font></td>
+      <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnType| |ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnKind|</b></font></td>
      </tr>
      <tr >
       <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">TURNING CHECK<br />RESULT</font></td>
       <td rowspan="2" width="25%" bgcolor="black" align="center"><font color="white" style="font-size: 7pt">AFFECTED<br />(MAX HIT DICE)</font></td>
       <td width="25%" bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURN LEVEL</font></td>
-      <td width="25%" class="border9" align="center"><b>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel.INTVAL|</b></td>
+      <td width="25%" class="border9" align="center"><b>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel.INTVAL|</b></td>
      </tr>
      <tr>
       <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURN DAMAGE</font></td>
-      <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnDamage|</b></td>
+      <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnDamage|</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>Up to 0</b></td>
-      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)-4).INTVAL|</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel)-4).INTVAL|</b></td>
       <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURNING CHECK</font></td>
-      <td class="border9" align="center"><b>1d20|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnCheck.INTVAL.SIGN.NOZERO|</b></td>
+      <td class="border9" align="center"><b>1d20|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnCheck.INTVAL.SIGN.NOZERO|</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>1 - 3</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)-3).INTVAL|</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel)-3).INTVAL|</b></td>
       <td bgcolor="black" align="right"><font color="white" style="font-size: 7pt">TURNS/DAY</font></td>
-      <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnTimes.INTVAL|</b></td>
+      <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnTimes.INTVAL|</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>4 - 6</b></td>
-      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)-2).INTVAL|</b></td>
-      <td colspan="2" class="border" align="center"><font style="font-size: 9pt">|FOR.0,ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnTimes.INTVAL,5,&#9744;, , ,1|</font></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel)-2).INTVAL|</b></td>
+      <td colspan="2" class="border" align="center"><font style="font-size: 9pt">|FOR.0,ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnTimes.INTVAL,5,&#9744;, , ,1|</font></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)-1).INTVAL|</b></td>
-      <td colspan="2" rowspan="6" class="border8" valign="top">|ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnNotes|
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel)-1).INTVAL|</b></td>
+      <td colspan="2" rowspan="6" class="border8" valign="top">|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnNotes|
      </tr>
      <tr>
       <td align="center" class="font8"><b>10 - 12</b></td>
-      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)+0).INTVAL|</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel)+0).INTVAL|</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>13 - 15</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)+1).INTVAL|</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel)+1).INTVAL|</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>16 - 18</b></td>
-      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)+2).INTVAL|</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel)+2).INTVAL|</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>19 - 21</b></td>
-      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)+3).INTVAL|</b></td>
+      <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel)+3).INTVAL|</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>22+</b></td>
-      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.TYPE=Turning.ASPECT.TurnLevel)+4).INTVAL|</b></td>
+      <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel)+4).INTVAL|</b></td>
      </tr>
     </table>
 <font style="font-size:2pt"><br /></font>
-
-|ENDIF|
 |ENDFOR|
 
 

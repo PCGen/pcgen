@@ -267,8 +267,8 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 <b>Fort</b>&nbsp;|CHECK.FORTITUDE.TOTAL|,&nbsp;<b>Ref</b>&nbsp;|CHECK.REFLEX.TOTAL|,&nbsp;<b>Will</b>&nbsp;|CHECK.2.TOTAL|
 
 <!-- SaveBonus TYPE Abilities -->
-|FOR,%savebonus,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SaveBonus","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
-,&nbsp;|ABILITYALL.Special Ability.VISIBLE.%savebonus.TYPE=SaveBonus.ASPECT.SaveBonus|
+|FOR,%savebonus,0,count("ABILITIES","ASPECT=SaveBonus","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+,&nbsp;|ABILITYALL.ANY.VISIBLE.%savebonus.ASPECT=SaveBonus.ASPECT.SaveBonus|
 |ENDFOR|
 |ENDMANUALWHITESPACE|
 <br>
