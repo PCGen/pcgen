@@ -79,9 +79,10 @@ public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
 	{
 		if (ability.get(ObjectKey.ABILITY_CAT) == null)
 		{
-			Logging.errorPrint("Ability " + ability.getKeyName()
+			Logging.log(Logging.LST_ERROR, "Ability " + ability.getKeyName()
 					+ " did not have a Category specified.  "
-					+ "A Category is required for an Ability");
+					+ "A Category is required for an Ability. " 
+					+ "File was " + ability.getSourceURI());
 			return false;
 		}
 		return true;
