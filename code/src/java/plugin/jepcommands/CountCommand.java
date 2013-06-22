@@ -120,22 +120,7 @@ public class CountCommand extends PCGenCommand
 
 					getData(pc);
 
-					final Set<? extends CDOMObject> filtered = doFilterP(pt);
-
-					return countData(filtered, pc);
-				}
-
-				protected Object countData(final Iterable<? extends CDOMObject> filtered,
-				                           PlayerCharacter pc)
-				{
-					double accum = 0;
-
-					for (final CDOMObject ab : filtered)
-					{
-						final double ac = pc.getSelectCorrectedAssociationCount(ab);
-						accum += 1.01 >= ac ? 1 : ac;
-					}
-					return accum;
+					return (double) doFilterP(pt).size();
 				}
 
 				@Override
