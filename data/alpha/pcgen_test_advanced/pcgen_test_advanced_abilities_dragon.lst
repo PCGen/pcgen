@@ -132,7 +132,7 @@ Tail Slap			KEY:Tail Slap ~ Dragon							CATEGORY:Special Ability	TYPE:RaceAbili
 Crush (Ex)			KEY:Crush ~ Dragon							CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:This special attack allows a flying or jumping dragon of at least Huge size to land on opponents as a standard action, using its whole body to crush them. Crush attacks are effective only against opponents three or more size categories smaller than the dragon (though it can attempt normal overrun or grapple attacks against larger opponents). A crush attack affects as many creatures as can fit under the dragon's body. Creatures in the affected area must succeed on a Reflex save (DC equal to that of the dragon's breath weapon) or be pinned, automatically taking bludgeoning damage during the next round unless the dragon moves off them. If the dragon chooses to maintain the pin, treat it as a normal grapple attack. Pinned opponents take damage from the crush each round if they don't escape. A crush attack deals the indicated damage plus 1-1/2 times the dragon's Strength bonus (round down).
 Tail Sweep (Ex)		KEY:Tail Sweep ~ Dragon							CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:This special attack allows a dragon of at least Gargantuan size to sweep with its tail as a standard action. The sweep affects a half-circle with a radius of 30 feet (or 40 feet for a Colossal dragon), extending from an intersection on the edge of the dragon's space in any direction. Creatures within the swept area are affected if they are four or more size categories smaller than the dragon. A tail sweep automatically deals the indicated damage plus 1-1/2 times the dragon's Strength bonus (round down). Affected creatures can attempt Reflex saves to take half damage (DC equal to that of the dragon's breath weapon).
 Grappling			KEY:Grappling ~ Dragon							CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Dragons do not favor grapple attacks, though their crush attack (and Snatch feat, if they know it) use normal grapple rules. A dragon can always use its breath weapon while grappling, as well as its spells and spell-like or supernatural abilities, provided it succeeds on Concentration checks.
-Breath Weapon (Su)	KEY:Breath Weapon ~ Dragon						CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Using a breath weapon is a standard action. Once a dragon breathes, it can't breathe again until 1d4 rounds later. If a dragon has more than one type of breath weapon, it still can breathe only once every 1d4 rounds. A blast from a breath weapon always starts at any intersection adjacent to the dragon and extends in a direction of the dragon's choice, with an area as noted on the table below. If the breath weapon deals damage, creatures caught in the area can attempt Reflex saves to take half damage; the DC depends on the dragon's age and variety, and is given in each individual entry. Saves against nondamaging breath weapons use the same DC; the kind of saving throw is noted in the variety descriptions. The save DC against a breath weapon is 10 + 1/2 dragon's HD + dragon's Con modifier. Breath weapons come in two basic shapes, line and cone, whose areas vary with the dragon's size.
+Breath Weapon (Su)	KEY:Breath Weapon ~ Dragon						CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Using a breath weapon is a standard action. Once a dragon breathes, it can't breathe again until 1d4 rounds later. If a dragon has more than one type of breath weapon, it still can breathe only once every 1d4 rounds. A blast from a breath weapon always starts at any intersection adjacent to the dragon and extends in a direction of the dragon's choice, with an area as noted on the table below. If the breath weapon deals damage, creatures caught in the area can attempt Reflex saves to take half damage; the DC depends on the dragon's age and variety, and is given in each individual entry. Saves against nondamaging breath weapons use the same DC; the kind of saving throw is noted in the variety descriptions. The save DC against a breath weapon is 10 + 1/2 dragon's HD + dragon's Con modifier. Breath weapons come in two basic shapes, line and cone, whose areas vary with the dragon's size.		DEFINE:DragonBreathWeaponDice|DragonAge*2	DEFINE:DragonBreathWeaponDC|10+(HD/2)+CON
 Frightful Presence (Ex)	KEY:Frightful Presence ~ Dragon					CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A young adult or older dragon can unsettle foes with its mere presence. The ability takes effect automatically whenever the dragon attacks, charges, or flies overhead. Creatures within a radius of 30 feet x the dragon's age category, (%1 ft.) are subject to the effect if they have fewer HD than the dragon. A potentially affected creature that succeeds on a Will save DC %2 (DC 10 + 1/2 dragon's HD + dragon's Cha modifier) remains immune to that dragon's frightful presence for 24 hours. On a failure, creatures with 4 or less HD become panicked for 4d6 rounds and those with 5 or more HD become shaken for 4d6 rounds. Dragons ignore the frightful presence of other dragons.|FrightfulPresenceRange|FrightfulPresenceDC	DEFINE:FrightfulPresenceRange|0	BONUS:VAR|FrightfulPresenceRange|DragonAge*30|PREVARGTEQ:DragonAge,5	DEFINE:FrightfulPresenceDC|10+(DragonLVL/2)+CHA
 Spells			KEY:Spells ~ Dragon							CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A dragon knows and casts arcane spells as a sorcerer of the level indicated in its variety description, gaining bonus spells for a high Charisma score. Some dragons can also cast spells from the cleric list or cleric domain lists as arcane spells.
 Spell-Like Abilities	KEY:Spell-Like Abilities ~ Dragon					CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A dragon's spelllike abilities depend on its age and variety. It gains the abilities indicated for its age plus all previous ones. Its age category or its sorcerer caster level, whichever is higher, is the caster level for these abilities. The save DC is 10 + dragon's Cha modifier + spell level. All spell-like abilities are usable once per day unless otherwise noted.
@@ -219,113 +219,120 @@ Racial Traits ~ Black Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
 
-Breath Weapon	KEY:Breath Weapon ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A black dragon has one type of breath weapon, a line of acid. Damage %1d%2, DC %3, Length %4|BlackDragonBWDice|BlackDragonBWDieSize|BreathWeaponDC|DragonBreathWeaponLength	DEFINE:BlackDragonBWDice|DragonAge*2	DEFINE:BlackDragonBWDieSize|4	DEFINE:BreathWeaponDC|10+(HD/2)+CON	DEFINE:DragonBreathWeaponLength|DragonBreathWeaponLine
+Breath Weapon	KEY:Breath Weapon ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A black dragon has one type of breath weapon, a line of acid. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponLline	DEFINE:BlackDragonBWDieSize|4	
 Water Breathing	KEY:Water Breathing ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Extraordinary	DESC:A black dragon can breathe underwater indefinitely and can freely use its breath weapon, spells, and other abilities while submerged.
-Darkness		KEY:Darkness ~ Black Dragon		CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike
 Corrupt Water	KEY:Corrupt Water ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike		DESC:Once per day an adult or older black dragon can stagnate 10 cubic feet of water, making it become still, foul, and unable to support animal life. The ability spoils liquids containing water. Magic items (such as potions) and items in a creature's possession must succeed on a Will save (DC equal to that of the dragon's frightful presence) or become fouled. This ability is the equivalent of a 1st-level spell. Its range is equal to that of the dragon's frightful presence.
-Plant Growth	KEY:Plant Growth ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike
-Insect Plague	KEY:Insect Plague ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike
 Charm Reptile	KEY:Charm Reptile ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike		DESC:A great wyrm black dragon can use this ability three times per day. It works as a mass charm spell that affects only reptilian animals. The dragon can communicate with any charmed reptiles as though casting a speak with animals spell. This ability is the equivalent of a 1st-level spell.
 Other Spell-Like Abilities	KEY:Other Spell-Like Abilities ~ Black Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike		DESC:3/day-darkness (juvenile or older; radius 10 feet per age category), insect plague (ancient or older); 1/day-plant growth (old or older).
 
 
 Dragon Age Selected	CATEGORY:Internal	VISIBLE:NO
 
-# COMMENT: Blue is copy of black for testing, this is all incorrect do NOT use for the actual BLUE
 Racial Traits ~ Blue Dragon	CATEGORY:Internal
 	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
-	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Blue Dragon
 	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Blue Dragon
-	BONUS:STAT|STR|max(2*(DragonAge-1),0)|TYPE=Racial
-	BONUS:STAT|STR|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	BONUS:STAT|STR|2*(DragonAge)|TYPE=Racial
+	BONUS:STAT|STR|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
 	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,1
-	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,2
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,4
 	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
 	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,6
-	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
-	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,8
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,10
 	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
-	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
-	BONUS:STAT|INT,CHA|-2|TYPE=Racial|PREVARLTEQ:DragonAge,2
-	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,4
 	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
 	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
-	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
 	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
-	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
-	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
-	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
-	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,6
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,8
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,10
 	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,1
 	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,2
-	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,3
-	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,5
-	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,7
-	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,11
-	BONUS:VAR|DragonLevelAdjustment|3|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,3
-	BONUS:VAR|DragonLevelAdjustment|4|PREVAREQ:DragonAge,4
-	DEFINE:DragonAge|(DragonLVL-1)/3
-	MOVE:Walk,60,Swim,60
-	BONUS:VAR|DragonNaturalArmor|3
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,4
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,6
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,10
+	BONUS:VAR|DragonLevelAdjustment|4|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,2
+	BONUS:VAR|DragonLevelAdjustment|5|PREVAREQ:DragonAge,3
+	DEFINE:DragonAge|(DragonLVL-3)/3
+	MOVE:Walk,40,Burrow,20
+	BONUS:VAR|DragonNaturalArmor|5
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,2
-	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,3
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,3
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,4
-	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,5
-	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,6
-	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,7
+	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,5
+	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,6
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,7
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,8
-	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,9
-	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
-	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,9
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,10
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
+
+Breath Weapon	KEY:Breath Weapon ~ Blue Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A blue dragon has one type of breath weapon, a line of lightning. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponLine		DEFINE:DragonBreathWeaponDieSize|8
 
 
 # INCOMPLETE PLACEHOLDERS
+# COMMENT: Anything below is copy of black for testing, this is all incorrect do NOT use for the actual dragon
+
 Racial Traits ~ Green Dragon	CATEGORY:Internal
 	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
-	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Black Dragon
-	BONUS:STAT|STR|max(2*(DragonAge-1),0)|TYPE=Racial
-	BONUS:STAT|STR|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Green Dragon
+	BONUS:STAT|STR|2*DragonAge|TYPE=Racial
+	BONUS:STAT|STR|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
 	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,1
-	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,2
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,4
 	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
 	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,6
-	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
-	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,8
+	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,10
 	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
-	BONUS:STAT|CON|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
-	BONUS:STAT|INT,CHA|-2|TYPE=Racial|PREVARLTEQ:DragonAge,2
-	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
-	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
-	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
-	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,4
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,6
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,8
+	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,10
 	BONUS:STAT|INT,CHA|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
-	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,5
-	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,7
-	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,9
-	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,11
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,3
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,4
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,6
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,8
+	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,10
 	BONUS:STAT|WIS|2|TYPE=Racial.STACK|PREVARGTEQ:DragonAge,12
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,1
 	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,2
-	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,3
-	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,5
-	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,7
-	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,11
-	BONUS:VAR|DragonLevelAdjustment|3|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,3
-	BONUS:VAR|DragonLevelAdjustment|4|PREVAREQ:DragonAge,4
-	DEFINE:DragonAge|(DragonLVL-1)/3
-	MOVE:Walk,60,Swim,60
-	BONUS:VAR|DragonNaturalArmor|3
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,4
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,6
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,10
+	BONUS:VAR|DragonLevelAdjustment|5|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,3
+	BONUS:VAR|DragonLevelAdjustment|6|PREVAREQ:DragonAge,4
+	DEFINE:DragonAge|(DragonLVL-2)/3
+	MOVE:Walk,40,Swim,40
+	BONUS:VAR|DragonNaturalArmor|4
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,2
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,3
-	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,4
-	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,5
+	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,4
+	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,5
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,6
 	BONUS:MISC|CR|3|PREVARGTEQ:DragonAge,7
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,8
-	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,9
-	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
+	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,9
+	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Green Dragon
+	ABILITY:Special Ability|AUTOMATIC|Water Breathing ~ Green Dragon
+	ABILITY:Special Ability|AUTOMATIC|Spell-Like Abilities ~ Green Dragon|PREVARGTEQ:DragonAge,6
+	ABILITY:Special Ability|AUTOMATIC|Skills ~ Green Dragon
+Breath Weapon		KEY:Breath Weapon ~ Green Dragon		CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A green dragon has one type of breath weapon, a cone of corrosive (acid) gas. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponCone		DEFINE:DragonBreathWeaponDieSize|6
+Water Breathing (Ex)	KEY:Water Breathing ~ Green Dragon		CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A green dragon can breathe underwater indefinitely and can freely use its breath weapon, spells, and other abilities while submerged.
+Spell-Like Abilities	KEY:Spell-Like Abilities ~ Green Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:3/day-suggestion (adult or older), dominate person (ancient or older); 1/day- plant growth (old or older), command plants (great wyrm).
+Skills			KEY:Skills ~ Green Dragon			CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:Bluff, Hide, and Move Silently are considered class skills for green dragons.
 
 Racial Traits ~ Red Dragon	CATEGORY:Internal
 	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
@@ -372,6 +379,9 @@ Racial Traits ~ Red Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
+Breath Weapon	KEY:Breath Weapon ~ Red Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	
+#DESC:A xxx dragon has one type of breath weapon, a line of yyy. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponLine		DEFINE:DragonBreathWeaponDieSize|
+#DESC:A xxx dragon has one type of breath weapon, a cone of yyy. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponCone		DEFINE:DragonBreathWeaponDieSize|
 
 Racial Traits ~ White Dragon	CATEGORY:Internal
 	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
@@ -419,6 +429,10 @@ Racial Traits ~ White Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
 
+Breath Weapon	KEY:Breath Weapon ~ White Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	
+#DESC:A xxx dragon has one type of breath weapon, a line of yyy. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponLine		DEFINE:DragonBreathWeaponDieSize|
+#DESC:A xxx dragon has one type of breath weapon, a cone of yyy. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponCone		DEFINE:DragonBreathWeaponDieSize|
+
 Racial Traits ~ Brass Dragon	CATEGORY:Internal
 	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
 	BONUS:STAT|STR|max(2*(DragonAge-1),0)|TYPE=Racial
@@ -464,6 +478,9 @@ Racial Traits ~ Brass Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
+Breath Weapon	KEY:Breath Weapon ~ Brass Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	
+#DESC:A xxx dragon has one type of breath weapon, a line of yyy. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponLine		DEFINE:DragonBreathWeaponDieSize|
+#DESC:A xxx dragon has one type of breath weapon, a cone of yyy. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponCone		DEFINE:DragonBreathWeaponDieSize|
 
 Racial Traits ~ Bronze Dragon	CATEGORY:Internal
 	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
@@ -510,6 +527,9 @@ Racial Traits ~ Bronze Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
+Breath Weapon	KEY:Breath Weapon ~ Bronze Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	
+#DESC:A xxx dragon has one type of breath weapon, a line of yyy. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponLine		DEFINE:DragonBreathWeaponDieSize|
+#DESC:A xxx dragon has one type of breath weapon, a cone of yyy. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponCone		DEFINE:DragonBreathWeaponDieSize|
 
 Racial Traits ~ Copper Dragon	CATEGORY:Internal
 	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
@@ -556,6 +576,9 @@ Racial Traits ~ Copper Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
+Breath Weapon	KEY:Breath Weapon ~ Copper Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	
+#DESC:A xxx dragon has one type of breath weapon, a line of yyy. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponLine		DEFINE:DragonBreathWeaponDieSize|
+#DESC:A xxx dragon has one type of breath weapon, a cone of yyy. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponCone		DEFINE:DragonBreathWeaponDieSize|
 
 Racial Traits ~ Gold Dragon	CATEGORY:Internal
 	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
@@ -602,6 +625,9 @@ Racial Traits ~ Gold Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
+Breath Weapon	KEY:Breath Weapon ~ Gold Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	
+#DESC:A xxx dragon has one type of breath weapon, a line of yyy. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponLine		DEFINE:DragonBreathWeaponDieSize|
+#DESC:A xxx dragon has one type of breath weapon, a cone of yyy. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponCone		DEFINE:DragonBreathWeaponDieSize|
 
 Racial Traits ~ Silver Dragon	CATEGORY:Internal
 	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
@@ -648,4 +674,7 @@ Racial Traits ~ Silver Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
+Breath Weapon	KEY:Breath Weapon ~ Silver Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	
+#DESC:A xxx dragon has one type of breath weapon, a line of yyy. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponLine		DEFINE:DragonBreathWeaponDieSize|
+#DESC:A xxx dragon has one type of breath weapon, a cone of yyy. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponCone		DEFINE:DragonBreathWeaponDieSize|
 
