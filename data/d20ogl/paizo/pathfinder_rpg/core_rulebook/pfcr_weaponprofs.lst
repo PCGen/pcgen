@@ -150,6 +150,7 @@ Shortbow.MOD				TYPE:Bow
 Gauntlet.MOD				TYPE:Close
 #Shield (Heavy).MOD	TYPE:Close
 #Shield (Light).MOD	TYPE:Close
+Shieldbash					TYPE:Close
 Dagger (Punching).MOD			TYPE:Close
 Sap.MOD					TYPE:Close
 #Spiked Armor.MOD	TYPE:Close
