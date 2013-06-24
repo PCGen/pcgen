@@ -290,7 +290,7 @@ Racial Traits ~ Blue Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
-	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Blue Dragon|Create/Destroy Water ~ Blue Dragon|Skills ~ Blue Dragon
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Blue Dragon|Create/Destroy Water ~ Blue Dragon|Skills ~ Blue Dragon|Immunity To Electricity
 	ABILITY:Special Ability|AUTOMATIC|Sound Imitation ~ Blue Dragon|PREVARGTEQ:DragonAge,4
 	ABILITY:Special Ability|AUTOMATIC|Other Spell-Like Abilities ~ Blue Dragon|PREVARGTEQ:DragonAge,6
 
@@ -355,7 +355,7 @@ Racial Traits ~ Green Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
-	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Green Dragon|Water Breathing ~ Green Dragon|Skills ~ Green Dragon
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Green Dragon|Water Breathing ~ Green Dragon|Skills ~ Green Dragon|Immunity To Acid
 	ABILITY:Special Ability|AUTOMATIC|Spell-Like Abilities ~ Green Dragon|PREVARGTEQ:DragonAge,6
 
 Breath Weapon		KEY:Breath Weapon ~ Green Dragon		CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A green dragon has one type of breath weapon, a cone of corrosive (acid) gas. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponCone		DEFINE:DragonBreathWeaponDieSize|6
@@ -614,7 +614,7 @@ Racial Traits ~ Bronze Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
-	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Bronze Dragon|Water Breathing ~ Bronze Dragon|Skills ~ Bronze Dragon
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Bronze Dragon|Water Breathing ~ Bronze Dragon|Skills ~ Bronze Dragon|Immunity to Electricity
 	ABILITY:Special Ability|AUTOMATIC|Alternate Form ~ Bronze Dragon|PREVARGTEQ:DragonAge,3
 	ABILITY:Special Ability|AUTOMATIC|Spell-Like Abilities ~ Bronze Dragon|PREVARGTEQ:DragonAge,6
 
@@ -680,7 +680,7 @@ Racial Traits ~ Copper Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
-	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Copper Dragon|Spider Climb ~ Copper Dragon|Skills ~ Copper Dragon
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Copper Dragon|Spider Climb ~ Copper Dragon|Skills ~ Copper Dragon|Immunity to Acid
 	ABILITY:Special Ability|AUTOMATIC|Spell-Like Abilities ~ Copper Dragon|PREVARGTEQ:DragonAge,6
 
 Breath Weapon		KEY:Breath Weapon ~ Copper Dragon		SOURCEPAGE:RSRD	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A Copper dragon has two types of breath weapon, a line of acid [Damage %1d%2, DC %3, Length %4] and a cone of slow gas. Creatures within the cone must succeed on a Fortitude save or be slowed for 1d6 rounds plus 1 round per age category of the dragon.|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponLine		DEFINE:DragonBreathWeaponDieSize|4
@@ -826,7 +826,7 @@ Racial Traits ~ Silver Dragon	CATEGORY:Internal
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,10
 	BONUS:MISC|CR|1|PREVARGTEQ:DragonAge,11
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,12
-	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Silver Dragon|Alternate Form ~ Silver Dragon|Cloudwalking ~ Silver Dragon|Skills ~ Silver Dragon
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Silver Dragon|Alternate Form ~ Silver Dragon|Cloudwalking ~ Silver Dragon|Skills ~ Silver Dragon|Immunity to Acid
 	ABILITY:Special Ability|AUTOMATIC|Spell-Like Abilities ~ Silver Dragon|PREVARGTEQ:DragonAge,4
 
 Breath Weapon		KEY:Breath Weapon ~ Silver Dragon	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A Silver dragon has two types of breath weapon, a cone of cold [Damage %1d%2, DC %3, Length %4] and a cone of paralyzing gas. Creatures within a cone of paralyzing gas must succeed on a Fortitude save or be paralyzed for 1d6 rounds plus 1 round per age category of the dragon.|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponCone		DEFINE:DragonBreathWeaponDieSize|8
