@@ -1,4 +1,5 @@
-
+Immunity to Acid		CATEGORY:Special Ability	TYPE:SpecialQuality
+Immunity to Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 Size_Master	VISIBLE:NO	CATEGORY:Internal
 #	ABILITY:Internal|AUTOMATIC|Face_0|PRESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Reach_0|PRESIZEEQ:F
@@ -231,7 +232,7 @@ Racial Traits ~ Black Dragon	CATEGORY:Internal
 	ABILITY:Special Ability|AUTOMATIC|Corrupt Water ~ Black Dragon|PREVARGTEQ:DragonAge,10
 	ABILITY:Special Ability|AUTOMATIC|Charm Reptile ~ Black Dragon|PREVARGTEQ:DragonAge,12
 
-Breath Weapon			KEY:Breath Weapon ~ Black Dragon			CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A black dragon has one type of breath weapon, a line of acid. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponLline	DEFINE:BlackDragonBWDieSize|4	
+Breath Weapon			KEY:Breath Weapon ~ Black Dragon			CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Supernatural	DESC:A black dragon has one type of breath weapon, a line of acid. Damage %1d%2, DC %3, Length %4|DragonBreathWeaponDice|DragonBreathWeaponDieSize|DragonBreathWeaponDC|DragonBreathWeaponLine	DEFINE:DragonBreathWeaponDieSize|4	
 Water Breathing			KEY:Water Breathing ~ Black Dragon			CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.Extraordinary	DESC:A black dragon can breathe underwater indefinitely and can freely use its breath weapon, spells, and other abilities while submerged.
 Corrupt Water			KEY:Corrupt Water ~ Black Dragon			CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike		DESC:Once per day an adult or older black dragon can stagnate 10 cubic feet of water, making it become still, foul, and unable to support animal life. The ability spoils liquids containing water. Magic items (such as potions) and items in a creature's possession must succeed on a Will save (DC equal to that of the dragon's frightful presence) or become fouled. This ability is the equivalent of a 1st-level spell. Its range is equal to that of the dragon's frightful presence.
 Charm Reptile			KEY:Charm Reptile ~ Black Dragon			CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality.SpellLike		DESC:A great wyrm black dragon can use this ability three times per day. It works as a mass charm spell that affects only reptilian animals. The dragon can communicate with any charmed reptiles as though casting a speak with animals spell. This ability is the equivalent of a 1st-level spell.
@@ -533,7 +534,7 @@ Racial Traits ~ Brass Dragon	CATEGORY:Internal
 	BONUS:VAR|DragonLevelAdjustment|2|PREVAREQ:DragonAge,1
 	BONUS:VAR|DragonLevelAdjustment|3|PREVAREQ:DragonAge,2
 	BONUS:VAR|DragonLevelAdjustment|4|PREVARGTEQ:DragonAge,3|PREVARLTEQ:DragonAge,4
-	DEFINE:DragonAge|0	BONUS:VAR|min((DragonLVL-1)/3),12)
+	DEFINE:DragonAge|0	BONUS:VAR|DragonAge|min(((DragonLVL-1)/3),12)
 	MOVE:Walk,60,Burrow,30
 	BONUS:MOVEADD|TYPE.Fly|50
 	BONUS:VAR|DragonNaturalArmor|3
@@ -600,7 +601,7 @@ Racial Traits ~ Bronze Dragon	CATEGORY:Internal
 	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,9
 	BONUS:VAR|DragonLevelAdjustment|4|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,2
 	BONUS:VAR|DragonLevelAdjustment|6|PREVAREQ:DragonAge,3
-	DEFINE:DragonAge|0	BONUS:VAR|min((DragonLVL-3)/3),12
+	DEFINE:DragonAge|0	BONUS:VAR|DragonAge|min((DragonLVL-3)/3),12
 	MOVE:Walk,40,Swim,60
 	BONUS:VAR|DragonNaturalArmor|5
 	BONUS:MISC|CR|2|PREVARGTEQ:DragonAge,2

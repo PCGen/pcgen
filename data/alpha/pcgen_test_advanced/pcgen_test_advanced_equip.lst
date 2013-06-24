@@ -42,7 +42,7 @@ Heavy Armor											PROFICIENCY:ARMOR|Heavy							TYPE:Armor.Heavy												
 Light Armor											PROFICIENCY:ARMOR|Light							TYPE:Armor.Light																																																															BONUS:COMBAT|AC|2|TYPE=Armor
 
 # Shield Basic Test
-Light Shield					PROFICIENCY:WEAPON|Shield Bash					PROFICIENCY:SHIELD|Light	TYPE:Shield.Light.Weapon.Melee	DAMAGE:1d6	CRITRANGE:1	CRITMULT:x2																																																												BONUS:COMBAT|AC|2|TYPE=Shield
+Light Shield															PROFICIENCY:SHIELD|Light	TYPE:Shield.Light.Weapon.Melee	DAMAGE:1d6	CRITRANGE:1	CRITMULT:x2																																																												BONUS:COMBAT|AC|2|TYPE=Shield
 Buckler Shield															PROFICIENCY:SHIELD|Light	TYPE:Shield.Light																																																															BONUS:COMBAT|AC|2|TYPE=Shield
 Heavy Shield															PROFICIENCY:SHIELD|Heavy	TYPE:Shield.Heavy																																																															BONUS:COMBAT|AC|2|TYPE=Shield
 
