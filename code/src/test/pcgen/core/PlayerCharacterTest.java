@@ -30,6 +30,7 @@ package pcgen.core;
 
 import java.awt.HeadlessException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -62,6 +63,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
 import pcgen.core.display.CharacterDisplay;
+import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.core.system.LoadInfo;
 import pcgen.io.exporttoken.StatToken;
@@ -1185,4 +1187,86 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		assertFalse("Roll function should not be cached.", match);
 	}
 
+	/**
+	 * Validate the checkSkillModChange correctly handles non bonused
+	 * skill pools.
+	 */
+	public void testCheckSkillModChangeNoBonus()
+	{
+		readyToRun();
+		PlayerCharacter character = getCharacter();
+		character.setRace(human);
+		character.setStat(intel, 10);
+		character.incrementClassLevel(2, pcClass, true);
+		
+		List<PCLevelInfo> levelInfoList = new ArrayList<PCLevelInfo>(character.getLevelInfo());
+		
+		assertEquals("Level number lvl 1", 1, levelInfoList.get(0)
+			.getClassLevel());
+		assertEquals("Level number lvl 2", 2, levelInfoList.get(1)
+			.getClassLevel());
+		assertEquals("Skills remaining lvl 1", 1, levelInfoList.get(0)
+			.getSkillPointsRemaining());		
+		assertEquals("Skills gained lvl 2", 1, levelInfoList.get(1)
+			.getSkillPointsGained(character));
+		assertEquals("Skills remaining lvl 2", 1, levelInfoList.get(1)
+			.getSkillPointsRemaining());
+		
+		character.checkSkillModChange();
+		
+		assertEquals("Skills gained lvl 1", 1, levelInfoList.get(0)
+			.getSkillPointsGained(character));
+		assertEquals("Skills remaining lvl 1", 1, levelInfoList.get(0)
+			.getSkillPointsRemaining());		
+		assertEquals("Skills gained lvl 2", 1, levelInfoList.get(1)
+			.getSkillPointsGained(character));
+		assertEquals("Skills remaining lvl 2", 1, levelInfoList.get(1)
+			.getSkillPointsRemaining());
+	}
+
+	/**
+	 * Validate the checkSkillModChange correctly handles SKILLPOOL bonuses
+	 */
+	public void testCheckSkillModChangeWithBonus()
+	{
+		readyToRun();
+		PlayerCharacter character = getCharacter();
+		character.setRace(human);
+		character.setStat(intel, 10);
+		PCTemplate template = TestHelper.makeTemplate("grantsskills");
+		LoadContext context = Globals.getContext();
+		final BonusObj skillBonusLvl1 = Bonus.newBonus(context, "SKILLPOOL|CLASS=MyClass;LEVEL=1|2");
+		assertNotNull("Failed to create bonus", skillBonusLvl1);
+		template.addToListFor(ListKey.BONUS, skillBonusLvl1);
+		character.addTemplate(template);
+		character.incrementClassLevel(2, pcClass, true);
+		
+		List<PCLevelInfo> levelInfoList = new ArrayList<PCLevelInfo>(character.getLevelInfo());
+		
+		assertEquals("Level number lvl 1", 1, levelInfoList.get(0)
+			.getClassLevel());
+		assertEquals("Level number lvl 2", 2, levelInfoList.get(1)
+			.getClassLevel());
+		assertEquals("Skills gained lvl 1", 3, levelInfoList.get(0)
+			.getSkillPointsGained(character));
+		assertEquals("Skills remaining lvl 1", 3, levelInfoList.get(0)
+			.getSkillPointsRemaining());		
+		assertEquals("Skills gained lvl 2", 1, levelInfoList.get(1)
+			.getSkillPointsGained(character));
+		assertEquals("Skills remaining lvl 2", 1, levelInfoList.get(1)
+			.getSkillPointsRemaining());
+		
+		character.checkSkillModChange();
+		character.checkSkillModChange();
+		
+		assertEquals("Skills gained lvl 1", 3, levelInfoList.get(0)
+			.getSkillPointsGained(character));
+		assertEquals("Skills remaining lvl 1", 3, levelInfoList.get(0)
+			.getSkillPointsRemaining());		
+		assertEquals("Skills gained lvl 2", 1, levelInfoList.get(1)
+			.getSkillPointsGained(character));
+		assertEquals("Skills remaining lvl 2", 1, levelInfoList.get(1)
+			.getSkillPointsRemaining());
+		
+	}
 }

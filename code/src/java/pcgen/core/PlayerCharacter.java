@@ -10752,7 +10752,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			{
 				PCClassLevel classLevel =
 						getActiveClassLevel(pcClass, pi.getClassLevel());
-				final int newSkillPointsGained =
+				int newSkillPointsGained =
 						pcClass.getSkillPointsForLevel(this, classLevel,
 							getTotalLevels());
 				if (pi.getClassKeyName().equals(pcClass.getKeyName()))
@@ -10761,6 +10761,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 					if (newSkillPointsGained != formerGained)
 					{
 						pi.setSkillPointsGained(this, newSkillPointsGained);
+						newSkillPointsGained = pi.getSkillPointsGained(this);
 						pi.setSkillPointsRemaining(pi.getSkillPointsRemaining()
 							+ newSkillPointsGained - formerGained);
 						setSkillPool(pcClass, pcClass.getSkillPool(this)
