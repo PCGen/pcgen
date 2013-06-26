@@ -171,6 +171,9 @@ Witch Knife						TYPE:General																										PRECLASS:1,Witch=1							
 Word of Healing					TYPE:General							PREABILITY:1,CATEGORY=Special Ability,Lay On Hands																																																																																																																																																																																																																														DESC:Using the same divine energy as your lay on hands ability, you can heal others at a distance.																																																																																																																																																																					SOURCEPAGE:p.159	BENEFIT:You may use your lay on hands to heal another creature at a range of 30 feet as a standard action that does not provoke an attack of opportunity. You must be able to speak and have a free hand to use this ability. The target heals half the amount they would have healed if you had touched them, but gains the benef its of your mercies as normal.
 
 ###Block: Modded Feats
+# Arcane Strike
+Arcane Strike.MOD				BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Magus")+var("BL=Magus")
+
 # Feat Name					Unique Key					Type				Visible		Required Ability								Automatically Gained Feat
 Channel Smite.MOD										TYPE:UndeadLordBonus
 Extra Channel.MOD										TYPE:UndeadLordBonus

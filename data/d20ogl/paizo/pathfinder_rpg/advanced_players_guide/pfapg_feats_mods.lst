@@ -141,6 +141,9 @@ Spirited Charge.MOD			TYPE:MountedMastery
 Trample.MOD					TYPE:MountedMastery
 Unseat.MOD					TYPE:MountedMastery
 
+# Arcane Strike
+Arcane Strike.MOD									BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Summoner")+var("BL=Summoner")+charbonusto("CASTERLEVEL","Witch")+var("BL=Witch")
+
 # Channel Feats
 Improved Channel.MOD								BONUS:VAR|OracleChannelDC|2	BONUS:VAR|UndeadServitudeDC|2
 
