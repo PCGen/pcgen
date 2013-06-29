@@ -49,7 +49,7 @@ FORWARDREF:RACE|Tengu
 BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 
 #ADDITIONAL FILES:
-LANGUAGE:*/35e/paizo/campaign_setting/campaign_setting/campaign_setting_languages.lst
+LANGUAGE:*/35e/paizo/campaign_setting/campaign_setting/pathfinder_campaign_setting_languages.lst
 ABILITY:*/pathfinder/paizo/pathfinder/bestiary/pfb_abilities_monsters_stu.lst|(INCLUDE:CATEGORY=Special Ability,Gifted Linguist ~ Tengu,Sneaky ~ Tengu,Sword Trained ~ Tengu,Natural Weapon ~ Tengu)
 
 
