@@ -25,16 +25,16 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 
 
 # Basics
-PCC:@/d20ogl/srd/basics/srdbasic.pcc
+PCC:@/3e/wizards_of_the_coast/srd/basics/srdbasic.pcc
 
 # Advanced
-PCC:@/d20ogl/srd/advanced/srdadvanced.pcc
+PCC:@/3e/wizards_of_the_coast/srd/advanced/srdadvanced.pcc
 
 # Monsters
-PCC:@/d20ogl/srd/monsters/srdmonsters.pcc
+PCC:@/3e/wizards_of_the_coast/srd/monsters/srdmonsters.pcc
 
 # Psionics
-PCC:@/d20ogl/srd/psionics/srdpsionics.pcc
+PCC:@/3e/wizards_of_the_coast/srd/psionics/srdpsionics.pcc
 
 # Suppress Duplicate Spell Warnings
 ALLOWDUPES:SPELL

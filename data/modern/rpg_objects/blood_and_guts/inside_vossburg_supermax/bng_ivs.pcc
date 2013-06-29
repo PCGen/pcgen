@@ -33,4 +33,4 @@ FEAT:bng_ivs_feats.lst
 FEAT:bng_ivs_feats_mod.lst
 
 #Included from BloodandSecrets
-FEAT:@/d20ogl/rpgobjects/modernsystem/bloodandsecrets/blood_and_secrets_feat.lst|(INCLUDE:CATEGORY=FEAT,Tactician)
+FEAT:@/modern/rpg_objects/modern_system/blood_and_secrets/blood_and_secrets_feat.lst|(INCLUDE:CATEGORY=FEAT,Tactician)

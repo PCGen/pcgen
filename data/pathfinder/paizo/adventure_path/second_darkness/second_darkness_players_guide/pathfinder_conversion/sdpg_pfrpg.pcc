@@ -17,7 +17,7 @@ SOURCEWEB:http://paizo.com/pathfinder/companion/35E/v5748btpy84en
 SOURCEDATE:2008-08
 ISOGL:YES
 
-COVER:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/second_darkness_players_guide.jpg
+COVER:@/pathfinder/paizo/adventure_path/second_darkness/second_darkness_players_guide/second_darkness_players_guide.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -36,14 +36,14 @@ COPYRIGHT:PCGen dataset conversion for "Second Darkness Player's Guide" Copyrigh
 #EXTRAFILE:OGL.txt
 
 # Imported 35e data files
-#ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_abilities.lst
+#ABILITY:@/pathfinder/paizo/adventure_path/second_darkness/second_darkness_players_guide/sdpg_abilities.lst
 # Has Spot vs. Perception, moved all to the conversion ability file.
-ABILITYCATEGORY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_ability_categories.lst
-#CLASS:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_classes.lst
-EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_equipment.lst
-LANGUAGE:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_languages.lst
-SPELL:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_spells.lst
-TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_templates.lst
+ABILITYCATEGORY:@/pathfinder/paizo/adventure_path/second_darkness/second_darkness_players_guide/sdpg_ability_categories.lst
+#CLASS:@/pathfinder/paizo/adventure_path/second_darkness/second_darkness_players_guide/sdpg_classes.lst
+EQUIPMENT:@/pathfinder/paizo/adventure_path/second_darkness/second_darkness_players_guide/sdpg_equipment.lst
+LANGUAGE:@/pathfinder/paizo/adventure_path/second_darkness/second_darkness_players_guide/sdpg_languages.lst
+SPELL:@/pathfinder/paizo/adventure_path/second_darkness/second_darkness_players_guide/sdpg_spells.lst
+TEMPLATE:@/pathfinder/paizo/adventure_path/second_darkness/second_darkness_players_guide/sdpg_templates.lst
 
 # Customized Pathfinder RPG data files
 ABILITY:sdpg_abilities_pfrpg.lst

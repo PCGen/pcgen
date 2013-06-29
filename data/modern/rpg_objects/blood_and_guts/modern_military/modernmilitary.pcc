@@ -53,5 +53,5 @@ FEAT:modernmilitary_feats_hidden_specops.lst
 SKILL:modernmilitary_skills.lst
 SKILL:modernmilitary_skills_mod.lst
 
-#Included from BloodandSecrets
-FEAT:@/d20ogl/rpgobjects/modernsystem/bloodandsecrets/blood_and_secrets_feat.lst|(INCLUDE:Cover Fire,Enemy,Fast Track,Tactician,Teamwork)
+#Included from Blood and Secrets
+FEAT:@/modern/rpg_objects/modern_system/blood_and_secrets/blood_and_secrets_feat.lst|(INCLUDE:Cover Fire,Enemy,Fast Track,Tactician,Teamwork)

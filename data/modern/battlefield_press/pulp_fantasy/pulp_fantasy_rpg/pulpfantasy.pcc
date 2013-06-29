@@ -63,12 +63,12 @@ URL:RPG Now|http://www.rpgnow.com/product_info.php?products_id=24701&it=1?affili
 #EXTRAFILE:OGL.txt
 
 #Excluded from MSRD - Basics
-LSTEXCLUDE:@/d20ogl/msrd/basics/modern_basics/modernbasics_kits_defaultmonsters_animals.lst
+LSTEXCLUDE:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_kits_defaultmonsters_animals.lst
 
 # Stuff imported from the MSRD
-PCC:@/d20ogl/msrd/basics/modern_basics/modernbasics.pcc
-PCC:@/d20ogl/msrd/basics/modern_creatures/moderncreatures.pcc
-PCC:@/d20ogl/msrd/basics/modern_fx/modernfx.pcc
+PCC:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics.pcc
+PCC:@/modern/wizards_of_the_coast/msrd/basics/modern_creatures/moderncreatures.pcc
+PCC:@/modern/wizards_of_the_coast/msrd/basics/modern_fx/modernfx.pcc
 
 # Suppress Duplicate Language Warnings
 ALLOWDUPES:LANGUAGE
@@ -76,16 +76,16 @@ ALLOWDUPES:LANGUAGE
 # Suppress Duplicate Spell Warnings
 ALLOWDUPES:SPELL
 
-EQUIPMENT:@/d20ogl/msrd/arcana/basics/arcanabasics_equip_armorshields.lst
-ARMORPROF:@/d20ogl/msrd/arcana/basics/arcanabasics_profs_armor.lst
-ABILITYCATEGORY:@/d20ogl/msrd/future/future_basics/futurebasics_ability_categories_future.lst|(INCLUDE:Charismatic Plus Talent,Dedicated Plus Talent,Fast Plus Talent,Smart Plus Talent,Strong Plus Talent,Tough Plus Talent)
-FEAT:@/d20ogl/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Charismatic Plus,Dedicated Plus,Fast Plus,Smart Plus,Strong Plus,Tough Plus)
-FEAT:@/d20ogl/msrd/arcana/basics/arcanabasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Improved Grapple,Improved Overrun,Improved Natural Healing,Jack of all Trades,Precise Strike)
-RACE:@/d20ogl/msrd/arcana/creatures/arcanacreatures_races.lst|(INCLUDE:Lizard|Lizard (Giant)|Octopus|Octopus (Giant)|Octopus (Venemous)|Porpoise|Squid|Squid (Giant))
-RACE:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_races.lst|(INCLUDE:Snake (Constrictor)|Snake (Tiny/Viper))
-RACE:@/d20ogl/msrd/menaces/menaces_races_a-i.lst|(INCLUDE:Boar (Wild Pig)|Chimpanzee)
-RACE:@/d20ogl/msrd/menaces/menaces_races_j-z.lst|(INCLUDE:Monitor Lizard|Scorpion|Shark (Huge)|Snake (Cobra)|Snake (Black Mamba)|Snake (Hoop)|Snake (Advanced Hoop))
-TEMPLATE:@/d20ogl/msrd/arcana/basics/arcanabasics_templates_hidden.lst
+EQUIPMENT:@/modern/wizards_of_the_coast/msrd/arcana/basics/arcanabasics_equip_armorshields.lst
+ARMORPROF:@/modern/wizards_of_the_coast/msrd/arcana/basics/arcanabasics_profs_armor.lst
+ABILITYCATEGORY:@/modern/wizards_of_the_coast/msrd/future/future_basics/futurebasics_ability_categories_future.lst|(INCLUDE:Charismatic Plus Talent,Dedicated Plus Talent,Fast Plus Talent,Smart Plus Talent,Strong Plus Talent,Tough Plus Talent)
+FEAT:@/modern/wizards_of_the_coast/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Charismatic Plus,Dedicated Plus,Fast Plus,Smart Plus,Strong Plus,Tough Plus)
+FEAT:@/modern/wizards_of_the_coast/msrd/arcana/basics/arcanabasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Improved Grapple,Improved Overrun,Improved Natural Healing,Jack of all Trades,Precise Strike)
+RACE:@/modern/wizards_of_the_coast/msrd/arcana/creatures/arcanacreatures_races.lst|(INCLUDE:Lizard|Lizard (Giant)|Octopus|Octopus (Giant)|Octopus (Venemous)|Porpoise|Squid|Squid (Giant))
+RACE:@/modern/wizards_of_the_coast/msrd/basics/modern_creatures/moderncreatures_races.lst|(INCLUDE:Snake (Constrictor)|Snake (Tiny/Viper))
+RACE:@/modern/wizards_of_the_coast/msrd/menaces/menaces_races_a-i.lst|(INCLUDE:Boar (Wild Pig)|Chimpanzee)
+RACE:@/modern/wizards_of_the_coast/msrd/menaces/menaces_races_j-z.lst|(INCLUDE:Monitor Lizard|Scorpion|Shark (Huge)|Snake (Cobra)|Snake (Black Mamba)|Snake (Hoop)|Snake (Advanced Hoop))
+TEMPLATE:@/modern/wizards_of_the_coast/msrd/arcana/basics/arcanabasics_templates_hidden.lst
 
 ABILITY:pulpfantasy_abilities_occupations.lst
 ABILITY:pulpfantasy_abilities.lst

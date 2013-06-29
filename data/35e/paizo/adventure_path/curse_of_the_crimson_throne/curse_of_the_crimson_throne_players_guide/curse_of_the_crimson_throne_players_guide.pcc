@@ -42,7 +42,7 @@ FEAT:cotct_pg_feats.lst
 ARMORPROF:cotct_pg_profs_armor.lst
 WEAPONPROF:cotct_pg_profs_weapons.lst
 
-LANGUAGE:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_languages.lst
+LANGUAGE:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/rrpg_languages.lst
 
 #
 # End

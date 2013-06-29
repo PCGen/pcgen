@@ -42,8 +42,8 @@ WEAPONPROF:rocketrangers_weaponprofs.lst
 ARMORPROF:rocketrangers_profs_armor.lst
 
 #included creatures from MSRD
-KIT:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_kits_defaultmonsters.lst|(INCLUDE:Default Dinosaur (Deinonychus))
-KIT:@/d20ogl/msrd/menaces/menaces_kits_defaultmonsters_a-i.lst|(INCLUDE:Default Dinosaur (Tyrannosaur))
-RACE:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_races.lst|(INCLUDE:Dinosaur (Deinonychus))
-RACE:@/d20ogl/msrd/menaces/menaces_races_a-i.lst|(INCLUDE:Dinosaur (Tyrannosaur))
-EQUIPMOD:@/d20ogl/msrd/basics/modern_basics/modernbasics_equipmods.lst|(INCLUDE:AAVEHICLE)
+KIT:@/modern/wizards_of_the_coast/msrd/basics/modern_creatures/moderncreatures_kits_defaultmonsters.lst|(INCLUDE:Default Dinosaur (Deinonychus))
+KIT:@/modern/wizards_of_the_coast/msrd/menaces/menaces_kits_defaultmonsters_a-i.lst|(INCLUDE:Default Dinosaur (Tyrannosaur))
+RACE:@/modern/wizards_of_the_coast/msrd/basics/modern_creatures/moderncreatures_races.lst|(INCLUDE:Dinosaur (Deinonychus))
+RACE:@/modern/wizards_of_the_coast/msrd/menaces/menaces_races_a-i.lst|(INCLUDE:Dinosaur (Tyrannosaur))
+EQUIPMOD:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_equipmods.lst|(INCLUDE:AAVEHICLE)

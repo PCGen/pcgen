@@ -39,41 +39,41 @@ PCC:@/homebrew/conversion_support/conversion_support.pcc
 
 #Load required msrd information
 #msrd files
-ABILITYCATEGORY:@/d20ogl/msrd/basics/modern_basics/modernbasics_ability_categories_core.lst
+ABILITYCATEGORY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_ability_categories_core.lst
 
-ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_class.lst|(EXCLUDE:CATEGORY=Special Ability,Electronic Mastercraft,Mechanical Mastercraft)
-ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_talents.lst
-ABILITY:@/d20ogl/msrd/basics/modern_basics/modernbasics_abilities_racial.lst
-ABILITY:@/d20ogl/msrd/future/future_basics/futurebasics_abilities_talents_mod.lst
+ABILITY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_abilities_class.lst|(EXCLUDE:CATEGORY=Special Ability,Electronic Mastercraft,Mechanical Mastercraft)
+ABILITY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_abilities_talents.lst
+ABILITY:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_abilities_racial.lst
+ABILITY:@/modern/wizards_of_the_coast/msrd/future/future_basics/futurebasics_abilities_talents_mod.lst
 
-CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_pc.lst
-CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_npc.lst|(EXCLUDE:Magical Beast)
-CLASS:@/d20ogl/msrd/basics/modern_basics/modernbasics_classes_advanced.lst|(INCLUDE:Soldier|Martial Artist|Gunslinger)
+CLASS:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_classes_pc.lst
+CLASS:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_classes_npc.lst|(EXCLUDE:Magical Beast)
+CLASS:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_classes_advanced.lst|(INCLUDE:Soldier|Martial Artist|Gunslinger)
 
 
-EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip.lst|(EXCLUDE:Clothing Outfit (Normal Everday)|Clothing Outfit (Business)|Clothing Outfit (Casual)|Clothing Outfit (Formal)|Fatigues|Uniform|Camera (Film Developing (Roll))|Cell Phone|Modem (Broadband)|Modem (Cellular)|Portable Satellite Phone|Car opening Kit|Evidence Kit (Basic)|Evidence Kit (Deluxe)|Black Box|Caller ID Defeater|Cellular Interceptor|Lineman's Buttset|Tap Detector|Telephone Tap (Line Tap)|Telephone Tap (Receiver Tap)|Telephone Tap (Telephone Line Tracer)|GPS Receiver)
-EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_armor.lst
-EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_weap.lst
-#EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_vehicles.lst
-EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_weap_ammo.lst
-EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_weap_melee.lst|(EXCLUDE:Sword Cane)
-EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_weap_ranged.lst|(EXCLUDE:Taser)
-EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_weap_ranged_firearms.lst|(EXCLUDE:Colt Double Eagle (10mm autoloader)|Colt M1911 (.45 autoloader)|Derringer (.45)|MAC Ingram M10 (.45 machine pistol)|Pathfinder (.22 revolver)|Ruger Service-Six (.385 revolver)|SITES M9 (9mm autoloader)|TEC-9 (9mm machine pistol)|Walther PPK (.32 autoloader)|Benelli 121 M1 (12-gague shotgun)|Beretta M3P (12 gauge shotgun)|Browning BPS (10 gauge shotgun)|HK G3 (7.62 assault rifle)|HK MP5K (9mm submachine gun)|HK PSG1 (7.62 sniper rifle)|M4 Carbine (5.56mm assault rifle)|Mossberg (12 gauge shotgun)|Remington 700 (7.62 hunting rifle)|Steyr AUG (5.56mm assault rifle)|Uzi (9mm submachine gun))
-#EQUIPMENT:@/d20ogl/msrd/basics/modern_basics/modernbasics_equip_weap_vehicles.lst
+EQUIPMENT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_equip.lst|(EXCLUDE:Clothing Outfit (Normal Everday)|Clothing Outfit (Business)|Clothing Outfit (Casual)|Clothing Outfit (Formal)|Fatigues|Uniform|Camera (Film Developing (Roll))|Cell Phone|Modem (Broadband)|Modem (Cellular)|Portable Satellite Phone|Car opening Kit|Evidence Kit (Basic)|Evidence Kit (Deluxe)|Black Box|Caller ID Defeater|Cellular Interceptor|Lineman's Buttset|Tap Detector|Telephone Tap (Line Tap)|Telephone Tap (Receiver Tap)|Telephone Tap (Telephone Line Tracer)|GPS Receiver)
+EQUIPMENT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_equip_armor.lst
+EQUIPMENT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_equip_weap.lst
+#EQUIPMENT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_equip_vehicles.lst
+EQUIPMENT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_equip_weap_ammo.lst
+EQUIPMENT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_equip_weap_melee.lst|(EXCLUDE:Sword Cane)
+EQUIPMENT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_equip_weap_ranged.lst|(EXCLUDE:Taser)
+EQUIPMENT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_equip_weap_ranged_firearms.lst|(EXCLUDE:Colt Double Eagle (10mm autoloader)|Colt M1911 (.45 autoloader)|Derringer (.45)|MAC Ingram M10 (.45 machine pistol)|Pathfinder (.22 revolver)|Ruger Service-Six (.385 revolver)|SITES M9 (9mm autoloader)|TEC-9 (9mm machine pistol)|Walther PPK (.32 autoloader)|Benelli 121 M1 (12-gague shotgun)|Beretta M3P (12 gauge shotgun)|Browning BPS (10 gauge shotgun)|HK G3 (7.62 assault rifle)|HK MP5K (9mm submachine gun)|HK PSG1 (7.62 sniper rifle)|M4 Carbine (5.56mm assault rifle)|Mossberg (12 gauge shotgun)|Remington 700 (7.62 hunting rifle)|Steyr AUG (5.56mm assault rifle)|Uzi (9mm submachine gun))
+#EQUIPMENT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_equip_weap_vehicles.lst
 
-EQUIPMOD:@/d20ogl/msrd/basics/modern_basics/modernbasics_equipmods.lst
+EQUIPMOD:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_equipmods.lst
 
-FEAT:@/d20ogl/msrd/basics/modern_basics/modernbasics_feats.lst
-FEAT:@/d20ogl/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Action Boost,Armor Proficiency (Powered),Charismatic Plus,Dedicated Plus,Fast Plus,Nerve Pinch,Smart Plus,Strong Plus,Tough Plus)
-#FEAT:@/d20ogl/msrd/future/future_basics/futurebasics_feats_hidden_mod.lst
+FEAT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_feats.lst
+FEAT:@/modern/wizards_of_the_coast/msrd/future/future_basics/futurebasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Action Boost,Armor Proficiency (Powered),Charismatic Plus,Dedicated Plus,Fast Plus,Nerve Pinch,Smart Plus,Strong Plus,Tough Plus)
+#FEAT:@/modern/wizards_of_the_coast/msrd/future/future_basics/futurebasics_feats_hidden_mod.lst
 
-SKILL:@/d20ogl/msrd/basics/modern_basics/modernbasics_skills.lst|(EXCLUDE:Profession)
+SKILL:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_skills.lst|(EXCLUDE:Profession)
 
-LANGUAGE:@/d20ogl/msrd/basics/modern_basics/modernbasics_languages.lst
+LANGUAGE:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_languages.lst
 
-TEMPLATE:@/d20ogl/msrd/basics/modern_basics/modernbasics_templates.lst
+TEMPLATE:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_templates.lst
 
-WEAPONPROF:@/d20ogl/msrd/basics/modern_basics/modernbasics_weaponprofs.lst
+WEAPONPROF:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_weaponprofs.lst
 
 ###DW2 Specific/Modified files
 ABILITYCATEGORY:dw2sg_ability_categories.lst

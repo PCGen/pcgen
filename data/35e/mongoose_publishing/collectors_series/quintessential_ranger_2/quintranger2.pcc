@@ -53,4 +53,4 @@ TEMPLATE:quintranger2_templates.lst
 
 WEAPONPROF:quintranger2_profs_weapon.lst
 
-SKILL:@/d20ogl/mongoosepublishing/collectorsseries/quintranger/quintranger_skills.lst
+SKILL:@/35e/mongoose_publishing/collectors_series/quintessential_ranger/quintranger_skills.lst

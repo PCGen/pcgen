@@ -47,6 +47,6 @@ SKILL:undeadskills.lst
 SPELL:undeadspells.lst
 TEMPLATE:undeadtemplates.lst
 
-FEAT:@/d20ogl/alderacentertainmentgroup/dragons/dragonsfeats.lst|(INCLUDE:CATEGORY=FEAT,Fearless,Invincible)
-FEAT:@/d20ogl/alderacentertainmentgroup/dungeons/dungeonsfeats.lst|(INCLUDE:CATEGORY=FEAT,Improved Endurance,Thick Skin(Hot),Thick Skin(Cold))
-FEAT:@/d20ogl/alderacentertainmentgroup/evil/evil_feats.lst|(INCLUDE:CATEGORY=FEAT,Turn Outsider)
+FEAT:@/3e/alderac_entertainment_group/dragons/dragonsfeats.lst|(INCLUDE:CATEGORY=FEAT,Fearless,Invincible)
+FEAT:@/3e/alderac_entertainment_group/dungeons/dungeonsfeats.lst|(INCLUDE:CATEGORY=FEAT,Improved Endurance,Thick Skin(Hot),Thick Skin(Cold))
+FEAT:@/3e/alderac_entertainment_group/evil/evil_feats.lst|(INCLUDE:CATEGORY=FEAT,Turn Outsider)

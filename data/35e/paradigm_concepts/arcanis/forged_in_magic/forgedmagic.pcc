@@ -79,7 +79,7 @@ INFOTEXT:This dataset requires the players Guide to Arcanis.
 #EXTRAFILE:OGL.txt
 
 # Needed RSRD Objects
-FEAT:@/d20ogl/srd35/epic/rsrd_feats_epic.lst|(INCLUDE:CATEGORY=FEAT,Improved Whirlwind Attack,Epic Toughness,Epic Skill Focus)
+FEAT:@/35e/wizards_of_the_coast/srd35/epic/rsrd_feats_epic.lst|(INCLUDE:CATEGORY=FEAT,Improved Whirlwind Attack,Epic Toughness,Epic Skill Focus)
 
 #Forged in Magic Files
 ABILITY:forgedmagic_ability.lst

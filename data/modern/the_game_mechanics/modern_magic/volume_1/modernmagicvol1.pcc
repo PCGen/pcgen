@@ -39,10 +39,10 @@ RACE:modernmagicvol1_race.lst
 SPELL:modernmagicvol1_spells.lst
 
 ###referenced spell from MSRD Arcana used in equiment
-#SPELL:@/d20ogl/msrd/arcana/basics/arcanabasics_spells.lst|(INCLUDE:Machine Invisibility|Daylight)
+#SPELL:@/modern/wizards_of_the_coast/msrd/arcana/basics/arcanabasics_spells.lst|(INCLUDE:Machine Invisibility|Daylight)
 
-FEAT:@/d20ogl/srd/basics/srd_feats.lst|(INCLUDE:CATEGORY=FEAT,Brew Potion,Scribe Scroll)
-FEAT:@/d20ogl/thegamemechanics/modern_players_companion/mpc_feats.lst|(INCLUDE:CATEGORY=FEAT,Magic Defense,Improved Magic Defense,Greater Magic Defense)
+FEAT:@/3e/wizards_of_the_coast/srd/basics/srd_feats.lst|(INCLUDE:CATEGORY=FEAT,Brew Potion,Scribe Scroll)
+FEAT:@/modern/the_game_mechanics/modern_players_companion/mpc_feats.lst|(INCLUDE:CATEGORY=FEAT,Magic Defense,Improved Magic Defense,Greater Magic Defense)
 
 #
 # End

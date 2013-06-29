@@ -34,8 +34,8 @@ COPYRIGHT:PCGen dataset conversion for Darwin's World 2nd Edition: Survivor's Ha
 #EXTRAFILE:OGL.txt
 
 #msrd files
-ABILITYCATEGORY:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_ability_categories.lst
-TEMPLATE:@/d20ogl/msrd/basics/modern_creatures/moderncreatures_templates.lst
+ABILITYCATEGORY:@/modern/wizards_of_the_coast/msrd/basics/modern_creatures/moderncreatures_ability_categories.lst
+TEMPLATE:@/modern/wizards_of_the_coast/msrd/basics/modern_creatures/moderncreatures_templates.lst
 
 #DW2 Specific/Modified files
 ABILITY:dw2tte_abilities_backgrounds.lst

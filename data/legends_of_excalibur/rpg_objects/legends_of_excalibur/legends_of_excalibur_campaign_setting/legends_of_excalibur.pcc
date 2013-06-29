@@ -27,40 +27,40 @@ INFOTEXT:The Campaign Setting
 #EXTRAFILE:OGL.txt
 
 # RSRD files that are included
-ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_base.lst|(EXCLUDE:CATEGORY=Special Ability,Flurry of Blows)
-ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_monsters.lst
-ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_class_prestige.lst
-ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_common.lst
-ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_companions.lst
-ABILITY:@/d20ogl/srd35/basics/rsrd_abilities_racial.lst
-ABILITYCATEGORY:@/d20ogl/srd35/basics/rsrd_ability_categories_core.lst
-ABILITYCATEGORY:@/d20ogl/srd35/advanced/rsrd_ability_categories_advanced.lst
-CLASS:@/d20ogl/srd35/basics/rsrd_classes_base.lst|(INCLUDE:Barbarian|Ex Barbarian|Ex Druid|Ex Paladin|Fighter|Rogue)
-CLASS:@/d20ogl/srd35/advanced/rsrd_classes_prestige.lst|(INCLUDE:Arcane Trickster)
-CLASS:@/d20ogl/srd35/basics/rsrd_classes_monsters.lst|(INCLUDE:Animal)
-COMPANIONMOD:@/d20ogl/srd35/basics/rsrd_companionmods.lst
-FEAT:@/d20ogl/srd35/basics/rsrd_feats.lst
-FEAT:@/d20ogl/srd35/basics/rsrd_feats_monster.lst|(INCLUDE:CATEGORY=FEAT,Improved Natural Attack,Multiattack)
-EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_base.lst
-EQUIPMOD:@/d20ogl/srd35/basics/rsrd_equipmods_enhancing.lst
-EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_basetypes.lst
-EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_armorshields.lst
-EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_coinsgems.lst
-EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip.lst
-EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_ammo.lst
-EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_melee.lst
-EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_ranged.lst
-EQUIPMENT:@/d20ogl/srd35/basics/rsrd_equip_weap_natural.lst
-RACE:@/d20ogl/srd35/basics/rsrd_races__animals.lst|(INCLUDE:Bat|Cat|Hawk|Owl|Rat|Raven|Snake (Viper/Tiny)|Toad|Weasel|Dog (Riding)|Donkey|Horse (Heavy)|Horse (Light)|Horse (Warhorse Heavy)|Horse (Warhorse Light)|Mule|Pony|Pony (War)|Camel|Camel (Bactrian)|Elephant|Elephant (Indian))
-SKILL:@/d20ogl/srd35/basics/rsrd_skills.lst
-SPELL:@/d20ogl/srd35/basics/rsrd_spells.lst
-SPELL:@/d20ogl/srd35/basics/rsrd_spells_monster.lst|(INCLUDE:Speak with Burrowing Mammals)
-WEAPONPROF:@/d20ogl/srd35/basics/rsrd_weaponprofs.lst
-ARMORPROF:@/d20ogl/srd35/basics/rsrd_profs_armor.lst
-SHIELDPROF:@/d20ogl/srd35/basics/rsrd_profs_shield.lst
-KIT:@/d20ogl/srd35/basics/rsrd_kits_races__animals.lst
-TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_hidden.lst|(INCLUDE:Combat Expertise trade off|Raven Familiar Language)
-TEMPLATE:@/d20ogl/srd35/basics/rsrd_templates_types.lst
+ABILITY:@/35e/wizards_of_the_coast/srd35/basics/rsrd_abilities_class_base.lst|(EXCLUDE:CATEGORY=Special Ability,Flurry of Blows)
+ABILITY:@/35e/wizards_of_the_coast/srd35/basics/rsrd_abilities_monsters.lst
+ABILITY:@/35e/wizards_of_the_coast/srd35/basics/rsrd_abilities_class_prestige.lst
+ABILITY:@/35e/wizards_of_the_coast/srd35/basics/rsrd_abilities_common.lst
+ABILITY:@/35e/wizards_of_the_coast/srd35/basics/rsrd_abilities_companions.lst
+ABILITY:@/35e/wizards_of_the_coast/srd35/basics/rsrd_abilities_racial.lst
+ABILITYCATEGORY:@/35e/wizards_of_the_coast/srd35/basics/rsrd_ability_categories_core.lst
+ABILITYCATEGORY:@/35e/wizards_of_the_coast/srd35/advanced/rsrd_ability_categories_advanced.lst
+CLASS:@/35e/wizards_of_the_coast/srd35/basics/rsrd_classes_base.lst|(INCLUDE:Barbarian|Ex Barbarian|Ex Druid|Ex Paladin|Fighter|Rogue)
+CLASS:@/35e/wizards_of_the_coast/srd35/advanced/rsrd_classes_prestige.lst|(INCLUDE:Arcane Trickster)
+CLASS:@/35e/wizards_of_the_coast/srd35/basics/rsrd_classes_monsters.lst|(INCLUDE:Animal)
+COMPANIONMOD:@/35e/wizards_of_the_coast/srd35/basics/rsrd_companionmods.lst
+FEAT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_feats.lst
+FEAT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_feats_monster.lst|(INCLUDE:CATEGORY=FEAT,Improved Natural Attack,Multiattack)
+EQUIPMOD:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equipmods_base.lst
+EQUIPMOD:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equipmods_enhancing.lst
+EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_basetypes.lst
+EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_armorshields.lst
+EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_coinsgems.lst
+EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip.lst
+EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_weap_ammo.lst
+EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_weap_melee.lst
+EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_weap_ranged.lst
+EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_weap_natural.lst
+RACE:@/35e/wizards_of_the_coast/srd35/basics/rsrd_races__animals.lst|(INCLUDE:Bat|Cat|Hawk|Owl|Rat|Raven|Snake (Viper/Tiny)|Toad|Weasel|Dog (Riding)|Donkey|Horse (Heavy)|Horse (Light)|Horse (Warhorse Heavy)|Horse (Warhorse Light)|Mule|Pony|Pony (War)|Camel|Camel (Bactrian)|Elephant|Elephant (Indian))
+SKILL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_skills.lst
+SPELL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_spells.lst
+SPELL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_spells_monster.lst|(INCLUDE:Speak with Burrowing Mammals)
+WEAPONPROF:@/35e/wizards_of_the_coast/srd35/basics/rsrd_weaponprofs.lst
+ARMORPROF:@/35e/wizards_of_the_coast/srd35/basics/rsrd_profs_armor.lst
+SHIELDPROF:@/35e/wizards_of_the_coast/srd35/basics/rsrd_profs_shield.lst
+KIT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_kits_races__animals.lst
+TEMPLATE:@/35e/wizards_of_the_coast/srd35/basics/rsrd_templates_hidden.lst|(INCLUDE:Combat Expertise trade off|Raven Familiar Language)
+TEMPLATE:@/35e/wizards_of_the_coast/srd35/basics/rsrd_templates_types.lst
 
 
 # LOE HC files

@@ -23,7 +23,7 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 
 INFOTEXT:This is a subset of the SRD containing rules generally found in Core Books I and II, this should not be loaded with any other SRD sets.
 
-PCC:@/d20ogl/srd/campaign/srd_campaign_corebook2.pcc
+PCC:@/3e/wizards_of_the_coast/srd/campaign/srd_campaign_corebook2.pcc
 
 # Suppress forward references
 FORWARDREF:RACE|Ape,Baboon,Badger,Bear (Black),Bear (Brown),Bear (Polar),Bison,Boar,Camel,Cheetah,Crocodile,Dog,Eagle,Elephant,Leopard,Lion,Monkey,Octopus,Porpoise,Rhinoceros,Shark (Huge),Shark (Large),Shark (Medium),Snake (Constrictor),Snake (Giant Constrictor),Snake (Huge Viper),Snake (Large Viper),Snake (Medium Viper),Snake (Small Viper),Squid,Tiger,Whale (Baleen),Whale (Cachalot),Whale (Orca),Wolf,Wolverine,Crocodile (Giant)

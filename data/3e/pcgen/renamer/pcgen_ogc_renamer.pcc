@@ -18,7 +18,7 @@ COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, I
 COPYRIGHT:PCGen OGC dataset Copyright 2006, PCGen Data team (Including, but not limited to Eddy Anthony (MoSaT), Andrew McDougall (Tir Gwaith)).
 
 DESC:The PCGen Enhancement Re-namer modifies the Magic Equipment Modifiers so that at the time of item creation the + is put in front of the item name instead of behind, i.e. "+1 Longsword".
-COVER:@/d20ogl/pcgen/fantasy/pcgen_banner.jpg
+COVER:@/3e/pcgen/fantasy/pcgen_banner.jpg
 
 EQUIPMOD:pcgen_ogc_equipmods.lst
 
