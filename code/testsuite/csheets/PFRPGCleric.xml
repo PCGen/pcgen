@@ -931,6 +931,39 @@ BIO
 				</range>
 			</ranges>
 		</weapon>
+		<weapon>
+			<common>
+				<name>
+					<short>*Shield, Light Steel</short>
+					<long>*Shield (Light/Steel)</long>
+				</name>
+				<category>Non-Standard-Melee</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>-2</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>-2</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Equipped</hand>
+				<num_attacks>1</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type></type>
+				<weight>6</weight>
+				<sequence>2</sequence>
+			</common>
+			<simple>
+				<to_hit>-2</to_hit>
+				<damage>1d3</damage>
+				<range>0 ft.</range>
+			</simple>
+		</weapon>
 	</weapons>
 	<!--
 	  ====================================
@@ -1495,7 +1528,7 @@ BIO
 			<longname>Shield (Light/Steel)</longname>
 			<id></id>
 			<name>Shield, Light Steel</name>
-			<carried>1.0</carried>
+			<carried>2.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
@@ -1513,7 +1546,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>SHIELD.LIGHT.STANDARD.CLOSE.METAL</type>
+			<type>SHIELD.LIGHT.STANDARD.CLOSE.WEAPON.MELEE.SHIELDBASH.METAL</type>
 			<weight>6</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1544,7 +1577,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<total>
-			<weight>59.5 lbs.</weight>
+			<weight>65.5 lbs.</weight>
 			<value>926.6 gp</value>
 			<load>Medium</load>
 			<capacity>100</capacity>
@@ -1953,7 +1986,7 @@ BIO
 				</item>
 		<item>
 					<name>Shield, Light Steel</name>
-					<carried>1.0</carried>
+					<carried>2.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
 					<contents></contents>
@@ -1968,7 +2001,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>SHIELD.LIGHT.STANDARD.CLOSE.METAL</type>
+					<type>SHIELD.LIGHT.STANDARD.CLOSE.WEAPON.MELEE.SHIELDBASH.METAL</type>
 					<weight>6</weight>
 					<bonuslist></bonuslist>
 				</item>
