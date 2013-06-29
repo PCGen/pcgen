@@ -1,0 +1,180 @@
+# CVS $Revision$ $Author$ -- Sat Sep 22 13:52:50 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+CAMPAIGN:Battlefield Press - Gaslight - A Victorian Era Fantasy Role Playing Game
+GAMEMODE:Gaslight
+TYPE:Battlefield Press.Gaslight
+STATUS:RELEASE
+RANK:1
+GENRE:Modern
+BOOKTYPE:Core Rulebook
+SETTING:Modern
+PUBNAMELONG:Battlefield Press
+PUBNAMESHORT:BP
+PUBNAMEWEB:www.battlefieldpress.com
+SOURCELONG:Gaslight - Players Guide
+SOURCESHORT:Gaslight
+SOURCEWEB:www.battlefieldpress.com
+SOURCEDATE:2009-12
+ISOGL:YES
+
+COVER:gaslight.png
+LOGO:@/publisher_logos/Battlefield_Press.png
+COPYRIGHT:Included artwork is Product Identity and is included by permission. Copyright 2010, Battlefield Press, Inc.
+DESC:Battlefield Press, Inc presents Gaslight. A Victorian Fantasy where technology meets sorcery, where fantasy meets history. A world where Humans co-exist with Vampires, where fantasy meets history. Beast Men, Werewolves and Wildlings. A land of secret organizations and hidden agendas. Welcome to a Victorian world of magic, non humans and technology all trying to take their rightful place in society. Meet Vampire Detectives, Beast Men Sheriffs, and Wildling Rogues. Non humans in society exist from their counterparts in Victorian literature. An interesting and unique complete OGL Role Playing Game.
+URL:WEBSITE|http://www.battlefieldpress.com|Visit Battlefield Press.
+URL:Amazon.com|http://www.amazon.com/Gaslight-Victorian-Fantasy-Role-Playing/dp/B00346Z2KU/ref=sr_1_1?ie=UTF8&s=books&qid=1266633447&sr=8-1|Buy this book from Amazon.com!
+URL:RPG Now|http://rpg.drivethrustuff.com/product_info.php?products_id=69024?affiliate_id=200170|Buy this pdf from RPGNow.com!
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+### Files
+ABILITY:gaslight_abilities_class.lst
+ABILITY:gaslight_abilities_occupations.lst
+ABILITY:gaslight_abilities_racial.lst
+
+ABILITYCATEGORY:gaslight_ability_categories.lst
+
+CLASS:gaslight_class.lst
+DOMAIN:gaslight_domains.lst
+
+EQUIPMENT:gaslight_equip_weap.lst
+EQUIPMENT:gaslight_equipment.lst
+EQUIPMOD:gaslight_equipmods.lst
+
+FEAT:gaslight_feats.lst
+FEAT:gaslight_feats_mods.lst
+FEAT:gaslight_feats_special.lst
+
+
+KIT:gaslight_kits.lst
+LANGUAGE:gaslight_languages.lst
+
+
+ARMORPROF:gaslight_profs_armor.lst
+SHIELDPROF:gaslight_profs_shields.lst
+WEAPONPROF:gaslight_profs_weapons.lst
+
+RACE:gaslight_race.lst
+
+SKILL:gaslight_skills.lst
+
+SPELL:gaslight_spells.lst
+
+TEMPLATE:gaslight_templates.lst
+
+
+### Settings
+
+#Hiding Equipment Types that control EQMODS
+HIDETYPE:EQUIP|SpecialSuppressor|LightSource
+HIDETYPE:SKILL|Science
+#Fix till ABILITY is recoginized
+
+
+# Occupation feat types
+HIDETYPE:FEAT|Adventurer|Athlete|Bureaucrat|Circus_Performer|Craftsperson|Criminal|Escape_Artist|Fortuneteller|Hunter|Investigative|Law_Enforcement|Military|Politician|PsychicInvestigator|Rural|Stage_Magician|World_Traveller
+
+# Class bonus feat types
+HIDETYPE:FEAT|Acolyte|Everyman|Investigator|Officer|Rogue|Scholar
+
+# Special feat types
+HIDETYPE:FEAT|AttackOption|WeaponFocus
+
+# Hide key stat types for skills
+HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma
+
+
+ALLOWDUPES:LANGUAGE
+OPTION:pcgen.options.hpMaxAtFirstLevel=true
+
+
+### Copyright Section 15
+
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:22 Talent Trees Copyright 2003, Bloodstone Press.
+COPYRIGHT:Action Hero, (c) 2004, Alternate Realities Publications. Author: Dana Jorgensen.
+COPYRIGHT:Action! Classics: The War of the Worlds Copyright (c) 2003, Gold Rush Games
+COPYRIGHT:Another 22 Talent Trees Copyright 2004, Bloodstone Press.
+COPYRIGHT:Assassin's Handbook, Copyright 2002, Green Ronin Publishing, Authors: David "Zeb" Cook and Wolfgang Baur
+COPYRIGHT:Avatar's Handbook, Copyright 2003, Green Ronin Publishing, Author Jesse Decker
+COPYRIGHT:BESM d20 Copyright 2003, Guardians Of Order, Inc.; Author Mark C. MacKinnon.
+COPYRIGHT:Beyond Monks, Copyright 2002, Chainmail Bikini Games, Ltd.
+COPYRIGHT:Book of the Fiends, Copyright 2003, Green Ronin Publishing, Authors Aaron Loeb, Erik Mona, Chris Pramas and Robert J. Schwalb
+COPYRIGHT:Book of the Righteous, Copyright 2002, Aaron Loeb
+COPYRIGHT:Capable Hero Specialized Class Copyright 2005, Sword's Edge Publishing; Author Fraser Ronald
+COPYRIGHT:Cityworks Copyright 2003, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Complete Feats, Copyright 2003, The Game Mechanics Inc.
+COPYRIGHT:Creature Collection Copyright (c) 2000, Clark Peterson
+COPYRIGHT:d20 Advanced Magic Copyright 2005, Guardians of Order, Inc.; Author David Lyons, Michelle Lyons
+COPYRIGHT:D20 Firearm Mechanics Copyright 2001, Kenneth S. Hood
+COPYRIGHT:d20 Mecha Copyright 2003, Guardians Of Order, Inc.; Author David L. Pulver.
+COPYRIGHT:D20 Skills-n-Feats Martial Arts System Copyright 2001, Kenneth S. Hood
+COPYRIGHT:D20 Skills-n-Feats Psionics System Copyright (c) 2001 Kenneth S. Hood
+COPYRIGHT:D20 Weekly Copyright January 22, 2003, Steve Jackson Games, Inc.
+COPYRIGHT:Darkness & Dread Copyright 2004, Fantasy Flight Publishing, Inc.; Author: Mike Mearls
+COPYRIGHT:Deadlands d20 Copyright (c) 2001, Pinnacle Entertainment Group, Inc.
+COPYRIGHT:Dragon Lords of Melnibone, Copyright 2001, Chaosium, Inc.; Authors Charlie Krank, Lynn Willis,
+COPYRIGHT:Dragonstar: Starfarer's Handbook Copyright 2001, Fantasy Flight, Inc.
+COPYRIGHT:Dynasties and Demagogues, Copyright 2003, Trident, Inc. d/b/a Atlas Games; Author Chris Aylott.
+COPYRIGHT:Forbidden Kingdoms, Copyright (c) 2002, Otherworld Creations, Inc.
+COPYRIGHT:Future Player's Companion: Tomorrows' Foundation, Copyright 2005 The Game Mechanics, Inc.;
+COPYRIGHT:Grim Tales, Copyright 2004, Benjamin R. Durbin, published by Bad Axe Games, LLC.
+COPYRIGHT:Grim-n-Gritty Hit Point and Combat Rules Copyright 2001, Kenneth S. Hood
+COPYRIGHT:Hammer & Helm, Copyright 2002, Green Ronin Publishing, Author Jesse Decker
+COPYRIGHT:Kowloon Gun God, (c) 2004, Modern Kyuujinjouhoushi Contributor's Group. Author: Fraser Ronald.
+COPYRIGHT:Legends of Sorcery Copyright 2005, RPGObjects; Author Charles Rice, Chris Davis.
+COPYRIGHT:Magus Copyright (c) 2001, Hector Hernandez
+COPYRIGHT:Martial Arts Mayhem, Copyright 2003, The Game Mechanics, Inc. Author: Rich Redman
+COPYRIGHT:Mechamancy: The Clockwork Magic, Copyright 2005, EN Publishing.
+COPYRIGHT:Modern Dispatch #1 2004, RPGObjects; Author Charles Rice, Chris Davis
+COPYRIGHT:Modern: Occult Player's Companion Copyright 2004 James Maliszewski. Published by Ronin Arts
+COPYRIGHT:Monte Cook Presents: Iron Heroes Copyright 2005 Monte J. Cook. ;Author: Mike Mearls
+COPYRIGHT:Monte Cook's Arcana Unearthed Copyright 2003 Monte J. Cook.
+COPYRIGHT:Mutants & Masterminds Copyright 2002, Green Ronin Publishing.
+COPYRIGHT:OGL Horror Copyright 2003, Mongoose Publishing, Limited.
+COPYRIGHT:Gaslight Victorian RPG Copyright 2004, Mongoose Publishing, Limited.
+COPYRIGHT:Relics and Rituals Copyright (c) 2000, Clark Peterson
+COPYRIGHT:Shaman's Hanbook, copyright 2002, Green Ronin Publishing, Author Steve Kenson
+COPYRIGHT:Sidewinder: Recoiled, Copyright 2003 by Dog House Rules
+COPYRIGHT:Sidewinder: Wild West Adventure, Copyright 2002 by Citizen Games.
+COPYRIGHT:Silver Age Sentinels d20 Copyright 2002, Guardians Of Order, Inc.; Authors Stephen Kenson, Mark C. MacKinnon, Jeff Mackintosh, Jesse Scoble.
+COPYRIGHT:Sorcery & Steam Copyright 2003, Fantasy Flight Publishing, Inc.
+COPYRIGHT:Sovereign Stone Campaign Sourcebook Copyright 2001, Sovereign Press, Inc.; Authors Timothy Kidwell, Jamie Chambers, Don Perrin, based on original material by Larry Elmore, Margaret Weis and Tracy Hickman
+COPYRIGHT:Spycraft Copyright (c) 2001, Alderac Entertainment Group, Inc
+COPYRIGHT:Steam and Steel, Copyright 2004, EN Publishing.
+COPYRIGHT:Swashbuckler Copyright 2001, Felix Lim, Jr.
+COPYRIGHT:Swashbuckling Adventures Copyright 2002, Alderac Entertainment Group.
+COPYRIGHT:Swords of Our Fathers Copyright 2003, The Game Mechanics.
+COPYRIGHT:T20 - The Traveller's Handbook Copyright 2002, QuickLink Interactive, Inc.
+COPYRIGHT:Talent Tree Compendium Copyright 2006, Jeremy Forbing. Published by Big Finger Games
+COPYRIGHT:The Book of Iron Might Copyright 2004 Monte J. Cook.;Author: Mike Mearls
+COPYRIGHT:The Cavalier's Handbook, Copyright 2004, Green Ronin Publishing, Author Robert J. Schwalb
+COPYRIGHT:The Imperial Age: Advanced Class : Alienist Copyright 2007, Adamant Entertainment. Author: Walt Ciechanowski
+COPYRIGHT:The Imperial Age: Advanced Class: Monster Hunter Copyright 2006, Adamant Entertainment. Author: Walt Ciechanowski
+COPYRIGHT:The Imperial Age: Advanced Class: Scientific Detective Copyright 2006, Adamant Entertainment. Author: Walt Ciechanowski
+COPYRIGHT:The Imperial Age: British India Copyright 2007, Adamant Entertainment. Author: Walt Ciechanowski
+COPYRIGHT:The Imperial Age: Engines Copyright 2007, Adamant Entertainment. Author: Walt Ciechanowski
+COPYRIGHT:The Imperial Age: GameMaster's Guidebook to Victorian Adventure Copyright 2007, Adamant Entertainment. Author: Walt Ciechanowski
+COPYRIGHT:The Imperial Age: Imperial Age Magick Copyright 2006, Adamant Entertainment. Authors: Scott Carter and Walt Ciechanowski
+COPYRIGHT:The Noble's Handbook, Copyright 2003, Green Ronin Publishing, Author Steve Kenson
+COPYRIGHT:The Psychic's Handbook, Copyright 2004, Green Ronin Publishing, Author Steve Kenson
+COPYRIGHT:The Quintessential Rogue, Copyright 2002, Mongoose Publishing.
+COPYRIGHT:Thrilling Tales: The Mummy's Revenge Copyright 2004, Adamant Entertainment
+COPYRIGHT:Traps and Treachery, Copyright 2001, Fantasy Flight Inc.; Authors Greg Benage, Kurt Brown, Mark Chance, Brian Ferrenz, Lizard, David Lyons, Brian Patterson, Scott Stoecker, Wil Upchurch.
+COPYRIGHT:True20 Adventure Roleplaying, Copyright 2005, Green Ronin Publishing; Author Steve Kenson.
+COPYRIGHT:Unearthed Arcana Copyright 2004, Wizards of the Coast, Inc.
+COPYRIGHT:Unholy Warrior's Handbook, copyright 2002, Green Ronin Publishing, Author Robert J. Schwalb
+COPYRIGHT:Weird Wars, Weird Wars Two Copyright (c) 2001, Pinnacle Entertainment Group, Inc.
+COPYRIGHT:Witch's Handbook, Copyright 2002, Green Ronin Publishing, Author Steve Kenson
+COPYRIGHT:Wrath & Rage: A Guidebook to Orcs and Half-Orcs, Copyright 2002, Green Ronin Publishing; Author: Jim Bishop.
+COPYRIGHT:Pathfinder Roleplaying Game Beta Release. Copyright 2008, Paizo Publishing, LLC; Author: Jason Bulmahn.
+COPYRIGHT:Modern Dispatch #9 2004, RPGObjects; Author Charles Rice
+COPYRIGHT:Blood and Guts 2: Military Training Manual: 2005, RPGObjects; Author Charles Rice
+COPYRIGHT:Gaslight Victorian Fantasy Role Playing Game Copyright 2009, Jonathan M. Thompson d/b/a Battlefield Press, Inc.; Authors Marc Gacy, Stephen J. Miller and Jonathan M. Thompson
+COPYRIGHT:PCGen dataset conversion for "Gaslight Victorian Fantasy Role Playing Game" Copyright 2010, PCGen Data Team (including, but not limited to: Eddy Anthony (MoSaT), Andrew Maitland (LegacyKing))
+
+#
+# End
+#
