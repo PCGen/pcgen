@@ -1483,8 +1483,8 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Dragon Traits</name>
-			<description>Dragons eat/sleep/breathe. Dragons are Immune to magic sleep effects and paralysis effects.</description>
-			<type>SPECIALQUALITY</type>
+			<description></description>
+			<type>TRAITABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1494,8 +1494,8 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Dragon Traits</name>
-			<description></description>
-			<type>TRAITABILITY</type>
+			<description>Dragons eat/sleep/breathe. Dragons are Immune to magic sleep effects and paralysis effects.</description>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -1582,7 +1582,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Rock Throwing</name>
-			<description>Adult giants are accomplished rock throwers and receive a +1 racial bonus on attack rolls when throwing rocks. A giant of at least Large size can hurl rocks weighing 40 to 50 pounds each (Small objects) up to five range increments. The size of the range increment varies with the giant&#39;s variety. A Huge giant can hurl rocks of 60 to 80 pounds (Medium objects).</description>
+			<description>The range increment is 140 feet for a cloud giant&#39;s thrown rocks.</description>
 			<type>SPECIALATTACK.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
@@ -1593,7 +1593,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Rock Throwing</name>
-			<description>The range increment is 140 feet for a cloud giant&#39;s thrown rocks.</description>
+			<description>Adult giants are accomplished rock throwers and receive a +1 racial bonus on attack rolls when throwing rocks. A giant of at least Large size can hurl rocks weighing 40 to 50 pounds each (Small objects) up to five range increments. The size of the range increment varies with the giant&#39;s variety. A Huge giant can hurl rocks of 60 to 80 pounds (Medium objects).</description>
 			<type>SPECIALATTACK.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>

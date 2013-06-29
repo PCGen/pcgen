@@ -956,8 +956,8 @@ BIO
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Construct Traits</name>
-			<description>Constructs do not eat/sleep/breathe. Constructs are Immune to poison/ sleep effects/ paralysis/ stunning/ disease/ death effects/ and necromancy effects. Constructs cannot heal damage on own but can be repaired by exposure to certain kind of effect (see description for details) or through use of Craft Construct feat (does benefit from Fast Healing special ability). Not subject to critical hits/ nonlethal damage/ ability damage/ ability drain/ fatigue/ exhaustion/ or energy drain. Immune to effects requiring a Fortitude save (unless it affects objects or is harmless). Not at risk from death from massive damage (but destroyed when reduced to 0 hp). Constructs cannot be raised/resurrected.</description>
-			<type>SPECIALQUALITY</type>
+			<description></description>
+			<type>TRAITABILITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -967,8 +967,8 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Construct Traits</name>
-			<description></description>
-			<type>TRAITABILITY</type>
+			<description>Constructs do not eat/sleep/breathe. Constructs are Immune to poison/ sleep effects/ paralysis/ stunning/ disease/ death effects/ and necromancy effects. Constructs cannot heal damage on own but can be repaired by exposure to certain kind of effect (see description for details) or through use of Craft Construct feat (does benefit from Fast Healing special ability). Not subject to critical hits/ nonlethal damage/ ability damage/ ability drain/ fatigue/ exhaustion/ or energy drain. Immune to effects requiring a Fortitude save (unless it affects objects or is harmless). Not at risk from death from massive damage (but destroyed when reduced to 0 hp). Constructs cannot be raised/resurrected.</description>
+			<type>SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
