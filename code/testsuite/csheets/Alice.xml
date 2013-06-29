@@ -926,6 +926,39 @@ BIO
 		<weapon>
 			<common>
 				<name>
+					<short>*Light Shield</short>
+					<long>*Light Shield</long>
+				</name>
+				<category>Non-Standard-Melee</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+3/-2</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+3/-2</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Equipped</hand>
+				<num_attacks>2</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type></type>
+				<weight>0</weight>
+				<sequence>0</sequence>
+			</common>
+			<simple>
+				<to_hit>+3/-2</to_hit>
+				<damage>1d6</damage>
+				<range>0 ft.</range>
+			</simple>
+		</weapon>
+		<weapon>
+			<common>
+				<name>
 					<short>*Tentacles of the Fey</short>
 					<long>*Tentacles of the Fey (Natural/Primary)</long>
 				</name>
@@ -948,7 +981,7 @@ BIO
 				<template></template>
 				<type>BPS</type>
 				<weight>0</weight>
-				<sequence>0</sequence>
+				<sequence>1</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1106,7 +1139,7 @@ BIO
 			<longname>Light Shield</longname>
 			<id></id>
 			<name>Light Shield</name>
-			<carried>1.0</carried>
+			<carried>2.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
 			<contents></contents>
@@ -1124,7 +1157,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>SHIELD.LIGHT</type>
+			<type>SHIELD.LIGHT.WEAPON.MELEE</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1186,7 +1219,7 @@ BIO
 				</item>
 		<item>
 					<name>Light Shield</name>
-					<carried>1.0</carried>
+					<carried>2.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
 					<contents></contents>
@@ -1201,7 +1234,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>SHIELD.LIGHT</type>
+					<type>SHIELD.LIGHT.WEAPON.MELEE</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
