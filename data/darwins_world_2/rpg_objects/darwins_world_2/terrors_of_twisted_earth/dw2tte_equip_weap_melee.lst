@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Darwin's World 2nd Edition	SOURCESHORT:DW2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2003-01
+
+#	DW2 & MSRD Melee Weapons
+#	Simple Weapons Melee
+# Equipment Name	Required Weapon Proficiency	Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size
+Shortspear		PROFICIENCY:WEAPON|Shortspear	TYPE:Weapon.Simple.Melee.Ranged.Standard.Piercing.Thrown.Spear.Wood	COST:0	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8			SIZE:M
+Rock			PROFICIENCY:WEAPON|Rock		TYPE:Weapon.Simple.Melee.Ranged.Thrown.Bludgeoning.Standard			COST:0	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	RANGE:10	SIZE:M

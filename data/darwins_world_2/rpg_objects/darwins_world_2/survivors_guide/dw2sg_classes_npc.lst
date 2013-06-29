@@ -1,0 +1,19 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)	SOURCESHORT:DW2_SG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2006-01
+
+# Not sure why these are here
+
+# Class Name		Output Name			Hit Dice	Type			Source Page					Levels per Feat	Save checks bonus											Combat bonus					Bonus Number of Feats
+CLASS:Aberration (Alt)	OUTPUTNAME:Aberration	HD:8		TYPE:Monster	SOURCEPAGE:msrdcreaturetypes.rtf	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:FEAT|POOL|max(0,INT)
+# Class Name		Reg. Race Type
+CLASS:Aberration (Alt)	PRERACETYPE:Aberration
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Aberration (Alt)	STARTSKILLPTS:2	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
+
+# Class Name		Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus											Combat bonus					Bonus Number of Feats		Bonus to skill point for a level
+CLASS:Mutant Beast	HD:10		TYPE:Monster	SOURCEPAGE:?	LEVELSPERFEAT:4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:FEAT|POOL|max(0,INT)	BONUS:SKILLPOOL|CLASS=Mutant Beast;LEVEL=1|6|PREMULT:2,[PRESTAT:1,INT=2],[!PRESTAT:1,INT=3]	BONUS:SKILLPOOL|CLASS=Mutant Beast;LEVEL=1|8|PREMULT:2,[PRESTAT:1,INT=1],[!PRESTAT:1,INT=2]
+# Class Name		Reg. Race Type
+CLASS:Mutant Beast	PRERACETYPE:Mutant Beast
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Mutant Beast	STARTSKILLPTS:1	MODTOSKILLS:NO			MONSKILL:2*INTSCORE
+2:REPEATLEVEL:1	BONUS:SKILLPOOL|NUMBER|-1|!PRESTAT:1,INT=3

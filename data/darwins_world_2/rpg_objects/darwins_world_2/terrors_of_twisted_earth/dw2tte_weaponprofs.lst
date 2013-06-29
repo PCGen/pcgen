@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Darwin's World 2nd Edition	SOURCESHORT:DW2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw	SOURCEDATE:2003-01
+
+# Weapon Name		Type				Nb Hands
+
+# Futuristic Firearms
+# Weapon Name	Type				Nb Hands
+Acid Rifle		TYPE:FuturisticFirearm	HANDS:2
+
+#Ranged
+Rock			TYPE:Simple
+
+#Melee
+Shortspear		TYPE:Simple
