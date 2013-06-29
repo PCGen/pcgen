@@ -24,6 +24,6 @@ INFOTEXT:All the Dwarwin's World Combined Rules.
 
 PCC:@/homebrew/conversion_support/conversion_support.pcc
 
-PCC:worldrules/worldrules.pcc
+PCC:world_rules/worldrules.pcc
 PCC:denizens/denizenste.pcc
 PCC:artifacts/artifactsoa.pcc
