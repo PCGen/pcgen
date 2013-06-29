@@ -64,15 +64,15 @@ PCC:@/pathfinder/paizo/pathfinder/ultimate_magic/ultimate_magic.pcc
 
 # Pathfinder Adventure Paths
 
-PCC:@/pathfinder/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/pathfinder_conversion/rise_of_the_runelords_players_guide_pfrpg.pcc
-PCC:@/pathfinder/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae_players_guide/rise_of_the_runelords_ae_players_guide.pcc
-PCC:@/pathfinder/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/pathfinder_conversion/cotct_pf.pcc
-PCC:@/pathfinder/paizo/pathfinder_adventure_path/legacy_of_fire/legacy_of_fire_players_guide/pathfinder_conversion/legacy_of_fire_players_guide_pfrpg.pcc
-PCC:@/pathfinder/paizo/pathfinder_adventure_path/council_of_thieves/council_of_thieves_players_guide/council_of_thieves_players_guide.pcc
-PCC:@/pathfinder/paizo/pathfinder_adventure_path/kingmaker/kingmaker_players_guide/kingmaker_players_guide.pcc
-PCC:@/pathfinder/paizo/pathfinder_adventure_path/serpents_skull/serpents_skull_players_guide/serpents_skull_players_guide.pcc
-PCC:@/pathfinder/paizo/pathfinder_adventure_path/carrion_crown/carrion_crown_players_guide/carrion_crown_players_guide.pcc
-PCC:@/pathfinder/paizo/pathfinder_adventure_path/jade_regent/jade_regent_players_guide/jade_regent_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/pathfinder_conversion/rise_of_the_runelords_players_guide_pfrpg.pcc
+PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae_players_guide/rise_of_the_runelords_ae_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/pathfinder_conversion/cotct_pf.pcc
+PCC:@/pathfinder/paizo/adventure_path/legacy_of_fire/legacy_of_fire_players_guide/pathfinder_conversion/legacy_of_fire_players_guide_pfrpg.pcc
+PCC:@/pathfinder/paizo/adventure_path/council_of_thieves/council_of_thieves_players_guide/council_of_thieves_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/kingmaker/kingmaker_players_guide/kingmaker_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/serpents_skull/serpents_skull_players_guide/serpents_skull_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/carrion_crown/carrion_crown_players_guide/carrion_crown_players_guide.pcc
+PCC:@/pathfinder/paizo/adventure_path/jade_regent/jade_regent_players_guide/jade_regent_players_guide.pcc
 #Skull & Shackles
 #Shattered Star
 #Reign of Winter
@@ -84,19 +84,19 @@ PCC:@/pathfinder/paizo/pathfinder_adventure_path/jade_regent/jade_regent_players
 #Pathfinder Campaign Setting: Classic Horrors Revisited
 #Pathfinder Campaign Setting: Classic Monsters Revisited
 #Pathfinder Campaign Setting: Classic Treasures Revisited
-PCC:@/pathfinder/paizo/pathfinder_campaign_setting/dark_markets_a_guide_to_katapesh/pathfinder_conversion/dmgk_pfrpg.pcc
+PCC:@/pathfinder/paizo/campaign_setting/dark_markets_a_guide_to_katapesh/pathfinder_conversion/dmgk_pfrpg.pcc
 #Pathfinder Campaign Setting: Distant Worlds
-PCC:@/pathfinder/paizo/pathfinder_campaign_setting/dragon_empires_gazetteer/dragon_empires_gazetteer.pcc
+PCC:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/dragon_empires_gazetteer.pcc
 #Pathfinder Campaign Setting: Dungeon Denizens Revisited
 #Pathfinder Campaign Setting: Dungeons of Golarion
 #Pathfinder Campaign Setting: Faction Guide
 #Pathfinder Campaign Setting: Giants Revisited
 #Pathfinder Campaign Setting: Gods and Magic
-PCC:@/pathfinder/paizo/pathfinder_campaign_setting/guide_to_the_river_kingdoms/guide_to_the_river_kingdoms.pcc
-PCC:@/pathfinder/paizo/pathfinder_campaign_setting/heart_of_the_jungle/heart_of_the_jungle.pcc
+PCC:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/guide_to_the_river_kingdoms.pcc
+PCC:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/heart_of_the_jungle.pcc
 #Pathfinder Campaign Setting: Horsemen of the Apocalypse
 #Pathfinder Campaign Setting: Inner Sea Magic
-PCC:@/pathfinder/paizo/pathfinder_campaign_setting/inner_sea_world_guide/inner_sea_world_guide.pcc
+PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/inner_sea_world_guide.pcc
 #Pathfinder Campaign Setting: Lands of the Linnorm Kings
 #Pathfinder Campaign Setting: Lords of Chaos
 #Pathfinder Campaign Setting: Lost Kingdoms
@@ -105,14 +105,14 @@ PCC:@/pathfinder/paizo/pathfinder_campaign_setting/inner_sea_world_guide/inner_s
 #Pathfinder Campaign Setting: Mythical Monsters Revisited
 #Pathfinder Campaign Setting: Pathfinder Society Field Guide
 #Pathfinder Campaign Setting: Paths of Prestige
-PCC:@/pathfinder/paizo/pathfinder_campaign_setting/princes_of_darkness/pod.pcc
+PCC:@/pathfinder/paizo/campaign_setting/princes_of_darkness/pod.pcc
 #Pathfinder Campaign Setting: Rival Guide
 #Pathfinder Campaign Setting: Seekers of Secrets
 #Pathfinder Character Traits Web Enhancement
 
 #Pathfinder Chronicles Campaign Setting
 #* As of 3/7/11, the Pathfinder Chronicles Campaign Setting has been replaced by the Pathfinder Campaign Setting: Inner Sea World Guide
-#PCC:@/pathfinder/paizo/pathfinder_campaign_setting/pathfinder_campaign_setting/pathfinder_campaign_setting.pcc
+#PCC:@/pathfinder/paizo/campaign_setting/campaign_setting/campaign_setting.pcc
 
 # Pathfinder Player Companions
 
@@ -148,4 +148,4 @@ PCC:@/pathfinder/paizo/adventure_path/second_darkness/second_darkness_players_gu
 
 # Other Pathfinder RPG sources in PCGen which aren't allowed for PFS
 #PCC:@/pathfinder/paizo/pathfinder/bonus_bestiary/bonus_bestiary.pcc
-#PCC:@/pathfinder/paizo/pathfinder_campaign_setting/seekers_of_secrets/seekers_of_secrets.pcc
+#PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/seekers_of_secrets.pcc
