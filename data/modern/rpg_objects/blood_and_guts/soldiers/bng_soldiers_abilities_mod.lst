@@ -1,0 +1,39 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Guts - Soldiers	SOURCESHORT:BnG-S	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49	SOURCEDATE:2004-01
+
+# Ability Name												Category of Ability		Type																Visible		Class Skill
+CATEGORY=Starting Occupation|Bluff(class skill).MOD											TYPE:LegalServicesSkills.RecruitingSkills.SupplySkills
+CATEGORY=Starting Occupation|Communication Operations(class skill).MOD								TYPE:AirDefenseSkills
+CATEGORY=Starting Occupation|Computer Use(class skill).MOD										TYPE:AdministrativeSkills.LegalServicesSkills.RecruitingSkills.SupplySkills
+CATEGORY=Starting Occupation|Demolitions(class skill).MOD										TYPE:AirDefenseSkills
+CATEGORY=Starting Occupation|Diplomacy(class skill).MOD										TYPE:AdministrativeSkills.LegalServicesSkills.RecruitingSkills.ReligiousSkills.SupplySkills
+CATEGORY=Starting Occupation|Disable Device(class skill).MOD									TYPE:AirDefenseSkills
+CATEGORY=Starting Occupation|Drive(class skill).MOD											TYPE:AirDefenseSkills
+CATEGORY=Starting Occupation|Forgery(class skill).MOD											TYPE:SupplySkills
+CATEGORY=Starting Occupation|Gather Information(class skill).MOD									TYPE:LegalServicesSkills.SupplySkills
+CATEGORY=Starting Occupation|Hide(class skill).MOD											TYPE:AirDefenseSkills
+CATEGORY=Starting Occupation|Knowledge (Art - class skill).MOD									TYPE:AdministrativeSkills
+CATEGORY=Starting Occupation|Knowledge (Behavioral Sciences - class skill).MOD						TYPE:LegalServicesSkills.RecruitingSkills.ReligiousSkills
+CATEGORY=Starting Occupation|Knowledge (Business - class skill).MOD								TYPE:AdministrativeSkills.LegalServicesSkills
+CATEGORY=Starting Occupation|Knowledge (Civics - class skill).MOD									TYPE:LegalServicesSkills
+Knowledge (Current Events - class skill)								CATEGORY:Starting Occupation	TYPE:Occupation_Skill.AdministrativeSkills.RecruitingSkills							VISIBLE:DISPLAY	CSKILL:Knowledge (Current Events)
+CATEGORY=Starting Occupation|Knowledge (History - class skill).MOD								TYPE:ReligiousSkills
+Knowledge (Popular Culture - class skill)								CATEGORY:Starting Occupation	TYPE:Occupation_Skill.AdministrativeSkills.RecruitingSkills							VISIBLE:DISPLAY	CSKILL:Knowledge (Popular Culture)
+CATEGORY=Starting Occupation|Knowledge (Tactics - class skill).MOD								TYPE:AirDefenseSkills
+CATEGORY=Starting Occupation|Knowledge (Technology - class skill).MOD								TYPE:AirDefenseSkills
+CATEGORY=Starting Occupation|Knowledge (Theology and Philosophy - class skill).MOD						TYPE:ReligiousSkills
+CATEGORY=Starting Occupation|Listen(class skill).MOD											TYPE:AdministrativeSkills.RecruitingSkills.ReligiousSkills.SupplySkills
+CATEGORY=Starting Occupation|Navigate(class skill).MOD										TYPE:AirDefenseSkills
+CATEGORY=Starting Occupation|Perform (Act - class skill).MOD									TYPE:AdministrativeSkills
+CATEGORY=Starting Occupation|Perform (Dance - class skill).MOD									TYPE:AdministrativeSkills
+CATEGORY=Starting Occupation|Perform (Keyboards - class skill).MOD								TYPE:AdministrativeSkills
+CATEGORY=Starting Occupation|Perform (Percussion Instruments - class skill).MOD						TYPE:AdministrativeSkills
+CATEGORY=Starting Occupation|Perform (Sing - class skill).MOD									TYPE:AdministrativeSkills
+CATEGORY=Starting Occupation|Perform (Stand-Up - class skill).MOD									TYPE:AdministrativeSkills
+CATEGORY=Starting Occupation|Perform (Stringed Instruments - class skill).MOD							TYPE:AdministrativeSkills
+CATEGORY=Starting Occupation|Perform (Wind Instruments - class skill).MOD							TYPE:AdministrativeSkills
+CATEGORY=Starting Occupation|Repair(class skill).MOD											TYPE:AirDefenseSkills.SupplySkills
+CATEGORY=Starting Occupation|Research(class skill).MOD										TYPE:AdministrativeSkills.LegalServicesSkills.RecruitingSkills.ReligiousSkills.SupplySkills
+CATEGORY=Starting Occupation|Sense Motive(class skill).MOD										TYPE:LegalServicesSkills.RecruitingSkills.SupplySkills
+CATEGORY=Starting Occupation|Spot(class skill).MOD											TYPE:AirDefenseSkills.ReligiousSkills
+CATEGORY=Starting Occupation|Treat Injury(class skill).MOD										TYPE:ReligiousSkills

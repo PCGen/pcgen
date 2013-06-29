@@ -1,0 +1,99 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141	SOURCEDATE:2005-01
+#Original entry by: Frank Kliewe
+
+STARTPACK:Breed (Warrior) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Breed (Warrior)]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+RACE:Breed (Warrior)	!PRERACE:1,%
+NAME:Warrior Breed
+
+STARTPACK:Demon (Pumpkin) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Pumpkin)]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Demon (Pumpkin)	!PRERACE:1,%
+NAME:Pumpkin Demon
+SKILL:Hide			RANK:13
+SKILL:Move Silently	RANK:13
+SKILL:Intimidate		RANK:15
+SKILL:Concentration	RANK:13
+SKILL:Spot			RANK:13
+SKILL:Listen		RANK:13
+SKILL:Search		RANK:13
+SKILL:Sense Motive	RANK:13
+SKILL:Bluff			RANK:13
+SKILL:Diplomacy		RANK:4
+SKILL:TYPE=Knowledge	RANK:13
+FEAT:Head Squish
+FEAT:Improved Initiative
+FEAT:Iron Will
+FEAT:Multiattack
+
+STARTPACK:Demon (Slasher) Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Slasher)]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Demon (Slasher)	!PRERACE:1,%
+NAME:Slasher Demon
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+SKILL:Hide		RANK:8
+
+STARTPACK:Dream Stalker Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dream Stalker]
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+RACE:Dream Stalker	!PRERACE:1,%
+NAME:Dream Stalker
+SKILL:Listen		RANK:11
+SKILL:Spot			RANK:11
+SKILL:Intimidate		RANK:11
+SKILL:Bluff			RANK:11
+SKILL:Spellcraft		RANK:11
+SKILL:Concentration	RANK:11
+SKILL:Sense Motive	RANK:11
+SKILL:Ride			RANK:11
+SKILL:Diplomacy		RANK:4
+FEAT:Alertness
+FEAT:Catch Phrase
+#Combat Casting does not exist in Modern
+#FEAT:Combat Casting
+
+STARTPACK:Lurker Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lurker]
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+RACE:Lurker	!PRERACE:1,%
+NAME:Lurker
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:2
+FEAT:Multiattack
+FEAT:Toughness(+3 HP)
+
+STARTPACK:Sentinel Sphere Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sentinel Sphere]
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Sentinel Sphere	!PRERACE:1,%
+NAME:Sentinel Sphere
+
+STARTPACK:Soul Sucker Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Soul Sucker]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+RACE:Soul Sucker	!PRERACE:1,%
+NAME:Soul Sucker
+SKILL:Diplomacy		RANK:4
+SKILL:Hide			RANK:8
+SKILL:Intimidate		RANK:8
+SKILL:Listen		RANK:8
+SKILL:Search		RANK:8
+SKILL:Sense Motive	RANK:6
+SKILL:Spot			RANK:8
+FEAT:Alertness
+FEAT:Blind-Fight
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+
+STARTPACK:Thin Stranger Default	TYPE:DefaultMonster	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+RACE:Thin Stranger	!PRERACE:1,%
+NAME:Thin Stranger
+SKILL:Bluff			RANK:7
+SKILL:Drive			RANK:7
+SKILL:Hide			RANK:6
+SKILL:Intimidate		RANK:6
+SKILL:Listen		RANK:4
+SKILL:Move Silently	RANK:6
+SKILL:Sense Motive	RANK:4
+SKILL:Spot			RANK:4
+FEAT:Heroic Surge

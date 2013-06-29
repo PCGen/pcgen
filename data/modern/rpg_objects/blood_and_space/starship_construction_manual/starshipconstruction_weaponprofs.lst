@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Space - Starship Construction Manual	SOURCESHORT:BnS-SCM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=58	SOURCEDATE:2005-01
+#Original Entry By: Sean Silva-Miramon
+
+#PL6 Starship Weapons
+# Weapon Name		Type			Nb Hands
+Slingshot Massdriver	TYPE:Starship	HANDS:2

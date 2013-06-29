@@ -1,0 +1,54 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com/d20modern	SOURCEDATE:2004-01
+# Author Terry FitzSimons   Date 8 May 2006
+
+#Should the Conversion Kits be EQMODS? - Frank
+
+# Conversion Kits
+# Equipment Name								Output Name									Type								Cost		Weight	Source Page		Special Property
+Conversion Kit (HK4 .380ACP)						OUTPUTNAME:Conversion Kit: HK4 .380ACP				TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.27
+Conversion Kit (HK4 .32ACP)						OUTPUTNAME:Conversion Kit: HK4 .32ACP				TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.27
+Conversion Kit (HK4 .25ACP)						OUTPUTNAME:Conversion Kit: HK4 .25ACP				TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.27
+Conversion Kit (HK4 .22)						OUTPUTNAME:Conversion Kit: HK4 .22					TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.27
+Conversion Kit (Jericho 941 9mm)					OUTPUTNAME:Conversion Kit: Jericho 941 9mm			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.29
+Conversion Kit (Jericho 941 .40SW)					OUTPUTNAME:Conversion Kit: Jericho 941 .40SW			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.29
+Conversion Kit (Jericho 941 .45ACP)					OUTPUTNAME:Conversion Kit: Jericho 941 .45ACP			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.29
+Conversion Kit (Jericho 941FB 9mm)					OUTPUTNAME:Conversion Kit: Jericho 941FB 9mm			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.29
+Conversion Kit (Jericho 941FB .40SW)				OUTPUTNAME:Conversion Kit: Jericho 941FB .40SW			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.29
+Conversion Kit (Jericho 941FB .45ACP)				OUTPUTNAME:Conversion Kit: Jericho 941FB .45ACP			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.29
+Conversion Kit (MR73 Gendarmerie .357Mag)				OUTPUTNAME:Conversion Kit: MR73 Gendarmerie .357Mag		TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.33
+Conversion Kit (MR73 Gendarmerie 9mmP)				OUTPUTNAME:Conversion Kit: MR73 Gendarmerie 9mmP		TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.33
+Conversion Kit (OTs-27 Berdysh 9mmM)				OUTPUTNAME:Conversion Kit: OTs-27 Berdysh 9mmM			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.37
+Conversion Kit (OTs-27 Berdysh 9mmP)				OUTPUTNAME:Conversion Kit: OTs-27 Berdysh 9mmP			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.37
+Conversion Kit (SIG-Sauer P229 9mmP)				OUTPUTNAME:Conversion Kit: SIG-Sauer P229 9mmP			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:13	WT:0		SOURCEPAGE:p.45
+Conversion Kit (SIG-Sauer P229 .357SIG)				OUTPUTNAME:Conversion Kit: SIG-Sauer P229 .357SIG		TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:13	WT:0		SOURCEPAGE:p.45
+Conversion Kit (Thompson Center Contender .22)			OUTPUTNAME:Conversion Kit: Thompson Center Contender .22	TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.50
+Conversion Kit (Thompson Center Contender 5.46mm)		OUTPUTNAME:Conversion Kit: Thompson Center Contender 5.46mm	TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.50
+Conversion Kit (Thompson Center Contender 7.62mm)		OUTPUTNAME:Conversion Kit: Thompson Center Contender 7.62mm	TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.50
+Conversion Kit (Thompson Center Contender .45-70)		OUTPUTNAME:Conversion Kit: Thompson Center Contender .45-70	TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:10	WT:0		SOURCEPAGE:p.50
+Conversion Kit (L85A1 Cadet 5.56mm)					OUTPUTNAME:Conversion Kit: L85A1 Cadet 5.56mm			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.71
+Conversion Kit (L85A1 Cadet .22)					OUTPUTNAME:Conversion Kit: L85A1 Cadet .22			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.71
+Conversion Kit (MTAR-21 Tavor Series 5.45mm)			OUTPUTNAME:Conversion Kit: MTAR-21 Tavor Series 5.45mm	TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.81
+Conversion Kit (MTAR-21 Tavor Series 9mm)				OUTPUTNAME:Conversion Kit: MTAR-21 Tavor Series 9mm		TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.81
+Conversion Kit (Harris M-89 7.62mm)					OUTPUTNAME:Conversion Kit: Harris M-89 7.62mm			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.92
+Conversion Kit (Harris M-89 .300W)					OUTPUTNAME:Conversion Kit: Harris M-89 .300W			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.92
+Conversion Kit (Harris M-89 .30-06)					OUTPUTNAME:Conversion Kit: Harris M-89 .30-06			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:0	WT:0		SOURCEPAGE:p.92
+Conversion Kit (Steyr AUG Rifle Submachine Gun)			OUTPUTNAME:Conversion Kit: Steyr AUG Rifle Submachine Gun	TYPE:Goods.WeaponAccessory.Kits.Submachine	COST:17	WT:0		SOURCEPAGE:p.138
+Conversion Kit (M60 - 7.62mm General Purpose Machine Gun)	OUTPUTNAME:Conversion Kit: M60 to M60A3				TYPE:Goods.WeaponAccessory.Kits.Submachine	COST:14	WT:0		SOURCEPAGE:p.167
+Conversion Kit (SS-77 - 7.62mm General Purpose Machine Gun)	OUTPUTNAME:Conversion Kit: SS-77 to Mini SS			TYPE:Goods.WeaponAccessory.Kits.Caliber		COST:14	WT:0		SOURCEPAGE:p.172
+Conversion Kit (ISTEC ISL 201 Compact)				OUTPUTNAME:Conversion Kit: ISTEC ISL 201 Compact		TYPE:Goods.WeaponAccessory.Kits.GrenadeLauncher	COST:0	WT:0		SOURCEPAGE:p.180
+Conversion Kit (ISTEC ISL 202 Compact)				OUTPUTNAME:Conversion Kit: ISTEC ISL 202 Compact		TYPE:Goods.WeaponAccessory.Kits.GrenadeLauncher	COST:0	WT:0		SOURCEPAGE:p.180
+Conversion Kit (ISTEC ISL 203 Compact)				OUTPUTNAME:Conversion Kit: ISTEC ISL 203 Compact		TYPE:Goods.WeaponAccessory.Kits.GrenadeLauncher	COST:0	WT:0		SOURCEPAGE:p.180
+Conversion Kit (ISTEC ISL 204 Compact				OUTPUTNAME:Conversion Kit: ISTEC ISL 204 Compact		TYPE:Goods.WeaponAccessory.Kits.GrenadeLauncher	COST:0	WT:0		SOURCEPAGE:p.180
+Conversion Kit (Maadi GL)						OUTPUTNAME:Conversion Kit: Maadi GL					TYPE:Goods.WeaponAccessory.Kits.GrenadeLauncher	COST:12	WT:0		SOURCEPAGE:p.181	SPROP:Adapter sets to fit GL to many types of Assault Rifles
+
+# Misc Kits
+# Equipment Name								Output Name									Type								Cost		Weight	Source Page		Special Property
+M4 SOPMOD Individual							OUTPUTNAME:Conversion Kit: M4 SOPMOD Individual			TYPE:Goods.WeaponAccessory.Kits			COST:4	WT:0		SOURCEPAGE:p.74
+M4 SOPMOD 4-Pack								OUTPUTNAME:Conversion Kit: M4 SOPMOD 4-Pack			TYPE:Goods.WeaponAccessory.Kits			COST:16	WT:0		SOURCEPAGE:p.74
+Empty Machine Gun Links (100)																TYPE:Goods.WeaponAccessory				COST:4	WT:0		SOURCEPAGE:p.159
+US Heavy Weapons Gun Tripod																TYPE:Goods.WeaponAccessory				COST:12	WT:22		SOURCEPAGE:p.161
+
+# Spare MG Barrels
+# Equipment Name								Output Name									Type								Cost		Weight	Source Page		Special Property
+Fabrrique National M2HB QCB						OUTPUTNAME:Spare Barrel: Fabrrique National M2HB QCB		TYPE:Goods.WeaponAccessory.Kits.SpareMGBarrels	COST:15	WT:0		SOURCEPAGE:p.160

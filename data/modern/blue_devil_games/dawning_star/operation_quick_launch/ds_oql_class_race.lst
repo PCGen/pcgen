@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus									Combat bonus		Modify VAR
+CLASS:Human Survivor	HD:8		TYPE:PC.Race	MAXLEVEL:3	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL+3)*2/5	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/3	BONUS:VAR|Action|CL*5
+# Class Name		Required Lvl	Required Race
+CLASS:Human Survivor	PRELEVEL:MIN=2	PRERACE:1,Human
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Human Survivor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Drive|Jump|Knowledge (Current Events)|Knowledge (History)|Knowledge (Local)|Knowledge (Popular Culture)|Listen|Profession|Search|Speak Language|Spot|Survival|Swim|Treat Injury
+1	SAB:Adaptable		BONUS:STAT|CON|1	BONUS:VAR|SurvivalInstinct|CL						ABILITY:Special Ability|AUTOMATIC|Survival Instinct
+2					BONUS:STAT|WIS|1						ADD:FEAT|TYPE=HumanSurvivor
+3	SAB:Last Man Standing	BONUS:STAT|CHA|1
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus		Modify VAR
+CLASS:Velin Hunter	HD:8		TYPE:PC.Race	MAXLEVEL:3	SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|(CL+3)*2/5	BONUS:COMBAT|BAB|CL	BONUS:VAR|Action|CL*5	BONUS:VAR|ClassDefense|CL/2	BONUS:VAR|Reputation|(CL-1)/3
+# Class Name		Required Lvl	Required Race
+CLASS:Velin Hunter	PRELEVEL:MIN=2	PRERACE:1,Velin
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Velin Hunter	STARTSKILLPTS:2	CSKILL:Climb|Craft (Tribal)|Handle Animal|Hide|Jump|Knowledge (Local)|Listen|Move Silently|Navigate|Perform (Dance)|Perform (Percussion Instruments)|Perform (Sing)|Perform (Wind Instruments)|Ride|Spot|Survival|Swim
+1						BONUS:STAT|WIS|1	BONUS:VAR|WildernessTraining|CL						ABILITY:Special Ability|AUTOMATIC|Wilderness Training
+2						BONUS:STAT|CON|1							ADD:FEAT|TYPE=VelinHunter
+3	SAB:Tribal Collective Memory	BONUS:STAT|STR|1												ABILITY:Special Ability|AUTOMATIC|Improved Detect Vaasi

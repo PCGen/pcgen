@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern Dispatch #2 - Investigating NPCs	SOURCESHORT:MD02-INPCs	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3987	SOURCEDATE:2004-01
+#Original Entry by: Frank Kliewe
+
+# Equipment Name	Type					Cost		Weight	Size		Source Page
+Voice Modulator	TYPE:Goods.Tools.Electronic	COST:14	WT:0.5	SIZE:T	SOURCEPAGE:p.4

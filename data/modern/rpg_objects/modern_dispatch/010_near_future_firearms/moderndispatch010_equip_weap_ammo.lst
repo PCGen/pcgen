@@ -1,0 +1,17 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern Dispatch #10 - Near-Future Firearms	SOURCESHORT:MD10-NFF	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3994	SOURCEDATE:2004-01
+#Original Entry by: Frank Kliewe
+
+###Block:Ammo Packs
+# Equipment Name			Output Name						Type							Cost		Weight	Source Page
+Bullet (.25 caseless/50)	OUTPUTNAME:.25 caseless Bullets, 50 pack	TYPE:Ammunition.Standard.Caseless.Bullet	COST:6	WT:0		SOURCEPAGE:p.5
+Bullet (9mmEXC/50)		OUTPUTNAME:9mmEXC Bullets, 50 pack		TYPE:Ammunition.Standard.Caseless.Bullet	COST:7	WT:0		SOURCEPAGE:p.5
+Bullet (9mm ParaC/50)		OUTPUTNAME:9mm ParaC Bullets, 50 pack	TYPE:Ammunition.Standard.Caseless.Bullet	COST:6	WT:0		SOURCEPAGE:p.5
+Bullet (4.73mm/20)		OUTPUTNAME:4.73mm Bullets, 20 pack		TYPE:Ammunition.Standard.Caseless.Bullet	COST:8	WT:0		SOURCEPAGE:p.5
+
+###Block:Individual Ammo
+# Equipment Name		Output Name					Type									Cost		Weight	Source Page
+Bullet (.25 caseless)	OUTPUTNAME:.25 caseless Bullet	TYPE:Ammunition.Standard.Caseless.Bullet.Individual	COST:6	WT:0		SOURCEPAGE:p.5
+Bullet (9mmEXC)		OUTPUTNAME:9mmEXC Bullet		TYPE:Ammunition.Standard.Caseless.Bullet.Individual	COST:7	WT:0		SOURCEPAGE:p.5
+Bullet (9mm ParaC)	OUTPUTNAME:9mm ParaC Bullet		TYPE:Ammunition.Standard.Caseless.Bullet.Individual	COST:6	WT:0		SOURCEPAGE:p.5
+Bullet (4.73mm)		OUTPUTNAME:4.73mm Bullet		TYPE:Ammunition.Standard.Caseless.Bullet.Individual	COST:8	WT:0		SOURCEPAGE:p.5

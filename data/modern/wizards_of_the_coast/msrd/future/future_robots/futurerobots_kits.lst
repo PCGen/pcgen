@@ -1,0 +1,80 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
+# Original entry by Eddy Anthony (MoSaT)
+
+STARTPACK:Biodroid Basics	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
+STAT:CHA=5
+GEAR:Robot Sensor System (Class IV)	LOCATION:Equipped
+GEAR:Robot Locomotion (Legs/Pair)	LOCATION:Equipped	EQMOD:ROBOT_SPEED_10	PRESIZEEQ:M
+GEAR:Robot Locomotion (Legs/Pair)	LOCATION:Equipped					PRESIZEEQ:S
+
+STARTPACK:Bioreplica Basics	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
+STAT:CHA=10
+GEAR:Robot Sensor System (Class VII)
+GEAR:Robot Locomotion (Legs/Pair)		LOCATION:Equipped	EQMOD:ROBOT_SPEED_10	PRESIZEEQ:M
+GEAR:Robot Locomotion (Legs/Pair)		LOCATION:Equipped					PRESIZEEQ:S
+
+STARTPACK:Robotic Abilities	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
+
+# Sample Robots
+
+STARTPACK:Sample Robot (Spot Security Robot)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Biomorph/Medium)]
+RACE:Robot (Biomorph/Medium)	!PRERACE:1,%
+NAME:Spot Security Robot
+GEAR:Robot Locomotion (Legs/Multiple)		LOCATION:Equipped
+GEAR:Robot Sensor System (Class IV)			LOCATION:Equipped
+GEAR:Robot Manipulator (Jaws)				LOCATION:Unarmed
+GEAR:Robot Integrated Armor (Resilium Armor)	LOCATION:Equipped
+GEAR:Robot Ability Upgrade (Dexterity)		LOCATION:Equipped
+GEAR:Robot Accessory (Vocalizer)			LOCATION:Equipped
+GEAR:Robot Software (Skill Progit/4 Ranks)	LOCATION:Equipped	EQMOD:SKILLPROGIT4|Hide
+GEAR:Robot Software (Skill Progit/4 Ranks)	LOCATION:Equipped	EQMOD:SKILLPROGIT4|Jump
+GEAR:Robot Software (Skill Progit/4 Ranks)	LOCATION:Equipped	EQMOD:SKILLPROGIT4|Listen
+GEAR:Robot Software (Skill Progit/4 Ranks)	LOCATION:Equipped	EQMOD:SKILLPROGIT4|Move Silently
+GEAR:Robot Software (Skill Progit/4 Ranks)	LOCATION:Equipped	EQMOD:SKILLPROGIT4|Spot
+
+STARTPACK:Sample Robot (APE Police Robot)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Biodroid/Medium)]
+RACE:Robot (Biodroid/Medium)	!PRERACE:1,%
+NAME:APE Police Robot
+GEAR:Robot Locomotion (Legs/Pair)							LOCATION:Equipped	EQMOD:ROBOT_SPEED_10
+GEAR:Robot Integrated Armor (Duralloy Armor)					LOCATION:Equipped
+GEAR:Robot Manipulator (Hand)								LOCATION:Unarmed
+GEAR:Robot Manipulator (Hand)								LOCATION:Unarmed
+GEAR:Robot Sensor System (Class V/Ladar)						LOCATION:Equipped
+GEAR:Robot Software (Skill Progit/4 Ranks)					LOCATION:Equipped	EQMOD:SKILLPROGIT4|Climb
+GEAR:Robot Software (Skill Progit/4 Ranks)					LOCATION:Equipped	EQMOD:SKILLPROGIT4|Search
+GEAR:Robot Software (Skill Progit/8 Ranks)					LOCATION:Equipped	EQMOD:SKILLPROGIT8|Listen
+GEAR:Robot Software (Skill Progit/8 Ranks)					LOCATION:Equipped	EQMOD:SKILLPROGIT8|Spot
+GEAR:Robot Ability Upgrade (Dexterity)						LOCATION:Equipped
+GEAR:Robot Ability Upgrade (Wisdom)							LOCATION:Equipped
+GEAR:Robot Accessory (Magnetic Feet)						LOCATION:Equipped
+GEAR:Robot Accessory (Weapon Mount/Small/Medium)				LOCATION:Equipped
+GEAR:Robot Accessory (Weapon Mount/Small/Medium)				LOCATION:Equipped
+GEAR:Robot Feat Software (Personal Firearms Proficiency)			LOCATION:Equipped
+GEAR:Robot Feat Software (Exotic Firearms Proficiency/Grenade Launcher)	LOCATION:Equipped
+
+STARTPACK:Sample Robot ('Nuyu' Doppelganger Robot)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Robot (Bioreplica/Medium)]
+RACE:Robot (Bioreplica/Medium)	!PRERACE:1,%
+NAME:"Nuyu" Doppelganger Robot
+GEAR:Robot Locomotion (Legs/Pair)					LOCATION:Equipped	EQMOD:ROBOT_SPEED_10
+GEAR:Robot Software (Feat Progit)
+GEAR:Robot Feat Software (Personal Firearms Proficiency)	LOCATION:Equipped
+GEAR:Robot Manipulator (Advanced Hand)				LOCATION:Unarmed
+GEAR:Robot Manipulator (Advanced Hand)				LOCATION:Unarmed
+GEAR:Robot Sensor System (Class VII)				LOCATION:Equipped
+GEAR:Robot Software (Language Chip)					LOCATION:Equipped
+GEAR:Robot Software (Language Chip)					LOCATION:Equipped
+GEAR:Robot Ability Upgrade (Charisma)				LOCATION:Equipped
+GEAR:Robot Accessory (Integrated Cell Phone)			LOCATION:Equipped
+GEAR:Robot Accessory (Self-Destruct System/Medium)		LOCATION:Equipped
+GEAR:Robot Accessory (Self-Repair Unit)				LOCATION:Equipped
+GEAR:Robot Accessory (Vocalizer)					LOCATION:Equipped
+GEAR:Robot Software (Skill Net/4 Ranks)				LOCATION:Equipped	EQMOD:SKILLNET4A|Bluff.SKILLNET4B|Diplomacy.SKILLNET4C|Disguise.SKILLNET4D|Gather Information
+GEAR:Robot Software (Skill Net/4 Ranks)				LOCATION:Equipped	EQMOD:SKILLNET4A|Computer Use.SKILLNET4B|Disable Device.SKILLNET4C|Repair.SKILLNET4D|Knowledge (Current Events)
+GEAR:Robot Software (Skill Net/4 Ranks)				LOCATION:Equipped	EQMOD:SKILLNET4A|Drive.SKILLNET4B|Hide.SKILLNET4C|Move Silently.SKILLNET4D|Sleight of Hand
+GEAR:Robot Software (Skill Net/4 Ranks)				LOCATION:Equipped	EQMOD:SKILLNET4A|Listen.SKILLNET4B|Sense Motive.SKILLNET4C|Spot.SKILLNET4D|Survival
+
+#
+# End
+#

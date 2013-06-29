@@ -1,0 +1,94 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
+#Original entry by: Frank Kliewe
+
+# Feat Name					Type																								Clear Prereq.	Req. Att.	Required Feat													Required Stat		Special ABility									Define					Description																															Multiple?	Choose							Source Page
+Acrobatic.MOD				TYPE:Circus_Performer.Daredevil.Mystic_PF.Relic_Hunter.Shadowy_Avenger
+Advanced Combat Martial Arts.MOD	TYPE:Mystic_PF
+Advanced Firearms Proficiency.MOD	TYPE:Brawler.Detective.Mystery_Man.Soldier
+Advanced Two-Weapon Fighting.MOD	TYPE:Explorer																																																																																																									SOURCEPAGE:p.41
+Agile Riposte.MOD																												PRE:.CLEAR				PREFEAT:1,Dodge,Fancy Footwork										PRESTAT:1,DEX=13																																																													SOURCEPAGE:p.41
+Aircraft Operation.MOD			TYPE:CombatAce.Explorer.G_Man																																																																																													MULT:YES	CHOOSE:STRING|Airship|Autogyro|Heavy Aircraft	SOURCEPAGE:p.42
+Alertness.MOD				TYPE:Gangster.Relic_Hunter.Shadowy_Avenger
+Animal Affinity.MOD																																																																																																														SOURCEPAGE:p.42
+Archaic Weapons Proficiency.MOD	TYPE:Adventurer.Athlete.Circus_Performer.Explorer.Mystic_PF.Scientist.Soldier
+Armor Proficiency (Heavy).MOD		TYPE:Soldier
+Armor Proficiency (Light).MOD		TYPE:Brawler.Daredevil.Detective.Mystery_Man.Soldier
+Armor Proficiency (Medium).MOD	TYPE:Daredevil.Detective.Mystery_Man.Soldier
+Athletic.MOD				TYPE:Circus_Performer.Daredevil																																																																																																						SOURCEPAGE:p.42
+Attentive.MOD				TYPE:Antiques_Dealer.Fortuneteller.World_Traveller.Ambassador.Explorer.Scientist																																																																																														SOURCEPAGE:p.42
+Blind-Fight.MOD				TYPE:CombatAce.Mystery_Man.Shadowy_Avenger.Operator
+Brawl.MOD					TYPE:Adventurer.Athlete.Criminal.Investigative.Military.Rural.CombatAce.Daredevil.Detective.Driver.Explorer.G_Man.Gangster.Mystery_Man.Soldier																																																																																				SOURCEPAGE:p.42
+Builder.MOD					TYPE:Craftsperson.Driver
+Burst Fire.MOD				TYPE:Soldier
+Cautious.MOD				TYPE:Daredevil.Scientist
+Charismatic Plus.MOD			TYPE:General																																																															DESC:Due to superior genetics, through selective breeding or some form of mutation, with the character's drive to excel enable him to progress faster toward becoming a truly charismatic hero											SOURCEPAGE:p.47
+Cleave.MOD					TYPE:Soldier
+Combat Expertise.MOD			TYPE:Relic_Hunter.Scientist.Shadowy_Avenger.Operator
+Combat Reflexes.MOD			TYPE:Mystic_PF.Shadowy_Avenger.Soldier.Operator
+Combat Throw.MOD				TYPE:Mystic_PF
+Confident.MOD				TYPE:World_Traveller.Gangster
+Creative.MOD				TYPE:Craftsperson
+Dead Aim.MOD				TYPE:Hunter
+Deceptive.MOD				TYPE:Escape_Artist.Fortuneteller.Stage_Magician.Gangster.Shadowy_Avenger
+Dedicated Plus.MOD			TYPE:General																																																															DESC:Due to superior genetics, through selective breeding or some form of mutation, with the character's drive to excel enable him to progress faster toward becoming a truly dedicated hero											SOURCEPAGE:p.49
+Dodge.MOD					TYPE:Ambassador.Daredevil.Detective.Driver.Explorer.Mystery_Man.Relic_Hunter.Shadowy_Avenger.Operator
+Double Tap.MOD				TYPE:Detective.Mystery_Man
+Drive-By Attack.MOD			TYPE:Driver.G_Man.Gangster
+Educated.MOD				TYPE:Bureaucrat.World_Traveller.Ambassador.Detective.Explorer.Mystery_Man.Relic_Hunter.Scientist
+Elusive Target.MOD			TYPE:Brawler.Mystic_PF
+Endurance.MOD				TYPE:Explorer
+Exotic Firearms Proficiency.MOD	TYPE:Explorer.G_Man.Soldier.Operator																																																																																																					SOURCEPAGE:p.49
+Exotic Melee Weapon Proficiency.MOD	TYPE:Explorer.G_Man.Mystic_PF.Soldier.Operator
+Far Shot.MOD				TYPE:Hunter.Soldier.Operator
+Fast Plus.MOD				TYPE:General																																																															DESC:Due to superior genetics, through selective breeding or some form of mutation, with the character's drive to excel enable him to progress faster toward becoming a truly fast hero												SOURCEPAGE:p.50
+Force Stop.MOD				TYPE:Daredevil.Driver.G_Man
+Frightful Presence.MOD			TYPE:Gangster
+Gearhead.MOD				TYPE:Craftsperson.CombatAce.Driver.Scientist																																																																																																				SOURCEPAGE:p.51
+Great Cleave.MOD				TYPE:Soldier
+Guide.MOD					TYPE:Hunter.World_Traveller.Relic_Hunter
+Heroic Surge.MOD				TYPE:Explorer
+Improved Brawl.MOD			TYPE:Law_Enforcement.Military.Brawler.CombatAce.Daredevil.Driver.G_Man.Gangster.Shadowy_Avenger.Soldier
+Improved Combat Throw.MOD		TYPE:Mystic_PF
+Improved Damage Threshold.MOD		TYPE:Daredevil
+Improved Disarm.MOD			TYPE:Operator
+Improved Feint.MOD			TYPE:Brawler.CombatAce.Explorer.Gangster
+Improved Grapple.MOD																																																																																																														SOURCEPAGE:p.52
+Improved Initiative.MOD			TYPE:Ambassador.Operator
+Improved Knockout Punch.MOD		TYPE:Brawler.Daredevil.Explorer.Gangster.Mystery_Man.Soldier
+Improved Natural Healing.MOD																																																																																																													SOURCEPAGE:p.52
+Improved Overrun.MOD																																																																																																														SOURCEPAGE:p.53
+Improved Trip.MOD				TYPE:Operator
+Improved Two-Weapon Fighting.MOD	TYPE:Explorer.Operator
+Jack of All Trades.MOD			TYPE:Explorer																																																																																																									SOURCEPAGE:p.53
+Knockout Punch.MOD			TYPE:Brawler.Daredevil.Detective.Explorer.Gangster.Mystery_Man.Soldier
+Lightning Reflexes.MOD			TYPE:Mystery_Man
+Low Profile.MOD				TYPE:Ambassador.Gangster
+Mobility.MOD				TYPE:Daredevil.Explorer.Relic_Hunter.Shadowy_Avenger.Operator														PRE:.CLEAR				PREFEAT:1,Dodge,Fancy Footwork										PRESTAT:1,DEX=13
+Nimble.MOD					TYPE:Escape_Artist.Stage_Magician.Daredevil.Explorer
+Personal Firearms Proficiency.MOD	TYPE:Adventurer.Criminal.Investigative.Law_Enforcement.Military.Rural.Brawler.Detective.Mystery_Man.Scientist
+Point Blank Shot.MOD			TYPE:Hunter.Detective.Mystery_Man.Scientist.Operator
+Power Attack.MOD				TYPE:Soldier
+Precise Shot.MOD				TYPE:Operator
+Precise Strike.MOD																																																																																																														SOURCEPAGE:p.56
+Quick Draw.MOD				TYPE:Gangster.Operator
+Renown.MOD					TYPE:Bureaucrat.Fortuneteller.Politician.World_Traveller.Ambassador.Driver.Explorer.Gangster.Relic_Hunter.Scientist
+Shot on the Run.MOD			TYPE:Operator																						PRE:.CLEAR				PREFEAT:2,Point Blank Shot,Mobility	PREFEAT:1,Dodge,Fancy Footwork				PRESTAT:1,DEX=13
+Smart Plus.MOD																																																																					DESC:Your drive to excel enables you to progress faster toward becoming a truly intelligent hero																										SOURCEPAGE:p.58
+Spring Attack.MOD				TYPE:Daredevil.Shadowy_Avenger.Operator																		PRE:.CLEAR		PREATT:4	PREFEAT:1,Mobility	PREFEAT:1,Dodge,Fancy Footwork						PRESTAT:1,DEX=13
+Stealthy.MOD				TYPE:Hunter.Gangster.Relic_Hunter
+Streetfighting.MOD			TYPE:Daredevil.Driver.Explorer.Gangster																																										SAB:Streetfighting damage bonus +1d4+%|StreetfightingDamageBonus	DEFINE:StreetfightingDamageBonus|0
+Strong Plus.MOD																																																																					DESC:Your drive to excel enable you to progress faster toward becoming a truly strong hero.																											SOURCEPAGE:p.58
+Studious.MOD				TYPE:Antiques_Dealer.Explorer.Scientist
+Surface Vehicle Operation.MOD		TYPE:CombatAce.Daredevil
+Tough Plus.MOD																																																																					DESC:Advancements in science coupled with your drive to excel enable you to progress faster toward becoming a truly tough hero.																					SOURCEPAGE:p.58
+Toughness.MOD				TYPE:Daredevil.Outcast
+Trustworthy.MOD				TYPE:Politician.World_Traveller.Ambassador.Operator
+Two-Weapon Fighting.MOD			TYPE:Explorer.Mystery_Man
+Unbalance Opponent.MOD			TYPE:Brawler.Mystic_PF
+Vehicle Dodge.MOD				TYPE:Daredevil.Driver.G_Man
+Vehicle Expert.MOD			TYPE:Daredevil.G_Man
+Weapon Finesse.MOD			TYPE:Operator
+Weapon Focus.MOD				TYPE:Brawler.G_Man.Operator
+Whirlwind Attack.MOD			TYPE:Operator																						PRE:.CLEAR		PREATT:4	PREFEAT:3,Mobility,Spring Attack,Combat Expertise	PREFEAT:1,Dodge,Fancy Footwork	PRESTAT:2,DEX=13,INT=13
+Windfall.MOD				TYPE:Politician.Gangster.Relic_Hunter

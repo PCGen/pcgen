@@ -1,0 +1,28 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
+
+# Template Name	Template																	Define
+Mecha Pilot		TEMPLATE:CHOOSE:Piloting Large Mecha|Piloting Huge Mecha|Piloting Gargantuan Mecha|Piloting Colossal Mecha	DEFINE:SzMdfr|0	DEFINE:M_Slots|0	DEFINE:M_hp|0	DEFINE:M_BaseSpeed|0	DEFINE:M_Height|0	DEFINE:M_Weight|0	DEFINE:FightingSpace|0	DEFINE:M_Reach|0	DEFINE:M_BasePurchaseDC|0	DEFINE:M_Hard|0	DEFINE:ShieldBonus|0	DEFINE:MchArmrPnlt|0
+
+# Mecha Stat Variables
+
+# SzMdfr			= Size Modifier: Apply this modifier to the mecha's attack rolls and to its Defense.
+# M_Slots			= Equipment Slots: The number of locations where weapons and other mecha equipment can be installed.
+# M_hp			= Hit Points: The mecha's hit points, and the number of hit points the mecha provides its operator.
+# M_BaseSpeed		= Base Speed: The mecha's base land speed. Certain types of armor reduce base speed (see Mecha Armor).
+# M_Height			= Height: The mecha's height in feet.
+# M_Weight			= Weight: The mecha's weight in pounds.
+# FightingSpace		= Fighting Space: The mecha's fighting space.
+# M_Reach			= Reach: The mecha's reach, even without weapons.
+# M_BasePurchaseDC	= Purchase DC: The base purchase DC of the mecha without armor, weapons, and other equipment.
+# M_Hard			= Hardness: The amount of damage the material absorbs from a weapon hit or collision.
+# ShieldBonus		= Shield Bonus
+# MchArmrPnlt		= Armor Penalty: Mecha armor applies this penalty on its operator's Balance, Climb, Escape Artist, Hide, Jump, Move Silently, and Tumble checks.
+
+
+###Block: Mecha Size templates
+# Template Name			Size		Visible
+Piloting Large Mecha		SIZE:L	VISIBLE:NO
+Piloting Huge Mecha		SIZE:H	VISIBLE:NO
+Piloting Gargantuan Mecha	SIZE:G	VISIBLE:NO
+Piloting Colossal Mecha		SIZE:C	VISIBLE:NO

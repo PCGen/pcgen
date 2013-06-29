@@ -1,0 +1,17 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
+#Original entry by: Frank Kliewe
+
+#Standard classes are included from MSRD
+#Animal (Low Reflex) added for animals with a low reflex save
+
+
+# Class Name	Prohibited Class
+CLASS:Animal.MOD	!PRECLASS:1,Animal (Low Reflex)=1
+
+# Class Name			Hit Dice	Type			Source Page		Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Animal (Low Reflex)	HD:8		TYPE:Monster	SOURCEPAGE:p.149	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Prohibited Class		Reg. Race Type
+CLASS:Animal (Low Reflex)	!PRECLASS:1,Animal=1	PRERACETYPE:Animal
+# Class Name			Add INT to Skill Points?	Monster Initial Skill Points
+CLASS:Animal (Low Reflex)	MODTOSKILLS:NO			MONSKILL:10

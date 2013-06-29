@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
+#Original entry by: Frank Kliewe
+
+# Equipment Name			Type				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property
+Stielhandgranate			TYPE:Explosive.Slashing	COST:15	WT:2		CRITMULT:-			CRITRANGE:0			DAMAGE:4d6	RANGE:10	SIZE:S	SOURCEPAGE:p.68	SPROP:Burst Radius 10', Mil(+3), 4d6 Slashing Damage
+Dynamite.MOD																									SOURCEPAGE:p.68
+Fragmentation Grenade.MOD																							SOURCEPAGE:p.68
+Acid (mild).MOD																									SOURCEPAGE:p.68
+Molotov cocktail.MOD																								SOURCEPAGE:p.68

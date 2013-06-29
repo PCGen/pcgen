@@ -1,0 +1,72 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
+
+# Ranged Weapons
+# Weapon Name		Type			Nb Hands
+Air Pistol			TYPE:Simple
+Air Rifle			TYPE:Simple		HANDS:2
+Blowgun			TYPE:Simple
+Bolas				TYPE:Archaic
+Flare Gun			TYPE:Simple
+Grapple-Firing Crossbow	TYPE:Archaic
+Hand Crossbow		TYPE:Archaic
+Net				TYPE:Archaic
+Paint Ball Gun		TYPE:Simple
+Repeating Crossbow	TYPE:Exotic
+Sling				TYPE:Archaic
+Slingshot			TYPE:Simple		HANDS:2
+Speargun			TYPE:Simple		HANDS:2
+Sticky Foam Sprayer	TYPE:Simple		HANDS:2
+Super Watergun		TYPE:Simple		HANDS:2
+Water Cannon		TYPE:Simple		HANDS:2
+
+# Melee Weapons
+Battleaxe			TYPE:Archaic
+Bastard Sword		TYPE:Exotic
+Cutlass			TYPE:Archaic
+Dire Flail			TYPE:Exotic
+Dwarven Urgrosh		TYPE:Exotic
+Dwarven Waraxe		TYPE:Exotic
+Falchion			TYPE:Archaic
+Gauntlet			TYPE:Simple
+Glaive			TYPE:Archaic
+Gnome Hooked Hammer	TYPE:Exotic
+Greataxe			TYPE:Archaic
+Greatclub			TYPE:Archaic
+Guisarme			TYPE:Archaic
+Halberd			TYPE:Archaic
+Heavy Lance			TYPE:Archaic
+Heavy Mace			TYPE:Simple
+Heavy Flail			TYPE:Archaic
+Ketch-all Pole		TYPE:Simple		HANDS:2
+Khopesh			TYPE:Exotic
+Light Flail			TYPE:Archaic
+Light Lance			TYPE:Archaic
+Light Mace			TYPE:Simple
+Maul				TYPE:Archaic
+Naginata			TYPE:Archaic
+Nekode			TYPE:Exotic
+Ninja-to			TYPE:Exotic
+Orc Double Axe		TYPE:Exotic
+Pick				TYPE:Archaic
+Pickaxe			TYPE:Archaic	HANDS:2
+Punching Dagger		TYPE:Simple
+Ranseur			TYPE:Archaic
+Saber				TYPE:Archaic
+Scimitar			TYPE:Archaic
+Scourge			TYPE:Exotic
+Scythe			TYPE:Archaic
+Shikomi-zue			TYPE:Exotic
+Shortspear			TYPE:Simple
+Short Sword			TYPE:Archaic
+Sickle			TYPE:Simple
+Spiked Club			TYPE:Simple
+Trident			TYPE:Archaic
+Two-Bladed Sword		TYPE:Exotic
+Wakizashi			TYPE:Archaic
+Warhammer			TYPE:Archaic
+War Fan			TYPE:Exotic
+
+#
+# End
+#

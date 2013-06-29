@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
+
+# Feat Name		Type			Visible	Special ABility	Bonus to Ability Pool
+# Ability Name	Category of Ability		Type			Visible	Special ABility	Bonus to Ability Pool
+Psionic Focus	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	SAB:Psionic Focus	BONUS:ABILITYPOOL|Psionic Focus|1
+
+###Block:Psionic Agent -----------------------------------------------------------------------------------------------------------------
+# Ability Name		Category of Ability		Type					Visible	Special ABility
+Psionic Skills		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Psionic Skills
+Draw Power			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Draw Power
+Charged Shot		CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Charged Shot
+Combat Manifestation	CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Combat Manifestation
+Deadly Aim			CATEGORY:Special Ability	TYPE:Hidden.SpecialAbility	VISIBLE:NO	SAB:Deadly Aim

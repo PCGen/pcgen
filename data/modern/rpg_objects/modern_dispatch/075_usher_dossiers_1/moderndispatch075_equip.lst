@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern Dispatch #75 - U.S.H.E.R. Dossiers #1	SOURCESHORT:MD75-USHER#1	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=198	SOURCEDATE:2004-01
+# Original Entry by: Paul W. King
+
+###Block: computer
+# Equipment Name	Product Identity?	Type			Cost		Size		Source Page		Special Property
+Medusa		NAMEISPI:YES	TYPE:Computer	COST:47	SIZE:H	SOURCEPAGE:p.6	SPROP:Ill +4

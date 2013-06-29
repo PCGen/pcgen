@@ -1,0 +1,32 @@
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:36:03 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
+#Original Entry by: Paul King
+
+# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus												Combat bonus		Modify VAR
+CLASS:Psionic Agent	HD:8		TYPE:PC.Advanced	CLASSTYPE:PC	MAXLEVEL:10	SOURCEPAGE:ArcanaPsionics.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|ClassDefense|(CL+1)*2/3	BONUS:VAR|Reputation|(CL-1)/4
+# Class Name		Req. Att.	Required Feat		Required Skill
+CLASS:Psionic Agent	PREATT:2	PREFEAT:1,Wild Talent	PRESKILL:2,Hide=6,Move Silently=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Psionic Agent	STARTSKILLPTS:2	CSKILL:Autohypnosis|Balance|Climb|Concentration|Drive|Escape Artist|Hide|Knowledge (Current Events)|Knowledge (Streetwise)|Listen|Move Silently|Profession|Read/Write Language|Search|Sleight of Hand|Speak Language|Spot|Tumble
+# Class Name		Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Psionic Agent	SPELLSTAT:SPELL	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psionic Agent|CL
+###Block: powers
+1	SPELLLEVEL:CLASS|Psionic Agent=0|Burst,Detect Psionics,Far Punch,Finger of Fire,Missive,Verve
+1	SPELLLEVEL:CLASS|Psionic Agent=1|Combat Precognition,Lesser Concussion
+1	SPELLLEVEL:CLASS|Psionic Agent=2|Combat Focus,Combat Prescience,Darkvision,Levitate,Sensitivity to Psychic Impressions
+1	SPELLLEVEL:CLASS|Psionic Agent=3|Metaphysical Weapon
+###Block: standard
+1	KNOWN:2									BONUS:VAR|PowerPoints|2	DEFINE:PowerPoints|0	ABILITY:Special Ability|AUTOMATIC|Psionic Skills
+2	KNOWN:3									BONUS:VAR|PowerPoints|1					ABILITY:Special Ability|AUTOMATIC|Psionic Focus
+3	KNOWN:3,1		BONUS:ABILITYPOOL|Psionic Agent Feat|CL/3	BONUS:VAR|PowerPoints|1
+4	KNOWN:3,2									BONUS:VAR|PowerPoints|1					ABILITY:Special Ability|AUTOMATIC|Draw Power
+5	KNOWN:3,3,1									BONUS:VAR|PowerPoints|3					ABILITY:Special Ability|AUTOMATIC|Charged Shot
+6	KNOWN:3,3,2									BONUS:VAR|PowerPoints|3
+7	KNOWN:3,3,2,1								BONUS:VAR|PowerPoints|5					ABILITY:Special Ability|AUTOMATIC|Combat Manifestation
+8	KNOWN:3,3,3,1								BONUS:VAR|PowerPoints|5															AUTO:FEAT|Power Penetration
+9	KNOWN:3,3,3,2								BONUS:VAR|PowerPoints|5
+10	KNOWN:3,3,3,2,1								BONUS:VAR|PowerPoints|7					ABILITY:Special Ability|AUTOMATIC|Deadly Aim
+
+#
+# End
+#

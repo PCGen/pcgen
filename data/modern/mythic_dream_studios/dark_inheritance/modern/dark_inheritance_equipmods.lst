@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com	SOURCEDATE:2003-01
+# Original Entry by: Frank Kliewe
+
+# Modifier Name			Unique Key		Type				Cost		Visible		Source Page		Required Type	Bonus to skill				Special Property			Choose
+Unreliable				KEY:UNRELIABLE	TYPE:Weapon.Ammunition	COST:0	VISIBLE:YES		SOURCEPAGE:p.190										SPROP:Unreliable (%CHOICE)	CHOOSE:STRING|5%|10%|15%|20%|25%|30%|35%|40%|45%|50%|55%|60%|65%|70%|75%|80%|85%|90%|95%|100%|TITLE=Reliability
+
+Arnold's Clip			KEY:ARNOLDSCLIP	TYPE:Weapon			COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.198	PRETYPE:1,Firearm							SPROP:always 1 shot left
+#Cost 37, additional DC
+
+Stuntman's Steering Wheel	KEY:STWL_STUNTMN	TYPE:Transportation	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.200				BONUS:SKILL|Drive|3|TYPE=Equipment
+#COST 32, additional DC

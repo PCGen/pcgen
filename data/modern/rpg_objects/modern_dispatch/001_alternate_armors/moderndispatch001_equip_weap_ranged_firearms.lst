@@ -1,0 +1,41 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern Dispatch #1 - Alternate Armors	SOURCESHORT:MD01-AA	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3260	SOURCEDATE:2004-01
+#Original Entry by: Frank Kliewe
+
+# Equipment Name						Modifier
+Beretta 92F (9mm autoloader).MOD			EQMOD:ARMR_PENETRATION_FIREARM|1
+Beretta 93R (9mm machine pistol).MOD		EQMOD:ARMR_PENETRATION_FIREARM|1
+Colt Double Eagle (10mm autoloader).MOD		EQMOD:ARMR_PENETRATION_FIREARM|1
+Colt M1911 (.45 autoloader).MOD			EQMOD:ARMR_PENETRATION_FIREARM|1
+Colt Python (.357 revolver).MOD			EQMOD:ARMR_PENETRATION_FIREARM|1
+Derringer (.45).MOD					EQMOD:ARMR_PENETRATION_FIREARM|1
+Desert Eagle (.50AE autoloader).MOD			EQMOD:ARMR_PENETRATION_FIREARM|1
+Glock 17 (9mm autoloader).MOD				EQMOD:ARMR_PENETRATION_FIREARM|1
+Glock 20 (10mm autoloader).MOD			EQMOD:ARMR_PENETRATION_FIREARM|1
+MAC Ingram M10 (.45 machine pistol).MOD		EQMOD:ARMR_PENETRATION_FIREARM|1
+Pathfinder (.22 revolver).MOD				EQMOD:ARMR_PENETRATION_FIREARM|1
+Ruger Service-Six (.385 revolver).MOD		EQMOD:ARMR_PENETRATION_FIREARM|1
+S and W M29 (.44 magnum revolver).MOD		EQMOD:ARMR_PENETRATION_FIREARM|2
+SITES M9 (9mm autoloader).MOD				EQMOD:ARMR_PENETRATION_FIREARM|1
+Skorpion (.32 machine pistol).MOD			EQMOD:ARMR_PENETRATION_FIREARM|1
+TEC-9 (9mm machine pistol).MOD			EQMOD:ARMR_PENETRATION_FIREARM|1
+Walther PPK (.32 autoloader).MOD			EQMOD:ARMR_PENETRATION_FIREARM|1
+AKM/AK-47 (7.62 assault rifle).MOD			EQMOD:ARMR_PENETRATION_FIREARM|2
+Barrett Light Fifty (.50 sniper rifle).MOD	EQMOD:ARMR_PENETRATION_FIREARM|3
+Beretta M3P (12 gauge shotgun).MOD			EQMOD:ARMR_PENETRATION_FIREARM|2
+Browning BPS (10 gauge shotgun).MOD			EQMOD:ARMR_PENETRATION_FIREARM|2
+HK G3 (7.62 assault rifle).MOD			EQMOD:ARMR_PENETRATION_FIREARM|2
+HK MP5 (9mm submachine gun).MOD			EQMOD:ARMR_PENETRATION_FIREARM|1
+HK MP5K (9mm submachine gun).MOD			EQMOD:ARMR_PENETRATION_FIREARM|1
+HK PSG1 (7.62 sniper rifle).MOD			EQMOD:ARMR_PENETRATION_FIREARM|2
+M16A2 (5.56mm assault rifle).MOD			EQMOD:ARMR_PENETRATION_FIREARM|2
+M4 Carbine (5.56mm assault rifle).MOD		EQMOD:ARMR_PENETRATION_FIREARM|2
+Mossberg (12 gauge shotgun).MOD			EQMOD:ARMR_PENETRATION_FIREARM|2
+Remington 700 (7.62 hunting rifle).MOD		EQMOD:ARMR_PENETRATION_FIREARM|2
+Sawed-Off Shotgun (12 gauge shotgun).MOD		EQMOD:ARMR_PENETRATION_FIREARM|2
+Steyr AUG (5.56mm assault rifle).MOD		EQMOD:ARMR_PENETRATION_FIREARM|2
+Uzi (9mm submachine gun).MOD				EQMOD:ARMR_PENETRATION_FIREARM|1
+Winchester 94 (.444 hunting rifle).MOD		EQMOD:ARMR_PENETRATION_FIREARM|2
+M-60 (Medium machine gun).MOD				EQMOD:ARMR_PENETRATION_FIREARM|2
+M2HB (Heavy machine gun).MOD				EQMOD:ARMR_PENETRATION_FIREARM|3
+M72A3 LAW (rocket launcher).MOD			EQMOD:ARMR_PENETRATION_FIREARM|7

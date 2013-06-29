@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2004-01
+
+###Copied from RSRD for creatures, removing COST
+# Equipment Name		Output Name				Type			Cost		Weight	Combat bonus
+Ring (Protection +2)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:0	WT:0		BONUS:COMBAT|AC|2|TYPE=Deflection
+
+#
+# End
+#

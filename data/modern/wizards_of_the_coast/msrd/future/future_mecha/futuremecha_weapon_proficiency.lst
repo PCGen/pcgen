@@ -1,0 +1,33 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
+# Original Entry by: Frank Kliewe
+
+#Ranged Mecha Weapons
+# Weapon Name			Type		Nb Hands
+A3X Dragon Flame-Thrower	TYPE:Mecha
+M-9 Barrage Chaingun		TYPE:Mecha
+M-53 Firestar Rocket Launcher	TYPE:Mecha
+M-55 Crud Rocket Launcher	TYPE:Mecha
+M-87 Talon Missile Launcher	TYPE:Mecha
+Warpath Recoilless Rifle	TYPE:Mecha
+Corona Microwave Beam		TYPE:Mecha
+M-21 Comet Autolaser		TYPE:Mecha
+M-70 EMP Rocket Launcher	TYPE:Mecha
+M-75 Cricket Rocket Launcher	TYPE:Mecha
+NKP Puma Pop-Up Turret		TYPE:Mecha
+T-95 Cavalcade Chaingun		TYPE:Mecha
+Typhoon 240 Laser Cannon	TYPE:Mecha
+Chrysanthemum Laser Array	TYPE:Mecha
+M-300 Rhino Mass Cannon		TYPE:Mecha
+Tsunami 480 Plasma Cannon	TYPE:Mecha
+LT-5 Longshot Mass Driver	TYPE:Mecha
+
+#Melee Mecha Weapons
+PS-15 Panther Claws		TYPE:Mecha
+Thunderbolt Shock Rod		TYPE:Mecha
+LK8 Armor-Piercing Pike		TYPE:Mecha
+PS-25 Tiger Claws			TYPE:Mecha
+XJ-A Python Electro-Whip	TYPE:Mecha
+Avenger Electro-Scimitar	TYPE:Mecha
+RP-91 Reaper Laser Scythe	TYPE:Mecha	HANDS:2
+Mecha Slam Attack			TYPE:Mecha

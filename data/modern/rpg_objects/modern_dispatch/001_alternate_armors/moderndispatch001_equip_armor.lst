@@ -1,0 +1,37 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern Dispatch #1 - Alternate Armors	SOURCESHORT:MD01-AA	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3260	SOURCEDATE:2004-01
+#Original Entry by: Frank Kliewe
+
+# Equipment Name			Modifier
+Leather Jacket.MOD		EQMOD:DR_CONVERSION_MODERN|1
+Light Undercover Shirt.MOD	EQMOD:DR_CONVERSION_MODERN|2
+Pull-up Pouch Vest.MOD		EQMOD:DR_CONVERSION_MODERN|2
+Undercover Vest.MOD		EQMOD:DR_CONVERSION_MODERN|3
+
+#Medium Armor NonProf=+2
+Concealable Vest.MOD		EQMOD:DR_CONVERSION_MODERN|4
+Light-Duty Vest.MOD		EQMOD:DR_CONVERSION_MODERN|5
+Tactical Vest.MOD			EQMOD:DR_CONVERSION_MODERN|6
+
+#Heavy Armor nonprof=+3
+Special Response Vest.MOD	EQMOD:DR_CONVERSION_MODERN|7
+Forced Entry Unit.MOD		EQMOD:DR_CONVERSION_MODERN|9
+
+###Block: .COPY
+# Equipment Name
+Light-Duty Vest.COPY=Vest (Concealable/w.Outershell)
+Tactical Vest.COPY=Vest (Concealable/w.Tactical Outershell)
+
+###Block: Archaic Armor
+# Equipment Name			Type			Modifier
+Leather Armor.MOD						EQMOD:DR_CONVERSION_ARCHAIC|2
+Chainmail Shirt.MOD					EQMOD:DR_CONVERSION_ARCHAIC|5
+Plate Mail.MOD						EQMOD:DR_CONVERSION_ARCHAIC|8
+Padded Armor.MOD			TYPE:Archaic	EQMOD:DR_CONVERSION_ARCHAIC|1
+Studded Leather Armor.MOD				EQMOD:DR_CONVERSION_ARCHAIC|3
+Hide Armor.MOD			TYPE:Archaic	EQMOD:DR_CONVERSION_ARCHAIC|3
+Scale Mail.MOD						EQMOD:DR_CONVERSION_ARCHAIC|4
+Breastplate.MOD						EQMOD:DR_CONVERSION_ARCHAIC|5
+Splint Mail.MOD						EQMOD:DR_CONVERSION_ARCHAIC|6
+Banded Mail.MOD						EQMOD:DR_CONVERSION_ARCHAIC|6
+Half Plate.MOD						EQMOD:DR_CONVERSION_ARCHAIC|7

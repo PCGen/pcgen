@@ -1,0 +1,23 @@
+Building Robots
+
+There are two sets of Robot races, one is meant for heroic characters run by Players, the other is meant for non-heroic characters. The races 4 named Biodroid (Medium and Small) and Bioreplica (Medium and Small) are Player races and gain feats and skills when PC classes are gained as normal. The races whos names are formated "Robot (Type/Size)" are all non-heroic, they do not gain feats or skill points as long as they are advanced in the "Robot" monster class, if given levels of an Ordinary base class they will not gain feats (unless equipped with a Feat Web) but they will gain skill points, these should be discarded unless the Robot is equipped wth a Skill Web.
+
+Purchase DCs.
+The purchase DC for a robot is calculated and displayed in the special ability window. The purchase DC for some robotic equipment and accessories is not shown in the cost field but is instead displayed in the equipments special property display. This is because the cost of many of these items are dependant on the cost of the robot frame they are installed on, thus the purchase DC can be calculated but only after the item is equipped to the robot character. Items with staight purchase DC's as displayed in the cost field normaly.
+
+Equipment.
+All the Robot equipment is meant only for Robots, the bonuses they have which provide the functionality are qualified as such and will not benefit characters who are not Robots.
+
+Locomotion.
+All Robots need to have some form of locomotion equipped to them to provide a movement speed. The speed can be increased by customizing the locomotion equipment and adding a speed upgrade. The rules say you cannot upgrade the speed past double its base speed but PCGen cannot enforce this.
+
+Manipulators.
+The Manipulators are size tiny and are ment for medium sized robots. To get the proper damage for a robot of another size you will need to customize the Manipulators for that robot, they should be 2 size categories smaller than the robot they will be installed on.
+
+Skill Software.
+
+Software allows robots to have ranks in skills by way of emulation, at lower progress levels this software does not allow the robot to benefit from skill synergies. I have not found a way to shut down the inharent synergies to make them unavailable.The Skill software eqipment all needs to be customized before you can add it to your character. This is so you can select the specific skills the equipment emulates.
+
+Feat Software
+
+The Feat software could not be implemented the same way that skill software was. Each feat has a corasponding Robot Feat Software item which adds it as a virtual feat when the item is equiped. There are two sets of items relating to feat software, the actual devices, feat progit, feat neat and feat web and then there are the individual feat software which grants the virtual feat. The software has no purchase DC but is assumed to come with the device when purchased. Weapon Finesse and Weapon Focus can't be done without listing every single weapon prof they can be applied to.

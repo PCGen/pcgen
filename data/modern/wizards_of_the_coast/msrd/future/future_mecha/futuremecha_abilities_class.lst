@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
+
+# Ability Name		Category of Ability		Type				Visible	Special ABility				Define
+Luv My Mecha		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Luv My Mecha +%|LuvMyMecha	DEFINE:LuvMyMecha|0
+Mecha Feint			CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Mecha Feint
+Evasive Action		CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Evasive Action
+Improved Evasive Action	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO	SAB:Improved Evasive Action
+
+#
+# End
+#

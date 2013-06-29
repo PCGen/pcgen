@@ -1,0 +1,21 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
+# Original Entry by: Frank Kliewe
+
+#The Paragon is getting some EQMODs twice, I have added therefore duplicate EQMODs with different KEYs. Still 2 of those would AUTO:EQUIP
+#items. As PCGen doesn't work well with AUTO:EQUIPing the same item twice, I left those out in the duplicates and these need to be added
+#by hand.
+
+# Equipment Name	Output Name			Type									Cost		Modifier																																																																						Size		Combat bonus							Modify VAR
+Myrmidon						TYPE:Goods.Transportation.Mecha.Superstructure.PL6	COST:41	EQMOD:AMMO_M9_BRRGE_CHAINGUN.CL2_SNSR_SYS.COCKPIT_PILOT.COMM_SYSTEM.DURALLOY.DURALLOY_ARMR.JETPACK.LRG_MCH.LRG_PS15_PNTR_CLW.M9_BRRGE_CHAINGUN																																																SIZE:L	BONUS:COMBAT|AC|ShieldBonus|TYPE=Equipment.STACK	BONUS:VAR|M_BaseSpeed|-10
+Scourge (Mecha)	OUTPUTNAME:Scourge	TYPE:Goods.Transportation.Mecha.Superstructure.PL6	COST:49	EQMOD:AMMO_M53_FRST_RCKTLNCH.CL2_SNSR_SYS.COCKPIT_PILOT.COMM_SYSTEM.DURALLOY_ARMR.ENGM_SNSR_ST.HGE_MCH.JETASSSTWNGS.JETPACK.LX10_ANTISHCK.M53_FRST_RCKTLNCH.TYPHN_240_LSR_CNN.VANADIUM																																									SIZE:H	BONUS:COMBAT|AC|ShieldBonus|TYPE=Equipment.STACK	BONUS:VAR|M_BaseSpeed|-10
+Manticore						TYPE:Goods.Transportation.Mecha.Superstructure.PL7	COST:45	EQMOD:AMMO_T95_CVLCD_CHAINGN.CHRSNTHMM_LSR_ARR.CL4_SNSR_SYS.COCKPIT_PILOT.COMM_SYSTEM.CRSTLCBN_ARMR.HGE_MCH.HGE_QUAD_MCH.JETASSSTWNGS.JETPACK.NEOVLCNM.T95_CVLCD_CHAINGN																																											SIZE:H	BONUS:COMBAT|AC|ShieldBonus|TYPE=Equipment.STACK
+Tempest						TYPE:Goods.Transportation.Mecha.Superstructure.PL7	COST:49	EQMOD:AMMO_M87_TALN_MSSLLNCH.BLWK_TAC_SHLD.CL4_SNSR_SYS.COCKPIT_PILOT.COMM_SYSTEM.CRSTLCBN_ARMR.GRG_MCH.GRG_PTHN_ELCT_WHP.HV5_HVN_ESCP_PD.JETASSSTWNGS.LF_SPPRT_SYSTEM.M87_TALN_MSSLLNCH.NEOVLCNM.ORCL_TG_SYS3.STRCTRL_ENHNCMT.THRUSTER_BTS.TSNM_480_PLSM_CNN																													SIZE:G	BONUS:COMBAT|AC|ShieldBonus|TYPE=Equipment.STACK
+Paragon						TYPE:Goods.Transportation.Mecha.Superstructure.PL8	COST:61	EQMOD:ADVANCD_DGNSTCS.AMMO2_M70_EMP_RCKTLNCHR.AMMO2_M87_TALN_MSSLLNCH.AMMO_M70_EMP_RCKTLNCHR.AMMO_M87_TALN_MSSLLNCH.BRCD_TAC_SHLD.CL5_SNSR_SYS.COL_AVNG_ELCT_SCM.COL_MCH.CRKRJCK_NRL_LNK.DEFLECTN_FLD2.HV5_HVN_ESCP_PD.JETASSSTWNGS.LF_SPPRT_SYSTEM.LGHT_FORTFCTN.M300_RHINO_MSSCNN.M70_EMP_RCKTLNCHR.M87_TALN_MSSLLNCH.MEGATANM.MEGATANM_ARMR.ORCL_TG_SYS4.RJTTHRST_BTS.SPACE_SKIN.STRCTRL_ENHNCMT.STRCTRL_ENHNCMT2.ZERO_G_STABILZR	SIZE:C	BONUS:COMBAT|AC|ShieldBonus|TYPE=Equipment.STACK
+
+###Block: Basic Mecha for use with item customizer
+# Equipment Name			Type										Contains		Cost		Modifier		Requires Modification?	Size		Combat bonus
+Custom Mecha (Large)		TYPE:Goods.Transportation.Mecha.Superstructure.Container	CONTAINS:50		COST:0	EQMOD:LRG_MCH	MODS:REQUIRED		SIZE:L	BONUS:COMBAT|AC|ShieldBonus|TYPE=Equipment.STACK
+Custom Mecha (Huge)		TYPE:Goods.Transportation.Mecha.Superstructure.Container	CONTAINS:250	COST:0	EQMOD:HGE_MCH	MODS:REQUIRED		SIZE:H	BONUS:COMBAT|AC|ShieldBonus|TYPE=Equipment.STACK
+Custom Mecha (Gargantuan)	TYPE:Goods.Transportation.Mecha.Superstructure.Container	CONTAINS:500	COST:0	EQMOD:GRG_MCH	MODS:REQUIRED		SIZE:G	BONUS:COMBAT|AC|ShieldBonus|TYPE=Equipment.STACK
+Custom Mecha (Colossal)		TYPE:Goods.Transportation.Mecha.Superstructure.Container	CONTAINS:1250	COST:0	EQMOD:COL_MCH	MODS:REQUIRED		SIZE:C	BONUS:COMBAT|AC|ShieldBonus|TYPE=Equipment.STACK

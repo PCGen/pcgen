@@ -1,0 +1,27 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Rocket Rangers - King of the Rocket Men	SOURCESHORT:RocketRngr	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2007-01
+#Original entry by: Frank Kliewe
+
+STARTPACK:Dinosaur (Triceratops) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Triceratops)]
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+RACE:Dinosaur (Triceratops)	!PRERACE:1,%
+NAME:Triceratops
+SKILL:Listen	RANK:7
+SKILL:Spot		RANK:7
+
+STARTPACK:Harphont Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Harphont]
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+RACE:Harphont	!PRERACE:1,%
+NAME:Harphont
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+
+STARTPACK:Slasher Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Slasher]
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
+RACE:Slasher	!PRERACE:1,%
+NAME:Slasher
+SKILL:Hide			RANK:4
+SKILL:Listen		RANK:2
+SKILL:Move Silently	RANK:4
+SKILL:Spot			RANK:2
+SKILL:Swim			RANK:3

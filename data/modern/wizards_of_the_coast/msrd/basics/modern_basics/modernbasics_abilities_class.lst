@@ -1,0 +1,176 @@
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
+
+###Block: Shared Abilities ---------------------------------------------------------------------------------
+
+# Ability Name			Category of Ability		Type								Visible	Required Ability								Required Feat		Var. Min. Value			Special ABility																															Define																										Description		Multiple?	Choose							Combat bonus						Stat bonus													Modify VAR																																							Weapon prof. bonus							Source Page
+Discern Lie				CATEGORY:Special Ability	TYPE:Class.SpecialAbility				VISIBLE:NO																				SAB:Discern Lie
+Improvised Weapon Damage	CATEGORY:Special Ability	TYPE:Class.SpecialAbility				VISIBLE:NO																				SAB:Improvised Weapon Damage
+Skill Mastery			CATEGORY:Special Ability	TYPE:Class.SpecialAbility				VISIBLE:NO																				SAB:Skill Mastery
+Find the Mark			CATEGORY:Special Ability	TYPE:Special						VISIBLE:NO																																																																																			MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Finesse																																																															BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1|TYPE=NonStackingCrit
+# COMMENT: Changed from Weapon Specialization to Weapon Focus - ABILITY to FEAT
+Increased Weapon Critical	CATEGORY:Special Ability	TYPE:Special						VISIBLE:NO																																																																																			MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																																																															BONUS:WEAPONPROF=%LIST|CRITRANGEADD|1|TYPE=NonStackingCrit
+Rage					CATEGORY:Special Ability									VISIBLE:NO																				SAB:Rage (Ex) % times/day (% rounds)|RageTimes|RageDuration	SAB:Bonuses when enraged (STR +%, CON +%, AC -%, HP %)|RageStrBonus|RageConBonus|RageACPenalty|(RageConBonus/2)*TL|PREVARNEQ:Enraged,1	DEFINE:RageDuration|0	DEFINE:RageConBonus|0	DEFINE:RageStrBonus|0	DEFINE:RageACPenalty|0	DEFINE:Enraged|0	DEFINE:RageBonus|4	DEFINE:RageTimes|0														BONUS:COMBAT|AC|-1*RageACPenalty|PREAPPLY:PC	BONUS:STAT|CON|RageConBonus|PREAPPLY:PC	BONUS:STAT|STR|RageStrBonus|PREAPPLY:PC	BONUS:VAR|RageDuration|CON+3+(RageConBonus/2)	BONUS:VAR|RageConBonus|RageBonus	BONUS:VAR|RageStrBonus|RageBonus	BONUS:VAR|RageACPenalty|2	BONUS:VAR|RageDuration|-(RageConBonus/2)|PREAPPLY:PC	BONUS:VAR|Enraged|1|PREAPPLY:PC
+Weapon Specialization		CATEGORY:Special Ability	TYPE:SpecialAbility.WeaponSpecialization														PREFEAT:1,Weapon Focus	PREVARGTEQ:WeapSpecQualify,1	SAB:Weapon Specialization (%CHOICE)																																																							DESC:See Text	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																																																															BONUS:WEAPONPROF=%LIST|DAMAGE|2					SOURCEPAGE:msrdadvancedclasses.rtf
+# COMMENT: Changed from Weapon Specialization to Weapon Focus - ABILITY to FEAT
+Greater Weapon Specialization	CATEGORY:Special Ability	TYPE:SpecialAbility.GreaterWeaponSpecialization			PREABILITY:1,CATEGORY=Special Ability,Weapon Specialization	PREFEAT:1,Weapon Focus						SAB:Greater Weapon Specialization (%CHOICE)																																																					DESC:See Text	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																																																															BONUS:WEAPONPROF=%LIST|DAMAGE|2					SOURCEPAGE:msrdadvancedclasses.rtf
+# COMMENT: Changed from Weapon Specialization to Weapon Focus - ABILITY to FEAT
+Improved Critical			CATEGORY:Special Ability	TYPE:SpecialAbility.ImprovedCritical				PREABILITY:1,CATEGORY=Special Ability,Weapon Specialization										SAB:Improved Critical (%CHOICE)																																																							DESC:See Text	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																																																															BONUS:WEAPONPROF=%LIST|CRITRANGEDOUBLE|1				SOURCEPAGE:msrdadvancedclasses.rtf
+
+Greater Weapon Focus		CATEGORY:Special Ability	TYPE:SpecialAbility.GreaterWeaponFocus														PREFEAT:1,Weapon Focus						SAB:Greater Weapon Focus (%CHOICE)																																																							DESC:See Text	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus																																																															BONUS:WEAPONPROF=%LIST|TOHIT|1					SOURCEPAGE:msrdadvancedclasses.rtf
+
+# Manifester (for Output sheets), BasePowerPoints, BonusPowerPoints, HasSpellStat (for subclasses).
+PsionicClass			CATEGORY:Special Ability	TYPE:PsionicClass						VISIBLE:NO																				SAB:Base Power Points (%)|BasePowerPoints	SAB:Bonus Power Points (%)|BonusPowerPoints	SAB:Total Power Points (%)|TotalPowerPoints											DEFINE:Manifester|0	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DEFINE:Manifester|1																																								BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
+
+###Block: Turning
+# Ability Name			Category of Ability		Type						Visible	Special ABility																																Define
+Base Turn				CATEGORY:Special Ability	TYPE:Special.Turning			VISIBLE:NO																																			DEFINE:TurnTimes|0	DEFINE:TurnLevel|0	DEFINE:TurnDice|2	DEFINE:TurnDieSize|6	DEFINE:TurnDamagePlus|CHA	DEFINE:TurnCheck|0
+Turn/Rebuke Undead		CATEGORY:Special Ability	TYPE:Special.Turning.Undead		VISIBLE:NO	SAB:Turn/Rebuke Undead (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesUndead|TurnLevelUndead|TurnDiceUndead|TurnDieSizeUndead|TurnDamagePlusUndead								DEFINE:TurnTimesUndead|TurnTimes	DEFINE:TurnLevelUndead|TurnLevel	DEFINE:TurnDiceUndead|TurnDice	DEFINE:TurnDieSizeUndead|TurnDieSize	DEFINE:TurnDamagePlusUndead|TurnDamagePlus	DEFINE:TurnCheckUndead|TurnCheck
+Turn/Rebuke Animals		CATEGORY:Special Ability	TYPE:Special.Turning.Animals		VISIBLE:NO	SAB:Turn/Rebuke Animals (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesAnimals|TurnLevelAnimals|TurnDiceAnimals|TurnDieSizeAnimals|TurnDamagePlusAnimals							DEFINE:TurnTimesAnimals|TurnTimes	DEFINE:TurnLevelAnimals|TurnLevel	DEFINE:TurnDiceAnimals|TurnDice	DEFINE:TurnDieSizeAnimals|TurnDieSize	DEFINE:TurnDamagePlusAnimals|TurnDamagePlus	DEFINE:TurnCheckAnimals|TurnCheck
+Turn/Rebuke Humans		CATEGORY:Special Ability	TYPE:Special.Turning.Humans		VISIBLE:NO	SAB:Turn/Rebuke Humans (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesHumans|TurnLevelHumans|TurnDiceHumans|TurnDieSizeHumans|TurnDamagePlusHumans								DEFINE:TurnTimesHumans|TurnTimes	DEFINE:TurnLevelHumans|TurnLevel	DEFINE:TurnDiceHumans|TurnDice	DEFINE:TurnDieSizeHumans|TurnDieSize	DEFINE:TurnDamagePlusHumans|TurnDamagePlus	DEFINE:TurnCheckHumans|TurnCheck
+Turn/Rebuke Magical Beasts	CATEGORY:Special Ability	TYPE:Special.Turning.MagicalBeasts	VISIBLE:NO	SAB:Turn/Rebuke Magical Beasts (Su) ~ %/day (Turn Level % ~ Turn Damage %d%+%)|TurnTimesMagicalBeasts|TurnLevelMagicalBeasts|TurnDiceMagicalBeasts|TurnDieSizeMagicalBeasts|TurnDamagePlusMagicalBeasts	DEFINE:TurnTimesMagicalBeasts|TurnTimes	DEFINE:TurnLevelMagicalBeasts|TurnLevel	DEFINE:TurnDiceMagicalBeasts|TurnDice	DEFINE:TurnDieSizeMagicalBeasts|TurnDieSize	DEFINE:TurnDamagePlusMagicalBeasts|TurnDamagePlus	DEFINE:TurnCheckMagicalBeasts|TurnCheck
+Turn/Rebuke Outsiders		CATEGORY:Special Ability	TYPE:Special.Turning.Outsiders	VISIBLE:NO	SAB:Turn or Rebuke Outsiders (Su)
+
+###Block: FX Class Abilities
+# Ability Name	Category of Ability		Type				Visible	Special ABility				Define			Description																											Add Spell Lvl	Allow Follower		Allowed Companions										Source Page
+Brew Potion		CATEGORY:Special Ability					VISIBLE:NO							DEFINE:BrewLevel|3	DESC:Brew a potion, level is set at time of creation...																																							SOURCEPAGE:msrdadvancedclassesII.rtf
+Maximize Spell	CATEGORY:Special Ability					VISIBLE:NO											DESC:All variable,numeric effects of a spell automatically achieve their maximum values; treat any spell this is a pplied to as three higher for memorization purposes	ADDSPELLLEVEL:3																		SOURCEPAGE:msrdadvancedclassesII.rtf
+Quicken Spell	CATEGORY:Special Ability	TYPE:Special		VISIBLE:NO																																							ADDSPELLLEVEL:4
+Scribe Scroll	CATEGORY:Special Ability					VISIBLE:NO											DESC:Create a scroll, level is set at time of creation...																																							SOURCEPAGE:msrdadvancedclassesII.rtf
+Scribe Tattoo	CATEGORY:Special Ability					VISIBLE:NO											DESC:Create a tattoo, level is set at time of creation...																																							SOURCEPAGE:msrdadvancedclassesII.rtf
+Summon Familiar	CATEGORY:Special Ability					VISIBLE:NO	SAB:Summon Familiar			DEFINE:FamiliarLVL|0																																FOLLOWERS:Familiar|1	COMPANIONLIST:Familiar|Bat,Cat,Ferret,Hawk,Owl,Rat,Snake (Tiny/Viper),Toad
+Web Access Spells	CATEGORY:Special Ability	TYPE:VirtualPossession	VISIBLE:NO	SAB:Can use Web Access as spellbook
+
+###Block: Artificer Craft Artifice Abilities
+# Ability Name		Category of Ability		Type				Visible	Required Skill							Special ABility
+Craft Wand			CATEGORY:Special Ability	TYPE:CraftArtifice	VISIBLE:NO	PRESKILL:1,Craft (Mechanical)=1				SAB:Craft Wand
+Improved Brew Potion	CATEGORY:Special Ability	TYPE:CraftArtifice	VISIBLE:NO	PRESKILL:1,Craft (Chemical)=1					SAB:Improved Brew Potion
+Improved Scribe Scroll	CATEGORY:Special Ability	TYPE:CraftArtifice	VISIBLE:NO	PRESKILL:1,Craft (Writing)=1					SAB:Improved Scribe Scroll
+Improved Scribe Tattoo	CATEGORY:Special Ability	TYPE:CraftArtifice	VISIBLE:NO	PRESKILL:1,Craft (Visual Art)=1				SAB:Improved Scribe Tattoo
+Magic Mastercraft		CATEGORY:Special Ability	TYPE:CraftArtifice	VISIBLE:NO	PRESKILL:2,Craft (Chemical)=1,Craft (Mechanical)=1	SAB:Magic Mastercraft
+
+###Block: All Proficiencies (for referencing)
+# Ability Name					Category of Ability		Visible	Automatically Gained Weapon Prof.
+All Automatic Proficiencies			CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|Unarmed Strike|Flamethrower
+All Exotic Firearms Proficiency		CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=ExoticFirearms
+All Exotic Melee Weapons Proficiency	CATEGORY:Special Ability	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Exotic
+
+
+###Block:Soldier ---------------------------------------------------------------
+# Ability Name	Category of Ability		Type					Visible	Special ABility		Combat bonus
+Tactical Aid	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Tactical Aid
+Improved Reaction	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improved Reaction	BONUS:COMBAT|INITIATIVE|2|TYPE=Competence
+Critical Strike	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Critical Strike
+
+###Block:Martial Artist --------------------------------------------------------
+# Ability Name	Category of Ability		Special ABility																Define
+Living Weapon	CATEGORY:Special Ability	SAB:Living Weapon 1d%|LivingWeaponDie												DEFINE:LivingWeaponDie|0
+Flying Kick		CATEGORY:Special Ability	SAB:Flying Kick
+Iron Fist		CATEGORY:Special Ability	SAB:Iron Fist (one attack)|PREVAREQ:IronFistLvl,1	SAB:Iron Fist (all attacks)|PREVAREQ:IronFistLvl,2	DEFINE:IronFistLvl|0
+Flurry of Blows	CATEGORY:Special Ability	SAB:Flurry of Blows
+
+
+###Block:Gunslinger ------------------------------------------------------------
+# Ability Name		Category of Ability		Type					Visible	Special ABility
+Close Combat Shot		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Close Combat Shot
+Defensive Position	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Defensive Position
+Lightning Shot		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Lightning Shot
+Sharp Shooting		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sharp Shooting
+Bullseye			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Bullseye
+
+
+###Block:Infiltrator -----------------------------------------------------------
+# Ability Name		Category of Ability		Type					Visible	Special ABility										Define
+Sweep				CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sweep|PREVAREQ:SweepLvl,1	SAB:Improved Sweep|PREVAREQ:SweepLvl,2	DEFINE:SweepLvl|0
+Improvised Implements	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improvised Implements
+Improved Evasion		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improved Evasion
+Without a Trace		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Without a Trace
+
+
+###Block:Daredevil -------------------------------------------------------------
+# Ability Name	Category of Ability		Type					Visible	Special ABility														Define
+Fearless		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Fearless
+Nip Up		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Nip Up
+Action Boost	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Action Boost
+Adrenaline Rush	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Adrenaline Rush (one ability score)|PREVARLT:CL,8	SAB:Adrenaline Rush (two ability scores)	DEFINE:AdrenalineRushLvl|0
+Delay Damage	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Delay Damage
+Damage Threshold	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Damage Threshold
+
+
+###Block:Bodyguard -------------------------------------------------------------
+# Ability Name		Category of Ability		Type					Visible	Special ABility				Define
+Harm's Way			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Harm's Way
+Combat Sense		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Combat Sense +%|CombatSense	DEFINE:CombatSense|0
+Sudden Action		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sudden Action
+Improved Charge		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Improved Charge
+Defensive Strike		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Defensive Strike
+Blanket Protection	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Blanket Protection
+
+
+###Block:Field Scientist -------------------------------------------------------
+# Ability Name			Category of Ability		Type					Visible	Special ABility			Combat bonus
+Smart Defense			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Smart Defense			BONUS:COMBAT|AC|INT|TYPE=Dodge.STACK
+Scientific Improvisation	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Scientific Improvisation
+Minor Breakthrough		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Minor Breakthrough
+Smart Survival			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Smart Survival
+Smart Weapon			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Smart Weapon
+Major Breakthrough		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Major Breakthrough
+
+
+###Block:Techie ----------------------------------------------------------------
+# Ability Name		Category of Ability		Type					Visible		Special ABility							Define				Stackable?	Multiple?	Choose		Modify VAR				Source Page
+Jury Rig			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO		SAB:Jury Rig +%|TechieRig					DEFINE:TechieRig|0
+Extreme Machine		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO		SAB:Extreme Machine
+Build Robot			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO		SAB:Build Robot
+
+Electronic Mastercraft	CATEGORY:Special Ability	TYPE:TechieMastercraft		VISIBLE:DISPLAY	SAB:Mastercraft (Electronic +%)|MasterElectronic	DEFINE:MasterElectronic|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterElectronic|1	SOURCEPAGE:msrdadvancedclasses.rtf
+Mechanical Mastercraft	CATEGORY:Special Ability	TYPE:TechieMastercraft		VISIBLE:DISPLAY	SAB:Mastercraft (Mechanical +%)|MasterMechanical	DEFINE:MasterMechanical|0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|MasterMechanical|1	SOURCEPAGE:msrdadvancedclasses.rtf
+
+
+###Block:FieldMedic ------------------------------------------------------------
+# Ability Name		Category of Ability		Type					Visible	Special ABility															Define
+Medical Specialist	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Medical Specialist +%|MedicalSpec											DEFINE:MedicalSpec|0
+Expert Healer		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Expert Healer
+Medical Mastery		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Medical Mastery
+Medical Miracle		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Minor Medical Miracle|PREVAREQ:MedicalMiracle,1	SAB:Medical Miracle|PREVAREQ:MedicalMiracle,2	DEFINE:MedicalMiracle|0
+
+
+###Block:Investigator ----------------------------------------------------------
+# Ability Name	Category of Ability		Type					Visible	Special ABility																							Define
+Profile		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Profile
+Contact		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Contact (Low-Level)|PREVARGTEQ:ContactLvl,1	SAB:Contact (Mid-Level)|PREVARGTEQ:ContactLvl,2	SAB:Contact (High-level)|PREVARGTEQ:ContactLvl,3	DEFINE:ContactLvl|0
+Nonlethal Force	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Nonlethal Force
+Sixth Sense		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sixth Sense
+
+
+###Block:Personality -----------------------------------------------------------
+# Ability Name		Category of Ability		Type					Visible	Special ABility										Define
+Unlimited Access		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Unlimited Access
+Royalty			CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Royalty|PREVARGTEQ:Royalty,1	SAB:Royalty x2|PREVARGTEQ:Royalty,2	DEFINE:Royalty|0
+Winning Smile		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Winning Smile
+Compelling Performance	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Compelling Performance
+
+
+###Block:Negotiator ------------------------------------------------------------
+# Ability Name	Category of Ability		Type					Visible	Special ABility																										Define
+Conceal Motive	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Conceal Motive
+React First		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:React First
+Talk Down		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Talk down one opponent|PREVAREQ:TalkDownLvl,1	SAB:Talk down several opponents|PREVAREQ:TalkDownLvl,2	SAB:Talk down all opponents|PREVAREQ:TalkDownLvl,3	DEFINE:TalkDownLvl|0
+No Sweat		CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:No sweat
+Sow Distrust	CATEGORY:Special Ability	TYPE:Class.SpecialAbility	VISIBLE:NO	SAB:Sow Distrust
+
+
+###Block: Companion Modifier Abilities -----------------------------------------
+# Ability Name				Category of Ability		Visible	Special ABility				Bonus to skill							Source Page						Temporary effect description
+Empathic Link				CATEGORY:Special Ability	VISIBLE:NO	SAB:Empathic Link
+Share Spells				CATEGORY:Special Ability	VISIBLE:NO	SAB:Share Spells
+Deliver Touch Spells			CATEGORY:Special Ability	VISIBLE:NO	SAB:Deliver touch spells
+Speak with Master				CATEGORY:Special Ability	VISIBLE:NO	SAB:Speak with master
+Speak with Animals of its Kind	CATEGORY:Special Ability	VISIBLE:NO	SAB:Speak with animals of its kind
+Scry on Familiar				CATEGORY:Special Ability	VISIBLE:NO	SAB:Scry on familiar
+Hawk Familiar Bonuses			CATEGORY:Special Ability	VISIBLE:NO							BONUS:SKILL|Spot|3|TYPE=HawkFamiliar|PREAPPLY:PC	SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in daylight
+Owl Familiar Bonuses			CATEGORY:Special Ability	VISIBLE:NO							BONUS:SKILL|Spot|3|TYPE=OwlFamiliar|PREAPPLY:PC		SOURCEPAGE:msrdadvancedclassesII.rtf	TEMPDESC:Mage gains +3 bonus on Spot checks in dusk or darkness
+
+#
+# End
+#

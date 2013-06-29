@@ -1,0 +1,20 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System - Gangland	SOURCESHORT:Gangland	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=74	SOURCEDATE:2005-01
+
+###Block: .MOD feats for TYPE addition
+# Ability Name										Type
+CATEGORY=Starting Occupation|Disable Device(class skill).MOD		TYPE:CriminalRecord
+CATEGORY=Starting Occupation|Disable Device(+1 to skill).MOD		TYPE:CriminalRecord
+CATEGORY=Starting Occupation|Disguise(class skill).MOD			TYPE:CriminalRecord
+CATEGORY=Starting Occupation|Disguise(+1 to skill).MOD			TYPE:CriminalRecord
+CATEGORY=Starting Occupation|Forgery(class skill).MOD				TYPE:CriminalRecord
+CATEGORY=Starting Occupation|Forgery(+1 to skill).MOD				TYPE:CriminalRecord
+CATEGORY=Starting Occupation|Gamble(class skill).MOD				TYPE:CriminalRecord
+CATEGORY=Starting Occupation|Gamble(+1 to skill).MOD				TYPE:CriminalRecord
+CATEGORY=Starting Occupation|Hide(class skill).MOD				TYPE:CriminalRecord
+CATEGORY=Starting Occupation|Hide(+1 to skill).MOD				TYPE:CriminalRecord
+CATEGORY=Starting Occupation|Knowledge (Streetwise - +1 to skill).MOD	TYPE:CriminalRecord
+CATEGORY=Starting Occupation|Move Silently(class skill).MOD			TYPE:CriminalRecord
+CATEGORY=Starting Occupation|Move Silently(+1 to skill).MOD			TYPE:CriminalRecord
+CATEGORY=Starting Occupation|Sleight of Hand(class skill).MOD		TYPE:CriminalRecord
+CATEGORY=Starting Occupation|Sleight of Hand(+1 to skill).MOD		TYPE:CriminalRecord

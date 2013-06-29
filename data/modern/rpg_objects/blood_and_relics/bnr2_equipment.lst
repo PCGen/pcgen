@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Relics 2nd Edition	SOURCESHORT:BnR2	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=53	SOURCEDATE:2004-01
+
+# Equipment Name						Type				Source Page
+Brandea							TYPE:Wondrous.Major	SOURCEPAGE:p.69
+Encolpion (Medium)					TYPE:Wondrous.Medium	SOURCEPAGE:p.70
+Encolpion (Major)						TYPE:Wondrous.Major	SOURCEPAGE:p.70
+Hilt of Excalibur						TYPE:Artifact.Major	SOURCEPAGE:p.70
+Lance of Longino						TYPE:Artifact.Major	SOURCEPAGE:p.70
+Nails of the True Cross					TYPE:Artifact.Minor	SOURCEPAGE:p.70
+Sacrificial Blade (Minor)				TYPE:Artifact.Minor	SOURCEPAGE:p.71
+Sacrificial Blade (Medium)				TYPE:Artifact.Medium	SOURCEPAGE:p.71
+Sacrificial Blade (Major)				TYPE:Artifact.Major	SOURCEPAGE:p.71
+Shards of Excalibur					TYPE:Artifact.Minor	SOURCEPAGE:p.71
+Shroud of Turin						TYPE:Artifact.Major	SOURCEPAGE:p.71
+Slivers of the True Cross				TYPE:Artifact.Major	SOURCEPAGE:p.72
+
+Black Tome							TYPE:Tome			SOURCEPAGE:p.73
+Confessor's Eye						TYPE:Tome			SOURCEPAGE:p.74
+Monsignor Melotti's Tome of Vampire Slayer	TYPE:Tome			SOURCEPAGE:p.74
+Celestinian Bible						TYPE:Tome			SOURCEPAGE:p.75
+Power Walks Among Us					TYPE:Tome			SOURCEPAGE:p.75

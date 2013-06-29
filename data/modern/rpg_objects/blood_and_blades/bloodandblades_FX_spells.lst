@@ -1,0 +1,24 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Blades - The Profilers Guide to Slashers	SOURCESHORT:BloodBlades	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141	SOURCEDATE:2005-01
+#Original entry by: Frank Kliewe
+
+###As soon as I include the powers from rsrd_powers_psionic.lst fron the RSRD, the Polymorph.MOD ceases the function, I have
+#therefore commented it out and put Polymorph (Self Only) in as a full new spell entry. This is just a variation/limitation
+#of the Polymorph spell from MSRD Arcana.
+
+# Spell Name	Classes of caster	School			Sub-School		Type		Components		Casting Time			Range			Target Area or Effect		Duration			Save Info					Spell Resistance	Description																	Source Page
+Create Evil Doll	CLASSES:Mage=5	SCHOOL:Necromancy					TYPE:Arcane	COMPS:V, S, F	CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:One doll		DURATION:Permanent	SAVEINFO:Will negates; see text	SPELLRES:Yes	DESC:Just before death, you place your soul into a nearby doll.								SOURCEPAGE:p.41
+Pumpkin Pact	CLASSES:Acolyte=5	SCHOOL:Conjuration	SUBSCHOOL:Calling	TYPE:Divine	COMPS:V, S, M, XP	CASTTIME:10 minutes		RANGE:Close		TARGETAREA:One pumpkin demon	DURATION:Instantaneous	SAVEINFO:None				SPELLRES:No		DESC:By casting this spell, you summon a pumpkin demon from the blood of a person who has been wronged.	SOURCEPAGE:p.41
+
+###Block:Spell .MODs for Innate Spells
+# Spell Name				Range						Target Area		Description
+#Polymorph.COPY=Polymorph (Self only)
+#Polymorph (Self only).MOD		RANGE:.CLEAR	RANGE:Personal	TARGETAREA:You	DESC:Gives you another form that you designate
+
+# Spell Name		School			Type			Components		Casting Time			Range			Target Area or Effect	Duration			Save Info				Spell Resistance	Description							Source Page
+Polymorph (Self only)	SCHOOL:Transmutation	TYPE:Incantation	COMPS:V, S, M, F	CASTTIME:60 minutes (minimum)	RANGE:Personal	TARGETAREA:You		DURATION:12 minutes	SAVEINFO:Fortitude negates	SPELLRES:Yes	DESC:Gives you another form that you designate	SOURCEPAGE:ArcanaIncantations.rtf
+
+###Block: Etherealness and Nightmare from RSRD
+# Spell Name	School			Sub-School			Spell Descriptors				Type				Components	Casting Time			Range				Item		Target Area or Effect							Duration					Save Info					Spell Resistance	Description							Source Page
+Etherealness	SCHOOL:Transmutation											TYPE:Arcane.Divine	COMPS:V, S	CASTTIME:1 standard action	RANGE:Touch; see text	ITEM:Potion	TARGETAREA:You and (CASTERLEVEL/3) other touched creatures	DURATION:(CASTERLEVEL) minutes [D]	SAVEINFO:None				SPELLRES:Yes	DESC:Travel to Ethereal Plane with companions.	SOURCEPAGE:SpellsD-E.rtf
+Nightmare		SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-Affecting|Evil	TYPE:Arcane			COMPS:V, S	CASTTIME:10 minutes		RANGE:Unlimited				TARGETAREA:One living creature					DURATION:Instantaneous			SAVEINFO:Will negates; see text	SPELLRES:Yes	DESC:Sends vision dealing 1d10 damage, fatigue.	SOURCEPAGE:SpellsM-O.rtf

@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
+
+# Modifier Name	Unique Key			Naming Option	Type			Cost		Visible		Bonus to skill					Modify VAR				Choose
+Artificial Organ	KEY:ARTIFICIALORGAN	NAMEOPT:NONAME	TYPE:Organ		COST:0	VISIBLE:QUALIFY													CHOOSE:STRING|Heart|Eye|Lungs|Liver|Ear|Stomach|Intestine|Pancreas|Spleen|Duodenum|TITLE=Organ
+Skill Implant	KEY:SKILLIMPLANT		NAMEOPT:NONAME	TYPE:SkillImplant	COST:0	VISIBLE:QUALIFY	BONUS:SKILL|%CHOICE|2|TYPE=Competence	BONUS:VAR|SkillImplantTotal|1	CHOOSE:SKILL|TITLE=Skill Bonus
+
+# Currently not used by anything
+#Educated Feat Implant	KEY:EDUCATEDFEATIMPLANT	NAMEOPT:NONAME	TYPE:ImplantedFeatEducated	COST:0	VISIBLE:QUALIFY	BONUS:SKILL|LIST|2									CHOOSE:NUMCHOICES=2|SKILLSNAMED|TYPE.Knowledge
+
+#
+# End
+#

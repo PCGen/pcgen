@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern Dispatch #10 - Near-Future Firearms	SOURCESHORT:MD10-NFF	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3994	SOURCEDATE:2004-01
+#Original Entry by: Frank Kliewe
+
+# Weapon Name		Type				Nb Hands
+H&K-Calico Model 1007	TYPE:PersonalFirearm
+H&K-Ares FMP1		TYPE:PersonalFirearm
+H&K MP5A7C			TYPE:PersonalFirearm	HANDS:2
+H&K UMP2 9mm		TYPE:PersonalFirearm	HANDS:2
+H&K UMP2 .25		TYPE:PersonalFirearm	HANDS:2
+H&K UMP2 4.73mm		TYPE:PersonalFirearm	HANDS:2
+H&K UMP2 10mm		TYPE:PersonalFirearm	HANDS:2
+H&K UMP2 .40		TYPE:PersonalFirearm	HANDS:2
+H&K UMP2 .45		TYPE:PersonalFirearm	HANDS:2
+Intratec TEC-9 QC		TYPE:PersonalFirearm
+Pancor Dragonmaw		TYPE:PersonalFirearm	HANDS:2

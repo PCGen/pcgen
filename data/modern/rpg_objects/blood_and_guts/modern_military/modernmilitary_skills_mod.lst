@@ -1,0 +1,39 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23	SOURCEDATE:2003-01
+# Original Entry by Paul W. King
+
+# Skill Name				Type
+Bluff.MOD					TYPE:IntelligenceSkills
+Climb.MOD					TYPE:InfantrySkills
+Computer Use.MOD				TYPE:IntelligenceSkills
+Craft (Chemical).MOD			TYPE:CombatEngineeringSkills.DiverSkills.NBCSkills
+Craft (Electronic).MOD			TYPE:AviationSkills.CombatEngineeringSkills.DiverSkills.PilotSkills.NBCSkills.SignalsSkills.MedicalSkills.MaintenanceSkills
+Craft (Mechanical).MOD			TYPE:AviationSkills.CombatEngineeringSkills.PilotSkills.SignalsSkills.MaintenanceSkills
+Craft (Pharmaceutical).MOD		TYPE:Medicalskills
+Craft (Structural).MOD			TYPE:AviationSkills.CombatEngineeringSkills.FieldArtillerySkills.InfantrySkills.MaintenanceSkills
+Decipher Script.MOD			TYPE:IntelligenceSkills
+Demolitions.MOD				TYPE:ArmorSkills.CombatEngineeringSkills.DiverSkills.FieldArtillerySkills.InfantrySkills
+Diplomacy.MOD				TYPE:NBCSkills.SignalsSkills.MedicalSkills.LawEnforcementSkills.IntelligenceSkills
+Disable Device.MOD			TYPE:ArmorSkills.CombatEngineeringSkills.DiverSkills.FieldArtillerySkills.InfantrySkills.NBCSkills
+Drive.MOD					TYPE:ArmorSkills.CombatEngineeringSkills.FieldArtillerySkills.InfantrySkills.LawEnforcementSkills.MaintenanceSkills
+Forgery.MOD					TYPE:IntelligenceSkills
+Gather Information.MOD			TYPE:IntelligenceSkills
+Handle Animal.MOD				TYPE:LawEnforcementSkills
+Hide.MOD					TYPE:ArmorSkills.FieldArtillerySkills.InfantrySkills
+Intimidate.MOD				TYPE:InfantrySkills.LawEnforcementSkills.IntelligenceSkills
+Investigate.MOD				TYPE:LawEnforcementSkills
+Knowledge (Behavioral Sciences).MOD	TYPE:MedicalSkills
+Knowledge (Civics).MOD			TYPE:LawEnforcementSkills
+Knowledge (Tactics).MOD			TYPE:ArmorSkills.FieldArtillerySkills.InfantrySkills.PilotSkills
+Knowledge (Technology).MOD		TYPE:ArmorSkills.AviationSkills.CombatEngineeringSkills.DiverSkills.NBCSkills.SignalsSkills.MedicalSkills.MaintenanceSkills
+Navigate.MOD				TYPE:ArmorSkills.CombatEngineeringSkills.InfantrySkills
+Pilot.MOD					TYPE:PilotSkills
+Profession.MOD				TYPE:DiverSkills
+Repair.MOD					TYPE:ArmorSkills.AviationSkills.CombatEngineeringSkills.DiverSkills.FieldArtillerySkills.PilotSkills.NBCSkills.SignalsSkills.MedicalSkills.MaintenanceSkills
+Research.MOD				TYPE:NBCSkills.MedicalSkills.IntelligenceSkills
+Search.MOD					TYPE:CombatEngineeringSkills.DiverSkills.InfantrySkills
+Sense Motive.MOD				TYPE:LawEnforcementSkills.IntelligenceSkills
+Spot.MOD					TYPE:InfantrySkills.LawEnforcementSkills.IntelligenceSkills
+Survival.MOD				TYPE:CombatEngineeringSkills.InfantrySkills
+Swim.MOD					TYPE:DiverSkills
+Treat Injury.MOD				TYPE:NBCSkills.MedicalSkills

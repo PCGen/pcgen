@@ -1,0 +1,44 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern Dispatch #90 - The Watchers	SOURCESHORT:MD90-TW	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=224	SOURCEDATE:2004-01
+#Original entry by Paul W. King
+
+# Ability Name	Category of Ability		Type			Visible		Bonus to Ability Pool					Modify VAR			Source Page
+Celestial		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Celestial Occupation Skills|3	BONUS:VAR|WealthBonus|2	SOURCEPAGE:p.1
+
+
+###Block: The Skill choices
+# Ability Name												Type
+CATEGORY=Starting Occupation|Bluff(class skill).MOD						TYPE:Celestial_Skills
+CATEGORY=Starting Occupation|Bluff(+1 to skill).MOD						TYPE:Celestial_Skills
+
+CATEGORY=Starting Occupation|Decipher Script(class skill).MOD				TYPE:Celestial_Skills
+CATEGORY=Starting Occupation|Decipher Script(+1 to skill).MOD				TYPE:Celestial_Skills
+
+CATEGORY=Starting Occupation|Intimidate(class skill).MOD					TYPE:Celestial_Skills
+CATEGORY=Starting Occupation|Intimidate(+1 to skill).MOD					TYPE:Celestial_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Arcane Lore - class skill).MOD			TYPE:Celestial_Skills
+CATEGORY=Starting Occupation|Knowledge (Arcane Lore - +1 to skill).MOD			TYPE:Celestial_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Art - class skill).MOD				TYPE:Celestial_Skills
+CATEGORY=Starting Occupation|Knowledge (Art - +1 to skill).MOD				TYPE:Celestial_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Behavioral Sciences - class skill).MOD	TYPE:Celestial_Skills
+CATEGORY=Starting Occupation|Knowledge (Behavioral Sciences - +1 to skill).MOD	TYPE:Celestial_Skills
+
+CATEGORY=Starting Occupation|Knowledge (History - class skill).MOD			TYPE:Celestial_Skills
+CATEGORY=Starting Occupation|Knowledge (History - +1 to skill).MOD			TYPE:Celestial_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Streetwise - +1 to skill).MOD			TYPE:Celestial_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Theology and Philosophy - class skill).MOD	TYPE:Celestial_Skills
+CATEGORY=Starting Occupation|Knowledge (Theology and Philosophy - +1 to skill).MOD	TYPE:Celestial_Skills
+
+CATEGORY=Starting Occupation|Listen(class skill).MOD						TYPE:Celestial_Skills
+CATEGORY=Starting Occupation|Listen(+1 to skill).MOD						TYPE:Celestial_Skills
+
+CATEGORY=Starting Occupation|Sense Motive(class skill).MOD					TYPE:Celestial_Skills
+CATEGORY=Starting Occupation|Sense Motive(+1 to skill).MOD					TYPE:Celestial_Skills
+
+CATEGORY=Starting Occupation|Spot(class skill).MOD						TYPE:Celestial_Skills
+CATEGORY=Starting Occupation|Spot(+1 to skill).MOD						TYPE:Celestial_Skills

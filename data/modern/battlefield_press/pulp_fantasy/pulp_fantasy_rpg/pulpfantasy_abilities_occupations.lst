@@ -1,0 +1,255 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
+#Original entry by: Frank Kliewe
+
+###Block:Occupations from MSRD
+# Ability Name								Source Page
+CATEGORY=Starting Occupation|Academic.MOD				SOURCEPAGE:p.25
+CATEGORY=Starting Occupation|Adventurer.MOD			SOURCEPAGE:p.25
+CATEGORY=Starting Occupation|Athlete.MOD				SOURCEPAGE:p.26
+CATEGORY=Starting Occupation|Celebrity.MOD			SOURCEPAGE:p.26
+CATEGORY=Starting Occupation|Creative.MOD				SOURCEPAGE:p.27
+CATEGORY=Starting Occupation|Criminal.MOD				SOURCEPAGE:p.27
+CATEGORY=Starting Occupation|Dilettante.MOD			SOURCEPAGE:p.27
+CATEGORY=Starting Occupation|Doctor.MOD				SOURCEPAGE:p.27
+CATEGORY=Starting Occupation|Entrepreneur.MOD			SOURCEPAGE:p.27
+CATEGORY=Starting Occupation|Investigative.MOD			SOURCEPAGE:p.28
+CATEGORY=Starting Occupation|Law Enforcement.MOD		SOURCEPAGE:p.28
+CATEGORY=Starting Occupation|Military.MOD				SOURCEPAGE:p.28
+CATEGORY=Starting Occupation|Religious.MOD			SOURCEPAGE:p.29
+CATEGORY=Starting Occupation|Rural.MOD				SOURCEPAGE:p.29
+CATEGORY=Starting Occupation|Student.MOD				SOURCEPAGE:p.29
+CATEGORY=Starting Occupation|White Collar.MOD			SOURCEPAGE:p.29
+CATEGORY=Starting Occupation|Blue Collar.FORGET
+CATEGORY=Starting Occupation|Emergency Services.FORGET
+CATEGORY=Starting Occupation|Technician.FORGET
+
+###Block:Occupations
+# Ability Name	Category of Ability		Type			Visible		Required Feat		Required Stat	Bonus to Ability Pool														Modify VAR							Source Page
+Antiques Dealer	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Antiques Dealer Occupation Skills|2	BONUS:ABILITYPOOL|Antiques Dealer Feat|1		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.26
+Artist		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Artist Occupation Skills|4										BONUS:VAR|Reputation|1					SOURCEPAGE:p.26
+Bureaucrat		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Bureaucrat Occupation Skills|2	BONUS:ABILITYPOOL|Bureaucrat Feat|1			BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.26
+Circus Performer	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Circus Performer Occupation Skills|3	BONUS:ABILITYPOOL|Circus Performer Feat|1	BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.26
+Craftsperson	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY					PRESTAT:1,DEX=13	BONUS:ABILITYPOOL|Craftsperson Occupation Skills|2	BONUS:ABILITYPOOL|Craftsperson Feat|1		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.27
+Domestic		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Domestic Occupation Skills|3										BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.27
+Engineer		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Engineer Occupation Skills|3										BONUS:VAR|WealthBonus|3					SOURCEPAGE:p.27
+Escape Artist	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Escape Artist Occupation Skills|2	BONUS:ABILITYPOOL|Escape Artist Feat|1		BONUS:VAR|WealthBonus|1	BONUS:VAR|Reputation|1	SOURCEPAGE:p.27
+Fortuneteller	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Fortuneteller Occupation Skills|2	BONUS:ABILITYPOOL|Fortuneteller Feat|1		BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.28
+Heir			CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY	PREFEAT:1,Educated				BONUS:ABILITYPOOL|Heir Occupation Skills|4	BONUS:ABILITYPOOL|Heir's Wealth|1				BONUS:VAR|WealthBonus|6	BONUS:VAR|Reputation|1	SOURCEPAGE:p.28
+Hunter		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Hunter Occupation Skills|1	BONUS:ABILITYPOOL|Hunter Feat|1				BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.28
+Laborer		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Laborer Occupation Skills|3										BONUS:VAR|WealthBonus|2					SOURCEPAGE:p.28
+Outcast		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Outcast Occupation Skills|1	BONUS:ABILITYPOOL|Outcast Feat|1				BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.28
+Politician		CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY					PRESTAT:1,CHA=13	BONUS:ABILITYPOOL|Politician Occupation Skills|2	BONUS:ABILITYPOOL|Politician Feat|1			BONUS:VAR|WealthBonus|3	BONUS:VAR|Reputation|1	SOURCEPAGE:p.29
+Stage Magician	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|Stage Magician Occupation Skills|3	BONUS:ABILITYPOOL|Stage Magician Feat|1		BONUS:VAR|WealthBonus|1					SOURCEPAGE:p.29
+World Traveller	CATEGORY:Starting Occupation	TYPE:Occupation	VISIBLE:DISPLAY								BONUS:ABILITYPOOL|World Traveller Occupation Skills|2	BONUS:ABILITYPOOL|World Traveller Feat|1		BONUS:VAR|WealthBonus|4					SOURCEPAGE:p.29
+
+###Block:Occupation Workarounds
+# Feat Name						Type				Visible	Add					Modify VAR
+# Ability Name				Category of Ability	Type			Visible		Required Ability										Bonus to Ability Pool			Modify VAR
+Exchange Reputation for Wealth	CATEGORY:Heir's Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY													BONUS:ABILITYPOOL|Heir's Wealth|1	BONUS:VAR|Reputation|-1
+Wealth Increase +1			CATEGORY:Heir's Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Heir's Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|1
+Wealth Increase +2			CATEGORY:Heir's Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Heir's Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|2
+Wealth Increase +3			CATEGORY:Heir's Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Heir's Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|3
+Wealth Increase +4			CATEGORY:Heir's Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Heir's Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|4
+Wealth Increase +5			CATEGORY:Heir's Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Heir's Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|5
+Wealth Increase +6			CATEGORY:Heir's Wealth	TYPE:Heirs_Wealth	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Heir's Wealth,Exchange Reputation for Wealth							BONUS:VAR|WealthBonus|6
+
+###Block:Skill Choices
+# Ability Name						Category of Ability		Type																											Visible		Class Skill
+Benchthumping(class skill)				CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Engineer_Skills																					VISIBLE:DISPLAY	CSKILL:Benchthumping
+
+Knowledge (Hidden Lore - class skill)		CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Academic_Skills.Adventurer_Skills.Antiques_Dealer_Skills.Artist_Skills.Circus_Performer_Skills.Escape_Artist_Skills.Fortuneteller_Skills	VISIBLE:DISPLAY	CSKILL:Knowledge (Hidden Lore)
+
+Knowledge (Military Science - class skill)	CATEGORY:Starting Occupation	TYPE:Occupation_Skill.Academic_Skills.Adventurer_Skills																		VISIBLE:DISPLAY	CSKILL:Knowledge (Military Science)
+
+###Block:Skill Choices from MSRD
+# Ability Name												Type
+CATEGORY=Starting Occupation|Computer Use(class skill).FORGET
+CATEGORY=Starting Occupation|Computer Use(+1 to skill).FORGET
+
+CATEGORY=Starting Occupation|Knowledge (Arcane Lore - class skill).FORGET
+CATEGORY=Starting Occupation|Knowledge (Arcane Lore - +1 to skill).FORGET
+
+CATEGORY=Starting Occupation|Knowledge (Tactics - class skill).FORGET
+CATEGORY=Starting Occupation|Knowledge (Tactics - +1 to skill).FORGET
+
+CATEGORY=Starting Occupation|Balance(class skill).MOD						TYPE:Circus_Performer_Skills
+CATEGORY=Starting Occupation|Balance(+1 to skill).MOD						TYPE:Circus_Performer_Skills
+
+CATEGORY=Starting Occupation|Bluff(class skill).MOD						TYPE:Artist_Skills.Bureaucrat_Skills.Domestic_Skills.Escape_Artist_Skills.Fortuneteller_Skills.Politician_Skills.Stage_Magician_Skills.World_Traveller_Skills
+CATEGORY=Starting Occupation|Bluff(+1 to skill).MOD						TYPE:Artist_Skills.Bureaucrat_Skills.Domestic_Skills.Escape_Artist_Skills.Fortuneteller_Skills.Politician_Skills.Stage_Magician_Skills.World_Traveller_Skills
+
+CATEGORY=Starting Occupation|Climb(class skill).MOD						TYPE:Circus_Performer_Skills.Escape_Artist_Skills.Laborer_Skills
+CATEGORY=Starting Occupation|Climb(+1 to skill).MOD						TYPE:Circus_Performer_Skills.Escape_Artist_Skills.Laborer_Skills
+
+CATEGORY=Starting Occupation|Concentration(class skill).MOD					TYPE:Domestic_Skills
+CATEGORY=Starting Occupation|Concentration(+1 to skill).MOD					TYPE:Domestic_Skills
+
+CATEGORY=Starting Occupation|Craft (Chemical - class skill).MOD				TYPE:Craftsperson_Skills.Stage_Magician_Skills
+CATEGORY=Starting Occupation|Craft (Chemical - +1 to skill).MOD				TYPE:Craftsperson_Skills.Stage_Magician_Skills
+
+CATEGORY=Starting Occupation|Craft (Electronic - class skill).MOD				TYPE:Craftsperson_Skills.Engineer_Skills
+CATEGORY=Starting Occupation|Craft (Electronic - +1 to skill).MOD				TYPE:Craftsperson_Skills.Engineer_Skills
+
+CATEGORY=Starting Occupation|Craft (Mechanical - class skill).MOD				TYPE:Craftsperson_Skills.Engineer_Skills.Escape_Artist_Skills.Laborer_Skills.Stage_Magician_Skills
+CATEGORY=Starting Occupation|Craft (Mechanical - +1 to skill).MOD				TYPE:Craftsperson_Skills.Engineer_Skills.Escape_Artist_Skills.Laborer_Skills.Stage_Magician_Skills
+
+CATEGORY=Starting Occupation|Craft (Pharmaceutical - class skill).MOD			TYPE:Craftsperson_Skills
+CATEGORY=Starting Occupation|Craft (Pharmaceutical - +1 to skill).MOD			TYPE:Craftsperson_Skills
+
+CATEGORY=Starting Occupation|Craft (Structural - class skill).MOD				TYPE:Craftsperson_Skills.Engineer_Skills.Laborer_Skills
+CATEGORY=Starting Occupation|Craft (Structural - +1 to skill).MOD				TYPE:Craftsperson_Skills.Engineer_Skills.Laborer_Skills
+
+CATEGORY=Starting Occupation|Craft (Visual Art - class skill).MOD				TYPE:Artist_Skills.Craftsperson_Skills.Heir_Skills
+CATEGORY=Starting Occupation|Craft (Visual Art - +1 to skill).MOD				TYPE:Artist_Skills.Craftsperson_Skills.Heir_Skills
+
+CATEGORY=Starting Occupation|Craft (Writing - class skill).MOD				TYPE:Artist_Skills.Bureaucrat_Skills.Heir_Skills
+CATEGORY=Starting Occupation|Craft (Writing - +1 to skill).MOD				TYPE:Artist_Skills.Bureaucrat_Skills.Heir_Skills
+
+CATEGORY=Starting Occupation|Decipher Script(class skill).MOD				TYPE:Antiques_Dealer_Skills
+CATEGORY=Starting Occupation|Decipher Script(+1 to skill).MOD				TYPE:Antiques_Dealer_Skills
+
+CATEGORY=Starting Occupation|Diplomacy(class skill).MOD					TYPE:Bureaucrat_Skills.Domestic_Skills.Fortuneteller_Skills.Politician_Skills
+CATEGORY=Starting Occupation|Diplomacy(+1 to skill).MOD					TYPE:Bureaucrat_Skills.Domestic_Skills.Fortuneteller_Skills.Politician_Skills
+
+CATEGORY=Starting Occupation|Disable Device(class skill).MOD				TYPE:Craftsperson_Skills.Escape_Artist_Skills.Stage_Magician_Skills
+CATEGORY=Starting Occupation|Disable Device(+1 to skill).MOD				TYPE:Craftsperson_Skills.Escape_Artist_Skills.Stage_Magician_Skills
+
+CATEGORY=Starting Occupation|Disguise(class skill).MOD					TYPE:Artist_Skills.Outcast_Skills
+CATEGORY=Starting Occupation|Disguise(+1 to skill).MOD					TYPE:Artist_Skills.Outcast_Skills
+
+CATEGORY=Starting Occupation|Drive(class skill).MOD						TYPE:Domestic_Skills.Engineer_Skills.Laborer_Skills.World_Traveller_Skills
+CATEGORY=Starting Occupation|Drive(+1 to skill).MOD						TYPE:Domestic_Skills.Engineer_Skills.Laborer_Skills.World_Traveller_Skills
+
+CATEGORY=Starting Occupation|Escape Artist(class skill).MOD					TYPE:Stage_Magician_Skills
+CATEGORY=Starting Occupation|Escape Artist(+1 to skill).MOD					TYPE:Stage_Magician_Skills
+
+CATEGORY=Starting Occupation|Forgery(class skill).MOD						TYPE:Artist_Skills.Bureaucrat_Skills
+CATEGORY=Starting Occupation|Forgery(+1 to skill).MOD						TYPE:Artist_Skills.Bureaucrat_Skills
+
+CATEGORY=Starting Occupation|Gamble(class skill).MOD						TYPE:World_Traveller_Skills
+CATEGORY=Starting Occupation|Gamble(+1 to skill).MOD						TYPE:World_Traveller_Skills
+
+CATEGORY=Starting Occupation|Gather Information(class skill).MOD				TYPE:Antiques_Dealer_Skills.Bureaucrat_Skills.Domestic_Skills.Fortuneteller_Skills.Politician_Skills.World_Traveller_Skills
+CATEGORY=Starting Occupation|Gather Information(+1 to skill).MOD				TYPE:Antiques_Dealer_Skills.Bureaucrat_Skills.Domestic_Skills.Fortuneteller_Skills.Politician_Skills.World_Traveller_Skills
+
+CATEGORY=Starting Occupation|Handle Animal(class skill).MOD					TYPE:Circus_Performer_Skills.Domestic_Skills.Laborer_Skills
+CATEGORY=Starting Occupation|Handle Animal(+1 to skill).MOD					TYPE:Circus_Performer_Skills.Domestic_Skills.Laborer_Skills
+
+CATEGORY=Starting Occupation|Hide(class skill).MOD						TYPE:Domestic_Skills.Outcast_Skills.Stage_Magician_Skills
+CATEGORY=Starting Occupation|Hide(+1 to skill).MOD						TYPE:Domestic_Skills.Outcast_Skills.Stage_Magician_Skills
+
+CATEGORY=Starting Occupation|Intimidate(class skill).MOD					TYPE:Domestic_Skills.Laborer_Skills.Politician_Skills
+CATEGORY=Starting Occupation|Intimidate(+1 to skill).MOD					TYPE:Domestic_Skills.Laborer_Skills.Politician_Skills
+
+CATEGORY=Starting Occupation|Investigate(class skill).MOD					TYPE:Antiques_Dealer_Skills
+CATEGORY=Starting Occupation|Investigate(+1 to skill).MOD					TYPE:Antiques_Dealer_Skills
+
+CATEGORY=Starting Occupation|Jump(class skill).MOD						TYPE:Circus_Performer_Skills
+CATEGORY=Starting Occupation|Jump(+1 to skill).MOD						TYPE:Circus_Performer_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Art - class skill).MOD				TYPE:Artist_Skills.Craftsperson_Skills.Heir_Skills
+CATEGORY=Starting Occupation|Knowledge (Art - +1 to skill).MOD				TYPE:Artist_Skills.Craftsperson_Skills.Heir_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Behavioral Sciences - class skill).MOD	TYPE:Fortuneteller_Skills.Politician_Skills
+CATEGORY=Starting Occupation|Knowledge (Behavioral Sciences - +1 to skill).MOD	TYPE:Fortuneteller_Skills.Politician_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Business - class skill).MOD			TYPE:Bureaucrat_Skills.Engineer_Skills.Heir_Skills
+CATEGORY=Starting Occupation|Knowledge (Business - +1 to skill).MOD			TYPE:Bureaucrat_Skills.Engineer_Skills.Heir_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Civics - class skill).MOD				TYPE:Bureaucrat_Skills.Heir_Skills.Politician_Skills.World_Traveller_Skills
+CATEGORY=Starting Occupation|Knowledge (Civics - +1 to skill).MOD				TYPE:Bureaucrat_Skills.Heir_Skills.Politician_Skills.World_Traveller_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Current Events - +1 to skill).MOD		TYPE:Bureaucrat_Skills.Circus_Performer_Skills.Domestic_Skills.Escape_Artist_Skills.Heir_Skills.Politician_Skills.World_Traveller_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Earth and Life Sciences - class skill).MOD	TYPE:Hunter_Skills
+CATEGORY=Starting Occupation|Knowledge (Earth and Life Sciences - +1 to skill).MOD	TYPE:Hunter_Skills
+
+CATEGORY=Starting Occupation|Knowledge (History - class skill).MOD			TYPE:Bureaucrat_Skills.Circus_Performer_Skills.Escape_Artist_Skills.Heir_Skills.Politician_Skills.World_Traveller_Skills
+CATEGORY=Starting Occupation|Knowledge (History - +1 to skill).MOD			TYPE:Bureaucrat_Skills.Circus_Performer_Skills.Escape_Artist_Skills.Heir_Skills.Politician_Skills.World_Traveller_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Physical Sciences - class skill).MOD		TYPE:Craftsperson_Skills.Engineer_Skills
+CATEGORY=Starting Occupation|Knowledge (Physical Sciences - +1 to skill).MOD		TYPE:Craftsperson_Skills.Engineer_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Popular Culture - +1 to skill).MOD		TYPE:Artist_Skills.Bureaucrat_Skills.Politician_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Streetwise - +1 to skill).MOD			TYPE:Antiques_Dealer_Skills.Circus_Performer_Skills.Fortuneteller_Skills.Outcast_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Technology - class skill).MOD			TYPE:Craftsperson_Skills.Engineer_Skills
+CATEGORY=Starting Occupation|Knowledge (Technology - +1 to skill).MOD			TYPE:Craftsperson_Skills.Engineer_Skills
+
+CATEGORY=Starting Occupation|Knowledge (Theology and Philosophy - class skill).MOD	TYPE:Politician_Skills
+CATEGORY=Starting Occupation|Knowledge (Theology and Philosophy - +1 to skill).MOD	TYPE:Politician_Skills
+
+CATEGORY=Starting Occupation|Listen(class skill).MOD						TYPE:Artist_Skills.Bureaucrat_Skills.Domestic_Skills.Politician_Skills
+CATEGORY=Starting Occupation|Listen(+1 to skill).MOD						TYPE:Artist_Skills.Bureaucrat_Skills.Domestic_Skills.Politician_Skills
+
+CATEGORY=Starting Occupation|Move Silently(class skill).MOD					TYPE:Domestic_Skills.Stage_Magician_Skills
+CATEGORY=Starting Occupation|Move Silently(+1 to skill).MOD					TYPE:Domestic_Skills.Stage_Magician_Skills
+
+CATEGORY=Starting Occupation|Navigate(class skill).MOD					TYPE:World_Traveller_Skills
+CATEGORY=Starting Occupation|Navigate(+1 to skill).MOD					TYPE:World_Traveller_Skills
+
+CATEGORY=Starting Occupation|Perform (Act - class skill).MOD				TYPE:Artist_Skills.Circus_Performer_Skills.Heir_Skills
+CATEGORY=Starting Occupation|Perform (Act - +1 to skill).MOD				TYPE:Artist_Skills.Circus_Performer_Skills.Heir_Skills
+
+CATEGORY=Starting Occupation|Perform (Dance - class skill).MOD				TYPE:Artist_Skills.Heir_Skills
+CATEGORY=Starting Occupation|Perform (Dance - +1 to skill).MOD				TYPE:Artist_Skills.Heir_Skills
+
+CATEGORY=Starting Occupation|Perform (Keyboards - class skill).MOD			TYPE:Artist_Skills.Heir_Skills
+CATEGORY=Starting Occupation|Perform (Keyboards - +1 to skill).MOD			TYPE:Artist_Skills.Heir_Skills
+
+CATEGORY=Starting Occupation|Perform (Percussion Instruments - class skill).MOD	TYPE:Artist_Skills.Heir_Skills
+CATEGORY=Starting Occupation|Perform (Percussion Instruments - +1 to skill).MOD	TYPE:Artist_Skills.Heir_Skills
+
+CATEGORY=Starting Occupation|Perform (Sing - class skill).MOD				TYPE:Artist_Skills.Heir_Skills
+CATEGORY=Starting Occupation|Perform (Sing - +1 to skill).MOD				TYPE:Artist_Skills.Heir_Skills
+
+CATEGORY=Starting Occupation|Perform (Stand-Up - class skill).MOD				TYPE:Artist_Skills.Stage_Magician_Skills
+CATEGORY=Starting Occupation|Perform (Stand-Up - +1 to skill).MOD				TYPE:Artist_Skills.Stage_Magician_Skills
+
+CATEGORY=Starting Occupation|Perform (Stringed Instruments - class skill).MOD		TYPE:Artist_Skills.Heir_Skills
+CATEGORY=Starting Occupation|Perform (Stringed Instruments - +1 to skill).MOD		TYPE:Artist_Skills.Heir_Skills
+
+CATEGORY=Starting Occupation|Perform (Wind Instruments - class skill).MOD		TYPE:Artist_Skills.Heir_Skills
+CATEGORY=Starting Occupation|Perform (Wind Instruments - +1 to skill).MOD		TYPE:Artist_Skills.Heir_Skills
+
+CATEGORY=Starting Occupation|Pilot(class skill).MOD						TYPE:Domestic_Skills.Engineer_Skills
+CATEGORY=Starting Occupation|Pilot(+1 to skill).MOD						TYPE:Domestic_Skills.Engineer_Skills
+
+CATEGORY=Starting Occupation|Read/Write Language(1 additional language).MOD		TYPE:Bureaucrat_Skills.Politician_Skills
+
+CATEGORY=Starting Occupation|Repair(class skill).MOD						TYPE:Antiques_Dealer_Skills.Craftsperson_Skills.Domestic_Skills.Engineer_Skills.Laborer_Skills
+CATEGORY=Starting Occupation|Repair(+1 to skill).MOD						TYPE:Antiques_Dealer_Skills.Craftsperson_Skills.Domestic_Skills.Engineer_Skills.Laborer_Skills
+
+CATEGORY=Starting Occupation|Research(class skill).MOD					TYPE:Antiques_Dealer_Skills.Bureaucrat_Skills.Craftsperson_Skills.Engineer_Skills.Fortuneteller_Skills.Politician_Skills
+CATEGORY=Starting Occupation|Research(+1 to skill).MOD					TYPE:Antiques_Dealer_Skills.Bureaucrat_Skills.Craftsperson_Skills.Engineer_Skills.Fortuneteller_Skills.Politician_Skills
+
+CATEGORY=Starting Occupation|Ride(class skill).MOD						TYPE:Heir_Skills.Laborer_Skills
+CATEGORY=Starting Occupation|Ride(+1 to skill).MOD						TYPE:Heir_Skills.Laborer_Skills
+
+CATEGORY=Starting Occupation|Search(class skill).MOD						TYPE:Domestic_Skills.Outcast_Skills
+CATEGORY=Starting Occupation|Search(+1 to skill).MOD						TYPE:Domestic_Skills.Outcast_Skills
+
+CATEGORY=Starting Occupation|Sense Motive(class skill).MOD					TYPE:Bureaucrat_Skills.Domestic_Skills.Heir_Skills.Politician_Skills
+CATEGORY=Starting Occupation|Sense Motive(+1 to skill).MOD					TYPE:Bureaucrat_Skills.Domestic_Skills.Heir_Skills.Politician_Skills
+
+CATEGORY=Starting Occupation|Sleight of Hand(class skill).MOD				TYPE:Escape_Artist_Skills.Fortuneteller_Skills.Stage_Magician_Skills
+CATEGORY=Starting Occupation|Sleight of Hand(+1 to skill).MOD				TYPE:Escape_Artist_Skills.Fortuneteller_Skills.Stage_Magician_Skills
+
+CATEGORY=Starting Occupation|Speak Language(1 additional language).MOD			TYPE:Bureaucrat_Skills.Politician_Skills
+
+CATEGORY=Starting Occupation|Spot(class skill).MOD						TYPE:Artist_Skills.Domestic_Skills
+CATEGORY=Starting Occupation|Spot(+1 to skill).MOD						TYPE:Artist_Skills.Domestic_Skills
+
+CATEGORY=Starting Occupation|Survival(class skill).MOD					TYPE:Hunter_Skills.Outcast_Skills.World_Traveller_Skills
+CATEGORY=Starting Occupation|Survival(+1 to skill).MOD					TYPE:Hunter_Skills.Outcast_Skills.World_Traveller_Skills
+
+CATEGORY=Starting Occupation|Swim(class skill).MOD						TYPE:Escape_Artist_Skills
+CATEGORY=Starting Occupation|Swim(+1 to skill).MOD						TYPE:Escape_Artist_Skills
+
+CATEGORY=Starting Occupation|Treat Injury(class skill).MOD					TYPE:Craftsperson_Skills.Outcast_Skills
+CATEGORY=Starting Occupation|Treat Injury(+1 to skill).MOD					TYPE:Craftsperson_Skills.Outcast_Skills
+
+CATEGORY=Starting Occupation|Tumble(class skill).MOD						TYPE:Circus_Performer_Skills
+CATEGORY=Starting Occupation|Tumble(+1 to skill).MOD						TYPE:Circus_Performer_Skills

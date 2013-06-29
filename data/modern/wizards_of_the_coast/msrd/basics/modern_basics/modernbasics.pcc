@@ -1,0 +1,72 @@
+# CVS $Revision$ $Author$ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
+CAMPAIGN:Modern - Basics
+RANK:1
+GAMEMODE:Modern
+GENRE:Modern
+BOOKTYPE:Core Rules
+SETTING:Modern
+TYPE:MSRD.Partial.Basics
+!PRECAMPAIGN:1,MSRD - Basics
+PUBNAMELONG:Wizards of the Coast
+PUBNAMESHORT:WotC
+PUBNAMEWEB:http://www.wizards.com/default.asp?x=d20modern
+SOURCELONG:Modern System Reference Document - Basics
+SOURCESHORT:MSRD
+SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd
+SOURCEDATE:2002-01
+# COMMENT: Unknown Month - Set as 01
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002-2004, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, Eric Cagle, David Noonan, Stan!, Christopher Perkins, Rodney Thompson, and JD Wiker,  based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Code Monkey Publishing, LLC PCGen data file conversion for MSRD, Copyright 2004, Code Monkey Publishing, LLC.; Authors - Paul W. King, Doug McMillan, Sheridan Richey, Chris Chandler, W. Robert Reed III, Jason Buchanan, Bryan McRoberts, Jessica Whiting
+COPYRIGHT:PCGen dataset conversion for the Modern System Reference Document Copyright 2002-2006, PCGen Data team including, but not limited to, Paul W. King, Chris Chandler (Barak), Greg G. (Phantom of Krankor), alexquest, Hugo Perez (Emperorfranz), Doug McMillan (dlm1065), Andrew McDougall (Tir Gwaith), Jonathan Weisman (bD_92), Rob Reed (Mynex), Ian Dale, Eddy Anthony, Devon Jones, Frank Kliewe, Andrew Maitland.
+
+INFOTEXT:This will load the basic options of the MSRD without FX, Menace or races other than Human
+
+ABILITYCATEGORY:modernbasics_ability_categories_core.lst
+
+ABILITY:modernbasics_abilities_occupations.lst
+ABILITY:modernbasics_abilities_talents.lst
+ABILITY:modernbasics_abilities_racial.lst
+ABILITY:modernbasics_abilities_class.lst
+
+CLASS:modernbasics_classes_pc.lst
+CLASS:modernbasics_classes_npc.lst
+CLASS:modernbasics_classes_advanced.lst
+
+EQUIPMENT:modernbasics_equip.lst
+EQUIPMENT:modernbasics_equip_vehicles.lst
+EQUIPMENT:modernbasics_equip_armor.lst
+EQUIPMENT:modernbasics_equip_weap.lst
+EQUIPMENT:modernbasics_equip_weap_ammo.lst
+EQUIPMENT:modernbasics_equip_weap_melee.lst
+EQUIPMENT:modernbasics_equip_weap_ranged.lst
+EQUIPMENT:modernbasics_equip_weap_ranged_firearms.lst
+EQUIPMENT:modernbasics_equip_weap_vehicles.lst
+EQUIPMOD:modernbasics_equipmods.lst
+
+FEAT:modernbasics_feats.lst
+
+KIT:modernbasics_kits_defaultmonsters_animals.lst
+LANGUAGE:modernbasics_languages.lst
+RACE:modernbasics_race_human.lst
+RACE:modernbasics_races_animals.lst
+SKILL:modernbasics_skills.lst
+
+TEMPLATE:modernbasics_templates.lst
+WEAPONPROF:modernbasics_weaponprofs.lst
+ARMORPROF:modernbasics_profs_armor.lst
+SHIELDPROF:modernbasics_profs_shields.lst
+
+#Hiding Equipment Types that control EQMODS
+HIDETYPE:EQUIP|SpecialSuppressor|LightSource
+HIDETYPE:SKILL|Science
+HIDETYPE:FEAT|Leadership
+#Fix till ABILITY is recoginized
+HIDETYPE:FEAT|Leadership|AberrationProficiency|FeyProficiency|GiantProficiency|HumanoidProficiency|MonstrousHumanoidProficiency|OutsiderProficiency|UndeadProficiency
+
+# Hide key stat types for skills
+HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma
+
+# Suppress Duplicate Language Warnings
+ALLOWDUPES:LANGUAGE

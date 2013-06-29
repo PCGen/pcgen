@@ -1,0 +1,94 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
+# Original entry bD_92
+
+# Weapon Name		Type						Nb Hands
+Ray
+Grapple
+
+
+# Weapon Name		Type						Nb Hands
+Flamethrower		TYPE:Simple
+Pepper Spray		TYPE:Simple
+Shuriken			TYPE:Archaic
+Taser				TYPE:Simple
+Whip				TYPE:Simple
+Crossbow			TYPE:Simple
+Javelin			TYPE:Simple
+Compound Bow		TYPE:Archaic
+
+Beretta 92F			TYPE:PersonalFirearm
+Beretta 93R			TYPE:PersonalFirearm
+Colt Double Eagle		TYPE:PersonalFirearm
+Colt M1911			TYPE:PersonalFirearm
+Colt Python			TYPE:PersonalFirearm
+Derringer			TYPE:PersonalFirearm
+Desert Eagle		TYPE:PersonalFirearm
+Glock 17			TYPE:PersonalFirearm
+Glock 20			TYPE:PersonalFirearm
+MAC Ingram M10		TYPE:PersonalFirearm
+Pathfinder			TYPE:PersonalFirearm
+Ruger Service-Six		TYPE:PersonalFirearm
+S and W M29			TYPE:PersonalFirearm
+SITES M9			TYPE:PersonalFirearm
+Skorpion			TYPE:PersonalFirearm
+TEC-9				TYPE:PersonalFirearm
+Walther PPK			TYPE:PersonalFirearm
+
+AKM/AK-47			TYPE:PersonalFirearm			HANDS:2
+Barrett Light Fifty	TYPE:PersonalFirearm			HANDS:2
+Benelli 121 M1		TYPE:PersonalFirearm			HANDS:2
+Beretta M3P			TYPE:PersonalFirearm			HANDS:2
+Browning BPS		TYPE:PersonalFirearm			HANDS:2
+HK G3				TYPE:PersonalFirearm			HANDS:2
+HK MP5			TYPE:PersonalFirearm			HANDS:2
+HK MP5K			TYPE:PersonalFirearm			HANDS:2
+HK PSG1			TYPE:PersonalFirearm			HANDS:2
+M16A2				TYPE:PersonalFirearm			HANDS:2
+M4 Carbine			TYPE:PersonalFirearm			HANDS:2
+M-60				TYPE:PersonalFirearm			HANDS:2
+Mossberg			TYPE:PersonalFirearm			HANDS:2
+Remington 700		TYPE:PersonalFirearm			HANDS:2
+Sawed-Off Shotgun		TYPE:PersonalFirearm			HANDS:2
+Steyr AUG			TYPE:PersonalFirearm			HANDS:2
+Uzi				TYPE:PersonalFirearm			HANDS:2
+Winchester 94		TYPE:PersonalFirearm			HANDS:2
+
+# Exotic Firearms
+Cannon			TYPE:ExoticFirearms
+Heavy Machine Gun		TYPE:ExoticFirearms
+Grenade Launcher		TYPE:ExoticFirearms
+Rocket Launcher		TYPE:ExoticFirearms
+
+#Melee
+Kukri				TYPE:Exotic
+Kama				TYPE:Exotic
+Nunchaku			TYPE:Exotic
+Chain				TYPE:Exotic
+Chain Saw			TYPE:Exotic
+Three-Section Staff	TYPE:Exotic
+Katana			TYPE:Exotic
+Hatchet			TYPE:Archaic
+Machete			TYPE:Archaic
+Straight Razor		TYPE:Archaic
+Longsword			TYPE:Archaic
+Rapier			TYPE:Archaic
+Sword Cane			TYPE:Archaic
+Fixed Bayonet		TYPE:Archaic
+Spear				TYPE:Archaic
+Brass Knuckles		TYPE:Simple.Finesseable.Melee
+Knife				TYPE:Simple.Finesseable.Melee
+Stun Gun			TYPE:Simple
+Cleaver			TYPE:Simple.Finesseable.Melee
+Pistol Whip			TYPE:Simple.Finesseable.Melee
+Sap				TYPE:Simple.Finesseable.Melee
+Club				TYPE:Simple
+Metal Baton			TYPE:Simple.Finesseable.Melee.Light
+Tonfa				TYPE:Simple.Finesseable.Melee
+Rifle Butt			TYPE:Simple.Finesseable.Melee
+Unarmed Strike		TYPE:Simple.Finesseable.Melee
+Quarterstaff		TYPE:Simple					HANDS:2
+
+###Block: Archaic profs moved from Arcana because they are used in meneces or elsewhere
+# Weapon Name	Type
+Greatsword		TYPE:Archaic

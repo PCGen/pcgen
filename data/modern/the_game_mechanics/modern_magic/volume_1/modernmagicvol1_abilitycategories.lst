@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Tue Feb 17 13:50:55 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+# SOURCELONG:Modern Magic - Volume 1	SOURCESHORT:ModMag1	SOURCEWEB:http://www.thegamemechanics.com/products/modernmagic1.asp
+
+
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Arcane Spec Op Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcaneSpecOpChoice		PLURAL:Arcane Spec Op Choice		DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Arcane Spec Op Spell Focus	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ArcaneSpecOpSpellFocus	PLURAL:Arcane Spec Op Spell Focus	DISPLAYLOCATION:Class Abilities

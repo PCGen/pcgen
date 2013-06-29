@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59	SOURCEDATE:2004-01
+
+# Template Name	Visible	Apply Kit			Lock Gender Selection
+Male Clone		VISIBLE:NO					GENDERLOCK:Male
+Female Clone	VISIBLE:NO					GENDERLOCK:Female
+
+Android Stats	VISIBLE:NO	KIT:1|Android Stats
+Clone Stats		VISIBLE:NO	KIT:1|Clone Stats
+
+#
+# End
+#

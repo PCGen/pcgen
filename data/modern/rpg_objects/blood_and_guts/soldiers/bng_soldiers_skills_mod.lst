@@ -1,0 +1,38 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Guts - Soldiers	SOURCESHORT:BnG-S	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49	SOURCEDATE:2004-01
+
+# Skill Name					Type
+Bluff.MOD						TYPE:LegalServicesSkills.RecruitingSkills.SupplySkills
+Communication Operations.MOD			TYPE:AirDefenseSkills
+Computer Use.MOD					TYPE:AdministrativeSkills.LegalServicesSkills.RecruitingSkills.SupplySkills
+Demolitions.MOD					TYPE:AirDefenseSkills
+Diplomacy.MOD					TYPE:AdministrativeSkills.LegalServicesSkills.RecruitingSkills.ReligiousSkills.SupplySkills
+Disable Device.MOD				TYPE:AirDefenseSkills
+Forgery.MOD						TYPE:SupplySkills
+Gather Information.MOD				TYPE:LegalServicesSkills.SupplySkills
+Hide.MOD						TYPE:AirDefenseSkills
+Knowledge (Art).MOD				TYPE:AdministrativeSkills
+Knowledge (Behavioral Sciences).MOD		TYPE:LegalServicesSkills.RecruitingSkills.ReligiousSkills
+Knowledge (Business).MOD			TYPE:AdministrativeSkills.LegalServicesSkills
+Knowledge (Civics).MOD				TYPE:LegalServicesSkills
+Knowledge (Current Events).MOD		TYPE:AdministrativeSkills.RecruitingSkills
+Knowledge (History).MOD				TYPE:ReligiousSkills
+Knowledge (Popular Culture).MOD		TYPE:AdministrativeSkills.RecruitingSkills
+Knowledge (Tactics).MOD				TYPE:AirDefenseSkills
+Knowledge (Technology).MOD			TYPE:AirDefenseSkills
+Knowledge (Theology and Philosophy).MOD	TYPE:ReligiousSkills
+Listen.MOD						TYPE:AdministrativeSkills.RecruitingSkills.ReligiousSkills.SupplySkills
+Navigate.MOD					TYPE:AirDefenseSkills
+Perform (Act).MOD					TYPE:AdministrativeSkills
+Perform (Dance).MOD				TYPE:AdministrativeSkills
+Perform (Keyboards).MOD				TYPE:AdministrativeSkills
+Perform (Percussion Instruments).MOD	TYPE:AdministrativeSkills
+Perform (Sing).MOD				TYPE:AdministrativeSkills
+Perform (Stand-Up).MOD				TYPE:AdministrativeSkills
+Perform (Stringed Instruments).MOD		TYPE:AdministrativeSkills
+Perform (Wind Instruments).MOD		TYPE:AdministrativeSkills
+Repair.MOD						TYPE:AirDefenseSkills.SupplySkills
+Research.MOD					TYPE:AdministrativeSkills.LegalServicesSkills.RecruitingSkills.ReligiousSkills.SupplySkills
+Sense Motive.MOD					TYPE:LegalServicesSkills.RecruitingSkills.ReligiousSkills.SupplySkills
+Spot.MOD						TYPE:AirDefenseSkills.ReligiousSkills
+Treat Injury.MOD					TYPE:ReligiousSkills

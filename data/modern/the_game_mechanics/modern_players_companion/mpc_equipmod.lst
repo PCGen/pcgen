@@ -1,0 +1,20 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/	SOURCEDATE:2003-01
+# Original Entry by: Frank Kliewe
+
+#Ammunition Modifiers
+# Modifier Name	Unique Key			Type			Cost			Visible		Keys to replace		Required Type	Special Property
+Hot Loads		KEY:AMMO_HOT_LOAD		TYPE:Ammunition	COST:BASECOST	VISIBLE:QUALIFY	REPLACES:AMMO_COLD_LOAD	PRETYPE:1,Bullet	SPROP:Hot loads do +1 point of damage	SPROP:If combined with ammunition that causes unreliability, such as AET, hot loads count as a seperate source of unreliability (e.g. AET hot loads will jam on a natural 1 or 2 on the attack roll)
+Cold Loads		KEY:AMMO_COLD_LOAD	TYPE:Ammunition	COST:1		VISIBLE:QUALIFY	REPLACES:AMMO_HOT_LOAD	PRETYPE:1,Bullet	SPROP:Cold loads suffer an additional -1 penalty for each range increment	SPROP:Required by some weapons to be really quiet
+
+#Accelerated Energy Transfer	KEY:AMMO_AET		TYPE:Ammunition	COST:0												SPROP:Damage +1	SPROP:Unreliable	SPROP:Res(+2)
+#Armor Piercing			KEY:AMMO_AP			TYPE:Ammunition	COST:0												SPROP:Damage -1	SPROP:If your target has armor or natural armor, you gain a +1 circumstance bonus on attack rolls	SPROP:Res(+2)
+#Explosive				KEY:AMMO_EXPLOSIVE	TYPE:Ammunition	COST:0												SPROP:Damage +1D4	SPROP:Mil(+3)
+#Flechette				KEY:AMMO_FLECHETTE	TYPE:Ammunition	COST:0												SPROP:You suffer a -2 penalty to damage per range increment rather than the standard -2 penalty to hit.
+#Glaser				KEY:AMMO_GLASER		TYPE:Ammunition	COST:0												SPROP:Damage +2	SPROP:If your target has armor or natural armor, you suffer a -2 penalty on attack rolls
+#Hollow-point			KEY:AMMO_HOLLOW_POINT	TYPE:Ammunition	COST:0												SPROP:Damage +1	SPROP:If your target has armor or natural armor, you suffer a -1 penalty on attack rolls
+#Incendiary				KEY:AMMO_INCENDIARY	TYPE:Ammunition	COST:0												SPROP:Damage +1d4 fire	SPROP:Mil(+3)
+
+#
+# End
+#

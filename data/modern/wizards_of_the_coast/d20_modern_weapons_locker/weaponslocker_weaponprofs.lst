@@ -1,0 +1,1154 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:d20 Weapons Locker	SOURCESHORT:d20WL	SOURCEWEB:http://www.wizards.com/d20modern	SOURCEDATE:2004-01
+# Original Entry by: Terrence FitzSimons * 14 May 2006
+
+# WEAPONCATEGORY:Simple
+# WEAPONCATEGORY:PersonalFirearm
+# WEAPONCATEGORY:Archaic
+# WEAPONCATEGORY:Exotic
+# WEAPONCATEGORY:ExoticFirearms
+# WEAPONCATEGORY:Natural
+# WEAPONCATEGORY:HMG
+# WEAPONCATEGORY:RocketLauncher
+# WEAPONCATEGORY:GrenadeLauncher
+# WEAPONCATEGORY:Mecha
+# WEAPONCATEGORY:Starship
+
+# Exotic Firearms
+# Weapon Name					Type				Nb Hands
+Norinco Model 85 Bayonet Pistol		TYPE:ExoticFirearms
+
+# Pistols and Handguns				Type				Nb Hands
+6P35							TYPE:PersonalFirearm
+AMT .44 Automag					TYPE:PersonalFirearm	HANDS:2
+AMT Backup						TYPE:PersonalFirearm
+AMT Longslide Hardballer			TYPE:PersonalFirearm	HANDS:2
+ASAI onePRO						TYPE:PersonalFirearm
+Astra A 90						TYPE:PersonalFirearm
+Astra A 100						TYPE:PersonalFirearm
+AT 2000 S						TYPE:PersonalFirearm
+AT 2000 PS						TYPE:PersonalFirearm
+AT 2000 P						TYPE:PersonalFirearm
+AT 2000 H						TYPE:PersonalFirearm
+Baikal 441						TYPE:PersonalFirearm
+Baikal 442						TYPE:PersonalFirearm
+Benelli Model B-76				TYPE:PersonalFirearm
+Benelli Model MP3-S				TYPE:PersonalFirearm
+Benelli MP95					TYPE:PersonalFirearm	HANDS:2
+Beretta M9 Mil-Spec				TYPE:PersonalFirearm
+Beretta Model 84 Series				TYPE:PersonalFirearm
+Beretta Model 85 Series				TYPE:PersonalFirearm
+Beretta Model 87 Series				TYPE:PersonalFirearm
+Beretta Model 86 Series				TYPE:PersonalFirearm
+Beretta Model 92					TYPE:PersonalFirearm
+Beretta Model 92 Compact			TYPE:PersonalFirearm
+Beretta Model 96					TYPE:PersonalFirearm
+Beretta Model 96 Compact			TYPE:PersonalFirearm
+Beretta 8000 Cougar				TYPE:PersonalFirearm
+Beretta 8000 Mini-Cougar			TYPE:PersonalFirearm
+Beretta 9000S					TYPE:PersonalFirearm
+Bernardelli P6					TYPE:PersonalFirearm
+Bernardelli P.ONE					TYPE:PersonalFirearm
+Browning Hi-Power					TYPE:PersonalFirearm
+Bryco-Jennings Model 59				TYPE:PersonalFirearm
+Colt Delta Elite					TYPE:PersonalFirearm
+Colt M1911A1					TYPE:PersonalFirearm
+Colt M1911A1 Custom Models			TYPE:PersonalFirearm
+Colt Mustang					TYPE:PersonalFirearm
+Colt SOCOM						TYPE:PersonalFirearm
+Coonan Pistol					TYPE:PersonalFirearm
+C2 75							TYPE:PersonalFirearm
+C2 75B Compact					TYPE:PersonalFirearm
+C2 75BD						TYPE:PersonalFirearm
+C2 85							TYPE:PersonalFirearm
+C2 85 Combat					TYPE:PersonalFirearm
+C2 92							TYPE:PersonalFirearm
+C2 97B						TYPE:PersonalFirearm
+CZ 100						TYPE:PersonalFirearm
+CZ 101						TYPE:PersonalFirearm
+Daewoo DP51 Mark II				TYPE:PersonalFirearm
+Daewoo DP51C Mark II				TYPE:PersonalFirearm
+Daewoo DH40 Mark II				TYPE:PersonalFirearm
+Daewoo DH45 Mark II				TYPE:PersonalFirearm
+Drel							TYPE:PersonalFirearm
+Falcon 400						TYPE:PersonalFirearm
+FEG P9R						TYPE:PersonalFirearm
+FN BDA Series					TYPE:PersonalFirearm
+FN BDAO Series					TYPE:PersonalFirearm
+FN five-seveN					TYPE:PersonalFirearm
+FN five-seveN w/Suppressor			TYPE:PersonalFirearm
+FN Fourty-nine					TYPE:PersonalFirearm
+Glock 17C						TYPE:PersonalFirearm
+Glock 17L						TYPE:PersonalFirearm	HANDS:2
+Glock 19						TYPE:PersonalFirearm
+Glock 19C						TYPE:PersonalFirearm
+Glock 21						TYPE:PersonalFirearm
+Glock 22						TYPE:PersonalFirearm
+Glock 23						TYPE:PersonalFirearm
+Glock 24						TYPE:PersonalFirearm
+Glock 25						TYPE:PersonalFirearm
+Glock 26						TYPE:PersonalFirearm
+Glock 27						TYPE:PersonalFirearm
+Glock 28						TYPE:PersonalFirearm
+Glock 29						TYPE:PersonalFirearm
+Glock 30						TYPE:PersonalFirearm
+Glock 31						TYPE:PersonalFirearm
+Glock 32						TYPE:PersonalFirearm
+Glock 33						TYPE:PersonalFirearm	HANDS:2
+Glock 34						TYPE:PersonalFirearm	HANDS:2
+Glock 35						TYPE:PersonalFirearm	HANDS:2
+Glock 36						TYPE:PersonalFirearm
+HK4							TYPE:PersonalFirearm
+HK Mk 23 SOCOM					TYPE:PersonalFirearm	HANDS:2
+HK P7							TYPE:PersonalFirearm
+HK P8							TYPE:PersonalFirearm
+HK P13						TYPE:PersonalFirearm
+HK P95						TYPE:PersonalFirearm
+HK P2000						TYPE:PersonalFirearm
+HK USP						TYPE:PersonalFirearm
+HK USP Compact					TYPE:PersonalFirearm
+HK USP Match					TYPE:PersonalFirearm
+HK USP Tactical					TYPE:PersonalFirearm
+Hammerli 160					TYPE:PersonalFirearm	HANDS:2
+Jericho 941						TYPE:PersonalFirearm
+Jericho 941FB					TYPE:PersonalFirearm
+Kareen Mark II					TYPE:PersonalFirearm
+Kareen Mark II Compact				TYPE:PersonalFirearm
+Kel Tec P-II					TYPE:PersonalFirearm
+Korth Pistol					TYPE:PersonalFirearm
+KSN Golan						TYPE:PersonalFirearm
+Lei Mark II						TYPE:PersonalFirearm	HANDS:2
+Llama M 82						TYPE:PersonalFirearm
+Llama M 87						TYPE:PersonalFirearm	HANDS:2
+M-43 Firestar					TYPE:PersonalFirearm
+M-45 Firestar					TYPE:PersonalFirearm
+M-243 Firestar					TYPE:PersonalFirearm
+M-88							TYPE:PersonalFirearm
+M-105 Compact					TYPE:PersonalFirearm
+M-205 Ultrastar					TYPE:PersonalFirearm
+MAS M50						TYPE:PersonalFirearm
+Megastar						TYPE:PersonalFirearm
+MR-443 Grach					TYPE:PersonalFirearm
+MR-444 Baghira					TYPE:PersonalFirearm
+MR-445 Varyag					TYPE:PersonalFirearm
+MR-445S Compact					TYPE:PersonalFirearm
+MR-446 Viking					TYPE:PersonalFirearm
+Norinco Model 77B					TYPE:PersonalFirearm
+Norinco Model 64 Silent Pistol		TYPE:PersonalFirearm
+Norinco Model 67 Silent Pistol		TYPE:PersonalFirearm
+Norinco Model 77					TYPE:PersonalFirearm
+Norinco Model 84					TYPE:PersonalFirearm
+OTs-21 Malysh					TYPE:PersonalFirearm
+OTs-27 Berdysh					TYPE:PersonalFirearm
+P-9 Gurza						TYPE:PersonalFirearm
+P-96							TYPE:PersonalFirearm
+P-96S							TYPE:PersonalFirearm
+PM Makarov						TYPE:PersonalFirearm
+PMM Makarov						TYPE:PersonalFirearm
+PSM							TYPE:PersonalFirearm
+PSS Vul						TYPE:PersonalFirearm
+Reutech ADP Mk II					TYPE:PersonalFirearm
+Romarm Model 92					TYPE:PersonalFirearm
+Ruger Mark II Standard				TYPE:PersonalFirearm
+Ruger Mark II Target				TYPE:PersonalFirearm	HANDS:2
+Ruger Mark II Goverment				TYPE:PersonalFirearm	HANDS:2
+Ruger Mark II Competition			TYPE:PersonalFirearm	HANDS:2
+Ruger P89						TYPE:PersonalFirearm
+Ruger KP93						TYPE:PersonalFirearm
+Ruger KP94L						TYPE:PersonalFirearm
+Ruger P95						TYPE:PersonalFirearm
+Ruger P97						TYPE:PersonalFirearm
+S and W Mark 22 Mod 0				TYPE:PersonalFirearm	HANDS:2
+S and W Sigma SW9M				TYPE:PersonalFirearm
+S and W Sigma SW9F				TYPE:PersonalFirearm
+S and W Sigma SW40F				TYPE:PersonalFirearm
+S and W 3900					TYPE:PersonalFirearm
+S and W 3913LS					TYPE:PersonalFirearm
+S and W 3953					TYPE:PersonalFirearm
+S and W 4000					TYPE:PersonalFirearm
+S and W 4013					TYPE:PersonalFirearm
+S and W 4053					TYPE:PersonalFirearm
+S and W 4044					TYPE:PersonalFirearm
+S and W 4500					TYPE:PersonalFirearm
+S and W 4536					TYPE:PersonalFirearm
+S and W 5900					TYPE:PersonalFirearm
+S and W 5946					TYPE:PersonalFirearm
+SIG Sauer P220					TYPE:PersonalFirearm
+SIG Sauer P225					TYPE:PersonalFirearm
+SIG Sauer P226					TYPE:PersonalFirearm
+SIG Sauer P228					TYPE:PersonalFirearm
+SIG Sauer P229					TYPE:PersonalFirearm
+SIG Sauer P230					TYPE:PersonalFirearm
+SIG Sauer P232					TYPE:PersonalFirearm
+SIG Sauer P239					TYPE:PersonalFirearm
+sSIG Sauer P245					TYPE:PersonalFirearm
+SIG Sauer Pro SP2340				TYPE:PersonalFirearm
+SIG Sauer Pro SP2357				TYPE:PersonalFirearm
+SIG Sauer Pro SP2009				TYPE:PersonalFirearm
+SITES M9 Resolver					TYPE:PersonalFirearm
+SITES M380 Resolver				TYPE:PersonalFirearm
+SITES M40 Resolver				TYPE:PersonalFirearm
+Sphinx 0.380 AT					TYPE:PersonalFirearm
+Springfield Bureau Model FBI SWAT		TYPE:PersonalFirearm
+Star M-30 Series					TYPE:PersonalFirearm
+Star M-30P Series					TYPE:PersonalFirearm
+Star M-30K Series					TYPE:PersonalFirearm
+Star M-31 Series					TYPE:PersonalFirearm
+Star M-31P Series					TYPE:PersonalFirearm
+Star M-31K Series					TYPE:PersonalFirearm
+Steyr GB						TYPE:PersonalFirearm
+Steyr M9						TYPE:PersonalFirearm
+Steyr M357						TYPE:PersonalFirearm
+Steyr M40						TYPE:PersonalFirearm
+TanFoglio Combat					TYPE:PersonalFirearm
+TanFoglio Combat Compact			TYPE:PersonalFirearm
+TanFoglio Combat L.				TYPE:PersonalFirearm
+TanFoglio Force					TYPE:PersonalFirearm
+TanFoglio Force Compact				TYPE:PersonalFirearm
+Taurus PT111 Millennium				TYPE:PersonalFirearm
+Taurus PT140 Millennium				TYPE:PersonalFirearm
+Taurus PT145 Millennium				TYPE:PersonalFirearm
+Tokagupt 58						TYPE:PersonalFirearm
+Viktor CPI						TYPE:PersonalFirearm
+Viktor SPI						TYPE:PersonalFirearm
+Viktor SPI Officer's Pistol			TYPE:PersonalFirearm
+Walther P5						TYPE:PersonalFirearm
+Walther P1A1					TYPE:PersonalFirearm
+Walther P5 Compact				TYPE:PersonalFirearm
+Walther P88						TYPE:PersonalFirearm
+Walther P88 Compact				TYPE:PersonalFirearm
+Walther P22						TYPE:PersonalFirearm
+Walther P99						TYPE:PersonalFirearm
+Walther PP						TYPE:PersonalFirearm
+ZML Mag 95						TYPE:PersonalFirearm
+ZML Mag 98						TYPE:PersonalFirearm
+ZML Mag 98C						TYPE:PersonalFirearm
+ZML P-93						TYPE:PersonalFirearm
+APS Stechkin					TYPE:PersonalFirearm	HANDS:2
+Beretta Model 93R					TYPE:PersonalFirearm	HANDS:2
+C2 75 Automatic					TYPE:PersonalFirearm
+Glock 18C						TYPE:PersonalFirearm
+HK VP70						TYPE:PersonalFirearm
+Norinco Model 80					TYPE:PersonalFirearm
+OTs-23 Drotik					TYPE:PersonalFirearm
+OTs-33 Pernach					TYPE:PersonalFirearm	HANDS:2
+Steyr SPP						TYPE:PersonalFirearm	HANDS:2
+Voros Pistol					TYPE:PersonalFirearm	HANDS:2
+AEK 906						TYPE:PersonalFirearm
+AEK 906-1						TYPE:PersonalFirearm
+Armenius Vindicator				TYPE:PersonalFirearm
+Astra Model 960					TYPE:PersonalFirearm
+Astra Police					TYPE:PersonalFirearm
+Colt Anaconda					TYPE:PersonalFirearm	HANDS:2
+Colt King Cobra					TYPE:PersonalFirearm	HANDS:2
+Colt Mark III Series				TYPE:PersonalFirearm
+Colt Mark V Series				TYPE:PersonalFirearm
+DOG-1							TYPE:PersonalFirearm
+Downsizer Mini Pistol				TYPE:PersonalFirearm
+Knight Suppressed Revolver			TYPE:PersonalFirearm	HANDS:2
+Korth Combat					TYPE:PersonalFirearm
+MR73 Gendarmerie					TYPE:PersonalFirearm
+OTs-01 Kobalt					TYPE:PersonalFirearm
+OTs-01S Kobalt					TYPE:PersonalFirearm
+OTs-20 Gnom						TYPE:PersonalFirearm	HANDS:2
+R-92							TYPE:PersonalFirearm
+R-92KS						TYPE:PersonalFirearm
+Ruger GP100						TYPE:PersonalFirearm
+Ruger SP101						TYPE:PersonalFirearm
+Ruger Super Redhawk				TYPE:PersonalFirearm	HANDS:2
+S and W Model 29					TYPE:PersonalFirearm	HANDS:2
+S and W Model 629					TYPE:PersonalFirearm	HANDS:2
+S and W Model 64					TYPE:PersonalFirearm
+S and W Model 586					TYPE:PersonalFirearm
+S and W Model 642					TYPE:PersonalFirearm
+S4M							TYPE:PersonalFirearm
+SCK M-60 New Nambu				TYPE:PersonalFirearm
+SuperMag						TYPE:PersonalFirearm	HANDS:2
+Taurus Model 65					TYPE:PersonalFirearm	HANDS:2
+Taurus Model 66					TYPE:PersonalFirearm	HANDS:2
+Taurus Model 850 CIA				TYPE:PersonalFirearm	HANDS:2
+Taurus Raging Bull				TYPE:PersonalFirearm	HANDS:2
+Taurus Raging Hornet				TYPE:PersonalFirearm	HANDS:2
+Thompson Center Contender			TYPE:PersonalFirearm	HANDS:2
+Udar 1						TYPE:PersonalFirearm
+Udar 2						TYPE:PersonalFirearm
+Yesaul						TYPE:PersonalFirearm	HANDS:2
+
+# Rifles						Type				Nb Hands
+A-91 Compact					TYPE:PersonalFirearm	HANDS:2
+A-91M							TYPE:PersonalFirearm	HANDS:2
+AK-47							TYPE:PersonalFirearm	HANDS:2
+AKS-47						TYPE:PersonalFirearm	HANDS:2
+AKM-47						TYPE:PersonalFirearm	HANDS:2
+AKMS-47						TYPE:PersonalFirearm	HANDS:2
+AK-74							TYPE:PersonalFirearm	HANDS:2
+AKS-74						TYPE:PersonalFirearm	HANDS:2
+AKS-74U						TYPE:PersonalFirearm	HANDS:2
+AKS-74UB						TYPE:PersonalFirearm	HANDS:2
+AK-101						TYPE:PersonalFirearm	HANDS:2
+AK-102						TYPE:PersonalFirearm	HANDS:2
+AK-103						TYPE:PersonalFirearm	HANDS:2
+AK-104						TYPE:PersonalFirearm	HANDS:2
+AK-105						TYPE:PersonalFirearm	HANDS:2
+AK-107						TYPE:PersonalFirearm	HANDS:2
+AK-108						TYPE:PersonalFirearm	HANDS:2
+AN-94							TYPE:PersonalFirearm	HANDS:2
+Alexander Arms Beowulf				TYPE:PersonalFirearm	HANDS:2
+Alexander Arms Genghis				TYPE:PersonalFirearm	HANDS:2
+AMD-65						TYPE:PersonalFirearm	HANDS:2
+AMD-65RG						TYPE:PersonalFirearm	HANDS:2
+AR-10							TYPE:PersonalFirearm	HANDS:2
+Armalite AR-18					TYPE:PersonalFirearm	HANDS:2
+AS Val						TYPE:PersonalFirearm	HANDS:2
+Beretta AR70					TYPE:PersonalFirearm	HANDS:2
+Beretta SC70					TYPE:PersonalFirearm	HANDS:2
+Beretta SC70 Short				TYPE:PersonalFirearm	HANDS:2
+Beretta AR70/90					TYPE:PersonalFirearm	HANDS:2
+Beretta AR70/90B					TYPE:PersonalFirearm	HANDS:2
+Beretta SC70/90					TYPE:PersonalFirearm	HANDS:2
+Beretta SCS70/90					TYPE:PersonalFirearm	HANDS:2
+Beretta SCP70/90					TYPE:PersonalFirearm	HANDS:2
+Beretta BM59					TYPE:PersonalFirearm	HANDS:2
+Beretta BM59 Ital TA				TYPE:PersonalFirearm	HANDS:2
+Beryl 5.56mm Mod. 96				TYPE:PersonalFirearm	HANDS:2
+Mini-Beryl 5.56mm Mod. 96			TYPE:PersonalFirearm	HANDS:2
+BoFors AK5						TYPE:PersonalFirearm	HANDS:2
+BoFors AK5B						TYPE:PersonalFirearm	HANDS:2
+BoFors AK5D						TYPE:PersonalFirearm	HANDS:2
+Bushmaster M175					TYPE:PersonalFirearm	HANDS:2
+CETME Model 58					TYPE:PersonalFirearm	HANDS:2
+CETME Model L					TYPE:PersonalFirearm	HANDS:2
+CETME Model LC					TYPE:PersonalFirearm	HANDS:2
+CZ 52							TYPE:PersonalFirearm	HANDS:2
+CZ 52/57						TYPE:PersonalFirearm	HANDS:2
+CZ 58P						TYPE:PersonalFirearm	HANDS:2
+CZ 58V						TYPE:PersonalFirearm	HANDS:2
+CZ 2000						TYPE:PersonalFirearm	HANDS:2
+CZ 2000 Compact					TYPE:PersonalFirearm	HANDS:2
+Daewoo K1A1 carbine				TYPE:PersonalFirearm	HANDS:2
+Daewoo K1A1 sporting				TYPE:PersonalFirearm	HANDS:2
+Daewoo K2						TYPE:PersonalFirearm	HANDS:2
+DSA SA58						TYPE:PersonalFirearm	HANDS:2
+DSA SA58 Civ					TYPE:PersonalFirearm	HANDS:2
+DSA SA58 OSW					TYPE:PersonalFirearm	HANDS:2
+EM2							TYPE:PersonalFirearm	HANDS:2
+F2000							TYPE:PersonalFirearm	HANDS:2
+FA-MAS G1						TYPE:PersonalFirearm	HANDS:2
+FA-MAS G1B						TYPE:PersonalFirearm	HANDS:2
+FA-MAS G2						TYPE:PersonalFirearm	HANDS:2
+FA-MAS G2B						TYPE:PersonalFirearm	HANDS:2
+FA-MAS G2 Commando				TYPE:PersonalFirearm	HANDS:2
+FA-MAS G2 Civ					TYPE:PersonalFirearm	HANDS:2
+FARA 83						TYPE:PersonalFirearm	HANDS:2
+Floro International PDW				TYPE:PersonalFirearm	HANDS:2
+FN CAL						TYPE:PersonalFirearm	HANDS:2
+FN FAL						TYPE:PersonalFirearm	HANDS:2
+FN FALS						TYPE:PersonalFirearm	HANDS:2
+FN FAL Para						TYPE:PersonalFirearm	HANDS:2
+FN FNC						TYPE:PersonalFirearm	HANDS:2
+FN FNCC						TYPE:PersonalFirearm	HANDS:2
+FN FNS						TYPE:PersonalFirearm	HANDS:2
+Galil ARM						TYPE:PersonalFirearm	HANDS:2
+Galil SAR						TYPE:PersonalFirearm	HANDS:2
+Galil LMG						TYPE:PersonalFirearm	HANDS:2
+Galil MAR						TYPE:PersonalFirearm	HANDS:2
+HK G11						TYPE:PersonalFirearm	HANDS:2
+HK G36						TYPE:PersonalFirearm	HANDS:2
+HK G36C						TYPE:PersonalFirearm	HANDS:2
+HK G36E						TYPE:PersonalFirearm	HANDS:2
+HK G36K						TYPE:PersonalFirearm	HANDS:2
+HK G3A3						TYPE:PersonalFirearm	HANDS:2
+HK G3A4						TYPE:PersonalFirearm	HANDS:2
+HK 33A3						TYPE:PersonalFirearm	HANDS:2
+HK 33A3B						TYPE:PersonalFirearm	HANDS:2
+HK 33A4						TYPE:PersonalFirearm	HANDS:2
+HK 33A4B						TYPE:PersonalFirearm	HANDS:2
+HK 33E						TYPE:PersonalFirearm	HANDS:2
+HK 33EB						TYPE:PersonalFirearm	HANDS:2
+HK 33K						TYPE:PersonalFirearm	HANDS:2
+HK 33KB						TYPE:PersonalFirearm	HANDS:2
+HK 53A3						TYPE:PersonalFirearm	HANDS:2
+HK 53K						TYPE:PersonalFirearm	HANDS:2
+HK 53Z						TYPE:PersonalFirearm	HANDS:2
+HK G8							TYPE:PersonalFirearm	HANDS:2
+HK G41						TYPE:PersonalFirearm	HANDS:2
+Howa Type 64					TYPE:PersonalFirearm	HANDS:2
+Howa Type 89					TYPE:PersonalFirearm	HANDS:2
+Howa Type 89B					TYPE:PersonalFirearm	HANDS:2
+Howa Type 89A					TYPE:PersonalFirearm	HANDS:2
+Howa Type 89AB					TYPE:PersonalFirearm	HANDS:2
+Imbel MD2						TYPE:PersonalFirearm	HANDS:2
+Imbel MD3						TYPE:PersonalFirearm	HANDS:2
+Imbel MD2A1						TYPE:PersonalFirearm	HANDS:2
+Imbel MD3A1						TYPE:PersonalFirearm	HANDS:2
+Imbel Model L					TYPE:PersonalFirearm	HANDS:2
+Imbel Model LC					TYPE:PersonalFirearm	HANDS:2
+INSAS A						TYPE:PersonalFirearm	HANDS:2
+INSAS B						TYPE:PersonalFirearm	HANDS:2
+K-3							TYPE:PersonalFirearm	HANDS:2
+L1A1 SLR						TYPE:PersonalFirearm	HANDS:2
+L85A1 IW						TYPE:PersonalFirearm	HANDS:2
+L85A1 IWRW						TYPE:PersonalFirearm	HANDS:2
+L85A1 CGP						TYPE:PersonalFirearm	HANDS:2
+LAPA Modelle 03					TYPE:PersonalFirearm	HANDS:2
+M1A							TYPE:PersonalFirearm	HANDS:2
+M14							TYPE:PersonalFirearm	HANDS:2
+M16							TYPE:PersonalFirearm	HANDS:2
+M16A1							TYPE:PersonalFirearm	HANDS:2
+M16A3							TYPE:PersonalFirearm	HANDS:2
+M16A4							TYPE:PersonalFirearm	HANDS:2
+CAR-15						TYPE:PersonalFirearm	HANDS:2
+M4A1 Carbine					TYPE:PersonalFirearm	HANDS:2
+Commando						TYPE:PersonalFirearm	HANDS:2
+Carbon 15						TYPE:PersonalFirearm	HANDS:2
+AR-15							TYPE:PersonalFirearm	HANDS:2
+MAS49							TYPE:PersonalFirearm	HANDS:2
+MAS49/56						TYPE:PersonalFirearm	HANDS:2
+Norinco QBZ Type 95 Carbine			TYPE:PersonalFirearm	HANDS:2
+Norinco QBZ Type 95 Rifle			TYPE:PersonalFirearm	HANDS:2
+Norinco Type 97 Rifle				TYPE:PersonalFirearm	HANDS:2
+Norinco Type 97 Carbine				TYPE:PersonalFirearm	HANDS:2
+OTs-14-4A-01 Groza				TYPE:PersonalFirearm	HANDS:2
+R4							TYPE:PersonalFirearm	HANDS:2
+R4S							TYPE:PersonalFirearm	HANDS:2
+R5							TYPE:PersonalFirearm	HANDS:2
+R5S							TYPE:PersonalFirearm	HANDS:2
+R6							TYPE:PersonalFirearm	HANDS:2
+R6S							TYPE:PersonalFirearm	HANDS:2
+Ruger AC-556					TYPE:PersonalFirearm	HANDS:2
+Ruger Mini-14					TYPE:PersonalFirearm	HANDS:2
+Ruger Mini-14/20GB				TYPE:PersonalFirearm	HANDS:2
+Sako M90						TYPE:PersonalFirearm	HANDS:2
+Sako M95						TYPE:PersonalFirearm	HANDS:2
+SAR 21						TYPE:PersonalFirearm	HANDS:2
+SAR 21 Sharp Shooter				TYPE:PersonalFirearm	HANDS:2
+SAR 21 Modular					TYPE:PersonalFirearm	HANDS:2
+SAR 80						TYPE:PersonalFirearm	HANDS:2
+SAR 80FS						TYPE:PersonalFirearm	HANDS:2
+SG510							TYPE:PersonalFirearm	HANDS:2
+SIG 540						TYPE:PersonalFirearm	HANDS:2
+SIG 540B						TYPE:PersonalFirearm	HANDS:2
+SIG 542						TYPE:PersonalFirearm	HANDS:2
+SIG 542B						TYPE:PersonalFirearm	HANDS:2
+SIG 543						TYPE:PersonalFirearm	HANDS:2
+SIG 543B						TYPE:PersonalFirearm	HANDS:2
+SIG 550						TYPE:PersonalFirearm	HANDS:2
+SIG 550B						TYPE:PersonalFirearm	HANDS:2
+SIG 551						TYPE:PersonalFirearm	HANDS:2
+SIG 551B						TYPE:PersonalFirearm	HANDS:2
+SIG 552						TYPE:PersonalFirearm	HANDS:2
+SA88							TYPE:PersonalFirearm	HANDS:2
+SA88B							TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Rifle					TYPE:PersonalFirearm	HANDS:2
+Steyr AUG RifleB					TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Rifle Civ				TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Carbine					TYPE:PersonalFirearm	HANDS:2
+Steyr AUG CarbineB				TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Rifle S					TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Rifle SB				TYPE:PersonalFirearm	HANDS:2
+Stoner M63A1					TYPE:PersonalFirearm	HANDS:2
+Stoner M96						TYPE:PersonalFirearm	HANDS:2
+Tantal wz/88					TYPE:PersonalFirearm	HANDS:2
+Onyx wz/89						TYPE:PersonalFirearm	HANDS:2
+TAR-21 Tavor Series				TYPE:PersonalFirearm	HANDS:2
+CTAR-21 Tavor Series				TYPE:PersonalFirearm	HANDS:2
+MTAR-21 Tavor Series				TYPE:PersonalFirearm	HANDS:2
+Type 86 Assault Rifle				TYPE:PersonalFirearm	HANDS:2
+Valmet M76						TYPE:PersonalFirearm	HANDS:2
+Valmet M82						TYPE:PersonalFirearm	HANDS:2
+Vektor CR 21					TYPE:PersonalFirearm	HANDS:1
+Vikhr SR-3						TYPE:PersonalFirearm	HANDS:2
+Z-M LA 300						TYPE:PersonalFirearm	HANDS:2
+
+# Mounted Shotgun					Type				Nb Hands
+M16A1 w/Master Key S				TYPE:PersonalFirearm	HANDS:2
+M16A1 w/Ciener Ultimate				TYPE:PersonalFirearm	HANDS:2
+M16A2 w/Master Key S				TYPE:PersonalFirearm	HANDS:2
+M16A2 w/Ciener Ultimate				TYPE:PersonalFirearm	HANDS:2
+M16A3 w/Master Key S				TYPE:PersonalFirearm	HANDS:2
+M16A3 w/Ciener Ultimate				TYPE:PersonalFirearm	HANDS:2
+M16A4 w/Master Key S				TYPE:PersonalFirearm	HANDS:2
+M16A4 w/Ciener Ultimate				TYPE:PersonalFirearm	HANDS:2
+
+# Mounted Grenade Launchers			Type				Nb Hands
+A-91 Cmpt w/GP-95 GL				TYPE:PersonalFirearm	HANDS:2
+A-91M w/GP-97 GL					TYPE:PersonalFirearm	HANDS:2
+AKS-74UB w/BS-1 GL				TYPE:PersonalFirearm	HANDS:2
+AK-47 w/GP-25 GL					TYPE:PersonalFirearm	HANDS:2
+AK-47 w/Maadi GL					TYPE:PersonalFirearm	HANDS:2
+AK-47 w/RGB-1 GL					TYPE:PersonalFirearm	HANDS:2
+AKS-47 w/GP-25 GL					TYPE:PersonalFirearm	HANDS:2
+AKS-47 w/Maadi GL					TYPE:PersonalFirearm	HANDS:2
+AKMS-47 w/GP-25 GL				TYPE:PersonalFirearm	HANDS:2
+AKMS-47 w/Maadi GL				TYPE:PersonalFirearm	HANDS:2
+AK-74 w/GP-25 GL					TYPE:PersonalFirearm	HANDS:2
+AK-74 w/Maadi GL					TYPE:PersonalFirearm	HANDS:2
+AK-74 w/RGB-1 GL					TYPE:PersonalFirearm	HANDS:2
+AKS-74 w/GP-25 GL					TYPE:PersonalFirearm	HANDS:2
+AKS-74 w/Maadi GL					TYPE:PersonalFirearm	HANDS:2
+AKS-74U w/GP-25 GL				TYPE:PersonalFirearm	HANDS:2
+AKS-74U w/Maadi GL				TYPE:PersonalFirearm	HANDS:2
+AK-74 w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+AK-74 w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+AK-74 w/M-203 GL					TYPE:PersonalFirearm	HANDS:2
+AKS-74 w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+AKS-74 w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+AKS-74 w/M-203 GL					TYPE:PersonalFirearm	HANDS:2
+AKS-74U w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+AKS-74U w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+AKS-74U w/M-203 GL				TYPE:PersonalFirearm	HANDS:2
+AKM-47 w/GP-30 GL					TYPE:PersonalFirearm	HANDS:2
+AKM-47 w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+AKM-47 w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+AKM-47 w/M-203 GL					TYPE:PersonalFirearm	HANDS:2
+AKM-47 w/Pallad GL				TYPE:PersonalFirearm	HANDS:2
+AK-101 w/GP-30 GL					TYPE:PersonalFirearm	HANDS:2
+AK-101 w/Romarm AG-40 M80 GL			TYPE:PersonalFirearm	HANDS:2
+AK-102 w/GP-30 GL					TYPE:PersonalFirearm	HANDS:2
+AK-102 w/Romarm AG-40 M80 GL			TYPE:PersonalFirearm	HANDS:2
+AK-103 w/GP-30 GL					TYPE:PersonalFirearm	HANDS:2
+AK-104 w/GP-30 GL					TYPE:PersonalFirearm	HANDS:2
+AK-105 w/GP-30 GL					TYPE:PersonalFirearm	HANDS:2
+AK-105 w/Romarm AG-40 M80 GL			TYPE:PersonalFirearm	HANDS:2
+AK-107 w/GP-30 GL					TYPE:PersonalFirearm	HANDS:2
+AK-108 w/GP-30 GL					TYPE:PersonalFirearm	HANDS:2
+AK-108 w/Romarm AG-40 M80 GL			TYPE:PersonalFirearm	HANDS:2
+AN-94 w/GP-25 GL					TYPE:PersonalFirearm	HANDS:2
+CZ 58P w/CIS 40GL					TYPE:PersonalFirearm	HANDS:2
+CZ 58V w/CIS 40GL					TYPE:PersonalFirearm	HANDS:2
+F2000 w/F2000 GL					TYPE:PersonalFirearm	HANDS:2
+FN FAL w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+FN FAL w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+FN FAL w/M-203 GL					TYPE:PersonalFirearm	HANDS:2
+FN FALS w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+FN FALS w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+FN FALS w/M-203 GL				TYPE:PersonalFirearm	HANDS:2
+FN FAL Para w/HK AG36 GL			TYPE:PersonalFirearm	HANDS:2
+FN FAL Para w/ISTEC ISL 275 GL		TYPE:PersonalFirearm	HANDS:2
+FN FAL Para w/M-203 GL				TYPE:PersonalFirearm	HANDS:2
+Galil ARM w/RGB-1 GL				TYPE:PersonalFirearm	HANDS:2
+Galil ARMC w/RGB-1 GL				TYPE:PersonalFirearm	HANDS:2
+Galil SAR w/RGB-1 GL				TYPE:PersonalFirearm	HANDS:2
+Galil SARC w/RGB-1 GL				TYPE:PersonalFirearm	HANDS:2
+HK G3A3 w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+HK G3A3 w/HK HK79 GL				TYPE:PersonalFirearm	HANDS:2
+HK G3A3 w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+HK G3A3 w/M-203 GL				TYPE:PersonalFirearm	HANDS:2
+HK G3A4 w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+HK G3A4 w/HK HK79 GL				TYPE:PersonalFirearm	HANDS:2
+HK G3A4 w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+HK G3A4 w/M-203 GL				TYPE:PersonalFirearm	HANDS:2
+HK 53A3 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK 53K w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK 53Z w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK 53A3 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK 53K w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK 53Z w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK G36 w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+HK G36C w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+HK G36E w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+HK G36K w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+Imbel Model L w/HK AG36 GL			TYPE:PersonalFirearm	HANDS:2
+Imbel Model L w/M-203 GL			TYPE:PersonalFirearm	HANDS:2
+Imbel Model L w/ISTEC ISL 275 GL		TYPE:PersonalFirearm	HANDS:2
+Imbel Model LC w/HK AG36 GL			TYPE:PersonalFirearm	HANDS:2
+Imbel Model LC w/M-203 GL			TYPE:PersonalFirearm	HANDS:2
+Imbel Model LC w/ISTEC ISL 275 GL		TYPE:PersonalFirearm	HANDS:2
+L85A1 IW w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+L85A1 IW w/HK SA-80 GL				TYPE:PersonalFirearm	HANDS:2
+L85A1 IWRW w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+L85A1 IWRW w/HK SA-80 GL			TYPE:PersonalFirearm	HANDS:2
+M16A1 w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+M16A1 w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+M16A1 w/M-203 GL					TYPE:PersonalFirearm	HANDS:2
+M16A2 w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+M16A2 w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+M16A2 w/M-203 GL					TYPE:PersonalFirearm	HANDS:2
+M16A3 w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+M16A3 w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+M16A3 w/M-203 GL					TYPE:PersonalFirearm	HANDS:2
+M16A4 w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+M16A4 w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+M16A4 w/M-203 GL					TYPE:PersonalFirearm	HANDS:2
+M4 Carbine w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+M4 Carbine w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+M4 Carbine w/M-203 GL				TYPE:PersonalFirearm	HANDS:2
+M4A1 Carbine w/HK AG36 GL			TYPE:PersonalFirearm	HANDS:2
+M4A1 Carbine w/ISTEC ISL 275 GL		TYPE:PersonalFirearm	HANDS:2
+M4A1 Carbine w/M-203 GL				TYPE:PersonalFirearm	HANDS:2
+M4 CQB w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+M4 CQB w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+M4 CQB w/M-203 GL					TYPE:PersonalFirearm	HANDS:2
+Norinco QBZ Type 95 Carbine w/GP-30 GL	TYPE:PersonalFirearm	HANDS:2
+Norinco QBZ Type 95 Rifle w/GP-30 GL	TYPE:PersonalFirearm	HANDS:2
+Objective Individual Combat Weapon		TYPE:PersonalFirearm	HANDS:2
+OTs-14-4A Groza w/GP-30 GL			TYPE:PersonalFirearm	HANDS:2
+OTs-14-4A-02 Groza w/GP-30 GL			TYPE:PersonalFirearm	HANDS:2
+OTs-14-4A-03 Groza w/GP-30 GL			TYPE:PersonalFirearm	HANDS:2
+R4 w/Milkor UBGL GL				TYPE:PersonalFirearm	HANDS:2
+R4S w/Milkor UBGL GL				TYPE:PersonalFirearm	HANDS:2
+R5 w/Milkor UBGL GL				TYPE:PersonalFirearm	HANDS:2
+R5S w/Milkor UBGL GL				TYPE:PersonalFirearm	HANDS:2
+Sako M95 w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+Sako M95 w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+Sako M95 w/M-203 GL				TYPE:PersonalFirearm	HANDS:2
+SAR 21 w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+SAR 21 w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+SAR 21 w/M-203 GL					TYPE:PersonalFirearm	HANDS:2
+SA88 w/HK AG36 GL					TYPE:PersonalFirearm	HANDS:2
+SA88 w/ISTEC ISL 275 GL				TYPE:PersonalFirearm	HANDS:2
+SA88 w/M-203 GL					TYPE:PersonalFirearm	HANDS:2
+SA88B w/HK AG36 GL				TYPE:PersonalFirearm	HANDS:2
+SA88B w/ISTEC ISL 275 GL			TYPE:PersonalFirearm	HANDS:2
+SA88B w/M-203 GL					TYPE:PersonalFirearm	HANDS:2
+SIG 550 w/SIG GL5040 GL				TYPE:PersonalFirearm	HANDS:2
+SIG 550B w/SIG GL5040 GL			TYPE:PersonalFirearm	HANDS:2
+SIG 551 w/SIG GL5140 GL				TYPE:PersonalFirearm	HANDS:2
+SIG 551B w/SIG GL5140 GL			TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Rifle w/HK AG36 GL			TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Rifle w/M-203 GL			TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Rifle w/ISTEC ISL 274 GL		TYPE:PersonalFirearm	HANDS:2
+Steyr AUG RifleB w/HK AG36 GL			TYPE:PersonalFirearm	HANDS:2
+Steyr AUG RifleB w/M-203 GL			TYPE:PersonalFirearm	HANDS:2
+Steyr AUG RifleB w/ISTEC ISL 274 GL		TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Carbine w/HK AG36 GL		TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Carbine w/M-203 GL			TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Carbine w/ISTEC ISL 274 GL	TYPE:PersonalFirearm	HANDS:2
+Steyr AUG CarbineB w/HK AG36 GL		TYPE:PersonalFirearm	HANDS:2
+Steyr AUG CarbineB w/M-203 GL			TYPE:PersonalFirearm	HANDS:2
+Steyr AUG CarbineB w/ISTEC ISL 274 GL	TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Rifle S w/HK AG36 GL		TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Rifle S w/M-203 GL			TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Rifle S w/ISTEC ISL 274 GL	TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Rifle SB w/HK AG36 GL		TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Rifle SB w/M-203 GL			TYPE:PersonalFirearm	HANDS:2
+Steyr AUG Rifle SB w/ISTEC ISL 274 GL	TYPE:PersonalFirearm	HANDS:2
+TAR-21 Tavor Series w/HK AG36 GL		TYPE:PersonalFirearm	HANDS:2
+TAR-21 Tavor Series w/ISTEC ISL 275 GL	TYPE:PersonalFirearm	HANDS:2
+TAR-21 Tavor Series w/M-203 GL		TYPE:PersonalFirearm	HANDS:2
+CTAR-21 Tavor Series w/HK AG36 GL		TYPE:PersonalFirearm	HANDS:2
+CTAR-21 Tavor Series w/ISTEC ISL 275 GL	TYPE:PersonalFirearm	HANDS:2
+CTAR-21 Tavor Series w/M-203 GL		TYPE:PersonalFirearm	HANDS:2
+Vektor CR 21 w/Milkor UBGL GL			TYPE:PersonalFirearm	HANDS:2
+
+# Assault Rifles w/Bayonets attached	Type				Nb Hands
+Norinco Type 68 Rifle				TYPE:PersonalFirearm	HANDS:2
+Simonov SKS						TYPE:PersonalFirearm	HANDS:2
+
+# Two=Part Rifles					Type				Nb Hands
+M6 Scout Rifle					TYPE:PersonalFirearm	HANDS:2
+
+#Melee						Type
+Pistol Bayonet					TYPE:Archaic
+Rifle Bayonet					TYPE:Archaic
+
+# Bolt-Action Sniper Rifles			Type				Nb Hands
+Armalon Model BGR					TYPE:PersonalFirearm	HANDS:2
+Armalon Model PR					TYPE:PersonalFirearm	HANDS:2
+Arnold Arms Mark II Neutralizer		TYPE:PersonalFirearm	HANDS:2
+AW							TYPE:PersonalFirearm	HANDS:2
+AWP							TYPE:PersonalFirearm	HANDS:2
+AWS							TYPE:PersonalFirearm	HANDS:2
+AW Covert						TYPE:PersonalFirearm	HANDS:2
+AWM Super Magnum					TYPE:PersonalFirearm	HANDS:2
+Beretta Sniper					TYPE:PersonalFirearm	HANDS:2
+Blaster R-93					TYPE:PersonalFirearm	HANDS:2
+Blaster R-93 Tactical				TYPE:PersonalFirearm	HANDS:2
+CZ 700						TYPE:PersonalFirearm	HANDS:2
+CZ 700 Suppressed					TYPE:PersonalFirearm	HANDS:2
+De Lisle Mark 4					TYPE:PersonalFirearm	HANDS:2
+Enfield L39A1					TYPE:PersonalFirearm	HANDS:2
+Enfield L42A1					TYPE:PersonalFirearm	HANDS:2
+Erma SR 100						TYPE:PersonalFirearm	HANDS:2
+FN 30-11						TYPE:PersonalFirearm	HANDS:2
+FR-F2							TYPE:PersonalFirearm	HANDS:2
+Harris M-86						TYPE:PersonalFirearm	HANDS:2
+Harris M-89						TYPE:PersonalFirearm	HANDS:2
+Hellenic KEFEFS-M					TYPE:PersonalFirearm	HANDS:2
+Hellenic KEFEFS-P					TYPE:PersonalFirearm	HANDS:2
+Howa M-1500						TYPE:PersonalFirearm	HANDS:2
+H-S Precision Pro Series 2000			TYPE:PersonalFirearm	HANDS:2
+H-S Precision Tactical Take-Down		TYPE:PersonalFirearm	HANDS:2
+K-11							TYPE:PersonalFirearm	HANDS:2
+M24 Sniping System				TYPE:PersonalFirearm	HANDS:2
+M40A1							TYPE:PersonalFirearm	HANDS:2
+M40A1 PIP						TYPE:PersonalFirearm	HANDS:2
+Mauser Nodel 86 Sniper				TYPE:PersonalFirearm	HANDS:2
+Mauser Nodel 86SR Sniper			TYPE:PersonalFirearm	HANDS:2
+Mauser Model SP66					TYPE:PersonalFirearm	HANDS:2
+Mauser Model SR93 Professional		TYPE:PersonalFirearm	HANDS:2
+Mauser Model SR93 Sniper			TYPE:PersonalFirearm	HANDS:2
+Mauser Model SR94 Professional		TYPE:PersonalFirearm	HANDS:2
+Mauser Model SR94 Sniper			TYPE:PersonalFirearm	HANDS:2
+Mauser Model SR97 Sniper			TYPE:PersonalFirearm	HANDS:2
+Milcam						TYPE:PersonalFirearm	HANDS:2
+Comcam						TYPE:PersonalFirearm	HANDS:2
+Milcam HB						TYPE:PersonalFirearm	HANDS:2
+Snicam						TYPE:PersonalFirearm	HANDS:2
+NM149S						TYPE:PersonalFirearm	HANDS:2
+Parker-Hale Model 82				TYPE:PersonalFirearm	HANDS:2
+Parker-Hale Model 83				TYPE:PersonalFirearm	HANDS:2
+Parker-Hale Model 85				TYPE:PersonalFirearm	HANDS:2
+Parker-Hale Model 98				TYPE:PersonalFirearm	HANDS:2
+PGM Model UR Intervention			TYPE:PersonalFirearm	HANDS:2
+PGM Model UR Commando II			TYPE:PersonalFirearm	HANDS:2
+PGM Model UR Silencer				TYPE:PersonalFirearm	HANDS:2
+PM L96A1						TYPE:PersonalFirearm	HANDS:2
+RAD M91						TYPE:PersonalFirearm	HANDS:2
+RAI Model 300					TYPE:PersonalFirearm	HANDS:2
+Remington Model 300				TYPE:PersonalFirearm	HANDS:2
+Police Special					TYPE:PersonalFirearm	HANDS:2
+M700P LTR						TYPE:PersonalFirearm	HANDS:2
+Robar SR60						TYPE:PersonalFirearm	HANDS:2
+Robar SR90						TYPE:PersonalFirearm	HANDS:2
+Romarm PL						TYPE:PersonalFirearm	HANDS:2
+Ruger M77						TYPE:PersonalFirearm	HANDS:2
+Sako TRG-21						TYPE:PersonalFirearm	HANDS:2
+Sako TRG-41						TYPE:PersonalFirearm	HANDS:2
+Sako/Vaime SSR Mark I				TYPE:PersonalFirearm	HANDS:2
+Sako/Vaime SSR Mark III				TYPE:PersonalFirearm	HANDS:2
+Santa Barbara C-75				TYPE:PersonalFirearm	HANDS:2
+Savage Model 110 Tactical			TYPE:PersonalFirearm	HANDS:2
+Savage Model 111					TYPE:PersonalFirearm	HANDS:2
+SIG SSG 2000					TYPE:PersonalFirearm	HANDS:2
+SIG SSG 3000					TYPE:PersonalFirearm	HANDS:2
+Steyr Scout						TYPE:PersonalFirearm	HANDS:2
+Steyr SSG-69					TYPE:PersonalFirearm	HANDS:2
+Steyr SSG-P						TYPE:PersonalFirearm	HANDS:2
+SV-98							TYPE:PersonalFirearm	HANDS:2
+SV-99							TYPE:PersonalFirearm	HANDS:2
+SV-99 Pistol					TYPE:PersonalFirearm
+Truvello Armory SG1				TYPE:PersonalFirearm	HANDS:2
+VS 94 PS						TYPE:PersonalFirearm	HANDS:2
+Winchester Model 70 Sharpshooter		TYPE:PersonalFirearm	HANDS:2
+
+# Autoloader Sniper Rifles			Type				Nb Hands
+Arms Tech Super Mach Interdection		TYPE:PersonalFirearm	HANDS:2
+Barrett M98						TYPE:PersonalFirearm	HANDS:2
+Dragunov SVD					TYPE:PersonalFirearm	HANDS:2
+Dragunov SVDS					TYPE:PersonalFirearm	HANDS:2
+Dragunov SVDK					TYPE:PersonalFirearm	HANDS:2
+Galil Marksman					TYPE:PersonalFirearm	HANDS:2
+Galil Sniper					TYPE:PersonalFirearm	HANDS:2
+HK G3-SG1						TYPE:PersonalFirearm	HANDS:2
+HK 33-SG1						TYPE:PersonalFirearm	HANDS:2
+HK MSG 90						TYPE:PersonalFirearm	HANDS:2
+HK MSG 90A1						TYPE:PersonalFirearm	HANDS:2
+HK MSG 3						TYPE:PersonalFirearm	HANDS:2
+HK SL8						TYPE:PersonalFirearm	HANDS:2
+HK SL8-1						TYPE:PersonalFirearm	HANDS:2
+HK SL9-SD						TYPE:PersonalFirearm	HANDS:2
+M16 Squad Designated Marksman			TYPE:PersonalFirearm	HANDS:2
+M21							TYPE:PersonalFirearm	HANDS:2
+M21 Tactical					TYPE:PersonalFirearm	HANDS:2
+QBZ Type 95						TYPE:PersonalFirearm	HANDS:2
+RND 800						TYPE:PersonalFirearm	HANDS:2
+Springfield M1A					TYPE:PersonalFirearm	HANDS:2
+SIG SSG 550						TYPE:PersonalFirearm	HANDS:2
+STAR-21 Tavor					TYPE:PersonalFirearm	HANDS:2
+Stoner SR-25					TYPE:PersonalFirearm	HANDS:2
+Stoner SR-25 Match				TYPE:PersonalFirearm	HANDS:2
+Stoner SR-25 Carbine				TYPE:PersonalFirearm	HANDS:2
+Stoner SR-25 Sporter				TYPE:PersonalFirearm	HANDS:2
+Stoner SR-25 Suppressed				TYPE:PersonalFirearm	HANDS:2
+United States Marine Corps DMA		TYPE:PersonalFirearm	HANDS:2
+VSS Thread Cutter					TYPE:PersonalFirearm	HANDS:2
+WA2000						TYPE:PersonalFirearm	HANDS:2
+OTs-O3AS Dragunov SVU				TYPE:PersonalFirearm	HANDS:2
+
+# Bolt-Action Anti-Material Rifles		Type				Nb Hands
+Accuracy International AW50F			TYPE:PersonalFirearm	HANDS:2
+Accuracy International AW50FT			TYPE:PersonalFirearm	HANDS:2
+Alpimex APK 20					TYPE:PersonalFirearm	HANDS:2
+Armalite AR-50					TYPE:PersonalFirearm	HANDS:2
+ATAS .50 BG						TYPE:PersonalFirearm	HANDS:2
+ATAS .50 BG Marine				TYPE:PersonalFirearm	HANDS:2
+AWT M93 Black Arrow				TYPE:PersonalFirearm	HANDS:2
+Barrett M95						TYPE:PersonalFirearm	HANDS:2
+Barrett M90						TYPE:PersonalFirearm	HANDS:2
+Barrett XM107					TYPE:PersonalFirearm	HANDS:2
+Barrett M99						TYPE:PersonalFirearm	HANDS:2
+Falcon OP 96					TYPE:PersonalFirearm	HANDS:2
+Falcon OP 97					TYPE:PersonalFirearm	HANDS:2
+Gepard M1						TYPE:PersonalFirearm	HANDS:2
+Gepard M1A1						TYPE:PersonalFirearm	HANDS:2
+Harris M-92						TYPE:PersonalFirearm	HANDS:2
+Harris M-87						TYPE:PersonalFirearm	HANDS:2
+Harris M-88						TYPE:PersonalFirearm	HANDS:2
+Harris M-93						TYPE:PersonalFirearm	HANDS:2
+Harris M-95						TYPE:PersonalFirearm	HANDS:2
+Helenius APH AK99					TYPE:PersonalFirearm	HANDS:2
+LAR Grizzly 50					TYPE:PersonalFirearm	HANDS:2
+MACS-M2A						TYPE:PersonalFirearm	HANDS:2
+MACS-M3A						TYPE:PersonalFirearm	HANDS:2
+Mechem NTW-20					TYPE:PersonalFirearm	HANDS:2
+PGM Model UR Hecate II				TYPE:PersonalFirearm	HANDS:2
+RAD M600 SLAMA					TYPE:PersonalFirearm	HANDS:2
+RAD M650 SLAMA					TYPE:PersonalFirearm	HANDS:2
+RT20							TYPE:PersonalFirearm	HANDS:2
+Robar AC-50						TYPE:PersonalFirearm	HANDS:2
+Truvello Armory Mega Sniper			TYPE:PersonalFirearm	HANDS:2
+Truvello Armory Mega Sniper Single		TYPE:PersonalFirearm	HANDS:2
+
+# Autoloader Anti-Material Rifles		Type				Nb Hands
+Barrett M82A1					TYPE:PersonalFirearm	HANDS:2
+Barrett M82A2					TYPE:PersonalFirearm	HANDS:2
+Gepard M2						TYPE:PersonalFirearm	HANDS:2
+Gepard M2a						TYPE:PersonalFirearm	HANDS:2
+Gepard M2A1						TYPE:PersonalFirearm	HANDS:2
+Gepard M2A1a					TYPE:PersonalFirearm	HANDS:2
+Gepard M3						TYPE:PersonalFirearm	HANDS:2
+Gepard M4 SA1					TYPE:PersonalFirearm	HANDS:2
+Gepard M4 SA2					TYPE:PersonalFirearm	HANDS:2
+Harris M-96						TYPE:PersonalFirearm	HANDS:2
+DSV-96						TYPE:PersonalFirearm	HANDS:2
+Steyr IWS 2000					TYPE:PersonalFirearm	HANDS:2
+Stoner SR-50					TYPE:PersonalFirearm	HANDS:2
+
+# Submachine Guns					Type				Nb Hands
+A-9							TYPE:PersonalFirearm	HANDS:2
+A-7.62						TYPE:PersonalFirearm	HANDS:2
+ACK-919 Kashtan					TYPE:PersonalFirearm	HANDS:2
+ACK-919K Kashtan					TYPE:PersonalFirearm	HANDS:2
+Benelli CB-M2					TYPE:PersonalFirearm	HANDS:2
+Beretta Model 12					TYPE:PersonalFirearm	HANDS:2
+Beretta Model 12F					TYPE:PersonalFirearm	HANDS:2
+Beretta Model 125					TYPE:PersonalFirearm	HANDS:2
+Bizon-1						TYPE:PersonalFirearm	HANDS:2
+Bizon-2						TYPE:PersonalFirearm	HANDS:2
+Bizon-3						TYPE:PersonalFirearm	HANDS:2
+BXP							TYPE:PersonalFirearm	HANDS:2
+BXP Carbine						TYPE:PersonalFirearm	HANDS:2
+Calico Liberty 50					TYPE:PersonalFirearm	HANDS:2
+Calico Liberty 50-1				TYPE:PersonalFirearm	HANDS:2
+Calico Liberty 100				TYPE:PersonalFirearm	HANDS:2
+Calico Liberty 100-1				TYPE:PersonalFirearm	HANDS:2
+Calico M900						TYPE:PersonalFirearm	HANDS:2
+Calico M900-S					TYPE:PersonalFirearm	HANDS:2
+Calico M951						TYPE:PersonalFirearm	HANDS:2
+Calico M951-S					TYPE:PersonalFirearm	HANDS:2
+Calico M951-A					TYPE:PersonalFirearm	HANDS:2
+Calico M951-AS					TYPE:PersonalFirearm	HANDS:2
+Carl Gustav M45E					TYPE:PersonalFirearm	HANDS:2
+Carl Gustav M45S					TYPE:PersonalFirearm	HANDS:2
+Colt Model 635					TYPE:PersonalFirearm	HANDS:2
+Colt Model 635A					TYPE:PersonalFirearm	HANDS:2
+Colt Model 635B					TYPE:PersonalFirearm	HANDS:2
+Colt Model 635C					TYPE:PersonalFirearm	HANDS:2
+LaFrance M16K					TYPE:PersonalFirearm	HANDS:2
+LaFrance M16KA					TYPE:PersonalFirearm	HANDS:2
+LaFrance M16KB					TYPE:PersonalFirearm	HANDS:2
+LaFrance M16KC					TYPE:PersonalFirearm	HANDS:2
+CZ 23							TYPE:PersonalFirearm	HANDS:2
+CZ 25							TYPE:PersonalFirearm	HANDS:2
+CZ 24							TYPE:PersonalFirearm	HANDS:2
+CZ 26							TYPE:PersonalFirearm	HANDS:2
+FAMAE SAF						TYPE:PersonalFirearm	HANDS:2
+FAMAE SAF Silencada				TYPE:PersonalFirearm	HANDS:2
+FeG KGP-9						TYPE:PersonalFirearm	HANDS:2
+Floro MK-9						TYPE:PersonalFirearm	HANDS:2
+FMK-3 Mod 2						TYPE:PersonalFirearm	HANDS:2
+FMK-5							TYPE:PersonalFirearm	HANDS:2
+Gepard						TYPE:PersonalFirearm	HANDS:2
+GG-95							TYPE:PersonalFirearm	HANDS:2
+HK MP5A1						TYPE:PersonalFirearm	HANDS:2
+HK MP5A2						TYPE:PersonalFirearm	HANDS:2
+HK MP5A3						TYPE:PersonalFirearm	HANDS:2
+HK MP5A4						TYPE:PersonalFirearm	HANDS:2
+HK MP5A5						TYPE:PersonalFirearm	HANDS:2
+HK MP5 Navy						TYPE:PersonalFirearm	HANDS:2
+HK MP5 R15						TYPE:PersonalFirearm	HANDS:2
+HK MP55D1						TYPE:PersonalFirearm	HANDS:2
+HK MP55D2						TYPE:PersonalFirearm	HANDS:2
+HK MP55D3						TYPE:PersonalFirearm	HANDS:2
+HK MP55D4						TYPE:PersonalFirearm	HANDS:2
+HK MP55D5						TYPE:PersonalFirearm	HANDS:2
+HK MP55D6						TYPE:PersonalFirearm	HANDS:2
+HK MP5 PDW						TYPE:PersonalFirearm	HANDS:2
+HK MP5/10						TYPE:PersonalFirearm	HANDS:2
+HK MP5/40						TYPE:PersonalFirearm	HANDS:2
+HK UMP 45						TYPE:PersonalFirearm	HANDS:2
+HK USC						TYPE:PersonalFirearm	HANDS:2
+IMI Mini-Uzi					TYPE:PersonalFirearm	HANDS:2
+IMI Uzi						TYPE:PersonalFirearm	HANDS:2
+IMI Uzi Carbine					TYPE:PersonalFirearm	HANDS:2
+Lusa A2						TYPE:PersonalFirearm	HANDS:2
+M-4							TYPE:PersonalFirearm	HANDS:2
+Mekanika Uru					TYPE:PersonalFirearm	HANDS:2
+Mekanika Uru Carbine				TYPE:PersonalFirearm	HANDS:2
+Norinco Type 64					TYPE:PersonalFirearm	HANDS:2
+Norinco Type 79					TYPE:PersonalFirearm	HANDS:2
+Norinco Type 85					TYPE:PersonalFirearm	HANDS:2
+OTs-02 Kiparis					TYPE:PersonalFirearm	HANDS:2
+Parker-Hale IDW Carbine				TYPE:PersonalFirearm	HANDS:2
+PDW PS-200						TYPE:PersonalFirearm	HANDS:2
+PM-84 Glaubeyrl					TYPE:PersonalFirearm	HANDS:2
+PM-84P Glaubeyrl					TYPE:PersonalFirearm	HANDS:2
+PM-98							TYPE:PersonalFirearm	HANDS:2
+PM-98S						TYPE:PersonalFirearm	HANDS:2
+PP-90MI						TYPE:PersonalFirearm	HANDS:2
+PP-91 Kedr						TYPE:PersonalFirearm	HANDS:2
+PP-91 Kiln						TYPE:PersonalFirearm	HANDS:2
+Romarm BORD						TYPE:PersonalFirearm	HANDS:2
+Romarm Model 96					TYPE:PersonalFirearm	HANDS:2
+Ruger MP-9						TYPE:PersonalFirearm	HANDS:2
+Sa 58/98 Bulldog					TYPE:PersonalFirearm	HANDS:2
+Sa 58/98 S Bulldog				TYPE:PersonalFirearm	HANDS:2
+Saab-Bofors CBJ MS				TYPE:PersonalFirearm	HANDS:2
+SCH-21 Gorda					TYPE:PersonalFirearm	HANDS:2
+Spectre M-4						TYPE:PersonalFirearm	HANDS:2
+SR-2							TYPE:PersonalFirearm	HANDS:2
+Star Z-70B						TYPE:PersonalFirearm	HANDS:2
+Star Z-84						TYPE:PersonalFirearm	HANDS:2
+Sterling L2A1					TYPE:PersonalFirearm	HANDS:2
+Sterling L2A2					TYPE:PersonalFirearm	HANDS:2
+Sterling L2A3					TYPE:PersonalFirearm	HANDS:2
+Sterling L34A1					TYPE:PersonalFirearm	HANDS:2
+Steyr AUG-9						TYPE:PersonalFirearm	HANDS:2
+Steyr MPi69						TYPE:PersonalFirearm	HANDS:2
+Steyr MPi81						TYPE:PersonalFirearm	HANDS:2
+Walther MPK						TYPE:PersonalFirearm	HANDS:2
+Walther MPL						TYPE:PersonalFirearm	HANDS:2
+
+# Full Automatic Capability Only		Type				Nb Hands
+Arsenal Shipka					TYPE:PersonalFirearm	HANDS:2
+Carl Gustav M45					TYPE:PersonalFirearm	HANDS:2
+Carl Gustav M45C					TYPE:PersonalFirearm	HANDS:2
+F1A1							TYPE:PersonalFirearm	HANDS:2
+Madsen M53						TYPE:PersonalFirearm	HANDS:2
+MAT-49						TYPE:PersonalFirearm	HANDS:2
+Mendoza HM-3					TYPE:PersonalFirearm	HANDS:2
+Port Said						TYPE:PersonalFirearm	HANDS:2
+PP-90							TYPE:PersonalFirearm	HANDS:2
+Socimi Type 821					TYPE:PersonalFirearm	HANDS:2
+Vigneron M2						TYPE:PersonalFirearm	HANDS:2
+WZ-63							TYPE:PersonalFirearm	HANDS:2
+
+# Machine Pistols or One-hand capable	Type
+Agram 2000						TYPE:PersonalFirearm
+Cobray M-11						TYPE:PersonalFirearm
+FAMAE Mini-SAF					TYPE:PersonalFirearm
+FN P90						TYPE:PersonalFirearm
+FN P90A						TYPE:PersonalFirearm
+HK MP7 PDW						TYPE:PersonalFirearm
+IMI Micro-Uzi					TYPE:PersonalFirearm
+IMI Micro-Uzi Pistol				TYPE:PersonalFirearm
+Ingram MAC 10					TYPE:PersonalFirearm
+Ingram MAC 11					TYPE:PersonalFirearm
+Intratec TEC-9					TYPE:PersonalFirearm
+Intratec TEC-9 SemiAuto Pistol		TYPE:PersonalFirearm
+Intratec TEC-9 FullAuto Pistol		TYPE:PersonalFirearm
+MGP-84						TYPE:PersonalFirearm
+MGP-14 Assault Pistol				TYPE:PersonalFirearm
+MGV-176						TYPE:PersonalFirearm
+OTs-22						TYPE:PersonalFirearm
+Parker-Hale IDW					TYPE:PersonalFirearm
+PP-93							TYPE:PersonalFirearm
+Skorpion vz61					TYPE:PersonalFirearm
+Skorpion vz64					TYPE:PersonalFirearm
+Skorpion vz65					TYPE:PersonalFirearm
+Skorpion vz68					TYPE:PersonalFirearm
+Steyr TMP						TYPE:PersonalFirearm
+
+# Submachine Guns w/Grenade Launchers attached	Type			Nb Hands
+A-9 w/GP-95 GL					TYPE:PersonalFirearm	HANDS:2
+A-7.62 w/GP-95 GL					TYPE:PersonalFirearm	HANDS:2
+HK MP5A2 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP5A2 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP5A3 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP5A3 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP5A4 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP5A4 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP5A5 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP5A5 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP5 Navy w/ISTEC ISL 201 GL		TYPE:PersonalFirearm	HANDS:2
+HK MP5 Navy w/ISTEC ISL 202 GL		TYPE:PersonalFirearm	HANDS:2
+HK MP5 R15 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP5 R15 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP55D1 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP55D1 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP55D2 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP55D2 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP55D3 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP55D3 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP55D4 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP55D4 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP55D5 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP55D5 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP55D6 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP55D6 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP5/10 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP5/10 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP5/40 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK MP5/40 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+HK UMP 45 w/ISTEC ISL 201 GL			TYPE:PersonalFirearm	HANDS:2
+HK UMP 45 w/ISTEC ISL 202 GL			TYPE:PersonalFirearm	HANDS:2
+
+# Pump-Action ShotGuns				Type				Nb Hands
+Armscor M30						TYPE:PersonalFirearm	HANDS:2
+Birmingham Pump Gun				TYPE:PersonalFirearm	HANDS:2
+Benelli M2 Super 90				TYPE:PersonalFirearm	HANDS:2
+Benelli M1 Tactical				TYPE:PersonalFirearm	HANDS:2
+Benelli Nova					TYPE:PersonalFirearm	HANDS:2
+Beretta RS200P					TYPE:PersonalFirearm	HANDS:2
+Beretta RS202					TYPE:PersonalFirearm	HANDS:2
+Browning BPS-SP					TYPE:PersonalFirearm	HANDS:2
+Fabarm SDASS					TYPE:PersonalFirearm	HANDS:2
+Fabarm FP6						TYPE:PersonalFirearm	HANDS:2
+Franchi PA3						TYPE:PersonalFirearm	HANDS:2
+Franchi PA8E					TYPE:PersonalFirearm	HANDS:2
+Franchi PA8I					TYPE:PersonalFirearm	HANDS:2
+Franchi PA7						TYPE:PersonalFirearm	HANDS:2
+Ithaca MAG-10 Roadblocker			TYPE:PersonalFirearm	HANDS:2
+Ithaca Model 37					TYPE:PersonalFirearm	HANDS:2
+Ithaca Stakeout					TYPE:PersonalFirearm	HANDS:2
+Izhmash IZH-81M					TYPE:PersonalFirearm	HANDS:2
+Izhmash MP-131K					TYPE:PersonalFirearm	HANDS:2
+Knights Armaments Master Key S		TYPE:PersonalFirearm	HANDS:2
+Ciener Ultimate					TYPE:PersonalFirearm	HANDS:2
+KS-23							TYPE:PersonalFirearm	HANDS:2
+Mossberg Line Gun					TYPE:PersonalFirearm	HANDS:2
+Mossberg M9200					TYPE:PersonalFirearm	HANDS:2
+Mossberg Model 500				TYPE:PersonalFirearm	HANDS:2
+Mossberg Model 590				TYPE:PersonalFirearm	HANDS:2
+Neostead						TYPE:PersonalFirearm	HANDS:2
+Norinco M98						TYPE:PersonalFirearm	HANDS:2
+Poseidon Micro					TYPE:PersonalFirearm	HANDS:2
+Remington Model 870				TYPE:PersonalFirearm	HANDS:2
+Remington Model M870				TYPE:PersonalFirearm	HANDS:2
+Remington Model M870P				TYPE:PersonalFirearm	HANDS:2
+RM-92							TYPE:PersonalFirearm	HANDS:2
+RM-93							TYPE:PersonalFirearm	HANDS:2
+RM-94							TYPE:PersonalFirearm	HANDS:2
+RM-96							TYPE:PersonalFirearm	HANDS:2
+SAC Alsetex RO5					TYPE:PersonalFirearm	HANDS:2
+SAC Alsetex PM5					TYPE:PersonalFirearm	HANDS:2
+Scattergun Technologies Custom		TYPE:PersonalFirearm	HANDS:2
+S and W Model 3000				TYPE:PersonalFirearm	HANDS:2
+Techno Arms MAG-7					TYPE:PersonalFirearm	HANDS:2
+Viking Arms SOS					TYPE:PersonalFirearm	HANDS:2
+
+# Semi/automatic ShotGuns			Type				Nb Hands
+Benelli M1						TYPE:PersonalFirearm	HANDS:2
+Benelli M1 Entry					TYPE:PersonalFirearm	HANDS:2
+Benelli M3 Special Applications		TYPE:PersonalFirearm	HANDS:2
+Daewoo USAS-12					TYPE:PersonalFirearm	HANDS:2
+Fabarm Tactical					TYPE:PersonalFirearm	HANDS:2
+HK512							TYPE:PersonalFirearm	HANDS:2
+Mark Three Jackhammer				TYPE:PersonalFirearm	HANDS:2
+Norinco M2000					TYPE:PersonalFirearm	HANDS:2
+Omega SPS-12					TYPE:PersonalFirearm	HANDS:2
+Remington Model 11-48				TYPE:PersonalFirearm	HANDS:2
+Remington Model 11-87				TYPE:PersonalFirearm	HANDS:2
+Remington Model 1100				TYPE:PersonalFirearm	HANDS:2
+Saiga-12						TYPE:PersonalFirearm	HANDS:2
+Saiga-20						TYPE:PersonalFirearm	HANDS:2
+
+# Dual-Action ShotGuns				Type				Nb Hands
+Benelli M3 Super 90				TYPE:PersonalFirearm	HANDS:2
+Benelli M4 Super 90				TYPE:PersonalFirearm	HANDS:2
+Benelli M1014					TYPE:PersonalFirearm	HANDS:2
+Benelli M4 Super Black Eagle			TYPE:PersonalFirearm	HANDS:2
+Franchi SPAS 12					TYPE:PersonalFirearm	HANDS:2
+Franchi SPAS 15					TYPE:PersonalFirearm	HANDS:2
+Franchi SPAS 15 MIL				TYPE:PersonalFirearm	HANDS:2
+Reutech Protecta					TYPE:PersonalFirearm	HANDS:2
+Reutech Protecta Bulldog			TYPE:PersonalFirearm	HANDS:2
+
+# Light Machine Guns				Type				Nb Hands
+Ameli							TYPE:PersonalFirearm	HANDS:2
+Beretta AS70/90					TYPE:PersonalFirearm	HANDS:2
+Colt M16A2						TYPE:PersonalFirearm	HANDS:2
+Lada							TYPE:PersonalFirearm	HANDS:2
+FN Minimi						TYPE:PersonalFirearm	HANDS:2
+HK MG36						TYPE:PersonalFirearm	HANDS:2
+HK MG43						TYPE:PersonalFirearm	HANDS:2
+HK 13							TYPE:PersonalFirearm	HANDS:2
+HK 23							TYPE:PersonalFirearm	HANDS:2
+HK 23E						TYPE:PersonalFirearm	HANDS:2
+IMI Negev						TYPE:PersonalFirearm	HANDS:2
+Insas							TYPE:PersonalFirearm	HANDS:2
+L4A4 Bren						TYPE:PersonalFirearm	HANDS:2
+L86A1 LSW						TYPE:PersonalFirearm	HANDS:2
+M249							TYPE:PersonalFirearm	HANDS:2
+Norinco Type 67					TYPE:PersonalFirearm	HANDS:2
+Norinco Type 74					TYPE:PersonalFirearm	HANDS:2
+Norinco Type 95					TYPE:PersonalFirearm	HANDS:2
+RPD							TYPE:PersonalFirearm	HANDS:2
+RPK							TYPE:PersonalFirearm	HANDS:2
+RPK-74						TYPE:PersonalFirearm	HANDS:2
+SAR-21						TYPE:PersonalFirearm	HANDS:2
+Steyr AUG HBAR					TYPE:PersonalFirearm	HANDS:2
+Stoner						TYPE:PersonalFirearm	HANDS:2
+Ultimax M100					TYPE:PersonalFirearm	HANDS:2
+
+# General Purpose Machine Guns		Type				Nb Hands
+6P41 Pecheneg					TYPE:PersonalFirearm	HANDS:2
+AAT-52						TYPE:PersonalFirearm	HANDS:2
+FN MAG						TYPE:PersonalFirearm	HANDS:2
+L7							TYPE:PersonalFirearm	HANDS:2
+HK MG3						TYPE:PersonalFirearm	HANDS:2
+HK 11							TYPE:PersonalFirearm	HANDS:2
+HK 21							TYPE:PersonalFirearm	HANDS:2
+L7A2							TYPE:PersonalFirearm	HANDS:2
+M51							TYPE:PersonalFirearm	HANDS:2
+M60							TYPE:PersonalFirearm	HANDS:2
+M240							TYPE:PersonalFirearm	HANDS:2
+Model 59 Rachot					TYPE:PersonalFirearm	HANDS:2
+Model 68 Rachot					TYPE:PersonalFirearm	HANDS:2
+PK							TYPE:PersonalFirearm	HANDS:2
+PKS							TYPE:PersonalFirearm	HANDS:2
+PKM							TYPE:PersonalFirearm	HANDS:2
+PKMS							TYPE:PersonalFirearm	HANDS:2
+SS-77							TYPE:PersonalFirearm	HANDS:2
+Ulrapuru						TYPE:PersonalFirearm	HANDS:2
+
+# Heavy Machine Guns				Type				Nb Hands
+Browning M2HB					TYPE:ExoticFirearms	HANDS:2
+Fabrrique National M2HB				TYPE:ExoticFirearms	HANDS:2
+CIS Fifty						TYPE:ExoticFirearms	HANDS:2
+DShK-38/46						TYPE:ExoticFirearms	HANDS:2
+KPV							TYPE:ExoticFirearms	HANDS:2
+Norinco Type QJZ89				TYPE:ExoticFirearms	HANDS:2
+NSV Utyos						TYPE:ExoticFirearms	HANDS:2
+
+# Miniguns						Type				Nb Hands
+General Electric M134				TYPE:ExoticFirearms	HANDS:2
+XM214 Microgun					TYPE:ExoticFirearms	HANDS:2
+
+# Stand Alone Grenade Launchers		Type				Nb Hands
+6G-30 GL						TYPE:GrenadeLauncher	HANDS:2
+BS-1 Silent GL					TYPE:GrenadeLauncher	HANDS:2
+CIS 40GL						TYPE:GrenadeLauncher	HANDS:2
+Colt Launcher System GL				TYPE:GrenadeLauncher	HANDS:2
+Colt M79 GL						TYPE:GrenadeLauncher	HANDS:2
+Colt M203 GL					TYPE:GrenadeLauncher	HANDS:2
+F2000 GL						TYPE:GrenadeLauncher	HANDS:2
+GM-94 GL						TYPE:GrenadeLauncher	HANDS:2
+GP-25 GL						TYPE:GrenadeLauncher	HANDS:2
+GP-30 GL						TYPE:GrenadeLauncher	HANDS:2
+GP-95 GL						TYPE:GrenadeLauncher	HANDS:2
+GP-97 GL						TYPE:GrenadeLauncher	HANDS:2
+HK AG36 GL						TYPE:GrenadeLauncher	HANDS:2
+HK69A1 GL						TYPE:GrenadeLauncher	HANDS:2
+HK79 GL						TYPE:GrenadeLauncher	HANDS:2
+HK SA-80 GL						TYPE:GrenadeLauncher	HANDS:2
+HAFLA DM 34 GL					TYPE:GrenadeLauncher	HANDS:2
+ISTEC ISL 200 GL					TYPE:GrenadeLauncher	HANDS:2
+ISTEC ISL 201 GL					TYPE:GrenadeLauncher	HANDS:2
+ISTEC ISL 202 GL					TYPE:GrenadeLauncher	HANDS:2
+ISTEC ISL 203 GL					TYPE:GrenadeLauncher	HANDS:2
+ISTEC ISL 204 GL					TYPE:GrenadeLauncher	HANDS:2
+ISTEC ISL 274 GL					TYPE:GrenadeLauncher	HANDS:2
+ISTEC ISL 275 GL					TYPE:GrenadeLauncher	HANDS:2
+Maadi GL						TYPE:GrenadeLauncher	HANDS:2
+Milkor MGL Mark I GL				TYPE:GrenadeLauncher	HANDS:2
+Milkor UBGL						TYPE:GrenadeLauncher	HANDS:2
+OICW GL						TYPE:GrenadeLauncher	HANDS:2
+Pallad GL						TYPE:GrenadeLauncher	HANDS:2
+Pallad-D GL						TYPE:GrenadeLauncher	HANDS:2
+SUW GL						TYPE:GrenadeLauncher	HANDS:2
+Romarm AG-40 M80 GL				TYPE:GrenadeLauncher	HANDS:2
+RGB-1 GL						TYPE:GrenadeLauncher	HANDS:2
+SIG GL5040 GL					TYPE:GrenadeLauncher	HANDS:2
+SIG GL5140 GL					TYPE:GrenadeLauncher	HANDS:2

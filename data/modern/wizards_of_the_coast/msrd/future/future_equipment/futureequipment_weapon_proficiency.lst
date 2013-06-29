@@ -1,0 +1,88 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
+# PersonalFirearms and Simple Weapons added by: Frank Kliewe
+
+# Weapon Name			Type				Nb Hands
+T 95 Calvalcade			TYPE:ExoticFirearms
+M 300					TYPE:ExoticFirearms
+
+#PL5 Ranged Weapons
+Falcon .45				TYPE:PersonalFirearm
+OICW Assault Rifle		TYPE:PersonalFirearm	HANDS:2
+TACMIL Sniper Rifle		TYPE:PersonalFirearm	HANDS:2
+Twin thunder machine gun	TYPE:PersonalFirearm	HANDS:2
+
+#PL6 Melee Weapons
+High Frequency Sword		TYPE:Simple
+Stun Baton				TYPE:Simple
+
+#PL6 Ranged Weapons
+Laser Pistol			TYPE:PersonalFirearm
+Laser Rifle				TYPE:PersonalFirearm	HANDS:2
+Laser Sniper Rifle		TYPE:PersonalFirearm	HANDS:2
+Mini-Grenade Launcher		TYPE:PersonalFirearm
+Mini-Rocket Launcher		TYPE:PersonalFirearm
+Tangler Gun				TYPE:PersonalFirearm
+
+#PL7 Melee Weapons
+Concussion Rod			TYPE:Simple
+
+#PL7 Ranged Weapons
+Concussion Rifle			TYPE:PersonalFirearm	HANDS:2
+Gravity Snare			TYPE:PersonalFirearm
+Plasma Pistol			TYPE:PersonalFirearm
+Plasma Rifle			TYPE:PersonalFirearm	HANDS:2
+Rail Gun				TYPE:PersonalFirearm	HANDS:2
+
+#PL8 Melee Weapons
+Beam Sword				TYPE:Simple
+
+#PL8 Ranged Weapons
+Cryonic Rifle			TYPE:PersonalFirearm	HANDS:2
+Disintegrator			TYPE:PersonalFirearm	HANDS:2
+Lightning Gun			TYPE:PersonalFirearm	HANDS:2
+Pulse Rifle				TYPE:PersonalFirearm	HANDS:2
+Sonic Beam				TYPE:PersonalFirearm
+
+#PL6 Starship Weapons
+CHE Missile				TYPE:Starship		HANDS:2
+Fusion Beam				TYPE:Starship		HANDS:2
+Gauss Gun				TYPE:Starship		HANDS:2
+Heavy Laser				TYPE:Starship		HANDS:2
+Heavy Neutron Gun			TYPE:Starship		HANDS:2
+KE Submunition Missile		TYPE:Starship		HANDS:2
+Laser					TYPE:Starship		HANDS:2
+Needle Driver			TYPE:Starship		HANDS:2
+Neutron Gun				TYPE:Starship		HANDS:2
+Nuclear Missile			TYPE:Starship		HANDS:2
+Rail Cannon				TYPE:Starship		HANDS:2
+
+#PL7 Starship Weapons
+Antimatter Gun			TYPE:Starship		HANDS:2
+Heavy Mass Cannon			TYPE:Starship		HANDS:2
+Heavy Particle Beam		TYPE:Starship		HANDS:2
+Heavy Plasma Cannon		TYPE:Starship		HANDS:2
+Mass Cannon				TYPE:Starship		HANDS:2
+Mass Reaction Missile		TYPE:Starship		HANDS:2
+Particle Beam			TYPE:Starship		HANDS:2
+Plasma Cannon			TYPE:Starship		HANDS:2
+Plasma Missile			TYPE:Starship		HANDS:2
+Quantum Cannon			TYPE:Starship		HANDS:2
+
+#PL8 Starship Weapons
+Automaser				TYPE:Starship		HANDS:2
+EMP Cannon				TYPE:Starship		HANDS:2
+Heavy Maser Cannon		TYPE:Starship		HANDS:2
+Kinetic Lance			TYPE:Starship		HANDS:2
+Maser Cannon			TYPE:Starship		HANDS:2
+Neutronium Driver			TYPE:Starship		HANDS:2
+Nova Burst Missile		TYPE:Starship		HANDS:2
+Starload Missile			TYPE:Starship		HANDS:2
+Sliver Gun				TYPE:Starship		HANDS:2
+Zero Bore				TYPE:Starship		HANDS:2
+
+#PL9 Starship Weapons
+Blacklaser				TYPE:Starship		HANDS:2
+Singularity Cannon		TYPE:Starship		HANDS:2
+String Projector			TYPE:Starship		HANDS:2
+Tachyon Gun				TYPE:Starship		HANDS:2

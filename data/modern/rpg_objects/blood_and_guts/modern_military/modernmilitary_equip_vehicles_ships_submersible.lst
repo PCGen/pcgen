@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23	SOURCEDATE:2003-01
+# Original Entry by Paul W. King
+
+# Equipment Name	Type										Cost		Define																														Modifier		Size		Source Page		Modify VAR																																					Special Property
+Los Angeles		TYPE:Goods.Transportation.Military.SubmersibleShip		COST:45	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vt_speed|0	DEFINE:vdefense|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SIZE:G	SOURCEPAGE:p.71	BONUS:VAR|vcrew|134	BONUS:VAR|vpass|10	BONUS:VAR|vcargo|1000	BONUS:VAR|vinit|-2	BONUS:VAR|vmaneuver|-2	BONUS:VAR|vt_speed|40	BONUS:VAR|vdefense|8	BONUS:VAR|vhard|8	BONUS:VAR|vhpee|40	BONUS:VAR|vsize|7	SPROP:Mil (+3)
+Seawolf		TYPE:Goods.Transportation.Military.SubmersibleShip.Armored	COST:55	DEFINE:vcrew|0	DEFINE:vpass|0	DEFINE:vcargo|0	DEFINE:vinit|0	DEFINE:vmaneuver|0	DEFINE:vt_speed|0	DEFINE:vdefense|0	DEFINE:vhard|0	DEFINE:vhpee|0	DEFINE:vsize|0	EQMOD:AAVEHICLE	SIZE:G	SOURCEPAGE:p.71	BONUS:VAR|vcrew|134	BONUS:VAR|vpass|10	BONUS:VAR|vcargo|1000	BONUS:VAR|vinit|0	BONUS:VAR|vmaneuver|0	BONUS:VAR|vt_speed|50	BONUS:VAR|vdefense|10	BONUS:VAR|vhard|10	BONUS:VAR|vhpee|50	BONUS:VAR|vsize|7	SPROP:Mil (+3)

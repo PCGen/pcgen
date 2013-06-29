@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Guts 2: On the Ground	SOURCESHORT:BnG2-OtG	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=285	SOURCEDATE:2007-01
+
+#CREATED BY: Paul W. King, Feb 2007
+#EDITED BY: Paul W. King, Feb 2007
+
+# Weapon Name		Type
+HK Mk 23 SOCOM Pistol	TYPE:PersonalFirearm
+
+M4/203			TYPE:PersonalFirearm
+M16/203			TYPE:PersonalFirearm
+M24 Sniper			TYPE:PersonalFirearm
+M40A1 Sniper		TYPE:PersonalFirearm
+M1014				TYPE:PersonalFirearm
+
+Mortar			TYPE:ExoticFirearms

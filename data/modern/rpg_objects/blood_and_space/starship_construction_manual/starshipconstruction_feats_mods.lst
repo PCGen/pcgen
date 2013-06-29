@@ -1,0 +1,25 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Space - Starship Construction Manual	SOURCESHORT:BnS-SCM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=58	SOURCEDATE:2005-01
+#Original Entry By: Sean Silva-Miramon
+
+# Feat Name					Type
+Armor Proficiency (Light).MOD		TYPE:StarshipDesigner
+Armor Proficiency (Medium).MOD	TYPE:StarshipDesigner
+Barrel Roll.MOD				TYPE:StarshipTestPilot
+Builder.MOD					TYPE:StarshipDesigner
+Evasive Maneuvers.MOD			TYPE:StarshipTestPilot
+Formation Flying.MOD			TYPE:StarshipTestPilot
+Gearhead.MOD				TYPE:StarshipDesigner.StarshipTestPilot
+Mastercrafter.MOD				TYPE:StarshipDesigner
+Renown.MOD					TYPE:StarshipTestPilot
+Salvage.MOD					TYPE:StarshipDesigner
+Spacer.MOD					TYPE:StarshipTestPilot
+Starship Battle Run.MOD			TYPE:StarshipTestPilot
+Starship Dodge.MOD			TYPE:StarshipDesigner.StarshipTestPilot
+Starship Gunnery.MOD			TYPE:StarshipDesigner.StarshipTestPilot
+Starship Mobility.MOD			TYPE:StarshipDesigner.StarshipTestPilot
+Starship Operation.MOD			TYPE:StarshipDesigner.StarshipTestPilot
+Starship Strafe.MOD			TYPE:StarshipDesigner.StarshipTestPilot
+Teamwork.MOD				TYPE:StarshipTestPilot
+Wingman.MOD					TYPE:StarshipTestPilot
+Zero G Training.MOD			TYPE:StarshipTestPilot

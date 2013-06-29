@@ -1,0 +1,43 @@
+# CVS $Revision$ $Author$ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
+CAMPAIGN:RPGObjects - Blood and Space - Merchants Pirates and Smugglers
+RANK:6
+GAMEMODE:Modern
+BOOKTYPE:Supplement
+GENRE:Future
+SETTING:Future
+TYPE:RPGObjects.Blood and Space
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PRECAMPAIGN:1,MSRD - Future,Future - Basics
+PUBNAMELONG:RPGObjects
+PUBNAMESHORT:RPGO
+PUBNAMEWEB:http://www.rpgobjects.com/
+SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers
+SOURCESHORT:BnS-MPS
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57
+SOURCEDATE:2052-01
+# COMMENT: Unknown Month - Set as 01
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Unearthed Arcana Copyright 2004, Wizards of the Coast; Author Andy Collins, Jesse Decker, David Noonan, Rich Redman
+COPYRIGHT:Mutants & Masterminds Copyright 2003, Green Ronin Publishing
+COPYRIGHT:Swords of the Father Copyright 2003, The Game Mechanics.
+COPYRIGHT:OGL Cybernet - CYBERPUNK ROLEPLAYING is Copyright 2003, Mongoose Publishing Limited.
+COPYRIGHT:Blood and Space: Merchants, Pirates and Smugglers Copyright 2005, RPGObjects; Author Paul King, Charles Rice
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2004, PCgen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Doug McMill, Paul W. King, Chris Chandler (Barak), Michael Gray (Taluonr Iscandar), Kenneth Walters (GldDragon35), Mike Sledge (zodar6), Patryk Adamski (Ruemere), Larry Davis (Sir George Anonymous), James Dempsey, Bryan (Merton Monk) McRoberts, Thomas Jannes (chipoulou), Samuel Hendricks (NotMousse), Sigurdur H. Olafsson, Jayme Cox, Jeremy "Illrigger" Turnley, Emily Smirle, Martin Fagerström, Chris McLaughlin, Raymond Yao, Eddy Anthony (MoSaT), Thomas Clegg (Arknight), Andargor, Devon Jones, Aaron Divinsky)
+COPYRIGHT:PCGen dataset conversion for Blood and Space: Merchants, Pirates and Smugglers Copyright 2005-2006, PCgen Data team including, but not limited to, Paul W. King, Eddy Anthony (MoSaT), Andrew McDougall (Tir Gwaith).
+
+INFOTEXT:This dataset requires the use of the MSRD Future dataset
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+CLASS:merchantspiratesandsmugglers_classes_advanced.lst
+CLASS:merchantspiratesandsmugglers_classes_prestige.lst
+EQUIPMENT:merchantspiratesandsmugglers_equip_armor.lst
+EQUIPMENT:merchantspiratesandsmugglers_equip_drug.lst
+EQUIPMENT:merchantspiratesandsmugglers_equip.lst
+FEAT:merchantspiratesandsmugglers_feats.lst
+FEAT:merchantspiratesandsmugglers_feats_mods.lst
+ABILITY:merchantspiratesandsmugglers_abilities.lst

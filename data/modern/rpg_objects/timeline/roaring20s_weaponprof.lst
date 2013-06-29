@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Timeline: The Roaring 20s	SOURCESHORT:R20	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=196	SOURCEDATE:2005-01
+
+# Weapon Name			Type
+Police Positive			TYPE:PersonalFirearm
+Webley Revolver			TYPE:PersonalFirearm
+Colt Revolver			TYPE:PersonalFirearm
+Luger					TYPE:PersonalFirearm
+Thompson Submachine Gun		TYPE:PersonalFirearm
+Stevens Model 410			TYPE:PersonalFirearm
+Winchester Model 1892		TYPE:PersonalFirearm
+Winchester Model 1897 Shotgun	TYPE:PersonalFirearm
+Browning Model 1918		TYPE:PersonalFirearm
+French Window Gun			TYPE:Exotic

@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Space - Starship Construction Manual	SOURCESHORT:BnS-SCM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=58	SOURCEDATE:2005-01
+#Original Entry By: Sean Silva-Miramon
+
+###BLOCK:PL6 Starship Weapons
+# Equipment Name		Required Weapon Proficiency			Type							Cost		Critical Hit Multiplier	Critical Hit Range	Damage	Range		Source Page		Special Property	Rate of Fire
+Slingshot Massdriver	PROFICIENCY:WEAPON|Slingshot Massdriver	TYPE:Weapon.Ranged.Starship.Ballistic.PL6	COST:26	CRITMULT:x2			CRITRANGE:1			DAMAGE:6d12	RANGE:1000	SOURCEPAGE:p.11	SPROP:Lic(+1)	RATEOFFIRE:Single

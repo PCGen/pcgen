@@ -1,0 +1,21 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
+
+###BLOCK: Armor
+# Modifier Name	Unique Key		Type		Cost		Visible		Source Page		Required Type	Combat bonus			Special Property
+Ceramics		KEY:CERAMIC_ARM	TYPE:Armor	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:p.77	PRETYPE:1,Armor						SPROP:Fire resistance 5
+Durasteel		KEY:DURASTEEL_ARM	TYPE:Armor	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:p.77	PRETYPE:1,Armor	BONUS:COMBAT|AC|2|TYPE=Armor
+
+###BLOCK: Shield
+# Modifier Name	Unique Key			Type		Cost		Visible		Source Page		Required Type	Combat bonus
+Durasteel		KEY:DURASTEEL_SHIELD	TYPE:Shield	COST:4	VISIBLE:QUALIFY	SOURCEPAGE:p.77	PRETYPE:1,Shield	BONUS:COMBAT|AC|2|TYPE=Shield
+
+###BLOCK: Weapon
+# Modifier Name			Unique Key			Type		Cost		Visible		Type granted	Source Page		Required Type							Bonus Weapon Modifiers		Weapon prop. bonus			Special Property
+Ceramics				KEY:CERAMIC_WEAP		TYPE:Weapon	COST:4	VISIBLE:QUALIFY				SOURCEPAGE:p.77	PRETYPE:1,Weapon																		SPROP:Immune to fire damage
+Durasteel				KEY:DURASTEEL_WEAP	TYPE:Weapon	COST:2	VISIBLE:QUALIFY	ITYPE:Durasteel	SOURCEPAGE:p.77	PRETYPE:1,Weapon
+Honed Durasteel			KEY:HONED_DURA_WEAP	TYPE:Weapon	COST:6	VISIBLE:QUALIFY				SOURCEPAGE:p.77	PRETYPE:1,Durasteel	PRETYPE:1,Slashing,Piercing	BONUS:EQMWEAPON|DAMAGESIZE|1
+Luminstone				KEY:LUMINSTONE		TYPE:Weapon	COST:5	VISIBLE:QUALIFY				SOURCEPAGE:p.77	PRETYPE:1,Weapon																		SPROP:+1d6 against Vaasi
+Plasma Efficiency Matrix	KEY:PLAS_EFF_MAT		TYPE:Weapon	COST:4	VISIBLE:QUALIFY				SOURCEPAGE:p.90	PRETYPE:1,Plasma
+Reflecting Spread Module	KEY:REF_SPR_MOD		TYPE:Weapon	COST:3	VISIBLE:QUALIFY				SOURCEPAGE:p.90	PRETYPE:1,Laser							BONUS:EQMWEAPON|DAMAGESIZE|-1	BONUS:WEAPON|TOHIT|1
+Smart Link				KEY:SMART_LINK		TYPE:Weapon			VISIBLE:QUALIFY				SOURCEPAGE:p.76	PRETYPE:1,Ranged												BONUS:WEAPON|TOHIT|1|TYPE=Equipment

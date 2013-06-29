@@ -1,0 +1,19 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting	SOURCESHORT:Dark Inheritance	SOURCEWEB:http://www.mythicdreams.com	SOURCEDATE:2003-01
+#Original Entry by: Frank Kliewe
+
+###Block: modified Talents for use by the Super Soldier class
+# Ability Name					Clear Prereq.	Multiple Requirements																					Bonus to HP						Bonus to skill
+CATEGORY=Talent|Robust.MOD																														BONUS:HP|CURRENTMAX|CL=Super Soldier
+CATEGORY=Talent|Stamina.MOD			PRE:.CLEAR		PREMULT:1,[PREABILITY:1,CATEGORY=Talent,Robust],[PRECLASS:1,Super Soldier=1]
+CATEGORY=Talent|Aware.MOD			PRE:.CLEAR		PREMULT:1,[PREABILITY:1,CATEGORY=Talent,Skill Emphasis],[PRECLASS:1,Super Soldier=1]
+CATEGORY=Talent|Cool Under Pressure.MOD	PRE:.CLEAR		PREMULT:1,[PREMULT:2,[PREABILITY:1,CATEGORY=Talent,Skill Emphasis],[PREABILITY:1,CATEGORY=Talent,Aware,Faith]],[PRECLASS:1,Super Soldier=1]
+CATEGORY=Talent|Improved Aid Another.MOD	PRE:.CLEAR		PREMULT:1,[PREABILITY:1,CATEGORY=Talent,Empathy],[PRECLASS:1,Super Soldier=1]
+CATEGORY=Talent|Intuition.MOD			PRE:.CLEAR		PREMULT:1,[PREABILITY:1,CATEGORY=Talent,Empathy],[PRECLASS:1,Super Soldier=1]
+CATEGORY=Talent|Linguist.MOD			PRE:.CLEAR		PREMULT:1,[PRESKILLTOT:Read/Write Language,Speak Language=3],[PRECLASS:1,Super Soldier=1]
+CATEGORY=Talent|Plan.MOD			PRE:.CLEAR		PREMULT:1,[PREABILITY:1,CATEGORY=Talent,TYPE=Research],[PRECLASS:1,Super Soldier=1]
+CATEGORY=Talent|Savant.MOD																																					BONUS:SKILL|LIST|CL=Super Soldier
+
+#
+# EoF
+#

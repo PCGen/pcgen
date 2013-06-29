@@ -1,0 +1,64 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document - Menace	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
+
+#removed SA:Blindsight from Toxic Sludge, as it is already included in Ooze template -- Frank Kliewe
+
+###Block: Ghoul natural attacks
+# Template Name	Visible	Required Size	Natural Attacks
+Ghoul Fine		VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1
+Ghoul Diminutive	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d2
+Ghoul Tiny		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d3|Claw,Weapon.Natural.Melee.Slashing,*2,1
+Ghoul Small		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d4|Claw,Weapon.Natural.Melee.Slashing,*2,1d2
+Ghoul Medium-size	VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6|Claw,Weapon.Natural.Melee.Slashing,*2,1d3
+Ghoul Large		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d8|Claw,Weapon.Natural.Melee.Slashing,*2,1d4
+Ghoul Huge		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,2d6|Claw,Weapon.Natural.Melee.Slashing,*2,1d6
+Ghoul Gargantuan	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,2d8|Claw,Weapon.Natural.Melee.Slashing,*2,1d8
+Ghoul Colossal	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,4d6|Claw,Weapon.Natural.Melee.Slashing,*2,2d6
+
+###Block: Half-Fiend wings
+# Template Name		Challenge Rating	Visible	Clone Movement
+Half-Fiend (no wings)	CR:2			VISIBLE:NO
+Half-Fiend (wings)	CR:3			VISIBLE:NO	MOVECLONE:Walk,Fly,*1
+
+###Block: Half-Fiend natural attacks
+# Template Name		Visible	Required Size	Natural Attacks
+Half-Fiend Fine		VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1
+Half-Fiend Diminutive	VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d2|Claw,Weapon.Natural.Melee.Slashing,*2,1
+Half-Fiend Tiny		VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d3|Claw,Weapon.Natural.Melee.Slashing,*2,1d2
+Half-Fiend Small		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d4|Claw,Weapon.Natural.Melee.Slashing,*2,1d3
+Half-Fiend Medium-size	VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d6|Claw,Weapon.Natural.Melee.Slashing,*2,1d4
+Half-Fiend Large		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,1d8|Claw,Weapon.Natural.Melee.Slashing,*2,1d6
+Half-Fiend Huge		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,2d6|Claw,Weapon.Natural.Melee.Slashing,*2,1d8
+Half-Fiend Gargantuan	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Bite,Weapon.Natural.Melee.Bludgeoning.Piercing.Slashing,*1,2d8|Claw,Weapon.Natural.Melee.Slashing,*2,2d6
+Half-Fiend Colossal	VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,6d6|Claw,Weapon.Natural.Melee.Slashing,*2,2d8
+
+###Block: Maniac natural attacks
+# Template Name		Visible	Required Size	Natural Attacks
+Maniac Fine			VISIBLE:NO	PRESIZEEQ:F		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,1
+Maniac Diminutive		VISIBLE:NO	PRESIZEEQ:D		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d2
+Maniac Tiny			VISIBLE:NO	PRESIZEEQ:T		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d3
+Maniac Small		VISIBLE:NO	PRESIZEEQ:S		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d4
+Maniac Medium-size	VISIBLE:NO	PRESIZEEQ:M		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d6
+Maniac Large		VISIBLE:NO	PRESIZEEQ:L		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,1d8
+Maniac Huge			VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,2d6
+Maniac Gargantuan		VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,2d8
+Maniac Colossal		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Slam,Weapon.Natural.Melee.Bludgeoning,*1,4d6
+
+###Block: specific templates
+# Template Name	Visible	Template			Define			Bonus to Ability Pool				Stat bonus			Modify VAR										Ability																																			Automatically Gained Feat			Bonus Languages	Move			Race Subtype	Vision					Innate Spells
+Animated Object	VISIBLE:NO	TEMPLATE:Construct	DEFINE:LOCK.INT|10								BONUS:STAT|WIS,CHA|-10												ABILITY:Special Ability|AUTOMATIC|Blind|Constrict|Hardness|Improved Speed|Trample																																	MOVE:Walk,30				VISION:Darkvision (60')
+Fiend			VISIBLE:NO	TEMPLATE:Outsider						BONUS:ABILITYPOOL|Outsider Proficiency|1																																																											LANGBONUS:Abyssal							VISION:Darkvision (60')
+Infester		VISIBLE:NO	TEMPLATE:Vermin																												ABILITY:Special Ability|AUTOMATIC|Boost Host|Host Protection|Infestation																																		MOVE:Walk,30				VISION:Blindsight (60')
+Skin Feaster	VISIBLE:NO	TEMPLATE:Undead																												ABILITY:Special Ability|AUTOMATIC|Flesh Weakness|Necrotizing Touch|Skin Regrowth																							AUTO:FEAT|Simple Weapons Proficiency
+Star Doppelganger	VISIBLE:NO																				BONUS:VAR|ColdResistanceBonus|10	BONUS:VAR|RegenerationRate|5	ABILITY:Special Ability|AUTOMATIC|Absrobe|Alien Physiolgoy|Convert|Hive Mind|Mimic|Regeneration|Resistance To Cold|Split|Star Doppelganger Fear Aura|Star Doppelganger Flesh Transfer|Star Doppelganger Immunities
+Thunderbird		VISIBLE:NO	TEMPLATE:Magical Beast																											ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity|Immunity To Sonic|Improved Grab|Thunderbird Breath Weapon|Thunderbird Fear Aura																					LANGBONUS:Auran							VISION:Darkvision (60')|Low-light
+Toxic Sludge	VISIBLE:NO	TEMPLATE:Ooze																												ABILITY:Special Ability|AUTOMATIC|Acid|Expansion|Immunity To Acid|Immunity To Cold|Immunity To Electricity|Improved Grab|Toxic Fumes																								MOVE:Walk,20
+Udoroot		VISIBLE:NO	TEMPLATE:Plant		DEFINE:LOCK.INT|10												BONUS:VAR|ColdResistanceBonus|20						ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity|Immunity To Fire|Resistance To Cold																																					VISION:Blindsight (40')			SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=10|False Sensory Input,13+CHA|Lesser Body Adjustment,11+STR|Lightning Strike,13+INT|Telekinesis,14+CON
+Yeti			VISIBLE:NO																															ABILITY:Special Ability|AUTOMATIC|Constrict|Hide in Snow|Improved Grab																																			MOVE:Walk,40	RACESUBTYPE:Cold	VISION:Darkvision (60')
+
+###Block: Robot variants
+# Template Name	Visible	Move
+Robot Treads	VISIBLE:NO	MOVE:Walk,30
+Robot Bipedal	VISIBLE:NO	MOVE:Walk,30
+Robot Quadrupedal	VISIBLE:NO	MOVE:Walk,40
+Robot Wheels	VISIBLE:NO	MOVE:Walk,50

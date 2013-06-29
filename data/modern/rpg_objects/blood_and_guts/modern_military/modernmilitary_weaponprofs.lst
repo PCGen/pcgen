@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Guts - Modern Military	SOURCESHORT:BnG-MM	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=23	SOURCEDATE:2003-01
+# Original Entry by Paul W. King
+
+# Weapon Name	Type
+M4/203		TYPE:PersonalFirearm
+M16/203		TYPE:PersonalFirearm
+M24 Sniper		TYPE:PersonalFirearm
+M40A1 Sniper	TYPE:PersonalFirearm
+M1014			TYPE:PersonalFirearm
+
+M203			TYPE:ExoticFirearms
+M249 SAW		TYPE:ExoticFirearms
+M240			TYPE:ExoticFirearms
+Stinger		TYPE:ExoticFirearms
+
+M120 Mortar		TYPE:ExoticFirearms
+M224 Mortar		TYPE:ExoticFirearms
+M252 Mortar		TYPE:ExoticFirearms
+
+#Copied from SRD to eliminate simplistic INCLUDE: tag causing errors - Fluxxdog
+Dagger		TYPE:Simple.Dagger

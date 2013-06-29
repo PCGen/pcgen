@@ -1,0 +1,26 @@
+# CVS $Revision$ $Author$ -- Sun Oct 12 14:44:03 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+#SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/
+
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
+ABILITYCATEGORY:Bohemian Occupation Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Bohemian_Skills		PLURAL:Bohemian Occupation Skills		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Bureaucrat Occupation Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Bureaucrat_Skills		PLURAL:Bureaucrat Occupation Skills		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Craftsperson Occupation Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Craftsperson_Skills	PLURAL:Craftsperson Occupation Skills	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Domestic Occupation Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Domestic_Skills		PLURAL:Domestic Occupation Skills		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Educator Occupation Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Educator_Skills		PLURAL:Educator Occupation Skills		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Politico Occupation Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Politico_Skills		PLURAL:Politico Occupation Skills		DISPLAYLOCATION:Background
+ABILITYCATEGORY:Tribal Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Starting Occupation	TYPE:Tribal_Skills		PLURAL:Tribal Occupation Skills		DISPLAYLOCATION:Background
+
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
+ABILITYCATEGORY:Bureaucrat Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Bureaucrat			PLURAL:Bureaucrat Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Craftsperson Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Craftsperson			PLURAL:Craftsperson Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Educator Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Educator			PLURAL:Educator Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Politico Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Politico			PLURAL:Politico Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Tribal Feat				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Tribal				PLURAL:Tribal Feats				DISPLAYLOCATION:Feats
+
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI			Display Location
+ABILITYCATEGORY:Second Occupation			VISIBLE:NO		EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Second Occupation
+ABILITYCATEGORY:Second Starting Occupation	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Second Occupation	TYPE:SecondOccupation		PLURAL:Second Occupations			DISPLAYLOCATION:Background
+
+#
+# End
+#

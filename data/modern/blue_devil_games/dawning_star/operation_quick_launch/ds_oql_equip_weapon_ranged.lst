@@ -1,0 +1,70 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Dawning Star-Operation Quick Launch	SOURCESHORT:DS-OQL	SOURCEWEB:http://www.dawningstar.com/oql.htm	SOURCEDATE:2006-01
+
+#Is it on purpose that these weapons are not set up as container? -- Frank
+
+#Arquebus is missing a Range tag. The book only mentions a minimum range of 20'. I've put that in because I think a ranged weapon
+#needs a range, but that is most certainly too short for such a weapon. -- Frank
+
+###BLOCK: Eos Defense Force Firearms
+# Equipment Name	Required Weapon Proficiency	Type																	Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire
+EDF2			PROFICIENCY:WEAPON|EDF2		TYPE:Weapon.Ranged.Standard.Firearm.Personal.HMG.Ballistic.PL5.Projectile					COST:27	WT:40		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12	RANGE:100	SIZE:H	SOURCEPAGE:p.80	SPROP:Mil(+3), linked	RATEOFFIRE:A
+EDF9			PROFICIENCY:WEAPON|EDF9		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.Automatic.Projectile.PL5		COST:18	WT:4		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:30	SIZE:S	SOURCEPAGE:p.80	SPROP:Lic(+1), 21 box	RATEOFFIRE:S,A
+EDF12			PROFICIENCY:WEAPON|EDF12	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Automatic.Projectile.PL5	COST:20	WT:7		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:40	SIZE:M	SOURCEPAGE:p.80	SPROP:Res(+2), 50 box	RATEOFFIRE:S,A
+EDF15			PROFICIENCY:WEAPON|EDF15	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Automatic.Projectile.PL5	COST:22	WT:16		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:60	SIZE:L	SOURCEPAGE:p.80	SPROP:Res(+2), 60 box	RATEOFFIRE:S,A
+EDF18			PROFICIENCY:WEAPON|EDF18	TYPE:Weapon.Ranged.Standard.Firearm.Ballistic.Personal.LMG.Projectile.Automatic.PL5				COST:22	WT:20		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10	RANGE:60	SIZE:L	SOURCEPAGE:p.80	SPROP:Mil(+3), linked	RATEOFFIRE:A
+EDF SPR		PROFICIENCY:WEAPON|EDF SPR	TYPE:Weapon.Ranged.Standard.Firearm.Ballistic.Personal.Projectile.Semiauto.PL5				COST:25	WT:22		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d12	RANGE:130	SIZE:L	SOURCEPAGE:p.80	SPROP:Res(+2), 6 int	RATEOFFIRE:S
+
+###BLOCK: Eos Defense Force Laser Weapons
+# Equipment Name	Required Weapon Proficiency	Type																	Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property			Rate of Fire
+EDF23L		PROFICIENCY:WEAPON|EDF23L	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Fire.Laser.Personal.Semiauto.Automatic.PL6			COST:23	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d8	RANGE:100	SIZE:L	SOURCEPAGE:p.82	SPROP:Mil(+3), power pack	RATEOFFIRE::S,A
+EDF24L		PROFICIENCY:WEAPON|EDF24L	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Fire.Laser.Precision.Personal.Semiauto.Automatic.PL6	COST:26	WT:20		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d10	RANGE:150	SIZE:L	SOURCEPAGE:p.82	SPROP:Mil(+3), power pack	RATEOFFIRE::S,A
+
+###BLOCK: Eos Defense Force Plasma Weapons
+# Equipment Name	Required Weapon Proficiency	Type															Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property			Rate of Fire
+EDF33P		PROFICIENCY:WEAPON|EDF33P	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Fire.Plasma.Personal.Semiauto.Automatic.PL7	COST:25	WT:22		CRITMULT:x2			CRITRANGE:1			DAMAGE:4d8	RANGE:60	SIZE:L	SOURCEPAGE:p.83	SPROP:Mil(+3), power pack	RATEOFFIRE:S,A
+EDF35P		PROFICIENCY:WEAPON|EDF35P	TYPE:Weapon.Ranged.Standard.Firearm.Fire.Plasma.Personal.Semiauto.PL7				COST:27	WT:28		CRITMULT:x2			CRITRANGE:1			DAMAGE:4d6	RANGE:80	SIZE:L	SOURCEPAGE:p.83	SPROP:Mil(+3), power pack	RATEOFFIRE:S
+EDF38P		PROFICIENCY:WEAPON|Cannon	TYPE:Weapon.Ranged.Standard.Firearm.Fire.Plasma.PlasmaCannon.Semiauto.PL7			COST:30	WT:90		CRITMULT:x2			CRITRANGE:1			DAMAGE:8d10	RANGE:100	SIZE:H	SOURCEPAGE:p.83	SPROP:Mil(+3), power pack	RATEOFFIRE:S
+
+###BLOCK: Gyro Jet Weapons
+# Equipment Name	Required Weapon Proficiency		Type													Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire
+GP02			PROFICIENCY:WEAPON|GP02			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto.PL6	COST:17	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	RANGE:60	SIZE:L	SOURCEPAGE:p.85	SPROP:Lic(+1), 10 box	RATEOFFIRE:S
+GP05			PROFICIENCY:WEAPON|GP05			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.PL6	COST:19	WT:9		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:80	SIZE:M	SOURCEPAGE:p.85	SPROP:Res(+2), 20 box	RATEOFFIRE:S
+GP09			PROFICIENCY:WEAPON|GP09			TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.PL6	COST:24	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:100	SIZE:M	SOURCEPAGE:p.85	SPROP:Res (+2),20 box	RATEOFFIRE:S
+Arquebus		PROFICIENCY:WEAPON|Rocket Launcher	TYPE:Weapon.Ranged.Standard.Firearm.HeavyGyroJetLauncher.PL6			COST:30	WT:26		CRITMULT:x2			CRITRANGE:1			DAMAGE:10d6	RANGE:20	SIZE:L	SOURCEPAGE:p.85	SPROP:Mil (+3),6 box	RATEOFFIRE:S
+
+###BLOCK: Base family
+# Equipment Name	Required Weapon Proficiency		Type																	Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire
+Shotgun		PROFICIENCY:WEAPON|Shotgun		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Projectile.PL4			COST:17	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10	RANGE:30	SIZE:L	SOURCEPAGE:p.86	SPROP:5 int			RATEOFFIRE:S
+Combat Shotgun	PROFICIENCY:WEAPON|Combat Shotgun	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Semiauto.Automatic.Projectile.PL4	COST:20	WT:20		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10	RANGE:30	SIZE:L	SOURCEPAGE:p.86	SPROP:Res(+2), 20 box	RATEOFFIRE:S,A
+Hunting Rifle	PROFICIENCY:WEAPON|Hunting Rifle	TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal.Projectile.PL4					COST:17	WT:17		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d8	RANGE:70	SIZE:L	SOURCEPAGE:p.86					RATEOFFIRE:Single
+
+###BLOCK: Tangier family
+# Equipment Name			Required Weapon Proficiency				Type											Cost		Weight	Range		Size		Source Page		Special Property		Rate of Fire
+Tangier Grenade Launcher	PROFICIENCY:WEAPON|Tangier Grenade Launcher	TYPE:Weapon.Ranged.Standard.Firearm.GrenadeLauncher.Semiauto.PL5	COST:20	WT:18		RANGE:60	SIZE:L	SOURCEPAGE:p.88	SPROP:Mil(+3), 12 box	RATEOFFIRE:S
+Missile Launcher			PROFICIENCY:WEAPON|Rocket Launcher			TYPE:Weapon.Ranged.Standard.Firearm.RocketLauncher.Semiauto.PL5	COST:26	WT:30		RANGE:200	SIZE:L	SOURCEPAGE:p.88	SPROP:Mil(+3), 4 box	RATEOFFIRE:S
+
+###BLOCK: Other ranged
+# Equipment Name		Required Weapon Proficiency			Type										Contains			Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier				Range		Size		Source Page		Rate of Fire
+Tantas Frontier HO	PROFICIENCY:WEAPON|Tantas Frontier HO	TYPE:Weapon.Ranged.Standard.Firearm.Personal.PL4.Ballistic					COST:0	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	EQMOD:MASTERCRAFT_WEAP_HIT_1	RANGE:20	SIZE:T	SOURCEPAGE:p.89	RATEOFFIRE:Single
+Velin Hunting Bow		PROFICIENCY:WEAPON|Velin Hunting Bow	TYPE:Weapon.Ranged.Standard.PL2.Piercing.Archaic.Container	CONTAINS:UNLIM|Arrow=1	COST:10	WT:4		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8						RANGE:60	SIZE:L	SOURCEPAGE:p.89	RATEOFFIRE:Single
+Velin Throwing Blade	PROFICIENCY:WEAPON|Velin Throwing Blade	TYPE:Weapon.Ranged.PL2.Piercing.Archaic.Thrown.Standard					COST:6	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6						RANGE:10	SIZE:S	SOURCEPAGE:p.89	RATEOFFIRE:Single
+Velin War Bow		PROFICIENCY:WEAPON|Velin War Bow		TYPE:Weapon.Ranged.Standard.PL2.Piercing.WarBow.Container	CONTAINS:UNLIM|Arrow=1	COST:11	WT:5		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8						RANGE:50	SIZE:L	SOURCEPAGE:p.89	RATEOFFIRE:Single
+
+###BLOCK: Vehicle
+# Equipment Name		Required Weapon Proficiency		Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property		Rate of Fire
+Falcon Guided Missile	PROFICIENCY:WEAPON|Rocket Launcher	TYPE:Weapon.Ranged.Standard.Firearm.Vehicle.Concussion.PL6	COST:21	WT:190	CRITMULT:x2			CRITRANGE:1			DAMAGE:6d12	RANGE:1000	SIZE:L	SOURCEPAGE:p.107	SPROP:Mil(+3)		RATEOFFIRE:S
+Manga 6 Rail Cannon	PROFICIENCY:WEAPON|Cannon		TYPE:Weapon.Ranged.Standard.Firearm.Vehicle.Ballistic.PL7	COST:29	WT:850	CRITMULT:x2			CRITRANGE:1			DAMAGE:7d12	RANGE:900	SIZE:H	SOURCEPAGE:p.107	SPROP:Mil(+3)		RATEOFFIRE:S
+Rocket Heavy		PROFICIENCY:WEAPON|Rocket Launcher	TYPE:Weapon.Ranged.Standard.Firearm.Vehicle.Concssion.PL6	COST:17	WT:120	CRITMULT:x2			CRITRANGE:1			DAMAGE:5d12	RANGE:500	SIZE:L	SOURCEPAGE:p.107	SPROP:Mil(+3)		RATEOFFIRE:S
+Rocket Light		PROFICIENCY:WEAPON|Rocket Launcher	TYPE:Weapon.Ranged.Standard.Firearm.Vehicle.Concssion.PL6	COST:15	WT:80		CRITMULT:x2			CRITRANGE:1			DAMAGE:4d12	RANGE:300	SIZE:L	SOURCEPAGE:p.107	SPROP:Mil(+3)		RATEOFFIRE:S
+Tremor 40mm Cannon	PROFICIENCY:WEAPON|Cannon		TYPE:Weapon.Ranged.Standard.Firearm.Vehicle.Ballistic.PL6	COST:25	WT:340	CRITMULT:x2			CRITRANGE:1			DAMAGE:3d12	RANGE:200	SIZE:L	SOURCEPAGE:p.107	SPROP:Mil(+3), linked	RATEOFFIRE:A
+
+###BLOCK: Tentaari
+# Equipment Name			Required Weapon Proficiency					Type														Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Rate of Fire
+Tentaari Disintegrator Pistol	PROFICIENCY:WEAPON|Tentaari Disintegrator Pistol	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Personal.Semiauto.PL9.Disintegration	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:5d8	RANGE:50	SIZE:S	SOURCEPAGE:p.165	RATEOFFIRE:S
+
+###BLOCK: Vaasi
+# Equipment Name		Required Weapon Proficiency			Type												Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Size		Source Page		Special Property			Rate of Fire
+Vaasi Maser Pistol	PROFICIENCY:WEAPON|Vaasi Maser Pistol	TYPE:Weapon.Ranged.Standard.Firearm.PL8.Radiation.Pistol.Semiauto		WT:5		CRITMULT:x2			CRITRANGE:2			DAMAGE:5d6	RANGE:40	SIZE:M	SOURCEPAGE:p.169	SPROP:20 box magazine		RATEOFFIRE:S
+Vaasi Maser Rifle		PROFICIENCY:WEAPON|Vaasi Maser Rifle	TYPE:Weapon.Ranged.Standard.Firearm.PL8.Radiation.Longarm.Semiauto	WT:12		CRITMULT:x2			CRITRANGE:2			DAMAGE:5d8	RANGE:100	SIZE:L	SOURCEPAGE:p.169	SPROP:20 box magazine		RATEOFFIRE:S
+Vaasi Heavy Maser		PROFICIENCY:WEAPON|Cannon			TYPE:Weapon.Ranged.Standard.Firearm.PL8.Radiation.Semiauto			WT:60		CRITMULT:x2			CRITRANGE:2			DAMAGE:5d12	RANGE:200	SIZE:H	SOURCEPAGE:p.169	SPROP:100 external magazine	RATEOFFIRE:S

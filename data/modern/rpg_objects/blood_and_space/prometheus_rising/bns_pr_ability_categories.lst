@@ -1,0 +1,23 @@
+# CVS $Revision$ $Author$ -- Tue Feb 17 21:52:10 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+#SOURCELONG:Blood and Space - Prometheus Rising	SOURCESHORT:Prometheus	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=59
+
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number				Category of Object			Type of Object				Plural description for UI				Display Location
+ABILITYCATEGORY:Asteroid Prospector Occupation Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Starting Occupation		TYPE:Asteroid_Prospector_Skills	PLURAL:Asteroid Prospector Occupation Skills	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Corporate Employee Occupation Skills	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Starting Occupation		TYPE:Corporate_Employee_Skills	PLURAL:Corporate Employee Occupation Skills	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Gambler Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Starting Occupation		TYPE:Gambler_Skills			PLURAL:Gambler Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Hauler Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Starting Occupation		TYPE:Hauler_Skills			PLURAL:Hauler Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Pirate Occupation Skills			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Starting Occupation		TYPE:Pirate_Skills			PLURAL:Pirate Occupation Skills			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Psychic/PR Occupation Skills		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Starting Occupation		TYPE:Psychic_PR_Skills			PLURAL:Psychic Occupation Skills			DISPLAYLOCATION:Background
+
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number				Category of Object			Type of Object				Plural description for UI				Display Location
+ABILITYCATEGORY:Gambler Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:Gambler				PLURAL:Gambler Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Hauler Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:Hauler					PLURAL:Hauler Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Pirate Feat					VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:Pirate					PLURAL:Pirate Feats					DISPLAYLOCATION:Feats
+
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number				Category of Object			Type of Object				Plural description for UI				Display Location
+ABILITYCATEGORY:Preferred Occupation Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:PreferredOccupationChoice	CATEGORY:Preferred Occupation Bonus							PLURAL:Preferred Occupation Bonuses			DISPLAYLOCATION:Background
+ABILITYCATEGORY:Base Programming				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Base Programming								PLURAL:Base Programming					DISPLAYLOCATION:Background
+
+#
+# End
+#

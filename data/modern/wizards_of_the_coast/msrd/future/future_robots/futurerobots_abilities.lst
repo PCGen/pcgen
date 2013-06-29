@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://www.wizards.com/D20/article.asp?x=msrd	SOURCEDATE:2002-01
+# Original entry by Eddy Anthony (MoSaT)
+
+# Ability Name			Category of Ability		Type			Visible	Special ABility																																																									Define				Bonus to skill
+Robot Purchase DC			CATEGORY:Special Ability				VISIBLE:NO	SAB:Purchase DC: %|RobotPurchaseDC																																																						DEFINE:RobotPurchaseDC|0
+
+# Feat Name				Type			Visible	Special ABility																																																									Bonus to skill
+Critical Systems			CATEGORY:Special Ability	TYPE:RobotTraits	VISIBLE:NO	SAB:Vital areas and critical systems are subject to critical hits
+Cybernetic Incompatibility	CATEGORY:Special Ability	TYPE:RobotTraits	VISIBLE:NO	SAB:Cannot be fitted with cybernetic attachments
+Immunities				CATEGORY:Special Ability	TYPE:RobotTraits	VISIBLE:NO	SAB:Immune to mind-influencing effects, poison, sleep, paralysis, stunning, disease, necromancy effects, and any effect that requires a Fortitude save unless the effect also works on objects or is harmless, Not subject to nonlethal damage, ability damage, ability drain, energy drain, or the effects of massive damage, Cannot be raised from the dead
+Lifelike Appearance		CATEGORY:Special Ability	TYPE:RobotTraits	VISIBLE:NO	SAB:Lifelike Appearance
+Rejuvenation Cycle		CATEGORY:Special Ability	TYPE:RobotTraits	VISIBLE:NO	SAB:Rejuvenation Cycle
+Robot Resurrection		CATEGORY:Special Ability	TYPE:RobotTraits	VISIBLE:NO	SAB:Robot Resurrection
+Amorphous Form			CATEGORY:Special Ability	TYPE:RobotTraits	VISIBLE:NO	SAB:Amorphous Form (Ex)																																																													BONUS:SKILL|Escape Artist|10
+Robot Fast Healing		CATEGORY:Special Ability	TYPE:RobotTraits	VISIBLE:NO	SAB:Fast Healing 10 (Ex)
+Fire Vulnerability		CATEGORY:Special Ability	TYPE:RobotTraits	VISIBLE:NO	SAB:Fire Vulnerability
+
+
+#
+# End
+#

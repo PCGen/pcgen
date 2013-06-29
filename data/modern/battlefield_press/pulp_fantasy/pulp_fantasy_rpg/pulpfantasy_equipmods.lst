@@ -1,0 +1,42 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pulp Fantasy Roleplaying Game	SOURCESHORT:PulpFntasy	SOURCEWEB:http://battlefieldpress.com	SOURCEDATE:2006-01
+#Original entry by: Frank Kliewe
+
+#To fully code the Weird Gadgets, we will need the ability to assign Body Slots to an item via EQMOD. Also they will need the
+#ability to give them 2 slots, i.e. Weapon and Armor, or Ring and Boot etc., which both will then be occupied by the item.
+#The Miniaturize Invention gadget feat then needs the ability to reduce the number of occupied slots by one.
+
+# Modifier Name					Unique Key		Naming Option		Type		Visible		Type granted		Source Page		Required Type	Var. Min. Value			Var. Max. Value						Stat bonus			Modify VAR													Special Property													Choose									Nb of Charges	Define
+SCP_STD.MOD									NAMEOPT:TEXT=Scope										SOURCEPAGE:p.76
+
+#Weird Gadget Base Invention Level
+Base Invention Level				KEY:GDGT_INV_LVL	NAMEOPT:NOTHING		TYPE:Gadget	VISIBLE:QUALIFY	ITYPE:Weird			SOURCEPAGE:p.88																					BONUS:VAR|BaseInventionLevel|%CHOICE								SPROP:Invention Level % higher than allowed!|min(0,InventionLevel-BaseInventionLevel)	CHOOSE:NUMBER|MIN=1|MAX=22|TITLE=Intended Gadget Level
+
+
+#Weird Gadget Abilities
+|1st level Spell Effect (50 Uses/Gadget)	KEY:GDGT_SPL_CMD1	NAMEOPT:SPELL		TYPE:Gadget	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	SOURCEPAGE:p.89	PRETYPE:1,Weird																		BONUS:VAR|InventionLevel|1																									CHOOSE:EQBUILDER.SPELL|ANY|1|1					CHARGES:1|50
+|2nd level Spell Effect (50 Uses/Gadget)	KEY:GDGT_SPL_CMD2	NAMEOPT:SPELL		TYPE:Gadget	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	SOURCEPAGE:p.89	PRETYPE:1,Weird																		BONUS:VAR|InventionLevel|2																									CHOOSE:EQBUILDER.SPELL|ANY|2|2					CHARGES:1|50
+|3rd level Spell Effect (50 Uses/Gadget)	KEY:GDGT_SPL_CMD3	NAMEOPT:SPELL		TYPE:Gadget	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	SOURCEPAGE:p.89	PRETYPE:1,Weird																		BONUS:VAR|InventionLevel|3																									CHOOSE:EQBUILDER.SPELL|ANY|3|3					CHARGES:1|50
+|4th level Spell Effect (50 Uses/Gadget)	KEY:GDGT_SPL_CMD4	NAMEOPT:SPELL		TYPE:Gadget	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	SOURCEPAGE:p.89	PRETYPE:1,Weird																		BONUS:VAR|InventionLevel|4																									CHOOSE:EQBUILDER.SPELL|ANY|4|4					CHARGES:1|50
+|5th level Spell Effect (50 Uses/Gadget)	KEY:GDGT_SPL_CMD5	NAMEOPT:SPELL		TYPE:Gadget	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	SOURCEPAGE:p.89	PRETYPE:1,Weird																		BONUS:VAR|InventionLevel|5																									CHOOSE:EQBUILDER.SPELL|ANY|5|5					CHARGES:1|50
+|6th level Spell Effect (50 Uses/Gadget)	KEY:GDGT_SPL_CMD6	NAMEOPT:SPELL		TYPE:Gadget	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	SOURCEPAGE:p.89	PRETYPE:1,Weird																		BONUS:VAR|InventionLevel|6																									CHOOSE:EQBUILDER.SPELL|ANY|6|6					CHARGES:1|50
+|7th level Spell Effect (50 Uses/Gadget)	KEY:GDGT_SPL_CMD7	NAMEOPT:SPELL		TYPE:Gadget	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	SOURCEPAGE:p.89	PRETYPE:1,Weird																		BONUS:VAR|InventionLevel|7																									CHOOSE:EQBUILDER.SPELL|ANY|7|7					CHARGES:1|50
+|8th level Spell Effect (50 Uses/Gadget)	KEY:GDGT_SPL_CMD8	NAMEOPT:SPELL		TYPE:Gadget	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	SOURCEPAGE:p.89	PRETYPE:1,Weird																		BONUS:VAR|InventionLevel|8																									CHOOSE:EQBUILDER.SPELL|ANY|8|8					CHARGES:1|50
+|9th level Spell Effect (50 Uses/Gadget)	KEY:GDGT_SPL_CMD9	NAMEOPT:SPELL		TYPE:Gadget	VISIBLE:QUALIFY	ITYPE:Enhancement.Magic	SOURCEPAGE:p.89	PRETYPE:1,Weird																		BONUS:VAR|InventionLevel|9																									CHOOSE:EQBUILDER.SPELL|ANY|9|9					CHARGES:1|50
+
+
+# Weird Gadget Flaws
+Ability Loss Flaw					KEY:GDGT_LOSS_AB	NAMEOPT:NOTHING											SOURCEPAGE:p.89	PRETYPE:1,Weird	PREVARGTEQ:InventionLevel,1									BONUS:STAT|%CHOICE	BONUS:VAR|InventionLevel|-1										SPROP:Ability Loss (%Choice)											CHOOSE:STATBONUS|MIN=-6|MAX=-1|TITLE=Ability
+# COMMENT: This line is flawed - Missing Syntax
+#	BONUS:STAT|STATABB|%CHOICE
+#	CHOOSE:STATBONUS|STATABB|MIN=-6|MAX=-1|TITLE=Ability
+
+Feedback Flaw					KEY:GDGT_FDBCK	NAMEOPT:NOTHING											SOURCEPAGE:p.89	PRETYPE:1,Weird	PREVARGTEQ:InventionLevel,1													BONUS:VAR|InventionLevel|-1	BONUS:VAR|FeedbackDamage|(BaseInventionLevel+3)/4+1	SPROP:Feedback (%)|FeedbackDamage																							DEFINE:FeedbackDamage|0
+Power Drain Flaw					KEY:GDGT_PWR_DRN	NAMEOPT:NOTHING											SOURCEPAGE:p.89	PRETYPE:1,Weird	PREVARGTEQ:InventionLevel,1													BONUS:VAR|InventionLevel|-1	BONUS:VAR|PowerDrainTime|BaseInventionLevel		SPROP:Power Drain (% min)|PowerDrainTime																						DEFINE:PowerDrainTime|0
+Sporadic Shut Down Flaw				KEY:GDGT_SPR_SHDN	NAMEOPT:NOTHING											SOURCEPAGE:p.90	PRETYPE:1,Weird	PREVARGTEQ:InventionLevel,1													BONUS:VAR|InventionLevel|-1										SPROP:Sporadic Shut Down %|BaseInventionLevel
+
+# Weird Gadget Feats
+Miniaturize Invention Feat			KEY:GDGT_MINI	NAMEOPT:NOTHING											SOURCEPAGE:p.90	PRETYPE:1,Weird						PREVARLTEQ:InventionLevel,BaseInventionLevel					BONUS:VAR|InventionLevel|1										SPROP:Miniaturized
+Simplified Invention Feat			KEY:GDGT_SMPL	NAMEOPT:NOTHING											SOURCEPAGE:p.90	PRETYPE:1,Weird						PREVARLTEQ:InventionLevel,BaseInventionLevel					BONUS:VAR|InventionLevel|1										SPROP:Simplified
+Improvised Invention Feat			KEY:GDGT_IMPRO	NAMEOPT:NOTHING											SOURCEPAGE:p.90	PRETYPE:1,Weird						PREVARLTEQ:InventionLevel,BaseInventionLevel					BONUS:VAR|InventionLevel|1										SPROP:Improvised
+Extend Invention Feat				KEY:GDGT_EXTND	NAMEOPT:NOTHING											SOURCEPAGE:p.90	PRETYPE:1,Weird						PREVARLTEQ:InventionLevel,BaseInventionLevel					BONUS:VAR|InventionLevel|1										SPROP:Extended Invention

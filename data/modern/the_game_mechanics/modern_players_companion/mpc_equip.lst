@@ -1,0 +1,164 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)	SOURCESHORT:MPC	SOURCEWEB:http://www.thegamemechanics.com/	SOURCEDATE:2003-01
+# Original Entry by: Frank Kliewe
+
+###BLOCK:Bags and Boxes
+# Equipment Name				Type					Contains		Cost		Weight	Source Page		Special Property
+Camera Bag (5 lb. capacity)		TYPE:Goods.Container.General	CONTAINS:5		COST:4	WT:0.5	SOURCEPAGE:p.59	SPROP:Provides DR 3 to everything inside
+Camera Bag (10 lb. capacity)		TYPE:Goods.Container.General	CONTAINS:10		COST:5	WT:1		SOURCEPAGE:p.59	SPROP:Provides DR 3 to everything inside
+Camera Bag (15 lb. capacity)		TYPE:Goods.Container.General	CONTAINS:15		COST:5	WT:1		SOURCEPAGE:p.59	SPROP:Provides DR 3 to everything inside
+Duffle Bag					TYPE:Goods.Container.General	CONTAINS:50		COST:5	WT:1		SOURCEPAGE:p.59
+Fanny Pack (2 lb. capacity)		TYPE:Goods.Container.General	CONTAINS:2		COST:4	WT:0.5	SOURCEPAGE:p.60
+Fanny Pack (5 lb. capacity)		TYPE:Goods.Container.General	CONTAINS:5		COST:5	WT:0.5	SOURCEPAGE:p.60
+Money Belt					TYPE:Goods.Container.General	CONTAINS:0.5	COST:4	WT:0		SOURCEPAGE:p.60	SPROP:Provides a +2 equipment bonus on Sleight of Hand checks to conceal the belt
+Suitcase (Wheeled/25 lb. capacity)	TYPE:Goods.Container.General	CONTAINS:25		COST:7	WT:2		SOURCEPAGE:p.60
+Suitcase (Wheeled/50 lb. capacity)	TYPE:Goods.Container.General	CONTAINS:50		COST:8	WT:3		SOURCEPAGE:p.60
+Suitcase (Wheeled/75 lb. capacity)	TYPE:Goods.Container.General	CONTAINS:75		COST:10	WT:4		SOURCEPAGE:p.60
+
+###BLOCK:Books
+# Equipment Name		Type						Cost		Weight	Source Page		Special Property
+Popular Press		TYPE:Goods.Informational.Books	COST:5	WT:1		SOURCEPAGE:p.60
+Textbook			TYPE:Goods.Informational.Books	COST:8	WT:1		SOURCEPAGE:p.60	SPROP:Reading 1d6x10 pages provides an equipment bonus to a specific type of Knowledge check
+Encyclopedia		TYPE:Goods.Informational.Books	COST:12	WT:50		SOURCEPAGE:p.60	SPROP:Spending 1 hour reading provides a +1 equipment bonus on one Knowledge check or Research check
+Library Collection	TYPE:Goods.Informational.Books	COST:20			SOURCEPAGE:p.61	SPROP:Provides a +5 bonus on Knowledge checks, which must be divided at the time the library collection is bought. (see Modern Player's Companion, p.61 for details)
+
+###BLOCK:Clothing
+# Equipment Name			Type				Cost		Weight	Source Page
+Designer Outfit (Business)	TYPE:Goods.Clothing	COST:15	WT:3		SOURCEPAGE:p.61
+Designer Outfit (Casual)	TYPE:Goods.Clothing	COST:12	WT:2		SOURCEPAGE:p.61
+Designer Outfit (Formal)	TYPE:Goods.Clothing	COST:19	WT:3		SOURCEPAGE:p.61
+
+###BLOCK:Computers and Consumer Electronics
+# Equipment Name			Output Name				Type					Cost		Weight	Source Page		Special Property
+Laser Pointer								TYPE:Goods.Tools.Electronic	COST:5	WT:0		SOURCEPAGE:p.61
+Multi-Function PDA/Cell Phone						TYPE:Goods.Tools.Electronic	COST:17	WT:0.5	SOURCEPAGE:p.61	SPROP:Functions incl. PDA, cell phone, digital camera, digital audio recorder, and pager
+Pager										TYPE:Goods.Tools.Electronic	COST:8	WT:0		SOURCEPAGE:p.61
+Hard Drive (portable)		OUTPUTNAME:[NAME] Hard Drive	TYPE:Goods.Tools.Electronic	COST:12	WT:1		SOURCEPAGE:p.61
+
+###BLOCK:Survival Gear
+# Equipment Name			Type				Cost		Weight	Source Page		Special Property
+Canteen (0.5 qt. capacity)	TYPE:Goods.General	COST:2	WT:0.5	SOURCEPAGE:p.61
+Canteen (1 qt. capacity)	TYPE:Goods.General	COST:3	WT:1		SOURCEPAGE:p.61
+Canteen (2 qt. capacity)	TYPE:Goods.General	COST:3	WT:1		SOURCEPAGE:p.61
+Fishing Rod				TYPE:Goods.General	COST:4	WT:1		SOURCEPAGE:p.61	SPROP:incl. rod, reel and 10 hooks
+Flask					TYPE:Goods.General	COST:5	WT:0.5	SOURCEPAGE:p.61
+Hip Boots				TYPE:Goods.General.Boot	COST:5	WT:5		SOURCEPAGE:p.61
+Rain Poncho				TYPE:Goods.General.Cape	COST:3	WT:1		SOURCEPAGE:p.61
+Tackle Box				TYPE:Goods.General	COST:6	WT:5		SOURCEPAGE:p.61	SPROP:incl. 20 extra hooks, 2 spools of fishing line, pliers, shears, a small net, and an assortment of lures, sinkers, and buoys
+Waders (Hip)			TYPE:Goods.General.Boot	COST:7	WT:8		SOURCEPAGE:p.62
+Waders (Waist)			TYPE:Goods.General.Boot	COST:8	WT:8		SOURCEPAGE:p.62
+
+###BLOCK:Items applied with Eqmods for Equipment Packages
+# Equipment Name									Required Weapon Proficiency			Type												Cost		Weight	Base Item for EQMOD					Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Range		Size		Source Page							Special Property			Rate of Fire
+Pathfinder (.22 revolver with Speedloader)				PROFICIENCY:WEAPON|Pathfinder			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto	COST:14	WT:1		BASEITEM:Pathfinder (.22 revolver)			CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	EQMOD:SPEED_LD	RANGE:20	SIZE:T	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Magazine 6 ,Lic(+1)	RATEOFFIRE:S
+Pathfinder (.22 revolver with Suppressor)					PROFICIENCY:WEAPON|Pathfinder			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto	COST:14	WT:1		BASEITEM:Pathfinder (.22 revolver)			CRITMULT:x2			CRITRANGE:1			DAMAGE:2d4	EQMOD:SPPRSS_PIS	RANGE:20	SIZE:T	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Magazine 6 ,Lic(+1)	RATEOFFIRE:S
+Remington 700 (7.62 hunting rifle with Electro-optical Scope)	PROFICIENCY:WEAPON|Remington 700		TYPE:Weapon.Ranged.Standard.Firearm.Longarm.Ballistic.Personal		COST:17	WT:8		BASEITEM:Remington 700 (7.62 hunting rifle)	CRITMULT:x2			CRITRANGE:1			DAMAGE:2d10	EQMOD:SCP_ELE_OP	RANGE:80	SIZE:L	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Magazine 5 ,Lic(+1)	RATEOFFIRE:Single
+Ruger Service-Six (.385 revolver with Speedloader)			PROFICIENCY:WEAPON|Ruger Service-Six	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal.Semiauto	COST:14	WT:2		BASEITEM:Pathfinder (.22 revolver)			CRITMULT:x2			CRITRANGE:1			DAMAGE:2d6	EQMOD:SPEED_LD	RANGE:30	SIZE:S	SOURCEPAGE:msrdequipmentweaponsandarmor.rtf	SPROP:Magazine 6 ,Lic(+1)	RATEOFFIRE:S
+
+###BLOCK:Ammunition Variants
+# Equipment Name					Type							Cost		Weight	Source Page		Special Property
+Bullet (.22 Glaser/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:8	WT:0		SOURCEPAGE:p.70	SPROP:Damage +2	SPROP:If your target has armor or natural armor, you suffer a -2 penalty on attack rolls
+Bullet (.22 Hollow-point/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:4	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:If your target has armor or natural armor, you suffer a -1 penalty on attack rolls
+Bullet (.32 Glaser/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:9	WT:0		SOURCEPAGE:p.70	SPROP:Damage +2	SPROP:If your target has armor or natural armor, you suffer a -2 penalty on attack rolls
+Bullet (.32 Hollow-point/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:4	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:If your target has armor or natural armor, you suffer a -1 penalty on attack rolls
+Bullet (.38S AP/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.70	SPROP:Damage -1	SPROP:If your target has armor or natural armor, you gain a +1 circumstance bonus on attack rolls	SPROP:Res(+2)
+Bullet (.38S Flechette/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.70	SPROP:You suffer a -2 penalty to damage per range increment rather than the standard -2 penalty to hit.
+Bullet (.38S Glaser/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:9	WT:0		SOURCEPAGE:p.70	SPROP:Damage +2	SPROP:If your target has armor or natural armor, you suffer a -2 penalty on attack rolls
+Bullet (.38S Hollow-point/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:If your target has armor or natural armor, you suffer a -1 penalty on attack rolls
+Bullet (9mm AET/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:10	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:Unreliable	SPROP:Res(+2)
+Bullet (9mm AP/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.70	SPROP:Damage -1	SPROP:If your target has armor or natural armor, you gain a +1 circumstance bonus on attack rolls	SPROP:Res(+2)
+Bullet (9mm Explosive/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:10	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1D4	SPROP:Mil(+3)
+Bullet (9mm Flechette/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.70	SPROP:You suffer a -2 penalty to damage per range increment rather than the standard -2 penalty to hit.
+Bullet (9mm Glaser/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:9	WT:0		SOURCEPAGE:p.70	SPROP:Damage +2	SPROP:If your target has armor or natural armor, you suffer a -2 penalty on attack rolls
+Bullet (9mm Hollow-point/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:If your target has armor or natural armor, you suffer a -1 penalty on attack rolls
+Bullet (9mm Incendiary/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:10	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1d4 fire	SPROP:Mil(+3)
+Bullet (9mm Tracer/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:7	WT:0		SOURCEPAGE:p.70	SPROP:You gain a +1 equipment bonus on attack rolls when using automatic fire or strafe, but only when using at least 10 bullets in the attack
+Bullet (10mm AET/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:10	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:Unreliable	SPROP:Res(+2)
+Bullet (10mm AP/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.70	SPROP:Damage -1	SPROP:If your target has armor or natural armor, you gain a +1 circumstance bonus on attack rolls	SPROP:Res(+2)
+Bullet (10mm Explosive/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:10	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1D4	SPROP:Mil(+3)
+Bullet (10mm Flechette/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.70	SPROP:You suffer a -2 penalty to damage per range increment rather than the standard -2 penalty to hit.
+Bullet (10mm Glaser/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:9	WT:0		SOURCEPAGE:p.70	SPROP:Damage +2	SPROP:If your target has armor or natural armor, you suffer a -2 penalty on attack rolls
+Bullet (10mm Hollow-point/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:If your target has armor or natural armor, you suffer a -1 penalty on attack rolls
+Bullet (10mm Incendiary/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:10	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1d4 fire	SPROP:Mil(+3)
+Bullet (10mm Tracer/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:7	WT:0		SOURCEPAGE:p.70	SPROP:You gain a +1 equipment bonus on attack rolls when using automatic fire or strafe, but only when using at least 10 bullets in the attack
+Bullet (.357 AET/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:10	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:Unreliable	SPROP:Res(+2)
+Bullet (.357 AP/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.70	SPROP:Damage -1	SPROP:If your target has armor or natural armor, you gain a +1 circumstance bonus on attack rolls	SPROP:Res(+2)
+Bullet (.357 Explosive/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:10	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1D4	SPROP:Mil(+3)
+Bullet (.357 Flechette/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.70	SPROP:You suffer a -2 penalty to damage per range increment rather than the standard -2 penalty to hit.
+Bullet (.357 Glaser/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:9	WT:0		SOURCEPAGE:p.70	SPROP:Damage +2	SPROP:If your target has armor or natural armor, you suffer a -2 penalty on attack rolls
+Bullet (.357 Hollow-point/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:If your target has armor or natural armor, you suffer a -1 penalty on attack rolls
+Bullet (.357 Incendiary/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:10	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1d4 fire	SPROP:Mil(+3)
+Bullet (.357 Tracer/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:7	WT:0		SOURCEPAGE:p.70	SPROP:You gain a +1 equipment bonus on attack rolls when using automatic fire or strafe, but only when using at least 10 bullets in the attack
+Bullet (.44 AET/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:10	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:Unreliable	SPROP:Res(+2)
+Bullet (.44 AP/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.70	SPROP:Damage -1	SPROP:If your target has armor or natural armor, you gain a +1 circumstance bonus on attack rolls	SPROP:Res(+2)
+Bullet (.44 Explosive/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:10	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1D4	SPROP:Mil(+3)
+Bullet (.44 Flechette/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.70	SPROP:You suffer a -2 penalty to damage per range increment rather than the standard -2 penalty to hit.
+Bullet (.44 Glaser/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:9	WT:0		SOURCEPAGE:p.70	SPROP:Damage +2	SPROP:If your target has armor or natural armor, you suffer a -2 penalty on attack rolls
+Bullet (.44 Hollow-point/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:If your target has armor or natural armor, you suffer a -1 penalty on attack rolls
+Bullet (.44 Incendiary/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:10	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1d4 fire	SPROP:Mil(+3)
+Bullet (.44 Tracer/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:7	WT:0		SOURCEPAGE:p.70	SPROP:You gain a +1 equipment bonus on attack rolls when using automatic fire or strafe, but only when using at least 10 bullets in the attack
+Bullet (.45 AET/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:10	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:Unreliable	SPROP:Res(+2)
+Bullet (.45 AP/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.70	SPROP:Damage -1	SPROP:If your target has armor or natural armor, you gain a +1 circumstance bonus on attack rolls	SPROP:Res(+2)
+Bullet (.45 Explosive/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:10	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1D4	SPROP:Mil(+3)
+Bullet (.45 Flechette/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.70	SPROP:You suffer a -2 penalty to damage per range increment rather than the standard -2 penalty to hit.
+Bullet (.45 Glaser/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:9	WT:0		SOURCEPAGE:p.70	SPROP:Damage +2	SPROP:If your target has armor or natural armor, you suffer a -2 penalty on attack rolls
+Bullet (.45 Hollow-point/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:If your target has armor or natural armor, you suffer a -1 penalty on attack rolls
+Bullet (.45 Incendiary/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:10	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1d4 fire	SPROP:Mil(+3)
+Bullet (.45 Tracer/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:7	WT:0		SOURCEPAGE:p.70	SPROP:You gain a +1 equipment bonus on attack rolls when using automatic fire or strafe, but only when using at least 10 bullets in the attack
+Bullet (.50AE AET/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:12	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:Unreliable	SPROP:Res(+2)
+Bullet (.50AE AP/50)				TYPE:Ammunition.Standard.Metal.Bullet	COST:7	WT:0		SOURCEPAGE:p.70	SPROP:Damage -1	SPROP:If your target has armor or natural armor, you gain a +1 circumstance bonus on attack rolls	SPROP:Res(+2)
+Bullet (.50AE Explosive/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:12	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1D4	SPROP:Mil(+3)
+Bullet (.50AE Flechette/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:7	WT:0		SOURCEPAGE:p.70	SPROP:You suffer a -2 penalty to damage per range increment rather than the standard -2 penalty to hit.
+Bullet (.50AE Glaser/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:9	WT:0		SOURCEPAGE:p.70	SPROP:Damage +2	SPROP:If your target has armor or natural armor, you suffer a -2 penalty on attack rolls
+Bullet (.50AE Hollow-point/50)		TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:If your target has armor or natural armor, you suffer a -1 penalty on attack rolls
+Bullet (.50AE Incendiary/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:12	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1d4 fire	SPROP:Mil(+3)
+Bullet (.50AE Tracer/50)			TYPE:Ammunition.Standard.Metal.Bullet	COST:7	WT:0		SOURCEPAGE:p.70	SPROP:You gain a +1 equipment bonus on attack rolls when using automatic fire or strafe, but only when using at least 10 bullets in the attack
+Bullet (5.56mm AET/20)				TYPE:Ammunition.Standard.Metal.Bullet	COST:9	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:Unreliable	SPROP:Res(+2)
+Bullet (5.56mm AP/20)				TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.70	SPROP:Damage -1	SPROP:If your target has armor or natural armor, you gain a +1 circumstance bonus on attack rolls	SPROP:Res(+2)
+Bullet (5.56mm Explosive/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:8	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1D6	SPROP:Mil(+3)
+Bullet (5.56mm Flechette/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.70	SPROP:You suffer a -2 penalty to damage per range increment rather than the standard -2 penalty to hit.
+Bullet (5.56mm Glaser/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:8	WT:0		SOURCEPAGE:p.70	SPROP:Damage +2	SPROP:If your target has armor or natural armor, you suffer a -2 penalty on attack rolls
+Bullet (5.56mm Hollow-point/20)		TYPE:Ammunition.Standard.Metal.Bullet	COST:4	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:If your target has armor or natural armor, you suffer a -1 penalty on attack rolls
+Bullet (5.56mm Incendiary/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:8	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1d6 fire	SPROP:Mil(+3)
+Bullet (5.56mm Tracer/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.70	SPROP:You gain a +1 equipment bonus on attack rolls when using automatic fire or strafe, but only when using at least 10 bullets in the attack
+Bullet (7.62mm AET/20)				TYPE:Ammunition.Standard.Metal.Bullet	COST:9	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:Unreliable	SPROP:Res(+2)
+Bullet (7.62mm AP/20)				TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.70	SPROP:Damage -1	SPROP:If your target has armor or natural armor, you gain a +1 circumstance bonus on attack rolls	SPROP:Res(+2)
+Bullet (7.62mm Explosive/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:8	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1D6	SPROP:Mil(+3)
+Bullet (7.62mm Flechette/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.70	SPROP:You suffer a -2 penalty to damage per range increment rather than the standard -2 penalty to hit.
+Bullet (7.62mm Glaser/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:8	WT:0		SOURCEPAGE:p.70	SPROP:Damage +2	SPROP:If your target has armor or natural armor, you suffer a -2 penalty on attack rolls
+Bullet (7.62mm Hollow-point/20)		TYPE:Ammunition.Standard.Metal.Bullet	COST:4	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:If your target has armor or natural armor, you suffer a -1 penalty on attack rolls
+Bullet (7.62mm Incendiary/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:8	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1d6 fire	SPROP:Mil(+3)
+Bullet (7.62mm Tracer/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.70	SPROP:You gain a +1 equipment bonus on attack rolls when using automatic fire or strafe, but only when using at least 10 bullets in the attack
+Bullet (7.62mmR AP/20)				TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.70	SPROP:Damage -1	SPROP:If your target has armor or natural armor, you gain a +1 circumstance bonus on attack rolls	SPROP:Res(+2)
+Bullet (7.62mmR Explosive/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:8	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1D6	SPROP:Mil(+3)
+Bullet (7.62mmR Hollow-point/20)		TYPE:Ammunition.Standard.Metal.Bullet	COST:4	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:If your target has armor or natural armor, you suffer a -1 penalty on attack rolls
+Bullet (7.62mmR Incendiary/20)		TYPE:Ammunition.Standard.Metal.Bullet	COST:8	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1d6 fire	SPROP:Mil(+3)
+Bullet (7.62mmR Tracer/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.70	SPROP:You gain a +1 equipment bonus on attack rolls when using automatic fire or strafe, but only when using at least 10 bullets in the attack
+Bullet (.444 AET/20)				TYPE:Ammunition.Standard.Metal.Bullet	COST:13	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:Unreliable	SPROP:Res(+2)
+Bullet (.444 AP/20)				TYPE:Ammunition.Standard.Metal.Bullet	COST:7	WT:0		SOURCEPAGE:p.70	SPROP:Damage -1	SPROP:If your target has armor or natural armor, you gain a +1 circumstance bonus on attack rolls	SPROP:Res(+2)
+Bullet (.444 Explosive/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:12	WT:0		SOURCEPAGE:p.70	SPROP:Damage +2D4	SPROP:Mil(+3)
+Bullet (.444 Flechette/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:7	WT:0		SOURCEPAGE:p.70	SPROP:You suffer a -2 penalty to damage per range increment rather than the standard -2 penalty to hit.
+Bullet (.444 Glaser/20)				TYPE:Ammunition.Standard.Metal.Bullet	COST:12	WT:0		SOURCEPAGE:p.70	SPROP:Damage +2	SPROP:If your target has armor or natural armor, you suffer a -2 penalty on attack rolls
+Bullet (.444 Hollow-point/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.70	SPROP:Damage +1	SPROP:If your target has armor or natural armor, you suffer a -1 penalty on attack rolls
+Bullet (.444 Incendiary/20)			TYPE:Ammunition.Standard.Metal.Bullet	COST:12	WT:0		SOURCEPAGE:p.70	SPROP:Damage +2d4 fire	SPROP:Mil(+3)
+Bullet (12 ga buckshot/10/MPC variant)	TYPE:Ammunition.Standard.Metal.Bullet	COST:4	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d8	SPROP:You suffer a -2 penalty to damage per range increment, rather than the standard -2 penalty to hit
+Bullet (12 ga birdshot/10/MPC variant)	TYPE:Ammunition.Standard.Metal.Bullet	COST:3	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d3	SPROP:You suffer a -2 penalty to damage per range increment, rather than the standard -2 penalty to hit
+Bullet (12 ga CS/10)				TYPE:Ammunition.Standard.Metal.Bullet	COST:12	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d4 nonlethal	SPROP:If fired at a 5-ft. square, it fills the square with CS gas. On the following round it fills all adjacent sqares. The cloud disperses after 10 rounds.	SPROP:Res(+2)
+Bullet (12 ga CS penetrating/10)		TYPE:Ammunition.Standard.Metal.Bullet	COST:14	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d6	SPROP:If your target has armor or natural armor, you gain a +1 circumstance bonus on attack rolls	SPROP:If fired at a door or wall, and dealing more damage than the intervening barrier's hardness, it penetrates the barrier and fills a 5-ft square on the other side with CS gas. On the following round it fills all adjacent sqares. The cloud disperses after 10 rounds.	SPROP:Res(+2)
+Bullet (12 ga Dragon/10)			TYPE:Ammunition.Standard.Metal.Bullet	COST:12	WT:0		SOURCEPAGE:p.71	SPROP:Shoots a 5-ft wide, 20-ft long line of flamethat deals 2d6 points of fire damage (Reflex DC 15 for half) to all creatures in its path (No attack roll required)	SPROP:Doesn't work in automatic or semiautomtic mode	SPROP:Shotgun becomes unreliable until it receives special maintenance	SPROP:Mil(+3)
+Bullet (12 ga Riot/10)				TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d8 nonlethal
+Bullet (12 ga Slug/10)				TYPE:Ammunition.Standard.Metal.Bullet	COST:4	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d8	SPROP:If your target has armor or natural armor, you suffer a -1 penalty to attack rolls	SPROP:You also suffer a -2 penalty to damage per range increment as well as the standard -2 penalty to hit
+Bullet (12 ga explosive Slug/10)		TYPE:Ammunition.Standard.Metal.Bullet	COST:8	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d8+2d4	SPROP:If your target has armor or natural armor, you suffer a -1 penalty to attack rolls	SPROP:You also suffer a -2 penalty to damage per range increment as well as the standard -2 penalty to hit	SPROP:Mil(+3)
+Bullet (12 ga incendiary Slug/10)		TYPE:Ammunition.Standard.Metal.Bullet	COST:8	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d8+2d4	SPROP:If your target has armor or natural armor, you suffer a -1 penalty to attack rolls	SPROP:You also suffer a -2 penalty to damage per range increment as well as the standard -2 penalty to hit	SPROP:Mil(+3)
+Bullet (12 ga penetrating Slug/10)		TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d8	SPROP:If your target has armor or natural armor, you gain a +1 bonus to attack rolls	SPROP:You suffer a -2 penalty to damage per range increment as well as the standard -2 penalty to hit	SPROP:Res(+2)
+Bullet (10 ga buckshot/10/MPC variant)	TYPE:Ammunition.Standard.Metal.Bullet	COST:4	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d10	SPROP:You suffer a -2 penalty to damage per range increment, rather than the standard -2 penalty to hit
+Bullet (10 ga birdshot/10/MPC variant)	TYPE:Ammunition.Standard.Metal.Bullet	COST:3	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d4	SPROP:You suffer a -2 penalty to damage per range increment, rather than the standard -2 penalty to hit
+Bullet (10 ga Riot/10)				TYPE:Ammunition.Standard.Metal.Bullet	COST:5	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d10 nonlethal
+Bullet (10 ga Slug/10)				TYPE:Ammunition.Standard.Metal.Bullet	COST:4	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d10	SPROP:If your target has armor or natural armor, you suffer a -1 penalty to attack rolls	SPROP:You also suffer a -2 penalty to damage per range increment as well as the standard -2 penalty to hit
+Bullet (10 ga explosive Slug/10)		TYPE:Ammunition.Standard.Metal.Bullet	COST:8	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d10+2d4	SPROP:If your target has armor or natural armor, you suffer a -1 penalty to attack rolls	SPROP:You also suffer a -2 penalty to damage per range increment as well as the standard -2 penalty to hit	SPROP:Mil(+3)
+Bullet (10 ga incendiary Slug/10)		TYPE:Ammunition.Standard.Metal.Bullet	COST:8	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d10+2d4	SPROP:If your target has armor or natural armor, you suffer a -1 penalty to attack rolls	SPROP:You also suffer a -2 penalty to damage per range increment as well as the standard -2 penalty to hit	SPROP:Mil(+3)
+Bullet (10 ga penetrating Slug/10)		TYPE:Ammunition.Standard.Metal.Bullet	COST:6	WT:0		SOURCEPAGE:p.71	SPROP:Damage 2d10	SPROP:If your target has armor or natural armor, you gain a +1 bonus to attack rolls	SPROP:You suffer a -2 penalty to damage per range increment as well as the standard -2 penalty to hit	SPROP:Res(+2)
+
+#
+# End
+#

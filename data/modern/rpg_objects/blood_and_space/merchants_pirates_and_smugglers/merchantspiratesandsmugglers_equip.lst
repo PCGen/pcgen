@@ -1,0 +1,26 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Blood and Space - Merchants, Pirates and Smugglers	SOURCESHORT:BnS-MPS	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=57	SOURCEDATE:2052-01
+# Original Entry by: Paul W. King
+
+# Equipment Name					Type			Cost		Source Page
+Butcher weight hog (live)			TYPE:CommonItems	COST:12	SOURCEPAGE:p.15
+Butchered meat ~ select cuts (1 ton)	TYPE:CommonItems	COST:24	SOURCEPAGE:p.15
+Calf							TYPE:CommonItems	COST:10	SOURCEPAGE:p.15
+Colt							TYPE:CommonItems	COST:12	SOURCEPAGE:p.15
+Draft horse						TYPE:CommonItems	COST:18	SOURCEPAGE:p.15
+Fiber optic cable (1 kilometer)		TYPE:CommonItems	COST:28	SOURCEPAGE:p.15
+Fiber optic cable (1 meter)			TYPE:CommonItems	COST:4	SOURCEPAGE:p.15
+Hay (1 ton)						TYPE:CommonItems			SOURCEPAGE:p.15
+Head of beef cattle				TYPE:CommonItems	COST:16	SOURCEPAGE:p.15
+Head of dairy cattle				TYPE:CommonItems	COST:17	SOURCEPAGE:p.15
+Mature poultry					TYPE:CommonItems	COST:3	SOURCEPAGE:p.15
+Poultry chicks (12)				TYPE:CommonItems	COST:3	SOURCEPAGE:p.15
+Trained riding horse				TYPE:CommonItems	COST:18	SOURCEPAGE:p.15
+Vegetables (1 ton)				TYPE:CommonItems	COST:20	SOURCEPAGE:p.15
+Vegetables (2 lbs)				TYPE:CommonItems	COST:2	SOURCEPAGE:p.15
+
+###Block: General Items
+# Equipment Name		Type			Cost		Weight	Size		Source Page		Special Property
+Magnetic Boots		TYPE:General.PL6	COST:10	WT:10		SIZE:S	SOURCEPAGE:p.17	SPROP:Lic (+1)
+Magnetic Grapple		TYPE:General.PL5	COST:15	WT:15		SIZE:L	SOURCEPAGE:p.17	SPROP:Lic (+1)
+Maneuvering Thrusters	TYPE:General.PL5	COST:15	WT:20		SIZE:M	SOURCEPAGE:p.17	SPROP:Lic (+1)

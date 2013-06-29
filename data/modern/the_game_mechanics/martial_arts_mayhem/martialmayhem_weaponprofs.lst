@@ -1,0 +1,131 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Martial Arts Mayhem	SOURCESHORT:Mayhem	SOURCEWEB:http://www.thegamemechanics.com	SOURCEDATE:2003-01
+#Original Entry by: Frank Kliewe
+
+# Weapon Name		Type				Nb Hands
+Aikuchi			TYPE:Simple
+Arbir				TYPE:Archaic		HANDS:2
+Arit				TYPE:Simple
+Ashiko			TYPE:Exotic
+Chinese Axe			TYPE:Archaic
+Ba				TYPE:Archaic
+Ba tou			TYPE:Archaic
+Bagh nakh			TYPE:Exotic
+Bian				TYPE:Exotic
+Bian tzu chiang		TYPE:Exotic
+Bisento			TYPE:Archaic
+Sword (Bokken)		TYPE:Simple.Exotic	HANDS:2
+Bundi				TYPE:Simple
+Butterfly Sword		TYPE:Archaic
+Cha				TYPE:Exotic
+Chai-Dao			TYPE:Archaic
+Chain Sword			TYPE:Exotic
+Chain Whip			TYPE:Exotic
+Chakram			TYPE:Exotic
+Chang				TYPE:Archaic
+Chemeti			TYPE:Simple
+Chiang Mao Chiang		TYPE:Archaic
+Chun Jung Whule-Do	TYPE:Archaic
+Chuu				TYPE:Simple
+Comet Star Hammer		TYPE:Exotic
+Copper Hammer		TYPE:Simple
+Da Dao			TYPE:Archaic
+Dai Dao			TYPE:Archaic
+Dan Bong			TYPE:Simple
+Dan Sang Gum		TYPE:Archaic
+Darn do			TYPE:Archaic
+Eiku				TYPE:Simple
+Elephant Trunk Sword	TYPE:Exotic
+Fire Wing Sword		TYPE:Exotic
+Flying Claw			TYPE:Exotic
+Gada				TYPE:Simple
+Gen				TYPE:Exotic
+Ghi				TYPE:Archaic
+Giau Tzu Jen		TYPE:Archaic
+Gladius			TYPE:Archaic
+Weighted Glove		TYPE:Simple
+Golok				TYPE:Archaic
+Grou Jen			TYPE:Archaic
+Hamidash			TYPE:Simple
+Hanbo				TYPE:Simple
+Hankyu			TYPE:Archaic		HANDS:2
+Hook Sword			TYPE:Exotic
+Jien				TYPE:Archaic
+Jitte				TYPE:Exotic
+Joong Bong			TYPE:Simple
+Kabit				TYPE:Exotic
+Kapak				TYPE:Archaic
+Katar				TYPE:Simple
+Kelewang			TYPE:Archaic
+Kettukari			TYPE:Simple
+Kiem				TYPE:Archaic
+Kiseru			TYPE:Simple
+Kris				TYPE:Archaic
+Kris Knife			TYPE:Archaic
+Kris Sword			TYPE:Archaic
+Kue				TYPE:Archaic
+Kuntham			TYPE:Archaic
+Kusari			TYPE:Exotic
+Kusarigama			TYPE:Exotic
+Kwan Dao			TYPE:Archaic
+Kwanto			TYPE:Archaic
+Lajatang			TYPE:Exotic
+Lathi				TYPE:Simple
+Lian				TYPE:Exotic
+Lien Tzu Jen		TYPE:Exotic
+Lun				TYPE:Exotic
+Ma Dao			TYPE:Archaic
+Main-Gauche			TYPE:Archaic
+Manriki-Gusari		TYPE:Exotic
+Mourn Staff			TYPE:Archaic
+Muchan			TYPE:Simple
+Ngow				TYPE:Archaic
+Nine-Ring Sword		TYPE:Archaic
+No-Dachi			TYPE:Archaic
+Nunte				TYPE:Exotic
+Otta				TYPE:Simple
+Panu				TYPE:Exotic
+Parang			TYPE:Archaic
+Pedang			TYPE:Archaic
+Pendjepit			TYPE:Exotic
+Pentjong			TYPE:Simple
+Petjat			TYPE:Simple
+Pisau				TYPE:Simple
+Rante				TYPE:Simple
+Sai				TYPE:Exotic
+San Men Barn		TYPE:Archaic
+Sang Kauw			TYPE:Exotic
+Sarong			TYPE:Exotic
+Shaou Dau			TYPE:Simple
+Sher Ter Jien		TYPE:Archaic
+Shou Li Jen			TYPE:Simple
+Sjang Sutai			TYPE:Simple
+Sodegarami			TYPE:Archaic
+Song Dao			TYPE:Archaic
+Suruchin			TYPE:Exotic
+Tabiumi			TYPE:Archaic
+Tai Dao			TYPE:Archaic
+Tanto				TYPE:Simple
+Tekken			TYPE:Simple
+Tekko				TYPE:Simple
+Thuan				TYPE:Archaic
+Tieh Zuu			TYPE:Simple
+Tien Bong			TYPE:Simple
+Timbe				TYPE:Simple
+Titjio			TYPE:Exotic
+Tjabang			TYPE:Exotic
+Tjaluk			TYPE:Exotic
+Tjelurit			TYPE:Simple
+Tjio				TYPE:Archaic
+To				TYPE:Archaic
+Tomahawk			TYPE:Archaic
+Tombak			TYPE:Archaic
+Tongkat			TYPE:Simple
+Ton Zen			TYPE:Simple
+Trench Knife		TYPE:Simple
+Urumi				TYPE:Exotic
+Willow Leaf Knife		TYPE:Archaic
+Wind and Fire Wheels	TYPE:Exotic
+Wolf's Teeth Staff	TYPE:Archaic
+Yawara			TYPE:Simple
+Yue				TYPE:Exotic
