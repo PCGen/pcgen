@@ -68,10 +68,10 @@ EQUIPMOD:cityscapeequipmods.lst
 BIOSET:cityscapebiosettings.lst
 
 # Imports
-SKILL:@/3e/fantasy_flight_games/dragonstar/starfarershandbook/starfarershb_skills.lst|(INCLUDE:Cryptography|Navigate)
+SKILL:@/3e/fantasy_flight_games/dragonstar/starfarers_handbook/starfarershb_skills.lst|(INCLUDE:Cryptography|Navigate)
 SKILL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_skills.lst|(INCLUDE:Sleight of Hand|Survival)
-SPELL:@/3e/fantasy_flight_games/dragonstar/starfarershandbook/starfarershb_spells.lst
-FEAT:@/3e/fantasy_flight_games/dragonstar/starfarershandbook/starfarershb_feats.lst|(INCLUDE:CATEGORY=FEAT,Born Spacer,Hacker,High-G Tolerance,Gunner's Eye,Low-G Tolerance,Remote Operation,Space Jockey,Zero-G Tolerance)
+SPELL:@/3e/fantasy_flight_games/dragonstar/starfarers_handbook/starfarershb_spells.lst
+FEAT:@/3e/fantasy_flight_games/dragonstar/starfarers_handbook/starfarershb_feats.lst|(INCLUDE:CATEGORY=FEAT,Born Spacer,Hacker,High-G Tolerance,Gunner's Eye,Low-G Tolerance,Remote Operation,Space Jockey,Zero-G Tolerance)
 FEAT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_feats.lst|(INCLUDE:CATEGORY=FEAT,Acrobatic,Animal Affinity,Athletic,Combat Expertise)
 FEAT:@/modern/wizards_of_the_coast/msrd/basics/modern_basics/modernbasics_feats.lst|(INCLUDE:CATEGORY=FEAT,Advanced Two-Weapon Fighting,Attentive,Builder,Confident,Creative,Dead Aim,Exotic Melee Weapon Proficiency,Focused,Frightful Presence,Meticulous,Nimble,Quick Reload,Renown,Skip Shot,Stealthy,Studious,Unbalance Opponent)
 TEMPLATE:@/35e/wizards_of_the_coast/srd35/basics/rsrd_templates_hidden.lst|(INCLUDE:Combat Expertise trade off)
