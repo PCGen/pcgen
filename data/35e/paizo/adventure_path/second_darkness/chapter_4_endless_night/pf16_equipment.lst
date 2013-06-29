@@ -1,0 +1,19 @@
+# CVS $Revision$ $Author$ -- Thu Nov 20 23:30:47 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Second Darkness - Chapter 4: Endless Night	SOURCESHORT:PF16	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy81tq	SOURCEDATE:2008-11
+
+# Equipment Name	Type					Cost		Weight	Source Page		Innate Spells																		Special Property										Automatically Gained Weapon Prof.
+Bloodlink		TYPE:Magic.Wondrous.Amulet	COST:4800	WT:0		SOURCEPAGE:p. 11	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=TL|Dancing Lights,10+CHA|Darkness,12+CHA|Faerie Fire,11+CHA|PRESTAT:1,INT=10	SPROP:Wearer is granted the ability to speak and understand Undercommon	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sword (Short)
+
+###Block: Fleshcrafting Poisons
+# Equipment Name					Output Name						Type					Cost		Weight	Source Page
+Fleshcrafting Poison (Antennae)		OUTPUTNAME:[NAME] Fleshcrafting Poison	TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p. 63
+Fleshcrafting Poison (Blinding Spittle)	OUTPUTNAME:[NAME] Fleshcrafting Poison	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p. 63
+Fleshcrafting Poison (Burrowing Claws)	OUTPUTNAME:[NAME] Fleshcrafting Poison	TYPE:Magic.Potion.Consumable	COST:1000	WT:0		SOURCEPAGE:p. 63
+Fleshcrafting Poison (Chitinous Skin)	OUTPUTNAME:[NAME] Fleshcrafting Poison	TYPE:Magic.Potion.Consumable	COST:1200	WT:0		SOURCEPAGE:p. 63
+Fleshcrafting Poison (Poison Fangs)		OUTPUTNAME:[NAME] Fleshcrafting Poison	TYPE:Magic.Potion.Consumable	COST:2250	WT:0		SOURCEPAGE:p. 63
+Fleshcrafting Poison (Retractable Spines)	OUTPUTNAME:[NAME] Fleshcrafting Poison	TYPE:Magic.Potion.Consumable	COST:600	WT:0		SOURCEPAGE:p. 63
+Fleshcrafting Poison (Stinging Tail)	OUTPUTNAME:[NAME] Fleshcrafting Poison	TYPE:Magic.Potion.Consumable	COST:3500	WT:0		SOURCEPAGE:p. 63
+
+#
+# End
+#

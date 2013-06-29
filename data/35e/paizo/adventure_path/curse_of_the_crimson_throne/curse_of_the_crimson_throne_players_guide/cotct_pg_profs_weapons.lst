@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Sun Jun 29 02:32:35 2008 -- reformated by prettylst.pl v1.38 (build 6792)
+SOURCELONG:Curse of the Crimson Throne Player's Guide	SOURCESHORT:CCTPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/v5748btpy806v	SOURCEDATE:2008-02
+
+# Weapon Name	Type
+Starknife		TYPE:Martial.Melee.Piercing.Sword
+Klar (as weapon)	TYPE:Martial.Melee.Slashing
+Earth Breaker	TYPE:Martial.Melee.Bludgeoning.MeleeTwoHanded
+Sawtooth Sabre	TYPE:Exotic.Melee.Slashing.Sword
+Scarf (Bladed)	TYPE:Exotic.Melee.Slashing.MeleeTwoHanded
+Shoanti Bola	TYPE:Exotic.Ranged.Bludgeoning.Piercing.Thrown
+
+#
+# End
+#

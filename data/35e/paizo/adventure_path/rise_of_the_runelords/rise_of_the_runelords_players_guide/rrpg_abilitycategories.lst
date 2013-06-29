@@ -1,0 +1,16 @@
+# CVS $Revision: 5882 $ $Author: tir-gwaith $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+#SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RotRPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9	SOURCEDATE:2007-08
+# Original Entry by: Stefan Radermacher
+
+
+###Block: Background Ability Categories
+# Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Shoanti Clan	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background	TYPE:ShoantiClan	PLURAL:Shoanti Clans		DISPLAYLOCATION:Background
+
+###Block: Bonus Feats and subgroups
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Varisian Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:Varisia	PLURAL:Varisian Bonus Feats	DISPLAYLOCATION:Feats
+
+#
+# End
+#

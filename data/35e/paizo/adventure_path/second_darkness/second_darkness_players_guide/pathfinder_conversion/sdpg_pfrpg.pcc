@@ -1,0 +1,60 @@
+# CVS $Revision: 14158 $ $Author: neofax $ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+CAMPAIGN:Paizo - Second Darkness Player's Guide
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Second Darkness
+RANK:3
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Campaign Setting
+PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide]
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Second Darkness Player's Guide
+SOURCESHORT:SDPG
+SOURCEWEB:http://paizo.com/pathfinder/companion/35E/v5748btpy84en
+SOURCEDATE:2008-08
+ISOGL:YES
+
+COVER:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/second_darkness_players_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/companion/35E/v5748btpy84en|Buy this publication from Paizo Publishing!
+DESC:The city of Riddleport is no place for the naive. Founded by pirates and ruled by criminals, Varisia's most lawless city chews up the weak and foolhardy. In other words, it's a perfect home for adventurers! Take the first step into Riddleport, the starting city for Pathfinder's Second Darkness Adventure Path. The information contained herein gives players the edge they need to face this deadly quest, with new rules, details on making campaign-specific characters, and background information no adventurer should be without. Even if you aren't playing the Second Darkness Adventure Path, this booklet is filled with all-new spells, magic items, and character options perfect for any game.
+
+INFOTEXT:This dataset implements rules from a book that was originally designed for the 3.5 ruleset. For this dataset, these rules have been updated to the rules of the Pathfinder Roleplaying Game by the PCGen data team.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Companion: Second Darkness Player's Guide, Copyright 2008, Paizo Publishing, LLC; Authors James Jacobs, F. Wesley Schneider, Amber Scott, Greg A. Vaughan.
+COPYRIGHT:Pathfinder RPG Conversion Copyright 2009-2010, PCGen Data Team (including, but not limited to, Eddy Anthony).
+COPYRIGHT:PCGen dataset conversion for "Second Darkness Player's Guide" Copyright 2008-2010, PCGen Data Team (including, but not limited to Stefan Radermacher, Eddy Anthony).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Imported 35e data files
+#ABILITY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_abilities.lst
+# Has Spot vs. Perception, moved all to the conversion ability file.
+ABILITYCATEGORY:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_ability_categories.lst
+#CLASS:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_classes.lst
+EQUIPMENT:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_equipment.lst
+LANGUAGE:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_languages.lst
+SPELL:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_spells.lst
+TEMPLATE:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/sdpg_templates.lst
+
+# Customized Pathfinder RPG data files
+ABILITY:sdpg_abilities_pfrpg.lst
+CLASS:sdpg_classes_pfrpg.lst
+FEAT:sdpg_feats_pfrpg.lst
+EQUIPMENT:sdpg_equipment_pfrpg.lst
+
+# Prevent unconstructed reference errors
+#FORWARDREF:SKILL|Gather Information,Hide,Open Lock,Search,Use Rope
+FORWARDREF:EQMOD|HOLY_M
+
+#
+# End
+#

@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Sat Jun 21 11:28:01 2008 -- reformated by prettylst.pl v1.38 (build 6763)
+SOURCELONG:Rise of the Runelords - Chapter 2: The Skinsaw Murders	SOURCESHORT:PF2	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
+# Original Entry by: Stefan Radermacher
+
+# Equipment Name	Type					Cost		Weight	Source Page		Innate Spells							Combat bonus			Bonus to skill				Stat bonus
+Medusa Mask		TYPE:Magic.Wondrous.Headgear	COST:10000	WT:0		SOURCEPAGE:p.54
+Reaper's Mask	TYPE:Magic.Wondrous.Headgear	COST:12000	WT:0		SOURCEPAGE:p.47	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=7|Confusion,16						BONUS:SKILL|Hide|5|TYPE=Competence
+Snakeskin Tunic	TYPE:Magic.Wondrous.Clothing	COST:8000	WT:0		SOURCEPAGE:p.54										BONUS:COMBAT|AC|1|TYPE=Armor							BONUS:STAT|DEX|2|TYPE=Enhancement
+Skinsaw Mask	TYPE:Magic.Wondrous.Headgear	COST:1500	WT:0		SOURCEPAGE:p.45
+Stalker's Mask	TYPE:Magic.Wondrous.Headgear	COST:3500	WT:0		SOURCEPAGE:p.40															BONUS:SKILL|Hide|5|TYPE=Competence

@@ -1,0 +1,5 @@
+# CVS $Revision: $ $Author: $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Rise of the Runelords - Chapter 5: Sins of the Saviors	SOURCESHORT:PF5	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
+
+# Template Name	Unique Key					Visible	Ability
+Mark of Wrath	KEY:RotR ~ Mark of Wrath Template	VISIBLE:YES	ABILITY:Special Ability|AUTOMATIC|RotR ~ Mark of Wrath

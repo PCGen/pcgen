@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Mon Jul 19 14:33:38 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RotRPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9	SOURCEDATE:2007-08
+# Original Entry by: Stefan Radermacher
+
+###Block: Campaign PC Template
+# Template Name				Visible		Bonus to Ability Pool
+Rise of the Runelords Bonus Feat	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Varisian Bonus Feat|1|PREABILITY:1,CATEGORY=Background,Varisia
+
+#
+# End
+#

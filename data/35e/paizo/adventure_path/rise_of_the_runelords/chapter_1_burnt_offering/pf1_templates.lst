@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+SOURCELONG:Rise of the Runelords - Chapter 1: Burnt Offerings	SOURCESHORT:PF1	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy7zkr	SOURCEDATE:2007-08
+
+# Template Name					Size		Source Page		Special ABility																														Combat bonus								Stat bonus		Subrace		Natural Attacks
+Lamashtu's Gift							SOURCEPAGE:p.52																																																	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d6
+Waters of Lamashtu (Koruvus's Mutation)	SIZE:M	SOURCEPAGE:p.28	SAB:Breath Weapon (Su) ~ 20ft. line of acid for 2d4 damage (DC % for half) once/1d4 rounds|10+CON	SAB:Immune to acid, mind-affecting effects, paralysis, poison	SAB:Fast Healing 1	BONUS:COMBAT|AC|4|TYPE=NaturalArmor	BONUS:COMBAT|TOHIT|-4	BONUS:STAT|STR|4	SUBRACE:Mutated

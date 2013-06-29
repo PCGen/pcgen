@@ -1,0 +1,56 @@
+# CVS $Revision$ $Author$ -- Thu Oct 30 17:46:04 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Rise of the Runelords - Chapter 4: Fortress of the Stone Giants	SOURCESHORT:PF4	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy80hm	SOURCEDATE:2007-09
+#Original Entry: Eric C Smith
+
+###
+###Block: Racial Abilities
+###
+
+###Block: Deathweb Racial Abilities
+# Ability Name	Output Name		Category of Ability		Type							Visible	Special ABility										Define							Modify VAR
+Poison Swarm				CATEGORY:Special Ability	TYPE:SpecialAbility.Aura.Extraordinary	VISIBLE:NO	SAB:Poison Swarm (Ex) ~ DC % Fortitude|PoisonSwarmDC				DEFINE:PoisonSwarmDC|0					BONUS:VAR|PoisonSwarmDC|10+(HD/2)+CHA
+Deathweb Web	OUTPUTNAME:Web	CATEGORY:Special Ability	TYPE:SpecialAbility.Aura.Extraordinary	VISIBLE:NO	SAB:Web (Ex) ~ DC % to escape and DC % to burst|EscapeWebDC|BurstWebDC	DEFINE:EscapeWebDC|0	DEFINE:BurstWebDC|0	BONUS:VAR|EscapeWebDC|10+(HD/2)	BONUS:VAR|BurstWebDC|18+(HD/2)
+
+###Block: Redcap Racial Abilities
+# Ability Name	Category of Ability		Type						Visible	Special ABility		Ability							Combat bonus			Modify VAR			Wield Category bonus
+Boot Stomp		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Boot Stomp (Ex)
+Heavy Weapons	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Heavy Weapons (Ex)																		BONUS:WIELDCATEGORY|ALL|-1
+Irreligeous		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Irreligeous (Ex)
+Red Cap		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Red Cap (Su)		ABILITY:Special Ability|AUTOMATIC|Fast Healing	BONUS:COMBAT|DAMAGE.Melee|4	BONUS:VAR|FastHealing|3
+
+###Block: Hound of Tindalos Racial Abilities
+# Ability Name	Category of Ability		Type						Visible	Special ABility													Define									Innate Spells																		Modify VAR
+Angled Entry	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Angles Entry (Su)																						SPELLS:Hound of Tindalos|TIMES=3|CASTERLEVEL=10|Plane Shift	SPELLS:Innate|TIMES=1|CASTERLEVEL=10|Teleport (Greater)
+Otherworldly Mind	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:NO	SAB:Otherworldly Mind (Ex) ~ DC % Will|OtherWorldlyMindDC						DEFINE:OtherWorldlyMindDC|0																										BONUS:VAR|OtherWorldlyMindDC|10+(HD/2)+WIS
+Ripping Gaze	CATEGORY:Special Ability	TYPE:Special.Aura.Supernatural	VISIBLE:NO	SAB:Ripping Gaze (Su) ~ %d6 damage DC % Fortitude|RippingGazeDamageDice|RippingGazeDC	DEFINE:RippingGazeDamageDice|0	DEFINE:RippingGazeDC|0																					BONUS:VAR|RippingGazeDamageDice|(HD/2)	BONUS:VAR|RippingGazeDC|8+(HD/2)+CHA
+
+###Block: Taiga Giant Racial Abilities
+# Ability Name	Category of Ability		Type						Visible	Special ABility			Combat bonus
+Spirit Summoning	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:NO	SAB:Spirit Summoning (Su)	BONUS:COMBAT|AC|2|TYPE=Deflection.REPLACE
+Run and Throw	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Run and Throw (Ex)
+
+###Block: Scanderig Racial Abilities
+# Ability Name	Category of Ability		Type						Visible	Special ABility									Define				Modify VAR
+Adamantine Bite	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinairy	VISIBLE:NO	SAB:Adamantine Bite (Ex)
+Rend Equipment	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinairy	VISIBLE:NO	SAB:Rend Equipment (Ex) DC % Strength|RendEquipmentDC			DEFINE:RendEquipmentDC|0	BONUS:VAR|RendEquipmentDC|10+(HD/2)+STR
+Searing Spew	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Searing Spew (Su) ~ DC % Reflex for half damage|SearingSpewDC	DEFINE:SearingSpewDC|0		BONUS:VAR|SearingSpewDC|10+(HD/2)+CON
+See in Darkness	CATEGORY:Special Ability	TYPE:Special.Supernatural		VISIBLE:NO	SAB:See in Darkness (Su)
+
+###Block: Shining Child of Thassilon Racial Abilities
+# Ability Name		Category of Ability		Type									Visible	Special ABility										Define					Combat bonus				Modify VAR
+Aura of Blinding Light	CATEGORY:Special Ability	TYPE:SpecialAttack.Aura.Extraordinairy.AttackOption	VISIBLE:NO	SAB:Aura of Blinding Light (Ex) ~ DC % Fortitude|AuraofBlindingLightDC	DEFINE:AuraofBlindingLightDC|0							BONUS:VAR|AuraofBlindingLightDC|10+(HD/2)+CON
+Burning Touch		CATEGORY:Special Ability	TYPE:Special.Supernatural					VISIBLE:NO	SAB:Burning Touch (Su)
+Radiant Armor		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:NO	SAB:Radiant Armor (Su)															BONUS:COMBAT|AC|CHA|TYPE=Deflection
+Searing Ray			CATEGORY:Special Ability	TYPE:Special.Supernatural					VISIBLE:NO	SAB:Searing Ray (Su)
+
+###
+###Block: Miscelaneous Abilities
+###
+
+###Block: Runeslave Template Abilities
+# Ability Name	Category of Ability		Type					Visible	Special ABility
+Arcane Decay	CATEGORY:Special Ability	TYPE:Runeslave.Supernatural	VISIBLE:NO	SAB:Arcane Decay (Su)
+Arcane Surge	CATEGORY:Special Ability	TYPE:Runeslave.Supernatural	VISIBLE:NO	SAB:Arcane Surge (Su)
+Vulnerable Mind	CATEGORY:Special Ability	TYPE:Runeslave.Extraordinairy	VISIBLE:NO	SAB:Vulnerable Mind (Ex)
+Immune to Fear	CATEGORY:Special Ability	TYPE:Runeslave.Extraordinairy	VISIBLE:NO	SAB:Immune to Fear (Ex)
+Immune to Pain	CATEGORY:Special Ability	TYPE:Runeslave.Extraordinairy	VISIBLE:NO	SAB:Immune to Pain (Ex)

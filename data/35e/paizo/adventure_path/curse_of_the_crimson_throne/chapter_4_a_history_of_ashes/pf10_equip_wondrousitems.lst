@@ -1,0 +1,30 @@
+# CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Curse of the Crimson Throne - Chapter 4: A History of Ashes	SOURCESHORT:PF10	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy82u9	SOURCEDATE:2008-7
+# Original Entry by: Paul Grosse
+
+# Wearables
+# Equipment Name			Type					Cost		Weight	Source Page
+Mask of the Mantis		TYPE:Magic.Wondrous.Headgear	COST:6000	WT:1		SOURCEPAGE:p.18
+
+# Consumables
+# Equipment Name			Type					Cost		Weight	Source Page
+Elixir of Shadewalking		TYPE:Magic.Potion.Consumable	COST:3500	WT:1		SOURCEPAGE:p.19
+Shoanti War Paint (Black)	TYPE:Magic.Potion.Consumable	COST:1800	WT:0		SOURCEPAGE:p.14
+Shoanti War Paint (Blue)	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
+Shoanti War Paint (Green)	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
+Shoanti War Paint (Orange)	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
+Shoanti War Paint (Red)		TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
+Shoanti War Paint (Silver)	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
+Shoanti War Paint (White)	TYPE:Magic.Potion.Consumable	COST:1800	WT:0		SOURCEPAGE:p.14
+Shoanti War Paint (Yellow)	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
+
+
+# MINOR ARTIFACTS
+# Equipment Name			Type					Cost		Weight	Source Page
+Bone House				TYPE:Artifact			COST:0	WT:2		SOURCEPAGE:p.21
+
+
+
+#
+# EOF
+#
