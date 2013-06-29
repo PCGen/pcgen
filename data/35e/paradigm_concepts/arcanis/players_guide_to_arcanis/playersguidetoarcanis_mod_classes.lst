@@ -242,7 +242,7 @@ CLASS:Paladin.MOD	ALLOWBASECLASS:NO		LANGAUTO:Ancient Altharin(Imperial)	LANGBON
 # Class Name	Required AL		Required Deity
 CLASS:Paladin.MOD	PREALIGN:LG,NG,CG	PREDEITY:1,Y
 # Class Name	Class Skill
-CLASS:Paladin.MOD	CSKILL:TYPE.Nobility|TYPE.Religion|Examine Martial Technique
+CLASS:Paladin.MOD	CSKILL:TYPE=Nobility|TYPE=Religion|Examine Martial Technique
 SUBCLASS:Paladin of Althares		COST:0	PREDEITY:1,Althares
 SUBCLASSLEVEL:1						BONUS:VAR|BardicKnowledgeLevel|CL	BONUS:VAR|BardicKnowledge|BardicKnowledgeLevel	ABILITY:Special Ability|NORMAL|Bardic Knowledge		DEFINE:BardicKnowledgeLevel|0							ADD:LANGUAGE|Ancient Altharin(Imperial)	ADD:ABILITY|Special Ability|NORMAL|Flintlock Choice	VFEAT:Exotic Weapon Proficiency(Altherian Flintlock (Pistol))|Exotic Weapon Proficiency(Altherian Flintlock (Rifle))	AUTO:EQUIP|Blastpowder (10)
 SUBCLASS:Paladin of Belisarda		COST:0	PREDEITY:1,Belisarda
@@ -251,8 +251,8 @@ SUBCLASS:Paladin of Hurrian		COST:0	PREDEITY:1,Hurrian
 SUBCLASSLEVEL:1																																		CSKILL:Survival				ADD:LANGUAGE|Ancient Altharin(Imperial)																																			AUTO:FEAT|Weapon Focus(Longsword)
 SUBCLASS:Paladin of Illiir		COST:0	PREDEITY:1,Illiir
 SUBCLASSLEVEL:1																																																																																	AUTO:FEAT|Weapon Focus(Gladius)
-SUBCLASSLEVEL:4	KNOWNSPELLS:Light																	ABILITY:Special Ability|NORMAL|Perfection Within
-SUBCLASSLEVEL:8	KNOWNSPELLS:Searing Light
+SUBCLASSLEVEL:4	SPELLKNOWN:CLASS|Paladin=1|Light																	ABILITY:Special Ability|NORMAL|Perfection Within
+SUBCLASSLEVEL:8	SPELLKNOWN:CLASS|Paladin=2|Searing Light
 SUBCLASS:Paladin of Nier		COST:0	PREDEITY:1,Nier
 SUBCLASSLEVEL:1																																								ADD:LANGUAGE|Ancient Altharin(Imperial)																																			AUTO:FEAT|Weapon Focus(Greatsword)
 SUBCLASS:Paladin of Sarish		COST:0	PREDEITY:1,Sarish
@@ -278,12 +278,12 @@ CLASS:Ranger.MOD	CSKILL:TYPE.Dungeoneering|TYPE.Nature|TYPE.Geography|TYPE.Relig
 # Class Name	Virtual Feat
 CLASS:Rogue.MOD	VFEAT:Martial Weapon Proficiency(Saber)
 # Class Name	Class Skill
-CLASS:Rogue.MOD	CSKILL:Black Market|TYPE.Local|Research
+CLASS:Rogue.MOD	CSKILL:Black Market|TYPE=Local|Research
 
 # Class Name		Multiple Requirements											Prohibited Race
 CLASS:Sorcerer.MOD	PREMULT:1,[PREMULT:2,[PREGENDER:M],[PRERACE:1,Ss'ressen]],[!PRERACE:1,Ss'ressen]	!PRERACE:2,Half-Hobgoblin,Human
 # Class Name		Class Skill
-CLASS:Sorcerer.MOD	CSKILL:TYPE.Arcana
+CLASS:Sorcerer.MOD	CSKILL:TYPE=Arcana
 1	ADD:FEAT|Eschew Materials	ABILITY:Special Ability|AUTOMATIC|.CLEAR.Summon Familiar	ABILITY:Special Ability|VIRTUAL|Summon Arcanis Familiar
 
 # Class Name	Clear Bonus Languages
