@@ -1,0 +1,442 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
+
+# Spell Name					Classes of caster
+Aid.MOD						CLASSES:Hermit,Priest,White Knight=2
+Air Walk.MOD					CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=4
+Alarm.MOD						CLASSES:Hedge Mage,Red Knight=1
+Alter Self.MOD					CLASSES:Hedge Mage,Red Knight=2
+Analyze Dweomer.MOD				CLASSES:Hedge Mage=6
+Animal Growth.MOD					CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=5
+Animal Messenger.MOD				CLASSES:Blue Knight,Minstrel=2
+Animal Shapes.MOD					CLASSES:Minstrel=8
+Animal Trance.MOD					CLASSES:Blue Knight,Minstrel=2
+Animate Objects.MOD				CLASSES:Hermit,Priest=6
+Animate Plants.MOD				CLASSES:Minstrel=7
+Antilife Shell.MOD				CLASSES:Hermit,Minstrel,Priest=6
+Antimagic Field.MOD				CLASSES:Hedge Mage=6|Hermit,Priest=8
+Antipathy.MOD					CLASSES:Hedge Mage=8|Minstrel=9
+Antiplant Shell.MOD				CLASSES:Blue Knight,Minstrel=4
+Arcane Eye.MOD					CLASSES:Hedge Mage,Red Knight=4
+Arcane Lock.MOD					CLASSES:Hedge Mage,Red Knight=2
+Arcane Mark.MOD					CLASSES:Hedge Mage,Red Knight=0
+Arcane Sight (Greater).MOD			CLASSES:Hedge Mage=7
+Arcane Sight.MOD					CLASSES:Hedge Mage,Red Knight=3
+Atonement.MOD					CLASSES:Blue Knight,Minstrel=5
+Augury.MOD						CLASSES:Hermit,Priest,White Knight=2
+Awaken.MOD						CLASSES:Blue Knight,Minstrel=5
+Baleful Polymorph.MOD				CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=5
+Bane.MOD						CLASSES:Hermit,Priest,White Knight=1
+Barkskin.MOD					CLASSES:Blue Knight,Minstrel=2
+Bear's Endurance (Mass).MOD			CLASSES:Hedge Mage,Hermit,Minstrel,Priest=6
+Bear's Endurance.MOD				CLASSES:Blue Knight,Hedge Mage,Hermit,Minstrel,Priest,Red Knight,White Knight=2
+Bestow Curse.MOD					CLASSES:Hermit,Priest,White Knight=3|Hedge Mage,Red Knight=4
+Bless Water.MOD					CLASSES:Crusader,Hermit,Priest,White Knight=1
+Bless Weapon.MOD					CLASSES:Crusader=1
+Bless.MOD						CLASSES:Crusader,Hermit,Priest,White Knight=1
+Blight.MOD						CLASSES:Blue Knight,Minstrel=4|Hedge Mage,Red Knight=5
+Blindness/Deafness.MOD				CLASSES:Hedge Mage,Hermit,Priest,Red Knight,White Knight=2
+Blur.MOD						CLASSES:Hedge Mage,Red Knight=2
+Break Enchantment.MOD				CLASSES:Crusader=4|Hedge Mage,Hermit,Priest,Red Knight,White Knight=5
+Bull's Strength (Mass).MOD			CLASSES:Hedge Mage,Hermit,Minstrel,Priest=6
+Bull's Strength.MOD				CLASSES:Blue Knight,Crusader,Hedge Mage,Hermit,Minstrel,Priest,Red Knight,White Knight=2
+Call Lightning.MOD				CLASSES:Blue Knight,Minstrel=3
+Call Lightning Storm.MOD			CLASSES:Blue Knight,Minstrel=5
+Calm Animals.MOD					CLASSES:Blue Knight,Minstrel=1
+Calm Emotions.MOD					CLASSES:Hermit,Priest,White Knight=2
+Cat's Grace (Mass).MOD				CLASSES:Hedge Mage,Minstrel=6
+Cat's Grace.MOD					CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=2
+Cause Fear.MOD					CLASSES:Hedge Mage,Hermit,Priest,Red Knight,White Knight=1
+Changestaff.MOD					CLASSES:Minstrel=7
+Charm Animal.MOD					CLASSES:Blue Knight,Minstrel=1
+Charm Monster (Mass).MOD			CLASSES:Hedge Mage=8
+Charm Monster.MOD					CLASSES:Hedge Mage,Red Knight=4
+Charm Person.MOD					CLASSES:Hedge Mage,Red Knight=1
+Chill Metal.MOD					CLASSES:Blue Knight,Minstrel=2
+Clairaudience/Clairvoyance.MOD		CLASSES:Hedge Mage,Red Knight=3
+Cloudkill.MOD					CLASSES:Hedge Mage,Red Knight=5
+Color Spray.MOD					CLASSES:Hedge Mage,Red Knight=1
+Command (Greater).MOD				CLASSES:Hermit,Priest,White Knight=5
+Command.MOD						CLASSES:Hermit,Priest,White Knight=1
+Command Plants.MOD				CLASSES:Blue Knight,Minstrel=4
+Commune.MOD						CLASSES:Hermit,Priest,White Knight=5
+Commune with Nature.MOD				CLASSES:Blue Knight,Minstrel=5
+Comprehend Languages.MOD			CLASSES:Hedge Mage,Hermit,Priest,Red Knight,White Knight=1
+Confusion.MOD					CLASSES:Hedge Mage,Red Knight=4
+Consecrate.MOD					CLASSES:Hermit,Priest,White Knight=2
+Contagion.MOD					CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=3|Hedge Mage,Red Knight=4
+Continual Flame.MOD				CLASSES:Hedge Mage,Red Knight=2|Hermit,Priest,White Knight=3
+Control Plants.MOD				CLASSES:Minstrel=8
+Control Water.MOD					CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=4|Hedge Mage=6
+Control Weather.MOD				CLASSES:Hedge Mage,Hermit,Minstrel,Priest=7
+Control Winds.MOD					CLASSES:Blue Knight,Minstrel=5
+Create Food and Water.MOD			CLASSES:Hermit,Priest,White Knight=3
+Create Water.MOD					CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=0|Crusader=1
+Creeping Doom.MOD					CLASSES:Minstrel=7
+Crushing Despair.MOD				CLASSES:Hedge Mage,Red Knight=4
+Cure Critical Wounds (Mass).MOD		CLASSES:Hermit,Priest=8|Minstrel=9
+Cure Critical Wounds.MOD			CLASSES:Hermit,Priest,White Knight=4|Blue Knight,Minstrel=5
+Cure Light Wounds (Mass).MOD			CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=5
+Cure Light Wounds.MOD				CLASSES:Blue Knight,Crusader,Hermit,Minstrel,Priest,White Knight=1
+Cure Minor Wounds.MOD				CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=0
+Cure Moderate Wounds (Mass).MOD		CLASSES:Hermit,Priest=6|Minstrel=7
+Cure Moderate Wounds.MOD			CLASSES:Hermit,Priest,White Knight=2|Blue Knight,Crusader,Minstrel=3
+Cure Serious Wounds (Mass).MOD		CLASSES:Hermit,Priest=7|Minstrel=8
+Cure Serious Wounds.MOD				CLASSES:Hermit,Priest,White Knight=3|Blue Knight,Crusader,Minstrel=4
+Curse Water.MOD					CLASSES:Hermit,Priest,White Knight=1
+Dancing Lights.MOD				CLASSES:Hedge Mage,Red Knight=0
+Darkness.MOD					CLASSES:Hedge Mage,Hermit,Priest,Red Knight,White Knight=2
+Darkvision.MOD					CLASSES:Hedge Mage,Red Knight=2
+Daylight.MOD					CLASSES:Blue Knight,Crusader,Hedge Mage,Hermit,Minstrel,Priest,Red Knight,White Knight=3
+Daze Monster.MOD					CLASSES:Hedge Mage,Red Knight=2
+Daze.MOD						CLASSES:Hedge Mage,Red Knight=0
+Death Knell.MOD					CLASSES:Hermit,Priest,White Knight=2
+Death Ward.MOD					CLASSES:Crusader,Hermit,Priest,White Knight=4|Blue Knight,Minstrel=5
+Deathwatch.MOD					CLASSES:Hermit,Priest,White Knight=1
+Deep Slumber.MOD					CLASSES:Hedge Mage,Red Knight=3
+Deeper Darkness.MOD				CLASSES:Hermit,Priest,White Knight=3
+Delay Poison.MOD					CLASSES:Blue Knight,Crusader,Hermit,Minstrel,Priest,White Knight=2
+Demand.MOD						CLASSES:Hedge Mage=8
+Desecrate.MOD					CLASSES:Hermit,Priest,White Knight=2
+Detect Animals or Plants.MOD			CLASSES:Blue Knight,Minstrel=1
+Detect Magic.MOD					CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=0
+Detect Poison.MOD					CLASSES:Blue Knight,Hedge Mage,Hermit,Minstrel,Priest,Red Knight,White Knight=0|Crusader=1
+Detect Scrying.MOD				CLASSES:Hedge Mage,Red Knight=4
+Detect Secret Doors.MOD				CLASSES:Hedge Mage,Red Knight=1
+Detect Snares and Pits.MOD			CLASSES:Blue Knight,Minstrel=1
+Detect Thoughts.MOD				CLASSES:Hedge Mage,Red Knight=2
+Dimension Door.MOD				CLASSES:Hedge Mage,Red Knight=4
+Diminish Plants.MOD				CLASSES:Blue Knight,Minstrel=3
+Discern Lies.MOD					CLASSES:Crusader=3|Hermit,Priest,White Knight=4
+Discern Location.MOD				CLASSES:Hedge Mage,Hermit,Priest=8
+Disguise Self.MOD					CLASSES:Hedge Mage,Red Knight=1
+Dispel Magic (Greater).MOD			CLASSES:Hedge Mage,Hermit,Minstrel,Priest=6
+Dispel Magic.MOD					CLASSES:Crusader,Hedge Mage,Hermit,Priest,Red Knight,White Knight=3|Blue Knight,Minstrel=4
+Displacement.MOD					CLASSES:Hedge Mage,Red Knight=3
+Divination.MOD					CLASSES:Hermit,Priest,White Knight=4
+Divine Favor.MOD					CLASSES:Crusader,Hermit,Priest,White Knight=1
+Divine Power.MOD					CLASSES:Hermit,Priest,White Knight=4
+Dominate Animal.MOD				CLASSES:Blue Knight,Minstrel=3
+Dominate Monster.MOD				CLASSES:Hedge Mage=9
+Dominate Person.MOD				CLASSES:Hedge Mage,Red Knight=5
+Doom.MOD						CLASSES:Hermit,Priest,White Knight=1
+Dream.MOD						CLASSES:Hedge Mage,Red Knight=5
+Eagle's Splendor (Mass).MOD			CLASSES:Hedge Mage,Hermit,Priest=6
+Eagle's Splendor.MOD				CLASSES:Crusader,Hedge Mage,Hermit,Priest,Red Knight,White Knight=2
+Earthquake.MOD					CLASSES:Hermit,Minstrel,Priest=8
+Elemental Swarm.MOD				CLASSES:Minstrel=9
+Endure Elements.MOD				CLASSES:Blue Knight,Crusader,Hedge Mage,Hermit,Minstrel,Priest,Red Knight,White Knight=1
+Energy Drain.MOD					CLASSES:Hermit,Priest=9
+Entangle.MOD					CLASSES:Blue Knight,Minstrel=1
+Enthrall.MOD					CLASSES:Hermit,Priest,White Knight=2
+Entropic Shield.MOD				CLASSES:Hermit,Priest,White Knight=1
+Erase.MOD						CLASSES:Hedge Mage,Red Knight=1
+Expeditious Retreat.MOD				CLASSES:Hedge Mage,Red Knight=1
+Explosive Runes.MOD				CLASSES:Hedge Mage,Red Knight=3
+Fabricate.MOD					CLASSES:Hedge Mage,Red Knight=5
+Faerie Fire.MOD					CLASSES:Blue Knight,Minstrel=1
+False Life.MOD					CLASSES:Hedge Mage,Red Knight=2
+False Vision.MOD					CLASSES:Hedge Mage,Red Knight=5
+Fear.MOD						CLASSES:Hedge Mage,Red Knight=4
+Feather Fall.MOD					CLASSES:Hedge Mage,Red Knight=1
+Feeblemind.MOD					CLASSES:Hedge Mage,Red Knight=5
+Find the Path.MOD					CLASSES:Hermit,Minstrel,Priest=6
+Find Traps.MOD					CLASSES:Hermit,Priest,White Knight=2
+Finger of Death.MOD				CLASSES:Minstrel=8
+Fire Seeds.MOD					CLASSES:Minstrel=6
+Fire Shield.MOD					CLASSES:Hedge Mage,Red Knight=4
+Fire Storm.MOD					CLASSES:Minstrel=7
+Fire Trap.MOD					CLASSES:Blue Knight,Minstrel=2|Hedge Mage,Red Knight=4
+Flame Arrow.MOD					CLASSES:Hedge Mage,Red Knight=3
+Flame Blade.MOD					CLASSES:Blue Knight,Minstrel=2
+Flame Strike.MOD					CLASSES:Blue Knight,Minstrel=4
+Flaming Sphere.MOD				CLASSES:Blue Knight,Minstrel=2
+Flare.MOD						CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=0
+Flesh to Stone.MOD				CLASSES:Hedge Mage=6
+Fly.MOD						CLASSES:Hedge Mage,Red Knight=3
+Fog Cloud.MOD					CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=2
+Foresight.MOD					CLASSES:Hedge Mage,Minstrel=9
+Fox's Cunning (Mass).MOD			CLASSES:Hedge Mage=6
+Fox's Cunning.MOD					CLASSES:Hedge Mage,Red Knight=2
+Freedom of Movement.MOD				CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=4
+Freedom.MOD						CLASSES:Hedge Mage=9
+Geas (Lesser).MOD					CLASSES:Hedge Mage,Red Knight=4
+Geas/Quest.MOD					CLASSES:Hedge Mage,Hermit,Priest=6
+Gentle Repose.MOD					CLASSES:Hermit,Priest,White Knight=2
+Ghost Sound.MOD					CLASSES:Hedge Mage,Red Knight=0
+Giant Vermin.MOD					CLASSES:Blue Knight,Minstrel=4
+Glitterdust.MOD					CLASSES:Hedge Mage,Red Knight=2
+Globe of Invulnerability (Lesser).MOD	CLASSES:Hedge Mage,Red Knight=4
+Globe of Invulnerability.MOD			CLASSES:Hedge Mage=6
+Glyph of Warding (Greater).MOD		CLASSES:Hermit,Priest=6
+Glyph of Warding.MOD				CLASSES:Hermit,Priest,White Knight=3
+Goodberry.MOD					CLASSES:Blue Knight,Minstrel=1
+Grease.MOD						CLASSES:Hedge Mage,Red Knight=1
+Guards and Wards.MOD				CLASSES:Hedge Mage=6
+Guidance.MOD					CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=0
+Gust of Wind.MOD					CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=2
+Hallow.MOD						CLASSES:Hermit,Priest,White Knight=5
+Hallucinatory Terrain.MOD			CLASSES:Hedge Mage,Red Knight=4
+Harm.MOD						CLASSES:Hermit,Priest=6
+Haste.MOD						CLASSES:Hedge Mage,Red Knight=3
+Heal (Mass).MOD					CLASSES:Hermit,Priest=9
+Heal Mount.MOD					CLASSES:Crusader=3
+Heal.MOD						CLASSES:Hermit,Priest=6|Minstrel=7
+Heat Metal.MOD					CLASSES:Blue Knight,Minstrel=2
+Heroes' Feast.MOD					CLASSES:Hermit,Priest=6
+Heroism (Greater).MOD				CLASSES:Hedge Mage=6
+Heroism.MOD						CLASSES:Hedge Mage,Red Knight=3
+Hide from Animals.MOD				CLASSES:Blue Knight,Minstrel=1
+Hold Animal.MOD					CLASSES:Blue Knight,Minstrel=2
+Hold Monster (Mass).MOD				CLASSES:Hedge Mage=9
+Hold Monster.MOD					CLASSES:Hedge Mage,Red Knight=5
+Hold Person (Mass).MOD				CLASSES:Hedge Mage=7
+Hold Person.MOD					CLASSES:Hermit,Priest,White Knight=2|Hedge Mage,Red Knight=3
+Hold Portal.MOD					CLASSES:Hedge Mage,Red Knight=1
+Holy Sword.MOD					CLASSES:Crusader=4
+Hypnotic Pattern.MOD				CLASSES:Hedge Mage,Red Knight=2
+Hypnotism.MOD					CLASSES:Hedge Mage,Red Knight=1
+Ice Storm.MOD					CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=4
+Identify.MOD					CLASSES:Hedge Mage,Red Knight=1
+Illusory Script.MOD				CLASSES:Hedge Mage,Red Knight=3
+Illusory Wall.MOD					CLASSES:Hedge Mage,Red Knight=4
+Imbue with Spell Ability.MOD			CLASSES:Hermit,Priest,White Knight=4
+Imprisonment.MOD					CLASSES:Hedge Mage=9
+Inflict Critical Wounds (Mass).MOD		CLASSES:Hermit,Priest=8
+Inflict Critical Wounds.MOD			CLASSES:Hermit,Priest=4
+Inflict Light Wounds (Mass).MOD		CLASSES:Hermit,Priest,White Knight=5
+Inflict Light Wounds.MOD			CLASSES:Crusader,Hermit,Priest,White Knight=1
+Inflict Minor Wounds.MOD			CLASSES:Hermit,Priest,White Knight=0
+Inflict Moderate Wounds (Mass).MOD		CLASSES:Hermit,Priest=6
+Inflict Moderate Wounds.MOD			CLASSES:Hermit,Priest,White Knight=2|Crusader=3
+Inflict Serious Wounds (Mass).MOD		CLASSES:Hermit,Priest=7
+Inflict Serious Wounds.MOD			CLASSES:Hermit,Priest,White Knight=3|Crusader=4
+Insanity.MOD					CLASSES:Hedge Mage=7
+Insect Plague.MOD					CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=5
+Invisibility (Greater).MOD			CLASSES:Hedge Mage,Red Knight=4
+Invisibility (Mass).MOD				CLASSES:Hedge Mage=7
+Invisibility Purge.MOD				CLASSES:Hermit,Priest,White Knight=3
+Invisibility Sphere.MOD				CLASSES:Hedge Mage,Red Knight=3
+Invisibility.MOD					CLASSES:Hedge Mage,Red Knight=2
+Ironwood.MOD					CLASSES:Minstrel=6
+Jump.MOD						CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=1
+Keen Edge.MOD					CLASSES:Hedge Mage,Red Knight=3
+Knock.MOD						CLASSES:Hedge Mage,Red Knight=2
+Know Direction.MOD				CLASSES:Blue Knight,Minstrel=0
+Legend Lore.MOD					CLASSES:Hedge Mage=6
+Levitate.MOD					CLASSES:Hedge Mage,Red Knight=2
+Light.MOD						CLASSES:Blue Knight,Hedge Mage,Hermit,Minstrel,Priest,Red Knight,White Knight=0
+Limited Wish.MOD					CLASSES:Hedge Mage=7
+Liveoak.MOD						CLASSES:Minstrel=6
+Locate Creature.MOD				CLASSES:Hedge Mage,Red Knight=4
+Locate Object.MOD					CLASSES:Hedge Mage,Red Knight=2|Hermit,Priest,White Knight=3
+Longstrider.MOD					CLASSES:Blue Knight,Minstrel=1
+Mage Armor.MOD					CLASSES:Hedge Mage,Red Knight=1
+Mage Hand.MOD					CLASSES:Hedge Mage,Red Knight=0
+Magic Fang (Greater).MOD			CLASSES:Blue Knight,Minstrel=3
+Magic Fang.MOD					CLASSES:Blue Knight,Minstrel=1
+Magic Jar.MOD					CLASSES:Hedge Mage,Red Knight=5
+Magic Stone.MOD					CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=1
+Magic Vestment.MOD				CLASSES:Hermit,Priest,White Knight=3
+Magic Weapon (Greater).MOD			CLASSES:Crusader,Hedge Mage,Red Knight=3|Hermit,Priest,White Knight=4
+Magic Weapon.MOD					CLASSES:Crusader,Hedge Mage,Hermit,Priest,Red Knight,White Knight=1
+Major Creation.MOD				CLASSES:Hedge Mage,Red Knight=5
+Major Image.MOD					CLASSES:Hedge Mage,Red Knight=3
+Make Whole.MOD					CLASSES:Hermit,Priest,White Knight=2
+Mark of Justice.MOD				CLASSES:Crusader=4|Hermit,Priest,White Knight=5
+Maze.MOD						CLASSES:Hedge Mage=8
+Meld into Stone.MOD				CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=3
+Mending.MOD						CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=0
+Message.MOD						CLASSES:Hedge Mage,Red Knight=0
+Mind Blank.MOD					CLASSES:Hedge Mage=8
+Mind Fog.MOD					CLASSES:Hedge Mage,Red Knight=5
+Minor Creation.MOD				CLASSES:Hedge Mage,Red Knight=4
+Minor Image.MOD					CLASSES:Hedge Mage,Red Knight=2
+Miracle.MOD						CLASSES:Hermit,Priest=9
+Mirage Arcana.MOD					CLASSES:Hedge Mage,Red Knight=5
+Mirror Image.MOD					CLASSES:Hedge Mage,Red Knight=2
+Misdirection.MOD					CLASSES:Hedge Mage,Red Knight=2
+Mislead.MOD						CLASSES:Hedge Mage=6
+Moment of Prescience.MOD			CLASSES:Hedge Mage=8
+Mortal Sin.MOD					CLASSES:Hermit,Priest=7
+Mount.MOD						CLASSES:Hedge Mage,Red Knight=1
+Move Earth.MOD					CLASSES:Hedge Mage,Minstrel=6
+Neutralize Poison.MOD				CLASSES:Blue Knight,Crusader,Hermit,Minstrel,Priest,White Knight=4
+Nightmare.MOD					CLASSES:Hedge Mage,Red Knight=5
+Nondetection.MOD					CLASSES:Hedge Mage,Red Knight=3
+Obscure Object.MOD				CLASSES:Hedge Mage,Red Knight=2|Hermit,Priest,White Knight=3
+Obscuring Mist.MOD				CLASSES:Blue Knight,Hedge Mage,Hermit,Minstrel,Priest,Red Knight,White Knight=1
+Open/Close.MOD					CLASSES:Hedge Mage,Red Knight=0
+Overland Flight.MOD				CLASSES:Hedge Mage,Red Knight=5
+Owl's Wisdom (Mass).MOD				CLASSES:Hedge Mage,Hermit,Minstrel,Priest=6
+Owl's Wisdom.MOD					CLASSES:Blue Knight,Crusader,Hedge Mage,Hermit,Minstrel,Priest,Red Knight,White Knight=2
+Pass without Trace.MOD				CLASSES:Blue Knight,Minstrel=1
+Passwall.MOD					CLASSES:Hedge Mage,Red Knight=5
+Permanent Image.MOD				CLASSES:Hedge Mage=6
+Persistent Image.MOD				CLASSES:Hedge Mage,Red Knight=5
+Phantasmal Killer.MOD				CLASSES:Hedge Mage,Red Knight=4
+Phantom Steed.MOD					CLASSES:Hedge Mage,Red Knight=3
+Phase Door.MOD					CLASSES:Hedge Mage=7
+Plant Growth.MOD					CLASSES:Blue Knight,Minstrel=3
+Poison.MOD						CLASSES:Blue Knight,Minstrel=3|Hermit,Priest,White Knight=4
+Polymorph Any Object.MOD			CLASSES:Hedge Mage=8
+Polymorph.MOD					CLASSES:Hedge Mage,Red Knight=4
+Power Word Blind.MOD				CLASSES:Hedge Mage=7
+Power Word Kill.MOD				CLASSES:Hedge Mage=9
+Power Word Stun.MOD				CLASSES:Hedge Mage=8
+Prayer.MOD						CLASSES:Crusader,Hermit,Priest,White Knight=3
+Prestidigitation.MOD				CLASSES:Hedge Mage,Red Knight=0
+Produce Flame.MOD					CLASSES:Blue Knight,Minstrel=1
+Programmed Image.MOD				CLASSES:Hedge Mage=6
+Project Image.MOD					CLASSES:Hedge Mage=7
+Protection from Arrows.MOD			CLASSES:Hedge Mage,Red Knight=2
+Protection from Energy.MOD			CLASSES:Blue Knight,Hedge Mage,Hermit,Minstrel,Priest,Red Knight,White Knight=3
+Protection from Spells.MOD			CLASSES:Hedge Mage=8
+Prying Eyes (Greater).MOD			CLASSES:Hedge Mage=8
+Prying Eyes.MOD					CLASSES:Hedge Mage,Red Knight=5
+Purify Food and Drink.MOD			CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=0
+Pyrotechnics.MOD					CLASSES:Hedge Mage,Red Knight=2
+Quench.MOD						CLASSES:Blue Knight,Minstrel=3
+Rage.MOD						CLASSES:Hedge Mage,Red Knight=3
+Rainbow Pattern.MOD				CLASSES:Hedge Mage,Red Knight=4
+Ray of Enfeeblement.MOD				CLASSES:Hedge Mage,Red Knight=1
+Ray of Exhaustion.MOD				CLASSES:Hedge Mage,Red Knight=3
+Read Magic.MOD					CLASSES:Blue Knight,Hedge Mage,Hermit,Minstrel,Priest,Red Knight,White Knight=0|Crusader=1
+Reduce Animal.MOD					CLASSES:Blue Knight,Minstrel=2
+Refuge.MOD						CLASSES:Hermit,Priest=7|Hedge Mage=9
+Regenerate.MOD					CLASSES:Hermit,Priest=7|Minstrel=9
+Reincarnate.MOD					CLASSES:Blue Knight,Minstrel=4
+Remove Blindness/Deafness.MOD			CLASSES:Crusader,Hermit,Priest,White Knight=3
+Remove Curse.MOD					CLASSES:Crusader,Hermit,Priest,White Knight=3|Hedge Mage,Red Knight=4
+Remove Fear.MOD					CLASSES:Hermit,Priest,White Knight=1
+Remove Paralysis.MOD				CLASSES:Crusader,Hermit,Priest,White Knight=2
+Repel Metal or Stone.MOD			CLASSES:Minstrel=8
+Repel Vermin.MOD					CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=4
+Repel Wood.MOD					CLASSES:Minstrel=6
+Repulsion.MOD					CLASSES:Hedge Mage=6|Hermit,Priest=7
+Resist Energy.MOD					CLASSES:Blue Knight,Crusader,Hedge Mage,Hermit,Minstrel,Priest,Red Knight,White Knight=2
+Resistance.MOD					CLASSES:Blue Knight,Hedge Mage,Hermit,Minstrel,Priest,Red Knight,White Knight=0|Crusader=1
+Restoration (Greater).MOD			CLASSES:Hermit,Priest=7
+Restoration (Lesser).MOD			CLASSES:Crusader=1|Blue Knight,Hermit,Minstrel,Priest,White Knight=2
+Restoration.MOD					CLASSES:Crusader,Hermit,Priest,White Knight=4
+Reverse Gravity.MOD				CLASSES:Minstrel=8
+Rusting Grasp.MOD					CLASSES:Blue Knight,Minstrel=4
+Sanctuary.MOD					CLASSES:Hermit,Priest,White Knight=1
+Scare.MOD						CLASSES:Hedge Mage,Red Knight=2
+Scintillating Pattern.MOD			CLASSES:Hedge Mage=8
+Screen.MOD						CLASSES:Hedge Mage=8
+Scrying (Greater).MOD				CLASSES:Hedge Mage,Hermit,Minstrel,Priest=7
+Scrying.MOD						CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=4|Hermit,Priest,White Knight=5
+Searing Light.MOD					CLASSES:Hermit,Priest,White Knight=3
+Secret Page.MOD					CLASSES:Hedge Mage,Red Knight=3
+See Invisibility.MOD				CLASSES:Hedge Mage,Red Knight=2
+Seeming.MOD						CLASSES:Hedge Mage,Red Knight=5
+Sending.MOD						CLASSES:Hermit,Priest,White Knight=4|Hedge Mage,Red Knight=5
+Sepia Snake Sigil.MOD				CLASSES:Hedge Mage,Red Knight=3
+Sequester.MOD					CLASSES:Hedge Mage=7
+Shadow Walk.MOD					CLASSES:Hedge Mage=6
+Shambler.MOD					CLASSES:Minstrel=9
+Shapechange.MOD					CLASSES:Minstrel=9
+Shatter.MOD						CLASSES:Hedge Mage,Hermit,Priest,Red Knight,White Knight=2
+Shield of Faith.MOD				CLASSES:Hermit,Priest,White Knight=1
+Shield Other.MOD					CLASSES:Crusader,Hermit,Priest,White Knight=2
+Shield.MOD						CLASSES:Hedge Mage,Red Knight=1
+Shillelagh.MOD					CLASSES:Blue Knight,Minstrel=1
+Shout (Greater).MOD				CLASSES:Hedge Mage=8
+Shout.MOD						CLASSES:Hedge Mage,Red Knight=4
+Silence.MOD						CLASSES:Hermit,Priest,White Knight=2
+Silent Image.MOD					CLASSES:Hedge Mage,Red Knight=1
+Sleep.MOD						CLASSES:Hedge Mage,Red Knight=1
+Sleet Storm.MOD					CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=3
+Slow.MOD						CLASSES:Hedge Mage,Red Knight=3
+Snare.MOD						CLASSES:Blue Knight,Minstrel=3
+Soften Earth and Stone.MOD			CLASSES:Blue Knight,Minstrel=2
+Solid Fog.MOD					CLASSES:Hedge Mage,Red Knight=4
+Sound Burst.MOD					CLASSES:Hermit,Priest,White Knight=2
+Speak with Animals.MOD				CLASSES:Blue Knight,Minstrel=1
+Speak with Dead.MOD				CLASSES:Hermit,Priest,White Knight=3
+Speak with Plants.MOD				CLASSES:Blue Knight,Minstrel=3
+Spell Immunity (Greater).MOD			CLASSES:Hermit,Priest=8
+Spell Immunity.MOD				CLASSES:Hermit,Priest,White Knight=4
+Spell Resistance.MOD				CLASSES:Hermit,Priest,White Knight=5
+Spell Turning.MOD					CLASSES:Hedge Mage=7
+Spellstaff.MOD					CLASSES:Minstrel=6
+Spider Climb.MOD					CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=2
+Spike Growth.MOD					CLASSES:Blue Knight,Minstrel=3
+Spike Stones.MOD					CLASSES:Blue Knight,Minstrel=4
+Statue.MOD						CLASSES:Hedge Mage=7
+Stinking Cloud.MOD				CLASSES:Hedge Mage,Red Knight=3
+Stone Shape.MOD					CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=3|Hedge Mage,Red Knight=4
+Stone Tell.MOD					CLASSES:Minstrel=6
+Stoneskin.MOD					CLASSES:Hedge Mage,Red Knight=4|Blue Knight,Minstrel=5
+Stone to Flesh.MOD				CLASSES:Hedge Mage=6
+Storm of Vengeance.MOD				CLASSES:Hermit,Minstrel,Priest=9
+Suggestion (Mass).MOD				CLASSES:Hedge Mage=6
+Suggestion.MOD					CLASSES:Hedge Mage,Red Knight=3
+Summon Nature's Ally I.MOD			CLASSES:Blue Knight,Minstrel=1
+Summon Nature's Ally II.MOD			CLASSES:Blue Knight,Minstrel=2
+Summon Nature's Ally III.MOD			CLASSES:Blue Knight,Minstrel=3
+Summon Nature's Ally IV.MOD			CLASSES:Blue Knight,Minstrel=4
+Summon Nature's Ally V.MOD			CLASSES:Blue Knight,Minstrel=5
+Summon Nature's Ally VI.MOD			CLASSES:Minstrel=6
+Summon Nature's Ally VII.MOD			CLASSES:Minstrel=7
+Summon Nature's Ally VIII.MOD			CLASSES:Minstrel=8
+Summon Nature's Ally IX.MOD			CLASSES:Minstrel=9
+Summon Swarm.MOD					CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=2
+Sunbeam.MOD						CLASSES:Minstrel=7
+Sunburst.MOD					CLASSES:Hedge Mage,Minstrel=8
+Symbol of Death.MOD				CLASSES:Hedge Mage,Hermit,Priest=8
+Symbol of Fear.MOD				CLASSES:Hermit,Priest=6
+Symbol of Insanity.MOD				CLASSES:Hedge Mage,Hermit,Priest=8
+Symbol of Pain.MOD				CLASSES:Hedge Mage,Hermit,Priest,Red Knight,White Knight=5
+Symbol of Persuasion.MOD			CLASSES:Hedge Mage,Hermit,Priest=6
+Symbol of Sleep.MOD				CLASSES:Hedge Mage,Red Knight=5
+Symbol of Stunning.MOD				CLASSES:Hedge Mage,Hermit,Priest=7
+Symbol of Weakness.MOD				CLASSES:Hedge Mage,Hermit,Priest=7
+Sympathy.MOD					CLASSES:Hedge Mage=8|Minstrel=9
+Telekinesis.MOD					CLASSES:Hedge Mage,Red Knight=5
+Teleport (Greater).MOD				CLASSES:Hedge Mage=7
+Teleport Object.MOD				CLASSES:Hedge Mage=7
+Teleport.MOD					CLASSES:Hedge Mage,Red Knight=5
+Teleportation Circle.MOD			CLASSES:Hedge Mage=9
+Temporal Stasis.MOD				CLASSES:Hedge Mage=8
+Tongues.MOD						CLASSES:Hedge Mage,Red Knight=3|Hermit,Priest,White Knight=4
+Touch of Fatigue.MOD				CLASSES:Hedge Mage,Red Knight=0
+Touch of Idiocy.MOD				CLASSES:Hedge Mage,Red Knight=2
+Transmute Metal to Wood.MOD			CLASSES:Minstrel=7
+Transmute Mud to Rock.MOD			CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=5
+Transmute Rock to Mud.MOD			CLASSES:Blue Knight,Hedge Mage,Minstrel,Red Knight=5
+Transport via Plants.MOD			CLASSES:Minstrel=6
+Trap the Soul.MOD					CLASSES:Hedge Mage=8
+Tree Shape.MOD					CLASSES:Blue Knight,Minstrel=2
+Tree Stride.MOD					CLASSES:Minstrel=5
+True Resurrection.MOD				CLASSES:Hermit,Priest=9
+True Seeing.MOD					CLASSES:Hermit,Priest=5|Hedge Mage=6|Minstrel=7
+True Strike.MOD					CLASSES:Hedge Mage,Red Knight=1
+Unhallow.MOD					CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=5
+Unseen Servant.MOD				CLASSES:Hedge Mage,Red Knight=1
+Veil.MOD						CLASSES:Hedge Mage=6
+Ventriloquism.MOD					CLASSES:Hedge Mage,Red Knight=1
+Virtue.MOD						CLASSES:Blue Knight,Hermit,Minstrel,Priest,White Knight=0|Crusader=1
+Vision.MOD						CLASSES:Hedge Mage=7
+Wail of the Banshee.MOD				CLASSES:Hedge Mage=9
+Wall of Fire.MOD					CLASSES:Hedge Mage,Red Knight=4|Blue Knight,Minstrel=5
+Wall of Ice.MOD					CLASSES:Hedge Mage,Red Knight=4
+Wall of Iron.MOD					CLASSES:Hedge Mage=6
+Wall of Stone.MOD					CLASSES:Hedge Mage,Hermit,Priest,Red Knight,White Knight=5|Minstrel=6
+Wall of Thorns.MOD				CLASSES:Blue Knight,Minstrel=5
+Warp Wood.MOD					CLASSES:Blue Knight,Minstrel=2
+Water Breathing.MOD				CLASSES:Blue Knight,Hedge Mage,Hermit,Minstrel,Priest,Red Knight,White Knight=3
+Water Walk.MOD					CLASSES:Hermit,Priest,White Knight=3
+Waves of Exhaustion.MOD				CLASSES:Hedge Mage=7
+Waves of Fatigue.MOD				CLASSES:Hedge Mage,Red Knight=5
+Web.MOD						CLASSES:Hedge Mage,Red Knight=2
+Weird.MOD						CLASSES:Hedge Mage=9
+Whirlwind.MOD					CLASSES:Minstrel=8
+Whispering Wind.MOD				CLASSES:Hedge Mage,Red Knight=2
+Wind Walk.MOD					CLASSES:Hermit,Priest=6|Minstrel=7
+Wind Wall.MOD					CLASSES:Blue Knight,Hedge Mage,Hermit,Minstrel,Priest,Red Knight,White Knight=3
+Wish.MOD						CLASSES:Hedge Mage=9
+Wood Shape.MOD					CLASSES:Blue Knight,Minstrel=2
+Word of Recall.MOD				CLASSES:Hermit,Priest=6|Minstrel=8
+Zone of Truth.MOD					CLASSES:Crusader,Hermit,Priest,White Knight=2
