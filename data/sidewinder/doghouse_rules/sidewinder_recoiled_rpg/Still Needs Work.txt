@@ -1,0 +1,64 @@
+OCCUPATION FEATS:
+Mariner:
+	Vehicle Proficiency bonus feats need to be verified
+Rand Hand:
+	Exotic Ranged Weapon Proficiency (Lasso) needs to be verified
+
+
+HIDDEN FEATS:
+Cool Under Pressure needs to have 3+WIS bonus choices
+
+
+FEATS:
+Exotic Ranged Weapon Prof needs to be made distinct from Exotic Melee Weapon Prof
+Improvised Weapon Damage needs to figure out how to bump damage
+Master Craftsman needs testing
+Trail/Tribal Lore needs a way to pick states/territories/nations/tribes
+Vehicle Proficiency needs CHOOSE testing
+
+
+LANGUAGES:
+Braille
+
+SKILLS:
+Read/Write Language and Speak Language aren't behaving independantly... if you pick a spoken language then you can't pick it as a written one
+
+
+EQUIPMENT - ARMOR:
+Need to work on getting the shield to work
+Urban Arcana requires Med/Hvy Armor Prof to use a shield, S:R only requires Lt
+
+
+EQUPIMENT - MELEE WEAPONS:
+No restrictions on Improvised Weapon usage (based on size)
+
+
+EQUPMENT MODS:
+Verify Masterwork settings are all still valid from d20 Modern
+Check everything for cost modifiers and applicable bonuses
+
+
+ADVANCED CLASSES:
+Bounty Hunter:
+	Bonus feat: Exotic Ranged Weapon Prof choices have to be verified
+Desperado:
+	2nd level feature, Ornery, probably needs a LOT of work to stack with Tough Damage Reduction Tree
+	8th level feature, Tough as Nails, probably needs a LOT of work to stack with Improved Damage Threshold Feat
+Maverick:
+	Wild Card needs heavy testing... added .Talent type to all hidden talent feats to support it
+	Improved Evasion just blindly adds Evasion as a virtual feat to handle prerequisites on the Fast Talent Tree
+Mountain Man:
+	BAB progression isn't linear, lvl 8 should probably be 6 instead of 5
+	Favored Prey needs an arbitrary selection mechanism
+Professor:
+	Smart Defense needs checking
+	Quick Wits needs to be implemented
+	Skill Mastery needs to have 3+INT choices
+	Smart Weapon needs to be able to not only select a proficient weapon, but then affect the bonus
+	Real-World Applications doesn't reference the choice made for Academic Breakthrough (but probably not a problem)
+Pugilist:
+	Bruiser removes offhand penalties for unarmed attacks, need to look into whether that's supported by PCGen or not
+Sawbones:
+	Patch 'em Up needs to handle minimum +1 bonus for 1st level
+Wrangler:
+	Bonus feat: Exotic Ranged Weapon Prof choices have to be verified
