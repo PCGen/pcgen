@@ -1,0 +1,51 @@
+<<<<<<< .mine
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Legends of the Ancients - Macedon	SOURCESHORT:Macedon	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=137	SOURCEDATE:2005-01
+
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Cavalry	HD:10		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=BASE.Replace
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Tactics)|Ride|Spot|Survival
+###Block: proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	AUTO:FEAT|Shield Proficiency
+###Block: standard
+1	BONUS:VAR|MountedCombat|(CL/4)+1					ABILITY:Special Ability|AUTOMATIC|Mounted Combat ~ Cavalry					VFEAT:Mounted Combat
+2											ABILITY:Special Ability|AUTOMATIC|Mounted Mobility ~ Cavalry|Saddle Leap ~ Cavalry
+3	BONUS:VAR|CavalrySpur|min(30,(10*(CL/3)))				ABILITY:Special Ability|AUTOMATIC|Cavalry Mount ~ Cavalry|Spur ~ Cavalry
+5	BONUS:VAR|CavalryHarry|CL/5						ABILITY:Special Ability|AUTOMATIC|Harry ~ Cavalry						VFEAT:Ride By Attack
+7								DEFINE:SpurLvl|1	ABILITY:Special Ability|AUTOMATIC|Mounted Endurance ~ Cavalry|Spur ~ Cavalry
+9																									VFEAT:Spirited Charge
+10											ABILITY:Special Ability|AUTOMATIC|Mounted Agility ~ Cavalry
+11	BONUS:VAR|LikeTheWind|(CL-8)/3					ABILITY:Special Ability|AUTOMATIC|Like the Wind ~ Cavalry
+13											ABILITY:Special Ability|AUTOMATIC|Tall in the saddle ~ Cavalry
+18											ABILITY:Special Ability|AUTOMATIC|Lightning Attack ~ Cavalry
+19											ABILITY:Special Ability|AUTOMATIC|Companion Mount ~ Cavalry
+=======
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Legends of the Ancients - Macedon	SOURCESHORT:Macedon	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=137	SOURCEDATE:2005-01
+
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Cavalry	HD:10		TYPE:PC.Base	MAXLEVEL:20	SOURCEPAGE:p.3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=BASE.Replace
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Cavalry	STARTSKILLPTS:2	CSKILL:Handle Animal|Intimidate|Jump|Knowledge (Tactics)|Ride|Spot|Survival
+###Block: proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+1																	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	AUTO:FEAT|Shield Proficiency
+###Block: standard
+1	BONUS:VAR|MountedCombat|(CL/4)+1					ABILITY:Special Ability|AUTOMATIC|Mounted Combat ~ Cavalry					VFEAT:Mounted Combat
+2											ABILITY:Special Ability|AUTOMATIC|Mounted Mobility ~ Cavalry|Saddle Leap ~ Cavalry
+3	BONUS:VAR|CavalrySpur|min(30,(10*(CL/3)))				ABILITY:Special Ability|AUTOMATIC|Cavalry Mount ~ Cavalry|Spur ~ Cavalry
+5	BONUS:VAR|CavalryHarry|CL/5						ABILITY:Special Ability|AUTOMATIC|Harry ~ Cavalry						VFEAT:Ride By Attack
+7								DEFINE:SpurLvl|1	ABILITY:Special Ability|AUTOMATIC|Mounted Endurance ~ Cavalry|Spur ~ Cavalry
+9																									VFEAT:Spirited Charge
+10											ABILITY:Special Ability|AUTOMATIC|Mounted Agility ~ Cavalry
+11	BONUS:VAR|LikeTheWind|(CL-8)/3					ABILITY:Special Ability|AUTOMATIC|Like the Wind ~ Cavalry
+13											ABILITY:Special Ability|AUTOMATIC|Tall in the saddle ~ Cavalry
+18											ABILITY:Special Ability|AUTOMATIC|Lightning Attack ~ Cavalry
+19											ABILITY:Special Ability|AUTOMATIC|Companion Mount ~ Cavalry
+>>>>>>> .r19916

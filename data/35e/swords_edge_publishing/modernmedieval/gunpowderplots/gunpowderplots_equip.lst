@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Gunpowder Plots	SOURCESHORT:GunPlots	SOURCEWEB:http://www.enworld.org/shop/index.php?do=product&productid=1196	SOURCEDATE:2006-01
+
+# Equipment Name	Type		Cost		Weight	Source Page
+Bullets (20)	TYPE:Goods	COST:1	WT:1		SOURCEPAGE:p.4
+Flint			TYPE:Goods	COST:1			SOURCEPAGE:p.4
+Gunpowder		TYPE:Goods	COST:2	WT:1		SOURCEPAGE:p.4
+Slowmatch		TYPE:Goods	COST:0.1			SOURCEPAGE:p.4
+Wheellock Spring	TYPE:Goods	COST:0.1			SOURCEPAGE:p.4

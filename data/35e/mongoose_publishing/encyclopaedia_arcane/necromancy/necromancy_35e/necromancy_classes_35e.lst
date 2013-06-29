@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Thu Nov  6 15:58:07 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+#Official Errata from Mongoose on Necrophage - The Table is incorrect about Spellcasting levels - The Class Features:Spells per Day section is correct
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Necromancy	SOURCESHORT:Necromancy	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-09
+
+
+# Class Name			Remove Class Skill
+CLASS:Spectral Loremaster.MOD	CSKILL:.CLEAR.Alchemy	CSKILL:.CLEAR.Scry
+
+# Class Name		Remove Class Skill
+CLASS:Deathseeker.MOD	CSKILL:.CLEAR.Alchemy
+
+# Class Name		Remove Class Skill
+CLASS:Necrophage.MOD	CSKILL:.CLEAR.Alchemy

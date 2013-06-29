@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Sun Dec 28 00:34:02 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:D1.5: Revenge of the Kobold King	SOURCESHORT:PFMD1-5	SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy83w1	SOURCEDATE:2008-06
+
+###Block: Azlanti Chariot Beetle
+# Ability Name	Category of Ability		Type						Visible	Special ABility										Define				Modify VAR
+Hypnotic Carapace	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:NO	SAB:Hypnotic Carapace (Su) Will save DC % negates|HypnoticCarapaceDC	DEFINE:HypnoticCarapaceDC|0	BONUS:VAR|HypnoticCarapaceDC|10+HD/2+CHA
+Immure		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:NO	SAB:Immure (Ex)

@@ -1,0 +1,12 @@
+# CVS $Revision: 2716 $ $Author: eddyanthony $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:PCGen Open Gaming Content	SOURCESHORT:PCGen OGC	SOURCEWEB:../../../../docs/sourcehelp/pcgen_ogc_help.html
+
+###Block: Psicrystal Construct Traits
+# Feat Name					Output Name				Type			Visible	Special ABility																																																																																																																																																												Stackable?	Multiple?	Choose		Stat bonus			Source Page
+Psicrystal Traits				OUTPUTNAME:Construct Traits	TYPE:Special	VISIBLE:NO	SAB:Construct Traits|!PRERULE:1,DISPLAYTYPETRAITS	SAB:Immune to poison/ sleep effects/ paralysis/ stunning/ disease/ death effects/ and necromancy effects|PRERULE:1,DISPLAYTYPETRAITS	SAB:Cannot heal damage on own but can be repaired by exposure to certain kind of effect (see description for details) or through use of Craft Construct feat (does benefit from Fast Healing special ability)|PRERULE:1,DISPLAYTYPETRAITS	SAB:Not subject to critical hits/ nonlethal damage/ ability damage/ ability drain/ fatigue/ exhaustion/ or energy drain|PRERULE:1,DISPLAYTYPETRAITS	SAB:Immune to effects requiring a Fortitude save (unless it affects objects or is harmless)|PRERULE:1,DISPLAYTYPETRAITS	SAB:Not at risk from death from massive damage (but destroyed when reduced to 0 hp)|PRERULE:1,DISPLAYTYPETRAITS	SAB:Cannot be raised/resurrected|PRERULE:1,DISPLAYTYPETRAITS	SAB:Constructs do not eat/sleep/breathe|PRERULE:1,DISPLAYTYPETRAITS												SOURCEPAGE:TypesSubtypesAbilities.rtf
+
+Psicrystal Ability Progression						TYPE:Special	VISIBLE:NO																																																																																																																																																															STACK:YES	MULT:YES	CHOOSE:PCSTAT|ALL	BONUS:STAT|%LIST|1
+
+#
+# End
+#

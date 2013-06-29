@@ -1,0 +1,24 @@
+# CVS $Revision$ $Author$ -- Wed Feb 15 13:58:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2011-01-01
+
+# -- light melee
+# Weapon Name		Type
+Dagger.MOD			TYPE:Blade
+Dagger (Punching).MOD	TYPE:Blade
+
+# Martial
+# -- light
+Sword (Short).MOD		TYPE:Blade
+
+# 1-handers
+Longsword.MOD		TYPE:Blade
+Rapier.MOD			TYPE:Blade
+Scimitar.MOD		TYPE:Blade
+
+# 2-handers
+Falchion.MOD		TYPE:Blade
+Greatsword.MOD		TYPE:Blade
+Sword (Bastard).MOD	TYPE:Blade
+
+Sword (Two-Bladed).MOD	TYPE:Blade

@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Sun Aug 24 17:53:58 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Mongoose Publishing - Quintessential Ranger II	SOURCESHORT:QR_II	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2004-01
+#Original Entry by: Andrew Maitland
+
+
+# Weapon Name		Type
+Crossbow (Elephant)	TYPE:Exotic.Ranged.Piercing.RangedPiercing.Crossbow
+Harpoon			TYPE:Simple.Ranged.Piercing.RangedPiercing.MeleePiercing.Harpoon
+Harpoon (Whaling)		TYPE:Martial.Melee.Piercing.Ranged.RangedPiercing.MeleePiercing.Harpoon

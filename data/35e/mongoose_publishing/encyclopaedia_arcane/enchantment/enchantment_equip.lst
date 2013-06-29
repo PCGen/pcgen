@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Thu Nov  6 15:54:09 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Enchantment	SOURCESHORT:Enchantment	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-09
+
+# Equipment Name					Type					Cost			Weight	Source Page
+Armband of Mental Fortitude (Silver)	TYPE:Magic.Wondrous		COST:8000.00	WT:0.00	SOURCEPAGE:p.51
+Armband of Mental Fortitude (Gold)		TYPE:Magic.Wondrous		COST:16000.00	WT:0.00	SOURCEPAGE:p.51
+Armband of Mental Fortitude (Platinum)	TYPE:Magic.Wondrous		COST:36000.00	WT:0.00	SOURCEPAGE:p.51
+Chalice of Hidden Sorcery			TYPE:Magic.Wondrous		COST:12500.00	WT:0.00	SOURCEPAGE:p.51
+Diadem of Distraction				TYPE:Magic.Wondrous		COST:47500.00	WT:0.00	SOURCEPAGE:p.52
+Eyes of the Enchanter				TYPE:Magic.Wondrous		COST:105500.00	WT:0.00	SOURCEPAGE:p.52
+Potion of Ennui					TYPE:Magic.Potion.Consumable	COST:750.00		WT:0.00	SOURCEPAGE:p.53
+Potion of Unearthly Beauty			TYPE:Magic.Potion.Consumable	COST:2500.00	WT:0.00	SOURCEPAGE:p.54
+Ring of Infernal Delight			TYPE:Magic.Ring			COST:55000.00	WT:0.00	SOURCEPAGE:p.54
+Torc of Terrible Thought			TYPE:Magic.Wondrous		COST:125000.00	WT:0.00	SOURCEPAGE:p.55
+Torc of True Thought				TYPE:Magic.Wondrous		COST:90000.00	WT:0.00	SOURCEPAGE:p.55
+Violin of Gravedancing				TYPE:Magic.Wondrous		COST:36000.00	WT:0.00	SOURCEPAGE:p.55

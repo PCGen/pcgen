@@ -1,0 +1,85 @@
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+# Original Entry by: arbernet
+
+# Was this done from scratch?
+
+# Equipment Name	Type		Cost		Weight	Source Page
+Coin (Platinum)	TYPE:Coin	COST:10	WT:0.02	SOURCEPAGE:Equipment.rtf
+Coin (Gold)		TYPE:Coin	COST:1	WT:0.02	SOURCEPAGE:Equipment.rtf
+Coin (Silver)	TYPE:Coin	COST:0.1	WT:0.02	SOURCEPAGE:Equipment.rtf
+Coin (Copper)	TYPE:Coin	COST:0.01	WT:0.02	SOURCEPAGE:Equipment.rtf
+
+###Block:Gems
+# Changes from 3.0: <gem> (Star) -> Star <gem>
+# Added "Irregular" to freshwater pearl
+# Equipment Name				Output Name						Type			Cost		Weight	Source Page			SORTKEY
+Agate (Banded)				OUTPUTNAME:[NAME] Agate				TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Agate (Eye)					OUTPUTNAME:[NAME] Agate				TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Agate (Moss)				OUTPUTNAME:[NAME] Agate				TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Azurite												TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Quartz (Blue)				OUTPUTNAME:[NAME] Quartz			TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Hematite												TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Lapis Lazuli											TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Malachite												TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Obsidian												TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Rhodochrosite											TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Tiger Eye												TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Turquoise												TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Pearl (Freshwater/Irregular)		OUTPUTNAME:Freshwater (Irregular) Pearl	TYPE:Goods.Gem	COST:10	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Bloodstone												TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Carnelian												TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Chalcedony												TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Chrysoprase												TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Citrine												TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Iolite												TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Jasper												TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Moonstone												TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Onyx													TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Peridot												TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Rock Crystal (Clear Quartz)									TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Sard													TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Sardonyx												TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Quartz (Rose)				OUTPUTNAME:[NAME] Quartz			TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Quartz (Smoky)				OUTPUTNAME:[NAME] Quartz			TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Quartz (Star Rose)			OUTPUTNAME:[NAME] Quartz			TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Zircon												TYPE:Goods.Gem	COST:50	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Amber													TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Amethyst												TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Chrysoberyl												TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Coral													TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Garnet (Red)				OUTPUTNAME:[NAME] Garnet			TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Garnet (Brown-Green)			OUTPUTNAME:[NAME] Garnet			TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Jade													TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Jet													TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Pearl (White)				OUTPUTNAME:[NAME] Pearl				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Pearl (Golden)				OUTPUTNAME:[NAME] Pearl				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Pearl (Pink)				OUTPUTNAME:[NAME] Pearl				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Pearl (Silver)				OUTPUTNAME:[NAME] Pearl				TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Spinel (Red)				OUTPUTNAME:[NAME] Spinel			TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Spinel (Red-Brown)			OUTPUTNAME:[NAME] Spinel			TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Spinel (Deep Green)			OUTPUTNAME:[NAME] Spinel			TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Tourmaline												TYPE:Goods.Gem	COST:100	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Alexandrite												TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Aquamarine												TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Garnet (Violet)				OUTPUTNAME:[NAME] Garnet			TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Pearl (Black)				OUTPUTNAME:[NAME] Pearl				TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Spinel (Deep Blue)			OUTPUTNAME:[NAME] Spinel			TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Topaz (Golden Yellow)			OUTPUTNAME:[NAME] Topaz				TYPE:Goods.Gem	COST:500	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Emerald												TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Opal (White)				OUTPUTNAME:[NAME] Opal				TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Opal (Black)				OUTPUTNAME:[NAME] Opal				TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Opal (Fire)					OUTPUTNAME:[NAME] Opal				TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Sapphire (Blue)				OUTPUTNAME:[NAME] Sapphire			TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Corundum (Fiery Yellow)			OUTPUTNAME:[NAME] Corundum			TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Corundum (Rich Purple)			OUTPUTNAME:[NAME] Corundum			TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Star Sapphire (Blue)			OUTPUTNAME:[NAME] Star Sapphire		TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Star Sapphire (Black)			OUTPUTNAME:[NAME] Star Sapphire		TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Ruby (Star)					OUTPUTNAME:[NAME] Ruby				TYPE:Goods.Gem	COST:1000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Emerald (Clearest Bright Green)	OUTPUTNAME:[NAME] Emerald			TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Diamond (Blue-White)			OUTPUTNAME:[NAME] Diamond			TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Diamond (Canary)				OUTPUTNAME:[NAME] Diamond			TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Diamond (Pink)				OUTPUTNAME:[NAME] Diamond			TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Diamond (Brown)				OUTPUTNAME:[NAME] Diamond			TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Diamond (Blue)				OUTPUTNAME:[NAME] Diamond			TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard
+Jacinth												TYPE:Goods.Gem	COST:5000	WT:0		SOURCEPAGE:Treasure.rtf	SORTKEY:Gem_Standard

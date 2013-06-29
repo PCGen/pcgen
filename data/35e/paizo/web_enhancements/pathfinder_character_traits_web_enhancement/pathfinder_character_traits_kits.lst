@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Tue Feb 24 21:28:17 2009 -- reformated by prettylst.pl v1.39 (build 9329)
+SOURCELONG:Pathfinder Character Traits Web Enhancement	SOURCESHORT:PCT	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-02
+
+
+STARTPACK:Rich Parents	TYPE:StartingKit	VISIBLE:NO
+FUNDS:gp	QTY:900
+
+#
+# End
+#

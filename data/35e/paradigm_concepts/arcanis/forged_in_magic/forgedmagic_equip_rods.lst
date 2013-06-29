@@ -1,0 +1,51 @@
+# CVS $Revision$ $Author$ -- Sat Apr 12 03:03:21 2008 -- reformated by prettylst.pl v1.38 (build 5580)
+SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
+#Original Entry:E. C. Smith (Maredudd), 2007; Andrew Maitland
+
+#Rods   pg.50
+# Equipment Name						Output Name				Type			Cost		Source Page
+Rod (Archaeologist's Rod)				OUTPUTNAME:[NAME]			TYPE:Magic.Rod	COST:93160	SOURCEPAGE:p.50
+Rod (Duelist's Rod)					OUTPUTNAME:[NAME]			TYPE:Magic.Rod	COST:21000	SOURCEPAGE:p.50
+Rod (Imperial Rod of Judgement)			OUTPUTNAME:[NAME]			TYPE:Magic.Rod	COST:95600	SOURCEPAGE:p.51
+
+#Block: Metamagic Rods --------------------------------------------------------------------------------
+Rod (Metamagic ~ Bind)					OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:75000	SOURCEPAGE:p.51
+Rod (Metamagic ~ Bind ~ Greater)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:170000	SOURCEPAGE:p.51
+Rod (Metamagic ~ Bind ~ Lesser)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:35000	SOURCEPAGE:p.51
+Rod (Metamagic ~ Ghost)					OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:11000	SOURCEPAGE:p.51
+Rod (Metamagic ~ Ghost ~ Greater)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:24500	SOURCEPAGE:p.51
+Rod (Metamagic ~ Ghost ~ Lesser)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:3000	SOURCEPAGE:p.51
+Rod (Metamagic ~ Nurturing)				OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:11000	SOURCEPAGE:p.51
+Rod (Metamagic ~ Nurturing ~ Greater)		OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:24500	SOURCEPAGE:p.51
+Rod (Metamagic ~ Nurturing ~ Lesser)		OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:3000	SOURCEPAGE:p.51
+Rod (Metamagic ~ Postpone)				OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:32500	SOURCEPAGE:p.51
+Rod (Metamagic ~ Postpone ~ Greater)		OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:75000	SOURCEPAGE:p.51
+Rod (Metamagic ~ Postpone ~ Lesser)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:9000	SOURCEPAGE:p.51
+Rod (Metamagic ~ Postpone ~ Improved ~ Greater)	OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:170000	SOURCEPAGE:p.51
+Rod (Metamagic ~ Postpone ~ Improved ~ Lesser)	OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:35000	SOURCEPAGE:p.51
+Rod (Metamagic ~ Postpone ~ Improved)		OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:54000	SOURCEPAGE:p.51
+Rod (Metamagic ~ Rapid Summoning)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:11000	SOURCEPAGE:p.51
+Rod (Metamagic ~ Rapid Summoning ~ Greater)	OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:24500	SOURCEPAGE:p.51
+Rod (Metamagic ~ Rapid Summoning ~ Lesser)	OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:3000	SOURCEPAGE:p.51
+Rod (Metamagic ~ Ready)					OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:32500	SOURCEPAGE:p.52
+Rod (Metamagic ~ Ready ~ Greater)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:73000	SOURCEPAGE:p.52
+Rod (Metamagic ~ Ready ~ Lesser)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:9000	SOURCEPAGE:p.52
+Rod (Metamagic ~ Ready ~ Improved)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:75000	SOURCEPAGE:p.52
+Rod (Metamagic ~ Ready ~ Improved ~ Greater)	OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:170000	SOURCEPAGE:p.52
+Rod (Metamagic ~ Ready ~ Improved ~ Lesser)	OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:35000	SOURCEPAGE:p.52
+Rod (Metamagic ~ Reduce)				OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:32500	SOURCEPAGE:p.52
+Rod (Metamagic ~ Reduce ~ Greater)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:73000	SOURCEPAGE:p.52
+Rod (Metamagic ~ Reduce ~ Lesser)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:9000	SOURCEPAGE:p.52
+Rod (Metamagic ~ Rending)				OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:11000	SOURCEPAGE:p.52
+Rod (Metamagic ~ Rending ~ Greater)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:24500	SOURCEPAGE:p.52
+Rod (Metamagic ~ Rending ~ Lesser)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:3000	SOURCEPAGE:p.52
+Rod (Metamagic ~ Soften)				OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:11000	SOURCEPAGE:p.52
+Rod (Metamagic ~ Soften ~ Greater)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:24500	SOURCEPAGE:p.52
+Rod (Metamagic ~ Soften ~ Lesser)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:3000	SOURCEPAGE:p.52
+Rod (Metamagic ~ Suspend)				OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:54000	SOURCEPAGE:p.52
+Rod (Metamagic ~ Suspend ~ Greater)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:121500	SOURCEPAGE:p.52
+Rod (Metamagic ~ Suspend ~ Lesser)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:14000	SOURCEPAGE:p.52
+Rod (Nawal's Rod of Chieftainship)			OUTPUTNAME:Rod of [NAME]	TYPE:Magic.Rod	COST:63400	SOURCEPAGE:p.52
+Rod (Rod of the Reaper)					OUTPUTNAME:[NAME]			TYPE:Magic.Rod	COST:114960	SOURCEPAGE:p.53
+Rod (Rod of the Sky Kings)				OUTPUTNAME:[NAME]			TYPE:Magic.Rod	COST:93500	SOURCEPAGE:p.53
+#EOF

@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Legends of the Ancients - Carthage	SOURCESHORT:Carthage	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=99	SOURCEDATE:2005-01
+
+# Spell Name	Classes of caster	School		Components			Casting Time	Range		Target Area or Effect			Duration			Save Info					Spell Resistance		Cost		XP Cost	Source Page
+Blood Curse		CLASSES:Cleric=9	SCHOOL:Necromancy	COMPS:V, S, DF, XP	CASTTIME:1 week	RANGE:Touch	TARGETAREA:(CASTERLEVEL+1) sq miles	DURATION:Permanent	SAVEINFO:None				SPELLRES:No					XPCOST:1000	SOURCEPAGE:p.10
+Blood Oath		CLASSES:Cleric=5	SCHOOL:Evocation	COMPS:V, S, M, DF, XP	CASTTIME:1 day									DURATION:Permanent	SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	COST:5000	XPCOST:500	SOURCEPAGE:p.9

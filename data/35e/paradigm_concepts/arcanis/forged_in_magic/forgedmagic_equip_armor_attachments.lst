@@ -1,0 +1,27 @@
+# CVS $Revision$ $Author$ -- Sat Apr 12 03:03:21 2008 -- reformated by prettylst.pl v1.38 (build 5580)
+SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
+#Original Entry:E. C. Smith (Maredudd), 2007; Andrew Maitland
+
+###Block: Armor Attachments -----------------------------------------------------------------------
+# Equipment Name				Type					Cost		Source Page		Virtual Feat					Damage Reduction	Save checks bonus			Add to base move			Bonus to skill							Modify VAR				Special Property
+Altherian Horseman's Tabard		TYPE:ArmorAttachment.Specific	COST:24000	SOURCEPAGE:p.12	VFEAT:Mounted Combat|Spirited Charge																												SPROP:Use Mounted Combat twice a round, Gain Benefits from the Spirited Charge Feat while mounted
+Beltine's Blessed Relief		TYPE:ArmorAttachment.Specific	COST:20000	SOURCEPAGE:p.12																																			SPROP:Soul and Body preserved till raised; cannot become undead
+Blessing of Neroth			TYPE:ArmorAttachment.Specific	COST:75000	SOURCEPAGE:p.12																																			SPROP:Become Undead in Type, gaining immunities and vulnerabilities
+Centurion's Pin				TYPE:ArmorAttachment.Specific	COST:50000	SOURCEPAGE:p.12																																			SPROP:Permanent magic circle against evil
+Cuirass of the Hussar			TYPE:ArmorAttachment.Specific	COST:4660	SOURCEPAGE:p.12																																			SPROP:Allows rider and mount to Jump as the spell 3/day [6th level] and +10 insight bonus to it's speed for 1 minute
+Defender of the Woodlands Tabard	TYPE:ArmorAttachment.Specific	COST:63300	SOURCEPAGE:p.12																														BONUS:VAR|TurnUndeadTimes|2	SPROP:Empower one spell 1/day, +4 enhancement bonus to Wisdom; druids may wild shape 1 additional time, clerics may make two additional turn attempts
+Dolphin Tabard				TYPE:ArmorAttachment.Specific	COST:16500	SOURCEPAGE:p.13																BONUS:MOVEADD|TYPE.Swim|20															SPROP:Breath water, Swim of 20
+Legionnaire's Pin				TYPE:ArmorAttachment.Specific	COST:9000	SOURCEPAGE:p.13																																			SPROP:Permanent protection from evil spell
+Legionnaire's Plume			TYPE:ArmorAttachment.Specific	COST:16000	SOURCEPAGE:p.13											BONUS:CHECKS|ALL|4|TYPE=Luck																				SPROP:+4 luck bonus to saving throws and other checks made to resist fear effects.
+Nier's Hart					TYPE:ArmorAttachment.Specific	COST:25500	SOURCEPAGE:p.13																																			SPROP:Fire resistance 10 to fire, haste [free action] for five rounds each day
+Pin of Sarish's Might			TYPE:ArmorAttachment.Specific	COST:15000	SOURCEPAGE:p.13																																			SPROP:Infernal must make DC 23 Will save or be unable touch or attack wearer.
+Plume of Righteous Victory		TYPE:ArmorAttachment.Specific	COST:22000	SOURCEPAGE:p.13																																			SPROP:1/day message; telepathic bond [9th level] 1/day
+Radiance of Illiir			TYPE:ArmorAttachment.Specific	COST:22500	SOURCEPAGE:p.14																																			SPROP:Anyone attempting to lie to the wearer must make DC 20 Will, or be unable to lie for one hour
+Sea Tabard					TYPE:ArmorAttachment.Specific	COST:30600	SOURCEPAGE:p.14																																			SPROP:Command sea creatures as dominate monster spell [17th level] 1/day. Water walk 1/day
+Surcoat of the Eldritch Defender	TYPE:ArmorAttachment.Specific	COST:30100	SOURCEPAGE:p.14																																			SPROP:If you have the Battlemage ability of a spellblade you can make any weapon you wield into a +1 defending weapon. Gain a Deflection AC for 1 minute equal to Spell level cast into surcoat x1.5 (round down)
+Tabard of the Reluctant Warrior	TYPE:ArmorAttachment.Specific	COST:50000	SOURCEPAGE:p.14																																			SPROP:Gain +2 sacred bonus to AC, to hit and to damage for duration of encounter [in defense of those unable to defend themselves]
+Tabard of Tenacity			TYPE:ArmorAttachment.Specific	COST:65000	SOURCEPAGE:p.14								DR:3/-																										SPROP:Damage reduction 3/-, 50% chance to negate a critical hit or sneak attack.
+Tabard of Stealth				TYPE:ArmorAttachment.Specific	COST:39500	SOURCEPAGE:p.14																					BONUS:SKILL|Hide,Move Silently|10|TYPE=Competence						SPROP:+10 competence bonus to all Hide and Move Silently checks. Activate Silent Invisibility 3/day for 30 minute duration each time.
+#
+##EOF
+#

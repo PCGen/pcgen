@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Shadows of Shinobi	SOURCESHORT:SoS	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja	SOURCEDATE:2005-01
+
+#CREATED BY: Paul W. King, Jan 2007
+#EDITED BY: Paul W. King, Jan 2007
+
+# Weapon Name	Type
+Bo Shuriken		TYPE:Exotic
+Tsubute		TYPE:Exotic
+
+Futokoro Teppo	TYPE:Exotic
+Uchi Ne		TYPE:Exotic
+
+Ninja To		TYPE:Exotic
+
+Bakuhatsugama	TYPE:Exotic
+Hyakurai Ju		TYPE:Exotic
+Kusarigama		TYPE:Exotic
+
+#
+# End
+#

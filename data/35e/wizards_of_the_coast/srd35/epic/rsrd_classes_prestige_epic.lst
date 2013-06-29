@@ -1,0 +1,81 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+# Author: Andargor <andargor@yahoo.com>
+
+# Class Name		Max Level
+CLASS:Arcane Archer.MOD	MAXLEVEL:NOLIMIT
+14:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Arcane Archer Feat|1
+
+
+# Class Name			Max Level
+CLASS:Arcane Trickster.MOD	MAXLEVEL:NOLIMIT
+11:REPEATLEVEL:1									ADD:SPELLCASTER|Arcane
+14:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Arcane Trickster Feat|1
+
+
+# Class Name		Max Level
+CLASS:Assassin.MOD	MAXLEVEL:NOLIMIT
+11										BONUS:VAR|DeathAttack|(-1*(floor((CL-10)/2)))
+14:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Assassin Feat|1
+
+
+# Class Name		Max Level
+CLASS:Blackguard.MOD	MAXLEVEL:NOLIMIT
+13:REPEATLEVEL:3	BONUS:ABILITYPOOL|Epic Blackguard Feat|1
+
+# Epic Skill Focus (Knowledge (Arcana)) doesn't work
+
+# Class Name			Max Level
+CLASS:Dragon Disciple.MOD	MAXLEVEL:NOLIMIT
+13											BONUS:COMBAT|AC|EpicDDNA|TYPE=NaturalArmor.STACK	BONUS:VAR|EpicDDNA|floor((CL-10)/3)								DEFINE:EpicDDNA|0
+13																				BONUS:VAR|BreathWeaponDice|EpicDDBW	BONUS:VAR|EpicDDBW|2*floor((CL-9)/4)	DEFINE:EpicDDBW|0
+14:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Dragon Disciple Feat|1
+
+
+# Class Name	Max Level
+CLASS:Duelist.MOD	MAXLEVEL:NOLIMIT
+13:REPEATLEVEL:3	BONUS:ABILITYPOOL|Epic Duelist Feat|1
+
+
+# Class Name			Max Level
+CLASS:Dwarven Defender.MOD	MAXLEVEL:NOLIMIT
+15:REPEATLEVEL:5	BONUS:ABILITYPOOL|Epic Dwarven Defender Feat|1
+
+
+# Class Name			Max Level
+CLASS:Eldritch Knight.MOD	MAXLEVEL:NOLIMIT
+11:REPEATLEVEL:1									ADD:SPELLCASTER|Arcane
+14:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Eldritch Knight Feat|1
+
+
+# Class Name			Max Level
+CLASS:Horizon Walker.MOD	MAXLEVEL:NOLIMIT
+11:REPEATLEVEL:1	BONUS:ABILITYPOOL|Improved Terrain Mastery|1
+14:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Horizon Walker Feat|1
+
+
+# Class Name		Max Level
+CLASS:Loremaster.MOD	MAXLEVEL:NOLIMIT
+11:REPEATLEVEL:1								ADD:SPELLCASTER|ANY
+13:REPEATLEVEL:3	BONUS:ABILITYPOOL|Epic Loremaster Feat|1
+
+
+# Class Name			Max Level
+CLASS:Mystic Theurge.MOD	MAXLEVEL:NOLIMIT
+11:REPEATLEVEL:2									ADD:SPELLCASTER|Arcane
+12:REPEATLEVEL:2									ADD:SPELLCASTER|Divine
+16:REPEATLEVEL:6	BONUS:ABILITYPOOL|Epic Mystic Theurge Feat|1
+
+
+# Class Name		Max Level
+CLASS:Shadowdancer.MOD	MAXLEVEL:NOLIMIT
+11											BONUS:VAR|ShadowJumpProgression|1+(EpicShadowJump>5280)+((EpicShadowJump/5280)>92955778.5)	BONUS:VAR|EpicShadowJump|(2^floor((var("CL=Shadowdancer")-2)/2))*10
+13:REPEATLEVEL:3	BONUS:ABILITYPOOL|Epic Shadowdancer Feat|1
+
+#  Reference for Epic Shadow Jump formula
+#  1 Mile = 5280 ft
+#  1 AU = 149,597,870.691 kl or 92955778.50913738 miles
+
+#
+# End
+#

@@ -1,0 +1,167 @@
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:38:33 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+# Author: Andargor <andargor@yahoo.com>
+
+# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
+CLASS:Agent Retriever	HD:6		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Agr		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
+# Class Name		Required AL		Required Feat	Required Lvl	Required Skill
+CLASS:Agent Retriever	PREALIGN:LG,LN,LE	PREFEAT:1,Track	PRELEVEL:MIN=20	PRESKILL:2,Knowledge (The Planes)=15,Gather Information=24
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Agent Retriever	STARTSKILLPTS:6	CSKILL:Appraise|Decipher Script|Diplomacy|Forgery|Gather Information|Knowledge (Arcana)|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (The Planes)|Listen|Search|Spot|Survival
+1:REPEATLEVEL:1																		ADD:SPELLCASTER|ANY
+1										BONUS:VAR|ARTracking|10*ceil(CL/5)	DEFINE:ARTracking|0					ABILITY:Special Ability|AUTOMATIC|Agent Retriever Tracking Bonus|Uncanny Location
+2																																						SPELLS:Class|TIMES=((var("CL=Agent Retriever")+3)/5)|CASTERLEVEL=14|Plane Shift,17+CHA
+3										BONUS:VAR|ForceSphereTimes|(CL+2)/5									ABILITY:Special Ability|AUTOMATIC|Force Sphere
+4																																						SPELLS:Class|TIMES=((var("CL=Agent Retriever")+1)/5)|CASTERLEVEL=14|Ethereal Jaunt,17+CHA
+5:REPEATLEVEL:5	BONUS:ABILITYPOOL|Agent Retriever Feat|1
+
+# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
+CLASS:Cosmic Descryer	HD:4		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Cde		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
+# Class Name		Required Feat							Required Lvl	Required Skill					Req. Known Spell
+CLASS:Cosmic Descryer	PREFEAT:2,Spell Focus (Conjuration),Energy Resistance	PRELEVEL:MIN=20	PRESKILL:1,Knowledge (The Planes)=24	PRESPELL:1,Gate	PRESPELL:1,Planar Ally,Planar Ally (Lesser),Planar Ally (Greater),Planar Binding,Planar Binding (Lesser),Planar Binding (Greater)
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Cosmic Descryer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Diplomacy|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|Sense Motive|Spellcraft|TYPE=Craft|TYPE=Profession
+1										BONUS:VAR|SuperiorSummoning|4*ceil(CL/4)						ABILITY:Special Ability|AUTOMATIC|Superior Planar Summoning
+2																						ABILITY:Special Ability|AUTOMATIC|Naturalization
+2:REPEATLEVEL:2								BONUS:VAR|CSNaturalization|1				ADD:SPELLCASTER|ANY
+3										BONUS:VAR|EnduringGate|floor(CL/3)							ABILITY:Special Ability|AUTOMATIC|Enduring Gate
+5:REPEATLEVEL:5	BONUS:ABILITYPOOL|Cosmic Descryer Feat|1
+7										BONUS:VAR|CosmicConnection|floor((CL-2)/5)					ABILITY:Special Ability|AUTOMATIC|Cosmic Connection
+
+# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
+CLASS:Divine Emissary	HD:10		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Die		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
+# Class Name		Req. Att.	Required Feat					Required Lvl	Required Skill
+CLASS:Divine Emissary	PREATT:23	PREFEAT:2,Weapon Focus,Great Smiting	PRELEVEL:MIN=20	PRESKILL:1,Knowledge (Religion)=10
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Divine Emissary	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Disguise|Gather Information|Heal|Intimidate|Knowledge (Religion)|Search|Sense Motive|Spellcraft|Spot|TYPE=Craft|TYPE=Profession|Use Magic Device
+1:REPEATLEVEL:1																																																												ADD:SPELLCASTER|ANY
+1										BONUS:DOMAIN|NUMBER|1	BONUS:VAR|DEDivineInspiration|ceil(CL/3)																																														ABILITY:Special Ability|AUTOMATIC|Divine Inspiration
+2														BONUS:VAR|SmiteGood|DESmite|PREABILITY:1,CATEGORY=Special Ability,Smite Good	BONUS:VAR|SmiteEvil|DESmite|PREABILITY:1,CATEGORY=Special Ability,Smite Evil	BONUS:VAR|SmiteAnyTimes|DESmite|PREABILITY:1,CATEGORY=Special Ability,Smite	BONUS:VAR|DESmite|((CL+1)/3)+1	DEFINE:DESmite|0
+3																																																																											SPELLS:Class|TIMES=(CL+7)/10|CASTERLEVEL=TL|Planar Ally (Greater),18+WIS
+6:REPEATLEVEL:10	BONUS:ABILITYPOOL|Divine Emissary Feat|1
+9														BONUS:VAR|DEDivineHand|floor((CL+1)/10)																																														ABILITY:Special Ability|AUTOMATIC|Divine Hand
+
+# Class Name		Hit Dice	Type				Class Type			Abbreviation	Max Level		Source Page					Save checks bonus
+CLASS:Epic Infiltrator	HD:6		TYPE:Prestige.Epic.PC	CLASSTYPE:Prestige	ABB:Ein		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
+# Class Name		Required AL				Required Feat			Required Lvl	Required Skill
+CLASS:Epic Infiltrator	PREALIGN:LG,LN,LE,NG,TN,NE	PREFEAT:2,Alertness,Polyglot	PRELEVEL:MIN=20	PRESKILL:4,Diplomacy=10,Spot=10,Bluff=24,Disguise=24
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Epic Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Sense Motive|Sleight of Hand|Spot|TYPE=Craft|TYPE=Profession
+1												BONUS:VAR|EICover|(2+ceil(CL/4))	BONUS:VAR|SneakAttackDice|ceil(CL/3)	ABILITY:Special Ability|AUTOMATIC|Improved Cover Identity|Sneak Attack
+2:REPEATLEVEL:3	BONUS:ABILITYPOOL|Infiltrator Specialist Training|1
+3												BONUS:VAR|EIReadThoughts|((CL+1)/4)								ABILITY:Special Ability|AUTOMATIC|Read Thoughts					SPELLS:Class|TIMES=((var("CL=Epic Infiltrator")+5)/8)|CASTERLEVEL=15|Mind Blank,18+INT
+4												BONUS:VAR|EIFarSenses|((CL+1)/4)	BONUS:VAR|FarSensesRange|20*(CL+1)		ABILITY:Special Ability|AUTOMATIC|Far Senses
+# Epic Trapfinding does not exist
+
+
+# Class Name			Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
+CLASS:Guardian Paramount	HD:10		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Gpa		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
+# Class Name			Required Ability								Req. Att.	Required Feat											Required Lvl	Required Skill
+CLASS:Guardian Paramount	PREABILITY:2,CATEGORY=Special Ability,Evasion,Uncanny Dodge	PREATT:15	PREFEAT:4,Alertness,Lightning Reflexes,Blinding Speed,Superior Initiative	PRELEVEL:MIN=20	PRESKILL:1,Spot=13
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Guardian Paramount	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Intimidate|Jump|Listen|Spot|TYPE=Profession
+1			BONUS:ABILITYPOOL|Guardian Paramount Feat|1	BONUS:VAR|GPEnabler|(2+ceil(CL/3))		ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge Enabler
+2											BONUS:VAR|GPPreceptor|floor((CL+1)/3)	ABILITY:Special Ability|AUTOMATIC|Evasive Preceptor
+3											BONUS:VAR|GPAura|CL/3				ABILITY:Special Ability|AUTOMATIC|Protective Aura ~ Guardian Paramount
+4:REPEATLEVEL:3	BONUS:ABILITYPOOL|Guardian Paramount Feat|1
+5											BONUS:VAR|GPProbability|1+floor((CL+1)/3)	ABILITY:Special Ability|AUTOMATIC|Adjust Probability
+6											BONUS:VAR|GPCallBack|CL/6			ABILITY:Special Ability|AUTOMATIC|Call Back
+
+
+# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
+CLASS:High Proselytizer	HD:8		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Hig		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
+# Class Name		Required Feat					Required Lvl	Multiple Requirements													Req. Spell Type
+CLASS:High Proselytizer	PREFEAT:2,Leadership,Epic Leadership	PRELEVEL:MIN=20	PREMULT:2,[PRESKILL:1,Knowledge (Religion)=24,Knowledge (Nature)=24],[PRESKILL:1,Diplomacy=12]	PRESPELLTYPE:1,Divine=5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:High Proselytizer	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Sense Motive|Spellcraft|TYPE=Craft|TYPE=Profession
+1											BONUS:VAR|HPProsetilyze|ceil(CL/10)					ABILITY:Special Ability|AUTOMATIC|Proselytize
+2:REPEATLEVEL:2															ADD:SPELLCASTER|Divine
+2																													SPELLS:Class|TIMES=((var("CL=High Proselytizer")+2)/4)|CASTERLEVEL=(TL)|Heal,16+WIS
+3											BONUS:VAR|HPProsetilyzeDT|(CL+7)/10					ABILITY:Special Ability|AUTOMATIC|Deific Touch
+4:REPEATLEVEL:4	BONUS:ABILITYPOOL|High Proselytizer Feat|1
+5											BONUS:VAR|HPProsetilyzeDW|(CL+5)/10					ABILITY:Special Ability|AUTOMATIC|Deific Word
+7											BONUS:VAR|HPProsetilyzeDF|(CL+3)/10					ABILITY:Special Ability|AUTOMATIC|Deific Face
+9											BONUS:VAR|HPProsetilyzeDA|(CL+1)/10					ABILITY:Special Ability|AUTOMATIC|Deific Aura
+
+
+# Class Name			Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
+CLASS:Legendary Dreadnought	HD:12		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Dre		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
+# Class Name			Required Feat											Required Lvl	Required Skill			Var. Min. Value
+CLASS:Legendary Dreadnought	PREFEAT:4,Combat Reflexes,Great Cleave,Improved Bull Rush,Improved Critical	PRELEVEL:MIN=20	PRESKILL:1,Intimidate=15	PREVARGTEQ:BAB+var("BONUS.COMBAT.TOHIT.Epic"),23
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Legendary Dreadnought	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim|TYPE=Craft
+1													BONUS:VAR|LDUnstoppable|ceil(CL/5)		ABILITY:Special Ability|AUTOMATIC|Unstoppable
+2													BONUS:VAR|LDUnmovable|(CL+3)/5		ABILITY:Special Ability|AUTOMATIC|Unmovable
+3													BONUS:VAR|LDShrugOff|12*floor((CL+2)/5)	ABILITY:Special Ability|AUTOMATIC|Shrug Off Punishment
+4			DR:3/-									BONUS:VAR|ThickSkinnedDR|3*((CL+1)/5-1)	ABILITY:Special Ability|AUTOMATIC|Thick Skinned
+5:REPEATLEVEL:5			BONUS:ABILITYPOOL|Legendary Dreadnought Feat|1
+
+
+# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
+CLASS:Perfect Wight	HD:6		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Pwi		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
+# Class Name		Required Feat			Required Lvl	Required Skill				Var. Min. Value
+CLASS:Perfect Wight	PREFEAT:1,Self Concealment	PRELEVEL:MIN=20	PRESKILL:2,Hide=24,Move Silently=24	PREVARGTEQ:SneakAttackDice,10
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Perfect Wight	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|Search|Spot|Survival|TYPE=Craft|Tumble|Use Rope
+1																											SPELLS:Class|TIMES=ceil(var("CL=Perfect Wight")/5)|CASTERLEVEL=15|Invisibility (Greater),14+CHA
+2										BONUS:VAR|PWLengerdemain|(CL+3)/5	ABILITY:Special Ability|AUTOMATIC|Improved Legerdemain
+3										BONUS:VAR|PWIncorporeal|(CL+2)/5	ABILITY:Special Ability|AUTOMATIC|Incorporeal ~ Perfect Wight
+4										BONUS:VAR|PWShadowForm|(CL+1)/5	ABILITY:Special Ability|AUTOMATIC|Shadow Form
+5:REPEATLEVEL:5	BONUS:ABILITYPOOL|Perfect Wight Feat|1
+
+
+# Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Save checks bonus
+CLASS:Union Sentinel	HD:10		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Sen		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	BONUS:CHECKS|Fortitude,Reflex,Will|CL/3
+# Class Name		Required AL		Req. Att.	Required Feat						Required Lvl	Required Skill
+CLASS:Union Sentinel	PREALIGN:LG,LN,LE	PREATT:21	PREFEAT:3,Alertness,Improved Disarm,Armor Skin	PRELEVEL:MIN=20	PRESKILL:2,Diplomacy=8,Knowledge (Local)=8
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Union Sentinel	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Intimidate|Knowledge (Local)|Listen|Search|Sense Motive|Spot|TYPE=Profession
+1																SPELLS:Class|TIMES=(ceil(var("CL=Union Sentinel")/7))|CASTERLEVEL=15|Sending,15+CHA	SPELLS:Class|TIMES=(ceil(var("CL=Union Sentinel")/3))|CASTERLEVEL=15|Shield of Law,18+CHA
+2																SPELLS:Class|TIMES=((var("CL=Union Sentinel")+4)/6)|CASTERLEVEL=18|Freedom,19+CHA	SPELLS:Class|TIMES=((var("CL=Union Sentinel")+2)/4)|CASTERLEVEL=15|Knock,12+CHA
+3																SPELLS:Class|TIMES=(var("CL=Union Sentinel")/3)|CASTERLEVEL=15|Dimensional Anchor,14+CHA
+4	BONUS:VAR|USPortalGuardian|(CL+2)/6	ABILITY:Special Ability|AUTOMATIC|Portal Guardian
+5																SPELLS:Class|TIMES=(var("CL=Union Sentinel")/5)|CASTERLEVEL=20|Forcecage,17+CHA
+7	BONUS:VAR|USImprisonment|(CL-2)/5	ABILITY:Special Ability|AUTOMATIC|Imprisonment
+
+
+###Block: Support for Epic Spellcasting
+
+# Class Name				Hit Dice	Type			Abbreviation	Visible
+CLASS:Epic Spells (Arcane/INT)	HD:1		TYPE:EpicSpells	ABB:Epic Spells	VISIBLE:NO
+# Class Name				Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level
+CLASS:Epic Spells (Arcane/INT)	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Epic Spells (Arcane/INT)|TL
+1	CAST:0,0,0,0,0,0,0,0,0,0,1
+
+# Class Name				Hit Dice	Type			Abbreviation	Visible
+CLASS:Epic Spells (Arcane/WIS)	HD:1		TYPE:EpicSpells	ABB:Epic Spells	VISIBLE:NO
+# Class Name				Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level
+CLASS:Epic Spells (Arcane/WIS)	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Epic Spells (Arcane/WIS)|TL
+1	CAST:0,0,0,0,0,0,0,0,0,0,1
+
+# Class Name				Hit Dice	Type			Abbreviation	Visible
+CLASS:Epic Spells (Arcane/CHA)	HD:1		TYPE:EpicSpells	ABB:Epic Spells	VISIBLE:NO
+# Class Name				Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level
+CLASS:Epic Spells (Arcane/CHA)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Epic Spells (Arcane/CHA)|TL
+1	CAST:0,0,0,0,0,0,0,0,0,0,1
+
+# Class Name				Hit Dice	Type			Abbreviation	Visible
+CLASS:Epic Spells (Divine/INT)	HD:1		TYPE:EpicSpells	ABB:Epic Spells	VISIBLE:NO
+# Class Name				Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level
+CLASS:Epic Spells (Divine/INT)	SPELLSTAT:INT	BONUSSPELLSTAT:NONE	SPELLTYPE:Divine	SPELLBOOK:YES	BONUS:CASTERLEVEL|Epic Spells (Divine/INT)|TL
+1	CAST:0,0,0,0,0,0,0,0,0,0,1
+
+# Class Name				Hit Dice	Type			Abbreviation	Visible
+CLASS:Epic Spells (Divine/WIS)	HD:1		TYPE:EpicSpells	ABB:Epic Spells	VISIBLE:NO
+# Class Name				Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level
+CLASS:Epic Spells (Divine/WIS)	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Divine	SPELLBOOK:YES	BONUS:CASTERLEVEL|Epic Spells (Divine/WIS)|TL
+1	CAST:0,0,0,0,0,0,0,0,0,0,1
+
+# Class Name				Hit Dice	Type			Abbreviation	Visible
+CLASS:Epic Spells (Divine/CHA)	HD:1		TYPE:EpicSpells	ABB:Epic Spells	VISIBLE:NO
+# Class Name				Spell Stat		Stat for Bonus Spells	Spell Type		Spellbook		Caster level
+CLASS:Epic Spells (Divine/CHA)	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Divine	SPELLBOOK:YES	BONUS:CASTERLEVEL|Epic Spells (Divine/CHA)|TL
+1	CAST:0,0,0,0,0,0,0,0,0,0,1
+
+#
+# End
+#

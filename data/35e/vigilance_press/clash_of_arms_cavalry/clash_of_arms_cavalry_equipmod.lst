@@ -1,0 +1,19 @@
+# CVS $Revision$ $Author$ -- Thu Jan 10 23:56:26 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Clash of Arms - Cavalry	SOURCESHORT:CoA-C	SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21487&	SOURCEDATE:2007-03
+
+#CREATED BY: Paul W. King, Mar 2007, EDITED BY: Paul W. King, Mar 2007, UPDATED BY: Eddy Anthony, Jan 2008
+
+# Modifier Name			Unique Key			Naming Option			Type		Cost				Visible		Type granted		Source Page		Required Type				Prohibited Type
+Mount Quality (Bag of Bones)	KEY:MOUNT_BAG_OF_BONES	NAMEOPT:TEXT=Bag of Bones	TYPE:Mount	COST:-(.8*BASECOST)	VISIBLE:QUALIFY	ITYPE:MountQuality	SOURCEPAGE:p.8	PRETYPE:2,Mount,Transportation	!PRETYPE:1,MountQuality
+Mount Quality (Old Nag)		KEY:MOUNT_OLD_NAG		NAMEOPT:TEXT=Old Nag		TYPE:Mount	COST:-(.6*BASECOST)	VISIBLE:QUALIFY	ITYPE:MountQuality	SOURCEPAGE:p.8	PRETYPE:2,Mount,Transportation	!PRETYPE:1,MountQuality
+Mount Quality (Nag)		KEY:MOUNT_NAG		NAMEOPT:TEXT=Nag			TYPE:Mount	COST:-(.4*BASECOST)	VISIBLE:QUALIFY	ITYPE:MountQuality	SOURCEPAGE:p.8	PRETYPE:2,Mount,Transportation	!PRETYPE:1,MountQuality
+Mount Quality (Flighty)		KEY:MOUNT_FLIGHTY		NAMEOPT:TEXT=Flighty		TYPE:Mount	COST:-(.2*BASECOST)	VISIBLE:QUALIFY	ITYPE:MountQuality	SOURCEPAGE:p.8	PRETYPE:2,Mount,Transportation	!PRETYPE:1,MountQuality
+Mount Quality (Racer)		KEY:MOUNT_RACER		NAMEOPT:TEXT=Racer		TYPE:Mount	COST:.5*BASECOST		VISIBLE:QUALIFY	ITYPE:MountQuality	SOURCEPAGE:p.8	PRETYPE:2,Mount,Transportation	!PRETYPE:1,MountQuality
+Mount Quality (Charger)		KEY:MOUNT_CHARGER		NAMEOPT:TEXT=Charger		TYPE:Mount	COST:BASECOST		VISIBLE:QUALIFY	ITYPE:MountQuality	SOURCEPAGE:p.8	PRETYPE:2,Mount,Transportation	!PRETYPE:1,MountQuality
+Mount Quality (Courser)		KEY:MOUNT_COURSER		NAMEOPT:TEXT=Courser		TYPE:Mount	COST:1.5*BASECOST		VISIBLE:QUALIFY	ITYPE:MountQuality	SOURCEPAGE:p.8	PRETYPE:2,Mount,Transportation	!PRETYPE:1,MountQuality
+Mount Quality (Steed)		KEY:MOUNT_STEED		NAMEOPT:TEXT=Steed		TYPE:Mount	COST:4*BASECOST		VISIBLE:QUALIFY	ITYPE:MountQuality	SOURCEPAGE:p.8	PRETYPE:2,Mount,Transportation	!PRETYPE:1,MountQuality
+Mount Quality (Noble Steed)	KEY:MOUNT_NOBLE_STEED	NAMEOPT:TEXT=Noble Steed	TYPE:Mount	COST:9*BASECOST		VISIBLE:QUALIFY	ITYPE:MountQuality	SOURCEPAGE:p.8	PRETYPE:2,Mount,Transportation	!PRETYPE:1,MountQuality
+
+#
+# End
+#

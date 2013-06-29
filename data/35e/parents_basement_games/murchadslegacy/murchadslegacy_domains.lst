@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Tue Nov 11 16:25:26 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
+#Original Entry: Eddy Anthony (MoSaT)
+
+# Domain Name	Bonus to skill				Source Page		Description									List of Domain Spells by Level
+Restoration		BONUS:SKILL|Heal|2|TYPE=Divine	SOURCEPAGE:p.41	DESC:You gain +2 divine bonus to all Heal skill checks.	SPELLLEVEL:DOMAIN|Restoration=1|Obscuring Mist|Restoration=2|Deathwatch|Restoration=3|Restoration (Lesser)|Restoration=4|Remove Blindness/Deafness|Restoration=5|Restoration|Restoration=6|Stone to Flesh|Restoration=7|Restoration (Greater)|Restoration=8|Holy Aura|Restoration=9|True Resurrection
+Light									SOURCEPAGE:p.41	DESC:You may cast Light three times per day.			SPELLLEVEL:DOMAIN|Light=1|Hide from Undead|Light=2|Consecrate|Light=3|Daylight|Light=4|Dismissal|Light=5|Hallow|Light=6|Forbiddance|Light=7|Sunbeam|Light=8|Power Word Blind|Light=9|Imbue With Positive Energy
+
+#
+# End
+#

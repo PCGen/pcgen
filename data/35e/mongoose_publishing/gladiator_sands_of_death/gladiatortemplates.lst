@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death	SOURCESHORT:Gladiators	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
+#This doesn't seem to work, so I'm commenting it out.
+
+# uncommenting this.  Need to develop a way for user to choose Fame for DM awards, etc.
+# There is a Feat that needs the Fame VAR for qualification.
+
+# Template Name	Define		Modify VAR
+Gladiator		DEFINE:Fame|0	BONUS:VAR|Fame|1

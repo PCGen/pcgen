@@ -1,0 +1,31 @@
+# CVS $Revision$ $Author$ -- Sun Mar 30 00:26:16 2008 -- reformated by prettylst.pl v1.38 (build 5225)
+SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
+###Original Entry: Andrew Maitland
+
+# Feat Name			Output Name			Type			Required AL		Req. Att.	Required Class				Required Feat						Prohibited Feat		Required Gender	Required Race									Prohibited Race	Required Skill						Required Stat	Required Text											Description																										Source Page
+Abyssal Smiting						TYPE:General												PREFEAT:1,Secret Teacher																						!PRERACE:1,Neiyar									PRESTAT:1,WIS=14	PRETEXT:Must have had a previous combat encounter with a demon.			DESC:You have learned the Neiyar ways of destroying demons.																		SOURCEPAGE:p.43
+Accepted Outsider						TYPE:General																																																				PRETEXT:3rd Generation outsider or lived on the island for over 100 years	DESC:You and your people have been on the island so long, you're almost considered a native.												SOURCEPAGE:p.43
+Bresha Eyes							TYPE:General																																																	PRESTAT:1,CHA=13														DESC:Your eyes can mesmerize even the coldest heart.																			SOURCEPAGE:p.43
+Divine Intervention					TYPE:Clerical						PRECLASS:1,SPELLCASTER.Divine=1	PREFEAT:1,Extra Turning																										PRESKILL:1,Knowledge (Religion)=8																			DESC:Your Patron Deity watches over you and intercedes on your behalf.																SOURCEPAGE:p.43
+Detect Supernaturals					TYPE:General																											PRERACE:1,Neiyar,Mahaulta,Amphikin,Krakodon,Half-Krakodon,Auronne				PRESKILL:1,Survival=4					PRESTAT:1,WIS=13	PRETEXT:Native race of Neiyar									DESC:You can detect the presence of supernatural creatures.																		SOURCEPAGE:p.44
+#PRERACE:1,Neiyar,Mahaulta,Amphikin,Krakodon,Half-Krakodon,Auronne
+Draconic Blood						TYPE:General																																																																	DESC:You have Krakodonian blood in you, and benefit from its strength.																SOURCEPAGE:p.44
+Dreamcaster							TYPE:Spellcaster						PRECLASS:1,SPELLCASTER.Arcane=2	PREFEAT:3,Iron Will,Silent Spell,Still Spell																														PRESTAT:1,WIS=14														DESC:You can cast certain spells even when asleep or unconscious.																	SOURCEPAGE:p.44
+Eccentric Personality					TYPE:General	PREALIGN:CG,CN,CE																	!PREFEAT:1,Creepy																																											DESC:People think you are a bit...off. You get away with things others can't because of it.												SOURCEPAGE:p.44
+Fiendish Ally						TYPE:General																																																																	DESC:You have a friend amoung the legions of hell--sort of.																		SOURCEPAGE:p.44
+Heart of the Warrior					TYPE:Fighter				PREATT:7							PREFEAT:2,Iron Will,Toughness																																	PRESTAT:1,CON=14														DESC:Your strength of will allows you to continue fighting when others have fallen.														SOURCEPAGE:p.44
+Investigator ~ Neiyar	OUTPUTNAME:Investigator	TYPE:General																				!PREFEAT:1,Gullible																		PRESKILL:2,Gather Information=5,Sense Motive=5	PRESTAT:1,WIS=14														DESC:You have a knack for getting to the bottom of a problem or solving a mystery.														SOURCEPAGE:p.45
+### COMMENT: Duplicate with SRD???? Used different key name.
+Mechanically Adept					TYPE:General																																									PRESKILL:1,TYPE.Craft=4					PRESTAT:1,INT=14														DESC:You have the ability to fix just about anything.																			SOURCEPAGE:p.45
+Memory							TYPE:General																																																	PRESTAT:1,INT=14														DESC:You are a walking library, remembering information others have long forgotten.														SOURCEPAGE:p.45
+Natural Linguist						TYPE:General																																																	PRESTAT:1,INT=14														DESC:Your grasp of language leaves others speechless																			SOURCEPAGE:p.45
+Repair Mastery						TYPE:General												PREFEAT:1,Mechanically Adept																									PRESKILL:1,Spellcraft=4																					DESC:You have an almost supernatural way of repairing even magical items.															SOURCEPAGE:p.45
+Smite Demonic Creatures					TYPE:General				PREATT:5																						PRERACE:1,Neiyar,Mahaulta,Amphikin,Krakodon,Half-Krakodon,Auronne				PRESKILL:1,Knowledge (Abyssal)=4						PRETEXT:Native race of Neiyar									DESC:Your knowledge of the enemy allows you to cause greater damage to abyssal creatures than normal.											SOURCEPAGE:p.45
+Secret Teacher						TYPE:General																								PREGENDER:1,Male	PRERACE:1,Neiyar																																				DESC:You have a mentor who is willing to ignore the constraints of Neiyar society and teach you in private.										SOURCEPAGE:p.45
+Track Talker						TYPE:General												PREFEAT:2,Expertise,Dodge																									PRESKILL:1,Bluff=4					PRESTAT:1,CHA=14														DESC:You know how to get your opponents off their game with a well-placed insult.														SOURCEPAGE:p.45
+Unique Resistance						TYPE:General												PREFEAT:1,Achilles' Heel,Vulnerability																																															DESC:Like any good superhero, you have a special resistance.																	SOURCEPAGE:p.46
+Visions							TYPE:General																																																																	DESC:You get involuntary glimpses of the future.																			SOURCEPAGE:p.46
+Wealthy							TYPE:General																																																																	DESC:Either you come from an established merchant family, or received some inheritance. Regardless, you have more starting money that the average adventurer.	SOURCEPAGE:p.46
+#
+## EOF
+#

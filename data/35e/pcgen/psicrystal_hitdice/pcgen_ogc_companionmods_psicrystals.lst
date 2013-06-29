@@ -1,0 +1,28 @@
+# CVS $Revision: 2339 $ $Author: tir-gwaith $ -- Sun Apr 29 00:15:01 2007 -- reformated by prettylst.pl v1.38 (build 2788)
+SOURCELONG:PCGen Open Gaming Content	SOURCESHORT:PCGen OGC	SOURCEWEB:../../../../docs/sourcehelp/pcgen_ogc_help.html
+
+###Block:Psicrystal
+# Class of the Master		Type			Hit Dice
+FOLLOWER:PsiCrystalLVL=2	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=3	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=4	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=5	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=6	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=7	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=8	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=9	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=10	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=11	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=12	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=13	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=14	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=15	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=16	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=17	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=18	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=19	TYPE:Psicrystal	HD:1
+FOLLOWER:PsiCrystalLVL=20	TYPE:Psicrystal	HD:1
+
+#
+# End
+#

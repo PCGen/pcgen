@@ -1,0 +1,539 @@
+This is the Master List of Issues relating to support of the Eclipse System (Point Buy Classless System). In here will be the ongoing problems and workarounds present in Eclipse. This is grabbed and updated from the file "~ eclipse master issues and workarounds.lst"
+
+
+TO DO LIST For Eclipse:
+1# Mystic Artist Needs to be expanded to cover different Stats.
+2# Split Trick into Pool/ Abilities
+3# Add BENEFIT to ALL abilities - BENEFIT will have the Shortened/Abbreviated text for Output Sheets. DESC will hold the full text.
+- Reasoning: Benefit is the default OS output; we want just the important text present for the players, it also saves space.
+
+
+
+
+
+
+
+Eclipse is a d20 point buy system, it is very flexible, and has a nice easy standardized progression.
+
+GOAL #1
+Character Class should be ONE class.
+
+Currently we have to set up Eclipse Class as several Classes to handle different HD,
+
+All Eclipse Character Classes get a d4, but may buy up to higher HD. This is per level, not across the board. No Implementation possible
+- FREQ - Variable HD per Level
+
+Would like HD:LEVEL=1|VariableLevelOne
+		HD:Eclipse=2|VariableLevelTwo
+
+Next Issue:
+Non-Class skills AKA - irrelevant skills, after being purchased with 6 CP (i.e. buy it six times) becomes a Class or Relevant Skill.
+
+FREQ - New Tag 'SKILL Blah' 
+Workaround - CSKILL in a Virtual Feat after X ranks taken in X Skill. Messy, need something more global.
+
+SKILL has ABILITY:X|AUTOMATIC|Make CSKILL ~ SKILL NAME
+In Ability
+Make CSKILL ~ SKILL NAME has CSKILL:SKILL NAME
+
+This is sloppy on two fronts -
+#1 - Every Skill Needs this treatment, Labor Intensive
+#2 - CSKILL is a Global Tag, which grants the Listed Skill to ALL Classes as a Class Skill
+
+
+Next Issue:
+Scalable Damage 
+
+No Freq yet
+
+In Eclipse, characters may buy up Damage Die, 1d4, 1d6, 1d8, 1d10, 1d12, 2d10 or 1d20.
+I'm only able to handle part of this using Special OS Blocks designed with Variable - See Martial Arts and Spirit Weapon.
+
+Can't handle standard D20 non-natural weapons currently. Workaround would follow the D&D Scale instead of the Publisher Scale
+
+Next Issue:
+Sort Abilities by specific method
+
+Publisher Requested - Sorting Abilities as they are found in the book. Most are alphabetical, but in some cases the order is very important.
+
+FREQ - SORTKEY proposal.
+
+Next Issue
+
+Need NEW Functionality added to 'count'
+Add "KEY=" to the Options. Currently "NAME=" is the best method, however, NAME is used for output in most cases and with KEY being popular -
+	You can have corner cases where you'll have two abilities with the same name.
+
+# Next Issue
+Needed Functionality for adjustable Cost
+
+FREQ - COST Improvement
+
+Reasoning - Eclipse has BASE Abilities that can be altered by either Specializing them (Specialization can either CUT the Cost by Half (1/2) OR can DOUBLE the Power of the Ability).
+ Or you may 'Corrupt' the ability [ Corruption likewise can either cut the cost by two-thirds (2/3rds) OR increase the Power of the ability by 1.5 (One Half More Powerful). 
+ In some cases the Abilities MAY Combine both effects. Specialized for Double effect and Corrupted for Increased effect, or any combo or the two, in rare cases you may have 
+ double specialization or corruption, but that is rare.
+
+ Hence, we need a method to adjust the cost. Ideally, the ability would almost be like an item customization,
+ Step 1: Choose Ability
+ Step 2: Add Specialization / Corruption Combo (Cost adjusted automatically based upon BASE cost)
+ Step 3: Apply Ability to PC, Relic or Companion.
+
+
+# Next Issue
+Grant a Companion (Familiar, Animal Companion, Special Mount, etc) abilities from the master and Vice Versa
+
+# Next Issue
+
+
+
+
+
+# How to make a Lightsaber - Relic
+Immunity to DR, (Common, Severe, Major, 9 CP  For 30 Damage Reduction Bypass), 
+1d8 Base Sword (-) (form doesn't matter much, Common Augment Attack 1d8 (8 CP), 
+total 17 CP (might call it corrupted if there is a serious risk of hurting yourself or special requirements). Thus 2-3 CP.
+
+6 =1
+12 =2
+18 =3
+
+Lightsaber - 2d8 damage (Bypasses 30 DR)
+
+
+# Next Item
+
+BUG - Issue with Web Based Sets - MODs inherently don't work if called from a Source on a Webserver vs. something Local. NEED to fix this.
+
+
+
+
+###Remove Filed:
+#Old Stuff
+
+#3. Test Skill Half	CATEGORY:Skill Buy	OUTPUTNAME:Skill Buy Adept Choice Test 2	KEY:3. Test Skill Half	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:ABILITY|Special Ability|Adept	SELECT:2	BONUS:SKILLRANK|%LIST|1		COST:1
+
+
+A1 Test Skill		KEY:A Test Skill		OUTPUTNAME:A Skill Buy Choice				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	STACK:YES	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=NormalSkill|CLASS|TYPE=Psychic			BONUS:SKILLRANK|%LIST|1
+A2 Test Skill Half	KEY:B Test Skill Half	OUTPUTNAME:A Skill Buy Adept Choice Test		CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:SKILLSNAMED|TYPE=NormalSkill|CLASS				SELECT:2	BONUS:SKILLRANK|%LIST|1	COST:1
+
+A3 Test Skill Half	KEY:C Test Skill Half	OUTPUTNAME:A Skill Buy Adept Choice Test 2	CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	STACK:YES	MULT:YES	CHOOSE:ABILITY|Special Ability|Adept				SELECT:2	BONUS:SKILLRANK|%LIST|1	COST:1
+
+
+#CHOOSE:ABILITY|FEAT|TYPE=Rogue Abilities
+#CHOOSE:SKILLSNAMED|TYPE=NormalSkill|CLASS
+
+###Block: RSRD Skills with Removed Skills
+# Ability Name					Category of Ability	Type				Multiple?	Choose		Bonus to skill rank
+Appraise						CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Appraise|1
+Bluff							CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Bluff|1
+Concentration					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Concentration|1
+Control Shape					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Control Shape|1
+Craft ~ Alchemy					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Alchemy)|1
+Craft ~ Armorsmithing				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Armorsmithing)|1
+Craft ~ Bowmaking					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Bowmaking)|1
+Craft ~ Blacksmithing				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Blacksmithing)|1
+Craft ~ Carpentry					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Carpentry)|1
+Craft ~ Leatherworking				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Leatherworking)|1
+Craft ~ Painting					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Painting)|1
+Craft ~ Pottery					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Pottery)|1
+Craft ~ Sculpting					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Sculpting)|1
+Craft ~ Shipmaking				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Shipmaking)|1
+Craft ~ Stonemasonry				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Stonemasonry)|1
+Craft ~ Trapmaking				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Trapmaking)|1
+Craft ~ Weaponsmithing				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Weaponsmithing)|1
+Craft ~ Woodworking				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Woodworking)|1
+Diplomacy						CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Diplomacy|1
+Disable Device					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Disable Device|1
+Disguise						CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Disguise|1
+Escape Artist					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Escape Artist|1
+Gather Information				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Gather Information|1
+Handle Animal					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Handle Animal|1
+Heal							CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Heal|1
+Intimidate						CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Intimidate|1
+Knowledge ~ Arcana				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Arcana)|1
+Knowledge ~ Architecture and Engineering	CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Architecture and Engineering)|1
+Knowledge ~ Dungeoneering			CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Dungeoneering)|1
+Knowledge ~ Geography				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Geography)|1
+Knowledge ~ History				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (History)|1
+Knowledge ~ Local					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Local)|1
+Knowledge ~ Nature				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Nature)|1
+Knowledge ~ Nobility and Royalty		CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Nobility and Royalty)|1
+Knowledge ~ Religion				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Religion)|1
+Knowledge ~ The Planes				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (The Planes)|1
+Literacy						CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Literacy|1
+Open Lock						CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Open Lock|1
+Perform ~ Act					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Act)|1
+Perform ~ Comedy					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Comedy)|1
+Perform ~ Dance					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Dance)|1
+Perform ~ Keyboard Instruments		CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Keyboard Instruments)|1
+Perform ~ Oratory					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Oratory)|1
+Perform ~ Percussion Instruments		CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Percussion Intruments)|1
+Perform ~ String Instruments			CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (String Instruments)|1
+Perform ~ Wind Instruments			CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Wind Instruments)|1
+Perform ~ Sing					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Sing)|1
+Profession ~ Hunter				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Profession (Hunter)|1
+Profession ~ Miner				CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Profession (Miner)|1
+Profession ~ Siege Engineer			CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Profession (Siege Engineer)|1
+Ride							CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Ride|1
+Sense Motive					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Sense Motive|1
+Sleight of Hand					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Sleight of Hand|1
+Speak Language					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Speak Language|1
+Spellcraft						CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Spellcraft|1
+Survival						CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Survival|1
+Use Magic Device					CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Use Magic Device|1
+Use Rope						CATEGORY:Skill Buy	TYPE:SkillBuy.FullCost	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Use Rope|1
+
+###Block: 1/2 Cost for Adept
+
+###Block: New Skills
+#Add Climb, Jump, Swim, Spot, Listen, Search, Decipher Script,
+# and any other missing rsrd set skills.
+
+###Block: RSRD Skills with Removed Skills
+# Ability Name					Unique Key									Category of Ability	Type				Multiple Requirements																				Multiple?	Choose		Bonus to skill rank							Cost
+Appraise						KEY:Appraise ~ Half Cost						CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Appraise)],[PREVARGTEQ:EclipseSKCostBypass,1]							MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Appraise|1						COST:.5
+Bluff							KEY:Bluff ~ Half Cost							CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Bluff)],[PREVARGTEQ:EclipseSKCostBypass,1]							MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Bluff|1							COST:.5
+Concentration					KEY:Concentration ~ Half Cost						CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Concentration)],[PREVARGTEQ:EclipseSKCostBypass,1]						MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Concentration|1					COST:.5
+Control Shape					KEY:Control Shape ~ Half Cost						CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Control Shape)],[PREVARGTEQ:EclipseSKCostBypass,1]						MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Control Shape|1					COST:.5
+Craft (Alchemy)					KEY:Craft ~ Alchemy ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Craft (Alchemy))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Alchemy)|1					COST:.5
+Craft ~ Armorsmithing				KEY:Craft ~ Armorsmithing ~ Half Cost				CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Craft (Armorsmithing))],[PREVARGTEQ:EclipseSKCostBypass,1]				MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Armorsmithing)|1				COST:.5
+Craft ~ Bowmaking					KEY:Craft ~ Bowmaking ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Craft (Bowmaking))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Bowmaking)|1					COST:.5
+Craft ~ Blacksmithing				KEY:Craft ~ Blacksmithing ~ Half Cost				CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Craft ())],[PREVARGTEQ:EclipseSKCostBypass,1]							MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Blacksmithing)|1				COST:.5
+Craft ~ Carpentry					KEY:Craft ~ Carpentry ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Craft (Carpentry))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Carpentry)|1					COST:.5
+Craft ~ Leatherworking				KEY:Craft ~ Leatherworking ~ Half Cost				CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Craft (Leatherworking))],[PREVARGTEQ:EclipseSKCostBypass,1]				MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Leatherworking)|1				COST:.5
+Craft ~ Painting					KEY:Craft ~ Painting ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Craft (Painting))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Painting)|1					COST:.5
+Craft ~ Pottery					KEY:Craft ~ Pottery ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Craft (Pottery))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Pottery)|1					COST:.5
+Craft ~ Sculpting					KEY:Craft ~ Sculpting ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Craft (Sculting))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Sculpting)|1					COST:.5
+Craft ~ Shipmaking				KEY:Craft ~ Shipmaking ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Craft (Shipmaking))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Shipmaking)|1				COST:.5
+Craft ~ Stonemasonry				KEY:Craft ~ Stonemasonry ~ Half Cost				CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Craft (Stonemasonry))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Stonemasonry)|1				COST:.5
+Craft ~ Trapmaking				KEY:Craft ~ Trapmaking ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Craft (Trapmaking))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Trapmaking)|1				COST:.5
+Craft ~ Weaponsmithing				KEY:Craft ~ Weaponsmithing ~ Half Cost				CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Craft (Weaponsmithing))],[PREVARGTEQ:EclipseSKCostBypass,1]				MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Weaponsmithing)|1				COST:.5
+Craft ~ Woodworking				KEY:Craft ~ Woodworking ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Craft (Woodworking))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Craft (Woodworking)|1				COST:.5
+Diplomacy						KEY:Diplomacy ~ Half Cost						CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Diplomacy)],[PREVARGTEQ:EclipseSKCostBypass,1]						MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Diplomacy|1						COST:.5
+Disable Device					KEY:Disable Device ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Disable Device)],[PREVARGTEQ:EclipseSKCostBypass,1]						MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Disable Device|1					COST:.5
+Disguise						KEY:Disguise ~ Half Cost						CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Disguise)],[PREVARGTEQ:EclipseSKCostBypass,1]							MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Disguise|1						COST:.5
+Escape Artist					KEY:Escape Artist ~ Half Cost						CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Escape Artist)],[PREVARGTEQ:EclipseSKCostBypass,1]						MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Escape Artist|1					COST:.5
+Gather Information				KEY:Gather Information ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Gather Information)],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Gather Information|1				COST:.5
+Handle Animal					KEY:Handle Animal ~ Half Cost						CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Handle Animal)],[PREVARGTEQ:EclipseSKCostBypass,1]						MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Handle Animal|1					COST:.5
+Heal							KEY:Heal ~ Half Cost							CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Heal)],[PREVARGTEQ:EclipseSKCostBypass,1]							MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Heal|1							COST:.5
+Intimidate						KEY:Intimidate ~ Half Cost						CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Intimidate)],[PREVARGTEQ:EclipseSKCostBypass,1]						MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Intimidate|1						COST:.5
+Knowledge ~ Arcana				KEY:Knowledge ~ Arcana ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Knowledge (Arcana))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Arcana)|1				COST:.5
+Knowledge ~ Architecture and Engineering	KEY:Knowledge ~ Architecture and Engineering ~ Half Cost	CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Knowledge (Architecture and Engineering))],[PREVARGTEQ:EclipseSKCostBypass,1]	MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Architecture and Engineering)|1	COST:.5
+Knowledge ~ Dungeoneering			KEY:Knowledge ~ Dungeoneering ~ Half Cost				CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Knowledge (Dungeoneering))],[PREVARGTEQ:EclipseSKCostBypass,1]				MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Dungeoneering)|1			COST:.5
+Knowledge ~ Geography				KEY:Knowledge ~ Geography ~ Half Cost				CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Knowledge (Geography))],[PREVARGTEQ:EclipseSKCostBypass,1]				MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Geography)|1				COST:.5
+Knowledge ~ History				KEY:Knowledge ~ History ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Knowledge (History))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (History)|1				COST:.5
+Knowledge ~ Local					KEY:Knowledge ~ Local ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Knowledge (Local))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Local)|1					COST:.5
+Knowledge ~ Nature				KEY:Knowledge ~ Nature ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Knowledge (Nature))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Nature)|1				COST:.5
+Knowledge ~ Nobility and Royalty		KEY:Knowledge ~ Nobility and Royalty ~ Half Cost		CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Knowledge (Nobility and Royalty))],[PREVARGTEQ:EclipseSKCostBypass,1]			MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Nobility and Royalty)|1		COST:.5
+Knowledge ~ Religion				KEY:Knowledge ~ Religion ~ Half Cost				CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Knowledge (Religion))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (Religon)|1				COST:.5
+Knowledge ~ The Planes				KEY:Knowledge ~ The Planes ~ Half Cost				CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Knowledge (The Planes))],[PREVARGTEQ:EclipseSKCostBypass,1]				MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Knowledge (The Planes)|1				COST:.5
+Literacy						KEY:Literacy ~ Half Cost						CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Literacy)],[PREVARGTEQ:EclipseSKCostBypass,1]							MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Literacy|1						COST:.5
+Open Lock						KEY:Open Lock ~ Half Cost						CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Open Lock)],[PREVARGTEQ:EclipseSKCostBypass,1]						MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Open Lock|1						COST:.5
+Perform ~ Act					KEY:Perform ~ Act ~ Half Cost						CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Perform (Act))],[PREVARGTEQ:EclipseSKCostBypass,1]						MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Act)|1					COST:.5
+Perform ~ Comedy					KEY:Perform ~ Comedy ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Perform (Comedy))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Comedy)|1					COST:.5
+Perform ~ Dance					KEY:Perform ~ Dance ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Perform (Dance))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Dance)|1					COST:.5
+Perform ~ Keyboard Instruments		KEY:Perform ~ Keyboard Instruments ~ Half Cost			CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Perform (Keyboard Instruments))],[PREVARGTEQ:EclipseSKCostBypass,1]			MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Keyboard Instruments)|1		COST:.5
+Perform ~ Oratory					KEY:Perform ~ Oratory ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Perform (Oratory))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Oratory)|1					COST:.5
+Perform ~ Percussion Instruments		KEY:Perform ~ Percussion Instruments ~ Half Cost		CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Perform (Percussion Instruments))],[PREVARGTEQ:EclipseSKCostBypass,1]			MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Percussion Intruments)|1		COST:.5
+Perform ~ String Instruments			KEY:Perform ~ String Instruments ~ Half Cost			CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Perform (String Instruments))],[PREVARGTEQ:EclipseSKCostBypass,1]			MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (String Instruments)|1			COST:.5
+Perform ~ Sing					KEY:Perform ~ Sing ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Perform (Sing))],[PREVARGTEQ:EclipseSKCostBypass,1]						MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Sing)|1					COST:.5
+Perform ~ Wind Instruments			KEY:Perform ~ Wind Instruments ~ Half Cost			CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Perform (Wind Instruments))],[PREVARGTEQ:EclipseSKCostBypass,1]				MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Perform (Wind Instruments)|1			COST:.5
+Profession ~ Hunter				KEY:Profession ~ Hunter ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Profession (Hunter))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Profession (Hunter)|1				COST:.5
+Profession ~ Miner				KEY:Profession ~ Miner ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Profession (Miner))],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Profession (Miner)|1				COST:.5
+Profession ~ Siege Engineer			KEY:Profession ~ Siege Engineer ~ Half Cost			CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Profession (Siege Engineer))],[PREVARGTEQ:EclipseSKCostBypass,1]			MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Profession (Siege Engineer)|1			COST:.5
+Ride							KEY:Ride ~ Half Cost							CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Ride)],[PREVARGTEQ:EclipseSKCostBypass,1]							MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Ride|1							COST:.5
+Sense Motive					KEY:Sense Motive ~ Half Cost						CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Sense Motive)],[PREVARGTEQ:EclipseSKCostBypass,1]						MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Sense Motive|1					COST:.5
+Sleight of Hand					KEY:Sleight of Hand ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Sleight of Hand)],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Sleight of Hand|1					COST:.5
+Speak Language					KEY:Speak Language ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Speak Language)],[PREVARGTEQ:EclipseSKCostBypass,1]						MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Speak Language|1					COST:.5
+Spellcraft						KEY:Spellcraft ~ Half Cost						CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Spellcraft)],[PREVARGTEQ:EclipseSKCostBypass,1]						MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Spellcraft|1						COST:.5
+Survival						KEY:Survival ~ Half Cost						CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Survival)],[PREVARGTEQ:EclipseSKCostBypass,1]							MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Survival|1						COST:.5
+Use Magic Device					KEY:Use Magic Device ~ Half Cost					CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Use Magic Device)],[PREVARGTEQ:EclipseSKCostBypass,1]					MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Use Magic Device|1					COST:.5
+Use Rope						KEY:Use Rope ~ Half Cost						CATEGORY:Skill Buy	TYPE:SkillBuy.HalfCost	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Adept (Use Rope)],[PREVARGTEQ:EclipseSKCostBypass,1]							MULT:YES	CHOOSE:NOCHOICE	BONUS:SKILLRANK|Use Rope|1						COST:.5
+
+
+
+#BONUS:ABILITYPOOL|Mystic Artist Skill|1|PREVARGTEQ:MysticArtist,		OUTPUTNAME:[NAME]	CATEGORY:Special Ability	TYPE:MysticArtistSkill.Synergy.EclipseAbilityOutput
+
+###Block: When the HITDIE tag either gets Variable support or BONUS:HD goes to level affect instead of Global.
+# Ability Name				Category of Ability		Type					Multiple Requirements															Define			Multiple?	Choose					Bonus to Ability Pool							Modify VAR
+#	HD Bonus Lv 1 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=1],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 1 ~ Hit Die Upgrade]		DEFINE:HD Bonus Lv 1|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 1")	BONUS:VAR|HD Bonus Lv 1|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 1 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 1|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 1 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 1|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 1 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 1|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 1 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 1|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 1 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 2 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=2],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 2 ~ Hit Die Upgrade]		DEFINE:HD Bonus Lv 2|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 2")	BONUS:VAR|HD Bonus Lv 2|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 2 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 2|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 2 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 2|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 2 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 2|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 2 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 2|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 2 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 3 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=3],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 3 ~ Hit Die Upgrade]		DEFINE:HD Bonus Lv 3|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 3")	BONUS:VAR|HD Bonus Lv 3|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 3 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 3|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 3 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 3|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 3 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 3|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 3 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 3|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 3 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 4 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=4],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 4 ~ Hit Die Upgrade]		DEFINE:HD Bonus Lv 4|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 4")	BONUS:VAR|HD Bonus Lv 4|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 4 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 4|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 4 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 4|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 4 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 4|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 4 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 4|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 4 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 5 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=5],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 5 ~ Hit Die Upgrade]		DEFINE:HD Bonus Lv 5|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 5")	BONUS:VAR|HD Bonus Lv 5|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 5 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 5|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 5 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 5|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 5 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 5|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 5 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 5|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 5 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 6 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=6],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 6 ~ Hit Die Upgrade]		DEFINE:HD Bonus Lv 6|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 6")	BONUS:VAR|HD Bonus Lv 6|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 6 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 6|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 6 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 6|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 6 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 6|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 6 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 6|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 6 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 7 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=7],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 7 ~ Hit Die Upgrade]		DEFINE:HD Bonus Lv 7|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 7")	BONUS:VAR|HD Bonus Lv 7|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 7 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 7|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 7 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 7|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 7 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 7|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 7 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 7|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 7 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 8 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=8],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 8 ~ Hit Die Upgrade]		DEFINE:HD Bonus Lv 8|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 8")	BONUS:VAR|HD Bonus Lv 8|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 8 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 8|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 8 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 8|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 8 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 8|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 8 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 8|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 8 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 9 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=9],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 9 ~ Hit Die Upgrade]		DEFINE:HD Bonus Lv 9|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 9")	BONUS:VAR|HD Bonus Lv 9|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 9 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 9|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 9 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 9|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 9 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 9|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 9 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 9|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 9 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 10 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=10],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 10 ~ Hit Die Upgrade]	DEFINE:HD Bonus Lv 10|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 10")	BONUS:VAR|HD Bonus Lv 10|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 10 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 10|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 10 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 10|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 10 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 10|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 10 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 10|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 10 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 11 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=11],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 11 ~ Hit Die Upgrade]	DEFINE:HD Bonus Lv 11|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 11")	BONUS:VAR|HD Bonus Lv 11|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 11 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 11|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 11 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 11|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 11 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 11|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 11 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 11|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 11 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 12 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=12],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 12 ~ Hit Die Upgrade]	DEFINE:HD Bonus Lv 12|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 12")	BONUS:VAR|HD Bonus Lv 12|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 12 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 12|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 12 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 12|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 12 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 12|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 12 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 12|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 12 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 13 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=13],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 13 ~ Hit Die Upgrade]	DEFINE:HD Bonus Lv 13|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 13")	BONUS:VAR|HD Bonus Lv 13|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 13 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 13|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 13 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 13|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 13 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 13|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 13 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 13|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 13 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 14 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=14],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 14 ~ Hit Die Upgrade]	DEFINE:HD Bonus Lv 14|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 14")	BONUS:VAR|HD Bonus Lv 14|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 14 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 14|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 14 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 14|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 14 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 14|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 14 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 14|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 14 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 15 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=15],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 15 ~ Hit Die Upgrade]	DEFINE:HD Bonus Lv 15|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 15")	BONUS:VAR|HD Bonus Lv 15|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 15 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 15|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 15 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 15|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 15 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 15|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 15 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 15|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 15 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 16 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=16],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 16 ~ Hit Die Upgrade]	DEFINE:HD Bonus Lv 16|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 16")	BONUS:VAR|HD Bonus Lv 16|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 16 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 16|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 16 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 16|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 16 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 16|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 16 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 16|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 16 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 17 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=17],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 17 ~ Hit Die Upgrade]	DEFINE:HD Bonus Lv 17|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 17")	BONUS:VAR|HD Bonus Lv 17|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 17 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 17|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 17 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 17|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 17 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 17|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 17 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 17|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 17 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 18 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=18],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 18 ~ Hit Die Upgrade]	DEFINE:HD Bonus Lv 18|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 18")	BONUS:VAR|HD Bonus Lv 18|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 18 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 18|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 18 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 18|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 18 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 18|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 18 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 18|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 18 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 19 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=19],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 19 ~ Hit Die Upgrade]	DEFINE:HD Bonus Lv 19|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 19")	BONUS:VAR|HD Bonus Lv 19|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 19 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 19|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 19 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 19|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 19 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 19|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 19 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 19|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 19 ~ Hit Die Upgrade(d20)
+#	HD Bonus Lv 20 ~ Hit Die Upgrade	CATEGORY:Special Ability	TYPE:Character Creation.HD	PREMULT:2,[PREPCLEVEL:MIN=20],[!PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 20 ~ Hit Die Upgrade]	DEFINE:HD Bonus Lv 20|0	MULT:YES	CHOOSE:STRING|d6|d8|d10|d12|d20	BONUS:ABILITYPOOL|Character Points|-var("HD Bonus Lv 20")	BONUS:VAR|HD Bonus Lv 20|2|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 20 ~ Hit Die Upgrade(d6)	BONUS:VAR|HD Bonus Lv 20|4|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 20 ~ Hit Die Upgrade(d8)	BONUS:VAR|HD Bonus Lv 20|6|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 20 ~ Hit Die Upgrade(d10)	BONUS:VAR|HD Bonus Lv 20|8|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 20 ~ Hit Die Upgrade(d12)	BONUS:VAR|HD Bonus Lv 20|16|PREABILITY:1,CATEGORY=Special Ability,HD Bonus Lv 20 ~ Hit Die Upgrade(d20)
+
+#
+
+#Hit Die Upgrade (D8)	CATEGORY:Special Ability	TYPE:Character Creation.HD	!PREABILITY:1,CATEGORY=Special Ability,TYPE.HD	DEFINE:HD Bonus|0	BONUS:ABILITYPOOL|Character Points|-(TL-1)*4	BONUS:VAR|HD Bonus|4	COST:4
+#Hit Die Upgrade (D10)	CATEGORY:Special Ability	TYPE:Character Creation.HD	!PREABILITY:1,CATEGORY=Special Ability,TYPE.HD	DEFINE:HD Bonus|0	BONUS:ABILITYPOOL|Character Points|-(TL-1)*6	BONUS:VAR|HD Bonus|6	COST:6
+#Hit Die Upgrade (D12)	CATEGORY:Special Ability	TYPE:Character Creation.HD	!PREABILITY:1,CATEGORY=Special Ability,TYPE.HD	DEFINE:HD Bonus|0	BONUS:ABILITYPOOL|Character Points|-(TL-1)*8	BONUS:VAR|HD Bonus|8	COST:8
+#Hit Die Upgrade (D20)	CATEGORY:Special Ability	TYPE:Character Creation.HD	!PREABILITY:1,CATEGORY=Special Ability,TYPE.HD	DEFINE:HD Bonus|0	BONUS:ABILITYPOOL|Character Points|-(TL-1)*16	BONUS:VAR|HD Bonus|16	COST:16
+
+
+
+# Class Name			Output Name					Hit Dice	Type			Abbreviation	Max Level	Define			Combat bonus
+CLASS:Eclipse Point Buy (d2)	OUTPUTNAME:Eclipse Point Buy d2	HD:2		TYPE:Base.PC	ABB:d2E		MAXLEVEL:20	DEFINE:EclipseClass|1	BONUS:COMBAT|BAB|var("Warcraft Bonus")|TYPE=Base
+# Class Name			Multiple Requirements
+CLASS:Eclipse Point Buy (d2)	PREMULT:1,[!PRECLASS:1,%],[PREVARGTEQ:EclipseClass,1]
+# Class Name			Skill Pts/Lvl
+CLASS:Eclipse Point Buy (d2)	STARTSKILLPTS:0
+###Block:
+1																															TEMPLATE:01 Point Buy Master Template for All Levels
+1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9
+1																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Automatic Abilities
+1										BONUS:VAR|CharacterPoints|2*CL	BONUS:VAR|EclipseClassLvl|CL
+
+
+# Class Name			Output Name					Hit Dice	Type			Abbreviation	Max Level	Define			Combat bonus
+CLASS:Eclipse Point Buy (d4)	OUTPUTNAME:Eclipse Point Buy d4	HD:4		TYPE:Base.PC	ABB:d4E		MAXLEVEL:20	DEFINE:EclipseClass|1	BONUS:COMBAT|BAB|var("Warcraft Bonus")|TYPE=Base
+# Class Name			Multiple Requirements
+CLASS:Eclipse Point Buy (d4)	PREMULT:1,[!PRECLASS:1,%],[PREVARGTEQ:EclipseClass,1]
+# Class Name			Skill Pts/Lvl
+CLASS:Eclipse Point Buy (d4)	STARTSKILLPTS:0
+###Block:
+1																									TEMPLATE:01 Point Buy Master Template for All Levels
+1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9
+1										ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Automatic Abilities
+1										BONUS:VAR|EclipseClassLvl|CL
+
+# Class Name			Output Name					Hit Dice	Type			Abbreviation	Max Level	Define			Combat bonus
+CLASS:Eclipse Point Buy (d6)	OUTPUTNAME:Eclipse Point Buy d6	HD:6		TYPE:Base.PC	ABB:d6E		MAXLEVEL:20	DEFINE:EclipseClass|1	BONUS:COMBAT|BAB|var("Warcraft Bonus")|TYPE=Base
+# Class Name			Multiple Requirements
+CLASS:Eclipse Point Buy (d6)	PREMULT:1,[!PRECLASS:1,%],[PREVARGTEQ:EclipseClass,1]
+# Class Name			Skill Pts/Lvl
+CLASS:Eclipse Point Buy (d6)	STARTSKILLPTS:0
+###Block:
+1																															TEMPLATE:01 Point Buy Master Template for All Levels
+1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9
+1																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Automatic Abilities
+1										BONUS:VAR|CharacterPoints|-2*CL	BONUS:VAR|EclipseClassLvl|CL
+
+# Class Name			Output Name					Hit Dice	Type			Abbreviation	Max Level	Define			Combat bonus
+CLASS:Eclipse Point Buy (d8)	OUTPUTNAME:Eclipse Point Buy d8	HD:8		TYPE:Base.PC	ABB:d8E		MAXLEVEL:20	DEFINE:EclipseClass|1	BONUS:COMBAT|BAB|var("Warcraft Bonus")|TYPE=Base
+# Class Name			Multiple Requirements
+CLASS:Eclipse Point Buy (d8)	PREMULT:1,[!PRECLASS:1,%],[PREVARGTEQ:EclipseClass,1]
+# Class Name			Skill Pts/Lvl
+CLASS:Eclipse Point Buy (d8)	STARTSKILLPTS:0
+###Block:
+1																															TEMPLATE:01 Point Buy Master Template for All Levels
+1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9
+1																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Automatic Abilities
+1										BONUS:VAR|CharacterPoints|-4*CL	BONUS:VAR|EclipseClassLvl|CL
+
+
+
+# This Section is for Display Purposes to Faciliatate Tracking the Martial Arts Skills per Martial Art Grouping - These don't Affect the Character or Character Sheet.
+# It's not active or being used. This is a prototype.
+
+#Martial Arts Styles and Select Abilities for each one
+#Basic Techniques
+# Ability Name		Unique Key						Category of Ability		Type							Source Page
+Attack I			KEY:MA_OS ~ Attack I				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Attack II			KEY:MA_OS ~ Attack II				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Attack III			KEY:MA_OS ~ Attack III				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Attack IV			KEY:MA_OS ~ Attack IV				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+#
+Defenses I			KEY:MA_OS ~ Defenses I				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Defenses II			KEY:MA_OS ~ Defenses II				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Defenses III		KEY:MA_OS ~ Defenses III			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Defenses IV			KEY:MA_OS ~ Defenses IV				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+#
+Power I			KEY:MA_OS ~ Power I				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Power II			KEY:MA_OS ~ Power II				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Power III			KEY:MA_OS ~ Power III				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Power IV			KEY:MA_OS ~ Power IV				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+#
+Strike I			KEY:MA_OS ~ Strike I				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Strike II			KEY:MA_OS ~ Strike II				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Strike III			KEY:MA_OS ~ Strike III				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Strike IV			KEY:MA_OS ~ Strike IV				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+#
+Synergy I			KEY:MA_OS ~ Synergy I				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Synergy II			KEY:MA_OS ~ Synergy II				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Synergy III			KEY:MA_OS ~ Synergy III				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Synergy IV			KEY:MA_OS ~ Synergy IV				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+#
+Toughness I			KEY:MA_OS ~ Toughness I				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Toughness II		KEY:MA_OS ~ Toughness II			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Toughness III		KEY:MA_OS ~ Toughness III			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Toughness IV		KEY:MA_OS ~ Toughness IV			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+#
+Improve Die Size I	KEY:MA_OS ~ Power ~ Improve Die Size I	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Improve Die Size II	KEY:MA_OS ~ Power ~ Improve Die Size II	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Improve Die Size III	KEY:MA_OS ~ Power ~ Improve Die Size III	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Improve Die Size IV	KEY:MA_OS ~ Power ~ Improve Die Size IV	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+#
+Increase Damage I		KEY:MA_OS ~ Power ~ Increase Damage I	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Increase Damage II	KEY:MA_OS ~ Power ~ Increase Damage II	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Increase Damage III	KEY:MA_OS ~ Power ~ Increase Damage III	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+Increase Damage IV	KEY:MA_OS ~ Power ~ Increase Damage IV	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerBasic	SOURCEPAGE:p.81
+
+
+###Block: Advanced Techniques - Only 4 allowed ----------------------------------------------------------------------
+# Ability Name			Unique Key					Category of Ability		Type
+Advanced / Battlecry		KEY:MA_OS ~ Battlecry			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Blinding Strike	KEY:MA_OS ~ Blinding Strike		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Breaking		KEY:MA_OS ~ Breaking			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Crippling		KEY:MA_OS ~ Crippling			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Instant Stand	KEY:MA_OS ~ Instant Stand		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Mighty Blow		KEY:MA_OS ~ Mighty Blow			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Mind Like Moon	KEY:MA_OS ~ Mind Like Moon		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Prone Combat		KEY:MA_OS ~ Prone Combat		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Reach			KEY:MA_OS ~ Reach				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Sneak Attack I	KEY:MA_OS ~ Sneak Attack I		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Sneak Attack II	KEY:MA_OS ~ Sneak Attack II		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Sneak Attack III	KEY:MA_OS ~ Sneak Attack III		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Sneak Attack IV	KEY:MA_OS ~ Sneak Attack IV		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Versatility		KEY:MA_OS ~ Versatility			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+Advanced / Weapon Kata		KEY:MA_OS ~ Weapon Kata			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerAdvanced
+
+# Master and Occult Martial Arts Techniques
+Master / Blind-Fight		KEY:MA_OS ~ Blind-Fight			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Combat Reflexes	KEY:MA_OS ~ Combat Reflexes		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Deflect Arrows		KEY:MA_OS ~ Deflect Arrows		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Dodge			KEY:MA_OS ~ Dodge				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Expertise		KEY:MA_OS ~ Expertise			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Improved Bull Rush	KEY:MA_OS ~ Improved Bull Rush	CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Improved Disarm	KEY:MA_OS ~ Improved Disarm		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Improved Trip		KEY:MA_OS ~ Improved Trip		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Mobility			KEY:MA_OS ~ Mobility			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Quick Draw		KEY:MA_OS ~ Quick Draw			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Rapid Shot		KEY:MA_OS ~ Rapid Shot			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Sunder			KEY:MA_OS ~ Sunder			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+Master / Whirlwind Attack	KEY:MA_OS ~ Whirlwind Attack		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerMaster
+
+# Occult Techniques draw upon the user's life energy to surpass the limits of ordinary physical skill. They're extraordinary abilities that drain Con points to use (the cost for each is listed after its name). A martial art may include up to four such abilities, starting at skill level 11.
+Occult / Focused Blow		KEY:MA_OS ~ Focused Blow		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Healing Hand		KEY:MA_OS ~ Healing Hand		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Inner Strength I	KEY:MA_OS ~ Inner Strength I		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Inner Strength II	KEY:MA_OS ~ Inner Strength II		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Iron Skin		KEY:MA_OS ~ Iron Skin			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Ki Block			KEY:MA_OS ~ Ki Block			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Ki Focus			KEY:MA_OS ~ Ki Focus			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Light Foot		KEY:MA_OS ~ Light Foot			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / One Finger		KEY:MA_OS ~ One Finger			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Overburden		KEY:MA_OS ~ Overburden			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Paralyze			KEY:MA_OS ~ Paralyze			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Resist Pain		KEY:MA_OS ~ Resist Pain			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Serpent Strike		KEY:MA_OS ~ Serpent Strike		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Touch Strike		KEY:MA_OS ~ Touch Strike		CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Vanishing		KEY:MA_OS ~ Vanishing			CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+Occult / Wrath			KEY:MA_OS ~ Wrath				CATEGORY:Special Ability	TYPE:MASkillTracker.MASkillTrackerOccult
+
+# End of Section -
+
+
+
+###Block: This section is to set up each Art with a MOD and add any particular Style to it. The Style will have a Chooser keyed to that TYPE, not elegant, but keeps it organized. User and GM will have to police selections.
+# Ability Name									Type
+CATEGORY=Special Ability|MA_OS ~ Attack I.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Attack II.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Attack III.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Attack IV.MOD				TYPE:MABasicDisplay
+#
+CATEGORY=Special Ability|MA_OS ~ Defenses I.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Defenses II.MOD			TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Defenses III.MOD			TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Defenses IV.MOD			TYPE:MABasicDisplay
+#
+CATEGORY=Special Ability|MA_OS ~ Power I.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power II.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power III.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power IV.MOD				TYPE:MABasicDisplay
+#
+CATEGORY=Special Ability|MA_OS ~ Strike I.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Strike II.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Strike III.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Strike IV.MOD				TYPE:MABasicDisplay
+#
+CATEGORY=Special Ability|MA_OS ~ Synergy I.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Synergy II.MOD				TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Synergy III.MOD			TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Synergy IV.MOD				TYPE:MABasicDisplay
+#
+CATEGORY=Special Ability|MA_OS ~ Toughness I.MOD			TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Toughness II.MOD			TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Toughness III.MOD			TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Toughness IV.MOD			TYPE:MABasicDisplay
+#
+CATEGORY=Special Ability|MA_OS ~ Power ~ Improve Die Size I.MOD	TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power ~ Improve Die Size II.MOD	TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power ~ Improve Die Size III.MOD	TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power ~ Improve Die Size IV.MOD	TYPE:MABasicDisplay
+#
+CATEGORY=Special Ability|MA_OS ~ Power ~ Increase Damage I.MOD	TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power ~ Increase Damage II.MOD	TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power ~ Increase Damage III.MOD	TYPE:MABasicDisplay
+CATEGORY=Special Ability|MA_OS ~ Power ~ Increase Damage IV.MOD	TYPE:MABasicDisplay
+
+
+###Block: Advanced Techniques - Only 4 allowed ----------------------------------------------------------------------
+# Ability Name								Unique Key						SORTKEY	Category of Ability		Type							Required Ability																Restricted Ability										Var. Min. Value				Description																																																																																																																																																																																					Stackable?	Multiple?	Choose																					Source Page
+CATEGORY=Special Ability|MA_OS ~ Battlecry.MOD																	TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Blinding Strike.MOD																TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Breaking.MOD																	TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Crippling.MOD																	TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Instant Stand.MOD																TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Mighty Blow.MOD																TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Mind Like Moon.MOD																TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Prone Combat.MOD																TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Reach.MOD																	TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Sneak Attack I.MOD																TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Sneak Attack II.MOD																TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Sneak Attack III.MOD																TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Sneak Attack IV.MOD																TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Versatility.MOD																TYPE:MAAdvancedDisplay
+CATEGORY=Special Ability|MA_OS ~ Weapon Kata.MOD																TYPE:MAAdvancedDisplay
+
+
+# Master and Occult Martial Arts Techniques
+CATEGORY=Special Ability|MA_OS ~ Blind-Fight.MOD																TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Combat Reflexes.MOD																TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Deflect Arrows.MOD																TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Dodge.MOD																	TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Expertise.MOD																	TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Improved Bull Rush.MOD															TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Improved Disarm.MOD																TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Improved Trip.MOD																TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Mobility.MOD																	TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Quick Draw.MOD																	TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Rapid Shot.MOD																	TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Sunder.MOD																	TYPE:MAAdvancedDisplay.MAMasterDisplay
+CATEGORY=Special Ability|MA_OS ~ Whirlwind Attack.MOD																TYPE:MAAdvancedDisplay.MAMasterDisplay
+
+
+# Occult Techniques draw upon the user's life energy to surpass the limits of ordinary physical skill. They're extraordinary abilities that drain Con points to use (the cost for each is listed after its name). A martial art may include up to four such abilities, starting at skill level 11.
+CATEGORY=Special Ability|MA_OS ~ Focused Blow.MOD																TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Healing Hand.MOD																TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Inner Strength I.MOD																TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Inner Strength II.MOD															TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Iron Skin.MOD																	TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Ki Block.MOD																	TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Ki Focus.MOD																	TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Light Foot.MOD																	TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ One Finger.MOD																	TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Overburden.MOD																	TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Paralyze.MOD																	TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Resist Pain.MOD																TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Serpent Strike.MOD																TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Touch Strike.MOD																TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Vanishing.MOD																	TYPE:MAOccultDisplay
+CATEGORY=Special Ability|MA_OS ~ Wrath.MOD																	TYPE:MAOccultDisplay
+
+# End of Mod Section

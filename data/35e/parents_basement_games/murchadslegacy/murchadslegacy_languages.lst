@@ -1,0 +1,26 @@
+# CVS $Revision$ $Author$ -- Tue Nov 11 16:25:26 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
+#Original Entry: Eddy Anthony (MoSaT)
+
+# Language		Type
+Aeylamdyarian	TYPE:Spoken.Written.Read
+Calisian		TYPE:Spoken.Written.Read
+Desolati		TYPE:Spoken.Written.Read
+Gadohig		TYPE:Spoken.Written.Read
+Galkarnic		TYPE:Spoken.Written.Read
+Homish		TYPE:Spoken.Written.Read
+Launhymian		TYPE:Spoken.Written.Read
+Remarian		TYPE:Spoken.Written.Read
+Shintai		TYPE:Spoken.Written.Read
+
+Abyssal.MOD		TYPE:Academic
+Aquan.MOD		TYPE:Academic
+Auran.MOD		TYPE:Academic
+Celestial.MOD	TYPE:Academic
+Ignan.MOD		TYPE:Academic
+Infernal.MOD	TYPE:Academic
+Terran.MOD		TYPE:Academic
+
+#
+# End
+#

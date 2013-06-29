@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Thu Jun 20 17:08:21 2013 -- reformated by prettylst.pl v1.50 (build 19967)
+SOURCELONG:Alderac Entertainment Group (AEG) - Empire	SOURCESHORT:Empire	SOURCEWEB:http://alderac.com/d20
+
+# Skill Name		Key Stat	Untrained?		Type
+Knowledge (Economics)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge

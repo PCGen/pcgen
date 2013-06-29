@@ -1,0 +1,1261 @@
+# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
+# ORIGINAL ENTRY BY: Andrew Maitland
+# ORIGINAL ENTRY DATE: 2011-11-26
+
+#BEAST LORD SPELLS
+#1ST-LEVEL BEAST LORD SPELLS
+# Spell Name			Classes of caster
+Detect Animals or Plants.MOD	CLASSES:Beast Lord=1
+Detect Snares and Pits.MOD	CLASSES:Beast Lord=1
+Ear of Nature.MOD			CLASSES:Beast Lord=1
+Endure Elements.MOD		CLASSES:Beast Lord=1
+Nature's Awareness.MOD		CLASSES:Beast Lord=1
+Speak with Animals.MOD		CLASSES:Beast Lord=1
+Summon Nature's Ally I.MOD	CLASSES:Beast Lord=1
+#2ND-LEVEL BEAST LORD SPELLS
+Bear's Endurance.MOD		CLASSES:Beast Lord=2
+Bull's Strength.MOD		CLASSES:Beast Lord=2
+Cat's Grace.MOD			CLASSES:Beast Lord=2
+Eagle's Splendor.MOD		CLASSES:Beast Lord=2
+Fox's Cunning.MOD			CLASSES:Beast Lord=2
+Hold Animal.MOD			CLASSES:Beast Lord=2
+Owl's Wisdom.MOD			CLASSES:Beast Lord=2
+Summon Nature's Ally II.MOD	CLASSES:Beast Lord=2
+Summon Swarm.MOD			CLASSES:Beast Lord=2
+#3RD-LEVEL BEAST LORD SPELLS
+Dominate Animal.MOD		CLASSES:Beast Lord=3
+Neutralize Poison.MOD		CLASSES:Beast Lord=3
+Repel Vermin.MOD			CLASSES:Beast Lord=3
+Snare.MOD				CLASSES:Beast Lord=3
+Tribal Mask.MOD			CLASSES:Beast Lord=3
+Water Breathing.MOD		CLASSES:Beast Lord=3
+#4TH-LEVEL BEAST LORD SPELLS
+Freedom of Movement.MOD		CLASSES:Beast Lord=4
+Hallucinatory Terrain.MOD	CLASSES:Beast Lord=4
+Nature's Health.MOD		CLASSES:Beast Lord=4
+Power Word (Climb).MOD		CLASSES:Beast Lord=4
+
+
+#Dragon Lord Spell List:
+##1ST-	CLASSES:
+# Spell Name			Classes of caster
+Acid Splash.MOD			CLASSES:Dragon Lord=1
+Burning Hands.MOD			CLASSES:Dragon Lord=1
+Cause Fear.MOD			CLASSES:Dragon Lord=1
+Endure Elements.MOD		CLASSES:Dragon Lord=1
+Feather Fall.MOD			CLASSES:Dragon Lord=1
+Magic Missile.MOD			CLASSES:Dragon Lord=1
+Magic Weapon.MOD			CLASSES:Dragon Lord=1
+Ray of Frost.MOD			CLASSES:Dragon Lord=1
+Shocking Grasp.MOD		CLASSES:Dragon Lord=1
+##2ND-	CLASSES:
+Acid Arrow.MOD			CLASSES:Dragon Lord=2
+Bear's Endurance.MOD		CLASSES:Dragon Lord=2
+Bull's Strength.MOD		CLASSES:Dragon Lord=2
+Darkvision.MOD			CLASSES:Dragon Lord=2
+Flaming Sphere.MOD		CLASSES:Dragon Lord=2
+Pyrotechnics.MOD			CLASSES:Dragon Lord=2
+Resist Energy.MOD			CLASSES:Dragon Lord=2
+Scare.MOD				CLASSES:Dragon Lord=2
+Spear of Haunting.MOD		CLASSES:Dragon Lord=2
+##3RD-	CLASSES:
+Flame Arrow.MOD			CLASSES:Dragon Lord=3
+Fly.MOD				CLASSES:Dragon Lord=3
+Keen Edge.MOD			CLASSES:Dragon Lord=3
+Power Word (Flame).MOD		CLASSES:Dragon Lord=3
+Power Word (Shock).MOD		CLASSES:Dragon Lord=3
+Rage.MOD				CLASSES:Dragon Lord=3
+##4TH-	CLASSES:
+Confusion.MOD			CLASSES:Dragon Lord=4
+Fear.MOD				CLASSES:Dragon Lord=4
+Dragon Fist.MOD			CLASSES:Dragon Lord=4
+Fire Shield.MOD			CLASSES:Dragon Lord=4
+Fire Trap.MOD			CLASSES:Dragon Lord=4
+Power Word (Jump).MOD		CLASSES:Dragon Lord=4
+Stoneskin.MOD			CLASSES:Dragon Lord=4
+
+###Block:
+# Spell Name
+Detect Evil.COPY=Detect Evil (60' radius)
+
+###Block: Divination Ability List:
+#1-
+# Spell Name				Classes of caster
+Comprehend Languages.MOD		CLASSES:Oracle=1
+Detect Animals or Plants.MOD		CLASSES:Oracle=1
+Detect Chaos.MOD				CLASSES:Oracle=1
+Detect Evil.MOD				CLASSES:Oracle=1
+Detect Good.MOD				CLASSES:Oracle=1
+Detect Law.MOD				CLASSES:Oracle=1
+Detect Magic.MOD				CLASSES:Oracle=1
+Detect Poison.MOD				CLASSES:Oracle=1
+Guidance.MOD				CLASSES:Oracle=1
+Know Direction.MOD			CLASSES:Oracle=1
+Nature's Awareness.MOD			CLASSES:Oracle=1
+Power Word (Detect).MOD			CLASSES:Oracle=1
+Read Magic.MOD				CLASSES:Oracle=1
+#2-
+Augury.MOD					CLASSES:Oracle=2
+Detect Secret Doors.MOD			CLASSES:Oracle=2
+Detect Snares and Pits.MOD		CLASSES:Oracle=2
+Detect Thoughts.MOD			CLASSES:Oracle=2
+Detect Undead.MOD				CLASSES:Oracle=2
+Find Traps.MOD				CLASSES:Oracle=2
+Identify.MOD				CLASSES:Oracle=2
+Locate Object.MOD				CLASSES:Oracle=2
+Power Word (Analyze).MOD		CLASSES:Oracle=2
+See Invisibility.MOD			CLASSES:Oracle=2
+Status.MOD					CLASSES:Oracle=2
+True Strike.MOD				CLASSES:Oracle=2
+#3-
+Arcane Sight.MOD				CLASSES:Oracle=3
+Clairaudience/Clairvoyance.MOD	CLASSES:Oracle=3
+Telepathic Bond (Lesser).MOD		CLASSES:Oracle=3
+Power Word (Reach).MOD			CLASSES:Oracle=3
+Scrying.MOD					CLASSES:Oracle=3
+Speak with Animals.MOD			CLASSES:Oracle=3
+Tongues.MOD					CLASSES:Oracle=3
+#4-
+Detect Scrying.MOD			CLASSES:Oracle=4
+Discern Lies.MOD				CLASSES:Oracle=4
+Divination.MOD				CLASSES:Oracle=4
+Locate Creature.MOD			CLASSES:Oracle=4
+Power Word (Listen).MOD			CLASSES:Oracle=4
+Power Word (Spot).MOD			CLASSES:Oracle=4
+Speak with Plants.MOD			CLASSES:Oracle=4
+#5-
+Commune with Nature.MOD			CLASSES:Oracle=5
+Contact Other Plane.MOD			CLASSES:Oracle=5
+Prying Eyes.MOD				CLASSES:Oracle=5
+Telepathic Bond.MOD			CLASSES:Oracle=5
+#6-
+Analyze Dweomer.MOD			CLASSES:Oracle=6
+Find the Path.MOD				CLASSES:Oracle=6
+Legend Lore.MOD				CLASSES:Oracle=6
+True Seeing.MOD				CLASSES:Oracle=6
+#7-
+Arcane Sight (Greater).MOD		CLASSES:Oracle=7
+Scrying (Greater).MOD			CLASSES:Oracle=7
+Stone Tell.MOD				CLASSES:Oracle=7
+Vision.MOD					CLASSES:Oracle=7
+#8-
+Discern Location.MOD			CLASSES:Oracle=8
+Foresight.MOD				CLASSES:Oracle=8
+Know Magic.MOD				CLASSES:Oracle=8
+Mists of Time.MOD				CLASSES:Oracle=8
+Moment of Prescience.MOD		CLASSES:Oracle=8
+Watcher.MOD					CLASSES:Oracle=8
+
+###Block: Metaphysician
+##1ST Level:
+# Spell Name				Classes of caster
+Battlescars.MOD				CLASSES:Metaphysician=1
+Cure Minor Wounds.MOD			CLASSES:Metaphysician=1
+Detect Poison.MOD				CLASSES:Metaphysician=1
+Goodberry.MOD				CLASSES:Metaphysician=1
+Inflict Minor Wounds.MOD		CLASSES:Metaphysician=1
+##2nd Level:
+Blindness/Deafness.MOD			CLASSES:Metaphysician=2
+Cure Light Wounds.MOD			CLASSES:Metaphysician=2
+Delay Poison.MOD				CLASSES:Metaphysician=2
+Inflict Light Wounds.MOD		CLASSES:Metaphysician=2
+Remove Blindness/Deafness.MOD		CLASSES:Metaphysician=2
+Whisper of Healing.MOD			CLASSES:Metaphysician=2
+##3rd Level:
+Cure Moderate Wounds.MOD		CLASSES:Metaphysician=3
+Contagion.MOD				CLASSES:Metaphysician=3
+Inflict Moderate Wounds.MOD		CLASSES:Metaphysician=3
+Nature's Health.MOD			CLASSES:Metaphysician=3
+Remove Disease.MOD			CLASSES:Metaphysician=3
+##4th Level:
+Cure Serious Wounds.MOD			CLASSES:Metaphysician=4
+Inflict Serious Wounds.MOD		CLASSES:Metaphysician=4
+Restoration.MOD				CLASSES:Metaphysician=4
+Neutralize Poison.MOD			CLASSES:Metaphysician=4
+Poison.MOD					CLASSES:Metaphysician=4
+Word of Healing.MOD			CLASSES:Metaphysician=4
+Word of Remedy.MOD			CLASSES:Metaphysician=4
+Word of Rest.MOD				CLASSES:Metaphysician=4
+
+
+
+#ELOCUTIONIST SPELLS
+#0-LEVEL ELOCUTIONIST SPELLS (ORISONS)
+Beauty.MOD					CLASSES:Elocutionist=0
+Ear of Nature.MOD				CLASSES:Elocutionist=0
+Flare.MOD					CLASSES:Elocutionist=0
+Genius.MOD					CLASSES:Elocutionist=0
+Muscles.MOD					CLASSES:Elocutionist=0
+Power Word (Hear).MOD			CLASSES:Elocutionist=0
+Power Word (Lie).MOD			CLASSES:Elocutionist=0
+Power Word (See).MOD			CLASSES:Elocutionist=0
+Reflexes.MOD				CLASSES:Elocutionist=0
+Stamina.MOD					CLASSES:Elocutionist=0
+Stop.MOD					CLASSES:Elocutionist=0
+Whisper of Healing (Lesser).MOD	CLASSES:Elocutionist=0
+Willpower.MOD				CLASSES:Elocutionist=0
+##1ST-LEVEL ELOCUTIONIST SPELLS
+Beast.MOD					CLASSES:Elocutionist=1
+Command.MOD					CLASSES:Elocutionist=1
+Idiot.MOD					CLASSES:Elocutionist=1
+Power Word (Detect).MOD			CLASSES:Elocutionist=1
+Power Word (Hesitate).MOD		CLASSES:Elocutionist=1
+Power Word (Read).MOD			CLASSES:Elocutionist=1
+Weaken Will.MOD				CLASSES:Elocutionist=1
+Whisper of Healing.MOD			CLASSES:Elocutionist=1
+Word of Averting.MOD			CLASSES:Elocutionist=1
+Word of Contemplation.MOD		CLASSES:Elocutionist=1
+Word of Ire.MOD				CLASSES:Elocutionist=1
+##2ND-LEVEL ELOCUTIONIST SPELLS
+Advocate.MOD				CLASSES:Elocutionist=2
+Blindness/Deafness.MOD			CLASSES:Elocutionist=2
+Clumsiness.MOD				CLASSES:Elocutionist=2
+Decrepitude.MOD				CLASSES:Elocutionist=2
+Dodge.MOD					CLASSES:Elocutionist=2
+Pierce Veil.MOD				CLASSES:Elocutionist=2
+Power Word (Analyze).MOD		CLASSES:Elocutionist=2
+Power Word (Dispel).MOD			CLASSES:Elocutionist=2
+Power Word (Intimidate).MOD		CLASSES:Elocutionist=2
+Weakling.MOD				CLASSES:Elocutionist=2
+Withstand.MOD				CLASSES:Elocutionist=2
+Word of Healing (Lesser).MOD		CLASSES:Elocutionist=2
+##3RD-LEVEL ELOCUTIONIST SPELLS
+Construct.MOD				CLASSES:Elocutionist=3
+Force Push.MOD				CLASSES:Elocutionist=3
+Nature's Health.MOD			CLASSES:Elocutionist=3
+Power Word (Awaken).MOD			CLASSES:Elocutionist=3
+Power Word (Delay).MOD			CLASSES:Elocutionist=3
+Power Word (Grapple).MOD		CLASSES:Elocutionist=3
+Power Word (Jump).MOD			CLASSES:Elocutionist=3
+Power Word (Reach).MOD			CLASSES:Elocutionist=3
+Power Word (Tire).MOD			CLASSES:Elocutionist=3
+Word of Healing.MOD			CLASSES:Elocutionist=3
+Word of Restoration (Lesser).MOD	CLASSES:Elocutionist=3
+Word of Silence.MOD			CLASSES:Elocutionist=3
+##4TH-LEVEL ELOCUTIONIST SPELLS
+Command Plants.MOD			CLASSES:Elocutionist=4
+Dimension Door.MOD			CLASSES:Elocutionist=4
+Fatigue.MOD					CLASSES:Elocutionist=4
+Power Word (Enhance).MOD		CLASSES:Elocutionist=4
+Power Word (Flame).MOD			CLASSES:Elocutionist=4
+Power Word (Listen).MOD			CLASSES:Elocutionist=4
+Power Word (Spot).MOD			CLASSES:Elocutionist=4
+Skeletonize.MOD				CLASSES:Elocutionist=4
+Word of Burden.MOD			CLASSES:Elocutionist=4
+Word of Dispelling.MOD			CLASSES:Elocutionist=4
+Word of Healing (Greater).MOD		CLASSES:Elocutionist=4
+Word of Remedy.MOD			CLASSES:Elocutionist=4
+Word of Rest.MOD				CLASSES:Elocutionist=4
+#5TH-LEVEL ELOCUTIONIST SPELLS
+Bolster.MOD					CLASSES:Elocutionist=5
+Command (Greater).MOD			CLASSES:Elocutionist=5
+Exhaust.MOD					CLASSES:Elocutionist=5
+Power Word (Climb).MOD			CLASSES:Elocutionist=5
+Power Word (Rebuke).MOD			CLASSES:Elocutionist=5
+Power Word (Turn).MOD			CLASSES:Elocutionist=5
+Power Word (Unbind).MOD			CLASSES:Elocutionist=5
+Power Word (Vassal).MOD			CLASSES:Elocutionist=5
+Scream of Fear.MOD			CLASSES:Elocutionist=5
+Word of Restoration.MOD			CLASSES:Elocutionist=5
+Zombify.MOD					CLASSES:Elocutionist=5
+#6TH-LEVEL ELOCUTIONIST SPELLS
+Accuse.MOD					CLASSES:Elocutionist=6
+Power Word (Coma).MOD			CLASSES:Elocutionist=6
+Power Word (Shield).MOD			CLASSES:Elocutionist=6
+Shout of Healing (Lesser).MOD		CLASSES:Elocutionist=6
+Teleport.MOD				CLASSES:Elocutionist=6
+Word of Anger.MOD				CLASSES:Elocutionist=6
+Word of Divinity.MOD			CLASSES:Elocutionist=6
+Word of Pain.MOD				CLASSES:Elocutionist=6
+Word of Recall.MOD			CLASSES:Elocutionist=6
+#7TH-LEVEL ELOCUTIONIST SPELLS
+Animate Plants.MOD			CLASSES:Elocutionist=7
+Blasphemy.MOD				CLASSES:Elocutionist=7
+Dictum.MOD					CLASSES:Elocutionist=7
+Holy Word.MOD				CLASSES:Elocutionist=7
+Power Word Blind.MOD			CLASSES:Elocutionist=7
+Power Word (Envision).MOD		CLASSES:Elocutionist=7
+Shout of Healing.MOD			CLASSES:Elocutionist=7
+Word of Chaos.MOD				CLASSES:Elocutionist=7
+Word of Dissention.MOD			CLASSES:Elocutionist=7
+Word of Metamorphosis.MOD		CLASSES:Elocutionist=7
+Word of Undoing.MOD			CLASSES:Elocutionist=7
+#8TH-LEVEL Elocutionist SPELLS
+Acid Word.MOD				CLASSES:Elocutionist=8
+Enhance (Mass).MOD			CLASSES:Elocutionist=8
+Phase Door.MOD				CLASSES:Elocutionist=8
+Poison Word.MOD				CLASSES:Elocutionist=8
+Power Word (Command).MOD		CLASSES:Elocutionist=8
+Power Word (Destroy).MOD		CLASSES:Elocutionist=8
+Power Word Stun.MOD			CLASSES:Elocutionist=8
+Power Word (Transmogrify).MOD		CLASSES:Elocutionist=8
+Shout of Healing (Greater).MOD	CLASSES:Elocutionist=8
+Teleport (Greater).MOD			CLASSES:Elocutionist=8
+Word of Fear.MOD				CLASSES:Elocutionist=8
+#9TH-LEVEL ELOCUTIONIST SPELLS
+Compulsion/Power Word (Geas).MOD	CLASSES:Elocutionist=9
+Know Magic.MOD				CLASSES:Elocutionist=9
+Mage's Disjunction.MOD			CLASSES:Elocutionist=9
+Power Word Kill.MOD			CLASSES:Elocutionist=9
+Power Word (Undeath).MOD		CLASSES:Elocutionist=9
+Prismatic Sphere.MOD			CLASSES:Elocutionist=9
+Time Stop.MOD				CLASSES:Elocutionist=9
+Wail of the Banshee.MOD			CLASSES:Elocutionist=9
+Word of Fury.MOD				CLASSES:Elocutionist=9
+Word of Restoration (Greater).MOD	CLASSES:Elocutionist=9
+Word of Insanity.MOD			CLASSES:Elocutionist=9
+Word of Reflection.MOD			CLASSES:Elocutionist=9
+Word of Submission.MOD			CLASSES:Elocutionist=9
+
+#HOLY TERROR SPELLS
+#0-LEVEL HOLY TERROR SPELLS (ORISONS)
+Battlescars.MOD				CLASSES:Holy Terror=0
+Create Water.MOD				CLASSES:Holy Terror=0
+Cure Minor Wounds.MOD			CLASSES:Holy Terror=0
+Detect Magic.MOD				CLASSES:Holy Terror=0
+Detect Poison.MOD				CLASSES:Holy Terror=0
+Guidance.MOD				CLASSES:Holy Terror=0
+Inflict Minor Wounds.MOD		CLASSES:Holy Terror=0
+Light.MOD					CLASSES:Holy Terror=0
+Mending.MOD					CLASSES:Holy Terror=0
+Purify Food and Drink.MOD		CLASSES:Holy Terror=0
+Read Magic.MOD				CLASSES:Holy Terror=0
+Resistance.MOD				CLASSES:Holy Terror=0
+Stop.MOD					CLASSES:Holy Terror=0
+Virtue.MOD					CLASSES:Holy Terror=0
+#1ST-LEVEL HOLY TERROR SPELLS
+Bane.MOD					CLASSES:Holy Terror=1
+Bless.MOD					CLASSES:Holy Terror=1
+Bless Water.MOD				CLASSES:Holy Terror=1
+Cause Fear.MOD				CLASSES:Holy Terror=1
+Command.MOD					CLASSES:Holy Terror=1
+Comprehend Languages.MOD		CLASSES:Holy Terror=1
+Cure Light Wounds.MOD			CLASSES:Holy Terror=1
+Curse Water.MOD				CLASSES:Holy Terror=1
+Deathwatch.MOD				CLASSES:Holy Terror=1
+Detect Chaos.MOD				CLASSES:Holy Terror=1
+Detect Evil.MOD				CLASSES:Holy Terror=1
+Detect Good.MOD				CLASSES:Holy Terror=1
+Detect Law.MOD				CLASSES:Holy Terror=1
+Detect Undead.MOD				CLASSES:Holy Terror=1
+Divine Favor.MOD				CLASSES:Holy Terror=1
+Doom.MOD					CLASSES:Holy Terror=1
+Endure Elements.MOD			CLASSES:Holy Terror=1
+Entropic Shield.MOD			CLASSES:Holy Terror=1
+Find Hidden Doors.MOD			CLASSES:Holy Terror=1
+Hide from Undead.MOD			CLASSES:Holy Terror=1
+Inflict Light Wounds.MOD		CLASSES:Holy Terror=1
+Magic Stone.MOD				CLASSES:Holy Terror=1
+Magic Weapon.MOD				CLASSES:Holy Terror=1
+Obscuring Mist.MOD			CLASSES:Holy Terror=1
+Protection from Chaos.MOD		CLASSES:Holy Terror=1
+Protection from Evil.MOD		CLASSES:Holy Terror=1
+Remove Fear.MOD				CLASSES:Holy Terror=1
+Sanctuary.MOD				CLASSES:Holy Terror=1
+Shield of Faith.MOD			CLASSES:Holy Terror=1
+Summon Monster I.MOD			CLASSES:Holy Terror=1
+#2ND-LEVEL HOLY TERROR SPELLS
+Aid.MOD					CLASSES:Holy Terror=2
+Align Weapon.MOD				CLASSES:Holy Terror=2
+Augury.MOD					CLASSES:Holy Terror=2
+Bear's Endurance.MOD			CLASSES:Holy Terror=2
+Bull's Strength.MOD			CLASSES:Holy Terror=2
+Calm Emotions.MOD				CLASSES:Holy Terror=2
+Consecrate.MOD				CLASSES:Holy Terror=2
+Cure Moderate Wounds.MOD		CLASSES:Holy Terror=2
+Darkness.MOD				CLASSES:Holy Terror=2
+Death Knell.MOD				CLASSES:Holy Terror=2
+Delay Poison.MOD				CLASSES:Holy Terror=2
+Desecrate.MOD				CLASSES:Holy Terror=2
+Eagle's Splendor.MOD			CLASSES:Holy Terror=2
+Enthrall.MOD				CLASSES:Holy Terror=2
+Find Traps.MOD				CLASSES:Holy Terror=2
+Gentle Repose.MOD				CLASSES:Holy Terror=2
+Gluey Air.MOD				CLASSES:Holy Terror=2
+Hold Person.MOD				CLASSES:Holy Terror=2
+Inflict Moderate Wounds.MOD		CLASSES:Holy Terror=2
+Make Whole.MOD				CLASSES:Holy Terror=2
+Owl's Wisdom.MOD				CLASSES:Holy Terror=2
+Remove Paralysis.MOD			CLASSES:Holy Terror=2
+Resist Atomicancy.MOD			CLASSES:Holy Terror=2
+Resist Energy.MOD				CLASSES:Holy Terror=2
+Restoration (Lesser).MOD		CLASSES:Holy Terror=2
+Shatter.MOD					CLASSES:Holy Terror=2
+Shield Other.MOD				CLASSES:Holy Terror=2
+Silence.MOD					CLASSES:Holy Terror=2
+Sound Burst.MOD				CLASSES:Holy Terror=2
+Spear of Haunting.MOD			CLASSES:Holy Terror=2
+Spiritual Weapon.MOD			CLASSES:Holy Terror=2
+Status.MOD					CLASSES:Holy Terror=2
+Summon Monster II.MOD			CLASSES:Holy Terror=2
+Undetectable Alignment.MOD		CLASSES:Holy Terror=2
+Zone of Truth.MOD				CLASSES:Holy Terror=2
+#3RD-LEVEL HOLY TERROR SPELLS
+Animate Dead.MOD				CLASSES:Holy Terror=3
+Bestow Curse.MOD				CLASSES:Holy Terror=3
+Blindness/Deafness.MOD			CLASSES:Holy Terror=3
+Contagion.MOD				CLASSES:Holy Terror=3
+Continual Flame.MOD			CLASSES:Holy Terror=3
+Counterspell.MOD				CLASSES:Holy Terror=3
+Create Food and Water.MOD		CLASSES:Holy Terror=3
+Cure Serious Wounds.MOD			CLASSES:Holy Terror=3
+Daylight.MOD				CLASSES:Holy Terror=3
+Deeper Darkness.MOD			CLASSES:Holy Terror=3
+Dispel Magic.MOD				CLASSES:Holy Terror=3
+Disperse Air.MOD				CLASSES:Holy Terror=3
+Force Push.MOD				CLASSES:Holy Terror=3
+Glyph of Warding.MOD			CLASSES:Holy Terror=3
+Helping Hand.MOD				CLASSES:Holy Terror=3
+Inflict Serious Wounds.MOD		CLASSES:Holy Terror=3
+Invisibility Purge.MOD			CLASSES:Holy Terror=3
+Locate Object.MOD				CLASSES:Holy Terror=3
+Magic Circle against Chaos.MOD	CLASSES:Holy Terror=3
+Magic Circle against Evil.MOD		CLASSES:Holy Terror=3
+Magic Vestment.MOD			CLASSES:Holy Terror=3
+Meld into Stone.MOD			CLASSES:Holy Terror=3
+Obscure Object.MOD			CLASSES:Holy Terror=3
+Power Word (Analyze).MOD		CLASSES:Holy Terror=3
+Prayer.MOD					CLASSES:Holy Terror=3
+Protection from Atomicancy.MOD	CLASSES:Holy Terror=3
+Protection from Energy.MOD		CLASSES:Holy Terror=3
+Remove Blindness/Deafness.MOD		CLASSES:Holy Terror=3
+Remove Curse.MOD				CLASSES:Holy Terror=3
+Remove Disease.MOD			CLASSES:Holy Terror=3
+Searing Light.MOD				CLASSES:Holy Terror=3
+Shock Zone.MOD				CLASSES:Holy Terror=3
+Speak with Dead.MOD			CLASSES:Holy Terror=3
+Stone Shape.MOD				CLASSES:Holy Terror=3
+Summon Monster III.MOD			CLASSES:Holy Terror=3
+Telepathic Bond (Lesser).MOD		CLASSES:Holy Terror=3
+Water Breathing.MOD			CLASSES:Holy Terror=3
+Water Walk.MOD				CLASSES:Holy Terror=3
+Wind Wall.MOD				CLASSES:Holy Terror=3
+#4TH-LEVEL HOLY TERROR SPELLS
+Air Walk.MOD				CLASSES:Holy Terror=5
+Control Water.MOD				CLASSES:Holy Terror=5
+Cure Critical Wounds.MOD		CLASSES:Holy Terror=5
+Death Ward.MOD				CLASSES:Holy Terror=5
+Dimensional Anchor.MOD			CLASSES:Holy Terror=5
+Discern Lies.MOD				CLASSES:Holy Terror=5
+Dismissal.MOD				CLASSES:Holy Terror=5
+Divination.MOD				CLASSES:Holy Terror=5
+Divine Power.MOD				CLASSES:Holy Terror=5
+Dragon's Coat.MOD				CLASSES:Holy Terror=5
+Dual Ray.MOD				CLASSES:Holy Terror=5
+Dweomer of Transference.MOD		CLASSES:Holy Terror=5
+Freedom of Movement.MOD			CLASSES:Holy Terror=5
+Giant Vermin.MOD				CLASSES:Holy Terror=5
+Imbue with Spell Ability.MOD		CLASSES:Holy Terror=5
+Inflict Critical Wounds.MOD		CLASSES:Holy Terror=5
+Magic Weapon (Greater).MOD		CLASSES:Holy Terror=5
+Neutralize Poison.MOD			CLASSES:Holy Terror=5
+Planar Ally (Lesser).MOD		CLASSES:Holy Terror=5
+Poison.MOD					CLASSES:Holy Terror=5
+Repel Vermin.MOD				CLASSES:Holy Terror=5
+Restoration.MOD				CLASSES:Holy Terror=5
+Sending.MOD					CLASSES:Holy Terror=5
+Shield of Frost.MOD			CLASSES:Holy Terror=5
+Spell Immunity.MOD			CLASSES:Holy Terror=5
+Summon Monster IV.MOD			CLASSES:Holy Terror=5
+Tongues.MOD					CLASSES:Holy Terror=5
+Word of Remedy.MOD			CLASSES:Holy Terror=5
+#5TH-LEVEL HOLY TERROR SPELLS
+Alfheim's Bravery.MOD			CLASSES:Holy Terror=6
+Alfheim's Folly.MOD			CLASSES:Holy Terror=6
+Atonement.MOD				CLASSES:Holy Terror=6
+Break Enchantment.MOD			CLASSES:Holy Terror=6
+Command (Greater).MOD			CLASSES:Holy Terror=6
+Commune.MOD					CLASSES:Holy Terror=6
+Cure Light Wounds (Mass).MOD		CLASSES:Holy Terror=6
+Dispel Chaos.MOD				CLASSES:Holy Terror=6
+Dispel Evil.MOD				CLASSES:Holy Terror=6
+Disrupting Weapon.MOD			CLASSES:Holy Terror=6
+Flame Strike.MOD				CLASSES:Holy Terror=6
+Hallow.MOD					CLASSES:Holy Terror=6
+Inflict Light Wounds (Mass).MOD	CLASSES:Holy Terror=6
+Insect Plague.MOD				CLASSES:Holy Terror=6
+Mark of Justice.MOD			CLASSES:Holy Terror=6
+Plane Shift.MOD				CLASSES:Holy Terror=6
+Psychic Turmoil.MOD			CLASSES:Holy Terror=6
+Raise Dead.MOD				CLASSES:Holy Terror=6
+Repel Animal.MOD				CLASSES:Holy Terror=6
+Righteous Might.MOD			CLASSES:Holy Terror=6
+Scrying.MOD					CLASSES:Holy Terror=6
+Slay Living.MOD				CLASSES:Holy Terror=6
+Spell Resistance.MOD			CLASSES:Holy Terror=6
+Spellbane's Spell-Exchange.MOD	CLASSES:Holy Terror=6
+Summon Monster V.MOD			CLASSES:Holy Terror=6
+Symbol of Pain.MOD			CLASSES:Holy Terror=6
+Symbol of Sleep.MOD			CLASSES:Holy Terror=6
+True Seeing.MOD				CLASSES:Holy Terror=6
+Unhallow.MOD				CLASSES:Holy Terror=6
+Wall of Stone.MOD				CLASSES:Holy Terror=6
+Wrath of Alfheim.MOD			CLASSES:Holy Terror=6
+
+#METAPHYSICIAN SPELLS
+#1ST-LEVEL METAPHYSICIAN SPELLS
+Battlescars.MOD				CLASSES:Metaphysician=1
+Cure Minor Wounds.MOD			CLASSES:Metaphysician=1
+Detect Poison.MOD				CLASSES:Metaphysician=1
+Goodberry.MOD				CLASSES:Metaphysician=1
+#2ND-LEVEL METAPHYSICIAN SPELLS
+Blindness/Deafness.MOD			CLASSES:Metaphysician=2
+Cure Light Wounds.MOD			CLASSES:Metaphysician=2
+Delay Poison.MOD				CLASSES:Metaphysician=2
+Inflict Light Wounds.MOD		CLASSES:Metaphysician=2
+Remove Blindness/Deafness.MOD		CLASSES:Metaphysician=2
+Whisper of Healing.MOD			CLASSES:Metaphysician=2
+#3RD-LEVEL METAPHYSICIAN SPELLS
+Cure Moderate Wounds.MOD		CLASSES:Metaphysician=3
+Contagion.MOD				CLASSES:Metaphysician=3
+Inflict Moderate Wounds.MOD		CLASSES:Metaphysician=3
+Nature's Health.MOD			CLASSES:Metaphysician=3
+Remove Disease.MOD			CLASSES:Metaphysician=3
+Word of Healing (Lesser).MOD		CLASSES:Metaphysician=3
+#4TH-LEVEL METAPHYSICIAN SPELLS
+Cure Serious Wounds.MOD			CLASSES:Metaphysician=4
+Inflict Serious Wounds.MOD		CLASSES:Metaphysician=4
+Restoration (Lesser).MOD		CLASSES:Metaphysician=4
+Neutralize Poison.MOD			CLASSES:Metaphysician=4
+Poison.MOD					CLASSES:Metaphysician=4
+Word of Healing.MOD			CLASSES:Metaphysician=4
+Word of Remedy.MOD			CLASSES:Metaphysician=4
+Word of Rest.MOD				CLASSES:Metaphysician=4
+
+#MURMUR SPELLS
+#0-LEVEL MURMUR SPELLS (CANTRIPS)
+Arcane Mark.MOD				CLASSES:Murmur=0
+Beauty.MOD					CLASSES:Murmur=0
+Open/Close.MOD				CLASSES:Murmur=0
+Power Word (Hear).MOD			CLASSES:Murmur=0
+Power Word (Lie).MOD			CLASSES:Murmur=0
+Power Word (See).MOD			CLASSES:Murmur=0
+Power Word (Sing).MOD			CLASSES:Murmur=0
+Prestidigitation.MOD			CLASSES:Murmur=0
+Reflexes.MOD				CLASSES:Murmur=0
+Stop.MOD					CLASSES:Murmur=0
+#1ST-LEVEL MURMUR SPELLS
+Darkness.MOD				CLASSES:Murmur=1
+Feather Fall.MOD				CLASSES:Murmur=1
+Mage Armor.MOD				CLASSES:Murmur=1
+Muscles.MOD					CLASSES:Murmur=1
+Power Word (Detect).MOD			CLASSES:Murmur=1
+Power Word (Intimidate).MOD		CLASSES:Murmur=1
+Power Word (Read).MOD			CLASSES:Murmur=1
+Shield.MOD					CLASSES:Murmur=1
+Willpower.MOD				CLASSES:Murmur=1
+Word of Averting.MOD			CLASSES:Murmur=1
+#2ND-LEVEL MURMUR SPELLS
+Advocate.MOD				CLASSES:Murmur=2
+Blur.MOD					CLASSES:Murmur=2
+Deeper Darkness.MOD			CLASSES:Murmur=2
+Fog Cloud.MOD				CLASSES:Murmur=2
+Invisibility.MOD				CLASSES:Murmur=2
+Mirror Image.MOD				CLASSES:Murmur=2
+Pierce Veil.MOD				CLASSES:Murmur=2
+Power Word (Disguise).MOD		CLASSES:Murmur=2
+Power Word (Dispel).MOD			CLASSES:Murmur=2
+Tongues.MOD					CLASSES:Murmur=2
+#3RD-LEVEL MURMUR SPELLS
+Blacklight.MOD				CLASSES:Murmur=3
+Blink.MOD					CLASSES:Murmur=3
+Displacement.MOD				CLASSES:Murmur=3
+Invisibility Sphere.MOD			CLASSES:Murmur=3
+Power Word (Analyze).MOD		CLASSES:Murmur=3
+Power Word (Backstab).MOD		CLASSES:Murmur=3
+Power Word (Jump).MOD			CLASSES:Murmur=3
+Power Word (Reach).MOD			CLASSES:Murmur=3
+Speak with Animals.MOD			CLASSES:Murmur=3
+Word of Dispelling.MOD			CLASSES:Murmur=3
+#4TH-LEVEL MURMUR SPELLS
+Dimension Door.MOD			CLASSES:Murmur=4
+Freedom of Movement.MOD			CLASSES:Murmur=4
+Invisibility (Greater).MOD		CLASSES:Murmur=4
+Power Word (Climb).MOD			CLASSES:Murmur=4
+Power Word (Grapple).MOD		CLASSES:Murmur=4
+Power Word (Listen).MOD			CLASSES:Murmur=4
+Power Word (Spot).MOD			CLASSES:Murmur=4
+Power Word (Trip).MOD			CLASSES:Murmur=4
+Power Word (Unbind).MOD			CLASSES:Murmur=4
+Speak with Dead.MOD			CLASSES:Murmur=4
+#5TH-LEVEL MURMUR SPELLS
+Break Enchantment.MOD			CLASSES:Murmur=5
+Power Word (Armor).MOD			CLASSES:Murmur=5
+Power Word (Enhance).MOD		CLASSES:Murmur=5
+Power Word (Open).MOD			CLASSES:Murmur=5
+Seeming.MOD					CLASSES:Murmur=5
+Shadow Walk.MOD				CLASSES:Murmur=5
+Speak with Plants.MOD			CLASSES:Murmur=5
+Teleport.MOD				CLASSES:Murmur=5
+True Seeing.MOD				CLASSES:Murmur=5
+Word of Undoing.MOD			CLASSES:Murmur=5
+#6TH-LEVEL MURMUR SPELLS
+Contact Other Plane.MOD			CLASSES:Murmur=6
+Contingency.MOD				CLASSES:Murmur=6
+Ethereal Jaunt.MOD			CLASSES:Murmur=6
+Know Magic.MOD				CLASSES:Murmur=6
+Power Word (Invoke).MOD			CLASSES:Murmur=6
+Power Word (Shield).MOD			CLASSES:Murmur=6
+Stoneskin.MOD				CLASSES:Murmur=6
+Stone Tell.MOD				CLASSES:Murmur=6
+Teleport (Greater).MOD			CLASSES:Murmur=6
+Word of Reflection.MOD			CLASSES:Murmur=6
+
+#OUTCAST SPELLS
+#0-LEVEL OUTCAST SPELLS (CANTRIPS)
+Daze.MOD					CLASSES:Outcast=0
+Dancing Lights.MOD			CLASSES:Outcast=0
+Detect Magic.MOD				CLASSES:Outcast=0
+Detect Poison.MOD				CLASSES:Outcast=0
+Mending.MOD					CLASSES:Outcast=0
+Power Word (Lie).MOD			CLASSES:Outcast=0
+Read Magic.MOD				CLASSES:Outcast=0
+Resistance.MOD				CLASSES:Outcast=0
+#1ST-LEVEL OUTCAST SPELLS
+Comprehend Languages.MOD		CLASSES:Outcast=1
+Disguise Self.MOD				CLASSES:Outcast=1
+Ear of Nature.MOD				CLASSES:Outcast=1
+Endure Elements.MOD			CLASSES:Outcast=1
+Find Hidden Doors.MOD			CLASSES:Outcast=1
+Identify.MOD				CLASSES:Outcast=1
+Message.MOD					CLASSES:Outcast=1
+Obscuring Mist.MOD			CLASSES:Outcast=1
+Power Word (Intimidate).MOD		CLASSES:Outcast=1
+Word of Averting.MOD			CLASSES:Outcast=1
+#2ND-LEVEL OUTCAST SPELLS
+Blur.MOD					CLASSES:Outcast=2
+Bull's Strength.MOD			CLASSES:Outcast=2
+Cat's Grace.MOD				CLASSES:Outcast=2
+Darkness.MOD				CLASSES:Outcast=2
+Detect Thoughts.MOD			CLASSES:Outcast=2
+Fog Cloud.MOD				CLASSES:Outcast=2
+Freeze Light.MOD				CLASSES:Outcast=2
+Tent.MOD					CLASSES:Outcast=2
+#3RD-LEVEL OUTCAST SPELLS
+Blink.MOD					CLASSES:Outcast=3
+Gentle Repose.MOD				CLASSES:Outcast=3
+Heroism.MOD					CLASSES:Outcast=3
+Keen Edge.MOD				CLASSES:Outcast=3
+Nondetection.MOD				CLASSES:Outcast=3
+Power Word (Reach).MOD			CLASSES:Outcast=3
+Power Word (Trip).MOD			CLASSES:Outcast=3
+Rage.MOD					CLASSES:Outcast=3
+Secret Page.MOD				CLASSES:Outcast=3
+Water Breathing.MOD			CLASSES:Outcast=3
+#4TH-LEVEL OUTCAST SPELLS
+Argent Sword.MOD				CLASSES:Outcast=4
+Bestow Curse.MOD				CLASSES:Outcast=4
+Campsite.MOD				CLASSES:Outcast=4
+Crushing Despair.MOD			CLASSES:Outcast=4
+Deeppack.MOD				CLASSES:Outcast=4
+Detect Scrying.MOD			CLASSES:Outcast=4
+Nature's Health.MOD			CLASSES:Outcast=4
+Solid Fog.MOD				CLASSES:Outcast=4
+
+
+#SHAMAN SPELLS
+#0-LEVEL SHAMAN SPELLS (ORISONS)
+Battlescars.MOD				CLASSES:Shaman=0
+Create Water.MOD				CLASSES:Shaman=0
+Cure Minor Wounds.MOD			CLASSES:Shaman=0
+Detect Magic.MOD				CLASSES:Shaman=0
+Detect Poison.MOD				CLASSES:Shaman=0
+Ear of Nature.MOD				CLASSES:Shaman=0
+Guidance.MOD				CLASSES:Shaman=0
+Know Direction.MOD			CLASSES:Shaman=0
+Light.MOD					CLASSES:Shaman=0
+Purify Food and Drink.MOD		CLASSES:Shaman=0
+Read Magic.MOD				CLASSES:Shaman=0
+Resistance.MOD				CLASSES:Shaman=0
+Virtue.MOD					CLASSES:Shaman=0
+#1ST-LEVEL SHAMAN SPELLS
+Calm Animals.MOD				CLASSES:Shaman=1
+Charm Animal.MOD				CLASSES:Shaman=1
+Cure Light Wounds.MOD			CLASSES:Shaman=1
+Detect Animals or Plants.MOD		CLASSES:Shaman=1
+Endure Elements.MOD			CLASSES:Shaman=1
+Entangle.MOD				CLASSES:Shaman=1
+Find Hidden Doors.MOD			CLASSES:Shaman=1
+Goodberry.MOD				CLASSES:Shaman=1
+Hide from Animals.MOD			CLASSES:Shaman=1
+Jump.MOD					CLASSES:Shaman=1
+Longstrider.MOD				CLASSES:Shaman=1
+Magic Fang.MOD				CLASSES:Shaman=1
+Magic Stone.MOD				CLASSES:Shaman=1
+Mole Sense.MOD				CLASSES:Shaman=1
+Pass without Trace.MOD			CLASSES:Shaman=1
+Produce Flame.MOD				CLASSES:Shaman=1
+Speak with Animals.MOD			CLASSES:Shaman=1
+Summon Nature's Ally I.MOD		CLASSES:Shaman=1
+#2ND-LEVEL SHAMAN SPELLS
+Animal Messenger.MOD			CLASSES:Shaman=2
+Animal Trance.MOD				CLASSES:Shaman=2
+Barkskin.MOD				CLASSES:Shaman=2
+Bear's Endurance.MOD			CLASSES:Shaman=2
+Bull's Strength.MOD			CLASSES:Shaman=2
+Cat's Grace.MOD				CLASSES:Shaman=2
+Claws of the Wolverine.MOD		CLASSES:Shaman=2
+Delay Poison.MOD				CLASSES:Shaman=2
+Gluey Air.MOD				CLASSES:Shaman=2
+Gust of Wind.MOD				CLASSES:Shaman=2
+Hold Animal.MOD				CLASSES:Shaman=2
+Nature's Awareness.MOD			CLASSES:Shaman=2
+Owl's Wisdom.MOD				CLASSES:Shaman=2
+Reduce Animal.MOD				CLASSES:Shaman=2
+Resist Energy.MOD				CLASSES:Shaman=2
+Restoration (Lesser).MOD		CLASSES:Shaman=2
+Soften Earth and Stone.MOD		CLASSES:Shaman=2
+Spider Climb.MOD				CLASSES:Shaman=2
+Summon Nature's Ally II.MOD		CLASSES:Shaman=2
+Summon Swarm.MOD				CLASSES:Shaman=2
+Tent.MOD					CLASSES:Shaman=2
+Tree Shape.MOD				CLASSES:Shaman=2
+Warp Wood.MOD				CLASSES:Shaman=2
+Wood Shape.MOD				CLASSES:Shaman=2
+#3RD-LEVEL SHAMAN SPELLS
+Call Lightning.MOD			CLASSES:Shaman=3
+Contagion.MOD				CLASSES:Shaman=3
+Cure Moderate Wounds.MOD		CLASSES:Shaman=3
+Daylight.MOD				CLASSES:Shaman=3
+Diminish Plants.MOD			CLASSES:Shaman=3
+Disperse Air.MOD				CLASSES:Shaman=3
+Dominate Animal.MOD			CLASSES:Shaman=3
+Eagle Sight.MOD				CLASSES:Shaman=3
+Earth Wave.MOD				CLASSES:Shaman=3
+Magic Fang (Greater).MOD		CLASSES:Shaman=3
+Meld into Stone.MOD			CLASSES:Shaman=3
+Nature's Health.MOD			CLASSES:Shaman=3
+Neutralize Poison.MOD			CLASSES:Shaman=3
+Protection from Energy.MOD		CLASSES:Shaman=3
+Remove Disease.MOD			CLASSES:Shaman=3
+Speak with Plants.MOD			CLASSES:Shaman=3
+Spike Growth.MOD				CLASSES:Shaman=3
+Stone Shape.MOD				CLASSES:Shaman=3
+Summon Nature's Ally III.MOD		CLASSES:Shaman=3
+Tribal Mask.MOD				CLASSES:Shaman=3
+Water Breathing.MOD			CLASSES:Shaman=3
+Wind Wall.MOD				CLASSES:Shaman=3
+#4TH-LEVEL SHAMAN SPELLS
+Air Walk.MOD				CLASSES:Shaman=4
+Antiplant Shell.MOD			CLASSES:Shaman=4
+Birds of a Feather.MOD			CLASSES:Shaman=4
+Blight.MOD					CLASSES:Shaman=4
+Command Plants.MOD			CLASSES:Shaman=4
+Control Water.MOD				CLASSES:Shaman=4
+Cure Serious Wounds.MOD			CLASSES:Shaman=4
+Dispel Magic.MOD				CLASSES:Shaman=4
+Flame Strike.MOD				CLASSES:Shaman=4
+Freedom of Movement.MOD			CLASSES:Shaman=4
+Giant Vermin.MOD				CLASSES:Shaman=4
+Ice Storm.MOD				CLASSES:Shaman=4
+Power Word (Tire).MOD			CLASSES:Shaman=4
+Repel Vermin.MOD				CLASSES:Shaman=4
+Scrying.MOD					CLASSES:Shaman=4
+Spike Stones.MOD				CLASSES:Shaman=4
+Summon Nature's Ally IV.MOD		CLASSES:Shaman=4
+#5TH-LEVEL SHAMAN SPELLS
+Animal Growth.MOD				CLASSES:Shaman=5
+Atonement.MOD				CLASSES:Shaman=5
+Awaken.MOD					CLASSES:Shaman=5
+Call Lightning Storm.MOD		CLASSES:Shaman=5
+Campsite.MOD				CLASSES:Shaman=5
+Commune with Nature.MOD			CLASSES:Shaman=5
+Control Winds.MOD				CLASSES:Shaman=5
+Cure Critical Wounds.MOD		CLASSES:Shaman=5
+Hallow.MOD					CLASSES:Shaman=5
+Insect Plague.MOD				CLASSES:Shaman=5
+Repel Animal.MOD				CLASSES:Shaman=5
+Spirit of the Night.MOD			CLASSES:Shaman=5
+Stoneskin.MOD				CLASSES:Shaman=5
+Summon Nature's Ally V.MOD		CLASSES:Shaman=5
+Transmute Mud to Rock.MOD		CLASSES:Shaman=5
+Transmute Rock to Mud.MOD		CLASSES:Shaman=5
+Tree Stride.MOD				CLASSES:Shaman=5
+Unhallow.MOD				CLASSES:Shaman=5
+Wall of Fire.MOD				CLASSES:Shaman=5
+Wall of Thorns.MOD			CLASSES:Shaman=5
+#6TH-LEVEL SHAMAN SPELLS
+Antilife Shell.MOD			CLASSES:Shaman=6
+Bear's Endurance (Mass).MOD		CLASSES:Shaman=6
+Boneshatter.MOD				CLASSES:Shaman=6
+Campsite (Greater).MOD			CLASSES:Shaman=6
+Cat's Grace (Mass).MOD			CLASSES:Shaman=6
+Cure Light Wounds (Mass).MOD		CLASSES:Shaman=6
+Dispel Magic (Greater).MOD		CLASSES:Shaman=6
+Dream Trap.MOD				CLASSES:Shaman=6
+Find the Path.MOD				CLASSES:Shaman=6
+Fire Seeds.MOD				CLASSES:Shaman=6
+Ironwood.MOD				CLASSES:Shaman=6
+Liveoak.MOD					CLASSES:Shaman=6
+Move Earth.MOD				CLASSES:Shaman=6
+Nature's Wrath.MOD			CLASSES:Shaman=6
+Owl's Wisdom (Mass).MOD			CLASSES:Shaman=6
+Repel Wood.MOD				CLASSES:Shaman=6
+Spellstaff.MOD				CLASSES:Shaman=6
+Spirit of the Predator.MOD		CLASSES:Shaman=6
+Stone Tell.MOD				CLASSES:Shaman=6
+Summon Nature's Ally VI.MOD		CLASSES:Shaman=6
+Transport via Plants.MOD		CLASSES:Shaman=6
+Wall of Stone.MOD				CLASSES:Shaman=6
+#7TH-LEVEL SHAMAN SPELLS
+Acrid Crop.MOD				CLASSES:Shaman=7
+Ancient Counsel.MOD			CLASSES:Shaman=7
+Animate Plants.MOD			CLASSES:Shaman=7
+Call of the Pack.MOD			CLASSES:Shaman=7
+Changestaff.MOD				CLASSES:Shaman=7
+Control Weather.MOD			CLASSES:Shaman=7
+Creeping Doom.MOD				CLASSES:Shaman=7
+Cure Moderate Wounds (Mass).MOD	CLASSES:Shaman=7
+Fire Storm.MOD				CLASSES:Shaman=7
+Heal.MOD					CLASSES:Shaman=7
+Poison Word.MOD				CLASSES:Shaman=7
+Scrying (Greater).MOD			CLASSES:Shaman=7
+Spell Harvest.MOD				CLASSES:Shaman=7
+Summon Nature's Ally VII.MOD		CLASSES:Shaman=7
+Sunbeam.MOD					CLASSES:Shaman=7
+Transmute Metal to Wood.MOD		CLASSES:Shaman=7
+True Seeing.MOD				CLASSES:Shaman=7
+Wind Walk.MOD				CLASSES:Shaman=7
+Word of Metamorphosis.MOD		CLASSES:Shaman=7
+#8TH-LEVEL SHAMAN SPELLS
+Animal Shapes.MOD				CLASSES:Shaman=8
+Control Plants.MOD			CLASSES:Shaman=8
+Cure Serious Wounds (Mass).MOD	CLASSES:Shaman=8
+Earthquake.MOD				CLASSES:Shaman=8
+Repel Metal or Stone.MOD		CLASSES:Shaman=8
+Spirit of the Sea.MOD			CLASSES:Shaman=8
+Summon Nature's Ally VIII.MOD		CLASSES:Shaman=8
+Sunburst.MOD				CLASSES:Shaman=8
+Whirlwind.MOD				CLASSES:Shaman=8
+#9TH-LEVEL SHAMAN SPELLS
+Antipathy.MOD				CLASSES:Shaman=9
+Cure Critical Wounds (Mass).MOD	CLASSES:Shaman=9
+Elemental Swarm.MOD			CLASSES:Shaman=9
+Foresight.MOD				CLASSES:Shaman=9
+Haunting.MOD				CLASSES:Shaman=9
+Shambler.MOD				CLASSES:Shaman=9
+Shapechange.MOD				CLASSES:Shaman=9
+Spirit of the Grizzly.MOD		CLASSES:Shaman=9
+Storm of Vengeance.MOD			CLASSES:Shaman=9
+Summon Nature's Ally IX.MOD		CLASSES:Shaman=9
+Turn Haunting.MOD				CLASSES:Shaman=9
+
+
+
+#Utter Master SPELLS
+#0-LEVEL UTTER MASTER SPELLS (CANTRIPS)
+Beauty.MOD					CLASSES:Utter Master=0
+Ear of Nature.MOD				CLASSES:Utter Master=0
+Flare.MOD					CLASSES:Utter Master=0
+Genius.MOD					CLASSES:Utter Master=0
+Muscles.MOD					CLASSES:Utter Master=0
+Power Word (Hear).MOD			CLASSES:Utter Master=0
+Power Word (Lie).MOD			CLASSES:Utter Master=0
+Power Word (Ready).MOD			CLASSES:Utter Master=0
+Power Word (See).MOD			CLASSES:Utter Master=0
+Power Word (Sing).MOD			CLASSES:Utter Master=0
+Prestidigitation.MOD			CLASSES:Utter Master=0
+Reflexes.MOD				CLASSES:Utter Master=0
+Stamina.MOD					CLASSES:Utter Master=0
+Stop.MOD					CLASSES:Utter Master=0
+Willpower.MOD				CLASSES:Utter Master=0
+#1ST-LEVEL UTTER MASTER SPELLS
+Beast.MOD					CLASSES:Utter Master=1
+Feather Fall.MOD				CLASSES:Utter Master=1
+Hold Portal.MOD				CLASSES:Utter Master=1
+Idiot.MOD					CLASSES:Utter Master=1
+Power Word (Detect).MOD			CLASSES:Utter Master=1
+Power Word (Hesitate).MOD		CLASSES:Utter Master=1
+Power Word (Intimidate).MOD		CLASSES:Utter Master=1
+Power Word (Read).MOD			CLASSES:Utter Master=1
+Synergetic Whip.MOD			CLASSES:Utter Master=1
+Weaken Will.MOD				CLASSES:Utter Master=1
+Word of Averting.MOD			CLASSES:Utter Master=1
+Word of Ire.MOD				CLASSES:Utter Master=1
+#2ND-LEVEL UTTER MASTER SPELLS
+Advocate.MOD				CLASSES:Utter Master=2
+Blindness/Deafness.MOD			CLASSES:Utter Master=2
+Blur.MOD					CLASSES:Utter Master=2
+Clumsiness.MOD				CLASSES:Utter Master=2
+Decrepitude.MOD				CLASSES:Utter Master=2
+Dodge.MOD					CLASSES:Utter Master=2
+Knock.MOD					CLASSES:Utter Master=2
+Pierce Veil.MOD				CLASSES:Utter Master=2
+Power Word (Analyze).MOD		CLASSES:Utter Master=2
+Power Word (Dispel).MOD			CLASSES:Utter Master=2
+Power Word (Erase).MOD			CLASSES:Utter Master=2
+Power Word (Password).MOD		CLASSES:Utter Master=2
+Tongues.MOD					CLASSES:Utter Master=2
+Weakling.MOD				CLASSES:Utter Master=2
+Withstand.MOD				CLASSES:Utter Master=2
+#3RD-LEVEL UTTER MASTER SPELLS
+Aerial Battle.MOD				CLASSES:Utter Master=3
+Construct.MOD				CLASSES:Utter Master=3
+Force Push.MOD				CLASSES:Utter Master=3
+Glitterdust.MOD				CLASSES:Utter Master=3
+Power Word (Awaken).MOD			CLASSES:Utter Master=3
+Power Word (Backstab).MOD		CLASSES:Utter Master=3
+Power Word (Delay).MOD			CLASSES:Utter Master=3
+Power Word (Disguise).MOD		CLASSES:Utter Master=3
+Power Word (Flame).MOD			CLASSES:Utter Master=3
+Power Word (Grapple).MOD		CLASSES:Utter Master=3
+Power Word (Jump).MOD			CLASSES:Utter Master=3
+Power Word (Reach).MOD			CLASSES:Utter Master=3
+Power Word (Shock).MOD			CLASSES:Utter Master=3
+Power Word (Tire).MOD			CLASSES:Utter Master=3
+Power Word (Trip).MOD			CLASSES:Utter Master=3
+Word of Silence.MOD			CLASSES:Utter Master=3
+#4TH-LEVEL UTTER MASTER SPELLS
+Dimension Door.MOD			CLASSES:Utter Master=4
+Fatigue.MOD					CLASSES:Utter Master=4
+Fly.MOD					CLASSES:Utter Master=4
+Power Word (Enhance).MOD		CLASSES:Utter Master=4
+Power Word (Listen).MOD			CLASSES:Utter Master=4
+Power Word (Open).MOD			CLASSES:Utter Master=4
+Power Word (Spot).MOD			CLASSES:Utter Master=4
+Shout.MOD					CLASSES:Utter Master=4
+Stinking Cloud.MOD			CLASSES:Utter Master=4
+Word of Burden.MOD			CLASSES:Utter Master=4
+Word of Dispelling.MOD			CLASSES:Utter Master=4
+Word of Rest.MOD				CLASSES:Utter Master=4
+#5TH-LEVEL UTTER MASTER SPELLS
+Exhaust.MOD					CLASSES:Utter Master=5
+Power Word (Armor).MOD			CLASSES:Utter Master=5
+Power Word (Climb).MOD			CLASSES:Utter Master=5
+Power Word (Electrocute).MOD		CLASSES:Utter Master=5
+Power Word (Slip).MOD			CLASSES:Utter Master=5
+Power Word (Unbind).MOD			CLASSES:Utter Master=5
+Scream of Fear.MOD			CLASSES:Utter Master=5
+Skeletonize.MOD				CLASSES:Utter Master=5
+Teleport.MOD				CLASSES:Utter Master=5
+Word of Anger.MOD				CLASSES:Utter Master=5
+Word of Metamorphosis.MOD		CLASSES:Utter Master=5
+#6TH-LEVEL UTTER MASTER SPELLS
+Accuse.MOD					CLASSES:Utter Master=6
+Feeblemind.MOD				CLASSES:Utter Master=6
+Power Word (Envision).MOD		CLASSES:Utter Master=6
+Power Word (Rebuke).MOD			CLASSES:Utter Master=6
+Power Word (Shield).MOD			CLASSES:Utter Master=6
+Power Word (Transmogrify).MOD		CLASSES:Utter Master=6
+Power Word (Turn).MOD			CLASSES:Utter Master=6
+Power Word (Vassal).MOD			CLASSES:Utter Master=6
+Word of Pain.MOD				CLASSES:Utter Master=6
+Zombify.MOD					CLASSES:Utter Master=6
+#7TH-LEVEL UTTER MASTER SPELLS
+Animate Plants.MOD			CLASSES:Utter Master=7
+Eyebite.MOD					CLASSES:Utter Master=7
+Teleport (Greater).MOD			CLASSES:Utter Master=7
+Phase Door.MOD				CLASSES:Utter Master=7
+Power Word (Bastion).MOD		CLASSES:Utter Master=7
+Power Word Blind.MOD			CLASSES:Utter Master=7
+Power Word (Chill).MOD			CLASSES:Utter Master=7
+Power Word (Invoke).MOD			CLASSES:Utter Master=7
+Teleport Object.MOD			CLASSES:Utter Master=7
+Word of Dissention.MOD			CLASSES:Utter Master=7
+Word of Undoing.MOD			CLASSES:Utter Master=7
+#8TH-LEVEL UTTER MASTER SPELLS
+Acid Word.MOD				CLASSES:Utter Master=8
+Irresistible Dance.MOD			CLASSES:Utter Master=8
+Charm Monster (Mass).MOD		CLASSES:Utter Master=8
+Enhance (Mass).MOD			CLASSES:Utter Master=8
+Poison Word.MOD				CLASSES:Utter Master=8
+Power Word (Coma).MOD			CLASSES:Utter Master=8
+Power Word Stun.MOD			CLASSES:Utter Master=8
+Word of Fear.MOD				CLASSES:Utter Master=8
+#9TH-LEVEL UTTER MASTER SPELLS
+Compulsion/Power Word (Geas).MOD	CLASSES:Utter Master=9
+Know Magic.MOD				CLASSES:Utter Master=9
+Mage's Disjunction.MOD			CLASSES:Utter Master=9
+Power Word (Burn).MOD			CLASSES:Utter Master=9
+Power Word (Command).MOD		CLASSES:Utter Master=9
+Power Word (Destroy).MOD		CLASSES:Utter Master=9
+Power Word (Dissolve).MOD		CLASSES:Utter Master=9
+Power Word Kill.MOD			CLASSES:Utter Master=9
+Power Word (Undeath).MOD		CLASSES:Utter Master=9
+Prismatic Sphere.MOD			CLASSES:Utter Master=9
+Time Stop.MOD				CLASSES:Utter Master=9
+Wail of the Banshee.MOD			CLASSES:Utter Master=9
+Wish.MOD					CLASSES:Utter Master=9
+Word of Fury.MOD				CLASSES:Utter Master=9
+Word of Reflection.MOD			CLASSES:Utter Master=9
+
+#WITCH SPELLS
+#0-LEVEL WITCH SPELLS (CANTRIPS)
+Acid Splash.MOD				CLASSES:Witch=0
+Beauty.MOD					CLASSES:Witch=0
+Charming Flare.MOD			CLASSES:Witch=0
+Dancing Lights.MOD			CLASSES:Witch=0
+Daze.MOD					CLASSES:Witch=0
+Detect Poison.MOD				CLASSES:Witch=0
+Detect Magic.MOD				CLASSES:Witch=0
+Disrupt Undead.MOD			CLASSES:Witch=0
+Flare.MOD					CLASSES:Witch=0
+Genius.MOD					CLASSES:Witch=0
+Ghost Sound.MOD				CLASSES:Witch=0
+Mage Hand.MOD				CLASSES:Witch=0
+Message.MOD					CLASSES:Witch=0
+Muscles.MOD					CLASSES:Witch=0
+Open/Close.MOD				CLASSES:Witch=0
+Power Word (Sing).MOD			CLASSES:Witch=0
+Prestidigitation.MOD			CLASSES:Witch=0
+Purify Food and Drink.MOD		CLASSES:Witch=0
+Read Magic.MOD				CLASSES:Witch=0
+Stamina.MOD					CLASSES:Witch=0
+Touch of Fatigue.MOD			CLASSES:Witch=0
+Willpower.MOD				CLASSES:Witch=0
+#1ST-LEVEL WITCH SPELLS
+Bane.MOD					CLASSES:Witch=1
+Beast.MOD					CLASSES:Witch=1
+Burning Hands.MOD				CLASSES:Witch=1
+Cause Fear.MOD				CLASSES:Witch=1
+Charm Person.MOD				CLASSES:Witch=1
+Chill Touch.MOD				CLASSES:Witch=1
+Command.MOD					CLASSES:Witch=1
+Comprehend Languages.MOD		CLASSES:Witch=1
+Curse Water.MOD				CLASSES:Witch=1
+Detect Undead.MOD				CLASSES:Witch=1
+Doom.MOD					CLASSES:Witch=1
+Endure Elements.MOD			CLASSES:Witch=1
+Enlarge Person.MOD			CLASSES:Witch=1
+Erase.MOD					CLASSES:Witch=1
+Expeditious Retreat.MOD			CLASSES:Witch=1
+Hide from Undead.MOD			CLASSES:Witch=1
+Hypnotism.MOD				CLASSES:Witch=1
+Identify.MOD				CLASSES:Witch=1
+Idiot.MOD					CLASSES:Witch=1
+Obscuring Mist.MOD			CLASSES:Witch=1
+Protection from Chaos.MOD		CLASSES:Witch=1
+Protection from Evil.MOD		CLASSES:Witch=1
+Protection from Good.MOD		CLASSES:Witch=1
+Protection from Law.MOD			CLASSES:Witch=1
+Ray of Enfeeblement.MOD			CLASSES:Witch=1
+Reduce Person.MOD				CLASSES:Witch=1
+Shocking Grasp.MOD			CLASSES:Witch=1
+Sleep.MOD					CLASSES:Witch=1
+Weaken Will.MOD				CLASSES:Witch=1
+#2ND-LEVEL WITCH SPELLS
+Advocate.MOD				CLASSES:Witch=2
+Augury.MOD					CLASSES:Witch=2
+Bear's Endurance.MOD			CLASSES:Witch=2
+Blindness/Deafness.MOD			CLASSES:Witch=2
+Bull's Strength.MOD			CLASSES:Witch=2
+Blur.MOD					CLASSES:Witch=2
+Cat's Grace.MOD				CLASSES:Witch=2
+Clumsiness.MOD				CLASSES:Witch=2
+Darkness.MOD				CLASSES:Witch=2
+Daze Monster.MOD				CLASSES:Witch=2
+Decrepitude.MOD				CLASSES:Witch=2
+Deep Sleep.MOD				CLASSES:Witch=2
+Delay Poison.MOD				CLASSES:Witch=2
+Detect Thoughts.MOD			CLASSES:Witch=2
+Eagle's Splendor.MOD			CLASSES:Witch=2
+Enthrall.MOD				CLASSES:Witch=2
+Fog Cloud.MOD				CLASSES:Witch=2
+Fox's Cunning.MOD				CLASSES:Witch=2
+Freeze Light.MOD				CLASSES:Witch=2
+Ghoul Touch.MOD				CLASSES:Witch=2
+Glitterdust.MOD				CLASSES:Witch=2
+Gust of Wind.MOD				CLASSES:Witch=2
+Hideous Laughter.MOD			CLASSES:Witch=2
+Hypnotic Pattern.MOD			CLASSES:Witch=2
+Invisibility.MOD				CLASSES:Witch=2
+Locate Object.MOD				CLASSES:Witch=2
+Misdirection.MOD				CLASSES:Witch=2
+Obscure Object.MOD			CLASSES:Witch=2
+Owl's Wisdom.MOD				CLASSES:Witch=2
+Power Word (Intimidate).MOD		CLASSES:Witch=2
+Power Word (Password).MOD		CLASSES:Witch=2
+Resist Energy.MOD				CLASSES:Witch=2
+Scare.MOD					CLASSES:Witch=2
+See Invisibility.MOD			CLASSES:Witch=2
+Silence.MOD					CLASSES:Witch=2
+Sleeplessness.MOD				CLASSES:Witch=2
+Spear of Haunting.MOD			CLASSES:Witch=2
+Spectral Hand.MOD				CLASSES:Witch=2
+Spider Climb.MOD				CLASSES:Witch=2
+Summon Swarm.MOD				CLASSES:Witch=2
+Touch of Idiocy.MOD			CLASSES:Witch=2
+Weakling.MOD				CLASSES:Witch=2
+Web.MOD					CLASSES:Witch=2
+Whispering Wind.MOD			CLASSES:Witch=2
+Zone of Truth.MOD				CLASSES:Witch=2
+#3RD-LEVEL WITCH SPELLS
+Arcane Sight.MOD				CLASSES:Witch=3
+Animate Dead.MOD				CLASSES:Witch=3
+Bestow Curse.MOD				CLASSES:Witch=3
+Clairaudience/Clairvoyance.MOD	CLASSES:Witch=3
+Contagion.MOD				CLASSES:Witch=3
+Counterspell.MOD				CLASSES:Witch=3
+Deeper Darkness.MOD			CLASSES:Witch=3
+Deep Slumber.MOD				CLASSES:Witch=3
+Dispel Magic.MOD				CLASSES:Witch=3
+Fly.MOD					CLASSES:Witch=3
+Gaseous Form.MOD				CLASSES:Witch=3
+Gentle Repose.MOD				CLASSES:Witch=3
+Halt Undead.MOD				CLASSES:Witch=3
+Haste.MOD					CLASSES:Witch=3
+Heroism.MOD					CLASSES:Witch=3
+Hold Person.MOD				CLASSES:Witch=3
+Magic Circle against Chaos.MOD	CLASSES:Witch=3
+Magic Circle against Evil.MOD		CLASSES:Witch=3
+Magic Circle against Good.MOD		CLASSES:Witch=3
+Magic Circle against Law.MOD		CLASSES:Witch=3
+Nondetection.MOD				CLASSES:Witch=3
+Protection from Energy.MOD		CLASSES:Witch=3
+Rage.MOD					CLASSES:Witch=3
+Ray of Exhaustion.MOD			CLASSES:Witch=3
+Remove Curse.MOD				CLASSES:Witch=3
+Remove Disease.MOD			CLASSES:Witch=3
+Sepia Snake Sigil.MOD			CLASSES:Witch=3
+Slow.MOD					CLASSES:Witch=3
+Speak with Dead.MOD			CLASSES:Witch=3
+Suggestion.MOD				CLASSES:Witch=3
+Vampiric Touch.MOD			CLASSES:Witch=3
+Water Breathing.MOD			CLASSES:Witch=3
+#4TH-LEVEL WITCH SPELLS
+Black Tentacles.MOD			CLASSES:Witch=4
+Charm Monster.MOD				CLASSES:Witch=4
+Confusion.MOD				CLASSES:Witch=4
+Crushing Despair.MOD			CLASSES:Witch=4
+Death Ward.MOD				CLASSES:Witch=4
+Detect Scrying.MOD			CLASSES:Witch=4
+Dimensional Anchor.MOD			CLASSES:Witch=4
+Discern Lies.MOD				CLASSES:Witch=4
+Dismissal.MOD				CLASSES:Witch=4
+Divination.MOD				CLASSES:Witch=4
+Enervation.MOD				CLASSES:Witch=4
+Geas (Lesser).MOD				CLASSES:Witch=4
+Giant Vermin.MOD				CLASSES:Witch=4
+Hallucinatory Terrain.MOD		CLASSES:Witch=4
+Neutralize Poison.MOD			CLASSES:Witch=4
+Planar Ally (Lesser).MOD		CLASSES:Witch=4
+Poison.MOD					CLASSES:Witch=4
+Repel Vermin.MOD				CLASSES:Witch=4
+Scrying.MOD					CLASSES:Witch=4
+Shout.MOD					CLASSES:Witch=4
+Solid Fog.MOD				CLASSES:Witch=4
+Spin.MOD					CLASSES:Witch=4
+Temporary Permanency.MOD		CLASSES:Witch=4
+Tongues.MOD					CLASSES:Witch=4
+#5TH-LEVEL WITCH SPELLS
+Atonement.MOD				CLASSES:Witch=5
+Baleful Polymorph.MOD			CLASSES:Witch=5
+Blight.MOD					CLASSES:Witch=5
+Break Enchantment.MOD			CLASSES:Witch=5
+Contact Other Plane.MOD			CLASSES:Witch=5
+Counterspell (Improved).MOD		CLASSES:Witch=5
+Dominate Person.MOD			CLASSES:Witch=5
+Dream.MOD					CLASSES:Witch=5
+False Vision.MOD				CLASSES:Witch=5
+Feeblemind.MOD				CLASSES:Witch=5
+Hold Monster.MOD				CLASSES:Witch=5
+Insect Plague.MOD				CLASSES:Witch=5
+Magic Jar.MOD				CLASSES:Witch=5
+Mind Fog.MOD				CLASSES:Witch=5
+Nightmare.MOD				CLASSES:Witch=5
+Passwall.MOD				CLASSES:Witch=5
+Permanency.MOD				CLASSES:Witch=5
+Planar Binding (Lesser).MOD		CLASSES:Witch=5
+Prying Eyes.MOD				CLASSES:Witch=5
+Raise Dead.MOD				CLASSES:Witch=5
+Sending.MOD					CLASSES:Witch=5
+Slay Living.MOD				CLASSES:Witch=5
+Symbol of Pain.MOD			CLASSES:Witch=5
+Symbol of Sleep.MOD			CLASSES:Witch=5
+True Seeing.MOD				CLASSES:Witch=5
+Waves of Fatigue.MOD			CLASSES:Witch=5
+#6TH-LEVEL WITCH SPELLS
+Accuse.MOD					CLASSES:Witch=6
+Acid Fog.MOD				CLASSES:Witch=6
+Analyze Dweomer.MOD			CLASSES:Witch=6
+Banishment.MOD				CLASSES:Witch=6
+Boneshatter.MOD				CLASSES:Witch=6
+Chain Lightning.MOD			CLASSES:Witch=6
+Circle of Death.MOD			CLASSES:Witch=6
+Contingency.MOD				CLASSES:Witch=6
+Create Undead.MOD				CLASSES:Witch=6
+Dispel Magic (Greater).MOD		CLASSES:Witch=6
+Dream Trap.MOD				CLASSES:Witch=6
+Eyebite.MOD					CLASSES:Witch=6
+Flesh to Stone.MOD			CLASSES:Witch=6
+Flaming Blood.MOD				CLASSES:Witch=6
+Forbiddance.MOD				CLASSES:Witch=6
+Geas/Quest.MOD				CLASSES:Witch=6
+Guards and Wards.MOD			CLASSES:Witch=6
+Harm.MOD					CLASSES:Witch=6
+Heroism (Greater).MOD			CLASSES:Witch=6
+Legend Lore.MOD				CLASSES:Witch=6
+Planar Ally.MOD				CLASSES:Witch=6
+Planar Binding.MOD			CLASSES:Witch=6
+Power Word (Vassal).MOD			CLASSES:Witch=6
+Scream of Fear.MOD			CLASSES:Witch=6
+Shadow Walk.MOD				CLASSES:Witch=6
+Stone to Flesh.MOD			CLASSES:Witch=6
+Suggestion (Mass).MOD			CLASSES:Witch=6
+Symbol of Fear.MOD			CLASSES:Witch=6
+Symbol of Persuasion.MOD		CLASSES:Witch=6
+Undeath to Death.MOD			CLASSES:Witch=6
+#7TH-LEVEL WITCH SPELLS
+Alter Allegiance.MOD			CLASSES:Witch=7
+Arcane Sight (Greater).MOD		CLASSES:Witch=7
+Blasphemy.MOD				CLASSES:Witch=7
+Control Weather.MOD			CLASSES:Witch=7
+Control Undead.MOD			CLASSES:Witch=7
+Counterspell (Greater).MOD		CLASSES:Witch=7
+Ethereal Jaunt.MOD			CLASSES:Witch=7
+Finger of Death.MOD			CLASSES:Witch=7
+Grasping Hand.MOD				CLASSES:Witch=7
+Hold Person (Mass).MOD			CLASSES:Witch=7
+Insanity.MOD				CLASSES:Witch=7
+Instant Summons.MOD			CLASSES:Witch=7
+Phase Door.MOD				CLASSES:Witch=7
+Plane Shift.MOD				CLASSES:Witch=7
+Power Word Blind.MOD			CLASSES:Witch=7
+Scrying (Greater).MOD			CLASSES:Witch=7
+Sequester.MOD				CLASSES:Witch=7
+Spell Turning.MOD				CLASSES:Witch=7
+Statue.MOD					CLASSES:Witch=7
+Symbol of Stunning.MOD			CLASSES:Witch=7
+Symbol of Weakness.MOD			CLASSES:Witch=7
+Vision.MOD					CLASSES:Witch=7
+Waves of Exhaustion.MOD			CLASSES:Witch=7
+Word of Dissention.MOD			CLASSES:Witch=7
+#8TH-LEVEL WITCH SPELLS
+Antipathy.MOD				CLASSES:Witch=8
+Binding.MOD					CLASSES:Witch=8
+Charm Monster (Mass).MOD		CLASSES:Witch=8
+Create Greater Undead.MOD		CLASSES:Witch=8
+Demand.MOD					CLASSES:Witch=8
+Discern Location.MOD			CLASSES:Witch=8
+Horrid Wilting.MOD			CLASSES:Witch=8
+Irresistible Dance.MOD			CLASSES:Witch=8
+Mind Blank.MOD				CLASSES:Witch=8
+Planar Ally (Greater).MOD		CLASSES:Witch=8
+Planar Binding (Greater).MOD		CLASSES:Witch=8
+Power Word (Coma).MOD			CLASSES:Witch=8
+Power Word Stun.MOD			CLASSES:Witch=8
+Prying Eyes (Greater).MOD		CLASSES:Witch=8
+Symbol of Death.MOD			CLASSES:Witch=8
+Symbol of Insanity.MOD			CLASSES:Witch=8
+Sympathy.MOD				CLASSES:Witch=8
+Trap the Soul.MOD				CLASSES:Witch=8
+Unholy Aura.MOD				CLASSES:Witch=8
+#9TH-LEVEL WITCH SPELLS
+Astral Projection.MOD			CLASSES:Witch=9
+Compulsion/Power Word (Geas).MOD	CLASSES:Witch=9
+Counterspell (Supreme).MOD		CLASSES:Witch=9
+Dominate Monster.MOD			CLASSES:Witch=9
+Energy Drain.MOD				CLASSES:Witch=9
+Etherealness.MOD				CLASSES:Witch=9
+Freedom.MOD					CLASSES:Witch=9
+Hold Monster (Mass).MOD			CLASSES:Witch=9
+Imprisonment.MOD				CLASSES:Witch=9
+Power Word Kill.MOD			CLASSES:Witch=9
+Soul Bind.MOD				CLASSES:Witch=9
+Time Stop.MOD				CLASSES:Witch=9
+Wail of the Banshee.MOD			CLASSES:Witch=9
+Word of Insanity.MOD			CLASSES:Witch=9
+Word of Submission.MOD			CLASSES:Witch=9
+
+# COMMENT: .MODs not respecting the FORWARDREF Tag. Commenting out to prevent errors.

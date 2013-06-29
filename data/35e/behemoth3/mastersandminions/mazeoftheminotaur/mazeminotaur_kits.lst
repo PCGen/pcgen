@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Maze of the Minotaur	SOURCESHORT:MotM	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
+# Original Entry by: Eddy Anthony
+
+REGION:None
+
+STARTPACK:Bull Lord Default Equipment	TYPE:StartingKit	VISIBLE:NO	EQUIPBUY:0
+GEAR:Greataxe	SIZE:L	LOCATION:TwoHanded
+GEAR:Chain Shirt	SIZE:L	LOCATION:Equipped
+
+STARTPACK:Minotrice Maze Mage Default Equipment	TYPE:StartingKit	VISIBLE:NO	EQUIPBUY:0
+GEAR:Leather	SIZE:PC	LOCATION:Equipped
+
+#
+# End
+#

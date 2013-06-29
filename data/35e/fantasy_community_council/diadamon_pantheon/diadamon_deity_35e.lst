@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Diadamon Pantheon	SOURCESHORT:DP	SOURCEWEB:http://www.dcrouzet.net/nbomisc/	SOURCEDATE:2002-01
+
+# Deity Name	Deity Weapon
+Althain.MOD		DEITYWEAP:Spear
+Arn Droue.MOD	DEITYWEAP:Crossbow (Repeating Heavy)|Crossbow (Repeating Light)
+Vilnibog.MOD	DEITYWEAP:Spear
+Gnoshara.MOD	DEITYWEAP:Spear

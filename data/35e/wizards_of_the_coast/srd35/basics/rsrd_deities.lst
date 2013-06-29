@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:38:33 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+# Original Entry by: dlm1065
+
+# Deity Name	Domains							Desciption of Deity/Title																																								Holy Item	Deity Weapon	Source URI
+None			DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE	DESC:Due to closed content PCGEN cannot provide a list of deities, sorry but you need to homebrew your own list; Please see the Documentation for how to do so - http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html	SYMBOL:None	DEITYWEAP:ANY	SOURCEWEB:http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html
+
+
+
+#For Deities of Nuetral alignment that set weather the cleric turns/commands unded
+# add use the following line as appropriate removing the #
+#Turn (Undead)	DEFINE:PresetUndeadChoiceByDeity|0	BONUS:VAR|PresetUndeadChoiceByDeity|10
+#Rebuke (Undead)	DEFINE:PresetUndeadChoiceByDeity|0	BONUS:VAR|PresetUndeadChoiceByDeity|20

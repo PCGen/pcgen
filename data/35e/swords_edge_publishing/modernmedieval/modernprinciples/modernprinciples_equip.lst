@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Modern Principles	SOURCESHORT:MP	SOURCEWEB:http://swordsedgepublishing.ca/SEP4200.pdf	SOURCEDATE:2006-01
+# Created by Paul King, August 2006
+
+# Equipment Name	Type							Cost		Weight	Source Page		Bonus to skill
+Healer's Kit.MOD															BONUS:SKILL|Craft (Medicine)|4
+Surgeon's Kit	TYPE:Goods.Tools.Masterwork.Consumable	COST:150	WT:5		SOURCEPAGE:p.11

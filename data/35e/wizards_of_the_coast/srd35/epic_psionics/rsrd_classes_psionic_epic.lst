@@ -1,0 +1,17 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+# Author: Andargor <andargor@yahoo.com>
+
+# Class Name	Max Level
+CLASS:Psion.MOD	MAXLEVEL:NOLIMIT
+23:REPEATLEVEL:3	BONUS:ABILITYPOOL|Epic Psion Feat|1
+
+
+# Class Name			Max Level
+CLASS:Psychic Warrior.MOD	MAXLEVEL:NOLIMIT
+21:REPEATLEVEL:3	BONUS:ABILITYPOOL|Epic Psychic Warrior Feat|1
+
+
+# Class Name		Max Level
+CLASS:Soulknife.MOD	MAXLEVEL:NOLIMIT
+23:REPEATLEVEL:3	BONUS:ABILITYPOOL|Epic Soulknife Feat|1

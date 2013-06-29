@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Thu Jan  3 00:21:19 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
+
+# Template Name				Visible	Type		Natural Attacks
+Wylding Plant				VISIBLE:NO	TYPE:Plant
+Feydancer Transformation		VISIBLE:NO	TYPE:Fey
+Chosen Protector Natural Attacks	VISIBLE:NO			NATURALATTACKS:Claw,Weapon.Natural.Melee.Piercing.Slashing,*2,1d4

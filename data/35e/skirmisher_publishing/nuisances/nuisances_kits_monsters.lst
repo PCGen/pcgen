@@ -1,0 +1,136 @@
+# CVS $Revision$ $Author$ -- Thu Sep 18 16:14:10 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Nuisances - Director's Cut	SOURCESHORT:Nuisances	SOURCEWEB:http://skirmisher.cerizmo.com/items/94-nuisances-director-s-cut-pdf-download	SOURCEDATE:2007-08
+
+STARTPACK:Decapussywhipper Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Decapussywhipper],[!PRERACE:1,%]	SOURCEPAGE:p. 115
+ALIGN:CN
+RACE:Decapussywhipper	!PRERACE:1,%
+NAME:Decapussywhipper
+SKILL:Bluff				RANK:13
+SKILL:Intimidate			RANK:11
+SKILL:Profession (Courtesan)	RANK:13
+FEAT:Extend Spell
+FEAT:Improved Initiative
+FEAT:Multiattack
+FEAT:Pimp Slap
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Persistent Image|Hallucinatory Terrain|Rainbow Pattern|Displacement|Hold Person|Major Image|Blur|Hypnotic Pattern|Phantom Trap|Misdirection|Touch of Idiocy|Charm Person|Color Spray|Disguise Self|Magic Aura|Ventriloquism|Daze|Detect Magic|Ghost Sound|Mage Hand|Open/Close|Read Magic|Resistance|Touch of Fatigue
+
+
+STARTPACK:Dwarf (Dire) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dwarf (Dire)],[!PRERACE:1,%]	SOURCEPAGE:p. 117
+ALIGN:TN
+RACE:Dwarf (Dire)	!PRERACE:1,%
+NAME:Dwarf (Dire)
+SKILL:Appraise	RANK:2
+SKILL:Listen	RANK:5
+SKILL:Spot		RANK:5
+FEAT:Weapon Focus(Urgrosh (Dwarven))
+FEAT:Power Attack
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Great Cleave
+STAT:STR=15|DEX=10|CON=12|INT=10|WIS=9|CHA=8
+GEAR:Splint Mail			SIZE:L	LOCATION:Equipped
+GEAR:Urkrutch (Dire Dwarven)	SIZE:L	LOCATION:Both Hands
+
+
+STARTPACK:Frost Maiden (of Aphrodite) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Frost Maiden (of Aphrodite)],[!PRERACE:1,%]	SOURCEPAGE:p. 118
+ALIGN:CG
+RACE:Frost Maiden (of Aphrodite)	!PRERACE:1,%
+NAME:Frost Maiden of Aphrodite
+SKILL:Bluff				RANK:9
+SKILL:Diplomacy			RANK:7
+SKILL:Gather Information	RANK:9
+SKILL:Intimidate			RANK:7
+SKILL:TYPE=Perform		RANK:9
+SKILL:Profession (Courtesan)	RANK:8
+SKILL:Sense Motive		RANK:9
+SKILL:Use Magic Device		RANK:9
+FEAT:Skill Focus(Profession (Courtesan))
+FEAT:Weapon Focus(Dagger)
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+GEAR:Dagger	LOCATION:Primary Hand	EQMOD:PLUS2W
+
+
+STARTPACK:Haggis (Wild Hairy) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Haggis (Wild Hairy)],[!PRERACE:1,%]	SOURCEPAGE:p. 120
+ALIGN:TN
+RACE:Haggis (Wild Hairy)	!PRERACE:1,%
+NAME:Wild Hairy Haggis
+SKILL:Balance	RANK:1
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:1
+FEAT:Lucky
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=11
+
+
+STARTPACK:Humming Rat Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Humming Rat],[!PRERACE:1,%]	SOURCEPAGE:p. 121
+ALIGN:NE
+RACE:Humming Rat	!PRERACE:1,%
+NAME:Humming Rat
+SKILL:Listen		RANK:2
+SKILL:Spot			RANK:2
+SKILL:Knowledge (Music)	RANK:4
+FEAT:Alertness
+FEAT:Weapon Finesse
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Dragon (Jester) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Jester)],[!PRERACE:1,%]	SOURCEPAGE:p. 122
+ALIGN:CN
+RACE:Dragon (Jester)	!PRERACE:1,%
+NAME:Jester Dragon
+SKILL:Bluff				RANK:15
+SKILL:Diplomacy			RANK:13
+SKILL:Disguise			RANK:15
+SKILL:Intimidate			RANK:11
+SKILL:Knowledge (Arcana)	RANK:15
+SKILL:Knowledge (The Planes)	RANK:15
+SKILL:Listen			RANK:20
+SKILL:Perform (Comedy)		RANK:10
+SKILL:Search			RANK:20
+SKILL:Sense Motive		RANK:20
+SKILL:Spellcraft			RANK:13
+SKILL:Spot				RANK:20
+SKILL:Use Magic Device		RANK:15
+FEAT:Flyby Attack
+FEAT:Hover
+FEAT:Lucky
+FEAT:Lucky
+FEAT:Multiattack
+FEAT:Persuasive
+FEAT:Wingover
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Orc (Little) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Orc (Little)],[!PRERACE:1,%]	SOURCEPAGE:p. 124
+ALIGN:LE
+RACE:Orc (Little)	!PRERACE:1,%
+NAME:Orc, Little
+CLASS:Warrior	LEVEL:1
+SKILL:Listen	RANK:1
+SKILL:Spot		RANK:1
+FEAT:Alertness
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+GEAR:Shield (Light/Wood)	SIZE:PC	LOCATION:Equipped
+GEAR:Falchion			SIZE:PC	LOCATION:Primary Hand
+
+
+STARTPACK:Polychromatimorph Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Polychromatimorph],[!PRERACE:1,%]	SOURCEPAGE:p. 126
+ALIGN:TN
+RACE:Polychromatimorph	!PRERACE:1,%
+NAME:Polychromatimorph
+SKILL:Climb	RANK:7
+SKILL:Jump	RANK:9
+SKILL:Swim	RANK:7
+FEAT:Athletic
+FEAT:Great Fortitude
+FEAT:Iron Will
+FEAT:Lightning Reflexes
+FEAT:Skill Focus(Climb)
+FEAT:Skill Focus(Jump)
+FEAT:Skill Focus(Swim)
+FEAT:Toughness
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+
+#
+# End
+#

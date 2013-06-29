@@ -1,0 +1,18 @@
+# CVS $Revision$ $Author$ -- Sun Apr 18 16:03:59 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Bastion Press - Into the Green	SOURCESHORT:ittg	SOURCEDATE:2003-01
+#Original Entry: Chris Chandler (Barak)
+
+# Modifier Name	Unique Key		Type							Cost		Visible		Type granted	Prohibited Type
+Beaver Skin		KEY:BVRSKN		TYPE:BaseMaterial.Mundane.Armor		COST:0	VISIBLE:QUALIFY				!PRETYPE:1,EQMODTYPE=Mundane
+Bison Fur		KEY:BSNFUR		TYPE:BaseMaterial.Mundane.Armor.Goods	COST:0	VISIBLE:QUALIFY				!PRETYPE:1,EQMODTYPE=Mundane
+Coconut		KEY:CCONUT		TYPE:BaseMaterial.Mundane.Goods		COST:0	VISIBLE:QUALIFY				!PRETYPE:1,EQMODTYPE=Mundane
+Elderwitch Wood	KEY:ELDWTCWD	TYPE:BaseMaterial.Mundane.Shield.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	!PRETYPE:1,EQMODTYPE=Mundane
+Fierling Wood	KEY:FLGWD		TYPE:BaseMaterial.Mundane			COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	!PRETYPE:1,EQMODTYPE=Mundane
+Gorak			KEY:GRAK		TYPE:BaseMaterial.Mundane.Goods		COST:0	VISIBLE:QUALIFY				!PRETYPE:1,EQMODTYPE=Mundane
+Harmel		KEY:HRML		TYPE:BaseMaterial.Mundane.Armor		COST:0	VISIBLE:QUALIFY				!PRETYPE:1,EQMODTYPE=Mundane
+Jaguar Fur		KEY:JAGFUR		TYPE:BaseMaterial.Mundane.Goods		COST:0	VISIBLE:QUALIFY				!PRETYPE:1,EQMODTYPE=Mundane
+Python Spine	KEY:PYTHSPN		TYPE:BaseMaterial.Mundane.Weapon		COST:0	VISIBLE:QUALIFY				!PRETYPE:1,EQMODTYPE=Mundane
+Rosewood		KEY:RSEWD		TYPE:BaseMaterial.Mundane.Instruments	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	!PRETYPE:1,EQMODTYPE=Mundane
+Teak			KEY:TEAK		TYPE:BaseMaterial.Mundane.Shield.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	!PRETYPE:1,EQMODTYPE=Mundane
+Uragh Dhu		KEY:URGDHU		TYPE:BaseMaterial.Mundane.Shield		COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	!PRETYPE:1,EQMODTYPE=Mundane
+Vermillion Hound	KEY:VRMHND		TYPE:BaseMaterial.Mundane.Armor		COST:0	VISIBLE:QUALIFY				!PRETYPE:1,EQMODTYPE=Mundane

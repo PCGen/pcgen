@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
+SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+
+# Equipment Name		Product Identity?	Type			Cost		Weight	Source Page		Bonus to skill						Special Property
+Chirurgeon Workshop	NAMEISPI:YES	TYPE:Goods.Tools	COST:3000	WT:100	SOURCEPAGE:p.34	BONUS:SKILL|Craft (Autopsy)|5|TYPE=Alchemical	SPROP:Takes over 4 hours to set up and break down.

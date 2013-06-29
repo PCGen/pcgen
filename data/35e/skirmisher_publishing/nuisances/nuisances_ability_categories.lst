@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Tue Sep 16 22:48:58 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+#SOURCELONG:Nuisances - Director's Cut	SOURCESHORT:Nuisances	SOURCEWEB:http://skirmisher.cerizmo.com/items/94-nuisances-director-s-cut-pdf-download	SOURCEDATE:2007-08
+
+# Ability Category	Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Defect	VISIBLE:YES	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Defect		PLURAL:Defects			DISPLAYLOCATION:Feats
+
+#
+# End
+#

@@ -1,0 +1,23 @@
+# CVS $Revision$ $Author$ -- Sat Apr 12 03:03:21 2008 -- reformated by prettylst.pl v1.38 (build 5580)
+SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
+#Orginal Entry:E. C. Smith (Maredudd), 2007; Andrew Maitland
+
+#Staffs
+# Equipment Name				Output Name		Type			Cost		Source Page
+Ansharan Pilgrim's Staff		OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:45000	SOURCEPAGE:p.53
+Artificer's Spanner			OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:14405	SOURCEPAGE:p.53
+Beroe's Staff of the Deep		OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:54600	SOURCEPAGE:p.53
+Cadic's Staff of the Night		OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:68200	SOURCEPAGE:p.54
+Hurrianic Stormlord's Staff		OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:80390	SOURCEPAGE:p.54
+Myr's' Sentinel Staff			OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:91150	SOURCEPAGE:p.55
+Myrantian Necromancer Lord's Staff	OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:300000	SOURCEPAGE:p.55
+Pengik Heartwood Staff			OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:32650	SOURCEPAGE:p.55
+Sarishan Staff of Wizardry		OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:50000	SOURCEPAGE:p.56
+Staff of Cats				OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:51050	SOURCEPAGE:p.56
+Staff of Clouds				OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:79450	SOURCEPAGE:p.56
+Staff of Deadly Wards			OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:38900	SOURCEPAGE:p.56
+Staff of Dreams				OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:68000	SOURCEPAGE:p.57
+Staff of Saluwe's Ire			OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:125650	SOURCEPAGE:p.57
+Stormhorn					OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:34660	SOURCEPAGE:p.57
+Sylab's Staff				OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:150000	SOURCEPAGE:p.58
+Tzizhet's Gibbering Staff		OUTPUTNAME:[NAME]	TYPE:Magic.Staff	COST:93230	SOURCEPAGE:p.58

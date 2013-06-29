@@ -1,0 +1,51 @@
+SOURCELONG:Ocastia Campaign Setting - Book 2 - Player's Guide	SOURCESHORT:OCS_PG	
+# ORIGINAL ENTRY BY: Andrew Maitland
+# ORIGINAL ENTRY DATE: 2011-11-26
+
+##161
+# Alagar
+True Romantic	SOURCEPAGE:p.161	TYPE:Regional	DESC:The romantic tales in Alagar history have left you with strong feelings about the meaning of true love.	PRETEXT:Alagar native.	BONUS:SKILL|TYPE.Charisma|2|TYPE=Competence
+
+# Boniglen
+Down to Earth	SOURCEPAGE:p.161	TYPE:Regional	DESC:Your commonsense, no-nonsense ways inspire confidence in others.	PRETEXT:Boniglen native.
+# Dragon's Den Proper
+Interrogator	SOURCEPAGE:p.161	TYPE:Regional	DESC:You have a special gift for using torture, intimidation, and other less than friendly means of coaxing information from someone.		PRETEXT:Dragon's Den Proper native.
+# TODO: Apply x ranks of Intimidate to Gather Information - review if it's conditional
+Street Smarts	SOURCEPAGE:p.161	TYPE:Regional	DESC:You are quite familiar with the ins-and-outs of survival in a big city.	PRETEXT:Dragon's Den Proper native.
+
+# Everlast
+Axe Specialist	SOURCEPAGE:p.161	TYPE:Regional	DESC:Swinging axes in the forests of Everlast has given you a special proficiency with that weapon.	PRETEXT:Everlast native.
+# TODO: Benefits: You gain Martial Weapon Proficiency with all axes as a bonus feat if you do not already have it. In addition, when using a throwing axe, handaxe, or battleaxe you receive a +1 proficiency bonus on all attack and damage rolls. This benefit stacks with bonuses from Weapon Focus and Weapon Specialization feats.
+# Farkhas
+Ocean Farer	SOURCEPAGE:p.161	TYPE:Regional	DESC:The many hours you have spent on the ocean has helped develop your sailing, fishing, and swimming skills.	PRETEXT:Farkhas native.	CSKILL:Swim|Survival|Sailing	BONUS:SKILL|Swim,Sailing|2|TYPE=Competence
+# Fenwart
+Herbal Expert	SOURCEPAGE:p.162	TYPE:Regional	DESC:The long periods you have spent in the fecund swamps of Fenwart has given you a diverse knowledge of plants and herbs and their various uses.	PRETEXT:Fenwart native.	BONUS:SKILL|Heal,Craft (Apothecary)|2|TYPE=Competence
+# Feral Lands
+Mutilated	SOURCEPAGE:p.162	TYPE:Regional	DESC:As an Orkalan adult, you have mutilated your body in order to appear somewhat like an orc. Mutilation includes the alteration of your nose, tattooed tusks on the face, and alteration of your ears.	PRETEXT:Feral Lands native
+Tribal Runner	SOURCEPAGE:p.162	TYPE:Regional	DESC:As a tribal runner who knows the land, you deliver messages from tribe to tribe while avoiding detection from potential threats and enemies.	PRETEXT:Feral Lands native
+# Gaern
+Animal Evaluation	SOURCEPAGE:p.162	TYPE:Regional	DESC:Your experience around the numerous animals that thrive in Gaern allows you to analyze their temperament and anticipate their actions.	PRETEXT:Gaern native.
+# Gandoria
+Trader	SOURCEPAGE:p.162	TYPE:Regional	DESC:Though Gandoria is sparsely populated, those who do live there are truly remarkable merchants.	PRETEXT:Gandoria native.	BONUS:SKILL|Appraise,Bluff|2|TYPE=Competence	CSKILL:Appraise|Bluff
+# Gimland
+Relentless Hunter	SOURCEPAGE:p.162	TYPE:Regional	DESC:The hunters of Gimland keep the roadways safe by eliminating the monsters and bandits that infest the dark forests and rugged mountains.	PRETEXT:Gimland native.	AUTO:FEAT|Track|Martial Weapon Proficiency(Longbow)|Martial Weapon Proficiency(Shortbow)	MULT:YES	CHOOSE:STRING|Longbow|Shortbow	AUTO:WEAPONPROF=LIST|TOHIT|1|TYPE=Competence	STACK:NO
+Woodmason	SOURCEPAGE:p.162	TYPE:Regional	DESC:The dwarven clans of Gimland know the secrets of working stonewood.	PRERACE:1,Dwarf%	PRETEXT:Gimland native
+# Harvest Dale
+Green Thumb	SOURCEPAGE:p.163	TYPE:Regional	DESC:The lush gardens of Harvest Dale are legendary throughout the world. Cultivation simply comes easy for many people from this region, and they are often sought out to eliminate famines.	PRETEXT:Harvest Dale native.	CSKILL:Knowledge (Nature)	BONUS:SKILL|Profession (Farmer)|2|TYPE=Competence
+# Nezria
+Swamprat	SOURCEPAGE:p.163	TYPE:Regional	DESC:Living with swamps all around, you have grown accustomed to surviving in that particular environment.	PRETEXT:Nezria native.
+# Outcastia
+Cultural Chameleon	SOURCEPAGE:p.163	TYPE:Regional	DESC:Rubbing shoulders with other outcasts has taught you much about the different cultures of the world; particularly how different social classes interact with each other.	PRETEXT:Outcastia native.	BONUS:SKILL|Diplomacy|2|TYPE=Competence	CSKILL|Knowledge (Local)|Knowledge (Nobility and Royalty)|Diplomacy
+# Qal'mont
+Rock Climber	SOURCEPAGE:p.163	TYPE:Regional	DESC:Growing up in the mountains, you have developed the ability to scramble up rock faces almost as easily as walking down a smooth path.	PRETEXT:Qal'mont native.
+# Saddleridge
+Gator Grip	SOURCEPAGE:p.163	TYPE:Regional	DESC:Your wresting with the alligators of Saddleridge has caused you to develop an especially strong grip.	PRETEXT:Saddleridge native.
+#TODO:Benefits: You receive a +2 competency bonus to all grapple checks in addition to your normal Str bonus. You also receive a +2 competency bonus (in addition to any other bonuses) against attempts to disarm you.
+# Serpent's Hold
+Snake Handler	SOURCEPAGE:p.163	TYPE:Regional	DESC:You have extensive experience around serpents of all kinds, and you are keenly aware of how they react to situations.	PRETEXT:Serpent's Hold native.
+# Spirerock
+Desert Fox	SOURCEPAGE:p.163	TYPE:Regional	DESC:Where other people see hostile deserts filled with a myriad of ways to die, you see a comfortable home.	PRETEXT:Spirerock native.
+#Zelbar
+Avid Trekker	SOURCEPAGE:p.164	TYPE:Regional	DESC:Many of the inhabitants of Zelbar are well traveled by the time they reach puberty, wandering to the far reaches of the realms and back again.	PRETEXT:Zelbar native.	BONUS:SKILL|Profession (Guide)|4|TYPE=Competency	BONUS:SKILL|Survival,Knowledge (Nature)|2|TYPE=Competency	CSKILL:Knowledge (Nature)
+
+# EOF

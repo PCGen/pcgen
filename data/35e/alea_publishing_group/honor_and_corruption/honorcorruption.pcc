@@ -1,0 +1,43 @@
+# CVS $Revision$ $Author$ -- Tue Mar 27 23:33:15 2007 -- reformated by prettylst.pl v1.37 (build 2312)
+CAMPAIGN:Honor and Corruption
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Fantasy
+STATUS:RELEASE
+TYPE:Alea Publishing Group
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:Alea Publishing Group
+PUBNAMESHORT:APG
+PUBNAMEWEB:www.aleapublishing.com
+SOURCELONG:Honor and Corruption
+SOURCESHORT:Honor
+SOURCEWEB:www.aleapublishing.com
+SOURCEDATE:2005-01
+# COMMENT: Unknown Month - Set as 01
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document (draft and final versions) Copyright 1999, 2000, 2001, 2002, 2003, 2004, 2005, Wizards of the Coast, Inc.
+COPYRIGHT:Modern System Reference Document (draft and final versions) Copyright 2002, 2003, 2004, 2005, Wizards of the Coast, Inc.
+COPYRIGHT:Future System Reference Document (draft and final versions) Copyright 2004, 2005, Wizards of the Coast, Inc.
+COPYRIGHT:Unearthed Arcana Copyright 2004, 2005, Wizards of the Coast, Inc.
+COPYRIGHT:Conan - The RPG - Atlantean Edition Copyright 2003, Mongoose
+COPYRIGHT:Honor and Corruption Copyright 2005, Alea Publishing Group
+COPYRIGHT:PCGen dataset conversion for Alea Publishing Group Homor and Corruption Copyright 2007, PCGen Data Team (including, but not limited to: Andrew Maitland, Eric C. Smith, Frank Kliewe)
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+ABILITY:honorcorruption_abilities_template.lst
+ABILITYCATEGORY:honorcorruption_abilitycategories.lst
+
+
+FEAT:honorcorruption_feats.lst
+RACE:honorcorruption_races.lst
+
+TEMPLATE:honorcorruption_templates.lst
+
+#
+# DONE
+#

@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
+
+# Skill Name			Key Stat	Untrained?		Exclusive?		Type					Source Page		Bonus to skill
+Knowledge (Seamanship)		KEYSTAT:INT							TYPE:Intelligence.Knowledge	SOURCEPAGE:p.7
+Profession (Merchant)		KEYSTAT:WIS	USEUNTRAINED:NO				TYPE:Wisdom.Profession		SOURCEPAGE:p.89
+Profession (Navigator)		KEYSTAT:WIS	USEUNTRAINED:NO				TYPE:Wisdom.Profession		SOURCEPAGE:p.8
+
+#The Synergy bonus will come into play if you use this version of Profession (Merchant). Otherwise all existing versions are identical.
+Profession (Merchant).MOD			USEUNTRAINED:NO	EXCLUSIVE:YES									BONUS:SKILL|Profession (Merchant)|SynergyBonus|PRESKILL:1,Bluff=5|TYPE=Synergy.STACK	BONUS:SKILL|Profession (Merchant)|SynergyBonus|PRESKILL:1,Sense Motive=5|TYPE=Synergy.STACK

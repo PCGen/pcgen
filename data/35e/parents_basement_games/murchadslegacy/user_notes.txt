@@ -1,0 +1,39 @@
+User Notes
+
+Feats
+
+The Background and Cultural Feats can only be selected at the time of
+character creation so remember to make any selections of these at first
+level as you will be unable to apply them at higher levels.
+
+Underworld - The bonuses provided by this feat are situational and
+depend on the PC being within the city of his chosing, the bonuses can
+be appied in the Temporary Bonus Sub-Tab of the Inventory Tab
+
+The Reward Feats are meant to be awarded by the game master and have
+high in-game prerequisites, however since the prerequisites are not
+based on mechanics they are selectable by any character within PCGen.
+The text of the prerequisites appear in the feat info window and they
+should not be taken without the game masters permission.
+
+Classes
+
+Imperial Legionnaire
+
+The bonus hit points from the Aid Soul (Su) ability can be applied in
+the temporary bonus tab. The Reflex bonus from True Awareness (ex) and
+the AC bonus from Enhanced Defense are also applied through a temporary
+bonus.
+
+Steel Dragons
+
+The bonus feats Steel Dragons get must be applied to a gun or gunpowder,
+PCGen cannot enforce this so it is up to the user to follow the rules.
+At any rate the are no guns in this set at this time so this is a bit of
+a delema.
+
+Shadowtamer
+
+The Shadow Beast is set up as a companion modifier similar to a
+familiar. In the Inventory/Resources Tab select an appropreate 2 HD or
+less animal and apply it to the Shadow Beast.

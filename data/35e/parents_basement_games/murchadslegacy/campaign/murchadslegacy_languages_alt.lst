@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Tue Nov 11 16:25:26 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Murchad's Legacy	SOURCESHORT:Murchad	SOURCEWEB:http://murchadslegacy.pbwiki.com/	SOURCEDATE:2005-07
+#Original Entry: Eddy Anthony (MoSaT)
+
+# Language
+Common.FORGET
+Dwarven.FORGET
+Elven.FORGET
+Gnome.FORGET
+Halfling.FORGET
+Orc.FORGET
+Undercommon.FORGET
+
+#
+# End
+#

@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Thu Jun 19 06:15:07 2008 -- reformated by prettylst.pl v1.38 (build 6737)
+# SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+
+###Block: Salient Divine Ability
+# Ability Category				Visible	Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Plural description for UI
+ABILITYCATEGORY:Salient Divine Ability	VISIBLE:YES	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:SalientDivinePool	CATEGORY:Salient Divine Ability	PLURAL:Salient Divine Abilities
+
+#
+# End
+#

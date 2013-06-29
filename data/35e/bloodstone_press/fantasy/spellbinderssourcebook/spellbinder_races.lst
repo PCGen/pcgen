@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Spellbinder's Sourcebook	SOURCESHORT:Spellbinder	SOURCEWEB:http://www.bloodstone-press.com/spellbinders.html	SOURCEDATE:2004-02
+# Original Entry by: Paul W. King
+
+# Race Name	Size		Move			Combat bonus				Stat bonus														Racial HD Class Skills	Natural Attacks								Monster Class Name and Starting Level	Main Race Type		Template			Challenge Rating	Source Page		Innate Spells
+War Pig	SIZE:L	MOVE:Walk,40	BONUS:COMBAT|AC|8|TYPE=NaturalArmor	BONUS:STAT|STR|20	BONUS:STAT|DEX|2	BONUS:STAT|CON|10	BONUS:STAT|INT|-6	BONUS:STAT|WIS|4	MONCSKILL:Listen|Spot	NATURALATTACKS:Gore,Weapon.Melee.Natural.Piercing,*1,3d6	MONSTERCLASS:Magical Beast:9			RACETYPE:Magical Beast	TEMPLATE:Magical Beast	CR:6			SOURCEPAGE:p.19	SPELLS:Innate|TIMES=3|Shield|Shout	SPELLS:Innate|TIMES=1|False Life|Protection from Energy|Waves of Fatigue

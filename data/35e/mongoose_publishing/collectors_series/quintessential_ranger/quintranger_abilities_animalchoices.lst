@@ -1,0 +1,153 @@
+# CVS $Revision$ $Author$ -- Sat Nov  1 17:03:24 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
+#Original Entry by: Andrew Maitland
+
+
+###Block: Animal Champion Animal Compaion Choice
+# Ability Name			Unique Key							Category of Ability		Type					Visible		Required Subclass											Allowed Companions
+Badger				KEY:Badger_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Badger/Dire Badger)					COMPANIONLIST:Animal Champion Companion|Badger
+Camel					KEY:Camel_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Camel)							COMPANIONLIST:Animal Champion Companion|Camel
+Dire Animal (Dire Rat)		KEY:Dire Animal (Dire Rat)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Dire Rat)						COMPANIONLIST:Animal Champion Companion|Dire Animal (Dire Rat)
+Dog					KEY:Dog_Companion						CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Dog/Riding Dog)					COMPANIONLIST:Animal Champion Companion|Dog
+Dog (Riding)			KEY:Dog (Riding)_Companion				CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Dog/Riding Dog)					COMPANIONLIST:Animal Champion Companion|Dog (Riding)
+Eagle					KEY:Eagle_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Eagle)							COMPANIONLIST:Animal Champion Companion|Eagle
+Fox					KEY:Fox_Companion						CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Fox)							COMPANIONLIST:Animal Champion Companion|Fox
+Hawk					KEY:Hawk_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Hawk)							COMPANIONLIST:Animal Champion Companion|Hawk
+Horse (Light)			KEY:Horse (Light)_Companion				CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Horse/Pony)						COMPANIONLIST:Animal Champion Companion|Horse (Light)
+Horse (Heavy)			KEY:Horse (Heavy)_Companion				CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Horse/Pony)						COMPANIONLIST:Animal Champion Companion|Horse (Heavy)
+Owl					KEY:Owl_Companion						CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Owl)							COMPANIONLIST:Animal Champion Companion|Owl
+Pony					KEY:Pony_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Horse/Pony)						COMPANIONLIST:Animal Champion Companion|Pony
+Snake (Viper/Small)		KEY:Snake (Viper/Small)_Companion			CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Snake any)						COMPANIONLIST:Animal Champion Companion|Snake (Viper/Small)
+Snake (Viper/Medium)		KEY:Snake (Viper/Medium)_Companion			CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Snake any)						COMPANIONLIST:Animal Champion Companion|Snake (Viper/Medium)
+Wolf					KEY:Wolf_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Wolf/Dire Wolf)					COMPANIONLIST:Animal Champion Companion|Wolf
+Wildcat				KEY:Wildcat_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Leopard/Wildcat/Dire Wildcat/Lynx/Caracal)	COMPANIONLIST:Animal Champion Companion|Wildcat
+Caracal				KEY:Caracal_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Leopard/Wildcat/Dire Wildcat/Lynx/Caracal)	COMPANIONLIST:Animal Champion Companion|Caracal
+Snake (Spitting Cobra)		KEY:Snake (Spitting Cobra)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Snake any)						COMPANIONLIST:Animal Champion Companion|Snake (Spitting Cobra)
+
+#-3 Group																#-3 Group
+Ape					KEY:Ape_Companion						CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Ape/Dire Ape)						COMPANIONLIST:Animal Champion Companion|Ape
+Bear (Black)			KEY:Bear (Black)_Companion				CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Bear any)						COMPANIONLIST:Animal Champion Companion|Bear (Black)
+Bison					KEY:Bison_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Bison)							COMPANIONLIST:Animal Champion Companion|Bison
+Boar					KEY:Boar_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Boar/Dire Boar)					COMPANIONLIST:Animal Champion Companion|Boar
+Cheetah				KEY:Cheetah_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Cheetah)							COMPANIONLIST:Animal Champion Companion|Cheetah
+Crocodile				KEY:Crocodile_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Croodile)						COMPANIONLIST:Animal Champion Companion|Crocodile
+Dire Animal (Dire Badger)	KEY:Dire Animal (Dire Badger)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Badger/Dire Badger)					COMPANIONLIST:Animal Champion Companion|Dire Animal (Dire Badger)
+Dire Animal (Dire Bat)		KEY:Dire Animal (Dire Bat)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Dire Bat)						COMPANIONLIST:Animal Champion Companion|Dire Animal (Dire Bat)
+# No stats for a Dire Fox
+#Dire Animal (Dire Fox)		KEY:Dire Animal (Dire Fox)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Fox)							COMPANIONLIST:Animal Champion Companion|Dire Animal (Dire Fox)
+Dire Animal (Dire Mongoose)	KEY:Dire Animal (Dire Mongoose)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Dire Mongoose)						COMPANIONLIST:Animal Champion Companion|Dire Animal (Dire Mongoose)
+Dire Animal (Dire Weasel)	KEY:Dire Animal (Dire Weasel)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Dire Weasel)						COMPANIONLIST:Animal Champion Companion|Dire Animal (Dire Weasel)
+Leopard				KEY:Leopard_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Leopard/Wildcat/Dire Wildcat/Lynx/Caracal)	COMPANIONLIST:Animal Champion Companion|Leopard
+Lizard (Monitor)			KEY:Lizard (Monitor)_Companion			CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Giant Lizard)						COMPANIONLIST:Animal Champion Companion|Lizard (Monitor)
+Shark (Large)			KEY:Shark (Large)_Companion				CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Shark any)						COMPANIONLIST:Animal Champion Companion|Shark (Large)
+Snake (Constrictor)		KEY:Snake (Constrictor)_Companion			CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Snake any)						COMPANIONLIST:Animal Champion Companion|Snake (Constrictor)
+Snake (Viper/Large)		KEY:Snake (Viper/Large)_Companion			CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Snake any)						COMPANIONLIST:Animal Champion Companion|Snake (Viper/Large)
+Wolverine				KEY:Wolverine_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Wolverine any)						COMPANIONLIST:Animal Champion Companion|Wolverine
+Lynx					KEY:Lynx_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Leopard/Wildcat/Dire Wildcat/Lynx/Caracal)	COMPANIONLIST:Animal Champion Companion|Lynx
+
+
+#-6 Group																#-6 Group
+Bear (Brown)			KEY:Bear (Brown)_Companion				CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Bear any)						COMPANIONLIST:Animal Champion Companion|Bear (Brown)
+Crocodile (Giant)			KEY:Crocodile (Giant)_Companion			CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Croodile)						COMPANIONLIST:Animal Champion Companion|Crocodile (Giant)
+Dinosaur (Deinonychus)		KEY:Dinosaur (Deinonychus)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Dinosaur any)						COMPANIONLIST:Animal Champion Companion|Dinosaur (Deinonychus)
+Dire Animal (Dire Ape)		KEY:Dire Animal (Dire Ape)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Ape/Dire Ape)						COMPANIONLIST:Animal Champion Companion|Dire Animal (Dire Ape)
+Dire Animal (Dire Boar)		KEY:Dire Animal (Dire Boar)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Boar/Dire Boar)					COMPANIONLIST:Animal Champion Companion|Dire Animal (Dire Boar)
+Dire Animal (Dire Wolf)		KEY:Dire Animal (Dire Wolf)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Wolf/Dire Wolf)					COMPANIONLIST:Animal Champion Companion|Dire Animal (Dire Wolf)
+Dire Animal (Dire Wolverine)	KEY:Dire Animal (Dire Wolverine)_Companion	CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Wolverine any)						COMPANIONLIST:Animal Champion Companion|Dire Animal (Dire Wolverine)
+Dinosaur (Elasmosaurus)		KEY:Dinosaur (Elasmosaurus)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Dinosaur any)						COMPANIONLIST:Animal Champion Companion|Dinosaur (Elasmosaurus)
+Lion					KEY:Lion_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Lion/Dire Lion)					COMPANIONLIST:Animal Champion Companion|Lion
+Rhinoceros				KEY:Rhinoceros_Companion				CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Rhinoceros)						COMPANIONLIST:Animal Champion Companion|Rhinoceros
+Snake (Viper/Huge)		KEY:Snake (Viper/Huge)_Companion			CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Snake any)						COMPANIONLIST:Animal Champion Companion|Snake (Viper/Huge)
+Tiger					KEY:Tiger_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Tiger/Dire Tiger)					COMPANIONLIST:Animal Champion Companion|Tiger
+Sabre					KEY:Sabre_Companion-Tooth				CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Tiger/Dire Tiger)					COMPANIONLIST:Animal Champion Companion|Saber-Tooth
+
+#-9 group
+Bear (Polar)			KEY:Bear (Polar)_Companion				CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Bear any)						COMPANIONLIST:Animal Champion Companion|Bear (Polar)
+Dire Animal (Dire Lion)		KEY:Dire Animal (Dire Lion)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Lion/Dire Lion)					COMPANIONLIST:Animal Champion Companion|Dire Animal (Dire Lion)
+Dinosaur (Megaraptor)		KEY:Dinosaur (Megaraptor)_Companion			CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Dinosaur any)						COMPANIONLIST:Animal Champion Companion|Dinosaur (Megaraptor)
+Octopus (Giant)			KEY:Octopus (Giant)_Companion				CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Octopus/Giant Squid)					COMPANIONLIST:Animal Champion Companion|Octopus (Giant)
+Shark (Huge)			KEY:Shark (Huge)_Companion				CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Shark any)						COMPANIONLIST:Animal Champion Companion|Shark (Huge)
+Snake (Constrictor/Giant)	KEY:Snake (Constrictor/Giant)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Snake any)						COMPANIONLIST:Animal Champion Companion|Snake (Constrictor/Giant)
+Whale (Orca)			KEY:Whale (Orca)_Companion				CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Whale)							COMPANIONLIST:Animal Champion Companion|Whale (Orca)
+Dire Animal (Dire Bear)		KEY:Dire Animal (Dire Bear)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Bear any)						COMPANIONLIST:Animal Champion Companion|Dire Animal (Dire Bear)
+Elephant				KEY:Elephant_Companion					CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Elephant)						COMPANIONLIST:Animal Champion Companion|Elephant
+Dire Animal (Dire Shark)	KEY:Dire Animal (Dire Shark)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Shark any)						COMPANIONLIST:Animal Champion Companion|Dire Animal (Dire Shark)
+Dire Animal (Dire Tiger)	KEY:Dire Animal (Dire Tiger)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Tiger/Dire Tiger)					COMPANIONLIST:Animal Champion Companion|Dire Animal (Dire Tiger)
+Squid (Giant)			KEY:Squid (Giant)_Companion				CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Octopus/Giant Squid)					COMPANIONLIST:Animal Champion Companion|Squid (Giant)
+Dinosaur (Triceratops)		KEY:Dinosaur (Triceratops)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Dinosaur any)						COMPANIONLIST:Animal Champion Companion|Dinosaur (Triceratops)
+Dinosaur (Tyrannosaurus)	KEY:Dinosaur (Tyrannosaurus)_Companion		CATEGORY:Special Ability	TYPE:AnimalCompanionChoice	VISIBLE:DISPLAY	PRESUBCLASS:1,Animal Champion ~ (Dinosaur any)						COMPANIONLIST:Animal Champion Companion|Dinosaur (Tyrannosaurus)
+#
+
+###Block: Companion Pack Bonuses
+# Ability Name			Unique Key						Category of Ability		Type					Visible		Required Ability											Allow Follower			Allowed Companions
+Badger				KEY:Badger_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Badger_Companion				FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Badger
+Camel					KEY:Camel_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Camel_Companion					FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Camel
+Dire Animal (Dire Rat)		KEY:Dire Animal (Dire Rat)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Rat)_Companion		FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Dire Animal (Dire Rat)
+Dog					KEY:Dog_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dog_Companion					FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Dog
+Dog (Riding)			KEY:Dog (Riding)_Pack				CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dog (Riding)_Companion			FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Dog (Riding)
+Eagle					KEY:Eagle_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Eagle_Companion					FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Eagle
+Fox					KEY:Fox_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Fox_Companion					FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Fox
+Hawk					KEY:Hawk_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Hawk_Companion					FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Hawk
+Horse (Light)			KEY:Horse (Light)_Pack				CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Horse (Light)_Companion			FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Horse (Light)
+Horse (Heavy)			KEY:Horse (Heavy)_Pack				CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Horse (Heavy)_Companion			FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Horse (Heavy)
+Owl					KEY:Owl_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Owl_Companion					FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Owl
+Pony					KEY:Pony_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Pony_Companion					FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Pony
+Snake (Viper/Small)		KEY:Snake (Viper/Small)_Pack			CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Snake (Viper/Small)_Companion		FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Snake (Viper/Medium),Snake (Viper/Small)
+Snake (Viper/Medium)		KEY:Snake (Viper/Medium)_Pack			CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Snake (Viper/Medium)_Companion		FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Snake (Viper/Medium)
+Wolf					KEY:Wolf_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Wolf_Companion					FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Wolf
+Wildcat				KEY:Wildcat_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Wildcat_Companion				FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Wildcat
+Caracal				KEY:Caracal_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Caracal_Companion				FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Caracal
+Snake (Spitting Cobra)		KEY:Snake (Spitting Cobra)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Snake (Spitting Cobra)_Companion		FOLLOWERS:Companion Pack|9	COMPANIONLIST:Companion Pack|Snake (Spitting Cobra)
+
+#-3 Group
+Ape					KEY:Ape_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Ape_Companion					FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Ape
+Bear (Black)			KEY:Bear (Black)_Pack				CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bear (Black)_Companion			FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Bear (Black)
+Bison					KEY:Bison_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bison_Companion					FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Bison
+Boar					KEY:Boar_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Boar_Companion					FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Boar
+Cheetah				KEY:Cheetah_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Cheetah_Companion				FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Cheetah
+Crocodile				KEY:Crocodile_Pack				CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Crocodile_Companion				FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Crocodile
+Dire Animal (Dire Badger)	KEY:Dire Animal (Dire Badger)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Badger)_Companion	FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Dire Animal (Dire Badger)
+Dire Animal (Dire Bat)		KEY:Dire Animal (Dire Bat)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Bat)_Companion		FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Dire Animal (Dire Bat)
+# No stats for a Dire Fox
+#Dire Animal (Dire Fox)		KEY:Dire Animal (Dire Fox)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Fox)_Companion		FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Dire Animal (Dire Fox)
+Dire Animal (Dire Mongoose)	KEY:Dire Animal (Dire Mongoose)_Pack	CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Mongoose)_Companion	FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Dire Animal (Dire Mongoose)
+Dire Animal (Dire Weasel)	KEY:Dire Animal (Dire Weasel)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Weasel)_Companion	FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Dire Animal (Dire Weasel)
+Leopard				KEY:Leopard_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Leopard_Companion				FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Leopard
+Lizard (Monitor)			KEY:Lizard (Monitor)_Pack			CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Lizard (Monitor)_Companion			FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Lizard (Monitor)
+Shark (Large)			KEY:Shark (Large)_Pack				CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Shark (Large)_Companion			FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Shark (Large)
+Snake (Constrictor)		KEY:Snake (Constrictor)_Pack			CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Snake (Constrictor)_Companion		FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Snake (Constrictor)
+Snake (Viper/Large)		KEY:Snake (Viper/Large)_Pack			CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Snake (Viper/Large)_Companion		FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Snake (Viper/Large)
+Wolverine				KEY:Wolverine_Pack				CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Wolverine_Companion				FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Wolverine
+Lynx					KEY:Lynx_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Lynx_Companion					FOLLOWERS:Companion Pack|8	COMPANIONLIST:Companion Pack|Lynx
+
+
+#-6 Group
+Bear (Brown)			KEY:Bear (Brown)_Pack				CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bear (Brown)_Companion			FOLLOWERS:Companion Pack|7	COMPANIONLIST:Companion Pack|Bear (Brown)
+Crocodile (Giant)			KEY:Crocodile (Giant)_Pack			CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Crocodile (Giant)_Companion			FOLLOWERS:Companion Pack|7	COMPANIONLIST:Companion Pack|Crocodile (Giant)
+Dinosaur (Deinonychus)		KEY:Dinosaur (Deinonychus)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dinosaur (Deinonychus)_Companion		FOLLOWERS:Companion Pack|7	COMPANIONLIST:Companion Pack|Dinosaur (Deinonychus)
+Dire Animal (Dire Ape)		KEY:Dire Animal (Dire Ape)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Ape)_Companion		FOLLOWERS:Companion Pack|7	COMPANIONLIST:Companion Pack|Dire Animal (Dire Ape)
+Dire Animal (Dire Boar)		KEY:Dire Animal (Dire Boar)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Boar)_Companion		FOLLOWERS:Companion Pack|7	COMPANIONLIST:Companion Pack|Dire Animal (Dire Boar)
+Dire Animal (Dire Wolf)		KEY:Dire Animal (Dire Wolf)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Wolf)_Companion		FOLLOWERS:Companion Pack|7	COMPANIONLIST:Companion Pack|Dire Animal (Dire Wolf)
+Dire Animal (Dire Wolverine)	KEY:Dire Animal (Dire Wolverine)_Pack	CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Wolverine)_Companion	FOLLOWERS:Companion Pack|7	COMPANIONLIST:Companion Pack|Dire Animal (Dire Wolverine)
+Dinosaur (Elasmosaurus)		KEY:Dinosaur (Elasmosaurus)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dinosaur (Elasmosaurus)_Companion		FOLLOWERS:Companion Pack|7	COMPANIONLIST:Companion Pack|Dinosaur (Elasmosaurus)
+Lion					KEY:Lion_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Lion_Companion					FOLLOWERS:Companion Pack|7	COMPANIONLIST:Companion Pack|Lion
+Rhinoceros				KEY:Rhinoceros_Pack				CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Rhinoceros_Companion				FOLLOWERS:Companion Pack|7	COMPANIONLIST:Companion Pack|Rhinoceros
+Snake (Viper/Huge)		KEY:Snake (Viper/Huge)_Pack			CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Snake (Viper/Huge)_Companion		FOLLOWERS:Companion Pack|7	COMPANIONLIST:Companion Pack|Snake (Viper/Huge)
+Tiger					KEY:Tiger_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Tiger_Companion					FOLLOWERS:Companion Pack|7	COMPANIONLIST:Companion Pack|Tiger
+Sabre					KEY:Sabre_Pack-Tooth				CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Sabre_Companion-Tooth				FOLLOWERS:Companion Pack|7	COMPANIONLIST:Companion Pack|Saber-Tooth
+
+#-9 group
+Bear (Polar)			KEY:Bear (Polar)_Pack				CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bear (Polar)_Companion			FOLLOWERS:Companion Pack|5	COMPANIONLIST:Companion Pack|Bear (Polar)
+Dire Animal (Dire Lion)		KEY:Dire Animal (Dire Lion)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Lion)_Companion		FOLLOWERS:Companion Pack|5	COMPANIONLIST:Companion Pack|Dire Animal (Dire Lion)
+Dinosaur (Megaraptor)		KEY:Dinosaur (Megaraptor)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dinosaur (Megaraptor)_Companion		FOLLOWERS:Companion Pack|5	COMPANIONLIST:Companion Pack|Dinosaur (Megaraptor)
+Octopus (Giant)			KEY:Octopus (Giant)_Pack			CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Octopus (Giant)_Companion			FOLLOWERS:Companion Pack|5	COMPANIONLIST:Companion Pack|Octopus (Giant)
+Shark (Huge)			KEY:Shark (Huge)_Pack				CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Shark (Huge)_Companion			FOLLOWERS:Companion Pack|5	COMPANIONLIST:Companion Pack|Shark (Huge)
+Snake (Constrictor/Giant)	KEY:Snake (Constrictor/Giant)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Snake (Constrictor/Giant)_Companion	FOLLOWERS:Companion Pack|5	COMPANIONLIST:Companion Pack|Snake (Constrictor/Giant)
+Whale (Orca)			KEY:Whale (Orca)_Pack				CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Whale (Orca)_Companion			FOLLOWERS:Companion Pack|5	COMPANIONLIST:Companion Pack|Whale (Orca)
+Dire Animal (Dire Bear)		KEY:Dire Animal (Dire Bear)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Bear)_Companion		FOLLOWERS:Companion Pack|3	COMPANIONLIST:Companion Pack|Dire Animal (Dire Bear)
+Elephant				KEY:Elephant_Pack					CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Elephant_Companion				FOLLOWERS:Companion Pack|3	COMPANIONLIST:Companion Pack|Elephant
+Dire Animal (Dire Shark)	KEY:Dire Animal (Dire Shark)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Shark)_Companion	FOLLOWERS:Companion Pack|1	COMPANIONLIST:Companion Pack|Dire Animal (Dire Shark)
+Dire Animal (Dire Tiger)	KEY:Dire Animal (Dire Tiger)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dire Animal (Dire Tiger)_Companion	FOLLOWERS:Companion Pack|1	COMPANIONLIST:Companion Pack|Dire Animal (Dire Tiger)
+Squid (Giant)			KEY:Squid (Giant)_Pack				CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Squid (Giant)_Companion			FOLLOWERS:Companion Pack|1	COMPANIONLIST:Companion Pack|Squid (Giant)
+Dinosaur (Triceratops)		KEY:Dinosaur (Triceratops)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dinosaur (Triceratops)_Companion		FOLLOWERS:Companion Pack|1	COMPANIONLIST:Companion Pack|Dinosaur (Triceratops)
+Dinosaur (Tyrannosaurus)	KEY:Dinosaur (Tyrannosaurus)_Pack		CATEGORY:Special Ability	TYPE:CompanionPackChoice	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Dinosaur (Tyrannosaurus)_Companion	FOLLOWERS:Companion Pack|1	COMPANIONLIST:Companion Pack|Dinosaur (Tyrannosaurus)

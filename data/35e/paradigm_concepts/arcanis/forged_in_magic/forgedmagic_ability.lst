@@ -1,0 +1,22 @@
+# CVS $Revision: 8692 $ $Author: eddyanthony $ -- Sat Dec 27 23:34:22 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+
+#ABILITIES support for items - not actual feats or abilities
+# Ability Name				Category of Ability	Type			Visible	Special ABility								Move			Save checks bonus				Combat bonus				Misc bonus								Stat bonus					Weapon prof. bonus												Natural Attacks
+EloriiBonusforArmguardofTalisos	CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO																																									BONUS:WEAPONPROF=TYPE.Bow|TOHIT|2|TYPE=Competence
+Emerald Scale Tail Bracer		CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO																																									BONUS:WEAPONPROF=Tail|TOHIT,DAMAGE|1|TYPE=Enhancement	BONUS:WEAPONPROF=Tail|DAMAGESIZE|1
+Helm of Protection Penalty		CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO																										BONUS:MISC|ACCHECK|-3	BONUS:MISC|SPELLFAILURE|-10
+Mask of Ancient Yhassremore		CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO	SAB:Serpentine Dance 1/day; see Mask of Ancient Yhassremore				BONUS:CHECKS|ALL|1|TYPE=Profane	BONUS:COMBAT|AC|1|TYPE=Profane
+Monkey Gloves				CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO											MOVE:Climb,20
+Ranseur of Wind and Wave		CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO											MOVE:Fly,30
+Toga of Office				CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO														BONUS:CHECKS|ALL|4|TYPE=Resistance	BONUS:COMBAT|AC|6|TYPE=Armor											BONUS:STAT|CHA|6|TYPE=Enhancement
+Red Howler Mask				CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO																																																								NATURALATTACKS:Red Howler Mask ~ Bite,Melee.Piercing.Slashing.Bludgeoning,*1,1d6
+
+Duelist Blade				CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO
+#COMMENT: TODO - DESC:In the hands of a Duelist the Duelist blade increase the AC bonus from Canny defense by 1, increases precise strike damage by 1d6 (only if the duelist already has the ability) and increases the dodge bonus the duelist receives from the elaborate parry ability by 1 when that ability is used.
+
+#
+Zephyr Ring of the Kio Skyknights	CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO											MOVE:Fly,90
+#
+Floating ~ Greater			CATEGORY:FEAT		TYPE:Hidden.Item	VISIBLE:NO											MOVE:Swim,10
+##EOF
+#

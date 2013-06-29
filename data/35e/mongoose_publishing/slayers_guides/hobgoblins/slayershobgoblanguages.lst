@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Slayer's Guide to Hobgoblins	SOURCESHORT:SGtHobgobl	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
+
+# Troll only mentioned in Racial entries.
+# MM monsters do not speak that language.
+# Entered to allow LANGBONUS in slayershobgobraces.lst.
+# --------------------------
+# Eric Beaudoin - 2002.11.16
+# 'E' had an accent of some sort, but it was lost.
+
+# Language	Type
+Goblinoid	TYPE:Spoken
+Troll		TYPE:Spoken
+Ogre		TYPE:Spoken

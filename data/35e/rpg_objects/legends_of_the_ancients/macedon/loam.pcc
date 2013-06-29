@@ -1,0 +1,30 @@
+# CVS $Revision$ $Author$ -- Wed Jul 27 23:26:03 2005 -- reformated by prettylst.pl v1.35 (build 469)
+CAMPAIGN:RPG Objects - Legends of the Ancients - Macedon
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Fantasy
+TYPE:RPG Objects.Legends.Legends of the Ancients
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:RPGObjects
+PUBNAMESHORT:RPGO
+PUBNAMEWEB:http://www.rpgobjects.com/
+SOURCELONG:Legends of the Ancients - Macedon
+SOURCESHORT:Macedon
+SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=137
+SOURCEDATE:2005-01
+# COMMENT: Unknown Month - Set as 01
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich baker, Andy Collins, David noonan, Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker, Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker.
+COPYRIGHT:Legends of the Ancients: Macedon Copyright 2005, RPGObjects; Author Charles Rice.
+COPYRIGHT:PCGen dataset conversion for the Legends of the Ancients - Macedon Copyright 2005, PCgen Data team (Including, but not limited to Paul W. King)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:loam_abilities_class.lst
+CLASS:loam_class.lst
+SKILL:loam_skills.lst

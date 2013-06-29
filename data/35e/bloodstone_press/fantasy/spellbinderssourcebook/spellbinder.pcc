@@ -1,0 +1,29 @@
+# CVS $Revision$ $Author$ -- Sat Feb  4 05:42:42 2006 -- reformated by prettylst.pl v1.35 (build 555)
+CAMPAIGN:Bloodstone Press - Spellbinder's Sourcebook
+RANK:6
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+TYPE:Bloodstone Press.D20 Fantasy
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:Bloodstone Press
+PUBNAMESHORT:Bloodstone
+PUBNAMEWEB:http://www.bloodstone-press.com/
+SOURCELONG:Spellbinder's Sourcebook
+SOURCESHORT:Spellbinder
+SOURCEWEB:http://www.bloodstone-press.com/spellbinders.html
+SOURCEDATE:2004-02
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Spellbinder's Sourcebook Copyright 2004, Bloodstone Press.
+COPYRIGHT:PCGen dataset conversion for the Spellbinder's Sourcebook Copyright 2006, PCGen Data team (Including, but not limited to Paul W. King, Andrew McDougall (Tir Gwaith))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+KIT:spellbinder_kits.lst
+RACE:spellbinder_races.lst
+SPELL:spellbinder_spells.lst
+TEMPLATE:spellbinder_templates.lst

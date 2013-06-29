@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Tue Jan 22 22:33:57 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Eldritch Sorcery	SOURCESHORT:EldSor	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2005-06
+
+STARTPACK:Dust Devil Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dust Devil]
+RACE:Dust Devil	!PRERACE:1,%
+NAME:Dust Devil
+ALIGN:TN
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:3
+FEAT:Flyby Attack
+STAT:DEX=11|WIS=11|CHA=11|STR=10|CON=10|INT=10

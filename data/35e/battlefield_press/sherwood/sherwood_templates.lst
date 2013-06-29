@@ -1,0 +1,20 @@
+# CVS $Revision$ $Author$ -- Sat May 17 17:46:58 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+SOURCELONG:Sherwood - The Legend of Robin Hood	SOURCESHORT:Sherwood	SOURCEWEB:www.battlefieldpress.com	SOURCEDATE:2008-01
+#Original Entry: Andrew Maitland
+
+# Template Name	Visible	Template
+Core Class		VISIBLE:NO	TEMPLATE:CHOOSE:EngineerCore|NobleCore|YeomanCore|PriestCore|KnaveCore|ManAtArmsCore
+
+###Block: Core Abilities
+# Template Name	Visible	Required Class			Ability
+EngineerCore	VISIBLE:NO	PRECLASS:1,Engineer=1		ABILITY:Special Ability|AUTOMATIC|Invention
+KnaveCore		VISIBLE:NO	PRECLASS:1,Knave=1		ABILITY:Special Ability|AUTOMATIC|Swashbuckler
+ManAtArmsCore	VISIBLE:NO	PRECLASS:1,Man-at-Arms=1	ABILITY:Special Ability|AUTOMATIC|Tactician
+NobleCore		VISIBLE:NO	PRECLASS:1,Noble=1		ABILITY:Special Ability|AUTOMATIC|Privilege
+PriestCore		VISIBLE:NO	PRECLASS:1,Priest=1		ABILITY:Special Ability|AUTOMATIC|Inspiring Presence
+YeomanCore		VISIBLE:NO	PRECLASS:1,Yeoman=1		ABILITY:Special Ability|AUTOMATIC|Commoner's Aspect
+
+
+#
+##EOF
+#

@@ -1,0 +1,42 @@
+# CVS $Revision$ $Author$ -- Sat Jun 21 06:23:44 2008 -- reformated by prettylst.pl v1.38 (build 6763)
+#mod section
+
+# added .MOD for this to work.  Not sure why this file is needed, tho. - Tir Gwaith
+
+
+# Ability Name								Type
+CATEGORY=Special Ability|Enhanced Strength I.MOD		TYPE:EpicGeneralLPL1
+CATEGORY=Special Ability|Enhanced Strength II.MOD		TYPE:EpicGeneralLPL2
+CATEGORY=Special Ability|Enhanced Strength III.MOD		TYPE:EpicGeneralLPL3
+CATEGORY=Special Ability|Enhanced Strength IV.MOD		TYPE:EpicGeneralLPL4
+CATEGORY=Special Ability|Enhanced Strength V.MOD		TYPE:EpicGeneralLPL5
+
+CATEGORY=Special Ability|Enhanced Dexterity I.MOD		TYPE:DawnArcherLPL1.FleetwindLPL1
+CATEGORY=Special Ability|Enhanced Dexterity II.MOD		TYPE:DawnArcherLPL2.FleetwindLPL2
+CATEGORY=Special Ability|Enhanced Dexterity III.MOD		TYPE:DawnArcherLPL3.FleetwindLPL3
+CATEGORY=Special Ability|Enhanced Dexterity IV.MOD		TYPE:DawnArcherLPL4.FleetwindLPL4
+CATEGORY=Special Ability|Enhanced Dexterity V.MOD		TYPE:DawnArcherLPL5.FleetwindLPL5
+
+CATEGORY=Special Ability|Enhanced Constitution I.MOD		TYPE:FleetwindLPL1.UnsufferingLPL1
+CATEGORY=Special Ability|Enhanced Constitution II.MOD		TYPE:FleetwindLPL2.UnsufferingLPL2
+CATEGORY=Special Ability|Enhanced Constitution III.MOD	TYPE:FleetwindLPL3.UnsufferingLPL3
+CATEGORY=Special Ability|Enhanced Constitution IV.MOD		TYPE:FleetwindLPL4.UnsufferingLPL4
+CATEGORY=Special Ability|Enhanced Constitution V.MOD		TYPE:FleetwindLPL5.UnsufferingLPL5
+
+CATEGORY=Special Ability|Enhanced Intelligence I.MOD		TYPE:IconLPL1.MasterArcanistLPL1
+CATEGORY=Special Ability|Enhanced Intelligence II.MOD		TYPE:IconLPL2.MasterArcanistLPL2
+CATEGORY=Special Ability|Enhanced Intelligence III.MOD	TYPE:IconLPL3.MasterArcanistLPL3
+CATEGORY=Special Ability|Enhanced Intelligence IV.MOD		TYPE:IconLPL4.MasterArcanistLPL4
+CATEGORY=Special Ability|Enhanced Intelligence V.MOD		TYPE:IconLPL5.MasterArcanistLPL5
+
+CATEGORY=Special Ability|Enhanced Wisdom I.MOD			TYPE:DawnArcherLPL1.MasterArcanistLPL1.UnsufferingLPL1
+CATEGORY=Special Ability|Enhanced Wisdom II.MOD			TYPE:DawnArcherLPL2.MasterArcanistLPL2.UnsufferingLPL2
+CATEGORY=Special Ability|Enhanced Wisdom III.MOD		TYPE:DawnArcherLPL3.MasterArcanistLPL3.UnsufferingLPL3
+CATEGORY=Special Ability|Enhanced Wisdom IV.MOD			TYPE:DawnArcherLPL4.MasterArcanistLPL4.UnsufferingLPL4
+CATEGORY=Special Ability|Enhanced Wisdom V.MOD			TYPE:DawnArcherLPL5.MasterArcanistLPL5.UnsufferingLPL5
+
+CATEGORY=Special Ability|Enhanced Charisma I.MOD		TYPE:EpicGeneralLPL1.IconLPL1
+CATEGORY=Special Ability|Enhanced Charisma II.MOD		TYPE:EpicGeneralLPL2.IconLPL2
+CATEGORY=Special Ability|Enhanced Charisma III.MOD		TYPE:EpicGeneralLPL3.IconLPL3
+CATEGORY=Special Ability|Enhanced Charisma IV.MOD		TYPE:EpicGeneralLPL4.IconLPL4
+CATEGORY=Special Ability|Enhanced Charisma V.MOD		TYPE:EpicGeneralLPL5.IconLPL5

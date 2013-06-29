@@ -1,0 +1,23 @@
+# CVS $Revision$ $Author$ -- Tue Jul  1 12:23:32 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+SOURCELONG:Gods	SOURCESHORT:Gods	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2002-05
+
+# Domain Name		Class Skill		Clear Description	Description										List of Domain Spells by Level
+Ambition.MOD																			SPELLLEVEL:DOMAIN|Ambition=5|Command (Greater)
+Blessings of Umtala.MOD																		SPELLLEVEL:DOMAIN|Blessings of Umtala=7|Restoration (Greater)
+Betrayal.MOD																			SPELLLEVEL:DOMAIN|Betrayal=1|Disguise Self|Betrayal=4|Crushing Despair|Betrayal=8|Symbol of Fear
+Composition.MOD																			SPELLLEVEL:DOMAIN|Composition=4|Polymorph
+Conquest.MOD																			SPELLLEVEL:DOMAIN|Conquest=4|Geas (Lesser)|Conquest=5|Command (Greater)|Conquest=8|Symbol of Death
+Diplomacy.MOD																			SPELLLEVEL:DOMAIN|Diplomacy=7|Scrying (Greater)|Diplomacy=8|Planar Ally (Greater)
+Domination.MOD																			SPELLLEVEL:DOMAIN|Domination=4|Geas (Lesser)
+Fear.MOD																				SPELLLEVEL:DOMAIN|Fear=7|Symbol of Fear
+Fury.MOD																				SPELLLEVEL:DOMAIN|Fury=4|Crushing Despair|Fury=6|Suggestion (Mass)|Fury=7|Power Word Stun|Fury=8|Power Word Blind|Fury=9|Power Word Kill
+Gluttony.MOD																			SPELLLEVEL:DOMAIN|Gluttony=9|Mage's Magnificent Mansion
+Hunter.MOD																				SPELLLEVEL:DOMAIN|Hunter=9|Power Word Kill
+Hunting.MOD			CSKILL:Survival	DESC:.CLEAR		DESC:You gain the Track feat and count Survival as a class skill.	SPELLLEVEL:DOMAIN|Hunting=1|Hide from Animals|Hunting=7|Scrying (Greater)
+Leadership.MOD																			SPELLLEVEL:DOMAIN|Leadership=4|Good Hope|Leadership=6|Suggestion (Mass)|Leadership=8|Charm Monster (Mass)
+Pain.MOD																				SPELLLEVEL:DOMAIN|Pain=8|Symbol of Pain
+Power.MOD																				SPELLLEVEL:DOMAIN|Power=5|Inflict Light Wounds (Mass)|Power=7|Power Word Stun
+Sloth.MOD																				SPELLLEVEL:DOMAIN|Sloth=8|Planar Ally (Greater)
+Solace.MOD																				SPELLLEVEL:DOMAIN|Solace=5|Cure Light Wounds (Mass)|Solace=8|Heal (Mass)
+Storm.MOD																				SPELLLEVEL:DOMAIN|Storm=2|Resist Energy
+Victory.MOD																				SPELLLEVEL:DOMAIN|Victory=5|Command (Greater)|Victory=6|Suggestion (Mass)|Victory=7|Power Word Stun

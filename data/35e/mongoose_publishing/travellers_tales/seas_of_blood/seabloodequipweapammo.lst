@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
+# Equipment Name			Output Name						Type							Cost		Weight	Source Page
+Bolt (Aquatic Crossbow)		OUTPUTNAME:Bolts, Aquatic Crossbow		TYPE:Ammunition.Standard.Wooden.Bolt	COST:0.2	WT:0.1	SOURCEPAGE:p.70
+Bolts (Aquatic Crossbow/10)	OUTPUTNAME:Bolts, Aquatic Crossbow (10)	TYPE:Ammunition.Standard.Wooden.Bolt	COST:2	WT:1		SOURCEPAGE:p.70

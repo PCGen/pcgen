@@ -1,0 +1,4 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:DCC 25 - The Dread Crypt of Srihoz	SOURCESHORT:DCC25	SOURCEWEB:http://www.goodman-games.com/	SOURCEDATE:2006-01
+# Equipment Name	Output Name			Required Shield Proficiency		Type					Cost		Weight	AC Penalty Check	Modifier	Wield Category	Source Page		% of Spell Failure	Innate Spells								Combat bonus
+Shield (Dawnfast)	OUTPUTNAME:Dawnfast	PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Standard.Heavy	COST:64170	WT:15		ACCHECK:-2		EQMOD:STEEL	WIELD:OneHanded	SOURCEPAGE:p.24	SPELLFAILURE:15		SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=9|Daylight,14	BONUS:COMBAT|AC|4|TYPE=Shield.REPLACE

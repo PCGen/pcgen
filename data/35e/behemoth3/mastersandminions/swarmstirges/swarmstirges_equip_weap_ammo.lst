@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Tue Nov 11 00:08:55 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:A Swarm of Stirges	SOURCESHORT:ASoS	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
+# Original Entry by: Eddy Anthony
+
+###Block: Ammunition
+
+# Equipment Name	Type							Cost		Weight	Base Quantity	Modifier		Requires Modification?	Source Page		Special Property
+Firefly Bolt	TYPE:Ammunition.Standard.Bolt.Individual	COST:5	WT:0		BASEQTY:1		EQMOD:STEEL.WOOD	MODS:YES			SOURCEPAGE:p.23	SPROP:1 point of fire damage, range increment of the crossbow firing them is reduced by half.
+Wasp Bolt		TYPE:Ammunition.Standard.Bolt.Individual	COST:150	WT:0		BASEQTY:1		EQMOD:STEEL.WOOD	MODS:YES			SOURCEPAGE:p.23	SPROP:Gutflux toxin (Injury DC 11, initial and secondary damage 1d6 Con), range increment of the crossbow firing them is reduced by half.

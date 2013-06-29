@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Critical Feats	SOURCESHORT:CritFeat	SOURCEWEB:http://www.realitydeviants.net/content/critfeat.html	SOURCEDATE:2006-01
+# Original entry by Paul W. King
+
+# Spell Name	Classes of caster				School			Sub-School		Type		Components	Casting Time	Range		Target Area or Effect		Duration			Save Info					Spell Resistance		Source Page
+Knit Bones		CLASSES:Paladin=4|Cleric,Druid=5	SCHOOL:Conjuration	SUBSCHOOL:Healing	TYPE:Divine	COMPS:V, S	CASTTIME:1 minute	RANGE:Touch	TARGETAREA:Creature touched	DURATION:Instantaneous	SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	SOURCEPAGE:p.12
+
+#
+# End
+#

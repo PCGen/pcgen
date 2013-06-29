@@ -1,0 +1,19 @@
+# CVS $Revision$ $Author$ -- Tue Oct 16 20:52:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
+# ORIGINAL ENTRY BY: Andrew Maitland
+# ORIGINAL ENTRY DATE: 2011-11-26
+
+###Block: Epic Feats
+# Feat Name
+Craft Epic Psionic Arms and Armor	TYPE:Epic.Item Creation	SOURCEPAGE:p.165	PREFEAT:1,Craft Psionic Arms and Armor	PRESKILL:2,Knowledge (Psionics)=28,Psicraft=28	DESC:The character can craft psionic arms and armor which exceed the normal limits for such items
+Craft Epic Psicrown	TYPE:Epic.Item Creation	SOURCEPAGE:p.165	PREFEAT:1,Craft Psicrown	PRESKILL:2,Knowledge (psionics)=35,Psicraft=35	DESC:The character can craft psicrowns that exceed the normal limits for such items.
+Craft Epic Universal Item	TYPE:Epic.Item Creation	SOURCEPAGE:p.165	PREFEAT:1,Craft Universal Item	PRESKILL:2,Knowledge (Psionics)=26,Psicraft=26	DESC:The character can craft universal items that exceed the normal limits for such items.
+Desert Rose 	TYPE:Epic	SOURCEPAGE:p.165	DESC:You are at your best when environmental conditions are at their worst.	PRESKILL:2,Knowledge (Nature)=12,Survival=12
+
+#TODO: You receive a +2 competency bonus to Will saves. Even on a failed save, any mental effect such as suggestion and charm is reduced to ? normal duration. You also receive a +2 competency bonus to all Spot and Search checks, as well as initiative. Finally, you receive the following bonuses to Dra-Di Ki feats: Dra-Di Ki Agility-an additional +1 competency bonus on all Dexterity related checks; Dra-Di Ki Defense-the dodge bonus of the Defense ability increases to +4; Dra-Di Ki Power-unarmed strikes do an additional +2 damage; #Dra-Di Ki Speed-+10 to base speed, with an additional +2 on Jump checks made after a running start
+Dra-Di Ki Grandmaster 	TYPE:Epic	SOURCEPAGE:p.165	DESC:Your long devotion to the art of Dra-Di Ki has honed your skills and raised your mind and spirit to an enlightened state.	PRETEXT:All Dra-Di Ki feats, train with a grandmaster
+Epic Manifesting 	TYPE:Epic	SOURCEPAGE:p.165	PRESKILL:2,Psicraft=24,Knowledge (Psionics)=24	PRETEXT:ability to manifest 9th-level powers.
+Imprint Epic Stone	TYPE:Epic.Item Creation	SOURCEPAGE:p.165	PREFEAT:1,Imprint Stone	PRESKILL:2,Knowledge (psionics)=24,Psicraft=24
+King of Thieves 	TYPE:Epic	SOURCEPAGE:p.165	DESC:Your long experience slinking around in dark alleys and back ways has sharpened your thievery skills to their maximum.	PRESTAT:2,DEX=18,CHA=14	PRESKILL:4,Bluff=18,Hide=18,Move Silently=18,Sleight of Hand=18
+Shrewd Merchant 	TYPE:Epic	SOURCEPAGE:p.166	DESC:Commerce and finance are as natural to you as breathing, and money seems to gravitate towards you.	PRESTAT:2,WIS=16,CHA=20
+Voice of the Dead 	TYPE:Epic.Divine	SOURCEPAGE:p.166	DESC:You have a particularly strong command over legions of undead.	PREABILITY:1,CATEGORY=Special Ability,Turn Undead,Rebuke Undead	PRESTAT:1,CHA=20

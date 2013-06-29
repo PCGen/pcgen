@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Tue Nov 11 00:08:55 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:A Swarm of Stirges	SOURCESHORT:ASoS	SOURCEWEB:http://www.behemoth3.com/	SOURCEDATE:2004-08
+
+# Weapon Name	Type
+Shocklash		TYPE:Exotic
+Flamedart		TYPE:Simple
+
+#
+# End
+#

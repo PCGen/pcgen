@@ -1,0 +1,21 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Legends of the Ancients - Macedon	SOURCESHORT:Macedon	SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=137	SOURCEDATE:2005-01
+# Updated Entry: Andrew Maitland
+# Updated Entry Date: July 2012
+
+
+# Ability Name		Unique Key					Category of Ability		Type				Define			Description
+Mounted Combat		KEY:Mounted Combat ~ Cavalry		CATEGORY:Special Ability	TYPE:SpecialAttack	DEFINE:MountedCombat|0	DESC: +%1|MountedCombat
+Mounted Mobility		KEY:Mounted Mobility ~ Cavalry	CATEGORY:Special Ability	TYPE:SpecialQuality
+Saddle Leap			KEY:Saddle Leap ~ Cavalry		CATEGORY:Special Ability	TYPE:SpecialQuality
+Cavalry Mount		KEY:Cavalry Mount ~ Cavalry		CATEGORY:Special Ability	TYPE:SpecialQuality
+Spur				KEY:Spur ~ Cavalry			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:CavalrySpur|0	DESC: +%1|CavalrySpur	DESC:(nonlethal damage)|PREVARGTEQ:SpurLvl,1
+Harry				KEY:Harry ~ Cavalry			CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:CavalryHarry|0	DESC: +%1|CavalryHarry
+Mounted Endurance		KEY:Mounted Endurance ~ Cavalry	CATEGORY:Special Ability	TYPE:SpecialQuality
+Mounted Agility		KEY:Mounted Agility ~ Cavalry		CATEGORY:Special Ability	TYPE:SpecialQuality
+Like the Wind		KEY:Like the Wind ~ Cavalry		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:LikeTheWind|0	DESC: +%1|LikeTheWind
+Tall in the saddle	KEY:Tall in the saddle ~ Cavalry	CATEGORY:Special Ability	TYPE:SpecialQuality
+Lightning Attack		KEY:Lightning Attack ~ Cavalry	CATEGORY:Special Ability	TYPE:SpecialAttack
+Companion Mount		KEY:Companion Mount ~ Cavalry		CATEGORY:Special Ability	TYPE:SpecialQuality
+
+#EOF

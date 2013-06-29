@@ -1,0 +1,37 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+#Original Entry: Arknight
+
+###Block:Psicrystal
+# Class of the Master		Type			Spell Res.	Ability																	Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Move		Combat bonus						Misc bonus				Stat bonus		Modify VAR
+FOLLOWER:PsiCrystalLVL=1	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Hardness 8|Improved Evasion|Self Propulsion|Share Powers|Telepathic Link	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:MASTER/2		USEMASTERSKILL:YES			BONUS:COMBAT|AC|0|TYPE=NaturalArmor.REPLACE
+FOLLOWER:PsiCrystalLVL=3	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Deliver Touch Powers																												BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=5	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Telepathic Speech																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=7	TYPE:Psicrystal																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=9	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Flight ~ Psicrystal|Flight Maneuverability																							MOVE:Fly,50	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1	BONUS:VAR|Maneuverability|2
+FOLLOWER:PsiCrystalLVL=11	TYPE:Psicrystal	SR:5		ABILITY:Special Ability|AUTOMATIC|Power Resistance																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:MISC|SR|PsiCrystalLVL	BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=13	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Sight Link																														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=15	TYPE:Psicrystal			ABILITY:Special Ability|AUTOMATIC|Channel Power																														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=17	TYPE:Psicrystal																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
+FOLLOWER:PsiCrystalLVL=19	TYPE:Psicrystal																																								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|INT|1
+#
+
+###Block:Psicrystal Bonuses to Master
+# Race of familiar					Type			Save checks bonus			Combat bonus			Bonus to skill			Virtual Feat
+MASTERBONUSRACE:Psicrystal (Artiste)		TYPE:Psicrystal											BONUS:SKILL|TYPE.Craft|3	VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Bully)			TYPE:Psicrystal											BONUS:SKILL|Intimidate|3	VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Coward)			TYPE:Psicrystal											BONUS:SKILL|Hide|3		VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Friendly)		TYPE:Psicrystal											BONUS:SKILL|Diplomacy|3		VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Hero)			TYPE:Psicrystal	BONUS:CHECKS|Fortitude|2											VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Liar)			TYPE:Psicrystal											BONUS:SKILL|Bluff|3		VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Meticulous)		TYPE:Psicrystal											BONUS:SKILL|Search|3		VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Nimble)			TYPE:Psicrystal						BONUS:COMBAT|INITIATIVE|2						VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Observant)		TYPE:Psicrystal											BONUS:SKILL|Spot|3		VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Poised)			TYPE:Psicrystal											BONUS:SKILL|Balance|3		VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Resolved)		TYPE:Psicrystal	BONUS:CHECKS|Will|2												VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Sage)			TYPE:Psicrystal																VFEAT:Alertness
+#	BONUS:SKILLPOOL|NUMBER|3
+# BONUS:SKILLPOOL|NUMBER is only valid in class.lst.
+MASTERBONUSRACE:Psicrystal (Single Minded)	TYPE:Psicrystal											BONUS:SKILL|Concentration|3	VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Sneaky)			TYPE:Psicrystal											BONUS:SKILL|Move Silently|3	VFEAT:Alertness
+MASTERBONUSRACE:Psicrystal (Sympathetic)		TYPE:Psicrystal											BONUS:SKILL|Sense Motive|3	VFEAT:Alertness

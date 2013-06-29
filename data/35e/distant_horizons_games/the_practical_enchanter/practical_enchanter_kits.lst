@@ -1,0 +1,18 @@
+# CVS $Revision$ $Author$ -- Wed Feb 15 13:58:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:DHG - The Practical Enchanter	SOURCESHORT:TPE	SOURCEWEB:http://www.lulu.com/product/paperback/the-practical-enchanter/559616	SOURCEDATE:01-2001
+#Original Entry: Andrew Maitland
+
+
+
+STARTPACK:Default Animated Caravan	TYPE:Default	VISIBLE:QUALIFY	PREMULT:1,[PRERACE:1,Animated Caravan],[!PRERACE:1,%]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+ALIGN:TN
+RACE:Animated Caravan	!PRERACE:1,%
+#Abilities: Str 28, Dex 8, Con -, Int -, Wis 10, Cha 1
+
+
+STARTPACK:Default Pinata Golem	TYPE:Default	VISIBLE:QUALIFY	PREMULT:1,[PRERACE:1,Pinata Golem],[!PRERACE:1,%]
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+#Abilities: Str 26, Dex 12, Con -, Int -, Wis 10, and Cha 1
+ALIGN:TN
+RACE:Pinata Golem	PRERACE:1,%

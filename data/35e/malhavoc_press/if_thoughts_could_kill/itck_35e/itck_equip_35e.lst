@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Tue Nov 11 14:25:56 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Malhavoc Press - If Thoughts Could Kill	SOURCESHORT:ITCK	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2002-04
+
+# Equipment Name			Product Identity?	Type						Cost		Weight	Source Page		Special Property
+Cloak of Probability		NAMEISPI:YES	TYPE:Psionic.Universal.Cloak		COST:26400	WT:0		SOURCEPAGE:p.43
+Ring of Psionic Teleport	NAMEISPI:YES	TYPE:Psionic.Universal.Ring		COST:28800	WT:0		SOURCEPAGE:p.43
+Third Eye (Continual Power)	NAMEISPI:YES	TYPE:Psionic.Universal.Eyegear	COST:48000	WT:0		SOURCEPAGE:p.43	SPROP:wearer can use the Continual Power feat once per day

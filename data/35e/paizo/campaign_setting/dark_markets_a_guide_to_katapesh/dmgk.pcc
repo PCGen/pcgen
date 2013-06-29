@@ -1,0 +1,52 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+CAMPAIGN:Paizo - Dark Markets: A Guide to Katapesh (35e)
+GAMEMODE:35e
+TYPE:Paizo Publishing.Pathfinder Campaign Setting
+RANK:6
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Pathfinder Campaign Setting
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Dark Markets: A Guide to Katapesh
+SOURCESHORT:DMGK
+SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut
+SOURCEDATE:2009-04
+ISOGL:YES
+
+COVER:dark_markets.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut|Buy this publication from Paizo Publishing!
+DESC:The bustling bazaars of Absalom offer countless delights, but even they do not sell everything. Only in the peerless markets of mysterious Katapesh can one find anything for sale, from the lost diamonds of a fallen empire to a clutch of slaves freshly captured off the Inner Sea coast. This exotic desert locale serves as the backdrop of the Pathfinder Adventure Path Legacy of Fire, and this informative, lushly illustrated full-color 64-page guide presents everything players and Game Masters need to know to bring the dark markets of Katapesh to terrible life.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Chronicles: Dark Markets, A Guide to Katapesh. Copyright 2009, Paizo Publishing, LLC; Authors: Stephen S. Greer, Amber Scott, Greg A. Vaughan, and Sean K Reynolds.
+COPYRIGHT:Tome of Horrors III Copyright 2005 Necromancer Games, Inc. Author Scott Greene, with Casey Christofferson, Erica Balsley, Kevin Baase, Lance Hawvermale, Travis Hawvermale, Ian S. Johnson, Patrick Lawringer, Nathan Paul, Clark Peterson, Greg Ragland, Robert Schwalb, and Bill Webb.
+COPYRIGHT:PCGen dataset conversion for "Dark Markets: A Guide to Katapesh" Copyright 2009-2010, PCGen Data team (Including, but not limited to Terry Milner, Stefan Radermacher and Andrew Maitland (LegacyKing)).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITYCATEGORY:dmgk_abilitycategories.lst
+
+ABILITY:dmgk_abilities_classes_prestige.lst
+ABILITY:dmgk_abilities_monsters.lst
+CLASS:dmgk_classes_prestige.lst
+EQUIPMENT:dmgk_equip.lst
+EQUIPMENT:dmgk_equip_armorshields.lst
+EQUIPMENT:dmgk_equip_poisons.lst
+EQUIPMENT:dmgk_equip_potions.lst
+EQUIPMENT:dmgk_equip_weapons_melee.lst
+EQUIPMENT:dmgk_equip_wondrousitems.lst
+FEAT:dmgk_feats.lst
+RACE:dmgk_races.lst
+SPELL:dmgk_spells.lst
+TEMPLATE:dmgk_templates.lst

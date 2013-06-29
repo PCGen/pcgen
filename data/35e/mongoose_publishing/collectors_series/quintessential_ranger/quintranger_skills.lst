@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Sun Aug 24 21:31:10 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
+
+# Skill Name	Key Stat	Untrained?		Type				Bonus to skill															Temporary effect description
+Craft (Fletcher)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	BONUS:SKILL|Craft (Fletcher)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WeaponsmithingTools|PREAPPLY:PC	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Bowyer)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	BONUS:SKILL|Craft (Bowyer)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WeaponsmithingTools|PREAPPLY:PC		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used

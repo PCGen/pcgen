@@ -1,0 +1,24 @@
+# CVS $Revision$ $Author$ -- Fri Apr 25 04:09:50 2008 -- reformated by prettylst.pl v1.38 (build 5869)
+SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
+# Original Entry by:
+
+###Block: Cursed Armor and Shield Enhancements ----------------------------------------------
+# Modifier Name		Unique Key		Type					Plus		Cost		Visible		Source Page			Required Type
+Baleful Hatred		KEY:CURSED_BALE	TYPE:Weapon				PLUS:-2	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.149		PRETYPE:1,Weapon
+Battlelust			KEY:CURSED_BATT	TYPE:Weapon.Melee			PLUS:-1	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.149		PRETYPE:2,Weapon,Melee
+Blood-Thirsty		KEY:CURSED_BLOO	TYPE:Weapon				PLUS:-1	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.149		PRETYPE:1,Weapon
+Charged			KEY:CURSED_CHAR	TYPE:Weapon				PLUS:-3	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.149		PRETYPE:1,Weapon
+Dominant			KEY:CURSED_DOMI	TYPE:Weapon				PLUS:-1	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.149		PRETYPE:1,Weapon
+Energy Vulnerability	KEY:CURSED_ENER	TYPE:Armor.Shield			PLUS:-2	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:pp.150		PRETYPE:1,Armor,Shield
+Envious			KEY:CURSED_ENVI	TYPE:Armor.Shield.Weapon	PLUS:-4	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:pp.148,150	PRETYPE:1,Armor,Shield,Weapon
+Lumen				KEY:CURSED_LUME	TYPE:Armor.Shield.Weapon	PLUS:-2	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:pp.148,150	PRETYPE:1,Armor,Shield,Weapon
+Nox Noctis			KEY:CURSED_NOXN	TYPE:Armor.Shield.Weapon	PLUS:-2	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:pp.148,150	PRETYPE:1,Armor,Shield,Weapon
+Pacifist			KEY:CURSED_PACI	TYPE:Weapon				PLUS:-1	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:p.150		PRETYPE:1,Weapon
+Possessed			KEY:CURSED_POSS	TYPE:Armor.Shield.Weapon	PLUS:-2	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:pp.148,150	PRETYPE:1,Armor,Shield,Weapon
+Unlucky			KEY:CURSED_UNLU	TYPE:Armor.Shield.Weapon	PLUS:-2	COST:0	VISIBLE:QUALIFY	SOURCEPAGE:pp.148,150	PRETYPE:1,Armor,Shield,Weapon
+
+###COMMENTS: Page Number is 148-150 due to duplication of EQMODs based upon Armor, Melee or Ranged.
+
+#
+##EOF
+#

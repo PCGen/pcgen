@@ -1,0 +1,16 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Demonology	SOURCESHORT:Demonology	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2003-01
+
+# Demonologist
+# Ability Name			Unique Key						Category of Ability		Type				Description
+Siphon Demonic Energy		KEY:Siphon Demonic Energy ~ Demonologist	CATEGORY:Special Ability	TYPE:SpecialQuality
+Extended Instruction		KEY:Extended Instruction ~ Demonologist	CATEGORY:Special Ability	TYPE:SpecialQuality
+Lesser Control			KEY:Lesser Control ~ Demonologist		CATEGORY:Special Ability	TYPE:SpecialQuality
+Multiple Summoning		KEY:Multiple Summoning ~ Demonologist	CATEGORY:Special Ability	TYPE:SpecialQuality
+Demonic Vulnerability		KEY:Demonic Vulnerability ~ Demonologist	CATEGORY:Special Ability	TYPE:SpecialQuality
+Full Instruction			KEY:Full Instruction ~ Demonologist		CATEGORY:Special Ability	TYPE:SpecialQuality
+Greater Control			KEY:Greater Control ~ Demonologist		CATEGORY:Special Ability	TYPE:SpecialQuality
+
+# Possessed
+Demonic Possession		KEY:Demonic Possession ~ Possessed		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1/day|DemonPos
+Additional Demonic Trait	KEY:Additional Demonic Trait ~ Possessed	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:%1|DemonicTrait

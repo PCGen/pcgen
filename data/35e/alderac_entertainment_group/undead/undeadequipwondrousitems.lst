@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
+SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+
+# Equipment Name					Product Identity?	Type						Cost		Weight	Source Page			Combat bonus				Bonus to skill				Stat bonus
+Amulet of Turning and Turn Resistance	NAMEISPI:YES	TYPE:Magic.Wondrous.Amulet		COST:250000	WT:0		SOURCEPAGE:p.79-80
+Medallion of Courage				NAMEISPI:YES	TYPE:Magic.Wondrous.Amulet		COST:25000	WT:0		SOURCEPAGE:p.80-81
+Sunlight Stone					NAMEISPI:YES	TYPE:Magic.Wondrous			COST:10000	WT:0		SOURCEPAGE:p.83
+Amulet of Bone (living)				NAMEISPI:YES	TYPE:Magic.Wondrous.Amulet		COST:3000	WT:0		SOURCEPAGE:p.84-85													BONUS:STAT|CON|1
+Amulet of Bone (corporeal undead)		NAMEISPI:YES	TYPE:Magic.Wondrous.Amulet		COST:3000	WT:0		SOURCEPAGE:p.84-85													BONUS:STAT|STR|1
+Cloak of Darkness					NAMEISPI:YES	TYPE:Magic.Wondrous.Cloak		COST:30000	WT:1		SOURCEPAGE:p.85-86							BONUS:SKILL|Hide|4|TYPE=Enhancement
+Dust of Hardening					NAMEISPI:YES	TYPE:Magic.Wondrous.Consumable	COST:500	WT:0		SOURCEPAGE:p.86
+Skin of Al-Malif					NAMEISPI:YES	TYPE:Magic.Wondrous			COST:15000	WT:0		SOURCEPAGE:p.87		BONUS:COMBAT|AC|4|TYPE=Enhancement							BONUS:STAT|STR,DEX,WIS|6|TYPE=Enhancement

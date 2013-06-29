@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Wed Jan  2 22:34:58 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Curses!	SOURCESHORT:Curses	SOURCEWEB:http://www.silven.com/	SOURCEDATE:2005-04
+# Original Entry by: Eddy Anthony (MoSaT)
+
+
+# Template Name	Visible	Race Subtype
+Evil Eye Subtype	VISIBLE:NO	RACESUBTYPE:Evil
+
+#
+# End
+#

@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Sun Mar 18 17:17:27 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+
+
+# Equipment Name			Required Weapon Proficiency	Type									Damage	Range		Size		Weapon prop. bonus			Special Property
+Giant Rock (Large)		PROFICIENCY:WEAPON|Giant Rock	TYPE:Weapon.Ranged.Thrown.Bludgeoning.Giant.GiantRock	DAMAGE:2d6	RANGE:120	SIZE:L	BONUS:WEAPON|ATTACKSPROGRESS|-3
+Giant Rock (Huge)			PROFICIENCY:WEAPON|Giant Rock	TYPE:Weapon.Ranged.Thrown.Bludgeoning.Giant.GiantRock	DAMAGE:2d8	RANGE:120	SIZE:H	BONUS:WEAPON|ATTACKSPROGRESS|-3
+
+# Variants
+Giant Rock (Fire Giant)		PROFICIENCY:WEAPON|Giant Rock	TYPE:Weapon.Ranged.Thrown.Bludgeoning.Giant.GiantRock	DAMAGE:2d6	RANGE:120	SIZE:L	BONUS:WEAPON|ATTACKSPROGRESS|-3	SPROP:+2d6 fire damage
+Giant Rock (Stone Giant)	PROFICIENCY:WEAPON|Giant Rock	TYPE:Weapon.Ranged.Thrown.Bludgeoning.Giant.GiantRock	DAMAGE:2d8	RANGE:180	SIZE:L	BONUS:WEAPON|ATTACKSPROGRESS|-3
+Giant Rock (Cloud Giant)	PROFICIENCY:WEAPON|Giant Rock	TYPE:Weapon.Ranged.Thrown.Bludgeoning.Giant.GiantRock	DAMAGE:2d8	RANGE:140	SIZE:L	BONUS:WEAPON|ATTACKSPROGRESS|-3

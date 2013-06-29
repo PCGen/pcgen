@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:DCC 27 - Revenge of the Rat King	SOURCESHORT:DCC27	SOURCEWEB:http://www.goodman-games.com/	SOURCEDATE:2006-01
+# Equipment Name		Type				Cost		Weight	Source Page		Innate Spells
+Key of Shevas		TYPE:Magic.Wondrous	COST:8000	WT:0		SOURCEPAGE:p.28	SPELLS:Magic Item|TIMES=3|CASTERLEVEL=10|Detect Secret Doors,11|Dispel Magic,14|Knock,13
+Onyx Eye (Yatil's Orb)	TYPE:Magic.Wondrous	COST:23000	WT:30		SOURCEPAGE:p.29
+Ring of Tooth and Blade	TYPE:Magic.Ring		COST:15000	WT:0		SOURCEPAGE:p.29
+Shackles of Shevas	TYPE:Magic.Wondrous	COST:35000	WT:4		SOURCEPAGE:p.28

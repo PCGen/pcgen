@@ -1,0 +1,38 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:42:47 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Dark Markets: A Guide to Katapesh	SOURCESHORT:DMGK	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
+# Original Entry by: Terry Milnes
+
+###Block: Clothing
+# Equipment Name	Output Name				Type							Cost		Weight	Source Page
+Outfit (Kaftan)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:50	WT:4		SOURCEPAGE:p.3
+
+###Block:Abadaran services
+# Equipment Name					Type			Cost		Source Page
+Abadaran Simple contract			TYPE:Service	COST:5	SOURCEPAGE:p.29
+Abadaran Complex contract			TYPE:Service	COST:10	SOURCEPAGE:p.29
+Abadaran Notarization of documents		TYPE:Service	COST:1	SOURCEPAGE:p.29
+Abadaran Identify spell				TYPE:Service	COST:125	SOURCEPAGE:p.29
+Abadaran Document a magic item's power	TYPE:Service	COST:10	SOURCEPAGE:p.29
+Abadaran Business license			TYPE:Service	COST:5	SOURCEPAGE:p.29
+Abadaran Scale certification			TYPE:Service	COST:10	SOURCEPAGE:p.29
+
+###Block:Food, Drink, and Lodging
+# Equipment Name			Type				Cost		Weight	Source Page
+Blood Ale				TYPE:Goods.Liquid.Food	COST:0.04	WT:1		SOURCEPAGE:p.32
+Cinnamon Stout			TYPE:Goods.Liquid.Food	COST:0.04	WT:1		SOURCEPAGE:p.32
+Fish Oil Whisky			TYPE:Goods.Liquid.Food	COST:0.1	WT:1		SOURCEPAGE:p.32
+Goblin Turpentine			TYPE:Goods.Liquid.Food	COST:0.04	WT:1		SOURCEPAGE:p.32
+Hair of the Dog			TYPE:Goods.Liquid.Food	COST:0.05	WT:1		SOURCEPAGE:p.32
+Hammer Head				TYPE:Goods.Liquid.Food	COST:0.1	WT:1		SOURCEPAGE:p.32
+Jerikal's Private Reserve	TYPE:Goods.Liquid.Food	COST:0.1	WT:1		SOURCEPAGE:p.32
+Orange Peel Ale			TYPE:Goods.Liquid.Food	COST:0.05	WT:1		SOURCEPAGE:p.32
+Morning Constitutional		TYPE:Goods.Liquid.Food	COST:0.04	WT:1		SOURCEPAGE:p.32
+Pesh Brandy				TYPE:Goods.Liquid.Food	COST:0.2	WT:1		SOURCEPAGE:p.32
+Purple Dragon Spit		TYPE:Goods.Liquid.Food	COST:0.1	WT:1		SOURCEPAGE:p.32
+Rabid Squirrel			TYPE:Goods.Liquid.Food	COST:0.08	WT:1		SOURCEPAGE:p.32
+Thileu Lager			TYPE:Goods.Liquid.Food	COST:0.15	WT:1		SOURCEPAGE:p.32
+Wolfberry Wine			TYPE:Goods.Liquid.Food	COST:0.1	WT:1		SOURCEPAGE:p.32
+
+#
+# End
+#

@@ -1,0 +1,18 @@
+# CVS $Revision$ $Author$ -- Mon Sep 15 10:56:22 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Neiyar Land of Heaven and the Abyss	SOURCESHORT:Neiyar	SOURCEWEB:http://www.bardsandsages.com/neiyar.html	SOURCEDATE:2005-03
+###Original Entry: Andrew Maitland
+
+# Language			Product Identity?	Type					Source Page
+Neiyar (Common)		NAMEISPI:YES	TYPE:Read.Written.Spoken	SOURCEPAGE:p.29
+Neiyar (Traditional)	NAMEISPI:YES	TYPE:Read.Written.Spoken	SOURCEPAGE:p.29
+Amphikin			NAMEISPI:YES	TYPE:Read.Written.Spoken	SOURCEPAGE:p.29
+Auronne			NAMEISPI:YES	TYPE:Read.Written.Spoken	SOURCEPAGE:p.29
+Krakodonian			NAMEISPI:YES	TYPE:Spoken				SOURCEPAGE:p.29
+Mahaultae			NAMEISPI:YES	TYPE:Read.Written.Spoken	SOURCEPAGE:p.30
+
+Sylvan (Neiyar)		NAMEISPI:YES	TYPE:Read.Written.Spoken	SOURCEPAGE:p.30
+### COMMENT: In reading the text, it infers that Sylvan is different from the base sylvan, and that misunderstandings occur. Therefore, I placed Sylvan (SUB) for completeness purposes.
+
+###Block: Monsters
+# Language	Product Identity?	Type		Source Page
+Banyanta	NAMEISPI:YES	TYPE:Spoken	SOURCEPAGE:p.118

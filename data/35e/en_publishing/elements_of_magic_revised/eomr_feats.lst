@@ -1,0 +1,73 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Elements of Magic (Revised)	SOURCESHORT:EOM	SOURCEWEB:http://www.enworld.org/forum/e-n-publishing/	SOURCEDATE:2002-01
+#Original Entry: Joe Frazier, Clean up by Andrew Maitland
+
+###Block: Item Creation Feats
+# Feat Name			Type			Required Feat							Var. Min. Value			Source Page
+Craft Charged Item	TYPE:ItemCreation															SOURCEPAGE:pg. 14
+Craft Permanent Spell	TYPE:ItemCreation	PREFEAT:2,Craft Charged Item,Craft Wondrous Item	PREVARGTEQ:EOMCasterLevel,7	SOURCEPAGE:pg. 14
+
+###Block: Mage feats
+# Feat Name			Unique Key			Type				Required Ability							Required Feat			Multiple Requirements											Required Skill			Var. Min. Value			Description																	Stackable?	Multiple?	Choose		Bonus to Ability Pool			Bonus to spell cast/day			Modify VAR							Source Page
+Abjure Specialist						TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Abjure																														DESC:Your abjure spells are particularly flexible.																																					SOURCEPAGE:pg. 13
+Arcane Mastery						TYPE:Mage												PREFEAT:1,Arcane Specialist																				PREVARGTEQ:EOMCasterLevel,10	DESC:You can prepare spells you normally could not cast.																																				SOURCEPAGE:pg. 13
+Arcane Specialist						TYPE:Mage												PREFEAT:1,Arcane Student																				PREVARGTEQ:EOMCasterLevel,3	DESC:You can cast spells from books quickly.																																						SOURCEPAGE:pg. 13
+Arcane Student						TYPE:Mage																																									DESC:You can prepare spells more easily.																																							SOURCEPAGE:pg. 13
+Armored Casting						TYPE:Mage																	PREMULT:1,[PREPROFWITHARMOR:1,TYPE.Light],[PREFEAT:1,Armor Proficiency (Light)]											DESC:You have no spell failure chance because of armor.																																				SOURCEPAGE:pg. 13
+Dispel Specialist						TYPE:Mage.Specialist																													PRESKILL:5,Divination=1							DESC:You are very skilled at counterspells and magical defenses.																																			SOURCEPAGE:pg. 14
+Divination Specialist					TYPE:Mage.Specialist																													PRESKILL:5,Dispel Magic=1						DESC:You have mild precognition that comes unconsciously.																																				SOURCEPAGE:pg. 14
+Evoke Specialist						TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Evoke																														DESC:You are very skilled at dealing magical damage.																																					SOURCEPAGE:pg. 14
+Extra Magic Points					TYPE:Mage																																									DESC:You have a deeper pool of magical energy to draw from.									STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|BonusSpellPoints|EOMCasterLevel/2	SOURCEPAGE:pg. 14
+Extra Signature Spells					TYPE:Mage																																									DESC:You are good at casting certain spells quickly.																							BONUS:SPELLCAST|TYPE=EOM;LEVEL=0|4									SOURCEPAGE:pg. 14
+Extra Spell List						TYPE:Mage																																									DESC:You have a slightly larger than normal magical repertoire.								STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Spell Lists|1															SOURCEPAGE:pg. 15
+Heal Specialist						TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Heal																															DESC:Your healing spells can cure multiple weak afflictions cheaply.																																		SOURCEPAGE:pg. 15
+Illusion Specialist					TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Illusion																														DESC:Your illusion spells are always a little more detailed.																																			SOURCEPAGE:pg. 15
+Infuse Specialist						TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Infuse																														DESC:Your ability-influencing spells last longer.																																					SOURCEPAGE:pg. 15
+Natural Spell		KEY:EOM_NATURAL_SPELL	TYPE:Mage																																									DESC:You can cast spells while in different creature's forms.																																			SOURCEPAGE:pg. 15
+Scry Specialist						TYPE:Mage.Specialist																													PRESKILL:5,Scry=1								DESC:You have an easier time casting spells through scrying.																																			SOURCEPAGE:pg. 15
+Spell List Familiarity					TYPE:Mage																																									DESC:Choose a spell list, such as Evoke  Death. You can cast a certain spell list more cheaply.																														SOURCEPAGE:pg. 16
+Spell List Focus						TYPE:Mage																																									DESC:Choose a spell list, such as Evoke Fire. Your spells of that list are harder to resist.																														SOURCEPAGE:pg. 16
+Summon Specialist						TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Summon																														DESC:You are very skilled at handling magically created creatures.																																		SOURCEPAGE:pg. 16
+Transform Specialist					TYPE:Mage.Specialist	PREABILITY:6,CATEGORY=Special Ability,TYPE.Transform																														DESC:Your transform spells can themselves transform, allowing multiple shiftings of shape with one spell.																												SOURCEPAGE:pg. 16
+
+###Block: Mods
+# Feat Name			Type						Clear Prereq.	Multiple Requirements																				Var. Must Be Lower
+Craft Wondrous Item.MOD	TYPE:ItemCreation.Elements of Magic	PRE:.CLEAR		PREMULT:1,[PRECLASS:1,SPELLCASTER.Arcane=3,SPELLCASTER.Divine=3],[PREMULT:2,[PREVARGTEQ:EOMCasterLevel,3],[PREFEAT:1,Craft Charged Item]]
+Extend Spell.MOD																																		PREVARLT:EOMCasterLevel,1
+Empower Spell.MOD																																		PREVARLT:EOMCasterLevel,1
+Enlarge Spell.MOD																																		PREVARLT:EOMCasterLevel,1
+Heighten Spell.MOD																																	PREVARLT:EOMCasterLevel,1
+Maximize Spell.MOD																																	PREVARLT:EOMCasterLevel,1
+Widen Spell.MOD																																		PREVARLT:EOMCasterLevel,1
+
+###Block: Tradition feats
+# Feat Name			Type			Required Ability																			Required Feat			Required Skill						Required Stat	Var. Must Be Grater		Var. Min. Value			Description																		Source Page
+Masked Soul			TYPE:Tradition	PREABILITY:1,CATEGORY=Special Ability,Ragesian Inquisitor	PREABILITY:1,CATEGORY=Special Ability,Abjure Life,Abjure Death														PRESTAT:1,WIS=13						PREVARGTEQ:EOMCasterlevel,1	DESC:You can protect yourself from spells by hiding your soul behind a special mask.					SOURCEPAGE:pg. 92
+Natural Spelltouch	TYPE:Tradition	PREABILITY:1,CATEGORY=Special Ability,Vaneljesti Spellweaver	PREABILITY:1,CATEGORY=Special Ability,Transform Life		PREFEAT:1,Combat Casting	PRESKILL:1,Knowledge (Nature)=4						PREVARGT:EOMCasterlevel,0						DESC:You can cast spells with a range of touch through melee attacks with weapons made of animal or plant matter.	SOURCEPAGE:pg. 93
+Spellweave			TYPE:Tradition	PREABILITY:1,CATEGORY=Special Ability,Vaneljesti Spellweaver	PREABILITY:1,CATEGORY=Special Ability,Transform Life							PRESKILL:2,Knowledge (Nature)=4,Spellcraft=4									PREVARGTEQ:EOMCasterLevel,3	DESC:Your magic grows and interweaves easily.												SOURCEPAGE:pg. 93
+
+
+
+###Block: Mods
+# Feat Name			Type
+Acrobatic.MOD		TYPE:TaskmageFeat
+Agile.MOD			TYPE:TaskmageFeat
+Alertness.MOD		TYPE:TaskmageFeat
+Animal Affinity.MOD	TYPE:TaskmageFeat
+Athletic.MOD		TYPE:TaskmageFeat
+Investigator.MOD		TYPE:TaskmageFeat
+Deft Hands.MOD		TYPE:TaskmageFeat
+Diligent.MOD		TYPE:TaskmageFeat
+Deceitful.MOD		TYPE:TaskmageFeat
+Magical Aptitude.MOD	TYPE:TaskmageFeat
+Negotiator.MOD		TYPE:TaskmageFeat
+Nimble Fingers.MOD	TYPE:TaskmageFeat
+Persuasive.MOD		TYPE:TaskmageFeat
+Self Sufficient.MOD	TYPE:TaskmageFeat
+Skill Focus.MOD		TYPE:TaskmageFeat
+Stealthy.MOD		TYPE:TaskmageFeat
+Track.MOD			TYPE:TaskmageFeat
+
+#
+# End
+#

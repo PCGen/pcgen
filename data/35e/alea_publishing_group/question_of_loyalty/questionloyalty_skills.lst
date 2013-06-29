@@ -1,0 +1,8 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:A Question of Loyalty: A Guidebook to Military Orders	SOURCESHORT:GuideMO	SOURCEWEB:http://www.aleapublishing.com	SOURCEDATE:2003-01
+# Original Entry: Andrew Maitland
+
+# Skill Name		Key Stat	Untrained?		Type				Source Page
+Loan						USEUNTRAINED:NO	TYPE:None			SOURCEPAGE:p.7
+Profession (Herbalist)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCEPAGE:p.7
+Profession (Soldier)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCEPAGE:p.7

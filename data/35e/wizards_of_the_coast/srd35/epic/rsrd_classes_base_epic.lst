@@ -1,0 +1,52 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+# Author: Andargor <andargor@yahoo.com>
+
+# Class Name		Max Level
+CLASS:Barbarian.MOD	MAXLEVEL:NOLIMIT
+24:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Barbarian Feat|1
+
+# Class Name	Max Level
+CLASS:Bard.MOD	MAXLEVEL:NOLIMIT
+23:REPEATLEVEL:3	BONUS:ABILITYPOOL|Epic Bard Feat|1
+
+# Class Name	Max Level
+CLASS:Cleric.MOD	MAXLEVEL:NOLIMIT
+23:REPEATLEVEL:3	BONUS:ABILITYPOOL|Epic Cleric Feat|1
+
+# Class Name	Max Level
+CLASS:Druid.MOD	MAXLEVEL:NOLIMIT
+22									BONUS:VAR|WildShapeTimes|(CL-18)/4
+24:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Druid Feat|1
+
+# Class Name	Max Level
+CLASS:Fighter.MOD	MAXLEVEL:NOLIMIT
+22:REPEATLEVEL:2	BONUS:ABILITYPOOL|Epic Fighter Feat|1
+
+# Class Name	Max Level
+CLASS:Monk.MOD	MAXLEVEL:NOLIMIT
+25:REPEATLEVEL:5	BONUS:ABILITYPOOL|Epic Monk Feat|1
+
+# Class Name	Max Level
+CLASS:Paladin.MOD	MAXLEVEL:NOLIMIT
+23:REPEATLEVEL:3	BONUS:ABILITYPOOL|Epic Paladin Feat|1
+
+# Class Name	Max Level
+CLASS:Ranger.MOD	MAXLEVEL:NOLIMIT
+23:REPEATLEVEL:3	BONUS:ABILITYPOOL|Epic Ranger Feat|1
+
+# Class Name	Max Level
+CLASS:Rogue.MOD	MAXLEVEL:NOLIMIT
+24:REPEATLEVEL:4	BONUS:ABILITYPOOL|Epic Rogue Feat|1
+
+# Class Name		Max Level
+CLASS:Sorcerer.MOD	MAXLEVEL:NOLIMIT
+23:REPEATLEVEL:3	BONUS:ABILITYPOOL|Epic Sorcerer Feat|1
+
+# Class Name	Max Level
+CLASS:Wizard.MOD	MAXLEVEL:NOLIMIT
+23:REPEATLEVEL:3	BONUS:ABILITYPOOL|Epic Wizard Feat|1
+
+#
+# End
+#

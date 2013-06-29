@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Sat Apr 12 03:03:21 2008 -- reformated by prettylst.pl v1.38 (build 5580)
+SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
+#AUTHOR:E. C. Smith (Maredudd), 2007
+
+#Ancient Alchemy, Elixirs, and Potions
+# Equipment Name
+
+# Equipment Name		Type				Cost
+Elixir of Longevity	TYPE:Potion.Consumable	COST:400000

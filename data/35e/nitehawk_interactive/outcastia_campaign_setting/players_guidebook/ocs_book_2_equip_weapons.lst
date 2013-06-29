@@ -1,0 +1,34 @@
+# CVS $Revision$ $Author$ -- Tue Oct 16 20:52:48 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Outcastia Campaign Book II	SOURCESHORT:OCS_II	SOURCEWEB:http://www.nitehawk-games.biz/products/ocs_b2.html	SOURCEDATE:09-2011
+# ORIGINAL ENTRY BY: Andrew Maitland
+# ORIGINAL ENTRY DATE: 2011-11-26
+
+# Simple Weapons
+# Equipment Name		Required Weapon Proficiency		Type												Alternative Type		Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Wield Category	Range		% of Spell Failure	Combat bonus
+Cestus			PROFICIENCY:WEAPON|Cestus		TYPE:Weapon.Melee.Bludgeoning.Unarmed										COST:5	WT:.5					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4					WIELD:Light
+
+# Light
+Dagger (Serrated)		PROFICIENCY:WEAPON|Dagger		TYPE:Weapon.Melee.Piercing.Dagger.MeleePiercing									COST:3	WT:1					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4					WIELD:Light
+
+# Martial Weapons
+Razor Shield		PROFICIENCY:WEAPON|Razor Shield	TYPE:Weapon.Melee.Piercing.Dagger.MeleeSlashing	TYPE:Shield.Light						COST:500	WT:6		ACCHECK:-1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8					WIELD:OneHanded			SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield
+Wyrm Dagger			PROFICIENCY:WEAPON|Wyrm Dagger	TYPE:Weapon.Melee.Piercing.Slashing.MeleeSlashing.MeleePiercing.Blade					COST:8	WT:3					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8					WIELD:OneHanded
+
+# Exotic Weapons
+# Light
+Bestial Cestus		PROFICIENCY:WEAPON|Cestus (Bestial)	TYPE:Weapon.Melee.Slashing												COST:8305	WT:5					CRITMULT:x2			CRITRANGE:2			DAMAGE:3d4
+Ritiik Dagger		PROFICIENCY:WEAPON|Dagger (Ritiik)	TYPE:Weapon.Melee.Piercing												COST:10	WT:4					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6
+# One Handed
+Tiikiquaelh			PROFICIENCY:WEAPON|Tiikiquaelh	TYPE:Weapon.Melee.Slashing												COST:40	WT:3					CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10
+Vap'n				PROFICIENCY:WEAPON|Vap'n		TYPE:Weapon.Melee.Thrown.Slashing.Piercing									COST:6	WT:5					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10								RANGE:35
+# Two Handed
+Katana			PROFICIENCY:WEAPON|Katana		TYPE:Weapon.Melee.Slashing												COST:2000	WT:5					CRITMULT:x2			CRITRANGE:3			DAMAGE:1d12
+Mancatcher			PROFICIENCY:WEAPON|Mancatcher		TYPE:Weapon.Melee.Piercing												COST:30	WT:12					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6
+Vapn				PROFICIENCY:WEAPON|Vapn			TYPE:Weapon.Melee.Slashing								ALTTYPE:Weapon.Piercing	COST:8	WT:10					CRITMULT:x3			CRITRANGE:3			DAMAGE:1d8	ALTDAMAGE:1d8
+
+# Ranged Weapons
+Boomerang (Metal)		PROFICIENCY:WEAPON|Boomerang		TYPE:Weapon.Ranged.Thrown.Bludgeoning										COST:4	WT:4					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4								RANGE:30
+Boomerang (Razor)		PROFICIENCY:WEAPON|Boomerang		TYPE:Weapon.Ranged.Thrown.Bludgeoning.Slashing									COST:10	WT:2					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6								RANGE:30
+Boomerang (Wooden)	PROFICIENCY:WEAPON|Boomerang		TYPE:Weapon.Ranged.Thrown.Bludgeoning										COST:2	WT:.1					CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3								RANGE:30
+
+#EOF

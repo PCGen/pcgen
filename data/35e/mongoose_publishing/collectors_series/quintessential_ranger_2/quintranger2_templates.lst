@@ -1,0 +1,20 @@
+# CVS $Revision$ $Author$ -- Sun Aug 24 17:53:58 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Mongoose Publishing - Quintessential Ranger II	SOURCESHORT:QR_II	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2004-01
+#Original Entry by: Andrew Maitland
+
+###Block: Superior Animals ------------------------------------------------------------------------------------------------------
+# Template Name	Type
+Strong Breed	TYPE:SuperiorAnimal
+Thoroughbred	TYPE:SuperiorAnimal
+
+
+###Block: Modified Breeds (Only Have One Of The Following) ----------------------------------------------------------------------
+# Template Name	Combat bonus			Add to base move			Stat bonus		Weapon prof. bonus				Type
+Swift			BONUS:COMBAT|INITIATIVE|1	BONUS:MOVEADD|TYPE=Walk|5											TYPE:ModifiedBreed
+Strength												BONUS:STAT|STR|2								TYPE:ModifiedBreed
+War																BONUS:WEAPONPROF=TYPE.Natural|TOHIT|1	TYPE:ModifiedBreed
+
+
+###Block: The Wolf Master Natural Attack -------------------------------------------------------------------------------------
+# Template Name			Visible	Type			Natural Attacks
+TheWolfMasterNaturalAttack	VISIBLE:NO	TYPE:Class.Hidden	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing.Slashing,*1,1d4

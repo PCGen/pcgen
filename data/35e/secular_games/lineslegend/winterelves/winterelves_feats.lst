@@ -1,0 +1,12 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Lines of Legend - Winter Elves	SOURCESHORT:LoL-WE	SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#we	SOURCEDATE:2006-01
+
+#CREATED BY: Paul W. King, Jan 2007
+#EDITED BY: Paul W. King, Jan 2007
+
+# Feat Name			Type			Req. Att.	Required Class				Required Non-Monster Lvl	Required Race		Req. Known Spell		Description																																					Source Page
+Channel Frost Power	TYPE:General																		PRESPELL:1,Ray of Frost	DESC:You can use your own magical abilities to improve the breath weapon of your winter wolf companion.																					SOURCEPAGE:p.29
+Frozen Mind			TYPE:Psionic			PRECLASS:1,SPELLCASTER.Psionic=8														DESC:You've learned with the legendary Kuj'hey, a family of winter elves dedicated to study and develop the powers of the mind and discover how they interact with the cold energies and environments.					SOURCEPAGE:p.29
+Meld into Snow		TYPE:General																						DESC:You have a natural talent to hide in snowy areas, becoming effectively invisible to all but the most trained eyes when you are hidden in this kind of terrain. This gift is especially common amongst the Wayjik.			SOURCEPAGE:p.29
+Spirit of the Water	TYPE:General	PREATT:1							PREPCLEVEL:MAX=1			PRERACE:1,Elf (Winter)					DESC:Your combat prowess is powered by the strength of the cold lands on your back. You can claim your lineage back to the legendary Daym'urik, a group of rangers from the Wayjik Clan, the fi rst to explore the cold North.	SOURCEPAGE:p.29
+Strength of Margalthas	TYPE:General	PREATT:1							PREPCLEVEL:MAX=1			PRERACE:1,Elf (Winter)					DESC:You are a living testimonial to the power of the Wayjik Demon Hunters of old. Centuries have not allowed the powers manifested by Baazberark through your ancestors to fade into oblivion.							SOURCEPAGE:p.29

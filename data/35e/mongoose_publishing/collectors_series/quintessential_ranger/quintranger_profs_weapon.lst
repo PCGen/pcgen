@@ -1,0 +1,26 @@
+# CVS $Revision$ $Author$ -- Sun Aug 24 17:50:25 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Mongoose Publishing - Quintessential Ranger	SOURCESHORT:QR	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2003-01
+#Original Entry by: Andrew Maitland
+
+
+# Weapon Name		Type
+#Hatchet			TYPE:Martial.Melee
+# Weapon Name	Type
+Maul			TYPE:Simple.Melee.Slashing.Bludgeoning.MeleeBludgeoning.MeleeSlashing.Axe
+Woodsman's Axe	TYPE:Simple.Melee.Slashing.MeleeSlashing.Axe
+#Martial
+Boar Spear		TYPE:Martial.Melee.Piercing.MeleePiercing.Spear
+Boar Sword		TYPE:Martial.Melee.Piercing.MeleePiercing.Sword
+Hatchet		TYPE:Martial.Ranged.Simple.Melee.RangedSlashing.MeleeSlashing.Axe
+Hunting Hanger	TYPE:Martial.Melee.Slashing.MeleeSlashing.Sword
+Hunting Knife	TYPE:Martial.Melee.Ranged.Slashing.MeleeSlashing.RangedSlashing.Piercing.RangedPiercing.MeleePiercing.Dagger
+Longstaff		TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Staff
+Shortstaff		TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Staff
+#Spear-staff		TYPE:Martial.Melee
+Tipstaff		TYPE:Martial.Melee.Bludgeoning.MeleeBludgeoning.Staff
+#Exotic
+Main Gauche		TYPE:Exotic.Melee.Piercing.MeleePiercing.Sword
+#Pistol/Blackpowder
+
+Hanger-Pistol	TYPE:Exotic.Melee.Ranged.Piercing.RangedPiercing.Pistol.Blackpowder.Slashing.MeleeSlashing.Sword
+Spear-Pistol	TYPE:Exotic.Melee.Ranged.Piercing.RangedPiercing.Pistol.Blackpowder.MeleePiercing.Spear

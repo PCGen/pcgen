@@ -1,0 +1,103 @@
+# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
+CAMPAIGN:3.5 RSRD Basics
+RANK:1
+GAMEMODE:35e
+GENRE:Fantasy
+BOOKTYPE:Core Rules
+SETTING:RSRD
+TYPE:RSRD.Partial
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,[3.5 RSRD Basics]
+PUBNAMELONG:Wizards of the Coast
+PUBNAMESHORT:WotC
+PUBNAMEWEB:http://www.wizards.com/default.asp?x=dnd
+SOURCELONG:Revised (v.3.5) System Reference Document
+SOURCESHORT:RSRD
+SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
+SOURCEDATE:2000-01
+# COMMENT: Unknown Month - Set as 01
+ISOGL:YES
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2001-2007, PCgen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Doug McMill, Paul W. King, Chris Chandler (Barak), Michael Gray (Taluonr Iscandar), Kenneth Walters (GldDragon35), Mike Sledge (zodar6), Patryk Adamski (Ruemere), Larry Davis (Sir George Anonymous), James Dempsey, Bryan (Merton Monk) McRoberts, Thomas Jannes (chipoulou), Samuel Hendricks (NotMousse), Sigurdur H. Olafsson, Jayme Cox, Jeremy "Illrigger" Turnley, Emily Smirle, Martin Fagerström, Chris McLaughlin, Raymond Yao, Eddy Anthony (MoSaT), Thomas Clegg (Arknight), Andargor, Devon Jones, Aaron Divinsky, Frank Kliewe)
+INFOTEXT:Subset of the RSRD (The base classes, feats, spells, equipment, etc.)
+
+PCC:@/homebrew/conversion_support/conversion_support.pcc
+
+
+ABILITY:rsrd_abilities_common.lst
+ABILITY:rsrd_abilities_companions.lst
+ABILITY:rsrd_abilities_class_base.lst
+ABILITY:rsrd_abilities_class_prestige.lst
+ABILITY:rsrd_abilities_monsters.lst
+ABILITY:rsrd_abilities_racial.lst
+
+ABILITYCATEGORY:rsrd_ability_categories_core.lst
+
+CLASS:rsrd_classes_base.lst
+CLASS:rsrd_classes_monsters.lst
+CLASS:rsrd_classes_npc.lst
+COMPANIONMOD:rsrd_companionmods.lst
+DEITY:rsrd_deities.lst
+DOMAIN:rsrd_domains_divine.lst
+DOMAIN:rsrd_domains.lst
+
+EQUIPMENT:rsrd_equip_armorshields.lst
+EQUIPMENT:rsrd_equip_basetypes.lst
+EQUIPMENT:rsrd_equip_coinsgems.lst
+EQUIPMENT:rsrd_equip_poisons.lst
+EQUIPMENT:rsrd_equip_weap_ammo.lst
+EQUIPMENT:rsrd_equip_weap_melee.lst
+EQUIPMENT:rsrd_equip_weap_ranged.lst
+EQUIPMENT:rsrd_equip_weap_natural.lst
+EQUIPMENT:rsrd_equip.lst
+
+EQUIPMOD:rsrd_equipmods_base.lst
+EQUIPMOD:rsrd_equipmods_enhancing.lst
+
+FEAT:rsrd_feats_divine.lst
+FEAT:rsrd_feats_monster.lst
+FEAT:rsrd_feats.lst
+
+KIT:rsrd_kits_races__animals.lst
+KIT:rsrd_kits_races__base.lst
+
+LANGUAGE:rsrd_languages.lst
+
+RACE:rsrd_races__animals.lst
+RACE:rsrd_races__base.lst
+
+SKILL:rsrd_skills.lst
+SKILL:rsrd_skills_conditional.lst
+SPELL:rsrd_spells.lst
+SPELL:rsrd_spells_divine.lst
+SPELL:rsrd_spells_monster.lst
+
+TEMPLATE:rsrd_templates_hidden.lst
+TEMPLATE:rsrd_templates_tempmods.lst
+TEMPLATE:rsrd_templates_types.lst
+TEMPLATE:rsrd_templates_tempmods.lst
+
+WEAPONPROF:rsrd_weaponprofs.lst
+ARMORPROF:rsrd_profs_armor.lst
+SHIELDPROF:rsrd_profs_shield.lst
+
+#Hiding Starting Outfits
+HIDETYPE:EQUIP|Starting
+#Hiding specific tool types that are used in BONUSes
+HIDETYPE:EQUIP|ArmorsmithingTools|BowmakingTools|BlacksmithingTools|CarpentryTools|LeatherworkingTools|PaintingTools|PotteryTools|SculptingTools|ShipmakingTools|StonemasonryTools|TrapmakingTools|WeaponsmithingTools|WoodworkingTools|LightSource|SpecificSlingStone
+HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
+HIDETYPE:FEAT|AnimalTrickAttack|AnimalTrickCome|AnimalTrickDefend|AnimalTrickDown|AnimalTrickGuard|AnimalTrickHeel|AnimalTrickStay|AnimalTrickFetch|AnimalTrickPerform|AnimalTrickSeek|AnimalTrickTrack|AnimalTrickWork
+
+# Hide key stat types for skills
+HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma|Standard|None
+
+# Universal tags
+COMPANIONLIST:Mount|ANY
+COMPANIONLIST:Follower|ANY
+
+
+BONUS:ABILITYPOOL|Animal Trick|3|PRERACE:1,RACETYPE=Animal|!PREABILITY:1,CATEGORY=Special Ability,Animal Tricks and Training
+BONUS:ABILITYPOOL|Animal Trick|3|PRERACE:1,RACETYPE=Animal|PRESTAT:1,INT=2|!PREABILITY:1,CATEGORY=Special Ability,Animal Tricks and Training
+#
+# DONE
+#

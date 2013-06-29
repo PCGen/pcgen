@@ -1,0 +1,21 @@
+# CVS $Revision$ $Author$ -- Tue Jan 22 22:55:20 2008 -- reformated by prettylst.pl v1.38 (build 4314)
+SOURCELONG:Dawnforge	SOURCESHORT:DF	SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html	SOURCEDATE:2003-10
+# Original Entry by: Ratheof Blithwyn
+
+
+
+#	racial languages
+# Language		Type
+Doppelganger	TYPE:Spoken
+Thinblood		TYPE:Spoken.Written.Read
+
+
+#	other languages
+Anderlar		TYPE:Spoken.Written.Read
+Clan Speech		TYPE:Spoken.Written.Read
+Stone-speak		TYPE:Spoken.Written.Read
+King's Tongue	TYPE:Spoken.Written.Read
+Highland Runic	TYPE:Spoken.Written.Read
+Dorlian		TYPE:Spoken.Written.Read
+Valhedrin		TYPE:Spoken.Written.Read
+Sothren		TYPE:Spoken.Written.Read

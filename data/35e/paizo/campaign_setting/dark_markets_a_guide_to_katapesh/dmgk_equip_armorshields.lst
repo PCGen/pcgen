@@ -1,0 +1,19 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:42:47 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Dark Markets: A Guide to Katapesh	SOURCESHORT:DMGK	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
+# Original Entry by: Terry Milnes
+
+###Block: Armor
+# Equipment Name		Required Armor Proficiency	Type							Cost		Weight	AC Penalty Check	Modifier				Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+Blink Dog Hide		PROFICIENCY:ARMOR|Leather	TYPE:Armor.Light.Suit.Specific.Nonmetal	COST:0	WT:15		ACCHECK:0		EQMOD:MAGIC_COST|-125.MWORKA	MAXDEX:6		SOURCEPAGE:p.30	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor
+Bone Mail			PROFICIENCY:ARMOR|Scale Mail	TYPE:Armor.Medium.Suit.Specific.Nonmetal	COST:0	WT:30		ACCHECK:-4		EQMOD:MAGIC_COST|-75.MWORKA	MAXDEX:3		SOURCEPAGE:p.30	SPELLFAILURE:25		BONUS:COMBAT|AC|4|TYPE=Armor
+Giant Scorpion Shell	PROFICIENCY:ARMOR|Breastplate	TYPE:Armor.Medium.Suit.Specific.Nonmetal	COST:100	WT:30		ACCHECK:-4		EQMOD:MWORKA			MAXDEX:3		SOURCEPAGE:p.30	SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
+Gorgon Hide			PROFICIENCY:ARMOR|Banded Mail	TYPE:Armor.Heavy.Suit.Specific.Nonmetal	COST:200	WT:35		ACCHECK:-6		EQMOD:MWORKA			MAXDEX:1		SOURCEPAGE:p.30	SPELLFAILURE:35		BONUS:COMBAT|AC|6|TYPE=Armor
+Gray Render Hide		PROFICIENCY:ARMOR|Hide		TYPE:Armor.Medium.Suit.Specific.Nonmetal	COST:0	WT:25		ACCHECK:-3		EQMOD:MAGIC_COST|-100.MWORKA	MAXDEX:4		SOURCEPAGE:p.30	SPELLFAILURE:20		BONUS:COMBAT|AC|3|TYPE=Armor
+Naga Scale			PROFICIENCY:ARMOR|Chain Shirt	TYPE:Armor.Light.Suit.Specific.Nonmetal	COST:50	WT:25		ACCHECK:-2		EQMOD:MWORKA			MAXDEX:4		SOURCEPAGE:p.30	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
+Turtle Shell		PROFICIENCY:ARMOR|Half-Plate	TYPE:Armor.Heavy.Suit.Specific.Nonmetal	COST:1850	WT:50		ACCHECK:-7		EQMOD:MWORKA			MAXDEX:0		SOURCEPAGE:p.30	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor
+Wood Lamellar		PROFICIENCY:ARMOR|Splint Mail	TYPE:Armor.Heavy.Suit.Specific.Nonmetal	COST:100	WT:45		ACCHECK:-7		EQMOD:MWORKA			MAXDEX:0		SOURCEPAGE:p.30	SPELLFAILURE:40		BONUS:COMBAT|AC|6|TYPE=Armor
+Wyvern Hide			PROFICIENCY:ARMOR|Chainmail	TYPE:Armor.Medium.Suit.Specific.Nonmetal	COST:100	WT:40		ACCHECK:-5		EQMOD:MWORKA			MAXDEX:2		SOURCEPAGE:p.30	SPELLFAILURE:30		BONUS:COMBAT|AC|5|TYPE=Armor
+
+#
+# End
+#

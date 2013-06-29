@@ -1,0 +1,13 @@
+# CVS $Revision$ $Author$ -- Fri Oct  9 00:17:44 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Forged in Magic	SOURCESHORT:FiM	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2006-06
+#Original Entry:E. C. Smith (Maredudd), 2007; Andrew Maitland
+
+###Block: Epic Armor and Shield Enhancements ------------------------------------------------------------------------
+# Modifier Name		Unique Key			Naming Option				Type			Plus		Visible		Multiple Requirements											Required Type			Special Property
+Clan Bound			KEY:FIM_CLAN_BOUND	NAMEOPT:TEXT=Clan-Bound			TYPE:Weapon.Armor	PLUS:6	VISIBLE:QUALIFY															PRETYPE:1,Weapon,Armor
+Mages				KEY:FIM_MAGES								TYPE:Armor		PLUS:3	VISIBLE:QUALIFY															PRETYPE:2,Armor,EQMOD=GMWORKA	SPROP:Removes all Spell Failure from Armor worn.
+Redoubtable			KEY:FIM_REDOUBTA								TYPE:Armor		PLUS:6	VISIBLE:QUALIFY															PRETYPE:2,Armor,EQMOD=GMWORKA	SPROP:Immune to stunning
+Regenerating		KEY:FIM_REGENERA								TYPE:Armor		PLUS:6	VISIBLE:QUALIFY	PREMULT:2,[PRETYPE:1,Armor],[PRETYPE:1,Legendary2,Legendary3,Legendary4,Legendary5]
+
+#Epic Weapon Enhancements --------------------------------------------------------------------------------------------
+Spellstoring (Epic)	KEY:FIM_SPELLSTOR_EPIC	NAMEOPT:TEXT=Spellstoring, Epic	TYPE:Weapon		PLUS:7	VISIBLE:QUALIFY															PRETYPE:1,Weapon			SPROP:Store up to two 6th level spells or one spell of up to 10th level

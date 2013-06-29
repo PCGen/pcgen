@@ -1,0 +1,204 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:38:33 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+#Original Entry: Matt Chambers (Otiendikil)
+
+# Includes the follow tables (a subsection of the tables for epic items)
+# From http://www.wizards.com/d20/files/v35/EpicMagicItems1.rtf
+#STARTPACK:Epic Specific Magic Armor and Shields
+#STARTPACK:Bulwark of the Great Dragon	(Not visible)
+#STARTPACK:Dragonskin Armor	(Not visible)
+#STARTPACK:Epic Specific Weapons
+#STARTPACK:Epic Rings
+#STARTPACK:Epic Rods
+# From http://www.wizards.com/d20/files/v35/EpicMagicItems2.rtf
+#STARTPACK:Epic Staves
+#STARTPACK:Staff (Planar Might)
+#STARTPACK:Epic Wondrous Items
+
+
+# http://www.wizards.com/d20/files/v35/EpicMagicItems1.rtf
+STARTPACK:Epic Specific Magic Armor and Shields	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+SELECT:roll("1d100")
+GEAR:Shapeshifter's Armor			OPTION:01,20
+GEAR:Warlord's Breastplate			OPTION:21,40
+KIT:Dragonskin Armor			OPTION:41,57
+GEAR:Armor of the Celestial Battalion	OPTION:58,71
+GEAR:Armor of the Abyssal Horde		OPTION:72,82
+GEAR:Antimagic Armor				OPTION:83,93
+KIT:Bulwark of the Great Dragon	OPTION:94,100
+
+# http://www.wizards.com/d20/files/v35/EpicMagicItems1.rtf
+STARTPACK:Bulwark of the Great Dragon	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
+SELECT:roll("1d100")
+GEAR:Bulwark of the Great Dragon (Black)	OPTION:01,10
+GEAR:Bulwark of the Great Dragon (Blue)	OPTION:11,20
+GEAR:Bulwark of the Great Dragon (Brass)	OPTION:21,30
+GEAR:Bulwark of the Great Dragon (Bronze)	OPTION:31,40
+GEAR:Bulwark of the Great Dragon (Copper)	OPTION:41,50
+GEAR:Bulwark of the Great Dragon (Gold)	OPTION:51,60
+GEAR:Bulwark of the Great Dragon (Green)	OPTION:61,70
+GEAR:Bulwark of the Great Dragon (Red)	OPTION:71,80
+GEAR:Bulwark of the Great Dragon (Silver)	OPTION:81,90
+GEAR:Bulwark of the Great Dragon (White)	OPTION:91,100
+
+# http://www.wizards.com/d20/files/v35/EpicMagicItems1.rtf
+STARTPACK:Dragonskin Armor	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
+SELECT:roll("1d100")
+GEAR:Dragonskin Armor (Black)		OPTION:01,10
+GEAR:Dragonskin Armor (Blue)		OPTION:11,20
+GEAR:Dragonskin Armor (Brass)		OPTION:21,30
+GEAR:Dragonskin Armor (Bronze)	OPTION:31,40
+GEAR:Dragonskin Armor (Copper)	OPTION:41,50
+GEAR:Dragonskin Armor (Gold)		OPTION:51,60
+GEAR:Dragonskin Armor (Green)		OPTION:61,70
+GEAR:Dragonskin Armor (Red)		OPTION:71,80
+GEAR:Dragonskin Armor (Silver)	OPTION:81,90
+GEAR:Dragonskin Armor (White)		OPTION:91,100
+
+
+# http://www.wizards.com/d20/files/v35/EpicMagicItems1.rtf
+STARTPACK:Epic Specific Weapons	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+SELECT:roll("1d100")
+GEAR:Stormbrand			OPTION:01,18
+GEAR:Quarterstaff of Alacrity	OPTION:19,33
+GEAR:Souldrinker			OPTION:34,48
+GEAR:Backstabber			OPTION:49,60
+GEAR:Mace of Ruin			OPTION:61,68
+GEAR:Gripsoul			OPTION:69,72
+GEAR:Elven Greatbow		OPTION:73,78
+GEAR:Finaldeath			OPTION:79,84
+GEAR:Chaosbringer			OPTION:85,90
+GEAR:Holy Devastator		OPTION:91,94
+GEAR:Unholy Despoiler		OPTION:95,98
+GEAR:Everwhirling Chain		OPTION:99,100
+
+
+# http://www.wizards.com/d20/files/v35/EpicMagicItems1.rtf
+STARTPACK:Epic Rings	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+SELECT:roll("1d100")
+GEAR:Ring (Universal Energy Resistance/Greater)	OPTION:01,08
+GEAR:Ring (Energy Immunity/Acid)			OPTION:09,13
+GEAR:Ring (Energy Immunity/Cold)			OPTION:14,15
+GEAR:Ring (Energy Immunity/Electricity)		OPTION:19,23
+GEAR:Ring (Energy Immunity/Fire)			OPTION:24,28
+GEAR:Ring (Energy Immunity/Sonic)			OPTION:29,33
+GEAR:Ring of Adamant Law				OPTION:34,38
+GEAR:Ring of Chaotic Fury				OPTION:39,43
+GEAR:Ring (Wizardry V)					OPTION:44,48
+GEAR:Ring of Ineffable Evil				OPTION:49,53
+GEAR:Ring of Virtuous Good				OPTION:54,58
+GEAR:Ring of Rapid Healing				OPTION:59,63
+GEAR:Ring of Sequestering				OPTION:64,68
+GEAR:Ring (Wizardry VI)					OPTION:69,72
+GEAR:Ring of Ironskin					OPTION:73,76
+GEAR:Ring (Wizardry VII)				OPTION:77,80
+GEAR:Ring of Weaponbreaking				OPTION:81,83
+GEAR:Ring (Wizardry VIII)				OPTION:84,86
+GEAR:Ring (Protection +6)				OPTION:87,89
+GEAR:Ring (Wizardry IX)					OPTION:90,92
+GEAR:Ring (Protection +7)				OPTION:93,95
+GEAR:Ring (Protection +8)				OPTION:96,97
+GEAR:Ring (Protection +9)				OPTION:98
+GEAR:Ring (Protection +10)				OPTION:99
+GEAR:Ring of Universal Energy Immunity		OPTION:100
+
+
+# http://www.wizards.com/d20/files/v35/EpicMagicItems1.rtf
+STARTPACK:Epic Rods	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+SELECT:roll("1d100")
+GEAR:Rod (Epic Spellcaster)	OPTION:01,08
+GEAR:Rod (Nightmares)		OPTION:09,16
+GEAR:Rod (Epic Splendor)	OPTION:17,24
+GEAR:Rod (The Path)		OPTION:25,31
+GEAR:Rod (Epic Cancellation)	OPTION:32,38
+GEAR:Rod (Epic Negation)	OPTION:39,45
+GEAR:Rod (Besiegement)		OPTION:46,51
+GEAR:Rod (Fortification)	OPTION:52,57
+GEAR:Rod (Epic Rulership)	OPTION:58,63
+GEAR:Rod (Invulnerability)	OPTION:64,69
+GEAR:Rod (Paradise)		OPTION:70,75
+GEAR:Rod (Restless Death)	OPTION:76,80
+GEAR:Rod (Excellent Magic)	OPTION:81,85
+GEAR:Rod (Wyrm/White)		OPTION:86
+GEAR:Rod (Wyrm/Brass)		OPTION:87
+GEAR:Rod (Epic Absorption)	OPTION:88,90
+GEAR:Rod (Wyrm/Copper)		OPTION:91
+GEAR:Rod (Wyrm/Black)		OPTION:92
+GEAR:Rod (Wyrm/Bronze)		OPTION:93
+GEAR:Rod (Wyrm/Green)		OPTION:94
+GEAR:Rod (Wyrm/Blue)		OPTION:95
+GEAR:Rod (Wyrm/Silver)		OPTION:96
+GEAR:Rod (Wyrm/Gold)		OPTION:97
+GEAR:Rod (Wyrm/Red)		OPTION:98
+GEAR:Rod (Epic Might)		OPTION:99,100
+
+
+# http://www.wizards.com/d20/files/v35/EpicMagicItems2.rtf
+STARTPACK:Epic Staves	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+SELECT:roll("1d100")
+GEAR:Staff (Spheres)		OPTION:01,09
+GEAR:Staff (Mighty Force)	OPTION:10,18
+GEAR:Staff (Walls)		OPTION:19,27
+GEAR:Staff (Winter)		OPTION:28,36
+GEAR:Staff (Prism)		OPTION:37,45
+GEAR:Staff (Rapid Barrage)	OPTION:46,54
+KIT:Staff (Planar Might)	OPTION:55,63
+GEAR:Staff (Domination)		OPTION:64,71
+GEAR:Staff (Fiery Power)	OPTION:72,79
+GEAR:Staff (Nature's Fury)	OPTION:80,87
+GEAR:Staff (The Hierophants)	OPTION:88,95
+GEAR:Staff (Cosmos)		OPTION:96,98
+GEAR:Staff (Necromancy/Epic)	OPTION:99,100
+
+STARTPACK:Staff (Planar Might)	TYPE:Treasure	VISIBLE:NO	APPLY:INSTANT	EQUIPBUY:0
+SELECT:roll("1d4")
+GEAR:Staff (Planar Might/Bane (Outsiders (chaotic)))	OPTION:1
+GEAR:Staff (Planar Might/Bane (Outsiders (evil)))	OPTION:2
+GEAR:Staff (Planar Might/Bane (Outsiders (good)))	OPTION:3
+GEAR:Staff (Planar Might/Bane (Outsiders (lawful)))	OPTION:4
+
+
+# http://www.wizards.com/d20/files/v35/EpicMagicItems2.rtf
+STARTPACK:Epic Wondrous Items	TYPE:Treasure	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+SELECT:roll("1d100")
+GEAR:Horseshoes of the Peerless Steed	OPTION:01,02
+GEAR:Mantle of Great Stealth			OPTION:03,04
+GEAR:Boots of Swiftness				OPTION:05,06
+GEAR:Cabinet of Feasting			OPTION:07,08
+GEAR:Mantle of Epic Spell Resistance	OPTION:09,10
+GEAR:Cloak of Epic Resistance +6		OPTION:11,13
+GEAR:Gate Key					OPTION:14,15
+GEAR:Cloak of Epic Resistance +7		OPTION:16,18
+GEAR:Belt of Epic Strength +8			OPTION:19,21
+GEAR:Bracers of Epic Health +8		OPTION:22,24
+GEAR:Cloak of Epic Charisma +8		OPTION:25,27
+GEAR:Cloak of Epic Resistance +8		OPTION:28,30
+GEAR:Gloves of Epic Dexterity +8		OPTION:31,33
+GEAR:Headband of Epic Intellect +8		OPTION:34,36
+GEAR:Periapt of Epic Wisdom +8		OPTION:37,39
+GEAR:Amulet of Epic Natural Armor +6	OPTION:40,42
+GEAR:Cloak of Epic Resistance +9		OPTION:43,45
+GEAR:Amulet of Epic Natural Armor +7	OPTION:46,48
+GEAR:Belt of Epic Strength +10		OPTION:49,51
+GEAR:Bracers of Epic Health +10		OPTION:52,54
+GEAR:Cloak of Epic Charisma +10		OPTION:55,57
+GEAR:Cloak of Epic Resistance +10		OPTION:58,59
+GEAR:Gloves of Epic Dexterity +10		OPTION:60,62
+GEAR:Headband of Epic Intellect +10		OPTION:63,65
+GEAR:Periapt of Epic Wisdom +10		OPTION:66,68
+GEAR:Bracers of Epic Armor +11		OPTION:69,71
+GEAR:Amulet of Epic Natural Armor +8	OPTION:72,74
+GEAR:Belt of Epic Strength +12		OPTION:75,76
+GEAR:Bracers of Epic Armor +12		OPTION:77,78
+GEAR:Bracers of Epic Health +12		OPTION:79,80
+GEAR:Cloak of Epic Charisma +12		OPTION:81,82
+GEAR:Gloves of Epic Dexterity +12		OPTION:83,84
+GEAR:Headband of Epic Intellect +12		OPTION:85,86
+GEAR:Periapt of Epic Wisdom +12		OPTION:87,88
+GEAR:Amulet of Epic Natural Armor +9	OPTION:89,90
+GEAR:Bracers of Epic Armor +13		OPTION:91,92
+GEAR:Bracers of Epic Armor +14		OPTION:93,94
+GEAR:Amulet of Epic Natural Armor +10	OPTION:95,96
+GEAR:Bracers of Epic Armor +15		OPTION:97,98
+GEAR:Bracers of Relentless Might		OPTION:99,100
+

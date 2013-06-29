@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Sun Aug 24 22:05:14 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Mongoose Publishing - Quintessential Ranger II	SOURCESHORT:QR_II	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2004-01
+
+# Skill Name		Key Stat	Untrained?		Type
+Profession (Huntsman)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession

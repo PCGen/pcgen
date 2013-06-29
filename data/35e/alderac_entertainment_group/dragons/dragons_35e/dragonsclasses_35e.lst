@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Tue Jul 15 00:06:01 2008 -- reformated by prettylst.pl v1.38 (build 7077)
+
+# Class Name		Remove Class Skill	Class Skill
+CLASS:Air Lord.MOD	CSKILL:.CLEAR		CSKILL:Balance|TYPE=Climb|TYPE=Craft|Handle Animal|TYPE=Jump|Ride|Spot|Swim|Survival
+
+# Class Name	Remove Class Skill	Class Skill
+CLASS:Wyrmfoe.MOD	CSKILL:.CLEAR		CSKILL:TYPE=Alchemy|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft

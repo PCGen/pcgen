@@ -1,0 +1,34 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:The Tome of Horrors Revised	SOURCESHORT:ToHr	SOURCEWEB:http://www.necromancergames.com/	SOURCEDATE:2002-01
+# Initial Author: Aaron Divinsky <boomer70@yahoo.com>
+
+# Language			Type
+Babbler			TYPE:Spoken
+Banderlog			TYPE:Spoken
+Beholder			TYPE:Spoken
+Bog Beast			TYPE:Spoken
+Crabman			TYPE:Spoken
+Daemonic			TYPE:Spoken
+Darkling			TYPE:Spoken
+Decapus			TYPE:Spoken
+Dire Corby			TYPE:Spoken
+Drelb				TYPE:Spoken
+Common (Understand)	TYPE:Spoken
+Eblis				TYPE:Spoken
+Forlarren			TYPE:Spoken
+Grippli			TYPE:Spoken
+Inphidian			TYPE:Spoken
+Lava Child			TYPE:Spoken
+Kech				TYPE:Spoken
+Korred			TYPE:Spoken
+Mite				TYPE:Spoken
+Mongrelman			TYPE:Spoken
+Muckdweller			TYPE:Spoken
+Scythe Tree			TYPE:Spoken
+Slaadi			TYPE:Spoken
+Sylvan (Understand)	TYPE:Spoken
+Tabaxi			TYPE:Spoken
+Taer				TYPE:Spoken
+Transposer			TYPE:Spoken
+Tsathar			TYPE:Spoken
+Vegepygmy			TYPE:Spoken

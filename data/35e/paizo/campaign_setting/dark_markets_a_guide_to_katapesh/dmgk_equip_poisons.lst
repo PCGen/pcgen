@@ -1,0 +1,15 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:42:47 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Dark Markets: A Guide to Katapesh	SOURCESHORT:DMGK	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
+# Original Entry by: Terry Milnes
+
+###Block: Poisons
+# Equipment Name				Output Name		Type					Cost		Weight	Source Page		Special Property
+Poison (Purple Pesh)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:200	WT:0		SOURCEPAGE:p.40	SPROP:Ingested; Fort DC 18; Initial Effect 1d2 Con and Str damage; Secondary Effect unconsciousness for 1 hour; Cure 1 save
+Poison (Dhabba Spittle)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:50	WT:0		SOURCEPAGE:p.40	SPROP:Injury; Fort DC 12; Initial Effect 1d6 acid damage and nauseated; Secondary Effect 1d4 Dex damage; Cure 1 save
+Poison (Insanity Pill)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:1500	WT:0		SOURCEPAGE:p.40	SPROP:Ingested; Fort DC 14; Effect confusion spell for 1 minute; Cure 1 save
+Poison (Flayleaf Spider Venom)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:100	WT:0		SOURCEPAGE:p.40	SPROP:Injury; Fort DC 11; Initial Effect 1d3 Con damage; Secondary Effect 1d3 Con damage; Cure 1 save
+Poison (Mage Bane)			OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable	COST:500	WT:0		SOURCEPAGE:p.40	SPROP:Contact; Fort DC 20; Initial Effect +10 to all Concentration DCs for 1 hour; Secondary Effect +10 to all Concentration DCs for 1 hour; Cure 1 save
+
+#
+# End
+#
