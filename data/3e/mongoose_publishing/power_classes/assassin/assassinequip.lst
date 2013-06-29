@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin	SOURCESHORT:Assassin	SOURCEWEB:http//www.mongoosepublishing.com	SOURCEDATE:2002-01
+# Original Entry by: Mynex
+
+# Equipment Name	Type		Cost		Weight	Requires Modification?	Source Page
+Poison Ring		TYPE:Ring	COST:0	WT:0		MODS:REQUIRED		SOURCEPAGE:PCGen Internal

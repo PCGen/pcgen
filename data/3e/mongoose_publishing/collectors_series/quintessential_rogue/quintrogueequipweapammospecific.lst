@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
+
+# assuming Whisper Arrow is +1 as all magical weapons must be
+
+# Equipment Name	Type						Cost		Weight	Source Page			Weapon prop. bonus		Special Property
+Whisper Arrow +1	TYPE:Magic.Ammunition.Specific	COST:132	WT:0		SOURCEPAGE:p.59-60	BONUS:WEAPON|DAMAGE,TOHIT|1	SPROP:Transmit 30-word message to target struck or whoever picks up arrow.

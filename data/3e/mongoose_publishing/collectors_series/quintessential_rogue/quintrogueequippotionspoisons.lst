@@ -1,0 +1,31 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
+
+# Equipment Name			Type					Cost		Weight	Source Page
+Potion (Ink Black)		TYPE:Magic.Potion.Consumable	COST:250	WT:0		SOURCEPAGE:p.60
+Potion (Liquid Form)		TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.60
+Potion (Treasure Finding)	TYPE:Magic.Potion.Consumable	COST:350	WT:0		SOURCEPAGE:p.60
+
+#Poisons
+# Equipment Name			Type					Cost		Weight	Source Page
+Poison (Allevar)			TYPE:Goods.Poison.Consumable	COST:1100	WT:0		SOURCEPAGE:p.73
+Poison (Black Lung)		TYPE:Goods.Poison.Consumable	COST:780	WT:0		SOURCEPAGE:p.73
+Poison (Blackroot)		TYPE:Goods.Poison.Consumable	COST:460	WT:0		SOURCEPAGE:p.73
+Poison (Caro Venom)		TYPE:Goods.Poison.Consumable	COST:240	WT:0		SOURCEPAGE:p.73-74
+Poison (Deathsleep)		TYPE:Goods.Poison.Consumable	COST:95	WT:0		SOURCEPAGE:p.74
+Poison (Demonic Essence)	TYPE:Goods.Poison.Consumable	COST:400	WT:0		SOURCEPAGE:p.74
+Poison (Dolleck Eggs)		TYPE:Goods.Poison.Consumable	COST:675	WT:0		SOURCEPAGE:p.74
+Poison (Fogwit)			TYPE:Goods.Poison.Consumable	COST:100	WT:0		SOURCEPAGE:p.74-75
+Poison (Green Oil)		TYPE:Goods.Poison.Consumable	COST:170	WT:0		SOURCEPAGE:p.75
+Poison (Lotus Extract)		TYPE:Goods.Poison.Consumable	COST:1800	WT:0		SOURCEPAGE:p.75
+Poison (Mindbreaker)		TYPE:Goods.Poison.Consumable	COST:75	WT:0		SOURCEPAGE:p.75
+Poison (Red Mist)			TYPE:Goods.Poison.Consumable	COST:1200	WT:0		SOURCEPAGE:p.75
+Poison (Sombal)			TYPE:Goods.Poison.Consumable	COST:75	WT:0		SOURCEPAGE:p.75
+Poison (Spell Sapper)		TYPE:Goods.Poison.Consumable	COST:90	WT:0		SOURCEPAGE:p.75-76
+Poison (Tarzag's Venom)		TYPE:Goods.Poison.Consumable	COST:240	WT:0		SOURCEPAGE:p.76
+Poison (Telsath's Powder)	TYPE:Goods.Poison.Consumable	COST:220	WT:0		SOURCEPAGE:p.76
+Poison (Tremble Oil)		TYPE:Goods.Poison.Consumable	COST:300	WT:0		SOURCEPAGE:p.76
+Poison (Truth Water)		TYPE:Goods.Poison.Consumable	COST:200	WT:0		SOURCEPAGE:p.76
+Poison (Varran's Oil)		TYPE:Goods.Poison.Consumable	COST:450	WT:0		SOURCEPAGE:p.76-77
+Poison (Vithil Seeds)		TYPE:Goods.Poison.Consumable	COST:150	WT:0		SOURCEPAGE:p.77
+Poison (White Fire)		TYPE:Goods.Poison.Consumable	COST:2200	WT:0		SOURCEPAGE:p.77

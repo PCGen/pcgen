@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+
+
+
+# Ability Category			Category of Object	Specific choices list
+ABILITYCATEGORY:Sharpshooter Feat	CATEGORY:FEAT		ABILITYLIST:Exotic Weapon Proficiency|Improved Critical|Improved Initiative|Mounted Archery|Quick Draw|Rapid Shot|Shot on the Run|Weapon Focus

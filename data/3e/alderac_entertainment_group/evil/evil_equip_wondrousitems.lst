@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group (AEG) - Evil	SOURCESHORT:Evil	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+
+# Equipment Name	Product Identity?	Type					Cost		Weight	Source Page		Special Property
+Mask of Shadows				TYPE:Magic.Wondrous.Headgear	COST:52000	WT:1		SOURCEPAGE:p.110	SPROP:Improved Invisibility
+Ulur's Torque	NAMEISPI:YES	TYPE:Magic.Wondrous.Neckgear	COST:42000	WT:3		SOURCEPAGE:p.111	SPROP:Speak with the Dead

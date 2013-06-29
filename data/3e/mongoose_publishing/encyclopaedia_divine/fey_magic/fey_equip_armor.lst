@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Thu Oct  8 16:52:12 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Divine - Fey Magic	SOURCESHORT:Fey Magic	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-06
+
+#Light Weight -------------------------------------------------------------------------------------------------------------
+# Equipment Name	Required Armor Proficiency	Type							Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
+Vine			PROFICIENCY:ARMOR|Leather	TYPE:Armor.Light.Suit.Standard.Nonmetal	COST:1100	WT:10		ACCHECK:0		MAXDEX:8		SOURCEPAGE:p.47	SPELLFAILURE:10		BONUS:COMBAT|AC|4|TYPE=Armor

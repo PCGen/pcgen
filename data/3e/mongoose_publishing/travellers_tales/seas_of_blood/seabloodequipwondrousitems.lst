@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Traveller's Tales - Seas of Blood	SOURCESHORT:SeasofBlood	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2001-01
+
+# Equipment Name			Type					Cost		Weight	Source Page		Special Property
+Figurehead of Bravery		TYPE:Magic.Wondrous.Extra	COST:8000			SOURCEPAGE:p.83	SPROP:+1 enhancement bonus to all crew Morale checks.
+Figurehead of Luck		TYPE:Magic.Wondrous.Extra	COST:5000			SOURCEPAGE:p.83	SPROP:+1 luck bonus to all Seamanship and Seaworthiness checks by crew and ship.
+Figurehead of Protection	TYPE:Magic.Wondrous.Extra	COST:10000			SOURCEPAGE:p.83	SPROP:+1 deflection bonus to ship and crew against all ranged attacks.
+Figurehead of Safe Passage	TYPE:Magic.Wondrous.Extra	COST:14000			SOURCEPAGE:p.83	SPROP:All water-breathing creatures within 60 ft. of ship must make Will save at DC12. If fail cannot attack ship or crew for one day.
+Wyrdstone				TYPE:Magic.Wondrous.Extra	COST:163800			SOURCEPAGE:p.85	SPROP:Move-equivalent action to activate. Give Skyship template to ship until deactivated
+Spyglass of Farseeing		TYPE:Magic.Wondrous.Tools	COST:6600	WT:0		SOURCEPAGE:p.84	SPROP:Double visibility ranges.

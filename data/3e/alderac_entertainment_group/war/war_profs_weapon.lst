@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Tue Jul 15 00:06:01 2008 -- reformated by prettylst.pl v1.38 (build 7077)
+
+###cOMMENT: deityweap ties to a real proficiency
+
+# Weapon Name	Type
+Headsman's Axe	TYPE:Martial

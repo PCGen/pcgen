@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
+
+# Equipment Name			Type							Cost		Weight	Source Page			Bonus to skill																					Special Property
+Acid (Vial) (QR)			TYPE:Goods.Alchemical.Consumable.Liquid	COST:5	WT:0		SOURCEPAGE:p.57																									SPROP:1d6 damage to object for 1d4 rounds, ignores hardness; or 1d6 splash
+Camouflage Makeup			TYPE:Goods.General				COST:10	WT:1		SOURCEPAGE:p.57																									SPROP:+1 circumstance bonus to Hide for 1d4 hours on successful Disguise (DC 15) (see text)
+Flash Powder			TYPE:Goods.Alchemical.Consumable		COST:40	WT:0		SOURCEPAGE:p.57																									SPROP:Distraction allows Hide in plain sight w/o Bluff
+Lock Glass				TYPE:Goods.General.Alchemical			COST:1500	WT:2		SOURCEPAGE:p.57																									SPROP:+2 competence bonus to Disable Device, Open Lock, or Search check involving lock (see text); 10 charges
+Lock Glass Replacement		TYPE:Goods.General.Consumable.Alchemical	COST:5	WT:0		SOURCEPAGE:p.57																									SPROP:another 10 charges of light for a lock glass
+Lock Picks (Long Stemmed)	TYPE:Goods.Tools.Thief.Resizable		COST:100	WT:1		SOURCEPAGE:p.57-58	BONUS:SKILL|Disable Device,Open Lock|CircumstanceAdjustment|TYPE=Circumstance	BONUS:SKILL|Disable Device,Open Lock|-4|TYPE=Circumstance	SPROP:Disable Device/Open Lock at 5 ft. distance, -4 circumstance penalty applies
+Shock Freeze			TYPE:Goods.Alchemical.Consumable		COST:50	WT:1		SOURCEPAGE:p.58																									SPROP:1d10 damage as ranged touch (10' maximum range); or removes hardness from metal for 1d6 rounds

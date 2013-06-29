@@ -1,0 +1,15 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group - Dungeons	SOURCESHORT:Dungeons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+
+# Equipment Name					Type							Cost		Weight	Slot Needed	Source Page		Special Property
+Gloves of Tunneling				TYPE:Magic.Wondrous.Glove			COST:3000	WT:4		SLOTS:2	SOURCEPAGE:p.	SPROP:Burrow through rock, soil, and unfinished stone at 1 ft. per round, creating tunnel.
+Kanegor's Instant Wall				TYPE:Magic.Wondrous				COST:1000	WT:8				SOURCEPAGE:p.
+Lightstep Boots					TYPE:Magic.Wondrous.Boot			COST:1000	WT:1		SLOTS:2	SOURCEPAGE:p.
+Myrr's Magical Marbles (Cat's Eye)		TYPE:Magic.Wondrous				COST:1500	WT:0				SOURCEPAGE:p.
+Myrr's Magical Marbles (Flamecatcher)	TYPE:Magic.Wondrous				COST:1500	WT:0				SOURCEPAGE:p.
+Myrr's Magical Marbles (Footseeker)		TYPE:Magic.Wondrous				COST:1500	WT:0				SOURCEPAGE:p.
+Myrr's Magical Marbles (Pathfinder)		TYPE:Magic.Wondrous				COST:1500	WT:0				SOURCEPAGE:p.
+Myrr's Magical Marbles (Steel)		TYPE:Magic.Wondrous				COST:1500	WT:0				SOURCEPAGE:p.
+Ravenwing's Extensible Rope			TYPE:Magic.Wondrous				COST:5000	WT:1				SOURCEPAGE:p.
+Stone of Muting					TYPE:Magic.Wondrous				COST:1500	WT:2				SOURCEPAGE:p.
+Scroll of Mapping					TYPE:Magic.Wondrous.Scroll.Consumable	COST:500	WT:0				SOURCEPAGE:p.

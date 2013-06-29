@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue	SOURCESHORT:QuintRogue	SOURCEWEB:http://mongoosepublishing.com	SOURCEDATE:2002-01
+
+# Equipment Name				Required Armor Proficiency		Type						Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus			Bonus to skill					Special Property
+Footpad's Vest				PROFICIENCY:ARMOR|Footpad's Vest	TYPE:Armor.Light.Shirt.Nonmetal	COST:60	WT:2								SOURCEPAGE:p.55																	SPROP:Thieves' tools hidden inside
+Displacer Beast Leather			PROFICIENCY:ARMOR|Leather		TYPE:Armor.Light.Suit.Nonmetal	COST:12000	WT:15					MAXDEX:6		SOURCEPAGE:p.55	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor	BONUS:SKILL|Hide|1|TYPE=Circumstance	SPROP:10% miss chance
+Displacer Beast Studded Leather	PROFICIENCY:ARMOR|Studded Leather	TYPE:Armor.Light.Suit.Metal		COST:12015	WT:20		ACCHECK:-1		MAXDEX:6		SOURCEPAGE:p.55	SPELLFAILURE:10		BONUS:COMBAT|AC|3|TYPE=Armor	BONUS:SKILL|Hide|1|TYPE=Circumstance	SPROP:10% miss chance
+Digester Leather				PROFICIENCY:ARMOR|Leather		TYPE:Armor.Light.Suit.Nonmetal	COST:8000	WT:15					MAXDEX:6		SOURCEPAGE:p.55	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor								SPROP:Acid Resistance 10
+Digester Studded Leather		PROFICIENCY:ARMOR|Studded Leather	TYPE:Armor.Light.Suit.Metal		COST:8015	WT:20		ACCHECK:-1		MAXDEX:6		SOURCEPAGE:p.55	SPELLFAILURE:10		BONUS:COMBAT|AC|3|TYPE=Armor								SPROP:Acid Resistance 10
+Gargoyle Leather				PROFICIENCY:ARMOR|Leather		TYPE:Armor.Light.Suit.Nonmetal	COST:1400	WT:30		ACCHECK:-2		MAXDEX:4		SOURCEPAGE:p.55	SPELLFAILURE:10		BONUS:COMBAT|AC|4|TYPE=Armor								SPROP:+4 circumstance bonus to Hide in subterranean, mountainous, rocky terrains
+Gargoyle Studded Leather		PROFICIENCY:ARMOR|Studded Leather	TYPE:Armor.Light.Suit.Metal		COST:1415	WT:35		ACCHECK:-3		MAXDEX:4		SOURCEPAGE:p.55	SPELLFAILURE:10		BONUS:COMBAT|AC|5|TYPE=Armor								SPROP:+4 circumstance bonus to Hide in subterranean, mountainous, rocky terrains
+Gorgon Leather				PROFICIENCY:ARMOR|Leather		TYPE:Armor.Light.Suit.Nonmetal	COST:2500	WT:20					MAXDEX:6		SOURCEPAGE:p.56	SPELLFAILURE:10		BONUS:COMBAT|AC|5|TYPE=Armor								SPROP:+2 circumstance bonus to save vs. petrification
+Gorgon Studded Leather			PROFICIENCY:ARMOR|Studded Leather	TYPE:Armor.Light.Suit.Metal		COST:2515	WT:25		ACCHECK:-1		MAXDEX:6		SOURCEPAGE:p.56	SPELLFAILURE:10		BONUS:COMBAT|AC|6|TYPE=Armor								SPROP:+2 circumstance bonus to save vs. petrification
+Hell Hound Leather			PROFICIENCY:ARMOR|Leather		TYPE:Armor.Light.Suit.Nonmetal	COST:9200	WT:15					MAXDEX:6		SOURCEPAGE:p.56	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor								SPROP:Fire Resistance 10, -2 circumstance penalty to save vs. cold
+Hell Hound Studded Leather		PROFICIENCY:ARMOR|Studded Leather	TYPE:Armor.Light.Suit.Metal		COST:9215	WT:20		ACCHECK:-1		MAXDEX:6		SOURCEPAGE:p.56	SPELLFAILURE:10		BONUS:COMBAT|AC|3|TYPE=Armor								SPROP:Fire Resistance 10, -2 circumstance penalty to save vs. cold
+Rust Monster Leather			PROFICIENCY:ARMOR|Leather		TYPE:Armor.Light.Suit.Nonmetal	COST:13500	WT:10					MAXDEX:6		SOURCEPAGE:p.56	SPELLFAILURE:10		BONUS:COMBAT|AC|1|TYPE=Armor								SPROP:10% chance to destroy metal weapons of attackers
+Troglodyte Leather			PROFICIENCY:ARMOR|Leather		TYPE:Armor.Light.Suit.Nonmetal	COST:1200	WT:15					MAXDEX:6		SOURCEPAGE:p.56	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor	BONUS:SKILL|Hide|2|TYPE=Circumstance
+Troglodyte Studded Leather		PROFICIENCY:ARMOR|Studded Leather	TYPE:Armor.Light.Suit.Metal		COST:1215	WT:20		ACCHECK:-1		MAXDEX:6		SOURCEPAGE:p.56	SPELLFAILURE:10		BONUS:COMBAT|AC|3|TYPE=Armor	BONUS:SKILL|Hide|2|TYPE=Circumstance
+#Medium Armor			Type						Cost		Weight	Source Page	AC Penalty Check	Maximum DEX Bonus	Move		% of Spell Failure	Bonus										Special Property
+Armoured Robe				PROFICIENCY:ARMOR|Hide			TYPE:Armor.Medium.Suit.Metal		COST:55	WT:30		ACCHECK:-4		MAXDEX:3		SOURCEPAGE:p.57	SPELLFAILURE:25		BONUS:COMBAT|AC|3|TYPE=Armor
+#Heavy Armor			Type						Cost		Weight	Source Page	AC Penalty Check	Maximum DEX Bonus	Move		% of Spell Failure	Bonus										Special Property
+Quick-Change Plate			PROFICIENCY:ARMOR|Half-Plate		TYPE:Armor.Heavy.Suit.Metal		COST:950	WT:55		ACCHECK:-8		MAXDEX:0		SOURCEPAGE:p.57	SPELLFAILURE:20		BONUS:COMBAT|AC|5|TYPE=Armor								SPROP:Removable as full-round action.  Cannot be donned hastily.

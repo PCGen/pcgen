@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin	SOURCESHORT:Assassin	SOURCEWEB:http//www.mongoosepublishing.com	SOURCEDATE:2002-01
+# Original Entry by: Mynex
+
+# Modifier Name	Unique Key			Type		Cost		Type granted		Keys to replace						Source Page
+Poison Dripper	KEY:RINGPoisonDrip	TYPE:Ring	COST:50	ITYPE:Mechanical.Poison	REPLACES:RINGPoisonNeedle,RINGPoisonSquirt	SOURCEPAGE:p.11
+Poison Needle	KEY:RINGPoisonNeedle	TYPE:Ring	COST:75	ITYPE:Mechanical.Poison	REPLACES:RINGPoisonDrip,RINGPoisonSquirt		SOURCEPAGE:p.11
+Poison Squirter	KEY:RINGPoisonSquirt	TYPE:Ring	COST:150	ITYPE:Mechanical.Poison	REPLACES:RINGPoisonDrip,RINGPoisonNeedle		SOURCEPAGE:p.11
+High Quality	KEY:RINGHighQuality	TYPE:Ring	COST:1000					REPLACES:RINGFinerQuality				SOURCEPAGE:p.11
+Finer Quality	KEY:RINGFinerQuality	TYPE:Ring	COST:3000					REPLACES:RINGHighQuality				SOURCEPAGE:p.11

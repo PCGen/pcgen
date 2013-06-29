@@ -1,0 +1,59 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Sovereign Stone Campaign Sourcebook	SOURCESHORT:SovereignS	SOURCEWEB:http://www.sovstone.com	SOURCEDATE:2002-04
+
+###Block: Hidden Racial Feats
+# Feat Name		Type			Visible	Required Race			Var. Min. Value			Multiple?	Choose						Bonus to skill		Cost		Source Page
+
+###Block: Proficiencies
+# Feat Name				Type			Visible	Automatically Gained Weapon Prof.
+Archer Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Shortbow|Shortbow (Composite)|Longbow|Longbow (Composite)|Sword (Short)|Handaxe
+Sailor Weapon Proficiencies	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|Rapier|Net|Scimitar|Trident
+
+###Block: Archer Class abilities
+# Feat Name				Type			Visible	Special ABility				Define			Stackable?	Multiple?	Choose												Weapon prof. bonus				Source Page
+Primary Weapon			TYPE:ClassAbility	VISIBLE:NO	SAB:Primary Weapon +%|PrimaryWeap	DEFINE:PrimaryWeap|0	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|Crossbow (Heavy)|Crossbow (Light)|Longbow|Shortbow	BONUS:WEAPONPROF=%LIST|TOHIT|PrimaryWeap	SOURCEPAGE:p.
+Extra Shot				TYPE:ClassAbility	VISIBLE:NO	SAB:Extra Shot																																SOURCEPAGE:p.
+Improved Point Blank Shot	TYPE:ClassAbility	VISIBLE:NO	SAB:Improved Point Blank Shot																														SOURCEPAGE:p.
+Long Distance Accuracy		TYPE:ClassAbility	VISIBLE:NO	SAB:Long Distance Accuracy																														SOURCEPAGE:p.
+Ranged Disarm			TYPE:ClassAbility	VISIBLE:NO	SAB:Ranged Disarm																																SOURCEPAGE:p.
+Extended Range			TYPE:ClassAbility	VISIBLE:NO	SAB:Extended Range																															SOURCEPAGE:p.
+
+###Block: Mounted Warrior class abilities
+# Feat Name			Type			Visible	Special ABility		Source Page
+Mounted Attack		TYPE:ClassAbility	VISIBLE:NO	SAB:Mounted Attack	SOURCEPAGE:p.41
+Guide Mount			TYPE:ClassAbility	VISIBLE:NO	SAB:Guide Mount		SOURCEPAGE:p.41
+Remain in Saddle		TYPE:ClassAbility	VISIBLE:NO	SAB:Remain in Saddle	SOURCEPAGE:p.41
+Direct Mount		TYPE:ClassAbility	VISIBLE:NO	SAB:Direct Mount		SOURCEPAGE:p.41
+Defensive Riding		TYPE:ClassAbility	VISIBLE:NO	SAB:Defensive Riding	SOURCEPAGE:p.41
+Combat-ready Mount	TYPE:ClassAbility	VISIBLE:NO	SAB:Combat-ready Mount	SOURCEPAGE:p.41
+Lightning Charge		TYPE:ClassAbility	VISIBLE:NO	SAB:Lightning Charge	SOURCEPAGE:p.41
+Moving Target		TYPE:ClassAbility	VISIBLE:NO	SAB:Moving Target		SOURCEPAGE:p.41
+Devastating Trample	TYPE:ClassAbility	VISIBLE:NO	SAB:Devastating Trample	SOURCEPAGE:p.41
+
+###Block: Sailor class abilities
+# Feat Name				Type			Visible	Special ABility				Define			Stackable?	Multiple?	Choose										Weapon prof. bonus				Source Page
+Sailor Weapon Bonus		TYPE:Internal	VISIBLE:NO											STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC[TYPE=Exotic|TYPE=Martial|TYPE=Simple]	BONUS:WEAPONPROF=%LIST|TOHIT,DAMAGE|1	SOURCEPAGE:p.41
+Dirty Blow				TYPE:ClassAbility	VISIBLE:NO	SAB:Dirty Blow +%d4|DirtyBlow		DEFINE:DirtyBlow|0																							SOURCEPAGE:p.41
+Extraordinary Tolerance		TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Tolerance																												SOURCEPAGE:p.41
+Superior Improvised Weapon	TYPE:ClassAbility	VISIBLE:NO	SAB:Superior Improvised Weapon																											SOURCEPAGE:p.41
+Follow Up Strike			TYPE:ClassAbility	VISIBLE:NO	SAB:Follow Up Strike																													SOURCEPAGE:p.41
+Extraordinary Balance		TYPE:ClassAbility	VISIBLE:NO	SAB:Extraordinary Balance																												SOURCEPAGE:p.41
+
+###Block: Soldier class abilities
+# Feat Name				Type			Visible	Special ABility				Define			Combat bonus				Source Page
+Quick Action			TYPE:ClassAbility	VISIBLE:NO	SAB:Quick Action +% |QuickAction	DEFINE:QuickAction|0	BONUS:COMBAT|INITIATIVE|QuickAction	SOURCEPAGE:p.49
+Superior Bull Rush		TYPE:ClassAbility	VISIBLE:NO	SAB:Superior Bull Rush													SOURCEPAGE:p.49
+Coordinated Strikes		TYPE:ClassAbility	VISIBLE:NO	SAB:Coordinated Strikes													SOURCEPAGE:p.49
+Superior Trip			TYPE:ClassAbility	VISIBLE:NO	SAB:Superior Trip														SOURCEPAGE:p.49
+Improved Close order Fighting	TYPE:ClassAbility	VISIBLE:NO	SAB:Improved Close-order Fighting											SOURCEPAGE:p.49
+Lightning Reaction		TYPE:ClassAbility	VISIBLE:NO	SAB:Lightning Reaction													SOURCEPAGE:p.49
+Maximize Cover			TYPE:ClassAbility	VISIBLE:NO	SAB:Maximize Cover													SOURCEPAGE:p.49
+Killing Strike			TYPE:ClassAbility	VISIBLE:NO	SAB:Killing Strike													SOURCEPAGE:p.49
+Reflexive Strike			TYPE:ClassAbility	VISIBLE:NO	SAB:Reflexive Strike													SOURCEPAGE:p.49
+
+###Block: Stalker class abilities
+# Feat Name			Type			Visible	Special ABility					Define			Source Page
+Skilled Disarm		TYPE:ClassAbility	VISIBLE:NO	SAB:Skilled Disarm +% |SkilledDisarm	DEFINE:SkilledDisarm|0	SOURCEPAGE:p.51
+Blinding Attack		TYPE:ClassAbility	VISIBLE:NO	SAB:Blinding Attack								SOURCEPAGE:p.51
+Incapacitating Attack	TYPE:ClassAbility	VISIBLE:NO	SAB:Incapacitating Attack							SOURCEPAGE:p.51
+Finishing Attack		TYPE:ClassAbility	VISIBLE:NO	SAB:Finishing Attack								SOURCEPAGE:p.51

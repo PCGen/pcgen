@@ -1,0 +1,7 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Alderac Entertainment Group - Dragons	SOURCESHORT:Dragons	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+
+#Mundane Weapons Melee
+# Equipment Name	Product Identity?	Required Weapon Proficiency	Type								Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Size		Source Page
+Spear (Ram)		NAMEISPI:YES	PROFICIENCY:WEAPON|Longspear	TYPE:Weapon.Martial.Melee.Piercing.Large.Spear	COST:50	WT:30		CRITMULT:x2			CRITRANGE:1			DAMAGE:3d6	SIZE:L	SOURCEPAGE:p.45
+Wingblade		NAMEISPI:YES	PROFICIENCY:WEAPON|Wingblade	TYPE:Weapon.Exotic.Melee.Slashing.Medium		COST:75	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	SIZE:M	SOURCEPAGE:p.46

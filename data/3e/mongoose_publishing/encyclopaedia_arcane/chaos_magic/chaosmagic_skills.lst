@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Chaos Magic	SOURCESHORT:ChaosMagic	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2001-01
+
+# Skill Name		Key Stat	Untrained?		Type					Source Page
+Craft (Coppersmith)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft		SOURCEPAGE:p.52
+Knowledge (Necrology)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.52

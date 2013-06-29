@@ -1,0 +1,5 @@
+# CVS $Revision$ $Author$ -- Mon Jan 13 22:59:27 2003 -- reformated by prettylst.pl v1.24 (build 249)
+
+AGESET:0|Adulthood
+RACENAME:Centaur (Mongoose)	SEX:Male[BASEHT:70|HTDIEROLL:1d10+2|BASEWT:250|WTDIEROLL:3d20|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:68|HTDIEROLL:1d12|BASEWT:250|WTDIEROLL:2d20|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]
+### Old tag for race Centaur (Mongoose)=> AGE:110:1:6:1:6:1:6

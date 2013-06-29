@@ -1,0 +1,6 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# Original entry by: Mortal_Elf (elves_are_mortal@yahoo.com)
+SOURCELONG:Alderac Entertainment Group - Undead	SOURCESHORT:Undead	SOURCEWEB:http://alderac.com/d20	SOURCEDATE:2003-01
+
+# Modifier Name	Product Identity?	Type		Plus		Source Page			Required Type					Special Property
+Exorcism		NAMEISPI:YES	TYPE:Weapon	PLUS:4	SOURCEPAGE:p.83-84	PRETYPE:1,EQMODTYPE=MagicalEnhancement	SPROP:Negates the miss chance against undead due to incorporeality.  Also, weapon automatically inflicts maximum damage against incorporeal undead.

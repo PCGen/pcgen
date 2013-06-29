@@ -1,0 +1,24 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Mongoose Publishing - Encyclopaedia Arcane - Chaos Magic	SOURCESHORT:ChaosMagic	SOURCEWEB:http://www.mongoosepublishing.com	SOURCEDATE:2001-01
+
+# ~ Chaos Mage
+# Ability Name		Unique Key						Category of Ability		Type				Define			Description
+Chaos Magic Casting	KEY:Chaos Magic Casting ~ Chaos Mage	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ChaosCasting|0	DESC: +%1|ChaosCasting
+Chaos Familiar		KEY:Chaos Familiar ~ Chaos Mage		CATEGORY:Special Ability	TYPE:SpecialQuality
+Multiple Effects		KEY:Multiple Effects ~ Chaos Mage		CATEGORY:Special Ability	TYPE:SpecialQuality					DESC: %1|MultipleEffects
+Countermagic		KEY:Countermagic ~ Chaos Mage			CATEGORY:Special Ability	TYPE:SpecialQuality
+Purge Chaos			KEY:Purge Chaos ~ Chaos Mage			CATEGORY:Special Ability	TYPE:SpecialQuality
+
+# ~ Bloodcarver
+Bloodletting		KEY:Bloodletting ~ Bloodcarver		CATEGORY:Special Ability	TYPE:SpecialQuality
+Ignore Pain			KEY:Ignore Pain ~ Bloodcarver			CATEGORY:Special Ability	TYPE:SpecialQuality
+Damage Reduction 1	KEY:Damage Reduction 1 ~ Bloodcarver	CATEGORY:Special Ability	TYPE:SpecialQuality
+Armour of Scars		KEY:Armour of Scars ~ Bloodcarver		CATEGORY:Special Ability	TYPE:SpecialQuality
+Bloodcarving		KEY:Bloodcarving ~ Bloodcarver		CATEGORY:Special Ability	TYPE:SpecialQuality
+
+# ~ Doomringer
+Corpse Pact			KEY:Corpse Pact ~ Doomringer			CATEGORY:Special Ability	TYPE:SpecialQuality
+Preserve Corpse		KEY:Preserve Corpse ~ Doomringer		CATEGORY:Special Ability	TYPE:SpecialQuality
+Blood Shunt			KEY:Blood Shunt ~ Doomringer			CATEGORY:Special Ability	TYPE:SpecialQuality
+Walking Death		KEY:Walking Death ~ Doomringer		CATEGORY:Special Ability	TYPE:SpecialQuality
+Avatar of Death		KEY:Avatar of Death ~ Doomringer		CATEGORY:Special Ability	TYPE:SpecialQuality
