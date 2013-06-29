@@ -9,7 +9,7 @@ CLASS:Marksman	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|E
 CLASS:Marksman	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Marksman|CL
 
 ## Proficiencies
-1																																																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)	AUTO:SHIELDPROF|SHIELDTYPE=Buckler	AUTO:WEAPONPROF|TYPE=Light.Martial|TYPE=Martial.Ranged|TYPE=Martial.Thrown		AUTO:WEAPONPROF|Sling Staff (Halfling)|PRERACE:1,Halfling
+1																																																								ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanSimpleWeaponProficiency	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanLightArmorProficiency	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanBucklerProficiency	AUTO:WEAPONPROF|TYPE=Light.Martial|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanLightMartialProficiency	AUTO:WEAPONPROF|TYPE=Martial.Ranged|TYPE=Martial.Thrown|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanRangedProficiency
 
 ## Psionic Ability
 1											BONUS:VAR|MarksmanML|CL	BONUS:VAR|MarksmanML|var("BL=Marksman")	BONUS:VAR|IsPsionic|1																						DEFINE:MarksmanML|0	DEFINE:IsPsionic|0		ABILITY:Special Ability|AUTOMATIC|Psionic
@@ -22,28 +22,28 @@ CLASS:Marksman	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Psionic	MEMORIZE:NO	B
 1											BONUS:VAR|BonusPowerPoints|(WIS*MarksmanPL)/2|TYPE=MarksmanBonusPP
 
 ## Class Info
-1				BONUS:ABILITYPOOL|Marksman Combat Style|1	BONUS:VAR|MarksmanStyleLVL|CL																																DEFINE:MarksmanStyleLVL|0
-1											BONUS:VAR|WindReaderLVL|CL																																DEFINE:WindReaderLVL|0						ABILITY:Special Ability|AUTOMATIC|Wind Reader ~ Marksman
-1																																																																			AUTO:FEAT|Point-Blank Shot
-2	KNOWN:0,1		BONUS:ABILITYPOOL|Favored Weapon|1		BONUS:VAR|EvadeArrows|(CL+2)/4	BONUS:VAR|FavoredWeaponBase|(CL+2)/4																																	ABILITY:Special Ability|AUTOMATIC|Evade Arrows ~ Marksman
-2																																															DEFINE:EvadeArrows|0	DEFINE:FavoredWeaponBase|0	ABILITY:Special Ability|AUTOMATIC|Favored Weapon ~ Marksman
+1				BONUS:ABILITYPOOL|Marksman Combat Style|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanCombatStyle	BONUS:VAR|MarksmanStyleLVL|CL																																DEFINE:MarksmanStyleLVL|0
+1											BONUS:VAR|WindReaderLVL|CL																																DEFINE:WindReaderLVL|0						ABILITY:Special Ability|AUTOMATIC|Wind Reader ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanWindReader
+1																																																																			AUTO:FEAT|Point-Blank Shot|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanPointBlankShot
+2	KNOWN:0,1		BONUS:ABILITYPOOL|Favored Weapon|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanFavoredWeapon		BONUS:VAR|EvadeArrows|(CL+2)/4	BONUS:VAR|FavoredWeaponBase|(CL+2)/4																																	ABILITY:Special Ability|AUTOMATIC|Evade Arrows ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanEvadeArrows
+2																																															DEFINE:EvadeArrows|0	DEFINE:FavoredWeaponBase|0	ABILITY:Special Ability|AUTOMATIC|Favored Weapon ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanFavoredWeapon
 3	KNOWN:0,2									BONUS:VAR|StyleSkill|CL/3																																DEFINE:StyleSkill|0
-4	KNOWN:0,2									BONUS:VAR|CoverFireLVL|CL																																									ABILITY:Special Ability|AUTOMATIC|Cover Fire ~ Marksman
+4	KNOWN:0,2									BONUS:VAR|CoverFireLVL|CL																																									ABILITY:Special Ability|AUTOMATIC|Cover Fire ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanCoverFire
 5	KNOWN:0,2,1
 6	KNOWN:0,2,2
-7	KNOWN:0,2,3																																																						ABILITY:Special Ability|AUTOMATIC|Disengage ~ Marksman
+7	KNOWN:0,2,3																																																						ABILITY:Special Ability|AUTOMATIC|Disengage ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanDisengage
 8	KNOWN:0,2,3
 9	KNOWN:0,2,3,1
 10	KNOWN:0,2,3,2
 11	KNOWN:0,2,3,3
 12	KNOWN:0,2,3,3
-13	KNOWN:0,2,3,3,1																																																					ABILITY:Special Ability|AUTOMATIC|Defensive Shot ~ Marksman
+13	KNOWN:0,2,3,3,1																																																					ABILITY:Special Ability|AUTOMATIC|Defensive Shot ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanDefensiveShot
 14	KNOWN:0,2,3,3,1
 15	KNOWN:0,2,3,3,2
 16	KNOWN:0,2,3,3,2
 17	KNOWN:0,2,3,3,3
 18	KNOWN:0,2,3,3,3
-19	KNOWN:0,2,3,3,4																																																					ABILITY:Special Ability|AUTOMATIC|Ranged Specialist ~ Marksman
+19	KNOWN:0,2,3,3,4																																																					ABILITY:Special Ability|AUTOMATIC|Ranged Specialist ~ Marksman|!PREABILITY:1,CATEGORY=Archetype,TYPE.MarksmanRangedSpecialist
 20	KNOWN:0,2,3,3,4
 
 
