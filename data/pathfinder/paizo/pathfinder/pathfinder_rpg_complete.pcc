@@ -26,7 +26,7 @@ COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rig
 COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
 COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric Smith (Mardudd), Andrew Maitland (LegacyKing) )
 
-COVER:@/d20ogl/paizo/pathfinder_rpg/core_rulebook/core_rulebook.jpg
+COVER:@/pathfinder/paizo/pathfinder/core_rulebook/core_rulebook.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -36,10 +36,10 @@ DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
-PCC:@/d20ogl/paizo/pathfinder_rpg/core_rulebook/core_rulebook.pcc
-PCC:@/d20ogl/paizo/pathfinder_rpg/bestiary/bestiary.pcc
-PCC:@/d20ogl/paizo/pathfinder_rpg/bestiary_2/bestiary_2.pcc
-PCC:@/d20ogl/paizo/pathfinder_rpg/bonus_bestiary/bonus_bestiary.pcc
-PCC:@/d20ogl/paizo/pathfinder_rpg/advanced_players_guide/advanced_players_guide.pcc
-PCC:@/d20ogl/paizo/pathfinder_rpg/ultimate_combat/ultimate_combat.pcc
-PCC:@/d20ogl/paizo/pathfinder_rpg/ultimate_magic/ultimate_magic.pcc
+PCC:@/pathfinder/paizo/pathfinder/core_rulebook/core_rulebook.pcc
+PCC:@/pathfinder/paizo/pathfinder/bestiary/bestiary.pcc
+PCC:@/pathfinder/paizo/pathfinder/bestiary_2/bestiary_2.pcc
+PCC:@/pathfinder/paizo/pathfinder/bonus_bestiary/bonus_bestiary.pcc
+PCC:@/pathfinder/paizo/pathfinder/advanced_players_guide/advanced_players_guide.pcc
+PCC:@/pathfinder/paizo/pathfinder/ultimate_combat/ultimate_combat.pcc
+PCC:@/pathfinder/paizo/pathfinder/ultimate_magic/ultimate_magic.pcc

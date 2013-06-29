@@ -26,7 +26,7 @@ COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rig
 COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
 COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 2009, PCGen Data team (Including, but not limited to Stefan Radermacher, Eddy Anthony (MoSaT), Eric Smith (Mardudd), Andrew Maitland (LegacyKing) )
 
-COVER:@/d20ogl/paizo/pathfinder_rpg/core_rulebook/core_rulebook.jpg
+COVER:@/pathfinder/paizo/pathfinder/core_rulebook/core_rulebook.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
@@ -36,43 +36,43 @@ DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer 
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
-#PCC:@/d20ogl/paizo/pathfinder_rpg/core_rulebook/core_rulebook.pcc
-#PCC:@/d20ogl/paizo/pathfinder_rpg/bestiary/bestiary.pcc
-#PCC:@/d20ogl/paizo/pathfinder_rpg/bestiary_2/bestiary_2.pcc
-#PCC:@/d20ogl/paizo/pathfinder_rpg/bonus_bestiary/bonus_bestiary.pcc
-#PCC:@/d20ogl/paizo/pathfinder_rpg/advanced_players_guide/advanced_players_guide.pcc
-#PCC:@/d20ogl/paizo/pathfinder_rpg/ultimate_combat/ultimate_combat.pcc
-#PCC:@/d20ogl/paizo/pathfinder_rpg/ultimate_magic/ultimate_magic.pcc
+#PCC:@/pathfinder/paizo/pathfinder/core_rulebook/core_rulebook.pcc
+#PCC:@/pathfinder/paizo/pathfinder/bestiary/bestiary.pcc
+#PCC:@/pathfinder/paizo/pathfinder/bestiary_2/bestiary_2.pcc
+#PCC:@/pathfinder/paizo/pathfinder/bonus_bestiary/bonus_bestiary.pcc
+#PCC:@/pathfinder/paizo/pathfinder/advanced_players_guide/advanced_players_guide.pcc
+#PCC:@/pathfinder/paizo/pathfinder/ultimate_combat/ultimate_combat.pcc
+#PCC:@/pathfinder/paizo/pathfinder/ultimate_magic/ultimate_magic.pcc
 
 
 # PFS Core Assumption
-PCC:@/d20ogl/paizo/pathfinder_rpg/core_rulebook/core_rulebook.pcc
+PCC:@/pathfinder/paizo/pathfinder/core_rulebook/core_rulebook.pcc
 #PFS field guide
-PCC:@/d20ogl/paizo/pathfinder_rpg/bestiary/bestiary.pcc
-PCC:@/d20ogl/paizo/guide_to_pathfinder_society_organised_play/guide_to_pathfinder_society_organised_play.pcc
-PCC:@/d20ogl/paizo/pathfinder_rpg/bonus_bestiary/bonus_bestiary.pcc
+PCC:@/pathfinder/paizo/pathfinder/bestiary/bestiary.pcc
+PCC:@/pathfinder/paizo/guide_to_pathfinder_society_organised_play/guide_to_pathfinder_society_organised_play.pcc
+PCC:@/pathfinder/paizo/pathfinder/bonus_bestiary/bonus_bestiary.pcc
 
 # PFS Additional Resources (http://paizo.com/pathfinderSociety/about/additionalResources)
 
-PCC:@/d20ogl/paizo/pathfinder_rpg/advanced_players_guide/advanced_players_guide.pcc
+PCC:@/pathfinder/paizo/pathfinder/advanced_players_guide/advanced_players_guide.pcc
 #Pathfinder Roleplaying Game: Advanced Race Guide
-PCC:@/d20ogl/paizo/pathfinder_rpg/bestiary_2/bestiary_2.pcc
+PCC:@/pathfinder/paizo/pathfinder/bestiary_2/bestiary_2.pcc
 #Pathfinder Roleplaying Game: Bestiary 3
 #Pathfinder Roleplaying Game: NPC Codex
-PCC:@/d20ogl/paizo/pathfinder_rpg/ultimate_combat/ultimate_combat.pcc
-PCC:@/d20ogl/paizo/pathfinder_rpg/ultimate_magic/ultimate_magic.pcc
+PCC:@/pathfinder/paizo/pathfinder/ultimate_combat/ultimate_combat.pcc
+PCC:@/pathfinder/paizo/pathfinder/ultimate_magic/ultimate_magic.pcc
 
 # Pathfinder Adventure Paths
 
-PCC:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/pathfinder_conversion/rise_of_the_runelords_players_guide_pfrpg.pcc
-PCC:@/d20ogl/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae_players_guide/rise_of_the_runelords_ae_players_guide.pcc
-PCC:@/d20ogl/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/pathfinder_conversion/cotct_pf.pcc
-PCC:@/d20ogl/paizo/pathfinder_adventure_path/legacy_of_fire/legacy_of_fire_players_guide/pathfinder_conversion/legacy_of_fire_players_guide_pfrpg.pcc
-PCC:@/d20ogl/paizo/pathfinder_adventure_path/council_of_thieves/council_of_thieves_players_guide/council_of_thieves_players_guide.pcc
-PCC:@/d20ogl/paizo/pathfinder_adventure_path/kingmaker/kingmaker_players_guide/kingmaker_players_guide.pcc
-PCC:@/d20ogl/paizo/pathfinder_adventure_path/serpents_skull/serpents_skull_players_guide/serpents_skull_players_guide.pcc
-PCC:@/d20ogl/paizo/pathfinder_adventure_path/carrion_crown/carrion_crown_players_guide/carrion_crown_players_guide.pcc
-PCC:@/d20ogl/paizo/pathfinder_adventure_path/jade_regent/jade_regent_players_guide/jade_regent_players_guide.pcc
+PCC:@/pathfinder/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_players_guide/pathfinder_conversion/rise_of_the_runelords_players_guide_pfrpg.pcc
+PCC:@/pathfinder/paizo/pathfinder_adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae_players_guide/rise_of_the_runelords_ae_players_guide.pcc
+PCC:@/pathfinder/paizo/pathfinder_adventure_path/curse_of_the_crimson_throne/curse_of_the_crimson_throne_players_guide/pathfinder_conversion/cotct_pf.pcc
+PCC:@/pathfinder/paizo/pathfinder_adventure_path/legacy_of_fire/legacy_of_fire_players_guide/pathfinder_conversion/legacy_of_fire_players_guide_pfrpg.pcc
+PCC:@/pathfinder/paizo/pathfinder_adventure_path/council_of_thieves/council_of_thieves_players_guide/council_of_thieves_players_guide.pcc
+PCC:@/pathfinder/paizo/pathfinder_adventure_path/kingmaker/kingmaker_players_guide/kingmaker_players_guide.pcc
+PCC:@/pathfinder/paizo/pathfinder_adventure_path/serpents_skull/serpents_skull_players_guide/serpents_skull_players_guide.pcc
+PCC:@/pathfinder/paizo/pathfinder_adventure_path/carrion_crown/carrion_crown_players_guide/carrion_crown_players_guide.pcc
+PCC:@/pathfinder/paizo/pathfinder_adventure_path/jade_regent/jade_regent_players_guide/jade_regent_players_guide.pcc
 #Skull & Shackles
 #Shattered Star
 #Reign of Winter
@@ -84,19 +84,19 @@ PCC:@/d20ogl/paizo/pathfinder_adventure_path/jade_regent/jade_regent_players_gui
 #Pathfinder Campaign Setting: Classic Horrors Revisited
 #Pathfinder Campaign Setting: Classic Monsters Revisited
 #Pathfinder Campaign Setting: Classic Treasures Revisited
-PCC:@/d20ogl/paizo/pathfinder_campaign_setting/dark_markets_a_guide_to_katapesh/pathfinder_conversion/dmgk_pfrpg.pcc
+PCC:@/pathfinder/paizo/pathfinder_campaign_setting/dark_markets_a_guide_to_katapesh/pathfinder_conversion/dmgk_pfrpg.pcc
 #Pathfinder Campaign Setting: Distant Worlds
-PCC:@/d20ogl/paizo/pathfinder_campaign_setting/dragon_empires_gazetteer/dragon_empires_gazetteer.pcc
+PCC:@/pathfinder/paizo/pathfinder_campaign_setting/dragon_empires_gazetteer/dragon_empires_gazetteer.pcc
 #Pathfinder Campaign Setting: Dungeon Denizens Revisited
 #Pathfinder Campaign Setting: Dungeons of Golarion
 #Pathfinder Campaign Setting: Faction Guide
 #Pathfinder Campaign Setting: Giants Revisited
 #Pathfinder Campaign Setting: Gods and Magic
-PCC:@/d20ogl/paizo/pathfinder_campaign_setting/guide_to_the_river_kingdoms/guide_to_the_river_kingdoms.pcc
-PCC:@/d20ogl/paizo/pathfinder_campaign_setting/heart_of_the_jungle/heart_of_the_jungle.pcc
+PCC:@/pathfinder/paizo/pathfinder_campaign_setting/guide_to_the_river_kingdoms/guide_to_the_river_kingdoms.pcc
+PCC:@/pathfinder/paizo/pathfinder_campaign_setting/heart_of_the_jungle/heart_of_the_jungle.pcc
 #Pathfinder Campaign Setting: Horsemen of the Apocalypse
 #Pathfinder Campaign Setting: Inner Sea Magic
-PCC:@/d20ogl/paizo/pathfinder_campaign_setting/inner_sea_world_guide/inner_sea_world_guide.pcc
+PCC:@/pathfinder/paizo/pathfinder_campaign_setting/inner_sea_world_guide/inner_sea_world_guide.pcc
 #Pathfinder Campaign Setting: Lands of the Linnorm Kings
 #Pathfinder Campaign Setting: Lords of Chaos
 #Pathfinder Campaign Setting: Lost Kingdoms
@@ -105,14 +105,14 @@ PCC:@/d20ogl/paizo/pathfinder_campaign_setting/inner_sea_world_guide/inner_sea_w
 #Pathfinder Campaign Setting: Mythical Monsters Revisited
 #Pathfinder Campaign Setting: Pathfinder Society Field Guide
 #Pathfinder Campaign Setting: Paths of Prestige
-PCC:@/d20ogl/paizo/pathfinder_campaign_setting/princes_of_darkness/pod.pcc
+PCC:@/pathfinder/paizo/pathfinder_campaign_setting/princes_of_darkness/pod.pcc
 #Pathfinder Campaign Setting: Rival Guide
 #Pathfinder Campaign Setting: Seekers of Secrets
 #Pathfinder Character Traits Web Enhancement
 
 #Pathfinder Chronicles Campaign Setting
 #* As of 3/7/11, the Pathfinder Chronicles Campaign Setting has been replaced by the Pathfinder Campaign Setting: Inner Sea World Guide
-#PCC:@/d20ogl/paizo/pathfinder_campaign_setting/pathfinder_campaign_setting/pathfinder_campaign_setting.pcc
+#PCC:@/pathfinder/paizo/pathfinder_campaign_setting/pathfinder_campaign_setting/pathfinder_campaign_setting.pcc
 
 # Pathfinder Player Companions
 
@@ -122,30 +122,30 @@ PCC:@/d20ogl/paizo/pathfinder_campaign_setting/princes_of_darkness/pod.pcc
 #Pathfinder Player Companion: Blood of Angels
 #Pathfinder Player Companion: Blood of Fiends
 #Pathfinder Player Companion: Blood of the Night
-PCC:@/d20ogl/paizo/pathfinder_player_companion/cheliax_empire_of_devils/cheliax_empire_of_devils.pcc
-PCC:@/d20ogl/paizo/pathfinder_player_companion/dragon_empires_primer/dragon_empires_primer.pcc
+PCC:@/pathfinder/paizo/pathfinder_player_companion/cheliax_empire_of_devils/cheliax_empire_of_devils.pcc
+PCC:@/pathfinder/paizo/pathfinder_player_companion/dragon_empires_primer/dragon_empires_primer.pcc
 #Pathfinder Player Companion: Dungeoneer's Handbook
-PCC:@/d20ogl/paizo/pathfinder_player_companion/dwarves_of_golarion/dwarves_of_golarion.pcc
+PCC:@/pathfinder/paizo/pathfinder_player_companion/dwarves_of_golarion/dwarves_of_golarion.pcc
 #Pathfinder Player Companion: Elves of Golarion
 #Pathfinder Player Companion: Faiths of Balance
 #Pathfinder Player Companion: Faiths of Corruption
-PCC:@/d20ogl/paizo/pathfinder_player_companion/faiths_of_purity/faiths_of_purity.pcc
+PCC:@/pathfinder/paizo/pathfinder_player_companion/faiths_of_purity/faiths_of_purity.pcc
 #Pathfinder Player Companion: Goblins of Golarion
-PCC:@/d20ogl/paizo/pathfinder_player_companion/gnomes_of_golarion/gnomes_of_golarion.pcc
-PCC:@/d20ogl/paizo/pathfinder_player_companion/halflings_of_golarion/halflings_of_golarion.pcc
+PCC:@/pathfinder/paizo/pathfinder_player_companion/gnomes_of_golarion/gnomes_of_golarion.pcc
+PCC:@/pathfinder/paizo/pathfinder_player_companion/halflings_of_golarion/halflings_of_golarion.pcc
 #Pathfinder Player Companion: Humans of Golarion
-PCC:@/d20ogl/paizo/pathfinder_player_companion/inner_sea_primer/inner_sea_primer.pcc
+PCC:@/pathfinder/paizo/pathfinder_player_companion/inner_sea_primer/inner_sea_primer.pcc
 #Pathfinder Player Companion: Knights of the Inner Sea
-PCC:@/d20ogl/paizo/pathfinder_player_companion/orcs_of_golarion/orcs_of_golarion.pcc
+PCC:@/pathfinder/paizo/pathfinder_player_companion/orcs_of_golarion/orcs_of_golarion.pcc
 #Pathfinder Player Companion: Osirion, Land of Pharaohs
 #Pathfinder Player Companion: People of the North
-PCC:@/d20ogl/paizo/pathfinder_player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.pcc
-PCC:@/d20ogl/paizo/pathfinder_player_companion/qadira_gateway_to_the_east/qadira_gateway_to_the_east.pcc
-PCC:@/d20ogl/paizo/pathfinder_player_companion/sargava_the_lost_colony/sargava_the_lost_colony.pcc
-PCC:@/d20ogl/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/pathfinder_conversion/sdpg_pfrpg.pcc
+PCC:@/pathfinder/paizo/pathfinder_player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.pcc
+PCC:@/pathfinder/paizo/pathfinder_player_companion/qadira_gateway_to_the_east/qadira_gateway_to_the_east.pcc
+PCC:@/pathfinder/paizo/pathfinder_player_companion/sargava_the_lost_colony/sargava_the_lost_colony.pcc
+PCC:@/pathfinder/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/pathfinder_conversion/sdpg_pfrpg.pcc
 #Pathfinder Player Companion: Taldor, Echoes of Glory
 #Pathfinder Player Companion: Varisia, Birthplace of Legends
 
 # Other Pathfinder RPG sources in PCGen which aren't allowed for PFS
-#PCC:@/d20ogl/paizo/pathfinder_rpg/bonus_bestiary/bonus_bestiary.pcc
-#PCC:@/d20ogl/paizo/pathfinder_campaign_setting/seekers_of_secrets/seekers_of_secrets.pcc
+#PCC:@/pathfinder/paizo/pathfinder/bonus_bestiary/bonus_bestiary.pcc
+#PCC:@/pathfinder/paizo/pathfinder_campaign_setting/seekers_of_secrets/seekers_of_secrets.pcc

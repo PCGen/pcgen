@@ -1,8 +1,8 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
 CAMPAIGN:Paizo - Pathfinder Roleplaying Game Bestiary (Core Data)
-#GAMEMODE:Pathfinder
-TYPE:Alpha Datasets.Paizo Publishing.Pathfinder RPG
-#STATUS:BETA
+#GAMEMODE:Pathfinder	<-- Won't Display without a GameMode
+TYPE:Paizo Publishing.Pathfinder RPG
+STATUS:RELEASE
 RANK:1
 GENRE:Fantasy
 BOOKTYPE:Supplement
