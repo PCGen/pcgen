@@ -1,0 +1,29 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Gunpowder Plots	SOURCESHORT:GunPlots	SOURCEWEB:http://www.enworld.org/shop/index.php?do=product&productid=1196	SOURCEDATE:2006-01
+
+###Block: Matchlock
+# Equipment Name			Clear Types	Type										Cost
+Arquebus.MOD			TYPE:.CLEAR	TYPE:Weapon.Ranged.Simple.Gunpowder.Matchlock.Ballistic	COST:15
+Blunderbus - Matchlock.MOD	TYPE:.CLEAR	TYPE:Weapon.Ranged.Simple.Gunpowder.Matchlock.Ballistic	COST:15
+Caliver.MOD				TYPE:.CLEAR	TYPE:Weapon.Ranged.Simple.Gunpowder.Matchlock.Ballistic	COST:17
+Musket - Matchlock.MOD		TYPE:.CLEAR	TYPE:Weapon.Ranged.Simple.Gunpowder.Matchlock.Ballistic	COST:16
+
+###Block: Wheellock
+# Equipment Name			Clear Types	Type										Cost
+Belt Pistol - Wheellock.MOD	TYPE:.CLEAR	TYPE:Weapon.Ranged.Simple.Gunpowder.Wheellock.Ballistic	COST:18
+Horse Pistol - Wheellock.MOD	TYPE:.CLEAR	TYPE:Weapon.Ranged.Simple.Gunpowder.Wheellock.Ballistic	COST:19
+Fowling Piece.MOD			TYPE:.CLEAR	TYPE:Weapon.Ranged.Simple.Gunpowder.Wheellock.Ballistic	COST:20
+
+###Block: Snaphaunce/Flintlock
+# Equipment Name			Output Name				Clear Types	Type										Cost
+Belt Pistol - Flintlock.MOD						TYPE:.CLEAR	TYPE:Weapon.Ranged.Simple.Gunpowder.Flintlock.Ballistic	COST:21
+Horse Pistol - Flintlock.MOD						TYPE:.CLEAR	TYPE:Weapon.Ranged.Simple.Gunpowder.Flintlock.Ballistic	COST:21
+Blunderbus - Flintlock.MOD						TYPE:.CLEAR	TYPE:Weapon.Ranged.Simple.Gunpowder.Flintlock.Ballistic	COST:22
+Musket - Flintlock.MOD							TYPE:.CLEAR	TYPE:Weapon.Ranged.Simple.Gunpowder.Flintlock.Ballistic	COST:22
+
+###other Equipment - set to Purchase DC 0 because no info was given
+Bullets (20).MOD			OUTPUTNAME:Ammunition (20)													COST:4
+Flint.MOD																					COST:4
+Gunpowder.MOD			OUTPUTNAME:Gunpowder (10)													COST:5
+Slowmatch.MOD																				COST:2
+Wheellock Spring.MOD																			COST:2
