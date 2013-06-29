@@ -1,8 +1,0 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:http://www.fantasyflightgames.com/dd38.html	SOURCEDATE:2003-02
-# Original entry by: Ratheof Blithwyn
-
-# Equipment Name		Output Name				Type			Cost		Weight	Source Page		Bonus to skill
-Ring (Fear Reflection)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:135000	WT:0		SOURCEPAGE:p.59
-Ring (Ice and Blood)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:75000	WT:0		SOURCEPAGE:p.59	BONUS:SKILL|Disguise|10|TYPE=Insight
-Ring (Mesmerization)	OUTPUTNAME:Ring of [NAME]	TYPE:Magic.Ring	COST:4000	WT:0		SOURCEPAGE:p.59

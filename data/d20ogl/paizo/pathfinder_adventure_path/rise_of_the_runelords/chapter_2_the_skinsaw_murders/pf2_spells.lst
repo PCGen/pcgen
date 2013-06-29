@@ -1,7 +1,0 @@
-# CVS $Revision$ $Author$ -- Sat Jun 21 11:55:19 2008 -- reformated by prettylst.pl v1.38 (build 6763)
-SOURCELONG:Rise of the Runelords - Chapter 2: The Skinsaw Murders	SOURCESHORT:PF2	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
-# Original Entry by: Stefan Radermacher
-
-# Spell Name	Classes of caster			School			Sub-School			Type		Components		Casting Time			Range			Item		Target Area or Effect		Duration					Save Info					Spell Resistance		Description						Source Page
-Dream Feast		CLASSES:Cleric,Druid,Ranger=1	SCHOOL:Conjuration	SUBSCHOOL:Creation	TYPE:Divine	COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Touch		ITEM:Potion	TARGETAREA:Creature touched	DURATION:Instantaneous			SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	DESC:Target gets sated during sleep.	SOURCEPAGE:p.72
-Traveling Dream	CLASSES:Cleric,Druid=4		SCHOOL:Divination		SUBSCHOOL:Scrying		TYPE:Divine	COMPS:V, S, DF	CASTTIME:10 minutes		RANGE:Unlimited			TARGETAREA:Magical sensor	DURATION:(CASTERLEVEL) hours [D]	SAVEINFO:None				SPELLRES:No			DESC:Create dreamscryer magic sensor	SOURCEPAGE:p.72

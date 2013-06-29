@@ -1,4 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com	SOURCEDATE:2001-01
-# Domain Name	Innate Spells									Source Page		Description
-Missionary		SPELLS:Class|TIMES=1|CASTERLEVEL=TL|Comprehend Languages,11+WIS	SOURCEPAGE:p.34	DESC:Comprehend Languages 1/day

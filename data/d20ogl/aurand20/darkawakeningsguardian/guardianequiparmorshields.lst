@@ -1,7 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Auran d20 - Dark Awakenings - Guardian	SOURCESHORT:Guardian	SOURCEWEB:http://www.auran.com/d20	SOURCEDATE:2000-01
-
-# Equipment Name						Required Armor Proficiency	Required Shield Proficiency		Type										Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus
-Diamasin's Armor (Mithral/Masterwork)		PROFICIENCY:ARMOR|Chain Shirt							TYPE:Armor.Light.Standard.Suit.Mithral.Elven.Masterwork	COST:4150	WT:20		ACCHECK:-2		MAXDEX:4		SOURCEPAGE:p.78	SPELLFAILURE:20		BONUS:COMBAT|AC|5|TYPE=Armor
-
-Diamasin's Shield (Large/Wooden/Masterwork)						PROFICIENCY:SHIELD|Shield (Heavy)	TYPE:Shield.Standard.Wooden.Elven.Masterwork			COST:157	WT:10		ACCHECK:-1					SOURCEPAGE:p.78	SPELLFAILURE:15		BONUS:COMBAT|AC|2|TYPE=Armor

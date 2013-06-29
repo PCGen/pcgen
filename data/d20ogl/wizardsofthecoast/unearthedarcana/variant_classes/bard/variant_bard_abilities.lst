@@ -1,8 +1,0 @@
-# CVS $Revision: 452 $ $Author: tir $ -- Sun Jul 20 00:57:20 2008 -- reformated by prettylst.pl v1.38 (build 7121)# CVS $Revision: 453 $ $Author: tir $ -- Sun May 12 11:13:43 2013 -- reformated by prettylst.pl v1.50 (build 19967)
-SOURCELONG:Unearthed Arcana	SOURCESHORT:UA	SOURCEDATE:2004-02
-# Original Entry by: Tir-Gwaith
-
-###Block: Alternate Class Abilities, Page 58.
-# Ability Name	Category of Ability		Type					Visible		Description																																							Source Page
-Regular Bard	CATEGORY:Special Ability	TYPE:Internal.BardVariant	VISIBLE:DISPLAY	DESC:Regular Bard - Bardic Knowledge, Inspire Abilities																															SOURCEPAGE:p.58
-Druidlike Bard	CATEGORY:Special Ability	TYPE:Internal.BardVariant	VISIBLE:DISPLAY	DESC:Druidlike Bard - GAIN Animal companion (as druid), nature sense (as druid), resist nature’s lure (as druid), wild empathy (as druid), LOSE Bardic knowledge, inspire courage, inspire competence, inspire greatness, inspire heroics.	SOURCEPAGE:p.58

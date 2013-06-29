@@ -1,6 +1,0 @@
-Classes
-   - convert Class Abilities from Feats to Abilities
-
-Equipment
-   - Powered Armor Suits - Base Movement when Equipped?
-                           Weapon Mounts?

@@ -1,8 +1,0 @@
-# CVS $Revision$ $Author$ -- Sun Dec 28 00:34:02 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:D1.5: Revenge of the Kobold King	SOURCESHORT:PFMD1-5	SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy83w1	SOURCEDATE:2008-06
-
-##
-## Wonderous Items
-##
-# Equipment Name	Type					Cost		Weight	Source Page		Bonus to skill
-Azlanti Sealstone	TYPE:Magic.Artifact.Minor	COST:0	WT:0		SOURCEPAGE:pg.14	BONUS:SKILL|TYPE=Knowledge|4|TYPE=Competance

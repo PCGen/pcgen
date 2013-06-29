@@ -1,8 +1,0 @@
-# CVS $Revision$ $Author$ -- Mon Mar 31 10:57:37 2008 -- reformated by prettylst.pl v1.38 (build 5580)
-SOURCELONG:Rise of the Runelords - Chapter 2: The Skinsaw Murders	SOURCESHORT:PF2	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
-# Original Entry by: Stefan Radermacher
-
-###Block: Diseases
-# Template Name					Visible	Source Page		Stat bonus							Choose								Temporary effect description
-Disease Damage (Vorel's Phage/Con Damage)	VISIBLE:NO	SOURCEPAGE:p.27	BONUS:STAT|CON|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Constitution Damage	TEMPDESC:Infection DC 20 (Contact or Ingestion), Incubation 1 day, Damage 1d4 Con, 1d4 Cha, Apply this temporary bonus for the constitution damage each day the victim takes damage.
-Disease Damage (Vorel's Phage/Cha Damage)	VISIBLE:NO	SOURCEPAGE:p.27	BONUS:STAT|CHA|-1*(%CHOICE)|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=4|TITLE=Charisma Damage		TEMPDESC:Infection DC 20 (Contact or Ingestion), Incubation 1 day, Damage 1d4 Con, 1d4 Cha, Apply this temporary bonus for the charisma damage each day the victim takes damage.

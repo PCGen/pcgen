@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Secrets of the Planes - Planar Magic	SOURCESHORT:PlanarMagic	SOURCEWEB:http://www.lionsdenpress.com/	SOURCEDATE:2005-01
-# Original Entry by: Tir Gwaith
-
-# Feat Name			Type				Required Ability							Required Feat						Required Skill					Description																		Source Page
-Dual Attunement		TYPE:General.PlanarMage										PREFEAT:2,Extra Attunement,Quicken Attunement	PRESKILL:1,Knowledge (The Planes)=15	DESC:You are sufficiently skilled to maintain a connection to two planes at once, for a brief period of time.	SOURCEPAGE:p.8
-Extra Attunement		TYPE:General.PlanarMage										PREFEAT:3,TYPE.PlanarAttunement			PRESKILL:1,Knowledge (The Planes)=6		DESC:You are capable of attuning yourself to a new plane in the middle of the day.						SOURCEPAGE:p.8
-Greater Planar Turning	TYPE:General.PlanarMage	PREABILITY:1,CATEGORY=Special Ability,Planar Turning									PRESKILL:1,Knowledge (The Planes)=6		DESC:You know how to draw on your planar connections to enhance your turning abilities.					SOURCEPAGE:p.8
-Quicken Attunement	TYPE:General.PlanarMage										PREFEAT:1,Extra Attunement				PRESKILL:1,Knowledge (The Planes)=12	DESC:You require less time than normal to attune yourself to a new plane.							SOURCEPAGE:p.8

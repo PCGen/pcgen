@@ -1,7 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com	SOURCEDATE:2001-01
-# Original entry by wizofice2001
-
-#Medium Weight -------------------------------------------------------------------------------------------------------------
-# Equipment Name	Required Armor Proficiency	Type							Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus
-Beast Chitin	PROFICIENCY:ARMOR|Hide		TYPE:Armor.Medium.Suit.Standard.Nonmetal	COST:200	WT:50		ACCHECK:-4		MAXDEX:3		SOURCEPAGE:p.52	BONUS:COMBAT|AC|5|TYPE=Armor

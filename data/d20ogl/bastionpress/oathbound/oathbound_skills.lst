@@ -1,7 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Feb 11 21:22:46 2009 -- reformated by prettylst.pl v1.39 (build 9329)
-SOURCELONG:Oathbound - Domains of the Forge	SOURCESHORT:Oathbound	SOURCEWEB:http://www.bastionpress.com	SOURCEDATE:2003-08
-# Input by Ruemere, email: ruemere@poczta.onet.pl
-
-# Skill Name	Key Stat	Untrained?		Classes																Type				Source Page		Bonus to skill
-City Lore		KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:Aristocrat|Assassin|Bard|Cleric|Commoner|Expert|Fighter|Paladin|Rogue|Shadowdancer|Sorcerer	TYPE:Wisdom			SOURCEPAGE:p.321	BONUS:SKILL|City Lore|SynergyBonus|PRESKILL:1,Intuit Direction=5|TYPE=Synergy.STACK
-Craft (Maps)	KEYSTAT:INT	USEUNTRAINED:YES																		TYPE:Intelligence.Craft	SOURCEPAGE:p.55

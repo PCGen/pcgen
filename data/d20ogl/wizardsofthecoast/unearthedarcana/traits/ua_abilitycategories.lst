@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Sun May 12 11:13:43 2013 -- reformated by prettylst.pl v1.50 (build 19967)
-
-
-# Ability Category	Visible		Editable or Static?	Change Pool?	Category of Object		Type of Object	Display Location
-ABILITYCATEGORY:Flaws	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Flaws		DISPLAYLOCATION:Racial Abilities
-ABILITYCATEGORY:Traits	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Traits		DISPLAYLOCATION:Racial Abilities

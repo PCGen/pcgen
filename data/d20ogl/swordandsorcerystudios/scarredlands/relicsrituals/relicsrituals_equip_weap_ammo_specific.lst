@@ -1,5 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Relics and Rituals	SOURCESHORT:RelicRitual	SOURCEWEB:http://www.swordsorcery.com	SOURCEDATE:2001-01
-
-# Equipment Name	Product Identity?	Output Name			Type					Cost		Weight	Source Page
-Arrow (Web)		NAMEISPI:YES	OUTPUTNAME:[NAME] Arrow	TYPE:Magic.Ammunition.Arrow	COST:457	WT:0.15	SOURCEPAGE:p.165

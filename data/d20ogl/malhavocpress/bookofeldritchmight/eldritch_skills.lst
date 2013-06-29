@@ -1,4 +1,0 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:25:56 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Malhavoc Press - Book of Eldritch Might	SOURCESHORT:BoEM1	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2001-12
-# Skill Name		Key Stat	Untrained?		Type					Source Page
-Craft (Glassmaking)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Art	SOURCEPAGE:p.

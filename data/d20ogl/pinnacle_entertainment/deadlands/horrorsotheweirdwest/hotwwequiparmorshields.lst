@@ -1,4 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Horrors o' the Weird West	SOURCESHORT:HotWW	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
-# Equipment Name		Required Armor Proficiency			Type				Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus
-Laced-Bone Chest Armor	PROFICIENCY:ARMOR|Laced-Bone Chest Armor	TYPE:Armor.Light.Suit	COST:15	WT:5		ACCHECK:0		MAXDEX:6		SOURCEPAGE:p.33	BONUS:COMBAT|AC|2|TYPE=Armor

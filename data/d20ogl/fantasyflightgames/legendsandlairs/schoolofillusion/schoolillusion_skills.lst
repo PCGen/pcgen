@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Tue Nov 11 14:22:49 2008 -- reformated by prettylst.pl v1.38 (build 8180)
-SOURCELONG:Fantasy Flight Games - School of Illusion	SOURCESHORT:Ill	SOURCEWEB:http://www.fantasyflightgames.com/dd38.html	SOURCEDATE:2003-02
-# Original Entry by: Tir Gwaith
-
-# Skill Name		Key Stat	Untrained?		Type					Source Page
-Knowledge (Heraldry)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge	SOURCEPAGE:p.7

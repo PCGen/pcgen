@@ -1,4 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Deadlands Core Rulebook	SOURCESHORT:Deadlands	SOURCEWEB:http://www.peginc.com/index.htm	SOURCEDATE:2003-01
-# Race Name	Favored Class			Skills/Level		Starting Feats	Size		Move			Bonus Languages																																																	Main Race Type	Source Page
-Human		FAVCLASS:HIGHESTLEVELCLASS	XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	LANGBONUS:Algonquin,Arabic,Athabaskan,Bantu,Caddoan,Chinese,Creole,Danish,Dutch,Egyptian,English,Finnish,French,Gaelic,German,Greek,Haitian,Hebrew,Hieroglyphics,Hindi,Hokan,Indian Sign,Italian,Japanese,Latin,Magyar,Maori,Norwegian,Polish,Portuguese,Romanian,Russian,Siouan,Spanish,Swahili,Swedish,Zulu	RACETYPE:Humaniod	SOURCEPAGE:p.20

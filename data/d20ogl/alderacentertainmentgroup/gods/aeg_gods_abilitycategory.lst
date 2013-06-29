@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
-#SOURCELONG:Alderac Entertainment Group (AEG) - Gods	SOURCESHORT:Gods	SOURCEWEB:http://www.alderac.com/d20
-
-###Block: Bonus Ability Category
-# Ability Category			Visible	Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Type of Object		Plural description for UI		Display Location
-ABILITYCATEGORY:KSKnownSpellBonus	VISIBLE:YES	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:KSKnownSpellBonus	TYPE:KSBonusKnownSpell	PLURAL:KofS Bonus Known Spells	DISPLAYLOCATION:Class Abilities

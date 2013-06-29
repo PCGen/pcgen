@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Atlas Games - Penumbra - Modules - Backdrops	SOURCESHORT:Backdrops	SOURCEWEB:http://www.atlas-games.com/pen_index.html	SOURCEDATE:2002-01
-
-# Equipment Name		Type						Cost		Weight	Source Page		Special Property
-Candle of Guidance	TYPE:Magic.Wondrous.Consumable	COST:500	WT:0		SOURCEPAGE:p.20	SPROP:See text
-Candle of Insight		TYPE:Magic.Wondrous.Consumable	COST:600	WT:0		SOURCEPAGE:p.20	SPROP:See text

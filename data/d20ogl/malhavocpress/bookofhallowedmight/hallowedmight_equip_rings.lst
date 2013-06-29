@@ -1,9 +1,0 @@
-# CVS $Revision$ $Author$ -- Sun Mar 19 07:31:26 2006 -- reformated by prettylst.pl v1.35 (build 561)
-# Original Entry by: Paul King
-# added SOURCEPAGE, SPROP info.  Tir Gwaith
-
-SOURCELONG:Malhavoc Press - Book of Hallowed Might	SOURCESHORT:BoHM	SOURCEWEB:http://www.montecook.com
-
-# Equipment Name		Product Identity?	Type			Cost		Weight	Source Page		Bonus to skill			Special Property
-Ring of Concentration	NAMEISPI:YES	TYPE:Magic.Ring	COST:2000	WT:0		SOURCEPAGE:p.42	BONUS:SKILL|Concentration|10
-Ring of Neutrality	NAMEISPI:YES	TYPE:Magic.Ring	COST:30000	WT:0		SOURCEPAGE:p.42						SPROP:When a spell or other effect that depends on alignment would affect the wearer, his alignment is treated as true neutral.
