@@ -1,0 +1,7 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:43:46 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+
+# Class Name		Output Name				Hit Dice	Type				Class Type		Abbreviation	Max Level	Source Page		Visible	Save checks bonus											Combat bonus
+CLASS:Imp Companion	OUTPUTNAME:Imp Companion	HD:10		TYPE:Monster.Companion	CLASSTYPE:Monster	ABB:IC		MAXLEVEL:20	SOURCEPAGE:p.44	VISIBLE:NO	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Skill Pts/Lvl
+CLASS:Imp Companion	STARTSKILLPTS:2
+1	AUTO:FEAT|CMB Output

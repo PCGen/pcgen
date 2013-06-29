@@ -1,0 +1,49 @@
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+CAMPAIGN:Paizo - Gnomes of Golarion
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Campaign Setting
+PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide]
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Gnomes of Golarion
+SOURCESHORT:GoG
+SOURCEWEB:http://paizo.com/products/btpy8dmh?Pathfinder-Companion-Gnomes-of-Golarion
+SOURCEDATE:2010-03
+ISOGL:YES
+
+COVER:gnomes_of_golarion.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8dmh?Pathfinder-Companion-Gnomes-of-Golarion|Buy this publication from Paizo Publishing!
+DESC:Exiled from the mysterious fey realm of the First World, gnomes are fundamentally alien to Golarion. Endlessly excitable, gnomes amuse and terrify other races with their strange obsessions and unconventional methods. Their childlike wonder—and sometimes innocent cruelty—are two sides of the same coin, and every coin the gnomes have is spent in pursuit of adventure, whether they like it or not. For the gnomes have a dark secret: should they ever stop seeking out new experiences, they fall prey to the Bleaching, a wasting disease that slowly sucks away their hold on the world, leaving them nothing but bones and dust.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Companion: Gnomes of Golarion. Copyright 2010, Paizo Publishing, LLC; Authors: Hal Maclean, Colin McComb, Mark Moreland, Jeff Quick, Sean K Reynolds, Steven Schend, and Owen K. C. Stephens.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Companion: Gnomes of Golarion" Copyright 2012, PCGen Data Team (including, but not limited to Eric Smith)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITY:gog_abilities_afflictions.lst
+ABILITY:gog_abilities_traits.lst
+DEITY:gog_deities.lst
+EQUIPMENT:gog_equip_armorshields.lst
+EQUIPMENT:gog_equip_weapons_melee.lst
+EQUIPMENT:gog_equip_weapons_ranged.lst
+FEAT:gog_feats.lst
+SPELL:gog_spells.lst
+WEAPONPROF:gog_profs_weapon.lst
+
+#
+# EOF
+#

@@ -1,0 +1,15 @@
+# CVS $Revision: $ $Author: $ -- Sun Oct 14 21:10:22 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Words of Power	SOURCESHORT:PFWoP	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2012/07/16
+
+###Block: Example Spells
+
+# Spell Name							Classes of caster					School							Spell Descriptors		Type		Components	Casting Time			Range				Target Area or Effect			Duration							Save Info							Spell Resistance		Required Ability													Description																																			Source Page
+Burst Fire Blast							CLASSES:Magus,Sorcerer,Wizard=3		SCHOOL:Evocation						DESCRIPTOR:Fire		TYPE:Arcane	COMPS:V,S,M	CASTTIME:1 standard action	RANGE:Close			TARGETAREA:10-foot radius burst	DURATION:Instantaneous					SAVEINFO:Reflex half					SPELLRES:Yes		PREABILITY:2,CATEGORY=Words of Power,Burst,Fire Blast							DESC:Deals (min(10,CASTERLEVEL))d6 fire damage in 10 foot burst.																										SOURCEPAGE:p.165
+Selected Ice Blast Life Leech					CLASSES:Magus,Sorcerer,Witch,Wizard=6	SCHOOL:Evocation|Necromancy				DESCRIPTOR:Cold|Evil	TYPE:Arcane	COMPS:V,S,M	CASTTIME:1 standard action	RANGE:Close or Touch	TARGETAREA:Ray or touch attack	DURATION:Instantaneous and (CASTERLEVEL) hours	SAVEINFO:Reflex or Fortitude partial (see text)	SPELLRES:Yes		PREABILITY:3,CATEGORY=Words of Power,Selected,Ice Blast,Life Leech				DESC:Deals (min(10,CASTERLEVEL))d6 cold damage, entangles target for 1d4 rounds, and gives 1d4 temporary negative levels.																SOURCEPAGE:p.165
+Selected Alignment Shield Enhance Form Grave Bane	CLASSES:Cleric=6					SCHOOL:Abjuration|Necromancy|Transmutation					TYPE:Divine	COMPS:V,S,M	CASTTIME:1 standard action	RANGE:Close or Touch	TARGETAREA:Ray or touch attack	DURATION:(CASTERLEVEL) rounds				SAVEINFO:Will negates (harmless)			SPELLRES:Yes (harmless)	PREABILITY:4,CATEGORY=Words of Power,Selected,Alignment Shield,Enhance Form,Grave Bane	DESC:Grants +2 to AC and saves when attacked by chosen alignment type, +4 Strength, Dexterity, or Constitution, and +4 on saves vs. death magic; subject cannot gain negative levels and is automatically stabilized.	SOURCEPAGE:p.165
+
+#
+# End
+#

@@ -1,0 +1,31 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul  7 12:04:01 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Paul Shipley
+
+# NB: var(" * ") syntax is necessary for the SKILL.*.MISC uses here as * contains spaces
+
+###Block: Conditional skills (for output only)
+# Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value
+Craft (Alchemy/Create item)			KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Craft (Alchemy/Create item).MISC"),var("SKILL.Craft (Alchemy).MISC")
+Knowledge (Arcana/ID monster)			KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Knowledge (Arcana/ID monster).MISC"),var("SKILL.Knowledge (Arcana).MISC")
+Knowledge (Dungeoneering/ID monster)	KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Knowledge (Dungeoneering/ID monster).MISC"),var("SKILL.Knowledge (Dungeoneering).MISC")
+Knowledge (Local/Art & music)			KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Knowledge (Local/Art & Music).MISC"),var("SKILL.Knowledge (Local).MISC")
+Knowledge (Local/ID monster)			KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Knowledge (Local/ID monster).MISC"),var("SKILL.Knowledge (Local).MISC")
+Knowledge (Nature/ID monster)			KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Knowledge (Nature/ID monster).MISC"),var("SKILL.Knowledge (Nature).MISC")
+Knowledge (Planes/ID monster)			KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Knowledge (Planes/ID monster).MISC"),var("SKILL.Knowledge (Planes).MISC")
+Knowledge (Religion/ID monster)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Knowledge (Religion/ID monster).MISC"),var("SKILL.Knowledge (Religion).MISC")
+Stealth (In hilly or rocky areas)		KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (In hilly or rocky areas).MISC"),SKILL.Stealth.MISC
+Survival (Find Food)				KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Find Food).MISC"),SKILL.Survival.MISC
+
+###Block: Skill .MODs
+# Skill Name			Bonus to skill														Bonus to skill rank
+Craft (Alchemy).MOD		BONUS:SKILL|Craft (Alchemy/Create item)|var("SKILL.Craft (Alchemy).MISC")				BONUS:SKILLRANK|Craft (Alchemy/Create item)|skillinfo("TOTALRANK", "Craft (Alchemy)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Craft (Alchemy/Create item).MISC"),var("SKILL.Craft (Alchemy).MISC")
+Knowledge (Arcana).MOD		BONUS:SKILL|Knowledge (Arcana/ID monster)|var("SKILL.Knowledge (Arcana).MISC")			BONUS:SKILLRANK|Knowledge (Arcana/ID monster)|skillinfo("TOTALRANK", "Knowledge (Arcana)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (Arcana/ID monster).MISC"),var("SKILL.Knowledge (Arcana).MISC")
+Knowledge (Dungeoneering).MOD	BONUS:SKILL|Knowledge (Dungeoneering/ID monster)|var("SKILL.Knowledge (Dungeoneering).MISC")	BONUS:SKILLRANK|Knowledge (Dungeoneering/ID monster)|skillinfo("TOTALRANK", "Knowledge (Dungeoneering)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (Dungeoneering/ID monster).MISC"),var("SKILL.Knowledge (Dungeoneering).MISC")
+Knowledge (Local).MOD		BONUS:SKILL|Knowledge (Local/Art & music)|var("SKILL.Knowledge (Local).MISC")				BONUS:SKILLRANK|Knowledge (Local/Art & music)|skillinfo("TOTALRANK", "Knowledge (Local)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (Local/Art & music).MISC"),var("SKILL.Knowledge (Local).MISC")
+Knowledge (Local).MOD		BONUS:SKILL|Knowledge (Local/ID monster)|var("SKILL.Knowledge (Local).MISC")				BONUS:SKILLRANK|Knowledge (Local/ID monster)|skillinfo("TOTALRANK", "Knowledge (Local)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (Local/ID monster).MISC"),var("SKILL.Knowledge (Local).MISC")
+Knowledge (Nature).MOD		BONUS:SKILL|Knowledge (Nature/ID monster)|var("SKILL.Knowledge (Nature).MISC")			BONUS:SKILLRANK|Knowledge (Nature/ID monster)|skillinfo("TOTALRANK", "Knowledge (Nature)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (Nature/ID monster).MISC"),var("SKILL.Knowledge (Nature).MISC")
+Knowledge (Planes).MOD		BONUS:SKILL|Knowledge (Planes/ID monster)|var("SKILL.Knowledge (Planes).MISC")			BONUS:SKILLRANK|Knowledge (Planes/ID monster)|skillinfo("TOTALRANK", "Knowledge (Planes)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (Planes/ID monster).MISC"),var("SKILL.Knowledge (Planes).MISC")
+Knowledge (Religion).MOD	BONUS:SKILL|Knowledge (Religion/ID monster)|var("SKILL.Knowledge (Religion).MISC")			BONUS:SKILLRANK|Knowledge (Religion/ID monster)|skillinfo("TOTALRANK", "Knowledge (Religion)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (Religion/ID monster).MISC"),var("SKILL.Knowledge (Religion).MISC")
+Stealth.MOD				BONUS:SKILL|Stealth (In hilly or rocky areas)|var("SKILL.Stealth.MISC")					BONUS:SKILLRANK|Stealth (In hilly or rocky areas)|skillinfo("TOTALRANK","Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (In hilly or rocky areas).MISC"),var("SKILL.Stealth.MISC")
+Survival.MOD			BONUS:SKILL|Survival (Find Food)|var("SKILL.Survival.MISC")							BONUS:SKILLRANK|Survival (Find Food)|skillinfo("TOTALRANK","Survival")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Survival (Find Food).MISC"),var("SKILL.Survival.MISC")

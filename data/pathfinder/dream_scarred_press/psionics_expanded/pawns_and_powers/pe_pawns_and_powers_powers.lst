@@ -1,0 +1,171 @@
+# CVS $Revision: $ $Author: $ -- Sat Jun  8 13:27:17 2013 -- reformated by prettylst.pl v1.50 (build 19967)
+SOURCELONG:Psionics Expanded - Pawns and Powers	SOURCESHORT:PEPP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-12
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2012/09/22
+
+# COMMENT: Potential PREAPPLY abilities not added.
+
+# COMMENT: Distract: lvl 0 on list, lvl 1 in text --> Official word is lvl 0
+# COMMENT: Technique as one: 6th on list, 7th in text --> Official word is lvl 7
+
+###Block: Old Powers on Tactician power list
+
+# Spell Name				Classes of caster
+Call to Mind.MOD				CLASSES:Tactician=1
+Entangling Ectoplasm.MOD		CLASSES:Tactician=1
+Know Direction and Location.MOD	CLASSES:Tactician=1
+Precognition.MOD				CLASSES:Tactician=1
+Precognition (Defensive).MOD		CLASSES:Tactician=1
+Sense Link.MOD				CLASSES:Tactician=1
+
+Detect Hostile Intent.MOD		CLASSES:Tactician=2
+Dimension Swap.MOD			CLASSES:Tactician=2
+Empathic Transfer.MOD			CLASSES:Tactician=2
+Feat Leech.MOD				CLASSES:Tactician=2
+Missive (Mass).MOD			CLASSES:Tactician=2
+Read Thoughts.MOD				CLASSES:Tactician=2
+Share Pain.MOD				CLASSES:Tactician=2
+Strength of My Enemy.MOD		CLASSES:Tactician=2
+Sustenance.MOD				CLASSES:Tactician=2
+Thought Shield.MOD			CLASSES:Tactician=2
+
+Danger Sense.MOD				CLASSES:Tactician=3
+Empathic Transfer (Hostile).MOD	CLASSES:Tactician=3
+Share Pain (Forced).MOD			CLASSES:Tactician=3
+Solicit Psicrystal.MOD			CLASSES:Tactician=3
+
+Correspond.MOD				CLASSES:Tactician=4
+Empathic Feedback.MOD			CLASSES:Tactician=4
+Intellect Fortress.MOD			CLASSES:Tactician=4
+Psychic Reformation.MOD			CLASSES:Tactician=4
+Slip the Bonds.MOD			CLASSES:Tactician=4
+Wall of Ectoplasm.MOD			CLASSES:Tactician=4
+
+Adapt Body.MOD				CLASSES:Tactician=5
+Catapsi.MOD					CLASSES:Tactician=5
+Incarnate.MOD				CLASSES:Tactician=5
+Metaconcert.MOD				CLASSES:Tactician=5
+Power Resistance.MOD			CLASSES:Tactician=5
+Tower of Iron Will.MOD			CLASSES:Tactician=5
+
+CoOpt Concentration.MOD			CLASSES:Tactician=6
+Dispelling Buffer.MOD			CLASSES:Tactician=6
+Trigger Power.MOD				CLASSES:Tactician=6
+
+Barred Mind (Personal).MOD		CLASSES:Tactician=7
+Bend Reality.MOD				CLASSES:Tactician=7
+Cosmic Awareness.MOD			CLASSES:Tactician=7
+Divert Teleport.MOD			CLASSES:Tactician=7
+Evade Burst.MOD				CLASSES:Tactician=7
+
+Barred Mind.MOD				CLASSES:Tactician=8
+Hypercognition.MOD			CLASSES:Tactician=8
+
+Affinity Field.MOD			CLASSES:Tactician=9
+Assimilate.MOD				CLASSES:Tactician=9
+Fusion.MOD					CLASSES:Tactician=9
+Reality Revision.MOD			CLASSES:Tactician=9
+Timeless Body.MOD				CLASSES:Tactician=9
+
+###Block: Talents
+# Spell Name	Unique Key				Output Name				Classes of caster							School			Sub-School			Spell Descriptors						Type			Components	Casting Time			Range			Target Area or Effect						Duration									Save Info					Spell Resistance		Description									Bonus to skill										Source Page
+Conceal Thoughts	KEY:Conceal Thoughts Talent						CLASSES:Psion,Psychic Warrior,Tactician,Wilder=0	SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting				TYPE:Psionic	COMPS:Me	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One willing creature				DURATION:(CASTERLEVEL) hours						SAVEINFO:Will negates (harmless)	SPELLRES:Yes (harmless)	DESC:You conceal your motives.																	SOURCEPAGE:p.16
+Detect Psionics	KEY:Detect Psionics Talent						CLASSES:Psion,Psychic Warrior,Tactician,Wilder=0	SCHOOL:Clairsentience													TYPE:Psionic	COMPS:Au Vi	CASTTIME:1 standard action	RANGE:60 ft.	TARGETAREA:Cone-shaped emanation centered on you	DURATION:Concentration, up to (CASTERLEVEL) minutes [D]	SAVEINFO:None				SPELLRES:No			DESC:You detect the presence of psionics.																SOURCEPAGE:p.17
+Distract		KEY:Distract Talent							CLASSES:Psion,Psychic Warrior,Tactician,Wilder=0	SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting				TYPE:Psionic	COMPS:Me	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature						DURATION:Concentration, up to (CASTERLEVEL) minutes [D]	SAVEINFO:Will negates			SPELLRES:Yes		DESC:Subject gets -4 on Perception and Sense Motive checks.	BONUS:SKILL|Perception,Sense Motive|-4|TYPE=Temporary|PREAPPLY:ANYPC	SOURCEPAGE:p.17
+Fortify (Lesser)	KEY:Fortify Lesser Talent	OUTPUTNAME:Fortify, Lesser	CLASSES:Psion,Psychic Warrior,Tactician,Wilder=0	SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting				TYPE:Psionic	COMPS:Me	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature						DURATION:Concentration, up to (CASTERLEVEL) minutes [D]	SAVEINFO:Will negates			SPELLRES:Yes		DESC:Subject gets -4 on Perception and Sense Motive checks.	BONUS:SKILL|Perception,Sense Motive|-4|TYPE=Temporary|PREAPPLY:ANYPC	SOURCEPAGE:p.18
+Missive		KEY:Missive Talent							CLASSES:Psion,Tactician,Wilder=0				SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting|Language-Dependent	TYPE:Psionic	COMPS:Me	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature						DURATION:Instantaneous							SAVEINFO:None				SPELLRES:Yes		DESC:Send a one-way telepathic message to subject.														SOURCEPAGE:p.19
+Telepathic Lash	KEY:Telepathic Lash Talent						CLASSES:Psion,Tactician,Wilder=0				SCHOOL:Telepathy		SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting				TYPE:Psionic	COMPS:Ma Me	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One humanoid creature that has 4HD or less	DURATION:1 round								SAVEINFO:Will negates			SPELLRES:Yes		DESC:Humanoid creature of 4 HD or less loses next action.													SOURCEPAGE:p.22
+
+
+###Block: Powers
+# Spell Name					Output Name					Classes of caster														School			Sub-School			Spell Descriptors					Type			Components	Casting Time			Range			Target Area or Effect					Duration										Save Info									Spell Resistance				Description																								Source Page
+Ability as One											CLASSES:Tactician=8													SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting|Network|Shared	TYPE:Psionic	COMPS:Me	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:You plus one creature			DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates (harmless, see text)			SPELLRES:Yes				DESC:Share chosen ability score among targets.																		SOURCEPAGE:p.15
+Alienation												CLASSES:Telepath,Tactician=4												SCHOOL:Telepathy		SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting			TYPE:Psionic	COMPS:Au Me	CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:1 living creature				DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates							SPELLRES:Yes				DESC:Target loses all communication and social interaction.																SOURCEPAGE:p.15
+Battle Transformation										CLASSES:Psychic Warrior,Tactician=4											SCHOOL:Clairsentience												TYPE:Psionic	COMPS:Me Vi	CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You						DURATION:(CASTERLEVEL) rounds							SAVEINFO:None; see text							SPELLRES:No; see text			DESC:You become stronger, tougher, faster, and more skilled in combat.														SOURCEPAGE:p.16
+Brutalize Wounds											CLASSES:Psion,Psychic Warrior,Tactician,Wilder=6								SCHOOL:Telepathy		SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-Affecting			TYPE:Psionic	COMPS:Vi	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature					DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will partial							SPELLRES:Yes				DESC:Your target takes more damage than normal from wounds.																SOURCEPAGE:p.16
+Circumstance Shield										CLASSES:Psion,Psychic Warrior,Tactician,Wilder=1								SCHOOL:Clairsentience												TYPE:Psionic	COMPS:Au	CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You						DURATION:(CASTERLEVEL) hours or until discharged			SAVEINFO:None								SPELLRES:No					DESC:Gain bonus on initiative; discharge to add bonus to Reflex save.														SOURCEPAGE:p.16
+Coordinate as One											CLASSES:Tactician=2													SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting|Network|Shared	TYPE:Psionic	COMPS:Me	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One willing creature other than you	DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates (harmless)					SPELLRES:Yes (harmless)			DESC:Give target a bonus on attack and damage, or on AC and saves.														SOURCEPAGE:p.17
+Delayed Response											CLASSES:Tactician=3													SCHOOL:Psychoportation												TYPE:Psionic	COMPS:Au Me	CASTTIME:1 immediate action	RANGE:Close		TARGETAREA:One creature					DURATION:Instantaneous								SAVEINFO:Will negates							SPELLRES:Yes				DESC:Force target to delay action.																				SOURCEPAGE:p.17
+Entangling Debris											CLASSES:Psion,Tactician,Wilder=1											SCHOOL:Psychokinesis					DESCRIPTOR:Force					TYPE:Psionic	COMPS:Ma Vi	CASTTIME:1 standard action	RANGE:Long		TARGETAREA:Matter in a 40-ft.-radius spread	DURATION:Concentration, up to (CASTERLEVEL) minutes [D]		SAVEINFO:Reflex partial; see text					SPELLRES:No					DESC:Entangle creatures in area.																				SOURCEPAGE:p.17
+Expose Weakness											CLASSES:Egoist,Psychic Warrior,Tactician=3									SCHOOL:Psychometabolism												TYPE:Psionic	COMPS:Au Vi	CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:One creature					DURATION:(CASTERLEVEL) rounds							SAVEINFO:Fortitude negates						SPELLRES:Yes				DESC:Flanking, critical hits, and sneak attacks more beneficial against target.												SOURCEPAGE:p.18
+False Future											CLASSES:Seer,Tactician=2												SCHOOL:Clairsentience												TYPE:Psionic	COMPS:Au Ma	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature					DURATION:1 round									SAVEINFO:Will negates							SPELLRES:Yes				DESC:Cause target to be repositioned.																			SOURCEPAGE:p.18
+Halt Combat												CLASSES:Tactician=8													SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting			TYPE:Psionic	COMPS:Au Ma	CASTTIME:1 standard action	RANGE:60 ft.	TARGETAREA:60 ft. radius burst centered on you	DURATION:1 round [see text]							SAVEINFO:Will negates							SPELLRES:Yes				DESC:Daze targets; convince them to cease combat.																	SOURCEPAGE:p.18
+Improved Response											CLASSES:Tactician=3													SCHOOL:Psychoportation					DESCRIPTOR:Network				TYPE:Psionic	COMPS:Me Vi	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature					DURATION:Instantaneous								SAVEINFO:Will negates (harmless)					SPELLRES:Yes (harmless)			DESC:Target acts early in initiative sequence.																		SOURCEPAGE:p.18
+Inevitable Strike											CLASSES:Psion,Psychic Warrior,Tactician,Wilder=1								SCHOOL:Clairsentience												TYPE:Psionic	COMPS:Vi	CASTTIME:1 swift action		RANGE:Personal	TARGETAREA:You						DURATION:See text									SAVEINFO:None								SPELLRES:No					DESC:Next attack gains +5 insight bonus, not affected by miss chance for concealment											SOURCEPAGE:p.19
+Last Stand												CLASSES:Tactician=9													SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting|Network		TYPE:Psionic	COMPS:Au Vi	CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:(CASTERLEVEL) creatures			DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates (harmless)					SPELLRES:Yes (harmless)			DESC:Targets gain +5 morale bonus to attacks, AC, and saves; also 50 temporary hit points, immunity to fear, can fight for one round below 0 hp.	SOURCEPAGE:p.19
+Precognition (Tactical)				OUTPUTNAME:Precognition, Tactical	CLASSES:Psychic Warrior,Tactician=1											SCHOOL:Clairsentience												TYPE:Psionic	COMPS:Au Ol	CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You						DURATION:(CASTERLEVEL) rounds							SAVEINFO:None								SPELLRES:No					DESC:Gain bonus on one or more combat maneuvers.																	SOURCEPAGE:p.19
+Prowess as One											CLASSES:Tactician=5													SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting|Network|Shared	TYPE:Psionic	COMPS:Me	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:You plus one creature			DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates (harmless, see text)			SPELLRES:Yes				DESC:Share base attack bonus among targets.																		SOURCEPAGE:p.19
+Psychic Bodyguard											CLASSES:Psion,Tactician,Wilder=2											SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting			TYPE:Psionic	COMPS:Me Vi	CASTTIME:1 round			RANGE:Medium	TARGETAREA:One willing creature			DURATION:(CASTERLEVEL) hours [D] or until discharged; see text	SAVEINFO:Yes (harmless)							SPELLRES:Yes (harmless)			DESC:You make a target's Will saving throws for it																	SOURCEPAGE:p.20
+Psychic Interference										CLASSES:Tactician=2													SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting|Network		TYPE:Psionic	COMPS:Me	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature					DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will partial (see text)					SPELLRES:Yes				DESC:Hinder target's attacks, saves, and/or checks.																	SOURCEPAGE:p.20
+Reposition												CLASSES:Nomad,Tactician=6												SCHOOL:Psychoportation	SUBSCHOOL:Teleportation	DESCRIPTOR:Network				TYPE:Psionic	COMPS:Au Ma	CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:(CASTERLEVEL/2) willing creatures	DURATION:Instantaneous								SAVEINFO:Will negates (harmless); see text			SPELLRES:Yes (harmless); see text	DESC:Teleport targets within range.																				SOURCEPAGE:p.21
+Sense as One											CLASSES:Tactician=4													SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting|Network|Shared	TYPE:Psionic	COMPS:Me	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:You plus one creature			DURATION:(CASTERLEVEL) rounds							SAVEINFO:None (see text)						SPELLRES:Yes				DESC:Share one sensory special ability among targets.																	SOURCEPAGE:p.21
+Shift the Tide											CLASSES:Tactician=4													SCHOOL:Clairsentience												TYPE:Psionic	COMPS:Au	CASTTIME:1 immediate action	RANGE:Medium	TARGETAREA:One creature					DURATION:Instantaneous [see text]						SAVEINFO:Will negates (harmless) or Will partial (see text)	SPELLRES:Yes				DESC:Force one creature to reroll.																				SOURCEPAGE:p.21
+Skills as One											CLASSES:Tactician=1	CLASSES:TYPE.Psionic=1[PREFEAT:1,Expanded Knowledge (Skills as One)]	SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting|Network|Shared	TYPE:Psionic	COMPS:Me	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:You plus one willing creature		DURATION:(CASTERLEVEL) rounds							SAVEINFO:None (see text)						SPELLRES:Yes				DESC:Share ranks in a skill among targets.																		SOURCEPAGE:p.22
+Strike as One											CLASSES:Tactician=3													SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting|Network|Shared	TYPE:Psionic	COMPS:Me	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:You and one willing creature		DURATION:(CASTERLEVEL) rounds							SAVEINFO:None (harmless)						SPELLRES:Yes (harmless)			DESC:Targets flank from adjacent square; no target is flat-footed or flanked unless all are.										SOURCEPAGE:p.22
+Technique as One											CLASSES:Tactician=7													SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting|Network|Shared	TYPE:Psionic	COMPS:Me	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:You plus one willing creature		DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates (harmless, see text)			SPELLRES:Yes				DESC:Share feat among targets.																				SOURCEPAGE:p.22
+Unearthly Terror											CLASSES:Psion,Tactician,Wilder=1											SCHOOL:Telepathy						DESCRIPTOR:Fear|Mind-Affecting|Network	TYPE:Psionic	COMPS:Me	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature					DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates or Will partial (see text)		SPELLRES:Yes				DESC:Targets are shaken.																					SOURCEPAGE:p.23
+Upheaval												CLASSES:Psion,Tactician,Wilder=5|Psychic Warrior=6								SCHOOL:Psychoportation												TYPE:Psionic	COMPS:Vi	CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:20 ft. radius burst			DURATION:Instantaneous								SAVEINFO:Reflex half							SPELLRES:No					DESC:Drop rocks in area; area becomes difficult terrain.																SOURCEPAGE:p.23
+Withstand as One											CLASSES:Tactician=3													SCHOOL:Telepathy						DESCRIPTOR:Mind-Affecting|Network|Shared	TYPE:Psionic	COMPS:Me	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:You plus one other creature		DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates (harmless, see text)			SPELLRES:Yes				DESC:Share one base save bonus among targets.																		SOURCEPAGE:p.23
+
+### Block: Modify powers to add to Vitalist power list
+# COMMENT: Already exists in data set that introduces the Vitalist class.
+#Brutalize Wounds.MOD	CLASSES:Vitalist=6
+#Psychic Bodyguard.MOD	CLASSES:Vitalist=2
+
+### Block: Modify powers to add to Marksman power list
+# COMMENT: Already exists in data set that introduces the Marksman class.
+#Inevitable Strike.MOD	CLASSES:Marksman=1
+
+### Block: Modify powers to add to Gifted Blade power list
+Precognition (Tactical).MOD									CLASSES:Gifted Blade=1
+
+### Block: Sighted Seeker power list
+
+#Blinding Flash.MOD				CLASSES:Sighted Seeker=1
+Burst.MOD												CLASSES:Sighted Seeker=1
+Call to Mind.MOD											CLASSES:Sighted Seeker=1
+Call Weaponry.MOD											CLASSES:Sighted Seeker=1
+Chameleon.MOD											CLASSES:Sighted Seeker=1
+Circumstance Shield.MOD										CLASSES:Sighted Seeker=1
+Compression.MOD											CLASSES:Sighted Seeker=1
+Destiny Dissonance.MOD										CLASSES:Sighted Seeker=1
+Detect Psionics.MOD										CLASSES:Sighted Seeker=1
+Detect Teleportation.MOD									CLASSES:Sighted Seeker=1
+Grip of Iron.MOD											CLASSES:Sighted Seeker=1
+#Judge.MOD				CLASSES:Sighted Seeker=1
+Precognition.MOD											CLASSES:Sighted Seeker=1
+Precognition (Defensive).MOD									CLASSES:Sighted Seeker=1
+Precognition (Offensive).MOD									CLASSES:Sighted Seeker=1
+Prescience (Offensive).MOD									CLASSES:Sighted Seeker=1
+Prevenom Weapon.MOD										CLASSES:Sighted Seeker=1
+#Psychic Tracking.MOD				CLASSES:Sighted Seeker=1
+
+Clairvoyant Sense.MOD										CLASSES:Sighted Seeker=2
+Heightened Vision.MOD										CLASSES:Sighted Seeker=2
+#Everyman.MOD				CLASSES:Sighted Seeker=2
+Feat Leech.MOD											CLASSES:Sighted Seeker=2
+Know Direction and Location.MOD								CLASSES:Sighted Seeker=2
+Object Reading.MOD										CLASSES:Sighted Seeker=2
+Prowess.MOD												CLASSES:Sighted Seeker=2
+Recall Agony.MOD											CLASSES:Sighted Seeker=2
+Sensitivity to Psychic Impressions.MOD							CLASSES:Sighted Seeker=2
+
+Danger Sense.MOD											CLASSES:Sighted Seeker=3
+Escape Detection.MOD										CLASSES:Sighted Seeker=3
+Fate Link.MOD											CLASSES:Sighted Seeker=3
+#Guarded Sleep.MOD				CLASSES:Sighted Seeker=3
+Mental Barrier.MOD										CLASSES:Sighted Seeker=3
+Ubiquitous Vision.MOD										CLASSES:Sighted Seeker=3
+
+Anchored Navigation.MOD										CLASSES:Sighted Seeker=4
+Augured Answer.MOD										CLASSES:Sighted Seeker=4
+Aura Sight.MOD											CLASSES:Sighted Seeker=4
+Detect Remote Viewing.MOD									CLASSES:Sighted Seeker=4
+#Physical Acceleration.MOD				CLASSES:Sighted Seeker=4
+Remote Viewing.MOD										CLASSES:Sighted Seeker=4
+Steadfast Perception.MOD									CLASSES:Sighted Seeker=4
+Trace Psychoport.MOD										CLASSES:Sighted Seeker=4
+
+#
+# End
+#

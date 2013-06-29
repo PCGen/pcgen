@@ -1,0 +1,61 @@
+# CVS $Revision$ $Author$ -- Wed Aug 27 17:52:39 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Curse of the Crimson Throne - Chapter 3: Escape From Old Korvosa	SOURCESHORT:CotCT:EfOK	SOURCEWEB:http://paizo.com/store/paizo/v5748btpy82t5	SOURCEDATE:2008-05
+
+
+# Spell Name				Classes of caster
+Animate Rope.MOD				CLASSES:Red Mantis Assassin=1
+Cause Fear.MOD				CLASSES:Red Mantis Assassin=1
+Alter Self.MOD				CLASSES:Red Mantis Assassin=1
+Darkvision.MOD				CLASSES:Red Mantis Assassin=1
+Detect Magic.MOD				CLASSES:Red Mantis Assassin=1
+Expeditious Retreat.MOD			CLASSES:Red Mantis Assassin=1
+Feather Fall.MOD				CLASSES:Red Mantis Assassin=1
+Ghost Sound.MOD				CLASSES:Red Mantis Assassin=1
+Inflict Light Wounds.MOD		CLASSES:Red Mantis Assassin=1
+Jump.MOD					CLASSES:Red Mantis Assassin=1
+Magic Fang.MOD				CLASSES:Red Mantis Assassin=1
+Obscuring Mist.MOD			CLASSES:Red Mantis Assassin=1
+Silent Image.MOD				CLASSES:Red Mantis Assassin=1
+Spider Climb.MOD				CLASSES:Red Mantis Assassin=1
+True Strike.MOD				CLASSES:Red Mantis Assassin=1
+
+Alter Self.MOD				CLASSES:Red Mantis Assassin=2
+Blur.MOD					CLASSES:Red Mantis Assassin=2
+Cat's Grace.MOD				CLASSES:Red Mantis Assassin=2
+Darkness.MOD				CLASSES:Red Mantis Assassin=2
+Fog Cloud.MOD				CLASSES:Red Mantis Assassin=2
+Hold Person.MOD				CLASSES:Red Mantis Assassin=2
+Inflict Moderate Wounds.MOD		CLASSES:Red Mantis Assassin=2
+Invisibility.MOD				CLASSES:Red Mantis Assassin=2
+Keen Edge.MOD				CLASSES:Red Mantis Assassin=2
+Levitate.MOD				CLASSES:Red Mantis Assassin=2
+Minor Image.MOD				CLASSES:Red Mantis Assassin=2
+Scare.MOD					CLASSES:Red Mantis Assassin=2
+See Invisibility.MOD			CLASSES:Red Mantis Assassin=2
+Summon Swarm.MOD				CLASSES:Red Mantis Assassin=2
+
+Clairaudience/Clairvoyance.MOD	CLASSES:Red Mantis Assassin=3
+Deeper Darkness.MOD			CLASSES:Red Mantis Assassin=3
+Fear.MOD					CLASSES:Red Mantis Assassin=3
+Fly.MOD					CLASSES:Red Mantis Assassin=3
+Gaseous Form.MOD				CLASSES:Red Mantis Assassin=3
+Giant Vermin.MOD				CLASSES:Red Mantis Assassin=3
+Inflict Serious Wounds.MOD		CLASSES:Red Mantis Assassin=3
+Major Image.MOD				CLASSES:Red Mantis Assassin=3
+Rage.MOD					CLASSES:Red Mantis Assassin=3
+Scrying.MOD					CLASSES:Red Mantis Assassin=3
+
+Dimension Door.MOD			CLASSES:Red Mantis Assassin=4
+Invisibility (Greater).MOD		CLASSES:Red Mantis Assassin=4
+Inflict Critical Wounds.MOD		CLASSES:Red Mantis Assassin=4
+Insect Plague.MOD				CLASSES:Red Mantis Assassin=4
+Modify Memory.MOD				CLASSES:Red Mantis Assassin=4
+Phantasmal Killer.MOD			CLASSES:Red Mantis Assassin=4
+Polymorph.MOD				CLASSES:Red Mantis Assassin=4
+Solid Fog.MOD				CLASSES:Red Mantis Assassin=4
+
+Mark of Justice.MOD			CLASSES:Red Mantis Assassin=5
+Nightmare.MOD				CLASSES:Red Mantis Assassin=5
+Prying Eyes.MOD				CLASSES:Red Mantis Assassin=5
+Slay Living.MOD				CLASSES:Red Mantis Assassin=5
+Word of Recall.MOD			CLASSES:Red Mantis Assassin=5

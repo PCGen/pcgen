@@ -1,0 +1,19 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Gnomes of Golarion	SOURCESHORT:GoG	SOURCEWEB:http://paizo.com/products/btpy8dmh?Pathfinder-Companion-Gnomes-of-Golarion	SOURCEDATE:2010-03
+#ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
+#ORIGINAL ENTRY DATE:2012/12/31
+
+
+####Block: Exotic Weapons
+#------light---------
+
+#-----one handed -------
+# Equipment Name	Output Name				Required Weapon Proficiency		Type														Alternative Type				Cost		Weight	Slot Needed	Critical Hit Multiplier	Critical Hit Range	Alternative Critical	Alternative Critical Range	Damage	Alternative Damage	Modifier			Alternative Modifier	Wield Category	Reach Multiplier	Size		Source Page
+Flickmace							PROFICIENCY:WEAPON|Flickmace		TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Bludgeoning.Mace.Hammer.Reach.Trip							COST:20	WT:10				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL							WIELD:OneHanded				SIZE:M	SOURCEPAGE:pg.22
+
+#-----two handed -------
+Scarf (Bladed)	OUTPUTNAME:Scarf, Bladed	PROFICIENCY:WEAPON|Scarf (Bladed)	TYPE:Weapon.Melee.TwoHanded.Exotic.Standard.Reach.Finesseable.Slashing.Scarf								COST:12	WT:2		SLOTS:2	CRITMULT:x2			CRITRANGE:2												DAMAGE:1d6					EQMOD:STEEL.TRIP						WIELD:TwoHanded	REACHMULT:2		SIZE:M	SOURCEPAGE:p.11
+Battle Ladder						PROFICIENCY:WEAPON|Battle Ladder	TYPE:Weapon.Melee.TwoHanded.Exotic.Standard.Double.Bludgeoning.Trip			ALTTYPE:Weapon.Melee.Bludgeoning	COST:20	WT:8				CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:WOOD.TRIP		ALTEQMOD:WOOD.TRIP	WIELD:TwoHanded				SIZE:M	SOURCEPAGE:pg.22
+Flailpole							PROFICIENCY:WEAPON|Flailpole		TYPE:Weapon.Melee.TwoHanded.Exotic.Standard.Bludgeoning.Flail.Polearm.Disarm.Trip							COST:15	WT:10				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					EQMOD:DISARM.STEEL.TRIP					WIELD:TwoHanded				SIZE:M	SOURCEPAGE:pg.22
+Maul (Piston)	OUTPUTNAME:Piston Maul		PROFICIENCY:WEAPON|Maul (Piston)	TYPE:Weapon.Melee.TwoHanded.Exotic.Standard.Bludgeoning.Club.Hammer									COST:70	WT:15				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d10					EQMOD:STEEL							WIELD:TwoHanded				SIZE:M	SOURCEPAGE:pg.22
+Glaive (Ripsaw)	OUTPUTNAME:Ripsaw Glaive	PROFICIENCY:WEAPON|Glaive (Ripsaw)	TYPE:Weapon.Melee.TwoHanded.Exotic.Standard.Slashing.Polearm										COST:30	WT:12				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d10					EQMOD:STEEL							WIELD:TwoHanded	REACHMULT:2		SIZE:M	SOURCEPAGE:pg.22

@@ -1,0 +1,45 @@
+# CVS $Revision: 12254 $ $Author: eddyanthony $ -- Sat Mar 30 17:43:22 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+#SOURCELONG:Inner Sea World Guide	SOURCESHORT:ISWG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief	SOURCEDATE:2011-03
+# Original Entry by:Stefan Radermacher & Paul Shipley
+
+###Block: Master Category
+# Ability Category		Visible	Editable or Static?	Change Pool?	Fractional values?	Category of Object
+#ABILITYCATEGORY:Background	VISIBLE:NO	EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Background
+
+###Block: Background Ability Categories
+# Ability Category			Base Pool	Visible		Editable?		Edit Pool?	Fractional?		Category of Object		Type of Object		Plural description for UI		Display Location
+#ABILITYCATEGORY:Human Ethnicity			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	CATEGORY:Background		TYPE:HumanEthnicity	PLURAL:Human Ethnicities		DISPLAYLOCATION:Background
+#ABILITYCATEGORY:Region of Origin	POOL:1	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	FRACTIONALPOOL:NO	CATEGORY:Background		TYPE:Region			PLURAL:Regions of Origin		DISPLAYLOCATION:Background
+# Ability Category		Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Shoanti Clan	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Background	TYPE:ShoantiClan	PLURAL:Shoanti Clans		DISPLAYLOCATION:Background
+
+###Block: Hellknight Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Hellknight Order			VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HKOrder	PLURAL:Orders			DISPLAYLOCATION:Class Abilities
+# Note there is no choice for Hellknight Discipline 1!
+ABILITYCATEGORY:Hellknight Discipline 2		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HKOAny		PLURAL:Disciplines		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Hellknight Discipline 3		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HKAbility	PLURAL:Disciplines		DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Hellknight Domain			VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HKDomain	PLURAL:Domains			DISPLAYLOCATION:Class Abilities
+
+ABILITYCATEGORY:Hellknight Force of Will 1	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HKFoW1		PLURAL:Force of Will Choices	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Hellknight Force of Will 2	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HKFoW2		PLURAL:Force of Will Choices	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Hellknight Force of Will 3	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HKFoW3		PLURAL:Force of Will Choices	DISPLAYLOCATION:Class Abilities
+
+###Block: Low Templar Abilities
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
+ABILITYCATEGORY:Low Templar Path		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LowPath	PLURAL:Path Choices		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Low Templar Final Choice	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:LowFinal	PLURAL:Final Choices		DISPLAYLOCATION:Class Abilities
+
+###Block: Feat Support Abilities
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
+ABILITYCATEGORY:Andoren Falconry Bonus	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AndorenFalconry	PLURAL:Andoren Falconry Bonuses	DISPLAYLOCATION:Companion Abilities
+ABILITYCATEGORY:Hermean Blood			VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:HermeanBlood		PLURAL:Hermean Blood			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Noble Scion Choice		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:NobleScion		PLURAL:Noble Scion Choices		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Scholar Choice		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Scholar		PLURAL:Scholar Choices			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Totem Spirit Choice		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TotemSpirit		PLURAL:Totem Spirit Choices		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Varisian Tattoo Choice	VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VarisianTattoo	PLURAL:Varisian Tattoo Choices	DISPLAYLOCATION:Feats
+
+#
+# End
+#

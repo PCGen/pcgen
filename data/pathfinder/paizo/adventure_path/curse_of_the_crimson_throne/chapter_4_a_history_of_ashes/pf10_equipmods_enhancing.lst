@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Sun Aug 10 23:59:36 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Curse of the Crimson Throne - Chapter 4: A History of Ashes	SOURCESHORT:PF10	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy82u9	SOURCEDATE:2008-7
+# Original Entry by: Paul Grosse
+
+###Block:Weapon abilities
+# Modifier Name	Unique Key	Type					Plus		Visible		Source Page		Required Type							Weapon prop. bonus									Special Property																Apply to both heads
+Guided		KEY:GUIDED	TYPE:Weapon.Melee.Thrown	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.22	PRETYPE:2,Enhancement,Weapon	PRETYPE:1,Melee,Thrown	BONUS:WEAPON|TOHIT,DAMAGE|WIS-STR|TYPE=Enhancement|PRETYPE:1,Weapon	SPROP:A weapon with the guided property allows its wielder to use his instinct when striking blows with it	ASSIGNTOALL:NO
+
+#
+# Eof
+#

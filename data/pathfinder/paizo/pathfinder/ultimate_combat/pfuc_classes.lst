@@ -1,0 +1,99 @@
+# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+
+# ORIGINAL ENTRY: Andrew Maitland
+# ORIGINAL ENTRY DATE: 08-2012 (August 8th)
+
+###Block: Gunslinger
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
+CLASS:Gunslinger	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Gun		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:GunslingerLvl|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Gunslinger	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Engineering)|Knowledge (Local)|Perception|TYPE=Profession|Ride|Sleight of Hand|Survival|Swim
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency|Exotic Weapon Proficiency (Firearms)	AUTO:WEAPONPROF|TYPE.Firearm
+1																	AUTO:FEAT|Armor Proficiency (Light)
+###Block: Vars and Pools
+4	BONUS:VAR|GunslingerBonusFeatCount|CL/4
+5	BONUS:VAR|GunTrainingSelection|(CL-1)/4
+###Block: Level progression
+1	ABILITY:Special Ability|AUTOMATIC|Gunsmith ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunsmith
+1	ABILITY:Special Ability|AUTOMATIC|Deeds ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerDeeds
+1	ABILITY:Special Ability|AUTOMATIC|Grit ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGrit
+2	ABILITY:Special Ability|AUTOMATIC|Nimble ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerNimble
+4	ABILITY:Special Ability|AUTOMATIC|Bonus Feats ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerBonusFeat
+5	ABILITY:Special Ability|AUTOMATIC|Gun Training ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerGunTraining
+20	ABILITY:Special Ability|AUTOMATIC|True Grit ~ Gunslinger|!PREABILITY:1,CATEGORY=Archetype,TYPE.GunslingerTrueGrit
+
+
+###Block: Ninja
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define											Save checks bonus												Combat bonus					Modify VAR
+CLASS:Ninja		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Nin		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLvl|CL	DEFINE:RogueTalentLVL|0	DEFINE:KiPoolCha|1	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|KiPool|1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
+###Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Special Ability|AUTOMATIC|Weapon Proficiencies ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaWeaponProficiencies	AUTO:FEAT|Simple Weapon Proficiency
+1																																	AUTO:FEAT|Armor Proficiency (Light)
+###Block: Vars
+1	BONUS:VAR|NinjaSneakAttackLVL|CL
+2	BONUS:VAR|KiPoolLVL|CL
+2	BONUS:VAR|NinjaTrickLVL|CL	BONUS:VAR|RogueTalentLVL|CL
+3	BONUS:VAR|NinjaNoTraceLVL|CL
+4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
+4	BONUS:VAR|UncannyDodgeLevel|CL/4
+8	BONUS:VAR|ImprovedUncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
+###Block: Level progression
+1	ABILITY:Special Ability|AUTOMATIC|Poison Use ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaPoison
+1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Sneak Attack ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaSneakAttack
+2	ABILITY:Special Ability|AUTOMATIC|Ninja Trick ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaTrick
+2	ABILITY:Special Ability|AUTOMATIC|Ki Pool ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaKiPool
+3	ABILITY:Special Ability|AUTOMATIC|No Trace ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaNoTrace
+4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+6	ABILITY:Special Ability|AUTOMATIC|Light Steps ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaLightSteps
+8	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+20	ABILITY:Special Ability|AUTOMATIC|Hidden Master ~ Ninja|!PREABILITY:1,CATEGORY=Archetype,TYPE.NinjaHiddenMaster
+
+
+###Block: Samurai
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define									Save checks bonus											Combat bonus
+CLASS:Samurai	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sam		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:FighterWeaponQualifyLVL|CL	DEFINE:SamuraiLVL|CL	BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|Samurai Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
+###Block:
+1	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponProficiencies
+1	AUTO:FEAT|Armor Proficiency (Heavy)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyHeavy
+1	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyLight
+1	AUTO:FEAT|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiArmorProficiencyMedium
+1	AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiArmorProficiency,TYPE.SamuraiShieldProficiency
+###Block: Level progression
+1	ABILITY:Special Ability|AUTOMATIC|Challenge ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiChallenge
+1	ABILITY:Special Ability|AUTOMATIC|Mount ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMount
+1	ABILITY:Special Ability|AUTOMATIC|Order ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiOrder
+1	ABILITY:Special Ability|AUTOMATIC|Resolve ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiResolve
+3	ABILITY:Special Ability|AUTOMATIC|Weapon Expertise ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiWeaponExpertise
+4	ABILITY:Special Ability|AUTOMATIC|Mounted Archer ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiMountedArcher
+5	ABILITY:Special Ability|AUTOMATIC|Banner ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiBanner
+6	ABILITY:Special Ability|AUTOMATIC|Bonus Feat ~ Samurai|!PREABILITY:1,CATEGORY=Archetye,TYPE.SamuraiBonusFeats
+9	ABILITY:Special Ability|AUTOMATIC|Greater Resolve ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterResolve
+11	ABILITY:Special Ability|AUTOMATIC|Honorable Stand ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiHonorableStand
+12	ABILITY:Special Ability|AUTOMATIC|Demanding Challenge ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiDemandingChallenge
+14	ABILITY:Special Ability|AUTOMATIC|Greater Banner ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiGreaterBanner
+17	ABILITY:Special Ability|AUTOMATIC|True Resolve ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiTrueResolve
+20	ABILITY:Special Ability|AUTOMATIC|Last Stand ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiLastStand
+###Block:
+6	BONUS:VAR|SamuraiBonusFeat|CL/6
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
+1	ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Disruptive Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Greater Shield Focus Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Focus Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Spellbreaker Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Specialization Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Penetrating Strike Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Critical Mastery Qualify
+1	ABILITY:Special Ability|AUTOMATIC|Greater Penetrating Strike Qualify

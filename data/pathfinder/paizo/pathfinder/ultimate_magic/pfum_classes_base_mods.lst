@@ -1,0 +1,61 @@
+# CVS $Revision: $ $Author: $ -- Sun Apr 22 08:08:02 2012 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 16 December 2011
+
+###Block: Bardic Masterpiece activation
+
+# Class Name
+CLASS:Bard.MOD
+1	TEMPLATE:Masterpiece Activation
+
+###Block: Variant Channeling activation
+
+# Class Name
+CLASS:Cleric.MOD
+1	BONUS:ABILITYPOOL|Variant Channeling|1|PREABILITY:1,CATEGORY=Special Ability,Channel Energy
+
+#COMMENT: Variant Channeling should be available to some (but not all) other
+#COMMENT:   classes with a channel energy ability.  This is tricky to
+#COMMENT:   implement, since (1) paladins and clerics treat the channel
+#COMMENT:   energy ability differently, and (2) one could have a character
+#COMMENT:   with both cleric and paladin classes, and two different variant
+#COMMENT:   channelings.
+#CLASS:Paladin.MOD
+#1	BONUS:ABILITYPOOL|Variant Channeling|1|PREABILITY:1,CATEGORY=Special Ability,Channel Energy
+#CLASS:Oracle.MOD
+#1	BONUS:ABILITYPOOL|Variant Channeling|1|PREABILITY:1,CATEGORY=Special Ability,Channel Energy
+
+###Block: Animal and Terrain Domains
+
+# Class Name
+CLASS:Druid.MOD
+1	DOMAIN:Aquatic[PREVAREQ:DruidAquaticAllowed,1]
+1	DOMAIN:Arctic[PREVAREQ:DruidArcticAllowed,1]
+1	DOMAIN:Cave[PREVAREQ:DruidCaveAllowed,1]
+1	DOMAIN:Desert[PREVAREQ:DruidDesertAllowed,1]
+1	DOMAIN:Eagle[PREVAREQ:DruidEagleAllowed,1]
+1	DOMAIN:Frog[PREVAREQ:DruidFrogAllowed,1]
+1	DOMAIN:Jungle[PREVAREQ:DruidJungleAllowed,1]
+1	DOMAIN:Monkey[PREVAREQ:DruidMonkeyAllowed,1]
+1	DOMAIN:Mountain[PREVAREQ:DruidMountainAllowed,1]
+1	DOMAIN:Plains[PREVAREQ:DruidPlainsAllowed,1]
+1	DOMAIN:Serpent[PREVAREQ:DruidSerpentAllowed,1]
+1	DOMAIN:Swamp[PREVAREQ:DruidSwampAllowed,1]
+1	DOMAIN:Wolf[PREVAREQ:DruidWolfAllowed,1]
+
+###Block: Additional Domains for Druid archetypes
+1	DOMAIN:Cloud Subdomain[PREVAREQ:DruidCloudAllowed,1]
+1	DOMAIN:Destruction[PREVAREQ:DruidDestructionAllowed,1]
+1	DOMAIN:Storms Subdomain[PREVAREQ:DruidStormsAllowed,1]
+1	DOMAIN:War[PREVAREQ:DruidWarAllowed,1]
+1	DOMAIN:Wind Subdomain[PREVAREQ:DruidWindAllowed,1]
+
+###Block: Wizard Elemental Schools
+
+# Class Name
+CLASS:Wizard.MOD
+SUBCLASS:Metal	CHOICE:DESCRIPTOR|MetalSchool	KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	BONUS:VAR|MetalSchoolLVL|CL	ABILITY:Special Ability|AUTOMATIC|Metal School
+SUBCLASS:Wood	CHOICE:DESCRIPTOR|WoodSchool	KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	BONUS:VAR|WoodSchoolLVL|CL	ABILITY:Special Ability|AUTOMATIC|Wood School

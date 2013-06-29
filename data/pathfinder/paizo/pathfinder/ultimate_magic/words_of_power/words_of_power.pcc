@@ -1,0 +1,73 @@
+# CVS $Revision$ $Author$ -- Sat Apr  2 09:13:16 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+CAMPAIGN:Paizo - Pathfinder Roleplaying Game Ultimate Magic - Words of Power subsystem
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder RPG
+RANK:3
+STATUS:Alpha
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder RPG
+PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Ultimate Magic
+PUBNAMELONG:Paizo Publishing LLC
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SETTING:Pathfinder Campaign Setting
+SOURCELONG:Words of Power
+SOURCESHORT:PFWoP
+SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s
+SOURCEDATE:2011-05
+ISOGL:YES
+
+#COVER:ultimate_magic.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinderRPG/v5748btpy8g7s|Buy this publication from Paizo Publishing!
+DESC:Unlock the magical mysteries of the Pathfinder RPG with this exhaustive guide to the art of magic, an invaluable resource for players and Game Masters alike! This comprehensive 256-page hardcover reference unveils the magical secrets of the Pathfinder rules like never before. Tons of new tricks and techniques for every spellcasting class in the game fill the book, ranging from arcane secrets uncovered by studious wizards to dazzling ki-tricks performed by canny monks to new mutagens for alchemists, new oracle mysteries, specialized channel energy options for clerics, and more.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook. Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Anger of Angels. Copyright 2003, Sean K Reynolds.
+COPYRIGHT:Book of Fiends. Copyright 2003, Green Ronin Publishing; Authors: Aaron Loeb, Erik Mona, Chris Pramas, Robert J. Schwalb.
+COPYRIGHT:The Book of Hallowed Might. Copyright 2002, Monte J. Cook.
+COPYRIGHT:Monte Cook's Arcana Unearthed. Copyright 2003, Monte J. Cook.
+COPYRIGHT:Path of the Magi. Copyright 2002 Citizen Games/Troll Lord Games; Authors: Mike McArtor, W. Jason Peck, Jeff Quick, and Sean K Reynolds.
+COPYRIGHT:Skreyn's Register: The Bonds of Magic. Copyright 2002, Sean K Reynolds.
+COPYRIGHT:Angel, Monadic Deva from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Angel, Movanic Deva from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Brownie from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Daemon, Ceustodaemon (Guardian Daemon) from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Daemon, Derghodaemon from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Daemon, Hydrodaemon from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Daemon, Piscodaemon from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Froghemoth from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Ice Golem from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene.
+COPYRIGHT:Iron Cobra from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Philip Masters.
+COPYRIGHT:Marid from the Tome of Horrors III. Copyright 2005, Necromancer Games, Inc.; Author: Scott Greene.
+COPYRIGHT:Mihstu from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Nabasu Demon from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Necrophidius from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Simon Tillbrook.
+COPYRIGHT:Sandman from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Roger Musson.
+COPYRIGHT:Scarecrow from the Tome of Horrors, Revised. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Roger Musson.
+COPYRIGHT:Shadow Demon from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Neville White.
+COPYRIGHT:Wood Golem from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene and Patrick Lawinger.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Magic. Copyright 2011, Paizo Publishing, LLC; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Magic" Copyright 2011, PCGen Data team (Including, but not limited to Stefan Radermacher and Eric Smith (Maredudd)).
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITY:wop_abilities_archetypes.lst
+ABILITY:wop_abilities_classes.lst
+ABILITY:wop_words.lst
+ABILITY:wop_abilities_extra_words.lst
+ABILITYCATEGORY:wop_abilitycategories.lst
+FEAT:wop_feats.lst
+SPELL:wop_example_spells.lst
+
+#
+# End
+#

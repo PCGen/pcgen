@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Sat Dec 26 10:29:41 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:Second Darkness - Chapter 1: Shadow in the Sky	SOURCESHORT:PF13	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/v5748btpy84em	SOURCEDATE:2008-08
+
+
+# Skill Name		Key Stat	Untrained?		Type				Source Page
+Profession (Gambler)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession	SOURCEPAGE:p.21
+
+#
+# End
+#

@@ -1,0 +1,15 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:44:12 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Halflings of Golarion	SOURCESHORT:HoG	SOURCEWEB:http://paizo.com/products/btpy8i8p?Pathfinder-Player-Companion-Halflings-of-Golarion	SOURCEDATE:2010-12
+#ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
+#ORIGINAL ENTRY DATE: 2012/12/29
+
+
+###Block: Halfling Racial Trait Modification
+# Ability Name							Category of Ability	Ability
+#CATEGORY=Internal|Halfling Racial Trait Default.MOD					ABILITY:Halfling Racial Trait|AUTOMATIC|Jinx ~ Halfling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingFearless
+
+
+###Block: Halfling Abilities
+# Ability Name	Unique Key			Category of Ability		Type													Multiple Requirements																		Define								Description																																																																																																													Modify VAR												Cost		Source Page
+Jinx			KEY:Jinx ~ Halfling	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialAttack.Supernatural.HalflingRacialTrait.HalflingLuck	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Jinx ~ Halfling],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingLuck]	DEFINE:HalflingJinxDC|0	DEFINE:HalflingJinxRange|0	DESC:You can curse another creature with bad luck at will as a standard action. This curse has a range of %1 feet, and you must be able to see the target and have line of effect to it. The target gets a Will saving throw to resist this jinx (%2 DC). If your target makes this saving throw, it is immune to your jinx ability for 24 hours. A jinxed creature takes a –1 penalty on all saving throws. This jinx lasts for 24 hours or until you attempt to use your jinx again. A jinx is a supernatural ability, is not mind-affecting, does not allow spell resistance, and can affect any kind of creature not immune to luck effects.|HalflingJinxRange|HalflingJinxDC	BONUS:VAR|HalflingJinxDC|10+(TL/2)+CHA	BONUS:VAR|HalflingJinxRange|30	COST:0	SOURCEPAGE:p.27
+

@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:43:46 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+
+SOURCELONG:Princes of Darkness	SOURCESHORT:PoD	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f	SOURCEDATE:2009-10
+
+
+STARTPACK:Companion ~ Imp	TYPE:Imp Companion»-VISIBLE:NO
+ALIGN:LE
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10

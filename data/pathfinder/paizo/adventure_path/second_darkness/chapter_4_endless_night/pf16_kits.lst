@@ -1,0 +1,88 @@
+# CVS $Revision$ $Author$ -- Thu Nov 20 17:46:52 2008 -- reformated by prettylst.pl v1.38 (build 8180)
+SOURCELONG:Second Darkness - Chapter 4: Endless Night	SOURCESHORT:PF16	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy81tq	SOURCEDATE:2008-11
+
+
+STARTPACK:Deep Crow Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Deep Crow],[!PRERACE:1,%]	SOURCEPAGE:p. 80
+ALIGN:TN
+RACE:Deep Crow	!PRERACE:1,%
+NAME:Deep Crow
+SKILL:Listen		RANK:6
+SKILL:Move Silently	RANK:7
+SKILL:Spot			RANK:6
+FEAT:Alertness
+FEAT:Combat Reflexes
+FEAT:Flyby Attack
+FEAT:Multiattack
+FEAT:Improved Initiative
+FEAT:Wingover
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Demon (Omox) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demon (Omox)],[!PRERACE:1,%]	SOURCEPAGE:p. 82
+ALIGN:CE
+RACE:Demon (Omox)	!PRERACE:1,%
+NAME:Omox Demon
+SKILL:Bluff					RANK:15
+SKILL:Hide					RANK:15
+SKILL:Knowledge (Dungeoneering)	RANK:15
+SKILL:Knowledge (The Planes)		RANK:15
+SKILL:Listen				RANK:15
+SKILL:Move Silently			RANK:15
+SKILL:Search				RANK:15
+SKILL:Sense Motive			RANK:15
+SKILL:Spot					RANK:15
+SKILL:Tumble				RANK:15
+FEAT:Combat Reflexes
+FEAT:Dodge
+FEAT:Improved Initiative
+FEAT:Mobility
+FEAT:Spring Attack
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+
+
+STARTPACK:Ghonhatine Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ghonhatine],[!PRERACE:1,%]	SOURCEPAGE:p. 84
+ALIGN:CE
+RACE:Ghonhatine	!PRERACE:1,%
+NAME:Ghonhatine
+SKILL:Listen	RANK:4
+SKILL:Spot		RANK:4
+SKILL:Survival	RANK:7
+SKILL:Survival	RANK:1	FREE:YES
+FEAT:Awesome Blow
+FEAT:Cleave
+FEAT:Improved Bull Rush
+FEAT:Multiattack
+FEAT:Power Attack
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+
+
+STARTPACK:Irnakurse Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Irnakurse],[!PRERACE:1,%]	SOURCEPAGE:p. 86
+ALIGN:CE
+RACE:Irnakurse	!PRERACE:1,%
+NAME:Irnakurse
+SKILL:Listen	RANK:7
+SKILL:Spot		RANK:6
+FEAT:Combat Reflexes
+FEAT:Improved Initiative
+FEAT:Lightning Reflexes
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+
+STARTPACK:Mothman Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mothman],[!PRERACE:1,%]	SOURCEPAGE:p. 88
+ALIGN:CN
+RACE:Mothman	!PRERACE:1,%
+NAME:Mothman
+SKILL:Hide			RANK:12
+SKILL:TYPE.Knowledge	RANK:6	COUNT:2
+SKILL:Listen		RANK:12
+SKILL:Sense Motive	RANK:12
+SKILL:Spot			RANK:12
+FEAT:Blind Fight
+FEAT:Flyby Attack
+FEAT:Improved Initiative
+FEAT:Weapon Finesse
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+
+#
+# End
+#

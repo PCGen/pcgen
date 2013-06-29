@@ -1,0 +1,11 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pathfinder Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
+
+
+# Weapon Name	Type
+Blowgun		TYPE:Simple.Ranged
+Starknife		TYPE:Martial.Melee.Thrown
+
+#
+# End
+#

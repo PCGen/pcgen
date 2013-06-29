@@ -1,0 +1,27 @@
+# CVS $Revision: $ $Author: $ -- Sun Apr 22 08:08:02 2012 -- reformated by prettylst.pl v1.39 (build )
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: unknown
+
+# Template Name			Visible	Template											Required Size	Natural Attacks
+
+###Block: Alchemist Tentacle discovery templates
+# Template Name			Visible	Template											Required Size	Natural Attacks
+Alchemist Tentacle		VISIBLE:NO	TEMPLATE:CHOOSE:Medium Alchemist Tentacle|Small Alchemist Tentacle
+Medium Alchemist Tentacle	VISIBLE:NO													PRESIZEEQ:M		NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+Small Alchemist Tentacle	VISIBLE:NO													PRESIZEEQ:S		NATURALATTACKS:Tentacle,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d3
+
+###Block: Template to activate bardic masterpieces
+# Template Name		Visible	Ability
+Masterpiece Activation	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ At the Heart of It All|PREMULT:1,[PRESPELL:1,Masterpiece (At the Heart of It All)],[PREFEAT:1,Masterpiece (At the Heart of It All)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Cat-Step|PREMULT:1,[PRESPELL:1,Masterpiece (Cat-Step)],[PREFEAT:1,Masterpiece (Cat-Step)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Dance of 23 Steps|PREMULT:1,[PRESPELL:1,Masterpiece (Dance of 23 Steps)],[PREFEAT:1,Masterpiece (Dance of 23 Steps)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Depths of the Mountain|PREMULT:1,[PRESPELL:1,Masterpiece (Depths of the Mountain)],[PREFEAT:1,Masterpiece (Depths of the Mountain)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Dumbshow of Gorroc|PREMULT:1,[PRESPELL:1,Masterpiece (Dumbshow of Gorroc)],[PREFEAT:1,Masterpiece (Dumbshow of Gorroc)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ House of Imaginary Walls|PREMULT:1,[PRESPELL:1,Masterpiece (House of Imaginary Walls)],[PREFEAT:1,Masterpiece (House of Imaginary Walls)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Legato Piece on the Infernal Bargain|PREMULT:1,[PRESPELL:1,Masterpiece (Legato Piece on the Infernal Bargain)],[PREFEAT:1,Masterpiece (Legato Piece on the Infernal Bargain)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Lullaby of Ember the Ancient|PREMULT:1,[PRESPELL:1,Masterpiece (Lullaby of Ember the Ancient)],[PREFEAT:1,Masterpiece (Lullaby of Ember the Ancient)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Minuet of the Midnight Ivy|PREMULT:1,[PRESPELL:1,Masterpiece (Minuet of the Midnight Ivy)],[PREFEAT:1,Masterpiece (Minuet of the Midnight Ivy)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Quickening Pulse|PREMULT:1,[PRESPELL:1,Masterpiece (Quickening Pulse)],[PREFEAT:1,Masterpiece (Quickening Pulse)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Requiem of the Fallen Priest-King|PREMULT:1,[PRESPELL:1,Masterpiece (Requiem of the Fallen Priest-King)],[PREFEAT:1,Masterpiece (Requiem of the Fallen Priest-King)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Stone Face|PREMULT:1,[PRESPELL:1,Masterpiece (Stone Face)],[PREFEAT:1,Masterpiece (Stone Face)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Toccata and Fugue of the Danse Macabre|PREMULT:1,[PRESPELL:1,Masterpiece (Toccata and Fugue of the Danse Macabre)],[PREFEAT:1,Masterpiece (Toccata and Fugue of the Danse Macabre)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Triple Time|PREMULT:1,[PRESPELL:1,Masterpiece (Triple Time)],[PREFEAT:1,Masterpiece (Triple Time)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Winds of the Five Heavens|PREMULT:1,[PRESPELL:1,Masterpiece (Winds of the Five Heavens)],[PREFEAT:1,Masterpiece (Winds of the Five Heavens)]
+
+###Block: Template for Wood Mystery Final Revelation
+# Template Name			Visible	Combat bonus				Ability							Main Race Type
+Wood Mystery Final Revelation	VISIBLE:NO	BONUS:COMBAT|AC|4|TYPE=Natural	ABILITY:Special Ability|AUTOMATIC|Plant Traits	RACETYPE:Plant
+
+###Block: Template for Planar Oracle Final Revelation
+# Template Name				Visible	Damage Reduction	Main Race Type	Race Subtype
+Planar Oracle Final Revelation	VISIBLE:NO	DR:10/magic		RACETYPE:Outsider	RACESUBTYPE:Extraplanar
+
+###Block: Familiar template
+# Template Name			Visible	Add 					Ability
+Thrush Familiar Language	VISIBLE:NO	ADD:LANGUAGE|TYPE=Spoken	ABILITY:Special Ability|AUTOMATIC|Speak One Language

@@ -1,0 +1,20 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:42:47 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Dark Markets: A Guide to Katapesh	SOURCESHORT:DMGK	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
+# Original Entry by: Stefan Radermacher
+
+# Class Name				Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Balanced Scale of Abadar	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:BSA		MAXLEVEL:6	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name				Required Deity	Required Skill				Req. Spell Type
+CLASS:Balanced Scale of Abadar	PREDEITY:1,Abadar	PRESKILL:2,Appraise=4,Open Lock=4	PRESPELLTYPE:1,Divine=3
+# Class Name				Skill Pts/Lvl	Class Skill
+CLASS:Balanced Scale of Abadar	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Dungeoneering)|Knowledge (Local)|Knowledge (Religion)|Open Lock|TYPE=Profession|Search|Spellcraft
+1																		ABILITY:Special Ability|AUTOMATIC|Bypass Ward ~ Balanced Scale
+2														ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Appraising Eye ~ Balanced Scale
+3	BONUS:VAR|BalancedScaleBottomlessBagLVL,BalancedScaleAccessTheVaultLVL|CL	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Access the Vault ~ Balanced Scale|Bottomless Bag ~ Balanced Scale
+4														ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Eloquent Bargainer ~ Balanced Scale
+5														ADD:SPELLCASTER|Divine
+6														ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Vault Jump ~ Balanced Scale
+
+#
+# End
+#

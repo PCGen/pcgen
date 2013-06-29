@@ -1,0 +1,16 @@
+# CVS $Revision: $ $Author: $ -- Sun Apr 22 08:08:02 2012 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 24 December 2011
+
+# Class Name		Output Name		Hit Dice	Type				Abbreviation		Max Level	Source Page		Ability																															Visible	Save checks bonus											Combat bonus
+CLASS:Vermin Companion	OUTPUTNAME:Vermin	HD:8		TYPE:Monster.Companion	CLASSTYPE:Companion	ABB:VC		MAXLEVEL:20	SOURCEPAGE:p.36	ABILITY:Special Ability|AUTOMATIC|Vermin Traits|PREVAREQ:NoTypeTraits,0	ABILITY:Internal|AUTOMATIC|Mindless Companion|!PREABILITY:1,CATEGORY=Special Ability,Companion Stat ~ Mindless to 1 INT	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Vermin Companion	STARTSKILLPTS:0	MODTOSKILLS:NO			CSKILL:Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Stealth|Survival|Swim
+###Block: Level Advancement
+1	AUTO:FEAT|CMB Output
+
+# Class Name	Output Name			Hit Dice	Type				Abbreviation		Max Level	Source Page		Visible
+CLASS:Black Blade	OUTPUTNAME:Black Blade	HD:1		TYPE:Monster.Companion	CLASSTYPE:Companion	ABB:BB		MAXLEVEL:1	SOURCEPAGE:p.47	VISIBLE:NO
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Black Blade	STARTSKILLPTS:0	MODTOSKILLS:NO

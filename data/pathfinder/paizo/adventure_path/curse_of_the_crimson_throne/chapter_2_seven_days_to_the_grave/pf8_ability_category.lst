@@ -1,0 +1,9 @@
+# CVS $Revision$ $Author$ -- Sun Jul  6 02:11:18 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+# SOURCELONG:Curse of the Crimson Thrown: Seven Days to the Grave	SOURCESHORT:CotCT:SDttG	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinder/v5748btpy82qy	SOURCEDATE:2008-04
+
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Nosferatu Skill Focus	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:NosferatuSkillFocus	PLURAL:Nosferatu Skill Focus	DISPLAYLOCATION:Feats
+
+#
+# End
+#

@@ -1,0 +1,24 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Pathfinder Campaign Setting	SOURCESHORT:PFCS	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderChronicles/35E/v5748btpy84eo&source=search	SOURCEDATE:2008-08
+
+# Modern Human Languages
+# Language		Type
+Hallit		TYPE:Spoken.Written.Read
+Kelish		TYPE:Spoken.Written.Read
+Polyglot		TYPE:Spoken.Written.Read
+Taldane		TYPE:Spoken.Written.Read
+Tien			TYPE:Spoken.Written.Read
+Skald			TYPE:Spoken.Written.Read
+Varisian		TYPE:Spoken.Written.Read
+Vudrani		TYPE:Spoken.Written.Read
+
+# Dead Languages
+Ancient Osirian	TYPE:Spoken.Written.Read
+Azlanti		TYPE:Spoken.Written.Read
+Jistka		TYPE:Spoken.Written.Read
+Tekritanin		TYPE:Spoken.Written.Read
+Thassilonian	TYPE:Spoken.Written.Read
+
+#
+# End
+#

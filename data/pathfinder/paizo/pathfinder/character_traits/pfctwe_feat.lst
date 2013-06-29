@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Thu Jun 16 13:37:38 2011 -- reformated by prettylst.pl v1.39 (build 11455)
+SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:PFCTWE	SOURCEWEB:http://paizo.com/traits	SOURCEDATE:2009-08
+# Original Entry by: Stefan Radermacher
+
+# Feat Name		Type			Description						Bonus to Ability Pool		Source Page
+Additional Traits	TYPE:General	DESC:You have more traits than normal	BONUS:ABILITYPOOL|Traits|2	SOURCEPAGE:p.6
+
+#
+# End
+#

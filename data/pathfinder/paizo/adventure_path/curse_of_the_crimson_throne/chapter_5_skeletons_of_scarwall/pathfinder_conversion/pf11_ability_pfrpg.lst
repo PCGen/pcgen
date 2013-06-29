@@ -1,0 +1,15 @@
+# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Curse of the Crimson Throne, Chapter 5: Skeletons of Scarwall	SOURCESHORT:PF11	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy83yw	SOURCEDATE:2008-08
+
+###Block: Chained Spirit
+# Ability Name	Unique Key					Category of Ability		Type						Visible
+Create Spawn	KEY:Create Spawn ~ Chained Spirit	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
+
+###Block: The Prince in Chains
+# Ability Name		Unique Key							Category of Ability		Type						Visible
+Pass without Trace	KEY:Pass without Trace ~ The Prince in Chains	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES
+
+
+#
+# End
+#

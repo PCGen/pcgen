@@ -1,0 +1,10 @@
+# CVS $Revision$ $Author$ -- Sun Jun 29 20:21:35 2008 -- reformated by prettylst.pl v1.38 (build 6887)
+SOURCELONG:Rise of the Runelords - Chapter 5: Sins of the Saviors	SOURCESHORT:PF5	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8029	SOURCEDATE:2007-10
+
+#Original Entry: Andrew Maitland
+###Block: Ashvawg Tamer Druid -----------------------------------------------------------------
+# Ability Name		Category of Ability		Type								Visible	Special ABility			Allowed Companions
+Bestial Bond-RotRL	CATEGORY:Special Ability	TYPE:VariantDruid.SpecialAbility.SpellLike	VISIBLE:NO	SAB:Bestial Bond (Sp)
+Variant Companion-RotRL	CATEGORY:Special Ability	TYPE:VariantDruid.SpecialAbility.Extraordinary	VISIBLE:NO	SAB:Variant Companion (Ex)	COMPANIONLIST:Animal Companion|Darkmantle,Krenshar,Shocker Lizard	COMPANIONLIST:Animal Companion|Hippogriff|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Girallon,Griffon,Owlbear,Sea Cat|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Bulette,Chimera|FOLLOWERADJUSTMENT:-12
+Undying Bond-RotRL	CATEGORY:Special Ability	TYPE:VariantDruid.SpecialAbility.SpellLike	VISIBLE:NO	SAB:Undying Bond (Sp)
+Exotic Companion-RotRL	CATEGORY:Special Ability	TYPE:VariantDruid.SpecialAbility.Extraordinary	VISIBLE:NO	SAB:Exotic Companion (Ex)	COMPANIONLIST:Animal Companion|Worg|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Ettercap,Manticore,Minotaur,Winter Wolf|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Behir,Dragonne,Sphinx (Hieracosphinx)|FOLLOWERADJUSTMENT:-12

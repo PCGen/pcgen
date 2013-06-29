@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:44:12 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Halflings of Golarion	SOURCESHORT:HoG	SOURCEWEB:http://paizo.com/products/btpy8i8p?Pathfinder-Player-Companion-Halflings-of-Golarion	SOURCEDATE:2010-12
+#ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
+#ORIGINAL ENTRY DATE: 2012/12/29
+
+
+
+###Block:Food, Drink, and Lodging
+# Equipment Name				Product Identity?	Type				Cost		Weight	Source Page
+Dragon Punch Whiskey (Cup)					TYPE:Goods.Liquid.Food	COST:10	WT:.5		SOURCEPAGE:p.10
+Lisken's Medicinal Tonic (Cup)	NAMEISPI:YES	TYPE:Goods.Liquid.Food	COST:10	WT:.5		SOURCEPAGE:p.10
+Luglurch Ale (Gallon)						TYPE:Goods.Liquid.Food	COST:1	WT:8		SOURCEPAGE:p.10
+Luglurch Ale (Mug)						TYPE:Goods.Liquid.Food	COST:.4	WT:1		SOURCEPAGE:p.10

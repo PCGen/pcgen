@@ -1,0 +1,20 @@
+# CVS $Revision$ $Author$ -- Thu Aug 28 12:56:05 2008 -- reformated by prettylst.pl v1.38 (build 7233)
+SOURCELONG:Curse of the Crimson Throne - Chapter 3: Escape From Old Korvosa	SOURCESHORT:CotCT:EfOK	SOURCEWEB:http://paizo.com/store/paizo/v5748btpy82t5	SOURCEDATE:2008-05
+
+
+##Block: Red Mantis Assassin Abilities
+# Ability Name		Category of Ability		Type						Visible	Special ABility
+Sawtooth Mastery		CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality	VISIBLE:NO	SAB:Sawtooth Mastery
+Prayer Attack		CATEGORY:Special Ability	TYPE:Supernatural.SpecialAttack	VISIBLE:NO	SAB:Prayer Attack
+Red Shroud			CATEGORY:Special Ability	TYPE:Supernatural.SpecialQuality	VISIBLE:NO	SAB:Red Shroud
+Call Mantis			CATEGORY:Special Ability	TYPE:Spelllike.SpecialQuality		VISIBLE:NO	SAB:Call Mantis
+Resurrection Sense	CATEGORY:Special Ability	TYPE:Supernatural.SpecialQuality	VISIBLE:NO	SAB:Resurrection Sense
+Mantis Form			CATEGORY:Special Ability	TYPE:Supernatural.SpecialQuality	VISIBLE:NO	SAB:Mantis Form
+Blood Mantis Form		CATEGORY:Special Ability	TYPE:Supernatural.SpecialQuality	VISIBLE:NO	SAB:Blood Mantis Form
+Fading			CATEGORY:Special Ability	TYPE:Supernatural.SpecialQuality	VISIBLE:NO	SAB:Fading
+Mantis Doom			CATEGORY:Special Ability	TYPE:Supernatural.SpecialAttack	VISIBLE:NO	SAB:Mantis Doom
+Death Mantis Form		CATEGORY:Special Ability	TYPE:Supernatural.SpecialQuality	VISIBLE:NO	SAB:Death Mantis Form
+
+#
+# End
+#

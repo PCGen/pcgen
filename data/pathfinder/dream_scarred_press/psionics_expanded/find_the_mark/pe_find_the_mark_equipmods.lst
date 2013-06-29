@@ -1,0 +1,14 @@
+# CVS $Revision$ $Author$ -- Sun Jul 31 16:53:43 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Expanded - Find the Mark	SOURCESHORT:PEFtM	SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=73.html	SOURCEDATE:2011-07
+#Original Entry: Douglas Limmer
+
+# Modifier Name			Unique Key		Type				Plus		Cost		Visible		Source Page		Required Type				Prohibited Type	Special Property
+Energy (Cold)			KEY:ENRGY_C		TYPE:Ranged.Weapon			COST:12000	VISIBLE:QUALIFY	SOURCEPAGE:p.25	PRETYPE:3,Enhancement,Weapon,Ranged	!PRETYPE:1,Thrown	SPROP:Creates cold energy ammunition
+Energy (Fire)			KEY:ENRGY_F		TYPE:Ranged.Weapon			COST:12000	VISIBLE:QUALIFY	SOURCEPAGE:p.25	PRETYPE:3,Enhancement,Weapon,Ranged	!PRETYPE:1,Thrown	SPROP:Creates fire energy ammunition
+Energy (Electricity)		KEY:ENRGY_E		TYPE:Ranged.Weapon			COST:12000	VISIBLE:QUALIFY	SOURCEPAGE:p.25	PRETYPE:3,Enhancement,Weapon,Ranged	!PRETYPE:1,Thrown	SPROP:Creates electricity energy ammunition
+Energy (Greater Cold)		KEY:ENRGY_GC	TYPE:Ranged.Weapon	PLUS:4			VISIBLE:QUALIFY	SOURCEPAGE:p.25	PRETYPE:3,Enhancement,Weapon,Ranged	!PRETYPE:1,Thrown	SPROP:Converts ammunition to cold energy
+Energy (Greater Fire)		KEY:ENRGY_GF	TYPE:Ranged.Weapon	PLUS:4			VISIBLE:QUALIFY	SOURCEPAGE:p.25	PRETYPE:3,Enhancement,Weapon,Ranged	!PRETYPE:1,Thrown	SPROP:Converts ammunition to fire energy
+Energy (Greater Electricity)	KEY:ENRGY_GE	TYPE:Ranged.Weapon	PLUS:4			VISIBLE:QUALIFY	SOURCEPAGE:p.25	PRETYPE:3,Enhancement,Weapon,Ranged	!PRETYPE:1,Thrown	SPROP:Converts ammunition to electricity energy
+Linked Striking			KEY:LNKST		TYPE:Weapon			PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.25	PRETYPE:2,Enhancement,Weapon					SPROP:Add 2 to enhancement bonus and +2d6 damage on subsequent hits vs. an enemy
+Rebounding				KEY:RBDNG		TYPE:Weapon.Thrown			COST:12000	VISIBLE:QUALIFY	SOURCEPAGE:p.25	PRETYPE:3,Enhancement,Weapon,Thrown				SPROP:Use iterative attacks with single thrown weapon
+Wrenching				KEY:WRNCH		TYPE:Weapon.Ranged	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.25	PRETYPE:3,Enhancement,Weapon,Ranged				SPROP:Reposition target towards wielder

@@ -1,0 +1,67 @@
+# CVS $Revision: 15510 $ $Author: amaitland $ -- Sun Jun 19 04:35:41 2011 -- reformated by prettylst.pl v1.39 (build )
+CAMPAIGN:DSP - Psionics Unleashed
+GAMEMODE:Pathfinder
+TYPE:Dreamscarred Press
+RANK:6
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:None
+PUBNAMELONG:Dreamscarred Press
+PUBNAMESHORT:DSP
+PUBNAMEWEB:http://www.dreamscarredpress.com
+SOURCELONG:Psionics Unleashed
+SOURCESHORT:PsU
+SOURCEWEB:http://dreamscarredpress.com/dragonfly/Store/product/pid=69.html
+SOURCEDATE:2010-12
+ISOGL:YES
+
+COVER:psionics_unleashed.jpg
+LOGO:@/publisher_logos/Dreamscarred_Press.jpg
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+DESC:Tap into the mysteries of psionics, using sheer force of will to allow psionic characters to let loose power to rival any physical force or magical energy. Contained in this book, you will find the secrets of psionics, the magic of the mind.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Psionics Unleashed. Copyright 2010, Dreamscarred Press.
+COPYRIGHT:PCGen dataset conversion for Psionics Unleashed, Copyright 2011, PCgen Data team (Including but not limited to Doug Limner (distant-scholar))
+
+
+ABILITY:psionics_unleashed_abilities_classes_base.lst
+ABILITY:psionics_unleashed_abilities_classes_prestige.lst
+ABILITY:psionics_unleashed_abilities_races_pc.lst
+ABILITY:psionics_unleashed_abilities_races_monsters.lst
+ABILITY:psionics_unleashed_abilities_other.lst
+ABILITYCATEGORY:psionics_unleashed_ability_categories.lst
+
+CLASS:psionics_unleashed_classes_base.lst
+CLASS:psionics_unleashed_classes_monsters.lst
+CLASS:psionics_unleashed_classes_prestige.lst
+
+COMPANIONMOD:psionics_unleashed_companionmods.lst
+
+EQUIPMENT:psionics_unleashed_equipment.lst
+EQUIPMOD:psionics_unleashed_equipmods.lst
+
+FEAT:psionics_unleashed_feats.lst
+
+KIT:psionics_unleashed_kits_pc_races.lst
+KIT:psionics_unleashed_kits_monsters.lst
+
+LANGUAGE:psionics_unleashed_languages.lst
+
+RACE:psionics_unleashed_races_pc.lst
+RACE:psionics_unleashed_races_psicrystal.lst
+RACE:psionics_unleashed_races_monsters.lst
+
+SKILL:psionics_unleashed_skills.lst
+
+SPELL:psionics_unleashed_powers_AC.lst
+SPELL:psionics_unleashed_powers_DF.lst
+SPELL:psionics_unleashed_powers_GP.lst
+SPELL:psionics_unleashed_powers_QW.lst
+
+TEMPLATE:psionics_unleashed_templates.lst
+
+WEAPONPROF:psionics_unleashed_weaponprofs.lst

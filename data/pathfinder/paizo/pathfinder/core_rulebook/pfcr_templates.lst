@@ -1,0 +1,121 @@
+# CVS $Revision$ $Author$ -- Sat Apr 20 12:56:48 2013 -- reformated by prettylst.pl v1.50 (build 19967)
+SOURCELONG:Core Rulebook	SOURCESHORT:CRB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+# Original RSRD Entry by: PCGen Data Team
+# Pathfinder RPG Entry by: Stefan Radermacher
+
+# Template Name			Visible	Template										Modify VAR						Apply Kit
+Spellbook				VISIBLE:NO																			KIT:1|Wizard Spell Book
+
+Shadowdancer Darkvision		VISIBLE:NO	TEMPLATE:Shadowdancer Has Darkvision|Shadowdancer No Darkvision
+Shadowdancer No Darkvision	VISIBLE:NO												BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Shadowdancer Has Darkvision	VISIBLE:NO												BONUS:VAR|DarkvisionRange|30
+
+###Block: Timeless Body For Druid and Monk
+# Template Name			Visible	Template																		Minimum Age			Maximum Age			Multiple Requirements						Stat bonus
+Timeless Body			VISIBLE:NO	TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable
+
+Timeless Body ~ Adult		VISIBLE:NO																								!PREAGESET:1,Middle-Aged										BONUS:STAT|STR,CON,DEX|1|PREMULT:2,[PREAGESET:1,Middle-Aged],[!PREAGESET:1,Old]	BONUS:STAT|STR,CON,DEX|3|PREMULT:2,[PREAGESET:1,Old],[!PREAGESET:1,Venerable]	BONUS:STAT|STR,CON,DEX|6|PREAGESET:1,Venerable
+Timeless Body ~ Middle Age	VISIBLE:NO																												PREMULT:2,[PREAGESET:1,Middle-Aged],[!PREAGESET:1,Old]	BONUS:STAT|STR,CON,DEX|2|PREMULT:2,[PREAGESET:1,Old],[!PREAGESET:1,Venerable]	BONUS:STAT|STR,CON,DEX|5|PREAGESET:1,Venerable
+Timeless Body ~ Old		VISIBLE:NO																												PREMULT:2,[PREAGESET:1,Old],[!PREAGESET:1,Venerable]	BONUS:STAT|STR,CON,DEX|3|PREAGESET:1,Venerable
+Timeless Body ~ Venerable	VISIBLE:NO																				PREAGESET:1,Venerable
+
+###Block: Workarounds
+# This is a work-around for BONUS:MISC|MAXDEX not working in ability object when using VARs.
+# Template Name			Visible	Misc bonus
+#Armor Training workaround	VISIBLE:NO	BONUS:MISC|MAXDEX|ArmorTraining|PREEQUIP:1,TYPE=Armor
+
+###Block: Augment Summoning template
+# Template Name		Visible	Stat bonus			Add 					Ability
+Augment Summoning		VISIBLE:YES	BONUS:STAT|STR,CON|4
+
+
+Raven Familiar Language	VISIBLE:NO					ADD:LANGUAGE|1|TYPE=Spoken	ABILITY:Special Ability|AUTOMATIC|Speak One Language
+# Data-611 Fix - Backing Out
+#Raven Familiar Language	VISIBLE:NO						ABILITY:Special Ability|AUTOMATIC|Speak One Language	LANGBONUS:TYPE=Spoken	BONUS:VAR|AdditionalLanguage|1|!PRESTAT:1,INT=13
+
+
+###Block: Fractional Hit Die Adjustments for Monster classes
+# Template Name	Hit Dice Size			Visible
+Half Hitdie		HITDIE:%/2|CLASS.TYPE=Monster	VISIBLE:NO
+Quarter Hitdie	HITDIE:%/4|CLASS.TYPE=Monster	VISIBLE:NO
+Eighth Hitdie	HITDIE:%/8|CLASS.TYPE=Monster	VISIBLE:NO
+
+###Block: Righteous Might temporary bonus DR enabler
+# Template Name					Visible		Damage Reduction	Required Ability									Req. Known Spell			Description
+Righteous Might (Damage Reduction/Evil)	VISIBLE:DISPLAY	DR:0/Evil		PREABILITY:1,CATEGORY=Special Ability,Channel Positive Energy	PRESPELL:1,Righteous Might	DESC:This Template provides the Damage Reduction to a character when Righteous Might is cast.
+Righteous Might (Damage Reduction/Good)	VISIBLE:DISPLAY	DR:0/Good		PREABILITY:1,CATEGORY=Special Ability,Channel Negative Energy	PRESPELL:1,Righteous Might	DESC:This Template provides the Damage Reduction to a character when Righteous Might is cast.
+
+###Block: Trained Animal
+# Template Name	Visible		Restricted Ability								Required Race			Prohibited Stat	Bonus to Ability Pool
+Trained Animal	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=Special Ability,Animal Tricks and Training	PRERACE:1,RACETYPE=Animal	!PRESTAT:1,INT=3	BONUS:ABILITYPOOL|Animal Trick|3	BONUS:ABILITYPOOL|Animal Trick|3|PRESTAT:1,INT=2
+
+###Block: Inherent ability bonuses
+# Template Name					Visible		Template																																					Source Page		Required Size	Stat bonus					Weapon prof. bonus				Natural Attacks
+Inherent Ability Bonus (Strength)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Strength Bonus +1|Inherent Strength Bonus +2|Inherent Strength Bonus +3|Inherent Strength Bonus +4|Inherent Strength Bonus +5													SOURCEPAGE:p.370
+Inherent Ability Bonus (Dexterity)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Dexterity Bonus +1|Inherent Dexterity Bonus +2|Inherent Dexterity Bonus +3|Inherent Dexterity Bonus +4|Inherent Dexterity Bonus +5													SOURCEPAGE:p.370
+Inherent Ability Bonus (Constitution)	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Constitution Bonus +1|Inherent Constitution Bonus +2|Inherent Constitution Bonus +3|Inherent Constitution Bonus +4|Inherent Constitution Bonus +5										SOURCEPAGE:p.370
+Inherent Ability Bonus (Intelligence)	VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Intelligence Bonus +1|Inherent Intelligence Bonus +2|Inherent Intelligence Bonus +3|Inherent Intelligence Bonus +4|Inherent Intelligence Bonus +5										SOURCEPAGE:p.370
+Inherent Ability Bonus (Wisdom)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Wisdom Bonus +1|Inherent Wisdom Bonus +2|Inherent Wisdom Bonus +3|Inherent Wisdom Bonus +4|Inherent Wisdom Bonus +5															SOURCEPAGE:p.370
+Inherent Ability Bonus (Charisma)		VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Inherent Charisma Bonus +1|Inherent Charisma Bonus +2|Inherent Charisma Bonus +3|Inherent Charisma Bonus +4|Inherent Charisma Bonus +5													SOURCEPAGE:p.370
+# Strength
+Inherent Strength Bonus +1			VISIBLE:NO																																														BONUS:STAT|STR|1|TYPE=Inherent
+Inherent Strength Bonus +2			VISIBLE:NO																																														BONUS:STAT|STR|2|TYPE=Inherent
+Inherent Strength Bonus +3			VISIBLE:NO																																														BONUS:STAT|STR|3|TYPE=Inherent
+Inherent Strength Bonus +4			VISIBLE:NO																																														BONUS:STAT|STR|4|TYPE=Inherent
+Inherent Strength Bonus +5			VISIBLE:NO																																														BONUS:STAT|STR|5|TYPE=Inherent
+# Dexterity
+Inherent Dexterity Bonus +1			VISIBLE:NO																																														BONUS:STAT|DEX|1|TYPE=Inherent
+Inherent Dexterity Bonus +2			VISIBLE:NO																																														BONUS:STAT|DEX|2|TYPE=Inherent
+Inherent Dexterity Bonus +3			VISIBLE:NO																																														BONUS:STAT|DEX|3|TYPE=Inherent
+Inherent Dexterity Bonus +4			VISIBLE:NO																																														BONUS:STAT|DEX|4|TYPE=Inherent
+Inherent Dexterity Bonus +5			VISIBLE:NO																																														BONUS:STAT|DEX|5|TYPE=Inherent
+# Constitution
+Inherent Constitution Bonus +1		VISIBLE:NO																																														BONUS:STAT|CON|1|TYPE=Inherent
+Inherent Constitution Bonus +2		VISIBLE:NO																																														BONUS:STAT|CON|2|TYPE=Inherent
+Inherent Constitution Bonus +3		VISIBLE:NO																																														BONUS:STAT|CON|3|TYPE=Inherent
+Inherent Constitution Bonus +4		VISIBLE:NO																																														BONUS:STAT|CON|4|TYPE=Inherent
+Inherent Constitution Bonus +5		VISIBLE:NO																																														BONUS:STAT|CON|5|TYPE=Inherent
+# Intelligence
+Inherent Intelligence Bonus +1		VISIBLE:NO																																														BONUS:STAT|INT|1|TYPE=Inherent
+Inherent Intelligence Bonus +2		VISIBLE:NO																																														BONUS:STAT|INT|2|TYPE=Inherent
+Inherent Intelligence Bonus +3		VISIBLE:NO																																														BONUS:STAT|INT|3|TYPE=Inherent
+Inherent Intelligence Bonus +4		VISIBLE:NO																																														BONUS:STAT|INT|4|TYPE=Inherent
+Inherent Intelligence Bonus +5		VISIBLE:NO																																														BONUS:STAT|INT|5|TYPE=Inherent
+# Wisdom
+Inherent Wisdom Bonus +1			VISIBLE:NO																																														BONUS:STAT|WIS|1|TYPE=Inherent
+Inherent Wisdom Bonus +2			VISIBLE:NO																																														BONUS:STAT|WIS|2|TYPE=Inherent
+Inherent Wisdom Bonus +3			VISIBLE:NO																																														BONUS:STAT|WIS|3|TYPE=Inherent
+Inherent Wisdom Bonus +4			VISIBLE:NO																																														BONUS:STAT|WIS|4|TYPE=Inherent
+Inherent Wisdom Bonus +5			VISIBLE:NO																																														BONUS:STAT|WIS|5|TYPE=Inherent
+# Wisdom
+Inherent Charisma Bonus +1			VISIBLE:NO																																														BONUS:STAT|CHA|1|TYPE=Inherent
+Inherent Charisma Bonus +2			VISIBLE:NO																																														BONUS:STAT|CHA|2|TYPE=Inherent
+Inherent Charisma Bonus +3			VISIBLE:NO																																														BONUS:STAT|CHA|3|TYPE=Inherent
+Inherent Charisma Bonus +4			VISIBLE:NO																																														BONUS:STAT|CHA|4|TYPE=Inherent
+Inherent Charisma Bonus +5			VISIBLE:NO																																														BONUS:STAT|CHA|5|TYPE=Inherent
+
+# Following kludge necessary to get around the fact that natural attacks are created Medium except on race
+Sorcerer Claw					VISIBLE:NO		TEMPLATE:CHOOSE:Sorcerer Claw ~ Tiny|Sorcerer Claw ~ Small|Sorcerer Claw ~ Medium|Sorcerer Claw ~ Large|Sorcerer Claw ~ Huge|Sorcerer Claw ~ Gargantuan|Sorcerer Claw ~ Colossal
+
+Sorcerer Claw ~ Tiny				VISIBLE:NO																																											PRESIZEEQ:T								BONUS:WEAPONPROF=Claw|WIELDCATEGORY|-2	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d2
+Sorcerer Claw ~ Small				VISIBLE:NO																																											PRESIZEEQ:S								BONUS:WEAPONPROF=Claw|WIELDCATEGORY|-1	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d3
+Sorcerer Claw ~ Medium				VISIBLE:NO																																											PRESIZEEQ:M															NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
+Sorcerer Claw ~ Large				VISIBLE:NO																																											PRESIZEEQ:L								BONUS:WEAPONPROF=Claw|WIELDCATEGORY|1	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d6
+Sorcerer Claw ~ Huge				VISIBLE:NO																																											PRESIZEEQ:H								BONUS:WEAPONPROF=Claw|WIELDCATEGORY|2	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d8
+Sorcerer Claw ~ Gargantuan			VISIBLE:NO																																											PRESIZEEQ:G								BONUS:WEAPONPROF=Claw|WIELDCATEGORY|3	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d6
+Sorcerer Claw ~ Colossal			VISIBLE:NO																																											PRESIZEEQ:C								BONUS:WEAPONPROF=Claw|WIELDCATEGORY|4	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d8
+
+# Following kludge necessary to get around the fact that natural attacks are created Medium except on race
+Dragon Disciple Bite				VISIBLE:NO		TEMPLATE:CHOOSE:Dragon Disciple Bite ~ Tiny|Dragon Disciple Bite ~ Small|Dragon Disciple Bite ~ Medium|Dragon Disciple Bite ~ Large|Dragon Disciple Bite ~ Huge|Dragon Disciple Bite ~ Gargantuan|Dragon Disciple Bite ~ Colossal
+
+Dragon Disciple Bite ~ Tiny			VISIBLE:NO																																											PRESIZEEQ:T								BONUS:WEAPONPROF=Bite|WIELDCATEGORY|-2	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d3
+Dragon Disciple Bite ~ Small			VISIBLE:NO																																											PRESIZEEQ:S								BONUS:WEAPONPROF=Bite|WIELDCATEGORY|-1	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4
+Dragon Disciple Bite ~ Medium			VISIBLE:NO																																											PRESIZEEQ:M															NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
+Dragon Disciple Bite ~ Large			VISIBLE:NO																																											PRESIZEEQ:L								BONUS:WEAPONPROF=Bite|WIELDCATEGORY|1	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8
+Dragon Disciple Bite ~ Huge			VISIBLE:NO																																											PRESIZEEQ:H								BONUS:WEAPONPROF=Bite|WIELDCATEGORY|2	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6
+Dragon Disciple Bite ~ Gargantuan		VISIBLE:NO																																											PRESIZEEQ:G								BONUS:WEAPONPROF=Bite|WIELDCATEGORY|3	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8
+Dragon Disciple Bite ~ Colossal		VISIBLE:NO																																											PRESIZEEQ:C								BONUS:WEAPONPROF=Bite|WIELDCATEGORY|4	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6
+
+###Block: Human Ethnicities
+# Template Name	Visible	Bonus to Ability Pool
+Human Ethnicity	VISIBLE:NO	BONUS:ABILITYPOOL|Human Ethnicity|1

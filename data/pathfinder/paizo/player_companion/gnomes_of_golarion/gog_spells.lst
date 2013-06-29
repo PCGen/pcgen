@@ -1,0 +1,8 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Gnomes of Golarion	SOURCESHORT:GoG	SOURCEWEB:http://paizo.com/products/btpy8dmh?Pathfinder-Companion-Gnomes-of-Golarion	SOURCEDATE:2010-03
+#ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
+#ORIGINAL ENTRY DATE:2012/12/31
+
+###Block: Main Spell List
+# Spell Name	Classes of caster			School		Sub-School			Spell Descriptors			Type		Components	Casting Time			Range		Target Area or Effect		Duration						Save Info						Spell Resistance	Description																																										Source Page
+Illusory Poison	CLASSES:Sorcerer,Wizard=4	SCHOOL:Illusion	SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-Affecting	TYPE:Arcane	COMPS:V, S	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Weapon Touched	DURATION:(CASTERLEVEL) minute(s) [D]	SAVEINFO:Will disbelief, then Fortitude	SPELLRES:Yes	DESC:You create a phantasm of an oily green phantasmal poison on the target weapon.[Phantasmal Poison - Type poison, injury; Save Fortitude DC as the spell; Frequency 1/round for 6 rounds; Effect 1d3 Str damage; Cure 1 save]|!PRERULE:1,DisplayFullSpell	SOURCEPAGE:pg.27

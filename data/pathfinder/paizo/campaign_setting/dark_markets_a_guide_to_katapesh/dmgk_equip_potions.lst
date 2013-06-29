@@ -1,0 +1,16 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:42:47 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Dark Markets: A Guide to Katapesh	SOURCESHORT:DMGK	SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut	SOURCEDATE:2009-04
+# Original Entry by: Terry Milnes
+
+###Block: Potions
+# Equipment Name	Type					Cost		Weight	Source Page		Special Property
+Acolyte Ale		TYPE:Magic.Potion.Consumable	COST:250	WT:1		SOURCEPAGE:p.32	SPROP:Cures 1d8+1 points of damage, 5 doses
+Little Bishop	TYPE:Magic.Potion.Consumable	COST:900	WT:1		SOURCEPAGE:p.32	SPROP:Frees target from temporary paralysis or related magical effects, 3 doses
+Blue Priest		TYPE:Magic.Potion.Consumable	COST:1500	WT:1		SOURCEPAGE:p.32	SPROP:Cures 2d8+3 points of damage, 5 doses
+Night Light Stout	TYPE:Magic.Potion.Consumable	COST:250	WT:1		SOURCEPAGE:p.32	SPROP:Suppresses existing fear effect, +4 morale bonus on saves against fear, or for 10 minutes, 5 doses
+Red Cardinal Wine	TYPE:Magic.Potion.Consumable	COST:3750	WT:1		SOURCEPAGE:p.32	SPROP:Cures 3d8+5 points of damage, 5 doses
+Shelyn's Nectar	TYPE:Magic.Potion.Consumable	COST:2250	WT:1		SOURCEPAGE:p.32	SPROP:Removes curses with a caster level check at +5, 3 doses
+
+#
+# End
+#

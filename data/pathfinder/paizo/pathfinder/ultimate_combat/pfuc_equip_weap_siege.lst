@@ -1,0 +1,44 @@
+# CVS $Revision$ $Author$ -- Wed Sep 26 12:21:11 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+
+
+#Direct-Fire Engines	 Cost		Dmg		Critical			Range		Type1 Crew Aim Load Speed
+# Large Siege Engines
+# Equipment Name						Required Weapon Proficiency				Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range		Special Property
+Ballista (Light)						PROFICIENCY:WEAPON|Ballista (Light)			TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Piercing			COST:500			CRITMULT:x2			CRITRANGE:2			DAMAGE:3d8	RANGE:120	SPROP:Crew 1, Aim 0, Load 2, Speed 10 ft.
+Cannon							PROFICIENCY:WEAPON|Cannon				TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:6000			CRITMULT:x4							DAMAGE:6d6	RANGE:100	SPROP:Crew 2, Aim 1, Load 3, Speed 10 ft.
+# Huge Siege Engines
+Ballista (Heavy)						PROFICIENCY:WEAPON|Ballista (Heavy)			TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Piercing			COST:800			CRITMULT:x2			CRITRANGE:2			DAMAGE:4d8	RANGE:180	SPROP:Crew 3, Aim 2, Load 3, Speed 0 ft.
+Cannon (Fiend's Mouth)					PROFICIENCY:WEAPON|Cannon (Fiend's Mouth)		TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:9000			CRITMULT:x4							DAMAGE:8d6	RANGE:150	SPROP:Crew 3, Aim 1, Load 3, Speed 0 ft.
+Firedrake							PROFICIENCY:WEAPON|Firedrake				TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Fire			COST:4000											DAMAGE:6d6			SPROP:Crew 3, Aim 2, Load 5, Speed 10 ft.
+# Gargantuan Siege Engines
+Ballista (Gate Breaker)					PROFICIENCY:WEAPON|Ballista (Gate Breaker)	TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:1200			CRITMULT:x2			CRITRANGE:2			DAMAGE:6d8	RANGE:100	SPROP:Crew 5, Aim 3, Load 5, Speed 0 ft.
+Firewyrm							PROFICIENCY:WEAPON|Firewyrm				TYPE:Weapon.Ranged.Siege.Fire						COST:6000											DAMAGE:6d6			SPROP:Crew 5, Aim 2, Load 6, Speed 0 ft.
+
+#Indirect-Fire Engines Cost Dmg Critical Range Type Crew Aim Load Speed
+
+# Large Siege Engines
+Bombard (Light)						PROFICIENCY:WEAPON|Bombard (Light)			TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:6000			CRITMULT:x4							DAMAGE:5d6	RANGE:100	SPROP: Range (50 ft. min.)	SPROP:Crew 2, Aim 1, Load 3, Speed 10 ft.
+Catapult (Light)						PROFICIENCY:WEAPON|Catapult (Light)			TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:550			CRITMULT:x2							DAMAGE:4d6	RANGE:150	SPROP: Range (50 ft. min.)	SPROP:Crew 2, Aim 2, Load 3, Speed 10 ft.
+Trebuchet (Light)						PROFICIENCY:WEAPON|Trebuchet (Light)		TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:800			CRITMULT:x2							DAMAGE:4d6	RANGE:200	SPROP: Range (100 ft. min.)	SPROP:Crew 3, Aim 2, Load 3, Speed 0 ft.
+
+# Huge Siege Engines
+Bombard (Standard)					PROFICIENCY:WEAPON|Bombard (Standard)		TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:8000			CRITMULT:x4							DAMAGE:7d6	RANGE:150	SPROP: Range (100 ft. min.)	SPROP:Crew 2, Aim 1, Load 3, Speed 0 ft.
+Catapult (Standard)					PROFICIENCY:WEAPON|Catapult (Standard)		TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:800			CRITMULT:x2							DAMAGE:6d6	RANGE:200	SPROP: Range (100 ft. min.)	SPROP:Crew 3, Aim 2, Load 3, Speed 0 ft.
+Springal (Arrow)						PROFICIENCY:WEAPON|Springal (Arrow)			TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Piercing			COST:1000			CRITMULT:x3							DAMAGE:3d8	RANGE:100	SPROP: Range (50 ft. min.)	SPROP:Crew 3, Aim 2, Load 3, Speed 0 ft.
+Springal (Rocket)						PROFICIENCY:WEAPON|Springal (Rocket)		TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Fire			COST:6000			CRITMULT:x4							DAMAGE:3d10	RANGE:100	SPROP: Range (50 ft. min.)	SPROP:Crew 3, Aim 2, Load 3, Speed 0 ft.
+Trebuchet (Standard)					PROFICIENCY:WEAPON|Trebuchet (Standard)		TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:1000			CRITMULT:x2							DAMAGE:6d6	RANGE:300	SPROP: Range (150 ft. min.)	SPROP:Crew 4, Aim 2, Load 3, Speed 0 ft.
+
+#Gargantuan Siege Engines
+Bombard (Heavy)						PROFICIENCY:WEAPON|Bombard (Heavy)			TYPE:Weapon.Ranged.SiegeFirearm.Exotic.Bludgeoning.Piercing	COST:8000			CRITMULT:x4							DAMAGE:9d6	RANGE:200	SPROP: Range (100 ft. min.)	SPROP:Crew 4, Aim 3, Load 5, Speed 0 ft.
+Catapult (Heavy)						PROFICIENCY:WEAPON|Catapult (Heavy)			TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:1000			CRITMULT:x2							DAMAGE:8d6	RANGE:300	SPROP: Range (100 ft. min.)	SPROP:Crew 4, Aim 3, Load 3, Speed 0 ft.
+Trebuchet (Heavy)						PROFICIENCY:WEAPON|Trebuchet (Heavy)		TYPE:Weapon.Ranged.SiegeWeapon.Exotic.Bludgeoning		COST:1500			CRITMULT:x2							DAMAGE:8d6	RANGE:400	SPROP: Range (200 ft. min.)	SPROP:Crew 4, Aim 3, Load 3, Speed 0 ft.
+
+# Table 3-14: Special Siege Engine Ammunition
+#Ammunition Cost Weight
+Siege Engine Ammunition (Alchemist's Fire)									TYPE:SiegeAmmo								COST:200	WT:10
+Siege Engine Ammunition (Blast Shot)										TYPE:SiegeAmmo								COST:30	WT:25
+Siege Engine Ammunition (Bomb)											TYPE:SiegeAmmo								COST:600	WT:30
+Siege Engine Ammunition (Chain Shot)										TYPE:SiegeAmmo								COST:50	WT:30
+Siege Engine Ammunition (Liquid Ice)										TYPE:SiegeAmmo								COST:400	WT:20
+Siege Engine Ammunition (Plague Bundle)										TYPE:SiegeAmmo								COST:80	WT:20
+Siege Engine Ammunition (Smoke Shot)										TYPE:SiegeAmmo								COST:250	WT:20

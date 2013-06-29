@@ -1,0 +1,38 @@
+# CVS $Revision$ $Author$ -- Sat Nov 12 13:14:44 2011 -- reformated by prettylst.pl v1.39 (build )
+SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2011-09
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2011/10/26
+
+###Block: Modifications to prestige classes for Aegis
+#Block: Psionics Unleashed
+
+# Class Name		Modify VAR
+CLASS:Cerebremancer.MOD	BONUS:VAR|AegisCL|CL	BONUS:VAR|AegisDRLVL|CL
+
+# Class Name		Modify VAR
+CLASS:Elocater.MOD	BONUS:VAR|AegisCL|(CL*3/4)	BONUS:VAR|AegisDRLVL|(CL*3/4)
+
+# Class Name		Modify VAR
+CLASS:Metamind.MOD	BONUS:VAR|AegisCL|(CL*3/4)	BONUS:VAR|AegisDRLVL|(CL*3/4)
+
+# Class Name			Modify VAR
+CLASS:Phrenic Slayer.MOD	BONUS:VAR|AegisCL|(CL-1)	BONUS:VAR|AegisDRLVL|(CL-1)
+
+# Class Name			Modify VAR
+CLASS:Psion Uncarnate.MOD	BONUS:VAR|AegisCL|(CL*2/3)	BONUS:VAR|AegisDRLVL|(CL*2/3)
+
+# Class Name						Modify VAR
+CLASS:Psychic Fist (Add to Manifesting).MOD	BONUS:VAR|AegisCL|(CL*4/5)	BONUS:VAR|AegisDRLVL|(CL*4/5)
+
+# Class Name		Modify VAR
+CLASS:Thrallherd.MOD	BONUS:VAR|AegisCL|max(8,(CL-1))	BONUS:VAR|AegisDRLVL|max(8,(CL-1))
+
+# Class Name				Modify VAR
+CLASS:War Mind (Warrior's Path).MOD	BONUS:VAR|AegisCL|CL	BONUS:VAR|AegisDRLVL|CL
+
+#Block: Mind over Body
+
+# Class Name		Modify VAR
+CLASS:Metamorph.MOD	BONUS:VAR|AegisCL|(CL*4/5)	BONUS:VAR|AegisDRLVL|(CL*4/5)
+
+#Block: Find the Mark - none!

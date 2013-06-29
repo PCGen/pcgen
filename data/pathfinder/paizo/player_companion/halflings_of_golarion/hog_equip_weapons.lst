@@ -1,0 +1,21 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:44:12 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Halflings of Golarion	SOURCESHORT:HoG	SOURCEWEB:http://paizo.com/products/btpy8i8p?Pathfinder-Player-Companion-Halflings-of-Golarion	SOURCEDATE:2010-12
+#ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
+#ORIGINAL ENTRY DATE: 2012/12/29
+
+###Block: Weapons, Ranged
+# Equipment Name	Required Weapon Proficiency		Type														Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier		Range		Source Page		Weapon prop. bonus
+Sling (Double)	PROFICIENCY:WEAPON|Sling (Double)	TYPE:Weapon.Exotic.Ranged.Standard.Double.Bludgeoning.Container.Projectile.Sling	CONTAINS:UNLIM|SlingStone	COST:10	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:WOOD		RANGE:50	SOURCEPAGE:p.23	BONUS:WEAPON|DAMAGE|STR
+Sling (Stiched)	PROFICIENCY:WEAPON|Sling (Stiched)	TYPE:Weapon.Exotic.Ranged.Standard.Bludgeoning.Projectile.Sling.Disarm.Trip		CONTAINS:1|SlingStone		COST:0	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:LEATHER	RANGE:0	SOURCEPAGE:p.23	BONUS:WEAPON|DAMAGE|STR
+
+
+###Block: Ammunition
+# Equipment Name		Type											Cost		Weight	Base Quantity	Damage	Modifier	Requires Modification?	Source Page
+Little Starstones		TYPE:Ammunition.Standard.Bullet.Individual				COST:0.0005	WT:0.2	BASEQTY:10		DAMAGE:1	EQMOD:CLOTH	MODS:YES			SOURCEPAGE:p.23
+Little Starstones (10)	TYPE:Ammunition.Standard.Bullet						COST:0.005	WT:2		BASEQTY:1		DAMAGE:1	EQMOD:CLOTH	MODS:YES			SOURCEPAGE:p.23
+Sharpstones			TYPE:Ammunition.Standard.Bullet.Piercing.Slashing.Individual	COST:0.1	WT:0.5	BASEQTY:1		DAMAGE:1d4	EQMOD:STEEL	MODS:YES			SOURCEPAGE:p.23
+Sharpstones (10)		TYPE:Ammunition.Standard.Bullet.Piercing.Slashing			COST:1	WT:5		BASEQTY:10		DAMAGE:1d4	EQMOD:STEEL	MODS:YES			SOURCEPAGE:p.23
+Softstones			TYPE:Ammunition.Standard.Bullet.Individual				COST:0.01	WT:0.4	BASEQTY:1				EQMOD:CLOTH	MODS:YES			SOURCEPAGE:p.23
+Softstones (10)		TYPE:Ammunition.Standard.Bullet						COST:0.1	WT:4		BASEQTY:10				EQMOD:CLOTH	MODS:YES			SOURCEPAGE:p.23
+Spongestones		TYPE:Ammunition.Standard.Bullet.Piercing.Individual			COST:1	WT:0.2	BASEQTY:1				EQMOD:WOOD	MODS:YES			SOURCEPAGE:p.23
+Spongestones (10)		TYPE:Ammunition.Standard.Bullet.Piercing					COST:10	WT:2		BASEQTY:10				EQMOD:WOOD	MODS:YES			SOURCEPAGE:p.23

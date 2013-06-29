@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Rise of the Runelords Player's Guide	SOURCESHORT:RotRPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9	SOURCEDATE:2007-08
+# Original Entry by: Stefan Radermacher
+
+###Block:Specific Animal Companions
+# Class of the Master		Type				Required Race		Apply Kit
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Auroch		KIT:1|Auroch Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Cindersnake	KIT:1|Cindersnake Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Donkey Rat	KIT:1|Donkey Rat Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Fire Pelt	KIT:1|Fire Pelt Companion
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Storm Roc	KIT:1|Storm Roc Companion
+
+###Block:Animal Companion Size work-around
+#
+# These bonuses prevent the listed animals from increasing in size when they gain hit dice as a companion
+# This should eventually be done by hard-coding it but for now this work-around will let the 5.8 companions come out with the correct numbers - Eddy
+# Class of the Master		Type				Adjust PC Size
+FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Donkey Rat|PREVARGT:TL,3|PREVARLT:TL,7
+
+#
+# End
+#

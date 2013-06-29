@@ -1,0 +1,47 @@
+# CVS $Revision: 12845 $ $Author: zaister $ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
+CAMPAIGN:Paizo - Serpent's Skull Player's Guide
+GAMEMODE:Pathfinder
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Serpent's Skull
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Campaign Setting
+PREMULT:2,[PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core],[PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Character Traits Web Enhancement,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide]
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Serpent's Skull Player's Guide
+SOURCESHORT:SSPG
+SOURCEWEB:http://paizo.com/pathfinder/adventurePath/theSerpentsSkull/v5748btpy8g6d
+SOURCEDATE:2010-08
+ISOGL:YES
+
+COVER:serpents_skull_players_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/pathfinder/adventurePath/theSerpentsSkull/v5748btpy8g6d|Get this publication from Paizo Publishing!
+DESC:The Serpent's Skull Player's Guide is intended to provide context for creating characters from the nation of Brevoy or surrounding regions who wish to play a role in the Stolen Lands' transformation. In this campaign, your characters will explore vast wildernesses and settle them, build cities and nations, and even fight wars against opposing kingdoms. Many of these unusual campaign elements are supported by additional rules that appear in other volumes of the Serpent's Skull Adventure Path—your GM can provide you with the information you need to explore, build, conquer, and war as the need arises in each adventure. As a special preview, some of these elements are presented at the end of this guide so you have all of the blank forms and hex paper you need to track your adventures and achievements in the Stolen Lands.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Serpent's Skull Player's Guide. Copyright 2010, Paizo Publishing, LLC; Author: Mark Moreland.
+COPYRIGHT:Spriggan from the Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors Scott Greene and Erica Balsley, based on original material by Roger Moore and Gary Gygax.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path: Serpent's Skull Player's Guide" Copyright 2010, PCGen Data Team (including, but not limited to Stefan Radermacher)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data Files
+ABILITY:sspg_abilities_traits.lst
+ABILITYCATEGORY:sspg_abilitycategory.lst
+EQUIPMENT:sspg_equip.lst
+KIT:sspg_kits.lst
+LANGUAGE:sspg_languages.lst
+SKILL:sspg_skills_conditional.lst
+
+#
+# End
+#

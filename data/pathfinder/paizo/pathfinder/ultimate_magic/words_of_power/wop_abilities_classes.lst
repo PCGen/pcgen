@@ -1,0 +1,116 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:Words of Power	SOURCESHORT:PFWoP	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2012/06/12
+
+###Block: Words of Power class abilities
+#Block: Bard abilities by level
+# Ability Name	Category of Ability	Ability																					Bonus to Ability Pool																													Bonus to spell known/L
+WOP Bard 1		CATEGORY:Internal		ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	ABILITY:0-Level Bard Word|AUTOMATIC|Boost		BONUS:ABILITYPOOL|0-Level Bard Word|4	BONUS:ABILITYPOOL|1st-Level Bard Word|2																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-2
+WOP Bard 2		CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Bard Word|1	BONUS:ABILITYPOOL|1st-Level Bard Word|1																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-1
+WOP Bard 3		CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Bard Word|1	BONUS:ABILITYPOOL|1st-Level Bard Word|1																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-1
+WOP Bard 4		CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Bard Word|2																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|-2
+WOP Bard 5		CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|-1
+WOP Bard 6		CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|-1
+WOP Bard 7		CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Bard Word|1	BONUS:ABILITYPOOL|3rd-Level Bard Word|2																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=3|-2
+WOP Bard 8		CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=3|-1
+WOP Bard 9		CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=3|-1
+WOP Bard 10		CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Bard Word|1	BONUS:ABILITYPOOL|4th-Level Bard Word|2																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=4|-2
+WOP Bard 11		CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Bard Word|1	BONUS:ABILITYPOOL|4th-Level Bard Word|1																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=4|-1
+WOP Bard 12		CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=4|-1
+WOP Bard 13		CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Bard Word|1	BONUS:ABILITYPOOL|5th-Level Bard Word|2																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=5|-2
+WOP Bard 14		CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Bard Word|1	BONUS:ABILITYPOOL|5th-Level Bard Word|1																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=5|-1
+WOP Bard 15		CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=5|-1
+WOP Bard 16		CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Bard Word|1	BONUS:ABILITYPOOL|6th-Level Bard Word|2																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=6|-2
+WOP Bard 17		CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Bard Word|1	BONUS:ABILITYPOOL|6th-Level Bard Word|1																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=6|-1
+WOP Bard 18		CATEGORY:Internal																								BONUS:ABILITYPOOL|6th-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=6|-1
+WOP Bard 19		CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Bard Word|1																										BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=5|-1
+WOP Bard 20		CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Bard Word|1	BONUS:ABILITYPOOL|6th-Level Bard Word|1																			BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Bard;LEVEL=6|-1
+
+#Block: Inquisitor abilities by level
+WOP Inquisitor 1	CATEGORY:Internal		ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	ABILITY:0-Level Inquisitor Word|AUTOMATIC|Boost	BONUS:ABILITYPOOL|0-Level Inquisitor Word|4	BONUS:ABILITYPOOL|1st-Level Inquisitor Word|2																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|-2
+WOP Inquisitor 2	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Inquisitor Word|1	BONUS:ABILITYPOOL|1st-Level Inquisitor Word|1																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|-1
+WOP Inquisitor 3	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Inquisitor Word|1	BONUS:ABILITYPOOL|1st-Level Inquisitor Word|1																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|-1
+WOP Inquisitor 4	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Inquisitor Word|2																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=2|-2
+WOP Inquisitor 5	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=2|-1
+WOP Inquisitor 6	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=2|-1
+WOP Inquisitor 7	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Inquisitor Word|1	BONUS:ABILITYPOOL|3rd-Level Inquisitor Word|2																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=3|-2
+WOP Inquisitor 8	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=3|-1
+WOP Inquisitor 9	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=3|-1
+WOP Inquisitor 10	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Inquisitor Word|1	BONUS:ABILITYPOOL|4th-Level Inquisitor Word|2																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=4|-2
+WOP Inquisitor 11	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Inquisitor Word|1	BONUS:ABILITYPOOL|4th-Level Inquisitor Word|1																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=4|-1
+WOP Inquisitor 12	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=4|-1
+WOP Inquisitor 13	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Inquisitor Word|1	BONUS:ABILITYPOOL|5th-Level Inquisitor Word|2																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=5|-2
+WOP Inquisitor 14	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Inquisitor Word|1	BONUS:ABILITYPOOL|5th-Level Inquisitor Word|1																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=5|-1
+WOP Inquisitor 15	CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=5|-1
+WOP Inquisitor 16	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Inquisitor Word|1	BONUS:ABILITYPOOL|6th-Level Inquisitor Word|2																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=6|-2
+WOP Inquisitor 17	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Inquisitor Word|1	BONUS:ABILITYPOOL|6th-Level Inquisitor Word|1																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=6|-1
+WOP Inquisitor 18	CATEGORY:Internal																								BONUS:ABILITYPOOL|6th-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=6|-1
+WOP Inquisitor 19	CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Inquisitor Word|1																									BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=5|-1
+WOP Inquisitor 20	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Inquisitor Word|1	BONUS:ABILITYPOOL|6th-Level Inquisitor Word|1																	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Inquisitor;LEVEL=6|-1
+
+#Block: Oracle abilities by level
+WOP Oracle 1	CATEGORY:Internal		ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	ABILITY:0-Level Oracle Word|AUTOMATIC|Boost	BONUS:ABILITYPOOL|0-Level Oracle Word|4	BONUS:ABILITYPOOL|1st-Level Oracle Word|2																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=1|-2
+WOP Oracle 2	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Oracle Word|1																										BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-1
+WOP Oracle 3	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Oracle Word|1																										BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=1|-1
+WOP Oracle 4	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Oracle Word|1	BONUS:ABILITYPOOL|2nd-Level Oracle Word|1																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=2|-1
+WOP Oracle 5	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Oracle Word|1	BONUS:ABILITYPOOL|2nd-Level Oracle Word|1																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=2|-1
+WOP Oracle 6	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Oracle Word|1	BONUS:ABILITYPOOL|3rd-Level Oracle Word|1																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=3|-1
+WOP Oracle 7	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Oracle Word|1	BONUS:ABILITYPOOL|2nd-Level Oracle Word|1	BONUS:ABILITYPOOL|3rd-Level Oracle Word|1												BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=3|-1
+WOP Oracle 8	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Oracle Word|1	BONUS:ABILITYPOOL|4th-Level Oracle Word|1																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=4|-1
+WOP Oracle 9	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Oracle Word|1	BONUS:ABILITYPOOL|3rd-Level Oracle Word|1	BONUS:ABILITYPOOL|4th-Level Oracle Word|1												BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=4|-1
+WOP Oracle 10	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Oracle Word|1	BONUS:ABILITYPOOL|5th-Level Oracle Word|1																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=5|-1
+WOP Oracle 11	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Oracle Word|1	BONUS:ABILITYPOOL|3rd-Level Oracle Word|1	BONUS:ABILITYPOOL|4th-Level Oracle Word|1	BONUS:ABILITYPOOL|5th-Level Oracle Word|1					BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=5|-1
+WOP Oracle 12	CATEGORY:Internal																								BONUS:ABILITYPOOL|6th-Level Oracle Word|1																										BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=6|-1
+WOP Oracle 13	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Oracle Word|1	BONUS:ABILITYPOOL|5th-Level Oracle Word|1	BONUS:ABILITYPOOL|6th-Level Oracle Word|1												BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=5|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=6|-1
+WOP Oracle 14	CATEGORY:Internal																								BONUS:ABILITYPOOL|7th-Level Oracle Word|1																										BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=7|-1
+WOP Oracle 15	CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Oracle Word|1	BONUS:ABILITYPOOL|6th-Level Oracle Word|1	BONUS:ABILITYPOOL|7th-Level Oracle Word|1												BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=5|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=6|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=7|-1
+WOP Oracle 16	CATEGORY:Internal																								BONUS:ABILITYPOOL|8th-Level Oracle Word|1																										BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=8|-1
+WOP Oracle 17	CATEGORY:Internal																								BONUS:ABILITYPOOL|7th-Level Oracle Word|1	BONUS:ABILITYPOOL|8th-Level Oracle Word|1																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=7|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=8|-1
+WOP Oracle 18	CATEGORY:Internal																								BONUS:ABILITYPOOL|9th-Level Oracle Word|1																										BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=9|-1
+WOP Oracle 19	CATEGORY:Internal																								BONUS:ABILITYPOOL|8th-Level Oracle Word|1	BONUS:ABILITYPOOL|9th-Level Oracle Word|1																			BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=8|-1	BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=9|-1
+WOP Oracle 20	CATEGORY:Internal																								BONUS:ABILITYPOOL|9th-Level Oracle Word|1																										BONUS:SPELLKNOWN|CLASS=Oracle;LEVEL=9|-1
+
+#Block: Sorcerer abilities by level
+WOP Sorcerer 1	CATEGORY:Internal		ABILITY:Words of Power|AUTOMATIC|Barrier|Burst|Cone|Line|Personal|Selected	ABILITY:0-Level Sorcerer Word|AUTOMATIC|Boost		BONUS:ABILITYPOOL|0-Level Sorcerer Word|4	BONUS:ABILITYPOOL|1st-Level Sorcerer Word|2																		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|-2
+WOP Sorcerer 2	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Sorcerer Word|1																										BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-1
+WOP Sorcerer 3	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Sorcerer Word|1																									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|-1
+WOP Sorcerer 4	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Sorcerer Word|1	BONUS:ABILITYPOOL|2nd-Level Sorcerer Word|1																		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|-1
+WOP Sorcerer 5	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Sorcerer Word|1	BONUS:ABILITYPOOL|2nd-Level Sorcerer Word|1																	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|-1
+WOP Sorcerer 6	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Sorcerer Word|1	BONUS:ABILITYPOOL|3rd-Level Sorcerer Word|1																		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=3|-1
+WOP Sorcerer 7	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Sorcerer Word|1	BONUS:ABILITYPOOL|2nd-Level Sorcerer Word|1	BONUS:ABILITYPOOL|3rd-Level Sorcerer Word|1									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=3|-1
+WOP Sorcerer 8	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Sorcerer Word|1	BONUS:ABILITYPOOL|4th-Level Sorcerer Word|1																		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=4|-1
+WOP Sorcerer 9	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Sorcerer Word|1	BONUS:ABILITYPOOL|3rd-Level Sorcerer Word|1	BONUS:ABILITYPOOL|4th-Level Sorcerer Word|1									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=4|-1
+WOP Sorcerer 10	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Sorcerer Word|1	BONUS:ABILITYPOOL|5th-Level Sorcerer Word|1																		BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|-1
+WOP Sorcerer 11	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Sorcerer Word|1	BONUS:ABILITYPOOL|3rd-Level Sorcerer Word|1	BONUS:ABILITYPOOL|4th-Level Sorcerer Word|1	BONUS:ABILITYPOOL|5th-Level Sorcerer Word|1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|-1
+WOP Sorcerer 12	CATEGORY:Internal																								BONUS:ABILITYPOOL|6th-Level Sorcerer Word|1																									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=6|-1
+WOP Sorcerer 13	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Sorcerer Word|1	BONUS:ABILITYPOOL|5th-Level Sorcerer Word|1	BONUS:ABILITYPOOL|6th-Level Sorcerer Word|1									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=6|-1
+WOP Sorcerer 14	CATEGORY:Internal																								BONUS:ABILITYPOOL|7th-Level Sorcerer Word|1																									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=7|-1
+WOP Sorcerer 15	CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Sorcerer Word|1	BONUS:ABILITYPOOL|6th-Level Sorcerer Word|1	BONUS:ABILITYPOOL|7th-Level Sorcerer Word|1									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=6|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=7|-1
+WOP Sorcerer 16	CATEGORY:Internal																								BONUS:ABILITYPOOL|8th-Level Sorcerer Word|1																									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=8|-1
+WOP Sorcerer 17	CATEGORY:Internal																								BONUS:ABILITYPOOL|7th-Level Sorcerer Word|1	BONUS:ABILITYPOOL|8th-Level Sorcerer Word|1																	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=7|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=8|-1
+WOP Sorcerer 18	CATEGORY:Internal																								BONUS:ABILITYPOOL|9th-Level Sorcerer Word|1																									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=9|-1
+WOP Sorcerer 19	CATEGORY:Internal																								BONUS:ABILITYPOOL|8th-Level Sorcerer Word|1	BONUS:ABILITYPOOL|9th-Level Sorcerer Word|1																	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=8|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=9|-1
+WOP Sorcerer 20	CATEGORY:Internal																								BONUS:ABILITYPOOL|9th-Level Sorcerer Word|1																									BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=9|-1
+
+#Block: Summoner abilities by level
+WOP Summoner 1	CATEGORY:Internal		ABILITY:Words of Power|AUTOMATIC|Barrier|Boost|Burst|Cone|Line|Personal|Selected	ABILITY:0-Level Summoner Word|AUTOMATIC|Boost	BONUS:ABILITYPOOL|0-Level Summoner Word|4	BONUS:ABILITYPOOL|1st-Level Summoner Word|2																		BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=0|-4	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|-2
+WOP Summoner 2	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Summoner Word|1	BONUS:ABILITYPOOL|1st-Level Summoner Word|1																		BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|-1
+WOP Summoner 3	CATEGORY:Internal																								BONUS:ABILITYPOOL|0-Level Summoner Word|1	BONUS:ABILITYPOOL|1st-Level Summoner Word|1																		BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|-1
+WOP Summoner 4	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Summoner Word|2																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=2|-2
+WOP Summoner 5	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=2|-1
+WOP Summoner 6	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=2|-1
+WOP Summoner 7	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Summoner Word|1	BONUS:ABILITYPOOL|3rd-Level Summoner Word|2																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=3|-2
+WOP Summoner 8	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=3|-1
+WOP Summoner 9	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=3|-1
+WOP Summoner 10	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Summoner Word|1	BONUS:ABILITYPOOL|4th-Level Summoner Word|2																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=4|-2
+WOP Summoner 11	CATEGORY:Internal																								BONUS:ABILITYPOOL|1st-Level Summoner Word|1	BONUS:ABILITYPOOL|4th-Level Summoner Word|1																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=4|-1
+WOP Summoner 12	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=4|-1
+WOP Summoner 13	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Summoner Word|1	BONUS:ABILITYPOOL|5th-Level Summoner Word|2																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=5|-2
+WOP Summoner 14	CATEGORY:Internal																								BONUS:ABILITYPOOL|2nd-Level Summoner Word|1	BONUS:ABILITYPOOL|5th-Level Summoner Word|1																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=5|-1
+WOP Summoner 15	CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=5|-1
+WOP Summoner 16	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Summoner Word|1	BONUS:ABILITYPOOL|6th-Level Summoner Word|2																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=6|-2
+WOP Summoner 17	CATEGORY:Internal																								BONUS:ABILITYPOOL|3rd-Level Summoner Word|1	BONUS:ABILITYPOOL|6th-Level Summoner Word|1																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=6|-1
+WOP Summoner 18	CATEGORY:Internal																								BONUS:ABILITYPOOL|6th-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=6|-1
+WOP Summoner 19	CATEGORY:Internal																								BONUS:ABILITYPOOL|5th-Level Summoner Word|1																									BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=5|-1
+WOP Summoner 20	CATEGORY:Internal																								BONUS:ABILITYPOOL|4th-Level Summoner Word|1	BONUS:ABILITYPOOL|6th-Level Summoner Word|1																	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Summoner;LEVEL=6|-1
