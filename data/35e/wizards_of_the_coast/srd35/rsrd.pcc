@@ -25,23 +25,23 @@ INFOTEXT:The Core Rules for the 3.5 revised edition
 #EXTRAFILE:OGL.txt
 
 # Basics
-PCC:@/d20ogl/srd35/basics/rsrd_basics.pcc
+PCC:@/35e/wizards_of_the_coast/srd35/basics/rsrd_basics.pcc
 
 # Advanced
-PCC:@/d20ogl/srd35/advanced/rsrd_advanced.pcc
+PCC:@/35e/wizards_of_the_coast/srd35/advanced/rsrd_advanced.pcc
 
 # Monsters
-PCC:@/d20ogl/srd35/monsters/rsrd_monsters.pcc
+PCC:@/35e/wizards_of_the_coast/srd35/monsters/rsrd_monsters.pcc
 
 # Psionics
-PCC:@/d20ogl/srd35/psionics/rsrd_psionics.pcc
+PCC:@/35e/wizards_of_the_coast/srd35/psionics/rsrd_psionics.pcc
 
 # Epic
-PCC:@/d20ogl/srd35/epic/rsrd_epic.pcc
-PCC:@/d20ogl/srd35/epic_psionics/rsrd_epic_psionics.pcc
+PCC:@/35e/wizards_of_the_coast/srd35/epic/rsrd_epic.pcc
+PCC:@/35e/wizards_of_the_coast/srd35/epic_psionics/rsrd_epic_psionics.pcc
 
 # Divine
-PCC:@/d20ogl/srd35/divine/rsrd_divine.pcc
+PCC:@/35e/wizards_of_the_coast/srd35/divine/rsrd_divine.pcc
 
 #
 # End

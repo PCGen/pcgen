@@ -24,9 +24,9 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 INFOTEXT:This is a subset of the RSRD containing rules generally found in Core Book I, this should not be loaded with any other RSRD sets.
 
 # Do not remove the EXTRAFILE comment.
-#EXTRAFILE:@/d20ogl/srd35/OGL.txt
+#EXTRAFILE:@/35e/wizards_of_the_coast/srd35/OGL.txt
 
-PCC:@/d20ogl/srd35/campaign/rsrd_campaign_corebook2.pcc
+PCC:@/35e/wizards_of_the_coast/srd35/campaign/rsrd_campaign_corebook2.pcc
 
 # Suppress forward references
 FORWARDREF:KIT|Ape Companion,Awakened Animal,Awakened Tree,Badger Companion,Bear (Black) Companion,Bear (Brown) Companion,Bear (Polar) Companion,Bison Companion,Boar Companion,Camel Companion,Camel Default,Cheetah Companion,Crocodile (Giant) Companion,Crocodile Companion,Dog (Riding) Companion,Dog Companion,Eagle Companion,Elephant Companion,Elephant Default,Hawk Companion,Horse (Heavy) Companion,Horse (Light) Companion,Leopard Companion,Lion Companion,Lizard (Monitor) Companion,Owl Companion,Pony Companion,Porpoise Companion,Rhinoceros Companion,Shark (Medium) Companion,Snake (Constrictor) Companion,Snake (Constrictor/Giant) Companion,Snake (Viper/Huge) Companion,Snake (Viper/Large) Companion,Snake (Viper/Medium) Companion,Snake (Viper/Small) Companion,Snake Familiar,Squid Companion,Tiger Companion,Wolf Companion,Wolverine Companion
