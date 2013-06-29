@@ -119,7 +119,7 @@ CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Escape Artist|Perception|T
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
 CLASS:Eldritch Knight	HD:10		TYPE:PC.Prestige	CLASSTYPE:PC	ABB:Elk		MAXLEVEL:10	SOURCEPAGE:p.384	BONUS:CHECKS|BASE.Fortitude|(CL+1)/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name		Required Ability										Req. Spell Type
-CLASS:Eldritch Knight	PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon Proficiencies	PRESPELLTYPE:1,Arcane=3
+CLASS:Eldritch Knight	PREABILITY:1,CATEGORY=Internal,Weapon Prof ~ Martial	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Climb|Knowledge (Arcana)|Knowledge (Nobility)|Linguistics|Ride|Sense Motive|Spellcraft|Swim
 1	BONUS:ABILITYPOOL|Fighter Bonus Feat|1					ABILITY:Special Ability|AUTOMATIC|Diverse Training
