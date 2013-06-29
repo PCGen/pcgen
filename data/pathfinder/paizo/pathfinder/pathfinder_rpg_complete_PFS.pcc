@@ -122,26 +122,26 @@ PCC:@/pathfinder/paizo/pathfinder_campaign_setting/princes_of_darkness/pod.pcc
 #Pathfinder Player Companion: Blood of Angels
 #Pathfinder Player Companion: Blood of Fiends
 #Pathfinder Player Companion: Blood of the Night
-PCC:@/pathfinder/paizo/pathfinder_player_companion/cheliax_empire_of_devils/cheliax_empire_of_devils.pcc
-PCC:@/pathfinder/paizo/pathfinder_player_companion/dragon_empires_primer/dragon_empires_primer.pcc
+PCC:@/pathfinder/paizo/player_companion/cheliax_empire_of_devils/cheliax_empire_of_devils.pcc
+PCC:@/pathfinder/paizo/player_companion/dragon_empires_primer/dragon_empires_primer.pcc
 #Pathfinder Player Companion: Dungeoneer's Handbook
-PCC:@/pathfinder/paizo/pathfinder_player_companion/dwarves_of_golarion/dwarves_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/dwarves_of_golarion/dwarves_of_golarion.pcc
 #Pathfinder Player Companion: Elves of Golarion
 #Pathfinder Player Companion: Faiths of Balance
 #Pathfinder Player Companion: Faiths of Corruption
-PCC:@/pathfinder/paizo/pathfinder_player_companion/faiths_of_purity/faiths_of_purity.pcc
+PCC:@/pathfinder/paizo/player_companion/faiths_of_purity/faiths_of_purity.pcc
 #Pathfinder Player Companion: Goblins of Golarion
-PCC:@/pathfinder/paizo/pathfinder_player_companion/gnomes_of_golarion/gnomes_of_golarion.pcc
-PCC:@/pathfinder/paizo/pathfinder_player_companion/halflings_of_golarion/halflings_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/gnomes_of_golarion/gnomes_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.pcc
 #Pathfinder Player Companion: Humans of Golarion
-PCC:@/pathfinder/paizo/pathfinder_player_companion/inner_sea_primer/inner_sea_primer.pcc
+PCC:@/pathfinder/paizo/player_companion/inner_sea_primer/inner_sea_primer.pcc
 #Pathfinder Player Companion: Knights of the Inner Sea
-PCC:@/pathfinder/paizo/pathfinder_player_companion/orcs_of_golarion/orcs_of_golarion.pcc
+PCC:@/pathfinder/paizo/player_companion/orcs_of_golarion/orcs_of_golarion.pcc
 #Pathfinder Player Companion: Osirion, Land of Pharaohs
 #Pathfinder Player Companion: People of the North
-PCC:@/pathfinder/paizo/pathfinder_player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.pcc
-PCC:@/pathfinder/paizo/pathfinder_player_companion/qadira_gateway_to_the_east/qadira_gateway_to_the_east.pcc
-PCC:@/pathfinder/paizo/pathfinder_player_companion/sargava_the_lost_colony/sargava_the_lost_colony.pcc
+PCC:@/pathfinder/paizo/player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.pcc
+PCC:@/pathfinder/paizo/player_companion/qadira_gateway_to_the_east/qadira_gateway_to_the_east.pcc
+PCC:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/sargava_the_lost_colony.pcc
 PCC:@/pathfinder/paizo/pathfinder_adventure_path/second_darkness/second_darkness_players_guide/pathfinder_conversion/sdpg_pfrpg.pcc
 #Pathfinder Player Companion: Taldor, Echoes of Glory
 #Pathfinder Player Companion: Varisia, Birthplace of Legends
