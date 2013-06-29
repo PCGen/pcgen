@@ -41,7 +41,7 @@ EQUIPMENT:pf14_equipment.lst
 KIT:pf14_kits_monsters.lst
 LANGUAGE:pf14_languages.lst
 RACE:pf14_races.lst
-SKILL:pf14_skils.lst
+SKILL:pf14_skills.lst
 SPELL:pf14_spells.lst
 
 #
