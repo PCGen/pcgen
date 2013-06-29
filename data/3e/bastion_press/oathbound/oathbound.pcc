@@ -22,7 +22,7 @@ COPYRIGHT:System Reference Document Copyright 1999, 2000, Wizards of the Coast, 
 COPYRIGHT:PCGen dataset conversion for the Oathbound: Domains of the Forge Copyright 2003-2005, PCGen Data team (Including, but not limited to Andrew McDougall (Tir Gwaith), Jonathan Weisman (bd), John Sussenberger, Paul W. King, Paul Grosse, Hugo Perez (Emperorfranz), Patryk Adamski (Ruemere))
 
 ISLICENSED:YES
-LICENSE:FILE=data\d20ogl\bastionpress\oathbound\oathboundpermission.htm
+LICENSE:FILE=data\3e\bastion_press\oathbound\oathboundpermission.htm
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
