@@ -49,7 +49,6 @@ Unlocked Talent			TYPE:General																							PREFEAT:1,Wild Talent		!PRE
 
 ###Block: Pseudo-feats (ADD:ABILITY doesn't load correctly; JIRA CODE-1117)
 # Feat Name				Type		Visible		Description									Stackable?	Multiple?	Choose				Bonus to skill						Class Skill
-Craftsman Skill Bonus		TYPE:Pseudo	VISIBLE:EXPORT	DESC:Skill bonus from Craftsman ability.				STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Craft		BONUS:SKILL|%LIST|CraftsmanBonus
 Dromite Crafter Skill Bonus	TYPE:Pseudo	VISIBLE:EXPORT	DESC:Skill bonus from Dromite Crafter ability.			STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Craft		BONUS:SKILL|%LIST|DromiteCrafterBonus
 Duergar Ancestral Voice Bonus	TYPE:Pseudo	VISIBLE:EXPORT	DESC:Skill bonus from Duergar Ancestral Voice ability.	STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	BONUS:SKILL|%LIST|DuergarAncestralVoiceBonus
 Ophiduan Scholar Bonus		TYPE:Pseudo	VISIBLE:EXPORT	DESC:Skill bonus from Ophiduan Scholar ability.			STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Knowledge	BONUS:SKILL|%LIST|OphiduanScholarBonus		CSKILL:LIST

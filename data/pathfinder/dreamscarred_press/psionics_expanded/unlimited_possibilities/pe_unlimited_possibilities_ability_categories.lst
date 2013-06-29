@@ -11,6 +11,10 @@ ABILITYCATEGORY:Bonus Psionic Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FR
 # Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object		Plural description for UI	Display Location
 ABILITYCATEGORY:Aegis Archetype	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:AegisArchetype	PLURAL:Aegis Archetypes		DISPLAYLOCATION:Archetype
 
+###Block: Aegis Craftsman ability pools
+ABILITYCATEGORY:Craft Skill Bonus		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal	ABILITYLIST:Craftsman Skill Bonus ~ Aegis	PLURAL:Craft Skill Bonuses		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Master Craftsman Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT	ABILITYLIST:Master Craftsman			PLURAL:Master Craftsman Feats		DISPLAYLOCATION:Feats
+
 ###Block: Astral Suit ability pools
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Astral Suit Type		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AstralSuitType		PLURAL:Astral Suit Type			DISPLAYLOCATION:Class Abilities

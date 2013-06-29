@@ -8,7 +8,7 @@ SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWE
 # Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Aegis		HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Aegis		STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Fly|Intimidate|Knowledge (Engineering)|Knowledge (Psionics)|TYPE=Profession|Spellcraft|Swim|Use Magic Device
+CLASS:Aegis		STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Fly|Intimidate|Knowledge (Engineering)|Knowledge (Psionics)|TYPE=Profession|Spellcraft|Swim	ABILITY:Internal|AUTOMATIC|Use Magic Device Class Skill|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisUseMagicDevice
 
 #Block: Proficiencies
 1																																						ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:ARMORPROF|Astral Suit	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Shield Proficiency
@@ -31,18 +31,19 @@ CLASS:Aegis		STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Fly
 1	BONUS:VAR|AegisDRLVL|AegisLVL																							DEFINE:AegisDRLVL|0
 
 #Block: Class Info
-1																																						ABILITY:Special Ability|AUTOMATIC|Astral Repair ~ Aegis|Form Astral Suit ~ Aegis
-2	BONUS:VAR|CraftsmanBonus|floor((CL+2)/4)	BONUS:VAR|AegisDR|floor((AegisDRLVL+4)/3)																		ADD:FEAT|Craftsman Skill Bonus	ABILITY:Special Ability|AUTOMATIC|Craftsman ~ Aegis|Damage Reduction ~ Aegis
-3	BONUS:VAR|ReconfigureTimes|floor((CL-1)/2)																														ABILITY:Special Ability|AUTOMATIC|Invigorating Suit ~ Aegis|Reconfigure ~ Aegis
-4	BONUS:VAR|AugmentSuitMax|floor(CL/4)																															ABILITY:Special Ability|AUTOMATIC|Augment Suit ~ Aegis
-5																																ADD:FEAT|Master Craftsman
-12	BONUS:VAR|CannibalizeTimes|floor((CL-10)/2)																														ABILITY:Special Ability|AUTOMATIC|Cannibalize Suit ~ Aegis
-20																																						ABILITY:Special Ability|AUTOMATIC|Perfect Merger ~ Aegis
-
+1	ABILITY:Special Ability|AUTOMATIC|Astral Repair ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisAstralRepair
+1	ABILITY:Special Ability|AUTOMATIC|Form Astral Suit ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisFormAstralSuit
+2	BONUS:VAR|CraftsmanBonus|floor((CL+2)/4)	ABILITY:Special Ability|AUTOMATIC|Craftsman ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisCraftsman
+2	BONUS:VAR|AegisDR|floor((AegisDRLVL+4)/3)	ABILITY:Special Ability|AUTOMATIC|Damage Reduction ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisDamageReduction
+3	BONUS:VAR|ReconfigureTimes|floor((CL-1)/2)	ABILITY:Special Ability|AUTOMATIC|Reconfigure ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisReconfigure
+3	ABILITY:Special Ability|AUTOMATIC|Invigorating Suit ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisInvigoratingSuit
+4	BONUS:VAR|AugmentSuitMax|floor(CL/4)	ABILITY:Special Ability|AUTOMATIC|Augment Suit ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisAugmentSuit
+5	ABILITY:Internal|AUTOMATIC|Master Craftsman ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisMasterCraftsman
+12	BONUS:VAR|CannibalizeTimes|floor((CL-10)/2)	ABILITY:Special Ability|AUTOMATIC|Cannibalize Suit ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisCannibalizeSuit
+20	ABILITY:Special Ability|AUTOMATIC|Perfect Merger ~ Aegis|!PREABILITY:1,CATEGORY=Archetype,TYPE.AegisPerfectMerger
 
 
 ###Block: Constructor
-
 # Class Name
 CLASS:Psion.MOD
 SUBCLASS:Constructor	COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Shaper	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Bluff|Disguise|Use Magic Device
@@ -56,7 +57,6 @@ SUBCLASSLEVEL:1	BONUS:VAR|GeneralistDisciplineLVL|CL	ABILITY:Special Ability|AUT
 ###Block: Gifted Blade
 # COMMENT: Technically, this is an archetype, but it seemed different enough
 # COMMENT:   to require its own class in PCGen.
-
 # Class Name		Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus					Modify VAR									Serves As
 CLASS:Gifted Blade	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity	SERVESAS:CLASS|Soulknife
 # Class Name		Skill Pts/Lvl	Class Skill

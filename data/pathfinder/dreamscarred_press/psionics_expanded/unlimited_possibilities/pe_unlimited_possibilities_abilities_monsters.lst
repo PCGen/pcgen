@@ -6,7 +6,6 @@ SOURCELONG:Psionics Expanded - Unlimited Possibilities	SOURCESHORT:PEUP	SOURCEWE
 ###Block: Ectoplasmic Swarm abilities
 # Ability Name		Unique Key							Category of Ability		Type						Visible	Define							Description																						Modify VAR													Source Page		Aspects
 Ectoplasmic Poison	KEY:Ectoplasmic Poison ~ Ectoplasmic Swarm	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			DEFINE:EctoplasmicSwarmPoisonDC|10+TL/2+CON	DESC:Swarm - injury; save Fort DC %1; frequency 1/round for 2 rounds; effect 1d3 Dexterity drain; cure 1 save.|EctoplasmicSwarmPoisonDC	BONUS:VAR|EctoplasmicSwarmPoisonDC|2|PREFEAT:1,Ability Focus (Ectoplasmic Poison)	SOURCEPAGE:p.11	ASPECT:Ability Benefit|(swarm)
-No Combat Maneuvers									CATEGORY:Special Ability							VISIBLE:NO	DEFINE:NoCombatManeuvers|1
 
 ###Block: Advanced Constructs Astral Construct abilities
 #Block: Menu A
