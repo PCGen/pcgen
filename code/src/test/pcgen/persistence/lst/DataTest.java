@@ -104,21 +104,9 @@ public class DataTest
 		
 		Set<String> allowedNames =
 				new HashSet<String>(Arrays.asList(
-					"pf11_classes_monster_pfrpg.lst",
-					"skeletons_of_scarwall_pfrpg.pcc",
-					"pf4_abilities_racial_pfrpg.lst",
-					"rrpg_kits_races_animals_pfrpg.lst",
-					"curse_of_the_crimson_throne_players_guide.pcc",
-					"cotct_pg_kits_pfrpg.lst", 
-					"cotct_pg_feats_pfrpg.lst",
-					"cotct_pg_races_pfrpg.lst",
-					"seven_days_to_the_grave_pfrpg.pcc",
-					"escape_from_old_korvosa_pfrpg.pcc",
-					"the_hook_mountain_massacre_pfrpg.pcc",
 					"cotct_pg_abilities_pfrpg.lst",
 					"fortress_of_the_stone_giants_pfrpg.pcc",
-					"rise_of_the_runelords_players_guide_pfrpg.pcc",
-					"curse_of_the_crimson_throne_players_guide_pfrpg.pcc"));
+					"rise_of_the_runelords_players_guide_pfrpg.pcc"));
 		List<File> newLongPaths = new ArrayList<File>();
 		
 		int dataPathLen = new File(dataPath).getAbsolutePath().length();
@@ -180,11 +168,13 @@ public class DataTest
 	
 	/**
 	 * Scan for any campaigns referring to missing data files. 
+	 * @throws IOException If the data path cannot be found.
 	 */
 	@Test
-	public void missingFilesTest()
+	public void missingFilesTest() throws IOException
 	{
-		int dataPathLen = ConfigurationSettings.getPccFilesDir().length();
+		File dataFolder = new File(ConfigurationSettings.getPccFilesDir());
+		int dataPathLen = dataFolder.getCanonicalPath().length();
 
 		List<Object[]> missingLstFiles = new ArrayList<Object[]>();
 
@@ -209,7 +199,7 @@ public class DataTest
 			report.append(((File)missing[1]).getPath().substring(dataPathLen+1));
 			report.append(" used by ");
 			report.append((new File(((Campaign) missing[0]).getSourceURI())).getPath().substring(dataPathLen+1));
-			report.append("\r\n");
+			report.append("<br>\r\n");
 		}
 		
 		// Flag any missing files
