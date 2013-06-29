@@ -1,0 +1,3 @@
+# CVS $Revision: $ $Author: $ -- Thu Oct  8 22:17:39 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+# Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number	Category of Object	Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Covert Hero Talent	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:0		CATEGORY:Talent		TYPE:CovertHeroTalent	PLURAL:Covert Hero Talents	DISPLAYLOCATION:Talents
