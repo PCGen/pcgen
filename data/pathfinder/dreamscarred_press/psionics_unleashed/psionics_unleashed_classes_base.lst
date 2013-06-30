@@ -10,19 +10,19 @@ CLASS:Psion		HD:6		TYPE:Base.Psionic.PC	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAG
 CLASS:Psion		STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psion		SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL
-SUBCLASS:Egoist			COST:0	PROHIBITCOST:0	SPELLLIST:2|Egoist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Acrobatics|Heal
+SUBCLASS:Egoist			COST:0	PROHIBITCOST:0	SPELLLIST:2|Egoist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft	ABILITY:Special Ability|AUTOMATIC|Psychometabolism Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
 SUBCLASSLEVEL:1	BONUS:VAR|PsychometabolismDisciplineLVL|CL	ABILITY:Special Ability|AUTOMATIC|Psychometabolism Discipline
-SUBCLASS:Kineticist		COST:0	PROHIBITCOST:0	SPELLLIST:2|Kineticist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Disable Device|Intimidate
+SUBCLASS:Kineticist		COST:0	PROHIBITCOST:0	SPELLLIST:2|Kineticist|Psion	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft	ABILITY:Special Ability|AUTOMATIC|Psychokinesis Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
 SUBCLASSLEVEL:1	BONUS:VAR|PsychokinesisDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Psychokinesis Discipline
-SUBCLASS:Nomad			COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion		CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Climb|Fly|Survival|Swim
-SUBCLASSLEVEL:1	BONUS:VAR|PsychoportationDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Psychoportation Discipline
-SUBCLASS:Seer			COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Seer		CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Diplomacy|Perception
+SUBCLASS:Nomad			COST:0	PROHIBITCOST:0	SPELLLIST:2|Nomad|Psion		CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
+SUBCLASSLEVEL:1	BONUS:VAR|PsychoportationDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Psychoportation Discipline	ABILITY:Special Ability|AUTOMATIC|Psychoportation Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
+SUBCLASS:Seer			COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Seer		CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft	ABILITY:Special Ability|AUTOMATIC|Clairsentience Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
 SUBCLASSLEVEL:1	BONUS:VAR|ClairsentienceDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Clairsentience Discipline
-SUBCLASS:Shaper			COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Shaper	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Bluff|Disguise|Use Magic Device
+SUBCLASS:Shaper			COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Shaper	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft	ABILITY:Special Ability|AUTOMATIC|Metacreativity Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
 SUBCLASSLEVEL:1	BONUS:VAR|MetacreativityDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Metacreativity Discipline
-SUBCLASS:Telepath			COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Telepath	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Bluff|Diplomacy|Sense Motive
+SUBCLASS:Telepath			COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Telepath	CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft	ABILITY:Special Ability|AUTOMATIC|Telepathy Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
 SUBCLASSLEVEL:1	BONUS:VAR|TelepathyDisciplineLVL|CL			ABILITY:Special Ability|AUTOMATIC|Telepathy Discipline
-SUBCLASS:Generalist Psion	COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion			CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
+SUBCLASS:Generalist Psion	COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion			CSKILL:Autohypnosis|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft	ABILITY:Special Ability|AUTOMATIC|Generalist Class Skills|!PREABILITY:1,CATEGORY=Archetype,TYPE.PsionDisciplineClassSkills
 SUBCLASSLEVEL:1	BONUS:VAR|GeneralistDisciplineLVL|CL		ABILITY:Special Ability|AUTOMATIC|Generalist Discipline
 
 ###Block:Proficiencies
