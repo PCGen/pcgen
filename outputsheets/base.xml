@@ -1247,7 +1247,7 @@ Immune
 
 	<!-- Turning ability -->
 
-|FOR,%turncount,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=TurnType"),1,0|
+|FOR,%turncount,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=TurnType")-1,1,0|
 	<turning kind="|TEXT.UPPER.ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnKind|" type="|TEXT.UPPER.ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnType|">
 		<level>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel.INTVAL|</level>
 		<turn_check>1d20|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnCheck.INTVAL.SIGN|</turn_check>
@@ -1258,7 +1258,7 @@ Immune
 |ENDFOR|
 
 <!-- Eclipse Channeling -->
-|FOR,%eclipsecount,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=ChannelingType"),1,0|
+|FOR,%eclipsecount,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=ChannelingType")-1,1,0|
 	<eclipse_channeling kind="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingKind|" type="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingType|">	
 		<level>|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingLevel.INTVAL|</level>
 		<channeling_check>1d20|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingCheck.INTVAL.SIGN|</channeling_check>
