@@ -33,7 +33,7 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1										BONUS:VAR|TurnLevelBase|CL|PREDEITY:1,Nier
 1										BONUS:VAR|TurnLevelBase|CL+2|PREDEITY:1,Beltine,Neroth
 ###Block: Channeling
-1	BONUS:VAR|ChannelLevelBase,ChannelDamagePlusBase|CL|TYPE=Level.REPLACE						ABILITY:Special Ability|VIRTUAL|Basic Channeling|Channeling
+1	BONUS:VAR|ChannelLevelBase,ChannelDamagePlusBase|CL|TYPE=Level.REPLACE						ABILITY:Special Ability|VIRTUAL|Channeling
 1	BONUS:VAR|ChannelLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
 1	BONUS:VAR|ChannelLevelBase|CL-2|PREDEITY:1,Hurrian,Neroth,Yarris
 1	BONUS:VAR|ChannelLevelBase|CL-1|PREDEITY:1,Anshar,Belisarda,Illiir,Saluwe,Beroe,Keleos,Marok,Osalian
@@ -261,7 +261,7 @@ SUBCLASS:Paladin of the Fire Dragon	COST:0	PREDEITY:1,Fire Dragon	PREGENDER:Male
 SUBCLASSLEVEL:1																																		CSKILL:Survival																																													AUTO:FEAT|Weapon Focus(Flail (Heavy))
 1																																					TEMPLATE:HCFavClass
 4																		ABILITY:Special Ability|VIRTUAL|.CLEAR.Basic Turning|Turn Undead
-4	BONUS:VAR|ChannelLevelBase,ChannelDamagePlusBase|CL|TYPE=Level.REPLACE						ABILITY:Special Ability|NORMAL|Basic Channeling|Channeling
+4	BONUS:VAR|ChannelLevelBase,ChannelDamagePlusBase|CL|TYPE=Level.REPLACE						ABILITY:Special Ability|NORMAL|Channeling
 4	BONUS:VAR|ChannelLevelBase|CL-3|PREDEITY:1,Althares,Cadic,Fire Dragon,Larissa,Sarish
 4	BONUS:VAR|ChannelLevelBase|CL-2|PREDEITY:1,Hurrian,Neroth,Yarris
 4	BONUS:VAR|ChannelLevelBase|CL-1|PREDEITY:1,Anshar,Belisarda,Illiir,Saluwe,Beroe,Keleos,Marok,Osalian

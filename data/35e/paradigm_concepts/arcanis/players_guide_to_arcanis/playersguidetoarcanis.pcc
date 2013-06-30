@@ -72,8 +72,8 @@ CLASS:@/35e/wizards_of_the_coast/srd35/basics/rsrd_classes_base.lst|(EXCLUDE:Cle
 CLASS:@/35e/wizards_of_the_coast/srd35/basics/rsrd_classes_monsters.lst
 CLASS:@/35e/wizards_of_the_coast/srd35/basics/rsrd_classes_npc.lst
 #COMPANIONMOD:@/35e/wizards_of_the_coast/srd35/basics/rsrd_companionmods.lst
-DOMAIN:@/35e/wizards_of_the_coast/srd35/basics/rsrd_domains.lst|(EXCLUDE:Good|Evil|Law|Chaos)
-DOMAIN:@/35e/wizards_of_the_coast/srd35/basics/rsrd_domains_divine.lst|(EXCLUDE:Charm|Glory)
+#DOMAIN:@/35e/wizards_of_the_coast/srd35/basics/rsrd_domains.lst|(EXCLUDE:Good|Evil|Law|Chaos)
+#DOMAIN:@/35e/wizards_of_the_coast/srd35/basics/rsrd_domains_divine.lst|(EXCLUDE:Charm|Glory)
 EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_armorshields.lst
 EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_basetypes.lst
 EQUIPMENT:@/35e/wizards_of_the_coast/srd35/basics/rsrd_equip_coinsgems.lst
@@ -102,9 +102,9 @@ RACE:@/35e/wizards_of_the_coast/srd35/basics/rsrd_races__base.lst|(EXCLUDE:Elf|H
 SKILL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_skills.lst
 SKILL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_skills_conditional.lst
 
-SPELL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_spells.lst
-SPELL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_spells_divine.lst
-SPELL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_spells_monster.lst
+#SPELL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_spells.lst
+#SPELL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_spells_divine.lst
+#SPELL:@/35e/wizards_of_the_coast/srd35/basics/rsrd_spells_monster.lst
 
 TEMPLATE:@/35e/wizards_of_the_coast/srd35/basics/rsrd_templates_hidden.lst
 TEMPLATE:@/35e/wizards_of_the_coast/srd35/basics/rsrd_templates_types.lst
@@ -234,6 +234,7 @@ SKILL:playersguidetoarcanis_skills.lst
 SKILL:playersguidetoarcanis_mod_skills.lst
 SPELL:playersguidetoarcanis_spells.lst
 SPELL:playersguidetoarcanis_mod_spells.lst
+SPELL:pgta_spells_rsrd.lst
 
 TEMPLATE:playersguidetoarcanis_templates.lst
 WEAPONPROF:playersguidetoarcanis_weaponprofs.lst
@@ -247,10 +248,10 @@ ARMORPROF:playersguidetoarcanis_armorprofs.lst
 #EQUIPMOD:&/forgedinmagic/forgedmagic_equipmods_specialmaterials.lst
 #WEAPONPROF:&/forgedinmagic/forgedmagic_weaponprofs.lst
 
-
 FORWARDREF:DOMAIN|Chaos,Evil,Good,Law,Mind
 FORWARDREF:SPELL|Chaos Hammer,Holy Aura,Holy Smite,Order's Wrath,Shield of Law,Unholy Aura,Unholy Blight
 FORWARDREF:LANGUAGE|Draconic,Elven,Gnome,Halfling
-FORWARDREF:RACE|Dinosaur (Deinonychus),Dinosaur (Elasmosaurus),Dinosaur (Megaraptor),Dinosaur (Triceratops),Dinosaur (Tyrannosaurus),Elf,Elf (Drow),Gnome (Svirfneblin),Gnome
+FORWARDREF:RACE|Dinosaur (Deinonychus),Dinosaur (Elasmosaurus),Dinosaur (Megaraptor),Dinosaur (Triceratops),Dinosaur (Tyrannosaurus),Elf,Elf (Drow),Gnome (Svirfneblin),Gnome,Halfling
 FORWARDREF:FEAT|Speed of Thought
 FORWARDREF:EQUIPMENT|Bite,Claw
+FORWARDREF:SKILL|Profession (Hunter),Knowledge (Local)

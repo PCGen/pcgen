@@ -182,7 +182,7 @@ CLASS:Emerald Society Archaeologist	!PREABILITY:1,CATEGORY=Special Ability,Illit
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Emerald Society Archaeologist	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Gather Information|Hide|TYPE.Knowledge|Listen|Open Lock|TYPE.Profession|Research|Ride|Search|Sense Motive|Speak Language|Survival|Swim|Use Magic Device|Use Rope
 1			BONUS:ABILITYPOOL|Special Ability|Emerald Proficiency|1						ABILITY:Special Ability|VIRTUAL|Ancient Lore
-1:REPEATLEVEL:2																ABILITY:Special Ability|VIRTUAL|Subject Specialization
+1:REPEATLEVEL:2																	BONUS:ABILITYPOOL|Subject Specialization|1
 2																		ABILITY:Special Ability|VIRTUAL|Investigator
 3													BONUS:VAR|TrapSense|CL/3	ABILITY:Special Ability|VIRTUAL|Find the Past|Trap Sense Ability
 4																		ABILITY:Special Ability|VIRTUAL|Knowledge Mastery
