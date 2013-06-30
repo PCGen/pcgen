@@ -1,7 +1,7 @@
 CAMPAIGN:Test Broken Links
-GAMEMODE:35e
+#GAMEMODE:35e
 
 
-PCC:@/35e/nowhere/anything.pcc
+#PCC:@/35e/nowhere/anything.pcc
 
 
