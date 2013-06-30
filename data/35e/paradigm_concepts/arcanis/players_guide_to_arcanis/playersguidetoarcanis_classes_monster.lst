@@ -8,3 +8,1204 @@ CLASS:Spirit Warrior	HD:12		TYPE:Undead	SOURCELONG:Player's Guide to Arcanis	SOU
 CLASS:Spirit Warrior	PRETEMPLATE:1,Undead
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Spirit Warrior	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+
+
+
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:38:33 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+# Original Entry by: Tir Gwaith
+# This is specific classes for monsters with advancements requiring
+#	the CLASS file features (such as spellcasting)
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Save checks bonus								Combat bonus
+CLASS:Planetar	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:42	SOURCEPAGE:MonstersIntro-A.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|C
+# Class Name	Required Race			Reg. Race Type
+CLASS:Planetar	PRERACE:1,Angel (Planetar)	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Planetar	STARTSKILLPTS:8	MODTOSKILLS:YES
+1	BONUS:PCLEVEL|Cleric|1					ADD:SPELLCASTER|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+3	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1
+5	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
+7	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+8	BONUS:PCLEVEL|Cleric|1
+9	BONUS:PCLEVEL|Cleric|1
+10	BONUS:PCLEVEL|Cleric|1
+11	BONUS:PCLEVEL|Cleric|1
+12	BONUS:PCLEVEL|Cleric|1
+13	BONUS:PCLEVEL|Cleric|1
+14	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Save checks bonus								Combat bonus
+CLASS:Solar		HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:66	SOURCEPAGE:MonstersIntro-A.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Required Race		Reg. Race Type
+CLASS:Solar		PRERACE:1,Angel (Solar)	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Solar		STARTSKILLPTS:8	MODTOSKILLS:YES
+1					ADD:SPELLCASTER|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+3	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1
+5	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
+7	BONUS:PCLEVEL|Cleric|1
+9	BONUS:PCLEVEL|Cleric|1
+10	BONUS:PCLEVEL|Cleric|1
+11	BONUS:PCLEVEL|Cleric|1
+12	BONUS:PCLEVEL|Cleric|1
+13	BONUS:PCLEVEL|Cleric|1
+14	BONUS:PCLEVEL|Cleric|1
+16	BONUS:PCLEVEL|Cleric|1
+17	BONUS:PCLEVEL|Cleric|1
+18	BONUS:PCLEVEL|Cleric|1
+19	BONUS:PCLEVEL|Cleric|1
+20	BONUS:PCLEVEL|Cleric|1
+21	BONUS:PCLEVEL|Cleric|1
+22	BONUS:PCLEVEL|Cleric|1
+
+# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page					Save checks bonus								Combat bonus
+CLASS:Trumpet Archon	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:36	SOURCEPAGE:MonstersIntro-A.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name		Required Race			Reg. Race Type
+CLASS:Trumpet Archon	PRERACE:1,Archon (Trumpet)	PRERACETYPE:Outsider
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Trumpet Archon	STARTSKILLPTS:8	MODTOSKILLS:YES
+1	BONUS:PCLEVEL|Cleric|1					ADD:SPELLCASTER|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+3	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1
+5	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
+7	BONUS:PCLEVEL|Cleric|1
+8	BONUS:PCLEVEL|Cleric|1
+9	BONUS:PCLEVEL|Cleric|1
+10	BONUS:PCLEVEL|Cleric|1
+11	BONUS:PCLEVEL|Cleric|1
+12	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page					Save checks bonus											Combat bonus
+CLASS:Aranea	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:3	SOURCEPAGE:MonstersIntro-A.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Required Race	Reg. Race Type
+CLASS:Aranea	PRERACE:1,Aranea	PRERACETYPE:Magical Beast
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Aranea	STARTSKILLPTS:2	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus								Combat bonus
+CLASS:Couatl	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:27	SOURCEPAGE:MonstersB-C.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Required Race	Reg. Race Type
+CLASS:Couatl	PRERACE:1,Couatl	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Couatl	STARTSKILLPTS:8	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+8	BONUS:PCLEVEL|Sorcerer|1
+9	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name		Output Name		Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus											Combat bonus
+CLASS:Drider Cleric	OUTPUTNAME:Drider	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:6	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Required Race			Reg. Race Type
+CLASS:Drider Cleric	PRERACE:1,Drider (Cleric)	PRERACETYPE:Aberration
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Drider Cleric	STARTSKILLPTS:2	MODTOSKILLS:YES
+###Block: Spontaneous casting
+1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Cure spells|PREABILITY:1,CATEGORY=Special Ability,Turn Undead
+1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
+###Block: progression
+1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility					BONUS:VAR|TurnCheckBase|CHA|TYPE=Base	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	DEFINE:AllowExtraTurning|1	ADD:SPELLCASTER|Cleric	ABILITY:Special Ability|AUTOMATIC|Basic Turning
+2										BONUS:PCLEVEL|Cleric|1
+3										BONUS:PCLEVEL|Cleric|1
+4										BONUS:PCLEVEL|Cleric|1
+5										BONUS:PCLEVEL|Cleric|1
+6										BONUS:PCLEVEL|Cleric|1
+
+# Class Name		Output Name		Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus											Combat bonus
+CLASS:Drider Sorcerer	OUTPUTNAME:Drider	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:6	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Required Race			Reg. Race Type
+CLASS:Drider Sorcerer	PRERACE:1,Drider (Sorcerer)	PRERACETYPE:Aberration
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Drider Sorcerer	STARTSKILLPTS:2	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name		Output Name		Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus											Combat bonus
+CLASS:Drider Wizard	OUTPUTNAME:Drider	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:6	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Required Race			Reg. Race Type
+CLASS:Drider Wizard	PRERACE:1,Drider (Wizard)	PRERACETYPE:Aberration
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Drider Wizard	STARTSKILLPTS:2	MODTOSKILLS:YES
+1					ADD:SPELLCASTER|Wizard
+2	BONUS:PCLEVEL|Wizard|1
+3	BONUS:PCLEVEL|Wizard|1
+4	BONUS:PCLEVEL|Wizard|1
+5	BONUS:PCLEVEL|Wizard|1
+6	BONUS:PCLEVEL|Wizard|1
+
+# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus								Combat bonus
+CLASS:Formian Queen	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:40	SOURCEPAGE:MonstersE-F.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name		Required Race			Reg. Race Type
+CLASS:Formian Queen	PRERACE:1,Formian (Queen)	PRERACETYPE:Outsider
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Formian Queen	STARTSKILLPTS:8	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+8	BONUS:PCLEVEL|Sorcerer|1
+9	BONUS:PCLEVEL|Sorcerer|1
+10	BONUS:PCLEVEL|Sorcerer|1
+11	BONUS:PCLEVEL|Sorcerer|1
+13	BONUS:PCLEVEL|Sorcerer|1
+14	BONUS:PCLEVEL|Sorcerer|1
+15	BONUS:PCLEVEL|Sorcerer|1
+16	BONUS:PCLEVEL|Sorcerer|1
+17	BONUS:PCLEVEL|Sorcerer|1
+19	BONUS:PCLEVEL|Sorcerer|1
+20	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus								Combat bonus
+CLASS:Ghaele	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:30	SOURCEPAGE:MonstersG.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Required Race	Reg. Race Type
+CLASS:Ghaele	PRERACE:1,Ghaele	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Ghaele	STARTSKILLPTS:8	MODTOSKILLS:YES
+###Block: Spell list adjustment
+1	SPELLLEVEL:CLASS|Cleric=1|Obscuring Mist|Cleric=2|Wind Wall|Cleric=3|Gaseous Form|Cleric=4|Air Walk|Cleric=5|Control Winds|Cleric=6|Chain Lightning|Cleric=7|Control Weather|Cleric=8|Whirlwind|Cleric=9|Elemental Swarm
+1	SPELLLEVEL:CLASS|Cleric=1|Calm Animals|Cleric=2|Hold Animal|Cleric=3|Dominate Animal|Cleric=4|Summon Nature's Ally IV|Cleric=5|Commune with Nature|Cleric=6|Antilife Shell|Cleric=7|Animal Shapes|Cleric=8|Summon Nature's Ally VIII|Cleric=9|Shapechange
+###Block: Spellcasting progression
+1	BONUS:PCLEVEL|Cleric|1					ADD:SPELLCASTER|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+3	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+5	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
+7	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+8	BONUS:PCLEVEL|Cleric|1
+9	BONUS:PCLEVEL|Cleric|1
+10	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus											Combat bonus
+CLASS:Lammasu	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:21	SOURCEPAGE:MonstersK-L.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Required Race	Reg. Race Type
+CLASS:Lammasu	PRERACE:1,Lammasu	PRERACETYPE:Magical Beast
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Lammasu	STARTSKILLPTS:2	MODTOSKILLS:YES
+1					ADD:SPELLCASTER|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+3	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1
+5	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
+7	BONUS:PCLEVEL|Cleric|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus								Combat bonus
+CLASS:Lillend	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:21	SOURCEPAGE:MonstersK-L.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Required Race	Reg. Race Type
+CLASS:Lillend	PRERACE:1,Lillend	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Lillend	STARTSKILLPTS:8	MODTOSKILLS:YES
+1					ADD:SPELLCASTER|Bard
+3	BONUS:PCLEVEL|Bard|1
+4	BONUS:PCLEVEL|Bard|1
+5	BONUS:PCLEVEL|Bard|1
+6	BONUS:PCLEVEL|Bard|1
+7	BONUS:PCLEVEL|Bard|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus											Combat bonus
+CLASS:Dark Naga	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:27	SOURCEPAGE:MonstersM-N.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Required Race		Reg. Race Type
+CLASS:Dark Naga	PRERACE:1,Naga (Dark)	PRERACETYPE:Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Dark Naga	STARTSKILLPTS:2	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+8	BONUS:PCLEVEL|Sorcerer|1
+9	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus											Combat bonus
+CLASS:Guardian Naga	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:33	SOURCEPAGE:MonstersM-N.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Required Race			Reg. Race Type
+CLASS:Guardian Naga	PRERACE:1,Naga (Guardian)	PRERACETYPE:Aberration
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Guardian Naga	STARTSKILLPTS:2	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer	SPELLLIST:2|Cleric|DOMAIN.Holy
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+9	BONUS:PCLEVEL|Sorcerer|1
+10	BONUS:PCLEVEL|Sorcerer|1
+11	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus											Combat bonus
+CLASS:Spirit Naga	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:27	SOURCEPAGE:MonstersM-N.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Required Race		Reg. Race Type
+CLASS:Spirit Naga	PRERACE:1,Naga (Spirit)	PRERACETYPE:Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Spirit Naga	STARTSKILLPTS:2	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+8	BONUS:PCLEVEL|Sorcerer|1
+9	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus											Combat bonus
+CLASS:Water Naga	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:21	SOURCEPAGE:MonstersM-N.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Required Race		Reg. Race Type
+CLASS:Water Naga	PRERACE:1,Naga (Water)	PRERACETYPE:Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Water Naga	STARTSKILLPTS:2	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus											Combat bonus
+CLASS:Nymph		HD:6		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:12	SOURCEPAGE:MonstersM-N.rtf	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2
+# Class Name	Required Race	Reg. Race Type
+CLASS:Nymph		PRERACE:1,Nymph	PRERACETYPE:Fey
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Nymph		STARTSKILLPTS:6	MODTOSKILLS:YES
+1	BONUS:PCLEVEL|Druid|1	ADD:SPELLCASTER|Druid
+2	BONUS:PCLEVEL|Druid|1
+3	BONUS:PCLEVEL|Druid|1
+4	BONUS:PCLEVEL|Druid|1
+5	BONUS:PCLEVEL|Druid|1
+6	BONUS:PCLEVEL|Druid|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus								Combat bonus
+CLASS:Rakshasa	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:7	SOURCEPAGE:MonstersO-R.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Required Race		Reg. Race Type
+CLASS:Rakshasa	PRERACE:1,Rakshasa	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Rakshasa	STARTSKILLPTS:8	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Save checks bonus											Combat bonus
+CLASS:Androsphinx	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:36	SOURCEPAGE:MonstersS.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Required Race				Reg. Race Type
+CLASS:Androsphinx	PRERACE:1,Sphinx (Androsphinx)	PRERACETYPE:Magical Beast
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Androsphinx	STARTSKILLPTS:2	MODTOSKILLS:YES
+1					ADD:SPELLCASTER|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
+8	BONUS:PCLEVEL|Cleric|1
+10	BONUS:PCLEVEL|Cleric|1
+12	BONUS:PCLEVEL|Cleric|1
+
+###Block: Lycanthropes
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Source Page
+CLASS:Lycanthrope (Generic)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	CLASSTYPE:Monster	SOURCEPAGE:MonstersK-L.rtf
+# Class Name			Required Lvl	Required Template
+CLASS:Lycanthrope (Generic)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Lycanthrope (Generic)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
+CLASS:Lycanthrope (Werebear)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	CLASSTYPE:Monster	MAXLEVEL:6	SOURCEPAGE:MonstersK-L.rtf
+# Class Name			Required Lvl	Required Template
+CLASS:Lycanthrope (Werebear)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Lycanthrope (Werebear)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Listen|Spot|Swim
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
+CLASS:Lycanthrope (Wereboar)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	CLASSTYPE:Monster	MAXLEVEL:3	SOURCEPAGE:MonstersK-L.rtf
+# Class Name			Required Lvl	Required Template
+CLASS:Lycanthrope (Wereboar)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Lycanthrope (Wereboar)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Listen|Spot
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
+CLASS:Lycanthrope (Wererat)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	CLASSTYPE:Monster	MAXLEVEL:1	SOURCEPAGE:MonstersK-L.rtf
+# Class Name			Required Lvl	Required Template
+CLASS:Lycanthrope (Wererat)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Lycanthrope (Wererat)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Balance|Climb|Hide|Move Silently|Swim
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
+CLASS:Lycanthrope (Weretiger)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	CLASSTYPE:Monster	MAXLEVEL:6	SOURCEPAGE:MonstersK-L.rtf
+# Class Name			Required Lvl	Required Template
+CLASS:Lycanthrope (Weretiger)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Lycanthrope (Weretiger)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Balance|Hide|Listen|Move Silently|Spot|Swim
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
+CLASS:Lycanthrope (Werewolf)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	CLASSTYPE:Monster	MAXLEVEL:2	SOURCEPAGE:MonstersK-L.rtf
+# Class Name			Required Lvl	Required Template
+CLASS:Lycanthrope (Werewolf)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Lycanthrope (Werewolf)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Hide|Listen|Move Silently|Spot|Survival
+
+# Class Name				Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
+CLASS:Lycanthrope (Dire Wereboar)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	CLASSTYPE:Monster	MAXLEVEL:12	SOURCEPAGE:MonstersK-L.rtf
+# Class Name				Required Lvl	Required Template
+CLASS:Lycanthrope (Dire Wereboar)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
+# Class Name				Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Lycanthrope (Dire Wereboar)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Listen|Spot
+
+
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:38:33 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+# Original Entry by: Tir Gwaith
+
+# Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Save checks bonus								Combat bonus
+CLASS:Black Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race			Reg. Race Type
+CLASS:Black Dragon	PRERACE:1,Dragon (Black%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Black Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Hide|Move Silently|Swim
+1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
+1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
+###Block: Breath Weapon and other SA's
+1	BONUS:VAR|BreathWeaponDamageDie|4	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Acid
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
+1																						ABILITY:Special Ability|AUTOMATIC|Keen Senses ~ Dragon
+###Block: Frightful Presence
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
+###Block: Normal Progression
+1	DEFINE:CR|3						DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Water Breathing
+7	DEFINE:CR|4						DEFINE:DragonAge|2
+10	DEFINE:CR|5						DEFINE:DragonAge|3
+13	DEFINE:CR|7						DEFINE:DragonAge|4															SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (40 ft. radius),12+CHA|PREVAREQ:DragonAge,4	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (50 ft. radius),12+CHA|PREVAREQ:DragonAge,5	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (60 ft. radius),12+CHA|PREVAREQ:DragonAge,6	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (70 ft. radius),12+CHA|PREVAREQ:DragonAge,7	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (80 ft. radius),12+CHA|PREVAREQ:DragonAge,8	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (90 ft. radius),12+CHA|PREVAREQ:DragonAge,9	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (100 ft. radius),12+CHA|PREVAREQ:DragonAge,10	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (110 ft. radius),12+CHA|PREVAREQ:DragonAge,11	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (120 ft. radius),12+CHA|PREVAREQ:DragonAge,12	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Darkness (Epic Radius),12+CHA|PREVARGTEQ:DragonAge,13
+16	DEFINE:CR|9		SR:17	DR:5/Magic		DEFINE:DragonAge|5
+19	DEFINE:CR|11	SR:18				DEFINE:DragonAge|6						ABILITY:Special Ability|AUTOMATIC|Corrupt Water
+22	DEFINE:CR|14	SR:21	DR:10/Magic		DEFINE:DragonAge|7						ABILITY:Special Ability|AUTOMATIC|Crush
+25	DEFINE:CR|16	SR:22				DEFINE:DragonAge|8															SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Plant Growth,13+CHA
+28	DEFINE:CR|18	SR:23	DR:15/Magic		DEFINE:DragonAge|9
+31	DEFINE:CR|19	SR:25				DEFINE:DragonAge|10															SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Insect Plague,15+CHA
+34	DEFINE:CR|20	SR:26	DR:20/Magic		DEFINE:DragonAge|11						ABILITY:Special Ability|AUTOMATIC|Tail Sweep
+37	DEFINE:CR|22	SR:28				DEFINE:DragonAge|12						ABILITY:Special Ability|AUTOMATIC|Charm Reptiles
+
+###Block: Casting Block ~ Black Dragon
+16	ADD:SPELLCASTER|Sorcerer
+18:REPEATLEVEL:3	BONUS:PCLEVEL|Sorcerer|1
+19:REPEATLEVEL:3	BONUS:PCLEVEL|Sorcerer|1
+
+
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page				Save checks bonus								Combat bonus
+CLASS:Blue Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Race		Reg. Race Type
+CLASS:Blue Dragon	PRERACE:1,Dragon (Blue%	PRERACETYPE:Dragon
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Blue Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Spellcraft
+# Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
+CLASS:Blue Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:4|Sorcerer|Cleric|DOMAIN.Air|DOMAIN.Holy
+1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
+1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base	BONUS:VAR|DarkvisionRange|120|TYPE=Base
+###Block: Breath Weapon and other SA's
+1	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Lightning
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
+1																						ABILITY:Special Ability|AUTOMATIC|Keen Senses ~ Dragon
+###Block: Frightful Presence
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
+###Block: Normal Progression
+1	DEFINE:CR|3					DEFINE:DragonAge|1	ABILITY:Special Ability|AUTOMATIC|Create/Destroy Water
+9	DEFINE:CR|4					DEFINE:DragonAge|2
+12	DEFINE:CR|6					DEFINE:DragonAge|3
+15	DEFINE:CR|8					DEFINE:DragonAge|4	ABILITY:Special Ability|AUTOMATIC|Sound Imitation
+18	DEFINE:CR|11	SR:19	DR:5/Magic	DEFINE:DragonAge|5
+21	DEFINE:CR|14	SR:21			DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Crush				SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Ventriloquism,11+CHA
+24	DEFINE:CR|16	SR:22	DR:10/Magic	DEFINE:DragonAge|7
+27	DEFINE:CR|18	SR:24			DEFINE:DragonAge|8											SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Hallucinatory Terrain,14+CHA
+30	DEFINE:CR|19	SR:25	DR:15/Magic	DEFINE:DragonAge|9
+33	DEFINE:CR|21				DEFINE:DragonAge|10	ABILITY:Special Ability|AUTOMATIC|Tail Sweep			SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Veil,16+CHA
+36	DEFINE:CR|23	SR:29	DR:20/Magic	DEFINE:DragonAge|11
+39	DEFINE:CR|25	SR:31			DEFINE:DragonAge|12											SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Mirage Arcana,15+CHA
+
+###Block: Casting Block ~ Blue Dragon
+15											BONUS:CASTERLEVEL|Blue Dragon|((DragonAge-3)*2)-1
+15	CAST:5,3				KNOWN:4,2
+16	CAST:5,3				KNOWN:4,2
+17	CAST:6,4				KNOWN:5,2
+18	CAST:6,5				KNOWN:5,3
+19	CAST:6,5				KNOWN:5,3
+20	CAST:6,6,3				KNOWN:6,3,1
+21	CAST:6,6,4				KNOWN:6,4,2
+22	CAST:6,6,4				KNOWN:6,4,2
+23	CAST:6,6,5,3			KNOWN:7,4,2,1
+24	CAST:6,6,6,4			KNOWN:7,5,3,2
+25	CAST:6,6,6,4			KNOWN:7,5,3,2
+26	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+27	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+28	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+29	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+30	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+31	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+32	CAST:6,6,6,6,6,4,3		KNOWN:9,5,5,4,3,2,1
+33	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+34	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+35	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+36	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+37	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+38	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+39	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+40	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+41	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+42	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+43	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+44	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
+
+
+
+# Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Save checks bonus								Combat bonus
+CLASS:Green Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race			Reg. Race Type
+CLASS:Green Dragon	PRERACE:1,Dragon (Green%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Green Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Move Silently
+1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
+1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
+###Block: Breath Weapon and other SA's
+1	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Corrosive Gas
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Acid
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
+1																						ABILITY:Special Ability|AUTOMATIC|Keen Senses ~ Dragon
+###Block: Frightful Presence
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
+###Block: Normal Progression
+1	DEFINE:CR|3						DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Water Breathing
+8	DEFINE:CR|4						DEFINE:DragonAge|2
+11	DEFINE:CR|5						DEFINE:DragonAge|3
+14	DEFINE:CR|8						DEFINE:DragonAge|4
+17	DEFINE:CR|11	SR:19	DR:5/Magic		DEFINE:DragonAge|5
+20	DEFINE:CR|13	SR:21				DEFINE:DragonAge|6						ABILITY:Special Ability|AUTOMATIC|Crush			SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Suggestion,13+CHA
+23	DEFINE:CR|16	SR:22	DR:10/Magic		DEFINE:DragonAge|7
+26	DEFINE:CR|18	SR:24				DEFINE:DragonAge|8															SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Plant Growth,13+CHA
+29	DEFINE:CR|19	SR:25	DR:15/Magic		DEFINE:DragonAge|9
+32	DEFINE:CR|21	SR:27				DEFINE:DragonAge|10						ABILITY:Special Ability|AUTOMATIC|Tail Sweep		SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Dominate Person,15+CHA
+35	DEFINE:CR|22	SR:28	DR:20/Magic		DEFINE:DragonAge|11
+38	DEFINE:CR|24	SR:30				DEFINE:DragonAge|12															SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Command Plants,14+CHA
+
+###Block: Casting Block ~ Green Dragon
+14	ADD:SPELLCASTER|Sorcerer
+16:REPEATLEVEL:3	BONUS:PCLEVEL|Sorcerer|1
+17:REPEATLEVEL:3	BONUS:PCLEVEL|Sorcerer|1
+
+
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page				Save checks bonus								Combat bonus
+CLASS:Red Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Race		Reg. Race Type
+CLASS:Red Dragon	PRERACE:1,Dragon (Red%	PRERACETYPE:Dragon
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Red Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Appraise|Bluff|Jump
+# Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
+CLASS:Red Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:4|Sorcerer|Cleric|DOMAIN.Holy|DOMAIN.Fire
+1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
+1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
+###Block: Breath Weapon and other SA's
+1	BONUS:VAR|BreathWeaponDamageDie|10	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fire
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
+1																						ABILITY:Special Ability|AUTOMATIC|Vulnerability To Cold
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
+1																						ABILITY:Special Ability|AUTOMATIC|Keen Senses ~ Dragon
+###Block: Frightful Presence
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
+###Block: Normal Progression
+1	DEFINE:CR|4					DEFINE:DragonAge|1
+10	DEFINE:CR|5					DEFINE:DragonAge|2
+13	DEFINE:CR|7					DEFINE:DragonAge|3
+16	DEFINE:CR|10				DEFINE:DragonAge|4									SPELLS:Innate|TIMES=DragonAge|CASTERLEVEL=DragonCL|Locate Object,12+CHA
+19	DEFINE:CR|13	SR:19	DR:5/Magic	DEFINE:DragonAge|5	ABILITY:Special Ability|AUTOMATIC|Crush
+22	DEFINE:CR|15	SR:21			DEFINE:DragonAge|6
+25	DEFINE:CR|18	SR:23	DR:10/Magic	DEFINE:DragonAge|7
+28	DEFINE:CR|20	SR:24			DEFINE:DragonAge|8	ABILITY:Special Ability|AUTOMATIC|Tail Sweep	SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Suggestion,13+CHA
+31	DEFINE:CR|21	SR:26	DR:15/Magic	DEFINE:DragonAge|9
+34	DEFINE:CR|23	SR:28			DEFINE:DragonAge|10									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Find the Path,16+CHA
+37	DEFINE:CR|24	SR:30	DR:20/Magic	DEFINE:DragonAge|11
+40	DEFINE:CR|26	SR:32			DEFINE:DragonAge|12									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Discern Location,18+CHA
+
+###Block: Casting Block ~ Red Dragon
+13											BONUS:CASTERLEVEL|Red Dragon|((DragonAge-2)*2)-1
+13	CAST:5,3				KNOWN:4,2
+14	CAST:5,3				KNOWN:4,2
+15	CAST:6,4				KNOWN:5,2
+16	CAST:6,5				KNOWN:5,3
+17	CAST:6,5				KNOWN:5,3
+18	CAST:6,6,3				KNOWN:6,3,1
+19	CAST:6,6,4				KNOWN:6,4,2
+20	CAST:6,6,4				KNOWN:6,4,2
+21	CAST:6,6,5,3			KNOWN:7,4,2,1
+22	CAST:6,6,6,4			KNOWN:7,5,3,2
+23	CAST:6,6,6,4			KNOWN:7,5,3,2
+24	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+25	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+26	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+27	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+28	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+29	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+30	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+31	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+32	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+33	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+34	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+35	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+36	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+37	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+38	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+39	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+40	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+41	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+42	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
+
+
+# Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Save checks bonus								Combat bonus
+CLASS:White Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race			Reg. Race Type
+CLASS:White Dragon	PRERACE:1,Dragon (White%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:White Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Hide|Move Silently|Swim
+1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
+1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
+###Block: Breath Weapon and other SA's
+1	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|DragonAge	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cold
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
+1																						ABILITY:Special Ability|AUTOMATIC|Vulnerability To Fire
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
+1																						ABILITY:Special Ability|AUTOMATIC|Keen Senses ~ Dragon
+###Block: Frightful Presence
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
+###Block: Normal Progression
+1	DEFINE:CR|2						DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Icewalking
+6	DEFINE:CR|3						DEFINE:DragonAge|2
+9	DEFINE:CR|4						DEFINE:DragonAge|3
+12	DEFINE:CR|6						DEFINE:DragonAge|4														SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Fog Cloud,12+CHA
+15	DEFINE:CR|8		SR:16	DR:5/Magic		DEFINE:DragonAge|5
+18	DEFINE:CR|10	SR:18				DEFINE:DragonAge|6														SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Gust of Wind,12+CHA
+21	DEFINE:CR|12	SR:20	DR:10/Magic		DEFINE:DragonAge|7						ABILITY:Special Ability|AUTOMATIC|Crush
+24	DEFINE:CR|15	SR:21				DEFINE:DragonAge|8						ABILITY:Special Ability|AUTOMATIC|Freezing Fog
+27	DEFINE:CR|17	SR:23	DR:15/Magic		DEFINE:DragonAge|9
+30	DEFINE:CR|18	SR:24				DEFINE:DragonAge|10														SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Wall of Ice,14+CHA
+33	DEFINE:CR|19	SR:25	DR:20/Magic		DEFINE:DragonAge|11						ABILITY:Special Ability|AUTOMATIC|Tail Sweep
+36	DEFINE:CR|21	SR:27				DEFINE:DragonAge|12														SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
+
+###Block: Casting Block ~ White Dragon
+18	ADD:SPELLCASTER|Sorcerer
+20:REPEATLEVEL:3	BONUS:PCLEVEL|Sorcerer|1
+21:REPEATLEVEL:3	BONUS:PCLEVEL|Sorcerer|1
+
+
+
+# Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Save checks bonus								Combat bonus
+CLASS:Brass Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race			Reg. Race Type
+CLASS:Brass Dragon	PRERACE:1,Dragon (Brass%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Brass Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Bluff|Gather Information|Survival
+# Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
+CLASS:Brass Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:4|Sorcerer|Cleric|DOMAIN.Holy|DOMAIN.Knowledge
+1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
+1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
+###Block: Breath Weapon and other SA's
+1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDuration|DragonAge							ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Sleep
+1	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	BONUS:VAR|BreathWeaponDice|DragonAge	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Fire
+1																						ABILITY:Special Ability|AUTOMATIC|Vulnerability To Cold
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
+1																						ABILITY:Special Ability|AUTOMATIC|Keen Senses ~ Dragon
+###Block: Frightful Presence
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
+###Block: Normal Progression
+1	DEFINE:CR|3											DEFINE:DragonAge|1									SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
+7	DEFINE:CR|4											DEFINE:DragonAge|2
+10	DEFINE:CR|6											DEFINE:DragonAge|3
+13	DEFINE:CR|8											DEFINE:DragonAge|4									SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (40 ft. radius),11+CHA|PREVAREQ:DragonAge,4	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (50 ft. radius),11+CHA|PREVAREQ:DragonAge,5	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (60 ft. radius),11+CHA|PREVAREQ:DragonAge,6	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (70 ft. radius),11+CHA|PREVAREQ:DragonAge,7	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (80 ft. radius),11+CHA|PREVAREQ:DragonAge,8	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (90 ft. radius),11+CHA|PREVAREQ:DragonAge,9	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (100 ft. radius),11+CHA|PREVAREQ:DragonAge,10	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (110 ft. radius),11+CHA|PREVAREQ:DragonAge,11	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (120 ft. radius),11+CHA|PREVAREQ:DragonAge,12	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Endure Elements (Epic Radius),11+CHA|PREVARGTEQ:DragonAge,13
+16	DEFINE:CR|10	SR:18	DR:5/Magic							DEFINE:DragonAge|5
+19	DEFINE:CR|12	SR:20									DEFINE:DragonAge|6									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Suggestion,13+CHA
+22	DEFINE:CR|15	SR:22	DR:10/Magic							DEFINE:DragonAge|7	ABILITY:Special Ability|AUTOMATIC|Crush
+25	DEFINE:CR|17	SR:24									DEFINE:DragonAge|8									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Winds,15+CHA
+28	DEFINE:CR|19	SR:25	DR:15/Magic							DEFINE:DragonAge|9
+31	DEFINE:CR|20	SR:27									DEFINE:DragonAge|10									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
+34	DEFINE:CR|21	SR:28	DR:20/Magic							DEFINE:DragonAge|11	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
+37	DEFINE:CR|23	SR:30			BONUS:VAR|SummonDjinniDC|17+CHA	DEFINE:DragonAge|12	ABILITY:Special Ability|AUTOMATIC|Summon Djinni
+
+###Block: Casting Block ~ Brass Dragon
+10											BONUS:CASTERLEVEL|Brass Dragon|((DragonAge-2)*2)-1
+10	CAST:5,3				KNOWN:4,2
+11	CAST:5,3				KNOWN:4,2
+12	CAST:6,4				KNOWN:5,2
+13	CAST:6,5				KNOWN:5,3
+14	CAST:6,5				KNOWN:5,3
+15	CAST:6,6,3				KNOWN:6,3,1
+16	CAST:6,6,4				KNOWN:6,4,2
+17	CAST:6,6,4				KNOWN:6,4,2
+18	CAST:6,6,5,3			KNOWN:7,4,2,1
+19	CAST:6,6,6,4			KNOWN:7,5,3,2
+20	CAST:6,6,6,4			KNOWN:7,5,3,2
+21	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+22	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+23	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+24	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+25	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+26	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+27	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+28	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+29	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+30	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+31	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+32	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+33	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+34	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+35	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+36	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+37	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+38	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+39	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
+
+
+
+# Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Save checks bonus								Combat bonus
+CLASS:Bronze Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race			Reg. Race Type
+CLASS:Bronze Dragon	PRERACE:1,Dragon (Bronze%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Bronze Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Disguise|Swim|Survival
+# Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
+CLASS:Bronze Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Animal|DOMAIN.Holy|DOMAIN.Water
+1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
+1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
+###Block: Breath Weapon and other SA's
+1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDuration|DragonAge							ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Repulsion Gas
+1	BONUS:VAR|BreathWeaponDamageDie|6	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Lightning
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
+1																						ABILITY:Special Ability|AUTOMATIC|Keen Senses ~ Dragon
+###Block: Frightful Presence
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
+###Block: Normal Progression
+1	DEFINE:CR|3											DEFINE:DragonAge|1	ABILITY:Special Ability|AUTOMATIC|Water Breathing	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Speak with Animals,11+CHA
+9	DEFINE:CR|5											DEFINE:DragonAge|2
+12	DEFINE:CR|7					BONUS:VAR|AlternateFormTimes|3	DEFINE:DragonAge|3	ABILITY:Special Ability|AUTOMATIC|Alternate Form
+15	DEFINE:CR|9											DEFINE:DragonAge|4
+18	DEFINE:CR|12	SR:20	DR:5/Magic							DEFINE:DragonAge|5
+21	DEFINE:CR|15	SR:22									DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Crush			SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Create Food and Water,13+CHA|Fog Cloud,12+CHA
+24	DEFINE:CR|17	SR:23	DR:10/Magic							DEFINE:DragonAge|7
+27	DEFINE:CR|19	SR:25									DEFINE:DragonAge|8										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Detect Thoughts,12+CHA
+30	DEFINE:CR|20	SR:26	DR:15/Magic							DEFINE:DragonAge|9
+33	DEFINE:CR|22	SR:28									DEFINE:DragonAge|10	ABILITY:Special Ability|AUTOMATIC|Tail Sweep		SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Control Water,16+CHA
+36	DEFINE:CR|23	SR:29	DR:20/Magic							DEFINE:DragonAge|11
+39	DEFINE:CR|25	SR:31									DEFINE:DragonAge|12										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
+
+###Block: Casting Block ~ Bronze Dragon
+12											BONUS:CASTERLEVEL|Bronze Dragon|((DragonAge-2)*2)-1
+12	CAST:5,3				KNOWN:4,2
+13	CAST:5,3				KNOWN:4,2
+14	CAST:6,4				KNOWN:5,2
+15	CAST:6,5				KNOWN:5,3
+16	CAST:6,5				KNOWN:5,3
+17	CAST:6,6,3				KNOWN:6,3,1
+18	CAST:6,6,4				KNOWN:6,4,2
+19	CAST:6,6,4				KNOWN:6,4,2
+20	CAST:6,6,5,3			KNOWN:7,4,2,1
+21	CAST:6,6,6,4			KNOWN:7,5,3,2
+22	CAST:6,6,6,4			KNOWN:7,5,3,2
+23	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+24	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+25	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+26	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+27	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+28	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+29	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+30	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+31	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+32	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+33	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+34	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+35	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+36	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+37	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+38	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+39	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+40	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+41	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
+
+
+
+# Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Save checks bonus								Combat bonus
+CLASS:Copper Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race			Reg. Race Type
+CLASS:Copper Dragon	PRERACE:1,Dragon (Copper%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Copper Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Jump
+# Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
+CLASS:Copper Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Holy|DOMAIN.Earth|DOMAIN.Trickery
+1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
+1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
+###Block: Breath Weapon and other SA's
+1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDuration|DragonAge							ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Slow
+1	BONUS:VAR|BreathWeaponDamageDie|4	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Acid
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
+1																						ABILITY:Special Ability|AUTOMATIC|Keen Senses ~ Dragon
+###Block: Frightful Presence
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
+###Block: Normal Progression
+1	DEFINE:CR|3					DEFINE:DragonAge|1	ABILITY:Special Ability|AUTOMATIC|Spider Climb
+8	DEFINE:CR|5					DEFINE:DragonAge|2
+11	DEFINE:CR|7					DEFINE:DragonAge|3
+14	DEFINE:CR|9					DEFINE:DragonAge|4
+17	DEFINE:CR|11	SR:19	DR:5/Magic	DEFINE:DragonAge|5
+20	DEFINE:CR|14	SR:21			DEFINE:DragonAge|6									SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Stone Shape,14+CHA
+23	DEFINE:CR|16	SR:23	DR:10/Magic	DEFINE:DragonAge|7	ABILITY:Special Ability|AUTOMATIC|Crush
+26	DEFINE:CR|19	SR:25			DEFINE:DragonAge|8									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Transmute Mud to Rock or Rock to Mud,15+CHA
+29	DEFINE:CR|20	SR:26	DR:15/Magic	DEFINE:DragonAge|9
+32	DEFINE:CR|22	SR:28			DEFINE:DragonAge|10									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Wall of Stone,15+CHA
+35	DEFINE:CR|23	SR:29	DR:20/Magic	DEFINE:DragonAge|11	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
+38	DEFINE:CR|25	SR:31			DEFINE:DragonAge|12									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Move Earth,16+CHA
+
+###Block: Casting Block ~ Copper Dragon
+11											BONUS:CASTERLEVEL|Copper Dragon|((DragonAge-2)*2)-1
+11	CAST:5,3				KNOWN:4,2
+12	CAST:5,3				KNOWN:4,2
+13	CAST:6,4				KNOWN:5,2
+14	CAST:6,5				KNOWN:5,3
+15	CAST:6,5				KNOWN:5,3
+16	CAST:6,6,3				KNOWN:6,3,1
+17	CAST:6,6,4				KNOWN:6,4,2
+18	CAST:6,6,4				KNOWN:6,4,2
+19	CAST:6,6,5,3			KNOWN:7,4,2,1
+20	CAST:6,6,6,4			KNOWN:7,5,3,2
+21	CAST:6,6,6,4			KNOWN:7,5,3,2
+22	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+23	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+24	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+25	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+26	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+27	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+28	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+29	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+30	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+31	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+32	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+33	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+34	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+35	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+36	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+37	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+38	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+39	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+40	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
+
+
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page				Save checks bonus								Combat bonus
+CLASS:Gold Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Required Race		Reg. Race Type
+CLASS:Gold Dragon	PRERACE:1,Dragon (Gold%	PRERACETYPE:Dragon
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Gold Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Disguise|Heal|Swim
+# Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
+CLASS:Gold Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:4|Sorcerer|Cleric|DOMAIN.Luck|DOMAIN.Holy
+1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
+1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
+###Block: Breath Weapon and other SA's
+1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)						DEFINE:BreathWeaponStatDamage|DragonAge	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Weakening Gas
+1	BONUS:VAR|BreathWeaponDamageDie|10	BONUS:VAR|BreathWeaponDice|(2*DragonAge)								ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fire
+1																					ABILITY:Special Ability|AUTOMATIC|Vulnerability To Cold
+1																					ABILITY:Special Ability|AUTOMATIC|Immunity To Fire
+1																					ABILITY:Special Ability|AUTOMATIC|Water Breathing
+1																					ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
+1																					ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
+1																					ABILITY:Special Ability|AUTOMATIC|Keen Senses ~ Dragon
+###Block: Frightful Presence
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
+###Block: Normal Progression
+1	DEFINE:CR|5					BONUS:VAR|AlternateFormTimes|3	DEFINE:DragonAge|1	ABILITY:Special Ability|AUTOMATIC|Alternate Form
+11	DEFINE:CR|7											DEFINE:DragonAge|2
+14	DEFINE:CR|9											DEFINE:DragonAge|3
+17	DEFINE:CR|11										DEFINE:DragonAge|4										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Bless,11+CHA
+20	DEFINE:CR|14	SR:21	DR:5/Magic							DEFINE:DragonAge|5	ABILITY:Special Ability|AUTOMATIC|Crush
+23	DEFINE:CR|16	SR:23									DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Luck Bonus
+26	DEFINE:CR|19	SR:25	DR:10/Magic							DEFINE:DragonAge|7	ABILITY:Special Ability|AUTOMATIC|Detect Gems
+29	DEFINE:CR|21	SR:27									DEFINE:DragonAge|8	ABILITY:Special Ability|AUTOMATIC|Tail Sweep		SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Geas/Quest,16+CHA
+32	DEFINE:CR|22	SR:28	DR:15/Magic							DEFINE:DragonAge|9
+35	DEFINE:CR|24	SR:30									DEFINE:DragonAge|10										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Sunburst,18+CHA
+38	DEFINE:CR|25	SR:31	DR:20/Magic							DEFINE:DragonAge|11
+41	DEFINE:CR|27	SR:33									DEFINE:DragonAge|12										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Foresight,19+CHA
+
+###Block: Casting Block ~ Gold Dragon
+14											BONUS:CASTERLEVEL|Gold Dragon|((DragonAge-2)*2)-1
+14	CAST:5,3				KNOWN:4,2
+15	CAST:5,3				KNOWN:4,2
+16	CAST:6,4				KNOWN:5,2
+17	CAST:6,5				KNOWN:5,3
+18	CAST:6,5				KNOWN:5,3
+19	CAST:6,6,3				KNOWN:6,3,1
+20	CAST:6,6,4				KNOWN:6,4,2
+21	CAST:6,6,4				KNOWN:6,4,2
+22	CAST:6,6,5,3			KNOWN:7,4,2,1
+23	CAST:6,6,6,4			KNOWN:7,5,3,2
+24	CAST:6,6,6,4			KNOWN:7,5,3,2
+25	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+26	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+27	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+28	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+29	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+30	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+31	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+32	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+33	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+34	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+35	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+36	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+37	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+38	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+39	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+40	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+41	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+42	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+43	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
+
+
+
+# Class Name		Hit Dice	Type			Class Type		Max Level		Source Page				Save checks bonus								Combat bonus
+CLASS:Silver Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:MonstersDr-Dw.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Required Race			Reg. Race Type
+CLASS:Silver Dragon	PRERACE:1,Dragon (Silver%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Silver Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Bluff|Disguise|Jump
+# Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
+CLASS:Silver Dragon	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:5|Sorcerer|Cleric|DOMAIN.Air|DOMAIN.Holy|DOMAIN.Sun
+1													BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))		DEFINE:DragonCL|0
+1	VISION:Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.STACK	BONUS:VAR|BlindsenseRange|60|TYPE=Base|	BONUS:VAR|DarkvisionRange|120|TYPE=Base
+###Block: Breath Weapon and other SA's
+1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDuration|DragonAge	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Paralyzing Gas
+1	BONUS:VAR|BreathWeaponDamageDie|8	BONUS:VAR|BreathWeaponDice|(2*DragonAge)			ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cold
+1																ABILITY:Special Ability|AUTOMATIC|Vulnerability To Fire
+1																ABILITY:Special Ability|AUTOMATIC|Immunity To Acid
+1																ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
+1																ABILITY:Special Ability|AUTOMATIC|Cloudwalking
+1																ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
+1																ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
+1																ABILITY:Special Ability|AUTOMATIC|Keen Senses ~ Dragon
+###Block: Frightful Presence
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|VIRTUAL|Frightful Presence|PREVARGTEQ:DragonAge,5
+###Block: Normal Progression
+1	DEFINE:CR|4					BONUS:VAR|AlternateFormTimes|3	DEFINE:DragonAge|1	ABILITY:Special Ability|AUTOMATIC|Alternate Form
+10	DEFINE:CR|5											DEFINE:DragonAge|2
+13	DEFINE:CR|7											DEFINE:DragonAge|3
+16	DEFINE:CR|10										DEFINE:DragonAge|4										SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Feather Fall,11+CHA
+19	DEFINE:CR|13	SR:20	DR:5/Magic							DEFINE:DragonAge|5
+22	DEFINE:CR|15	SR:22									DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Crush			SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Fog Cloud,12+CHA
+25	DEFINE:CR|18	SR:24	DR:10/Magic							DEFINE:DragonAge|7
+28	DEFINE:CR|20	SR:26									DEFINE:DragonAge|8										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Control Winds,15+CHA
+31	DEFINE:CR|21	SR:27	DR:15/Magic							DEFINE:DragonAge|9
+34	DEFINE:CR|23	SR:29									DEFINE:DragonAge|10										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
+37	DEFINE:CR|24	SR:30	DR:20/Magic							DEFINE:DragonAge|11	ABILITY:Special Ability|AUTOMATIC|Tail Sweep
+40	DEFINE:CR|26	SR:32									DEFINE:DragonAge|12										SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Reverse Gravity,17+CHA
+
+###Block: Casting Block ~ Silver Dragon
+13											BONUS:CASTERLEVEL|Silver Dragon|((DragonAge-2)*2)-1
+13	CAST:5,3				KNOWN:4,2
+14	CAST:5,3				KNOWN:4,2
+15	CAST:6,4				KNOWN:5,2
+16	CAST:6,5				KNOWN:5,3
+17	CAST:6,5				KNOWN:5,3
+18	CAST:6,6,3				KNOWN:6,3,1
+19	CAST:6,6,4				KNOWN:6,4,2
+20	CAST:6,6,4				KNOWN:6,4,2
+21	CAST:6,6,5,3			KNOWN:7,4,2,1
+22	CAST:6,6,6,4			KNOWN:7,5,3,2
+23	CAST:6,6,6,4			KNOWN:7,5,3,2
+24	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+25	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+26	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+27	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+28	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+29	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+30	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+31	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+32	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+33	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+34	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+35	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+36	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+37	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+38	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+39	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+40	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+41	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+42	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
+
+# CVS $Revision$ $Author$ -- Sat Mar 30 17:38:33 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+# Yeehaa....
+# Monster "class" advancement LST file
+# Drew Bernat (abernat@zathras.net)
+
+# Monster type advancement. From the RSRD:
+#
+# Type			HD	BAB	Good Save	Skill pts (+int)
+#Aberration			d8	3/4	Will		2
+#Animal			d8	3/4	Fort, Ref	2
+# Note: animal says "and sometimes will" for good save. Any ideas?
+#Construct			d10	3/4	---		2
+#Dragon			d12	1	F,R,W		6
+#Elemental (AF)		d8	3/4	Ref		2
+#Elemental (WE)		d8	3/4	Fort		2
+#Fey				d6	1/2	Ref, Will	6
+#Giant			d8	3/4	Fort		2
+#Humanoid			d8	3/4	Varies	2
+#Magical Beast		d10	1	Fort,Ref	2
+#Monstrous Humanoid	d8	1	Ref,Will	2
+#Ooze				d10	3/4	---		2
+#Outsider			d8	1	FRW		8
+#Plant			d8	3/4	Fort		2
+#Undead			d12	1/2	Will		4
+#Vermin			d8	3/4	Fort		2
+
+SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35	SOURCEDATE:2000-01
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus											Combat bonus
+CLASS:Aberration	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Aberration	PRERACETYPE:Aberration
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Aberration]],[PRERACE:1,RACESUBTYPE=Augmented Aberration]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Aberration	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus											Combat bonus
+CLASS:Animal	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Prohibited Class			Reg. Race Type
+CLASS:Animal	!PRECLASS:1,Animal (Will)=1	PRERACETYPE:Animal
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Animal]],[PRERACE:1,RACESUBTYPE=Augmented Animal]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Animal	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name		Output Name		Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus								Combat bonus
+CLASS:Animal (Will)	OUTPUTNAME:Animal	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Prohibited Class		Reg. Race Type
+CLASS:Animal (Will)	!PRECLASS:1,Animal=1	PRERACETYPE:Animal
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Animal]],[PRERACE:1,RACESUBTYPE=Augmented Animal]
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Animal (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus								Combat bonus
+CLASS:Construct	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Construct	PRERACETYPE:Construct
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Construct]],[PRERACE:1,RACESUBTYPE=Augmented Construct]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Construct	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page					Levels per Feat	Save checks bonus								Combat bonus
+CLASS:Construct (Mindless)	OUTPUTNAME:Construct	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Reg. Race Type
+CLASS:Construct (Mindless)	PRERACETYPE:Construct
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Construct]],[PRERACE:1,RACESUBTYPE=Augmented Construct]
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Construct (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus								Combat bonus
+CLASS:Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Dragon	PRERACETYPE:Dragon
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Dragon]],[PRERACE:1,RACESUBTYPE=Augmented Dragon]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus																																																							Combat bonus
+CLASS:Elemental	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Elemental	PRERACETYPE:Elemental
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Elemental]],[PRERACE:1,RACESUBTYPE=Augmented Elemental]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus												Combat bonus
+CLASS:Elemental (Air/Fire)	OUTPUTNAME:Elemental	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Reg. Race Type
+CLASS:Elemental (Air/Fire)	PRERACETYPE:Elemental
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Elemental]],[PRERACE:1,RACESUBTYPE=Augmented Elemental]
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Air/Fire)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus											Combat bonus
+CLASS:Elemental (Earth/Water)	OUTPUTNAME:Elemental	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Reg. Race Type
+CLASS:Elemental (Earth/Water)	PRERACETYPE:Elemental
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Elemental]],[PRERACE:1,RACESUBTYPE=Augmented Elemental]
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Earth/Water)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Hit Dice	Type			Class Type		Max Level		Source Page					Levels per Feat	Save checks bonus																																																							Combat bonus
+CLASS:Elemental (Mindless)	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Reflex|CL/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:CHECKS|BASE.Fortitude|CL/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Reg. Race Type
+CLASS:Elemental (Mindless)	PRERACETYPE:Elemental
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Elemental]],[PRERACE:1,RACESUBTYPE=Augmented Elemental]
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Ability													Save checks bonus											Combat bonus
+CLASS:Fey		HD:6		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Fey Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Fey		PRERACETYPE:Fey
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Fey]],[PRERACE:1,RACESUBTYPE=Augmented Fey]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Fey		STARTSKILLPTS:6	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Ability														Save checks bonus											Combat bonus
+CLASS:Giant		HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Giant Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Giant		PRERACETYPE:Giant
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Giant]],[PRERACE:1,RACESUBTYPE=Augmented Giant]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Giant		STARTSKILLPTS:2	MODTOSKILLS:YES
+
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page						Ability														Save checks bonus												Combat bonus
+CLASS:Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Prohibited Class							Reg. Race Type
+CLASS:Humanoid	!PRECLASS:1,Humanoid (Fortitude)=1,Humanoid (Will)=1	PRERACETYPE:Humanoid
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Humanoid]],[PRERACE:1,RACESUBTYPE=Augmented Humanoid]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page						Ability														Save checks bonus											Combat bonus
+CLASS:Humanoid (Fortitude)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Prohibited Class					Reg. Race Type
+CLASS:Humanoid (Fortitude)	!PRECLASS:1,Humanoid=1,Humanoid (Will)=1	PRERACETYPE:Humanoid
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Humanoid]],[PRERACE:1,RACESUBTYPE=Augmented Humanoid]
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Humanoid (Fortitude)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+
+# Class Name		Output Name			Hit Dice	Type			Class Type		Max Level		Source Page						Ability														Save checks bonus											Combat bonus
+CLASS:Humanoid (Will)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:TypesSubtypesAbilities.rtf	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Prohibited Class						Reg. Race Type
+CLASS:Humanoid (Will)	!PRECLASS:1,Humanoid=1,Humanoid (Fortitude)=1	PRERACETYPE:Humanoid
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Humanoid]],[PRERACE:1,RACESUBTYPE=Augmented Humanoid]
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Humanoid (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+
+# Class Name		Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus											Combat bonus
+CLASS:Magical Beast	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name		Reg. Race Type
+CLASS:Magical Beast	PRERACETYPE:Magical Beast
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Magical Beast]],[PRERACE:1,RACESUBTYPE=Augmented Magical Beast]
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Magical Beast	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Hit Dice	Type			Class Type		Max Level		Source Page					Ability																Save checks bonus											Combat bonus
+CLASS:Monstrous Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name			Reg. Race Type
+CLASS:Monstrous Humanoid	PRERACETYPE:Monstrous Humanoid
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Monstrous Humanoid]],[PRERACE:1,RACESUBTYPE=Augmented Monstrous Humanoid]
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Monstrous Humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Levels per Feat	Save checks bonus								Combat bonus
+CLASS:Ooze		HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Ooze		PRERACETYPE:Ooze
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Ooze]],[PRERACE:1,RACESUBTYPE=Augmented Ooze]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Ooze		STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus								Combat bonus
+CLASS:Ooze (Intelligent)	OUTPUTNAME:Ooze	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Reg. Race Type
+CLASS:Ooze (Intelligent)	PRERACETYPE:Ooze
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Ooze]],[PRERACE:1,RACESUBTYPE=Augmented Ooze]
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Ooze (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Ability														Save checks bonus								Combat bonus
+CLASS:Outsider	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Outsider Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Outsider	PRERACETYPE:Outsider
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Outsider]],[PRERACE:1,RACESUBTYPE=Augmented Outsider]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Outsider	STARTSKILLPTS:8	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus											Combat bonus
+CLASS:Plant		HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Plant		PRERACETYPE:Plant
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Plant]],[PRERACE:1,RACESUBTYPE=Augmented Plant]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Plant		STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name		Output Name		Hit Dice	Type			Class Type		Max Level		Source Page					Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Plant (Mindless)	OUTPUTNAME:Plant	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Reg. Race Type
+CLASS:Plant (Mindless)	PRERACETYPE:Plant
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Plant]],[PRERACE:1,RACESUBTYPE=Augmented Plant]
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Plant (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Ability														Save checks bonus											Combat bonus
+CLASS:Undead	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	ABILITY:Special Ability|AUTOMATIC|Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Undead	PRERACETYPE:Undead
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Undead]],[PRERACE:1,RACESUBTYPE=Augmented Undead]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Undead	STARTSKILLPTS:4	MODTOSKILLS:YES
+
+# Class Name		Output Name		Hit Dice	Type			Class Type		Max Level		Source Page					Levels per Feat	Ability														Save checks bonus											Combat bonus
+CLASS:Undead (Mindless)	OUTPUTNAME:Undead	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	ABILITY:Special Ability|AUTOMATIC|Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE
+# Class Name		Reg. Race Type
+CLASS:Undead (Mindless)	PRERACETYPE:Undead
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Undead]],[PRERACE:1,RACESUBTYPE=Augmented Undead]
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Undead (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page					Levels per Feat	Save checks bonus											Combat bonus
+CLASS:Vermin	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	LEVELSPERFEAT:0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Reg. Race Type
+CLASS:Vermin	PRERACETYPE:Vermin
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Vermin]],[PRERACE:1,RACESUBTYPE=Augmented Vermin]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Vermin	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level		Source Page					Save checks bonus											Combat bonus
+CLASS:Vermin (Intelligent)	OUTPUTNAME:Vermin	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Improving_Monsters.rtf	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Reg. Race Type
+CLASS:Vermin (Intelligent)	PRERACETYPE:Vermin
+#	PREMULT:1,[PREMULT:2,[!PREABILITY:1,CATEGORY=Internal,TYPE.AugmentedSubType],[PRERACE:1,RACETYPE=Vermin]],[PRERACE:1,RACESUBTYPE=Augmented Animal]
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Vermin (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES

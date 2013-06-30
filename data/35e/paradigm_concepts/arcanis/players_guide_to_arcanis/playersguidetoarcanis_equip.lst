@@ -179,3 +179,14 @@ Chariot (War)									OUTPUTNAME:Chariot, [NAME]																		TYPE:Goods.Tra
 Chariot (War/Commanders)							OUTPUTNAME:Chariot, War, Commanders																	TYPE:Goods.Transportation.Container																		CONTAINS:1200|Any=1							COST:300	WT:375																																																					SOURCEPAGE:pg. 247
 Coach (Ornamental)								OUTPUTNAME:Coach, [NAME]																		TYPE:Goods.Transportation.Container																		CONTAINS:3120|Any=1							COST:7000	WT:750																																																					SOURCEPAGE:pg. 247
 Coach (War)										OUTPUTNAME:Coach, [NAME]																		TYPE:Goods.Transportation.Container																		CONTAINS:3120|Any=1							COST:1500	WT:1000																																																					SOURCEPAGE:pg. 247
+
+
+###Block: RSRD
+# Equipment Name			Required Weapon Proficiency	Type									Damage	Range		Size		Weapon prop. bonus			Special Property
+Giant Rock (Large)		PROFICIENCY:WEAPON|Giant Rock	TYPE:Weapon.Ranged.Thrown.Bludgeoning.Giant.GiantRock	DAMAGE:2d6	RANGE:120	SIZE:L	BONUS:WEAPON|ATTACKSPROGRESS|-3
+Giant Rock (Huge)			PROFICIENCY:WEAPON|Giant Rock	TYPE:Weapon.Ranged.Thrown.Bludgeoning.Giant.GiantRock	DAMAGE:2d8	RANGE:120	SIZE:H	BONUS:WEAPON|ATTACKSPROGRESS|-3
+
+# Variants
+Giant Rock (Fire Giant)		PROFICIENCY:WEAPON|Giant Rock	TYPE:Weapon.Ranged.Thrown.Bludgeoning.Giant.GiantRock	DAMAGE:2d6	RANGE:120	SIZE:L	BONUS:WEAPON|ATTACKSPROGRESS|-3	SPROP:+2d6 fire damage
+Giant Rock (Stone Giant)	PROFICIENCY:WEAPON|Giant Rock	TYPE:Weapon.Ranged.Thrown.Bludgeoning.Giant.GiantRock	DAMAGE:2d8	RANGE:180	SIZE:L	BONUS:WEAPON|ATTACKSPROGRESS|-3
+Giant Rock (Cloud Giant)	PROFICIENCY:WEAPON|Giant Rock	TYPE:Weapon.Ranged.Thrown.Bludgeoning.Giant.GiantRock	DAMAGE:2d8	RANGE:140	SIZE:L	BONUS:WEAPON|ATTACKSPROGRESS|-3
