@@ -84,9 +84,9 @@ public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
 		if (!ac.getTypes().isEmpty()
 				&& parentCat.equalsIgnoreCase(ac.getKeyName()))
 		{
-			Logging.log(Logging.LST_ERROR,
-					"TYPE is not valid in 'parent' category " + ac.getKeyName()
-							+ " of " + ac.getSourceURI() + ".");
+			Logging.log(Logging.LST_ERROR, "TYPE " + ac.getTypes()
+				+ " is not valid in 'parent' category " + ac.getKeyName()
+				+ " of " + ac.getSourceURI() + ".");
 			return false;
 		}
 		if (ac.isAllAbilityTypes()
