@@ -1,0 +1,7 @@
+SOURCELONG:The Genius Guide to: Air Magic	SOURCESHORT:SGGAM	SOURCEDATE:2010-07
+# Original Entry by: Paul Shipley (elro the onk)
+
+###Block: Companion Kits
+STARTPACK:Companion ~ Air Elemental	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
+

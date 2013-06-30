@@ -1,0 +1,11 @@
+SOURCELONG:The Genius Guide to: Air Magic	SOURCESHORT:SGGAM	SOURCEDATE:2010-07
+# Original Entry by: Paul Shipley (elro the onk)
+
+# Class Name			Output Name			Hit Dice	Type				Abbrev	Max Level	Source Page		Ability															Visible	Save checks bonus											Combat bonus
+CLASS:Air Elemental Companion	OUTPUTNAME:Outsider	HD:10		TYPE:Monster.Companion	ABB:ACE	MAXLEVEL:20	SOURCEPAGE:p.10	ABILITY:Special Ability|AUTOMATIC|Outsider Traits|Elemental Traits|PREVAREQ:NoTypeTraits,0	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Air Elemental Companion	STARTSKILLPTS:1	CSKILL:Acrobatics|Escape Artist|Fly|Knowledge (Planes)|Perception|Stealth
+###Block: Level Advancement
+1	BONUS:SKILLPOINTS|NUMBER|-3|PRELEVELMAX:1	AUTO:FEAT|CMB Output
+
+#EOF

@@ -1,0 +1,5 @@
+SOURCELONG:The Genius Guide to: Air Magic	SOURCESHORT:SGGAM	SOURCEDATE:2010-07
+# Original Entry by: Paul Shipley (elro the onk)
+
+# Race Name				Output Name												Starting Feats	Size		Move			Face/Space	Reach		Bonus to Ability Pool										Combat bonus				Stat bonus											Ability														Nb Legs	Nb Hands	Natural Attacks										Define				Monster Class Name and Starting Level	Main Race Type	Race Subtype		Source Page		Apply Kit
+Companion (Elemental (Air))	SORTKEY:z_Companion	PREVARGTEQ:NotAllowed,1	OUTPUTNAME:Companion [NAME]	STARTFEATS:1	SIZE:S	MOVE:Fly,100	FACE:5,5	REACH:5	BONUS:ABILITYPOOL|Companion Level Increase Choice|1|PREVARGTEQ:MasterLevel,4	BONUS:COMBAT|AC|1|TYPE=NaturalArmor	BONUS:STAT|DEX|6	BONUS:STAT|INT|-8	BONUS:STAT|WIS|4	BONUS:STAT|CHA|-2	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability|Air Mastery ~ Air Elemental	LEGS:0	HANDS:2	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4	DEFINE:Maneuverability|5	MONSTERCLASS:Air Elemental Companion:2	TYPE:Companion	RACETYPE:Companion	SOURCEPAGE:p.10	KIT:1|Companion ~ Air Elemental
