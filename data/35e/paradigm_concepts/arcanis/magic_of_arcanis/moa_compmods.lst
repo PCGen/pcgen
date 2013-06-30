@@ -1,0 +1,32 @@
+# CVS $Revision: $ $Author: $ -- Wed Jan 21 16:12:51 2009 -- reformated by prettylst.pl v1.38 (build 7302)
+SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
+#Original Entry: Andrew Maitland (LegacyKing), 2008
+
+# Class of the Master			Type					Hit Dice	Ability								Define					Combat bonus				Stat bonus		Modify VAR
+FOLLOWER:AltherianCompanion=3		TYPE:Clockwork Companion												DEFINE:ConstructCompanionUpgrades|0
+FOLLOWER:AltherianCompanion=3		TYPE:Clockwork Companion																								BONUS:STAT|INT|1	BONUS:VAR|ConstructCompanionUpgrades|1
+FOLLOWER:AltherianCompanion=4		TYPE:Clockwork Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Evasion									BONUS:COMBAT|AC|2|TYPE=NaturalArmor
+FOLLOWER:AltherianCompanion=6		TYPE:Clockwork Companion	HD:2																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor				BONUS:VAR|ConstructCompanionUpgrades|1
+FOLLOWER:AltherianCompanion=9		TYPE:Clockwork Companion	HD:2		AUTO:FEAT|Multiattack								BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|INT|1
+FOLLOWER:AltherianCompanion=12	TYPE:Clockwork Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Instant Inspection							BONUS:COMBAT|AC|2|TYPE=NaturalArmor				BONUS:VAR|ConstructCompanionUpgrades|1
+FOLLOWER:AltherianCompanion=15	TYPE:Clockwork Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Improved Evasion							BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|INT|1
+FOLLOWER:AltherianCompanion=18	TYPE:Clockwork Companion	HD:2																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor	BONUS:STAT|INT|1	BONUS:VAR|ConstructCompanionUpgrades|1
+
+# Race of familiar					Type					Ability
+MASTERBONUSRACE:Animalistic Clockwork Construct	TYPE:Clockwork Companion	ABILITY:Special Ability|AUTOMATIC|Instant Inspection
+MASTERBONUSRACE:Humanoid Clockwork Construct	TYPE:Clockwork Companion	ABILITY:Special Ability|AUTOMATIC|Instant Inspection
+
+
+###Block: Eagle Companion ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Class of the Master		Type				Hit Dice	Ability												Define				Combat bonus					Stat bonus			Modify VAR				Main Race Type		Race Subtype
+FOLLOWER:EagleCompanionLvl=1	TYPE:Eagle Companion	HD:3		ABILITY:Special Ability|AUTOMATIC|Soul Link|Share Spells|Share Saving Throws	DEFINE:EagleTricksKnown|0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|2	BONUS:VAR|EagleTricksKnown|1	DEFINE:YouLendYourHeartBonus|0
+FOLLOWER:EagleCompanionLvl=4	TYPE:Eagle Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Improved Evasion										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|2	BONUS:VAR|EagleTricksKnown|2		BONUS:VAR|YouLendYourHeartBonus|2
+FOLLOWER:EagleCompanionLvl=7	TYPE:Eagle Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Command												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|2	BONUS:VAR|EagleTricksKnown|2		BONUS:VAR|YouLendYourHeartBonus|2
+FOLLOWER:EagleCompanionLvl=10	TYPE:Eagle Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Spirit Form											BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR,DEX|2	BONUS:VAR|EagleTricksKnown|99	RACETYPE:Magical Beast			BONUS:VAR|YouLendYourHeartBonus|2
+
+# Race of familiar					Type				Stat bonus
+MASTERBONUSRACE:Eagle (Altai White-Shoulders)	TYPE:Eagle Companion	BONUS:STAT|STR|YouLendYourHeartBonus|TYPE=Enhancement
+MASTERBONUSRACE:Eagle (Hovd Yellow)			TYPE:Eagle Companion	BONUS:STAT|WIS|YouLendYourHeartBonus|TYPE=Enhancement
+MASTERBONUSRACE:Eagle (Valley Black)		TYPE:Eagle Companion	BONUS:STAT|DEX|YouLendYourHeartBonus|TYPE=Enhancement
+MASTERBONUSRACE:Eagle (Cross)				TYPE:Eagle Companion	BONUS:STAT|CON|YouLendYourHeartBonus|TYPE=Enhancement
+

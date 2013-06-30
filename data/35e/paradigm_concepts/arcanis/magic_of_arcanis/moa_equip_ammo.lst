@@ -1,0 +1,13 @@
+
+
+
+Flask Atlatl																	TYPE:Goods.Ammo.Ammunition			COST:15	WT:1
+
+Claw Head Ammunition (Arrows or Bolts)													TYPE:Ammo.Ammunition			COST:4
+#Signal Ammunition (Arrows or Bolts)
+Signal Ammunition (Whistler)															TYPE:Ammo.Ammunition			COST:75
+Signal Ammunition (Mirrored Flash)														TYPE:Ammo.Ammunition			COST:75
+Signal Ammunition (Smoke)															TYPE:Ammo.Ammunition			COST:75
+Signal Ammunition (Flare)															TYPE:Ammo.Ammunition			COST:75
+
+

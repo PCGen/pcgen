@@ -1,0 +1,6 @@
+
+
+###Block: --------------------------------------------------------------------------------------------------------
+# Equipment Name	Required Proficiency			Type							Critical Hit Multiplier	Critical Hit Range	Damage	Size		Combat bonus
+Flesh Sword		PROFICIENCY:WEAPON|Flesh Sword	TYPE:Weapon.Melee.Flesh.Slashing.Natural	CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8	SIZE:M
+

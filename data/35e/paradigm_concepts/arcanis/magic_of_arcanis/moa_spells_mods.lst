@@ -1,0 +1,179 @@
+# CVS $Revision: $ $Author: $ -- Mon Dec 29 19:16:19 2008 -- reformated by prettylst.pl v1.38 (build 7302)
+SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
+#Original Entry: Andrew Maitland (LegacyKing), 2008
+
+###New Spells
+Deepen Wounds.MOD			CLASSES:Ehtzara=1
+Bestow Lesser Curse.MOD		CLASSES:Ehtzara=2
+Invigorating Nectar.MOD		CLASSES:Ehtzara=2
+Gout of Vermin.MOD		CLASSES:Ehtzara=3
+Sting of the Scorpion.MOD	CLASSES:Ehtzara=3
+Wall of Serpents.MOD		CLASSES:Ehtzara=4
+Gaze of the Predator.MOD	CLASSES:Ehtzara=1
+Scavenger's Bounty.MOD		CLASSES:Ehtzara=2
+Ripping Sands.MOD			CLASSES:Ehtzara=4
+
+
+##Mod Spells
+#Ehtzara Spell List
+# Spell Name				Classes of caster
+Arcane Mark.MOD				CLASSES:Ehtzara=0
+Dancing Lights.MOD			CLASSES:Ehtzara=0
+Daze.MOD					CLASSES:Ehtzara=0
+Detect Magic.MOD				CLASSES:Ehtzara=0
+Detect Poison.MOD				CLASSES:Ehtzara=0
+Disrupt Undead.MOD			CLASSES:Ehtzara=0
+Flare.MOD					CLASSES:Ehtzara=0
+Ghost Sound.MOD				CLASSES:Ehtzara=0
+Light.MOD					CLASSES:Ehtzara=0
+Mage Hand.MOD				CLASSES:Ehtzara=0
+Mending.MOD					CLASSES:Ehtzara=0
+Open/Close.MOD				CLASSES:Ehtzara=0
+Prestidigitation.MOD			CLASSES:Ehtzara=0
+Ray of Frost.MOD				CLASSES:Ehtzara=0
+Read Magic.MOD				CLASSES:Ehtzara=0
+Resistance.MOD				CLASSES:Ehtzara=0
+
+#$1st-Level:
+Burning Hands.MOD				CLASSES:Ehtzara=1
+Disguise Self.MOD				CLASSES:Ehtzara=1
+Charm Person.MOD				CLASSES:Ehtzara=1
+Chill Touch.MOD				CLASSES:Ehtzara=1
+Comprehend Languages.MOD		CLASSES:Ehtzara=1
+Detect Animals or Plants.MOD		CLASSES:Ehtzara=1
+Detect Secret Doors.MOD			CLASSES:Ehtzara=1
+Endure Elements.MOD			CLASSES:Ehtzara=1
+Erase.MOD					CLASSES:Ehtzara=1
+Expeditious Retreat.MOD			CLASSES:Ehtzara=1
+Feather Fall.MOD				CLASSES:Ehtzara=1
+Hold Portal.MOD				CLASSES:Ehtzara=1
+Identify.MOD				CLASSES:Ehtzara=1
+Jump.MOD					CLASSES:Ehtzara=1
+Mage Armor.MOD				CLASSES:Ehtzara=1
+Message.MOD					CLASSES:Ehtzara=1
+Mount.MOD					CLASSES:Ehtzara=1
+Magic Aura.MOD				CLASSES:Ehtzara=1
+Obscuring Mist.MOD			CLASSES:Ehtzara=1
+Protection from Evil.MOD		CLASSES:Ehtzara=1
+Protection from Good.MOD		CLASSES:Ehtzara=1
+Protection from Law.MOD			CLASSES:Ehtzara=1
+Protection from Chaos.MOD		CLASSES:Ehtzara=1
+Ray of Enfeeblement.MOD			CLASSES:Ehtzara=1
+Reduce Person.MOD				CLASSES:Ehtzara=1
+Shield.MOD					CLASSES:Ehtzara=1
+Shocking Grasp.MOD			CLASSES:Ehtzara=1
+Silent Image.MOD				CLASSES:Ehtzara=1
+Sleep.MOD					CLASSES:Ehtzara=1
+Spider Climb.MOD				CLASSES:Ehtzara=1
+Summon Monster I.MOD			CLASSES:Ehtzara=1
+True Strike.MOD				CLASSES:Ehtzara=1
+Unseen Servant.MOD			CLASSES:Ehtzara=1
+Ventriloquism.MOD				CLASSES:Ehtzara=1
+
+#2nd-Level:
+Alter Self.MOD				CLASSES:Ehtzara=2
+Arcane Lock.MOD				CLASSES:Ehtzara=2
+Augury.MOD					CLASSES:Ehtzara=2
+Blindness/Deafness.MOD			CLASSES:Ehtzara=2
+Cat's Grace.MOD				CLASSES:Ehtzara=2
+Charm Animal.MOD				CLASSES:Ehtzara=2
+Continual Flame.MOD			CLASSES:Ehtzara=2
+Darkness.MOD				CLASSES:Ehtzara=2
+Darkvision.MOD				CLASSES:Ehtzara=2
+Death Knell.MOD				CLASSES:Ehtzara=2
+Detect Thoughts.MOD			CLASSES:Ehtzara=2
+#Endurance.MOD				CLASSES:Ehtzara=2
+Endure Elements.MOD			CLASSES:Ehtzara=2
+Entropic Shield.MOD			CLASSES:Ehtzara=2
+Flaming Sphere.MOD			CLASSES:Ehtzara=2
+Fog Cloud.MOD				CLASSES:Ehtzara=2
+Ghoul Touch.MOD				CLASSES:Ehtzara=2
+Glitterdust.MOD				CLASSES:Ehtzara=2
+Hypnotic Pattern.MOD			CLASSES:Ehtzara=2
+Invisibility.MOD				CLASSES:Ehtzara=2
+Knock.MOD					CLASSES:Ehtzara=2
+Levitate.MOD				CLASSES:Ehtzara=2
+Locate Object.MOD				CLASSES:Ehtzara=2
+Minor Image.MOD				CLASSES:Ehtzara=2
+Mirror Image.MOD				CLASSES:Ehtzara=2
+Misdirection.MOD				CLASSES:Ehtzara=2
+Obscure Object.MOD			CLASSES:Ehtzara=2
+Produce Flame.MOD				CLASSES:Ehtzara=2
+Pyrotechnics.MOD				CLASSES:Ehtzara=2
+Scare.MOD					CLASSES:Ehtzara=2
+Spectral Hand.MOD				CLASSES:Ehtzara=2
+Summon Monster II.MOD			CLASSES:Ehtzara=2
+Summon Swarm.MOD				CLASSES:Ehtzara=2
+Whispering Wind.MOD			CLASSES:Ehtzara=2
+
+#3rd-Level:
+Call Lightning.MOD			CLASSES:Ehtzara=3
+Clairaudience/Clairvoyance.MOD	CLASSES:Ehtzara=3
+Diminish Plants.MOD			CLASSES:Ehtzara=3
+Dispel Magic.MOD				CLASSES:Ehtzara=3
+Explosive Runes.MOD			CLASSES:Ehtzara=3
+Fireball.MOD				CLASSES:Ehtzara=3
+Fly.MOD					CLASSES:Ehtzara=3
+Gaseous Form.MOD				CLASSES:Ehtzara=3
+Gentle Repose.MOD				CLASSES:Ehtzara=3
+Gust of Wind.MOD				CLASSES:Ehtzara=3
+Halt Undead.MOD				CLASSES:Ehtzara=3
+Haste.MOD					CLASSES:Ehtzara=3
+Helping Hand.MOD				CLASSES:Ehtzara=3
+Hold Person.MOD				CLASSES:Ehtzara=3
+Illusory Script.MOD			CLASSES:Ehtzara=3
+Invisibility Sphere.MOD			CLASSES:Ehtzara=3
+Keen Edge.MOD				CLASSES:Ehtzara=3
+Restoration (Lesser).MOD		CLASSES:Ehtzara=3
+Major Image.MOD				CLASSES:Ehtzara=3
+Nondetection.MOD				CLASSES:Ehtzara=3
+Phantom Steed.MOD				CLASSES:Ehtzara=3
+Plant Growth.MOD				CLASSES:Ehtzara=3
+Protection from Energy.MOD		CLASSES:Ehtzara=3
+Secret Page.MOD				CLASSES:Ehtzara=3
+Sepia Snake Sigil.MOD			CLASSES:Ehtzara=3
+Slow.MOD					CLASSES:Ehtzara=3
+Speak with Plants.MOD			CLASSES:Ehtzara=3
+Suggestion.MOD				CLASSES:Ehtzara=3
+Summon Monster III.MOD			CLASSES:Ehtzara=3
+Tongues.MOD					CLASSES:Ehtzara=3
+Vampiric Touch.MOD			CLASSES:Ehtzara=3
+Water Breathing.MOD			CLASSES:Ehtzara=3
+Wind Wall.MOD				CLASSES:Ehtzara=3
+
+#4th-Level:
+Arcane Eye.MOD				CLASSES:Ehtzara=4
+Bestow Curse.MOD				CLASSES:Ehtzara=4
+Charm Monster.MOD				CLASSES:Ehtzara=4
+Contagion.MOD				CLASSES:Ehtzara=4
+Detect Scrying.MOD			CLASSES:Ehtzara=4
+Dimensional Anchor.MOD			CLASSES:Ehtzara=4
+Dimension Door.MOD			CLASSES:Ehtzara=4
+Divination.MOD				CLASSES:Ehtzara=4
+Enervation.MOD				CLASSES:Ehtzara=4
+Fear.MOD					CLASSES:Ehtzara=4
+Fire Trap.MOD				CLASSES:Ehtzara=4
+Freedom of Movement.MOD			CLASSES:Ehtzara=4
+Glyph of Warding.MOD			CLASSES:Ehtzara=4
+Hallucinatory Terrain.MOD		CLASSES:Ehtzara=4
+Illusory Wall.MOD				CLASSES:Ehtzara=4
+Invisibility (Greater).MOD		CLASSES:Ehtzara=4
+Geas (Lesser).MOD				CLASSES:Ehtzara=4
+Locate Creature.MOD			CLASSES:Ehtzara=4
+Minor Creation.MOD			CLASSES:Ehtzara=4
+Phantasmal Killer.MOD			CLASSES:Ehtzara=4
+Polymorph.MOD				CLASSES:Ehtzara=4
+#Polymorph Self.MOD			CLASSES:Ehtzara=4
+Rainbow Pattern.MOD			CLASSES:Ehtzara=4
+Remove Curse.MOD				CLASSES:Ehtzara=4
+Restoration.MOD				CLASSES:Ehtzara=4
+Scrying.MOD					CLASSES:Ehtzara=4
+Shadow Conjuration.MOD			CLASSES:Ehtzara=4
+Solid Fog.MOD				CLASSES:Ehtzara=4
+Spike Stones.MOD				CLASSES:Ehtzara=4
+Stoneskin.MOD				CLASSES:Ehtzara=4
+Summon Monster IV.MOD			CLASSES:Ehtzara=4
+Wall of Fire.MOD				CLASSES:Ehtzara=4
+Wall of Ice.MOD				CLASSES:Ehtzara=4
+
+# EOF

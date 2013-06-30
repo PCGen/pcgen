@@ -1,0 +1,15 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan  9 14:40:57 2009 -- reformated by prettylst.pl v1.38 (build 7302)
+SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
+#Original Entry: Andrew Maitland (LegacyKing), 2008
+
+# Skill Name					Key Stat	Untrained?		Type
+Dreaming						KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom
+Knowledge (The Planes ~ Spirit World)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.ThePlanes
+Knowledge (The Planes ~ Spirit Creatures)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.ThePlanes
+Knowledge (History/Ancient)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Hitory
+Knowledge (Local/Ymandragore)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.Local
+Knowledge (The Planes/Earth)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge.ThePlanes
+Knowledge (Geology)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge
+Craft (Gemsmith)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:na
+
+

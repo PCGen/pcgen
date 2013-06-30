@@ -1,0 +1,45 @@
+################################################
+Data Review Part 1
+   File Review
+################################################
+
+PCC:
+----
+
+Kits:
+------
+
+Spells:
+-------
+Some spells missing TARGETAREA
+
+Races:
+------
+Why are default monster kits being granted from the race file? Should we not?
+Why are racial traits abilities rather than templates? Moving away from Templates - UPDATE: We can now Assign all Racial Traits automatically based upon RACETYPE and RACESUBTYPE.
+
+Feats:
+------
+
+Classes:
+--------
+
+Equipment:
+----------
+
+
+################################################
+Data Review Part 2
+   Dataset Completeness
+################################################
+
+missing .MODs for core RSRD class changes for Arcanis- ??? This should already be handled in the Player's Guide.
+missing .MODs for Arcanis Deities - Turning Modifiers- ??? This should already be handled in the Player's Guide.
+
+
+################################################
+Data Review Part 3
+   Functionality Testing
+################################################
+
+TBD

@@ -1,0 +1,73 @@
+# CVS $Revision: $ $Author: $ -- Thu Jan 22 16:26:51 2009 -- reformated by prettylst.pl v1.38 (build 7302)
+SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
+#Original Entry: Andrew Maitland (LegacyKing), 2008
+
+# Equipment Name				Output Name							Type									Cost		Weight
+Acid														TYPE:Goods.Alchemical.Flask.Consumable			COST:10	WT:1
+Acid (Refined)				OUTPUTNAME:Acid, [NAME]					TYPE:Goods.Alchemical.CopperJar.Consumable		COST:40
+Acid Sphere (Small)			OUTPUTNAME:Acid Sphere, [NAME]			TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:45	WT:.5
+Acid Sphere (Large)			OUTPUTNAME:Acid Sphere, [NAME]			TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:75	WT:1
+Alchemical Wolvesbane											TYPE:Goods.Alchemical.Flask.Consumable			COST:200	WT:.5
+#Alchemist's Fire												TYPE:Goods.Alchemical.Flask.Consumable			COST:20	WT:.5
+#Altherian Signal Rocket (Flare)	OUTPUTNAME:Altherian Signal Rocket, [NAME]	TYPE:Goods.Alchemical.SignalRocket.Consumable		COST:100	WT:1
+#Altherian Signal Rocket (Flash)	OUTPUTNAME:Altherian Signal Rocket, [NAME]	TYPE:Goods.Alchemical.SignalRocket.Consumable		COST:50	WT:1
+#Altherian Signal Rocket (Whistle)	OUTPUTNAME:Altherian Signal Rocket, [NAME]	TYPE:Goods.Alchemical.SignalRocket.Consumable		COST:40	WT:1
+Antitoxin													TYPE:Goods.Alchemical.Vial.Consumable			COST:50	WT:.2
+Antitoxin (Refined)			OUTPUTNAME:Antitoxin, [NAME]				TYPE:Goods.Alchemical.Vial.Consumable			COST:100	WT:.2
+Cloud Mind													TYPE:Goods.Alchemical.Vial.Consumable			COST:500	WT:.2
+Cloud Mind (Refined)			OUTPUTNAME:Cloud Mind, [NAME]				TYPE:Goods.Alchemical.Vial.Consumable			COST:7500	WT:.2
+Combustible Sphere (Small)		OUTPUTNAME:Combustible Sphere, [NAME]		TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:90	WT:.5
+Combustible Sphere (Large)		OUTPUTNAME:Combustible Sphere, [NAME]		TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:450	WT:1
+Coating Flame												TYPE:Goods.Alchemical.Vial.Consumable			COST:50	WT:.2
+Flash Sphere (Small)			OUTPUTNAME:Flash Sphere, [NAME]			TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:45	WT:.5
+Flash Sphere (Large)			OUTPUTNAME:Flash Sphere, [NAME]			TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:135	WT:1
+Mind Cloud													TYPE:Goods.Alchemical.GlassSphere.Vial.Consumable	COST:500	WT:.5
+Mind Cloud (Refined)			OUTPUTNAME:Mind Cloud, [NAME]				TYPE:Goods.Alchemical.GlassSphere.Vial.Consumable	COST:800	WT:.5
+Mold Spores													TYPE:Goods.Alchemical.Vial.Consumable			COST:200	WT:.2
+Mold Spores (Diseased)			OUTPUTNAME:Mold Spores, [NAME]			TYPE:Goods.Alchemical.Vial.Consumable			COST:200	WT:.2
+Poison Gas													TYPE:Goods.Alchemical.GlassSphere.Consumable				WT:.5
+Poison Gas (Refined)			OUTPUTNAME:Poison Gas, [NAME]				TYPE:Goods.Alchemical.GlassSphere.Consumable				WT:.5
+Quick-Setting Glue											TYPE:Goods.Alchemical.Jar.Consumable			COST:50	WT:.5
+Rustbane													TYPE:Goods.Alchemical.Vial.Consumable			COST:50	WT:.2
+Silver Shine												TYPE:Goods.Alchemical.Vial.Consumable			COST:50	WT:.2
+Sleep Gas													TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:100	WT:1
+Sleep Gas (Refined)			OUTPUTNAME:Sleep Gas, [NAME]				TYPE:Goods.Alchemical.GlassSphere.Consumable		COST:200	WT:1
+Smelling Salts												TYPE:Goods.Alchemical.Jar.Consumable			COST:50	WT:.5
+#Smokestick													TYPE:Goods.Alchemical.Torch.Consumable			COST:20	WT:.5
+#Sunrod													TYPE:Goods.Alchemical.Torch.Consumable			COST:2	WT:1
+#Tanglefoot Bag												TYPE:Goods.Alchemical.Bag.Consumable			COST:50	WT:4
+#Thunderstone												TYPE:Goods.Alchemical.Consumable				COST:30	WT:1
+#Tindertwig													TYPE:Goods.Alchemical.Consumable				COST:1
+Traveling Salts												TYPE:Goods.Alchemical.Jar.Consumable			COST:100	WT:.5
+
+###BLOCK
+# Equipment Name							Output Name									Type				Cost		Weight
+Alchemist's Satchel																TYPE:Goods			COST:500	WT:15
+Alchemy Laboratory (Transportable Carriage)												TYPE:Goods			COST:1000	WT:800
+Permanent Alchemy Laboratory															TYPE:Goods			COST:900
+Mastercraft Alchemical Components														TYPE:Goods			COST:200
+
+
+Belt / Bandolier (Potion)					OUTPUTNAME:Belt or Bandolier, [NAME]				TYPE:Goods			COST:50	WT:1
+Belt / Bandolier (Scroll)					OUTPUTNAME:Belt or Bandolier, [NAME]				TYPE:Goods			COST:50	WT:1
+Bandolier (Spellcaster's)					OUTPUTNAME:Bandolier, [NAME]						TYPE:Goods			COST:50	WT:2
+Encoded Spellbook																	TYPE:Goods.Book		COST:300
+Clockwork Maintenance and Repair Kit													TYPE:Goods			COST:500	WT:10
+Clockwork Maintenance and Repair Kit (Masterwork)	OUTPUTNAME:Clockwork Maintenance and Repair Kit, [NAME]	TYPE:Goods			COST:1000	WT:15
+Clockwork Maintenance and Repair Kit (Refill)		OUTPUTNAME:Clockwork Maintenance and Repair Kit, [NAME]	TYPE:Goods			COST:200
+
+Scribe's Case (Oiled Leather)					OUTPUTNAME:Scribe's Case, [NAME]					TYPE:Goods			COST:100	WT:3
+Scribe's Case (Reinforced Case)				OUTPUTNAME:Scribe's Case, [NAME]					TYPE:Goods			COST:250	WT:5
+Scribe's Case (Hardened Case)					OUTPUTNAME:Scribe's Case, [NAME]					TYPE:Goods			COST:500	WT:10
+
+
+Staff Compartment (Low Quality)				OUTPUTNAME:Staff Compartment, [NAME]				TYPE:Goods.Compartment	COST:50	WT:4
+Staff Compartment (Standard Quality)			OUTPUTNAME:Staff Compartment, [NAME]				TYPE:Goods.Compartment	COST:100	WT:4
+Staff Compartment (High Quality)				OUTPUTNAME:Staff Compartment, [NAME]				TYPE:Goods.Compartment	COST:250	WT:4
+Staff Compartment (Masterwork Quality)			OUTPUTNAME:Staff Compartment, [NAME]				TYPE:Goods.Compartment	COST:300	WT:4
+Spell Component Pouch (Hidden)				OUTPUTNAME:Spell Component Pouch, [NAME]				TYPE:Goods			COST:50
+Traveling Altar Case (Pine)					OUTPUTNAME:Traveling Altar Case, [NAME]				TYPE:Goods			COST:50	WT:10
+Traveling Altar Case (Oak)					OUTPUTNAME:Traveling Altar Case, [NAME]				TYPE:Goods			COST:100	WT:15
+Warrior's Divine Focus																TYPE:Goods			COST:200	WT:2
+
+

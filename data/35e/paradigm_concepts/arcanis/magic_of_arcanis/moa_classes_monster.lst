@@ -1,0 +1,22 @@
+# CVS $Revision$ $Author$ -- Thu Jan 22 16:26:51 2009 -- reformated by prettylst.pl v1.38 (build 7302)
+SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
+# Original Entry: Andrew Maitland (LegacyKing)
+# Original Entry Date: 2008
+
+###Block: Bio Construct
+
+# Class Name		Hit Dice	Type				Save checks bonus								Combat bonus
+CLASS:Bio-Construct	HD:10		TYPE:Base.PC.Monster	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name		Skill Pts/Lvl
+CLASS:Bio-Construct	STARTSKILLPTS:4
+1	ABILITY:Special Ability|AUTOMATIC|BioConstruct
+###EOF
+
+###Block: Clockwork Construct
+
+# Class Name			Hit Dice	Type
+CLASS:Clockwork Construct	HD:10		TYPE:Monster
+1	ABILITY:Special Ability|AUTOMATIC|ClockworkConstruct
+
+
+#Immunity to all mind-affecting effects

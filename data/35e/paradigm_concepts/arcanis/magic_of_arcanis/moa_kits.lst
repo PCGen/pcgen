@@ -1,0 +1,124 @@
+# CVS $Revision$ $Author$ -- Thu Jan 22 16:26:51 2009 -- reformated by prettylst.pl v1.38 (build 7302)
+SOURCELONG:Magic of Arcanis	SOURCESHORT:MoA	SOURCEWEB:http://www.paradigmconcepts.com
+#Original Entry: Andrew Maitland (LegacyKing), 2008
+
+STARTPACK:Eagle (Altai White-Shoulders)	TYPE:Eagle Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eagle (Altai White-Shoulders)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+#Str 18, Dex 13, Con 14, Int 2, Wis 14, Cha 6;
+RACE:Eagle (Altai White-Shoulders)	!PRERACE:1,%
+#ALIGN:
+#Skills and Feats: Listen +2, Spot +16,
+#Listen WIS+2
+SKILL:Spot	RANK:6
+FEAT:Improved Natural Attack (Talons)
+FEAT:Multiattack
+
+
+STARTPACK:Eagle (Hovd Yellow)	TYPE:Eagle Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eagle (Hovd Yellow)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Eagle (Hovd Yellow)	!PRERACE:1,%
+#ALIGN:
+#Str 10, Dex 15, Con 12, Int 2, Wis 18, Cha 6; Skills and Feats: Listen+6, Spot +20,
+SKILL:Listen	RANK:2
+SKILL:Spot		RANK:6
+FEAT:Alertness
+FEAT:Flyby Attack
+
+
+STARTPACK:Eagle (Valley Black)	TYPE:Eagle Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eagle (Valley Black)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Eagle (Valley Black)	!PRERACE:1,%
+ALIGN:TN
+#Str 10, Dex 19, Con 12, Int 2, Wis 14, Cha 6; Skills and Feats: Listen+2, Spot +16,
+SKILL:Spot	RANK:6
+FEAT:Weapon Finesse
+FEAT:Wingover
+
+
+STARTPACK:Eagle (Cross)	TYPE:Eagle Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eagle (Cross)]
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+RACE:Eagle (Cross)	!PRERACE:1,%
+ALIGN:TN
+#Str 14, Dex 13, Con 18, Int 2, Wis 14, Cha 6; Skills and Feats:	3 ANimal Lvs. 4+2= 6
+#Listen+2, Spot +16, 6 SP
+SKILL:Spot	RANK:6
+FEAT:Endurance
+FEAT:Great Fortitude
+
+
+###Block: Ymandragoran Thrall ------------------------------------------------------------------------------------------------------------
+
+#Ymandragoran Thrall (Lesser)
+STARTPACK:Ymandragoran Thrall (Lesser)	TYPE:Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ymandragoran Thrall (Lesser)]
+STAT:STR=11|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+RACE:Ymandragoran Thrall (Lesser)	!PRERACE:1,%
+#Str 17, Dex 12, Con 15, Int 9, Wis 8, Cha 6
+#Intimidate +7, Listen +7, Spot +7	MAX RANK 6
+SKILL:Intimidate	RANK:6
+SKILL:Listen	RANK:6
+SKILL:Spot		RANK:6
+FEAT:Alertness
+FEAT:Skill Focus (Intimidate)
+#3x4@1st =12 +3 each level = 18
+GEAR:Flesh Shield	SIZE:PC	LOCATION:Equipped
+GEAR:Flesh Sword	SIZE:PC	LOCATION:Primary
+
+
+#Ymandragoran Thrall
+STARTPACK:Ymandragoran Thrall	TYPE:Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ymandragoran Thrall]
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+RACE:Ymandragoran Thrall	!PRERACE:1,%
+#Str 18, Dex 12, Con 15, Int 9, Wis 8, Cha 6	MAX RANK 9
+#Intimidate +10, Listen +10, Spot +10
+SKILL:Intimidate	RANK:9
+SKILL:Listen	RANK:9
+SKILL:Spot		RANK:9
+FEAT:Alertness
+FEAT:Skill Focus (Intimidate)
+FEAT:Power Attack
+#3x4@1st =12 +3 each level	TOTAL:16	5*3=15 =27
+GEAR:Flesh Shield	SIZE:PC	LOCATION:Equipped
+GEAR:Flesh Sword	SIZE:PC	LOCATION:Primary
+
+#Ymandragoran Thrall (Greater)
+STARTPACK:Ymandragoran Thrall (Greater)	TYPE:Default	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ymandragoran Thrall (Greater)]
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+RACE:Ymandragoran Thrall (Greater)	!PRERACE:1,%
+#Str 26, Dex 10, Con 20, Int 9, Wis 8, Cha 6	
+#Intimidate +13, Listen +13, Spot +13		MAX RANK 12
+SKILL:Intimidate	RANK:12
+SKILL:Listen	RANK:12
+SKILL:Spot		RANK:12
+FEAT:Alertness
+FEAT:Skill Focus (Intimidate)
+FEAT:Power Attack
+FEAT:Cleave
+GEAR:Flesh Shield	SIZE:PC	LOCATION:Equipped
+GEAR:Flesh Sword	SIZE:PC	LOCATION:Primary
+
+#3x4@1st =12 +3 each level	3*8=24 =36  PERFECT!  
+
+###Block: Clockwork Construct Default Stats
+STARTPACK:Clockwork Construct	TYPE:Default	VISIBLE:NO	EQUIPBUY:0
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+
+
+STARTPACK:Myrantian Assassin-Golem	TYPE:Default	VISIBLE:NO	EQUIPBUY:0
+#	Abilities: Str 17, Dex 24, Con , Int 18, Wis 10, Cha 11
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+#Skills: Balance +14, Climb +10, Escape Artist +20, Hide +20, Jump +10, Listen +7, Move Silently +20, Open Lock +14, Spot +7, Tumble +20
+FEAT:Combat Expertise
+FEAT:Combat Reflexes
+FEAT:Deflect Arrows
+FEAT:Dodge
+FEAT:Improved Disarm
+FEAT:Improved Initiative
+FEAT:Improved Trip
+FEAT:Mobility
+FEAT:Weapon Finesse
+FEAT:Weapon Focus (Rapier-Arms)
+FEAT:Spring Attack
+
+STARTPACK:Sarishan Guardian	TYPE:Default	VISIBLE:NO	EQUIPBUY:0
+#Abilities: Str 22, Dex 16, Con -, Int -, Wis 10, Cha 1
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
