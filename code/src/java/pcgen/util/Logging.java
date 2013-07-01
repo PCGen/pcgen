@@ -297,7 +297,7 @@ public class Logging
 				&& context.getObjectContext().getSourceURI() != null)
 			{
 				l.log(LST_WARNING, s + " (Source: "
-					+ context.getObjectContext().getSourceURI() + ")");
+					+ context.getObjectContext().getSourceURI() + " )");
 			}
 			else
 			{
