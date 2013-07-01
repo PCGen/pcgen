@@ -33,6 +33,8 @@ import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryMXBean;
 import java.lang.management.MemoryUsage;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.text.DecimalFormat;
 import java.text.MessageFormat;
 import java.util.logging.Handler;
@@ -61,14 +63,16 @@ import pcgen.util.Logging;
  * 
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class DebugDialog extends JDialog implements MouseListener {
+public class DebugDialog extends JDialog implements MouseListener
+{
 
 	private static MemoryMXBean memoryBean = ManagementFactory
-			.getMemoryMXBean();
+		.getMemoryMXBean();
 	private final JTextArea debuggingText;
 	private final MemoryPanel memoryPanel;
 
-	public DebugDialog(PCGenFrame frame) {
+	public DebugDialog(PCGenFrame frame)
+	{
 		super(frame);
 		setTitle("Log & Memory Use");
 		debuggingText = new JTextArea();
@@ -81,7 +85,8 @@ public class DebugDialog extends JDialog implements MouseListener {
 		Utility.installEscapeCloseOperation(this);
 	}
 
-	private void initComponents() {
+	private void initComponents()
+	{
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new BorderLayout());
 		initDebugLog();
@@ -90,7 +95,8 @@ public class DebugDialog extends JDialog implements MouseListener {
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
 	}
 
-	private void initDebugLog() {
+	private void initDebugLog()
+	{
 		// debuggingText.setLineWrap(true);
 		debuggingText.setEditable(false);
 		debuggingText.setText(LoggingRecorder.getLogs());
@@ -98,44 +104,53 @@ public class DebugDialog extends JDialog implements MouseListener {
 	}
 
 	@Override
-	public void dispose() {
+	public void dispose()
+	{
 		super.dispose();
 		memoryPanel.dispose();
 	}
 
-	private class LogHandler extends Handler implements Runnable {
+	private class LogHandler extends Handler implements Runnable
+	{
 
-		public LogHandler() {
+		public LogHandler()
+		{
 			setLevel(Logging.DEBUG);
 		}
 
 		@Override
-		public void publish(LogRecord record) {
+		public void publish(LogRecord record)
+		{
 			SwingUtilities.invokeLater(this);
 		}
 
 		@Override
-		public void flush() {
+		public void flush()
+		{
 		}
 
 		@Override
-		public void close() throws SecurityException {
+		public void close() throws SecurityException
+		{
 		}
 
 		@Override
-		public void run() {
+		public void run()
+		{
 			debuggingText.setText(LoggingRecorder.getLogs());
 		}
 
 	}
 
-	private static class MemoryPanel extends JPanel implements ActionListener {
+	private static class MemoryPanel extends JPanel implements ActionListener
+	{
 
 		private final Timer timer;
 		private final JButton gcButton;
 		private final JTable memoryTable;
 
-		public MemoryPanel() {
+		public MemoryPanel()
+		{
 			timer = new Timer(1000, this);
 			gcButton = new JButton("Run Garbage Collection");
 			memoryTable = new JTable(new MemoryTableModel());
@@ -143,13 +158,16 @@ public class DebugDialog extends JDialog implements MouseListener {
 			timer.start();
 		}
 
-		private void initComponents() {
+		private void initComponents()
+		{
 			setBorder(BorderFactory.createTitledBorder("Memory Usage"));
 			setLayout(new BorderLayout());
-			add(new JScrollPane(memoryTable) {
+			add(new JScrollPane(memoryTable)
+			{
 
 				@Override
-				public Dimension getMaximumSize() {
+				public Dimension getMaximumSize()
+				{
 					return super.getPreferredSize();
 				}
 
@@ -157,110 +175,127 @@ public class DebugDialog extends JDialog implements MouseListener {
 			memoryTable.setFocusable(false);
 			memoryTable.setRowSelectionAllowed(false);
 			memoryTable.setPreferredScrollableViewportSize(memoryTable
-					.getPreferredSize());
+				.getPreferredSize());
 			memoryTable.setDefaultRenderer(Long.class,
-					new DefaultTableCellRenderer() {
+				new DefaultTableCellRenderer()
+				{
 
-						DecimalFormat format = new DecimalFormat("###,###,###");
+					DecimalFormat format = new DecimalFormat("###,###,###");
 
-						@Override
-						protected void setValue(Object value) {
-							setHorizontalAlignment(SwingConstants.RIGHT);
-							setText(format.format(value));
-						}
+					@Override
+					protected void setValue(Object value)
+					{
+						setHorizontalAlignment(SwingConstants.RIGHT);
+						setText(format.format(value));
+					}
 
-					});
+				});
 
 			gcButton.setActionCommand("COLLECT");
 			gcButton.addActionListener(this);
 			add(gcButton, BorderLayout.SOUTH);
 		}
 
-		public void dispose() {
+		public void dispose()
+		{
 			timer.stop();
 		}
 
 		@Override
-		public void actionPerformed(ActionEvent e) {
-			if ("COLLECT".equals(e.getActionCommand())) {
+		public void actionPerformed(ActionEvent e)
+		{
+			if ("COLLECT".equals(e.getActionCommand()))
+			{
 				memoryBean.gc();
-				Logging.log(
-						Logging.INFO,
-						MessageFormat
-								.format("Memory used after manual GC, Heap: {0}, Non heap: {1}",
-										memoryBean.getHeapMemoryUsage()
-												.getUsed(), memoryBean
-												.getNonHeapMemoryUsage()
-												.getUsed()));
-			} else {
+				Logging.log(Logging.INFO, MessageFormat.format(
+					"Memory used after manual GC, Heap: {0}, Non heap: {1}",
+					memoryBean.getHeapMemoryUsage().getUsed(), memoryBean
+						.getNonHeapMemoryUsage().getUsed()));
+			}
+			else
+			{
 				memoryTable.repaint();
 			}
 		}
 
 	}
 
-	private static class MemoryTableModel extends AbstractTableModel {
+	private static class MemoryTableModel extends AbstractTableModel
+	{
 
 		private static long megaByte = 1024 * 1024;
 
 		@Override
-		public int getRowCount() {
+		public int getRowCount()
+		{
 			return 2;
 		}
 
 		@Override
-		public int getColumnCount() {
+		public int getColumnCount()
+		{
 			return 5;
 		}
 
 		@Override
-		public Class<?> getColumnClass(int columnIndex) {
-			if (columnIndex == 0) {
+		public Class<?> getColumnClass(int columnIndex)
+		{
+			if (columnIndex == 0)
+			{
 				return String.class;
-			} else {
+			}
+			else
+			{
 				return Long.class;
 			}
 		}
 
 		@Override
-		public String getColumnName(int column) {
-			switch (column) {
-			case 0:
-				return "";
-			case 1:
-				return "Init";
-			case 2:
-				return "Used";
-			case 3:
-				return "Committed";
-			case 4:
-				return "Max";
-			default:
-				return super.getColumnName(column);
+		public String getColumnName(int column)
+		{
+			switch (column)
+			{
+				case 0:
+					return "";
+				case 1:
+					return "Init";
+				case 2:
+					return "Used";
+				case 3:
+					return "Committed";
+				case 4:
+					return "Max";
+				default:
+					return super.getColumnName(column);
 			}
 		}
 
 		@Override
-		public Object getValueAt(int rowIndex, int columnIndex) {
+		public Object getValueAt(int rowIndex, int columnIndex)
+		{
 			MemoryUsage usage;
-			if (rowIndex == 0) {
+			if (rowIndex == 0)
+			{
 				usage = memoryBean.getHeapMemoryUsage();
-			} else {
+			}
+			else
+			{
 				usage = memoryBean.getNonHeapMemoryUsage();
 			}
-			switch (columnIndex) {
-			case 0:
-				return (rowIndex == 0) ? "Heap" : "Non-Heap";
-			case 1:
-				return usage.getInit();// / megaByte;
-			case 2:
-				return usage.getUsed();// / megaByte;
-			case 3:
-				return usage.getCommitted();// / megaByte;
-			case 4:
-				return usage.getMax();// / megaByte;
-			default:
-				return 0;
+			switch (columnIndex)
+			{
+				case 0:
+					return (rowIndex == 0) ? "Heap" : "Non-Heap";
+				case 1:
+					return usage.getInit();// / megaByte;
+				case 2:
+					return usage.getUsed();// / megaByte;
+				case 3:
+					return usage.getCommitted();// / megaByte;
+				case 4:
+					return usage.getMax();// / megaByte;
+				default:
+					return 0;
 			}
 		}
 
@@ -277,12 +312,11 @@ public class DebugDialog extends JDialog implements MouseListener {
 			try
 			{
 				openFile(file);
-			} 
+			}
 			catch (IOException e1)
 			{
 				Logging.log(Level.WARNING,
-						"Unable to open the requested file: " + file.getName(),
-						e1);
+					"Unable to open the requested file: " + file.getName(), e1);
 			}
 		}
 	}
@@ -293,8 +327,9 @@ public class DebugDialog extends JDialog implements MouseListener {
 		{
 			if (System.getProperty("os.name").toLowerCase().contains("windows"))
 			{
-				String cmd = "rundll32 url.dll,FileProtocolHandler "
-						+ file.getCanonicalPath();
+				String cmd =
+						"rundll32 url.dll,FileProtocolHandler "
+							+ file.getCanonicalPath();
 				Runtime.getRuntime().exec(cmd);
 			}
 			else
@@ -310,45 +345,67 @@ public class DebugDialog extends JDialog implements MouseListener {
 		String[] parts = line.split("\"");
 		for (String part : parts)
 		{
-			String filePart = extractFileNameFromLinePart(part);
-			file = new File(filePart);
-			if (file.exists())
-			{
-				return file;
-			}
-			else
+			file = convertURItoFileIfPossible(part);
+			if (file == null)
 			{
 				String[] subParts = part.split(" ");
 				for (String subPart : subParts)
 				{
-					filePart = extractFileNameFromLinePart(part);
-					file = new File(filePart);
-					if (file.exists())
+					file = convertURItoFileIfPossible(subPart);
+					if (file != null)
 					{
 						return file;
 					}
 				}
 			}
+			else
+			{
+				return file;
+			}
 		}
-		return null;
+		return file;
 	}
-	
-	private String extractFileNameFromLinePart(String part) 
+
+	private File convertURItoFileIfPossible(String filePart)
 	{
-		int index = part.indexOf(":" + File.separator);
-		String filePart = part;
-		if (index >= 0)
+		File file = null;
+		URI fileURI;
+		try
 		{
-			filePart = part.substring(index + 2);
+			fileURI = extractFileURIFromLinePart(filePart);
+			file = new File(fileURI);
+			if (!file.exists())
+			{
+				file = null;
+			}
 		}
-		return filePart;
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		return file;
+	}
+
+	private URI extractFileURIFromLinePart(String part)
+		throws URISyntaxException
+	{
+		String filePart = part;
+		if (part.indexOf(':') < 0)
+		{
+			filePart = "file://" + part;
+		}
+		System.out.println(filePart);
+		return new URI(filePart);
 	}
 
 	private String getCurrentIndexedLine(int index)
 	{
 		int startIndex = debuggingText.getText().lastIndexOf("\n", index) + 1;
 		int endIndex = debuggingText.getText().indexOf("\n", index);
-		String line = debuggingText.getText().substring(startIndex, endIndex);
+		String line = "";
+		if (startIndex >= 0 && endIndex >= startIndex) {
+			line = debuggingText.getText().substring(startIndex, endIndex);
+		}
 		return line;
 	}
 
