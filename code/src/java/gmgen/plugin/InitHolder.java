@@ -22,10 +22,10 @@
  */
 package gmgen.plugin;
 
-import org.jdom.Element;
-
 import java.util.List;
 import java.util.Vector;
+
+import org.jdom.Element;
 
 /**
  *@author     devon
@@ -66,7 +66,7 @@ public interface InitHolder
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
-	public Vector<String> getRowVector(List<String> columnOrder);
+	public Vector<Object> getRowVector(List<String> columnOrder);
 
 	/**
 	 *  Gets an XML version of the class, appropriate for saving out to file,
@@ -81,14 +81,14 @@ public interface InitHolder
 	 *
 	 *@param  status  The new status value
 	 */
-	public void setStatus(String status);
+	public void setStatus(State status);
 
 	/**
 	 *  Gets the status of the InitHolder
 	 *
 	 *@return    The status value
 	 */
-	public String getStatus();
+	public State getStatus();
 
 	/**
 	 *  changes the value of a table field in the backend data set
@@ -104,4 +104,5 @@ public interface InitHolder
 	 *
 	 */
 	public void endRound();
+	
 }

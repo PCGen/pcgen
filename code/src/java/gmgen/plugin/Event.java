@@ -25,6 +25,7 @@ package gmgen.plugin;
 import org.jdom.Element;
 import pcgen.util.Logging;
 
+import java.text.MessageFormat;
 import java.util.List;
 import java.util.Vector;
 
@@ -40,7 +41,7 @@ public class Event implements InitHolder
 	protected String effect;
 	protected String name;
 	protected String player;
-	protected String status = "Active";
+	protected State status = State.Active;
 	protected boolean alert;
 	protected int duration;
 
@@ -69,7 +70,7 @@ public class Event implements InitHolder
 	 * @param init
 	 * @param alert
 	 */
-	public Event(String name, String player, String status, String effect, int duration, int init, boolean alert)
+	public Event(String name, String player, State status, String effect, int duration, int init, boolean alert)
 	{
 		setValues(name, player, status, effect, duration, init, alert);
 	}
@@ -92,7 +93,7 @@ public class Event implements InitHolder
 		{
 			String aName = event.getAttribute("name").getValue();
 			String aPlayer = event.getAttribute("player").getValue();
-			String aStatus = event.getAttribute("status").getValue();
+			State aStatus = State.getState(event.getAttribute("status").getValue());
 			String anEffect = event.getAttribute("effect").getValue();
 			int aDuration = event.getChild("Initiative").getAttribute("duration").getIntValue();
 			int anInit = event.getChild("Initiative").getAttribute("initiative").getIntValue();
@@ -158,7 +159,7 @@ public class Event implements InitHolder
 	 */
 	public String getEndText()
 	{
-		return "Event " + getName() + " Completed or Occurred";
+		return MessageFormat.format("Event {0} Completed or Occurred", getName());
 	}
 
 	/**
@@ -216,15 +217,15 @@ public class Event implements InitHolder
 
 	/**
 	 *  builds a vector that is intended to be turned into a table row that
-	 *  contains all of this object's informaiton
+	 *  contains all of this object's information
 	 *
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
     @Override
-	public Vector<String> getRowVector(List<String> columnOrder)
+	public Vector<Object> getRowVector(List<String> columnOrder)
 	{
-		Vector<String> rowVector = new Vector<String>();
+		Vector<Object> rowVector = new Vector<Object>();
 
 		for ( String columnName : columnOrder )
 		{
@@ -286,7 +287,7 @@ public class Event implements InitHolder
 
 		retElement.setAttribute("name", getName());
 		retElement.setAttribute("player", getPlayer());
-		retElement.setAttribute("status", getStatus());
+		retElement.setAttribute("status", getStatus().name());
 		retElement.setAttribute("effect", getEffect());
 
 		return retElement;
@@ -298,7 +299,7 @@ public class Event implements InitHolder
 	 *@param  status  The new status value
 	 */
     @Override
-	public void setStatus(String status)
+	public void setStatus(State status)
 	{
 		this.status = status;
 	}
@@ -309,7 +310,7 @@ public class Event implements InitHolder
 	 *@return    The status value
 	 */
     @Override
-	public String getStatus()
+	public State getStatus()
 	{
 		return status;
 	}
@@ -349,7 +350,7 @@ public class Event implements InitHolder
 		}
 		else if (columnName.equals("Status"))
 		{ // SPell's status
-			setStatus(strData);
+			setStatus(State.getStateLocalised(strData));
 		}
 		else if (columnName.equals("Init"))
 		{ // Spell's Initiative
@@ -382,7 +383,7 @@ public class Event implements InitHolder
 	 * @param init
 	 * @param alert
 	 */
-	protected final void setValues(String name, String player, String status, String effect, int duration, int init,
+	protected final void setValues(String name, String player, State status, String effect, int duration, int init,
 		boolean alert)
 	{
 		this.name = name;

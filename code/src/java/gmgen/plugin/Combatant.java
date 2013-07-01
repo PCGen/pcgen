@@ -42,7 +42,7 @@ public abstract class Combatant implements InitHolder
 	public SystemInitiative init;
 	protected List<Effect> effects = new ArrayList<Effect>();
 	protected String comType = "Enemy";
-	protected String status = "";
+	protected State status = State.Nothing;
 	protected SystemHP hitPoints;
 	protected int duration;
 	protected int number;
@@ -167,9 +167,9 @@ public abstract class Combatant implements InitHolder
 	 *@return              The Row Vector
 	 */
     @Override
-	public Vector<String> getRowVector(List<String> columnOrder)
+	public Vector<Object> getRowVector(List<String> columnOrder)
 	{
-		Vector<String> rowVector = new Vector<String>();
+		Vector<Object> rowVector = new Vector<Object>();
 
 		//Iterate through all the columns, and create the vector in that order
 		for ( String columnName : columnOrder )
@@ -188,11 +188,11 @@ public abstract class Combatant implements InitHolder
 			}
 			else if (columnName.equals("+"))
 			{ // Initiative bonus
-				rowVector.add("" + init.getModifier());
+				rowVector.add(init.getModifier());
 			}
 			else if (columnName.equals("Init"))
 			{ // Initiative #
-				rowVector.add("" + init.getCurrentInitiative());
+				rowVector.add(init.getCurrentInitiative());
 			}
 			else if (columnName.equals("Dur"))
 			{ // Duration
@@ -203,12 +203,12 @@ public abstract class Combatant implements InitHolder
 				}
 				else
 				{
-					rowVector.add("" + getDuration());
+					rowVector.add(getDuration());
 				}
 			}
 			else if (columnName.equals("#"))
 			{ // Number (for tokens)
-				rowVector.add("" + number);
+				rowVector.add(number);
 			}
 			else if (columnName.equals("HP"))
 			{ // Current Hit Points
@@ -218,7 +218,7 @@ public abstract class Combatant implements InitHolder
 
 				if (sub == 0)
 				{
-					rowVector.add("" + hp);
+					rowVector.add(hp);
 				}
 				else if (sub > 0)
 				{
@@ -227,7 +227,7 @@ public abstract class Combatant implements InitHolder
 			}
 			else if (columnName.equals("HP Max"))
 			{ // Max Hit Points
-				rowVector.add("" + hitPoints.getMax());
+				rowVector.add(hitPoints.getMax());
 			}
 			else if (columnName.equals("Type"))
 			{ //PC, Enemy, Ally, Non-Com
@@ -244,7 +244,7 @@ public abstract class Combatant implements InitHolder
 	 *@param  status  The new status value
 	 */
     @Override
-	public void setStatus(String status)
+	public void setStatus(State status)
 	{
 		this.status = status;
 	}
@@ -255,7 +255,7 @@ public abstract class Combatant implements InitHolder
 	 *@return    The status value
 	 */
     @Override
-	public String getStatus()
+	public State getStatus()
 	{
 		return status;
 	}

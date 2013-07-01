@@ -4,6 +4,7 @@ import gmgen.io.ReadXML;
 import gmgen.plugin.Combatant;
 import gmgen.plugin.InitHolder;
 import gmgen.plugin.InitHolderList;
+import gmgen.plugin.State;
 import gmgen.util.LogUtilities;
 
 import java.io.File;
@@ -195,8 +196,8 @@ public class ExperienceAdjusterModel extends Observable
 					}
 					else if (cbt.getCombatantType().equals("Enemy"))
 					{
-						if (cbt.getStatus().equals("Dead")
-							|| cbt.getStatus().equals("Defeated"))
+						if (cbt.getStatus() == State.Dead
+							|| cbt.getStatus() == State.Defeated)
 						{
 							enemies.addElement(new ExperienceListItem(cbt));
 						}

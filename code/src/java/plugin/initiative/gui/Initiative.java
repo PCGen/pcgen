@@ -32,6 +32,7 @@ import gmgen.plugin.InitHolder;
 import gmgen.plugin.InitHolderList;
 import gmgen.plugin.PcgCombatant;
 import gmgen.plugin.Spell;
+import gmgen.plugin.State;
 import gmgen.plugin.SystemHP;
 import gmgen.plugin.SystemInitiative;
 import gmgen.pluginmgr.GMBComponent;
@@ -79,6 +80,7 @@ import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui.panes.FlippingSplitPane;
+import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import plugin.initiative.AttackModel;
@@ -184,11 +186,11 @@ public class Initiative extends javax.swing.JPanel
 
 		if (currentInit > 0)
 		{
-			lCounter.setText(round + " (" + init + ")");
+			lCounter.setText(LanguageBundle.getFormattedString("in_plugin_initiative_round", round, init)); //$NON-NLS-1$
 		}
 		else
 		{
-			lCounter.setText("");
+			lCounter.setText(""); //$NON-NLS-1$
 		}
 
 		refreshTable();
@@ -251,7 +253,7 @@ public class Initiative extends javax.swing.JPanel
 
 			InitHolder iH = initList.get(j);
 
-			if (iH.getStatus().equals("Dead") && !showDead.isSelected())
+			if (iH.getStatus() == State.Dead && !showDead.isSelected())
 			{
 				i--;
 
@@ -291,7 +293,7 @@ public class Initiative extends javax.swing.JPanel
 
 			InitHolder iH = initList.get(j);
 
-			if (iH.getStatus().equals("Dead") && !showDead.isSelected())
+			if (iH.getStatus() == State.Dead && !showDead.isSelected())
 			{
 				i--;
 
@@ -598,7 +600,7 @@ public class Initiative extends javax.swing.JPanel
 		{
 			InitHolder iH = initList.get(i);
 
-			if (iH.getStatus().equals("Dead"))
+			if (iH.getStatus() == State.Dead)
 			{
 				if (showDead.isSelected() && iH instanceof Combatant
 					&& (tpaneInfo.indexOfTab(iH.getName()) == -1))
@@ -634,7 +636,7 @@ public class Initiative extends javax.swing.JPanel
 				cbtType = cbt.getCombatantType();
 			}
 
-			if (cbtType.equals("Enemy") && !iH.getStatus().equals("Dead"))
+			if (cbtType.equals("Enemy") && iH.getStatus() != State.Dead)
 			{
 				return;
 			}
@@ -756,16 +758,16 @@ public class Initiative extends javax.swing.JPanel
 		if (iH instanceof Combatant)
 		{
 			Combatant cbt = (Combatant) iH;
-			String oldStatus = cbt.getStatus();
+			State oldStatus = cbt.getStatus();
 			cbt.damage(damage);
 
-			String newStatus = cbt.getStatus();
+			State newStatus = cbt.getStatus();
 			writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer()
 				+ ") Took " + damage + " Damage: " + cbt.getHP().getCurrent()
 				+ "/" + cbt.getHP().getMax());
 			doMassiveDamage(cbt, damage);
 
-			if (!oldStatus.equals(newStatus) && newStatus.equals("Dead"))
+			if (!oldStatus.equals(newStatus) && newStatus == State.Dead)
 			{
 				combatantDied(cbt);
 			}
@@ -1514,7 +1516,7 @@ public class Initiative extends javax.swing.JPanel
 		{
 			if (initList.get(i) instanceof PcgCombatant
 				&& (initList.get(i) != combatant)
-				&& (!(initList.get(i)).getStatus().equals("Dead") || showDead
+				&& (initList.get(i).getStatus() != State.Dead || showDead
 					.isSelected()))
 			{
 				combatants.add(initList.get(i));
@@ -1641,7 +1643,7 @@ public class Initiative extends javax.swing.JPanel
 		{
 			InitHolder c = initList.get(i);
 
-			if ((!c.getStatus().equals("Dead") || showDead.isSelected())
+			if ((c.getStatus() != State.Dead || showDead.isSelected())
 				&& (!(c instanceof Event) || showEvents.isSelected()))
 			{
 				Vector rowVector = initList.getRowVector(i, columnList);
@@ -1677,7 +1679,7 @@ public class Initiative extends javax.swing.JPanel
 		{
 			InitHolder iH = initList.get(i);
 
-			if ((!iH.getStatus().equals("Dead") || showDead.isSelected())
+			if ((iH.getStatus() != State.Dead || showDead.isSelected())
 				&& iH instanceof Combatant)
 			{
 				Combatant cbt = (Combatant) iH;
@@ -2311,7 +2313,7 @@ public class Initiative extends javax.swing.JPanel
 
 	private void bleed(Combatant cbt)
 	{
-		if (cbt.getStatus().equals("Bleeding"))
+		if (cbt.getStatus() == State.Bleeding)
 		{
 			int stableType =
 					SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
@@ -2382,12 +2384,12 @@ public class Initiative extends javax.swing.JPanel
 				}
 			}
 
-			String oldStatus = cbt.getStatus();
+			State oldStatus = cbt.getStatus();
 			cbt.bleed();
 			combatantUpdated(cbt);
-			String newStatus = cbt.getStatus();
+			State newStatus = cbt.getStatus();
 
-			if (!oldStatus.equals(newStatus) && newStatus.equals("Dead"))
+			if (!oldStatus.equals(newStatus) && newStatus == State.Dead)
 			{
 				combatantDied(cbt);
 			}
@@ -2488,6 +2490,7 @@ public class Initiative extends javax.swing.JPanel
 		refreshTable();
 	}
 
+	// TODO Change the Status to be a drop down list rather than a text field.
 	private void editTable(int row, int column)
 	{
 		// Figure out which row is the active row
@@ -2500,7 +2503,7 @@ public class Initiative extends javax.swing.JPanel
 			// IF the InitHolder status is not Dead or showDead is selected (e.g. InitHolder is alive or we're showeing the dead)
 			// AND InitHolder is not an Event or we're shoeing events
 			// THEN update the active row
-			if ((!c.getStatus().equals("Dead") || showDead.isSelected())
+			if ((c.getStatus() != Status.Dead || showDead.isSelected())
 				&& (!(c instanceof Event) || showEvents.isSelected()))
 			{
 				activeRow++;

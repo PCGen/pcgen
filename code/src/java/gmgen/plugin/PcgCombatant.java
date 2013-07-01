@@ -119,7 +119,7 @@ public class PcgCombatant extends Combatant
 					new SystemHP(new SystemAttribute("Constitution", pc.getTotalStatFor(stat)), pc.hitPoints(), pc
 						.hitPoints());
 
-			setStatus(combatant.getAttribute("status").getValue());
+			setStatus(State.getState(combatant.getAttribute("status").getValue()));
 			setCombatantType(combatant.getAttribute("type").getValue());
 
 			init.setBonus(combatant.getChild("Initiative")
@@ -141,8 +141,8 @@ public class PcgCombatant extends Combatant
 				"current").getIntValue());
 			hitPoints.setSubdual(combatant.getChild("HitPoints").getAttribute(
 				"subdual").getIntValue());
-			hitPoints.setState(combatant.getChild("HitPoints").getAttribute(
-				"state").getValue());
+			hitPoints.setState(State.getState(combatant.getChild("HitPoints").getAttribute(
+				"state").getValue()));
 		}
 		catch (Exception e)
 		{
@@ -262,7 +262,7 @@ public class PcgCombatant extends Combatant
 
 		retElement.setAttribute("name", getName());
 		retElement.setAttribute("player", getPlayer());
-		retElement.setAttribute("status", getStatus());
+		retElement.setAttribute("status", getStatus().name());
 		retElement.setAttribute("type", getCombatantType());
 
 		return retElement;
@@ -318,7 +318,7 @@ public class PcgCombatant extends Combatant
 		else if (columnName.equals("Status"))
 		{
 			// XML Combatant's Status
-			setStatus(strData);
+			setStatus(State.getStateLocalised(strData));
 		}
 		else if (columnName.equals("+"))
 		{

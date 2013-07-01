@@ -30,7 +30,8 @@ import pcgen.core.SettingsHandler;
  */
 public class SystemHP
 {
-	private String state = "";
+	
+	private State state = State.Nothing;
 	private SystemAttribute attribute;
 	private boolean firstround;
 	private int current;
@@ -275,7 +276,7 @@ public class SystemHP
 	 * Set the state
 	 * @param state
 	 */
-	public void setState(String state)
+	public void setState(State state)
 	{
 		this.state = state;
 	}
@@ -284,7 +285,7 @@ public class SystemHP
 	 * Get the state
 	 * @return state
 	 */
-	public String getState()
+	public State getState()
 	{
 		return state;
 	}
@@ -311,9 +312,9 @@ public class SystemHP
 	 * Apply damage because of the Bleeding state
 	 * @return the state
 	 */
-	public String bleed()
+	public State bleed()
 	{
-		if (state.equals("Bleeding") && !firstround)
+		if (state == State.Bleeding && !firstround)
 		{
 			damage(1);
 		}
@@ -326,7 +327,7 @@ public class SystemHP
 	 * @param damage
 	 * @return state
 	 */
-	public String damage(int damage)
+	public State damage(int damage)
 	{
 		if ((current > -1) && ((current - damage) < 0))
 		{
@@ -356,11 +357,11 @@ public class SystemHP
 		
 		if (current <= 0 && current >= disabledLowRange)
 		{
-			state = "Disabled";
+			state = State.Disabled;
 		}
 		else if (current < disabledLowRange)
 		{
-			state = "Bleeding";
+			state = State.Bleeding;
 		}
 
 		//TODO: Make it so that we can use static finals from somewhere here
@@ -375,7 +376,7 @@ public class SystemHP
 		{
 			if (current <= -10)
 			{
-				state = "Dead";
+				state = State.Dead;
 				current = 0;
 			}
 		}
@@ -383,7 +384,7 @@ public class SystemHP
 		{
 			if (current <= (-1 * attribute.getValue()))
 			{
-				state = "Dead";
+				state = State.Dead;
 				current = 0;
 			}
 		}
@@ -397,11 +398,11 @@ public class SystemHP
 	 * End status that has a duration, e.g. Dazed
 	 * @return state
 	 */
-	public String endDurationedStatus()
+	public State endDurationedStatus()
 	{
-		if (state.equals("Unconsious") || state.equals("Dazed"))
+		if (state == State.Unconsious || state == State.Dazed)
 		{
-			state = "";
+			state = State.Nothing;
 		}
 
 		return state;
@@ -420,9 +421,9 @@ public class SystemHP
 	 * @param heal
 	 * @return the state
 	 */
-	public String heal(int heal)
+	public State heal(int heal)
 	{
-		if (!state.equals("Dead"))
+		if (state != State.Dead)
 		{
 			current += heal;
 			subdual -= heal;
@@ -437,14 +438,14 @@ public class SystemHP
 				subdual = 0;
 			}
 
-			if (state.equals("Bleeding"))
+			if (state == State.Bleeding)
 			{
-				state = "Stable";
+				state = State.Stable;
 			}
 
 			if (current > 0)
 			{
-				state = "";
+				state = State.Nothing;
 			}
 
 			checkSubdual();
@@ -457,9 +458,9 @@ public class SystemHP
 	 * Kill the PC
 	 * @return the state
 	 */
-	public String kill()
+	public State kill()
 	{
-		state = "Dead";
+		state = State.Dead;
 		current = 0;
 
 		return state;
@@ -470,17 +471,17 @@ public class SystemHP
 	 * @param type
 	 * @return the state
 	 */
-	public String nonLethalDamage(boolean type)
+	public State nonLethalDamage(boolean type)
 	{
-		if (state.equals(""))
+		if (state == State.Nothing)
 		{
 			if (type)
 			{
-				state = "Unconsious";
+				state = State.Unconsious;
 			}
 			else
 			{
-				state = "Dazed";
+				state = State.Dazed;
 			}
 		}
 
@@ -491,11 +492,11 @@ public class SystemHP
 	 * Raise the PC from the dead
 	 * @return the state
 	 */
-	public String raise()
+	public State raise()
 	{
-		if (state.equals("Dead"))
+		if (state == State.Dead)
 		{
-			state = "";
+			state = State.Nothing;
 			current = 1;
 		}
 
@@ -503,14 +504,14 @@ public class SystemHP
 	}
 
 	/**
-	 * Stabalize a bleeding PC
+	 * Stabilize a bleeding PC
 	 * @return the state
 	 */
-	public String stabilize()
+	public State stabilize()
 	{
-		if (state.equals("Bleeding"))
+		if (state == State.Bleeding)
 		{
-			state = "Stable";
+			state = State.Stable;
 		}
 
 		return state;
@@ -521,14 +522,14 @@ public class SystemHP
 	 * @param damage
 	 * @return the state
 	 */
-	public String subdualDamage(int damage)
+	public State subdualDamage(int damage)
 	{
 		subdual += damage;
 
 		return checkSubdual();
 	}
 
-	private String checkSubdual()
+	private State checkSubdual()
 	{
 		//TODO: Make it so that we can use static finals from somewhere here
 		//      and not "1" or "2"
@@ -544,15 +545,15 @@ public class SystemHP
 			disabledBonus = Math.max(0,attribute.getModifier());
 		}
 		
-		if ((state.equals("") || state.equals("Staggered") || state.equals("Unconsious")) && (subdual > 0))
+		if ((state == State.Nothing || state == State.Staggered || state == State.Unconsious) && (subdual > 0))
 		{
 			if (subdual >= current && subdual <= (current + disabledBonus))
 			{
-				state = "Staggered";
+				state = State.Staggered;
 			}
 			else if (subdual > (current + disabledBonus))
 			{
-				state = "Unconsious";
+				state = State.Unconsious;
 			}
 		}
 

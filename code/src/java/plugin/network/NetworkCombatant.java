@@ -22,10 +22,10 @@
 package plugin.network;
 
 import gmgen.plugin.Combatant;
+import gmgen.plugin.State;
 import gmgen.plugin.SystemAttribute;
 import gmgen.plugin.SystemHP;
 import gmgen.plugin.SystemInitiative;
-import org.jdom.Element;
 
 import java.io.BufferedOutputStream;
 import java.io.PrintStream;
@@ -33,6 +33,8 @@ import java.net.Socket;
 import java.util.List;
 import java.util.StringTokenizer;
 import java.util.Vector;
+
+import org.jdom.Element;
 
 /**
  *@author     devon
@@ -136,9 +138,9 @@ public class NetworkCombatant extends Combatant
 	 *@return              The Row Vector
 	 */
     @Override
-	public Vector<String> getRowVector(List<String> columnOrder)
+	public Vector<Object> getRowVector(List<String> columnOrder)
 	{
-		Vector<String> rowVector = new Vector<String>();
+		Vector<Object> rowVector = new Vector<Object>();
 
 		//Iterate through all the columns, and create the vector in that order
 		for (String columnName : columnOrder)
@@ -222,14 +224,14 @@ public class NetworkCombatant extends Combatant
 		}
 		else if (columnName.equals("Status"))
 		{ // XML Combatant's Status
-			setStatus(strData);
+			setStatus((State) data);
 		}
 		else if (columnName.equals("+"))
-		{ // Initative bonus
+		{ // Initiative bonus
 			init.setBonus(Integer.parseInt(strData));
 		}
 		else if (columnName.equals("Init"))
-		{ // Initative
+		{ // Initiative
 			init.setCurrentInitiative(Integer.parseInt(strData));
 		}
 		else if (columnName.equals("#"))
@@ -268,10 +270,10 @@ public class NetworkCombatant extends Combatant
 	 *@param  status  The new status value
 	 */
     @Override
-	public void setStatus(String status)
+	public void setStatus(State status)
 	{
 		super.setStatus(status);
-		sendNetMessage("STATUS|" + status);
+		sendNetMessage("STATUS|" + status.name());
 	}
 
     @Override
@@ -483,7 +485,7 @@ public class NetworkCombatant extends Combatant
 				}
 				else if (type.equals("HPSTATE"))
 				{
-					hitPoints.setState(value);
+					hitPoints.setState(State.getState(value));
 				}
 				else if (type.equals("NAME"))
 				{
@@ -499,7 +501,7 @@ public class NetworkCombatant extends Combatant
 				}
 				else if (type.equals("STATUS"))
 				{
-					super.setStatus(value);
+					super.setStatus(State.getState(value));
 				}
 				else if (type.equals("XP"))
 				{
@@ -565,7 +567,7 @@ public class NetworkCombatant extends Combatant
 				}
 				else if (type.equals("HPSTATE"))
 				{
-					cbt.getHP().setState(value);
+					cbt.getHP().setState(State.getState(value));
 				}
 				else if (type.equals("NAME"))
 				{
@@ -577,7 +579,7 @@ public class NetworkCombatant extends Combatant
 				}
 				else if (type.equals("STATUS"))
 				{
-					cbt.setStatus(value);
+					cbt.setStatus(State.getState(value));
 				}
 				else if (type.equals("XP"))
 				{

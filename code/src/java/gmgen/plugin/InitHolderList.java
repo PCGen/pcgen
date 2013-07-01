@@ -22,10 +22,13 @@
  */
 package gmgen.plugin;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Vector;
+
 import pcgen.core.SettingsHandler;
 import plugin.initiative.InitiativePlugin;
-
-import java.util.*;
 
 /**
  * @author devon
@@ -63,7 +66,7 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	 *          table object.
 	 * @return The Vector that contains a table row.
 	 */
-	public Vector<String> getRowVector(int i, List<String> columnOrder) {
+	public Vector<Object> getRowVector(int i, List<String> columnOrder) {
 		return this.get(i).getRowVector(columnOrder);
 	}
 
@@ -170,7 +173,7 @@ public class InitHolderList extends ArrayList<InitHolder> {
 	 */
 	public boolean initValid(int init) {
 		for (InitHolder c : this) {
-			if (!c.getStatus().equals("Dead")) {
+			if (c.getStatus() != State.Dead) {
 				int cInit = c.getInitiative().getCurrentInitiative();
 
 				if (cInit == init) { return true; }

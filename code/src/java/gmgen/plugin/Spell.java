@@ -63,7 +63,7 @@ public class Spell extends Event
 		{
 			String theName = spell.getAttribute("name").getValue();
 			String thePlayer = spell.getAttribute("player").getValue();
-			String theStatus = spell.getAttribute("status").getValue();
+			State theStatus = State.getState(spell.getAttribute("status").getValue());
 			String theEffect = spell.getAttribute("effect").getValue();
 			int theDuration = spell.getChild("Initiative").getAttribute("duration").getIntValue();
 			int anInit = spell.getChild("Initiative").getAttribute("initiative").getIntValue();
@@ -90,9 +90,9 @@ public class Spell extends Event
 	 *@return              The Row Vector
 	 */
     @Override
-	public Vector<String> getRowVector(List<String> columnOrder)
+	public Vector<Object> getRowVector(List<String> columnOrder)
 	{
-		Vector<String> rowVector = new Vector<String>();
+		Vector<Object> rowVector = new Vector<Object>();
 
 		for ( String columnName : columnOrder )
 		{
@@ -154,7 +154,7 @@ public class Spell extends Event
 
 		retElement.setAttribute("name", getName());
 		retElement.setAttribute("player", getPlayer());
-		retElement.setAttribute("status", getStatus());
+		retElement.setAttribute("status", getStatus().name());
 		retElement.setAttribute("effect", getEffect());
 
 		return retElement;

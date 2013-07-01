@@ -64,9 +64,9 @@ public class Effect extends Event
 	 *@return              The Row Vector
 	 */
     @Override
-	public Vector<String> getRowVector(List<String> columnOrder)
+	public Vector<Object> getRowVector(List<String> columnOrder)
 	{
-		Vector<String> rowVector = new Vector<String>();
+		Vector<Object> rowVector = new Vector<Object>();
 
 		for ( String columnName : columnOrder )
 		{
@@ -138,7 +138,7 @@ public class Effect extends Event
 		}
 		else if (columnName.equals("Status"))
 		{ // SPell's status
-			setStatus(strData);
+			setStatus(State.getState(strData));
 		}
 		else if (columnName.equals("Dur"))
 		{ // Spell's duration

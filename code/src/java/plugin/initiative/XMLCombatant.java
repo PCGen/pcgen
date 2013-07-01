@@ -23,6 +23,7 @@
 package plugin.initiative;
 
 import gmgen.plugin.Combatant;
+import gmgen.plugin.State;
 import gmgen.plugin.SystemAttribute;
 import gmgen.plugin.SystemHP;
 import gmgen.plugin.SystemInitiative;
@@ -142,8 +143,9 @@ public class XMLCombatant extends Combatant
 
 			try
 			{
-				hitPoints.setState(combatant.getChild("Combat").getChild(
-					"HitPoints").getAttribute("subdual").getValue());
+				// XXX might not be working anymore
+				hitPoints.setState(State.getState(combatant.getChild("Combat").getChild(
+					"HitPoints").getAttribute("subdual").getValue()));
 			}
 			catch (Exception e)
 			{
@@ -518,7 +520,7 @@ public class XMLCombatant extends Combatant
 		retElement.getChild("Combat").getChild("HitPoints").setAttribute(
 			"subdual", Integer.toString(hitPoints.getSubdual()));
 		retElement.getChild("Combat").getChild("HitPoints").setAttribute(
-			"state", hitPoints.getState());
+			"state", hitPoints.getState().name());
 		retElement.getChild("Combat").getChild("Initiative").setAttribute(
 			"mod", formatBonus(initBonus));
 		retElement.getChild("Combat").getChild("Initiative").setAttribute(
@@ -586,7 +588,7 @@ public class XMLCombatant extends Combatant
 		}
 		else if (columnName.equals("Status"))
 		{ // XML Combatant's Status
-			setStatus(strData);
+			setStatus(State.getState(strData));
 		}
 		else if (columnName.equals("+"))
 		{ // Initative bonus
