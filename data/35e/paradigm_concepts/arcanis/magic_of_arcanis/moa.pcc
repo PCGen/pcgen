@@ -63,14 +63,12 @@ COPYRIGHT:PCGen dataset conversion for Magic of Arcanis Copyright 2006-2008, PCG
 ABILITY:moa_abilities.lst
 ABILITYCATEGORY:moa_abilitycategories.lst
 
-#CLASS:moa_classes.lst
 CLASS:moa_classes_base.lst
 CLASS:moa_classes_prestige.lst
 CLASS:moa_classes_monster.lst
 
 
 COMPANIONMOD:moa_compmods.lst
-#DOMAIN:N/A
 EQUIPMENT:moa_equip_ammo.lst
 EQUIPMENT:moa_equip_shields.lst
 EQUIPMENT:moa_equip_weapons.lst
