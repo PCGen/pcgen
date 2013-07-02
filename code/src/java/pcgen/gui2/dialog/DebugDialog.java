@@ -319,6 +319,10 @@ public class DebugDialog extends JDialog implements MouseListener
 					"Unable to open the requested file: " + file.getName(), e1);
 			}
 		}
+		else
+		{
+			Logging.log(Level.FINER, "No file in current line.");
+		}
 	}
 
 	private void openFile(File file) throws IOException
@@ -381,7 +385,7 @@ public class DebugDialog extends JDialog implements MouseListener
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
+			// This part is NOT a valid URI. No harm done.
 		}
 		return file;
 	}
@@ -394,7 +398,6 @@ public class DebugDialog extends JDialog implements MouseListener
 		{
 			filePart = "file://" + part;
 		}
-		System.out.println(filePart);
 		return new URI(filePart);
 	}
 
@@ -403,7 +406,8 @@ public class DebugDialog extends JDialog implements MouseListener
 		int startIndex = debuggingText.getText().lastIndexOf("\n", index) + 1;
 		int endIndex = debuggingText.getText().indexOf("\n", index);
 		String line = "";
-		if (startIndex >= 0 && endIndex >= startIndex) {
+		if (startIndex >= 0 && endIndex >= startIndex)
+		{
 			line = debuggingText.getText().substring(startIndex, endIndex);
 		}
 		return line;
