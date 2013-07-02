@@ -116,17 +116,17 @@ CLASS:Soulknife	HD:10		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.28	BONUS:CH
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Acrobatics|Autohypnosis|Climb|TYPE=Craft|Intimidate|Knowledge (Psionics)|Perception|TYPE=Profession|Stealth|Swim
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1												AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1												AUTO:FEAT|Shield Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeSimpleWeaponProficiency
+1												AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeLightArmorProficiency	AUTO:FEAT|Armor Proficiency (Medium)|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeMediumArmorProficiency
+1												AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeShieldProficiency
 
 ###Block: Mind Blade abilities by effective level; to add a PrC's class level to SK for mind blade powers, use BONUS:VAR|MndBladeLVL|x in the PrC's class level line setup
 
 1							BONUS:VAR|MndBladeLVL|CL				DEFINE:MndBladeLVL|0	ABILITY:Special Ability|AUTOMATIC|Form Mind Blade|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeFormMindBlade	ABILITY:Special Ability|AUTOMATIC|Shape Mind Blade|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeShapeMindBlade	ABILITY:Special Ability|AUTOMATIC|Throw Mind Blade|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeThrowMindBlade
 1	BONUS:ABILITYPOOL|Blade Skill|CL/2													ABILITY:Special Ability|AUTOMATIC|Enhanced Mind Blade|PREMULT:2,[PREVARGTEQ:MndBladeLVL,3],[!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeEnhancedMindBlade]
-3							BONUS:VAR|PsychicStrikeDiceNumber|(CL+1)/4					ABILITY:Special Ability|AUTOMATIC|Psychic Strike
+3							BONUS:VAR|PsychicStrikeDiceNumber|(CL+1)/4					ABILITY:Special Ability|AUTOMATIC|Psychic Strike|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifePsychicStrike
 5																			ABILITY:Special Ability|AUTOMATIC|Quick Draw Mind Blade|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeQuickDraw
-20																			ABILITY:Special Ability|AUTOMATIC|Mind Blade Mastery
+20																			ABILITY:Special Ability|AUTOMATIC|Mind Blade Mastery|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeMindBladeMastery
 
 ###Block: Class Info
 1	BONUS:ABILITYPOOL|Soulknife Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.SoulknifeBonusFeat	BONUS:VAR|IsPsionic|1	DEFINE:IsPsionic|0	ABILITY:Special Ability|AUTOMATIC|Psionic	TEMPLATE:Wild Talent Determination
