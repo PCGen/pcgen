@@ -43,7 +43,8 @@ public abstract class GMBPlugin extends Plugin implements GMBComponent
 	}
 
 	/**
-	 * Get the file types
+	 * Get the file types.
+	 * VL: If I’m correct, this is supposed to be used for plug-in that save/export files.
 	 * @return file types
 	 */
 	public abstract FileFilter[] getFileTypes();
