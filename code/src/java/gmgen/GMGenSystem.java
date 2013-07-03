@@ -685,7 +685,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         GMGenSystemView.getTabPane().addChangeListener(this);
         getContentPane().add(theView, BorderLayout.CENTER);
 
-        setIconImage(Icons.createImageIcon("gmgen_icon.png").getImage()); //$NON-NLS-1$
+        setIconImage(Icons.gmgen_icon.getImageIcon().getImage());
     }
 
     // Initializes the Logger component.

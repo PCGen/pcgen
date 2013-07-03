@@ -235,7 +235,7 @@ public class DataInstaller extends JFrame
 		currFolder = new File(System.getProperty("user.dir"));
 		initComponents();
 
-		setIconImage(Icons.createImageIcon(Icons.RESOURCE_APP_ICON).getImage());
+		setIconImage(Icons.PCGenApp.getImageIcon().getImage());
 		Utility.centerFrame(this, false);
 	}
 

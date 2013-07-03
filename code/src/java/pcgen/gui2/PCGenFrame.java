@@ -182,7 +182,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		add(characterTabs, BorderLayout.CENTER);
 		add(statusBar, BorderLayout.SOUTH);
 		updateTitle();
-		setIconImage(Icons.createImageIcon(Icons.RESOURCE_APP_ICON).getImage());
+		setIconImage(Icons.PCGenApp.getImageIcon().getImage());
 	}
 
 	/**

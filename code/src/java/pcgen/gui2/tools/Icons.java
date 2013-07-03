@@ -21,8 +21,9 @@
 package pcgen.gui2.tools;
 
 import java.net.URL;
-import java.util.EnumMap;
 import java.util.Map;
+import java.util.WeakHashMap;
+
 import javax.swing.ImageIcon;
 
 /**
@@ -82,6 +83,8 @@ public enum Icons
 	Open16(".gif"),
 	PageSetup16(".gif"),
 	Paste16(".gif"),
+	/** PCGen application icon. Was before referenced as RESOURCE_APP_ICON */
+	PCGenApp(".png"),
 	PcgenIcon(".gif"),
 	Preferences16(".gif"),
 	PreferencesHighlightBlue16(".gif"),
@@ -136,10 +139,12 @@ public enum Icons
 	stock_text_italic("-16.png"),
 	stock_text_underline("-16.png");
 	
-	
+	/** Path to icons file */
 	private static final String RESOURCE_URL = "/pcgen/resources/images/";
-	private static final Map<Icons, ImageIcon> iconMap = new EnumMap<Icons, ImageIcon>(Icons.class);
-	public static final String RESOURCE_APP_ICON = "PCGenApp.png";
+
+	/** Image cache */
+	private static final Map<Icons, ImageIcon> iconMap = new WeakHashMap<Icons, ImageIcon>(Icons.values().length);
+
 	private final String extension;
 
 	private Icons(String ex)
@@ -156,7 +161,9 @@ public enum Icons
 	 *
 	 * @return <code>ImageIcon</code>, the icon or <code>null</code>
 	 * on failure
+	 * @deprecated Should be private to force use of cache. Filename should be defined in this file as enum.
 	 */
+	@Deprecated
 	public static ImageIcon createImageIcon(String fileName)
 	{
 		fileName = RESOURCE_URL + fileName;
@@ -173,7 +180,7 @@ public enum Icons
 		ImageIcon image = iconMap.get(this);
 		if (image == null)
 		{
-			image = createImageIcon(toString() + extension);
+			image = createImageIcon(name() + extension);
 			iconMap.put(this, image);
 		}
 		return image;

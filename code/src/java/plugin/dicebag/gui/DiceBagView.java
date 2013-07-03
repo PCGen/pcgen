@@ -321,7 +321,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			}
 		});
 
-		setFrameIcon(Icons.createImageIcon("gmgen_icon.png"));
+		setFrameIcon(Icons.gmgen_icon.getImageIcon());
 
 		//Start in rolling mode
 		setupRollingMode();

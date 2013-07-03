@@ -488,8 +488,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		panel.setLayout(new GridBagLayout());
 		JLabel addLabel = createLabel("in_sumAddLevels"); //$NON-NLS-1$
 		JLabel removeLabel = createLabel("in_sumRemoveLevels"); //$NON-NLS-1$
-		JLabel darrowLabel = new JLabel(Icons.createImageIcon("button_arrow_down.png")); //$NON-NLS-1$
-		JLabel uarrowLabel = new JLabel(Icons.createImageIcon("button_arrow_up.png")); //$NON-NLS-1$
+		JLabel darrowLabel = new JLabel(Icons.button_arrow_down.getImageIcon());
+		JLabel uarrowLabel = new JLabel(Icons.button_arrow_up.getImageIcon());
 
 		addLevelsButton.setMargin(new Insets(0, 8, 0, 8));
 		addLevelsField.setValue(1);

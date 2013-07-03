@@ -71,7 +71,6 @@ public class IconsTest extends TestCase
 		{
 			assertNotNull(icon.getImageIcon());
 		}
-		assertNotNull(Icons.createImageIcon(Icons.RESOURCE_APP_ICON));
 	}
 
 }
