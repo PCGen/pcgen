@@ -14,3 +14,5 @@ Harmonic Resonance	TYPE:Psionic			PREABILITY:1,CATEGORY=Special Ability,Collecti
 ###COMMENT:Should use BASESPELLSTAT instead of max(INT,WIS,CHA), but BASESPELLSTAT doesn't seem to work.
 Improved Metamorphosis	TYPE:Psionic																								PRESPELL:1,Metamorphosis (Minor),Metamorphosis,Metamorphosis (Greater),Metamorphosis (True)	PREVARGT:IsPsionic,0	DESC:Gain one additional menu option from metamorphosis-type power.																						SOURCEPAGE:p.11
 Unwilling Participant	TYPE:Psionic			PREABILITY:1,CATEGORY=Special Ability,Collective																													PREVARGT:IsPsionic,0	DESC:You can attempt to force others into your collective.																								SOURCEPAGE:p.11
+
+Expanded Knowledge.MOD	TYPE:VitalistBonusFeat

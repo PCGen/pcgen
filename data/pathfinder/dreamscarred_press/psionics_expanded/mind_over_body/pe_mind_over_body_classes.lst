@@ -24,27 +24,27 @@ CLASS:Vitalist	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:PSIONIC	MEMORIZE:NO	B
 1												BONUS:VAR|BonusPowerPoints|(WIS*VitalistPL)/2|TYPE=VitalistBonusPP
 
 #Block: Class Info
-1	KNOWN:0,2				BONUS:ABILITYPOOL|Vitalist Method|1	BONUS:VAR|MethodLVL|CL																																	DEFINE:MethodLVL|0
-1												BONUS:VAR|CollectiveLVL|CL																																DEFINE:CollectiveLVL|0										ABILITY:Special Ability|AUTOMATIC|Collective
-1						BONUS:ABILITYPOOL|Knack|2																																																			ABILITY:Special Ability|AUTOMATIC|Collective Healing|Medic Powers
-1												BONUS:VAR|TransferWoundsDice|(CL+2)/3																																											ABILITY:Special Ability|AUTOMATIC|Transfer Wounds
-2	KNOWN:0,2										BONUS:VAR|HealthSenseLVL|CL																																													ABILITY:Special Ability|AUTOMATIC|Health Sense|Spirit of Many
-3	KNOWN:0,0,3										BONUS:VAR|StealHealthLVL|CL																																													ABILITY:Special Ability|AUTOMATIC|Steal Health|Telepathy ~ Vitalist
+1	KNOWN:0,2				BONUS:ABILITYPOOL|Vitalist Method|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistMethod	BONUS:VAR|MethodLVL|CL																																	DEFINE:MethodLVL|0
+1												BONUS:VAR|CollectiveLVL|CL																																DEFINE:CollectiveLVL|0										ABILITY:Special Ability|AUTOMATIC|Collective|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistCollective
+1						BONUS:ABILITYPOOL|Knack|2|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistKnacks																																										ABILITY:Special Ability|AUTOMATIC|Collective Healing|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistCollectiveHealing	ABILITY:Special Ability|AUTOMATIC|Medic Powers|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistMedicPowers
+1												BONUS:VAR|TransferWoundsDice|(CL+2)/3																																											ABILITY:Special Ability|AUTOMATIC|Transfer Wounds|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistTransferWounds
+2	KNOWN:0,2										BONUS:VAR|HealthSenseLVL|CL																																													ABILITY:Special Ability|AUTOMATIC|Health Sense|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistHealthSense	ABILITY:Special Ability|AUTOMATIC|Spirit of Many|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistSpiritOfMany
+3	KNOWN:0,0,3										BONUS:VAR|StealHealthLVL|CL																																													ABILITY:Special Ability|AUTOMATIC|Steal Health|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistStealHealth	ABILITY:Special Ability|AUTOMATIC|Telepathy ~ Vitalist|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistTelepathy
 4	KNOWN:0,0,3
-5	KNOWN:0,0,0,4																																																										ABILITY:Special Ability|AUTOMATIC|Request Aid
+5	KNOWN:0,0,0,4																																																										ABILITY:Special Ability|AUTOMATIC|Request Aid|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistRequestAid
 6	KNOWN:0,0,0,4
 7	KNOWN:0,0,0,0,5
 8	KNOWN:0,0,0,0,5
-9	KNOWN:0,0,0,0,0,6																																																					ADD:FEAT|Expanded Knowledge
+9	KNOWN:0,0,0,0,0,6																																																					BONUS:ABILITYPOOL|Vitalist Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistExpandedKnowledge9
 10	KNOWN:0,0,0,0,0,6
 11	KNOWN:0,0,0,0,0,0,7
 12	KNOWN:0,0,0,0,0,0,7
 13	KNOWN:0,0,0,0,0,0,0,8
-14	KNOWN:0,0,0,0,0,0,0,8								BONUS:VAR|StealLifeLVL|CL																																													ABILITY:Special Ability|AUTOMATIC|Steal Life
+14	KNOWN:0,0,0,0,0,0,0,8								BONUS:VAR|StealLifeLVL|CL																																													ABILITY:Special Ability|AUTOMATIC|Steal Life|!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistStealLife
 15	KNOWN:0,0,0,0,0,0,0,0,9
 16	KNOWN:0,0,0,0,0,0,0,0,9
 17	KNOWN:0,0,0,0,0,0,0,0,0,10
-18	KNOWN:0,0,0,0,0,0,0,0,0,10																																																			ADD:FEAT|Expanded Knowledge
+18	KNOWN:0,0,0,0,0,0,0,0,0,10																																																			BONUS:ABILITYPOOL|Vitalist Feat|1!PREABILITY:1,CATEGORY=Archetype,TYPE.VitalistExpandedKnowledge18
 19	KNOWN:0,0,0,0,0,0,0,0,0,11
 20	KNOWN:0,0,0,0,0,0,0,0,0,11
 
