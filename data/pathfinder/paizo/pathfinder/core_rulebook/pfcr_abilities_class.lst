@@ -601,11 +601,13 @@ CATEGORY=Special Ability|Slow Fall.MOD		BENEFIT:You can use a nearby wall to slo
 ###Block: Archetype Support
 # Ability Name						Define				Bonus to Ability Pool																		Modify VAR
 CATEGORY=Special Ability|Monk Bonus Feat.MOD	DEFINE:MonkBonusFeatCount|0																						BONUS:VAR|MonkBonusFeatCount|1+max((MonkBonusFeatLVL+2)/4,0)
-CATEGORY=Special Ability|Monk Bonus Feat.MOD						BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,1|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat2
-CATEGORY=Special Ability|Monk Bonus Feat.MOD						BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,2|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat6
-CATEGORY=Special Ability|Monk Bonus Feat.MOD						BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,3|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat10
-CATEGORY=Special Ability|Monk Bonus Feat.MOD						BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,4|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat14
-CATEGORY=Special Ability|Monk Bonus Feat.MOD						BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,5|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat18
+CATEGORY=Special Ability|Monk Bonus Feat.MOD						BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,1|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat1
+CATEGORY=Special Ability|Monk Bonus Feat.MOD						BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,2|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat2
+CATEGORY=Special Ability|Monk Bonus Feat.MOD						BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,3|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat6
+CATEGORY=Special Ability|Monk Bonus Feat.MOD						BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,4|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat10
+CATEGORY=Special Ability|Monk Bonus Feat.MOD						BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,5|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat14
+CATEGORY=Special Ability|Monk Bonus Feat.MOD						BONUS:ABILITYPOOL|Monk Bonus Feat|-1|PREVARGTEQ:MonkBonusFeatCount,6|PREABILITY:1,CATEGORY=Archetype,TYPE.MonkBonusFeat18
+
 
 ###Block: Monk Bonus Feats
 # Ability Name		Category of Ability		Type				Visible		Prohibited Feat			Var. Min. Value				Stackable?	Multiple?	Choose				Virtual Feat			Weapon prof. bonus
