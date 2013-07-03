@@ -7,6 +7,10 @@ SOURCELONG:Psionics Expanded - Pawns and Powers	SOURCESHORT:PEPP	SOURCEWEB:http:
 # Ability Name	Category of Ability		Type			Visible		Bonus to Ability Pool
 Tactician		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	BONUS:ABILITYPOOL|Favored Class Bonus|var("CL=Tactician")
 
+###Block: Archetype set-up for Tactician
+CATEGORY=Internal|Archetype Display.MOD											ABILITY:Tactician Archetype|AUTOMATIC|Archetype Tactician|PRECLASS:1,Tactician=1
+Archetype Tactician					CATEGORY:Archetype	TYPE:TacticianArchetype	VISIBLE:YES
+
 ###Block: Tactician abilities
 #Block: Core class abilities
 # Ability Name					Unique Key						Category of Ability		Type									Required Class		Define													Description																																																																																																																								Bonus to Ability Pool										Modify VAR																						Source Page
