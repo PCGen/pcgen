@@ -231,7 +231,7 @@ public abstract class AbstractDialog extends JDialog
 	}
 
 	/**
-	 * Default to to hide and dispose.
+	 * Defaults to hide and dispose.
 	 */
 	protected void close()
 	{
@@ -242,6 +242,6 @@ public abstract class AbstractDialog extends JDialog
 	/**
 	 * what to do if the ok button is pressed (beside closing the dialog)
 	 */
-	public abstract void applyButtonActionPerformed();
+	protected abstract void applyButtonActionPerformed();
 
 }
