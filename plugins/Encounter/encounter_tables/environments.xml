@@ -9,13 +9,13 @@
 	        
 	<row>
 		<!-- Environment -->
-		<item>Level 1 Dungeon</item>
+		<item>Level 1 Dungeon<loc language="fr">Donjon niveau 1</loc></item>
 		<!-- File -->
-		<item>[environments/dungeon1]</item>
+		<item>[environments/dungeon1]<loc language="fr">[environnements/donjon1]</loc></item>
 	</row>  
 	<row>
 		<!-- Environment -->
-		<item>Level 2 Dungeon</item>
+		<item>Level 2 Dungeon<loc language="fr">Donjon niveau 2</loc></item>
 		<!-- File -->
 		<item>[environments/dungeon2]</item>
 	</row>  
