@@ -1604,7 +1604,7 @@
   <td valign="top" width="40%" class="border8"><b>Mutation</b></td>
   <td valign="top" width="60%" class="border8" align="left"><b>Description</b></td>
 </tr>
-|FOR,%abil,0,count("ABILITIES","CATEGORY=Mutation"),1,0|
+|FOR,%abil,0,count("ABILITIES","CATEGORY=Mutation")-1,1,0|
 |OIF(EVEN:%abil,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
      <td valign="top" class="font8">|ABILITY.Mutation.%abil|</td>
      <td valign="top" align="left" class="font8">|ABILITY.Mutation.%abil.DESC|</td>
@@ -1614,7 +1614,7 @@
   <td valign="top" width="40%" class="border8"><b>Defect</b></td>
   <td valign="top" width="60%" class="border8" align="left"><b>Description</b></td>
 </tr>
-|FOR,%abil,0,count("ABILITIES","CATEGORY=Defect"),1,0|
+|FOR,%abil,0,count("ABILITIES","CATEGORY=Defect")-1,1,0|
 |OIF(EVEN:%abil,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
      <td valign="top" class="font8">|ABILITY.Defect.%abil|</td>
      <td valign="top" align="left" class="font8">|ABILITY.Defect.%abil.DESC|</td>

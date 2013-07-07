@@ -1358,7 +1358,7 @@ Immune
 |%|
 <!-- STOP Domain Table -->
 <!-- Start Turning Table -->
-|FOR,%turncount,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=TurnType"),1,0|
+|FOR,%turncount,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=TurnType")-1,1,0|
    <table width="100%" cellspacing="0" cellpadding="3" summary="Clerical Turning Table">
      <tr>
       <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnType| |ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnKind|</b></font></td>
@@ -1424,7 +1424,7 @@ Immune
 
 <!-- Channeling Table -->
 <!-- Start Channeling Table -->
-|FOR,%turncount,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=ChannelingType"),1,0|
+|FOR,%turncount,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=ChannelingType")-1,1,0|
    <table width="100%" cellspacing="0" cellpadding="3" summary="Channeling Table">
      <tr>
       <td bgcolor="black" align="center" colspan="4"><font color="white" style="font-size: 9pt"><b>|ABILITYALL.Special Ability.%channelingcount.ASPECT=ChannelingType.ASPECT.ChannelingType| |ABILITYALL.Special Ability.%channelingcount.ASPECT=ChannelingType.ASPECT.ChannelingKind|</b></font></td>
