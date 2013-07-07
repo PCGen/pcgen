@@ -2805,7 +2805,9 @@ Immune
 </tr>
 |FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%specialAttack,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-<td valign="top" width="70%" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack|
+<td valign="top" width="70%" class="font8"><b>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.HASASPECT.Name:Y)|
+|ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.ASPECT.Name|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:Extraordinary)| 
  (Ex)
 |ENDIF|
@@ -2817,6 +2819,21 @@ Immune
 |ENDIF|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:PsiLike)| 
  (Ps)
+|ENDIF|
+|ELSE|
+|ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:Extraordinary)| 
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:Supernatural)| 
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:SpellLike)| 
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAttack.TYPE=SpecialAttack.TYPE:PsiLike)| 
+ (Ps)
+|ENDIF|
 |ENDIF|
 </b>
 </td>
@@ -2838,7 +2855,11 @@ Immune
 </tr>
 |FOR,%specialQuality,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%specialQuality,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
-<td valign="top" width="70%" class="font8"><b>|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality|
+
+<!-->@ABILITY	-->
+<td valign="top" width="70%" class="font8"><b>
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.HASASPECT.Name:Y)|
+|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.ASPECT.Name|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:Extraordinary)|
  (Ex)
 |ENDIF|
@@ -2851,6 +2872,22 @@ Immune
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:PsiLike)|
  (Ps)
 |ENDIF|
+|ELSE|
+|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:Extraordinary)|
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:Supernatural)|
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:SpellLike)|
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:PsiLike)|
+ (Ps)
+|ENDIF|
+|ENDIF|
+
 </b>
 </td>
 <td class="font8" valign="top"	width="30%" align="right">[|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.SOURCE|]</td>
