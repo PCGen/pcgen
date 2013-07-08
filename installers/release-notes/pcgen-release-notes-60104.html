@@ -17,7 +17,7 @@
 		<ul>
 			<li><a href="#WhatsNew">What's new for v6.1.4</a></li>
 			<li><a href="#Installation">Installation</a></li>
-			<li><a href="#CharacterChanges">Character Changes in 6.1.4</a></li>
+			<li><a href="#614HomebrewChanges">Changes Affecting Homebrew Data in 6.1.4</a></li>
 			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
 			<li><a href="#WantToHelp">Want to Help?</a></li>
 			<li><a href="#links">Useful Links</a></li>
@@ -91,6 +91,46 @@ For full details of the new changes in this release, see the <a href="#ChangeLog
 		</ul>
 		<p></p>
 
+
+		<h2><a name="614HomebrewChanges">Changes Affecting Homebrew Data in 6.1.4</a></h2>
+<p>
+With our ever growing data folder and a growing need to organize the sets for better
+maintainability, the following changes WILL impact our homebrew community:
+</p><p>
+The d20ogl folder has been removed, in it's place is now a folder for each gamemode we support. Each
+folder should contain sets only for that gamemode, there are a few exceptions.
+</p><p>
+The format for the data structure is very simple:	/gamemode/publisher/book or subcategory
+</p><p>
+Example of folders in place of d20ogl:
+<ul>
+<li>3e</li>
+<li>35e</li>
+<li>darwins_world_2</li>
+<li>pathfinder</li>
+<li>etc.</li>
+</ul>
+</p><p>
+If you have data pointing to any of the core sets, you'll need to correct your full path link
+associations. Links are any that have a file path starting at the base data folder -<br/>
+PCC:@/d20ogl/srd35/xxx.pcc  You won't need to change relative links.
+</p><p>
+For the main sets the following changes need to be made:
+<table border="0">
+<tr><td>srd</td><td>/3e/wizards_of_the_coast/srd/</td></tr>
+<tr><td>srd35</td><td>/35e/wizards_of_the_coast/srd35/</td></tr>
+<tr><td>PF Main Books</td><td>/pathfinder/paizo/pathfinder/CORE_BOOK_NAME</td></tr>
+<tr><td>PF Adventure Paths</td><td>/pathfinder/paizo/adventure_path</td></tr>
+<tr><td>PF Campaign Setting</td><td>/pathfinder/paizo/campaign_setting</td></tr>
+<tr><td>PF Player Companion</td><td>/pathfinder/paizo/player_companion</td></tr>
+</table>
+</p><p>
+We apologize for the inconvenience this will cause, but think this change will better help for set
+maintainability and future improvements as we incorporate new systems.
+</p><p>
+Any questions or support items, please contact our Support Desk Monkey Andrew Maitland at
+<a href="mailto:help@pcgen.org">help@pcgen.org</a>.
+</p>
 
 		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
 
