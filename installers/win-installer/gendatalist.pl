@@ -29,86 +29,93 @@ my $currDir;
 my @subdirlist;
 
 # The directories under data that will be included.
-@basedirlist = qw(d20ogl alpha);
+opendir(DIR, $DATA_ROOT) || die "can't opendir $DATA_ROOT: $!";
+@basedirlist = grep !/^\.\.?$/, readdir(DIR);
+closedir DIR;
+# @basedirlist = qw(d20ogl alpha);
 $basedir{'d20ogl'} = 'd20OGL';
 $basedir{'alpha'} = 'Alpha';
 
 # The list of publishers - add an entry here to correct a reported missing publisher
-$pub{'12tomidnight'} = '12 to Midnight';
-$pub{'alderacentertainmentgroup'} = 'Alderac Entertainment Group';
-$pub{'alderacentgroup'} = 'Alderac Entertainment Group';
-$pub{'aleapublishinggroup'} = 'Alea Publishing Group';
-$pub{'atlasgames'} = 'Atlas Games';
-$pub{'aurand20'} = 'Auran d20';
-$pub{'avalanchepress'} = 'Avalanche Press';
-$pub{'badaxegames'} = 'Bad Axe Games';
-$pub{'bardsandsages'} = 'Bards and Sages';
+$pub{'12_to_midnight'} = '12 to Midnight';
+$pub{'alderac_entertainment_group'} = 'Alderac Entertainment Group';
+$pub{'alderac_ent_group'} = 'Alderac Entertainment Group';
+$pub{'alea_publishing_group'} = 'Alea Publishing Group';
+$pub{'atlas_games'} = 'Atlas Games';
+$pub{'auran_d20'} = 'Auran d20';
+$pub{'avalanche_press'} = 'Avalanche Press';
+$pub{'badaxe_games'} = 'Bad Axe Games';
 $pub{'bards_and_sages'} = 'Bards and Sages';
-$pub{'bastionpress'} = 'Bastion Press';
-$pub{'battlefieldpress'} = 'Battlefield Press';
+$pub{'bastion_press'} = 'Bastion Press';
+$pub{'battlefield_press'} = 'Battlefield Press';
 $pub{'behemoth3'} = 'Behemoth3';
-$pub{'bigfingergames'} = 'Big Finger Games';
-$pub{'bloodstonepress'} = 'Bloodstone Press';
-$pub{'bluedevilgames'} = 'Blue Devil Games';
+$pub{'big_finger_games'} = 'Big Finger Games';
+$pub{'bloodstone_press'} = 'Bloodstone Press';
 $pub{'blue_devil_games'} = 'Blue Devil Games';
-$pub{'craftygames'} = 'Crafty Games';
+$pub{'crafty_games'} = 'Crafty Games';
 $pub{'creativemountaingames'} = 'Creative Mountain Games';
-$pub{'distanthorizonsgames'} = 'Distant Horizon Games';
-$pub{'doghouserules'} = 'Dog House Rules';
-$pub{'dragonwinggames'} = 'DragonWing Games';
-$pub{'dreamscarredpress'} = 'Dreamscarred Press';
+$pub{'distant_horizons_games'} = 'Distant Horizon Games';
+$pub{'doghouse_rules'} = 'Dog House Rules';
+$pub{'dragonwing_games'} = 'DragonWing Games';
+$pub{'dreamscarred_press'} = 'Dreamscarred Press';
 $pub{'en_publishing'} = 'EN Publishing';
-$pub{'fantasycommunitycouncil'} = 'Fantasy Community Council';
-$pub{'fantasyflightgames'} = 'Fantasy Flight Games';
-$pub{'gallantryproductions'} = 'Gallantry Productions';
-$pub{'goodmangames'} = 'Goodman Games';
-$pub{'greenronin'} = 'Green Ronin';
-$pub{'lionsdenpress'} = 'Lions Den Press';
-$pub{'malhavocpress'} = 'Malhavoc Press';
+$pub{'fantasy_community_council'} = 'Fantasy Community Council';
+$pub{'fantasy_flight_games'} = 'Fantasy Flight Games';
+$pub{'gallantry_productions'} = 'Gallantry Productions';
+$pub{'goodman_games'} = 'Goodman Games';
+$pub{'green_ronin'} = 'Green Ronin';
+$pub{'lions_den_press'} = 'Lions Den Press';
+$pub{'malhavoc_press'} = 'Malhavoc Press';
 $pub{'mongoose'} = 'Mongoose';
-$pub{'mongoosepublishing'} = 'Mongoose Publishing';
+$pub{'mongoose_publishing'} = 'Mongoose Publishing';
 $pub{'msrd'} = 'MSRD';
-$pub{'mythicdreamsstudios'} = 'Mythic Dreams Studios';
 $pub{'mythic_dream_studios'} = 'Mythic Dreams Studios';
-$pub{'necromancergames'} = 'Necromancer Games';
-$pub{'nitehawkinteractivegames'} = 'Nitehawk Interactive Games';
+$pub{'necromancer_games'} = 'Necromancer Games';
 $pub{'nitehawk_interactive'} = 'Nitehawk Interactive Games';
 $pub{'pandahead'} = 'Pandahead';
-$pub{'paradigmconcepts'} = 'Paradigm Concepts Inc';
 $pub{'paradigm_concepts'} = 'Paradigm Concepts Inc';
 $pub{'paizo'} = 'Paizo Publishing';
-$pub{'parentsbasementgames'} = 'Parents Basement Games';
+$pub{'parents_basement_games'} = 'Parents Basement Games';
 $pub{'pcgen'} = 'PCGen OGL';
-$pub{'pinnacleentertainment'} = 'Pinnacle Entertainment';
 $pub{'pinnacle_entertainment'} = 'Pinnacle Entertainment';
-$pub{'realitydeviant'} = 'Reality Deviant Publications';
+$pub{'reality_deviant'} = 'Reality Deviant Publications';
 $pub{'rite'} = 'Rite Publishing';
-$pub{'ritepublishing'} = 'Rite Publishing';
-$pub{'rpgobjects'} = 'RPG Objects';
-$pub{'seculargames'} = 'Secular Games';
-$pub{'silvenpublishing'} = 'Silven Publishing';
-$pub{'silverthornegames'} = 'Silverthorne Games';
-$pub{'skirmisherpublishing'} = 'Skirmisher Publishing LLC';
-$pub{'sovereignpress'} = 'Sovereign Press';
+$pub{'rite_publishing'} = 'Rite Publishing';
+$pub{'rpg_objects'} = 'RPG Objects';
+$pub{'secular_games'} = 'Secular Games';
+$pub{'silven_publishing'} = 'Silven Publishing';
+$pub{'silverthorne_games'} = 'Silverthorne Games';
+$pub{'skirmisher_publishing'} = 'Skirmisher Publishing LLC';
 $pub{'sovereign_press'} = 'Sovereign Press';
 $pub{'srd'} = 'SRD';
 $pub{'srd35'} = 'SRD35';
-$pub{'stcooleypublishing'} = 'S T Cooley Publishing';
-$pub{'supergeniusgames'} = 'Super Genius Games';
+$pub{'st_cooley_publishing'} = 'S T Cooley Publishing';
 $pub{'super_genius_games'} = 'Super Genius Games';
-$pub{'swordandsorcerystudios'} = 'Sword and Sorcery Studios';
-$pub{'swordsedgepublishing'} = 'Swords Edge Publishing';
-$pub{'thegamemechanics'} = 'The Game Mechanics Inc';
-$pub{'vigilancepress'} = 'Vigilance Press';
-$pub{'wizardsofthecoast'} = 'Wizards of the Coast';
+$pub{'sword_and_sorcery_studios'} = 'Sword and Sorcery Studios';
+$pub{'swords_edge_publishing'} = 'Swords Edge Publishing';
+$pub{'the_game_mechanics'} = 'The Game Mechanics Inc';
+$pub{'vigilance_press'} = 'Vigilance Press';
+$pub{'wizards_of_the_coast'} = 'Wizards of the Coast';
+
+# Non-publishers
+$pub{'homebrew'} = 'Homebrew';
+$pub{'conversion_support'} = 'Conversion Support';
 
 # Open the script output file
 my $script_file = 'includes/data.nsh';
+
+print "Populating $script_file ...\n";
 
 open SCRIPT, ">$script_file " or die "can't open $script_file  $!";
 # Loop through each of the directories under data
 foreach $dirname (@basedirlist)
 {
+	# Skip some folders we don't wish to offer
+	if ($dirname eq 'homebrew' || $dirname eq 'zen-test')
+	{
+		next;
+	}
+
 	# Read the files under the directory that do not have have names starting with "."
 	$data_dir = $DATA_ROOT . $dirname;
 	opendir(DIR, $data_dir) || die "can't opendir $data_dir: $!";
@@ -117,12 +124,24 @@ foreach $dirname (@basedirlist)
 	@nondots = grep ( !/^[\.]/, @dirlist );
 
 	# generate the Data category section
-	print SCRIPT "SubSection \"$basedir{$dirname}\"\n";
+	print SCRIPT "SubSection \"$dirname\"\n";
 	
 	# Loop through the publisher directories adding a section for each
 NAME:	foreach $filename (@nondots)
 	{
+		# Skip some folders we don't wish to distribute
+		if ($filename eq 'homebrew' || $filename eq 'pcgen_test_advanced' || $filename =~ /zen_test.*/)
+		{
+			next NAME;
+		}
+
 		$currDir = $data_dir . "/" . $filename;
+		if (-f $currDir) 
+		{
+			# print "Skipping file $currDir ...\n";
+			next NAME;
+		}
+
 		opendir(DIR, $currDir) || die "can't opendir $currDir: $!";
 		@subdirlist =  readdir(DIR);
 		closedir DIR;
@@ -132,7 +151,7 @@ NAME:	foreach $filename (@nondots)
 		{
 			next NAME;
 		}
-
+		
 		if (defined($pub{$filename}))
 		{
 			$pubname = $pub{$filename};
@@ -145,45 +164,29 @@ NAME:	foreach $filename (@nondots)
 		
 		print SCRIPT "	Section \"$pubname\"\n";
 
-		if ($dirname eq 'd20ogl')
+		print SCRIPT "	SectionIn 1 2";
+		# The SRD files get installed under some extra configs, so add those in
+		if ($filename eq 'msrd')
 		{
-			print SCRIPT "	SectionIn 1 2";
-			# The SRD files get installed under some extra configs, so add those in
-			if ($filename eq 'msrd')
-			{
-				print SCRIPT " 3 6";
-			}
-			if ($filename eq 'pcgen')
-			{
-				print SCRIPT " 3 4 5";
-			}
-			if ($filename eq 'srd')
-			{
-				print SCRIPT " 3 4";
-			}
-			if ($filename eq 'srd35' || $filename eq 'necromancergames')
-			{
-				print SCRIPT " 3 5";
-			}
-			if ($filename eq 'paizo')
-			{
-				print SCRIPT " 3";
-			}
-			print SCRIPT "\n";
+			print SCRIPT " 3 6";
 		}
-		elsif ($dirname eq 'permissioned')
+		if ($filename eq 'pcgen')
 		{
-			print SCRIPT "	SectionIn 1 2\n";
+			print SCRIPT " 3 4 5";
 		}
-		else
+		if ($filename eq 'srd')
 		{
-			print SCRIPT "	SectionIn 1";
-			if ($filename eq 'paizo')
-			{
-				print SCRIPT " 2 3";
-			}
-			print SCRIPT "\n";
+			print SCRIPT " 3 4";
 		}
+		if ($filename eq 'srd35' || $filename eq 'necromancergames')
+		{
+			print SCRIPT " 3 5";
+		}
+		if ($filename eq 'paizo')
+		{
+			print SCRIPT " 3";
+		}
+		print SCRIPT "\n";
 
 		print SCRIPT "	SetOutPath \"\$INSTDIR\\\${APPDIR}\\data\\$dirname\\" . $filename . "\"\n";
 		print SCRIPT "	File /r \"\${SrcDir}\\PCGen_\${SIMPVER}c\\data\\$dirname\\" . $filename . "\\*.*\"\n";
