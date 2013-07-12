@@ -3,6 +3,8 @@ SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress
 # Original Entry by: Douglas Limmer
 # SRD Original Entry by: Arknight
 
+# COMMENT: Use SORTKEY:a_base_pc if we want these interleaved with the core races.
+
 # Race Name		Output Name			Starting Feats	Size		Move			Face/Space	Reach		Vision			Bonus Languages							Bonus to Ability Pool										Stat bonus								Modify VAR			Automatically Gained Language			Ability																																											Define			Main Race Type	Type		Template			Challenge Rating	Source Page
 Blue							STARTFEATS:1	SIZE:S	MOVE:Walk,30	FACE:5	REACH:5	VISION:Darkvision (60')	LANGBONUS:Draconic,Dwarven,Gnoll,Gnome,Halfling,Orc	BONUS:ABILITYPOOL|Blue Racial Trait|7							BONUS:STAT|INT|2	BONUS:STAT|DEX|2	BONUS:STAT|STR|-2	BONUS:VAR|IsPsionic|1	AUTO:LANG|Common|Goblin				ABILITY:Special Ability|AUTOMATIC|Psionic	ABILITY:Internal|AUTOMATIC|Blue Racial Trait Default|PREABILITY:1,CATEGORY=Special Ability,Grant Default Racial Abilities	ABILITY:Internal|AUTOMATIC|Default											DEFINE:IsPsionic|0	RACETYPE:Humanoid	TYPE:PC	TEMPLATE:Goblinoid	CR:1/2		SOURCEPAGE:p.7
 Dromite						STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5					LANGBONUS:Dwarven,Gnome,Goblin,Terran			BONUS:ABILITYPOOL|Dromite Racial Trait|6							BONUS:STAT|CHA|2	BONUS:STAT|DEX|2	BONUS:STAT|STR|-2	BONUS:VAR|IsPsionic|1	AUTO:LANG|Common					ABILITY:Special Ability|AUTOMATIC|Psionic	ABILITY:Internal|AUTOMATIC|Dromite Racial Trait Default|PREABILITY:1,CATEGORY=Special Ability,Grant Default Racial Abilities	ABILITY:Internal|AUTOMATIC|Default											DEFINE:IsPsionic|0	RACETYPE:Humanoid	TYPE:PC	TEMPLATE:Insectoid	CR:1/2		SOURCEPAGE:p.10
