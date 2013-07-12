@@ -240,9 +240,7 @@ public class LanguageTableModel extends AbstractTableModel
 			{
 				addLabel.setForeground(jTable.getForeground());
 				addLabel.setFont(jTable.getFont());
-				addLabel
-					.setText(LanguageBundle.getFormattedString("in_sumLangAdd", //$NON-NLS-1$
-						((LanguageChooserFacade) value).getName()));
+				addLabel.setText(((LanguageChooserFacade) value).getName());
 				cardLayout.show(cellPanel, ADD_ID);
 			}
 			else
