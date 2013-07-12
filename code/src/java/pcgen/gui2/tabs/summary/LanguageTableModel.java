@@ -339,7 +339,7 @@ public class LanguageTableModel extends AbstractTableModel
 			}
 			else
 			{
-				addLabel.setText("Add " + ((LanguageChooserFacade) value).getName());
+				addLabel.setText(((LanguageChooserFacade) value).getName());
 				addLabel.setFont(jTable.getFont());
 				addLabel.setForeground(jTable.getForeground());
 				cardLayout.show(this, ADD_ID);
