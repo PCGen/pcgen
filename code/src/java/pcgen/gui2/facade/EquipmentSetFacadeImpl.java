@@ -1139,7 +1139,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 				&& affectsWeaponSlots(equipNode))
 			{
 				EquipSlot slot = ((EquipNodeImpl) equipNode).getSlot();
-				if (slot !=  null)
+				if (slot != null && equipSlotNodeMap.get(slot) != null)
 				{
 					incompatNodes
 						.addAll(getIncompatibleWeaponSlots((EquipNodeImpl) equipSlotNodeMap
