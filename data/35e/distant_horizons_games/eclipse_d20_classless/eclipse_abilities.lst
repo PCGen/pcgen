@@ -692,14 +692,14 @@ Extra Limbs / Arms				KEY:Extra Limbs ~ Arms					SORTKEY:Racial_1h	CATEGORY:Spec
 
 ###Block: Non-Abilities
 # Ability Name					Unique Key					SORTKEY				Category of Ability		Type									Required Ability							PRESIZENEQ		Define			Description																																												Stackable?	Multiple?	Choose		Adjust PC Size		Cost		Source Page
-Non-Ability / Strength				KEY:NonAbilityStr				SORTKEY:Non-Ability_1a		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.TemplatesRacial.Corruptable													DEFINE:LOCK.STR|10																																																									COST:0
+Non-Ability / Strength				KEY:NonAbilityStr				SORTKEY:Non-Ability_1a		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.TemplatesRacial.Corruptable													DEFINESTAT:NONSTAT|STR																																																									COST:0
 Non-Ability / Strength / Incorporeal	KEY:NonAbilityStr ~ Incorporeal	SORTKEY:Non-Ability_1b		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.TemplatesRacial.Corruptable	PREABILITY:1,CATEGORY=Special Ability,NonAbilityStr								DESC:For +12 CP a creature without a Str score can take on the Incorporeal ability.																																											COST:12
-Non-Ability / Dexterity				KEY:NonAbilityDex				SORTKEY:Non-Ability_1c		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.TemplatesRacial.Corruptable													DEFINE:LOCK.DEX|10																																																									COST:0
-Non-Ability / Constitution			KEY:NonAbilityCon				SORTKEY:Non-Ability_1d		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.TemplatesRacial.Corruptable													DEFINE:LOCK.CON|10																																																									COST:0
+Non-Ability / Dexterity				KEY:NonAbilityDex				SORTKEY:Non-Ability_1c		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.TemplatesRacial.Corruptable													DEFINESTAT:NONSTAT|DEX																																																									COST:0
+Non-Ability / Constitution			KEY:NonAbilityCon				SORTKEY:Non-Ability_1d		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.TemplatesRacial.Corruptable													DEFINESTAT:NONSTAT|CON																																																									COST:0
 Non-Ability / Constitution / Bonus HP	KEY:NonAbilityCon ~ Bonus HP		SORTKEY:Non-Ability_1e		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.TemplatesRacial.Corruptable	PREABILITY:1,CATEGORY=Special Ability,NonAbilityCon								DESC:For +12 CP creatures with no Con scores can gain bonus HP from their size (Small +10, Medium +20, Large +30, Huge +40, Gargantuan +60, and Colossal +80).																														COST:12
-Non-Ability / Intelligence			KEY:NonAbilityInt				SORTKEY:Non-Ability_1f		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.TemplatesRacial.Corruptable													DEFINE:LOCK.INT|10																																																									COST:0
-Non-Ability / Wisdom				KEY:NonAbilityWis				SORTKEY:Non-Ability_1g		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.TemplatesRacial.Corruptable													DEFINE:LOCK.WIS|10																																																									COST:0
-Non-Ability / Charisma				KEY:NonAbilityCha				SORTKEY:Non-Ability_1h		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.TemplatesRacial.Corruptable													DEFINE:LOCK.CHA|10																																																									COST:0
+Non-Ability / Intelligence			KEY:NonAbilityInt				SORTKEY:Non-Ability_1f		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.TemplatesRacial.Corruptable													DEFINESTAT:NONSTAT|INT																																																									COST:0
+Non-Ability / Wisdom				KEY:NonAbilityWis				SORTKEY:Non-Ability_1g		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.TemplatesRacial.Corruptable													DEFINESTAT:NONSTAT|WIS																																																									COST:0
+Non-Ability / Charisma				KEY:NonAbilityCha				SORTKEY:Non-Ability_1h		CATEGORY:Special Ability	TYPE:EclipseAbilityOutput.TemplatesRacial.Corruptable													DEFINESTAT:NONSTAT|CHA																																																									COST:0
 
 
 #Size
