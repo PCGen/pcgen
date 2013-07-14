@@ -70,7 +70,7 @@ Defending		KEY:DEFEND_AMF	TYPE:AmuletOfMightyFists	PLUS:1	VISIBLE:QUALIFY	SOURCE
 Disruption		KEY:DISRPT_AMF	TYPE:AmuletOfMightyFists	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.347								SPROP:undead hit by unarmed and natural attacks must make Will save (DC 14) or be destroyed
 Flaming		KEY:FLAME_AMF	TYPE:AmuletOfMightyFists	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.347								SPROP:unarmed and natural attacks do +1d6 fire damage
 Flaming Burst	KEY:FLM_BRST_AMF	TYPE:AmuletOfMightyFists	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.347								SPROP:unarmed and natural attacks do +1d6 fire damage, on a critical hit deals +%d10 additional fire damage|CRITMULT-1
-Frost			KEY:FROST_AMF	TYPE:AmuletOfMightyFists	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.347								SPROP:unarmed and natural attacks do +1d6 cold damage
+Frost			KEY:FROST_AMF	TYPE:AmuletOfMightyFists	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.347								SPROP:unarmed and natural attacks do +1d6 cold damage	ABILITY:Special Ability|AUTOMATIC|Unarmed Frost
 Ghost Touch		KEY:GHOST_AMF	TYPE:AmuletOfMightyFists	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.347								SPROP:unarmed and natural attacks deal damage normally against incorporeal creatures regardless of bonus
 Holy			KEY:HOLY_AMF	TYPE:AmuletOfMightyFists	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.347	BONUS:VAR|NegLevels|1|PREALIGN:LE,NE,CE	SPROP:unarmed and natural attacks are good aligned, +2d6 damage against evil targets, 1 negative level bestowed to evil wielder			ABILITY:Special Ability|AUTOMATIC|Negative Levels|PREALIGN:LE,NE,CE
 Icy Burst		KEY:ICY_BRST_AMF	TYPE:AmuletOfMightyFists	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.347								SPROP:unarmed and natural attacks do +1d6 cold damage, on a critical hit deals +%d10 additional cold damage|CRITMULT-1
