@@ -3150,8 +3150,8 @@
 ====================================-->
 	<xsl:template match="weapons/unarmed">
 		<!-- START Unarmed Attack Table -->
-		<xsl:choose>
-		<xsl:when test="(weapons/naturalattack) &lt; 1">
+	<!-->	<xsl:choose>	-->
+	<!-->	<xsl:when test="(weapons/naturalattack) &lt; 1">	-->
 		<fo:table table-layout="fixed" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
@@ -3237,11 +3237,35 @@
 						</fo:block>
 					</fo:table-cell>
 				</fo:table-row>
+			<xsl:choose>
+				<xsl:when test="string-length(notes) &gt; 1">
+				<fo:table-row>
+					<fo:table-cell number-columns-spanned="1">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.title'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt" font-weight="bold">
+							<xsl:text>Special Properties:</xsl:text>
+						</fo:block>
+					</fo:table-cell>
+					<fo:table-cell number-columns-spanned="4">
+						<xsl:call-template name="attrib">
+							<xsl:with-param name="attribute" select="'weapon.border'"/>
+						</xsl:call-template>
+						<fo:block font-size="8pt" padding-right="2pt">
+							<fo:inline> </fo:inline><xsl:value-of select="notes"/>
+						</fo:block>
+					</fo:table-cell>
+
+				</fo:table-row>
+				</xsl:when>
+				<xsl:otherwise/>
+			</xsl:choose>
 			</fo:table-body>
 		</fo:table>
-		</xsl:when>
+<!-->		</xsl:when>	
 		<xsl:otherwise/>
-		</xsl:choose>
+		</xsl:choose>-->
 		
 		<!-- STOP Unarmed Attack Table -->
 	</xsl:template>

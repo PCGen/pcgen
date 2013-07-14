@@ -577,6 +577,7 @@ Immune
 			<critical>|WEAPONH.CRIT|/x|WEAPONH.MULT|</critical>
 		<!-- Should be changed to a variable due to improved crit -->
 			<reach>|REACH|</reach>
+			<notes>|ABILITYALL.Special Ability.0.ASPECT.UnarmedNotes|</notes
 		</martialarts>
 |ELSE|
 		<unarmed>
@@ -600,6 +601,7 @@ Immune
 			<type>(nonlethal only)</type>
 |ENDIF|
 |ENDIF|
+			<notes>|ABILITYALL.Special Ability.0.ASPECT.UnarmedNotes|</notes>
 		</unarmed>
 
 |ENDIF|
@@ -1049,7 +1051,11 @@ Immune
 				<reach>|WEAPON.%weap.REACH|</reach>
 				<reachunit>|WEAPON.%weap.REACHUNIT|</reachunit>
 				<size>|WEAPON.%weap.SIZE|</size>
+|IIF(WEAPON.%weap.ISTYPE.Natural.OR.WEAPON.%weap.CATEGORY:NATURAL)|
+				<special_properties>|ABILITYALL.Special Ability.%weap.ASPECT.UnarmedNotes|</special_properties>
+|ELSE|
 				<special_properties>|WEAPON.%weap.SPROP|</special_properties>
+|ENDIF|
 				<type>|WEAPON.%weap.TYPE|</type>
 				<weight>|WEAPON.%weap.WT|</weight>
 				<attacks>|WEAPON.%weap.ATTACKS|</attacks>
