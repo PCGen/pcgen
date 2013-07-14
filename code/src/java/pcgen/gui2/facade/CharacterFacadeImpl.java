@@ -3487,6 +3487,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 	private double calcItemCost(Equipment selected, double purchaseQty, GearBuySellScheme gearBuySellScheme)
 	{
+		if (selected == null)
+		{
+			return 0;
+		}
+		
 		BigDecimal rate = purchaseQty >= 0 ? gearBuySellScheme.getBuyRate() : gearBuySellScheme.getSellRate();
 		if (purchaseQty < 0 && selected.isSellAsCash())
 		{
