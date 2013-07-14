@@ -3272,7 +3272,8 @@ public final class Equipment extends PObject implements Serializable,
 		final StringTokenizer aTok = new StringTokenizer(aLine, sep);
 		final int endPartLen = endPart.length();
 		SizeAdjustment newSize = getSafe(ObjectKey.SIZE);
-
+		boolean firstSprop = true;
+		
 		while (aTok.hasMoreTokens())
 		{
 			final String aString = aTok.nextToken();
@@ -3303,6 +3304,11 @@ public final class Equipment extends PObject implements Serializable,
 			}
 			else if (aString.startsWith("SPROP" + endPart))
 			{
+				if (firstSprop)
+				{
+					removeListFor(ListKey.SPECIAL_PROPERTIES);
+					firstSprop = false;
+				}
 				addToListFor(ListKey.SPECIAL_PROPERTIES, SpecialProperty
 					.createFromLst(aString.substring(5 + endPartLen)));
 			}
