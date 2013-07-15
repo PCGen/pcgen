@@ -5956,7 +5956,9 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 ====================================
 ====================================-->
 	<xsl:template name="money">
-		<xsl:if test="count (misc/funds/fund|equipment/item[contains(type, 'COIN') or contains(type, 'GEM')]) &gt; 0">
+
+
+		<xsl:if test="count (misc/funds/fund|equipment/item[contains(type, 'COIN') or contains(type, 'GEM')]) or (misc/gold) &gt; 0">	
 			<fo:table table-layout="fixed" space-before.optimum="2mm">
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'money.border'"/>
@@ -5988,6 +5990,9 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 									</xsl:call-template>
 								</xsl:variable>
 								Total   = <xsl:value-of select="format-number($TotalValue, '##,##0.#')"/> gp
+								<xsl:if test="misc/gold &gt; 0">
+								[Unspent Funds = <xsl:value-of select="misc/gold"/> gp]
+								</xsl:if>
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>
@@ -6035,6 +6040,20 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 					</xsl:for-each>
 					<xsl:variable name="gem_count" select="count( equipment/item[contains(type, 'GEM')] )"/>
 
+					<!-- misc gold -->
+					<xsl:for-each select="misc/gold">
+						<fo:table-row keep-with-next.within-column="always">
+		
+							<fo:table-cell>
+								<fo:block font-size="7pt">
+									<xsl:call-template name="paragraghlist">
+										<xsl:with-param name="tag" select="'gold'"/>
+									</xsl:call-template>
+								</fo:block>
+							</fo:table-cell>
+						</fo:table-row>
+					</xsl:for-each>
+
 					<!-- misc funds -->
 					<xsl:for-each select="misc/funds">
 						<xsl:variable name="shade">
@@ -6056,7 +6075,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 					</xsl:for-each>
 				</fo:table-body>
 			</fo:table>
-		</xsl:if>
+		</xsl:if>	
 	</xsl:template>
 	<!--
 ====================================

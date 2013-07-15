@@ -3286,6 +3286,8 @@ Immune
 |%|
 
 	<misc>
+			<gold>|GOLD|</gold>
+
 |%MISC.FUNDS|
 		<funds>
 			<fund>|MISC.FUNDS|</fund>
