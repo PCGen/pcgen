@@ -95,11 +95,7 @@ ABILITYCATEGORY:Flexible Enhancement Bonus	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOO
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
 ABILITYCATEGORY:Metal Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MetalOpposedSchool			PLURAL:Metal Opposition School Choice	DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Wood Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WoodOpposedSchool			PLURAL:Wood Opposition School Choice	DISPLAYLOCATION:Class Abilities
-
-
-
 ABILITYCATEGORY:Eldritch Heritage Bloodline Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EldritchHeritageSelection								DISPLAYLOCATION:Feats
-
 
 #
 ABILITYCATEGORY:Black Blade Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BlackBladeChoice									DISPLAYLOCATION:Class Abilities
@@ -111,9 +107,6 @@ ABILITYCATEGORY:Crossblooded Sorcerer		VISIBLE:NO		EDITABLE:NO			EDITPOOL:YES	FR
 ABILITYCATEGORY:Crossblooded Bloodline Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineAbility	PLURAL:Crossblooded Bloodline Powers	DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Crossblooded Bonus Spell		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodedSpellChoice	PLURAL:Crossblooded Bonus Spells		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Crossblooded Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat		PLURAL:Crossblooded Feats			DISPLAYLOCATION:Class Abilities
-
-ABILITYCATEGORY:Magus Weapon Special Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal				TYPE:MagusWeaponSA	DISPLAYLOCATION:Class Abilities
-
 
 #
 # End
