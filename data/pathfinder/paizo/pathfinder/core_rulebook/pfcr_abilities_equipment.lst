@@ -5,6 +5,8 @@
 Unarmed Frost	CATEGORY:Special Ability	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 cold damage
 
 
+Headband of Intellect Skill Selection	TYPE:HeadbandSkill	CATEGORY:Special Ability	MULT:YES	STACK:NO	CHOOSE:SKILL|TYPE=Base	BONUS:SKILLRANK|%LIST|TL
+
 # Abilities for Intelligent Magic Items
 
 # Ability Name																Unique Key						Category of Ability		Type											Required Ability											Restricted Ability								Define																Description																																							Stackable?	Multiple?	Choose									Selections	Move			Ability																																				Bonus to Ability Pool																Modify VAR																																							Spell Res.	Cost
