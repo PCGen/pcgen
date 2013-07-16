@@ -63,22 +63,21 @@ import pcgen.util.Logging;
  * 
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class DebugDialog extends JDialog implements MouseListener
+public class DebugDialog extends JDialog
 {
 
 	private static MemoryMXBean memoryBean = ManagementFactory
 		.getMemoryMXBean();
-	private final JTextArea debuggingText;
+	private final LogPanel logPanel;
 	private final MemoryPanel memoryPanel;
 
 	public DebugDialog(PCGenFrame frame)
 	{
 		super(frame);
 		setTitle("Log & Memory Use");
-		debuggingText = new JTextArea();
+		logPanel = new LogPanel();
 		memoryPanel = new MemoryPanel();
 		initComponents();
-		debuggingText.addMouseListener(this);
 		pack();
 		setSize(700, 500);
 
@@ -89,18 +88,9 @@ public class DebugDialog extends JDialog implements MouseListener
 	{
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new BorderLayout());
-		initDebugLog();
-		contentPane.add(new JScrollPane(debuggingText), BorderLayout.CENTER);
+		contentPane.add(logPanel, BorderLayout.CENTER);
 		contentPane.add(memoryPanel, BorderLayout.SOUTH);
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
-	}
-
-	private void initDebugLog()
-	{
-		// debuggingText.setLineWrap(true);
-		debuggingText.setEditable(false);
-		debuggingText.setText(LoggingRecorder.getLogs());
-		Logging.registerHandler(new LogHandler());
 	}
 
 	@Override
@@ -110,38 +100,239 @@ public class DebugDialog extends JDialog implements MouseListener
 		memoryPanel.dispose();
 	}
 
-	private class LogHandler extends Handler implements Runnable
+	private static class LogPanel extends JPanel implements ActionListener, MouseListener
 	{
+		private final JTextArea logText;
+		private final JButton clearButton;
 
-		public LogHandler()
+		public LogPanel()
 		{
-			setLevel(Logging.DEBUG);
+			logText = new JTextArea();
+			clearButton = new JButton("Clear Log");
+			initComponents();
+		}
+
+		private void initComponents()
+		{
+			setBorder(BorderFactory.createTitledBorder("Debug Log"));
+			setLayout(new BorderLayout());
+			add(new JScrollPane(logText)
+			{
+				@Override
+				public Dimension getMaximumSize()
+				{
+					return super.getPreferredSize();
+				}
+
+			}, BorderLayout.CENTER);
+			add(clearButton, BorderLayout.SOUTH);
+			logText.setFocusable(false);
+			logText.addMouseListener(this);
+			clearButton.setActionCommand("CLEAR");
+			clearButton.addActionListener(this);
+			initDebugLog();
+		}
+
+		private void initDebugLog()
+		{
+			// logText.setLineWrap(true);
+			logText.setEditable(false);
+			logText.setText(LoggingRecorder.getLogs());
+			Logging.registerHandler(new LogHandler());
 		}
 
 		@Override
-		public void publish(LogRecord record)
+		public void mouseClicked(MouseEvent e)
 		{
-			SwingUtilities.invokeLater(this);
+			int caretPos = determineCaretPosition(e);
+			String line = getCurrentIndexedLine(caretPos);
+			File file = extractFileFromLine(line);
+			if (file != null)
+			{
+				try
+				{
+					openFile(file);
+				}
+				catch (IOException e1)
+				{
+					Logging.log(Level.WARNING,
+						"Unable to open the requested file: " + file.getName(), e1);
+				}
+			}
+			else
+			{
+				Logging.log(Level.FINER, "No file in current line.");
+			}
 		}
 
 		@Override
-		public void flush()
+		public void actionPerformed(ActionEvent e)
 		{
+			if ("CLEAR".equals(e.getActionCommand()))
+			{
+				LoggingRecorder.clearLogs();
+				initDebugLog();
+			}
+			else
+			{
+				logText.repaint();
+			}
+		}
+		private void openFile(File file) throws IOException
+		{
+			if (Desktop.isDesktopSupported())
+			{
+				if (System.getProperty("os.name").toLowerCase().contains("windows"))
+				{
+					String cmd =
+							"rundll32 url.dll,FileProtocolHandler "
+								+ file.getCanonicalPath();
+					Runtime.getRuntime().exec(cmd);
+				}
+				else
+				{
+					Desktop.getDesktop().open(file);
+				}
+			}
+		}
+
+		protected File extractFileFromLine(String line)
+		{
+			File file = null;
+			String[] parts = line.split("\"");
+			for (String part : parts)
+			{
+				file = convertURItoFileIfPossible(part);
+				if (file == null)
+				{
+					String[] subParts = part.split(" ");
+					for (String subPart : subParts)
+					{
+						file = convertURItoFileIfPossible(subPart);
+						if (file != null)
+						{
+							return file;
+						}
+					}
+				}
+				else
+				{
+					return file;
+				}
+			}
+			return file;
+		}
+
+		private File convertURItoFileIfPossible(String filePart)
+		{
+			File file = null;
+			URI fileURI;
+			try
+			{
+				fileURI = extractFileURIFromLinePart(filePart);
+				file = new File(fileURI);
+				if (!file.exists())
+				{
+					file = null;
+				}
+			}
+			catch (Exception e)
+			{
+				// This part is NOT a valid URI. No harm done.
+			}
+			return file;
+		}
+
+		private URI extractFileURIFromLinePart(String part)
+			throws URISyntaxException
+		{
+			String filePart = part;
+			if (part.indexOf(':') < 0)
+			{
+				filePart = "file://" + part;
+			}
+			return new URI(filePart);
+		}
+
+		private String getCurrentIndexedLine(int index)
+		{
+			int startIndex = logText.getText().lastIndexOf("\n", index) + 1;
+			int endIndex = logText.getText().indexOf("\n", index);
+			String line = "";
+			if (startIndex >= 0 && endIndex >= startIndex)
+			{
+				line = logText.getText().substring(startIndex, endIndex);
+			}
+			return line;
+		}
+
+		private int determineCaretPosition(MouseEvent e)
+		{
+			logText.setCaretPosition(logText.viewToModel(e.getPoint()));
+			int caretPos = logText.getCaretPosition();
+			return caretPos;
+		}
+
+		private class LogHandler extends Handler implements Runnable
+		{
+
+			public LogHandler()
+			{
+				setLevel(Logging.DEBUG);
+			}
+
+			@Override
+			public void publish(LogRecord record)
+			{
+				SwingUtilities.invokeLater(this);
+			}
+
+			@Override
+			public void flush()
+			{
+			}
+
+			@Override
+			public void close() throws SecurityException
+			{
+			}
+
+			@Override
+			public void run()
+			{
+				logText.setText(LoggingRecorder.getLogs());
+			}
 		}
 
 		@Override
-		public void close() throws SecurityException
+		public void mouseEntered(MouseEvent arg0)
 		{
+			// TODO Auto-generated method stub
+
 		}
 
 		@Override
-		public void run()
+		public void mouseReleased(MouseEvent arg0)
 		{
-			debuggingText.setText(LoggingRecorder.getLogs());
+			// TODO Auto-generated method stub
+
 		}
 
+		@Override
+		public void mouseExited(MouseEvent arg0)
+		{
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0)
+		{
+			// TODO Auto-generated method stub
+
+		}
 	}
-
+	
 	private static class MemoryPanel extends JPanel implements ActionListener
 	{
 
@@ -298,153 +489,6 @@ public class DebugDialog extends JDialog implements MouseListener
 					return 0;
 			}
 		}
-
-	}
-
-	@Override
-	public void mouseClicked(MouseEvent e)
-	{
-		int caretPos = determineCaretPosition(e);
-		String line = getCurrentIndexedLine(caretPos);
-		File file = extractFileFromLine(line);
-		if (file != null)
-		{
-			try
-			{
-				openFile(file);
-			}
-			catch (IOException e1)
-			{
-				Logging.log(Level.WARNING,
-					"Unable to open the requested file: " + file.getName(), e1);
-			}
-		}
-		else
-		{
-			Logging.log(Level.FINER, "No file in current line.");
-		}
-	}
-
-	private void openFile(File file) throws IOException
-	{
-		if (Desktop.isDesktopSupported())
-		{
-			if (System.getProperty("os.name").toLowerCase().contains("windows"))
-			{
-				String cmd =
-						"rundll32 url.dll,FileProtocolHandler "
-							+ file.getCanonicalPath();
-				Runtime.getRuntime().exec(cmd);
-			}
-			else
-			{
-				Desktop.getDesktop().open(file);
-			}
-		}
-	}
-
-	protected File extractFileFromLine(String line)
-	{
-		File file = null;
-		String[] parts = line.split("\"");
-		for (String part : parts)
-		{
-			file = convertURItoFileIfPossible(part);
-			if (file == null)
-			{
-				String[] subParts = part.split(" ");
-				for (String subPart : subParts)
-				{
-					file = convertURItoFileIfPossible(subPart);
-					if (file != null)
-					{
-						return file;
-					}
-				}
-			}
-			else
-			{
-				return file;
-			}
-		}
-		return file;
-	}
-
-	private File convertURItoFileIfPossible(String filePart)
-	{
-		File file = null;
-		URI fileURI;
-		try
-		{
-			fileURI = extractFileURIFromLinePart(filePart);
-			file = new File(fileURI);
-			if (!file.exists())
-			{
-				file = null;
-			}
-		}
-		catch (Exception e)
-		{
-			// This part is NOT a valid URI. No harm done.
-		}
-		return file;
-	}
-
-	private URI extractFileURIFromLinePart(String part)
-		throws URISyntaxException
-	{
-		String filePart = part;
-		if (part.indexOf(':') < 0)
-		{
-			filePart = "file://" + part;
-		}
-		return new URI(filePart);
-	}
-
-	private String getCurrentIndexedLine(int index)
-	{
-		int startIndex = debuggingText.getText().lastIndexOf("\n", index) + 1;
-		int endIndex = debuggingText.getText().indexOf("\n", index);
-		String line = "";
-		if (startIndex >= 0 && endIndex >= startIndex)
-		{
-			line = debuggingText.getText().substring(startIndex, endIndex);
-		}
-		return line;
-	}
-
-	private int determineCaretPosition(MouseEvent e)
-	{
-		debuggingText.setCaretPosition(debuggingText.viewToModel(e.getPoint()));
-		int caretPos = debuggingText.getCaretPosition();
-		return caretPos;
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent arg0)
-	{
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseExited(MouseEvent arg0)
-	{
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mousePressed(MouseEvent arg0)
-	{
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent arg0)
-	{
-		// TODO Auto-generated method stub
 
 	}
 
