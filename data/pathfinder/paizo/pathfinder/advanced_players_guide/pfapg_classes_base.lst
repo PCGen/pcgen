@@ -365,6 +365,7 @@ CLASS:Antipaladin	SPELLSTAT:CHA	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEV
 2	BONUS:VAR|TouchOfCorruptionLVL|CL
 3	BONUS:VAR|CrueltyLVL|CL
 4	BONUS:VAR|AntipaladinChannelLVL|CL
+5	BONUS:VAR|FiendishBoonLVL|CL
 ###Block: Level progression
 1	ABILITY:Antipaladin Class Ability|AUTOMATIC|Aura of Evil|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfEvil
 1	ABILITY:Antipaladin Class Ability|AUTOMATIC|Detect Good|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectGood
