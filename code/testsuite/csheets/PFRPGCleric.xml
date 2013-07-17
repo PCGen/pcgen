@@ -2217,7 +2217,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Weapon and Armor Proficiency</name>
-			<description>Clerics are proficient with all simple weapons, with all types of armor (light, medium, and heavy), and with shields (except tower shields). A cleric who chooses the War domain receives the Weapon Focus feat related to his deity&#39;s weapon as a bonus feat. He also receives the appropriate Martial Weapon Proficiency feat as a bonus feat, if the weapon falls into that category.</description>
+			<description>Clerics are proficient with all simple weapons, light armor, medium armor, and shields (except tower shields). Clerics are also proficient with the favored weapon of their deity</description>
 			<type>CLERICCLASSABILITY.SPECIALQUALITY</type>
 			<associated></associated>
 			<count>0</count>
@@ -2340,17 +2340,6 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 	<!-- Visible Automatic "Internal" Ability Objects -->
-		<ability_object>
-			<name>Armor Prof ~ Heavy</name>
-			<description></description>
-			<type>ARMORPROFHEAVY</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>F</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
 		<ability_object>
 			<name>Armor Prof ~ Light</name>
 			<description></description>
