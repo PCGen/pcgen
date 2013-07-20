@@ -20,6 +20,8 @@ package pcgen.cdom.helper;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.PersistentChoiceActor;
 import pcgen.cdom.enumeration.SkillCost;
@@ -27,8 +29,10 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.core.SubClass;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 /**
  * A ClassSkillChoiceActor is a PersistentChoiceActor that can apply skill
@@ -90,11 +94,33 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	public void applyChoice(CDOMObject owner, Skill choice, PlayerCharacter pc)
 	{
 		pc.addSkill(choice);
-		PCClass pcc = pc.getClassKeyed(source.getKeyName());
+		PCClass pcc;
+		if (source instanceof SubClass)
+		{
+			pcc = pc.getClassKeyed(((SubClass) source).getCDOMCategory().getKeyName());
+		}
+		else
+		{
+			pcc = pc.getClassKeyed(source.getKeyName());
+		}
+		if (pcc == null)
+		{
+			Logging.errorPrint("Unable to find the pc's class " + source
+				+ " to apply skill choices to.");
+			return;
+		}
 		pc.addLocalCost(pcc, choice, SkillCost.CLASS, owner);
 		if (applyRank != null)
 		{
-			SkillRankControl.modRanks(applyRank, pcc, false, pc, choice);
+			String result =
+					SkillRankControl
+						.modRanks(applyRank, pcc, false, pc, choice);
+			if (StringUtils.isNotEmpty(result))
+			{
+				Logging.errorPrint(
+					"Unable to apply {0} ranks of {1}. Error: {2}", applyRank,
+					choice, result);
+			}
 		}
 	}
 
