@@ -1000,6 +1000,30 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 		return false;
 	}
+	
+	public void revertCharacter(CharacterFacade character)
+	{
+		if (character.isDirty())
+		{
+			int ret =
+					JOptionPane.showConfirmDialog(this, LanguageBundle
+						.getFormattedString("in_revertPcChoice", character //$NON-NLS-1$
+							.getNameRef().getReference()),
+						Constants.APPLICATION_NAME,
+						JOptionPane.YES_NO_OPTION);
+			if (ret == JOptionPane.NO_OPTION)
+			{
+				return;
+			}
+			if (ret == JOptionPane.YES_OPTION)
+			{
+				CharacterManager.removeCharacter(character);
+				CharacterManager.openCharacter(character.getFileRef().getReference(), PCGenFrame.this,
+						currentDataSetRef.getReference());
+			}
+		}
+		
+	}
 
 	void showOpenCharacterChooser()
 	{
