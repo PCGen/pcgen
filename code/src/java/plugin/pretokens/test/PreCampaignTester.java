@@ -203,9 +203,10 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 		}
 		else
 		{
+			String sourceUri = (source == null ? "" : String.valueOf(source.getSourceURI()));
 			Logging.errorPrint("Unable to find campaign " + key //$NON-NLS-1$
 				+ " used in prereq for source " + source + " at " //$NON-NLS-1$ //$NON-NLS-2$
-				+ source.getSourceURI());
+				+ sourceUri);
 		}
 		return total;
 	}
