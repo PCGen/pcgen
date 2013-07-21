@@ -1001,6 +1001,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		return false;
 	}
 	
+	/**
+	 * Revert the character to the previous save. If no previous save, open a
+	 * new character tab.
+	 * @param character The character being saved.
+	 */
 	public void revertCharacter(CharacterFacade character)
 	{
 		if (character.isDirty())
@@ -1011,15 +1016,19 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 							.getNameRef().getReference()),
 						Constants.APPLICATION_NAME,
 						JOptionPane.YES_NO_OPTION);
-			if (ret == JOptionPane.NO_OPTION)
-			{
-				return;
-			}
 			if (ret == JOptionPane.YES_OPTION)
 			{
 				CharacterManager.removeCharacter(character);
-				CharacterManager.openCharacter(character.getFileRef().getReference(), PCGenFrame.this,
-						currentDataSetRef.getReference());
+				
+				if(character.getFileRef().getReference().exists())
+				{
+					CharacterManager.openCharacter(character.getFileRef().getReference(), PCGenFrame.this,
+							currentDataSetRef.getReference());
+				}
+				else
+				{
+					createNewCharacter();
+				}
 			}
 		}
 		
