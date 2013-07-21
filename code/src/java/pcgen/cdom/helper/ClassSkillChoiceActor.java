@@ -94,15 +94,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	public void applyChoice(CDOMObject owner, Skill choice, PlayerCharacter pc)
 	{
 		pc.addSkill(choice);
-		PCClass pcc;
-		if (source instanceof SubClass)
-		{
-			pcc = pc.getClassKeyed(((SubClass) source).getCDOMCategory().getKeyName());
-		}
-		else
-		{
-			pcc = pc.getClassKeyed(source.getKeyName());
-		}
+		PCClass pcc = getSourceClass(pc);
 		if (pcc == null)
 		{
 			Logging.errorPrint("Unable to find the pc's class " + source
@@ -204,8 +196,33 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
 	{
 		pc.addSkill(choice);
-		PCClass pcc = pc.getClassKeyed(source.getKeyName());
+		PCClass pcc = getSourceClass(pc);
+		if (pcc == null)
+		{
+			Logging.errorPrint("Unable to find the pc's class " + source
+				+ " to restore skill choices to.");
+			return;
+		}
 		pc.addLocalCost(pcc, choice, SkillCost.CLASS, owner);
+	}
+
+	/**
+	 * Identify the character's instance of the class being linked to the skill. 
+	 * @param pc The character
+	 * @return The character's class.
+	 */
+	private PCClass getSourceClass(PlayerCharacter pc)
+	{
+		PCClass pcc;
+		if (source instanceof SubClass)
+		{
+			pcc = pc.getClassKeyed(((SubClass) source).getCDOMCategory().getKeyName());
+		}
+		else
+		{
+			pcc = pc.getClassKeyed(source.getKeyName());
+		}
+		return pcc;
 	}
 
 	/**
