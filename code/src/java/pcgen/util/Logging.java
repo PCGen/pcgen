@@ -320,7 +320,7 @@ public class Logging
 				&& context.getObjectContext().getSourceURI() != null)
 			{
 				l.log(lvl, " (Source: "
-					+ context.getObjectContext().getSourceURI() + ")");
+					+ context.getObjectContext().getSourceURI() + " )");
 			}
 			else
 			{
@@ -366,6 +366,27 @@ public class Logging
 		if (l.isLoggable(ERROR))
 		{
 			l.log(ERROR, s);
+		}
+	}
+
+	/**
+	 * Beep and print error message if PCGen is debugging.
+	 *
+	 * @param s String error message
+	 * @param params Varargs list of parameters for substitution into the 
+	 * error message.
+	 */
+	public static void errorPrint(final String s, final Object... params)
+	{
+		if (isDebugMode())
+		{
+			s_TOOLKIT.beep();
+		}
+
+		Logger l = getLogger();
+		if (l.isLoggable(ERROR))
+		{
+			l.log(ERROR, s, params);
 		}
 	}
 	

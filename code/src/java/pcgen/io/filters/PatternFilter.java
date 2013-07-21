@@ -17,8 +17,13 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 
 /**
+ * An output filter that will convert patterns in the output. This is used for 
+ * converting general formatting and reserved characters into a format 
+ * suitable for a particular file type. e.g. Converting special characters 
+ * into safe XML equivalents for outputting to xml files.
+ *    
  * @author apsen
- *
+ * @version $Revision: $
  */
 public class PatternFilter implements OutputFilter
 {
@@ -27,14 +32,19 @@ public class PatternFilter implements OutputFilter
 	private List<String> replace = null;
 
 	/**
-	 * 
+	 * Create a new PatternFilter instance suitable for processing output to 
+	 * files produced using the supplied template.
+	 *  
+	 * @param templateFileName The file name of the output template file. 
+	 * @throws IOException If the pattern filter cannot be read.
 	 */
-	public PatternFilter(String filterName) throws IOException
+	public PatternFilter(String templateFileName) throws IOException
 	{
 		super();
 
-		final int idx = filterName.lastIndexOf('.');
+		final int idx = templateFileName.lastIndexOf('.');
 
+		String filterName = templateFileName;
 		if (idx >= 0)
 		{
 			filterName = filterName.substring(idx + 1);

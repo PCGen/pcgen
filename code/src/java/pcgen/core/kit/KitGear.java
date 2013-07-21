@@ -98,7 +98,11 @@ public final class KitGear extends BaseKit
 
 		if (quantity != null)
 		{
-			info.append(quantity).append('x');
+			String qtyStr = String.valueOf(quantity);
+			if (!"1".equals(qtyStr))
+			{
+				info.append(quantity).append('x');
+			}
 		}
 
 		info.append(equip == null ? "null" : equip.getLSTformat(false));

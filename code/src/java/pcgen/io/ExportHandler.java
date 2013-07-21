@@ -190,8 +190,7 @@ public final class ExportHandler
 			throw new IllegalStateException("Template file must not be null");
 		}
 		
-		// TODO Not sure why this is here, it sets the outputfilter to 
-		// be that of the character sheet template, makes no sense?
+		// Set an output filter based on the type of template in use.
 		FileAccess.setCurrentOutputFilter(templateFile.getName());
 
 		BufferedReader br = null;
@@ -3473,6 +3472,7 @@ public final class ExportHandler
 	 */
 	private void write(PlayerCharacter[] PCs, BufferedWriter out)
 	{
+		// Set an output filter based on the type of template in use.
 		FileAccess.setCurrentOutputFilter(templateFile.getName());
 
 		BufferedReader br = null;

@@ -10673,11 +10673,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	public void addLocalCost(PCClass pcc, Skill skill, SkillCost sc, CDOMObject owner)
 	{
 		localAddedSkillCostFacet.add(id, pcc, sc, skill, owner);
+		// Make sure any cached skill cost is cleared.
+		cache = new ObjectCache();
 	}
 
 	public void removeLocalCost(PCClass pcc, Skill skill, SkillCost sc, CDOMObject owner)
 	{
 		localAddedSkillCostFacet.remove(id, pcc, sc, skill, owner);
+		// Make sure any cached skill cost is cleared.
+		cache = new ObjectCache();
 	}
 
 	public String getSubClassName(PCClass cl)
@@ -10752,23 +10756,29 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			{
 				PCClassLevel classLevel =
 						getActiveClassLevel(pcClass, pi.getClassLevel());
-				int newSkillPointsGained =
-						pcClass.getSkillPointsForLevel(this, classLevel,
-							getTotalLevels());
-				if (pi.getClassKeyName().equals(pcClass.getKeyName()))
-				{
-					final int formerGained = pi.getSkillPointsGained(this);
-					if (newSkillPointsGained != formerGained)
-					{
-						pi.setSkillPointsGained(this, newSkillPointsGained);
-						newSkillPointsGained = pi.getSkillPointsGained(this);
-						pi.setSkillPointsRemaining(pi.getSkillPointsRemaining()
-							+ newSkillPointsGained - formerGained);
-						setSkillPool(pcClass, pcClass.getSkillPool(this)
-							+ newSkillPointsGained - formerGained);
-						setDirty(true);
-					}
-				}
+				checkSkillModChangeForLevel(pcClass, pi, classLevel);
+			}
+		}
+	}
+
+	public void checkSkillModChangeForLevel(PCClass pcClass, PCLevelInfo pi,
+		PCClassLevel classLevel)
+	{
+		int newSkillPointsGained =
+				pcClass.getSkillPointsForLevel(this, classLevel,
+					getTotalLevels());
+		if (pi.getClassKeyName().equals(pcClass.getKeyName()))
+		{
+			final int formerGained = pi.getSkillPointsGained(this);
+			if (newSkillPointsGained != formerGained)
+			{
+				pi.setSkillPointsGained(this, newSkillPointsGained);
+				newSkillPointsGained = pi.getSkillPointsGained(this);
+				pi.setSkillPointsRemaining(pi.getSkillPointsRemaining()
+					+ newSkillPointsGained - formerGained);
+				setSkillPool(pcClass, pcClass.getSkillPool(this)
+					+ newSkillPointsGained - formerGained);
+				setDirty(true);
 			}
 		}
 	}

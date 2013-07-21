@@ -60,19 +60,20 @@ public final class FileAccess
 	}
 
 	/**
-	 * Set the current output filter 
+	 * Set the current output filter. The current output filter will be 
+	 * chosen based on the extension of the passed in template file name. 
 	 * 
-	 * @param filterName (used to create instance of CharacterFilter)
+	 * @param templateFilename (used to create instance of CharacterFilter)
 	 */
-	public static void setCurrentOutputFilter(String filterName)
+	public static void setCurrentOutputFilter(String templateFilename)
 	{
 		try
 		{
-			outputFilter = new PatternFilter(filterName);
+			outputFilter = new PatternFilter(templateFilename);
 		}
 		catch (IOException e)
 		{
-			outputFilter = new CharacterFilter(filterName);
+			outputFilter = new CharacterFilter(templateFilename);
 		}
 	}
 
