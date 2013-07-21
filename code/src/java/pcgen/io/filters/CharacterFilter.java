@@ -16,12 +16,20 @@ public class CharacterFilter implements OutputFilter
 	private String outputFilterName = "";
 	private Map<Integer, String> outputFilter = null;
 
-	public CharacterFilter(String filterName)
+	/**
+	 * Create a new CharacterFilter instance suitable for processing output to 
+	 * files produced using the supplied template.
+	 *  
+	 * @param templateFileName The file name of the output template file. 
+	 * @throws IOException If the pattern filter cannot be read.
+	 */
+	public CharacterFilter(String templateFileName)
 	{
 		super();
 
-		final int idx = filterName.lastIndexOf('.');
+		final int idx = templateFileName.lastIndexOf('.');
 
+		String filterName = templateFileName;
 		if (idx >= 0)
 		{
 			filterName = filterName.substring(idx + 1);
