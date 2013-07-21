@@ -24,13 +24,17 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.PersistentChoiceActor;
+import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.SubClass;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -104,6 +108,15 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 		pc.addLocalCost(pcc, choice, SkillCost.CLASS, owner);
 		if (applyRank != null)
 		{
+			if (owner instanceof PCClassLevel)
+			{
+				// Ensure that the skill points for this level are already calculated.
+				PCClassLevel classLevel = (PCClassLevel) owner;
+				int level = classLevel.getSafe(IntegerKey.LEVEL);
+				PCClass pcClass = (PCClass) classLevel.getSafe(ObjectKey.PARENT);
+				PCLevelInfo pi = pc.getLevelInfoFor(pcClass.getKeyName(), level);
+				pc.checkSkillModChangeForLevel(pcClass, pi, classLevel);
+			}
 			String result =
 					SkillRankControl
 						.modRanks(applyRank, pcc, false, pc, choice);
