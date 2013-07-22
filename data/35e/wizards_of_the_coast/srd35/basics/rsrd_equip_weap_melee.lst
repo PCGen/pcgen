@@ -17,10 +17,10 @@ Sickle									PROFICIENCY:WEAPON|Sickle			TYPE:Weapon.Melee.Light.Finesseable.S
 Club										PROFICIENCY:WEAPON|Club				TYPE:Weapon.Melee.Ranged.Thrown.Simple.Standard.Bludgeoning.Club												COST:0	WT:3				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d6					EQMOD:WOOD						WIELD:OneHanded	RANGE:10						SIZE:M
 Mace (Heavy)		OUTPUTNAME:Mace, [NAME]			PROFICIENCY:WEAPON|Mace (Heavy)		TYPE:Weapon.Melee.Simple.Standard.Bludgeoning.Mace														COST:12	WT:8				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL						WIELD:OneHanded								SIZE:M
 Morningstar									PROFICIENCY:WEAPON|Morningstar		TYPE:Weapon.Melee.Simple.Standard.Bludgeoning.Piercing.Mace													COST:8	WT:6				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL						WIELD:OneHanded								SIZE:M
-Shortspear									PROFICIENCY:WEAPON|Shortspear			TYPE:Weapon.Melee.Ranged.Thrown.Simple.Standard.Piercing.Spear												COST:1	WT:3				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					EQMOD:WOOD						WIELD:OneHanded	RANGE:20						SIZE:M
+Shortspear									PROFICIENCY:WEAPON|Shortspear			TYPE:Weapon.Melee.Ranged.Thrown.Simple.Standard.Piercing.Spear												COST:1	WT:3				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL.WOOD					WIELD:OneHanded	RANGE:20						SIZE:M
 #-----two handed -------
-Longspear									PROFICIENCY:WEAPON|Longspear			TYPE:Weapon.Melee.TwoHanded.Simple.Reach.Standard.Piercing.Spear												COST:5	WT:9				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:WOOD						WIELD:TwoHanded					REACHMULT:2		SIZE:M
-Spear										PROFICIENCY:WEAPON|Spear			TYPE:Weapon.Melee.TwoHanded.Ranged.Thrown.Simple.Standard.Piercing.Spear										COST:2	WT:6				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:WOOD						WIELD:TwoHanded	RANGE:20						SIZE:M
+Longspear									PROFICIENCY:WEAPON|Longspear			TYPE:Weapon.Melee.TwoHanded.Simple.Reach.Standard.Piercing.Spear												COST:5	WT:9				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL.WOOD					WIELD:TwoHanded					REACHMULT:2		SIZE:M
+Spear										PROFICIENCY:WEAPON|Spear			TYPE:Weapon.Melee.TwoHanded.Ranged.Thrown.Simple.Standard.Piercing.Spear										COST:2	WT:6				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d8					EQMOD:STEEL.WOOD					WIELD:TwoHanded	RANGE:20						SIZE:M
 # Double
 Quarterstaff								PROFICIENCY:WEAPON|Quarterstaff		TYPE:Weapon.Melee.OneHanded.Simple.Double.Standard.Bludgeoning.Quarterstaff			ALTTYPE:Weapon.Melee.Bludgeoning		COST:0	WT:4				CRITMULT:x2			CRITRANGE:1			ALTCRITMULT:x2		ALTCRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6		EQMOD:WOOD		ALTEQMOD:WOOD		WIELD:TwoHanded								SIZE:M
 

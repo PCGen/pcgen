@@ -23,7 +23,7 @@ Longbow (Composite +0)		OUTPUTNAME:[NAME] Longbow STR0	PROFICIENCY:WEAPON|Longbo
 
 #Simple Weapons Ranged
 Crossbow (Light)			OUTPUTNAME:Crossbow, [NAME]		PROFICIENCY:WEAPON|Crossbow (Light)			TYPE:Weapon.Simple.Ranged.Standard.Piercing.Container.Projectile.Crossbow			CONTAINS:UNLIM|Bolt|SpecificBolt			COST:35	WT:4				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8	EQMOD:WOOD										RANGE:80			SOURCEPAGE:Equipment.rtf
-Dart											PROFICIENCY:WEAPON|Dart					TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown.Dart														COST:0.5	WT:0.5			CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:WOOD			WIELD:Light						RANGE:20	SIZE:M	SOURCEPAGE:Equipment.rtf
+Dart											PROFICIENCY:WEAPON|Dart					TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown.Dart														COST:0.5	WT:0.5			CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:STEEL.WOOD		WIELD:Light						RANGE:20	SIZE:M	SOURCEPAGE:Equipment.rtf
 Sling											PROFICIENCY:WEAPON|Sling				TYPE:Weapon.Simple.Ranged.Standard.Bludgeoning.Container.Projectile.Sling			CONTAINS:UNLIM|SlingStone|SpecificSlingStone	COST:0	WT:0				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:LEATHER									RANGE:50			SOURCEPAGE:Equipment.rtf	BONUS:WEAPON|DAMAGE|STR
 Crossbow (Heavy)			OUTPUTNAME:Crossbow, [NAME]		PROFICIENCY:WEAPON|Crossbow (Heavy)			TYPE:Weapon.Simple.Ranged.Standard.Piercing.Container.Projectile.Crossbow			CONTAINS:UNLIM|Bolt|SpecificBolt			COST:50	WT:8				CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10	EQMOD:WOOD										RANGE:120			SOURCEPAGE:Equipment.rtf
-Javelin										PROFICIENCY:WEAPON|Javelin				TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown.Javelin														COST:1	WT:2				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:WOOD										RANGE:30			SOURCEPAGE:Equipment.rtf
+Javelin										PROFICIENCY:WEAPON|Javelin				TYPE:Weapon.Simple.Ranged.Standard.Piercing.Thrown.Javelin														COST:1	WT:2				CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:STEEL.WOOD									RANGE:30			SOURCEPAGE:Equipment.rtf
