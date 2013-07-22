@@ -33,9 +33,7 @@ ABILITYCATEGORY:Eidolon Basic Magic Choice		VISIBLE:QUALIFY		EDITABLE:YES		EDITP
 ABILITYCATEGORY:Eidolon Minor Magic Choice		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidMinorMagic		PLURAL:Eidolon Minor Magic Choices		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Eidolon Major Magic Choice		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidMajorMagic		PLURAL:Eidolon Major Magic Choices		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Eidolon Ultimate Magic Choice		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidUltimateMagic		PLURAL:Eidolon Ultimate Magic Choices		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Eidolon Basic Magic Upgrade		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidBasicMagicUpgrade		PLURAL:Eidolon Basic Magic Upgrades		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Eidolon Minor Magic Upgrade		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidMinorMagicUpgrade		PLURAL:Eidolon Minor Magic Upgrades		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Eidolon Major Magic Upgrade		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidMajorMagicUpgrade		PLURAL:Eidolon Major Magic Upgrades		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Magic Upgrade		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidMagicUpgrade		PLURAL:Eidolon Magic Upgrades		DISPLAYLOCATION:Class Abilities
 
 
 ###Block: Cleric Archetype ability categories
