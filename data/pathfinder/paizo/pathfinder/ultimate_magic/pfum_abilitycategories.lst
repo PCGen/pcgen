@@ -29,6 +29,15 @@ ABILITYCATEGORY:Magus Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRAC
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
 ABILITYCATEGORY:Eidolon Aquatic Evolution	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionAquatic	PLURAL:Eidolon Aquatic Evolutions	DISPLAYLOCATION:Class Abilities
 
+ABILITYCATEGORY:Eidolon Basic Magic Choice		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidBasicMagic		PLURAL:Eidolon Basic Magic Choices		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Minor Magic Choice		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidMinorMagic		PLURAL:Eidolon Minor Magic Choices		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Major Magic Choice		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidMajorMagic		PLURAL:Eidolon Major Magic Choices		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Ultimate Magic Choice		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidUltimateMagic		PLURAL:Eidolon Ultimate Magic Choices		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Basic Magic Upgrade		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidBasicMagicUpgrade		PLURAL:Eidolon Basic Magic Upgrades		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Minor Magic Upgrade		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidMinorMagicUpgrade		PLURAL:Eidolon Minor Magic Upgrades		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Major Magic Upgrade		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidMajorMagicUpgrade		PLURAL:Eidolon Major Magic Upgrades		DISPLAYLOCATION:Class Abilities
+
+
 ###Block: Cleric Archetype ability categories
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
 ABILITYCATEGORY:Undead Lord Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:UndeadLordBonus	PLURAL:Undead Lord Bonus Feats	DISPLAYLOCATION:Feats
