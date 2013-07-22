@@ -225,10 +225,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	{
 		final List<T> newSelections =
 				doChooser(pc, availableList, selectedList, reservedList);
-		for (T obj : newSelections)
-		{
-			info.getChoiceActor().removeChoice(pc, owner, obj);
-		}
+		applyChoices(pc, newSelections);
 	}
 
 	protected void adjustPool(List<? extends T> selected)
