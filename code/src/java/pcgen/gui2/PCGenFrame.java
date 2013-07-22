@@ -1000,6 +1000,40 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 		return false;
 	}
+	
+	/**
+	 * Revert the character to the previous save. If no previous save, open a
+	 * new character tab.
+	 * @param character The character being saved.
+	 */
+	public void revertCharacter(CharacterFacade character)
+	{
+		if (character.isDirty())
+		{
+			int ret =
+					JOptionPane.showConfirmDialog(this, LanguageBundle
+						.getFormattedString("in_revertPcChoice", character //$NON-NLS-1$
+							.getNameRef().getReference()),
+						Constants.APPLICATION_NAME,
+						JOptionPane.YES_NO_OPTION);
+			if (ret == JOptionPane.YES_OPTION)
+			{
+				CharacterManager.removeCharacter(character);
+				
+				if (character.getFileRef().getReference() == null || 
+						StringUtils.isEmpty(character.getFileRef().getReference().getName()))
+				{
+					CharacterManager.openCharacter(character.getFileRef().getReference(), PCGenFrame.this,
+							currentDataSetRef.getReference());
+				}
+				else
+				{
+					createNewCharacter();
+				}
+			}
+		}
+		
+	}
 
 	void showOpenCharacterChooser()
 	{

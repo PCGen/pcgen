@@ -689,7 +689,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			throw new UnsupportedOperationException("Not supported yet.");
+			frame.revertCharacter(frame.getSelectedCharacterRef().getReference());
 		}
 
 	}
