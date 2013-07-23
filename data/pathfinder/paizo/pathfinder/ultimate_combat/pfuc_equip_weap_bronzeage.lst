@@ -3,15 +3,15 @@
 
 # Two-Handed Melee Weapons
 # Equipment Name	Required Weapon Proficiency	Type								Contains				Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier			Range
-Mattock		PROFICIENCY:WEAPON|Mattock	TYPE:Piercing.Fragile										COST:12	WT:12		CRITMULT:x4			CRITRANGE:1			DAMAGE:2d4	EQMOD:FRAGILE
-Rhomphaia		PROFICIENCY:WEAPON|Rhomphaia	TYPE:Piercing.Slashing.Brace.Fragile.Reach						COST:15	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d4	EQMOD:FRAGILE.BRACE
+Mattock		PROFICIENCY:WEAPON|Mattock	TYPE:Piercing.Fragile										COST:12	WT:12		CRITMULT:x4			CRITRANGE:1			DAMAGE:2d4	EQMOD:BRONZE.WOOD.FRAGILE
+Rhomphaia		PROFICIENCY:WEAPON|Rhomphaia	TYPE:Piercing.Slashing.Brace.Fragile.Reach						COST:15	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:2d4	EQMOD:BRONZE.FRAGILE.BRACE
 
 #Exotic Weapons
 #Two-Handed Melee Weapons
-Harpoon		PROFICIENCY:WEAPON|Harpoon	TYPE:Piercing.Ranged.Thrown.Fragile.Grapple						COST:5	WT:16		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:FRAGILE.GRAPPLE	RANGE:10
+Harpoon		PROFICIENCY:WEAPON|Harpoon	TYPE:Piercing.Ranged.Thrown.Fragile.Grapple						COST:5	WT:16		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:BRONZE.FRAGILE.GRAPPLE	RANGE:10
 
 #Ranged Weapons
-Kestros		PROFICIENCY:WEAPON|Kestros	TYPE:Piercing.Container.Ranged			CONTAINS:1|KestrosDart=1	COST:1	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8					RANGE:50
+Kestros		PROFICIENCY:WEAPON|Kestros	TYPE:Piercing.Container.Ranged			CONTAINS:1|KestrosDart=1	COST:1	WT:1		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8	EQMOD:LEATHER					RANGE:50
 Kestros Dart (10)						TYPE:Ammunition.KestrosDart									COST:5	WT:5
 
 

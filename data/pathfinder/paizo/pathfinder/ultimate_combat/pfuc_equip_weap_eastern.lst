@@ -59,7 +59,7 @@ Urumi					PROFICIENCY:WEAPON|Urumi					TYPE:Weapon.EasternWeapon.Eastern.Melee.E
 # Two-Handed
 Kyoketsu Shoge			PROFICIENCY:WEAPON|Kyoketsu Shoge				TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Piercing.Disarm.Grapple.Monk.Reach.Ranged.Thrown	COST:6	WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4					EQMOD:DISARM.MONK.STEEL					WIELD:TwoHanded	RANGE:20	SIZE:M
 Meteor Hammer			PROFICIENCY:WEAPON|Meteor Hammer				TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning.Reach.Trip							COST:10	WT:10		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8					EQMOD:STEEL.TRIP					WIELD:TwoHanded			SIZE:M
-Sword (Seven-Branched)		PROFICIENCY:WEAPON|Sword (Seven-Branched)			TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Disarm.Monk.Sword.Tengu							COST:50	WT:7		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10					EQMOD:MONK.STEEL					EQMOD:DISARM.STEEL					WIELD:TwoHanded			SIZE:M
+Sword (Seven-Branched)		PROFICIENCY:WEAPON|Sword (Seven-Branched)			TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Disarm.Monk.Sword.Tengu							COST:50	WT:7		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10					EQMOD:DISARM.MONK.STEEL				WIELD:TwoHanded			SIZE:M
 Tetsubo				PROFICIENCY:WEAPON|Tetsubo					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning									COST:20	WT:10		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d10					EQMOD:WOOD.STEEL					WIELD:TwoHanded			SIZE:M
 # Double
 Bo Staff				PROFICIENCY:WEAPON|Bo Staff					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning.Blocking.Double.Monk					COST:1	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6					EQMOD:MONK.WOOD					WIELD:TwoHanded			SIZE:M

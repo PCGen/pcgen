@@ -3,13 +3,13 @@
 ###Block: Eastern Armor
 # Light
 # Equipment Name		Required Armor Proficiency			Type									Cost		Weight	AC Penalty Check	Maximum DEX Bonus	% of Spell Failure	Combat bonus
-Haramaki			PROFICIENCY:ARMOR|Haramaki			TYPE:Armor.Light.Suit.Standard				COST:3	WT:1								SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
+Haramaki			PROFICIENCY:ARMOR|Haramaki			TYPE:Armor.Light.Suit.Standard	EQMOD:STEEL				COST:3	WT:1								SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
 Silken Ceremonial Armor	PROFICIENCY:ARMOR|Silken Ceremonial Armor	TYPE:Armor.Light.Suit.Standard	EQMOD:CLOTH		COST:30	WT:4								SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
 Lamellar Cuirass		PROFICIENCY:ARMOR|Lamellar Cuirass		TYPE:Armor.Light.Suit.Standard	EQMOD:LEATHER	COST:15	WT:8					MAXDEX:4		SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor
 Lamellar (Leather)	PROFICIENCY:ARMOR|Lamellar (Leather)	TYPE:Armor.Light.Suit.Standard	EQMOD:LEATHER	COST:60	WT:25		ACCHECK:-2		MAXDEX:3		SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
 
 # Medium
-Do-maru			PROFICIENCY:ARMOR|Do-maru			TYPE:Armor.Medium.Suit.Standard				COST:200	WT:30		ACCHECK:-4		MAXDEX:4		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
+Do-maru			PROFICIENCY:ARMOR|Do-maru			TYPE:Armor.Medium.Suit.Standard	EQMOD:LEATHER.STEEL				COST:200	WT:30		ACCHECK:-4		MAXDEX:4		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
 Kikko Armor			PROFICIENCY:ARMOR|Kikko Armor			TYPE:Armor.Medium.Suit.Standard	EQMOD:STEEL				COST:30	WT:25		ACCHECK:-3		MAXDEX:4		SPELLFAILURE:20		BONUS:COMBAT|AC|5|TYPE=Armor
 Lamellar (Horn)		PROFICIENCY:ARMOR|Lamellar (Horn)		TYPE:Armor.Medium.Suit.Standard	EQMOD:BONE				COST:100	WT:30		ACCHECK:-4		MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
 Four-mirror Armor		PROFICIENCY:ARMOR|Four-mirror Armor		TYPE:Armor.Medium.Suit.Standard	EQMOD:STEEL				COST:45	WT:45		ACCHECK:-5		MAXDEX:2		SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
