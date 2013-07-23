@@ -59,6 +59,7 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.gui.NameElement;
+import pcgen.gui2.UIPropertyContext;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.enumeration.Visibility;
@@ -546,8 +547,8 @@ public class NPCGenerator
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 
-		int tempChoicePref = SettingsHandler.getSingleChoicePreference();
-		SettingsHandler.setSingleChoicePreference(Constants.
+		int tempChoicePref = UIPropertyContext.getSingleChoiceAction();
+		UIPropertyContext.setSingleChoiceAction(Constants.
 			CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 
 		try
@@ -760,7 +761,7 @@ public class NPCGenerator
 		finally
 		{
 			SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
-			SettingsHandler.setSingleChoicePreference(tempChoicePref);
+			UIPropertyContext.setSingleChoiceAction(tempChoicePref);
 			ChooserFactory.popChooserClassname();
 		}
 	}

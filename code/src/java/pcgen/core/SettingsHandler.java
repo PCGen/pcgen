@@ -1361,8 +1361,6 @@ public final class SettingsHandler
 		setShowSkillModifier(getPCGenOption("showSkillModifier", true)); //$NON-NLS-1$
 		setShowSkillRanks(getPCGenOption("showSkillRanks", true)); //$NON-NLS-1$
 		setShowWarningAtFirstLevelUp(getPCGenOption("showWarningAtFirstLevelUp", true)); //$NON-NLS-1$
-		setSingleChoicePreference(getPCGenOption("ChooserSingleChoiceMethod",
-			Constants.CHOOSER_SINGLE_CHOICE_METHOD_NONE)); //$NON-NLS-1$
 		setSkillsTab_AvailableListMode(getPCGenOption("SkillsTab.availableListMode", //$NON-NLS-1$
 				GuiConstants.INFOSKILLS_VIEW_TYPE_NAME));
 		setSkillsTab_SelectedListMode(getPCGenOption("SkillsTab.selectedListMode", GuiConstants.INFOSKILLS_VIEW_NAME)); //$NON-NLS-1$
@@ -1664,7 +1662,6 @@ public final class SettingsHandler
 		setPCGenOption("autoGenerateMasterwork", isAutogenMasterwork()); //$NON-NLS-1$
 		setPCGenOption("autoGenerateRacial", isAutogenRacial()); //$NON-NLS-1$
 		setPCGenOption("chaTabPlacement", convertTabPlacementToString(chaTabPlacement)); //$NON-NLS-1$
-		setPCGenOption("ChooserSingleChoiceMethod", getSingleChoicePreference()); //$NON-NLS-1$
 		setPCGenOption("ClassTab.availableListMode", getClassTab_AvailableListMode()); //$NON-NLS-1$
 		setPCGenOption("ClassTab.selectedListMode", getClassTab_SelectedListMode()); //$NON-NLS-1$
 		setPCGenOption("country", getCountry()); //$NON-NLS-1$
@@ -2443,16 +2440,6 @@ public final class SettingsHandler
 	public static boolean isShowWarningAtFirstLevelUp()
 	{
 		return showWarningAtFirstLevelUp;
-	}
-
-	public static void setSingleChoicePreference(final int argPreference)
-	{
-		singleChoicePreference = argPreference;
-	}
-
-	public static int getSingleChoicePreference()
-	{
-		return singleChoicePreference;
 	}
 
 	public static void setSkillsTab_AvailableListMode(final int listMode)

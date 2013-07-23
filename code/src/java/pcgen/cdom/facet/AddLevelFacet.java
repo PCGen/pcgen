@@ -31,6 +31,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.gui2.UIPropertyContext;
 
 /**
  * AddLevelFacet performs the addition of levels to a Player Character that are
@@ -180,12 +181,12 @@ public class AddLevelFacet implements DataFacetChangeListener<PCTemplate>
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
 		SettingsHandler.setShowFeatDialogAtLevelUp(false);
-		int tempChoicePref = SettingsHandler.getSingleChoicePreference();
-		SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
+		int tempChoicePref = UIPropertyContext.getSingleChoiceAction();
+		UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 
 		pc.incrementClassLevel(levels, pcClass, true, true);
 
-		SettingsHandler.setSingleChoicePreference(tempChoicePref);
+		UIPropertyContext.setSingleChoiceAction(tempChoicePref);
 		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 	}

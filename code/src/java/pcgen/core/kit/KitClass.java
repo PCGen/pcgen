@@ -35,6 +35,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SubClass;
 import pcgen.core.analysis.SubClassApplication;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.gui2.UIPropertyContext;
 
 /**
  * <code>KitClass</code> <strong>needs documentation</strong>.
@@ -134,15 +135,15 @@ public class KitClass extends BaseKit
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 		//		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
 		//		SettingsHandler.setShowFeatDialogAtLevelUp(false);
-		int tempChoicePref = SettingsHandler.getSingleChoicePreference();
-		SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
+		int tempChoicePref = UIPropertyContext.getSingleChoiceAction();
+		UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 
 		boolean tempDoLevelAbilities = pc.doLevelAbilities();
 		pc.setDoLevelAbilities(doLevelAbilitiesIn);
 		pc.incrementClassLevel(numLevels, aClass, true);
 		pc.setDoLevelAbilities(tempDoLevelAbilities);
 
-		SettingsHandler.setSingleChoicePreference(tempChoicePref);
+		UIPropertyContext.setSingleChoiceAction(tempChoicePref);
 		//		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 	}

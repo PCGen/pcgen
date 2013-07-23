@@ -38,6 +38,7 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import pcgen.core.SettingsHandler;
+import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.JComboBoxEx;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
@@ -210,7 +211,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
 			PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS,
 			useOutputNamesOther.isSelected());
-		SettingsHandler.setSingleChoicePreference(cmbChoiceMethods
+		UIPropertyContext.setSingleChoiceAction(cmbChoiceMethods
 			.getSelectedIndex());
 		SettingsHandler.setUseFeatBenefits(!featDescriptionShown.isSelected());
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
@@ -227,8 +228,8 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 	@Override
 	public void applyOptionValuesToControls()
 	{
-		cmbChoiceMethods.setSelectedIndex(SettingsHandler
-			.getSingleChoicePreference());
+		cmbChoiceMethods.setSelectedIndex(UIPropertyContext
+			.getSingleChoiceAction());
 		featDescriptionShown.setSelected(!SettingsHandler.useFeatBenefits());
 //		showMemory.setSelected(SettingsHandler.isShowMemoryArea());
 //		showImagePreview.setSelected(SettingsHandler.isShowImagePreview());

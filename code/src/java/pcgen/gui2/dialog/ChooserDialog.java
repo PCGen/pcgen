@@ -48,6 +48,7 @@ import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import pcgen.cdom.base.Constants;
 import pcgen.core.facade.ChooserFacade;
 import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.facade.InfoFacade;
@@ -122,6 +123,35 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		overridePrefs();
 		initComponents();
 		pack();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void setVisible(boolean b)
+	{
+		//
+		// Only do this if 1 entry and can add...
+		//
+		ListFacade<InfoFacade> availableList = chooser.getAvailableList();
+		if ((availableList != null) && (availableList.getSize() == 1) && b)
+		{
+			final int method = UIPropertyContext.getSingleChoiceAction();
+
+			if (method != Constants.CHOOSER_SINGLE_CHOICE_METHOD_NONE)
+			{
+				chooser.addSelected(availableList.getElementAt(0));
+
+				if (method == Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT)
+				{
+					chooser.commit();
+					return;
+				}
+			}
+		}
+
+		super.setVisible(b);
 	}
 
 	/**

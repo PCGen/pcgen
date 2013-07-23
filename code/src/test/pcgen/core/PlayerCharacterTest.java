@@ -66,6 +66,7 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
 import pcgen.core.system.LoadInfo;
+import pcgen.gui2.UIPropertyContext;
 import pcgen.io.exporttoken.StatToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
@@ -226,7 +227,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		wpnProfTestC.addToListFor(ListKey.TYPE, Type.getConstant("Exotic"));
 		context.ref.importObject(wpnProfTestC);
 	
-		SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
+		UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
 	
 		context.unconditionallyProcess(pcClass.getOriginalClassLevel(1), "ADD",
@@ -470,7 +471,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.setRace(human);
 		character.incrementClassLevel(1, pcClass, true);
 
-		SettingsHandler.setSingleChoicePreference(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
+		UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
 
 		is((int) character.getRemainingFeatPoints(true), eq(2), "Start with 2 feats");
