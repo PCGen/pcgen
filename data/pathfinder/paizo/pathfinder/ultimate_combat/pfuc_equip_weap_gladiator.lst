@@ -4,7 +4,7 @@
 
 # Light
 # Equipment Name	Required Weapon Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Range
-Gladius		PROFICIENCY:WEAPON|Gladius			TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance.Sword.Tengu		COST:15	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6					EQMOD:PERFORMANCE.STEEL
+Gladius		PROFICIENCY:WEAPON|Sword (Short)			TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance				COST:15	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6
 
 # One-Handed
 Scizore		PROFICIENCY:WEAPON|Scizore			TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance				COST:20	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10					EQMOD:PERFORMANCE.STEEL
