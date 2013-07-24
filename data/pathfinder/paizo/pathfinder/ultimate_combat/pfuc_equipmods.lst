@@ -36,7 +36,8 @@ Gold				KEY:GOLD							TYPE:Weapon.Shield.Armor									ITYPE:Gold
 Stone				KEY:STONE							TYPE:Weapon.Shield.Armor									ITYPE:Stone
 Obsidian			KEY:OBSIDIAN						TYPE:Weapon.Shield.Armor									ITYPE:Obsidian
 
-
+###Block:
+Throwing Shield		KEY:THRW_SHLD	COST:50				TYPE:Shield				VISIBLE:QUALIFY	SPROP:small 1d4 damage; medium 1d6 damage; range 20 ft., deals bludgeoning damage.		SOURCEPAGE:p.145
 
 
 
