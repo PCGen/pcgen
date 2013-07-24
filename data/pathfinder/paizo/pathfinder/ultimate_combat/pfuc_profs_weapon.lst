@@ -103,7 +103,7 @@ Wakizashi.MOD			TYPE:Samurai.LightBlade
 ###Block: Gladiator
 # Martial
 # Weapon Name		Type
-Gladius			TYPE:GladiatorMelee.Martial.Piercing.Performance.Light
+#Gladius			TYPE:GladiatorMelee.Martial.Piercing.Performance.Light
 
 # One-Handed
 Scizore			TYPE:GladiatorMelee.Martial.Piercing.Performance.OneHanded
