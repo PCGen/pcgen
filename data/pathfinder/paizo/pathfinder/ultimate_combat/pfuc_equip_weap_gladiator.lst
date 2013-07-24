@@ -7,7 +7,7 @@
 Gladius		PROFICIENCY:WEAPON|Sword (Short)			TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance.GladiatorMelee.Performance.Light				COST:15	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6
 
 # One-Handed
-Scizore		PROFICIENCY:WEAPON|Scizore			TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance				COST:20	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10					EQMOD:PERFORMANCE.STEEL
+Scizore		PROFICIENCY:WEAPON|Scizore			TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance				COST:20	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d10					EQMOD:PERFORMANCE.STEEL	SPROP:The Scizore offers a bonus to AC when not attacking with it, or a -1 to hit if using it to attack.
 
 # Ranged Weapons
 Amentum (Javelin)	PROFICIENCY:WEAPON|Amentum (Javelin)	TYPE:Weapon.GladiatorWeapon.Melee.Martial.Piercing.Performance.Thrown.Ranged				WT:1		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6					EQMOD:LEATHER.PERFORMANCE.STEEL	RANGE:50
