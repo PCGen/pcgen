@@ -126,7 +126,8 @@ public class DebugDialog extends JDialog
 
 			}, BorderLayout.CENTER);
 			add(clearButton, BorderLayout.SOUTH);
-			logText.setFocusable(false);
+			logText.setFocusable(true);
+			logText.setEditable(false);
 			logText.addMouseListener(this);
 			clearButton.setActionCommand("CLEAR");
 			clearButton.addActionListener(this);
