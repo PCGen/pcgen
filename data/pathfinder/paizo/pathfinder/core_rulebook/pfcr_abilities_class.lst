@@ -401,10 +401,10 @@ CATEGORY=Special Ability|Fighter Weapon Training.MOD	BONUS:ABILITYPOOL|Weapon Tr
 
 ###Block:
 # Ability Name						Define					Modify VAR
-CATEGORY=Special Ability|Weapon Training.MOD	DEFINE:WeaponTrainingTierOne|0	BONUS:VAR|WeaponTrainingTierOne|WeaponTrainingBase+MAX(count("ABILITIES","CATEGORY=Special Ability","TYPE=WeaponTraining")-1,0)
-CATEGORY=Special Ability|Weapon Training.MOD	DEFINE:WeaponTrainingTierTwo|0	BONUS:VAR|WeaponTrainingTierTwo|WeaponTrainingBase+MAX(count("ABILITIES","CATEGORY=Special Ability","TYPE=WeaponTraining")-2,0)
-CATEGORY=Special Ability|Weapon Training.MOD	DEFINE:WeaponTrainingTierThree|0	BONUS:VAR|WeaponTrainingTierThree|WeaponTrainingBase+MAX(count("ABILITIES","CATEGORY=Special Ability","TYPE=WeaponTraining")-3,0)
-CATEGORY=Special Ability|Weapon Training.MOD	DEFINE:WeaponTrainingFour|0		BONUS:VAR|WeaponTrainingTierFour|WeaponTrainingBase+MAX(count("ABILITIES","CATEGORY=Special Ability","TYPE=WeaponTraining")-4,0)
+CATEGORY=Special Ability|Weapon Training.MOD	DEFINE:WeaponTrainingTierOne|0	BONUS:VAR|WeaponTrainingTierOne|WeaponTrainingBase+MAX(countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=WeaponTraining")-1,0)
+CATEGORY=Special Ability|Weapon Training.MOD	DEFINE:WeaponTrainingTierTwo|0	BONUS:VAR|WeaponTrainingTierTwo|WeaponTrainingBase+MAX(countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=WeaponTraining")-2,0)
+CATEGORY=Special Ability|Weapon Training.MOD	DEFINE:WeaponTrainingTierThree|0	BONUS:VAR|WeaponTrainingTierThree|WeaponTrainingBase+MAX(countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=WeaponTraining")-3,0)
+CATEGORY=Special Ability|Weapon Training.MOD	DEFINE:WeaponTrainingFour|0		BONUS:VAR|WeaponTrainingTierFour|WeaponTrainingBase+MAX(countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=WeaponTraining")-4,0)
 
 
 CATEGORY=Special Ability|Weapon Training.MOD	DEFINE:WeaponTrainingAxes|0
