@@ -2,15 +2,15 @@ Immunity to Acid		CATEGORY:Special Ability	TYPE:SpecialQuality
 Immunity to Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality
 
 Size_Master	VISIBLE:NO	CATEGORY:Internal
-	ABILITY:Internal|AUTOMATIC|FACE_0|PRESIZEEQ:F	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:F
-	ABILITY:Internal|AUTOMATIC|FACE_1|PRESIZEEQ:D	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:D
-	ABILITY:Internal|AUTOMATIC|FACE_2|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:T
-	ABILITY:Internal|AUTOMATIC|FACE_5|PREMULT:1,[PRESIZEEQ:S],[PRESIZEEQ:M]	ABILITY:Internal|AUTOMATIC|REACH_5|PREMULT:1,[PRESIZEEQ:S],[PRESIZEEQ:M]
-	ABILITY:Internal|AUTOMATIC|FACE_10|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|REACH_10|PRESIZEEQ:L|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_5|PRESIZEEQ:L|PREVAREQ:RaceSizeIsLong,1
-	ABILITY:Internal|AUTOMATIC|FACE_15|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|REACH_15|PRESIZEEQ:H|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_10|PRESIZEEQ:H|PREVAREQ:RaceSizeIsLong,1
-	ABILITY:Internal|AUTOMATIC|FACE_20|PRESIZEEQ:G	ABILITY:Internal|AUTOMATIC|REACH_20|PRESIZEEQ:G|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_10|PRESIZEEQ:G|PREVAREQ:RaceSizeIsLong,1
-	ABILITY:Internal|AUTOMATIC|FACE_30|PRESIZEEQ:C	ABILITY:Internal|AUTOMATIC|REACH_30|PRESIZEEQ:C|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_15|PRESIZEEQ:C|PREVAREQ:RaceSizeIsLong,1
-	ABILITY:Internal|AUTOMATIC|FACE_30|PRESIZEEQ:P	ABILITY:Internal|AUTOMATIC|REACH_30|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_20|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,1
+#	ABILITY:Internal|AUTOMATIC|FACE_0|PRESIZEEQ:F	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:F
+#	ABILITY:Internal|AUTOMATIC|FACE_1|PRESIZEEQ:D	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:D
+#	ABILITY:Internal|AUTOMATIC|FACE_2|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:T
+#	ABILITY:Internal|AUTOMATIC|FACE_5|PREMULT:1,[PRESIZEEQ:S],[PRESIZEEQ:M]	ABILITY:Internal|AUTOMATIC|REACH_5|PREMULT:1,[PRESIZEEQ:S],[PRESIZEEQ:M]
+#	ABILITY:Internal|AUTOMATIC|FACE_10|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|REACH_10|PRESIZEEQ:L|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_5|PRESIZEEQ:L|PREVAREQ:RaceSizeIsLong,1
+#	ABILITY:Internal|AUTOMATIC|FACE_15|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|REACH_15|PRESIZEEQ:H|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_10|PRESIZEEQ:H|PREVAREQ:RaceSizeIsLong,1
+#	ABILITY:Internal|AUTOMATIC|FACE_20|PRESIZEEQ:G	ABILITY:Internal|AUTOMATIC|REACH_20|PRESIZEEQ:G|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_10|PRESIZEEQ:G|PREVAREQ:RaceSizeIsLong,1
+#	ABILITY:Internal|AUTOMATIC|FACE_30|PRESIZEEQ:C	ABILITY:Internal|AUTOMATIC|REACH_30|PRESIZEEQ:C|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_15|PRESIZEEQ:C|PREVAREQ:RaceSizeIsLong,1
+#	ABILITY:Internal|AUTOMATIC|FACE_30|PRESIZEEQ:P	ABILITY:Internal|AUTOMATIC|REACH_30|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_20|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,1
 
 ###Block: Size Mods for Automatic Changes , REACH AND FACE Broken in Templates
 REACH_0	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:REACH_0
@@ -145,9 +145,9 @@ Keen Senses (Ex)		KEY:Keen Senses ~ Dragon						CATEGORY:Special Ability	TYPE:Ra
 Skills			KEY:Skills ~ Dragon							CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:All dragons have skill points equal to (6 + Int modifier, minimum 1) ? (Hit Dice + 3). Most dragons purchase the following skills at the maximum ranks possible: Listen, Search, and Spot. The remaining skill points are generally spent on Concentration, Diplomacy, Escape Artist, Intimidate, Knowledge (any), Sense Motive, and Use Magic Device at a cost of 1 skill point per rank. All these skills are considered class skills for dragons. (Each dragon has other class skills as well, as noted in the variety descriptions.)
 Feats				KEY:Feats ~ Dragon							CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:All dragons have one feat, plus an additional feat per 3 Hit Dice, just like any other creature. Dragons favor Alertness, Blind-Fight, Cleave, Flyby Attack, Hover, Improved Initiative, Improved Sunder, Power Attack, Snatch, Weapon Focus (claw or bite), Wingover, and any metamagic feat that is available and useful to sorcerers.
 # This sets speed and maneuverability based upon size (Note Gold Dragon is 50' faster and needs a BONUS:MOVEADD applied.)
-DRAGON_FLY_SPEED_100	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,100	DEFINE:Maneuverability|3
-DRAGON_FLY_SPEED_150	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,150	DEFINE:Maneuverability|2
-DRAGON_FLY_SPEED_200	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,200	DEFINE:Maneuverability|1
+DRAGON_FLY_SPEED_100	TEMPLATE:DRAGON_FLY_SPEED_100	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,100	DEFINE:Maneuverability|3
+DRAGON_FLY_SPEED_150	TEMPLATE:DRAGON_FLY_SPEED_150	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,150	DEFINE:Maneuverability|2
+DRAGON_FLY_SPEED_200	TEMPLATE:DRAGON_FLY_SPEED_200	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,200	DEFINE:Maneuverability|1
 # This sets the Default Dragon Attacks which are soley based upon Size.
 DRAGON_ATTACKS_T	CATEGORY:Internal	VISIBLE:NO	TEMPLATE:DRAGON_ATTACKS_T
 DRAGON_ATTACKS_S	CATEGORY:Internal	VISIBLE:NO	TEMPLATE:DRAGON_ATTACKS_S

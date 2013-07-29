@@ -6,7 +6,7 @@ SOURCELONG:Words of Power	SOURCESHORT:PFWoP	SOURCEWEB:http://paizo.com/pathfinde
 ###Block: Feats
 
 # Feat Name					Type			Required Class			Multiple Requirements														Req. Spell Type		Description															Stackable?	Multiple?	Choose				Automatically Gained Feat																							Source Page
-Experimental Spellcaster		TYPE:General																							PRESPELLTYPE:1,ANY=0	DESC:Learn some words of power											STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER	AUTO:FEAT|Experimental Spellcaster First	AUTO:FEAT|Experimental Spellcaster Rest|PREVARGT:countdistinct("ABILITIES","CATEGORY=FEAT",NAME="Experimental Spellcaster"),1	SOURCEPAGE:p.166
+Experimental Spellcaster		TYPE:General																							PRESPELLTYPE:1,ANY=0	DESC:Learn some words of power											STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER	AUTO:FEAT|Experimental Spellcaster First	AUTO:FEAT|Experimental Spellcaster Rest|PREVARGT:count("ABILITIES","CATEGORY=FEAT",NAME="Experimental Spellcaster"),1	SOURCEPAGE:p.166
 # NEEDS DATA WORK: Not yet implemented.  Need to know which class to add the known words to.
 Experimental Spellcaster First	TYPE:Internal
 # NEEDS DATA WORK: Not yet implemented.  Need to know which class to add the known words to.
