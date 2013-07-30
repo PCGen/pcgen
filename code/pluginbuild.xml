@@ -5258,6 +5258,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${jepplugins.dir}/JepCommand-COUNTDISTINCT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/jepcommands/CountDistinctCommand*.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<jar jarfile="${jepplugins.dir}/JepCommand-FLOOR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

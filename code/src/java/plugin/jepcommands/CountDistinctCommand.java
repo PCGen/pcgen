@@ -70,7 +70,7 @@ import pcgen.util.enumeration.Visibility;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class CountCommand extends PCGenCommand
+public class CountDistinctCommand extends PCGenCommand
 {
 
 	public enum JepAbilityCountEnum
@@ -125,22 +125,7 @@ public class CountCommand extends PCGenCommand
 
 					getData(pc);
 
-					//return (double) doFilterP(pt).size();
-					final Set<? extends CDOMObject> filtered = doFilterP(pt);
-					return countData(filtered, pc);
-				}
-
-				protected Object countData(final Iterable<? extends CDOMObject> filtered,
-						PlayerCharacter pc)
-				{
-					double accum = 0;
-					
-					for (final CDOMObject ab : filtered)
-					{
-						final double ac = pc.getSelectCorrectedAssociationCount(ab);
-						accum += 1.01 >= ac ? 1 : ac;
-					}
-					return accum;
+					return (double) doFilterP(pt).size();
 				}
 
 				@Override
@@ -1144,7 +1129,7 @@ public class CountCommand extends PCGenCommand
 	/**
 	 * Constructor.
 	 */
-	public CountCommand()
+	public CountDistinctCommand()
 	{
 		numberOfParameters = -1;
 	}
@@ -1156,7 +1141,7 @@ public class CountCommand extends PCGenCommand
 	@Override
 	public String getFunctionName()
 	{
-		return "COUNT";
+		return "COUNTDISTINCT";
 	}
 
 	/**
