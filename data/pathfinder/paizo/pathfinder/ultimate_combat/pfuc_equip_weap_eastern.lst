@@ -20,11 +20,11 @@ Double Chicken Saber			PROFICIENCY:WEAPON|Double Chicken Saber			TYPE:Weapon.Eas
 Sibat						PROFICIENCY:WEAPON|Sibat					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial					COST:2	WT:2		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6					EQMOD:WOOD					WIELD:OneHanded			SIZE:M
 
 # Two-Handed Melee Weapons
-Hooked Lance				PROFICIENCY:WEAPON|Hooked Lance				TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Reach.Trip			COST:3	WT:10		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d8					EQMOD:STEEL.TRIP					WIELD:TwoHanded			SIZE:M
-Naginata					PROFICIENCY:WEAPON|Naginata					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Reach				COST:35	WT:9		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d8					EQMOD:STEEL					WIELD:TwoHanded			SIZE:M
+Hooked Lance				PROFICIENCY:WEAPON|Hooked Lance				TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Reach.Trip		REACHMULT:2	COST:3	WT:10		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d8					EQMOD:STEEL.TRIP					WIELD:TwoHanded			SIZE:M
+Naginata					PROFICIENCY:WEAPON|Naginata					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Reach			REACHMULT:2	COST:35	WT:9		CRITMULT:x4			CRITRANGE:1			DAMAGE:1d8					EQMOD:STEEL					WIELD:TwoHanded			SIZE:M
 Nodachi					PROFICIENCY:WEAPON|Nodachi					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Brace.Tengu				COST:60	WT:8		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d10					EQMOD:BRACE.STEEL					WIELD:TwoHanded			SIZE:M
 Sansetsukon					PROFICIENCY:WEAPON|Sansetsukon				TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Blocking.Disarm.Monk	COST:8	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10					EQMOD:MONK.WOOD					WIELD:TwoHanded			SIZE:M
-Sword (Tri-Point Double-Edged)	PROFICIENCY:WEAPON|Sword (Tri-Point Double-Edged)	TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Reach.Tengu				COST:12	WT:14		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10					EQMOD:STEEL					WIELD:TwoHanded			SIZE:M
+Sword (Tri-Point Double-Edged)	PROFICIENCY:WEAPON|Sword (Tri-Point Double-Edged)	TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Reach.Tengu		REACHMULT:2		COST:12	WT:14		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10					EQMOD:STEEL					WIELD:TwoHanded			SIZE:M
 Tiger Fork					PROFICIENCY:WEAPON|Tiger Fork					TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Brace.Monk			COST:5	WT:8		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d8					EQMOD:BRACE.MONK.STEEL					WIELD:TwoHanded			SIZE:M
 # Double
 Monk's Spade				PROFICIENCY:WEAPON|Monk's Spade				TYPE:Weapon.EasternWeapon.Eastern.Melee.Martial.Double.Monk			COST:20	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	ALTDAMAGE:1d6					EQMOD:MONK.WOOD		WIELD:TwoHanded			SIZE:M
