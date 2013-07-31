@@ -1,0 +1,42 @@
+# CVS $Revision: $ $Author: $ -- Fri Jul 12 16:25:58 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+#SOURCELONG:Blood of Fiends	SOURCESHORT:PFBOF	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: Stefan Radermacher
+# ORIGINAL ENTRY DATE: 12 July 2013
+
+ABILITYCATEGORY:Tiefling Subrace	TYPE:TieflingSubrace	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		DISPLAYLOCATION:Racial Abilities
+
+
+
+###Block: Tiefling Race Traits
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Asura Spawn Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AsuraSpawnRacialTrait	PLURAL:Asura Spawn Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Daemon Spawn Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DaemonSpawnRacialTrait	PLURAL:Daemon Spawn Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Demodand Spawn Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DemodandSpawnRacialTrait	PLURAL:Demodand Spawn Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Demon Spawn Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DemonSpawnRacialTrait	PLURAL:Demon Spawn Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Devil Spawn Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DevilSpawnRacialTrait	PLURAL:Devil Spawn Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Div Spawn Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DivSpawnRacialTrait	PLURAL:Div Spawn Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Kyton Spawn Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KytonSpawnRacialTrait	PLURAL:Kyton Spawn Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Oni Spawn Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OniSpawnRacialTrait	PLURAL:Oni Spawn Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Qlippoth Spawn Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:QlippothSpawnRacialTrait	PLURAL:Qlippoth Spawn Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Rakshasa Spawn Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RakshasaSpawnRacialTrait	PLURAL:Rakshasa Spawn Racial Traits	DISPLAYLOCATION:Racial Abilities
+
+###Block: Tiefling Race Traits
+ABILITYCATEGORY:Tiefling Race Trait			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:TieflingRaceTrait		PLURAL:Tiefling Race Traits		DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Asura Spawn Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AsuraSpawnRaceTrait	PLURAL:Asura Spawn Race Traits	DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Daemon Spawn Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DaemonSpawnRaceTrait	PLURAL:Daemon Spawn Race Traits	DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Demodand Spawn Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DemodandSpawnRaceTrait	PLURAL:Demodand Spawn Race Traits	DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Demon Spawn Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DemonSpawnRaceTrait	PLURAL:Demon Spawn Race Traits	DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Devil Spawn Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DevilSpawnRaceTrait	PLURAL:Devil Spawn Race Traits	DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Div Spawn Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DivSpawnRaceTrait		PLURAL:Div Spawn Race Traits		DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Kyton Spawn Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:KytonSpawnRaceTrait	PLURAL:Kyton Spawn Race Traits	DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Oni Spawn Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:OniSpawnRaceTrait		PLURAL:Oni Spawn Race Traits		DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Qlippoth Spawn Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:QlippothSpawnRaceTrait	PLURAL:Qlippoth Spawn Race Traits	DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Rakshasa Spawn Race Trait		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RakshasaSpawnRaceTrait	PLURAL:Rakshasa Spawn Race Traits	DISPLAYLOCATION:Race Abilities
+
+###Block: Class Bonus Feat Categories
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object		Specific choices list		Plural description for UI	Display Location
+ABILITYCATEGORY:Daemon Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:DaemonBloodline	ABILITYLIST:Skill Focus(Heal)	PLURAL:Daemon Bloodline Feats	DISPLAYLOCATION:Feats
+
+#
+# End
+#

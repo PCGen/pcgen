@@ -1,0 +1,27 @@
+# CVS $Revision: 19255 $ $Author: amaitland $ -- Fri Jul 12 15:57:29 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Blood of Fiends	SOURCESHORT:BOF	SOURCEWEB:http://paizo.com/products/btpy8qzz?Pathfinder-Player-Companion-Blood-of-Fiends	SOURCEDATE:2012-04
+# ORIGINAL ENTRY: Stefan Radermacher
+# ORIGINAL ENTRY DATE: 12 July 2013
+
+###Block: Template to activate bardic masterpieces
+# Template Name				Visible	Ability
+Masterpiece Activation Tiefling	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Dance of Kindled Desires|PREMULT:1,[PRESPELL:1,Masterpiece (Dance of Kindled Desires)],[PREFEAT:1,Masterpiece (Dance of Kindled Desires)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Melody of Frightful Death|PREMULT:1,[PRESPELL:1,Masterpiece (Melody of Frightful Death)],[PREFEAT:1,Masterpiece (Melody of Frightful Death)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Rheumy Refrain|PREMULT:1,[PRESPELL:1,Masterpiece (Rheumy Refrain)],[PREFEAT:1,Masterpiece (Rheumy Refrain)]
+
+
+###Block: Subrace
+Asura-Spawn		SUBRACE:YES	VISIBLE:NO	KEY:Tiefling (Asura-Spawn)	RACESUBTYPE:Asura-Spawn
+Daemon-Spawn	SUBRACE:YES	VISIBLE:NO	KEY:Tiefling (Daemon-Spawn)	RACESUBTYPE:Daemon-Spawn
+Demodand-Spawn	SUBRACE:YES	VISIBLE:NO	KEY:Tiefling (Demodand-Spawn)	RACESUBTYPE:Demodand-Spawn
+Demon-Spawn		SUBRACE:YES	VISIBLE:NO	KEY:Tiefling (Demon-Spawn)	RACESUBTYPE:Demon-Spawn
+Devil-Spawn		SUBRACE:YES	VISIBLE:NO	KEY:Tiefling (Devil-Spawn)	RACESUBTYPE:Devil-Spawn
+Div-Spawn		SUBRACE:YES	VISIBLE:NO	KEY:Tiefling (Div-Spawn)	RACESUBTYPE:Div-Spawn
+Kyton-Spawn		SUBRACE:YES	VISIBLE:NO	KEY:Tiefling (Kyton-Spawn)	RACESUBTYPE:Kyton-Spawn
+Oni-Spawn		SUBRACE:YES	VISIBLE:NO	KEY:Tiefling (Oni-Spawn)	RACESUBTYPE:Oni-Spawn
+Qlippoth-Spawn	SUBRACE:YES	VISIBLE:NO	KEY:Tiefling (Qlippoth-Spawn)	RACESUBTYPE:Qlippoth-Spawn
+Rakshasa-Spawn	SUBRACE:YES	VISIBLE:NO	KEY:Tiefling (Rakshasa-Spawn)	RACESUBTYPE:Rakshasa-Spawn
+
+
+
+#
+# End
+#
