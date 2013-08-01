@@ -40,7 +40,7 @@ Dagger (Swordbreaker)	TYPE:Exotic.Melee.Light.Slashing.MeleeSlashing.Dagger
 # -- 1-handers
 Falcata			TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword
 Khopesh			TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword
-Sword (Temple)		TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword
+Sword (Temple)		TYPE:Exotic.Melee.Slashing.MeleeSlashing.Sword.Monk
 
 # -- 2-handers
 Spear (Chain)		TYPE:Exotic.Melee.Piercing.Slashing.MeleePiercing.MeleeSlashing.Spear.TwoHanded
