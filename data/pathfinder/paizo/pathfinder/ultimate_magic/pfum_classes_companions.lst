@@ -11,6 +11,6 @@ CLASS:Vermin Companion	STARTSKILLPTS:0	MODTOSKILLS:NO			CSKILL:Acrobatics|Climb|
 1	AUTO:FEAT|CMB Output
 
 # Class Name	Output Name			Hit Dice	Type				Abbreviation		Max Level	Source Page		Visible
-CLASS:Black Blade	OUTPUTNAME:Black Blade	HD:1		TYPE:Monster.Companion	CLASSTYPE:Companion	ABB:BB		MAXLEVEL:1	SOURCEPAGE:p.47	VISIBLE:NO
+CLASS:Black Blade	OUTPUTNAME:Black Blade	HD:0	MAXLEVEL:1	TYPE:Monster.Companion	CLASSTYPE:Companion	ABB:BB		MAXLEVEL:1	SOURCEPAGE:p.47	VISIBLE:NO
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
-CLASS:Black Blade	STARTSKILLPTS:0	MODTOSKILLS:NO	BONUS:HP|CURRENTMAX|4
+CLASS:Black Blade	STARTSKILLPTS:0	MODTOSKILLS:NO	BONUS:HP|CURRENTMAX|5
