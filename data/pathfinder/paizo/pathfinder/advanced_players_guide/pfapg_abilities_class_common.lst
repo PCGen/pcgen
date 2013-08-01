@@ -31,7 +31,7 @@ CATEGORY=FEAT|CMB Output.MOD						DEFINE:CMB_Steal|0	DEFINE:CMD_Steal|0									
 
 ## Monk Weapons
 CATEGORY=Special Ability|Weapon and Armor Proficiency ~ Druid.MOD											AUTO:WEAPONPROF|Sword (Temple)
-
+CATEGORY=Special Ability|Weapon and Armor Proficiency ~ Monk.MOD		AUTO:WEAPONPROF|Sword (Temple)
 #
 # End
 #
