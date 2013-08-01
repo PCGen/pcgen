@@ -1,23 +1,26 @@
 body  {
-	font-family: Arial;
-	font-size: 10pt; 
-	text-align: left; 
+	font-family: Gandhi Sans, Arial;
+	font-size: 11pt;
+	text-align: left;
 	color: black;
-	background: white; 
-	font-weight: normal; 
-	margin: 0px; 
+	background: white;
+	font-weight: normal;
+	margin: 0px;
 	padding: 5px;
 }
 
 p {
-		text-indent: -2em;
-		margin-left: 2em	
+	text-indent: -1em;
+	margin-left: 1em
 }
 
 p.xp {
-	font-size: 12pt;
+	font-size: 110%;
 }
 
+p.spells {
+	margin-left: 2em;
+}
 
 table.section {
 	width: 100%;
@@ -42,6 +45,6 @@ table.name {
 
 td.name {
 	font-variant: small-caps;
-	padding-left: 5px; 
+	padding-left: 5px;
 	padding-right: 5px;
 }
