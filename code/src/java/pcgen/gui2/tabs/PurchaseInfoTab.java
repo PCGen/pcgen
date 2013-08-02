@@ -117,8 +117,6 @@ import pcgen.system.LanguageBundle;
 public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private static final Font LABEL_FONT = new Font("Verdana", Font.BOLD, 12); //$NON-NLS-1$
-	private static final Font TEXT_FONT = new Font("Verdana", Font.PLAIN, 12); //$NON-NLS-1$
 	private static final Set<String> primaryTypes = new HashSet<String>();
 	private final FilteredTreeViewTable<CharacterFacade, EquipmentFacade> availableTable;
 	private final FilteredTreeViewTable<CharacterFacade, EquipmentFacade> purchasedTable;
@@ -242,7 +240,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			splitPane.setRightComponent(panel);
 		}
 		setTopComponent(splitPane);
-		splitPane = new FlippingSplitPane("PurchaseBottom");
+		splitPane = new FlippingSplitPane("PurchaseBottom"); //$NON-NLS-1$
 		splitPane.setOrientation(HORIZONTAL_SPLIT);
 		{// Bottom Left Panel
 			JPanel panel = new JPanel();
@@ -291,27 +289,22 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		fullLineGbc.fill = GridBagConstraints.HORIZONTAL;
 
 		JLabel label = new JLabel(LanguageBundle.getString("in_igValueLabel"));  //$NON-NLS-1$
-		label.setFont(LABEL_FONT);
 		panel.add(label, leftGbc);
 		wealthLabel.setEditable(false);
-		wealthLabel.setFont(TEXT_FONT);
 		wealthLabel.setColumns(10);
 		wealthLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 		panel.add(wealthLabel, middleGbc);
 		panel.add(createCurrencyLabel(), rightGbc);
 
 		label = new JLabel(LanguageBundle.getString("in_igFundsLabel"));  //$NON-NLS-1$
-		label.setFont(LABEL_FONT);
 		panel.add(label, leftGbc);
 		goldField.setHorizontalAlignment(SwingConstants.RIGHT);
-		goldField.setFont(TEXT_FONT);
 		goldField.setColumns(10);
 		goldField.setMinimumSize(new Dimension(50, goldField.getPreferredSize().height));
 		panel.add(goldField, middleGbc);
 		panel.add(createCurrencyLabel(), rightGbc);
 
 		label = new JLabel(LanguageBundle.getString("in_igAddSubFundsLabel")); //$NON-NLS-1$
-		label.setFont(LABEL_FONT);
 		panel.add(label, fullLineGbc);
 
 		JPanel expmodPanel = new JPanel();
@@ -325,19 +318,16 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 		panel.add(expmodPanel, leftGbc);
 		goldModField.setHorizontalAlignment(SwingConstants.RIGHT);
-		goldModField.setFont(TEXT_FONT);
 		panel.add(goldModField, middleGbc);
 		panel.add(createCurrencyLabel(), rightGbc);
 
 		label = new JLabel(LanguageBundle.getString("in_igBuySellRateLabel")); //$NON-NLS-1$
-		label.setFont(LABEL_FONT);
 		fullLineGbc.insets = new Insets(10, 2, 2, 2);
 		panel.add(label, fullLineGbc);
 		buySellRateBox.setPrototypeDisplayValue("QuiteLongPrototypeDisplayValue"); //$NON-NLS-1$
 		fullLineGbc.insets = new Insets(2, 2, 2, 2);
 		panel.add(buySellRateBox, fullLineGbc);
 
-		allowDebt.setFont(LABEL_FONT);
 		panel.add(allowDebt, fullLineGbc);
 
 		fullLineGbc.weighty = 1.0f;
@@ -352,7 +342,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	{
 		JLabel label;
 		label = new JLabel(""); //$NON-NLS-1$
-		label.setFont(TEXT_FONT);
 		currencyLabels.add(label);
 		return label;
 	}

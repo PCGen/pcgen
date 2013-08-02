@@ -86,6 +86,7 @@ import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.tools.PrefTableColumnModel;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JDynamicTable;
 import pcgen.gui2.util.JTreeTable;
 import pcgen.gui2.util.SortMode;
@@ -113,9 +114,6 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private static final DataFlavor equipNodeArrayFlavor = new DataFlavor(
 		DataFlavor.javaJVMLocalObjectMimeType + ";class=\"" //$NON-NLS-1$
 			+ EquipNode[].class.getName() + "\"", null); //$NON-NLS-1$
-	//	private static final Font labelFont = new Font("Verdana", Font.BOLD, 12);
-//	private static final Font textFont = new Font("Verdana", Font.PLAIN, 12);
-	private static final Font smallFont = new Font("Verdana", Font.PLAIN, 10); //$NON-NLS-1$
 	private final JDynamicTable equipmentTable;
 	private final JComboBox equipViewBox;
 	private final JTreeTable equipmentSetTable;
@@ -177,9 +175,9 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	private void initComponents()
 	{
-		newSetButton.setFont(smallFont);
+		FontManipulation.small(newSetButton);
 		newSetButton.setMargin(new Insets(0, 0, 0, 0));
-		removeSetButton.setFont(smallFont);
+		FontManipulation.small(removeSetButton);
 		removeSetButton.setMargin(new Insets(0, 0, 0, 0));
 
 		exportTemplateButton.setText(LanguageBundle.getString("in_equipExportTemplate")); //$NON-NLS-1$

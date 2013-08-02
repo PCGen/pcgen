@@ -11,8 +11,11 @@ import gmgen.plugin.PlayerCharacterOutput;
 import java.awt.Font;
 import java.util.Properties;
 
+import javax.swing.SwingConstants;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.io.exporttoken.MovementToken;
 import pcgen.util.Delta;
 
@@ -68,8 +71,6 @@ public class CombatPane1 extends javax.swing.JPanel
 	private static final String CURR_SUBDUAL = "Subdual Damage";
 	private static final String DR = "Damage Reduction";
 	private static final String SPEED = "Speed";
-	private static final Font FONT_TEN = new Font("Dialog", 0, 10);
-	private static final Font FONT_NINE = new Font("Dialog", 0, 9);
 
 	/** Creates new form CombatPane1 */
 	public CombatPane1()
@@ -206,10 +207,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		add(jPanel2, gridBagConstraints);
 
-		woundsTb.setFont(FONT_TEN);
-		// SwingConstants.CENTER is equivalent to JTextField.CENTER but more
-		// 'correct' in a Java coding context (it is a static reference)
-		woundsTb.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		woundsTb.setHorizontalAlignment(SwingConstants.CENTER);
 		woundsTb.addActionListener(new java.awt.event.ActionListener()
 		{
             @Override
@@ -229,10 +227,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.insets = new java.awt.Insets(0, 0, 2, 0);
 		add(woundsTb, gridBagConstraints);
 
-		subdualTb.setFont(FONT_TEN);
-		// SwingConstants.CENTER is equivalent to JTextField.CENTER but more
-		// 'correct' in a Java coding context (it is a static reference)
-		subdualTb.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		subdualTb.setHorizontalAlignment(SwingConstants.CENTER);
 		subdualTb.addActionListener(new java.awt.event.ActionListener()
 		{
             @Override
@@ -435,7 +430,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.insets = new java.awt.Insets(0, 31, 0, 0);
 		add(padding21, gridBagConstraints);
 
-		jLabel10.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel10);
 		jLabel10.setText(TOTAL);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -444,7 +439,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel10, gridBagConstraints);
 
-		jLabel11.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel11);
 		jLabel11.setText(TOUCH);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
@@ -452,7 +447,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		add(jLabel11, gridBagConstraints);
 
-		jLabel12.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel12);
 		jLabel12.setText(FLAT);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 4;
@@ -461,7 +456,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel12, gridBagConstraints);
 
-		jLabel13.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel13);
 		jLabel13.setText(BASE);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 6;
@@ -470,7 +465,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel13, gridBagConstraints);
 
-		jLabel14.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel14);
 		jLabel14.setText(ARMOR);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 8;
@@ -479,7 +474,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel14, gridBagConstraints);
 
-		jLabel15.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel15);
 		jLabel15.setText(SHIELD);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 10;
@@ -488,7 +483,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel15, gridBagConstraints);
 
-		jLabel16.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel16);
 		jLabel16.setText(STAT);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 12;
@@ -497,7 +492,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel16, gridBagConstraints);
 
-		jLabel17.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel17);
 		jLabel17.setText(SIZE);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 14;
@@ -506,7 +501,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel17, gridBagConstraints);
 
-		jLabel18.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel18);
 		jLabel18.setText(NATURAL);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 16;
@@ -515,7 +510,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel18, gridBagConstraints);
 
-		jLabel19.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel19);
 		jLabel19.setText(MISC);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 18;
@@ -524,63 +519,63 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel19, gridBagConstraints);
 
-		jLabel20.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel20);
 		jLabel20.setText(MISS);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 21;
 		gridBagConstraints.gridy = 3;
 		add(jLabel20, gridBagConstraints);
 
-		jLabel21.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel21);
 		jLabel21.setText(CHANCE);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 21;
 		gridBagConstraints.gridy = 4;
 		add(jLabel21, gridBagConstraints);
 
-		jLabel22.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel22);
 		jLabel22.setText(ARCANE);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 23;
 		gridBagConstraints.gridy = 3;
 		add(jLabel22, gridBagConstraints);
 
-		jLabel23.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel23);
 		jLabel23.setText(SPELL);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 23;
 		gridBagConstraints.gridy = 4;
 		add(jLabel23, gridBagConstraints);
 
-		jLabel24.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel24);
 		jLabel24.setText(FAILURE);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 23;
 		gridBagConstraints.gridy = 5;
 		add(jLabel24, gridBagConstraints);
 
-		jLabel25.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel25);
 		jLabel25.setText(ARMOR);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 25;
 		gridBagConstraints.gridy = 3;
 		add(jLabel25, gridBagConstraints);
 
-		jLabel26.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel26);
 		jLabel26.setText(CHECK);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 25;
 		gridBagConstraints.gridy = 4;
 		add(jLabel26, gridBagConstraints);
 
-		jLabel27.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel27);
 		jLabel27.setText(PENALTY);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 25;
 		gridBagConstraints.gridy = 5;
 		add(jLabel27, gridBagConstraints);
 
-		jLabel28.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel28);
 		jLabel28.setText(SPELL);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 27;
@@ -588,7 +583,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel28, gridBagConstraints);
 
-		jLabel29.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel29);
 		jLabel29.setText(RESIST);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 26;
@@ -597,7 +592,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel29, gridBagConstraints);
 
-		jLabel30.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel30);
 		jLabel30.setText(CURR_HP);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
@@ -605,7 +600,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.gridwidth = 7;
 		add(jLabel30, gridBagConstraints);
 
-		jLabel31.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel31);
 		jLabel31.setText(CURR_SUBDUAL);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 11;
@@ -613,7 +608,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.gridwidth = 7;
 		add(jLabel31, gridBagConstraints);
 
-		jLabel32.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel32);
 		jLabel32.setText(DR);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 18;
@@ -621,7 +616,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.gridwidth = 5;
 		add(jLabel32, gridBagConstraints);
 
-		jLabel33.setFont(FONT_NINE);
+		FontManipulation.size90(jLabel33);
 		jLabel33.setText(SPEED);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 23;
@@ -632,7 +627,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		totalAc.setFont(FONT_TEN);
 		totalAc.setText(SPACE);
 		jPanel3.add(totalAc);
 
@@ -646,7 +640,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		speed.setFont(FONT_TEN);
 		speed.setText(SPACE);
 		jPanel4.add(speed);
 
@@ -660,7 +653,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		damageReduction.setFont(FONT_TEN);
 		damageReduction.setText(SPACE);
 		jPanel5.add(damageReduction);
 
@@ -674,7 +666,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel8.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		flatAc.setFont(FONT_TEN);
 		flatAc.setText(SPACE);
 		jPanel8.add(touchAc);
 
@@ -687,7 +678,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel7.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		touchAc.setFont(FONT_TEN);
 		touchAc.setText(SPACE);
 		jPanel7.add(flatAc);
 
@@ -700,7 +690,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		acBase.setFont(FONT_TEN);
 		acBase.setText(SPACE);
 		jPanel6.add(acBase);
 
@@ -713,7 +702,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		totalHp.setFont(FONT_TEN);
 		totalHp.setText(SPACE);
 		jPanel9.add(totalHp);
 
@@ -727,7 +715,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel15.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		acArmor.setFont(FONT_TEN);
 		acArmor.setText(SPACE);
 		jPanel15.add(acArmor);
 
@@ -740,7 +727,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel14.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		acShield.setFont(FONT_TEN);
 		acShield.setText(SPACE);
 		jPanel14.add(acShield);
 
@@ -753,7 +739,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel13.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		acStat.setFont(FONT_TEN);
 		acStat.setText(SPACE);
 		jPanel13.add(acStat);
 
@@ -766,7 +751,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel12.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		acSize.setFont(FONT_TEN);
 		acSize.setText(SPACE);
 		jPanel12.add(acSize);
 
@@ -779,7 +763,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel11.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		acNatural.setFont(FONT_TEN);
 		acNatural.setText(SPACE);
 		jPanel11.add(acNatural);
 
@@ -792,7 +775,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel10.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		acMisc.setFont(FONT_TEN);
 		acMisc.setText(SPACE);
 		jPanel10.add(acMisc);
 
@@ -805,7 +787,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel16.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		missChance.setFont(FONT_TEN);
 		missChance.setText(SPACE);
 		jPanel16.add(missChance);
 
@@ -818,7 +799,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel17.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		spellFailure.setFont(FONT_TEN);
 		spellFailure.setText(SPACE);
 		jPanel17.add(spellFailure);
 
@@ -831,7 +811,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel18.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		armorCheck.setFont(FONT_TEN);
 		armorCheck.setText(SPACE);
 		jPanel18.add(armorCheck);
 
@@ -844,7 +823,6 @@ public class CombatPane1 extends javax.swing.JPanel
 		jPanel19.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		spellResist.setFont(FONT_TEN);
 		spellResist.setText(SPACE);
 		jPanel19.add(spellResist);
 

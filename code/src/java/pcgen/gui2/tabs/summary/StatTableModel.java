@@ -27,6 +27,7 @@ import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
 import java.text.ParseException;
+
 import javax.swing.AbstractAction;
 import javax.swing.AbstractCellEditor;
 import javax.swing.Action;
@@ -57,6 +58,7 @@ import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.tabs.Utilities;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.table.TableCellUtilities;
 
 /**
@@ -66,8 +68,6 @@ import pcgen.gui2.util.table.TableCellUtilities;
 public class StatTableModel extends AbstractTableModel implements ReferenceListener<Integer>
 {
 
-	private static final Font tableFont = new Font("Verdana", Font.BOLD, 14);
-	private static final Font headerFont = new Font("Verdana", Font.BOLD, 12);
 	private static final int ABILITY_NAME = 0;
 	private static final int EDITABLE_SCORE = 3;
 	private static final int RACE_ADJ = 4;
@@ -138,30 +138,30 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			String htmlText = "     Ability     ";
 			columnModel.addColumn(Utilities.createTableColumn(ABILITY_NAME, htmlText, new FixedHeaderCellRenderer(htmlText), false));
 
-			htmlText = "<html><p align=\"center\"><b>Final<br>Score</b></p></html>";
+			htmlText = "<html><div align=\"center\">Final<br>Score</div></html>";
 			TableColumn column = Utilities.createTableColumn(FINAL_ABILITY_SCORE, htmlText, new FixedHeaderCellRenderer(htmlText), false);
 			TableCellRenderer renderer = new ModRenderer();
 			column.setCellRenderer(new ValueRenderer());
 			columnModel.addColumn(column);
 
-			htmlText = "<html><p align=\"center\"><b>Ability<br>Mod</b></p></html>";
+			htmlText = "<html><div align=\"center\">Ability<br>Mod</div></html>";
 			column =
 					Utilities.createTableColumn(ABILITY_MOD, htmlText,
 						new FixedHeaderCellRenderer(htmlText), false);
 			column.setCellRenderer(renderer);
 			columnModel.addColumn(column);
 
-			htmlText = "<html><p align=\"center\"><b>Editable<br>Score</b></p></html>";
+			htmlText = "<html><div align=\"center\">Editable<br>Score</div></html>";
 			column = Utilities.createTableColumn(EDITABLE_SCORE, htmlText, new FixedHeaderCellRenderer(htmlText), false);
 			column.setIdentifier("EDITABLE");
 			columnModel.addColumn(column);
 
-			htmlText = "<html><p align=\"center\"><b>Race<br>Adj</b></p></html>";
+			htmlText = "<html><div align=\"center\">Race<br>Adj</div></html>";
 			column = Utilities.createTableColumn(RACE_ADJ, htmlText, new FixedHeaderCellRenderer(htmlText), false);
 			column.setCellRenderer(renderer);
 			columnModel.addColumn(column);
 
-			htmlText = "<html><p align=\"center\"><b>Misc<br>Adj</b></p></html>";
+			htmlText = "<html><div align=\"center\">Misc<br>Adj</div></html>";
 			column = Utilities.createTableColumn(MISC_ADJ, htmlText, new FixedHeaderCellRenderer(htmlText), false);
 			column.setCellRenderer(renderer);
 			columnModel.addColumn(column);
@@ -172,9 +172,8 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		statsTable.setCellSelectionEnabled(false);
 		statsTable.setFocusable(false);
 		statsTable.setRowHeight(28);
-		statsTable.setFont(tableFont);
 		statsTable.setOpaque(false);
-		tableHeader.setFont(headerFont);
+		tableHeader.setFont(FontManipulation.small(statsTable.getFont()));
 	}
 
 	/*
@@ -187,7 +186,8 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		public FixedHeaderCellRenderer(String text)
 		{
 			setText(text);
-			setFont(headerFont);
+//			setFont(headerFont);
+			FontManipulation.title(this);
 			setBorder(BorderFactory.createEmptyBorder(2, 5, 2, 5));
 		}
 
@@ -231,7 +231,8 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			Integer mod = (Integer) value;
 			if (mod.intValue() == 0 && column > 3)
 			{
-				setText("-");
+				// let’s use a pretty em dash instead of hyphen/minus.
+				setText("\u2014");
 			}
 			else
 			{
@@ -440,8 +441,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		{
 			setBackground(jTable.getBackground());
 			setForeground(jTable.getForeground());
-			Font font = jTable.getFont().deriveFont(Font.BOLD);
-			statLabel.setFont(font);
+			FontManipulation.title(statLabel);
 			StatFacade stat = (StatFacade) value;
 			//TODO: this should really call stat.toString()
 			statLabel.setText(stat.getName());

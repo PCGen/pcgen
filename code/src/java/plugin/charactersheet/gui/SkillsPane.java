@@ -23,6 +23,7 @@ import pcgen.core.SkillUtilities;
 import pcgen.core.analysis.QualifiedName;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.util.enumeration.Visibility;
 import plugin.charactersheet.CharacterSheetUtils;
 
@@ -53,9 +54,6 @@ public class SkillsPane extends javax.swing.JPanel
 	private static final String SKILL_TOKEN = "SKILL";
 	private static final String ABMOD_TOKEN = "ABMOD";
 	private static final String MISC_TOKEN = "MISC";
-	private static final Font FONT_SIXTEEN = new Font("Dialog", 1, 16);
-	private static final Font FONT_TWELVE = new Font("Dialog", 0, 12);
-	private static final Font FONT_TEN = new Font("Dialog", 0, 10);
 
 	/** Creates new form UnarmedPane */
 	public SkillsPane()
@@ -106,7 +104,7 @@ public class SkillsPane extends javax.swing.JPanel
 		jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel2.setFont(FONT_SIXTEEN);
+		FontManipulation.size160(jLabel2);
 		jLabel2.setText(SKILLS);
 		jPanel5.add(jLabel2);
 
@@ -119,7 +117,6 @@ public class SkillsPane extends javax.swing.JPanel
 		jPanel22.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel14.setFont(FONT_TEN);
 		jLabel14.setText(MAX_RANKS);
 		jPanel22.add(jLabel14);
 
@@ -145,7 +142,6 @@ public class SkillsPane extends javax.swing.JPanel
 		jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel6.setFont(FONT_TEN);
 		jLabel6.setText(KEY);
 		jPanel9.add(jLabel6);
 
@@ -158,7 +154,6 @@ public class SkillsPane extends javax.swing.JPanel
 		jPanel11.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel4.setFont(FONT_TEN);
 		jLabel4.setText(SKILL);
 		jPanel11.add(jLabel4);
 
@@ -170,7 +165,6 @@ public class SkillsPane extends javax.swing.JPanel
 		jPanel13.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel7.setFont(FONT_TEN);
 		jLabel7.setText(ABILITY);
 		jPanel13.add(jLabel7);
 
@@ -182,7 +176,6 @@ public class SkillsPane extends javax.swing.JPanel
 		jPanel21.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel13.setFont(FONT_TEN);
 		jLabel13.setText(MISC);
 		jPanel21.add(jLabel13);
 
@@ -194,7 +187,7 @@ public class SkillsPane extends javax.swing.JPanel
 		jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel5.setFont(FONT_TWELVE);
+		FontManipulation.size120(jLabel5);
 		jLabel5.setText(SKILL_NAME);
 		jPanel6.add(jLabel5);
 
@@ -206,7 +199,6 @@ public class SkillsPane extends javax.swing.JPanel
 		jPanel16.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel16.setFont(FONT_TEN);
 		jLabel16.setText(ABILITY);
 		jPanel16.add(jLabel16);
 
@@ -219,7 +211,6 @@ public class SkillsPane extends javax.swing.JPanel
 		jPanel17.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel9.setFont(FONT_TEN);
 		jLabel9.setText(MOD);
 		jPanel17.add(jLabel9);
 
@@ -231,7 +222,6 @@ public class SkillsPane extends javax.swing.JPanel
 		jPanel18.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel10.setFont(FONT_TEN);
 		jLabel10.setText(MOD);
 		jPanel18.add(jLabel10);
 
@@ -243,7 +233,6 @@ public class SkillsPane extends javax.swing.JPanel
 		jPanel19.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel11.setFont(FONT_TEN);
 		jLabel11.setText(RANKS);
 		jPanel19.add(jLabel11);
 
@@ -255,7 +244,6 @@ public class SkillsPane extends javax.swing.JPanel
 		jPanel20.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel12.setFont(FONT_TEN);
 		jLabel12.setText(MOD);
 		jPanel20.add(jLabel12);
 

@@ -52,27 +52,23 @@ import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JTreeTable;
 
 /**
  * The parent model for the selected panel. Maps the various equipment sets for 
  * a character.
- *
- * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  * 
  * @author Connor Petty <cpmeister@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class EquipmentModel implements ListListener<EquipmentSetFacade>, ReferenceListener<EquipmentSetFacade>,
 		TableModelListener
 {
+	private static Font normFont;
+	private static Font headerFont;
+	private static Font biggerFont;
+	private static Font lessFont;
 
-	private static Font largeFont = new Font("Verdana", Font.BOLD, 20);
-	private static Font headerFont = new Font("Verdana", Font.BOLD, 12);
-	private static Font normFont = new Font("Verdana", Font.PLAIN, 12);
-	private static Font italicFont = new Font("Verdana", Font.ITALIC, 12);
 	private final CharacterFacade character;
 	private TreeCellRenderer treeRenderer = new TreeRenderer();
 	private Map<EquipmentSetFacade, EquipmentTreeTableModel> equipsetMap;
@@ -98,6 +94,10 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 		treeTable.getTree().setRowHeight(0);
 		treeTable.setFocusable(false);
 		treeTable.getTree().putClientProperty("JTree.lineStyle", "Horizontal");
+		normFont = FontManipulation.small(treeTable.getFont());
+		headerFont = FontManipulation.title(normFont);
+		biggerFont = FontManipulation.title(FontManipulation.big(normFont));
+		lessFont = FontManipulation.less(normFont);
 		treeTable.setAutoCreateColumnsFromModel(false);
 		{
 			DefaultTableColumnModel model = new DefaultTableColumnModel();
@@ -147,6 +147,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 
 			if (node != null && node.getParent() == null)
 			{
+				FontManipulation.title(this);
 				setFont(headerFont);
 				Color line = UIManager.getColor("Tree.line");
 				setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, line));
@@ -268,12 +269,12 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 
 			if (isEquipNode && ((EquipNode) value).getParent() == null)
 			{
-				setFont(largeFont);
+				setFont(biggerFont);
 				setIcon(null);
 			}
 			else if (isPhantomSlot)
 			{
-				setFont(italicFont);
+				setFont(lessFont);
 				setForeground(Color.GRAY);
 				setIcon(null);
 			}

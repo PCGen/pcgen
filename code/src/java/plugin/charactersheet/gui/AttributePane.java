@@ -29,9 +29,9 @@ public class AttributePane extends JPanel
 	private PlayerCharacter pc;
 	private List<Attribute> attrList = new ArrayList<Attribute>();
 
-	private static final Font FONT_EIGHT = new Font("Dialog", 0, 8);
-	private static final Font FONT_BFOURTEEN = new Font("Dialog", 1, 14);
-	private static final Font FONT_FOURTEEN = new Font("Dialog", 0, 14);
+	private static final Font FONT_EIGHT = new Font(Font.SERIF, 0, 8);
+	private static final Font FONT_BFOURTEEN = new Font(Font.SERIF, 1, 14);
+	private static final Font FONT_FOURTEEN = new Font(Font.SERIF, 0, 14);
 	private static final FlowLayout FLOWCENTER =
 			new FlowLayout(java.awt.FlowLayout.CENTER, 1, 1);
 	private static final String ABILITY = "Ability";

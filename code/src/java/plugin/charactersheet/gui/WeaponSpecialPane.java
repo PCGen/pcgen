@@ -33,7 +33,6 @@ public class WeaponSpecialPane extends javax.swing.JPanel
 
 	private static final String SPROPS = "Special Properties";
 	private static final String BLANK = "";
-	private static final Font FONT_TEN = new Font("Dialog", 0, 10);
 
 	/** Creates new form UnarmedPane */
 	public WeaponSpecialPane()
@@ -56,7 +55,6 @@ public class WeaponSpecialPane extends javax.swing.JPanel
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 
 		JLabel sPropsLabel = new JLabel();
-		sPropsLabel.setFont(FONT_TEN);
 		sPropsLabel.setText(SPROPS);
 		labelPanel.add(sPropsLabel);
 
@@ -64,7 +62,6 @@ public class WeaponSpecialPane extends javax.swing.JPanel
 
 		propPanel.setLayout(new BoxLayout(propPanel, BoxLayout.X_AXIS));
 
-		specialProperties.setFont(FONT_TEN);
 		specialProperties.setLineWrap(true);
 		specialProperties.setWrapStyleWord(true);
 		propPanel.add(specialProperties);

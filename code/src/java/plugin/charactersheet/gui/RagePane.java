@@ -14,6 +14,7 @@ import java.util.Properties;
 import javax.swing.JCheckBox;
 
 import pcgen.core.PlayerCharacter;
+import pcgen.gui2.util.FontManipulation;
 
 /**
  * Confirmed no memory Leaks Dec 10, 2004
@@ -43,8 +44,6 @@ public class RagePane extends javax.swing.JPanel
 	private static final String MIGHTY_RAGE = "MightyRage";
 	private static final String SPACE = " ";
 	private static final String PROPERTY_RAGEPANE = "cs.RagePane";
-	private static final Font FONT_FOURTEEN = new Font("Dialog", 1, 14);
-	private static final Font FONT_TEN = new Font("Dialog", 0, 10);
 	private Properties pcProperties;
 	private boolean updateProperties = false;
 
@@ -75,7 +74,7 @@ public class RagePane extends javax.swing.JPanel
 		jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel1.setFont(FONT_FOURTEEN);
+		FontManipulation.size140(jLabel1);
 		jLabel1.setText(BARBARIAN_RAGE);
 		jPanel1.add(jLabel1);
 
@@ -87,7 +86,6 @@ public class RagePane extends javax.swing.JPanel
 		jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel2.setFont(FONT_TEN);
 		jLabel2.setText(PER_DAY);
 		jPanel2.add(jLabel2);
 
@@ -100,7 +98,6 @@ public class RagePane extends javax.swing.JPanel
 
 		add(jPanel3);
 
-		rageText.setFont(FONT_TEN);
 		rageText.setLineWrap(true);
 		rageText.setWrapStyleWord(true);
 		add(rageText);
@@ -196,7 +193,6 @@ public class RagePane extends javax.swing.JPanel
 				if (i % 5 == 0 && i != 0)
 				{
 					javax.swing.JLabel bufLabel = new javax.swing.JLabel();
-					bufLabel.setFont(FONT_TEN);
 					bufLabel.setText(SPACE);
 					checkPanel.add(bufLabel);
 				}

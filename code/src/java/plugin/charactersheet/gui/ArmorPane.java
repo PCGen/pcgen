@@ -7,18 +7,19 @@
 package plugin.charactersheet.gui;
 
 import gmgen.plugin.PlayerCharacterOutput;
-import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+
+import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacter;
 
 /**
  * Confirmed no memory Leaks Dec 10, 2004
@@ -37,7 +38,6 @@ public class ArmorPane extends javax.swing.JPanel
 	private JPanel checkPanel;
 	private JPanel failurePanel;
 
-	private static final Font FONT_TEN = new Font("Dialog", 0, 10);
 	private static final String ARMOR_TEXT = " ARMOR ";
 	private static final String TYPE_TEXT = " Type ";
 	private static final String AC_TEXT = " AC ";
@@ -83,7 +83,6 @@ public class ArmorPane extends javax.swing.JPanel
 
 		typeNamePanel.setLayout(new java.awt.FlowLayout(
 			java.awt.FlowLayout.CENTER, 1, 0));
-		typeName.setFont(FONT_TEN);
 		typeName.setText(ARMOR_TEXT);
 		typeNamePanel.add(typeName);
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -93,7 +92,6 @@ public class ArmorPane extends javax.swing.JPanel
 		typePanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 		JLabel typeLabel = new JLabel();
-		typeLabel.setFont(FONT_TEN);
 		typeLabel.setText(TYPE_TEXT);
 		typePanel.add(typeLabel);
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -103,7 +101,6 @@ public class ArmorPane extends javax.swing.JPanel
 		acPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 		JLabel acLabel = new JLabel();
-		acLabel.setFont(FONT_TEN);
 		acLabel.setText(AC_TEXT);
 		acPanel.add(acLabel);
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -113,7 +110,6 @@ public class ArmorPane extends javax.swing.JPanel
 		maxDexPanel.setLayout(new java.awt.FlowLayout(
 			java.awt.FlowLayout.CENTER, 1, 0));
 		JLabel maxDexLabel = new JLabel();
-		maxDexLabel.setFont(FONT_TEN);
 		maxDexLabel.setText(MAX_DEX_TEXT);
 		maxDexPanel.add(maxDexLabel);
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -123,7 +119,6 @@ public class ArmorPane extends javax.swing.JPanel
 		checkPanel.setLayout(new java.awt.FlowLayout(
 			java.awt.FlowLayout.CENTER, 1, 0));
 		JLabel checkLabel = new JLabel();
-		checkLabel.setFont(FONT_TEN);
 		checkLabel.setText(CHECK_TEXT);
 		checkPanel.add(checkLabel);
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -133,7 +128,6 @@ public class ArmorPane extends javax.swing.JPanel
 		failurePanel.setLayout(new java.awt.FlowLayout(
 			java.awt.FlowLayout.CENTER, 1, 0));
 		JLabel failureLabel = new JLabel();
-		failureLabel.setFont(FONT_TEN);
 		failureLabel.setText(FAIL_TEXT);
 		failurePanel.add(failureLabel);
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -286,7 +280,6 @@ public class ArmorPane extends javax.swing.JPanel
 		field.setBackground(color);
 		field.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 1,
 			0));
-		data.setFont(FONT_TEN);
 		String dataText = text;
 		if (text.equals(BLANK))
 		{
@@ -307,7 +300,6 @@ public class ArmorPane extends javax.swing.JPanel
 	private void addSprops(int gridY, String text, Color color)
 	{
 		JTextArea sprops = new JTextArea();
-		sprops.setFont(FONT_TEN);
 		sprops.setLineWrap(true);
 		sprops.setWrapStyleWord(true);
 		sprops.setText(text);

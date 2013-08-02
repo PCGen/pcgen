@@ -61,6 +61,7 @@ import pcgen.core.doomsdaybook.SpaceRule;
 import pcgen.core.doomsdaybook.VariableHashMap;
 import pcgen.core.doomsdaybook.WeightedDataValue;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import plugin.doomsdaybook.RandomNamePlugin;
@@ -71,8 +72,6 @@ import plugin.doomsdaybook.RandomNamePlugin;
  */
 public class NameGenPanel extends JPanel
 {
-	private static final Font titleFont = new Font("Verdana", Font.BOLD, 15);
-
 	public Preferences namePrefs =
 			Preferences.userNodeForPackage(NameGenPanel.class);
 	private Map<String, List<RuleSet>> categories =
@@ -567,7 +566,6 @@ public class NameGenPanel extends JPanel
 		adjustNamePanel.setLayout(new BorderLayout());
 		
 		JLabel adjNameLabel = new JLabel(LanguageBundle.getString("in_rndNameAdjust")); //$NON-NLS-1$
-		adjNameLabel.setFont(titleFont);
 		
 		adjustNamePanel.add(adjNameLabel, BorderLayout.NORTH);
 		
@@ -608,7 +606,6 @@ public class NameGenPanel extends JPanel
 		nameDisplayPanel.add(nameSubInfoPanel, BorderLayout.SOUTH);
 
 		JLabel nameTitleLabel = new JLabel(LanguageBundle.getString("in_sumName")); //$NON-NLS-1$
-		nameTitleLabel.setFont(titleFont);
 		JPanel nameTitlePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		nameTitlePanel.add(nameTitleLabel);
 
@@ -617,7 +614,7 @@ public class NameGenPanel extends JPanel
 		
 		namePanel.setLayout(new BoxLayout(namePanel, BoxLayout.X_AXIS));
 
-		name.setFont(new Font("Dialog", 1, 18)); //$NON-NLS-1$
+		FontManipulation.bigger(name);
 		name.setText(LanguageBundle.getString("in_nameLabel")); //$NON-NLS-1$
 		namePanel.add(name);
 

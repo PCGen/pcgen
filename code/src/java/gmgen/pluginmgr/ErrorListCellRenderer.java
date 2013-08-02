@@ -28,6 +28,8 @@ import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+import pcgen.gui2.util.FontManipulation;
+
 /**
  *  Don't use this class, it's a special case for the plugin code
  *
@@ -49,8 +51,7 @@ public class ErrorListCellRenderer extends JComponent implements ListCellRendere
 	public ErrorListCellRenderer()
 	{
 		plainFont = UIManager.getFont("Label.font");
-		// TODO i18n this. Depending on locale/font, bold can be non good looking (false bold). possibility of having label font already bold too.
-		boldFont = new Font(plainFont.getName(), Font.BOLD, plainFont.getSize());
+		boldFont = FontManipulation.title(plainFont);
 		plainFM = getFontMetrics(plainFont);
 		boldFM = getFontMetrics(boldFont);
 

@@ -25,7 +25,6 @@ package pcgen.gui2.dialog;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -45,13 +44,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.Hyperactive;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JLabelPane;
 import pcgen.system.LanguageBundle;
 
@@ -142,14 +141,14 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		}
 		else
 		{
+			// XXX Should probably do: Logging.errorPrintLocalised("Missing icon");
 			iconLabel = new JLabel("TipOfTheDay24.gif");
 		}
 
 		iconLabel.setOpaque(true);
 		panel.add(iconLabel, BorderLayout.WEST);
 		final JLabel lblDidYouKnow = new JLabel("    " + LanguageBundle.getString("in_tod_didyouknow"));
-		final Font old = lblDidYouKnow.getFont();
-		lblDidYouKnow.setFont(old.deriveFont(old.getStyle() | Font.ITALIC, 18f));
+		FontManipulation.bigger(lblDidYouKnow);
 		lblDidYouKnow.setOpaque(true);
 
 		tipText = new JLabelPane();
@@ -172,6 +171,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		final JButton btnClose = new JButton(LanguageBundle.getString("in_close"));
 		btnClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close"));
 		btnClose.addActionListener(this);
+		// TODO give focus to close button
 
 		final JButton btnPrevTip = new JButton(LanguageBundle.getString("in_tod_prevTip"));
 		btnPrevTip.setMnemonic(LanguageBundle.getMnemonic("in_mn_tod_prevTip"));

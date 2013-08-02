@@ -119,11 +119,6 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHandler
 {
-
-	private static final Font titleFont = new Font("Verdana", Font.BOLD, 15); //$NON-NLS-1$
-	private static final Font labelFont = new Font("Verdana", Font.BOLD, 12); //$NON-NLS-1$
-	private static final Font textFont = new Font("Verdana", Font.PLAIN, 12); //$NON-NLS-1$
-	private static final Font smallFont = new Font("Verdana", Font.PLAIN, 9); //$NON-NLS-1$
 	private final TabTitle tabTitle;
 	private final JPanel basicsPanel;
 	private final JPanel todoPanel;
@@ -222,7 +217,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		this.setFocusCycleRoot(true);
 		this.setFocusTraversalPolicyProvider(true);
 		this.setFocusTraversalPolicy(new SummaryTabFocusTraversalPolicy());
-		setFont(textFont);
 
 		LanguageTableModel.initializeTable(languageTable);
 
@@ -261,8 +255,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		panel.setBorder(BorderFactory.createTitledBorder(null,
 														 title,
 														 TitledBorder.CENTER,
-														 TitledBorder.DEFAULT_POSITION,
-														 titleFont));
+														 TitledBorder.DEFAULT_POSITION));
 	}
 
 	/**
@@ -276,8 +269,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		todoPane.setOpaque(false);
 		todoPane.setContentType("text/html"); //$NON-NLS-1$
 		String bodyRule =
-				"body { font-family: " + textFont.getFamily() + "; " + "font-size: " + //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				textFont.getSize() + "pt; }"; //$NON-NLS-1$
+				"body { font-family: " + getFont().getFamily() + "; font-size: " + //$NON-NLS-1$ //$NON-NLS-2$
+				getFont().getSize() + "pt; }"; //$NON-NLS-1$
 		((HTMLDocument) todoPane.getDocument()).getStyleSheet().addRule(
 				bodyRule);
 		todoPane.setEditable(false);
@@ -324,13 +317,9 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		//this makes box layout use the statTotalPanel to distribute extra space
 		statTotalPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
 		statTotalPanel.add(Box.createHorizontalGlue());
-		statTotalLabel.setFont(labelFont);
 		statTotalPanel.add(statTotalLabel);
-		statTotal.setFont(textFont);
 		statTotalPanel.add(statTotal);
-		modTotalLabel.setFont(labelFont);
 		statTotalPanel.add(modTotalLabel);
-		modTotal.setFont(textFont);
 		statTotalPanel.add(modTotal);
 		statTotalPanel.add(Box.createHorizontalGlue());
 		generateRollsButton.setText(LanguageBundle.getString("in_sumGenerate_Rolls")); //$NON-NLS-1$
@@ -527,7 +516,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private static JLabel createLabel(String text)
 	{
 		JLabel label = new JLabel(LanguageBundle.getString(text));
-		label.setFont(labelFont);
 		return label;
 	}
 
@@ -543,7 +531,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			random.setText(LanguageBundle.getString("in_randomButton")); //$NON-NLS-1$
 			random.setMargin(new Insets(0, 0, 0, 0));
-			random.setFont(smallFont);
 			gbc.insets = new Insets(0, 2, 3, 2);
 			basicsPanel.add(random, gbc);
 
@@ -554,6 +541,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			basicsPanel.add(characterNameField, gbc);
 		}
 		Insets insets = new Insets(0, 0, 3, 2);
+		Font labelFont = null;
 		addGridBagLayer(basicsPanel, labelFont, insets, "in_sumCharType", characterTypeComboBox); //$NON-NLS-1$
 		addGridBagLayer(basicsPanel, labelFont, insets, "in_sumPlayer", playerNameField); //$NON-NLS-1$
 		addGridBagLayer(basicsPanel, labelFont, insets, "in_sumTabLabel", tabLabelField); //$NON-NLS-1$

@@ -47,6 +47,7 @@ import pcgen.core.facade.ChooserFacade;
 import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -94,7 +95,7 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 		Container pane = getContentPane();
 		pane.setLayout(new BorderLayout());
 		JLabel titleLabel = new JLabel(chooser.getName());
-		titleLabel.setFont(titleLabel.getFont().deriveFont(Font.BOLD));
+		FontManipulation.title(titleLabel);
 		titleLabel.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 		pane.add(titleLabel, BorderLayout.NORTH);
 

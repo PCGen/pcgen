@@ -8,6 +8,7 @@ package plugin.charactersheet.gui;
 
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.io.exporttoken.WeaponToken;
 import pcgen.io.exporttoken.WeaponhToken;
 
@@ -21,8 +22,6 @@ public class UnarmedPane extends javax.swing.JPanel
 {
 	private PlayerCharacter pc;
 
-	private static final Font FONT_SIXTEEN = new Font("Dialog", 1, 16);
-	private static final Font FONT_TEN = new Font("Dialog", 0, 10);
 	private static final String UNARMED = "    Unarmed    ";
 	private static final String TOTAL_ATTACK_BONUS = "Total Attack Bonus";
 	private static final String SPACE = " ";
@@ -63,7 +62,7 @@ public class UnarmedPane extends javax.swing.JPanel
 
 		setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.X_AXIS));
 
-		jLabel1.setFont(FONT_SIXTEEN);
+		FontManipulation.size160(jLabel1);
 		jLabel1.setText(UNARMED);
 		jPanel1.add(jLabel1);
 
@@ -75,7 +74,6 @@ public class UnarmedPane extends javax.swing.JPanel
 		jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel2.setFont(FONT_TEN);
 		jLabel2.setText(TOTAL_ATTACK_BONUS);
 		jPanel5.add(jLabel2);
 
@@ -84,7 +82,6 @@ public class UnarmedPane extends javax.swing.JPanel
 		jPanel50.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		totalAttackBonus.setFont(FONT_TEN);
 		totalAttackBonus.setText(SPACE);
 		jPanel50.add(totalAttackBonus);
 
@@ -98,7 +95,6 @@ public class UnarmedPane extends javax.swing.JPanel
 		jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel5.setFont(FONT_TEN);
 		jLabel5.setText(DAMAGE);
 		jPanel6.add(jLabel5);
 
@@ -107,7 +103,6 @@ public class UnarmedPane extends javax.swing.JPanel
 		jPanel49.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		damage.setFont(FONT_TEN);
 		damage.setText(SPACE);
 		jPanel49.add(damage);
 
@@ -121,7 +116,6 @@ public class UnarmedPane extends javax.swing.JPanel
 		jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		jLabel6.setFont(FONT_TEN);
 		jLabel6.setText(CRITICAL);
 		jPanel9.add(jLabel6);
 
@@ -130,7 +124,6 @@ public class UnarmedPane extends javax.swing.JPanel
 		jPanel48.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		critical.setFont(FONT_TEN);
 		critical.setText(SPACE);
 		jPanel48.add(critical);
 
