@@ -920,22 +920,19 @@ GEAR:Dagger		SIZE:PC	LOCATION:Primary Hand
 GEAR:Dagger		SIZE:PC	LOCATION:Secondary Hand
 GEAR:Shortbow	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Drider (Cleric) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Cleric)]
-RACE:Drider (Cleric)	!PRERACE:1,%
-NAME:Drider (Cleric)
+STARTPACK:Drider (Cleric) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider]
 ABILITY:CATEGORY=Turn Undead|Rebuke Undead
 KIT:Drider Default
+ABILITY:CATEGORY=Drider Caster Choice|Cleric Class
 
-STARTPACK:Drider (Sorcerer) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Sorcerer)]
-RACE:Drider (Sorcerer)	!PRERACE:1,%
-NAME:Drider (Sorcerer)
+STARTPACK:Drider (Sorcerer) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider]
 KIT:Drider Default
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze|Detect Magic|Ghost Sound|Mage Hand|Ray of Frost|Read Magic|Resistance|Mage Armor|Magic Missile|Ray of Enfeeblement|Silent Image|Invisibility|Web|Lightning Bolt
+ABILITY:CATEGORY=Drider Caster Choice|Sorcerer Class
 
-STARTPACK:Drider (Wizard) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider (Wizard)]
-RACE:Drider (Wizard)	!PRERACE:1,%
-NAME:Drider (Wizard)
+STARTPACK:Drider (Wizard) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Drider]
 KIT:Drider Default
+ABILITY:CATEGORY=Drider Caster Choice|Wizard Class
 
 STARTPACK:Dryad Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dryad]
 ALIGN:CG

@@ -4,3 +4,35 @@
 # Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object	Plural description for UI	Display Location
 ABILITYCATEGORY:Racial Ability	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RaceAbility	PLURAL:Racial Abilities		DISPLAYLOCATION:Racial Abilities
 ABILITYCATEGORY:Ghost Ability		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GhostAbility	PLURAL:Ghost Abilities		DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:All Monster Domains			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:MonsterDomainGranter			DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Drider Caster Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			ABILITYLIST:Cleric Class|Wizard Class|Sorcerer Class		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Drider Domain			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			ABILITYLIST:Chaos Domain|Destruction Domain|Evil Domain|Trickery Domain		DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Lammasu Domain	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			ABILITYLIST:Good Domain|Healing Domain|Knowledge Domain|Law Domain		DISPLAYLOCATION:Racial Abilities
+
+
+
+#Air Domain			CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:AirDomainAllowed|1
+#Animal Domain		CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:AnimalDomainAllowed|1
+#Chaos Domain		CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:ChaosDomainAllowed|1
+#Death Domain		CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:DeathDomainAllowed|1
+#Destruction Domain	CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:DestructionDomainAllowed|1
+#Earth Domain		CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:EarthDomainAllowed|1
+#Evil Domain			CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:EvilDomainAllowed|1
+#Fire Domain			CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:FireDomainAllowed|1
+#Good Domain			CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:GoodDomainAllowed|1
+#Healing Domain		CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:HealingDomainAllowed|1
+#Law Domain			CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:LawDomainAllowed|1
+#Luck Domain			CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:LuckDomainAllowed|1
+#Knowledge Domain		CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:KnowledgeDomainAllowed|1
+#Magic Domain		CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:MagicDomainAllowed|1
+#Plant Domain		CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:PlantDomainAllowed|1
+#Protection Domain		CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:ProtectionDomainAllowed|1
+#Strength Domain		CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:StrengthDomainAllowed|1
+#Sun Domain			CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:SunDomainAllowed|1
+#Travel Domain		CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:TravelDomainAllowed|1
+#Trickery Domain		CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:TrickeryDomainAllowed|1
+#War Domain			CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:WarDomainAllowed|1
+#Water Domain		CATEGORY:Internal	TYPE:MonsterDomainGranter	DEFINE:WaterDomainAllowed|1
