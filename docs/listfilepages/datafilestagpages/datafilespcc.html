@@ -299,7 +299,9 @@
 	<p class="indent0"><strong>Tag Name:</strong> PRECAMPAIGN:x,y,y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of items required to pass)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Text (Data set name as set by the CAMPAIGN tag).</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> BOOKTYPE=Text (Data set name as set by the CAMPAIGN tag).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> BOOKTYPE=Text (Matches data set BOOKTYPE tag).</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> INCLUDES=Text (Data set name as set by the CAMPAIGN tag that is included in any selected campaign or one of its included sources). *** New 6.1.2</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> INCLUDESBOOKTYPE=Text (Data set BOOKTYPE of any selected campaign or one of its included sources). *** New 6.1.2</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This tag is used as a stand alone tag in .pcc files.</li>
@@ -333,6 +335,13 @@
 	<p class="indent2"><code>!PRECAMPAIGN:1,BOOKTYPE=Core,[3.5 RSRD Basics]</code></p>
 	<p class="indent3">Will cause the associated data set to be loaded only if the a "Core" data set 
 		other than the "3.5 RSRD Basics" data set is loaded.</p>
+	<p class="indent2"><code>PRECAMPAIGN:1,INCLUDES=3.5 RSRD Basics</code></p>
+	<p class="indent3">Will cause a data set to be loaded only if the &quot;3.5 RSRD 
+		Basics&quot; data set is loaded or a data set that includes the &quot;3.5 RSRD Basics&quot;
+		set is loaded.</p>
+	<p class="indent2"><code>PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core</code></p>
+	<p class="indent3">Will cause the associated data set to be loaded only if the a &quot;Core&quot; data set is 
+		loaded or a set that includes a &quot;Core&quot; data set is loaded.</p>
 	<p></p>
 
 <hr>
