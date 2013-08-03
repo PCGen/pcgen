@@ -107,6 +107,7 @@ import pcgen.gui2.tabs.summary.StatTableModel;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FacadeComboBoxModel;
+import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.SignIcon;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.SimpleTextIcon;
@@ -175,6 +176,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		this.characterNameField = new JTextField();
 		this.characterTypeComboBox = new JComboBox();
 		this.random = new JButton();
+		FontManipulation.size80(random);
 		this.playerNameField = new JTextField();
 		this.expField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.nextlevelField = new JFormattedTextField(NumberFormat.getIntegerInstance());

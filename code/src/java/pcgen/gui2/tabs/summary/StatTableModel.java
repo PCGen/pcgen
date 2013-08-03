@@ -20,10 +20,10 @@
  */
 package pcgen.gui2.tabs.summary;
 
-import java.awt.event.ActionEvent;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -59,15 +59,16 @@ import pcgen.core.facade.event.ReferenceListener;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.gui2.tabs.Utilities;
 import pcgen.gui2.util.FontManipulation;
+import pcgen.gui2.util.PrettyIntegerFormat;
 import pcgen.gui2.util.table.TableCellUtilities;
 
 /**
- *
+ * Model used for the Ability/statistics table.
+ * 
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class StatTableModel extends AbstractTableModel implements ReferenceListener<Integer>
 {
-
 	private static final int ABILITY_NAME = 0;
 	private static final int EDITABLE_SCORE = 3;
 	private static final int RACE_ADJ = 4;
@@ -174,6 +175,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		statsTable.setRowHeight(28);
 		statsTable.setOpaque(false);
 		tableHeader.setFont(FontManipulation.small(statsTable.getFont()));
+		FontManipulation.size110(statsTable);
 	}
 
 	/*
@@ -186,7 +188,6 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		public FixedHeaderCellRenderer(String text)
 		{
 			setText(text);
-//			setFont(headerFont);
 			FontManipulation.title(this);
 			setBorder(BorderFactory.createEmptyBorder(2, 5, 2, 5));
 		}
@@ -206,25 +207,25 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	private static class ModRenderer extends JLabel implements TableCellRenderer
 	{
 
-		private DecimalFormat formatter = new DecimalFormat();
+		private DecimalFormat formatter = PrettyIntegerFormat.getFormat();
 
 		public ModRenderer()
 		{
 			setHorizontalAlignment(RIGHT);
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 7));
-			formatter.setPositivePrefix("+");
 		}
 
 		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
+			Font tableFont = table.getFont();
 			if (column < 3)
 			{
-				setFont(table.getFont().deriveFont(Font.BOLD));
+				setFont(tableFont.deriveFont(Font.BOLD));
 			}
 			else
 			{
-				setFont(table.getFont().deriveFont(Font.PLAIN));
+				setFont(tableFont.deriveFont(Font.PLAIN));
 			}
 			setBackground(table.getBackground());
 			setForeground(table.getForeground());
@@ -265,7 +266,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		@Override
 		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
 		{
-			setFont(table.getFont().deriveFont(Font.BOLD));
+			setFont(FontManipulation.title(table.getFont()));
 			setBackground(table.getBackground());
 			setForeground(table.getForeground());
 			setText((String)value);
@@ -421,6 +422,9 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		fireTableDataChanged();
 	}
 
+	/**
+	 * Table renderer used for abilities/statistics.
+	 */
 	private class StatRenderer extends JPanel implements TableCellRenderer
 	{
 
@@ -432,6 +436,8 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 			add(statLabel);
 			add(Box.createHorizontalGlue());
+			// This is to force the use of the parent component font
+			statLabel.setFont(null);
 		}
 
 		@Override
@@ -439,9 +445,10 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			Object value, boolean isSelected, boolean hasFocus, int row,
 			int column)
 		{
+			setFont(FontManipulation.title(jTable.getFont()));
+			// Those two does not seem to change anything.
 			setBackground(jTable.getBackground());
 			setForeground(jTable.getForeground());
-			FontManipulation.title(statLabel);
 			StatFacade stat = (StatFacade) value;
 			//TODO: this should really call stat.toString()
 			statLabel.setText(stat.getName());

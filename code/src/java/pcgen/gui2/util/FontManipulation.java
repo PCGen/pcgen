@@ -1,5 +1,20 @@
-/**
+/*
+ * FontManipulation.java
+ * Copyright 2013 (C) Vincent Lhote
  * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ * 
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.gui2.util;
 
@@ -59,7 +74,7 @@ public class FontManipulation {
 	}
 
 	/**
-	 * For slighty bigger font.
+	 * For slightly bigger font.
 	 * 
 	 * @param font
 	 *            base font
@@ -67,6 +82,18 @@ public class FontManipulation {
 	public static Font big(Font f)
 	{
 		return f.deriveFont(f.getSize() * 1.4f);
+	}
+
+	/**
+	 * For slightly bigger font.
+	 * 
+	 * @param container
+	 *            element to change the font of
+	 */
+	public static void big(Container container)
+	{
+		Font font = container.getFont();
+		container.setFont(big(font));
 	}
 
 	/**
@@ -127,10 +154,21 @@ public class FontManipulation {
 		container.setFont(font.deriveFont(font.getSize() * 1.4f));
 	}
 
+	public static Font size120(Font f)
+	{
+		return f.deriveFont(f.getSize() * 1.2f);
+	}
+	
 	public static void size120(Container container)
 	{
 		Font font = container.getFont();
 		container.setFont(font.deriveFont(font.getSize() * 1.2f));
+	}
+	
+	public static void size110(Container container)
+	{
+		Font font = container.getFont();
+		container.setFont(font.deriveFont(font.getSize() * 1.1f));
 	}
 
 	public static void size90(Container container)
