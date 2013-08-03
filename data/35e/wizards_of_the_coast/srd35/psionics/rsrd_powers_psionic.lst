@@ -3,7 +3,6 @@ SOURCELONG:Revised (v.3.5) System Reference Document	SOURCESHORT:RSRD	SOURCEWEB:
 # Original Entry: Arknight
 # Continued entry by Martin Fagerstrom  2004-06-06
 # K-W entered by syndaryl ( reformated by prettylst.pl v1.31 (build 327))
-
 ###Block:A-C
 # Spell Name			Output Name						Classes of caster					School			Sub-School			Spell Descriptors				Spell Variations				Type			Components			Casting Time			Range			Target Area or Effect													Duration										Save Info								Spell Resistance		XP Cost	Description																													Bonus to HP									Add to base move								Bonus to skill							Stat bonus										Choose								Source Page					Temporary effect description
 Adapt Body											CLASSES:Psion,Psychic Warrior,Wilder=5	SCHOOL:Psychometabolism																	TYPE:Psionic	COMPS:Vi			CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You														DURATION:(CASTERLEVEL) hours [D]						SAVEINFO:None							SPELLRES:No					DESC:Body automatically adapts to hostile environments|!PRERULE:1,DisplayFullSpell																																																																		SOURCEPAGE:PsionicPowersA-C.rtf
@@ -631,3 +630,11 @@ Vigor.MOD						DESC:You suffuse yourself with power, gaining 5 temporary hit poi
 Wall of Ectoplasm.MOD				DESC:You fashion a roiling wall of ectoplasm, imbuing it with solidity. The wall cannot move once it is formed. It is 1 inch thick per four manifester levels and occupies up to one 5-foot square per level. Each 5-foot square of the wall has 10 hit points per inch of thickness and hardness 5. A section of the wall whose hit points drop to 0 is breached. If a creature tries to break through the wall, the DC for the Strength check is 15 + 2 per inch of thickness. The wall of ectoplasm is susceptible to dispel psionics, but it gains a +4 bonus on any check to determine whether the wall is negated. Spells, powers, and breath weapons cannot pass through the wall in either direction (though they could damage it). It blocks ethereal creatures as well as material creatures (though ethereal creatures can usually get around the wall by floating under or over it through material floors and ceilings). The wall is opaque, so neither vision nor gaze attacks operate through it. The wall does not block psychoportive travel, such as that provided by the psionic teleport power. You can form the wall into a flat, vertical plane whose area is up to one 10-foot square per level or into a sphere or hemisphere with a radius of up to 1 foot per level. The wall of ectoplasm must be continuous and unbroken when manifested. If its surface is interrupted by any object or creature, the power fails.|PRERULE:1,DisplayFullSpell
 Wall Walker.MOD					DESC:You can walk on vertical surfaces or even traverse ceilings (you need not make Climb checks to traverse these surfaces). Because of the need to keep at least one foot in contact with the wall or ceiling at all times, you cannot jump or use the run action, and you can move at only half speed. You retain your Dexterity bonus to Armor Class, if any, and opponents gain no special bonuses against you.|PRERULE:1,DisplayFullSpell
 Weapon of Energy.MOD				DESC:As claw of energy, except this power can be manifested on a touched weapon. This power's subtype is the same as the type of energy infused in the touched weapon.|PRERULE:1,DisplayFullSpell
+
+
+###Block: Psionic Monster Support
+Anchored Navigation.MOD		CLASSES:Psion=4[PREVAREQ:PsionSeer,1]
+
+Aversion.MOD			CLASSES:Psion=2[PREVAREQ:PsionTelepath,1]
+
+
