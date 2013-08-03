@@ -261,8 +261,9 @@ public class JTreeTable extends JTableEx
 		// Use the tree's default foreground and background
 		// colors in the table
 		LookAndFeel.installColorsAndFont(this,
-										 "Tree.background", "Tree.foreground",
-										 "Tree.font"); //$NON-NLS-1$ //$NON-NLS-2$//$NON-NLS-3$
+										 "Tree.background", //$NON-NLS-1$
+										 "Tree.foreground", //$NON-NLS-1$
+										 "Tree.font"); //$NON-NLS-1$
 	}
 
 	/**
