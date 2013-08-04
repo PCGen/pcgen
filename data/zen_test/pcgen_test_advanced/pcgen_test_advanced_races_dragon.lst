@@ -17,6 +17,7 @@ Black Dragon
 	DEFINE:LongRace|1
 	DEFINE:RaceSizeIsLong|1
 	LEGS:4
+	MOVE:Walk,5
 #	MONCSKILL:Hide|Move Silently|Swim|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Blue Dragon
@@ -39,6 +40,7 @@ Blue Dragon
 	DEFINE:LongRace|1
 	DEFINE:RaceSizeIsLong|1
 	LEGS:4
+	MOVE:Walk,5
 #	MONCSKILL:Bluff|Hide|Spellcraft|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Green Dragon
@@ -58,6 +60,7 @@ Green Dragon
 	DEFINE:LongRace|1
 	DEFINE:RaceSizeIsLong|1
 	LEGS:4
+	MOVE:Walk,5
 #	MONCSKILL:Bluff|Hide|Move Silently|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Red Dragon
@@ -80,6 +83,7 @@ Red Dragon
 	DEFINE:LongRace|1
 	DEFINE:RaceSizeIsLong|1
 	LEGS:4
+	MOVE:Walk,5
 #	MONCSKILL:Appraise|Bluff|Jump|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 White Dragon
@@ -99,6 +103,7 @@ White Dragon
 	DEFINE:LongRace|1
 	DEFINE:RaceSizeIsLong|1
 	LEGS:4
+	MOVE:Walk,5
 #	MONCSKILL:Hide|Move Silently|Swim|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Brass Dragon
@@ -120,6 +125,7 @@ Brass Dragon
 	DEFINE:LongRace|1
 	DEFINE:RaceSizeIsLong|1
 	LEGS:4
+	MOVE:Walk,5
 #	MONCSKILL:Bluff|Gather Information|Survival|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Bronze Dragon
@@ -142,6 +148,7 @@ Bronze Dragon
 	DEFINE:LongRace|1
 	DEFINE:RaceSizeIsLong|1
 	LEGS:4
+	MOVE:Walk,5
 #	MONCSKILL:Disguise|Swim|Survival|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Copper Dragon
@@ -164,6 +171,7 @@ Copper Dragon
 	DEFINE:LongRace|1
 	DEFINE:RaceSizeIsLong|1
 	LEGS:4
+	MOVE:Walk,5
 #	MONCSKILL:Bluff|Hide|Jump|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Gold Dragon
@@ -186,6 +194,7 @@ Gold Dragon
 	DEFINE:LongRace|1
 	DEFINE:RaceSizeIsLong|1
 	LEGS:4
+	MOVE:Walk,5
 #	MONCSKILL:Disguise|Heal|Swim|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 
 Silver Dragon
@@ -209,5 +218,6 @@ Silver Dragon
 	DEFINE:LongRace|1
 	DEFINE:RaceSizeIsLong|1
 	LEGS:4
+	MOVE:Walk,5
 #	MONCSKILL:Bluff|Disguise|Jump|Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 

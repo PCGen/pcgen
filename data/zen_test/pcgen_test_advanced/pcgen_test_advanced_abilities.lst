@@ -1470,3 +1470,6 @@ Resistance To Cold Output		OUTPUTNAME:Resistance To Cold			CATEGORY:Special Abil
 Resistance To Fire Output		OUTPUTNAME:Resistance To Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:You may ignore %1 points of Fire damage each time you take Fire damage|FireResistanceBonus					ASPECT:Resistance|Fire	ASPECT:Ability Benefit|%1|FireResistanceBonus
 Resistance To Electricity Output	OUTPUTNAME:Resistance To Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:You may ignore %1 points of Electricity damage each time you take Electricity damage|ElectricityResistanceBonus	ASPECT:Resistance|Electricity	ASPECT:Ability Benefit|%1|ElectricityResistanceBonus
 Resistance To Sonic Output		OUTPUTNAME:Resistance To Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:You may ignore %1 points of Sonic damage each time you take Sonic damage|SonicResistanceBonus				ASPECT:Resistance|Sonic	ASPECT:Ability Benefit|%1|SonicResistanceBonus
+
+
+MyVarTest	CATEGORY:Special Ability	TYPE:SpecialQuality	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	DEFINE:MyVarTest|0	DEFINE:MyVarTestTwo|0	BONUS:VAR|MyVarTest,MyVarTestTwo|1	DESC:My Var Test =%1, My Var Test Twp =%2|MyVarTest|MyVarTestTwo
