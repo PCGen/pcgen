@@ -152,28 +152,33 @@
 		<p class="indent0">You can also call other PCC files from within a PCC file with the following:</p>
 		<p class="indent1"><code>PCC:myPCC.pcc</code>.</p>
 		
-		<p class="indent0">For a complete listing of LST file types, see 
-			<a href="datafilestagpages/datafilespcc.html#MAINBODYTAGS">Main Body Tags</a>. 
-			The tags listed are used to load the specific LST files which make up the dataset.</p>
 		<p class="indent0">If you wanted to call a LST file of &quot;Class&quot; objects named 
 			<span class="lstfile">myfirstclass.lst</span>, you would have the following line in 
 			your PCC file.</p>
 		
 		<p class="indent1"><code>CLASS:myfirstclass.lst</code></p>
 		
-		<p class="indent0">This assumes the file myfirstclass.lst is in the same directory as the PCC. So
-			if you wanted this PCC to load the file srdspells stored in pcgen\data\d20ogl\srd
-			you would use the following line:</p>
+		<p class="indent0">For a complete listing of LST file types and the tags used to load them, see the 
+			<a href="datafilestagpages/datafilespcc.html#MAINBODYTAGS">PCC Main Body Tags</a> in PCGen's LST Tag Dictionary.</p>
+
+		<h4>Data Set File Pathnames</h4>
+		
+		<p class="indent0">The basic information provided in the previous section assumes the file <span class="lstfile">myfirstclass.lst</span> 
+			is in the same directory as the PCC file. If this is not the case, say you wanted this PCC to load the file <span class="lstfile">srdspells.lst</span> 
+			stored in <span class="lstfile">pcgen\data\d20ogl\srd</span> you would use the following line:</p>
 		
 		<p class="indent1"><code>SPELL:@/d20ogl/srd/srdspells.lst</code></p>
 		
-		<p class="indent0">The &quot;@&quot; symbol tells PCGen to start at the top of the data directory
-			and then follow the path down. See the documentation for more information.</p>
+		<p class="indent0">The &quot;@&quot; symbol tells PCGen to start at the top of the <strong>data</strong> directory
+			and then follow the path down.</p>
 		
 		<p class="indent1"><code>CLASS:&amp;/complete_monkey/complete_monkey_classes.lst</code></p>
 		
-		<p class="indent0">The &quot;&amp;&quot; symbol tells PCGen to start at the top of the vendor data directory
-			and then follow the path down. See the documentation for more information.</p>
+		<p class="indent0">The &quot;&amp;&quot; symbol tells PCGen to start at the top of the <strong>vendor</strong> data directory
+			and then follow the path down.</p>
+		
+		<p class="indent0">The &quot;$&quot; symbol tells PCGen to start at the top of the <strong>homebrew</strong> data directory
+			and then follow the path down.</p>
 		
 		<h4>Excluding and Including from LST files</h4>
 		
@@ -187,12 +192,12 @@
 		<p class="indent1"><code>CLASS:myfirstclass.lst|(EXCLUDE:Monk|Sorcerer)|@/d20ogl/srd/srdclassesbase.lst</code></p>
 		<p class="indent2">Load all classes in <span class="lstfile">myclass.lst</span> and all the SRD classes except 
 			for the &quot;Monk&quot; and &quot;Sorcerer&quot; classes.</p>
-		<p class="indent0">See further information on <a href="datafilestagpages/datafilespcc.html#OTHERPCCTAGS">"Other 
-			.pcc file tags"</a> which are used to provide additional functionality.</p>
+		<p class="indent0">You'll find more information on these and all PCC file tags in PCGen's 
+			<a href="datafilestagpages/datafilespcc.html">PCC File Tag</a> documentation.</p>
 
 <hr>
 
-		<h2>Building your own LST</h2>
+		<h2>Building Your Own LST Files</h2>
 		
 		<p class="indent0">Because LST files are called from PCC files they have little in the way of a header, 
 			just a <code>SOURCExxx</code> tag, which provides information used on character sheets and displays.</p>
