@@ -22,6 +22,9 @@ Acrobatics (Underground)					KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:Skill
 Acrobatics (Jump/Underground)					KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Acrobatics (Jump/Underground).MISC"),var("SKILL.Acrobatics (Jump).MISC")								SOURCEPAGE:unk
 Climb (Underground)						KEYSTAT:STR	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Climb (Underground).MISC"),var("SKILL.Climb.MISC")												SOURCEPAGE:unk
 
+Stealth (Stationary for at least one round)	KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Stealth (Stationary for at least one round).MISC"),var("SKILL.Stealth.MISC")										SOURCEPAGE:unk
+
+
 ###Block: Skill .MODs
 # Skill Name					Bonus to skill																		Bonus to skill rank
 Knowledge (Dungeoneering).MOD			BONUS:SKILL|Knowledge (Dungeoneering/Underground)|var("SKILL.Knowledge (Dungeoneering).MISC")					BONUS:SKILLRANK|Knowledge (Dungeoneering/Underground)|skillinfo("TOTALRANK", "Knowledge (Dungeoneering)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (Dungeoneering/Underground).MISC"),var("SKILL.Knowledge (Dungeoneering).MISC")
@@ -38,3 +41,5 @@ Climb.MOD						BONUS:SKILL|Climb (Underground)|var("SKILL.Climb.MISC")										
 
 Ride.MOD						BONUS:SKILL|Ride (Samurai Mount)|var("SKILL.Ride.MISC")	BONUS:SKILL|Ride (Samurai Mount)|SamuraiMountACP	DEFINE:RideACP|var(ARMOR.0.ACCHECK)	DEFINE:SamuraiMountACP|RideACP-(RideACP*2)	BONUS:SKILLRANK|Ride (Samurai Mount)|skillinfo("TOTALRANK", "Ride")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai
 Ride (Samurai Mount)				KEYSTAT:DEX							TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai														
+
+Stealth.MOD	BONUS:SKILL|Stealth (Stationary for at least one round)|var("SKILL.Stealth.MISC")										BONUS:SKILLRANK|Stealth (Stationary for at least one round)|skillinfo("TOTALRANK", "Stealth")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Stealth (Stationary for at least one round).MISC"),var("SKILL.Stealth.MISC")
