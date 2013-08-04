@@ -1759,6 +1759,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		if (charLevelsFacade != null)
 		{
 			charLevelsFacade.fireSkillBonusEvent(this, 0, true);
+			charLevelsFacade.updateSkillsTodo();
 		}
 	}
 
@@ -2984,6 +2985,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setAge(age);
 		this.age.setReference(age);
 		updateAgeCategoryForAge();
+		refreshStatScores();
+		refreshLanguageList();
 	}
 
 	/**
@@ -3047,6 +3050,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 					Globals.getBioSet().randomize("AGECAT" + Integer.toString(idx), theCharacter);
 					age.setReference(charDisplay.getAge());
 					ageCategory.setReference(ageCat);
+					refreshStatScores();
+					refreshLanguageList();
 				}
 			}
 		}

@@ -677,7 +677,7 @@ public class CharacterLevelsFacadeImpl extends
 		return (rank != null) && (rank > 0.0d);
 	}
 
-	private void updateSkillsTodo()
+	protected void updateSkillsTodo()
 	{
 		if (theCharacter.getSkillPoints() < 0)
 		{
