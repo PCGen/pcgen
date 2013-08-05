@@ -114,18 +114,32 @@
 <hr>
 
 		<p class="status"><a name="ENCUMBRANCE">*** New 5.7.12</a></p>
-		<p class="indent0"><strong>Tag Name:</strong>ENCUMBRANCE:x|y|z</p>
-		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of load category)</p>
-		<p class="indent1"><strong>Variables Used (y):</strong> Number (Multiplier)</p>
+		<p class="indent0"><strong>Tag Name:</strong>ENCUMBRANCE:w|x|y|z</p>
+		<p class="indent1"><strong>Variables Used (w):</strong> Text (Name of load category)</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Number (Multiplier - Portion of full load covered by encumbrance category)</p>
+		<p class="indent1"><strong>Variables Used (y):</strong> Text (Move formula. Optional)
 		<p class="indent1"><strong>Variables Used (z):</strong> Number (Check Penalty)
 		<p class="indent1"><strong>What it does:</strong></p>
-		<ul class="indent2">
-			<li>Defines the Load Categories for the gameMode.</li>
-			<li>All gameModes must include the six categories listed below.</li>
+		<ul class="indent1">
+			<li>This tag defines the Load Categories used by the output sheets and is set by gameMode.</li>
+			<li>The <code>ENCUMBRANCE</code> tag expects either two or four parameters with parameters (y) and (z) being optional.</li>
+			<li>If the move formula, parameter (y), is not included the gameMode's default move formula will be used.</li>
+			<li>The following six categories are required by the d20 based output sheets distributed by PCGen:
+				<ul>
+					<li>Light</li>
+					<li>Medium</li>
+					<li>Heavy</li>
+					<li>OverHead</li>
+					<li>OffGround</li>
+					<li>PushDrag</li>
+				</ul>
+			</li>
 			<li>Additional categories may be defined as needed.</li>
 			<li>The <code>ENCUMBRANCE</code> tag defines the output token used. 
 				See the entry for the output token <a href="../../outputsheetpages/tokens/outputsheettokensgeneral.html#WEIGHT">WEIGHT</a></li>
 		</ul>
+		<p class="sidebar0">Note: Parameter (z) can be included without parameter (y) but you will need to include a 
+			double pipe (||) in its place as PCGen still expects 4 parameters. Examples are provided below.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>ENCUMBRANCE:Light|1/3||0</code></p>
 		<p class="indent2"><code>ENCUMBRANCE:Medium|2/3||-3</code></p>
