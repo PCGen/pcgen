@@ -112,8 +112,8 @@ FEAT:Greater Psionic Fist
 FEAT:Unavoidable Strike
 STAT:DEX=11|CON=11|INT=11|CHA=11|STR=10|WIS=10
 
-STARTPACK:Crysmal Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crysmal]
-RACE:Crysmal	!PRERACE:1,%
+STARTPACK:Crysmal Default ~ Psionic	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crysmal ~ Psionic]
+RACE:Crysmal ~ Psionic	!PRERACE:1,%
 NAME:Crysmal
 ALIGN:LN
 GENDER:Neuter
