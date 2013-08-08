@@ -727,7 +727,7 @@
 
 
 	<!-- Turning ability -->
-|IIF(count("ABILITIES";"NAME=Turn Undead")>0)|
+|IIF(countdistinct("ABILITIES";"NAME=Turn Undead")>0)|
 	<turning kind="UNDEAD" type="TURN">
 			<level>|VAR.TurnLevelUndead.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckUndead.INTVAL.SIGN|</turn_check>
@@ -736,7 +736,7 @@
 			<notes>You destroy Undead creatures with total hit dice up to |(VAR.TurnLevelUndead/2).INTVAL|.</notes>
 		</turning>
 |ENDIF|
-|IIF(count("ABILITIES";"NAME=Rebuke Undead")>0)|
+|IIF(countdistinct("ABILITIES";"NAME=Rebuke Undead")>0)|
 	<turning kind="UNDEAD" type="REBUKE">
 			<level>|VAR.TurnLevelUndead.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckUndead.INTVAL.SIGN|</turn_check>
@@ -745,7 +745,7 @@
 			<notes>You command Undead creatures with total hit dice up to |VAR.TurnLevelUndead.INTVAL|.</notes>
 		</turning>
 |ENDIF|
-|IIF(count("ABILITIES";"NAME=Turn Air")>0)|
+|IIF(countdistinct("ABILITIES";"NAME=Turn Air")>0)|
 	<turning kind="AIR" type="TURN">
 			<level>|VAR.TurnLevelAir.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckAir.INTVAL.SIGN|</turn_check>
@@ -754,7 +754,7 @@
 			<notes>You destroy Air creatures with total hit dice up to |(VAR.TurnLevelAir/2).INTVAL|.</notes>
 		</turning>
 |ENDIF|
-|IIF(count("ABILITIES";"NAME=Rebuke Air")>0)|
+|IIF(countdistinct("ABILITIES";"NAME=Rebuke Air")>0)|
 	<turning kind="AIR" type="REBUKE">
 			<level>|VAR.TurnLevelAir.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckAir.INTVAL.SIGN|</turn_check>
@@ -763,7 +763,7 @@
 			<notes>You command Air creatures with total hit dice up to |VAR.TurnLevelAir.INTVAL|</notes>
 		</turning>
 |ENDIF|
-|IIF(count("ABILITIES";"NAME=Turn Earth")>0)|
+|IIF(countdistinct("ABILITIES";"NAME=Turn Earth")>0)|
 	<turning kind="EARTH" type="TURN">
 			<level>|VAR.TurnLevelEarth.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckEarth.INTVAL.SIGN|</turn_check>
@@ -772,7 +772,7 @@
 			<notes>You destroy Earth creatures with total hit dice up to |(VAR.TurnLevelEarth/2).INTVAL|.</notes>
 		</turning>
 |ENDIF|
-|IIF(count("ABILITIES";"NAME=Rebuke Earth")>0)|
+|IIF(countdistinct("ABILITIES";"NAME=Rebuke Earth")>0)|
 	<turning kind="EARTH" type="REBUKE">
 			<level>|VAR.TurnLevelEarth.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckEarth.INTVAL.SIGN|</turn_check>
@@ -781,7 +781,7 @@
 			<notes>You command Earth creatures with total hit dice up to |VAR.TurnLevelEarth.INTVAL|</notes>
 		</turning>
 |ENDIF|
-|IIF(count("ABILITIES";"NAME=Turn Fire")>0)|
+|IIF(countdistinct("ABILITIES";"NAME=Turn Fire")>0)|
 	<turning kind="FIRE" type="TURN">
 			<level>|VAR.TurnLevelFire.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckFire.INTVAL.SIGN|</turn_check>
@@ -790,7 +790,7 @@
 			<notes>You destroy Fire creatures with total hit dice up to |(VAR.TurnLevelFire/2).INTVAL|.</notes>
 		</turning>
 |ENDIF|
-|IIF(count("ABILITIES";"NAME=Rebuke Fire")>0)|
+|IIF(countdistinct("ABILITIES";"NAME=Rebuke Fire")>0)|
 	<turning kind="FIRE" type="REBUKE">
 			<level>|VAR.TurnLevelFire.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckFire.INTVAL.SIGN|</turn_check>
@@ -799,7 +799,7 @@
 			<notes>You command Fire creatures with total hit dice up to |VAR.TurnLevelFire.INTVAL|</notes>
 		</turning>
 |ENDIF|
-|IIF(count("ABILITIES";"NAME=Turn Water")>0)|
+|IIF(countdistinct("ABILITIES";"NAME=Turn Water")>0)|
 	<turning kind="WATER" type="TURN">
 			<level>|VAR.TurnLevelWater.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckWater.INTVAL.SIGN|</turn_check>
@@ -808,7 +808,7 @@
 			<notes>You destroy Water creatures with total hit dice up to |(VAR.TurnLevelWater/2).INTVAL|.</notes>
 		</turning>
 |ENDIF|
-|IIF(count("ABILITIES";"NAME=Rebuke Water")>0)|
+|IIF(countdistinct("ABILITIES";"NAME=Rebuke Water")>0)|
 	<turning kind="WATER" type="REBUKE">
 			<level>|VAR.TurnLevelWater.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckWater.INTVAL.SIGN|</turn_check>
@@ -817,7 +817,7 @@
 			<notes>You command Water creatures with total hit dice up to |VAR.TurnLevelWater.INTVAL|</notes>
 		</turning>
 |ENDIF|
-|IIF(count("ABILITIES";"NAME=Turn Plant")>0)|
+|IIF(countdistinct("ABILITIES";"NAME=Turn Plant")>0)|
 	<turning kind="PLANT" type="TURN">
 			<level>|VAR.TurnLevelPlant.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckPlant.INTVAL.SIGN|</turn_check>
@@ -826,7 +826,7 @@
 			<notes>You destroy Plant creatures with total hit dice up to |(VAR.TurnLevelPlant/2).INTVAL|.</notes>
 		</turning>
 |ENDIF|
-|IIF(count("ABILITIES";"NAME=Rebuke Plant")>0)|
+|IIF(countdistinct("ABILITIES";"NAME=Rebuke Plant")>0)|
 	<turning kind="PLANT" type="REBUKE">
 			<level>|VAR.TurnLevelPlant.INTVAL|</level>
 			<turn_check>1d20|VAR.TurnCheckPlant.INTVAL.SIGN|</turn_check>
@@ -1008,7 +1008,7 @@
 	  ====================================-->
 	<feats>
 		<!-- Visible standard feats (not including the auto feats) -->
-|FOR,%feat,0,count("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|	
+|FOR,%feat,0,countdistinct("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|	
 		<feat>
 			<name>|ABILITY.FEAT.VISIBLE.%feat|</name>
 			<description>|ABILITY.FEAT.VISIBLE.%feat.DESC|</description>
@@ -1022,7 +1022,7 @@
 |ENDFOR|	
 
 		<!-- Auto feats -->
-|FOR,%feat,0,count("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|	
+|FOR,%feat,0,countdistinct("ABILITIES","CATEGORY=FEAT","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|	
 		<feat>
 			<name>|ABILITYAUTO.FEAT.VISIBLE.%feat|</name>
 			<description>|ABILITYAUTO.FEAT.VISIBLE.%feat.DESC|</description>
@@ -1063,7 +1063,7 @@
 		</feat>
 |ENDFOR|
 <!-- Hidden VFEATS -->
-|FOR,%feat,0,count("ABILITIES","CATEGORY=FEAT","VISIBILITY=HIDDEN","NATURE=VIRTUAL")-1,1,0|
+|FOR,%feat,0,countdistinct("ABILITIES","CATEGORY=FEAT","VISIBILITY=HIDDEN","NATURE=VIRTUAL")-1,1,0|
 		<feat>
 			<name>|VABILITY.FEAT.HIDDEN.%feat|</name>
 			<description>|VABILITY.FEAT.HIDDEN.%feat.DESC|</description>
@@ -1097,11 +1097,11 @@
 	  ====================================-->
 
 	<ability_objects>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
 |ELSE|
 	<!-- Visible Standard "Special Ability" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
 		<ability_object>
 			<name>|ABILITY.Special Ability.VISIBLE.%ability|</name>
 			<description>|ABILITY.Special Ability.VISIBLE.%ability.DESC|</description>
@@ -1114,11 +1114,11 @@
 			<category>Special Ability</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
 |ELSE|
 	<!-- Visible Automatic "Special Ability" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
 		<ability_object>
 			<name>|ABILITYAUTO.Special Ability.VISIBLE.%ability|</name>
 			<description>|ABILITYAUTO.Special Ability.VISIBLE.%ability.DESC|</description>
@@ -1131,11 +1131,11 @@
 			<category>Special Ability</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
 |ELSE|
 	<!-- Visible Virtual "Special Ability" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
 		<ability_object>
 			<name>|VABILITY.Special Ability.VISIBLE.%ability|</name>
 			<description>|VABILITY.Special Ability.VISIBLE.%ability.DESC|</description>
@@ -1148,11 +1148,11 @@
 			<category>Special Ability</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
 |ELSE|
 	<!-- Hidden Standard "Special Ability" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
 		<ability_object>
 			<name>|ABILITY.Special Ability.HIDDEN.%ability|</name>
 			<description>|ABILITY.Special Ability.HIDDEN.%ability.DESC|</description>
@@ -1165,11 +1165,11 @@
 			<category>Special Ability</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
 |ELSE|
 	<!-- Hidden Automatic "Special Ability" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
 		<ability_object>
 			<name>|ABILITYAUTO.Special Ability.HIDDEN.%ability|</name>
 			<description>|ABILITYAUTO.Special Ability.HIDDEN.%ability.DESC|</description>
@@ -1182,11 +1182,11 @@
 			<category>Special Ability</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
 |ELSE|
 	<!-- Hidden Virtual "Special Ability" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
 		<ability_object>
 			<name>|VABILITY.Special Ability.HIDDEN.%ability|</name>
 			<description>|VABILITY.Special Ability.HIDDEN.%ability.DESC|</description>
@@ -1199,11 +1199,11 @@
 			<category>Special Ability</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Salient Divine Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Salient Divine Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
 |ELSE|
 	<!-- "Salient Divine Ability" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Salient Divine Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Salient Divine Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
 		<ability_object>
 			<name>|ABILITY.Salient Divine Ability.VISIBLE.%ability|</name>
 			<description>|ABILITY.Salient Divine Ability.VISIBLE.%ability.DESC|</description>
@@ -1216,11 +1216,11 @@
 			<category>Salient Divine Ability</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Mutation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Mutation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
 |ELSE|
 	<!-- "Mutation" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Mutation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Mutation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
 		<ability_object>
 			<name>|ABILITY.Mutation.VISIBLE.%ability|</name>
 			<description>|ABILITY.Mutation.VISIBLE.%ability.DESC|</description>
@@ -1233,11 +1233,11 @@
 			<category>Mutation</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
 |ELSE|
 	<!-- Visible Standard "Talent" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
 		<ability_object>
 			<name>|ABILITY.Talent.VISIBLE.%ability|</name>
 			<description>|ABILITY.Talent.VISIBLE.%ability.DESC|</description>
@@ -1250,11 +1250,11 @@
 			<category>Talent</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
 |ELSE|
 	<!-- Visible Automatic "Talent" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
 		<ability_object>
 			<name>|ABILITYAUTO.Talent.VISIBLE.%ability|</name>
 			<description>|ABILITYAUTO.Talent.VISIBLE.%ability.DESC|</description>
@@ -1267,11 +1267,11 @@
 			<category>Talent</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
 |ELSE|
 	<!-- Visible Virtual "Talent" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
 		<ability_object>
 			<name>|VABILITY.Talent.VISIBLE.%ability|</name>
 			<description>|VABILITY.Talent.VISIBLE.%ability.DESC|</description>
@@ -1284,11 +1284,11 @@
 			<category>Talent</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
 |ELSE|
 	<!-- Hidden Standard "Talent" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
 		<ability_object>
 			<name>|ABILITY.Talent.HIDDEN.%ability|</name>
 			<description>|ABILITY.Talent.HIDDEN.%ability.DESC|</description>
@@ -1301,11 +1301,11 @@
 			<category>Talent</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
 |ELSE|
 	<!-- Hidden Automatic "Talent" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
 		<ability_object>
 			<name>|ABILITYAUTO.Talent.HIDDEN.%ability|</name>
 			<description>|ABILITYAUTO.Talent.HIDDEN.%ability.DESC|</description>
@@ -1318,11 +1318,11 @@
 			<category>Talent</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
 |ELSE|
 	<!-- Hidden Virtual "Talent" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
 		<ability_object>
 			<name>|VABILITY.Talent.HIDDEN.%ability|</name>
 			<description>|VABILITY.Talent.HIDDEN.%ability.DESC|</description>
@@ -1335,11 +1335,11 @@
 			<category>Talent</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=NORMAL")==0)|
 |ELSE|
 	<!-- Visible Standard "Internal" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=NORMAL")-1,1,0|
 		<ability_object>
 			<name>|ABILITY.Internal.VISIBLE.%ability|</name>
 			<description>|ABILITY.Internal.VISIBLE.%ability.DESC|</description>
@@ -1352,11 +1352,11 @@
 			<category>Internal</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=AUTOMATIC")==0)|
 |ELSE|
 	<!-- Visible Automatic "Internal" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=AUTOMATIC")-1,1,0|
 		<ability_object>
 			<name>|ABILITYAUTO.Internal.VISIBLE.%ability|</name>
 			<description>|ABILITYAUTO.Internal.VISIBLE.%ability.DESC|</description>
@@ -1369,11 +1369,11 @@
 			<category>Internal</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"NATURE=VIRTUAL")==0)|
 |ELSE|
 	<!-- Visible Virtual "Internal" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","NATURE=VIRTUAL")-1,1,0|
 		<ability_object>
 			<name>|VABILITY.Internal.VISIBLE.%ability|</name>
 			<description>|VABILITY.Internal.VISIBLE.%ability.DESC|</description>
@@ -1386,11 +1386,11 @@
 			<category>Internal</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=NORMAL")==0)|
 |ELSE|
 	<!-- Hidden Standard "Internal" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=NORMAL")-1,1,0|
 		<ability_object>
 			<name>|ABILITY.Internal.HIDDEN.%ability|</name>
 			<description>|ABILITY.Internal.HIDDEN.%ability.DESC|</description>
@@ -1403,11 +1403,11 @@
 			<category>Internal</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=AUTOMATIC")==0)|
 |ELSE|
 	<!-- Hidden Automatic "Internal" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=AUTOMATIC")-1,1,0|
 		<ability_object>
 			<name>|ABILITYAUTO.Internal.HIDDEN.%ability|</name>
 			<description>|ABILITYAUTO.Internal.HIDDEN.%ability.DESC|</description>
@@ -1420,11 +1420,11 @@
 			<category>Internal</category>
 		</ability_object>
 |ENDFOR|
-|IIF(count("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Internal";"VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY";"NATURE=VIRTUAL")==0)|
 |ELSE|
 	<!-- Hidden Virtual "Internal" Ability Objects -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Internal","VISIBILITY=HIDDEN[or]VISIBILITY=DISPLAY_ONLY","NATURE=VIRTUAL")-1,1,0|
 		<ability_object>
 			<name>|VABILITY.Internal.HIDDEN.%ability|</name>
 			<description>|VABILITY.Internal.HIDDEN.%ability.DESC|</description>
