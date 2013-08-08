@@ -672,8 +672,10 @@
         <p class="indent3">The displayed name for the category is the value in the selected language for the key in_feat.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">Used in <a href="#ABILITYCATEGORY">ABILITYCATEGORY</a> lines.</p>
- 
-		<p></p><hr>
+		<p></p>
+
+<hr>
+
 		<p class="indent0"><strong><a name="DISPLAYORDER">Tag Name:</a></strong>DISPLAYORDER:x</p>
         <p class="indent1"><strong>Variables Used (x):</strong> Number (Order of priority)</p>
         <p class="indent1"><strong>What it does:</strong></p>
@@ -681,8 +683,41 @@
         <p class="indent1"><strong>Example:</strong></p>
         <p class="indent2"><code>DISPLAYORDER:1</code></p>
         <p class="indent3">The Game Mode/Campaign menu will show this as the first Game Mode.</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+
+		<p class="indent0"><strong><a name="DISPLAYVARIABLENAME">Tag Name:</a></strong>DISPLAYVARIABLExNAME:y</p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Number (Variable number, 1, 2, or 3)</p>
+        <p class="indent1"><strong>Variables Used (y):</strong> Text (Variable name)</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>This tag identifies variables to be displayed.</li>
+			<li>The variable name must match a valid <code>DEFINE</code> tag for the variable to be displayed</li>
+			<li>Up to 3 variables can be displayed in this manner.</li>
+		</ul>
+        <p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2"><code>DISPLAYVARIABLE1NAME:1</code></p>
+        <p class="indent3">The ActionRemain variable will be displayed.</p>
+		<p></p>
+
+<hr>
+
+		<p class="indent0"><strong><a name="DISPLAYVARIABLETEXT">Tag Name:</a></strong>DISPLAYVARIABLExTEXT:y</p>
+        <p class="indent1"><strong>Variables Used (x):</strong> Number (Variable number, 1, 2, or 3)</p>
+        <p class="indent1"><strong>Variables Used (y):</strong> Text (Variable label)</p>
+        <p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>This tag provides the label to use for a matching variable being displayed as part of the <code>DISPLAYVARIABLExNAME</code> tag.</li>
+			<li>Up to 3 variables can be displayed in this manner.</li>
+		</ul>
+        <p class="indent1"><strong>Example:</strong></p>
+        <p class="indent2"><code>DISPLAYVARIABLE1TEXT:1</code></p>
+        <p class="indent3">The ActionRemain variable will be displayed with a label of "Action Points"</p>
+		<p></p>
+
+<hr>
+
 		<p class="status"><a name="DISTANCEFACTOR">*** New 5.9.5</a></p>
 		<p class="indent0"><strong>Tag Name:</strong> DISTANCEFACTOR:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Distance factor).</p>
