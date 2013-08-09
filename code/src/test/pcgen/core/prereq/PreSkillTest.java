@@ -62,6 +62,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 
 	Skill balance = null;
 	Skill knowledge = null;
+	Skill knowledge2 = null;
 	Skill tumble = null;
 	Skill fake = null;
 	Skill fake2 = null;
@@ -88,7 +89,15 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		TestHelper.addType(knowledge, "KNOWLEDGE.INT");
 		context.ref.importObject(knowledge);
 		character.addSkill(knowledge);
-		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge);
+		SkillRankControl.modRanks(6.0, myClass, true, character, knowledge);
+		
+		knowledge2 = new Skill();
+		context.unconditionallyProcess(knowledge2, "CLASSES", "MyClass");
+		knowledge2.setName("KNOWLEDGE (NATURE)");
+		TestHelper.addType(knowledge2, "KNOWLEDGE.INT");
+		context.ref.importObject(knowledge2);
+		character.addSkill(knowledge2);
+		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge2);
 
 		tumble = new Skill();
 		context.unconditionallyProcess(tumble, "CLASSES", "MyClass");
@@ -246,7 +255,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		prereq.setKey("knowledge");
 		prereq.setSubKey("arcana");
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("8");
+		prereq.setOperand("6");
 
 		final PlayerCharacter character = getCharacter();
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
@@ -262,7 +271,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		prereq.setKind("skill");
 		prereq.setKey("TYPE.knowledge");
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
-		prereq.setOperand("2");
+		prereq.setOperand("8");
 
 		final PlayerCharacter character = getCharacter();
 		final boolean passes = PrereqHandler.passes(prereq, character, null);

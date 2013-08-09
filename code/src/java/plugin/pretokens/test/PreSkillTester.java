@@ -106,6 +106,11 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 					runningTotal = getRunningTotal(aSkill, character
 						, prereq, foundMatch, runningTotal, requiredRanks);
 				}
+				// If there wasn't a match, then check other skills of the type
+				if (runningTotal == 0)
+				{
+					foundMatch = false;
+				}
 			}
 			else if (aSkillKey.equals(skillKey)
 				|| ((percentageSignPosition >= 0) && aSkillKey
@@ -305,10 +310,6 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 				{
 					runningTotal++;
 				}
-			}
-			if (runningTotal == 0)
-			{
-				foundMatch = false;
 			}
 		}
 		return runningTotal;
