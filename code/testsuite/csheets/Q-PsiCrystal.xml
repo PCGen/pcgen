@@ -607,6 +607,23 @@ BIO
 			<exclusive_total>2</exclusive_total>
 		</skill>
 		<skill>
+			<name>Perform (Untrained)</name>
+			<ranks>0.0</ranks>
+			<mod>0<!-- Mods from abilities, equipment, etc -->
+			</mod>
+			<skill_mod>0</skill_mod>
+			<ability_mod>0<!-- Mod from the key ability -->
+			</ability_mod>
+			<misc_mod>0<!-- This is a calc value of TOTAL-RANK-ABMOD -->
+			</misc_mod>
+			<ability>CHA</ability>
+			<synergy>Perform (Untrained)</synergy>
+			<untrained>Y</untrained>
+			<exclusive>N</exclusive>
+			<trained_total>0</trained_total>
+			<exclusive_total>0</exclusive_total>
+		</skill>
+		<skill>
 			<name>Psicraft</name>
 			<ranks>8.0</ranks>
 			<mod>-2<!-- Mods from abilities, equipment, etc -->
@@ -1078,7 +1095,22 @@ BIO
 	<languages></languages>
 
 	<templates>
-		<list></list>
+		<list>Base Race Type</list>
+		<template>
+			<name>Base Race Type</name>
+			<strmod>0</strmod>
+			<dexmod>0</dexmod>
+			<conmod>0</conmod>
+			<intmod>0</intmod>
+			<wismod>0</wismod>
+			<chamod>0</chamod>
+			<cr>0</cr>
+			<dr></dr>
+			<feat></feat>
+			<sa></sa>
+			<sr>0</sr>
+			<bonuslist></bonuslist>
+		</template>
 	</templates>
 
 
