@@ -1293,8 +1293,15 @@ public final class Globals
 		return aList;
 	}
 	
-	static String getBonusFeatString() {
-		return SettingsHandler.getGame().getBonusFeatLevels().get(0);
+	static String getBonusFeatString() 
+	{
+		List<String> bonusFeatLevels = SettingsHandler.getGame().getBonusFeatLevels();
+		if (bonusFeatLevels == null || bonusFeatLevels.isEmpty())
+		{
+			// Default to no bonus feats.
+			return "9999|0";
+		}
+		return bonusFeatLevels.get(0);
 	}
 
 	static int getBonusStatsForLevel(final int level, final PlayerCharacter aPC)
