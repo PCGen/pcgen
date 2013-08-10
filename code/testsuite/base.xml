@@ -27,7 +27,7 @@
 		<birthplace>|BIRTHPLACE|</birthplace>
 		<catchphrase>|CATCHPHRASE|</catchphrase>
 		<classes>
-|FOR,%class,0,COUNT[CLASSES]-1,1,0|
+|FOR,%class,0,countdistinct("CLASSES")-1,1,0|
 			<class>
 				<name>|CLASS.%class|</name>
 				<abbreviation>|CLASSABB.%class|</abbreviation>
