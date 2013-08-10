@@ -975,7 +975,7 @@ public class CountCommand extends PCGenCommand
 
 		public static String CountType = "";
 
-		private static ParameterTree convertParams(final Object[] params)
+		protected static ParameterTree convertParams(final Object[] params)
 		{
 			ParameterTree pt = null;
 
@@ -1007,7 +1007,7 @@ public class CountCommand extends PCGenCommand
 			return pt;
 		}
 
-		private static void filterPObjectByType(final Iterator<? extends CDOMObject> it, final String tString)
+		protected static void filterPObjectByType(final Iterator<? extends CDOMObject> it, final String tString)
 		{
 			// If we want all then we don't need to filter.
 			if (!"ALL".equalsIgnoreCase(tString))
@@ -1164,7 +1164,7 @@ public class CountCommand extends PCGenCommand
 	 *
 	 * @return the pc
 	 */
-	private PlayerCharacter getPC()
+	protected PlayerCharacter getPC()
 	{
 		PlayerCharacter pc = null;
 		if (parent instanceof VariableProcessor)
@@ -1189,7 +1189,7 @@ public class CountCommand extends PCGenCommand
 	 * @return an array of Objects in reverse order, i.e. the last param popped is element
 	 *         0 of the array.
 	 */
-	private Object[] paramStackToArray(final Stack inStack, final int maxParam)
+	protected Object[] paramStackToArray(final Stack inStack, final int maxParam)
 	{
 		final Object[] par = new Object[maxParam];
 

@@ -41,22 +41,11 @@ import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.cdom.helper.Aspect;
-import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.Domain;
-import pcgen.core.Equipment;
-import pcgen.core.Language;
-import pcgen.core.PCClass;
-import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Skill;
-import pcgen.core.VariableProcessor;
-import pcgen.core.character.Follower;
 import pcgen.util.Logging;
-import pcgen.util.PCGenCommand;
 import pcgen.util.ParameterTree;
 import pcgen.util.enumeration.Visibility;
 
@@ -70,36 +59,10 @@ import pcgen.util.enumeration.Visibility;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class CountDistinctCommand extends PCGenCommand
+public class CountDistinctCommand extends CountCommand
 {
 
-	public enum JepAbilityCountEnum
-	{
-		CATEGORY,
-		NAME,
-		NATURE,
-		TYPE,
-		VISIBILITY,
-		ASPECT,
-		CAT,
-		NAM,
-		NAT,
-		TYP,
-		VIS,
-		KEY
-	}
-
-	public enum JepEquipmentCountEnum
-	{
-		TYPE,
-		WIELDCATEGORY,
-		LOCATION,
-		TYP,
-		WDC,
-		LOC
-	}
-
-	public enum JepCountEnum
+	public enum JepCountDistinctEnum
 	{
 		ABILITIES
 			{
@@ -132,11 +95,11 @@ public class CountDistinctCommand extends PCGenCommand
 				protected Set<? extends CDOMObject> filterSetP(final String c)
 				{
 					final String[] keyValue = c.split("=");
-					final JepAbilityCountEnum en;
+					final CountCommand.JepAbilityCountEnum en;
 
 					try
 					{
-						en = JepAbilityCountEnum.valueOf(keyValue[0]);
+						en = CountCommand.JepAbilityCountEnum.valueOf(keyValue[0]);
 					}
 					catch (IllegalArgumentException ex)
 					{
@@ -323,643 +286,23 @@ public class CountDistinctCommand extends PCGenCommand
 					throw new ParseException(
 						"Ability is a PObject, should be calling filterSetP");
 				}
-			},
-
-		CLASSES
-			{
-				// Classes are PObjects, we can implement the filterSet directly
-				// i.e. without using PObject proxies.
-
-				public Set<PCClass> objdata;
-
-				@Override
-				protected void getData(final PlayerCharacter pc)
-				{
-					objdata = new HashSet<PCClass>();
-					objdata.addAll(pc.getDisplay().getClassSet());
-				}
-
-				@Override
-				public Object count(
-					final PlayerCharacter pc, final Object[] params) throws
-					ParseException
-				{
-					final Object[] par = validateParams(params);
-					final ParameterTree pt = convertParams(par);
-
-					getData(pc);
-					final Set<? extends CDOMObject> filtered = doFilterP(pt);
-
-					return (double) filtered.size();
-				}
-
-				@Override
-				protected Set<String> filterSetS(final String c) throws ParseException
-				{
-					throw new ParseException(
-						"PCClass is a PObject, should be calling filterSetP");
-				}
-
-				@Override
-				protected Set<? extends CDOMObject> filterSetP(final String c) throws
-					ParseException
-				{
-					final String[] keyValue = c.split("=");
-
-					if (!"TYPE".equalsIgnoreCase(keyValue[0]))
-					{
-						throw new ParseException(
-							"Bad parameter to count(\"CLASSES\" ... )" + c);
-					}
-
-					final Set<PCClass> cs = new HashSet<PCClass>(objdata);
-					final Iterator<? extends CDOMObject> it = cs.iterator();
-
-					filterPObjectByType(it, keyValue[1]);
-
-					return cs;
-				}
-			},
-
-		DOMAINS
-			{
-				// Domains are not PObjects
-
-				public PlayerCharacter pc;
-
-				@Override
-				protected void getData(final PlayerCharacter aPc)
-				{
-					this.pc = aPc;
-				}
-
-				@Override
-				public Object count(final PlayerCharacter aPc,
-				                    final Object[] params) throws ParseException
-				{
-					final Object[] par = validateParams(params);
-					final ParameterTree pt = convertParams(par);
-
-					getData(aPc);
-					final Set<String> filtered = doFilterS(pt);
-
-					return (double) filtered.size();
-				}
-
-				@Override
-				protected Set<String> filterSetS(final String kv) throws
-					ParseException
-				{
-					final String[] keyValue = kv.split("=");
-
-					if (!"TYPE".equalsIgnoreCase(keyValue[0]))
-					{
-						throw new ParseException(
-							"Bad parameter to count(\"" + this + "\" ... )" + kv);
-					}
-
-					final Set<String> pSet = new HashSet<String>();
-
-					// Hack (should allow various values, but PCGen can only do PCClass)
-					if (keyValue[1].equals("PCClass"))
-					{
-						// at this point we have a set of character domains
-						// which meet the
-						// selection criteria of this leaf node of the parameter tree.
-						// we now convert this to a set of Strings so that the generic doFilterS
-						// can perform set operations on them
-						for (Domain d : pc.getDisplay().getDomainSet())
-						{
-							ClassSource source = pc.getDomainSource(d);
-							pSet.add(source.getPcclass().getKeyName());
-						}
-					}
-
-					return pSet;
-				}
-
-				@Override
-				protected Set<? extends CDOMObject> filterSetP(final String c) throws
-					ParseException
-				{
-					throw new ParseException(
-						"CharacterDomain is not a PObject, should be calling filterSetS");
-				}
-			},
-
-		EQUIPMENT
-			{
-				// Equipment is/are PObjects, we can implement the filterSet directly
-
-				public Set<Equipment> objdata;
-
-				@Override
-				protected void getData(final PlayerCharacter pc)
-				{
-					objdata = new HashSet<Equipment>();
-					objdata.addAll(pc.getEquipmentListInOutputOrder());
-				}
-
-				@Override
-				public Object count(final PlayerCharacter pc,
-				                    final Object[] params) throws ParseException
-				{
-					final Object[] par = validateParams(params);
-					final ParameterTree pt = convertParams(par);
-
-					getData(pc);
-					final Set<? extends CDOMObject> filtered = doFilterP(pt);
-
-					return (double) filtered.size();
-				}
-
-
-				@Override
-				protected Set<String> filterSetS(final String c) throws ParseException
-				{
-					throw new ParseException(
-						"Equipment is a PObject, should be calling filterSetP");
-				}
-
-				@Override
-				protected Set<? extends CDOMObject> filterSetP(final String c) throws
-					ParseException
-				{
-					final String[] keyValue = c.split("=");
-
-					final JepEquipmentCountEnum en;
-
-					try
-					{
-						en = JepEquipmentCountEnum.valueOf(keyValue[0]);
-					}
-					catch (IllegalArgumentException ex)
-					{
-						Logging.errorPrint(
-							"Bad parameter to count(\"Equipment\"), " + c);
-						return new HashSet<CDOMObject>();
-					}
-
-					final Set<Equipment> cs = new HashSet<Equipment>(objdata);
-					final Iterator<? extends CDOMObject> it = cs.iterator();
-
-					switch (en)
-					{
-						case TYPE:
-							filterPObjectByType(it, keyValue[1]);
-							break;
-
-						case WIELDCATEGORY:
-							while (it.hasNext())
-							{
-								final Equipment e = (Equipment) it.next();
-								if (!e.getWieldName().equalsIgnoreCase(keyValue[1]))
-								{
-									it.remove();
-								}
-							}
-							break;
-
-						// TODO have no idea how to get a suitable list of equipment
-						// and test for this.
-
-						case LOCATION:
-							if ("CARRIED".equalsIgnoreCase(keyValue[1])
-								|| "Equipped".equalsIgnoreCase(keyValue[1]))
-							{
-//						while (it.hasNext())
-//						{
-//							Equipment e = (Equipment) it.next();
-//							if (! e.getParent().equalsIgnoreCase(keyValue[1]));
-//							{
-//								it.remove();
-//							}
-//						}
-							}
-						case LOC:
-							break;
-						case TYP:
-							break;
-						case WDC:
-							break;
-					}
-
-					return cs;
-				}
-			},
-
-		FOLLOWERS
-			{
-				// Followers are not PObjects.
-
-				public Map<Follower, String> objdata;
-
-				@Override
-				protected void getData(final PlayerCharacter pc)
-				{
-					for (final Follower f : pc.getDisplay().getFollowerList())
-					{
-
-						// map each follower to an empty string. Each of these
-						// Strings is unique and is mapped to exactly one Follower.
-
-						objdata.put(f, "");
-					}
-				}
-
-				@Override
-				public Object count(final PlayerCharacter pc,
-				                    final Object[] params) throws ParseException
-				{
-					final Object[] par = validateParams(params);
-					final ParameterTree pt = convertParams(par);
-
-					getData(pc);
-					final Set<String> filtered = doFilterS(pt);
-
-					return countDataS(filtered);
-				}
-
-				@Override
-				protected Set<? extends CDOMObject> filterSetP(final String c) throws
-					ParseException
-				{
-					throw new ParseException(
-						"Follower is not a PObject, should be calling filterSetS");
-				}
-
-				// If we need to be able to filter out any of these followers,
-				// this is where it should be done.
-				@Override
-				protected Set<String> filterSetS(final String c)
-				{
-					return (Set<String>) objdata.values();
-				}
-			},
-
-		LANGUAGES
-			{
-				// Languages are PObjects, we can implement the filterSet directly
-				// i.e. without using PObject proxies.
-
-				public Set<Language> objdata;
-
-				@Override
-				protected void getData(final PlayerCharacter pc)
-				{
-					objdata = new HashSet<Language>();
-					objdata.addAll(pc.getDisplay().getLanguageSet());
-				}
-
-				@Override
-				public Object count(final PlayerCharacter pc,
-				                    final Object[] params) throws ParseException
-				{
-					final Object[] par = validateParams(params);
-					final ParameterTree pt = convertParams(par);
-
-					getData(pc);
-					final Set<? extends CDOMObject> filtered = doFilterP(pt);
-
-					return (double) filtered.size();
-				}
-
-				@Override
-				protected Set<? extends CDOMObject> filterSetP(final String c) throws
-					ParseException
-				{
-					final String[] keyValue = c.split("=");
-
-					if (!"TYPE".equalsIgnoreCase(keyValue[0]))
-					{
-						throw new ParseException(
-							MessageFormat.format(
-								"Bad parameter to count(\"CLASSES\" ... ){0}",
-								c));
-					}
-
-					final Set<Language> cs = new HashSet<Language>(objdata);
-					final Iterator<? extends CDOMObject> it = cs.iterator();
-
-					filterPObjectByType(it, keyValue[1]);
-
-					return cs;
-				}
-
-				@Override
-				protected Set<String> filterSetS(final String c) throws ParseException
-				{
-					throw new ParseException(
-						"Language is a PObject, should be calling filterSetP");
-				}
-			},
-
-		RACESUBTYPES
-			{
-				// RaceSubTypes are not PObjects
-
-				public Set<RaceSubType> objdata = new HashSet<RaceSubType>();
-
-				@Override
-				protected void getData(final PlayerCharacter pc)
-				{
-					objdata.addAll(pc.getDisplay().getRacialSubTypes());
-				}
-
-				@Override
-				public Object count(final PlayerCharacter pc,
-				                    final Object[] params) throws ParseException
-				{
-					final Object[] par = validateParams(params);
-					final ParameterTree pt = convertParams(par);
-
-					getData(pc);
-					final Set<String> filtered = doFilterS(pt);
-
-					return (double) filtered.size();
-				}
-
-				@Override
-				protected Set<? extends CDOMObject> filterSetP(final String c) throws
-					ParseException
-				{
-					throw new ParseException(
-						"RaceSubType is not a PObject, should be calling filterSetS");
-				}
-
-				@Override
-				protected Set<String> filterSetS(final String c) throws ParseException
-				{
-					final String[] keyValue = c.split("=");
-
-					if (!"TYPE".equalsIgnoreCase(keyValue[0]))
-					{
-						throw new ParseException(
-							MessageFormat.format(
-								"Bad parameter to count(\"CLASSES\" ... ){0}",
-								c));
-					}
-
-					final Set<String> rSet = new HashSet<String>();
-					for (RaceSubType rst : objdata)
-					{
-						rSet.add(rst.toString());
-					}
-
-					// If we want all then we don't need to filter.
-					if (!"ALL".equalsIgnoreCase(keyValue[1]))
-					{
-
-						final Iterator<String> pcRaceSubTypeIterator =
-							rSet.iterator();
-
-						// Make a List of all the types that each RaceSubType should match
-						final Collection<String> typeList = new ArrayList<String>();
-						Collections.addAll(typeList, keyValue[1].split("\\."));
-
-						// These nested loops remove all raceSubTypes from rSet that do not
-						// match all of the types in typeList
-						while (pcRaceSubTypeIterator.hasNext())
-						{
-							final String pcRaceSubType = pcRaceSubTypeIterator.next();
-
-							for (final String aType : typeList)
-							{
-								if (!pcRaceSubType.equals(aType))
-								{
-									pcRaceSubTypeIterator.remove();
-									break;
-								}
-							}
-						}
-					}
-
-					return rSet;
-				}
-			},
-
-		SKILLS
-			{
-				// Skill is a PObject
-				public Set<Skill> objdata;
-
-				@Override
-				protected void getData(final PlayerCharacter pc)
-				{
-					objdata = new HashSet<Skill>();
-					pc.refreshSkillList();
-					objdata.addAll(pc.getDisplay().getSkillSet());
-				}
-
-				@Override
-				public Object count(final PlayerCharacter pc,
-				                    final Object[] params) throws ParseException
-				{
-					final Object[] par = validateParams(params);
-					final ParameterTree pt = convertParams(par);
-
-					getData(pc);
-					final Set<? extends CDOMObject> filtered = doFilterP(pt);
-
-					return (double) filtered.size();
-				}
-
-				@Override
-				protected Set<String> filterSetS(final String c) throws ParseException
-				{
-					throw new ParseException(
-						"Skill is a PObject, should be calling filterSetP");
-				}
-
-				@Override
-				protected Set<? extends CDOMObject> filterSetP(final String c) throws
-					ParseException
-				{
-					final String[] keyValue = c.split("=");
-
-					if (!"TYPE".equalsIgnoreCase(keyValue[0]))
-					{
-						throw new ParseException(
-							"Bad parameter to count(\"CLASSES\" ... )" + c);
-					}
-
-					final Set<Skill> cs = new HashSet<Skill>(objdata);
-					final Iterator<? extends CDOMObject> it = cs.iterator();
-
-					filterPObjectByType(it, keyValue[1]);
-
-					return cs;
-				}
-			},
-
-		SPELLBOOKS
-			{
-
-				/**
-				 * Count a character's Spell Books.
-				 *
-				 * @param pc The character being counted.
-				 * @param params The parameters determining which spell books get counted.
-				 * @return A Double with the number of matching spell books.
-				 * @throws ParseException If any invalid parameters are encountered.
-				 */
-				@Override
-				public Object count(final PlayerCharacter pc,
-				                    final Object[] params) throws ParseException
-				{
-					return pc.getDisplay().getSpellBookCount();
-				}
-
-				@Override
-				protected void getData(final PlayerCharacter pc)
-				{
-				}
-
-				@Override
-				protected Set<? extends CDOMObject> filterSetP(final String c)
-				{
-					return new HashSet<CDOMObject>();
-				}
-				@Override
-				protected Set<String> filterSetS(final String c)
-				{
-					return new HashSet<String>();
-				}
-			},
-
-		SPELLS
-			{
-				@Override
-				protected void getData(final PlayerCharacter pc)
-				{
-				}
-
-				@Override
-				public Object count(
-					final PlayerCharacter pc, final Object[] params) throws
-					ParseException
-				{
-					return Double.valueOf("0.0");
-				}
-
-				@Override
-				protected Set<String> filterSetS(final String c) throws ParseException
-				{
-					throw new ParseException("Not implemented yet");
-				}
-
-				@Override
-				protected Set<? extends CDOMObject> filterSetP(final String c) throws
-					ParseException
-				{
-					throw new ParseException("Not implemented yet");
-				}
-			},
-
-		SPELLSINBOOK
-			{
-
-				@Override
-				protected void getData(final PlayerCharacter pc)
-				{
-				}
-
-				@Override
-				public Object count(final PlayerCharacter pc,
-				                    final Object[] params) throws ParseException
-				{
-					return Double.valueOf("0.0");
-				}
-
-				@Override
-				protected Set<String> filterSetS(final String c) throws ParseException
-				{
-					throw new ParseException("Not implemented yet");
-				}
-
-				@Override
-				protected Set<? extends CDOMObject> filterSetP(final String c) throws
-					ParseException
-				{
-					throw new ParseException("Not implemented yet");
-				}
-			},
-
-		SPELLSKNOWN
-			{
-				@Override
-				protected void getData(final PlayerCharacter pc)
-				{
-				}
-
-				@Override
-				public Object count(final PlayerCharacter pc,
-				                    final Object[] params) throws ParseException
-				{
-					return Double.valueOf("0.0");
-				}
-
-				@Override
-				protected Set<String> filterSetS(final String c) throws ParseException
-				{
-					throw new ParseException("Not implemented yet");
-				}
-
-				@Override
-				protected Set<? extends CDOMObject> filterSetP(final String c) throws
-					ParseException
-				{
-					throw new ParseException("Not implemented yet");
-				}
-			},
-
-		TEMPLATES
-			{
-				public Set<PCTemplate> objdata = new HashSet<PCTemplate>();
-
-				@Override
-				protected void getData(final PlayerCharacter pc)
-				{
-					objdata.addAll(pc.getDisplay().getTemplateSet());
-				}
-
-				@Override
-				public Object count(final PlayerCharacter pc,
-				                    final Object[] params) throws ParseException
-				{
-					return Double.valueOf("0.0");
-				}
-
-				@Override
-				protected Set<String> filterSetS(final String c) throws ParseException
-				{
-					throw new ParseException(
-						"PCTemplate is a PObject, should be calling filterSetP");
-				}
-
-				@Override
-				protected Set<? extends CDOMObject> filterSetP(final String c) throws
-					ParseException
-				{
-					final String[] keyValue = c.split("=");
-
-					if (!"TYPE".equalsIgnoreCase(keyValue[0]))
-					{
-						throw new ParseException(
-							"Bad parameter to count(\"CLASSES\" ... )" + c);
-					}
-
-					final Set<PCTemplate> cs = new HashSet<PCTemplate>(objdata);
-					final Iterator<? extends CDOMObject> it = cs.iterator();
-
-					filterPObjectByType(it, keyValue[1]);
-					return cs;
-				}
 
 			};
 
 		public static String CountType = "";
 
+		public static JepCountDistinctEnum lookupKey(String key)
+		{
+			for (JepCountDistinctEnum val : JepCountDistinctEnum.values())
+			{
+				if (val.toString().equalsIgnoreCase(key))
+				{
+					return val;
+				}
+			}
+			return null;
+		}
+		
 		private static ParameterTree convertParams(final Object[] params)
 		{
 			ParameterTree pt = null;
@@ -1145,51 +488,6 @@ public class CountDistinctCommand extends PCGenCommand
 	}
 
 	/**
-	 * Get the PC that will be used to do the counting.
-	 *
-	 * @return the pc
-	 */
-	private PlayerCharacter getPC()
-	{
-		PlayerCharacter pc = null;
-		if (parent instanceof VariableProcessor)
-		{
-			pc = ((VariableProcessor) parent).getPc();
-		}
-		else
-		if (parent instanceof PlayerCharacter)
-		{
-			pc = (PlayerCharacter) parent;
-		}
-		return pc;
-	}
-
-	/**
-	 * pop maxParam parameters off the stack and populate the array.  Note, this method
-	 * leaves one parameter on the stack
-	 *
-	 * @param inStack  the stack of Objects
-	 * @param maxParam number of entries to pop from the stack
-	 *
-	 * @return an array of Objects in reverse order, i.e. the last param popped is element
-	 *         0 of the array.
-	 */
-	private Object[] paramStackToArray(final Stack inStack, final int maxParam)
-	{
-		final Object[] par = new Object[maxParam];
-
-		if (0 < maxParam)
-		{
-			for (int i = maxParam - 1; 0 <= i; i--)
-			{
-				par[i] = inStack.pop();
-			}
-		}
-
-		return par;
-	}
-
-	/**
 	 * Runs count on the inStack. The parameter is popped off the <code>inStack</code>,
 	 * and the variable's value is pushed back to the top of <code>inStack</code>.
 	 *
@@ -1221,17 +519,28 @@ public class CountDistinctCommand extends PCGenCommand
 			final Object[] params = paramStackToArray(inStack, curNumberOfParameters - 1);
 
 			// retrieve the first Object, this should be a String which will map directly to
-			// a JepCountEnum, this specifies the type of count to perform
+			// a JepCountDistinctEnum or JepCountEnum, this specifies the type of count to perform
 			final Object toCount = inStack.pop();
 
 			if (toCount instanceof String)
 			{
-				final JepCountEnum CountEnum = JepCountEnum.valueOf((String) toCount);
-
-				// Count the requested object type.
-				final Double result = (Double) CountEnum.count(pc, params);
-
-				inStack.push(result);
+				final JepCountDistinctEnum countDistinctEnum =
+						JepCountDistinctEnum.lookupKey((String) toCount);
+				if (countDistinctEnum != null)
+				{
+					// Count the requested object type.
+					final Double result =
+							(Double) countDistinctEnum.count(pc, params);
+					inStack.push(result);
+				}
+				else
+				{
+					// Fall back to count
+					final CountCommand.JepCountEnum countEnum =
+							CountCommand.JepCountEnum.valueOf((String) toCount);
+					final Double result = (Double) countEnum.count(pc, params);
+					inStack.push(result);
+				}
 			}
 			else
 			{

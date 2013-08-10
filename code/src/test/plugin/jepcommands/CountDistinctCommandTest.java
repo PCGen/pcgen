@@ -28,9 +28,11 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
+import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
@@ -125,6 +127,16 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 			character.addAbilityNeedCheck(clericalCategory, anAbility);
         }
 
+
+        PCClass megaCasterClass = new PCClass();
+		megaCasterClass.setName("MegaCaster");
+		megaCasterClass.put(StringKey.SPELLTYPE, "ARCANE");
+		Globals.getContext().unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
+		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
+		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);
+		Globals.getContext().ref.importObject(megaCasterClass);
+		character.incrementClassLevel(1, megaCasterClass);
+        
 
     }
 
@@ -512,6 +524,19 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 		
 		String countStr = "count(\"ABILITIES\",\"KEY=KEY_Turning\")";
 		is(character.getVariableValue(countStr,""), eq(1.0, 0.1), countStr + " single application");
+		
+	}
+
+
+	/**
+	 * Check that a count call for a not directly supported type falls through 
+	 * to CountCommand.
+	 */
+	public void testCountClassesFallThrough()
+	{
+		final PlayerCharacter character = getCharacter();
+		String test = "countdistinct(\"CLASSES\")";
+		is(character.getVariableValue(test,""), eq(1.0, 0.1), test);
 		
 	}
 }
