@@ -1152,6 +1152,13 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				currentSourceSelection.getReference());
 			if (!dontLoadSources && !sourcesSame && gameModesSame)
 			{
+				Object[] btnNames =
+						new Object[]{
+							LanguageBundle
+								.getString("in_loadPcDiffSourcesLoaded"),
+							LanguageBundle
+								.getString("in_loadPcDiffSourcesCharacter"),
+							LanguageBundle.getString("in_cancel")};
 				int choice =
 						JOptionPane.showOptionDialog(this, LanguageBundle
 							.getFormattedString("in_loadPcDiffSources",
@@ -1160,12 +1167,12 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 								getFormattedCampaigns(sources)), LanguageBundle
 							.getString("in_loadPcSourcesLoadTitle"),
 							JOptionPane.YES_NO_CANCEL_OPTION,
-							JOptionPane.QUESTION_MESSAGE, null, null, null);
+							JOptionPane.QUESTION_MESSAGE, null, btnNames, null);
 				if (choice == JOptionPane.CANCEL_OPTION)
 				{
 					return;
 				}
-				if (choice == JOptionPane.NO_OPTION)
+				if (choice == JOptionPane.YES_OPTION)
 				{
 					CharacterManager.openCharacter(pcgFile, PCGenFrame.this,
 						currentDataSetRef.getReference());
