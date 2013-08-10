@@ -387,36 +387,45 @@
 <hr>
 		
 		<p class="indent0"><strong>Token Name:</strong> FOR.t,u,v,w,x,y,z</p>
-		<p class="indent1"><strong> Variables Used (t):</strong> Number (The initial value).</p>
-		<p class="indent1"><strong> Variables Used (u):</strong> Number (Limit for new line progression).</p>
-		<p class="indent1"><strong> Variables Used (v):</strong> Number (Value added once per line).</p>
-		<p class="indent1"><strong> Variables Used (w):</strong> Text (The phrase is the code that is parsed for tokens -
-			use \'s instead of |'s, and the % within the tokens will be replaced with the actual value of the index).</p>
-		<p class="indent1"><strong> Variables Used (x):</strong> Text (The text that will
-		  be printed at the beginning of the for loop and after the Variable &quot;y&quot;).</p>
-		<p class="indent1"><strong> Variables Used (y):</strong> Text (The text that will
-			be printed every time through the loop).</p>
-		<p class="indent1"><strong> Variables Used (z):</strong> Number (The
-			loop will break when no more items are found before the natural end of the loop
-			(max) if exists is 1. If exists is 2 and the charactersheet is currently
-			within a filter, PCGen will not print anything else until the end of the filter
-			|%| is reached or another filter is begun).</p>
+		<p class="indent1"><strong> Variables Used (t):</strong> Number (Loop control variable initial value)</p>
+		<p class="indent1"><strong> Variables Used (u):</strong> Number (Loop control variable max limit)</p>
+		<p class="indent1"><strong> Variables Used (v):</strong> Number (Loop control variable increment value)</p>
+		<p class="indent1"><strong> Variables Used (w):</strong> Text (Code phrase to be parsed for tokens)</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Text output at the beginning of the loop)</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Text output at the end of each loop)</p>
+		<p class="indent1"><strong> Variables Used (z):</strong> Number (Loop break switch, 1 or 2)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
-			<li>Creates loop processing of statements.</li>
-			<li>This style of for loops does not support nesting.</li>
-			<li>If you have a FOR. loop involving the characters within the party for-loop, you must enclose the
-				character for-loop in \\.</li>
-			<li>FOR. loop on party sheets (psheet*.*) can only loop on character numbers, so \\%.NAME\\ is valid.</li>
+			<li>Creates loops for processing of statements and is the only FOR loop type that can be used for a party sheet.</li>
+			<li>This style of FOR loop does not support nesting without the double-backslash (\\).</li>
+			<li>The code phrase to be parsed must use backslashes's (\) instead of pipe's (|), and the percent sign (%) within 
+				the tokens will be replaced with the actual value of the index.</li>
+			<li>If you have a <code>FOR.</code> loop involving the characters within the party for-loop, you must enclose the
+				character for-loop in double-backslash (\\) token markers.</li>
+			<li><code>FOR.</code> loop on party sheets (<span class="lstfile">psheet*.*</span>) can only loop on character numbers, so <code>\\%.NAME\\</code> is valid.</li>
 			<li>You may use the special keywords <strong>COMMA</strong> or <strong>NONE</strong> for either <strong>x</strong>
 				or <strong>y</strong> (COMMA prints out a comma and NONE prints out nothing)</li>
-			<li>STRLEN takes the form of STRLEN[stringtobecounted] and returns the number of characters in the string.</li>
+			<li><strong>STRLEN</strong> takes the form of <code>STRLEN[stringtobecounted]</code> and returns the number of characters in the string.</li>
+			<li>The loop break switch, parameter (z), determines when the loop breaks:
+				<ul>
+					<li>With z=1, the loop will break at the natural end of the loop, i.e. the loop continues until the control variable reaches the max limit per parameter (u).</li>
+					<li>With z=2, and with a character sheet currently within a filter, PCGen will not print anything else until the end of the filtering loop is reached, or another filter is begun.</li>
+				</ul>
+			</li>
 		</ul>
 		<p class="indent1"><strong>Example:</strong></p>
-		<p class="indent2"><code> &lt;table&gt;<br />
-														 |FOR.0,10,1,[td]\\%.FOR.0,100,1,\SKILL%\,(,),2\\,&lt;tr&gt;,&lt;/tr&gt;,1|<br />
-														 &lt;/table&gt;</code></p>
+		<p class="indent2"><code>&lt;table&gt;</code></p>
+		<p class="indent2"><code>|FOR.0,10,1,[td]</code></p>
+		<p class="indent2"><code>\\%.FOR.0,100,1,\SKILL%\,(,),2\\</code></p>
+		<p class="indent2"><code>,&lt;tr&gt;,&lt;/tr&gt;,1|</code></p>
+		<p class="indent2"><code>&lt;/table&gt;</code></p>
 		<p class="indent3">Produces a list of all the party member's skills.</p>
+		<p class="indent2"><code>&lt;table&gt; </code></p>
+		<p class="indent2"><code>|FOR.0,100,1,</code></p>
+		<p class="indent2"><code>\\%.NAME\\</code></p>
+		<p class="indent2"><code>,[ , ],1|</code></p>
+		<p class="indent2"><code>&lt;table&gt; </code></p>
+		<p class="indent3">Produces a list of all the party member's names.</p>
 		<p></p>
 
 <hr>
