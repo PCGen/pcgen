@@ -377,21 +377,20 @@
 <hr>
 
 	<p class="status"><a name="SPELLPOINTCOST">*** New 5.13.x</a></p>
-	<p class="indent0"><strong>Tag Name:</strong> SPELLPOINTCOST:x=y|x=y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> TOTAL (Total cost)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell effect)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number (Spell effect cost)</p>
+	<p class="indent0"><strong>Tag Name:</strong> SPELLPOINTCOST:x|y=z|y=z</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number (Total cost)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> Text (Spell effect)</p>
+	<p class="indent1"><strong>Variables Used (z):</strong> Number (Spell effect cost)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>This establishes the additional spell point cost for spell enhancements.</li>
 		<li>This is a pipe-delimited (|) list of spell effects and spell effect costs.</li>
-		<li><code>TOTAL=x</code> determines the total cost of the spell, over-riding all other effect costs.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>SPELLPOINTCOST:Evoke Fire=4|Range=1|Area of Effect=1</code></p>
-	<p class="indent3">Enhancing the "Evoke Fire" effect would cost 4 spell points, the "Range" and "Area of Effect" one point each.</p>
-	<p class="indent2"><code>SPELLPOINTCOST:TOTAL=4</code></p>
-	<p class="indent3">Enhancing the spell costs 4 spell points.</p>
+	<p class="indent2"><code>SPELLPOINTCOST:Evoke Fire=4|Range=1|Area of Effect=1|Duration=1</code></p>
+	<p class="indent3">Enhancing the &quot;Evoke Fire&quot; effect would cost 4 spell points, the &quot;Range&quot;, &quot;Area of Effect&quot;, and &quot;Duration&quot; one point each.</p>
+	<p class="indent2"><code>SPELLPOINTCOST:4</code></p>
+	<p class="indent3">Enhancing the spell costs a total of 4 spell points.</p>
 	<p></p>
 
 <hr>
