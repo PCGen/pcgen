@@ -192,6 +192,49 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 	}
+	
+	public void testRaceTypeEq()
+	{
+		final PlayerCharacter character = getCharacter();
+
+		final Race race = new Race();
+		race.setName("Human");
+		race.put(ObjectKey.RACETYPE, RaceType.getConstant("Humanoid"));
+		Globals.getContext().ref.importObject(race);
+		character.setRace(race);
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("race");
+		prereq.setKey("RACETYPE=Humanoid");
+		prereq.setOperator(PrerequisiteOperator.EQ);
+
+		final boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(prereq + " should pass", passes);
+	}
+	
+	public void testRaceTypeNeq()
+	{
+		final PlayerCharacter character = getCharacter();
+
+		final Race race = new Race();
+		race.setName("Human");
+		race.put(ObjectKey.RACETYPE, RaceType.getConstant("Humanoid"));
+		Globals.getContext().ref.importObject(race);
+		character.setRace(race);
+
+		final Prerequisite prereq = new Prerequisite();
+		prereq.setKind("race");
+		prereq.setKey("RACETYPE=Dragon");
+		prereq.setOperator(PrerequisiteOperator.LT);
+
+		boolean passes = PrereqHandler.passes(prereq, character, null);
+		assertTrue(prereq + " should pass", passes);
+		
+		prereq.setKey("RACETYPE=Humanoid");
+		passes = PrereqHandler.passes(prereq, character, null);
+		assertFalse(prereq + " should not pass", passes);
+	}
+	
 	/**
 	 * Test to make sure that we return true when races RACESUBTYPE are equal using ServesAs.
 	 * 

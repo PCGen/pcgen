@@ -125,7 +125,7 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 				requiredRace.substring(9)) ? true : false;
 			if (isMatchingRaceType) 
 			{
-				return 1;
+				++runningTotal;
 			}
 			else
 			{
@@ -138,11 +138,10 @@ BREAKOUT:			for(Race imitators : servesAsRace.keySet())
 							if (mock.get(ObjectKey.RACETYPE).toString()
 								.equalsIgnoreCase(raceToMatch))
 							{
-								return 1;
+								++runningTotal;
 							}
 						}
 					}
-				return 0;
 				}
 			}
 		}
