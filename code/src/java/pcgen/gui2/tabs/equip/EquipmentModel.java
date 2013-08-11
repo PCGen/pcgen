@@ -94,9 +94,9 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 		treeTable.getTree().setRowHeight(0);
 		treeTable.setFocusable(false);
 		treeTable.getTree().putClientProperty("JTree.lineStyle", "Horizontal");
-		normFont = FontManipulation.small(treeTable.getFont());
+		normFont = treeTable.getFont();
 		headerFont = FontManipulation.title(normFont);
-		biggerFont = FontManipulation.title(FontManipulation.big(normFont));
+		biggerFont = FontManipulation.title(FontManipulation.size170(normFont));
 		lessFont = FontManipulation.less(normFont);
 		treeTable.setAutoCreateColumnsFromModel(false);
 		{

@@ -142,6 +142,16 @@ public class FontManipulation {
 		return f.deriveFont(Font.ITALIC);
 	}
 
+	public static Font size170(Font f)
+	{
+		return f.deriveFont(f.getSize() * 1.7f);
+	}
+
+	public static Font size160(Font f)
+	{
+		return f.deriveFont(f.getSize() * 1.6f);
+	}
+
 	public static void size160(Container container)
 	{
 		Font font = container.getFont();
@@ -154,9 +164,9 @@ public class FontManipulation {
 		container.setFont(font.deriveFont(font.getSize() * 1.4f));
 	}
 
-	public static Font size120(Font f)
+	public static Font size130(Font f)
 	{
-		return f.deriveFont(f.getSize() * 1.2f);
+		return f.deriveFont(f.getSize() * 1.3f);
 	}
 	
 	public static void size120(Container container)
