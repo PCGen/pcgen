@@ -614,7 +614,7 @@ public class NameGenPanel extends JPanel
 		
 		namePanel.setLayout(new BoxLayout(namePanel, BoxLayout.X_AXIS));
 
-		FontManipulation.bigger(name);
+		FontManipulation.xxlarge(name);
 		name.setText(LanguageBundle.getString("in_nameLabel")); //$NON-NLS-1$
 		namePanel.add(name);
 

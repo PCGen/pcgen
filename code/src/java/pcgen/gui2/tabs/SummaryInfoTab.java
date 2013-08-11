@@ -67,7 +67,6 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
-import javax.swing.text.html.HTMLDocument;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -176,7 +175,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		this.characterNameField = new JTextField();
 		this.characterTypeComboBox = new JComboBox();
 		this.random = new JButton();
-		FontManipulation.size80(random);
 		this.playerNameField = new JTextField();
 		this.expField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.nextlevelField = new JFormattedTextField(NumberFormat.getIntegerInstance());
@@ -270,11 +268,12 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		panel.setLayout(new BorderLayout());
 		todoPane.setOpaque(false);
 		todoPane.setContentType("text/html"); //$NON-NLS-1$
-		String bodyRule =
-				"body { font-family: " + getFont().getFamily() + "; font-size: " + //$NON-NLS-1$ //$NON-NLS-2$
-				getFont().getSize() + "pt; }"; //$NON-NLS-1$
-		((HTMLDocument) todoPane.getDocument()).getStyleSheet().addRule(
-				bodyRule);
+		// An HTMLDocument font size and family already defaults to the UI font default, no need to add that on top.
+//		String bodyRule =
+//				"body { font-family: " + textFont.getFamily() + "; " + "font-size: " + //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+//				textFont.getSize() + "pt; }"; //$NON-NLS-1$
+//		((HTMLDocument) todoPane.getDocument()).getStyleSheet().addRule(
+//				bodyRule);
 		todoPane.setEditable(false);
 
 		JScrollPane scroll = new JScrollPane(todoPane);
@@ -319,8 +318,10 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		//this makes box layout use the statTotalPanel to distribute extra space
 		statTotalPanel.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
 		statTotalPanel.add(Box.createHorizontalGlue());
+		FontManipulation.title(statTotalLabel);
 		statTotalPanel.add(statTotalLabel);
 		statTotalPanel.add(statTotal);
+		FontManipulation.title(modTotalLabel);
 		statTotalPanel.add(modTotalLabel);
 		statTotalPanel.add(modTotal);
 		statTotalPanel.add(Box.createHorizontalGlue());
@@ -533,6 +534,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			random.setText(LanguageBundle.getString("in_randomButton")); //$NON-NLS-1$
 			random.setMargin(new Insets(0, 0, 0, 0));
+			FontManipulation.xsmall(random);
 			gbc.insets = new Insets(0, 2, 3, 2);
 			basicsPanel.add(random, gbc);
 

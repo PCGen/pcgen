@@ -27,7 +27,17 @@ import java.awt.Font;
  * the Look-and-feel. Using fixed point value for font shouldn’t be done because
  * it might make text unreadable on system where default size is quite big (or
  * small).
- * 
+ * <p>
+ * The method name refer to the CSS relative font size:
+ * <ul>
+ * <li>xx-large
+ * <li>x-large
+ * <li>large
+ * <li>medium
+ * <li>small
+ * <li>x-small
+ * <li>xx-small
+ * </ul>
  * @author Vincent Lhote
  */
 public class FontManipulation {
@@ -51,49 +61,72 @@ public class FontManipulation {
 	}
 
 	/**
-	 * For bigger font.
-	 * 
-	 * @param container
-	 *            element to change the font of
-	 */
-	public static void bigger(Container container)
-	{
-		Font font = container.getFont();
-		container.setFont(bigger(font));
-	}
-
-	/**
-	 * For bigger font.
+	 * For extra extra large font.
 	 * 
 	 * @param font
 	 *            base font
 	 */
-	public static Font bigger(Font f)
+	public static Font xxlarge(Font f)
 	{
-		return f.deriveFont(f.getSize() * 1.8f);
+		return f.deriveFont(f.getSize() * 1.5f);
 	}
 
 	/**
-	 * For slightly bigger font.
-	 * 
-	 * @param font
-	 *            base font
-	 */
-	public static Font big(Font f)
-	{
-		return f.deriveFont(f.getSize() * 1.4f);
-	}
-
-	/**
-	 * For slightly bigger font.
+	 * For extra extra large font.
 	 * 
 	 * @param container
 	 *            element to change the font of
 	 */
-	public static void big(Container container)
+	public static void xxlarge(Container container)
 	{
 		Font font = container.getFont();
-		container.setFont(big(font));
+		container.setFont(xxlarge(font));
+	}
+	
+	/**
+	 * For extra large font.
+	 * 
+	 * @param font
+	 *            base font
+	 */
+	public static Font xlarge(Font f)
+	{
+		return f.deriveFont(f.getSize() * 1.333f);
+	}
+
+	/**
+	 * For extra large font.
+	 * 
+	 * @param container
+	 *            element to change the font of
+	 */
+	public static void xlarge(Container container)
+	{
+		Font font = container.getFont();
+		container.setFont(xlarge(font));
+	}
+
+	/**
+	 * For large font.
+	 * 
+	 * @param font
+	 *            base font
+	 */
+	public static Font large(Font f)
+	{
+		return f.deriveFont(f.getSize() * 1.167f);
+	}
+
+	/**
+	 * For large font.
+	 * 
+	 * @param container
+	 *            element to change the font of
+	 */
+	public static void large(Container container)
+	{
+		Font font = container.getFont();
+		container.setFont(large(font));
 	}
 
 	/**
@@ -104,7 +137,7 @@ public class FontManipulation {
 	 */
 	public static Font small(Font f)
 	{
-		return f.deriveFont(f.getSize() * 0.9f);
+		return f.deriveFont(f.getSize() * 0.917f);
 	}
 
 
@@ -121,14 +154,26 @@ public class FontManipulation {
 	}
 
 	/**
-	 * For smaller font.
+	 * For extra smaller font.
 	 * 
 	 * @param font
 	 *            base font
 	 */
-	public static Font smaller(Font f)
+	public static Font xsmall(Font f)
 	{
-		return f.deriveFont(f.getSize() * 0.8f);
+		return f.deriveFont(f.getSize() * 0.833f);
+	}
+
+	/**
+	 * For extra smaller font.
+	 * 
+	 * @param font
+	 *            base font
+	 */
+	public static void xsmall(Container container)
+	{
+		Font font = container.getFont();
+		container.setFont(xsmall(font));
 	}
 
 	/**
@@ -140,56 +185,5 @@ public class FontManipulation {
 	public static Font less(Font f)
 	{
 		return f.deriveFont(Font.ITALIC);
-	}
-
-	public static Font size170(Font f)
-	{
-		return f.deriveFont(f.getSize() * 1.7f);
-	}
-
-	public static Font size160(Font f)
-	{
-		return f.deriveFont(f.getSize() * 1.6f);
-	}
-
-	public static void size160(Container container)
-	{
-		Font font = container.getFont();
-		container.setFont(font.deriveFont(font.getSize() * 1.6f));
-	}
-
-	public static void size140(Container container)
-	{
-		Font font = container.getFont();
-		container.setFont(font.deriveFont(font.getSize() * 1.4f));
-	}
-
-	public static Font size130(Font f)
-	{
-		return f.deriveFont(f.getSize() * 1.3f);
-	}
-	
-	public static void size120(Container container)
-	{
-		Font font = container.getFont();
-		container.setFont(font.deriveFont(font.getSize() * 1.2f));
-	}
-	
-	public static void size110(Container container)
-	{
-		Font font = container.getFont();
-		container.setFont(font.deriveFont(font.getSize() * 1.1f));
-	}
-
-	public static void size90(Container container)
-	{
-		Font font = container.getFont();
-		container.setFont(font.deriveFont(font.getSize() * 0.9f));
-	}
-
-	public static void size80(Container container)
-	{
-		Font font = container.getFont();
-		container.setFont(font.deriveFont(font.getSize() * 0.8f));
 	}
 }

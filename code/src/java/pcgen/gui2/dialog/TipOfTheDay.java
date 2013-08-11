@@ -148,7 +148,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		iconLabel.setOpaque(true);
 		panel.add(iconLabel, BorderLayout.WEST);
 		final JLabel lblDidYouKnow = new JLabel("    " + LanguageBundle.getString("in_tod_didyouknow"));
-		FontManipulation.bigger(lblDidYouKnow);
+		FontManipulation.xxlarge(lblDidYouKnow);
 		lblDidYouKnow.setOpaque(true);
 
 		tipText = new JLabelPane();

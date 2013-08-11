@@ -62,7 +62,7 @@ public class UnarmedPane extends javax.swing.JPanel
 
 		setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.X_AXIS));
 
-		FontManipulation.size160(jLabel1);
+		FontManipulation.xlarge(jLabel1);
 		jLabel1.setText(UNARMED);
 		jPanel1.add(jLabel1);
 

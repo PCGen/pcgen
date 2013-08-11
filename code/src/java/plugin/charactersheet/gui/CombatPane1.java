@@ -430,7 +430,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.insets = new java.awt.Insets(0, 31, 0, 0);
 		add(padding21, gridBagConstraints);
 
-		FontManipulation.size90(jLabel10);
+		FontManipulation.small(jLabel10);
 		jLabel10.setText(TOTAL);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -439,7 +439,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel10, gridBagConstraints);
 
-		FontManipulation.size90(jLabel11);
+		FontManipulation.small(jLabel11);
 		jLabel11.setText(TOUCH);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
@@ -447,7 +447,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		add(jLabel11, gridBagConstraints);
 
-		FontManipulation.size90(jLabel12);
+		FontManipulation.small(jLabel12);
 		jLabel12.setText(FLAT);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 4;
@@ -456,7 +456,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel12, gridBagConstraints);
 
-		FontManipulation.size90(jLabel13);
+		FontManipulation.small(jLabel13);
 		jLabel13.setText(BASE);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 6;
@@ -465,7 +465,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel13, gridBagConstraints);
 
-		FontManipulation.size90(jLabel14);
+		FontManipulation.small(jLabel14);
 		jLabel14.setText(ARMOR);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 8;
@@ -474,7 +474,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel14, gridBagConstraints);
 
-		FontManipulation.size90(jLabel15);
+		FontManipulation.small(jLabel15);
 		jLabel15.setText(SHIELD);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 10;
@@ -483,7 +483,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel15, gridBagConstraints);
 
-		FontManipulation.size90(jLabel16);
+		FontManipulation.small(jLabel16);
 		jLabel16.setText(STAT);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 12;
@@ -492,7 +492,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel16, gridBagConstraints);
 
-		FontManipulation.size90(jLabel17);
+		FontManipulation.small(jLabel17);
 		jLabel17.setText(SIZE);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 14;
@@ -501,7 +501,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel17, gridBagConstraints);
 
-		FontManipulation.size90(jLabel18);
+		FontManipulation.small(jLabel18);
 		jLabel18.setText(NATURAL);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 16;
@@ -510,7 +510,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel18, gridBagConstraints);
 
-		FontManipulation.size90(jLabel19);
+		FontManipulation.small(jLabel19);
 		jLabel19.setText(MISC);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 18;
@@ -519,63 +519,63 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel19, gridBagConstraints);
 
-		FontManipulation.size90(jLabel20);
+		FontManipulation.small(jLabel20);
 		jLabel20.setText(MISS);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 21;
 		gridBagConstraints.gridy = 3;
 		add(jLabel20, gridBagConstraints);
 
-		FontManipulation.size90(jLabel21);
+		FontManipulation.small(jLabel21);
 		jLabel21.setText(CHANCE);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 21;
 		gridBagConstraints.gridy = 4;
 		add(jLabel21, gridBagConstraints);
 
-		FontManipulation.size90(jLabel22);
+		FontManipulation.small(jLabel22);
 		jLabel22.setText(ARCANE);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 23;
 		gridBagConstraints.gridy = 3;
 		add(jLabel22, gridBagConstraints);
 
-		FontManipulation.size90(jLabel23);
+		FontManipulation.small(jLabel23);
 		jLabel23.setText(SPELL);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 23;
 		gridBagConstraints.gridy = 4;
 		add(jLabel23, gridBagConstraints);
 
-		FontManipulation.size90(jLabel24);
+		FontManipulation.small(jLabel24);
 		jLabel24.setText(FAILURE);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 23;
 		gridBagConstraints.gridy = 5;
 		add(jLabel24, gridBagConstraints);
 
-		FontManipulation.size90(jLabel25);
+		FontManipulation.small(jLabel25);
 		jLabel25.setText(ARMOR);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 25;
 		gridBagConstraints.gridy = 3;
 		add(jLabel25, gridBagConstraints);
 
-		FontManipulation.size90(jLabel26);
+		FontManipulation.small(jLabel26);
 		jLabel26.setText(CHECK);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 25;
 		gridBagConstraints.gridy = 4;
 		add(jLabel26, gridBagConstraints);
 
-		FontManipulation.size90(jLabel27);
+		FontManipulation.small(jLabel27);
 		jLabel27.setText(PENALTY);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 25;
 		gridBagConstraints.gridy = 5;
 		add(jLabel27, gridBagConstraints);
 
-		FontManipulation.size90(jLabel28);
+		FontManipulation.small(jLabel28);
 		jLabel28.setText(SPELL);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 27;
@@ -583,7 +583,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel28, gridBagConstraints);
 
-		FontManipulation.size90(jLabel29);
+		FontManipulation.small(jLabel29);
 		jLabel29.setText(RESIST);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 26;
@@ -592,7 +592,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
 		add(jLabel29, gridBagConstraints);
 
-		FontManipulation.size90(jLabel30);
+		FontManipulation.small(jLabel30);
 		jLabel30.setText(CURR_HP);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
@@ -600,7 +600,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.gridwidth = 7;
 		add(jLabel30, gridBagConstraints);
 
-		FontManipulation.size90(jLabel31);
+		FontManipulation.small(jLabel31);
 		jLabel31.setText(CURR_SUBDUAL);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 11;
@@ -608,7 +608,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.gridwidth = 7;
 		add(jLabel31, gridBagConstraints);
 
-		FontManipulation.size90(jLabel32);
+		FontManipulation.small(jLabel32);
 		jLabel32.setText(DR);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 18;
@@ -616,7 +616,7 @@ public class CombatPane1 extends javax.swing.JPanel
 		gridBagConstraints.gridwidth = 5;
 		add(jLabel32, gridBagConstraints);
 
-		FontManipulation.size90(jLabel33);
+		FontManipulation.small(jLabel33);
 		jLabel33.setText(SPEED);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 23;

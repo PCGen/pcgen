@@ -74,7 +74,7 @@ public class RagePane extends javax.swing.JPanel
 		jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		FontManipulation.size140(jLabel1);
+		FontManipulation.xlarge(jLabel1);
 		jLabel1.setText(BARBARIAN_RAGE);
 		jPanel1.add(jLabel1);
 

@@ -61,6 +61,7 @@ import pcgen.gui2.tabs.Utilities;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.PrettyIntegerFormat;
 import pcgen.gui2.util.table.TableCellUtilities;
+import pcgen.system.LanguageBundle;
 
 /**
  * Model used for the Ability/statistics table.
@@ -69,6 +70,9 @@ import pcgen.gui2.util.table.TableCellUtilities;
  */
 public class StatTableModel extends AbstractTableModel implements ReferenceListener<Integer>
 {
+	private static final String EDITABLE = "EDITABLE"; //$NON-NLS-1$
+	private static final String MOVEDOWN = "movedown"; //$NON-NLS-1$
+	
 	private static final int ABILITY_NAME = 0;
 	private static final int EDITABLE_SCORE = 3;
 	private static final int RACE_ADJ = 4;
@@ -90,8 +94,8 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		final JTextField field = editor.getTextField();
 		InputMap map = field.getInputMap(JComponent.WHEN_FOCUSED);
 
-		map.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "movedown");
-		map.put(KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0), "movedown");
+		map.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), MOVEDOWN);
+		map.put(KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0), MOVEDOWN);
 		Action action = new AbstractAction()
 		{
 
@@ -107,7 +111,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 			}
 
 		};
-		field.getActionMap().put("movedown", action);
+		field.getActionMap().put(MOVEDOWN, action);
 	}
 
 	private void startEditingNextRow(final JTable statsTable,
@@ -136,7 +140,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		statsTable.setAutoCreateColumnsFromModel(false);
 		DefaultTableColumnModel columnModel = new DefaultTableColumnModel();
 		{
-			String htmlText = "     Ability     ";
+			String htmlText = "      Ability      ";
 			columnModel.addColumn(Utilities.createTableColumn(ABILITY_NAME, htmlText, new FixedHeaderCellRenderer(htmlText), false));
 
 			htmlText = "<html><div align=\"center\">Final<br>Score</div></html>";
@@ -154,7 +158,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 
 			htmlText = "<html><div align=\"center\">Editable<br>Score</div></html>";
 			column = Utilities.createTableColumn(EDITABLE_SCORE, htmlText, new FixedHeaderCellRenderer(htmlText), false);
-			column.setIdentifier("EDITABLE");
+			column.setIdentifier(EDITABLE);
 			columnModel.addColumn(column);
 
 			htmlText = "<html><div align=\"center\">Race<br>Adj</div></html>";
@@ -172,10 +176,11 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		statsTable.setShowVerticalLines(false);
 		statsTable.setCellSelectionEnabled(false);
 		statsTable.setFocusable(false);
-		statsTable.setRowHeight(28);
+		// XXX this should be calculated relative to font size and the size of a jspinner
+		statsTable.setRowHeight(27);
 		statsTable.setOpaque(false);
-		tableHeader.setFont(FontManipulation.small(statsTable.getFont()));
-		FontManipulation.size110(statsTable);
+		tableHeader.setFont(FontManipulation.title(statsTable.getFont()));
+		FontManipulation.large(statsTable);
 	}
 
 	/*
@@ -279,7 +284,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	{
 		table.setModel(this);
 		table.setDefaultRenderer(Object.class, renderer);
-		TableColumn column = table.getColumn("EDITABLE");
+		TableColumn column = table.getColumn(EDITABLE);
 		column.setCellRenderer(new TableCellUtilities.SpinnerRenderer());
 
 		column.setCellEditor(editor);

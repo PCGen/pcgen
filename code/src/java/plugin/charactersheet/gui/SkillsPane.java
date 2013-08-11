@@ -104,7 +104,7 @@ public class SkillsPane extends javax.swing.JPanel
 		jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		FontManipulation.size160(jLabel2);
+		FontManipulation.xlarge(jLabel2);
 		jLabel2.setText(SKILLS);
 		jPanel5.add(jLabel2);
 
@@ -187,7 +187,7 @@ public class SkillsPane extends javax.swing.JPanel
 		jPanel6.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER,
 			1, 0));
 
-		FontManipulation.size120(jLabel5);
+		FontManipulation.large(jLabel5);
 		jLabel5.setText(SKILL_NAME);
 		jPanel6.add(jLabel5);
 
