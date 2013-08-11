@@ -114,6 +114,12 @@
 		<p class="indent2"><code>TYPE:Dominant Game Publisher.SRD</code> - Type will be used for sorting.</p>
 		<p class="indent2"><code>RANK: 1</code> - Rank indicates priority in sorting.</p>
 		<p class="indent2"><code>GENRE:</code> - This tells PCGen what genre this is, used to filter sources.</p>
+		<p class="indent2"><code>BOOKTYPE:</code> - Identifies the source book type for use in prerequisites for loading other source book.</p>
+		<p class="indent2"><code>SETTING:</code> - Identifies the setting of which this source is part.</p>
+		<p class="indent2"><code>!PRECAMPAIGN:1,BOOKTYPE=Core Rules</code> - Established the prerequisite for loading.</p>
+		<p class="indent2"><code>PUBNAMELONG:The Full Name of the Source</code>< - Long name for the publisher of the material (used in some displays).</p>
+		<p class="indent2"><code>PUBNAMESHORT:Source</code> - Short name for the publisher of the material (used in some displays).</p>
+		<p class="indent2"><code>PUBNAMEWEB:http://www.mywebsite.com</code> - Website for the publisher's site).</p>
 		<p class="indent2"><code>SOURCELONG:The Full Name of the Source</code>< - Long title (used in some displays).</p>
 		<p class="indent2"><code>SOURCESHORT:Source</code> - Short title (used in some displays).</p>
 		<p class="indent2"><code>SOURCEWEB:http://www.mywebsite.com</code> - Website for the source (typically the publisher's general site).</p>
@@ -401,24 +407,25 @@
 		
 		<h2>Proficiency LST</h2>
 		
-		<p class="indent0">For completeness I have included a proficiency.lst below with the most complicated 
+		<p class="indent0">Proficiency lst files come in tree type: Armor, Shield, and Weapon. We will look at each if these, starting with the last, which also is the most complicated.</p>
+		
+		<h3>Weapon Proficiency LST</h3>
+		
+		<p class="indent0">For completeness I have included an example of a weapon proficiency below with the most complicated 
 			proficiency in the basic game; the bastard sword.</p>
 		
 		<p class="indent0">From your reading you should be aware that by the Martial Weapon proficiency, a 
-			person can use the sword two handed if medium sized, or 1 handed if they are a Large (or bigger) 
-			creature. Only someone who has the Exotic Weapon Proficiency: Bastard Sword can use it one handed.</p>
+			person can use the sword two handed if medium sized, or 1 handed if they are a Large (or larger) 
+			creature. Only someone who has the Exotic Weapon Proficiency for the Bastard Sword can use it one handed.</p>
 		
-		<p class="indent0">Cannibalizing the srdweaponprof.lst file we get:</p>
+		<p class="indent0">Cannibalizing the <span class="lstfile">srd_weaponprofs.lst</span> file we get:</p>
 		
 		<p class="indent1"><code>SOURCELONG:PCGen Documentation</code></p>
 		<p class="indent2"><code>SOURCESHORT:P-Doc</code></p>
 		<p class="indent2"><code>SOURCEWEB:http://www.pcgen.org</code></p>
 		
-		<p class="indent1"><code>Sword (Bastard/Martial)</code></p>
-		<p class="indent2"><code>TYPE:Martial</code></p>
-		<p class="indent2"><code>HANDS:1IFLARGERTHANWEAPON</code></p>
-		<p class="indent1"><code>Sword (Bastard/Exotic)</code></p>
-		<p class="indent2"><code>TYPE:Exotic</code></p>
+		<p class="indent1"><code>Sword (Bastard)</code></p>
+		<p class="indent2"><code>TYPE:Martial.Exotic.Sword</code></p>
 		
 		<p class="indent0">So you see the weapon's name, the type, and the number of hands required to use the weapon.
 			If you don't specify the number of hands, PCGen's sizing system automatically fires up, assigning weapons of 
@@ -430,6 +437,14 @@
 		<p class="indent0">The Exotic version follows the standard PCGen sizing system which works as the rules require.</p>
 		
 		<p class="indent0">Refer to the HANDS tag docs for more details.</p>
+		
+		<h3>Armor Proficiency LST</h3>
+
+		<p class="indent0"></p>
+		
+		<h3>Shield Proficiency LST</h3>
+
+		<p class="indent0"></p>
 		
 		<h2>Feat LST</h2>
 		
