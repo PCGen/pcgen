@@ -45,6 +45,7 @@ import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
+import pcgen.util.AbstractCountCommand;
 import pcgen.util.Logging;
 import pcgen.util.ParameterTree;
 import pcgen.util.enumeration.Visibility;
@@ -99,7 +100,7 @@ public class CountDistinctCommand extends CountCommand
 
 					try
 					{
-						en = CountCommand.JepAbilityCountEnum.valueOf(keyValue[0]);
+						en = AbstractCountCommand.JepAbilityCountEnum.valueOf(keyValue[0]);
 					}
 					catch (IllegalArgumentException ex)
 					{
@@ -537,7 +538,7 @@ public class CountDistinctCommand extends CountCommand
 				{
 					// Fall back to count
 					final CountCommand.JepCountEnum countEnum =
-							CountCommand.JepCountEnum.valueOf((String) toCount);
+							AbstractCountCommand.JepCountEnum.valueOf((String) toCount);
 					final Double result = (Double) countEnum.count(pc, params);
 					inStack.push(result);
 				}
