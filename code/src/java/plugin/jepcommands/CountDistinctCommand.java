@@ -1,6 +1,6 @@
 /*
- * CountCommand.java
- * Copyright 2006 (C) James Dempsey
+ * CountDistinctCommand.java
+ * Copyright 2013 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -52,15 +52,14 @@ import pcgen.util.enumeration.Visibility;
 
 
 /**
- * <code>CountCommand</code> deals with the count() JEP command. The first parameter will
+ * <code>CountDistinctCommand</code> deals with the count() JEP command. The first parameter will
  * be the type of object being counted and further parameters will specify the criteria.
- * <p/> Last Editor: $Author$ Last Edited: $Date: 2007-10-26 21:23:23 +0100 (Fri,
- * 26 Oct 2007) $
+ * <p/> 
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision$
  */
-public class CountDistinctCommand extends CountCommand
+public class CountDistinctCommand extends AbstractCountCommand
 {
 
 	public enum JepCountDistinctEnum
@@ -96,7 +95,7 @@ public class CountDistinctCommand extends CountCommand
 				protected Set<? extends CDOMObject> filterSetP(final String c)
 				{
 					final String[] keyValue = c.split("=");
-					final CountCommand.JepAbilityCountEnum en;
+					final AbstractCountCommand.JepAbilityCountEnum en;
 
 					try
 					{
@@ -537,7 +536,7 @@ public class CountDistinctCommand extends CountCommand
 				else
 				{
 					// Fall back to count
-					final CountCommand.JepCountEnum countEnum =
+					final AbstractCountCommand.JepCountEnum countEnum =
 							AbstractCountCommand.JepCountEnum.valueOf((String) toCount);
 					final Double result = (Double) countEnum.count(pc, params);
 					inStack.push(result);
