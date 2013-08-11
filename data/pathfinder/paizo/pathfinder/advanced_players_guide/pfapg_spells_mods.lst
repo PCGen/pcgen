@@ -314,6 +314,7 @@ Sympathy.MOD				CLASSES:Summoner=6
 Teleportation Circle.MOD		CLASSES:Summoner=6
 
 #Witch Spells
+Arcane Mark.MOD				CLASSES:Witch=0
 Bleed.MOD					CLASSES:Witch=0
 Dancing Lights.MOD			CLASSES:Witch=0
 Daze.MOD					CLASSES:Witch=0
