@@ -104,7 +104,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 
 		JPanel panel = new JPanel(new BorderLayout());
 		Box box = Box.createHorizontalBox();
-		box.add(new JLabel(LanguageBundle.getString("in_character_sheet"))); //$NON-NLS-1$
+		box.add(new JLabel(LanguageBundle.getString("in_character_sheet_label"))); //$NON-NLS-1$
 		sheetBox.setRenderer(new DefaultListCellRenderer()
 		{
 
@@ -214,6 +214,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 					@Override
 				    public int compare(File f1, File f2)
 				    {
+						// TODO I18N Use a Collator 
 				        return f1.toString().compareToIgnoreCase(f2.toString());
 				    }
 				});
