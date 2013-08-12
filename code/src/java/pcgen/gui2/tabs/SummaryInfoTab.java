@@ -175,6 +175,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		this.characterNameField = new JTextField();
 		this.characterTypeComboBox = new JComboBox();
 		this.random = new JButton();
+		FontManipulation.xsmall(random);
 		this.playerNameField = new JTextField();
 		this.expField = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		this.nextlevelField = new JFormattedTextField(NumberFormat.getIntegerInstance());
@@ -534,7 +535,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			random.setText(LanguageBundle.getString("in_randomButton")); //$NON-NLS-1$
 			random.setMargin(new Insets(0, 0, 0, 0));
-			FontManipulation.xsmall(random);
 			gbc.insets = new Insets(0, 2, 3, 2);
 			basicsPanel.add(random, gbc);
 
