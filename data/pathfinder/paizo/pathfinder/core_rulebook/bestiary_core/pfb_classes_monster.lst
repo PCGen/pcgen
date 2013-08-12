@@ -30,7 +30,7 @@ CLASS:Construct (Mindless)	PRERACETYPE:Construct
 CLASS:Construct (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability																	Save checks bonus								Combat bonus
-CLASS:Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.307	ABILITY:Special Ability|AUTOMATIC|Dragon Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.307	ABILITY:Special Ability|AUTOMATIC|Dragon Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:DragonLVL|CL
 # Class Name	Reg. Race Type
 CLASS:Dragon	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill

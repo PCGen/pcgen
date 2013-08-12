@@ -3,110 +3,110 @@ SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pa
 
 # Added 3rd printing errata - SR
 
-STARTPACK:Dragon (Black/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Black/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.92
-ALIGN:CE
-RACE:Dragon (Black/Young)	!PRERACE:1,%
-NAME:Young Black Dragon
-SKILL:Fly			RANK:8
-SKILL:Handle Animal	RANK:8
-SKILL:Intimidate		RANK:8
-SKILL:Perception		RANK:8
-SKILL:Stealth		RANK:8
-SKILL:Swim			RANK:8
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Skill Focus (Stealth)
-FEAT:Weapon Focus (Bite)
-STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-
-
-STARTPACK:Dragon (Black/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Black/Adult)],[!PRERACE:1,%]	SOURCEPAGE:p.92
-ALIGN:CE
-RACE:Dragon (Black/Adult)	!PRERACE:1,%
-NAME:Adult Black Dragon
-SKILL:Fly				RANK:14
-SKILL:Handle Animal		RANK:14
-SKILL:Intimidate			RANK:14
-SKILL:Knowledge (Arcana)	RANK:14
-SKILL:Perception			RANK:14
-SKILL:Spellcraft			RANK:14
-SKILL:Stealth			RANK:14
-SKILL:Swim				RANK:14
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Improved Vital Strike
-FEAT:Power Attack
-FEAT:Skill Focus (Stealth)
-FEAT:Vital Strike
-FEAT:Weapon Focus (Bite)
-STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-LANGBONUS:Common|Giant
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alarm
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Obscuring Mist
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
-
-
-STARTPACK:Dragon (Black/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Black/Ancient)],[!PRERACE:1,%]	SOURCEPAGE:p.92
-ALIGN:CE
-RACE:Dragon (Black/Ancient)	!PRERACE:1,%
-NAME:Ancient Black Dragon
-SKILL:Fly				RANK:22
-SKILL:Handle Animal		RANK:22
-SKILL:Intimidate			RANK:22
-SKILL:Knowledge (Arcana)	RANK:22
-SKILL:Knowledge (History)	RANK:22
-SKILL:Knowledge (Geography)	RANK:22
-SKILL:Perception			RANK:22
-SKILL:Spellcraft			RANK:22
-SKILL:Stealth			RANK:22
-SKILL:Swim				RANK:22
-FEAT:Alertness
-FEAT:Combat Expertise
-FEAT:Flyby Attack
-FEAT:Greater Vital Strike
-FEAT:Improved Initiative
-FEAT:Improved Vital Strike
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Skill Focus (Stealth)
-FEAT:Vital Strike
-FEAT:Weapon Focus (Bite)
-STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-LANGBONUS:Common|Giant|Goblin|Orc
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cone of Cold
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Wall of Force
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Eye
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Black Tentacles
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dimension Door
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Heroism
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Hold Person
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Slow
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Blur
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Glitterdust
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Summon Swarm
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Whispering Wind
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alarm
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Obscuring Mist
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Strike
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
-
+#STARTPACK:Dragon (Black/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Black/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.92
+#ALIGN:CE
+#RACE:Dragon (Black/Young)	!PRERACE:1,%
+#NAME:Young Black Dragon
+#SKILL:Fly			RANK:8
+#SKILL:Handle Animal	RANK:8
+#SKILL:Intimidate		RANK:8
+#SKILL:Perception		RANK:8
+#SKILL:Stealth		RANK:8
+#SKILL:Swim			RANK:8
+#FEAT:Alertness
+#FEAT:Improved Initiative
+#FEAT:Skill Focus (Stealth)
+#FEAT:Weapon Focus (Bite)
+#STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+#
+#
+#STARTPACK:Dragon (Black/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Black/Adult)],[!PRERACE:1,%]	SOURCEPAGE:p.92
+#ALIGN:CE
+#RACE:Dragon (Black/Adult)	!PRERACE:1,%
+#NAME:Adult Black Dragon
+#SKILL:Fly				RANK:14
+#SKILL:Handle Animal		RANK:14
+#SKILL:Intimidate			RANK:14
+#SKILL:Knowledge (Arcana)	RANK:14
+#SKILL:Perception			RANK:14
+#SKILL:Spellcraft			RANK:14
+#SKILL:Stealth			RANK:14
+#SKILL:Swim				RANK:14
+#FEAT:Alertness
+#FEAT:Improved Initiative
+#FEAT:Improved Vital Strike
+#FEAT:Power Attack
+#FEAT:Skill Focus (Stealth)
+#FEAT:Vital Strike
+#FEAT:Weapon Focus (Bite)
+#STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+#LANGBONUS:Common|Giant
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alarm
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Obscuring Mist
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+#
+#
+#STARTPACK:Dragon (Black/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Black/Ancient)],[!PRERACE:1,%]	SOURCEPAGE:p.92
+#ALIGN:CE
+#RACE:Dragon (Black/Ancient)	!PRERACE:1,%
+#NAME:Ancient Black Dragon
+#SKILL:Fly				RANK:22
+#SKILL:Handle Animal		RANK:22
+#SKILL:Intimidate			RANK:22
+#SKILL:Knowledge (Arcana)	RANK:22
+#SKILL:Knowledge (History)	RANK:22
+#SKILL:Knowledge (Geography)	RANK:22
+#SKILL:Perception			RANK:22
+#SKILL:Spellcraft			RANK:22
+#SKILL:Stealth			RANK:22
+#SKILL:Swim				RANK:22
+#FEAT:Alertness
+#FEAT:Combat Expertise
+#FEAT:Flyby Attack
+#FEAT:Greater Vital Strike
+#FEAT:Improved Initiative
+#FEAT:Improved Vital Strike
+#FEAT:Multiattack
+#FEAT:Power Attack
+#FEAT:Skill Focus (Stealth)
+#FEAT:Vital Strike
+#FEAT:Weapon Focus (Bite)
+#STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+#LANGBONUS:Common|Giant|Goblin|Orc
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cone of Cold
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Wall of Force
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Eye
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Black Tentacles
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dimension Door
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Heroism
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Hold Person
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Slow
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Blur
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Glitterdust
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Summon Swarm
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Whispering Wind
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alarm
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Armor
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Obscuring Mist
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|True Strike
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Light
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+#SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
+#
 
 STARTPACK:Dragon (Blue/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Blue/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.94
 ALIGN:LE
