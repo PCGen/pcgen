@@ -1,0 +1,357 @@
+# CVS $Revision: $ $Author: $ -- Sun Aug 11 19:56:59 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2012/09/03
+
+###Block: Default Changeling Abilities (POOL=4)
+# Ability Name	Unique Key					Category of Ability		Type																Multiple Requirements																							Description								Bonus to Ability Pool				Combat bonus				Source Page		Natural Attacks
+Darkvision		KEY:Darkvision ~ Changeling		CATEGORY:Special Ability	TYPE:ChangelingRacialTrait.ChangelingRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Darkvision ~ Changeling],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingDarkvision]																									SOURCEPAGE:p.184
+Hag Racial Trait	KEY:Hag Racial Trait ~ Changeling	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.ChangelingRacialTrait.ChangelingRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Hag Racial Trait ~ Changeling],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingHagRacialTrait]	DESC:Changelings inherits a trait from her mother.	BONUS:ABILITYPOOL|Hag Racial Trait|1							SOURCEPAGE:p.184
+Claws			KEY:Claws ~ Changeling			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SpellLike.ChangelingRacialTrait.ChangelingRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Claws ~ Changeling],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingClaws]					DESC:Changelings get two claw attacks.																SOURCEPAGE:p.184	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable,*2,1d4
+Natural Armor	KEY:Natural Armor ~ Changeling	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.ChangelingRacialTrait.ChangelingRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Natural Armor ~ Changeling],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingNaturalArmor]		DESC:Changelings have a +1 natural armor bonus.									BONUS:COMBAT|AC|1|TYPE=NaturalArmor	SOURCEPAGE:p.184
+
+###Block: Set up Changeling default abilities
+# Ability Name							Category of Ability	Ability
+CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Changeling Racial Trait Default|PRERACE:1,Changeling
+
+#Changeling Racial Trait Default
+Changeling Racial Trait Default				CATEGORY:Internal
+CATEGORY=Internal|Changeling Racial Trait Default.MOD					ABILITY:Changeling Racial Trait|AUTOMATIC|Darkvision ~ Changeling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingDarkvision
+CATEGORY=Internal|Changeling Racial Trait Default.MOD					ABILITY:Changeling Racial Trait|AUTOMATIC|Hag Racial Trait ~ Changeling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingHagRacialTrait
+CATEGORY=Internal|Changeling Racial Trait Default.MOD					ABILITY:Changeling Racial Trait|AUTOMATIC|Claws ~ Changeling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingClaws
+CATEGORY=Internal|Changeling Racial Trait Default.MOD					ABILITY:Changeling Racial Trait|AUTOMATIC|Natural Armor ~ Changeling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ChangelingNaturalArmor
+
+###Block: Alternate Changeling Abilities
+# COMMENT: All alternate abilities in the ARG can be done with Hag Racial Trait choices below.
+
+###Block: Hag Racial Trait Abilities
+# Ability Name				Unique Key							Category of Ability		Type								Define					Description																						Caster level												Combat bonus					Source Page
+Hulking Changeling (Annis Hag)	KEY:Annis Hag Hulking Changeling ~ Changeling	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.HagRacialTrait							DESC:You gain a +1 racial bonus to melee damage.																													BONUS:COMBAT|DAMAGE.Melee|1|TYPE=Racial	SOURCEPAGE:p.184
+# COMMENT: Create a specialty skill?
+Green Widow (Green Hag)			KEY:Green Hag Green Widow ~ Changeling		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.HagRacialTrait							DESC:You gain a +2 racial bonus on Bluff checks against creatures that are sexually attracted to you.																												SOURCEPAGE:p.184
+Sea Lungs (Sea Hag)			KEY:Sea Hag Sea Lungs ~ Changeling			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.HagRacialTrait	DEFINE:SeaLungDuration|3*CONSCORE	DESC:You may hold your breath for %1 rounds before you risk drowning.|SeaLungsDuration																														SOURCEPAGE:p.184
+Mist Child (Annis Hag)			KEY:Annis Hag Mist Child ~ Changeling		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.HagRacialTrait							DESC:When you have concealment or total concealment, the miss chance against you increases by 5%%.																												SOURCEPAGE:p.184
+Object of Desire (Green Hag)		KEY:Green Hag Object of Desire ~ Changeling	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.HagRacialTrait							DESC:Add +1 to your caster level when casting charm person or charm monster.											BONUS:CASTERLEVEL|SPELL.Charm Person|1	BONUS:CASTERLEVEL|SPELL.Charm Monster|1								SOURCEPAGE:p.184
+Ocean's Daughter (Sea Hag)		KEY:Sea Hag Ocean's Daughter ~ Changeling		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.HagRacialTrait							DESC:You gain a +1 trait bonus on Skill checks, and automatically succeed at Swim checks made to avoid nonlethal damage from swimming.																						SOURCEPAGE:p.184
+
+
+
+
+
+###Block: Alternate Duergar Abilities
+# COMMENT: Duergar can take appropriate Dwarf alternate racial traits.  This needs to be added.
+# Ability Name	Unique Key				Category of Ability		Type																				Multiple Requirements																										Description																Vision			Cost		Source Page
+Blood Enmity	KEY:Blood Enmity ~ Duergar	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.DuergarRacialTrait.DuergarSLAInvisibility								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Blood Enmity ~ Duergar],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSLAInvisibility]						DESC:You gain a +1 racial bonus on attack rolls against humanoids with the dwarf or elf subtypes.					COST:0	SOURCEPAGE:p.186
+Daysighted		KEY:Daysighted ~ Duergar	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.DuergarRacialTrait.DuergarLightSensitivity.DuergarSuperiorDarkvision	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Daysighted ~ Duergar],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarLightSensitivity,TYPE.DuergarSuperiorDarkvision]	DESC:You lack light sensitivity, but only have darkvision to 60'.							VISION:Darkvision (60')	COST:0	SOURCEPAGE:p.186
+Deep Magic		KEY:Deep Magic ~ Duergar	CATEGORY:Special Ability	TYPE:DuergarRacialTrait.DuergarSLAInvisibility.DuergarSLAEnlargePerson									PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Deep Magic ~ Duergar],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DuergarSLAInvisibility,TYPE.DuergarSLAEnlargePerson]																						COST:0	SOURCEPAGE:p.186
+
+
+###Block: Default Gillman Abilities (POOL=5)
+# Ability Name		Unique Key						Category of Ability		Type															Multiple Requirements																								Description																												Template		Move			Source Page
+Aquatic			KEY:Aquatic ~ Gillman				CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.GillmanRacialTrait.GillmanRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Aquatic ~ Gillman],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanAquatic]						DESC:Gillmen are humanoids with the aquatic subtype.																					TEMPLATE:Aquatic				SOURCEPAGE:p.188
+Swim Speed			KEY:Swim Speed ~ Gillman			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.GillmanRacialTrait.GillmanRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Swim Speed ~ Gillman],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanSwimSpeed]					DESC:Gillmen have a swim speed of 30 feet, can move in water without making Swim checks, and always treat Swim as a class skill.											MOVE:Swim,30	SOURCEPAGE:p.188
+Amphibious			KEY:Amphibious ~ Gillman			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.GillmanRacialTrait.GillmanRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Amphibious ~ Gillman],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanAmphibious]					DESC:Gillmen can breathe both water and air.																												SOURCEPAGE:p.188
+Enchantment Resistance	KEY:Enchantment Resistance ~ Gillman	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.GillmanRacialTrait.GillmanRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Enchantment Resistance ~ Gillman],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanEnchantmentResistance]	DESC:Gillmen gain a +2 racial saving throw bonus against non-aboleth enchantment spells and effects, but take a -2 penalty on such saving throws against aboleth sources.							SOURCEPAGE:p.188
+Water Dependent		KEY:Water Dependent ~ Gillman			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.GillmanRacialTrait.GillmanRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Water Dependent ~ Gillman],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanWaterDependent]				DESC:Gillmen who spend more than 1 day without fully submerging in water risk death within 4d6 hours.																			SOURCEPAGE:p.188
+
+###Block: Set up Gillman default abilities
+# Ability Name							Category of Ability	Ability
+CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Gillman Racial Trait Default|PRERACE:1,Gillman
+
+#Gillman Racial Trait Default
+Gillman Racial Trait Default					CATEGORY:Internal
+CATEGORY=Internal|Gillman Racial Trait Default.MOD					ABILITY:Gillman Racial Trait|AUTOMATIC|Swim Speed ~ Gillman|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanSwimSpeed
+CATEGORY=Internal|Gillman Racial Trait Default.MOD					ABILITY:Gillman Racial Trait|AUTOMATIC|Aquatic ~ Gillman|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanAquatic
+CATEGORY=Internal|Gillman Racial Trait Default.MOD					ABILITY:Gillman Racial Trait|AUTOMATIC|Enchantment Resistance ~ Gillman|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanEnchantmentResistance
+CATEGORY=Internal|Gillman Racial Trait Default.MOD					ABILITY:Gillman Racial Trait|AUTOMATIC|Amphibious ~ Gillman|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanAmphibious
+CATEGORY=Internal|Gillman Racial Trait Default.MOD					ABILITY:Gillman Racial Trait|AUTOMATIC|Water Dependent ~ Gillman|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanWaterDependent
+
+###Block: Alternate Gillman Abilities
+# Ability Name	Unique Key				Category of Ability		Type																					Multiple Requirements																													Description																			Template		Ability									Cost		Source Page
+Riverfolk		KEY:Riverfolk ~ Gillman		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.GillmanRacialTrait.GillmanWaterDependent							PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Riverfolk ~ Gillman],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanWaterDependent]										DESC:You lose water dependent, and gain vulnerability to fire.													ABILITY:Special Ability|AUTOMATIC|Vulnerability to Fire	COST:0	SOURCEPAGE:p.188
+Slime Hunter	KEY:Slime Hunter ~ Gillman	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.GillmanRacialTrait.GillmanEnchantmentResistance								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Slime Hunter ~ Gillman],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanEnchantmentResistance]								DESC:You gain a +2 racial bonus on saves against aboleth spells, spell-like abilities, and supernatural abilities.														COST:0	SOURCEPAGE:p.188
+Throwback		KEY:Throwback ~ Gillman		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.GillmanRacialTrait.GillmanAmphibious.GillmanSwimSpeed.GillmanAquatic.GillmanWaterDependent	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Throwback ~ Gillman],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GillmanAquatic.GillmanSwimSpeed.GillmanAmphibious.GillmanWaterDependent]	DESC:You gain the human subtype.															TEMPLATE:Human											COST:0	SOURCEPAGE:p.188
+
+###Block: Alternate Grippli Abilities
+# Ability Name	Unique Key				Category of Ability		Type																Multiple Requirements																								Define					Description																		Automatically Gained Weapon Prof.	Bonus to skill						Modify VAR										Cost		Source Page
+Glider		KEY:Glider ~ Grippli		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.GrippliRacialTrait.GrippliSwampStride		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Glider ~ Grippli],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliSwampStride]												DESC:Can treat falling distance as half, can steer while falling.																																		COST:0	SOURCEPAGE:p.190
+Jumper		KEY:Jumper ~ Grippli		CATEGORY:Special Ability	TYPE:GrippliRacialTrait.GrippliCamouflage										PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Jumper ~ Grippli],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliCamouflage]																																																								COST:0	SOURCEPAGE:p.190
+Princely		KEY:Princely ~ Grippli		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.GrippliRacialTrait.GrippliSwampStride.GrippliWeaponFamiliarity	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Princely ~ Grippli],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliSwampStride.GrippliWeaponFamiliarity]							DESC:You gain proficiency with rapiers and +2 racial bonus on Diplomacy and Intimidate.					AUTO:WEAPONPROF|Rapier			BONUS:SKILL|Diplomacy,Intimidate|2|TYPE=Racial												COST:0	SOURCEPAGE:p.190
+Toxic Skin		KEY:Toxic Skin ~ Grippli	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.GrippliRacialTrait.GrippliSwampStride.GrippliCamouflage		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Toxic Skin ~ Grippli],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.GrippliSwampStride.GrippliCamouflage]		DEFINE:GrippliPoisonDC|10+TL/2+CON	DESC:You can create a poison (Fort DC %1, 1/round for 6 rounds, 1d2 Dex damage, cure 1 save).|GrippliPoisonDC															BONUS:VAR|GrippliPoisonDC|2|PREFEAT:1,Ability Focus (Toxic Skin)	COST:0	SOURCEPAGE:p.190
+
+###Block: Default Kitsune Abilities (POOL=5)
+# Ability Name	Unique Key					Category of Ability		Type															Multiple Requirements																						Define				Innate Spells												Description														Bonus to DC				Bonus to skill					Source Page		Natural Attacks
+Low-Light Vision	KEY:Low-Light Vision ~ Kitsune	CATEGORY:Special Ability	TYPE:KitsuneRacialTrait.KitsuneRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Low-Light Vision ~ Kitsune],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneLowLightVision]																																															SOURCEPAGE:p.192
+Change Shape	KEY:Change Shape ~ Kitsune		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Supernatural.KitsuneRacialTrait.KitsuneRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Change Shape ~ Kitsune],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneChangeShape]																						DESC:Kitsune can assume the appearance of a specific single human form of the same sex.													SOURCEPAGE:p.192
+Agile			KEY:Agile ~ Kitsune			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.KitsuneRacialTrait.KitsuneRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Agile ~ Kitsune],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile]																								DESC:Kitsunes get a +2 racial bonus on Acrobatics checks.											BONUS:SKILL|Acrobatics|2|TYPE=Racial	SOURCEPAGE:p.192
+Kitsune Magic	KEY:Kitsune Magic ~ Kitsune		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.KitsuneRacialTrait.KitsuneRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Kitsune Magic ~ Kitsune],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic]			DEFINE:KitsuneSLATimes|3	SPELLS:Innate|TIMES=KitsuneSLATimes|CASTERLEVEL=TL|Dancing Lights|PRESTAT:1,CHA=11	DESC:Kitsune add +1 to the DC of any enchantment spells they cast.				BONUS:DC|SCHOOL.Enchantment|1								SOURCEPAGE:p.192
+Natural Weapons	KEY:Natural Weapons ~ Kitsune		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.KitsuneRacialTrait.KitsuneRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Natural Weapons ~ Kitsune],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneNaturalWeapons]		DEFINE:KitsuneSLATimes|3	SPELLS:Innate|TIMES=KitsuneSLATimes|CASTERLEVEL=TL|Dancing Lights|PRESTAT:1,CHA=11	DESC:Kitsune have a bite attack in their natural form.																		SOURCEPAGE:p.192	NATURALATTACKS:Bite,Weapon.Natural.Melee.Piercing,*1,1d4
+
+###Block: Set up Kitsune default abilities
+# Ability Name							Category of Ability	Ability
+CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Kitsune Racial Trait Default|PRERACE:1,Kitsune
+
+#Kitsune Racial Trait Default
+Kitsune Racial Trait Default					CATEGORY:Internal
+CATEGORY=Internal|Kitsune Racial Trait Default.MOD					ABILITY:Kitsune Racial Trait|AUTOMATIC|Low-Light Vision ~ Kitsune|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneLow-Light Vision
+CATEGORY=Internal|Kitsune Racial Trait Default.MOD					ABILITY:Kitsune Racial Trait|AUTOMATIC|Change Shape ~ Kitsune|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneChangeShape
+CATEGORY=Internal|Kitsune Racial Trait Default.MOD					ABILITY:Kitsune Racial Trait|AUTOMATIC|Agile ~ Kitsune|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile
+CATEGORY=Internal|Kitsune Racial Trait Default.MOD					ABILITY:Kitsune Racial Trait|AUTOMATIC|Kitsune Magic ~ Kitsune|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic
+CATEGORY=Internal|Kitsune Racial Trait Default.MOD					ABILITY:Kitsune Racial Trait|AUTOMATIC|Natural Weapons ~ Kitsune|!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneNaturalWeapons
+
+###Block: Alternate Kitsune Abilities
+# Ability Name	Unique Key				Category of Ability		Type														Multiple Requirements																			Description															Cost		Source Page
+Fast Shifter	KEY:Fast Shifter ~ Kitsune	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.KitsuneRacialTrait.KitsuneMagic	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Fast Shifter ~ Kitsune],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneMagic]	DESC:Using your racial change shape ability is a move action instead of a standard action.	COST:0	SOURCEPAGE:p.192
+Gregarious		KEY:Gregarious ~ Kitsune	CATEGORY:Special Ability	TYPE:KitsuneRacialTrait.KitsuneAgile								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Gregarious ~ Kitsune],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.KitsuneAgile]																	COST:0	SOURCEPAGE:p.192
+
+
+
+
+###Block: Alternate Merfolk Abilities
+# Ability Name	Unique Key				Category of Ability		Type															Multiple Requirements																					Description																			Ability								Bonus to DC								Add to base move								Bonus to skill					Vision			Cost		Source Page
+Darkvision		KEY:Darkvision ~ Merfolk	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.MerfolkRacialTrait.MerfolkLowLightVision	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Darkvision ~ Merfolk],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkLowLightVision]	DESC:Gain darkvision 60', and light sensitivity.												ABILITY:Special Ability|AUTOMATIC|Light Sensitivity																											VISION:Darkvision (60')	COST:0	SOURCEPAGE:p.194
+Seasinger		KEY:Seasinger ~ Merfolk		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.MerfolkRacialTrait.MerfolkLowLightVision			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Seasinger ~ Merfolk],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.MerfolkLowLightVision]		DESC:You gain a +2 racial bonus on Perform (sing) checks and a +1 racial bonus to DC of language-dependent spells.										BONUS:DC|DESCRIPTOR.Language-Dependent|1|TYPE=Racial											BONUS:SKILL|Perform (Sing)|2|TYPE=Racial					COST:0	SOURCEPAGE:p.194
+Strongtail		KEY:Strongtail ~ Merfolk	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.MerfolkRacialTrait																															DESC:You have a base land speed of 15 feet, but a swim speed of 30 feet.																										BONUS:MOVEADD|TYPE.Walk|10	BONUS:MOVEADD|TYPE.Swim|-20												COST:0	SOURCEPAGE:p.194
+
+
+###Block: Default Nagaji Abilities (POOL=4)
+# Ability Name	Unique Key				Category of Ability		Type															Multiple Requirements																					Description																				Combat bonus				Bonus to skill					Source Page
+Low-Light Vision	KEY:Low-Light Vision ~ Nagaji	CATEGORY:Special Ability	TYPE:NagajiRacialTrait.NagajiRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Low-Light Vision ~ Nagaji],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiLowLightVision]																																			SOURCEPAGE:p.196
+Armored Scales	KEY:Armored Scales ~ Nagaji	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.NagajiRacialTrait.NagajiRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Armored Scales ~ Nagaji],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiArmoredScales]	DESC:Nagaji have a +1 natural armor bonus.														BONUS:COMBAT|AC|1|TYPE=NaturalArmor								SOURCEPAGE:p.196
+Resistant		KEY:Resistant ~ Nagaji		CATEGORY:Special Ability	TYPE:NagajiRacialTrait.NagajiRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Resistant ~ Nagaji],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiResistant]																																					SOURCEPAGE:p.196
+# COMMENT: Create/use specialty skill.
+Serpent's Sense	KEY:Serpent's Sense ~ Nagaji	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.NagajiRacialTrait.NagajiRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Serpent's Sense ~ Nagaji],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiSerpentsSense]	DESC:Nagaji receive a +2 racial bonus on Handle Animal checks against reptiles, and a +2 racial bonus on Perception checks.							BONUS:SKILL|Perception|2|TYPE=Racial	SOURCEPAGE:p.196
+
+###Block: Set up Nagaji default abilities
+# Ability Name							Category of Ability	Ability
+CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Nagaji Racial Trait Default|PRERACE:1,Nagaji
+
+#Nagaji Racial Trait Default
+Nagaji Racial Trait Default					CATEGORY:Internal
+CATEGORY=Internal|Nagaji Racial Trait Default.MOD					ABILITY:Nagaji Racial Trait|AUTOMATIC|Low-Light Vision ~ Nagaji|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiLowLightVision
+CATEGORY=Internal|Nagaji Racial Trait Default.MOD					ABILITY:Nagaji Racial Trait|AUTOMATIC|Resistant ~ Nagaji|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiResistant
+CATEGORY=Internal|Nagaji Racial Trait Default.MOD					ABILITY:Nagaji Racial Trait|AUTOMATIC|Armored Scales ~ Nagaji|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiArmoredScales
+CATEGORY=Internal|Nagaji Racial Trait Default.MOD					ABILITY:Nagaji Racial Trait|AUTOMATIC|Serpent's Sense ~ Nagaji|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiSerpentsSense
+
+###Block: Alternate Nagaji Abilities
+# Ability Name	Unique Key				Category of Ability		Type								Multiple Requirements																					Cost		Source Page
+Hypnotic Gaze	KEY:Hypnotic Gaze ~ Nagaji	CATEGORY:Special Ability	TYPE:NagajiRacialTrait.NagajiSerpentsSense	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Hypnotic Gaze ~ Nagaji],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.NagajiSerpentsSense]	COST:0	SOURCEPAGE:p.196
+
+
+###Block: Default Samsaran Abilities (POOL=4)
+# Ability Name		Unique Key					Category of Ability		Type								Multiple Requirements																						Source Page
+Low-Light Vision		KEY:Low-Light Vision ~ Samsaran	CATEGORY:Special Ability	TYPE:SamsaranRacialTrait.SamsaranRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Low-Light Vision ~ Samsaran],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranLowLightVision]	SOURCEPAGE:p.198
+Lifebound			KEY:Lifebound ~ Samsaran		CATEGORY:Special Ability	TYPE:SamsaranRacialTrait.SamsaranRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Lifebound ~ Samsaran],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranLifebound]			SOURCEPAGE:p.198
+Samsaran Magic		KEY:Samsaran Magic ~ Samsaran		CATEGORY:Special Ability	TYPE:SamsaranRacialTrait.SamsaranRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Samsaran Magic ~ Samsaran],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranMagic]			SOURCEPAGE:p.198
+Shards of the Past	KEY:Shards of the Past ~ Samsaran	CATEGORY:Special Ability	TYPE:SamsaranRacialTrait.SamsaranRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Shards of the Past ~ Samsaran],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranShardsOfThePast]	SOURCEPAGE:p.198
+
+###Block: Set up Samsaran default abilities
+# Ability Name							Category of Ability	Ability
+CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Samsaran Racial Trait Default|PRERACE:1,Samsaran
+
+#Samsaran Racial Trait Default
+Samsaran Racial Trait Default					CATEGORY:Internal
+CATEGORY=Internal|Samsaran Racial Trait Default.MOD					ABILITY:Samsaran Racial Trait|AUTOMATIC|Low-Light Vision ~ Samsaran|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranLowLightVision
+CATEGORY=Internal|Samsaran Racial Trait Default.MOD					ABILITY:Samsaran Racial Trait|AUTOMATIC|Lifebound ~ Samsaran|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranLifebound
+CATEGORY=Internal|Samsaran Racial Trait Default.MOD					ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran Magic ~ Samsaran|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranMagic
+CATEGORY=Internal|Samsaran Racial Trait Default.MOD					ABILITY:Samsaran Racial Trait|AUTOMATIC|Shards of the Past ~ Samsaran|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranShardsOfThePast
+
+###Block: Alternate Samsaran Abilities
+# Ability Name												Unique Key					Category of Ability		Type																Multiple Requirements																										Define										Description																														Template		Bonus to skill							Cost		Source Page
+# COMMENT: Adding chosen spells isn't well-supported by PCGen yet, so this isn't implemented.
+# COMMENT: Future changes to spellcasting ability bonus DON'T increase the number of spells added to the list.  This is tricky in PCGen.
+# Ability Name	Unique Key					Category of Ability		Type																Multiple Requirements																						Description																						Cost		Source Page
+Mystic Past Life	KEY:Mystic Past Life ~ Samsaran	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.SamsaranRacialTrait.SamsaranShardsOfThePast	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life ~ Samsaran],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranShardsOfThePast]	DESC:Add 1 + casting key ability score bonus spells of the same type as your spellcasting class to your spell list.  NOT IMPLEMENTED.	COST:0	SOURCEPAGE:p.198
+
+###Block: Shards of the Past Knowledge Skill abilities
+# Ability Name			Unique Key					Category of Ability		Type					Bonus to skill							Class Skill
+Knowledge (Arcana)		KEY:Shards Knowledge Arcana		CATEGORY:Special Ability	TYPE:ShardsOfPastKnowledge	BONUS:SKILL|Knowledge (Arcana)|2|TYPE=Racial		CSKILL:Knowledge (Arcana)
+Knowledge (Dungeoneering)	KEY:Shards Knowledge Dungeoneering	CATEGORY:Special Ability	TYPE:ShardsOfPastKnowledge	BONUS:SKILL|Knowledge (Dungeoneering)|2|TYPE=Racial	CSKILL:Knowledge (Dungeoneering)
+Knowledge (Engineering)		KEY:Shards Knowledge Engineering	CATEGORY:Special Ability	TYPE:ShardsOfPastKnowledge	BONUS:SKILL|Knowledge (Engineering)|2|TYPE=Racial	CSKILL:Knowledge (Engineering)
+Knowledge (Geography)		KEY:Shards Knowledge Geography	CATEGORY:Special Ability	TYPE:ShardsOfPastKnowledge	BONUS:SKILL|Knowledge (Geography)|2|TYPE=Racial		CSKILL:Knowledge (Geography)
+Knowledge (History)		KEY:Shards Knowledge History		CATEGORY:Special Ability	TYPE:ShardsOfPastKnowledge	BONUS:SKILL|Knowledge (History)|2|TYPE=Racial		CSKILL:Knowledge (History)
+Knowledge (Local)			KEY:Shards Knowledge Local		CATEGORY:Special Ability	TYPE:ShardsOfPastKnowledge	BONUS:SKILL|Knowledge (Local)|2|TYPE=Racial		CSKILL:Knowledge (Local)
+Knowledge (Nature)		KEY:Shards Knowledge Nature		CATEGORY:Special Ability	TYPE:ShardsOfPastKnowledge	BONUS:SKILL|Knowledge (Nature)|2|TYPE=Racial		CSKILL:Knowledge (Nature)
+Knowledge (Nobility)		KEY:Shards Knowledge Nobility		CATEGORY:Special Ability	TYPE:ShardsOfPastKnowledge	BONUS:SKILL|Knowledge (Nobility)|2|TYPE=Racial		CSKILL:Knowledge (Nobility)
+Knowledge (Planes)		KEY:Shards Knowledge Planes		CATEGORY:Special Ability	TYPE:ShardsOfPastKnowledge	BONUS:SKILL|Knowledge (Planes)|2|TYPE=Racial		CSKILL:Knowledge (Planes)
+Knowledge (Religion)		KEY:Shards Knowledge Religion		CATEGORY:Special Ability	TYPE:ShardsOfPastKnowledge	BONUS:SKILL|Knowledge (Religion)|2|TYPE=Racial		CSKILL:Knowledge (Religion)
+
+
+###Block: Default Strix Abilities (POOL=5)
+# Ability Name	Unique Key				Category of Ability		Type														Multiple Requirements																					Description															Source Page
+Low-Light Vision	KEY:Low-Light Vision ~ Strix	CATEGORY:Special Ability	TYPE:StrixRacialTrait.StrixRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Low-Light Vision ~ Strix],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixLowLightVision]																	SOURCEPAGE:p.200
+Darkvision		KEY:Darkvision ~ Strix		CATEGORY:Special Ability	TYPE:StrixRacialTrait.StrixRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Darkvision ~ Strix],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixDarkvision]																			SOURCEPAGE:p.200
+Hatred		KEY:Hatred ~ Strix		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.StrixRacialTrait.StrixRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Hatred ~ Strix],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixHatred]				DESC:Strix have a +1 racial bonus on attack rolls against humans.						SOURCEPAGE:p.200
+# COMMENT: Make/use specialty skills.
+Nocturnal		KEY:Nocturnal ~ Strix		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.StrixRacialTrait.StrixRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Nocturnal ~ Strix],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixNocturnal]			DESC:Strix gain a +2 racial bonus on Perception and Stealth checks in dim light or darkness..	SOURCEPAGE:p.200
+Suspicious		KEY:Suspicious ~ Strix		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.StrixRacialTrait.StrixRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Suspicious ~ Strix],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixSuspicious]			DESC:Strix gain a +2 racial bonus on saving throws against illusion spells and effects.		SOURCEPAGE:p.200
+
+###Block: Set up Strix default abilities
+# Ability Name							Category of Ability	Ability
+CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Strix Racial Trait Default|PRERACE:1,Strix
+
+#Strix Racial Trait Default
+Strix Racial Trait Default					CATEGORY:Internal
+CATEGORY=Internal|Strix Racial Trait Default.MOD					ABILITY:Strix Racial Trait|AUTOMATIC|Low-Light Vision ~ Strix|!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixLowLightVision
+CATEGORY=Internal|Strix Racial Trait Default.MOD					ABILITY:Strix Racial Trait|AUTOMATIC|Darkvision ~ Strix|!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixDarkvision
+CATEGORY=Internal|Strix Racial Trait Default.MOD					ABILITY:Strix Racial Trait|AUTOMATIC|Hatred ~ Strix|!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixHatred
+CATEGORY=Internal|Strix Racial Trait Default.MOD					ABILITY:Strix Racial Trait|AUTOMATIC|Nocturnal ~ Strix|!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixNocturnal
+CATEGORY=Internal|Strix Racial Trait Default.MOD					ABILITY:Strix Racial Trait|AUTOMATIC|Suspicious ~ Strix|!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixSuspicious
+
+###Block: Alternate Strix Abilities
+# Ability Name	Unique Key				Category of Ability		Type											Multiple Requirements																			Description																		Save checks bonus					Add to base move			Bonus to skill					Modify VAR				Class Skill		Cost		Source Page
+Dayguard		KEY:Dayguard ~ Strix		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.StrixRacialTrait.StrixNocturnal	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Dayguard ~ Strix],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixNocturnal]	DESC:You gain a +2 racial bonus on Perception checks, and Perception is a class skill.																	BONUS:SKILL|Perception|2|TYPE=Racial						CSKILL:Perception	COST:0	SOURCEPAGE:p.200
+Frightening		KEY:Frightening ~ Strix		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.StrixRacialTrait.StrixNocturnal	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Frightening ~ Strix],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixNocturnal]	DESC:You gain a +2 racial bonus on Intimidate checks.																							BONUS:SKILL|Perception|2|TYPE=Racial									COST:0	SOURCEPAGE:p.200
+Nimble		KEY:Nimble ~ Strix		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.StrixRacialTrait.StrixSuspicious	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Nimble ~ Strix],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixSuspicious]	DESC:You gain a +1 racial bonus on Reflex saves.											BONUS:CHECKS|Reflex|1|TYPE=Racial																						COST:0	SOURCEPAGE:p.200
+Tough			KEY:Tough ~ Strix			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.StrixRacialTrait.StrixSuspicious	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tough ~ Strix],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.StrixSuspicious]		DESC:You gain a +1 racial bonus on Fortitude saves.											BONUS:CHECKS|Fortitude|1|TYPE=Racial																					COST:0	SOURCEPAGE:p.200
+Wing-Clipped	KEY:Wing-Clipped ~ Strix	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.StrixRacialTrait																									DESC:Your flight is less maneuverable, but you gain a +2 racial bonus to Bluff, Climb, and Diplomacy checks.								BONUS:MOVEADD|TYPE.Fly|-40								BONUS:VAR|Maneuverability|-1				COST:0	SOURCEPAGE:p.200
+
+
+###Block: Default Suli Abilities (POOL=5)
+# Ability Name	Unique Key				Category of Ability		Type														Multiple Requirements																					Define																						Description																															Automatically Gained Language	Ability																			Bonus to Ability Pool				Bonus to skill							Source Page
+Low-Light Vision	KEY:Low-Light Vision ~ Suli	CATEGORY:Special Ability	TYPE:SuliRacialTrait.SuliRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Low-Light Vision ~ Suli],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SuliLowLightVision]																																																																																																	SOURCEPAGE:p.202
+Negotiator		KEY:Negotiator ~ Suli		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.SuliRacialTrait.SuliRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Negotiator ~ Suli],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SuliNegotiator]																										DESC:Suli have a +2 racial bonus on Diplomacy and Sense Motive checks.																																																					BONUS:SKILL|Diplomacy,Sense Motive|2|TYPE=Racial	SOURCEPAGE:p.202
+# COMMENT: Create checklist?
+Elemental Assault	KEY:Elemental Assault ~ Suli	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialAttack.Extraordinary.SuliRacialTrait.SuliRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Elemental Assault ~ Suli],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SuliElementalAssault]	DEFINE:ElementalAssaultDieType|6	DEFINE:ElementalAssaultDice|1	DEFINE:ElementalAssaultTimes|1	DEFINE:ElementalAssaultDuration|TL	DESC:%1/day as a swift action, shroud arms in energy to add +%3d%4 energy damage for %2 rounds.|ElementalAssaultTimes|ElementalAssaultDuration|ElementalAssaultDice|ElementalAssaultDieType																																										SOURCEPAGE:p.202
+Energy Resistance	KEY:Energy Resistance ~ Suli	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.SuliRacialTrait.SuliRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Energy Resistance ~ Suli],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SuliEnergyResistance]	DEFINE:AcidResistanceBonus|5	DEFINE:ColdResistanceBonus|5	DEFINE:ElectricityResistanceBonus|5	DEFINE:FireResistanceBonus|5			DESC:Suli have resistance 5 to acid, cold, electricity, and fire.																											ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Resistance to Cold|Resistance to Electricity|Resistance to Fire																	SOURCEPAGE:p.202
+Suli Language						CATEGORY:Special Ability	TYPE:RacialTraits.SuliRacialTrait.SuliRacialDefault						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Suli Language ~ Suli],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SuliLanguage]																																																																																			BONUS:ABILITYPOOL|Suli Language Choice|1										SOURCEPAGE:p.202
+
+Aquan			KEY:Aquan ~ Suli Language	CATEGORY:Special Ability	TYPE:SuliLanguage																																																																																											AUTO:LANG|Aquan
+Auran			KEY:Auran ~ Suli Language	CATEGORY:Special Ability	TYPE:SuliLanguage																																																																																											AUTO:LANG|Auran
+Ignan			KEY:Ignan ~ Suli Language	CATEGORY:Special Ability	TYPE:SuliLanguage																																																																																											AUTO:LANG|Ignan
+Terran		KEY:Terran ~ Suli Language	CATEGORY:Special Ability	TYPE:SuliLanguage																																																																																											AUTO:LANG|Terran
+
+###Block: Set up Suli default abilities
+# Ability Name						Category of Ability	Ability
+CATEGORY=Internal|Select Racial Traits.MOD					ABILITY:Internal|AUTOMATIC|Suli Racial Trait Default|PRERACE:1,Suli
+
+#Suli Racial Trait Default
+Suli Racial Trait Default				CATEGORY:Internal
+CATEGORY=Internal|Suli Racial Trait Default.MOD					ABILITY:Suli Racial Trait|AUTOMATIC|Low-Light Vision ~ Suli|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SuliLowLightVision
+CATEGORY=Internal|Suli Racial Trait Default.MOD					ABILITY:Suli Racial Trait|AUTOMATIC|Negotiator ~ Suli|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SuliNegotiator
+CATEGORY=Internal|Suli Racial Trait Default.MOD					ABILITY:Suli Racial Trait|AUTOMATIC|Elemental Assault ~ Suli|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SuliElementalAssault
+CATEGORY=Internal|Suli Racial Trait Default.MOD					ABILITY:Suli Racial Trait|AUTOMATIC|Energy Resistance ~ Suli|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SuliEnergyResistance
+CATEGORY=Internal|Suli Racial Trait Default.MOD					ABILITY:Suli Racial Trait|AUTOMATIC|Suli Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SuliSuliLanguage
+
+###Block: Alternate Suli Abilities
+# Ability Name	Unique Key			Category of Ability		Type																Multiple Requirements																								Define					Description																		Ability									Cost		Source Page
+Earthfoot		KEY:Earthfoot ~ Suli	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SuliRacialTrait.SuliElementalAssault.SuliEnergyResistance	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Earthfoot ~ Suli],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SuliElementalAssault,TYPE.SuliEnergyResistance]	DEFINE:AcidResistanceBonus|5		DESC:Your energy assault can only deal acid damage; ignore 5 feet of earth-related difficult terrain.			ABILITY:Special Ability|AUTOMATIC|Resistance to Acid		COST:0	SOURCEPAGE:p.202
+# COMMENT: Create natural attack block?
+Firehand		KEY:Firehand ~ Suli	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialAttack.SuliRacialTrait.SuliElementalAssault.SuliEnergyResistance		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Firehand ~ Suli],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SuliElementalAssault,TYPE.SuliEnergyResistance]	DEFINE:FireResistanceBonus|5		DESC:Your energy assault can only deal fire damage; may throw flames as 1d6 fire damage.					ABILITY:Special Ability|AUTOMATIC|Resistance to Fire		COST:0	SOURCEPAGE:p.202
+Icewalk		KEY:Icewalk ~ Suli	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SuliRacialTrait.SuliElementalAssault.SuliEnergyResistance	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Icewalk ~ Suli],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SuliElementalAssault,TYPE.SuliEnergyResistance]	DEFINE:ColdResistanceBonus|5		DESC:Your energy assault can only deal cold damage; may walk on water using short-lived ice.				ABILITY:Special Ability|AUTOMATIC|Resistance to Cold		COST:0	SOURCEPAGE:p.202
+Shockshield		KEY:Shockshield ~ Suli	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialAttack.SuliRacialTrait.SuliElementalAssault.SuliEnergyResistance		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Shockshield ~ Suli],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SuliElementalAssault,TYPE.SuliEnergyResistance]	DEFINE:ElectricityResistanceBonus|5	DESC:Your energy assault can only deal electricity damage; can shock melee attackers for 1d6 electricity damage.	ABILITY:Special Ability|AUTOMATIC|Resistance to Electricity	COST:0	SOURCEPAGE:p.202
+
+
+
+###Block: Alternate Svirfneblin Abilities
+# Ability Name	Unique Key				Category of Ability		Type									Multiple Requirements																					Cost		Source Page
+Healthy		KEY:Healthy ~ Svirfneblin	CATEGORY:Special Ability	TYPE:SvirfneblinRacialTrait.SvirfneblinFortunate	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Healthy ~ Svirfneblin],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinFortunate]	COST:0	SOURCEPAGE:p.204
+Stoneseer		KEY:Stoneseer ~ Svirfneblin	CATEGORY:Special Ability	TYPE:SvirfneblinRacialTrait.SvirfneblinMagic		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Stoneseer ~ Svirfneblin],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinMagic]		COST:0	SOURCEPAGE:p.204
+
+
+###Block: Default Vanara Abilities (POOL=4)
+# Ability Name	Unique Key				Category of Ability		Type															Multiple Requirements																					Description										Move			Bonus to skill						Source Page
+Low-Light Vision	KEY:Low-Light Vision ~ Vanara	CATEGORY:Special Ability	TYPE:VanaraRacialTrait.VanaraRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Low-Light Vision ~ Vanara],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.VanaraLowLightVision]																							SOURCEPAGE:p.206
+Nimble		KEY:Nimble ~ Vanara		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.VanaraRacialTrait.VanaraRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Nimble ~ Vanara],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.VanaraNimble]				DESC:Vanara have a +2 racial bonus Acrobatics and Stealth checks.				BONUS:SKILL|Acrobatics,Stealth|2|TYPE=Racial	SOURCEPAGE:p.206
+Climb Speed		KEY:Climb Speed ~ Vanara	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.VanaraRacialTrait.VanaraRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Climb Speed ~ Vanara],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.VanaraClimbSpeed]		DESC:You have Climb speed of 30 feet.					MOVE:Climb,30									SOURCEPAGE:p.206
+Prehensile Tail	KEY:Prehensile Tail ~ Vanara	CATEGORY:Special Ability	TYPE:VanaraRacialTrait.VanaraRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Prehensile Tail ~ Vanara],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.VanaraPrehensileTail]																							SOURCEPAGE:p.206
+
+###Block: Set up Vanara default abilities
+# Ability Name							Category of Ability	Ability
+CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Vanara Racial Trait Default|PRERACE:1,Vanara
+
+#Vanara Racial Trait Default
+Vanara Racial Trait Default					CATEGORY:Internal
+CATEGORY=Internal|Vanara Racial Trait Default.MOD					ABILITY:Vanara Racial Trait|AUTOMATIC|Low-Light Vision ~ Vanara|!PREABILITY:1,CATEGORY=Special Ability,TYPE.VanaraLowLightVision
+CATEGORY=Internal|Vanara Racial Trait Default.MOD					ABILITY:Vanara Racial Trait|AUTOMATIC|Nimble ~ Vanara|!PREABILITY:1,CATEGORY=Special Ability,TYPE.VanaraNimble
+CATEGORY=Internal|Vanara Racial Trait Default.MOD					ABILITY:Vanara Racial Trait|AUTOMATIC|Climb Speed ~ Vanara|!PREABILITY:1,CATEGORY=Special Ability,TYPE.VanaraClimbSpeed
+CATEGORY=Internal|Vanara Racial Trait Default.MOD					ABILITY:Vanara Racial Trait|AUTOMATIC|Prehensile Tail ~ Vanara|!PREABILITY:1,CATEGORY=Special Ability,TYPE.VanaraPrehensileTail
+
+###Block: Alternate Vanara Abilities
+# Ability Name	Unique Key				Category of Ability		Type												Multiple Requirements																				Description								Modify VAR												Class Skill			Cost		Source Page
+Tree Stranger	KEY:Tree Stranger ~ Vanara	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.VanaraRacialTrait.VanaraClimbSpeed	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tree Stranger ~ Vanara],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.VanaraClimbSpeed]	DESC:You treat all Knowledge skills as class skills.														CSKILL:TYPE.Knowledge	COST:0	SOURCEPAGE:p.206
+Whitecape		KEY:Whitecape ~ Vanara		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.VanaraRacialTrait.VanaraPrehensileTail	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Whitecape ~ Vanara],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.VanaraPrehensileTail]	DESC:Gain +4 to CMD to resist bull rush or trip.	BONUS:VAR|CMD_Bull_Rush|4|TYPE=Racial	BONUS:VAR|CMD_Trip|4|TYPE=Racial					COST:0	SOURCEPAGE:p.206
+
+
+###Block: Default Vishkanya Abilities (POOL=7)
+# Ability Name		Unique Key					Category of Ability		Type																Multiple Requirements																							Define												Description																											Automatically Gained Weapon Prof.		Bonus to skill						Source Page
+Low-Light Vision		KEY:Low-Light Vision ~ Vishkanya	CATEGORY:Special Ability	TYPE:RacialTraits.VishkanyaRacialTrait.VishkanyaRacialDefault						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Low-Light Vision ~ Vishkanya],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaLowLightVision]																																																										SOURCEPAGE:p.208
+Keen Senses			KEY:Keen Senses ~ Vishkanya		CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.VishkanyaRacialTrait.VishkanyaRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Keen Senses ~ Vishkanya],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaKeenSenses]																DESC:Vishkanya have a +2 racial bonus on Perception checks.																										BONUS:SKILL|Perception|2|TYPE=Racial		SOURCEPAGE:p.208
+Limber			KEY:Limber ~ Vishkanya			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.VishkanyaRacialTrait.VishkanyaRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Limber ~ Vishkanya],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaLimber]																		DESC:Vishkanya have a +2 racial bonus on Escape Artist and Stealth checks.																							BONUS:SKILL|Escape Artist,Stealth|2|TYPE=Racial	SOURCEPAGE:p.208
+Poison Resistance		KEY:Poison Resistance ~ Vishkanya	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.VishkanyaRacialTrait.VishkanyaRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Poison Resistance ~ Vishkanya],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaPoisonResistance]	DEFINE:VishkanyaPoisonSaveBonus|TL								DESC:You have a +%1 racial bonus on saving throws against poison.|VishkanyaPoisonSaveBonus																												SOURCEPAGE:p.208
+Poison Use			KEY:Poison Use ~ Vishkanya		CATEGORY:Special Ability	TYPE:RacialTraits.VishkanyaRacialTrait.VishkanyaRacialDefault						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Poison Use ~ Vishkanya],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaPoisonUse]																																																												SOURCEPAGE:p.208
+Toxic				KEY:Toxic ~ Vishkanya			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.VishkanyaRacialTrait.VishkanyaRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Toxic ~ Vishkanya],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaToxic]					DEFINE:VishkanyaToxicTimes|max(1,CON)	DEFINE:VishkanyaToxicDC|10+TL/2+CON	DESC:Vishkanya can envenom a weapon %1/day. Vishkanya venom: save Fort DC %2; freq 1/rd for 6 rds; effect 1d2 Dex; cure 1 save.|VishkanyaToxicTimes|VishkanyaToxicDC																SOURCEPAGE:p.208
+Weapon Familiarity	KEY:Weapon Familiarity ~ Vishkanya	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.VishkanyaRacialTrait.VishkanyaRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Weapon Familiarity ~ Vishkanya],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaWeaponFamiliarity]														DESC:Vishkanya are proficient with blowguns, kukri, and shuriken.																		AUTO:WEAPONPROF|Blowgun|Kukri|Shuriken									SOURCEPAGE:p.208
+
+###Block: Set up Vishkanya default abilities
+# Ability Name							Category of Ability	Ability																							Bonus to Ability Pool
+CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Vishkanya Racial Trait Default|PRERACE:1,Vishkanya
+
+#Vishkanya Racial Trait Default
+Vishkanya Racial Trait Default				CATEGORY:Internal																										BONUS:ABILITYPOOL|Vishkanya Racial Trait|-7
+CATEGORY=Internal|Vishkanya Racial Trait Default.MOD					ABILITY:Vishkanya Racial Trait|AUTOMATIC|Low-Light Vision ~ Vishkanya|!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaLowLightVision
+CATEGORY=Internal|Vishkanya Racial Trait Default.MOD					ABILITY:Vishkanya Racial Trait|AUTOMATIC|Keen Senses ~ Vishkanya|!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaKeenSenses
+CATEGORY=Internal|Vishkanya Racial Trait Default.MOD					ABILITY:Vishkanya Racial Trait|AUTOMATIC|Limber ~ Vishkanya|!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaLimber
+CATEGORY=Internal|Vishkanya Racial Trait Default.MOD					ABILITY:Vishkanya Racial Trait|AUTOMATIC|Poison Resistance ~ Vishkanya|!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaPoisonResistance
+CATEGORY=Internal|Vishkanya Racial Trait Default.MOD					ABILITY:Vishkanya Racial Trait|AUTOMATIC|Poison Use ~ Vishkanya|!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaPoisonUse
+CATEGORY=Internal|Vishkanya Racial Trait Default.MOD					ABILITY:Vishkanya Racial Trait|AUTOMATIC|Toxic ~ Vishkanya|!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaToxic
+CATEGORY=Internal|Vishkanya Racial Trait Default.MOD					ABILITY:Vishkanya Racial Trait|AUTOMATIC|Weapon Familiarity ~ Vishkanya|!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaWeaponFamiliarity
+
+###Block: Alternate Vishkanya Abilities
+# Ability Name	Unique Key					Category of Ability		Type													Multiple Requirements																						Description									Bonus to Ability Pool						Cost		Source Page
+Sensual		KEY:Sensual ~ Vishkanya			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.VishkanyaRacialTrait.VishkanyaKeenSenses	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Sensual ~ Vishkanya],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaKeenSenses]			DESC:You gain a +2 bonus on any one Perform skill.		BONUS:ABILITYPOOL|Vishkanya Perform Skill Bonus|1	COST:0	SOURCEPAGE:p.208
+# COMMENT: Make/use specialty skill?
+Subtle Appearance	KEY:Subtle Appearance ~ Vishkanya	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.VishkanyaRacialTrait.VishkanyaLowLightVision	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Subtle Appearance ~ Vishkanya],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.VishkanyaLowLightVision]	DESC:Gain a +4 on Disguise checks to look fully human.										COST:0	SOURCEPAGE:p.208
+
+###Block: Vishkanya Perform Skill Bonus ability
+# Ability Name		Unique Key						Category of Ability		Type					Stackable?	Multiple?	Choose			Bonus to skill
+Choose Perform Skill	KEY:Choose Perform Skill ~ Vishkanya	CATEGORY:Special Ability	TYPE:VishkanyaPerformSkill	STACK:NO	MULT:YES	CHOOSE:SKILL|Perform%	BONUS:SKILL|%CHOICE|2|TYPE=Racial
+
+
+###Block: Default Wayang Abilities (POOL=5)
+# Ability Name	Unique Key					Category of Ability		Type															Multiple Requirements																						Description											Bonus to skill						Source Page
+Darkvision		KEY:Darkvision ~ Wayang			CATEGORY:Special Ability	TYPE:WayangRacialTrait.WayangRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Darkvision ~ Wayang],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangDarkvision]																							SOURCEPAGE:p.210
+Light and Dark	KEY:Light and Dark ~ Wayang		CATEGORY:Special Ability	TYPE:WayangRacialTrait.WayangRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Light and Dark ~ Wayang],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLightAndDark]																						SOURCEPAGE:p.210
+Lurker		KEY:Lurker ~ Wayang			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.WayangRacialTrait.WayangRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Lurker ~ Wayang],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLurker]					DESC:Wayang have a +2 racial bonus on Perception and Stealth checks.	BONUS:SKILL|Perception,Stealth|2|TYPE=Racial	SOURCEPAGE:p.210
+Shadow Magic	KEY:Shadow Magic ~ Wayang		CATEGORY:Special Ability	TYPE:WayangRacialTrait.WayangRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Shadow Magic ~ Wayang],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowMagic]																							SOURCEPAGE:p.210
+Shadow Resistance	KEY:Shadow Resistance ~ Wayang	CATEGORY:Special Ability	TYPE:WayangRacialTrait.WayangRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Shadow Resistance ~ Wayang],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowResistance]																					SOURCEPAGE:p.210
+
+###Block: Set up Wayang default abilities
+# Ability Name							Category of Ability	Ability
+CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Wayang Racial Trait Default|PRERACE:1,Wayang
+
+#Wayang Racial Trait Default
+Wayang Racial Trait Default					CATEGORY:Internal
+CATEGORY=Internal|Wayang Racial Trait Default.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Darkvision ~ Wayang|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangDarkvision
+CATEGORY=Internal|Wayang Racial Trait Default.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Light and Dark ~ Wayang|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLightAndDark
+CATEGORY=Internal|Wayang Racial Trait Default.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Lurker ~ Wayang|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangLurker
+CATEGORY=Internal|Wayang Racial Trait Default.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Shadow Magic ~ Wayang|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowMagic
+CATEGORY=Internal|Wayang Racial Trait Default.MOD					ABILITY:Wayang Racial Trait|AUTOMATIC|Shadow Resistance ~ Wayang|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowResistance
+
+###Block: Alternate Wayang Abilities
+# Ability Name		Unique Key					Category of Ability		Type							Multiple Requirements																					Cost		Source Page
+Dissolution's Child	KEY:Dissolutions Child ~ Wayang	CATEGORY:Special Ability	TYPE:WayangRacialTrait.WayangShadowMagic	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Dissolution's Child ~ Wayang],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowMagic]	COST:0	SOURCEPAGE:p.210
+
+###Block: Changeling Mother's Gift Options
+# Ability Name		Unique Key						Category of Ability		Type							Description								Combat bonus					Weapon prof. bonus			Spell Res.	Source Page		Description of the Benefits
+Hag Claws			KEY:Hag Claws ~ Mother's Gift			CATEGORY:Special Ability	TYPE:Extraordinary.MothersGiftOption	DESC:You inherit a special boon from your hag parent.								BONUS:WEAPONPROF=Claws|DAMAGE|1			SOURCEPAGE:p.185	BENEFIT:You gain a +1 bonus on attack and damage rolls with your claws.
+Surprisingly Tough	KEY:Surprisingly Tough ~ Mother's Gift	CATEGORY:Special Ability	TYPE:Extraordinary.MothersGiftOption	DESC:You inherit a special boon from your hag parent.	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK									SOURCEPAGE:p.185	BENEFIT:Your natural armor bonus increases by +1.
+Uncanny Resistance	KEY:Uncanny Resistance ~ Mother's Gift	CATEGORY:Special Ability	TYPE:Supernatural.MothersGiftOption		DESC:You inherit a special boon from your hag parent.														SR:TL+6	SOURCEPAGE:p.185	BENEFIT:You gain spell resistance equal to %1.|TL+6
+
+###Block: Kitsune Tail
+# Ability Name	Unique Key					Category of Ability		Type						Required Ability										Required Feat		Innate Spells																																																																																																															Description												Source Page		Description of the Benefits
+Magical Tail	KEY:Magical Tail ~ Kitsune		CATEGORY:Special Ability	TYPE:General																				SPELLS:Innate|TIMES=2|CASTERLEVEL=TL|Disguise Self,11+CHA|PREVARGTEQ:KitsuneTails,1	SPELLS:Innate|TIMES=2|CASTERLEVEL=TL|Charm Person,11+CHA|PREVARGTEQ:KitsuneTails,2	SPELLS:Innate|TIMES=2|CASTERLEVEL=TL|Misdirection,12+CHA|PREVARGTEQ:KitsuneTails,3	SPELLS:Innate|TIMES=2|CASTERLEVEL=TL|Invisibility,12+CHA|PREVARGTEQ:KitsuneTails,4	SPELLS:Innate|TIMES=2|CASTERLEVEL=TL|Suggestion,13+CHA|PREVARGTEQ:KitsuneTails,5	SPELLS:Innate|TIMES=2|CASTERLEVEL=TL|Displacement,13+CHA|PREVARGTEQ:KitsuneTails,6	SPELLS:Innate|TIMES=2|CASTERLEVEL=TL|Confusion,14+CHA|PREVARGTEQ:KitsuneTails,7	SPELLS:Innate|TIMES=2|CASTERLEVEL=TL|Dominate Person,15+CHA|PREVARGTEQ:KitsuneTails,8
+
+# Old Version
+Disguise Self	KEY:Disguise Self ~ Kitsune Tail	CATEGORY:Special Ability	TYPE:SpellLike.KitsuneMagicalTail													PREFEAT:1,Magical Tail	SPELLS:Innate|TIMES=2|TIMEUNIT=Day|CASTERLEVEL=HD|Disguise Self,TL+CHA+10																																																																																																					DESC:You grow an extra tail that represents your growing magical powers.	SOURCEPAGE:p.193	BENEFIT:You gain a new spell-like ability usable twice per day.
+Charm Person	KEY:Charm Person ~ Kitsune Tail	CATEGORY:Special Ability	TYPE:SpellLike.KitsuneMagicalTail	PREABILITY:1,CATEGORY=Special Ability,Disguise Self ~ Kitsune Tail	PREFEAT:1,Magical Tail	SPELLS:Innate|TIMES=2|TIMEUNIT=Day|CASTERLEVEL=HD|Charm Person,TL+CHA+10																																																																																																					DESC:You grow an extra tail that represents your growing magical powers.	SOURCEPAGE:p.193	BENEFIT:You gain a new spell-like ability usable twice per day.
+Misdirection	KEY:Misdirection ~ Kitsune Tail	CATEGORY:Special Ability	TYPE:SpellLike.KitsuneMagicalTail	PREABILITY:1,CATEGORY=Special Ability,Charm Person ~ Kitsune Tail		PREFEAT:1,Magical Tail	SPELLS:Innate|TIMES=2|TIMEUNIT=Day|CASTERLEVEL=HD|Misdirection,TL+CHA+10																																																																																																					DESC:You grow an extra tail that represents your growing magical powers.	SOURCEPAGE:p.193	BENEFIT:You gain a new spell-like ability usable twice per day.
+Invisibility	KEY:Invisibility ~ Kitsune Tail	CATEGORY:Special Ability	TYPE:SpellLike.KitsuneMagicalTail	PREABILITY:1,CATEGORY=Special Ability,Misdirection ~ Kitsune Tail		PREFEAT:1,Magical Tail	SPELLS:Innate|TIMES=2|TIMEUNIT=Day|CASTERLEVEL=HD|Invisibility,TL+CHA+10																																																																																																					DESC:You grow an extra tail that represents your growing magical powers.	SOURCEPAGE:p.193	BENEFIT:You gain a new spell-like ability usable twice per day.
+Suggestion		KEY:Suggestion ~ Kitsune Tail		CATEGORY:Special Ability	TYPE:SpellLike.KitsuneMagicalTail	PREABILITY:1,CATEGORY=Special Ability,Invisibility ~ Kitsune Tail		PREFEAT:1,Magical Tail	SPELLS:Innate|TIMES=2|TIMEUNIT=Day|CASTERLEVEL=HD|Suggestion,TL+CHA+10																																																																																																						DESC:You grow an extra tail that represents your growing magical powers.	SOURCEPAGE:p.193	BENEFIT:You gain a new spell-like ability usable twice per day.
+Displacement	KEY:Displacement ~ Kitsune Tail	CATEGORY:Special Ability	TYPE:SpellLike.KitsuneMagicalTail	PREABILITY:1,CATEGORY=Special Ability,Suggestion ~ Kitsune Tail		PREFEAT:1,Magical Tail	SPELLS:Innate|TIMES=2|TIMEUNIT=Day|CASTERLEVEL=HD|Displacement,TL+CHA+10																																																																																																					DESC:You grow an extra tail that represents your growing magical powers.	SOURCEPAGE:p.193	BENEFIT:You gain a new spell-like ability usable twice per day.
+Confusion		KEY:Confusion ~ Kitsune Tail		CATEGORY:Special Ability	TYPE:SpellLike.KitsuneMagicalTail	PREABILITY:1,CATEGORY=Special Ability,Displacement ~ Kitsune Tail		PREFEAT:1,Magical Tail	SPELLS:Innate|TIMES=2|TIMEUNIT=Day|CASTERLEVEL=HD|Confusion,TL+CHA+10																																																																																																						DESC:You grow an extra tail that represents your growing magical powers.	SOURCEPAGE:p.193	BENEFIT:You gain a new spell-like ability usable twice per day.
+Dominate Person	KEY:Dominate Person ~ Kitsune Tail	CATEGORY:Special Ability	TYPE:SpellLike.KitsuneMagicalTail	PREABILITY:1,CATEGORY=Special Ability,Confusion ~ Kitsune Tail		PREFEAT:1,Magical Tail	SPELLS:Innate|TIMES=2|TIMEUNIT=Day|CASTERLEVEL=HD|Dominate Person,TL+CHA+10																																																																																																					DESC:You grow an extra tail that represents your growing magical powers.	SOURCEPAGE:p.193	BENEFIT:You gain a new spell-like ability usable twice per day.
+
+#
+# End
+#

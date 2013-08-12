@@ -1,0 +1,279 @@
+SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2012/07/16
+
+###Block: Type Qualities
+#COMMENT: Humanoid (no subtype) assumed.
+Aberration	KEY:Racial Type ~ Aberration	CATEGORY:Racial Traits	TYPE:RacialQuality.TypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Aberration],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.TypeQuality]	COST:3	TEMPLATE:Aberration Type Quality
+Construct	KEY:Racial Type ~ Construct	CATEGORY:Racial Traits	TYPE:RacialQuality.TypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Construct],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.TypeQuality]	COST:20	TEMPLATE:Construct Type Quality	PRERACE:1,TYPE.Monstrous
+Dragon	KEY:Racial Type ~ Dragon	CATEGORY:Racial Traits	TYPE:RacialQuality.TypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Dragon],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.TypeQuality]	COST:10	TEMPLATE:Dragon Type Quality		PRERACE:1,TYPE.Advanced,TYPE.Monstrous
+Fey	KEY:Racial Type ~ Fey	CATEGORY:Racial Traits	TYPE:RacialQuality.TypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Fey],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.TypeQuality]	COST:2	TEMPLATE:Fey Type Quality
+Humanoid	KEY:Racial Type ~ Humanoid	CATEGORY:Racial Traits	TYPE:RacialQuality.TypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Humanoid],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.TypeQuality]	COST:0	TEMPLATE:Humanoid Type Quality
+Monstrous Humanoid	KEY:Racial Type ~ Monstrous Humanoid	CATEGORY:Racial Traits	TYPE:RacialQuality.TypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Monstrous Humanoid],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.TypeQuality]	COST:3	TEMPLATE:Monstrous Humanoid Type Quality
+Outsider (Native)	KEY:Racial Type ~ Outsider (native)	CATEGORY:Racial Traits	TYPE:RacialQuality.TypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Outsider (native)],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.TypeQuality]	COST:3	TEMPLATE:Outsider (native) Type Quality
+Plant	KEY:Racial Type ~ Plant	CATEGORY:Racial Traits	TYPE:RacialQuality.TypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Plant],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.TypeQuality]	COST:10	TEMPLATE:Plant Type Quality	PRERACE:1,TYPE.Advanced,TYPE.Monstrous
+Undead	KEY:Racial Type ~ Undead	CATEGORY:Racial Traits	TYPE:RacialQuality.TypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Undead],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.TypeQuality]	COST:16	TEMPLATE:Undead Type Quality	PRERACE:1,TYPE.Advanced,TYPE.Monstrous
+Half-Construct	KEY:Racial Type ~ Half-Construct	CATEGORY:Racial Traits	TYPE:RacialQuality.TypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Half-Construct],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.TypeQuality]	COST:7	TEMPLATE:Half-Construct Type Quality
+Half-Undead	KEY:Racial Type ~ Half-Undead	CATEGORY:Racial Traits	TYPE:RacialQuality.TypeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Type ~ Half-Undead],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.TypeQuality]	COST:5	TEMPLATE:Half-Undead Type Quality
+
+
+###Block: Size Qualities
+#COMMENT: Medium Size assumed
+Large		KEY:Racial Size ~ Large	CATEGORY:Racial Traits	TYPE:RacialQuality.SizeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Size ~ Large],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.SizeQuality]	COST:7	TEMPLATE:Large Size Quality	TEMPLATE:Giant|PRERACETYPE:Humanoid
+Medium		KEY:Racial Size ~ Medium	CATEGORY:Racial Traits	TYPE:RacialQuality.SizeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Size ~ Medium],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.SizeQuality]	COST:0	TEMPLATE:Medium Size Quality
+Small		KEY:Racial Size ~ Small	CATEGORY:Racial Traits	TYPE:RacialQuality.SizeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Size ~ Small],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.SizeQuality]	COST:0	TEMPLATE:Small Size Quality
+Tiny		KEY:Racial Size ~ Tiny	CATEGORY:Racial Traits	TYPE:RacialQuality.SizeQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Size ~ Tiny],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.SizeQuality]	COST:4	TEMPLATE:Tiny Size Quality	PRERACETYPE:1,Aberration,Construct,Dragon,Fey,Outsider (Native),Plant
+
+
+###Block: Speed Qualities
+#COMMENT:Normal Speed assumed
+Normal Speed	KEY:Racial Speed ~ Normal	CATEGORY:Racial Traits	TYPE:RacialQuality.SpeedQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Speed ~ Normal],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.SpeedQuality]	COST:0
+Slow Speed	KEY:Racial Speed ~ Slow	CATEGORY:Racial Traits	TYPE:RacialQuality.SpeedQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Speed ~ Slow],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.SpeedQuality]	COST:-1	BONUS:MOVEADD|-10	ABILITY:Special Ability|AUTOMATIC|Not Slowed By Encumberance|PRESIZE:M
+
+
+###Block: Ability Score Modifier Qualities
+#COMMENT: Standard assumed
+Advanced Ability Scores (+2 Physical, +4 Int, -2 Wis and Cha)	KEY:Racial Abilities ~ Advanced Int	CATEGORY:Racial Traits	TYPE:RacialQuality.AbilityQuality		PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Abilities ~ Advanced Int],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AbilityQuality]	COST:4	BONUS:STAT|STR,DEX,CON|2	BONUS:STAT|INT|4	BONUS:STAT|WIS,CHA|-2
+Advanced Ability Scores (+2 Physical, +4 Wis, -2 Int and Cha)	KEY:Racial Abilities ~ Advanced Wis	CATEGORY:Racial Traits	TYPE:RacialQuality.AbilityQuality		PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Abilities ~ Advanced Wis],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AbilityQuality]	COST:4	BONUS:STAT|STR,DEX,CON|2	BONUS:STAT|WIS|4	BONUS:STAT|INT,CHA|-2
+Advanced Ability Scores (+2 Physical, +4 Cha, -2 Int and Wis)	KEY:Racial Abilities ~ Advanced Cha	CATEGORY:Racial Traits	TYPE:RacialQuality.AbilityQuality		PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Abilities ~ Advanced Cha],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AbilityQuality]	COST:4	BONUS:STAT|STR,DEX,CON|2	BONUS:STAT|CHA|4	BONUS:STAT|INT,WIS|-2
+Advanced Ability Scores (+2 Mental, +4 Str, -2 Dex and Con)	KEY:Racial Abilities ~ Advanced Str	CATEGORY:Racial Traits	TYPE:RacialQuality.AbilityQuality		PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Abilities ~ Advanced Str],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AbilityQuality]	COST:4	BONUS:STAT|INT,WIS,CHA|2	BONUS:STAT|STR|4	BONUS:STAT|DEX,CON|-2
+Advanced Ability Scores (+2 Mental, +4 Dex, -2 Str and Con)	KEY:Racial Abilities ~ Advanced Dex	CATEGORY:Racial Traits	TYPE:RacialQuality.AbilityQuality		PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Abilities ~ Advanced Dex],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AbilityQuality]	COST:4	BONUS:STAT|INT,WIS,CHA|2	BONUS:STAT|DEX|4	BONUS:STAT|STR,CON|-2
+Advanced Ability Scores (+2 Mental, +4 Con, -2 Str and Dex)	KEY:Racial Abilities ~ Advanced Con	CATEGORY:Racial Traits	TYPE:RacialQuality.AbilityQuality		PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Abilities ~ Advanced Con],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AbilityQuality]	COST:4	BONUS:STAT|INT,WIS,CHA|2	BONUS:STAT|CON|4	BONUS:STAT|STR,DEX|-2
+
+Flexible Ability Scores	KEY:Racial Abilities ~ Flexible	CATEGORY:Racial Traits	TYPE:RacialQuality.AbilityQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Abilities ~ Flexible],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AbilityQuality]	COST:2	BONUS:ABILITYPOOL|x|2
+
+Greater Paragon Ability Scores (+4 Str, -2 Dex, -2 Int)
+Greater Paragon Ability Scores (+4 Str, -2 Con, -2 Int)
+Greater Paragon Ability Scores (+4 Str, -2 Dex, -2 Wis)
+Greater Paragon Ability Scores (+4 Str, -2 Con, -2 Wis)
+Greater Paragon Ability Scores (+4 Str, -2 Dex, -2 Cha)
+Greater Paragon Ability Scores (+4 Str, -2 Con, -2 Cha)
+Greater Paragon Ability Scores (+4 Dex, -2 Str, -2 Int)
+Greater Paragon Ability Scores (+4 Dex, -2 Con, -2 Int)
+Greater Paragon Ability Scores (+4 Dex, -2 Str, -2 Wis)
+Greater Paragon Ability Scores (+4 Dex, -2 Con, -2 Wis)
+Greater Paragon Ability Scores (+4 Dex, -2 Str, -2 Cha)
+Greater Paragon Ability Scores (+4 Dex, -2 Con, -2 Cha)
+Greater Paragon Ability Scores (+4 Con, -2 Dex, -2 Int)
+Greater Paragon Ability Scores (+4 Con, -2 Str, -2 Int)
+Greater Paragon Ability Scores (+4 Con, -2 Dex, -2 Wis)
+Greater Paragon Ability Scores (+4 Con, -2 Str, -2 Wis)
+Greater Paragon Ability Scores (+4 Con, -2 Dex, -2 Cha)
+Greater Paragon Ability Scores (+4 Con, -2 Str, -2 Cha)
+Greater Paragon Ability Scores (+4 Int, -2 Str, -2 Wis)
+Greater Paragon Ability Scores (+4 Int, -2 Str, -2 Cha)
+Greater Paragon Ability Scores (+4 Int, -2 Dex, -2 Wis)
+Greater Paragon Ability Scores (+4 Int, -2 Dex, -2 Cha)
+Greater Paragon Ability Scores (+4 Int, -2 Con, -2 Wis)
+Greater Paragon Ability Scores (+4 Int, -2 Con, -2 Cha)
+Greater Paragon Ability Scores (+4 Wis, -2 Str, -2 Int)
+Greater Paragon Ability Scores (+4 Wis, -2 Str, -2 Cha)
+Greater Paragon Ability Scores (+4 Wis, -2 Dex, -2 Int)
+Greater Paragon Ability Scores (+4 Wis, -2 Dex, -2 Cha)
+Greater Paragon Ability Scores (+4 Wis, -2 Con, -2 Int)
+Greater Paragon Ability Scores (+4 Wis, -2 Con, -2 Cha)
+Greater Paragon Ability Scores (+4 Cha, -2 Str, -2 Wis)
+Greater Paragon Ability Scores (+4 Cha, -2 Str, -2 Int)
+Greater Paragon Ability Scores (+4 Cha, -2 Dex, -2 Wis)
+Greater Paragon Ability Scores (+4 Cha, -2 Dex, -2 Int)
+Greater Paragon Ability Scores (+4 Cha, -2 Con, -2 Wis)
+Greater Paragon Ability Scores (+4 Cha, -2 Con, -2 Int)
+
+Greater Weakness Ability Scores (+2 Str, -2 Dex, -4 Con)
+Greater Weakness Ability Scores (+2 Str, -2 Con, -4 Dex)
+Greater Weakness Ability Scores (+2 Dex, -2 Str, -4 Con)
+Greater Weakness Ability Scores (+2 Dex, -2 Con, -4 Str)
+Greater Weakness Ability Scores (+2 Con, -2 Dex, -4 Str)
+Greater Weakness Ability Scores (+2 Con, -2 Str, -4 Dex)
+Greater Weakness Ability Scores (+2 Int, -2 Wis, -4 Cha)
+Greater Weakness Ability Scores (+2 Int, -2 Cha, -4 Wis)
+Greater Weakness Ability Scores (+2 Wis, -2 Int, -4 Cha)
+Greater Weakness Ability Scores (+2 Wis, -2 Cha, -4 Int)
+Greater Weakness Ability Scores (+2 Cha, -2 Wis, -4 Int)
+Greater Weakness Ability Scores (+2 Cha, -2 Int, -4 Wis)
+
+Human Heritage Ability Scores	KEY:Racial Abilities ~ Human Heritage	CATEGORY:Racial Traits	TYPE:RacialQuality.AbilityQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Abilities ~ Human Heritage],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.AbilityQuality]	COST:0	BONUS:ABILITYPOOL|x|1
+
+Mixed Weakness Ability Scores (+2 Str, -2 Dex, +2 Int, -4 Wis)
+Mixed Weakness Ability Scores (+2 Str, -2 Dex, +2 Int, -4 Cha)
+Mixed Weakness Ability Scores (+2 Str, -2 Dex, +2 Wis, -4 Int)
+Mixed Weakness Ability Scores (+2 Str, -2 Dex, +2 Wis, -4 Cha)
+Mixed Weakness Ability Scores (+2 Str, -2 Dex, +2 Cha, -4 Int)
+Mixed Weakness Ability Scores (+2 Str, -2 Dex, +2 Cha, -4 Wis)
+Mixed Weakness Ability Scores (+2 Str, -2 Con, +2 Int, -4 Wis)
+Mixed Weakness Ability Scores (+2 Str, -2 Con, +2 Int, -4 Cha)
+Mixed Weakness Ability Scores (+2 Str, -2 Con, +2 Wis, -4 Int)
+Mixed Weakness Ability Scores (+2 Str, -2 Con, +2 Wis, -4 Cha)
+Mixed Weakness Ability Scores (+2 Str, -2 Con, +2 Cha, -4 Int)
+Mixed Weakness Ability Scores (+2 Str, -2 Con, +2 Cha, -4 Wis)
+Mixed Weakness Ability Scores (+2 Dex, -2 Str, +2 Int, -4 Wis)
+Mixed Weakness Ability Scores (+2 Dex, -2 Str, +2 Int, -4 Cha)
+Mixed Weakness Ability Scores (+2 Dex, -2 Str, +2 Wis, -4 Int)
+Mixed Weakness Ability Scores (+2 Dex, -2 Str, +2 Wis, -4 Cha)
+Mixed Weakness Ability Scores (+2 Dex, -2 Str, +2 Cha, -4 Int)
+Mixed Weakness Ability Scores (+2 Dex, -2 Str, +2 Cha, -4 Wis)
+Mixed Weakness Ability Scores (+2 Dex, -2 Con, +2 Int, -4 Wis)
+Mixed Weakness Ability Scores (+2 Dex, -2 Con, +2 Int, -4 Cha)
+Mixed Weakness Ability Scores (+2 Dex, -2 Con, +2 Wis, -4 Int)
+Mixed Weakness Ability Scores (+2 Dex, -2 Con, +2 Wis, -4 Cha)
+Mixed Weakness Ability Scores (+2 Dex, -2 Con, +2 Cha, -4 Int)
+Mixed Weakness Ability Scores (+2 Dex, -2 Con, +2 Cha, -4 Wis)
+Mixed Weakness Ability Scores (+2 Con, -2 Str, +2 Int, -4 Wis)
+Mixed Weakness Ability Scores (+2 Con, -2 Str, +2 Int, -4 Cha)
+Mixed Weakness Ability Scores (+2 Con, -2 Str, +2 Wis, -4 Int)
+Mixed Weakness Ability Scores (+2 Con, -2 Str, +2 Wis, -4 Cha)
+Mixed Weakness Ability Scores (+2 Con, -2 Str, +2 Cha, -4 Int)
+Mixed Weakness Ability Scores (+2 Con, -2 Str, +2 Cha, -4 Wis)
+Mixed Weakness Ability Scores (+2 Con, -2 Dex, +2 Int, -4 Wis)
+Mixed Weakness Ability Scores (+2 Con, -2 Dex, +2 Int, -4 Cha)
+Mixed Weakness Ability Scores (+2 Con, -2 Dex, +2 Wis, -4 Int)
+Mixed Weakness Ability Scores (+2 Con, -2 Dex, +2 Wis, -4 Cha)
+Mixed Weakness Ability Scores (+2 Con, -2 Dex, +2 Cha, -4 Int)
+Mixed Weakness Ability Scores (+2 Con, -2 Dex, +2 Cha, -4 Wis)
+Mixed Weakness Ability Scores (+2 Int, -2 Wis, +2 Str, -4 Dex)
+Mixed Weakness Ability Scores (+2 Int, -2 Wis, +2 Str, -4 Con)
+Mixed Weakness Ability Scores (+2 Int, -2 Wis, +2 Dex, -4 Str)
+Mixed Weakness Ability Scores (+2 Int, -2 Wis, +2 Dex, -4 Con)
+Mixed Weakness Ability Scores (+2 Int, -2 Wis, +2 Con, -4 Str)
+Mixed Weakness Ability Scores (+2 Int, -2 Wis, +2 Con, -4 Dex)
+Mixed Weakness Ability Scores (+2 Int, -2 Cha, +2 Str, -4 Dex)
+Mixed Weakness Ability Scores (+2 Int, -2 Cha, +2 Str, -4 Con)
+Mixed Weakness Ability Scores (+2 Int, -2 Cha, +2 Dex, -4 Str)
+Mixed Weakness Ability Scores (+2 Int, -2 Cha, +2 Dex, -4 Con)
+Mixed Weakness Ability Scores (+2 Int, -2 Cha, +2 Con, -4 Str)
+Mixed Weakness Ability Scores (+2 Int, -2 Cha, +2 Con, -4 Dex)
+Mixed Weakness Ability Scores (+2 Wis, -2 Int, +2 Str, -4 Dex)
+Mixed Weakness Ability Scores (+2 Wis, -2 Int, +2 Str, -4 Con)
+Mixed Weakness Ability Scores (+2 Wis, -2 Int, +2 Dex, -4 Str)
+Mixed Weakness Ability Scores (+2 Wis, -2 Int, +2 Dex, -4 Con)
+Mixed Weakness Ability Scores (+2 Wis, -2 Int, +2 Con, -4 Str)
+Mixed Weakness Ability Scores (+2 Wis, -2 Int, +2 Con, -4 Dex)
+Mixed Weakness Ability Scores (+2 Wis, -2 Cha, +2 Str, -4 Dex)
+Mixed Weakness Ability Scores (+2 Wis, -2 Cha, +2 Str, -4 Con)
+Mixed Weakness Ability Scores (+2 Wis, -2 Cha, +2 Dex, -4 Str)
+Mixed Weakness Ability Scores (+2 Wis, -2 Cha, +2 Dex, -4 Con)
+Mixed Weakness Ability Scores (+2 Wis, -2 Cha, +2 Con, -4 Str)
+Mixed Weakness Ability Scores (+2 Wis, -2 Cha, +2 Con, -4 Dex)
+Mixed Weakness Ability Scores (+2 Cha, -2 Int, +2 Str, -4 Dex)
+Mixed Weakness Ability Scores (+2 Cha, -2 Int, +2 Str, -4 Con)
+Mixed Weakness Ability Scores (+2 Cha, -2 Int, +2 Dex, -4 Str)
+Mixed Weakness Ability Scores (+2 Cha, -2 Int, +2 Dex, -4 Con)
+Mixed Weakness Ability Scores (+2 Cha, -2 Int, +2 Con, -4 Str)
+Mixed Weakness Ability Scores (+2 Cha, -2 Int, +2 Con, -4 Dex)
+Mixed Weakness Ability Scores (+2 Cha, -2 Wis, +2 Str, -4 Dex)
+Mixed Weakness Ability Scores (+2 Cha, -2 Wis, +2 Str, -4 Con)
+Mixed Weakness Ability Scores (+2 Cha, -2 Wis, +2 Dex, -4 Str)
+Mixed Weakness Ability Scores (+2 Cha, -2 Wis, +2 Dex, -4 Con)
+Mixed Weakness Ability Scores (+2 Cha, -2 Wis, +2 Con, -4 Str)
+Mixed Weakness Ability Scores (+2 Cha, -2 Wis, +2 Con, -4 Dex)
+
+Paragon Ability Scores (+4 Str, -2 mental)
+Paragon Ability Scores (+4 Dex, -2 mental)
+Paragon Ability Scores (+4 Con, -2 mental)
+Paragon Ability Scores (+4 Int, -2 physical)
+Paragon Ability Scores (+4 Wis, -2 physical)
+Paragon Ability Scores (+4 Cha, -2 physical)
+
+Specialized Ability Scores (+2 Str, +2 Dex, -2 Int)
+Specialized Ability Scores (+2 Str, +2 Con, -2 Int)
+Specialized Ability Scores (+2 Dex, +2 Con, -2 Int)
+Specialized Ability Scores (+2 Str, +2 Dex, -2 Wis)
+Specialized Ability Scores (+2 Str, +2 Con, -2 Wis)
+Specialized Ability Scores (+2 Dex, +2 Con, -2 Wis)
+Specialized Ability Scores (+2 Str, +2 Dex, -2 Cha)
+Specialized Ability Scores (+2 Str, +2 Con, -2 Cha)
+Specialized Ability Scores (+2 Dex, +2 Con, -2 Cha)
+Specialized Ability Scores (+2 Int, +2 Wis, -2 Str)
+Specialized Ability Scores (+2 Int, +2 Cha, -2 Str)
+Specialized Ability Scores (+2 Wis, +2 Cha, -2 Str)
+Specialized Ability Scores (+2 Int, +2 Wis, -2 Dex)
+Specialized Ability Scores (+2 Int, +2 Cha, -2 Dex)
+Specialized Ability Scores (+2 Wis, +2 Cha, -2 Dex)
+Specialized Ability Scores (+2 Int, +2 Wis, -2 Con)
+Specialized Ability Scores (+2 Int, +2 Cha, -2 Con)
+Specialized Ability Scores (+2 Wis, +2 Cha, -2 Con)
+
+Standard Ability Scores (+2 Str, +2 Int, -2 Dex)
+Standard Ability Scores (+2 Str, +2 Int, -2 Con)
+Standard Ability Scores (+2 Str, +2 Int, -2 Wis)
+Standard Ability Scores (+2 Str, +2 Int, -2 Cha)
+Standard Ability Scores (+2 Str, +2 Wis, -2 Dex)
+Standard Ability Scores (+2 Str, +2 Wis, -2 Con)
+Standard Ability Scores (+2 Str, +2 Wis, -2 Int)
+Standard Ability Scores (+2 Str, +2 Wis, -2 Cha)
+Standard Ability Scores (+2 Str, +2 Cha, -2 Dex)
+Standard Ability Scores (+2 Str, +2 Cha, -2 Con)
+Standard Ability Scores (+2 Str, +2 Cha, -2 Wis)
+Standard Ability Scores (+2 Str, +2 Cha, -2 Int)
+Standard Ability Scores (+2 Dex, +2 Int, -2 Str)
+Standard Ability Scores (+2 Dex, +2 Int, -2 Con)
+Standard Ability Scores (+2 Dex, +2 Int, -2 Wis)
+Standard Ability Scores (+2 Dex, +2 Int, -2 Cha)
+Standard Ability Scores (+2 Dex, +2 Wis, -2 Str)
+Standard Ability Scores (+2 Dex, +2 Wis, -2 Con)
+Standard Ability Scores (+2 Dex, +2 Wis, -2 Int)
+Standard Ability Scores (+2 Dex, +2 Wis, -2 Cha)
+Standard Ability Scores (+2 Dex, +2 Cha, -2 Str)
+Standard Ability Scores (+2 Dex, +2 Cha, -2 Con)
+Standard Ability Scores (+2 Dex, +2 Cha, -2 Wis)
+Standard Ability Scores (+2 Dex, +2 Cha, -2 Int)
+Standard Ability Scores (+2 Con, +2 Int, -2 Dex)
+Standard Ability Scores (+2 Con, +2 Int, -2 Str)
+Standard Ability Scores (+2 Con, +2 Int, -2 Wis)
+Standard Ability Scores (+2 Con, +2 Int, -2 Cha)
+Standard Ability Scores (+2 Con, +2 Wis, -2 Dex)
+Standard Ability Scores (+2 Con, +2 Wis, -2 Str)
+Standard Ability Scores (+2 Con, +2 Wis, -2 Int)
+Standard Ability Scores (+2 Con, +2 Wis, -2 Cha)
+Standard Ability Scores (+2 Con, +2 Cha, -2 Dex)
+Standard Ability Scores (+2 Con, +2 Cha, -2 Str)
+Standard Ability Scores (+2 Con, +2 Cha, -2 Wis)
+Standard Ability Scores (+2 Con, +2 Cha, -2 Int)
+
+Weakness Ability Scores (+2 Str, +2 Int, -4 Dex)
+Weakness Ability Scores (+2 Str, +2 Int, -4 Con)
+Weakness Ability Scores (+2 Str, +2 Int, -4 Wis)
+Weakness Ability Scores (+2 Str, +2 Int, -4 Cha)
+Weakness Ability Scores (+2 Str, +2 Wis, -4 Dex)
+Weakness Ability Scores (+2 Str, +2 Wis, -4 Con)
+Weakness Ability Scores (+2 Str, +2 Wis, -4 Int)
+Weakness Ability Scores (+2 Str, +2 Wis, -4 Cha)
+Weakness Ability Scores (+2 Str, +2 Cha, -4 Dex)
+Weakness Ability Scores (+2 Str, +2 Cha, -4 Con)
+Weakness Ability Scores (+2 Str, +2 Cha, -4 Wis)
+Weakness Ability Scores (+2 Str, +2 Cha, -4 Int)
+Weakness Ability Scores (+2 Dex, +2 Int, -4 Str)
+Weakness Ability Scores (+2 Dex, +2 Int, -4 Con)
+Weakness Ability Scores (+2 Dex, +2 Int, -4 Wis)
+Weakness Ability Scores (+2 Dex, +2 Int, -4 Cha)
+Weakness Ability Scores (+2 Dex, +2 Wis, -4 Str)
+Weakness Ability Scores (+2 Dex, +2 Wis, -4 Con)
+Weakness Ability Scores (+2 Dex, +2 Wis, -4 Int)
+Weakness Ability Scores (+2 Dex, +2 Wis, -4 Cha)
+Weakness Ability Scores (+2 Dex, +2 Cha, -4 Str)
+Weakness Ability Scores (+2 Dex, +2 Cha, -4 Con)
+Weakness Ability Scores (+2 Dex, +2 Cha, -4 Wis)
+Weakness Ability Scores (+2 Dex, +2 Cha, -4 Int)
+Weakness Ability Scores (+2 Con, +2 Int, -4 Dex)
+Weakness Ability Scores (+2 Con, +2 Int, -4 Str)
+Weakness Ability Scores (+2 Con, +2 Int, -4 Wis)
+Weakness Ability Scores (+2 Con, +2 Int, -4 Cha)
+Weakness Ability Scores (+2 Con, +2 Wis, -4 Dex)
+Weakness Ability Scores (+2 Con, +2 Wis, -4 Str)
+Weakness Ability Scores (+2 Con, +2 Wis, -4 Int)
+Weakness Ability Scores (+2 Con, +2 Wis, -4 Cha)
+Weakness Ability Scores (+2 Con, +2 Cha, -4 Dex)
+Weakness Ability Scores (+2 Con, +2 Cha, -4 Str)
+Weakness Ability Scores (+2 Con, +2 Cha, -4 Wis)
+Weakness Ability Scores (+2 Con, +2 Cha, -4 Int)
+
+
+###Block: Language Qualities
+#COMMENT: Standard assumed
+Linguist	KEY:Racial Language ~ Linguist	CATEGORY:Racial Traits	TYPE:RacialQuality.LanguageQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Language ~ Linguist],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.LanguageQuality]	COST:1	AUTO:LANG|Common	LANGBONUS:ALL
+#COMMENT: How to add racial language?
+#COMMENT: How to choose 7 bonus languages?
+Standard Languages	KEY:Racial Language ~ Standard	CATEGORY:Racial Traits	TYPE:RacialQuality.LanguageQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Language ~ Standard],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.LanguageQuality]	COST:0	AUTO:LANG|Common
+#COMMENT: How to add racial language?
+#COMMENT: How to choose 4 bonus languages?
+Xenophobic	KEY:Racial Language ~ Xenophobic	CATEGORY:Racial Traits	TYPE:RacialQuality.LanguageQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Racial Traits,Racial Language ~ Xenophobic],[!PREABILITY:1,CATEGORY=Racial Traits,TYPE.LanguageQuality]	COST:0
