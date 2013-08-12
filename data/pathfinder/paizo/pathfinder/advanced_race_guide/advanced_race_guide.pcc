@@ -56,7 +56,7 @@ ABILITY:pfarg_abilities_racial_featured.lst
 ABILITY:pfarg_abilities_racial_uncommon.lst
 
 ABILITYCATEGORY:pfarg_abilitycategories.lst
-
+BIOSET:biosettings.lst
 CLASS:pfarg_classes_companions.lst
 
 COMPANIONMOD:pfarg_companion_mods.lst
