@@ -240,8 +240,12 @@ public class DataTest
 		StringBuilder report = new StringBuilder();
 		for (String orphan : fileNames)
 		{
-			report.append(orphan.substring(dataPathLen+1));
-			report.append("\r\n");
+			String srcRelPath = orphan.substring(dataPathLen+1);
+			if (!srcRelPath.startsWith("customsources"))
+			{
+				report.append(srcRelPath);
+				report.append("\r\n");
+			}
 		}
 		
 		// Flag any missing files
