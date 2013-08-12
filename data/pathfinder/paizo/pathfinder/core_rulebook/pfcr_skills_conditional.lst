@@ -72,3 +72,8 @@ Perform (Wind Instruments).MOD		BONUS:SKILL|Handle Animal (Perform (Wind Instrum
 #
 # End
 #
+
+Diplomacy (Gather Information)			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Diplomacy (Gather Information).MISC"),SKILL.Diplomacy.MISC			SOURCEPAGE:p.13
+Diplomacy.MOD	BONUS:SKILL|Diplomacy (Gather Information)|SKILL.Diplomacy.MISC				BONUS:SKILLRANK|Diplomacy (Gather Information)|skillinfo("TOTALRANK", "Diplomacy")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Diplomacy (Gather Information).MISC"),SKILL.Diplomacy.MISC
+
+
