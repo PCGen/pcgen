@@ -1,0 +1,109 @@
+SOURCELONG:Psionics Expanded - Master the Battle	SOURCESHORT:PEMB	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-03
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/01/15
+
+###Block: Dread
+
+# Class Name	Hit Dice	Type				Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Dread	HD:8		TYPE:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Dread		SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Dread|CL
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Dread		STARTSKILLPTS:6	CSKILL:Acrobatics|Autohypnosis|Bluff|Climb|TYPE.Craft|Escape Artist|Intimidate|Knowledge (Psionics)|Perception|TYPE.Profession|Sense Motive|Spellcraft|Stealth|Swim
+
+#Block: Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadMartialWeaponProficiency	AUTO:FEAT|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadMartialWeaponProficiency
+1	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadSimpleWeaponProficiency	AUTO:FEAT|Armor Proficiency (Light)|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadShieldProficiency
+
+#Block: Psionic Ability
+1	BONUS:VAR|IsPsionic|1																								DEFINE:IsPsionic|0							ABILITY:Special Ability|AUTOMATIC|Psionic
+1	BONUS:VAR|DreadLVL|CL																								DEFINE:DreadLVL|0
+1	BONUS:VAR|DreadPL|DreadLVL	BONUS:VAR|DreadPL|var("BL=Dread")																	DEFINE:DreadPL|0
+1	DEFINE:DreadPrimeStat|0	BONUS:VAR|DreadPrimeStat|CHA
+1	BONUS:VAR|BasePowerPoints|1	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:DreadPL,2	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:DreadPL,3
+1	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:DreadPL,4	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:DreadPL,5	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:DreadPL,6
+1	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:DreadPL,7	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:DreadPL,8	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:DreadPL,9
+1	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:DreadPL,10	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:DreadPL,11	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:DreadPL,12
+1	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:DreadPL,13	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:DreadPL,14	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:DreadPL,15
+1	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:DreadPL,16	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:DreadPL,17	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:DreadPL,18
+1	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:DreadPL,19	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:DreadPL,20
+1	BONUS:VAR|BonusPowerPoints|(DreadPrimeStat*DreadPL)/2|TYPE=DreadBonusPP
+
+1	BONUS:VAR|DreadCL|DreadLVL	BONUS:VAR|DreadCL|var("BL=Dread")																	DEFINE:DreadCL|0
+
+#Block: Powers Known
+1	KNOWN:2,1
+2	KNOWN:2,2
+3	KNOWN:2,3
+4	KNOWN:2,3,1
+5	KNOWN:2,3,2
+6	KNOWN:2,3,3
+7	KNOWN:2,3,3,1
+8	KNOWN:2,3,3,2
+9	KNOWN:2,3,3,3
+10	KNOWN:2,3,3,3,1
+11	KNOWN:2,3,3,3,2
+12	KNOWN:2,3,3,3,3
+13	KNOWN:2,3,3,3,3,1
+14	KNOWN:2,3,3,3,3,2
+15	KNOWN:2,3,3,3,3,3
+16	KNOWN:2,3,3,3,3,3,1
+17	KNOWN:2,3,3,3,3,3,2
+18	KNOWN:2,3,3,3,3,3,3
+19	KNOWN:2,3,3,3,3,3,4
+20	KNOWN:2,3,3,3,3,3,5
+
+#Block: Class Info
+1	ABILITY:Special Ability|AUTOMATIC|Fearsome Insight ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadFearsomeInsight
+1	ABILITY:Special Ability|AUTOMATIC|Devastating Touch ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadDevastatingTouch
+2	ABILITY:Special Ability|AUTOMATIC|Terror ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadTerror	BONUS:ABILITYPOOL|Terror|floor(CL/2)|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadTerror
+3	ABILITY:Special Ability|AUTOMATIC|Aura of Fear ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadAuraOfFear
+3	ABILITY:Special Ability|AUTOMATIC|Channel Terror ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadChannelTerror
+5	BONUS:ABILITYPOOL|Dread Bonus Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadBonusFeat5
+7	ABILITY:Special Ability|AUTOMATIC|Immersed in Fear ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadImmersedInFear
+9	BONUS:ABILITYPOOL|Dread Bonus Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadBonusFeat9
+11	ABILITY:Special Ability|AUTOMATIC|Shadow Twin ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadShadowTwin
+11	ABILITY:Special Ability|AUTOMATIC|Twin Fear ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadTwinFear
+13	BONUS:ABILITYPOOL|Dread Bonus Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadBonusFeat13
+15	ABILITY:Internal|AUTOMATIC|Shadow Twin 100 ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadShadowTwin100
+15	ABILITY:Internal|AUTOMATIC|Twin Fear Form of Doom ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadTwinFearFormOfDoom
+17	BONUS:ABILITYPOOL|Dread Bonus Feat|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadBonusFeat17
+19	ABILITY:Internal|AUTOMATIC|Shadow Twin 400 ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadShadowTwin400
+20	ABILITY:Special Ability|AUTOMATIC|Fear Incarnate ~ Dread|!PREABILITY:1,CATEGORY=Archetype,TYPE.DreadFearIncarnate
+
+
+###Block: Adaptive Warrior prestige class
+CLASS:Adaptive Warrior	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE:p.37	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Adaptive Warrior	PREFEAT:2,Combat Expertise,Improved Feint	PRESKILL:2,Autohypnosis=5,Sense Motive=5	PREVARGT:TotalPowerPoints,0	PREATT:5
+CLASS:Adaptive Warrior	STARTSKILLPTS:2	CSKILL:Acrobatics|Bluff|Intimidate|Perception|Sense Motive
+
+1	ABILITY:Internal|AUTOMATIC|Weapon and Armor Proficiencies ~ Adaptive Warrior
+1	ABILITY:Special Ability|AUTOMATIC|Counter Fighting Style ~ Adaptive Warrior
+1	ABILITY:Special Ability|AUTOMATIC|Examine Technique ~ Adaptive Warrior
+2	ABILITY:Special Ability|AUTOMATIC|Mimic Skill ~ Adaptive Warrior	ADD:SPELLCASTER|Psionic	BONUS:VAR|MndBladeLVL|1
+3	ABILITY:Special Ability|AUTOMATIC|Mimic Proficiency ~ Adaptive Warrior	ADD:SPELLCASTER|Psionic	BONUS:VAR|MndBladeLVL|1
+4	ADD:SPELLCASTER|Psionic	BONUS:VAR|MndBladeLVL|1
+5	ABILITY:Special Ability|AUTOMATIC|Block Attack ~ Adaptive Warrior	ADD:SPELLCASTER|Psionic	BONUS:VAR|MndBladeLVL|1
+6	ABILITY:Special Ability|AUTOMATIC|Accelerated Combat ~ Adaptive Warrior
+7	ABILITY:Special Ability|AUTOMATIC|Extended Memory ~ Adaptive Warrior	ADD:SPELLCASTER|Psionic	BONUS:VAR|MndBladeLVL|1
+8	ABILITY:Special Ability|AUTOMATIC|Extended Examination ~ Adaptive Warrior	ADD:SPELLCASTER|Psionic	BONUS:VAR|MndBladeLVL|1
+9	ABILITY:Special Ability|AUTOMATIC|Mimic Feat ~ Adaptive Warrior	ADD:SPELLCASTER|Psionic	BONUS:VAR|MndBladeLVL|1
+10	ABILITY:Special Ability|AUTOMATIC|Combine Fighting Styles ~ Adaptive Warrior	ADD:SPELLCASTER|Psionic	BONUS:VAR|MndBladeLVL|1
+
+
+# COMMENT: TKWm needs to KNOW Far Hand or Telekinetic Force, not just have them on its power list.
+
+###Block: Telekinetic Weaponmaster prestige class
+CLASS:Telekinetic Weaponmaster	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:5	SOURCEPAGE:p.39	BONUS:CHECKS|BASE.Reflex|(CL+1)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL+1)/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|PCrystalLevel|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Telekinetic Weaponmaster	PREFEAT:2,Psionic Meditation,Psionic Weapon	PREATT:5	PRESPELL:1,Far Hand,Telekinetic Force
+CLASS:Telekinetic Weaponmaster	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Intimidate
+
+1	ABILITY:Special Ability|AUTOMATIC|Telekinetic Reach ~ Telekinetic Weaponmaster
+2	ABILITY:Special Ability|AUTOMATIC|Telekinetic Throw ~ Telekinetic Weaponmaster	ADD:SPELLCASTER|Psionic	BONUS:VAR|MndBladeLVL|1
+3	ABILITY:Special Ability|AUTOMATIC|Telekinetic Block ~ Telekinetic Weaponmaster	ADD:SPELLCASTER|Psionic	BONUS:VAR|MndBladeLVL|1
+4	ABILITY:Special Ability|AUTOMATIC|Dual Kinetic Mastery ~ Telekinetic Weaponmaster	ADD:SPELLCASTER|Psionic	BONUS:VAR|MndBladeLVL|1
+5	ABILITY:Special Ability|AUTOMATIC|Telekinetic Whirlwind ~ Telekinetic Weaponmaster	ADD:SPELLCASTER|Psionic	BONUS:VAR|MndBladeLVL|1
+
+#
+# End
+#

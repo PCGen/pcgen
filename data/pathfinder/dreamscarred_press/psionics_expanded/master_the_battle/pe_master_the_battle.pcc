@@ -1,0 +1,66 @@
+CAMPAIGN:DSP - Psionics Expanded - Master the Battle
+GAMEMODE:Pathfinder
+TYPE:Dreamscarred Press
+RANK:6
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:None
+PRECAMPAIGN:1,DSP - Psionics Unleashed
+STATUS:BETA
+PUBNAMELONG:Dreamscarred Press
+PUBNAMESHORT:DSP
+PUBNAMEWEB:http://www.dreamscarredpress.com
+SOURCELONG:Psionics Expanded - Master the Battle
+SOURCESHORT:PEMB
+SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php
+SOURCEDATE:2012-03
+ISOGL:YES
+
+COVER:pe_master_the_battle.jpg
+LOGO:Dreamscarred_Press.jpg
+URL:WEBSITE|http://dreamscarredpress.com/dragonfly/index.php|Visit Dreamscarred Press
+URL:Dreamscarred Press|http://dreamscarredpress.com/dragonfly/Store/product/pid=88.html|Buy this from Dreamscarred Press!
+URL:Paizo Publishing|http://paizo.com/products/btpy8rn6?Psionics-Expanded-Master-the-Battle|Buy this publication from Paizo Publishing!
+URL:RPGNow!|http://www.rpgnow.com/product/100635/Psionics-Expanded%3A-Master-the-Battle|Buy this from RPGNow!
+
+DESC:Strike terror into your enemies with the fifth release in the Psionics Expanded series. With new options for existing psionic classes and a new psionic class - the dread, who turns fears into reality - Master the Battle offers a variety of new psionic options for your game!
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder RPG Bestiary. ) 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Advanced Players Guide. Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn
+COPYRIGHT:Pathfinder RPG GameMastery Guide, ) 2010, Paizo Publishing, LLC; Author: Cam Banks, Wolfgang Buar, Jason Bulmahn, Jim Butler, Eric Cagle, Graeme Davis, Adam Daigle, Joshua J. Frost, James Jacobs, Kenneth Hite, Steven Kenson, Robin Laws, Tito Leati, Rob McCreary, Hal Maclean, Colin McComb, Jason Nelson, David Noonan, Richard Pett, Rich Redman, Sean K reynolds, F. Wesley Schneider, Amber Scorr, Doug Seacat, Mike Selinker, Lisa Stevens, James L. Sutter, Russ Taylor, Penny Williams, Skip Williams, Teeuwynn Woodruff.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Magic. ) 2011, Paizo Publishing, LLC; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Combat. ) 2011, Paizo Publishing, LLC; Authors: Dennis Baker, Jesse Benner, Benjamin Bruck, Jason Bulmahn, Brian J. Cortijo, Jim Groves, Tim Hitchcock, Richard A. Hunt, Colin McComb, Jason Nelson, Tom Phillips, Patrick Renie, Sean K Reynolds, and Russ Taylor.
+COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
+COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:Unearthed Arcana Copyright 2004, Wizards of the Coast, Inc.; Authors Andy Collins, Jesse Decker, David Noonan, Rich Redman
+COPYRIGHT:The Iconic Bestiary: Classics of Fantasy Copyright 2005, Lions Den Press; Author Ari Marmell
+COPYRIGHT:Hyperconscious: Explorations in Psionics Copyright 2004 Bruce R Cordell. All rights reserved.
+COPYRIGHT:If Thoughts Could Kill Copyright 2001-2004 Bruce R. Cordell. All rights reserved.
+COPYRIGHT:Mindscapes Copyright 20032004 Bruce R. Cordell. All rights reserved.
+COPYRIGHT:Unearthed Arcana Copyright 2004 Wizards of the Coast.
+COPYRIGHT:Mutants & Masterminds Copyright 2002, Green Ronin Publishing.
+COPYRIGHT:Swords of Our Fathers Copyright 2003, The Game Mechanics.
+COPYRIGHT:Modern System Reference Document Copyright 2002, Wizards of the Coast, Inc.; Authors Bill Slavicsek, Jeff Grubb, Rich Redman, Charles Ryan, based on material by Jonathan Tweet, Monte Cook, Skip Williams, Richard Baker,Peter Adkison, Bruce R. Cordell, John Tynes, Andy Collins, and JD Wiker
+COPYRIGHT:The Genius Guide To: Feats of Psionic Might. Copyright 2011, Super Genius Games. Author: Owen K.C. Stephens
+COPYRIGHT:Psionics Unleashed. Copyright 2010, Dreamscarred Press.
+COPYRIGHT:Psionics Expanded. Copyright 2011, Dreamscarred Press.
+COPYRIGHT:PCGen dataset conversion for "Psionics Expanded - Master the Battle", Copyright 2013, PCGen Data Team (including, but not limited to, Douglas Limmer)
+
+FORWARDREF:CLASSSPELLLIST|Gifted Blade,Marksman,Sighted Seeker,Tactician,Vitalist
+FORWARDREF:FEAT|Fight On
+
+ABILITY:pe_master_the_battle_abilities_classes.lst
+ABILITY:pe_master_the_battle_abilities_favored_classes.lst
+ABILITYCATEGORY:pe_master_the_battle_ability_categories.lst
+ARMORPROF:pe_master_the_battle_armorprof.lst
+CLASS:pe_master_the_battle_classes.lst
+EQUIPMENT:pe_master_the_battle_equipment.lst
+EQUIPMOD:pe_master_the_battle_equipmods.lst
+FEAT:pe_master_the_battle_feats.lst
+SHIELDPROF:pe_master_the_battle_shieldprof.lst
+SPELL:pe_master_the_battle_powers.lst
+TEMPLATE:pe_master_the_battle_templates.lst
+WEAPONPROF:pe_master_the_battle_weaponprofs.lst
