@@ -1,0 +1,17 @@
+# CVS $Revision: $ $Author: $ -- Tue Jul 16 09:27:47 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
+# ORIGINAL ENTRY: Douglas Limmer
+# ORIGINAL ENTRY DATE: 2013/07/05
+
+# Weapon Name			Type
+Astral Suit Ram			TYPE:AstralSuit
+Astral Suit Ranged Attack	TYPE:AstralSuit
+Astral Warrior Weapon
+Crystal Shard			TYPE:MetacreativeTalentTrait
+Deadly Fist				TYPE:MindBlade
+Mind Bolt				TYPE:MindBolt
+Xephyr Knife			TYPE:Exotic.Light.Melee.Ranged.Dagger.Piercing.Slashing.MeleeSlashing.MeleePiercing.RangedPiercing.RangedSlashing
+
+#
+# End
+#
