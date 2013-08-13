@@ -144,7 +144,7 @@ N
 <b>Senses</b>
 |MANUALWHITESPACE|
 <!-- Sense and Vision TYPE Abilities -->
-|FOR,%specialAbilities,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Sense[or]TYPE=Vision","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Sense[or]TYPE=Vision","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense.TYPE=Vision.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense.TYPE=Vision.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
@@ -169,12 +169,12 @@ Perception&nbsp;|SKILL.Perception.TOTAL.SIGN|
 </p>
 
 <!-- auras -->
-|IIF(countdistinct("ABILITIES";"TYPE=Aura";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"TYPE=Aura";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <p>
 <!-- Aura TYPE Abilities -->
 |MANUALWHITESPACE|
 <b>Aura&nbsp;</b>
-|FOR,%specialAbilities,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Aura","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Aura","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
@@ -303,7 +303,7 @@ Perception&nbsp;|SKILL.Perception.TOTAL.SIGN|
 <b>hp</b>&nbsp;|HP|&nbsp;(|HITDICE.MEDIUM|)
 
 <!-- ModifyHP TYPE Abilities -->
-|FOR,%specialHitPoints,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=ModifyHP","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%specialHitPoints,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ModifyHP","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(%specialHitPoints:%specialHitPoints!MIN)|
 ;|SPACE|
 |ENDIF|
@@ -326,7 +326,7 @@ Perception&nbsp;|SKILL.Perception.TOTAL.SIGN|
 <b>Fort</b>&nbsp;|CHECK.FORTITUDE.TOTAL|,&nbsp;<b>Ref</b>&nbsp;|CHECK.REFLEX.TOTAL|,&nbsp;<b>Will</b>&nbsp;|CHECK.2.TOTAL|
 
 <!-- SaveBonus TYPE Abilities -->
-|FOR,%savebonus,0,countdistinct("ABILITIES","ASPECT=SaveBonus","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%savebonus,0,count("ABILITIES","ASPECT=SaveBonus","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 ,&nbsp;|ABILITYALL.ANY.VISIBLE.%savebonus.ASPECT=SaveBonus.ASPECT.SaveBonus|
 |ENDFOR|
 |ENDMANUALWHITESPACE|
@@ -336,10 +336,10 @@ Perception&nbsp;|SKILL.Perception.TOTAL.SIGN|
 <!--- defensive abilities, damager reduction, immune, resist, SR --->
 <p>
 <!-- Defensive TYPE Abilities -->
-|IIF(countdistinct("ABILITIES";"TYPE=Defensive";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"TYPE=Defensive";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 |MANUALWHITESPACE|
 <b>Defensive&nbsp;Abilities&nbsp;</b>
-|FOR,%defensiveAbilities,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Defensive","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%defensiveAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Defensive","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%defensiveAbilities.TYPE=Defensive.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%defensiveAbilities.TYPE=Defensive.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
@@ -361,7 +361,7 @@ Perception&nbsp;|SKILL.Perception.TOTAL.SIGN|
 |ELSE|
 <b>DR</b> |TEXT.LOWER.DR|
 |IIF(%DRTest:%DRTest!MAX)|
-|IIF(countdistinct("ABILITIES";"TYPE=Immunity";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0.OR.countdistinct("ABILITIES";"TYPE=Resistance";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0.OR.SR>0)|
+|IIF(count("ABILITIES";"TYPE=Immunity";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0.OR.count("ABILITIES";"TYPE=Resistance";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0.OR.SR>0)|
 ;|SPACE|
 |ENDIF|
 |ENDIF|
@@ -370,9 +370,9 @@ Perception&nbsp;|SKILL.Perception.TOTAL.SIGN|
 
 <!-- Immunity TYPE Abilities -->
 |MANUALWHITESPACE|
-|IIF(countdistinct("ABILITIES";"TYPE=Immunity";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"TYPE=Immunity";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <b>Immune&nbsp;</b>
-|FOR,%immunities,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Immunity","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|&nbsp;
+|FOR,%immunities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Immunity","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|&nbsp;
 |IIF(ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%immunities.TYPE=Immunity.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
@@ -387,7 +387,7 @@ Perception&nbsp;|SKILL.Perception.TOTAL.SIGN|
 |IIF(%immunities<%immunities!MAX)|
 ,|SPACE|
 |ELSE|
-|IIF(countdistinct("ABILITIES";"TYPE=Resistance";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0.OR.SR>0)|
+|IIF(count("ABILITIES";"TYPE=Resistance";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0.OR.SR>0)|
 ;|SPACE|
 |ENDIF|
 |ENDIF|
@@ -398,9 +398,9 @@ Perception&nbsp;|SKILL.Perception.TOTAL.SIGN|
 
 <!-- Resistance TYPE Abilities -->
 |MANUALWHITESPACE|
-|IIF(countdistinct("ABILITIES";"TYPE=Resistance";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"TYPE=Resistance";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <b>Resist&nbsp;</b>
-|FOR,%resistances,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Resistance","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%resistances,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Resistance","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%resistances.TYPE=Resistance.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
@@ -433,9 +433,9 @@ Perception&nbsp;|SKILL.Perception.TOTAL.SIGN|
 
 <!-- Weakness TYPE Abilities -->
 |MANUALWHITESPACE|
-|IIF(countdistinct("ABILITIES";"TYPE=Weakness";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"TYPE=Weakness";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <b>Weaknesses&nbsp;</b>
-|FOR,%weaknesses,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Weakness","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%weaknesses,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Weakness","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%weaknesses.TYPE=Weakness.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%weaknesses.TYPE=Weakness.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
@@ -484,7 +484,7 @@ Perception&nbsp;|SKILL.Perception.TOTAL.SIGN|
 |ENDFOR|
 
 <!-- ModifyMovement TYPE Abilities -->
-|FOR,%movementAbilities,0,countdistinct("ABILITIES","CATEGORY=Feat","TYPE=ModifyMovement","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%movementAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=ModifyMovement","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 ,|SPACE|
 |IIF(ABILITYALL.Feat.VISIBLE.%movementAbilities.TYPE=ModifyMovement.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Feat.VISIBLE.%movementAbilities.TYPE=ModifyMovement.ASPECT.Ability Bonus|&nbsp;
@@ -494,7 +494,7 @@ Perception&nbsp;|SKILL.Perception.TOTAL.SIGN|
 &nbsp;|ABILITYALL.Feat.VISIBLE.%movementAbilities.TYPE=ModifyMovement.ASPECT.Ability Benefit|
 |ENDIF|
 |ENDFOR|
-|FOR,%movementAbilities,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=ModifyMovement","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%movementAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ModifyMovement","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 ,|SPACE|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%movementAbilities.TYPE=ModifyMovement.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%movementAbilities.TYPE=ModifyMovement.ASPECT.Ability Bonus|&nbsp;
@@ -567,10 +567,10 @@ Perception&nbsp;|SKILL.Perception.TOTAL.SIGN|
 |ENDIF|
 
 <!-- SpecialAttack TYPE Abilities -->
-|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 |MANUALWHITESPACE|
 <br><b>Special&nbsp;Attacks</b>|SPACE|
-|FOR,%specialActions,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%specialActions,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpecialAttack.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
@@ -649,10 +649,10 @@ at will)
 <!-- End Other Spell-Like Abilities -->
 
 <!-- Domain Power Spell-Like Abilities -->
-|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpellLike.DomainPower";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpellLike.DomainPower";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <br><b>Domain Power Spell-Like Abilities</b>|SPACE|
 |MANUALWHITESPACE|
-|FOR,%specialActions,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=SpellLike.DomainPower","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%specialActions,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpellLike.DomainPower","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpellLike.DomainPower.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%specialActions.TYPE=SpellLike.DomainPower.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
@@ -909,7 +909,7 @@ at will)
 
 <!--
 <b>FEATS</b>
-|FOR,%feat,0,countdistinct("ABILITIES","CATEGORY=Feat","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%feat,0,count("ABILITIES","CATEGORY=Feat","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 ,|SPACE|
 |IIF(ABILITYALL.Feat.VISIBLE.%feat.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Feat.VISIBLE.%feat.ASPECT.Ability Bonus|&nbsp;
@@ -942,9 +942,9 @@ at will)
 |MANUALWHITESPACE|
 |FOR,%LanguageTest,STRLEN[LANGUAGES],STRLEN[LANGUAGES],1,0|
 |IIF(%LanguageTest:0)|
-|IIF(countdistinct("ABILITIES";"TYPE=Communicate";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"TYPE=Communicate";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <b>Communication</b>&nbsp;
-|FOR,%specialAbilities,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
@@ -954,7 +954,7 @@ at will)
 |ENDIF|
 ,|SPACE|
 |ENDFOR|
-|FOR,%specialAbilities,0,countdistinct("ABILITIES","CATEGORY=Feat","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
@@ -969,10 +969,10 @@ at will)
 |ELSE|
 <p>
 <b>Languages</b>&nbsp;|LANGUAGES|
-|IIF(countdistinct("ABILITIES";"TYPE=Communicate";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"TYPE=Communicate";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 ,|SPACE|
 |ENDIF|
-|FOR,%specialAbilities,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
@@ -982,7 +982,7 @@ at will)
 |ENDIF|
 ,|SPACE|
 |ENDFOR|
-|FOR,%specialAbilities,0,countdistinct("ABILITIES","CATEGORY=Feat","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.HASASPECT.Ability Bonus:Y)|
 |ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Communicate.ASPECT.Ability Bonus|&nbsp;
 |ENDIF|
@@ -999,9 +999,9 @@ at will)
 <!-- End Languages Communicate TYPE Abilities -->
 
 <!-- Start of Archetypes -->
-|IIF(countdistinct("ABILITIES";"CATEGORY=Archetype";"TYPE=Archetype";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Archetype";"TYPE=Archetype";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <b>Archetypes </b>
-|FOR,%archetype,0,countdistinct("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%archetype,0,count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype|,
 |ENDFOR|
 <br>
@@ -1010,9 +1010,9 @@ at will)
 
 <!-- SpecialQuality TYPE Abilities -->
 |MANUALWHITESPACE|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <b>SQ</b>|SPACE|
-|FOR,%specialAbilities,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|&nbsp;
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|&nbsp;
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Implicit.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Immunity.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Resistance.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Defensive.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Weakness.OR.ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.TYPE:Communicate)|
 |ELSE|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=SpecialQuality.HASASPECT.Ability Bonus:Y)|
@@ -1032,7 +1032,7 @@ at will)
 
 <!-- Animal Tricks TYPE Abilities -->
 |MANUALWHITESPACE|
-|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"TYPE=AnimalTrick";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=AnimalTrick";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <b>Animal&nbsp;Tricks</b>|SPACE||ABILITYALLLIST.Special Ability.VISIBLE.TYPE=AnimalTrick|<br>
 |ENDIF|
 |ENDMANUALWHITESPACE|
@@ -1043,9 +1043,9 @@ at will)
 |%|
 
 <!-- Afflictions Start -->
-|IIF(countdistinct("ABILITIES";"CATEGORY=Afflictions";"TYPE=Affliction";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+|IIF(count("ABILITIES";"CATEGORY=Afflictions";"TYPE=Affliction";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <b>Afflictions </b>
-|FOR,%affliction,0,countdistinct("ABILITIES","CATEGORY=Afflictions","TYPE=Affliction","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%affliction,0,count("ABILITIES","CATEGORY=Afflictions","TYPE=Affliction","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |ABILITYALL.Afflictions.VISIBLE.%affliction.TYPE=Affliction|
 (|ABILITYALL.Afflictions.VISIBLE.%affliction.TYPE=Affliction.DESC|),
 |ENDFOR|
@@ -1134,7 +1134,7 @@ at will)
   </tr>
 </table>
 
-|FOR,%allAbilities,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%allAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:Implicit)|
 |ELSE|
 <p><b>|ABILITYALL.Special Ability.VISIBLE.%allAbilities|

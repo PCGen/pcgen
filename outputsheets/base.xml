@@ -166,7 +166,7 @@
 		<portrait>
 			<portrait>|PORTRAIT|</portrait>
 			<portrait_thumb>|PORTRAIT.THUMB|</portrait_thumb>
-		</portrait>	
+		</portrait>
 		<phobias>|PHOBIAS|</phobias>
 		<race>|RACE|</race>
 		<race>
@@ -383,7 +383,7 @@
 			<exclusive_total>|SKILL.%skill.EXCLUSIVE_TOTAL|</exclusive_total>
 			<type>|SKILL.%skill.TYPE|</type>
 		</skill>
-|ENDFOR|	
+|ENDFOR|
 
 <!-- Skills -->
 	</skills>
@@ -804,7 +804,7 @@ Immune
 				</range>
 |ENDFOR|	<!-- Range -->
 			</ranges>
-		
+
 |ENDIF| <!-- IIF(WEAPON.%weap.ISTYPE.Thrown) -->
 </weapon>
 |ELSE| <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
@@ -871,7 +871,7 @@ Immune
 |IIF(WEAPON.%weap.CONTENTS:0)|
 			<ranges>
 |IIF(WEAPON.%weap.ISTYPE.Thrown)|
-			
+
 				<rangetype>Thrown</rangetype>
 |FOR,%range,0,5,1,0|
 				<range>
@@ -953,7 +953,7 @@ Immune
 |ELSE|  <!-- IIF(WEAPON.%weap.CATEGORY:Ranged) -->
 
 
-|IIF(WEAPON.%weap.ISTYPE.Double.OR.WEAPON.%weap.CATEGORY:Non-Standard-Melee.OR.WEAPON.%weap.CATEGORY:NATURAL)|
+|IIF(WEAPON.%weap.ISTYPE.Double.OR.WEAPON.%weap.ISTYPE.TwoHanded.OR.WEAPON.%weap.CATEGORY:Non-Standard-Melee.OR.WEAPON.%weap.CATEGORY:NATURAL)|
 		<weapon>
 			<common>
 				<name>
@@ -1245,7 +1245,7 @@ Immune
 |IIF(ABILITYALL.Special Ability.0.TYPE=RageDescription.HASASPECT.RageDescription:Y)
 		<description>|ABILITYALL.Special Ability.0.TYPE=RageDescription.ASPECT.RageDescription|</description>
 |ELSE|
-		<description>The Barbarian gains +|VAR.RageStrBonus.INTVAL| to Strength, +|VAR.RageConBonus.INTVAL| to Constitution, and a +|VAR.RageMorale.INTVAL| morale bonus on Will saves, but suffers a -|VAR.RageACPenalty.INTVAL| penalty to AC for |VAR.RageConBonus.INTVAL+3| rounds. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter. The barbarian can only rage once per encounter. Entering a rage takes no time itself, but the barbarian can only do it during his action.</description> 
+		<description>The Barbarian gains +|VAR.RageStrBonus.INTVAL| to Strength, +|VAR.RageConBonus.INTVAL| to Constitution, and a +|VAR.RageMorale.INTVAL| morale bonus on Will saves, but suffers a -|VAR.RageACPenalty.INTVAL| penalty to AC for |VAR.RageConBonus.INTVAL+3| rounds. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter. The barbarian can only rage once per encounter. Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
 |ENDIF|
 	</rage>
 	<!-- this stuff needs a bit of work to display correct info for both 3e and 3.5e properly. - Tir Gwaith -->
@@ -1265,7 +1265,7 @@ Immune
 
 <!-- Eclipse Channeling -->
 |FOR,%eclipsecount,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=ChannelingType")-1,1,0|
-	<eclipse_channeling kind="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingKind|" type="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingType|">	
+	<eclipse_channeling kind="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingKind|" type="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingType|">
 		<level>|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingLevel.INTVAL|</level>
 		<channeling_check>1d20|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingCheck.INTVAL.SIGN|</channeling_check>
 		<intensity>1d20|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingIntensity.INTVAL.SIGN|</intensity>
@@ -1938,7 +1938,7 @@ Immune
 			<virtual>F</virtual>
 			<category>Talent</category>
 			<source>|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.SOURCE|</source>
-		</talent>	
+		</talent>
 |ENDFOR|
 	</talents>
 
@@ -3200,7 +3200,7 @@ Immune
 			<name>|VABILITY.Special Ability.VISIBLE.%trait.TYPE=Trait| (Granted)</name>
 |ELSE|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait|</name>
-|ENDIF|			
+|ENDIF|
 			<description>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait.DESC|</description>
 			<source>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait.SOURCE|</source>
 		</trait>
@@ -3236,7 +3236,7 @@ Immune
 			<description>|TEMPBONUS.%tempbonus.DESC|</description>
 		</tempbonus>
 |ENDFOR|
-	</tempbonuses> 
+	</tempbonuses>
 
 	<!--
 	  ====================================
@@ -3364,7 +3364,7 @@ Immune
 			</attacks>
 		</familiar>
 |ENDFOR|
-		
+
 |%|
 |%FOLLOWERTYPE.Psicrystal|
 |FOR,%companion,0,COUNT[FOLLOWERTYPE.Psicrystal]-1,1,0|
@@ -3439,7 +3439,7 @@ Immune
 			<special_properties>|FOLLOWERTYPE.SPECIAL MOUNT.%companion.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialAttack||FOLLOWERTYPE.SPECIAL MOUNT.%companion.ABILITYALLLIST.Special Ability.VISIBLE.TYPE=SpecialQuality|</special_properties>
 
 			<attacks>
-			
+
 |FOR,%weap,0,COUNT[FOLLOWERTYPE.SPECIAL MOUNT.EQTYPE.WEAPON]-1,1,0|
 				<attack>
 					<common>
@@ -3689,7 +3689,7 @@ Immune
 |ENDFOR|
 			</spellbook>
 |%|
-|ENDFOR|				
+|ENDFOR|
 |ENDFOR|
 |ENDFOR|
 		</class_innate>
