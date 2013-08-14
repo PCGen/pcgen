@@ -4,7 +4,7 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 # ORIGINAL ENTRY DATE: none
 
 # Ability Name				Category of Ability		Type										Visible	Required Ability						Required Class		Required Race	Define					Description							Stackable?	Multiple?	Choose		Ability									Modify VAR
-Bonus Magus Arcane Pool			CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Magus	PRECLASS:1,Magus=1	PRERACE:1,Human%	DEFINE:MagusBonusArcanePoolCount|0	DESC:Add +1/4 point to the magus' arcane pool.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Magus Arcane Pool Bonus Tracker	BONUS:VAR|MagusBonusArcanePoolCount|1
+Bonus Magus Arcane Pool			CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Magus	PRECLASS:1,Magus=1	PRERACE:1,Human%,Tiefling%,Suli%	DEFINE:MagusBonusArcanePoolCount|0	DESC:Add +1/4 point to the magus' arcane pool.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Internal|AUTOMATIC|Magus Arcane Pool Bonus Tracker	BONUS:VAR|MagusBonusArcanePoolCount|1
 Magus Arcane Pool Bonus Tracker	CATEGORY:Internal																														DEFINE:BonusMagusArcanePool|0																											BONUS:VAR|MagusArcanePool|var("MagusBonusArcanePoolCount")/4
 #
 # End
