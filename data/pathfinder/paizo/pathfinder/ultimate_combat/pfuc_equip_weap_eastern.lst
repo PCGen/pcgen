@@ -52,7 +52,7 @@ Fighting Fan			PROFICIENCY:WEAPON|Fighting Fan				TYPE:Weapon.EasternWeapon.East
 Tekko-Kagi (Iron Claw)		PROFICIENCY:WEAPON|Tekko-Kagi (Iron Claw)			TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Piercing.Disarm								COST:3			CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3					EQMOD:DISARM.STEEL					WIELD:Light				SIZE:M
 Wakizashi				PROFICIENCY:WEAPON|Wakizashi					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Piercing.Slashing.Deadly.Tengu							COST:35	WT:2		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d6					EQMOD:STEEL					WIELD:Light				SIZE:M
 # One-Handed
-Katana				PROFICIENCY:WEAPON|Katana					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Deadly.OneHanded.Sword.BladeHeavy.Tengu				COST:50	WT:6		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d8					EQMOD:STEEL					WIELD:TwoHanded			SIZE:M	BONUS:WEAPON|WIELDCATEGORY|-1|PREFEAT:1,Exotic Weapon Proficiency (Katana)
+Katana				PROFICIENCY:WEAPON|Katana					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Deadly.OneHanded.Sword.BladeHeavy.Tengu				COST:50	WT:6		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d8					EQMOD:STEEL					WIELD:TwoHanded			SIZE:M	BONUS:WEAPON|WIELDCATEGORY|-1|PREMULT:1,[PREFEAT:1,Exotic Weapon Proficiency (Katana)],[PREVAREQ:UseKatanaOneHanded,1]
 Nine-Section Whip			PROFICIENCY:WEAPON|Nine-Section Whip			TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Bludgeoning.Blocking.Distracting.Monk.Trip				COST:8	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					EQMOD:MONK.STEEL.TRIP					WIELD:OneHanded			SIZE:M
 Urumi					PROFICIENCY:WEAPON|Urumi					TYPE:Weapon.EasternWeapon.Eastern.Melee.Exotic.Slashing.Distracting							COST:30	WT:6		CRITMULT:x2			CRITRANGE:3			DAMAGE:1d8					EQMOD:STEEL					WIELD:OneHanded			SIZE:M
 
