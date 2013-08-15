@@ -561,6 +561,8 @@ Mind Will Save	OUTPUTNAME:+2 on Will saves vs. Enchantment spells and effects	CA
 Remove Scribe Scroll			CATEGORY:ACF		TYPE:WizardScribeScroll.ACF		COST:0
 Remove Summon Familiar (Wizard)	CATEGORY:ACF		TYPE:WizardSummonFamiliar.ACF		COST:0
 Remove Summon Familiar (Sorcerer)	CATEGORY:ACF		TYPE:SorcererSummonFamiliar.ACF	COST:0
+Remove Cleric Spontaneous Casting	CATEGORY:ACF		TYPE:ClericSpontaneousCasting.ACF	COST:0
+Remove Druid Spontaneous Casting	CATEGORY:ACF		TYPE:DruidSpontaneousCasting.ACF	COST:0
 
 #
 #EOF

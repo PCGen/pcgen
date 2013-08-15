@@ -117,8 +117,8 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Turn Undead stuff
 1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	ABILITY:Special Ability|AUTOMATIC|Basic Turning|Cleric Turning
 ###Block: Spontaneous casting
-1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Cure spells|PREABILITY:1,CATEGORY=Special Ability,Turn Undead
-1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
+1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Cure spells|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericSpontaneousCasting|PREABILITY:1,CATEGORY=Special Ability,Turn Undead
+1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting - Inflict spells|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericSpontaneousCasting|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
 ###Block: Spell Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
