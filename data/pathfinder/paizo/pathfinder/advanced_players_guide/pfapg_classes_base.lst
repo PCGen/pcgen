@@ -77,6 +77,7 @@ CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle An
 1																								AUTO:FEAT|Shield Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierArmorProficiencies,TYPE.CavalierShieldProficiency
 ###Block: Vars
 1	BONUS:VAR|CavalierChallengeLVL|CL	BONUS:VAR|CavalierChallengeTimes|1+(CL/3)	BONUS:VAR|CavalierMountLVL|CL
+1	BONUS:VAR|OrderAbilityLvl|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierOrder
 ###Block: Level progression
 1	ABILITY:Cavalier Class Ability|AUTOMATIC|Challenge ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierChallenge
 1	ABILITY:Cavalier Class Ability|AUTOMATIC|Mount ~ Cavalier|!PREABILITY:1,CATEGORY=Archetype,TYPE.CavalierMount

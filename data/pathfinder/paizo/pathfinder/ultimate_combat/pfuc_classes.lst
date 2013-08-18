@@ -86,6 +86,7 @@ CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Ani
 20	ABILITY:Special Ability|AUTOMATIC|Last Stand ~ Samurai|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiLastStand
 ###Block:
 6	BONUS:VAR|SamuraiBonusFeat|CL/6
+1	BONUS:VAR|OrderAbilityLvl|CL|!PREABILITY:1,CATEGORY=Archetype,TYPE.SamuraiOrder
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
 1	ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify
