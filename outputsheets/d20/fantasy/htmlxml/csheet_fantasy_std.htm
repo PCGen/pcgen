@@ -20,31 +20,32 @@ $Date$
 <meta http-equiv="content-type" content="text-html; charset=utf-8" />
 <title>|NAME| [|POOL.COST| Points]</title>
 <style type="text/css">
-	.font4 {  font-family: Arial; font-size:4pt; }
-	.font5 {  font-family: Arial; font-size:5pt; }
-	.font6 {  font-family: Arial; font-size:6pt; }
-	.font7 {  font-family: Arial; font-size:7pt; }
-	.font8 {  font-family: Arial; font-size:8pt; }
-	.font9 {  font-family: Arial; font-size:9pt; }
-	.h { font-family: Arial; font-size:8pt; vertical-align: bottom; }
-	.ab { font-family: Arial; font-size:10pt; text-align:center; color:white; background:black; }
-	.abb { font-family: Arial; font-size:10pt; text-align:center; font-weight:bold; border: 1px solid black;}
-	.abt { font-family: Arial; font-size:10pt; text-align:center; font-weight:bold; border: 5px solid lightgray;}
-	.sptab { font-family: Arial; vertical-align:top; text-align:center;font-size:8pt;}
-	.sptab1 { font-family: Arial; vertical-align:top; text-align:left;font-size:8pt;}
-	.sptab2 { font-family: Arial; vertical-align:top; text-align:right;font-size:8pt;}
-	.notetab { font-family: Arial; vertical-align:top;border: 1px solid black; text-align:left;font-size:8pt;}
-	.skl { font-family: Arial; font-size: 9pt; font-weight:bold; text-align:center; vertical-align:middle; border: 4px solid black;}
-	.spname { font-family: Arial; vertical-align:top; text-align:left;font-size:8pt;}
-	.sptop { font-family: Arial; vertical-align:top;border: 1px solid black; text-align:center;font-size:8pt; color:white;}
-	.splevel {  font-family: Arial; background:black; text-align:center;font-size:9pt; color:white;}
-	.sphead {  font-family: Arial; background:black; text-align:center;font-size:12pt; color:white;}
-	.notehead {  font-family: Arial; background:black; text-align:center;font-size:12pt; color:white;}
-	.biodata { font-family: Arial; vertical-align:bottom; text-align:left;font-size:9pt;}
+	.font4 {  font-family: Arial, sans-serif; font-size:4pt; }
+	.font5 {  font-family: Arial, sans-serif; font-size:5pt; }
+	.font6 {  font-family: Arial, sans-serif; font-size:6pt; }
+	.font7 {  font-family: Arial, sans-serif; font-size:7pt; }
+	.font8 {  font-family: Arial, sans-serif; font-size:8pt; }
+	.font9 {  font-family: Arial, sans-serif; font-size:9pt; }
+	.h { font-family: Arial, sans-serif; font-size:8pt; vertical-align: bottom; }
+	.ab { font-family: Arial, sans-serif; font-size:10pt; text-align:center; color:white; background:black; }
+	.sa-table th { font-size:9pt; text-align:center; color:white; background:black; text-transform:uppercase;}
+	.abb { font-family: Arial, sans-serif; font-size:10pt; text-align:center; font-weight:bold; border: 1px solid black;}
+	.abt { font-family: Arial, sans-serif; font-size:10pt; text-align:center; font-weight:bold; border: 5px solid lightgray;}
+	.sptab { font-family: Arial, sans-serif; vertical-align:top; text-align:center;font-size:8pt;}
+	.sptab1 { font-family: Arial, sans-serif; vertical-align:top; text-align:left;font-size:8pt;}
+	.sptab2 { font-family: Arial, sans-serif; vertical-align:top; text-align:right;font-size:8pt;}
+	.notetab { font-family: Arial, sans-serif; vertical-align:top;border: 1px solid black; text-align:left;font-size:8pt;}
+	.skl { font-family: Arial, sans-serif; font-size: 9pt; font-weight:bold; text-align:center; vertical-align:middle; border: 4px solid black;}
+	.spname { font-family: Arial, sans-serif; vertical-align:top; text-align:left;font-size:8pt;}
+	.sptop { font-family: Arial, sans-serif; vertical-align:top;border: 1px solid black; text-align:center;font-size:8pt; color:white;}
+	.splevel {  font-family: Arial, sans-serif; background:black; text-align:center;font-size:9pt; color:white;}
+	.sphead {  font-family: Arial, sans-serif; background:black; text-align:center;font-size:12pt; color:white;}
+	.notehead {  font-family: Arial, sans-serif; background:black; text-align:center;font-size:12pt; color:white;}
+	.biodata { font-family: Arial, sans-serif; vertical-align:bottom; text-align:left;font-size:9pt;}
 		.topline {
 		border-top-width:1px;
 		border-top: 1pt solid black;
-		font-family: Arial;
+		font-family: Arial, sans-serif;
 		font-size:6pt;
 	}
 	.border {
@@ -1849,6 +1850,27 @@ Immune
 	</table>
 |ENDIF|
 <!-- STOP Afflictions Table -->
+
+<!-- START Traits Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Trait";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Traits Table" class="sa-table">
+    <tr>
+     <th colspan="2">Traits</th>
+    </tr>
+|FOR,%trait,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%trait,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+     <td valign="top" class="font8" width="70%"><b>|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait|</b></td>
+	<td valign="top" class="font8" width="30%" align="right">[|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait.SOURCE|]</td>
+	<tr>
+|OIF(EVEN:%trait,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+|ABILITYALL.Special Ability.VISIBLE.%trait.TYPE=Trait.DESC|
+	</td>
+	</tr>
+|ENDFOR|
+	</table>
+|ENDIF|
+<!-- STOP Traits Table -->
 
 <!-- START Special Attacks Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
