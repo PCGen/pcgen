@@ -166,8 +166,8 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	DOMAIN:Water[PREVAREQ:DruidWaterAllowed,1]
 1	DOMAIN:Weather[PREVAREQ:DruidWeatherAllowed,1]
 ###Block: Vars
-1	BONUS:VAR|AnimalCompanionLVL|CL|PREABILITY:1,CATEGORY=Special Ability,Nature's Bond ~ Animal Companion,TYPE.NatureBondAnimalCompanion
-1	BONUS:VAR|DomainLVL|CL
+1	BONUS:VAR|AnimalCompanionLVL|CL|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidAnimalCompanion
+1	BONUS:VAR|DomainLVL|CL|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidDomain
 1	BONUS:VAR|DruidWildShape|CL
 1	BONUS:VAR|WildEmpathyLVL|CL
 ###Block: Level progression
