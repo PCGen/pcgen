@@ -109,6 +109,54 @@ Bardic Inspire Competence ~ Is The Bard								VISIBLE:NO																							
 # This is for Non-Bards traveling with Bards - They need to select the Bard's Level.
 Bardic Inspire Courage ~ Not The Bard	KEY:Bardic Inspire Courage (Other)		VISIBLE:NO																																																							BONUS:VAR|EnableBardicInspireCourage|1|PREAPPLY:ANYPC	BONUS:VAR|OtherInspireCourageLVL|%CHOICE|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=1|MAX=20|TITLE=Bard Level
 Bardic Inspire Competence ~ Not The Bard	KEY:Bardic Inspire Competence (Other)	VISIBLE:NO																																																							BONUS:VAR|EnableBardicInspireCompetence|1|PREAPPLY:ANYPC
+
+
+
+###Block: Size Mods for Automatic Changes
+REACH_0	VISIBLE:NO	REACH:0
+REACH_5	VISIBLE:NO	REACH:5
+REACH_10	VISIBLE:NO	REACH:10
+REACH_15	VISIBLE:NO	REACH:15
+REACH_20	VISIBLE:NO	REACH:20
+REACH_30	VISIBLE:NO	REACH:30
+# - Face not working???
+FACE_0	VISIBLE:NO	FACE:0
+FACE_1	VISIBLE:NO	FACE:1
+FACE_2	VISIBLE:NO	FACE:2.5
+FACE_5	VISIBLE:NO	FACE:5
+FACE_10	VISIBLE:NO	FACE:10
+FACE_15	VISIBLE:NO	FACE:15
+FACE_20	VISIBLE:NO	FACE:20
+FACE_30	VISIBLE:NO	FACE:30
+# This is having Issues in PF.
+#DRAGON_SIZE_TRACKER	VISIBLE:NO	SIZE:DragonSizeTracker
+#
+SIZE_F	VISIBLE:NO	SIZE:F
+SIZE_D	VISIBLE:NO	SIZE:D
+SIZE_T	VISIBLE:NO	SIZE:T
+SIZE_S	VISIBLE:NO	SIZE:S
+SIZE_M	VISIBLE:NO	SIZE:M
+SIZE_L	VISIBLE:NO	SIZE:L
+SIZE_H	VISIBLE:NO	SIZE:H
+SIZE_G	VISIBLE:NO	SIZE:G
+SIZE_C	VISIBLE:NO	SIZE:C
+SIZE_C+	VISIBLE:NO	SIZE:P
+
+###Block: Dragon Age
+Wyrmling		VISIBLE:NO	SUBRACE:YES
+Very Young		VISIBLE:NO	SUBRACE:YES
+Young			VISIBLE:NO	SUBRACE:YES
+Juvenile		VISIBLE:NO	SUBRACE:YES
+Young Adult		VISIBLE:NO	SUBRACE:YES
+Adult			VISIBLE:NO	SUBRACE:YES
+Mature Adult	VISIBLE:NO	SUBRACE:YES
+Old			VISIBLE:NO	SUBRACE:YES
+Very Old		VISIBLE:NO	SUBRACE:YES
+Ancient		VISIBLE:NO	SUBRACE:YES
+Wyrm			VISIBLE:NO	SUBRACE:YES
+Great Wyrm		VISIBLE:NO	SUBRACE:YES
+
+#
 #
 # End
 #
