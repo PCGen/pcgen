@@ -30,26 +30,26 @@ CLASS:Cleric.MOD
 
 # Class Name
 CLASS:Druid.MOD
-1	DOMAIN:Aquatic[PREVAREQ:DruidAquaticAllowed,1]
-1	DOMAIN:Arctic[PREVAREQ:DruidArcticAllowed,1]
-1	DOMAIN:Cave[PREVAREQ:DruidCaveAllowed,1]
-1	DOMAIN:Desert[PREVAREQ:DruidDesertAllowed,1]
-1	DOMAIN:Eagle[PREVAREQ:DruidEagleAllowed,1]
-1	DOMAIN:Frog[PREVAREQ:DruidFrogAllowed,1]
-1	DOMAIN:Jungle[PREVAREQ:DruidJungleAllowed,1]
-1	DOMAIN:Monkey[PREVAREQ:DruidMonkeyAllowed,1]
-1	DOMAIN:Mountain[PREVAREQ:DruidMountainAllowed,1]
-1	DOMAIN:Plains[PREVAREQ:DruidPlainsAllowed,1]
-1	DOMAIN:Serpent[PREVAREQ:DruidSerpentAllowed,1]
-1	DOMAIN:Swamp[PREVAREQ:DruidSwampAllowed,1]
-1	DOMAIN:Wolf[PREVAREQ:DruidWolfAllowed,1]
+0	DOMAIN:Aquatic[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Aquatic]
+0	DOMAIN:Arctic[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Arctic]
+0	DOMAIN:Cave[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Cave]
+0	DOMAIN:Desert[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Desert]
+0	DOMAIN:Eagle[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Eagle]
+0	DOMAIN:Frog[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Frog]
+0	DOMAIN:Jungle[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Jungle]
+0	DOMAIN:Monkey[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Monkey]
+0	DOMAIN:Mountain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Mountain]
+0	DOMAIN:Plains[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Plains]
+0	DOMAIN:Serpent[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Serpent]
+0	DOMAIN:Swamp[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Swamp]
+0	DOMAIN:Wolf[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Wolf]
 
 ###Block: Additional Domains for Druid archetypes
-1	DOMAIN:Cloud Subdomain[PREVAREQ:DruidCloudAllowed,1]
-1	DOMAIN:Destruction[PREVAREQ:DruidDestructionAllowed,1]
-1	DOMAIN:Storms Subdomain[PREVAREQ:DruidStormsAllowed,1]
-1	DOMAIN:War[PREVAREQ:DruidWarAllowed,1]
-1	DOMAIN:Wind Subdomain[PREVAREQ:DruidWindAllowed,1]
+0	DOMAIN:Cloud Subdomain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Cloud]
+0	DOMAIN:Destruction[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Destruction]
+0	DOMAIN:Storms Subdomain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Storms]
+0	DOMAIN:War[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ War]
+0	DOMAIN:Wind Subdomain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Wind]
 
 ###Block: Wizard Elemental Schools
 
