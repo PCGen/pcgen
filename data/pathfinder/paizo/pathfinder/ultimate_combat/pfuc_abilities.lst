@@ -15,7 +15,7 @@ Archetype Ninja					CATEGORY:Archetype	TYPE:NinjaArchetype		VISIBLE:NO
 Archetype Samurai					CATEGORY:Archetype	TYPE:SamuraiArchetype		VISIBLE:NO
 
 
-CATEGORY=Internal|Default.MOD	AUTO:WEAPONPROF|Katana|PREWEAPONPROF:1,Katana (Exotic)	AUTO:WEAPONPROF|Katana (Exotic)|PREFEAT:1,Exotic Weapon Proficiency (Katana)
+#CATEGORY=Internal|Default.MOD	AUTO:WEAPONPROF|Katana|PREWEAPONPROF:1,Katana (Exotic)	AUTO:WEAPONPROF|Katana (Exotic)|PREFEAT:1,Exotic Weapon Proficiency (Katana)
 
 # Ability Name					Category of Ability	Type					Visible	Automatically Gained Weapon Prof.
 Exotic Weapon Proficiency ~ Firearms	CATEGORY:Internal									AUTO:WEAPONPROF|TYPE=Firearm
