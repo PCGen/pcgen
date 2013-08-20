@@ -13,7 +13,7 @@ Bite ~ Claw (Huge)		VISIBLE:NO	PRESIZEEQ:H		NATURALATTACKS:Claw,Weapon.Natural.M
 Bite ~ Claw (Gargantuan)	VISIBLE:NO	PRESIZEEQ:G		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,3d6
 Bite ~ Claw (Colossal)		VISIBLE:NO	PRESIZEEQ:C		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6
 
-###Block: Sorcerer Cleric Spells, for creatures who can cast Cleric spells as Arccane Sorcerer spells
+###Block: Sorcerer Cleric Spells, for creatures who can cast Cleric spells as Arcane Sorcerer spells
 # Template Name			Visible	List of Class Spells by Level
 Sorcerer Cleric Spells		VISIBLE:NO
 Sorcerer Cleric Spells.MOD			SPELLLEVEL:CLASS|Sorcerer=9|Astral Projection,Energy Drain,Etherealness,Gate,Heal (Mass),Implosion,Miracle,Soul Bind,Storm of Vengeance,Summon Monster IX,True Resurrection
@@ -46,8 +46,8 @@ FACE_10	VISIBLE:NO	FACE:10
 FACE_15	VISIBLE:NO	FACE:15
 FACE_20	VISIBLE:NO	FACE:20
 FACE_30	VISIBLE:NO	FACE:30
-
-DRAGON_SIZE_TRACKER	VISIBLE:NO	SIZE:DragonSizeTracker
+# This is having Issues in PF.
+#DRAGON_SIZE_TRACKER	VISIBLE:NO	SIZE:DragonSizeTracker
 #
 SIZE_F	VISIBLE:NO	SIZE:F
 SIZE_D	VISIBLE:NO	SIZE:D
@@ -61,35 +61,18 @@ SIZE_C	VISIBLE:NO	SIZE:C
 SIZE_C+	VISIBLE:NO	SIZE:P
 
 ###Block: Dragon Age
-Wyrmling		SUBRACE:YES
-Very Young		SUBRACE:YES
-Young			SUBRACE:YES
-Juvenile		SUBRACE:YES
-Young Adult		SUBRACE:YES
-Adult			SUBRACE:YES
-Mature Adult	SUBRACE:YES
-Old			SUBRACE:YES
-Very Old		SUBRACE:YES
-Ancient		SUBRACE:YES
-Wyrm			SUBRACE:YES
-Great Wyrm		SUBRACE:YES
-###Block: Dragon Attacks
-DRAGON_ATTACKS_T	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|5		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4	NATURALATTACKS:Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
-#Bite (5' reach)
-DRAGON_ATTACKS_S	VISIBLE:NO							NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6	NATURALATTACKS:Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
-#Bite (5' reach)
-DRAGON_ATTACKS_M	VISIBLE:NO							NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8	NATURALATTACKS:Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
-#Bite (5' reach)
-DRAGON_ATTACKS_L	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|5		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6	NATURALATTACKS:Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
-#Bite (10' reach)
-DRAGON_ATTACKS_H	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|5		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8	NATURALATTACKS:Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
-#Bite (15' reach)
-DRAGON_ATTACKS_G	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|5		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6	NATURALATTACKS:Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
-#Bite (20' reach)
-DRAGON_ATTACKS_C	VISIBLE:NO	BONUS:WEAPONPROF=Bite|REACH|10	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8	NATURALATTACKS:Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d8|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
-#Bite (30' reach)
-
-
+Wyrmling		VISIBLE:NO	SUBRACE:YES
+Very Young		VISIBLE:NO	SUBRACE:YES
+Young			VISIBLE:NO	SUBRACE:YES
+Juvenile		VISIBLE:NO	SUBRACE:YES
+Young Adult		VISIBLE:NO	SUBRACE:YES
+Adult			VISIBLE:NO	SUBRACE:YES
+Mature Adult	VISIBLE:NO	SUBRACE:YES
+Old			VISIBLE:NO	SUBRACE:YES
+Very Old		VISIBLE:NO	SUBRACE:YES
+Ancient		VISIBLE:NO	SUBRACE:YES
+Wyrm			VISIBLE:NO	SUBRACE:YES
+Great Wyrm		VISIBLE:NO	SUBRACE:YES
 
 #
 # End
