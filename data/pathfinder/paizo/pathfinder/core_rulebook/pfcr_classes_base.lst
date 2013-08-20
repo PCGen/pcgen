@@ -156,15 +156,15 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 ###Block: Nature Bond Choice
 1	BONUS:ABILITYPOOL|Nature Bond|1
 ###Block: Domains
-1	BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidDomain
+1	BONUS:DOMAIN|NUMBER|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidDomainSelection
 ###Block: Domain Selections
-1	DOMAIN:Air[PREVAREQ:DruidAirAllowed,1]
-1	DOMAIN:Animal[PREVAREQ:DruidAnimalAllowed,1]
-1	DOMAIN:Earth[PREVAREQ:DruidEarthAllowed,1]
-1	DOMAIN:Fire[PREVAREQ:DruidFireAllowed,1]
-1	DOMAIN:Plant[PREVAREQ:DruidPlantAllowed,1]
-1	DOMAIN:Water[PREVAREQ:DruidWaterAllowed,1]
-1	DOMAIN:Weather[PREVAREQ:DruidWeatherAllowed,1]
+0	DOMAIN:Air[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Air]
+0	DOMAIN:Animal[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Animal]
+0	DOMAIN:Earth[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Earth]
+0	DOMAIN:Fire[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Fire]
+0	DOMAIN:Plant[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Plant]
+0	DOMAIN:Water[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Water]
+0	DOMAIN:Weather[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Weather]
 ###Block: Vars
 1	BONUS:VAR|AnimalCompanionLVL|CL|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidAnimalCompanion
 1	BONUS:VAR|DomainLVL|CL|PREABILITY:1,CATEGORY=Special Ability,TYPE.DruidDomain
