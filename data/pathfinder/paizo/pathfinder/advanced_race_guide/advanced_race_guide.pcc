@@ -83,6 +83,7 @@ SPELL:pfarg_spells.lst
 
 WEAPONPROF:pfarg_weaponprofs.lst
 
+TEMPLATE:pfarg_templates.lst
 
 ## Race Builder - Leave off till ready to work on this:
 #ABILITY:pfarg_abilities_rb_racial_qualities.lst
