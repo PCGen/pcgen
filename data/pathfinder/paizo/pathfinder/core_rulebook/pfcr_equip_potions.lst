@@ -35,6 +35,9 @@ Potion of Haste						TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.47
 Potion of Heroism						TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:+2 morale bonus on attack rolls, saves, and skill checks for 50 minutes
 Potion of Hide from Animals				TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:Target cannot be perceived by animals for 10 minutes
 Potion of Hide from Undead				TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:Target cannot be perceived by undead for 10 minutes
+Potion of Inflict Light Wounds			TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:Inflicts 1d8+1 points of damage
+Potion of Inflict Moderate Wounds			TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477										SPROP:Inflicts 2d8+3 points of damage
+Potion of Inflict Serious Wounds			TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Inflicts 3d8+5 points of damage
 Potion of Invisibility					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477										SPROP:Grants invisibility for 3 minutes or until you attack
 Potion of Jump						TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:+10 enhancement bonus on Acrobatics checks made to jump for 1 minute
 Potion of Lesser Restoration				TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477										SPROP:Dispels magical ability penalty or cures 1d4 points of ability damage to one ability score
