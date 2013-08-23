@@ -70,6 +70,15 @@
 			<li>In the VM Options field enter: -Xms128m -Xmx512m  (this is the memory defaults for the build)</li>
 			<li>In the Bundle Name field, enter: PCGen &lt;version number&gt; (this is the name of the app)</li>
 			<li>Make sure that "Set Working Directory to Inside Application Package" is checked.</li>
+<!--
+			<li>In the &quot;Additional Properties&quot; field add the following two Property/Value pairs:
+			<ul>
+				<li>Property: <code>apple.laf.useScreenMenuBar</code> Value: <code>true</code></li>
+				<li>Property: <code>-Xdock:name</code> Value: <code>PCGen</code></li>
+				<li>Property: <code>-Xdock:icon</code> Value: <code>../PCGenApp.icns</code></li>
+			</ul>
+			</li>
+-->
 			<li>Switch back to the Build Information tab and click Choose Icon, navigate to "PCGenApp.icns" 
 				in the mac-installer/graphics/icon folder. You may have to paste it on the app after it is built 
 				anyway, I've found that it does not always stick for some reason.</li>
