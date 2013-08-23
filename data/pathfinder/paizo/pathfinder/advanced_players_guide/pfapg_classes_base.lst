@@ -285,6 +285,8 @@ CLASS:Witch		SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLE
 ###Block: Witch Class Abilities
 1	ABILITY:Witch Class Ability|AUTOMATIC|Witch ~ Familiar|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchFamiliar
 1	ABILITY:Witch Class Ability|AUTOMATIC|Cantrips ~ Witch|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchCantrips
+1	ABILITY:Witch Class Ability|AUTOMATIC|Witch Patron
+1	ABILITY:Witch Class Ability|AUTOMATIC|Hex ~ Witch
 ###Block: Witch Pool Progressions
 1	BONUS:ABILITYPOOL|Witch Patron|1
 1	BONUS:ABILITYPOOL|Witch Hex|1|!PREABILITY:1,CATEGORY=Archetype,TYPE.WitchHex1
