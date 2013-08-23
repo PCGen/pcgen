@@ -19,9 +19,10 @@ Bluff.MOD			BONUS:SKILL|Bluff (Pass messages)|var("SKILL.Bluff.MISC")							BONU
 Escape Artist.MOD		BONUS:SKILL|Escape Artist (Escape bonds/grapple)|var("SKILL.Escape Artist.MISC")			BONUS:SKILLRANK|Escape Artist (Escape bonds/grapple)|var("SKILL.Escape Artist")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Escape Artist (Escape bonds/grapple).MISC"),var("SKILL.Escape Artist.MISC")
 Handle Animal.MOD		BONUS:SKILL|Handle Animal (Birds of prey)|var("SKILL.Handle Animal.MISC")				BONUS:SKILLRANK|Handle Animal (Birds of prey)|var("SKILL.Handle Animal")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Handle Animal (Birds of prey).MISC"),var("SKILL.Handle Animal.MISC")
 Knowledge (Planes).MOD	BONUS:SKILL|Knowledge (Planes/ID demon)|var("SKILL.Knowledge (Planes).MISC")				BONUS:SKILLRANK|Knowledge (Planes/ID demon)|skillinfo("TOTALRANK", "Knowledge (Planes)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Knowledge (Planes/ID demon).MISC"),var("SKILL.Knowledge (Planes).MISC")
-Linguistics.MOD		BONUS:SKILL|Linguistics (Create forgeries)|var("SKILL.Linguistics.MISC")				BONUS:SKILLRANK|Linguistics (Create forgeries)|skillinfo("TOTALRANK", "Linguistics")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Linguistics (Create forgeries).MISC"),var("SKILL.Linguistics.MISC")
-Sense Motive.MOD		BONUS:SKILL|Sense Motive (Resist feint)|var("SKILL.Sense Motive.MISC")					BONUS:SKILLRANK|Sense Motive (Resist feint)|skillinfo("TOTALRANK", "Sense Motive")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Sense Motive (Resist feint).MISC"),var("SKILL.Sense Motive.MISC")
+Linguistics.MOD		BONUS:SKILL|Linguistics (Create forgeries)|var("SKILL.Linguistics.MISC")|TYPE=BaseSkill		BONUS:SKILLRANK|Linguistics (Create forgeries)|skillinfo("TOTALRANK", "Linguistics")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Linguistics (Create forgeries).MISC"),var("SKILL.Linguistics.MISC")
 
+Sense Motive.MOD		BONUS:SKILL|Sense Motive (Resist feint)|var("SKILL.Sense Motive.MISC")					BONUS:SKILLRANK|Sense Motive (Resist feint)|skillinfo("TOTALRANK", "Sense Motive")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Sense Motive (Resist feint).MISC"),var("SKILL.Sense Motive.MISC")
+#
 #
 # End
 #
