@@ -34,7 +34,9 @@ Survival.MOD					BONUS:SKILL|Survival (Underground)|var("SKILL.Survival.MISC")		
 Survival (Follow or identify tracks).MOD	BONUS:SKILL|Survival (Follow or identify tracks/Underground)|var("SKILL.Survival (Follow or identify tracks).MISC")	BONUS:SKILLRANK|Survival (Follow or identify tracks/Underground)|skillinfo("TOTALRANK", "Survival")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Survival (Follow or identify tracks/Underground).MISC"),var("SKILL.Survival (Follow or identify tracks).MISC")
 
 Acrobatics.MOD					BONUS:SKILL|Acrobatics (Underground)|var("SKILL.Acrobatics.MISC")										BONUS:SKILLRANK|Acrobatics (Underground)|skillinfo("TOTALRANK", "Acrobatics")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Acrobatics (Underground).MISC"),var("SKILL.Acrobatics.MISC")
-Acrobatics (Jump).MOD				BONUS:SKILL|Acrobatics (Jump/Underground)|var("SKILL.Acrobatics (Jump).MISC")								BONUS:SKILLRANK|Acrobatics (Jump/Underground)|skillinfo("TOTALRANK", "Acrobatics (Jump)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Acrobatics (Jump/Underground).MISC"),var("SKILL.Acrobatics (Jump).MISC")
+Acrobatics.MOD					BONUS:SKILL|Acrobatics (Jump/Underground)|var("SKILL.Acrobatics.MISC")									BONUS:SKILLRANK|Acrobatics (Jump/Underground)|skillinfo("TOTALRANK", "Acrobatics")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Acrobatics (Jump/Underground).MISC"),var("SKILL.Acrobatics.MISC")
+Acrobatics.MOD					BONUS:SKILL|Acrobatics (Jump/Underground)|floor((var("MOVE[Walk]")-30)/10)*4	
+
 Climb.MOD						BONUS:SKILL|Climb (Underground)|var("SKILL.Climb.MISC")											BONUS:SKILLRANK|Climb (Underground)|skillinfo("TOTALRANK", "Climb")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Climb (Underground).MISC"),var("SKILL.Climb.MISC")
 
 #Perception (Notice unusual stonework).MOD	BONUS:SKILL|Perception (Notice unusual stonework/Underground)|var("SKILL.Perception (Notice unusual stonework).MISC")	BONUS:SKILLRANK|Perception (Notice unusual stonework/Underground)|skillinfo("TOTALRANK", "Perception (Notice unusual stonework)")|TYPE=SkillGranted|PREVARNEQ:var("SKILL.Perception (Notice unusual stonework/Underground).MISC"),var("SKILL.Perception (Notice unusual stonework).MISC")
