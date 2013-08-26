@@ -170,6 +170,9 @@ $Date$
 		margin-top:0; 
 		margin-bottom:0;
 	}
+	.block th {
+		text-transform:uppercase;
+	}
 </style>
 </head>
 <body bgcolor="white">
@@ -935,7 +938,7 @@ Immune
     </tr>
     <tr>
      <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
-     <td colspan="5" class="border10"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+     <td colspan="5" class="border10">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
     </tr>
    </table>
    <span class="font2"><br /></span>
@@ -973,7 +976,7 @@ Immune
     </tr>
     <tr>
      <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
-     <td colspan="5" class="border10"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+     <td colspan="5" class="border10">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
     </tr>
    </table>
    <br />
@@ -1005,7 +1008,7 @@ Immune
      <td class="border10c"><b>|WEAPON.%weap.RANGE|<br /></b></td>
      <td class="border10c"><b>|WEAPON.%weap.TYPE|<br /></b></td>
      <td class="border10c"><b>|WEAPON.%weap.SIZE|<br /></b></td>
-     <td class="border10c"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+     <td class="border10c">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
     </tr>
    </table>
    <br />
@@ -1056,7 +1059,7 @@ Immune
     </tr>
     <tr>
      <td align="left" bgcolor="black" colspan="2" class="ablableb">&nbsp;Special Properties</td>
-     <td colspan="5" class="border10"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+     <td colspan="5" class="border10">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
     </tr>
    </table>
    <br />
@@ -1093,7 +1096,7 @@ Immune
     </tr>
     <tr>
      <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
-     <td colspan="5" class="border10"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+     <td colspan="5" class="border10">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
     </tr>
    </table>
 |ENDIF|
@@ -1349,9 +1352,9 @@ Immune
   <tr>
    <td width="50%" valign="top">
 <!-- START Weight Table -->
-    <table width="100%" cellspacing="0" cellpadding="3" summary="Weight Allowance Table">
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Weight Allowance Table" class="block">
      <tr>
-      <td bgcolor="black" align="center" colspan="6" class="ab"><b>WEIGHT ALLOWANCE</b></td>
+      <th colspan="6" class="ab">Weight Allowance</th>
      </tr>
      <tr>
       <td valign="top" class="border10" align="right"><b>Light</b></td>
@@ -1366,9 +1369,9 @@ Immune
 <!-- START Illumination Table -->
 |IIF(VAR.IF(var("COUNT[EQTYPE.LightSource]")>0;1;0):1)|
 <br />
-    <table width="100%" cellspacing="0" cellpadding="3" summary="Illumination">
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Illumination" class="block">
      <tr>
-      <td class="ab" align="center" colspan="4"><b>ILLUMINATION</b></td>
+      <th class="ab" colspan="4">Illumination</th>
      </tr>
      <tr>
       	<td width="45%" class="border10"><b>Light Source</b></td>
@@ -1389,9 +1392,9 @@ Immune
 <!-- STOP Illumination Table -->
 <!-- START Money Table -->
 <br />
-    <table width="100%" cellspacing="0" cellpadding="3" summary="Money">
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Money" class="block">
      <tr>
-      <td bgcolor="black" align="center" colspan="1" class="ab"><b>MONEY</b></td>
+      <th colspan="1" class="ab">Money</th>
      </tr>
      <tr>
       <td valign="top" width="70%" class="border10">
@@ -1404,7 +1407,7 @@ Immune
     <br />
 <!-- START Companions Tables -->
 |%FOLLOWERTYPE.Familiar|
-    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Familiar Table">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Familiar Table" class="block">
      <tr>
       <td colspan="12" class="ab"><b>Familiar: |FOLLOWERTYPE.FAMILIAR.0.NAME| (|FOLLOWERTYPE.FAMILIAR.0.RACE|)</b></td>
      </tr>
@@ -1442,7 +1445,7 @@ Immune
    <br />
 |%|
 |%FOLLOWERTYPE.SPECIAL MOUNT|
-    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Special Mount Table">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Special Mount Table" class="block">
      <tr>
       <td class="ab" colspan="12"><b>Special Mount: |FOLLOWERTYPE.SPECIAL MOUNT.0.NAME| (|FOLLOWERTYPE.SPECIAL MOUNT.0.RACE|)</b></td>
      </tr>
@@ -1481,7 +1484,7 @@ Immune
 |%|
 |%FOLLOWERTYPE.ANIMAL COMPANIONS|
 |FOR,%anm,0,COUNT[FOLLOWERTYPE.ANIMAL COMPANIONS]-1,1,0|
-    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Animal Companion Table">
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Animal Companion Table" class="block">
      <tr>
       <td class="ab" colspan="12"><b>Animal Companion: |FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.NAME| (|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.RACE|)</b></td>
      </tr>
@@ -1519,9 +1522,9 @@ Immune
 <!-- STOP Companions Table1 -->
 |%|
 |%FOLLOWERTYPE.FOLLOWERS|
-    <table width="100%" cellspacing="0" cellpadding="3" summary="Henchmen Table">
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Henchmen Table" class="block">
      <tr>
-      <td class="ab"><b>HENCHMEN</b></td>
+      <th class="ab">Henchmen</th>
      </tr>
      <tr>
       <td valign="top" width="70%" class="border8">
@@ -1535,9 +1538,9 @@ Immune
 |%|
 |%MISC.COMPANIONS|
 <!-- START Misc Companions Table -->
-    <table width="100%" cellspacing="0" cellpadding="3" summary="Misc. Magic Table">
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Other Companions Table" class="block">
      <tr>
-      <td class="ab"><b>OTHER COMPANIONS</b></td>
+      <th class="ab">Other Companions</th>
      </tr>
      <tr>
       <td valign="top" width="70%" class="border8"><span class="notes">|MISC.COMPANIONS|</span></td>
@@ -1548,9 +1551,9 @@ Immune
 |%|
 <!-- START Template Table -->
 |%TEMPLATE.0|
-    <table width="100%" cellspacing="0" cellpadding="3" summary="Template Table">
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Template Table" class="block">
      <tr>
-      <td class="ab"><b>TEMPLATES</b></td>
+      <th class="ab">Templates</th>
      </tr>
      <tr>
       <td valign="top" width="70%" class="border8">|TEMPLATELIST|<br /></td>
@@ -1561,9 +1564,9 @@ Immune
 <!-- STOP Template Table -->
 <!-- START Salient Divine Ability Table -->
 |IIF(HASVAR:DivineRank)|
-    <table width="100%" cellspacing="0" cellpadding="3" summary="Template Table">
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Salient Divine Table" class="block">
      <tr>
-      <td class="ab"><b>SALIENT DIVINE ABILITIES</b></td>
+      <th class="ab">Salient Divine Abilities</th>
      </tr>
      <tr>
       <td valign="top" width="70%" class="border8">|ABILITYLIST.Salient Divine Ability|<br /></td>
@@ -1575,9 +1578,9 @@ Immune
 <!-- STOP Salient Divine Ability Table -->
 |%MISC.MAGIC|
 <!-- START Misc Magic Table -->
-    <table width="100%" cellspacing="0" cellpadding="3" summary="Misc. Magic Table">
+    <table width="100%" cellspacing="0" cellpadding="3" summary="Misc. Magic Table" class="block">
      <tr>
-      <td class="ab"><b>MAGIC</b></td>
+      <th class="ab">Magic</th>
      </tr>
      <tr>
       <td valign="top" width="70%" class="border8"><span class="notes">|MISC.MAGIC|</span></td>
@@ -1787,7 +1790,7 @@ Immune
     </tr>
     <tr>
      <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
-     <td class="border10" colspan="5"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+     <td class="border10" colspan="5">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
     </tr>
    </table>
 	<br />
@@ -1880,7 +1883,7 @@ Immune
     </tr>
     <tr>
      <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
-     <td class="border10" colspan="5"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+     <td class="border10" colspan="5">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
     </tr>
    </table>
    <br />
@@ -1918,7 +1921,7 @@ Immune
     </tr>
     <tr>
      <td align="left" bgcolor="black" class="border" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
-     <td class="border10" colspan="5"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+     <td class="border10" colspan="5">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
     </tr>
    </table>
    <br />
@@ -1950,7 +1953,7 @@ Immune
      <td class="border10c"><b>|WEAPON.%weap.RANGE|<br /></b></td>
      <td class="border10c"><b>|WEAPON.%weap.TYPE|<br /></b></td>
      <td class="border10c"><b>|WEAPON.%weap.SIZE|<br /></b></td>
-     <td class="border10c"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+     <td class="border10c">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
     </tr>
    </table>
    <br />
@@ -2001,7 +2004,7 @@ Immune
     </tr>
     <tr>
      <td align="left" bgcolor="black" colspan="2" class="ablableb">&nbsp;Special Properties</td>
-     <td class="border10" colspan="5"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+     <td class="border10" colspan="5">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
     </tr>
    </table>
    <br />
@@ -2038,7 +2041,7 @@ Immune
     </tr>
     <tr>
      <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
-     <td class="border10" colspan="5"><b>&nbsp;|WEAPON.%weap.SPROP|<br /></b></td>
+     <td class="border10" colspan="5">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
     </tr>
    </table>
 |ELSE|
@@ -2061,34 +2064,36 @@ Immune
   </td>
   <td width="50%" valign="top">
 <!-- START Language Table -->
-   <table width="100%" cellspacing="0" cellpadding="3" summary="Language Table">
+   <table width="100%" cellspacing="0" cellpadding="3" summary="Language Table" class="block">
     <tr>
-     <td bgcolor="black" align="center" colspan="1" class="ab"><b>LANGUAGES</b></td>
+     <th class="ab" colspan="1">Languages</th>
     </tr>
     <tr>
      <td valign="top" width="100%" class="border10">|LANGUAGES|<br /></td>
     </tr>
    </table>
+	<br />
 <!-- STOP Language Table -->
 <!-- Start Proficiency Table -->
 |%WEAPONPROF|
-   <table width="100%" cellspacing="0" cellpadding="3" summary="Proficiency Table">
+   <table width="100%" cellspacing="0" cellpadding="3" summary="Proficiency Table" class="block">
     <tr>
-     <td bgcolor="black" align="center" colspan="1" class="ab"><b>PROFICIENCIES</b></td>
+     <th class="ab" colspan="1">Proficiencies</th>
     </tr>
     <tr>
      <td valign="top" width="100%" class="border10">|WEAPONPROFS|<br /></td>
     </tr>
    </table>
+	<br />
 <!-- STOP Proficiency Table -->
 |%|
 
 <!-- Eclipse Addons >
 <!-- START Spell Caster Output Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpellCasterOutput";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+<table width="100%" cellspacing="0" cellpadding="2" summary="Spell Caster Levels">
 <tr>
-<th bgcolor="black" class="ab" colspan="2"><b>Spell Caster Levels</b></th>
+<th bgcolor="black" class="ab" colspan="2">Spell Caster Levels</th>
 </tr>
 |FOR,%spellcaster,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpellCasterOutput","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%spellcaster,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
@@ -2106,9 +2111,9 @@ Immune
 
 <!-- START Disadvantages Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Disadvantage";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Disadvantages Table">
     <tr>
-     <th bgcolor="black" class="ab" colspan="2"><b>Disadvantages</b></th>
+     <th bgcolor="black" class="ab" colspan="2">Disadvantages</th>
     </tr>
 |FOR,%disadvantage,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Disadvantage","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%disadvantage,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
@@ -2127,9 +2132,9 @@ Immune
 
 <!-- START Afflictions Table -->
 |IIF(count("ABILITIES";"CATEGORY=Affliction";"TYPE=Affliction";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-   <table width="100%" cellspacing="0" cellpadding="2" summary="Affliction Table">
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Affliction Table" class="block">
     <tr>
-     <td class="ab"><b>Afflictions</b></td>
+     <th class="ab">Afflictions</th>
     </tr>
 |FOR,%Affliction,0,count("ABILITIES","CATEGORY=Affliction","TYPE=Affliction","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%affliction,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
@@ -2145,9 +2150,9 @@ Immune
 
 <!-- START Traits Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Trait";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-   <table width="100%" cellspacing="0" cellpadding="2" summary="Traits Table">
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Traits Table" class="block">
     <tr>
-     <th class="ab" colspan="2"><b>Traits</b></th>
+     <th class="ab" colspan="2">Traits</th>
     </tr>
 |FOR,%trait,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%trait,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
@@ -2734,9 +2739,9 @@ Immune
 
 <!-- START Special Attacks Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialAttack";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table" class="block">
 <tr>
-<td bgcolor="black" class="ab" colspan="2"><b>Special Attacks</b></td>
+<th bgcolor="black" class="ab" colspan="2">Special Attacks</th>
 </tr>
 |FOR,%specialAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%specialAttack,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
@@ -2784,15 +2789,15 @@ Immune
 
 <!-- START Special Qualities Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table" class="block">
 <tr>
-<th bgcolor="black" class="ab" colspan="2"><b>Special Qualities</b></th>
+<th class="ab" colspan="2">Special Qualities</th>
 </tr>
 |FOR,%specialQuality,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialQuality","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%specialQuality,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
 
 <!-->@ABILITY	-->
-<td valign="top" width="70%" class="font8"><b>
+<td valign="top" width="70%" class="font8" bgcolor="blue"><strong>
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.HASASPECT.Name:Y)|
 |ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.ASPECT.Name|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.TYPE:Extraordinary)|
@@ -2822,8 +2827,7 @@ Immune
  (Ps)
 |ENDIF|
 |ENDIF|
-
-</b>
+</strong>
 </td>
 <td class="font8" valign="top"	width="30%" align="right">[|ABILITYALL.Special Ability.VISIBLE.%specialQuality.TYPE=SpecialQuality.SOURCE|]</td>
 <tr>
@@ -2838,9 +2842,9 @@ Immune
 
 <!-- START Special Abilities Table -->
 |%COUNT[SA]|
-<table width="100%" cellspacing="0" cellpadding="2" summary="Special Abilities Table">
+<table width="100%" cellspacing="0" cellpadding="2" summary="Special Abilities Table" class="block">
 <tr>
-<td bgcolor="black" align="center" colspan="1" class="ab"><b>SPECIAL ABILITIES</b></td>
+<th bgcolor="black" align="center" colspan="1" class="ab">Special Abilities</th>
 </tr>
 
 |FOR,%sa,0,COUNT[SA]-1,1,0|
@@ -2853,13 +2857,13 @@ Immune
 <!-- STOP Special Abilities Table -->
 
 <!-- START Feat Table -->
-<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table" class="block">
 <tr>
-<td bgcolor="black" align="center" colspan="2" class="ab"><b>FEATS</b></td>
+<th bgcolor="black" align="center" colspan="2" class="ab">Feats</th>
 </tr>
 |FOR,%feat,0,COUNT[FEATSALL.VISIBLE]-1,1,0|
 |OIF(EVEN:%feat,<tr bgcolor="#DDDDDD" >,<tr>)|
-<td valign="top" width="70%" class="font8"><b>|FEATALL.VISIBLE.%feat|</b></td>
+<td valign="top" width="70%" class="font8"><strong>|FEATALL.VISIBLE.%feat|</strong></td>
 <td class="font8" valign="top"	width="30%" align="right">[|FEATALL.VISIBLE.%feat.SOURCE|]</td>
 </tr>
 |OIF(EVEN:%feat,<tr bgcolor="#DDDDDD" >,<tr>)|
@@ -2906,14 +2910,14 @@ Immune
 |FOR,%level,0,0,1,1|
 |%SPELLLISTBOOK.%class.%level.%spellbook|
 <!-- START Spell list Header Table (Racial Innate) -->
-<table width="98%" cellspacing="0" cellpadding="2" summary="Spell List">
+<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
   <td colspan="11" class="sphead"><b>Innate Spell-like Abilities</b></td>
  </tr>
 </table>
 <!-- End Spell List Header Table (Racial Innate) -->
 <!-- Start Racial Innate Spell listing -->
-<table width="98%" cellspacing="0" cellpadding="2" summary="Spell List">
+<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
   <td class="spname"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b><br /></td>
@@ -2962,12 +2966,12 @@ at will
 |%SPELLLISTBOOK.%class.%level.%spellbook|
 <!-- START Spell list Header Table (Other Innate) -->
 <br />
-<table width="98%" cellspacing="0" cellpadding="2" summary="Spell List">
+<table width="100%" cellspacing="0" cellpadding="2" summary="|SPELLBOOKNAME.%spellbook| Spell-like Abilities">
  <tr>
   <td colspan="9" class="sphead"><b>|SPELLBOOKNAME.%spellbook| Spell-like Abilities</b></font></td>
  </tr>
 </table>
-<table width="98%" cellspacing="0" cellpadding="2" summary="Spell List">
+<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |OIF(EVEN:%spell,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
   <td class="spname"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b><br /></td>
@@ -3133,9 +3137,9 @@ Spells
 |FOR,%level,0,0,1,0|
 |%SPELLLISTBOOK.%class.%level.%spellbook|
 <br />
-<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+<table width="100%" cellspacing="0" cellpadding="2" summary="Racial Innate Spell List">
  <tr>
-  <td colspan="11" align="center" bgcolor="black"><font color="white"><b>Racial Innate</b></font></td>
+  <th colspan="11" align="center" bgcolor="black" color="white">Racial Innate</th>
  </tr>
  <tr>
   <td valign="top">
