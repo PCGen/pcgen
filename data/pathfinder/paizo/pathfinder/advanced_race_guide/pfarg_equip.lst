@@ -226,7 +226,7 @@ Tailblade (Ratfolk)	PROFICIENCY:WEAPON|Tailblade (Ratfolk)	TYPE:Weapon.Light.Mel
 # Equipment Name			Type									Cost		Weight	Source Page		Bonus to skill										Special Property
 Elemental Breath			TYPE:Goods.Alchemical.Consumable.Vial.Racial.Sylph	COST:80	WT:.5		SOURCEPAGE:p.159													SPROP:When elemental breath is inhaled (as drinking a potion) by an air-breathing creature, that creature does not need to breath air for 10 rounds.
 Wing Cloak				TYPE:Goods.Clothing.Cloak.Racial.Sylph			COST:1200	WT:1		SOURCEPAGE:p.159													SPROP:When the cloak is shaped into a wing, the wearer can make a DC 15 Fly check to fall safely from any height without taking falling damage, as if using feather fall. When falling, the wearer may make an additional DC 15 Fly check to glide, moving 5 feet laterally for every 20 feet she falls.
-Elixer of Forceful Exhalation	TYPE:Magic.Potion.Consumable					COST:900	WT:1		SOURCEPAGE:p.160	BONUS:SKILL|Acrobatics (Jump),Swim|4|TYPE=Competence|PREAPPLY:ANYPC	SPROP:The drinker can exhale up to three 15-foot-long Gusts of Wind (as the spell), after which the skill bonuses end.
+Elixer of Forceful Exhalation	TYPE:Magic.Potion.Consumable					COST:900	WT:1		SOURCEPAGE:p.160	TEMPBONUS:ANYPC|SKILL|Acrobatics (Jump),Swim|4|TYPE=Competence		SPROP:The drinker can exhale up to three 15-foot-long Gusts of Wind (as the spell), after which the skill bonuses end.
 
 ###Block: Tengu Equipment
 # Equipment Name						Output Name							Type									Cost		Weight	Source Page		Special Property
@@ -313,7 +313,7 @@ Meridian Belt	TYPE:Magic.Wondrous.Belt.Racial.Vanara	COST:1000	WT:1		SOURCEPAGE:
 ###Block: Vishkanya Equipment
 # Equipment Name		Type									Cost		Weight	Source Page		Bonus to skill					Special Property
 Poison Tattoo		TYPE:Goods.Alchemical.Consumable.Racial.Vishkanya	COST:50			SOURCEPAGE:p.209								SPROP:Temporarily boosts the strength of a vishkanya's natural poison, increasing the DC of the next weapon envenomed with the vishkanya's blood or saliva by +2 (once used, the tattoo is merely decorative and does not affect the creature's poison).
-Corset of the Vishkanya	TYPE:Magic.Wondrous.Shirt					COST:3000	WT:1		SOURCEPAGE:p.209	BONUS:SKILL|Escape Artist|5|PREAPPLY:PC	SPROP:The wearer can compress herself to fit through tight spaces as though affected by a Squeeze spell for up to 10 rounds per day. While using the corset's magic, she gains a +5 bonus on Escape Artist checks.
+Corset of the Vishkanya	TYPE:Magic.Wondrous.Shirt					COST:3000	WT:1		SOURCEPAGE:p.209	TEMPBONUS:ANYPC|SKILL|Escape Artist|5	SPROP:The wearer can compress herself to fit through tight spaces as though affected by a Squeeze spell for up to 10 rounds per day. While using the corset's magic, she gains a +5 bonus on Escape Artist checks.
 
 ###Block: Wayang Equipment
 # Equipment Name		Type							Cost		Weight	Source Page		Special Property
