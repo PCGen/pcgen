@@ -226,7 +226,7 @@ Sunlight Petrification	KEY:Sunlight Petrification ~ Rock Troll	CATEGORY:Special 
 
 ###Block: Snapping Turtle Abilities
 # Ability Name	Unique Key				Category of Ability		Type						Description																																						Combat bonus							Source Page
-Shell			KEY:Shell ~ Snapping Turtle	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:As a move action, a snapping turtle can pull its extremities and head into its shell.  It cannot move or attack as long as it remains in this state, but its armor bonus from natural armor increases by +4 as long as it does.	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK|PREAPPLY:PC	SOURCEPAGE:p.273
+Shell			KEY:Shell ~ Snapping Turtle	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:As a move action, a snapping turtle can pull its extremities and head into its shell.  It cannot move or attack as long as it remains in this state, but its armor bonus from natural armor increases by +4 as long as it does.	TEMPBONUS:PC|COMBAT|AC|4|TYPE=NaturalArmor.STACK	SOURCEPAGE:p.273
 
 ###Block: Giant Snapping Turtle Abilities
 # Ability Name	Unique Key							Category of Ability		Type						Description																																				Modify VAR										Source Page
