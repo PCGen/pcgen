@@ -320,6 +320,11 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		return preferRadioSelection;
 	}
 
+	public boolean isUserInput()
+	{
+		return false;
+	}
+
 	public void setPreferRadioSelection(boolean preferRadioSelection)
 	{
 		this.preferRadioSelection = preferRadioSelection;

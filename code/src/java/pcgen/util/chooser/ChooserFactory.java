@@ -33,7 +33,6 @@ import pcgen.core.facade.UIDelegate;
  */
 public final class ChooserFactory
 {
-	private static String userInputInterfaceClassname = null;
 	private static UIDelegate delegate;
 	private final static Stack<String> interfaceClassNameStack = new Stack<String>();
 
@@ -82,33 +81,6 @@ public final class ChooserFactory
 	}
 
 	/**
-	 * Get the userInput instance
-	 * @return ChooserInterface
-	 */
-	public static ChooserInterface getUserInputInstance()
-	{
-		try
-		{
-			Class<?> c = Class.forName(userInputInterfaceClassname);
-			ChooserInterface ci = (ChooserInterface) c.newInstance();
-			return ci;
-		}
-		catch (ClassNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
-		{
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	/**
 	 * Add a chooser class name to the top of the stack of class names. 
 	 * Existing chooser class names will be preserved but will not 
 	 * be used until this one is popped off the stack.
@@ -132,23 +104,6 @@ public final class ChooserFactory
 			return null;
 		}
 		return ChooserFactory.interfaceClassNameStack.pop();
-	}
-
-	/**
-	 * @param uiInterfaceClassname The uiInterfaceClassname to set.
-	 */
-	public static void setUserInputInterfaceClassname(String uiInterfaceClassname)
-	{
-		ChooserFactory.userInputInterfaceClassname = uiInterfaceClassname;
-	}
-
-	/**
-	 * Get the class name of the user input interface
-	 * @return the class name of the user input interface
-	 */
-	public static String getUserInputInterfaceClassname()
-	{
-		return ChooserFactory.userInputInterfaceClassname;
 	}
 
 	/**

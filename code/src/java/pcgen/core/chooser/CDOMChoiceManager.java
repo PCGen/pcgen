@@ -3,6 +3,8 @@ package pcgen.core.chooser;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
@@ -22,7 +24,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	private final Integer numberOfChoices;
 	protected final int choicesPerUnitCost;
 	protected ChooseController<T> controller = new ChooseController<T>();
-	private final ChooseInformation<T> info;
+	protected final ChooseInformation<T> info;
 
 	private transient int preChooserChoices;
 
@@ -130,9 +132,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	{
 		int effectiveChoices = getNumEffectiveChoices(selectedList, reservedList, aPc);
 
-//		final ChooserInterface chooser = getChooserInstance();
 		boolean dupsAllowed = controller.isMultYes() && controller.isStackYes();
-//		chooser.setAllowsDups(dupsAllowed);
 		
 		/*
 		 * TODO This is temporarily commented out until the correct behavior of
@@ -147,20 +147,16 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		}
 
 		Globals.sortChooserLists(availableList, selectedList);
-//		chooser.setAvailableList(availableList);
-//		chooser.setSelectedList(selectedList);
-//
-//		chooser.setChoicesPerUnit(choicesPerUnitCost);
-//		chooser.setTotalChoicesAvail(effectiveChoices);
-//		chooser.setPoolFlag(false); // Allow cancel as clicking the x will
-//		// cancel anyway
-//
-//		chooser.setVisible(true);
-//
-//		return chooser.getSelectedList();
+		
+		String title = StringUtils.isBlank(info.getTitle()) ? "in_chooser" //$NON-NLS-1$
+			: info.getTitle();
+		if (title.startsWith("in_")) //$NON-NLS-1$
+		{
+			title = LanguageBundle.getString(title);
+		}
+		
 		CDOMChooserFacadeImpl<T> chooserFacade =
-				new CDOMChooserFacadeImpl<T>(
-					LanguageBundle.getString("in_chooser"), availableList, //$NON-NLS-1$
+				new CDOMChooserFacadeImpl<T>(title, availableList,
 					selectedList, effectiveChoices);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		chooserFacade.setAllowsDups(dupsAllowed);
@@ -168,7 +164,6 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 		
 		return chooserFacade.getFinalSelected();
-		
 	}
 
 	/**

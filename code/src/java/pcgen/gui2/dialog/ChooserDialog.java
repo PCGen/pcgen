@@ -24,6 +24,7 @@ package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
@@ -36,6 +37,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -43,12 +46,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.base.Constants;
+import pcgen.core.chooser.InfoWrapper;
 import pcgen.core.facade.ChooserFacade;
 import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.facade.InfoFacade;
@@ -94,6 +101,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 
 	private final ChooserFacade chooser;
 	private final JTreeViewTable<InfoFacade> availTable;
+	private final JTextField availInput;
 	private final JLabel remainingLabel;
 	private final GeneralTreeViewModel treeViewModel;
 	private final FacadeListModel<InfoFacade> listModel;
@@ -110,7 +118,16 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 	{
 		super(frame, true);
 		this.chooser = chooser;
-		this.availTable = new JTreeViewTable<InfoFacade>();
+		if (chooser.isUserInput())
+		{
+			this.availTable = null;
+			this.availInput = new JTextField(20);
+		}
+		else
+		{
+			this.availTable = new JTreeViewTable<InfoFacade>();
+			this.availInput = null;
+		}
 		this.remainingLabel = new JLabel();
 		this.treeViewModel = new GeneralTreeViewModel();
 		this.list = new JListEx();
@@ -190,10 +207,26 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 
 		JSplitPane split = new JSplitPane();
 		JPanel leftPane = new JPanel(new BorderLayout());
-		//leftPane.add(new JLabel("Available Languages"), BorderLayout.NORTH);
-		availTable.setTreeViewModel(treeViewModel);
-		availTable.addActionListener(this);
-		leftPane.add(new JScrollPane(availTable), BorderLayout.CENTER);
+		if (availTable != null)
+		{
+			availTable.setTreeViewModel(treeViewModel);
+			availTable.addActionListener(this);
+			leftPane.add(new JScrollPane(availTable), BorderLayout.CENTER);
+		}
+		else
+		{
+			availInput.addActionListener(this);
+			Dimension maxDim = new Dimension(Integer.MAX_VALUE, availInput.getPreferredSize().height);
+			availInput.setMaximumSize(maxDim);
+			JPanel availPanel = new JPanel();
+			availPanel.setLayout(new BoxLayout(availPanel, BoxLayout.PAGE_AXIS));		
+			availPanel.add(Box.createRigidArea(new Dimension(10, 30)));
+			availPanel.add(Box.createVerticalGlue());
+			availPanel.add(new JLabel(LanguageBundle.getString("in_uichooser_value")));
+			availPanel.add(availInput);
+			availPanel.add(Box.createVerticalGlue());
+			leftPane.add(availPanel, BorderLayout.WEST);
+		}
 
 		JPanel buttonPane1 = new JPanel(new FlowLayout());
 		JButton addButton = new JButton(chooser.getAddButtonName());
@@ -238,7 +271,10 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			infoSplit.setBottomComponent(infoPane);
 			infoSplit.setResizeWeight(.8);
 			pane.add(infoSplit, BorderLayout.CENTER);
-			availTable.getSelectionModel().addListSelectionListener(this);
+			if (availTable != null)
+			{
+				availTable.getSelectionModel().addListSelectionListener(this);
+			}
 		}
 		else
 		{
@@ -267,7 +303,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 	@Override
 	public void valueChanged(ListSelectionEvent e)
 	{
-		if (!e.getValueIsAdjusting())
+		if (availTable != null && !e.getValueIsAdjusting())
 		{
 			if (e.getSource() == availTable.getSelectionModel()
 				&& availTable.getSelectedObject() instanceof InfoFacade)
@@ -285,7 +321,8 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		if (e.getActionCommand().equals("ADD") || e.getSource() == availTable)
+		if (availTable != null
+			&& (e.getActionCommand().equals("ADD") || e.getSource() == availTable))
 		{
 			List<Object> data = availTable.getSelectedData();
 			if (!data.isEmpty())
@@ -300,12 +337,28 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			}
 			return;
 		}
+		if (availInput != null
+			&& (e.getActionCommand().equals("ADD") || e.getSource() == availInput))
+		{
+			String data = availInput.getText();
+			if (StringUtils.isNotBlank(data))
+			{
+				chooser.addSelected(new InfoWrapper(data));
+			}
+			availInput.setText("");
+			return;
+		}
+		
 		if (e.getActionCommand().equals("REMOVE") || e.getSource() == list)
 		{
 			Object value = list.getSelectedValue();
 			if (value != null && value instanceof InfoFacade)
 			{
 				chooser.removeSelected((InfoFacade) value);
+				if (availInput != null)
+				{
+					availInput.setText(value.toString());
+				}
 			}
 			return;
 		}

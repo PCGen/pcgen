@@ -165,6 +165,12 @@ public interface ChooserFacade
 	public boolean isPreferRadioSelection();
 
 	/**
+	 * Should the user be requested to enter values rather than select from a list.
+	 * @return true if the user should type in values.
+	 */
+	public boolean isUserInput();
+
+	/**
 	 * @return Do the items in this chooser have extra info above a name.
 	 */
 	public boolean isInfoAvailable();

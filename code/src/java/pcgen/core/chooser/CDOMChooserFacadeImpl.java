@@ -22,8 +22,6 @@
  */
 package pcgen.core.chooser;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +43,6 @@ import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.system.LanguageBundle;
-import pcgen.util.SortKeyAware;
 
 /**
  * The Class <code>GeneraChooserFacadeBase</code> is a base from which a 
@@ -92,6 +89,8 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 
 	private boolean preferRadioSelection = false;
 
+	private boolean userInput = false;
+	
 	private final String stringDelimiter;
 	
 	private boolean infoAvailable = false;
@@ -289,9 +288,9 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 			{
 				selected = (T) ((CDOMChooserFacadeImpl.CDOMInfoWrapper) object).getCdomObj();
 			}
-			else if (object instanceof CDOMChooserFacadeImpl.InfoWrapper)
+			else if (object instanceof InfoWrapper)
 			{
-				selected = (T) ((CDOMChooserFacadeImpl.InfoWrapper) object).getObj();
+				selected = (T) ((InfoWrapper) object).getObj();
 			}
 			else
 			{
@@ -449,6 +448,16 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		return preferRadioSelection;
 	}
 
+	public boolean isUserInput()
+	{
+		return userInput;
+	}
+
+	public void setUserInput(boolean userInput)
+	{
+		this.userInput = userInput;
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -547,101 +556,6 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		{
 			final List<Type> types = cdomObj.getSafeListFor(ListKey.TYPE);
 			return StringUtil.join(types, ".");
-		}
-	}
-
-	private static class InfoWrapper implements InfoFacade, SortKeyAware
-	{
-		private static final NumberFormat SORTABLE_NUMBER_FORMAT =
-				new DecimalFormat("0000000000.00000");
-
-		private final Object obj;
-
-		public InfoWrapper(Object cdomObj)
-		{
-			this.obj = cdomObj;
-			
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public String toString()
-		{
-			return String.valueOf(obj);
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public String getSource()
-		{
-			return "";
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public String getSourceForNodeDisplay()
-		{
-			return "";
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public String getKeyName()
-		{
-			return obj.toString();
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public boolean isNamePI()
-		{
-	    	return false;
-		}
-
-		/**
-		 * @return the obj
-		 */
-		public Object getObj()
-		{
-			return obj;
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public String getType()
-		{
-			if (obj instanceof CDOMObject)
-			{
-				final List<Type> types = ((CDOMObject)obj).getSafeListFor(ListKey.TYPE);
-				return StringUtil.join(types, ".");
-			}
-			return "";
-		}
-
-		/**
-		 * {@inheritDoc}
-		 */
-		@Override
-		public String getSortKey()
-		{
-			if (obj instanceof Number)
-			{
-				return SORTABLE_NUMBER_FORMAT.format(100000d + ((Number) obj)
-					.doubleValue());
-			}
-			return toString();
 		}
 	}
 

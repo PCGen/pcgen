@@ -2,13 +2,15 @@ package pcgen.core.chooser;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
-import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.gui2.facade.Gui2InfoFactory;
+import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.ChooserInterface;
 
 public class UserInputManager extends CDOMChoiceManager<String>
 {
@@ -16,21 +18,6 @@ public class UserInputManager extends CDOMChoiceManager<String>
 		ChooseInformation<String> chooseType, int cost)
 	{
 		super(cdo, chooseType, null, cost);
-	}
-
-	protected ChooserInterface getChooserInstance()
-	{
-		ChooserInterface chooser = ChooserFactory.getUserInputInstance();
-		chooser.setTitle(getTitle());
-		return chooser;
-	}
-
-	@Override
-	public void getChoices(PlayerCharacter pc, List<String> availableList, List<String> selectedList)
-	{
-		super.getChoices(pc, availableList, selectedList);
-		availableList.clear();
-		availableList.add(Constants.EMPTY_STRING);
 	}
 
 	/**
@@ -47,23 +34,26 @@ public class UserInputManager extends CDOMChoiceManager<String>
 	{
 		int effectiveChoices = getNumEffectiveChoices(selectedList, reservedList, aPc);
 
-		final ChooserInterface chooser = getChooserInstance();
 		boolean dupsAllowed = controller.isMultYes() && controller.isStackYes();
-		chooser.setAllowsDups(dupsAllowed);
 
 		Globals.sortChooserLists(availableList, selectedList);
-		chooser.setAvailableList(availableList);
-		chooser.setSelectedList(selectedList);
 
-		chooser.setChoicesPerUnit(choicesPerUnitCost);
-		chooser.setTotalChoicesAvail(effectiveChoices);
-		chooser.setPoolFlag(false); // Allow cancel as clicking the x will
-		// cancel anyway
-
-		chooser.setVisible(true);
-
-		return chooser.getSelectedList();
+		String title = StringUtils.isBlank(info.getTitle()) ? "in_chooser" :  info.getTitle();
+		if (title.startsWith("in_"))
+		{
+			title = LanguageBundle.getString(title);
+		}
 		
+		CDOMChooserFacadeImpl<String> chooserFacade =
+				new CDOMChooserFacadeImpl<String>(
+						title, availableList, 
+					selectedList, effectiveChoices);
+		chooserFacade.setAllowsDups(dupsAllowed);
+		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPc));
+		chooserFacade.setUserInput(true);
+		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
+		
+		return chooserFacade.getFinalSelected();
 	}
 
 }
