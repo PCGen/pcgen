@@ -24,38 +24,26 @@ $Date$
 	.font2 {
 		font-size:17%; 
 	}
-	.font4, .border4 {
-		font-size:33%; 
-	}
-	.font5 {
-		font-size:42%;
-	}
-	.font6, .lable, .topline {
+	.lable, .topline {
 		font-size:50%;
 	}
-	.font7, .border7 {  
-		font-size:58%;
+	.border6 {
+		font-size:xx-small;
 	}
-	.font8, .ablable, .ablableb, .sptab, .sptab1, .sptab2, .notetab, .spname, .sptop, .borderbottom8, .border8 {
-		font-size:67%;
-	}
-	.font9, .biodata, .border9, .skl, .splevel {
-		font-size:75%;
+	.font8, .ablable, .ablableb, .sptab, .sptab1, .sptab2, .notetab, .spname, .sptop, .borderbottom8, .border8, .biodata, .skl, .splevel {
+		font-size:x-small;
 	}
 	.font10, .sign, .key, .border10, .skill, .skillvalue, .border10c, .border10cb {
-		font-size:83%;
-	}
-	.font11 {
-		font-size:92%;
+		font-size:small;
 	}
 	.font12, .h, .ab, .abb, .abt, .notehead, .sphead {
-		font-size:100%; 
+		font-size:medium;
 	}
 	.font14{
-		font-size:118%; 
+		font-size:large; 
 	}
 	.item {
-		font-size: 133%;
+		font-size:x-large;
 	}
 	.h { 
 		vertical-align: bottom;
@@ -152,7 +140,7 @@ $Date$
 		vertical-align:bottom; 
 		text-align:left;
 	}
-	.border, .border4, .border7, .border8, .border9, .border10, .border10c, .border10cb {
+	.border, .border4, .border6, .border8, .border10, .border10c, .border10cb {
 		border: 1px solid black;
 	}
 	.tempborder {
@@ -270,7 +258,7 @@ $Date$
 	<table summary="Hit Point Table"> 
         <tr>
           <td align="center" width="90"></td>
-          <td align="center" width="25" valign="bottom"></td>
+          <td align="center" width="25"></td>
           <td align="center"></td>
           <td align="center" width="119" class="lable">WOUNDS/CURRENT HP</td>
           <td align="center"></td>
@@ -285,13 +273,13 @@ $Date$
             <br /><span class="ablable"> Hit Points</span></td>
           <td align="center" class="abb"><b>|HP|</b></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9"><br /></td>
+          <td align="center" class="border8"><br /></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9"><br /></td>
+          <td align="center" class="border8"><br /></td>
           <td align="center"><br /></td>
           <td align="center" class="abb"><b>&nbsp;|DR|&nbsp;</b></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9">
+          <td align="center" class="border8">
 |FOR,%movement,0,COUNT[MOVE]-1,1,1|
 |MOVE.%movement.NAME|&nbsp;|MOVE.%movement.RATE|
 |IIF(MOVE.%movement.NAME:Fly)|
@@ -327,9 +315,9 @@ $Date$
             <br /><span class="ablable">Vitality</span></td>
           <td align="center" class="abb"><b>|HP|</b></td>
           <td align="center"><br /></td>
-          <td align="center" class="border9"></td>
+          <td align="center" class="border8"></td>
           <td></td>
-          <td align="center" class="border9"></td>
+          <td align="center" class="border8"></td>
           <td align="center"></td>
           <td class="ab"><b>WP</b>
             <br /><span class="ablable">Wound Points</span></td>
@@ -339,7 +327,7 @@ $Date$
           <td></td>
           <td align="center" class="abb"><b>&nbsp;|DR|&nbsp;</b></td>
           <td></td>
-          <td align="center" class="border9">
+          <td align="center" class="border8">
 |FOR,%movement,0,COUNT[MOVE]-1,1,1|
 |MOVE.%movement.NAME|&nbsp;|MOVE.%movement.RATE|
 |IIF(MOVE.%movement.NAME:Fly)|
@@ -486,7 +474,7 @@ $Date$
      <td align="center"></td>
      <td align="center" width="25" class="lable">TEMP</td>
 
-     <td align="left" valign="top" rowspan="4" class="border9"><div align="right" class="lable">CONDITIONNAL MODIFIERS&nbsp;</div>
+     <td align="left" valign="top" rowspan="4" class="border8"><div align="right" class="lable">CONDITIONNAL MODIFIERS&nbsp;</div>
 |FOR,%ability,0,count("ABILITIES","ASPECT=SaveBonus")-1,1,0|
 	 |ABILITYALL.ANY.%ability.ASPECT=SaveBonus.ASPECT.SaveBonus|
 |ENDFOR|</td>
@@ -1206,11 +1194,11 @@ Immune
     </tr>
     <tr>
      <td bgcolor="#000000" class="ablable">&nbsp;Base PP</td>
-     <td bgcolor="#FFFFFF" class="border9" >|VAR.BASEPOWERPOINTS.INTVAL|</td>
+     <td bgcolor="#FFFFFF" class="border10" >|VAR.BASEPOWERPOINTS.INTVAL|</td>
      <td bgcolor="#000000" class="ablable">&nbsp;Bonus PP</td>
-     <td bgcolor="#FFFFFF" class="border9">|VAR.BONUSPOWERPOINTS.INTVAL|</td>
+     <td bgcolor="#FFFFFF" class="border10">|VAR.BONUSPOWERPOINTS.INTVAL|</td>
      <td bgcolor="#000000" class="ablable">&nbsp;Total PP</td>
-     <td bgcolor="#FFFFFF" class="border9" >|VAR.TOTALPOWERPOINTS.INTVAL|</td>
+     <td bgcolor="#FFFFFF" class="border10" >|VAR.TOTALPOWERPOINTS.INTVAL|</td>
     </tr>
     <tr>
      <td>&nbsp;</td>
@@ -1223,19 +1211,19 @@ Immune
 <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Skills Table">
     <tr>
 		 <td height="30" bgcolor="black"></td>
-		 <td height="30" class="ab"><b>SKILLS</b></td>
+		 <th height="30" class="ab">SKILLS</th>
 		 <td colspan="4" height="30" bgcolor="black" align="center"></td>
 		 <td height="30" bgcolor="black" align="right" ></td>
 		 <td height="30" class="ab">MAX<br />RANKS</td>
 		 <td colspan="2" height="30" align="center" class="skl"><b>|MAXSKILLLEVEL|/|MAXCCSKILLLEVEL|</b></td>
     </tr>
     <tr>
-		 <td colspan="2" align="center" width="50%" class="border7">SKILL NAME</td>
-		 <td align="center" width="10%" class="border7">ABILITY</td>
-		 <td align="center" width="10%" colspan="1" class="border7">SKILL<br />MODIFIER</td>
-		 <td align="center" width="10%" colspan="2" class="border7">ABILITY<br />MODIFIER</td>
-		 <td align="center" width="10%" colspan="2" class="border7">RANKS</td>
-		 <td align="center" width="10%" colspan="2" class="border7">MISC<br />MODIFIER</td>
+		 <td colspan="2" align="center" width="50%" class="border6">SKILL NAME</td>
+		 <td align="center" width="10%" class="border6">ABILITY</td>
+		 <td align="center" width="10%" colspan="1" class="border6">SKILL<br />MODIFIER</td>
+		 <td align="center" width="10%" colspan="2" class="border6">ABILITY<br />MODIFIER</td>
+		 <td align="center" width="10%" colspan="2" class="border6">RANKS</td>
+		 <td align="center" width="10%" colspan="2" class="border6">MISC<br />MODIFIER</td>
     </tr>
 |FOR,%skill,0,COUNT[SKILLS]-1,1,0|
 |OIF(EVEN:%skill,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
@@ -1244,11 +1232,11 @@ Immune
 		 <td align="center" class="skill">|SKILL.%skill.ABILITY|</td>
 		 <td align="center" class="skillValue"><b>|SKILL.%skill.TOTAL|</b></td>
 		 <td align="center" class="sign">=</td>
-		 <td align="center" class="skillValue">|SKILL.%skill.ABMOD|<br /></td>
+		 <td align="center" class="skillValue">|SKILL.%skill.ABMOD|</td>
 		 <td align="center" class="sign">+</td>
-		 <td align="center" class="skillValue" >|TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK| <br /></td>
+		 <td align="center" class="skillValue" >|TEXT.REPLACEFIRST{\.0,}.SKILL.%skill.RANK|</td>
 		 <td align="center" class="sign">+</td>
-		 <td align="center" class="skillValue">|SKILL.%skill.MISC|<br /></td>
+		 <td align="center" class="skillValue">|SKILL.%skill.MISC|</td>
     </tr>
 |ENDFOR|
 </table>
@@ -1266,7 +1254,7 @@ Immune
 <!-- START Equipment Table -->
    <table width="100%" cellspacing="0" cellpadding="0" border="0" summary="Master Equipment Table"> <!-- Master Equipment Table -->
     <tr>
-     <td height="20" colspan="10" align="center" bgcolor="black" class="ab"><b>EQUIPMENT</b></td>
+     <th height="20" colspan="10" align="center" bgcolor="black" class="ab">EQUIPMENT</th>
     </tr>
     <tr>
      <td width="50%" valign="top">
@@ -1286,14 +1274,14 @@ Immune
         <td valign="top" class="border10">&nbsp;|EQ.Not.Coin.NOT.Gem.%equip1.NAME|
 |ENDIF|
 |IIF(VAR.IF(VAR("EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.CHARGES")>0;1;0):1)|
-        <span class="border8">&nbsp;(|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.CHARGES| Charges)</span>
+        <span class="border6">&nbsp;(|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.CHARGES| Charges)</span>
 |ENDIF|
 <br />
 |IIF(EQ.Not.Coin.NOT.Gem.%equip1.SPROP: )|
-        <span class="border8">|EQ.Not.Coin.NOT.Gem.%equip1.SPROP|</span><br />
+        <span class="border6">|EQ.Not.Coin.NOT.Gem.%equip1.SPROP|</span><br />
 |ENDIF|
 |IIF(EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.NOTE: )|
-        <span class="border8"><i>|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.NOTE|</i></span><br />
+        <span class="border6"><i>|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip1.NOTE|</i></span><br />
 |ENDIF|
         </td>
         <td valign="top" class="border10c">|EQ.Not.Coin.NOT.Gem.%equip1.LOCATION|<br /></td>
@@ -1321,7 +1309,7 @@ Immune
         <td valign="top" class="border10">&nbsp;|EQ.Not.Coin.NOT.Gem.%equip2.NAME|
 |ENDIF|
 |IIF(VAR.IF(VAR("EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.CHARGES")>0;1;0):1)|
-        <span class="border7">&nbsp;(|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.CHARGES| Charges)</span>
+        <span class="border8">&nbsp;(|EQ.MERGELOC.Not.Coin.NOT.Gem.%equip2.CHARGES| Charges)</span>
 |ENDIF|
 <br />
 |IIF(EQ.Not.Coin.NOT.Gem.%equip2.SPROP: )|
@@ -1437,7 +1425,7 @@ Immune
 |ENDFOR|
      <tr>
       <td class="ablableb">Special</td>
-      <td class="border9" colspan="12">&nbsp;&nbsp;|FOLLOWERTYPE.FAMILIAR.0.SPECIALLIST|</td>
+      <td class="border10" colspan="12">&nbsp;&nbsp;|FOLLOWERTYPE.FAMILIAR.0.SPECIALLIST|</td>
      </tr>
      <tr>
      </tr>
@@ -1475,7 +1463,7 @@ Immune
 |ENDFOR|
      <tr>
       <td class="ablableb">Special:</td>
-      <td class="border9" colspan="12">&nbsp;&nbsp;|FOLLOWERTYPE.SPECIAL MOUNT.0.SPECIALLIST|</td>
+      <td class="border10" colspan="12">&nbsp;&nbsp;|FOLLOWERTYPE.SPECIAL MOUNT.0.SPECIALLIST|</td>
      </tr>
      <tr>
      </tr>
@@ -1514,7 +1502,7 @@ Immune
 |ENDFOR|
      <tr>
       <td class="ablableb">Special</td>
-      <td class="border9" colspan="11">&nbsp;&nbsp;|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.SPECIALLIST|<br /></td>
+      <td class="border10" colspan="11">&nbsp;&nbsp;|FOLLOWERTYPE.ANIMAL COMPANIONS.%anm.SPECIALLIST|<br /></td>
      </tr>
     </table>
    <br />
@@ -1613,7 +1601,7 @@ Immune
       <td valign="top" class="border8"><b>Granted Power</b><br /></td>
      </tr>
 <!--Bjorn Ehlert: The use of COUNT[DOMAINS]+1 doesn't result in empty TDs at the end of the TABLE-->
-|FOR.1,COUNT[DOMAINS]+1,1,<tr><td valign="top" class="border7">\DOMAIN.%\<br /></td><td valign="top" class="border7">\DOMAIN.%.POWER\<br /></td></tr>, , ,0|
+|FOR.1,COUNT[DOMAINS]+1,1,<tr><td valign="top" class="border8">\DOMAIN.%\<br /></td><td valign="top" class="border8">\DOMAIN.%.POWER\<br /></td></tr>, , ,0|
     </table>
 	<br />
 |%|
@@ -1629,33 +1617,33 @@ Immune
       <td rowspan="2" width="25%" bgcolor="black" align="center" class="ablable">TURNING CHECK<br />RESULT</td>
       <td rowspan="2" width="25%" bgcolor="black" align="center" class="ablable">AFFECTED<br />(MAX HIT DICE)</td>
       <td width="25%" bgcolor="black" align="right" class="ablable">TURN LEVEL</td>
-      <td width="25%" class="border9" align="center"><b>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel.INTVAL|</b></td>
+      <td width="25%" class="border10" align="center"><b>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel.INTVAL|</b></td>
      </tr>
      <tr>
       <td bgcolor="black" align="right" class="ablable">TURN DAMAGE</td>
-      <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnDamage|</b></td>
+      <td class="border10" align="center"><b>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnDamage|</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>Up to 0</b></td>
       <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel)-4).INTVAL|</b></td>
       <td bgcolor="black" align="right" class="ablable">TURNING CHECK</td>
-      <td class="border9" align="center"><b>1d20|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnCheck.INTVAL.SIGN.NOZERO|</b></td>
+      <td class="border10" align="center"><b>1d20|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnCheck.INTVAL.SIGN.NOZERO|</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>1 - 3</b></td>
       <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel)-3).INTVAL|</b></td>
       <td bgcolor="black" align="right" class="ablable">TURNS/DAY</td>
-      <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnTimes.INTVAL|</b></td>
+      <td class="border10" align="center"><b>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnTimes.INTVAL|</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>4 - 6</b></td>
       <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel)-2).INTVAL|</b></td>
-      <td colspan="2" class="border9" align="center">|FOR.0,ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnTimes.INTVAL,5,&#9744;, , ,1|</td>
+      <td colspan="2" class="border10" align="center">|FOR.0,ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnTimes.INTVAL,5,&#9744;, , ,1|</td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
       <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel)-1).INTVAL|</b></td>
-      <td colspan="2" rowspan="6" class="border9" valign="top">|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnNotes|</td>
+      <td colspan="2" rowspan="6" class="border10" valign="top">|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnNotes|</td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>10 - 12</b></td>
@@ -1695,36 +1683,36 @@ Immune
       <td rowspan="2" width="25%" bgcolor="black" align="center" class="ablable">CHANNELING CHECK<br />RESULT</td>
       <td rowspan="2" width="25%" bgcolor="black" align="center" class="ablable">AFFECTED<br />(MAX HIT DICE)</td>
       <td width="25%" bgcolor="black" align="right" class="ablable">CHANNELING LEVEL</td>
-      <td width="25%" class="border9" align="center"><b>|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingLevel.INTVAL|</b></td>
+      <td width="25%" class="border10" align="center"><b>|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingLevel.INTVAL|</b></td>
      </tr>
      <tr>
       <td bgcolor="black" align="right" class="ablable">MAGNITUDE</td>
 
-	  <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitude||ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitudeBonus.SIGN||ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitudeFactor|</b></td>
+	  <td class="border10" align="center"><b>|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitude||ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitudeBonus.SIGN||ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingOutput.ASPECT.ChannelingMagnitudeFactor|</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>Up to 0</b></td>
       <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingIntensity)-8).INTVAL|</b></td>
       <td bgcolor="black" align="right" class="ablable">CHANNELING CHECK</td>
-      <td class="border9" align="center"><b>1d20|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingCheck.INTVAL.SIGN.NOZERO|</b></td>
+      <td class="border10" align="center"><b>1d20|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingCheck.INTVAL.SIGN.NOZERO|</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>1 - 3</b></td>
       <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingIntensity)-7).INTVAL|</b></td>
 		<td bgcolor="black" align="right" class="ablable">RANGE</td>
-		<td class="border9" align="center"><b>|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingRange| (ft.)</b></td>
+		<td class="border10" align="center"><b>|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingRange| (ft.)</b></td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>4 - 6</b></td>
       <td align="center" class="font8"><b>|((ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingIntensity)-6).INTVAL|</b></td>
       <td bgcolor="black" align="right" class="ablable">TURNS/DAY</td>
-      <td class="border9" align="center"><b>|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingUses.INTVAL|</b></td>
+      <td class="border10" align="center"><b>|ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingUses.INTVAL|</b></td>
      </tr>
      <tr>
       <td bgcolor="gray" align="center" class="font8"><b>7 - 9</b></td>
       <td bgcolor="gray" align="center" class="font8"><b>|((ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingIntensity)-5).INTVAL|</b></td>
       <td bgcolor="black" align="right" class="ablable">USES</td>
-      <td colspan="2" class="border9" align="center">|FOR.0,ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingUses.INTVAL,5,&#9744;, , ,1|</td>
+      <td colspan="2" class="border10" align="center">|FOR.0,ABILITYALL.Special Ability.%channelingcount.TYPE=ChannelingBase.ASPECT.ChannelingUses.INTVAL,5,&#9744;, , ,1|</td>
      </tr>
      <tr>
       <td align="center" class="font8"><b>10 - 12</b></td>
@@ -2175,7 +2163,7 @@ Immune
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=CharCreation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-     <th bgcolor="black" class="ab" colspan="2"><b>Recurring Bonuses</b></th>
+     <th bgcolor="black" class="ab" colspan="2">Recurring Bonuses</th>
     </tr>
 |FOR,%charcreation,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=CharCreation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%charcreation,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
@@ -2194,9 +2182,9 @@ Immune
 
 <!-- START Eclipse Abilities Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=EclipseAbilityOutput";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+<table width="100%" cellspacing="0" cellpadding="2" summary="Eclipse Abilities Table" class="block">
 <tr>
-<th bgcolor="black" class="ab" colspan="2"><b>Eclipse Abilities</b></th>
+<th bgcolor="black" class="ab" colspan="2">Eclipse Abilities</th>
 </tr>
 |FOR,%eclipseAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=EclipseAbilityOutput","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 |OIF(EVEN:%eclipseAbilities,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
@@ -2789,7 +2777,7 @@ Immune
 
 <!-- START Special Qualities Table -->
 |IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=SpecialQuality";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
-<table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table" class="block">
+<table width="100%" cellspacing="0" cellpadding="2" summary="Special Qualities Table" class="block">
 <tr>
 <th class="ab" colspan="2">Special Qualities</th>
 </tr>
@@ -2844,7 +2832,7 @@ Immune
 |%COUNT[SA]|
 <table width="100%" cellspacing="0" cellpadding="2" summary="Special Abilities Table" class="block">
 <tr>
-<th bgcolor="black" align="center" colspan="1" class="ab">Special Abilities</th>
+<th colspan="1" class="ab">Special Abilities</th>
 </tr>
 
 |FOR,%sa,0,COUNT[SA]-1,1,0|
@@ -2859,11 +2847,11 @@ Immune
 <!-- START Feat Table -->
 <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table" class="block">
 <tr>
-<th bgcolor="black" align="center" colspan="2" class="ab">Feats</th>
+<th colspan="2" class="ab">Feats</th>
 </tr>
 |FOR,%feat,0,COUNT[FEATSALL.VISIBLE]-1,1,0|
 |OIF(EVEN:%feat,<tr bgcolor="#DDDDDD" >,<tr>)|
-<td valign="top" width="70%" class="font8"><strong>|FEATALL.VISIBLE.%feat|</strong></td>
+<td valign="top" width="70%" class="font8"><b>|FEATALL.VISIBLE.%feat|</b></td>
 <td class="font8" valign="top"	width="30%" align="right">[|FEATALL.VISIBLE.%feat.SOURCE|]</td>
 </tr>
 |OIF(EVEN:%feat,<tr bgcolor="#DDDDDD" >,<tr>)|
@@ -2912,7 +2900,7 @@ Immune
 <!-- START Spell list Header Table (Racial Innate) -->
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
-  <td colspan="11" class="sphead"><b>Innate Spell-like Abilities</b></td>
+  <th colspan="11" class="sphead">Innate Spell-like Abilities</th>
  </tr>
 </table>
 <!-- End Spell List Header Table (Racial Innate) -->
@@ -2968,7 +2956,7 @@ at will
 <br />
 <table width="100%" cellspacing="0" cellpadding="2" summary="|SPELLBOOKNAME.%spellbook| Spell-like Abilities">
  <tr>
-  <td colspan="9" class="sphead"><b>|SPELLBOOKNAME.%spellbook| Spell-like Abilities</b></font></td>
+  <th colspan="9" class="sphead">|SPELLBOOKNAME.%spellbook| Spell-like Abilities</th>
  </tr>
 </table>
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
@@ -3075,7 +3063,7 @@ Spells
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
 |ELSE|
   <i>DC:</i> |SPELLMEM.%class.%spellbook.%level.%spell.DC|<br />
-|ENDIF|  
+|ENDIF|
   	</td>
   <td class="sptab"><i>Save:</i> |SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|<br /></td>
   <td class="sptab"><i>Time:</i> |SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|<br /></td>
@@ -3115,7 +3103,7 @@ Spells
 |ENDFOR|
 |ENDFOR|
  <tr>
-  <td colspan="10" bgcolor="#FFFFFF" class="ablable" align="left">* = Domain/Specialty Spell</td>
+  <td colspan="10" class="ablable" align="left">* = Domain/Specialty Spell</td>
  </tr>
 </table>
 <br />
@@ -3139,7 +3127,7 @@ Spells
 <br />
 <table width="100%" cellspacing="0" cellpadding="2" summary="Racial Innate Spell List">
  <tr>
-  <th colspan="11" align="center" bgcolor="black" color="white">Racial Innate</th>
+  <th colspan="11" class="sphead">Racial Innate</th>
  </tr>
  <tr>
   <td valign="top">
@@ -3147,14 +3135,19 @@ Spells
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
 <tr>
- <td align="right" class="font9">At Will</td>
+ <td align="right" class="font10">At Will</td>
 |ELSE|
 <tr>
- <td align="right" class="font11">
+ <td align="right" class="font10">
 |FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,2|
  </td>
 |ENDIF|
- <td class="font9"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)</td>
+ <td class="font10"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b>
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+  (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+</td>
 </tr>
 |ENDFOR|
 </table>
@@ -3176,21 +3169,26 @@ Spells
 |%SPELLLISTBOOK.%class.%level.%spellbook|
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
-  <td colspan="11" align="center" bgcolor="black"><font color="white"><b>|SPELLBOOKNAME.%spellbook| Spells</b></font></td>
+  <th colspan="11" class="sphead">|SPELLBOOKNAME.%spellbook| Spells</th>
  </tr>
   <td valign="top">
 <table>
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 |IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
 <tr>
- <td align="right" class="font9">At Will</td>
+ <td align="right" class="font10">At Will</td>
 |ELSE|
 <tr>
- <td align="right" class="font11">
+ <td align="right" class="font10">
 |FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,2|
  </td>
 |ENDIF|
- <td class="font9"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)</td>
+ <td class="font10"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b>
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+  (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+</td>
 </tr>
 |ENDFOR|
 </table>
@@ -3217,14 +3215,14 @@ Spells
 |IIF(%foo:0.OR.%bar:0)|
 <!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
 <br />
-<table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
+<table width="100%" cellspacing="0" cellpadding="2" summary="Spell Book |SPELLBOOKNAME.%spellbook|">
  <tr>
-  <td colspan="11" align="center" bgcolor="black"><font color="white"><b>|SPELLBOOKNAME.%spellbook|</b></font></td>
+  <th colspan="11" class="sphead">|SPELLBOOKNAME.%spellbook|</th>
  </tr>
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
 |%SPELLLISTCLASS.%class|
  <tr>
-  <td align="center" bgcolor="#DDDDDD" colspan="11" class="font9">|SPELLLISTCLASS.%class|</td>
+  <td align="center" bgcolor="#DDDDDD" colspan="11" class="font10">|SPELLLISTCLASS.%class|</td>
  </tr>
  <tr>
 |FOR,%level,0,4,1,1|
@@ -3235,14 +3233,19 @@ Spells
 |ELSE|
 <table summary="Spell List">
 <tr>
- <td valign="top" align="center" colspan="2" class="font9"><u>Level %level</u></td>
+ <td valign="top" align="center" colspan="2" class="font10"><u>Level %level</u></td>
 </tr>
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 <tr>
- <td align="right" class="font11">
+ <td align="right" class="font10">
 |FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,1|
  </td>
- <td class="font9"><b>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)</td>
+ <td class="font10"><b>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b>
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+  (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+</td>
 </tr>
 |ENDFOR|
 </table>
@@ -3259,14 +3262,19 @@ Spells
 |ELSE|
 <table summary="Spell List">
 <tr>
- <td valign="top" align="center" colspan="2" class="font9"><u>Level %level</u></td>
+ <td valign="top" align="center" colspan="2" class="font10"><u>Level %level</u></td>
 </tr>
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
 <tr>
- <td align="right" class="font11">
+ <td align="right" class="font10">
 |FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,1|
  </td>
- <td class="font9"><b>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)</td>
+ <td class="font10"><b>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b>
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+  (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+</td>
 </tr>
 |ENDFOR|
 </table>
@@ -3340,11 +3348,11 @@ Spells
   </td>
  </tr>
  <tr><td class="borderbottom" colspan="2" class="font14">Description</td></tr>
- <tr><td colspan="2" class="font9"><span class="notes">|DESC|</span></td></tr>
+ <tr><td colspan="2" class="font10"><span class="notes">|DESC|</span></td></tr>
  <tr><td class="borderbottom" colspan="2" class="font14">Home</td></tr>
- <tr><td colspan="2" class="font9">|%REGION| From |REGION|. |%| |%BIO| |RESIDENCE|, |LOCATION|<br/></td></tr>
+ <tr><td colspan="2" class="font10">|%REGION| From |REGION|. |%| |%BIO| |RESIDENCE|, |LOCATION|<br/></td></tr>
  <tr><td class="borderbottom" colspan="2" class="font14">Biography</td></tr>
- <tr><td colspan="2" class="font9"><span class="notes">|BIO|</span></td></tr>
+ <tr><td colspan="2" class="font10"><span class="notes">|BIO|</span></td></tr>
 </table>
 |%|
 |%NOTES|
