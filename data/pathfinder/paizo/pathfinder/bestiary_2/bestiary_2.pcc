@@ -7,8 +7,8 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder RPG
-PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
-PUBNAMELONG:Paizo Publishing
+PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Paizo - Pathfinder Roleplaying Game Advanced Player's Guide,INCLUDES=Paizo - Pathfinder Roleplaying Game Bestiary#PRECAMPAIGN:1,BOOKTYPE=Complete Core,Paizo - Pathfinder Roleplaying Game Advanced Player's Guide
+PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
 SOURCELONG:Bestiary 2
