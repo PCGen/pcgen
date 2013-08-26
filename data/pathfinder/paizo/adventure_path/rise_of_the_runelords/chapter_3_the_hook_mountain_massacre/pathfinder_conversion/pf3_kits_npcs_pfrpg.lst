@@ -3,7 +3,7 @@ SOURCELONG:Rise of the Runelords - Chapter 3: The Hook Mountain Massacre	SOURCES
 
 ### Standard NPCs
 #STARTPACK:NPC ()	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,]	SOURCEPAGE:pg.
-## Kreeg Ogre - This kit is based upon the Minktuck Kreeg NPS which Paizo calls out as the base.
+## Kreeg Ogre - This kit is based upon the Minktuck Kreeg NPCS which Paizo calls out as the base.
 STARTPACK:Kreeg Ogre	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ogre]	SOURCEPAGE:pg.28
 RACE:Ogre	!PRERACE:1,%
 NAME:Kreeg Ogre
@@ -17,10 +17,10 @@ FEAT:Great Fortitude
 FEAT:Improved Critical(Ogre Hook)
 FEAT:Power Attack
 FEAT:Weapon Focus(Ogre Hook)
-ABILITY:CATEGORY=Fighter Feat|Cleave
-ABILITY:CATEGORY=Fighter Feat|Improved Bull Rush
-ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Ogre Hook)
-GEAR:Potion (Cure Moderate Wounds)					LOCATION:Carried
+ABILITY:CATEGORY=Fighter Bonus Feat|Cleave
+ABILITY:CATEGORY=Fighter Bonus Feat|Improved Bull Rush
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization(Ogre Hook)
+GEAR:Potion of Cure Moderate Wounds					LOCATION:Carried
 GEAR:Hide							SIZE:L	LOCATION:Equipped	EQMOD:PLUS1A
 GEAR:Ogre Hook						SIZE:L	LOCATION:Both	EQMOD:PLUS1W
 GEAR:Longbow (Composite)				SIZE:L	LOCATION:Carried	EQMOD:BOWSTR|+7.MWORKW
@@ -36,6 +36,7 @@ STARTPACK:NPC (Shalelu Andosana)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:
 RACE:Elf	!PRERACE:1,%
 NAME:Shalelu Andosana
 GENDER:Female
+CLASS:Fighter	LEVEL:2
 ALIGN:CG
 STAT:STR=12|DEX=14|CON=16|INT=10|WIS=13|CHA=8
 CLASS:Ranger	LEVEL:3
@@ -45,15 +46,14 @@ SKILL:Listen		RANK:6
 SKILL:Move Silently	RANK:6
 SKILL:Survival		RANK:6
 SKILL:Swim			RANK:6
-CLASS:Fighter	LEVEL:2
-SKILL:Speak Language	RANK:2
-ABILITY:CATEGORY=Ranger Combat Style|Archery Combat Style
+SKILL:Linguistics		RANK:2
+ABILITY:CATEGORY=Combat Style|Archery
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Goblinoid))
-ABILITY:CATEGORY=FEAT|Point Blank Shot
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=FEAT|Precise Shot
-ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Longbow)
-ABILITY:CATEGORY=Fighter Feat|Dodge
-GEAR:Wand (Cure Light Wounds)					LOCATION:Carried	EQMOD:SPL_CHRG|SPELLNAME[Cure Light Wounds]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[34]
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus(Longbow)
+ABILITY:CATEGORY=Fighter Bonus Feat|Dodge
+GEAR:Wand of Cure Light Wounds				LOCATION:Carried	EQMOD:SPL_CHRG|SPELLNAME[Cure Light Wounds]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[34]
 GEAR:Longbow (Composite)			SIZE:M	LOCATION:Both	EQMOD:BOWSTR|+1
 GEAR:Studded Leather				SIZE:M	LOCATION:Equipped	EQMOD:PLUS1A
 GEAR:Sword (Short)				SIZE:M	LOCATION:Carried	EQMOD:MWORKW
@@ -77,11 +77,11 @@ SKILL:Survival		RANK:4
 FEAT:Improved Initiative
 FEAT:Great Fortitude
 FEAT:Skill Focus(Survival)
-FEAT:Track
-ABILITY:CATEGORY=Fighter Feat|Cleave
-ABILITY:CATEGORY=Fighter Feat|Power Attack
-ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Longspear)
-ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Longspear)
+#ABILITY:CATEGORY=Ranger Class Ability|Track
+ABILITY:CATEGORY=Fighter Bonus Feat|Cleave
+ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus(Longspear)
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization(Longspear)
 GEAR:Belt of Giant Strength +2	LOCATION:Equipped
 GEAR:Longspear				LOCATION:Both Hands	EQMOD:PLUS1W
 GEAR:Blanket (Winter)			LOCATION:Carried
@@ -108,10 +108,10 @@ FEAT:Cleave
 FEAT:Dodge
 FEAT:Iron Will
 FEAT:Mobility
-ABILITY:CATEGORY=Fighter Feat|Power Attack
-ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Ogre Hook)
+ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus(Ogre Hook)
 GEAR:Ogre Hook				LOCATION:Both Hands	EQMOD:PLUS1W
-GEAR:Ring (Protection +1)		LOCATION:Equipped
+GEAR:Ring of Protection +1		LOCATION:Equipped
 GEAR:Amulet of Natural Armor +1	LOCATION:Equipped
 
 
@@ -127,20 +127,19 @@ ABILITY:CATEGORY=Ogrekin Advantageous Deformity|Thick Skin
 ABILITY:CATEGORY=Ogrekin Disadvantageous Deformity|Obese
 CLASS:Wizard	LEVEL:8	SUBCLASS:Necromancer
 #Prohibited Schools abjuration, enchantment
-SKILL:Concentration		RANK:11
 SKILL:Knowledge (Arcana)	RANK:11
 SKILL:Spellcraft			RANK:11
 FEAT:Craft Wand
 FEAT:Craft Wondrous Item
 FEAT:Greater Spell Focus(Necromancy)
 FEAT:Spell Focus(Necromancy)
-ABILITY:CATEGORY=Wizard Feat|Brew Potion
+FEAT:Brew Potion
 GEAR:Quarterstaff							LOCATION:Both Hands	EQMOD:MWORKW
-GEAR:Amulet of Health +2					LOCATION:Equipped
+GEAR:Belt of Mighty Constitution +2				LOCATION:Equipped
 GEAR:Varisian Idol					QTY:2	LOCATION:Carried
-GEAR:Potion (Cure Moderate Wounds)				LOCATION:Carried
+GEAR:Potion of Cure Moderate Wounds				LOCATION:Carried
 GEAR:Scroll (Animate Dead/Arcane)				LOCATION:Carried
-GEAR:Wand (Magic Missile/3rd level caster)		LOCATION:Carried
+GEAR:Wand of Magic Missile					LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[3]CHARGES[50]
 GEAR:Wand								LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Vampiric Touch]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[3]CASTERLEVEL[5]CHARGES[33]
 GEAR:Wand								LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Ray of Enfeeblement]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[28]
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Bestow Curse|Contagion|Dimension Door|Displacement|Fly|Summon Monster III|Vampiric Touch|Blindness/Deafness|False Life|Ghoul Touch|Mirror Image|Summon Monster II|Chill Touch|Grease|Mage Armor|Ray of Enfeeblement|Reduce Person|True Strike|Mage Hand|Message|Touch of Fatigue
@@ -159,13 +158,12 @@ CLASS:Barbarian	LEVEL:1
 CLASS:Rogue		LEVEL:5
 FEAT:Improved Initiative
 FEAT:Power Attack
-FEAT:Skill Focus(Craft (Trapmaking))
+FEAT:Skill Focus(Craft (Traps))
 FEAT:Weapon Focus(Ogre Hook)
 SKILL:Handle Animal		RANK:4
 SKILL:Climb				RANK:3
-SKILL:Craft (Trapmaking)	RANK:9
+SKILL:Craft (Traps)		RANK:9
 SKILL:Listen			RANK:9
-SKILL:Use Rope			RANK:5
 SKILL:Hide				RANK:7
 SKILL:Move Silently		RANK:7
 SKILL:Jump				RANK:9
@@ -175,12 +173,10 @@ GEAR:Hide Shirt				LOCATION:Equipped		EQMOD:PLUS1A
 TEMPLATE:NPC Raging
 
 
-STARTPACK:NPC (Biggin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Monstrous Spider (Huge)]
-RACE:Monstrous Spider (Huge)	!PRERACE:1,%
+STARTPACK:NPC (Biggin)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Funnel-web Spider]
+RACE:Funnel-web Spider	!PRERACE:1,%
 NAME:Biggin
 ALIGN:TN
-STAT:STR=14|DEX=13|CON=16|INT=10|WIS=12|CHA=10
-CLASS:Vermin	LEVEL:6
 
 
 STARTPACK:NPC (Jakardros Sovark)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:pg.22
@@ -197,13 +193,13 @@ SKILL:Move Silently	RANK:11
 SKILL:Ride			RANK:11
 SKILL:Spot			RANK:11
 SKILL:Survival		RANK:11
-ABILITY:CATEGORY=Ranger Combat Style|Archery Combat Style
+ABILITY:CATEGORY=Combat Style|Archery
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Dragon)
-ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Giant)
-ABILITY:CATEGORY=Favored Enemy Bonus|Favored Bonus__Giant
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Giant))
+ABILITY:CATEGORY=Favored Enemy Bonus|Favored Enemy Bonus (Humanoid (Giant))
 ABILITY:CATEGORY=FEAT|Mounted Combat
 ABILITY:CATEGORY=FEAT|Mounted Archery
-ABILITY:CATEGORY=FEAT|Point Blank Shot
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=FEAT|Precise Shot
 GEAR:Unarmed Strike	LOCATION:Equipped
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Ranger|Animal Messenger|Cure Light Wounds|Speak with Animals
@@ -218,21 +214,21 @@ STAT:STR=16|DEX=13|CON=14|INT=10|WIS=12|CHA=8
 CLASS:Ranger	LEVEL:2
 CLASS:Fighter	LEVEL:4
 SKILL:Climb							RANK:6
-SKILL:Profession (Siege Engineer)			RANK:4
-SKILL:Knowledge (Architecture and Engineering)	RANK:4
+SKILL:Profession (Engineer)				RANK:4
+SKILL:Knowledge (Engineering)				RANK:4
 SKILL:Search						RANK:5
 SKILL:Spot							RANK:5
 SKILL:Survival						RANK:5
 SKILL:Craft (Stonemasonry)				RANK:9
-ABILITY:CATEGORY=Ranger Combat Style|Two Weapon Fighting Combat Style
-ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Giant)
+ABILITY:CATEGORY=Combat Style|Two-Weapon Combat
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Giant))
 ABILITY:CATEGORY=FEAT|Cleave
 ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=FEAT|Weapon Focus(Handaxe)
 ABILITY:CATEGORY=FEAT|Weapon Focus(Battleaxe)
-ABILITY:CATEGORY=Fighter Feat|Power Attack
-ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Handaxe)
-ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Battleaxe)
+ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization(Handaxe)
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization(Battleaxe)
 GEAR:Unarmed Strike	LOCATION:Equipped
 
 
@@ -255,12 +251,11 @@ SKILL:Intimidate		RANK:2
 SKILL:Sleight of Hand	RANK:8
 SKILL:Search		RANK:10
 SKILL:Spot			RANK:10
-ABILITY:CATEGORY=Ranger Combat Style|Two Weapon Fighting Combat Style
-ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Giant)
+ABILITY:CATEGORY=Combat Style|Two-Weapon Combat
+ABILITY:CATEGORY=Favored Enemy|Favored Enemy (Humanoid (Giant))
 FEAT:Persuasive
-FEAT:Track
-FEAT:Two Weapon Defense
-FEAT:Two Weapon Fighting
+FEAT:Two-Weapon Defense
+FEAT:Two-Weapon Fighting
 FEAT:Weapon Finesse
 GEAR:Unarmed Strike	LOCATION:Equipped
 
@@ -280,10 +275,10 @@ FEAT:Great Fortitude
 FEAT:Improved Critical(Ogre Hook)
 FEAT:Power Attack
 FEAT:Weapon Focus(Ogre Hook)
-ABILITY:CATEGORY=Fighter Feat|Cleave
-ABILITY:CATEGORY=Fighter Feat|Improved Bull Rush
-ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Ogre Hook)
-GEAR:Potion (Cure Moderate Wounds)					LOCATION:Carried
+ABILITY:CATEGORY=Fighter Bonus Feat|Cleave
+ABILITY:CATEGORY=Fighter Bonus Feat|Improved Bull Rush
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization(Ogre Hook)
+GEAR:Potion of Cure Moderate Wounds					LOCATION:Carried
 GEAR:Hide Shirt						SIZE:L	LOCATION:Equipped	EQMOD:PLUS1A
 GEAR:Ogre Hook						SIZE:L	LOCATION:Both	EQMOD:PLUS1W
 GEAR:Longbow (Composite)				SIZE:L	LOCATION:Carried	EQMOD:BOWSTR|+7.MWORKW
@@ -305,8 +300,8 @@ FEAT:Improved Bull Rush
 FEAT:Improved Critical(Ogre Hook)
 FEAT:Power Attack
 FEAT:Weapon Focus(Ogre Hook)
-GEAR:Ogre Hook					SIZE:L	LOCATION:Both Hands	EQMOD:PLUS1W.BANE_M|Humanoids (human)
-GEAR:Potion (Cure Serious Wounds)	QTY:2			LOCATION:Carried
+GEAR:Ogre Hook					SIZE:L	LOCATION:Both Hands	EQMOD:PLUS1W.BANE|Humanoids (human)
+GEAR:Potion of Cure Serious Wounds	QTY:2			LOCATION:Carried
 GEAR:Bracers of Armor +2					LOCATION:Equipped
 GEAR:Belt of Giant Strength +4				LOCATION:Equipped
 TEMPLATE:NPC Raging
@@ -320,16 +315,15 @@ STAT:STR=8|DEX=10|CON=14|INT=12|WIS=13|CHA=17
 CLASS:Sorcerer	LEVEL:9
 SKILL:Listen		RANK:4
 SKILL:Spot			RANK:3
-SKILL:Concentration	RANK:9
 FEAT:Eschew Materials
 FEAT:Extend Spell
 FEAT:Greater Spell Focus(Enchantment)
 FEAT:Iron Will
 FEAT:Spell Focus(Enchantment)
 GEAR:Dagger					SIZE:L	LOCATION:Primary Hand
-GEAR:Cloak of Charisma +2				LOCATION:Equipped
+GEAR:Headband of Alluring Charisma +2		LOCATION:Equipped
 GEAR:Amulet of Natural Armor +2			LOCATION:Equipped
-GEAR:Wand (Acid Arrow)					LOCATION:Carried
+GEAR:Wand of Acid Arrow					LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Acid Arrow]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[50]
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Deep Slumber|Lightning Bolt|Suggestion|Blindness/Deafness|Hideous Laughter|Mirror Image|Touch of Idiocy|Charm Person|Mage Armor|Magic Missile|Shield|True Strike|Acid Splash|Dancing Lights|Daze|Ghost Sound|Mage Hand|Mending|Message|Prestidigitation
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Confusion|Shout
 TEMPLATE:Dorella Kreeg's Magic Buffs
@@ -344,15 +338,14 @@ STAT:STR=8|DEX=15|CON=12|INT=14|WIS=10|CHA=13
 CLASS:Rogue	LEVEL:2
 FEAT:Combat Expertise
 FEAT:Improved Feint
-FEAT:Improved Two Weapon Fighting
-FEAT:Two Weapon Fighting
+FEAT:Improved Two-Weapon Fighting
+FEAT:Two-Weapon Fighting
 FEAT:Weapon Finesse
-SKILL:Concentration		RANK:15
 SKILL:Knowledge (Arcana)	RANK:15
 SKILL:Spellcraft			RANK:15
 SKILL:Bluff				RANK:17
 SKILL:Knowledge (Local)		RANK:17
-SKILL:Tumble			RANK:17
+SKILL:Acrobatics			RANK:17
 SKILL:Use Magic Device		RANK:15
 SKILL:Sense Motive		RANK:12
 SKILL:Craft (Tattooing)		RANK:8
@@ -363,9 +356,8 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Lamia Matriarch|Lightning Bolt|Hideous Laugh
 TEMPLATE:Lucrecia's Magic Buffs
 
 
-STARTPACK:NPC (Grazuul)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll]	SOURCEPAGE:pg.44
-RACE:Troll	!PRERACE:1,%
-TEMPLATE:Troll (Scrag)
+STARTPACK:NPC (Grazuul)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Troll (Scrag)]	SOURCEPAGE:pg.44
+RACE:Troll (Scrag)	!PRERACE:1,%
 NAME:Grazuul
 ALIGN:CE
 STAT:STR=16|DEX=14|CON=12|INT=8|WIS=13|CHA=12
@@ -374,9 +366,9 @@ FEAT:Combat Reflexes
 FEAT:Improved Bull Rush
 FEAT:Multiattack
 FEAT:Power Attack
-ABILITY:CATEGORY=Fighter Feat|Improved Critical(Claw)
-ABILITY:CATEGORY=Fighter Feat|Weapon Focus(Claw)
-ABILITY:CATEGORY=Fighter Feat|Weapon Specialization(Claw)
+ABILITY:CATEGORY=Fighter Bonus Feat|Improved Critical(Claw)
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus(Claw)
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization(Claw)
 SKILL:Listen	RANK:4
 SKILL:Spot		RANK:5
 SKILL:Swim		RANK:5
@@ -388,15 +380,13 @@ RACE:Nymph	!PRERACE:1,%
 GENDER:Female
 NAME:Myriana
 ALIGN:CN
-STAT:STR=10|DEX=14|CON=10|INT=12|WIS=14|CHA=16
+STAT:STR=10|DEX=10|CON=10|INT=12|WIS=14|CHA=10
 TEMPLATE:Ghost (Myriana)
-CLASS:Nymph	LEVEL:6
-FEAT:Ability Focus(Blinding Beauty)
+#CLASS:Nymph	LEVEL:6
 FEAT:Combat Casting
 FEAT:Eschew Materials
 FEAT:Spell Focus(Evocation)
 FEAT:Greater Spell Focus(Evocation)
-SKILL:Concentration	RANK:6
 SKILL:Diplomacy		RANK:15
 SKILL:Heal			RANK:15
 SKILL:Hide			RANK:15
@@ -426,18 +416,20 @@ FEAT:Eschew Materials
 FEAT:Power Attack
 FEAT:Spell Focus(Necromancy)
 FEAT:Weapon Focus(Earth Breaker)
-ABILITY:CATEGORY=Wizard Feat|Spell Mastery(Fly,Mage Armor,Magic Missile)
+#ABILITY:CATEGORY=Bonus Feats|Spell Mastery(Fly,Mage Armor,Magic Missile)
+FEAT:Spell Mastery (Fly)
+FEAT:Spell Mastery (Mage Armor)
+FEAT:Spell Mastery (Magic Missile)
 SKILL:Climb				RANK:20
 SKILL:Hide				RANK:17
 SKILL:Spot				RANK:19
 SKILL:Listen			RANK:19
 SKILL:Knowledge (Religion)	RANK:7
-SKILL:Concentration		RANK:10
 SKILL:Knowledge (Arcana)	RANK:7
 SKILL:Spellcraft			RANK:7
 GEAR:Wand										LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Enervation]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[4]CASTERLEVEL[7]CHARGES[12]
 GEAR:Earth Breaker						SIZE:L	LOCATION:Both Hands	EQMOD:MWORKW
-GEAR:Ring (Energy Resistance/Cold/Minor)					LOCATION:Equipped
+GEAR:Ring of Energy Resistance (Minor/Cold)				LOCATION:Equipped
 GEAR:Sihedron Medallion								LOCATION:Equipped
 GEAR:Onyx						QTY:13			LOCATION:Carried
 GEAR:Spellbook (Wizard's/Blank)						LOCATION:Carried

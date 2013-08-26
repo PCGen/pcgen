@@ -2,99 +2,12 @@
 SOURCELONG:Curse of the Crimson Throne, Chapter 4: A History of Ashes	SOURCESHORT:PF10	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82u9	SOURCEDATE:2008-07
 # Original Entry by: Paul Grosse
 
-
-STARTPACK:Bonestorm Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bonestorm]	SOURCEPAGE:p. 82
-RACE:Bonestorm	!PRERACE:1,%
-NAME:Bonestorm
-ALIGN:CE
-STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
-
-
-STARTPACK:Cinder Wolf Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cinder Wolf]	SOURCEPAGE:p. 84
-RACE:Cinder Wolf	!PRERACE:1,%
-NAME:Cinder Wolf
-ALIGN:TN
-STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
-SKILL:Perception	RANK:1
-SKILL:Survival	RANK:1
-FEAT:Improved Initiative
-
-
-STARTPACK:Havero Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Havero]	SOURCEPAGE:p. 86
-RACE:Havero	!PRERACE:1,%
-NAME:Havero
-ALIGN:NE
-STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
-SKILL:Perception	RANK:34
-FEAT:Alertness
-FEAT:Awesome Blow
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Great Cleave
-FEAT:Great Fortitude
-FEAT:Improved Bull Rush
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Power Attack
-FEAT:Lunge
-FEAT:Snatch
-FEAT:Improved Lightning Reflexes
-FEAT:Improved Great Fortitude
-FEAT:Improved Iron Will
-SELECT:roll("1d4")
-KIT:Havero Random Appendages 1	OPTION:1
-KIT:Havero Random Appendages 2	OPTION:2
-KIT:Havero Random Appendages 3	OPTION:3
-KIT:Havero Random Appendages 4	OPTION:4
-
-STARTPACK:Havero Random Appendages 1	VISIBLE:NO	APPLY:INSTANT
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Tentacle
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Acid-Spewer
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Armored Tentacle
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Ocular Tentacle
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Vorpal Tentacle
-
-STARTPACK:Havero Random Appendages 2	VISIBLE:NO	APPLY:INSTANT
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Armored Tentacle
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Grasping Tentacle
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Incorporeal Tentacle
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Poison Stinger
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Reaving Tentacle
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Slashing Tentacle
-
-STARTPACK:Havero Random Appendages 3	VISIBLE:NO	APPLY:INSTANT
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Acid-Spewer
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Grasping Tentacle
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Incorporeal Tentacle
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Poison Stinger
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Slashing Tentacle
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Tentacle
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Tentacle
-
-STARTPACK:Havero Random Appendages 4	VISIBLE:NO	APPLY:INSTANT
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Armored Tentacle
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Armored Tentacle
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Poison Stinger
-ABILITY:CATEGORY=Havero Appendages|Havero Appendage ~ Vorpal Tentacle
-
-
-STARTPACK:Red Reaver Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Red Reaver]	SOURCEPAGE:p. 88
-RACE:Red Reaver	!PRERACE:1,%
-NAME:Red Reaver
-ALIGN:TN
-STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Perception	RANK:8
-SKILL:Survival	RANK:8
-FEAT:Awesome Blow
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Improved Bull Rush
-FEAT:Power Attack
-FEAT:Improved Overrun
-FEAT:Improved Initiative
-FEAT:Great Fortitude
+### Monsters, non-Specific, unique
+# Race Name	Starting Feats	Size		Move				Face/Space	Reach		Vision				Bonus to Ability Pool				Combat bonus					Bonus to skill						Stat bonus																	Modify VAR									Automatically Gained Language	Ability																									Nb Legs	Nb Hands	Natural Attacks																								Define							Spell Res.	Damage Reduction	Monster Class Name and Starting Level	Main Race Type		Template			Challenge Rating	Source Page		Apply Kit
+Bonestorm				SIZE:D	MOVE:Fly,50			FACE:10	REACH:0													BONUS:COMBAT|AC|3|TYPE=NaturalArmor										BONUS:STAT|STR|-8	BONUS:STAT|DEX|12	BONUS:STAT|WIS|2																									ABILITY:Special Ability|AUTOMATIC|Bonestorm Distraction|Bonestorm Wrath|Gather Bones|Immunity To Cold|Unholy Winds																																					DEFINESTAT:LOCK|CON|10	DEFINESTAT:LOCK|INT|10	SR:20					MONSTERCLASS:Undead (Mindless):16		RACETYPE:Undead		TEMPLATE:Undead|Swarm	CR:8			SOURCEPAGE:pg.82	KIT:1|CE
+Cinder Wolf	STARTFEATS:1	SIZE:M	MOVE:Walk,50		FACE:5	REACH:5													BONUS:COMBAT|AC|4|TYPE=NaturalArmor		BONUS:SKILL|Perception,Survival|2|TYPE=Racial	BONUS:STAT|STR|6	BONUS:STAT|DEX|2	BONUS:STAT|CON|4	BONUS:STAT|INT|-8	BONUS:STAT|WIS|2				BONUS:VAR|FireResistanceBonus|10	BONUS:VAR|FastHealing|3						ABILITY:Special Ability|AUTOMATIC|Cinder Wolf Trip|Fast Healing|Fiery Body|Resistance To Fire|Vulnerability To Cold							LEGS:4			NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6																									MONSTERCLASS:Magical Beast:2			RACETYPE:Magical Beast					CR:2			SOURCEPAGE:pg.84	KIT:1|TN
+Havero	STARTFEATS:1	SIZE:C	MOVE:Walk,20,Fly,60	FACE:60	REACH:120	VISION:Darkvision (100')	BONUS:ABILITYPOOL|Havero Appendages|20	BONUS:COMBAT|AC|40|TYPE=NaturalArmor									BONUS:STAT|STR|28	BONUS:STAT|DEX|2	BONUS:STAT|CON|18	BONUS:STAT|INT|-6	BONUS:STAT|WIS|18	BONUS:STAT|CHA|20	BONUS:VAR|FastHealing|25											ABILITY:Special Ability|AUTOMATIC|Alien Mind|Appendages|Fast Healing|Havero Immunities and Resistances|Havero No Breath|Light Sensitivity|Telepathic Savant																																							SR:34		DR:20/-		MONSTERCLASS:Aberration:34			RACETYPE:Aberration					CR:24			SOURCEPAGE:pg.86	KIT:1|NE
+Red Reaver	STARTFEATS:1	SIZE:L	MOVE:Walk,30,Fly,20	FACE:10	REACH:10													BONUS:COMBAT|AC|22|TYPE=NaturalArmor									BONUS:STAT|STR|18	BONUS:STAT|DEX|-4	BONUS:STAT|CON|12	BONUS:STAT|INT|-8	BONUS:STAT|WIS|2	BONUS:STAT|CHA|2											AUTO:LANG|Giant			ABILITY:Special Ability|AUTOMATIC|Red Reaver Distracted|Red Reaver Flight|Red Reaver Rend|Red Reaver Roar									LEGS:2	HANDS:2	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6														MONSTERCLASS:Magical Beast:16			RACETYPE:Magical Beast					CR:13			SOURCEPAGE:pg.88
 
 #
 # Eof
