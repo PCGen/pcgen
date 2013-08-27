@@ -224,11 +224,11 @@
 									</tr>
 									<tr>
 										<td></td>
-										<td width="25" class="top center font7">Total</td>
+										<td width="25" class="top center font6">Total</td>
 										<td class="center"></td>
-										<td width="25" class="center font7">Dex</td>
+										<td width="25" class="center font6">Dex</td>
 										<td class="center"></td>
-										<td width="25" class="center font7">Misc</td>
+										<td width="25" class="center font6">Misc</td>
 									</tr>
 									<!-- STOP Initiative Table -->
 									<!-- START Base Attack Table -->
@@ -265,7 +265,7 @@
 								<table cellpadding="0" cellspacing="0" class="border2 bor_col_dark" width="100%" bgcolor="white" summary="Skills Table">
 									<tr>
 										<td colspan="5" height="30" class="center color_header"><b>SKILLS</b></td>
-										<td colspan="3" height="30" class="right color_header font7" >Max Ranks</td>
+										<td colspan="3" height="30" class="right color_header font6" >Max Ranks</td>
 										<td colspan="2" height="30" class="center color_header">|MAXSKILLLEVEL|/|MAXCCSKILLLEVEL|</td>
 									</tr>
 									<tr>
@@ -281,15 +281,15 @@
 									</tr>
 |FOR,%skill,0,COUNT[SKILLS]-1,1,0|
 |OIF(EVEN:%skill,<tr class="even">,<tr class="odd">)|
-										<td width="3%" class="center font7">|OIF(SKILL%skill.UNTRAINED,&#9670;,)|</td>
-										<td class="left font9">&nbsp;&nbsp;|SKILL.%skill|</td>
-										<td class="center font9">|SKILL.%skill.ABILITY|</td>
+										<td width="3%" class="center font6">|OIF(SKILL%skill.UNTRAINED,&#9670;,)|</td>
+										<td class="left font8">&nbsp;&nbsp;|SKILL.%skill|</td>
+										<td class="center font8">|SKILL.%skill.ABILITY|</td>
 										<td class="center bottom color_hilite"><a href="" onClick="roll(1,20,|SKILL.%skill.TOTAL|,'|SKILL.%skill.NAME| Check\n')" title="Click to roll skill check">|SKILL.%skill.TOTAL|</a></td>
-										<td class="center bottom font9"><b>=</b></td>
+										<td class="center bottom font8"><b>=</b></td>
 										<td class="center bottom">|SKILL.%skill.ABMOD|<br /></td>
-										<td class="center bottom font9"><b>+</b></td>
+										<td class="center bottom font8"><b>+</b></td>
 										<td class="center bottom">|SKILL.%skill.RANK|<br /></td>
-										<td class="center bottom font9"><b>+</b></td>
+										<td class="center bottom font8"><b>+</b></td>
 										<td class="center bottom">|SKILL.%skill.MISC|<br /></td>
 									</tr>
 |ENDFOR|
@@ -302,11 +302,11 @@
 										<td colspan="5" class="center color_header bold">TURNING</td>
 									</tr>
 									<tr>
-										<td class="left color_header font9">Type</td>
-										<td class="center color_header font9">Check</td>
-										<td class="center color_header font9">Dmg</td>
-										<td class="center color_header font9">Lvl</td>
-										<td class="center color_header font9">Times</td>
+										<td class="left color_header font8">Type</td>
+										<td class="center color_header font8">Check</td>
+										<td class="center color_header font8">Dmg</td>
+										<td class="center color_header font8">Lvl</td>
+										<td class="center color_header font8">Times</td>
 									</tr>
 |IIF(HASFEAT:Turn Undead.OR.HASFEAT:Rebuke Undead)|
 									<tr>
@@ -470,17 +470,17 @@
 														</span>
 													</td>
 													<td class="center border2 color_hilite bor_col_dark"><a href="" onClick="roll(1,20,|CHECK.%checks.TOTAL|,'|CHECK.%checks.NAME| check\n')" title="Click to roll check">|CHECK.%checks.TOTAL|</a></td>
-													<td width="3%" class="center font7"><b>=</b></td>
+													<td width="3%" class="center font6"><b>=</b></td>
 													<td class="center border2 bor_col_dark">|CHECK.%checks.BASE|</td>
-													<td width="3%" class="center bold font7">+</td>
+													<td width="3%" class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|CHECK.%checks.STATMOD|</td>
-													<td width="3%" class="center bold font7">+</td>
+													<td width="3%" class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|CHECK.%checks.MAGIC|</td>
-													<td width="3%" class="center bold font7">+</td>
+													<td width="3%" class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|CHECK.%checks.MISC.NOMAGIC.NOSTAT|</td>
-													<td width="3%" class="center bold font7">+</td>
+													<td width="3%" class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|CHECK.%checks.EPIC|</td>
-													<td width="3%" class="center bold font7">+</td>
+													<td width="3%" class="center bold font6">+</td>
 													<td class="center border2 bor_col_light"><br /></td>
 													<td class="border2"><input type="text" height="15" size="7"/></td>
 												</tr>
@@ -495,67 +495,67 @@
 											<table class="noborder" width="100%" summary="Melee ~ Ranged Attacks">
 												<tr>
 													<td class="center"></td>
-													<td width="60" class="center bottom font7">Total</td>
+													<td width="60" class="center bottom font6">Total</td>
 													<td class="center"></td>
-													<td width="60" class="center bottom font7">Base Attack Bonus</td>
+													<td width="60" class="center bottom font6">Base Attack Bonus</td>
 													<td class="center"></td>
-													<td width="25" class="center bottom font7">Stat</td>
+													<td width="25" class="center bottom font6">Stat</td>
 													<td class="center"></td>
-													<td width="25" class="center bottom font7">Size</td>
+													<td width="25" class="center bottom font6">Size</td>
 													<td class="center"></td>
-													<td width="25" class="center bottom font7">Misc</td>
+													<td width="25" class="center bottom font6">Misc</td>
 													<td class="center"></td>
-													<td width="25" class="center bottom font7">Epic</td>
+													<td width="25" class="center bottom font6">Epic</td>
 													<td class="center"></td>
-													<td width="25" class="center bottom font7">Temp</td>
+													<td width="25" class="center bottom font6">Temp</td>
 												</tr>
 												<tr>
 													<td width="20%" class="center border2 color_header bor_col_dark">MELEE</td>
 													<td class="center border2 color_hilite bor_col_dark">|ATTACK.MELEE.TOTAL|</td>
-													<td width="3%" class="center bold font7">=</td>
+													<td width="3%" class="center bold font6">=</td>
 													<td class="center border2 bor_col_dark">|ATTACK.MELEE|</td>
-													<td width="3%" class="center bold font7">+</td>
+													<td width="3%" class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|ATTACK.MELEE.STAT|</td>
-													<td width="3%" class="center bold font7">+</td>
+													<td width="3%" class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|ATTACK.MELEE.SIZE|</td>
-													<td width="3%" class="center bold font7">+</td>
+													<td width="3%" class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|ATTACK.MELEE.MISC|</td>
-													<td width="3%" class="center bold font7">+</td>
+													<td width="3%" class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|ATTACK.MELEE.EPIC|</td>
-													<td width="3%" class="center bold font7">+</td>
+													<td width="3%" class="center bold font6">+</td>
 													<td class="center border2 bor_col_light"><br /></td>
 												</tr>
 												<tr>
 													<td class="center border2 color_header bor_col_dark">RANGED</td>
 													<td class="center border2 color_hilite bor_col_dark">|ATTACK.RANGED.TOTAL|</td>
-													<td class="center bold font7">=</td>
+													<td class="center bold font6">=</td>
 													<td class="center border2 bor_col_dark">|ATTACK.RANGED|</td>
-													<td class="center bold font7">+</td>
+													<td class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|ATTACK.RANGED.STAT|</td>
-													<td class="center bold font7">+</td>
+													<td class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|ATTACK.RANGED.SIZE|</td>
-													<td class="center bold font7">+</td>
+													<td class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|ATTACK.RANGED.MISC|</td>
-													<td class="center bold font7">+</td>
+													<td class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|ATTACK.RANGED.EPIC|</td>
-													<td class="center bold font7">+</td>
+													<td class="center bold font6">+</td>
 													<td class="center border2 bor_col_light"><br /></td>
 												</tr>
 |IIF(VAR.UseCombatManueverBonus:1)|
 												<tr>
 													<td class="center border2 color_header bor_col_dark">CMB</td>
 													<td class="center border2 color_hilite bor_col_dark">|VAR.CMB.INTVAL.SIGN|</td>
-													<td class="center bold font7">=</td>
+													<td class="center bold font6">=</td>
 													<td class="center border2 bor_col_dark">|VAR.CMB_BAB.INTVAL.SIGN|</td>
-													<td class="center bold font7">+</td>
+													<td class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|VAR.CMB_STAT.INTVAL.SIGN|</td>
-													<td class="center bold font7">+</td>
+													<td class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|VAR.CMB_SizeMod.INTVAL.SIGN|</td>
-													<td class="center bold font7">+</td>
+													<td class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|VAR.CMB-ATTACK.MELEE.BASE-VAR.CMB_STAT-VAR.CMB_SizeMod.INTVAL.SIGN|</td>
-													<td class="center bold font7">+</td>
+													<td class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">+0</td>
-													<td class="center bold font7">+</td>
+													<td class="center bold font6">+</td>
 													<td class="center border2 bor_col_light"><br /></td>
 												</tr>
 												<tr>
@@ -610,29 +610,29 @@ Immune
 |ENDIF|
 											    <tr>
 												     <td align="center" width="28%"></td>
-												     <td align="center" width="12%" valign="top" class="center bottom font7">GRAPPLE</td>
-												     <td align="center" width="12%" valign="top" class="center bottom font7">TRIP</td>
-												     <td align="center" width="12%" valign="top" class="center bottom font7">DISARM</td>
-												     <td align="center" width="12%" valign="top" class="center bottom font7">SUNDER</td>
-												     <td align="center" width="12%" valign="top" class="center bottom font7">BULL RUSH</td>
-												     <td align="center" width="12%" valign="top" class="center bottom font7">OVERRUN</td>
+												     <td align="center" width="12%" valign="top" class="center bottom font6">GRAPPLE</td>
+												     <td align="center" width="12%" valign="top" class="center bottom font6">TRIP</td>
+												     <td align="center" width="12%" valign="top" class="center bottom font6">DISARM</td>
+												     <td align="center" width="12%" valign="top" class="center bottom font6">SUNDER</td>
+												     <td align="center" width="12%" valign="top" class="center bottom font6">BULL RUSH</td>
+												     <td align="center" width="12%" valign="top" class="center bottom font6">OVERRUN</td>
 											    </tr>
 										   </table>
 |ELSE|
 												<tr>
 													<td class="center border2 color_header bor_col_dark">GRAPPLE</td>
 													<td class="center border2 color_hilite bor_col_dark">|ATTACK.GRAPPLE.TOTAL.SHORT|</td>
-													<td class="center bold font7">=</td>
+													<td class="center bold font6">=</td>
 													<td class="center border2 bor_col_dark">|ATTACK.GRAPPLE.BASE|</td>
-													<td class="center bold font7">+</td>
+													<td class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|ATTACK.GRAPPLE.STAT|</td>
-													<td class="center bold font7">+</td>
+													<td class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|ATTACK.GRAPPLE.SIZE|</td>
-													<td class="center bold font7">+</td>
+													<td class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|ATTACK.GRAPPLE.EPIC|</td>
-													<td class="center bold font7">+</td>
+													<td class="center bold font6">+</td>
 													<td class="center border2 bor_col_dark">|ATTACK.GRAPPLE.MISC|</td>
-													<td class="center bold font7">+</td>
+													<td class="center bold font6">+</td>
 													<td class="center border2 bor_col_light"><br /></td>
 												</tr>
 												<tr>
@@ -938,11 +938,11 @@ Immune
 										</td>
 									</tr>
 									<tr>
-										<td class="center bottom color_header font9">ITEM</td>
-										<td width="25%" class="center bottom color_header font9">LOCATION</td>
-										<td width="10%" class="center bottom color_header font9">QTY</td>
-										<td width="10%" class="center bottom color_header font9">WT</td>
-										<td width="10%" class="center bottom color_header font9">COST</td>
+										<td class="center bottom color_header font8">ITEM</td>
+										<td width="25%" class="center bottom color_header font8">LOCATION</td>
+										<td width="10%" class="center bottom color_header font8">QTY</td>
+										<td width="10%" class="center bottom color_header font8">WT</td>
+										<td width="10%" class="center bottom color_header font8">COST</td>
 									</tr>
 <!-- FOR,%equip1,0,(COUNT[EQUIPMENT.Not.Coin.NOT.Gem]-1)/2,1,0 -->
 |FOR,%equip1,0,(COUNT[EQUIPMENT.Not.Coin.NOT.Gem]-1),1,0|
@@ -972,7 +972,7 @@ Immune
 |IIF(EQ.Not.Coin.NOT.Gem.%equip1.SPROP: )|
 									<tr>
 |OIF(EVEN:%equip1,<td colspan="5" class="left even">,<td colspan="5" class="left odd">)|
-											<span class="font7">(|EQ.Not.Coin.NOT.Gem.%equip1.SPROP|)</span>
+											<span class="font6">(|EQ.Not.Coin.NOT.Gem.%equip1.SPROP|)</span>
 										</td>
 									</tr>
 |ENDIF|
@@ -980,7 +980,7 @@ Immune
 |IIF(EQ.Not.Coin.NOT.Gem.%equip1.NOTE: )|
 									<tr>
 |OIF(EVEN:%equip1,<td colspan="5" class="left even">,<td colspan="5" class="left odd">)|
-											<span class="font7">(|EQ.Not.Coin.NOT.Gem.%equip1.NOTE|)</span>
+											<span class="font6">(|EQ.Not.Coin.NOT.Gem.%equip1.NOTE|)</span>
 										</td>
 									</tr>
 |ENDIF|
@@ -990,7 +990,7 @@ Immune
 									<tr>
 |OIF(EVEN:%equip1,<td colspan="5" class="left even">,<td colspan="5" class="left odd">)|
 |FOR,%charges,1,EQ.Not.Coin.NOT.Gem.%equip1.CHARGES,1,0|
-											<input class="font7" type="checkbox"/>
+											<input class="font6" type="checkbox"/>
 |ENDFOR|
 <!-- ENDFOR: Charges -->
 										</td>
@@ -1001,7 +1001,7 @@ Immune
 									<tr>
 |OIF(EVEN:%equip1,<td colspan="5" class="left even">,<td colspan="5" class="left odd">)|
 |FOR,%consumable,1,EQ.%equip1.CHECKBOXES,1,0|
-											<input class="font7" type="checkbox"/>
+											<input class="font6" type="checkbox"/>
 |ENDFOR|
 										</td>
 									</tr>
@@ -1010,7 +1010,7 @@ Immune
 									<tr>
 |OIF(EVEN:%equip1,<td colspan="5" class="left even">,<td colspan="5" class="left odd">)|
 |FOR,%consumable,1,EQ.%equip1.CHECKBOXES,1,0|
-											<input class="font7" type="checkbox"/>
+											<input class="font6" type="checkbox"/>
 |ENDFOR|
 										</td>
 									</tr>
@@ -1019,7 +1019,7 @@ Immune
 									<tr>
 |OIF(EVEN:%equip1,<td colspan="5" class="left even">,<td colspan="5" class="left odd">)|
 |FOR,%consumable,1,EQ.%equip1.CHECKBOXES,1,0|
-											<input valign="top" class="font7" type="checkbox"/>
+											<input valign="top" class="font6" type="checkbox"/>
 |ENDFOR|
 										</td>
 									</tr>

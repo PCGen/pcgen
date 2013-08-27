@@ -1,6 +1,6 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 10pt;
+	font-size: medium;
 }
 .bold {
 	font-weight: bold;
@@ -9,22 +9,16 @@ body {
 	font-family: courier new, Courier, monospace;
 }
 .font12 {
-	font-size: 120%;
-}
-.font9 {
-	font-size: 90%;
+	font-size: large;
 }
 .font8 {
-	font-size: 80%;
-}
-.font7 {
-	font-size: 70%;
+	font-size: small;
 }
 .font6 {
-	font-size: 60%;
+	font-size: x-small;
 }
 .font5 {
-	font-size: 50%;
+	font-size: xx-small;
 }
 .left {
 	text-align: left;
