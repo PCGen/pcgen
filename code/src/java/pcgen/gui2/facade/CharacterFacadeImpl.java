@@ -786,6 +786,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		hpRef.setReference(theCharacter.hitPoints());
 		age.setReference(charDisplay.getAge());
 		refreshHeightWeight();
+		refreshStatScores();
 
 		updateLevelTodo();
 		buildAvailableDomainsList();

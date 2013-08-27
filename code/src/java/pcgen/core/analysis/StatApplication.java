@@ -19,20 +19,23 @@
  */
 package pcgen.core.analysis;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
-import pcgen.core.utils.MessageType;
-import pcgen.util.InputFactory;
-import pcgen.util.InputInterface;
+import pcgen.core.chooser.CDOMChooserFacadeImpl;
+import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
+import pcgen.gui2.facade.Gui2InfoFactory;
+import pcgen.gui2.util.PrettyIntegerFormat;
+import pcgen.system.LanguageBundle;
+import pcgen.util.chooser.ChooserFactory;
 
 public class StatApplication
 {
@@ -65,70 +68,66 @@ public class StatApplication
 			}
 		}
 	
-		String extraMsg = "";
-	
-		if (isPre)
+		String titleKey = "in_statTitle";
+		if (isPre && !Globals.checkRule(RuleConstants.RETROSKILL))
 		{
-			extraMsg = "\nRaising a stat here may award more skill points.";
+			titleKey = "in_statTitleWithSkill";
 		}
 	
 		int iCount = 0;
 		Set<PCStat> statsAlreadyBonused = new HashSet<PCStat>();
 		boolean allowStacks = SettingsHandler.getGame().isBonusStatAllowsStack();
+		DecimalFormat formatter = PrettyIntegerFormat.getFormat();
+
 		for (int ix = 0; ix < statsToChoose; ++ix)
 		{
-			final StringBuilder sStats = new StringBuilder();
 			final List<String> selectableStats = new ArrayList<String>();
 	
 			for (PCStat aStat : aPC.getDisplay().getStatSet())
 			{
+				final StringBuilder sStats = new StringBuilder();
 				final int iAdjStat =
 						aPC.getTotalStatFor(aStat);
 				final int iCurStat =
 						aPC.getBaseStatFor(aStat);
-				sStats.append(aStat.getAbb()).append(": ").append(iCurStat);
+				sStats.append(aStat.getDisplayName()).append(":  ").append(iCurStat);
 	
 				if (iCurStat != iAdjStat)
 				{
 					sStats.append(" adjusted: ").append(iAdjStat);
 				}
 	
-				sStats.append(" (").append(
-					aPC.getStatModFor(aStat)).append(
+				sStats.append(" (").append(formatter.format(
+					aPC.getStatModFor(aStat))).append(
 					")");
 	
 				if (allowStacks || !statsAlreadyBonused.contains(aStat))
 				{
-					sStats.append("\n");
-					selectableStats.add(aStat.getDisplayName());
+					selectableStats.add(sStats.toString());
 				}
 				else
 				{
-					sStats.append(" * Already incremented.\n");
+					sStats.append(" * Already incremented.");
+					selectableStats.add(sStats.toString());
 				}
 			}
 	
-			final String[] selectionValues = selectableStats.toArray(new String[]{});
-			final InputInterface ii = InputFactory.getInputInstance();
-			final Object selectedValue =
-					ii
-						.showInputDialog(
-							null,
-							"Choose stat to increment or select Cancel to increment stat on the Summary tab."
-								+ extraMsg
-								+ "\n\n"
-								+ "Current Stats:\n"
-								+ sStats + "\n", Constants.APPLICATION_NAME,
-							MessageType.INFORMATION,
-							selectionValues,
-							selectionValues[0]);
-	
+			CDOMChooserFacadeImpl<String> chooserFacade =
+					new CDOMChooserFacadeImpl<String>(
+						LanguageBundle.getString(titleKey), selectableStats, //$NON-NLS-1$
+						new ArrayList<String>(), 1);
+			chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
+			chooserFacade.setPreferRadioSelection(true);
+			chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));
+			ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
+			final List<String> selectedValues = chooserFacade.getFinalSelected();
+			final String selectedValue = selectedValues.isEmpty() ? null : selectedValues.get(0);
+			
 			if (selectedValue != null)
 			{
 				for (PCStat aStat : aPC.getStatSet())
 				{
-					if (aStat.getDisplayName().equalsIgnoreCase(
-						selectedValue.toString()))
+					if (selectedValue.startsWith(aStat.getDisplayName()))
 					{
 						aPC.saveStatIncrease(aStat, 1, isPre);
 						aPC.setStat(aStat, aPC.getStat(aStat) + 1);
