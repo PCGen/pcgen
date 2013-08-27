@@ -5422,6 +5422,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 								{
 									// standard item
 									aEquip = aEquip2.clone();
+									// We clear out any eqmods that the base item has as the
+									// EQMODs on the saved item override them.
+									EquipmentHead head =
+											aEquip.getEquipmentHeadReference(1);
+									if (head != null)
+									{
+										head.removeListFor(ListKey.EQMOD);
+										head.removeListFor(ListKey.EQMOD_INFO);
+									}
 									aEquip.setBase(thePC);
 									aEquip.load(customProperties,
 										"$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
