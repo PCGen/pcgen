@@ -10,6 +10,7 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 
 # Ability Name					Category of Ability	Type					Visible	Ability
 CATEGORY=Internal|Archetype Display.MOD												ABILITY:Alchemist Archetype|AUTOMATIC|Archetype Alchemist|PRECLASS:1,Alchemist=1
+CATEGORY=Internal|Archetype Display.MOD												ABILITY:Antipaladin Archetype|AUTOMATIC|Archetype Antipaladin|PRECLASS:1,Antipaladin=1
 CATEGORY=Internal|Archetype Display.MOD												ABILITY:Cavalier Archetype|AUTOMATIC|Archetype Cavalier|PRECLASS:1,Cavalier=1
 CATEGORY=Internal|Archetype Display.MOD												ABILITY:Inquisitor Archetype|AUTOMATIC|Archetype Inquisitor|PRECLASS:1,Inquisitor=1
 CATEGORY=Internal|Archetype Display.MOD												ABILITY:Oracle Archetype|AUTOMATIC|Archetype Oracle|PRECLASS:1,Oracle=1
@@ -17,6 +18,7 @@ CATEGORY=Internal|Archetype Display.MOD												ABILITY:Summoner Archetype|AU
 CATEGORY=Internal|Archetype Display.MOD												ABILITY:Witch Archetype|AUTOMATIC|Archetype Witch|PRECLASS:1,Witch=1
 
 Archetype Alchemist				CATEGORY:Archetype	TYPE:AlchemistArchetype		VISIBLE:NO
+Archetype Antipaladin				CATEGORY:Archetype	TYPE:AntipaladinArchetype	VISIBLE:NO
 Archetype Cavalier				CATEGORY:Archetype	TYPE:CavalierArchetype		VISIBLE:NO
 Archetype Inquisitor				CATEGORY:Archetype	TYPE:InquisitorArchetype	VISIBLE:NO
 Archetype Oracle					CATEGORY:Archetype	TYPE:OracleArchetype		VISIBLE:NO

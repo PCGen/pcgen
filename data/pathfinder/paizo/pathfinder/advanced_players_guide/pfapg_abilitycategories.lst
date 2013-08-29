@@ -5,6 +5,7 @@
 ###Block: Archetype Buckets
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Alchemist Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:AlchemistArchetype		PLURAL:Alchemist Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Antipaladin Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:AntipaladinArchetype		PLURAL:Antipaladin Archetypes			DISPLAYLOCATION:Archetype
 ABILITYCATEGORY:Cavalier Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:CavalierArchetype		PLURAL:Cavalier Archetypes		DISPLAYLOCATION:Archetype
 ABILITYCATEGORY:Inquisitor Archetype		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:InquisitorArchetype	PLURAL:Inquisitor Archetypes		DISPLAYLOCATION:Archetype
 ABILITYCATEGORY:Oracle Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:OracleArchetype		PLURAL:Oracle Archetypes		DISPLAYLOCATION:Archetype
