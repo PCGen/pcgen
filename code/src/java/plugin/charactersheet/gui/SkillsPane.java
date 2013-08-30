@@ -10,7 +10,6 @@ import gmgen.plugin.PlayerCharacterOutput;
 
 import java.awt.Component;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.util.ArrayList;
 import java.util.List;

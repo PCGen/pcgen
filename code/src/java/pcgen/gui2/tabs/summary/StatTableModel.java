@@ -61,7 +61,6 @@ import pcgen.gui2.tabs.Utilities;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.PrettyIntegerFormat;
 import pcgen.gui2.util.table.TableCellUtilities;
-import pcgen.system.LanguageBundle;
 
 /**
  * Model used for the Ability/statistics table.

@@ -24,7 +24,6 @@ import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.awt.Font;
 import java.awt.Insets;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;

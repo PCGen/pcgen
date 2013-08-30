@@ -27,7 +27,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.util.Logging;

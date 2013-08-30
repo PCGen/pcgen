@@ -12,8 +12,6 @@ import pcgen.gui2.util.FontManipulation;
 import pcgen.io.exporttoken.WeaponToken;
 import pcgen.io.exporttoken.WeaponhToken;
 
-import java.awt.Font;
-
 /**
  * Confirmed no memory Leaks Dec 10, 2004
  * @author  ddjone3

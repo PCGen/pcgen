@@ -6,7 +6,6 @@
 
 package plugin.charactersheet.gui;
 
-import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;

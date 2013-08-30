@@ -8,7 +8,6 @@ package plugin.charactersheet.gui;
 
 import gmgen.plugin.PlayerCharacterOutput;
 
-import java.awt.Font;
 import java.util.Properties;
 
 import javax.swing.SwingConstants;

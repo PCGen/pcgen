@@ -9,7 +9,6 @@ import gmgen.util.LogUtilities;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.Insets;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
