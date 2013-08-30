@@ -182,6 +182,10 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	private String theDefaultPreviewSheet;
 	private String theInfoSheet;
 	private String theInfoSheetSkill;
+	
+	private String outputSheetDirectory;
+	private Map<String, String> outputSheetDefaultMap = new HashMap<String, String>();
+
 	private int [] dieSizes;
 	private int maxDieSize = 12;
 	private int minDieSize = 4;
@@ -2860,6 +2864,40 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public void setInfoSheetSkill(String theInfoSheetSkill)
 	{
 		this.theInfoSheetSkill = theInfoSheetSkill;
+	}
+	
+	/**
+	 * @param theOutputSheetDirectory the directory for output sheets for the current game mode
+	 */
+	public void setOutputSheetDirectory(String theOutputSheetDirectory)
+	{
+		this.outputSheetDirectory = theOutputSheetDirectory;
+	}
+
+	/**
+	 * @return the directory for output sheets for the current game mode
+	 */
+    @Override
+	public String getOutputSheetDirectory()
+	{
+		return outputSheetDirectory;
+	}
+
+	/**
+	 * @param theInfoSheet the file name of the InfoSheet relative to the base pcgen directory
+	 */
+	public void setOutputSheetDefault(String type, String sheet)
+	{
+		this.outputSheetDefaultMap.put(type, sheet);
+	}
+	
+	/**
+	 * @return the directory for output sheets for the current game mode
+	 */
+    @Override
+	public String getOutputSheetDefault(String type)
+	{
+		return outputSheetDefaultMap.get(type);
 	}
 
 	/**

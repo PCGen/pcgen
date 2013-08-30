@@ -503,6 +503,10 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			IOFileFilter ioFilter = FileFilterUtils.asFileFilter(sheetFilter);
 			IOFileFilter prefixFilter;
 			String defaultSheet = null;
+			String outputSheetsDir = ConfigurationSettings.getOutputSheetsDir() + "/" +
+					SettingsHandler.getGame().getOutputSheetDirectory() + "/" +
+					sheetFilter.getPath();
+			
 			if (partyBox.isSelected())
 			{
 				prefixFilter = FileFilterUtils.prefixFileFilter(Constants.PARTY_TEMPLATE_PREFIX);
@@ -510,17 +514,19 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 			else
 			{
 				CharacterFacade character = (CharacterFacade) characterBox.getSelectedItem();
-				prefixFilter =
-						FileFilterUtils
-							.prefixFileFilter(Constants.CHARACTER_TEMPLATE_PREFIX);
-				defaultSheet =
-						character
-							.getDefaultOutputSheet(sheetFilter == SheetFilter.PDF);
+				prefixFilter = FileFilterUtils.prefixFileFilter(Constants.CHARACTER_TEMPLATE_PREFIX);
+				defaultSheet = character.getDefaultOutputSheet(sheetFilter == SheetFilter.PDF);
+				if (StringUtils.isEmpty(defaultSheet))
+				{
+					defaultSheet = outputSheetsDir + "/" +
+							SettingsHandler.getGame().getOutputSheetDefault(sheetFilter.getTag());
+				}
 			}
 			IOFileFilter filter = FileFilterUtils.and(prefixFilter, ioFilter);
 			List<File> files = FileFilterUtils.filterList(filter, allTemplates);
 			Collections.sort(files);
-			URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
+					
+			URI osPath = new File(outputSheetsDir).toURI();
 			Object[] uriList = new Object[files.size()];
 			for (int i = 0; i < uriList.length; i++)
 			{
@@ -617,7 +623,8 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		@Override
 		protected Collection<File> doInBackground() throws Exception
 		{
-			File dir = new File(ConfigurationSettings.getOutputSheetsDir());
+			File dir = new File(ConfigurationSettings.getOutputSheetsDir() + "/" +
+					SettingsHandler.getGame().getOutputSheetDirectory());
 			IOFileFilter fileFilter = FileFilterUtils.notFileFilter(new SuffixFileFilter(".fo"));
 			IOFileFilter dirFilter = FileFilterUtils.makeSVNAware(TrueFileFilter.INSTANCE);
 			return FileUtils.listFiles(dir, fileFilter, dirFilter);
@@ -651,24 +658,35 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 	private enum SheetFilter implements FilenameFilter
 	{
 
-		HTMLXML("htmlxml", "Standard"),
-		PDF("pdf", "Pdf"),
-		TEXT("text", "Text");
+		HTMLXML("htmlxml", "Standard", "HTM"),
+		PDF("pdf", "PDF", "PDF"),
+		TEXT("text", "Text", "TXT");
 		private String dirFilter;
 		private String description;
+		private String tag;
 
-		private SheetFilter(String dirFilter, String description)
+		private SheetFilter(String dirFilter, String description, String tag)
 		{
 			this.dirFilter = dirFilter;
 			this.description = description;
+			this.tag = tag;
 		}
 
+		public String getPath()
+		{
+			return dirFilter;
+		}
+		
 		@Override
 		public String toString()
 		{
 			return description;
 		}
 
+		public String getTag()
+		{
+			return tag;
+		}
 		@Override
 		public boolean accept(File dir, String name)
 		{

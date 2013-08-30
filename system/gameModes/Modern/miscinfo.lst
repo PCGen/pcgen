@@ -233,7 +233,12 @@ ABILITYCATEGORY:Mutation	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO
 
 
 PREVIEWDIR:d20/modern
-PREVIEWSHEET:Standard.htm
+PREVIEWSHEET:standard.htm
+
+OUTPUTSHEET:DIRECTORY|d20/modern
+OUTPUTSHEET:DEFAULT.PDF|csheet_modern_std.xslt
+OUTPUTSHEET:DEFAULT.HTM|csheet_modern_std.htm
+
 INFOSHEET:SUMMARY|preview/summary/35e_info.html
 INFOSHEET:SKILLS|preview/skills/35e_skills.html
 

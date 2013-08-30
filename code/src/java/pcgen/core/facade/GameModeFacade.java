@@ -44,6 +44,10 @@ public interface GameModeFacade
 
 	public String getInfoSheetSkill();
 	
+	public String getOutputSheetDirectory();
+	
+	public String getOutputSheetDefault(String type);
+	
 	public String getCharSheetDir();
 
 	public String getDefaultCharSheet();
