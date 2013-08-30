@@ -43,6 +43,9 @@ public class AutoWeaponProfFacet extends
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
+	private PrerequisiteFacet prereqFacet = FacetLibrary
+			.getFacet(PrerequisiteFacet.class);
+
 	/**
 	 * Processes an added CDOMObject to extract WeaponProf objects which are
 	 * granted by AUTO:WEAPONPROF. These extracted WeaponProf objects are added
@@ -121,6 +124,30 @@ public class AutoWeaponProfFacet extends
 		return profs;
 	}
 
+	/**
+	 * Check if the character has been granted a specific proficiency. This 
+	 * will look only at a specific proficiency and not try to build the entire 
+	 * list of automatic proficiencies based on their prereqs.
+	 * 
+	 * @param id The id of the character.
+	 * @param wp The weapon proficiency to be checked.
+	 * @return true if the proficiency is granted, false if not.
+	 */
+	public boolean containsProf(CharID id, WeaponProf wp)
+	{
+		for (WeaponProfProvider wpp : getSet(id))
+		{
+			if (wpp.getContainedProficiencies(id).contains(wp))
+			{
+				if (prereqFacet.qualifies(id, wpp, wpp))
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
 	{
 		this.consolidationFacet = consolidationFacet;

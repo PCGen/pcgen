@@ -143,7 +143,7 @@ public class WeaponProfFacet extends AbstractSourcedListFacet<WeaponProf>
 	public boolean containsProf(CharID id, WeaponProf wp)
 	{
 		return contains(id, wp)
-			|| autoWeaponProfFacet.getWeaponProfs(id).contains(wp)
+			|| autoWeaponProfFacet.containsProf(id, wp)
 			|| hasDeityWeaponProfFacet.hasDeityWeaponProf(id)
 			&& deityWeaponProfFacet.getSet(id).contains(wp);
 	}
