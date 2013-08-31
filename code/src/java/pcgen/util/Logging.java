@@ -410,7 +410,7 @@ public class Logging
 				&& context.getObjectContext().getSourceURI() != null)
 			{
 				l.log(ERROR, s + " (Source: "
-					+ context.getObjectContext().getSourceURI() + ")");
+					+ context.getObjectContext().getSourceURI() + " )");
 			}
 			else
 			{
