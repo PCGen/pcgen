@@ -23,7 +23,9 @@ package pcgen.gui2.tabs;
 import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.Insets;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
@@ -94,6 +96,7 @@ import pcgen.gui2.util.event.PopupMouseAdapter;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
 import pcgen.gui2.util.table.SortableTableModel;
 import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Load;
 
 /**
  * EquipInfoTab is a character tab for managing where gear is distributed for a 
@@ -532,7 +535,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public void install()
 		{
 			weightLabel.setText(weightRef.getReference());
-			loadLabel.setText(loadRef.getReference());
+			setLoadLabel(loadRef.getReference());
 			limitLabel.setText(limitRef.getReference());
 
 			weightRef.addReferenceListener(this);
@@ -557,7 +560,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			}
 			else if (source == loadRef)
 			{
-				loadLabel.setText(e.getNewReference());
+				setLoadLabel(e.getNewReference());
 			}
 			else
 			{
@@ -1235,5 +1238,36 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		}
 
 	}
-
+	/**
+	 * @param load (i.e. Encumbrance) value
+	 */
+	public void setLoadLabel(String text) {
+		// bold / highlight text based on encumbrance value
+		Font font = loadLabel.getFont();
+		Color color = UIPropertyContext.getQualifiedColor();
+		Load encumbrance = Load.getLoadType(text);
+		
+		switch (encumbrance)
+		{
+		case MEDIUM:
+			font = FontManipulation.bold(font);
+			color = UIPropertyContext.getAutomaticColor();
+			break;
+		case HEAVY:
+			font = FontManipulation.bold_italic(font);
+			color = UIPropertyContext.getVirtualColor();
+			break;
+		case OVERLOAD:
+			font = FontManipulation.bold_italic(font);
+			color = UIPropertyContext.getNotQualifiedColor();
+			break;
+			
+			default:
+				font = font.deriveFont(Font.PLAIN);
+		}
+		
+		loadLabel.setText(text);
+		loadLabel.setFont(font);
+		loadLabel.setForeground(color);
+	}
 }

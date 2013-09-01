@@ -186,4 +186,37 @@ public class FontManipulation {
 	{
 		return f.deriveFont(Font.ITALIC);
 	}
+	
+	/**
+	 * For bold font.
+	 * 
+	 * @param font
+	 *            base font
+	 */
+	public static Font bold(Font f)
+	{
+		return f.deriveFont(Font.BOLD);
+	}
+	
+	/**
+	 * For italic font.
+	 * 
+	 * @param font
+	 *            base font
+	 */
+	public static Font italic(Font f)
+	{
+		return f.deriveFont(Font.ITALIC);
+	}
+	
+	/**
+	 * For bold italic font.
+	 * 
+	 * @param font
+	 *            base font
+	 */
+	public static Font bold_italic(Font f)
+	{
+		return f.deriveFont(Font.BOLD | Font.ITALIC);
+	}
 }
