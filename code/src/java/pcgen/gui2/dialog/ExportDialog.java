@@ -472,9 +472,9 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 
 	private File getSelectedTemplate()
 	{
-		URI osPath = new File(ConfigurationSettings.getOutputSheetsDir() + "/" +
-				SettingsHandler.getGame().getOutputSheetDirectory() + "/" +
-				((SheetFilter) exportBox.getSelectedItem()).getPath()).toURI();
+		File osDir = new File(ConfigurationSettings.getOutputSheetsDir(), 
+				SettingsHandler.getGame().getOutputSheetDirectory());
+		URI osPath = new File(osDir, ((SheetFilter) exportBox.getSelectedItem()).getPath()).toURI();
 		URI uri = (URI) fileList.getSelectedValue();
 		return new File(osPath.resolve(uri));
 	}
@@ -625,7 +625,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		@Override
 		protected Collection<File> doInBackground() throws Exception
 		{
-			File dir = new File(ConfigurationSettings.getOutputSheetsDir() + "/" +
+			File dir = new File(ConfigurationSettings.getOutputSheetsDir(),
 					SettingsHandler.getGame().getOutputSheetDirectory());
 			IOFileFilter fileFilter = FileFilterUtils.notFileFilter(new SuffixFileFilter(".fo"));
 			IOFileFilter dirFilter = FileFilterUtils.makeSVNAware(TrueFileFilter.INSTANCE);
