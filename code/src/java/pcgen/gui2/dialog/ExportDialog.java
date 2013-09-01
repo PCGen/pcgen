@@ -472,7 +472,9 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 
 	private File getSelectedTemplate()
 	{
-		URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
+		URI osPath = new File(ConfigurationSettings.getOutputSheetsDir() + "/" +
+				SettingsHandler.getGame().getOutputSheetDirectory() + "/" +
+				((SheetFilter) exportBox.getSelectedItem()).getPath()).toURI();
 		URI uri = (URI) fileList.getSelectedValue();
 		return new File(osPath.resolve(uri));
 	}
