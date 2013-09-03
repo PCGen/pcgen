@@ -4,6 +4,7 @@
 # The Template has an Ability granted but only if Bob meets the requirements; the Test Includes the Requirements, so ALL tests should = True.
 
 
+
 Fast Healing		CATEGORY:Special Ability	TYPE:SpecialQuality	ASPECT:Name|Fast Healing %1|FastHealing	DEFINE:FastHealing|0
 
 

@@ -73,6 +73,9 @@ Linguistics																								TYPE:TestSkills
 Test Skill (Class Level)																					TYPE:ClassLevelTest																												CHOOSE:SKILL|ALL
 Test Skill (Sub)							KEY:Test Skill_Sub			USEUNTRAINED:NO								TYPE:Test
 
+
+
+
 # Test Skills
 Athletics												KEYSTAT:STR											TYPE:Strength.TestSkills
 Acrobatics												KEYSTAT:DEX											TYPE:Dexterity.TestSkills

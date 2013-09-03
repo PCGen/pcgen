@@ -1,0 +1,4 @@
+
+Choose Skill Not Working	KEY:Alignment Skill	TYPE:CodeBug		CATEGORY:FEAT	TYPE:AlignmentSkill	CSKILL:LIST	MULT:YES	CHOOSE:SKILLS|TYPE=AlignmentSkill	SELECT:4
+#Choose Skill Not Working	CATEGORY:FEAT	TYPE:CodeBug	CHOOSE:SKILL|TYPE=TestSkills	MULT:YES
+Choose Userinput is Broken	CATEGORY:FEAT	TYPE:CodeBug	CHOOSE:USERINPUT|TITLE=Userinput is Broken	MULT:YES

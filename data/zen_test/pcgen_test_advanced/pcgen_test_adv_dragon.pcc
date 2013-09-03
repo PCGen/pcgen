@@ -16,6 +16,8 @@ SOURCEWEB:http://pcgen.sourceforge.net
 ISOGL:YES
 
 
+ABILITY:pcgen_test_adv_abilities.lst
+SKILL:pcgen_test_adv_skills.lst
 ABILITY:pcgen_test_advanced_abilities.lst
 ABILITY:pcgen_test_advanced_abilities_task_tests.lst
 ABILITY:pcgen_test_advanced_abilities_unit_tests.lst
