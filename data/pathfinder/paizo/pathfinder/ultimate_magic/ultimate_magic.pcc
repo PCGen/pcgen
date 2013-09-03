@@ -76,6 +76,7 @@ EQUIPMENT:pfum_equip.lst
 DOMAIN:pfum_domains.lst
 FEAT:pfum_feats.lst
 KIT:pfum_kits_companions.lst
+KIT:pfum_kits.lst
 SHIELDPROF:pfum_profs_shield.lst
 SPELL:pfum_spells.lst
 SPELL:pfum_spells_domain.lst

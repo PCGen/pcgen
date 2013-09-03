@@ -18,6 +18,8 @@ CLASS:Magus		SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			S
 ###Block:
 1	AUTO:FEAT|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
 1	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
+###Block: Magus Spellbook
+1	KIT:1|Magus Spellbook
 ###Block: Class features
 1	BONUS:VAR|MagusArmorProficiencyLVL|CL
 1	BONUS:VAR|MagusArcanePoolLVL|CL
