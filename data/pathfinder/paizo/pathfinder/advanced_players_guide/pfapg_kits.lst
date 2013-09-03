@@ -1,0 +1,14 @@
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: W. Robert 'Mynex' Reed III
+
+
+STARTPACK:Starting Gold Random	APPLY:INSTANT	VISIBLE:YES
+FUNDS:gp	QTY:10*roll("2d6")	PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Summoner=1]
+FUNDS:gp	QTY:10*roll("3d6")	PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Alchemist=1,Oracle=1,Witch=1]
+FUNDS:gp	QTY:10*roll("4d6")	PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Inquisitor=1]
+FUNDS:gp	QTY:10*roll("5d6")	PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Cavalier=1]
+
+
+STARTPACK:Alchemist Formula Book	EQUIPBUY:0	PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Alchemist=1]	APPLY:INSTANT	VISIBLE:NO
+GEAR:Formula Book		LOCATION:Carried
+

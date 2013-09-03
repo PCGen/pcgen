@@ -91,6 +91,7 @@ FEAT:pfapg_feats_mods.lst
 KIT:pfapg_kits_companions.lst
 KIT:pfapg_kits_traits.lst
 KIT:pfapg_kits_test.lst
+KIT:pfapg_kits.lst
 
 ARMORPROF:pfapg_profs_armor.lst
 SHIELDPROF:pfapg_profs_shields.lst
