@@ -58,6 +58,8 @@ CLASS:Bard		STARTSKILLPTS:6
 CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 ###Block:Proficiencies
 1	ABILITY:Bard Class Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Bard
+###BLOCK:Perform Choice with Instrument (If Appropriate) & Skill point spent
+1	TEMPLATE:Bard Perform Choice
 ###Block: Level progression
 1	CAST:0,1			KNOWN:4,2			BONUS:VAR|BardicKnowledgeLVL,BardicPerformanceLVL|CL	ABILITY:Bard Class Ability|AUTOMATIC|Bardic Knowledge|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicKnowledge	ABILITY:Bard Class Ability|AUTOMATIC|Bardic Countersong|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCounterSong	ABILITY:Bard Class Ability|AUTOMATIC|Bardic Performance|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardBardicPerformance	ABILITY:Bard Class Ability|AUTOMATIC|Armored Casting|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardArmoredCasting	ABILITY:Bard Class Ability|AUTOMATIC|Cantrips ~ Bard|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardCantrips
 2	CAST:0,2			KNOWN:5,3			BONUS:VAR|VersatilePerformanceLVL|CL			ABILITY:Bard Class Ability|AUTOMATIC|Versatile Performance|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardVersatilePerformance	ABILITY:Bard Class Ability|AUTOMATIC|Well-Versed|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWellVersed
