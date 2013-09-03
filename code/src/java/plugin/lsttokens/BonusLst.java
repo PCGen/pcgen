@@ -195,10 +195,12 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 						if (context.ref.silentlyGetConstructedCDOMObject(
 								ABILITY_CATEGORY_CLASS, o.toString()) == null)
 						{
-							Logging.errorPrint("BONUS: " + bonus + " in "
+							Logging.errorPrint(
+								"BONUS: " + bonus + " in "
 									+ obj.getClass().getSimpleName() + " "
 									+ obj.getKeyName()
-									+ " contained an invalid AbilityCategory");
+									+ " contained an invalid AbilityCategory "
+									+ o.toString(), context);
 							returnValue = false;
 						}
 					}
@@ -214,7 +216,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 						if (aClass == null)
 						{
 							Logging.errorPrint("Could not find class '"
-									+ classKey + "' for UDAM token");
+									+ classKey + "' for UDAM token", context);
 						}
 					}
 				}

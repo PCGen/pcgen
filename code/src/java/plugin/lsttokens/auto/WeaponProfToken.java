@@ -109,22 +109,9 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		}
 		else
 		{
-			Logging.deprecationPrint("Use of [] for Prerequisites is is deprecated, "
-					+ "please use | based standard", context);
-			int openBracketLoc = value.indexOf("[");
-			weaponProfs = value.substring(0, openBracketLoc);
-			if (!value.endsWith("]"))
-			{
-				return new ParseResult.Fail("Unresolved Prerequisite in "
-						+ getFullName() + " " + value + " in " + getFullName(), context);
-			}
-			prereq = getPrerequisite(value.substring(openBracketLoc + 1, value
-					.length() - 1));
-			if (prereq == null)
-			{
-				return new ParseResult.Fail("Error generating Prerequisite "
-						+ prereq + " in " + getFullName(), context);
-			}
+			return new ParseResult.Fail(
+				"Use of [] for Prerequisites has been removed. "
+					+ "Please use | based standard", context);
 		}
 
 		ParseResult pr = checkForIllegalSeparator('|', weaponProfs);

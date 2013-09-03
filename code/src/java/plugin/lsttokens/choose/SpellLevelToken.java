@@ -95,21 +95,6 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 
 		pipeLoc = value.indexOf('|');
-		if (pipeLoc != -1)
-		{
-			String firstValue = value.substring(0, pipeLoc);
-			try
-			{
-				Integer.valueOf(firstValue);
-				Logging
-					.deprecationPrint("CHOOSE:SPELLLEVEL with first argument integer is deprecated", context);
-				return doDeprecatedParse(context, obj, activeValue);
-			}
-			catch (NumberFormatException e)
-			{
-				// ok
-			}
-		}
 
 		ParsingSeparator sep = new ParsingSeparator(activeValue, '|');
 		if (!sep.hasNext())
@@ -164,109 +149,6 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		tc.setChoiceActor(this);
 		context.obj.put(obj, ObjectKey.CHOOSE_INFO, tc);
 		return ParseResult.SUCCESS;
-	}
-
-	private ParseResult doDeprecatedParse(LoadContext context, CDOMObject obj,
-		String value)
-	{
-		if (value == null)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " requires additional arguments", context);
-		}
-		if (value.indexOf(',') != -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments may not contain , : " + value, context);
-		}
-		List<String> bonuses = new ArrayList<String>();
-		int bracketLoc;
-		while ((bracketLoc = value.lastIndexOf('[')) != -1)
-		{
-			int closeLoc = value.indexOf("]", bracketLoc);
-			if (closeLoc != value.length() - 1)
-			{
-				return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments does not contain matching brackets: " + value, context);
-			}
-			String bracketString = value.substring(bracketLoc + 1, closeLoc);
-			if (bracketString.startsWith("BONUS:"))
-			{
-				// This is okay.
-				bonuses.add(bracketString.substring(6));
-			}
-			else
-			{
-				return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [" + bracketString
-					+ "] without BONUS: : " + value, context);
-			}
-			value = value.substring(0, bracketLoc);
-		}
-		if (value.charAt(0) == '|')
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments may not start with | : " + value, context);
-		}
-		if (value.charAt(value.length() - 1) == '|')
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments may not end with | : " + value, context);
-		}
-		if (value.indexOf("||") != -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments uses double separator || : " + value, context);
-		}
-		int pipeLoc = value.indexOf("|");
-		if (pipeLoc == -1)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " must have two or more | delimited arguments : " + value, context);
-		}
-		String startString = value.substring(0, pipeLoc);
-		try
-		{
-			Integer.parseInt(startString);
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " first argument must be an Integer : " + value, context);
-		}
-		String newVal = value.substring(pipeLoc + 1);
-		try
-		{
-			String repl =
-					newVal.replaceAll("TYPE=", "SPELLTYPE=").replaceAll(
-						"TYPE\\.", "SPELLTYPE=");
-			if (context.processToken(obj, "CHOOSE", "SPELLLEVEL|" + repl))
-			{
-				for (String bonus : bonuses)
-				{
-					String b = bonus.replace("CLASS=%;LEVEL=%", "%LIST");
-					if (b.indexOf("=%") != -1)
-					{
-						return new ParseResult.Fail("CHOOSE:" + getTokenName()
-							+ " failure in BONUS: " + bonus
-							+ " did not understand items with =%", context);
-					}
-					if (!context.processToken(obj, "BONUS", b))
-					{
-						return new ParseResult.Fail("CHOOSE:" + getTokenName()
-							+ " failure in BONUS: " + b, context);
-					}
-				}
-				return ParseResult.SUCCESS;
-			}
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " failure: " + value, context);
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " failure: " + value + " " + e.getLocalizedMessage(), context);
-		}
 	}
 
 	private String getFullName()

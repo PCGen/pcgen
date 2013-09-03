@@ -94,35 +94,35 @@ public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 			if ("DOMAIN.".regionMatches(true, 0, tok, 0, 7))
 			{
 				final String profKey = tok.substring(7);
-				Logging.deprecationPrint("CHOOSE:SPELLS|DOMAIN is deprecated, "
+				Logging.errorPrint("CHOOSE:SPELLS|DOMAIN is deprecated, "
 					+ "has been changed to DOMAINLIST=");
 				tok = "DOMAINLIST=" + profKey;
 			}
 			if ("CLASS.".regionMatches(true, 0, tok, 0, 6))
 			{
 				final String profKey = tok.substring(6);
-				Logging.deprecationPrint("CHOOSE:SPELLS|CLASS is deprecated, "
+				Logging.errorPrint("CHOOSE:SPELLS|CLASS is deprecated, "
 					+ "has been changed to CLASSLIST=");
 				tok = "CLASSLIST=" + profKey;
 			}
 			if ("DOMAIN=".regionMatches(true, 0, tok, 0, 7))
 			{
 				final String profKey = tok.substring(7);
-				Logging.deprecationPrint("CHOOSE:SPELLS|DOMAIN is deprecated, "
+				Logging.errorPrint("CHOOSE:SPELLS|DOMAIN is deprecated, "
 					+ "has been changed to DOMAINLIST=");
 				tok = "DOMAINLIST=" + profKey;
 			}
 			if ("CLASS=".regionMatches(true, 0, tok, 0, 6))
 			{
 				final String profKey = tok.substring(6);
-				Logging.deprecationPrint("CHOOSE:SPELLS|CLASS is deprecated, "
+				Logging.errorPrint("CHOOSE:SPELLS|CLASS is deprecated, "
 					+ "has been changed to CLASSLIST=");
 				tok = "CLASSLIST=" + profKey;
 			}
 			if ("ANY".regionMatches(true, 0, tok, 0, 3))
 			{
 				final String remainder = tok.length()>3?tok.substring(3) :"";
-				Logging.deprecationPrint("CHOOSE:SPELLS|ANY is deprecated, "
+				Logging.errorPrint("CHOOSE:SPELLS|ANY is deprecated, "
 					+ "has been changed to ALL");
 				tok = "ALL" + remainder;
 			}

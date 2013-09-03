@@ -59,10 +59,10 @@ public class DomainToken extends AbstractQualifiedChooseToken<Domain>
 			String tok = st.nextToken();
 			if ("QUALIFY".equals(tok))
 			{
-				Logging.deprecationPrint("CHOOSE:DOMAIN argument "
-					+ "QUALIFY has been deprecated, "
-					+ "please use QUALIFIED,!PC "
-					+ "to achieve the same effect", context);
+				Logging.errorPrint("CHOOSE:DOMAIN argument "
+					+ "QUALIFY has been removed. "
+					+ "Please use QUALIFIED,!PC "
+					+ "to achieve the same effect.", context);
 				tok = "QUALIFIED,!PC";
 			}
 			sb.append(tok);
