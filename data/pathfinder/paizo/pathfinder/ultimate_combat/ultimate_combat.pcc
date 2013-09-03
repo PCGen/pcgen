@@ -68,7 +68,7 @@ EQUIPMOD:pfuc_equipmods.lst
 EQUIPMENT:pfuc_equip_magic.lst
 
 FEAT:pfuc_feats.lst
-#KIT:pfuc_kits_class.lst
+KIT:pfuc_kits.lst
 
 WEAPONPROF:pfuc_profs_weapon.lst
 ARMORPROF:pfuc_profs_armor.lst

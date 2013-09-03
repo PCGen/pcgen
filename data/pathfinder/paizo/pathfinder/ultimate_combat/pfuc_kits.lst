@@ -1,0 +1,9 @@
+SOURCELONG:Ultimate Combat	SOURCESHORT:UC	SOURCEWEB:http://paizo.com/products/btpy8mcz?Pathfinder-Roleplaying-Game-Ultimate-Combat	SOURCEDATE:2011-01
+#Entry by W. Robert 'Mynex' Reed III
+
+
+#Starting Gold
+STARTPACK:Starting Gold Random	APPLY:INSTANT	VISIBLE:YES
+FUNDS:gp	QTY:10*roll("3d6")	PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Samuri=1]
+FUNDS:gp	QTY:10*roll("4d6")	PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Ninja=1]
+FUNDS:gp	QTY:10*roll("5d6")	PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Gunslinger=1]
