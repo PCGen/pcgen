@@ -152,7 +152,8 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		// Only do this if 1 entry and can add...
 		//
 		ListFacade<InfoFacade> availableList = chooser.getAvailableList();
-		if ((availableList != null) && (availableList.getSize() == 1) && b)
+		if ((availableList != null) && (availableList.getSize() == 1) && b
+			&& !chooser.isUserInput())
 		{
 			final int method = UIPropertyContext.getSingleChoiceAction();
 
