@@ -17,6 +17,9 @@
  */
 package plugin.lsttokens.auto;
 
+import java.net.URISyntaxException;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.base.ChooseResultActor;
@@ -31,6 +34,8 @@ import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
+import plugin.lsttokens.testsupport.TokenRegistration;
+import plugin.pretokens.parser.PreWeaponProfParser;
 
 public class WeaponProfTokenTest extends
 		AbstractAutoTokenTestCase<WeaponProf>
@@ -38,6 +43,19 @@ public class WeaponProfTokenTest extends
 
 	static WeaponProfToken subtoken = new WeaponProfToken();
 
+	PreWeaponProfParser preWpnProf = new PreWeaponProfParser();
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	@Before
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		TokenRegistration.register(preWpnProf);
+	}
+	
 	@Override
 	public CDOMSecondaryToken<?> getSubToken()
 	{
@@ -181,6 +199,20 @@ public class WeaponProfTokenTest extends
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "DEITYWEAPONS|ALL"));
 		assertNoSideEffects();
+	}
+
+	@Test
+	public void testValidPrereqLegal()
+			throws PersistenceLayerException
+	{
+		assertTrue(parse(getSubTokenName() + '|' + "CROSSBOW|PREWEAPONPROF:1,DAGGER"));
+	}
+
+	@Test
+	public void testInvalidPrereqIllegal()
+			throws PersistenceLayerException
+	{
+		assertFalse(parse(getSubTokenName() + '|' + "CROSSBOW|PREWEAPONPROF:1,TYPE=Piercing"));
 	}
 
 	@Override

@@ -104,6 +104,12 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 					int preStart = value.indexOf(token) - 1;
 					weaponProfs = value.substring(0, preStart);
 					isPre = true;
+					
+					ParseResult fail = checkForLoopPrereqs(prereq, context);
+					if (fail != null)
+					{
+						return fail;
+					}
 				}
 			}
 		}
@@ -200,6 +206,35 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 			context.obj.addToList(obj, ListKey.WEAPONPROF, wpp);
 		}
 		return ParseResult.SUCCESS;
+	}
+
+	/**
+	 * Check for a prereq that will cause a loop later when evaluating the 
+	 * weapon proficiency.
+	 * 
+	 * @param prereq The prerequisite to be checked.
+	 * @return A ParseResult.Fail if there is a possible, loop, or null if all is ok.
+	 */
+	private ParseResult checkForLoopPrereqs(Prerequisite prereq, LoadContext context)
+	{
+		if ("WEAPONPROF".equalsIgnoreCase(prereq.getKind()))
+		{
+			if (prereq.getKey().startsWith("TYPE"))
+			{
+				return new ParseResult.Fail("AUTO:WEAPONPROF may not use PREWEAPONPROF requirements "
+						+ " other than specific named proficiencies.", context);
+			}
+		}
+
+		for (Prerequisite childPrereq : prereq.getPrerequisites())
+		{
+			ParseResult res = checkForLoopPrereqs(childPrereq, context);
+			if (res != null)
+			{
+				return res;
+			}
+		}
+		return null;
 	}
 
 	@Override
