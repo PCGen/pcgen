@@ -241,7 +241,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 		final PreSkillParser producer = new PreSkillParser();
 
 		final Prerequisite prereq =
-				producer.parse("SKILL", "2,TYPE.Knowledge,TYPE.Knowledge=4",
+				producer.parse("SKILL", "2,TYPE.Knowledge=4",
 					false, false);
 		final PlayerCharacter character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);

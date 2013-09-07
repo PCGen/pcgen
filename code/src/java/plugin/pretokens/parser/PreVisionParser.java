@@ -103,4 +103,10 @@ public class PreVisionParser extends AbstractPrerequisiteListParser implements
 		}
 		return returnValue;
 	}
+
+	@Override
+	protected boolean requiresValue()
+	{
+		return true;
+	}
 }

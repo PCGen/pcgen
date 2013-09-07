@@ -33,7 +33,7 @@ public class PreSkillParserTest extends EnUsLocaleDependentTestCase
 
 		Prerequisite prereq =
 				producer.parse("SKILL",
-					"3,Decipher Script,Disable Device,Escape Artist=7", false,
+					"3,Decipher Script=7,Disable Device=7,Escape Artist=7", false,
 					false);
 
 		assertEquals(
@@ -55,11 +55,13 @@ public class PreSkillParserTest extends EnUsLocaleDependentTestCase
 		PreSkillParser producer = new PreSkillParser();
 
 		Prerequisite prereq =
-				producer.parse("SKILL", "2,TYPE.Knowledge,TYPE.Knowledge=10",
+				producer.parse("SKILL", "2,TYPE.Knowledge=10,TYPE.Knowledge=10",
 					false, false);
 
 		assertEquals(
 			"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
+				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"10\" >\n"
+				+ "</prereq>\n"
 				+ "<prereq kind=\"skill\" count-multiples=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"10\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
@@ -71,7 +73,7 @@ public class PreSkillParserTest extends EnUsLocaleDependentTestCase
 
 		Prerequisite prereq =
 				producer.parse("SKILL",
-					"3,TYPE.Knowledge,TYPE.Knowledge,TYPE.Knowledge=10", false,
+					"3,TYPE.Knowledge=10", false,
 					false);
 
 		assertEquals(

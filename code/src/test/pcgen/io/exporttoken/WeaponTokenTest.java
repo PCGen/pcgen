@@ -123,7 +123,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		{
 			str.addToListFor(ListKey.BONUS, aBonus);
 		}
-		aBonus = Bonus.newBonus(context, "DAMAGE|TYPE.Melee,TYPE.Thrown|STR");
+		aBonus = Bonus.newBonus(context, "COMBAT|DAMAGE.Melee,DAMAGE.Thrown|STR");
 		
 		if (aBonus != null)
 		{

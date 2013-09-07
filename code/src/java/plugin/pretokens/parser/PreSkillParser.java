@@ -75,4 +75,10 @@ public class PreSkillParser extends AbstractPrerequisiteListParser implements
 
 		return prereq;
 	}
+
+	@Override
+	protected boolean requiresValue()
+	{
+		return true;
+	}
 }

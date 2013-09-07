@@ -116,23 +116,8 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		else
 		{
-			Logging.deprecationPrint("Use of [] for Prerequisites is is deprecated, "
+			return new ParseResult.Fail("Use of [] for Prerequisites is no longer supported, "
 					+ "please use | based standard", context);
-			int openBracketLoc = value.indexOf("[");
-			equipItems = value.substring(0, openBracketLoc);
-			if (!value.endsWith("]"))
-			{
-				return new ParseResult.Fail("Unresolved Prerequisite in " + value
-						+ " in " + getFullName(), context);
-			}
-			prereq = getPrerequisite(value.substring(openBracketLoc + 1, value
-					.length() - 1));
-			if (prereq == null)
-			{
-				return new ParseResult.Fail("Error generating Prerequisite "
-						+ value.substring(openBracketLoc + 1,
-								value.length() - 1) + " in " + getFullName(), context);
-			}
 		}
 
 		ParseResult pr = checkForIllegalSeparator('|', equipItems);

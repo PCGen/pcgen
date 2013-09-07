@@ -23,6 +23,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
+import pcgen.util.Logging;
 
 /**
  * Class deals with ISD20 Token
@@ -66,6 +67,9 @@ public class Isd20Token extends AbstractNonEmptyToken<Campaign> implements
 			}
 			set = Boolean.FALSE;
 		}
+		Logging.deprecationPrint(
+			"ISD20 has been deprecated, please remove it from your PCC file",
+			context);
 		context.getObjectContext().put(campaign, ObjectKey.IS_D20, set);
 		return ParseResult.SUCCESS;
 	}

@@ -50,7 +50,7 @@ public class PreVisionParserTest extends EnUsLocaleDependentTestCase
 		PreVisionParser parser = new PreVisionParser();
 
 		Prerequisite prereq =
-				parser.parse("VISION", "1,Blindsight,Darkvision=30", false,
+				parser.parse("VISION", "1,Blindsight=30,Darkvision=30", false,
 					false);
 
 		assertEquals(
