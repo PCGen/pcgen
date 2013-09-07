@@ -44,7 +44,7 @@ BIO
 <!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem></holyitem>
 			<pantheonlist>Pathfinder Chronicles</pantheonlist>
-			<source>Paizo Publishing - Core Rulebook, p.45</source>
+			<source>Paizo Publishing, LLC - Core Rulebook, p.45</source>
 			<special_abilities></special_abilities>
 			<appearance></appearance>
 			<title></title>
@@ -2531,7 +2531,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0, Sor0, Wiz0</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.249</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.249</source>
 							<sourcepage>p.249</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2560,7 +2560,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Adp1, Clr0, Drd0, Pld1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.262</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.262</source>
 							<sourcepage>p.262</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2589,7 +2589,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.267</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.267</source>
 							<sourcepage>p.267</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2618,7 +2618,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0, Drd0, Pld1, Rgr1, Sor0, Wiz0</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.268</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.268</source>
 							<sourcepage>p.268</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2647,7 +2647,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0, Drd0</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.292</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.292</source>
 							<sourcepage>p.292</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2676,7 +2676,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.304</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.304</source>
 							<sourcepage>p.304</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2705,7 +2705,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd0, Clr0, Drd0, Sor0, Wiz0</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.312</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.312</source>
 							<sourcepage>p.312</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2734,7 +2734,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0, Drd0</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.328</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.328</source>
 							<sourcepage>p.328</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2763,7 +2763,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd0, Clr0, Drd0, Pld1, Rgr1, Sor0, Wiz0</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.330</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.330</source>
 							<sourcepage>p.330</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2792,7 +2792,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd0, Clr0, Drd0, Pld1, Sor0, Wiz0</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.334</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.334</source>
 							<sourcepage>p.334</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2821,7 +2821,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0, Drd0</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.348</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.348</source>
 							<sourcepage>p.348</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2850,7 +2850,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr0, Drd0, Pld1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.365</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.365</source>
 							<sourcepage>p.365</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2881,7 +2881,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.246</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.246</source>
 							<sourcepage>p.246</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2910,7 +2910,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Community1, Pld1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.249</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.249</source>
 							<sourcepage>p.249</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2939,7 +2939,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Pld1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.249</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.249</source>
 							<sourcepage>p.249</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2968,7 +2968,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd1, Clr1, Death1, Sor1, Wiz1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.252</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.252</source>
 							<sourcepage>p.252</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -2997,7 +2997,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.256</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.256</source>
 							<sourcepage>p.256</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3026,7 +3026,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd1, Clr1, Knowledge1, Sor1, Wiz1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.258</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.258</source>
 							<sourcepage>p.258</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3055,7 +3055,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd1, Clr1, Drd1, Healing1, Pld1, Rgr2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.263</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.263</source>
 							<sourcepage>p.263</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3084,7 +3084,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Repose1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.265</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.265</source>
 							<sourcepage>p.265</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3113,7 +3113,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.266</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.266</source>
 							<sourcepage>p.266</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3142,7 +3142,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.266</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.266</source>
 							<sourcepage>p.266</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3171,7 +3171,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.267</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.267</source>
 							<sourcepage>p.267</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3200,7 +3200,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.267</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.267</source>
 							<sourcepage>p.267</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3229,7 +3229,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Pld1, Sor1, Wiz1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.269</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.269</source>
 							<sourcepage>p.269</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3258,7 +3258,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Nobility1, Pld1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.273</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.273</source>
 							<sourcepage>p.273</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3287,7 +3287,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.274</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.274</source>
 							<sourcepage>p.274</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3316,7 +3316,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Drd1, Pld1, Rgr1, Sor1, Sun1, Wiz1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.277</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.277</source>
 							<sourcepage>p.277</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3345,7 +3345,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Drd1, Pld1, Rgr1, Sor1, Sun1, Wiz1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.277</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.277</source>
 							<sourcepage>p.277</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3374,7 +3374,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.278</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.278</source>
 							<sourcepage>p.278</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3403,7 +3403,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.296</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.296</source>
 							<sourcepage>p.296</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3432,7 +3432,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.300</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.300</source>
 							<sourcepage>p.300</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3461,7 +3461,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Drd1, Earth1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.310</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.310</source>
 							<sourcepage>p.310</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3490,7 +3490,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Pld1, Sor1, War1, Wiz1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.310</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.310</source>
 							<sourcepage>p.310</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3519,7 +3519,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Air1, Clr1, Darkness1, Drd1, Sor1, Water1, Weather1, Wiz1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.317</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.317</source>
 							<sourcepage>p.317</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3548,7 +3548,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Law1, Pld1, Sor1, Wiz1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.327</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.327</source>
 							<sourcepage>p.327</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3577,7 +3577,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Good1, Pld1, Sor1, Wiz1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.327</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.327</source>
 							<sourcepage>p.327</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3606,7 +3606,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Chaos1, Clr1, Sor1, Wiz1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.328</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.328</source>
 							<sourcepage>p.328</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3635,7 +3635,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd1, Clr1, Liberation1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.332</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.332</source>
 							<sourcepage>p.332</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3664,7 +3664,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Protection1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.336</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.336</source>
 							<sourcepage>p.336</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3693,7 +3693,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Glory1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.342</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.342</source>
 							<sourcepage>p.342</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3722,7 +3722,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr1, Glory1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.342</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.342</source>
 							<sourcepage>p.342</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3751,7 +3751,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd1, Clr1, Sor1, Wiz1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.350</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.350</source>
 							<sourcepage>p.350</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3782,7 +3782,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2, Luck2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.239</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.239</source>
 							<sourcepage>p.239</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3811,7 +3811,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.240</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.240</source>
 							<sourcepage>p.240</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3840,7 +3840,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.245</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.245</source>
 							<sourcepage>p.245</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3869,7 +3869,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2, Drd2, Rgr2, Sor2, Wiz2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.246</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.246</source>
 							<sourcepage>p.246</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3898,7 +3898,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Glory2, Pld1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.250</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.250</source>
 							<sourcepage>p.250</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3927,7 +3927,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2, Drd2, Pld2, Sor2, Strength2, Wiz2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.251</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.251</source>
 							<sourcepage>p.251</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3956,7 +3956,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd2, Charm2, Clr2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.252</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.252</source>
 							<sourcepage>p.252</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -3985,7 +3985,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.258</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.258</source>
 							<sourcepage>p.258</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4014,7 +4014,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd2, Clr2, Drd3, Healing2, Pld3, Rgr3</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.263</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.263</source>
 							<sourcepage>p.263</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4043,7 +4043,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd2, Clr2, Sor2, Wiz2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.263</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.263</source>
 							<sourcepage>p.263</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4072,7 +4072,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd2, Clr2, Drd2, Pld2, Rgr1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.265</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.265</source>
 							<sourcepage>p.265</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4101,7 +4101,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd2, Clr2, Pld2, Sor2, Wiz2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.275</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.275</source>
 							<sourcepage>p.275</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4130,7 +4130,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd2, Clr2, Nobility2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.278</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.278</source>
 							<sourcepage>p.278</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4159,7 +4159,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.281</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.281</source>
 							<sourcepage>p.281</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4188,7 +4188,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2, Repose2, Sor3, Wiz3</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.289</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.289</source>
 							<sourcepage>p.289</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4217,7 +4217,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Drd2, Sun2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.294</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.294</source>
 							<sourcepage>p.294</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4246,7 +4246,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd2, Clr2, Sor3, Wiz3</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.296</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.296</source>
 							<sourcepage>p.296</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4275,7 +4275,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.300</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.300</source>
 							<sourcepage>p.300</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4304,7 +4304,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2, Sor2, Wiz2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.311</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.311</source>
 							<sourcepage>p.311</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4333,7 +4333,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2, Drd2, Pld2, Rgr2, Sor2, Wiz2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.318</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.318</source>
 							<sourcepage>p.318</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4362,7 +4362,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2, Liberation2, Pld2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.332</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.332</source>
 							<sourcepage>p.332</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4391,7 +4391,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2, Drd2, Pld2, Rgr1, Sor2, Wiz2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.334</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.334</source>
 							<sourcepage>p.334</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4420,7 +4420,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2, Drd2, Pld1</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.334</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.334</source>
 							<sourcepage>p.334</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4449,7 +4449,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd2, Clr2, Sor2, Wiz2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.341</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.341</source>
 							<sourcepage>p.341</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4478,7 +4478,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2, Community2, Pld2, Protection2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.342</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.342</source>
 							<sourcepage>p.342</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4507,7 +4507,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd2, Clr2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.343</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.343</source>
 							<sourcepage>p.343</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4536,7 +4536,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd2, Clr2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.346</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.346</source>
 							<sourcepage>p.346</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4565,7 +4565,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2, War2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.348</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.348</source>
 							<sourcepage>p.348</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4594,7 +4594,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.349</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.349</source>
 							<sourcepage>p.349</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4623,7 +4623,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd2, Clr2, Sor2, Wiz2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.352</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.352</source>
 							<sourcepage>p.352</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4652,7 +4652,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Brd1, Clr2, Pld2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.363</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.363</source>
 							<sourcepage>p.363</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
@@ -4681,7 +4681,7 @@ BIO
 						</school>
 						<source>
 							<sourcelevel>Clr2, Pld2</sourcelevel>
-							<source>Paizo Publishing - Core Rulebook, p.371</source>
+							<source>Paizo Publishing, LLC - Core Rulebook, p.371</source>
 							<sourcepage>p.371</sourcepage>
 							<sourceshort>CRB</sourceshort>
 						</source>
