@@ -20,6 +20,8 @@
  */
 package pcgen.core;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -151,6 +153,12 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	public void processKit(final PlayerCharacter pc,
 		final List<BaseKit> thingsToAdd, final int kitNo)
 	{
+		BigDecimal totalCostToBeCharged = getTotalCostToBeCharged(pc);
+		if (totalCostToBeCharged != null)
+		{
+			pc.setGold(pc.getGold().subtract(totalCostToBeCharged));
+		}
+
 		for (KitStat kStat : getStats())
 		{
 			kStat.apply(pc);
@@ -187,6 +195,50 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 			buyRate = f.resolve(aPC, "").intValue();
 		}
 		return buyRate;
+	}
+
+	/**
+	 * Gets the specified total cost of the kit. Note this is a base total cost 
+	 * which would then be modified by the chosen gear purchase rate on the gear 
+	 * tab. 
+	 *
+	 * @param	aPC The character used to evaluate expressions in relation to
+	 * @return  total cost, or null if no total cost was specified.
+	 */
+	public BigDecimal getTotalCost(PlayerCharacter aPC)
+	{
+		QualifiedObject<Formula> buy = get(ObjectKey.KIT_TOTAL_COST);
+		Formula f = (buy == null ? null : buy.getObject(aPC, this));
+		BigDecimal totalCost = null;
+		if (f != null)
+		{
+			totalCost = new BigDecimal(f.resolve(aPC, "").doubleValue());
+		}
+		return totalCost;
+	}
+
+	/**
+	 * Gets the specified total cost of the kit modified by the user's chosen 
+	 * gear purchase rate on the gear tab.
+	 *
+	 * @param	aPC The character used to evaluate expressions in relation to
+	 * @return  Cost to be charged, or null if no total cost was specified.
+	 */
+	public BigDecimal getTotalCostToBeCharged(PlayerCharacter aPC)
+	{
+		BigDecimal theCost = null; 
+		BigDecimal fixedTotalCost = getTotalCost(aPC);
+		if (fixedTotalCost != null)
+		{
+			fixedTotalCost = fixedTotalCost.setScale(3);
+			BigDecimal buyRate =
+					new BigDecimal(SettingsHandler.getGearTab_BuyRate());
+			theCost =
+					fixedTotalCost.multiply(buyRate).divide(
+						new BigDecimal(100).setScale(3), RoundingMode.FLOOR);
+		}
+		
+		return theCost;
 	}
 
 	/**
@@ -249,6 +301,22 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 				thingsToAdd.add(bk);
 			}
 		}
+		
+		BigDecimal totalCostToBeCharged = getTotalCostToBeCharged(tempPC);
+		if (totalCostToBeCharged != null)
+		{
+			BigDecimal pcGold = tempPC.getGold();
+			if (pcGold.compareTo(BigDecimal.ZERO) >= 0
+				&& pcGold.compareTo(totalCostToBeCharged) < 0)
+			{
+				warnings.add("Could not purchase kit. Not enough funds.");
+			}
+			else
+			{
+				tempPC.setGold(pcGold.subtract(totalCostToBeCharged));
+			}
+		}
+		
 	}
 
 	private static class ObjectTypeComparator implements Comparator<BaseKit>

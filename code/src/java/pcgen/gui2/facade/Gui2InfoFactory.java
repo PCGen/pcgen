@@ -1063,6 +1063,10 @@ public class Gui2InfoFactory implements InfoFactory
 				{
 					infoText.append("; ");
 				}
+				else
+				{
+					infoText.appendLineBreak();
+				}
 				infoText.append("  <b>" + objName + "</b>: ");
 				lastObjectName = objName;
 			}
@@ -1073,6 +1077,15 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.append(bk.toString());
 		}
 
+		BigDecimal totalCost = kit.getTotalCost(pc);
+		if (totalCost != null)
+		{
+			infoText.appendLineBreak();
+			infoText.appendI18nFormattedElement("in_kitInfo_TotalCost", //$NON-NLS-1$
+				COST_FMT.format(totalCost),
+				SettingsHandler.getGame().getCurrencyDisplay());			
+		}
+		
 		aString = kit.getSource();
 		if (aString.length() > 0)
 		{

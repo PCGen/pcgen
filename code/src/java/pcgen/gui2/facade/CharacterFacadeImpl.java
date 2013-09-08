@@ -3898,6 +3898,20 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return false;
 		}
+		
+		if (infoFacade instanceof Kit)
+		{
+			Kit kit = (Kit) infoFacade;
+			BigDecimal totalCost = kit.getTotalCostToBeCharged(theCharacter);
+			if (totalCost != null)
+			{
+				if (theCharacter.getGold().compareTo(totalCost) < 0)
+				{
+					// Character cannto afford the kit
+					return false;
+				}
+			}
+		}
 		return true;
 	}
 

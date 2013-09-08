@@ -53,7 +53,8 @@
 		<p class="indent2">Starting Kit Block</p>
 		<p class="indent3">STARTPACK line using the <a href="#STARTPACK"><code>STARTPACK</code></a>,
 			<a href="#APPLY"><code>APPLY</code></a>,
-			<a href="#EQUIPBUY"><code>EQUIPBUY</code></a>
+			<a href="#EQUIPBUY"><code>EQUIPBUY</code></a>,
+			<a href="#TOTALCOST"><code>TOTALCOST</code></a>
 			and <a href="#VISIBLE"><code>VISIBLE</code></a> tags.</p>
 		<p class="indent3">RACE line using the <a href="#RACE"><code>RACE</code></a> and TBD tags.</p>
 		<p class="indent3">NAME line using the <a href="#NAME"><code>NAME</code></a> tag.</p>
@@ -896,6 +897,25 @@
 		<p class="indent3">The item is set to size small.</p>
 		<p class="indent1"><strong>Where it is used:</strong></p>
 		<p class="indent2">GEAR lines</p>
+		<p></p>
+
+<hr>
+
+		<p class="new"><a name="TOTALCOST">*** New 6.01.06</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> TOTALCOST:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Formula (Cost)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">This sets a total monetary cost for kit. It overrides EQUIPBUY and 
+		individual item costs but is affected by the buy rate selected on the purchase tab. If 
+		a character cannot afford the TOTALCOST the kit will be regarded as not qualified. It 
+		is used where a source provides a kit at a specific cost.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>TOTALCOST:170</code></p>
+		<p class="indent3">The KIT costs 170gp for all gear.</p>
+		<p class="indent2"><code>TOTALCOST:if(var("SIZE==3||SIZE==4"),5,10)</code></p>
+		<p class="indent3">The kit will cost 5 gp if the SIZE variable is 3 or 4, otherwise it will cost 10 gp.</p>
+		<p class="indent1"><strong>Where it is used:</strong></p>
+		<p class="indent2">STARTPACK lines</p>
 		<p></p>
 
 <hr>

@@ -269,6 +269,8 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<QualifiedObject<Formula>> EQUIP_BUY = new ObjectKey<QualifiedObject<Formula>>(null);
 
+	public static final ObjectKey<QualifiedObject<Formula>> KIT_TOTAL_COST = new ObjectKey<QualifiedObject<Formula>>(null);
+
 	public static final ObjectKey<Date> SOURCE_DATE = new ObjectKey<Date>(null);
 
 	public static final ObjectKey<Campaign> SOURCE_CAMPAIGN = new ObjectKey<Campaign>(null);

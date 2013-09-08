@@ -191,6 +191,12 @@ public final class KitGear extends BaseKit
 
 		int aBuyRate = aKit.getBuyRate(aPC);
 		final BigDecimal pcGold = aPC.getGold();
+		final BigDecimal fixedTotalCost = aKit.getTotalCost(aPC);
+		if (fixedTotalCost != null)
+		{
+			// We are going to charge fr the kit once, rather than for every piece of gear
+			aBuyRate = 0;
+		}
 
 		List<Equipment> eqList =
 				new ArrayList<Equipment>(equip.getContainedObjects());
@@ -305,30 +311,33 @@ public final class KitGear extends BaseKit
 		final BigDecimal eqCost = theEquipment.getCost(aPC);
 		if (aBuyRate != 0)
 		{
-			final BigDecimal bdBuyRate =
-					new BigDecimal(Integer.toString(aBuyRate))
-						.multiply(new BigDecimal("0.01"));
-
-			// Check to see if the PC can afford to buy this equipment. If
-			// not, then decrement the quantity and try again.
-			theCost =
-					eqCost.multiply(new BigDecimal(Integer.toString(theQty)))
-						.multiply(bdBuyRate);
-
-			while (theQty > 0)
+			if (fixedTotalCost == null)
 			{
-				if (theCost.compareTo(pcGold) <= 0) // PC has enough?
-				{
-					break;
-				}
-
+				final BigDecimal bdBuyRate =
+						new BigDecimal(Integer.toString(aBuyRate))
+							.multiply(new BigDecimal("0.01"));
+	
+				// Check to see if the PC can afford to buy this equipment. If
+				// not, then decrement the quantity and try again.
 				theCost =
-						eqCost.multiply(
-							new BigDecimal(Integer.toString(--theQty)))
+						eqCost.multiply(new BigDecimal(Integer.toString(theQty)))
 							.multiply(bdBuyRate);
+	
+				while (theQty > 0)
+				{
+					if (theCost.compareTo(pcGold) <= 0) // PC has enough?
+					{
+						break;
+					}
+	
+					theCost =
+							eqCost.multiply(
+								new BigDecimal(Integer.toString(--theQty)))
+								.multiply(bdBuyRate);
+				}
 			}
 
-			aPC.setGold(aPC.getGold().subtract(theCost).toString());
+			aPC.setGold(aPC.getGold().subtract(theCost));
 		}
 
 		boolean outOfFunds = false;
@@ -443,7 +452,7 @@ public final class KitGear extends BaseKit
 		aPC.addEquipToTarget(eSet, theTarget, theLocation, theEquipment,
 			new Float(theQty));
 
-		aPC.setGold(aPC.getGold().subtract(theCost).toString());
+		aPC.setGold(aPC.getGold().subtract(theCost));
 	}
 
 	@Override
