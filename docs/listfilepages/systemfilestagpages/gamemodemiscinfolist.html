@@ -299,28 +299,10 @@
 		<p class="indent1"><strong>Example: </strong></p>
         <p class="indent2"><code>BASEDICE:1d6 UP:1d8,2d6,3d6,4d6,6d6,8d6,12d6 DOWN:1d4,1d3,1d2,1</code></p>
         <p class="indent3">This states the base die is a d6 and determines that the next lowest die would be a d4, then a d3 and the next highest would be a d8, then 2d. </p>
+		<p></p>
 
-		<p></p><hr>
-		<p class="new"><a name="BONUS_ACFLAT">*** Deprecated - Remove 6.0</a> - Use <a href="#ACTYPE">ACTYPE</a> instead.</p>
-        <p class="indent0"><strong>Tag Name:</strong> BONUS_ACFLAT</p>
-        <p class="indent1"><strong>Variables used (x):</strong> formula</p>
-        <p class="indent1"><strong>What it does:</strong></p>
-        <p class="indent2">This period (.) separator value makes the Flat AC display correctly based upon the set formula </p>
-        <p class="indent1"><strong>Example: </strong> </p>
-        <p class="indent2"><code>BONUS_ACFLAT:COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0</code></p>
-        <p class="indent3">The codes takes the entire AC value and removes the Dex (ability) to result in the Flat Footed AC but does not remove the Dex bonus if the class has the uncanny dodge special ability. </p>
+<hr>
 
-        <p></p><hr>
-		<p class="new"><a name="BONUS_ACTOUCH">*** Deprecated - Remove 6.0</a> - Use <a href="#ACTYPE">ACTYPE</a> instead.</p>
-        <p class="indent0"><strong>Tag Name:</strong> BONUS_ACTOUCH:x</p>
-        <p class="indent1"><strong>Variables used (x):</strong> formula</p>
-        <p class="indent1"><strong>What it does: </strong></p>
-        <p class="indent2">It makes the Touch AC display correctly based up formulas</p>
-        <p class="indent1"><strong>Example: </strong></p>
-        <p class="indent2"><code>BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor</code></p>
-        <p class="indent3">The codes takes the entire AC value and removes the Armor and Natural armor to result in the Touch AC</p>
-
-		<p></p><hr>
 		<p class="indent0"><strong><a name="BONUSFEATLEVELSTARTINTERVAL">Tag Name:</a></strong> BONUSFEATLEVELSTARTINTERVAL:x|y</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (Level where bonus feats would begin
 			(first bonus feat awarded at this level).</p>
@@ -1271,11 +1253,10 @@
 		<p class="indent2"><code>SHOWCLASSDEFENSE:YES</code></p>
 		<p class="indent3">Allow bonuses of the BONUS:COMBAT|AC|x|TYPE=ClassDefense type to be displayed.</p>
 
-		<p></p><hr>
-		<p class="new"><strong><a name="SHOWTAB">*** Deprecated - Remove 6.0</a> - Use <a href="#TAB">TAB</a> instead.</p>
-		<p class="indent0">Tag Name:</strong> SHOWTAB:x|y</p>
+		<p></p>
 
-		<p></p><hr>
+<hr>
+
 		<p class="status"><a name="SIZEDIFF">*** New 5.5.2</a></p>
 		<p class="indent0"><strong>Tag Name:</strong> SIZEDIFF:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Number (effective object size difference)</p>
