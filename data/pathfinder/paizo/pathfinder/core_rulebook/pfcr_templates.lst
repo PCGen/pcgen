@@ -120,27 +120,3 @@ Dragon Disciple Bite ~ Colossal		VISIBLE:NO																																					
 # Template Name	Visible	Bonus to Ability Pool
 Human Ethnicity	VISIBLE:NO	BONUS:ABILITYPOOL|Human Ethnicity|1
 
-
-###BLOCK:Perform Choice with Instrument (If Appropriate) & Skill point spent - KIT ASSIGNATION
-Bard Perform Choice	VISIBLE:NO	TEMPLATE:CHOOSE:Perform - Acting|Perform - Comedy|Perform - Dancing|Perform - Orating|Perform - Singing|Perform - Play Harpsichord|Perform - Play Piano|Perform - Play Pipe Organ|Perform - Play Bells|Perform - Play Chimes|Perform - Play Drums|Perform - Play Gong|Perform - Play Harp|Perform - Play Fiddle|Perform - Play Lute|Perform - Play Mandolin|Perform - Play Flute|Perform - Play Recorder|Perform - Play Trumpet|Perform - Play Pan Pipes	PRECLASS:1,Bard=1		PRELEVEL:MAX=1
-Perform - Acting				KIT:1|Perform - Acting
-Perform - Comedy				KIT:1|Perform - Comedy
-Perform - Dancing				KIT:1|Perform - Dancing
-Perform - Orating				KIT:1|Perform - Orating
-Perform - Singing				KIT:1|Perform - Singing
-Perform - Play Harpsichord		KIT:1|Perform - Play Harpsichord
-Perform - Play Piano			KIT:1|Perform - Play Piano
-Perform - Play Pipe Organ		KIT:1|Perform - Play Pipe Organ
-Perform - Play Bells			KIT:1|Perform - Play Bells
-Perform - Play Chimes			KIT:1|Perform - Play Chimes
-Perform - Play Drums			KIT:1|Perform - Play Drums
-Perform - Play Gong			KIT:1|Perform - Play Gong
-Perform - Play Harp			KIT:1|Perform - Play Harp
-Perform - Play Fiddle			KIT:1|Perform - Play Fiddle
-Perform - Play Lute			KIT:1|Perform - Play Lute
-Perform - Play Mandolin			KIT:1|Perform - Play Mandolin
-Perform - Play Flute			KIT:1|Perform - Play Flute
-Perform - Play Recorder			KIT:1|Perform - Play Recorder
-Perform - Play Trumpet			KIT:1|Perform - Play Trumpet
-Perform - Play Pan Pipes		KIT:1|Perform - Play Pan Pipes
-
