@@ -285,6 +285,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		character.addEquipment(gem);
 		EquipSet es = new EquipSet("1", "Default", "", gem);
 		character.addEquipSet(es);
+		character.setDirty(true);
 		assertEquals("Gem loop - 1 gem", " TestGem: 1<br/>", evaluateToken(
 			gemLoop, character));
 	}

@@ -2618,7 +2618,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	{
 		equipmentFacet.add(id, eq, this);
 		userEquipmentFacet.add(id, eq, this);
-		setDirty(true);
+		//setDirty(true);
 	}
 
 	/**
