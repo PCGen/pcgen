@@ -65,6 +65,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui.utils.JLabelPane;
+import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.persistence.PersistenceLayerException;
@@ -153,7 +154,7 @@ public class DataInstaller extends JFrame
 				JFileChooser chooser =
 						new JFileChooser(currFolder);
 				chooser.setDialogTitle(LanguageBundle
-					.getString("in_diChooserTitle"));
+					.getString("in_diChooserTitle")); //$NON-NLS-1$
 				chooser.setFileFilter(new DataPackFilter());
 				int result = chooser.showOpenDialog(DataInstaller.this);
 				if (result != JFileChooser.APPROVE_OPTION)
@@ -173,7 +174,7 @@ public class DataInstaller extends JFrame
 //					PersistenceManager.getInstance().refreshCampaigns();
 //					FacadeFactory.refresh();
 					ShowMessageDelegate.showMessageDialog(LanguageBundle
-						.getFormattedString("in_diInstalled", campaign
+						.getFormattedString("in_diInstalled", campaign //$NON-NLS-1$
 							.getDisplayName()), TITLE, MessageType.INFORMATION);
 				}
 			}
@@ -521,7 +522,8 @@ public class DataInstaller extends JFrame
 		
 		Utility.buildConstraints(gbc, 3, 0, 1, 1, 0.0, 0.0);
 		gbc.fill = GridBagConstraints.NONE;
-		selectButton = new JButton(LanguageBundle.getString("in_select"));
+		selectButton = new JButton();
+		CommonMenuText.name(selectButton, "select"); //$NON-NLS-1$
 		gridbag.setConstraints(selectButton, gbc);
 		add(selectButton, gbc);
 		selectButton.addActionListener(listener);
@@ -574,10 +576,11 @@ public class DataInstaller extends JFrame
 		add(optionsPanel, gbc);
 
 		// Buttons row
-		installButton = new JButton(LanguageBundle.getString("in_diInstall"));
+		installButton = new JButton();
+		CommonMenuText.name(installButton, "diInstall");  //$NON-NLS-1$
 		installButton.addActionListener(listener);
-		cancel = new JButton(LanguageBundle.getString("in_close"));
-		cancel.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
+		cancel = new JButton();
+		CommonMenuText.name(cancel, "close"); //$NON-NLS-1$
 		cancel.addActionListener(listener);
 
 		JPanel buttonsPanel = new JPanel();

@@ -70,6 +70,7 @@ import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.dialog.DataInstaller;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
+import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.tools.Utility;
@@ -118,12 +119,19 @@ public class SourceSelectionDialog extends JDialog
 		this.basicPanel = new QuickSourceSelectionPanel();
 		this.advancedPanel = new AdvancedSourceSelectionPanel(frame);
 		this.buttonPanel = new JPanel();
-		this.loadButton = new JButton(LanguageBundle.getString("in_load")); //$NON-NLS-1$
-		this.cancelButton = new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
-		this.hideunhideButton = new JButton(LanguageBundle.getString("in_hideunhide")); //$NON-NLS-1$
-		this.deleteButton = new JButton(LanguageBundle.getString("in_delete")); //$NON-NLS-1$
-		this.installDataButton = new JButton(LanguageBundle.getString("in_mnuSourcesInstallData")); //$NON-NLS-1$
-		this.saveButton = new JButton(LanguageBundle.getString("in_saveSelection")); //$NON-NLS-1$
+		this.loadButton = new JButton();
+		CommonMenuText.name(loadButton, "load"); //$NON-NLS-1$
+		this.cancelButton = new JButton();
+		CommonMenuText.name(cancelButton, "cancel"); //$NON-NLS-1$
+		
+		this.hideunhideButton = new JButton();
+		CommonMenuText.name(hideunhideButton, "hideunhide"); //$NON-NLS-1$
+		this.deleteButton = new JButton();
+		CommonMenuText.name(deleteButton, "delete"); //$NON-NLS-1$
+		this.installDataButton = new JButton();
+		CommonMenuText.name(installDataButton, "mnuSourcesInstallData");  //$NON-NLS-1$
+		this.saveButton = new JButton();
+		CommonMenuText.name(saveButton, "saveSelection");  //$NON-NLS-1$
 		this.alwaysAdvancedCheck =
 				new JCheckBox(
 					LanguageBundle.getString("in_sourceAlwaysAdvanced"), //$NON-NLS-1$

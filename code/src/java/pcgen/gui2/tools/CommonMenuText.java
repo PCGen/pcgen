@@ -18,6 +18,7 @@
 package pcgen.gui2.tools;
 
 import javax.swing.Action;
+import javax.swing.JButton;
 import javax.swing.JMenuItem;
 
 import pcgen.system.LanguageBundle;
@@ -78,6 +79,20 @@ public class CommonMenuText
 		if (shortDesc != null && !shortDesc.isEmpty())
 			m.setToolTipText(shortDesc);
 		m.setMnemonic(getMnemonic(prop));
+	}
+
+	/**
+	 * @param b the button to change the text, short description and mnemonic
+	 * @param substitutes substitutes to use in a message format
+	 * @param prop key bundle to use
+	 */
+	public static void name(JButton b, String prop, Object... substitutes)
+	{
+		b.setText(getName(prop, substitutes));
+		String shortDesc = getShortDesc(prop, substitutes);
+		if (shortDesc != null && !shortDesc.isEmpty())
+			b.setToolTipText(shortDesc);
+		b.setMnemonic(getMnemonic(prop));
 	}
 
 }

@@ -80,7 +80,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		super(frame, true);
 		//IconUtilitities.maybeSetIcon(this, "TipOfTheDay16.gif");
 
-		setTitle(LanguageBundle.getString("in_tod_title"));
+		setTitle(LanguageBundle.getString("in_tod_title")); //$NON-NLS-1$
 
 		// initialize the interface
 		initUI();
