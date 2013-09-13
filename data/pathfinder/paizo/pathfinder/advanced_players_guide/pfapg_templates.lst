@@ -79,6 +79,12 @@ Vision Darkvision																			PREVISION:1,Darkvision=1																			B
 Hero Points			VISIBLE:DISPLAY	DEFINE:HeroPoints|0	DEFINE:HeroPointsMax|3
 Current Hero Points	VISIBLE:NO																															BONUS:VAR|HeroPoints|%CHOICE|PREAPPLY:ANYPC						CHOOSE:NUMBER|MIN=0|MAX=HeroPointsMax|TITLE=Hero Points																	TEMPDESC:Track Hero Points
 
+
+Starting Gold ~ APG	VISIBLE:NO	TEMPLATE:CHOOSE:Starting Gold APG ~ Random|Starting Gold APG ~ Maximum|Starting Gold APG ~ Average
+Starting Gold APG ~ Random	VISIBLE:NO	KIT:1|Starting Gold APG ~ Random	
+Starting Gold APG ~ Maximum	VISIBLE:NO	KIT:1|Starting Gold APG ~ Maximum	
+Starting Gold APG ~ Average	VISIBLE:NO	KIT:1|Starting Gold APG ~ Average	
+
 #
 # End
 #
