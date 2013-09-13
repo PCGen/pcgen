@@ -120,3 +120,79 @@ Dragon Disciple Bite ~ Colossal		VISIBLE:NO																																					
 # Template Name	Visible	Bonus to Ability Pool
 Human Ethnicity	VISIBLE:NO	BONUS:ABILITYPOOL|Human Ethnicity|1
 
+### Starting Gold
+Starting Gold ~ CRB	VISIBLE:NO	TEMPLATE:CHOOSE:Starting Gold CRB ~ Random|Starting Gold CRB ~ Maximum|Starting Gold CRB ~ Average
+Starting Gold CRB ~ Random	VISIBLE:NO	KIT:1|Starting Gold CRB ~ Random	
+Starting Gold CRB ~ Maximum	VISIBLE:NO	KIT:1|Starting Gold CRB ~ Maximum	
+Starting Gold CRB ~ Average	VISIBLE:NO	KIT:1|Starting Gold CRB ~ Average	
+
+### PC Wealth Kits
+Wealth by PC Level	VISIBLE:NO	TEMPLATE:CHOOSE:PC Level 02|PC Level 03|PC Level 04|PC Level 05|PC Level 06|PC Level 07|PC Level 08|PC Level 09|PC Level 10|PC Level 11|PC Level 12|PC Level 13|PC Level 14|PC Level 15|PC Level 16|PC Level 17|PC Level 18|PC Level 19|PC Level 20
+
+PC Level 02	VISIBLE:NO	KIT:1|PC Level 2
+PC Level 03	VISIBLE:NO	KIT:1|PC Level 3
+PC Level 04	VISIBLE:NO	KIT:1|PC Level 4
+PC Level 05	VISIBLE:NO	KIT:1|PC Level 5
+PC Level 06	VISIBLE:NO	KIT:1|PC Level 6
+PC Level 07	VISIBLE:NO	KIT:1|PC Level 7
+PC Level 08	VISIBLE:NO	KIT:1|PC Level 8
+PC Level 09	VISIBLE:NO	KIT:1|PC Level 9
+PC Level 10	VISIBLE:NO	KIT:1|PC Level 10
+PC Level 11	VISIBLE:NO	KIT:1|PC Level 11
+PC Level 12	VISIBLE:NO	KIT:1|PC Level 12
+PC Level 13	VISIBLE:NO	KIT:1|PC Level 13
+PC Level 14	VISIBLE:NO	KIT:1|PC Level 14
+PC Level 15	VISIBLE:NO	KIT:1|PC Level 15
+PC Level 16	VISIBLE:NO	KIT:1|PC Level 16
+PC Level 17	VISIBLE:NO	KIT:1|PC Level 17
+PC Level 18	VISIBLE:NO	KIT:1|PC Level 18
+PC Level 19	VISIBLE:NO	KIT:1|PC Level 19
+PC Level 20	VISIBLE:NO	KIT:1|PC Level 20
+
+
+### NPC Wealth Kits
+Wealth by NPC Level	VISIBLE:NO	TEMPLATE:CHOOSE:Basic NPC|Heroic NPC
+
+Basic NPC	VISIBLE:NO	TEMPLATE:CHOOSE:Basic Level 01|Basic Level 02|Basic Level 03|Basic Level 04|Basic Level 05|Basic Level 06|Basic Level 07|Basic Level 08|Basic Level 09|Basic Level 10|Basic Level 11|Basic Level 12|Basic Level 13|Basic Level 14|Basic Level 15|Basic Level 16|Basic Level 17|Basic Level 18|Basic Level 19|Basic Level 20
+Basic Level 01	VISIBLE:NO	KIT:1|Basic Level 1
+Basic Level 02	VISIBLE:NO	KIT:1|Basic Level 2
+Basic Level 03	VISIBLE:NO	KIT:1|Basic Level 3
+Basic Level 04	VISIBLE:NO	KIT:1|Basic Level 4
+Basic Level 05	VISIBLE:NO	KIT:1|Basic Level 5
+Basic Level 06	VISIBLE:NO	KIT:1|Basic Level 6
+Basic Level 07	VISIBLE:NO	KIT:1|Basic Level 7
+Basic Level 08	VISIBLE:NO	KIT:1|Basic Level 8
+Basic Level 09	VISIBLE:NO	KIT:1|Basic Level 9
+Basic Level 10	VISIBLE:NO	KIT:1|Basic Level 10
+Basic Level 11	VISIBLE:NO	KIT:1|Basic Level 11
+Basic Level 12	VISIBLE:NO	KIT:1|Basic Level 12
+Basic Level 13	VISIBLE:NO	KIT:1|Basic Level 13
+Basic Level 14	VISIBLE:NO	KIT:1|Basic Level 14
+Basic Level 15	VISIBLE:NO	KIT:1|Basic Level 15
+Basic Level 16	VISIBLE:NO	KIT:1|Basic Level 16
+Basic Level 17	VISIBLE:NO	KIT:1|Basic Level 17
+Basic Level 18	VISIBLE:NO	KIT:1|Basic Level 18
+Basic Level 19	VISIBLE:NO	KIT:1|Basic Level 19
+Basic Level 20	VISIBLE:NO	KIT:1|Basic Level 20
+
+Heroic NPC	VISIBLE:NO	TEMPLATE:CHOOSE:Heroic Level 01|Heroic Level 02|Heroic Level 03|Heroic Level 04|Heroic Level 05|Heroic Level 06|Heroic Level 07|Heroic Level 08|Heroic Level 09|Heroic Level 10|Heroic Level 11|Heroic Level 12|Heroic Level 13|Heroic Level 14|Heroic Level 15|Heroic Level 16|Heroic Level 17|Heroic Level 18|Heroic Level 19|Heroic Level 20
+Heroic Level 01	VISIBLE:NO	KIT:1|Heroic Level 1
+Heroic Level 02	VISIBLE:NO	KIT:1|Heroic Level 2
+Heroic Level 03	VISIBLE:NO	KIT:1|Heroic Level 3
+Heroic Level 04	VISIBLE:NO	KIT:1|Heroic Level 4
+Heroic Level 05	VISIBLE:NO	KIT:1|Heroic Level 5
+Heroic Level 06	VISIBLE:NO	KIT:1|Heroic Level 6
+Heroic Level 07	VISIBLE:NO	KIT:1|Heroic Level 7
+Heroic Level 08	VISIBLE:NO	KIT:1|Heroic Level 8
+Heroic Level 09	VISIBLE:NO	KIT:1|Heroic Level 9
+Heroic Level 10	VISIBLE:NO	KIT:1|Heroic Level 10
+Heroic Level 11	VISIBLE:NO	KIT:1|Heroic Level 11
+Heroic Level 12	VISIBLE:NO	KIT:1|Heroic Level 12
+Heroic Level 13	VISIBLE:NO	KIT:1|Heroic Level 13
+Heroic Level 14	VISIBLE:NO	KIT:1|Heroic Level 14
+Heroic Level 15	VISIBLE:NO	KIT:1|Heroic Level 15
+Heroic Level 16	VISIBLE:NO	KIT:1|Heroic Level 16
+Heroic Level 17	VISIBLE:NO	KIT:1|Heroic Level 17
+Heroic Level 18	VISIBLE:NO	KIT:1|Heroic Level 18
+Heroic Level 19	VISIBLE:NO	KIT:1|Heroic Level 19
+Heroic Level 20	VISIBLE:NO	KIT:1|Heroic Level 20
