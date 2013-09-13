@@ -185,12 +185,12 @@ CATEGORY=Special Ability|Bonded Item ~ Bonded Witch.MOD		DESC:Weapon - 2nd-wardi
 #Bonded Witch Item Choice							CATEGORY:Internal			TYPE:BondedWitchItemChoice																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																							STACK:NO	MULT:YES	CHOOSE:ABILITY|Internal|TYPE=WitchBondedItem
 
 ###Block: Bonded Items
-# Ability Name	Unique Key			Category of Ability	Type
-Amulet			KEY:BWIC ~ Amulet	CATEGORY:Special Ability		TYPE:BondedWitchItemChoice
-Ring			KEY:BWIC ~ Ring		CATEGORY:Special Ability		TYPE:BondedWitchItemChoice
-Staff			KEY:BWIC ~ Staff	CATEGORY:Special Ability		TYPE:BondedWitchItemChoice
-Wand			KEY:BWIC ~ Wand		CATEGORY:Special Ability		TYPE:BondedWitchItemChoice
-Weapon			KEY:BWIC ~ Weapon	CATEGORY:Special Ability		TYPE:BondedWitchItemChoice
+# Ability Name	Unique Key		Category of Ability		Type
+Amulet		KEY:BWIC ~ Amulet	CATEGORY:Special Ability	TYPE:BondedWitchItemChoice
+Ring			KEY:BWIC ~ Ring	CATEGORY:Special Ability	TYPE:BondedWitchItemChoice
+Staff			KEY:BWIC ~ Staff	CATEGORY:Special Ability	TYPE:BondedWitchItemChoice
+Wand			KEY:BWIC ~ Wand	CATEGORY:Special Ability	TYPE:BondedWitchItemChoice
+Weapon		KEY:BWIC ~ Weapon	CATEGORY:Special Ability	TYPE:BondedWitchItemChoice
 
 ###Block: Bramble Brewer Abilities
 # Ability Name	Unique Key						Category of Ability		Type									Description																																																																																																																																																																																																																																																																																																						Source Page
