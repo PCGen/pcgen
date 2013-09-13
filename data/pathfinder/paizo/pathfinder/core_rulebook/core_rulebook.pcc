@@ -91,7 +91,6 @@ EQUIPMOD:pfcr_equipmods_weapons.lst
 FEAT:pfcr_feats.lst
 KIT:pfcr_kits.lst
 KIT:pfcr_kits_companions.lst
-KIT:pfcr_kits_racial_traits.lst
 LANGUAGE:pfcr_languages.lst
 RACE:pfcr_races_base.lst
 RACE:pfcr_races_companions.lst
