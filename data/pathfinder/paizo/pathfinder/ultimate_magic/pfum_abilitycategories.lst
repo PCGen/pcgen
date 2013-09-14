@@ -115,6 +115,11 @@ ABILITYCATEGORY:Crossblooded Bloodline Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITP
 ABILITYCATEGORY:Crossblooded Bonus Spell		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodedSpellChoice	PLURAL:Crossblooded Bonus Spells		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Crossblooded Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat		PLURAL:Crossblooded Feats			DISPLAYLOCATION:Class Abilities
 
+
+ABILITYCATEGORY:Magus Class Ability				VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:MagusClassAbility	PLURAL:Magus Class Abilities	DISPLAYLOCATION:Class Abilities
+
+
+
 #
 # End
 #
