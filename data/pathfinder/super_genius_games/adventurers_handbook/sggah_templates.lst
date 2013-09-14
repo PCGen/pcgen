@@ -1,0 +1,20 @@
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+###Block: Headbutt templates to add headbutt natural attack
+Head Butt ~ Small		VISIBLE:NO	!PREEQUIP:1,Head Butt	PRESIZEEQ:S	NATURALATTACKS:Head Butt,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d2
+Head Butt ~ Medium	VISIBLE:NO	!PREEQUIP:1,Head Butt	PRESIZEEQ:M	NATURALATTACKS:Head Butt,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d3
+Head Butt ~ Large		VISIBLE:NO	!PREEQUIP:1,Head Butt	PRESIZEEQ:L	NATURALATTACKS:Head Butt,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4
+
+###Block: Template for sorcerer stone bloodline
+Earthborn	RACESUBTYPE:Earth
+
+###Block: New templates
+Arctic			SOURCEPAGE:p.95										ABILITY:Special Ability|AUTOMATIC|Cold Resistance ~ Arctic|Fire Vulnerability ~ Arctic|Snowy Adaptation ~ Arctic
+Cold-Iron Elemental	SOURCEPAGE:p.95	PRERACE:2,RACESUBTYPE=Earth,RACESUBTYPE=Elemental	ABILITY:Special Ability|AUTOMATIC|Cold Iron Attacks ~ Cold Iron Elemental	DEFINE:NoEarthMastery|0	DEFINE:NoEarthGlide|0	BONUS:VAR|NoEarthMastery|1	BONUS:VAR|NoEarthGlide|1	BONUS:MISC|SR|5+HD
+Ice Elemental		SOURCEPAGE:p.95	PRERACE:2,RACESUBTYPE=Earth,RACESUBTYPE=Elemental	ABILITY:Special Ability|AUTOMATIC|Freeze ~ Ice Elemental	DEFINE:NoEarthMastery|0	BONUS:VAR|NoEarthMastery|1	RACESUBTYPE:.REMOVE.Earth|Cold	AUTO:LANG|.CLEAR|Aquan
+Ironskinned			SOURCEPAGE:p.96										ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Thick Build ~ Ironskinned|Vulnerability to Sonic	DEFINE:AcidResistanceBonus|0	BONUS:VAR|AcidResistanceBonus|3	BONUS:VAR|AcidResistanceBonus|2|PREVARGTEQ:TL,6	BONUS:VAR|AcidResistanceBonus|5|PREVARGTEQ:TL,11	BONUS:VAR|AcidResistanceBonus|5|PREVARGTEQ:TL,21	DR:1/adamantine|PREVARGTEQ:TL,6	BONUS:DR|adamantine|1|PREVARGTEQ:TL,11	BONUS:DR|adamantine|1|PREVARGTEQ:TL,21	BONUS:CHECKS|Reflex|-2
+
+###Block: Templates for unbreathing subtype
+# Template Name		Visible	
+Unbreathing Subtype	VISIBLE:YES	PRERACE:1,RACETYPE=Magical Beast,RACETYPE=Humanoid	!PRERACE:1,RACESUBTYPE=Fire	DEFINE:ColdResistanceBonus|0	BONUS:VAR|ColdResistanceBonus|TL	ABILITY:Special Ability|AUTOMATIC|Still Breath ~ Unbreathing|Undead-like ~ Unbreathing|Healing Resistance ~ Unbreathing

@@ -1,0 +1,13 @@
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+#Block: .MODs for MagisterMetamagic
+#UM
+Flaring Spell.MOD				TYPE:MagisterMetamagic
+Piercing Spell.MOD			TYPE:MagisterMetamagic
+Rime Spell.MOD				TYPE:MagisterMetamagic
+Toppling Spell.MOD			TYPE:MagisterMetamagic
+
+#
+# End
+#

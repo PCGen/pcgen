@@ -1,0 +1,24 @@
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+#Block: .MODs for Magister bonus feats
+#APG
+Arcane Blast.MOD				TYPE:Magister
+Arcane Shield.MOD				TYPE:Magister
+Arcane Talent.MOD				TYPE:Magister
+
+#Block: .MODs for MagisterMetamagic
+#APG
+Bouncing Spell.MOD			TYPE:MagisterMetamagic
+Disruptive Spell.MOD			TYPE:MagisterMetamagic
+Ectoplasmic Spell.MOD			TYPE:MagisterMetamagic
+Elemental Spell.MOD			TYPE:MagisterMetamagic
+Focused Spell.MOD				TYPE:MagisterMetamagic
+Intensified Spell.MOD			TYPE:MagisterMetamagic
+Lingering Spell.MOD			TYPE:MagisterMetamagic
+Merciful Spell.MOD			TYPE:MagisterMetamagic
+Selective Spell.MOD			TYPE:MagisterMetamagic
+
+#
+# End
+#

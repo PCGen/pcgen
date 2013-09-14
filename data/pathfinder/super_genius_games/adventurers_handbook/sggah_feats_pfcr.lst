@@ -1,0 +1,45 @@
+SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
+# Original Entry by: Paul Shipley (elro the onk)
+
+#Block: .MODs for Magister bonus feats
+#Core
+Arcane Armor Training.MOD		TYPE:Magister
+Arcane Armor Mastery.MOD		TYPE:Magister
+#TODO: Modify Arcane Strike so that arcane classes in this set add to the benefit
+Arcane Strike.MOD				TYPE:Magister	BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Archon")+var("BL=Archon")+charbonusto("CASTERLEVEL","Death Mage")+var("BL=Death Mage")+charbonusto("CASTERLEVEL","Magister")+var("BL=Magister")
+Armor Proficiency (Medium).MOD	TYPE:Magister
+Augment Summoning.MOD			TYPE:Magister
+Combat Casting.MOD			TYPE:Magister
+Eschew Materials.MOD			TYPE:Magister
+Greater Spell Focus.MOD			TYPE:Magister
+Greater Spell Penetration.MOD		TYPE:Magister
+Improved Counterspell.MOD		TYPE:Magister
+Magical Aptitude.MOD			TYPE:Magister
+Spell Focus.MOD				TYPE:Magister
+Spell Penetration.MOD			TYPE:Magister
+
+#Block: .MODs for MagisterMetamagic
+#Core
+Enlarge Spell.MOD				TYPE:MagisterMetamagic
+Extend Spell.MOD				TYPE:MagisterMetamagic
+Silent Spell.MOD				TYPE:MagisterMetamagic
+Still Spell.MOD				TYPE:MagisterMetamagic
+
+#Block: .MODs for Sorcerer Bloodlines
+Arcane Armor Training.MOD		TYPE:FrostBloodline.StoneBloodline
+Armor Proficiency (Light).MOD		TYPE:FrostBloodline.StoneBloodline
+Defensive Combat Training.MOD		TYPE:FrostBloodline.StoneBloodline
+Endurance.MOD				TYPE:FrostBloodline
+Great Fortitude.MOD			TYPE:FrostBloodline
+Nimble Moves.MOD				TYPE:FrostBloodline
+Agile Maneuvers.MOD			TYPE:StoneBloodline
+Alertness.MOD				TYPE:StoneBloodline
+Arcane Armor Mastery.MOD		TYPE:StoneBloodline
+Armor Proficiency (Heavy).MOD		TYPE:StoneBloodline
+Armor Proficiency (Medium).MOD	TYPE:StoneBloodline
+Blind-fight.MOD				TYPE:StoneBloodline
+Deadly Aim.MOD				TYPE:StoneBloodline
+
+#
+# End
+#
