@@ -40,3 +40,5 @@ CLASS:Monk.MOD	DEFINE:NonMonkLevels|TL-classlevel("Monk")	DEFINE:MonkLevelsAdjus
 #1	DOMAIN:Deception Subdomain[PREVAREQ:DruidDeceptionAllowed,1]
 
 
+CLASS:Rogue.MOD	!PRECLASS:1,Ninja=1
+CLASS:Cavalier.MOD	!PRECLASS:1,Samurai=1
