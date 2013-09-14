@@ -32,6 +32,8 @@ Buy Skill Point ~ 12	CATEGORY:Special Ability	TYPE:General.Character Creation.Co
 
 Buy Spell			CATEGORY:Special Ability	TYPE:General.Character Creation.Conversion Stuff																																															STACK:YES	MULT:YES	CHOOSE:NOCHOICE							BONUS:ABILITYPOOL|Class Spell Selection|1							COST:1	SOURCEPAGE:p.11
 Buy Feat			CATEGORY:Special Ability	TYPE:General.Character Creation.Conversion Stuff																																															STACK:YES	MULT:YES	CHOOSE:NOCHOICE							BONUS:ABILITYPOOL|FEAT|1									COST:6	SOURCEPAGE:p.9
+Buy Feat (With Selection)			CATEGORY:Special Ability	TYPE:General.Character Creation.Conversion Stuff																																												STACK:YES	MULT:YES	CHOOSE:FEAT|!PC				AUTO:FEAT|%LIST									COST:6	SOURCEPAGE:p.9
+
 Skill Specialty		CATEGORY:Special Ability	TYPE:General.Character Creation.Conversion Stuff.SkillInfo			DESC:Characters may buy a "specialty" in a given skill for 1 CP, these add +3 to the roll, but only for a chosen limited application. Only one specialty ever applies at a single time, even if they overlap. For example, many riders specialize in "Horses."			MULT:YES	CHOOSE:USERINPUT|TITLE=Name the Skill and Specialty														COST:1	SOURCEPAGE:p.9	ASPECT:SkillBonus|+3 Specialty to %1|%LIST
 
 #BONUS:SKILLPOINTS|NUMBER|count("ABILITIES","CATEGORY=Special Ability","NAME=Buy Skill Point")

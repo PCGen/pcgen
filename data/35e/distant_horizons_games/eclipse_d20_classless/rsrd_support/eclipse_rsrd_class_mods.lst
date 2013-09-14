@@ -2,6 +2,20 @@
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
+###Block: Subclass Support
+CLASS:Psion.COPY=Psion (Egoist)
+CLASS:Psion.COPY=Psion (Kineticist)
+CLASS:Psion.COPY=Psion (Nomad)
+CLASS:Psion.COPY=Psion (Seer)
+CLASS:Psion.COPY=Psion (Shaper)	
+CLASS:Psion.COPY=Psion (Telepath)
+
+CLASS:Psion (Egoist).MOD		SPELLLIST:2|Egoist|Psion	
+CLASS:Psion (Kineticist).MOD		SPELLLIST:2|Kineticist|Psion	
+CLASS:Psion (Nomad).MOD			SPELLLIST:2|Nomad|Psion		
+CLASS:Psion (Seer).MOD			SPELLLIST:2|Psion|Seer		
+CLASS:Psion (Shaper).MOD		SPELLLIST:2|Psion|Shaper	
+CLASS:Psion (Telepath).MOD		SPELLLIST:2|Psion|Telepath	
 
 
 # Class Name

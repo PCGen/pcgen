@@ -53,7 +53,7 @@ CLASS:Eclipse Point Buy (d04)	STARTSKILLPTS:0
 ###Block:
 # No Skill Points Added During Level Progression
 #
-1TEMPLATE:01 Point Buy Master Template for All Levels
+1	TEMPLATE:01 Point Buy Master Template for All Levels
 ###Block:
 1:REPEATLEVEL:1|SKIP=0|MAX=20	CAST:9,9,9,9,9,9,9,9,9,9	ABILITY:Internal|AUTOMATIC|HD Taken d4	DONOTADD:SKILLPOINTS
 ###Block:
