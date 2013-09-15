@@ -3781,7 +3781,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Guileful Polyglot (Aklo, Hallit, Giant, Varisian)</name>
-			<description><para>A rogue with this talent who has at least one rank in Linguistics gains four additional languages. A rogue with this talent who does not have any ranks in Linguistics gains two additional languages. If the rogue later gains ranks in Linguistics, she gains two additional languages, to a total of four additional languages above those granted by the Linguistics skill itself. </para><para>Languages selected - Aklo, Hallit, Giant, Varisian</para></description>
+			<description>A rogue with this talent who has at least one rank in Linguistics gains four additional languages. A rogue with this talent who does not have any ranks in Linguistics gains two additional languages. If the rogue later gains ranks in Linguistics, she gains two additional languages, to a total of four additional languages above those granted by the Linguistics skill itself.</description>
 			<type>GUILEFULPOLYGOTLANG.SPECIALQUALITY.EXTRAORDINARY</type>
 			<associated>Aklo,Hallit,Giant,Varisian</associated>
 			<count>4</count>

@@ -1049,6 +1049,50 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Bardic Countersong</name>
+			<description>for up to 10 rounds</description>
+			<type>CLASSABILITY.SPECIALATTACK.SUPERNATURAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bardic Fascinate</name>
+			<description>can effect 2 creatures as the bard continues to play and concentrate for up to 4 rounds</description>
+			<type>CLASSABILITY.SPECIALATTACK.SPELLLIKE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bardic Inspire Competence</name>
+			<description>+2 to skill checks for up to 2 minutes</description>
+			<type>CLASSABILITY.SPECIALQUALITY.SUPERNATURAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Bardic Inspire Courage</name>
+			<description>+1 to saves against charm or fear effects and +1 morale bonus on attack and +1 morale damage rolls (as long as the ally hears the bard sing and for 5 rounds thereafter).</description>
+			<type>CLASSABILITY.SPECIALQUALITY.SUPERNATURAL</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Bardic Knowledge</name>
 			<description>+4</description>
 			<type>CLASSABILITY.SPECIALQUALITY</type>
@@ -1134,51 +1178,6 @@ BIO
 			<auto>T</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-	<!-- Visible Virtual "Special Ability" Ability Objects -->
-		<ability_object>
-			<name>Bardic Countersong</name>
-			<description>for up to 10 rounds</description>
-			<type>CLASSABILITY.SPECIALATTACK.SUPERNATURAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Bardic Fascinate</name>
-			<description>can effect 2 creatures as the bard continues to play and concentrate for up to 4 rounds</description>
-			<type>CLASSABILITY.SPECIALATTACK.SPELLLIKE</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Bardic Inspire Competence</name>
-			<description>+2 to skill checks for up to 2 minutes</description>
-			<type>CLASSABILITY.SPECIALQUALITY.SUPERNATURAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
-			<category>Special Ability</category>
-		</ability_object>
-		<ability_object>
-			<name>Bardic Inspire Courage</name>
-			<description>+1 to saves against charm or fear effects and +1 morale bonus on attack and +1 morale damage rolls (as long as the ally hears the bard sing and for 5 rounds thereafter).</description>
-			<type>CLASSABILITY.SPECIALQUALITY.SUPERNATURAL</type>
-			<associated></associated>
-			<count>0</count>
-			<auto>F</auto>
-			<hidden>F</hidden>
-			<virtual>T</virtual>
 			<category>Special Ability</category>
 		</ability_object>
 	<!-- Hidden Automatic "Special Ability" Ability Objects -->
