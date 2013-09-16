@@ -512,7 +512,7 @@ SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|TransmutationS
 1	ABILITY:Wizard Class Ability|AUTOMATIC|Arcane Bond|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneBond
 1	ABILITY:Wizard Class Ability|AUTOMATIC|Cantrips ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardCantrips
 5	ABILITY:Wizard Class Ability|AUTOMATIC|Bonus Feats ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeats
-1	ABILITY:Internal|AUTOMATIC|Free Spell Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Wizard=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Wizard=1]]
+1	ABILITY:Internal|AUTOMATIC|Wizard Free Spellbook|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Wizard=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Wizard=1]]
 ###Block:
 1	DEFINE:SpellMasteryQualify|1
 ###Block: Level progression

@@ -4,7 +4,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CRB	SOURCEWEB:http://paizo.com/store/downlo
 # Pathfinder RPG Entry by: Stefan Radermacher
 
 # Template Name			Visible	Template										Modify VAR						Apply Kit
-Spellbook				VISIBLE:NO																			KIT:1|Wizard Spell Book
+Wizard Spellbook		VISIBLE:NO																			KIT:1|Wizard Spellbook
 
 Shadowdancer Darkvision		VISIBLE:NO	TEMPLATE:Shadowdancer Has Darkvision|Shadowdancer No Darkvision
 Shadowdancer No Darkvision	VISIBLE:NO												BONUS:VAR|DarkvisionRange|60|TYPE=Base
@@ -122,77 +122,77 @@ Human Ethnicity	VISIBLE:NO	BONUS:ABILITYPOOL|Human Ethnicity|1
 
 ### Starting Gold
 Starting Gold ~ CRB	VISIBLE:NO	TEMPLATE:CHOOSE:Starting Gold CRB ~ Random|Starting Gold CRB ~ Maximum|Starting Gold CRB ~ Average
-Starting Gold CRB ~ Random	VISIBLE:NO	KIT:1|Starting Gold CRB ~ Random	
-Starting Gold CRB ~ Maximum	VISIBLE:NO	KIT:1|Starting Gold CRB ~ Maximum	
-Starting Gold CRB ~ Average	VISIBLE:NO	KIT:1|Starting Gold CRB ~ Average	
+Starting Gold CRB ~ Random	VISIBLE:NO	KIT:1|Starting Gold CRB ~ Random
+Starting Gold CRB ~ Maximum	VISIBLE:NO	KIT:1|Starting Gold CRB ~ Maximum
+Starting Gold CRB ~ Average	VISIBLE:NO	KIT:1|Starting Gold CRB ~ Average
 
 ### PC Wealth Kits
-Wealth by PC Level	VISIBLE:NO	TEMPLATE:CHOOSE:PC Level 02|PC Level 03|PC Level 04|PC Level 05|PC Level 06|PC Level 07|PC Level 08|PC Level 09|PC Level 10|PC Level 11|PC Level 12|PC Level 13|PC Level 14|PC Level 15|PC Level 16|PC Level 17|PC Level 18|PC Level 19|PC Level 20
+Wealth by PC Level	VISIBLE:NO	TEMPLATE:CHOOSE:PC Level 2|PC Level 3|PC Level 4|PC Level 5|PC Level 6|PC Level 7|PC Level 8|PC Level 9|PC Level 10|PC Level 11|PC Level 12|PC Level 13|PC Level 14|PC Level 15|PC Level 16|PC Level 17|PC Level 18|PC Level 19|PC Level 20
 
-PC Level 02	VISIBLE:NO	KIT:1|PC Level 2
-PC Level 03	VISIBLE:NO	KIT:1|PC Level 3
-PC Level 04	VISIBLE:NO	KIT:1|PC Level 4
-PC Level 05	VISIBLE:NO	KIT:1|PC Level 5
-PC Level 06	VISIBLE:NO	KIT:1|PC Level 6
-PC Level 07	VISIBLE:NO	KIT:1|PC Level 7
-PC Level 08	VISIBLE:NO	KIT:1|PC Level 8
-PC Level 09	VISIBLE:NO	KIT:1|PC Level 9
-PC Level 10	VISIBLE:NO	KIT:1|PC Level 10
-PC Level 11	VISIBLE:NO	KIT:1|PC Level 11
-PC Level 12	VISIBLE:NO	KIT:1|PC Level 12
-PC Level 13	VISIBLE:NO	KIT:1|PC Level 13
-PC Level 14	VISIBLE:NO	KIT:1|PC Level 14
-PC Level 15	VISIBLE:NO	KIT:1|PC Level 15
-PC Level 16	VISIBLE:NO	KIT:1|PC Level 16
-PC Level 17	VISIBLE:NO	KIT:1|PC Level 17
-PC Level 18	VISIBLE:NO	KIT:1|PC Level 18
-PC Level 19	VISIBLE:NO	KIT:1|PC Level 19
-PC Level 20	VISIBLE:NO	KIT:1|PC Level 20
+PC Level 2	VISIBLE:NO	PREPCLEVEL:MIN=2,MAX=2		KIT:1|PC Level 2
+PC Level 3	VISIBLE:NO	PREPCLEVEL:MIN=3,MAX=3		KIT:1|PC Level 3
+PC Level 4	VISIBLE:NO	PREPCLEVEL:MIN=4,MAX=4		KIT:1|PC Level 4
+PC Level 5	VISIBLE:NO	PREPCLEVEL:MIN=5,MAX=5		KIT:1|PC Level 5
+PC Level 6	VISIBLE:NO	PREPCLEVEL:MIN=6,MAX=6		KIT:1|PC Level 6
+PC Level 7	VISIBLE:NO	PREPCLEVEL:MIN=7,MAX=7		KIT:1|PC Level 7
+PC Level 8	VISIBLE:NO	PREPCLEVEL:MIN=8,MAX=8		KIT:1|PC Level 8
+PC Level 9	VISIBLE:NO	PREPCLEVEL:MIN=9,MAX=9		KIT:1|PC Level 9
+PC Level 10	VISIBLE:NO	PREPCLEVEL:MIN=10,MAX=10	KIT:1|PC Level 10
+PC Level 11	VISIBLE:NO	PREPCLEVEL:MIN=11,MAX=11	KIT:1|PC Level 11
+PC Level 12	VISIBLE:NO	PREPCLEVEL:MIN=12,MAX=12	KIT:1|PC Level 12
+PC Level 13	VISIBLE:NO	PREPCLEVEL:MIN=13,MAX=13	KIT:1|PC Level 13
+PC Level 14	VISIBLE:NO	PREPCLEVEL:MIN=14,MAX=14	KIT:1|PC Level 14
+PC Level 15	VISIBLE:NO	PREPCLEVEL:MIN=15,MAX=15	KIT:1|PC Level 15
+PC Level 16	VISIBLE:NO	PREPCLEVEL:MIN=16,MAX=16	KIT:1|PC Level 16
+PC Level 17	VISIBLE:NO	PREPCLEVEL:MIN=17,MAX=17	KIT:1|PC Level 17
+PC Level 18	VISIBLE:NO	PREPCLEVEL:MIN=18,MAX=18	KIT:1|PC Level 18
+PC Level 19	VISIBLE:NO	PREPCLEVEL:MIN=19,MAX=19	KIT:1|PC Level 19
+PC Level 20	VISIBLE:NO	PREPCLEVEL:MIN=20,MAX=20	KIT:1|PC Level 20
 
 
 ### NPC Wealth Kits
 Wealth by NPC Level	VISIBLE:NO	TEMPLATE:CHOOSE:Basic NPC|Heroic NPC
 
-Basic NPC	VISIBLE:NO	TEMPLATE:CHOOSE:Basic Level 01|Basic Level 02|Basic Level 03|Basic Level 04|Basic Level 05|Basic Level 06|Basic Level 07|Basic Level 08|Basic Level 09|Basic Level 10|Basic Level 11|Basic Level 12|Basic Level 13|Basic Level 14|Basic Level 15|Basic Level 16|Basic Level 17|Basic Level 18|Basic Level 19|Basic Level 20
-Basic Level 01	VISIBLE:NO	KIT:1|Basic Level 1
-Basic Level 02	VISIBLE:NO	KIT:1|Basic Level 2
-Basic Level 03	VISIBLE:NO	KIT:1|Basic Level 3
-Basic Level 04	VISIBLE:NO	KIT:1|Basic Level 4
-Basic Level 05	VISIBLE:NO	KIT:1|Basic Level 5
-Basic Level 06	VISIBLE:NO	KIT:1|Basic Level 6
-Basic Level 07	VISIBLE:NO	KIT:1|Basic Level 7
-Basic Level 08	VISIBLE:NO	KIT:1|Basic Level 8
-Basic Level 09	VISIBLE:NO	KIT:1|Basic Level 9
-Basic Level 10	VISIBLE:NO	KIT:1|Basic Level 10
-Basic Level 11	VISIBLE:NO	KIT:1|Basic Level 11
-Basic Level 12	VISIBLE:NO	KIT:1|Basic Level 12
-Basic Level 13	VISIBLE:NO	KIT:1|Basic Level 13
-Basic Level 14	VISIBLE:NO	KIT:1|Basic Level 14
-Basic Level 15	VISIBLE:NO	KIT:1|Basic Level 15
-Basic Level 16	VISIBLE:NO	KIT:1|Basic Level 16
-Basic Level 17	VISIBLE:NO	KIT:1|Basic Level 17
-Basic Level 18	VISIBLE:NO	KIT:1|Basic Level 18
-Basic Level 19	VISIBLE:NO	KIT:1|Basic Level 19
-Basic Level 20	VISIBLE:NO	KIT:1|Basic Level 20
+Basic NPC	VISIBLE:NO	TEMPLATE:CHOOSE:Basic Level 1|Basic Level 2|Basic Level 3|Basic Level 4|Basic Level 5|Basic Level 6|Basic Level 7|Basic Level 8|Basic Level 9|Basic Level 10|Basic Level 11|Basic Level 12|Basic Level 13|Basic Level 14|Basic Level 15|Basic Level 16|Basic Level 17|Basic Level 18|Basic Level 19|Basic Level 20
+Basic Level 1	VISIBLE:NO	PREPCLEVEL:MIN=1,MAX=1		KIT:1|Basic Level 1
+Basic Level 2	VISIBLE:NO	PREPCLEVEL:MIN=2,MAX=2		KIT:1|Basic Level 2
+Basic Level 3	VISIBLE:NO	PREPCLEVEL:MIN=3,MAX=3		KIT:1|Basic Level 3
+Basic Level 4	VISIBLE:NO	PREPCLEVEL:MIN=4,MAX=4		KIT:1|Basic Level 4
+Basic Level 5	VISIBLE:NO	PREPCLEVEL:MIN=5,MAX=5		KIT:1|Basic Level 5
+Basic Level 6	VISIBLE:NO	PREPCLEVEL:MIN=6,MAX=6		KIT:1|Basic Level 6
+Basic Level 7	VISIBLE:NO	PREPCLEVEL:MIN=7,MAX=7		KIT:1|Basic Level 7
+Basic Level 8	VISIBLE:NO	PREPCLEVEL:MIN=8,MAX=8		KIT:1|Basic Level 8
+Basic Level 9	VISIBLE:NO	PREPCLEVEL:MIN=9,MAX=9		KIT:1|Basic Level 9
+Basic Level 10	VISIBLE:NO	PREPCLEVEL:MIN=10,MAX=10	KIT:1|Basic Level 10
+Basic Level 11	VISIBLE:NO	PREPCLEVEL:MIN=11,MAX=11	KIT:1|Basic Level 11
+Basic Level 12	VISIBLE:NO	PREPCLEVEL:MIN=12,MAX=12	KIT:1|Basic Level 12
+Basic Level 13	VISIBLE:NO	PREPCLEVEL:MIN=13,MAX=13	KIT:1|Basic Level 13
+Basic Level 14	VISIBLE:NO	PREPCLEVEL:MIN=14,MAX=14	KIT:1|Basic Level 14
+Basic Level 15	VISIBLE:NO	PREPCLEVEL:MIN=15,MAX=15	KIT:1|Basic Level 15
+Basic Level 16	VISIBLE:NO	PREPCLEVEL:MIN=16,MAX=16	KIT:1|Basic Level 16
+Basic Level 17	VISIBLE:NO	PREPCLEVEL:MIN=17,MAX=17	KIT:1|Basic Level 17
+Basic Level 18	VISIBLE:NO	PREPCLEVEL:MIN=18,MAX=18	KIT:1|Basic Level 18
+Basic Level 19	VISIBLE:NO	PREPCLEVEL:MIN=19,MAX=19	KIT:1|Basic Level 19
+Basic Level 20	VISIBLE:NO	PREPCLEVEL:MIN=20,MAX=20	KIT:1|Basic Level 20
 
-Heroic NPC	VISIBLE:NO	TEMPLATE:CHOOSE:Heroic Level 01|Heroic Level 02|Heroic Level 03|Heroic Level 04|Heroic Level 05|Heroic Level 06|Heroic Level 07|Heroic Level 08|Heroic Level 09|Heroic Level 10|Heroic Level 11|Heroic Level 12|Heroic Level 13|Heroic Level 14|Heroic Level 15|Heroic Level 16|Heroic Level 17|Heroic Level 18|Heroic Level 19|Heroic Level 20
-Heroic Level 01	VISIBLE:NO	KIT:1|Heroic Level 1
-Heroic Level 02	VISIBLE:NO	KIT:1|Heroic Level 2
-Heroic Level 03	VISIBLE:NO	KIT:1|Heroic Level 3
-Heroic Level 04	VISIBLE:NO	KIT:1|Heroic Level 4
-Heroic Level 05	VISIBLE:NO	KIT:1|Heroic Level 5
-Heroic Level 06	VISIBLE:NO	KIT:1|Heroic Level 6
-Heroic Level 07	VISIBLE:NO	KIT:1|Heroic Level 7
-Heroic Level 08	VISIBLE:NO	KIT:1|Heroic Level 8
-Heroic Level 09	VISIBLE:NO	KIT:1|Heroic Level 9
-Heroic Level 10	VISIBLE:NO	KIT:1|Heroic Level 10
-Heroic Level 11	VISIBLE:NO	KIT:1|Heroic Level 11
-Heroic Level 12	VISIBLE:NO	KIT:1|Heroic Level 12
-Heroic Level 13	VISIBLE:NO	KIT:1|Heroic Level 13
-Heroic Level 14	VISIBLE:NO	KIT:1|Heroic Level 14
-Heroic Level 15	VISIBLE:NO	KIT:1|Heroic Level 15
-Heroic Level 16	VISIBLE:NO	KIT:1|Heroic Level 16
-Heroic Level 17	VISIBLE:NO	KIT:1|Heroic Level 17
-Heroic Level 18	VISIBLE:NO	KIT:1|Heroic Level 18
-Heroic Level 19	VISIBLE:NO	KIT:1|Heroic Level 19
-Heroic Level 20	VISIBLE:NO	KIT:1|Heroic Level 20
+Heroic NPC	VISIBLE:NO	TEMPLATE:CHOOSE:Heroic Level 1|Heroic Level 2|Heroic Level 3|Heroic Level 4|Heroic Level 5|Heroic Level 6|Heroic Level 7|Heroic Level 8|Heroic Level 9|Heroic Level 10|Heroic Level 11|Heroic Level 12|Heroic Level 13|Heroic Level 14|Heroic Level 15|Heroic Level 16|Heroic Level 17|Heroic Level 18|Heroic Level 19|Heroic Level 20
+Heroic Level 1	VISIBLE:NO	PREPCLEVEL:MIN=1,MAX=1		KIT:1|Heroic Level 1
+Heroic Level 2	VISIBLE:NO	PREPCLEVEL:MIN=2,MAX=2		KIT:1|Heroic Level 2
+Heroic Level 3	VISIBLE:NO	PREPCLEVEL:MIN=3,MAX=3		KIT:1|Heroic Level 3
+Heroic Level 4	VISIBLE:NO	PREPCLEVEL:MIN=4,MAX=4		KIT:1|Heroic Level 4
+Heroic Level 5	VISIBLE:NO	PREPCLEVEL:MIN=5,MAX=5		KIT:1|Heroic Level 5
+Heroic Level 6	VISIBLE:NO	PREPCLEVEL:MIN=6,MAX=6		KIT:1|Heroic Level 6
+Heroic Level 7	VISIBLE:NO	PREPCLEVEL:MIN=7,MAX=7		KIT:1|Heroic Level 7
+Heroic Level 8	VISIBLE:NO	PREPCLEVEL:MIN=8,MAX=8		KIT:1|Heroic Level 8
+Heroic Level 9	VISIBLE:NO	PREPCLEVEL:MIN=9,MAX=9		KIT:1|Heroic Level 9
+Heroic Level 10	VISIBLE:NO	PREPCLEVEL:MIN=10,MAX=10	KIT:1|Heroic Level 10
+Heroic Level 11	VISIBLE:NO	PREPCLEVEL:MIN=11,MAX=11	KIT:1|Heroic Level 11
+Heroic Level 12	VISIBLE:NO	PREPCLEVEL:MIN=12,MAX=12	KIT:1|Heroic Level 12
+Heroic Level 13	VISIBLE:NO	PREPCLEVEL:MIN=13,MAX=13	KIT:1|Heroic Level 13
+Heroic Level 14	VISIBLE:NO	PREPCLEVEL:MIN=14,MAX=14	KIT:1|Heroic Level 14
+Heroic Level 15	VISIBLE:NO	PREPCLEVEL:MIN=15,MAX=15	KIT:1|Heroic Level 15
+Heroic Level 16	VISIBLE:NO	PREPCLEVEL:MIN=16,MAX=16	KIT:1|Heroic Level 16
+Heroic Level 17	VISIBLE:NO	PREPCLEVEL:MIN=17,MAX=17	KIT:1|Heroic Level 17
+Heroic Level 18	VISIBLE:NO	PREPCLEVEL:MIN=18,MAX=18	KIT:1|Heroic Level 18
+Heroic Level 19	VISIBLE:NO	PREPCLEVEL:MIN=19,MAX=19	KIT:1|Heroic Level 19
+Heroic Level 20	VISIBLE:NO	PREPCLEVEL:MIN=20,MAX=20	KIT:1|Heroic Level 20

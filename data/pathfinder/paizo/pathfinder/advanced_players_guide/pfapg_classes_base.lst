@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Mar 30 17:45:17 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+# CVS $Revision$ $Author$ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher, Andrew Maitland, Eric Smith (Maredudd) and James Dempsey
 
@@ -16,7 +16,7 @@ CLASS:Alchemist	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	SPELLBOOK:YES	BONUS:
 1	ABILITY:Special Ability|AUTOMATIC|Alchemist Weapon Proficiencies|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
 1																	AUTO:FEAT|Armor Proficiency (Light)
 ###Block: Alchemist Book
-1	KIT:1|Alchemist Formula Book
+1	ABILITY:Internal|AUTOMATIC|Free Formula Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Alchemist=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Alchemist=1]]
 ###Block: Vars
 1	BONUS:VAR|AlchemistAlchemyLVL|CL
 1	BONUS:VAR|AlchemistBombLVL|CL
@@ -166,9 +166,9 @@ CLASS:Ex-Inquisitor	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Inq		MAXLEVEL:20	VISIBLE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex-Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Nature)|Knowledge (Planes)|Knowledge (Religion)|Perception|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth|Survival|Swim
 #Block:
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies												AUTO:FEAT|Simple Weapon Proficiency
-1																							AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
-1																																									AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies														AUTO:FEAT|Simple Weapon Proficiency
+1																									AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+1																																											AUTO:WEAPONPROF|Crossbow (Hand)|Longbow|Crossbow (Repeating Heavy)|Crossbow (Repeating Light)|Shortbow	AUTO:WEAPONPROF|DEITYWEAPONS
 #Block:
 1	ABILITY:Inquisitor Class Ability|AUTOMATIC|Monster Lore ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorMonsterLore
 1	ABILITY:Inquisitor Class Ability|AUTOMATIC|Stern Gaze ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSternGaze
@@ -183,7 +183,7 @@ CLASS:Ex-Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disg
 14	ABILITY:Inquisitor Class Ability|AUTOMATIC|Exploit Weakness ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorExploitWeakness
 17	ABILITY:Inquisitor Class Ability|AUTOMATIC|Slayer ~ Inquisitor|!PREABILITY:1,CATEGORY=Archetype,TYPE.InquisitorSlayer
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define							Save checks bonus											Combat bonus
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Oracle	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Ocl		MAXLEVEL:20	SOURCEPAGE:p.42	DEFINE:OracleLvl|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Oracle	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Diplomacy|Heal|Knowledge (History)|Knowledge (Planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft

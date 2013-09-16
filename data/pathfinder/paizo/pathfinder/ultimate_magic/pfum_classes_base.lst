@@ -1,9 +1,9 @@
-# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
 # ORIGINAL ENTRY: Stefan Radermacher and Eric Smith (Maredudd)
 # ORIGINAL ENTRY DATE: Unknown
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus					Monster Role
 CLASS:Magus		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Mag		MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:MagusLvl|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Combat
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Magus		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Planes)|TYPE=Profession|Ride|Spellcraft|Swim|Use Magic Device
@@ -19,7 +19,7 @@ CLASS:Magus		SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			S
 1	AUTO:FEAT|Martial Weapon Proficiency Output|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
 1	AUTO:FEAT|Simple Weapon Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
 ###Block: Magus Spellbook
-1	KIT:1|Magus Spellbook
+1	ABILITY:Internal|AUTOMATIC|Magus Free Spellbook|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Magus=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Magus=1]]
 ###Block: Class features
 1	BONUS:VAR|MagusArmorProficiencyLVL|CL
 1	BONUS:VAR|MagusArcanePoolLVL|CL
