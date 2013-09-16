@@ -128,7 +128,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
     }
 
 
-//    /* Test the cast where we only have the type os count, i.e. all Abilities*/   
+//    /* Test the cast where we only have the type os count, i.e. all Abilities */   
 //    public void testCountAbilities01()
 //    {
 //        final PlayerCharacter character = getCharacter();
@@ -490,24 +490,27 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		sB.append("count(\"ABILITIES\",");
 		sB.append("\"KEY=KEY_Eat Burger\")");
 
-		final String s = sB.toString();
+		final String countByKey = sB.toString();
 
-		is(character.getVariableValue(s,""), eq(0.0, 0.1), s + " no choices");
+		is(character.getVariableValue(countByKey,""), eq(0.0, 0.1), countByKey + " no choices");
 		
 		Ability clone = character.addAbilityNeedCheck(gCat, ab);
 		character.addAssociation(clone, "munch");
 
-		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " one choice");
+		is(character.getVariableValue(countByKey,""), eq(1.0, 0.1), countByKey + " one choice");
 
 		character.addAssociation(clone, "devour");
 		character.setDirty(true);
 		
-		is(character.getVariableValue(s,""), eq(2.0, 0.1), s + " two choices");
+		is(character.getVariableValue(countByKey,""), eq(2.0, 0.1), countByKey + " two choices");
 
 		character.addAssociation(clone, "nibble");
 		character.setDirty(true);
 
-		is(character.getVariableValue(s,""), eq(3.0, 0.1), s + " three choices");
+		is(character.getVariableValue(countByKey,""), eq(3.0, 0.1), countByKey + " three choices");
+		
+		String countKeyChoice = "count(\"ABILITIES\",\"KEY=KEY_Eat Burger(munch)\")";
+		is(character.getVariableValue(countKeyChoice,""), eq(1.0, 0.1), countKeyChoice + " chosen");
 		
 		String countStr = "count(\"ABILITIES\",\"KEY=KEY_Turning\")";
 		is(character.getVariableValue(countStr,""), eq(1.0, 0.1), countStr + " single application");

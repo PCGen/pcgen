@@ -70,6 +70,7 @@ public class CountDistinctCommand extends AbstractCountCommand
 				// i.e. without using PObject proxies.
 
 				public Map<Nature, Set<Ability>> abdata;
+				private List<String> assocFilter = new ArrayList<String>();
 
 				@Override
 				protected void getData(final PlayerCharacter pc)
@@ -88,7 +89,32 @@ public class CountDistinctCommand extends AbstractCountCommand
 
 					getData(pc);
 
-					return (double) doFilterP(pt).size();
+					final Set<? extends CDOMObject> filtered = doFilterP(pt);
+					return countData(filtered, pc);
+				}
+				
+				protected Object countData(final Set<? extends CDOMObject> filtered,
+						PlayerCharacter pc)
+				{
+					if (assocFilter.isEmpty())
+					{
+						return (double) filtered.size();
+					}
+					
+					double accum = 0;
+					
+					for (final CDOMObject ab : filtered)
+					{
+						List<String> associationList = pc.getAssociationList(ab);
+						for (String assockey : assocFilter)
+						{
+							if (associationList.contains(assockey))
+							{
+								accum++;
+							}
+						}
+					}
+					return accum;
 				}
 
 				@Override
@@ -208,6 +234,9 @@ public class CountDistinctCommand extends AbstractCountCommand
 				{
 					Set<Ability> cs;
 					final Iterator<? extends CDOMObject> abIt;
+					String targetName =
+							AbilityUtilities.getUndecoratedName(keyValue[1],
+								assocFilter);
 					cs = new HashSet<Ability>(abdata.get(Nature.ANY));
 					abIt = cs.iterator();
 
@@ -221,7 +250,7 @@ public class CountDistinctCommand extends AbstractCountCommand
 								new ArrayList<String>()) :
 							ab.getDisplayName();
 
-						if (!name.equalsIgnoreCase(keyValue[1]))
+						if (!name.equalsIgnoreCase(targetName))
 						{
 							abIt.remove();
 						}
@@ -238,6 +267,9 @@ public class CountDistinctCommand extends AbstractCountCommand
 				{
 					Set<Ability> cs;
 					final Iterator<? extends CDOMObject> abIt;
+					String targetKey =
+							AbilityUtilities.getUndecoratedName(keyValue[1],
+								assocFilter);
 					cs = new HashSet<Ability>(abdata.get(Nature.ANY));
 					abIt = cs.iterator();
 
@@ -247,7 +279,7 @@ public class CountDistinctCommand extends AbstractCountCommand
 
 						final String name = ab.getKeyName();
 
-						if (!name.equalsIgnoreCase(keyValue[1]))
+						if (!name.equalsIgnoreCase(targetKey))
 						{
 							abIt.remove();
 						}

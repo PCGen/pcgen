@@ -522,7 +522,10 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " three choices");
 		
-		String countStr = "count(\"ABILITIES\",\"KEY=KEY_Turning\")";
+		String countKeyChoice = "countdistinct(\"ABILITIES\",\"KEY=KEY_Eat Burger(munch)\")";
+		is(character.getVariableValue(countKeyChoice,""), eq(1.0, 0.1), countKeyChoice + " chosen");
+		
+		String countStr = "countdistinct(\"ABILITIES\",\"KEY=KEY_Turning\")";
 		is(character.getVariableValue(countStr,""), eq(1.0, 0.1), countStr + " single application");
 		
 	}

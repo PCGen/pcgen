@@ -102,6 +102,7 @@ public abstract class AbstractCountCommand extends PCGenCommand
 					// i.e. without using PObject proxies.
 	
 					public Map<Nature, Set<Ability>> abdata;
+					private List<String> assocFilter = new ArrayList<String>();
 	
 					@Override
 					protected void getData(final PlayerCharacter pc)
@@ -132,8 +133,21 @@ public abstract class AbstractCountCommand extends PCGenCommand
 						
 						for (final CDOMObject ab : filtered)
 						{
-							final double ac = pc.getSelectCorrectedAssociationCount(ab);
-							accum += 1.01 >= ac ? 1 : ac;
+							if (assocFilter.isEmpty())
+							{
+								final double ac = pc.getSelectCorrectedAssociationCount(ab);
+								accum += 1.01 >= ac ? 1 : ac;
+							}
+							else
+							{
+								for (String assoc : pc.getAssociationList(ab))
+								{
+									if (assocFilter.contains(assoc))
+									{
+										accum++;
+									}
+								}
+							}
 						}
 						return accum;
 					}
@@ -255,6 +269,9 @@ public abstract class AbstractCountCommand extends PCGenCommand
 					{
 						Set<Ability> cs;
 						final Iterator<? extends CDOMObject> abIt;
+						String targetName =
+								AbilityUtilities.getUndecoratedName(keyValue[1],
+									assocFilter);
 						cs = new HashSet<Ability>(abdata.get(Nature.ANY));
 						abIt = cs.iterator();
 	
@@ -268,7 +285,7 @@ public abstract class AbstractCountCommand extends PCGenCommand
 									new ArrayList<String>()) :
 								ab.getDisplayName();
 	
-							if (!name.equalsIgnoreCase(keyValue[1]))
+							if (!name.equalsIgnoreCase(targetName))
 							{
 								abIt.remove();
 							}
@@ -285,6 +302,9 @@ public abstract class AbstractCountCommand extends PCGenCommand
 					{
 						Set<Ability> cs;
 						final Iterator<? extends CDOMObject> abIt;
+						String targetKey =
+								AbilityUtilities.getUndecoratedName(keyValue[1],
+									assocFilter);
 						cs = new HashSet<Ability>(abdata.get(Nature.ANY));
 						abIt = cs.iterator();
 	
@@ -294,7 +314,7 @@ public abstract class AbstractCountCommand extends PCGenCommand
 	
 							final String name = ab.getKeyName();
 	
-							if (!name.equalsIgnoreCase(keyValue[1]))
+							if (!name.equalsIgnoreCase(targetKey))
 							{
 								abIt.remove();
 							}
