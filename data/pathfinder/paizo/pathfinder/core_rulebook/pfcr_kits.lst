@@ -15,7 +15,7 @@ GEAR:Spellbook (Wizard's/Blank)	LOCATION:Carried
 
 ### Starting Clothing
 STARTPACK:Free Clothing at 1st Level	TOTALCOST:0	APPLY:INSTANT	VISIBLE:QUALIFY	PREMULT:2,[PREPCLEVEL:MIN=1,MAX=1],[PRECHARACTERTYPE:1,PC,NPC]
-GEAR:TYPE=Clothing.Starting	LOCATION:Equipped		SIZE:PC
+GEAR:TYPE=StartingOutfits		LOCATION:Equipped		SIZE:PC
 
 ### Starting Gold
 STARTPACK:Classes Starting Gold ~ CRB		APPLY:INSTANT	VISIBLE:QUALIFY	PREMULT:2,[PREPCLEVEL:MIN=1,MAX=1],[PRECLASS:1,Monk=1,Druid=1,Sorcerer=1,Wizard=1,Bard=1,Barbarian=1,Cleric=1,Rogue=1,Fighter=1,Paladin=1,Ranger=1]

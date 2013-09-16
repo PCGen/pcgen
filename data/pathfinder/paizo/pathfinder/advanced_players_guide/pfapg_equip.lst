@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Mar 30 17:45:17 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+# CVS $Revision$ $Author$ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Eric C. Smith (Maredudd)
 
@@ -93,16 +93,16 @@ Pulley												TYPE:Goods.Tools													COST:2	WT:10		SOURCEPAGE:p.182
 Saw													TYPE:Goods.Tools													COST:0.04	WT:2		SOURCEPAGE:p.182
 Sextant												TYPE:Goods.Tools													COST:500	WT:2		SOURCEPAGE:p.182
 #Alchemists formula Book - DO NOT DELETE
-Formula Book											TYPE:Goods.Tools.Spellbook			NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)				COST:15		WT:3
+Formula Book											TYPE:Goods.Tools.Spellbook			NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3
 Symptom Kit												TYPE:Goods.Tools													COST:25	WT:5		SOURCEPAGE:p.182
 Traveling Spellbook (Blank)									TYPE:Goods.Tools.Book.Spellbook		NUMPAGES:50		PAGEUSAGE:max(SPELLLEVEL,1)	COST:10	WT:1		SOURCEPAGE:p.182
 
 ###Block: Clothing
-# Equipment Name		Output Name				Type					Cost		Weight	Source Page
-Cleats								TYPE:Goods.Clothing.Resizable	COST:5	WT:2		SOURCEPAGE:p.182
-Furs									TYPE:Goods.Clothing.Resizable	COST:12	WT:5		SOURCEPAGE:p.182
-Outfit (Hot Weather)	OUTPUTNAME:Hot Weather Outfit	TYPE:Goods.Clothing.Resizable	COST:8	WT:4		SOURCEPAGE:p.182
-Snowshoes								TYPE:Goods.Clothing.Resizable	COST:5	WT:4		SOURCEPAGE:p.182
+# Equipment Name		Output Name				Type								Cost		Weight	Source Page
+Cleats								TYPE:Goods.Clothing.Resizable				COST:5	WT:2		SOURCEPAGE:p.182
+Furs									TYPE:Goods.Clothing.Resizable				COST:12	WT:5		SOURCEPAGE:p.182
+Outfit (Hot Weather)	OUTPUTNAME:Hot Weather Outfit	TYPE:Goods.Clothing.Resizable.StartingOutfit	COST:8	WT:4		SOURCEPAGE:p.182
+Snowshoes								TYPE:Goods.Clothing.Resizable				COST:5	WT:4		SOURCEPAGE:p.182
 
 ###Block:Animal-Related Gear
 # Equipment Name			Type						Contains			Cost		Weight	Source Page
