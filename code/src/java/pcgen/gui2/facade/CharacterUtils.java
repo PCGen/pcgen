@@ -24,9 +24,8 @@ public class CharacterUtils
 			//
 			// See what the PC is already carrying
 			//
-			List<Equipment> clothes =
-					EquipmentList.getEquipmentOfType(
-						"Clothing.Resizable", "Magic"); //$NON-NLS-1$ //$NON-NLS-2$
+			List<Equipment> clothes = aPC.getEquipmentOfType(
+						"Clothing.Resizable", 3); //$NON-NLS-1$ //$NON-NLS-2$
 
 			//
 			// Check to see if any of the clothing the PC
@@ -40,7 +39,7 @@ public class CharacterUtils
 			{
 				for (Equipment eq : clothes)
 				{
-					if ((CoreUtility.doublesEqual(
+					if (!eq.isType("Magic") && (CoreUtility.doublesEqual(
 						eq.getCost(aPC).doubleValue(), 0.0))
 						&& pcSizeAdj.equals(eq.getSafe(ObjectKey.SIZE)))
 					{
