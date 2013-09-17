@@ -27,6 +27,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeEvent;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeListener;
 import pcgen.cdom.facet.BonusCheckingFacet;
+import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeEvent;
@@ -56,6 +57,8 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	private FormulaResolvingFacet formulaResolvingFacet;
 	private BonusCheckingFacet bonusCheckingFacet;
 	private LevelFacet levelFacet;
+
+	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	/**
 	 * Returns the integer indicating the racial size for the Player Character
@@ -401,6 +404,22 @@ public class SizeFacet extends AbstractDataFacet<SizeAdjustment> implements
 	public void setLevelFacet(LevelFacet levelFacet)
 	{
 		this.levelFacet = levelFacet;
+	}
+
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
+	{
+		this.consolidationFacet = consolidationFacet;
+	}
+
+	/**
+	 * Initializes the connections for SizeFacet to other facets.
+	 * 
+	 * This method is automatically called by the Spring framework during
+	 * initialization of the SizeFacet.
+	 */
+	public void init()
+	{
+		consolidationFacet.addDataFacetChangeListener(this);
 	}
 
 	/**

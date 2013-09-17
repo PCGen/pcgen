@@ -129,8 +129,6 @@ public class FacetInitialization {
 
 		raceFacet.addDataFacetChangeListener(bioSetTrackingFacet);
 
-		raceFacet.addDataFacetChangeListener(sizeFacet);
-		templateFacet.addDataFacetChangeListener(sizeFacet);
 		bonusChangeFacet.addBonusChangeListener(sizeFacet, "SIZEMOD", "NUMBER");
 
 		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet); //model done

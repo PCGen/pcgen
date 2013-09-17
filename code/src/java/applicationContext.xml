@@ -468,6 +468,7 @@
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="levelFacet" ref="levelFacet"/>
+		<property name="consolidationFacet" ref="consolidationFacet" />
 	</bean>
 	<bean id="skillFacet" class="pcgen.cdom.facet.model.SkillFacet"/>
 	<bean id="skillCostFacet" class="pcgen.cdom.facet.SkillCostFacet">
