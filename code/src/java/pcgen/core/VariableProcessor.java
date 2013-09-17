@@ -79,12 +79,12 @@ public abstract class VariableProcessor
 		if (d != null && !d.isNaN())
 		{
 			retVal = d;
-			Logging.debugPrint(
-					new StringBuilder().append(jepIndent)
-							.append("export variable for: '")
-							.append(element)
-							.append("' = ")
-							.append(d).toString());
+			if (Logging.isLoggable(Logging.DEBUG))
+			{
+				Logging.debugPrint(new StringBuilder().append(jepIndent)
+					.append("export variable for: '").append(element)
+					.append("' = ").append(d).toString());
+			}
 		}
 
 		return retVal;
@@ -673,12 +673,12 @@ public abstract class VariableProcessor
 		if (pc.hasVariable(term))
 		{
 			final Float value = pc.getVariable(term, true);
-			Logging.debugPrint(
-					new StringBuilder().append(jepIndent)
-							.append("variable for: '")
-							.append(term)
-							.append("' = ")
-							.append(value).toString());
+			if (Logging.isLoggable(Logging.DEBUG))
+			{
+				Logging.debugPrint(new StringBuilder().append(jepIndent)
+					.append("variable for: '").append(term).append("' = ")
+					.append(value).toString());
+			}
 			retVal = new Float(value.doubleValue());
 		}
 

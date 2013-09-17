@@ -162,6 +162,18 @@ public class Logging
 	}
 
 	/**
+	 * Check if the level of logs would be output for the caller. This can 
+	 * be used to prevent building logging output if it will not be used. 
+	 * @param level The logging level to be checked.
+	 * @return true if the level would be output, false if not.
+	 */
+	public static boolean isLoggable(Level level)
+	{
+		Logger l = getLogger();
+		return l != null && l.isLoggable(DEBUG);
+	}
+	
+	/**
 	 * Print information message if PCGen is debugging.
 	 *
 	 * @param s String information message

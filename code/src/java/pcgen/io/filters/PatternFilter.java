@@ -61,7 +61,7 @@ public class PatternFilter implements OutputFilter
 					new File(ConfigurationSettings.getSystemsDir())
 					+ File.separator + "outputFilters" + File.separator + "re"
 					+ filterName + Constants.EXTENSION_LIST_FILE;
-		Logging.debugPrint("Creating filter from " + filterName);
+//		Logging.debugPrint("Creating filter from " + filterName);
 
 		final File filterFile = new File(filterName);
 
@@ -78,7 +78,7 @@ public class PatternFilter implements OutputFilter
 				for (;;)
 				{
 					final String aLine = br.readLine();
-					Logging.debugPrint("Line read:" + aLine);
+//					Logging.debugPrint("Line read:" + aLine);
 
 					if (aLine == null)
 					{
@@ -97,7 +97,7 @@ public class PatternFilter implements OutputFilter
                                         aLineWOComment = aLine;
                                     }
 
-					Logging.debugPrint("Stripped line:" + aLineWOComment);
+//					Logging.debugPrint("Stripped line:" + aLineWOComment);
 					final List<String> filterEntry =
 							CoreUtility.split(aLineWOComment, '\t');
 
@@ -107,9 +107,9 @@ public class PatternFilter implements OutputFilter
 						{
 							match.add(filterEntry.get(0));
 
-							Logging.debugPrint("Match: [" + filterEntry.get(0)
-								+ "] and replace with [" + filterEntry.get(1)
-								+ "]");
+//							Logging.debugPrint("Match: [" + filterEntry.get(0)
+//								+ "] and replace with [" + filterEntry.get(1)
+//								+ "]");
 							replace.add(filterEntry.get(1).replaceAll("\\\\n",
 								"\n").replaceAll("\\\\t", "\t"));
 						}
@@ -117,8 +117,8 @@ public class PatternFilter implements OutputFilter
 						{
 							match.add(filterEntry.get(0));
 							replace.add("");
-							Logging.debugPrint("Match: [" + filterEntry.get(0)
-								+ "] and replace with []");
+//							Logging.debugPrint("Match: [" + filterEntry.get(0)
+//								+ "] and replace with []");
 						}
 						else
 						{
@@ -146,27 +146,27 @@ public class PatternFilter implements OutputFilter
 	public String filterString(String aString)
 	{
 		String aProcessedString = aString;
-		Logging.debugPrint("Filtering: " + aString);
+		//Logging.debugPrint("Filtering: " + aString);
 		if ((match != null) && (!match.isEmpty()) && aString != null)
 		{
-			Logging.debugPrint("Found " + match.size() + " filters");
+			//Logging.debugPrint("Found " + match.size() + " filters");
 			for (int i = 0; i < match.size(); i++)
 			{
-				String aPreprocessedString = aProcessedString;
+//				String aPreprocessedString = aProcessedString;
 				aProcessedString =
 						aProcessedString.replaceAll(match.get(i), replace
 							.get(i));
-				if (!aProcessedString.equals(aPreprocessedString))
-				{
-					Logging.debugPrint("Match: [" + match.get(i)
-						+ "] and replace with [" + replace.get(i) + "]");
-					Logging.debugPrint("[" + aPreprocessedString + "]=>["
-						+ aProcessedString + "]");
-				}
+//				if (!aProcessedString.equals(aPreprocessedString))
+//				{
+//					Logging.debugPrint("Match: [" + match.get(i)
+//						+ "] and replace with [" + replace.get(i) + "]");
+//					Logging.debugPrint("[" + aPreprocessedString + "]=>["
+//						+ aProcessedString + "]");
+//				}
 			}
 		}
 
-		Logging.debugPrint("Filtered: " + aProcessedString);
+//		Logging.debugPrint("Filtered: " + aProcessedString);
 		return aProcessedString;
 	}
 
