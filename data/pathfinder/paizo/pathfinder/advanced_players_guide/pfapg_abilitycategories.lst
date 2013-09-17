@@ -1,25 +1,26 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Mon Sep 16 06:44:37 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 #SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher, Eric Smith (Maredudd) and Andrew Maitland
 
 ###Block: Archetype Buckets
-# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Alchemist Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:AlchemistArchetype		PLURAL:Alchemist Archetypes		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Antipaladin Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:AntipaladinArchetype		PLURAL:Antipaladin Archetypes			DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Cavalier Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:CavalierArchetype		PLURAL:Cavalier Archetypes		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Inquisitor Archetype		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:InquisitorArchetype	PLURAL:Inquisitor Archetypes		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Oracle Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:OracleArchetype		PLURAL:Oracle Archetypes		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Summoner Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:SummonerArchetype		PLURAL:Summoner Archetypes		DISPLAYLOCATION:Archetype
-ABILITYCATEGORY:Witch Archetype			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:WitchArchetype		PLURAL:Witch Archetypes			DISPLAYLOCATION:Archetype
+# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object	Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Alchemist Archetype		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:AlchemistArchetype		PLURAL:Alchemist Archetypes	DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Antipaladin Archetype	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:AntipaladinArchetype	PLURAL:Antipaladin Archetypes	DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Cavalier Archetype		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:CavalierArchetype		PLURAL:Cavalier Archetypes	DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Inquisitor Archetype	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:InquisitorArchetype	PLURAL:Inquisitor Archetypes	DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Oracle Archetype		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:OracleArchetype		PLURAL:Oracle Archetypes	DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Summoner Archetype		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:SummonerArchetype		PLURAL:Summoner Archetypes	DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Witch Archetype		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:WitchArchetype		PLURAL:Witch Archetypes		DISPLAYLOCATION:Archetype
 
 ###Block: Base Class Ability Display
-ABILITYCATEGORY:Alchemist Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:AlchemistClassAbility	PLURAL:Alchemist Class Abilities	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Cavalier Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:CavalierClassAbility	PLURAL:Cavalier Class Abilities	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Inquisitor Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:InquisitorClassAbility	PLURAL:Inquisitor Class Abilities	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Oracle Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:OracleClassAbility		PLURAL:Oracle Class Abilities		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Summoner Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:SummonerClassAbility	PLURAL:Summoner Class Abilities	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Witch Class Ability		VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:WitchClassAbility		PLURAL:Witch Class Abilities		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Antipaladin Class Ability	VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:AntipaladinClassAbility	PLURAL:Antipaladin Class Abilities	DISPLAYLOCATION:Class Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Alchemist Class Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AlchemistClassAbility	PLURAL:Alchemist Class Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Cavalier Class Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:CavalierClassAbility	PLURAL:Cavalier Class Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Inquisitor Class Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:InquisitorClassAbility	PLURAL:Inquisitor Class Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Oracle Class Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:OracleClassAbility		PLURAL:Oracle Class Abilities		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Summoner Class Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SummonerClassAbility	PLURAL:Summoner Class Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Witch Class Ability			VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:WitchClassAbility		PLURAL:Witch Class Abilities		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Antipaladin Class Ability		VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:AntipaladinClassAbility	PLURAL:Antipaladin Class Abilities	DISPLAYLOCATION:Class Abilities
 
 
 
@@ -213,14 +214,14 @@ ABILITYCATEGORY:Water Opposition School Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDI
 # Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Specific choices list						Plural description for UI				Display Location
 #ABILITYCATEGORY:Giant Spider Type				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:GiantSpiderType										PLURAL:Giant Spider Types				DISPLAYLOCATION:Racial Abilities
 
-# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Specific choices list						Plural description for UI				Display Location
-ABILITYCATEGORY:Guileful Polyglot Additional Language	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Guileful Polyglot Language Selection	PLURAL:Guileful Polyglot Additional Languages	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Companion Bonus Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	ABILITYLIST:Companion Bonus Skill
+# Ability Category						Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list						Plural description for UI				Display Location
+ABILITYCATEGORY:Guileful Polyglot Additional Language	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Guileful Polyglot Language Selection	PLURAL:Guileful Polyglot Additional Languages	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Companion Bonus Skill			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability						ABILITYLIST:Companion Bonus Skill
 
-ABILITYCATEGORY:Defensive Stance Power			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DefensiveStancePower		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Defensive Stance Power			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DefensiveStancePower																		DISPLAYLOCATION:Class Abilities
 
 
-ABILITYCATEGORY:Cavalier Mount Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:CavalierMountSelection																		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Cavalier Mount Choice			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO						CATEGORY:Internal			TYPE:CavalierMountSelection																		DISPLAYLOCATION:Class Abilities
 
 #
 # End

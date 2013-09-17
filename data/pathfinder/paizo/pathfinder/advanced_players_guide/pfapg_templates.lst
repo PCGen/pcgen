@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision$ $Author$ -- Mon Sep 16 06:44:37 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 
 # Oracle Tongues granting Language:
@@ -85,7 +85,7 @@ Starting Gold APG ~ Random	VISIBLE:NO																																											
 Starting Gold APG ~ Maximum	VISIBLE:NO																																																																							KIT:1|Starting Gold APG ~ Maximum
 Starting Gold APG ~ Average	VISIBLE:NO																																																																							KIT:1|Starting Gold APG ~ Average
 
-Formula Book				VISIBLE:NO																			KIT:1|Alchemist Formula Book
+Formula Book			VISIBLE:NO																																																																							KIT:1|Alchemist Formula Book
 
 #
 # End

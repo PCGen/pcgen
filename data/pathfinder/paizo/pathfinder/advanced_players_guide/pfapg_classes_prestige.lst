@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Mar 30 17:45:17 2013 -- reformated by prettylst.pl v1.50 (build 19091)
+# CVS $Revision$ $Author$ -- Mon Sep 16 06:44:37 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Joseph (Sensai) Caubo
 
@@ -35,15 +35,15 @@ CLASS:Holy Vindicator	PREABILITY:1,CATEGORY=Special Ability,Channel Energy	PREAT
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Holy Vindicator	STARTSKILLPTS:2	CSKILL:Climb|Heal|Intimidate|Knowledge (Planes)|Knowledge (Religion)|Ride|Sense Motive|Spellcraft|Swim
 ###Block:  Weapon/Armor Proficiencies
-1													ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies						AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																														AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																														AUTO:FEAT|Shield Proficiency
+1													ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies							AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
+1																															AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																															AUTO:FEAT|Shield Proficiency
 ##Block: Normal Level Progression
 1	BONUS:VAR|PrestigeClassChannelEnergyLVL|CL					ABILITY:Special Ability|AUTOMATIC|Channel Energy ~ Prestige Class|Vindicator's Shield ~ Holy Vindicator
 2	BONUS:VAR|StigmataLVL|CL				ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Stigmata ~ Holy Vindicator
 3	BONUS:VAR|Faith HealingLVL|CL				ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Faith Healing ~ Holy Vindicator
 4									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Divine Wrath ~ Holy Vindicator
-5													ABILITY:Special Ability|AUTOMATIC|Bloodfire ~ Holy Vindicator|Channel Smite ~ Holy Vindicator		AUTO:FEAT|Channel Smite
+5													ABILITY:Special Ability|AUTOMATIC|Bloodfire ~ Holy Vindicator|Channel Smite ~ Holy Vindicator			AUTO:FEAT|Channel Smite
 6									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Versatile Channel ~ Holy Vindicator
 7									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Divine Judgment ~ Holy Vindicator
 8									ADD:SPELLCASTER|Divine
@@ -155,15 +155,15 @@ CLASS:Stalwart Defender	PREATT:7	PREFEAT:5,Dodge,Endurance,Toughness,Armor Profi
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Stalwart Defender	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|Perception|Sense Motive
 ##Block: Normal Level Progression
-1							ABILITY:Special Ability|AUTOMATIC|Defensive Stance ~ Stalwart Defender
-2	BONUS:VAR|DefensivePowerLVL|1	ABILITY:Special Ability|AUTOMATIC|Defensive Powers ~ Stalwart Defender
-3							ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Stalwart Defender
+1												ABILITY:Special Ability|AUTOMATIC|Defensive Stance ~ Stalwart Defender
+2	BONUS:VAR|DefensivePowerLVL|1							ABILITY:Special Ability|AUTOMATIC|Defensive Powers ~ Stalwart Defender
+3												ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Stalwart Defender
 4	BONUS:VAR|DefensivePowerLVL|1
-5	BONUS:VAR|DamageReductionLVL|1	ABILITY:Special Ability|AUTOMATIC|Damage Reduction ~ Stalwart Defender
+5	BONUS:VAR|DamageReductionLVL|1						ABILITY:Special Ability|AUTOMATIC|Damage Reduction ~ Stalwart Defender
 6	BONUS:VAR|DefensivePowerLVL|1
-7	BONUS:VAR|DamageReductionLVL|2	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge ~ Stalwart Defender
+7	BONUS:VAR|DamageReductionLVL|2						ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge ~ Stalwart Defender
 8	BONUS:VAR|DefensivePowerLVL|1
-9							ABILITY:Special Ability|AUTOMATIC|Mobile Defense ~ Stalwart Defender
-10		BONUS:VAR|DefensivePowerLVL|1	BONUS:VAR|DamageReductionLVL|2	ABILITY:Special Ability|AUTOMATIC|Last Word ~ Stalwart Defender
+9												ABILITY:Special Ability|AUTOMATIC|Mobile Defense ~ Stalwart Defender
+10	BONUS:VAR|DefensivePowerLVL|1	BONUS:VAR|DamageReductionLVL|2	ABILITY:Special Ability|AUTOMATIC|Last Word ~ Stalwart Defender
 
 #EOF

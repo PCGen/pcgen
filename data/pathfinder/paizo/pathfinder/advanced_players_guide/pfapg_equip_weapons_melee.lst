@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct  1 00:28:13 2010 -- reformated by prettylst.pl v1.39 (build 11455)
+# CVS $Revision$ $Author$ -- Mon Sep 16 06:44:37 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Eric C. Smith (Maredudd)
 
@@ -35,9 +35,9 @@ Dagger (Swordbreaker)	OUTPUTNAME:Swordbreaker Dagger	PROFICIENCY:WEAPON|Dagger (
 
 #------one-handed---------
 # Equipment Name		Output Name					Required Weapon Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier			Wield Category	Range		Size		Source Page		Weapon prop. bonus
-Falcata									PROFICIENCY:WEAPON|Falcata			TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade.Tengu				COST:18	WT:4		CRITMULT:x3			CRITRANGE:2			DAMAGE:1d8					EQMOD:STEEL			WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
-Khopesh									PROFICIENCY:WEAPON|Khopesh			TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade.Tengu				COST:20	WT:8		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					EQMOD:STEEL.TRIP		WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
-Sword (Temple)		OUTPUTNAME:Temple Sword			PROFICIENCY:WEAPON|Sword (Temple)		TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade.Tengu				COST:30	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					EQMOD:MONK.STEEL.TRIP	WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
+Falcata									PROFICIENCY:WEAPON|Falcata			TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade.Tengu			COST:18	WT:4		CRITMULT:x3			CRITRANGE:2			DAMAGE:1d8					EQMOD:STEEL			WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
+Khopesh									PROFICIENCY:WEAPON|Khopesh			TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade.Tengu			COST:20	WT:8		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					EQMOD:STEEL.TRIP		WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
+Sword (Temple)		OUTPUTNAME:Temple Sword			PROFICIENCY:WEAPON|Sword (Temple)		TYPE:Weapon.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade.Tengu			COST:30	WT:3		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d8					EQMOD:MONK.STEEL.TRIP	WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.177
 
 #------two-handed---------
 # Equipment Name		Output Name					Required Weapon Proficiency			Type														Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternative Damage	Modifier			Wield Category	Range		Size		Source Page		Weapon prop. bonus

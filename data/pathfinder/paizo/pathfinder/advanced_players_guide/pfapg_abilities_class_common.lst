@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Mon Sep 16 06:44:37 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher
 
@@ -23,15 +23,15 @@ Oracle of Life Extra Channel							CATEGORY:Special Ability	TYPE:ExtraChannel			
 CATEGORY=Special Ability|Channel Energy ~ Prestige Class.MOD																																																																																									BONUS:VAR|UndeadServitudeLVL|PrestigeClassChannelEnergyLVL	BONUS:VAR|OracleChannelLVL|PrestigeClassChannelEnergyLVL
 
 ###Block: CMB Definitions
-# Ability Name								Define									Automatically Gained Weapon Prof.	Modify VAR
-CATEGORY=FEAT|CMB Output.MOD						DEFINE:CMB_DirtyTricks|0	DEFINE:CMD_DirtyTricks|0							BONUS:VAR|CMB_DirtyTricks|CMB	BONUS:VAR|CMD_DirtyTricks|CMD
-CATEGORY=FEAT|CMB Output.MOD						DEFINE:CMB_Drag|0	DEFINE:CMD_Drag|0											BONUS:VAR|CMB_Drag|CMB	BONUS:VAR|CMD_Drag|CMD
-CATEGORY=FEAT|CMB Output.MOD						DEFINE:CMB_Reposition|0	DEFINE:CMD_Reposition|0									BONUS:VAR|CMB_Reposition|CMB	BONUS:VAR|CMD_Reposition|CMD
-CATEGORY=FEAT|CMB Output.MOD						DEFINE:CMB_Steal|0	DEFINE:CMD_Steal|0									BONUS:VAR|CMB_Steal|CMB	BONUS:VAR|CMD_Steal|CMD
+# Ability Name									Define									Automatically Gained Weapon Prof.	Modify VAR
+CATEGORY=FEAT|CMB Output.MOD							DEFINE:CMB_DirtyTricks|0	DEFINE:CMD_DirtyTricks|0							BONUS:VAR|CMB_DirtyTricks|CMB	BONUS:VAR|CMD_DirtyTricks|CMD
+CATEGORY=FEAT|CMB Output.MOD							DEFINE:CMB_Drag|0	DEFINE:CMD_Drag|0											BONUS:VAR|CMB_Drag|CMB	BONUS:VAR|CMD_Drag|CMD
+CATEGORY=FEAT|CMB Output.MOD							DEFINE:CMB_Reposition|0	DEFINE:CMD_Reposition|0									BONUS:VAR|CMB_Reposition|CMB	BONUS:VAR|CMD_Reposition|CMD
+CATEGORY=FEAT|CMB Output.MOD							DEFINE:CMB_Steal|0	DEFINE:CMD_Steal|0									BONUS:VAR|CMB_Steal|CMB	BONUS:VAR|CMD_Steal|CMD
 
 ## Monk Weapons
 CATEGORY=Special Ability|Weapon and Armor Proficiency ~ Druid.MOD											AUTO:WEAPONPROF|Sword (Temple)
-CATEGORY=Special Ability|Weapon and Armor Proficiency ~ Monk.MOD		AUTO:WEAPONPROF|Sword (Temple)
+CATEGORY=Special Ability|Weapon and Armor Proficiency ~ Monk.MOD											AUTO:WEAPONPROF|Sword (Temple)
 #
 # End
 #
