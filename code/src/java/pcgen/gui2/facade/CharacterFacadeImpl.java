@@ -424,7 +424,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		availDomains = new DefaultListFacade<DomainFacade>();
 		buildAvailableDomainsList();
 
-		templates = new DefaultListFacade<TemplateFacade>(charDisplay.getTemplateSet());
+		templates =
+				new DefaultListFacade<TemplateFacade>(
+					charDisplay.getOutputVisibleTemplateList());
 		templateListener = new TemplateListener(); 
 		FacetLibrary.getFacet(TemplateSelectionFacet.class).addDataFacetChangeListener(templateListener);
 
