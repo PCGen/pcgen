@@ -352,8 +352,16 @@ public class BonusManager
 				continue;
 			}
 
-			processBonus(bonus, new WrappedMapSet<BonusObj>(
-					IdentityHashMap.class), processedBonuses, nonStackMap, stackMap);
+			try
+			{
+				processBonus(bonus, new WrappedMapSet<BonusObj>(
+						IdentityHashMap.class), processedBonuses, nonStackMap, stackMap);
+			}
+			catch (Exception e)
+			{
+				Logging.errorPrint(e.getLocalizedMessage(), e);
+				continue;
+			}
 		}
 	}
 
