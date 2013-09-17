@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Mon Nov 12 23:42:51 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 ###Block: Creature Subtypes
@@ -36,7 +36,7 @@ Swarm			VISIBLE:NO
 Water			VISIBLE:NO
 
 ###Block: Variable Type Traits
-# Template Name		Visible	Define
+# Template Name		Visible	DEFINESTAT
 Construct			VISIBLE:NO	DEFINESTAT:NONSTAT|CON
 Undead			VISIBLE:NO	DEFINESTAT:NONSTAT|CON
 Mindless			VISIBLE:NO	DEFINESTAT:NONSTAT|INT

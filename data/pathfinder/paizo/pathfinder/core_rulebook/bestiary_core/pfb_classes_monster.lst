@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Apr 20 12:56:48 2013 -- reformated by prettylst.pl v1.50 (build 19967)
+# CVS $Revision$ $Author$ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 # Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability																		Save checks bonus											Combat bonus
@@ -29,8 +29,8 @@ CLASS:Construct (Mindless)	PRERACETYPE:Construct
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Construct (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
 
-# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability																	Save checks bonus								Combat bonus
-CLASS:Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.307	ABILITY:Special Ability|AUTOMATIC|Dragon Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	DEFINE:DragonLVL|CL
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability																	Define			Save checks bonus								Combat bonus
+CLASS:Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.307	ABILITY:Special Ability|AUTOMATIC|Dragon Traits|PREVAREQ:NoTypeTraits,0	ABILITY:FEAT|AUTOMATIC|CMB Output	DEFINE:DragonLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 # Class Name	Reg. Race Type
 CLASS:Dragon	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -162,7 +162,10 @@ CLASS:Vermin (Intelligent)	PRERACETYPE:Vermin
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Vermin (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
-CLASS:Sorcerer/Cleric (Arcane)	VISIBLE:NO	SPELLTYPE:Arcane	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer/Cleric (Arcane)|CL	SPELLLIST:2|Sorcerer|Cleric
+# Class Name				Visible
+CLASS:Sorcerer/Cleric (Arcane)	VISIBLE:NO
+# Class Name				Spell Stat		Spell Type		Memorize	Caster level						Use Spell List
+CLASS:Sorcerer/Cleric (Arcane)	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer/Cleric (Arcane)|CL	SPELLLIST:2|Sorcerer|Cleric
 ###Block:
 1	CAST:5,3				KNOWN:4,2
 2	CAST:6,4				KNOWN:5,2
@@ -184,4 +187,3 @@ CLASS:Sorcerer/Cleric (Arcane)	VISIBLE:NO	SPELLTYPE:Arcane	SPELLSTAT:CHA	MEMORIZ
 18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
-

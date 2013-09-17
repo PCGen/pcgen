@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Apr 20 12:48:30 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 SOURCELONG:Core Rulebook	SOURCESHORT:CRB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: abernat
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -240,20 +240,20 @@ Trident.MOD					TYPE:Thrown
 
 
 
-# swordlike weapons (including bastard swords, daggers, elven curve blades, falchions, greatswords, kukris, longswords, 
+# swordlike weapons (including bastard swords, daggers, elven curve blades, falchions, greatswords, kukris, longswords,
 #punching daggers, rapiers, scimitars, short swords, and two-bladed swords).
-Sword (Bastard).MOD	TYPE:SwordLike.Tengu
-Dagger.MOD			TYPE:SwordLike.Tengu
-Curve Blade (Elven).MOD	TYPE:SwordLike.Tengu
-Falchion.MOD		TYPE:SwordLike.Tengu
-Greatsword.MOD		TYPE:SwordLike.Tengu
-Kukri.MOD			TYPE:SwordLike.Tengu
-Longsword.MOD		TYPE:SwordLike.Tengu
-Dagger (Punching).MOD	TYPE:SwordLike.Tengu
-Rapier.MOD			TYPE:SwordLike.Tengu
-Scimitar.MOD		TYPE:SwordLike.Tengu
-Sword (Short).MOD		TYPE:SwordLike.Tengu
-Sword (Two-Bladed).MOD	TYPE:SwordLike.Tengu
+Sword (Bastard).MOD			TYPE:SwordLike.Tengu
+Dagger.MOD					TYPE:SwordLike.Tengu
+Curve Blade (Elven).MOD			TYPE:SwordLike.Tengu
+Falchion.MOD				TYPE:SwordLike.Tengu
+Greatsword.MOD				TYPE:SwordLike.Tengu
+Kukri.MOD					TYPE:SwordLike.Tengu
+Longsword.MOD				TYPE:SwordLike.Tengu
+Dagger (Punching).MOD			TYPE:SwordLike.Tengu
+Rapier.MOD					TYPE:SwordLike.Tengu
+Scimitar.MOD				TYPE:SwordLike.Tengu
+Sword (Short).MOD				TYPE:SwordLike.Tengu
+Sword (Two-Bladed).MOD			TYPE:SwordLike.Tengu
 
-Bastard Sword (Exotic)	TYPE:ExoticExtra.SwordLike.Tengu
-Dwarven Waraxe (Exotic)	TYPE:ExoticExtra
+Bastard Sword (Exotic)			TYPE:ExoticExtra.SwordLike.Tengu
+Dwarven Waraxe (Exotic)			TYPE:ExoticExtra

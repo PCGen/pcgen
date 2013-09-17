@@ -1,34 +1,36 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Sep 17 10:16:20 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
-Size_Master	VISIBLE:NO	CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|FACE_0|PRESIZEEQ:F	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:F	ABILITY:Internal|AUTOMATIC|FACE_1|PRESIZEEQ:D	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:D	ABILITY:Internal|AUTOMATIC|FACE_2|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|FACE_5|PREMULT:1,[PRESIZEEQ:S],[PRESIZEEQ:M]	ABILITY:Internal|AUTOMATIC|REACH_5|PREMULT:1,[PRESIZEEQ:S],[PRESIZEEQ:M]	ABILITY:Internal|AUTOMATIC|FACE_10|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|REACH_10|PRESIZEEQ:L|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_5|PRESIZEEQ:L|PREVAREQ:RaceSizeIsLong,1	ABILITY:Internal|AUTOMATIC|FACE_15|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|REACH_15|PRESIZEEQ:H|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_10|PRESIZEEQ:H|PREVAREQ:RaceSizeIsLong,1	ABILITY:Internal|AUTOMATIC|FACE_20|PRESIZEEQ:G	ABILITY:Internal|AUTOMATIC|REACH_20|PRESIZEEQ:G|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_10|PRESIZEEQ:G|PREVAREQ:RaceSizeIsLong,1	ABILITY:Internal|AUTOMATIC|FACE_30|PRESIZEEQ:C	ABILITY:Internal|AUTOMATIC|REACH_30|PRESIZEEQ:C|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_15|PRESIZEEQ:C|PREVAREQ:RaceSizeIsLong,1	ABILITY:Internal|AUTOMATIC|FACE_30|PRESIZEEQ:P	ABILITY:Internal|AUTOMATIC|REACH_30|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_20|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,1
+# Ability Name	Category of Ability	Visible	Ability
+Size_Master		CATEGORY:Internal		VISIBLE:NO	ABILITY:Internal|AUTOMATIC|FACE_0|PRESIZEEQ:F	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:F	ABILITY:Internal|AUTOMATIC|FACE_1|PRESIZEEQ:D	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:D	ABILITY:Internal|AUTOMATIC|FACE_2|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|REACH_0|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|FACE_5|PREMULT:1,[PRESIZEEQ:S],[PRESIZEEQ:M]	ABILITY:Internal|AUTOMATIC|REACH_5|PREMULT:1,[PRESIZEEQ:S],[PRESIZEEQ:M]	ABILITY:Internal|AUTOMATIC|FACE_10|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|REACH_10|PRESIZEEQ:L|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_5|PRESIZEEQ:L|PREVAREQ:RaceSizeIsLong,1	ABILITY:Internal|AUTOMATIC|FACE_15|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|REACH_15|PRESIZEEQ:H|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_10|PRESIZEEQ:H|PREVAREQ:RaceSizeIsLong,1	ABILITY:Internal|AUTOMATIC|FACE_20|PRESIZEEQ:G	ABILITY:Internal|AUTOMATIC|REACH_20|PRESIZEEQ:G|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_10|PRESIZEEQ:G|PREVAREQ:RaceSizeIsLong,1	ABILITY:Internal|AUTOMATIC|FACE_30|PRESIZEEQ:C	ABILITY:Internal|AUTOMATIC|REACH_30|PRESIZEEQ:C|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_15|PRESIZEEQ:C|PREVAREQ:RaceSizeIsLong,1	ABILITY:Internal|AUTOMATIC|FACE_30|PRESIZEEQ:P	ABILITY:Internal|AUTOMATIC|REACH_30|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,0	ABILITY:Internal|AUTOMATIC|REACH_20|PRESIZEEQ:P|PREVAREQ:RaceSizeIsLong,1
 
 ###Block: Size Mods for Automatic Changes , REACH AND FACE Broken in Templates
-REACH_0	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:REACH_0
-REACH_5	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:REACH_5
-REACH_10	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:REACH_10
-REACH_15	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:REACH_15
-REACH_20	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:REACH_20
-REACH_30	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:REACH_30
+# Ability Name	Category of Ability	Visible	Template
+REACH_0		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:REACH_0
+REACH_5		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:REACH_5
+REACH_10		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:REACH_10
+REACH_15		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:REACH_15
+REACH_20		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:REACH_20
+REACH_30		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:REACH_30
 #
-FACE_0	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_0
-FACE_1	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_1
-FACE_2	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_2
-FACE_5	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_5
-FACE_10	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_10
-FACE_15	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_15
-FACE_20	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_20
-FACE_30	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:FACE_30
+FACE_0		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_0
+FACE_1		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_1
+FACE_2		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_2
+FACE_5		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_5
+FACE_10		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_10
+FACE_15		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_15
+FACE_20		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_20
+FACE_30		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_30
 #
-SIZE_F	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_F
-SIZE_D	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_D
-SIZE_T	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_T
-SIZE_S	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_S
-SIZE_M	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_M
-SIZE_L	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_L
-SIZE_H	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_H
-SIZE_G	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_G
-SIZE_C	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:SIZE_C
+SIZE_F		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_F
+SIZE_D		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_D
+SIZE_T		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_T
+SIZE_S		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_S
+SIZE_M		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_M
+SIZE_L		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_L
+SIZE_H		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_H
+SIZE_G		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_G
+SIZE_C		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_C
 
 #-------------------------------------------------------
 ###Block: *** Universal Monster Rules, pages 297-306 ***
@@ -501,8 +503,8 @@ Change Shape		KEY:Change Shape ~ Protean		CATEGORY:Special Ability	TYPE:SpecialQ
 
 ###Block: Animal Companion Abilities
 #Block: Dinosaur (Allosaurus)
-# Ability Name							Unique Key				Output Name		Category of Ability		Type							Visible	Define									Description																																						Modify VAR																	Source Page		Natural Attacks													Aspects
-CATEGORY=Special Ability|Rake.COPY=Rake ~ Allosaurus						OUTPUTNAME:Rake															DEFINE:RakeAttack|BAB+STR-2	DEFINE:RakeBonusDamage|STR																																																																												ASPECT:Ability Benefit|(2 talons +%1, 1d8+%2)|RakeAttack|RakeBonusDamage
+# Ability Name							Unique Key				Output Name		Category of Ability		Type						Visible	Define									Description																																						Modify VAR																	Source Page		Natural Attacks													Aspects
+CATEGORY=Special Ability|Rake.COPY=Rake ~ Allosaurus						OUTPUTNAME:Rake														DEFINE:RakeAttack|BAB+STR-2	DEFINE:RakeBonusDamage|STR																																																																												ASPECT:Ability Benefit|(2 talons +%1, 1d8+%2)|RakeAttack|RakeBonusDamage
 
 #Block: Dinosaur (Tylosaurus)
 
@@ -510,20 +512,20 @@ CATEGORY=Special Ability|Rake.COPY=Rake ~ Allosaurus						OUTPUTNAME:Rake							
 # Ability Name							Unique Key				Output Name		Category of Ability		Type							Visible	Define									Description																																						Modify VAR																	Source Page		Natural Attacks													Aspects
 
 #Block: Hippopotamus
-Capsize								KEY:Capsize ~ Hippopotamus				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary														DESC:A hippopotamus can overturn a boat of its size or smaller by ramming it as a charge attack and making a CMB check.  The DC of this check is 25 or the result of the boat captain's Profession (sailor) check, whichever is higher.																			SOURCEPAGE:p.157
-Sweat									KEY:Sweat ~ Hippopotamus				CATEGORY:Special Ability	TYPE:Defensive.Extraordinary															DESC:A hippo's reddish sweat protects it from nonlethal damage from hit environments, and grants it a +2 racial bonus on saving throws against nonmagical disease.																														SOURCEPAGE:p.157																ASPECT:SaveBonus|(+2 vs. nonmagical disease)
-Hippopotamus Companion Natural Attack											CATEGORY:Special Ability								VISIBLE:NO																																																																							NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8
+Capsize								KEY:Capsize ~ Hippopotamus				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary													DESC:A hippopotamus can overturn a boat of its size or smaller by ramming it as a charge attack and making a CMB check.  The DC of this check is 25 or the result of the boat captain's Profession (sailor) check, whichever is higher.																			SOURCEPAGE:p.157
+Sweat									KEY:Sweat ~ Hippopotamus				CATEGORY:Special Ability	TYPE:Defensive.Extraordinary														DESC:A hippo's reddish sweat protects it from nonlethal damage from hit environments, and grants it a +2 racial bonus on saving throws against nonmagical disease.																														SOURCEPAGE:p.157																ASPECT:SaveBonus|(+2 vs. nonmagical disease)
+Hippopotamus Companion Natural Attack											CATEGORY:Special Ability							VISIBLE:NO																																																																							NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8
 
 #Block: Megafauna (Arsinoitherium)
-# Ability Name							Unique Key				Output Name		Category of Ability		Type							Visible	Define									Description																																						Modify VAR																	Source Page		Natural Attacks													Aspects
-Arsinoitherium Companion Natural Attack											CATEGORY:Special Ability								VISIBLE:NO																																																																							NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+# Ability Name							Unique Key				Output Name		Category of Ability		Type						Visible	Define									Description																																						Modify VAR																	Source Page		Natural Attacks													Aspects
+Arsinoitherium Companion Natural Attack											CATEGORY:Special Ability							VISIBLE:NO																																																																							NATURALATTACKS:Gore,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
 
 #Block: Megafauna (Gylptodon)
-Gylptodon Companion Natural Attack												CATEGORY:Special Ability								VISIBLE:NO																																																																							NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Slashing,*2,1d8
+Gylptodon Companion Natural Attack												CATEGORY:Special Ability							VISIBLE:NO																																																																							NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Slashing,*2,1d8
 
 #Block: Ray (Stingray)
-# Ability Name							Unique Key				Output Name		Category of Ability		Type							Visible	Define									Description																																						Modify VAR																	Source Page		Natural Attacks													Aspects
-Poison								KEY:Poison ~ Stingray					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordiary				DEFINE:StingrayPoisonDC|0						DESC:Sting - injury; save Fort DC %1; frequency 1/round for 4 rounds; effect 1d2 Dex and 1 Con; cure 1 save.|StingrayPoisonDC																			BONUS:VAR|StingrayPoisonDC|10+TL/2+CON	BONUS:VAR|StingrayPoisonDC|2|PREFEAT:1,Ability Focus (Poison)
+# Ability Name							Unique Key				Output Name		Category of Ability		Type						Visible	Define									Description																																						Modify VAR																	Source Page		Natural Attacks													Aspects
+Poison								KEY:Poison ~ Stingray					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordiary			DEFINE:StingrayPoisonDC|0						DESC:Sting - injury; save Fort DC %1; frequency 1/round for 4 rounds; effect 1d2 Dex and 1 Con; cure 1 save.|StingrayPoisonDC																			BONUS:VAR|StingrayPoisonDC|10+TL/2+CON	BONUS:VAR|StingrayPoisonDC|2|PREFEAT:1,Ability Focus (Poison)
 
 
 ###Block: Improved Familiar Abilities
@@ -642,10 +644,10 @@ Earth Glide		KEY:Earth Glide ~ Mud Elemental	CATEGORY:Special Ability	TYPE:Modif
 Entrap		KEY:Entrap ~ Mud Elemental		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:MudElementalEntrapDC|10+TL/2+CON	DEFINE:MudElementalEntrapHardness|5	DEFINE:MudElementalEntrapHP|5	DESC:The mud from an elemntal's entrap ability can be washed away in 1d3 rounds of immersion in water.																																																																											ASPECT:Ability Benefit|(DC %1, 10 minutes, hardness %2, hp %3)|MudElementalEntrapDC|MudElementalEntrapHardness|MudElementalEntrapHP
 
 ###Block: Inevitable (Arbiter) abilities
-# Ability Name		Unique Key					Category of Ability		Type							Define					Description																																								Modify VAR																					Source Page		Aspects
-Constant Vigilance	KEY:Constant Vigilance ~ Arbiter	CATEGORY:Special Ability	TYPE:Defensive.Supernatural									DESC:An arbiter gains a +4 bonus to recognize and disbelieve illusions created by creatures with the chaotic subtype or possessing the chaotic descriptor.																																						SOURCEPAGE:p.162	ASPECT:SaveBonus|(+4 vs. chaotic illusions)
-Electrical Burst		KEY:Electrical Burst ~ Arbiter	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary		DEFINE:ArbiterElectricalBurstDC|0	DESC:An arbiter can release electrical energy from its body in a 10-foot-radius burst that deals 3d6 electricit damage (DC %1 Reflex half).  Immediately following such a burst, the aribter becomes stunned for 24 hours.|ArbiterElectricalBurstDC	BONUS:VAR|ArbiterElectricalBurstDC|10+TL/2+CON	BONUS:VAR|ArbiterElectricalBurstDC|2|PREFEAT:1,Ability Focus (Electrical Burst)	SOURCEPAGE:p.162
-Locate Inevitable		KEY:Locate Inevitable ~ Arbiter	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural								DESC:An arbiter can always sense the direction of the nearest non-arbiter inevitable on the plane, the better to help it report back to its superiors.  It cannot sense the range to this inevitable.																															SOURCEPAGE:p.162
+# Ability Name		Unique Key					Category of Ability		Type						Define					Description																																								Modify VAR																					Source Page		Aspects
+Constant Vigilance	KEY:Constant Vigilance ~ Arbiter	CATEGORY:Special Ability	TYPE:Defensive.Supernatural								DESC:An arbiter gains a +4 bonus to recognize and disbelieve illusions created by creatures with the chaotic subtype or possessing the chaotic descriptor.																																						SOURCEPAGE:p.162	ASPECT:SaveBonus|(+4 vs. chaotic illusions)
+Electrical Burst		KEY:Electrical Burst ~ Arbiter	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:ArbiterElectricalBurstDC|0	DESC:An arbiter can release electrical energy from its body in a 10-foot-radius burst that deals 3d6 electricit damage (DC %1 Reflex half).  Immediately following such a burst, the aribter becomes stunned for 24 hours.|ArbiterElectricalBurstDC	BONUS:VAR|ArbiterElectricalBurstDC|10+TL/2+CON	BONUS:VAR|ArbiterElectricalBurstDC|2|PREFEAT:1,Ability Focus (Electrical Burst)	SOURCEPAGE:p.162
+Locate Inevitable		KEY:Locate Inevitable ~ Arbiter	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural							DESC:An arbiter can always sense the direction of the nearest non-arbiter inevitable on the plane, the better to help it report back to its superiors.  It cannot sense the range to this inevitable.																															SOURCEPAGE:p.162
 
 ###Block: Agathion (Silvanshee) abilities
 # Ability Name	Unique Key					Category of Ability		Type						Description																																																																		Save checks bonus												Stat bonus							Source Page

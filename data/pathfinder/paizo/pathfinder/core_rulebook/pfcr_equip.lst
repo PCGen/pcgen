@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 13 02:22:45 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Sep 17 09:40:33 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 SOURCELONG:Core Rulebook	SOURCESHORT:CRB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
 # Pathfinder RPG Entry by: Stefan Radermacher
@@ -145,7 +145,7 @@ Artisan's Tools (Stonemasonry)	TYPE:Goods.Tools.Artisan.CraftToolsStonemasonry		
 Artisan's Tools (Traps)			TYPE:Goods.Tools.Artisan.CraftTools															COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Traps)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Artisan's Tools (Weaponsmithing)	TYPE:Goods.Tools.Artisan.CraftToolsWeapons													COST:5	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Craft (Weapons)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Climber's Kit				TYPE:Goods.Tools.Masterwork.Resizable														COST:80	WT:5								SOURCEPAGE:p.161	BONUS:SKILL|Climb|2|TYPE=Circumstance
-Disguise Kit				TYPE:Goods.Tools.Masterwork.Resizable												COST:50	WT:8		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:p.161	BONUS:SKILL|Disguise|2|TYPE=Circumstance
+Disguise Kit				TYPE:Goods.Tools.Masterwork.Resizable														COST:50	WT:8		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:p.161	BONUS:SKILL|Disguise|2|TYPE=Circumstance
 Healer's Kit				TYPE:Goods.Tools.Masterwork																COST:50	WT:1		EQMOD:CHARGED_ITEM_10|CHARGES[10]	SOURCEPAGE:p.161	BONUS:SKILL|Heal|2|TYPE=Circumstance
 Holly and Mistletoe			TYPE:Goods.Tools.DivineFocus																										SOURCEPAGE:p.161
 Holy Symbol (Wooden)			TYPE:Goods.Tools.DivineFocus																COST:1									SOURCEPAGE:p.161
@@ -174,17 +174,17 @@ Unholy Symbol (Wooden)			TYPE:Goods.Tools.DivineFocus																COST:1					
 Unholy Symbol (Silver)			TYPE:Goods.Tools.DivineFocus																COST:25	WT:1								SOURCEPAGE:p.161
 
 ###Block: Clothing
-# Equipment Name		Output Name				Type								Cost		Weight	Source Page		Special Property
+# Equipment Name		Output Name				Type							Cost		Weight	Source Page		Special Property
 Outfit (Artisan's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:1	WT:4		SOURCEPAGE:p.161
 Vestments (Cleric's)	OUTPUTNAME:[NAME] Vestments	TYPE:Goods.Clothing.Resizable.Starting	COST:5	WT:6		SOURCEPAGE:p.161
 Outfit (Cold-Weather)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:8	WT:7		SOURCEPAGE:p.161	SPROP: +5 circumstance bonus on Fortitude saves vs cold weather
-Outfit (Courtier's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable				COST:30	WT:6		SOURCEPAGE:p.161
+Outfit (Courtier's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable			COST:30	WT:6		SOURCEPAGE:p.161
 Outfit (Entertainer's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:3	WT:4		SOURCEPAGE:p.161
 Outfit (Explorer's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:10	WT:8		SOURCEPAGE:p.161
 Outfit (Monk's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:5	WT:2		SOURCEPAGE:p.162
-Outfit (Noble's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable				COST:75	WT:10		SOURCEPAGE:p.162
+Outfit (Noble's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable			COST:75	WT:10		SOURCEPAGE:p.162
 Outfit (Peasant's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:0.1	WT:2		SOURCEPAGE:p.162
-Outfit (Royal)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable				COST:200	WT:15		SOURCEPAGE:p.162
+Outfit (Royal)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable			COST:200	WT:15		SOURCEPAGE:p.162
 Outfit (Scholar's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:5	WT:6		SOURCEPAGE:p.162
 Outfit (Traveler's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:1	WT:5		SOURCEPAGE:p.162
 
