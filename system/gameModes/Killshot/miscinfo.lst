@@ -112,7 +112,7 @@ SQUARESIZE:5
 # (use more than one of these tags for additional feats)
 #interval = multiples of levels after the start level that you gain an additional feat (0 = only at start)
 #this is handled in the races.lst by the STARTFEATS tag
-BONUSFEATLEVELSTARTINTERVAL:0|0
+BONUSFEATLEVELSTARTINTERVAL:999|0
 #BONUSFEATLEVELSTARTINTERVAL:3|3
 
 #BONUSSTATLEVELSTARTINTERVAL:level|interval
