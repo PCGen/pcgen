@@ -1,56 +1,56 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Tue Sep 17 10:23:16 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
 # Added 3rd printing errata - SR
-STARTPACK:Dragon Age 01 ~ Wyrmling		TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+STARTPACK:Dragon Age 01 ~ Wyrmling	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
 
 STARTPACK:Dragon Age 02 ~ Very Young	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
-CLASS:Dragon	LEVEL:2	
+CLASS:Dragon	LEVEL:2
 
-STARTPACK:Dragon Age 03 ~ Young		TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+STARTPACK:Dragon Age 03 ~ Young	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
-CLASS:Dragon	LEVEL:4	
+CLASS:Dragon	LEVEL:4
 
-STARTPACK:Dragon Age 04 ~ Juvenile		TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+STARTPACK:Dragon Age 04 ~ Juvenile	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
-CLASS:Dragon	LEVEL:6	
+CLASS:Dragon	LEVEL:6
 
 STARTPACK:Dragon Age 05 ~ Young Adult	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
-CLASS:Dragon	LEVEL:8	
+CLASS:Dragon	LEVEL:8
 
-STARTPACK:Dragon Age 06 ~ Adult		TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+STARTPACK:Dragon Age 06 ~ Adult	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
-CLASS:Dragon	LEVEL:10	
+CLASS:Dragon	LEVEL:10
 
 STARTPACK:Dragon Age 07 ~ Mature Adult	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
-CLASS:Dragon	LEVEL:12	
+CLASS:Dragon	LEVEL:12
 
-STARTPACK:Dragon Age 08 ~ Old			TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+STARTPACK:Dragon Age 08 ~ Old	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
-CLASS:Dragon	LEVEL:14	
+CLASS:Dragon	LEVEL:14
 
-STARTPACK:Dragon Age 09 ~ Very Old		TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+STARTPACK:Dragon Age 09 ~ Very Old	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
-CLASS:Dragon	LEVEL:16	
+CLASS:Dragon	LEVEL:16
 
-STARTPACK:Dragon Age 10 ~ Ancient		TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+STARTPACK:Dragon Age 10 ~ Ancient	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
-CLASS:Dragon	LEVEL:18	
+CLASS:Dragon	LEVEL:18
 
-STARTPACK:Dragon Age 11 ~ Wyrm		TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
+STARTPACK:Dragon Age 11 ~ Wyrm	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
-CLASS:Dragon	LEVEL:20	
+CLASS:Dragon	LEVEL:20
 
 STARTPACK:Dragon Age 12 ~ Great Wyrm	TYPE:DragonAgeSelection	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PRERACE:1,RACETYPE=Dragon
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
-CLASS:Dragon	LEVEL:22	
+CLASS:Dragon	LEVEL:22
 
 
-STARTPACK:Dragon (Black/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Black)],[!PRERACE:1,%]	SOURCEPAGE:p.92	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	
+STARTPACK:Dragon (Black/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PREMULT:1,[PRERACE:1,Dragon (Black)],[!PRERACE:1,%]	SOURCEPAGE:p.92
 ALIGN:CE
 RACE:Dragon (Black)	!PRERACE:1,%
 NAME:Young Black Dragon
@@ -69,7 +69,7 @@ FEAT:Weapon Focus (Bite)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
-STARTPACK:Dragon (Black/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Black)],[!PRERACE:1,%]	SOURCEPAGE:p.92	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	
+STARTPACK:Dragon (Black/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PREMULT:1,[PRERACE:1,Dragon (Black)],[!PRERACE:1,%]	SOURCEPAGE:p.92
 ALIGN:CE
 RACE:Dragon (Black)	!PRERACE:1,%
 NAME:Adult Black Dragon
@@ -102,9 +102,9 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 
 
-STARTPACK:Dragon (Black/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Black)],[!PRERACE:1,%]	SOURCEPAGE:p.92	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	
+STARTPACK:Dragon (Black/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	!PREABILITY:1,CATEGORY=Internal,Dragon Age Selected	PREMULT:1,[PRERACE:1,Dragon (Black)],[!PRERACE:1,%]	SOURCEPAGE:p.92
 ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
-CLASS:Dragon	LEVEL:18	
+CLASS:Dragon	LEVEL:18
 ALIGN:CE
 RACE:Dragon (Black)	!PRERACE:1,%
 NAME:Ancient Black Dragon
