@@ -300,7 +300,7 @@ DIESIZES:1
 # Character Types:
 CHARACTERTYPE:PC
 
-DEFAULTDATASET:Killshot: The Director's Cut
+#DEFAULTDATASET:Killshot: The Director's Cut
 
 #
 # DONE
