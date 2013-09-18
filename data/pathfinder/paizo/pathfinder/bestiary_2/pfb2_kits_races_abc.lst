@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Oct 22 14:51:19 2011 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision$ $Author$ -- Wed Sep 18 13:58:41 2013 -- reformated by prettylst.pl v1.50 (build 21406)
 SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: ? and Douglas Limmer
@@ -198,7 +198,7 @@ FEAT:Spell Penetration
 FEAT:Weapon Focus (Shortspear)
 FEAT:Weapon Focus (Tail Slap)
 FEAT:Wind Stance
-GEAR:Shortspear	LOCATION:Equipped	EQMOD:PLUS1W	EQMOD:SHK_BRST
+GEAR:Shortspear	LOCATION:Equipped	EQMOD:PLUS1W.SHK_BRST
 
 STARTPACK:Agathion (Draconal) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Agathion (Draconal)],[!PRERACE:1,%]	SOURCEPAGE:p.18
 ALIGN:NG

@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep 18 12:28:06 2013 -- reformated by prettylst.pl v1.50 (build 21406)
 SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
 # ORIGINAL ENTRY: Douglas Limmer
@@ -225,8 +225,8 @@ Devour Memories	KEY:Devour Memories ~ Totenmaske	CATEGORY:Special Ability	TYPE:S
 Sunlight Petrification	KEY:Sunlight Petrification ~ Rock Troll	CATEGORY:Special Ability	TYPE:Weakness.Extraordinary	DESC:A rock troll that is exposed to natural sunlight is staggered and must make a DC 20 Fortitude save each round to resist permanently turning to stone.  A stone to flesh spell (or similar effect) restores a petrified rock troll, but if it remains exposed to sunlight, it must immediately start making new Fortitude saves to avoid petrification.  Spells like sunray or sunburst that create powerful natural sunlight cannot petrify a rock troll, but the troll is staggered for 1d4 rounds after being exposed to such an effect.	SOURCEPAGE:p.272
 
 ###Block: Snapping Turtle Abilities
-# Ability Name	Unique Key				Category of Ability		Type						Description																																						Combat bonus							Source Page
-Shell			KEY:Shell ~ Snapping Turtle	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:As a move action, a snapping turtle can pull its extremities and head into its shell.  It cannot move or attack as long as it remains in this state, but its armor bonus from natural armor increases by +4 as long as it does.	TEMPBONUS:PC|COMBAT|AC|4|TYPE=NaturalArmor.STACK	SOURCEPAGE:p.273
+# Ability Name	Unique Key				Category of Ability		Type						Description																																						Source Page		Temporary Bonus
+Shell			KEY:Shell ~ Snapping Turtle	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:As a move action, a snapping turtle can pull its extremities and head into its shell.  It cannot move or attack as long as it remains in this state, but its armor bonus from natural armor increases by +4 as long as it does.	SOURCEPAGE:p.273	TEMPBONUS:PC|COMBAT|AC|4|TYPE=NaturalArmor.STACK
 
 ###Block: Giant Snapping Turtle Abilities
 # Ability Name	Unique Key							Category of Ability		Type						Description																																				Modify VAR										Source Page

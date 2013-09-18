@@ -617,7 +617,7 @@ FEAT:Iron Will
 FEAT:Lightning Reflexes
 FEAT:Power Attack
 FEAT:Vital Strike
-GEAR:Battleaxe	SIZE:C	LOCATION:Equipped	EQMOD:PLUS3W	EQMOD:UNHOLY
+GEAR:Battleaxe	SIZE:C	LOCATION:Equipped	EQMOD:PLUS3W.UNHOLY
 GEAR:Full Plate	SIZE:C	LOCATION:Equipped	EQMOD:PLUS3A
 GEAR:Rock (Huge)			LOCATION:Carried
 

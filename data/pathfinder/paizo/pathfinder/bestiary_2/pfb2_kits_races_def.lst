@@ -144,7 +144,7 @@ FEAT:Point-Blank Shot
 FEAT:Hover
 FEAT:Improved Initiative
 FEAT:Weapon Focus (Longbow)
-GEAR:Longbow (Composite)	SIZE:L	LOCATION:Carried	EQMOD:PLUS1W	EQMOD:BOWSTR|7
+GEAR:Longbow (Composite)	SIZE:L	LOCATION:Carried	EQMOD:PLUS1W.BOWSTR|7
 
 STARTPACK:Daemon (Meladaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Meladaemon)]
 RACE:Daemon (Meladaemon)	!PRERACE:1,%
@@ -240,7 +240,7 @@ FEAT:Lunge
 FEAT:Power Attack
 FEAT:Quick Draw
 FEAT:Vital Strike
-GEAR:Halberd	SIZE:L	LOCATION:Both Hands	EQMOD:PLUS2W	EQMOD:WOUND
+GEAR:Halberd	SIZE:L	LOCATION:Both Hands	EQMOD:PLUS2W.WOUND
 
 STARTPACK:Daemon (Thanadaemon) Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Thanadaemon)]
 RACE:Daemon (Thanadaemon)	!PRERACE:1,%
@@ -733,7 +733,7 @@ FEAT:Ride-By Attack
 FEAT:Trample
 FEAT:Weapon Focus (Longsword)
 GEAR:Full Plate	LOCATION:Equipped	EQMOD:PLUS1A
-GEAR:Longsword	LOCATION:Equipped	EQMOD:PLUS1W	EQMOD:KEEN
+GEAR:Longsword	LOCATION:Equipped	EQMOD:PLUS1W.KEEN
 
 STARTPACK:Coach of the Silent Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dullahan (Coach of the Silent)]
 RACE:Dullahan (Coach of the Silent)	!PRERACE:1,%
@@ -752,7 +752,7 @@ FEAT:Ride-By Attack
 FEAT:Trample
 FEAT:Weapon Focus (Longsword)
 GEAR:Full Plate	LOCATION:Equipped	EQMOD:PLUS1A
-GEAR:Longsword	LOCATION:Equipped	EQMOD:PLUS1W	EQMOD:KEEN
+GEAR:Longsword	LOCATION:Equipped	EQMOD:PLUS1W.KEEN
 
 STARTPACK:Dust Digger Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dust Digger]
 RACE:Dust Digger	!PRERACE:1,%

@@ -120,7 +120,7 @@ FEAT:Precise Shot
 FEAT:Rapid Shot
 GEAR:Leather					SIZE:L	LOCATION:Armor
 GEAR:Longsword					SIZE:L	LOCATION:Primary Hand
-GEAR:Longbow (Composite)			SIZE:L	LOCATION:Carried		EQMOD:MWORKW	EQMOD:BOWSTR|+5
+GEAR:Longbow (Composite)			SIZE:L	LOCATION:Carried		EQMOD:MWORKW.BOWSTR|+5
 GEAR:Arrow				QTY:20			LOCATION:Carried
 
 STARTPACK:Gloomwing Default	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gloomwing]
