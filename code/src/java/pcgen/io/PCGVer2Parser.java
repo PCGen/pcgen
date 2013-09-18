@@ -105,6 +105,7 @@ import pcgen.core.SubstitutionClass;
 import pcgen.core.SystemCollections;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.BonusAddition;
+import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.analysis.RaceAlignment;
 import pcgen.core.analysis.SkillRankControl;
@@ -439,6 +440,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void addKeyedTemplate(PCTemplate template, String choice)
 	{
+		if (ChooseActivation.hasChooseToken(template) && choice == null)
+		{
+			final String message =
+					"Template ignored: "
+						+ template
+						+ " as a choice was expected but none was present in character.";
+			warnings.add(message);
+			return;
+		}
 		final int preXP = thePC.getXP();
 		templateInputFacet.importSelection(thePC.getCharID(), template, choice);
 		thePC.addTemplate(template);
@@ -1508,7 +1518,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				parseWeaponProficienciesLine(line);
 			}
 
-			checkWeaponProficiencies();
+			// This is not reliable during character load, and the warning is 
+			// of little value, so I'm disabling the check for now. 
+			//checkWeaponProficiencies();
 		}
 
 		if (cache.containsKey(TAG_ARMORPROF))
