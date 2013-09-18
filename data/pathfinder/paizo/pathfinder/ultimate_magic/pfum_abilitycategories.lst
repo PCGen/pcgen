@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Tue Oct 30 01:48:28 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep 18 14:31:37 2013 -- reformated by prettylst.pl v1.50 (build 21406)
 
 # ORIGINAL ENTRY: Stefan Radermacher, Eric Smith (Maredudd), and Douglas Limmer
 # ORIGINAL ENTRY DATE: Unknown
@@ -26,14 +26,14 @@ ABILITYCATEGORY:Magus Arcana		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIO
 ABILITYCATEGORY:Magus Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.ItemCreation.Metamagic	PLURAL:Magus Bonus Feats	DISPLAYLOCATION:Feats
 
 ###Block: Summoner/Eidolon ability categories
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
-ABILITYCATEGORY:Eidolon Aquatic Evolution	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionAquatic	PLURAL:Eidolon Aquatic Evolutions	DISPLAYLOCATION:Class Abilities
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI			Display Location
+ABILITYCATEGORY:Eidolon Aquatic Evolution		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EvolutionAquatic	PLURAL:Eidolon Aquatic Evolutions		DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Eidolon Basic Magic Choice		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidBasicMagic		PLURAL:Eidolon Basic Magic Choices		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Eidolon Minor Magic Choice		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidMinorMagic		PLURAL:Eidolon Minor Magic Choices		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Eidolon Major Magic Choice		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidMajorMagic		PLURAL:Eidolon Major Magic Choices		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Eidolon Ultimate Magic Choice		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidUltimateMagic		PLURAL:Eidolon Ultimate Magic Choices		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Eidolon Magic Upgrade		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:EidMagicUpgrade		PLURAL:Eidolon Magic Upgrades		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Basic Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidBasicMagic	PLURAL:Eidolon Basic Magic Choices		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Minor Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMinorMagic	PLURAL:Eidolon Minor Magic Choices		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Major Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMajorMagic	PLURAL:Eidolon Major Magic Choices		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Ultimate Magic Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidUltimateMagic	PLURAL:Eidolon Ultimate Magic Choices	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Eidolon Magic Upgrade		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EidMagicUpgrade	PLURAL:Eidolon Magic Upgrades			DISPLAYLOCATION:Class Abilities
 
 
 ###Block: Cleric Archetype ability categories
@@ -105,18 +105,19 @@ ABILITYCATEGORY:Wood Opposition School Choice		VISIBLE:QUALIFY	EDITABLE:YES		EDI
 ABILITYCATEGORY:Eldritch Heritage Bloodline Choice	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EldritchHeritageSelection								DISPLAYLOCATION:Feats
 
 #
-ABILITYCATEGORY:Black Blade Selection		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BlackBladeChoice									DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Black Blade Selection			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:BlackBladeChoice										DISPLAYLOCATION:Class Abilities
 
 ###Block: Crossblooded Sorcerer ability categories
+# Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object			Type of Object			Plural description for UI			Display Location
 ABILITYCATEGORY:Crossblooded Bloodline		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:SorcererCrossbloodline	PLURAL:Crossblooded Bloodlines		DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Crossblooded Sorcerer		VISIBLE:NO		EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer												DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Crossblooded Sorcerer		VISIBLE:NO		EDITABLE:NO			EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer													DISPLAYLOCATION:Class Abilities
 # Ability Category					Visible		Editable or Static?	Change Pool?	Fractional values?	Category of Object			Type of Object			Plural description for UI			Display Location
 ABILITYCATEGORY:Crossblooded Bloodline Power	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineAbility	PLURAL:Crossblooded Bloodline Powers	DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Crossblooded Bonus Spell		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodedSpellChoice	PLURAL:Crossblooded Bonus Spells		DISPLAYLOCATION:Class Abilities
 ABILITYCATEGORY:Crossblooded Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Crossblooded Sorcerer	TYPE:CrossbloodlineFeat		PLURAL:Crossblooded Feats			DISPLAYLOCATION:Class Abilities
 
 
-ABILITYCATEGORY:Magus Class Ability				VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:MagusClassAbility	PLURAL:Magus Class Abilities	DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Magus Class Ability			VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability		TYPE:MagusClassAbility		PLURAL:Magus Class Abilities			DISPLAYLOCATION:Class Abilities
 
 
 

@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sun Apr 22 08:08:02 2012 -- reformated by prettylst.pl v1.39 (build )
+# CVS $Revision: $ $Author: $ -- Wed Sep 18 14:31:37 2013 -- reformated by prettylst.pl v1.50 (build 21406)
 # Eidolon Evolution Bonus from Extra Evolution feat
 # Class of the Master		Type			Define																									Bonus to Ability Pool				Modify VAR
 FOLLOWER:EidolonExtraEP=1	TYPE:Eidolon																											BONUS:ABILITYPOOL|Eidolon Evolution|1
@@ -478,19 +478,19 @@ FOLLOWER:BeastBondedFeatTransfer=10	TYPE:Familiar	BONUS:FEAT|POOL|1
 
 ###Block: New Familiars
 ###Block:Familiar Bonuses to Master
-# Race of familiar					Type			Save checks bonus			Combat bonus						Bonus to skill		Modify VAR			Virtual Feat
-MASTERBONUSRACE:Familiar (Blue-Ringed Octopus)	TYPE:Familiar														BONUS:SKILL|Swim|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Donkey Rat)		TYPE:Familiar	BONUS:CHECKS|Fortitude|2																	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Fox (UM))			TYPE:Familiar	BONUS:CHECKS|Reflex|2																		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Goat)			TYPE:Familiar														BONUS:SKILL|Survival|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Greensting Scorpion)	TYPE:Familiar						BONUS:COMBAT|INITIATIVE|4												VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Hedgehog)			TYPE:Familiar	BONUS:CHECKS|Will|2																		VFEAT:Alertness
-MASTERBONUSRACE:Familiar (House Centipede)	TYPE:Familiar														BONUS:SKILL|Stealth|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (King Crab)		TYPE:Familiar																		BONUS:VAR|CMB_Grapple|2	VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Pig)			TYPE:Familiar														BONUS:SKILL|Diplomacy|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Scarlet Spider)		TYPE:Familiar														BONUS:SKILL|Climb|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Thrush)			TYPE:Familiar														BONUS:SKILL|Diplomacy|3					VFEAT:Alertness
-MASTERBONUSRACE:Familiar (Turtle)			TYPE:Familiar						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK										VFEAT:Alertness
+# Race of familiar					Type			Save checks bonus			Combat bonus					Bonus to skill		Modify VAR			Virtual Feat
+MASTERBONUSRACE:Familiar (Blue-Ringed Octopus)	TYPE:Familiar													BONUS:SKILL|Swim|3					VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Donkey Rat)		TYPE:Familiar	BONUS:CHECKS|Fortitude|2																VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Fox (UM))			TYPE:Familiar	BONUS:CHECKS|Reflex|2																	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Goat)			TYPE:Familiar													BONUS:SKILL|Survival|3					VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Greensting Scorpion)	TYPE:Familiar						BONUS:COMBAT|INITIATIVE|4											VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Hedgehog)			TYPE:Familiar	BONUS:CHECKS|Will|2																	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (House Centipede)	TYPE:Familiar													BONUS:SKILL|Stealth|3					VFEAT:Alertness
+MASTERBONUSRACE:Familiar (King Crab)		TYPE:Familiar																	BONUS:VAR|CMB_Grapple|2	VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Pig)			TYPE:Familiar													BONUS:SKILL|Diplomacy|3					VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Scarlet Spider)		TYPE:Familiar													BONUS:SKILL|Climb|3					VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Thrush)			TYPE:Familiar													BONUS:SKILL|Diplomacy|3					VFEAT:Alertness
+MASTERBONUSRACE:Familiar (Turtle)			TYPE:Familiar						BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK									VFEAT:Alertness
 
 ###Block: Abilities for specific types of familiars
 # Class of the Master	Type			Required Race			Apply Kit
