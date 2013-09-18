@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep 26 12:21:11 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep 18 14:05:56 2013 -- reformated by prettylst.pl v1.50 (build 21406)
 # All Material Used from this Web Site - http://www.d20pfsrd.com/
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2012-02-03
@@ -106,171 +106,172 @@ Wakizashi.MOD			TYPE:Samurai.LightBlade
 #Gladius			TYPE:GladiatorMelee.Martial.Piercing.Performance.Light
 
 # One-Handed
-Scizore			TYPE:GladiatorMelee.Martial.Piercing.Performance.OneHanded
+# Weapon Name				Type
+Scizore					TYPE:GladiatorMelee.Martial.Piercing.Performance.OneHanded
 
 # Ranged
-Amentum (Javelin)		TYPE:GladiatorMelee.Martial.Piercing.Performance.Thrown.Ranged.Spear
+Amentum (Javelin)				TYPE:GladiatorMelee.Martial.Piercing.Performance.Thrown.Ranged.Spear
 
 # EXOTIC
 # Light
-Aklys (Gladiator)		TYPE:GladiatorMelee.Exotic.Bludgeoning.Ranged.Thrown.Light.Performance.Trip
+Aklys (Gladiator)				TYPE:GladiatorMelee.Exotic.Bludgeoning.Ranged.Thrown.Light.Performance.Trip
 # COMMENT: Conflicts with Pathfinder Bestiary version which is a Simple Weapon for Derro.
-Knuckle Axe			TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light.Monk
-Madu				TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
-Pata				TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
-Quadrens			TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
-Scorpion Whip		TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light
-Sica				TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light
+Knuckle Axe					TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light.Monk
+Madu						TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
+Pata						TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
+Quadrens					TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
+Scorpion Whip				TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light
+Sica						TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light
 
 # One-Handed
-Hooked Axe			TYPE:GladiatorMelee.Exotic.Slashing.Performance.Disarm.Trip.OneHanded
-Shotel			TYPE:GladiatorMelee.Exotic.Piercing.Performance.OneHanded
+Hooked Axe					TYPE:GladiatorMelee.Exotic.Slashing.Performance.Disarm.Trip.OneHanded
+Shotel					TYPE:GladiatorMelee.Exotic.Piercing.Performance.OneHanded
 # Two-Handed
-Flying Blade		TYPE:GladiatorMelee.Exotic.Slashing.Performance.Reach.TwoHanded.Tengu.Sword
+Flying Blade				TYPE:GladiatorMelee.Exotic.Slashing.Performance.Reach.TwoHanded.Tengu.Sword
 # RANGED
-Throwing Shield		TYPE:GladiatorMelee.Ranged.Thrown.Exotic.Bludgeoning.Performance.Trip
+Throwing Shield				TYPE:GladiatorMelee.Ranged.Thrown.Exotic.Bludgeoning.Performance.Trip
 
 # Bronze Age
 # Two-Handed Melee
-Mattock			TYPE:Piercing.Martial.Fragile
-Rhomphaia			TYPE:Piercing.Slashing.Martial.Brace.Fragile.Reach
+Mattock					TYPE:Piercing.Martial.Fragile
+Rhomphaia					TYPE:Piercing.Slashing.Martial.Brace.Fragile.Reach
 
 #Exotic
 #Two-Handed Melee
-Harpoon			TYPE:Piercing.Ranged.Thrown.Exotic.Fragile.Grapple.Spear
+Harpoon					TYPE:Piercing.Ranged.Thrown.Exotic.Fragile.Grapple.Spear
 
 #Ranged
-Kestros			TYPE:Piercing.Exotic.Ranged
+Kestros					TYPE:Piercing.Exotic.Ranged
 
 # Stone Age
 #Simple
 #One-Handed Melee
-Mere Club			TYPE:StoneAge.Simple.Bludgeoning.Piercing.Fragile
+Mere Club					TYPE:StoneAge.Simple.Bludgeoning.Piercing.Fragile
 
 #Martial
 #One-Handed Melee
-Terbutje			TYPE:StoneAge.Martial.Slashing.Fragile
+Terbutje					TYPE:StoneAge.Martial.Slashing.Fragile
 
 #Two-Handed Melee
-Tepoztopilli		TYPE:StoneAge.Martial.Piercing.Slashing.Fragile.Reach
+Tepoztopilli				TYPE:StoneAge.Martial.Piercing.Slashing.Fragile.Reach
 
 #Ranged
-Atlatl			TYPE:StoneAge.Martial.Piercing.Ranged.Thrown
+Atlatl					TYPE:StoneAge.Martial.Piercing.Ranged.Thrown
 
 #Exotic
 #One-Handed Melee
-Taiaha			TYPE:StoneAge.Exotic.Bludgeoning.Piercing.Double
-Terbutje (Great)		TYPE:StoneAge.Exotic.Slashing.Fragile
-Wahaika			TYPE:StoneAge.Exotic.Bludgeoning.Disarm
+Taiaha					TYPE:StoneAge.Exotic.Bludgeoning.Piercing.Double
+Terbutje (Great)				TYPE:StoneAge.Exotic.Slashing.Fragile
+Wahaika					TYPE:StoneAge.Exotic.Bludgeoning.Disarm
 
 # Siege Engines
 #Direct-Fire Engines	 Cost		Dmg		Critical			Range		Type1 Crew Aim Load Speed
 # Large Siege Engines
-Ballista (Light)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
-Cannon			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Ballista (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
+Cannon					TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
 # Huge Siege Engines
-Ballista (Heavy)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
-Cannon (Fiend's Mouth)	TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
-Firedrake			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
+Ballista (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
+Cannon (Fiend's Mouth)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Firedrake					TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
 # Gargantuan Siege Engines
-Ballista (Gate Breaker)	TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
-Firewyrm			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
+Ballista (Gate Breaker)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Firewyrm					TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
 
 # Large Siege Engines
-Bombard (Light)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
-Catapult (Light)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
-Trebuchet (Light)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Bombard (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Catapult (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Trebuchet (Light)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
 
 # Huge Siege Engines
-Bombard (Standard)	TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
-Catapult (Standard)	TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
-Springal (Arrow)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
-Springal (Rocket)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
-Trebuchet (Standard)	TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Bombard (Standard)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Catapult (Standard)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Springal (Arrow)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Piercing
+Springal (Rocket)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Fire
+Trebuchet (Standard)			TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
 
 #Gargantuan Siege Engines
-Bombard (Heavy)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
-Catapult (Heavy)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
-Trebuchet (Heavy)		TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Bombard (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.SiegeFirearm.Bludgeoning.Piercing.Firearm
+Catapult (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
+Trebuchet (Heavy)				TYPE:Exotic.Ranged.SiegeEngine.Siege.SiegeWeapon.Bludgeoning
 
 ###Bock: Weapon Groups:
-Hooked Axe.MOD	TYPE:Axe.Polearm
-Knuckle Axe.MOD	TYPE:Axe
-Mattock.MOD	TYPE:Axe
-Pata.MOD	TYPE:Axe.Bladelight
+Hooked Axe.MOD				TYPE:Axe.Polearm
+Knuckle Axe.MOD				TYPE:Axe
+Mattock.MOD					TYPE:Axe
+Pata.MOD					TYPE:Axe.Bladelight
 #
-Double Chicken Saber.MOD	TYPE:Bladeheavy.Monk
+Double Chicken Saber.MOD		TYPE:Bladeheavy.Monk
 Katana (Double Walking Stick).MOD	TYPE:Bladeheavy
-Terbutje (Great).MOD	TYPE:Bladeheavy
-Katana.MOD	TYPE:Bladeheavy
-Broadsword (Nine Ring).MOD	TYPE:Bladeheavy
-Nodachi.MOD	TYPE:Bladeheavy.Polearm
-Sword (Seven-Branched).MOD	TYPE:Bladeheavy.Monk
-Shotel.MOD	TYPE:Bladeheavy
-Terbutje.MOD	TYPE:Bladeheavy
+Terbutje (Great).MOD			TYPE:Bladeheavy
+Katana.MOD					TYPE:Bladeheavy
+Broadsword (Nine Ring).MOD		TYPE:Bladeheavy
+Nodachi.MOD					TYPE:Bladeheavy.Polearm
+Sword (Seven-Branched).MOD		TYPE:Bladeheavy.Monk
+Shotel.MOD					TYPE:Bladeheavy
+Terbutje.MOD				TYPE:Bladeheavy
 #
-Butterfly Sword.MOD	TYPE:Bladelight.Monk
+Butterfly Sword.MOD			TYPE:Bladelight.Monk
 #Gladius.MOD	TYPE:Bladelight
-Kerambit.MOD	TYPE:Bladelight
-Quadrens.MOD	TYPE:Bladelight
-Sica.MOD	TYPE:Bladelight
-Wakizashi.MOD	TYPE:Bladelight
+Kerambit.MOD				TYPE:Bladelight
+Quadrens.MOD				TYPE:Bladelight
+Sica.MOD					TYPE:Bladelight
+Wakizashi.MOD				TYPE:Bladelight
 #
-Dan Bong.MOD	TYPE:Close.Monk
-Emei Piercer.MOD	TYPE:Close.Monk
-Fighting Fan.MOD	TYPE:Close.Monk
-Iron Brush.MOD	TYPE:Close
-Madu.MOD	TYPE:Close
-Mere Club.MOD	TYPE:Close
-Scizore.MOD	TYPE:Close
-Tekko-Kagi (Iron Claw).MOD	TYPE:Close
-Tonfa.MOD	TYPE:Close.Monk
-Wushu Dart.MOD	TYPE:Close.Monk.Thrown
+Dan Bong.MOD				TYPE:Close.Monk
+Emei Piercer.MOD				TYPE:Close.Monk
+Fighting Fan.MOD				TYPE:Close.Monk
+Iron Brush.MOD				TYPE:Close
+Madu.MOD					TYPE:Close
+Mere Club.MOD				TYPE:Close
+Scizore.MOD					TYPE:Close
+Tekko-Kagi (Iron Claw).MOD		TYPE:Close
+Tonfa.MOD					TYPE:Close.Monk
+Wushu Dart.MOD				TYPE:Close.Monk.Thrown
 #
-Tube Arrow Shooter.MOD	TYPE:Crossbow
+Tube Arrow Shooter.MOD			TYPE:Crossbow
 #
 #Firearms: All One-Handed, Two-Handed, And Siege Firearms
 #
 #Chain Spear.MOD	TYPE:Flail
-Kama (Double-Chained).MOD	TYPE:Flail.Monk
-Flying Blade.MOD	TYPE:Flail
+Kama (Double-Chained).MOD		TYPE:Flail.Monk
+Flying Blade.MOD				TYPE:Flail
 Kusarigama (Sickle and Chain).MOD	TYPE:Flail.Monk
-Kyoketsu Shoge.MOD	TYPE:Flail.Monk
-Meteor Hammer.MOD	TYPE:Flail
-Nine-Section Whip.MOD	TYPE:Flail.Monk
-Sansetsukon.MOD	TYPE:Flail.Monk
-Scorpion Whip.MOD	TYPE:Flail
-Urumi.MOD	TYPE:Flail.Monk
+Kyoketsu Shoge.MOD			TYPE:Flail.Monk
+Meteor Hammer.MOD				TYPE:Flail
+Nine-Section Whip.MOD			TYPE:Flail.Monk
+Sansetsukon.MOD				TYPE:Flail.Monk
+Scorpion Whip.MOD				TYPE:Flail
+Urumi.MOD					TYPE:Flail.Monk
 #
-Aklys (Gladiator).MOD	TYPE:Hammer.Thrown
-Mere Club.MOD	TYPE:Hammer
-Taiaha.MOD	TYPE:Hammer
-Tetsubo.MOD	TYPE:Hammer
-Wahaika.MOD	TYPE:Hammer
+Aklys (Gladiator).MOD			TYPE:Hammer.Thrown
+Mere Club.MOD				TYPE:Hammer
+Taiaha.MOD					TYPE:Hammer
+Tetsubo.MOD					TYPE:Hammer
+Wahaika.MOD					TYPE:Hammer
 #
-Bo Staff.MOD	TYPE:Monk
-Jutte.MOD	TYPE:Monk
-Monk's Spade.MOD	TYPE:Monk.Polearm
-Broadsword (Nine Ring).MOD	TYPE:Monk
-Rope Dart.MOD	TYPE:Monk.Thrown
-Shang Gou.MOD	TYPE:Monk
-Tiger Fork.MOD	TYPE:Monk.Polearm
+Bo Staff.MOD				TYPE:Monk
+Jutte.MOD					TYPE:Monk
+Monk's Spade.MOD				TYPE:Monk.Polearm
+Broadsword (Nine Ring).MOD		TYPE:Monk
+Rope Dart.MOD				TYPE:Monk.Thrown
+Shang Gou.MOD				TYPE:Monk
+Tiger Fork.MOD				TYPE:Monk.Polearm
 Sword (Tri-Point Double-Edged).MOD	TYPE:Monk
 
-Naginata.MOD	TYPE:Polearm
+Naginata.MOD				TYPE:Polearm
 
-Amentum (Javelin).MOD	TYPE:Spear.Thrown
+Amentum (Javelin).MOD			TYPE:Spear.Thrown
 #Boar Spear.MOD	TYPE:Spear
-Pilum.MOD	TYPE:Spear
-Sibat.MOD	TYPE:Spear
-Tiger Fork.MOD	TYPE:Spear
+Pilum.MOD					TYPE:Spear
+Sibat.MOD					TYPE:Spear
+Tiger Fork.MOD				TYPE:Spear
 
-Atlatl.MOD	TYPE:Thrown
-Harpoon.MOD	TYPE:Thrown
-Kestros.MOD	TYPE:Thrown
-Poisoned Sand Tube.MOD	TYPE:Thrown
-Throwing Shield.MOD	TYPE:Thrown
+Atlatl.MOD					TYPE:Thrown
+Harpoon.MOD					TYPE:Thrown
+Kestros.MOD					TYPE:Thrown
+Poisoned Sand Tube.MOD			TYPE:Thrown
+Throwing Shield.MOD			TYPE:Thrown
 
 #Siege Engines: All Siege Engines
 
-Katana (Exotic)	TYPE:ExoticExtra.Tengu
+Katana (Exotic)				TYPE:ExoticExtra.Tengu

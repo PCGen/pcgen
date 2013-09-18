@@ -1,8 +1,9 @@
-# CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep 18 14:05:56 2013 -- reformated by prettylst.pl v1.50 (build 21406)
 
 #COMMENT: We need to be able to grant reach and Thrown ITYPEs. Making a request.
-Thrown	KEY:THROWN	SPROP:Weapon can be thrown
-Reach		KEY:REACH	SPROP:Weapon has reach
+# Modifier Name		Unique Key				Naming Option	Type							Plus		Cost		Visible	Type granted	Source Page		Special Property
+Thrown			KEY:THROWN																										SPROP:Weapon can be thrown
+Reach				KEY:REACH																										SPROP:Weapon has reach
 
 
 Scatter			KEY:FIREARM_SCATTER		NAMEOPT:NOTHING	TYPE:Firearm																	SPROP:A weapon with the scatter weapon quality can shoot two different types of ammunition. It can fire normal bullets that target one creature, or it can make a scattering shot, attacking all creatures within a cone. Cannons with the scatter weapon quality only fire grapeshot, unless their descriptions state otherwise. When a scatter weapon attacks all creatures within a cone, it makes a separate attack roll against each creature within the cone. Each attack roll takes a -2 penalty, and its attack damage cannot be modified by precision damage or damage-increasing feats such as Vital Strike. Effects that grant concealment, such as fog or smoke, or the blur, invisibility, or mirror image spells, do not foil a scatter attack. If any of the attack rolls threaten a critical, confirm the critical for that attack roll alone. A firearm that makes a scatter shot misfires only if all of the attack rolls made misfire. If a scatter weapon explodes on a misfire, it deals triple its damage to all creatures within the misfire radius.
@@ -41,7 +42,5 @@ Stone				KEY:STONE							TYPE:Weapon.Shield.Armor									ITYPE:Stone
 Obsidian			KEY:OBSIDIAN						TYPE:Weapon.Shield.Armor									ITYPE:Obsidian
 
 ###Block:
-Throwing Shield		KEY:THRW_SHLD	COST:50				TYPE:Shield				VISIBLE:QUALIFY	SPROP:small 1d4 damage; medium 1d6 damage; range 20 ft., deals bludgeoning damage.		SOURCEPAGE:p.145
-
-
-
+# Modifier Name	Unique Key		Type		Cost		Visible		Source Page		Special Property
+Throwing Shield	KEY:THRW_SHLD	TYPE:Shield	COST:50	VISIBLE:QUALIFY	SOURCEPAGE:p.145	SPROP:small 1d4 damage; medium 1d6 damage; range 20 ft., deals bludgeoning damage.

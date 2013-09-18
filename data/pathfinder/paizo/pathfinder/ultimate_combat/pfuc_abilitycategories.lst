@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep 18 14:05:56 2013 -- reformated by prettylst.pl v1.50 (build 21406)
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2012-02-03
 
@@ -70,11 +70,8 @@ ABILITYCATEGORY:Rapid Reload						VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRA
 
 ABILITYCATEGORY:Rogue Advanced Talent				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RogueAdvancedTalent																										PLURAL:Rogue Advanced Talents			DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Guided Hand Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			ABILITYLIST:Guided Hand ~ Melee|Guided Hand ~ Ranged																													DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Guided Hand Selection				VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal											ABILITYLIST:Guided Hand ~ Melee|Guided Hand ~ Ranged																					DISPLAYLOCATION:Class Abilities
 
-ABILITYCATEGORY:Gunslinger Class Ability				VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:GunslingerClassAbility	PLURAL:Gunslinger Class Abilities	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Ninja Class Ability					VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:NinjaClassAbility	PLURAL:Ninja Class Abilities	DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Samurai Class Ability				VISIBLE:QUALIFY	EDITABLE:NO	EDITPOOL:NO	CATEGORY:Special Ability	TYPE:SamuraiClassAbility	PLURAL:Samurai Class Abilities	DISPLAYLOCATION:Class Abilities
-
-
-
+ABILITYCATEGORY:Gunslinger Class Ability				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:GunslingerClassAbility																										PLURAL:Gunslinger Class Abilities		DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Ninja Class Ability					VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:NinjaClassAbility																											PLURAL:Ninja Class Abilities			DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Samurai Class Ability				VISIBLE:QUALIFY	EDITABLE:NO			EDITPOOL:NO						CATEGORY:Special Ability	TYPE:SamuraiClassAbility																										PLURAL:Samurai Class Abilities		DISPLAYLOCATION:Class Abilities

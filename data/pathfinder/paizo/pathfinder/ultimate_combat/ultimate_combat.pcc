@@ -51,7 +51,6 @@ COMPANIONMOD:pfuc_companionmods.lst
 EQUIPMENT:pfuc_equip.lst
 EQUIPMENT:pfuc_equip_armor.lst
 EQUIPMENT:pfuc_equip_close_assault_siege.lst
-EQUIPMENT:pfuc_equip_magic.lst
 
 EQUIPMENT:pfuc_equip_weap_bronzeage.lst
 EQUIPMENT:pfuc_equip_weap_eastern.lst

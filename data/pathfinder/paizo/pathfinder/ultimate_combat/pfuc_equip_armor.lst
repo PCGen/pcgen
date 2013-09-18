@@ -1,26 +1,24 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep 18 14:05:56 2013 -- reformated by prettylst.pl v1.50 (build 21406)
 
 ###Block: Eastern Armor
 # Light
-# Equipment Name		Required Armor Proficiency			Type									Cost		Weight	AC Penalty Check	Maximum DEX Bonus	% of Spell Failure	Combat bonus
-Haramaki			PROFICIENCY:ARMOR|Haramaki			TYPE:Armor.Light.Suit.Standard	EQMOD:STEEL				COST:3	WT:1								SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
-Silken Ceremonial Armor	PROFICIENCY:ARMOR|Silken Ceremonial Armor	TYPE:Armor.Light.Suit.Standard	EQMOD:CLOTH		COST:30	WT:4								SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
-Lamellar Cuirass		PROFICIENCY:ARMOR|Lamellar Cuirass		TYPE:Armor.Light.Suit.Standard	EQMOD:LEATHER	COST:15	WT:8					MAXDEX:4		SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor
-Lamellar (Leather)	PROFICIENCY:ARMOR|Lamellar (Leather)	TYPE:Armor.Light.Suit.Standard	EQMOD:LEATHER	COST:60	WT:25		ACCHECK:-2		MAXDEX:3		SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
+# Equipment Name		Required Armor Proficiency			Type						Cost		Weight	AC Penalty Check	Modifier			Maximum DEX Bonus	% of Spell Failure	Combat bonus
+Haramaki			PROFICIENCY:ARMOR|Haramaki			TYPE:Armor.Light.Suit.Standard	COST:3	WT:1					EQMOD:STEEL						SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
+Silken Ceremonial Armor	PROFICIENCY:ARMOR|Silken Ceremonial Armor	TYPE:Armor.Light.Suit.Standard	COST:30	WT:4					EQMOD:CLOTH						SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
+Lamellar Cuirass		PROFICIENCY:ARMOR|Lamellar Cuirass		TYPE:Armor.Light.Suit.Standard	COST:15	WT:8					EQMOD:LEATHER		MAXDEX:4		SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor
+Lamellar (Leather)	PROFICIENCY:ARMOR|Lamellar (Leather)	TYPE:Armor.Light.Suit.Standard	COST:60	WT:25		ACCHECK:-2		EQMOD:LEATHER		MAXDEX:3		SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
 
 # Medium
-Do-maru			PROFICIENCY:ARMOR|Do-maru			TYPE:Armor.Medium.Suit.Standard	EQMOD:LEATHER.STEEL				COST:200	WT:30		ACCHECK:-4		MAXDEX:4		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
-Kikko Armor			PROFICIENCY:ARMOR|Kikko Armor			TYPE:Armor.Medium.Suit.Standard	EQMOD:STEEL				COST:30	WT:25		ACCHECK:-3		MAXDEX:4		SPELLFAILURE:20		BONUS:COMBAT|AC|5|TYPE=Armor
-Lamellar (Horn)		PROFICIENCY:ARMOR|Lamellar (Horn)		TYPE:Armor.Medium.Suit.Standard	EQMOD:BONE				COST:100	WT:30		ACCHECK:-4		MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
-Four-mirror Armor		PROFICIENCY:ARMOR|Four-mirror Armor		TYPE:Armor.Medium.Suit.Standard	EQMOD:STEEL				COST:45	WT:45		ACCHECK:-5		MAXDEX:2		SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
-Lamellar (Steel)		PROFICIENCY:ARMOR|Lamellar (Steel)		TYPE:Armor.Medium.Suit.Standard	EQMOD:STEEL		COST:150	WT:35		ACCHECK:-5		MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor
-Mountain Pattern Armor	PROFICIENCY:ARMOR|Mountain Pattern Armor	TYPE:Armor.Medium.Suit.Standard	EQMOD:STEEL				COST:250	WT:40		ACCHECK:-4		MAXDEX:3		SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
+Do-maru			PROFICIENCY:ARMOR|Do-maru			TYPE:Armor.Medium.Suit.Standard	COST:200	WT:30		ACCHECK:-4		EQMOD:LEATHER.STEEL	MAXDEX:4		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
+Kikko Armor			PROFICIENCY:ARMOR|Kikko Armor			TYPE:Armor.Medium.Suit.Standard	COST:30	WT:25		ACCHECK:-3		EQMOD:STEEL			MAXDEX:4		SPELLFAILURE:20		BONUS:COMBAT|AC|5|TYPE=Armor
+Lamellar (Horn)		PROFICIENCY:ARMOR|Lamellar (Horn)		TYPE:Armor.Medium.Suit.Standard	COST:100	WT:30		ACCHECK:-4		EQMOD:BONE			MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
+Four-mirror Armor		PROFICIENCY:ARMOR|Four-mirror Armor		TYPE:Armor.Medium.Suit.Standard	COST:45	WT:45		ACCHECK:-5		EQMOD:STEEL			MAXDEX:2		SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
+Lamellar (Steel)		PROFICIENCY:ARMOR|Lamellar (Steel)		TYPE:Armor.Medium.Suit.Standard	COST:150	WT:35		ACCHECK:-5		EQMOD:STEEL			MAXDEX:3		SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor
+Mountain Pattern Armor	PROFICIENCY:ARMOR|Mountain Pattern Armor	TYPE:Armor.Medium.Suit.Standard	COST:250	WT:40		ACCHECK:-4		EQMOD:STEEL			MAXDEX:3		SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
 
 # Heavy
-Kasari Gusoku		PROFICIENCY:ARMOR|Kasari Gusoku		TYPE:Armor.Heavy.Suit.Standard	EQMOD:STEEL				COST:350	WT:45		ACCHECK:-7		MAXDEX:1		SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor
-Lamellar (Iron)		PROFICIENCY:ARMOR|Lamellar (Iron)		TYPE:Armor.Heavy.Suit.Standard	EQMOD:STEEL		COST:200	WT:50		ACCHECK:-7		MAXDEX:0		SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor
-Tatami-do			PROFICIENCY:ARMOR|Tatami-do			TYPE:Armor.Heavy.Suit.Standard	EQMOD:STEEL				COST:1000	WT:45		ACCHECK:-6		MAXDEX:3		SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor
-O-yoroi			PROFICIENCY:ARMOR|O-yoroi			TYPE:Armor.Heavy.Suit.Standard	EQMOD:STEEL				COST:1700	WT:45		ACCHECK:-6		MAXDEX:2		SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor
-Stone Coat			PROFICIENCY:ARMOR|Stone Coat			TYPE:Armor.Heavy.Suit.Standard	EQMOD:STONE				COST:500	WT:45		ACCHECK:-7		MAXDEX:0		SPELLFAILURE:40		BONUS:COMBAT|AC|8|TYPE=Armor
-
-
+Kasari Gusoku		PROFICIENCY:ARMOR|Kasari Gusoku		TYPE:Armor.Heavy.Suit.Standard	COST:350	WT:45		ACCHECK:-7		EQMOD:STEEL			MAXDEX:1		SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor
+Lamellar (Iron)		PROFICIENCY:ARMOR|Lamellar (Iron)		TYPE:Armor.Heavy.Suit.Standard	COST:200	WT:50		ACCHECK:-7		EQMOD:STEEL			MAXDEX:0		SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor
+Tatami-do			PROFICIENCY:ARMOR|Tatami-do			TYPE:Armor.Heavy.Suit.Standard	COST:1000	WT:45		ACCHECK:-6		EQMOD:STEEL			MAXDEX:3		SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor
+O-yoroi			PROFICIENCY:ARMOR|O-yoroi			TYPE:Armor.Heavy.Suit.Standard	COST:1700	WT:45		ACCHECK:-6		EQMOD:STEEL			MAXDEX:2		SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor
+Stone Coat			PROFICIENCY:ARMOR|Stone Coat			TYPE:Armor.Heavy.Suit.Standard	COST:500	WT:45		ACCHECK:-7		EQMOD:STONE			MAXDEX:0		SPELLFAILURE:40		BONUS:COMBAT|AC|8|TYPE=Armor

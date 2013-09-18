@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+# CVS $Revision$ $Author$ -- Wed Sep 18 14:05:56 2013 -- reformated by prettylst.pl v1.50 (build 21406)
 
 # ORIGINAL ENTRY: Andrew Maitland
 # ORIGINAL ENTRY DATE: 08-2012 (August 8th)
@@ -40,5 +40,8 @@ CLASS:Monk.MOD	DEFINE:NonMonkLevels|TL-classlevel("Monk")	DEFINE:MonkLevelsAdjus
 #1	DOMAIN:Deception Subdomain[PREVAREQ:DruidDeceptionAllowed,1]
 
 
+# Class Name	Var. Must Be Lower
 CLASS:Rogue.MOD	PREVARLT:NinjaLVL,1
+
+# Class Name		Var. Must Be Lower
 CLASS:Cavalier.MOD	PREVARLT:SamuraiLVL,1
