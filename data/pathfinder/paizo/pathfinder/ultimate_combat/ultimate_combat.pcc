@@ -64,8 +64,6 @@ EQUIPMENT:pfuc_equip_vehicles.lst
 
 EQUIPMOD:pfuc_equipmods.lst
 
-EQUIPMENT:pfuc_equip_magic.lst
-
 FEAT:pfuc_feats.lst
 KIT:pfuc_kits.lst
 
