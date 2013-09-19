@@ -9,7 +9,7 @@ Magus Arcane Pool Bonus Tracker	CATEGORY:Internal																															
 
 #Dwarf
 #Alchemist: Add +1/4 to the alchemist's natural armor bonus when using his mutagen.
-Bonus Alchemist Natural Armor		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Alchemist	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	DEFINE:AlchemistNaturalArmorCount|0	DESC:Add +1/4 to the alchemist's natural armor bonus when using his mutagen. Currently %1|var("AlchemistNaturalArmorCount")/4	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|AlchemistNaturalArmorCount|1
+Bonus Alchemist Natural Armor		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist	VISIBLE:YES	PREABILITY:1,CATEGORY=Special Ability,Alchemist	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	DEFINE:AlchemistNaturalArmorCount|0	DESC:Add +1/4 to the alchemist's natural armor bonus when using his mutagen. Currently %1|var("AlchemistNaturalArmorCount")/4	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|AlchemistNaturalArmorCount|1	BONUS:COMBAT|AC|var("AlchemistNaturalArmorCount")/4|TYPE=NaturalArmor|PREAPPLY:PC
 
 
 
