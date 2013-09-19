@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sun Aug 11 19:56:59 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: $ $Author: $ -- Wed Sep 18 22:02:59 2013 -- reformated by prettylst.pl v1.50 (build 21406)
 ###Block: Elven Special Materials
 # Modifier Name		Unique Key			Type										Cost				Visible		Type granted	Keys to replace		Source Page		Required Type			Bonus Equipment Modifiers	Bonus Armor Modifiers												Special Property
 Darkleaf Cloth		KEY:DLEAF_CLOTH		TYPE:BaseMaterial.MasterworkQuality.Clothing			COST:BASECOST+500		VISIBLE:QUALIFY	ITYPE:Darkleaf	REPLACES:MWORKA,MWORKW	SOURCEPAGE:p.27						BONUS:EQM|WEIGHTDIV|2
@@ -11,8 +11,8 @@ Wyroot(2 Life Points)	KEY:WROOT_2			TYPE:BaseMaterial.Weapon						COST:BASECOST+
 Wyroot(3 Life Points)	KEY:WROOT_3			TYPE:BaseMaterial.Weapon						COST:BASECOST+4000	VISIBLE:QUALIFY	ITYPE:Wyroot	REPLACES:MWORKW		SOURCEPAGE:p.27	PRETYPE:1,EQMOD=WOOD																						SPROP:On confirmed critical, creature hit is unharmed and weapon gains 1 life point which can be absorbed by its wielder as 1 arcane or ki pool point with a swift action. This weapon can hold up to 3 life points.  Unspent life points dissipate at dusk.
 
 ###Block: Aasimar Purifier Archetype Celestial Armor
-# Modifier Name		Unique Key				Type		Cost		Visible		Type granted			Source Page					Bonus Equipment Modifiers											Special Property
-Purifier Celestial	KEY:AAPURIFIER_CELESTIAL	TYPE:Armor	COST:0	VISIBLE:QUALIFY	ITYPE:Purifier Celestial	SOURCEPAGE:p.86	SOURCEPAGE:p.86	BONUS:EQM|WEIGHTDIV|2|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier	SPROP:No benefit.	SPROP:The purifier's armor takes on a golden or silvery sheen and becomes light as a feather.|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier
+# Modifier Name		Unique Key				Type		Cost		Visible		Type granted			Source Page		Bonus Equipment Modifiers											Special Property
+Purifier Celestial	KEY:AAPURIFIER_CELESTIAL	TYPE:Armor	COST:0	VISIBLE:QUALIFY	ITYPE:Purifier Celestial	SOURCEPAGE:p.86	BONUS:EQM|WEIGHTDIV|2|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier	SPROP:No benefit.	SPROP:The purifier's armor takes on a golden or silvery sheen and becomes light as a feather.|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier
 
 ###Block: Hobgoblin weapon abilities
 # Modifier Name	Unique Key	Type				Plus		Visible		Source Page		Special Property
