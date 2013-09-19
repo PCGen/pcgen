@@ -1,0 +1,760 @@
+
+
+
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+
+
+
+
+###Block: Gnomes
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Half-Elf
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+###Block: Half-Orc
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+###Block: Halfling
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Human
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Aasimar
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Catfolk
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Dhampir
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Drow
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Fetchling
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Goblin
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Hobgoblin
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Ifrit
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Kobold
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Orc
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Oread
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Ratfolk
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Sylph
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Tengu
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Tiefling
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Undine
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Changeling
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Duergar
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Gillman
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Grippli
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Kitsune
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Merfolk
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Nagaji
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Sansaran
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Strix
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Suli
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Svirfneblin
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Vanaras
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Vishkanya
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
+###Block: Wayang
+Bonus Alchemist			SOURCEPAGE:p.13	PRECLASS:1,Alchemist=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassAlchemist		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Barbarian			SOURCEPAGE:p.13	PRECLASS:1,Barbarian=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBarbarian		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Bard				SOURCEPAGE:p.13	PRECLASS:1,Bard=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cavalier			SOURCEPAGE:p.13	PRECLASS:1,Cavalier=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCavalier		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Cleric			SOURCEPAGE:p.13	PRECLASS:1,Cleric=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassCleric		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Druid				SOURCEPAGE:p.13	PRECLASS:1,Druid=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassDruid		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Fighter			SOURCEPAGE:p.13	PRECLASS:1,Fighter=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassFighter		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Gunslinger			SOURCEPAGE:p.13	PRECLASS:1,Gunslinger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassGunslinger	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Inquisitor			SOURCEPAGE:p.13	PRECLASS:1,Inquisitor=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassInquisitor	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Magus				SOURCEPAGE:p.13	PRECLASS:1,Magus=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMagus		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Monk				SOURCEPAGE:p.13	PRECLASS:1,Monk=1		PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassMonk		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Oracle			SOURCEPAGE:p.13	PRECLASS:1,Oracle=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassOracle		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Paladin			SOURCEPAGE:p.13	PRECLASS:1,Paladin=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassPaladin		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Ranger			SOURCEPAGE:p.13	PRECLASS:1,Ranger=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRanger		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Rogue				SOURCEPAGE:p.13	PRECLASS:1,Rogue=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassRogue		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Sorcerer			SOURCEPAGE:p.13	PRECLASS:1,Sorcerer=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSorcerer		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Summoner			SOURCEPAGE:p.13	PRECLASS:1,Summoner=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSummoner		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Witch				SOURCEPAGE:p.13	PRECLASS:1,Witch=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWitch		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+Bonus Wizard			SOURCEPAGE:p.13	PRECLASS:1,Wizard=1	PRERACE:1,Dwarf%	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWizard		STACK:YES	MULT:YES	CHOOSE:NOCHOICE	DESC:
+
