@@ -577,7 +577,9 @@ Immune
 			<critical>|WEAPONH.CRIT|/x|WEAPONH.MULT|</critical>
 		<!-- Should be changed to a variable due to improved crit -->
 			<reach>|REACH|</reach>
-			<special_property>|ABILITYALL.Special Ability.0.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes|</special_property>
+|FOR,%NaturalAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1,1,0|
+			<special_property>|ABILITYALL.Special Ability.%NaturalAttack.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes|</special_property>
+|ENDFOR|
 		</martialarts>
 |ELSE|
 		<unarmed>
@@ -586,7 +588,6 @@ Immune
 			<critical>|WEAPONH.CRIT|/x|WEAPONH.MULT|</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 			<reach>|REACH|</reach>
-			<td class="border10c" >
 |FOR,%NaturalAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1,1,0|
 			<special_property>|ABILITYALL.Special Ability.%NaturalAttack.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes|</special_property>
 |ENDFOR|
