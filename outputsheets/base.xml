@@ -577,7 +577,7 @@ Immune
 			<critical>|WEAPONH.CRIT|/x|WEAPONH.MULT|</critical>
 		<!-- Should be changed to a variable due to improved crit -->
 			<reach>|REACH|</reach>
-			<notes>|ABILITYALL.Special Ability.0.ASPECT.UnarmedNotes|</notes
+			<special_property>|ABILITYALL.Special Ability.0.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes|</special_property>
 		</martialarts>
 |ELSE|
 		<unarmed>
@@ -586,6 +586,10 @@ Immune
 			<critical>|WEAPONH.CRIT|/x|WEAPONH.MULT|</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 			<reach>|REACH|</reach>
+			<td class="border10c" >
+|FOR,%NaturalAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1,1,0|
+			<special_property>|ABILITYALL.Special Ability.%NaturalAttack.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes|</special_property>
+|ENDFOR|
 						<!-- Commenting this out (will need a test as well)
 			3.0 uses "Subdual", 3.5 uses "nonlethal".  We'll need a separate node for both.	-->
 |IIF(isgamemode("3e"))|
@@ -601,7 +605,6 @@ Immune
 			<type>(nonlethal only)</type>
 |ENDIF|
 |ENDIF|
-			<notes>|ABILITYALL.Special Ability.0.ASPECT.UnarmedNotes|</notes>
 		</unarmed>
 
 |ENDIF|

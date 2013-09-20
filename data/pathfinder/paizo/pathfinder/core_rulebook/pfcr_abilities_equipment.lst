@@ -3,8 +3,30 @@
 
 
 # Ability Name																Unique Key						Category of Ability		Type											Required Ability											Restricted Ability								Define																Description																																							Stackable?	Multiple?	Choose									Selections	Move			Automatically Gained Language	Ability																																				Bonus to Ability Pool																Bonus to skill rank		Modify VAR																																							Spell Res.	Cost		Aspects
-Unarmed Frost																							CATEGORY:Special Ability																																																																																																																																																																																																																														ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 cold damage
 
+Unarmed Anarchic			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks are chaotically aligned, +2d6 damage against lawful targets, 1 negative level bestowed on lawful wielder	ABILITY:Special Ability|AUTOMATIC|Negative Levels|PREALIGN:LG,LN,LE
+Unarmed Axiomatic			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks are lawfully aligned, +2d6 damage against chaotic targets, 1 negative level bestowed to chaotic wielder		ABILITY:Special Ability|AUTOMATIC|Negative Levels|PREALIGN:CG,CN,CE
+Unarmed Bane			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks gain a +2 enhancement bonus and do +2d6 bonus damage against %CHOICE	MULT:YES																		CHOOSE:STRING|Aberrations|Animals|Constructs|Dragons|Fey|Humanoids (Aquatic)|Humanoids (Dwarf)|Humanoids (Elf)|Humanoids (Giant)|Humanoids (Gnoll)|Humanoids (Gnome)|Humanoids (Goblinoid)|Humanoids (Halfling)|Humanoids (Human)|Humanoids (Reptilian)|Humanoids (Orc)|Magical Beasts|Monstrous Humanoids|Oozes|Outsiders (Air)|Outsiders (Chaotic)|Outsiders (Earth)|Outsiders (Evil)|Outsiders (Fire)|Outsiders (Good)|Outsiders (Lawful)|Outsiders (Water)|Plants|Undead|Vermin|TITLE=Designated Foe
+Unarmed Brilliant Energy	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks ignore armor and shield bonuses including enhancement, cannot harm undead, constructs, and objects
+Unarmed Defending	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|can transfer some or all of its enhancement bonus to AC
+Unarmed Disruption	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|undead hit by unarmed and natural attacks must make Will save (DC 14) or be destroyed
+Unarmed Flaming	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 fire damage
+Unarmed Flaming Burst	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 fire damage, on a critical hit deals +%d10 additional fire damage|CRITMULT-1
+Unarmed Frost	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 cold damage	DESC:unarmed and natural attacks do +1d6 cold damage
+Unarmed Ghost Touch	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks deal damage normally against incorporeal creatures regardless of bonus
+Unarmed Holy	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks are good aligned, +2d6 damage against evil targets, 1 negative level bestowed to evil wielder			ABILITY:Special Ability|AUTOMATIC|Negative Levels|PREALIGN:LE,NE,CE
+Unarmed Icy Burst	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 cold damage, on a critical hit deals +%d10 additional cold damage|CRITMULT-1
+Unarmed Ki Focus	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|can use ki attacks through unarmed and natural attacks
+Unarmed Merciful	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 damage, deals non-lethal damage only
+Unarmed Mighty Cleaving	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|allows an additional Cleave attack per round on unarmed and natural attacks (with Cleave feat)
+Unarmed Shock	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 electricity damage
+Unarmed Shocking Burst	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 electricity damage, on a critical hit deals +%d10 additional electricity damage|CRITMULT-1
+Unarmed Speed	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|grants one extra attack with unarmed or natural attack at full base attack bonus when making a full-attack action
+Unarmed Spell Storing	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|can store a single targeted spell of up to 3rd level with a casting time of 1 standard action
+Unarmed Thundering	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +%d8 sonic damage on a critical hit and permanently deafened unless save vs Fort (DC 14)|CRITMULT-1
+Unarmed Unholy	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks are evil aligned, +2d6 damage against good targets, 1 negative level bestowed to good wielder			ABILITY:Special Ability|AUTOMATIC|Negative Levels|PREALIGN:LG,NG,CG
+Unarmed Vicious	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +2d6 damage to target, plus 1d6 damage to user
+Unarmed Wounding	CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks deal 1 point of bleed damage per hit
 
 Headband of Intellect Skill Selection																			CATEGORY:Special Ability	TYPE:HeadbandSkill																																																																																									STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Base																																																																									BONUS:SKILLRANK|%LIST|TL
 

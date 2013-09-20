@@ -683,26 +683,45 @@ Immune
 		  <td class="border10c">|WEAPONH.CRIT|/&#215;|WEAPONH.MULT|</td>
           <td class="border10c">|REACH|</td>
     </tr>
-   </table>
+	</table>
+	 <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack - Special Properties">
+		<tr>
+			<td align="center" bgcolor="black" width="25%" class="ablableb">Special Properties</td>
+
+			<td class="border10c" >
+|FOR,%NaturalAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1,1,0|
+			|ABILITYALL.Special Ability.%NaturalAttack.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes|
+|ENDFOR|</td>
+		</tr>
+	</table>
    <br />
 <!-- STOP Martial Arts Table -->
 |ELSE|
 <!-- START Unarmed Attack Table -->
-   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack">
-    <tr>
-          <td align="center" height="25" bgcolor="black" rowspan="2" width="40%" class="ab"><b>UNARMED</b></td>
-          <td align="center" bgcolor="black" width="15%" class="ablableb" height="20">TOTAL ATTACK BONUS</td>
-          <td align="center" bgcolor="black" width="15%" class="ablableb">DAMAGE</td>
-          <td align="center" bgcolor="black" width="15%" class="ablableb">CRITICAL</td>
-          <td align="center" bgcolor="black" width="15%" class="ablableb">REACH</td>
-    </tr>
-    <tr style="font-weight: bold;">
-          <td class="border10c" height="20">|WEAPONH.TOTALHIT|</td>
-          <td class="border10c">|WEAPONH.DAMAGE|</td>
-          <td class="border10c">|WEAPONH.CRIT|/&#215;|WEAPONH.MULT|</td>
-          <td class="border10c">|REACH|</td>
-    </tr>
-   </table>
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack">
+		<tr>
+			<td align="center" height="25" bgcolor="black" rowspan="2" width="40%" class="ab"><b>UNARMED</b></td>
+			<td align="center" bgcolor="black" width="15%" class="ablableb" height="20">TOTAL ATTACK BONUS</td>
+			<td align="center" bgcolor="black" width="15%" class="ablableb">DAMAGE</td>
+			<td align="center" bgcolor="black" width="15%" class="ablableb">CRITICAL</td>
+			<td align="center" bgcolor="black" width="15%" class="ablableb">REACH</td>
+		</tr>
+		<tr style="font-weight: bold;">
+			<td class="border10c" height="20">|WEAPONH.TOTALHIT|</td>
+			<td class="border10c">|WEAPONH.DAMAGE|</td>
+			<td class="border10c">|WEAPONH.CRIT|/&#215;|WEAPONH.MULT|</td>
+			<td class="border10c">|REACH|</td>
+		</tr>
+	</table>
+	 <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack - Special Properties">
+		<tr>
+			<td align="center" bgcolor="black" width="25%" class="ablableb">Special Properties</td>
+			<td class="border10c" >
+|FOR,%NaturalAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1,1,0|
+			|ABILITYALL.Special Ability.%NaturalAttack.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes|
+|ENDFOR|</td>
+		</tr>
+	</table>
    <br />
 <!-- STOP Unarmed Attack Table -->
 |ENDIF|

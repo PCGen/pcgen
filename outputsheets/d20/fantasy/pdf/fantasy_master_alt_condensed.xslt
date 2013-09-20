@@ -3238,7 +3238,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 			<xsl:choose>
-				<xsl:when test="string-length(notes) &gt; 1">
+				<xsl:when test="string-length(special_property) &gt; 1">	
 				<fo:table-row>
 					<fo:table-cell number-columns-spanned="1">
 						<xsl:call-template name="attrib">
@@ -3253,14 +3253,14 @@
 							<xsl:with-param name="attribute" select="'weapon.border'"/>
 						</xsl:call-template>
 						<fo:block font-size="8pt" padding-right="2pt">
-							<fo:inline> </fo:inline><xsl:value-of select="notes"/>
+							<fo:inline> </fo:inline><xsl:value-of select="special_property"/>
 						</fo:block>
 					</fo:table-cell>
 
 				</fo:table-row>
 				</xsl:when>
 				<xsl:otherwise/>
-			</xsl:choose>
+			</xsl:choose>	
 			</fo:table-body>
 		</fo:table>
 <!-->		</xsl:when>	
