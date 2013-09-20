@@ -158,7 +158,7 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 
 		// TODO externalize NLS strings
 		final String taskName = "Refreshing character...";
-		statusBar.startShowingProgress(taskName);
+		statusBar.startShowingProgress(taskName, true);
 
 		if (refreshTask != null && !refreshTask.isDone())
 		{

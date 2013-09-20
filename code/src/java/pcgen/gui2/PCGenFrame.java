@@ -708,7 +708,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		
 		// KAW TODO externalize and NLS the msg
 		final String msg = "Saving character...";
-		statusBar.startShowingProgress(msg);
+		statusBar.startShowingProgress(msg, true);
 		try
 		{
 			result = CharacterManager.saveCharacter(character);
@@ -1264,7 +1264,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	{
 		// KAW TODO externalize and NLS the msg
 		final String msg = "Opening character...";
-		statusBar.startShowingProgress(msg);
+		statusBar.startShowingProgress(msg, true);
 		try
 		{
 			CharacterManager.openCharacter(pcgFile, PCGenFrame.this, reference);

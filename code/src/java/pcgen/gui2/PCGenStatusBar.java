@@ -145,20 +145,21 @@ public final class PCGenStatusBar extends JPanel
 	 * Shows the progress bar, in indeterminate mode
 	 * 
 	 * @param Context message to show on status bar
+	 * @param indeterminate
 	 */
-	public void startShowingProgress(final String msg)
+	public void startShowingProgress(final String msg, boolean indeterminate)
 	{
 		if ( !PCGenStatusBar.this.isValid() )
 		{
 			// Do nothing if called during startup or shutdown
 			return;
 		}
+		setVisible(true);
 		CursorControlUtilities.startWaitCursor(this);
 		progressBar.setIndeterminate(true);
-		setVisible(true);
 		setContextMessage(msg);
 		getProgressBar().setVisible(true);
-		getProgressBar().setIndeterminate(true);
+		getProgressBar().setIndeterminate(indeterminate);
 		getProgressBar().setStringPainted(true);
 		getProgressBar().setString(msg);
 	}

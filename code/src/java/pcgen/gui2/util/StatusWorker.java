@@ -44,9 +44,7 @@ public class StatusWorker extends SwingWorker<List<LogRecord>> implements PCGenT
 		public List<LogRecord> construct()
 		{	
 			final String oldMessage = statusBar.getContextMessage();
-			statusBar.setVisible(true);
-			statusBar.getProgressBar().setVisible(true);
-			statusBar.setContextMessage(statusMsg);
+			statusBar.startShowingProgress(statusMsg, false);
 			statusBar.getProgressBar().getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
 
 			task.addPCGenTaskListener(this);
@@ -76,7 +74,7 @@ public class StatusWorker extends SwingWorker<List<LogRecord>> implements PCGenT
 		@Override
 		public void finished()
 		{
-			statusBar.getProgressBar().setVisible(false);
+			statusBar.endShowingProgress();
 			super.finished();
 		}
 
