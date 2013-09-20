@@ -23,18 +23,16 @@ package pcgen.gui2.csheet;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.IOException;
-import java.io.PipedReader;
-import java.io.PipedWriter;
 import java.io.StringWriter;
-import java.io.Writer;
 import java.net.URI;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.ThreadFactory;
+
 import javax.swing.SwingUtilities;
+
 import org.lobobrowser.html.HtmlRendererContext;
 import org.lobobrowser.html.gui.HtmlPanel;
 import org.lobobrowser.html.parser.DocumentBuilderImpl;
@@ -42,10 +40,12 @@ import org.lobobrowser.html.parser.InputSourceImpl;
 import org.lobobrowser.html.test.SimpleHtmlRendererContext;
 import org.lobobrowser.html.test.SimpleUserAgentContext;
 import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
+
+import pcgen.core.Globals;
 import pcgen.core.facade.CharacterFacade;
+import pcgen.gui2.PCGenFrame;
+import pcgen.gui2.PCGenStatusBar;
 import pcgen.gui2.tools.CharacterSelectionListener;
-import pcgen.gui2.util.SwingWorker;
 import pcgen.io.ExportHandler;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
@@ -116,10 +116,12 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 	{
 		theRendererContext = new SimpleHtmlRendererContext(this, new SimpleUserAgentContext());
 		theDocBuilder = new DocumentBuilderImpl(theRendererContext.getUserAgentContext(),
-												theRendererContext);
+			theRendererContext);
+
+		// KAW TODO rewrite to use StatusWorker and PCGenTask for better progress display
+
 		refreshService = Executors.newSingleThreadExecutor(new ThreadFactory()
 		{
-
 			@Override
 			public Thread newThread(Runnable r)
 			{
@@ -128,7 +130,6 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 				thread.setPriority(Thread.NORM_PRIORITY);
 				return thread;
 			}
-
 		});
 	}
 
@@ -144,24 +145,35 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 		handler = sheet == null ? null : new ExportHandler(sheet);
 	}
 
+	/**
+	 * 
+	 */
 	public void refresh()
 	{
 		if (handler == null || character == null)
 		{
 			return;
 		}
+		final PCGenStatusBar statusBar = ((PCGenFrame) Globals.getRootFrame()).getStatusBar();
+
+		// TODO externalize NLS strings
+		final String taskName = "Refreshing character...";
+		statusBar.startShowingProgress(taskName);
+
 		if (refreshTask != null && !refreshTask.isDone())
 		{
 			refreshTask.cancel(true);
 		}
 		refreshTask = new RefreshTask();
-		//SwingUtilities.invokeLater(refreshTask);
 		refreshService.execute(refreshTask);
 	}
 
+	/**
+	 *
+	 */
+	// KAW TODO maybe rewrite to use PCGenTask instead?
 	private class RefreshTask extends FutureTask<Document>
 	{
-
 		public RefreshTask()
 		{
 			super(new DocumentConstructor());
@@ -174,7 +186,6 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 			{
 				SwingUtilities.invokeLater(new Runnable()
 				{
-
 					@Override
 					public void run()
 					{
@@ -185,7 +196,6 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 						}
 						catch (Throwable e)
 						{
-							// TODO Auto-generated catch block
 							final String errorMsg = "<html><body>Unable to process sheet<br>" +
 									e + "</body></html>";
 							ByteArrayInputStream instream = new ByteArrayInputStream(errorMsg.getBytes());
@@ -202,17 +212,18 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 						{
 							setDocument(doc, theRendererContext);
 						}
-					}
 
+						// Re-set status bar and end progress bar display
+						final PCGenStatusBar statusBar = ((PCGenFrame) Globals.getRootFrame()).getStatusBar();
+						statusBar.endShowingProgress();
+					}
 				});
 			}
 		}
-
 	}
 
 	private class DocumentConstructor implements Callable<Document>
 	{
-
 		@Override
 		public Document call() throws Exception
 		{
@@ -221,154 +232,15 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 			character.export(handler, buf);
 
 			String genText = out.toString().replace(COLOR_TAG,
-													cssColor.getCssText());
+				cssColor.getCssText());
 			ByteArrayInputStream instream = new ByteArrayInputStream(genText.getBytes());
 			Document doc = null;
 
 			URI root = new URI("file", ConfigurationSettings.getPreviewDir().replaceAll("\\\\", "/"), null);
 			doc = theDocBuilder.parse(new InputSourceImpl(instream,
-														  root.toString(),
-														  "UTF-8"));
+				root.toString(),
+					"UTF-8"));
 			return doc;
 		}
-
 	}
-
-	private class PipedRefreshWorker extends SwingWorker<Document> implements Runnable
-	{
-
-		private boolean interupted = false;
-		private PipedReader reader = new PipedReader();
-
-		@Override
-		public void run()
-		{
-			BufferedWriter bufWriter = null;
-			try
-			{
-				PipedWriter writer = new PipedWriter(reader);
-				bufWriter = new BufferedWriter(new ColorFilterWriter(writer));
-				start();
-				character.export(handler, bufWriter);
-			}
-			catch (IOException ex)
-			{
-				Logging.errorPrint("Unable to construct piped writer", ex);
-			}
-			finally
-			{
-				try
-				{
-					if (bufWriter != null)
-					{
-						bufWriter.close();
-					}
-				}
-				catch (IOException ex)
-				{
-					Logging.errorPrint("Unable to close PipedWriter", ex);
-				}
-			}
-			interupted = Thread.interrupted();
-		}
-
-		@Override
-		public Document construct()
-		{
-			Document doc = null;
-			try
-			{
-				URI root = new URI("file", ConfigurationSettings.getPreviewDir().replaceAll("\\\\", "/"), null);
-				InputSource inputSource = new InputSourceImpl(reader, root.toString());
-
-				return theDocBuilder.parse(inputSource);
-			}
-			catch (Throwable e)
-			{
-				// TODO Auto-generated catch block
-				final String errorMsg = "<html><body>Unable to process sheet<br>" +
-						e + "</body></html>";
-				ByteArrayInputStream instream = new ByteArrayInputStream(errorMsg.getBytes());
-				try
-				{
-					doc = theDocBuilder.parse(instream);
-				}
-				catch (Exception ex)
-				{
-				}
-				Logging.errorPrint("Unable to process sheet: ", e);
-			}
-			finally
-			{
-				try
-				{
-					reader.close();
-				}
-				catch (IOException ex)
-				{
-					Logging.errorPrint("Unable to close PipedReader", ex);
-				}
-			}
-			return doc;
-		}
-
-		@Override
-		public void finished()
-		{
-			if (!interupted)
-			{
-				Document doc = get();
-				if (doc != null)
-				{
-					setDocument(doc, theRendererContext);
-				}
-			}
-		}
-
-	}
-
-	private class ColorFilterWriter extends Writer
-	{
-
-		private final StringBuilder buffer = new StringBuilder();
-		private Writer writer;
-
-		public ColorFilterWriter(Writer writer)
-		{
-			this.writer = writer;
-		}
-
-		@Override
-		public synchronized void write(char[] cbuf, int off, int len) throws IOException
-		{
-			buffer.append(cbuf, off, len);
-			int index = buffer.indexOf(COLOR_TAG);
-			if (index != -1)
-			{
-				buffer.replace(index, COLOR_TAG.length(), cssColor.getCssText());
-			}
-			int length = buffer.length() - COLOR_TAG.length();
-			if (length > 0)
-			{
-				writer.write(buffer.substring(0, length));
-				buffer.delete(0, length);
-			}
-		}
-
-		@Override
-		public void flush() throws IOException
-		{
-			writer.flush();
-		}
-
-		@Override
-		public void close() throws IOException
-		{
-			writer.write(buffer.toString());
-			writer.flush();
-			writer.close();
-		}
-
-	}
-
 }

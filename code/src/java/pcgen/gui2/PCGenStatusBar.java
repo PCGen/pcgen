@@ -20,20 +20,19 @@
  */
 package pcgen.gui2;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.LogRecord;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
-import javax.swing.SwingUtilities;
+
 import pcgen.gui2.tools.Icons;
+import pcgen.gui2.util.StatusWorker;
 import pcgen.gui2.util.SwingWorker;
 import pcgen.system.PCGenTask;
-import pcgen.system.PCGenTaskEvent;
-import pcgen.system.PCGenTaskListener;
 import pcgen.util.Logging;
 
 /**
@@ -45,7 +44,6 @@ import pcgen.util.Logging;
  */
 public final class PCGenStatusBar extends JPanel
 {
-
 	private PCGenFrame frame;
 	private JLabel messageLabel;
 	private JProgressBar progressBar;
@@ -74,6 +72,16 @@ public final class PCGenStatusBar extends JPanel
 	public void setContextMessage(String message)
 	{
 		messageLabel.setText(message);
+	}
+
+	public String getContextMessage()
+	{
+		return messageLabel.getText();
+	}
+
+	public JProgressBar getProgressBar()
+	{
+		return progressBar;
 	}
 
 	public void setSourceLoadErrors(List<LogRecord> errors)
@@ -124,86 +132,45 @@ public final class PCGenStatusBar extends JPanel
 	 */
 	public SwingWorker<List<LogRecord>> createWorker(String taskName, PCGenTask task)
 	{
-		return new TaskExecutor(taskName, task);
+		return new StatusWorker(taskName, task, this);
 	}
 
-	private class TaskExecutor extends SwingWorker<List<LogRecord>> implements PCGenTaskListener
+	public PCGenFrame getFrame()
 	{
-
-		private final String name;
-		private final PCGenTask task;
-		private boolean dirty = false;
-		private List<LogRecord> errors = new ArrayList<LogRecord>();
-
-		public TaskExecutor(String name, PCGenTask task)
-		{
-			this.name = name;
-			this.task = task;
-		}
-
-		@Override
-		public List<LogRecord> construct()
-		{
-			try
-			{
-				SwingUtilities.invokeAndWait(new Runnable()
-				{
-
-					@Override
-					public void run()
-					{
-						progressBar.setVisible(true);
-					}
-
-				});
-			}
-			catch (Exception ex)
-			{
-				//Not much we can do about this
-			}
-			String oldMessage = messageLabel.getText();
-			setContextMessage(name);
-			task.addPCGenTaskListener(this);
-			task.execute();
-			task.removePCGenTaskListener(this);
-			setContextMessage(oldMessage);
-			return errors;
-		}
-
-		@Override
-		public void finished()
-		{
-			progressBar.setVisible(false);
-		}
-
-		@Override
-		public void progressChanged(final PCGenTaskEvent event)
-		{
-			if (!dirty)
-			{
-				dirty = true;
-				SwingUtilities.invokeLater(new Runnable()
-				{
-
-					@Override
-					public void run()
-					{
-						progressBar.getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
-						progressBar.setString(task.getMessage());
-						dirty = false;
-					}
-
-				});
-			}
-
-		}
-
-		@Override
-		public void errorOccurred(PCGenTaskEvent event)
-		{
-			errors.add(event.getErrorRecord());
-		}
-
+		return frame;
 	}
 
+	/**
+	 * Shows the progress bar, in indeterminate mode
+	 * 
+	 * @param Context message to show on status bar
+	 */
+	public void startShowingProgress(final String msg)
+	{
+		progressBar.setIndeterminate(true);
+
+		if ( !PCGenStatusBar.this.isValid() )
+		{
+			// Do nothing if called during startup or shutdown
+			return;
+		}
+
+		PCGenStatusBar.this.setVisible(true);
+		getProgressBar().setVisible(true);
+		getProgressBar().setIndeterminate(true);
+		getProgressBar().setStringPainted(true);
+		PCGenStatusBar.this.setContextMessage(msg);
+		getProgressBar().setString(msg);
+	}
+
+	/**
+	 * Hides the progress bar
+	 */
+	public void endShowingProgress()
+	{
+		setContextMessage(null);
+		getProgressBar().setString(null);
+		getProgressBar().setVisible(false);
+
+	}
 }

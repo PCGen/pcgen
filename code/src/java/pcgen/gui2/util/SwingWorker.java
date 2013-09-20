@@ -38,6 +38,7 @@ public abstract class SwingWorker<T>
 
 		synchronized void clear()
 		{
+			// TODO check for memory leak here - maybe need to dispose thread resources??
 			thread = null;
 		}
 	}
@@ -64,13 +65,13 @@ public abstract class SwingWorker<T>
 	}
 
 	/** 
-	 * Compute the value to be returned by the <code>get</code> method 
+	 * Compute the value to be returned by the <code>get</code> method.
 	 * @return Object
 	 */
 	public abstract T construct();
 
 	/**
-	 * Called on the event dispatching thread (not on the worker thread)
+	 * Called on the AWT event dispatching thread (not on the worker thread)
 	 * after the <code>construct</code> method has returned.
 	 */
 	public void finished()
@@ -93,8 +94,9 @@ public abstract class SwingWorker<T>
 	}
 
 	/**
-	 * Return the value created by the <code>construct</code> method
-	 *   
+	 * Blocks until the worker thread is finished.
+	 * Then returns the value created by the <code>construct</code> method.
+	 * 
 	 * Returns null if either the constructing thread or the current
 	 * thread was interrupted before a value was produced
 	 * 
@@ -159,7 +161,9 @@ public abstract class SwingWorker<T>
 	}
 
 	/**
-	 * Start the worker thread.
+	 * Start the worker thread, which will execute the implementor's 
+	 * construct() method to compute the value to be returned by the
+	 * get() method.
 	 */
 	public void start()
 	{

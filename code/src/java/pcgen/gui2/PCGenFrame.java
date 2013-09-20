@@ -150,6 +150,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 	public PCGenFrame()
 	{
+		Globals.setRootFrame(this);
 		this.currentSourceSelection = new DefaultReferenceFacade<SourceSelectionFacade>();
 		this.currentCharacterRef = new DefaultReferenceFacade<CharacterFacade>();
 		this.currentDataSetRef = new DefaultReferenceFacade<DataSetFacade>();
@@ -158,7 +159,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		this.statusBar = new PCGenStatusBar(this);
 		this.filenameListener = new FilenameListener();
 		this.chooser = new JFileChooser();
-		Globals.setRootFrame(this);
 		Observer messageObserver = new ShowMessageGuiObserver(this);
 		ShowMessageDelegate.getInstance().addObserver(messageObserver);
 		ChooserFactory.setDelegate(this);
@@ -489,7 +489,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 					}
 					else
 					{
-						CharacterManager.openCharacter(file, PCGenFrame.this, dataset);
+						openCharacter(file, dataset);
 					}
 				}
 
@@ -576,6 +576,13 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	public ReferenceFacade<DataSetFacade> getLoadedDataSetRef()
 	{
 		return currentDataSetRef;
+	}
+	
+	/**
+	 * @return the status bar for the main PCGen frame
+	 */
+	public final PCGenStatusBar getStatusBar() {
+		return statusBar;
 	}
 
 	/**
@@ -683,11 +690,38 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 		// We must have a file name before we prepare.
 		prepareForSave(character, false);
-		if (!CharacterManager.saveCharacter(character))
+		if (!reallySaveCharacter(character))
 		{
 			return showSaveCharacterChooser(character);
 		}
 		return true;
+	}
+
+	/**
+	 * Wraps the CharacterManager with GUI progress updates
+	 * @param character
+	 * @return value from CharacterManager.saveCharacter()
+	 */
+	public boolean reallySaveCharacter(CharacterFacade character)
+	{
+		boolean result = false;
+		
+		// KAW TODO externalize and NLS the msg
+		final String msg = "Saving character...";
+		statusBar.startShowingProgress(msg);
+		try
+		{
+			result = CharacterManager.saveCharacter(character);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint(e.getLocalizedMessage(), e);
+		}
+		finally
+		{
+			statusBar.endShowingProgress();
+		}
+		return result;
 	}
 
 	/**
@@ -911,7 +945,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			else
 			{
 				prepareForSave(character, true);
-				ok &= CharacterManager.saveCharacter(character);
+				ok &= reallySaveCharacter(character);
 			}
 		}
 		return ok;
@@ -981,7 +1015,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			{
 				character.setFile(file);
 				prepareForSave(character, false);
-				if (!CharacterManager.saveCharacter(character))
+				if (!reallySaveCharacter(character))
 				{
 					return showSaveCharacterChooser(character);
 				}
@@ -1023,8 +1057,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				if (character.getFileRef().getReference() == null || 
 						StringUtils.isEmpty(character.getFileRef().getReference().getName()))
 				{
-					CharacterManager.openCharacter(character.getFileRef().getReference(), PCGenFrame.this,
-							currentDataSetRef.getReference());
+					openCharacter(character.getFileRef().getReference(), currentDataSetRef.getReference());
 				}
 				else
 				{
@@ -1174,8 +1207,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				}
 				if (choice == JOptionPane.YES_OPTION)
 				{
-					CharacterManager.openCharacter(pcgFile, PCGenFrame.this,
-						currentDataSetRef.getReference());
+					openCharacter(pcgFile, currentDataSetRef.getReference());
 					return;
 				}
 			}
@@ -1191,8 +1223,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 							+ sources + " current: "
 							+ currentSourceSelection.getReference());
 				}
-				CharacterManager.openCharacter(pcgFile, PCGenFrame.this,
-					currentDataSetRef.getReference());
+				openCharacter(pcgFile, currentDataSetRef.getReference());
 			}
 			else if (loadSourceSelection(sources))
 			{
@@ -1212,8 +1243,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				LanguageBundle.getFormattedString("in_loadPcSourcesLoadQuery", //$NON-NLS-1$
 					pcgFile)))
 			{
-				CharacterManager.openCharacter(pcgFile, PCGenFrame.this,
-					currentDataSetRef.getReference());
+				openCharacter(pcgFile, currentDataSetRef.getReference());
 			}
 		}
 		else
@@ -1223,6 +1253,28 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				LanguageBundle.getFormattedString("in_loadPcNoSources", pcgFile), //$NON-NLS-1$
 				LanguageBundle.getString("in_loadPcFailTtile"), //$NON-NLS-1$
 				JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
+	/**
+	 * @param the character's pcgFile
+	 * @param data set reference
+	 */
+	private void openCharacter(File pcgFile, DataSetFacade reference)
+	{
+		// KAW TODO externalize and NLS the msg
+		final String msg = "Opening character...";
+		statusBar.startShowingProgress(msg);
+		try
+		{
+			CharacterManager.openCharacter(pcgFile, PCGenFrame.this, reference);
+		}
+		catch (Exception e)
+		{
+			Logging.errorPrint("Error loading character: " + pcgFile.getName(), e);
+		}
+		finally {
+			statusBar.endShowingProgress();
 		}
 	}
 
