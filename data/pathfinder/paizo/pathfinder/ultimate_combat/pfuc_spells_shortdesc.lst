@@ -29,7 +29,6 @@ Daybreak Arrow.MOD				DESC:Targeted ammunition exudes radiant energy.|!PRERULE:1
 Deadeye's Lore.MOD				DESC:Gain a +4 bonus on Survival and move full speed while tracking.|!PRERULE:1,DisplayFullSpell
 Deadly Juggernaut.MOD				DESC:Your might increases with every kill you make.|!PRERULE:1,DisplayFullSpell
 Debilitating Portent.MOD			DESC:Inflicts an ill fate on a creature, halving its damage when it attacks or casts a spell.|!PRERULE:1,DisplayFullSpell
-Named Bullet.MOD					DESC:Imbues ammunition with accuracy against a specific creature type.|!PRERULE:1,DisplayFullSpell
 Delay Poison (Communal).MOD			DESC:As delay poison, but you may divide the duration among creatures touched.|!PRERULE:1,DisplayFullSpell
 Destabilize Powder.MOD				DESC:Ammunition in the targeted firearm is prone to misfire.|!PRERULE:1,DisplayFullSpell
 Discovery Torch.MOD				DESC:Touched object emanates bright light, granting Perception and Sense Motive bonuses.|!PRERULE:1,DisplayFullSpell
