@@ -29,6 +29,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
+import pcgen.gui2.tools.CursorControlUtilities;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.StatusWorker;
 import pcgen.gui2.util.SwingWorker;
@@ -147,19 +148,18 @@ public final class PCGenStatusBar extends JPanel
 	 */
 	public void startShowingProgress(final String msg)
 	{
-		progressBar.setIndeterminate(true);
-
 		if ( !PCGenStatusBar.this.isValid() )
 		{
 			// Do nothing if called during startup or shutdown
 			return;
 		}
-
-		PCGenStatusBar.this.setVisible(true);
+		CursorControlUtilities.startWaitCursor(this);
+		progressBar.setIndeterminate(true);
+		setVisible(true);
+		setContextMessage(msg);
 		getProgressBar().setVisible(true);
 		getProgressBar().setIndeterminate(true);
 		getProgressBar().setStringPainted(true);
-		PCGenStatusBar.this.setContextMessage(msg);
 		getProgressBar().setString(msg);
 	}
 
@@ -168,9 +168,11 @@ public final class PCGenStatusBar extends JPanel
 	 */
 	public void endShowingProgress()
 	{
+		CursorControlUtilities.stopWaitCursor(this);
 		setContextMessage(null);
 		getProgressBar().setString(null);
+		getProgressBar().setIndeterminate(false);
 		getProgressBar().setVisible(false);
-
+		setVisible(false);
 	}
 }
