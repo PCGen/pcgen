@@ -6,8 +6,9 @@
 
 
 Fast Healing		CATEGORY:Special Ability	TYPE:SpecialQuality	ASPECT:Name|Fast Healing %1|FastHealing	DEFINE:FastHealing|0
-
-
+# TEST-76
+# Have ADD:SKILL in data used by a character
+TEST-76  ADD SKILL		CATEGORY:FEAT	TYPE:TEST-76	ADD:SKILL|5|Balance,Deception,Move Silently		DESC:Have ADD:SKILL in data used by a character
 
 # Ability Name					Category of Ability		Type								Description																																			Ability										Add
 Add a Feat see if it depletes the pool	CATEGORY:Special Ability	TYPE:CodeBugOfTheDayTester.Special Ability	DESC:ADD:FEAT Test																																												ADD:FEAT|TYPE=Code1730
