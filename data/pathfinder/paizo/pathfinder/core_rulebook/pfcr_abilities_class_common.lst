@@ -35,7 +35,7 @@ Armor Prof ~ Heavy	CATEGORY:Internal		TYPE:ArmorProfHeavy						SERVESAS:FEAT|Arm
 ###Block: Shield Types
 # Ability Name		Category of Ability	Type						Serves As						Automatically Gained Shield Prof.
 Shield Prof ~ Tower	CATEGORY:Internal		TYPE:ShieldProfTower			SERVESAS:FEAT|Tower Shield Proficiency	AUTO:SHIELDPROF|SHIELDTYPE=Tower
-Shield Prof			CATEGORY:Internal		TYPE:ShieldProfTower.ShieldProf	SERVESAS:FEAT|Shield Proficiency		AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
+Shield Prof			CATEGORY:Internal		TYPE:ShieldProfTower.ShieldProf	SERVESAS:FEAT|Shield Proficiency		AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light|Buckler|Shield (Heavy)|Shield (Light)
 
 ###Block: Weapon and Armor Proficiencies
 # Ability Name			Unique Key								Category of Ability		Type							Description																																																																																																																																																	Automatically Gained Feat		Automatically Gained Weapon Prof.																									Ability
