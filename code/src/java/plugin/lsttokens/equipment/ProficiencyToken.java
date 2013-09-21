@@ -53,7 +53,7 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 		if (pipeLoc == -1)
 		{
 			return new ParseResult.Fail("Equipment Token PROFICIENCY syntax "
-							+ "without a Subtoken is invalid: " + value, context);
+							+ "without a Subtoken is invalid: PROFICIENCY:" + value, context);
 		}
 		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
@@ -70,18 +70,38 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 		}
 		if (subtoken.equals("WEAPON"))
 		{
+			if (context.getObjectContext().getObject(eq, ObjectKey.WEAPON_PROF) != null)
+			{
+				return new ParseResult.Fail(
+					"Only one PROFICIENCY:WEAPON is allowed per item. Token was PROFICIENCY:"
+						+ value, context);
+			}
 			CDOMSingleRef<WeaponProf> wp = context.ref.getCDOMReference(
 					WeaponProf.class, prof);
 			context.getObjectContext().put(eq, ObjectKey.WEAPON_PROF, wp);
 		}
 		else if (subtoken.equals("ARMOR"))
 		{
+			if (context.getObjectContext().getObject(eq, ObjectKey.WEAPON_PROF) != null)
+			{
+				return new ParseResult.Fail(
+					"Only one PROFICIENCY:ARMOR is allowed per item. Token was PROFICIENCY:"
+						+ value, context);
+			}
+
 			CDOMSingleRef<ArmorProf> wp = context.ref.getCDOMReference(
 					ArmorProf.class, prof);
 			context.getObjectContext().put(eq, ObjectKey.ARMOR_PROF, wp);
 		}
 		else if (subtoken.equals("SHIELD"))
 		{
+			if (context.getObjectContext().getObject(eq, ObjectKey.WEAPON_PROF) != null)
+			{
+				return new ParseResult.Fail(
+					"Only one PROFICIENCY:SHIELD is allowed per item. Token was PROFICIENCY:"
+						+ value, context);
+			}
+
 			CDOMSingleRef<ShieldProf> wp = context.ref.getCDOMReference(
 					ShieldProf.class, prof);
 			context.getObjectContext().put(eq, ObjectKey.SHIELD_PROF, wp);

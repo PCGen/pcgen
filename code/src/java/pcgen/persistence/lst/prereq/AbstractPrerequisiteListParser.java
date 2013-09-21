@@ -272,7 +272,7 @@ public abstract class AbstractPrerequisiteListParser
 				Logging
 					.deprecationPrint("You are using a deprecated syntax of PRE"
 						+ kind
-						+ ": "
+						+ ":"
 						+ formula
 						+ " ... Each item in the list should have a target value, e.g.: PRE"
 						+ kind + ":1,First=99,Second=5");

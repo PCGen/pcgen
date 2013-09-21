@@ -116,7 +116,7 @@ public interface ParseResult
 				this.error =
 						new QueuedMessage(Logging.LST_ERROR, error
 							+ " (Source: "
-							+ context.getObjectContext().getSourceURI() + ")");
+							+ context.getObjectContext().getSourceURI() + " )");
 			}
 			else
 			{
