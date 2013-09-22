@@ -8,6 +8,7 @@ GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=Complete Core
+PRECAMPAIGN:1,Paizo - Pathfinder Roleplaying Game Bestiary
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -59,9 +60,11 @@ BONUS:ABILITYPOOL|Region of Origin|1|TYPE=Background
 # Data files
 ABILITY:iswg_abilities_background.lst
 ABILITY:iswg_abilities.lst
+ABILITY:iswg_abilities_race.lst
 ABILITYCATEGORY:iswg_abilitycategories.lst
 ARMORPROF:iswg_profs_armor.lst
 CLASS:iswg_classes.lst
+CLASS:iswg_classes_race.lst
 COMPANIONMOD:iswg_companion_mods.lst
 DEITY:iswg_deities.lst
 DOMAIN:iswg_domains.lst
@@ -69,12 +72,14 @@ EQUIPMENT:iswg_equipment.lst
 EQUIPMENT:iswg_equipment_magic.lst
 EQUIPMOD:iswg_equipmods.lst
 FEAT:iswg_feats.lst
+KIT:iswg_kits_race.lst
 LANGUAGE:iswg_languages.lst
 RACE:iswg_races.lst
 SKILL:iswg_skills_conditional.lst
 SPELL:iswg_spells.lst
 SPELL:iswg_spells_domain.lst
 TEMPLATE:iswg_templates.lst
+TEMPLATE:iswg_templates_race.lst
 WEAPONPROF:iswg_profs_weapons.lst
 
 # Forward References
