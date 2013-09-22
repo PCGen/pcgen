@@ -312,7 +312,8 @@ RESIZABLEEQUIPTYPE:Shield|Weapon|Armor|Ammunition|Resizable
 # Character Types:
 CHARACTERTYPE:PC|NPC
 
-DEFAULTDATASET:Paizo - Pathfinder Roleplaying Game Core Rulebook,Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement|Pathfinder RPG for Players
+# With the basic loader giving several offerings, we don't need this, plus it's using the character traits which was replaced by APG.
+#DEFAULTDATASET:Paizo - Pathfinder Roleplaying Game Core Rulebook,Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement|Pathfinder RPG for Players
 #
 # DONE
 #
