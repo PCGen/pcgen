@@ -240,7 +240,7 @@ Kyoketsu Shoge.MOD			TYPE:Flail.Monk
 Meteor Hammer.MOD				TYPE:Flail
 Nine-Section Whip.MOD			TYPE:Flail.Monk
 Sansetsukon.MOD				TYPE:Flail.Monk
-Scorpion Whip.MOD				TYPE:Flail
+#Scorpion Whip.MOD				TYPE:Flail
 Urumi.MOD					TYPE:Flail.Monk
 #
 Aklys (Gladiator).MOD			TYPE:Hammer.Thrown
