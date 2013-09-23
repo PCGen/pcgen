@@ -22,7 +22,7 @@ Madu (Leather)	PROFICIENCY:WEAPON|Madu				TYPE:Weapon.GladiatorWeapon.Melee.Exot
 Madu (Steel)	PROFICIENCY:WEAPON|Madu				TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Piercing.Performance						COST:40	WT:6		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:PERFORMANCE.STEEL
 Pata			PROFICIENCY:WEAPON|Pata				TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Piercing.Performance						COST:14	WT:3		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d6	EQMOD:PERFORMANCE.STEEL
 Quadrens		PROFICIENCY:WEAPON|Quadrens			TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Piercing.Performance						COST:8	WT:2		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d6	EQMOD:PERFORMANCE.STEEL.TRIP
-Scorpion Whip	PROFICIENCY:WEAPON|Scorpion Whip		TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance						COST:5	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:LEATHER.PERFORMANCE.STEEL
+Scorpion Whip	PROFICIENCY:WEAPON|Whip				TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance.Whip						COST:5	WT:3		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	EQMOD:LEATHER.PERFORMANCE.STEEL
 Sica			PROFICIENCY:WEAPON|Sica				TYPE:Weapon.GladiatorWeapon.Melee.Exotic.Slashing.Performance						COST:10	WT:2		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d6	EQMOD:PERFORMANCE.STEEL
 
 # One-Handed
