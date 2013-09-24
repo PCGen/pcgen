@@ -120,7 +120,7 @@ Knuckle Axe					TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light.Monk
 Madu						TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
 Pata						TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
 Quadrens					TYPE:GladiatorMelee.Exotic.Piercing.Performance.Light
-#Scorpion Whip				TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light
+Scorpion Whip				TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light
 Sica						TYPE:GladiatorMelee.Exotic.Slashing.Performance.Light
 
 # One-Handed
@@ -240,7 +240,7 @@ Kyoketsu Shoge.MOD			TYPE:Flail.Monk
 Meteor Hammer.MOD				TYPE:Flail
 Nine-Section Whip.MOD			TYPE:Flail.Monk
 Sansetsukon.MOD				TYPE:Flail.Monk
-#Scorpion Whip.MOD				TYPE:Flail
+Scorpion Whip.MOD				TYPE:Flail
 Urumi.MOD					TYPE:Flail.Monk
 #
 Aklys (Gladiator).MOD			TYPE:Hammer.Thrown
