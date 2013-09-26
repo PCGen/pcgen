@@ -153,8 +153,19 @@ Wreath of Blades				CLASSES:Magus=4|Sorcerer,Wizard=5|Summoner=5|Witch=5								
 
 # EOF
 
-Air Bubble.MOD																																																																																ITEM:Potion
-Adoration.MOD																																																																																ITEM:Potion
-Bestow Weapon Proficiency.MOD																																																																														ITEM:Potion
-Bullet Shield.MOD																																																																																ITEM:Potion
-Certain Grip.MOD																																																																																ITEM:Potion
+###Block: Item = Potions
+Ablative Barrier.MOD	ITEM:POTION
+Adoration.MOD	ITEM:POTION
+Air Bubble.MOD	ITEM:POTION
+Bestow Weapon Proficiency.MOD	ITEM:POTION
+Bullet Shield.MOD	ITEM:POTION
+Certain Grip.MOD	ITEM:POTION
+Companion Mind Link.MOD	ITEM:POTION
+Healing Thief.MOD	ITEM:POTION
+Kinetic Reverberation.MOD	ITEM:POTION
+Liberating Command.MOD	ITEM:POTION
+Life Conduit.MOD	ITEM:POTION
+Life Conduit (Improved).MOD	ITEM:POTION
+Litany of Escape.MOD	ITEM:POTION
+Pup Shape.MOD	ITEM:POTION
+Telekinetic Charge.MOD	ITEM:POTION
