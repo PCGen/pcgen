@@ -18,7 +18,7 @@ Elemental		VISIBLE:NO
 Elf			VISIBLE:NO
 Evil			VISIBLE:NO
 Extraplanar		VISIBLE:NO
-Fire			VISIBLE:NO
+Fire			VISIBLE:NO	RACESUBTYPE:Fire
 Giant			VISIBLE:NO
 Gnome			VISIBLE:NO
 Gnoll			VISIBLE:NO
