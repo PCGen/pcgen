@@ -4,9 +4,11 @@ SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/
 # ORIGINAL ENTRY: Stefan Radermacher and Douglas Limmer
 # ORIGINAL ENTRY DATE: Unknown
 
-STARTPACK:Dragon (Brine/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.94
+STARTPACK:Dragon (Brine/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine)],[!PRERACE:1,%]	SOURCEPAGE:p.94
 ALIGN:LN
-RACE:Dragon (Brine/Young)	!PRERACE:1,%
+RACE:Dragon (Brine)	!PRERACE:1,%
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:4
 NAME:Young Brine Dragon
 SKILL:Diplomacy			RANK:8
 SKILL:Fly				RANK:8
@@ -30,9 +32,11 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Open/Close
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
 
 
-STARTPACK:Dragon (Brine/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine/Adult)],[!PRERACE:1,%]	SOURCEPAGE:p.94
+STARTPACK:Dragon (Brine/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine)],[!PRERACE:1,%]	SOURCEPAGE:p.94
 ALIGN:LN
-RACE:Dragon (Brine/Adult)	!PRERACE:1,%
+RACE:Dragon (Brine)	!PRERACE:1,%
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:10
 NAME:Adult Brine Dragon
 SKILL:Bluff				RANK:14
 SKILL:Diplomacy			RANK:14
@@ -72,9 +76,11 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
 
 
-STARTPACK:Dragon (Brine/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine/Ancient)],[!PRERACE:1,%]	SOURCEPAGE:p.95
+STARTPACK:Dragon (Brine/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine)],[!PRERACE:1,%]	SOURCEPAGE:p.95
 ALIGN:LN
-RACE:Dragon (Brine/Ancient)	!PRERACE:1,%
+RACE:Dragon (Brine)	!PRERACE:1,%
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:18
 NAME:Ancient Brine Dragon
 SKILL:Bluff				RANK:22
 SKILL:Diplomacy			RANK:22
@@ -139,9 +145,11 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
 
 
-STARTPACK:Dragon (Cloud/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Cloud/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.96
+STARTPACK:Dragon (Cloud/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Cloud)],[!PRERACE:1,%]	SOURCEPAGE:p.96
 ALIGN:TN
-RACE:Dragon (Cloud/Young)	!PRERACE:1,%
+RACE:Dragon (Cloud)	!PRERACE:1,%
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:4
 NAME:Young Cloud Dragon
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 LANGBONUS:Auran
@@ -159,9 +167,11 @@ FEAT:Skill Focus (Diplomacy)
 FEAT:Weapon Focus (Claw)
 
 
-STARTPACK:Dragon (Cloud/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Cloud/Adult)],[!PRERACE:1,%]	SOURCEPAGE:p.96
+STARTPACK:Dragon (Cloud/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Cloud)],[!PRERACE:1,%]	SOURCEPAGE:p.96
 ALIGN:TN
-RACE:Dragon (Cloud/Adult)	!PRERACE:1,%
+RACE:Dragon (Cloud)	!PRERACE:1,%
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:10
 NAME:Adult Cloud Dragon
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 LANGBONUS:Auran|Common|Elven
@@ -196,9 +206,11 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 
 
-STARTPACK:Dragon (Cloud/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Cloud/Ancient)],[!PRERACE:1,%]	SOURCEPAGE:p.96
+STARTPACK:Dragon (Cloud/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Cloud)],[!PRERACE:1,%]	SOURCEPAGE:p.96
 ALIGN:TN
-RACE:Dragon (Cloud/Ancient)	!PRERACE:1,%
+RACE:Dragon (Cloud)	!PRERACE:1,%
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:18
 NAME:Ancient Cloud Dragon
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 LANGBONUS:Auran|Common|Elven
@@ -259,9 +271,11 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Resistance
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of Fatigue
 
 
-STARTPACK:Dragon (Crystal/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Crystal/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.98
+STARTPACK:Dragon (Crystal/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Crystal)],[!PRERACE:1,%]	SOURCEPAGE:p.98
 ALIGN:CG
-RACE:Dragon (Crystal/Young)	!PRERACE:1,%
+RACE:Dragon (Crystal)	!PRERACE:1,%
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:4
 NAME:Young Crystal Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Undercommon
@@ -278,9 +292,11 @@ FEAT:Lightning Reflexes
 FEAT:Power Attack
 
 
-STARTPACK:Dragon (Crystal/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Crystal/Adult)],[!PRERACE:1,%]	SOURCEPAGE:p.98
+STARTPACK:Dragon (Crystal/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Crystal)],[!PRERACE:1,%]	SOURCEPAGE:p.98
 ALIGN:CG
-RACE:Dragon (Crystal/Adult)	!PRERACE:1,%
+RACE:Dragon (Crystal)	!PRERACE:1,%
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:10
 NAME:Adult Crystal Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Terran|Undercommon
@@ -308,9 +324,11 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ghost Sound
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 
 
-STARTPACK:Dragon (Crystal/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Crystal/Ancient)],[!PRERACE:1,%]	SOURCEPAGE:p.98
+STARTPACK:Dragon (Crystal/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Crystal)],[!PRERACE:1,%]	SOURCEPAGE:p.98
 ALIGN:CG
-RACE:Dragon (Crystal/Ancient)	!PRERACE:1,%
+RACE:Dragon (Crystal)	!PRERACE:1,%
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:18
 NAME:Ancient Crystal Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Common|Dwarven|Elven|Terran|Undercommon
@@ -360,9 +378,11 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of Fatigue
 
 
-STARTPACK:Dragon (Magma/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Magma/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.100
+STARTPACK:Dragon (Magma/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Magma)],[!PRERACE:1,%]	SOURCEPAGE:p.100
 ALIGN:CN
-RACE:Dragon (Magma/Young)	!PRERACE:1,%
+RACE:Dragon (Magma)	!PRERACE:1,%
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:4
 NAME:Young Magma Dragon
 SKILL:Acrobatics		RANK:9
 SKILL:Climb			RANK:9
@@ -387,9 +407,11 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Open/Close
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Spark
 
 
-STARTPACK:Dragon (Magma/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Magma/Adult)],[!PRERACE:1,%]	SOURCEPAGE:p.100
+STARTPACK:Dragon (Magma/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Magma)],[!PRERACE:1,%]	SOURCEPAGE:p.100
 ALIGN:CN
-RACE:Dragon (Magma/Adult)	!PRERACE:1,%
+RACE:Dragon (Magma)	!PRERACE:1,%
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:10
 NAME:Adult Magma Dragon
 SKILL:Acrobatics		RANK:15
 SKILL:Climb			RANK:15
@@ -431,9 +453,11 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Spark
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of Fatigue
 
 
-STARTPACK:Dragon (Magma/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Magma/Ancient)],[!PRERACE:1,%]	SOURCEPAGE:p.100
+STARTPACK:Dragon (Magma/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Magma)],[!PRERACE:1,%]	SOURCEPAGE:p.100
 ALIGN:CN
-RACE:Dragon (Magma/Ancient)	!PRERACE:1,%
+RACE:Dragon (Magma)	!PRERACE:1,%
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:18
 NAME:Ancient Magma Dragon
 SKILL:Acrobatics			RANK:23
 SKILL:Climb				RANK:23
@@ -499,9 +523,11 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Spark
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Touch of Fatigue
 
 
-STARTPACK:Dragon (Umbral/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral/Young)],[!PRERACE:1,%]	SOURCEPAGE:p.102
+STARTPACK:Dragon (Umbral/Young) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral)],[!PRERACE:1,%]	SOURCEPAGE:p.102
 ALIGN:CE
-RACE:Dragon (Umbral/Young)	!PRERACE:1,%
+RACE:Dragon (Umbral)	!PRERACE:1,%
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:4
 NAME:Young Umbral Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Abyssal|Common|Undercommon
@@ -528,9 +554,11 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 
 
-STARTPACK:Dragon (Umbral/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral/Adult)],[!PRERACE:1,%]	SOURCEPAGE:p.102
+STARTPACK:Dragon (Umbral/Adult) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral)],[!PRERACE:1,%]	SOURCEPAGE:p.102
 ALIGN:CE
-RACE:Dragon (Umbral/Adult)	!PRERACE:1,%
+RACE:Dragon (Umbral)	!PRERACE:1,%
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:10
 NAME:Adult Umbral Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Abyssal|Common|Undercommon
@@ -572,9 +600,11 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Frost
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
 
 
-STARTPACK:Dragon (Umbral/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral/Ancient)],[!PRERACE:1,%]	SOURCEPAGE:p.102
+STARTPACK:Dragon (Umbral/Ancient) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral)],[!PRERACE:1,%]	SOURCEPAGE:p.102
 ALIGN:CE
-RACE:Dragon (Umbral/Ancient)	!PRERACE:1,%
+RACE:Dragon (Umbral)	!PRERACE:1,%
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:18
 NAME:Ancient Umbral Dragon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 LANGBONUS:Abyssal|Common|Undercommon
