@@ -350,9 +350,11 @@ FEAT:Flyby Attack
 FEAT:Improved Initiative
 FEAT:Weapon Focus (Claw)
 
-STARTPACK:Ravener (Red Wyrm)	TYPE:Ravener	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red/Wyrm)]	SOURCEPAGE:p.230
-RACE:Dragon (Red/Wyrm)	!PRERACE:1,%
+STARTPACK:Ravener (Red Wyrm)	TYPE:Ravener	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Red)]	SOURCEPAGE:p.230
+RACE:Dragon (Red)	!PRERACE:1,%
 NAME:Red Wyrm Ravener
+ABILITY:CATEGORY=Internal|Dragon Age Selected	FREE:YES
+CLASS:Dragon	LEVEL:22
 ALIGN:CE
 TEMPLATE:Ravener
 LANGBONUS:Abyssal|Aklo|Common|Elven|Giant|Infernal
