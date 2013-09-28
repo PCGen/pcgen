@@ -24,6 +24,7 @@ package pcgen.system;
 
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.ChooserFacade;
+import pcgen.core.facade.EquipmentBuilderFacade;
 import pcgen.core.facade.UIDelegate;
 import pcgen.system.PropertyContext;
 import pcgen.util.Logging;
@@ -123,6 +124,16 @@ public class ConsoleUIDelegate implements UIDelegate
 	public String showInputDialog(String title, String message, String initialValue)
 	{
 		return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CustomEquipResult showCustomEquipDialog(CharacterFacade character, 
+		EquipmentBuilderFacade equipBuilder)
+	{
+		return CustomEquipResult.CANCELLED;
 	}
 
 }

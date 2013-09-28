@@ -81,6 +81,7 @@ import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
+import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
 import pcgen.core.GearBuySellScheme;
 import pcgen.core.Globals;
@@ -127,6 +128,7 @@ import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.DeityFacade;
 import pcgen.core.facade.DescriptionFacade;
 import pcgen.core.facade.DomainFacade;
+import pcgen.core.facade.EquipModFacade;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.EquipmentListFacade;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListEvent;
@@ -152,6 +154,7 @@ import pcgen.core.facade.TemplateFacade;
 import pcgen.core.facade.TodoFacade;
 import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.core.facade.UIDelegate;
+import pcgen.core.facade.UIDelegate.CustomEquipResult;
 import pcgen.core.facade.event.ChangeListener;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
@@ -165,7 +168,6 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui.EQFrame;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.ExportHandler;
@@ -3511,22 +3513,28 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 	private Equipment openCustomizer(Equipment aEq)
 	{
-		if (aEq != null)
+		if (aEq == null)
 		{
-			EQFrame eqFrame = new EQFrame(null, theCharacter);
-
-			if (eqFrame.setEquipment(aEq))
-			{
-				eqFrame.setVisible(true);
-				Equipment newEquip = eqFrame.getNewEquip();
-				if (newEquip != null && dataSet.getEquipment() instanceof DefaultListFacade<?>)
-				{
-					((DefaultListFacade<EquipmentFacade>) dataSet.getEquipment()).addElement(newEquip);
-				}
-				return eqFrame.isPurchase() ? newEquip : null;
-			}
+			return null;
 		}
-		return null;
+
+		Equipment newEquip = aEq.clone();
+		if (!newEquip.containsKey(ObjectKey.BASE_ITEM))
+		{
+			newEquip.put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef.getRef(aEq));
+		}
+
+		EquipmentBuilderFacadeImpl builder =
+				new EquipmentBuilderFacadeImpl(newEquip, theCharacter, delegate);
+		CustomEquipResult result =
+				delegate.showCustomEquipDialog(this, builder);
+		if (newEquip != null && result != CustomEquipResult.CANCELLED
+			&& dataSet.getEquipment() instanceof DefaultListFacade<?>)
+		{
+			((DefaultListFacade<EquipmentFacade>) dataSet.getEquipment())
+				.addElement(newEquip);
+		}
+		return result == CustomEquipResult.PURCHASE ? newEquip : null;
 	}
 
 	/* (non-Javadoc)
@@ -3987,6 +3995,24 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return true;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipModFacade eqModFacade)
+	{
+		if (!(equipFacade instanceof Equipment) || !(eqModFacade instanceof EquipmentModifier))
+		{
+			return false;
+		}
+		
+		Equipment equip = (Equipment) equipFacade;
+		EquipmentModifier eqMod = (EquipmentModifier) eqModFacade;
+		
+		//TODO: Handle second head
+		return equip.canAddModifier(eqMod, true);
+	}
+	
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.CharacterFacade#addTemplate(pcgen.core.facade.TemplateFacade)
 	 */

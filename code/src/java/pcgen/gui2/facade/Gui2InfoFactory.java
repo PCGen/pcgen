@@ -38,6 +38,7 @@ import java.util.TreeSet;
 
 import org.apache.commons.lang.StringUtils;
 
+import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -63,6 +64,7 @@ import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
+import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.Movement;
@@ -74,6 +76,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
+import pcgen.core.SpecialProperty;
 import pcgen.core.SubClass;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.BonusCalc;
@@ -94,6 +97,7 @@ import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.DeityFacade;
 import pcgen.core.facade.DomainFacade;
+import pcgen.core.facade.EquipModFacade;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.InfoFactory;
@@ -130,7 +134,7 @@ public class Gui2InfoFactory implements InfoFactory
 	/** A default return value for an invalid request. */
 	private static final String EMPTY_STRING = ""; //$NON-NLS-1$
 	private static NumberFormat ADJ_FMT = new DecimalFormat("+0;-0"); //$NON-NLS-1$
-	private static NumberFormat COST_FMT = new DecimalFormat("0.#"); //$NON-NLS-1$
+	private static NumberFormat COST_FMT = new DecimalFormat("#,##0.#"); //$NON-NLS-1$
 
 	/** Constant for 2 spaces in HTML */
 	public static final String TWO_SPACES = " &nbsp;"; //$NON-NLS-1$
@@ -724,6 +728,14 @@ public class Gui2InfoFactory implements InfoFactory
 		b.appendTitleElement(title.toString());
 		b.appendLineBreak();
 
+		String baseName = equip.getBaseItemName();
+		if (StringUtils.isNotEmpty(baseName) && !baseName.equals(equip.getName()))
+		{
+			b.appendI18nElement("in_igInfoLabelTextBaseItem", //$NON-NLS-1$
+				baseName);
+			b.appendLineBreak();
+		}
+		
 		b.appendI18nElement("in_igInfoLabelTextType", //$NON-NLS-1$
 			StringUtil.join(equip.getTrueTypeList(true), ". "));
 
@@ -767,14 +779,15 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_igInfoLabelTextReq", cString); //$NON-NLS-1$
 		}
 
-		String IDS = equip.getInterestingDisplayString(pc);
-
-		if (IDS.length() > 0)
+		BigDecimal cost = equip.getCost(pc);
+		if (cost != BigDecimal.ZERO)
 		{
 			b.appendLineBreak();
-			b.appendI18nElement("in_igInfoLabelTextProp", IDS); //$NON-NLS-1$
+			b.appendI18nElement("in_igEqModelColCost", COST_FMT.format(cost.doubleValue())); //$NON-NLS-1$
+			b.append(" ");
+			b.append(SettingsHandler.getGame().getCurrencyDisplay());
 		}
-
+		
 		String bString =
 				Globals.getGameModeUnitSet().displayWeightInUnitSet(
 					equip.getWeight(pc).doubleValue());
@@ -954,9 +967,146 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_igInfoLabelTextQualities", StringUtil.join( //$NON-NLS-1$
 				qualities, ", ")); //$NON-NLS-2$
 		}
+
+		String IDS = equip.getInterestingDisplayString(pc);
+		if (IDS.length() > 0)
+		{
+			b.appendLineBreak();
+			b.appendI18nElement("in_igInfoLabelTextProp", IDS); //$NON-NLS-1$
+		}
+
 		return b;
 	}
 
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String getHTMLInfo(EquipModFacade equipModFacade, EquipmentFacade equipFacade)
+	{
+		if (equipModFacade == null
+			|| !(equipModFacade instanceof EquipmentModifier)
+			|| equipFacade == null || !(equipFacade instanceof Equipment))
+		{
+			return EMPTY_STRING;
+		}
+		
+		EquipmentModifier equipMod = (EquipmentModifier) equipModFacade;
+		Equipment equip = (Equipment) equipFacade;
+
+		final StringBuilder title = new StringBuilder(50);
+		title.append(OutputNameFormatting.piString(equipMod, false));
+
+		final HtmlInfoBuilder b = new HtmlInfoBuilder(null, false);
+		b.appendTitleElement(title.toString());
+		b.appendLineBreak();
+
+		b.appendI18nElement("in_igInfoLabelTextType", //$NON-NLS-1$
+			StringUtil.join(equipMod.getTrueTypeList(true), ". "));
+
+		// Various cost types
+		int iPlus = equipMod.getSafe(IntegerKey.PLUS);
+		if (iPlus != 0)
+		{
+			b.appendLineBreak();
+			b.appendI18nElement("in_igInfoLabelTextPlus", String.valueOf(iPlus));
+		}
+		Formula baseCost = equipMod.getSafe(FormulaKey.BASECOST);
+		if (!"0".equals(baseCost.toString()))
+		{
+			b.appendLineBreak();
+			b.appendI18nElement("in_igInfoLabelTextPrecost", String.valueOf(baseCost));
+		}
+		Formula cost = equipMod.getSafe(FormulaKey.COST);
+		if (!"0".equals(cost.toString()))
+		{
+			b.appendLineBreak();
+			b.appendI18nElement("in_igEqModelColCost", String.valueOf(cost));
+		}
+		
+		// Special properties
+		StringBuilder sb = new StringBuilder();
+		boolean first = true;
+		for (SpecialProperty sp : equipMod.getSafeListFor(ListKey.SPECIAL_PROPERTIES))
+		{
+			if (!first)
+			{
+				sb.append(", ");
+			}
+			first = false;
+			sb.append(sp.getDisplayName());
+		}
+		if (sb.length() > 0)
+		{
+			b.appendLineBreak();
+			b.appendI18nElement("in_igInfoLabelTextSprop", sb.toString());
+		}
+		
+		final String cString =
+				PrerequisiteUtilities.preReqHTMLStringsForList(pc, equip, equipMod
+					.getPrerequisiteList(), false);
+		if (cString.length() > 0)
+		{
+			b.appendLineBreak();
+			b.appendI18nElement("in_igInfoLabelTextReq", cString); //$NON-NLS-1$
+		}
+
+		
+		String bString = equipMod.getSource();
+		if (bString.length() > 0)
+		{
+			b.appendLineBreak();
+			b.appendI18nElement("in_igInfoLabelTextSource", bString); //$NON-NLS-1$
+		}
+		b.appendLineBreak();
+
+		return b.toString();
+	}
+	
+
+	/**
+	 * @param equipMod
+	 * @return Object
+	 */
+	protected String getCostValue(EquipmentModifier equipMod)
+	{
+		int iPlus = equipMod.getSafe(IntegerKey.PLUS);
+		StringBuilder eCost = new StringBuilder(20);
+
+		if (iPlus != 0)
+		{
+			eCost.append("Plus:").append(iPlus);
+		}
+
+		Formula baseCost = equipMod.getSafe(FormulaKey.BASECOST);
+
+		if (!"0".equals(baseCost.toString()))
+		{
+			if (eCost.length() != 0)
+			{
+				eCost.append(", ");
+			}
+
+			eCost.append("Precost:").append(baseCost);
+		}
+
+		Formula cost = equipMod.getSafe(FormulaKey.BASECOST);
+
+		if (!"0".equals(cost.toString()))
+		{
+			if (eCost.length() != 0)
+			{
+				eCost.append(", ");
+			}
+
+			eCost.append("Cost:").append(cost);
+		}
+
+		String sRet = eCost.toString();
+		return sRet;
+	}
+	
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.TemplateFacade)
 	 */

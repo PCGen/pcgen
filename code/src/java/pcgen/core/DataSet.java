@@ -49,6 +49,7 @@ import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.GearBuySellFacade;
 import pcgen.core.facade.KitFacade;
 import pcgen.core.facade.RaceFacade;
+import pcgen.core.facade.SizeAdjustmentFacade;
 import pcgen.core.facade.SkillFacade;
 import pcgen.core.facade.StatFacade;
 import pcgen.core.facade.TemplateFacade;
@@ -85,6 +86,7 @@ public class DataSet implements DataSetFacade
 	private DefaultListFacade<String> xpTableNames;
 	private DefaultListFacade<GearBuySellFacade> gearBuySellSchemes;
 	private DefaultListFacade<String> characterTypes;
+	private DefaultListFacade<SizeAdjustmentFacade> sizes;
 
 	public DataSet( LoadContext context, GameMode gameMode, ListFacade<CampaignFacade> campaigns)
 	{
@@ -102,6 +104,7 @@ public class DataSet implements DataSetFacade
 		xpTableNames = new DefaultListFacade<String>();
 		characterTypes = new DefaultListFacade<String>();
 		kits = new DefaultListFacade<KitFacade>();
+		sizes = new DefaultListFacade<SizeAdjustmentFacade>();
 		this.context = context;
 		this.gameMode = gameMode;
 		this.campaigns = campaigns;
@@ -231,6 +234,11 @@ public class DataSet implements DataSetFacade
 		{
 			characterTypes.addElement(characterType);
 		}
+		for (SizeAdjustment size : context.ref.getOrderSortedCDOMObjects(SizeAdjustment.class))
+		{
+			sizes.addElement(size);
+		}
+		
 		createGearBuySellSchemes();
 		
 	}
@@ -656,6 +664,15 @@ public class DataSet implements DataSetFacade
 	public ListFacade<KitFacade> getKits()
 	{
 		return kits;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public ListFacade<SizeAdjustmentFacade> getSizes()
+	{
+		return sizes;
 	}
 
 	/**

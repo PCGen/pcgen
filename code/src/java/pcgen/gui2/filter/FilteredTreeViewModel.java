@@ -122,7 +122,7 @@ public class FilteredTreeViewModel<C, E>
 	@Override
 	public void elementAdded(ListEvent<E> e)
 	{
-		if (filter.accept(context, e.getElement()))
+		if (filter == null || filter.accept(context, e.getElement()))
 		{
 			data.addElement(e.getElement());
 		}

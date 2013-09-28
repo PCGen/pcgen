@@ -30,15 +30,18 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import pcgen.base.formula.Formula;
+import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.facade.EquipModFacade;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.MessageType;
@@ -51,7 +54,7 @@ import pcgen.util.Delta;
  * @author   Greg Bingleman <byngl@hotmail.com>
  * @version  $Revision$
  */
-public final class EquipmentModifier extends PObject implements Comparable<Object>
+public final class EquipmentModifier extends PObject implements Comparable<Object>, EquipModFacade
 {
 	private static final String PERCENT_CHOICE_PATTERN = Pattern
 								.quote(Constants.LST_PERCENT_CHOICE);
@@ -251,7 +254,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	@Override
 	public String toString()
 	{
-		return getKeyName();
+		return getDisplayName();
 	}
 
 	public int getSR(Equipment parent, PlayerCharacter aPC)
@@ -286,5 +289,15 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		}
 
 		return getKeyName().compareTo(o.toString());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+    @Override
+	public String getDisplayType()
+	{
+		List<Type> trueTypeList = getTrueTypeList(true);
+		return StringUtil.join(trueTypeList, ".");
 	}
 }

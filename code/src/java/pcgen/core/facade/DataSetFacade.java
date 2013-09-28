@@ -83,6 +83,11 @@ public interface DataSetFacade
 	 * @return the list of kits
 	 */
 	public ListFacade<KitFacade> getKits();
+
+	/**
+	 * @return The list of sizes
+	 */
+	public ListFacade<SizeAdjustmentFacade> getSizes();
 	
 	/**
 	 * Update the equipment list from the global equipment list. 

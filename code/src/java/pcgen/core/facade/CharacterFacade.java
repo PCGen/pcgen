@@ -646,6 +646,14 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	public boolean isQualifiedFor(SpellFacade spell, ClassFacade classFacade);
 
+	/**
+	 * Is the modifier able to be added to the item of equipment?
+	 * @param equipFacade The equipment item being modified.
+	 * @param eqModFacade The equipment modifier to be checked.
+	 * @return True if it can be added, false if not.
+	 */
+	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipModFacade eqModFacade);
+	
 	public void addCharacterChangeListener(CharacterChangeListener listener);
 
 	public void removeCharacterChangeListener(CharacterChangeListener listener);

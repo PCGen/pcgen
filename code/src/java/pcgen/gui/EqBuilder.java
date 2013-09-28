@@ -108,20 +108,20 @@ import pcgen.util.Logging;
  */
 final class EqBuilder extends JPanel
 {
-	/** EQTYPE_NONE = -1 */
-	public static final int EQTYPE_NONE = -1;
-	/** EQTYPE_POTION = -1 */
-	public static final int EQTYPE_POTION = 0;
-	/** EQTYPE_SCROLL = -1 */
-	public static final int EQTYPE_SCROLL = 1;
-	/** EQTYPE_WAND = -1 */
-	public static final int EQTYPE_WAND = 2;
-	/** EQTYPE_RING = -1 */
-	public static final int EQTYPE_RING = 3;
+//	/** EQTYPE_NONE = -1 */
+//	public static final int EQTYPE_NONE = -1;
+//	/** EQTYPE_POTION = -1 */
+//	public static final int EQTYPE_POTION = 0;
+//	/** EQTYPE_SCROLL = -1 */
+//	public static final int EQTYPE_SCROLL = 1;
+//	/** EQTYPE_WAND = -1 */
+//	public static final int EQTYPE_WAND = 2;
+//	/** EQTYPE_RING = -1 */
+//	public static final int EQTYPE_RING = 3;
 	static final long serialVersionUID = -369105812700996734L;
 	private static TableSorter sorter;
 	/** The types of equipment that are valid for creation based on a spell. */
-	static Type[] validEqTypes = { Type.POTION, Type.SCROLL, Type.WAND, Type.RING };
+//	static Type[] validEqTypes = { Type.POTION, Type.SCROLL, Type.WAND, Type.RING };
 	private DefaultListModel listModel1;
 	private DefaultListModel listModel2;
 	private Equipment aNewEq = null;
@@ -170,7 +170,7 @@ final class EqBuilder extends JPanel
 	private JTextPane jItemDesc;
 	private String customName = "";
 	private List[] newTypeList = { null, null };
-	private int eqType = EQTYPE_NONE;
+	private int eqType = 0;
 	private int iListCount = 0;
 	private PlayerCharacter aPC;
 
@@ -217,31 +217,31 @@ final class EqBuilder extends JPanel
 	 */
 	public void toFront()
 	{
-		switch (eqType)
-		{
-			case EQTYPE_POTION:
-			case EQTYPE_WAND:
-			case EQTYPE_SCROLL:
-
-				for (int idx = 0; idx < dataModel.getDisplayModifiers().size(); idx++)
-				{
-					final EquipmentModifier eqMod = dataModel.getDisplayModifiers().get(idx);
-
-					if (eqMod.getKeyName().startsWith("SE_") && (eqMod.getSafeSizeOfListFor(ListKey.TYPE) == 1))
-					{
-						idx = sorter.translateRow(idx);
-						jListAvailable.setRowSelectionInterval(idx, idx);
-						jButtonAdd1ActionPerformed();
-
-						break;
-					}
-				}
-
-				break;
-
-			default:
-				break;
-		}
+//		switch (eqType)
+//		{
+//			case EQTYPE_POTION:
+//			case EQTYPE_WAND:
+//			case EQTYPE_SCROLL:
+//
+//				for (int idx = 0; idx < dataModel.getDisplayModifiers().size(); idx++)
+//				{
+//					final EquipmentModifier eqMod = dataModel.getDisplayModifiers().get(idx);
+//
+//					if (eqMod.getKeyName().startsWith("SE_") && (eqMod.getSafeSizeOfListFor(ListKey.TYPE) == 1))
+//					{
+//						idx = sorter.translateRow(idx);
+//						jListAvailable.setRowSelectionInterval(idx, idx);
+//						jButtonAdd1ActionPerformed();
+//
+//						break;
+//					}
+//				}
+//
+//				break;
+//
+//			default:
+//				break;
+//		}
 	}
 
 	private static void setGuiTextInfo(Object obj, String in_String)
@@ -277,17 +277,17 @@ final class EqBuilder extends JPanel
 
 		// Translate string into numerical type
 		//
-		eqType = EQTYPE_NONE;
-
-		for (int idx = 0; idx < validEqTypes.length; ++idx)
-		{
-			if (aEq.isType(validEqTypes[idx].toString()))
-			{
-				eqType = idx;
-
-				break;
-			}
-		}
+//		eqType = EQTYPE_NONE;
+//
+//		for (int idx = 0; idx < validEqTypes.length; ++idx)
+//		{
+//			if (aEq.isType(validEqTypes[idx].toString()))
+//			{
+//				eqType = idx;
+//
+//				break;
+//			}
+//		}
 
 		// If there are no modifiers attached, make sure
 		// the item has no types assigned by any modifiers

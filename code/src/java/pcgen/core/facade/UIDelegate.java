@@ -114,4 +114,22 @@ public interface UIDelegate
 	 * @return The entered value, or null if cancelled.
 	 */
 	String showInputDialog(String title, String message, String initialValue);
+
+	/**
+	 * Present a dialog to the user to allow them to build up a custom 
+	 * piece of equipment.
+	 * @param character The character the equipment would be for.
+	 * @param equipBuilder The EquipmentBuilderFacade instance to be used for creating the item.
+	 * @return The result of the dialog.
+	 */
+	public CustomEquipResult showCustomEquipDialog(CharacterFacade character,
+		EquipmentBuilderFacade equipBuilder);
+	
+	/**
+	 * The result of creation of a custom equipment item.
+	 */
+	public enum CustomEquipResult
+	{
+		CANCELLED, OK, PURCHASE;
+	}
 }

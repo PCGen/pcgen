@@ -2246,6 +2246,29 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
+	 * Returns true if the equipment modifier is visible
+	 * 
+	 * @param eqMod
+	 *            The equipment modifier
+	 * @param primaryHead
+	 * 			  Is this for the main head (true), or the secondary one (false)?
+	 * @return The visible value
+	 */
+	public boolean isVisible(final EquipmentModifier eqMod, boolean primaryHead)
+	{
+		Visibility vis = eqMod.getSafe(ObjectKey.VISIBILITY);
+
+		if (Visibility.QUALIFY.equals(vis))
+		{
+			bonusPrimary = primaryHead;
+			return PrereqHandler.passesAll(eqMod.getPrerequisiteList(),
+				this, null);
+		}
+
+		return Visibility.DEFAULT.equals(vis);
+	}
+
+	/**
 	 * Gets the weight attribute of the Equipment object.
 	 * 
 	 * @param aPC The PC that has this Equipment

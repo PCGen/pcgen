@@ -24,6 +24,14 @@ package pcgen.core.facade;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
+/**
+ * InfoFactory defines the interface to be used by the UI for extracting 
+ * information about objects for display to the user.
+ * 
+ * 
+ * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @version $Revision: $
+ */
 public interface InfoFactory
 {
 
@@ -76,6 +84,14 @@ public interface InfoFactory
 	 * @return The HTML information string
 	 */
 	public String getHTMLInfo(EquipmentFacade equipFacade);
+
+	/**
+	 * Produce the HTML information string for an equipment modifier.
+	 * @param equipmod The equipment modifier.
+	 * @param equipFacade The equipment item the modifier relates to.
+	 * @return The HTML information string.
+	 */
+	public String getHTMLInfo(EquipModFacade equipmod, EquipmentFacade equipFacade);
 
 	public String getHTMLInfo(TemplateFacade template);
 

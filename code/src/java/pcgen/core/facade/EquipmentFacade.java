@@ -46,4 +46,11 @@ public interface EquipmentFacade extends InfoFacade
 	 */
 	List<String> getTypesForDisplay();
 
+	/**
+	 * Get the raw special properties as a comma separated string.
+	 * 
+	 * @return raw special properties
+	 */
+	String getRawSpecialProperties();
+
 }

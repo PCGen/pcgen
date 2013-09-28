@@ -84,6 +84,7 @@ import pcgen.core.facade.ChooserFacade;
 import pcgen.core.facade.CompanionFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
+import pcgen.core.facade.EquipmentBuilderFacade;
 import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.PartyFacade;
 import pcgen.core.facade.ReferenceFacade;
@@ -95,6 +96,7 @@ import pcgen.core.facade.util.ListFacade;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.dialog.AboutDialog;
 import pcgen.gui2.dialog.ChooserDialog;
+import pcgen.gui2.dialog.EquipCustomizerDialog;
 import pcgen.gui2.dialog.PostLevelUpDialog;
 import pcgen.gui2.dialog.RadioChooserDialog;
 import pcgen.gui2.dialog.TipOfTheDay;
@@ -2035,6 +2037,24 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	public void showAboutDialog()
 	{
 		new AboutDialog(this).setVisible(true);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public CustomEquipResult showCustomEquipDialog(CharacterFacade character, 
+		EquipmentBuilderFacade equipBuilder)
+	{
+		EquipCustomizerDialog eqDialog =
+				new EquipCustomizerDialog(this, character, equipBuilder);
+		Utility.setDialogRelativeLocation(this, eqDialog);
+		eqDialog.setVisible(true);
+		CustomEquipResult result =
+				eqDialog.isCancelled() ? CustomEquipResult.CANCELLED : eqDialog
+					.isPurchase() ? CustomEquipResult.PURCHASE
+					: CustomEquipResult.OK;
+		return result;
 	}
 
 	private static String readTextFromFile(String fileName)

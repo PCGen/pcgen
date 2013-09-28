@@ -25,6 +25,7 @@ import java.util.List;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
+import pcgen.core.facade.SizeAdjustmentFacade;
 
 /**
  * <code>SizeAdjustment</code>.
@@ -32,7 +33,7 @@ import pcgen.core.bonus.BonusObj;
  * @author Greg Bingleman <byngl@users.sourceforge.net>
  * @version $Revision$
  */
-public final class SizeAdjustment extends PObject
+public final class SizeAdjustment extends PObject implements SizeAdjustmentFacade
 {
 	/**
 	 * Get abbreviation

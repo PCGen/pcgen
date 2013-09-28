@@ -59,6 +59,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SourceFormat;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
@@ -89,15 +90,30 @@ import pcgen.util.Logging;
  * @author Greg Bingleman <byngl@hotmail.com>
  * @version $Revision$
  */
-final class ChooseSpellDialog extends JDialog
+public final class ChooseSpellDialog extends JDialog
 {
 	static final long serialVersionUID = 3692925177296126937L;
+
+	/** EQTYPE_NONE = -1 */
+	public static final int EQTYPE_NONE = -1;
+	/** EQTYPE_POTION = -1 */
+	public static final int EQTYPE_POTION = 0;
+	/** EQTYPE_SCROLL = -1 */
+	public static final int EQTYPE_SCROLL = 1;
+	/** EQTYPE_WAND = -1 */
+	public static final int EQTYPE_WAND = 2;
+	/** EQTYPE_RING = -1 */
+	public static final int EQTYPE_RING = 3;
+	/** The types of equipment that are valid for creation based on a spell. */
+	public static Type[] validEqTypes = { Type.POTION, Type.SCROLL, Type.WAND, Type.RING };
+
 	private static final int TRIGGER_ALL = -1;
 	private static final int TRIGGER_CLASS = 0;
 	private static final int TRIGGER_BASELEVEL = 1;
 	private static final int TRIGGER_CASTERLEVEL = 2;
 	private static final int TRIGGER_SPELLNAME = 3;
 	private static final int TRIGGER_METAMAGIC = 4;
+
 	private JButton btnCancel;
 	private JButton btnOk;
 	private JComboBoxEx cmbBaseSpellLevel;
@@ -125,13 +141,13 @@ final class ChooseSpellDialog extends JDialog
 	private boolean metaAllowed = true;
 	private boolean wasCancelled = true;
 	private int baseSpellLevel = -1;
-	private int eqType = EqBuilder.EQTYPE_NONE;
+	private int eqType = EQTYPE_NONE;
 	private int levelAdjust = 0;
 	private int minLevel = 0;
 	private int spellBooks = 0;
 	private PlayerCharacter pc;
 
-	ChooseSpellDialog(Window parent, PlayerCharacter pc, final int eqType, final boolean metaAllowed, final List<String> classList, final List<String> levelList, final int spellBooks, final String choiceString)
+	public ChooseSpellDialog(Window parent, PlayerCharacter pc, final int eqType, final boolean metaAllowed, final List<String> classList, final List<String> levelList, final int spellBooks, final String choiceString)
 	{
 		super(parent);
 		IconUtilitities.maybeSetIcon(parent, IconUtilitities.RESOURCE_APP_ICON);
@@ -147,7 +163,7 @@ final class ChooseSpellDialog extends JDialog
 		setLocationRelativeTo(parent); // centre on parent (Canadian spelling eh?)
 	}
 
-	ChooseSpellDialog(Window parent, PlayerCharacter pc, final int eqType, final boolean metaAllowed, final List<String> classList, final List<String> levelList, final int spellBooks)
+	public ChooseSpellDialog(Window parent, PlayerCharacter pc, final int eqType, final boolean metaAllowed, final List<String> classList, final List<String> levelList, final int spellBooks)
 	{
 		super(parent);
 		IconUtilitities.maybeSetIcon(parent, IconUtilitities.RESOURCE_APP_ICON);
@@ -462,15 +478,15 @@ final class ChooseSpellDialog extends JDialog
 
 		switch (eqType)
 		{
-			case EqBuilder.EQTYPE_NONE:
+			case EQTYPE_NONE:
 				return true;
 
 			// fall-through intentional
-			case EqBuilder.EQTYPE_POTION:
-			case EqBuilder.EQTYPE_SCROLL:
-			case EqBuilder.EQTYPE_WAND:
-			case EqBuilder.EQTYPE_RING:
-				itemType = EqBuilder.validEqTypes[eqType];
+			case EQTYPE_POTION:
+			case EQTYPE_SCROLL:
+			case EQTYPE_WAND:
+			case EQTYPE_RING:
+				itemType = validEqTypes[eqType];
 
 				break;
 
@@ -1188,12 +1204,12 @@ final class ChooseSpellDialog extends JDialog
 		//
 		switch (eqType)
 		{
-			case EqBuilder.EQTYPE_POTION:
+			case EQTYPE_POTION:
 				maxLevel = Math.min(maxLevel, SettingsHandler.getMaxPotionSpellLevel());
 
 				break;
 
-			case EqBuilder.EQTYPE_WAND:
+			case EQTYPE_WAND:
 				maxLevel = Math.min(maxLevel, SettingsHandler.getMaxWandSpellLevel());
 
 				break;
