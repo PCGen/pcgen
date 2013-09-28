@@ -45,11 +45,11 @@ CLASS:Druid.MOD
 0	DOMAIN:Wolf[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Wolf]
 
 ###Block: Additional Domains for Druid archetypes
-0	DOMAIN:Cloud Subdomain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Cloud]
+0	DOMAIN:Cloud Subdomain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Cloud Subdomain]
 0	DOMAIN:Destruction[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Destruction]
-0	DOMAIN:Storms Subdomain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Storms]
+0	DOMAIN:Storms Subdomain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Storms Subdomain]
 0	DOMAIN:War[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ War]
-0	DOMAIN:Wind Subdomain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Wind]
+0	DOMAIN:Wind Subdomain[PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Wind Subdomain]
 
 ###Block: Wizard Elemental Schools
 
