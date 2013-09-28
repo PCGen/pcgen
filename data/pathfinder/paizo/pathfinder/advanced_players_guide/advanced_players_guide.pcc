@@ -82,8 +82,6 @@ EQUIPMENT:pfapg_equip_artifacts.lst
 
 
 EQUIPMOD:pfapg_equipmods.lst
-EQUIPMOD:pfapg_equipmods_armorshields.lst
-EQUIPMOD:pfapg_equipmods_weapons.lst
 
 FEAT:pfapg_feats.lst
 FEAT:pfapg_feats_mods.lst
