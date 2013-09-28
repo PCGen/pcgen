@@ -28,22 +28,6 @@ Ratfolk	STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Aklo,Draconic,
 #
 ###Block: Mods to change the sort order
 # Race Name		SORTKEY
-Aasimar.MOD		SORTKEY:a_base_pc
-Catfolk.MOD		SORTKEY:a_base_pc
-Dhampir.MOD		SORTKEY:a_base_pc
-Drow.MOD		SORTKEY:a_base_pc
-Fetchling.MOD	SORTKEY:a_base_pc
-Goblin.MOD		SORTKEY:a_base_pc
-Hobgoblin.MOD	SORTKEY:a_base_pc
-Ifrit.MOD		SORTKEY:a_base_pc
-Kobold.MOD		SORTKEY:a_base_pc
-Orc.MOD		SORTKEY:a_base_pc
-Oread.MOD		SORTKEY:a_base_pc
-Ratfolk.MOD		SORTKEY:a_base_pc
-Sylph.MOD		SORTKEY:a_base_pc
-Tengu.MOD		SORTKEY:a_base_pc
-Tiefling.MOD	SORTKEY:a_base_pc
-Undine.MOD		SORTKEY:a_base_pc
 
 # End
 #
