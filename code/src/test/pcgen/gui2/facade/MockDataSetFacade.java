@@ -40,6 +40,7 @@ import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.GearBuySellFacade;
 import pcgen.core.facade.KitFacade;
 import pcgen.core.facade.RaceFacade;
+import pcgen.core.facade.SizeAdjustmentFacade;
 import pcgen.core.facade.SkillFacade;
 import pcgen.core.facade.StatFacade;
 import pcgen.core.facade.TemplateFacade;
@@ -301,6 +302,16 @@ public class MockDataSetFacade implements DataSetFacade
 	{
 		// TODO Auto-generated method stub
 		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public ListFacade<SizeAdjustmentFacade> getSizes()
+	{
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
