@@ -395,7 +395,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		for (Ability aFeat : feats)
 		{
 			if (aFeat.isType("Metamagic") &&  //$NON-NLS-1$
-					!aFeat.get(ObjectKey.VISIBILITY).equals(Visibility.DISPLAY_ONLY))
+					!Visibility.DISPLAY_ONLY.equals(aFeat.get(ObjectKey.VISIBILITY)))
 			{
 				characterMetaMagicFeats.add(aFeat);
 			}

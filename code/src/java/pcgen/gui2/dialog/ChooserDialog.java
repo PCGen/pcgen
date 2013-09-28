@@ -164,6 +164,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 				if (method == Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT)
 				{
 					chooser.commit();
+					committed = true;
 					return;
 				}
 			}
