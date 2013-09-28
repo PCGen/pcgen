@@ -1,11 +1,12 @@
 # CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Curse of the Crimson Throne: Skeletons of Scarwall	SOURCESHORT:CotCT:SoS	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw	SOURCEDATE:2008-08
 
-# Medium Armor
-# Equipment Name		Output Name				Required Weapon Proficiency																																						Required Armor Proficiency	Type															Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Wield Category	Maximum DEX Bonus	Requires Modification?	Size		Source Page			% of Spell Failure	Innate Spells																		Combat bonus			Weapon prop. bonus					Special Property
-Celestial Plate Armor																																																PROFICIENCY:ARMOR|Chainmail	TYPE:Enhancement.Armor.Medium.Suit.Specific								COST:6400	WT:25		ACCHECK:-3												EQMOD:MAGIC_COST|13100.MWORKA.PLUS3A.STEEL				MAXDEX:6								SOURCEPAGE:CotCT:SoS:29	SPELLFAILURE:20		SPELLS:Magic Item|TIMES=1|CASTERLEVEL=5|Fly,14													BONUS:COMBAT|AC|5|TYPE=Armor									SPROP:Allows the wearer to fly on command once per day. Aura faint transmutation (Good)
+###Block: Medium Armor
+# Equipment Name		Required Armor Proficiency	Type								Cost		Weight	AC Penalty Check	Modifier							Wield Category	Maximum DEX Bonus	Requires Modification?	Size		Source Page		% of Spell Failure	Innate Spells																		Combat bonus			Weapon prop. bonus					Special Property
+Celestial Plate Armor	PROFICIENCY:ARMOR|Full Plate	TYPE:Enhancement.Armor.Medium.Suit.Specific	COST:92900	WT:25		ACCHECK:-3		EQMOD:MAGIC_COST|13100.MWORKA.PLUS3A.STEEL				MAXDEX:6								SOURCEPAGE:p.29	SPELLFAILURE:20		SPELLS:Magic Item|TIMES=1|CASTERLEVEL=5|Fly,14													BONUS:COMBAT|AC|9|TYPE=Armor	AUTO:EQUIP|Gauntlet (Part of Armor Suit)		SPROP:Allows the wearer to fly on command once per day. Aura faint transmutation (Good).  Celestial plate armor is a sturdier version of the standard celestial armor. This bright silver suit of +3 full plate is remarkably light, and is treated as medium armor. It has a maximum Dexterity bonus of +6, an armor check penalty of -3, and an arcane spell failure chance of 20%%. It allows the wearer to use fly on command (as the spell) once per day.
+#Cost 115,150 gp, 1,080 XP
 
-# Ring
+###Block: Ring
 # Equipment Name		Output Name				Required Weapon Proficiency																																						Required Armor Proficiency	Type															Cost		Weight	AC Penalty Check	Critical Hit Multiplier	Critical Hit Range	Damage	Modifier							Wield Category	Maximum DEX Bonus	Requires Modification?	Size		Source Page			% of Spell Failure	Innate Spells																		Combat bonus			Weapon prop. bonus					Special Property
 Ring (Immolation)		OUTPUTNAME:Ring of [NAME]																																																TYPE:Magic.Ring													COST:12000	WT:0															EQMOD:CHARGED_ITEM_10|CHARGES[10]															SOURCEPAGE:CotCT:SoS:42					SPELLS:Magic Item|TIMES=ATWILL|CASTERLEVEL=10|Fire Shield																								SPROP:As a free action, the wearer can activate the ring to create a fire shield (warm) on himself. Aura moderate evocation (fire)
 
