@@ -12,5 +12,5 @@ Flurry of Blows		PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Melee.Special.Una
 Shieldbash (Light)	PROFICIENCY:WEAPON|Shieldbash		TYPE:Weapon.Melee.Light.Martial.Unarmed.Bludgeoning.Finesseable.Shieldbash	COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light						SIZE:M	SOURCEPAGE:p.142	BONUS:WEAPON|TOHIT|-4
 Shieldbash (Heavy)	PROFICIENCY:WEAPON|Shieldbash		TYPE:Weapon.Melee.OneHanded.Martial.Unarmed.Bludgeoning.Shieldbash		COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d4	WIELD:OneHanded					SIZE:M	SOURCEPAGE:p.142	BONUS:WEAPON|TOHIT|-4
 
-Touch Attack (Ray)	PROFICIENCY:WEAPON|Spells (Ray)	TYPE:Weapon.Ranged.Unarmed									COST:0	WT:0		CRITMULT:x2			CRITRANGE:1					WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.179
+Touch Attack (Ray)	PROFICIENCY:WEAPON|Spells (Ray)	TYPE:Weapon.Ranged.Unarmed									COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:0	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.179	SPROP:Damage or effect per spell.
 Unarmed Strike		PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Melee.Special.Unarmed.Monk.Bludgeoning.Finesseable.Close		COST:0	WT:0		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d3	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.142
