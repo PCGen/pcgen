@@ -6,23 +6,27 @@ CATEGORY=Internal|Select Racial Traits.MOD						ABILITY:Internal|AUTOMATIC|Aasim
 
 #Aasimar Racial Trait Default
 Aasimar Racial Trait Default					CATEGORY:Internal
-CATEGORY=Internal|Aasimar Racial Trait Default.MOD					ABILITY:Aasimar Racial Trait|AUTOMATIC|Darkvision ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarDarkvision
-CATEGORY=Internal|Aasimar Racial Trait Default.MOD					ABILITY:Aasimar Racial Trait|AUTOMATIC|Skilled ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSkilled
-CATEGORY=Internal|Aasimar Racial Trait Default.MOD					ABILITY:Aasimar Racial Trait|AUTOMATIC|Spell-Like Ability ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSLA
-CATEGORY=Internal|Aasimar Racial Trait Default.MOD					ABILITY:Aasimar Racial Trait|AUTOMATIC|Celestial Resistance ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialResistance
-CATEGORY=Internal|Aasimar Racial Trait Default.MOD					ABILITY:Aasimar Racial Trait|AUTOMATIC|Celestial Language ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialLanguage
+# These are altered in later sources
+CATEGORY=Internal|Aasimar Racial Trait Default.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Stats ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace
+CATEGORY=Internal|Aasimar Racial Trait Default.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Skilled ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace
+CATEGORY=Internal|Aasimar Racial Trait Default.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Spell-Like Ability ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace
+
+# These are constant
+CATEGORY=Internal|Aasimar Racial Trait Default.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Darkvision ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarDarkvision
+CATEGORY=Internal|Aasimar Racial Trait Default.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Celestial Resistance ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialResistance
+CATEGORY=Internal|Aasimar Racial Trait Default.MOD		ABILITY:Aasimar Racial Trait|AUTOMATIC|Celestial Language ~ Aasimar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialLanguage
 
 ###Block: Default Aasimar Abilities (POOL=5)
 # Ability Name		Unique Key					Category of Ability		Type																				Multiple Requirements																							Define															Innate Spells									Description														Automatically Gained Language	Ability																Bonus to skill						Vision			Source Page
-Darkvision			KEY:Darkvision ~ Aasimar		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.SensesTrait.Standard	TYPE:AasimarRacialTrait.AasimarRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Darkvision ~ Aasimar],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarDarkvision]																															DESC:See in the dark up to 60 ft.																																								VISION:Darkvision (60')	SOURCEPAGE:p.85
-#Darkvision 60 ft.		KEY:Darkvision ~ Aasimar		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.RacialTrait.SensesTrait.Standard	TYPE:AasimarRacialTrait.AasimarRacialDefault	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Darkvision ~ Aasimar],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarDarkvision]																															DESC:See in the dark up to 60 ft.																																								VISION:Darkvision (60')	SOURCEPAGE:p.85
+Stats				KEY:Stats ~ Aasimar			CATEGORY:Special Ability	TYPE:RacialTraits.AasimarRacialTrait.AasimarRacialDefault																																																																																																					BONUS:STAT|WIS,CHA|2|TYPE=Racial							SOURCEPAGE:p.85
 Skilled			KEY:Skilled ~ Aasimar			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.AasimarRacialTrait.AasimarRacialDefault						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Skilled ~ Aasimar],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSkilled]																																DESC:Aasimars have a +2 racial bonus on Diplomacy and Perception checks.																									BONUS:SKILL|Diplomacy,Perception|2|TYPE=Racial					SOURCEPAGE:p.85
 Spell-Like Ability	KEY:Spell-Like Ability ~ Aasimar	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SpellLike.AasimarRacialTrait.AasimarRacialDefault							PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Spell-Like Ability ~ Aasimar],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSLA]				DEFINE:AasimarDaylightTimes|1												SPELLS:Innate|TIMES=AasimarDaylightTimes|CASTERLEVEL=TL|Daylight	DESC:Aasimars can use daylight %1/day as a spell-like ability.|AasimarDaylightTimes																																				SOURCEPAGE:p.85
+
+Darkvision			KEY:Darkvision ~ Aasimar		CATEGORY:Special Ability	TYPE:RacialTrait.SensesTrait.Standard.AasimarRacialTrait.AasimarRacialDefault								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Darkvision ~ Aasimar],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarDarkvision]																															DESC:See in the dark up to 60 ft.																																								VISION:Darkvision (60')	SOURCEPAGE:p.85
 Celestial Resistance	KEY:Celestial Resistance ~ Aasimar	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.AasimarRacialTrait.AasimarRacialDefault						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Celestial Resistance ~ Aasimar],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialResistance]	DEFINE:AcidResistanceBonus|5	DEFINE:ColdResistanceBonus|5	DEFINE:ElectricityResistanceBonus|5												DESC:Aasimars have acid resistance 5, cold resistance 5, and electricity resistance 5.						ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Resistance to Cold|Resistance to Electricity													SOURCEPAGE:p.85
 Celestial Language	KEY:Celestial Language ~ Aasimar	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.AasimarRacialTrait.AasimarRacialDefault						PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Celestial Language ~ Aasimar],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialLanguage]																													DESC:Aasimars speak Celestial.										AUTO:LANG|Celestial																															SOURCEPAGE:p.85
 ###Block: Aasimar abilities
 # Ability Name	Unique Key			Category of Ability		Type						Description												Bonus to skill						Source Page
-#Skilled		KEY:Skilled ~ Aasimar	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Aasimars gain a +2 racial bonus on Diplomacy and Perception checks.	BONUS:SKILL|Diplomacy,Perception|2|TYPE=Racial	SOURCEPAGE:p.7
 
 
 ###Block: Set up Drow default abilities
