@@ -4,7 +4,7 @@ SOURCELONG:Core Rulebook	SOURCESHORT:CRB	SOURCEWEB:http://paizo.com/store/downlo
 
 # COMMENT: Post 6.0 Change
 # Ability Name			Ability
-CATEGORY=Internal|Default.MOD	ABILITY:Natural Attack|AUTOMATIC|Touch Attack (Ray)|PRECLASS:1,SPELLCASTER=1|PRESPELLTYPE:1,Ray=1
+CATEGORY=Internal|Default.MOD	ABILITY:Natural Attack|AUTOMATIC|Touch Attack (Ray)|PRECLASS:1,SPELLCASTER=1|PRESPELLTYPE:1,Ray=1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Auto|PRECLASS:1,TYPE=PC
 #CATEGORY=Internal|Default.MOD	ABILITY:Natural Attack|AUTOMATIC|Blank Weapon Block OS
 
 ###Block: Natural Attack Replacements
@@ -21,6 +21,13 @@ All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassAbility	
 #ABILITY:Natural Attack|AUTOMATIC|Natural Attack ~ Shield Bash|PREEQUIP:1,TYPE=Shield
 All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO	SERVESAS:FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
 Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO								AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Whip|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
+###Block: Specific Weapons for Classes
+Weapon Proficiencies ~ Bard		CATEGORY:Internal		AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Whip
+Weapon Proficiencies ~ Cleric		CATEGORY:Internal		AUTO:WEAPONPROF|DEITYWEAPONS
+Weapon Proficiencies ~ Druid		CATEGORY:Internal		AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Scythe|Sickle|Shortspear|Sling|Spear
+Weapon Proficiencies ~ Monk		CATEGORY:Internal		AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shortspear|Sword (Short)|Shuriken|Siangham|Sling|Spear|Flurry of Blows
+Weapon Proficiencies ~ Rogue		CATEGORY:Internal		AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)
+Weapon Proficiencies ~ Wizard		CATEGORY:Internal		AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff
 
 ###Block: Proficiency Master Groups - Cut Down on Cross Referencing
 # Ability Name		Category of Ability	Type							Serves As						Automatically Gained Weapon Prof.					Ability
