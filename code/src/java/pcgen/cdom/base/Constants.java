@@ -678,4 +678,7 @@ public interface Constants
 
 	/** The size (in pixels) of a side of the square thumbnail image */
 	public static final int THUMBNAIL_SIZE = 100;
+	
+	/** Type that signifies the modifier marks what the equipment item is made from. */
+	public static final String EQMOD_TYPE_BASEMATERIAL = "BaseMaterial"; 
 }

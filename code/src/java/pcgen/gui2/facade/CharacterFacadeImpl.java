@@ -3422,8 +3422,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			if (equipItemToAdjust.getSafe(ObjectKey.MOD_CONTROL).getModifiersRequired())
 			{
-				if ((equipItemToAdjust.getEqModifierList(true).size() == 0)
-					&& (equipItemToAdjust.getEqModifierList(false).size() == 0))
+				if (!hasBeenAdjusted(equipItemToAdjust))
 				{
 					delegate.showErrorMessage(Constants.APPLICATION_NAME,
 						LanguageBundle
@@ -3474,6 +3473,20 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setCalcEquipmentList();
 		theCharacter.setDirty(true);
 		updateWealthFields();
+	}
+
+	private boolean hasBeenAdjusted(Equipment equipItemToAdjust)
+	{
+		Set<EquipmentModifier> allEqMods = new HashSet<EquipmentModifier>(equipItemToAdjust.getEqModifierList(true));
+		allEqMods.addAll(equipItemToAdjust.getEqModifierList(false));
+		for (EquipmentModifier eqMod : allEqMods)
+		{
+			if (!eqMod.isType(Constants.EQMOD_TYPE_BASEMATERIAL))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
