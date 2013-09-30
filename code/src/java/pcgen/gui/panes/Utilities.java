@@ -40,62 +40,6 @@ import java.awt.event.MouseEvent;
  */
 final class Utilities implements SwingConstants
 {
-	/** Up direction. */
-	public static final int UP = 14;
-
-	/** Down direction. */
-	public static final int DOWN = 15;
-
-	/** Beginning (far left) direction. */
-	public static final int BEGINNING = 16;
-
-	/** End (far right) direction. */
-	public static final int END = 17;
-
-	/** Icon for New item. */
-	public static final ImageIcon NEW_ICON = getImageIcon("resources/New16.gif");
-
-	/** Icon for Close item. */
-	public static final ImageIcon CLOSE_ICON = getImageIcon("resources/Close16.gif");
-
-	/** Icon for Center item. */
-	public static final ImageIcon CENTER_ICON = getImageIcon("resources/Stop16.gif");
-
-	/** Icon for Flip item. */
-	public static final ImageIcon FLIP_ICON = getImageIcon("resources/Refresh16.gif");
-
-	/** Icon for Reset item. */
-	public static final ImageIcon RESET_ICON = getImageIcon("resources/Redo16.gif");
-
-	/** Icon for Locked item. */
-	public static final ImageIcon LOCK_ICON = getImageIcon("resources/Bookmarks16.gif");
-
-	/** Icon for Join item. */
-	public static final ImageIcon JOIN_ICON = getImageIcon("resources/Pause16.gif");
-
-	/** Icon for Up item. */
-	public static final ImageIcon UP_ICON = getImageIcon("resources/Up16.gif");
-
-	/** Icon for Left item. */
-	public static final ImageIcon LEFT_ICON = getImageIcon("resources/Back16.gif");
-
-	/** Icon for Down item. */
-	public static final ImageIcon DOWN_ICON = getImageIcon("resources/Down16.gif");
-
-	/** Icon for Right item. */
-	public static final ImageIcon RIGHT_ICON = getImageIcon("resources/Forward16.gif");
-
-	/** Icon for Top item. */
-	public static final ImageIcon TOP_ICON = getImageIcon("resources/UUp16.gif");
-
-	/** Icon for Beginning item. */
-	public static final ImageIcon BEGINNING_ICON = getImageIcon("resources/BBack16.gif");
-
-	/** Icon for Bottom item. */
-	public static final ImageIcon BOTTOM_ICON = getImageIcon("resources/DDown16.gif");
-
-	/** Icon for End item. */
-	public static final ImageIcon END_ICON = getImageIcon("resources/FForward16.gif");
 
 	private Utilities()
 	{
