@@ -17,13 +17,17 @@
  */
 package plugin.converter;
 
+import java.util.Collection;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.gui2.converter.ConversionDecider;
 import pcgen.gui2.converter.TokenConverter;
 import pcgen.gui2.converter.event.TokenProcessEvent;
 import pcgen.gui2.converter.event.TokenProcessorPlugin;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.EditorLoadContext;
+import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 public class BonusConvertPlugin implements TokenProcessorPlugin
@@ -34,8 +38,6 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
     @Override
 	public String process(TokenProcessEvent tpe)
 	{
-		tpe.append(tpe.getKey());
-		tpe.append(':');
 		String value = tpe.getValue();
 		StringBuilder result = new StringBuilder(value.length() + 10);
 		String objectName = tpe.getObjectName();
@@ -44,8 +46,8 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 			int pipeLoc = value.lastIndexOf('|');
 			String preString = value.substring(pipeLoc + 1);
 			if (pipeLoc == -1
-					|| (!preString.startsWith("PRE") && !preString
-							.startsWith("!PRE")))
+				|| (!preString.startsWith("PRE") && !preString
+					.startsWith("!PRE")) || preString.startsWith("PREAPPLY"))
 			{
 				break;
 			}
@@ -54,10 +56,8 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 			result.insert(0, '|');
 			value = value.substring(0, pipeLoc);
 		}
-		tpe.append(value);
-		tpe.append(result);
-		tpe.consume();
-		return null;
+		
+		return processBonus(tpe, tpe.getKey(), value + result);
 	}
 
 	private String process(EditorLoadContext context,
@@ -94,6 +94,48 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 		else
 		{
 			Logging.errorPrint(error);
+		}
+		return null;
+	}
+
+	private String processBonus(TokenProcessEvent tpe, String key, String value)
+	{
+		try
+		{
+			LoadContext context = tpe.getContext();
+			CDOMObject obj = tpe.getPrimary();
+			if (context.processToken(obj, key, value))
+			{
+				context.commit();
+			}
+			else
+			{
+				context.rollback();
+				Logging.replayParsedMessages();
+			}
+			Logging.clearParseMessages();
+			Collection<String> output = context.unparse(obj);
+			if (output == null || output.isEmpty())
+			{
+				// Uh Oh
+				return ("Unable to unparse: " + key + ":" + value);
+			}
+			boolean needTab = false;
+			for (String s : output)
+			{
+				if (needTab)
+				{
+					tpe.append('\t');
+				}
+				needTab = true;
+				tpe.append(s);
+			}
+			tpe.consume();
+		}
+		catch (PersistenceLayerException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return null;
 	}

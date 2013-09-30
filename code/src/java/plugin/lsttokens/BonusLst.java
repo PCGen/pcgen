@@ -26,6 +26,7 @@ import java.util.regex.Pattern;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.AbilityCategory;
+import pcgen.core.EquipmentModifier;
 import pcgen.core.PCClass;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -145,6 +146,12 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
+		if (obj instanceof EquipmentModifier)
+		{
+			// EquipmentModifier bonuses are handled by plugin.lsttokens.equipmentmodifier.BonusToken
+			return null;
+		}
+
 		Changes<BonusObj> changes = context.obj.getListChanges(obj,
 				ListKey.BONUS);
 		if (changes == null || changes.isEmpty())

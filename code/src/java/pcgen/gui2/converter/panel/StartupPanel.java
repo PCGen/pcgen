@@ -52,7 +52,7 @@ public class StartupPanel extends ConvertSubPanel
 		this.campaignFileLoader = campaignFileLoader;
 		message = new JPanel();
 		message.setLayout(new UnstretchingGridLayout(0, 1));
-		message.add(new JLabel("Welcome to the PCGen 6.0 Data Converter..."));
+		message.add(new JLabel("Welcome to the PCGen 6.2 Data Converter..."));
 		message.add(new JLabel(" "));
 		message.add(new JLabel("Loading Game Modes and Campaign Information."));
 		message.add(new JLabel(" "));

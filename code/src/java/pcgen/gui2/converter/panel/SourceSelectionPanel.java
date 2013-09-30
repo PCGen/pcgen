@@ -231,6 +231,10 @@ public class SourceSelectionPanel extends ConvertSubPanel
 				{
 					pathButton.setSelected(true);
 					haveSelected = true;
+					PCGenSettings context = PCGenSettings.getInstance();
+					context.setProperty(PCGenSettings.CONVERT_INPUT_PATH,
+						path);
+					selectedFile = folder.getFile();
 				}
 			}
 			pathButton.setText(buildFolderText(folder, path));
@@ -300,7 +304,6 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		}
 		
 		pc.put(ObjectKey.DIRECTORY, selectedFile);
-				
 	}
 
 	/**
