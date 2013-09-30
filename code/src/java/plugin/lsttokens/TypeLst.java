@@ -25,6 +25,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
+import pcgen.core.character.CompanionMod;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -144,6 +145,11 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
+		if (cdo instanceof CompanionMod)
+		{
+			// TYPEs for companionmods are processed by plugin.lsttokens.companionmod.TypeToken
+			return null;
+		}
 		Changes<Type> changes =
 				context.getObjectContext().getListChanges(cdo, ListKey.TYPE);
 		if (changes == null || changes.isEmpty())
