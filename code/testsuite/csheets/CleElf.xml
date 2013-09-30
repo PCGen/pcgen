@@ -123,8 +123,8 @@ BIO
 		<speechtendency></speechtendency>
 		<type>Humanoid</type>
 		<vision>
-			<vision>Low-light</vision>
-			<all>Low-light</all>
+			<vision>Low-Light Vision</vision>
+			<all>Low-Light Vision</all>
 		</vision>
 		<wealth>0</wealth>
 		<weight>
