@@ -871,6 +871,17 @@ public class EqToken extends Token
 	}
 
 	/**
+	 * Get Equipment Slot Token
+	 * @param pc
+	 * @param eq
+	 * @return Equipment Slot Token
+	 */
+	public static String getSlotToken(Equipment eq)
+	{
+		return eq.getSlot();
+	}
+
+	/**
 	 * Get Source Token
 	 * @param eq
 	 * @return Source Token
@@ -1236,6 +1247,10 @@ public class EqToken extends Token
 		else if ("SOURCE".equals(token))
 		{
 			retString = getSourceToken(eq);
+		}
+		else if ("SLOT".equals(token))
+		{
+			retString = getSlotToken(eq);
 		}
 		return retString;
 	}

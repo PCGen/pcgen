@@ -1,0 +1,163 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text-html; charset=utf-8" />
+<title>|NAME| - |PLAYERNAME| Test</title>
+<!--
+	This preview sheer is designed to test a table of slotted equipment
+
+$Revision: 15961 $
+$Author: zaister $
+$Date: 2012-02-02 13:23:59 +0100 (Do, 02 Feb 2012) $
+
+-->
+<style type="text/css">
+	body  {
+		font-family:Arial, sans-serif; font-size:10pt; text-align:left; color:black; background:white; font-weight:normal; margin: 0px; padding: 5px;
+	}
+	.header {
+		display:block; font-size:7pt; text-align:center;
+	}
+	.divider {
+		border-top-width: 2px;
+		border-top-color: #000000;
+		border-top-style: solid;
+		border-bottom-width: 2px;
+		border-bottom-color: #000000;
+		border-bottom-style: solid;
+	}
+</style>
+</head>
+<body>
+
+<table width="100%">
+	<tr>
+		<td><b><font size="+1">|TEXT.UPPER.NAME|</font></b></td>
+		<td align="right">
+			<b><font size="+1">CR
+|IIF(CR:0)|
+&mdash;
+|ELSE|
+|CR|
+|ENDIF|
+			</font></b>
+		</td>
+	</tr>
+</table>
+
+|GENDER.LONG| |RACE|
+|FOR,%class,0,COUNT[CLASSES]-1,1,1|
+|IIF(%class:0)|
+|ELSE|
+/
+|ENDIF|
+|CLASS.%class|
+|CLASS.%class.LEVEL|
+|ENDFOR|
+
+<hr>
+<h3>ARMOR</h3>
+|FOR,%eq,0,(COUNT[EQUIPMENT]-1),1,0|
+|IIF(EQ.MERGENONE.%eq.SLOT:Armor.AND.EQ.%eq.EQUIPPED:Y)|
+|EQ.%eq.NAME|
+<br>
+|ENDIF|
+|ENDFOR|
+
+<hr>
+<h3>BELT</h3>
+|FOR,%eq,0,(COUNT[EQUIPMENT]-1),1,0|
+|IIF(EQ.MERGENONE.%eq.SLOT:Belt.AND.EQ.%eq.EQUIPPED:Y)|
+|EQ.%eq.NAME|<br>
+|ENDIF|
+|ENDFOR|
+
+<hr>
+<h3>BODY</h3>
+|FOR,%eq,0,(COUNT[EQUIPMENT]-1),1,0|
+|IIF(EQ.MERGENONE.%eq.SLOT:Body.AND.EQ.%eq.EQUIPPED:Y)|
+|EQ.%eq.NAME|<br>
+|ENDIF|
+|ENDFOR|
+
+<hr>
+<h3>CHEST</h3>
+|FOR,%eq,0,(COUNT[EQUIPMENT]-1),1,0|
+|IIF(EQ.MERGENONE.%eq.SLOT:Chest.AND.EQ.%eq.EQUIPPED:Y)|
+|EQ.%eq.NAME|<br>
+|ENDIF|
+|ENDFOR|
+
+<hr>
+<h3>EYES</h3>
+|FOR,%eq,0,(COUNT[EQUIPMENT]-1),1,0|
+|IIF(EQ.MERGENONE.%eq.SLOT:Eyes.AND.EQ.%eq.EQUIPPED:Y)|
+|EQ.%eq.NAME|<br>
+|ENDIF|
+|ENDFOR|
+
+<hr>
+<h3>FEET</h3>
+|FOR,%eq,0,(COUNT[EQUIPMENT]-1),1,0|
+|IIF(EQ.MERGENONE.%eq.SLOT:Feet.AND.EQ.%eq.EQUIPPED:Y)|
+|EQ.%eq.NAME|<br>
+|ENDIF|
+|ENDFOR|
+
+<hr>
+<h3>HANDS</h3>
+|FOR,%eq,0,(COUNT[EQUIPMENT]-1),1,0|
+|IIF(EQ.MERGENONE.%eq.SLOT:Hands.AND.EQ.%eq.EQUIPPED:Y)|
+|EQ.%eq.NAME|<br>
+|ENDIF|
+|ENDFOR|
+
+<hr>
+<h3>HEAD</h3>
+|FOR,%eq,0,(COUNT[EQUIPMENT]-1),1,0|
+|IIF(EQ.MERGENONE.%eq.SLOT:=Head.AND.EQ.%eq.EQUIPPED:Y)|
+|EQ.%eq.NAME|<br>
+|ENDIF|
+|ENDFOR|
+
+<hr>
+<h3>HEADBAND</h3>
+|FOR,%eq,0,(COUNT[EQUIPMENT]-1),1,0|
+|IIF(EQ.MERGENONE.%eq.SLOT:Headband.AND.EQ.%eq.EQUIPPED:Y)|
+|EQ.%eq.NAME|<br>
+|ENDIF|
+|ENDFOR|
+
+<hr>
+<h3>RING</h3>
+|FOR,%eq,0,(COUNT[EQUIPMENT]-1),1,0|
+|IIF(EQ.MERGENONE.%eq.SLOT:Ring.AND.EQ.%eq.EQUIPPED:Y)|
+|EQ.%eq.NAME|<br>
+|ENDIF|
+|ENDFOR|
+
+<hr>
+<h3>SHIELD</h3>
+|FOR,%eq,0,(COUNT[EQUIPMENT]-1),1,0|
+|IIF(EQ.MERGENONE.%eq.SLOT:Shield.AND.EQ.%eq.EQUIPPED:Y)|
+|EQ.%eq.NAME|<br>
+|ENDIF|
+|ENDFOR|
+
+<hr>
+<h3>SHOULDERS</h3>
+|FOR,%eq,0,(COUNT[EQUIPMENT]-1),1,0|
+|IIF(EQ.MERGENONE.%eq.SLOT:Shoulders.AND.EQ.%eq.EQUIPPED:Y)|
+|EQ.%eq.NAME|<br>
+|ENDIF|
+|ENDFOR|
+
+<hr>
+<h3>WRIST</h3>
+|FOR,%eq,0,(COUNT[EQUIPMENT]-1),1,0|
+|IIF(EQ.MERGENONE.%eq.SLOT:Wrist.AND.EQ.%eq.EQUIPPED:Y)|
+|EQ.%eq.NAME|<br>
+|ENDIF|
+|ENDFOR|
+
+</body>
+</html>

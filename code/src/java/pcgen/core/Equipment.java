@@ -77,6 +77,7 @@ import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
+import pcgen.core.character.EquipSlot;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.facade.EquipmentFacade;
 import pcgen.core.prereq.PrereqHandler;
@@ -2020,6 +2021,17 @@ public final class Equipment extends PObject implements Serializable,
 		return iSlots;
 	}
 
+	public String getSlot()
+	{
+		for (EquipSlot es : SystemCollections.getUnmodifiableEquipSlotList())
+		{
+			if (es.canContainType(getType()))
+			{
+				return es.getSlotName();
+			}
+		}
+		return null;
+	}
 	/**
 	 * Returns special properties of an Equipment.
 	 * 

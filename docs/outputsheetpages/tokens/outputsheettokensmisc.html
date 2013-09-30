@@ -598,11 +598,24 @@
 		<p class="indent3">True if the current weapon is part of the Ranged category.</p>
 
 		<p></p>
+		<p class="indent0"><strong>Token Name:</strong> IIF(x:=y)</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any valid token or value).</p>
+		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any valid token or value).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2"> True if both tokens or values evaluate to the same value.</p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>IIF(COMBAT.AC.TOTAL:20)</code></p>
+		<p class="indent3">Would be true if the combat AC total was 20.</p>
+		<p class="indent2"><code>IIF(ABILITY.Special&nbsp;Ability.%subability.ASPECT.ChildAbility:ABILITYAUTO.Special&nbsp;Ability.%ability.ASPECT.MasterAbility)</code></p>
+		<p class="indent3">This could occur inside a double loop, and would be true if the value of the ChildAbility ASPECT of the ability represented by %subability is equal to the value of the MasterAbility ASPECT of the ability represented by %ability.</p>
+		<p></p>
+
+		<p></p>
 		<p class="indent0"><strong>Token Name:</strong> IIF(x:y)</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Any valid token or value).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Any valid token or value).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
-		<p class="indent2"> True if the both tokens or values evaluate to the same value.</p>
+		<p class="indent2"> True if token <strong>y</strong> evaluates to the same value or a substring of the evaluation result of token <strong>x</strong>.</p>
 		<p class="indent1"><strong>Example:</strong></p>
 		<p class="indent2"><code>IIF(COMBAT.AC.TOTAL:20)</code></p>
 		<p class="indent3">Would be true if the combat AC total was 20.</p>

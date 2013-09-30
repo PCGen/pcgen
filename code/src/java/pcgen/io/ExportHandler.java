@@ -768,6 +768,11 @@ public final class ExportHandler
 		catch (NumberFormatException e)
 		{
 			// String values
+			// if right string starts with =, test exact match, otherwise test substring match
+			if (rightString.startsWith("="))
+			{
+				return leftString.equals(rightString.substring(1));
+			}
 			return 0 <= leftString.toUpperCase().indexOf(rightString.toUpperCase());
 		}
 	}
