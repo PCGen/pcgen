@@ -5,7 +5,8 @@ SOURCELONG:Modern System Reference Document	SOURCESHORT:MSRD	SOURCEWEB:http://ww
 #Progress Level 6 Ammunition Types
 # Equipment Name			Output Name								Type									Cost		Weight	Source Page					Special Property
 Bio-Agent (20)			BASEQTY:20	OUTPUTNAME:Ammunition, Bio-Agent, 20 pack			TYPE:Ammunition.Standard.Bullet.Poison.PL6		COST:14	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:-1 to damage, poisonous bio-agent with effects identical to cyanogen gas, Mil(+3)
-Power Pack (50)			BASEQTY:50	OUTPUTNAME:Power Pack, 50 charges				TYPE:Ammunition.Standard.Energy.PL6				COST:8	WT:0		SOURCEPAGE:FutureEquipment.rtf
+Power Pack (50)			BASEQTY:1	OUTPUTNAME:Power Pack, 50 charges				TYPE:Ammunition.Standard.Energy.PL6				COST:8	WT:0		SOURCEPAGE:FutureEquipment.rtf	EQMOD:CHARGED_ITEM_50|CHARGES[50]
+#Power Pack (50)			BASEQTY:50	OUTPUTNAME:Power Pack, 50 charges				TYPE:Ammunition.Standard.Energy.PL6				COST:8	WT:0		SOURCEPAGE:FutureEquipment.rtf
 
 #Progress Level 7 Ammunition Types
 Deflecting Ammunition (20)	BASEQTY:20	OUTPUTNAME:Ammunition, deflecting, 20 pack		TYPE:Ammunition.Standard.Bullet.PL7				COST:12	WT:0		SOURCEPAGE:FutureEquipment.rtf	SPROP:deflecting ammunition can be bounced around any barrier, Lic(+1)
