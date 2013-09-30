@@ -11,7 +11,7 @@ Wild Sense								VISIBLE:NO	TEMPLATE:CHOOSE:Increased Vision|Scent													
 Improved Wild Sense						VISIBLE:NO	TEMPLATE:CHOOSE:Increased Vision|Scent																																																	PREPCLEVEL:MIN=16
 
 Increased Vision							VISIBLE:NO	TEMPLATE:CHOOSE:Darkvision|Low Light
-Darkvision								VISIBLE:NO																																																																	PREVISION:1,Low-light=ANY																																																																																																																																																																																																																																	VISION:Darkvision (60')
+Darkvision								VISIBLE:NO																																																																	PREVISION:1,Low-Light Vision=ANY																																																																																																																																																																																																																																	VISION:Darkvision (60')
 Low Light								VISIBLE:NO																																																																																																																																																																																																																																																																																																						VISION:Low-light
 
 Scent									VISIBLE:NO																																																																																																																																																																																																																																																																																																	AUTO:FEAT|Scent
