@@ -49,7 +49,7 @@ Brooch of the Golden Boughs' of Saluwe										TYPE:Magic.Wondrous.Amulet	COST:
 Candle of Revealing Presence									TYPE:Magic.Wondrous		COST:364000	SOURCEPAGE:p.70
 Cape of Glory											TYPE:Magic.Wondrous.Cape	COST:18000	SOURCEPAGE:p.70
 Cape of the Feline Form										TYPE:Magic.Wondrous.Cape	COST:8750	SOURCEPAGE:p.70	ABILITY:FEAT|VIRTUAL|Diehard																										BONUS:CHECKS|ALL|2|TYPE=Resistance																																			SPROP:Immunity to Fear
-Cat's Cloak												TYPE:Magic.Wondrous.Cape	COST:51300	SOURCEPAGE:p.70						VISION:Low-light																																			BONUS:SKILL|Balance,Climb,Hide,Jump,Move Silently|5|TYPE=Competence
+Cat's Cloak												TYPE:Magic.Wondrous.Cape	COST:51300	SOURCEPAGE:p.70						VISION:Low-Light Vision																																				BONUS:SKILL|Balance,Climb,Hide,Jump,Move Silently|5|TYPE=Competence
 Cauldron of Combining										TYPE:Magic.Wondrous		COST:200000	SOURCEPAGE:p.71
 Censor of the Raven										TYPE:Magic.Wondrous		COST:5000	SOURCEPAGE:p.71
 Circlet of Darkness										TYPE:Magic.Wondrous.Amulet	COST:10080	SOURCEPAGE:p.71									SPELLS:Circlet of Darkness|TIMES=1|TIMEUNIT=Day|CASTERLEVEL=7|Flaying Darkness,16
@@ -203,7 +203,7 @@ Necklace of Beroe				TYPE:Magic.Wondrous.Amulet		COST:117000	SOURCEPAGE:p.96				
 Necklace of Elements			TYPE:Magic.Wondrous.Amulet		COST:1000	SOURCEPAGE:p.96
 Necromantic Shroud			TYPE:Magic.Wondrous			COST:60500	SOURCEPAGE:p.96
 Needle of Mending				TYPE:Magic.Wondrous			COST:1300	SOURCEPAGE:p.97																																																																				BONUS:SKILL|Heal|2|TYPE=Competence
-Night Robe					TYPE:Magic.Wondrous.Robe		COST:13900	SOURCEPAGE:p.97	VISION:Low-light	SPELLS:Night Robe|TIMES=1|CASTERLEVEL=5|Deeper Darkness	SPELLS:Night Robe|TIMES=ATWILL|CASTERLEVEL=9|Arcane Sight|True Seeing																																											BONUS:SKILL|Hide|5|TYPE=Competence
+Night Robe					TYPE:Magic.Wondrous.Robe		COST:13900	SOURCEPAGE:p.97	VISION:Low-Light Vision		SPELLS:Night Robe|TIMES=1|CASTERLEVEL=5|Deeper Darkness	SPELLS:Night Robe|TIMES=ATWILL|CASTERLEVEL=9|Arcane Sight|True Seeing																																											BONUS:SKILL|Hide|5|TYPE=Competence
 Ocular of Vision				TYPE:Magic.Wondrous			COST:160000	SOURCEPAGE:p.97
 Orb of Lore					TYPE:Magic.Wondrous			COST:10150	SOURCEPAGE:p.97
 Orb of Opalescence			TYPE:Magic.Wondrous			COST:306000	SOURCEPAGE:p.97				SPELLS:Orb of Opalescence|TIMES=1|CASTERLEVEL=17|Prismatic Arrow,19|Prismatic Sphere,23|Prismatic Spray,20|Prismatic Wall,22	SPELLS:Orb of Opalescence|TIMES=ATWILL|CASTERLEVEL=17|Rainbow Pattern,16

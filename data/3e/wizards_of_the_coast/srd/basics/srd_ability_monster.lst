@@ -478,7 +478,7 @@ Racial Save Bonus						KEY:Racial Save Bonus ~ Drow				CATEGORY:Special Ability	
 ###Block: Traits - Add missing traits
 # Ability Name	Category of Ability		Type						Visible	Description																																										Vision		Source Page
 #Evil Traits		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	VISIBLE:YES	DESC:A creature with the evil subtype overcomes damage reduction as if its natural weapons and any weapons it wields were evil-aligned
-#Plant Traits	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Plants breathe/eat but do not sleep. Plants are Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects). Immune to poison/ sleep effects/ paralysis/ polymorph/ and stunning. Not subject to critical hits.	VISION:Low-light	SOURCEPAGE:TypesSubtypesAbilities.rtf
+#Plant Traits	CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Plants breathe/eat but do not sleep. Plants are Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects). Immune to poison/ sleep effects/ paralysis/ polymorph/ and stunning. Not subject to critical hits.	VISION:Low-Light Vision		SOURCEPAGE:TypesSubtypesAbilities.rtf
 
 
 ###Block: Flight Maneuverability

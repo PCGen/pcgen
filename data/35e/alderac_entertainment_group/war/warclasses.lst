@@ -214,7 +214,7 @@ CLASS:Sharpshooter	PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:1,Weapon Focus (Shortbow%)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sharpshooter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Ride|Swim
 1														DEFINE:Eagle|2	ABILITY:Special Ability|AUTOMATIC|Eagle Eye Shot ~ Sharpshooter
-2	VISION:Low-light														ABILITY:Special Ability|AUTOMATIC|Low-light Vision ~ Sharpshooter
+2	VISION:Low-Light Vision															ABILITY:Special Ability|AUTOMATIC|Low-light Vision ~ Sharpshooter
 3																	ABILITY:Special Ability|AUTOMATIC|Disarming Shot ~ Sharpshooter
 4				BONUS:ABILITYPOOL|Sharpshooter Feat|1
 5																	ABILITY:Special Ability|AUTOMATIC|Stumbling Shot ~ Sharpshooter

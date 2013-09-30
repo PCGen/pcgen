@@ -73,7 +73,7 @@ CLASS:Fae-Walker	PREALIGN:CG,CN,CE	PREATT:4	PREFEAT:3,Dodge,Mobility,Combat Refl
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fae-Walker	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE=Perform|Pick Pocket|TYPE=Profession|Search|Spot|Tumble|Use Rope
 1				BONUS:VAR|StepSideways|1						ABILITY:Special Ability|AUTOMATIC|Evasion|Step Sideways
-2	VISION:Low-light	BONUS:VAR|UncannyDodge|1						ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+2	VISION:Low-Light Vision		BONUS:VAR|UncannyDodge|1						ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
 3														ABILITY:Special Ability|AUTOMATIC|Slippery Mind
 4				BONUS:VAR|FaeWalk|15							ABILITY:Special Ability|AUTOMATIC|Fae-walk
 5				BONUS:VAR|StepSideways|1	BONUS:VAR|UncannyDodge|1
@@ -135,7 +135,7 @@ CLASS:Fey-Touched	HD:6		TYPE:PC.Prestige	ABB:FTc		MAXLEVEL:10	SOURCEPAGE:p.28	BO
 CLASS:Fey-Touched	PREATT:4	PREFEAT:2,Alertness,Dodge	!PRERACE:1,RACETYPE=Fey	PRESKILL:1,Knowledge (Fey)=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fey-Touched	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Diplomacy|Disguise|Gather Information|Hide|Innuendo|Knowledge (Fey)|Knowledge (Nature)|Listen|Move Silently|Sense Motive|Spellcraft|Spot
-1	VISION:Low-light	ABILITY:Special Ability|AUTOMATIC|Fey Sense														AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
+1	VISION:Low-Light Vision		ABILITY:Special Ability|AUTOMATIC|Fey Sense														AUTO:FEAT|Simple Weapon Proficiency	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Shield Proficiency
 2														SPELLS:Class|TIMES=3|Prestidigitation
 3				ABILITY:Special Ability|AUTOMATIC|Luck of the Fey
 4				ABILITY:Special Ability|AUTOMATIC|Fey Friend

@@ -18,7 +18,7 @@ Potion of Cure Moderate Wounds			TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOU
 Potion of Cure Serious Wounds				TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Cures 3d8+5 points of damage
 Potion of Darkvision					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477										SPROP:Grants darkvision (60 ft.) for 3 hours
 Potion of Delay Poison					TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477										SPROP:Become immune to poison for 3 hours
-Potion of Displacement					TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Grants 50% miss chance for 3 rounds
+Potion of Displacement					TYPE:Magic.Potion.Consumable	COST:750	WT:0		SOURCEPAGE:p.477										SPROP:Grants 50%% miss chance for 3 rounds
 Potion of Eagle's Splendor				TYPE:Magic.Potion.Consumable	COST:300	WT:0		SOURCEPAGE:p.477	BONUS:STAT|CHA|4|PREAPPLY:ANYPC|TYPE=Enhancement	SPROP:+4 enhancement bonus to Charisma for 3 minutes
 Potion of Endure Elements				TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:Grants protection from harm from being in a hot or cold environment for 24 hours
 Potion of Enlarge Person				TYPE:Magic.Potion.Consumable	COST:50	WT:0		SOURCEPAGE:p.477										SPROP:Target's size category increases to next larger category for 1 minute

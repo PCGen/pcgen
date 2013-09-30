@@ -45,7 +45,7 @@ Vaporex (Potion of Gaseous Form)	TYPE:FX.Magic.Potion.Consumable	COST:25	WT:0		S
 
 ###Block: Magic Rings
 # Equipment Name				Type					Cost		Weight	Source Page				Virtual Feat		Vision		Innate Spells									Bonus to skill				Special Property
-Cat's Eye Ring				TYPE:FX.Ring.Magic		COST:37	WT:0		SOURCEPAGE:ArcanaFXItems.rtf					VISION:Low-light																		SPROP:Once per day the wearer may transform into a cat (Transformation is a move action, turn back at any time).	SPROP: The wearer retains INT, WIS and CHA scores in cat form.
+Cat's Eye Ring				TYPE:FX.Ring.Magic		COST:37	WT:0		SOURCEPAGE:ArcanaFXItems.rtf					VISION:Low-Light Vision																			SPROP:Once per day the wearer may transform into a cat (Transformation is a move action, turn back at any time).	SPROP: The wearer retains INT, WIS and CHA scores in cat form.
 Decoder Ring				TYPE:FX.Ring.Magic		COST:30	WT:0		SOURCEPAGE:ArcanaFXItems.rtf																			BONUS:SKILL|Decipher Script|10	SPROP:Grants an equipment bonus on Decipher Script checks
 Ring of Algos				TYPE:FX.Ring.Incantation	COST:36	WT:0		SOURCEPAGE:ArcanaFXItems.rtf																									SPROP:When activated on a handshake, both parties shaking hands make opposed Will saves (ringwearer +CHA Bonus). The lower result receives a -4 penalty to attack rolls, skill checks, and saving throws for the next 12 hours.
 Ring of Cold Cocking			TYPE:FX.Ring.Magic		COST:30	WT:0		SOURCEPAGE:ArcanaFXItems.rtf	VFEAT:Knockout Punch																					SPROP:The wearer can make an unarmed attack against a flat-footed opponent as if he had the Knockout Punch feat

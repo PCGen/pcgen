@@ -115,7 +115,7 @@ CLASS:Witch		STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Craft (Chemical)|Craft (
 2				SAB:Herbal Lore
 3				SAB:Darkshape %/day|Darkshape					BONUS:VAR|Darkshape|CL/3	DEFINE:Darkshape|0
 4																						ABILITY:Special Ability|AUTOMATIC|Brew Potion
-5	VISION:Low-light	SAB:Creature of the Night - heals 1 hp/hour at night
+5	VISION:Low-Light Vision		SAB:Creature of the Night - heals 1 hp/hour at night
 7				SAB:Witch's Brew
 8				SAB:Witch's Delight
 10				SAB:Object of Desire

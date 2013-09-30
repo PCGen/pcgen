@@ -3,7 +3,7 @@ SOURCELONG:Curses!	SOURCESHORT:Curses	SOURCEWEB:http://www.silven.com/	SOURCEDAT
 # Original Entry by: Eddy Anthony (MoSaT)
 
 # Skill Name		Key Stat	Untrained?		Type				Source Page
-Craft (Doll-Making)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:p. 18
+Craft (Doll-Making)	KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft	SOURCEPAGE:p.18
 
 #
 # End
