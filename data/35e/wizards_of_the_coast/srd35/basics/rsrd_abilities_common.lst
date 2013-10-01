@@ -11,9 +11,6 @@ CATEGORY=Internal|Grants All Hidden Abilities.MOD																															
 CATEGORY=Internal|Grants All Hidden Abilities.MOD																																																																					ABILITY:Special Ability|AUTOMATIC|Low light Vision|PREVISION:1,Low-Light=1,Low Light=1
 
 
-Test	CATEGORY:Feat	TYPE:Test	CHOOSE:ABILITY|FEAT|PC[TYPE=Fighter]	MULT:YES	STACK:YES
-
-
 #COMMENT: Holds Global DEFINES
 
 # All Hidden Abilities ~ Granted Abilities:
