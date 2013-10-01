@@ -18,7 +18,9 @@
 package pcgen.cdom.helper;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -112,10 +114,17 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 			{
 				// Ensure that the skill points for this level are already calculated.
 				PCClassLevel classLevel = (PCClassLevel) owner;
-				int level = classLevel.getSafe(IntegerKey.LEVEL);
 				PCClass pcClass = (PCClass) classLevel.getSafe(ObjectKey.PARENT);
-				PCLevelInfo pi = pc.getLevelInfoFor(pcClass.getKeyName(), level);
-				pc.checkSkillModChangeForLevel(pcClass, pi, classLevel);
+
+				int levelIndex = 1;
+				for (PCLevelInfo lvlInfo : pc.getLevelInfo())
+				{
+					if (lvlInfo.getClassKeyName() == pcClass.getKeyName()
+							&& lvlInfo.getClassLevel() == classLevel.getSafe(IntegerKey.LEVEL)) {
+						pc.checkSkillModChangeForLevel(pcClass, lvlInfo, classLevel, levelIndex++);
+						break;
+					}
+				}
 			}
 			String result =
 					SkillRankControl

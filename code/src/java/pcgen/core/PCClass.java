@@ -1127,12 +1127,12 @@ public class PCClass extends PObject implements ClassFacade
 	}
 
 	public int getSkillPointsForLevel(final PlayerCharacter aPC,
-		PCClassLevel classLevel, int total)
+		PCClassLevel classLevel, int characterLevel)
 	{
 		// Update Skill Points. Modified 20 Nov 2002 by sage_sam
 		// for bug #629643
 		//final int spMod;
-		int spMod = aPC.recalcSkillPointMod(this, total);
+		int spMod = aPC.recalcSkillPointMod(this, characterLevel);
 		if (classLevel.get(ObjectKey.DONTADD_SKILLPOINTS) != null)
 		{
 			spMod = 0;

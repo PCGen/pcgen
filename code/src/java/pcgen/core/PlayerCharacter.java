@@ -10750,23 +10750,36 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 	public void checkSkillModChange()
 	{
-		for (PCClass pcClass : getClassSet())
+		List<PCClass> newClasses = getClassList();
+		Collection<PCLevelInfo> levelInfo = getLevelInfo();
+		int levelIndex = 1;
+		
+		for (PCLevelInfo lvlInfo : levelInfo)
 		{
-			for (PCLevelInfo pi : getLevelInfo())
+			Map<String, PCClass> classMap = new HashMap<String, PCClass>();
+			for (PCClass pcClass : newClasses)
 			{
-				PCClassLevel classLevel =
-						getActiveClassLevel(pcClass, pi.getClassLevel());
-				checkSkillModChangeForLevel(pcClass, pi, classLevel);
+				classMap.put(pcClass.getKeyName(), pcClass);
 			}
+			final String classKeyName = lvlInfo.getClassKeyName();
+			PCClass currClass = classMap.get(classKeyName);
+			if (currClass == null)
+			{
+				Logging.errorPrint("No PCClass found for '" + classKeyName + "' in character's class list: "
+						+ newClasses);
+				return;
+			}
+			PCClassLevel classLevel = getActiveClassLevel(currClass, lvlInfo.getClassLevel());
+			checkSkillModChangeForLevel(currClass, lvlInfo, classLevel, levelIndex++);
 		}
 	}
 
 	public void checkSkillModChangeForLevel(PCClass pcClass, PCLevelInfo pi,
-		PCClassLevel classLevel)
+		PCClassLevel classLevel, int characterLevel)
 	{
 		int newSkillPointsGained =
 				pcClass.getSkillPointsForLevel(this, classLevel,
-					getTotalLevels());
+						characterLevel);
 		if (pi.getClassKeyName().equals(pcClass.getKeyName()))
 		{
 			final int formerGained = pi.getSkillPointsGained(this);
@@ -10960,7 +10973,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		return statValueFacet.get(id, stat);
 	}
 
-	public int recalcSkillPointMod(PCClass pcClass, final int total)
+	public int recalcSkillPointMod(PCClass pcClass, final int characterLevel)
 	{
 		// int spMod = getSkillPoints();
 		int lockedMonsterSkillPoints;
@@ -10977,7 +10990,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 			{
 				spMod = lockedMonsterSkillPoints;
 			}
-			else if (total == 1)
+			else if (characterLevel == 1)
 			{
 				int monSkillPts =
 						(int) getTotalBonusTo("MONSKILLPTS", "NUMBER");
@@ -10987,14 +11000,14 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 				}
 			}
 	
-			if (total != 1)
+			if (characterLevel != 1)
 			{
 				// If this level is one that is not entitled to skill points
 				// based
 				// on the monster's size, zero out the skills for this level
 				final int nonSkillHD =
 						(int) getTotalBonusTo("MONNONSKILLHD", "NUMBER");
-				if (total <= nonSkillHD)
+				if (characterLevel <= nonSkillHD)
 				{
 					spMod = 0;
 				}
@@ -11003,7 +11016,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	
 		spMod = updateBaseSkillMod(pcClass, spMod);
 	
-		if (total == 1)
+		if (characterLevel == 1)
 		{
 			if (!SettingsHandler.getGame().isPurchaseStatMode())
 			{
@@ -11019,7 +11032,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		}
 		else
 		{
-			spMod *= Globals.getSkillMultiplierForLevel(total);
+			spMod *= Globals.getSkillMultiplierForLevel(characterLevel);
 		}
 	
 		return spMod;
