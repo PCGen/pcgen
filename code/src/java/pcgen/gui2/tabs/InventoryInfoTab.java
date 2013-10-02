@@ -26,6 +26,7 @@ import java.util.Hashtable;
 import javax.swing.JTabbedPane;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
 
 /**
  * The Class <code>InventoryInfoTab</code> is a placeholder for the yet
@@ -37,10 +38,11 @@ import pcgen.system.LanguageBundle;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: 14613 $
  */
+@SuppressWarnings("serial")
 public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab
 {
 
-	private final TabTitle tabTitle = new TabTitle(LanguageBundle.getString("in_inventory")); //$NON-NLS-1$
+	private final TabTitle tabTitle = new TabTitle(Tab.INVENTORY);
 	private final EquipInfoTab equipTab = new EquipInfoTab();
 	private final PurchaseInfoTab purchaseTab = new PurchaseInfoTab();
 

@@ -73,7 +73,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 	private static final String ADD_COMMAND = "ADD";
 	private static final String ALL_COMMAND = "ALL";
 	private static final String NONE_COMMAND = "NONE";
-	private final TabTitle title = new TabTitle("Campaign History");
+	private final TabTitle title = new TabTitle("Campaign History", null);
 	private final JPanel chroniclesPane;
 	private final JButton addButton;
 	private final JButton allButton;

@@ -38,11 +38,13 @@ import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
 import pcgen.gui2.util.SharedTabPane;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Tab;
 
 /**
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
+@SuppressWarnings("serial")
 public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab, TodoHandler
 {
 
@@ -52,7 +54,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 	public AbilitiesInfoTab()
 	{
 		this.abilityTab = new AbilityChooserTab();
-		this.tabTitle = new TabTitle("in_featsAbilities"); //$NON-NLS-1$
+		this.tabTitle = new TabTitle(Tab.ABILITIES);
 		setSharedComponent(abilityTab);
 	}
 

@@ -70,6 +70,7 @@ import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
 
 /**
  * The Class <code>TempBonusInfoTab</code> allows the user to select which 
@@ -88,7 +89,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 	/** Version for serialisation.  */
 	private static final long serialVersionUID = 4521237435574462482L;
 	
-	private final TabTitle tabTitle = new TabTitle("in_InfoTempMod"); //$NON-NLS-1$
+	private final TabTitle tabTitle = new TabTitle(Tab.TEMPBONUS);
 	private final FilteredTreeViewTable<CharacterFacade, TempBonusFacade> availableTable;
 	private final FilteredTreeViewTable<CharacterFacade, TempBonusFacade> selectedTable;
 	private final JButton addButton;

@@ -64,6 +64,7 @@ import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
 
 /**
  *
@@ -72,7 +73,7 @@ import pcgen.system.LanguageBundle;
 public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private final TabTitle tabTitle = new TabTitle("in_Templates"); //$NON-NLS-1$
+	private final TabTitle tabTitle = new TabTitle(Tab.TEMPLATES);
 	private final FilteredTreeViewTable<CharacterFacade, TemplateFacade> availableTable;
 	private final FilteredTreeViewTable<CharacterFacade, TemplateFacade> selectedTable;
 	private final JButton addButton;

@@ -78,11 +78,13 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Tab;
 
 /**
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
+@SuppressWarnings("serial")
 public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler, DisplayAwareTab
 {
 	
@@ -181,7 +183,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	@Override
 	public TabTitle getTabTitle()
 	{
-		return new TabTitle(LanguageBundle.getString("in_companions")); //$NON-NLS-1$
+		return new TabTitle(Tab.COMPANIONS);
 	}
 
 	/**

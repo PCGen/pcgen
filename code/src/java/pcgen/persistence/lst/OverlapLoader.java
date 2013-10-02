@@ -34,7 +34,7 @@ public class OverlapLoader<T extends Loadable> extends SimpleLoader<T>
 	protected T getLoadable(LoadContext context, String firstToken,
 			URI sourceURI)
 	{
-		String name = processFirstToken(firstToken);
+		String name = processFirstToken(context, firstToken);
 		if (name == null)
 		{
 			return null;

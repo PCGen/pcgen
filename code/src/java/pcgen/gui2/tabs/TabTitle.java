@@ -25,10 +25,14 @@ import java.beans.PropertyChangeSupport;
 import java.util.Hashtable;
 
 import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
 
 /**
- *
+ * A container for information relating to how a character tab should be
+ * displayed.
+ * 
  * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @version $Revision: $
  */
 public class TabTitle
 {
@@ -39,10 +43,25 @@ public class TabTitle
 	public static final String TITLE = "title"; //$NON-NLS-1$
 	public static final String ICON = "icon"; //$NON-NLS-1$
 	public static final String TOOLTIP = "tooltip"; //$NON-NLS-1$
+	public static final String TAB = "tab"; //$NON-NLS-1$
 	private PropertyChangeSupport support;
 	private Hashtable<String, Object> table;
 
-	public TabTitle(String title)
+	/**
+	 * Create a new TabTitle instance for a specific tab.
+	 * @param tab The tab to be represented.
+	 */
+	public TabTitle(Tab tab)
+	{
+		this(tab.label(), tab);
+	}
+
+	/**
+	 * Create a new TabTitle instance for a specific tab.
+	 * @param title The title to be displayed on the tab.
+	 * @param tab The tab to be represented.
+	 */
+	public TabTitle(String title, Tab tab)
 	{
 		this();
 		if (title.startsWith("in_")) //$NON-NLS-1$
@@ -53,8 +72,15 @@ public class TabTitle
 		{
 			putValue(TITLE, title);
 		}
+		if (tab != null)
+		{
+			putValue(TAB, tab);
+		}
 	}
 
+	/**
+	 * Create a new, empty TabTitle instance.
+	 */
 	public TabTitle()
 	{
 		support = new PropertyChangeSupport(this);
@@ -91,4 +117,8 @@ public class TabTitle
 		return (Boolean) getValue(ENABLED);
 	}
 
+	public Tab getTab()
+	{
+		return (Tab) getValue(TAB);
+	}
 }

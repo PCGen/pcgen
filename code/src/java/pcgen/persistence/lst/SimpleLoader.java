@@ -60,7 +60,7 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 	protected T getLoadable(LoadContext context, String firstToken,
 			URI sourceURI) throws PersistenceLayerException
 	{
-		String name = processFirstToken(firstToken);
+		String name = processFirstToken(context, firstToken);
 		if (name == null)
 		{
 			return null;
@@ -70,7 +70,7 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 		return loadable;
 	}
 
-	protected String processFirstToken(String token)
+	protected String processFirstToken(LoadContext context, String token)
 	{
 		return token;
 	}

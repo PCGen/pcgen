@@ -111,6 +111,7 @@ import pcgen.gui2.util.SignIcon;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.SimpleTextIcon;
 import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
 
 /**
  *
@@ -166,7 +167,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 	public SummaryInfoTab()
 	{
-		this.tabTitle = new TabTitle("in_summary"); //$NON-NLS-1$
+		this.tabTitle = new TabTitle(Tab.SUMMARY);
 		this.basicsPanel = new JPanel();
 		this.todoPanel = new JPanel();
 		this.scoresPanel = new JPanel();

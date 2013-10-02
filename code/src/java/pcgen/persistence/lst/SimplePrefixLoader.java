@@ -20,6 +20,7 @@ package pcgen.persistence.lst;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.Loadable;
+import pcgen.rules.context.LoadContext;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -43,7 +44,7 @@ public class SimplePrefixLoader<T extends Loadable> extends SimpleLoader<T>
 	}
 
 	@Override
-	protected String processFirstToken(String token)
+	protected String processFirstToken(LoadContext context, String token)
 	{
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
@@ -78,6 +79,6 @@ public class SimplePrefixLoader<T extends Loadable> extends SimpleLoader<T>
 		{
 			firstTokenValue = LanguageBundle.getString(firstTokenValue);
 		}
-		return super.processFirstToken(firstTokenValue);
+		return super.processFirstToken(context, firstTokenValue);
 	}
 }

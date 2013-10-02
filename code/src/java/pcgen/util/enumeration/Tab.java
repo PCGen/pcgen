@@ -7,30 +7,24 @@ import pcgen.base.util.CaseInsensitiveMap;
 
 public enum Tab
 {
-
-	SABILITIES("Abilities", "in_specialabilities"),
-	SOURCES("Campaigns", "Source Materials"),
-	CLASSES("Class", "in_class" ),
-	DESCRIPTION("Description", "in_descrip"),
-	DOMAINS("Domains", "in_domains"),
-	ABILITIES("Feats", "in_abilities"),
-	INVENTORY("Inventory", "in_inventory"),
-	RACE_MASTER("Race", "in_race"),
-	SKILLS("Skills", "in_skills"),
-	SPELLS("Spells",  "in_spells"),
 	SUMMARY("Summary","in_summary"),
-	GEAR("Gear", "", 0),
-	EQUIPPING("Equipping", "", 1),
-	RESOURCES("Resources", "", 2),
-	TEMPBONUS("TempMod", "", 3),
-	NATWEAPONS("NaturalWeapons", "", 4),
-	KNOWN_SPELLS("Known", "in_known_spells"),
-	PREPARED_SPELLS("Prepared", "in_prepared_spells"),
-	SPELLBOOKS("Spellbooks", "in_spellbooks"),
-	RACES("Races", "in_races"),
-	TEMPLATES("Templates", "in_templates"),
-	CHARACTERSHEET("Character Sheet", "in_character_sheet"),
-	INFO("SourceInfo", "in_source_info");
+	RACE("Race", "in_race"),
+	TEMPLATES("Templates", "in_Templates"),
+	CLASSES("Class", "in_clClass" ),
+	SKILLS("Skills", "in_skills"),
+	ABILITIES("Feats", "in_featsAbilities"),
+	DOMAINS("Domains", "in_domains"),
+	SPELLS("Spells",  "in_spells"),
+	KNOWN_SPELLS("Known", "in_InfoKnown", 0),
+	PREPARED_SPELLS("Prepared", "in_InfoPrepared", 1),
+	SPELLBOOKS("Spellbooks", "in_InfoSpellbooks", 2),
+	INVENTORY("Inventory", "in_inventory"),
+	PURCHASE("Purchase", "in_purchase", 0),
+	EQUIPPING("Equipping", "in_equipping", 1),
+	DESCRIPTION("Description", "in_descrip"),
+	TEMPBONUS("TempMod", "in_InfoTempMod"),
+	COMPANIONS("Companions", "in_companions"),
+	CHARACTERSHEET("Character Sheet", "in_character_sheet");
 
 	private static final Map<Object, Tab> byText;
 

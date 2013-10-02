@@ -76,11 +76,13 @@ import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.gui2.util.table.TableCellUtilities.SpinnerEditor;
 import pcgen.gui2.util.table.TableCellUtilities.SpinnerRenderer;
 import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
 
 /**
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
+@SuppressWarnings("serial")
 public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
 {
 
@@ -102,7 +104,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		this.infoPane = new InfoPane();
 		this.cFilterButton = new FilterButton<CharacterFacade, SkillFacade>("SkillQualified");
 		this.trainedFilterButton = new FilterButton<CharacterFacade, SkillFacade>("SkillTrained");
-		this.tabTitle = new TabTitle("in_skills"); //$NON-NLS-1$
+		this.tabTitle = new TabTitle(Tab.SKILLS);
 		this.htmlPane = new JEditorPane();
 		initComponents();
 	}

@@ -58,10 +58,11 @@ import pcgen.util.Logging;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
+@SuppressWarnings("serial")
 public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 {
 
-	private static final TabTitle tabTitle = new TabTitle(LanguageBundle.getString("in_portrait"));
+	private static final TabTitle tabTitle = new TabTitle("in_portrait", null);
 	private final PortraitPane portraitPane;
 	private final ThumbnailPane tnPane;
 	private final JButton loadButton;

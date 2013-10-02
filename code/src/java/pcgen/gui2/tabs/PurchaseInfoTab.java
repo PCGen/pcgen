@@ -106,6 +106,7 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.CharacterManager;
 import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
 
 /**
  * A character tab providing the user with the ability to buy and sell 
@@ -113,6 +114,7 @@ import pcgen.system.LanguageBundle;
  * 
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
+@SuppressWarnings("serial")
 public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
@@ -470,7 +472,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	@Override
 	public TabTitle getTabTitle()
 	{
-		return new TabTitle("in_purchase"); //$NON-NLS-1$
+		return new TabTitle(Tab.PURCHASE);
 	}
 
 	private List<EquipmentFacade> getMenuTargets(JTable table, MouseEvent e)

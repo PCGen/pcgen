@@ -55,8 +55,6 @@ SHOWCLASSDEFENSE:No
 # Whether or not the game mode displays these tabs
 #
 #
-TAB:ABILITIES		NAME:in_abilities_tabname	CONTEXT:tabpages\players\tabability.html
-TAB:CAMPAIGNS		NAME:Source Materials	CONTEXT:tabpages\source\sourcesectionheading.html
 TAB:CLASS		NAME:in_class		CONTEXT:tabpages\tabclasses.html
 TAB:DESCRIPTION		NAME:in_descrip		CONTEXT:tabpages\tabdescription.html
 TAB:DOMAINS		NAME:in_domains		CONTEXT:tabpages\tabdomains.html
@@ -67,9 +65,9 @@ TAB:SKILLS		NAME:in_skills		CONTEXT:tabpages\tabskills.html
 TAB:SPELLS		NAME:in_spells		CONTEXT:tabpages\tabspells.html
 TAB:SUMMARY		NAME:in_summary		CONTEXT:tabpages\tabsummary.html
 # Inventory subpanels
-TAB:GEAR		NAME:in_InfoGear	CONTEXT:tabpages\tabinventory.html
+TAB:PURCHASE	NAME:in_purchase	CONTEXT:tabpages\tabinventory.html
 TAB:EQUIPPING		NAME:in_InfoEquipping	CONTEXT:tabpages\tabinventory.html
-TAB:RESOURCES		NAME:in_InfoResources	CONTEXT:tabpages\tabcompanions.html
+TAB:COMPANIONS	NAME:in_companions	CONTEXT:tabpages\tabcompanions.html
 TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 #
 # Menu entry (under Settings-->Campaign), and tool tip displayed for said entry

@@ -49,15 +49,17 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeViewTable;
 import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
 
 /**
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
+@SuppressWarnings("serial")
 public class SpellBooksTab extends FlippingSplitPane
 {
 
-	private final TabTitle tabTitle = new TabTitle("in_InfoSpellbooks"); //$NON-NLS-1$
+	private final TabTitle tabTitle = new TabTitle(Tab.SPELLBOOKS);
 	private final JTreeViewTable<SuperNode> availableTable;
 	private final JTreeViewTable<SuperNode> selectedTable;
 	private final JButton addButton;

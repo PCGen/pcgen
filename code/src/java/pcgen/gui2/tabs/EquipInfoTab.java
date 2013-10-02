@@ -97,6 +97,7 @@ import pcgen.gui2.util.table.DynamicTableColumnModel;
 import pcgen.gui2.util.table.SortableTableModel;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Load;
+import pcgen.util.enumeration.Tab;
 
 /**
  * EquipInfoTab is a character tab for managing where gear is distributed for a 
@@ -110,6 +111,7 @@ import pcgen.util.enumeration.Load;
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  * @version $Revision:  $
  */
+@SuppressWarnings("serial")
 public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
@@ -368,7 +370,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	@Override
 	public TabTitle getTabTitle()
 	{
-		return new TabTitle("in_equipping"); //$NON-NLS-1$
+		return new TabTitle(Tab.EQUIPPING);
 	}
 
 	private List<Integer> getMenuTargets(JTable table, MouseEvent e)

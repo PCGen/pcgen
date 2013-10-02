@@ -1470,26 +1470,38 @@
 		<p class="indent2">After a WIELDCATEGORY tag with a PREVARxx statement in it.</p>
 
 		<p></p><hr>
-		<p class="indent0"><strong><a name="TAB">Tag Name:</a></strong> TAB:x</p>
+		<p class="new"><a name="TAB">*** Updated 6.1.7</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> TAB:x</p>
 		<p class="indent1"><strong>Variables Used (x):</strong> Text (Tab Name).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<ul class="indent2">
 			<li>This indicates what &quot;TABS&quot; will be displayed in the graphic user interface of the PCGen program.</li>
         	<li>Indicates which tab the options following it will affect. Must be first on
-				  the line, to be followed by NAME and CONTEXT (and optionally VISIBLE).</li>
+				  the line, to be followed by <a href="#NAME">NAME</a> and <a href="#CONTEXT">CONTEXT</a> (and optionally <a href="#VISIBLE">VISIBLE</a>).</li>
         	<li>Tab Name may be one of:<br>
 			<ul>
-				<li>ABILITIES - The tab where languages, SAs and weapon profs are displayed.</li>
-				<li>CAMPAIGNS - The tab where source materials are displayed.</li>
+				<li>CHARACTER SHEET - The tab showing a character sheet for the character.</li>
 				<li>CLASS - The tab where classes are displayed.</li>
+				<li>COMPANIONS - The tab where followers, familiars and animal companions are displayed.</li>
 				<li>DESCRIPTION - The tab where character descriptive information is displayed.</li>
 				<li>DOMAINS - The tab where deity/domain information is displayed.</li>
 				<li>FEATS - The tab where feat information is displayed.</li>
-				<li>INVENTORY - The tab where inventory, equipping, and followers are displayed.</li>
+				<li>INVENTORY - The tab where inventory and equipping are displayed.</li>
+				<ul>
+				<li>PURCHASE - The tab where a character owned gear is displayed.</li>
+				<li>EQUIPPING - The tab where the loactions of the equipment are displayed.</li>
+				</ul>
 				<li>RACE - The tab where races are displayed.</li>
 				<li>SKILLS - The tab where skills are displayed.</li>
 				<li>SPELLS - The tab where spells are displayed.</li>
+				<ul>
+				<li>KNOWN - The tab where the spells the character knows are displayed.</li>
+				<li>PREPARED - The tab where the spells the character has prepared are displayed.</li>
+				<li>SPELLBOOKS - The tab where the spells the character has recorded in spellbooks are displayed.</li>
+				</ul>
 				<li>SUMMARY - The tab with summary information.</li>
+				<li>TEMPLATES - The tab where templaes are displayed.</li>
+				<li>TEMPMOD - The tab where temporary bonuses are displayed.</li>
 	        </ul>
 			<li>If the game mode doesn't support the TAB, you must use the Tag VISIBLE:NO.</li>
         </ul>

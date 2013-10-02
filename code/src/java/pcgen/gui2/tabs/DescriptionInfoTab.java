@@ -55,6 +55,7 @@ import pcgen.gui2.tabs.bio.NoteInfoPane;
 import pcgen.gui2.tabs.bio.PortraitInfoPane;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
 
 /**
  * The Class <code>DescriptionInfoTab</code> is a placeholder for the yet to
@@ -71,7 +72,7 @@ import pcgen.system.LanguageBundle;
 public class DescriptionInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private final TabTitle tabTitle = new TabTitle("in_descrip"); //$NON-NLS-1$
+	private final TabTitle tabTitle = new TabTitle(Tab.DESCRIPTION);
 	private final PortraitInfoPane portraitPane;
 	private final BiographyInfoPane bioPane;
 	private final CampaignHistoryInfoPane histPane;

@@ -48,6 +48,7 @@ import javax.swing.event.ChangeListener;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.core.facade.CharacterFacade;
+import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.TodoFacade;
 import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.gui2.UIPropertyContext;
@@ -55,12 +56,14 @@ import pcgen.gui2.tools.CharacterSelectionListener;
 import pcgen.gui2.util.DisplayAwareTab;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Tab;
 
 /**
  * This class is the tabbed pane that contains all of the CharacterInfoTabs and
  * manages the models for those tabs.
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
+@SuppressWarnings("serial")
 public final class InfoTabbedPane extends JTabbedPane
 		implements CharacterSelectionListener, ChangeListener
 {
@@ -166,8 +169,30 @@ public final class InfoTabbedPane extends JTabbedPane
 		currentCharacter = character;
 
 		Map<CharacterInfoTab, Hashtable<Object, Object>> states = stateMap.getMapFor(character);
+		updateTabsForCharacter(character);
 		int selectedIndex = tabSelectionMap.get(character);
 		modelService.restoreModels(states, selectedIndex);
+	}
+
+	/**
+	 * Update the displayed tabs to reflect the settings of the game mode of 
+	 * the character to which we are switching. 
+	 * @param character The character being displayed.
+	 */
+	private void updateTabsForCharacter(CharacterFacade character)
+	{
+		GameModeFacade gameMode = character.getDataSet().getGameMode();
+		for (int i = 0; i < getTabCount(); i++)
+		{
+			CharacterInfoTab charInfoTab = (CharacterInfoTab) getComponentAt(i);
+			TabTitle tabTile = charInfoTab.getTabTitle();
+			Tab tab = tabTile.getTab();
+			String newName = gameMode.getTabName(tab);
+			if (!newName.equals(tabTile.getValue(TabTitle.TITLE)))
+			{
+				tabTile.putValue(TabTitle.TITLE, newName);
+			}
+		}
 	}
 
 	/**

@@ -53,7 +53,6 @@ DISPLAYVARIABLE2NAME:ClassDefense
 
 #
 # Tabs defined
-TAB:ABILITIES				NAME:in_abilities_tabname	CONTEXT:tabpages\players\tabability.html
 TAB:CLASS					NAME:in_class			CONTEXT:tabpages\tabclasses.html
 TAB:DESCRIPTION				NAME:in_descrip			CONTEXT:tabpages\tabdescription.html
 TAB:FEATS					NAME:in_feats			CONTEXT:tabpages\tabfeatsandabilities.html
@@ -62,7 +61,6 @@ TAB:INVENTORY				NAME:in_inventory			CONTEXT:tabpages\tabinventory.html
 
 TAB:RACE					NAME:in_race			CONTEXT:tabpages\tabraces.html
 TAB:SKILLS					NAME:in_skills			CONTEXT:tabpages\tabskills.html
-TAB:CAMPAIGNS				NAME:Source Materials		CONTEXT:tabpages\tabcompanions.html
 TAB:SPELLS			VISIBLE:NO
 TAB:DOMAINS			VISIBLE:NO
 TAB:SUMMARY					NAME:in_summary			CONTEXT:tabpages\tabsummary.html

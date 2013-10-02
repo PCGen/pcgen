@@ -81,11 +81,13 @@ import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
 
 /**
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
+@SuppressWarnings("serial")
 public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
@@ -114,7 +116,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		this.classTable = TableUtils.createDefaultTable();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
-		this.tabTitle = new TabTitle("in_clClass"); //$NON-NLS-1$
+		this.tabTitle = new TabTitle(Tab.CLASSES);
 		this.infoPane = new InfoPane(LanguageBundle.getString("in_clInfo")); //$NON-NLS-1$
 		this.spinner = new JSpinner(new SpinnerNumberModel(1, 1, 50, 1));
 		this.qFilterButton = new FilterButton<Object, ClassFacade>("ClassQualified");

@@ -65,6 +65,7 @@ import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
 
 /**
  * The Class <code>RaceInfoTab</code> is the component used in the Race tab.
@@ -75,10 +76,11 @@ import pcgen.system.LanguageBundle;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: 14578 $
  */
+@SuppressWarnings("serial")
 public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private static final TabTitle title = new TabTitle(LanguageBundle.getString("in_races")); //$NON-NLS-1$
+	private static final TabTitle title = new TabTitle(Tab.RACE);
 	private final FilteredTreeViewTable<Object, RaceFacade> raceTable;
 	private final FilteredTreeViewTable<Object, RaceFacade> selectedTable;
 	private final InfoPane infoPane;

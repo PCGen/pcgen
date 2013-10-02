@@ -48,7 +48,7 @@ public class CompanionModLoader extends SimpleLoader<CompanionMod>
 	protected CompanionMod getLoadable(LoadContext context, String firstToken,
 		URI sourceURI) throws PersistenceLayerException
 	{
-		String name = processFirstToken(firstToken);
+		String name = processFirstToken(context, firstToken);
 		if (name == null)
 		{
 			return null;

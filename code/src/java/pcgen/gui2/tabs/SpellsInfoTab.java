@@ -29,6 +29,7 @@ import pcgen.gui2.tabs.spells.SpellBooksTab;
 import pcgen.gui2.tabs.spells.SpellsKnownTab;
 import pcgen.gui2.tabs.spells.SpellsPreparedTab;
 import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
 
 /**
  * The Class <code>SpellsInfoTab</code> is a placeholder for the yet
@@ -40,10 +41,11 @@ import pcgen.system.LanguageBundle;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  * @version $Revision: 13208 $
  */
+@SuppressWarnings("serial")
 public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler
 {
 
-	private final TabTitle tabTitle = new TabTitle("in_spells"); //$NON-NLS-1$
+	private final TabTitle tabTitle = new TabTitle(Tab.SPELLS);
 	private final SpellsKnownTab knownTab = new SpellsKnownTab();
 	private final SpellsPreparedTab preparedTab = new SpellsPreparedTab();
 	private final SpellBooksTab booksTab = new SpellBooksTab();

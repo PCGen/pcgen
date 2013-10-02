@@ -47,6 +47,7 @@ import pcgen.gui2.util.JTreeViewTable;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
+import pcgen.util.enumeration.Tab;
 
 /**
  *
@@ -56,7 +57,7 @@ import pcgen.system.PCGenSettings;
 public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private final TabTitle tabTitle = new TabTitle("in_InfoKnown"); //$NON-NLS-1$
+	private final TabTitle tabTitle = new TabTitle(Tab.KNOWN_SPELLS);
 	private final JTreeViewTable<SuperNode> availableTable;
 	private final JTreeViewTable<SuperNode> selectedTable;
 	private final JButton addButton;

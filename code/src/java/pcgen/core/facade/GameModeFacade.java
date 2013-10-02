@@ -22,6 +22,8 @@ package pcgen.core.facade;
 
 import java.util.List;
 
+import pcgen.util.enumeration.Tab;
+
 /**
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
@@ -72,5 +74,14 @@ public interface GameModeFacade
 	 * @return The abbreviation for the currency unit.
 	 */
 	public String getCurrencyDisplay();
+
+	/**
+	 * Retrieve the name the game mode would like to be used for the tab.
+	 * If the name starts with in_ it is a key for an internationalized string 
+	 * which should be looked up from the language bundle. 
+	 * @param tab The tab to be queried.
+	 * @return The name to be used. 
+	 */
+	public String getTabName(Tab tab);
 	
 }

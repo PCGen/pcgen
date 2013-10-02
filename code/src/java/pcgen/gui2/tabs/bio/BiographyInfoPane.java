@@ -102,7 +102,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		.range(BiographyField.NAME, BiographyField.WEIGHT);
 
 	private final TabTitle title = new TabTitle(
-		LanguageBundle.getString("in_descBiography")); //$NON-NLS-1$
+		LanguageBundle.getString("in_descBiography"), null); //$NON-NLS-1$
 	private final JButton allButton;
 	private final JButton noneButton;
 	private final JPanel itemsPanel;

@@ -48,6 +48,7 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeViewTable;
 import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
 
 /**
  *
@@ -57,7 +58,7 @@ import pcgen.system.LanguageBundle;
 public class SpellsPreparedTab extends FlippingSplitPane
 {
 
-	private final TabTitle tabTitle = new TabTitle("in_InfoPrepared"); //$NON-NLS-1$
+	private final TabTitle tabTitle = new TabTitle(Tab.PREPARED_SPELLS);
 	private final JTreeViewTable<SuperNode> availableTable;
 	private final JTreeViewTable<SuperNode> selectedTable;
 	private final JButton addMMSpellButton;

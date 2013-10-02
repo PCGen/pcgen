@@ -56,8 +56,6 @@ SHOWCLASSDEFENSE:No
 #
 # Whether or not the game mode displays these tabs
 #
-TAB:ABILITIES	NAME:in_abilities_tabname	VISIBLE:YES	CONTEXT:tabpages\players\tabability.html
-TAB:CAMPAIGNS	NAME:Source Materials		VISIBLE:NO	CONTEXT:tabpages\source\sourcesectionheading.html	VISIBLE:NO
 TAB:CLASS		NAME:in_class			VISIBLE:NO	CONTEXT:tabpages\tabclasses.html	VISIBLE:NO
 TAB:DESCRIPTION	NAME:in_descrip			VISIBLE:YES	CONTEXT:tabpages\tabdescription.html
 TAB:DOMAINS		NAME:in_domains			VISIBLE:NO	CONTEXT:tabpages\tabdomains.html	VISIBLE:NO
@@ -68,9 +66,9 @@ TAB:SKILLS		NAME:in_skills			VISIBLE:NO	CONTEXT:tabpages\tabskills.html	VISIBLE:
 TAB:SPELLS		NAME:in_spells			VISIBLE:NO	CONTEXT:tabpages\tabspells.html	VISIBLE:NO
 TAB:SUMMARY		NAME:in_summary			VISIBLE:YES	CONTEXT:tabpages\tabsummary.html
 # Inventory subpanels
-TAB:GEAR		NAME:in_InfoGear			VISIBLE:YES	CONTEXT:tabpages\tabinventory.html
+TAB:PURCHASE		NAME:in_purchase			VISIBLE:YES	CONTEXT:tabpages\tabinventory.html
 TAB:EQUIPPING	NAME:in_InfoEquipping		VISIBLE:YES	CONTEXT:tabpages\tabinventory.html
-TAB:RESOURCES	NAME:in_InfoResources		VISIBLE:NO	CONTEXT:tabpages\tabcompanions.html	VISIBLE:NO
+TAB:COMPANIONS	NAME:in_companions		VISIBLE:NO	CONTEXT:tabpages\tabcompanions.html	VISIBLE:NO
 TAB:TEMPMOD		NAME:in_InfoTempMod		VISIBLE:NO	CONTEXT:tabpages\tabtemporarybonuses.html
 #
 # Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
