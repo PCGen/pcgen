@@ -83,5 +83,12 @@ public interface GameModeFacade
 	 * @return The name to be used. 
 	 */
 	public String getTabName(Tab tab);
+
+	/**
+	 * Should the tab be shown for characters in this game mode.  
+	 * @param tab The tab to be queried.
+	 * @return true if the tab should be displayed, false if not.
+	 */
+	public boolean getTabShown(Tab tab);
 	
 }

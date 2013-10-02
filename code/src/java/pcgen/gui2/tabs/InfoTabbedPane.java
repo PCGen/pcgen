@@ -192,6 +192,7 @@ public final class InfoTabbedPane extends JTabbedPane
 			{
 				tabTile.putValue(TabTitle.TITLE, newName);
 			}
+			setEnabledAt(i, gameMode.getTabShown(tab));
 		}
 	}
 
