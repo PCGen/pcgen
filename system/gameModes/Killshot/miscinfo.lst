@@ -56,19 +56,19 @@ SHOWCLASSDEFENSE:No
 #
 # Whether or not the game mode displays these tabs
 #
-TAB:CLASS		NAME:in_class			VISIBLE:NO	CONTEXT:tabpages\tabclasses.html	VISIBLE:NO
+TAB:CLASS		NAME:in_class			VISIBLE:NO	CONTEXT:tabpages\tabclasses.html
 TAB:DESCRIPTION	NAME:in_descrip			VISIBLE:YES	CONTEXT:tabpages\tabdescription.html
-TAB:DOMAINS		NAME:in_domains			VISIBLE:NO	CONTEXT:tabpages\tabdomains.html	VISIBLE:NO
-TAB:FEATS		NAME:in_feats			VISIBLE:NO	CONTEXT:tabpages\tabfeatsandabilities.html	VISIBLE:NO
+TAB:DOMAINS		NAME:in_domains			VISIBLE:NO	CONTEXT:tabpages\tabdomains.html
+TAB:FEATS		NAME:in_feats			VISIBLE:YES	CONTEXT:tabpages\tabfeatsandabilities.html	
 TAB:INVENTORY	NAME:in_inventory			VISIBLE:YES	CONTEXT:tabpages\tabinventory.html
-TAB:RACE		NAME:in_race			VISIBLE:NO	CONTEXT:tabpages\tabraces.html	VISIBLE:NO
-TAB:SKILLS		NAME:in_skills			VISIBLE:NO	CONTEXT:tabpages\tabskills.html	VISIBLE:NO
-TAB:SPELLS		NAME:in_spells			VISIBLE:NO	CONTEXT:tabpages\tabspells.html	VISIBLE:NO
+TAB:RACE		NAME:in_race			VISIBLE:NO	CONTEXT:tabpages\tabraces.html
+TAB:SKILLS		NAME:in_skills			VISIBLE:NO	CONTEXT:tabpages\tabskills.html
+TAB:SPELLS		NAME:in_spells			VISIBLE:NO	CONTEXT:tabpages\tabspells.html
 TAB:SUMMARY		NAME:in_summary			VISIBLE:YES	CONTEXT:tabpages\tabsummary.html
 # Inventory subpanels
-TAB:PURCHASE		NAME:in_purchase			VISIBLE:YES	CONTEXT:tabpages\tabinventory.html
+TAB:PURCHASE	NAME:in_purchase			VISIBLE:YES	CONTEXT:tabpages\tabinventory.html
 TAB:EQUIPPING	NAME:in_InfoEquipping		VISIBLE:YES	CONTEXT:tabpages\tabinventory.html
-TAB:COMPANIONS	NAME:in_companions		VISIBLE:NO	CONTEXT:tabpages\tabcompanions.html	VISIBLE:NO
+TAB:COMPANIONS	NAME:in_companions		VISIBLE:NO	CONTEXT:tabpages\tabcompanions.html
 TAB:TEMPMOD		NAME:in_InfoTempMod		VISIBLE:NO	CONTEXT:tabpages\tabtemporarybonuses.html
 #
 # Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
@@ -274,7 +274,7 @@ UNITSET:Metric		HEIGHTUNIT:cm	HEIGHTFACTOR:2.54	HEIGHTPATTERN:#		DISTANCEUNIT:m	
 #
 
 #ABILITYCATEGORY:FEAT		VISIBLE:NO		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT	PLURAL:Feats	DISPLAYLOCATION:Feats
-#ABILITYCATEGORY:Internal	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal
+ABILITYCATEGORY:Internal	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal
 ###COMMENT: Internal Category is for all hidden abilities.
 #ABILITYCATEGORY:Natural Attack	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Natural Attack					
 

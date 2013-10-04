@@ -38,7 +38,7 @@
 #
 # The following are all hardcoded in the java code
 #
-NAME:AnyRangeForAbilities		PARM:ABILRANGE		DEFAULT:Yes					DESC:Allow any range for ability scores
+#NAME:AnyRangeForAbilities		PARM:ABILRANGE		DEFAULT:Yes					DESC:Allow any range for ability scores
 #NAME:BonusSpellsKnown			PARM:BONUSSPELLKNOWN	DEFAULT:No					DESC:Add stat bonus to Spells Known
 #NAME:bypassClassPreReqs			PARM:CLASSPRE		DEFAULT:No					DESC:Bypass Class Prerequisites
 #NAME:bypassFeatPreReqs			PARM:FEATPRE		DEFAULT:No					DESC:Bypass Feat Prerequisites
