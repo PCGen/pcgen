@@ -602,8 +602,10 @@ public class JTreeViewTable<T> extends JTreeTable
 
 		protected void maybeShowPopup(MouseEvent e)
 		{
-			if (e.isPopupTrigger() && getTrackedColumn().getHeaderValue()
-									  == treetableModel.getSelectedTreeView().getViewName())
+			if (e.isPopupTrigger()
+				&& getTrackedColumn() != null
+				&& getTrackedColumn().getHeaderValue() == treetableModel
+					.getSelectedTreeView().getViewName())
 			{
 				TableColumnModel columnmodel = getColumnModel();
 				Rectangle rect = getHeaderRect(columnmodel.getColumnIndexAtX(e.getX()));
