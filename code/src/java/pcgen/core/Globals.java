@@ -983,9 +983,9 @@ public final class Globals
 		// NOTE: If you add something here be sure to update the log output in displayListsHappy above
 		boolean listsHappy = !((Globals.getContext().ref.getConstructedCDOMObjects(Race.class).size() == 0)
 				|| (getContext().ref.getConstructedCDOMObjects(PCClass.class).size() == 0)
-				|| (Globals.getContext().ref.getConstructedCDOMObjects(Skill.class).size() == 0)
-				|| (Globals.getContext().ref.getManufacturer(
-						Ability.class, AbilityCategory.FEAT).getConstructedObjectCount() == 0)
+//				|| (Globals.getContext().ref.getConstructedCDOMObjects(Skill.class).size() == 0)
+//				|| (Globals.getContext().ref.getManufacturer(
+//						Ability.class, AbilityCategory.FEAT).getConstructedObjectCount() == 0)
 				|| (Globals.getContext().ref.getConstructedCDOMObjects(Equipment.class).size() == 0)
 				|| (Globals.getContext().ref.getConstructedCDOMObjects(WeaponProf.class).size() == 0));
 		return listsHappy;
