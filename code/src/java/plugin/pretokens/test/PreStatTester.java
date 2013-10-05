@@ -32,8 +32,12 @@ import pcgen.core.PCStat;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+import plugin.pretokens.writer.PreStatWriter;
 
 /**
  * @author wardc
@@ -47,11 +51,16 @@ public class PreStatTester extends AbstractDisplayPrereqTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source) throws PrerequisiteException
 	{
 		final int targetNumber = Integer.parseInt(prereq.getOperand());
 		PCStat stat = Globals.getContext().ref
 				.getAbbreviatedObject(PCStat.class, prereq.getKey());
+		if (stat == null)
+		{
+			throw new PrerequisiteException("PRESTAT refers to invalid stat '" + stat
+					+ ". Prereq was " + prereq);
+		}
 		final int statValue =
 				display.getTotalStatFor(stat);
 
