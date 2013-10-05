@@ -81,9 +81,17 @@ public class AbilityTreeViews
 		public List<TreeViewPath<AbilityFacade>> getPaths(AbilityFacade pobj)
 		{
 			List<TreeViewPath<AbilityFacade>> list = new ArrayList<TreeViewPath<AbilityFacade>>();
-			for (String type : pobj.getTypes())
+			List<String> types = pobj.getTypes();
+			if (types.isEmpty())
 			{
-				list.add(new TreeViewPath<AbilityFacade>(pobj, type));
+				list.add((new TreeViewPath<AbilityFacade>(pobj)));
+			}
+			else
+			{
+				for (String type : types)
+				{
+					list.add(new TreeViewPath<AbilityFacade>(pobj, type));
+				}
 			}
 			return list;
 		}
