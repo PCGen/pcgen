@@ -54,7 +54,6 @@ import pcgen.core.facade.CharacterLevelsFacade;
 import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.SkillFacade;
-import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.facade.util.AbstractListFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
@@ -62,6 +61,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.gui.GuiConstants;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Tab;
 
 /**
  * The Class <code>CharacterLevelsFacadeImpl</code> is an implementation of 
@@ -681,13 +681,13 @@ public class CharacterLevelsFacadeImpl extends
 	{
 		if (theCharacter.getSkillPoints() < 0)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SkillsTab, "Skills",
+			todoManager.addTodo(new TodoFacadeImpl(Tab.SKILLS, "Skills",
 				"in_iskTodoTooMany", 1));
 			todoManager.removeTodo("in_iskTodoRemain");
 		}
 		else if (theCharacter.getSkillPoints() > 0)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SkillsTab, "Skills",
+			todoManager.addTodo(new TodoFacadeImpl(Tab.SKILLS, "Skills",
 				"in_iskTodoRemain", 1));
 			todoManager.removeTodo("in_iskTodoTooMany");
 		}

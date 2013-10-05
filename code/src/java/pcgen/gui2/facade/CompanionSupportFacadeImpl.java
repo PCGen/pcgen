@@ -43,7 +43,6 @@ import pcgen.core.facade.CompanionStubFacade;
 import pcgen.core.facade.CompanionSupportFacade;
 import pcgen.core.facade.PartyFacade;
 import pcgen.core.facade.ReferenceFacade;
-import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
 import pcgen.core.facade.event.ReferenceEvent;
@@ -54,6 +53,7 @@ import pcgen.core.facade.util.ListFacade;
 import pcgen.core.facade.util.MapFacade;
 import pcgen.system.CharacterManager;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Tab;
 
 /**
  * This class implements the basic CompanionSupportFacade
@@ -248,13 +248,13 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 
 		if (maxCompanions > -1 && maxCompanions < numCompanions)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.CompanionsTab,
+			todoManager.addTodo(new TodoFacadeImpl(Tab.COMPANIONS,
 				companionType, "in_companionTodoTooMany", companionType, 1)); //$NON-NLS-1$
 			todoManager.removeTodo("in_companionTodoRemain", companionType); //$NON-NLS-1$
 		}
 		else if (maxCompanions > -1 && maxCompanions > numCompanions)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.CompanionsTab,
+			todoManager.addTodo(new TodoFacadeImpl(Tab.COMPANIONS,
 				companionType, "in_companionTodoRemain", companionType, 1)); //$NON-NLS-1$
 			todoManager.removeTodo("in_companionTodoTooMany", companionType); //$NON-NLS-1$
 		}

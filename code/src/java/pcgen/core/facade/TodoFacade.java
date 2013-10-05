@@ -22,7 +22,7 @@
  */
 package pcgen.core.facade;
 
-import pcgen.system.LanguageBundle;
+import pcgen.util.enumeration.Tab;
 
 /**
  * The interface <code>TodoFacade</code> defines what methods must be provided 
@@ -41,46 +41,6 @@ public interface TodoFacade extends Comparable<TodoFacade>
 	public static String SWITCH_TABS = "SwitchTabs";
 	
 	/**
-	 * The possible types of tabs for a character.
-	 */
-	public enum CharacterTab
-	{
-		SummaryTab, RacesTab, TemplatesTab, ClassesTab, SkillsTab, FeatsAbilitiesTab, 
-		DomainsTab, SpellsTab, CompanionsTab;
-		
-
-		/**
-		 * @return The display name of the tab.
-		 */
-		public String getTabTile()
-		{
-			switch (this)
-			{
-				case SummaryTab:
-					return LanguageBundle.getString("in_summary");
-				case RacesTab:
-					return LanguageBundle.getString("in_races");
-				case TemplatesTab:
-					return LanguageBundle.getString("in_Templates");
-				case ClassesTab:
-					return LanguageBundle.getString("in_clClass");
-				case SkillsTab:
-					return LanguageBundle.getString("in_skills");
-				case FeatsAbilitiesTab:
-					return LanguageBundle.getString("in_featsAbilities");
-				case DomainsTab:
-					return LanguageBundle.getString("in_domains");
-				case SpellsTab:
-					return LanguageBundle.getString("in_spells");
-				case CompanionsTab:
-					return LanguageBundle.getString("in_companions");
-				default:
-					throw new InternalError();
-			}
-		}
-	}
-	
-	/**
 	 * @return The message to be displayed. Is normally a key to localised 
 	 * message, starting with in_ but may also be plain text.   
 	 */
@@ -89,7 +49,7 @@ public interface TodoFacade extends Comparable<TodoFacade>
 	/**
 	 * @return The character tab on which the task can be completed.
 	 */
-	public CharacterTab getTab();
+	public Tab getTab();
 	
 	/**
 	 * @return The internal name of the field where the task can be completed.

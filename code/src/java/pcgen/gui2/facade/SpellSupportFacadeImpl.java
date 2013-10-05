@@ -71,18 +71,17 @@ import pcgen.core.character.SpellBook;
 import pcgen.core.character.SpellInfo;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.CharacterFacade;
+import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.facade.ClassFacade;
 import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.EquipmentFacade;
-import pcgen.core.facade.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListEvent;
 import pcgen.core.facade.EquipmentListFacade.EquipmentListListener;
 import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.InfoFactory;
 import pcgen.core.facade.SpellFacade;
 import pcgen.core.facade.SpellSupportFacade;
-import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.facade.event.ListEvent;
 import pcgen.core.facade.event.ListListener;
@@ -96,10 +95,11 @@ import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.system.BatchExporter;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
+import pcgen.util.Logging;
+import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.Visibility;
 import pcgen.util.fop.FOPHandler;
 import pcgen.util.fop.FOPHandlerFactory;
-import pcgen.util.Logging;
 
 /**
  * The Class <code>SpellSupportFacadeImpl</code> marshals the spell data for a 
@@ -323,7 +323,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 		if (hasFree)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SpellsTab, "Known",
+			todoManager.addTodo(new TodoFacadeImpl(Tab.SPELLS, "Known",
 				"in_splTodoRemain", 120));
 		}
 		else

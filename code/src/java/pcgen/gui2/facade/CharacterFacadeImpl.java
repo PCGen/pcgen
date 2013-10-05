@@ -152,7 +152,6 @@ import pcgen.core.facade.StatFacade;
 import pcgen.core.facade.TempBonusFacade;
 import pcgen.core.facade.TemplateFacade;
 import pcgen.core.facade.TodoFacade;
-import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.facade.UIDelegate.CustomEquipResult;
 import pcgen.core.facade.event.ChangeListener;
@@ -177,6 +176,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Load;
+import pcgen.util.enumeration.Tab;
 
 /**
  * The Class <code>CharacterFacadeImpl</code> is an implementation of 
@@ -578,11 +578,11 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		if (isNewCharName(charDisplay.getName()))
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Name", "in_sumTodoName", 1));
+			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Name", "in_sumTodoName", 1));
 		}
 		if (charDisplay.getRace() == null || Constants.NONESELECTED.equals(charDisplay.getRace().getKeyName()))
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Race", "in_irTodoRace", 100));
+			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Race", "in_irTodoRace", 100));
 		}
 
 		// Stats todo already done in updateScorePurchasePool
@@ -856,7 +856,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		if (charDisplay.getXP() >= charDisplay.minXPForNextECL())
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Class", "in_clTodoLevelUp", 120));
+			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Class", "in_clTodoLevelUp", 120));
 		} else
 		{
 			todoManager.removeTodo("in_clTodoLevelUp");
@@ -1976,7 +1976,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		if (charDisplay.getRace() == null || Constants.NONESELECTED.equals(charDisplay.getRace().getKeyName()))
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Race", "in_irTodoRace", 100));
+			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Race", "in_irTodoRace", 100));
 		} else
 		{
 			todoManager.removeTodo("in_irTodoRace");
@@ -2021,7 +2021,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setName(name);
 		if (isNewCharName(charDisplay.getName()))
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Name", "in_sumTodoName", 1));
+			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Name", "in_sumTodoName", 1));
 		} else
 		{
 			todoManager.removeTodo("in_sumTodoName");
@@ -2262,12 +2262,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		if (remainingDomains.getReference() > 0)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.DomainsTab, "Domains", "in_domTodoDomainsLeft", 120));
+			todoManager.addTodo(new TodoFacadeImpl(Tab.DOMAINS, "Domains", "in_domTodoDomainsLeft", 120));
 			todoManager.removeTodo("in_domTodoTooManyDomains");
 		} else if (remainingDomains.getReference() < 0)
 		{
 			todoManager
-					.addTodo(new TodoFacadeImpl(CharacterTab.DomainsTab, "Domains", "in_domTodoTooManyDomains", 120));
+					.addTodo(new TodoFacadeImpl(Tab.DOMAINS, "Domains", "in_domTodoTooManyDomains", 120));
 			todoManager.removeTodo("in_domTodoDomainsLeft");
 		} else
 		{
@@ -2500,7 +2500,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		if (bonusLangRemain > 0)
 		{
 			todoManager
-					.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Languages", "in_sumTodoBonusLanguage", 110));
+					.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Languages", "in_sumTodoBonusLanguage", 110));
 		} else
 		{
 			todoManager.removeTodo("in_sumTodoBonusLanguage");
@@ -2522,7 +2522,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		numSkillLang.setReference(skillLangRemain);
 		if (skillLangRemain > 0)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab,
+			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY,
 				"Languages", "in_sumTodoSkillLanguage", 112));
 		}
 		else
@@ -2531,7 +2531,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 		if (skillLangRemain < 0)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab,
+			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY,
 				"Languages", "in_sumTodoSkillLanguageTooMany", 112));
 		}
 		else
@@ -3154,7 +3154,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				&& (allAbilitiesAreZero() || (SettingsHandler.getGame().isPurchaseStatMode() && (theCharacter
 						.getPointBuyPoints() != getUsedStatPool()))))
 		{
-			todoManager.addTodo(new TodoFacadeImpl(CharacterTab.SummaryTab, "Ability Scores", "in_sumTodoStats", 50));
+			todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Ability Scores", "in_sumTodoStats", 50));
 		} else
 		{
 			todoManager.removeTodo("in_sumTodoStats");

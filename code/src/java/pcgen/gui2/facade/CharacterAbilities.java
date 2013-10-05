@@ -57,7 +57,6 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.DataSetFacade;
-import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.facade.event.ChangeEvent;
 import pcgen.core.facade.event.ChangeListener;
@@ -67,6 +66,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
@@ -317,14 +317,14 @@ public class CharacterAbilities
 		if (numSelections < 0)
 		{
 			todoManager.addTodo(new TodoFacadeImpl(
-				CharacterTab.FeatsAbilitiesTab, category.getDisplayName(),
+				Tab.ABILITIES, category.getDisplayName(),
 				"in_featTodoTooMany", category.getType(), 1)); //$NON-NLS-1$
 			todoManager.removeTodo("in_featTodoRemain", category.getDisplayName()); //$NON-NLS-1$
 		}
 		else if (numSelections > 0)
 		{
 			todoManager.addTodo(new TodoFacadeImpl(
-				CharacterTab.FeatsAbilitiesTab, category.getDisplayName(),
+				Tab.ABILITIES, category.getDisplayName(),
 				"in_featTodoRemain", category.getType(), 1)); //$NON-NLS-1$
 			todoManager.removeTodo("in_featTodoTooMany", category.getDisplayName()); //$NON-NLS-1$
 		}

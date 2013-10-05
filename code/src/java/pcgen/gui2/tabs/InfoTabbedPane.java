@@ -24,10 +24,12 @@ import java.awt.Component;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -50,7 +52,6 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.TodoFacade;
-import pcgen.core.facade.TodoFacade.CharacterTab;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.CharacterSelectionListener;
 import pcgen.gui2.util.DisplayAwareTab;
@@ -83,6 +84,7 @@ public final class InfoTabbedPane extends JTabbedPane
 	private final Map<CharacterFacade, Integer> tabSelectionMap;
 	private final TabModelService modelService;
 	private CharacterFacade currentCharacter = null;
+	private List<CharacterInfoTab> fullTabList = new ArrayList<CharacterInfoTab>();
 
 	public InfoTabbedPane()
 	{
@@ -137,6 +139,7 @@ public final class InfoTabbedPane extends JTabbedPane
 		String tooltip = (String) tabTitle.getValue(TabTitle.TOOLTIP);
 		Icon icon = (Icon) tabTitle.getValue(TabTitle.ICON);
 		addTab(title, icon, tab, tooltip);
+		fullTabList.add(tab);
 		tabTitle.addPropertyChangeListener(new TabActionListener(tab));
 	}
 
@@ -182,17 +185,36 @@ public final class InfoTabbedPane extends JTabbedPane
 	private void updateTabsForCharacter(CharacterFacade character)
 	{
 		GameModeFacade gameMode = character.getDataSet().getGameMode();
-		for (int i = 0; i < getTabCount(); i++)
+		int tabIndex = 0;
+		for (int i = 0; i < fullTabList.size(); i++)
 		{
-			CharacterInfoTab charInfoTab = (CharacterInfoTab) getComponentAt(i);
-			TabTitle tabTile = charInfoTab.getTabTitle();
-			Tab tab = tabTile.getTab();
+			CharacterInfoTab charInfoTab = fullTabList.get(i);
+			TabTitle tabTitle = charInfoTab.getTabTitle();
+			Tab tab = tabTitle.getTab();
 			String newName = gameMode.getTabName(tab);
-			if (!newName.equals(tabTile.getValue(TabTitle.TITLE)))
+			if (!newName.equals(tabTitle.getValue(TabTitle.TITLE)))
 			{
-				tabTile.putValue(TabTitle.TITLE, newName);
+				tabTitle.putValue(TabTitle.TITLE, newName);
 			}
-			setEnabledAt(i, gameMode.getTabShown(tab));
+			if (gameMode.getTabShown(tab))
+			{
+				if (getComponentAt(tabIndex) != charInfoTab)
+				{
+					String title = (String) tabTitle.getValue(TabTitle.TITLE);
+					String tooltip = (String) tabTitle.getValue(TabTitle.TOOLTIP);
+					Icon icon = (Icon) tabTitle.getValue(TabTitle.ICON);
+					insertTab(title, icon, (Component) charInfoTab, tooltip, tabIndex);
+				}
+				tabIndex++;
+			}
+			else
+			{
+				if (getComponentAt(tabIndex) == charInfoTab)
+				{
+					remove(tabIndex);
+				}
+				
+			}
 		}
 	}
 
@@ -204,7 +226,9 @@ public final class InfoTabbedPane extends JTabbedPane
 	 */
 	private void switchTabsAndAdviseTodo(String[] dest)
 	{
-		String tabName = CharacterTab.valueOf(dest[0]).getTabTile();
+		Tab tab = Tab.valueOf(dest[0]);
+		String tabName =
+				currentCharacter.getDataSet().getGameMode().getTabName(tab);
 		
 		Component selTab = null;
 		for (int i = 0; i < getTabCount(); i++)
@@ -224,12 +248,12 @@ public final class InfoTabbedPane extends JTabbedPane
 
 		if (selTab instanceof JTabbedPane && dest.length > 2)
 		{
-			JTabbedPane tab = (JTabbedPane) selTab;
-			for (int i = 0; i < tab.getTabCount(); i++)
+			JTabbedPane tabPane = (JTabbedPane) selTab;
+			for (int i = 0; i < tabPane.getTabCount(); i++)
 			{
-				if (dest[2].equals(tab.getTitleAt(i)))
+				if (dest[2].equals(tabPane.getTitleAt(i)))
 				{
-					tab.setSelectedIndex(i);
+					tabPane.setSelectedIndex(i);
 					//selTab = tab.getComponent(i);
 					break;
 				}

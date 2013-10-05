@@ -23,6 +23,7 @@
 package pcgen.gui2.facade;
 
 import pcgen.core.facade.TodoFacade;
+import pcgen.util.enumeration.Tab;
 
 /**
  * The Class <code>TodoFacadeImpl</code> represents a task
@@ -38,7 +39,7 @@ import pcgen.core.facade.TodoFacade;
 public class TodoFacadeImpl implements TodoFacade
 {
 
-	private final CharacterTab tab;
+	private final Tab tab;
 	private final String fieldName;
 	private final String messageKey;
 	private final int order;
@@ -50,7 +51,7 @@ public class TodoFacadeImpl implements TodoFacade
 	 * @param fieldName The field on which the task exists
 	 * @param messageKey The il8n property key of the task details.
 	 */
-	public TodoFacadeImpl(CharacterTab tab, String fieldName, String messageKey, int order)
+	public TodoFacadeImpl(Tab tab, String fieldName, String messageKey, int order)
 	{
 		this.tab = tab;
 		this.fieldName = fieldName;
@@ -64,9 +65,9 @@ public class TodoFacadeImpl implements TodoFacade
 	 * @param fieldName The field on which the task exists
 	 * @param messageKey The il8n property key of the task details.
 	 * @param subTabName The internal name of the sub tab where the task can be completed.
-	 * @param order The value for use when sorting the messages, low appears higher in the didplayed list.
+	 * @param order The value for use when sorting the messages, low appears higher in the displayed list.
 	 */
-	public TodoFacadeImpl(CharacterTab tab, String fieldName, String messageKey, String subTabName, int order)
+	public TodoFacadeImpl(Tab tab, String fieldName, String messageKey, String subTabName, int order)
 	{
 		this.tab = tab;
 		this.fieldName = fieldName;
@@ -97,7 +98,7 @@ public class TodoFacadeImpl implements TodoFacade
 	 * @see pcgen.core.facade.TodoFacade#getTabName()
 	 */
 	@Override
-	public CharacterTab getTab()
+	public Tab getTab()
 	{
 		return tab;
 	}
