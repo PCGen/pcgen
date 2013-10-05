@@ -8,7 +8,8 @@
 	xmlns:myAttribs="my:Attribs"
 	exclude-result-prefixes="myAttribs Psionics">
 
-	<xsl:import href="skillshot_common.xsl"/>
+	<xsl:import href="killshot_common.xsl"/>
+	<xsl:import href="leadership.xsl"/>
 
 
 	<xsl:output indent="yes"/>
@@ -356,59 +357,37 @@
 						<xsl:apply-templates select="equipment" />
 						<xsl:apply-templates select="weight_allowance"/>
 						<xsl:call-template name="money"/>
-						<xsl:apply-templates select="misc/magics"/>
+<!-->						<xsl:apply-templates select="misc/magics"/>
 						<xsl:apply-templates select="languages"/>
 						<xsl:apply-templates select="misc/companions"/>
 						<xsl:apply-templates select="archetypes"/>	
 						<xsl:apply-templates select="animal_tricks"/>	
 						<xsl:apply-templates select="special_abilities"/>
+						<xsl:apply-templates select="afflictions"/>-->
+
 						<xsl:apply-templates select="traits"/>
-						<xsl:apply-templates select="afflictions"/>
-						<xsl:apply-templates select="racial_traits"/>
+						<xsl:apply-templates select="focuses"/>
+						<xsl:apply-templates select="options"/>
+						<xsl:apply-templates select="reactions"/>
+						<xsl:apply-templates select="skills"/>
+						
+
+<!-- 						<xsl:apply-templates select="racial_traits"/>
 						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="special_qualities"/>
 						<xsl:apply-templates select="intelligent_items"/>
 						<xsl:apply-templates select="talents"/>	
-						<!-- Eclipse Section - Having it's own section is creating an additional blank page -->
-						<xsl:apply-templates select="charcreations"/>
-						<xsl:apply-templates select="disadvantages"/>
-						<xsl:apply-templates select="spellcasteroutputs"/>
-						<xsl:apply-templates select="eclipse_abilities"/>
-						<xsl:apply-templates select="martial_arts"/>
-						<xsl:apply-templates select="mystic_artists"/>
-						<xsl:apply-templates select="witchcrafts"/>
-						<xsl:apply-templates select="channelings"/>
-						<xsl:apply-templates select="dominions"/>
-						<xsl:apply-templates select="path_dragons"/>	
-						<!-- McWoD Edition Style -->
-						<xsl:apply-templates select="vampire_disciplines"/>
-						<xsl:apply-templates select="demon_cants"/>
-						<xsl:apply-templates select="werewolf_rites"/>
-						<xsl:apply-templates select="mage_gnosises"/>	
-						<!-- End McWoD Edition Style -->
-						<!-- Saga Edition Style -->
-						<xsl:apply-templates select="force_techniques"/>
-						<xsl:apply-templates select="force_powers"/>
-						<xsl:apply-templates select="force_secrets"/>	
-						<!-- End Saga Edition Style -->
-						<!-- 4th Edition Style -->	
-						<xsl:apply-templates select="powers_classfeatures"/>
-						<xsl:apply-templates select="powers_featpowers"/>
-						<xsl:apply-templates select="powers_atwills"/>
-						<xsl:apply-templates select="powers_encounters"/>
-						<xsl:apply-templates select="powers_dailies"/>
-						<xsl:apply-templates select="powers_utilities"/>	
-						<!-- End 4th Edition Style -->
+
 						<xsl:apply-templates select="salient_divine_abilities"/>
 						<xsl:apply-templates select="leadership"/>
 						<xsl:apply-templates select="feats"/>
 						<xsl:apply-templates select="domains"/>
 						<xsl:apply-templates select="weapon_proficiencies"/>
-<!-->						<xsl:apply-templates select="proficiency_specials"/>-->
+						<xsl:apply-templates select="proficiency_specials"/>
 						<xsl:apply-templates select="templates"/>
 						<xsl:apply-templates select="tempbonuses"/>
 						<xsl:apply-templates select="prohibited_schools"/>
-						<xsl:apply-templates select="companions"/>
+						<xsl:apply-templates select="companions"/>-->
 					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
@@ -3238,7 +3217,7 @@
 					</fo:table-cell>
 				</fo:table-row>
 			<xsl:choose>
-				<xsl:when test="string-length(notes) &gt; 1">
+				<xsl:when test="string-length(special_property) &gt; 1">	
 				<fo:table-row>
 					<fo:table-cell number-columns-spanned="1">
 						<xsl:call-template name="attrib">
@@ -3253,14 +3232,14 @@
 							<xsl:with-param name="attribute" select="'weapon.border'"/>
 						</xsl:call-template>
 						<fo:block font-size="8pt" padding-right="2pt">
-							<fo:inline> </fo:inline><xsl:value-of select="notes"/>
+							<fo:inline> </fo:inline><xsl:value-of select="special_property"/>
 						</fo:block>
 					</fo:table-cell>
 
 				</fo:table-row>
 				</xsl:when>
 				<xsl:otherwise/>
-			</xsl:choose>
+			</xsl:choose>	
 			</fo:table-body>
 		</fo:table>
 <!-->		</xsl:when>	
@@ -6188,6 +6167,100 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+
+
+<!-- Begin Killshot Specific Entries! -->
+
+	<!--
+====================================
+====================================
+	TEMPLATE - Focuses
+====================================
+====================================-->
+	<xsl:template match="focuses">
+		<xsl:if test="count(focus) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'focuses'" />
+				<xsl:with-param name="title" select="'Focuses'" />
+				<xsl:with-param name="list" select="focus"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+
+	<!--
+====================================
+====================================
+	TEMPLATE - Reactions
+====================================
+====================================-->
+	<xsl:template match="reactions">
+		<xsl:if test="count(reaction) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'reactions'" />
+				<xsl:with-param name="title" select="'Reactions'" />
+				<xsl:with-param name="list" select="reaction"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+
+	<!--
+====================================
+====================================
+	TEMPLATE - Skills
+====================================
+====================================-->
+	<xsl:template match="skills">
+		<xsl:if test="count(skill) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'skills'" />
+				<xsl:with-param name="title" select="'Skills'" />
+				<xsl:with-param name="list" select="skill"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+
+	<!--
+====================================
+====================================
+	TEMPLATE - Options
+====================================
+====================================-->
+	<xsl:template match="options">
+		<xsl:if test="count(option) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'options'" />
+				<xsl:with-param name="title" select="'Options'" />
+				<xsl:with-param name="list" select="option"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+
+		<!--
+====================================
+====================================
+	TEMPLATE - Traits
+====================================
+====================================-->
+	<xsl:template match="traits">
+		<xsl:if test="count(trait) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'traits'" />
+				<xsl:with-param name="title" select="'Traits'" />
+				<xsl:with-param name="list" select="trait"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	
 	<!--
 ====================================
 ====================================
@@ -6748,24 +6821,6 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
-	<!--
-====================================
-====================================
-	TEMPLATE - TRAITS
-====================================
-====================================-->
-	<xsl:template match="traits">
-		<xsl:if test="count(trait) &gt; 0">
-			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'traits'" />
-				<xsl:with-param name="title" select="'Traits'" />
-				<xsl:with-param name="list" select="trait"/>
-				<xsl:with-param name="name.tag" select="'name'"/>
-				<xsl:with-param name="desc.tag" select="'description'"/>
-			</xsl:call-template>
-		</xsl:if>
-	</xsl:template>
-
 
 
 	<!--

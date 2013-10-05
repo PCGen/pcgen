@@ -10,28 +10,7 @@
 	<xsl:import href="../../../xsltsl-1.1/stdlib.xsl"/>
   	<xsl:import href="inc_pagedimensions.xslt"/>
 
-	<xsl:template match="spell" mode="spell.card">
-		<xsl:param name="break" select="'page'" />
-		<fo:block>
-			<xsl:if test="position() != last()">
-				<xsl:attribute name="break-after"><xsl:value-of select="$break"/></xsl:attribute>
-			</xsl:if>
 
-			<fo:block font-size="14pt" space-before="2mm" font-weight="bold" margin-left="5mm" text-indent="-5mm"><xsl:value-of select="bonusspell"/> <xsl:value-of select="name"/></fo:block>
-			<fo:block font-size="10pt" text-indent="5mm"><xsl:value-of select="school/fullschool"/></fo:block>
-			<fo:block font-size="10pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Level: </fo:inline><xsl:value-of select="source/sourcelevel"/></fo:block>
-			<fo:block font-size="10pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Components: </fo:inline><xsl:value-of select="components"/></fo:block>
-			<fo:block font-size="10pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Casting Time: </fo:inline><xsl:value-of select="castingtime"/></fo:block>
-			<fo:block font-size="10pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Range: </fo:inline><xsl:value-of select="range"/></fo:block>
-			<fo:block font-size="10pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Target: </fo:inline><xsl:value-of select="target"/></fo:block>
-			<fo:block font-size="10pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Duration: </fo:inline><xsl:value-of select="duration"/></fo:block>
-			<fo:block font-size="10pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Saving Throw: </fo:inline><xsl:value-of select="saveinfo"/></fo:block>
-			<fo:block font-size="10pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Spell Resistance: </fo:inline><xsl:value-of select="spell_resistance"/></fo:block>
-			<fo:block font-size="10pt" margin-left="5mm" text-indent="-5mm"><fo:inline font-weight="bold">Effect: </fo:inline><xsl:value-of select="effect"/></fo:block>
-			<fo:block font-size="5pt" text-indent="3mm"><xsl:value-of select="source/source"/></fo:block>
-
-		</fo:block>
-	</xsl:template>
 
 	<!--
 ====================================
@@ -263,7 +242,7 @@
 		<xsl:param name="list" />
 		<xsl:param name="name.tag" />
 		<xsl:param name="desc.tag" select="''" />
-		<xsl:param name="benefit.tag" select="''" />
+<!-->		<xsl:param name="benefit.tag" select="''" />	-->
 
 		<fo:table table-layout="fixed" space-before="2mm" border-collapse="collapse" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
@@ -312,7 +291,7 @@
 							</xsl:choose>
 						</fo:table-row>
 
-						<xsl:if test="$desc.tag!=''">
+<!-->						<xsl:if test="$desc.tag!=''">	-->
 							<fo:table-row keep-with-next.within-column="always">
 								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
 								<fo:table-cell padding="1pt" number-columns-spanned="3">
@@ -323,9 +302,9 @@
 									</fo:block>
 								</fo:table-cell>
 							</fo:table-row>
-						</xsl:if>
+<!-->						</xsl:if>	-->
 
-						<xsl:if test="$benefit.tag!=''">
+<!-->						<xsl:if test="$benefit.tag!=''">	
 							<fo:table-row keep-with-next.within-column="always">
 								<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.', $shade)"/></xsl:call-template>
 								<fo:table-cell padding="1pt" number-columns-spanned="3">
@@ -336,7 +315,7 @@
 									</fo:block>
 								</fo:table-cell>
 							</fo:table-row>
-						</xsl:if>
+						</xsl:if>	-->
 					</xsl:if>
 				</xsl:for-each>
 			</fo:table-body>

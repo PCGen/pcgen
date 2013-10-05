@@ -185,10 +185,30 @@
 		<special_attacks.lightline><subattrib light=""/></special_attacks.lightline>
 		<special_attacks.darkline><subattrib medium=""/></special_attacks.darkline>
 
-		<archetypes.title><subattrib centre="" inverse=""/></archetypes.title>
-		<archetypes.border padding="0.5pt"><subattrib border="" inverse=""/></archetypes.border>
-		<archetypes.lightline><subattrib light=""/></archetypes.lightline>
-		<archetypes.darkline><subattrib medium=""/></archetypes.darkline>
+		<reactions.title><subattrib centre="" inverse=""/></reactions.title>
+		<reactions.border padding="0.5pt"><subattrib border="" inverse=""/></reactions.border>
+		<reactions.lightline><subattrib light=""/></reactions.lightline>
+		<reactions.darkline><subattrib medium=""/></reactions.darkline>
+
+		<skills.title><subattrib centre="" inverse=""/></skills.title>
+		<skills.border padding="0.5pt"><subattrib border="" inverse=""/></skills.border>
+		<skills.lightline><subattrib light=""/></skills.lightline>
+		<skills.darkline><subattrib medium=""/></skills.darkline>
+
+		<options.title><subattrib centre="" inverse=""/></options.title>
+		<options.border padding="0.5pt"><subattrib border="" inverse=""/></options.border>
+		<options.lightline><subattrib light=""/></options.lightline>
+		<options.darkline><subattrib medium=""/></options.darkline>
+
+		<traits.title><subattrib centre="" inverse=""/></traits.title>
+		<traits.border padding="0.5pt"><subattrib border="" inverse=""/></traits.border>
+		<traits.lightline><subattrib light=""/></traits.lightline>
+		<traits.darkline><subattrib medium=""/></traits.darkline>
+
+		<focuses.title><subattrib centre="" inverse=""/></focuses.title>
+		<focuses.border padding="0.5pt"><subattrib border="" inverse=""/></focuses.border>
+		<focuses.lightline><subattrib light=""/></focuses.lightline>
+		<focuses.darkline><subattrib medium=""/></focuses.darkline>
 
 		<special_qualities.title><subattrib centre="" inverse=""/></special_qualities.title>
 		<special_qualities.border padding="0.5pt"><subattrib border="" inverse=""/></special_qualities.border>
