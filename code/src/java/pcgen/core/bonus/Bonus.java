@@ -264,11 +264,11 @@ public class Bonus
 
 				if (!result)
 				{
-					Logging.debugPrint(new StringBuilder().append(
+					Logging.log(Logging.LST_ERROR, new StringBuilder().append(
 							"Could not add type ").append(aString.substring(5))
 							.append(" to bonusType ").append(typeOfBonus)
 							.append(" in Bonus.newBonus").toString());
-					Logging.reportSource(Logging.DEBUG, context);
+					Logging.reportSource(Logging.LST_ERROR, context);
 				}
 			}
 		}
@@ -288,11 +288,10 @@ public class Bonus
 
 			if (!result)
 			{
-				Logging.debugPrint(new StringBuilder().append(
+				Logging.log(Logging.LST_ERROR, new StringBuilder().append(
 						"Could not parse token ").append(token).append(
-						" from bonusInfo ").append(bonusInfo).append(
-						" in BonusObj.newBonus.").toString());
-				Logging.reportSource(Logging.DEBUG, context);
+						" from BONUS:").append(bonusString).toString());
+				Logging.reportSource(Logging.LST_ERROR, context);
 			}
 		}
 
