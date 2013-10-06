@@ -68,8 +68,8 @@ Secret Knowledge of Avoidance	CATEGORY:Special Ability	TYPE:SpecialQuality.Lorem
 Weapon Trick			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,6																																		BONUS:COMBAT|BAB|1														SOURCEPAGE:srdbasiccharacterclassesi.rtf
 Dodge Trick				CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,7																																		BONUS:COMBAT|AC|1|TYPE=Dodge													SOURCEPAGE:srdbasiccharacterclassesi.rtf
 Applicable Knowledge		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,8																								BONUS:ABILITYPOOL|FEAT|1																							SOURCEPAGE:srdbasiccharacterclassesi.rtf
-Newfound Arcana			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,9										STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|1|1|SPELLTYPE=Divine|1|1																								BONUS:SPELLCAST|%LIST|1	SOURCEPAGE:srdbasiccharacterclassesii.rtf
-More Newfound Arcana		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,10									STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|2|2|SPELLTYPE=Divine|2|2																								BONUS:SPELLCAST|%LIST|1	SOURCEPAGE:srdbasiccharacterclassesii.rtf
+Newfound Arcana			CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,9										STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|1|1|SPELLTYPE=Divine|1|1																								BONUS:SPELLCAST|CLASS=%LIST;LEVEL=1|1	SOURCEPAGE:srdbasiccharacterclassesii.rtf
+More Newfound Arcana		CATEGORY:Special Ability	TYPE:SpecialQuality.LoremasterSecret	VISIBLE:YES	PREVARGTEQ:SecretLore,10									STACK:NO	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|2|2|SPELLTYPE=Divine|2|2																								BONUS:SPELLCAST|CLASS=%LIST;LEVEL=2|1	SOURCEPAGE:srdbasiccharacterclassesii.rtf
 
 ###Block: Shadowdancer Abilities
 # Ability Name		Category of Ability		Type						Visible	Define				Description			Aspects
