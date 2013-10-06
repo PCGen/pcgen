@@ -239,7 +239,7 @@ $Date$
             <span class="ablable">&nbsp;|STAT.%stat.LONGNAME|&nbsp;</span></td>
           <td class="abb">|STAT.%stat.NOTEMP.NOEQUIP|</td>
           <td class="abb">|STAT.%stat.MOD.NOTEMP.NOEQUIP|</td>
-          <td class="abt">|STAT.%stat|</td>
+          <td class="abt">|STAT.%stat|d12</td>
           <td class="abt">|STAT.%stat.MOD|</td>
           </tr>
 |ENDFOR|
@@ -831,8 +831,133 @@ $Date$
 |ENDIF|
 <!-- STOP Special Qualities Table -->
 
+<!-- START TraitDisplay Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=TraitDisplay";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<table width="100%" cellspacing="0" cellpadding="2" summary="Special Qualities Table" class="block">
+<tr>
+<th class="ab" colspan="2">Traits</th>
+</tr>
+|FOR,%TraitDisplay,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=TraitDisplay","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%TraitDisplay,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+
+<!-->@ABILITY	-->
+<td valign="top" width="70%" class="font8"><b>
+<b>
+|ABILITYALL.Special Ability.VISIBLE.%TraitDisplay.TYPE=TraitDisplay|
+</b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[|ABILITYALL.Special Ability.VISIBLE.%TraitDisplay.TYPE=TraitDisplay.SOURCE|]</td>
+<tr>
+|OIF(EVEN:%TraitDisplay,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;|ABILITYALL.Special Ability.VISIBLE.%TraitDisplay.TYPE=TraitDisplay.DESC|</td>
+</tr>
+|ENDFOR|
+</table>
+|ENDIF|
+<!-- STOP TraitDisplay Table -->
+<!-- START FocusDisplay Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=FocusDisplay";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<table width="100%" cellspacing="0" cellpadding="2" summary="Special Qualities Table" class="block">
+<tr>
+<th class="ab" colspan="2">Focus</th>
+</tr>
+|FOR,%FocusDisplay,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=FocusDisplay","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%FocusDisplay,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+
+<!-->@ABILITY	-->
+<td valign="top" width="70%" class="font8"><b>
+<b>
+|ABILITYALL.Special Ability.VISIBLE.%FocusDisplay.TYPE=FocusDisplay|
+</b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[|ABILITYALL.Special Ability.VISIBLE.%FocusDisplay.TYPE=FocusDisplay.SOURCE|]</td>
+<tr>
+|OIF(EVEN:%FocusDisplay,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;|ABILITYALL.Special Ability.VISIBLE.%FocusDisplay.TYPE=FocusDisplay.DESC|</td>
+</tr>
+|ENDFOR|
+</table>
+|ENDIF|
+<!-- STOP FocusDisplay Table -->
 
 
+
+<!-- START OptionDisplay Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=OptionDisplay";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<table width="100%" cellspacing="0" cellpadding="2" summary="Special Qualities Table" class="block">
+<tr>
+<th class="ab" colspan="2">Option</th>
+</tr>
+|FOR,%OptionDisplay,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=OptionDisplay","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%OptionDisplay,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+
+<!-->@ABILITY	-->
+<td valign="top" width="70%" class="font8"><b>
+<b>
+|ABILITYALL.Special Ability.VISIBLE.%OptionDisplay.TYPE=OptionDisplay|
+</b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[|ABILITYALL.Special Ability.VISIBLE.%OptionDisplay.TYPE=OptionDisplay.SOURCE|]</td>
+<tr>
+|OIF(EVEN:%OptionDisplay,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;|ABILITYALL.Special Ability.VISIBLE.%OptionDisplay.TYPE=OptionDisplay.DESC|</td>
+</tr>
+|ENDFOR|
+</table>
+|ENDIF|
+<!-- STOP OptionDisplay Table -->
+
+
+
+<!-- START ReactionDisplay Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=ReactionDisplay";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<table width="100%" cellspacing="0" cellpadding="2" summary="Special Qualities Table" class="block">
+<tr>
+<th class="ab" colspan="2">Reaction</th>
+</tr>
+|FOR,%ReactionDisplay,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ReactionDisplay","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%ReactionDisplay,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+
+<!-->@ABILITY	-->
+<td valign="top" width="70%" class="font8"><b>
+<b>
+|ABILITYALL.Special Ability.VISIBLE.%ReactionDisplay.TYPE=ReactionDisplay|
+</b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[|ABILITYALL.Special Ability.VISIBLE.%ReactionDisplay.TYPE=ReactionDisplay.SOURCE|]</td>
+<tr>
+|OIF(EVEN:%ReactionDisplay,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;|ABILITYALL.Special Ability.VISIBLE.%ReactionDisplay.TYPE=ReactionDisplay.DESC|</td>
+</tr>
+|ENDFOR|
+</table>
+|ENDIF|
+<!-- STOP ReactionDisplay Table -->
+
+<!-- START SkillDisplay Table -->
+|IIF(count("ABILITIES";"CATEGORY=Training Pool";"TYPE=SkillDisplay";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+<table width="100%" cellspacing="0" cellpadding="2" summary="Special Qualities Table" class="block">
+<tr>
+<th class="ab" colspan="2">Skills</th>
+</tr>
+|FOR,%SkillDisplay,0,count("ABILITIES","CATEGORY=Training Pool","TYPE=SkillDisplay","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%SkillDisplay,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+
+<!-->@ABILITY	-->
+<td valign="top" width="70%" class="font8"><b>
+<b>
+|ABILITYALL.Training Pool.VISIBLE.%SkillDisplay.TYPE=SkillDisplay|
+</b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[|ABILITYALL.Training Pool.VISIBLE.%SkillDisplay.TYPE=SkillDisplay.SOURCE|]</td>
+<tr>
+|OIF(EVEN:%SkillDisplay,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;|ABILITYALL.Training Pool.VISIBLE.%SkillDisplay.TYPE=SkillDisplay.DESC|</td>
+</tr>
+|ENDFOR|
+</table>
+|ENDIF|
+<!-- STOP SkillDisplay Table -->
 
 
 <!-- ================================================================= -->

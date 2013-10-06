@@ -106,34 +106,7 @@
 		<psionics.border padding="0.5pt"><subattrib border="" inverse=""/></psionics.border>
 		<psionics><subattrib border="" centre="" normal=""/></psionics>
 
-		<turning.title><subattrib centre="" inverse=""/></turning.title>
-		<turning.border padding="0.5pt"><subattrib border="" inverse=""/></turning.border>
-		<turning><subattrib  centre="" normal=""/></turning>
-		<turning.lightline><subattrib centre="" light=""/></turning.lightline>
-		<turning.darkline><subattrib centre="" medium=""/></turning.darkline>
 
-		<eclipse_channeling.title><subattrib centre="" inverse=""/></eclipse_channeling.title>
-		<eclipse_channeling.border padding="0.5pt"><subattrib border="" inverse=""/></eclipse_channeling.border>
-		<eclipse_channeling><subattrib  centre="" normal=""/></eclipse_channeling>
-		<eclipse_channeling.lightline><subattrib centre="" light=""/></eclipse_channeling.lightline>
-		<eclipse_channeling.darkline><subattrib centre="" medium=""/></eclipse_channeling.darkline>
-
-		<stunningfist.title><subattrib centre="" inverse=""/></stunningfist.title>
-		<stunningfist.border padding="0.5pt"><subattrib border="" inverse=""/></stunningfist.border>
-		<stunningfist><subattrib normal=""/></stunningfist>
-
-		<wholeness.title><subattrib  centre="" inverse=""/></wholeness.title>
-		<wholeness.border padding="0.5pt"><subattrib border="" inverse=""/></wholeness.border>
-		<wholeness><subattrib  normal=""/></wholeness>
-
-		<layonhands.title><subattrib centre="" inverse=""/></layonhands.title>
-		<layonhands.border padding="0.5pt"><subattrib border="" inverse=""/></layonhands.border>
-		<layonhands><subattrib  normal=""/></layonhands>
-
-		<domains.title><subattrib  centre="" inverse=""/></domains.title>
-		<domains.border padding="0.5pt"><subattrib border="" inverse=""/></domains.border>
-		<domains.lightline><subattrib  light=""/></domains.lightline>
-		<domains.darkline><subattrib  medium=""/></domains.darkline>
 
 		<proficiencies.title><subattrib centre="" inverse=""/></proficiencies.title>
 		<proficiencies.border padding="0.5pt"><subattrib border="" inverse=""/></proficiencies.border>

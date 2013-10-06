@@ -1084,7 +1084,7 @@
 								<xsl:with-param name="attribute" select="'stat.score'"/>
 							</xsl:call-template>
 							<fo:block space-before.optimum="2pt" font-size="10pt">
-								<xsl:value-of select="no_temp_score"/>
+								<xsl:value-of select="no_temp_score"/>d12
 							</fo:block>
 						</fo:table-cell>
 						<fo:table-cell/>
