@@ -42,7 +42,6 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
-import pcgen.core.Names;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
@@ -58,7 +57,6 @@ import pcgen.core.analysis.SubClassApplication;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.spell.Spell;
-import pcgen.gui.NameElement;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
@@ -529,7 +527,6 @@ public class NPCGenerator
 	 * @param classList <tt>List</tt> of class options to choose from
 	 * @param levels <tt>List</tt> of level choices
 	 * @param aRollMethod the RollMethod to use for stats
-	 * @param aNameChoice the name set to pick a name from
 	 */
 	public void generate(	final PlayerCharacter aPC, 
 							final AlignGeneratorOption align,
@@ -537,8 +534,7 @@ public class NPCGenerator
 							final GenderGeneratorOption aGender,
 							final List<ClassGeneratorOption> classList, 
 							final List<LevelGeneratorOption> levels,
-							final RollMethod aRollMethod,
-							final NameElement aNameChoice)
+							final RollMethod aRollMethod)
 	{
 		// Force a more quiet process
 		ChooserFactory.pushChooserClassname(
@@ -750,9 +746,10 @@ public class NPCGenerator
 			final List<String> globalBirthplaceList = SystemCollections.getUnmodifiableBirthplaceList();
 			aPC.setBirthplace(globalBirthplaceList.get(RandomUtil.getRandomInt(globalBirthplaceList.size())));
 			
-			final Names nameGen = Names.getInstance();
-			nameGen.init(aNameChoice, aPC);
-			aPC.setName(nameGen.getRandomName());
+			//TODO: Link in with the doomsday book name generator
+//			final Names nameGen = Names.getInstance();
+//			nameGen.init(aNameChoice, aPC);
+//			aPC.setName(nameGen.getRandomName());
 		}
 		catch (Exception e)
 		{

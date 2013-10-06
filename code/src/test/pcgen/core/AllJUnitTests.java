@@ -64,7 +64,6 @@ public class AllJUnitTests extends TestCase
 		suite.addTest(new TestSuite(EquipmentTest.class));
 		suite.addTest(new TestSuite(EquipmentUtilitiesTest.class));
 		suite.addTest(new TestSuite(GlobalsTest.class));
-		suite.addTest(new TestSuite(NamesTest.class));
 		suite.addTest(new TestSuite(PCClassTest.class));
 		suite.addTest(new TestSuite(PlayerCharacterTest.class));
 		suite.addTest(new TestSuite(PObjectTest.class));
