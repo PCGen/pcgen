@@ -1,4 +1,4 @@
-package pcgen.gui;
+package gmgen.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;

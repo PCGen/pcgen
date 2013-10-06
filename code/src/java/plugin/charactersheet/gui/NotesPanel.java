@@ -6,6 +6,8 @@
 
 package plugin.charactersheet.gui;
 
+import gmgen.gui.FlippingSplitPane;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -34,7 +36,6 @@ import pcgen.core.NoteItem;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui.utils.Utility;
 import pcgen.system.LanguageBundle;
 import plugin.charactersheet.CharacterSheetPlugin;

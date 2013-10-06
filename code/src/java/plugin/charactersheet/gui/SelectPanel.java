@@ -6,6 +6,8 @@
 
 package plugin.charactersheet.gui;
 
+import gmgen.gui.FlippingSplitPane;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -27,7 +29,6 @@ import javax.swing.JSplitPane;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.EquipSet;
-import pcgen.gui.panes.FlippingSplitPane;
 
 /**
  * <code>SelectPanel</code> implements the two panels used to select

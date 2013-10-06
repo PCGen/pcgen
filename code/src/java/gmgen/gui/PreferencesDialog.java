@@ -39,7 +39,6 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
 import pcgen.core.SettingsHandler;
-import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui2.dialog.AbstractPreferencesDialog;
 
 /**

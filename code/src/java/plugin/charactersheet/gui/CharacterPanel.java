@@ -7,6 +7,8 @@
 package plugin.charactersheet.gui;
 
 
+import gmgen.gui.FlippingSplitPane;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Point;
@@ -29,7 +31,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.gui2.util.ScrollablePanel;
 import plugin.charactersheet.CharacterSheetPlugin;
 

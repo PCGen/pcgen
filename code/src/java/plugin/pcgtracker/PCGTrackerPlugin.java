@@ -2,6 +2,7 @@ package plugin.pcgtracker;
 
 import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
+import gmgen.gui.ImagePreview;
 import gmgen.io.SimpleFileFilter;
 import gmgen.pluginmgr.GMBMessage;
 import gmgen.pluginmgr.GMBPlugin;
@@ -12,7 +13,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
-import pcgen.gui.ImagePreview;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGFile;
 import pcgen.system.LanguageBundle;

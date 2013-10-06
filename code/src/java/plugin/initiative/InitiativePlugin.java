@@ -24,6 +24,7 @@ package plugin.initiative;
 
 import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
+import gmgen.gui.ImagePreview;
 import gmgen.io.SimpleFileFilter;
 import gmgen.plugin.InitHolder;
 import gmgen.plugin.InitHolderList;
@@ -50,7 +51,6 @@ import javax.swing.filechooser.FileFilter;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.gui.ImagePreview;
 import pcgen.gui2.tools.Utility;
 import pcgen.io.PCGFile;
 import pcgen.system.PCGenSettings;

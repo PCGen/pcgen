@@ -20,7 +20,7 @@
  *
  * Created on August 18th, 2002.
  */
-package pcgen.gui.panes; // hm.binkley.gui;
+package gmgen.gui; // hm.binkley.gui;
 
 import pcgen.gui.utils.IconUtilitities;
 

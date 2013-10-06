@@ -23,6 +23,7 @@
 package plugin.initiative.gui;
 
 import gmgen.GMGenSystem;
+import gmgen.gui.FlippingSplitPane;
 import gmgen.io.SimpleFileFilter;
 import gmgen.plugin.Combatant;
 import gmgen.plugin.Dice;
@@ -79,7 +80,6 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.gui.panes.FlippingSplitPane;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;

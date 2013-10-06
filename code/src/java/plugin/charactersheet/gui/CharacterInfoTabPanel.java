@@ -6,17 +6,17 @@
  */
 package plugin.charactersheet.gui;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
-import pcgen.gui.CharacterInfoTab;
-import pcgen.system.LanguageBundle;
-import plugin.charactersheet.CharacterSheetModel;
-
-import javax.swing.JComponent;
-import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JComponent;
+import javax.swing.JPanel;
+
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.system.LanguageBundle;
+import plugin.charactersheet.CharacterSheetModel;
 
 /**
  * @author djones4
@@ -24,7 +24,8 @@ import java.util.List;
  * TODO To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
-public class CharacterInfoTabPanel extends JPanel implements CharacterInfoTab
+@SuppressWarnings("serial")
+public class CharacterInfoTabPanel extends JPanel
 {
 	private PlayerCharacter pc;
 	private CharacterPanel cp;
@@ -40,7 +41,6 @@ public class CharacterInfoTabPanel extends JPanel implements CharacterInfoTab
 		setLayout(new BorderLayout());
 	}
 
-    @Override
 	public void setPc(PlayerCharacter pc)
 	{
 		/*if(this.pc != pc) {
@@ -68,33 +68,28 @@ public class CharacterInfoTabPanel extends JPanel implements CharacterInfoTab
 		cp.setPc(pc);
 	}
 
-    @Override
 	public PlayerCharacter getPc()
 	{
 		//TODO Should this be cp.getPC()?? - thpr 10/27/06
 		return pc;
 	}
 
-    @Override
 	public int getTabOrder()
 	{
 		return SettingsHandler
 			.getGMGenOption(".Panel.CharacterPanel.Order", 20);
 	}
 
-    @Override
 	public void setTabOrder(int order)
 	{
 		SettingsHandler.setGMGenOption(".Panel.CharacterPanel.Order", order);
 	}
 
-    @Override
 	public String getTabName()
 	{
 		return LanguageBundle.getString("in_preview");
 	}
 
-    @Override
 	public boolean isShown()
 	{
 		return SettingsHandler.getGMGenOption(".Panel.CharacterPanel.Show",
@@ -105,13 +100,11 @@ public class CharacterInfoTabPanel extends JPanel implements CharacterInfoTab
 	 * Retrieve the list of tasks to be done on the tab.
 	 * @return List of task descriptions as Strings.
 	 */
-    @Override
 	public List<String> getToDos()
 	{
 		return new ArrayList<String>();
 	}
 
-    @Override
 	public void refresh()
 	{
 		if (cp != null)
@@ -120,7 +113,6 @@ public class CharacterInfoTabPanel extends JPanel implements CharacterInfoTab
 		}
 	}
 
-    @Override
 	public void forceRefresh()
 	{
 		if (cp != null)
@@ -129,7 +121,6 @@ public class CharacterInfoTabPanel extends JPanel implements CharacterInfoTab
 		}
 	}
 
-    @Override
 	public JComponent getView()
 	{
 		return this;
