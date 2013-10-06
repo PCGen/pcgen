@@ -467,9 +467,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private int costPool = 0;
 	private int currentEquipSetNumber = 0;
 
-	// order in which the equipment will be output.
-	private int equipOutputOrder = GuiConstants.INFOSKILLS_OUTPUT_BY_NAME_ASC;
-
 	// pool of stats allowed to distribute
 	private int poolAmount = 0;
 
@@ -3307,26 +3304,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		setDirty(true);
 
 		return true;
-	}
-
-	/**
-	 * Set the order in which equipment should be sorted for output.
-	 * 
-	 * @param i
-	 *            The new output order
-	 */
-	public void setEquipOutputOrder(final int i)
-	{
-		equipOutputOrder = i;
-		setDirty(true);
-	}
-
-	/**
-	 * @return The selected Output Order for equipment.
-	 */
-	public int getEquipOutputOrder()
-	{
-		return equipOutputOrder;
 	}
 
 	/**
@@ -7997,7 +7974,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 		aClone.setFeats(numberOfRemainingFeats);
 		aClone.costPool = costPool;
 		aClone.currentEquipSetNumber = currentEquipSetNumber;
-		aClone.equipOutputOrder = equipOutputOrder;
 		aClone.poolAmount = poolAmount;
 
 		// order in which the skills will be output.

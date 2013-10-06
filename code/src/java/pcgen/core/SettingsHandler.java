@@ -55,7 +55,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.SortedProperties;
-import pcgen.gui.GuiConstants;
 import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
@@ -230,24 +229,6 @@ public final class SettingsHandler
 	private static boolean showSkillRanks = false;
 	private static boolean showWarningAtFirstLevelUp = true;
 	private static String skinLFThemePack = null;
-	private static boolean summaryTabShown = false;
-	private static int classTab_AvailableListMode = GuiConstants.INFOCLASS_VIEW_NAME;
-	private static int classTab_SelectedListMode = GuiConstants.INFOCLASS_VIEW_NAME;
-	private static int domainTab_ListMode = GuiConstants.INFODOMAIN_VIEW_NAME;
-	private static int equipTab_AvailableListMode = GuiConstants.INFOEQUIPPING_VIEW_EQUIPPED;
-	private static int equipTab_SelectedListMode = GuiConstants.INFOEQUIPPING_VIEW_NAME;
-	private static int featTab_AvailableListMode = GuiConstants.INFOFEATS_VIEW_PREREQTREE;
-	private static int featTab_SelectedListMode = GuiConstants.INFOFEATS_VIEW_NAMEONLY;
-	private static int gearTab_AvailableListMode = GuiConstants.INFOINVENTORY_VIEW_TYPE_NAME;
-	private static int gearTab_SelectedListMode = GuiConstants.INFOINVENTORY_VIEW_NAME;
-	private static int raceTab_ListMode = GuiConstants.INFORACE_VIEW_NAME;
-	private static int templateTab_ListMode = GuiConstants.INFOTEMPLATE_VIEW_NAME;
-	private static int templateSelTab_ListMode = GuiConstants.INFOTEMPLATE_VIEW_NAME;
-	private static int skillsTab_AvailableListMode = GuiConstants.INFOSKILLS_VIEW_TYPE_NAME;
-	private static int skillsTab_SelectedListMode = GuiConstants.INFOSKILLS_VIEW_NAME;
-	private static int spellsTab_AvailableListMode = GuiConstants.INFOSPELLS_VIEW_CLASS;
-	private static int spellsTab_SelectedListMode = GuiConstants.INFOSPELLS_VIEW_CLASS;
-	private static boolean cleanupTempFiles = false;
 	private static boolean alwaysOverwrite = false;
 	private static boolean allowOverride = false;
 	private static String defaultOSType = ""; //$NON-NLS-1$
@@ -441,26 +422,6 @@ public final class SettingsHandler
 		return chaTabPlacement;
 	}
 
-	public static void setClassTab_AvailableListMode(final int listMode)
-	{
-		classTab_AvailableListMode = listMode;
-	}
-
-	public static int getClassTab_AvailableListMode()
-	{
-		return classTab_AvailableListMode;
-	}
-
-	public static void setClassTab_SelectedListMode(final int listMode)
-	{
-		classTab_SelectedListMode = listMode;
-	}
-
-	public static int getClassTab_SelectedListMode()
-	{
-		return classTab_SelectedListMode;
-	}
-
 	/**
 	 * Sets the flag to determine whether PCGen should backup pcg files before saving
 	 *
@@ -531,16 +492,6 @@ public final class SettingsHandler
 		return dmNotes;
 	}
 
-	public static void setDomainTab_ListMode(final int listMode)
-	{
-		domainTab_ListMode = listMode;
-	}
-
-	public static int getDomainTab_ListMode()
-	{
-		return domainTab_ListMode;
-	}
-
 	/**
 	 * Sets whether PCgen will enforce the spending of all unallocated feats and skill points
 	 * before allowing the character to level up.
@@ -554,26 +505,6 @@ public final class SettingsHandler
 	public static boolean getEnforceSpendingBeforeLevelUp()
 	{
 		return enforceSpendingBeforeLevelUp;
-	}
-
-	public static void setEquipTab_AvailableListMode(final int listMode)
-	{
-		equipTab_AvailableListMode = listMode;
-	}
-
-	public static int getEquipTab_AvailableListMode()
-	{
-		return equipTab_AvailableListMode;
-	}
-
-	public static void setEquipTab_SelectedListMode(final int listMode)
-	{
-		equipTab_SelectedListMode = listMode;
-	}
-
-	public static int getEquipTab_SelectedListMode()
-	{
-		return equipTab_SelectedListMode;
 	}
 
 //	public static void setExcSkillCost(final int argExcSkillCost)
@@ -604,26 +535,6 @@ public final class SettingsHandler
 	public static int getFeatAutoColor()
 	{
 		return featAutoColor;
-	}
-
-	public static void setFeatTab_AvailableListMode(final int listMode)
-	{
-		featTab_AvailableListMode = listMode;
-	}
-
-	public static int getFeatTab_AvailableListMode()
-	{
-		return featTab_AvailableListMode;
-	}
-
-	public static void setFeatTab_SelectedListMode(final int listMode)
-	{
-		featTab_SelectedListMode = listMode;
-	}
-
-	public static int getFeatTab_SelectedListMode()
-	{
-		return featTab_SelectedListMode;
 	}
 
 	public static void setFeatVirtualColor(final int newColor)
@@ -849,16 +760,6 @@ public final class SettingsHandler
 		return gearTab_AutoResize;
 	}
 
-	public static void setGearTab_AvailableListMode(final int listMode)
-	{
-		gearTab_AvailableListMode = listMode;
-	}
-
-	public static int getGearTab_AvailableListMode()
-	{
-		return gearTab_AvailableListMode;
-	}
-
 	public static void setGearTab_BuyRate(final int argBuyRate)
 	{
 		gearTab_BuyRate = argBuyRate;
@@ -877,16 +778,6 @@ public final class SettingsHandler
 	public static boolean getGearTab_IgnoreCost()
 	{
 		return gearTab_IgnoreCost;
-	}
-
-	public static void setGearTab_SelectedListMode(final int listMode)
-	{
-		gearTab_SelectedListMode = listMode;
-	}
-
-	public static int getGearTab_SelectedListMode()
-	{
-		return gearTab_SelectedListMode;
 	}
 
 	public static void setGearTab_SellRate(final int argSellRate)
@@ -1259,30 +1150,20 @@ public final class SettingsHandler
 		setAutogenMasterwork(getPCGenOption("autoGenerateMasterwork", false)); //$NON-NLS-1$
 		setAutogenRacial(getPCGenOption("autoGenerateRacial", false)); //$NON-NLS-1$
 		setChaTabPlacement(getOptionTabPlacement("chaTabPlacement", SwingConstants.TOP)); //$NON-NLS-1$
-		setClassTab_AvailableListMode(getPCGenOption("ClassTab.availableListMode", GuiConstants.INFOCLASS_VIEW_NAME)); //$NON-NLS-1$
-		setClassTab_SelectedListMode(getPCGenOption("ClassTab.selectedListMode", GuiConstants.INFOCLASS_VIEW_NAME)); //$NON-NLS-1$
 		setCreatePcgBackup(getPCGenOption("createPcgBackup", true));
 		setCustomizerSplit1(getPCGenOption("customizer.split1", -1)); //$NON-NLS-1$
 		setCustomizerSplit2(getPCGenOption("customizer.split2", -1)); //$NON-NLS-1$
 		setDefaultOSType(getPCGenOption("defaultOSType", null)); //$NON-NLS-1$
 		setDmNotes(getPCGenOption("dmnotes", "")); //$NON-NLS-1$ //$NON-NLS-2$
-		setDomainTab_ListMode(getPCGenOption("DomainTab.ListMode", GuiConstants.INFODOMAIN_VIEW_NAME)); //$NON-NLS-1$
 		setEnforceSpendingBeforeLevelUp(getPCGenOption("enforceSpendingBeforeLevelUp", false)); //$NON-NLS-1$
-		setEquipTab_AvailableListMode(getPCGenOption("EquipTab.availableListMode", GuiConstants.INFOEQUIPPING_VIEW_EQUIPPED)); //$NON-NLS-1$
-		setEquipTab_SelectedListMode(getPCGenOption("EquipTab.selectedListMode", GuiConstants.INFOEQUIPPING_VIEW_NAME)); //$NON-NLS-1$
 //		setExcSkillCost(getPCGenOption("excSkillCost", 0)); //$NON-NLS-1$
 		setExpertGUI(getPCGenOption("expertGUI", false)); //$NON-NLS-1$
 		setFeatAutoColor(getPCGenOption("featAutoColor", Color.yellow.darker().getRGB())); //$NON-NLS-1$
-		setFeatTab_AvailableListMode(getPCGenOption("FeatTab.availableListMode", GuiConstants.INFOFEATS_VIEW_PREREQTREE)); //$NON-NLS-1$
-		setFeatTab_SelectedListMode(getPCGenOption("FeatTab.selectedListMode", GuiConstants.INFOFEATS_VIEW_NAMEONLY)); //$NON-NLS-1$
 		setFeatVirtualColor(getPCGenOption("featVirtualColor", Color.magenta.getRGB())); //$NON-NLS-1$
 		setGearTab_AllowDebt(getPCGenOption("GearTab.allowDebt", false)); //$NON-NLS-1$
 		setGearTab_AutoResize(getPCGenOption("GearTab.autoResize", false)); //$NON-NLS-1$
-		setGearTab_AvailableListMode(getPCGenOption("GearTab.availableListMode", //$NON-NLS-1$
-				GuiConstants.INFOINVENTORY_VIEW_TYPE_NAME));
 		setGearTab_BuyRate(buyRate);
 		setGearTab_IgnoreCost(getPCGenOption("GearTab.ignoreCost", false)); //$NON-NLS-1$
-		setGearTab_SelectedListMode(getPCGenOption("GearTab.selectedListMode", GuiConstants.INFOINVENTORY_VIEW_NAME)); //$NON-NLS-1$
 		setGearTab_SellRate(sellRate);
 		setGrimHPMode(getPCGenOption("grimHPMode", false)); //$NON-NLS-1$
 		setGrittyACMode(getPCGenOption("grittyACMode", false)); //$NON-NLS-1$
@@ -1333,7 +1214,6 @@ public final class SettingsHandler
 		setPrereqQualifyColor(getPCGenOption("prereqQualifyColor", Color.black.getRGB())); //$NON-NLS-1$
 		setPreviewTabShown(getPCGenOption("previewTabShown", true)); //$NON-NLS-1$
 		setQuickLaunchSources(getPCGenOption("quickLaunchSources", "")); //$NON-NLS-1$ //$NON-NLS-2$
-		setRaceTab_ListMode(getPCGenOption("RaceTab.ListMode", GuiConstants.INFORACE_VIEW_NAME)); //$NON-NLS-1$
 		setRanStartingWizard(getPCGenOption("ranStartingWizard", false)); //$NON-NLS-1$
 		setROG(getPCGenOption("isROG", false)); //$NON-NLS-1$
 		setSaveCustomInLst(getPCGenOption("saveCustomInLst", false)); //$NON-NLS-1$
@@ -1361,21 +1241,13 @@ public final class SettingsHandler
 		setShowSkillModifier(getPCGenOption("showSkillModifier", true)); //$NON-NLS-1$
 		setShowSkillRanks(getPCGenOption("showSkillRanks", true)); //$NON-NLS-1$
 		setShowWarningAtFirstLevelUp(getPCGenOption("showWarningAtFirstLevelUp", true)); //$NON-NLS-1$
-		setSkillsTab_AvailableListMode(getPCGenOption("SkillsTab.availableListMode", //$NON-NLS-1$
-				GuiConstants.INFOSKILLS_VIEW_TYPE_NAME));
-		setSkillsTab_SelectedListMode(getPCGenOption("SkillsTab.selectedListMode", GuiConstants.INFOSKILLS_VIEW_NAME)); //$NON-NLS-1$
 		setSkinLFThemePack(getPCGenOption("skinLFThemePack", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setSpellMarketPriceAdjusted(getPCGenOption("spellMarketPriceAdjusted", false)); //$NON-NLS-1$
-		setSpellsTab_AvailableListMode(getPCGenOption("SpellsTab.availableListMode", GuiConstants.INFOSPELLS_VIEW_CLASS)); //$NON-NLS-1$
-		setSpellsTab_SelectedListMode(getPCGenOption("SpellsTab.selectedListMode", GuiConstants.INFOSPELLS_VIEW_CLASS)); //$NON-NLS-1$
 		setSourceStatusReleaseColor(getPCGenOption("sourceStatusReleaseColor", Color.black.getRGB())); //$NON-NLS-1$
 		setSourceStatusAlphaColor(getPCGenOption("sourceStatusAlphaColor", Color.red.getRGB())); //$NON-NLS-1$
 		setSourceStatusBetaColor(getPCGenOption("sourceStatusBetaColor", new Color(128, 0, 0).getRGB())); //$NON-NLS-1$
 		setSourceStatusTestColor(getPCGenOption("sourceStatusTestColor", Color.magenta.getRGB())); //$NON-NLS-1$
-		setSummaryTabShown(getPCGenOption("summaryTabShown", true)); //$NON-NLS-1$
 		setTabPlacement(getOptionTabPlacement("tabPlacement", SwingConstants.BOTTOM)); //$NON-NLS-1$
-		setTemplateSelTab_ListMode(getPCGenOption("TemplateTab.selectedListMode", GuiConstants.INFOTEMPLATE_VIEW_NAME)); //$NON-NLS-1$
-		setTemplateTab_ListMode(getPCGenOption("TemplateTab.availableListMode", GuiConstants.INFOTEMPLATE_VIEW_NAME)); //$NON-NLS-1$
 		setToolTipTextShown(getPCGenOption("toolTipTextShown", true)); //$NON-NLS-1$
 		setUseHigherLevelSlotsDefault(getPCGenOption("useHigherLevelSlotsDefault", false)); //$NON-NLS-1$
 		setUseAdvancedSourceSelect(getPCGenOption("useAdvancedSourceSelect", false)); //$NON-NLS-1$
@@ -1662,29 +1534,20 @@ public final class SettingsHandler
 		setPCGenOption("autoGenerateMasterwork", isAutogenMasterwork()); //$NON-NLS-1$
 		setPCGenOption("autoGenerateRacial", isAutogenRacial()); //$NON-NLS-1$
 		setPCGenOption("chaTabPlacement", convertTabPlacementToString(chaTabPlacement)); //$NON-NLS-1$
-		setPCGenOption("ClassTab.availableListMode", getClassTab_AvailableListMode()); //$NON-NLS-1$
-		setPCGenOption("ClassTab.selectedListMode", getClassTab_SelectedListMode()); //$NON-NLS-1$
 		setPCGenOption("country", getCountry()); //$NON-NLS-1$
 		setPCGenOption("createPcgBackup", getCreatePcgBackup()); //$NON-NLS-1$
 		setPCGenOption("customizer.split1", getCustomizerSplit1()); //$NON-NLS-1$
 		setPCGenOption("customizer.split2", getCustomizerSplit2()); //$NON-NLS-1$
 		setPCGenOption("defaultOSType", getDefaultOSType()); //$NON-NLS-1$
 		setPCGenOption("dmnotes", getDmNotes()); //$NON-NLS-1$
-		setPCGenOption("DomainTab.ListMode", getDomainTab_ListMode()); //$NON-NLS-1$
-		setPCGenOption("EquipTab.availableListMode", getEquipTab_AvailableListMode()); //$NON-NLS-1$
-		setPCGenOption("EquipTab.selectedListMode", getEquipTab_SelectedListMode()); //$NON-NLS-1$
 //		setPCGenOption("excSkillCost", getExcSkillCost()); //$NON-NLS-1$
 		setPCGenOption("expertGUI", isExpertGUI()); //$NON-NLS-1$
 		setPCGenOption("featAutoColor", "0x" + Integer.toHexString(getFeatAutoColor())); //$NON-NLS-1$ //$NON-NLS-2$
-		setPCGenOption("FeatTab.availableListMode", getFeatTab_AvailableListMode()); //$NON-NLS-1$
-		setPCGenOption("FeatTab.selectedListMode", getFeatTab_SelectedListMode()); //$NON-NLS-1$
 		setPCGenOption("featVirtualColor", "0x" + Integer.toHexString(getFeatVirtualColor())); //$NON-NLS-1$ //$NON-NLS-2$
 		setPCGenOption("GearTab.allowDebt", getGearTab_AllowDebt()); //$NON-NLS-1$
 		setPCGenOption("GearTab.autoResize", getGearTab_AutoResize()); //$NON-NLS-1$
-		setPCGenOption("GearTab.availableListMode", getGearTab_AvailableListMode()); //$NON-NLS-1$
 		setPCGenOption("GearTab.buyRate", getGearTab_BuyRate()); //$NON-NLS-1$
 		setPCGenOption("GearTab.ignoreCost", getGearTab_IgnoreCost()); //$NON-NLS-1$
-		setPCGenOption("GearTab.selectedListMode", getGearTab_SelectedListMode()); //$NON-NLS-1$
 		setPCGenOption("GearTab.sellRate", getGearTab_SellRate()); //$NON-NLS-1$
 		setPCGenOption("grimHPMode", isGrimHPMode()); //$NON-NLS-1$
 		setPCGenOption("grittyACMode", isGrittyACMode()); //$NON-NLS-1$
@@ -1716,7 +1579,6 @@ public final class SettingsHandler
 		setPCGenOption("prereqFailColor", "0x" + Integer.toHexString(getPrereqFailColor())); //$NON-NLS-1$ //$NON-NLS-2$
 		setPCGenOption("prereqQualifyColor", "0x" + Integer.toHexString(getPrereqQualifyColor())); //$NON-NLS-1$ //$NON-NLS-2$
 		setPCGenOption("previewTabShown", isPreviewTabShown()); //$NON-NLS-1$
-		setPCGenOption("RaceTab.ListMode", getRaceTab_ListMode()); //$NON-NLS-1$
 		setPCGenOption("ranStartingWizard", ranStartingWizard); //$NON-NLS-1$
 		setPCGenOption("saveCustomInLst", isSaveCustomInLst()); //$NON-NLS-1$
 		setPCGenOption("saveOutputSheetWithPC", getSaveOutputSheetWithPC()); //$NON-NLS-1$
@@ -1738,20 +1600,13 @@ public final class SettingsHandler
 		setPCGenOption("showSkillRanks", getShowSkillRanks()); //$NON-NLS-1$
 		setPCGenOption("showSingleBoxPerBundle", getShowSingleBoxPerBundle()); //$NON-NLS-1$
 		setPCGenOption("showWarningAtFirstLevelUp", isShowWarningAtFirstLevelUp()); //$NON-NLS-1$
-		setPCGenOption("SkillsTab.availableListMode", getSkillsTab_AvailableListMode()); //$NON-NLS-1$
-		setPCGenOption("SkillsTab.selectedListMode", getSkillsTab_SelectedListMode()); //$NON-NLS-1$
 		setPCGenOption("sourceDisplay", Globals.getSourceDisplay().ordinal()); //$NON-NLS-1$
 		setPCGenOption("sourceStatusReleaseColor", "0x" + Integer.toHexString(getSourceStatusReleaseColor())); //$NON-NLS-1$ //$NON-NLS-2$
 		setPCGenOption("sourceStatusAlphaColor", "0x" + Integer.toHexString(getSourceStatusAlphaColor())); //$NON-NLS-1$ //$NON-NLS-2$
 		setPCGenOption("sourceStatusBetaColor", "0x" + Integer.toHexString(getSourceStatusBetaColor())); //$NON-NLS-1$ //$NON-NLS-2$
 		setPCGenOption("sourceStatusTestColor", "0x" + Integer.toHexString(getSourceStatusTestColor())); //$NON-NLS-1$ //$NON-NLS-2$
 		setPCGenOption("spellMarketPriceAdjusted", isSpellMarketPriceAdjusted()); //$NON-NLS-1$
-		setPCGenOption("SpellsTab.availableListMode", getSpellsTab_AvailableListMode()); //$NON-NLS-1$
-		setPCGenOption("SpellsTab.selectedListMode", getSpellsTab_SelectedListMode()); //$NON-NLS-1$
-		setPCGenOption("summaryTabShown", isSummaryTabShown()); //$NON-NLS-1$
 		setPCGenOption("tabPlacement", convertTabPlacementToString(tabPlacement)); //$NON-NLS-1$
-		setPCGenOption("TemplateTab.availableListMode", getTemplateTab_ListMode()); //$NON-NLS-1$
-		setPCGenOption("TemplateTab.selectedListMode", getTemplateSelTab_ListMode()); //$NON-NLS-1$
 		setPCGenOption("toolTipTextShown", isToolTipTextShown()); //$NON-NLS-1$
 		setPCGenOption("useHigherLevelSlotsDefault", isUseHigherLevelSlotsDefault()); //$NON-NLS-1$
 		setPCGenOption("useWaitCursor", getUseWaitCursor()); //$NON-NLS-1$
@@ -2066,36 +1921,6 @@ public final class SettingsHandler
 	public static boolean isROG()
 	{
 		return isROG;
-	}
-
-	public static void setRaceTab_ListMode(final int listMode)
-	{
-		raceTab_ListMode = listMode;
-	}
-
-	public static int getRaceTab_ListMode()
-	{
-		return raceTab_ListMode;
-	}
-
-	public static void setTemplateTab_ListMode(final int listMode)
-	{
-		templateTab_ListMode = listMode;
-	}
-
-	public static int getTemplateTab_ListMode()
-	{
-		return templateTab_ListMode;
-	}
-
-	public static void setTemplateSelTab_ListMode(final int listMode)
-	{
-		templateSelTab_ListMode = listMode;
-	}
-
-	public static int getTemplateSelTab_ListMode()
-	{
-		return templateSelTab_ListMode;
 	}
 
 	/**
@@ -2442,16 +2267,6 @@ public final class SettingsHandler
 		return showWarningAtFirstLevelUp;
 	}
 
-	public static void setSkillsTab_AvailableListMode(final int listMode)
-	{
-		skillsTab_AvailableListMode = listMode;
-	}
-
-	public static int getSkillsTab_AvailableListMode()
-	{
-		return skillsTab_AvailableListMode;
-	}
-
 	public static void setSkillsTab_IncludeSkills(final int anInt)
 	{
 		skillsTab_IncludeSkills = anInt;
@@ -2462,16 +2277,6 @@ public final class SettingsHandler
 		return skillsTab_IncludeSkills;
 	}
 
-	public static void setSkillsTab_SelectedListMode(final int listMode)
-	{
-		skillsTab_SelectedListMode = listMode;
-	}
-
-	public static int getSkillsTab_SelectedListMode()
-	{
-		return skillsTab_SelectedListMode;
-	}
-
 	public static void setSkinLFThemePack(final String argSkinLFThemePack)
 	{
 		skinLFThemePack = argSkinLFThemePack;
@@ -2480,26 +2285,6 @@ public final class SettingsHandler
 	public static String getSkinLFThemePack()
 	{
 		return skinLFThemePack;
-	}
-
-	public static void setSpellsTab_AvailableListMode(final int listMode)
-	{
-		spellsTab_AvailableListMode = listMode;
-	}
-
-	public static int getSpellsTab_AvailableListMode()
-	{
-		return spellsTab_AvailableListMode;
-	}
-
-	public static void setSpellsTab_SelectedListMode(final int listMode)
-	{
-		spellsTab_SelectedListMode = listMode;
-	}
-
-	public static int getSpellsTab_SelectedListMode()
-	{
-		return spellsTab_SelectedListMode;
 	}
 
 	public static void setTabPlacement(final int anInt)
@@ -3222,16 +3007,6 @@ public final class SettingsHandler
 	private static boolean isSpellMarketPriceAdjusted()
 	{
 		return spellMarketPriceAdjusted;
-	}
-
-	private static void setSummaryTabShown(final boolean showSummaryTab)
-	{
-		summaryTabShown = showSummaryTab;
-	}
-
-	private static boolean isSummaryTabShown()
-	{
-		return summaryTabShown;
 	}
 
 	private static String getTmpPath()
