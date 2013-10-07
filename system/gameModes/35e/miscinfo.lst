@@ -208,7 +208,7 @@ WEAPONNONPROFPENALTY:-4
 
 # Number of hands required to wield weapon categories
 #									Object Size difference
-# 											Damage multiplier: hands = multiplier
+#											Damage multiplier: hands = multiplier
 WIELDCATEGORY:Light		HANDS:1		FINESSABLE:Yes		SIZEDIFF:-1	DAMAGEMULT:1=1,2=1
 WIELDCATEGORY:OneHanded		HANDS:1					SIZEDIFF:0	DAMAGEMULT:1=1,2=1.5
 WIELDCATEGORY:TwoHanded		HANDS:2					SIZEDIFF:1	DAMAGEMULT:2=1.5
@@ -291,7 +291,7 @@ INFOSHEET:SUMMARY|preview/summary/35e_info.html
 INFOSHEET:SKILLS|preview/skills/35e_skills.html
 
 # DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.
-DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000 
+DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
 
 # Types which automatic resizing is activated on
 RESIZABLEEQUIPTYPE:Shield|Weapon|Armor|Ammunition|Resizable

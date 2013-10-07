@@ -222,12 +222,10 @@
 						<fo:block font-size="5pt">Player: <fo:inline font-weight="bold"><xsl:value-of select="/character/basics/playername"/></fo:inline></fo:block>
 					</fo:table-cell>
 					<fo:table-cell text-align="center" wrap-option="no-wrap" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
-						<fo:block text-align="center" font-size="5pt">PCGen Character Template by Frugal, based on work by ROG, Arcady, Barak, Dimrill, Dekker &amp; Andrew Maitland (LegacyKing).</fo:block>
+						<fo:block text-align="center" font-size="5pt">PCGen Killshot Template by Andrew Maitland (LegacyKing).</fo:block>
 						<fo:block text-align="center" font-size="5pt">Created using PCGen <xsl:value-of select="/character/export/version"/> on <xsl:value-of select="/character/export/date"/><xsl:text> at </xsl:text><xsl:value-of select="/character/export/time"/></fo:block>
 					</fo:table-cell>
 					<fo:table-cell text-align="end" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
-						<fo:block font-size="5pt">
-						Level:<xsl:value-of select="/character/basics/classes/levels_total"/> (CR:<xsl:value-of select="/character/basics/cr"/>)</fo:block>
 						<fo:block font-size="5pt">Page <fo:page-number/>
 						</fo:block>
 					</fo:table-cell>
@@ -238,15 +236,6 @@
 
 	<!--		Start the character		-->
 	<xsl:template match="character">
-		<!-- calculate the number of weapons and skills on the first page -->
-		<xsl:variable name="first_page_weapon_count">
-			<xsl:call-template name="view.weapon.num"/>
-		</xsl:variable>
-		<xsl:variable name="first_page_skills_count">
-			<xsl:call-template name="view.skills.num"/>
-		</xsl:variable>
-		<xsl:message>Number of weapons on first page = <xsl:value-of select="$first_page_weapon_count"/></xsl:message>
-		<xsl:message>Number of skills on first page = <xsl:value-of select="$first_page_skills_count"/></xsl:message>
 		<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
 			<xsl:call-template name="page.layouts"/>
 			<!--
@@ -278,56 +267,18 @@
 										<xsl:apply-templates select="abilities"/>
 									</fo:table-cell>
 									<fo:table-cell number-columns-spanned="2" border-width="1pt" border-color="red">
-										<xsl:apply-templates select="." mode="hp_table"/>
-										<xsl:apply-templates select="armor_class"/>
-										<xsl:apply-templates select="initiative"/>
+									
 									</fo:table-cell>
 								</fo:table-row>
 								<fo:table-row>
 									<fo:table-cell>
-								<!-->		<xsl:apply-templates select="basics/bab" mode="bab"/>	-->
-										<xsl:call-template name="encumberance"/>
+								
 									</fo:table-cell>
 									<fo:table-cell number-rows-spanned="2">
-										<xsl:apply-templates select="skills">
-											<xsl:with-param name="first_skill" select="0"/>
-											<xsl:with-param name="last_skill" select="$first_page_skills_count"/>
-											<xsl:with-param name="column_width" select="0.45 * $pagePrintableWidth"/>
-										</xsl:apply-templates>
-										<xsl:apply-templates select="skillinfo"/>
-										<xsl:apply-templates select="class_features/bardic_music"/>
-										<xsl:apply-templates select="class_features/turning[@kind='UNDEAD']">
-											<xsl:with-param name="column_width" select="0.45 * $pagePrintableWidth"/>
-										</xsl:apply-templates>
-										<xsl:apply-templates select="class_features/eclipse_channeling"/>
-										<xsl:apply-templates select="class_features/channel_energy"/>
 										<xsl:apply-templates select="checklists"/>
 									</fo:table-cell>
 								</fo:table-row>
-								<fo:table-row>
-									<fo:table-cell number-columns-spanned="2">
-										<xsl:apply-templates select="saving_throws"/>
-										<xsl:apply-templates select="attack" mode="ranged_melee"/>
-										<xsl:apply-templates select="weapons/martialarts"/>
-										<xsl:apply-templates select="weapons/unarmed"/>
-										<xsl:apply-templates select="weapons/naturalattack"/>
-										<xsl:apply-templates select="weapons/spiritweaponmelee"/>
-										<xsl:apply-templates select="weapons/spiritweaponranged"/>
-										<xsl:apply-templates select="weapons">
-											<xsl:with-param name="first_weapon" select="1"/>
-											<xsl:with-param name="last_weapon" select="$first_page_weapon_count"/>
-											<xsl:with-param name="column_width" select="0.55 * $pagePrintableWidth - 2"/>
-										</xsl:apply-templates>
-										<xsl:apply-templates select="protection"/>
-										<xsl:apply-templates select="class_features/rage"/>
-										<xsl:apply-templates select="class_features/wildshape"/>
-										<xsl:apply-templates select="class_features/stunning_fist"/>
-										<xsl:apply-templates select="class_features/ki_pool"/>
-										<xsl:apply-templates select="class_features/wholeness_of_body"/>
-										<xsl:apply-templates select="class_features/layonhands"/>
-										<xsl:apply-templates select="class_features/psionics"/>
-									</fo:table-cell>
-								</fo:table-row>
+								
 							</fo:table-body>
 						</fo:table>
 					</fo:block>
@@ -341,68 +292,24 @@
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body"  font-size="8pt">
 					<fo:block>
-						<xsl:apply-templates select="weapons">
-							<xsl:with-param name="first_weapon" select="$first_page_weapon_count+1"/>
-							<xsl:with-param name="last_weapon" select="9999"/>
-							<xsl:with-param name="column_width" select="0.5 * $pagePrintableWidth - 1"/>
-						</xsl:apply-templates>
-						<xsl:apply-templates select="skills">
-							<xsl:with-param name="first_skill" select="$first_page_skills_count+1"/>
-							<xsl:with-param name="last_skill" select="9999"/>
-							<xsl:with-param name="column_width" select="0.5 * $pagePrintableWidth - 1"/>
-						</xsl:apply-templates>
-						<xsl:apply-templates select="class_features/turning[@kind!='UNDEAD']">
-							<xsl:with-param name="column_width" select="0.5 * $pagePrintableWidth - 1"/>
-						</xsl:apply-templates>
+
 						<xsl:apply-templates select="equipment" />
 						<xsl:apply-templates select="weight_allowance"/>
 						<xsl:call-template name="money"/>
-<!-->						<xsl:apply-templates select="misc/magics"/>
-						<xsl:apply-templates select="languages"/>
-						<xsl:apply-templates select="misc/companions"/>
-						<xsl:apply-templates select="archetypes"/>	
-						<xsl:apply-templates select="animal_tricks"/>	
-						<xsl:apply-templates select="special_abilities"/>
-						<xsl:apply-templates select="afflictions"/>-->
 
-						<xsl:apply-templates select="traits"/>
-						<xsl:apply-templates select="focuses"/>
-						<xsl:apply-templates select="options"/>
-						<xsl:apply-templates select="reactions"/>
-						<xsl:apply-templates select="skills"/>
+
+						<xsl:apply-templates select="killshot_traits"/>
+						<xsl:apply-templates select="killshot_focuses"/>
+						<xsl:apply-templates select="killshot_options"/>
+						<xsl:apply-templates select="killshot_reactions"/>
+						<xsl:apply-templates select="killshot_skills"/>
 						
 
-<!-- 						<xsl:apply-templates select="racial_traits"/>
-						<xsl:apply-templates select="special_attacks"/>
-						<xsl:apply-templates select="special_qualities"/>
-						<xsl:apply-templates select="intelligent_items"/>
-						<xsl:apply-templates select="talents"/>	
 
-						<xsl:apply-templates select="salient_divine_abilities"/>
-						<xsl:apply-templates select="leadership"/>
-						<xsl:apply-templates select="feats"/>
-						<xsl:apply-templates select="domains"/>
-						<xsl:apply-templates select="weapon_proficiencies"/>
-						<xsl:apply-templates select="proficiency_specials"/>
-						<xsl:apply-templates select="templates"/>
-						<xsl:apply-templates select="tempbonuses"/>
-						<xsl:apply-templates select="prohibited_schools"/>
-						<xsl:apply-templates select="companions"/>-->
 					</fo:block>
 				</fo:flow>
 			</fo:page-sequence>
-<!-->	ADITIONAL PAGES for Spells 
-			<fo:page-sequence>
-				<xsl:attribute name="master-reference">Portrait</xsl:attribute>
-				<xsl:call-template name="page.footer"/>
-				<fo:flow flow-name="body"  font-size="8pt">
-					<fo:block span="all" space-after.optimum="3pt">
-						<xsl:apply-templates select="spells"/>
-					</fo:block> -->
 
-
-<!--		ADDITIONAL PAGES	-->
-			<xsl:apply-templates select="spells"/>
 			<xsl:apply-templates select="basics" mode="bio"/>
 			<xsl:apply-templates select="basics/notes" mode="bio"/>
 		</fo:root>
@@ -6177,12 +6084,12 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 	TEMPLATE - Focuses
 ====================================
 ====================================-->
-	<xsl:template match="focuses">
-		<xsl:if test="count(focus) &gt; 0">
+	<xsl:template match="killshot_focuses">
+		<xsl:if test="count(killshot_focus) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'focuses'" />
 				<xsl:with-param name="title" select="'Focuses'" />
-				<xsl:with-param name="list" select="focus"/>
+				<xsl:with-param name="list" select="killshot_focus"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>
@@ -6195,12 +6102,12 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 	TEMPLATE - Reactions
 ====================================
 ====================================-->
-	<xsl:template match="reactions">
-		<xsl:if test="count(reaction) &gt; 0">
+	<xsl:template match="killshot_reactions">
+		<xsl:if test="count(killshot_reaction) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'reactions'" />
 				<xsl:with-param name="title" select="'Reactions'" />
-				<xsl:with-param name="list" select="reaction"/>
+				<xsl:with-param name="list" select="killshot_reaction"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>
@@ -6213,14 +6120,14 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 	TEMPLATE - Skills
 ====================================
 ====================================-->
-	<xsl:template match="skills">
-		<xsl:if test="count(skill) &gt; 0">
+	<xsl:template match="killshot_skills">
+		<xsl:if test="count(killshot_skill) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'skills'" />
+				<xsl:with-param name="attribute" select="'options'" />
 				<xsl:with-param name="title" select="'Skills'" />
-				<xsl:with-param name="list" select="skill"/>
-				<xsl:with-param name="name.tag" select="'name'"/>
-				<xsl:with-param name="desc.tag" select="'description'"/>
+				<xsl:with-param name="list" select="killshot_skill"/>
+				<xsl:with-param name="name.tag" select="''"/>
+				<xsl:with-param name="desc.tag" select="'desc'"/>
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
@@ -6236,7 +6143,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'options'" />
 				<xsl:with-param name="title" select="'Options'" />
-				<xsl:with-param name="list" select="option"/>
+				<xsl:with-param name="list" select="killshot_option"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>
@@ -6249,12 +6156,12 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 	TEMPLATE - Traits
 ====================================
 ====================================-->
-	<xsl:template match="traits">
-		<xsl:if test="count(trait) &gt; 0">
+	<xsl:template match="killshot_traits">
+		<xsl:if test="count(killshot_trait) &gt; 0">
 			<xsl:call-template name="bold.list">
 				<xsl:with-param name="attribute" select="'traits'" />
 				<xsl:with-param name="title" select="'Traits'" />
-				<xsl:with-param name="list" select="trait"/>
+				<xsl:with-param name="list" select="killshot_trait"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>

@@ -168,7 +168,7 @@ $Date$
 <!-- START Top Character Data -->
 <table cellpadding="0" cellspacing="4" border="0" width="100%" summary="Character Info">
  <tr>
-  <td colspan="2" class="h">|NAME| |%FOLLOWEROF|- |FOLLOWEROF| |%|</td>
+  <td colspan="2" class="h">|NAME|</td>
   <td colspan="2" class="h">|PLAYERNAME|</td>
   <td rowspan="6" align="center" width="1%" class="border" class="font10"><a href="#Bio"><img src="file://localhost/|PORTRAIT.THUMB|" height="100%" alt="Click for Bio" border="0" /></a><br /></td>
  </tr>
@@ -177,39 +177,20 @@ $Date$
   <td colspan="2" class="topline">PLAYER</td>
  </tr>
  <tr>
-  <td colspan="1" class="h">|CLASSLIST|</td>
-  <td colspan="1" class="h">|EXP.CURRENT|</td>
-  <td colspan="1" class="h">|RACE|</td>
-  <td class="h">|SIZELONG| / |FACE|</td>
   <td class="h">|HEIGHT|</td>
   <td class="h">|WEIGHT|</td>
-|IIF(VAR.IF(var("COUNT[VISION]")>0;1;0):1)|
-  <td colspan="1" class="h">|VISION|</td>
-|ELSE|
-  <td colspan="1" class="h">Normal</td>
-|ENDIF|
-
  </tr>
  <tr>
-  <td colspan="1" class="topline">CLASS</td>
-  <td colspan="1" class="topline">EXPERIENCE</td>
-  <td colspan="1" class="topline">RACE</td>
-  <td class="topline">SIZE / FACE</td>
   <td class="topline">HEIGHT</td>
   <td class="topline">WEIGHT</td>
-  <td colspan="1" class="topline">VISION</td>
  </tr>
  <tr>
-  <td class="h">|TOTALLEVELS|</td>
-  <td class="h">|EXP.NEXT|</td>
   <td class="h">|AGE|</td>
   <td class="h">|GENDER|</td>
   <td class="h">|COLOR.EYE|</td>
   <td colspan="2" class="h">|COLOR.HAIR|, |LENGTH.HAIR|</td>
  </tr>
  <tr>
-  <td class="topline">LEVEL</td>
-  <td class="topline">NEXT LEVEL</td>
   <td class="topline">AGE</td>
   <td class="topline">GENDER</td>
   <td class="topline">EYES</td>
@@ -223,30 +204,75 @@ $Date$
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="200">
-	<!-- START Abilities Table -->
-	   <table width="95%" summary="Stat Block"> 
-        <tr>
-          <td align="center" width="20%" class="lable">ABILITY<br />NAME</td>
-          <td align="center" width="20%" class="lable">ABILITY<br />SCORE</td>
-          <td align="center" width="20%" class="lable">ABILITY<br />MODIFIER</td>
-          <td align="center" width="20%" class="lable">TEMPORARY<br />SCORE</td>
-          <td align="center" width="20%" class="lable">TEMPORARY<br />MODIFIER</td>
-          </tr>
+    <td width="150">
+	<!-- START Stats Table -->
+		<table width="100%" summary="Stat Block"> 
+			<tr>
+			<td align="center" width="80%" class="lable">Stats</td>
+			<td align="center" width="20%" class="lable">Stats</td>
+			</tr>
 |FOR,%stat,0,COUNT[STATS]-1,1,1|
-        <tr>
-          <td class="ab"><b>|STAT.%stat.NAME|</b><br />
-            <span class="ablable">&nbsp;|STAT.%stat.LONGNAME|&nbsp;</span></td>
-          <td class="abb">|STAT.%stat.NOTEMP.NOEQUIP|</td>
-          <td class="abb">|STAT.%stat.MOD.NOTEMP.NOEQUIP|</td>
-          <td class="abt">|STAT.%stat|d12</td>
-          <td class="abt">|STAT.%stat.MOD|</td>
-          </tr>
+			<tr>
+				<td class="ab"><b>|STAT.%stat.LONGNAME|</b><br />
+				<td class="abt">|STAT.%stat|d12</td>
+			</tr>
 |ENDFOR|
-        </table> 
-<!-- STOP Abilities Table -->
+		</table> 
+<!-- STOP Stats Table -->
 	</td>
+	<td width="50">
+<!-- Dice DDefensive Options -->
+			<table width="100%" summary="Stat Block"> 
+			<tr>
+			<td align="center" width="80%" class="lable">Stats</td>
+			<td align="center" width="20%" class="lable">Stats</td>
+			</tr>
+|FOR,%OptionDisplay,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=OptionDisplay","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%TraitDisplay,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+			<tr>
+				<td class="ab"><b>|ABILITYALL.Special Ability.VISIBLE.%OptionDisplay.TYPE=OptionDisplay|</td>
+				<td class="abt">|ABILITYALL.Special Ability.VISIBLE.%OptionDisplay.TYPE=OptionDisplay.ASPECT.Dice|d8</td>
+			</tr>
+|ENDFOR|
+		</table> 
 
+	</td>
+	<td width="50">
+<!-- Dice Skill Options -->
+			<table width="100%" summary="Stat Block"> 
+			<tr>
+			<td align="center" width="80%" class="lable">Stats</td>
+			<td align="center" width="20%" class="lable">Stats</td>
+			</tr>
+|FOR,%SkillDisplay,0,count("ABILITIES","CATEGORY=Training Pool","TYPE=SkillDisplay","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%SkillDisplay,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+			<tr>
+				<td class="ab"><b>|ABILITYALL.Training Pool.VISIBLE.%SkillDisplay.TYPE=SkillDisplay|</td>
+				<td class="abt">|ABILITYALL.Training Pool.VISIBLE.%SkillsDisplay.TYPE=SkillsDisplay.ASPECT.Dice|d6</td>
+			</tr>
+|ENDFOR|
+		</table> 
+
+	</td>
+	<td width="50">
+<!-- Dice Gear Options -->
+			<table width="100%" summary="Stat Block"> 
+			<tr>
+			<td align="center" width="80%" class="lable">Stats</td>
+			<td align="center" width="20%" class="lable">Stats</td>
+			</tr>
+|FOR,%OptionDisplay,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=OptionDisplay","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|OIF(EVEN:%TraitDisplay,<tr bgcolor="#DDDDDD">,<tr bgcolor="white">)|
+			<tr>
+				<td class="ab"><b>|ABILITYALL.Special Ability.VISIBLE.%OptionDisplay.TYPE=OptionDisplay|</td>
+				<td class="abt">|ABILITYALL.Special Ability.VISIBLE.%OptionDisplay.TYPE=OptionDisplay.ASPECT.Dice|d10</td>
+			</tr>
+|ENDFOR|
+		</table> 
+
+	</td>
+	</tr>
+</table> 
 <br />
 
 
@@ -399,334 +425,6 @@ $Date$
     <br />
 
 |%|
-
-<!-- Start Overflow Weapons table -->
-|FOR,%weap,3,COUNT[EQTYPE.Weapon]-1,1,1|
-   <table cellpadding="0" width="100%" cellspacing="0" border="0" summary="Weapon Overflow">
-|IIF(WEAPON.%weap.CATEGORY:BOTH)|
-|IIF(WEAPON.%weap.CATEGORY:Ranged)|
-    <tr>
-     <td align="left" height="15" bgcolor="black" width="10%" class="ablableb">&nbsp;&nbsp;Range</td>
-|FOR,%range,0,4,1,0|
-     <td width="18%" align="center" bgcolor="black" class="border" class="ablable"><b>|WEAPON.%weap.RANGELIST.%range|<br /></b></td>
-|ENDFOR|
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" class="ablableb">&nbsp;Bonus</td>
-|FOR,%range1,0,4,1,0|
-     <td class="border10c"><b>|WEAPON.%weap.RANGELIST.%range1.TOTALHIT|<br /></b></td>
-|ENDFOR|
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" class="border" class="ablableb">&nbsp;Dam</td>
-|FOR,%range2,0,4,1,0|
-     <td class="border10cb">|WEAPON.%weap.RANGELIST.%range2.DAMAGE|</td>
-|ENDFOR|
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Ammunition Used<br /></b></td>
-     <td align="center" valign="bottom" bgcolor="white" class="border8" colspan="5">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</td>
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
-     <td class="border10" colspan="5">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
-    </tr>
-   </table>
-	<br />
-|ELSE|
-    <tr>
-     <td align="center" bgcolor="black" rowspan="2" width="40%" class="ab"><b>|WEAPON.%weap.NAME|<br /></b></td>
-     <td align="center" bgcolor="black" width="12%" height="15" class="ablableb">HAND</td>
-     <td align="center" bgcolor="black" width="12%" height="15" class="ablableb">TYPE</td>
-     <td align="center" bgcolor="black" width="12%" height="15" class="ablableb">SIZE</td>
-     <td align="center" bgcolor="black" width="12%" height="15" class="ablableb">CRITICAL</td>
-     <td align="center" bgcolor="black" width="12%" height="15" class="ablableb">REACH</td>
-    </tr>
-    <tr>
-     <td class="border10c"><b>|WEAPON.%weap.HAND|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.TYPE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.SIZE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.CRIT|/&#215;|WEAPON.%weap.MULT|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.REACH| ft.<br /></b></td>
-    </tr>
-   </table>
-   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Overflow">
-    <tr>
-     <td align="center" height="15" bgcolor="black" width="8%"></td>
-     <td align="center" height="15" bgcolor="black" width="16%" class="ablableb">1H-P</td>
-     <td align="center" bgcolor="black" width="16%" height="15" class="ablableb">1H-O</td>
-     <td align="center" bgcolor="black" width="16%" height="15" class="ablableb">2H</td>
-     <td align="center" bgcolor="black" width="16%" height="15" class="ablableb">2W-P-(OH)</td>
-     <td align="center" bgcolor="black" width="16%" height="15" class="ablableb">2W-P-(OL)</td>
-     <td align="center" bgcolor="black" width="12%" height="15" class="ablableb">2W-OH</td>
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" class="ablableb">&nbsp;Bonus</td>
-     <td class="border10c"><b>|WEAPON.%weap.BASEHIT|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.OHHIT|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.THHIT|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.TWPHITH|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.TWPHITL|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.TWOHIT|<br /></b></td>
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" class="ablableb">&nbsp;Dam</td>
-     <td class="border10c"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.OHDAMAGE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.THDAMAGE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.OHDAMAGE|<br /></b></td>
-    </tr>
-   </table>
-|ENDIF|
-|ELSE|
-|IIF(WEAPON.%weap.CATEGORY:Ranged)|
-    <tr>
-     <td align="center" bgcolor="black" rowspan="2" width="40%" class="ab"><b>|WEAPON.%weap.NAME|<br /></b></td>
-     <td align="center" bgcolor="black" width="15%" height="15" class="ablableb">HAND</td>
-     <td align="center" bgcolor="black" width="15%" height="15" class="ablableb">TYPE</td>
-     <td align="center" bgcolor="black" width="15%" height="15" class="ablableb">SIZE</td>
-     <td align="center" bgcolor="black" width="15%" height="15" class="ablableb">CRITICAL</td>
-    </tr>
-    <tr>
-     <td class="border10c"><b>|WEAPON.%weap.HAND|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.TYPE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.SIZE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.CRIT|/&#215;|WEAPON.%weap.MULT|<br /></b></td>
-    </tr>
-   </table>
-   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Overflow">
-|IIF(WEAPON.%weap.CONTENTS:0)|
-    <tr>
-     <td align="left" height="15" bgcolor="black" width="8%" class="ablableb">&nbsp;&nbsp;Range</td>
-|FOR,%range,0,4,1,0|
-     <td width="18%" align="center" bgcolor="black" class="ablable"><b>|WEAPON.%weap.RANGELIST.%range|<br /></b></td>
-|ENDFOR|
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" class="ablableb">&nbsp;Bonus</td>
-|FOR,%range1,0,4,1,0|
-     <td class="border10c"><b>|WEAPON.%weap.RANGELIST.%range1.TOTALHIT|<br /></b></td>
-|ENDFOR|
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" class="ablableb">&nbsp;Dam</td>
-|FOR,%range2,0,4,1,0|
-     <td class="border10cb">|WEAPON.%weap.RANGELIST.%range2.DAMAGE|</td>
-|ENDFOR|
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Ammunition Used<br /></b></td>
-     <td align="center" valign="bottom" bgcolor="white" class="border8" colspan="5">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</td>
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
-     <td class="border10" colspan="5">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
-    </tr>
-   </table>
-   <br />
-|ELSE|
-|FOR,%ammo,0,WEAPON.%weap.CONTENTS-1,1,0|
-    <tr>
-     <td colspan="6" align="left" height="15" bgcolor="black" width="8%" class="ablableb">&nbsp;AMMUNITION:  |WEAPON.%weap.CONTENTS.%ammo|
-|IIF(WEAPON.%weap.CONTENTS.%ammo.SPROP: )|
-(|WEAPON.%weap.CONTENTS.%ammo.SPROP|)
-|ENDIF|
-     </td>
-    </tr>
-    <tr>
-     <td align="left" height="15" bgcolor="black" width="8%" class="ablableb">&nbsp;Range</td>
-|FOR,%range,0,4,1,0|
-     <td width="18%" class="ablableb">|WEAPON.%weap.RANGELIST.%range|</td>
-|ENDFOR|
-    </tr>
-    <tr>
-     <td align="left" class="ablableb">&nbsp;Bonus</td>
-|FOR,%range1,0,4,1,0|
-     <td class="border10c"><b>|WEAPON.%weap.RANGELIST.%range1.CONTENTS.%ammo.TOTALHIT|<br /></b></td>
-|ENDFOR|
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" class="ablableb">&nbsp;Dam</td>
-|FOR,%range2,0,4,1,0|
-     <td class="border10cb">|WEAPON.%weap.RANGELIST.%range2.CONTENTS.%ammo.DAMAGE|</td>
-|ENDFOR|
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Ammunition Used<br /></b></td>
-     <td align="center" valign="bottom" bgcolor="white" colspan="5" class="border8">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</td>
-|ENDFOR|
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" class="border" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
-     <td class="border10" colspan="5">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
-    </tr>
-   </table>
-   <br />
-|ENDIF|
-|ELSE|
-|IIF(WEAPON.%weap.ISTYPE.Double.OR.WEAPON.%weap.CATEGORY:Non-Standard-Melee.OR.WEAPON.%weap.CATEGORY:NATURAL)|
-    <tr>
-     <td align="center" height="15" bgcolor="black" rowspan="2" width="40%" class="ab"><b>|WEAPON.%weap.NAME|<br /></b></td>
-     <td align="center" bgcolor="black" width="20%" height="15" class="ablableb">TOTAL ATTACK BONUS</td>
-     <td align="center" bgcolor="black" width="20%" height="15" class="ablableb">DAMAGE</td>
-     <td align="center" bgcolor="black" width="20%" height="15" class="ablableb">CRITICAL</td>
-    </tr>
-    <tr>
-     <td class="border10c"><b>|WEAPON.%weap.TOTALHIT|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.DAMAGE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.CRIT|/&#215;|WEAPON.%weap.MULT|<br /></b></td>
-    </tr>
-   </table>
-   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Overflow">
-    <tr>
-     <td align="center" height="15" bgcolor="black" width="15%" class="ablableb">HAND</td>
-     <td align="center" height="15" bgcolor="black" width="15%" class="ablableb">RANGE</td>
-     <td align="center" bgcolor="black" width="15%" height="15" class="ablableb">TYPE</td>
-     <td align="center" bgcolor="black" width="15%" height="15" class="ablableb">SIZE</td>
-     <td align="center" bgcolor="black" width="40%" height="15" class="ablableb">SPECIAL PROPERTIES</td>
-    </tr>
-    <tr>
-     <td class="border10c"><b>|WEAPON.%weap.HAND|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.RANGE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.TYPE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.SIZE|<br /></b></td>
-     <td class="border10c">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
-    </tr>
-   </table>
-   <br />
-|ELSE|
-    <tr>
-     <td align="center" bgcolor="black" rowspan="2" width="40%" class="ab"><b>|WEAPON.%weap.NAME|<br /></b></td>
-     <td align="center" bgcolor="black" width="12%" height="15" class="ablableb">HAND</td>
-     <td align="center" bgcolor="black" width="12%" height="15" class="ablableb">TYPE</td>
-     <td align="center" bgcolor="black" width="12%" height="15" class="ablableb">SIZE</td>
-     <td align="center" bgcolor="black" width="12%" height="15" class="ablableb">CRITICAL</td>
-     <td align="center" bgcolor="black" width="12%" height="15" class="ablableb">REACH</td>
-    </tr>
-    <tr>
-     <td class="border10c"><b>|WEAPON.%weap.HAND|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.TYPE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.SIZE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.CRIT|/&#215;|WEAPON.%weap.MULT|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.REACH| ft.<br /></b></td>
-    </tr>
-   </table>
-   <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Weapon Overflow">
-    <tr>
-     <td align="center" height="15" bgcolor="black" width="8%"></td>
-     <td align="center" height="15" bgcolor="black" width="16%" class="ablableb">1H-P</td>
-     <td align="center" bgcolor="black" width="16%" height="15" class="ablableb">1H-O</td>
-     <td align="center" bgcolor="black" width="16%" height="15" class="ablableb">2H</td>
-     <td align="center" bgcolor="black" width="16%" height="15" class="ablableb">2W-P-(OH)</td>
-     <td align="center" bgcolor="black" width="16%" height="15" class="ablableb">2W-P-(OL)</td>
-     <td align="center" bgcolor="black" width="12%" height="15" class="ablableb">2W-OH</td>
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" class="ablableb">&nbsp;Bonus</td>
-     <td class="border10c"><b>|WEAPON.%weap.BASEHIT|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.OHHIT|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.THHIT|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.TWPHITH|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.TWPHITL|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.TWOHIT|<br /></b></td>
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" class="ablableb">&nbsp;Dam</td>
-     <td class="border10c"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.OHDAMAGE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.THDAMAGE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.BASICDAMAGE|<br /></b></td>
-     <td class="border10c"><b>|WEAPON.%weap.OHDAMAGE|<br /></b></td>
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" colspan="2" class="ablableb">&nbsp;Special Properties</td>
-     <td class="border10" colspan="5">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
-    </tr>
-   </table>
-   <br />
-|ENDIF|
-|ENDIF|
-|ENDIF|
-|ENDFOR|
-|%WEAPON.3|
-|FOR,%weap,3,3,1,1|
-   <table cellpadding="0" width="100%" cellspacing="0" border="0" summary="Weapon Overflow">
-|IIF(WEAPON.%weap.CATEGORY:BOTH)|
-|IIF(WEAPON.%weap.CATEGORY:Ranged)|
-    <tr>
-     <td align="left" height="15" bgcolor="black" width="8%" class="ablableb">&nbsp;&nbsp;Range</td>
-|FOR,%range,0,4,1,0|
-     <td width="18%" align="center" bgcolor="black" class="ablable"><b>|WEAPON.%weap.RANGELIST.%range|<br /></b></td>
-|ENDFOR|
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" class="ablableb">&nbsp;Bonus</td>
-|FOR,%range1,0,4,1,0|
-     <td class="border10c"><b>|WEAPON.%weap.RANGELIST.%range1.TOTALHIT|<br /></b></td>
-|ENDFOR|
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" class="ablableb">&nbsp;Dam</td>
-|FOR,%range2,0,4,1,0|
-     <td class="border10cb">|WEAPON.%weap.RANGELIST.%range2.DAMAGE|</td>
-|ENDFOR|
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Ammunition Used<br /></b></td>
-     <td align="center" valign="bottom" bgcolor="white" class="border8" colspan="5">&#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744; &#9744;&#9744;&#9744;&#9744;&#9744;</td>
-    </tr>
-    <tr>
-     <td align="left" bgcolor="black" colspan="2" class="ablable"><b>&nbsp;Special Properties<br /></b></td>
-     <td class="border10" colspan="5">&nbsp;|WEAPON.%weap.SPROP|<br /></td>
-    </tr>
-   </table>
-|ELSE|
-   </table>
-|ENDIF|
-|ENDIF|
-|ENDFOR|
-|%|
-   <table cellpadding="0" width="100%" cellspacing="0" border="0" summary="Weapon Abbreviations">
-    <tr>
-     
-    <td class="key"><b>1H-P:</b> One handed, primary hand. <b>1H-O:</b> 
-      One handed, off hand. <b>2H:</b> Two handed. <b>2W-P-(OH):</b> 
-      2 weapons, primary hand (off hand weapon is heavy). <b>2W-P-(OL):</b> 
-      2 weapons, primary hand (off hand weapon is light). <b>2W-OH:</b> 2 
-      weapons, off hand.</td>
-    </tr>
-   </table>
-<!-- End Overflow Weapons Table -->
-  </td>
-  <td width="50%" valign="top">
-<!-- START Language Table -->
-   <table width="100%" cellspacing="0" cellpadding="3" summary="Language Table" class="block">
-    <tr>
-     <th class="ab" colspan="1">Languages</th>
-    </tr>
-    <tr>
-     <td valign="top" width="100%" class="border10">|LANGUAGES|<br /></td>
-    </tr>
-   </table>
-	<br />
-<!-- STOP Language Table -->
-<!-- Start Proficiency Table -->
-|%WEAPONPROF|
-   <table width="100%" cellspacing="0" cellpadding="3" summary="Proficiency Table" class="block">
-    <tr>
-     <th class="ab" colspan="1">Proficiencies</th>
-    </tr>
-    <tr>
-     <td valign="top" width="100%" class="border10">|WEAPONPROFS|<br /></td>
-    </tr>
-   </table>
-	<br />
-<!-- STOP Proficiency Table -->
-|%|
-
 
 
 <!-- START Special Attacks Table -->
@@ -934,7 +632,7 @@ $Date$
 |ENDIF|
 <!-- STOP ReactionDisplay Table -->
 
-<!-- START SkillDisplay Table -->
+<!-- START SkillsDisplay Table -->
 |IIF(count("ABILITIES";"CATEGORY=Training Pool";"TYPE=SkillDisplay";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
 <table width="100%" cellspacing="0" cellpadding="2" summary="Special Qualities Table" class="block">
 <tr>
