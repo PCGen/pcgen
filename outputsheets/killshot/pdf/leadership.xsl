@@ -9,7 +9,7 @@
 	xmlns:Leadership="my:Leadership" 
 	exclude-result-prefixes="myAttribs Leadership">
 
-	<xsl:import href="fantasy_common.xsl"/>
+	<xsl:import href="killshot_common.xsl"/>
 	<xsl:output indent="yes"/>
 	
 	<!-- Currently not working.
