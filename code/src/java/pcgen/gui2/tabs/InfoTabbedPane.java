@@ -471,6 +471,10 @@ public final class InfoTabbedPane extends JTabbedPane
 		public void propertyChange(PropertyChangeEvent evt)
 		{
 			int index = indexOfComponent(component);
+			if (index < 0)
+			{
+				return;
+			}
 			String propName = evt.getPropertyName();
 			if (TabTitle.TITLE.equals(propName))
 			{
