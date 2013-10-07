@@ -127,6 +127,10 @@ public class SpellSupportForPCClass
 				.getHighestKnownSpellLevel());
 	}
 
+	/**
+	 * @Deprecated canCastSpells should be used to get an accurate answer for a character.
+	 */
+	@Deprecated
 	public boolean zeroCastSpells()
 	{
 		if (!updateSpellCache(false) || !spellCache.hasCastProgression())
@@ -161,6 +165,35 @@ public class SpellSupportForPCClass
 		return true;
 	}
 
+
+	/**
+	 * Identify if the character can cast spells for this class. This will take 
+	 * into account the class casting progression as well as the character's 
+	 * bonuses. 
+	 * @param aPC The character to be checked.
+	 * @return true if the character can cast spells for this class, false if not.
+	 */
+	public boolean canCastSpells(PlayerCharacter aPC)
+	{
+		if (!updateSpellCache(false) || !spellCache.hasCastProgression())
+		{
+			return false;
+		}
+
+		for (int i = 0; i < 100; i++)
+		{
+			final int numSpellsCastable = getCastForLevel(i, aPC);
+			if (numSpellsCastable > 0)
+			{
+				return true;
+			}
+		}
+		
+		// No casting ability found
+		return false;
+		
+	}
+	
 	public int getKnownForLevel(int spellLevel, String bookName,
 			PlayerCharacter aPC)
 	{
@@ -396,12 +429,10 @@ public class SpellSupportForPCClass
 
 	/**
 	 * Build a caster level map for this class. The map will be of the form
-	 * <String,String> where the key is the spell level and the value is the
+	 * <Integer,Integer> where the key is the spell level and the value is the
 	 * number of times per day that spell level can be cast by the character
 	 * 
 	 * @param aPC
-	 * 
-	 * TODO: Why is this not a Map<Integer,Integer>
 	 */
 	/*
 	 * PCCLASSLEVELONLY This calculation is dependent upon the class level and

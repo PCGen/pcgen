@@ -808,15 +808,7 @@ public final class PCGVer2Creator implements IOConstants
 			// determine if this class can cast spells
 			boolean isCaster = false;
 
-			/*
-			 * TODO WARNING: Technically, this is WRONG. A 4th level Ranger with
-			 * good stats will show up here as as NOT being a caster, but is
-			 * lucky enough to be considered Psionic! zeroCastSpells() is not
-			 * accurate because it is based on the base list, not on the list
-			 * with adjustments for stats. The method should be destroyed, and
-			 * spell casting made more explicit.
-			 */
-			if (!thePC.getSpellSupport(pcClass).zeroCastSpells())
+			if (!thePC.getSpellSupport(pcClass).canCastSpells(thePC))
 			{
 				isCaster = true;
 			}

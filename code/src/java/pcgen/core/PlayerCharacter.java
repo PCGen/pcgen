@@ -5298,7 +5298,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 				// a CastList then they use something funky
 				// like Power Points (psionic)
 				if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS) && !this.getSpellSupport(aClass).hasKnownList()
-						&& this.getSpellSupport(aClass).zeroCastSpells())
+						&& this.getSpellSupport(aClass).canCastSpells(this))
 				{
 					return true;
 				}
@@ -5345,7 +5345,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 				// a CastList then they use something funky
 				// like Power Points (psionic)
 				if (!aClass.getSafe(ObjectKey.MEMORIZE_SPELLS) && !this.getSpellSupport(aClass).hasKnownList()
-						&& this.getSpellSupport(aClass).zeroCastSpells())
+						&& this.getSpellSupport(aClass).canCastSpells(this))
 				{
 					return Integer.MAX_VALUE;
 				}

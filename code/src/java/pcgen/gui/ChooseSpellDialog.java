@@ -1148,7 +1148,7 @@ public final class ChooseSpellDialog extends JDialog
 				if (!aClass.getSpellType().equals(Constants.NONE))
 				{
 					// Only adds if the class can cast
-					if (pc.getSpellSupport(aClass).zeroCastSpells())
+					if (pc.getSpellSupport(aClass).canCastSpells(pc))
 					{
 						continue;
 					}

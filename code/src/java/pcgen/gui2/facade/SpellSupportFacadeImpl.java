@@ -1169,7 +1169,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		{
 			if (pcClass.get(StringKey.SPELLTYPE) != null)
 			{
-				if (!pc.getSpellSupport(pcClass).zeroCastSpells() || pc.getSpellSupport(pcClass).hasKnownList())
+				SpellSupportForPCClass spellSupport = pc.getSpellSupport(pcClass);
+				if (spellSupport.canCastSpells(pc) || spellSupport.hasKnownList())
 				{
 					castingClasses.add(pcClass);
 				}
