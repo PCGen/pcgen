@@ -46,6 +46,7 @@ import java.util.zip.ZipFile;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JEditorPane;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -64,7 +65,6 @@ import pcgen.core.InstallableCampaign;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui.utils.JLabelPane;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
@@ -144,7 +144,7 @@ public class DataInstaller extends JFrame
 			{
 				// Do nothing
 			}
-			else if (source == cancel)
+			else if (source == closeButton)
 			{
 				setVisible(false);
 				DataInstaller.this.dispose();
@@ -197,7 +197,7 @@ public class DataInstaller extends JFrame
 	private JButton selectButton;
 	
 	/** The data set detail display component. */
-	private JLabelPane dataSetDetails;
+	private JEditorPane dataSetDetails;
 	
 	/** The button for the data location. */
 	private JRadioButton locDataButton;
@@ -211,8 +211,8 @@ public class DataInstaller extends JFrame
 	/** The install button. */
 	private JButton installButton;
 	
-	/** The cancel. */
-	private JButton cancel;
+	/** The close button. */
+	private JButton closeButton;
 	
 	/** The listener. */
 	private InstallerButtonListener listener = new InstallerButtonListener();
@@ -530,7 +530,7 @@ public class DataInstaller extends JFrame
 		
 		// Data set details row
 		Utility.buildConstraints(gbc, 0, 1, 4, 1, 1.0, 1.0);
-		dataSetDetails = new JLabelPane();
+		dataSetDetails = new JEditorPane("text/html", "<html></html>");
 		dataSetDetails.setPreferredSize(new Dimension(400, 200));
 		dataSetDetails.setEditable(false);
 		dataSetDetails.setBackground(getBackground());
@@ -579,13 +579,13 @@ public class DataInstaller extends JFrame
 		installButton = new JButton();
 		CommonMenuText.name(installButton, "diInstall");  //$NON-NLS-1$
 		installButton.addActionListener(listener);
-		cancel = new JButton();
-		CommonMenuText.name(cancel, "close"); //$NON-NLS-1$
-		cancel.addActionListener(listener);
+		closeButton = new JButton();
+		CommonMenuText.name(closeButton, "close"); //$NON-NLS-1$
+		closeButton.addActionListener(listener);
 
 		JPanel buttonsPanel = new JPanel();
 		buttonsPanel.add(installButton);
-		buttonsPanel.add(cancel);
+		buttonsPanel.add(closeButton);
 		Utility.buildConstraints(gbc, 2, 3, 2, 1, 0.0, 0.0);
 		gridbag.setConstraints(buttonsPanel, gbc);
 		gbc.fill = GridBagConstraints.NONE;

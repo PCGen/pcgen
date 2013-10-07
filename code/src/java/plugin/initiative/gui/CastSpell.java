@@ -23,15 +23,17 @@
 package plugin.initiative.gui;
 
 import gmgen.plugin.Spell;
-import pcgen.gui.utils.JLabelPane;
-import plugin.initiative.SpellModel;
 
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+
+import javax.swing.JEditorPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
+import plugin.initiative.SpellModel;
 
 /**
  * <p>
@@ -41,9 +43,10 @@ import java.awt.Insets;
  * @author     devon
  * @since    April 7, 2003
  */
+@SuppressWarnings("serial")
 public class CastSpell extends StartEvent
 {
-	protected JLabelPane descText;
+	protected JEditorPane descText;
 	protected JPanel descPanel;
 	protected JScrollPane descScroll;
 
@@ -90,7 +93,7 @@ public class CastSpell extends StartEvent
 
 		if (descPanel.getComponents().length == 0)
 		{
-			descText = new JLabelPane();
+			descText = new JEditorPane("text/html", "<html></html>");
 			descScroll = new JScrollPane(descText);
 			descPanel.add(descScroll, BorderLayout.CENTER);
 		}
