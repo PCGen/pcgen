@@ -1732,7 +1732,6 @@ Immune
 |ENDIF|
 |ENDIF|
 |ENDIF|
-|ENDIF|
 
 |ELSE|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:Extraordinary)|
