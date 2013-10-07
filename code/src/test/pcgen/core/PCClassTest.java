@@ -642,6 +642,74 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 	}
 
+	public void testGetKnownForLevelSpellstatOther()
+	{
+		LoadContext context = Globals.getContext();
+		PCClass megaCasterClass = new PCClass();
+		megaCasterClass.setName("MegaCasterOther");
+		megaCasterClass.put(StringKey.SPELLTYPE, "ARCANE");
+		context.unconditionallyProcess(megaCasterClass, "SPELLSTAT", "OTHER");
+		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
+		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(1), "KNOWN", "4,2,2,3,4,5,0");
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(1), "CAST", "3,1,2,3,4,5,0,0");
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
+		Globals.getContext().ref.importObject(megaCasterClass);
+
+		final PlayerCharacter character = getCharacter();
+
+		// Test retrieval for a non-spell casting class.
+		character.incrementClassLevel(1, nqClass);
+		PCClass charClass = character.getClassKeyed(nqClass.getKeyName());
+		assertEquals("Known 0th level for non spell casting class", 0,
+			character.getSpellSupport(charClass).getKnownForLevel(0, "null", character));
+
+		// Test retrieval for a spell casting class.
+		character.incrementClassLevel(1, megaCasterClass);
+		charClass = character.getClassKeyed(megaCasterClass.getKeyName());
+		setPCStat(character, cha, 10);
+		assertEquals("Known 0th level for character's class", 4, character.getSpellSupport(charClass).getKnownForLevel(0, "null", character));
+		character.calcActiveBonuses();
+		assertEquals("Known 1st level where stat is high enough, but no bonus",
+			2, character.getSpellSupport(charClass).getKnownForLevel(1, "null", character));
+
+		RuleCheck bonusKnownRule = new RuleCheck();
+		bonusKnownRule.setName(RuleConstants.BONUSSPELLKNOWN);
+		bonusKnownRule.setDefault(true);
+		GameMode gameMode = SettingsHandler.getGame();
+		gameMode.getModeContext().ref.importObject(bonusKnownRule);
+		BonusSpellInfo bsi = new BonusSpellInfo();
+		bsi.setName("1");
+		bsi.setStatScore(12);
+		bsi.setStatRange(8);
+		context.ref.importObject(bsi);
+		bsi = new BonusSpellInfo();
+		bsi.setName("5");
+		bsi.setStatScore(20);
+		bsi.setStatRange(8);
+		assertEquals("Known 1st level where stat would give bonus and active", 2,
+			character.getSpellSupport(charClass).getKnownForLevel(1, "null", character));
+
+		assertEquals("Known 2nd level for character's class", 2, character.getSpellSupport(charClass).getKnownForLevel(2, "null", character));
+		assertEquals("Known 3rd level for character's class", 3, character.getSpellSupport(charClass).getKnownForLevel(3, "null", character));
+		assertEquals("Known 4th level for character's class", 4, character.getSpellSupport(charClass).getKnownForLevel(4, "null", character));
+		charClass.put(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY, 1);
+		assertEquals("Known 5th level for character's class", 6, character.getSpellSupport(charClass).getKnownForLevel(5, "null", character));
+		assertEquals("Known 6th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(6, "null", character));
+		assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, "null", character));
+
+		// Add spell bonus for level above known max
+		bsi = new BonusSpellInfo();
+		bsi.setName("7");
+		bsi.setStatScore(12);
+		bsi.setStatRange(8);
+		assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, "null", character));
+
+		assertEquals("Known 8th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(8, "null", character));
+
+	}
+
 	/**
 	 * Test the definition and application of abilities. 
 	 * @throws PersistenceLayerException 

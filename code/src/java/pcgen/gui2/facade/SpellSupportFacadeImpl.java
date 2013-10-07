@@ -63,6 +63,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpellProhibitor;
+import pcgen.core.SpellSupportForPCClass;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
@@ -723,7 +724,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			return "";
 		}
 		PCClass aClass = (PCClass) spellcaster;
-		int highestSpellLevel = pc.getSpellSupport(aClass).getHighestLevelSpell(pc);
+		SpellSupportForPCClass spellSupport = pc.getSpellSupport(aClass);
+		int highestSpellLevel = spellSupport.getHighestLevelSpell(pc);
 
 		final HtmlInfoBuilder b = new HtmlInfoBuilder();
 		b.append("<table border=1><tr><td><font size=-2><b>"); //$NON-NLS-1$
@@ -751,14 +753,14 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		b.append("</tr>"); //$NON-NLS-1$
 
 		// Making sure KnownList can be handled safely and produces the correct behaviour
-		if (pc.getSpellSupport(aClass).hasKnownList() || pc.getSpellSupport(aClass).hasKnownSpells(pc))
+		if (spellSupport.hasKnownList() || spellSupport.hasKnownSpells(pc))
 		{
 			b.append("<tr><td><font size=-1><b>Known</b></font></td>"); //$NON-NLS-1$
 
 			for (int i = 0; i <= highestSpellLevel; ++i)
 			{
-				final int a = pc.getSpellSupport(aClass).getKnownForLevel(i, "null", pc);
-				final int bonus = pc.getSpellSupport(aClass).getSpecialtyKnownForLevel(i, pc);
+				final int a = spellSupport.getKnownForLevel(i, "null", pc);
+				final int bonus = spellSupport.getSpecialtyKnownForLevel(i, pc);
 				StringBuilder bString = new StringBuilder();
 
 				if (bonus > 0)

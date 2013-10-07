@@ -214,7 +214,8 @@ public class SpellSupportForPCClass
 				+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLKNOWNSTAT")
 				+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLKNOWNSTAT;CLASS="
 						+ source.getKeyName());
-		if (!source.getSafe(ObjectKey.USE_SPELL_SPELL_STAT))
+		if (!source.getSafe(ObjectKey.USE_SPELL_SPELL_STAT)
+			&& !source.getSafe(ObjectKey.CASTER_WITHOUT_SPELL_STAT))
 		{
 			final int maxSpellLevel = aPC.getVariableValue(
 					"MAXLEVELSTAT=" + statString, "").intValue();
