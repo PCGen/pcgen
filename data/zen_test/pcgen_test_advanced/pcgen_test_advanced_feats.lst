@@ -281,7 +281,8 @@ Weapon Specialization								TYPE:Special.Fighter				PREFEAT:1,Weapon Focus					
 
 
 Bob Test Feat Choose Spells Monkee						TYPE:General.Tests.BobTest																																																													MULT:YES	CHOOSE:SPELLS|CLASSLIST=MonKee[LEVELMAX=3;LEVELMIN=1]
-Bob Test Feat Choose Spelllevel Arcane					TYPE:General.Tests.BobTest																																																													MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|MAXLEVEL																																	BONUS:SPELLCAST|%LIST|1
+Bob Test Feat Choose Spelllevel Arcane					TYPE:General.Tests.BobTest																																																													MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|0|MAXLEVEL																																	
+# BONUS:SPELLCAST|%LIST|1
 
 Bob Testing Type Group A							TYPE:GroupA																																							DESC:Freebie to Add B
 Bob Testing Type Group B							TYPE:GroupB																																							DESC:B added by A

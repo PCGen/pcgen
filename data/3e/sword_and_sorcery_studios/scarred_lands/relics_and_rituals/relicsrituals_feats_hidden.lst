@@ -50,7 +50,8 @@ Aquatic Wildshape			TYPE:ClassAbility	VISIBLE:NO	SAB:Aquatic Wildshape %/day|Wil
 
 ###Block: Summoner class features
 # Feat Name							Type			Visible	Multiple?	Choose												Bonus to spell cast/day	Bonus to spell known/L		Source Page
-Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|1|MAXLEVEL|SPELLTYPE=Divine|1|MAXLEVEL	BONUS:SPELLCAST|%LIST|1	BONUS:SPELLKNOWN|%LIST|1	SOURCEPAGE:p.20
+Gain a Summoning spell at highest casting level	TYPE:Internal	VISIBLE:NO	MULT:YES	CHOOSE:SPELLLEVEL|SPELLTYPE=Arcane|1|MAXLEVEL|SPELLTYPE=Divine|1|MAXLEVEL		SOURCEPAGE:p.20
+# BONUS:SPELLCAST|%LIST|1	BONUS:SPELLKNOWN|%LIST|1
 
 ###Block: Vigilant Class Feats
 # Feat Name			Type			Visible	Special ABility						Define					Multiple?	Choose																											Source Page
