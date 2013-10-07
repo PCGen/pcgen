@@ -62,8 +62,6 @@ public class TabsPanel extends PCGenPrefsPanel
 		LanguageBundle.getString("in_Prefs_charTabPlacement");
 	private static String in_charTabLabel =
 		LanguageBundle.getString("in_Prefs_charTabLabel");
-	private static String in_expertGUI =
-		LanguageBundle.getString("in_Prefs_expertGUI");
 	private static String in_mainTabPlacement =
 		LanguageBundle.getString("in_Prefs_mainTabPlacement");
 	private static String in_tabLabelPlain =
@@ -84,11 +82,7 @@ public class TabsPanel extends PCGenPrefsPanel
 			LanguageBundle.getString("in_Prefs_tabPosLeft");
 	private static String in_tabPosRight =
 			LanguageBundle.getString("in_Prefs_tabPosRight");
-	private static String in_tabAbilities =
-			LanguageBundle.getString("in_Prefs_tabAbilities");
 
-	private JCheckBox displayAbilitiesAsTab = new JCheckBox();
-	private JCheckBox expertGUICheckBox = new JCheckBox();
 	private JComboBoxEx charTabPlacementCombo;
 	private JComboBoxEx mainTabPlacementCombo;
 	private JComboBoxEx tabLabelsCombo;
@@ -145,31 +139,6 @@ public class TabsPanel extends PCGenPrefsPanel
 					in_tabLabelRace, in_tabLabelNetHack, in_tabLabelFull});
 		gridbag.setConstraints(tabLabelsCombo, c);
 		this.add(tabLabelsCombo);
-
-		Utility.buildConstraints(c, 0, 3, 2, 1, 0, 0);
-		label = new JLabel(in_tabAbilities + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 2, 3, 1, 1, 0, 0);
-		gridbag.setConstraints(displayAbilitiesAsTab, c);
-		this.add(displayAbilitiesAsTab);
-
-		Utility.buildConstraints(c, 0, 4, 2, 1, 0, 0);
-		label = new JLabel(in_expertGUI + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 2, 4, 1, 1, 0, 0);
-		gridbag.setConstraints(expertGUICheckBox, c);
-		this.add(expertGUICheckBox);
-
-		expertGUICheckBox.addItemListener(new ItemListener()
-		{
-			@Override
-			public void itemStateChanged(ItemEvent evt)
-			{
-				SettingsHandler.setExpertGUI(expertGUICheckBox.isSelected());
-			}
-		});
 
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
@@ -295,10 +264,6 @@ public class TabsPanel extends PCGenPrefsPanel
 
 				break;
 		}
-
-		SettingsHandler.setAbilitiesShownAsATab(displayAbilitiesAsTab
-			.isSelected());
-		SettingsHandler.setExpertGUI(expertGUICheckBox.isSelected());
 	}
 
 	/* (non-Javadoc)
@@ -404,10 +369,6 @@ public class TabsPanel extends PCGenPrefsPanel
 
 				break;
 		}
-
-		displayAbilitiesAsTab.setSelected(SettingsHandler
-			.isAbilitiesShownAsATab());
-		expertGUICheckBox.setSelected(SettingsHandler.isExpertGUI());
 	}
 
 }

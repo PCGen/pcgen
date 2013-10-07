@@ -74,7 +74,6 @@ import pcgen.util.Logging;
  **/
 public final class SettingsHandler
 {
-	private static boolean abilitiesShownAsTab = false;
 	private static boolean autoFeatsRefundable = false;
 	private static boolean useFeatBenefits = true;
 	private static boolean autogenExoticMaterial = false;
@@ -82,9 +81,6 @@ public final class SettingsHandler
 	private static boolean autogenMasterwork = false;
 	private static boolean autogenRacial = false;
 	private static boolean validateBonuses = false;
-
-	/** These are for the Internationalization project. */
-	private static String     country         = "US"; //$NON-NLS-1$
 
 	//
 	// For EqBuilder
@@ -108,14 +104,7 @@ public final class SettingsHandler
 	private static Point customizerLeftUpperCorner = null;
 	private static int customizerSplit1 = -1;
 	private static int customizerSplit2 = -1;
-	private static String dmNotes = ""; //$NON-NLS-1$
 	private static boolean enforceSpendingBeforeLevelUp = false;
-	private static int featAutoColor            = Constants.DEFAULT_FEAT_AUTO_COLOUR;
-	private static int featVirtualColor         = Constants.DEFAULT_FEAT_VIRTUAL_COLOUR;
-	private static int sourceStatusReleaseColor = Constants.DEFAULT_SOURCE_STATUS_RELEASE_COLOUR;
-	private static int sourceStatusAlphaColor   = Constants.DEFAULT_SOURCE_STATUS_ALPHA_COLOUR;
-	private static int sourceStatusBetaColor    = Constants.DEFAULT_SOURCE_STATUS_BETA_COLOUR;
-	private static int sourceStatusTestColor    = Constants.DEFAULT_SOURCE_STATUS_TEST_COLOUR;
 	private static final Properties FILTERSETTINGS = new Properties();
 	private static GameMode game = new GameMode("default");
 	private static boolean grimHPMode = false;
@@ -123,18 +112,13 @@ public final class SettingsHandler
 	private static Dimension kitSelectorDimension = null;
 	private static Point kitSelectorLeftUpperCorner = null;
 	private static boolean useWaitCursor = true;
-	private static boolean showD20InfoAtStart = true;
 	private static boolean loadURLs = false;
-	private static boolean showOGLOnLoad = true;
-	private static boolean showMatureOnLoad = true;
-	private static boolean showSponsorsOnLoad = true;
 	private static boolean hpMaxAtFirstLevel = true;
 	private static boolean hpMaxAtFirstClassLevel = true;
 	private static boolean hpMaxAtFirstPCClassLevelOnly = true;
 	private static int hpRollMethod = Constants.HP_STANDARD;
 	private static int hpPercent    = Constants.DEFAULT_HP_PERCENT;
 	private static boolean ignoreMonsterHDCap = false;
-	private static boolean debugFeats = false;
 
 	public static final int INCLUDE_SKILLS_NONE = 0;
 	public static final int INCLUDE_SKILLS_UNTRAINED = 1;
@@ -154,48 +138,20 @@ public final class SettingsHandler
 	private static boolean isROG = false;
 	private static Point leftUpperCorner = null;
 	private static int windowState = Frame.NORMAL;
-	private static boolean loadCampaignsAtStart = false;
-	private static boolean loadCampaignsWithPC = false;
 	private static int looknFeel = 1; // default to Java L&F
-	private static boolean expertGUI = false; // default to System L&F
-	private static boolean optionAllowedInSources = true;
 	private static final SortedProperties options = new SortedProperties();
 	private static final Properties filepaths = new Properties();
 	private static final String fileLocation = Globals.getFilepathsPath();
-	private static File pcgenFilesDir = new File(System.getProperty("user.dir")); //$NON-NLS-1$
 	private static File pccFilesLocation = null;
 	private static File pcgPath = new File(Globals.getDefaultPath());
 	private static File lastUsedPcgPath = null; // NB: This is not saved to preferences 
 	private static File backupPcgPath = null;
 	private static boolean createPcgBackup = true;
 	private static File portraitsPath = new File(Globals.getDefaultPath());
-	private static File pcgenCustomDir =
-		new File(Globals.getDefaultPath()
-			+ File.separator + "data" //$NON-NLS-1$
-			+ File.separator + "customsources"); //$NON-NLS-1$
-	private static File pcgenVendorDataDir =
-		new File(Globals.getDefaultPath()
-			+ File.separator + "vendordata"); //$NON-NLS-1$
-	private static File pcgenHomebrewDataDir =
-			new File(Globals.getDefaultPath()
-				+ File.separator + "homebrewdata"); //$NON-NLS-1$
-	private static File pcgenSponsorDir =
-		new File(Globals.getDefaultPath()
-			+ File.separator + "system" //$NON-NLS-1$
-			+ File.separator + "sponsors"); //$NON-NLS-1$
-	private static File pcgenDocsDir = null;
 
 	/**
 	 * Where to load the system lst files from.
 	 */
-	private static File pcgenSystemDir =
-		new File(Globals.getDefaultPath()
-			+ File.separator + "system"); //$NON-NLS-1$
-	private static File pcgenThemePackDir =
-		new File(Globals.getDefaultPath()
-			+ File.separator + "lib" //$NON-NLS-1$
-			+ File.separator + "lnf" //$NON-NLS-1$
-			+ File.separator + "themes"); //$NON-NLS-1$
 	private static File pcgenOutputSheetDir =
 		new File(Globals.getDefaultPath()
 			+ File.separator + "outputsheets"); //$NON-NLS-1$
@@ -210,8 +166,6 @@ public final class SettingsHandler
 			+ File.separator + "preview");//$NON-NLS-1$
 
 /////////////////////////////////////////////////
-	private static boolean ranStartingWizard = false;
-
 	private static boolean saveCustomInLst = false;
 	private static String selectedCharacterHTMLOutputSheet = ""; //$NON-NLS-1$
 	private static String selectedCharacterPDFOutputSheet = ""; //$NON-NLS-1$
@@ -249,23 +203,13 @@ public final class SettingsHandler
 	private static boolean hideMonsterClasses = false;
 	private static boolean guiUsesOutputNameEquipment = false;
 	private static boolean guiUsesOutputNameSpells = false;
-	private static int singleChoicePreference = Constants.CHOOSER_SINGLE_CHOICE_METHOD_NONE;
 	private static int lastTipShown = -1;
 	private static boolean showMemoryArea = false;
 	private static boolean showImagePreview = true;
 	private static boolean showTipOfTheDay = true;
 	private static boolean isGMGen = false;
 	private static boolean showSingleBoxPerBundle = false;
-	private static boolean useAdvancedSourceSelect = false;
-	
-	//
-	// Hide this tab from general consumption, until I get it working.
-	// Then this routine can be removed and the tab will show always
-	//
-	private static boolean showNatWeaponTab = false;
 
-	private static String hiddenSources = ""; //$NON-NLS-1$
-	private static String quickLaunchSources = ""; //$NON-NLS-1$
 
 	public static String getSelectedGenerators(String string)
 	{
@@ -275,16 +219,6 @@ public final class SettingsHandler
 	public static void setSelectedGenerators(String prop, String generators)
 	{
 		throw new UnsupportedOperationException("Not yet implemented");
-	}
-	
-	public static void setAbilitiesShownAsATab(final boolean showAbilitiesAsTab)
-	{
-		abilitiesShownAsTab = showAbilitiesAsTab;
-	}
-
-	public static boolean isAbilitiesShownAsATab()
-	{
-		return abilitiesShownAsTab;
 	}
 
 	public static void setAllowOverride(final boolean aBool)
@@ -482,16 +416,6 @@ public final class SettingsHandler
 		return customizerSplit2;
 	}
 
-	public static void setDmNotes(final String argDmNotes)
-	{
-		dmNotes = argDmNotes;
-	}
-
-	public static String getDmNotes()
-	{
-		return dmNotes;
-	}
-
 	/**
 	 * Sets whether PCgen will enforce the spending of all unallocated feats and skill points
 	 * before allowing the character to level up.
@@ -516,76 +440,6 @@ public final class SettingsHandler
 //	{
 //		return excSkillCost;
 //	}
-
-	public static void setExpertGUI(final boolean argExpertGUI)
-	{
-		SettingsHandler.expertGUI = argExpertGUI;
-	}
-
-	public static boolean isExpertGUI()
-	{
-		return expertGUI;
-	}
-
-	public static void setFeatAutoColor(final int newColor)
-	{
-		featAutoColor = newColor & 0x00FFFFFF;
-	}
-
-	public static int getFeatAutoColor()
-	{
-		return featAutoColor;
-	}
-
-	public static void setFeatVirtualColor(final int newColor)
-	{
-		featVirtualColor = newColor & 0x00FFFFFF;
-	}
-
-	public static int getFeatVirtualColor()
-	{
-		return featVirtualColor;
-	}
-
-	public static void setSourceStatusReleaseColor(final int newColor)
-	{
-		sourceStatusReleaseColor = newColor & 0x00FFFFFF;
-	}
-
-	public static int getSourceStatusReleaseColor()
-	{
-		return sourceStatusReleaseColor;
-	}
-
-	public static void setSourceStatusAlphaColor(final int newColor)
-	{
-		sourceStatusAlphaColor = newColor & 0x00FFFFFF;
-	}
-
-	public static int getSourceStatusAlphaColor()
-	{
-		return sourceStatusAlphaColor;
-	}
-
-	public static void setSourceStatusBetaColor(final int newColor)
-	{
-		sourceStatusBetaColor = newColor & 0x00FFFFFF;
-	}
-
-	public static int getSourceStatusBetaColor()
-	{
-		return sourceStatusBetaColor;
-	}
-
-	public static void setSourceStatusTestColor(final int newColor)
-	{
-		sourceStatusTestColor = newColor & 0x00FFFFFF;
-	}
-
-	public static int getSourceStatusTestColor()
-	{
-		return sourceStatusTestColor;
-	}
 
 	public static void setFilePaths(final String aString)
 	{
@@ -969,16 +823,6 @@ public final class SettingsHandler
 		return leftUpperCorner;
 	}
 
-	public static void setLoadCampaignsAtStart(final boolean aBool)
-	{
-		loadCampaignsAtStart = aBool;
-	}
-
-	public static boolean isLoadCampaignsAtStart()
-	{
-		return loadCampaignsAtStart;
-	}
-
 	public static void setLoadURLs(final boolean aBool)
 	{
 		loadURLs = aBool;
@@ -1037,16 +881,6 @@ public final class SettingsHandler
 	public static int getNameDisplayStyle()
 	{
 		return nameDisplayStyle;
-	}
-
-	public static void setOptionAllowedInSources(final boolean aBool)
-	{
-		optionAllowedInSources = aBool;
-	}
-
-	public static boolean isOptionAllowedInSources()
-	{
-		return optionAllowedInSources;
 	}
 
 	public static SortedProperties getOptions()
@@ -1131,17 +965,11 @@ public final class SettingsHandler
 
 		Globals.initCustColumnWidth(CoreUtility.split(getOptions().getProperty("pcgen.options.custColumnWidth", ""), ',')); //$NON-NLS-1$ //$NON-NLS-2$
 
-		showD20InfoAtStart = getPCGenOption("showD20InfoAtStart", true); //$NON-NLS-1$
 		loadURLs = getPCGenOption("loadURLs", false); //$NON-NLS-1$
 		allowOverride = getPCGenOption("allowOverride", false); //$NON-NLS-1$
-		showOGLOnLoad = getPCGenOption("showOGLOnLoad", true); //$NON-NLS-1$
-		showMatureOnLoad = getPCGenOption("showMatureOnLoad", true); //$NON-NLS-1$
-		showSponsorsOnLoad = getPCGenOption("showSponsorsOnLoad", true); //$NON-NLS-1$
 
 		Globals.setSourceDisplay(SourceFormat.values()[getPCGenOption("sourceDisplay", SourceFormat.LONG.ordinal())]); //$NON-NLS-1$
 
-		setCountry(getPCGenOption("country", null)); //$NON-NLS-1$
-		setAbilitiesShownAsATab(getPCGenOption("abilitiesShownAsTab", false)); //$NON-NLS-1$
 		setAlwaysOverwrite(getPCGenOption("alwaysOverwrite", false)); //$NON-NLS-1$
 		setAutoFeatsRefundable(getPCGenOption("autoFeatsRefundable", false)); //$NON-NLS-1$
 		setUseFeatBenefits(getPCGenOption("useFeatBenefits", true)); //$NON-NLS-1$
@@ -1154,12 +982,8 @@ public final class SettingsHandler
 		setCustomizerSplit1(getPCGenOption("customizer.split1", -1)); //$NON-NLS-1$
 		setCustomizerSplit2(getPCGenOption("customizer.split2", -1)); //$NON-NLS-1$
 		setDefaultOSType(getPCGenOption("defaultOSType", null)); //$NON-NLS-1$
-		setDmNotes(getPCGenOption("dmnotes", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setEnforceSpendingBeforeLevelUp(getPCGenOption("enforceSpendingBeforeLevelUp", false)); //$NON-NLS-1$
 //		setExcSkillCost(getPCGenOption("excSkillCost", 0)); //$NON-NLS-1$
-		setExpertGUI(getPCGenOption("expertGUI", false)); //$NON-NLS-1$
-		setFeatAutoColor(getPCGenOption("featAutoColor", Color.yellow.darker().getRGB())); //$NON-NLS-1$
-		setFeatVirtualColor(getPCGenOption("featVirtualColor", Color.magenta.getRGB())); //$NON-NLS-1$
 		setGearTab_AllowDebt(getPCGenOption("GearTab.allowDebt", false)); //$NON-NLS-1$
 		setGearTab_AutoResize(getPCGenOption("GearTab.autoResize", false)); //$NON-NLS-1$
 		setGearTab_BuyRate(buyRate);
@@ -1169,7 +993,6 @@ public final class SettingsHandler
 		setGrittyACMode(getPCGenOption("grittyACMode", false)); //$NON-NLS-1$
 		setGUIUsesOutputNameEquipment(getPCGenOption("GUIUsesOutputNameEquipment", false)); //$NON-NLS-1$
 		setGUIUsesOutputNameSpells(getPCGenOption("GUIUsesOutputNameSpells", false)); //$NON-NLS-1$
-		setHiddenSources(getPCGenOption("hiddenSources", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setHideMonsterClasses(getPCGenOption("hideMonsterClasses", false)); //$NON-NLS-1$
 		setHPMaxAtFirstLevel(getPCGenOption("hpMaxAtFirstLevel", true)); //$NON-NLS-1$
 		setHPMaxAtFirstClassLevel(getPCGenOption("hpMaxAtFirstClassLevel", false)); //$NON-NLS-1$
@@ -1183,22 +1006,12 @@ public final class SettingsHandler
 		setInvalidDmgText(getPCGenOption("invalidDmgText", LanguageBundle.getString("SettingsHandler.114")));  //$NON-NLS-1$//$NON-NLS-2$
 		setInvalidToHitText(getPCGenOption("invalidToHitText", LanguageBundle.getString("SettingsHandler.114")));  //$NON-NLS-1$//$NON-NLS-2$
 		setLastTipShown(getPCGenOption("lastTipOfTheDayTipShown", -1)); //$NON-NLS-1$
-		setLoadCampaignsAtStart(getPCGenOption("loadCampaignsAtStart", false)); //$NON-NLS-1$
 		setLookAndFeel(getPCGenOption("looknFeel", 1)); //$NON-NLS-1$
 		setMaxPotionSpellLevel(getPCGenOption("maxPotionSpellLevel", 3)); //$NON-NLS-1$
 		setMaxWandSpellLevel(getPCGenOption("maxWandSpellLevel", 4)); //$NON-NLS-1$
 		setMetamagicAllowedInEqBuilder(getPCGenOption("allowMetamagicInCustomizer", false)); //$NON-NLS-1$
-		setOptionAllowedInSources(getPCGenOption("optionAllowedInSources", true)); //$NON-NLS-1$
 		setPccFilesLocation(new File(expandRelativePath(getPCGenOption("pccFilesLocation", //$NON-NLS-1$
 						System.getProperty("user.dir") + File.separator + "data")))); //$NON-NLS-1$ //$NON-NLS-2$
-		setPcgenVendorDataDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenVendorDataDir", //$NON-NLS-1$
-			Globals.getUserFilesPath() + File.separator + "vendordata")))); //$NON-NLS-1$ //$NON-NLS-2$
-		setPcgenHomebrewDataDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenHomebrewDataDir", //$NON-NLS-1$
-				Globals.getUserFilesPath() + File.separator + "homebrewdata")))); //$NON-NLS-1$ //$NON-NLS-2$
-		setPcgenSystemDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenSystemDir", //$NON-NLS-1$
-						System.getProperty("user.dir") + File.separator + "system")))); //$NON-NLS-1$ //$NON-NLS-2$
-		setPcgenThemePackDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenThemePackDir", //$NON-NLS-1$
-						System.getProperty("user.dir") + File.separator + "lib" + File.separator + "themes")))); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		setPcgenOutputSheetDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenOutputSheetDir", //$NON-NLS-1$
 						System.getProperty("user.dir") + File.separator + "outputsheets")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setPcgenPreviewDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenPreviewDir", //$NON-NLS-1$
@@ -1213,8 +1026,6 @@ public final class SettingsHandler
 		setPrereqFailColor(getPCGenOption("prereqFailColor", Color.red.getRGB())); //$NON-NLS-1$
 		setPrereqQualifyColor(getPCGenOption("prereqQualifyColor", Color.black.getRGB())); //$NON-NLS-1$
 		setPreviewTabShown(getPCGenOption("previewTabShown", true)); //$NON-NLS-1$
-		setQuickLaunchSources(getPCGenOption("quickLaunchSources", "")); //$NON-NLS-1$ //$NON-NLS-2$
-		setRanStartingWizard(getPCGenOption("ranStartingWizard", false)); //$NON-NLS-1$
 		setROG(getPCGenOption("isROG", false)); //$NON-NLS-1$
 		setSaveCustomInLst(getPCGenOption("saveCustomInLst", false)); //$NON-NLS-1$
 		setSaveOutputSheetWithPC(getPCGenOption("saveOutputSheetWithPC", false)); //$NON-NLS-1$
@@ -1243,14 +1054,9 @@ public final class SettingsHandler
 		setShowWarningAtFirstLevelUp(getPCGenOption("showWarningAtFirstLevelUp", true)); //$NON-NLS-1$
 		setSkinLFThemePack(getPCGenOption("skinLFThemePack", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setSpellMarketPriceAdjusted(getPCGenOption("spellMarketPriceAdjusted", false)); //$NON-NLS-1$
-		setSourceStatusReleaseColor(getPCGenOption("sourceStatusReleaseColor", Color.black.getRGB())); //$NON-NLS-1$
-		setSourceStatusAlphaColor(getPCGenOption("sourceStatusAlphaColor", Color.red.getRGB())); //$NON-NLS-1$
-		setSourceStatusBetaColor(getPCGenOption("sourceStatusBetaColor", new Color(128, 0, 0).getRGB())); //$NON-NLS-1$
-		setSourceStatusTestColor(getPCGenOption("sourceStatusTestColor", Color.magenta.getRGB())); //$NON-NLS-1$
 		setTabPlacement(getOptionTabPlacement("tabPlacement", SwingConstants.BOTTOM)); //$NON-NLS-1$
 		setToolTipTextShown(getPCGenOption("toolTipTextShown", true)); //$NON-NLS-1$
 		setUseHigherLevelSlotsDefault(getPCGenOption("useHigherLevelSlotsDefault", false)); //$NON-NLS-1$
-		setUseAdvancedSourceSelect(getPCGenOption("useAdvancedSourceSelect", false)); //$NON-NLS-1$
 		setUseWaitCursor(getPCGenOption("useWaitCursor", true)); //$NON-NLS-1$
 		setWantToLoadMasterworkAndMagic(getPCGenOption("loadMasterworkAndMagicFromLst", false)); //$NON-NLS-1$
 		setWeaponProfPrintout(getPCGenOption("weaponProfPrintout",
@@ -1314,10 +1120,7 @@ public final class SettingsHandler
 
 		Globals.createEmptyRace();
 
-		showNatWeaponTab = getPCGenOption("showNatWeaponTab", false); //$NON-NLS-1$
 		validateBonuses = getPCGenOption("validateBonuses", false); //$NON-NLS-1$
-
-		debugFeats = getPCGenOption("debugFeats", false); //$NON-NLS-1$
 	}
 
 	public static void setOptionsProperties(final PlayerCharacter aPC)
@@ -1347,55 +1150,6 @@ public final class SettingsHandler
 
 		getOptions().setProperty("pcgen.options.custColumnWidth", StringUtil.join(Globals.getCustColumnWidth(), ", ")); //$NON-NLS-1$
 
-		if (getPcgenVendorDataDir() != null)
-		{
-			getOptions().setProperty("pcgen.files.pcgenVendorDataDir", //$NON-NLS-1$
-				retractRelativePath(getPcgenVendorDataDir().getAbsolutePath()));
-		}
-		else
-		{
-			getOptions().setProperty("pcgen.files.pcgenVendorDataDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
-		}
-
-		if (getPcgenHomebrewDataDir() != null)
-		{
-			getOptions().setProperty("pcgen.files.pcgenHomebrewDataDir", //$NON-NLS-1$
-				retractRelativePath(getPcgenHomebrewDataDir().getAbsolutePath()));
-		}
-		else
-		{
-			getOptions().setProperty("pcgen.files.pcgenHomebrewDataDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
-		}
-
-		if (getPcgenSystemDir() != null)
-		{
-			getOptions().setProperty("pcgen.files.pcgenSystemDir", //$NON-NLS-1$
-				retractRelativePath(getPcgenSystemDir().getAbsolutePath()));
-		}
-		else
-		{
-			getOptions().setProperty("pcgen.files.pcgenSystemDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
-		}
-
-		if (getPcgenOutputSheetDir() != null)
-		{
-			getOptions().setProperty("pcgen.files.pcgenOutputSheetDir", //$NON-NLS-1$
-				retractRelativePath(getPcgenOutputSheetDir().getAbsolutePath()));
-		}
-		else
-		{
-			getOptions().setProperty("pcgen.files.pcgenOutputSheetDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
-		}
-
-		if (getPcgenPreviewDir() != null)
-		{
-			getOptions().setProperty("pcgen.files.pcgenPreviewDir", retractRelativePath(getPcgenPreviewDir().getAbsolutePath()));
-		}
-		else
-		{
-			getOptions().setProperty("pcgen.files.pcgenPreviewDir", Constants.EMPTY_STRING);
-		}
-
 		if (getGmgenPluginDir() != null)
 		{
 			getOptions().setProperty("gmgen.files.gmgenPluginDir", //$NON-NLS-1$
@@ -1404,16 +1158,6 @@ public final class SettingsHandler
 		else
 		{
 			getOptions().setProperty("gmgen.files.gmgenPluginDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
-		}
-
-		if (getPcgenThemePackDir() != null)
-		{
-			getOptions().setProperty("pcgen.files.pcgenThemePackDir", //$NON-NLS-1$
-				retractRelativePath(getPcgenThemePackDir().getAbsolutePath()));
-		}
-		else
-		{
-			getOptions().setProperty("pcgen.files.pcgenThemePackDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		if (getBrowserPath() != null)
@@ -1523,7 +1267,6 @@ public final class SettingsHandler
 
 		setRuleChecksInOptions("ruleChecks"); //$NON-NLS-1$
 
-		setPCGenOption("abilitiesShownAsTab", isAbilitiesShownAsATab()); //$NON-NLS-1$
 		setPCGenOption("allowMetamagicInCustomizer", isMetamagicAllowedInEqBuilder()); //$NON-NLS-1$
 		setPCGenOption("allowOverride", allowOverride); //$NON-NLS-1$
 		setPCGenOption("alwaysOverwrite", getAlwaysOverwrite()); //$NON-NLS-1$
@@ -1534,16 +1277,11 @@ public final class SettingsHandler
 		setPCGenOption("autoGenerateMasterwork", isAutogenMasterwork()); //$NON-NLS-1$
 		setPCGenOption("autoGenerateRacial", isAutogenRacial()); //$NON-NLS-1$
 		setPCGenOption("chaTabPlacement", convertTabPlacementToString(chaTabPlacement)); //$NON-NLS-1$
-		setPCGenOption("country", getCountry()); //$NON-NLS-1$
 		setPCGenOption("createPcgBackup", getCreatePcgBackup()); //$NON-NLS-1$
 		setPCGenOption("customizer.split1", getCustomizerSplit1()); //$NON-NLS-1$
 		setPCGenOption("customizer.split2", getCustomizerSplit2()); //$NON-NLS-1$
 		setPCGenOption("defaultOSType", getDefaultOSType()); //$NON-NLS-1$
-		setPCGenOption("dmnotes", getDmNotes()); //$NON-NLS-1$
 //		setPCGenOption("excSkillCost", getExcSkillCost()); //$NON-NLS-1$
-		setPCGenOption("expertGUI", isExpertGUI()); //$NON-NLS-1$
-		setPCGenOption("featAutoColor", "0x" + Integer.toHexString(getFeatAutoColor())); //$NON-NLS-1$ //$NON-NLS-2$
-		setPCGenOption("featVirtualColor", "0x" + Integer.toHexString(getFeatVirtualColor())); //$NON-NLS-1$ //$NON-NLS-2$
 		setPCGenOption("GearTab.allowDebt", getGearTab_AllowDebt()); //$NON-NLS-1$
 		setPCGenOption("GearTab.autoResize", getGearTab_AutoResize()); //$NON-NLS-1$
 		setPCGenOption("GearTab.buyRate", getGearTab_BuyRate()); //$NON-NLS-1$
@@ -1566,33 +1304,25 @@ public final class SettingsHandler
 		setPCGenOption("invalidDmgText", getInvalidDmgText()); //$NON-NLS-1$
 		setPCGenOption("invalidToHitText", getInvalidToHitText()); //$NON-NLS-1$
 		setPCGenOption("lastTipOfTheDayTipShown", getLastTipShown()); //$NON-NLS-1$
-		setPCGenOption("loadCampaignsAtStart", isLoadCampaignsAtStart()); //$NON-NLS-1$
 		setPCGenOption("loadMasterworkAndMagicFromLst", wantToLoadMasterworkAndMagic()); //$NON-NLS-1$
 		setPCGenOption("loadURLs", loadURLs); //$NON-NLS-1$
 		setPCGenOption("looknFeel", getLookAndFeel()); //$NON-NLS-1$
 		setPCGenOption("maxPotionSpellLevel", getMaxPotionSpellLevel()); //$NON-NLS-1$
 		setPCGenOption("maxWandSpellLevel", getMaxWandSpellLevel()); //$NON-NLS-1$
 		setPCGenOption("nameDisplayStyle", getNameDisplayStyle()); //$NON-NLS-1$
-		setPCGenOption("optionAllowedInSources", isOptionAllowedInSources()); //$NON-NLS-1$
 		setPCGenOption("postExportCommandStandard", SettingsHandler.getPostExportCommandStandard()); //$NON-NLS-1$
 		setPCGenOption("postExportCommandPDF", SettingsHandler.getPostExportCommandPDF()); //$NON-NLS-1$
 		setPCGenOption("prereqFailColor", "0x" + Integer.toHexString(getPrereqFailColor())); //$NON-NLS-1$ //$NON-NLS-2$
 		setPCGenOption("prereqQualifyColor", "0x" + Integer.toHexString(getPrereqQualifyColor())); //$NON-NLS-1$ //$NON-NLS-2$
 		setPCGenOption("previewTabShown", isPreviewTabShown()); //$NON-NLS-1$
-		setPCGenOption("ranStartingWizard", ranStartingWizard); //$NON-NLS-1$
 		setPCGenOption("saveCustomInLst", isSaveCustomInLst()); //$NON-NLS-1$
 		setPCGenOption("saveOutputSheetWithPC", getSaveOutputSheetWithPC()); //$NON-NLS-1$
 		setPCGenOption("printSpellsWithPC", getPrintSpellsWithPC()); //$NON-NLS-1$
-		setPCGenOption("showD20InfoAtStart", showD20InfoAtStart); //$NON-NLS-1$
 		setPCGenOption("showFeatDialogAtLevelUp", getShowFeatDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("enforceSpendingBeforeLevelUp", getEnforceSpendingBeforeLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showHPDialogAtLevelUp", getShowHPDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showMemoryArea", isShowMemoryArea()); //$NON-NLS-1$
 		setPCGenOption("showImagePreview", isShowImagePreview()); //$NON-NLS-1$
-		setPCGenOption("showNatWeaponTab", showNatWeaponTab); //$NON-NLS-1$
-		setPCGenOption("showOGLOnLoad", showOGLOnLoad); //$NON-NLS-1$
-		setPCGenOption("showMatureOnLoad", showMatureOnLoad); //$NON-NLS-1$
-		setPCGenOption("showSponsorsOnLoad", showSponsorsOnLoad); //$NON-NLS-1$
 		setPCGenOption("showStatDialogAtLevelUp", getShowStatDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showTipOfTheDay", getShowTipOfTheDay()); //$NON-NLS-1$
 		setPCGenOption("showToolBar", isShowToolBar()); //$NON-NLS-1$
@@ -1601,10 +1331,6 @@ public final class SettingsHandler
 		setPCGenOption("showSingleBoxPerBundle", getShowSingleBoxPerBundle()); //$NON-NLS-1$
 		setPCGenOption("showWarningAtFirstLevelUp", isShowWarningAtFirstLevelUp()); //$NON-NLS-1$
 		setPCGenOption("sourceDisplay", Globals.getSourceDisplay().ordinal()); //$NON-NLS-1$
-		setPCGenOption("sourceStatusReleaseColor", "0x" + Integer.toHexString(getSourceStatusReleaseColor())); //$NON-NLS-1$ //$NON-NLS-2$
-		setPCGenOption("sourceStatusAlphaColor", "0x" + Integer.toHexString(getSourceStatusAlphaColor())); //$NON-NLS-1$ //$NON-NLS-2$
-		setPCGenOption("sourceStatusBetaColor", "0x" + Integer.toHexString(getSourceStatusBetaColor())); //$NON-NLS-1$ //$NON-NLS-2$
-		setPCGenOption("sourceStatusTestColor", "0x" + Integer.toHexString(getSourceStatusTestColor())); //$NON-NLS-1$ //$NON-NLS-2$
 		setPCGenOption("spellMarketPriceAdjusted", isSpellMarketPriceAdjusted()); //$NON-NLS-1$
 		setPCGenOption("tabPlacement", convertTabPlacementToString(tabPlacement)); //$NON-NLS-1$
 		setPCGenOption("toolTipTextShown", isToolTipTextShown()); //$NON-NLS-1$
@@ -1612,12 +1338,8 @@ public final class SettingsHandler
 		setPCGenOption("useWaitCursor", getUseWaitCursor()); //$NON-NLS-1$
 		setPCGenOption("validateBonuses", validateBonuses); //$NON-NLS-1$
 		setPCGenOption("weaponProfPrintout", SettingsHandler.getWeaponProfPrintout()); //$NON-NLS-1$
-		setPCGenOption("debugFeats", debugFeats); //$NON-NLS-1$
 		setPCGenOption("outputDeprecationMessages", outputDeprecationMessages()); //$NON-NLS-1$
 		setPCGenOption("inputUnconstructedMessages", inputUnconstructedMessages()); //$NON-NLS-1$
-		setPCGenOption("hiddenSources", getHiddenSources()); //$NON-NLS-1$
-		setPCGenOption("quickLaunchSources", getQuickLaunchSources()); //$NON-NLS-1$
-		setPCGenOption("useAdvancedSourceSelect", useAdvancedSourceSelect()); //$NON-NLS-1$
 	}
 
 	public static void setPCGenOption(final String optionName, final int optionValue)
@@ -1718,56 +1440,6 @@ public final class SettingsHandler
 		return lastUsedPcgPath;
 	}
 
-	public static void setPcgenVendorDataDir(final File aFile)
-	{
-		if (aFile != null && !aFile.exists())
-		{
-			aFile.mkdirs();
-		}
-		pcgenVendorDataDir = aFile;
-	}
-
-	public static void setPcgenHomebrewDataDir(final File aFile)
-	{
-		if (aFile != null && !aFile.exists())
-		{
-			aFile.mkdirs();
-		}
-		pcgenHomebrewDataDir = aFile;
-	}
-
-	/**
-	 * @deprecated Use ConfigurationSettings.getVendorDataDir()
-	 * @return the vendor data directory
-	 */
-	public static File getPcgenVendorDataDir()
-	{
-		return pcgenVendorDataDir;
-	}
-
-	/**
-	 * @deprecated Use ConfigurationSettings.getVendorDataDir()
-	 * @return the vendor data directory
-	 */
-	public static File getPcgenHomebrewDataDir()
-	{
-		return pcgenHomebrewDataDir;
-	}
-
-	public static void setPcgenSponsorDir(final File aFile)
-	{
-		pcgenSponsorDir = aFile;
-	}
-
-	/**
-	 * @deprecated 
-	 * @return the sponsor directory
-	 */
-	public static File getPcgenSponsorDir()
-	{
-		return pcgenSponsorDir;
-	}
-
 	public static void setPcgenOutputSheetDir(final File aFile)
 	{
 		pcgenOutputSheetDir = aFile;
@@ -1780,29 +1452,6 @@ public final class SettingsHandler
 	public static File getPcgenOutputSheetDir()
 	{
 		return pcgenOutputSheetDir;
-	}
-
-	public static void setPcgenSystemDir(final File aFile)
-	{
-		pcgenSystemDir = aFile;
-	}
-
-	/**
-	 * @deprecated Use ConfigurationSettings.getSystemsDir() 
-	 * @return the system directory
-	 */
-	public static File getPcgenSystemDir()
-	{
-		return pcgenSystemDir;
-	}
-
-	/**
-	 * @deprecated
-	 * @return the theme pack directory
-	 */
-	public static File getPcgenThemePackDir()
-	{
-		return pcgenThemePackDir;
 	}
 
 	public static void setPcgenPreviewDir(final File aFile)
@@ -2161,11 +1810,6 @@ public final class SettingsHandler
 		return selectedSpellSheet;
 	}
 
-	public static void setShowD20Info(final boolean aBool)
-	{
-		showD20InfoAtStart = aBool;
-	}
-
 	/**
 	 * Sets whether the feats dialog should be shown at level up.
 	 * NOTE: This function has been disabled as it interferes with class builds. 
@@ -2204,21 +1848,6 @@ public final class SettingsHandler
 	public static boolean getShowHPDialogAtLevelUp()
 	{
 		return showHPDialogAtLevelUp;
-	}
-
-	public static void setShowLicense(final boolean arg)
-	{
-		showOGLOnLoad = arg;
-	}
-
-	public static void setShowMature(final boolean arg)
-	{
-		showMatureOnLoad = arg;
-	}
-
-	public static void setShowSponsors(final boolean arg)
-	{
-		showSponsorsOnLoad = arg;
 	}
 
 	/**
@@ -2480,35 +2109,6 @@ public final class SettingsHandler
 	{
 		return getFilterSettings().getProperty("pcgen.filters." + optionName, //$NON-NLS-1$
 			getOptions().getProperty("pcgen.filters." + optionName, "")); //$NON-NLS-1$ //$NON-NLS-2$
-	}
-
-	public static boolean showD20Info()
-	{
-		return showD20InfoAtStart;
-	}
-
-	public static boolean allowFeatDebugging()
-	{
-		return debugFeats;
-	}
-
-	public static boolean showLicense()
-	{
-		return showOGLOnLoad;
-	}
-
-	public static boolean showMature()
-	{
-		return showMatureOnLoad;
-	}
-
-	public static boolean showSponsors() {
-		return showSponsorsOnLoad;
-	}
-
-	public static boolean showNaturalWeaponTab()
-	{
-		return showNatWeaponTab;
 	}
 
 	public static boolean useFeatBenefits()
@@ -2775,43 +2375,6 @@ public final class SettingsHandler
 		return grittyACMode;
 	}
 
-	private static void setOpenRecentOption(final String optionName, final String[] strings)
-	{
-		String value = ""; //$NON-NLS-1$
-
-		if (strings.length > 0)
-		{
-			value += strings[0];
-
-			for (int i = 1; i < strings.length; ++i)
-			{
-				value += ("|" + strings[i]); //$NON-NLS-1$
-			}
-		}
-
-		setPCGenOption(optionName, value);
-	}
-
-	private static String[] getOpenRecentOption(final String optionName)
-	{
-		final String value = getPCGenOption(optionName, ""); //$NON-NLS-1$
-
-		if (value == null)
-		{
-			return Globals.EMPTY_STRING_ARRAY;
-		}
-
-		final StringTokenizer tok = new StringTokenizer(value, "|"); //$NON-NLS-1$
-		final List<String> strings = new ArrayList<String>();
-
-		while (tok.hasMoreTokens())
-		{
-			strings.add(tok.nextToken());
-		}
-
-		return strings.toArray(new String[strings.size()]);
-	}
-
 	private static int getOptionTabPlacement(final String optionName, final int defaultValue)
 	{
 		final String aString = getPCGenOption(optionName, convertTabPlacementToString(defaultValue));
@@ -2913,11 +2476,6 @@ public final class SettingsHandler
 		return new Double(getPCGenOption(optionName, Double.toString(defaultValue)));
 	}
 
-	private static void setPcgenThemePackDir(final File aFile)
-	{
-		pcgenThemePackDir = aFile;
-	}
-
 	/**
 	 * What does this do???
 	 * @param ROG
@@ -2925,11 +2483,6 @@ public final class SettingsHandler
 	private static void setROG(final boolean ROG)
 	{
 		isROG = ROG;
-	}
-
-	private static void setRanStartingWizard(final boolean ran)
-	{
-		SettingsHandler.ranStartingWizard = ran;
 	}
 
 	/**
@@ -3323,72 +2876,6 @@ public final class SettingsHandler
 	public static void setInputUnconstructedMessages(boolean b)
 	{
 		inputUnconstructedMessages = b;
-	}
-
-	/**
-	 * @return the hiddenSources
-	 */
-	public static String getHiddenSources()
-	{
-		return hiddenSources;
-	}
-
-	/**
-	 * @param hiddenSources the hiddenSources to set
-	 */
-	public static void setHiddenSources(String hiddenSources)
-	{
-		SettingsHandler.hiddenSources = hiddenSources;
-	}
-
-	/**
-	 * @return the quickLaunchSources
-	 */
-	public static String getQuickLaunchSources()
-	{
-		return quickLaunchSources;
-	}
-
-	/**
-	 * @param quickLaunchSources the quickLaunchSources to set
-	 */
-	public static void setQuickLaunchSources(String quickLaunchSources)
-	{
-		SettingsHandler.quickLaunchSources = quickLaunchSources;
-	}
-
-	/**
-	 * @return the useAdvancedSourceSelect
-	 */
-	public static boolean useAdvancedSourceSelect()
-	{
-		return useAdvancedSourceSelect;
-	}
-
-	/**
-	 * @param useAdvancedSourceSelect the useAdvancedSourceSelect to set
-	 */
-	public static void setUseAdvancedSourceSelect(boolean useAdvancedSourceSelect)
-	{
-		SettingsHandler.useAdvancedSourceSelect = useAdvancedSourceSelect;
-	}
-
-	/**
-	 * Set Country
-	 * @param aString
-	 */
-	public static void setCountry(final String aString)
-	{
-		country = aString;
-	}
-
-	/**
-	 * Get country
-	 * @return country
-	 */
-	public static String getCountry()
-	{
-		return country;
 	}
 
 }

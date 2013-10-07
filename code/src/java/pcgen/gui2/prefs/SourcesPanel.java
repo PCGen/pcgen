@@ -70,7 +70,6 @@ public class SourcesPanel extends PCGenPrefsPanel
 	private JCheckBox saveCustom = new JCheckBox();
 	private JCheckBox showOGL = new JCheckBox();
 	private JCheckBox showMature = new JCheckBox();
-	private JCheckBox showd20 = new JCheckBox();
 	private JCheckBox showSponsors = new JCheckBox();
 	private JComboBoxEx sourceOptions = new JComboBoxEx();
 	private JCheckBox loadURL = new JCheckBox();
@@ -123,11 +122,6 @@ public class SourcesPanel extends PCGenPrefsPanel
 		showOGL.setText(LanguageBundle.getString("in_Prefs_displayOGL")); //$NON-NLS-1$
 		gridbag.setConstraints(showOGL, c);
 		this.add(showOGL);
-
-		Utility.buildConstraints(c, 0, 5, GridBagConstraints.REMAINDER, 1, 0, 0);
-		showd20.setText(LanguageBundle.getString("in_Prefs_displayd20")); //$NON-NLS-1$
-		gridbag.setConstraints(showd20, c);
-		this.add(showd20);
 
 		Utility.buildConstraints(c, 0, 6, GridBagConstraints.REMAINDER, 1, 0, 0);
 		showSponsors.setText(LanguageBundle.getString("in_Prefs_displaySponsors")); //$NON-NLS-1$
@@ -224,7 +218,6 @@ public class SourcesPanel extends PCGenPrefsPanel
 			PCGenSettings.OPTION_SHOW_LICENSE, showOGL.isSelected());
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
 			PCGenSettings.OPTION_SHOW_MATURE_ON_LOAD, showMature.isSelected());
-		SettingsHandler.setShowD20Info(showd20.isSelected());
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(
 			PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD, showSponsors.isSelected());
 		SettingsHandler.setLoadURLs(loadURL.isSelected());
@@ -289,7 +282,6 @@ public class SourcesPanel extends PCGenPrefsPanel
 			PCGenSettings.OPTION_SHOW_LICENSE));
 		showMature.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(
 			PCGenSettings.OPTION_SHOW_MATURE_ON_LOAD));
-		showd20.setSelected(SettingsHandler.showD20Info());
 		showSponsors.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(
 			PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD));
 		loadURL.setSelected(SettingsHandler.isLoadURLs());
