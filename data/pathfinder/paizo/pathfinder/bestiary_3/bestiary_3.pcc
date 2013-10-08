@@ -74,6 +74,8 @@ ABILITYCATEGORY:b3_abilitycategories.lst
 
 DEITY:b3_deities.lst
 
+FEAT:b3_feats_mod.lst
+
 EQUIPMENT:b3_equipment.lst
 EQUIPMENT:b3_equip_weapons_melee.lst
 EQUIPMOD:b3_equipmods_weapons.lst
