@@ -8,7 +8,9 @@ PCGen runs on Windows, Mac OS X and Unix/Linux using Java
 
 # What's new for v6.1.7
 
-PCGen v6.1.7 is an alpha release from our development branch to allow 
+PCGen v6.1.7 continues the delivery of some of your most requested sources, with 
+Paizo's Pathfinder books Bestiary 3 and Ultimate Equipment now available 
+for use in PCGen! As with previous alpha releases, this version is released to allow 
 experimentation and testing of our latest work. Please give it a shot and let 
 us know how it works for you. Some notable changes in this release are listed 
 below. 
