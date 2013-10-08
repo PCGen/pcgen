@@ -39,6 +39,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Dungeoneer'
 
 # Data Files
 ABILITY:pfdh_abilities_archetypes.lst
+COMPANIONMOD:pfdh_companion_mods.lst
 EQUIPMENT:pfdh_equip.lst
 FEAT:pfdh_feats.lst
 SPELL:pfdh_spells.lst
