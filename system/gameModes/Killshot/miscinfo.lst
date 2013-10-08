@@ -113,7 +113,8 @@ DIESIZES:MIN=6,8,10,12,MAX=20
 # Character Types:
 CHARACTERTYPE:Assassin|Mark|Thug
 
-DEFAULTDATASET:Killshot - The Director's Cut
+# Commented out till Killshot is released in the main release.
+#DEFAULTDATASET:Killshot - The Director's Cut
 
 #
 # DONE
