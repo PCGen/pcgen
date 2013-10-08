@@ -27,7 +27,7 @@ URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3|Buy this publication from Paizo Publishing!
 URL:Amazon.com|http://amzn.to/18i9dHR||Buy this book from Amazon.com!
-DESC:Test your courage against the most infamous foes of myth and legend! Bestiary 3 presents hundreds of monsters for use in the Pathfinder Roleplaying Game. Within this book youll find demiliches and demodands, grave knights and goblin snakes, norns and nephilim, imperial dragons and unfettered eidolons, and so much more! Yet not every creature needs to be an enemy, as winged garudas, crafty tanukis, and leonine lammasus all wait to join your party and answer the call of glory.
+DESC:Test your courage against the most infamous foes of myth and legend. Bestiary 3 presents hundreds of monsters for use in the Pathfinder Roleplaying Game. Within this book you will find demiliches and demodands, grave knights and goblin snakes, norns and nephilim, imperial dragons and unfettered eidolons, and so much more. Yet not every creature needs to be an enemy, as winged garudas, crafty tanukis, and leonine lammasus all wait to join your party and answer the call of glory.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
@@ -95,7 +95,6 @@ KIT:b3_kits_races_xyz.lst
 
 LANGUAGE:b3_languages.lst
 
-#NATURALWEAPON:b3_naturalweapon.lst
 
 RACE:b3_races.lst
 RACE:b3_races_base.lst
