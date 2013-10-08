@@ -1,3 +1,4 @@
+# CVS $Revision$ $Author$ -- Mon Oct  7 21:09:34 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 #Pages 92-103
 
 STARTPACK:Forest Imperial Dragon Default	VISIBLE:NO
@@ -14,4 +15,3 @@ STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 STARTPACK:Underworld Imperial Dragon Default	VISIBLE:NO
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-

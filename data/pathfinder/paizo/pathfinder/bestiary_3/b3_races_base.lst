@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Sat Jun 29 23:38:24 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision$ $Author$ -- Mon Oct  7 21:09:34 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 
 # Race Name	Starting Feats	Size		Move				Face/Space	Reach		Vision			Required Gender	Bonus Languages												Stat bonus						Automatically Gained Language	Ability																		Define				Main Race Type	Race Subtype				Type				Challenge Rating	Source Page		More language
 Catfolk	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5	VISION:Low-Light Vision				LANGBONUS:Elven,Gnoll,Gnome,Goblin,Halfling,Orc,Sylvan					BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Catfolk|Common	ABILITY:Internal|AUTOMATIC|Default Traits ~ Catfolk																RACETYPE:Humanoid	RACESUBTYPE:Catfolk			TYPE:Base.PC.Featured	CR:1/2		SOURCEPAGE:p.46
@@ -17,4 +17,4 @@ Vishkanya	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5								LANGBONUS:Aklo
 # COMMENT: Bonus languages include Nagaji; not even the Nagaji speak Nagaji.  Removed from list until further clarification.
 Wayang	STARTFEATS:1	SIZE:S	MOVE:Walk,20		FACE:5	REACH:5								LANGBONUS:Abyssal,Aklo,Draconic,Goblin,Infernal,Samsaran,Tengu				BONUS:STAT|DEX,INT|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common|Wayang		ABILITY:Internal|AUTOMATIC|Default Traits ~ Wayang																RACETYPE:Humanoid	RACESUBTYPE:Wayang			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.210
 
-Ratfolk	STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	AUTO:LANG|Common		LANGBONUS:Aklo,Draconic,Dwarven,Gnoll,Gnome,Goblin,Halfling,Orc,Undercommon	BONUS:STAT|DEX,INT|2	BONUS:STAT|STR|-2	RACETYPE:Humanoid	RACESUBTYPE:Ratfolk	TYPE:Base.PC.Featured	CR:1/2		SOURCEPAGE:p.151
+Ratfolk	STARTFEATS:1	SIZE:S	MOVE:Walk,20		FACE:5	REACH:5								LANGBONUS:Aklo,Draconic,Dwarven,Gnoll,Gnome,Goblin,Halfling,Orc,Undercommon		BONUS:STAT|DEX,INT|2	BONUS:STAT|STR|-2	AUTO:LANG|Common																											RACETYPE:Humanoid	RACESUBTYPE:Ratfolk			TYPE:Base.PC.Featured	CR:1/2		SOURCEPAGE:p.151

@@ -1,45 +1,40 @@
-# CVS $Revision$ $Author$ -- Sat Jun 29 23:38:24 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision$ $Author$ -- Mon Oct  7 21:09:34 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 
 
 # Adaro
-# Language		Type		Required Ability
-Speak with Sharks	TYPE:Spoken	PREABILITY:1,CATEGORY=Internal,Speak with Sharks
+# Language				Type					Required Ability
+Speak with Sharks			TYPE:Spoken				PREABILITY:1,CATEGORY=Internal,Speak with Sharks
 
 
-Catfolk	TYPE:Spoken.Written.Read
+Catfolk				TYPE:Spoken.Written.Read
 #D'ziriak	TYPE:Spoken
 #Grippli	TYPE:Spoken.Written.Read
-Samsaran	TYPE:Spoken.Written.Read
-Strix		TYPE:Spoken.Written.Read
-Vanaran	TYPE:Spoken.Written.Read
-Vishkanya	TYPE:Spoken.Written.Read
-Wayang	TYPE:Spoken.Written.Read
+Samsaran				TYPE:Spoken.Written.Read
+Strix					TYPE:Spoken.Written.Read
+Vanaran				TYPE:Spoken.Written.Read
+Vishkanya				TYPE:Spoken.Written.Read
+Wayang				TYPE:Spoken.Written.Read
 
-Adlet		TYPE:Spoken.Written.Read
-Garuda	TYPE:Spoken.Written.Read
-Kech		TYPE:Spoken.Written.Read
-Sasquatch	TYPE:Spoken.Written.Read
-Shae		TYPE:Spoken.Written.Read
-Tanuki	TYPE:Spoken.Written.Read
-Thriae	TYPE:Spoken.Written.Read
-Truespeech	TYPE:Spoken.Written.Read
-Yithian	TYPE:Spoken.Written.Read
-Girtablilu	TYPE:Spoken.Written.Read
+Adlet					TYPE:Spoken.Written.Read
+Garuda				TYPE:Spoken.Written.Read
+Kech					TYPE:Spoken.Written.Read
+Sasquatch				TYPE:Spoken.Written.Read
+Shae					TYPE:Spoken.Written.Read
+Tanuki				TYPE:Spoken.Written.Read
+Thriae				TYPE:Spoken.Written.Read
+Truespeech				TYPE:Spoken.Written.Read
+Yithian				TYPE:Spoken.Written.Read
+Girtablilu				TYPE:Spoken.Written.Read
 
-Aklo (cannot speak)	TYPE:Understand
-Aquan (cannot speak)	TYPE:Understand
-Auran (cannot speak)	TYPE:Understand
-Common (can't speak)	TYPE:Understand
-Common (cannot speak)	TYPE:Understand
+Aklo (cannot speak)		TYPE:Understand
+Aquan (cannot speak)		TYPE:Understand
+Auran (cannot speak)		TYPE:Understand
+Common (can't speak)		TYPE:Understand
+Common (cannot speak)		TYPE:Understand
 Flail Snail (Cannot Speak)	TYPE:Spoken.Written.Read
-Infernal (cannot speak)	TYPE:Understand
-Plantspeech (fungi)	TYPE:Spoken.Written.Read
-Plantspeech (gourds)	TYPE:Spoken.Written.Read
-Plantspeech (seaweed)	TYPE:Spoken.Written.Read
-Plantspeech (trees)	TYPE:Spoken.Written.Read
-Sylvan (cannot speak)	TYPE:Understand
-
-
-
-
-
+Infernal (cannot speak)		TYPE:Understand
+Plantspeech (fungi)		TYPE:Spoken.Written.Read
+Plantspeech (gourds)		TYPE:Spoken.Written.Read
+Plantspeech (seaweed)		TYPE:Spoken.Written.Read
+Plantspeech (trees)		TYPE:Spoken.Written.Read
+Sylvan (cannot speak)		TYPE:Understand

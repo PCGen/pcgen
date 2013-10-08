@@ -1,4 +1,4 @@
-# CVS $Revision$ $Author$ -- Wed Sep  4 09:03:26 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision$ $Author$ -- Mon Oct  7 21:09:34 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 # Original Entry By: W. Robert 'Mynex' Reed III
 # Entry Date: August 2013
 SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3
@@ -10,7 +10,7 @@ ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Companion ~ Megafauna (Archelon)	TYPE:Companion	VISIBLE:NO		SOURCEPAGE:p.192
+STARTPACK:Companion ~ Megafauna (Archelon)	TYPE:Companion	VISIBLE:NO	SOURCEPAGE:p.192
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
@@ -20,67 +20,67 @@ ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
-STARTPACK:Companion ~ Megafauna (Basilosaurus)	TYPE:Companion	VISIBLE:NO		SOURCEPAGE:p.193
+STARTPACK:Companion ~ Megafauna (Basilosaurus)	TYPE:Companion	VISIBLE:NO	SOURCEPAGE:p.193
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
-STARTPACK:Companion ~ Megafauna (Megalania)	TYPE:Companion	VISIBLE:NO			SOURCEPAGE:p.193
+STARTPACK:Companion ~ Megafauna (Megalania)	TYPE:Companion	VISIBLE:NO	SOURCEPAGE:p.193
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
 
-STARTPACK:Companion ~ Axe Beak	TYPE:Companion	VISIBLE:NO				SOURCEPAGE:p.29
+STARTPACK:Companion ~ Axe Beak	TYPE:Companion	VISIBLE:NO	SOURCEPAGE:p.29
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 
 
-STARTPACK:Companion ~ Dinosaur (Dimetrodon)	TYPE:Companion	VISIBLE:NO				SOURCEPAGE:p.78
+STARTPACK:Companion ~ Dinosaur (Dimetrodon)	TYPE:Companion	VISIBLE:NO	SOURCEPAGE:p.78
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
-STARTPACK:Companion ~ Dinosaur (Iguanodon)	TYPE:Companion	VISIBLE:NO					SOURCEPAGE:p.78
+STARTPACK:Companion ~ Dinosaur (Iguanodon)	TYPE:Companion	VISIBLE:NO	SOURCEPAGE:p.78
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
-STARTPACK:Companion ~ Dinosaur (Pachycephalosaurus)	TYPE:Companion	VISIBLE:NO				SOURCEPAGE:p.79
+STARTPACK:Companion ~ Dinosaur (Pachycephalosaurus)	TYPE:Companion	VISIBLE:NO	SOURCEPAGE:p.79
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
-STARTPACK:Companion ~ Dinosaur (Spinosaurus)	TYPE:Companion	VISIBLE:NO				SOURCEPAGE:p.79
+STARTPACK:Companion ~ Dinosaur (Spinosaurus)	TYPE:Companion	VISIBLE:NO	SOURCEPAGE:p.79
 ALIGN:TN
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
 
-STARTPACK:Companion ~ Herd Animal (Elk)	TYPE:Companion	VISIBLE:NO				SOURCEPAGE:p.147
+STARTPACK:Companion ~ Herd Animal (Elk)	TYPE:Companion	VISIBLE:NO	SOURCEPAGE:p.147
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Companion ~ Lizard (Giant Gecko)	TYPE:Companion	VISIBLE:NO				SOURCEPAGE:p.186
+STARTPACK:Companion ~ Lizard (Giant Gecko)	TYPE:Companion	VISIBLE:NO	SOURCEPAGE:p.186
 ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 
 
-STARTPACK:Companion ~ Lizard (Giant Chameleon)	TYPE:Companion	VISIBLE:NO				SOURCEPAGE:p.186
+STARTPACK:Companion ~ Lizard (Giant Chameleon)	TYPE:Companion	VISIBLE:NO	SOURCEPAGE:p.186
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Companion ~ Vulture (Giant)	TYPE:Companion	VISIBLE:NO				SOURCEPAGE:p.284
+STARTPACK:Companion ~ Vulture (Giant)	TYPE:Companion	VISIBLE:NO	SOURCEPAGE:p.284
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Companion ~ Marsupial (Kangaroo)	TYPE:Companion	VISIBLE:NO				SOURCEPAGE:p.191
+STARTPACK:Companion ~ Marsupial (Kangaroo)	TYPE:Companion	VISIBLE:NO	SOURCEPAGE:p.191
 ALIGN:TN
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Companion ~ Marsupial (Thylacine)	TYPE:Companion	VISIBLE:NO				SOURCEPAGE:p.191
+STARTPACK:Companion ~ Marsupial (Thylacine)	TYPE:Companion	VISIBLE:NO	SOURCEPAGE:p.191
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 

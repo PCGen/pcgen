@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Sep  4 09:30:10 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: $ $Author: $ -- Mon Oct  7 21:09:34 2013 -- reformated by prettylst.pl v1.50 (build 20400)
 # Original Entry By: W. Robert 'Mynex' Reed III
 # Entry Date: August 2013
 SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3
@@ -308,16 +308,16 @@ ALIGN:LE
 RACE:Rakshasa (Raktavarna)	!PRERACE:1,%
 NAME:Raktavarna
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Acrobatics					RANK:18
-SKILL:Bluff						RANK:23
-SKILL:Climb						RANK:17
-SKILL:Disguise					RANK:26
-SKILL:Intimidate					RANK:23
-SKILL:Knowledge (Religion)			RANK:10
-SKILL:Perception					RANK:19
-SKILL:Sense Motive				RANK:19
-SKILL:Survival					RANK:16
-SKILL:Swim						RANK:18
+SKILL:Acrobatics			RANK:18
+SKILL:Bluff				RANK:23
+SKILL:Climb				RANK:17
+SKILL:Disguise			RANK:26
+SKILL:Intimidate			RANK:23
+SKILL:Knowledge (Religion)	RANK:10
+SKILL:Perception			RANK:19
+SKILL:Sense Motive		RANK:19
+SKILL:Survival			RANK:16
+SKILL:Swim				RANK:18
 FEAT::Cleave
 FEAT:Combat Reflexes
 FEAT:Critical Focus
