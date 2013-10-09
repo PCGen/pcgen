@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	$Id$
+-->
+<character>
+	<export>
+		<date>Oct 7, 2013</date>
+		<time>4:31:31 PM</time>
+		<version>6.01.07-dev</version>
+		<paperinfo>
+			<name>PAPERINFO.NAME</name>
+			<height>PAPERINFO.HEIGHT</height>
+			<width>PAPERINFO.WIDTH</width>
+			<margins>
+				<top>PAPERINFO.MARGINTOP</top>
+				<bottom>PAPERINFO.MARGINBOTTOM</bottom>
+				<left>PAPERINFO.MARGINLEFT</left>
+				<right>PAPERINFO.MARGINRIGHT</right>
+			</margins>
+		</paperinfo>
+		<directories>
+			<pcgen>D:\pcgen\pcgen_trunk\Trunk\pcgen\system</pcgen>
+			<templates>D:\pcgen\pcgen_trunk\Trunk\pcgen\outputsheets</templates>
+			<pcg>D:\pcgen\pcgen_trunk\Trunk\pcgen\characters</pcg>
+			<html>D:\pcgen\pcgen_trunk\Trunk\pcgen\outputsheets</html>
+			<temp>C:\Users\Andrew\AppData\Local\Temp</temp>
+		</directories>
+		<invalidtext>
+			<tohit>null</tohit>
+			<damage>null</damage>
+		</invalidtext>
+	</export>
+	<unit_set>
+		<name>Imperial</name>
+		<height_unit>ftin</height_unit>
+		<distance_unit> ft.</distance_unit>
+		<weight_unit> lbs.</weight_unit>
+	</unit_set>
+	<!--
+	  ====================================
+	  ====================================
+			BIO
+	  ====================================
+	  ====================================-->
+	<basics>
+		<bonuses></bonuses>
+		<bonuses></bonuses>
+		<bonuses></bonuses>
+		<bonuses></bonuses>
+		<name>Unnamed 1</name>
+		<followerof></followerof>
+		<playername></playername>
+		<charactertype>Assassin</charactertype>
+		<age>0</age>
+		<archetypes>
+		</archetypes>
+		<bio></bio>
+		<birthday></birthday>
+		<birthplace></birthplace>
+		<catchphrase></catchphrase>
+		<classes>
+			<class>
+				<name>Assassin</name>
+				<abbreviation>Ass</abbreviation>
+				<level>1</level>
+				<bonuslist>Assassin</bonuslist>
+				<sequence>0</sequence>
+				<sequence_shortform> Ass1                   </sequence_shortform>
+			</class>
+			<levels_total>1</levels_total>
+			<levels_ecl>1</levels_ecl>
+			<!-- shortform below should be removed - it can be derived from class info above -->
+			<shortform> Ass1                   </shortform>
+			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
+		</classes>
+		<description></description>
+		<eyes>
+			<color></color>
+		</eyes>
+		<hair>
+			<color></color>
+			<length></length>
+		</hair>
+		<skin>
+			<color></color>
+		</skin>
+		<gender>
+			<long>Male</long>
+			<short>Male</short>
+		</gender>
+		<handed>Right</handed>
+		<height>
+			<total>6&#39; 0&quot;</total>
+			<feet>6</feet>
+			<inches>0</inches>
+		</height>
+		<hitdice></hitdice>
+		<image>file:D:\pcgen\pcgen_trunk\Trunk\pcgen\characters/Unnamed 1.jpg</image>
+		<interests></interests>
+		<languages>
+			<all></all>
+		</languages>
+		<location></location>
+		<personality>
+			<trait></trait>
+			<trait></trait>
+		</personality>
+		<portrait>
+			<portrait></portrait>
+			<portrait_thumb></portrait_thumb>
+		</portrait>
+		<phobias></phobias>
+		<race>Human</race>
+		<region>None</region>
+		<residence></residence>
+		<speechtendency></speechtendency>
+		<type>None</type>
+		<vision>
+			<all></all>
+		</vision>
+		<wealth>0</wealth>
+		<gold>0</gold>
+		<weight>
+			<weight_unit>190 lbs.</weight_unit>
+			<weight_nounit>190</weight_nounit>
+		</weight>
+		<poolpoints>
+			<cost>0</cost>
+			<current>0</current>
+		</poolpoints>
+		<notes>
+		</notes>
+	</basics>
+<!-- Use ASPECTNotesSectionx and ASPECTNotesy	-->
+	<!--
+	  ====================================
+	  ====================================
+			ABILITIES
+	  ====================================
+	  ====================================-->
+	<abilities>
+		<ability>
+			<name>
+				<long>Body</long>
+				<short>BOD</short>
+			</name>
+			<score>0</score>
+			<modifier>+0</modifier>
+<!--
+		Old BASE tag does not give stats with racial, and other permentant adjustments.
+		Use NOTEMP.NOEQUIP instead of BASE gives the correct results.
+			<base>0</base>
+			<basemod>+0</basemod>
+-->
+			<base>0</base>
+			<basemod>+0</basemod>
+			<noequip>0</noequip>
+			<noequip_mod>+0</noequip_mod>
+			<no_temp_score>0</no_temp_score>
+			<no_temp_modifier>+0</no_temp_modifier>
+		</ability>
+		<ability>
+			<name>
+				<long>Sense</long>
+				<short>SEN</short>
+			</name>
+			<score>0</score>
+			<modifier>+0</modifier>
+<!--
+		Old BASE tag does not give stats with racial, and other permentant adjustments.
+		Use NOTEMP.NOEQUIP instead of BASE gives the correct results.
+			<base>0</base>
+			<basemod>+0</basemod>
+-->
+			<base>0</base>
+			<basemod>+0</basemod>
+			<noequip>0</noequip>
+			<noequip_mod>+0</noequip_mod>
+			<no_temp_score>0</no_temp_score>
+			<no_temp_modifier>+0</no_temp_modifier>
+		</ability>
+		<ability>
+			<name>
+				<long>Mind</long>
+				<short>MND</short>
+			</name>
+			<score>2</score>
+			<modifier>+2</modifier>
+<!--
+		Old BASE tag does not give stats with racial, and other permentant adjustments.
+		Use NOTEMP.NOEQUIP instead of BASE gives the correct results.
+			<base>0</base>
+			<basemod>+0</basemod>
+-->
+			<base>0</base>
+			<basemod>+0</basemod>
+			<noequip>0</noequip>
+			<noequip_mod>+0</noequip_mod>
+			<no_temp_score>0</no_temp_score>
+			<no_temp_modifier>+0</no_temp_modifier>
+		</ability>
+	</abilities>
+	<!-- Abilites with check lists - master/child abilities -->
+	<checklists>
+	</checklists>
+<!--
+	  ====================================
+	  ====================================
+			EQUIPMENT
+	  ====================================
+	  ====================================-->
+	<equipment>
+		<total>
+			<weight>0 lbs.</weight>
+			<value>0 $</value>
+			<load>Overload</load>
+			<capacity>0</capacity>
+		</total>
+		<equipmentsets>
+
+		<equipmentset name="">
+			</equipmentset>
+
+		</equipmentsets>
+	</equipment>
+	<weight_allowance>
+		<light>0</light>
+		<medium>0</medium>
+		<heavy>0</heavy>
+		<lift_over_head>0</lift_over_head>
+		<lift_off_ground>0</lift_off_ground>
+		<!-- And loses Dex bonus to AC and can only move 5 feet per round as a full-round action -->
+		<push_drag>0</push_drag>
+	</weight_allowance>
+	<!--
+	  ====================================
+	  ====================================
+			SPECIAL ABILITIES
+	  ====================================
+	  ====================================-->
+	<special_abilities>
+		<race></race>
+		<class>
+			<class>Assassin</class>
+			<ability></ability>
+		</class>
+	</special_abilities>
+	<!--
+	  ====================================
+	  ====================================
+			FEATS
+	  ====================================
+	  ====================================-->
+	<feats>
+		<!-- Visible standard feats (not including the auto feats) -->
+		<!-- Auto feats -->
+		<!-- Virtual Feats -->
+		<!-- End Virtual Feats -->
+		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
+<!-- Hidden VFEATS -->
+<!-- END Hidden VFEATS -->
+	</feats>
+	<!--
+	  ====================================
+	  ====================================
+			SPECIAL QUALITIES
+	  ====================================
+	  ====================================-->
+	<special_qualities>
+	<!-- Standard Special Qualities -->
+		<special_quality>
+ELSE
+			<name>Alert</name>
+			<description><para></para><para> A life of constantly on the edge instills a sixth sense for danger. Your mind and body cannot fully relax, the slightest snap or faintest whiff of deodorant in the breeze makes you grab your weapon. This option grants you the ability to react quickly to danger and not fall victim like all the others. </para><para> Automatic Option: When you declare the Alert option on your Team&#39;s turn, you add +2d8 to all opposing Sense rolls until the end of the current series. This roll cannot tell you any information regarding the specifics of the danger, only that you and/or any Teammates are threatened. </para><para> Focus: Hunters gain this option without spending training points. </para><para> Range:  5 Move options </para><para> Trained: You must have spent training points to gain this option. For an additional 4 training points you can sustain this option during your sleep. Using it this way doesn&#39;t grant any additional option dice but it does not expire at the end of the current series. </para><para>You can also spend 3 additional training points to increase the range by 5 Move options.</para></description>
+			<type>SPECIALQUALITY.OPTION.OPTIONDISPLAY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>KiSh, p.</source>
+		</special_quality>
+		<special_quality>
+ELSE
+			<name>Daze</name>
+			<description><para></para><para> A shot to the head or a jab to the ribs causes the opponent to become woozy and disoriented for a brief moment. </para><para> Condition: Any attack roll. </para><para> Level: This reaction works for both Enhanced and Expert reactions. </para><para> Enhanced: Until the opponent recovers at least 1 point of damage or gains a boost, he takes a half penalty to all Body, Sense, and Mind focus dice. </para><para> Expert: The opponent gains an additional hit penalty to all rolls, even if she&#39;s never taken damage, until the end of the scene. </para><para> Trained: You must have spent training points to gain this reaction.</para></description>
+			<type>REACTION.REACTIONDISPLAY.SPECIALQUALITY.REACTIONTRAINED</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>KiSh, p.</source>
+		</special_quality>
+		<special_quality>
+ELSE
+			<name>Explosives</name>
+			<description><para></para><para>In the wrong hands, any explosive device can detonate during construction, delivery, or never go off at all. Using an explosive charge in any capacity requires education, hours of practice, and respect for the device. This option allows you to construct and detonate any explosive device of your own design, such as a bomb or improvised incendiary device. Equipment such as grenades do not apply under this option unless you are utilizing a grenade as part of an improvised explosive. </para><para>This option is broken into two parts: construction and detonation. </para><para>Dice Option (Construction): Before making any dice rolls, you must explain the concept for an explosive device to the Director. Use the chart below to determine the difficulty of the construction process and make an active Mind roll against the additional difficulty beyond Normal given below to build your Explosives pool. Every point in your Explosives pool can be used to incorporate one element in your design, based on the list above. You can only roll once per day per device and can make additional rolls to add more points to your device. If you do not roll enough points in time to complete the device, you can still proceed with your existing Explosives points to construct the device. For example, if you build a bomb inside a delivery package triggered to explode when opened, you make an active Mind roll vs 1d20 + 2d10 (1d10 for a hidden explosive, 1d10 for the trigger). If you roll only 1 point initially, you will only be able to build the initial device within the first day and must wait until the following day to enhance it further. Any remaining points available from your Explosives pool can be used to create bonus hits when inflicting damage on the target. The maximum number of points you can accumulate is equal to twice the number of points required to build your explosive device. </para><para> Critical: You&#39;ve created the perfect bomb capable of precise and devastating destruction. You can choose to target only a single opponent adjacent to the bomb and avoid rolling the standard burst attack when the device detonates or you can change the damage to normal instead of lethal. </para><para>Dice Option (Detonation): Once you have a manufactured device, it&#39;s time to put it to work. Make a Mind burst attack against all opponents within 1 Move option of the device when the explosive device detonates. All damage caused by the device is lethal and can target all opponents within 1 Move option of the device&#39;s position by default. </para><para> Critical: The blast&#39;s intensity destroys a single modifier of your choice and prevents all opponents within the burst range from accessing that modifier. </para><para> Focus: This option is only available to Bombers. </para><para> Range:  Personal (construction); Burst (detonation)</para></description>
+			<type>SPECIALQUALITY.OPTION.OPTIONDISPLAY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>KiSh, p.</source>
+		</special_quality>
+		<special_quality>
+ELSE
+			<name>Grab</name>
+			<description><para></para><para> Using your hands or wrapping the full length of your weapon around your opponent&#39;s body, you can hold onto them and refuse to let go. Your opponent cannot use Move options and you gain the Restrained modifier against them. You can then force the opponent to move with you by making an opposed Body roll with an Active option, though you are restricted to half the normal speed while holding a grabbed opponent. Your opponent can attempt to break the grab by making an opposed Body roll of their own when they have the Edge. </para><para> Additional Training: Requires 2 additional training points </para><para> Base Reaction: This reaction is available to everyone in Killshot. </para><para> Condition: Any dice roll against an adjacent opponent.</para></description>
+			<type>REACTION.REACTIONDISPLAY.SPECIALQUALITY.AUTOREACTION</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>KiSh, p.</source>
+		</special_quality>
+		<special_quality>
+ELSE
+			<name>Helpful</name>
+			<description><para>Once per series, you can roll a base die while adjacent to another Teammate who fails an active or opposed roll and replace their base die with your result. </para><para> Trained: You must have spent training points to gain this trait or earned it through an achievement. You can purchase this trait multiple times to apply it repeatedly in the same series.</para></description>
+			<type>TRAIT.TRAITDISPLAY.TRAITS.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>1</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>KiSh, p.</source>
+		</special_quality>
+		<special_quality>
+ELSE
+			<name>Pass</name>
+			<description><para></para><para> Beyond simple co-operation between Teammates, the Pass reaction applied to a successful active roll allows you to gang up on an opponent or against difficulty dice. Choose a Teammate; this reaction grants them your bonus option with +1d10. If the Teammate succeeds and gains a bonus option, they can continue to use it for themselves or pass it back to you, but the additional circumstance die only applies to the first roll. If this reaction is gained from a successful opposed or defense roll, you can allow a Teammate to use an automatic option only. In no way shape or form does your Team steal the Edge without the proper number of hits. </para><para> Additional Training: Requires 2 additional training points </para><para> Base Reaction: This reaction is available to everyone in Killshot. </para><para> Condition: Any dice roll.</para></description>
+			<type>REACTION.REACTIONDISPLAY.SPECIALQUALITY.AUTOREACTION</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>KiSh, p.</source>
+		</special_quality>
+		<special_quality>
+ELSE
+			<name>Push</name>
+			<description><para></para><para> You drive a massive amount of force into your attack and pummel the opponent backwards. The opponent is no longer adjacent and must use a Move or similar option to become adjacent again. </para><para> Additional Training: Requires 2 additional training points </para><para> Base Reaction: This reaction is available to everyone in Killshot. </para><para> Condition: Any dice roll against an adjacent opponent.</para></description>
+			<type>REACTION.REACTIONDISPLAY.SPECIALQUALITY.AUTOREACTION</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>KiSh, p.</source>
+		</special_quality>
+		<special_quality>
+ELSE
+			<name>Shadow</name>
+			<description><para>Trailing your target with efficiency and stealth, you have learned to blend in with your surroundings and the darkness to remain unnoticed until you choose to make yourself known. </para><para> Dice Option: Choose an opponent within sight of your character and make an active Sense or Mind vs. Normal difficulty roll; increase the difficulty by +1d10 per additional character or threat within range (i.e. security cameras) plus any other applicable modifiers. The total hits you receive determines your Shadow pool and each point can be used to reduce the number of hits your opponent rolls against you with their own active Sense roll. Once an opponent&#39;s roll has been reduced to 0 hits or if the original result did not gain any hits, you can then spend an additional Shadow point to cause the roll to fail. You cannot spend Shadow points unless there is an object, crowd of people, or other applicable means of cover or protection within 10&#39; of where you stand when the opponent attempts an active Sense roll. You do not have to be aware of all threats at the time you roll this option. If you attack the opponent or any other character adjacent to the opponent, you cannot use this option again until the start of the next series and your Shadow pool immediately reverts to 0. </para><para> Critical: Choose another opponent or threat within range of this option; it cannot make active Sense rolls against you until your Shadow pool is reduced to 0. </para><para> Focus: This option is only available to Burglars. </para><para> Range:  Sight</para></description>
+			<type>SPECIALQUALITY.OPTION.OPTIONDISPLAY</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>KiSh, p.</source>
+		</special_quality>
+		<special_quality>
+ELSE
+			<name>Trip</name>
+			<description><para></para><para> Your attack drops your opponent to the ground. Your opponent must use a Move option to stand back up and suffers a half penalty to all Body focus dice until they do so. </para><para> Base Reaction: This reaction is available to everyone in Killshot. </para><para> Condition: Any dice roll against an adjacent opponent.</para></description>
+			<type>REACTION.REACTIONDISPLAY.SPECIALQUALITY.AUTOREACTION</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>KiSh, p.</source>
+		</special_quality>
+	</special_qualities>
+	<!--
+	  ====================================
+	  ====================================
+			Killshot - Focuses
+	  ====================================
+	  ====================================-->
+	<killshot_focuses>
+	<!-- Focuses -->
+		<killshot_focus>
+			<name>The Bomber</name>
+			<description>When you choose this focus, you gain the following benefits.  Bomber Focus Dice: You start with +1d12 whenever you build, plant, set-off, or perform any option involving bombs. You take a half penalty to these focus dice when using them under duress.  Options: You gain the Explosives option.  Bomb Master: You can create improvised explosives or adapt existing explosive devices easily by using the Explosives option in a Standard stunt. This feature allows you to create an explosive device using household items, ordinary tools, and other typically non-explosive combinations. The end result might not look like much, but can come in handy in a pinch. If the roll succeeds, you gain a boost (as per the normal stunt rules); the device can be set to ignite at a later time, triggered by specific events, or any other condition allowed by the Director. If the roll fails, the device does not explode at all.  For 3 additional training points, you can excel in a particular type of explosive device. Choose one of the construction components for your Explosives option; you automatically succeed in building this component into any device you build without having to increase the difficulty dice. When you incorporate such components automatically, you cannot gain any hits towards any following dice rolls, including the bomb&#39;s detonation. You can continue to spend additional training points to incorporate additional components for 3 training points each.</description>
+			<benefit>When you choose this focus, you gain the following benefits.  Bomber Focus Dice: You start with +1d12 whenever you build, plant, set-off, or perform any option involving bombs. You take a half penalty to these focus dice when using them under duress.  Options: You gain the Explosives option.  Bomb Master: You can create improvised explosives or adapt existing explosive devices easily by using the Explosives option in a Standard stunt. This feature allows you to create an explosive device using household items, ordinary tools, and other typically non-explosive combinations. The end result might not look like much, but can come in handy in a pinch. If the roll succeeds, you gain a boost (as per the normal stunt rules); the device can be set to ignite at a later time, triggered by specific events, or any other condition allowed by the Director. If the roll fails, the device does not explode at all.  For 3 additional training points, you can excel in a particular type of explosive device. Choose one of the construction components for your Explosives option; you automatically succeed in building this component into any device you build without having to increase the difficulty dice. When you incorporate such components automatically, you cannot gain any hits towards any following dice rolls, including the bomb&#39;s detonation. You can continue to spend additional training points to incorporate additional components for 3 training points each.</benefit>
+			<type>FOCUS.FOCUSDISPLAY.BOMBERFOCUS</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>KiSh, p.</source>
+		</killshot_focus>
+		<killshot_focus>
+			<name>The Burglar</name>
+			<description>When you choose this focus, you gain the following benefits.  Burglar Focus Dice: You start with +1d12 whenever you attempt any dice option with a secondary goal of avoiding unwanted attention or observation from people or electronic devices. You take a half penalty to these focus dice if you attempt to use them against an opponent actively aware of your presence and/or attempts to engage in burglary.  Options: You gain the Shadow option.  Undetected: Knowledge of a particular location gives you an advantage; if you have at least 1 hour to study floor plans, schematics, or monitor a particular area, you can ignore a modifier of your choice for as long as you remain within that location. This ignored modifier cannot use more circumstance dice than your total Burglar focus dice.  For an additional 3 training points, you can enhance the benefits of a particular modifier by +1d10 whenever you use that modifier in combination with your Burglar focus dice. Every time you spend these training points, you can choose a different modifier. No modifier can increase to more than double its original number of circumstance dice.</description>
+			<benefit>When you choose this focus, you gain the following benefits.  Burglar Focus Dice: You start with +1d12 whenever you attempt any dice option with a secondary goal of avoiding unwanted attention or observation from people or electronic devices. You take a half penalty to these focus dice if you attempt to use them against an opponent actively aware of your presence and/or attempts to engage in burglary.  Options: You gain the Shadow option.  Undetected: Knowledge of a particular location gives you an advantage; if you have at least 1 hour to study floor plans, schematics, or monitor a particular area, you can ignore a modifier of your choice for as long as you remain within that location. This ignored modifier cannot use more circumstance dice than your total Burglar focus dice.  For an additional 3 training points, you can enhance the benefits of a particular modifier by +1d10 whenever you use that modifier in combination with your Burglar focus dice. Every time you spend these training points, you can choose a different modifier. No modifier can increase to more than double its original number of circumstance dice.</benefit>
+			<type>FOCUS.FOCUSDISPLAY.BURGLARFOCUS</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>F</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+			<source>KiSh, p.</source>
+		</killshot_focus>
+	</killshot_focuses>
+	<!-- Reactions -->
+	<!--
+	  ====================================
+	  ====================================
+			Killshot - Reactions
+	  ====================================
+	  ====================================-->
+	<killshot_reactions>
+		<killshot_reaction>
+			<name>Daze</name>
+			<description><para></para><para> A shot to the head or a jab to the ribs causes the opponent to become woozy and disoriented for a brief moment. </para><para> Condition: Any attack roll. </para><para> Level: This reaction works for both Enhanced and Expert reactions. </para><para> Enhanced: Until the opponent recovers at least 1 point of damage or gains a boost, he takes a half penalty to all Body, Sense, and Mind focus dice. </para><para> Expert: The opponent gains an additional hit penalty to all rolls, even if she&#39;s never taken damage, until the end of the scene. </para><para> Trained: You must have spent training points to gain this reaction.</para></description>
+			<benefit><para></para><para> A shot to the head or a jab to the ribs causes the opponent to become woozy and disoriented for a brief moment. </para><para> Condition: Any attack roll. </para><para> Level: This reaction works for both Enhanced and Expert reactions. </para><para> Enhanced: Until the opponent recovers at least 1 point of damage or gains a boost, he takes a half penalty to all Body, Sense, and Mind focus dice. </para><para> Expert: The opponent gains an additional hit penalty to all rolls, even if she&#39;s never taken damage, until the end of the scene. </para><para> Trained: You must have spent training points to gain this reaction.</para></benefit>
+			<type>REACTION.REACTIONDISPLAY.SPECIALQUALITY.REACTIONTRAINED</type>
+			<associated></associated>
+			<count>0</count>
+			<source>KiSh, p.</source>
+		</killshot_reaction>
+		<killshot_reaction>
+			<name>Grab</name>
+			<description><para></para><para> Using your hands or wrapping the full length of your weapon around your opponent&#39;s body, you can hold onto them and refuse to let go. Your opponent cannot use Move options and you gain the Restrained modifier against them. You can then force the opponent to move with you by making an opposed Body roll with an Active option, though you are restricted to half the normal speed while holding a grabbed opponent. Your opponent can attempt to break the grab by making an opposed Body roll of their own when they have the Edge. </para><para> Additional Training: Requires 2 additional training points </para><para> Base Reaction: This reaction is available to everyone in Killshot. </para><para> Condition: Any dice roll against an adjacent opponent.</para></description>
+			<benefit><para></para><para> Using your hands or wrapping the full length of your weapon around your opponent&#39;s body, you can hold onto them and refuse to let go. Your opponent cannot use Move options and you gain the Restrained modifier against them. You can then force the opponent to move with you by making an opposed Body roll with an Active option, though you are restricted to half the normal speed while holding a grabbed opponent. Your opponent can attempt to break the grab by making an opposed Body roll of their own when they have the Edge. </para><para> Additional Training: Requires 2 additional training points </para><para> Base Reaction: This reaction is available to everyone in Killshot. </para><para> Condition: Any dice roll against an adjacent opponent.</para></benefit>
+			<type>REACTION.REACTIONDISPLAY.SPECIALQUALITY.AUTOREACTION</type>
+			<associated></associated>
+			<count>0</count>
+			<source>KiSh, p.</source>
+		</killshot_reaction>
+		<killshot_reaction>
+			<name>Pass</name>
+			<description><para></para><para> Beyond simple co-operation between Teammates, the Pass reaction applied to a successful active roll allows you to gang up on an opponent or against difficulty dice. Choose a Teammate; this reaction grants them your bonus option with +1d10. If the Teammate succeeds and gains a bonus option, they can continue to use it for themselves or pass it back to you, but the additional circumstance die only applies to the first roll. If this reaction is gained from a successful opposed or defense roll, you can allow a Teammate to use an automatic option only. In no way shape or form does your Team steal the Edge without the proper number of hits. </para><para> Additional Training: Requires 2 additional training points </para><para> Base Reaction: This reaction is available to everyone in Killshot. </para><para> Condition: Any dice roll.</para></description>
+			<benefit><para></para><para> Beyond simple co-operation between Teammates, the Pass reaction applied to a successful active roll allows you to gang up on an opponent or against difficulty dice. Choose a Teammate; this reaction grants them your bonus option with +1d10. If the Teammate succeeds and gains a bonus option, they can continue to use it for themselves or pass it back to you, but the additional circumstance die only applies to the first roll. If this reaction is gained from a successful opposed or defense roll, you can allow a Teammate to use an automatic option only. In no way shape or form does your Team steal the Edge without the proper number of hits. </para><para> Additional Training: Requires 2 additional training points </para><para> Base Reaction: This reaction is available to everyone in Killshot. </para><para> Condition: Any dice roll.</para></benefit>
+			<type>REACTION.REACTIONDISPLAY.SPECIALQUALITY.AUTOREACTION</type>
+			<associated></associated>
+			<count>0</count>
+			<source>KiSh, p.</source>
+		</killshot_reaction>
+		<killshot_reaction>
+			<name>Push</name>
+			<description><para></para><para> You drive a massive amount of force into your attack and pummel the opponent backwards. The opponent is no longer adjacent and must use a Move or similar option to become adjacent again. </para><para> Additional Training: Requires 2 additional training points </para><para> Base Reaction: This reaction is available to everyone in Killshot. </para><para> Condition: Any dice roll against an adjacent opponent.</para></description>
+			<benefit><para></para><para> You drive a massive amount of force into your attack and pummel the opponent backwards. The opponent is no longer adjacent and must use a Move or similar option to become adjacent again. </para><para> Additional Training: Requires 2 additional training points </para><para> Base Reaction: This reaction is available to everyone in Killshot. </para><para> Condition: Any dice roll against an adjacent opponent.</para></benefit>
+			<type>REACTION.REACTIONDISPLAY.SPECIALQUALITY.AUTOREACTION</type>
+			<associated></associated>
+			<count>0</count>
+			<source>KiSh, p.</source>
+		</killshot_reaction>
+		<killshot_reaction>
+			<name>Trip</name>
+			<description><para></para><para> Your attack drops your opponent to the ground. Your opponent must use a Move option to stand back up and suffers a half penalty to all Body focus dice until they do so. </para><para> Base Reaction: This reaction is available to everyone in Killshot. </para><para> Condition: Any dice roll against an adjacent opponent.</para></description>
+			<benefit><para></para><para> Your attack drops your opponent to the ground. Your opponent must use a Move option to stand back up and suffers a half penalty to all Body focus dice until they do so. </para><para> Base Reaction: This reaction is available to everyone in Killshot. </para><para> Condition: Any dice roll against an adjacent opponent.</para></benefit>
+			<type>REACTION.REACTIONDISPLAY.SPECIALQUALITY.AUTOREACTION</type>
+			<associated></associated>
+			<count>0</count>
+			<source>KiSh, p.</source>
+		</killshot_reaction>
+	</killshot_reactions>
+	<!--
+	  ====================================
+	  ====================================
+			Killshot - Skills
+	  ====================================
+	  ====================================-->
+	<killshot_skills>
+	<!-- Skills -->
+		<killshot_skill>
+			<title>Memory</title>
+			<desc></desc>
+			<benefit></benefit>
+			<type>SKILL.SKILLS.SKILLDISPLAY</type>
+			<source>KiSh, p.</source>
+		</killshot_skill>
+	</killshot_skills>
+	<!--
+	  ====================================
+	  ====================================
+			Killshot - Options
+	  ====================================
+	  ====================================-->
+	<killshot_options>
+	<!-- Options -->
+		<killshot_option>
+			<name>Alert</name>
+			<description><para></para><para> A life of constantly on the edge instills a sixth sense for danger. Your mind and body cannot fully relax, the slightest snap or faintest whiff of deodorant in the breeze makes you grab your weapon. This option grants you the ability to react quickly to danger and not fall victim like all the others. </para><para> Automatic Option: When you declare the Alert option on your Team&#39;s turn, you add +2d8 to all opposing Sense rolls until the end of the current series. This roll cannot tell you any information regarding the specifics of the danger, only that you and/or any Teammates are threatened. </para><para> Focus: Hunters gain this option without spending training points. </para><para> Range:  5 Move options </para><para> Trained: You must have spent training points to gain this option. For an additional 4 training points you can sustain this option during your sleep. Using it this way doesn&#39;t grant any additional option dice but it does not expire at the end of the current series. </para><para>You can also spend 3 additional training points to increase the range by 5 Move options.</para></description>
+			<benefit><para></para><para> A life of constantly on the edge instills a sixth sense for danger. Your mind and body cannot fully relax, the slightest snap or faintest whiff of deodorant in the breeze makes you grab your weapon. This option grants you the ability to react quickly to danger and not fall victim like all the others. </para><para> Automatic Option: When you declare the Alert option on your Team&#39;s turn, you add +2d8 to all opposing Sense rolls until the end of the current series. This roll cannot tell you any information regarding the specifics of the danger, only that you and/or any Teammates are threatened. </para><para> Focus: Hunters gain this option without spending training points. </para><para> Range:  5 Move options </para><para> Trained: You must have spent training points to gain this option. For an additional 4 training points you can sustain this option during your sleep. Using it this way doesn&#39;t grant any additional option dice but it does not expire at the end of the current series. </para><para>You can also spend 3 additional training points to increase the range by 5 Move options.</para></benefit>
+			<type>SPECIALQUALITY.OPTION.OPTIONDISPLAY</type>
+			<associated></associated>
+			<count>0</count>
+			<source>KiSh, p.</source>
+		</killshot_option>
+		<killshot_option>
+			<name>Explosives</name>
+			<description><para></para><para>In the wrong hands, any explosive device can detonate during construction, delivery, or never go off at all. Using an explosive charge in any capacity requires education, hours of practice, and respect for the device. This option allows you to construct and detonate any explosive device of your own design, such as a bomb or improvised incendiary device. Equipment such as grenades do not apply under this option unless you are utilizing a grenade as part of an improvised explosive. </para><para>This option is broken into two parts: construction and detonation. </para><para>Dice Option (Construction): Before making any dice rolls, you must explain the concept for an explosive device to the Director. Use the chart below to determine the difficulty of the construction process and make an active Mind roll against the additional difficulty beyond Normal given below to build your Explosives pool. Every point in your Explosives pool can be used to incorporate one element in your design, based on the list above. You can only roll once per day per device and can make additional rolls to add more points to your device. If you do not roll enough points in time to complete the device, you can still proceed with your existing Explosives points to construct the device. For example, if you build a bomb inside a delivery package triggered to explode when opened, you make an active Mind roll vs 1d20 + 2d10 (1d10 for a hidden explosive, 1d10 for the trigger). If you roll only 1 point initially, you will only be able to build the initial device within the first day and must wait until the following day to enhance it further. Any remaining points available from your Explosives pool can be used to create bonus hits when inflicting damage on the target. The maximum number of points you can accumulate is equal to twice the number of points required to build your explosive device. </para><para> Critical: You&#39;ve created the perfect bomb capable of precise and devastating destruction. You can choose to target only a single opponent adjacent to the bomb and avoid rolling the standard burst attack when the device detonates or you can change the damage to normal instead of lethal. </para><para>Dice Option (Detonation): Once you have a manufactured device, it&#39;s time to put it to work. Make a Mind burst attack against all opponents within 1 Move option of the device when the explosive device detonates. All damage caused by the device is lethal and can target all opponents within 1 Move option of the device&#39;s position by default. </para><para> Critical: The blast&#39;s intensity destroys a single modifier of your choice and prevents all opponents within the burst range from accessing that modifier. </para><para> Focus: This option is only available to Bombers. </para><para> Range:  Personal (construction); Burst (detonation)</para></description>
+			<benefit><para></para><para>In the wrong hands, any explosive device can detonate during construction, delivery, or never go off at all. Using an explosive charge in any capacity requires education, hours of practice, and respect for the device. This option allows you to construct and detonate any explosive device of your own design, such as a bomb or improvised incendiary device. Equipment such as grenades do not apply under this option unless you are utilizing a grenade as part of an improvised explosive. </para><para>This option is broken into two parts: construction and detonation. </para><para>Dice Option (Construction): Before making any dice rolls, you must explain the concept for an explosive device to the Director. Use the chart below to determine the difficulty of the construction process and make an active Mind roll against the additional difficulty beyond Normal given below to build your Explosives pool. Every point in your Explosives pool can be used to incorporate one element in your design, based on the list above. You can only roll once per day per device and can make additional rolls to add more points to your device. If you do not roll enough points in time to complete the device, you can still proceed with your existing Explosives points to construct the device. For example, if you build a bomb inside a delivery package triggered to explode when opened, you make an active Mind roll vs 1d20 + 2d10 (1d10 for a hidden explosive, 1d10 for the trigger). If you roll only 1 point initially, you will only be able to build the initial device within the first day and must wait until the following day to enhance it further. Any remaining points available from your Explosives pool can be used to create bonus hits when inflicting damage on the target. The maximum number of points you can accumulate is equal to twice the number of points required to build your explosive device. </para><para> Critical: You&#39;ve created the perfect bomb capable of precise and devastating destruction. You can choose to target only a single opponent adjacent to the bomb and avoid rolling the standard burst attack when the device detonates or you can change the damage to normal instead of lethal. </para><para>Dice Option (Detonation): Once you have a manufactured device, it&#39;s time to put it to work. Make a Mind burst attack against all opponents within 1 Move option of the device when the explosive device detonates. All damage caused by the device is lethal and can target all opponents within 1 Move option of the device&#39;s position by default. </para><para> Critical: The blast&#39;s intensity destroys a single modifier of your choice and prevents all opponents within the burst range from accessing that modifier. </para><para> Focus: This option is only available to Bombers. </para><para> Range:  Personal (construction); Burst (detonation)</para></benefit>
+			<type>SPECIALQUALITY.OPTION.OPTIONDISPLAY</type>
+			<associated></associated>
+			<count>0</count>
+			<source>KiSh, p.</source>
+		</killshot_option>
+		<killshot_option>
+			<name>Shadow</name>
+			<description><para>Trailing your target with efficiency and stealth, you have learned to blend in with your surroundings and the darkness to remain unnoticed until you choose to make yourself known. </para><para> Dice Option: Choose an opponent within sight of your character and make an active Sense or Mind vs. Normal difficulty roll; increase the difficulty by +1d10 per additional character or threat within range (i.e. security cameras) plus any other applicable modifiers. The total hits you receive determines your Shadow pool and each point can be used to reduce the number of hits your opponent rolls against you with their own active Sense roll. Once an opponent&#39;s roll has been reduced to 0 hits or if the original result did not gain any hits, you can then spend an additional Shadow point to cause the roll to fail. You cannot spend Shadow points unless there is an object, crowd of people, or other applicable means of cover or protection within 10&#39; of where you stand when the opponent attempts an active Sense roll. You do not have to be aware of all threats at the time you roll this option. If you attack the opponent or any other character adjacent to the opponent, you cannot use this option again until the start of the next series and your Shadow pool immediately reverts to 0. </para><para> Critical: Choose another opponent or threat within range of this option; it cannot make active Sense rolls against you until your Shadow pool is reduced to 0. </para><para> Focus: This option is only available to Burglars. </para><para> Range:  Sight</para></description>
+			<benefit><para>Trailing your target with efficiency and stealth, you have learned to blend in with your surroundings and the darkness to remain unnoticed until you choose to make yourself known. </para><para> Dice Option: Choose an opponent within sight of your character and make an active Sense or Mind vs. Normal difficulty roll; increase the difficulty by +1d10 per additional character or threat within range (i.e. security cameras) plus any other applicable modifiers. The total hits you receive determines your Shadow pool and each point can be used to reduce the number of hits your opponent rolls against you with their own active Sense roll. Once an opponent&#39;s roll has been reduced to 0 hits or if the original result did not gain any hits, you can then spend an additional Shadow point to cause the roll to fail. You cannot spend Shadow points unless there is an object, crowd of people, or other applicable means of cover or protection within 10&#39; of where you stand when the opponent attempts an active Sense roll. You do not have to be aware of all threats at the time you roll this option. If you attack the opponent or any other character adjacent to the opponent, you cannot use this option again until the start of the next series and your Shadow pool immediately reverts to 0. </para><para> Critical: Choose another opponent or threat within range of this option; it cannot make active Sense rolls against you until your Shadow pool is reduced to 0. </para><para> Focus: This option is only available to Burglars. </para><para> Range:  Sight</para></benefit>
+			<type>SPECIALQUALITY.OPTION.OPTIONDISPLAY</type>
+			<associated></associated>
+			<count>0</count>
+			<source>KiSh, p.</source>
+		</killshot_option>
+	</killshot_options>
+	<!--
+	  ====================================
+	  ====================================
+			Killshot - Traits
+	  ====================================
+	  ====================================-->
+	<killshot_traits>
+	<!-- Traits -->
+		<killshot_trait>
+			<name>Helpful</name>
+			<description><para>Once per series, you can roll a base die while adjacent to another Teammate who fails an active or opposed roll and replace their base die with your result. </para><para> Trained: You must have spent training points to gain this trait or earned it through an achievement. You can purchase this trait multiple times to apply it repeatedly in the same series.</para></description>
+			<benefit><para>Once per series, you can roll a base die while adjacent to another Teammate who fails an active or opposed roll and replace their base die with your result. </para><para> Trained: You must have spent training points to gain this trait or earned it through an achievement. You can purchase this trait multiple times to apply it repeatedly in the same series.</para></benefit>
+			<type>TRAIT.TRAITDISPLAY.TRAITS.SPECIALQUALITY</type>
+			<associated></associated>
+			<count>1</count>
+			<source>KiSh, p.</source>
+		</killshot_trait>
+	</killshot_traits>
+</character>

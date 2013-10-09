@@ -6092,6 +6092,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 				<xsl:with-param name="list" select="killshot_focus"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
+				<xsl:with-param name="benefit.tag" select="'benefit'"/>
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
@@ -6110,6 +6111,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 				<xsl:with-param name="list" select="killshot_reaction"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
+				<xsl:with-param name="benefit.tag" select="'benefit'"/>
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
@@ -6126,8 +6128,9 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 				<xsl:with-param name="attribute" select="'options'" />
 				<xsl:with-param name="title" select="'Skills'" />
 				<xsl:with-param name="list" select="killshot_skill"/>
-				<xsl:with-param name="name.tag" select="''"/>
-				<xsl:with-param name="desc.tag" select="'desc'"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+				<xsl:with-param name="benefit.tag" select="'benefit'"/>
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
@@ -6146,6 +6149,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 				<xsl:with-param name="list" select="killshot_option"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
+				<xsl:with-param name="benefit.tag" select="'benefit'"/>
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
@@ -6164,6 +6168,7 @@ Potion is Consumable											<xsl:with-param name="count" select="checkbox"/>
 				<xsl:with-param name="list" select="killshot_trait"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
+				<xsl:with-param name="benefit.tag" select="'benefit'"/>
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
