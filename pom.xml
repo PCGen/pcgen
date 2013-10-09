@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.sourceforge.pcgen</groupId>
   <artifactId>pcgen</artifactId>
-  <version>6.01.06-SNAPSHOT</version>
+  <version>6.01.08-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>PCGen</name>
   <url>http://pcgen.sourceforge.net</url>
@@ -657,6 +657,21 @@
 				<configuration>
 				</configuration>
 			</plugin>
+<!--			
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-changelog-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+<type>date</type>
+          <dates>
+            <date implementation="java.lang.String">2013-08-13</date>
+            <date implementation="java.lang.String">2013-09-12</date>
+          </dates>    
+          <dateFormat>yyyy-MM-dd</dateFormat>    
+        </configuration>
+      </plugin>
+      -->
 		</plugins>
 	</reporting>
   
