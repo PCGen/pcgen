@@ -7,7 +7,7 @@
 	xmlns:xalan="http://xml.apache.org/xalan"
 	>
 
-	<xsl:import href="../../../xsltsl-1.1/stdlib.xsl"/>
+	<xsl:import href="../../xsltsl-1.1/stdlib.xsl"/>
   	<xsl:import href="inc_pagedimensions.xslt"/>
 
 
