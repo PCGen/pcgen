@@ -105,7 +105,8 @@ public final class ChooseSpellDialog extends JDialog
 	/** EQTYPE_RING = -1 */
 	public static final int EQTYPE_RING = 3;
 	/** The types of equipment that are valid for creation based on a spell. */
-	public static Type[] validEqTypes = { Type.POTION, Type.SCROLL, Type.WAND, Type.RING };
+	public static pcgen.cdom.enumeration.Type[] validEqTypes = { 
+		pcgen.cdom.enumeration.Type.POTION, pcgen.cdom.enumeration.Type.SCROLL, pcgen.cdom.enumeration.Type.WAND, pcgen.cdom.enumeration.Type.RING };
 
 	private static final int TRIGGER_ALL = -1;
 	private static final int TRIGGER_CLASS = 0;
