@@ -518,22 +518,22 @@ CLASS:Wizard	STARTSKILLPTS:2
 CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
 #							Need some way to remove cantrips known
 #
-SUBCLASS:Abjurer		CHOICE:SCHOOL|Abjuration	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|AbjurationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Abjuration School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
-SUBCLASS:Conjurer		CHOICE:SCHOOL|Conjuration	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|ConjurationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Conjuration School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
-SUBCLASS:Diviner		CHOICE:SCHOOL|Divination	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|DivinationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Divination School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
-SUBCLASS:Enchanter	CHOICE:SCHOOL|Enchantment	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|EnchantmentSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Enchantment School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
-SUBCLASS:Evoker		CHOICE:SCHOOL|Evocation		KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|EvocationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Evocation School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
-SUBCLASS:Illusionist	CHOICE:SCHOOL|Illusion		KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|IllusionSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Illusion School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
-SUBCLASS:Necromancer	CHOICE:SCHOOL|Necromancy	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|NecromancySchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Necromancy School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
-SUBCLASS:Transmuter	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:1	
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|TransmutationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Transmutation School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASS:Abjurer		CHOICE:SCHOOL|Abjuration	
+SUBCLASSLEVEL:1		BONUS:VAR|AbjurationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Abjuration School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASS:Conjurer		CHOICE:SCHOOL|Conjuration
+SUBCLASSLEVEL:1		BONUS:VAR|ConjurationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Conjuration School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASS:Diviner		CHOICE:SCHOOL|Divination
+SUBCLASSLEVEL:1		BONUS:VAR|DivinationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Divination School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASS:Enchanter	CHOICE:SCHOOL|Enchantment
+SUBCLASSLEVEL:1		BONUS:VAR|EnchantmentSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Enchantment School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASS:Evoker		CHOICE:SCHOOL|Evocation	
+SUBCLASSLEVEL:1		BONUS:VAR|EvocationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Evocation School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASS:Illusionist	CHOICE:SCHOOL|Illusion	
+SUBCLASSLEVEL:1		BONUS:VAR|IllusionSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Illusion School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASS:Necromancer	CHOICE:SCHOOL|Necromancy
+SUBCLASSLEVEL:1		BONUS:VAR|NecromancySchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Necromancy School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASS:Transmuter	CHOICE:SCHOOL|Transmutation	
+SUBCLASSLEVEL:1		BONUS:VAR|TransmutationSchoolLVL|CL	BONUS:VAR|DisallowWizardArcaneSchoolArchetype|1	ABILITY:Wizard Class Ability|AUTOMATIC|Transmutation School	!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
 1	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
