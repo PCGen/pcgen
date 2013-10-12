@@ -1,4 +1,10 @@
+# SVN $Revision$ $Author$
+SOURCELONG:Guide to Pathfinder Society Organised Play	SOURCESHORT:GTPOP	SOURCEDATE:2013-08
 
-STARTPACK:Pathfinder Society Starting Gold	TYPE:Starting Gear	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
-GEAR:Coin (Gold Piece)		QTY:150
+# TODO: if possible restrict that to PC
+STARTPACK:Pathfinder Society Starting Gold	TYPE:Starting Gear	VISIBLE:YES	APPLY:INSTANT
+FUNDS:gp	QTY:150
+
+# No need for this because of the PFS start gold rule.
+STARTPACK:Classes Starting Gold ~ CRB.MOD	PRECLASS:1,NPC=1,Monster=1
 

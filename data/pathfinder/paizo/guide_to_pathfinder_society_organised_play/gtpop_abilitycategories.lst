@@ -1,5 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-#SOURCELONG:Guide to Pathfinder Society Organised Play		SOURCESHORT:GTPOP	SOURCEWEB:http://paizo.com/pathfinderSociety/scenarios/v5748btpy84k4	SOURCEDATE:2011-08
+#SOURCELONG:Guide to Pathfinder Society Organised Play		SOURCESHORT:GTPOP	SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play	SOURCEDATE:2011-08
 # Original Entry by: Jeff Baril
 # Updated by: Andrew Wilson
 
@@ -11,4 +11,6 @@ ABILITYCATEGORY:Spell Focus Replacement	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:Y
 # Ability Category			Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number	Category of Object	Type of Object		Plural description for UI	Display Location
 ABILITYCATEGORY:Society Faction	VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:1		CATEGORY:Background	TYPE:Society Faction	PLURAL:Society Factions		DISPLAYLOCATION:Background
 
-ABILITYCATEGORY:Prestige Awards		VISIBLE:YES	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO			CATEGORY:Special Ability		TYPE:FactionPrestigeAward.GenericPrestigeAwards.VanityPrestigeAward.PrestigeAwardDisplay	PLURAL:Prestige Awards	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Prestige Awards		VISIBLE:YES	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO			CATEGORY:Special Ability		TYPE:Faction Prestige Award.Generic Prestige Awards.Vanity Prestige Award.Prestige Award Display	PLURAL:Prestige Awards	DISPLAYLOCATION:Background
+
+ABILITYCATEGORY:Boon		VISIBLE:YES	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO			CATEGORY:Special Ability		TYPE:Boon.Tales Boon.Scenario Boon.Con Boon	PLURAL:Boons	DISPLAYLOCATION:Background
