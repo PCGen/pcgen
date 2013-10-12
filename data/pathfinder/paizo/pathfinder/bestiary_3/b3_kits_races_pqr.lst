@@ -318,7 +318,7 @@ SKILL:Perception			RANK:19
 SKILL:Sense Motive		RANK:19
 SKILL:Survival			RANK:16
 SKILL:Swim				RANK:18
-FEAT::Cleave
+FEAT:Cleave
 FEAT:Combat Reflexes
 FEAT:Critical Focus
 FEAT:Dodge

@@ -50,14 +50,14 @@ PCC:@/pathfinder/paizo/pathfinder/core_rulebook/core_rulebook.pcc
 #PFS field guide
 PCC:@/pathfinder/paizo/pathfinder/bestiary/bestiary.pcc
 PCC:@/pathfinder/paizo/guide_to_pathfinder_society_organised_play/guide_to_pathfinder_society_organised_play.pcc
-PCC:@/pathfinder/paizo/pathfinder/bonus_bestiary/bonus_bestiary.pcc
+#PCC:@/pathfinder/paizo/pathfinder/bonus_bestiary/bonus_bestiary.pcc
 
 # PFS Additional Resources (http://paizo.com/pathfinderSociety/about/additionalResources)
 
 PCC:@/pathfinder/paizo/pathfinder/advanced_players_guide/advanced_players_guide.pcc
 PCC:@/pathfinder/paizo/pathfinder/advanced_race_guide/advanced_race_guide.pcc
 PCC:@/pathfinder/paizo/pathfinder/bestiary_2/bestiary_2.pcc
-#PCC:@/pathfinder/paizo/pathfinder/bestiary_3/bestiary_3.pcc
+PCC:@/pathfinder/paizo/pathfinder/bestiary_3/bestiary_3.pcc
 #Pathfinder Roleplaying Game: NPC Codex
 PCC:@/pathfinder/paizo/pathfinder/ultimate_combat/ultimate_combat.pcc
 PCC:@/pathfinder/paizo/pathfinder/ultimate_magic/ultimate_magic.pcc

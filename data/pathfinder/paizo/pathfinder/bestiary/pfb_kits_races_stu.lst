@@ -410,12 +410,12 @@ ALIGN:TN
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
 ABILITY:CATEGORY=Giant Spider Type|Web-spinning Giant Spider
 
-STARTPACK:Spider (Ogre) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Ogre)]	SOURCEPAGE:p.258
-RACE:Spider (Ogre)	!PRERACE:1,%
-NAME:Ogre Spider
-ALIGN:TN
-STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
-ABILITY:CATEGORY=Giant Spider Type|Web-spinning Giant Spider
+#STARTPACK:Spider (Ogre) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Ogre)]	SOURCEPAGE:p.258
+#RACE:Spider (Ogre)	!PRERACE:1,%
+#NAME:Ogre Spider
+#ALIGN:TN
+#STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+#ABILITY:CATEGORY=Giant Spider Type|Web-spinning Giant Spider
 
 STARTPACK:Spider (Giant Tarantula) Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spider (Giant Tarantula)]	SOURCEPAGE:p.258
 RACE:Spider (Giant Tarantula)	!PRERACE:1,%
