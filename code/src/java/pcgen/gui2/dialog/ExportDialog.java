@@ -472,8 +472,17 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 
 	private File getSelectedTemplate()
 	{
-		File osDir = new File(ConfigurationSettings.getOutputSheetsDir(), 
-				SettingsHandler.getGame().getOutputSheetDirectory());
+		File osDir;
+		String outputSheetDirectory = SettingsHandler.getGame().getOutputSheetDirectory();
+		if (outputSheetDirectory == null)
+		{
+			osDir = new File(ConfigurationSettings.getOutputSheetsDir());
+			outputSheetDirectory = "";
+		}
+		else
+		{
+			osDir = new File(ConfigurationSettings.getOutputSheetsDir(), outputSheetDirectory);
+		}
 		URI osPath = new File(osDir, ((SheetFilter) exportBox.getSelectedItem()).getPath()).toURI();
 		URI uri = (URI) fileList.getSelectedValue();
 		return new File(osPath.resolve(uri));
@@ -501,13 +510,22 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 	{
 		if (allTemplates != null)
 		{
+			String outputSheetsDir;
 			SheetFilter sheetFilter = (SheetFilter) exportBox.getSelectedItem();
 			IOFileFilter ioFilter = FileFilterUtils.asFileFilter(sheetFilter);
 			IOFileFilter prefixFilter;
 			String defaultSheet = null;
-			String outputSheetsDir = ConfigurationSettings.getOutputSheetsDir() + "/" +
-					SettingsHandler.getGame().getOutputSheetDirectory() + "/" +
-					sheetFilter.getPath();
+			String outputSheetDirectory = SettingsHandler.getGame().getOutputSheetDirectory();
+			if (outputSheetDirectory == null)
+			{
+				outputSheetsDir = ConfigurationSettings.getOutputSheetsDir() + "/" +
+						sheetFilter.getPath();
+			}
+			else
+			{
+				outputSheetsDir = ConfigurationSettings.getOutputSheetsDir() + "/" +
+					outputSheetDirectory + "/" + sheetFilter.getPath();
+			}
 			
 			if (partyBox.isSelected())
 			{
@@ -625,8 +643,18 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		@Override
 		protected Collection<File> doInBackground() throws Exception
 		{
-			File dir = new File(ConfigurationSettings.getOutputSheetsDir(),
-					SettingsHandler.getGame().getOutputSheetDirectory());
+			File dir;
+			String outputSheetDirectory = SettingsHandler.getGame().getOutputSheetDirectory();
+			if (outputSheetDirectory == null)
+			{
+				Logging.errorPrint("OUTPUTSHEET|DIRECTORY not defined for game mode " + SettingsHandler.getGame());
+				dir = new File(ConfigurationSettings.getOutputSheetsDir());
+				outputSheetDirectory = "";
+			}
+			else
+			{
+				dir = new File(ConfigurationSettings.getOutputSheetsDir(), outputSheetDirectory);
+			}
 			IOFileFilter fileFilter = FileFilterUtils.notFileFilter(new SuffixFileFilter(".fo"));
 			IOFileFilter dirFilter = FileFilterUtils.makeSVNAware(TrueFileFilter.INSTANCE);
 			return FileUtils.listFiles(dir, fileFilter, dirFilter);
