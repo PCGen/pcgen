@@ -126,28 +126,7 @@
 	<p></p>
 
 <hr>
-<!--  This block will be removed prior to the release of 6.2
-	<p class="lstdep"><a name="ARMORPROF">*** Deprecated Syntax 5.17.4</a> - Use <a href="#ARMORPROFICIENCY">CHOOSE:ARMORPROFICIENCY</a> - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:ARMORPROF|x|y|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (The maximum number of choices that can be selected)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Armor name)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Armor type)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of all armors matching the criteria.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:ARMORPROF|2|TYPE=Heavy</code></p>
-	<p class="indent3">Allow the choice of up to two heavy armors.</p>
-	<p class="indent2"><code>CHOOSE:ARMORPROF|1|Scale Mail|Chainmail</code></p>
-	<p class="indent3">Allow the choice of one of Scale Mail or Chainmail.</p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:ARMORPROF|Chainmail</code> becomes <code>CHOOSE:ARMORPROFICIENCY|EQUIPMENT[Chainmail]</code></p>
-	<p class="indent2"><code>CHOOSE:ARMORPROF|ALL</code> becomes <code>CHOOSE:ARMORPROFICIENCY|EQUIPMENT[ALL]</code></p>
-	<p></p>
 
-<hr>
--->
 	<p class="lstnew"><a name="ARMORPROFICIENCY">*** New 5.17.4</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:ARMORPROFICIENCY|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Armor proficiency)</p>
@@ -195,26 +174,6 @@
 
 <hr>
 
-<!--  This block will be removed prior to the release of 6.2
-	<p class="lstdep"><a name="ARMORTYPE">*** Deprecated Syntax 5.17.4</a> - Use <a href="#ARMORPROFICIENCY">CHOOSE:ARMORPROFICIENCY</a> - Remove 6.2</p>
-	<p><a name="ARMORTYPE"></a></p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:ARMORTYPE</p>
-	<p class="indent1"><strong>Variables Used:</strong> None</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will produce a list of all armor types that the character is proficient with.</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:ARMORTYPE</code></p>
-	<p class="indent3">This will produce a list of all the armor types with which the character is proficient.  If the character in question was a Fighter the list produced would be Light, Medium, and Heavy.</p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
--->
 	<p class="lstnew"><a name="CHECK">*** New 5.17.4</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:CKECK|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Check by KEY)</p>
@@ -284,27 +243,6 @@
 
 <hr>
 
-<!--  This block will be removed prior to the release of 6.2
-	<p class="lstdep"><a name="CSKILLS">*** Deprecated Syntax 5.17.4</a> - Use <a href="#SKILL">CHOOSE:SKILL</a> - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:CSKILLS</p>
-	<p class="indent1"><strong>Variables Used:</strong> None</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will produce a list of all class skills for the	character, regardless of rank.</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:CSKILLS</code></p>
-	<p class="indent3">This will produce a list of all class skills for the character.</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:CSKILLS</code> becomes <code>CHOOSE:SKILL|CLASS </code></p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
--->
 	<p class="lstnew"><a name="DEITY">*** New 5.17.4</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:DEITY|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Deity name or key)</p>
@@ -439,48 +377,6 @@
 
 <hr>
 
-<!--  This block will be removed prior to the release of 6.2
-	<p class="lstdep"><a name="EQUIPTYPE">*** Deprecated 5.17.4</a> - Use <strong><a href="#EQUIPMENT">CHOOSE:EQUIPMENT</a></strong> (See example below) - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:EQUIPTYPE|x.x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Equipment type)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will produce a list of all known equipment that are of all of the named types.</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:EQUIPTYPE|Melee.Simple</code></p>
-	<p class="indent3">Will allow selection from all simple melee weapons.</p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:EQUIPTYPE|Melee.Simple</code> becomes <code>CHOOSE:EQUIPMENT|TYPE=Melee.Simple</code></p>
-	<p></p>
-
-<hr>
-
-	<p class="lstdep"><a name="FEAT">*** Deprecated Syntax 5.17.3</a> - See <strong><a href="#FEATCONVERSION">Conversion Notes Below</strong></a> - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEAT=x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat name)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will produce a list of choices associated with the named feat
-			(Should replace WEAPONFOCUS).</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:FEAT=Weapon Focus</code></p>
-	<p class="indent3">Will display a list of all the character's choices for the Weapon Focus feat.</p>
-	<p class="indent1"><a name="FEATCONVERSION"><strong>Example Conversion to New Syntax:</strong></a></p>
-	<p class="indent2"><code>CHOOSE:FEAT=Weapon Focus</code> becomes <code>CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus|PC</code> - Use <a href="#WEAPONPROFICIENCY">CHOOSE:WEAPONPROFICIENCY</a></p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
--->
 	<p class="lstnew"><a name="FEAT2">*** New 5.17.3</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEAT|w|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
 	<p class="indent1"><strong>Variables Used (w):</strong> TITLE=Text (Chooser title)</p>
@@ -525,71 +421,6 @@
 
 <hr>
 
-<!--  This block will be removed prior to the release of 6.2
-	<p class="lstdep"><a name="FEATADD">*** Deprecated 5.17.3</a> - Use <strong><a href="#FEAT2">CHOOSE:FEAT</a></strong> (See example below) - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEATADD|x|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will produce a list of feats that match the type or name specified. The selected 
-			feat will be added to the character's feats.</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:FEATADD|TYPE=Fighter</code></p>
-	<p class="indent3">This will produce a list of all fighter feats. The selected feat will be added to the character's feats.</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:FEATADD|Dodge|Toughness</code> becomes <code>CHOOSE:FEATSELECTION|Dodge|Toughness &lt;tab&gt; AUTO:FEAT|%LIST</code></p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
-
-	<p class="lstdep"><a name="FEATLIST">*** Deprecated 5.17.3</a> - Use <strong><a href="#FEAT2">CHOOSE:FEAT</a></strong> (See example below) - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEATLIST|x|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will produce a list of feats possessed by the character that match the type or name specified.</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:FEATLIST|TYPE=Fighter</code></p>
-	<p class="indent3">This will produce a list of all the character's fighter feats.</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:FEATLIST|TYPE=Fighter</code> becomes <code>CHOOSE:FEAT|PC[TYPE=Fighter] </code></p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
-
-	<p class="lstdep"><a name="FEATSELECT">*** Deprecated 5.17.3</a> - Use <strong><a href="#FEAT2">CHOOSE:FEAT</a></strong> (See example below) - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEATSELECT|x|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Feat Name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Feat type)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will produce a list of feats that match the type or name specified.</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:FEATSELECT|TYPE=Fighter</code></p>
-	<p class="indent3">This will produce a list of all fighter feats.</p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:FEATSELECT|TYPE=Fighter</code> becomes <code>CHOOSE:FEAT|TYPE=Fighter</code></p>
-	<p></p>
-
-<hr>
--->
 	<p class="lstnew"><a name="FEATSELECTION">*** New 5.17.3</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:FEATSELECTION|w|x|y|y[z]|y[x,x]|x,y,y[x],y[x,x]</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> TITLE=Text (Chooser title)</p>
@@ -631,25 +462,6 @@
 
 <hr>
 
-<!--  This block will be removed prior to the release of 6.2
-	<p class="lstdep"><a name="HP">*** Deprecated</a> - Use <strong><a href="#STRING">CHOOSE:STRING</a></strong> - Remove for 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:HP|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Display name)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>Displays a list with the display name </li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:HP|+3 hp </code></p>
-	<p class="indent3">Will display a list with &quot;+3 hp&quot; .</p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
--->
 	<p class="lstnew"><a name="LANG">*** New 5.17.4</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:LANG|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Language name)</p>
@@ -715,24 +527,6 @@
 
 <hr>
 
-<!--  This block will be removed prior to the release of 6.2
-	<p class="lstdep"><a name="NONCLASSSKILLLIST">*** Deprecated Syntax 5.17.4</a> - Use <a href="#SKILL">CHOOSE:SKILL</a> - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:NONCLASSSKILLLIST|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name) or LIST</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">This will produce a list of skills specified or all cross-class skills for the character.</p>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:NONCLASSSKILLLIST|LIST</code></p>
-	<p class="indent3">This will produce a list of cross-class skills for the character.</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:NONCLASSSKILLLIST|LIST</code> becomes <code>CHOOSE:SKILL|CROSSCLASS</code></p>
-	<p class="indent2"><code>CHOOSE:NONCLASSSKILLLIST|LIST|Spot,Search</code> becomes <code>CHOOSE:SKILL|CROSSCLASS|Spot|Search</code></p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
--->
 	<p><a name="NUMBER"></a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:NUMBER|x|y|z</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> MIN=Number (Lowest value to choose from)</p>
@@ -780,36 +574,6 @@
 
 <hr>
 
-<!--  This block will be removed prior to the release of 6.2
-	<p class="lstdep"><a name="PROFICIENCY">*** Deprecated Syntax 5.17.4</a> - Use <a href="#WEAPONPROFICIENCY">CHOOSE:WEAPONPROFICIENCY</a> - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:PROFICIENCY|x|y|z|z</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> WEAPON (Choose Weapon Proficiencies)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> PC (Choose from proficiencies already possessed by PC)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> ALL (Choose from all proficiencies)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> UNIQUE (Choose from all proficiencies not already possessed by PC)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Text (Proficiency to add to list)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> TYPE=Text (Type of proficiency)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will produce a list of all proficiencies that match the criteria specified.</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE=Exotic</code></p>
-	<p class="indent3">This will produce a list of all exotic weapon proficiencies the PC does not have.</p>
-	<p class="indent2"><code>Automatic Weapon Proficiency &lt;tab&gt; TYPE:General &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.Automatic &lt;tab&gt; AUTO:WEAPONPROF|%LIST</code></p>
-	<p class="indent3">This will produce a list of all Automatic weapon proficiencies the PC does not have and may be selected multiple times.</p>
-	<p class="indent2"><code>Exotic Firearms Proficiency &lt;tab&gt; TYPE:General.Soldier &lt;tab&gt; PREFEAT:2,Personal Firearms Proficiency,Advanced Firearms Proficiency &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE.ExoticFirearms &lt;tab&gt; AUTO:WEAPONPROF|%LIST</code></p>
-	<p class="indent3">This will produce a list of all ExoticFirearms weapon proficiencies the PC does not have, must have the two feats Personal Firearms Proficiency,Advanced Firearms Proficiency and may be selected multiple times.</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:PROFICIENCY|WEAPON|UNIQUE|TYPE=Exotic </code> becomes <code>CHOOSE:WEAPONPROFICIENCY|!PC[TYPE=Exotic]</code></p>
-	<p class="indent1"><strong>Where this is used at:</strong></p>
-	<p class="indent2">Feat and Ability Files</p>
-	<p></p>
-
-<hr>
--->
 	<p class="lststatus"><a name="RACE">*** New 5.9.5</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:RACE|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x] </p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Race, by name or key)</p>
@@ -851,39 +615,12 @@
 	<p class="indent3">This will produce a list of races including only the <strong>Dwarf</strong> and the <strong>Elf</strong>.</p>
 	<p class="indent2"><code>CHOOSE:RACE|RACETYPE=Humanoid,RACESUBTYPE=Aquatic</code></p>
 	<p class="indent3">This will produce a list of all Humanoid races that have the Aquatic subtype.</p>
-<!--  This block will be removed prior to the release of 6.2
-	<p class="indent1"><strong>Deprecated Syntax:</strong> <span class="lstdep">Deprecated 5.17.4 - Remove 6.2</span></p>
-	<p class="indent2">The use of brackets ([ ]) to group comma-delimited (,) items to perform a logical <strong>AND</strong> function is no longer required. 
-		The brackets are now used to group items so that a &quot;qualifier&quot; can be applied.</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:RACE|[RACETYPE=Humanoid,RACESUBTYPE=Aquatic]</code> becomes <code>CHOOSE:RACE|RACETYPE=Humanoid,RACESUBTYPE=Aquatic</code></p>
--->
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
 
 <hr>
 
-<!--  This block will be removed prior to the release of 6.2
-	<p class="lstdep"><a name="SALIST">*** Deprecated - Remove in 6.2</a></p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SALIST|x,x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Start of SA name)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will produce a list of all special abilities for the character that match 
-			the start strings specified.</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:SALIST|Turn,Rebuke</code></p>
-	<p class="indent3">This will produce a list of all Special Abilities that start with Turn or Rebuke possessed by the character.</p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
--->
 	<P class="lstupnew"></a>*** Updated 5.17.4</a></p>
 	<p class="indent0"><strong><a name="SCHOOLS">Tag Name:</strong> CHOOSE:SCHOOLS|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (School name)</p>
@@ -910,33 +647,6 @@
 
 <hr>
 
-<!--  This block will be removed prior to the release of 6.2
-	<p class="lstdep"><a name="SHIELDPROF">*** Deprecated Syntax 5.17.4</a> - Use <a href="#SHIELDPROFICIENCY">CHOOSE:SHIELDPROFICIENCY</a> - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SHIELDPROF|x|y|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (The maximum number of choices that can be selected)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Shield name)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> TYPE=Text (Shield type)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will produce a list of all shields of the specified type or name.</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:SHIELDPROF|TYPE=Wood</code></p>
-	<p class="indent3">This will produce a list of all wooden shields.</p>
-	<p class="indent2"><code>CHOOSE:SHIELDPROF|TYPE=Buckler|TYPE=Light|TYPE=Heavy</code></p>
-	<p class="indent3">This will produce a list of all shields of type &quot;Buckler&quot;, 
-		&quot;Light&quot; and &quot;Heavy&quot;.</p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:SHIELDPROF|Buckler</code> becomes <code>CHOOSE:SHIELDPROFICIENCY|EQUIPMENT[Buckler]</code></p>
-	<p class="indent2"><code>CHOOSE:SHIELDPROF|ALLbecomes</code> becomes <code>CHOOSE:SHIELDPROFICIENCY|EQUIPMENT[ALL]</code></p>
-	<p></p>
-
-<hr>
--->
 	<p class="lstnew"><a name="SHIELDPROFICIENCY">*** New 5.17.4</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SHIELDPROFICIENCY|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Shield proficiency)</p>
@@ -1059,90 +769,6 @@
 
 <hr>
 
-<!--  This block will be removed prior to the release of 6.2
-	<p class="lstdep"><a name="SKILLS">*** Deprecated Syntax 5.17.4</a> - Use <a href="#SKILL">CHOOSE:SKILL</a> - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SKILLS</p>
-	<p class="indent1"><strong>Variables Used:</strong> None</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will produce a list of all skills currently attached to the character, 
-			regardless of rank.</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:SKILLS</code></p>
-	<p class="indent3">This will produce a list of all skills usable Untrained and any skills that
-		have ranks for the character.</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:SKILLS</code> becomes <code>CHOOSE:SKILL|PC</code></p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
-
-	<p class="lstdep"><a name="SKILLSNAMED">*** Deprecated Syntax 5.17.4</a> - Use <a href="#SKILL">CHOOSE:SKILL</a> - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SKILLSNAMED|x|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Skill name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text% (Start of skill name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Skill type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> ALL (Displays all skills)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> CLASS (Displays all class skills)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> CROSSCLASS (Displays all cross-class skills)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> EXCLUSIVE (Displays all exclusive skills)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> RANKS=Number (Displays all skills the PC has of the listed rank)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> NORANK (Displays all skills the PC has no ranks in)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will produce a list of named skills that match the included selection criteria.</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:SKILLSNAMED|CLASS</code></p>
-	<p class="indent3">This will produce a list of class skills from which the character can pick.</p>
-	<p class="indent2"><code>CHOOSE:SKILLSNAMED|Knowledge%</code></p>
-	<p class="indent3">This will produce a list of skills starting with Knowledge from which the character can pick.</p>
-	<p class="indent2"><code>CHOOSE:SKILLSNAMED|CROSSCLASS|Craft%</code></p>
-	<p class="indent3">This will produce a list of all cross-class skills as well as all Craft skills even if they are not cross-class.</p>
-	<p class="indent2"><code>CHOOSE:SKILLSNAMED|RANKS=20</code></p>
-	<p class="indent3">This will produce a list of all skills the character has 20 ranks or more in.</p>
-	<p class="indent2"><code>CHOOSE:SKILLSNAMED|NORANK</code></p>
-	<p class="indent3">This will produce a list of all skills the character has 0 ranks in.</p>
-	<p class="indent2"><code>STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:SKILLSNAMED|TYPE=Strength|TYPE=Dexterity|TYPE=Constitution|1 &lt;tab&gt; BONUS:SKILL|LIST|CL=Super Soldier|TYPE=Enhancement</code></p>
-	<p class="indent3">This will produce a list of all skills that are TYPE &quot;Strength&quot;,
-		&quot;Dexterity&quot; and &quot;Constitution&quot; and add the ClassLevel of Super Soldier to
-		the selection.</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:SKILLSNAMED|...</code> becomes <code>CHOOSE:SKILL|...</code></p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
-
-	<p class="lstdep"><a name="SPELLCLASSES">*** Deprecated Syntax 5.17.4</a> - Use <a href="#CLASS">CHOOSE:CLASS|SPELLCASTER</a> - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLCLASSES</p>
-	<p class="indent1"><strong>Variables Used:</strong> None</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will produce a list of all the character's classes which don't have a base spell
-			stat of &quot;None&quot;.</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:SPELLCLASSES</code></p>
-	<p class="indent3">Will produce a list of the character's classes that can cast spells.</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:SPELLCLASSES</code> becomes <code>CHOOSE:CLASS|SPELLCASTER</code></p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
--->
 	<p class="lstnew"><a name="SPELLLEVEL">*** New 5.17.4</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLLEVEL|w|x|y|z|x|y|z</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> TITLE=Text (Chooser title. Optional)</p>
@@ -1180,54 +806,6 @@
 
 <hr>
 
-<!--  This block will be removed prior to the release of 6.2
-	<p class="lstdep"><a name="SPELLLEVEL2">*** Deprecated Syntax 5.17.4</a> - Use <a href="#SPELLLEVEL2">CHOOSE:SPELLLEVEL</a> - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLLEVEL|w|x|y|z|x|y|z</p>
-	<p class="indent1"><strong>Variables Used (w):</strong> Number (Number of choices)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> CLASS=Text (Spellcaster class)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Spell type)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Number (Minimum level)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> Number (Maximum level)</p>
-	<p class="indent1"><strong>Variables Used (z):</strong> MAXLEVEL</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>Display a list of character's spell levels for the specified class or type.</li>
-		<li>Spell levels will only be included if they fall between the range of Minimum Level and Maximum Level.</li>
-		<li><code>MAXLEVEL</code> will include spell leves up to the highest level the character can cast.</li>
-		<li><code>NUMCHOICES</code> cannot ne used with <code>CHOOSE:SPELLLEVEL</code>, as it has an integrated choice count.</li>
-		<li>A bonus can be associated with the choice by appending it in square brackets ([]), providing a bonus based upon the spell level.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:SPELLLEVEL|2|CLASS=Wizard|0|MAXLEVEL|TYPE=Divine|1|3</code></p>
-	<p class="indent3">Would present a list of the character's castable Wizard levels of spells, e.g.
-		Wizard 0, Wizard 1, and Wizard 2 for a 5th level Wizard, and Cleric 1, Cleric 2, and Cleric 3 if the character
-		had Cleric as a class and allow two to be chosen.</p>
-	<p class="indent2"><code>CHOOSE:SPELLLEVEL|1|TYPE=Arcane|0|MAXLEVEL[BONUS:SPELLCAST|CLASS=%;LEVEL=%|1]</code></p>
-	<p class="indent3">Would present a list of the character's castable levels of Arcane spells and allow one level to be chosen
-		to get as a bonus spell per day.</p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
-
-	<p class="lstdep"><a name="SPELLLIST">*** Deprecated Syntax 5.17.4</a> - Use TBD - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLLIST|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Boolean (Spellbook required. Y or N)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will produce a list of known spells for each class that matches the spellbook requirement.</li>
-		<li>Allows selection of the maximum stat modifier spells for each qualifying class.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:SPELLLIST|Y</code></p>
-	<p class="indent3">Would produce a list of all known spells for each class that uses a spellbook for the character. If the character is a Wizard, for example, it would allow INT mod selections from the list.</p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Ability Files</p>
-	<p></p>
-
-<hr>
--->
 	<p class="lststatus"><a name="SPELLS">*** New - 5.13.x</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLS|x,y,y[z]|x|y|y[z;z]</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spell name)</p>
@@ -1291,37 +869,12 @@
 		maximum level of Psionic &quot;Spell&quot; castable by the PC. Notice the common case between the
 		<code>KNOWN</code>, <code>LEVELMIN</code>, and <code>LEVELMAX</code> subtags can be done with one set
 		of square brackets ([ ]).</p>
-<!--  This block will be removed prior to the release of 6.2
-	<p class="indent1"><strong>Deprecated Syntax:</strong> <span class="lstdep">Deprecated 5.17.18 - Remove 6.2</span></p>
-	<p class="indent2"><code>CHOOSE:SPELLS|ANY</code> has been deprecated in favor of <code>CHOOSE:SPELLS|ALL</code>.</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:SPELLS|ANY</code> becomes <code>CHOOSE:SPELLS|ALL</code></p>
--->
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files</p>
 	<p></p>
 
 <hr>
 
-<!--  This block will be removed prior to the release of 6.2
-	<p class="lstdep"><a name="STAT">*** Deprecated</a> - Use <strong><a href="#PCSTS">CHOOSE:PCSTAT</a></strong> - Remove for 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:STAT|x|x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (Stat name. Optional)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>This will produce a list of all stats except the one(s) listed.</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:STAT|CON</code></p>
-	<p class="indent3">This will produce a list off all stats except CON.</p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
--->
 	<p class="lststatus"><a name="STRING">*** New 5.13.4</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:STRING|x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Choice to be offered)</p>
@@ -1411,61 +964,6 @@
 
 <hr>
 
-<!--  This block will be removed prior to the release of 6.2
-	<p class="lstdep"><a name="WEAPONPROF">*** Deprecated Syntax 5.17.4</a> - Use <a href="#WEAPONPROFICIENCY">CHOOSE:WEAPONPROFICIENCY</a> - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:WEAPONPROF|x|y|y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (Total Selections allowed)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Weapon name)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> DEITYWEAPON</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> FEAT=Text (Feat name)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> WIELD.Text (Wield category)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>WEAPONPROF is the only viable choice at this time in the domains list file with the CHOOSE tag.</li>
-		<li>The actual listing of the types of weapon proficiencies the character may have is made up of:
-		<ul>
-			<li>A pipe-delimited (&quot;|&quot;) list of weapon proficiencies as they appear in the weapon proficiencies list file.</li>
-			<li>DEITYWEAPON gets the weapon listed in the deities list file.</li>
-			<li>Feat name must be any feat that requires a weapon proficiency, such as Simple,
-				Martial, Exotic, Weapon Focus, etc.</li>
-			<li>Wield category can be &quot;Light&quot;, &quot;OneHanded&quot; or &quot;TwoHanded&quot;.
-				Specific types of weapon proficiencies may be excluded by using &quot;|!TYPE=&lt;weapon
-				type&gt;&quot; at the end of the tag. You can have as many !TYPE tags as you like, but
-				they all MUST be at the end of the tag.</li>
-		</ul>
-		</li>
-	</ul>
-	<p class="indent1"><strong>Special Case:</strong> <code>CHOOSE:WEAPONPROF|1|DEITYWEAPON[WEAPONPROF][FEAT=Weapon Focus]</code></p>
-	<ul class="indent2">
-		<li>I cannot explain how this tag works but it does.</li>
-		<li>This tag is used in the War Domain to grant proficiency in, and the Weapon Focus feat of, the
-			diety's Favored Weapon to the cleric that has selected that domain.</li>
-		<li>The syntax using brackets ([]) will be changed in PCGen 6.0.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROF|1|Dagger|Club</code></p>
-	<p class="indent3">Choice of either a Dagger or Club proficiency.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROF|3|DEITYWEAPON</code></p>
-	<p class="indent3">Choice of three of those allowed by the Deity.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROF|2|Dagger|Sword (Long)|Spear|Halberd</code></p>
-	<p class="indent3">Choice of two of the Dagger, Long Sword, Spear and Halbard.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROF|10|FEAT=Martial Weapon Proficiency</code></p>
-	<p class="indent3">Choice of ten Martial Weapons.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROF|1|WIELD.OneHanded|WIELD.Light</code></p>
-	<p class="indent3">Choice of all weapons which have a WIELD tag of either OneHanded or Light.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROF|1|WIELD.OneHanded|!TYPE.Exotic</code></p>
-	<p class="indent3">Choice of all weapons which have a WIELD tag of OneHanded which are not Exotic.</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROF|1|Dagger|Club</code> becomes <code>CHOOSE:WEAPONPROFICIENCY|Dagger|Club</code></p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROF|3|DEITYWEAPON </code> becomes <code>CHOOSE:WEAPONPROFICIENCY|DEITYWEAPON &lt;tab&gt; SELECT:3</code></p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROF|1|WIELD.OneHanded|WIELD.Light </code> becomes <code>CHOOSE:WEAPONPROFICIENCY|WIELD=OneHanded|WIELD=Light </code></p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROF|1|WIELD.OneHanded|!TYPE.Exotic </code> becomes <code>CHOOSE:WEAPONPROFICIENCY|WIELD=OneHanded,!TYPE=Exotic </code></p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
--->
 	<p class="lstnew"><a name="WEAPONPROFICIENCY">*** New 5.17.4</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:WEAPONPROFICIENCY|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon proficiency)</p>
@@ -1524,72 +1022,6 @@
 
 <hr>
 
-<!--  This block will be removed prior to the release of 6.2
-	<p class="lstdep"><a name="WEAPONPROFS">*** Deprecated Syntax 5.17.4</a> - Use <a href="#WEAPONPROFICIENCY">CHOOSE:WEAPONPROFICIENCY</a> - Remove 6.2</p>
-	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:WEAPONPROFS|x|x.y</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> LIST</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> DEITYWEAPON</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (SIZE.)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Text (WSIZE.)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Light, 1 handed, or 2 handed. Can have optional equipment types as well)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Spellcaster.Text (Weapon proficiency))</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Weapon prof name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> ADD.Text (Weapon proficiency)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Weapon prof name)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> TYPE.Text (Proficiency type)</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Proficiency type)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Text (Equipment type or Light, 1 handed, or 2 handed)</p>
-	<p class="indent1"><strong>Variables Used (y):</strong> Not.Text (Proficiency type)</p>
-	<p class="indent1"><strong>What it does:</strong></p>
-	<ul class="indent2">
-		<li>The actual listing of the types of weapon proficiencies the list may have is made up of:
-			<ul>
-				<li>LIST - All character's weapon profs are added to list</li>
-				<li>DEITYWEAPON - All the character's Deity's favorite weapons are added to the list</li>
-				<li>Size.y&lt;Weapon prof name&gt; - Weapon prof is added to list if character is at least size specified and the character has the proficiency specified. Other options
-					are F=Fine, D=Diminutive, T=Tiny, S=Small, M=Medium, L=Large, H=Huge, G=Gargantuan, C=Colossal.</li>
-				<li>WSize.string - The character's weapon prof is added to the list if the wield category matches the specified type.</li>
-				<li>Spellcaster.string - The specified weapon proficiency will be added to the list if the character is a spellcaster.</li>
-				<li>ADD.string - The specified weapon proficiency is added to the list unconditionally.</li>
-				<li>TYPE.string - All proficiencies that has equipment that matches the specified type or wield category will be added to the list.</li>
-				<li>TYPE.Not.string - Remove a previously added proficiency that has equipment that matches the specified type or wield category will be added to the list.</li>
-				<li>weaponprof - The specified proficiency will be added to the list if the character has it.</li>
-			</ul>
-		</li>
-		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
-			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
-	</ul>
-	<p class="indent1"><strong>Example:</strong></p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROFS|LIST</code></p>
-	<p class="indent3">Displays a list of all the character's weapon proficiencies.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROFS|DEITYWEAPON</code></p>
-	<p class="indent3">Displays a list of all the character's deity's favorite weapon proficiencies.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROFS|Size.LGreatsword|Size.LClub|Size.SSling|Size.SDagger</code></p>
-	<p class="indent3">Displays a list of Greatsword, Club, Sling, and Dagger if the character is at least Large size of Sling and Dagger if the character is at least Small size.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROFS|WSize.Light.Wood</code></p>
-	<p class="indent3">Displays a list of all the character's weapon profs for light weapons if there is a wood weapon of that type.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROFS|Spellcaster.Longsword|Spellcaster.Longbow</code></p>
-	<p class="indent3">Displays a list of Longsword and Longbow if the character is a spellcaster.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROFS|ADD.Longsword|ADD.Longbow</code></p>
-	<p class="indent3">Displays a list of Longsword and Longbow.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROFS|TYPE.Melee</code></p>
-	<p class="indent3">Displays a list of weapon proficiencies for melee weapons.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROFS|LIST|TYPE.Not.2 handed</code></p>
-	<p class="indent3">Displays a list of weapon proficiencies for all weapons that are not 2 handed.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROFS|Longsword|Longbow</code></p>
-	<p class="indent3">Displays a list of Longsword and Longbow.</p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROFS|3 &lt;tab&gt; BONUS:COMBAT|TOHIT.%LIST|1|TYPE=Talent</code></p>
-	<p class="indent3">Choice 3 weapons proficiencies which will be inserted in the %LIST giving you an additional +1 to-hit with them.</p>
-	<p class="indent1"><strong>Example Conversion to New Syntax:</strong></p>
-	<p class="indent2"><code>CHOOSE:WEAPONPROFS|LIST</code> becomes <code>CHOOSE:WEAPONPROFICIENCY|PC</code></p>
-	<p class="sidebar1">NOTE: A <code>SIZE</code> qualifier has not as yet been implemented so there is currently no conversion for the functionality provided by the <code>SIZE.</code> sub-tag.</p>
-	<p class="indent1"><strong>Where it is Used:</strong></p>
-	<p class="indent2">Global except for Equipmod Files</p>
-	<p></p>
-
-<hr>
--->
   	<h3><a name="PREFIX">CHOOSE Tag Prefixes</a></h3>
 	<p class="indent0">The CHOOSE tag uses &quot;Prefix&quot; tags to modify the application of
 	the CHOOSE tag. The prefix tags are inserted into the CHOOSE tag's syntax immediately after the
