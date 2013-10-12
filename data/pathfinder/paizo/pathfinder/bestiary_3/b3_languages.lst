@@ -6,14 +6,14 @@
 Speak with Sharks			TYPE:Spoken				PREABILITY:1,CATEGORY=Internal,Speak with Sharks
 
 
-Catfolk				TYPE:Spoken.Written.Read
+#Catfolk				TYPE:Spoken.Written.Read
 #D'ziriak	TYPE:Spoken
 #Grippli	TYPE:Spoken.Written.Read
-Samsaran				TYPE:Spoken.Written.Read
-Strix					TYPE:Spoken.Written.Read
-Vanaran				TYPE:Spoken.Written.Read
-Vishkanya				TYPE:Spoken.Written.Read
-Wayang				TYPE:Spoken.Written.Read
+#Samsaran				TYPE:Spoken.Written.Read
+#Strix					TYPE:Spoken.Written.Read
+#Vanaran				TYPE:Spoken.Written.Read
+#Vishkanya				TYPE:Spoken.Written.Read
+#Wayang				TYPE:Spoken.Written.Read
 
 Adlet					TYPE:Spoken.Written.Read
 Garuda				TYPE:Spoken.Written.Read

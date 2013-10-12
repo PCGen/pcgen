@@ -6,8 +6,7 @@ RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
-PRECAMPAIGN:6,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Paizo - Pathfinder Roleplaying Game Advanced Player's Guide,INCLUDES=Paizo - Pathfinder Roleplaying Game Ultimate Magic,INCLUDES=Paizo - Pathfinder Roleplaying Game Ultimate Combat,INCLUDES=Paizo - Pathfinder Roleplaying Game Bestiary,INCLUDES=Paizo - Pathfinder Roleplaying Game Bestiary 2
-#Paizo - Pathfinder Roleplaying Game Bestiary 3
+PRECAMPAIGN:7,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Paizo - Pathfinder Roleplaying Game Advanced Player's Guide,INCLUDES=Paizo - Pathfinder Roleplaying Game Ultimate Magic,INCLUDES=Paizo - Pathfinder Roleplaying Game Ultimate Combat,INCLUDES=Paizo - Pathfinder Roleplaying Game Bestiary,INCLUDES=Paizo - Pathfinder Roleplaying Game Bestiary 2,Paizo - Pathfinder Roleplaying Game Bestiary 3
 PUBNAMELONG:Paizo Publishing, LLC
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

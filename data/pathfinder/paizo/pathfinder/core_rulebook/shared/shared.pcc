@@ -1,0 +1,13 @@
+CAMPAIGN:Shared
+#GAMEMODE:Pathfinder
+STATUS:RELEASE
+TYPE:Pathfinder
+
+
+# Files that conflict across multiple sets - implementing this measure to appease the CI errors that are flooding my inbox.
+SKILL:skills_conditional.lst
+SPELL:spells.lst
+ARMORPROF:profs_armor.lst
+
+LANGUAGE:languages.lst
+

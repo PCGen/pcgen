@@ -4,13 +4,13 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 # ORIGINAL ENTRY DATE: 2012-07-28
 
 # Language	Type
-Catfolk	TYPE:Spoken.Written.Read
+#Catfolk	TYPE:Spoken.Written.Read
 # Language	Type
-Samsaran	TYPE:Spoken.Written.Read
-Strix		TYPE:Spoken.Written.Read
-Vanaran	TYPE:Spoken.Written.Read
-Vishkanya	TYPE:Spoken.Written.Read
-Wayang	TYPE:Spoken.Written.Read
+#Samsaran	TYPE:Spoken.Written.Read
+#Strix		TYPE:Spoken.Written.Read
+#Vanaran	TYPE:Spoken.Written.Read
+#Vishkanya	TYPE:Spoken.Written.Read
+#Wayang	TYPE:Spoken.Written.Read
 
 
 #D'ziriak	TYPE:Spoken
