@@ -26,36 +26,36 @@ Underwater Light Crossbow		TYPE:Simple.Ranged.Piercing
 ####Block: Martial Weapons
 #------light---------
 # Weapon Name				Type											Nb Hands
-Butterfly Sword				TYPE:Martial.Melee.Light.Slashing
-Dogslicer					TYPE:Martial.Melee.Light.Slashing
+Butterfly Sword				TYPE:Martial.Melee.Light.Slashing.Eastern
+Dogslicer					TYPE:Martial.Melee.Light.Slashing.Goblin
 Gladius					TYPE:Martial.Melee.Light.Piercing.Slashing
-Jutte						TYPE:Martial.Melee.Light.Bludgeoning
-Kerambit					TYPE:Martial.Melee.Light.Slashing
-Shang Gou					TYPE:Martial.Melee.Light.Slashing
-Tonfa						TYPE:Martial.Melee.Light.Bludgeoning
+Jutte						TYPE:Martial.Melee.Light.Bludgeoning.Eastern
+Kerambit					TYPE:Martial.Melee.Light.Slashing.Eastern
+Shang Gou					TYPE:Martial.Melee.Light.Slashing.Eastern
+Tonfa						TYPE:Martial.Melee.Light.Bludgeoning.Eastern
 
 #-----one handed -------
-Double Chicken Saber			TYPE:Martial.Melee.OneHanded.Slashing
+Double Chicken Saber			TYPE:Martial.Melee.OneHanded.Slashing.Eastern
 Klar						TYPE:Martial.Melee.OneHanded.Slashing
-Broadsword (Nine Ring)			TYPE:Martial.Melee.OneHanded.Slashing
+Broadsword (Nine Ring)			TYPE:Martial.Melee.OneHanded.Slashing.Eastern
 Scizore					TYPE:Martial.Melee.OneHanded.Piercing
 Terbutje					TYPE:Martial.Melee.OneHanded.Slashing
 
 #-----two handed -------
 Earth Breaker				TYPE:Martial.Melee.TwoHanded.Bludgeoning
-Hooked Lance				TYPE:Martial.Melee.TwoHanded.Piercing
-Horsechopper				TYPE:Martial.Melee.TwoHanded.Piercing.Slashing
+Hooked Lance				TYPE:Martial.Melee.TwoHanded.Piercing.Eastern
+Horsechopper				TYPE:Martial.Melee.TwoHanded.Piercing.Slashing.Goblin
 Lucerne Hammer				TYPE:Martial.Melee.TwoHanded.Bludgeoning.Piercing
 Mattock					TYPE:Martial.Melee.TwoHanded.Piercing
-Monk's Spade				TYPE:Martial.Melee.Piercing.Slashing
-Naginata					TYPE:Martial.Melee.TwoHanded.Slashing
-Nodachi					TYPE:Martial.Melee.TwoHanded.Piercing.Slashing
+Monk's Spade				TYPE:Martial.Melee.Piercing.Slashing.Eastern
+Naginata					TYPE:Martial.Melee.TwoHanded.Slashing.Eastern
+Nodachi					TYPE:Martial.Melee.TwoHanded.Piercing.Slashing.Eastern
 Ogre Hook					TYPE:Martial.Melee.TwoHanded.Piercing
 Rhomphaia					TYPE:Martial.Melee.TwoHanded.Piercing.Slashing
-Sansetsukon					TYPE:Martial.Melee.TwoHanded.Bludgeoning
+Sansetsukon					TYPE:Martial.Melee.TwoHanded.Bludgeoning.Eastern
 Tepoztopilli				TYPE:Martial.Melee.TwoHanded.Piercing.Slashing
-Tiger Fork					TYPE:Martial.Melee.TwoHanded.Piercing
-Sword (Tri-Point Double-Edged)	TYPE:Martial.Melee.TwoHanded.Piercing
+Tiger Fork					TYPE:Martial.Melee.TwoHanded.Piercing.Eastern
+Sword (Tri-Point Double-Edged)	TYPE:Martial.Melee.TwoHanded.Piercing.Eastern
 
 # -- Ranged
 Amentum					TYPE:Martial.Ranged.Piercing
@@ -63,9 +63,9 @@ Atlatl					TYPE:Martial.Ranged.Piercing
 Hunga Munga					TYPE:Martial.Ranged.Thrown.Piercing
 Iron Brush					TYPE:Martial.Melee.Light.Ranged.Thrown.Piercing
 Lungchuan Tamo				TYPE:Martial.Melee.Light.Ranged.Thrown.Piercing.Slashing
-Poisoned Sand Tube			TYPE:Martial.Ranged
+Poisoned Sand Tube			TYPE:Martial.Ranged.Eastern
 Sibat						TYPE:Martial.Melee.OneHanded.Ranged.Thrown.Piercing.Slashing
-Tube Arrow Shooter			TYPE:Martial.Ranged.Piercing
+Tube Arrow Shooter			TYPE:Martial.Ranged.Piercing.Eastern
 Wushu Dart					TYPE:Martial.Melee.Light.Ranged.Thrown.Piercing
 
 

@@ -9,6 +9,7 @@
 # Examples
 # SOURCE:JDTEST	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXVER:6.0.0	MAXDEVVER:6.1.1
 # EQUIPMENT:JDTEST	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXDEVVER:6.1.2
+EQUIPMENT:Kasari Gusoku		NEWKEY:Kusari Gusoku	MAXVER:6.1.8
 
 # Barbarian rage powers - key corrections from DATA-1058
 ABILITY:Special Ability|Animal Fury				NEWKEY:Animal Fury ~ Rage Power				MAXVER:6.00.01	MAXDEVVER:6.01.02

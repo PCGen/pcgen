@@ -44,7 +44,7 @@ Half-Plate.MOD															COST:600	WT:50											SOURCELONG:Ultimate Equipm
 Lamellar (Stone)		PROFICIENCY:ARMOR|Lamellar (Stone)		TYPE:Armor.Suit.Standard.Heavy	COST:500	WT:45		ACCHECK:-7					MAXDEX:0											SOURCEPAGE:p.12	SPELLFAILURE:40		BONUS:COMBAT|AC|8|TYPE=Armor
 O-yoroi.MOD			COST:1700	WT:45		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE			SOURCEPAGE:p.13
 Full Plate.MOD															COST:1500	WT:50											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.11
-Stoneplate.MOD		COST:1800	WT:75		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE			SOURCEPAGE:p.14
+Stoneplate			PROFICIENCY:ARMOR|Stoneplate			TYPE:Armor.Heavy.Suit.Standard	COST:1800	WT:75		ACCHECK:-6		EQMOD:STONE		MAXDEX:1											SOURCEPAGE:p.14	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor
 
 
 ###Block: Shields
