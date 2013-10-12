@@ -115,7 +115,7 @@ Shards of the Past	KEY:Shards of the Past ~ Samsaran	CATEGORY:Special Ability	TY
 
 
 #Default Traits ~ Samsaran
-Default Traits ~ Samsaran										CATEGORY:Internal					CATEGORY:Internal
+Default Traits ~ Samsaran	CATEGORY:Internal
 CATEGORY=Internal|Default Traits ~ Samsaran.MOD					ABILITY:Samsaran Racial Trait|AUTOMATIC|Low-Light Vision ~ Samsaran|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranLowLightVision
 CATEGORY=Internal|Default Traits ~ Samsaran.MOD					ABILITY:Samsaran Racial Trait|AUTOMATIC|Lifebound ~ Samsaran|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranLifebound
 CATEGORY=Internal|Default Traits ~ Samsaran.MOD					ABILITY:Samsaran Racial Trait|AUTOMATIC|Samsaran Magic ~ Samsaran|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SamsaranMagic
