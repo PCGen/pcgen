@@ -75,6 +75,8 @@ import pcgen.core.facade.DataSetFacade;
 import pcgen.core.facade.SourceSelectionFacade;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.facade.util.DefaultListFacade;
+import pcgen.core.prereq.PrereqHandler;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.io.PCGFile;
 import pcgen.persistence.lst.AbilityCategoryLoader;
 import pcgen.persistence.lst.AbilityLoader;
@@ -952,26 +954,26 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			}
 
 			// Load the LST files to be loaded for the campaign
-			lstExcludeFiles.addAll(campaign.getSafeListFor(ListKey.FILE_LST_EXCLUDE));
-			raceFileList.addAll(campaign.getSafeListFor(ListKey.FILE_RACE));
-			classFileList.addAll(campaign.getSafeListFor(ListKey.FILE_CLASS));
-			companionmodFileList.addAll(campaign.getSafeListFor(ListKey.FILE_COMPANION_MOD));
-			skillFileList.addAll(campaign.getSafeListFor(ListKey.FILE_SKILL));
-			abilityCategoryFileList.addAll(campaign.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
-			abilityFileList.addAll(campaign.getSafeListFor(ListKey.FILE_ABILITY));
-			featFileList.addAll(campaign.getSafeListFor(ListKey.FILE_FEAT));
-			deityFileList.addAll(campaign.getSafeListFor(ListKey.FILE_DEITY));
-			domainFileList.addAll(campaign.getSafeListFor(ListKey.FILE_DOMAIN));
-			weaponProfFileList.addAll(campaign.getSafeListFor(ListKey.FILE_WEAPON_PROF));
-			armorProfFileList.addAll(campaign.getSafeListFor(ListKey.FILE_ARMOR_PROF));
-			shieldProfFileList.addAll(campaign.getSafeListFor(ListKey.FILE_SHIELD_PROF));
-			equipmentFileList.addAll(campaign.getSafeListFor(ListKey.FILE_EQUIP));
-			spellFileList.addAll(campaign.getSafeListFor(ListKey.FILE_SPELL));
-			languageFileList.addAll(campaign.getSafeListFor(ListKey.FILE_LANGUAGE));
-			templateFileList.addAll(campaign.getSafeListFor(ListKey.FILE_TEMPLATE));
-			equipmodFileList.addAll(campaign.getSafeListFor(ListKey.FILE_EQUIP_MOD));
-			kitFileList.addAll(campaign.getSafeListFor(ListKey.FILE_KIT));
-			bioSetFileList.addAll(campaign.getSafeListFor(ListKey.FILE_BIO_SET));
+			addQualifiedSources(lstExcludeFiles, campaign.getSafeListFor(ListKey.FILE_LST_EXCLUDE));
+			addQualifiedSources(raceFileList, campaign.getSafeListFor(ListKey.FILE_RACE));
+			addQualifiedSources(classFileList, campaign.getSafeListFor(ListKey.FILE_CLASS));
+			addQualifiedSources(companionmodFileList, campaign.getSafeListFor(ListKey.FILE_COMPANION_MOD));
+			addQualifiedSources(skillFileList, campaign.getSafeListFor(ListKey.FILE_SKILL));
+			addQualifiedSources(abilityCategoryFileList, campaign.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
+			addQualifiedSources(abilityFileList, campaign.getSafeListFor(ListKey.FILE_ABILITY));
+			addQualifiedSources(featFileList, campaign.getSafeListFor(ListKey.FILE_FEAT));
+			addQualifiedSources(deityFileList, campaign.getSafeListFor(ListKey.FILE_DEITY));
+			addQualifiedSources(domainFileList, campaign.getSafeListFor(ListKey.FILE_DOMAIN));
+			addQualifiedSources(weaponProfFileList, campaign.getSafeListFor(ListKey.FILE_WEAPON_PROF));
+			addQualifiedSources(armorProfFileList, campaign.getSafeListFor(ListKey.FILE_ARMOR_PROF));
+			addQualifiedSources(shieldProfFileList, campaign.getSafeListFor(ListKey.FILE_SHIELD_PROF));
+			addQualifiedSources(equipmentFileList, campaign.getSafeListFor(ListKey.FILE_EQUIP));
+			addQualifiedSources(spellFileList, campaign.getSafeListFor(ListKey.FILE_SPELL));
+			addQualifiedSources(languageFileList, campaign.getSafeListFor(ListKey.FILE_LANGUAGE));
+			addQualifiedSources(templateFileList, campaign.getSafeListFor(ListKey.FILE_TEMPLATE));
+			addQualifiedSources(equipmodFileList, campaign.getSafeListFor(ListKey.FILE_EQUIP_MOD));
+			addQualifiedSources(kitFileList, campaign.getSafeListFor(ListKey.FILE_KIT));
+			addQualifiedSources(bioSetFileList, campaign.getSafeListFor(ListKey.FILE_BIO_SET));
 			loadedSet.add(campaign);
 
 			if (PCGenSettings.OPTIONS_CONTEXT.initBoolean(
@@ -1019,6 +1021,31 @@ public class SourceFileLoader extends PCGenTask implements Observer
 //			SettingsHandler.getOptionsFromProperties(currentPC);
 //		}
 		return loadedSet;
+	}
+
+	/**
+	 * Add only those source files that either have no requirements, or 
+	 * that the requirements are satisfied.
+	 * 
+	 * @param targetList The list being populated.
+	 * @param sources The list of potential sources to be added.
+	 */
+	private void addQualifiedSources(List<CampaignSourceEntry> targetList,
+		List<CampaignSourceEntry> sources)
+	{
+		for (CampaignSourceEntry cse : sources)
+		{
+			List<Prerequisite> prerequisites = cse.getPrerequisites();
+			if (prerequisites.isEmpty())
+				{
+					targetList.add(cse);
+				}
+			else if (prerequisites.isEmpty()
+				|| PrereqHandler.passesAll(prerequisites, null, cse))
+			{
+				targetList.add(cse);
+			}
+		}
 	}
 
 	/**

@@ -8,43 +8,43 @@ SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products
 #------light---------
 # Equipment Name		Required Armor Proficiency			Type						Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Source, Long Desc.		Source, Short Desc.	Source Page		% of Spell Failure	Combat bonus
 Padded.MOD																COST:5	WT:10											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.14
-Haramaki			PROFICIENCY:ARMOR|Haramaki			TYPE:Armor.Suit.Standard.Light	COST:3	WT:1		ACCHECK:0		EQMOD:STEEL														SOURCEPAGE:p.11	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
+Haramaki.MOD			COST:3	WT:1		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.11
 Quilted Cloth.MOD															COST:100	WT:15											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.13
-Silken Ceremonial Armor	PROFICIENCY:ARMOR|Silken Ceremonial		TYPE:Armor.Suit.Standard.Light	COST:30	WT:4		ACCHECK:0		EQMOD:CLOTH														SOURCEPAGE:p.14	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor
-Lamellar Cuirass		PROFICIENCY:ARMOR|Lamellar Cuirass		TYPE:Armor.Suit.Standard.Light	COST:15	WT:8		ACCHECK:0		EQMOD:LEATHER	MAXDEX:4											SOURCEPAGE:p.12	SPELLFAILURE:5		BONUS:COMBAT|AC|2|TYPE=Armor
+Silken Ceremonial Armor.MOD	COST:30	WT:4		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.14
+Lamellar Cuirass.MOD		COST:15	WT:8		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.12
 Leather.MOD																COST:10	WT:15											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.10
-Parade			PROFICIENCY:ARMOR|Parade			TYPE:Armor.Suit.Standard.Light	COST:25	WT:20		ACCHECK:-1		EQMOD:LEATHER	MAXDEX:5											SOURCEPAGE:p.13	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor
+Parade			PROFICIENCY:ARMOR|Parade			TYPE:Armor.Suit.Standard.Light	COST:25	WT:20		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.13
 Studded Leather.MOD														COST:25	WT:20											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.14
 Wooden.MOD																COST:20	WT:25											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.14
 Chain Shirt.MOD															COST:100	WT:25											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.10
-Lamellar (Leather)	PROFICIENCY:ARMOR|Lamellar (Leather)	TYPE:Armor.Suit.Standard.Light	COST:60	WT:25		ACCHECK:-2		EQMOD:LEATHER	MAXDEX:3											SOURCEPAGE:p.12	SPELLFAILURE:20		BONUS:COMBAT|AC|4|TYPE=Armor
+Lamellar (Leather).MOD	COST:60	WT:25		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.12
 
 #------medium--------
 Armored Coat.MOD															COST:50	WT:20											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.10
 Hide.MOD																COST:15	WT:25											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.11
-Do-Maru			PROFICIENCY:ARMOR|Do-Maru			TYPE:Armor.Suit.Standard.Medium	COST:200	WT:30		ACCHECK:-4		EQMOD:LEATHER	MAXDEX:4											SOURCEPAGE:p.11	SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
-Kikko				PROFICIENCY:ARMOR|Kikko				TYPE:Armor.Suit.Standard.Medium	COST:30	WT:25		ACCHECK:-3		EQMOD:STEEL		MAXDEX:4											SOURCEPAGE:p.11	SPELLFAILURE:20		BONUS:COMBAT|AC|5|TYPE=Armor
-Lamellar (Horn)		PROFICIENCY:ARMOR|Lamellar (Horn)		TYPE:Armor.Suit.Standard.Medium	COST:100	WT:30		ACCHECK:-4		EQMOD:BONE		MAXDEX:3											SOURCEPAGE:p.12	SPELLFAILURE:25		BONUS:COMBAT|AC|5|TYPE=Armor
+Do-maru.MOD			COST:200	WT:30		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.11
+Kikko Armor.MOD		COST:30	WT:25		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.11
+Lamellar (Horn).MOD		COST:100	WT:30		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.12
 Scale Mail.MOD															COST:50	WT:30											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.14
 Agile Breastplate.MOD														COST:400	WT:25											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.10
 Breastplate.MOD															COST:200	WT:30											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.10
 Chainmail.MOD															COST:150	WT:40											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.10
-Four-Mirror			PROFICIENCY:ARMOR|Four-Mirror			TYPE:Armor.Suit.Standard.Medium	COST:45	WT:45		ACCHECK:-5		EQMOD:STEEL		MAXDEX:2											SOURCEPAGE:p.11	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
-Lamellar (Steel)		PROFICIENCY:ARMOR|Lamellar (Steel)		TYPE:Armor.Suit.Standard.Medium	COST:150	WT:35		ACCHECK:-5		EQMOD:STEEL		MAXDEX:3											SOURCEPAGE:p.12	SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor
-Mountain Pattern		PROFICIENCY:ARMOR|Mountain Pattern		TYPE:Armor.Suit.Standard.Medium	COST:250	WT:40		ACCHECK:-4		EQMOD:STEEL		MAXDEX:3											SOURCEPAGE:p.13	SPELLFAILURE:30		BONUS:COMBAT|AC|6|TYPE=Armor
+Four-mirror Armor.MOD		COST:45	WT:45		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.11
+Lamellar (Steel).MOD		COST:150	WT:35		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.12
+Mountain Pattern Armor.MOD	COST:250	WT:40		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.13
 
 #------heavy---------
 Banded Mail.MOD															COST:250	WT:35											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.10
-Kusari Gusoku		PROFICIENCY:ARMOR|Kusari Gusoku		TYPE:Armor.Suit.Standard.Heavy	COST:350	WT:45		ACCHECK:-7		EQMOD:STEEL		MAXDEX:1											SOURCEPAGE:p.12	SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor
-Lamellar (Iron)		PROFICIENCY:ARMOR|Lamellar (Iron)		TYPE:Armor.Suit.Standard.Heavy	COST:200	WT:50		ACCHECK:-7		EQMOD:STEEL		MAXDEX:0											SOURCEPAGE:p.12	SPELLFAILURE:40		BONUS:COMBAT|AC|7|TYPE=Armor
-Splint Mail.MOD		PROFICIENCY:ARMOR|Splint Mail									COST:200	WT:45											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.14
-Tatami-Do			PROFICIENCY:ARMOR|Tatami-Do			TYPE:Armor.Suit.Standard.Heavy	COST:1000	WT:45		ACCHECK:-6		EQMOD:STEEL		MAXDEX:3											SOURCEPAGE:p.14	SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor
+Kusari Gusoku.MOD		COST:350	WT:45		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE			SOURCEPAGE:p.12
+Lamellar (Iron).MOD		COST:200	WT:50		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE			SOURCEPAGE:p.12
+Splint Mail.MOD		COST:200	WT:45											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.14
+Tatami-do.MOD	COST:1000	WT:45											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE			SOURCEPAGE:p.14
 Agile Half-Plate.MOD														COST:850	WT:55											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.10
 Half-Plate.MOD															COST:600	WT:50											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.11
 Lamellar (Stone)		PROFICIENCY:ARMOR|Lamellar (Stone)		TYPE:Armor.Suit.Standard.Heavy	COST:500	WT:45		ACCHECK:-7					MAXDEX:0											SOURCEPAGE:p.12	SPELLFAILURE:40		BONUS:COMBAT|AC|8|TYPE=Armor
-O-Yoroi			PROFICIENCY:ARMOR|O-Yoroi			TYPE:Armor.Suit.Standard.Heavy	COST:1700	WT:45		ACCHECK:-6		EQMOD:STEEL		MAXDEX:2											SOURCEPAGE:p.13	SPELLFAILURE:35		BONUS:COMBAT|AC|8|TYPE=Armor
+O-yoroi.MOD			COST:1700	WT:45		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE			SOURCEPAGE:p.13
 Full Plate.MOD															COST:1500	WT:50											SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.11
-Stoneplate			PROFICIENCY:ARMOR|Stoneplate			TYPE:Armor.Heavy.Suit.Standard	COST:1800	WT:75		ACCHECK:-6		EQMOD:STONE		MAXDEX:1											SOURCEPAGE:p.14	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor
+Stoneplate.MOD		COST:1800	WT:75		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE			SOURCEPAGE:p.14
 
 
 ###Block: Shields

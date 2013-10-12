@@ -32,6 +32,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.lang.UnreachableError;
@@ -39,7 +40,11 @@ import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Campaign;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
+import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
+import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 
@@ -65,6 +70,7 @@ public class CampaignSourceEntry implements SourceEntry
 	private Campaign campaign = null;
 	private List<String> excludeItems = new ArrayList<String>();
 	private List<String> includeItems = new ArrayList<String>();
+	private List<Prerequisite> prerequisites = new ArrayList<Prerequisite>();
 	private URI uri = null;
 	private URI writeURI = null;
 	private URIFactory uriFac = null;
@@ -442,60 +448,189 @@ public class CampaignSourceEntry implements SourceEntry
 			// Get the include/exclude item string
 			String inExString = value.substring(pipePos + 1);
 			
-			if (inExString.startsWith("("))
+			
+			List<String> tagList = parseSuffix(inExString, sourceUri, value);
+			for (String tagString : tagList)
 			{
-				// assume matching parens
-				inExString = inExString.substring(1, inExString.length() - 1);
-			}
-			else
-			{
-				Logging
-						.errorPrint("Found Suffix in Campaign Source without parenthesis: "
-								+ "Parens required around INCLUDE/EXCLUDE");
-				Logging.errorPrint("Found: '" + inExString + "' in " + value);
-				return null;
-			}
-
-			// Check for surrounding parens
-			while (inExString.startsWith("("))
-			{
-				Logging
-						.errorPrint("Found Suffix in Campaign Source with multiple parenthesis: "
-								+ "Single set of parens required around INCLUDE/EXCLUDE");
-				Logging.errorPrint("Found: '" + value.substring(pipePos + 1)
-						+ "' in " + value);
-				return null;
-			}
-
-			// Update the include or exclude items list, as appropriate
-			if (inExString.startsWith("INCLUDE:"))
-			{
-				List<String> splitIncExc = cse.splitInExString(inExString);
-				if (splitIncExc == null)
+				// Check for surrounding parens
+				if (tagString.startsWith("(("))
 				{
-					//Error
+					Logging
+							.errorPrint("Found Suffix in Campaign Source with multiple parenthesis: "
+									+ "Single set of parens required around INCLUDE/EXCLUDE");
+					Logging.errorPrint("Found: '" + tagString
+							+ "' in " + value);
 					return null;
 				}
-				cse.includeItems = splitIncExc;
-			}
-			else if (inExString.startsWith("EXCLUDE:"))
-			{
-				List<String> splitIncExc = cse.splitInExString(inExString);
-				if (splitIncExc == null)
+
+				// Update the include or exclude items list, as appropriate
+				if (tagString.startsWith("(INCLUDE:"))
 				{
-					//Error
+					// assume matching parens
+					tagString = inExString.substring(1, tagString.length() - 1);
+					List<String> splitIncExc = cse.splitInExString(tagString);
+					if (splitIncExc == null)
+					{
+						//Error
+						return null;
+					}
+					cse.includeItems = splitIncExc;
+				}
+				else if (tagString.startsWith("(EXCLUDE:"))
+				{
+					// assume matching parens
+					tagString = inExString.substring(1, tagString.length() - 1);
+					List<String> splitIncExc = cse.splitInExString(tagString);
+					if (splitIncExc == null)
+					{
+						//Error
+						return null;
+					}
+					cse.excludeItems = splitIncExc;
+				}
+				else if (PreParserFactory.isPreReqString(tagString))
+				{
+					Prerequisite prereq;
+					try
+					{
+						prereq = PreParserFactory.getInstance().parse(tagString);
+					}
+					catch (PersistenceLayerException e)
+					{
+						Logging.errorPrint(
+							"Error Initializing PreParserFactory.", e);
+						return null;
+					}
+					if (prereq == null)
+					{
+						Logging
+							.errorPrint("Found invalid prerequisite in Campaign Source: '"
+								+ tagString + "' in " + value);
+						return null;
+					}
+					cse.prerequisites.add(prereq);
+				}
+				else
+				{
+					Logging.errorPrint("Invalid Suffix: " + inExString
+						+ " on Campaign Source: '" + value + "' in " + sourceUri);
 					return null;
 				}
-				cse.excludeItems = splitIncExc;
 			}
-			else
-			{
-				Logging.errorPrint("Invalid Suffix: " + inExString
-					+ " on Campaign Source: '" + value + "' in " + sourceUri);
-				return null;
-			}
+			validatePrereqs(cse.getPrerequisites(), sourceUri);
 		}
 		return cse;
+	}
+
+	/**
+	 * Convert a string occurring after the first | into a list of tokens. We 
+	 * expect INCLUDE or EXCLUSE in brackets (as these can contain |) 
+	 * and PREreqs.
+	 * 
+	 * @param suffix  The string to be parsed, should only be the suffix
+	 * @param sourceUri The source we can use to report errors against.
+	 * @param value The full value we can use to report errors against.
+	 * @return A list of the discrete tags that were specified, null if there 
+	 * was an error reported to the log. 
+	 */
+	static List<String> parseSuffix(String suffix, URI sourceUri,
+		String value)
+	{
+		List<String> tagList = new ArrayList<String>();
+		String currentTag = "";
+		int bracketLevel = 0;
+
+		StringTokenizer tokenizer =
+				new StringTokenizer(suffix, "|()", true);
+		while (tokenizer.hasMoreTokens())
+		{
+			String token = tokenizer.nextToken();
+			if (token.equals("("))
+			{
+				currentTag += token;
+				bracketLevel++;
+
+			}
+			else if (token.equals(")"))
+			{
+				if (bracketLevel > 0)
+				{
+					bracketLevel--;
+				}
+				currentTag += token;
+				if (bracketLevel == 0)
+				{
+					tagList.add(currentTag);
+					currentTag = "";
+				}
+		}
+			else if (token.equals("|"))
+			{
+				if (bracketLevel > 0)
+				{
+					currentTag += token;
+				}
+			}
+			else if (bracketLevel > 0)
+			{
+				currentTag += token;
+			}
+			else
+			{
+				tagList.add(token);
+			}
+		}
+
+		// Check for a bracket mismatch
+		if (bracketLevel > 0)
+		{
+			Logging
+				.errorPrint("Found Suffix in Campaign Source with missing closing parenthesis: "
+					+ suffix
+					+ " on Campaign Source: '"
+					+ value
+					+ "' in "
+					+ sourceUri);
+			return null;
+		}
+		return tagList;
+	}
+
+	/**
+	 * Check that all prerequisites specified in the PCC file are 
+	 * supported. Any unsupported prereqs will be reported as LST 
+	 * errors. This is a recursive function allowing it to 
+	 * check nested prereqs.
+	 * 
+	 * @param prereqList The prerequisites to be checked.
+	 */
+	private static void validatePrereqs(List<Prerequisite> prereqList, URI sourceUri)
+	{
+		if (prereqList == null || prereqList.isEmpty())
+		{
+			return;
+		}
+		
+		for (Prerequisite prereq : prereqList)
+		{
+			if (prereq.isCharacterRequired())
+			{
+				final PrerequisiteWriter prereqWriter =
+						new PrerequisiteWriter();
+				ArrayList<Prerequisite> displayList = new ArrayList<Prerequisite>();
+				displayList.add(prereq);
+				String lstString =
+						prereqWriter.getPrerequisiteString(displayList,
+							Constants.TAB);
+				Logging.log(Logging.LST_ERROR, "Prereq " + prereq.getKind()
+					+ " is not supported in PCC files. Prereq was " + lstString
+					+ " in " + sourceUri + ". Prereq will be ignored.");
+			}
+			else
+			{
+				validatePrereqs(prereq.getPrerequisites(), sourceUri);
+			}
+		}
 	}
 
 	public URI getWriteURI()
@@ -638,5 +773,10 @@ public class CampaignSourceEntry implements SourceEntry
 		}
 		return new CampaignSourceEntry(campaign, new URIFactory(uriFac.u,
 				fileName));
+	}
+
+	public List<Prerequisite> getPrerequisites()
+	{
+		return prerequisites;
 	}
 }
