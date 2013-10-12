@@ -8,6 +8,6 @@ TYPE:Pathfinder
 SKILL:skills_conditional.lst
 SPELL:spells.lst
 ARMORPROF:profs_armor.lst
-
+WEAPONPROF:profs_weapon.lst
 LANGUAGE:languages.lst
 
