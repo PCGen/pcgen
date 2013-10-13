@@ -433,15 +433,16 @@
 		<li>This tag will lock or unlock the value of an ability score.
 			<ul>
 				<li>Using <code>LOCK</code> will lock the designated ability score (y) to the value (z) regardless of 
-					any other bonuses to that ability score.</li>
+					any other bonuses to that ability score except for those applied by the <a href="./globalfilesbonus.html#LOCKEDSTAT">BONUS:LOCKEDSTAT</a> tag.</li>
 				<li>Using <code>UNLOCK</code> will unlock the designated ability score (y) that has previously been locked.</li>
-				<li>the <code>UNLOCK</code> sub-tag will not affect an ability score that has been designated as a &quot;nonstat&quot;. (see <code>NONSTAT</code> below).</li>
+				<li>The <code>UNLOCK</code> sub-tag will not affect an ability score that has been designated as a &quot;nonstat&quot;. (see <code>NONSTAT</code> below).</li>
 			</ul>
 		</li>
 		<li>This tag will also change an ability score from a stat to a nonstat.
 			<ul>
 				<li>Ability scores are by default designated as &quot;stats&quot; when initialized during character creation.</li>
-				<li>Using <code>NONSTAT</code> will change an ability score to a non-stat, causing it to be shown as an asterisk (*) on output sheets.</li>
+				<li>Using <code>NONSTAT</code> will change an ability score to a non-stat, causing it to be shown as 
+					an asterisk (*) on output sheets and prohibiting any bonuses from being applied.</li>
 				<li>Using <code>STAT</code> will change an ability score that has been previously designated as a nonstat back to a stat 
 					without affecting its locked/unlocked state.</li>
 			</ul>
