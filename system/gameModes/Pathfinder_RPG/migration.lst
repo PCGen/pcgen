@@ -44,4 +44,4 @@ ABILITY:Special Ability|Unexpected Strike		NEWKEY:Unexpected Strike ~ Rage Power
 # Ultimate Combat 
 EQUIPMENT:Bukler Gun	NEWKEY:Buckler Gun		MAXVER:6.0.02	MAXDEVVER:6.1.4
 
-CAMPAIGN:Paizo - Guide To Pathfinder Society Organised Play 4.0	NEWKEY:Guide To Pathfinder Society Organised Play	MAXVER:6.2.0 MAXDEVVER:6.1.7
+SOURCE:Paizo - Guide To Pathfinder Society Organised Play 4.0	NEWKEY:Guide To Pathfinder Society Organised Play	MAXVER:6.2.0 MAXDEVVER:6.1.7
