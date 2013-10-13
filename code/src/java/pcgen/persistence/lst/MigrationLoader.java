@@ -192,7 +192,7 @@ public class MigrationLoader extends LstLineFileLoader
 		}
 		catch (IllegalArgumentException e)
 		{
-			Logging.errorPrint("Unkwown object type for migration rule '" + lstLine + "' in "
+			Logging.errorPrint("Unknown object type for migration rule '" + lstLine + "' in "
 					+ sourceURI.toString());
 			return null;
 		}
