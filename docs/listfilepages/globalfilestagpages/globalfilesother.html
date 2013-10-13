@@ -384,7 +384,8 @@
 
 <hr>
 
-	<p class="indent0"><strong><a name="DEFINELOCK">Tag Name:</a></strong> DEFINE:LOCK.x|y</p>
+	<p class="lstdep"><a name="DEFINELOCK">*** deprecated 6.01.03 - Remove for 6.4</a> - Use <a href="#DEFINESTAT">DEFINESTAT</a></p>
+	<p class="indent0"><strong>Tag Name:</a></strong> DEFINE:LOCK.x|y</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Ability Score (STR, DEX, CON, INT, CHA, WIS or
 		other stat defined in the gameMode)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Value stat is to be locked to)</p>
@@ -395,11 +396,13 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DEFINE:LOCK.CON|10</code></p>
 	<p class="indent3">Constitution is set to 10 and an asterisk is output.</p>
+	<p class="indent1"><strong>Example Conversion to DEFINESTAT tag:</strong></p>
+	<p class="indent2"><code>DEFINE:LOCK.CON|10</code> becomes <code>DEFINESTAT:LOCK|CON|10</code></p>
 	<p></p>
 
 <hr>
 
-	<p class="lststatus"><a name="DEFINEUNLOCK">*** New 5.13.6</a></p>
+	<p class="lstdep"><a name="DEFINEUNLOCK">*** deprecated 6.01.03 - Remove for 6.4</a> - Use <a href="#DEFINESTAT">DEFINESTAT</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> DEFINE:UNLOCK.x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Ability Score (STR, DEX, CON, INT, CHA, WIS or
 		other stat defined in the gameMode)</p>
@@ -409,6 +412,56 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>DEFINE:UNLOCK.CON</code></p>
 	<p class="indent3">Constitution is unlocked.</p>
+	<p class="indent1"><strong>Example Conversion to DEFINESTAT tag:</strong></p>
+	<p class="indent2"><code>DEFINE:UNLOCK.CON</code> becomes <code>DEFINESTAT:UNLOCK|CON</code></p>
+	<p></p>
+
+<hr>
+
+	<p class="lstnew"><a name="DEFINESTAT">*** New 6.01.03</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> DEFINESTAT:x|y|z</p>
+	<p class="indent1"><strong>Variables Used (x): </strong>LOCK</p>
+	<p class="indent1"><strong>Variables Used (x): </strong>UNLOCK</p>
+	<p class="indent1"><strong>Variables Used (x): </strong>NONSTAT</p>
+	<p class="indent1"><strong>Variables Used (x): </strong>STAT</p>
+	<p class="indent1"><strong>Variables Used (x): </strong>MINVALUE</p>
+	<p class="indent1"><strong>Variables Used (x): </strong>MAXVALUE</p>
+	<p class="indent1"><strong>Variables Used (y): </strong>Text (Stat defined in loaded gameMode)</p>
+	<p class="indent1"><strong>Variables Used (z): </strong>Number or Formula</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This tag will lock or unlock the value of an ability score.
+			<ul>
+				<li>Using <code>LOCK</code> will lock the designated ability score (y) to the value (z) regardless of 
+					any other bonuses to that ability score.</li>
+				<li>Using <code>UNLOCK</code> will unlock the designated ability score (y) that has previously been locked.</li>
+				<li>the <code>UNLOCK</code> sub-tag will not affect an ability score that has been designated as a &quot;nonstat&quot;. (see <code>NONSTAT</code> below).</li>
+			</ul>
+		</li>
+		<li>This tag will also change an ability score from a stat to a nonstat.
+			<ul>
+				<li>Ability scores are by default designated as &quot;stats&quot; when initialized during character creation.</li>
+				<li>Using <code>NONSTAT</code> will change an ability score to a non-stat, causing it to be shown as an asterisk (*) on output sheets.</li>
+				<li>Using <code>STAT</code> will change an ability score that has been previously designated as a nonstat back to a stat 
+					without affecting its locked/unlocked state.</li>
+			</ul>
+		</li>
+		<li>Using <code>MINVALUE</code> defines the minimum value (z) for the designated ability score (y).</li>
+		<li>Using <code>MAXVALUE</code> defines the maximum value (z) for the designated ability score (y).</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>DEFINESTAT:LOCK|INT|10</code></p>
+	<p class="indent3">Locks the stat &quot;Intelligence&quot; to 10.</p>
+	<p class="indent2"><code>DEFINESTAT:UNLOCK|INT</code></p>
+	<p class="indent3">Unlocks previously locked stat &quot;Intelligence&quot;.</p>
+	<p class="indent2"><code>DEFINESTAT:NONSTAT|INT</code></p>
+	<p class="indent3">Changes the ability score &quot;Intelligence&quot; to a non-stat, causing it to appear on the output sheet as an asterisk.</p>
+	<p class="indent2"><code>DEFINESTAT:STAT|INT</code></p>
+	<p class="indent3">Changes the ability score &quot;Intelligence&quot; that has been previously changed to a non-stat back to a normal stat.</p>
+	<p class="indent2"><code>DEFINESTAT:MINVALUE|INT|3</code></p>
+	<p class="indent3">The creature cannot have an &quot;Intelligence&quot; less than 3.</p>
+	<p class="indent2"><code>DEFINESTAT:MAXVALUE|INT|10</code></p>
+	<p class="indent3">The creature cannot have an &quot;Intelligence&quot; more than 10.</p>
 	<p></p>
 
 <hr>
