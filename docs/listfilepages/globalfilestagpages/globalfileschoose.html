@@ -204,6 +204,7 @@
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:CLASS|x|y|y[x]|y[x,x]|x,y,y[x],y[x,x]</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Class name or key)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> FEAT=Text (Feat, by name or key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> SPELLTYPE=Text (Spell type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> SPELLCASTER</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Class type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited ability type)</p>
@@ -216,6 +217,7 @@
 		<li>Will present a list of classes that matche the stipulated criteria.</li>
 		<li>Using the <code>FEAT=Text</code> sub-tag will provide a list of classes chosen by the referenced feat. The feat 
 			referenced must contain a <code>CHOOSE:CLASS</code> tag.</li>
+		<li>Using the <code>SPELLTYPE=Text</code> sub-tag will provide a list of classes that cast spells of the designated type.</li>
 		<li>Using the <code>SPELLCASTER</code> sub-tag will provide a list of classes that can cast spells.</li>
 		<li>Global qualifiers work with abilities. Use of the qualifiers has the following effect:
 			<ul>
