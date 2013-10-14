@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<!--
+		PCGen Documentation Project
+
+		Contributors:
+		Eric C Smith - mareduddATblackrootDOTorg
+
+
+		Description:
+		Provides information on the use of PCGen Game Mode:Migration List.
+	-->
+	<head>
+		<title>Game Mode:Character Migration List</title>
+		<link rel="stylesheet" type="text/css" href="../../pcgen.css">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+
+	<body>
+		<h1>Game Mode: migration.lst</h1>
+
+		<p class="indent0">This file contains information on how to build a <span class="lstfile">migration.lst</span> file, 
+			but before we get to how you build such a file, lets us first answer a few questions on the migration 
+			file in general.</p>
+
+		<h2>What the Character Migration File Does</h2>
+		
+		<p class="indent0">The character migration tool works behind the scenes to smoothly load characters from older versions 
+			of PCGen into the current version. The file's primary purpose is to allow a character to be automatically 
+			updated to reflect changes in the relevant data sets.</p>
+		
+<hr>
+
+		<h2>Building a Character Migration File</h2>
+		
+		<p class="indent0">TBD</p>
+		
+<hr>
+
+		<h2>Migration File Tags</h2>
+		
+		<p class="indent0">The tags used in the <span class="">migration.lst</span> file consist of two sets of tags.</p>
+
+		<p class="indent1"><a href="#VERSION">Version Identification Tags</a></p>
+		<p class="indent1"><a href="#OBJECT">Source and Object Migration Line Tags</a></p>
+
+<hr>
+
+		<h3><a name="VERSION">Version Identification Tags</a></h3>
+		
+		<p class="indent0">The following tags identify the minimum and maximum versions for both the stable and developmental, 
+			of PCGen supported by the associated migration line.</p>
+		<p></p>
+
+<hr>
+
+		<a name="MINVER"></a>
+		<p class="indent0"><strong>Tag Name:</strong> MINVER:x</p>
+		<p class="indent1"><strong>Variables Used (x): </strong>Text (Version number)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Specifies the production version of PCGen that the associated lst object was first coded in the 
+				old format.</li>
+			<li>Must be earlier than MAXVER.</li>
+			<li>This tag is optional.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>MINVER:6.0.0</code></p>
+		<p class="indent3">The associated lst object was coded for PCGen production version 6.0.0 or later.</p>
+		<p></p>
+
+<hr>
+
+		<a name="MAXVER"></a>
+		<p class="indent0"><strong>Tag Name: </strong>MAXVER:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Version number)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent3">
+			<li>Specifies the production version of PCGen when the associated lst object was last coded in the old format.</li>
+			<li>This tag is mandatory.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>MAXVER:6.0.1</code></p>
+		<p class="indent2">The associated lst object was coded for PCGen production version 6.0.1 or earlier.</p>
+		<p></p>
+
+<hr>
+		<a name="MINDEVVER"></a>
+		<p class="indent0"><strong>Tag Name:</strong> MINDEVVER:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Version number)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Specifies the developmental version of PCGen (e.g. alpha, beta) when the associated lst object was 
+				first coded in the old format.</li>
+			<li>Must be later than MINVER, which must also be present.</li>
+			<li>This tag is optional.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>MINDEVVER:6.01.01</code></p>
+		<p class="indent3">The associated lst object was coded for PCGen developmental version 6.01.01 or later.</p>
+		<p></p>
+
+<hr>
+		<a name="MAXDEVVER"></a>
+		<p class="indent0"><strong>Tag Name:</strong> MAXDEVVER:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Version number)</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<ul class="indent2">
+			<li>Specifies the developmental version of PCGen (e.g. alpha, beta) when the associated lst object was 
+				last coded in the old format.</li>
+			<li>This tag is mandatory.</li>
+		</ul>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>MAXDEVVER:6.01.07</code></p>
+		<p class="indent3">The associated lst object was coded for PCGen developmental version 6.01.07 or earlier.</p>
+		<p></p>
+
+<hr>
+
+		<h3><a name="OBJECT">Source and Object Migration Line Tags</a></h3>
+
+<hr>
+<!--
+		<p class="lstnew"><a name="ACTYPE">*** New 6.01.03</a></p>
+		<p class="indent0"><strong>Tag Name:</strong> ACTYPE:x</p>
+		<p class="indent1"><strong>Variables Used (x):</strong> Text (Name of the Armor Class Type being defined by the line).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">ACTYPE begins a new line will which defines which AC will be made available to output sheets, and how to calculate this AC.</p>
+		<p class="indent2">A line beginning with ACTYPE will include an <a href="#ADD">ADD</a> tag and may also include a <a href="#REMOVE">REMOVE</a> tag.</p>
+		<p class="indent1"><strong>Syntax:</strong></p>
+		<p class="indent2"><code>ACTYPE:Name       ADD:List       Remove:List</code></p>
+		<p class="indent1"><strong>Example:</strong></p>
+		<p class="indent2"><code>ACTYPE:Total	ADD:TOTAL</code></p>
+		<p class="indent3">Defines the ACTYPE Total as the Total AC bonuses</p>
+		<p class="indent2"><code>ACTYPE:Touch		ADD:TOTAL		REMOVE:Armor|NaturalArmor|Shield</code></p>
+		<p class="indent3">Defines the ACTYPE Touch as the Total AC minus Armor, NaturalArmor and Shield bonuses</p>
+		<p></p>
+
+<hr>
+-->
+		<p></p>
+
+<hr>
+
+		<p><a href="http://validator.w3.org/check?uri=referer"><img
+			src="../../images/system/valid-html401.png"
+			alt="Valid HTML 4.01 Strict" height="31" width="88"></a>
+		</p>
+	</body>
+</html>
