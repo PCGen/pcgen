@@ -775,6 +775,7 @@
 	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:SPELLLEVEL|w|x|y|z|x|y|z</p>
 	<p class="indent1"><strong>Variables Used (w):</strong> TITLE=Text (Chooser title. Optional)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Spellcaster class)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> CLASS=Text (Spellcaster class)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> SPELLTYPE=Text (Spell type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Class type)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Class type)</p>
@@ -785,7 +786,8 @@
 	<ul class="indent2">
 		<li>Display a list of a character's spell levels for the specified class or type.</li>
 		<li><code>TITLE</code> provides a descriptive title for the chooser.</li>
-		<li><code>SPELLTYPE</code> will include spell levels of the designated spell type.</li>
+		<li><code>CLASS=Text</code> will include spell levels of the designated classe.</li>
+		<li><code>SPELLTYPE=Text</code> will include spell levels of the designated spell type.</li>
 		<li><code>TYPE</code> will include, or exclude in the case of <code>!TYPE</code>, spell levels of the designated spell type.</li>
 		<li>Levels will only be included if they fall between the range of minimum Level (y) and maximum Level (z), inclusive.</li>
 		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
