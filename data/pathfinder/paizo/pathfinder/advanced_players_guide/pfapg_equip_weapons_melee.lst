@@ -25,7 +25,7 @@ Sword Cane									PROFICIENCY:WEAPON|Sword Cane			TYPE:Weapon.Melee.OneHanded.M
 Bardiche									PROFICIENCY:WEAPON|Bardiche			TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Slashing.Polearm			COST:13	WT:14		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d10					EQMOD:BRACE.WOOD		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
 Bec de Corbin								PROFICIENCY:WEAPON|Bec de corbin		TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Bludgeoning.Piercing.Polearm	COST:15	WT:12		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10					EQMOD:BRACE.WOOD		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
 Bill										PROFICIENCY:WEAPON|Bill				TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Slashing.Polearm			COST:11	WT:11		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d8					EQMOD:BRACE.DISARM.WOOD	WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
-Glaive-Guisarme								PROFICIENCY:WEAPON|Glaive-Guisarme		TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Slashing.Polearm			COST:12	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10					EQMOD:BRACE.WOOD		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
+Glaive-Guisarme								PROFICIENCY:WEAPON|Glaive-Guisarme		TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Slashing.Polearm			COST:12	WT:10		CRITMULT:x3			CRITRANGE:1			DAMAGE:1d10					EQMOD:BRACE.WOOD		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177	REACHMULT:2
 Lucern Hammer								PROFICIENCY:WEAPON|Lucern Hammer		TYPE:Weapon.Melee.TwoHanded.Martial.Reach.Standard.Bludgeoning.Piercing.Polearm	COST:15	WT:12		CRITMULT:x2			CRITRANGE:1			DAMAGE:1d12					EQMOD:BRACE.WOOD		WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.177
 
 ####Block: Exotic Weapons
