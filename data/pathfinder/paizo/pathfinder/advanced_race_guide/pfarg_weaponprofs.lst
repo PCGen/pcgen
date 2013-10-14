@@ -31,5 +31,5 @@ Tailblade (Ratfolk)		TYPE:Melee.Light.RatfolkTailblade.Slashing
 # COMMENT: Tengu Terror Kite Proficiency
 Terror Kite				TYPE:TerrorKite
 
-# COMMENT: Gillmen Sea-Knife
+# COMMENT: Gillman Sea-Knife
 Sea-Knife				TYPE:Melee.Light.SeaKnife.Slashing.Piercing.Martial

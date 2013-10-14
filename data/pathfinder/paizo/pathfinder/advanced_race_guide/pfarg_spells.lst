@@ -161,9 +161,9 @@ Sow Thought		KEY:Sow Thought ~ Changeling	CLASSES:Bard,Sorcerer,Wizard,Witch=1	S
 
 ###Block: Duergar Spells
 
-###Block: Gillmen Spells
+###Block: Gillman Spells
 # Spell Name	Classes of caster						School			Type				Components		Casting Time			Range		Target Area or Effect		Duration				Save Info			Spell Resistance	Multiple Requirements											Description																																					Source Page
-Aboleth's Lung	CLASSES:Cleric,Druid,Sorcerer,Wizard,Witch=2	SCHOOL:Transmutation	TYPE:Arcane.Divine	COMPS:V, S, M/DF	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Creatures touched	DURATION:(CASTERLEVEL) hours	SAVEINFO:Will Negates	SPELLRES:Yes	PREMULT:1,[PREVAREQ:BypassAdvancedRaceSpellRestriction,1],[PRERACE:1,Gillmen%]	DESC:The targets are able to breathe water, freely. However, they can no longer breathe air. Divide the duration evenly among all the creatures you touch. This spell has no effect on creatures that can already breathe water.	SOURCEPAGE:p.189
+Aboleth's Lung	CLASSES:Cleric,Druid,Sorcerer,Wizard,Witch=2	SCHOOL:Transmutation	TYPE:Arcane.Divine	COMPS:V, S, M/DF	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:Creatures touched	DURATION:(CASTERLEVEL) hours	SAVEINFO:Will Negates	SPELLRES:Yes	PREMULT:1,[PREVAREQ:BypassAdvancedRaceSpellRestriction,1],[PRERACE:1,Gillman%]	DESC:The targets are able to breathe water, freely. However, they can no longer breathe air. Divide the duration evenly among all the creatures you touch. This spell has no effect on creatures that can already breathe water.	SOURCEPAGE:p.189
 
 ###Block: Gripplis Spells
 

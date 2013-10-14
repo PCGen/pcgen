@@ -263,7 +263,7 @@ Slippers of the Triton	TYPE:Magic.Wondrous.Boot													COST:56000	WT:1		SOU
 # Equipment Name		Type					Cost		Source Page		Special Property
 Spellscorch (Poison)	TYPE:Goods.Poison.Consumable	COST:200	SOURCEPAGE:p.187	SPROP:Injury; Fort DC 14; Freq 1 rnd (4); Cure 1 save; Effect for the next minute the target must make a Concentration check with a DC equal to 10 + spell level to cast a spell, and all other concentration checks to cast spells take a 5 penalty.
 
-###Block: Gillmen Equipment
+###Block: Gillman Equipment
 # Equipment Name	Required Weapon Proficiency	Type										Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Wield Category	Size		Source Page		Combat bonus					Special Property
 Sea-Knife		PROFICIENCY:WEAPON|Sea-Knife	TYPE:Weapon.Light.Melee.Piercing.Slashing.Exotic.Finessable	COST:8	WT:1		CRITMULT:x2			CRITRANGE:2			DAMAGE:1d4	WIELD:Light		SIZE:M	SOURCEPAGE:p.189	BONUS:COMBAT|AC|-2|TYPE=Circumstance	SPROP:The wearer cannot use a leg with a sea-knife strapped to it for walking or running. A sea-knife can be used as a light melee weapon when the wielder is swimming, f lying, or prone. This allows the wielder to use a two-handed weapon, or wield a weapon with one hand and carry a shield, and still make off-hand attacks with the sea-knife.|PRERULE:1,DisplayWeaponDetails
 
