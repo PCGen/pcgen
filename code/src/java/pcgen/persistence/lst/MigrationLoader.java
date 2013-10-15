@@ -133,7 +133,7 @@ public class MigrationLoader extends LstLineFileLoader
 				migrationRule.getMaxDevVer()) >= 0)
 		{
 			Logging
-				.errorPrint("MAXVER must be before MAXDEVVER is used. Migration rule was '"
+				.errorPrint("MAXVER must be before MAXDEVVER. Migration rule was '"
 					+ lstLine + "' in " + sourceURI.toString());
 			errorFound = true;
 		}
@@ -143,7 +143,7 @@ public class MigrationLoader extends LstLineFileLoader
 				migrationRule.getMinDevVer()) >= 0)
 		{
 			Logging
-				.errorPrint("MINVER must be before MINDEVVER is used. Migration rule was '"
+				.errorPrint("MINVER must be before MINDEVVER. Migration rule was '"
 					+ lstLine + "' in " + sourceURI.toString());
 			errorFound = true;
 		}
