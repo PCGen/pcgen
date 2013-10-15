@@ -26,7 +26,10 @@
 package pcgen.persistence.lst.prereq;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+
 import org.junit.Test;
+
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreRuleParser;
@@ -56,6 +59,7 @@ public class PreRuleParserTest extends EnUsLocaleDependentTestCase
 		assertEquals(
 			"<prereq kind=\"rule\" key=\"DISPLAYTYPETRAITS\" operator=\"GTEQ\" operand=\"1\" >\n</prereq>\n",
 			prereq.toString());
+		assertFalse("Prerule should nto need a character", prereq.isCharacterRequired());
 	}
 
 	/**
@@ -70,6 +74,7 @@ public class PreRuleParserTest extends EnUsLocaleDependentTestCase
 		assertEquals(
 			"<prereq kind=\"rule\" key=\"DISPLAYTYPETRAITS\" operator=\"LT\" operand=\"1\" >\n</prereq>\n",
 			prereq.toString());
+		assertFalse("Prerule should nto need a character", prereq.isCharacterRequired());
 	}
 
 }

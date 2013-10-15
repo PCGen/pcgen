@@ -79,28 +79,6 @@ public class PreCampaignParser extends AbstractPrerequisiteListParser implements
 	
 
 	/**
-	 * Flag each Prerequisite created to indicate that no character is 
-	 * required to successfully test the Prerequisite. The function is 
-	 * recursive to handle a single Prerequisite that gets split out 
-	 * into a premult.
-	 * 
-	 * @param prereq the new no need for char
-	 */
-	private void setNoNeedForChar(Prerequisite prereq)
-	{
-		if (prereq == null)
-		{
-			return;
-		}
-		prereq.setCharacterRequired(false);
-
-		for (Prerequisite element : prereq.getPrerequisites())
-		{
-			setNoNeedForChar(element);
-		}
-	}
-
-	/**
 	 * Process prereq keys wrapped in []. If the key is wrapped in [], the
 	 * prereq will be negated to check that the prereq is not passed, and
 	 * the number of required matches is increased by the number of negated

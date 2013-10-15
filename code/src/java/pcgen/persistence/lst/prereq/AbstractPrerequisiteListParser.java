@@ -378,4 +378,26 @@ public abstract class AbstractPrerequisiteListParser
 	{
 		return false;
 	}
+
+	/**
+	 * Flag each Prerequisite created to indicate that no character is 
+	 * required to successfully test the Prerequisite. The function is 
+	 * recursive to handle a single Prerequisite that gets split out 
+	 * into a premult.
+	 * 
+	 * @param prereq the new no need for char
+	 */
+	protected void setNoNeedForChar(Prerequisite prereq)
+	{
+		if (prereq == null)
+		{
+			return;
+		}
+		prereq.setCharacterRequired(false);
+	
+		for (Prerequisite element : prereq.getPrerequisites())
+		{
+			setNoNeedForChar(element);
+		}
+	}
 }
