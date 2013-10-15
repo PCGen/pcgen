@@ -70,7 +70,7 @@ public final class WeaponProf extends PObject implements Comparable<Object>
 	public boolean equals(final Object obj)
 	{
 		return obj instanceof WeaponProf
-				&& getKeyName().equals(((WeaponProf) obj).getKeyName());
+				&& getKeyName().equalsIgnoreCase(((WeaponProf) obj).getKeyName());
 	}
 
 	/**

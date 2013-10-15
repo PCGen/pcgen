@@ -46,13 +46,14 @@ public final class ShieldProf extends PObject implements Comparable<Object>
 	/**
 	 * Compares keyName only
 	 *
-	 * @param o1 Object
+	 * @param obj Object
 	 * @return boolean
 	 */
 	@Override
-	public boolean equals(final Object o1)
+	public boolean equals(final Object obj)
 	{
-		return o1 instanceof ShieldProf && getKeyName().equals(((ShieldProf) o1).getKeyName());
+		return obj instanceof ShieldProf
+				&& getKeyName().equalsIgnoreCase(((ShieldProf) obj).getKeyName());
 	}
 
 	/**

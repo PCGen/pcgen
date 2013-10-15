@@ -76,30 +76,15 @@ public final class Spell extends PObject
 	/**
 	 * Tests to see if two Spell objects are equal.
 	 * 
-	 * @param other Spell to compare to.
+	 * @param obj Spell to compare to.
 	 * 
 	 * @return <tt>true</tt> if the Spells are the same.
 	 */
 	@Override
-	public boolean equals( final Object other )
+	public boolean equals( final Object obj )
 	{
-		if ( other == null )
-		{
-			return false;
-		}
-		if ( ! (other instanceof Spell) )
-		{
-			return false;
-		}
-		if ( other == this ) {
-			return true;
-		}
-		final Spell otherSpell = (Spell)other;
-		if ( getKeyName().equals( otherSpell.getKeyName() ) )
-		{
-			return isCDOMEqual(otherSpell);
-		}
-		return false;
+		return obj instanceof Spell
+				&& getKeyName().equalsIgnoreCase(((Spell) obj).getKeyName());
 	}
 	
 	/**

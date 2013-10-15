@@ -46,13 +46,14 @@ public final class ArmorProf extends PObject implements Comparable<Object>
 	/**
 	 * Compares keyName only
 	 *
-	 * @param o1 Object
+	 * @param obj Object
 	 * @return boolean
 	 */
 	@Override
-	public boolean equals(final Object o1)
+	public boolean equals(final Object obj)
 	{
-		return o1 instanceof ArmorProf && getKeyName().equals(((ArmorProf) o1).getKeyName());
+		return obj instanceof ArmorProf
+				&& getKeyName().equalsIgnoreCase(((ArmorProf) obj).getKeyName());
 	}
 
 	/**

@@ -111,27 +111,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	@Override
 	public boolean equals( final Object obj )
 	{
-		if (obj == this)
-		{
-			return true;
-		}
-		if ( obj == null )
-		{
-			return false;
-		}
-		final String thisKey;
-		final String otherKey;
-		if ( obj instanceof PObject )
-		{
-			thisKey = getKeyName();
-			otherKey = ((PObject)obj).getKeyName();
-		}
-		else
-		{
-			thisKey = toString();
-			otherKey = obj.toString();
-		}
-		return thisKey.equalsIgnoreCase( otherKey );
+		return obj instanceof PObject
+				&& getKeyName().equalsIgnoreCase(((PObject) obj).getKeyName());
 	}
 
 	//Temporarily commented out since unit tests are badly behaved, see COD#E-1895

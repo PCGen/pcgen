@@ -51,8 +51,7 @@ public final class Skill extends PObject implements SkillFacade
 	public boolean equals(final Object obj)
 	{
 		return obj instanceof Skill
-				&& getKeyName().equals(((Skill) obj).getKeyName())
-				&& isCDOMEqual(((Skill) obj));
+				&& getKeyName().equalsIgnoreCase(((Skill) obj).getKeyName());
 	}
 
 	@Override
