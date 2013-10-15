@@ -16,7 +16,7 @@ Boarding Pike						PROFICIENCY:WEAPON|Boarding Pike		TYPE:Weapon.Melee.TwoHanded
 Axe (Boarding)	OUTPUTNAME:Axe, Boarding	PROFICIENCY:WEAPON|Axe (Boarding)		TYPE:Weapon.Melee.Light.Finesseable.Martial.Standard.Piercing.Slashing.Axe					COST:6	WT:3				CRITMULT:x3			CRITRANGE:1												DAMAGE:1d6					EQMOD:STEEL									WIELD:Light				SIZE:M	SOURCEPAGE:p.18
 Cat-O'-Nine-Tails						PROFICIENCY:WEAPON|Cat-O'-Nine-Tails	TYPE:Weapon.Melee.Light.Finesseable.Martial.Standard.Slashing							COST:1	WT:2				CRITMULT:x2			CRITRANGE:1												DAMAGE:1d4					EQMOD:DISARM.LEATHER.NONLETHAL					WIELD:Light				SIZE:M	SOURCEPAGE:p.18
 #-----one handed -------
-Cutlass							PROFICIENCY:WEAPON|Cutlass			TYPE:Weapon.Melee.OneHanded.Martial.Standard.Slashing.Sword.Pirate						COST:15	WT:4				CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6					EQMOD:STEEL									WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.18
+Cutlass							PROFICIENCY:WEAPON|Cutlass			TYPE:Weapon.Melee.OneHanded.Martial.Standard.Slashing.Sword.BladeHeavy.Pirate					COST:15	WT:4				CRITMULT:x2			CRITRANGE:3												DAMAGE:1d6					EQMOD:STEEL									WIELD:OneHanded			SIZE:M	SOURCEPAGE:p.18
 
 ####Block: Exotic Weapons
 #-----two handed -------
