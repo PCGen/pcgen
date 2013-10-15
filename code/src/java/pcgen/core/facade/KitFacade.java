@@ -32,4 +32,9 @@ public interface KitFacade extends InfoFacade
 	 */
 	public String getDisplayType();
 
+	/**
+	 * @return True if the kit is permanently applied and thus may not be reapplied.
+	 */
+	public boolean isPermanent();
+
 }

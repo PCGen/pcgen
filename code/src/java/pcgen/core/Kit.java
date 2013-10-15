@@ -433,4 +433,14 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		List<Type> trueTypeList = getTrueTypeList(true);
 		return StringUtil.join(trueTypeList, ".");
 	}
+
+    
+	/**
+	 * {@inheritDoc}
+	 */
+    @Override
+	public boolean isPermanent()
+	{
+		return getSafe(ObjectKey.APPLY_MODE) == KitApply.PERMANENT;
+	}
 }

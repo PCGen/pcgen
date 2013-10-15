@@ -233,7 +233,7 @@ public class KitPanel extends FlippingSplitPane
 	{
 
 		private static final DefaultListFacade<? extends TreeView<KitFacade>> treeViews =
-				new DefaultListFacade<TreeView<KitFacade>>(Arrays.asList(TemplateTreeView.values()));
+				new DefaultListFacade<TreeView<KitFacade>>(Arrays.asList(KitTreeView.values()));
 		private final List<DefaultDataViewColumn> columns;
 		private final CharacterFacade character;
 		private final boolean isAvailModel;
@@ -330,7 +330,8 @@ public class KitPanel extends FlippingSplitPane
         @Override
 		public boolean accept(CharacterFacade context, KitFacade element)
 		{
-			return !context.getKits().containsElement(element);
+			return !element.isPermanent()
+				|| !context.getKits().containsElement(element);
 		}
 
 		/**
@@ -344,7 +345,7 @@ public class KitPanel extends FlippingSplitPane
 
 	}
 
-	private enum TemplateTreeView implements TreeView<KitFacade>
+	private enum KitTreeView implements TreeView<KitFacade>
 	{
 
 		NAME(LanguageBundle.getString("in_nameLabel")), //$NON-NLS-1$
@@ -352,7 +353,7 @@ public class KitPanel extends FlippingSplitPane
 		SOURCE_NAME(LanguageBundle.getString("in_sourceName")); //$NON-NLS-1$
 		private String name;
 
-		private TemplateTreeView(String name)
+		private KitTreeView(String name)
 		{
 			this.name = name;
 		}
