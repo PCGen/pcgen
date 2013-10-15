@@ -58,7 +58,7 @@
 			<short>|ALIGNMENT.SHORT|</short>
 		</alignment>
 		<archetypes>
-|FOR,%trait,0,count("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%trait,0,countdistinct("ABILITIES","CATEGORY=Archetype","TYPE=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 			<archetype>
 				<name>|ABILITY.Archetype.VISIBLE.%trait.TYPE=Archetype|</name>
 				<type>|ABILITY.Archetype.VISIBLE.%trait.TYPE=Archetype.TYPE|</type>
@@ -215,7 +215,7 @@
 
 |ENDIF|
 |ENDFOR|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=NotesSection")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","ASPECT=NotesSection")-1,1,0|
 			<note>
 				<name>|ABILITYALL.Special Ability.%ability.ASPECT.NotesSection|</name>
 				<value>|ABILITYALL.Special Ability.%ability.ASPECT.Notes|</value>
@@ -340,7 +340,7 @@
 	  ====================================-->
 	<skillinfo>
 		<conditional_modifiers>
-|FOR,%ability,0,count("ABILITIES","ASPECT=SkillBonus")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","ASPECT=SkillBonus")-1,1,0|
 			<skillbonus>
 				<description>|ABILITYALL.ANY.%ability.ASPECT=SkillBonus.ASPECT.SkillBonus|</description>
 			</skillbonus>
@@ -349,7 +349,7 @@
 	</skillinfo>
 	<skills>
 		<conditional_modifiers>
-|FOR,%ability,0,count("ABILITIES","ASPECT=SkillBonus")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","ASPECT=SkillBonus")-1,1,0|
 			<skillbonus>
 				<description>|ABILITYALL.ANY.%ability.ASPECT=SkillBonus.ASPECT.SkillBonus|</description>
 			</skillbonus>
@@ -381,6 +381,7 @@
 			<exclusive>|SKILL.%skill.EXCLUSIVE|</exclusive>
 			<trained_total>|SKILL.%skill.TRAINED_TOTAL|</trained_total>
 			<exclusive_total>|SKILL.%skill.EXCLUSIVE_TOTAL|</exclusive_total>
+			<classes>|SKILL.%skill.CLASSES|</classes>
 			<type>|SKILL.%skill.TYPE|</type>
 		</skill>
 |ENDFOR|
@@ -395,7 +396,7 @@
 	  ====================================-->
 	<saving_throws>
 		<conditional_modifiers>
-|FOR,%ability,0,count("ABILITIES","ASPECT=SaveBonus")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","ASPECT=SaveBonus")-1,1,0|
 			<savebonus>
 				<description>|ABILITYALL.ANY.%ability.ASPECT=SaveBonus.ASPECT.SaveBonus|</description>
 			</savebonus>
@@ -577,7 +578,7 @@ Immune
 			<critical>|WEAPONH.CRIT|/x|WEAPONH.MULT|</critical>
 		<!-- Should be changed to a variable due to improved crit -->
 			<reach>|REACH|</reach>
-|FOR,%NaturalAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1,1,0|
+|FOR,%NaturalAttack,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1,1,0|
 			<special_property>|ABILITYALL.Special Ability.%NaturalAttack.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes|</special_property>
 |ENDFOR|
 		</martialarts>
@@ -588,7 +589,7 @@ Immune
 			<critical>|WEAPONH.CRIT|/x|WEAPONH.MULT|</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 			<reach>|REACH|</reach>
-|FOR,%NaturalAttack,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1,1,0|
+|FOR,%NaturalAttack,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1,1,0|
 			<special_property>|ABILITYALL.Special Ability.%NaturalAttack.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes|</special_property>
 |ENDFOR|
 						<!-- Commenting this out (will need a test as well)
@@ -639,7 +640,7 @@ Immune
 <!-- End Spirit Weapon - Ranged -->
 
 	<!-- Blank Natural Attack -->
-|FOR,%NaturalAttack,0,count("ABILITIES","CATEGORY=Natural Attack","NAME=BlankNaturalAttack")-1,1,0|
+|FOR,%NaturalAttack,0,countdistinct("ABILITIES","CATEGORY=Natural Attack","NAME=BlankNaturalAttack")-1,1,0|
 	<naturalattack>
 		<name>Weapon</name>
 		<tohit></tohit>
@@ -654,7 +655,7 @@ Immune
 |ENDFOR|
 
 	<!-- Natural Attack -->
-|FOR,%NaturalAttack,0,count("ABILITIES","CATEGORY=Natural Attack","TYPE=NaturalAttack")-1,1,0|
+|FOR,%NaturalAttack,0,countdistinct("ABILITIES","CATEGORY=Natural Attack","TYPE=NaturalAttack")-1,1,0|
 	<naturalattack>
 		<name>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackName|</name>
 		<tohit>|ABILITYALL.Natural Attack.%NaturalAttack.TYPE=NaturalAttack.ASPECT.NaturalAttackToHit|</tohit>
@@ -1257,7 +1258,7 @@ Immune
 
 	<!-- Turning ability -->
 
-|FOR,%turncount,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=TurnType")-1,1,0|
+|FOR,%turncount,0,countdistinct("ABILITIES","CATEGORY=Special Ability","ASPECT=TurnType")-1,1,0|
 	<turning kind="|TEXT.UPPER.ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnKind|" type="|TEXT.UPPER.ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnType|">
 		<level>|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnLevel.INTVAL|</level>
 		<turn_check>1d20|ABILITYALL.Special Ability.%turncount.ASPECT=TurnType.ASPECT.TurnCheck.INTVAL.SIGN|</turn_check>
@@ -1268,7 +1269,7 @@ Immune
 |ENDFOR|
 
 <!-- Eclipse Channeling -->
-|FOR,%eclipsecount,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=ChannelingType")-1,1,0|
+|FOR,%eclipsecount,0,countdistinct("ABILITIES","CATEGORY=Special Ability","ASPECT=ChannelingType")-1,1,0|
 	<eclipse_channeling kind="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingKind|" type="|TEXT.UPPER.ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingType|">
 		<level>|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingLevel.INTVAL|</level>
 		<channeling_check>1d20|ABILITYALL.Special Ability.%eclipsecount.ASPECT=ChannelingType.ASPECT.ChannelingCheck.INTVAL.SIGN|</channeling_check>
@@ -1380,7 +1381,7 @@ Immune
 
 	<!-- Abilites with check lists - master/child abilities -->
 	<checklists>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","ASPECT=CheckType")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","ASPECT=CheckType")-1,1,0|
 		<checklist>
 |IIF(ABILITYALL.Special Ability.%ability.ASPECT=CheckType.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Special Ability.%ability.ASPECT=CheckType| (Ex)</name>
@@ -1402,7 +1403,7 @@ Immune
 			<check_type>|ABILITYALL.Special Ability.%ability.ASPECT=CheckType.ASPECT.CheckType|</check_type>
 |IIF(ABILITYALL.Special Ability.%ability.ASPECT=CheckType.HASASPECT.MasterAbility:Y)|
 			<master>|ABILITYALL.Special Ability.%ability.ASPECT=CheckType.ASPECT.MasterAbility|</master>
-|FOR,%subability,0,count("ABILITIES","CATEGORY=Special Ability")-1,1,0|
+|FOR,%subability,0,countdistinct("ABILITIES","CATEGORY=Special Ability")-1,1,0|
 |IIF(ABILITYALL.Special Ability.%subability.ASPECT.ChildAbility:ABILITYALL.Special Ability.%ability.ASPECT=CheckType.ASPECT.MasterAbility)|
 			<subability>
 				<name>|ABILITYALL.Special Ability.%subability|</name>
@@ -1420,11 +1421,11 @@ Immune
 
 	<!-- Proficiency lists -->
 	<proficiency_specials>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=ProfOutput")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"TYPE=ProfOutput")==0)|
 |ELSE|
 	<!--  -->
 |ENDIF|
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=ProfOutput")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=ProfOutput")-1,1,0|
 		<proficiency>
 			<name>|ABILITYALL.Special Ability.%ability.TYPE=ProfOutput|</name>
 			<proficient>|ABILITYALL.Special Ability.%ability.TYPE=ProfOutput.ASPECT.Proficiency|</proficient>
@@ -1685,11 +1686,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<archetypes>
-|IIF(count("ABILITIES";"CATEGORY=Archetype";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Archetype")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Archetype";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Archetype")==0)|
 |ELSE|
 	<!-- Archetypes -->
 |ENDIF|
-|FOR,%archetype,0,count("ABILITIES","CATEGORY=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Archetype")-1,1,0|
+|FOR,%archetype,0,countdistinct("ABILITIES","CATEGORY=Archetype","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Archetype")-1,1,0|
 		<archetype>
 			<name>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype|</name>
 			<description>|ABILITYALL.Archetype.VISIBLE.%archetype.TYPE=Archetype.DESC|</description>
@@ -1708,11 +1709,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<special_qualities>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=SpecialQuality")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=SpecialQuality")==0)|
 |ELSE|
 	<!-- Standard Special Qualities -->
 |ENDIF|
-|FOR,%specialquality,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=SpecialQuality")-1,1,0|
+|FOR,%specialquality,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=SpecialQuality")-1,1,0|
 		<special_quality>
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.HASASPECT.Name:Y)|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE:Extraordinary)|
@@ -1756,6 +1757,7 @@ Immune
 			<type>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.TYPE|</type>
 			<associated>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.ASSOCIATED|</associated>
 			<count>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.ASSOCIATEDCOUNT|</count>
+			<aspect>|ABILITYALL.Special Ability.VISIBLE.%specialquality.TYPE=SpecialQuality.ASPECT|</aspect>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1771,11 +1773,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<special_attacks>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=SpecialAttack")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=SpecialAttack")==0)|
 |ELSE|
 	<!-- Standard Special Attacks -->
 |ENDIF|
-|FOR,%specialattack,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=SpecialAttack")-1,1,0|TYPE=SpecialQuality.ASPECT.Name|
+|FOR,%specialattack,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=SpecialAttack")-1,1,0|TYPE=SpecialQuality.ASPECT.Name|
 		<special_attack>
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.HASASPECT.Name:Y)|
 |IIF(ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE:Extraordinary)|
@@ -1818,6 +1820,7 @@ Immune
 			<type>|ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.TYPE|</type>
 			<associated>|ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.ASSOCIATED|</associated>
 			<count>|ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.ASSOCIATEDCOUNT|</count>
+			<aspect>|ABILITYALL.Special Ability.VISIBLE.%specialattack.TYPE=SpecialAttack.ASPECT|</aspect>
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
@@ -1835,7 +1838,7 @@ Immune
 	  ====================================-->
 
 	<racial_traits>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=RaceTrait")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=RaceTrait")-1,1,0|
 |IIF(ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.HASASPECT.RaceTraitMaster:Y)|
 		<racial_trait>
 |IIF(ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.TYPE:Extraordinary)|
@@ -1858,7 +1861,7 @@ Immune
 			<check_type>|ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.ASPECT.CheckType|</check_type>
 |IIF(ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.HASASPECT.MasterAbility:Y)|
 			<master>|ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.ASPECT.MasterAbility|</master>
-|FOR,%subability,0,count("ABILITIES","CATEGORY=Special Ability")-1,1,0|
+|FOR,%subability,0,countdistinct("ABILITIES","CATEGORY=Special Ability")-1,1,0|
 |IIF(ABILITYALL.Special Ability.%subability.ASPECT.ChildAbility:ABILITYALL.Special Ability.%ability.TYPE=RaceTrait.ASPECT.MasterAbility)|
 			<subability>
 				<name>|ABILITYALL.Special Ability.%subability|</name>
@@ -1882,11 +1885,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<animal_tricks>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=AnimalTrick")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=AnimalTrick")==0)|
 |ELSE|
 	<!-- Standard Animal Trick -->
 |ENDIF|
-|FOR,%animalTrick,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AnimalTrick")-1,1,0|
+|FOR,%animalTrick,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AnimalTrick")-1,1,0|
 		<animal_trick>
 			<name>|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick|</name>
 			<description>|ABILITYALL.Special Ability.VISIBLE.%animalTrick.TYPE=AnimalTrick.DESC|</description>
@@ -1909,11 +1912,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<talents>
-|IIF(count("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Talent")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Talent";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Talent")==0)|
 |ELSE|
 	<!-- Standard Talents -->
 |ENDIF|
-|FOR,%talent,0,count("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Talent")-1,1,0|
+|FOR,%talent,0,countdistinct("ABILITIES","CATEGORY=Talent","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Talent")-1,1,0|
 		<talent>
 |IIF(ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Talent.VISIBLE.%talent.TYPE=Talent| (Ex)</name>
@@ -1952,11 +1955,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<intelligent_items>
-|IIF(count("ABILITIES";"CATEGORY=Intelligent Item";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=IntelligentItemOutput")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Intelligent Item";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=IntelligentItemOutput")==0)|
 |ELSE|
 	<!-- Intelligent OS Output -->
 |ENDIF|
-|FOR,%intelligentItem,0,count("ABILITIES","CATEGORY=Intelligent Item","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=IntelligentItemOutput")-1,1,0|
+|FOR,%intelligentItem,0,countdistinct("ABILITIES","CATEGORY=Intelligent Item","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=IntelligentItemOutput")-1,1,0|
 		<intelligent_item>
 |IIF(ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Intelligent Item.VISIBLE.%intelligentItem.TYPE=IntelligentItemOutput| (Ex)</name>
@@ -1995,11 +1998,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<words_of_powers>
-|IIF(count("ABILITIES";"CATEGORY=Words of Power";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=WordsOfPowerOutput")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Words of Power";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=WordsOfPowerOutput")==0)|
 |ELSE|
 	<!-- Words of Power -->
 |ENDIF|
-|FOR,%wordsofpower,0,count("ABILITIES","CATEGORY=Words of Power","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=WordsOfPowerOutput")-1,1,0|
+|FOR,%wordsofpower,0,countdistinct("ABILITIES","CATEGORY=Words of Power","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=WordsOfPowerOutput")-1,1,0|
 		<words_of_power>
 			<name>|ABILITYALL.Words of Power.VISIBLE.%wordsofpower.TYPE=WordsOfPowerOutput|</name>
 			<description>|ABILITYALL.Words of Power.VISIBLE.%wordsofpower.TYPE=WordsOfPowerOutput.DESC|</description>
@@ -2018,11 +2021,11 @@ Immune
 			SALIENT DIVINE ABILITIES
 	  ====================================
 	  ====================================-->
-|IIF(count("ABILITIES";"CATEGORY=Salient Divine Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Salient Divine Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")==0)|
 |ELSE|
 |ENDIF|
 <salient_divine_abilities>
-|FOR,%ability,0,count("ABILITIES","CATEGORY=Salient Divine Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%ability,0,countdistinct("ABILITIES","CATEGORY=Salient Divine Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 		<salient_divine_ability>
 			<name>|ABILITYALL.Salient Divine Ability.VISIBLE.%ability|</name>
 			<description>|ABILITYALL.Salient Divine Ability.VISIBLE.%ability.DESC|</description>
@@ -2042,11 +2045,11 @@ Immune
 			Occupations
 	  ====================================
 	  ====================================-->
-|IIF(count("ABILITIES";"CATEGORY=Starting Occupation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Starting Occupation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")==0)|
 |ELSE|
 |ENDIF|
 	<occupations>
-|FOR,%occupation,0,count("ABILITIES","CATEGORY=Starting Occupation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%occupation,0,countdistinct("ABILITIES","CATEGORY=Starting Occupation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 		<occupation>
 			<name>|ABILITYALL.Starting Occupation.VISIBLE.%occupation|</name>
 			<description>|ABILITYALL.Starting Occupation.VISIBLE.%occupation.DESC|</description>
@@ -2068,11 +2071,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<charcreations>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=CharCreation")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=CharCreation")==0)|
 |ELSE|
 	<!-- Standard Character Creation Recurring Bonuses -->
 |ENDIF|
-|FOR,%charCreation,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=CharCreation")-1,1,0|
+|FOR,%charCreation,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=CharCreation")-1,1,0|
 		<charcreation>
 			<name>|ABILITYALL.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation|</name>
 			<description>|ABILITYALL.Special Ability.VISIBLE.%charCreation.TYPE=CharCreation.DESC|</description>
@@ -2091,11 +2094,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<disadvantages>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Disadvantage")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Disadvantage")==0)|
 |ELSE|
 	<!-- Standard Disadvantages -->
 |ENDIF|
-|FOR,%disadvantage,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Disadvantage")-1,1,0|
+|FOR,%disadvantage,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Disadvantage")-1,1,0|
 		<disadvantage>
 			<name>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage|</name>
 			<description>|ABILITYALL.Special Ability.VISIBLE.%disadvantage.TYPE=Disadvantage.DESC|</description>
@@ -2114,11 +2117,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<eclipse_abilities>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=EclipseAbilityOutput")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=EclipseAbilityOutput")==0)|
 |ELSE|
 	<!-- Standard Eclipse Abilities -->
 |ENDIF|
-|FOR,%eclipseAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=EclipseAbilityOutput")-1,1,0|
+|FOR,%eclipseAbilities,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=EclipseAbilityOutput")-1,1,0|
 		<eclipse_ability>
 |IIF(ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%eclipseAbilities.TYPE=EclipseAbilityOutput| (Ex)</name>
@@ -2153,11 +2156,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<spellcasteroutputs>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=SpellCasterOutput")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=SpellCasterOutput")==0)|
 |ELSE|
 	<!-- Standard Spell Caster Output -->
 |ENDIF|
-|FOR,%spellCasterOutput,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=SpellCasterOutput")-1,1,0|
+|FOR,%spellCasterOutput,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=SpellCasterOutput")-1,1,0|
 		<spellcasteroutput>
 			<name>|ABILITYALL.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput|</name>
 			<description>|ABILITYALL.Special Ability.VISIBLE.%spellCasterOutput.TYPE=SpellCasterOutput.DESC|</description>
@@ -2176,11 +2179,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<martial_arts>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=MartialArtsOutput")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=MartialArtsOutput")==0)|
 |ELSE|
 	<!-- Standard Martial Arts -->
 |ENDIF|
-|FOR,%martialArt,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=MartialArtsOutput")-1,1,0|
+|FOR,%martialArt,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=MartialArtsOutput")-1,1,0|
 		<martial_art>
 			<name>|ABILITYALL.Special Ability.VISIBLE.%martialArt.TYPE=MartialArtsOutput|</name>
 			<description>|ABILITYALL.Special Ability.VISIBLE.%martialArt.TYPE=MartialArtsOutput.DESC|</description>
@@ -2199,11 +2202,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<mystic_artists>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=MysticArtistOutput")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=MysticArtistOutput")==0)|
 |ELSE|
 	<!-- Standard Mystic Artist -->
 |ENDIF|
-|FOR,%mysticArtist,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=MysticArtistOutput")-1,1,0|
+|FOR,%mysticArtist,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=MysticArtistOutput")-1,1,0|
 		<mystic_artist>
 			<name>|ABILITYALL.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput|</name>
 			<description>|ABILITYALL.Special Ability.VISIBLE.%mysticArtist.TYPE=MysticArtistOutput.DESC|</description>
@@ -2222,11 +2225,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<witchcrafts>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=WitchcraftOutput")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=WitchcraftOutput")==0)|
 |ELSE|
 	<!-- Standard Witchcraft Abilities -->
 |ENDIF|
-|FOR,%witchcraftVar,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=WitchcraftOutput")-1,1,0|
+|FOR,%witchcraftVar,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=WitchcraftOutput")-1,1,0|
 		<witchcraft>
 			<name>|ABILITYALL.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput|</name>
 			<description>|ABILITYALL.Special Ability.VISIBLE.%witchcraftVar.TYPE=WitchcraftOutput.DESC|</description>
@@ -2245,11 +2248,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<path_dragons>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=PathoftheDragon")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=PathoftheDragon")==0)|
 |ELSE|
 	<!-- Standard The Path of the Dragon Abilities -->
 |ENDIF|
-|FOR,%pathDragon,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=PathoftheDragon")-1,1,0|
+|FOR,%pathDragon,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=PathoftheDragon")-1,1,0|
 		<path_dragon>
 			<name>|ABILITYALL.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon|</name>
 			<description>|ABILITYALL.Special Ability.VISIBLE.%pathDragon.TYPE=PathoftheDragon.DESC|</description>
@@ -2268,11 +2271,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<dominions>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Dominion")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Dominion")==0)|
 |ELSE|
 	<!-- Standard Dominion and Advanced Dominion Abilities -->
 |ENDIF|
-|FOR,%dominion,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Dominion")-1,1,0|
+|FOR,%dominion,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Dominion")-1,1,0|
 		<dominion>
 			<name>|ABILITYALL.Special Ability.VISIBLE.%dominion.TYPE=Dominion|</name>
 			<description>|ABILITYALL.Special Ability.VISIBLE.%dominion.TYPE=Dominion.DESC|</description>
@@ -2291,11 +2294,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<channelings>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ChannelingOutput")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ChannelingOutput")==0)|
 |ELSE|
 	<!-- Standard Channeling -->
 |ENDIF|
-|FOR,%channelingOutput,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ChannelingOutput")-1,1,0|
+|FOR,%channelingOutput,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ChannelingOutput")-1,1,0|
 		<channeling>
 			<name>|ABILITYALL.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput|</name>
 			<description>|ABILITYALL.Special Ability.VISIBLE.%channelingOutput.TYPE=ChannelingOutput.DESC|</description>
@@ -2317,11 +2320,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<powers_classfeatures>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ClassFeature")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ClassFeature")==0)|
 |ELSE|
 	<!-- Standard Special Qualities -->
 |ENDIF|
-|FOR,%classFeature,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ClassFeature")-1,1,0|
+|FOR,%classFeature,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ClassFeature")-1,1,0|
 		<power_classfeature>
 |IIF(ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%classFeature.TYPE=ClassFeature| (Ex)</name>
@@ -2393,11 +2396,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<powers_classfeatures>
-|IIF(count("ABILITIES";"CATEGORY=Power";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Class Feature")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Power";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Class Feature")==0)|
 |ELSE|
 	<!-- Standard Special Qualities -->
 |ENDIF|
-|FOR,%classFeature,0,count("ABILITIES","CATEGORY=Power","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Class Feature")-1,1,0|
+|FOR,%classFeature,0,countdistinct("ABILITIES","CATEGORY=Power","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Class Feature")-1,1,0|
 		<power_classfeature>
 |IIF(ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature| (Ex)</name>
@@ -2467,11 +2470,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<powers_featpowers>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Feat Power")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Feat Power")==0)|
 |ELSE|
 	<!-- Standard Special Qualities -->
 |ENDIF|
-|FOR,%featPower,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Feat Power")-1,1,0|
+|FOR,%featPower,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Feat Power")-1,1,0|
 		<power_featpower>
 |IIF(ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%featPower.TYPE=Feat Power| (Ex)</name>
@@ -2543,11 +2546,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<powers_atwills>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=AtWill")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=AtWill")==0)|
 |ELSE|
 	<!-- Standard At Will Powers -->
 |ENDIF|
-|FOR,%atWill,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AtWill")-1,1,0|
+|FOR,%atWill,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=AtWill")-1,1,0|
 		<powers_atwill>
 |IIF(ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%atWill.TYPE=AtWill| (Ex)</name>
@@ -2619,11 +2622,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<powers_atwills>
-|IIF(count("ABILITIES";"CATEGORY=Power";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=At-Will")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Power";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=At-Will")==0)|
 |ELSE|
 	<!-- Standard At Will Powers -->
 |ENDIF|
-|FOR,%atWill,0,count("ABILITIES","CATEGORY=Power","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=At-Will")-1,1,0|
+|FOR,%atWill,0,countdistinct("ABILITIES","CATEGORY=Power","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=At-Will")-1,1,0|
 		<powers_atwill>
 |IIF(ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=At-Will| (Ex)</name>
@@ -2696,11 +2699,11 @@ Immune
 	  ====================================-->
 
 	<powers_encounters>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Encounter")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Encounter")==0)|
 |ELSE|
 	<!-- Standard Encounter Powers -->
 |ENDIF|
-|FOR,%encounter,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Encounter")-1,1,0|
+|FOR,%encounter,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Encounter")-1,1,0|
 		<powers_encounter>
 |IIF(ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%encounter.TYPE=Encounter| (Ex)</name>
@@ -2771,11 +2774,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<powers_dailies>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Daily")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Daily")==0)|
 |ELSE|
 	<!-- Standard Daily Powers -->
 |ENDIF|
-|FOR,%daily,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Daily")-1,1,0|
+|FOR,%daily,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Daily")-1,1,0|
 		<powers_daily>
 |IIF(ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%daily.TYPE=Daily| (Ex)</name>
@@ -2847,11 +2850,11 @@ Immune
 	  ====================================-->
 
 	<powers_utilities>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Utility")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=Utility")==0)|
 |ELSE|
 	<!-- Standard Utility Powers -->
 |ENDIF|
-|FOR,%utility,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Utility")-1,1,0|
+|FOR,%utility,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=Utility")-1,1,0|
 		<powers_utility>
 |IIF(ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%utility.TYPE=Utility| (Ex)</name>
@@ -2923,11 +2926,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<demon_cants>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=DemonCant")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=DemonCant")==0)|
 |ELSE|
 	<!-- Standard Demon Cant -->
 |ENDIF|
-|FOR,%demoncant,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=DemonCant")-1,1,0|
+|FOR,%demoncant,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=DemonCant")-1,1,0|
 		<demon_cant>
 |IIF(ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%demoncant.TYPE=DemonCant| (Ex)</name>
@@ -2965,11 +2968,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<mage_gnosises>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=MageGnosis")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=MageGnosis")==0)|
 |ELSE|
 	<!-- Standard Mage Gnosis -->
 |ENDIF|
-|FOR,%magegnosis,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=MageGnosis")-1,1,0|
+|FOR,%magegnosis,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=MageGnosis")-1,1,0|
 		<mage_gnosis>
 |IIF(ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%magegnosis.TYPE=MageGnosis| (Ex)</name>
@@ -3007,11 +3010,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<vampire_disciplines>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=VampireDiscipline")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=VampireDiscipline")==0)|
 |ELSE|
 	<!-- Standard Vampire Disciplines -->
 |ENDIF|
-|FOR,%vampirediscipline,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=VampireDiscipline")-1,1,0|
+|FOR,%vampirediscipline,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=VampireDiscipline")-1,1,0|
 		<vampire_discipline>
 |IIF(ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%vampirediscipline.TYPE=VampireDiscipline| (Ex)</name>
@@ -3049,11 +3052,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<werewolf_rites>
-|IIF(count("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=WerewolfRite")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Special Ability";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=WerewolfRite")==0)|
 |ELSE|
 	<!-- Standard Rites -->
 |ENDIF|
-|FOR,%werewolfRite,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=WerewolfRite")-1,1,0|
+|FOR,%werewolfRite,0,countdistinct("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=WerewolfRite")-1,1,0|
 		<werewolf_rite>
 |IIF(ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite.TYPE:Extraordinary)|
 			<name>|ABILITYALL.Special Ability.VISIBLE.%werewolfRite.TYPE=WerewolfRite| (Ex)</name>
@@ -3092,11 +3095,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<force_powers>
-|IIF(count("ABILITIES";"CATEGORY=Force Powers";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ForcePower")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Force Powers";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ForcePower")==0)|
 |ELSE|
 	<!-- Force Powers -->
 |ENDIF|
-|FOR,%forcepower,0,count("ABILITIES","CATEGORY=Force Powers","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ForcePower")-1,1,0|
+|FOR,%forcepower,0,countdistinct("ABILITIES","CATEGORY=Force Powers","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ForcePower")-1,1,0|
 		<force_power>
 			<name>|ABILITYALL.Force Powers.VISIBLE.%forcepower.TYPE=ForcePower|</name>
 			<description>|ABILITYALL.Force Powers.VISIBLE.%forcepower.TYPE=ForcePower.DESC|</description>
@@ -3115,11 +3118,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<force_techniques>
-|IIF(count("ABILITIES";"CATEGORY=Force Techniques";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ForceTechniques")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Force Techniques";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ForceTechniques")==0)|
 |ELSE|
 	<!-- Standard Force Techniques -->
 |ENDIF|
-|FOR,%forcetechnique,0,count("ABILITIES","CATEGORY=Force Techniques","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ForceTechniques")-1,1,0|
+|FOR,%forcetechnique,0,countdistinct("ABILITIES","CATEGORY=Force Techniques","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ForceTechniques")-1,1,0|
 		<force_technique>
 			<name>|ABILITYALL.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques|</name>
 			<description>|ABILITYALL.Force Techniques.VISIBLE.%forcetechnique.TYPE=ForceTechniques.DESC|</description>
@@ -3141,11 +3144,11 @@ Immune
 	  ====================================
 	  ====================================-->
 	<force_secrets>
-|IIF(count("ABILITIES";"CATEGORY=Force Secrets";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ForceSecrets")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Force Secrets";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY";"TYPE=ForceSecrets")==0)|
 |ELSE|
 	<!-- Standard Force Secrets -->
 |ENDIF|
-|FOR,%forceSecret,0,count("ABILITIES","CATEGORY=Force Secrets","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ForceSecrets")-1,1,0|
+|FOR,%forceSecret,0,countdistinct("ABILITIES","CATEGORY=Force Secrets","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY","TYPE=ForceSecrets")-1,1,0|
 		<force_secret>
 			<name>|ABILITYALL.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets|</name>
 			<description>|ABILITYALL.Force Secrets.VISIBLE.%forceSecret.TYPE=ForceSecrets.DESC|</description>
@@ -3167,11 +3170,11 @@ Immune
 			MUTATIONS
 	====================================
 	====================================	-->
-|IIF(count("ABILITIES";"CATEGORY=Mutation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")==0)|
+|IIF(countdistinct("ABILITIES";"CATEGORY=Mutation";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")==0)|
 |ELSE|
 |ENDIF|
 	<mutations>
-|FOR,%mutation,0,count("ABILITIES","CATEGORY=Mutation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%mutation,0,countdistinct("ABILITIES","CATEGORY=Mutation","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 		<mutation>
 			<name>|ABILITYALL.Mutation.VISIBLE.%mutation|</name>
 			<description>|ABILITYALL.Mutation.VISIBLE.%mutation.DESC|</description>
@@ -3197,7 +3200,7 @@ Immune
 	  ====================================
 	  ====================================-->
 	<traits>
-|FOR,%trait,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%trait,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Trait","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 		<trait>
 |IIF(VABILITY.Special Ability.VISIBLE.%trait.TYPE=Trait)|
 			<name>|VABILITY.Special Ability.VISIBLE.%trait.TYPE=Trait| (Granted)</name>
@@ -3217,7 +3220,7 @@ Immune
 	  ====================================
 	  ====================================-->
 	<afflictions>
-|FOR,%affliction,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Affliction","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|FOR,%affliction,0,countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Affliction","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
 		<affliction>
 			<name>|ABILITYALL.Special Ability.VISIBLE.%affliction.TYPE=Affliction|</name>
 			<description>|ABILITYALL.Special Ability.VISIBLE.%affliction.TYPE=Affliction.DESC|</description>
