@@ -1189,14 +1189,14 @@
 	<p class="indent3">Adds two to character's STR stat.</p>
 	<p class="indent2"><code>BONUS:STAT|DEX,CON,INT|1</code></p>
 	<p class="indent3">Adds 1 to character's DEX, CON, &amp; INT stats.</p>
-	<p class="indent2"><code>CHOOSE:STAT|STR|DEX|CON &lt;tab&gt; STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; BONUS:STAT|%LIST|1|TYPE=Inherent</code></p>
+	<p class="indent2"><code>CHOOSE:PCSTAT|STR|DEX|CON &lt;tab&gt; STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; BONUS:STAT|%LIST|1|TYPE=Inherent</code></p>
 	<p class="indent3">Adds 1 to character's STR, DEX, &amp; CON stats, can be chosen multiple times, does not stack.</p>
 	<p class="indent2"><code>#Dwarf Racial Progression.MOD &lt;tab&gt; BONUS:STAT|CON|2|PRELEVEL:3
 		&lt;tab&gt; BONUS:STAT|STR|2|PRELEVEL:5 &lt;tab&gt; BONUS:STAT|CON|2|PRELEVEL:7 &lt;tab&gt;
 		BONUS:STAT|WIS|2|PRELEVEL:9</code></p>
 		<p class="indent3">Modifies the character based on what level they are, i.e. +2 to CON at 3, +2 to STR
 		at 5, +2 to CON at 7, +2 to WIS at 9.</p>
-	<p class="indent2"><code>STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:Ability|STR|DEX|CON &lt;tab&gt; BONUS:STAT|%LIST|2|TYPE=Inherent</code></p>
+	<p class="indent2"><code>STACK:NO &lt;tab&gt; MULT:YES &lt;tab&gt; CHOOSE:PCSTAT|STR|DEX|CON &lt;tab&gt; BONUS:STAT|%LIST|2|TYPE=Inherent</code></p>
 	<p class="indent3">Adds two to character's Chosen stat from Inherent ability, doesn't stack, but can be selected multiple times.</p>
 	<p></p>
 
