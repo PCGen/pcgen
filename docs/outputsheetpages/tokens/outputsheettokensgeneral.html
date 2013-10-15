@@ -116,7 +116,7 @@
 
 		<p></p><hr>
 		<p class="new"><a name="CLASS">*** Updated 6.1.2</a></p>
-		<p class="indent0"><strong><a name="CLASS">Token Name:</a></strong> CLASS.x.y</p>
+		<p class="indent0"><strong>Token Name:</strong> CLASS.x.y</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number (The classes position in the character's class list
 		                                                                 - 0-based index).</p>
 		<p class="indent1"><strong> Variables Used (y):</strong> Text (Property).</p>
@@ -180,8 +180,8 @@
 		<p class="indent3">Displays characters Chalenge Rating.</p>
 
 		<p></p><hr>
-		<p class="new">*** Updated</p>
-		<p class="indent0"><strong><a name="DEITY">Token Name:</a></strong> DEITY.x</p>
+		<p class="lststatus"><a name="DEITY">*** Updated</a></p>
+		<p class="indent0"><strong>Token Name:</strong> DEITY.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Property).</p>
 		<ul class="indent2">
 			<li>None - Displays the deity name.</li>
@@ -392,8 +392,8 @@
 		<p class="indent3">Displays characters complete height.</p>
 
 		<p></p><hr>
-		<p class="new"><a name="HITDICE">*** Updated 6.1.3</a></p>
-		<p class="indent0"><strong><a name="HITDICE">Token Name:</a></strong> HITDICE</p>
+		<p class="lstnew"><a name="HITDICE">*** Updated 6.1.3</a></p>
+		<p class="indent0"><strong>Token Name:</strong> HITDICE</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Modifier</p>
 		<ul class="indent2">
 			<li>blank - Displays characters total hit dice in explicit format.</li>
@@ -422,6 +422,32 @@
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>INTERESTS</code></p>
 		<p class="indent3">Display characters interests.</p>
+
+		<p></p><hr>
+		<p class="new"><a name="INVALIDTEXT">*** new 6.01.04</a></p>
+		<p class="indent0"><strong>Token Name:</strong> INVALIDTEXT.x</p>
+		<p class="indent1"><strong> Variables Used (x):</strong> Text (Property).</p>
+		<p class="indent1"><strong>What it does:</strong></p>
+		<p class="indent2">Displays the invalid text appropriate to the referenced property.</p>
+		<ul class="indent2">
+			<li>DAMAGE - Displays the invalid damage text as defined in the Output Preferences tab.</li>
+			<li>TOHIT - Displays the invalid to-hit text as defined in the Output Preferences tab.</li>
+		</ul>
+		<p class="sidebar1">Note: This token is used to create a new node under /character/export in 
+			the <span class="lstfile">base.xml</span>, similar to the <code>PAPERINFO</code> token,  
+			which is then used in the XSLT code.</p>
+		<p class="indent1"><strong>Examples:</strong></p>
+		<p class="indent2">Node in base.xml file:</p>
+		<p class="indent3"><code>&lt;invalidtext&gt;</code><br>
+		<p class="indent3"><code>&lt;tohit&gt;|INVALIDTEXT.TOHIT|&lt;/tohit&gt;</code><br>
+		<p class="indent3"><code>&lt;damage&gt;|INVALIDTEXT.DAMAGE|&lt;/damage&gt;</code><br>
+		<p class="indent3"><code>&lt;/invalidtext&gt;</code></p>
+		<p class="indent2">Code in xslt file:</p>
+		<p class="indent3"><code>&lt;xsl:if test="not(w1_h1_p/to_hit = /character/export/invalidtext/tohit <br>
+			and w1_h1_p/damage = /character/export/invalidtext/damage <br>
+			and w2_p_oh/to_hit = /character/export/invalidtext/tohit <br>
+			and w2_p_oh/damage = /character/export/invalidtext/damage)"&gt;</code></p>
+		<p class="indent4">Displays the invalid to-hit and damage text on the Output Sheet.</p>
 
 		<p></p><hr>
 		<p class="indent0"><strong><a name="LANGUAGES">Token Name:</a></strong> LANGUAGES.x</p>
@@ -567,8 +593,8 @@
 		<p class="indent3">Displays the name of the Paper Type defined in the Output Preferences.</p>
 
 		<p></p><hr>
-		<p class="new">*** new 5.7.14</p>
-		<p class="indent0"><strong><a name="PC">Token Name:</a></strong> PC.x</p>
+		<p class="lststatus"><strong><a name="PC">*** new 5.7.14</a></p>
+		<p class="indent0">Token Name:</strong> PC.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Property).</p>
 		<ul class="indent2">
 			<li>HEIGHT - Displays the height of PC in inches (or whatever the base unit is).</li>
@@ -648,8 +674,8 @@
 		<p class="indent3">Displays characters race.</p>
 
 		<p></p><hr>
-		<p class="new">*** New 5.9.4</p>
-		<p class="indent0"><strong><a name="RACESUBTYPE">Token Name:</a></strong> RACESUBTYPE.x</p>
+		<p class="lststatus"><a name="RACESUBTYPE">*** New 5.9.4</a></p>
+		<p class="indent0"><strong>Token Name:</strong> RACESUBTYPE.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Number
 			(The subtypes position in the character's subtypes list - 0-based index).</p>
 		<p class="indent1"><strong>What it does:</strong></p>
@@ -660,8 +686,8 @@
 		<p class="indent3">Displays the characters first racial subtype.</p>
 
 		<p></p><hr>
-		<p class="new">*** New 5.9.4</p>
-		<p class="indent0"><strong><a name="RACETYPE">Token Name:</a></strong> RACETYPE</p>
+		<p class="lststatus"><a name="RACETYPE">*** New 5.9.4</a></p>
+		<p class="indent0"><strong>Token Name:</strong> RACETYPE</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Displays characters race type as set by the
 		<a href="../../listfilepages/datafilestagpages/datafilesraces.html#RACETYPE">RACETYPE</a> race tag.</p>
@@ -767,8 +793,8 @@
 		<p class="indent3">Displays the race type.</p>
 
 		<p></p><hr>
-		<p class="new">*** new 5.7.9</p>
-		<p class="indent0"><strong><a name="UNITSET">Token Name:</a></strong> UNITSET.x</p>
+		<p class="lststatus"><a name="UNITSET">*** new 5.7.9</a></p>
+		<p class="indent0"><strong>Token Name:</strong> UNITSET.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Property).</p>
 		<ul class="indent2">
 			<li>blank - Displays the name of the unit set.</li>
@@ -785,8 +811,8 @@
 		<p class="indent3">Displays the weight unit of the currently selected unit set.</p>
 
 		<p></p><hr>
-		<p class="new">*** updated 5.9.5</p>
-		<p class="indent0"><strong><a name="VISION">Token Name:</a></strong> VISION.x</p>
+		<p class="lststatus"><a name="VISION">*** updated 5.9.5</a></p>
+		<p class="indent0"><strong>Token Name:</strong> VISION.x</p>
 		<p class="indent1"><strong> Variables Used (x):</strong> Text (Vision output type).</p>
 		<ul class="indent2">
 			<li>blank - Displays a comma delimited list of character's vision types.</li>
@@ -824,14 +850,16 @@
 		<p class="indent3">Displays max weight for the light load category.</p>
 
 		<p></p><hr>
-		<p class="new"><a name="CRMOD">*** New 6.1.2</a></p>
-		<p class="indent0"><strong><a name="XPAWARD">Token Name:</a></strong>XPAWARD</p>
+		<p class="new"><a name="XPAWARD">*** New 6.1.2</a></p>
+		<p class="indent0"><strong>Token Name:</strong>XPAWARD</p>
 		<p class="indent1"><strong>What it does:</strong></p>
 		<p class="indent2">Display the experience award for this creature. This is only used for game modes
 			with fixed XP awards per CR, such as the Pathfinder RPG.</p>
 		<p class="indent1"><strong>Examples:</strong></p>
 		<p class="indent2"><code>XPAWARD</code></p>
 		<p class="indent3">Display the XP award.</p>
+
+<hr>
 
 	<p>
 	<a href="http://validator.w3.org/check?uri=referer"><img
