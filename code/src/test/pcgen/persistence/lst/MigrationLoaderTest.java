@@ -104,7 +104,7 @@ public class MigrationLoaderTest
 	@Test
 	public void testParseFirstTokenInValidCharsInKey()
 	{
-		String invalidChars = ",|\\:;.%*=[]";
+		String invalidChars = ",|\\:;%*=[]";
 		for (char invalid : invalidChars.toCharArray())
 		{
 			MigrationRule migrationRule = migrationLoader.parseFirstToken("SOURCE:Old"+invalid, "", sourceURI);
@@ -118,7 +118,7 @@ public class MigrationLoaderTest
 	@Test
 	public void testParseFirstTokenInValidCharsInAbilityCategory()
 	{
-		String invalidChars = ",|\\:;.%*=[]";
+		String invalidChars = ",|\\:;%*=[]";
 		for (char invalid : invalidChars.toCharArray())
 		{
 			MigrationRule migrationRule = migrationLoader.parseFirstToken("ABILITY:Old"+invalid+"|Key", "", sourceURI);
@@ -132,7 +132,7 @@ public class MigrationLoaderTest
 	@Test
 	public void testParseFirstTokenInValidCharsInAbilityKey()
 	{
-		String invalidChars = ",|\\:;.%*=[]";
+		String invalidChars = ",|\\:;%*=[]";
 		for (char invalid : invalidChars.toCharArray())
 		{
 			MigrationRule migrationRule = migrationLoader.parseFirstToken("ABILITY:Old|Key"+invalid, "", sourceURI);
