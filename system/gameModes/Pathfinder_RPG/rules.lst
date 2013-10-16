@@ -57,6 +57,12 @@ NAME:AmmoStacksWithWeapon		PARM:AMMOSTACKSWITHWEAPON	DEFAULT:No				DESC:Do ammun
 
 NAME:CombatManueverBonus		PARM:USE_CMB		DEFAULT:Yes	EXCLUDE:USE_GRAPPLE	DESC:Use Pathfinder Combat Manuever Bonus
 NAME:Grapple				PARM:USE_GRAPPLE		DEFAULT:No	EXCLUDE:USE_CMB		DESC:Use 3.5 Grapple
+
+#
+# The following are optional/alternative rule subsystems
+#
+NAME:HeroPoints				PARM:HEROPOINTS			DEFAULT:NO				DESC:Use Hero Points from Pathfinder RPG Advanced Player's Guide
+
 #
 # Done
 #

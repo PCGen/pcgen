@@ -1,0 +1,13 @@
+# CVS $Revision: 21659 $ $Author: amaitland $ -- Wed Sep 18 12:15:51 2013 -- reformated by prettylst.pl v1.50 (build 21406)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Stefan Radermacher & Andrew Maitland
+
+###Block: Hero Point Feats
+# Feat Name		Type			Required Feat			Description																							Modify VAR				Source Page		Description of the Benefits
+Blood of Heroes	TYPE:General	PREFEAT:1,Hero's Fortune	DESC:You have a sense of destiny about you and always seem to succeed, even when the odds are against you.												SOURCEPAGE:p.323	BENEFIT:Whenever you gain a level, you gain 2 hero points instead of 1.
+Hero's Fortune	TYPE:General						DESC:Even at the start of your career, it was clear that you had a chance at greatness, and your legend continues to grow with every adventure.	BONUS:VAR|HeroPointsMax|2	SOURCEPAGE:p.324	BENEFIT:You gain a hero point. The maximum number of hero points you can have at any one time is increased to 5.
+Luck of Heroes	TYPE:General	PREFEAT:1,Hero's Fortune	DESC:To others, it seems that you always have a bit of luck around you.																		SOURCEPAGE:p.324	BENEFIT:Whenever you spend a hero point to reroll a die roll or to grant yourself a bonus before a die roll is made, there is a chance that the hero point is not spent. Whenever you spend a hero point, roll a d20. If the result is greater than 15, the hero point is not spent. You cannot use this feat when you cheat death.
+
+#
+# End
+#

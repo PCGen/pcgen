@@ -293,14 +293,6 @@ Call Lightning Storm.COPY=Call Lightning Storm (Starsoul)																							
 
 ###
 
-###Block: Hero Points Spells
-# Spell Name		Output Name					Classes of caster					School			Spell Descriptors		Components		Casting Time			Range		Item		Target Area or Effect											Duration										Save Info					Spell Resistance	Description																										Source Page
-Heroic Fortune								CLASSES:Alchemist,Bard,Cleric=2|Paladin=3	SCHOOL:Evocation						COMPS:V, S, DF, M	CASTTIME:1 standard action	RANGE:Touch	ITEM:Potion	TARGETAREA:Creature touched										DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates (harmless)	SPELLRES:No		DESC:Subject gains 1 temporary hero point.																				SOURCEPAGE:p.324
-Heroic Fortune (Mass)	OUTPUTNAME:Heroic Fortune, [NAME]	CLASSES:Bard=4|Cleric=5				SCHOOL:Evocation						COMPS:V, S, DF, M	CASTTIME:1 standard action	RANGE:Close	ITEM:Potion	TARGETAREA:One or more creatures, no two of which can be more thatn 30 ft. apart	DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates (harmless)	SPELLRES:No		DESC:Subjects gain 1 temporary hero point.																				SOURCEPAGE:p.324
-Malediction									CLASSES:Sorcerer,Witch,Wizard=3		SCHOOL:Necromancy		DESCRIPTOR:Death|Evil	COMPS:V, S, F	CASTTIME:1 standard action	RANGE:Touch			TARGETAREA:Living creature touched									DURATION:Instantaneous/1 minute per HD of the target; see test	SAVEINFO:Will negates			SPELLRES:Yes	DESC:Gain temporary hero points by killing a dying creature.																	SOURCEPAGE:p.324
-Severed Fate								CLASSES:Witch=2|Cleric=3			SCHOOL:Enchantment					COMPS:V, S		CASTTIME:1 standard action	RANGE:Close	ITEM:Potion	TARGETAREA:One living creature									DURATION:(CASTERLEVEL*10) minutes						SAVEINFO:Will negates			SPELLRES:Yes	DESC:Target is shaken and cannot use hero points.																			SOURCEPAGE:p.324
-Unravel Destiny								CLASSES:Cleric,Sorcerer,Witch,Wizard=3	SCHOOL:Divination						COMPS:V, S, DF	CASTTIME:1 standard action	RANGE:Close	ITEM:Potion	TARGETAREA:One creature											DURATION:(CASTERLEVEL) rounds							SAVEINFO:Will negates			SPELLRES:Yes	DESC:Target gets -2 on ability checks, attack rolls, saving throws, and skill check per hero point it possesses and takes 2d6 damage when spending hero points.	SOURCEPAGE:p.325
-
 ###Block: Temp Mods
 # Spell Name	Combat bonus
 Strong Jaw.MOD	BONUS:COMBAT|DAMAGESIZE|2|TYPE=Temporary|PREAPPLY:Natural;Unarmed

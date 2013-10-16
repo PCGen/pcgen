@@ -1,0 +1,13 @@
+# CVS $Revision: 21399 $ $Author: evilmynex $ -- Mon Sep 16 06:44:37 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+# Original Entry by: Stefan Radermacher
+
+###Block: Internal
+CATEGORY=Internal|Default.MOD		DEFINE:HeroPoints|0	DEFINE:HeroPointsMax|0	BONUS:VAR|HeroPointsMax|3|PRECHARACTERTYPE:1,PC	ABILITY:Internal|AUTOMATIC|Hero Points|PRECHARACTERTYPE:1,PC
+
+###Block: Ability
+Hero Points	CATEGORY:Internal	TYPE:Internal	VISIBLE:DISPLAY	BONUS:VAR|HeroPoints|%CHOICE|PREAPPLY:ANYPC	CHOOSE:NUMBER|MIN=0|MAX=HeroPointsMax|TITLE=Current Hero Points
+
+#
+# End
+#

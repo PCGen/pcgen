@@ -74,12 +74,6 @@ Vision Lowlight																																					PREVISION:1,Low-Light Vision
 Vision Darkvision																																					PREVISION:1,Darkvision=1																BONUS:VISION|Darkvision|30
 # TODO: Test these thoroughly, I recall an issue with Low-Light having a NULL value.
 
-### Block: Hero Points
-# Template Name			Visible		Template																Define							Minimum Size	Maximum Size	Required Vision			Prohibited Vision					Modify VAR							Add to vision			Choose									Apply Kit					Bonus Languages	Vision		Natural Attacks								Temporary effect description
-Hero Points				VISIBLE:DISPLAY																		DEFINE:HeroPoints|0	DEFINE:HeroPointsMax|3
-Current Hero Points		VISIBLE:NO																																													BONUS:VAR|HeroPoints|%CHOICE|PREAPPLY:ANYPC						CHOOSE:NUMBER|MIN=0|MAX=HeroPointsMax|TITLE=Hero Points																							TEMPDESC:Track Hero Points
-
-
 Starting Gold ~ APG		VISIBLE:NO		TEMPLATE:CHOOSE:Starting Gold APG ~ Random|Starting Gold APG ~ Maximum|Starting Gold APG ~ Average
 Starting Gold APG ~ Random	VISIBLE:NO																																																																				KIT:1|Starting Gold APG ~ Random
 Starting Gold APG ~ Maximum	VISIBLE:NO																																																																				KIT:1|Starting Gold APG ~ Maximum

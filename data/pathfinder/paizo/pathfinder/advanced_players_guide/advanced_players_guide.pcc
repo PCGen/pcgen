@@ -104,6 +104,12 @@ SPELL:pfapg_spells_mods.lst
 
 TEMPLATE:pfapg_templates.lst
 
+# Hero Points System
+ABILITY:pfapg_abilities_heropoints.lst|PRERULE:1,HEROPOINTS
+FEAT:pfapg_feats_heropoints.lst|PRERULE:1,HEROPOINTS
+SPELL:pfapg_spells_heropoints.lst|PRERULE:1,HEROPOINTS
+
+
 #Hide internal feat types
 HIDETYPE:FEAT|AquaticBloodline|BorealBloodline|DeepearthBloodline|DreamspunBloodline|ProteanBloodline|SerpentineBloodline|ShadowBloodline|StarsoulBloodline|StormbornBloodline|VerdantBloodline
 HIDETYPE:FEAT|DruidShamanBear|DruidShamanEagle|DruidShamanLion|DruidShamanSerpent|DruidShamanWolf
