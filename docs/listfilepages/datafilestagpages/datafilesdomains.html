@@ -64,6 +64,8 @@
 				or</li>
 			<li>Used in conjunction with the <code>CHOOSE</code> tag, <code>%LIST</code> 
 				can be used with this tag to provide the required choice.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a domain with the <code>.MOD</code> tag, given an existing <code>FEAT</code> 
+			tag, the data included in a new <code>FEAT</code> tag will be appended to the existing tag data.</li>
 		</ul>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
@@ -72,6 +74,13 @@
 		with this domain.</p>
 	<p class="indent2"><code>CHOOSE:WEAPONPROFS|LIST &lt;tab&gt; FEAT:Weapon Focus (%LIST)</code></p>
 	<p class="indent3">The feat &quot;Weapon Focus&quot; is granted as an automatic feat with the weapon chosen with the <code>CHOOSE</code> tag.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Domain: <code>Space Monkey &lt;tab&gt; FEAT:Alertness</code>
+	<p class="indent2">Modified By: <code>Space Monkey.MOD &lt;tab&gt; FEAT:Blind Fight</code></p>
+	<p class="indent2">Is Equivalent To: <code>Space Monkey &lt;tab&gt; FEAT:Alertness,Blind Fight</code>.</p>
+	<p class="indent3">The &quot;Alertness&quot; &amp; &quot;Blind-Fight&quot; bonus feats are granted to clerics
+		with this domain.</p>
+	<p></p>
 
 <hr>
 
