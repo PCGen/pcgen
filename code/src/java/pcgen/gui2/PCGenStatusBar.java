@@ -156,7 +156,6 @@ public final class PCGenStatusBar extends JPanel
 		}
 		setVisible(true);
 		CursorControlUtilities.startWaitCursor(this);
-		progressBar.setIndeterminate(true);
 		setContextMessage(msg);
 		getProgressBar().setVisible(true);
 		getProgressBar().setIndeterminate(indeterminate);
@@ -165,15 +164,13 @@ public final class PCGenStatusBar extends JPanel
 	}
 
 	/**
-	 * Hides the progress bar
+	 * Clears the progress bar and turns off the wait cursor
 	 */
 	public void endShowingProgress()
 	{
 		CursorControlUtilities.stopWaitCursor(this);
 		setContextMessage(null);
 		getProgressBar().setString(null);
-		getProgressBar().setIndeterminate(false);
 		getProgressBar().setVisible(false);
-		setVisible(false);
 	}
 }
