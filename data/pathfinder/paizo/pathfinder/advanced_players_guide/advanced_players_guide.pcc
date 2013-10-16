@@ -106,6 +106,7 @@ TEMPLATE:pfapg_templates.lst
 
 # Hero Points System
 ABILITY:pfapg_abilities_heropoints.lst|PRERULE:1,HEROPOINTS
+ABILITYCATEGORY:pfapg_abilitycategories_heropoints.lst|PRERULE:1,HEROPOINTS
 FEAT:pfapg_feats_heropoints.lst|PRERULE:1,HEROPOINTS
 SPELL:pfapg_spells_heropoints.lst|PRERULE:1,HEROPOINTS
 
