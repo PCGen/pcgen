@@ -67,7 +67,7 @@
 	<p class="indent1"><strong>What it does:</strong></p>
 	<ul class="indent2">
 		<li>Sets the Challenge Rating of the creature. For CR's less than 1, fractions are used (1/2, 1/4, 1/8).</li>
-		<li><strong>.MOD Behavior:</strong> When modifying a template, with the <code>.MOD</code> tag, given an existing <code>CR</code> 
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>CR</code> 
 			tag, the data included in a new <code>CR</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="sidebar0"><strong>Note:</strong> CR's using fractions must start with a &quot;1/&quot;. Expressions such as CR:3/4 or CR:0.5 will not work.</p>
@@ -103,9 +103,13 @@
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Space the creature occupies)</p>
 	<p class="indent1"><strong>Variables Used (y):</strong> Number (Optional, side space)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Describes how much space the creature takes up. For 3.0 rules this tag is used for
+	<ul class="indent2">
+		<li>Describes how much space the creature takes up. For 3.0 rules this tag is used for
 		the Face statistic. For 3.5 rules this tag is used for the Space statistic. If only one number is used
-		it is assumed to represent all sides.</p>
+		it is assumed to represent all sides.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>FACE</code> 
+			tag, the data included in a new <code>FACE</code> tag will overwrite the existing tag data.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>FACE:5,10</code></p>
 	<p class="indent3">The race has a face of 5 by 10.</p>
@@ -132,6 +136,8 @@
 		<li>More than one class may be included as a pipe-delimited (|) list with all listed classes identified as &quot;Favored&quot;.</li>
 		<li>Special type 'ANY' will grant the character's highest level class as Favored.</li>
 		<li>When 'ANY' is used no other class is allowed.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>FAVCLASS</code> 
+			tag, the data included in a new <code>FAVCLASS</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>FAVCLASS:Wizard|Fighter</code></p>
@@ -207,8 +213,11 @@
 	<p class="indent0"><strong><a name="HANDS">Tag Name:</a></strong> HANDS:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Hands)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Determines the Number of Hands the creature has for purposes of
-		Multiattack and Multidexterity.</p>
+	<ul class="indent2">
+		<li>Determines the Number of Hands the creature has for purposes of Multiattack and Multidexterity.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>HANDS</code> 
+			tag, the data included in a new <code>HANDS</code> tag will overwrite the existing tag data.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>HANDS:4</code></p>
 	<p class="indent3">Race has four hands.</p>
@@ -229,6 +238,8 @@
 			HD the creature can advance to, through HD advancement.  Unlimited HD advancement is indicated by using an asterisk (*) in place of the final number.</li>
 		<li>All the numbers preceding the last number each indicate the highest number of HD the creature
 			can have before before its size increases by one category.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>HITDICEADVANCMENT</code> 
+			tag, the data included in a new <code>HITDICEADVACEMENT</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>HITDICEADVANCEMENT:4,6,8</code></p>
@@ -277,6 +288,8 @@
 			will ignore the MIN and MAX settings and use the full range of die sizes specified by the DIESIZES tag.</li>
 		<li>Regardless of the number it will never allow a hit die below 1.</li>
 		<li>Optionally HITDIE can be qualified with a Class or Class type in which case it will only be applied to matching classes.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>HITDIE</code> 
+			tag, the data included in a new <code>HITDIE</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>HITDIE:12</code></p>
@@ -319,6 +332,8 @@
 		<li>This is a comma-delimited (,) list of languages that the character 
 		may select from to gain as a bonus language. This does not effect languages granted from skills.</li>
 		<li>When using <code>ALL</code>, no other language designation is necessary.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>LANGBONUS</code> 
+			tag, the data included in a new <code>LANGBONUS</code> tag will be appended to the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc</code></p>
@@ -346,8 +361,12 @@
 	<p class="indent0"><strong><a name="LEGS">Tag Name:</a></strong> LEGS:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Legs)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Used to determine encumbrance and carrying capacity for creatures/characters
-		with a nonstandard amount of legs. (i.e. more than/less than 2).</p>
+	<ul class="indent2">
+		<li>Used to determine encumbrance and carrying capacity for creatures/characters
+			with a nonstandard amount of legs. (i.e. more than/less than 2).</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>LEGS</code> 
+			tag, the data included in a new <code>LEGS</code> tag will overwrite the existing tag data.</li>
+	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>LEGS:4</code></p>
 	<p class="indent3">A horse has 4 legs.</p>
@@ -366,12 +385,16 @@
 	<p class="indent0"><strong>Tag Name:</strong> LEVELADJUSTMENT:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number or Formula (Level Adjustment)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Raises the Effective Character Level (ECL) of the creature by the number supplied.</p>
-	<p class="indent2">This is factored in when determining how much experience is needed to raise a character's level.
-		For example, a 1st level character with a Level adjustment of 3 would need the same amount of experience to reach 2nd level
-		as a 4th level character with no level adjustments would need to reach 5th level.</p>
-	<p class="indent2">The Level Adjustment is added to Monster Hit Dice and/or Character Levels
-			to determine the Effective Character Level (ECL) of the creature.</p>
+	<ul class="indent2">
+		<li>Raises the Effective Character Level (ECL) of the creature by the number supplied.</li>
+		<li>This is factored in when determining how much experience is needed to raise a character's level.
+			For example, a 1st level character with a Level adjustment of 3 would need the same amount of experience to reach 2nd level
+			as a 4th level character with no level adjustments would need to reach 5th level.</li>
+		<li>The Level Adjustment is added to Monster Hit Dice and/or Character Levels
+			to determine the Effective Character Level (ECL) of the creature.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>LEVELADJUSTMENT</code> 
+			tag, the data included in a new <code>LEVELADJUSTMENT</code> tag will overwrite the existing tag data.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>LEVELADJUSTMENT:1</code></p>
 	<p class="indent3">Effective Character Level is raised by one.</p>
@@ -399,6 +422,8 @@
 		<li>If a monster takes levels in a base class only those skills defined as cross class 
 			skills in that class count as cross class skills for that level, the monster cross 
 			class skills will not apply.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>MONCCSKILL</code> 
+			tag, the data included in a new <code>MONCCSKILL</code> tag will be appended to the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>MONCCSKILL:Alchemy|Wilderness Lore</code></p>
@@ -426,6 +451,8 @@
 		<li>Monster class skills are only class skills for monster classes such as Giant, Outsider, Undead etc.</li>
 		<li>If a monster takes levels in a base class only those skills defined as class skills in that class count as
 		class skills for that level, the monster class skills will not apply.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>MONCSKILL</code> 
+			tag, the data included in a new <code>MONCSKILL</code> tag will be appended to the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Examples:</strong></p>
 	<p class="indent2"><code>MONCSKILL:Alchemy|Wilderness Lore</code></p>
@@ -449,6 +476,8 @@
 	<ul class="indent2">
 		<li>Determines the number of Monster Levels the race gets on start.</li>
 		<li>Class must be TYPE:Monster and have a PRERACETYPE that matches the race.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>MONSTERCLASS</code> 
+			tag, the data included in a new <code>MONSTERCLASS</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>MONSTERCLASS:Outsider:2</code></p>
@@ -473,6 +502,8 @@
 		Fire, Goblinoid, Good, Incorporeal, Lawful, Native, Reptilian, Shapechanger, Swarm, Water as well as
 		Humanoid subraces such as Elf, Orc, Dwarf, etc..</li>
 		<li>The <code>.CLEAR</code> tag may be used with this tag.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>RACESUBTYPE</code> 
+			tag, the data included in a new <code>RACESUBTYPE</code> tag will be appended to the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>RACESUBTYPE:Lawful|Air</code></p>
@@ -501,6 +532,8 @@
 		<li>Currently existing selections from the Monster List include: Aberration, Animal, Beast, Construct,
 		Dragon, Elemental, Fey, Giant, Humanoid, Magical Beast, Monstrous Humanoid, Ooze, Outsider, Plant,
 		Shapechanger, Undead, and Vermin.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>RACETYPE</code> 
+			tag, the data included in a new <code>RACETYPE</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>RACETYPE:Outsider</code></p>
@@ -519,7 +552,11 @@
 	<p class="indent0"><strong><a name="REACH">Tag Name:</a></strong> REACH:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Reach in Feet)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Determines the reach of the Race.</p>
+	<ul class="indent2">
+		<li>Determines the reach of the Race.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>REACH</code> 
+			tag, the data included in a new <code>REACH</code> tag will overwrite the existing tag data.</li>
+	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>REACH:10</code></p>
 	<p class="indent3">The race has a reach of ten feet.</p>
@@ -560,6 +597,8 @@
 			H=Huge, G=Gargantuan, C=Colossal). Size is used in determining to-hit, AC, and affects some skills.</li>
 		<li>The size designations, including abbreviations, are dependant upon the gamemode used and may
 			be redefined in the sizeadjustments.lst file.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>SIZE</code> 
+			tag, the data included in a new <code>SIZE</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Special Sizes:</strong></p>
 	<ul class="indent2">
@@ -586,6 +625,8 @@
 		<li>Default is x4.</li>
 		<li>Most Multi-hit die creatures have SKILLMULT:1 since adding class levels is done
 			as Multi-Classing.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a race with the <code>.MOD</code> tag, given an existing <code>SKILLMULT</code> 
+			tag, the data included in a new <code>SKILLMULT</code> tag will overwrite the existing tag data.</li>
 	</ul>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SKILLMULT:1</code></p>
@@ -603,9 +644,11 @@
 	<p class="indent0"><strong>Tag Name:</strong> STARTFEATS:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Number (Number of Starting Feats)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
-	<p class="indent2">Grants a number of free feats to the race at first level. These are
-		unrestricted feats. To restrict choice (such as &quot;only Fighter feats&quot;) use
-		the global ADD:FEAT() tag.</p>
+	<ul class="indent2">
+		<li>Grants a number of free feats to the race at first level. These are unrestricted feats. 
+			To restrict choice (such as &quot;only Fighter feats&quot;) use	the global ADD:FEAT() tag.</li>
+		<li><strong>.MOD Behavior:</strong> When modifying a template, with the <code>.MOD</code> tag, given an existing <code>STARTFEATS</code> 
+			tag, the data included in a new <code>STARTFEATS</code> tag will be included as if it were a separate tag.</li>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>STARTFEATS:2</code></p>
 	<p class="indent3">The race starts with 2 free feats.</p>
