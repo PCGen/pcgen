@@ -111,6 +111,11 @@
 	<p class="indent3">The race has a face of 5 by 10.</p>
 	<p class="indent2"><code>FACE:10</code></p>
 	<p class="indent3">The race has a face of 10.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>&lt;race name&gt; &lt;tab&gt; FACE:10</code>
+	<p class="indent2">Modified By: <code>&lt;race name&gt;.MOD &lt;tab&gt; FACE:5,10</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;race name&gt; &lt;tab&gt; FACE:5,10</code></p>
+	<p class="indent3">The race now has a face of 5 by 10.</p>
 	<p></p>
 
 <hr>
@@ -135,6 +140,11 @@
 	<p class="indent3">Race's favored class is &quot;Wizard&quot; (excluding any sub-class of wizard).</p>
 	<p class="indent2"><code>FAVCLASS:Wizard.Illusionist</code></p>
 	<p class="indent3">Race's favored class is the &quot;Wizard&quot; sub-class, the &quot;Illusionist&quot;.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>&lt;race name&gt; &lt;tab&gt; FAVCLASS:Wizard|Fighter</code>
+	<p class="indent2">Modified By: <code>&lt;race name&gt;.MOD &lt;tab&gt; FAVCLASS:Wizard.Illusionist</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;race name&gt; &lt;tab&gt; FAVCLASS:Wizard.Illusionist</code></p>
+	<p class="indent3">Race's favored class is changed to &quot;Wizard&quot; sub-class, the &quot;Illusionist&quot;.</p>
 	<p></p>
 
 <hr>
@@ -186,7 +196,7 @@
 	<p class="indent2"><code>CHOOSE:WEAPONPROFS|LIST &lt;tab&gt; FEAT:Weapon Focus (%LIST)</code></p>
 	<p class="indent3">The feat &quot;Weapon Focus&quot; is granted as an automatic feat with the weapon chosen with the <code>CHOOSE</code> tag.</p>
 	<p class="indent1"><strong>.MOD Example:</strong></p>
-	<p class="indent2">Initial Template: <code>Darkling &lt;tab&gt; FEAT:Blind Fight|Alertness</code>
+	<p class="indent2">Initial Race: <code>Darkling &lt;tab&gt; FEAT:Blind Fight|Alertness</code>
 	<p class="indent2">Modified By: <code>Darkling.MOD &lt;tab&gt; FEAT:Blind Fight|Combat Reflexes</code></p>
 	<p class="indent2">Is Equivalent To: <code>Darkling &lt;tab&gt; FEAT:Blind Fight|Combat Reflexes</code></p>
 	<p class="indent3">Race gets the &quot;Blind-Fight&quot; and &quot;Combat Reflexes&quot; feats as bonus feats.</p>
@@ -202,6 +212,11 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>HANDS:4</code></p>
 	<p class="indent3">Race has four hands.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>&lt;race name&gt; &lt;tab&gt; HANDS:2</code>
+	<p class="indent2">Modified By: <code>&lt;race name&gt;.MOD &lt;tab&gt; HANDS:4</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;race name&gt; &lt;tab&gt; HANDS:4</code></p>
+	<p class="indent3">Race now has four hands.</p>
 	<p></p>
 
 <hr>
@@ -225,6 +240,12 @@
 	<p class="indent2"><code>HITDICEADVANCEMENT:4,6,*</code></p>
 	<p class="indent3">Race starts out as Tiny, with 4 Hit Dice. 5-6 it is Small, 7+
 		it is Medium. There is no limit to the creature's hit dice.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>&lt;race name&gt; &lt;tab&gt; HITDICEADVANCEMENT:4,6,8</code>
+	<p class="indent2">Modified By: <code>&lt;race name&gt;.MOD &lt;tab&gt; HITDICEADVANCEMENT:4,6,*</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;race name&gt; &lt;tab&gt; HITDICEADVANCEMENT:4,6,*</code></p>
+	<p class="indent3">Race starts out as Tiny, with 4 Hit Dice. 5-6 it is Small, 7+
+		it is Medium. The race no longer has a limit to the creature's hit dice.</p>
 	<p></p>
 
 <hr>
@@ -279,6 +300,11 @@
 	<p class="indent3">Steps up the Hit Dice size by four steps. If the class has a Hit Die of d6 it will be stepped up to d20.</p>
 	<p class="indent2"><code>HITDIE:%Hdown3</code></p>
 	<p class="indent3">Steps down the Hit Dice size by three steps. If the class has a Hit Die of d6 it will be stepped down to d2.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>&lt;race name&gt; &lt;tab&gt; HITDIE:12</code>
+	<p class="indent2">Modified By: <code>&lt;race name&gt;.MOD &lt;tab&gt; HITDIE:%/2</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;race name&gt; &lt;tab&gt; HITDIE:%/2</code></p>
+	<p class="indent3">The creature's new hitdie size is a divided by 2.</p>
 	<p></p>
 
 <hr>
@@ -308,6 +334,11 @@
 	<p class="indent2"><code>LANGBONUS:Old Dwarven,Orcish,TYPE=ClanDialect,Trader's Tongue</code></p>
 	<p class="indent3">Race can choose starting languages from &quot;Old Dwarven&quot;,
 		&quot;Orcish&quot;, any type of &quot;ClanDialect&quot;, or &quot;Trader's Tongue&quot;.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>Space Monkey &lt;tab&gt; LANGBONUS:Simian</code>
+	<p class="indent2">Modified By: <code>Space Monkey.MOD &lt;tab&gt; LANGBONUS:Martian</code></p>
+	<p class="indent2">Is Equivalent To: <code>Space Monkey &lt;tab&gt; LANGBONUS:Simian,Martian</code>.</p>
+	<p class="indent3">The character can choose between the languages &quot;Simian&quot; and &quot;Martian&quot; as bonus languages.</p>
 	<p></p>
 
 <hr>
@@ -322,6 +353,11 @@
 	<p class="indent3">A horse has 4 legs.</p>
 	<p class="indent2"><code>LEGS:0</code></p>
 	<p class="indent3">Slime and ooze creatures/characters would have no legs!</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>&lt;race name&gt; &lt;tab&gt; LEGS:2</code>
+	<p class="indent2">Modified By: <code>&lt;race name&gt;.MOD &lt;tab&gt; LEGS:4</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;race name&gt; &lt;tab&gt; LEGS:4</code></p>
+	<p class="indent3">The race now has 4 legs.</p>
 	<p></p>
 
 <hr>
@@ -341,6 +377,11 @@
 	<p class="indent3">Effective Character Level is raised by one.</p>
 	<p class="indent2"><code>Bugbear (Shadowkind).MOD &lt;tab&gt; OUTPUTNAME:Bugbear &lt;tab&gt; RACETYPE:Humanoid &lt;tab&gt; RACESUBTYPE:Shadowkind &lt;tab&gt; TEMPLATE:Shadowkind &lt;tab&gt; LEVELADJUSTMENT:2</code></p>
 	<p class="indent3">This modification of the race Bugbear, changes all of the indicated tags.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>&lt;race name&gt; &lt;tab&gt; LEVELADJUSTMENT:1</code>
+	<p class="indent2">Modified By: <code>&lt;race name&gt;.MOD &lt;tab&gt; LEVELADJUSTMENT:2</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;race name&gt; &lt;tab&gt; LEVELADJUSTMENT:2</code></p>
+	<p class="indent3">Effective Character Level is now raised by two.</p>
 	<p></p>
 
 <hr>
@@ -364,6 +405,12 @@
 	<p class="indent3">The &quot;Alchemy&quot; and &quot;Wilderness Lore&quot; skills are made monster cross class skills.</p>
 	<p class="indent2"><code>MONCCSKILL:Alchemy|TYPE.Knowledge</code></p>
 	<p class="indent3">The &quot;Alchemy&quot; and &quot;Knowledge&quot; type skills are made monster cross class skills.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>Ooze Monkey &lt;tab&gt; MONCCSKILL:Alchemy|Wilderness Lore</code>
+	<p class="indent2">Modified By: <code>Ooze Monkey.MOD &lt;tab&gt; MONCCSKILL:Acrobatics|Stealth</code></p>
+	<p class="indent2">Is Equivalent To: <code>Ooze Monkey &lt;tab&gt; MONCCSKILL:Acrobatics|Alchemy|Stealth|Wilderness Lore</code>.</p>
+	<p class="indent3">The &quot;Acrobatics&quot;, &quot;Alchemy&quot;, &quot;Stealth&quot;, and &quot;Wilderness Lore&quot; skills are 
+		made monster cross class skills.</p>
 	<p></p>
 
 <hr>
@@ -385,6 +432,12 @@
 	<p class="indent3">The &quot;Alchemy&quot; and &quot;Wilderness Lore&quot; skills are made monster class skills.</p>
 	<p class="indent2"><code>MONCSKILL:Alchemy|TYPE.Knowledge</code></p>
 	<p class="indent3">The &quot;Alchemy&quot; and &quot;Knowledge&quot; type skills are made monster class skills.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>Ooze Monkey &lt;tab&gt; MONCSKILL:Alchemy|Wilderness Lore</code>
+	<p class="indent2">Modified By: <code>Ooze Monkey.MOD &lt;tab&gt; MONCSKILL:Acrobatics|Stealth</code></p>
+	<p class="indent2">Is Equivalent To: <code>Ooze Monkey &lt;tab&gt; MONCSKILL:Acrobatics|Alchemy|Stealth|Wilderness Lore</code>.</p>
+	<p class="indent3">The &quot;Acrobatics&quot;, &quot;Alchemy&quot;, &quot;Stealth&quot;, and &quot;Wilderness Lore&quot; skills are 
+		made monster class skills.</p>
 	<p></p>
 
 <hr>
@@ -400,6 +453,11 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>MONSTERCLASS:Outsider:2</code></p>
 	<p class="indent3">The race has 2 levels of Outsider to start.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>&lt;race name&gt; &lt;tab&gt; MONSTERCLASS:2</code>
+	<p class="indent2">Modified By: <code>&lt;race name&gt;.MOD &lt;tab&gt; MONSTERCLASS:4</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;race name&gt; &lt;tab&gt; MONSTERCLASS:4</code></p>
+	<p class="indent3">The creature's new monster class is &quot;Outsider&quot; with &quot;4&quot; levels.</p>
 	<p></p>
 
 <hr>
@@ -423,6 +481,11 @@
 	<p class="indent3">This modification of the race Bugbear, changes all of the indicated tags.</p>
 	<p class="indent2"><code>&lt;race&gt;.MOD &lt;tab&gt; RACESUBTYPE:.CLEAR &lt;tab&gt; RACESUBTYPE:Lawful|Air</code></p>
 	<p class="indent3">This modification clears a race's existing subtypes and replaces it with the &quot;Lawful&quot; and &quot;Air&quot; subtypes.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>Ooze Monkey &lt;tab&gt; RACESUBTYPE:Simian</code>
+	<p class="indent2">Modified By: <code>Ooze Monkey.MOD &lt;tab&gt; RACESUBTYPE:Gooey</code></p>
+	<p class="indent2">Is Equivalent To: <code>Ooze Monkey &lt;tab&gt; RACESUBTYPE:Simian|Gooey</code>.</p>
+	<p class="indent3">The character is granted the race types &quot;Simian&quot; and &quot;Gooey&quot;.</p>
 	<p></p>
 
 <hr>
@@ -444,6 +507,11 @@
 	<p class="indent3">The race is of the &quot;Outsider&quot; type.</p>
 	<p class="indent2"><code>Bugbear (Shadowkind).MOD &lt;tab&gt; OUTPUTNAME:Bugbear &lt;tab&gt; RACETYPE:Humanoid &lt;tab&gt; RACESUBTYPE:Shadowkind &lt;tab&gt; TEMPLATE:Shadowkind &lt;tab&gt; LEVELADJUSTMENT:2</code></p>
 	<p class="indent3">This modification of the race Bugbear, changes all of the indicated tags.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>&lt;race name&gt; &lt;tab&gt; RACETYPE:Humanoid</code>
+	<p class="indent2">Modified By: <code>&lt;race name&gt;.MOD &lt;tab&gt; RACETYPE:Outsider</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;race name&gt; &lt;tab&gt; RACETYPE:Outsider</code></p>
+	<p class="indent3">The race is now of the &quot;Outsider&quot; type.</p>
 	<p></p>
 
 <hr>
@@ -455,6 +523,11 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>REACH:10</code></p>
 	<p class="indent3">The race has a reach of ten feet.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>&lt;race name&gt; &lt;tab&gt; REACH:5</code>
+	<p class="indent2">Modified By: <code>&lt;race name&gt;.MOD &lt;tab&gt; REACH:10</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;race name&gt; &lt;tab&gt; REACH:10</code></p>
+	<p class="indent3">The final reach is &quot;10&quot;.</p>
 	<p></p>
 
 <hr>
@@ -496,6 +569,11 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SIZE:M</code></p>
 	<p class="indent3">The race is of Medium size.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>&lt;race name&gt; &lt;tab&gt; SIZE:M</code>
+	<p class="indent2">Modified By: <code>&lt;race name&gt;.MOD &lt;tab&gt; SIZE:L</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;race name&gt; &lt;tab&gt; SIZE:L</code></p>
+	<p class="indent3">The creatue is &quot;Large&quot;.</p>
 	<p></p>
 
 <hr>
@@ -512,6 +590,11 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SKILLMULT:1</code></p>
 	<p class="indent3">Monsters have x1 since adding class levels is done as Multi-classing.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>&lt;race name&gt; &lt;tab&gt; SKILLMULT:1</code>
+	<p class="indent2">Modified By: <code>&lt;race name&gt;.MOD &lt;tab&gt; SKILLMULT:2</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;race name&gt; &lt;tab&gt; SKILLMULT:2</code></p>
+	<p class="indent3">The final skill multiplier is &quot;2&quot;.</p>
 	<p></p>
 
 <hr>
@@ -526,6 +609,11 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>STARTFEATS:2</code></p>
 	<p class="indent3">The race starts with 2 free feats.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>Werewolf &lt;tab&gt; STARTFEATS:2</code></p>
+	<p class="indent2">Modified By: <code>Werewolf.MOD &lt;tab&gt; STARTFEATS:2</code></p>
+	<p class="indent2">Is Equivalent To: <code>Werewolf &lt;tab&gt; STARTFEATS:2 &lt;tab&gt; STARTFEATS:2</code></p>
+	<p class="indent3">The Werewolf now starts with 4 free feats.</p>
 	<p></p>
 
 <hr>
@@ -595,18 +683,30 @@
 	<p class="indent3">The race receives bonus proficiency in &quot;Rapier&quot; or &quot;Longbow&quot;.</p>
 	<p class="indent2"><code>WEAPONBONUS:TYPE.Simple</code></p>
 	<p class="indent3">The race receives bonus proficiency in any one Simple weapon.</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>Grunt &lt;tab&gt; WEAPONBONUS:TYPE.Simple</code>
+	<p class="indent2">Modified By: <code>Grunt.MOD &lt;tab&gt; WEAPONBONUS:TYPE.Martial</code></p>
+	<p class="indent2">Is Equivalent To: <code>Grunt &lt;tab&gt; WEAPONBONUS:TYPE.Simple|TYPE.Martial</code>.</p>
+	<p class="indent3">The Grunt may choose between Simple and Martial weapons for a single bonus 
+		weapon proficiency.</p>
 	<p></p>
 
 <hr>
 
 	<p class="indent0"><strong><a name="XTRASKILLPTSPERLVL">Tag Name:</a></strong> XTRASKILLPTSPERLVL:x</p>
-	<p class="indent1"><strong>Variables Used (x):</strong> Number (Template Name)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Number</p>
 	<p class="indent1"><strong>What it does:</strong></p>
 	<p class="indent2">Grants a number of skill points to the race for free at every character
 		level. This happens before multiplication of the first class level's skill points.</p>
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>XTRASKILLPTSPERLVL:1</code></p>
 	<p class="indent3">Adds one to the skill points per level (before multiplication for the 1st level).</p>
+	<p class="indent1"><strong>.MOD Example:</strong></p>
+	<p class="indent2">Initial Race: <code>&lt;race name&gt; &lt;tab&gt; XTRASKILLPTSPERLVL:1</code>
+	<p class="indent2">Modified By: <code>&lt;race name&gt;.MOD &lt;tab&gt; XTRASKILLPTSPERLVL:2</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;race name&gt; &lt;tab&gt; XTRASKILLPTSPERLVL:2</code></p>
+	<p class="indent3">The final extra skill points per level are &quot;2&quot;.</p>
+	<p></p>
 
 <hr>
 
