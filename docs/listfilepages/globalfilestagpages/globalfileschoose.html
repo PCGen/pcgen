@@ -97,10 +97,52 @@
 	<p class="indent1"><strong>Where it is Used:</strong></p>
 	<p class="indent2">Global except for Equipmod Files. For the eqmod version see 
 		<a href="../datafilestagpages/datafilesequipmentmodifiers.html#ABILITY">CHOOSE:ABILITY (Equipment Modifiers)</a></p>
-<p></p>
+	<p></p>
 
 <hr>
+<!--  This is a placeholder entry. Once the tag is actually working we'll update as necessary and then go live.
+	<p class="lstnew"><a name="ABILITYSELECTION">*** New 6.01.03</a></p>
+	<p class="indent0"><strong>Tag Name:</strong> CHOOSE:ABILITYSELECTION|v|w|x|y|y[z]|y[x,x]|x,y,y[x],y[x,x]</p>
+	<p class="indent1"><strong>Variables Used (v):</strong> TITLE=Text (Chooser title)</p>
+	<p class="indent1"><strong>Variables Used (w):</strong> Text (Ability Category)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> Text (Ability Name or Key)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> TYPE=Text (Ability type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> !TYPE=Text (Prohibited Ability type)</p>
+	<p class="indent1"><strong>Variables Used (x):</strong> ALL</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> ANY (Default)</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> PC</p>
+	<p class="indent1"><strong>Variables Used (y):</strong> QUALIFIED</p>
+	<p class="indent1"><strong>What it does:</strong></p>
+	<ul class="indent2">
+		<li>This will produce a list of abilities, resolved down to the internal ability selections, matching the stipulated criteria.</li>
+		<li>Global qualifiers work for abilities. Use of the qualifiers has the following effect:
+			<ul>
+				<li><strong>ANY</strong> - Will return a list of all abilities.</li>
+				<li><strong>PC</strong> - Will return a list of all abilities already taken by the Player Character.</li>
+				<li><strong>QUALIFIED</strong> - Will return a list of all abilities that the player character is otherwise qualified for.</li>
+			</ul>
+		</li>
+		<li>Qualifiers can be logically negated by prefacing with the exclamation point (!), i.e. <code>!PC</code> is a valid usage.</li>
+		<li>Criteria can be logically combined by using the comma (,), logical <strong>AND</strong>, and the pipe (|), logical 
+			<strong>OR</strong>. Logical <strong>AND</strong>s are evaluated before logical <strong>OR</strong>s.</li>
+		<li>The <a href="globalfilesother.html#SELECT">SELECT</a> tag is used in conjunction with 
+			this <code>CHOOSE</code> tag to define the number of &quot;selections&quot; that can be made.</li>
+	</ul>
+	<p class="indent1"><strong>Example:</strong></p>
+	<p class="indent2"><code>CHOOSE:FEATSELECTION|Dodge|Toughness</code></p>
+	<p class="indent3">Will display a list of feats comprised of the &quot;Dodge&quot; and &quot;Toughness&quot; feats.</p>
+	<p class="indent2"><code>CHOOSE:FEATSELECTION|TYPE=Fighter,PC</code></p>
+	<p class="indent3">This will produce a list of all the character's fighter feats.</p>
+	<p class="indent2"><code>CHOOSE:FEATSELECTION|PC[TYPE=Fighter]</code></p>
+	<p class="indent3">This will produce a list of all the character's fighter feats.</p>
+	<p class="indent2"><code>CHOOSE:FEATSELECTION|TYPE=Fighter</code></p>
+	<p class="indent3">This will produce a list of all fighter feats.</p>
+	<p class="indent1"><strong>Where it is Used:</strong></p>
+	<p class="indent2">Global except for Equipmod Files</p>
+	<p></p>
 
+<hr>
+-->
 	<P class="lstnew"><a name="ALIGNMENT">*** New 5.17.4</a></a>
 	<p class="tagname"><strong>Tag Name:</strong> CHOOSE:ALIGNMENT|x|x</p>
 	<p class="varused"><strong>Variables Used (x):</strong> Text (Alignment by key)</p>
