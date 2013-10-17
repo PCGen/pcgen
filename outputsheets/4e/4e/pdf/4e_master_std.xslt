@@ -221,7 +221,7 @@
 							<xsl:text> </xsl:text>
 							<xsl:value-of select="/character/export/time"/>
 						</fo:block>
-						<fo:block font-size="5pt" font-weight="bold">Created using PCGen <xsl:value-of select="export/version"/>
+						<fo:block font-size="5pt" font-weight="bold">Created using <fo:basic-link external-destination="http://pcgen.org/" show-destination="true" color="blue" text-decoration="underline">PCGen</fo:basic-link> <xsl:value-of select="export/version"/>
 						</fo:block>
 					</fo:table-cell>
 					<fo:table-cell text-align="center" wrap-option="no-wrap" border-top-color="black" border-top-style="solid" border-top-width="0.1pt" background-color="transparent" padding-top="2pt">
