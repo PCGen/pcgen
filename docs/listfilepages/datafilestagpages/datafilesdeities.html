@@ -50,11 +50,15 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>ALIGN:LG</code></p>
 	<p class="indent3">The deity's alignment is Lawful Good.</p>
+	<p class="indent1"><strong>.MOD Example (Overwriting):</strong></p>
+	<p class="indent2">Initial Deity: <code>&lt;deity name&gt; &lt;tab&gt; ALIGN:LG</code>
+	<p class="indent2">Modified By: <code>&lt;deity name&gt;.MOD &lt;tab&gt; ALIGN:NG</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;deity name&gt; &lt;tab&gt; ALIGN:NG</code></p>
 	<p></p>
 
 <hr>
 
-	<p class="status"><a name="APPEARANCE">*** Added 5.7.5</a></p>
+	<p class="lststatus"><a name="APPEARANCE">*** Added 5.7.5</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> APPEARANCE:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Description of what the Deity looks like</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -62,10 +66,14 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>APPEARANCE:Tall human with dark hair</code></p>
 	<p class="indent3">The deity's description of appearance.</p>
+	<p class="indent1"><strong>.MOD Example (Overwriting):</strong></p>
+	<p class="indent2">Initial Deity: <code>&lt;deity name&gt; &lt;tab&gt; APPEARANCE:Tall human with dark hair</code>
+	<p class="indent2">Modified By: <code>&lt;deity name&gt;.MOD &lt;tab&gt; APPEARANCE:Tall human with white hair</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;deity name&gt; &lt;tab&gt; APPEARANCE:Tall human with white hair</code></p>
 	<p></p>
 
 <hr>
-	<p class="status"><a name="DEITYWEAP">*** Updated 5.14.1</a></p>
+	<p class="lststatus"><a name="DEITYWEAP">*** Updated 5.14.1</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> DEITYWEAP:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Weapon Name)</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> ANY</p>
@@ -84,6 +92,10 @@
 		  or &quot;Halfspear&quot;.</p>
 	<p class="indent2"><code>DEITYWEAP:ANY</code></p>
 	<p class="indent3">The deity's favored weapon can be any weapon.</p>
+	<p class="indent1"><strong>.MOD Example (Appending):</strong></p>
+	<p class="indent2">Initial Deity: <code>&lt;deity name&gt; &lt;tab&gt; DEITYWEAP:Longsword</code>
+	<p class="indent2">Modified By: <code>&lt;deity name&gt;.MOD &lt;tab&gt; DEITYWEAP:Scimitar</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;deity name&gt; &lt;tab&gt; DEITYWEAP:Longsword|Scimitar</code></p>
 	<p></p>
 
 <hr>
@@ -110,6 +122,10 @@
 		domains, but only if the cleric has one of the listed alignments.</p>
 	<p class="indent2"><code>DOMAINS:ALL</code></p>
 	<p class="indent3">The deity grants two of any domains.</p>
+	<p class="indent1"><strong>.MOD Example (Appending):</strong></p>
+	<p class="indent2">Initial Deity: <code>&lt;deity name&gt; &lt;tab&gt; DOMAINS:Law</code>
+	<p class="indent2">Modified By: <code>&lt;deity name&gt;.MOD &lt;tab&gt; DOMAINS:Evil</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;deity name&gt; &lt;tab&gt; DOMAINS:Law,Evil</code></p>
 	<p></p>
 
 <hr>
@@ -127,11 +143,15 @@
 	<p class="indent3">The deity belongs to the &quot;Celtic&quot; pantheon.</p>
 	<p class="indent2"><code>PANTHEON:Celtic|Elf (Sun)</code></p>
 	<p class="indent3">The deity belongs to the &quot;Celtic&quot; or &quot;Sun Elf&quot; pantheon.</p>
+	<p class="indent1"><strong>.MOD Example (Appending):</strong></p>
+	<p class="indent2">Initial Deity: <code>&lt;deity name&gt; &lt;tab&gt; PANTHEON:Celtic</code>
+	<p class="indent2">Modified By: <code>&lt;deity name&gt;.MOD &lt;tab&gt; PANTHEON:Elf</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;deity name&gt; &lt;tab&gt; PANTHEON:Celtic|Elf</code></p>
 	<p></p>
 
 <hr>
 
-	<p class="status"><a name="RACE">*** Added 5.11.8</a></p>
+	<p class="lststatus"><a name="RACE">*** Added 5.11.8</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> RACE:x|x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (Race of typical Worshippers)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -139,6 +159,10 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>RACE:Dwarf|Gnome</code></p>
 	<p class="indent3">The deity's typical worshippers are Dwarves and Gnomes.</p>
+	<p class="indent1"><strong>.MOD Example (Appending):</strong></p>
+	<p class="indent2">Initial Deity: <code>&lt;deity name&gt; &lt;tab&gt; RACE:Elf</code>
+	<p class="indent2">Modified By: <code>&lt;deity name&gt;.MOD &lt;tab&gt; RACE:Halfling</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;deity name&gt; &lt;tab&gt; RACE:Elf|Halfling</code></p>
 	<p></p>
 
 <hr>
@@ -150,11 +174,15 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>SYMBOL:A small wooden cross</code></p>
 	<p class="indent3">The deity's symbol is a small wooden cross.</p>
+	<p class="indent1"><strong>.MOD Example (Overwriting):</strong></p>
+	<p class="indent2">Initial Deity: <code>&lt;deity name&gt; &lt;tab&gt; SYMBOL:Knowed Snake</code>
+	<p class="indent2">Modified By: <code>&lt;deity name&gt;.MOD &lt;tab&gt; SYMBOL:Frayed Knot</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;deity name&gt; &lt;tab&gt; SYMBOL:Frayed Knot</code></p>
 	<p></p>
 
 <hr>
 
-	<p class="status"><a name="TITLE">*** Added 5.7.5</a></p>
+	<p class="lststatus"><a name="TITLE">*** Added 5.7.5</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> TITLE:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (The Deity's title)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -162,11 +190,15 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>TITLE:Lord of the Morning</code></p>
 	<p class="indent3">The deity's title.</p>
+	<p class="indent1"><strong>.MOD Example (Overwriting):</strong></p>
+	<p class="indent2">Initial Deity: <code>&lt;deity name&gt; &lt;tab&gt; TITLE:War Bringer</code>
+	<p class="indent2">Modified By: <code>&lt;deity name&gt;.MOD &lt;tab&gt; TITLE:The Storm Crow</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;deity name&gt; &lt;tab&gt; TITLE:The Storm Crow</code></p>
 	<p></p>
 
 <hr>
 
-	<p class="status"><a name="WORSHIPPERS">*** Added 5.7.5</a></p>
+	<p class="lststatus"><a name="WORSHIPPERS">*** Added 5.7.5</a></p>
 	<p class="indent0"><strong>Tag Name:</strong> WORSHIPPERS:x</p>
 	<p class="indent1"><strong>Variables Used (x):</strong> Text (The Deity's typical worshippers)</p>
 	<p class="indent1"><strong>What it does:</strong></p>
@@ -174,6 +206,11 @@
 	<p class="indent1"><strong>Example:</strong></p>
 	<p class="indent2"><code>WORSHIPPERS:Fighters and Monks</code></p>
 	<p class="indent3">The deity's typical worshippers.</p>
+	<p class="indent1"><strong>.MOD Example (Overwriting):</strong></p>
+	<p class="indent2">Initial Deity: <code>&lt;deity name&gt; &lt;tab&gt; WORSHIPPERS:Fighters and Monks</code>
+	<p class="indent2">Modified By: <code>&lt;deity name&gt;.MOD &lt;tab&gt; WORSHIPPERS:Rogues and Ninjas</code></p>
+	<p class="indent2">Is Equivalent To: <code>&lt;deity name&gt; &lt;tab&gt; WORSHIPPERS:Ronues and Ninjas</code></p>
+	<p></p>
 
 <hr>
 
