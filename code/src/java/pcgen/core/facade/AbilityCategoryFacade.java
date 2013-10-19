@@ -51,8 +51,13 @@ public interface AbilityCategoryFacade
     public String toString();
 
 	/**
-	 * @return Can the pool for this category be edited.
+	 * @return Can the selections in this pool be edited.
 	 */
 	boolean isEditable();
+
+	/**
+	 * @return Can the pool for this category be edited.
+	 */
+	boolean allowPoolMod();
 
 }
