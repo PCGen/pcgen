@@ -20,10 +20,13 @@
  */
 package pcgen.core.facade;
 
-
 /**
- *
+ * AbilityCategoryFacade defines the interface to be used b the UI when 
+ * interacting with ability categories.
+ * 
+ * 
  * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @version $Revision: $
  */
 public interface AbilityCategoryFacade
 {
@@ -36,15 +39,20 @@ public interface AbilityCategoryFacade
 
     /**
      * 
-     * @return the singular name of the Catagory
+     * @return the singular name of the Category
      */
     public String getName();
 
     /**
      * 
-     * @return the plural name of the Catagory
+     * @return the plural name of the Category
      */
     @Override
     public String toString();
+
+	/**
+	 * @return Can the pool for this category be edited.
+	 */
+	boolean isEditable();
 
 }

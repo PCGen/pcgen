@@ -70,7 +70,7 @@ public class CategoryTableModel extends
 	{
 		if (columnIndex == 2)
 		{
-			return true;
+			return sortedList.getElementAt(rowIndex).isEditable();
 		}
 		return false;
 	}
