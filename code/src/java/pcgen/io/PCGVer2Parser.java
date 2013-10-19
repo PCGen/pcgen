@@ -4179,7 +4179,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		try
 		{
 			int orderNum = Integer.parseInt(line
-				.substring(TAG_SKILLSOUTPUTORDER.length() + 1))-1;
+				.substring(TAG_SKILLSOUTPUTORDER.length() + 1));
 			
 			thePC.setSkillsOutputOrder(SkillsOutputOrder.values()[orderNum]);
 		}
