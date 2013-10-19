@@ -111,7 +111,7 @@ public class FilteredTreeViewModel<C, E>
 		List<E> list = new ArrayList<E>(base.getSize());
 		for (E element : base)
 		{
-			if (filter.accept(context, element))
+			if (filter == null || filter.accept(context, element))
 			{
 				list.add(element);
 			}
