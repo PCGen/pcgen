@@ -132,4 +132,12 @@ public interface UIDelegate
 	{
 		CANCELLED, OK, PURCHASE;
 	}
+
+	/**
+	 * Present a dialog to the user to allow them to build up a custom 
+	 * spell.
+	 * @param spellBuilderFacade The SpellBuilderFacade instance to be used for creating the spell.
+	 * @return true if the spell was built, false if it was cancelled.
+	 */
+	public boolean showCustomSpellDialog(SpellBuilderFacade spellBuilderFacade);
 }

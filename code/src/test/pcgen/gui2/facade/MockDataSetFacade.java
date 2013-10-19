@@ -26,6 +26,7 @@ import java.util.List;
 
 import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
+import pcgen.core.PCClass;
 import pcgen.core.facade.AbilityCategoryFacade;
 import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.AlignmentFacade;
@@ -68,6 +69,7 @@ public class MockDataSetFacade implements DataSetFacade
 	private DefaultListFacade<SkillFacade> skills;
 	private DefaultListFacade<StatFacade> stats;
 	private DefaultListFacade<GearBuySellFacade> gearBuySellSchemes;
+	private DefaultListFacade<ClassFacade> classes;
 
 
 	public MockDataSetFacade(GameMode gameMode)
@@ -79,6 +81,7 @@ public class MockDataSetFacade implements DataSetFacade
 		skills = new DefaultListFacade<SkillFacade>();
 		stats  = new DefaultListFacade<StatFacade>();
 		gearBuySellSchemes = new DefaultListFacade<GearBuySellFacade>();
+		classes  = new DefaultListFacade<ClassFacade>();
 	}
 	
 	/* (non-Javadoc)
@@ -142,8 +145,16 @@ public class MockDataSetFacade implements DataSetFacade
     @Override
 	public ListFacade<ClassFacade> getClasses()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return classes;
+	}
+
+	/**
+	 * Add a class to the list of classes
+	 * @param cls The PCClass to be added.
+	 */
+	public void addClass(PCClass cls)
+	{
+		classes.addElement(cls);
 	}
 
 	/* (non-Javadoc)

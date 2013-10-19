@@ -30,6 +30,7 @@ import pcgen.core.facade.util.ListFacade;
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
+@SuppressWarnings("serial")
 public class FacadeListModel<E> extends AbstractListModel implements ListListener<E>
 {
 

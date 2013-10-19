@@ -89,6 +89,7 @@ import pcgen.core.facade.GameModeFacade;
 import pcgen.core.facade.PartyFacade;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.SourceSelectionFacade;
+import pcgen.core.facade.SpellBuilderFacade;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.facade.event.ReferenceEvent;
 import pcgen.core.facade.event.ReferenceListener;
@@ -99,6 +100,7 @@ import pcgen.gui2.dialog.ChooserDialog;
 import pcgen.gui2.dialog.EquipCustomizerDialog;
 import pcgen.gui2.dialog.PostLevelUpDialog;
 import pcgen.gui2.dialog.RadioChooserDialog;
+import pcgen.gui2.dialog.SpellChoiceDialog;
 import pcgen.gui2.dialog.TipOfTheDay;
 import pcgen.gui2.sources.SourceSelectionDialog;
 import pcgen.gui2.tabs.InfoTabbedPane;
@@ -2055,6 +2057,18 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 					.isPurchase() ? CustomEquipResult.PURCHASE
 					: CustomEquipResult.OK;
 		return result;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean showCustomSpellDialog(SpellBuilderFacade spellBuilderFI)
+	{
+		SpellChoiceDialog spellDialog = new SpellChoiceDialog(this, spellBuilderFI);
+		Utility.setDialogRelativeLocation(this, spellDialog);
+		spellDialog.setVisible(true);
+		return !spellDialog.isCancelled();
 	}
 
 	private static String readTextFromFile(String fileName)

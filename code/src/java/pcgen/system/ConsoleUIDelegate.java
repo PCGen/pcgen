@@ -25,6 +25,7 @@ package pcgen.system;
 import pcgen.core.facade.CharacterFacade;
 import pcgen.core.facade.ChooserFacade;
 import pcgen.core.facade.EquipmentBuilderFacade;
+import pcgen.core.facade.SpellBuilderFacade;
 import pcgen.core.facade.UIDelegate;
 import pcgen.system.PropertyContext;
 import pcgen.util.Logging;
@@ -134,6 +135,15 @@ public class ConsoleUIDelegate implements UIDelegate
 		EquipmentBuilderFacade equipBuilder)
 	{
 		return CustomEquipResult.CANCELLED;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean showCustomSpellDialog(SpellBuilderFacade spellBuilderFacade)
+	{
+		return false;
 	}
 
 }

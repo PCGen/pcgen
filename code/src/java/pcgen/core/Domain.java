@@ -25,6 +25,8 @@
  */
 package pcgen.core;
 
+import pcgen.core.facade.InfoFacade;
+
 
 /**
  * <code>Domain</code>.
@@ -32,6 +34,7 @@ package pcgen.core;
  * @author   Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class Domain extends PObject
+@SuppressWarnings("serial")
+public final class Domain extends PObject implements InfoFacade
 {
 }

@@ -28,7 +28,6 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -45,21 +44,19 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.SpecialProperty;
 import pcgen.core.analysis.EqModSpellInfo;
+import pcgen.core.facade.AbilityFacade;
 import pcgen.core.facade.DefaultReferenceFacade;
 import pcgen.core.facade.EquipModFacade;
 import pcgen.core.facade.EquipmentBuilderFacade;
 import pcgen.core.facade.EquipmentFacade;
+import pcgen.core.facade.InfoFacade;
 import pcgen.core.facade.ReferenceFacade;
 import pcgen.core.facade.SizeAdjustmentFacade;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.facade.util.DefaultListFacade;
 import pcgen.core.facade.util.ListFacade;
 import pcgen.core.spell.Spell;
-import pcgen.core.utils.MessageType;
-import pcgen.gui.ChooseSpellDialog;
 import pcgen.system.LanguageBundle;
-import pcgen.util.InputFactory;
-import pcgen.util.InputInterface;
 
 /**
  * EquipmentBuilderFacadeImpl is an implementation of the 
@@ -144,7 +141,10 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		// Handle spells
 		if (equipMod.getSafe(StringKey.CHOICE_STRING).startsWith("EQBUILDER.SPELL"))
 		{
-			getSpellChoiceForEqMod(equipMod);
+			if (!getSpellChoiceForEqMod(equipMod))
+			{
+				return false;
+			}
 		}
 		
 		equip.addEqModifier(equipMod, head.isPrimary(), character);
@@ -477,165 +477,96 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return equipHeads;
 	}
 
-	private void getSpellChoiceForEqMod(EquipmentModifier eqMod)
+
+	private boolean getSpellChoiceForEqMod(EquipmentModifier eqMod)
 	{
-		String extraInfo = eqMod.getSafe(StringKey.CHOICE_STRING).substring(15);
-		List<String> classList = null;
-		List<String> levelList = null;
-		boolean metaAllowed = true;
-		int spellBooks = 0;
+		String choiceValue = eqMod.getSafe(StringKey.CHOICE_STRING).substring(15);
 
-		if (extraInfo.length() != 0)
+		SpellBuilderFacadeImpl spellBuilderFI =
+				new SpellBuilderFacadeImpl(choiceValue, character, equip);
+		if (!delegate.showCustomSpellDialog(spellBuilderFI))
 		{
-			//
-			// CLASS=Wizard|CLASS=Sorcerer|Metamagic=0|LEVEL=1|LEVEL=2|SPELLBOOKS=Y
-			final StringTokenizer aTok = new StringTokenizer(extraInfo, "|", false);
-
-			while (aTok.hasMoreTokens())
-			{
-				String aString = aTok.nextToken();
-
-				if (aString.startsWith("CLASS="))
-				{
-					if (classList == null)
-					{
-						classList = new ArrayList<String>();
-					}
-
-					classList.add(aString.substring(6));
-				}
-				else if (aString.startsWith("LEVEL="))
-				{
-					if (levelList == null)
-					{
-						levelList = new ArrayList<String>();
-					}
-
-					levelList.add(aString.substring(6));
-				}
-				else if (aString.startsWith("SPELLBOOKS="))
-				{
-					switch (aString.charAt(11))
-					{
-						case 'Y':
-							spellBooks = 1;
-
-							break;
-
-						case 'N':
-							spellBooks = -1;
-
-							break;
-
-						default:
-							spellBooks = 0;
-
-							break;
-					}
-				}
-				else if (aString.equals("METAMAGIC=N"))
-				{
-					metaAllowed = false;
-				}
-			}
-		}
-
-		ChooseSpellDialog csd = new ChooseSpellDialog(null,
-									character,
-									calcEquipType(),
-									metaAllowed, classList, levelList, spellBooks, eqMod.getSafe(StringKey.CHOICE_STRING));
-		csd.setVisible(true);
-
-		if (!csd.getWasCancelled())
-		{
-			Object castingClass = csd.getCastingClass();
-			Spell theSpell = csd.getSpell();
-			String variant = csd.getVariant();
-			String spellType = csd.getSpellType();
-			int baseSpellLevel = csd.getBaseSpellLevel();
-			int casterLevel = csd.getCasterLevel();
-			Object[] metamagicFeats = csd.getMetamagicFeats();
-
-			int charges = -1;
-
-			Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
-			if (min != null && min > 0)
-			{
-				Integer max = eqMod.get(IntegerKey.MAX_CHARGES);
-				for (;;)
-				{
-					InputInterface ii = InputFactory.getInputInstance();
-
-					String toPrint    = "Enter Number of Charges (" +
-										Integer.toString(min) + "-" +
-										Integer.toString(max) + ")";
-
-					Object selectedValue = ii.showInputDialog(null,
-											toPrint,
-											Constants.APPLICATION_NAME,
-											MessageType.INFORMATION,
-											null,
-											Integer.toString(max));
-
-					if (selectedValue != null)
-					{
-						try
-						{
-							final String aString = ((String) selectedValue).trim();
-							charges = Integer.parseInt(aString);
-
-							if (charges < min)
-							{
-								continue;
-							}
-
-							if (charges > max)
-							{
-								continue;
-							}
-
-							break;
-						}
-						catch (Exception exc)
-						{
-							//TODO: Should we really ignore this?
-						}
-					}
-				}
-			}
-
-			EquipmentModifier existingEqMod = equip.getEqModifierKeyed(eqMod.getKeyName(), true);
-
-			if (existingEqMod == null)
-			{
-				equip.addEqModifier(eqMod, true, character);
-			}
-			existingEqMod = equip.getEqModifierKeyed(eqMod.getKeyName(), true);
-			
-			EqModSpellInfo.setSpellInfo(equip, existingEqMod,
-					(PObject) castingClass, theSpell, variant, spellType,
-					baseSpellLevel, casterLevel, metamagicFeats, charges);
-		}
-	}
-
-	private int calcEquipType()
-	{
-
-		// Translate string into numerical type
-		//
-		int eqType = ChooseSpellDialog.EQTYPE_NONE;
-
-		for (int idx = 0; idx < ChooseSpellDialog.validEqTypes.length; ++idx)
-		{
-			if (equip.isType(ChooseSpellDialog.validEqTypes[idx].toString()))
-			{
-				eqType = idx;
-
-				break;
-			}
+			return false;
 		}
 		
-		return eqType;
+		InfoFacade castingClass = spellBuilderFI.getClassRef().getReference();
+		Spell theSpell = (Spell) spellBuilderFI.getSpellRef().getReference();
+		String variant = spellBuilderFI.getVariantRef().getReference();
+		if (variant == null)
+		{
+			variant = "";
+		}
+		String spellType = spellBuilderFI.getSpellTypeRef().getReference();
+		int baseSpellLevel = spellBuilderFI.getSpellLevelRef().getReference();
+		int casterLevel = spellBuilderFI.getCasterLevelRef().getReference();
+		ListFacade<AbilityFacade> metamagicFeatsList = spellBuilderFI.getSelectedMetamagicFeats();
+		Object[] metamagicFeats = new Object[metamagicFeatsList.getSize()];
+		for (int i = 0; i < metamagicFeats.length; i++)
+		{
+			metamagicFeats[i] = metamagicFeatsList.getElementAt(i);
+		}
+
+		int charges = getNumCharges(eqMod);
+
+		EquipmentModifier existingEqMod =
+				equip.getEqModifierKeyed(eqMod.getKeyName(), true);
+		if (existingEqMod == null)
+		{
+			equip.addEqModifier(eqMod, true, character);
+		}
+		existingEqMod = equip.getEqModifierKeyed(eqMod.getKeyName(), true);
+		
+		EqModSpellInfo.setSpellInfo(equip, existingEqMod,
+				(PObject) castingClass, theSpell, variant, spellType,
+				baseSpellLevel, casterLevel, metamagicFeats, charges);
+		
+		
+		return true;
+	}
+
+	private int getNumCharges(EquipmentModifier eqMod)
+	{
+		int charges = -1;
+
+		Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
+		if (min != null && min > 0)
+		{
+			Integer max = eqMod.get(IntegerKey.MAX_CHARGES);
+			for (;;)
+			{
+				String selectedValue =
+						delegate.showInputDialog(Constants.APPLICATION_NAME,
+							LanguageBundle.getFormattedString(
+								"in_csdChargesMessage", min, max), Integer
+								.toString(max));
+
+				if (selectedValue != null)
+				{
+					try
+					{
+						final String aString = ((String) selectedValue).trim();
+						charges = Integer.parseInt(aString);
+
+						if (charges < min)
+						{
+							continue;
+						}
+
+						if (charges > max)
+						{
+							continue;
+						}
+
+						break;
+					}
+					catch (NumberFormatException exc)
+					{
+						// Request a new charges figure
+					}
+				}
+			}
+		}
+		return charges;
 	}
 
 	/**

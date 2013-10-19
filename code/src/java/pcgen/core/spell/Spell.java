@@ -32,15 +32,17 @@ import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.SpellPoint;
+import pcgen.core.facade.InfoFacade;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 
 /**
- * <code>Spell</code> creates a new tabbed panel.
+ * <code>Spell</code> represents a magic spell from the games rules.
  *
  * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
  * @version $Revision$
  */
-public final class Spell extends PObject
+@SuppressWarnings("serial")
+public final class Spell extends PObject implements InfoFacade
 {
 	public static final CDOMReference<SpellList> SPELLS;
 

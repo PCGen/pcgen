@@ -31,6 +31,8 @@ import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
+import org.apache.commons.lang.StringUtils;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMListObject;
@@ -363,7 +365,7 @@ public class PCClass extends PObject implements ClassFacade
 	public final String getSpellType()
 	{
 		String castInfo = getSafe(StringKey.SPELLTYPE);
-		return castInfo == null ? Constants.NONE : castInfo;
+		return StringUtils.isEmpty(castInfo) ? Constants.NONE : castInfo;
 	}
 
 	/*
