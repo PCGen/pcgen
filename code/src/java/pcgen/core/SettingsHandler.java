@@ -46,8 +46,6 @@ import java.util.StringTokenizer;
 
 import javax.swing.SwingConstants;
 
-import org.apache.commons.lang.SystemUtils;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -55,7 +53,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.SortedProperties;
-import pcgen.gui.utils.Utility;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.PersistenceManager;
 import pcgen.system.LanguageBundle;
@@ -197,7 +194,6 @@ public final class SettingsHandler
 	private static int tabPlacement = SwingConstants.BOTTOM;
 	private static final String tmpPath = System.getProperty("java.io.tmpdir"); //$NON-NLS-1$
 	private static final File tempPath = new File(getTmpPath());
-	private static boolean toolTipTextShown = true;
 	private static boolean useHigherLevelSlotsDefault = false;
 	private static boolean wantToLoadMasterworkAndMagic = false;
 	private static int nameDisplayStyle = Constants.DISPLAY_STYLE_NAME;
@@ -1059,7 +1055,6 @@ public final class SettingsHandler
 		setSkinLFThemePack(getPCGenOption("skinLFThemePack", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setSpellMarketPriceAdjusted(getPCGenOption("spellMarketPriceAdjusted", false)); //$NON-NLS-1$
 		setTabPlacement(getOptionTabPlacement("tabPlacement", SwingConstants.BOTTOM)); //$NON-NLS-1$
-		setToolTipTextShown(getPCGenOption("toolTipTextShown", true)); //$NON-NLS-1$
 		setUseHigherLevelSlotsDefault(getPCGenOption("useHigherLevelSlotsDefault", false)); //$NON-NLS-1$
 		setUseWaitCursor(getPCGenOption("useWaitCursor", true)); //$NON-NLS-1$
 		setWantToLoadMasterworkAndMagic(getPCGenOption("loadMasterworkAndMagicFromLst", false)); //$NON-NLS-1$
@@ -1337,7 +1332,6 @@ public final class SettingsHandler
 		setPCGenOption("sourceDisplay", Globals.getSourceDisplay().ordinal()); //$NON-NLS-1$
 		setPCGenOption("spellMarketPriceAdjusted", isSpellMarketPriceAdjusted()); //$NON-NLS-1$
 		setPCGenOption("tabPlacement", convertTabPlacementToString(tabPlacement)); //$NON-NLS-1$
-		setPCGenOption("toolTipTextShown", isToolTipTextShown()); //$NON-NLS-1$
 		setPCGenOption("useHigherLevelSlotsDefault", isUseHigherLevelSlotsDefault()); //$NON-NLS-1$
 		setPCGenOption("useWaitCursor", getUseWaitCursor()); //$NON-NLS-1$
 		setPCGenOption("validateBonuses", validateBonuses); //$NON-NLS-1$
@@ -1964,18 +1958,6 @@ public final class SettingsHandler
 		return isShowToolBar();
 	}
 
-	public static void setToolTipTextShown(final boolean showToolTipText)
-	{
-		toolTipTextShown = showToolTipText;
-
-		Utility.handleToolTipShownStateChange();
-	}
-
-	public static boolean isToolTipTextShown()
-	{
-		return toolTipTextShown;
-	}
-
 	public static void setUseFeatBenefits(final boolean arg)
 	{
 		useFeatBenefits = arg;
@@ -2051,25 +2033,6 @@ public final class SettingsHandler
 	public static void readGUIOptionsProperties()
 	{
 		setNameDisplayStyle(getPCGenOption("nameDisplayStyle", Constants.DISPLAY_STYLE_NAME)); //$NON-NLS-1$
-
-		// Calling setToolTipTextShown doesn't update menu checkbox state
-		// toolTip state change, and menu checkbox state change are
-		// handled in gui code pcGenGUI.java just after returning
-		// from this method.
-		if (((Globals.javaVersionMajor >= 1) && (Globals.javaVersionMinor >= 4))
-			|| !SystemUtils.IS_OS_MAC)
-		//(! SystemUtils.IS_OS_LINUX))
-		{
-			setToolTipTextShown(getPCGenOption("toolTipTextShown", isToolTipTextShown())); //$NON-NLS-1$
-
-			//System.out.println("Java Ver >= 1.4 || OS Name != MAC -- toolTip bug avoidance unnecessary");
-		}
-		else
-		{
-			setToolTipTextShown(getPCGenOption("toolTipTextShown", false)); //$NON-NLS-1$
-
-			//System.out.println("Java Ver < 1.4 && OS Name = MAC -- Defaulting toolTips OFF -- MAC/Java 1.3 Bug");
-		}
 	}
 
 	/**

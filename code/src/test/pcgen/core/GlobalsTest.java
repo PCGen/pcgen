@@ -61,25 +61,6 @@ public class GlobalsTest extends PCGenTestCase
 			"Show update to False");
 	}
 
-	/**
-	 * Test that the tool tips work
-	 */
-	public void testToolTip()
-	{
-		// Expect initialised True
-		is(SettingsHandler.isToolTipTextShown(), eq(true), "Show default value");
-
-		// Set False , expect to get false back
-		SettingsHandler.setToolTipTextShown(false);
-		is(SettingsHandler.isToolTipTextShown(), eq(false),
-			"Show update to false");
-
-		// Set true again to prove it toggles
-		SettingsHandler.setToolTipTextShown(true);
-		is(SettingsHandler.isToolTipTextShown(), eq(true),
-			"Show update to true");
-	}
-
 //	/**
 //	 * I was going to add separate test methods for
 //	 *

@@ -7,7 +7,10 @@
 package plugin.charactersheet.gui;
 
 import gmgen.gui.FlippingSplitPane;
+import gmgen.gui.IconUtilitities;
 
+import java.awt.Event;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -19,6 +22,7 @@ import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
+import java.util.StringTokenizer;
 
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -36,13 +40,13 @@ import pcgen.core.NoteItem;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.gui.utils.Utility;
 import pcgen.system.LanguageBundle;
 import plugin.charactersheet.CharacterSheetPlugin;
 
 /**
  * This class details the Notes panel in the PCGen UI
  */
+@SuppressWarnings("serial")
 public class NotesPanel extends FlippingSplitPane
 {
 	private PlayerCharacter pc;
@@ -828,14 +832,14 @@ public class NotesPanel extends FlippingSplitPane
 
 		private JMenuItem createAddMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label, new AddNoteActionListener(),
+			return NotesPanel.createMenuItem(label, new AddNoteActionListener(),
 				LanguageBundle.getString("in_add"), (char) 0, accelerator,
 				LanguageBundle.getString("in_add"), "Add16.gif", true);
 		}
 
 		private JMenuItem createRemoveMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label,
+			return NotesPanel.createMenuItem(label,
 				new RemoveNoteActionListener(), LanguageBundle
 					.getString("in_delete"), (char) 0, accelerator,
 				LanguageBundle.getString("in_delete"), "Remove16.gif", true);
@@ -843,7 +847,7 @@ public class NotesPanel extends FlippingSplitPane
 
 		private JMenuItem createRenameMenuItem(String label, String accelerator)
 		{
-			return Utility.createMenuItem(label,
+			return NotesPanel.createMenuItem(label,
 				new RenameNoteActionListener(), LanguageBundle
 					.getString("in_rename"), (char) 0, accelerator,
 				LanguageBundle.getString("in_rename"), "Add16.gif", true);
@@ -906,4 +910,103 @@ public class NotesPanel extends FlippingSplitPane
 			}
 		}
 	}
+
+	/**
+	 * Create a new menu item with all the contaminant expectations
+	 * fulfilled.
+	 *
+	 * @param label String what to display?
+	 * @param listener ActionListener what to do as code, <code>null</code> for none
+	 * @param command String menu command, <code>null</code> for none
+	 * @param mnemonic char menu shortcut key, <code>0</code> for none
+	 * @param accelerator String keyboard shortcut key, <code>0</code> for none
+	 * @param description String tooltip
+	 * @param iconName String icon name
+	 * @param enable boolean item enabled?
+	 *
+	 * @return JMenuItem the new menu item
+	 */
+	public static JMenuItem createMenuItem(final String label,
+		final ActionListener listener, final String command,
+		final char mnemonic, final String accelerator,
+		final String description, final String iconName, final boolean enable)
+	{
+		final JMenuItem item = new JMenuItem(label);
+
+		if (listener != null)
+		{
+			item.addActionListener(listener);
+		}
+
+		if (command != null)
+		{
+			item.setActionCommand(command);
+		}
+
+		if (mnemonic != '\0')
+		{
+			item.setMnemonic(mnemonic);
+		}
+
+		if (accelerator != null)
+		{
+			// accelerator has three possible forms:
+			// 1) shortcut +
+			// 2) shortcut-alt +
+			// 3) F1
+			// (error checking is for the weak!)
+			int iShortCut = Event.CTRL_MASK;
+			StringTokenizer aTok = new StringTokenizer(accelerator);
+
+			// get the first argument
+			String aString = aTok.nextToken();
+
+			if (aString.equalsIgnoreCase("shortcut"))
+			{
+				iShortCut =
+						Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
+			}
+			else if (aString.equalsIgnoreCase("alt"))
+			{
+				if (System.getProperty("mrj.version") != null)
+				{
+					iShortCut =
+							Toolkit.getDefaultToolkit()
+								.getMenuShortcutKeyMask()
+								| Event.ALT_MASK;
+				}
+				else
+				{
+					iShortCut = Event.ALT_MASK;
+				}
+			}
+			else if (aString.equalsIgnoreCase("shift-shortcut"))
+			{
+				iShortCut =
+						Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()
+							| Event.SHIFT_MASK;
+			}
+
+			if (aTok.hasMoreTokens())
+			{
+				// get the second argument
+				aString = aTok.nextToken();
+			}
+
+			KeyStroke aKey = KeyStroke.getKeyStroke(aString);
+
+			if (aKey != null)
+			{
+				int iKeyCode = aKey.getKeyCode();
+				item
+					.setAccelerator(KeyStroke.getKeyStroke(iKeyCode, iShortCut));
+			}
+		}
+
+		IconUtilitities.maybeSetIcon(item, iconName);
+		item.setEnabled(enable);
+
+		return item;
+	}
+
 }

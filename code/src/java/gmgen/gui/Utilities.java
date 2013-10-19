@@ -22,7 +22,6 @@
  */
 package gmgen.gui; // hm.binkley.gui;
 
-import pcgen.gui.utils.IconUtilitities;
 
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;

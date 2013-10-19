@@ -45,7 +45,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.CustomData;
 import pcgen.core.facade.UIDelegate;
 import pcgen.core.prereq.PrerequisiteTestFactory;
-import pcgen.gui.utils.DialogInputInterface;
 import pcgen.gui2.PCGenUIManager;
 import pcgen.gui2.SplashScreen;
 import pcgen.gui2.UIPropertyContext;
@@ -62,7 +61,6 @@ import pcgen.persistence.lst.TokenStore;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.persistence.TokenLibrary;
-import pcgen.util.InputFactory;
 import pcgen.util.Logging;
 import pcgen.util.PJEP;
 
@@ -389,11 +387,6 @@ public final class Main
 		LanguageBundle.init();
 		LookAndFeelManager.initLookAndFeel();
 		Utility.setApplicationTitle(Constants.APPLICATION_NAME);
-
-		//TODO: Remove these registrations once the old choosers are fully replaced.
-		InputFactory.setInterfaceClassname(DialogInputInterface.class
-			.getName());
-
 	}
 
 	/**

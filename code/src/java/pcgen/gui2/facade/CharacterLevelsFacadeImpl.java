@@ -32,6 +32,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.SkillsOutputOrder;
 import pcgen.cdom.facet.BonusChangeFacet;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeEvent;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeListener;
@@ -58,7 +59,6 @@ import pcgen.core.facade.UIDelegate;
 import pcgen.core.facade.util.AbstractListFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.utils.CoreUtility;
-import pcgen.gui.GuiConstants;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
@@ -708,7 +708,7 @@ public class CharacterLevelsFacadeImpl extends
 //			new StringIgnoreCaseComparator());
 
 		// Now re calc the output order
-		if (theCharacter.getSkillsOutputOrder() != GuiConstants.INFOSKILLS_OUTPUT_BY_MANUAL)
+		if (theCharacter.getSkillsOutputOrder() != SkillsOutputOrder.MANUAL)
 		{
 			resortSelected(theCharacter.getSkillsOutputOrder());
 		}
@@ -722,32 +722,32 @@ public class CharacterLevelsFacadeImpl extends
 		}
 	}
 
-	private void resortSelected(int sortSelection)
+	private void resortSelected(SkillsOutputOrder sortSelection)
 	{
 		int sort = -1;
 		boolean sortOrder = false;
 
 		switch (sortSelection)
 		{
-			case GuiConstants.INFOSKILLS_OUTPUT_BY_NAME_ASC:
+			case NAME_ASC:
 				sort = SkillComparator.RESORT_NAME;
 				sortOrder = SkillComparator.RESORT_ASCENDING;
 
 				break;
 
-			case GuiConstants.INFOSKILLS_OUTPUT_BY_NAME_DSC:
+			case NAME_DSC:
 				sort = SkillComparator.RESORT_NAME;
 				sortOrder = SkillComparator.RESORT_DESCENDING;
 
 				break;
 
-			case GuiConstants.INFOSKILLS_OUTPUT_BY_TRAINED_ASC:
+			case TRAINED_ASC:
 				sort = SkillComparator.RESORT_TRAINED;
 				sortOrder = SkillComparator.RESORT_ASCENDING;
 
 				break;
 
-			case GuiConstants.INFOSKILLS_OUTPUT_BY_TRAINED_DSC:
+			case TRAINED_DSC:
 				sort = SkillComparator.RESORT_TRAINED;
 				sortOrder = SkillComparator.RESORT_DESCENDING;
 

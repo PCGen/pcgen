@@ -80,6 +80,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillCost;
+import pcgen.cdom.enumeration.SkillsOutputOrder;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
@@ -246,7 +247,6 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui.GuiConstants;
 import pcgen.io.PCGFile;
 import pcgen.persistence.PersistenceManager;
 import pcgen.system.PCGenSettings;
@@ -471,7 +471,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	private int poolAmount = 0;
 
 	// order in which the skills will be output.
-	private int skillsOutputOrder = GuiConstants.INFOSKILLS_OUTPUT_BY_NAME_ASC;
+	private SkillsOutputOrder skillsOutputOrder = SkillsOutputOrder.NAME_ASC;
 	private int spellLevelTemp = 0;
 	private VariableProcessor variableProcessor;
 
@@ -3903,7 +3903,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 * @param i
 	 *            The new output order
 	 */
-	public void setSkillsOutputOrder(final int i)
+	public void setSkillsOutputOrder(final SkillsOutputOrder i)
 	{
 		skillsOutputOrder = i;
 		setDirty(true);
@@ -3912,7 +3912,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	/**
 	 * @return The selected Output Order for skills.
 	 */
-	public int getSkillsOutputOrder()
+	public SkillsOutputOrder getSkillsOutputOrder()
 	{
 		return skillsOutputOrder;
 	}
@@ -6292,25 +6292,25 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 
 		switch (getSkillsOutputOrder())
 		{
-		case GuiConstants.INFOSKILLS_OUTPUT_BY_NAME_ASC:
+		case NAME_ASC:
 			sort = SkillComparator.RESORT_NAME;
 			sortOrder = SkillComparator.RESORT_ASCENDING;
 
 			break;
 
-		case GuiConstants.INFOSKILLS_OUTPUT_BY_NAME_DSC:
+		case NAME_DSC:
 			sort = SkillComparator.RESORT_NAME;
 			sortOrder = SkillComparator.RESORT_DESCENDING;
 
 			break;
 
-		case GuiConstants.INFOSKILLS_OUTPUT_BY_TRAINED_ASC:
+		case TRAINED_ASC:
 			sort = SkillComparator.RESORT_TRAINED;
 			sortOrder = SkillComparator.RESORT_ASCENDING;
 
 			break;
 
-		case GuiConstants.INFOSKILLS_OUTPUT_BY_TRAINED_DSC:
+		case TRAINED_DSC:
 			sort = SkillComparator.RESORT_TRAINED;
 			sortOrder = SkillComparator.RESORT_DESCENDING;
 

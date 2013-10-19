@@ -77,8 +77,6 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 			LanguageBundle.getString("in_Prefs_showSkillModifierBreakdown"); //$NON-NLS-1$
 	private static String in_showSkillRanksBreakdown =
 			LanguageBundle.getString("in_Prefs_showSkillRanksBreakdown"); //$NON-NLS-1$
-	private static String in_showToolTips =
-			LanguageBundle.getString("in_Prefs_showToolTips"); //$NON-NLS-1$
 //	private static String in_showToolBar =
 //			LanguageBundle.getString("in_Prefs_showToolBar");
 	private static String in_showFeatDescription =
@@ -98,7 +96,6 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 //	private JCheckBox showToolbar = new JCheckBox();
 	private JCheckBox showSkillModifier = new JCheckBox();
 	private JCheckBox showSkillRanks = new JCheckBox();
-	private JCheckBox toolTipTextShown = new JCheckBox();
 //	private JCheckBox showMemory = new JCheckBox();
 //	private JCheckBox showImagePreview = new JCheckBox();
 
@@ -140,7 +137,6 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		options.put(in_showSkillModifierBreakdown, showSkillModifier);
 		options.put(in_showSkillRanksBreakdown, showSkillRanks);
 //		options.put(in_showToolBar, showToolbar);
-		options.put(in_showToolTips, toolTipTextShown);
 		options.put(in_singleChoiceOption, cmbChoiceMethods);
 //		options.put(in_useAutoWaitCursor, waitCursor);
 		options.put(in_useOutputNamesEquipment, useOutputNamesEquipment);
@@ -199,7 +195,6 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 	@Override
 	public void setOptionsBasedOnControls()
 	{
-		SettingsHandler.setToolTipTextShown(toolTipTextShown.isSelected());
 //		SettingsHandler.setShowMemoryArea(showMemory.isSelected());
 //		SettingsHandler.setShowImagePreview(showImagePreview.isSelected());
 //		SettingsHandler.setToolBarShown(showToolbar.isSelected());
@@ -238,7 +233,6 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		showSkillRanks.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(
 			PCGenSettings.OPTION_SHOW_SKILL_RANK_BREAKDOWN, false));
 //		showToolbar.setSelected(SettingsHandler.isToolBarShown());
-		toolTipTextShown.setSelected(SettingsHandler.isToolTipTextShown());
 		useOutputNamesEquipment.setSelected(SettingsHandler
 			.guiUsesOutputNameEquipment());
 		useOutputNamesSpells.setSelected(SettingsHandler

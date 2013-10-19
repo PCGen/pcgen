@@ -61,6 +61,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
+import pcgen.cdom.enumeration.SkillsOutputOrder;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.facet.FacetLibrary;
@@ -129,7 +130,6 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui.GuiConstants;
 import pcgen.io.migration.AbilityMigration;
 import pcgen.io.migration.AbilityMigration.CategorisedKey;
 import pcgen.io.migration.EquipSetMigration;
@@ -760,12 +760,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		if (line.endsWith(VALUE_Y))
 		{
 			thePC
-				.setSkillsOutputOrder(GuiConstants.INFOSKILLS_OUTPUT_BY_NAME_ASC);
+				.setSkillsOutputOrder(SkillsOutputOrder.NAME_ASC);
 		}
 		else
 		{
 			thePC
-				.setSkillsOutputOrder(GuiConstants.INFOSKILLS_OUTPUT_BY_MANUAL);
+				.setSkillsOutputOrder(SkillsOutputOrder.MANUAL);
 		}
 	}
 
@@ -4178,8 +4178,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		try
 		{
-			thePC.setSkillsOutputOrder(Integer.parseInt(line
-				.substring(TAG_SKILLSOUTPUTORDER.length() + 1)));
+			int orderNum = Integer.parseInt(line
+				.substring(TAG_SKILLSOUTPUTORDER.length() + 1))-1;
+			
+			thePC.setSkillsOutputOrder(SkillsOutputOrder.values()[orderNum]);
 		}
 		catch (NumberFormatException nfe)
 		{
