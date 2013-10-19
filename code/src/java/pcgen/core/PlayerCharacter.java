@@ -5462,6 +5462,10 @@ public class PlayerCharacter  implements Cloneable, VariableContainer, Associati
 	 */
 	public int calculateSaveBonus(final PCCheck check, final String tokenString)
 	{
+		if (check == null)
+		{
+			return 0;
+		}
 		final StringTokenizer aTok = new StringTokenizer(tokenString, ".");
 		final String[] tokens = new String[aTok.countTokens()];
 		int save = 0;
