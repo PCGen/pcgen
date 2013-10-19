@@ -1,0 +1,25 @@
+# CVS $Revision: 9628 $ $Author: zaister $ -- Fri Apr 20 13:55:17 2012 -- reformated by prettylst.pl v1.39 (build 16265)
+SOURCELONG:Faiths of Purity	SOURCESHORT:FoB	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8lvb	SOURCEDATE:2011-07
+# Original Entry by:Stefan Radermacher
+
+###Block: New Feats
+# Feat Name		Type			Req. Att.	Required Deity		Required Feat					Req. Weapond Prof.		Description																Source Page
+Arcane Insight	TYPE:General			PREDEITY:1,Nethys		PREFEAT:1,Arcane Shield									DESC:Magical insight helps you evade attacks.										SOURCEPAGE:p.24
+Bloody Vengeance	TYPE:Combat		PREATT:1	PREDEITY:1,Calistria													DESC:Your retaliatory strikes have long-lasting effects.								SOURCEPAGE:p.24
+Measured Response	TYPE:Combat		PREATT:1	PREDEITY:1,Abadar														DESC:You believe that a conservative but consistent response guarantees success.				SOURCEPAGE:p.24
+Riptide Attack	TYPE:Combat				PREDEITY:1,Gozreh		PREFEAT:2,Improved Drag,Improved Trip						DESC:You can follow up a successful trip attempt with a drag maneuver.						SOURCEPAGE:p.24
+Spiked Destroyer	TYPE:Combat				PREDEITY:1,Gorum									PREWEAPONPROF:1,Spiked Armor	DESC:You can attack with your armor spikes while using bull rush or overrun.					SOURCEPAGE:p.24
+Steady Engagement	TYPE:Combat				PREDEITY:1,Irori		PREFEAT:2,Combat Reflexes,Stand Still						DESC:You can draw on your excellent balance to trip or disarm opponents when they try to disengage.	SOURCEPAGE:p.24
+
+###Block: Feat benefits
+# Feat Name			Description of the Benefits
+Arcane Insight.MOD	BENEFIT:Whenever you use the Arcane Shield feat, you also gain a +1 insight bonus to your Armor Class for 1 round.
+Bloody Vengeance.MOD	BENEFIT:If an opponent has damaged you within the past minute, you may study that opponent as a standard action. Thereafter, if you hit that creature with a melee attack, the target takes 1 point of bleed damage each round at the start of its turn. The bleeding can be stopped by a DC 15 Heal check or the application of any effect that heals hit point damage. Bleed damage does not stack. Bleed damage bypasses any damage reduction the creature might possess.
+Measured Response.MOD	BENEFIT:When you hit an opponent with a melee or ranged attack, you may choose to deal average damage (rounded down), as if you had rolled exactly the average amount on the damage die or dice. You add your damage bonuses and penalties as normal.
+Riptide Attack.MOD	BENEFIT:When you succeed at a trip combat maneuver, you may automatically make a drag combat maneuver against your tripped target as a swift action. Your base attack bonus for the drag check is the same as the base attack bonus you used for the trip check. The drag attempt provokes attacks of opportunity as normal.
+Spiked Destroyer.MOD	BENEFIT:When you succeed at a bull rush or overrun combat maneuver, you may automatically make an attack roll with your armor spikes against the target of the maneuver as a swift action. This attack is made using your highest attack bonus.
+Steady Engagement.MOD	BENEFIT:If you use the Stand Still feat to prevent an opponent from moving, you may make a disarm or trip combat maneuver against the target as an immediate action.
+
+#
+# End
+#
