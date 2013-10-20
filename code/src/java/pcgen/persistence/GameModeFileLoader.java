@@ -409,6 +409,12 @@ public class GameModeFileLoader extends PCGenTask
 
 			GameModeLoader.parseMiscGameInfoLine(gameMode, aLine, uri, i + 1);
 		}
+		
+		// Record how the FEAT category was configured
+		AbilityCategory feat = new AbilityCategory();
+		feat.copyFields(AbilityCategory.FEAT);
+		gameMode.setFeatTemplate(feat);
+
 		int[] dieSizes = gameMode.getDieSizes();
 		if (dieSizes == null || dieSizes.length == 0)
 		{

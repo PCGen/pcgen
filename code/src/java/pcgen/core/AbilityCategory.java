@@ -126,6 +126,36 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	}
 	
 	/**
+	 * Update this ability category using the values from the supplied 
+	 * ability category. 
+	 * @param srcCat The category to be copied.
+	 */
+	public void copyFields(AbilityCategory srcCat)
+	{
+		sourceURI = srcCat.sourceURI;
+		keyName = srcCat.keyName;
+		displayName = srcCat.displayName;
+		pluralName = srcCat.pluralName;
+		if (srcCat.getParentCategory() == srcCat)
+		{
+			parentCategory = CDOMDirectSingleRef.getRef(this);
+		}
+		else
+		{
+			parentCategory = srcCat.parentCategory;
+		}
+		displayLocation = srcCat.displayLocation;
+		isAllAbilityTypes = srcCat.isAllAbilityTypes;
+		types = srcCat.types == null ? null : new HashSet<Type>(srcCat.types);
+		poolFormula = srcCat.poolFormula;
+		visibility = srcCat.visibility;
+		isEditable = srcCat.isEditable;
+		isPoolModifiable = srcCat.isPoolModifiable;
+		isPoolFractional = srcCat.isPoolFractional;
+		isInternal = srcCat.isInternal;
+	}
+	
+	/**
 	 * Constructor takes a key name and display name for the category.
 	 * 
 	 * @param aKeyName The name to use to reference this category.

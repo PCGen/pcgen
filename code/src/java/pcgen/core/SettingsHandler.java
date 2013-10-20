@@ -586,6 +586,11 @@ public final class SettingsHandler
 		game.setDefaultXPTableName(getPCGenOption("gameMode." + key + ".xpTableName", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		game.setDefaultCharacterType(getPCGenOption("gameMode." + key + ".characterType", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		
+		AbilityCategory featTemplate = game.getFeatTemplate();
+		if (featTemplate != null)
+		{
+			AbilityCategory.FEAT.copyFields(featTemplate);
+		}
 		getChosenCampaignFiles(game);
 	}
 

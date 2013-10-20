@@ -210,6 +210,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 	/** Priority of the equipment types for icon use. */
 	private Map<String, Integer> equipTypeIconPriorityMap = new HashMap<String, Integer>();
+	
+	/** A container for feat settings for this game mode. */
+	private AbilityCategory featTemplate;
 
 	/**
 	 * Creates a new instance of GameMode.
@@ -2970,5 +2973,15 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public String getWeightUnit()
 	{
 		return getUnitSet().getWeightUnit();
+	}
+
+	public AbilityCategory getFeatTemplate()
+	{
+		return featTemplate;
+	}
+
+	public void setFeatTemplate(AbilityCategory featTemplate)
+	{
+		this.featTemplate = featTemplate;
 	}
 }
