@@ -5,8 +5,9 @@ SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/produc
 
 # Bestiary III - Remove once B3 is completed.
 # Race Name	Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages											Stat bonus						Automatically Gained Language	Main Race Type	Race Subtype		Type				Challenge Rating	Source Page		SORTKEY
-Catfolk	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Elven,Gnoll,Gnome,Goblin,Halfling,Orc,Sylvan				BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common|Catfolk	RACETYPE:Humanoid	RACESUBTYPE:Catfolk	TYPE:Base.PC.Featured	CR:1/2		SOURCEPAGE:p.91	SORTKEY:a_base_pc
-Ratfolk	STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Aklo,Draconic,Dwarven,Gnoll,Gnome,Goblin,Halfling,Orc,Undercommon	BONUS:STAT|DEX,INT|2	BONUS:STAT|STR|-2	AUTO:LANG|Common			RACETYPE:Humanoid	RACESUBTYPE:Ratfolk	TYPE:Base.PC.Featured	CR:1/2		SOURCEPAGE:p.151	SORTKEY:a_base_pc
+#Catfolk	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	LANGBONUS:Elven,Gnoll,Gnome,Goblin,Halfling,Orc,Sylvan				BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common|Catfolk	RACETYPE:Humanoid	RACESUBTYPE:Catfolk	ABILITY:Internal|AUTOMATIC|Default Traits ~ Catfolk	TYPE:Base.PC.Featured	CR:1/2		SOURCEPAGE:p.91	SORTKEY:a_base_pc		
+
+#Ratfolk	STARTFEATS:1	SIZE:S	MOVE:Walk,20	FACE:5	REACH:5	LANGBONUS:Aklo,Draconic,Dwarven,Gnoll,Gnome,Goblin,Halfling,Orc,Undercommon	BONUS:STAT|DEX,INT|2	BONUS:STAT|STR|-2	AUTO:LANG|Common			RACETYPE:Humanoid	RACESUBTYPE:Ratfolk	ABILITY:Internal|AUTOMATIC|Default Traits ~ Ratfolk	TYPE:Base.PC.Featured	CR:1/2		SOURCEPAGE:p.151	SORTKEY:a_base_pc
 
 # Bestiary II
 #Dhampir	STARTFEATS:1	SIZE:M	MOVE:Walk,30	FACE:5	REACH:5	AUTO:LANG|Common			LANGBONUS:ALL											BONUS:STAT|DEX,CHA|2	BONUS:STAT|CON|-2			RACETYPE:Humanoid	TYPE:Base.PC.Featured	RACESUBTYPE:Dhampir		CR:1/2		SOURCEPAGE:p.97

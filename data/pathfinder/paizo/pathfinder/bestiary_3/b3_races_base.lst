@@ -2,6 +2,7 @@
 
 # Race Name	Starting Feats	Size		Move				Face/Space	Reach		Vision			Required Gender	Bonus Languages												Stat bonus						Automatically Gained Language	Ability																		Define				Main Race Type	Race Subtype				Type				Challenge Rating	Source Page		More language
 Catfolk	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5	VISION:Low-Light Vision				LANGBONUS:Elven,Gnoll,Gnome,Goblin,Halfling,Orc,Sylvan					BONUS:STAT|DEX,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Catfolk|Common	ABILITY:Internal|AUTOMATIC|Default Traits ~ Catfolk																RACETYPE:Humanoid	RACESUBTYPE:Catfolk			TYPE:Base.PC.Featured	CR:1/2		SOURCEPAGE:p.46
+
 Changeling	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5					PREGENDER:F		LANGBONUS:Aklo,Draconic,Dwarven,Elven,Giant,Gnoll,Goblin,Orc				BONUS:STAT|WIS,CHA|2	BONUS:STAT|CON|-2	AUTO:LANG|Common			ABILITY:Internal|AUTOMATIC|Default Traits ~ Changeling															RACETYPE:Humanoid	RACESUBTYPE:Changeling			TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.184	BONUS:LANGUAGES|NUMBER|1
 Gillman	STARTFEATS:1	SIZE:M	MOVE:Walk,30		FACE:5	REACH:5								LANGBONUS:Aklo,Aquan,Draconic,Elven									BONUS:STAT|CON,CHA|2	BONUS:STAT|WIS|-2	AUTO:LANG|Common|Aboleth	ABILITY:Internal|AUTOMATIC|Default Traits ~ Gillman																RACETYPE:Humanoid							TYPE:Base.PC.Uncommon	CR:1/2		SOURCEPAGE:p.188
 # COMMENT: Bonus languages include "any human language".

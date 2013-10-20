@@ -3,6 +3,12 @@
 # Entry Date: Feb 2013
 
 ###Base Races
+Default Traits ~ Catfolk					CATEGORY:Internal
+CATEGORY=Internal|Default Traits ~ Catfolk.MOD					ABILITY:Catfolk Racial Trait|AUTOMATIC|Low-Light Vision ~ Catfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkLowLightVision
+CATEGORY=Internal|Default Traits ~ Catfolk.MOD					ABILITY:Catfolk Racial Trait|AUTOMATIC|Cat's Luck ~ Catfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkCatsLuck
+CATEGORY=Internal|Default Traits ~ Catfolk.MOD					ABILITY:Catfolk Racial Trait|AUTOMATIC|Natural Hunter ~ Catfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkNaturalHunter
+CATEGORY=Internal|Default Traits ~ Catfolk.MOD					ABILITY:Catfolk Racial Trait|AUTOMATIC|Sprinter ~ Catfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkSprinter
+
 ###Block: Default Catfolk Abilities
 # Ability Name	Unique Key					Category of Ability		Type															Multiple Requirements																						Description																																Bonus to skill							Source Page
 Low-Light Vision	KEY:Low-Light Vision ~ Catfolk	CATEGORY:Special Ability	TYPE:CatfolkRacialTrait.CatfolkRacialDefault.SpecialQuality								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Low-Light Vision ~ Catfolk],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkLowLightVision]	DESC:In dim light, catfolk can see twice as far as humans.																																	SOURCEPAGE:p.91
@@ -17,11 +23,6 @@ Sprinter		KEY:Sprinter ~ Catfolk			CATEGORY:Special Ability	TYPE:CatfolkRacialTr
 #Natural Hunter					KEY:Natural Hunter ~ Catfolk				CATEGORY:Special Ability	TYPE:CatfolkRacialAbility.SpecialQuality.Extraordinary																																																																																																																																																																																																																																																						DESC:Catfolk receive a +2 racial bonus on Perception, Stealth, and Survival checks.																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													BONUS:SKILL|Perception,Stealth,Survival|2|TYPE=Racial																																																																											SOURCEPAGE:p.47
 
 #Default Traits ~ Catfolk
-Default Traits ~ Catfolk					CATEGORY:Internal
-CATEGORY=Internal|Default Traits ~ Catfolk.MOD					ABILITY:Catfolk Racial Trait|AUTOMATIC|Low-Light Vision ~ Catfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkLowLightVision
-CATEGORY=Internal|Default Traits ~ Catfolk.MOD					ABILITY:Catfolk Racial Trait|AUTOMATIC|Cat's Luck ~ Catfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkCatsLuck
-CATEGORY=Internal|Default Traits ~ Catfolk.MOD					ABILITY:Catfolk Racial Trait|AUTOMATIC|Natural Hunter ~ Catfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkNaturalHunter
-CATEGORY=Internal|Default Traits ~ Catfolk.MOD					ABILITY:Catfolk Racial Trait|AUTOMATIC|Sprinter ~ Catfolk|!PREABILITY:1,CATEGORY=Special Ability,TYPE.CatfolkSprinter
 
 ###Block: Default Ratfolk Abilities (POOL=4)
 # Ability Name	Unique Key				Category of Ability		Type															Multiple Requirements																					Description																																																							Bonus to skill										Source Page
