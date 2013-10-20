@@ -657,10 +657,11 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		}
 	}
 
-	private class AddAction extends AbstractAction
+	private class AddAction extends AbstractAction implements ListSelectionListener
 	{
 
 		private CharacterFacade character;
+		private AbilityCategoryFacade abilityCat;
 
 		public AddAction(CharacterFacade character)
 		{
@@ -672,6 +673,11 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
+			if (!abilityCat.isEditable())
+			{
+				return;
+			}
+			
 			Object data = availableTreeViewPanel.getSelectedObject();
 			int index = categoryTable.getSelectedRow();
 			if (data != null && data instanceof AbilityFacade && index != -1)
@@ -695,19 +701,44 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		public void install()
 		{
 			availableTreeViewPanel.addActionListener(this);
+			categoryTable.getSelectionModel().addListSelectionListener(this);
 		}
 
 		public void uninstall()
 		{
 			availableTreeViewPanel.removeActionListener(this);
+			categoryTable.getSelectionModel().removeListSelectionListener(this);
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+			if (!e.getValueIsAdjusting())
+			{
+				int index = categoryTable.getSelectionModel().getMinSelectionIndex();
+				if (index != -1)
+				{
+					abilityCat =
+							(AbilityCategoryFacade) categoryTable.getValueAt(
+								index, 0);
+					this.setEnabled(abilityCat.isEditable());
+					this.putValue(SHORT_DESCRIPTION, abilityCat.isEditable()
+						? null : LanguageBundle.getString("in_abCatNotEditable"));
+				}
+				
+			}
 		}
 
 	}
 
-	private class RemoveAction extends AbstractAction
+	private class RemoveAction extends AbstractAction implements ListSelectionListener
 	{
 
 		private CharacterFacade character;
+		private AbilityCategoryFacade abilityCat;
 
 		public RemoveAction(CharacterFacade character)
 		{
@@ -719,6 +750,11 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
+			if (!abilityCat.isEditable())
+			{
+				return;
+			}
+			
 			int selectedRow = selectedTreeViewPanel.getSelectedRow();
 			if (selectedRow == -1)
 			{
@@ -741,11 +777,35 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		public void install()
 		{
 			selectedTreeViewPanel.addActionListener(this);
+			categoryTable.getSelectionModel().addListSelectionListener(this);
 		}
 
 		public void uninstall()
 		{
 			selectedTreeViewPanel.removeActionListener(this);
+			categoryTable.getSelectionModel().removeListSelectionListener(this);
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public void valueChanged(ListSelectionEvent e)
+		{
+			if (!e.getValueIsAdjusting())
+			{
+				int index = categoryTable.getSelectionModel().getMinSelectionIndex();
+				if (index != -1)
+				{
+					abilityCat =
+							(AbilityCategoryFacade) categoryTable.getValueAt(
+								index, 0);
+					this.setEnabled(abilityCat.isEditable());
+					this.putValue(SHORT_DESCRIPTION, abilityCat.isEditable()
+						? null : LanguageBundle.getString("in_abCatNotEditable"));
+				}
+				
+			}
 		}
 
 	}
