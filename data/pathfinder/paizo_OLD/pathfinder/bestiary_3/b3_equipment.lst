@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Sat Jun 29 23:38:24 2013 -- reformated by prettylst.pl v1.50 (build 20400)
-
-
-# Equipment Name	Unique Key						Critical Hit Multiplier	Damage
-Ranged Cannon	KEY:Ranged Cannon ~ Clockwork Goliath	CRITMULT:x4			DAMAGE:6d6
-Ranged Cannon	KEY:Ranged Cannon					CRITMULT:x4			DAMAGE:6d6

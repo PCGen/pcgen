@@ -1,9 +1,0 @@
-# CVS $Revision: $ $Author: $ -- Sat Mar 30 17:44:12 2013 -- reformated by prettylst.pl v1.50 (build 19091)
-SOURCELONG:Halflings of Golarion	SOURCESHORT:HoG	SOURCEWEB:http://paizo.com/products/btpy8i8p?Pathfinder-Player-Companion-Halflings-of-Golarion	SOURCEDATE:2010-12
-#ORIGINAL ENTRY: Eric C. Smith (maredudd AT blackroot DOT org)
-#ORIGINAL ENTRY DATE: 2012/12/29
-
-# Deity Name		Product Identity?	Domains							Desciption of Deity/Title		Deity Weapon		Alignment	Pantheon					Source Page
-Chaldira Zuzaristan	NAMEISPI:YES	DOMAINS:Good,Trickery,War|PREALIGN:LG,NG,CG,TN	DESC:Goddess of mischief and battle	DEITYWEAP:Sword (Short)	ALIGN:NG	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.51
-Thamir Gixx			NAMEISPI:YES	DOMAINS:Chaos,Evil,Trickery|PREALIGN:CN,CE,NE	DESC:God of greed and opportunity	DEITYWEAP:Dagger		ALIGN:CE	PANTHEON:Pathfinder Chronicles	SOURCEPAGE:p.52
-## These deities are taken from the Pathfinder Campaign Setting: Gods and Magic and are being included per reference on page 31 of this book.

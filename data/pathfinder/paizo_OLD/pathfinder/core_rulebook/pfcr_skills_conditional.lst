@@ -1,6 +1,0 @@
-# CVS $Revision$ $Author$ -- Sun Sep 15 19:22:02 2013 -- reformated by prettylst.pl v1.50 (build 20400)
-SOURCELONG:Core Rulebook	SOURCESHORT:CRB	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
-# Original Entry by: Stefan Radermacher
-
-###Block: Conditional skills (for output only)
-# Skill Name					Key Stat	Untrained?		Classes	Type			Visible		Required Ability									Req. Rule (in options)		Prohibited Var. Value														Source Page
